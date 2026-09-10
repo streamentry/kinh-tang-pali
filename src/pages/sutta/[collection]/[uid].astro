@@ -3,6 +3,7 @@ import Base from '../../../layouts/Base.astro';
 import SuttaReader from '../../../components/SuttaReader.astro';
 import { COLLECTIONS, composeDocument, loadCatalog } from '../../../lib/canon/load';
 import type { CollectionCode } from '../../../lib/canon/types';
+import { withBase } from '../../../lib/url';
 
 export function getStaticPaths() {
   return COLLECTIONS.flatMap((collection) => {
@@ -20,7 +21,7 @@ const statusLabel = document.hasProjectData ? document.status : 'not-started';
 ---
 <Base title={`${document.viTitle} · ${uid.toUpperCase()}`}>
   <main class="page reader-page">
-    <a class="back-link" href={`/sutta/${collection.code}/`}>← {collection.titleVi}</a>
+    <a class="back-link" href={withBase(`sutta/${collection.code}/`)}>← {collection.titleVi}</a>
     <header class="sutta-header">
       <div class="sutta-identity">
         <p class="eyebrow">{uid.toUpperCase()} · {collection.titlePali}</p>
