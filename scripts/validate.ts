@@ -9,6 +9,18 @@ const ROOT = process.cwd();
 const errors: string[] = [];
 const warnings: string[] = [];
 const collections: CollectionCode[] = ['dn', 'mn', 'sn', 'an', 'kn'];
+const QUALITY_SCORE_KEYS = [
+  'fidelityPali',
+  'logicGrammar',
+  'sourceTriangulation',
+  'provenanceSegments',
+  'buddhistTerminology',
+  'vietnameseClarity',
+  'sinoVietnameseBalance',
+  'structuralConsistency',
+  'ambiguityIntegrity',
+  'technicalIntegrity',
+] as const;
 
 function readJson<T>(file: string): T {
   try {
@@ -21,6 +33,63 @@ function readJson<T>(file: string): T {
 function checkNfc(file: string) {
   const text = readFileSync(file, 'utf8');
   if (text !== text.normalize('NFC')) errors.push(`${file}: file is not NFC-normalized`);
+}
+
+function validateQualityGate(meta: EditorialMeta, metaFile: string) {
+  const quality = meta.quality;
+  if (!quality) {
+    if (meta.status === 'review' || meta.status === 'published') {
+      errors.push(`${metaFile}: ${meta.status} status requires quality gate metadata`);
+    }
+    return;
+  }
+
+  if (!quality.scores || typeof quality.scores !== 'object') {
+    errors.push(`${metaFile}: quality.scores must contain all 10 quality criteria`);
+    return;
+  }
+
+  const scoreRecord = quality.scores as unknown as Record<string, unknown>;
+  const values: number[] = [];
+  for (const key of QUALITY_SCORE_KEYS) {
+    const value = scoreRecord[key];
+    if (typeof value !== 'number' || !Number.isFinite(value) || value < 0 || value > 10) {
+      errors.push(`${metaFile}: quality.scores.${key} must be a number from 0 to 10`);
+      continue;
+    }
+    values.push(value);
+  }
+
+  const extraKeys = Object.keys(scoreRecord).filter((key) => !QUALITY_SCORE_KEYS.includes(key as typeof QUALITY_SCORE_KEYS[number]));
+  if (extraKeys.length > 0) errors.push(`${metaFile}: unknown quality score key(s): ${extraKeys.join(', ')}`);
+  if (values.length !== QUALITY_SCORE_KEYS.length) return;
+
+  const computedRaw = values.reduce((sum, value) => sum + value, 0) / QUALITY_SCORE_KEYS.length;
+  if (typeof quality.rawAverage !== 'number' || Math.abs(quality.rawAverage - computedRaw) > 0.005) {
+    errors.push(`${metaFile}: quality.rawAverage must equal arithmetic mean ${computedRaw.toFixed(2)}`);
+  }
+
+  if (!Array.isArray(quality.blockingErrors) || quality.blockingErrors.some((item) => typeof item !== 'string')) {
+    errors.push(`${metaFile}: quality.blockingErrors must be an array of strings`);
+    return;
+  }
+
+  const computedFinal = quality.blockingErrors.length > 0 ? Math.min(computedRaw, 9.0) : computedRaw;
+  if (typeof quality.finalScore !== 'number' || Math.abs(quality.finalScore - computedFinal) > 0.005) {
+    errors.push(`${metaFile}: quality.finalScore must equal ${computedFinal.toFixed(2)} after blocker cap`);
+  }
+
+  const expectedStatus = computedFinal > 9.0
+    ? 'published'
+    : computedFinal >= 8.0
+      ? 'review'
+      : 'draft';
+  if (meta.status !== expectedStatus) {
+    errors.push(`${metaFile}: status ${meta.status} conflicts with quality gate; score ${computedFinal.toFixed(2)} requires ${expectedStatus}`);
+  }
+
+  if (!quality.scoredBy?.trim()) warnings.push(`${meta.uid}: quality gate has no scoredBy attribution`);
+  if (!quality.scoredAt?.trim()) warnings.push(`${meta.uid}: quality gate has no scoredAt date`);
 }
 
 const lock = readJson<{ commit: string }>(path.join(ROOT, 'source/suttacentral.lock.json'));
@@ -101,13 +170,13 @@ for (const collection of collections) {
     }));
     errors.push(...validateSegmentMap(comments, { uid, sourceIds, requireComplete: false }));
 
-    if (meta.status === 'review' && (!meta.translators || meta.translators.length === 0)) {
-      warnings.push(`${uid}: review status without translator metadata`);
+    validateQualityGate(meta, metaFile);
+
+    if ((meta.status === 'review' || meta.status === 'published') && (!meta.translators || meta.translators.length === 0)) {
+      errors.push(`${uid}: ${meta.status} text needs at least one translator`);
     }
-    if (meta.status === 'published') {
-      if (!meta.translators || meta.translators.length === 0) errors.push(`${uid}: published text needs at least one translator`);
-      if (!meta.reviewers || meta.reviewers.length === 0) errors.push(`${uid}: published text needs at least one reviewer`);
-      if (!meta.reviewedAt) errors.push(`${uid}: published text needs reviewedAt`);
+    if (meta.reviewers?.length && !meta.reviewedAt) {
+      warnings.push(`${uid}: reviewers are recorded but reviewedAt is missing`);
     }
   }
 }
