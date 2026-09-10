@@ -2,6 +2,7 @@
 import Base from '../../../layouts/Base.astro';
 import { COLLECTIONS, listCollection, collectionProgress } from '../../../lib/canon/load';
 import type { CollectionCode } from '../../../lib/canon/types';
+import { withBase } from '../../../lib/url';
 
 export function getStaticPaths() {
   return COLLECTIONS.map((collection) => ({
@@ -17,7 +18,7 @@ const progress = collectionProgress(code);
 ---
 <Base title={`${collection.titleVi} · Kinh Tạng Pāli Việt`}>
   <main class="page collection-page">
-    <a class="back-link" href="/">← Năm bộ kinh</a>
+    <a class="back-link" href={withBase()}>← Năm bộ kinh</a>
     <header class="collection-header">
       <p class="eyebrow">{code.toUpperCase()}</p>
       <h1>{collection.titleVi}</h1>
@@ -36,7 +37,7 @@ const progress = collectionProgress(code);
       <ol class="sutta-list">
         {items.map((item) => (
           <li>
-            <a href={`/sutta/${code}/${item.uid}/`}>
+            <a href={withBase(`sutta/${code}/${item.uid}/`)}>
               <span class="uid">{item.uid.toUpperCase()}</span>
               <span class="sutta-title">{item.title}</span>
               <span class:list={['status', item.status]}>{item.status}</span>
