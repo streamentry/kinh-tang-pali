@@ -1,0 +1,36 @@
+name: Repair JSON once
+
+on:
+  push:
+    branches:
+      - feat/mn1-50-translation-draft
+
+permissions:
+  contents: write
+
+jobs:
+  repair:
+    if: ${{ github.actor != 'github-actions[bot]' }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: feat/mn1-50-translation-draft
+          fetch-depth: 0
+      - uses: actions/setup-node@v5
+        with:
+          node-version-file: .nvmrc
+      - name: Repair invalid JSON control characters
+        run: node scripts/repair-json-newlines.mjs
+      - name: Remove one-shot repair machinery and commit
+        run: |
+          rm .github/workflows/repair-json-once.yml scripts/repair-json-newlines.mjs
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add content/translation/vi/project content/comment/vi/project .github/workflows/repair-json-once.yml scripts/repair-json-newlines.mjs
+          if git diff --cached --quiet; then
+            echo 'No changes to commit.'
+            exit 0
+          fi
+          git commit -m 'fix: sanitize translation JSON'
+          git push origin HEAD:feat/mn1-50-translation-draft
