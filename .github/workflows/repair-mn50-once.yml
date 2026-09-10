@@ -1,0 +1,85 @@
+name: Repair MN50 once
+on:
+  push:
+    branches: [feat/mn45-152-translation]
+    paths: [.github/workflows/repair-mn50-once.yml]
+permissions:
+  contents: write
+jobs:
+  repair:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: feat/mn45-152-translation
+      - name: Normalize JSON and repair verse alignment
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import json
+          p = Path('content/translation/vi/project/sutta/mn/mn50_translation-vi-project.json')
+          s = p.read_text(encoding='utf-8')
+          out=[]; ins=False; esc=False
+          for ch in s:
+              if ins:
+                  if esc: out.append(ch); esc=False; continue
+                  if ch=='\\': out.append(ch); esc=True; continue
+                  if ch=='"': out.append(ch); ins=False; continue
+                  if ch=='\n': out.append('\\n'); continue
+                  if ch=='\r': continue
+                  out.append(ch)
+              else:
+                  out.append(ch)
+                  if ch=='"': ins=True
+          data=json.loads(''.join(out))
+          refrain_groups = [(24,11),(25,7),(26,5),(27,5),(28,7),(29,15),(30,5)]
+          for sec,start in refrain_groups:
+              data[f'mn50:{sec}.{start}']='Vị tỳ-kheo trực tiếp biết điều này,'
+              data[f'mn50:{sec}.{start+1}']='là đệ tử của Đức Phật;'
+              data[f'mn50:{sec}.{start+2}']='nếu ngươi xúc phạm vị tỳ-kheo như vậy,'
+              data[f'mn50:{sec}.{start+3}']='hỡi Kẻ Đen Tối, ngươi sẽ đi đến đau khổ.'
+          data['mn50:26.1']='Vị tỳ-kheo ấy, khi được Đức Phật thúc giục,'
+          data['mn50:26.2']='trước mắt Tăng chúng,'
+          data['mn50:26.3']='đối với lâu đài của mẹ Migāra,'
+          data['mn50:26.4']='đã làm rung chuyển chỉ bằng ngón chân cái.'
+          data['mn50:27.1']='Vị ấy, cung điện Vejayanta,'
+          data['mn50:27.2']='đã làm rung chuyển bằng ngón chân cái;'
+          data['mn50:27.3']='được nâng đỡ bởi sức mạnh thần thông,'
+          data['mn50:27.4']='và khiến chư thiên kinh động.'
+          data['mn50:28.1']='Vị ấy, tại cung điện Vejayanta,'
+          data['mn50:28.2']='đã hỏi Sakka:'
+          data['mn50:28.3']='“Này Vāsava, ông có biết,'
+          data['mn50:28.4']='sự giải thoát do đoạn tận ái không?”'
+          data['mn50:28.5']='Khi được hỏi câu ấy, Sakka,'
+          data['mn50:28.6']='đã trả lời đúng như thật.'
+          data['mn50:29.1']='Vị ấy đã hỏi Phạm thiên,'
+          data['mn50:29.2']='trước hội chúng ở giảng đường Sudhammā:'
+          data['mn50:29.3']='“Này hiền giả, hôm nay ông còn giữ quan điểm,'
+          data['mn50:29.4']='mà trước đây ông từng giữ không?'
+          data['mn50:29.5']='Ông có thấy ánh sáng,'
+          data['mn50:29.6']='vượt lên trên cõi Phạm thiên không?”'
+          data['mn50:29.7']='Phạm thiên đã trả lời vị ấy,'
+          data['mn50:29.8']='đúng như thật, theo thứ tự:'
+          data['mn50:29.9']='“Này Tôn giả, ta không còn quan điểm,'
+          data['mn50:29.10']='mà trước đây ta từng giữ.'
+          data['mn50:29.11']='Ta thấy ánh sáng,'
+          data['mn50:29.12']='vượt lên trên cõi Phạm thiên;'
+          data['mn50:29.13']='vậy hôm nay sao ta có thể nói,'
+          data['mn50:29.14']='‘Ta là thường hằng, ta là vĩnh cửu’?”'
+          data['mn50:30.1']='Vị ấy, đỉnh núi Meru,'
+          data['mn50:30.2']='đã chạm đến bằng sức mạnh của giải thoát;'
+          data['mn50:30.3']='rừng của người Pubbavideha,'
+          data['mn50:30.4']='và những người sống trên vùng đất ấy.'
+          p.write_text(json.dumps(data,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+          json.loads(p.read_text(encoding='utf-8'))
+          PY
+      - name: Commit and self-remove
+        shell: bash
+        run: |
+          rm .github/workflows/repair-mn50-once.yml
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add content/translation/vi/project/sutta/mn/mn50_translation-vi-project.json .github/workflows/repair-mn50-once.yml
+          git commit -m "fix: align MN50 verses to Pali segments"
+          git push origin HEAD:feat/mn45-152-translation
