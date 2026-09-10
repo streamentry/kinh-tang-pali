@@ -1,0 +1,28 @@
+name: Apply MN54-55 audited payload once
+on:
+  push:
+    branches: [feat/mn45-152-translation]
+    paths: [.mn54-55-payload.tar.gz]
+permissions:
+  contents: write
+jobs:
+  apply:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: feat/mn45-152-translation
+      - name: Extract audited files
+        run: tar -xzf .mn54-55-payload.tar.gz
+      - name: Verify JSON parses
+        run: |
+          node -e "JSON.parse(require('fs').readFileSync('content/translation/vi/project/sutta/mn/mn54_translation-vi-project.json','utf8'))"
+          node -e "JSON.parse(require('fs').readFileSync('content/translation/vi/project/sutta/mn/mn55_translation-vi-project.json','utf8'))"
+      - name: Commit and remove one-shot payload
+        run: |
+          rm .mn54-55-payload.tar.gz .github/workflows/apply-mn54-55-once.yml
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add content docs .mn54-55-payload.tar.gz .github/workflows/apply-mn54-55-once.yml
+          git commit -m "translate: add audited MN54-MN55 drafts"
+          git push origin HEAD:feat/mn45-152-translation
