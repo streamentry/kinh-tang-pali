@@ -4,6 +4,8 @@ Nền tảng bản dịch Pāli → Việt theo **segment ID của SuttaCentral/
 
 🌐 **Đọc trực tuyến:** [https://streamentry.github.io/kinh-tang-pali/](https://streamentry.github.io/kinh-tang-pali/)
 
+✍️ **Tác giả bản dịch:** Lê Việt Hồng (Cư Sĩ Chánh Niệm)
+
 ## Ưu tiên hiện tại
 
 **Hoàn thiện Kinh Trung Bộ (Majjhima Nikāya, MN) trước.** Catalog đã dựng đủ `mn1` → `mn152`. Bốn bộ còn lại (`dn`, `sn`, `an`, `kn`) đã có cấu trúc website + content namespace để mở rộng nhưng chưa nhập corpus giả định.
