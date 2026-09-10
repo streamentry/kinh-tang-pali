@@ -14,6 +14,28 @@ export interface CanonCatalog {
   texts: CatalogText[];
 }
 
+export interface TranslationQualityScores {
+  fidelityPali: number;
+  logicGrammar: number;
+  sourceTriangulation: number;
+  provenanceSegments: number;
+  buddhistTerminology: number;
+  vietnameseClarity: number;
+  sinoVietnameseBalance: number;
+  structuralConsistency: number;
+  ambiguityIntegrity: number;
+  technicalIntegrity: number;
+}
+
+export interface TranslationQuality {
+  scores: TranslationQualityScores;
+  rawAverage: number;
+  blockingErrors: string[];
+  finalScore: number;
+  scoredBy?: string;
+  scoredAt?: string;
+}
+
 export interface EditorialMeta {
   uid: string;
   status: EditorialStatus;
@@ -22,6 +44,7 @@ export interface EditorialMeta {
   reviewers?: string[];
   reviewedAt?: string;
   tags?: string[];
+  quality?: TranslationQuality;
 }
 
 export interface CanonSegment {
