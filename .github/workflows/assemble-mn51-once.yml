@@ -1,0 +1,30 @@
+name: Assemble MN51 once
+on:
+  push:
+    branches: [feat/mn45-152-translation]
+    paths: [.assemble-mn51-request]
+permissions:
+  contents: write
+jobs:
+  assemble:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: feat/mn45-152-translation
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+      - run: npm install
+      - run: npm run source:sync:mn
+      - run: npx tsx scripts/assemble-translation.ts mn51
+      - run: npm run validate
+      - name: Commit canonical and remove one-shot trigger
+        shell: bash
+        run: |
+          rm -f .assemble-mn51-request .github/workflows/assemble-mn51-once.yml
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add content/translation/vi/project/sutta/mn/mn51_translation-vi-project.json .assemble-mn51-request .github/workflows/assemble-mn51-once.yml
+          git commit -m "translate: assemble complete MN51 canonical translation"
+          git push origin HEAD:feat/mn45-152-translation
