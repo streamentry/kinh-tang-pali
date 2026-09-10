@@ -1,3 +1,3 @@
-# DN editorial metadata
+# Kinh Trường Bộ — metadata biên tập
 
-One YAML file per text when project work starts on that UID.
+`dn1` → `dn34` có một YAML/text. AI-assisted draft giữ `status: draft` và `reviewers: []` cho đến khi human review theo `skill/translation.md`.
