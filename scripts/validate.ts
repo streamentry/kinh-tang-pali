@@ -4,6 +4,7 @@ import YAML from 'yaml';
 import type { CanonCatalog, CollectionCode, EditorialMeta } from '../src/lib/canon/types';
 import { sourcePathFor } from '../src/lib/canon/load';
 import { validateSegmentMap } from './lib/validation';
+import { validateQualityAssessment } from './lib/quality';
 
 const ROOT = process.cwd();
 const errors: string[] = [];
@@ -74,6 +75,7 @@ for (const collection of collections) {
       continue;
     }
     if (!['draft', 'review', 'published'].includes(meta.status)) errors.push(`${metaFile}: invalid status ${meta.status}`);
+    errors.push(...validateQualityAssessment(meta));
 
     const translationFile = path.join(ROOT, 'content/translation/vi/project/sutta', collection, `${uid}_translation-vi-project.json`);
     const commentFile = path.join(ROOT, 'content/comment/vi/project/sutta', collection, `${uid}_comment-vi-project.json`);
@@ -106,8 +108,6 @@ for (const collection of collections) {
     }
     if (meta.status === 'published') {
       if (!meta.translators || meta.translators.length === 0) errors.push(`${uid}: published text needs at least one translator`);
-      if (!meta.reviewers || meta.reviewers.length === 0) errors.push(`${uid}: published text needs at least one reviewer`);
-      if (!meta.reviewedAt) errors.push(`${uid}: published text needs reviewedAt`);
     }
   }
 }
