@@ -1,0 +1,34 @@
+name: Assemble MN44 once
+
+on:
+  push:
+    branches:
+      - feat/mn1-50-translation-draft
+
+permissions:
+  contents: write
+
+jobs:
+  assemble:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: feat/mn1-50-translation-draft
+          fetch-depth: 0
+      - uses: actions/setup-node@v5
+        with:
+          node-version-file: .nvmrc
+      - name: Install dependencies
+        run: npm install --no-audit --no-fund
+      - name: Assemble and verify MN44 against pinned Pāli
+        run: npx tsx scripts/assemble-staged-translation.ts mn44 --clean
+      - name: Commit canonical MN44 and remove this one-shot workflow
+        run: |
+          rm .github/workflows/assemble-mn44-once.yml
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add content/translation/vi/project/sutta/mn/mn44_translation-vi-project.json staging/mn44 .github/workflows/assemble-mn44-once.yml
+          git commit -m "translation: assemble exact-key MN44 corpus"
+          git push origin HEAD:feat/mn1-50-translation-draft
