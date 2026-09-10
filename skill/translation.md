@@ -1,8 +1,10 @@
 # Translation Skill — Pāli → Tiếng Việt
 
-> **Phạm vi bắt buộc:** áp dụng cho mọi tác vụ dịch, sửa bản dịch, review bản dịch, chọn thuật ngữ và viết chú thích dịch thuật trong repository này.
+> **Phạm vi bắt buộc:** áp dụng cho mọi tác vụ dịch, sửa bản dịch, review bản dịch, chọn thuật ngữ, viết chú thích và quyết định trạng thái xuất bản trong repository này.
 >
 > **Mục tiêu:** tạo một bản dịch Kinh tạng Pāli tiếng Việt mới **chính xác tối đa, truy nguyên rõ ràng và dễ hiểu hơn đối với người Việt hiện đại**. Phương pháp mặc định là **đối chiếu Pāli gốc + bản dịch tiếng Anh chất lượng cao trên SuttaCentral + bản dịch Hòa thượng Thích Minh Châu**, sau đó viết một bản tiếng Việt mới, sáng rõ hơn nhưng không thêm hoặc bớt nghĩa của kinh.
+
+`AGENTS.md` định nghĩa quality scorecard 10 tiêu chí, blocking errors và ngưỡng `draft` / `review` / `published`. Skill này và `AGENTS.md` phải được đọc cùng nhau. Nếu có xung đột về publication gate, **rule mới nhất trong `AGENTS.md` thắng**.
 
 ---
 
@@ -11,7 +13,7 @@
 Bản dịch phải đồng thời đạt bốn mục tiêu, theo thứ tự ưu tiên:
 
 1. **Đúng nghĩa kinh điển.** Mọi ý trong câu Việt phải có căn cứ từ Pāli; không tự thêm giải thích, nhân quả, tâm lý, giáo lý hay kết luận mà nguyên văn không nói.
-2. **Có thể truy nguồn.** Mọi câu/đoạn Việt gắn với đúng canonical segment ID của SuttaCentral/Bilara để reviewer có thể quay về nguyên văn Pāli.
+2. **Có thể truy nguồn.** Mọi câu/đoạn Việt gắn với đúng canonical segment ID của SuttaCentral/Bilara để có thể quay về nguyên văn Pāli.
 3. **Dễ hiểu với người Việt hiện đại.** Giảm cấu trúc cổ, câu tối nghĩa và Hán–Việt không cần thiết.
 4. **Súc tích và giữ được ngôn ngữ Phật học khi hữu ích.** Hán–Việt vẫn được dùng khi nó chính xác, quen thuộc hoặc cô đọng hơn cách diễn đạt dài dòng bằng từ thuần Việt.
 
@@ -19,7 +21,7 @@ Không đánh đổi độ chính xác để lấy sự dễ đọc. Nhưng cũn
 
 Câu hỏi cuối cùng cho mỗi segment:
 
-> **Người Việt hiện đại có hiểu đúng điều đoạn Pāli này đang nói không, và reviewer có thể lần ngược mọi chi tiết quan trọng về đúng segment nguồn không?**
+> **Người Việt hiện đại có hiểu đúng điều đoạn Pāli này đang nói không, và mọi chi tiết quan trọng có thể lần ngược về đúng segment nguồn không?**
 
 ---
 
@@ -33,7 +35,7 @@ Ba lớp tham khảo mặc định:
 2. **Bản dịch tiếng Anh chất lượng cao trên SuttaCentral** — giúp thấy cách các dịch giả hiện đại parse cú pháp, compound và sắc thái Pāli.
 3. **Bản dịch Hòa thượng Thích Minh Châu** — giúp đối chiếu truyền thống thuật ngữ tiếng Việt và phát hiện những điểm đã quen thuộc với độc giả Việt.
 
-Sau khi đọc cả ba, người dịch **viết lại một bản tiếng Việt mới từ sự hiểu biết đã được đối chiếu**, không đơn thuần sửa chữ trên một bản có sẵn.
+Sau khi đọc cả ba, người dịch **viết một bản tiếng Việt mới từ sự hiểu biết đã được đối chiếu**, không đơn thuần sửa chữ trên một bản có sẵn.
 
 ### Vai trò của từng nguồn
 
@@ -46,6 +48,7 @@ Sau khi đọc cả ba, người dịch **viết lại một bản tiếng Việ
 ### Không được làm
 
 - Không coi bất kỳ bản tiếng Anh hay bản tiếng Việt nào là authority cao hơn Pāli root.
+- Không chỉ dịch English → Vietnamese rồi bỏ qua Pāli.
 - Không copy nguyên văn dài hoặc paraphrase máy móc một bản dịch có sẵn rồi gọi đó là bản dịch mới.
 - Không cố dịch khác Hòa thượng Thích Minh Châu chỉ vì muốn khác.
 - Không tự thêm nội dung để “giải thích cho dễ hiểu”; phần giải thích thuộc glossary/comment.
@@ -91,7 +94,7 @@ Nếu có hai cách hiểu thực sự hợp lý:
 - chọn cách ít giả định và bám Pāli nhất cho canonical text;
 - ghi alternative reading và lý do ở comment theo đúng segment ID;
 - không làm câu Việt chắc chắn hơn mức Pāli cho phép;
-- nếu ambiguity ảnh hưởng đáng kể đến giáo nghĩa và chưa được giải quyết, giữ `draft` hoặc `review`, không `published`.
+- nếu ambiguity có thể làm thay đổi đáng kể giáo nghĩa mà chưa thể bảo vệ canonical wording, đó là **blocking error** và bài phải giữ `draft` cho đến khi xử lý.
 
 ---
 
@@ -126,7 +129,7 @@ Tránh:
 
 Giữ Hán–Việt khi:
 
-- là thuật ngữ Phật học quen thuộc và có nghĩa kỹ thuật rõ: ví dụ `vô thường`, `tham`, `sân`, `niệm`, `định`, `giới`, `thọ`, `tưởng`;
+- là thuật ngữ Phật học quen thuộc và có nghĩa kỹ thuật rõ, ví dụ `vô thường`, `tham`, `sân`, `niệm`, `định`, `giới`, `thọ`, `tưởng`;
 - ngắn gọn và rõ hơn một cụm thuần Việt dài;
 - thay bằng từ phổ thông sẽ làm mất distinction kỹ thuật;
 - cách dịch đã trở thành ngôn ngữ chuẩn mà độc giả Phật học Việt Nam dễ nhận ra.
@@ -158,7 +161,7 @@ Vì vậy:
 
 ---
 
-## 7. Quy trình dịch bắt buộc cho mỗi bài
+## 7. Quy trình bắt buộc cho mỗi bài
 
 ### Bước 1 — Xác nhận provenance
 
@@ -191,12 +194,10 @@ Với mỗi segment, đặt cạnh nhau:
 Xác định:
 
 1. semantic units nào chắc chắn có trong Pāli;
-2. English đã làm rõ điều gì về syntax/compound;
+2. English làm rõ điều gì về syntax/compound;
 3. Thích Minh Châu dùng thuật ngữ Việt nào;
 4. ba nguồn có disagreement ở đâu;
 5. điểm nào cần dictionary/grammar/parallel để phân xử.
-
-Không mặc định nguồn nào “đúng” chỉ vì câu nghe quen hoặc dễ đọc.
 
 ### Bước 4 — Viết bản tiếng Việt mới
 
@@ -232,7 +233,7 @@ Nếu có, Pāli thắng.
 
 - câu có hiểu ngay không;
 - có Hán–Việt nào có thể thay bằng từ dễ hơn mà không mất độ chính xác không;
-- ngược lại, có chỗ nào đang dài dòng mà một thuật ngữ Hán–Việt quen thuộc sẽ rõ và súc tích hơn không;
+- có chỗ nào đang dài dòng mà một thuật ngữ Hán–Việt quen thuộc sẽ rõ và súc tích hơn không;
 - có cấu trúc cổ, đảo ngữ hoặc calque không cần thiết không;
 - có thể tách câu hoặc đổi dấu câu mà không đổi nghĩa không.
 
@@ -245,9 +246,9 @@ Nếu Pāli / English / Thích Minh Châu khác nhau ở một điểm quan tr�
 - không che disagreement;
 - chọn canonical wording dựa trên Pāli + context;
 - ghi note ở comment nếu khác biệt ảnh hưởng cách hiểu hoặc thuật ngữ;
-- ghi nguồn tham khảo đủ rõ để reviewer có thể kiểm tra lại.
+- ghi nguồn tham khảo đủ rõ để có thể kiểm tra lại.
 
-### Bước 8 — Validate và human review
+### Bước 8 — Technical validation
 
 Chạy tối thiểu:
 
@@ -257,13 +258,45 @@ npm test
 npm run check
 ```
 
-Không chuyển `review` khi còn thiếu segment bắt buộc. Không chuyển `published` nếu chưa có human reviewer đối chiếu bản Việt với Pāli và các reference quan trọng.
+Nếu bài sẽ `published`, hoặc thay đổi ảnh hưởng website/build pipeline, chạy thêm:
+
+```bash
+npm run build
+```
+
+Validation/test/check/build fail là **blocking error**. Không được chấm technical integrity cao rồi bỏ qua kết quả máy.
+
+### Bước 9 — Adversarial quality review và scorecard
+
+Sau khi bản dịch đã hoàn chỉnh, thực hiện một lượt review riêng với mục tiêu **tìm lỗi**, không bảo vệ bản dịch vừa viết.
+
+Chấm đúng 10 tiêu chí trong `AGENTS.md` từ 0–10 và tính:
+
+```text
+final_score = tổng 10 điểm / 10
+```
+
+Dùng mean thô để quyết định status, không dùng mean làm tròn.
+
+Trước khi xét điểm, kiểm tra blocking errors trong `AGENTS.md`. **Blocker thắng mọi điểm số.**
+
+### Bước 10 — Chốt status và lưu ngay
+
+- Có blocker → `draft`.
+- Không blocker, `final_score > 9.0` → **`published` trực tiếp**.
+- Không blocker, `8.0 <= final_score <= 9.0` → `review`.
+- Không blocker, `final_score < 8.0` → `draft`.
+- Chưa chấm đủ 10 tiêu chí → `draft`.
+
+**Điểm đúng 9.0 không đủ. Phải lớn hơn 9.0 mới được `published`.**
+
+Human review **không bắt buộc** để publish. Nếu có human review chất lượng cao, dùng nó như thêm evidence và cập nhật scorecard/bản dịch khi cần.
+
+Khi bài đạt `published`, cập nhật metadata và lưu translation/comment/glossary liên quan vào repository ngay trong cùng batch công việc, không giữ lại `draft` chỉ để chờ review thủ công.
 
 ---
 
 ## 8. Checklist chính xác cấp segment
-
-Reviewer phải kiểm tra:
 
 - [ ] Đúng UID và segment ID.
 - [ ] Đã xem Pāli root.
@@ -279,14 +312,12 @@ Reviewer phải kiểm tra:
 - [ ] Repetition quan trọng không bị xóa tùy tiện.
 - [ ] Không có explanatory content bị đưa vào canonical text như nguyên văn.
 - [ ] Tiếng Việt tự nhiên, ít từ tối nghĩa.
-- [ ] Hán–Việt được giữ/bỏ có chủ ý, không theo cực đoan “thuần Việt hóa”.
+- [ ] Hán–Việt được giữ/bỏ có chủ ý.
 - [ ] Chỗ ambiguity/disagreement đáng kể có comment.
 
 ---
 
 ## 9. Quy tắc văn phong
-
-### Giọng
 
 - sáng, bình tĩnh, trang trọng vừa đủ;
 - hiện đại nhưng không suồng sã;
@@ -307,19 +338,18 @@ Kinh Pāli có repetition phục vụ ghi nhớ, cấu trúc và nhấn mạnh.
 
 ## 10. Quy tắc đối với AI/agent dịch
 
-AI agent là **người tổng hợp bản nháp có bằng chứng**, không phải authority cuối cùng.
+AI agent có thể **dịch, tự review, chấm điểm và publish** nếu đáp ứng đầy đủ quality gate. AI không phải authority về nghĩa; **Pāli/source evidence vẫn là authority**.
 
 Agent phải:
 
-- đọc file này trước translation task;
+- đọc `AGENTS.md` và file này trước translation task;
 - chủ động lấy và đọc Pāli root + English SuttaCentral + bản Thích Minh Châu khi có;
 - không hallucinate Pāli, dictionary meaning, translator, parallel hoặc source;
-- không chỉ dịch English → Vietnamese rồi bỏ qua Pāli;
-- không chỉ hiện đại hóa bản Thích Minh Châu;
-- được phép dùng English và Thích Minh Châu như reference ngay trong quá trình tạo draft;
-- khi các reference lệch nhau, phân xử bằng Pāli/context và ghi ambiguity nếu cần;
 - không tự thêm explanatory meaning cho “dễ hiểu”;
-- không tự chuyển `published` nếu chưa có human review.
+- khi các reference lệch nhau, phân xử bằng Pāli/context và ghi ambiguity nếu cần;
+- thực hiện adversarial review trước khi chấm điểm;
+- không tự nâng điểm để đạt ngưỡng publish;
+- nếu phát hiện blocker sau khi đã published, lập tức sửa hoặc hạ status xuống `draft` cho đến khi blocker được giải quyết.
 
 Khi sửa bản dịch đã có, phân loại thay đổi:
 
@@ -334,9 +364,9 @@ Thay đổi lớn về nghĩa phải có lý do truy về segment/source.
 
 ## 11. Definition of Done cho một bài kinh
 
-Một bài chỉ đủ điều kiện `published` khi:
+Một bài được xem là **hoàn tất** khi:
 
-1. mọi segment thuộc phạm vi đều có canonical translation;
+1. mọi segment thuộc phạm vi đều có canonical translation phù hợp;
 2. Pāli root/provenance đã được pin và kiểm chứng;
 3. đã đối chiếu English SuttaCentral phù hợp;
 4. đã đối chiếu bản Thích Minh Châu khi có;
@@ -344,11 +374,12 @@ Một bài chỉ đủ điều kiện `published` khi:
 6. semantic audit đã pass;
 7. terminology pass đã thực hiện;
 8. clarity/Hán–Việt pass đã thực hiện;
-9. validation không lỗi;
-10. human reviewer đã đối chiếu trực tiếp với Pāli;
-11. metadata review đầy đủ;
-12. không có nội dung bên thứ ba bị copy dài hoặc thiếu provenance/license;
-13. bản Việt đọc tự nhiên nhưng từng chi tiết quan trọng vẫn truy được về segment Pāli.
+9. các technical validation bắt buộc pass;
+10. không có nội dung bên thứ ba bị copy dài hoặc thiếu provenance/license;
+11. đã hoàn thành scorecard 10 tiêu chí và blocking-error check;
+12. metadata status khớp chính xác với rule trong `AGENTS.md`.
+
+`published` không đồng nghĩa “không bao giờ còn sửa”. Nó có nghĩa bản hiện tại đã vượt publication threshold theo evidence đang có. Nếu evidence mới cho thấy lỗi, sửa bản dịch và cập nhật quality assessment.
 
 ---
 
