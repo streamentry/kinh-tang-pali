@@ -1,0 +1,33 @@
+---
+import Base from '../layouts/Base.astro';
+import CollectionCard from '../components/CollectionCard.astro';
+import { COLLECTIONS, collectionProgress } from '../lib/canon/load';
+---
+<Base>
+  <main class="page home">
+    <section class="hero">
+      <p class="eyebrow">PĀLI → VIỆT · SEGMENT ALIGNED</p>
+      <h1>Kinh văn lâu dài cần một nền dữ liệu đáng tin.</h1>
+      <p class="lede">Một corpus Việt canonical, đối chiếu từng segment với Pāli đã pin, rồi sinh website, EPUB và PDF từ cùng dữ liệu.</p>
+      <div class="hero-actions">
+        <a class="button primary" href="/sutta/mn/">Đọc Kinh Trung Bộ</a>
+        <a class="button" href="/search/">Tìm kiếm</a>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">NĂM BỘ KINH</p>
+          <h2>Ưu tiên Trung Bộ, nhưng không khóa kiến trúc vào riêng MN.</h2>
+        </div>
+      </div>
+      <div class="collection-grid">
+        {COLLECTIONS.map((collection) => {
+          const progress = collectionProgress(collection.code);
+          return <CollectionCard collection={collection} {...progress} />;
+        })}
+      </div>
+    </section>
+  </main>
+</Base>

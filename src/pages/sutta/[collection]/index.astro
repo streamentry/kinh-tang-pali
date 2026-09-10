@@ -1,0 +1,54 @@
+---
+import Base from '../../../layouts/Base.astro';
+import { COLLECTIONS, listCollection, collectionProgress } from '../../../lib/canon/load';
+import type { CollectionCode } from '../../../lib/canon/types';
+
+export function getStaticPaths() {
+  return COLLECTIONS.map((collection) => ({
+    params: { collection: collection.code },
+    props: { collection },
+  }));
+}
+
+const { collection } = Astro.props;
+const code = collection.code as CollectionCode;
+const items = listCollection(code);
+const progress = collectionProgress(code);
+---
+<Base title={`${collection.titleVi} · Kinh Tạng Pāli Việt`}>
+  <main class="page collection-page">
+    <a class="back-link" href="/">← Năm bộ kinh</a>
+    <header class="collection-header">
+      <p class="eyebrow">{code.toUpperCase()}</p>
+      <h1>{collection.titleVi}</h1>
+      <p class="pali-title large">{collection.titlePali}</p>
+      <p>{collection.description}</p>
+      {progress.total > 0 && (
+        <div class="stats">
+          <span><strong>{progress.total}</strong> bài</span>
+          <span><strong>{progress.started}</strong> đã bắt đầu</span>
+          <span><strong>{progress.published}</strong> published</span>
+        </div>
+      )}
+    </header>
+
+    {items.length > 0 ? (
+      <ol class="sutta-list">
+        {items.map((item) => (
+          <li>
+            <a href={`/sutta/${code}/${item.uid}/`}>
+              <span class="uid">{item.uid.toUpperCase()}</span>
+              <span class="sutta-title">{item.title}</span>
+              <span class:list={['status', item.status]}>{item.status}</span>
+            </a>
+          </li>
+        ))}
+      </ol>
+    ) : (
+      <section class="empty-state">
+        <h2>Khung đã sẵn, corpus chưa được nhập.</h2>
+        <p>Không phát minh UID/hierarchy cho bộ này. Catalog sẽ được import từ canonical SuttaCentral tree khi Trung Bộ đạt gate chất lượng.</p>
+      </section>
+    )}
+  </main>
+</Base>

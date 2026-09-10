@@ -1,0 +1,64 @@
+---
+import Base from '../layouts/Base.astro';
+---
+<Base title="Tìm kiếm · Kinh Tạng Pāli Việt">
+  <main class="page search-page">
+    <p class="eyebrow">PAGEFIND</p>
+    <h1>Tìm trong kinh văn</h1>
+    <form id="search-form" class="search-form" role="search">
+      <input id="search-input" type="search" placeholder="Nhập tiếng Việt, Pāli hoặc UID…" autocomplete="off" />
+      <button class="button primary" type="submit">Tìm</button>
+    </form>
+    <div id="search-status" class="search-status" aria-live="polite"></div>
+    <ol id="search-results" class="search-results"></ol>
+  </main>
+</Base>
+
+<script is:inline type="module">
+  const form = document.getElementById('search-form');
+  const input = document.getElementById('search-input');
+  const status = document.getElementById('search-status');
+  const results = document.getElementById('search-results');
+  let pagefind;
+
+  async function ensurePagefind() {
+    if (!pagefind) {
+      pagefind = await import('/pagefind/pagefind.js');
+      await pagefind.init();
+    }
+    return pagefind;
+  }
+
+  form.addEventListener('submit', async (event) => {
+    event.preventDefault();
+    const query = input.value.trim();
+    results.replaceChildren();
+    if (!query) {
+      status.textContent = 'Nhập từ khóa để tìm.';
+      return;
+    }
+
+    status.textContent = 'Đang tìm…';
+    try {
+      const pf = await ensurePagefind();
+      const search = await pf.search(query);
+      status.textContent = `${search.results.length} kết quả`;
+      const data = await Promise.all(search.results.slice(0, 30).map((result) => result.data()));
+      for (const item of data) {
+        const li = document.createElement('li');
+        const a = document.createElement('a');
+        a.href = item.url;
+        const h2 = document.createElement('h2');
+        h2.textContent = item.meta?.title || item.url;
+        const excerpt = document.createElement('p');
+        excerpt.innerHTML = item.excerpt || '';
+        a.append(h2, excerpt);
+        li.append(a);
+        results.append(li);
+      }
+    } catch (error) {
+      console.error(error);
+      status.textContent = 'Search index chỉ có sau production build (`npm run build`).';
+    }
+  });
+</script>

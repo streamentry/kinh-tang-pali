@@ -1,0 +1,34 @@
+---
+interface Props {
+  title?: string;
+  description?: string;
+}
+const {
+  title = 'Kinh Tạng Pāli Việt',
+  description = 'Bản dịch Pāli–Việt theo segment SuttaCentral/Bilara.',
+} = Astro.props;
+---
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="description" content={description} />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+    <link rel="stylesheet" href="/styles/global.css" />
+  </head>
+  <body>
+    <header class="site-header" data-pagefind-ignore>
+      <a class="brand" href="/">Kinh Tạng Pāli Việt</a>
+      <nav aria-label="Điều hướng chính">
+        <a href="/sutta/mn/">Trung Bộ</a>
+        <a href="/search/">Tìm kiếm</a>
+      </nav>
+    </header>
+    <slot />
+    <footer class="site-footer" data-pagefind-ignore>
+      <span>Segment-aligned · nguồn Pāli được pin · bản dịch có provenance</span>
+    </footer>
+  </body>
+</html>
