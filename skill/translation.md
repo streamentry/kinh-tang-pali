@@ -2,49 +2,65 @@
 
 > **Phạm vi bắt buộc:** áp dụng cho mọi tác vụ dịch, sửa bản dịch, review bản dịch, chọn thuật ngữ và viết chú thích dịch thuật trong repository này.
 >
-> **Mục tiêu:** tạo một bản dịch Kinh tạng Pāli tiếng Việt mới **chính xác tối đa, truy nguyên rõ ràng và dễ hiểu hơn đối với người Việt hiện đại**. Bản dịch phải độc lập từ nguồn Pāli đã pin của SuttaCentral/Bilara, không phải bản hiện đại hóa hay phóng tác từ một bản dịch tiếng Việt có sẵn.
+> **Mục tiêu:** tạo một bản dịch Kinh tạng Pāli tiếng Việt mới **chính xác tối đa, truy nguyên rõ ràng và dễ hiểu hơn đối với người Việt hiện đại**. Phương pháp mặc định là **đối chiếu Pāli gốc + bản dịch tiếng Anh chất lượng cao trên SuttaCentral + bản dịch Hòa thượng Thích Minh Châu**, sau đó viết một bản tiếng Việt mới, sáng rõ hơn nhưng không thêm hoặc bớt nghĩa của kinh.
 
 ---
 
 ## 1. Mục tiêu tối thượng
 
-Bản dịch này phải đồng thời đạt ba mục tiêu, theo thứ tự ưu tiên sau:
+Bản dịch phải đồng thời đạt bốn mục tiêu, theo thứ tự ưu tiên:
 
-1. **Trung thành với nghĩa của Pāli.** Không được làm mất, thêm, làm mạnh hơn, làm yếu đi hoặc che khuất một ý có trong nguồn chỉ để câu Việt nghe đẹp hơn.
-2. **Có thể truy nguồn.** Mọi câu/đoạn Việt phải gắn với đúng canonical segment ID của SuttaCentral/Bilara để người đọc và reviewer có thể quay lại nguyên văn Pāli.
-3. **Dễ hiểu với tiếng Việt hiện đại.** Khi có hai cách diễn đạt cùng chính xác, ưu tiên cách ít cổ, ít tối nghĩa và ít Hán–Việt không cần thiết hơn.
+1. **Đúng nghĩa kinh điển.** Mọi ý trong câu Việt phải có căn cứ từ Pāli; không tự thêm giải thích, nhân quả, tâm lý, giáo lý hay kết luận mà nguyên văn không nói.
+2. **Có thể truy nguồn.** Mọi câu/đoạn Việt gắn với đúng canonical segment ID của SuttaCentral/Bilara để reviewer có thể quay về nguyên văn Pāli.
+3. **Dễ hiểu với người Việt hiện đại.** Giảm cấu trúc cổ, câu tối nghĩa và Hán–Việt không cần thiết.
+4. **Súc tích và giữ được ngôn ngữ Phật học khi hữu ích.** Hán–Việt vẫn được dùng khi nó chính xác, quen thuộc hoặc cô đọng hơn cách diễn đạt dài dòng bằng từ thuần Việt.
 
-**Không được đảo thứ tự này.** “Dễ đọc” không cho phép hy sinh độ chính xác; “sát chữ” cũng không phải lý do để tạo ra một câu tiếng Việt khó hiểu hoặc sai nghĩa.
+Không đánh đổi độ chính xác để lấy sự dễ đọc. Nhưng cũng không lấy “sát chữ” làm lý do cho một câu tiếng Việt khó hiểu.
 
-Câu hỏi kiểm tra cuối cùng cho mỗi segment là:
+Câu hỏi cuối cùng cho mỗi segment:
 
-> **Một người đọc tiếng Việt hiện đại có hiểu đúng điều Pāli đang nói không, và một reviewer có thể lần ngược từng ý về đúng segment nguồn không?**
+> **Người Việt hiện đại có hiểu đúng điều đoạn Pāli này đang nói không, và reviewer có thể lần ngược mọi chi tiết quan trọng về đúng segment nguồn không?**
 
 ---
 
-## 2. Định vị so với các bản dịch tiếng Việt trước
+## 2. Phương pháp dịch: tam giác đối chiếu
 
-Một động lực của dự án là nhiều bản dịch tiếng Việt cũ, trong đó có bản dịch của Hòa thượng Thích Minh Châu, có giá trị lịch sử rất lớn nhưng có thể khó đọc với độc giả hiện đại do cấu trúc câu cổ, thuật ngữ Hán–Việt dày, hoặc một số chỗ chưa làm rõ được sắc thái của Pāli.
+Mỗi bài kinh được dịch bằng cách **triangulate**, không dựa duy nhất vào một bản dịch trung gian.
 
-Tuy nhiên:
+Ba lớp tham khảo mặc định:
 
-- **Không dịch từ bản Thích Minh Châu rồi viết lại cho dễ hiểu.**
-- **Không copy hoặc paraphrase có hệ thống bất kỳ bản dịch tiếng Việt có sẵn nào vào canonical translation.**
-- Nếu một bản dịch cũ được dùng để đối chiếu, chỉ dùng **sau khi đã dịch độc lập từ Pāli**, như một nguồn kiểm tra xem có cách hiểu quan trọng nào mình đã bỏ sót hay không.
-- Sự khác biệt với bản cũ **không tự động là cải tiến**. Mọi khác biệt quan trọng phải đứng được trên Pāli và bằng chứng ngôn ngữ học/ngữ cảnh.
-- Không cố tình “dịch khác” để tạo sự mới lạ. Mục tiêu là **đúng hơn và rõ hơn**, không phải khác hơn.
+1. **Pāli root trên SuttaCentral/Bilara** — nguồn có thẩm quyền cuối cùng.
+2. **Bản dịch tiếng Anh chất lượng cao trên SuttaCentral** — giúp thấy cách các dịch giả hiện đại parse cú pháp, compound và sắc thái Pāli.
+3. **Bản dịch Hòa thượng Thích Minh Châu** — giúp đối chiếu truyền thống thuật ngữ tiếng Việt và phát hiện những điểm đã quen thuộc với độc giả Việt.
 
-Điều này cũng giảm anchoring: người dịch phải hình thành cách hiểu từ nguồn trước, rồi mới so sánh với truyền thống dịch thuật có sẵn.
+Sau khi đọc cả ba, người dịch **viết lại một bản tiếng Việt mới từ sự hiểu biết đã được đối chiếu**, không đơn thuần sửa chữ trên một bản có sẵn.
+
+### Vai trò của từng nguồn
+
+**Pāli:** quyết định nghĩa cuối cùng khi các bản dịch bất đồng.
+
+**English SuttaCentral:** là reference quan trọng để hiểu cú pháp và cách diễn đạt hiện đại, nhưng không được dịch máy móc English → Vietnamese nếu cách đó làm lệch Pāli.
+
+**Thích Minh Châu:** là reference quan trọng về truyền thống dịch thuật Việt Nam, thuật ngữ và cách hiểu lịch sử. Có thể giữ lại các thuật ngữ hoặc cách diễn đạt đã tốt, chính xác và súc tích; không cần cố tình đổi chỉ để tạo cảm giác “bản mới”.
+
+### Không được làm
+
+- Không coi bất kỳ bản tiếng Anh hay bản tiếng Việt nào là authority cao hơn Pāli root.
+- Không copy nguyên văn dài hoặc paraphrase máy móc một bản dịch có sẵn rồi gọi đó là bản dịch mới.
+- Không cố dịch khác Hòa thượng Thích Minh Châu chỉ vì muốn khác.
+- Không tự thêm nội dung để “giải thích cho dễ hiểu”; phần giải thích thuộc glossary/comment.
+
+Mục tiêu là **đúng hơn, rõ hơn và dễ đọc hơn**, không phải khác hơn.
 
 ---
 
 ## 3. Thứ bậc nguồn và bằng chứng
 
-### 3.1. Nguồn có thẩm quyền
+### 3.1. Authority
 
-**Nguồn gốc chuẩn của bản dịch là Pāli root trong snapshot SuttaCentral/Bilara được pin bởi `source/suttacentral.lock.json`.**
+Nguồn gốc chuẩn là **Pāli root trong snapshot SuttaCentral/Bilara được pin bởi `source/suttacentral.lock.json`**.
 
-Mỗi canonical translation segment phải dùng đúng key của root source, ví dụ:
+Canonical translation phải dùng đúng segment ID, ví dụ:
 
 ```json
 {
@@ -54,154 +70,184 @@ Mỗi canonical translation segment phải dùng đúng key của root source, v
 
 Không tự sửa UID, segment ID, thứ tự hoặc ranh giới segment.
 
-### 3.2. Thứ tự ưu tiên khi giải nghĩa
+### 3.2. Evidence hierarchy
 
-Khi gặp chỗ khó, dùng evidence theo thứ tự:
+Khi cần quyết định nghĩa, ưu tiên:
 
-1. **Pāli root đã pin**: từ ngữ, hình thái, cú pháp, phủ định, lượng từ, quan hệ giữa các mệnh đề, cấu trúc lặp.
-2. **Ngữ cảnh nội bộ của chính bài kinh và các đoạn Pāli tương đồng** trong corpus SuttaCentral.
-3. **Thông tin cấu trúc, variant/parallels và nguồn Pāli liên quan trên SuttaCentral**, khi có.
-4. **Từ điển, ngữ pháp Pāli và tài liệu học thuật đáng tin cậy** để kiểm tra nghĩa và cấu trúc.
-5. **Các bản dịch SuttaCentral/ngôn ngữ khác** như cross-check diễn giải, không phải nguồn để dịch vòng qua tiếng Việt.
-6. **Các bản dịch tiếng Việt trước đây** chỉ là tertiary comparison, không phải authority.
+1. **Pāli root đã pin**: từ ngữ, hình thái, cú pháp, phủ định, số lượng, case, compound, particles, quan hệ mệnh đề.
+2. **Ngữ cảnh của chính bài kinh và các Pāli parallels / formula tương đồng**.
+3. **Các bản dịch English trên SuttaCentral**, ưu tiên bản có provenance/dịch giả rõ ràng; với chỗ khó có thể so nhiều bản English.
+4. **Bản Hòa thượng Thích Minh Châu**, đặc biệt để đối chiếu thuật ngữ và truyền thống dịch Việt.
+5. **Từ điển, ngữ pháp Pāli, chú giải/parallels và tài liệu học thuật đáng tin cậy** khi có ambiguity hoặc disagreement.
 
-Không giải quyết bất đồng bằng “đa số bản dịch đều dịch vậy”. Nếu các bản dịch khác nhau, quay lại Pāli và xác định nguyên nhân khác biệt.
+Các bản dịch là **evidence về cách hiểu**, không phải bằng chứng cuối cùng rằng Pāli chắc chắn có nghĩa như vậy.
 
-### 3.3. Khi nguồn không đủ để chắc chắn
+Khi English và Thích Minh Châu giống nhau nhưng Pāli không hỗ trợ rõ, không tự động chọn theo số đông. Khi chúng khác nhau, quay lại Pāli để xác định nguyên nhân.
 
-Không được biến sự mơ hồ của Pāli thành sự chắc chắn giả tạo trong tiếng Việt.
+### 3.3. Khi chưa chắc chắn
 
 Nếu có hai cách hiểu thực sự hợp lý:
 
-- chọn cách dịch ít giả định hơn trong canonical text;
-- ghi cách hiểu thay thế và lý do trong `content/comment/vi/project/...` tại đúng segment ID;
-- không nhét một bài giải thích dài vào câu dịch;
-- nếu chưa đủ bằng chứng để chốt, giữ trạng thái `draft` hoặc `review`, **không `published`**.
+- chọn cách ít giả định và bám Pāli nhất cho canonical text;
+- ghi alternative reading và lý do ở comment theo đúng segment ID;
+- không làm câu Việt chắc chắn hơn mức Pāli cho phép;
+- nếu ambiguity ảnh hưởng đáng kể đến giáo nghĩa và chưa được giải quyết, giữ `draft` hoặc `review`, không `published`.
 
 ---
 
 ## 4. “Dễ hiểu” nghĩa là gì
 
-Dễ hiểu **không phải** tóm tắt, diễn nghĩa tự do hay chuyển giáo lý thành ngôn ngữ self-help hiện đại.
+Dễ hiểu **không phải diễn nghĩa tự do**. Dễ hiểu đến từ việc viết tiếng Việt tốt hơn.
 
 Ưu tiên:
 
-- câu Việt tự nhiên, đúng trật tự thông tin của tiếng Việt khi việc đổi trật tự không làm sai logic;
-- câu ngắn hơn khi Pāli có chuỗi mệnh đề dài và có thể tách an toàn;
-- động từ cụ thể thay cho danh từ hóa nặng nề;
-- từ Việt phổ thông thay cho Hán–Việt cổ hoặc ít người hiểu **khi hai lựa chọn có cùng độ chính xác**;
-- chủ thể và quan hệ nhân quả được nói rõ khi Pāli cho phép xác định rõ;
-- dấu câu và xuống câu giúp người đọc thấy cấu trúc lập luận, danh sách và lời thoại.
+- câu Việt tự nhiên thay cho calque cú pháp Pāli hoặc văn dịch cổ;
+- làm rõ chủ thể khi context xác định được;
+- tách câu dài khi không phá logic;
+- dùng động từ và cấu trúc trực tiếp thay cho danh từ hóa nặng;
+- giảm những từ Hán–Việt hiếm, cổ hoặc không thêm độ chính xác;
+- dấu câu và paragraph giúp lộ rõ logic, danh sách và lời thoại;
+- giữ repetition khi nó mang cấu trúc hoặc nhấn nghĩa.
 
 Tránh:
 
-- dịch từng từ Pāli sang một từ Việt rồi giữ nguyên trật tự khiến câu Việt tối nghĩa;
-- dùng Hán–Việt chỉ vì “nghe giống kinh”; 
-- thay thuật ngữ khó bằng một từ phổ thông nhưng hẹp nghĩa hoặc sai nghĩa;
-- thêm quan hệ nhân quả, chủ ý, đánh giá đạo đức hoặc giải thích tâm lý mà Pāli không nói;
-- bỏ các từ lặp, điều kiện, giới hạn, phủ định hoặc mức độ vì cho rằng chúng “rườm rà”.
-
-### Quy tắc Pareto cho Hán–Việt
-
-- **Từ Hán–Việt không phải mặc định xấu.** Giữ lại khi nó là thuật ngữ Phật học đã ổn định hoặc chính xác hơn lựa chọn thuần Việt.
-- Nếu một thuật ngữ kỹ thuật là cần thiết nhưng khó với độc giả mới, giữ bản dịch chính xác và giải thích bằng glossary/chú thích, thay vì làm phẳng nghĩa ngay trong canonical text.
-- Với từ không mang tải kỹ thuật, ưu tiên tiếng Việt hiện đại rõ nghĩa hơn.
+- thêm giải thích vào lời kinh;
+- bỏ điều kiện, phủ định, giới hạn, mức độ hoặc repetition vì thấy “rườm rà”;
+- dùng từ hiện đại nhưng hẹp nghĩa hơn Pāli;
+- biến description thành prescription;
+- biến possibility thành certainty;
+- thêm quan hệ nhân quả hoặc động cơ mà Pāli không nói.
 
 ---
 
-## 5. Không làm phẳng thuật ngữ Phật học
+## 5. Quy tắc Hán–Việt: dùng có chủ ý
 
-Các từ như `dukkha`, `saṅkhāra`, `sati`, `samādhi`, `viññāṇa`, `taṇhā`, `upādāna`, `nibbāna` và nhiều thuật ngữ khác có trường nghĩa phụ thuộc ngữ cảnh.
+**Không đặt mục tiêu “càng ít Hán–Việt càng tốt”.** Mục tiêu là **ít tối nghĩa hơn nhưng vẫn chính xác và súc tích**.
+
+Giữ Hán–Việt khi:
+
+- là thuật ngữ Phật học quen thuộc và có nghĩa kỹ thuật rõ: ví dụ `vô thường`, `tham`, `sân`, `niệm`, `định`, `giới`, `thọ`, `tưởng`;
+- ngắn gọn và rõ hơn một cụm thuần Việt dài;
+- thay bằng từ phổ thông sẽ làm mất distinction kỹ thuật;
+- cách dịch đã trở thành ngôn ngữ chuẩn mà độc giả Phật học Việt Nam dễ nhận ra.
+
+Ưu tiên từ Việt phổ thông khi:
+
+- từ Hán–Việt là cổ, khó hiểu hoặc chỉ làm câu “có vẻ kinh điển”;
+- nghĩa không mang tải kỹ thuật;
+- có một cách nói hiện đại ngắn, tự nhiên và chính xác tương đương.
+
+Khi một thuật ngữ kỹ thuật cần giữ nhưng có thể khó cho người mới, **giữ thuật ngữ trong canonical text và giải thích bằng glossary/comment**.
+
+Hán–Việt là công cụ nén nghĩa, không phải phong cách trang trí.
+
+---
+
+## 6. Không làm phẳng thuật ngữ Phật học
+
+Các từ như `dukkha`, `saṅkhāra`, `sati`, `samādhi`, `viññāṇa`, `taṇhā`, `upādāna`, `nibbāna` có trường nghĩa phụ thuộc ngữ cảnh.
 
 Vì vậy:
 
-- không áp một phép ánh xạ 1:1 máy móc cho mọi occurrence;
-- dùng `content/glossary/pali-vi.yaml` như **memory và QA aid**, không như luật dịch bất biến;
-- khi một lựa chọn mới quan trọng xuất hiện, cập nhật glossary với `preferred`, `allowed` và note về ngữ cảnh;
-- nếu một thuật ngữ có nhiều nghĩa hợp lệ theo ngữ cảnh, bảo tồn sự phân biệt đó;
-- không nhập một khái niệm từ truyền thống chú giải vào canonical text nếu root Pāli không nói rõ. Nếu hữu ích, đặt trong comment.
+- không áp mapping 1:1 máy móc cho mọi occurrence;
+- dùng `content/glossary/pali-vi.yaml` như memory/QA aid, không như luật bất biến;
+- đối chiếu cách English SuttaCentral và Thích Minh Châu xử lý cùng thuật ngữ;
+- chọn cách Việt vừa đúng context vừa giữ distinction cần thiết;
+- cập nhật glossary khi có lựa chọn thuật ngữ quan trọng;
+- nội dung từ chú giải hoặc truyền thống hậu kỳ không được lén nhập vào lời kinh nếu root Pāli không nói.
 
 ---
 
-## 6. Quy trình dịch bắt buộc cho mỗi bài kinh
+## 7. Quy trình dịch bắt buộc cho mỗi bài
 
 ### Bước 1 — Xác nhận provenance
 
-Trước khi dịch:
-
 - xác nhận đúng `uid`;
 - đọc `source/suttacentral.lock.json`;
-- sync đúng pinned source;
-- xác nhận file Pāli root và segment IDs;
-- không dịch từ một bản copy ngoài repo nếu không xác định được commit/source.
+- sync đúng pinned Pāli source;
+- xác nhận segment IDs;
+- xác định bản English SuttaCentral sẽ tham khảo và dịch giả/source của nó khi có;
+- xác định đúng bản Thích Minh Châu dùng để đối chiếu.
 
-### Bước 2 — Đọc toàn bài trước khi tối ưu từng câu
+### Bước 2 — Đọc toàn bài và context
 
-Không dịch segment hoàn toàn cô lập. Đọc đủ context để hiểu:
+Trước khi tối ưu từng segment, hiểu:
 
-- ai đang nói với ai;
-- đoạn nào là lời Phật, lời đệ tử, lời kể;
-- thuật ngữ đang được định nghĩa hay chỉ được nhắc;
-- cấu trúc lập luận, ví dụ, danh sách, đối chiếu;
-- các công thức lặp và antecedent của đại từ/ellipsis.
+- ai nói với ai;
+- speaker và quotation nesting;
+- cấu trúc lập luận;
+- các danh sách/formula/repetition;
+- antecedent của đại từ và ellipsis;
+- thuật ngữ nào đang được định nghĩa theo context.
 
-### Bước 3 — Dịch độc lập từ Pāli
+### Bước 3 — Đối chiếu từng segment
 
-Với từng segment:
+Với mỗi segment, đặt cạnh nhau:
 
-1. xác định predicate/động từ chính;
-2. xác định chủ thể, đối tượng và quan hệ case;
-3. kiểm tra phủ định;
-4. kiểm tra lượng từ, số đếm, mức độ, so sánh;
-5. giải compound theo ngữ cảnh;
-6. xác định particles có ảnh hưởng đến logic/sắc thái;
-7. bảo toàn lời dẫn, lời trích và speaker;
-8. viết lại thành tiếng Việt tự nhiên nhưng không mất semantic unit nào.
+- **Pāli**;
+- **English SuttaCentral**;
+- **Thích Minh Châu**.
 
-### Bước 4 — Semantic audit
+Xác định:
 
-Sau bản nháp, đối chiếu ngược Việt → Pāli và hỏi:
+1. semantic units nào chắc chắn có trong Pāli;
+2. English đã làm rõ điều gì về syntax/compound;
+3. Thích Minh Châu dùng thuật ngữ Việt nào;
+4. ba nguồn có disagreement ở đâu;
+5. điểm nào cần dictionary/grammar/parallel để phân xử.
 
-- Có ý nào trong câu Việt không tìm thấy căn cứ ở Pāli không?
-- Có từ/ý nào trong Pāli biến mất trong câu Việt không?
-- Phủ định có đúng scope không?
-- Điều kiện, nguyên nhân, thời gian, so sánh và mức độ có đúng không?
-- Chủ thể có bị đổi không?
-- Một possibility có bị biến thành certainty không?
-- Một description có bị biến thành prescription không?
-- Một technical term có bị làm phẳng nghĩa không?
+Không mặc định nguồn nào “đúng” chỉ vì câu nghe quen hoặc dễ đọc.
 
-Nếu có, sửa trước khi làm đẹp văn phong.
+### Bước 4 — Viết bản tiếng Việt mới
 
-### Bước 5 — Cross-check chống sai
+Viết câu Việt mới với mục tiêu:
 
-Chỉ sau khi đã có bản dịch độc lập:
+- giữ đầy đủ semantic units của Pāli;
+- dùng insight hữu ích từ English;
+- tận dụng thuật ngữ tốt, súc tích và đã ổn định từ truyền thống Việt khi phù hợp;
+- giảm Hán–Việt khó hiểu hoặc cấu trúc cổ;
+- đọc tự nhiên với người Việt hiện đại;
+- không thêm nghĩa ngoài Pāli.
 
-- kiểm tra các đoạn tương tự trong corpus;
-- kiểm tra từ điển/ngữ pháp khi cần;
-- có thể so với các bản dịch SuttaCentral khác để phát hiện cách parse khác;
-- có thể xem bản dịch Việt cũ để tìm disagreement đáng điều tra;
-- nếu có disagreement, **không chọn theo uy tín người dịch**: quay lại Pāli.
+Canonical wording phải là **một lựa chọn biên tập mới**, không phải phép thay vài từ đồng nghĩa trên một câu có sẵn.
 
-### Bước 6 — Plain-Vietnamese pass
+### Bước 5 — Semantic audit ngược về Pāli
 
-Sau khi semantic audit đã pass, đọc chỉ phần tiếng Việt và sửa cho người Việt hiện đại:
+Với từng câu Việt, hỏi:
 
-- bỏ đảo ngữ không cần thiết;
-- giảm Hán–Việt không mang tải kỹ thuật;
-- tách câu khi an toàn;
-- tránh lặp vụng về do calque nếu Pāli không đòi hỏi giữ đúng hình thức đó;
-- giữ nhịp trang trọng vừa đủ, nhưng không tạo “giọng kinh” giả cổ.
+- Có ý nào trong Việt không tìm thấy căn cứ trong Pāli?
+- Có ý nào trong Pāli bị mất?
+- Speaker/chủ thể/đối tượng đúng chưa?
+- Phủ định và scope đúng chưa?
+- Điều kiện, nhân quả, thời gian, số lượng, mức độ và so sánh đúng chưa?
+- Compound có bị hiểu quá mức không?
+- Technical term có bị làm phẳng không?
+- English hoặc Thích Minh Châu có vô tình kéo bản mới xa khỏi root không?
 
-Sau pass này phải chạy **semantic audit lần nữa** để đảm bảo việc làm câu dễ đọc không làm trôi nghĩa.
+Nếu có, Pāli thắng.
 
-### Bước 7 — Ghi chú bất định
+### Bước 6 — Clarity pass
 
-Chỗ nào reviewer cần biết về lựa chọn dịch, variant, ambiguity hoặc thuật ngữ khó thì ghi ở comment JSON theo segment ID.
+Đọc riêng tiếng Việt:
 
-Canonical translation phải đọc được độc lập; comment là lớp giải thích, không phải nơi sửa nghĩa cho một câu dịch mơ hồ.
+- câu có hiểu ngay không;
+- có Hán–Việt nào có thể thay bằng từ dễ hơn mà không mất độ chính xác không;
+- ngược lại, có chỗ nào đang dài dòng mà một thuật ngữ Hán–Việt quen thuộc sẽ rõ và súc tích hơn không;
+- có cấu trúc cổ, đảo ngữ hoặc calque không cần thiết không;
+- có thể tách câu hoặc đổi dấu câu mà không đổi nghĩa không.
 
-### Bước 8 — Validate và review
+Sau clarity pass, chạy semantic audit lần nữa.
+
+### Bước 7 — Disagreement & comment
+
+Nếu Pāli / English / Thích Minh Châu khác nhau ở một điểm quan trọng:
+
+- không che disagreement;
+- chọn canonical wording dựa trên Pāli + context;
+- ghi note ở comment nếu khác biệt ảnh hưởng cách hiểu hoặc thuật ngữ;
+- ghi nguồn tham khảo đủ rõ để reviewer có thể kiểm tra lại.
+
+### Bước 8 — Validate và human review
 
 Chạy tối thiểu:
 
@@ -211,109 +257,113 @@ npm test
 npm run check
 ```
 
-Không chuyển `review` nếu còn thiếu segment bắt buộc. Không chuyển `published` nếu chưa có human reviewer và metadata review theo quy định repo.
+Không chuyển `review` khi còn thiếu segment bắt buộc. Không chuyển `published` nếu chưa có human reviewer đối chiếu bản Việt với Pāli và các reference quan trọng.
 
 ---
 
-## 7. Checklist chính xác cấp segment
+## 8. Checklist chính xác cấp segment
 
-Reviewer phải đặc biệt soi các lỗi có tác động lớn sau:
+Reviewer phải kiểm tra:
 
 - [ ] Đúng UID và segment ID.
+- [ ] Đã xem Pāli root.
+- [ ] Đã đối chiếu ít nhất một English SuttaCentral phù hợp.
+- [ ] Đã đối chiếu bản Hòa thượng Thích Minh Châu khi có.
 - [ ] Không thiếu hoặc thêm semantic unit.
-- [ ] Đúng speaker và quotation nesting.
-- [ ] Đúng chủ thể/đối tượng.
-- [ ] Đúng phủ định và phạm vi phủ định.
-- [ ] Đúng số lượng, mức độ, thứ tự và phép so sánh.
-- [ ] Đúng quan hệ điều kiện/nguyên nhân/thời gian.
-- [ ] Compound không bị đoán theo surface form khi context chỉ hướng khác.
-- [ ] Technical term nhất quán với context và glossary, nhưng không bị ép 1:1.
-- [ ] Proper names, địa danh và danh xưng nhất quán.
-- [ ] Repetition quan trọng không bị xóa vì “văn Việt thấy thừa”.
-- [ ] Ellipsis/abbreviation của source không bị tự ý bổ sung như thể đó là nguyên văn.
-- [ ] Không có explanatory content bị lén đưa vào canonical text.
-- [ ] Tiếng Việt tự nhiên, độc giả hiện đại có thể hiểu mà không cần biết Hán văn.
-- [ ] Chỗ thực sự bất định có comment thay vì certainty giả.
+- [ ] Đúng speaker, chủ thể và đối tượng.
+- [ ] Đúng phủ định và scope.
+- [ ] Đúng điều kiện, nhân quả, thời gian, số lượng, mức độ và so sánh.
+- [ ] Compound/particle quan trọng không bị bỏ qua.
+- [ ] Technical term đúng context và nhất quán hợp lý.
+- [ ] Proper names/danh xưng nhất quán.
+- [ ] Repetition quan trọng không bị xóa tùy tiện.
+- [ ] Không có explanatory content bị đưa vào canonical text như nguyên văn.
+- [ ] Tiếng Việt tự nhiên, ít từ tối nghĩa.
+- [ ] Hán–Việt được giữ/bỏ có chủ ý, không theo cực đoan “thuần Việt hóa”.
+- [ ] Chỗ ambiguity/disagreement đáng kể có comment.
 
 ---
 
-## 8. Quy tắc văn phong
+## 9. Quy tắc văn phong
 
 ### Giọng
 
 - sáng, bình tĩnh, trang trọng vừa đủ;
+- hiện đại nhưng không suồng sã;
 - không giả cổ;
-- không văn hoa hơn nguồn;
-- không hiện đại hóa thành khẩu ngữ suồng sã;
-- không thêm cảm xúc hay rhetoric mà Pāli không có.
-
-### Đại từ và danh xưng
-
-Ưu tiên nhất quán trong cùng context. Không đổi đại từ chỉ để tránh lặp nếu việc đổi có thể làm mơ hồ speaker hoặc quan hệ tôn kính.
+- không văn hoa hơn Pāli;
+- không biến kinh thành văn self-help;
+- không thêm cảm xúc/rhetoric ngoài source.
 
 ### Repetition
 
-Kinh Pāli có repetition mang chức năng ghi nhớ, nhấn mạnh và cấu trúc.
+Kinh Pāli có repetition phục vụ ghi nhớ, cấu trúc và nhấn mạnh.
 
-- canonical translation mặc định **bảo tồn nội dung lặp**;
-- renderer/sách có thể có chế độ presentation khác sau này, nhưng không được làm mất canonical meaning ở source data;
-- nếu root source dùng abbreviation/ellipsis, không tự khẳng định một expansion là canonical nếu chưa có rule/provenance rõ.
+- canonical translation mặc định bảo tồn nội dung lặp;
+- renderer có thể có presentation compact sau này;
+- không xóa canonical meaning vì thấy lặp nhiều.
 
 ---
 
-## 9. Quy tắc đối với AI/agent dịch
+## 10. Quy tắc đối với AI/agent dịch
 
-AI agent phải coi mình là **người tạo bản nháp có bằng chứng**, không phải authority cuối cùng.
+AI agent là **người tổng hợp bản nháp có bằng chứng**, không phải authority cuối cùng.
 
 Agent phải:
 
-- đọc file này trước mọi translation task;
-- đọc context đủ rộng quanh segment;
-- không hallucinate Pāli, source path, dictionary meaning, parallel hoặc scholarly consensus;
-- không tuyên bố “Pāli nghĩa là X” nếu thực tế có ambiguity đáng kể;
-- không copy từ một bản dịch có sẵn để tăng tốc;
-- không lấy English translation rồi dịch vòng sang tiếng Việt;
-- ưu tiên ghi lại chỗ cần reviewer hơn là che bất định bằng câu văn tự tin;
-- không tự chuyển `published` nếu chưa có human review rõ ràng.
+- đọc file này trước translation task;
+- chủ động lấy và đọc Pāli root + English SuttaCentral + bản Thích Minh Châu khi có;
+- không hallucinate Pāli, dictionary meaning, translator, parallel hoặc source;
+- không chỉ dịch English → Vietnamese rồi bỏ qua Pāli;
+- không chỉ hiện đại hóa bản Thích Minh Châu;
+- được phép dùng English và Thích Minh Châu như reference ngay trong quá trình tạo draft;
+- khi các reference lệch nhau, phân xử bằng Pāli/context và ghi ambiguity nếu cần;
+- không tự thêm explanatory meaning cho “dễ hiểu”;
+- không tự chuyển `published` nếu chưa có human review.
 
-Khi agent sửa một bản dịch đã có, phải phân biệt:
+Khi sửa bản dịch đã có, phân loại thay đổi:
 
-- **accuracy fix**: sửa vì bản cũ không phản ánh Pāli;
-- **clarity fix**: cùng nghĩa nhưng tiếng Việt rõ hơn;
+- **accuracy fix**: sửa vì không phản ánh đúng Pāli;
+- **clarity fix**: cùng nghĩa nhưng tiếng Việt dễ hiểu hơn;
 - **terminology fix**: thay lựa chọn thuật ngữ có chủ ý;
 - **style-only fix**: không đổi nghĩa.
 
-Các thay đổi lớn về nghĩa phải có lý do truy về segment/source trong PR hoặc review note.
+Thay đổi lớn về nghĩa phải có lý do truy về segment/source.
 
 ---
 
-## 10. Definition of Done cho một bài kinh
+## 11. Definition of Done cho một bài kinh
 
 Một bài chỉ đủ điều kiện `published` khi:
 
-1. mọi segment nguồn thuộc phạm vi dịch đều có canonical translation hợp lệ;
-2. validation không có lỗi;
-3. semantic audit đã được thực hiện;
-4. terminology pass đã được thực hiện;
-5. plain-Vietnamese pass đã được thực hiện;
-6. chỗ ambiguity đáng kể có comment;
-7. reviewer đã đối chiếu trực tiếp với pinned Pāli source, không chỉ đọc bản Việt;
-8. metadata có reviewer và ngày review theo schema hiện hành;
-9. không có nội dung lấy từ bản dịch bên thứ ba mà thiếu provenance/license;
-10. bản dịch đọc tự nhiên nhưng reviewer vẫn có thể truy ngược từng chi tiết về segment Pāli.
+1. mọi segment thuộc phạm vi đều có canonical translation;
+2. Pāli root/provenance đã được pin và kiểm chứng;
+3. đã đối chiếu English SuttaCentral phù hợp;
+4. đã đối chiếu bản Thích Minh Châu khi có;
+5. disagreement quan trọng đã được phân xử hoặc ghi comment;
+6. semantic audit đã pass;
+7. terminology pass đã thực hiện;
+8. clarity/Hán–Việt pass đã thực hiện;
+9. validation không lỗi;
+10. human reviewer đã đối chiếu trực tiếp với Pāli;
+11. metadata review đầy đủ;
+12. không có nội dung bên thứ ba bị copy dài hoặc thiếu provenance/license;
+13. bản Việt đọc tự nhiên nhưng từng chi tiết quan trọng vẫn truy được về segment Pāli.
 
 ---
 
-## 11. Nguyên tắc quyết định khi có trade-off
+## 12. Nguyên tắc quyết định khi có trade-off
 
-Khi phải chọn giữa hai phương án, dùng thứ tự này:
+Khi phải chọn giữa các phương án:
 
-**Pāli meaning → logical precision → contextual coherence → terminology precision → provenance/auditability → Vietnamese clarity → elegance.**
+**Pāli meaning → logical precision → contextual coherence → terminology precision → provenance → Vietnamese clarity → concision → elegance.**
 
-Nếu một câu “hay” hơn nhưng thêm nghĩa, bỏ nghĩa hoặc khóa một ambiguity mà Pāli không khóa, **không dùng**.
+English và Thích Minh Châu giúp người dịch hiểu tốt hơn, nhưng **Pāli là tie-breaker cuối cùng**.
 
-Nếu một câu sát cấu trúc Pāli nhưng người Việt đọc không hiểu, **viết lại bằng tiếng Việt tự nhiên cho đến khi rõ**, rồi audit ngược để bảo đảm không đổi nghĩa.
+Nếu một cách dịch của Thích Minh Châu đã đúng, quen thuộc và súc tích, có thể giữ thuật ngữ/cách diễn đạt phù hợp. Nếu nó khó hiểu hoặc có cách hiện đại rõ hơn mà vẫn đúng Pāli, ưu tiên cách mới.
 
-Đích đến không phải “bản dịch sát chữ nhất” hay “bản dịch hiện đại nhất”. Đích đến là:
+Nếu một câu English diễn đạt ý rất rõ, có thể học cách parse/structure từ nó nhưng phải viết thành tiếng Việt tự nhiên và audit lại với Pāli.
 
-> **Bản dịch mà người đọc hiện đại hiểu đúng hơn, reviewer kiểm chứng dễ hơn, và mỗi quyết định quan trọng đều có thể quay về nguồn Pāli cụ thể.**
+Đích đến là:
+
+> **Một bản dịch mới tận dụng trí tuệ của các bản dịch trước, nhưng luôn quay về Pāli để kiểm chứng; ít tối nghĩa hơn, vừa đủ Hán–Việt để chính xác và súc tích, không tự bịa thêm bất kỳ ý nào ngoài kinh.**
