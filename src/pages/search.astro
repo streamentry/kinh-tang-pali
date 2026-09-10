@@ -1,6 +1,7 @@
 ---
 import Base from '../layouts/Base.astro';
-const baseUrl = import.meta.env.BASE_URL;
+const rawBaseUrl = import.meta.env.BASE_URL;
+const baseUrl = rawBaseUrl.endsWith('/') ? rawBaseUrl : `${rawBaseUrl}/`;
 ---
 <Base title="Tìm kiếm · Kinh Tạng Pāli Việt">
   <main class="page search-page">
@@ -24,9 +25,8 @@ const baseUrl = import.meta.env.BASE_URL;
 
   function withBase(path) {
     if (/^https?:\/\//.test(path)) return path;
-    const base = baseUrl.endsWith('/') ? baseUrl : `${baseUrl}/`;
-    if (path === base.slice(0, -1) || path.startsWith(base)) return path;
-    return `${base}${path.replace(/^\/+/, '')}`;
+    if (path === baseUrl.slice(0, -1) || path.startsWith(baseUrl)) return path;
+    return `${baseUrl}${path.replace(/^\/+/, '')}`;
   }
 
   async function ensurePagefind() {
