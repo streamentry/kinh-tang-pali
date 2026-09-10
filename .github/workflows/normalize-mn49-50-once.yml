@@ -1,0 +1,42 @@
+name: Normalize MN49-50 once
+on:
+  push:
+    branches: [feat/mn45-152-translation]
+    paths: [.github/workflows/normalize-mn49-50-once.yml]
+permissions:
+  contents: write
+jobs:
+  normalize:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: feat/mn45-152-translation
+      - name: Remove serialization-only newlines and refine MN50 verse mapping
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import json
+          for uid in ('mn49','mn50'):
+              p=Path(f'content/translation/vi/project/sutta/mn/{uid}_translation-vi-project.json')
+              data=json.loads(p.read_text(encoding='utf-8'))
+              data={k:(v.replace('\r','').replace('\n',' ').strip() if isinstance(v,str) else v) for k,v in data.items()}
+              if uid=='mn50':
+                  data['mn50:24.3']='sau khi xúc phạm Vidhura, vị đệ tử,'
+                  data['mn50:24.4']='và bậc Phạm chí Kakusandha?'
+                  data['mn50:24.9']='sau khi xúc phạm Vidhura, vị đệ tử,'
+                  data['mn50:24.10']='và bậc Phạm chí Kakusandha.'
+                  data['mn50:26.1']='Người đã được Đức Phật thúc giục,'
+                  data['mn50:26.2']='vị tỳ-kheo ấy, trước mắt Tăng chúng,'
+              p.write_text(json.dumps(data,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+          PY
+      - name: Commit and self-remove
+        shell: bash
+        run: |
+          rm .github/workflows/normalize-mn49-50-once.yml
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add content/translation/vi/project/sutta/mn/mn49_translation-vi-project.json content/translation/vi/project/sutta/mn/mn50_translation-vi-project.json .github/workflows/normalize-mn49-50-once.yml
+          git commit -m "fix: normalize MN49-50 segment values"
+          git push origin HEAD:feat/mn45-152-translation
