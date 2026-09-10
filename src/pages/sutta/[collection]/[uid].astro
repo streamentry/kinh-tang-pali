@@ -1,0 +1,39 @@
+---
+import Base from '../../../layouts/Base.astro';
+import SuttaReader from '../../../components/SuttaReader.astro';
+import { COLLECTIONS, composeDocument, loadCatalog } from '../../../lib/canon/load';
+import type { CollectionCode } from '../../../lib/canon/types';
+
+export function getStaticPaths() {
+  return COLLECTIONS.flatMap((collection) => {
+    const catalog = loadCatalog(collection.code);
+    return catalog.texts.map((item) => ({
+      params: { collection: collection.code, uid: item.uid },
+      props: { collection, uid: item.uid },
+    }));
+  });
+}
+
+const { collection, uid } = Astro.props;
+const document = composeDocument(collection.code as CollectionCode, uid);
+const statusLabel = document.hasProjectData ? document.status : 'not-started';
+---
+<Base title={`${document.viTitle} · ${uid.toUpperCase()}`}>
+  <main class="page reader-page">
+    <a class="back-link" href={`/sutta/${collection.code}/`}>← {collection.titleVi}</a>
+    <header class="sutta-header">
+      <div class="sutta-identity">
+        <p class="eyebrow">{uid.toUpperCase()} · {collection.titlePali}</p>
+        <h1 data-pagefind-meta="title">{document.viTitle}</h1>
+        {document.paliTitle && <p class="pali-title large" lang="pi">{document.paliTitle}</p>}
+      </div>
+      <span class:list={['status', statusLabel]}>{statusLabel}</span>
+    </header>
+    {document.status !== 'published' && document.hasProjectData && (
+      <div class="editorial-banner" data-pagefind-ignore>
+        Bản này đang ở trạng thái <strong>{document.status}</strong>, chưa phải bản phát hành cuối.
+      </div>
+    )}
+    <SuttaReader document={document} />
+  </main>
+</Base>

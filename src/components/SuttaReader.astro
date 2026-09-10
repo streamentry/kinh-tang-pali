@@ -1,0 +1,47 @@
+---
+import type { CanonDocument } from '../lib/canon/types';
+interface Props { document: CanonDocument }
+const { document } = Astro.props;
+const translatedCount = document.segments.filter((segment) => segment.vi?.trim()).length;
+---
+<section class="reader-shell" data-reader-mode="parallel">
+  <div class="reader-toolbar" data-pagefind-ignore>
+    <div class="mode-switch" role="group" aria-label="Chế độ đọc">
+      <button type="button" data-mode="vi">Việt</button>
+      <button type="button" data-mode="interlinear">Đan dòng</button>
+      <button type="button" class="active" data-mode="parallel">Song song</button>
+    </div>
+    <span class="segment-count">{translatedCount}/{document.segments.length} segment Việt</span>
+  </div>
+
+  {document.segments.length === 0 ? (
+    <div class="empty-state" data-pagefind-ignore>
+      <h2>Chưa có nội dung biên dịch</h2>
+      <p>UID và workflow đã sẵn. Pāli sẽ xuất hiện sau khi source pinned được sync; bản dịch Việt chỉ xuất hiện khi có nội dung canonical thật.</p>
+    </div>
+  ) : (
+    <div class="segments" data-pagefind-body>
+      {document.segments.map((segment) => (
+        <article class:list={['segment', !segment.vi?.trim() && 'untranslated']} id={segment.id} data-segment-id={segment.id}>
+          <div class="segment-id" aria-hidden="true">{segment.id}</div>
+          <div class="pali" lang="pi">{segment.pali || ''}</div>
+          <div class="vi" lang="vi">{segment.vi || <span class="missing">Chưa dịch</span>}</div>
+          {segment.commentVi && <aside class="comment">{segment.commentVi}</aside>}
+        </article>
+      ))}
+    </div>
+  )}
+</section>
+
+<script is:inline>
+  document.querySelectorAll('.reader-shell').forEach((shell) => {
+    shell.querySelectorAll('[data-mode]').forEach((button) => {
+      button.addEventListener('click', () => {
+        const mode = button.getAttribute('data-mode');
+        shell.setAttribute('data-reader-mode', mode);
+        shell.querySelectorAll('[data-mode]').forEach((item) => item.classList.remove('active'));
+        button.classList.add('active');
+      });
+    });
+  });
+</script>

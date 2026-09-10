@@ -1,0 +1,24 @@
+---
+import type { CollectionDefinition } from '../lib/canon/types';
+interface Props {
+  collection: CollectionDefinition;
+  total: number;
+  started: number;
+  published: number;
+}
+const { collection, total, started, published } = Astro.props;
+---
+<a class:list={['collection-card', collection.code === 'mn' && 'priority']} href={`/sutta/${collection.code}/`}>
+  <div class="eyebrow">{collection.code.toUpperCase()}</div>
+  <h2>{collection.titleVi}</h2>
+  <p class="pali-title">{collection.titlePali}</p>
+  <p>{collection.description}</p>
+  {total > 0 ? (
+    <div class="progress-line">
+      <span>{published}/{total} published</span>
+      <span>{started}/{total} started</span>
+    </div>
+  ) : (
+    <div class="progress-line"><span>Scaffold sẵn</span></div>
+  )}
+</a>
