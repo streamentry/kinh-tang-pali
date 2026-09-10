@@ -18,7 +18,7 @@ test('rejects a deliberately broken/orphan segment ID', () => {
   assert.equal(errors.some((error) => error.includes('orphan segment mn118:999.999')), true);
 });
 
-test('review completeness rejects missing segments', () => {
+test('publication completeness rejects missing segments', () => {
   const errors = validateSegmentMap(
     { 'mn118:1.1': 'Có' },
     { uid: 'mn118', sourceIds: new Set(['mn118:1.1', 'mn118:1.2']), requireComplete: true },
