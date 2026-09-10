@@ -1,5 +1,7 @@
 ---
 import Base from '../layouts/Base.astro';
+const rawBaseUrl = import.meta.env.BASE_URL;
+const baseUrl = rawBaseUrl.endsWith('/') ? rawBaseUrl : `${rawBaseUrl}/`;
 ---
 <Base title="Tìm kiếm · Kinh Tạng Pāli Việt">
   <main class="page search-page">
@@ -14,16 +16,22 @@ import Base from '../layouts/Base.astro';
   </main>
 </Base>
 
-<script is:inline type="module">
+<script type="module" define:vars={{ baseUrl }}>
   const form = document.getElementById('search-form');
   const input = document.getElementById('search-input');
   const status = document.getElementById('search-status');
   const results = document.getElementById('search-results');
   let pagefind;
 
+  function withBase(path) {
+    if (/^https?:\/\//.test(path)) return path;
+    if (path === baseUrl.slice(0, -1) || path.startsWith(baseUrl)) return path;
+    return `${baseUrl}${path.replace(/^\/+/, '')}`;
+  }
+
   async function ensurePagefind() {
     if (!pagefind) {
-      pagefind = await import('/pagefind/pagefind.js');
+      pagefind = await import(`${baseUrl}pagefind/pagefind.js`);
       await pagefind.init();
     }
     return pagefind;
@@ -47,7 +55,7 @@ import Base from '../layouts/Base.astro';
       for (const item of data) {
         const li = document.createElement('li');
         const a = document.createElement('a');
-        a.href = item.url;
+        a.href = withBase(item.url);
         const h2 = document.createElement('h2');
         h2.textContent = item.meta?.title || item.url;
         const excerpt = document.createElement('p');

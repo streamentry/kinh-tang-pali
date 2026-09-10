@@ -1,5 +1,6 @@
 ---
 import type { CollectionDefinition } from '../lib/canon/types';
+import { withBase } from '../lib/url';
 interface Props {
   collection: CollectionDefinition;
   total: number;
@@ -8,7 +9,7 @@ interface Props {
 }
 const { collection, total, started, published } = Astro.props;
 ---
-<a class:list={['collection-card', collection.code === 'mn' && 'priority']} href={`/sutta/${collection.code}/`}>
+<a class:list={['collection-card', collection.code === 'mn' && 'priority']} href={withBase(`sutta/${collection.code}/`)}>
   <div class="eyebrow">{collection.code.toUpperCase()}</div>
   <h2>{collection.titleVi}</h2>
   <p class="pali-title">{collection.titlePali}</p>
