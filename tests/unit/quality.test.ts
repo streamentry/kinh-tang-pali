@@ -62,3 +62,10 @@ test('validator accepts a blocker-free score above 9.0 as published', () => {
   };
   assert.deepEqual(validateQualityAssessment(meta), []);
 });
+
+test('review or published status is rejected without a quality scorecard', () => {
+  const reviewErrors = validateQualityAssessment({ uid: 'mn1', status: 'review' });
+  const publishedErrors = validateQualityAssessment({ uid: 'mn1', status: 'published' });
+  assert.equal(reviewErrors.some((error) => error.includes('requires a complete quality scorecard')), true);
+  assert.equal(publishedErrors.some((error) => error.includes('requires a complete quality scorecard')), true);
+});
