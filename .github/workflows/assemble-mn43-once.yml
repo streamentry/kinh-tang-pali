@@ -1,0 +1,45 @@
+name: Assemble MN43 once
+
+on:
+  push:
+    branches:
+      - feat/mn1-50-translation-draft
+
+permissions:
+  contents: write
+
+jobs:
+  assemble:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: feat/mn1-50-translation-draft
+          fetch-depth: 0
+      - uses: actions/setup-node@v5
+        with:
+          node-version-file: .nvmrc
+      - name: Install dependencies
+        run: npm install --no-audit --no-fund
+      - name: Clarify suññatā terminology before assembly
+        run: |
+          node <<'NODE'
+          const fs=require('fs');
+          const p='staging/mn43/part2.json';
+          const d=JSON.parse(fs.readFileSync(p,'utf8'));
+          d['mn43:29.5']=d['mn43:29.5'].replace('không tâm giải thoát','tâm giải thoát qua tính không');
+          d['mn43:33.1']='Thế nào là tâm giải thoát qua tính không?';
+          d['mn43:33.4']='Đây được gọi là tâm giải thoát qua tính không.';
+          fs.writeFileSync(p,JSON.stringify(d,null,2)+'\n');
+          NODE
+      - name: Assemble and verify MN43 against pinned Pāli
+        run: npx tsx scripts/assemble-staged-translation.ts mn43 --clean
+      - name: Commit canonical MN43 and remove this one-shot workflow
+        run: |
+          rm .github/workflows/assemble-mn43-once.yml
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add content/translation/vi/project/sutta/mn/mn43_translation-vi-project.json staging/mn43 .github/workflows/assemble-mn43-once.yml
+          git commit -m "translation: assemble exact-key MN43 corpus"
+          git push origin HEAD:feat/mn1-50-translation-draft
