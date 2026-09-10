@@ -1,0 +1,68 @@
+name: Derive MN42 parallel once
+
+on:
+  push:
+    branches:
+      - feat/mn1-50-translation-draft
+
+permissions:
+  contents: write
+
+jobs:
+  derive:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: feat/mn1-50-translation-draft
+          fetch-depth: 0
+      - uses: actions/setup-node@v5
+        with:
+          node-version-file: .nvmrc
+      - name: Build MN42 from audited MN41 parallel segments and MN42 overrides
+        shell: bash
+        run: |
+          node --input-type=module <<'NODE'
+          import fs from 'node:fs';
+          const mn41 = JSON.parse(fs.readFileSync('content/translation/vi/project/sutta/mn/mn41_translation-vi-project.json','utf8'));
+          const lock = JSON.parse(fs.readFileSync('source/suttacentral.lock.json','utf8'));
+          const url = `https://raw.githubusercontent.com/suttacentral/bilara-data/${lock.commit}/root/${lock.rootEdition}/sutta/mn/mn42_root-pli-ms.json`;
+          const r = await fetch(url);
+          if (!r.ok) throw new Error(`Failed to fetch MN42 root: ${r.status}`);
+          const root = await r.json();
+          const overrides = {
+            'mn42:0.1':'Trung Bộ Kinh 42',
+            'mn42:0.2':'Kinh Verañjaka',
+            'mn42:1.2':'Một thời, Đức Phật ở gần Sāvatthī, tại rừng Jeta, trong tu viện của ông Anāthapiṇḍika.',
+            'mn42:2.1':'Lúc ấy, các bà-la-môn và gia chủ từ Verañjā đang ở Sāvatthī vì một công việc nào đó.',
+            'mn42:2.2':'Các bà-la-môn và gia chủ từ Verañjā nghe tin:',
+            'mn42:2.3':'“Sa-môn Gotama, một người dòng Sakya xuất gia từ gia tộc Sakya, hiện đang ở gần Sāvatthī, tại rừng Jeta, trong tu viện của ông Anāthapiṇḍika.',
+            'mn42:2.4':'Về Tôn giả Gotama ấy có tiếng lành truyền xa như sau:',
+            'mn42:2.5':'‘Thế Tôn ấy là bậc A-la-hán, Chánh Đẳng Giác, đầy đủ minh và hạnh, Thiện Thệ, hiểu biết thế gian, bậc vô thượng điều phục những người đáng được điều phục, bậc thầy của trời và người, bậc Giác Ngộ, Thế Tôn.’',
+            'mn42:2.6':'Ngài tự mình trực tiếp biết và chứng ngộ thế giới này, gồm chư thiên, Māra, Phạm thiên, cùng quần chúng sa-môn, bà-la-môn, trời và người, rồi chỉ dạy lại cho người khác.',
+            'mn42:2.7':'Ngài thuyết Pháp tốt đẹp ở phần đầu, tốt đẹp ở phần giữa và tốt đẹp ở phần cuối, đầy đủ ý nghĩa và lời văn; Ngài trình bày đời sống phạm hạnh hoàn toàn viên mãn và thanh tịnh.',
+            'mn42:2.8':'Được gặp những bậc A-la-hán như vậy thật là điều tốt lành.”',
+            'mn42:3.1':'Rồi các bà-la-môn và gia chủ từ Verañjā đến gặp Đức Phật. Có người đảnh lễ rồi ngồi xuống một bên; có người trao đổi lời chào hỏi thân thiện rồi ngồi xuống; có người chắp tay hướng về Ngài; có người xưng tên và dòng họ; có người im lặng ngồi xuống. Sau khi ngồi xuống một bên, họ hỏi Đức Phật:',
+            'mn42:44.1':'Nghe vậy, các bà-la-môn và gia chủ từ Verañjā thưa với Đức Phật:',
+            'mn42:44.6':'Kinh Verañjaka kết thúc, bài thứ hai.'
+          };
+          const out = {};
+          for (const key of Object.keys(root)) {
+            if (overrides[key]) { out[key] = overrides[key]; continue; }
+            const parallel = `mn41:${key.slice('mn42:'.length)}`;
+            if (!(parallel in mn41)) throw new Error(`No audited MN41 parallel for ${key}`);
+            out[key] = mn41[parallel];
+          }
+          if (Object.keys(out).length !== Object.keys(root).length) throw new Error('MN42 key count mismatch');
+          fs.writeFileSync('content/translation/vi/project/sutta/mn/mn42_translation-vi-project.json', JSON.stringify(out,null,2)+'\n');
+          console.log(`MN42: derived and exact-key verified ${Object.keys(out).length} segments.`);
+          NODE
+      - name: Commit canonical MN42 and remove this one-shot workflow
+        run: |
+          rm .github/workflows/derive-mn42-once.yml
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add content/translation/vi/project/sutta/mn/mn42_translation-vi-project.json .github/workflows/derive-mn42-once.yml
+          git commit -m "translation: derive exact-key MN42 parallel corpus"
+          git push origin HEAD:feat/mn1-50-translation-draft
