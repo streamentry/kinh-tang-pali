@@ -29,5 +29,187 @@ import { COLLECTIONS, collectionProgress } from '../lib/canon/load';
         })}
       </div>
     </section>
+
+    <section id="nguon-va-credits" class="credits-section">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">NGUỒN · CREDITS · PHƯƠNG PHÁP</p>
+          <h2>Một bản dịch mới, nhưng không đứng một mình.</h2>
+        </div>
+      </div>
+
+      <p class="lede credits-lede">
+        Dự án và biên tập bản dịch do <strong>Lê Việt Hồng (Cư Sĩ Chánh Niệm)</strong> thực hiện,
+        với sự hỗ trợ đáng kể của <strong>ChatGPT của OpenAI</strong>. Bản dịch được tạo bằng cách
+        đối chiếu nhiều nguồn; Pāli là lớp nguồn chuẩn của repository, còn các bản dịch và AI là
+        những lớp tham khảo hoặc công cụ hỗ trợ.
+      </p>
+
+      <div class="credits-grid">
+        <article class="credit-card">
+          <p class="credit-kicker">PĀLI ROOT TEXT</p>
+          <h3>SuttaCentral / Bilara</h3>
+          <p>
+            Repository dùng edition <code>pli/ms</code>, tức <strong>Mahāsaṅgīti Tipiṭaka Buddhavasse 2500</strong>,
+            và pin upstream commit để có thể truy nguyên từng segment. Đây là bản văn Pāli làm nguồn
+            chuẩn của dự án, không phải tuyên bố về một “nguyên bản lịch sử” tuyệt đối.
+          </p>
+          <a href="https://suttacentral.net/methodology" target="_blank" rel="noopener noreferrer">Phương pháp văn bản của SuttaCentral ↗</a>
+        </article>
+
+        <article class="credit-card">
+          <p class="credit-kicker">ENGLISH REFERENCE</p>
+          <h3>SuttaCentral translations</h3>
+          <p>
+            Tham khảo các bản dịch tiếng Anh trên SuttaCentral, ưu tiên bản của
+            <strong>Bhikkhu Sujato</strong> khi có. Dịch giả được xác định theo từng collection hoặc bài;
+            dự án không giả định toàn bộ Kinh tạng do một người dịch.
+          </p>
+          <a href="https://suttacentral.net/" target="_blank" rel="noopener noreferrer">SuttaCentral ↗</a>
+        </article>
+
+        <article class="credit-card">
+          <p class="credit-kicker">VIETNAMESE REFERENCE</p>
+          <h3>Hòa thượng Thích Minh Châu</h3>
+          <p>
+            Dùng như lớp đối chiếu quan trọng về thuật ngữ Phật học Việt Nam và truyền thống dịch.
+            Bản Việt của dự án là bản dịch mới, không phải bản chỉ thay từ hoặc hiện đại hóa câu chữ
+            từ bản Thích Minh Châu.
+          </p>
+          <a href="https://github.com/suttacentral/bilara-data/tree/published/translation/vi/phantuananh/sutta" target="_blank" rel="noopener noreferrer">Corpus được SuttaCentral ghi provenance ↗</a>
+        </article>
+
+        <article class="credit-card">
+          <p class="credit-kicker">PĀLI RESEARCH</p>
+          <h3>Digital Pāḷi Dictionary</h3>
+          <p>
+            Khi gặp ambiguity, hình thái, compound hoặc thuật ngữ khó, dự án có thể tham khảo
+            <strong>Digital Pāḷi Dictionary của Bhikkhu Bodhirasa</strong>, cùng grammar, parallels và
+            tài liệu học thuật phù hợp. Đây là evidence phụ trợ, không tự động quyết định wording.
+          </p>
+          <a href="https://www.dpdict.net/" target="_blank" rel="noopener noreferrer">Digital Pāḷi Dictionary ↗</a>
+        </article>
+
+        <article class="credit-card ai-card">
+          <p class="credit-kicker">AI-ASSISTED TRANSLATION & QA</p>
+          <h3>ChatGPT · OpenAI</h3>
+          <p>
+            ChatGPT được dùng để tạo phương án dịch, đối chiếu Pāli/English/Vietnamese, kiểm tra logic,
+            terminology, consistency và hỗ trợ adversarial review. AI không phải nguồn kinh điển và
+            không được coi là authority cao hơn Pāli.
+          </p>
+          <a href="https://chatgpt.com/" target="_blank" rel="noopener noreferrer">ChatGPT ↗</a>
+        </article>
+      </div>
+
+      <div class="credit-disclaimer">
+        <strong>Minh bạch:</strong> Đây là dự án độc lập. Việc ghi credit không hàm ý SuttaCentral,
+        Bhikkhu Sujato, Hòa thượng Thích Minh Châu, Digital Pāḷi Dictionary, Bhikkhu Bodhirasa hay
+        OpenAI bảo trợ, phê duyệt hoặc chịu trách nhiệm cho bản dịch mới. Trạng thái
+        <code>published</code> nghĩa là bài đã vượt quality gate của repository; không nên suy diễn rằng
+        mọi segment đều đã được một học giả Pāli hoặc chuyên gia con người độc lập thẩm định.
+        Third-party material giữ license riêng của từng nguồn.
+      </div>
+
+      <div class="credit-contact">
+        <strong>Liên hệ / góp ý / hỗ trợ:</strong>
+        <a href="mailto:tostreamentry@gmail.com">tostreamentry@gmail.com</a>
+      </div>
+    </section>
   </main>
 </Base>
+
+<style>
+  .credits-section {
+    margin-top: 4.5rem;
+  }
+
+  .credits-lede {
+    max-width: 56rem;
+    margin-bottom: 2rem;
+  }
+
+  .credits-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+  }
+
+  .credit-card {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: .65rem;
+    padding: 1.35rem;
+  }
+
+  .credit-card h3 {
+    margin: .35rem 0 .8rem;
+    font-size: 1.3rem;
+    letter-spacing: -.02em;
+  }
+
+  .credit-card > p:not(.credit-kicker) {
+    color: var(--muted);
+    line-height: 1.65;
+  }
+
+  .credit-card a,
+  .credit-contact a {
+    display: inline-block;
+    margin-top: .35rem;
+    font-size: .82rem;
+    font-weight: 700;
+    color: var(--accent);
+  }
+
+  .credit-kicker {
+    margin: 0;
+    font-size: .66rem;
+    font-weight: 800;
+    letter-spacing: .12em;
+    color: var(--accent);
+  }
+
+  .ai-card {
+    grid-column: span 2;
+    background: linear-gradient(135deg, var(--surface), var(--accent-soft));
+  }
+
+  .credit-disclaimer {
+    margin-top: 1rem;
+    padding: 1.1rem 1.2rem;
+    border-left: 3px solid var(--accent);
+    background: rgba(255, 255, 255, .5);
+    color: var(--muted);
+    font-size: .86rem;
+    line-height: 1.65;
+  }
+
+  .credit-disclaimer strong {
+    color: var(--ink);
+  }
+
+  .credit-contact {
+    margin-top: 1rem;
+    color: var(--muted);
+    font-size: .86rem;
+  }
+
+  .credit-contact strong {
+    color: var(--ink);
+  }
+
+  .credit-contact a {
+    margin: 0 0 0 .25rem;
+  }
+
+  @media (max-width: 760px) {
+    .credits-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .ai-card {
+      grid-column: span 1;
+    }
+  }
+</style>
