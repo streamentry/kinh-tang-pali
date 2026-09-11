@@ -2,7 +2,7 @@ import { existsSync, readFileSync, readdirSync } from 'node:fs';
 import path from 'node:path';
 import YAML from 'yaml';
 import type { CanonCatalog, CollectionCode, EditorialMeta } from '../src/lib/canon/types';
-import { sourcePathFor } from '../src/lib/canon/load';
+import { segmentMapForUid, sourcePathFor } from '../src/lib/canon/load';
 import { validateSegmentMap } from './lib/validation';
 import { validateQualityAssessment } from './lib/quality';
 
@@ -94,8 +94,12 @@ for (const collection of collections) {
       errors.push(`${uid}: pinned Pāli source missing; run npm run source:sync:used`);
       continue;
     }
-    const source = readJson<Record<string, string>>(sourceFile);
+    const source = segmentMapForUid(readJson<Record<string, string>>(sourceFile), uid);
     const sourceIds = new Set(Object.keys(source));
+    if (sourceIds.size === 0) {
+      errors.push(`${uid}: pinned Pāli source contains no segments for this UID`);
+      continue;
+    }
     errors.push(...validateSegmentMap(translation, {
       uid,
       sourceIds,
