@@ -1,0 +1,64 @@
+name: Apply verified translation package
+on:
+  push:
+    branches: [feat/mn45-152-translation]
+    paths: [.translation-package-request]
+permissions:
+  contents: write
+jobs:
+  apply:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: feat/mn45-152-translation
+      - name: Read request
+        id: req
+        shell: bash
+        run: |
+          UID_REQ=$(node -p "JSON.parse(require('fs').readFileSync('.translation-package-request','utf8')).uid")
+          SHA_REQ=$(node -p "JSON.parse(require('fs').readFileSync('.translation-package-request','utf8')).sha256")
+          echo "uid=$UID_REQ" >> "$GITHUB_OUTPUT"
+          echo "sha256=$SHA_REQ" >> "$GITHUB_OUTPUT"
+      - name: Reconstruct and verify package
+        shell: bash
+        run: |
+          UID_REQ='${{ steps.req.outputs.uid }}'
+          SHA_REQ='${{ steps.req.outputs.sha256 }}'
+          cat .translation-packages/$UID_REQ/part-*.b64 > /tmp/pkg.b64
+          base64 -d /tmp/pkg.b64 > /tmp/pkg.tar.gz
+          echo "$SHA_REQ  /tmp/pkg.tar.gz" | sha256sum -c -
+          BAD_PATHS=$(tar -tzf /tmp/pkg.tar.gz | grep -Ev '^(\./)?$|^\./(content|docs)(/|$)' || true)
+          if [ -n "$BAD_PATHS" ]; then
+            printf '%s\n' "$BAD_PATHS"
+            echo 'Unexpected package path'
+            exit 1
+          fi
+          tar -xzf /tmp/pkg.tar.gz -C .
+      - name: Verify exact Pāli segment coverage
+        shell: bash
+        run: |
+          UID_REQ='${{ steps.req.outputs.uid }}'
+          curl -fsSL "https://raw.githubusercontent.com/suttacentral/bilara-data/11c9d708978cde8ba61096d8a75f7ddfb846f639/root/pli/ms/sutta/mn/${UID_REQ}_root-pli-ms.json" -o /tmp/root.json
+          node - "$UID_REQ" <<'NODE'
+          const fs = require('fs');
+          const uid = process.argv[2];
+          const root = JSON.parse(fs.readFileSync('/tmp/root.json','utf8'));
+          const file = `content/translation/vi/project/sutta/mn/${uid}_translation-vi-project.json`;
+          const vi = JSON.parse(fs.readFileSync(file,'utf8'));
+          const a = Object.keys(root), b = Object.keys(vi);
+          if (a.length !== b.length || a.some((k,i)=>k!==b[i])) throw new Error(`${uid}: segment key/order mismatch ${b.length}/${a.length}`);
+          if (Object.values(vi).some(v=>typeof v!=='string'||!v.trim())) throw new Error(`${uid}: empty translation segment`);
+          console.log(`${uid}: exact ${a.length}/${a.length} Pāli segment coverage`);
+          NODE
+      - name: Commit package
+        shell: bash
+        run: |
+          UID_REQ='${{ steps.req.outputs.uid }}'
+          rm -rf ".translation-packages/$UID_REQ" .translation-package-request
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A
+          git commit -m "feat: add complete ${UID_REQ^^} translation package"
+          git push origin HEAD:feat/mn45-152-translation

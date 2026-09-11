@@ -1,0 +1,22 @@
+name: Bundle Pali MN1-50 once
+on:
+  push:
+    branches: [feat/mn45-152-translation]
+    paths: [.bundle-pali-1-50-request]
+jobs:
+  bundle:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: feat/mn45-152-translation
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+      - run: npm install
+      - run: npm run source:sync:mn
+      - uses: actions/upload-artifact@v4
+        with:
+          name: pali-mn1-50
+          path: .cache/upstream/suttacentral/root/pli/ms/sutta/mn
+          retention-days: 1

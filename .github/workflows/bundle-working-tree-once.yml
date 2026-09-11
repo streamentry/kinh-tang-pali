@@ -1,0 +1,18 @@
+name: Bundle working tree once
+on:
+  push:
+    branches: [feat/mn45-152-translation]
+    paths: [.bundle-working-tree-request]
+jobs:
+  bundle:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: feat/mn45-152-translation
+      - uses: actions/upload-artifact@v4
+        with:
+          name: mn-working-tree
+          path: .
+          include-hidden-files: true
+          retention-days: 1
