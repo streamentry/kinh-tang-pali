@@ -113,3 +113,83 @@ import { COLLECTIONS, collectionProgress } from '../lib/canon/load';
     </section>
   </main>
 </Base>
+
+<style>
+  .credits-section {
+    margin-top: 4.5rem;
+  }
+
+  .credits-lede {
+    max-width: 56rem;
+    margin-bottom: 2rem;
+  }
+
+  .credits-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+  }
+
+  .credit-card {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: .65rem;
+    padding: 1.35rem;
+  }
+
+  .credit-card h3 {
+    margin: .35rem 0 .8rem;
+    font-size: 1.3rem;
+    letter-spacing: -.02em;
+  }
+
+  .credit-card > p:not(.credit-kicker) {
+    color: var(--muted);
+    line-height: 1.65;
+  }
+
+  .credit-card a {
+    display: inline-block;
+    margin-top: .35rem;
+    font-size: .82rem;
+    font-weight: 700;
+    color: var(--accent);
+  }
+
+  .credit-kicker {
+    margin: 0;
+    font-size: .66rem;
+    font-weight: 800;
+    letter-spacing: .12em;
+    color: var(--accent);
+  }
+
+  .ai-card {
+    grid-column: span 2;
+    background: linear-gradient(135deg, var(--surface), var(--accent-soft));
+  }
+
+  .credit-disclaimer {
+    margin-top: 1rem;
+    padding: 1.1rem 1.2rem;
+    border-left: 3px solid var(--accent);
+    background: rgba(255, 255, 255, .5);
+    color: var(--muted);
+    font-size: .86rem;
+    line-height: 1.65;
+  }
+
+  .credit-disclaimer strong {
+    color: var(--ink);
+  }
+
+  @media (max-width: 760px) {
+    .credits-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .ai-card {
+      grid-column: span 1;
+    }
+  }
+</style>
