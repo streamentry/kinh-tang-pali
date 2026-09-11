@@ -38,6 +38,14 @@ function loadSegmentMap(file: string): Record<string, string> {
   return readJson<Record<string, string>>(file);
 }
 
+export function segmentMapForUid(
+  segments: Record<string, string>,
+  uid: string,
+): Record<string, string> {
+  const prefix = `${uid}:`;
+  return Object.fromEntries(Object.entries(segments).filter(([id]) => id.startsWith(prefix)));
+}
+
 export function sourcePathFor(collection: CollectionCode, uid: string, explicit?: string): string | null {
   if (explicit) return explicit;
   if (collection === 'dn' || collection === 'mn') {
@@ -74,9 +82,10 @@ export function composeDocument(collection: CollectionCode, uid: string): CanonD
   ));
 
   const sourcePath = sourcePathFor(collection, uid, item.sourcePath);
-  const pali = sourcePath
+  const paliSource = sourcePath
     ? loadSegmentMap(path.join(ROOT, '.cache/upstream/suttacentral', sourcePath))
     : {};
+  const pali = segmentMapForUid(paliSource, uid);
 
   const orderedIds = Object.keys(pali).length > 0
     ? Object.keys(pali)
