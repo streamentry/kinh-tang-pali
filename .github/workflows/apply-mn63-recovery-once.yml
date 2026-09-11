@@ -1,0 +1,50 @@
+name: Recover audited MN63 once
+on:
+  push:
+    branches: [feat/mn45-152-translation]
+    paths:
+      - '.github/workflows/apply-mn63-recovery-once.yml'
+permissions:
+  contents: write
+jobs:
+  apply:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: feat/mn45-152-translation
+          fetch-depth: 0
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+      - name: Extract audited MN63 from existing batch payload
+        shell: bash
+        run: |
+          set -euo pipefail
+          base64 -d .mn62-63-payload.b64 > /tmp/batch.tar.gz
+          tar -xzf /tmp/batch.tar.gz
+          node - <<'NODE'
+          const fs=require('fs');
+          const p=JSON.parse(fs.readFileSync('content/translation/vi/project/sutta/mn/mn63_translation-vi-project.json','utf8'));
+          if(Object.keys(p).length!==182) throw new Error('MN63 must have 182 segments');
+          if(Object.values(p).some(v=>!String(v).trim())) throw new Error('MN63 contains empty segment');
+          if(!fs.readFileSync('content/meta/sutta/mn/mn63.yaml','utf8').includes('status: published')) throw new Error('MN63 not published');
+          NODE
+      - name: Validate corpus
+        run: |
+          npm install
+          npm run source:sync:used
+          npm run validate
+      - name: Commit MN63 and cleanup
+        shell: bash
+        run: |
+          set -euo pipefail
+          rm .mn62-63-payload.b64 .github/workflows/apply-mn63-recovery-once.yml
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add content/translation/vi/project/sutta/mn/mn63_translation-vi-project.json content/meta/sutta/mn/mn63.yaml content/comment/vi/project/sutta/mn/mn63_comment-vi-project.json docs/translation-notes/mn63.md .mn62-63-payload.b64 .github/workflows/apply-mn63-recovery-once.yml
+          git commit -m 'publish: MN63 after quality gate'
+          git fetch origin feat/mn45-152-translation
+          git rebase origin/feat/mn45-152-translation
+          git push origin HEAD:feat/mn45-152-translation
