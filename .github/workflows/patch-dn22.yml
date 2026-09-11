@@ -1,0 +1,35 @@
+name: Patch DN22 missing segment
+
+on:
+  push:
+    branches: [translate/dn22]
+    paths:
+      - .github/workflows/patch-dn22.yml
+
+permissions:
+  contents: write
+
+jobs:
+  patch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: translate/dn22
+      - name: Patch DN22 segment
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import json
+          p=Path('content/translation/vi/project/sutta/dn/dn22_translation-vi-project.json')
+          d=json.loads(p.read_text(encoding='utf-8'))
+          d['dn22:10.11']='Mười bốn phép quán thân kết thúc.'
+          p.write_text(json.dumps(d, ensure_ascii=False, indent=2)+'\n', encoding='utf-8')
+          PY
+      - name: Commit patch
+        run: |
+          git config user.name "Stream Entry"
+          git config user.email "978862+streamentry@users.noreply.github.com"
+          git add content/translation/vi/project/sutta/dn/dn22_translation-vi-project.json
+          git commit -m "fix(dn22): restore final body-contemplation segment"
+          git push origin HEAD:translate/dn22
