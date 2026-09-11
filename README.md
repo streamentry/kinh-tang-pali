@@ -5,7 +5,8 @@ Nền tảng bản dịch Pāli → Việt theo **segment ID của SuttaCentral/
 🌐 **Đọc trực tuyến:** [https://streamentry.github.io/kinh-tang-pali/](https://streamentry.github.io/kinh-tang-pali/)
 
 ✍️ **Dự án & biên tập bản dịch:** Lê Việt Hồng (Cư Sĩ Chánh Niệm)  
-🤖 **Hỗ trợ AI:** ChatGPT của OpenAI được sử dụng đáng kể trong quá trình tạo bản dịch đề xuất, đối chiếu nguồn, kiểm tra tính nhất quán và QA.
+🤖 **Hỗ trợ AI:** ChatGPT của OpenAI được sử dụng đáng kể trong quá trình tạo bản dịch đề xuất, đối chiếu nguồn, kiểm tra tính nhất quán và QA.  
+📮 **Liên hệ / góp ý / hỗ trợ:** [tostreamentry@gmail.com](mailto:tostreamentry@gmail.com)
 
 ## Nguồn, credits và phương pháp dịch
 
@@ -63,6 +64,8 @@ Tuy nhiên:
 Đây là **dự án độc lập**. Việc tham khảo hoặc ghi credit **không có nghĩa** SuttaCentral, Bhikkhu Sujato, Hòa thượng Thích Minh Châu, Digital Pāḷi Dictionary, Bhikkhu Bodhirasa hay OpenAI bảo trợ, phê duyệt, chứng thực hoặc chịu trách nhiệm cho bản dịch tiếng Việt mới của dự án.
 
 Third-party material giữ license và quyền tác giả riêng của từng nguồn. Repository tránh copy nguyên văn dài từ các bản dịch tham khảo; provenance và license phải được tôn trọng ở từng lớp dữ liệu.
+
+Nếu phát hiện lỗi dịch, vấn đề nguồn/provenance, hoặc muốn góp ý cho dự án, vui lòng liên hệ **[tostreamentry@gmail.com](mailto:tostreamentry@gmail.com)**.
 
 ## Ưu tiên hiện tại
 
