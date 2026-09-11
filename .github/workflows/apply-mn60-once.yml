@@ -1,0 +1,29 @@
+name: Apply MN60 publication once
+on:
+  push:
+    branches: [feat/mn45-152-translation]
+    paths:
+      - '.github/workflows/apply-mn60-once.yml'
+      - '.mn60-payload.b64'
+permissions:
+  contents: write
+jobs:
+  apply:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: feat/mn45-152-translation
+      - name: Apply audited MN60 files
+        shell: bash
+        run: |
+          set -euo pipefail
+          base64 -d .mn60-payload.b64 > /tmp/mn60.tar.gz
+          tar -xzf /tmp/mn60.tar.gz
+          node -e "const fs=require('fs'); const v=JSON.parse(fs.readFileSync('content/translation/vi/project/sutta/mn/mn60_translation-vi-project.json','utf8')); if(Object.keys(v).length!==294 || Object.values(v).some(x=>!String(x).trim())) process.exit(1)"
+          rm .mn60-payload.b64 .github/workflows/apply-mn60-once.yml
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add content docs .mn60-payload.b64 .github/workflows/apply-mn60-once.yml
+          git commit -m 'publish: MN60 after quality gate'
+          git push origin HEAD:feat/mn45-152-translation
