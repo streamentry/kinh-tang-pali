@@ -1,0 +1,57 @@
+name: Publish MN62 single sutta
+on:
+  push:
+    branches: [feat/mn45-152-translation]
+    paths:
+      - .mn62-single.b64
+      - .github/workflows/apply-mn62-single.yml
+permissions:
+  contents: write
+jobs:
+  publish:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: feat/mn45-152-translation
+          fetch-depth: 0
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+      - name: Apply MN62 only
+        shell: bash
+        run: |
+          set -euo pipefail
+          base64 -d .mn62-single.b64 > /tmp/mn62.tar.gz
+          tar -tzf /tmp/mn62.tar.gz | sed 's#^\./##' | grep -v '/$' > /tmp/files.txt
+          cat >/tmp/expected.txt <<'EOF'
+          content/comment/vi/project/sutta/mn/mn62_comment-vi-project.json
+          content/meta/sutta/mn/mn62.yaml
+          content/translation/vi/project/sutta/mn/mn62_translation-vi-project.json
+          docs/translation-notes/mn62.md
+          EOF
+          sort /tmp/files.txt -o /tmp/files.txt
+          sort /tmp/expected.txt -o /tmp/expected.txt
+          diff -u /tmp/expected.txt /tmp/files.txt
+          tar -xzf /tmp/mn62.tar.gz
+          node -e "const fs=require('fs'); const p=JSON.parse(fs.readFileSync('content/translation/vi/project/sutta/mn/mn62_translation-vi-project.json','utf8')); if(Object.keys(p).length!==122) throw new Error('MN62 must contain exactly 122 segments'); if(Object.values(p).some(v=>!String(v).trim())) throw new Error('MN62 contains empty translation segment')"
+          grep -q '^status: published$' content/meta/sutta/mn/mn62.yaml
+          rm .mn62-single.b64 .github/workflows/apply-mn62-single.yml
+      - name: Validate corpus
+        shell: bash
+        run: |
+          npm install
+          npm run source:sync:used
+          npm run validate
+      - name: Commit and integrate MN62 only
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add content/translation/vi/project/sutta/mn/mn62_translation-vi-project.json content/meta/sutta/mn/mn62.yaml content/comment/vi/project/sutta/mn/mn62_comment-vi-project.json docs/translation-notes/mn62.md .mn62-single.b64 .github/workflows/apply-mn62-single.yml
+          git commit -m "publish: MN62 after quality gate"
+          git fetch origin feat/mn45-152-translation
+          git rebase origin/feat/mn45-152-translation
+          git push origin HEAD:feat/mn45-152-translation
