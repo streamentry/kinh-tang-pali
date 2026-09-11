@@ -29,7 +29,12 @@ jobs:
           cat .translation-packages/$UID_REQ/part-*.b64 > /tmp/pkg.b64
           base64 -d /tmp/pkg.b64 > /tmp/pkg.tar.gz
           echo "$SHA_REQ  /tmp/pkg.tar.gz" | sha256sum -c -
-          tar -tzf /tmp/pkg.tar.gz | grep -Ev '^\./(content|docs)(/|$)' && { echo 'Unexpected package path'; exit 1; } || true
+          BAD_PATHS=$(tar -tzf /tmp/pkg.tar.gz | grep -Ev '^(\./)?$|^\./(content|docs)(/|$)' || true)
+          if [ -n "$BAD_PATHS" ]; then
+            printf '%s\n' "$BAD_PATHS"
+            echo 'Unexpected package path'
+            exit 1
+          fi
           tar -xzf /tmp/pkg.tar.gz -C .
       - name: Verify exact Pāli segment coverage
         shell: bash
