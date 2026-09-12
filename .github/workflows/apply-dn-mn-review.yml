@@ -1,0 +1,52 @@
+name: Apply hash-verified DN MN editorial review
+on:
+  push:
+    branches: [review/dn-mn-20260912]
+    paths: [.dn-mn-review-package/ready.json]
+permissions:
+  contents: write
+jobs:
+  apply:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version-file: .nvmrc
+      - name: Reconstruct reviewed content with before and after hash checks
+        run: python .dn-mn-review-package/apply.py apply
+      - name: Install dependencies
+        run: npm install --no-audit --no-fund
+      - name: Sync exact pinned source
+        run: |
+          npm run source:sync:used
+          npm run source:sync -- --collection dn
+          npm run source:sync:mn
+      - name: Reconstruct inspectable reports and verify every file
+        run: |
+          python .dn-mn-review-package/apply.py generate
+          python .dn-mn-review-package/apply.py verify
+      - name: Validate content and quality metadata
+        run: npm run validate
+      - name: Run all regression tests
+        run: npm test
+      - name: Type check website
+        run: npm run check
+      - name: Build production website and search
+        run: npm run build
+      - name: Verify final snapshot again
+        run: python .dn-mn-review-package/apply.py verify
+      - name: Commit reviewed files and remove temporary transfer machinery
+        shell: bash
+        run: |
+          set -euo pipefail
+          rm -f .github/workflows/dn-mn-review-bundle.yml .github/workflows/dn-mn-vietnamese-reference.yml .github/workflows/apply-dn-mn-review.yml
+          rm -rf .dn-mn-review-package
+          xargs -d '\n' git add -- < /tmp/dn-mn-editorial-review/paths.txt
+          git add -u -- .github/workflows .dn-mn-review-package
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git commit -m 'fix: repair 803 DN/MN segments with source-bound reviews and regression tests'
+          git push origin HEAD:review/dn-mn-20260912
