@@ -1,0 +1,124 @@
+name: Apply verified DN MN editorial review
+on:
+  push:
+    branches: [review/dn-mn-quality-export-20260912]
+    paths: [.github/workflows/dn-mn-apply-reviewed.yml]
+permissions:
+  contents: write
+concurrency:
+  group: dn-mn-editorial-20260912
+  cancel-in-progress: false
+jobs:
+  apply:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: fa8f8a4c1effa490f4fe4d6e7bcb0332c4d356bf
+          fetch-depth: 1
+      - uses: actions/setup-node@v5
+        with:
+          node-version-file: .nvmrc
+      - name: Apply exact reviewed text with before and after hashes
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          python - <<'PY'
+          import base64, hashlib, json, lzma, os, pathlib, subprocess, unicodedata, urllib.request
+          base = 'fa8f8a4c1effa490f4fe4d6e7bcb0332c4d356bf'
+          branch = 'review/dn-mn-editorial-20260912'
+          assert subprocess.check_output(['git', 'rev-parse', 'HEAD'], text=True).strip() == base
+          remote = subprocess.check_output(['git', 'ls-remote', 'origin', 'refs/heads/' + branch], text=True).split()
+          assert remote and remote[0] == base, 'Editorial branch moved; do not overwrite it'
+          parts = ['e8b96cca4ea8094a56fed29cf6fcbe26e78ff51c', 'e1bb29f19b3e0182b9a0f6128583d9e43ca9ce7a', '44fe0d02ad5763a5b92116ffdd84532c42fe2af9', 'bb3d576367bf391465471d5051ce758bee7f97ea', 'ef1ee6e55b9db5ae5ff84e7a9218fa00d3a29aee']
+          compressed = b''
+          for sha in parts:
+              req = urllib.request.Request('https://api.github.com/repos/streamentry/kinh-tang-pali/git/blobs/' + sha, headers={'Authorization': 'Bearer ' + os.environ['GH_TOKEN'], 'Accept': 'application/vnd.github+json'})
+              with urllib.request.urlopen(req, timeout=30) as response:
+                  blob = json.load(response)
+              chunk = base64.b64decode(blob['content'])
+              assert hashlib.sha1(b'blob ' + str(len(chunk)).encode() + b'\0' + chunk).hexdigest() == sha
+              compressed += chunk
+          assert hashlib.sha256(compressed).hexdigest() == '089bf6c1218d59f816c9efd6d053e828843fb23a53cf97a6d5516fae60a21736'
+          raw = lzma.LZMADecompressor().decompress(compressed, max_length=300000)
+          assert len(raw) == 216007
+          payload = json.loads(raw)
+          assert payload['baseCommit'] == base
+          allowed = {
+              'README.md', 'package.json', 'scripts/audit-dn-mn.ts', 'scripts/lib/validation.ts', 'scripts/validate.ts',
+              'tests/unit/editorial-regressions.test.ts', 'tests/unit/validation.test.ts',
+              'content/comment/vi/project/sutta/dn/dn29_comment-vi-project.json',
+              'content/comment/vi/project/sutta/mn/mn66_comment-vi-project.json',
+              'content/comment/vi/project/sutta/mn/mn76_comment-vi-project.json',
+              'content/comment/vi/project/sutta/mn/mn77_comment-vi-project.json',
+              'content/meta/sutta/dn/dn29.yaml', 'content/meta/sutta/mn/mn76.yaml',
+              'content/translation/vi/project/sutta/dn/dn29_translation-vi-project.json',
+              'content/translation/vi/project/sutta/mn/mn66_translation-vi-project.json',
+              'content/translation/vi/project/sutta/mn/mn76_translation-vi-project.json',
+              'content/translation/vi/project/sutta/mn/mn77_translation-vi-project.json',
+              'docs/reviews/2026-09-12-dn-mn/README.md', 'docs/reviews/2026-09-12-dn-mn/changed-segments.json',
+              'docs/reviews/2026-09-12-dn-mn/dn29.md', 'docs/reviews/2026-09-12-dn-mn/mn76.md',
+              'docs/reviews/2026-09-12-dn-mn/targeted-repairs.md', 'docs/reviews/2026-09-12-dn-mn/manifest.json',
+              'docs/reviews/2026-09-12-dn-mn/inventory.json',
+          }
+          entries = payload['entries']
+          assert len(entries) == len(allowed) and {e['path'] for e in entries} == allowed
+          for e in entries:
+              p = pathlib.Path(e['path'])
+              before = hashlib.sha256(p.read_bytes()).hexdigest() if p.exists() else None
+              assert before == e['beforeSha256'], 'Before hash mismatch: ' + str(p)
+              if e.get('generatedInventory'):
+                  assert str(p) == 'docs/reviews/2026-09-12-dn-mn/inventory.json'
+                  continue
+              if 'text' in e:
+                  text = e['text']
+              else:
+                  old = json.loads(p.read_text())
+                  old.update(e['jsonEdits'])
+                  order = e['jsonOrder']
+                  assert len(order) == len(set(order))
+                  text = json.dumps({key: old[key] for key in order}, ensure_ascii=False, indent=2) + '\n'
+              assert text == unicodedata.normalize('NFC', text), str(p)
+              assert hashlib.sha256(text.encode()).hexdigest() == e['afterSha256'], 'After hash mismatch: ' + str(p)
+              p.parent.mkdir(parents=True, exist_ok=True)
+              p.write_text(text)
+          pathlib.Path('/tmp/dn-mn-review-payload.json').write_bytes(raw)
+          print('Applied reviewed text for 23 files; inventory will be regenerated and hash-checked.')
+          PY
+      - run: npm install --no-audit --no-fund
+      - run: npm run source:sync:used
+      - run: npm run audit:dn-mn
+      - run: npm run validate
+      - run: npm test
+      - run: npm run check
+      - run: npm run build
+      - name: Verify exact final files and commit each article separately
+        run: |
+          python - <<'PY'
+          import hashlib, json, pathlib, subprocess
+          payload = json.loads(pathlib.Path('/tmp/dn-mn-review-payload.json').read_text())
+          paths = [e['path'] for e in payload['entries']]
+          for e in payload['entries']:
+              assert hashlib.sha256(pathlib.Path(e['path']).read_bytes()).hexdigest() == e['afterSha256'], e['path']
+          subprocess.run(['git', 'switch', '-c', 'review/dn-mn-editorial-20260912'], check=True)
+          subprocess.run(['git', 'config', 'user.name', 'github-actions[bot]'], check=True)
+          subprocess.run(['git', 'config', 'user.email', '41898282+github-actions[bot]@users.noreply.github.com'], check=True)
+          remaining = set(paths)
+          groups = [
+              ('fix(dn29): re-review 465 segments against pinned Pali and improve Vietnamese', [p for p in paths if '/dn29_' in p or p.endswith('/dn29.yaml') or p.endswith('/dn29.md')]),
+              ('fix(mn76): repair alignment, logic and numbers in a full Sandaka review', [p for p in paths if '/mn76_' in p or p.endswith('/mn76.yaml') or p.endswith('/mn76.md')]),
+              ('fix(mn66,mn77): repair seven source-checked passages without whole-sutta score claims', [p for p in paths if '/mn66_' in p or '/mn77_' in p or p.endswith('/targeted-repairs.md')]),
+          ]
+          for message, group in groups:
+              assert group
+              subprocess.run(['git', 'add', '--', *group], check=True)
+              subprocess.run(['git', 'commit', '-m', message], check=True)
+              remaining -= set(group)
+          subprocess.run(['git', 'add', '--', *sorted(remaining)], check=True)
+          subprocess.run(['git', 'commit', '-m', 'test: add DN/MN review coverage, provenance and editorial regression guards'], check=True)
+          actual = subprocess.check_output(['git', 'diff', '--name-only', payload['baseCommit'], 'HEAD'], text=True).splitlines()
+          assert set(actual) == set(paths), 'Unexpected files in final editorial branch'
+          print('All 24 reviewed files verified byte-for-byte. No transport workflow or source cache is included.')
+          PY
+          git push origin HEAD:refs/heads/review/dn-mn-editorial-20260912
