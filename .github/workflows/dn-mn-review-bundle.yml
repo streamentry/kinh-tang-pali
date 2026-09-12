@@ -13,16 +13,6 @@ jobs:
       - uses: actions/checkout@v5
         with:
           persist-credentials: false
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 22
-          cache: npm
-      - run: npm ci
-      - name: Sync pinned canonical source
-        run: |
-          npm run source:sync:used
-          npm run source:sync -- --collection dn
-          npm run source:sync:mn
       - name: Collect pinned comparison layers
         shell: bash
         run: |
@@ -37,6 +27,15 @@ jobs:
           mkdir -p .review-source
           cp -a /tmp/bilara-review/root /tmp/bilara-review/translation .review-source/
           printf '%s\n' "$COMMIT" > .review-source/UPSTREAM_COMMIT
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm install --no-audit --no-fund
+      - name: Sync pinned canonical source
+        run: |
+          npm run source:sync:used
+          npm run source:sync -- --collection dn
+          npm run source:sync:mn
       - name: Baseline technical checks
         id: checks
         continue-on-error: true
