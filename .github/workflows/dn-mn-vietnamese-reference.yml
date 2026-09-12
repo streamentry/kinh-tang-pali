@@ -1,0 +1,29 @@
+name: DN MN Vietnamese comparison bundle
+on:
+  push:
+    branches: [review/dn-mn-20260912]
+    paths: [.github/workflows/dn-mn-vietnamese-reference.yml]
+permissions:
+  contents: read
+jobs:
+  reference:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Retrieve pinned reference archive
+        shell: bash
+        run: |
+          set -euo pipefail
+          git init /tmp/tmc-review
+          git -C /tmp/tmc-review remote add origin https://github.com/buddhanussati/loicuaducphat.git
+          git -C /tmp/tmc-review config core.sparseCheckout true
+          printf '%s\n' '/mn/' '/dn/' '/README*' '/LICENSE*' > /tmp/tmc-review/.git/info/sparse-checkout
+          git -C /tmp/tmc-review fetch --filter=blob:none --depth=1 origin 9a9fdc135c83be0fd78df5353c55267d6b0ea7fd
+          git -C /tmp/tmc-review checkout --detach FETCH_HEAD
+          git -C /tmp/tmc-review rev-parse HEAD > /tmp/tmc-review/UPSTREAM_COMMIT
+          tar -czf /tmp/tmc-reference.tar.gz --exclude='./.git' -C /tmp/tmc-review .
+      - uses: actions/upload-artifact@v4
+        with:
+          name: dn-mn-tmc-reference
+          path: /tmp/tmc-reference.tar.gz
+          retention-days: 3
