@@ -1,0 +1,23 @@
+name: Export exact DN MN review snapshot
+on:
+  push:
+    branches: [review/dn-mn-quality-export-20260912]
+    paths: [.github/workflows/dn-mn-quality-export.yml]
+permissions:
+  contents: read
+jobs:
+  export:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: fa8f8a4c1effa490f4fe4d6e7bcb0332c4d356bf
+          persist-credentials: false
+      - name: Export tracked files without credentials or generated data
+        run: git archive --format=tar.gz HEAD > /tmp/dn-mn-current-source.tar.gz
+      - uses: actions/upload-artifact@v4
+        with:
+          name: dn-mn-current-source-fa8f8a4
+          path: /tmp/dn-mn-current-source.tar.gz
+          retention-days: 3
