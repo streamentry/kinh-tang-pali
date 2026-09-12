@@ -104,6 +104,7 @@ for (const collection of collections) {
       uid,
       sourceIds,
       requireComplete: meta.status === 'review' || meta.status === 'published',
+      requireLatinScript: true,
     }));
     errors.push(...validateSegmentMap(comments, { uid, sourceIds, requireComplete: false }));
 
