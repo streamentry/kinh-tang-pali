@@ -1,0 +1,56 @@
+name: DN MN review evidence bundle
+on:
+  push:
+    branches: [review/dn-mn-20260912]
+    paths: [.github/workflows/dn-mn-review-bundle.yml]
+permissions:
+  contents: read
+jobs:
+  bundle:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - name: Sync pinned canonical source
+        run: |
+          npm run source:sync:used
+          npm run source:sync -- --collection dn
+          npm run source:sync:mn
+      - name: Collect pinned comparison layers
+        shell: bash
+        run: |
+          set -euo pipefail
+          COMMIT=$(node -p "JSON.parse(require('fs').readFileSync('source/suttacentral.lock.json','utf8')).commit")
+          git init /tmp/bilara-review
+          git -C /tmp/bilara-review remote add origin https://github.com/suttacentral/bilara-data.git
+          git -C /tmp/bilara-review config core.sparseCheckout true
+          printf '%s\n' '/root/pli/ms/sutta/dn/' '/root/pli/ms/sutta/mn/' '/translation/en/sujato/sutta/dn/' '/translation/en/sujato/sutta/mn/' '/translation/vi/phantuananh/sutta/dn/' '/translation/vi/phantuananh/sutta/mn/' '/_author/' '/LICENSE*' > /tmp/bilara-review/.git/info/sparse-checkout
+          git -C /tmp/bilara-review fetch --filter=blob:none --depth=1 origin "$COMMIT"
+          git -C /tmp/bilara-review checkout --detach FETCH_HEAD
+          mkdir -p .review-source
+          cp -a /tmp/bilara-review/root /tmp/bilara-review/translation .review-source/
+          printf '%s\n' "$COMMIT" > .review-source/UPSTREAM_COMMIT
+      - name: Baseline technical checks
+        id: checks
+        continue-on-error: true
+        run: |
+          npm run validate
+          npm test
+          npm run check
+          npm run build
+      - name: Package review workspace without Git credentials
+        if: always()
+        run: tar -czf /tmp/dn-mn-review.tar.gz --exclude='./.git' --exclude='./dist' .
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: dn-mn-review-workspace
+          path: /tmp/dn-mn-review.tar.gz
+          retention-days: 3
