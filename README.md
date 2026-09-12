@@ -145,3 +145,7 @@ Production sách chỉ lấy `published`.
 ## License
 
 Code: MIT. Bản dịch mới của project: CC0-1.0 theo định hướng interoperability với SuttaCentral. Third-party material giữ license riêng.
+
+## Kiểm định chất lượng DN/MN
+
+[Xem kết quả review 12/09/2026](docs/reviews/2026-09-12-dn-mn/README.md): phạm vi đã đối chiếu toàn bài, các sửa lỗi có nguồn và danh sách còn cần review. Kiểm kê kỹ thuật không đồng nghĩa với chứng nhận chất lượng dịch.
