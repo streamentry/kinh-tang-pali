@@ -38,12 +38,29 @@ function loadSegmentMap(file: string): Record<string, string> {
   return readJson<Record<string, string>>(file);
 }
 
+export function segmentPrefixesForUid(uid: string): string[] {
+  const range = uid.match(/^([a-z]+)(\d+)-(\d+)$/);
+  if (range) {
+    const [, base, startText, endText] = range;
+    const start = Number(startText);
+    const end = Number(endText);
+    if (Number.isFinite(start) && Number.isFinite(end) && end >= start && end - start <= 2000) {
+      const prefixes: string[] = [];
+      for (let n = start; n <= end; n += 1) prefixes.push(`${base}${n}`);
+      return prefixes;
+    }
+  }
+  return [uid];
+}
+
 export function segmentMapForUid(
   segments: Record<string, string>,
   uid: string,
 ): Record<string, string> {
-  const prefix = `${uid}:`;
-  return Object.fromEntries(Object.entries(segments).filter(([id]) => id.startsWith(prefix)));
+  const prefixes = segmentPrefixesForUid(uid).map((prefix) => `${prefix}:`);
+  return Object.fromEntries(
+    Object.entries(segments).filter(([id]) => prefixes.some((prefix) => id.startsWith(prefix))),
+  );
 }
 
 export function sourcePathFor(collection: CollectionCode, uid: string, explicit?: string): string | null {
@@ -98,7 +115,8 @@ export function composeDocument(collection: CollectionCode, uid: string): CanonD
     commentVi: comments[id],
   }));
 
-  const paliTitle = pali[`${uid}:0.2`]?.trim();
+  const [firstPrefix] = segmentPrefixesForUid(uid);
+  const paliTitle = pali[`${firstPrefix}:0.2`]?.trim();
   const viTitle = meta?.translationTitle || `${uid.toUpperCase()}`;
   const hasProjectData = meta !== null || Object.keys(translation).length > 0;
 
