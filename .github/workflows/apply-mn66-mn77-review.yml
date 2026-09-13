@@ -1,0 +1,107 @@
+name: Apply and validate MN66 MN77 review
+on:
+  push:
+    branches: [review/mn66-mn77-2026-09-13]
+    paths: ['.review-packages/mn66-mn77.*.part']
+permissions:
+  contents: write
+concurrency:
+  group: apply-mn66-mn77-review
+  cancel-in-progress: false
+jobs:
+  apply:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: ${{ github.sha }}
+      - uses: actions/setup-node@v5
+        with:
+          node-version-file: .nvmrc
+      - name: Verify immutable package and apply only the twelve reviewed files
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import hashlib, json, lzma
+          from pathlib import Path
+          parts = [Path(f'.review-packages/mn66-mn77.{i:02}.part') for i in range(4)]
+          packed = b''.join(p.read_bytes() for p in parts)
+          assert hashlib.sha256(packed).hexdigest() == 'a145cae51cfa37105f33f34d6298dd2d82564185c3c13554d4aca516c509d078', 'Package hash mismatch'
+          pkg = json.loads(lzma.decompress(packed))
+          assert pkg['version'] == 1
+          assert pkg['base_commit'] == '5b8aae826adc86b658f9f8d6a91146f8e494baa5'
+          lock = json.loads(Path('source/suttacentral.lock.json').read_text())
+          assert lock['commit'] == pkg['source_commit'] == '11c9d708978cde8ba61096d8a75f7ddfb846f639'
+          allowed = set()
+          for uid in ('mn66', 'mn77'):
+              for layer in ('translation', 'comment'):
+                  allowed.add(f'content/{layer}/vi/project/sutta/mn/{uid}_{layer}-vi-project.json')
+              allowed.add(f'content/meta/sutta/mn/{uid}.yaml')
+          allowed.add('tests/unit/mn66-mn77-review.test.ts')
+          for name in ('README.md', 'changed-segments.json', 'manifest.json', 'mn66.md', 'mn77.md'):
+              allowed.add('docs/reviews/2026-09-13-mn66-mn77/' + name)
+          assert len(pkg['files']) == len(allowed) == 12
+          assert {f['path'] for f in pkg['files']} == allowed
+          def blob(data):
+              return hashlib.sha1(b'blob ' + str(len(data)).encode() + b'\0' + data).hexdigest()
+          for f in pkg['files']:
+              p = Path(f['path'])
+              assert not p.is_symlink()
+              if f['before_blob'] is None:
+                  assert not p.exists(), 'Unexpected existing file: ' + str(p)
+              else:
+                  assert blob(p.read_bytes()) == f['before_blob'], 'Concurrent content change: ' + str(p)
+              assert hashlib.sha256(f['content'].encode()).hexdigest() == f['sha256'], str(p)
+          for f in pkg['files']:
+              p = Path(f['path'])
+              p.parent.mkdir(parents=True, exist_ok=True)
+              p.write_text(f['content'], encoding='utf-8')
+          Path('/tmp/mn-review-paths.json').write_text(json.dumps(sorted(allowed)))
+          print('Verified source pin, six original Git blobs, and twelve output hashes.')
+          PY
+      - name: Install dependencies
+        run: npm install --no-audit --no-fund
+      - name: Validate, test, check and build the actual branch
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p /tmp/mn-review-logs
+          npm run source:sync:used 2>&1 | tee /tmp/mn-review-logs/source-sync.log
+          npm run validate 2>&1 | tee /tmp/mn-review-logs/validate.log
+          npm test 2>&1 | tee /tmp/mn-review-logs/test.log
+          npm run check 2>&1 | tee /tmp/mn-review-logs/check.log
+          npm run build 2>&1 | tee /tmp/mn-review-logs/build.log
+          git diff --check
+      - name: Commit exactly the validated review without overwriting concurrent work
+        shell: bash
+        env:
+          EXPECTED_HEAD: ${{ github.sha }}
+        run: |
+          set -euo pipefail
+          BRANCH='review/mn66-mn77-2026-09-13'
+          CURRENT=$(git ls-remote origin "refs/heads/$BRANCH" | cut -f1)
+          test "$CURRENT" = "$EXPECTED_HEAD"
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          python3 - <<'PY'
+          import json, subprocess
+          from pathlib import Path
+          paths = json.loads(Path('/tmp/mn-review-paths.json').read_text())
+          parts = [f'.review-packages/mn66-mn77.{i:02}.part' for i in range(4)]
+          for part in parts:
+              Path(part).unlink()
+          subprocess.run(['git', 'add', '--', *paths, *parts], check=True)
+          PY
+          git diff --cached --check
+          git commit -m 'review: verify and improve all 592 segments of MN66 and MN77'
+          git push origin "HEAD:refs/heads/$BRANCH"
+      - name: Retain validation evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: mn66-mn77-validation-${{ github.sha }}
+          path: /tmp/mn-review-logs/
+          if-no-files-found: ignore
