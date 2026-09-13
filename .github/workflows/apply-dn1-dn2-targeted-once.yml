@@ -1,0 +1,116 @@
+name: Apply and validate scoped DN1 DN2 repairs
+on:
+  push:
+    branches: [review/dn1-dn2-targeted-20260913]
+    paths: [.github/workflows/apply-dn1-dn2-targeted-once.yml]
+permissions:
+  contents: write
+concurrency:
+  group: apply-dn1-dn2-targeted-20260913
+  cancel-in-progress: false
+jobs:
+  apply:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+          cache: npm
+      - name: Verify six immutable sources and apply four allowlisted JSON files
+        shell: bash
+        run: |
+          set -euo pipefail
+          node --input-type=module <<'NODE'
+          import assert from 'node:assert/strict';
+          import { readFileSync, writeFileSync } from 'node:fs';
+          import { createHash } from 'node:crypto';
+          const manifest = JSON.parse(readFileSync('docs/reviews/2026-09-13-dn1-dn2-targeted/changes.json', 'utf8'));
+          const hash = b => createHash('sha1').update(Buffer.from(`blob ${b.length}\0`)).update(b).digest('hex');
+          assert.equal(manifest.scope, 'targeted-corrections-only');
+          assert.equal(manifest.full_semantic_review_completed, false);
+          assert.equal(manifest.new_quality_scores_assigned, false);
+          const pin = '11c9d708978cde8ba61096d8a75f7ddfb846f639';
+          assert.equal(manifest.source_pin, pin);
+          assert.equal(JSON.parse(readFileSync('source/suttacentral.lock.json', 'utf8')).commit, pin);
+          const paths = new Set(['content/translation/vi/project/sutta/dn/dn1_translation-vi-project.json', 'content/translation/vi/project/sutta/dn/dn2_translation-vi-project.json', 'content/comment/vi/project/sutta/dn/dn1_comment-vi-project.json', 'content/comment/vi/project/sutta/dn/dn2_comment-vi-project.json']);
+          assert.deepEqual(new Set(manifest.files.map(f => f.path)), paths);
+          assert.equal(manifest.files.length, 4);
+          assert.equal(manifest.sources.length, 6);
+          const roots = {};
+          for (const source of manifest.sources) {
+            assert.ok(['suttacentral/bilara-data', 'buddhanussati/loicuaducphat'].includes(source.repository));
+            assert.ok(/^[0-9a-f]{40}$/.test(source.commit));
+            assert.ok(/^[a-z0-9/_.-]+$/.test(source.path));
+            const url = `https://raw.githubusercontent.com/${source.repository}/${source.commit}/${source.path}`;
+            const response = await fetch(url, { signal: AbortSignal.timeout(30000) });
+            assert.ok(response.ok, `${response.status}: ${url}`);
+            const bytes = Buffer.from(await response.arrayBuffer());
+            assert.equal(hash(bytes), source.blob, `source hash mismatch: ${source.path}`);
+            if (source.kind === 'pali') roots[source.uid] = JSON.parse(bytes.toString('utf8'));
+            console.log(`Verified ${source.kind}: ${source.uid} ${source.blob}`);
+          }
+          const staged = [];
+          const counts = { dn1: 0, dn2: 0 };
+          for (const file of manifest.files) {
+            const bytes = readFileSync(file.path);
+            assert.equal(hash(bytes), file.base_blob, `concurrent edit detected: ${file.path}`);
+            const before = JSON.parse(bytes.toString('utf8'));
+            const after = { ...before };
+            const uid = file.path.includes('/dn1_') ? 'dn1' : 'dn2';
+            const translation = file.path.includes('/translation/');
+            for (const id of file.remove) {
+              assert.equal(translation, false);
+              assert.ok(Object.hasOwn(after, id));
+              delete after[id];
+            }
+            for (const [id, value] of Object.entries(file.replace)) {
+              assert.ok(Object.hasOwn(roots[uid], id), `unknown source ID: ${id}`);
+              assert.equal(typeof value, 'string');
+              assert.equal(value, value.normalize('NFC'));
+              if (translation) {
+                assert.ok(Object.hasOwn(before, id));
+                assert.notEqual(before[id], value);
+                counts[uid]++;
+              }
+              after[id] = value;
+            }
+            if (translation) {
+              assert.deepEqual(Object.keys(after), Object.keys(before));
+              assert.deepEqual(Object.keys(after), Object.keys(roots[uid]));
+            }
+            staged.push([file.path, JSON.stringify(after, null, 2) + '\n']);
+          }
+          assert.deepEqual(counts, { dn1: 5, dn2: 12 });
+          for (const [path, content] of staged) writeFileSync(path, content);
+          console.log('Applied targeted translation changes:', counts);
+          NODE
+      - name: Install dependencies
+        run: npm ci
+      - name: Validate, test, check and build the actual changes
+        shell: bash
+        run: |
+          set -euo pipefail
+          npm run source:sync:used
+          npm run validate
+          npm test
+          npm run check
+          npm run build
+          git diff --check
+      - name: Commit only validated canonical edits to the review branch
+        shell: bash
+        run: |
+          set -euo pipefail
+          node --input-type=module <<'NODE'
+          import assert from 'node:assert/strict';
+          import { execFileSync } from 'node:child_process';
+          const allowed = new Set(['content/translation/vi/project/sutta/dn/dn1_translation-vi-project.json', 'content/translation/vi/project/sutta/dn/dn2_translation-vi-project.json', 'content/comment/vi/project/sutta/dn/dn1_comment-vi-project.json', 'content/comment/vi/project/sutta/dn/dn2_comment-vi-project.json']);
+          const changed = execFileSync('git', ['diff', '--name-only'], {encoding: 'utf8'}).trim().split('\n');
+          assert.deepEqual(new Set(changed), allowed, 'Unexpected tracked changes; refusing commit');
+          NODE
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add content/translation/vi/project/sutta/dn/dn1_translation-vi-project.json content/translation/vi/project/sutta/dn/dn2_translation-vi-project.json content/comment/vi/project/sutta/dn/dn1_comment-vi-project.json content/comment/vi/project/sutta/dn/dn2_comment-vi-project.json
+          git commit -m 'fix(dn): apply 17 verified DN1/DN2 segment repairs and source notes'
+          git push origin HEAD:refs/heads/review/dn1-dn2-targeted-20260913
