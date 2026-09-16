@@ -4,6 +4,8 @@ Nền tảng bản dịch Pāli → Việt theo **segment ID của SuttaCentral/
 
 🌐 **Đọc trực tuyến:** [https://streamentry.github.io/kinh-tang-pali/](https://streamentry.github.io/kinh-tang-pali/)
 
+📚 **Dự án liên quan:** [Hướng Đến Nhập Lưu](https://streamentry.github.io/streamentry/)
+
 ✍️ **Dự án & biên tập bản dịch:** Lê Việt Hồng (Cư Sĩ Chánh Niệm)  
 🤖 **Hỗ trợ AI:** ChatGPT của OpenAI được sử dụng đáng kể trong quá trình tạo bản dịch đề xuất, đối chiếu nguồn, kiểm tra tính nhất quán và QA.  
 📮 **Liên hệ / góp ý / hỗ trợ:** [tostreamentry@gmail.com](mailto:tostreamentry@gmail.com)
