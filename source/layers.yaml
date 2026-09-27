@@ -1,0 +1,111 @@
+# Translation store — the four layers every text is read through
+#
+# One registry for every layer a translator needs side by side, so provenance is
+# declared once instead of being re-asserted in scripts and docs. The pinned
+# upstream snapshot lives in `source/suttacentral.lock.json`; this file describes
+# how the project consumes it and what the project produces itself.
+#
+# `kind`:
+#   root      — the authority. Nothing outranks it.
+#   reference — read for triangulation. Never an authority.
+#   project   — produced by this repository, subject to the publication gate.
+#
+# `authority: true` is permitted only on a `root` layer. A test enforces this.
+
+schemaVersion: 1
+
+layers:
+  - id: pali
+    title: "Pāli (Mahāsaṅgīti, pli/ms)"
+    kind: root
+    language: pi-Latn
+    authority: true
+    location:
+      type: upstream
+      rootEdition: root/pli/ms
+    role: "Authority cuối cùng cho mọi quyết định nghĩa."
+    note: "Pinned bilara commit. Every segment ID in the store is a key in this layer."
+
+  - id: english-sujato
+    title: "English (Bhikkhu Sujato, SuttaCentral)"
+    kind: reference
+    language: en
+    authority: false
+    location:
+      type: upstream
+      path: translation/en/sujato
+      suffix: _translation-en-sujato.json
+    role: "Tham khảo cú pháp, compound, thuật ngữ và sắc thái."
+    note: >-
+      Có key đúng cho mọi segment nhưng để trống nhiều chỗ: Sujato không dịch blockquote
+      và đoạn lược `…pe…`. Chỗ trống KHÔNG phải sự đồng thuận về cách dịch.
+    countsTowardCoverage: true
+
+  - id: english-project
+    title: "English (bản dịch mới của dự án)"
+    kind: project
+    language: en
+    authority: false
+    location:
+      type: content
+      dir: content/translation/en/project/sutta
+      suffix: _translation-en-project.json
+      metaDir: content/meta/en
+    role: "Lấp chỗ Sujato chưa dịch, để người dịch không bị mất tầng tham khảo."
+    note: >-
+      Chỉ được điền cho segment mà tầng english-sujato để trống; không bao giờ ghi đè
+      Sujato. Là một bản dịch độc lập, có trạng thái và quality scorecard riêng, và KHÔNG
+      được coi là nguồn của SuttaCentral.
+    countsTowardCoverage: true
+    countsOnlyWhenStatus: published
+
+  - id: vietnamese-current
+    title: "Tiếng Việt hiện hành (Hòa thượng Thích Minh Châu)"
+    kind: reference
+    language: vi
+    authority: false
+    location:
+      type: upstream
+      path: translation/vi/phantuananh
+      suffix: _translation-vi-phantuananh.json
+    role: "Đối chiếu thuật ngữ và cách diễn đạt truyền thống Việt Nam."
+    note: >-
+      Tại commit đang pin, corpus này chỉ có Pháp Cú (26 file dưới kn/dhp). Phần còn lại
+      của Kinh tạng bản Hòa thượng Thích Minh Châu không được phân phối qua bilara-data,
+      nên thiếu ở đây là đặc điểm của snapshot upstream, không phải thiếu sót của repo.
+    countsTowardCoverage: false
+
+  - id: vietnamese-project
+    title: "Tiếng Việt bản dịch mới (dự án)"
+    kind: project
+    language: vi
+    authority: false
+    location:
+      type: content
+      dir: content/translation/vi/project/sutta
+      suffix: _translation-vi-project.json
+      metaDir: content/meta/sutta
+    role: "Bản dịch canonical mà dự án sản xuất."
+    note: "Đây là deliverable của dự án, không phải tầng tham khảo."
+
+# The reading order a translator follows, top to bottom.
+readingOrder:
+  - pali
+  - english-sujato
+  - english-project
+  - vietnamese-current
+  - vietnamese-project
+
+# Coverage floor: share of substantive Pāli segments that must carry English words
+# before a Vietnamese text may reach review or published.
+englishCoverage:
+  substantivePaliMinChars: 40
+  excludeReferenceBlock: true
+  floor: 0.8
+  creditLayers:
+    - english-sujato
+    - english-project
+  note: >-
+    Đo trên Pāli có nội dung, không phải mọi segment: Sujato bỏ trống hàng nghìn dấu
+    `Paṭhamaṁ.`/`Dutiyaṁ.` và các block `:0` là tiêu đề, tính vào sẽ che mất các bài thật
+    sự mất tầng tham khảo.

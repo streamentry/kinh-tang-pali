@@ -20,6 +20,10 @@ jobs:
         run: npm install --no-audit --no-fund
       - name: Unit tests
         run: npm test
+      - name: Reference gap record is current
+        run: npm run reference:gaps:check
+      - name: Translation store audit
+        run: npm run audit:store
       - name: Astro type check
         run: npm run check
       - name: Production build + Pagefind
