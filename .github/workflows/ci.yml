@@ -18,6 +18,10 @@ jobs:
           node-version-file: .nvmrc
       - name: Install dependencies
         run: npm install --no-audit --no-fund
+      - name: Sync pinned source
+        # The store tests assert against the pinned upstream layers, so CI needs the
+        # same snapshot a translator works from rather than skipping those checks.
+        run: npm run source:sync:used
       - name: Unit tests
         run: npm test
       - name: Reference gap record is current

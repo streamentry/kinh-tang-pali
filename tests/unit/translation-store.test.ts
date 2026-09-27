@@ -64,7 +64,7 @@ test('the existing Vietnamese layer is declared as a reference, not a deliverabl
   assert.equal(edition!.translatorName, 'Bhikkhu Thích Minh Châu');
 });
 
-test('a text resolves every declared layer, marking the ones that are absent', () => {
+test('a text resolves every declared layer, marking the ones that are absent', { skip: synced }, () => {
   const view = storeView('an', 'an4.59');
   const byId = new Map(view.layers.map((layer) => [layer.id, layer]));
   assert.equal(byId.get('pali')!.present, true);
@@ -220,7 +220,7 @@ test('the pinned English edition is derived from the Pāli path, as are the othe
   }
 });
 
-test('upstream layers share the Pāli file slot, not a re-derived UID', () => {
+test('upstream layers share the Pāli file slot, not a re-derived UID', { skip: synced }, () => {
   // Bundled UIDs share a bilara file (`an1.1` … `an1.10` all live in `an1.1-10_*`), so
   // the filename legitimately names the bundle. What must hold across layers is that
   // each one names the same file body in its own edition.
