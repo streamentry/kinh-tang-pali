@@ -160,7 +160,57 @@ if (!Number.isInteger(concurrency) || concurrency < 1 || concurrency > 32) {
   console.error('--concurrency must be an integer between 1 and 32.');
   process.exit(2);
 }
+const syncManifest = process.argv.includes('--manifest');
 let targets: Array<{ collection: CollectionCode; uid: string; sourcePath?: string }> = [];
+
+if (syncManifest) {
+  const manifestPath = path.join(ROOT, 'source/upstream-manifest.json');
+  if (!existsSync(manifestPath)) {
+    console.error('source/upstream-manifest.json is missing. Run: npm run manifest:fetch');
+    process.exit(2);
+  }
+  const manifest = JSON.parse(readFileSync(manifestPath, 'utf8')) as {
+    commit: string;
+    editions: Array<{ layerId: string; path: string; files: Record<string, string> }>;
+  };
+  if (manifest.commit !== commit) {
+    console.error(`source/upstream-manifest.json is pinned to ${manifest.commit}, lock says ${commit}.`);
+    process.exit(2);
+  }
+  console.log(`Syncing every file of every pinned edition at ${commit.slice(0, 12)}...`);
+  let total = 0;
+  let fetched = 0;
+  const failures: string[] = [];
+  for (const edition of manifest.editions) {
+    const names = Object.keys(edition.files);
+    let editionFetched = 0;
+    const outcomes = await pool(names, concurrency, async (name) => {
+      try {
+        return { ok: true as const, downloaded: await syncOne(`${edition.path}/${name}`, args.force) };
+      } catch (error) {
+        if (error instanceof NotCoveredError) return { ok: true as const, downloaded: false };
+        return { ok: false as const, error: String(error) };
+      }
+    });
+    for (const outcome of outcomes) {
+      if (outcome.ok) {
+        if (outcome.downloaded) editionFetched += 1;
+      } else {
+        failures.push(outcome.error);
+      }
+    }
+    total += names.length;
+    fetched += editionFetched;
+    console.log(`  ${edition.layerId.padEnd(19)} ${String(names.length).padStart(5)} file(s), ${editionFetched} downloaded`);
+  }
+  if (failures.length > 0) {
+    for (const message of failures.slice(0, 20)) console.error(`FAILED: ${message}`);
+    console.error(`Manifest sync failed for ${failures.length} path(s).`);
+    process.exit(1);
+  }
+  console.log(`Manifest source ready: ${total} path(s) across ${manifest.editions.length} edition(s), ${fetched} downloaded.`);
+  process.exit(0);
+}
 
 if (args.collection) {
   const catalog = loadCatalog(args.collection);
@@ -173,7 +223,7 @@ if (args.collection) {
     targets.push(...catalog.texts.map((entry) => ({ collection, uid: entry.uid, sourcePath: entry.sourcePath })));
   }
 } else {
-  console.error('Choose --used, --all, or --collection <dn|mn|sn|an|kn>.');
+  console.error('Choose --used, --all, --manifest, or --collection <dn|mn|sn|an|kn>.');
   process.exit(2);
 }
 

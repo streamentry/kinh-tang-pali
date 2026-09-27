@@ -22,8 +22,20 @@ jobs:
         # The store tests assert against the pinned upstream layers, so CI needs the
         # same snapshot a translator works from rather than skipping those checks.
         run: npm run source:sync:used
+      - name: Pinned snapshot manifest is current
+        # Fails if the lock moved without the manifest being re-fetched, which would
+        # otherwise let the content checks verify against a stale file list.
+        run: npm run manifest:check
+      - name: Catalogues cover the pinned snapshot
+        run: npm run catalog:check
       - name: Unit tests
         run: npm test
+      - name: Verify the store by counting
+        # Reconciles local files against the pinned git tree by content hash, counts
+        # and reconciles every segment, and records the English shortfall by cause.
+        # `--allow-partial-cache` because the sync above is deliberately scoped to the
+        # texts the project works on; every integrity check still has to pass.
+        run: npm run verify:store:partial
       - name: Reference gap record is current
         run: npm run reference:gaps:check
       - name: Translation store audit

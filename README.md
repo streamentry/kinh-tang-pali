@@ -40,6 +40,23 @@ node --import tsx scripts/audit-reference.ts --all  # toàn bộ 3422 bài trong
 
 Chi tiết: [`docs/translation-store.md`](docs/translation-store.md).
 
+### Kiểm chứng bằng code, không bằng mắt
+
+Mọi khẳng định về corpus đều được **đếm và đối soát bằng code**, không suy ra từ việc file
+"có tồn tại":
+
+```bash
+npm run source:sync:manifest   # tải đúng danh sách file của commit đã pin
+npm run verify:store           # đối soát + đếm, exit 1 nếu lệch
+npm run catalog:check          # catalog phải phủ hết snapshot đã pin
+```
+
+Nguồn sự thật là [`source/upstream-manifest.json`](source/upstream-manifest.json): git tree của
+commit bilara đã pin, kèm **git object hash của từng file**. Nên `verify:store` không hỏi
+"file có không" mà hỏi "có, và có đúng byte như bản pin không".
+
+Báo cáo đầy đủ: [`docs/store-verification.json`](docs/store-verification.json).
+
 Sujato để **trống** các blockquote và đoạn lược `…pe…`, nối câu qua chỗ trống, nên một số bài mất gần hết tầng tham khảo. Vì vậy repo đo **coverage** trên phần Pāli có nội dung, và một bài chỉ được đạt `review`/`published` khi coverage ≥ 80% **hoặc** khi mất mát đã được ghi nhận trong [`content/meta/reference-gaps.yaml`](content/meta/reference-gaps.yaml):
 
 ```bash
@@ -119,12 +136,21 @@ npm run validate
 npm test
 ```
 
-Sync nguồn đã pin vào cache local (Pāli root **và** tầng English tham khảo):
+Sync nguồn đã pin vào cache local (Pāli root **và** các tầng tham khảo):
 
 ```bash
-npm run source:sync:used   # các bài đã có bản dịch trong dự án (dev/build tự chạy)
-npm run source:sync:all    # toàn bộ 5 Nikāya trong catalog
-npm run source:sync:mn     # riêng Trung Bộ
+npm run source:sync:used      # các bài đã có bản dịch trong dự án (dev/build tự chạy)
+npm run source:sync:all       # mọi bài trong 5 catalog
+npm run source:sync:manifest  # mọi file của mọi edition trong commit đã pin (10.081 file)
+```
+
+Làm mới manifest khi bổ sung edition hoặc đổi commit pin:
+
+```bash
+npm run manifest:fetch        # ghi source/upstream-manifest.json
+npm run manifest:check        # CI: manifest đã cũ thì fail
+npm run catalog:import        # nhập snapshot chuẩn vào catalog (idempotent)
+npm run catalog:check         # CI: catalog phải phủ 100% snapshot
 ```
 
 Kiểm tra tầng English:
@@ -138,9 +164,7 @@ npm run reference:gaps:check
 
 ```bash
 npm run store -- mn118
-```
-
-## Data model
+```## Data model
 
 ```text
 Pāli pinned upstream ─┐
@@ -171,11 +195,13 @@ Không copy Pāli vào file dịch. Mọi alignment dùng segment ID.
 - `content/meta/reference-gaps.yaml`: các bài đã ghi nhận mất tầng English tham khảo.
 - `source/layers.yaml`: registry của store nhiều tầng.
 - `source/suttacentral.lock.json`: exact upstream commit + các tầng tham khảo đã pin.
+- `source/upstream-manifest.json`: danh sách file + git hash của từng edition tại commit đã pin.
 - `src/lib/canon/`: lớp domain compose dữ liệu.
 - `src/pages/sutta/`: reader tĩnh.
 - `books/` + `pandoc/`: publication manifests và defaults.
 - `docs/architecture.md`: kiến trúc đã chốt.
 - `docs/translation-store.md`: store nhiều tầng, số đo coverage, hàng đợi lấp English.
+- `docs/store-verification.json`: số đếm và đối soát của commit đang pin.
 - `docs/english-reference-audit-2026-09-27.md`: kết quả kiểm kê tầng English SuttaCentral.
 
 ## Editorial states

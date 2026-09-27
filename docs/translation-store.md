@@ -5,10 +5,38 @@ Mọi bài kinh trong dự án được đọc qua **một store nhiều tầng*
 cảnh và biết chính xác nguồn gốc của từng câu, thay vì phải tự đi tìm.
 
 ```bash
-npm run source:sync:all     # tải mọi tầng upstream đã pin
-npm run store -- an4.59     # đọc một bài qua toàn bộ store
-npm run audit:store         # kiểm kê store theo từng tầng
+npm run source:sync:manifest  # tải đúng danh sách file của commit đã pin
+npm run verify:store          # đối soát + đếm, exit 1 nếu lệch
+npm run store -- an4.59      # đọc một bài qua toàn bộ store
+npm run audit:store          # kiểm kê store theo từng tầng
 ```
+
+## Kiểm chứng bằng đếm, không bằng boolean
+
+Bài học từ vòng trước: mọi kiểm tra cũ đều hỏi "file có tồn tại?" và đều **duyệt qua
+catalog của chính dự án**. Nên khi catalog chỉ liệt kê 3.049 trong 5.764 file Pāli của
+snapshot, tất cả đều báo xanh: 2.715 bài kinh đơn giản là không có trong repo, và không
+kiểm tra nào nhìn thấy, vì cái mà cần kiểm tra chính là catalog.
+
+Nên nay:
+
+1. **Sự thật đến từ ngoài repo.** `source/upstream-manifest.json` là git tree của commit
+   đã pin, kèm **git object hash từng file**. `verify:store` đối chiếu file local với
+   hash đó: file có mặt mà sai byte cũng là lỗi.
+2. **Mọi thứ đều đếm.** Không có cờ "looks fine". Mọi khẳng định in ra số, và lệch thì
+   exit 1.
+3. **Đối soát hai chiều.** Không chỉ "còn thiếu gì" mà cả "có thừa gì": file trên đĩa mà
+   upstream không có, segment thừa so với Pāli, record gap đã lỗi thời.
+4. **Bằng chứng lưu lại.** `docs/store-verification.json` là bản ghi số đo của commit đang
+   pin, nên lần chạy sau đối chiếu được; `--check` fail nếu số đã dịch chuyển.
+
+`verify:store` phân biệt rõ hai loại lệch:
+
+- **failure** — cache không phải bản pin, segment thừa so với Pāli, edition đã pin thiếu
+  segment, bản lấp English che bản đã pin, gap dưới ngưỡng mà chưa ghi nhận, authority bị
+  đảo. Phải bằng 0.
+- **advisory** — giới hạn của bản chụp upstream: edition không phủ hết bài, catalog chưa
+  nhập hết. Được đếm và in ra, không bị giấu, nhưng không phải lỗi.
 
 ## Năm tầng, theo thứ tự đọc
 
@@ -96,22 +124,72 @@ Sinh bằng `npm run reference:gaps`, kiểm tra độ cũ bằng `npm run refer
 (chạy trong CI). Test khoá **cả hai chiều**: không được có bài dưới ngưỡng mà thiếu record,
 và không được có record cho bài đã lên ngưỡng.
 
-## Trạng thái tại 2026-09-27
+## Trạng thái tại 2026-09-28
 
-| tầng | bài có dữ liệu | segment | có prose |
-| --- | --- | --- | --- |
-| `pali` | 1589/1589 | 82.995 | 82.993 |
-| `english-sujato` | 1589/1589 | 82.995 | 73.033 |
-| `english-project` | 3 | 5 | 5 |
-| `vietnamese-current` | 26 | 2.234 | 2.185 |
-| `vietnamese-project` | 1589/1589 | 82.995 | 82.995 |
+Toàn bộ corpus, đối chiếu với git tree của commit `11c9d708978c`:
 
-- English coverage: 1.234/1.589 bài không còn Pāli có nội dung nào chưa có English.
-- Bản lấp của dự án: 3 bài, 5 segment — hạt giống chứng minh pipeline chạy đúng.
-- `vietnamese-current` chỉ phủ 26 bài: tại commit đang pin, corpus Thích Minh Châu trong
-  bilara-data **chỉ có Pháp Cú**. 1.563 bài còn lại không có bản Việt hiện hành trong
-  snapshot upstream. Đây là đặc điểm của snapshot, không phải thiếu sót của repo, và
-  `sync-source` báo `not covered upstream` chứ không coi là lỗi.
+| tầng | file trong manifest | có trên đĩa, hash khớp | catalog dùng | không phủ |
+| --- | --- | --- | --- | --- |
+| `pali` | 5.764 | **5.764** | 5.764 | 0 |
+| `english-sujato` | 4.291 | **4.291** | 4.168 | 1.596 (xem dưới) |
+| `vietnamese-current` | 26 | **26** | 26 | 5.738 (xem dưới) |
+
+Catalog: **6.137 text**, phủ **100%** file Pāli của snapshot (5.764 file; một file có thể
+chứa nhiều UID). Tổng segment Pāli: **284.574**.
+
+| | số |
+| --- | --- |
+| text | 6.137 |
+| text có dữ liệu biên tập (`content/meta/sutta`) | 1.589 |
+| text Pāli không resolve được segment | 1 (`sn12.93-213`, defect upstream) |
+| text không có bản English nào ở upstream | 1.596 (toàn bộ là `kn`) |
+| segment English **có key nhưng rỗng** | 19.762 |
+| text dưới ngưỡng 80% | 1.394 (136 trong số đó có dữ liệu biên tập, đều đã ghi nhận) |
+
+### Vì sao 1.596 bài không có English
+
+Toàn bộ nằm ở `kn`, và là các bộ ngoài Niết bàng chính thống mà SuttaCentral không dịch:
+`tha-ap` (563), `mil` (248), `vv` (85), `pv` (51), `thi-ap` (40), `ne` (37), `ps` (31),
+`bv` (29), `cnd` (23), `mnd` (16), `pe` (9). Đây là giới hạn của bản chụp upstream, được
+đếm và in ra, không phải thiếu sót của repo. Với các bài này, tầng tham khảo tiếng Anh
+**không tồn tại** và người dịch phải dựa vào Pāli.
+
+### Vì sao `vietnamese-current` chỉ phủ 26 bài
+
+Tại commit đang pin, corpus Thích Minh Châu trong bilara-data **chỉ có Pháp Cú**. 5.738 bài
+còn lại không có bản Việt hiện hành trong snapshot. `sync-source` báo `not covered
+upstream` chứ không coi là lỗi, và `verify:store` xếp vào advisory.
+
+## Nhập snapshot chuẩn vào catalog
+
+Catalog trước đây mới liệt kê 3.049/5.764 file Pāli. Theo `docs/roadmap.md` phase 2 —
+*"Không phát minh catalog SN/AN/KN bằng arithmetic. Khi bắt đầu mỗi bộ, import canonical
+tree/UID/source paths từ pinned SuttaCentral snapshot"* — `scripts/import-canonical-catalogs.ts`
+làm đúng việc đó, lấy danh sách file từ manifest:
+
+```bash
+npm run catalog:import    # thêm 2.715 entry
+npm run catalog:check     # CI: catalog phải phủ 100% snapshot
+```
+
+| collection | trước | thêm | sau | file upstream | trong đó có English |
+| --- | --- | --- | --- | --- | --- |
+| `dn` | 34 | 0 | 34 | 34 | 34 |
+| `mn` | 152 | 0 | 152 | 152 | 152 |
+| `sn` | 1.819 | 0 | 1.819 | 1.819 | 1.819 |
+| `an` | 1.117 | 664 | 1.781 | 1.408 | 664 |
+| `kn` | 300 | 2.051 | 2.351 | 2.351 | 455 |
+| **tổng** | 3.422 | **2.715** | **6.137** | 5.764 | |
+
+**Quy tắc UID: một entry cho mỗi file bilara, UID = thành phần UID của chính tên file.**
+Điều này được *kiểm tra*, không giả định: SuttaCentral phục vụ
+`/api/bilarasuttas/an1.1-10`, `ud1.1`, `thag1.100`, `an6.100` (có thật), còn tên bịa ra như
+`an6.1-10` hay `thag1` trả về `Not Found` — tức là tên file upstream vốn đã là UID chuẩn.
+Cả hai kiểu gộp vẫn resolve được qua `segmentPrefixesForUid`.
+
+`order` chỉ là chỉ số: giá trị cũ không bao giờ được đánh lại, entry mới nối tiếp từ số
+lớn nhất hiện tại theo thứ tự phân bộ rồi UID. Không có gì đang đọc catalog hôm nay bị
+đổi với 3.049 text đã có.
 
 ## Hàng đợi lấp English
 
