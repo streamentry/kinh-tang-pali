@@ -28,7 +28,29 @@ const catalog = (collection: CollectionCode): CanonCatalog =>
   readJson<CanonCatalog>(`content/catalog/sutta/${collection}.json`);
 const synced = existsSync(upstreamFile('translation/en/sujato/sutta/mn/mn118_translation-en-sujato.json'))
   ? false
-  : 'run npm run source:sync:all';
+  : 'run npm run source:sync:used';
+
+/** A skip that names the exact file the test reads, rather than a proxy for it. */
+const needs = (...relativePaths: string[]) =>
+  relativePaths.every((p) => existsSync(upstreamFile(p)))
+    ? false
+    : `run npm run source:sync:all (needs ${relativePaths[0]})`;
+
+/** UIDs the project actually has editorial data for; `--used` guarantees these are synced. */
+function textsInScope(): Array<{ collection: CollectionCode; uid: string }> {
+  const scope: Array<{ collection: CollectionCode; uid: string }> = [];
+  for (const collection of COLLECTIONS.map((entry) => entry.code)) {
+    const dir = `content/meta/sutta/${collection}`;
+    if (!existsSync(dir)) continue;
+    const catalogFor = catalog(collection);
+    for (const name of readdirSync(dir)) {
+      if (!name.endsWith('.yaml')) continue;
+      const uid = name.slice(0, -5);
+      if (catalogFor.texts.some((text) => text.uid === uid)) scope.push({ collection, uid });
+    }
+  }
+  return scope;
+}
 
 test('the store registry is internally consistent', () => {
   assert.deepEqual(assertStoreIntegrity(), []);
@@ -240,7 +262,12 @@ test('upstream layers share the Pāli file slot, not a re-derived UID', { skip: 
   }
 });
 
-test('segment maps are read through the same UID filter in every layer', { skip: synced }, () => {
+test('segment maps are read through the same UID filter in every layer', {
+  skip: needs(
+    'root/pli/ms/sutta/sn/sn12/sn12.83-92_root-pli-ms.json',
+    'translation/en/sujato/sutta/sn/sn12/sn12.83-92_translation-en-sujato.json',
+  ),
+}, () => {
   // A bookmark bundle (`sn12.83-92`) is filed under individual sutta prefixes. If any
   // layer filtered differently, a translator would read English for one sutta against
   // Pāli for another. The invariant is that every present layer yields the same key

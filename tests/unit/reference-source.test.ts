@@ -132,42 +132,52 @@ test('the coverage floor is set from the audit, not chosen to be convenient', ()
   assert.equal(SUBSTANTIVE_PALI_MIN_CHARS, 40);
 });
 
-test('every catalog text resolves to a synced, segment-aligned English reference', { skip: !existsSync(upstreamFile('translation/en/sujato/sutta/mn/mn118_translation-en-sujato.json')) ? 'run npm run source:sync:all' : false }, () => {
+test('every in-scope text resolves to a synced, segment-aligned English reference', { skip: !existsSync(upstreamFile('translation/en/sujato/sutta/mn/mn118_translation-en-sujato.json')) ? 'run npm run source:sync:used' : false }, () => {
   const problems: string[] = [];
   const emptyInBothLayers: string[] = [];
+  let checked = 0;
   for (const collection of ['dn', 'mn', 'sn', 'an', 'kn'] as CollectionCode[]) {
-    for (const item of catalog(collection).texts) {
-      const english = loadEnglishReference(collection, item.uid);
+    const dir = `content/meta/sutta/${collection}`;
+    if (!existsSync(dir)) continue;
+    const catalogFor = catalog(collection);
+    for (const name of readdirSync(dir)) {
+      if (!name.endsWith('.yaml')) continue;
+      const uid = name.slice(0, -5);
+      const item = catalogFor.texts.find((text) => text.uid === uid);
+      if (!item) continue;
+      checked += 1;
+      const english = loadEnglishReference(collection, uid);
       if (!english?.present) {
-        problems.push(`${collection}/${item.uid}: English file not synced (${english?.sourcePath ?? 'unmapped'})`);
+        problems.push(`${collection}/${uid}: English file not synced (${english?.sourcePath ?? 'unmapped'})`);
         continue;
       }
-      const paliPath = sourcePathFor(collection, item.uid, item.sourcePath)!;
+      const paliPath = sourcePathFor(collection, uid, item.sourcePath)!;
       const paliFile = upstreamFile(paliPath);
       if (!existsSync(paliFile)) {
-        problems.push(`${collection}/${item.uid}: Pāli root not synced`);
+        problems.push(`${collection}/${uid}: Pāli root not synced`);
         continue;
       }
-      const pali = segmentMapForUid(readJson<Record<string, string>>(paliFile), item.uid);
-      const englishSegments = segmentMapForUid(readJson<Record<string, string>>(upstreamFile(english.sourcePath)), item.uid);
+      const pali = segmentMapForUid(readJson<Record<string, string>>(paliFile), uid);
+      const englishSegments = segmentMapForUid(readJson<Record<string, string>>(upstreamFile(english.sourcePath)), uid);
       if (Object.keys(pali).length === 0 && Object.keys(englishSegments).length === 0) {
-        emptyInBothLayers.push(`${collection}/${item.uid}`);
+        emptyInBothLayers.push(`${collection}/${uid}`);
         continue;
       }
       for (const id of Object.keys(pali)) {
-        if (!(id in englishSegments)) problems.push(`${collection}/${item.uid}: ${id} has no English segment`);
+        if (!(id in englishSegments)) problems.push(`${collection}/${uid}: ${id} has no English segment`);
       }
       for (const id of Object.keys(englishSegments)) {
-        if (!(id in pali)) problems.push(`${collection}/${item.uid}: ${id} is an orphan English segment`);
+        if (!(id in pali)) problems.push(`${collection}/${uid}: ${id} is an orphan English segment`);
       }
     }
   }
+  assert.ok(checked > 1000, `expected the in-scope corpus, checked only ${checked}`);
   assert.deepEqual(problems, []);
   // The one text with no resolvable segment in either layer is an upstream
   // bilara-data defect: `sn12.93-213_*` ships its 40 segments labelled with nested
   // sub-range UIDs (`sn12.93-103`, `sn12.104-114`, …). It is recorded rather than
   // silently remapped, and the test fails if upstream ever fixes it unnoticed.
-  assert.deepEqual(emptyInBothLayers, ['sn/sn12.93-213']);
+  assert.deepEqual(emptyInBothLayers, []);
 });
 
 test('coverage measures substantive Pāli, not raw segment count', { skip: !existsSync(upstreamFile('translation/en/sujato/sutta/an/an2/an2.1-10_translation-en-sujato.json')) ? 'run npm run source:sync:all' : false }, () => {
@@ -267,6 +277,44 @@ test('the pinned English edition leaves blockquotes and elisions without prose',
   assert.equal(english['an2.1:3.3'].trim(), '', 'Sujato leaves the blockquote empty');
   assert.ok(pali['an2.1:3.3'].length > 40, 'while the Pāli carries substantive text there');
   assert.ok(english['an2.1:3.4'].trim().length > 0, 'the sentence continues in the next segment');
+});
+
+test('a full catalog sync resolves every English reference, with the known upstream defect called out', {
+  // Deliberately not part of CI: CI syncs only the texts the project works on. This
+  // asserts the stronger whole-catalogue claim for whoever runs `source:sync:all`, so
+  // the claim is never made silently and never checked nowhere.
+  skip: !existsSync(upstreamFile('root/pli/ms/sutta/sn/sn12/sn12.93-213_root-pli-ms.json'))
+    ? 'run npm run source:sync:all'
+    : false,
+}, () => {
+  const problems: string[] = [];
+  const unresolved: string[] = [];
+  for (const collection of ['dn', 'mn', 'sn', 'an', 'kn'] as CollectionCode[]) {
+    for (const item of catalog(collection).texts) {
+      const english = loadEnglishReference(collection, item.uid);
+      if (!english?.present) {
+        problems.push(`${collection}/${item.uid}: English file not synced`);
+        continue;
+      }
+      const paliPath = sourcePathFor(collection, item.uid, item.sourcePath)!;
+      const pali = segmentMapForUid(readJson<Record<string, string>>(upstreamFile(paliPath)), item.uid);
+      const englishSegments = segmentMapForUid(readJson<Record<string, string>>(upstreamFile(english.sourcePath)), item.uid);
+      if (Object.keys(pali).length === 0) {
+        unresolved.push(`${collection}/${item.uid}`);
+        continue;
+      }
+      for (const id of Object.keys(pali)) {
+        if (!(id in englishSegments)) problems.push(`${collection}/${item.uid}: ${id} has no English segment`);
+      }
+      for (const id of Object.keys(englishSegments)) {
+        if (!(id in pali)) problems.push(`${collection}/${item.uid}: ${id} is an orphan English segment`);
+      }
+    }
+  }
+  assert.deepEqual(problems, []);
+  // `sn12.93-213` is the sole text bilara-data files under a UID its own segments do
+  // not carry, so the Pāli root resolves nothing for it. Recorded, not guessed.
+  assert.deepEqual(unresolved, ['sn/sn12.93-213']);
 });
 
 test('COLLECTIONS still declares every collection the catalogs cover', () => {
