@@ -214,6 +214,102 @@ Mỗi release phải ghi lại:
 
 Nếu một phần Vinaya/Abhidhamma hoặc nguồn khác không nằm trong cùng corpus/schema, viết **adapter** vào internal model; không phát minh quy ước ID mới để ép dữ liệu vào MN/SN model.
 
+### 3.1 Reference layers (không phải authority)
+
+Pāli root là authority duy nhất. Các bản dịch tham khảo là **tầng đối chiếu**, được pin cùng commit và được khai báo tường minh trong `source/suttacentral.lock.json`:
+
+```json
+"referenceEditions": [
+  { "role": "english", "language": "en", "translator": "sujato", "path": "translation/en/sujato", "authority": false },
+  { "role": "vietnamese-current", "language": "vi", "translator": "phantuananh", "path": "translation/vi/phantuananh", "authority": false }
+]
+```
+
+`authority: false` là bắt buộc và được test kiểm tra: skill yêu cầu English chỉ giúp thấy cách parse cú pháp, không bao giờ thay Pāli khi hai bên bất đồng (`skill/translation.md` 2, 3.2).
+
+Registry đầy đủ của store — gồm cả hai tầng do dự án tự sản xuất — nằm ở `source/layers.yaml`, và được `src/lib/canon/layers.ts` nạp. Xem `docs/translation-store.md`.
+
+**Quy tắc suy đường dẫn.** bilara-data đặt tên file theo *cùng* UID SuttaCentral cho mọi edition, nên đường dẫn English là phép biến đổi thuần của đường dẫn Pāli root — không suy lại từ UID, để không lệch ở các text gộp và layout lồng nhau:
+
+```text
+root/pli/ms/<suttaPath>_root-pli-ms.json
+  → translation/en/sujato/<suttaPath>_translation-en-sujato.json
+  → translation/vi/phantuananh/<suttaPath>_translation-vi-phantuananh.json
+```
+
+Cùng một `sourcePath` trong catalog vừa định nghĩa Pāli vừa định nghĩa mọi tầng upstream, nên không thể xảy ra chuyện gắn English của bài này vào Pāli của bài khác. `tests/unit/translation-store.test.ts` kiểm tra bất biến này trên **toàn bộ** 3422 catalog text.
+
+Hai kiểu UID gộp phải được loader hỗ trợ (`segmentPrefixesForUid`):
+
+- **merged bundle** (`an5.308-1152`, `sn56.126-128`): segment mang chính UID gộp, `an5.308-1152:1.0`;
+- **bookmark bundle** (`sn12.83-92`, `dhp1-20`): một file chứa nhiều bài, mỗi bài mang prefix riêng, `sn12.83:0.1` … `sn12.92:1.6`.
+
+#### Vì sao kiểm tra file là chưa đủ
+
+Audit phải kiểm tra **mức segment**, không chỉ mức file: một bài có thể "đã sync" trong khi file English của nó thiếu một phần bài. Vì vậy:
+
+```bash
+npm run audit:store           # mọi tầng
+npm run audit:reference       # chi tiết coverage English
+```
+
+Báo cáo: file thiếu, segment Pāli thiếu trong English, segment English thừa (orphan), tỉ lệ segment **có mặt nhưng không có prose tiếng Anh**, và các đoạn tầng `english-project` đang **che** (shadow) bản đã pin — loại lỗi âm thầm nguy hiểm nhất.
+
+#### Segment có mặt nhưng rỗng
+
+Sujato để **trống** các blockquote và các đoạn lược bằng `…pe…`, rồi nối câu qua chỗ trống đó. Vì vậy một tỉ lệ đáng kể segment có key đúng nhưng value là `""`:
+
+- có mặt, join đúng, **không** phải thiếu file;
+- không dùng để quyết định cách dịch được; chỗ đó Pāli phải tự đứng vững.
+
+Con số này được audit in ra và test khoá lại (`an2.1:3.3`) để không ai đọc chuỗi rỗng là "đã được Sujato đồng ý cách diễn đạt".
+
+#### Đo coverage bằng Pāli có nội dung, không phải số segment
+
+`src/lib/canon/reference.ts` đo coverage theo **tỉ lệ segment Pāli có nội dung** (≥ 40 ký tự) mà English edition thực sự có chữ. Đếm mọi segment sẽ bị ngợ dụng bởi chính những dấu `Paṭhamaṁ.` / `Dutiyaṁ.` mà Sujato bỏ trống: `an1.1` có 12 segment, một nửa rỗng ở English, nhưng cả 4 segment có nội dung đều được dịch → coverage 100%.
+
+Sự phân biệt này quyết định ngưỡng có ý nghĩa:
+
+| coverage (Pāli có nội dung) | số bài |
+| --- | --- |
+| ≥ 99% | 1070 |
+| 80–99% | 216 |
+| 50–80% | 121 |
+| 1–50% | 17 |
+| 0% | 3 |
+
+`MIN_ENGLISH_COVERAGE = 0.8` được chọn từ chính bảng này: 1.070 bài đã ở ≥ 99% nên ngưỡng đó chỉ đúng vào 141 bài thực sự mất tầng tham khảo. Nới lên 0.5 sẽ âm thầm chấp nhận 121 bài kế tiếp.
+
+#### Gap được **ghi nhận**, không được **che**
+
+`content/meta/reference-gaps.yaml` là **record, không phải repair** — nó không tạo ra prose mà SuttaCentral không ship. Vai trò của nó là phân biệt *"đã biết và đã chấp nhận"* với *"chưa ai nhìn"*:
+
+- `review`/`published` + coverage < ngưỡng + **không** có record → **lỗi chặn**;
+- có record → cảnh báo, vẫn thấy rõ;
+- `draft` → cảnh báo.
+
+Record do `scripts/record-reference-gaps.ts` sinh ra, `--check` phát hiện file cũ. Test khoá cả hai chiều: không được có bài dưới ngưỡng mà thiếu record, và không được có record cho bài đã lên ngưỡng (sổ sách bị bỏ quên).
+
+#### Tầng `english-project`: tự lấp phần Sujato chưa dịch
+
+Vì không có bản Anh thay thế nào trên SuttaCentral, dự án tự dịch các đoạn bị bỏ trống. Đây là **bản dịch độc lập của dự án**, không phải nguồn upstream, và có bộ luật riêng:
+
+- chỉ ghi vào segment mà tầng English đã pin **để trống**. `fillableSegments` chỉ so với *các tầng upstream*, không so với chính tầng lấp — nếu tính cả tầng lấp thì một segment vừa được điền sẽ lập tức trông như "không còn chỗ điền", tức là vòng tròn;
+- không bao giờ shadow bản đã pin — `validate` chặn, `audit:store` báo `SHADOWING`;
+- có trạng thái + scorecard riêng ở `content/meta/en/<collection>/<uid>.yaml`;
+- chỉ tính vào coverage khi `published`;
+- cảnh báo khi `assessed_by` trùng với bản dịch Việt, vì khi đó nó không phải cách đọc English độc lập.
+
+Chi tiết và hàng đợi: `docs/translation-store.md`.
+
+#### Không sửa được bằng cách tải thêm
+
+Tại commit đang pin, Sujato là bản Anh duy nhất phủ cả 5 Nikāya Pāli. `soma` chỉ có thig, `kelly` chỉ có mil, `patton` chỉ có Māgama Trung Hoa, `brahmali` không có file sutta nào. Nên `mn42`, `an4.46`, `mn15`, `an5.72`, `mn132` **không** có bản Anh thay thế nào trên SuttaCentral. Bản `suddhaso` (26 file Dhammapada) và `soma` (73 file Theragāthā) là ngoại lệ có thể bổ sung, xem `docs/english-reference-audit-2026-09-27.md`.
+
+#### Defect upstream đã biết
+
+`sn12.93-213` không giải được ở cả hai tầng: bilara-data gắn 40 segment của file đó bằng các UID sub-range lồng nhau (`sn12.93-103`, `sn12.104-114`, …). Bài này **không có** project data. Không đoán mapping — audit báo cáo rõ, test khoá lại danh sách này để nếu upstream sửa thì phải cập nhật có chủ ý.
+
 ---
 
 ## 4. Internal Canon Model

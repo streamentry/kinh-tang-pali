@@ -166,11 +166,34 @@ Vì vậy:
 ### Bước 1 — Xác nhận provenance
 
 - xác nhận đúng `uid`;
-- đọc `source/suttacentral.lock.json`;
-- sync đúng pinned Pāli source;
+- đọc `source/suttacentral.lock.json` và `source/layers.yaml`;
+- sync đúng pinned Pāli source **và mọi tầng tham khảo đã pin** (`npm run source:sync:used` tải tất cả);
 - xác nhận segment IDs;
 - xác định bản English SuttaCentral sẽ tham khảo và dịch giả/source của nó khi có;
-- xác định đúng bản Thích Minh Châu dùng để đối chiếu.
+- xác định đúng bản Thích Minh Châu dùng để đối chiếu, hoặc ghi rõ là không có.
+
+Cách đọc một bài qua toàn bộ store (Pāli + mọi tầng English + Việt hiện hành + Việt dự án):
+
+```bash
+npm run store -- mn118
+```
+
+Kiểm tra tầng tham khảo ở mức segment trước khi chấm điểm:
+
+```bash
+npm run audit:reference
+npm run audit:store
+npm run reference:gaps:check
+```
+
+Lưu ý khi đọc English: bản Sujato **để trống** các blockquote và đoạn lược `…pe…`, rồi nối câu qua chỗ trống. Một segment rỗng **không phải** thiếu file và cũng **không** phải sự đồng thuận về cách dịch; chỗ đó Pāli phải tự đứng vững.
+
+Vì lý do đó, `npm run store` in **coverage** và chỗ lủng củng lớn nhất. Nếu coverage thấp, bài đó **không** được coi là đã đối chiếu English: hãy ghi rõ trong scorecard rằng tầng English vắng ở những đoạn nào, và dựa vào Pāli + tham khảo Việt truyền thống cho các đoạn đó. Một bài dưới ngưỡng khai trong `source/layers.yaml` mà chưa có trong `content/meta/reference-gaps.yaml` sẽ bị `validate` chặn.
+
+Bản Việt hiện hành (Hòa thượng Thích Minh Châu) tại commit đang pin chỉ có **Pháp Cú**.
+Với các bài ngoài Dhammapada, `npm run store` sẽ báo tầng này `absent` — đó là đặc điểm của
+snapshot upstream, không phải thiếu sót của repo. Đừng coi là có tham khảo Việt truyền thống
+cho những bài đó; hãy ghi điều đó vào scorecard.
 
 ### Bước 2 — Đọc toàn bài và context
 
@@ -188,8 +211,8 @@ Trước khi tối ưu từng segment, hiểu:
 Với mỗi segment, đặt cạnh nhau:
 
 - **Pāli**;
-- **English SuttaCentral**;
-- **Thích Minh Châu**.
+- **English SuttaCentral** (và tầng `english-project` nếu đoạn đó Sujato để trống);
+- **Thích Minh Châu** (khi store có tầng này cho bài đó).
 
 Xác định:
 

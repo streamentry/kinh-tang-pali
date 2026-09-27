@@ -11,6 +11,8 @@ Mọi tác vụ liên quan đến dịch, sửa/review bản dịch, chọn thu�
 ## Invariants của repository
 
 - Pāli source là snapshot SuttaCentral/Bilara được pin bởi `source/suttacentral.lock.json`; không dùng bản Pāli không rõ provenance làm authority.
+- Mọi tầng tham khảo (English SuttaCentral) cũng phải được pin cùng commit trong `source/suttacentral.lock.json` dưới `referenceEditions`, với `authority: false`, và phải sync/audit ở **mức segment**; thiếu tầng tham khảo là lỗi chặn đối với `review`/`published`.
+- Một tầng tham khảo có file và key đúng vẫn có thể **không có prose** ở những đoạn Pāli có nội dung. Vì vậy phải đo coverage trên Pāli có nội dung; dưới ngưỡng thì `review`/`published` bị chặn trừ khi mất mát đã được **ghi nhận** trong `content/meta/reference-gaps.yaml`. Không được coi chỗ English rỗng là sự đồng thuận về cách dịch.
 - Canonical Vietnamese scripture là segmented JSON trong `content/translation/vi/project/`.
 - Giữ nguyên canonical SuttaCentral UID và segment ID; không zero-pad hoặc tự phát minh ID.
 - Không copy Pāli vào translation JSON.
@@ -21,6 +23,83 @@ Mọi tác vụ liên quan đến dịch, sửa/review bản dịch, chọn thu�
 - Có thể giữ Hán–Việt khi đúng, quen thuộc và súc tích; giảm Hán–Việt khi nó làm câu tối nghĩa mà không tăng độ chính xác.
 - Không tự thêm explanatory meaning để làm câu “dễ hiểu”. Giải thích, alternative reading và uncertainty thuộc lớp comment/glossary.
 - Không copy nguyên văn dài từ bản dịch bên thứ ba vào canonical translation; mọi nguồn tham khảo quan trọng phải có provenance phù hợp.
+
+---
+
+# Mục tiêu đang chạy: Translation store và lớp English của dự án
+
+## Vì sao
+
+Để mọi câu dịch đều có bối cảnh đầy đủ và truy ngược được về đúng nguồn, mỗi bài kinh phải
+được đọc qua **một store nhiều tầng** thay vì lần lượt đi tìm từng bản dịch. Đồng thời, tại
+commit bilara đang pin, bản Anh Sujato **để trống** nhiều đoạn Pāli có nội dung (blockquotes
+và đoạn lược `…pe…`), và SuttaCentral không có bản Anh nào khác phủ được. Người dịch vì vậy
+mất hẳn tầng tham khảo ở 136 bài. Dự án sẽ **tự dịch những đoạn đó sang English**.
+
+## Store: năm tầng, một registry
+
+Khai báo tập trung trong [`source/layers.yaml`](source/layers.yaml), theo thứ tự đọc:
+
+| # | Tầng | Loại | Vai trò |
+| --- | --- | --- | --- |
+| 1 | `pali` | **authority** | Quyết định nghĩa cuối cùng |
+| 2 | `english-sujato` | reference | Cú pháp, compound, sắc thái |
+| 3 | `english-project` | project | Lấp chỗ Sujato chưa dịch |
+| 4 | `vietnamese-current` | reference | Thuật ngữ truyền thống Việt |
+| 5 | `vietnamese-project` | project | Bản dịch canonical của dự án |
+
+Quy tắc bất di bất dịch:
+
+- chỉ tầng `root` được `authority: true`; không tầng tham khảo nào được tự nhận là chuẩn;
+- Pāli root là authority **cuối cùng** khi các tầng khác bất đồng;
+- mọi tầng phải resolve được, và phải audit được ở **mức segment**, không chỉ mức file.
+
+## Điều kiện bắt buộc trước khi bắt đầu dịch một bài
+
+```bash
+npm run store -- <uid>        # đọc bài qua toàn bộ store, kèm coverage
+npm run audit:store           # kiểm kê mọi tầng
+npm run audit:reference       # chi tiết coverage English
+```
+
+Một bài chỉ nên bắt đầu dịch khi đã biết rõ: tầng nào có, tầng nào không có, coverage
+English bao nhiêu, và chỗ nào phải dựa vào Pāli một mình.
+
+## Lớp `english-project`: bản dịch English của chính dự án
+
+Đây là **bản dịch độc lập**, không phải nguồn SuttaCentral. Ràng buộc:
+
+- chỉ điền cho segment mà tầng English đã pin **để trống**;
+- **không bao giờ** ghi đè bản đã pin — `validate` chặn, `audit:store` báo `SHADOWING`;
+- có trạng thái và quality scorecard riêng ở `content/meta/en/<collection>/<uid>.yaml`;
+- chỉ tính vào coverage khi `published`;
+- dịch từ Pāli, dùng bản Việt hiện hành để đối chiếu nghĩa, **giữ nguyên dấu lược** `…`
+  của Pāli thay vì mở rộng;
+- chấm `triangulation` thấp hơn bình thường, vì không có bản Anh độc lập để đối chiếu.
+
+**Không tự đánh bài của mình.** Khi bản lấp English và bản dịch Việt cùng do một người
+hoặc một agent chấm, bản lấp **không phải cách đọc English độc lập**. `validate` cảnh báo
+khi hai lớp trùng `assessed_by`, và scorecard tiếng Việt của bài đó **không được** tuyên bố
+đã đối chiếu English.
+
+## Coverage và gap
+
+- Coverage đo trên **Pāli có nội dung** (≥ 40 ký tự, bỏ block tham chiếu `:0`), không phải
+  mọi segment; ngưỡng khai trong `source/layers.yaml`.
+- Bài `review`/`published` có coverage dưới ngưỡng mà chưa có entry trong
+  `content/meta/reference-gaps.yaml` là **lỗi chặn**.
+- Một ô English rỗng **không phải** sự đồng thuận về cách dịch. Chỗ đó Pāli phải tự đứng vững.
+
+## Definition of Done cho một lần lấp English
+
+- [ ] Segment nằm trong `fillableSegments` (tầng đã pin để trống).
+- [ ] Dịch từ Pāli; dấu lược `…` giữ nguyên.
+- [ ] `content/meta/en/<collection>/<uid>.yaml` có `status` + quality scorecard 10 tiêu chí.
+- [ ] `npm run validate` pass, không cảnh báo shadowing.
+- [ ] `npm run reference:gaps` đã chạy lại; record gap không còn thừa.
+- [ ] `npm run audit:store` không báo vấn đề nào.
+
+Chi tiết store, số đo và hàng đợi: [`docs/translation-store.md`](docs/translation-store.md).
 
 ---
 

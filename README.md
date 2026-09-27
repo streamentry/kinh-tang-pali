@@ -27,7 +27,31 @@ SuttaCentral mô tả Mahāsaṅgīti là một bản hiệu đính dựa trên 
 
 Dự án tham khảo **các bản dịch tiếng Anh trên SuttaCentral**, ưu tiên bản của **Bhikkhu Sujato** khi có, để đối chiếu cách phân tích cú pháp, compound, thuật ngữ và sắc thái Pāli.
 
-Không giả định toàn bộ Kinh tạng trên SuttaCentral do một dịch giả duy nhất thực hiện. Dịch giả/provenance phải được xác định theo từng collection hoặc từng bài khi cần.
+Bản Sujato được pin như một **tầng tham khảo** (`referenceEditions` trong [`source/suttacentral.lock.json`](source/suttacentral.lock.json)) cùng commit với Pāli root, và được audit ở mức từng segment.
+
+Mọi bài kinh được đọc qua **một store năm tầng** khai báo trong [`source/layers.yaml`](source/layers.yaml): Pāli (authority) → English Sujato → English của dự án → Việt hiện hành của Hòa thượng Thích Minh Châu → Việt bản dịch mới.
+
+```bash
+npm run store -- mn118                              # đọc một bài qua toàn bộ store
+npm run audit:store                                 # kiểm kê mọi tầng
+npm run audit:reference                             # chi tiết coverage English
+node --import tsx scripts/audit-reference.ts --all  # toàn bộ 3422 bài trong catalog
+```
+
+Chi tiết: [`docs/translation-store.md`](docs/translation-store.md).
+
+Sujato để **trống** các blockquote và đoạn lược `…pe…`, nối câu qua chỗ trống, nên một số bài mất gần hết tầng tham khảo. Vì vậy repo đo **coverage** trên phần Pāli có nội dung, và một bài chỉ được đạt `review`/`published` khi coverage ≥ 80% **hoặc** khi mất mát đã được ghi nhận trong [`content/meta/reference-gaps.yaml`](content/meta/reference-gaps.yaml):
+
+```bash
+npm run reference:gaps         # sinh lại record
+npm run reference:gaps:check   # CI: phát hiện record đã cũ
+```
+
+SuttaCentral không có bản Anh nào khác phủ được những đoạn đó, nên dự án **tự dịch** sang English ở tầng `english-project`. Đó là một bản dịch độc lập của dự án, không phải nguồn SuttaCentral, và không bao giờ ghi đè bản đã pin.
+
+Bản Việt hiện hành của Hòa thượng Thích Minh Châu tại commit đang pin **chỉ có Pháp Cú**; các bài khác sẽ báo tầng này là `absent`, đó là đặc điểm của snapshot upstream chứ không phải thiếu sót của repo.
+
+Không giả định toàn bộ Kinh tạng trên SuttaCentral do một dịch giả duy nhất thực hiện. Dịch giả/provenance phải được xác định theo từng collection hoặc từng bài khi cần. Tại commit đang pin, Sujato là bản Anh duy nhất phủ hết 5 Nikāya; các dịch giả Anh khác trên SuttaCentral chỉ phủ một phần.
 
 ### 3. Bản dịch tiếng Việt của Hòa thượng Thích Minh Châu
 
@@ -95,10 +119,25 @@ npm run validate
 npm test
 ```
 
-Sync toàn bộ Pāli của Trung Bộ vào cache local:
+Sync nguồn đã pin vào cache local (Pāli root **và** tầng English tham khảo):
 
 ```bash
-npm run source:sync:mn
+npm run source:sync:used   # các bài đã có bản dịch trong dự án (dev/build tự chạy)
+npm run source:sync:all    # toàn bộ 5 Nikāya trong catalog
+npm run source:sync:mn     # riêng Trung Bộ
+```
+
+Kiểm tra tầng English:
+
+```bash
+npm run audit:reference
+npm run reference:gaps:check
+```
+
+Đọc một bài qua toàn bộ store:
+
+```bash
+npm run store -- mn118
 ```
 
 ## Data model
@@ -128,18 +167,23 @@ Không copy Pāli vào file dịch. Mọi alignment dùng segment ID.
 - `content/translation/vi/project/`: bản dịch Việt canonical.
 - `content/meta/`: trạng thái và metadata biên tập.
 - `content/comment/vi/project/`: chú thích theo segment.
-- `source/suttacentral.lock.json`: exact upstream commit.
+- `content/translation/en/project/`: bản lấp English của dự án cho đoạn Sujato chưa dịch.
+- `content/meta/reference-gaps.yaml`: các bài đã ghi nhận mất tầng English tham khảo.
+- `source/layers.yaml`: registry của store nhiều tầng.
+- `source/suttacentral.lock.json`: exact upstream commit + các tầng tham khảo đã pin.
 - `src/lib/canon/`: lớp domain compose dữ liệu.
 - `src/pages/sutta/`: reader tĩnh.
 - `books/` + `pandoc/`: publication manifests và defaults.
 - `docs/architecture.md`: kiến trúc đã chốt.
+- `docs/translation-store.md`: store nhiều tầng, số đo coverage, hàng đợi lấp English.
+- `docs/english-reference-audit-2026-09-27.md`: kết quả kiểm kê tầng English SuttaCentral.
 
 ## Editorial states
 
 `draft → review → published`
 
 - `draft`: được phép thiếu segment.
-- `review`: phải đủ translation cho source đã pin.
+- `review`: phải đủ translation cho source đã pin **và** phải có tầng English tham khảo đã pin với coverage ≥ 80%, hoặc gap đã được ghi nhận.
 - `published`: như `review`, đồng thời có translator/reviewer và ngày review.
 
 Production sách chỉ lấy `published`.
