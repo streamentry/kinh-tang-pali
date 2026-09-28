@@ -195,7 +195,7 @@ Với các bài ngoài Dhammapada, `npm run store` sẽ báo tầng này `absent
 snapshot upstream, không phải thiếu sót của repo. Đừng coi là có tham khảo Việt truyền thống
 cho những bài đó; hãy ghi điều đó vào scorecard.
 
-Xem §7.1 về nguồn Việt không phải SuttaCentral, và về ba điều bắt buộc khi ghi credit.
+Xem §7.1 về nguồn Việt không phải SuttaCentral, và §7.2 về `budsas.org`.
 
 ### 7.1. Ghi nguồn: tác giả và nơi lấy là hai sự thật
 
@@ -243,11 +243,11 @@ Dùng nguồn đó thì bốn điều bắt buộc, và cả bốn đều là đ
 3. **Giấy phép là `NOASSERTION`.** Trang không có tuyên bố quyền tác giả máy đọc được. Ghi
    `NOASSERTION` kèm lý do; **không** suy ra CC0, không suy ra "dùng tự do". Đừng đoán —
    dòng này tồn tại để chặn chính cái đoán đó.
-4. **Ghim yếu hơn, và phải nói là yếu hơn.** Mọi tầng hiện có ghim theo commit git + hash blob
-   từng file. Một trang tĩnh không có commit, nên tầng này ghi: URL · thời điểm tải ·
-   **SHA-256 của từng file** · `ETag`/`Last-Moduled` nếu có. Đây là pin **yếu hơn** — tái tải
-   thấy khác thì cảnh báo, nhưng không chứng minh được lịch sử nội dung. Gọi đúng tên là điều
-   kiện để không biến nó thành pin giả.
+4. **Khai là *tra cứu toàn văn*, không phải tầng store.** Đo trên 7 bài Trung Bộ, budsas cho
+   **0,20–0,58 đoạn cho mỗi segment Pāli** — cứ 10 segment thì 2–6 đoạn. Không có căn cứ
+   alignment thì **không dựng cột**: đa số segment sẽ trống, và chỗ một đoạn phủ nhiều segment
+   thì phải chọn, mà chọn tay là bịa. Nguồn khai ở `source/external-references.yaml`, hiện trên
+   trang bài dưới mục *Tra cứu toàn văn*, và **không** cấp text cho bất kỳ phiên bản nào.
 
 Kèm theo, điều dễ sai nhất: **HTML của budsas.org phải được cắt thẳng ra segment ID của
 bilara**, và việc cắt đó phải được **chứng minh** chứ không giả định. Cắt lệch một đoạn thì

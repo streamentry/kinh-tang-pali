@@ -384,49 +384,60 @@ Pro** chưa khai ở đâu cả, dù metadata có ghi.
    và trang credits nói thẳng điều đó. Một test ép mọi công cụ có `release` phải là
    `user-declared`.
 
-## Đầu mối chưa nhập: bản Việt ngoài SuttaCentral
+## Tra cứu toàn văn: budsas.org (không phải tầng store)
 
-Đã điều tra, **chưa nhập vào store**, và ghi ở đây để không mất đầu mối. Không có gì trong
-`source/layers.yaml` hay `source/suttacentral.lock.json` thuộc về nguồn dưới đây.
+Đã điều tra và **khai dùng để tra cứu** — không nhập vào store, và không lấp vào cột nào.
+Khai trong [`source/external-references.yaml`](../source/external-references.yaml).
 
 **Sự thật đã đếm:** bilara tại commit đã ghim chỉ có 27 file `translation/vi/` — 26 chương Pháp
 Cú (2.234 segment, so khớp từng segment với Pāli: thiếu 0, thừa 0) và 1 tên hiển thị. Nên
-**6.111 / 6.137 bài trong catalogue không có tầng Việt hiện hành** — Đại kinh 0/34, Trung bộ
-0/152, Tăng bộ 0/1.819, Tiểu bộ 0/1.781, Kinh nhỏ 26/2.351.
+**6.111 / 6.137 bài** không có tầng Việt hiện hành — Đại kinh 0/34, Trung bộ 0/152, Tăng bộ
+0/1.819, Tiểu bộ 0/1.781, Kinh nhỏ 26/2.351.
 
-**Nguồn ứng viên:** `https://www.budsas.org/uni/` (BuddhaSasana, trang do **Bình Anson** phụ
-trách — cùng người SuttaCentral ghi công *"Chuẩn bị văn bản cho dịch thuật tiếng Việt"*). Trang
-đó phân phối 5 bộ Nikāya bằng tiếng Việt, phần lớn là bản dịch của **Hòa thượng Thích Minh
-Châu**.
+**Vì sao là tra cứu chứ không phải tầng:** đo trên 7 bài Trung Bộ, budsas cho **0,20–0,58 đoạn
+văn cho mỗi segment Pāli**:
 
-**Vì sao chưa nhập — ba lý do, đều là quy tắc chứ không phải lựa chọn:**
+| Bài | Đoạn budsas | Segment Pāli | Tỉ lệ |
+| --- | --- | --- | --- |
+| mn1 | 99 | 334 | 0,30 |
+| mn2 | 72 | 125 | 0,58 |
+| mn3 | 25 | 128 | 0,20 |
+| mn5 | 55 | 203 | 0,27 |
+| mn10 | 98 | 235 | 0,42 |
+| mn20 | 33 | 87 | 0,38 |
+| mn30 | 37 | 163 | 0,23 |
 
-1. **Giấy phép là `NOASSERTION`.** Trang không có tuyên bố quyền tác giả máy đọc được. Đoán
-   CC0 hay "dùng tự do" là bịa; `assertStoreIntegrity` chặn bản tham khảo bên thứ ba tự nhận
-   CC0.
-2. **Là bản sao của bên thứ ba, không phải bản xuất bản.** Bản gốc in 1973–1991 trong Đại Tạng
-   Kinh Việt Nam; 2026 vẫn có bản in thương mại (tái bản "Toàn tập Thích Minh Châu", ~20.000
-   trang / ~40 tập). Dùng bản sao phải ghi rõ là bản sao — đúng điều SuttaCentral yêu cầu ở
-   `licensing:10`.
-3. **Ghim yếu hơn commit git.** Trang tĩnh không có commit; tầng này chỉ có thể ghi URL · thời
-   điểm tải · SHA-256 từng file. Tái tải thấy khác thì cảnh báo, nhưng không chứng minh được
-   lịch sử nội dung. Pin đó yếu hơn pin bilara và không được trình bày như tương đương.
+Cứ 10 segment Pāli thì có 2–6 đoạn. Đặt cạnh nhau ở mức segment thì đa số segment trống, và
+chỗ một đoạn phủ nhiều segment thì phải **chọn** segment nào nhận nó — đó là quyết định biên
+tập, và làm tay thì hỏng âm thầm. Nên: **không có căn cứ alignment thì không dựng cột.**
 
-**Phát hiện quan trọng nhất, và là lý do credit phải ghi *từng bài*:** các bản dịch trong cùng
-một trang **không thuộc một người**. Trang tự ghi:
+**Ai làm, và điều đó phải ghi cả hai.** Cả 7/7 trang mẫu đều ghi:
 
-| Tập | Dịch giả |
-| --- | --- |
-| Trường Bộ, Trung Bộ, Tăng Chi, Tương Ưng | Hòa thượng Thích Minh Châu |
-| Tiểu Bộ I, III | Hòa thượng Thích Minh Châu |
-| Tiểu Bộ II (Thiên cung sự, Ngạ quỷ sự) | **GS Trần Phương Lan** |
-| Tiểu Bộ VI–VII (Chuyện Tiền thân 264–473) | **Hòa thượng Thích Minh Châu và GS Trần Phương Lan** |
-| Tiểu Bộ VIII | **GS Trần Phương Lan** |
-| Thắng Pháp Tập Yếu Luận | Hòa thượng Thích Minh Châu (dịch và chú giải) |
+> *(Bình Anson hiệu đính, dựa theo bản Anh ngữ "The Middle Length Discourses of the Buddha", Tỳ kheo Nanamoli)*
 
-Ghi chung "Hòa thượng Thích Minh Châu" cho cả bộ là ghi công cho Ngài những trang Ngài không
-dịch. Vì vậy `VersionProvenance` tách `author` khỏi `distributor` và `AGENTS.md` cấm suy cái
-này từ cái kia. Ràng buộc này đã có hiệu lực ngay với tầng hiện tại: `mn118` không in dòng
-credit của Thích Minh Châu vì bài đó không có chữ nào của Ngài, còn `dhp1-20` thì có.
+Đây là **bản Bình Anson hiệu đính lại bản dịch Hòa thượng Thích Minh Châu, có đối chiếu bản
+Anh của Tỳ khẻo Nanamoli** — ba bên, không phải một. Ghi công một mình cho Hòa thượng Thích
+Minh Châu là lặp lại đúng lỗi PR #97 vừa sửa, chỉ theo hướng ngược. `mn2` còn bị chính trang đó
+đánh dấu **"(Tóm lược)"**.
 
-Quy tắc chi tiết: `skill/translation.md` §7.1–§7.2.
+**Bản đồ uid → URL: chỉ Trung Bộ, và đã đối chiếu.** Trang mục `trung00.htm` liệt kê đúng
+**152** link `trung01.htm`..`trung152.htm`, số thứ tự 1..152, không trùng, không thiếu. Mười
+hai trang đối chiếu thêm bằng **tên Pāli** in trên trang so với Pāli root của bilara: **10/12
+khớp**; hai lệch đều là lỗi chính tả của trang (`Vtakkasanthàna` mất chữ *i*,
+`Mahàsakuludàyin` thừa chữ *n*) — ghi lại trong `verified.exceptions` để lần audit sau không
+"sửa" bản đồ theo lỗi của trang.
+
+Đại kinh, Tăng bộ, Tiểu bộ, Kinh nhỏ **không khai là có**, vì chưa đối chiếu. Kinh nhỏ còn
+thêm một lý do: ngoài Pháp Cú, dịch giả thay đổi theo tập (Tiểu Bộ II và VIII là GS Trần
+Phương Lan; tập VI–VII hai người cùng dịch) — phải ghi tác giả *từng bài* trước khi khai.
+
+**Điều khoản:** `NOASSERTION`. Trang không có tuyên bố quyền tác giả máy đọc được. Đoán CC0
+hay "dùng tự do" là bịa. Nó cũng là **bản sao của bên thứ ba, không phải bản xuất bản** — bản
+gốc in 1973 (tập I) và tái in 1986, nay vẫn tái bản thương mại.
+
+**Ranh giới được test giữ.** `tests/unit/external-reference.test.ts` (12 test) chặn cả hai
+chiều: một tra cứu toàn văn không bao giờ thành tầng store, và một tầng store không được khai
+ở đây. Test quan trọng nhất so **snapshot trước/sau** khi resolve — nếu một tra cứu toàn văn
+lọt vào cột, số segment và nội dung từng phiên bản sẽ khác, và test bắt được.
+
+Quy tắc chi tiết: `skill/translation.md` §7.1–§7.2 và `source/external-references.yaml` `rules:`.
