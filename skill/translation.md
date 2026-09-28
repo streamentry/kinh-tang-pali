@@ -195,6 +195,65 @@ Với các bài ngoài Dhammapada, `npm run store` sẽ báo tầng này `absent
 snapshot upstream, không phải thiếu sót của repo. Đừng coi là có tham khảo Việt truyền thống
 cho những bài đó; hãy ghi điều đó vào scorecard.
 
+Xem §7.1 về nguồn Việt không phải SuttaCentral, và về ba điều bắt buộc khi ghi credit.
+
+### 7.1. Ghi nguồn: tác giả và nơi lấy là hai sự thật
+
+Một credit gộp hai thứ thành một chuỗi là chỗ sai. **"Ai dịch"** và **"lấy từ đâu"** là hai
+khẳng định khác nhau, không suy ra được từ nhau:
+
+| Tình huống | Tác giả | Nơi lấy |
+| --- | --- | --- |
+| Pāli | SuttaCentral Mahāsaṅgīti (bản gốc, phạm vi công cộng) | — không có nơi phân phối riêng |
+| 26 chương Pháp Cú | **Hòa thượng Thích Minh Châu** | **SuttaCentral** |
+| English | Bhikkhu Sujato | SuttaCentral |
+| Bản dịch của dự án | Dự án Kinh Tạng Pāli Việt | — chính mình |
+
+Ba quy tắc bắt buộc:
+
+1. **Tác giả đứng trước.** Người đọc hỏi "bản này của ai?" thì được phép dừng đọc sau mệnh đề
+   đầu. Với Pháp Cú, câu phải đủ nghĩa **"của Hòa thượng Thích Minh Châu"** — bỏ mất vế đó
+   là trao tác phẩm của Ngài cho SuttaCentral.
+2. **Không suy tác giả từ nơi lấy, và ngược lại.** Một nơi phân phối có thể chứa tác phẩm
+   của nhiều người, của một người, hoặc của nhiều người chung một tập. Xem §7.2.
+3. **Nơi lấy phải chỉ đúng mức.** Đừng dùng "SuttaCentral" cho tầng Pāli — đó là tác phẩm
+   của chính SuttaCentral, nói hai lần là vô nghĩa. Tác phẩm của dự án thì **không** có
+   "nơi lấy": chính mình phân phối, ghi vào là một khẳng định sai.
+
+### 7.2. Nguồn Việt không phải SuttaCentral: budsas.org
+
+SuttaCentral chỉ phân phối Pháp Cú (đã kiểm: `translation/vi/` ở bilara chỉ có 27 file). Bản
+đầy đủ 5 bộ Nikāya của Hòa thượng Thích Minh Châu được phân phối ở nơi khác — trong đó có
+**`https://www.budsas.org/uni/`** (BuddhaSasana, trang do Bình Anson phụ trách — cùng người
+mà SuttaCentral ghi công *"Chuẩn bị văn bản cho dịch thuật tiếng Việt"*).
+
+Dùng nguồn đó thì bốn điều bắt buộc, và cả bốn đều là điều **không thể suy ra từ tên trang**:
+
+1. **Tác giả ghi theo từng bài, không theo trang.** Trang `budsas.org/uni/` ghi rõ các tập
+   Tiểu Bộ thuộc về **nhiều người khác nhau**: tập I–III phần lớn là Hòa thượng Thích Minh
+   Châu, nhưng **tập II (Thiên cung sự, Ngạ quỷ sự) là GS Trần Phương Lan**, tập VI–VII
+   **Hòa thượng Thích Minh Châu và GS Trần Phương Lan cùng dịch**, tập VIII là GS Trần
+   Phương Lan. Thắng Pháp Tập Yếu Luận là Hòa thượng Thích Minh Châu dịch *và chú giải*.
+   → **Ghi tên người dịch của đúng bài đó.** Không ghi chung "Hòa thượng Thích Minh Châu" cho
+   cả bộ, vì sẽ ghi công cho Ngài những trang Ngài không dịch.
+2. **Ghi đây là bản sao, không phải bản xuất bản.** Bản gốc in 1973–1991 trong Đại Tạng Kinh
+   Việt Nam; `budsas.org` là **nguồn sao chép bên thứ ba**, và 2026 vẫn có bản in thương mại.
+   `NOTICE` phải phân biệt *tác giả* · *nguồn lấy* · *bản xuất bản gốc*, và nói thẳng đây là
+   nguồn sao chép. Đây cũng là lý do SuttaCentral yêu cầu *"Ghi rõ nguồn gốc xuất xứ"*.
+3. **Giấy phép là `NOASSERTION`.** Trang không có tuyên bố quyền tác giả máy đọc được. Ghi
+   `NOASSERTION` kèm lý do; **không** suy ra CC0, không suy ra "dùng tự do". Đừng đoán —
+   dòng này tồn tại để chặn chính cái đoán đó.
+4. **Ghim yếu hơn, và phải nói là yếu hơn.** Mọi tầng hiện có ghim theo commit git + hash blob
+   từng file. Một trang tĩnh không có commit, nên tầng này ghi: URL · thời điểm tải ·
+   **SHA-256 của từng file** · `ETag`/`Last-Moduled` nếu có. Đây là pin **yếu hơn** — tái tải
+   thấy khác thì cảnh báo, nhưng không chứng minh được lịch sử nội dung. Gọi đúng tên là điều
+   kiện để không biến nó thành pin giả.
+
+Kèm theo, điều dễ sai nhất: **HTML của budsas.org phải được cắt thẳng ra segment ID của
+bilara**, và việc cắt đó phải được **chứng minh** chứ không giả định. Cắt lệch một đoạn thì
+bốn cột đối chiếu hiện ra sai âm thầm, người đọc không có cách nào biết. Không cắt bằng tay
+rồi tin là đúng; phải đếm được.
+
 ### Bước 2 — Đọc toàn bài và context
 
 Trước khi tối ưu từng segment, hiểu:

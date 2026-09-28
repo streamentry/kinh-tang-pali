@@ -165,6 +165,12 @@ function summarise(
     column === 'pali' ? 'pali' : column === 'english' ? 'english-sujato' : 'vietnamese-current',
   ));
 
+  // Attribution is per text. `withText` is how many segments of *this* text carry prose from
+  // this layer, so a credit is emitted only when there is something here to attribute. A
+  // credit printed on a text that has none of that translator's work states a source the page
+  // does not use — which is how a per-layer credit quietly becomes a per-text false claim.
+  const credit = withText > 0 || column === 'pali' ? CREDITS[column]() : undefined;
+
   return {
     id: column,
     title: detail.title,
@@ -177,7 +183,7 @@ function summarise(
     total: ids.length,
     sourceLayers: column_.sourceLayers,
     status: detail.status,
-    credit: CREDITS[column](),
+    credit,
     license: licence
       ? {
           group: licence.group,

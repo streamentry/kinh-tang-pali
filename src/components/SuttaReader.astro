@@ -125,15 +125,22 @@ const editable = shown.find((layer) => layer.id === 'vi');
             )}
           </p>
         )}
-        <p class="layer-credit" data-pagefind-ignore>
-          <span class="credit-label">Nguồn</span>
-          {layer.credit}
-          {layer.license && layer.license.group === 'third-party' && (
-            <span class="credit-terms">
-              {' '}· SuttaCentral yêu cầu ghi rõ nguồn gốc khi sử dụng lại
-            </span>
-          )}
-        </p>
+        {/* Attribution is only printed where there is something to attribute. Naming a
+            translator on a text that contains none of their work states a credit the reader
+            cannot act on and implies the page draws on that translation when it does not —
+            the per-text failure of a per-layer credit. The absence is already stated above,
+            and the project's own reference is unchanged either way. */}
+        {layer.credit && (
+          <p class="layer-credit" data-pagefind-ignore>
+            <span class="credit-label">Nguồn</span>
+            {layer.credit}
+            {layer.license && layer.license.group === 'third-party' && (
+              <span class="credit-terms">
+                {' '}· SuttaCentral yêu cầu ghi rõ nguồn gốc khi sử dụng lại
+              </span>
+            )}
+          </p>
+        )}
       </div>
     ))}
   </div>

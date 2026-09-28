@@ -24,6 +24,7 @@ import {
   loadCatalog,
   loadLock,
   loadSegmentMap,
+  projectContentLicense,
   segmentMapForUid,
   sourcePathFor,
   upstreamFile,
@@ -152,19 +153,107 @@ export function licenseForLayer(layer: StoreLayer): EditionLicense | null {
 }
 
 /** A one-line credit for a layer, safe to render in a panel header. */
-export function creditForLayer(layer: StoreLayer): string {
+/**
+ * Where a displayed version actually came from, as separate facts.
+ *
+ * These are two different claims and collapsing them is how a credit goes wrong in both
+ * directions. For the 26 Dhammapada texts the Vietnamese column is Bhikkhu Thích Minh Châu's
+ * translation *distributed by SuttaCentral* — a statement about the translator and a
+ * statement about the distributor, both true, neither derivable from the other. A credit
+ * that names only the distributor hands TMC's work to SuttaCentral; one that names only the
+ * author hides where the repository actually got it, which is the fact SuttaCentral asks to
+ * be stated.
+ */
+export interface VersionProvenance {
+  /** Who made the translation. Not a layer, not a column: the person. */
+  author: string;
+  /**
+   * Who published or distributed the edition this copy came from.
+   *
+   * Deliberately separate from `author`, and `undefined` for the project's own work — we
+   * distribute our translation ourselves, so naming a distributor would be a false claim
+   * rather than a courtesy.
+   */
+  distributor?: string;
+  /** The exact upstream file, relative to the pinned bilara commit. */
+  sourcePath?: string;
+  /** The pinned commit this copy was verified against. */
+  commit?: string;
+  /** How it may be reused, in a phrase a reader can act on. */
+  terms: string;
+  spdx?: string;
+  group: 'public-domain' | 'suttacentral' | 'third-party';
+  holder: string;
+  attributionRequired: boolean;
+}
+
+export function provenanceForLayer(layer: StoreLayer): VersionProvenance {
   if (layer.location.type === 'upstream' && layer.location.rootEdition) {
-    return 'SuttaCentral Mahāsaṅgīti (bilara, pli/ms) — public domain';
+    // No distributor: the Pāli root is SuttaCentral's own text and in the public domain, so
+    // naming a distributor would be the same claim twice. "Distributed by" only means
+    // something when the translator and the distributor are two different parties.
+    return {
+      author: 'SuttaCentral Mahāsaṅgīti (bilara, pli/ms)',
+      sourcePath: layer.location.rootEdition,
+      commit: loadLock().commit,
+      terms: 'phạm vi công cộng — Pāli là nguồn chuẩn duy nhất',
+      spdx: 'NOASSERTION',
+      group: 'public-domain',
+      holder: 'công cộng',
+      attributionRequired: false,
+    };
   }
+
   const edition = editionForLayer(layer);
-  if (!edition) return layer.title;
-  const who = edition.translatorName ?? edition.translator;
-  const terms = edition.license.group === 'public-domain'
-    ? 'public domain'
-    : edition.license.spdx === 'CC0-1.0'
+  if (!edition) {
+    return {
+      author: projectContentLicense().holder ?? 'Kinh Tạng Pāli Việt project contributors',
+      terms: 'CC0 1.0 — tác phẩm của chính dự án này',
+      spdx: projectContentLicense().spdx,
+      group: 'suttacentral',
+      holder: projectContentLicense().holder ?? 'Kinh Tạng Pāli Việt project contributors',
+      attributionRequired: false,
+    };
+  }
+
+  const { license } = edition;
+  const terms = license.group === 'public-domain'
+    ? 'phạm vi công cộng'
+    : license.spdx === 'CC0-1.0'
       ? 'CC0 1.0'
-      : `bản quyền thuộc ${edition.license.holder}`;
-  return `${who} — SuttaCentral, ${edition.path} @ ${loadLock().commit.slice(0, 12)} (${terms})`;
+      : `bản quyền thuộc ${license.holder}; dùng theo giấy phép của dịch giả`;
+
+  // The author is a person's name, never a directory slug. `translator` is a bilara path
+  // component — "sujato", "phantuananh", "site" — and the English column's credit printed
+  // `sujato` until this was fixed, while the layer title one line above correctly said
+  // "Bhikkhu Sujato". The slug belongs in the path, which `sourcePath` already carries.
+  const author = edition.translatorName ?? edition.license.holder;
+
+  return {
+    author,
+    distributor: 'SuttaCentral',
+    sourcePath: edition.path,
+    commit: loadLock().commit,
+    terms,
+    spdx: license.spdx,
+    group: license.group,
+    holder: license.holder,
+    attributionRequired: license.attributionRequired,
+  };
+}
+
+/**
+ * One line naming the translator, the distributor, the edition path, the pinned commit and
+ * the terms.
+ *
+ * Author first, then distributor: a reader asking "whose translation is this?" must be able
+ * to stop reading after the first clause.
+ */
+export function creditForLayer(layer: StoreLayer): string {
+  const p = provenanceForLayer(layer);
+  const origin = p.sourcePath ? `, ${p.sourcePath} @ ${p.commit?.slice(0, 12)}` : '';
+  const who = p.distributor ? `${p.author} — lấy từ ${p.distributor}${origin}` : p.author;
+  return `${who} (${p.terms})`;
 }
 
 export function contentPathForLayer(layer: StoreLayer, collection: CollectionCode, uid: string): string | null {
