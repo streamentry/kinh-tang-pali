@@ -22,6 +22,7 @@ import YAML from 'yaml';
 import { loadLock, projectContentLicense } from '../../src/lib/canon/load';
 import { generateNotice } from '../../scripts/generate-notice';
 import { PROJECT_TRANSLATION_CREDIT } from '../../src/lib/canon/document';
+import { externalReferences } from '../../src/lib/canon/external';
 
 /** SPDX is `CC0-1.0`; the hyphen is an identifier convention, not the licence's name. */
 const humanise = (spdx: string): string => spdx.replace(/-(\d)/, ' $1');
@@ -235,4 +236,36 @@ test('the served notice is plain text, not a page wearing a legal notice', async
   // absolute links back to this site.
   assert.ok(!served.includes('<'), 'the notice must not contain markup');
   assert.ok(!/href="http/.test(served), 'the notice must not depend on this site to be read');
+});
+
+test('NOTICE names every declared whole-text reference, and calls it a reference', () => {
+  // A source a reader can consult is still a source. It has to appear in NOTICE with its
+  // terms, and it has to be marked as not a layer — otherwise the file reads as though
+  // everything listed in it feeds a version of the text.
+  const references = externalReferences();
+  assert.ok(references.length > 0, 'there is at least one declared reference');
+  for (const reference of references) {
+    assert.ok(notice.includes(reference.title), `NOTICE omits ${reference.id}`);
+    assert.ok(notice.includes(reference.licence.spdx), `NOTICE omits ${reference.id}'s terms`);
+    assert.ok(
+      notice.includes(reference.attribution.translator),
+      `NOTICE omits who translated ${reference.id}`,
+    );
+  }
+  assert.match(notice, /WHOLE-TEXT REFERENCES/);
+  assert.match(notice, /alignment\s+none/);
+  // The distinction must be stated as a rule, not left for the reader to infer from wording.
+  assert.match(notice, /not store layers and supply no text/);
+});
+
+test('NOTICE marks a third-party copy as a third-party copy', () => {
+  for (const reference of externalReferences()) {
+    if (reference.attribution.distributorIsPublisher) continue;
+    const block = notice.slice(notice.indexOf(reference.title));
+    assert.match(
+      block.slice(0, 700),
+      /third-party copy, not the publisher/,
+      `${reference.id}: NOTICE does not say the source is a copy rather than the publisher`,
+    );
+  }
 });

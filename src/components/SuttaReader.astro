@@ -18,6 +18,12 @@
  * markup either way, so search and print still see every version.
  */
 import type { CanonDocument, CanonLayerSummary, LayerAbsenceReason } from '../lib/canon/types';
+import {
+  caveatForReference,
+  creditForReference,
+  externalReferences,
+  pageUrlFor,
+} from '../lib/canon/external';
 import { withBase } from '../lib/url';
 
 interface Props { document: CanonDocument }
@@ -25,6 +31,15 @@ const { document } = Astro.props;
 
 const { segments, layers } = document;
 const withText = (count: number) => (count > 0 ? `${count}/${segments.length}` : `0/${segments.length}`);
+
+/**
+ * Whole-text references available for this uid, with their page URL where the mapping was
+ * verified. Not a display column and not a fifth version: these are things to consult, and a
+ * uid with no verified mapping simply gets no entry rather than a guessed link.
+ */
+const references = externalReferences()
+  .map((reference) => ({ reference, url: pageUrlFor(reference, document.uid) }))
+  .filter((entry) => entry.reference.collections.includes(document.uid.replace(/[\d.]+$/, '')));
 
 /** Wording for a version that has nothing to show, per absence reason. */
 const ABSENCE: Record<LayerAbsenceReason, string> = {
@@ -145,9 +160,39 @@ const editable = shown.find((layer) => layer.id === 'vi');
     ))}
   </div>
 
-  <p class="credits-link" data-pagefind-ignore>
-    <a href={withBase('credits/')}>Nguồn, giấy phép và ghi công đầy đủ</a>
-  </p>
+  {references.length > 0 && (
+    <div class="whole-text-refs" data-pagefind-ignore>
+      <h2 class="refs-heading">Tra cứu toàn văn</h2>
+      <p class="refs-hint">
+        Nguồn dưới đây <strong>không phải cột đối chiếu</strong>. Nó là văn xuôi liên tục, không
+        chia theo segment, nên không đặt cạnh Pāli từng câu được — dùng để tra từ ngữ và đối
+        chiếu ở mức câu.
+      </p>
+      {references.map(({ reference, url }) => (
+        <article class="whole-text-ref">
+          <h3>
+            {url ? (
+              <a href={url} target="_blank" rel="noopener noreferrer">{reference.title} ↗</a>
+            ) : (
+              reference.title
+            )}
+          </h3>
+          <p class="ref-credit">{creditForReference(reference)}</p>
+          <ul class="ref-caveats">
+            {caveatForReference(reference).map((line) => <li>{line}</li>)}
+          </ul>
+        </article>
+      ))}
+      <p class="credits-link">
+        <a href={withBase('credits/')}>Nguồn, giấy phép và ghi công đầy đủ</a>
+      </p>
+    </div>
+  )}
+  {references.length === 0 && (
+    <p class="credits-link" data-pagefind-ignore>
+      <a href={withBase('credits/')}>Nguồn, giấy phép và ghi công đầy đủ</a>
+    </p>
+  )}
 
   {editable && (
     <p class="editing-note" data-pagefind-ignore>

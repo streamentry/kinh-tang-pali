@@ -1,0 +1,118 @@
+# Whole-text external references — declared once, never a store layer.
+#
+# Why this file exists and why it is not `source/layers.yaml`:
+#
+# A store layer supplies text at segment granularity, and everything downstream — the
+# four-column reader, the coverage metric, the `…pe…` ellipsis — assumes that. A whole-text
+# page of prose aligned to nothing is not that, and declaring it as a layer would be a
+# category error with a silent consequence: coverage would rise for text that is not
+# segment-comparable, and the comparison view would show misaligned columns with no way for
+# a reader to notice.
+#
+# So these are *references to consult*, recorded with enough provenance to credit properly
+# and not enough to imply alignment we have not demonstrated. `tests/unit/external-reference.test.ts`
+# enforces the distinction in both directions: a whole-text reference may never enter the
+# store, and a store layer may never be declared here.
+#
+# `licence.spdx: NOASSERTION` is deliberate and must stay that way. The source states no
+# machine-readable terms, and inventing CC0 or "free to use" is precisely the failure the
+# project's own rules forbid.
+
+schemaVersion: 1
+
+references:
+  - id: budsas-mn
+    kind: whole-text-reference
+    title: "Bản Việt của Hòa thượng Thích Minh Châu, hiệu đính Bình Anson"
+    purpose: >-
+      Tra cứu từ ngữ Việt truyền thống khi dịch và khi đọc. KHÔNG phải cột đối chiếu: bản ở
+      đây là văn xuôi liên tục, không chia theo segment của bilara, và nhiều chỗ còn bị rút
+      gọn. Một đoạn ở đây có thể phủ vài segment, nên không thể đặt cạnh Pāli theo từng
+      segment mà không tự chọn — mà tự chọn thì là bịa.
+    alignment: none
+
+    # ---- who made it, and who touched it -------------------------------------------
+    # Author and reviser are both recorded because both are true, and because collapsing
+    # them repeats the error this repository already made once: crediting only the layer's
+    # distributor, or only the original author, misstates who did the work.
+    attribution:
+      translator: "Hòa thượng Thích Minh Châu"
+      reviser: "Bình Anson"
+      reviserBasis: >-
+        Trang ghi rõ: "Bình Anson hiệu đính, dựa theo bản Anh ngữ 'The Middle Length
+        Discourses of the Buddha', Tỳ kheo Nanamoli". Tức đây là bản hiệu đính của bản dịch
+        Hòa thượng Thích Minh Châu, có đối chiếu bản Anh của Tỳ khẻo Nanamoli — không phải
+        nguyên văn bản dịch của Hòa thượng Thích Minh Châu.
+      distributor: "BuddhaSasana (budsas.org)"
+      distributorIsPublisher: false
+      siteMaintainer: "Bình Anson"
+
+    # ---- where it originally came from ----------------------------------------------
+    originalPublication: >-
+      Bản in lần đầu của Hòa thượng Thích Minh Châu, 1973 (Trung Bộ Kinh, tập I); lần in
+      lại 1986. Trang này là bản sao bên thứ ba, không phải bản xuất bản. Tác phẩm vẫn
+      được tái bản thương mại, nên việc dùng bản sao phải ghi rõ là bản sao.
+
+    # ---- licence --------------------------------------------------------------------
+    licence:
+      spdx: NOASSERTION
+      holder: "Hòa thượng Thích Minh Châu (bản dịch); Bình Anson (hiệu đính)"
+      basis: >-
+        Trang không có tuyên bố quyền tác giả máy đọc được. Ghi NOASSERTION thay vì đoán.
+        Không suy ra CC0, không suy ra "dùng tự do".
+      statementFrom: null
+      attributionRequired: true
+
+    # ---- where the pages are --------------------------------------------------------
+    baseUrl: "https://www.budsas.org/uni/u-kinh-trungbo/"
+    indexUrl: "https://www.budsas.org/uni/u-kinh-trungbo/trung00.htm"
+    # uid → URL. Only Majjhima Nikāya is mapped, because only Majjhima Nikāya was verified;
+    # see `verified` below for the evidence and the two known site typos.
+    urlTemplate: "https://www.budsas.org/uni/u-kinh-trungbo/trung{N}.htm"
+    urlNumber: "the uid's numeric part, zero-padded to 2"
+    collections: [mn]
+    mappedRange: "mn1..mn152"
+
+    # ---- how the mapping was established ---------------------------------------------
+    verified:
+      method: >-
+        Trang mục trung00.htm liệt kê đúng 152 link dạng trung01.htm..trung152.htm, số thứ tự
+        1..152, không trùng, không thiếu — nên ánh xạ là 1:1 theo số thứ tự. Mười hai trang
+        được đối chiếu thêm bằng *tên Pāli* in trên trang so với Pāli root của bilara, sau
+        khi chuẩn hoá romanisation (trang bỏ dấu Pāli: ā→à, ṅ→n, ṭṭ→tt).
+      checked: 12
+      matched: 10
+      # The two that did not match are typos in the site's own title, not a wrong page.
+      # Recorded so a later audit does not "fix" the mapping on the strength of a typo.
+      exceptions:
+        - uid: mn20
+          page: "trung20.htm"
+          siteTitle: "Vtakkasanthàna"
+          expected: "Vitakkasaṇṭhāna"
+          note: "Thiếu chữ i trong 'Vitakka' — lỗi chính tả của trang."
+        - uid: mn77
+          page: "trung77.htm"
+          siteTitle: "Mahàsakuludàyin"
+          expected: "Mahāsakuludāyi"
+          note: "Thừa chữ n ở cuối — lỗi chính tả của trang."
+    unverifiedCollections:
+      - collection: dn
+        reason: "Chưa đối chiếu ánh xạ uid → trang. Không khai là có."
+      - collection: sn
+        reason: "Chưa đối chiếu ánh xạ uid → trang. Không khai là có."
+      - collection: an
+        reason: "Chưa đối chiếu ánh xạ uid → trang. Không khai là có."
+      - collection: kn
+        reason: >-
+          Ngoài Pháp Cú, dịch giả thay đổi theo tập (Tiểu Bộ II và VIII là GS Trần Phương
+          Lan; tập VI–VII hai người cùng dịch). Cần ghi tác giả *từng bài* trước khi khai, vì
+          ghi chung một tên là ghi công cho người không dịch phần đó.
+
+# Rules that hold for every entry above.
+rules:
+  - "Không phải tầng store. Không được đưa vào source/layers.yaml, không được tính vào coverage, không được dùng lấp chỗ trống `…pe…`."
+  - "Không có căn cứ alignment thì không được hiển thị cạnh Pāli theo từng segment."
+  - "Tác giả và người hiệu đính ghi riêng. Không gộp, và không suy cái này từ cái kia."
+  - "Nguồn sao chép phải ghi là nguồn sao chép, kèm bản xuất bản gốc."
+  - "Không có giấy phép máy đọc được thì NOASSERTION, kèm lý do. Đừng đoán."
+  - "Bản đồ uid → URL phải kèm cách đã kiểm chứng và số đo. Không khai là có cái chưa đối chiếu."

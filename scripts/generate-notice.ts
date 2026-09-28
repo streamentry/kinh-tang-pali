@@ -17,6 +17,7 @@ import { existsSync, readFileSync, writeFileSync } from 'node:fs';
 import path from 'node:path';
 import { loadLock, type ReferenceEdition, type SourceLock } from '../src/lib/canon/load';
 import { supportTools } from '../src/lib/canon/tooling';
+import { externalReferences } from '../src/lib/canon/external';
 
 const ROOT = process.cwd();
 const RULE = '='.repeat(78);
@@ -103,8 +104,9 @@ export function generateNotice(source: SourceLock = loadLock()): string {
 NOTICE — sources, copyright, and where each translation comes from
 ${RULE}
 
-This file is generated. Its source of truth is source/suttacentral.lock.json, and
-\`npm run license:check\` fails if the two ever disagree. Edit the lock, not this file.
+This file is generated. Its sources of truth are source/suttacentral.lock.json and
+source/external-references.yaml, and \`npm run license:check\` fails if it disagrees with
+either. Edit those, not this file.
 
 Nothing in this repository's own translation is derived from the reference translations
 as a copy. They are read for triangulation, and every meaning decision is made against the
@@ -195,7 +197,36 @@ ${credits ? `  ${name(credits)}
 ` : '  (no credits edition is pinned — this is a configuration error)'}
 
 
-6. SUPPORT TOOLING
+6. WHOLE-TEXT REFERENCES — consult, not compare
+-----------------------------------------------
+
+These are not store layers and supply no text to any version of any text. They are recorded
+here because they are where a reader can reach a Vietnamese translation of the whole Pāli
+Nikāyas, which the pinned SuttaCentral snapshot does not carry — and because a source that is
+consulted still has to be credited and still has to be named as what it is.
+
+${externalReferences().map((reference) => {
+  const who = reference.attribution.reviser
+    ? `${reference.attribution.translator}, revised by ${reference.attribution.reviser}`
+    : reference.attribution.translator;
+  return `  ${reference.title}
+    author / reviser  ${who}
+    taken from        ${reference.attribution.distributor} — ${reference.attribution.distributorIsPublisher ? 'the publisher' : 'a third-party copy, not the publisher'}
+    original edition  ${reference.originalPublication.split('. ')[0]}.
+    terms             ${reference.licence.spdx}. ${reference.licence.basis}
+    attribution       ${reference.licence.attributionRequired ? 'required, and given' : 'not required'}
+    covers            ${reference.collections.join(', ')}${reference.mappedRange ? ` (${reference.mappedRange})` : ''}
+    alignment         none. ${reference.purpose.split('. ')[0]}.
+    verified          ${reference.verified ? `${reference.verified.matched}/${reference.verified.checked} sampled pages matched the Pāli name; the rest are typos in the site's own titles.` : 'not recorded'}`;
+}).join('\n\n')}
+
+  A source with no machine-readable licence is recorded as ${externalReferences()[0]?.licence.spdx ?? 'NOASSERTION'} rather than guessed at. The word "no" in "no segment alignment" is
+  load-bearing: these pages are continuous prose, so putting one beside a Pāli segment would
+  require choosing which segment a paragraph belongs to, and that choice is an editorial
+  decision this repository does not make silently.
+
+
+7. SUPPORT TOOLING
 -------------------
 
 Declared in source/tooling.yaml, which every page reads. AI assistance is a support layer
@@ -232,11 +263,11 @@ if (import.meta.url === `file://${process.argv[1]}`) {
   if (checkOnly) {
     const current = existsSync(target) ? readFileSync(target, 'utf8') : '';
     if (current !== generateNotice()) {
-      console.error('NOTICE does not match source/suttacentral.lock.json.');
+      console.error('NOTICE does not match its sources: source/suttacentral.lock.json and source/external-references.yaml.');
       console.error('Run: npm run license:generate');
       process.exit(1);
     }
-    console.log('NOTICE matches source/suttacentral.lock.json.');
+    console.log('NOTICE matches the lock and the declared external references.');
   } else {
     const content = generateNotice();
     writeFileSync(target, content, 'utf8');
