@@ -120,13 +120,15 @@ export interface CanonLayerSummary {
   /** Editorial status, for the project's own layers. */
   status?: string;
   /**
-   * A one-line credit naming the translator, the edition path, the pinned commit and the
-   * licence the version is displayed under.
+   * A one-line credit naming the translator, the distributor, the edition path, the pinned
+   * commit and the licence the version is displayed under.
    *
-   * This exists because SuttaCentral asks that reuse state its origin, and a reference
-   * translation displayed with no name and no terms looks like the project's own work.
+   * Undefined when this text has no content from that layer, because a credit names work the
+   * page does not contain. The credit is per text, not per site or per layer: the Vietnamese
+   * Nikāyas distributed at budsas.org/uni/ are not one translator's work throughout, so an
+   * author can never be inferred from a distributor.
    */
-  credit: string;
+  credit?: string;
   /** How this version may be reused, for the credits page and the panel footnote. */
   license?: {
     group: 'public-domain' | 'suttacentral' | 'third-party';
