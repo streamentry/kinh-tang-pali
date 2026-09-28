@@ -181,6 +181,16 @@ manifest, nên không thể lệch với thứ store thực sự giữ. Tồn t�
   GPT-5.6 Sol · GPT-6 Astra Pro (OpenAI) và Space Bunny · Muse Spark 1.3 Free (OpenCode).
   Không sửa attribution lịch sử của những bài đã dịch bằng công cụ cũ.
 
+**[`NOTICE`](NOTICE)** là bản đầy đủ: ai giữ bản quyền từng bản, điều khoản nào, ai là người
+tuyên bố điều khoản đó, và ai SuttaCentral ghi công cho công việc tiếng Việt. Nó được **sinh tự
+động** từ `source/suttacentral.lock.json`, và `npm run license:check` (chạy trong CI) fail
+nếu nó lệch. Trên website: [`/notice.txt`](https://streamentry.github.io/kinh-tang-pali/notice.txt).
+
+Lưu ý phân tách điều khoản, vì dễ đọc nhầm: **code** của dự án theo MIT (`LICENSE`), còn **bản
+dịch** theo CC0-1.0. Điều khoản CC0 ấy **chỉ** phủ phần dự án tự làm — Pāli vốn đã phạm vi
+cộng cộng, còn bản Anh của Sujato và bản Việt của Thích Minh Châu vẫn thuộc bản quyền dịch giả
+và không được CC0 của chúng ta phủ tới.
+
 ## Bốn bản để đối chiếu
 
 Trang bài kinh hiện bốn bản cạnh nhau, theo từng segment:
