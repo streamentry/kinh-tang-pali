@@ -36,22 +36,6 @@ const needs = (...relativePaths: string[]) =>
     ? false
     : `run npm run source:sync:all (needs ${relativePaths[0]})`;
 
-/** UIDs the project actually has editorial data for; `--used` guarantees these are synced. */
-function textsInScope(): Array<{ collection: CollectionCode; uid: string }> {
-  const scope: Array<{ collection: CollectionCode; uid: string }> = [];
-  for (const collection of COLLECTIONS.map((entry) => entry.code)) {
-    const dir = `content/meta/sutta/${collection}`;
-    if (!existsSync(dir)) continue;
-    const catalogFor = catalog(collection);
-    for (const name of readdirSync(dir)) {
-      if (!name.endsWith('.yaml')) continue;
-      const uid = name.slice(0, -5);
-      if (catalogFor.texts.some((text) => text.uid === uid)) scope.push({ collection, uid });
-    }
-  }
-  return scope;
-}
-
 test('the store registry is internally consistent', () => {
   assert.deepEqual(assertStoreIntegrity(), []);
 });

@@ -194,12 +194,28 @@ lớn nhất hiện tại theo thứ tự phân bộ rồi UID. Không có gì �
 ## Hàng đợi lấp English
 
 Sắp theo số segment Pāli có nội dung còn thiếu English, nhỏ trước để có thể kiểm chứng
-từng bài:
+từng bài. Cột "còn lại" là số segment theo `npm run audit:reference`, không phải suy đoán.
 
-1. `an3.149` (1), `an3.153` (1), `an4.59` (3) — **đã làm xong**, xem `content/translation/en/project/`
-2. `an4.116` (2), `ud7.3` (2), `sn3.6` (2), `sn3.9` (2), `sn11.24` (2)
-3. `an4.40` (2), `ud8.9` (2), `an4.59`→đã xong, `an4.29` (3), `an5.20` (3), `iti81` (3)
-4. Các bài lớn: `mn42` (72), `mn15` (163), `an4.46` (15), `an3.112` (22)
+**Đã xong (7 bài / 18 segment), tất cả đạt 100% coverage:**
+
+| bài | segment lấp | vì sao Sujato để trống |
+| --- | --- | --- |
+| `an3.149` | 1 | `…pe…` bị Sujato nuốt |
+| `an3.153` | 1 | idem |
+| `an4.59` | 3 | idem |
+| `an4.116` | 5 | Sujato gộp cả ba mục (thân/khẩu/ý) vào một câu ở `1.3`, nên `1.5`/`1.7` trống |
+| `ud7.3` | 3 | `…pe…` và các mục đếm bị bỏ |
+| `sn3.6` | 3 | `…pe…` bị Sujato nuốt |
+| `sn11.24` | 2 | các tỳ-kheo dẫn lại đoạn mở đầu; Sujato không dịch phần dẫn lại |
+
+**Còn lại, theo thứ tự nhỏ trước:**
+
+1. `sn3.9` (2), `an4.40` (2), `ud8.9` (2), `an4.29` (3), `an5.20` (3), `iti81` (3)
+2. Các bài lớn: `mn42` (72), `an4.46` (15), `an3.112` (22), `mn15` (163)
+
+Tổng còn **3.093 segment** trên **132 bài** (tại 2026-09-28). Con số này do
+`npm run audit:reference` in ra ở dòng *English fill queue*, nên không phải ai tính tay:
+sửa xong một bài thì chạy lại lệnh đó, đừng sửa con số.
 
 `dhp383-423` cố ý **không** làm: segment duy nhất còn thiếu là bản mục lục
 `dhp423:8`, và cách đọc con số tổng kết của nó là một điểm văn bản còn tranh luận
@@ -219,6 +235,18 @@ npm run reference:gaps                        # cập nhật record gap
 Nguyên tắc khi lấp: dịch từ **Pāli**, dùng bản Việt hiện hành để đối chiếu nghĩa, giữ nguyên
 dấu lược `…` của Pāli thay vì mở rộng, và chấm `triangulation` thấp hơn bình thường vì
 không có bản Anh độc lập nào để đối chiếu.
+
+**Hai luật không được bỏ qua**, cả hai đều vì đã bắt trúng một lần:
+
+1. **Đọc segment trong bối cảnh bài, không dịch segment lẻ.** `sn11.24:1.7` đọc riêng rất
+   dễ thành *"một tỳ-kheo là bậc trên về học"* — nghe như bài kinh về thứ bậc, và mâu thuẫn
+   với bản Việt đã publish. Thực ra `1.7–1.8` là các tỳ-kheo **dẫn lại đoạn mở đầu**;
+   Sujato dịch `Accayasutta` là *"Transgression"* và cùng cấu trúc ở `1.2–1.5` mang đúng
+   nghĩa đó.
+2. **Pāli đã xuất hiện ở nơi khác trong cùng bài thì phải dùng lại cách dịch đã có.**
+   Ở `sn11.24` điều này quyết định cả nghĩa, vì `1.7` chính là `1.2`+`1.3` được dẫn lại.
+
+Cả hai được `tests/unit/english-fill.test.ts` kiểm.
 
 ## Bốn bản trong web reader
 

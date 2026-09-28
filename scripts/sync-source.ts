@@ -7,7 +7,7 @@ import {
   upstreamFile,
   type SourcePath,
 } from '../src/lib/canon/load';
-import { storeLayer, storeLayers } from '../src/lib/canon/layers';
+import { storeLayers } from '../src/lib/canon/layers';
 
 const ROOT = process.cwd();
 const lock = loadLock();

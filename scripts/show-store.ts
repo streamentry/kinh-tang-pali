@@ -19,7 +19,6 @@ import { COLLECTIONS, loadCatalog } from '../src/lib/canon/load';
 import { MIN_ENGLISH_COVERAGE, englishCoverageFor, loadRecordedGaps } from '../src/lib/canon/reference';
 import { readingOrder, resolveLayer, storeView } from '../src/lib/canon/layers';
 
-const ROOT = process.cwd();
 const args = process.argv.slice(2);
 
 function flag(name: string): string | undefined {

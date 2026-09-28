@@ -40,6 +40,11 @@ jobs:
         run: npm run reference:gaps:check
       - name: Translation store audit
         run: npm run audit:store
+      - name: Filesystem and cache doctor
+        # Detects the APFS ghost-entry class that made a build appear to hang. On a clean
+        # CI runner this must pass, which is the point: it is the control that says the
+        # local volume's damage is local, not a property of the repository.
+        run: npm run doctor:ci
       - name: Astro type check
         run: npm run check
       - name: Production build + Pagefind

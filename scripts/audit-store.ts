@@ -20,7 +20,7 @@
 import { existsSync, readFileSync, readdirSync } from 'node:fs';
 import path from 'node:path';
 import type { CanonCatalog, CollectionCode } from '../src/lib/canon/types';
-import { loadCatalog, loadLock, segmentMapForUid } from '../src/lib/canon/load';
+import { loadLock, segmentMapForUid } from '../src/lib/canon/load';
 import { assertStoreIntegrity, readingOrder, resolveLayer, storeLayers } from '../src/lib/canon/layers';
 import { englishCoverageFor } from '../src/lib/canon/reference';
 
@@ -169,6 +169,9 @@ const summary = {
   commit: loadLock().commit,
   scope: scopeAll ? 'all-catalog' : 'used',
   texts: textsConsidered,
+  // Stated rather than left as an unused variable: a report about the store that does
+  // not say how many segments it examined cannot be compared against a later run.
+  segments: totalSegments,
   layers: reports.length,
   problems: problems.length,
   englishFillTexts: reports.find((r) => r.id === projectEnglish.id)?.textsPresent ?? 0,

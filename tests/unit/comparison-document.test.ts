@@ -16,7 +16,7 @@ import { existsSync, renameSync } from 'node:fs';
 import { composeDocument } from '../../src/lib/canon/document';
 import { storeLayers } from '../../src/lib/canon/layers';
 import { manifestCommit, upstreamPublishes } from '../../src/lib/canon/manifest';
-import { loadLock, sourcePathFor, loadCatalog } from '../../src/lib/canon/load';
+import { loadLock, loadCatalog } from '../../src/lib/canon/load';
 import type { CollectionCode } from '../../src/lib/canon/types';
 
 const synced = existsSync('.cache/upstream/suttacentral/root/pli/ms/sutta/kn/mil/mil1_root-pli-ms.json');

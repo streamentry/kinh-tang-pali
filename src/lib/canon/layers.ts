@@ -142,8 +142,6 @@ export interface ResolvedLayer {
   status: string | null;
 }
 
-const readJson = <T>(file: string): T => JSON.parse(readFileSync(file, 'utf8')) as T;
-
 function projectStatusFor(layer: StoreLayer, collection: CollectionCode, uid: string): string | null {
   const metaFile = contentMetaPathForLayer(layer, collection, uid);
   if (!metaFile || !existsSync(metaFile)) return null;
