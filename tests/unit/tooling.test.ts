@@ -264,10 +264,32 @@ test('the historical attributions are each a declared tool', () => {
       `"${line}" (${count} file(s)) is not a declared tool`,
     );
   }
-  // The four tools the corpus actually names. Changing these means changing the history of
-  // the corpus, not the credits, so the numbers are pinned deliberately.
-  assert.equal(tally.get('ChatGPT (OpenAI), hỗ trợ biên dịch và QA'), 561);
-  assert.equal(tally.get('GPT-5.6 Sol'), 99);
-  assert.equal(tally.get('GPT-6 Astra Pro'), 4);
-  assert.equal(tally.get('OpenCode Space Bunny Free (agent)'), 14);
+  // The four tools the corpus actually names, pinned as *floors* rather than exact counts.
+  //
+  // Growth is legitimate: translating a text adds it to whichever tool did the work, so the
+  // count for the current tool rises as the corpus grows, and pinning equality would fail
+  // every time real work lands. What must never happen is a count going *down* — that is
+  // someone erasing the record of how an existing text was made, which is the failure this
+  // test exists to catch. So the invariant is monotonic: counts may rise, never fall.
+  //
+  // The floor is the count observed when the four-tool inventory was established. A tool
+  // dropping below it means historical attribution was rewritten, not that work was undone.
+  const FLOORS: Array<[string, number]> = [
+    ['ChatGPT (OpenAI), hỗ trợ biên dịch và QA', 561],
+    ['GPT-5.6 Sol', 99],
+    ['GPT-6 Astra Pro', 4],
+    ['OpenCode Space Bunny Free (agent)', 14],
+  ];
+  for (const [line, floor] of FLOORS) {
+    const count = tally.get(line) ?? 0;
+    assert.ok(
+      count >= floor,
+      `${line}: ${count} file(s), below the recorded floor of ${floor} — historical attribution was removed`,
+    );
+  }
+  // And every one of the four must still be present, so a tool cannot quietly vanish from
+  // the corpus either.
+  for (const [line, floor] of FLOORS) {
+    assert.ok((tally.get(line) ?? 0) > 0, `${line} no longer appears anywhere in content/meta`);
+  }
 });
