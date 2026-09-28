@@ -279,30 +279,38 @@ test('the pinned English edition leaves blockquotes and elisions without prose',
   assert.ok(english['an2.1:3.4'].trim().length > 0, 'the sentence continues in the next segment');
 });
 
-test('a full catalog sync resolves every English reference, with the known upstream defect called out', {
-  // Deliberately not part of CI: CI syncs only the texts the project works on. This
-  // asserts the stronger whole-catalogue claim for whoever runs `source:sync:all`, so
-  // the claim is never made silently and never checked nowhere.
-  skip: !existsSync(upstreamFile('root/pli/ms/sutta/sn/sn12/sn12.93-213_root-pli-ms.json'))
-    ? 'run npm run source:sync:all'
+test('a full catalogue sync resolves every English edition that exists, and names the ones that do not', {
+  // Guarded on a file only `source:sync:manifest` fetches: CI syncs just the texts the
+  // project works on, and this asserts the whole-catalogue claim.
+  skip: !existsSync(upstreamFile('root/pli/ms/sutta/kn/mil/mil1_root-pli-ms.json'))
+    ? 'run npm run source:sync:manifest'
     : false,
 }, () => {
   const problems: string[] = [];
   const unresolved: string[] = [];
+  const noEnglishEdition: string[] = [];
   for (const collection of ['dn', 'mn', 'sn', 'an', 'kn'] as CollectionCode[]) {
     for (const item of catalog(collection).texts) {
-      const english = loadEnglishReference(collection, item.uid);
-      if (!english?.present) {
-        problems.push(`${collection}/${item.uid}: English file not synced`);
+      const paliPath = sourcePathFor(collection, item.uid, item.sourcePath)!;
+      const paliFile = upstreamFile(paliPath);
+      if (!existsSync(paliFile)) {
+        problems.push(`${collection}/${item.uid}: Pāli root not synced`);
         continue;
       }
-      const paliPath = sourcePathFor(collection, item.uid, item.sourcePath)!;
-      const pali = segmentMapForUid(readJson<Record<string, string>>(upstreamFile(paliPath)), item.uid);
-      const englishSegments = segmentMapForUid(readJson<Record<string, string>>(upstreamFile(english.sourcePath)), item.uid);
+      const pali = segmentMapForUid(readJson<Record<string, string>>(paliFile), item.uid);
       if (Object.keys(pali).length === 0) {
         unresolved.push(`${collection}/${item.uid}`);
         continue;
       }
+      const english = loadEnglishReference(collection, item.uid);
+      if (!english?.present) {
+        // SuttaCentral publishes no English edition for these texts at all — the
+        // extra-canonical Khuddaka collections. That is a coverage limit of the
+        // snapshot, not a sync failure, so it is counted rather than called a defect.
+        noEnglishEdition.push(`${collection}/${item.uid}`);
+        continue;
+      }
+      const englishSegments = segmentMapForUid(readJson<Record<string, string>>(upstreamFile(english.sourcePath)), item.uid);
       for (const id of Object.keys(pali)) {
         if (!(id in englishSegments)) problems.push(`${collection}/${item.uid}: ${id} has no English segment`);
       }
@@ -315,6 +323,13 @@ test('a full catalog sync resolves every English reference, with the known upstr
   // `sn12.93-213` is the sole text bilara-data files under a UID its own segments do
   // not carry, so the Pāli root resolves nothing for it. Recorded, not guessed.
   assert.deepEqual(unresolved, ['sn/sn12.93-213']);
+  // Pinned so a change in the upstream edition's coverage cannot pass unnoticed.
+  const byCollection = new Map<string, number>();
+  for (const entry of noEnglishEdition) {
+    const collection = entry.split('/')[0];
+    byCollection.set(collection, (byCollection.get(collection) ?? 0) + 1);
+  }
+  assert.deepEqual(Object.fromEntries([...byCollection.entries()].sort()), { kn: 1596 });
 });
 
 test('COLLECTIONS still declares every collection the catalogs cover', () => {

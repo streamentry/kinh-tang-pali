@@ -60,6 +60,7 @@ Quy tắc bất di bất dịch:
 npm run store -- <uid>        # đọc bài qua toàn bộ store, kèm coverage
 npm run audit:store           # kiểm kê mọi tầng
 npm run audit:reference       # chi tiết coverage English
+npm run verify:store          # đối soát bằng git hash, đếm mọi segment
 ```
 
 Một bài chỉ nên bắt đầu dịch khi đã biết rõ: tầng nào có, tầng nào không có, coverage
@@ -89,6 +90,28 @@ khi hai lớp trùng `assessed_by`, và scorecard tiếng Việt của bài đó
 - Bài `review`/`published` có coverage dưới ngưỡng mà chưa có entry trong
   `content/meta/reference-gaps.yaml` là **lỗi chặn**.
 - Một ô English rỗng **không phải** sự đồng thuận về cách dịch. Chỗ đó Pāli phải tự đứng vững.
+
+## Mọi khẳng định về corpus phải đếm được
+
+Không được viết số vào tài liệu mà code không tái lập được. Trước khi nói "đã đủ" về một tầng,
+chạy:
+
+```bash
+npm run verify:store     # đối soát bằng git hash, đếm và đối soát mọi segment
+npm run catalog:check    # catalog phải phủ 100% snapshot đã pin
+```
+
+Sự thật đến từ `source/upstream-manifest.json` — git tree của commit đã pin, kèm git object
+hash từng file — chứ không từ cache của chính dự án. Lý do: một vòng kiểm tra trước đã báo
+xanh trong khi 2.715 bài kinh vốn không có trong repo, vì mọi kiểm tra đều duyệt qua catalog
+mà không ai đo catalog ấy.
+
+- Lệch **phải sửa** thì `verify:store` exit 1: cache không phải bản pin, segment thừa so với
+  Pāli, edition đã pin thiếu segment, bản lấp English che bản đã pin, gap dưới ngưỡng chưa
+  ghi nhận, authority bị đảo.
+- **Giới hạn của upstream** thì in ra dưới dạng advisory, có số đếm cụ thể: edition không
+  phủ hết bài (1.596 bài `kn` không có English; `vietnamese-current` chỉ có Pháp Cú). Không
+  được trình bày như thiếu sót của repo, cũng không được bỏ qua.
 
 ## Definition of Done cho một lần lấp English
 

@@ -33,7 +33,7 @@ const ROOT = process.cwd();
 
 export type LayerKind = 'root' | 'reference' | 'project';
 export type LayerLocation =
-  | { type: 'upstream'; rootEdition?: string; path: string; suffix: string }
+  | { type: 'upstream'; rootEdition?: string; subpath?: string; path: string; suffix: string }
   | { type: 'content'; dir: string; suffix: string; metaDir: string };
 
 export interface StoreLayer {
@@ -47,6 +47,19 @@ export interface StoreLayer {
   note?: string;
   countsTowardCoverage?: boolean;
   countsOnlyWhenStatus?: string;
+}
+
+/**
+ * The upstream directory this layer reads, which is what the pinned manifest records.
+ * Reference layers map to their own edition root; the Pāli root is the edition root
+ * narrowed to the subpath the project actually consumes.
+ */
+export function manifestRootForLayer(layer: StoreLayer): string | null {
+  if (layer.location.type !== 'upstream') return null;
+  if (!layer.location.rootEdition) return layer.location.path;
+  return layer.location.subpath
+    ? `${layer.location.rootEdition}/${layer.location.subpath}`
+    : layer.location.rootEdition;
 }
 
 export interface StoreManifest {
