@@ -107,6 +107,26 @@ Quy tắc khi sửa reader:
   của Pāli thay vì mở rộng;
 - chấm `triangulation` thấp hơn bình thường, vì không có bản Anh độc lập để đối chiếu.
 
+**Đừng dịch một segment khi tách nó khỏi bài.** Đây là cái bẫy thật sự của lớp lấp, và đã
+bắt trúng một lần khi làm `sn11.24`:
+
+- `sn11.24:1.7` là `“idha, bhette, dve bhikkhū sampayojesuṁ, tatreko bhikkhu accasarā.`
+  Đọc riêng, `tatreko bhikkhu accasarā` rất dễ thành *"một tỳ-kheo là bậc trên về học"*
+  và `accayaṁ accayato deseti` thành *"định nghĩa chữ 'bậc dưới'"* — nghe rất như một bài
+  kinh về thứ bậc, và sẽ **mâu thuẫn với bản Việt đã publish** của chính bài đó.
+- Không phải vậy. `1.7–1.8` là các tỳ-kheo **dẫn lại đoạn mở đầu** cho Đức Thế Tôn:
+  `1.7` lặp lại `1.2` + `1.3`, `1.8` lặp lại `1.4` + `1.5`. Sujato dịch tiêu đề
+  `Accayasutta` là *"Transgression"*, và cùng cấu trúc đó ở `1.2–1.5` mang đúng nghĩa đó.
+
+Nên hai luật bắt buộc khi lấp:
+
+1. **Segment nào Pāli đã xuất hiện ở nơi khác trong cùng bài thì phải dùng lại cách dịch
+   đã có** cho chỗ đó, không dịch lại từ đầu. Nếu không, bài kinh sẽ tự mâu thuẫn.
+2. **Trước khi dịch một segment, đọc nó trong bối cảnh bài** — segment liền trước và sau,
+   tiêu đề bài, và bản Việt canonical. Chỉ `…pe…` mới được phép cắt khỏi bối cảnh.
+
+Cả hai được kiểm bằng `tests/unit/english-fill.test.ts`.
+
 **Không tự đánh bài của mình.** Khi bản lấp English và bản dịch Việt cùng do một người
 hoặc một agent chấm, bản lấp **không phải cách đọc English độc lập**. `validate` cảnh báo
 khi hai lớp trùng `assessed_by`, và scorecard tiếng Việt của bài đó **không được** tuyên bố

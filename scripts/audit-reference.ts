@@ -23,7 +23,7 @@ import {
   sourcePathFor,
   upstreamFile,
 } from '../src/lib/canon/load';
-import { MIN_ENGLISH_COVERAGE, loadRecordedGaps } from '../src/lib/canon/reference';
+import { englishCoverageFor, MIN_ENGLISH_COVERAGE, loadRecordedGaps } from '../src/lib/canon/reference';
 
 const ROOT = process.cwd();
 const COLLECTIONS: CollectionCode[] = ['dn', 'mn', 'sn', 'an', 'kn'];
@@ -139,11 +139,22 @@ for (const collection of COLLECTIONS) {
 
     const aligned = bothSynced;
     const englishWithoutProse = aligned ? paliIds.filter((id) => proseLength(english[id]) === 0).length : 0;
-    const englishWithoutProseSubstantive = aligned
-      ? paliIds.filter((id) => proseLength(english[id]) === 0 && proseLength(pali[id]) >= 40).length
-      : 0;
-    const substantive = aligned ? paliIds.filter((id) => proseLength(pali[id]) >= 40).length : 0;
-    const coverage = substantive === 0 ? 1 : (substantive - englishWithoutProseSubstantive) / substantive;
+
+    // Coverage comes from `englishCoverageFor`, never from a second implementation here.
+    //
+    // This audit used to compute its own ratio, counting only the pinned Sujato file. The
+    // moment the project's English fill was published for a passage Sujato left blank, the
+    // two implementations disagreed: `verify:store` and `validate` said the text was
+    // cured, this audit said it was still an unrecorded gap. Two answers to one question,
+    // from two committed commands, is exactly what the counting rules exist to prevent —
+    // and the duplicated copy was the reason it went unnoticed.
+    //
+    // What this audit keeps that the shared metric does not do is file-level reporting:
+    // whether a bundled file is present, and which segment keys are missing from either
+    // side. That is genuinely its own job and stays here.
+    const shared = englishCoverageFor(collection, uid);
+    const englishWithoutProseSubstantive = shared?.resolved ? shared.substantiveWithoutEnglish : 0;
+    const coverage = shared?.resolved ? shared.ratio : 1;
 
     rows.push({
       collection,
@@ -190,6 +201,18 @@ const summary = {
   minEnglishCoverage: MIN_ENGLISH_COVERAGE,
   textsBelowCoverageFloor: belowFloor.length,
   textsBelowFloorUnrecorded: unrecorded.length,
+  /**
+   * The size of the English fill queue, in segments.
+   *
+   * Stated here so the figure quoted in docs/translation-store.md is reproducible by a
+   * command rather than by someone's arithmetic. It counts only acknowledged gaps with
+   * substantive Pāli still lacking any English wording, which is the set a fill can
+   * actually close.
+   */
+  fillQueue: {
+    texts: belowFloor.length,
+    segments: belowFloor.reduce((sum, row) => sum + row.englishWithoutProseSubstantive, 0),
+  },
   broken: broken.length,
 };
 
@@ -238,6 +261,10 @@ if (asJson) {
     `\nCoverage floor ${(MIN_ENGLISH_COVERAGE * 100).toFixed(0)}% of substantive Pāli carrying English words: `
     + `${belowFloor.length} of ${comparable.length} text(s) fall below it`
     + `${unrecorded.length > 0 ? ` (${unrecorded.length} not yet recorded)` : ' (all recorded)'}.`,
+  );
+  console.log(
+    `\nEnglish fill queue: ${summary.fillQueue.texts} text(s), `
+    + `${summary.fillQueue.segments} substantive segment(s) still without English wording.`,
   );
   if (unrecorded.length > 0) {
     console.error(`  ${unrecorded.length} text(s) below the floor with no entry in content/meta/reference-gaps.yaml:`);
