@@ -34,6 +34,7 @@ import {
   loadLock,
   loadMeta,
   loadSegmentMap,
+  projectContentLicense,
   segmentMapForUid,
   segmentPrefixesForUid,
   sourcePathFor,
@@ -51,8 +52,11 @@ const ROOT = process.cwd();
  * ours: there is no upstream edition, no translator to attribute, and no licence to
  * inherit. What is true is who wrote it and under what terms.
  */
-const PROJECT_TRANSLATION_CREDIT =
-  'Bản dịch của dự án Kinh Tạng Pāli Việt — CC0 1.0, không phải bản của SuttaCentral';
+// Built from the lock's declaration rather than typed, because this line is the credit a
+// reader sees beside the translation and the book manifests state the same terms.
+export const PROJECT_TRANSLATION_CREDIT = `Bản dịch của dự án Kinh Tạng Pāli Việt — ${
+  projectContentLicense().spdx.replace(/-(\d)/, ' $1')
+}, không phải bản của SuttaCentral`;
 
 /** The store layers behind each display column, in precedence order. */
 const COLUMN_SOURCES: Record<CanonLayerId, readonly string[]> = {

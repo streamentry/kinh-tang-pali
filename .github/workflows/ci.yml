@@ -38,6 +38,11 @@ jobs:
         run: npm run verify:store:partial
       - name: Reference gap record is current
         run: npm run reference:gaps:check
+      - name: Licence notice is current
+        # Regenerates NOTICE from the lock in memory and compares. Fails if the copyright
+        # and provenance text has fallen behind the pinned commit it describes, which is the
+        # same class of staleness as a stale manifest but on the legal side.
+        run: npm run license:check
       - name: Translation store audit
         run: npm run audit:store
       - name: Filesystem and cache doctor

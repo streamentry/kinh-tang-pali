@@ -18,6 +18,7 @@ import { existsSync, readFileSync, readdirSync } from 'node:fs';
 import { loadLock, upstreamFile, type ReferenceEdition } from '../lib/canon/load';
 import { storeLayers } from '../lib/canon/layers';
 import { manifestCommit } from '../lib/canon/manifest';
+import { projectContentLicense } from '../lib/canon/load';
 import { creditLabel, supportTools, toolingRules } from '../lib/canon/tooling';
 import { withBase } from '../lib/url';
 
@@ -105,11 +106,16 @@ function attributionRequest(): string | null {
 }
 
 const request = attributionRequest();
+// SPDX is `CC0-1.0`; the hyphen is an identifier convention, not how the licence is named.
+const humanise = (spdx: string): string => spdx.replace(/-(\d)/, ' $1');
 const terms = (license: ReferenceEdition['license']): string => {
   if (license.group === 'public-domain') return 'phạm vi công cộng';
-  if (license.spdx === 'CC0-1.0') return 'CC0 1.0';
-  return `bản quyền thuộc ${license.holder} (không phải CC0)`;
+  if (license.spdx === 'CC0-1.0') return humanise(license.spdx);
+  return `bản quyền thuộc ${license.holder} (không phải ${projectLicense.spdx})`;
 };
+// The content licence is declared once, in the lock. Reading it here rather than typing it
+// means the table cannot claim terms the rest of the repository no longer holds.
+const projectLicense = projectContentLicense();
 ---
 
 <Base title="Nguồn, giấy phép và ghi công · Kinh Tạng Pāli Việt">
@@ -170,7 +176,7 @@ const terms = (license: ReferenceEdition['license']): string => {
             <td>Dự án Kinh Tạng Pāli Việt</td>
             <td><code>content/translation/vi/project</code></td>
             <td class="num">—</td>
-            <td>CC0 1.0 (tác phẩm của chúng ta)</td>
+            <td>{humanise(projectLicense.spdx)} (tác phẩm của chúng ta)</td>
           </tr>
         </tbody>
       </table>
@@ -256,6 +262,12 @@ const terms = (license: ReferenceEdition['license']): string => {
           </div>
         ))}
       </div>
+      <p class="hint licence-notice-link">
+        Toàn bộ phần giấy phép, gốc từng bản dịch và cách SuttaCentral ghi công nằm trong
+        <a href={withBase('notice.txt')}>bản <code>NOTICE</code> đầy đủ</a>, sinh tự động
+        từ <code>source/suttacentral.lock.json</code> — nên trang này không thể lệch với thứ
+        store thực sự giữ. Chạy <code>npm run license:check</code> để kiểm.
+      </p>
       <ul class="licence-groups">
         {toolingRules().map((rule) => <li>{rule}</li>)}
       </ul>

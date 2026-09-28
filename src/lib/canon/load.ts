@@ -132,6 +132,15 @@ export interface ReferenceEdition {
   note?: string;
 }
 
+export interface ProjectLicense {
+  spdx: string;
+  holder?: string;
+  /** The file or files in this repository that state these terms. */
+  statedBy?: string;
+  covers: Record<string, string>;
+  note?: string;
+}
+
 export interface SourceLock {
   repo: string;
   ref: string;
@@ -140,10 +149,26 @@ export interface SourceLock {
   paths: string[];
   referenceEditions: ReferenceEdition[];
   pinnedAt: string;
+  /**
+   * What this project produced, and under which terms.
+   *
+   * The code and the translated text are under different licences, and both were already
+   * declared somewhere in the repository — the root `LICENSE` and three separate mentions of
+   * CC0 in the reader credit line and the book manifests. They are recorded here so the
+   * licences have one home, and `tests/unit/licence-notice.test.ts` fails when any of those
+   * existing declarations stops agreeing with this one. Nothing here invents a term: these
+   * are reported, and changing them is the maintainer's decision.
+   */
+  projectLicense: { code: ProjectLicense; content: ProjectLicense };
 }
 
 export function loadLock(): SourceLock {
   return readJson<SourceLock>(path.join(ROOT, 'source/suttacentral.lock.json'));
+}
+
+/** The licence the project's own Vietnamese translation is released under. */
+export function projectContentLicense(): ProjectLicense {
+  return loadLock().projectLicense.content;
 }
 
 export function englishEdition(): ReferenceEdition {
