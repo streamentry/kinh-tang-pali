@@ -23,6 +23,7 @@ import {
   COLLECTIONS,
   loadCatalog,
   loadLock,
+  loadSegmentMap,
   segmentMapForUid,
   sourcePathFor,
   upstreamFile,
@@ -178,9 +179,7 @@ export function resolveLayer(
   }
 
   const present = existsSync(file);
-  const segments = present
-    ? segmentMapForUid(readJson<Record<string, string>>(file), uid)
-    : {};
+  const segments = present ? segmentMapForUid(loadSegmentMap(file), uid) : {};
 
   return {
     layer,

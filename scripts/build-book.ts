@@ -2,7 +2,8 @@ import { mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import path from 'node:path';
 import { spawnSync } from 'node:child_process';
 import YAML from 'yaml';
-import { composeDocument, loadCatalog } from '../src/lib/canon/load';
+import { loadCatalog } from '../src/lib/canon/load';
+import { composeDocument } from '../src/lib/canon/document';
 import type { CollectionCode } from '../src/lib/canon/types';
 
 interface BookManifest {

@@ -66,6 +66,35 @@ npm run verify:store          # đối soát bằng git hash, đếm mọi segme
 Một bài chỉ nên bắt đầu dịch khi đã biết rõ: tầng nào có, tầng nào không có, coverage
 English bao nhiêu, và chỗ nào phải dựa vào Pāli một mình.
 
+## Bốn bản trong web reader
+
+Trang bài kinh hiện ra **bốn bản** đối chiếu nhau, theo thứ tự đọc:
+
+| cột | vai trò |
+| --- | --- |
+| Pāli | **nguồn chuẩn** |
+| English | tham khảo (Sujato, chỗ trống thì bù bằng bản lấp của dự án) |
+| Việt hiện hành | tham khảo (HT. Thích Minh Châu) |
+| Việt dự án | **bản canonical** — bản đang biên tập |
+
+Quy tắc khi sửa reader:
+
+- Pāli là tập key; mọi bản khác căn theo nó, nên đối chiếu luôn ở **mức segment**.
+- Cột English ghép hai lớp theo đúng thứ tự `fillableSegments` dùng (Sujato trước, bản
+  lấp của dự án chỉ đóng chỗ Sujato im lặng), và **mỗi segment mang theo lớp đã cung
+  cấp nó** (`enFrom`). Đoạn do dự án bù phải được gắn nhãn là bản nháp của chúng ta,
+  không bao giờ trộn vào bản Sujato đã xuất bản.
+- Vắng mặt phải phân biệt `not-published-upstream` (giới hạn của bản chụp) với
+  `not-synced` (tệp chưa tải về cache) với `not-started` (lớp dự án chưa có nội dung).
+  Quyết định từ `source/upstream-manifest.json`, và trả "không biết" chứ không trả
+  "không có" khi không suy ra được.
+- Một bản tham khảo **im lặng ở một segment** phải hiện là lỗ hổng của bản dịch đó,
+  khác với bản vắng mặt cả bài.
+- Không giấu bản nào khỏi tìm kiếm; thay vào đó cho phép lọc theo bản và ghi rõ kết
+  quả tìm được ở bản nào.
+- Sách/EPUB chỉ lấy Pāli + Việt dự án; English và Việt tham khảo không được rò vào bản
+  phát hành.
+
 ## Lớp `english-project`: bản dịch English của chính dự án
 
 Đây là **bản dịch độc lập**, không phải nguồn SuttaCentral. Ràng buộc:

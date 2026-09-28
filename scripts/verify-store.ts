@@ -21,8 +21,8 @@
  *
  * Exit code is 1 on any discrepancy. There is no "looks fine" path.
  */
-import { execFileSync } from 'node:child_process';
 import { existsSync, readFileSync, readdirSync, writeFileSync, type Dirent } from 'node:fs';
+import { createHash } from 'node:crypto';
 import path from 'node:path';
 import type { CanonCatalog, CollectionCode } from '../src/lib/canon/types';
 import { loadLock, segmentPrefixesForUid, sourcePathFor } from '../src/lib/canon/load';
@@ -72,23 +72,37 @@ const upstreamEditions = new Map(manifest.editions.map((e) => [e.layerId, e]));
 
 // ---------------------------------------------------------------- content hashes
 
-/** git object hashes for many paths in one process, rather than one per file. */
-function hashFiles(absolutePaths: string[]): Map<string, string> {
-  const out = new Map<string, string>();
-  if (absolutePaths.length === 0) return out;
-  const chunks: string[][] = [];
-  for (let i = 0; i < absolutePaths.length; i += 4000) chunks.push(absolutePaths.slice(i, i + 4000));
-  for (const chunk of chunks) {
-    const stdout = execFileSync('git', ['hash-object', '--stdin-paths'], {
-      input: chunk.join('\n'),
-      encoding: 'utf8',
-      maxBuffer: 64 * 1024 * 1024,
-    });
-    stdout.split('\n').forEach((hash, index) => {
-      if (hash) out.set(chunk[index], hash.trim());
-    });
+/**
+ * The git object hash of a buffer, computed in process.
+ *
+ * `git hash-object --stdin-paths` was the obvious route and it was wrong here: the
+ * batch aborts with a non-zero exit if *any* path cannot be opened, so one unreadable
+ * file — which this volume produces, see docs/apfs-orphan-incident-2026-09-27.md —
+ * killed the whole verification instead of being counted. Doing the read ourselves
+ * means a file that cannot be read is a number, not a crash.
+ */
+function gitBlobHash(content: Buffer): string {
+  const header = Buffer.from(`blob ${content.length}\0`, 'utf8');
+  return createHash('sha1').update(header).update(content).digest('hex');
+}
+
+interface HashOutcome {
+  hashes: Map<string, string>;
+  /** Listed by readdir but not openable, so its content cannot be verified. */
+  unreadable: string[];
+}
+
+function hashFiles(absolutePaths: string[]): HashOutcome {
+  const hashes = new Map<string, string>();
+  const unreadable: string[] = [];
+  for (const absolute of absolutePaths) {
+    try {
+      hashes.set(absolute, gitBlobHash(readFileSync(absolute)));
+    } catch {
+      unreadable.push(absolute);
+    }
   }
-  return out;
+  return { hashes, unreadable };
 }
 
 interface ContentReconciliation {
@@ -159,9 +173,16 @@ for (const layer of storeLayers()) {
   // Enumerate with `readdirSync`, not `find`: on this volume `find` exits non-zero
   // because of the APFS tombstoned entries documented in
   // docs/apfs-orphan-incident-2026-09-27.md, and a swallowed exit status silently
-  // turns the whole layer into "0 files verified". Unreadable names are counted
-  // rather than hidden, so a poisoned directory can never quietly shrink coverage.
+  // turns the whole layer into "0 files verified".
+  //
+  // A directory entry that `readdir` reports but that cannot be opened is a ghost
+  // left by that defect. It has no content, so it cannot shadow or corrupt a pinned
+  // file, and treating it as a real extra file would fail verification for something
+  // the repository cannot fix. It is counted and named instead. An entry that *can* be
+  // read but is not in the pin still fails: that one has content and must be accounted
+  // for.
   const onDisk = new Set<string>();
+  const ghostEntries: string[] = [];
   let unreadable = 0;
   const walk = (dir: string): void => {
     let entries: Dirent[];
@@ -174,15 +195,27 @@ for (const layer of storeLayers()) {
     for (const entry of entries) {
       if (entry.name.includes('.apfs-orphan')) continue;
       const full = path.join(dir, entry.name);
-      if (entry.isDirectory()) walk(full);
-      else if (entry.isFile()) onDisk.add(path.relative(localRoot, full));
-      else unreadable += 1;
+      if (entry.isDirectory()) {
+        walk(full);
+        continue;
+      }
+      if (!entry.isFile()) {
+        unreadable += 1;
+        continue;
+      }
+      try {
+        readFileSync(full);
+      } catch {
+        ghostEntries.push(path.relative(localRoot, full));
+        continue;
+      }
+      onDisk.add(path.relative(localRoot, full));
     }
   };
   if (existsSync(localRoot)) walk(localRoot);
 
   const toHash = [...onDisk].filter((name) => expected.has(name)).map((name) => path.join(localRoot, name));
-  const hashes = hashFiles(toHash);
+  const { hashes, unreadable: unreadablePaths } = hashFiles(toHash);
 
   const report: ContentReconciliation = {
     layerId: layer.id,
@@ -204,12 +237,16 @@ for (const layer of storeLayers()) {
   // Whole-cache reconciliation, independent of what the catalogue consumes: every
   // manifest file must be on disk with a matching hash. This is the claim "all Pāli
   // and all English are present and are the pinned snapshot", stated as a count.
+  //
+  // Driven by the manifest rather than by the directory listing, so a file that has
+  // quietly disappeared from the cache is counted as absent instead of going unnoticed
+  // because nothing was left to look at it.
   for (const [name, want] of expected) {
     const absolute = path.join(localRoot, name);
-    if (!existsSync(absolute)) continue;
     if (hashes.get(absolute) === want) report.onDiskVerified += 1;
   }
   report.onDiskMissing = expected.size - report.onDiskVerified;
+  report.unreadable = unreadablePaths.length;
 
   for (const name of [...consumed].sort()) {
     if (!expected.has(name)) {
@@ -224,7 +261,7 @@ for (const layer of storeLayers()) {
       continue;
     }
     const absolute = path.join(localRoot, name);
-    if (!existsSync(absolute)) {
+    if (!hashes.has(absolute)) {
       report.missingButConsumed += 1;
       continue;
     }
@@ -237,11 +274,16 @@ for (const layer of storeLayers()) {
     else if (!consumed.has(name)) report.presentNotConsumed += 1;
   }
   report.notSyncedYet = expected.size - report.contentVerified - report.missingButConsumed;
-  report.unreadable = unreadable;
 
   if (report.unreadable > 0) {
     advise(`${layer.id}: ${report.unreadable} directory entr(y|ies) under the cache could not be read `
       + '(APFS tombstones); they are excluded from the counts above rather than assumed empty');
+  }
+  if (ghostEntries.length > 0) {
+    advise(`${layer.id}: ${ghostEntries.length} directory entr(y|ies) are listed but cannot be opened `
+      + '(e.g. ' + ghostEntries.slice(0, 2).join(', ') + '). These are APFS ghost entries with no content, '
+      + 'so they cannot shadow a pinned file. They are inert, but the volume needs `fsck_apfs` while '
+      + 'unmounted to clear them; see docs/apfs-orphan-incident-2026-09-27.md.');
   }
   if (report.missingButConsumed > 0) {
     const message = `${layer.id}: ${report.missingButConsumed} consumed file(s) are not on disk; run npm run source:sync:manifest`;

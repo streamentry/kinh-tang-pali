@@ -219,3 +219,74 @@ npm run reference:gaps                        # cập nhật record gap
 Nguyên tắc khi lấp: dịch từ **Pāli**, dùng bản Việt hiện hành để đối chiếu nghĩa, giữ nguyên
 dấu lược `…` của Pāli thay vì mở rộng, và chấm `triangulation` thấp hơn bình thường vì
 không có bản Anh độc lập nào để đối chiếu.
+
+## Bốn bản trong web reader
+
+`npm run store -- <uid>` in ra store dạng CLI. Người đọc web cần bốn bản cạnh nhau để
+đối chiếu, và `src/lib/canon/document.ts` dựng ra đúng bốn bản đó:
+
+| cột | lớp store | vai trò |
+| --- | --- | --- |
+| Pāli | `pali` | **nguồn chuẩn** — quyết định nghĩa |
+| English | `english-sujato` + `english-project` | tham khảo (Sujato, chỗ trống thì bù bằng bản lấp của dự án) |
+| Việt hiện hành | `vietnamese-current` | tham khảo (HT. Thích Minh Châu) |
+| Việt dự án | `vietnamese-project` | **bản canonical** — bản đang biên tập |
+
+Pāli là tập key: mọi bản khác đều căn theo nó, nên một dòng của bảng so sánh là một
+segment Pāli và tương ứng của cả ba bản kia. Cột English ghép hai lớp theo đúng thứ tự
+`fillableSegments` dùng — Sujato trước, bản lấp của dự án chỉ đóng chỗ Sujato im lặng —
+và **mỗi segment mang theo lớp đã cung cấp nó** (`enFrom`), nên đoạn do dự án bù được
+gắn nhãn *bản lấp của dự án* chứ không bao giờ trộn với bản Sujato đã xuất bản.
+
+### Vắng mặt phải nói thật
+
+Đây là phần dễ sai nhất, nên nó được quyết định từ manifest chứ không từ cache:
+
+| `reason` | nghĩa là gì |
+| --- | --- |
+| `not-published-upstream` | bản chụp đã pin **không có** bản dịch cho bài này — giới hạn của upstream |
+| `not-synced` | upstream có, nhưng tệp chưa tải về cache — trạng thái local, ai cũng sửa được |
+| `not-started` | lớp của dự án chưa có nội dung cho bài này |
+
+Gộp hai cái đầu thành "không có" là cách khiến người đọc tưởng một bài mất tham khảo
+trong khi thực ra chỉ là chưa ai tải. `src/lib/canon/manifest.ts` đọc
+`source/upstream-manifest.json` để trả lời câu hỏi đó, và trả `null` — không phải
+`false` — khi không biết, vì `null` đã bị dùng để chỉ "không suy ra được".
+
+Một bản tham khảo **có mặt nhưng im lặng ở một segment** (`dhp1:0.4`) là lỗ hổng của
+bản dịch đó, khác hẳn với bản vắng mặt cả bài — và đúng trường hợp mà lớp lấp English
+sinh ra để xử lý. Ô trống được đánh dấu là lỗ hổng của bản tham khảo, không phải dấu
+hiệu "không có gì để dịch".
+
+### Bốn cột không lúc nào cũng đọc được
+
+Bốn cột kinh văn trên một màn hình là không đọc nổi, và trên điện thoại là vô dụng. Nên:
+
+- **rộng** (`>1100px`): bốn cột, nhưng cột nào **không có bất kỳ nội dung nào** thì bị
+  thu gọn, để phần còn lại chiếm hết bề ngang. Số cột còn lại quyết định ở build time
+  (`data-open-columns`), vì vậy `mil1` chỉ có cột Pāli chứ không phải một cột Pāli
+  bằng 1/4 màn hình.
+- **hẹp** (`≤1100px`): một cột mỗi lần, chọn bằng nút tập trung. Không có JavaScript thì
+  cả bốn cột xếp chồng và vẫn đọc được — nội dung luôn nằm trong markup.
+- **chế độ** `Bốn bản` (mặc định) · `Đối chiếu` (một segment, bốn bản xếp dọc) ·
+  `Chỉ Việt` (Pāli + Việt dự án, để đọc).
+
+Cột vắng mặt không biến mất lặng lẽ: thẻ bản vẫn hiện ở `0/N`, bị khoá
+(`aria-disabled`) kèm lý do, và thẻ giải thích trong `layer-legend` nói rõ giới hạn
+của bản chụp.
+
+### Tìm kiếm
+
+Cả bốn bản đều được Pagefind index — không bản nào bị giấu khỏi tìm kiếm. Đổi lại, một
+truy vấn Pāli và một truy vấn English đều dẫn tới cùng một bài, nên:
+
+- mỗi ô mang `data-pagefind-filter="version:<tên bản>"`, và trang tìm kiếm có bộ chọn
+  bản để thu hẹp phạm vi;
+- mỗi kết quả ghi rõ **trang đó có những bản nào**, để không ai đọc kết quả trúng English
+  là "bài này nói vậy bằng tiếng Việt".
+
+### Sách/EPUB không đổi
+
+`scripts/build-book.ts` chỉ đọc `segment.pali` và `segment.vi`, nên sách vẫn ra Pāli +
+Việt dự án và **không** rò English hay Việt tham khảo vào bản phát hành. Đã kiểm trên
+`mn-vol-1` và `mn118-smoke`.

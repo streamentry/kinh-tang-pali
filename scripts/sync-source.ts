@@ -68,11 +68,26 @@ async function fetchPinned(relativePath: SourcePath): Promise<string> {
 
 async function syncOne(relativePath: SourcePath, force: boolean): Promise<boolean> {
   const destination = upstreamFile(relativePath);
-  if (existsSync(destination) && !force) return false;
+  // `existsSync` is not enough on this volume. A file can be listed by the directory
+  // yet fail to open — the APFS behaviour recorded in
+  // docs/apfs-orphan-incident-2026-09-27.md — and then the sync would treat it as
+  // present, skip the download, and fail on the read. A file we cannot actually read
+  // is not cached, so it is re-fetched.
+  if (!force && isReadableFile(destination)) return false;
   const text = await fetchPinned(relativePath);
   mkdirSync(path.dirname(destination), { recursive: true });
   writeFileSync(destination, text, 'utf8');
   return true;
+}
+
+function isReadableFile(file: string): boolean {
+  if (!existsSync(file)) return false;
+  try {
+    readFileSync(file);
+    return true;
+  } catch {
+    return false;
+  }
 }
 
 /** Bounded-concurrency map; GitHub raw throttles aggressively at full parallelism. */

@@ -3,7 +3,6 @@ import path from 'node:path';
 import YAML from 'yaml';
 import type {
   CanonCatalog,
-  CanonDocument,
   CollectionCode,
   CollectionDefinition,
   EditorialMeta,
@@ -32,19 +31,59 @@ function readJson<T>(file: string): T {
   return JSON.parse(readFileSync(file, 'utf8')) as T;
 }
 
+/**
+ * Catalogues and editorial metadata, memoised.
+ *
+ * Both are read-only for the lifetime of a process, and both are large: the Aṅguttara
+ * and Khuddaka catalogues are a quarter of a megabyte each. `resolveLayer` loads a
+ * catalogue per call and the comparison document resolves five layers per text, so
+ * without this the static build re-parses several megabytes of JSON per page — enough
+ * to turn a two-minute build into one that never finishes.
+ */
+const catalogCache = new Map<CollectionCode, CanonCatalog>();
+const metaCache = new Map<string, EditorialMeta | null>();
+
 export function loadCatalog(collection: CollectionCode): CanonCatalog {
-  return readJson<CanonCatalog>(path.join(ROOT, 'content/catalog/sutta', `${collection}.json`));
+  const cached = catalogCache.get(collection);
+  if (cached) return cached;
+  const parsed = readJson<CanonCatalog>(path.join(ROOT, 'content/catalog/sutta', `${collection}.json`));
+  catalogCache.set(collection, parsed);
+  return parsed;
 }
 
 export function loadMeta(collection: CollectionCode, uid: string): EditorialMeta | null {
+  const key = `${collection}/${uid}`;
+  if (metaCache.has(key)) return metaCache.get(key) ?? null;
   const file = path.join(ROOT, 'content/meta/sutta', collection, `${uid}.yaml`);
-  if (!existsSync(file)) return null;
-  return YAML.parse(readFileSync(file, 'utf8')) as EditorialMeta;
+  const parsed = existsSync(file) ? YAML.parse(readFileSync(file, 'utf8')) as EditorialMeta : null;
+  metaCache.set(key, parsed);
+  return parsed;
 }
 
-function loadSegmentMap(file: string): Record<string, string> {
+/**
+ * Parsed upstream and content segment files, keyed by path.
+ *
+ * The comparison document reads each text's Pāli file more than once — once for the
+ * authority column and once to establish the segment key set — and the store resolves
+ * the same edition files again per layer. Over 6,136 pages that is tens of thousands of
+ * redundant reads and re-parses of the same JSON, which is slow enough to matter. The
+ * cache is bounded and evicts in insertion order, so a full build cannot grow without
+ * limit while a single page still gets the reuse.
+ */
+const SEGMENT_CACHE_LIMIT = 64;
+const segmentCache = new Map<string, Record<string, string>>();
+
+export function loadSegmentMap(file: string): Record<string, string> {
+  const cached = segmentCache.get(file);
+  if (cached) return cached;
   if (!existsSync(file)) return {};
-  return readJson<Record<string, string>>(file);
+  const parsed = readJson<Record<string, string>>(file);
+  if (segmentCache.size >= SEGMENT_CACHE_LIMIT) {
+    const oldest = segmentCache.keys().next().value;
+    if (oldest !== undefined) segmentCache.delete(oldest);
+  }
+  segmentCache.set(file, parsed);
+  return parsed;
 }
 
 export interface ReferenceEdition {
@@ -215,57 +254,6 @@ export function sourcePathFor(collection: CollectionCode, uid: string, explicit?
     return match ? `root/pli/ms/sutta/an/an${match[1]}/${uid}_root-pli-ms.json` : null;
   }
   return null;
-}
-
-export function composeDocument(collection: CollectionCode, uid: string): CanonDocument {
-  const catalog = loadCatalog(collection);
-  const item = catalog.texts.find((text) => text.uid === uid);
-  if (!item) throw new Error(`UID ${uid} is not in ${collection} catalog`);
-
-  const meta = loadMeta(collection, uid);
-  const translation = loadSegmentMap(path.join(
-    ROOT,
-    'content/translation/vi/project/sutta',
-    collection,
-    `${uid}_translation-vi-project.json`,
-  ));
-  const comments = loadSegmentMap(path.join(
-    ROOT,
-    'content/comment/vi/project/sutta',
-    collection,
-    `${uid}_comment-vi-project.json`,
-  ));
-
-  const sourcePath = sourcePathFor(collection, uid, item.sourcePath);
-  const paliSource = sourcePath ? loadSegmentMap(upstreamFile(sourcePath)) : {};
-  const pali = segmentMapForUid(paliSource, uid);
-
-  const orderedIds = Object.keys(pali).length > 0
-    ? Object.keys(pali)
-    : Object.keys(translation);
-
-  const segments = orderedIds.map((id) => ({
-    id,
-    pali: pali[id],
-    vi: translation[id],
-    commentVi: comments[id],
-  }));
-
-  const [firstPrefix] = segmentPrefixesForUid(uid);
-  const paliTitle = pali[`${firstPrefix}:0.2`]?.trim();
-  const viTitle = meta?.translationTitle || `${uid.toUpperCase()}`;
-  const hasProjectData = meta !== null || Object.keys(translation).length > 0;
-
-  return {
-    uid,
-    collection,
-    canonicalOrder: item.order,
-    paliTitle,
-    viTitle,
-    status: meta?.status ?? 'draft',
-    hasProjectData,
-    segments,
-  };
 }
 
 export function listCollection(collection: CollectionCode) {
