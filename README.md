@@ -164,7 +164,29 @@ npm run reference:gaps:check
 
 ```bash
 npm run store -- mn118
-```## Data model
+```
+
+## Bốn bản để đối chiếu
+
+Trang bài kinh hiện bốn bản cạnh nhau, theo từng segment:
+
+| cột | vai trò |
+| --- | --- |
+| Pāli | **nguồn chuẩn** quyết định nghĩa |
+| English | tham khảo (Sujato; chỗ Sujato im lặng thì bù bằng bản lấp của dự án, có gắn nhãn riêng) |
+| Việt hiện hành | tham khảo (HT. Thích Minh Châu) |
+| Việt dự án | **bản canonical** của dự án |
+
+Một bản vắng mặt nói rõ lý do thay vì để trống: bản chụp đã pin không có bản dịch cho bài
+này (giới hạn của upstream), hay bài này có nhưng tệp chưa tải về cache (trạng thái
+local). 1.596 bài `kn` rơi vào trường hợp đầu, nên đây là chuyện thường gặp chứ không
+phải lỗi.
+
+Màn hình rộng hiện cả bốn cột, nhưng cột không có nội dung nào thì thu gọn. Màn hình hẹp
+hiện một cột mỗi lần, chọn bằng nút tập trung; tắt JavaScript thì cả bốn cột xếp chồng
+và vẫn đọc được. Tìm kiếm index cả bốn bản và cho lọc theo bản.
+
+## Data model
 
 ```text
 Pāli pinned upstream ─┐
@@ -197,7 +219,9 @@ Không copy Pāli vào file dịch. Mọi alignment dùng segment ID.
 - `source/suttacentral.lock.json`: exact upstream commit + các tầng tham khảo đã pin.
 - `source/upstream-manifest.json`: danh sách file + git hash của từng edition tại commit đã pin.
 - `src/lib/canon/`: lớp domain compose dữ liệu.
-- `src/pages/sutta/`: reader tĩnh.
+  - `document.ts` — dựng bốn bản để đối chiếu (Pāli · English · Việt hiện hành · Việt dự án).
+  - `manifest.ts` — đọc manifest đã pin để phân biệt "bản chụp không có bản dịch" với "chưa tải về cache".
+- `src/pages/sutta/`: reader tĩnh, bốn bản theo segment.
 - `books/` + `pandoc/`: publication manifests và defaults.
 - `docs/architecture.md`: kiến trúc đã chốt.
 - `docs/translation-store.md`: store nhiều tầng, số đo coverage, hàng đợi lấp English.

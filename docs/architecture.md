@@ -318,10 +318,18 @@ Build pipeline không để Astro hay Pandoc tự hiểu raw files. Một lớp 
 
 ```ts
 export interface CanonSegment {
-  id: string;              // mn118:1.1
+  id: string;              // mn118:2.1 — Pāli root là tập key
   pali?: string;
-  vi: string;
+  vi: string;              // bản canonical của dự án
+  en?: string;             // bản tham khảo (Sujato, hoặc bản lấp của dự án)
+  enFrom?: "english-sujato" | "english-project";
+  viCurrent?: string;      // Thích Minh Châu
   commentVi?: string;
+  absence: {
+    en: "none" | "not-published-upstream" | "not-synced" | "not-started";
+    viCurrent: "none" | "not-published-upstream" | "not-synced" | "not-started";
+    vi: "none" | "not-started";
+  };
   blockType?: "title" | "heading" | "paragraph" | "verse" | "list";
 }
 
@@ -333,11 +341,26 @@ export interface CanonDocument {
   paliTitle?: string;
   viTitle: string;
   status: "draft" | "review" | "published";
+  hasProjectData: boolean;
+  commit: string;          // bilara commit mà tầng authority được đọc
   segments: CanonSegment[];
+  layers: CanonLayerSummary[];   // bốn bản, kèm lý do vắng mặt
 }
 ```
 
 Tất cả output chỉ đọc `CanonDocument[]`.
+
+`absence` không phải chi tiết trang trí. Một bản tham khảo **không được bản chụp xuất bản**
+(`not-published-upstream`) khác hẳn **được xuất bản nhưng chưa tải về cache**
+(`not-synced`): cái sau là trạng thái local ai cũng sửa được, cái trước là giới hạn của
+corpus. Gộp chúng thành "không có" khiến người đọc tưởng một bài mất tham khảo trong khi
+thực ra chỉ là chưa ai tải — đúng cái nhầm lẫn đã xảy ra một lần trong dự án này. Vì vậy
+`absence` được quyết định từ `source/upstream-manifest.json`, và trả "không biết" chứ
+không trả "không có" khi không suy ra được.
+
+Cột English ghép hai tầng theo đúng thứ tự `fillableSegments` dùng: Sujato trước, bản
+lấp của dự án chỉ đóng chỗ Sujato im lặng. Mỗi segment mang theo tầng đã cung cấp nó
+(`enFrom`), để đoạn do dự án bù không bao giờ bị trình bày như bản Sujato đã xuất bản.
 
 Đây là seam quan trọng nhất của hệ thống: nếu sau này đổi source corpus, Astro, Pandoc hoặc editor, nội dung và business rules không phải đổi cùng lúc.
 
@@ -457,13 +480,21 @@ URL dùng exact UID. Không zero-pad chỉ để Finder sort đẹp.
 
 ### 6.3. Pāli–Việt reader
 
+Bốn bản, căn theo segment: Pāli (nguồn chuẩn) · English (tham khảo) · Việt hiện hành
+(tham khảo) · Việt dự án (canonical).
+
 Ba mode:
 
-- Việt only;
-- interlinear: Pāli rồi Việt theo segment;
-- parallel: hai cột trên desktop, stacked theo segment trên mobile.
+- **Bốn bản** (mặc định): bốn cột trên desktop; một cột mỗi lần trên mobile, chọn bằng
+  nút tập trung. Cột không có nội dung nào thì thu gọn thay vì chiếm chỗ, và số cột còn
+  lại quyết định ở build time.
+- **Đối chiếu**: một segment mỗi lần, bốn bản xếp dọc — dùng khi tra một đoạn khó.
+- **Chỉ Việt**: Pāli + Việt dự án, hai cột, để đọc.
 
 Không làm “một khối Pāli + một khối Việt”. Căn chỉnh luôn ở segment level.
+
+Không có JavaScript thì cả bốn cột xếp chồng và vẫn đọc được: reader server-render, script
+chỉ đổi cách trình bày. Không bản nào bị gỡ khỏi markup, vì search và print đọc từ đó.
 
 ### 6.4. Search
 
@@ -471,11 +502,16 @@ Pagefind index HTML sau Astro build.
 
 Index:
 
-- Vietnamese translation;
-- Pāli text;
+- cả **bốn bản** của mỗi bài (Pāli, English, Việt hiện hành, Việt dự án) — không bản nào
+  bị giấu khỏi tìm kiếm;
 - Vietnamese/Pāli title;
 - UID;
+- filter `version` theo bản, để thu hẹp phạm vi khi tra thuật ngữ trong một bản tham khảo
+  mà không muốn kết quả lẫn bản dịch của dự án;
 - metadata filters: pitaka, collection, status.
+
+Đổi lại việc index cả bốn bản, mỗi kết quả phải ghi rõ **trang đó có những bản nào**,
+vì một truy vấn Pāli và một truy vấn English đều dẫn tới cùng một bài.
 
 Để `exactDiacritics=false` mặc định để người dùng gõ không dấu vẫn có cơ hội tìm được từ có dấu. UI tiếng Việt dùng Pagefind localization.
 

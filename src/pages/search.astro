@@ -8,9 +8,20 @@ const baseUrl = rawBaseUrl.endsWith('/') ? rawBaseUrl : `${rawBaseUrl}/`;
     <p class="eyebrow">PAGEFIND</p>
     <h1>Tìm trong kinh văn</h1>
     <form id="search-form" class="search-form" role="search">
-      <input id="search-input" type="search" placeholder="Nhập tiếng Việt, Pāli hoặc UID…" autocomplete="off" />
+      <input id="search-input" type="search" placeholder="Nhập tiếng Việt, Pāli, English hoặc UID…" autocomplete="off" />
       <button class="button primary" type="submit">Tìm</button>
     </form>
+    <fieldset class="version-filter" id="version-filter">
+      <legend>Tìm trong bản nào</legend>
+      <label><input type="checkbox" name="version" value="Pāli" checked /> Pāli <span class="hint">nguồn chuẩn</span></label>
+      <label><input type="checkbox" name="version" value="English" checked /> English <span class="hint">tham khảo</span></label>
+      <label><input type="checkbox" name="version" value="Việt hiện hành" checked /> Việt hiện hành <span class="hint">tham khảo</span></label>
+      <label><input type="checkbox" name="version" value="Việt dự án" checked /> Việt dự án <span class="hint">bản canonical</span></label>
+      <p class="hint filter-hint">
+        Mỗi bài kinh hiển thị bốn bản. Bỏ chọn một bản để chỉ tìm trong bản đó — hữu ích khi bạn
+        đang tra thuật ngữ trong một bản tham khảo mà không muốn kết quả lẫn bản dịch của dự án.
+      </p>
+    </fieldset>
     <div id="search-status" class="search-status" aria-live="polite"></div>
     <ol id="search-results" class="search-results"></ol>
   </main>
@@ -21,6 +32,7 @@ const baseUrl = rawBaseUrl.endsWith('/') ? rawBaseUrl : `${rawBaseUrl}/`;
   const input = document.getElementById('search-input');
   const status = document.getElementById('search-status');
   const results = document.getElementById('search-results');
+  const versionFilter = document.getElementById('version-filter');
   let pagefind;
 
   function withBase(path) {
@@ -37,20 +49,42 @@ const baseUrl = rawBaseUrl.endsWith('/') ? rawBaseUrl : `${rawBaseUrl}/`;
     return pagefind;
   }
 
+  /**
+   * Scope a search to the chosen versions.
+   *
+   * Every text now carries four versions in its markup, all of them indexed — nothing is
+   * hidden from search, because hiding a version would make it undiscoverable. But that
+   * means a Pāli query and an English query both land on the same text, so the result
+   * says which versions the text has and lets the reader narrow the scope themselves.
+   */
+  function selectedVersions() {
+    return Array.from(versionFilter.querySelectorAll('input[name="version"]:checked')).map(
+      (box) => box.value,
+    );
+  }
+
   form.addEventListener('submit', async (event) => {
     event.preventDefault();
     const query = input.value.trim();
+    const versions = selectedVersions();
     results.replaceChildren();
     if (!query) {
       status.textContent = 'Nhập từ khóa để tìm.';
+      return;
+    }
+    if (versions.length === 0) {
+      status.textContent = 'Chọn ít nhất một bản để tìm.';
       return;
     }
 
     status.textContent = 'Đang tìm…';
     try {
       const pf = await ensurePagefind();
-      const search = await pf.search(query);
-      status.textContent = `${search.results.length} kết quả`;
+      const search = await pf.search(query, { filters: { version: versions } });
+      const scope = versions.length === 4 ? 'cả 4 bản' : versions.join(', ');
+      status.textContent = search.results.length
+        ? `${search.results.length} kết quả · tìm trong ${scope}`
+        : `Không có kết quả trong ${scope}.`;
       const data = await Promise.all(search.results.slice(0, 30).map((result) => result.data()));
       for (const item of data) {
         const li = document.createElement('li');
@@ -60,7 +94,15 @@ const baseUrl = rawBaseUrl.endsWith('/') ? rawBaseUrl : `${rawBaseUrl}/`;
         h2.textContent = item.meta?.title || item.url;
         const excerpt = document.createElement('p');
         excerpt.innerHTML = item.excerpt || '';
-        a.append(h2, excerpt);
+        // Say which versions the page actually offers, so a result is never read as
+        // "this text says this in Vietnamese" when the match was in the English column.
+        const available = Array.isArray(item.filters?.version) ? item.filters.version : [];
+        const meta = document.createElement('p');
+        meta.className = 'result-versions';
+        meta.textContent = available.length
+          ? `Bản có trong trang: ${available.join(' · ')}`
+          : '';
+        a.append(h2, excerpt, meta);
         li.append(a);
         results.append(li);
       }

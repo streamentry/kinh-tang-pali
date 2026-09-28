@@ -1,47 +1,277 @@
 ---
-import type { CanonDocument } from '../lib/canon/types';
+/**
+ * The four-version comparison reader.
+ *
+ * One segment row, four columns: Pāli (authority), English (reference), Việt hiện
+ * hành (reference), Việt dự án (canonical). Every column header states what that
+ * version is, because the whole risk of a view like this is a reader mistaking a
+ * reference for the authority.
+ *
+ * Absence is shown, not implied. A version SuttaCentral does not publish says so in
+ * its own words; a version published but blank at a segment shows a blank cell
+ * marked as a gap in that edition. Both are different facts and the reader can tell
+ * them apart, because in practice 1,596 texts have no English at all and the pinned
+ * Vietnamese corpus covers only a fraction of the canon.
+ *
+ * Four scripture columns do not fit on a phone, so narrow screens show one column at a
+ * time with a sticky header. Wide screens get all four. Nothing is dropped from the
+ * markup either way, so search and print still see every version.
+ */
+import type { CanonDocument, CanonLayerSummary, LayerAbsenceReason } from '../lib/canon/types';
+
 interface Props { document: CanonDocument }
 const { document } = Astro.props;
-const translatedCount = document.segments.filter((segment) => segment.vi?.trim()).length;
+
+const { segments, layers } = document;
+const withText = (count: number) => (count > 0 ? `${count}/${segments.length}` : `0/${segments.length}`);
+
+/** Wording for a version that has nothing to show, per absence reason. */
+const ABSENCE: Record<LayerAbsenceReason, string> = {
+  none: '',
+  'not-published-upstream': 'Bản chụp đã pin không có bản dịch cho bài này.',
+  'not-synced': 'Bài này có bản dịch ở bản chụp đã pin, nhưng tệp chưa được tải về cache.',
+  'not-started': 'Chưa có nội dung.',
+};
+
+const STANDING: Record<CanonLayerSummary['standing'], string> = {
+  authority: 'Nguồn chuẩn',
+  reference: 'Tham khảo',
+  project: 'Bản của dự án',
+};
+
+/** Reference layers read left of ours, so a translator's eye lands on ours last. */
+const ORDER = ['pali', 'english', 'viCurrent', 'vi'] as const;
+const shown = ORDER
+  .map((key) => layers.find((layer) => layer.id === key))
+  .filter((layer): layer is CanonLayerSummary => Boolean(layer));
+
+/**
+ * Columns with nothing to show for this text at all.
+ *
+ * They are collapsed rather than rendered as a column of identical notices: the legend
+ * states the absence once, with the reason, and repeating it on every one of hundreds
+ * of segments would be noise that hides the versions that do have text. What must not
+ * happen is the opposite failure — the column simply vanishing with no explanation —
+ * so the absence is still stated, just once, in the legend, and the tab stays visible
+ * and disabled so its count reads `0/N`.
+ */
+const closed = shown.filter((layer) => layer.reason !== 'none').map((layer) => layer.id);
+const openCount = shown.length - closed.length;
+const editable = shown.find((layer) => layer.id === 'vi');
 ---
-<section class="reader-shell" data-reader-mode="parallel">
+
+<section
+  class="reader-shell"
+  data-reader-mode="compare"
+  data-open-columns={openCount}
+  data-closed={closed.join(' ') || undefined}
+  aria-label={`So sánh ${shown.length} bản của ${document.uid.toUpperCase()}`}
+>
   <div class="reader-toolbar" data-pagefind-ignore>
-    <div class="mode-switch" role="group" aria-label="Chế độ đọc">
-      <button type="button" data-mode="vi">Việt</button>
-      <button type="button" data-mode="interlinear">Đan dòng</button>
-      <button type="button" class="active" data-mode="parallel">Song song</button>
+    <div class="mode-switch" role="group" aria-label="Chế độ hiển thị">
+      <button type="button" data-mode="compare" class="active">Bốn bản</button>
+      <button type="button" data-mode="interlinear">Đối chiếu</button>
+      <button type="button" data-mode="vi">Chỉ Việt</button>
     </div>
-    <span class="segment-count">{translatedCount}/{document.segments.length} segment Việt</span>
+    <div class="column-tabs" role="group" aria-label="Tập trung vào một bản">
+      {shown.map((layer) => (
+        <button
+          type="button"
+          class:list={['column-tab', layer.reason !== 'none' && 'unavailable']}
+          data-column={layer.id}
+          aria-pressed="false"
+          aria-disabled={layer.reason !== 'none' ? 'true' : undefined}
+          title={layer.reason === 'not-published-upstream'
+            ? 'Bản chụp đã pin không có bản dịch cho bài này'
+            : layer.reason === 'not-synced'
+              ? 'Bài này có bản dịch ở bản chụp, nhưng tệp chưa tải về cache'
+              : layer.reason === 'not-started'
+                ? 'Chưa có nội dung'
+                : undefined}
+        >
+          <span class="tab-title">{layer.title}</span>
+          <span class="tab-count">{withText(layer.withText)}</span>
+        </button>
+      ))}
+    </div>
   </div>
 
-  {document.segments.length === 0 ? (
+  <div class="layer-legend" data-pagefind-ignore>
+    {shown.map((layer) => (
+      <div class:list={['layer-card', `is-${layer.id}`, `standing-${layer.standing}`, `reason-${layer.reason}`]}>
+        <div class="layer-card-head">
+          <h2 class="layer-title" lang={layer.language}>{layer.title}</h2>
+          <span class:list={['standing', layer.standing]}>{STANDING[layer.standing]}</span>
+        </div>
+        <p class="layer-role">{layer.role}</p>
+        {layer.note && <p class="layer-note">{layer.note}</p>}
+        {layer.reason !== 'none' && (
+          <p class="layer-absent" data-pagefind-ignore>
+            <strong>{ABSENCE[layer.reason]}</strong>
+            {layer.reason === 'not-published-upstream' && (
+              <> Đây là giới hạn của bản chụp SuttaCentral, không phải thiếu sót của dự án.</>
+            )}
+            {layer.reason === 'not-synced' && (
+              <> Chạy <code>npm run source:sync:all</code> để tải.</>
+            )}
+          </p>
+        )}
+        {layer.reason === 'none' && (
+          <p class="layer-coverage">
+            <strong>{withText(layer.withText)}</strong> segment có nội dung
+            {layer.sourceLayers.length > 1 && (
+              <> · ghép từ {layer.sourceLayers.join(', ')}</>
+            )}
+          </p>
+        )}
+      </div>
+    ))}
+  </div>
+
+  {editable && (
+    <p class="editing-note" data-pagefind-ignore>
+      Bản đang biên tập: <strong>Việt dự án</strong>
+      {editable.status && editable.status !== 'not-started' && <> · trạng thái <strong>{editable.status}</strong></>}
+      {editable.reason === 'not-started' && <> · chưa bắt đầu</>}
+    </p>
+  )}
+
+  {segments.length === 0 ? (
     <div class="empty-state" data-pagefind-ignore>
-      <h2>Chưa có nội dung biên dịch</h2>
-      <p>UID và workflow đã sẵn. Pāli sẽ xuất hiện sau khi source pinned được sync; bản dịch Việt chỉ xuất hiện khi có nội dung canonical thật.</p>
+      <h2>Chưa có nội dung để so sánh</h2>
+      <p>
+        Tệp Pāli của bài này chưa có trong cache. Chạy
+        <code>npm run source:sync:manifest</code> để tải đúng danh sách file của commit đã
+        pin rồi dựng lại trang.
+      </p>
     </div>
   ) : (
     <div class="segments" data-pagefind-body>
-      {document.segments.map((segment) => (
-        <article class:list={['segment', !segment.vi?.trim() && 'untranslated']} id={segment.id} data-segment-id={segment.id}>
-          <div class="segment-id" aria-hidden="true">{segment.id}</div>
-          <div class="pali" lang="pi">{segment.pali || ''}</div>
-          <div class="vi" lang="vi">{segment.vi || <span class="missing">Chưa dịch</span>}</div>
-          {segment.commentVi && <aside class="comment">{segment.commentVi}</aside>}
-        </article>
-      ))}
+      {segments.map((segment) => {
+        const isUntranslated = !segment.vi?.trim();
+        return (
+          <article
+            class:list={['segment', isUntranslated && 'untranslated']}
+            id={segment.id}
+            data-segment-id={segment.id}
+          >
+            <div class="segment-id" aria-hidden="true">{segment.id}</div>
+
+            <div
+              class="cell cell-pali"
+              lang="pi"
+              data-column="pali"
+              data-label="Pāli · nguồn chuẩn"
+              data-pagefind-filter="version:Pāli"
+            >
+              {segment.pali || <span class="missing" data-pagefind-ignore>—</span>}
+            </div>
+
+            <div
+              class:list={['cell', 'cell-en', segment.enFrom === 'english-project' && 'is-own-fill']}
+              lang="en"
+              data-column="english"
+              data-label="English · tham khảo (Sujato)"
+              data-pagefind-filter="version:English"
+            >
+              {segment.en || (
+                <span class="blank-ref" data-pagefind-ignore>
+                  {segment.absence.en === 'not-published-upstream'
+                    ? 'Bản chụp không có bản Anh cho bài này'
+                    : 'Bản tham khảo để trống ở đoạn này'}
+                </span>
+              )}
+              {segment.en && segment.enFrom === 'english-project' && (
+                <span class="fill-badge" data-pagefind-ignore title="Sujato để trống; đoạn này do dự án bù, là bản nháp của chúng ta">
+                  bản lấp của dự án
+                </span>
+              )}
+            </div>
+
+            <div
+              class="cell cell-vi-current"
+              lang="vi"
+              data-column="viCurrent"
+              data-label="Việt hiện hành · tham khảo (Thích Minh Châu)"
+              data-pagefind-filter="version:Việt hiện hành"
+            >
+              {segment.viCurrent || (
+                <span class="blank-ref" data-pagefind-ignore>
+                  {segment.absence.viCurrent === 'not-published-upstream'
+                    ? 'Bản chụp không có bản Việt hiện hành cho bài này'
+                    : 'Bản Việt hiện hành để trống ở đoạn này'}
+                </span>
+              )}
+            </div>
+
+            <div
+              class:list={['cell', 'cell-vi', isUntranslated && 'is-untranslated']}
+              lang="vi"
+              data-column="vi"
+              data-label="Việt dự án · bản canonical"
+              data-pagefind-filter="version:Việt dự án"
+            >
+              {segment.vi || (
+                <span class="missing" data-pagefind-ignore>Chưa dịch</span>
+              )}
+              {segment.commentVi && (
+                <aside class="comment" data-pagefind-ignore>{segment.commentVi}</aside>
+              )}
+            </div>
+          </article>
+        );
+      })}
     </div>
   )}
 </section>
 
 <script is:inline>
+  /**
+   * The reader is server-rendered, so every version is in the markup, searchable, and
+   * readable with JavaScript disabled. This only changes presentation.
+   *
+   * Two things it must not do. It must not remove a version from the document, or
+   * search and print would silently lose a version. And it must not let a reader
+   * believe a column that is closed for the whole text has content — so those tabs are
+   * disabled rather than left selectable, where selecting one would read as "this
+   * version says nothing here" instead of "there is no such version".
+   *
+   * On a wide screen all four columns show at once and the tabs are a focus control:
+   * selecting one narrows to it, selecting it again returns to all four. On a narrow
+   * screen the tabs are the only way to reach the second and later versions.
+   */
   document.querySelectorAll('.reader-shell').forEach((shell) => {
-    shell.querySelectorAll('[data-mode]').forEach((button) => {
-      button.addEventListener('click', () => {
-        const mode = button.getAttribute('data-mode');
-        shell.setAttribute('data-reader-mode', mode);
-        shell.querySelectorAll('[data-mode]').forEach((item) => item.classList.remove('active'));
-        button.classList.add('active');
+    const tabs = Array.from(shell.querySelectorAll('.column-tab'));
+    const setMode = (mode) => {
+      shell.setAttribute('data-reader-mode', mode);
+      shell.querySelectorAll('[data-mode]').forEach((item) => {
+        item.classList.toggle('active', item.getAttribute('data-mode') === mode);
       });
+    };
+
+    shell.querySelectorAll('[data-mode]').forEach((button) => {
+      button.addEventListener('click', () => setMode(button.getAttribute('data-mode')));
+    });
+
+    // The buttons are rendered unavailable server-side, because a column with no text
+    // for the whole text cannot be worth reading and a button that looks live but does
+    // nothing is worse than one that looks dead. This only attaches the handler.
+    const showOnly = (column) => {
+      if (shell.getAttribute('data-focus') === column) shell.removeAttribute('data-focus');
+      else shell.setAttribute('data-focus', column);
+      const focus = shell.getAttribute('data-focus');
+      tabs.forEach((tab) => {
+        const id = tab.getAttribute('data-column');
+        tab.setAttribute('aria-pressed', String(Boolean(focus) && id === focus));
+      });
+      shell.querySelectorAll('.cell').forEach((cell) => {
+        cell.classList.toggle('is-shown', !focus || cell.getAttribute('data-column') === focus);
+      });
+    };
+
+    tabs.forEach((tab) => {
+      if (tab.classList.contains('unavailable')) return;
+      tab.addEventListener('click', () => showOnly(tab.getAttribute('data-column')));
     });
   });
 </script>

@@ -49,11 +49,76 @@ export interface EditorialMeta {
   tags?: string[];
 }
 
+/**
+ * Why a reference version is not showing text for a text.
+ *
+ * These are genuinely different situations and a reader must be able to tell them
+ * apart. Collapsing them into "unavailable" would let a local cache state masquerade
+ * as a fact about the corpus — the failure mode the coverage audit already found once,
+ * when 1,596 texts SuttaCentral simply does not translate looked like a sync problem.
+ */
+export type LayerAbsenceReason =
+  /** The pinned edition publishes this text and we have the file. */
+  | 'none'
+  /** The pinned edition does not publish this text at all: a limit of the snapshot. */
+  | 'not-published-upstream'
+  /** The edition publishes it, but the file is not in the local cache yet. */
+  | 'not-synced'
+  /** The project layer has no data for this text yet. */
+  | 'not-started';
+
 export interface CanonSegment {
   id: string;
   pali?: string;
   vi?: string;
   commentVi?: string;
+  /** Pinned English reference, Sujato. */
+  en?: string;
+  /** Thích Minh Châu's Vietnamese, where the pinned snapshot provides it. */
+  viCurrent?: string;
+  /**
+   * Which layer supplied the English actually shown.
+   *
+   * The reader displays one English column, but it is assembled from two layers:
+   * Sujato where it translated, and our own fill where it left a passage blank. Those
+   * have different standing — a pinned published translation versus our own draft —
+   * so the column records which one it is rather than presenting a blend.
+   */
+  enFrom?: 'english-sujato' | 'english-project';
+  /** Per-version absence, so a blank cell can say why it is blank. */
+  absence: {
+    en: LayerAbsenceReason;
+    viCurrent: LayerAbsenceReason;
+    vi: LayerAbsenceReason;
+  };
+}
+
+/** How one of the four versions stands for a whole text, for the reader's header. */
+/**
+ * The four display columns, in the order a translator reads them.
+ *
+ * The ids are the display columns, not store layer ids: one column can be assembled
+ * from several layers (`english` is Sujato plus our fill) and one store layer feeds no
+ * column at all. The layers that contributed travel with the column as `sourceLayers`.
+ */
+export type CanonLayerId = 'pali' | 'english' | 'viCurrent' | 'vi';
+
+export interface CanonLayerSummary {
+  id: CanonLayerId;
+  title: string;
+  /** `authority` | `reference` | `project`, straight from the store registry. */
+  standing: 'authority' | 'reference' | 'project';
+  language: string;
+  role: string;
+  note?: string;
+  reason: LayerAbsenceReason;
+  /** Segments carrying words, out of the Pāli segment count. */
+  withText: number;
+  total: number;
+  /** Which layers contributed, where a display column merges more than one layer. */
+  sourceLayers: string[];
+  /** Editorial status, for the project's own layers. */
+  status?: string;
 }
 
 export interface CanonDocument {
@@ -65,6 +130,10 @@ export interface CanonDocument {
   status: EditorialStatus;
   hasProjectData: boolean;
   segments: CanonSegment[];
+  /** Pinned bilara commit the authority layer was read at. */
+  commit: string;
+  /** The four versions, in the order a translator should read them. */
+  layers: CanonLayerSummary[];
 }
 
 export interface CollectionDefinition {

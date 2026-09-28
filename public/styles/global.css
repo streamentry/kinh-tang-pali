@@ -60,38 +60,121 @@ h2 { letter-spacing: -.025em; }
 .sutta-header { display: flex; align-items: flex-start; justify-content: space-between; gap: 2rem; margin: 2rem 0 1rem; border-bottom: 1px solid var(--line); padding-bottom: 1.7rem; }
 .sutta-header h1 { font-size: clamp(2.2rem, 5vw, 4rem); }
 .editorial-banner { border: 1px solid #dccb92; background: #fbf7e9; color: #5c4b18; border-radius: .45rem; padding: .75rem 1rem; margin: 1rem 0 1.5rem; }
-.reader-toolbar { position: sticky; top: .5rem; z-index: 5; display: flex; justify-content: space-between; gap: 1rem; align-items: center; padding: .55rem; background: color-mix(in srgb, var(--paper) 90%, transparent); backdrop-filter: blur(12px); border: 1px solid var(--line); border-radius: .55rem; margin: 1rem 0; }
+.provenance-line { color: var(--muted); font-size: .78rem; margin: -.4rem 0 1.1rem; }
+.provenance-line code { font-size: .95em; }
+
+/* --- four-version comparison reader ------------------------------------ */
+
+.reader-toolbar { position: sticky; top: .5rem; z-index: 5; display: flex; justify-content: space-between; gap: 1rem; align-items: center; flex-wrap: wrap; padding: .55rem; background: color-mix(in srgb, var(--paper) 90%, transparent); backdrop-filter: blur(12px); border: 1px solid var(--line); border-radius: .55rem; margin: 1rem 0; }
 .mode-switch { display: flex; gap: .25rem; }
 .mode-switch button { appearance: none; border: 0; background: transparent; padding: .48rem .65rem; border-radius: .35rem; cursor: pointer; color: var(--muted); }
 .mode-switch button.active { background: var(--ink); color: white; }
-.segment-count { color: var(--muted); font-size: .75rem; }
+.column-tabs { display: flex; gap: .3rem; flex-wrap: wrap; }
+.column-tab { appearance: none; cursor: pointer; display: flex; flex-direction: column; align-items: flex-start; gap: .1rem; padding: .35rem .55rem; border: 1px solid var(--line); border-radius: .4rem; background: var(--surface); color: var(--ink); }
+.column-tab .tab-title { font-size: .76rem; font-weight: 700; }
+.column-tab .tab-count { font-size: .66rem; color: var(--muted); font-variant-numeric: tabular-nums; }
+.column-tab.unavailable { opacity: .5; cursor: not-allowed; background: repeating-linear-gradient(135deg, transparent 0 5px, rgba(0,0,0,.035) 5px 10px); }
+
+/* Legend: what each of the four versions is, so a reference is never read as the
+   authority. Marked ignore so it does not pollute search results with labels. */
+.layer-legend { display: grid; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); gap: .6rem; margin: 1rem 0 1.25rem; }
+.layer-card { border: 1px solid var(--line); border-left-width: 3px; border-radius: .45rem; padding: .8rem .9rem; background: var(--surface); }
+.layer-card.standing-authority { border-left-color: #4a5f52; }
+.layer-card.standing-reference { border-left-color: #9aa3ab; }
+.layer-card.standing-project { border-left-color: var(--accent); }
+.layer-card-head { display: flex; align-items: baseline; justify-content: space-between; gap: .5rem; }
+.layer-title { font-size: 1rem; margin: 0; letter-spacing: -.01em; }
+.standing { font-size: .62rem; text-transform: uppercase; letter-spacing: .1em; font-weight: 800; padding: .15rem .4rem; border-radius: 999px; white-space: nowrap; }
+.standing.authority { background: #e8ede9; color: #3d5045; }
+.standing.reference { background: #eef0f1; color: #5b646c; }
+.standing.project { background: var(--accent-soft); color: var(--accent); }
+.layer-role, .layer-note, .layer-coverage, .layer-absent { margin: .4rem 0 0; font-size: .78rem; line-height: 1.5; color: var(--muted); }
+.layer-note { font-style: italic; }
+.layer-absent { color: #7a6a34; background: #fbf7e9; border: 1px solid #e3d5a6; border-radius: .3rem; padding: .45rem .55rem; }
+.layer-absent code { font-size: .95em; background: #f2ecd9; padding: .05rem .25rem; border-radius: .2rem; }
+.layer-coverage strong { color: var(--ink); font-variant-numeric: tabular-nums; }
+.editing-note { font-size: .78rem; color: var(--muted); margin: 0 0 1rem; }
+
 .segments { border-top: 1px solid var(--line); }
-.segment { display: grid; grid-template-columns: 5.5rem minmax(0, 1fr) minmax(0, 1fr); column-gap: 1.3rem; border-bottom: 1px solid var(--line); padding: 1.3rem 0; }
-.segment-id { font: 600 .68rem/1.5 ui-monospace, SFMono-Regular, Menlo, monospace; color: #9aa09b; padding-top: .4rem; }
-.pali, .vi { font-family: Literata, "Noto Serif", Georgia, serif; font-size: 1.08rem; line-height: 1.78; }
-.pali { color: #4f5851; }
-.vi { color: #18201c; }
-.missing { color: #a1a6a2; font-style: italic; }
-.comment { grid-column: 3; margin-top: .75rem; padding-left: .8rem; border-left: 2px solid #cad5cd; color: var(--muted); font-size: .85rem; line-height: 1.6; }
-.reader-shell[data-reader-mode="vi"] .pali { display: none; }
-.reader-shell[data-reader-mode="vi"] .segment { grid-template-columns: 5.5rem minmax(0, 1fr); }
-.reader-shell[data-reader-mode="vi"] .vi { grid-column: 2; }
-.reader-shell[data-reader-mode="vi"] .comment { grid-column: 2; }
+.segment { display: grid; column-gap: 1.1rem; border-bottom: 1px solid var(--line); padding: 1.2rem 0; }
+/* The number of live columns is decided at build time: a text whose pinned snapshot
+   carries no English should give its Pāli the whole width, not one quarter of it. */
+.reader-shell[data-open-columns="1"] .segment { grid-template-columns: 5.5rem minmax(0, 1fr); }
+.reader-shell[data-open-columns="2"] .segment { grid-template-columns: 5.5rem repeat(2, minmax(0, 1fr)); }
+.reader-shell[data-open-columns="3"] .segment { grid-template-columns: 5.5rem repeat(3, minmax(0, 1fr)); }
+.reader-shell[data-open-columns="4"] .segment { grid-template-columns: 5.5rem repeat(4, minmax(0, 1fr)); }
+.segment-id { font: 600 .66rem/1.5 ui-monospace, SFMono-Regular, Menlo, monospace; color: #9aa09b; padding-top: .45rem; }
+.cell { font-family: Literata, "Noto Serif", Georgia, serif; font-size: .96rem; line-height: 1.72; min-width: 0; overflow-wrap: break-word; }
+.cell-pali { color: #4f5851; }
+.cell-en, .cell-vi-current { color: #5a626b; }
+.cell-vi { color: #18201c; }
+.cell.is-untranslated { color: #a1a6a2; }
+.missing { color: #a1a6a2; font-style: italic; font-family: "Be Vietnam Pro", Inter, sans-serif; font-size: .82rem; }
+/* A reference that is present but silent at this segment. Visibly a gap in that
+   edition, not a gap in the text and not agreement on wording. */
+.blank-ref { color: #9a8f6a; font-family: "Be Vietnam Pro", Inter, sans-serif; font-size: .74rem; line-height: 1.45; display: block; }
+.cell-en.is-own-fill { border-left: 2px solid #d8cfa8; padding-left: .55rem; }
+.fill-badge { display: inline-block; margin-top: .35rem; font-family: "Be Vietnam Pro", Inter, sans-serif; font-size: .64rem; letter-spacing: .04em; text-transform: uppercase; font-weight: 700; color: #7a6a34; background: #f7f0db; border-radius: .25rem; padding: .1rem .3rem; }
+.comment { margin-top: .6rem; padding-left: .7rem; border-left: 2px solid #cad5cd; color: var(--muted); font-family: "Be Vietnam Pro", Inter, sans-serif; font-size: .78rem; line-height: 1.55; }
+
+/* Columns with no text for the whole text are collapsed, not repeated per segment.
+   The legend states the absence and the tab keeps its count, so nothing is hidden
+   without being accounted for.
+
+   The `.segments` qualifier is load-bearing: it raises specificity above the per-mode
+   `display` rules, including the ones inside the media query, so a closed column stays
+   closed in every mode instead of reappearing on a narrow screen. */
+.reader-shell[data-closed~="english"] .segments .cell-en,
+.reader-shell[data-closed~="viCurrent"] .segments .cell-vi-current,
+.reader-shell[data-closed~="vi"] .segments .cell-vi { display: none; }
+
+/* `Đối chiếu` — one segment at a time, all four stacked, for checking a passage
+   against every version without four narrow columns. */
 .reader-shell[data-reader-mode="interlinear"] .segment { grid-template-columns: 5.5rem minmax(0, 1fr); }
-.reader-shell[data-reader-mode="interlinear"] .pali,
-.reader-shell[data-reader-mode="interlinear"] .vi,
-.reader-shell[data-reader-mode="interlinear"] .comment { grid-column: 2; }
-.reader-shell[data-reader-mode="interlinear"] .vi { margin-top: .45rem; }
+.reader-shell[data-reader-mode="interlinear"] .cell { grid-column: 2; }
+.reader-shell[data-reader-mode="interlinear"] .cell::before { content: attr(data-label); display: block; font-family: "Be Vietnam Pro", Inter, sans-serif; font-size: .64rem; text-transform: uppercase; letter-spacing: .1em; font-weight: 800; color: var(--muted); margin-bottom: .15rem; }
+.reader-shell[data-reader-mode="interlinear"] .cell + .cell { margin-top: .6rem; }
+/* `Chỉ Việt` — the reading view, the project's own translation with the Pāli beside it. */
+.reader-shell[data-reader-mode="vi"] .cell-en,
+.reader-shell[data-reader-mode="vi"] .cell-vi-current { display: none; }
+.reader-shell[data-reader-mode="vi"] .segment { grid-template-columns: 5.5rem minmax(0, 1fr) minmax(0, 1fr); }
+.reader-shell[data-reader-mode="vi"] .cell-pali { grid-column: 2; }
+.reader-shell[data-reader-mode="vi"] .cell-vi { grid-column: 3; }
 .empty-state { border: 1px dashed #cbd1cc; border-radius: .65rem; padding: 2rem; color: var(--muted); background: rgba(255,255,255,.45); }
 .empty-state h2 { color: var(--ink); }
 .search-form { display: flex; gap: .6rem; max-width: 48rem; margin: 2rem 0 1rem; }
 .search-form input { flex: 1; min-width: 0; font: inherit; font-size: 1rem; padding: .8rem 1rem; border: 1px solid var(--line); border-radius: .45rem; background: white; }
+.version-filter { max-width: 52rem; border: 1px solid var(--line); border-radius: .5rem; padding: .8rem 1rem 1rem; margin: 0 0 1.2rem; display: flex; flex-wrap: wrap; gap: .5rem 1.4rem; }
+.version-filter legend { font-size: .75rem; font-weight: 800; text-transform: uppercase; letter-spacing: .1em; color: var(--muted); padding: 0 .3rem; }
+.version-filter label { display: flex; align-items: center; gap: .35rem; font-size: .88rem; }
+.version-filter .hint { color: var(--muted); font-size: .78rem; }
+.version-filter .filter-hint { flex-basis: 100%; margin: .3rem 0 0; line-height: 1.5; }
 .search-status { color: var(--muted); min-height: 2rem; }
 .search-results { list-style: none; padding: 0; max-width: 52rem; }
 .search-results li { border-top: 1px solid var(--line); }
 .search-results a { display: block; padding: 1rem 0; text-decoration: none; }
 .search-results h2 { margin: 0 0 .4rem; font-size: 1.15rem; }
 .search-results p { margin: 0; color: var(--muted); line-height: 1.55; }
+.search-results .result-versions { margin-top: .4rem; font-size: .74rem; color: #8f978f; }
+@media (max-width: 1100px) {
+  /* Four scripture columns stop being readable well before the phone breakpoint, so
+     they collapse to one at a time, chosen by the tabs. Nothing is removed from the
+     markup: search and print still see every version. */
+  .segment { grid-template-columns: 4.5rem minmax(0, 1fr); }
+  .cell { grid-column: 2; }
+  .cell + .cell { margin-top: .55rem; }
+  .cell::before { content: attr(data-label); display: block; font-family: "Be Vietnam Pro", Inter, sans-serif; font-size: .64rem; text-transform: uppercase; letter-spacing: .1em; font-weight: 800; color: var(--muted); margin-bottom: .15rem; }
+  .reader-shell[data-reader-mode="compare"] .cell { display: none; }
+  .reader-shell[data-reader-mode="compare"] .cell.is-shown,
+  .reader-shell[data-reader-mode="compare"]:not([data-focus]) .cell { display: block; }
+  /* A collapsed column stays collapsed here; its absence is in the legend, and the
+     live columns get the width instead of a notice repeated on every segment. */
+  .reader-shell[data-reader-mode="interlinear"] .cell { display: block; }
+  .reader-shell[data-reader-mode="vi"] .cell-pali,
+  .reader-shell[data-reader-mode="vi"] .cell-vi { display: block; }
+  .reader-shell[data-reader-mode="vi"] .cell-pali,
+  .reader-shell[data-reader-mode="vi"] .cell-vi { grid-column: 2; }
+}
 @media (max-width: 760px) {
   .collection-grid { grid-template-columns: 1fr; }
   .collection-card.priority { grid-column: span 1; }
@@ -99,8 +182,10 @@ h2 { letter-spacing: -.025em; }
   .sutta-list .status { grid-column: 2; justify-self: start; }
   .sutta-header { flex-direction: column; gap: .5rem; }
   .reader-toolbar { position: static; align-items: flex-start; flex-direction: column; }
+  .column-tabs { width: 100%; }
+  .column-tab { flex: 1 1 auto; }
   .segment { grid-template-columns: 1fr; gap: .4rem; }
-  .segment-id, .pali, .vi, .comment { grid-column: 1 !important; }
+  .segment-id, .cell, .comment { grid-column: 1 !important; }
   .segment-id { margin-bottom: .15rem; }
   .comment { margin-left: 0; }
 }
