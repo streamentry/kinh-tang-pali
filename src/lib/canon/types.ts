@@ -119,6 +119,21 @@ export interface CanonLayerSummary {
   sourceLayers: string[];
   /** Editorial status, for the project's own layers. */
   status?: string;
+  /**
+   * A one-line credit naming the translator, the edition path, the pinned commit and the
+   * licence the version is displayed under.
+   *
+   * This exists because SuttaCentral asks that reuse state its origin, and a reference
+   * translation displayed with no name and no terms looks like the project's own work.
+   */
+  credit: string;
+  /** How this version may be reused, for the credits page and the panel footnote. */
+  license?: {
+    group: 'public-domain' | 'suttacentral' | 'third-party';
+    spdx: string;
+    holder: string;
+    attributionRequired: boolean;
+  };
 }
 
 export interface CanonDocument {

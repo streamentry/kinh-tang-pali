@@ -1,0 +1,278 @@
+---
+/**
+ * Sources, licences and credits.
+ *
+ * This page exists because SuttaCentral asks for it. Its own Vietnamese statement of
+ * licensing says, of everything published there: *"Ghi rõ nguồn gốc xuất xứ"* — state
+ * the origin of anything you reuse. The Pāli root is public domain and needs no credit;
+ * the two reference translations are third-party copyright held by their translators, and
+ * displaying them without saying whose they are would misrepresent them as ours.
+ *
+ * Everything on this page is read from `source/suttacentral.lock.json` and the pinned
+ * `source/upstream-manifest.json`, so it cannot drift from what the store actually holds.
+ * The acknowledgements below are SuttaCentral's own Vietnamese text, read from the pinned
+ * credits edition rather than retyped.
+ */
+import Base from '../layouts/Base.astro';
+import { existsSync, readFileSync, readdirSync } from 'node:fs';
+import { loadLock, upstreamFile, type ReferenceEdition } from '../lib/canon/load';
+import { storeLayers } from '../lib/canon/layers';
+import { manifestCommit } from '../lib/canon/manifest';
+import { creditLabel, supportTools, toolingRules } from '../lib/canon/tooling';
+import { withBase } from '../lib/url';
+
+const lock = loadLock();
+const credits = lock.referenceEditions.find((edition) => edition.kind === 'credits');
+
+interface EditionRow {
+  role: string;
+  label: string;
+  path: string;
+  translator: string;
+  files: number;
+  onDisk: number;
+  license: ReferenceEdition['license'];
+  note?: string;
+}
+
+const manifest = existsSync('source/upstream-manifest.json')
+  ? JSON.parse(readFileSync('source/upstream-manifest.json', 'utf8')) as {
+      editions: Array<{ path: string; fileCount: number }>;
+    }
+  : { editions: [] };
+
+const rows: EditionRow[] = lock.referenceEditions
+  .filter((edition) => edition.kind !== 'credits')
+  .map((edition) => {
+    const recorded = manifest.editions.find((entry) => entry.path === edition.path);
+    const onDisk = existsSync(upstreamFile(edition.path))
+      ? readdirSync(upstreamFile(edition.path), { recursive: true } as never)
+          .filter((name) => String(name).endsWith('.json')).length
+      : 0;
+    return {
+      role: edition.role,
+      label: edition.translatorName ?? edition.translator,
+      path: edition.path,
+      translator: edition.translator,
+      files: recorded?.fileCount ?? 0,
+      onDisk,
+      license: edition.license,
+      note: edition.note,
+    };
+  });
+
+/**
+ * SuttaCentral's own Vietnamese acknowledgements, read from the pinned credits edition.
+ *
+ * Only the entries that concern Vietnamese are surfaced, because that is what this page
+ * exists to attribute. A name is shown with the role SuttaCentral records for them, and
+ * nothing is inferred beyond that text.
+ */
+interface Credit { name: string; role: string }
+
+function acknowledgements(): Credit[] {
+  if (!credits) return [];
+  const file = upstreamFile(`${credits.path}/acknowledgments_${credits.language}-${credits.translator}.json`);
+  if (!existsSync(file)) return [];
+  const parsed = JSON.parse(readFileSync(file, 'utf8')) as Record<string, string>;
+  const keys = Object.keys(parsed).sort((a, b) => Number(a.split(':')[1]) - Number(b.split(':')[1]));
+  const out: Credit[] = [];
+  for (let i = 0; i < keys.length - 1; i += 1) {
+    const name = String(parsed[keys[i]] ?? '').replace(/<[^>]+>/g, '').trim();
+    const role = String(parsed[keys[i + 1]] ?? '').replace(/<[^>]+>/g, '').trim();
+    if (!name || !role) continue;
+    if (!/tiếng Việt|Pháp Cú/i.test(role)) continue;
+    out.push({ name, role });
+  }
+  return out;
+}
+
+const vietnameseCredits = acknowledgements();
+
+/** SuttaCentral's own request, quoted rather than paraphrased. */
+function attributionRequest(): string | null {
+  if (!credits) return null;
+  const file = upstreamFile(`${credits.path}/licensing_${credits.language}-${credits.translator}.json`);
+  if (!existsSync(file)) return null;
+  const parsed = JSON.parse(readFileSync(file, 'utf8')) as Record<string, string>;
+  for (const [key, value] of Object.entries(parsed)) {
+    if (/^Ghi rõ nguồn gốc xuất xứ/.test(String(value).replace(/<[^>]+>/g, '').trim())) {
+      return String(value).replace(/<[^>]+>/g, '').trim();
+    }
+    void key;
+  }
+  return null;
+}
+
+const request = attributionRequest();
+const terms = (license: ReferenceEdition['license']): string => {
+  if (license.group === 'public-domain') return 'phạm vi công cộng';
+  if (license.spdx === 'CC0-1.0') return 'CC0 1.0';
+  return `bản quyền thuộc ${license.holder} (không phải CC0)`;
+};
+---
+
+<Base title="Nguồn, giấy phép và ghi công · Kinh Tạng Pāli Việt">
+  <main class="page credits-page">
+    <p class="eyebrow">PROVENANCE</p>
+    <h1>Nguồn, giấy phép và ghi công</h1>
+
+    {request && (
+      <p class="lede">
+        SuttaCentral yêu cầu: <em>“{request}”</em>. Trang này là phần đáp ứng đó, và mọi thứ
+        trên đây đều đọc từ <code>source/suttacentral.lock.json</code> cùng manifest đã ghim —
+        không có gì viết tay rồi lệch đi.
+      </p>
+    )}
+
+    <section class="section-heading">
+      <h2>Điểm ghim</h2>
+      <p class="provenance-line">
+        bilara-data commit <code>{lock.commit}</code> · ref <code>{lock.ref}</code> ·
+        manifest {manifestCommit() === lock.commit ? 'khớp' : 'KHÔNG KHỚP'} ·
+        ghim lúc {lock.pinnedAt.slice(0, 10)}
+      </p>
+    </section>
+
+    <section class="section-heading">
+      <h2>Các bản được hiển thị</h2>
+      <table class="credit-table">
+        <thead>
+          <tr>
+            <th>Bản</th>
+            <th>Người dịch</th>
+            <th>Đường dẫn upstream</th>
+            <th class="num">Tệp</th>
+            <th>Giấy phép</th>
+          </tr>
+        </thead>
+        <tbody>
+          {rows.map((row) => (
+            <tr>
+              <td><code>{row.role}</code></td>
+              <td>{row.label}</td>
+              <td><code>{row.path}</code></td>
+              <td class="num">{row.onDisk}/{row.files}</td>
+              <td>{terms(row.license)}</td>
+            </tr>
+          ))}
+          <tr>
+            <td><code>pali</code></td>
+            <td>SuttaCentral Mahāsaṅgīti (bilara <code>pli/ms</code>)</td>
+            <td><code>root/pli/ms/sutta</code></td>
+            <td class="num">
+              {manifest.editions.find((entry) => entry.path === 'root/pli/ms/sutta')?.fileCount ?? 0}
+            </td>
+            <td>phạm vi công cộng</td>
+          </tr>
+          <tr>
+            <td><code>vietnamese-project</code></td>
+            <td>Dự án Kinh Tạng Pāli Việt</td>
+            <td><code>content/translation/vi/project</code></td>
+            <td class="num">—</td>
+            <td>CC0 1.0 (tác phẩm của chúng ta)</td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="hint">
+        Cột “Tệp” là số tệp đã tải về so với số tệp manifest ghi tại commit đã ghim, kiểm
+        bằng <a href={withBase()}>npm run verify:store</a>. Bản tham khảo tiếng Việt chỉ có
+        Pháp Cú tại commit này; phần còn lại của Kinh tạng bản Hòa thượng Thích Minh Châu
+        không được phân phối qua bilara-data.
+      </p>
+    </section>
+
+    {vietnameseCredits.length > 0 && (
+      <section class="section-heading">
+        <h2>SuttaCentral ghi công cho công việc tiếng Việt</h2>
+        <p class="hint">
+          Trích nguyên văn từ <code>translation/vi/site/acknowledgments_translation-vi-site.json</code>
+          đã ghim. Không suy diễn thêm ngoài những gì SuttaCentral ghi.
+        </p>
+        <ul class="credit-list">
+          {vietnameseCredits.map((credit) => (
+            <li><strong>{credit.name}</strong> — {credit.role}</li>
+          ))}
+        </ul>
+        <p class="hint">
+          Vì sao bản Việt trên SuttaCentral chỉ còn Pháp Cú: danh sách tình nguyện viên của
+          SuttaCentral còn ghi <strong>Sister Uppalavanna</strong> là người đã cung cấp “bản dịch
+          sơ bộ của hầu hết các bộ kinh nikaya”. Bản dịch sơ bộ đó không được đưa vào
+          bilara-data, nên phần thiếu là do cách phân phối, không phải do bỏ sót.
+        </p>
+      </section>
+    )}
+
+    <section class="section-heading">
+      <h2>Ba nhóm giấy phép của SuttaCentral</h2>
+      <ol class="licence-groups">
+        <li><strong>Tác phẩm của chính SuttaCentral</strong> — CC0 1.0, phạm vi công cộng.</li>
+        <li>
+          <strong>Tác phẩm của bên thứ ba</strong> — bao gồm <em>đại đa số các bản dịch kinh
+          văn</em>. Bản quyền thuộc tác giả, thường là dịch giả hay nhà xuất bản; được dùng
+          theo đúng giấy phép hay sự cho phép của tác giả. Giấy phép luôn được đính kèm theo
+          tác phẩm. <strong>Hai bản tham khảo của trang này thuộc nhóm này.</strong>
+        </li>
+        <li><strong>Tác phẩm thuộc phạm vi công cộng</strong> — kinh văn gốc tiếng Pāli, Trung, Phạn, Tây Tạng.</li>
+      </ol>
+      <p class="hint">
+        Vì vậy tầng Pāli của chúng ta thuộc nhóm 3, còn English (Bhikkhu Sujato) và Việt hiện
+        hành (HT. Thích Minh Châu) thuộc nhóm 2. Tại commit đã ghim, bilara không kèm trường
+        giấy phép máy đọc được cho hai bản đó, nên chúng tôi ghi <code>NOASSERTION</code> thay
+        vì đoán — và ghi rõ điều đó trong
+        <a href="https://github.com/streamentry/kinh-tang-pali/blob/main/source/suttacentral.lock.json">lock</a>.
+      </p>
+    </section>
+
+    <section class="section-heading">
+      <h2>Bốn bản trong reader</h2>
+      <p class="hint">
+        {storeLayers().length} tầng được khai trong <code>source/layers.yaml</code>. Tầng nào
+        có <code>authority: true</code> thì mới là nguồn chuẩn — tức là chỉ có Pāli. Hai tầng
+        tham khảo không bao giờ tự nhận là chuẩn, và tầng Việt của dự án là bản canonical.
+      </p>
+    </section>
+
+    <section class="section-heading">
+      <h2>Công cụ hỗ trợ</h2>
+      <p class="hint">
+        Khai trong <code>source/tooling.yaml</code>, và mọi trang đọc từ đó — không có tên công cụ
+        nào được viết tay trong markup.
+      </p>
+      <div class="tool-list">
+        {supportTools().map((tool) => (
+          <div class:list={['tool-card', tool.declaredBy === 'user-declared' && 'is-user-declared']}>
+            <h3>{creditLabel(tool)}</h3>
+            <p class="tool-uses">{tool.usedFor.join('; ')}.</p>
+            <p class="hint">{tool.standing}</p>
+            {tool.declaredBy === 'user-declared' && (
+              <p class="hint tool-declared">
+                Tên phiên bản <code>{tool.release}</code> do người biên tập khai báo. Repository
+                không tự kiểm chứng được tên này — nó không nằm trong dữ liệu dự án — nên được
+                đánh dấu <code>user-declared</code> thay vì trình bày như đã xác minh.
+              </p>
+            )}
+            {tool.link && <a href={tool.link} target="_blank" rel="noopener noreferrer">{tool.vendor} ↗</a>}
+          </div>
+        ))}
+      </div>
+      <ul class="licence-groups">
+        {toolingRules().map((rule) => <li>{rule}</li>)}
+      </ul>
+    </section>
+  </main>
+</Base>
+
+<style>
+  .credit-table { width: 100%; border-collapse: collapse; margin: 1rem 0; font-size: .88rem; }
+  .credit-table th, .credit-table td { text-align: left; padding: .55rem .5rem; border-bottom: 1px solid var(--line); vertical-align: top; }
+  .credit-table th { font-size: .72rem; text-transform: uppercase; letter-spacing: .1em; color: var(--muted); }
+  .credit-table .num { text-align: right; font-variant-numeric: tabular-nums; }
+  .credit-table code { font-size: .82em; }
+  .credit-list { padding-left: 1.2rem; }
+  .credit-list li { margin: .35rem 0; }
+  .licence-groups { padding-left: 1.3rem; }
+  .licence-groups li { margin: .6rem 0; line-height: 1.6; }
+  .hint { color: var(--muted); font-size: .82rem; line-height: 1.6; }
+  .credits-page code { background: var(--paper); padding: .05rem .3rem; border-radius: .25rem; }
+</style>

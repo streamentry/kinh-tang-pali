@@ -12,6 +12,11 @@ Mọi tác vụ liên quan đến dịch, sửa/review bản dịch, chọn thu�
 
 - Pāli source là snapshot SuttaCentral/Bilara được pin bởi `source/suttacentral.lock.json`; không dùng bản Pāli không rõ provenance làm authority.
 - Mọi tầng tham khảo (English SuttaCentral) cũng phải được pin cùng commit trong `source/suttacentral.lock.json` dưới `referenceEditions`, với `authority: false`, và phải sync/audit ở **mức segment**; thiếu tầng tham khảo là lỗi chặn đối với `review`/`published`.
+- **Mọi edition đã ghim phải khai `license`.** SuttaCentral đặt "đại đa số các bản dịch kinh văn" vào nhóm bản quyền của bên thứ ba, nên hiển thị bản tham khảo mà không nói điều khoản là lỗ hổng tuân thủ, không phải thiếu hình thức. `assertStoreIntegrity` chặn khi thiếu `holder`, `basis` hoặc `statementFrom`, và chặn cả khi một bản tham khảo bên thứ ba lại ghi `CC0-1.0`.
+- Khi không có giấy phép máy đọc được, ghi `NOASSERTION` — **đừng đoán**. `translation/vi/phantuananh/` và `translation/en/sujato/` không kèm trường giấy phép tại commit đã ghim.
+- Công cụ hỗ trợ chỉ được khai trong `source/tooling.yaml`, và **mọi trang phải đọc từ đó** — không viết tên công cụ vào markup. Ba chỗ từng ghi tay đã lệch nhau (561 file metadata ghi ChatGPT, file mới ghi OpenCode, website chỉ ghi ChatGPT) và không gì bắt được. `tests/unit/tooling.test.ts` chặn cả hai chiều: công cụ nào nêu trong `content/meta` thì phải khai, và công cụ nào khai thì phải được ghi ở đâu đó trên site.
+- **Không sửa attribution lịch sử.** 561 file metadata ghi ChatGPT vì đó là công cụ đã làm ra chúng; đổi sang công cụ sau là bịa bộ sử lịch sử. Số file theo từng công cụ được pin trong test.
+- Tên phiên bản mà repository không kiểm chứng được (ví dụ `Muse Spark 1.3 Free`) phải mang `declaredBy: user-declared`, và site nói thẳng là do người biên tập khai.
 - Một tầng tham khảo có file và key đúng vẫn có thể **không có prose** ở những đoạn Pāli có nội dung. Vì vậy phải đo coverage trên Pāli có nội dung; dưới ngưỡng thì `review`/`published` bị chặn trừ khi mất mát đã được **ghi nhận** trong `content/meta/reference-gaps.yaml`. Không được coi chỗ English rỗng là sự đồng thuận về cách dịch.
 - Canonical Vietnamese scripture là segmented JSON trong `content/translation/vi/project/`.
 - Giữ nguyên canonical SuttaCentral UID và segment ID; không zero-pad hoặc tự phát minh ID.

@@ -33,6 +33,7 @@ interface Manifest {
   /** Human note about how the counts were produced. */
   method: string;
   editions: Array<{
+    /** Store layer id, or the lock's `role` for a pinned edition that is not a layer. */
     layerId: string;
     language: string;
     translator: string;
@@ -105,12 +106,30 @@ async function treeBlobs(sha: string): Promise<TreeEntry[]> {
 const lock = loadLock();
 const editions: Manifest['editions'] = [];
 
+/**
+ * Every directory this pin is responsible for.
+ *
+ * The store layers give the scripture editions. The lock's `referenceEditions` may also
+ * pin material that is not scripture — currently SuttaCentral's own Vietnamese licensing
+ * and acknowledgements. Those still belong in the manifest: the point of the manifest is
+ * to be the complete shape of the pin, and an edition that is fetched and displayed but
+ * outside the manifest is exactly the thing that can drift unnoticed.
+ */
+const roots = new Map<string, { layerId: string; language: string; translator: string }>();
 for (const layer of storeLayers()) {
-  if (layer.location.type !== 'upstream') continue;
-  const upstreamRoot = manifestRootForLayer(layer);
-  if (!upstreamRoot) continue;
-  const edition = lock.referenceEditions.find((entry) => upstreamRoot.startsWith(entry.path));
+  const root = manifestRootForLayer(layer);
+  if (root) roots.set(root, { layerId: layer.id, language: layer.language, translator: '(root edition)' });
+}
+for (const edition of lock.referenceEditions) {
+  if (roots.has(edition.path)) continue;
+  roots.set(edition.path, {
+    layerId: edition.role,
+    language: edition.language,
+    translator: edition.translator,
+  });
+}
 
+for (const [upstreamRoot, meta] of roots) {
   process.stdout.write(`fetching ${upstreamRoot} ... `);
   const treeSha = await subtreeSha(upstreamRoot, lock.commit);
   const blobs = await treeBlobs(treeSha);
@@ -122,9 +141,9 @@ for (const layer of storeLayers()) {
   }
   console.log(`${blobs.length} file(s), ${(byteCount / 1e6).toFixed(2)} MB`);
   editions.push({
-    layerId: layer.id,
-    language: layer.language,
-    translator: edition?.translator ?? '(root edition)',
+    layerId: meta.layerId,
+    language: meta.language,
+    translator: meta.translator,
     path: upstreamRoot,
     treeSha,
     fileCount: blobs.length,

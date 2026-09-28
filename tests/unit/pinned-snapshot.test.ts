@@ -35,13 +35,26 @@ test('the manifest is pinned to the locked commit, not to some other snapshot', 
   assert.match(manifest.commit, /^[a-f0-9]{40}$/);
 });
 
-test('the manifest records the declared layers, and their counts match their own file maps', () => {
-  const declared = storeLayers()
-    .map(manifestRootForLayer)
-    .filter((value): value is string => value !== null)
-    .sort();
+test('the manifest records every layer and every pinned edition, and their counts are self-consistent', () => {
+  // The manifest is the complete shape of the pin, not only the scripture layers. It also
+  // carries the pinned credits edition — SuttaCentral's own licensing and acknowledgements —
+  // because the reference layers cite those terms, and a citation to a file nothing tracks
+  // is a citation that can rot.
+  const declared = new Set<string>([
+    ...storeLayers()
+      .map(manifestRootForLayer)
+      .filter((value): value is string => value !== null),
+    ...loadLock().referenceEditions.map((edition) => edition.path),
+  ]);
   const recorded = manifest.editions.map((edition) => edition.path).sort();
-  assert.deepEqual(recorded, declared, 'every upstream layer must have a manifest entry, and vice versa');
+  assert.deepEqual(recorded, [...declared].sort(), 'every upstream layer and pinned edition has a manifest entry, and vice versa');
+
+  // The credits edition in particular must be present, because the licence blocks in the
+  // lock cite it.
+  assert.ok(
+    manifest.editions.some((edition) => edition.path === 'translation/vi/site'),
+    'SuttaCentral\'s Vietnamese licensing and acknowledgements are pinned, not just described',
+  );
 
   for (const edition of manifest.editions) {
     assert.equal(Object.keys(edition.files).length, edition.fileCount, `${edition.layerId} count is self-consistent`);
@@ -50,6 +63,30 @@ test('the manifest records the declared layers, and their counts match their own
     assert.match(edition.treeSha, /^[a-f0-9]{40}$/);
     for (const [name, sha] of Object.entries(edition.files)) {
       assert.match(sha, /^[a-f0-9]{40}$/, `${edition.layerId}/${name} must carry a git blob hash`);
+    }
+  }
+});
+
+test('every pinned edition declares how it may be reused', () => {
+  // SuttaCentral groups most scripture translations as third-party copyright held by the
+  // translator, so a reference edition with no licence is a compliance hole. The Pāli root
+  // is public domain and needs none, but it is not in the lock to be checked here.
+  for (const edition of loadLock().referenceEditions) {
+    assert.ok(edition.license, `${edition.path}: no license block`);
+    assert.ok(edition.license.holder, `${edition.path}: license has no holder`);
+    assert.ok(edition.license.basis, `${edition.path}: license has no basis`);
+    assert.ok(edition.license.statementFrom, `${edition.path}: license cites no upstream statement`);
+    assert.ok(
+      ['public-domain', 'suttacentral', 'third-party'].includes(edition.license.group),
+      `${edition.path}: unknown licence group '${edition.license.group}'`,
+    );
+    if (edition.license.group === 'third-party') {
+      assert.notEqual(
+        edition.license.spdx,
+        'CC0-1.0',
+        `${edition.path}: a third-party translation must not be recorded as CC0`,
+      );
+      assert.ok(edition.license.attributionRequired, `${edition.path}: third-party reuse must be attributed`);
     }
   }
 });

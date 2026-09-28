@@ -86,8 +86,40 @@ export function loadSegmentMap(file: string): Record<string, string> {
   return parsed;
 }
 
+/**
+ * How a pinned edition may be reused.
+ *
+ * SuttaCentral groups everything it publishes into three licence groups, and the
+ * distinction matters here: the Pāli root is public domain, but *most scripture
+ * translations* are third-party copyright held by the translator. The reference layers
+ * are therefore displayed under terms we do not own, and the terms are recorded rather
+ * than assumed — `spdx: NOASSERTION` is the honest value when upstream ships no
+ * machine-readable licence, and it is deliberately not `CC0`.
+ */
+export type LicenseGroup = 'public-domain' | 'suttacentral' | 'third-party';
+
+export interface EditionLicense {
+  group: LicenseGroup;
+  /** SPDX identifier, or `NOASSERTION` when upstream states no machine-readable term. */
+  spdx: string;
+  holder: string;
+  /** Why this classification, and where upstream says so. */
+  basis: string;
+  /** Which upstream file states the terms, as `path#segment`. */
+  statementFrom: string;
+  /** Whether reuse must name the source. SuttaCentral asks this of everything. */
+  attributionRequired: boolean;
+  /** The request SuttaCentral makes of reusers, where it makes one. */
+  sourceRequest?: string;
+}
+
 export interface ReferenceEdition {
-  role: 'english' | 'vietnamese-current';
+  /**
+   * `english` and `vietnamese-current` are scripture reference layers. `credits` pins
+   * material that is not scripture — SuttaCentral's own licensing and acknowledgements —
+   * which is displayed rather than translated.
+   */
+  role: 'english' | 'vietnamese-current' | 'credits';
   language: string;
   translator: string;
   /** Human-readable translator name, where upstream records one. */
@@ -95,6 +127,8 @@ export interface ReferenceEdition {
   path: string;
   authority: false;
   requiredFor: string[];
+  kind?: 'scripture' | 'credits';
+  license: EditionLicense;
   note?: string;
 }
 
