@@ -1,0 +1,74 @@
+# Support tooling — declared once, rendered everywhere.
+#
+# Why a file rather than prose in the pages: the project's own rule is that no claim may be
+# asserted somewhere the code cannot keep true. Three places previously named an AI tool in
+# hand-written markup — the home page, the site footer and the English fill scorecards — and
+# they had already drifted apart: 561 text metadata files recorded ChatGPT, the newest fill
+# files recorded OpenCode, and the site named only ChatGPT. Naming a tool in prose means the
+# next tool arrives and half the site is quietly wrong.
+#
+# `tests/unit/tooling.test.ts` enforces the two rules that matter:
+#   - every AI tool named anywhere in `content/meta` or on the site is declared here; and
+#   - every entry here is actually credited somewhere, so the declaration cannot rot into a
+#     list nobody reads.
+#
+# `declaredBy` records where a name comes from. `user-declared` means the repository cannot
+# verify it — a model's release name is not something a build can check, and pretending
+# otherwise would be the exact kind of unfalsifiable claim these rules exist to prevent.
+
+schemaVersion: 1
+
+assistance:
+  - id: chatgpt
+    name: ChatGPT
+    vendor: OpenAI
+    release: null
+    link: https://chatgpt.com/
+    # What this tool was actually used for, stated narrowly rather than generously.
+    usedFor:
+      - "Phương án dịch và QA cho 561 bài có metadata ghi ChatGPT"
+      - "Đối chiếu Pāli / English / Việt hiện hành, kiểm logic, terminology, consistency"
+      - "Adversarial review của bản dịch"
+    standing: "Công cụ hỗ trợ. Không phải nguồn kinh điển, không bao giờ là authority."
+    declaredBy: repository
+
+  - id: gpt-5-6-sol
+    name: GPT-5.6 Sol
+    vendor: OpenAI
+    release: null
+    usedFor:
+      - "99 bài có metadata ghi GPT-5.6 Sol ở mục translators hoặc quality.assessed_by"
+    standing: "Công cụ hỗ trợ. Không phải nguồn kinh điển."
+    declaredBy: repository
+
+  - id: gpt-6-astra-pro
+    name: GPT-6 Astra Pro
+    vendor: OpenAI
+    release: null
+    usedFor:
+      - "4 bài có metadata ghi GPT-6 Astra Pro ở mục translators hoặc quality.assessed_by"
+    standing: "Công cụ hỗ trợ. Không phải nguồn kinh điển."
+    declaredBy: repository
+
+  - id: opencode-space-bunny
+    name: Space Bunny
+    vendor: OpenCode
+    release: "Muse Spark 1.3 Free"
+    modelId: space-bunny-free
+    link: https://opencode.ai/
+    # The name the metadata files use for this tool, so the credit and the corpus agree.
+    aliasInMetadata: "OpenCode Space Bunny Free (agent)"
+    usedFor:
+      - "Bản lấp English của dự án (content/translation/en/project) và scorecard của chúng"
+      - "Dựng reader bốn bản, tầng store, và kiểm chứng coverage bằng số đếm"
+      - "Triển khai và bảo trì scripts/ (verify-store, doctor, import-canonical-catalogs)"
+    standing: "Công cụ hỗ trợ. Bản lấp English do công cụ này tạo là bản nháp của chúng ta, không phải bản tham khảo đã xuất bản."
+    # The release name comes from the maintainer, not from anything the repository can check.
+    declaredBy: user-declared
+
+# Standing rules that hold for every tool above, kept here so a page cannot restate them
+# more loosely than they are written.
+rules:
+  - "AI không phải nguồn kinh điển. Pāli root là authority duy nhất."
+  - "Ghi credit cho công cụ không hàm ý công cụ bảo trợ, phê duyệt hay chịu trách nhiệm cho bản dịch."
+  - "Bản dịch do người biên tập chịu trách nhiệm; công cụ chỉ là lớp trợ giúp."

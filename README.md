@@ -166,6 +166,21 @@ npm run reference:gaps:check
 npm run store -- mn118
 ```
 
+## Nguồn, giấy phép và ghi công
+
+Trang [`/credits/`](https://streamentry.github.io/kinh-tang-pali/credits/) dựng từ lock và
+manifest, nên không thể lệch với thứ store thực sự giữ. Tồn tại vì SuttaCentral yêu cầu:
+*"Ghi rõ nguồn gốc xuất xứ"* (trang giấy phép tiếng Việt của họ, `licensing:10`).
+
+- **Pāli** — phạm vi công cộng.
+- **English (Bhikkhu Sujato)** và **Việt hiện hành (HT. Thích Minh Châu)** — nhóm "tác phẩm
+  của bên thứ ba": bản quyền thuộc dịch giả, dùng theo giấy phép của tác giả. Tại commit đã
+  ghim, bilara không kèm trường giấy phép máy đọc được cho hai bản đó, nên ta ghi
+  `NOASSERTION` thay vì đoán.
+- **Công cụ hỗ trợ** khai trong `source/tooling.yaml`, mọi trang đọc từ đó: ChatGPT ·
+  GPT-5.6 Sol · GPT-6 Astra Pro (OpenAI) và Space Bunny · Muse Spark 1.3 Free (OpenCode).
+  Không sửa attribution lịch sử của những bài đã dịch bằng công cụ cũ.
+
 ## Bốn bản để đối chiếu
 
 Trang bài kinh hiện bốn bản cạnh nhau, theo từng segment:
@@ -218,6 +233,7 @@ Không copy Pāli vào file dịch. Mọi alignment dùng segment ID.
 - `source/layers.yaml`: registry của store nhiều tầng.
 - `source/suttacentral.lock.json`: exact upstream commit + các tầng tham khảo đã pin.
 - `source/upstream-manifest.json`: danh sách file + git hash của từng edition tại commit đã pin.
+- `source/tooling.yaml`: khai báo duy nhất các công cụ hỗ trợ (mọi trang đọc từ đây).
 - `src/lib/canon/`: lớp domain compose dữ liệu.
   - `document.ts` — dựng bốn bản để đối chiếu (Pāli · English · Việt hiện hành · Việt dự án).
   - `manifest.ts` — đọc manifest đã pin để phân biệt "bản chụp không có bản dịch" với "chưa tải về cache".

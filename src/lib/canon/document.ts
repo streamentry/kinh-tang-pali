@@ -39,10 +39,20 @@ import {
   sourcePathFor,
   upstreamFile,
 } from './load';
-import { resolveLayer } from './layers';
+import { creditForLayer, licenseForLayer, resolveLayer, storeLayer } from './layers';
 import { upstreamPublishes } from './manifest';
 
 const ROOT = process.cwd();
+
+/**
+ * Credit for our own translation.
+ *
+ * Stated here rather than read from the store registry, because the project layers are
+ * ours: there is no upstream edition, no translator to attribute, and no licence to
+ * inherit. What is true is who wrote it and under what terms.
+ */
+const PROJECT_TRANSLATION_CREDIT =
+  'Bản dịch của dự án Kinh Tạng Pāli Việt — CC0 1.0, không phải bản của SuttaCentral';
 
 /** The store layers behind each display column, in precedence order. */
 const COLUMN_SOURCES: Record<CanonLayerId, readonly string[]> = {
@@ -132,6 +142,25 @@ function summarise(
   detail: { title: string; standing: CanonLayerSummary['standing']; role: string; note?: string; status?: string },
 ): CanonLayerSummary {
   const withText = ids.filter((id) => prose(column_.merged[id]).trim() !== '').length;
+
+  // Credit and licence are looked up per column, explicitly.
+  //
+  // Inferring them from `standing` looked equivalent and was wrong: it sent the project's
+  // own Vietnamese column to the `vietnamese-current` layer, so our translation was
+  // credited to Bhikkhu Thích Minh Châu. That is the same class of error as passing a
+  // reference off as ours, in the opposite direction, and it is exactly why a reference
+  // must never be inferred where it can be stated.
+  const CREDITS: Record<ColumnKey, () => string> = {
+    pali: () => creditForLayer(storeLayer('pali')),
+    english: () => creditForLayer(storeLayer('english-sujato')),
+    viCurrent: () => creditForLayer(storeLayer('vietnamese-current')),
+    vi: () => `${PROJECT_TRANSLATION_CREDIT}`,
+  };
+
+  const licence = column === 'vi' ? undefined : licenseForLayer(storeLayer(
+    column === 'pali' ? 'pali' : column === 'english' ? 'english-sujato' : 'vietnamese-current',
+  ));
+
   return {
     id: column,
     title: detail.title,
@@ -144,6 +173,15 @@ function summarise(
     total: ids.length,
     sourceLayers: column_.sourceLayers,
     status: detail.status,
+    credit: CREDITS[column](),
+    license: licence
+      ? {
+          group: licence.group,
+          spdx: licence.spdx,
+          holder: licence.holder,
+          attributionRequired: licence.attributionRequired,
+        }
+      : undefined,
   };
 }
 

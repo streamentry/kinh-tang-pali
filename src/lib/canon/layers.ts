@@ -27,8 +27,11 @@ import {
   segmentMapForUid,
   sourcePathFor,
   upstreamFile,
+  type EditionLicense,
+  type ReferenceEdition,
 } from './load';
 import type { SourcePath } from './load';
+import { manifestCommit } from './manifest';
 
 const ROOT = process.cwd();
 
@@ -117,6 +120,51 @@ function upstreamPathForLayer(layer: StoreLayer, sourcePath: SourcePath): string
   const match = sourcePath.match(/^(?:root\/pli\/ms|root\/[^/]+\/[^/]+)\/(sutta\/.+)_root-pli-ms\.json$/);
   if (!match) return null;
   return `${layer.location.path}/${match[1]}${layer.location.suffix}`;
+}
+
+/** The pinned edition that supplies an upstream layer, if the lock declares one. */
+export function editionForLayer(layer: StoreLayer): ReferenceEdition | null {
+  const location = layer.location;
+  if (location.type !== 'upstream' || location.rootEdition) return null;
+  return loadLock().referenceEditions.find((edition) => edition.path === location.path) ?? null;
+}
+
+/**
+ * The terms an upstream layer is displayed under, or `null` when the layer is ours.
+ *
+ * The Pāli root is public domain, so it needs no licence. Every reference edition does,
+ * and a reference layer with no declared terms is a compliance hole rather than a
+ * stylistic gap — which is why `assertStoreIntegrity` treats it as an error.
+ */
+export function licenseForLayer(layer: StoreLayer): EditionLicense | null {
+  if (layer.location.type !== 'upstream') return null;
+  if (layer.location.rootEdition) {
+    return {
+      group: 'public-domain',
+      spdx: 'NOASSERTION',
+      holder: '—',
+      basis: 'Original Pāli scripture is in the public domain and carries no copyright; SuttaCentral lists it under their third licence group.',
+      statementFrom: 'translation/vi/site/licensing_translation-vi-site.json#licensing:23',
+      attributionRequired: false,
+    };
+  }
+  return editionForLayer(layer)?.license ?? null;
+}
+
+/** A one-line credit for a layer, safe to render in a panel header. */
+export function creditForLayer(layer: StoreLayer): string {
+  if (layer.location.type === 'upstream' && layer.location.rootEdition) {
+    return 'SuttaCentral Mahāsaṅgīti (bilara, pli/ms) — public domain';
+  }
+  const edition = editionForLayer(layer);
+  if (!edition) return layer.title;
+  const who = edition.translatorName ?? edition.translator;
+  const terms = edition.license.group === 'public-domain'
+    ? 'public domain'
+    : edition.license.spdx === 'CC0-1.0'
+      ? 'CC0 1.0'
+      : `bản quyền thuộc ${edition.license.holder}`;
+  return `${who} — SuttaCentral, ${edition.path} @ ${loadLock().commit.slice(0, 12)} (${terms})`;
 }
 
 export function contentPathForLayer(layer: StoreLayer, collection: CollectionCode, uid: string): string | null {
@@ -310,6 +358,33 @@ export function assertStoreIntegrity(): string[] {
     if (layer.location.suffix !== expected) {
       errors.push(`source/layers.yaml: layer '${layer.id}' suffix '${layer.location.suffix}' should be '${expected}'`);
     }
+    // A reference edition is displayed under terms we do not own, so those terms must be
+    // recorded. A third-party translation without a declared licence is a compliance hole,
+    // not a missing nicety, and the fix is a line in the lock rather than a guess here.
+    if (!declared.license) {
+      errors.push(`source/suttacentral.lock.json: edition ${path} has no license block; `
+        + 'every pinned edition must state how it may be reused');
+    } else {
+      if (!declared.license.holder || !declared.license.basis || !declared.license.statementFrom) {
+        errors.push(`source/suttacentral.lock.json: edition ${path} has an incomplete license block `
+          + '(holder, basis and statementFrom are all required)');
+      }
+      if (declared.license.group === 'third-party' && declared.license.spdx === 'CC0-1.0') {
+        errors.push(`source/suttacentral.lock.json: edition ${path} is third-party but claims CC0; `
+          + 'SuttaCentral places most scripture translations under the translator\'s own copyright');
+      }
+    }
+  }
+
+  // The credits edition is not a store layer, but it is pinned, and it is what the
+  // licence statements above cite. If it goes missing the citations dangle.
+  const credits = loadLock().referenceEditions.find((edition) => edition.kind === 'credits');
+  if (!credits) {
+    errors.push('source/suttacentral.lock.json: no credits edition is pinned; '
+      + 'the reference layers cite SuttaCentral\'s own licensing text and it must be verifiable');
+  } else if (manifestCommit() !== loadLock().commit) {
+    errors.push('source/upstream-manifest.json is not at the locked commit, so the credits edition '
+      + 'cannot be verified against the pin');
   }
 
   for (const collection of COLLECTIONS.map((entry) => entry.code)) {

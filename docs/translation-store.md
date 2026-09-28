@@ -318,3 +318,68 @@ truy vấn Pāli và một truy vấn English đều dẫn tới cùng một bà
 `scripts/build-book.ts` chỉ đọc `segment.pali` và `segment.vi`, nên sách vẫn ra Pāli +
 Việt dự án và **không** rò English hay Việt tham khảo vào bản phát hành. Đã kiểm trên
 `mn-vol-1` và `mn118-smoke`.
+
+## Nguồn, giấy phép và ghi công
+
+Sutacentral yêu cầu, trong trang giấy phép tiếng Việt của chính họ: **"Ghi rõ nguồn gốc xuất
+xứ"** (mục `licensing:10`). Đó là lý do có:
+
+- **`source/suttacentral.lock.json`** khai `license` cho **mọi** edition đã ghim. Thiếu khối
+  này là **lỗi chặn** (`assertStoreIntegrity`), không phải thiếu sót hình thức: hai bản tham
+  khảo thuộc nhóm "tác phẩm của bên thứ ba" — *"đại đa số các bản dịch kinh văn"* — nên bản
+  quyền thuộc dịch giả, và hiển thị chúng mà không nói điều đó là lỗ hổng tuân thủ.
+- **Một edition `credits`** ghim `translation/vi/site/` — chính là trang giấy phép, ghi công và
+  hướng dẫn trích dẫn tiếng Việt của SuttaCentral (12 file). Không phải kinh văn; đây là các
+  điều khoản mà hai bản tham khảo được hiển thị dưới, nên nó phải được ghim và kiểm bằng
+  hash chứ không để bằng một đoạn văn của chúng ta. Tổng cache: **10.093** path / 4 edition.
+- **`/credits/`** dựng từ lock + manifest, nên không thể lệch với thứ store thực sự giữ.
+  Trang này trích nguyên văn các đoạn của SuttaCentral, kể cả yêu cầu ghi nguồn và bốn
+  ghi công cho công việc tiếng Việt.
+
+Bốn người SuttaCentral ghi công cho tiếng Việt, trích từ
+`translation/vi/site/acknowledgments_translation-vi-site.json` đã ghim:
+
+| Người | Công việc SuttaCentral ghi |
+| --- | --- |
+| Tỳ-kheo Indacanda (Nguyệt Thiên) | Dịch thuật tiếng Việt |
+| Bình Anson | Chuẩn bị văn bản cho dịch thuật tiếng Việt |
+| Ken Yifer | Các đoạn kinh Pháp Cú trong Đại Chính tạng |
+| Mark Lin | Cố vấn kinh Pháp Cú bản tiếng Trung và tiếng Phạn |
+
+Và điều này giải thích vì sao bản Việt trên SuttaCentral chỉ còn Pháp Cú: danh sách tình
+nguyện viên của SuttaCentral còn ghi **Sister Uppalavanna** là người đã cung cấp *"bản dịch sơ
+bộ của hầu hết các bộ kinh nikaya"*. Bản dịch sơ bộ đó không được đưa vào bilara-data, nên
+phần thiếu là **do cách phân phối**, không phải do bỏ sót.
+
+## Công cụ hỗ trợ
+
+Khai trong **`source/tooling.yaml`**, và **mọi trang đọc từ đó** — không có tên công cụ nào
+viết tay trong markup. Điều này không phải thẩm mỹ: trước đó ba chỗ ghi tên AI bằng tay
+(trang chủ, footer, scorecard bản lấp English) và chúng **đã lệch nhau** — 561 file metadata
+ghi ChatGPT, file mới nhất ghi OpenCode, còn website chỉ ghi ChatGPT. Không có gì bắt được,
+vì không có gì so sánh chúng.
+
+Bốn công cụ corpus thực sự dùng, theo số file metadata:
+
+| Công cụ | Số file metadata | Vai trò |
+| --- | --- | --- |
+| ChatGPT (OpenAI) | 561 | phương án dịch, đối chiếu, QA |
+| GPT-5.6 Sol (OpenAI) | 99 | translators / assessed_by |
+| GPT-6 Astra Pro (OpenAI) | 4 | translators / assessed_by |
+| OpenCode Space Bunny Free (agent) | 14 | bản lấp English, reader, scripts |
+
+`tests/unit/tooling.test.ts` kiểm **cả hai chiều**: công cụ nào được nêu trong `content/meta`
+thì phải được khai, và công cụ nào khai thì phải được ghi ở đâu đó trên site — để danh sách
+không mục ruỗng. Test này ngay khi viết ra đã tìm thấy **GPT-5.6 Sol** và **GPT-6 Astra
+Pro** chưa khai ở đâu cả, dù metadata có ghi.
+
+**Hai điều không được làm:**
+
+1. **Không sửa 561 file metadata ghi ChatGPT** thành công cụ mới. Đó là hồ sơ thật về cách
+   từng bài được làm ra; đổi nó là bịa bộ sử lịch sử. Test
+   *"the sutta metadata that predates this tooling is left as history"* nói rõ điều này để
+   agent sau không "sửa cho đẹp".
+2. **Không trình bày tên phiên bản như đã xác minh.** `Muse Spark 1.3 Free` là tên do người
+   biên tập khai; repository không kiểm chứng được, nên nó mang `declaredBy: user-declared`
+   và trang credits nói thẳng điều đó. Một test ép mọi công cụ có `release` phải là
+   `user-declared`.

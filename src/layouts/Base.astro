@@ -1,5 +1,6 @@
 ---
 import { withBase } from '../lib/url';
+import { creditSummary } from '../lib/canon/tooling';
 
 interface Props {
   title?: string;
@@ -9,6 +10,8 @@ const {
   title = 'Kinh Tạng Pāli Việt',
   description = 'Bản dịch Pāli–Việt theo segment SuttaCentral/Bilara.',
 } = Astro.props;
+
+const assistance = creditSummary();
 ---
 <!doctype html>
 <html lang="vi">
@@ -27,16 +30,18 @@ const {
       <nav aria-label="Điều hướng chính">
         <a href={withBase('sutta/mn/')}>Trung Bộ</a>
         <a href={withBase('search/')}>Tìm kiếm</a>
+        <a href={withBase('credits/')}>Nguồn</a>
         <a href="https://github.com/streamentry/kinh-tang-pali" target="_blank" rel="noopener noreferrer">Đóng góp</a>
       </nav>
     </header>
     <slot />
     <footer class="site-footer" data-pagefind-ignore>
       <span>
-        Dự án & biên tập: Lê Việt Hồng (Cư Sĩ Chánh Niệm) · Pāli: SuttaCentral Mahāsaṅgīti ·
-        tham khảo: Bhikkhu Sujato, HT. Thích Minh Châu · hỗ trợ AI: ChatGPT (OpenAI) ·
+        Dự án & biên tập: Lê Việt Hồng (Cư Sĩ Chánh Niệm) · Pāli: SuttaCentral Mahāsaṅgīti
+        (phạm vi công cộng) · tham khảo: Bhikkhu Sujato, HT. Thích Minh Châu — bản quyền thuộc
+        dịch giả · hỗ trợ: {assistance} ·
         <a href="https://streamentry.github.io/streamentry/" target="_blank" rel="noopener noreferrer">Hướng Đến Nhập Lưu</a> ·
-        <a href={withBase('#nguon-va-credits')}>Nguồn & credits</a> ·
+        <a href={withBase('credits/')}>Nguồn, giấy phép & ghi công</a> ·
         <a href="mailto:tostreamentry@gmail.com">Liên hệ / hỗ trợ</a> ·
         <a href="https://github.com/streamentry/kinh-tang-pali" target="_blank" rel="noopener noreferrer">Đóng góp trên GitHub</a>
       </span>

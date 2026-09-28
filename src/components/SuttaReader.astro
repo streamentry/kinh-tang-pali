@@ -18,6 +18,7 @@
  * markup either way, so search and print still see every version.
  */
 import type { CanonDocument, CanonLayerSummary, LayerAbsenceReason } from '../lib/canon/types';
+import { withBase } from '../lib/url';
 
 interface Props { document: CanonDocument }
 const { document } = Astro.props;
@@ -124,9 +125,22 @@ const editable = shown.find((layer) => layer.id === 'vi');
             )}
           </p>
         )}
+        <p class="layer-credit" data-pagefind-ignore>
+          <span class="credit-label">Nguồn</span>
+          {layer.credit}
+          {layer.license && layer.license.group === 'third-party' && (
+            <span class="credit-terms">
+              {' '}· SuttaCentral yêu cầu ghi rõ nguồn gốc khi sử dụng lại
+            </span>
+          )}
+        </p>
       </div>
     ))}
   </div>
+
+  <p class="credits-link" data-pagefind-ignore>
+    <a href={withBase('credits/')}>Nguồn, giấy phép và ghi công đầy đủ</a>
+  </p>
 
   {editable && (
     <p class="editing-note" data-pagefind-ignore>
