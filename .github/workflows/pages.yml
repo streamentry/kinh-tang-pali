@@ -30,6 +30,12 @@ jobs:
       - name: Install dependencies
         run: npm install --no-audit --no-fund
 
+      - name: Sync pinned source
+        # The store tests assert against the pinned upstream layers, so this workflow needs
+        # the same snapshot CI tests against; `npm run build` syncs anyway, but only after
+        # the tests have already run, so sync here rather than letting two tests fail.
+        run: npm run source:sync:used
+
       - name: Unit tests
         run: npm test
 
