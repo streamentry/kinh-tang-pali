@@ -271,6 +271,21 @@ test('segment maps are read through the same UID filter in every layer', {
       readJson<Record<string, string>>(resolved.file),
       uid,
     )).sort();
+    if (layer.id === 'english-project') {
+      // A fill layer is partial BY DESIGN: it holds only the segments where the
+      // pinned edition has no words (expanding it to full scope would shadow the
+      // pinned edition, which `validate` forbids). So equality with the Pāli key
+      // set cannot hold here — and was never true for any partial fill; this UID
+      // is simply the first one where a fill exists to expose it. The invariant
+      // that matters for translators (the comment above) is prefix consistency:
+      // every filled key must belong to the Pāli key set, so no layer reads
+      // English for one sutta against Pāli for another.
+      // Concrete case: sn12.83-92 has 18 Pāli keys, Sujato already covers 15 of
+      // them, and the fill holds exactly the remaining blanks (sn12.92:*).
+      const outside = ids.filter((id) => !referenceIds.includes(id));
+      assert.deepEqual(outside, [], `${layer.id} must only fill keys within the Pāli key set`);
+      continue;
+    }
     assert.deepEqual(ids, referenceIds, `${layer.id} must resolve the same segment set as the Pāli root`);
   }
 });

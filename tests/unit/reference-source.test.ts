@@ -212,22 +212,36 @@ test('coverage measures substantive Pāli, not raw segment count', { skip: !exis
   );
   assert.equal(blockquoted.ratio, 1, 'so an2.1 is fully covered at store level');
 
-  // an2.3 is the contrast that keeps this test meaningful: Sujato folded
-  // an2.3:1.3–1.5 into one English sentence, so :1.4 and :1.5 are blank, and the
-  // `english-project` layer has not filled them. The meaning survives, on another
-  // key — which is exactly why the metric counts missing segments rather than
-  // declaring the text unreadable. It is the live counter-example now that an2.1
-  // above has been filled in.
+  // sn24.37 is the contrast that keeps this test meaningful: six of its seven
+  // substantive segments are blank in the pinned edition — a `…pe…` elision at
+  // :1.4 and stock repetitions across the aggregates — and the `english-project`
+  // layer has not filled them. Much of the meaning is recoverable from the
+  // repeated keys around them, which is exactly why the metric counts missing
+  // segments rather than declaring the text unreadable. It is the live
+  // counter-example now that an2.1 above — and an2.3 before it, whose four
+  // merged blanks the project fill has since covered — have been filled in.
+  const sn2437 = englishCoverageFor('sn', 'sn24.37')!;
+  assert.equal(sn2437.substantiveSegments, 7);
+  assert.equal(sn2437.substantiveWithoutEnglish, 6);
+  assert.ok(sn2437.ratio < MIN_ENGLISH_COVERAGE, 'which does drop it below the floor');
   const english = segmentMapForUid(
     readJson<Record<string, string>>(upstreamFile('translation/en/sujato/sutta/an/an2/an2.1-10_translation-en-sujato.json')),
     'an2.3',
   );
   assert.equal(english['an2.3:1.4'].trim(), '', 'the merged segment is blank');
   assert.ok(english['an2.3:1.3'].includes('body, speech, and mind'), 'its content moved to :1.3');
+  // The pinned blanks above are unchanged — but the store-level metric no longer
+  // sees a hole here: the project fill has since covered all four merged segments,
+  // just as it did for an2.1. Pin that too, so a regression that drops the fill
+  // fails loudly instead of silently reopening the gap.
   const merged = englishCoverageFor('an', 'an2.3')!;
   assert.equal(merged.substantiveSegments, 7);
-  assert.equal(merged.substantiveWithoutEnglish, 4);
-  assert.ok(merged.ratio < MIN_ENGLISH_COVERAGE, 'which does drop it below the floor');
+  assert.equal(
+    merged.substantiveWithoutEnglish,
+    0,
+    'the project fill now covers the merged segments the pinned edition left blank',
+  );
+  assert.equal(merged.ratio, 1, 'so an2.3 is fully covered at store level');
 });
 
 test('a text with no English prose at all falls below the coverage floor', { skip: !existsSync(upstreamFile('translation/en/sujato/sutta/an/an4/an4.46_translation-en-sujato.json')) ? 'run npm run source:sync:all' : false }, () => {
