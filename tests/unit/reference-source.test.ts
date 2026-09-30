@@ -193,14 +193,31 @@ test('coverage measures substantive Pāli, not raw segment count', { skip: !exis
   assert.equal(markerHeavy.ratio, 1, 'so coverage is complete, despite the blank markers');
 
   // an2.1 is the counter-case: the punishment list at an2.1:3.3 is a 625-character
-  // blockquote with no English at all, and the ellipsis at :3.5 likewise.
+  // blockquote, and the ellipsis at :3.5 likewise. The PINNED edition leaves both
+  // empty — so this text also measures what the store does about it.
+  //
+  // It used to assert exactly that hole (`substantiveWithoutEnglish === 2`) and sit
+  // just above the floor. That measurement became wrong the moment the project's own
+  // `english-project` layer filled those two segments: the assertion was still
+  // describing the pinned edition's blanks, while the metric under test now measures
+  // the fill layer too. Asserting a number that only stays true while a known gap
+  // happens to remain unfilled is a test that fails the moment the project succeeds.
+  // So it now pins the ratio from both sides and asserts the shape of the hole.
   const blockquoted = englishCoverageFor('an', 'an2.1')!;
   assert.equal(blockquoted.substantiveSegments, 22);
-  assert.equal(blockquoted.substantiveWithoutEnglish, 2);
-  assert.ok(blockquoted.ratio > MIN_ENGLISH_COVERAGE, 'a two-segment hole stays above the floor');
+  assert.equal(
+    blockquoted.substantiveWithoutEnglish,
+    0,
+    'the project fill now covers both segments the pinned edition left blank',
+  );
+  assert.equal(blockquoted.ratio, 1, 'so an2.1 is fully covered at store level');
 
-  // an2.3 shows the merge: Sujato folded an2.3:1.3–1.5 into one English sentence,
-  // so :1.4 and :1.5 are blank. The meaning survives, on another key.
+  // an2.3 is the contrast that keeps this test meaningful: Sujato folded
+  // an2.3:1.3–1.5 into one English sentence, so :1.4 and :1.5 are blank, and the
+  // `english-project` layer has not filled them. The meaning survives, on another
+  // key — which is exactly why the metric counts missing segments rather than
+  // declaring the text unreadable. It is the live counter-example now that an2.1
+  // above has been filled in.
   const english = segmentMapForUid(
     readJson<Record<string, string>>(upstreamFile('translation/en/sujato/sutta/an/an2/an2.1-10_translation-en-sujato.json')),
     'an2.3',
