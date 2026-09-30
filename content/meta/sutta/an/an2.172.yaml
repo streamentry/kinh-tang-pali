@@ -1,0 +1,79 @@
+uid: an2.172
+status: published
+translationTitle: "Kinh Hai Điều An Tịnh Và Quán"
+translators:
+  - "OpenCode Space Bunny Free (agent)"
+reviewers: []
+tags:
+  - "anguttara-nikaya"
+  - "book-of-the-twos"
+  - "dve-hoti"
+  - "samapattivagga"
+quality:
+  scores:
+    source_provenance: 9.6
+    semantic_fidelity: 9.3
+    grammar_logic: 9.4
+    segment_alignment: 10.0
+    terminology: 8.8
+    triangulation: 8.2
+    vietnamese_clarity: 9.2
+    han_viet_balance: 9.3
+    ambiguity_integrity: 8.9
+    technical_integrity: 9.6
+  final_score: 9.23
+  blocking_errors: []
+  assessed_at: "2026-09-30"
+  assessed_by:
+    - "OpenCode Space Bunny Free (agent)"
+notes: |-
+  **Phạm vi: đủ 5 khoá, không thêm khoá nào.** Bài này không có khối `:0` trong Bilara
+  (những bài có `0.1`+`0.2` trong nhóm này chỉ là `an2.163`), nên `1.0` là con số thứ tự bài và
+  đó là mọi khoá Pāli có. Tôi không tự thêm `0.1`/`0.2` — sẽ tạo segment ma.
+
+  **Ba khoá `1.1`, `1.2`, `1.4` dùng lại nguyên văn đã có, không dịch lại.** Pāli của chúng
+  giống hệt nhau ở cả mười bài của lát, và năm bài anh em cùng Phẩm Hộ Trì đã `published`
+  (`an2.163`, `an2.168`, `an2.169`, `an2.176`, `an2.177`) dùng cùng một nguyên văn cho đúng ba
+  khoá đó. Số đếm trong tầng: `1.1` — 9/10 đoạn có Pāli giống hệt dùng *Có hai loại pháp, này
+  các tỳ-kheo*; `1.4` — 6/6 dùng *Này các tỳ-kheo, đây là hai loại pháp”*; `1.2` — 5/5 bài anh
+  em dùng *Thế nào là hai?* (toàn tầng còn tranh cãi: 35 *Thế nào là hai?* so với 24 *Là hai
+  nào?*, nhưng trong phẩm này không có tiếng nào khác). Chỉ `1.3` là khác nhau giữa mười bài, và
+  tôi dựng riêng từng cặp — dùng một bảng dịch chung cho cả mười bài sẽ là điền bằng khuôn.
+
+  **Tầng Anh đủ 100%, đã đối chiếu từng khoá.** Cả 5/5 khoá đều có tiếng Anh Sujato tại commit
+  đã ghim, không khoá nào bị bỏ trống, nên không có chỗ nào phải dựa vào Pāli một mình.
+
+  **Không đối chiếu được tầng Việt hiện hành.** Tại commit đã ghim, `translation/vi/` của bilara
+  chỉ chứa Pháp Cú, nên Tăng Chi Bộ không có bản Hòa thượng Thích Minh Châu cho bài này. Đây là
+  giới hạn của bản chụp upstream, không phải thiếu sót của kho; `triangulation` vì thế chỉ ở
+  mức Pāli + English Sujato.
+
+  **Kiểm kỹ thuật.** Chạy lại `save_vi` hai lần: idempotent, tệp trên đĩa không đổi. Tự kiểm
+  những cờ mà `rven88.py` không áp cho tầng Việt: đủ khoá và đúng segment ID; ngoặc kép `“` mở
+  ở `1.1` và `”` đóng ở `1.4`, cân trên cả bài; mọi chuỗi đã NFC; không Pāli lọt; số dấu lược
+  bằng Pāli (bài này không có dấu lược nào); `1.3` nối tiếp `1.2` bằng *là*. Khoá `:1.0` bằng
+  đúng số của Pāli vì đó là **số thứ tự bài** chứ không phải nội dung cần dịch — `_hvi.py` cố
+  ý loại khoá dạng `N.0` khỏi kiểm trùng nguyên văn, và năm bài anh em cũng ghi y hệt. Tôi
+  **không** chạy `npm run validate|test|check|build` (đợt này cấm; người điều phối chạy tập
+  trung), nên `technical_integrity` chấm 9.6 chứ không phải 10.0.
+
+  **Thuật ngữ `1.3` — chỗ nhiều bất định nhất của lát, nên ghi kỹ.** Đo trên các
+  đoạn Pāli đã dịch mà từ đứng **trần** (đã loại `ceto-`, `saṅkhāra-`, `adhikaraṇa-` với `samatha`
+  và `adhipaññādhammavipassanā` với `vipassanā`, vì những dạng ghép ấy là nghĩa khác):
+  `samatha` — 36 đoạn: *an tịnh* 13, *chỉ* 4 cộng *tịnh chỉ* 2, *thiền định* 1.
+  `vipassanā` — 44 đoạn: *quán* 29, *minh sát* 13, *tuệ quán* 4. Tôi chọn *an tịnh* + *quán*
+  theo đa số của từng từ.
+
+  **CÓ BA CÁCH DỊCH ĐÃ `published`, tôi đã cân nhắc cả ba và ghi lại để người biên tập chọn:**
+  1. `mn149:10.10` và `mn149:22.2` (Pāli **y hệt**) cùng `mn151:19.2` và `mn151:19.4` →
+     *an tịnh và minh sát* — 4 đoạn, khớp cả hai từ.
+  2. `dn33:1.9.26` (Pāli **y hệt**) → *Chỉ và quán*.
+  3. `an4.170:3.2` và `:4.1` → *thi định … quán* — **ghi thêm lỗi của tệp đã publish**: ở
+     `an4.170` chữ *thiền* trong *thiền định* bị rơi mất, còn lại *thi định*. Tôi không sửa vì
+     ngoài lát của mình, nhưng không ai nên lấy *thi định* làm chuẩn.
+
+  Tôi **không** chọn (1) vì *minh sát* kém phổ biến hơn *quán* 29:13 cho `vipassanā`; **không**
+  chọn (2) vì *chỉ* chỉ 6/36 cho `samatha` trong toàn tầng. Đây là **bất định có thể đổi cách
+  hiểu cả cặp từ**, nên `ambiguity_integrity` (8.9) và `terminology` (8.8) là hai điểm thấp
+  nhất lát. Nếu người biên tập ưu tiên trùng Pāli hơn trùng tần tự, hãy đổi sang (1) — chỉ
+  một cụm, không ảnh hưởng mệnh đề nào khác.
