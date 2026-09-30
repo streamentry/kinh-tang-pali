@@ -1,0 +1,69 @@
+uid: sn45.110-114
+status: draft
+translationTitle: "Bài Nghiêng Về Biển (Hai)"
+translators:
+  - "OpenCode Space Bunny Free (agent)"
+reviewers: []
+tags:
+  - "samyutta-nikaya"
+  - "ganga-peyyala"
+  - "samudda"
+quality:
+  scores:
+    source_provenance: 9.6
+    semantic_fidelity: 9.3
+    grammar_logic: 9.4
+    segment_alignment: 10.0
+    terminology: 9.2
+    triangulation: 8.3
+    vietnamese_clarity: 9.3
+    han_viet_balance: 9.3
+    ambiguity_integrity: 9.2
+    technical_integrity: 9.6
+  final_score: 9.32
+  blocking_errors:
+    - "Tệp nhóm mới giữ 6 khoá của pre sn45.110, các pre sn45.111 tới sn45.114 chưa gộp nên requireComplete cho published sẽ đỏ"
+    - "English của toàn nhóm chỉ phủ 5 trên 11 segment có nội dung, dưới ngưỡng 80 phần trăm, mà gap sn45.110-114 chưa có trong reference-gaps.yaml và đợt này cấm sửa tệp đó"
+  assessed_at: "2026-09-30"
+  assessed_by:
+    - "OpenCode Space Bunny Free (agent)"
+notes: |-
+  **Phạm vi lát c7: đủ mọi khoá trong `all` của bài, không thêm khoá nào.**
+  Chạy lại `save_vi` hai lần: idempotent, tệp trên đĩa không đổi. Tự kiểm những
+  cờ mà `rven88.py` không áp cho tầng Việt: đủ khoá và đúng segment ID theo `pre`
+  (tiền tố khoá thật, không phải uid-gộp); ngoặc kép cân trên cả bài; mọi chuỗi
+  đã NFC; không Pāli lọt; số dấu lược bằng Pāli.
+
+  **Không đối chiếu được tầng Việt hiện hành.** Tại commit đã ghim,
+  `translation/vi/` của bilara chỉ chứa Pháp Cú, nên các bài này không có bản Hòa
+  thượng Thích Minh Châu. Đây là giới hạn của bản chụp upstream, không phải thiếu
+  sót của kho; `triangulation` vì thế chỉ ở mức Pāli + English Sujato.
+
+  Tôi **không** chạy `npm run validate|test|check|build` (đợt này cấm; người điều
+  phối chạy tập trung sau khi gộp các pre), nên `technical_integrity` chấm 9.6
+  chứ không phải 10.0.
+
+  **Công thức theo đúng nhóm anh em `sn45.104-108` (cùng phẩm, đã
+  `published`).** `0.2` dùng lại *10. Phẩm Chuỗi Lặp Sông Gaṅgā Lần Hai*; bộ ba
+  *nghiêng về … xuôi về … đổ về …* giữ nguyên khung, chỉ đổi hướng từ *đông*
+  sang *biển* đúng theo Pāli `samuddaninnā samuddapoṇā samuddapabbhārā*; `1.2`
+  dùng lại *cũng vậy, này các tỳ-kheo, vị tỳ-kheo …*, giữ một dấu lược cho một
+  `…pe…` của Pāli.
+
+  **Một chữ tôi chủ ý dịch khác nhóm anh em.** `sn45.104:1.1` bỏ `seyyathāpi`,
+  mở thẳng bằng *Này các tỳ-kheo, sông Yamunā …*; nhưng `sn45.109:1.1` (cùng
+  tương ưng, đã `published`) giữ *Như thể, này các tỳ-kheo, dòng sông Gaṅgā …*.
+  Tôi theo `sn45.109` vì `seyyathāpi` là đơn vị nghĩa mở đầu cho *cũng vậy*
+  (`evameva`) ở `1.2` — bỏ là mất nửa cặp so sánh. Đây là lý do duy nhất
+  `terminology` không đạt 9.4, và người biên tập nên chọn một hướng cho cả hai
+  nhóm rồi sửa nhóm còn lại.
+
+  **`1.3` ghi *Thứ hai.*, không theo nhóm anh em.** `sn45.104:1.3` ghi *Thứ thứ
+  hai.* — chữ *thứ* lặp, có vẻ là lỗi gõ (Pāli chỉ là `dutiyaṃ`). Tôi không sao
+  lại lỗi đó; đồng thời ngoặc `”` ở đây đóng ngoặc `“` mở từ `1.1`, vì chốt
+  ngoặc của `_hvi.py` đếm xuyên suốt bài và nhóm anh em hiện để mở (tệp cũ,
+  ngoài lát của tôi, tôi không sửa).
+
+  **`0.3` đặt mới.** `Dutiyādisamuddaninna` (chuỗi thứ hai, mở đầu bằng bài
+  nghiêng về biển) → *Bài Nghiêng Về Biển (Hai)*; Sujato đặt *Slanting to the
+  Ocean*.
