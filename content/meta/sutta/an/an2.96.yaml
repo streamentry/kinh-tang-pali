@@ -1,6 +1,6 @@
 uid: an2.96
-status: draft
-translationTitle: "Kinh Hai Loại Thành Thạo Tốt Lành Về Pháp Tử Và Suy Nghĩ"
+status: published
+translationTitle: "Kinh Hai Loại Thành Thạo Tốt Lành Về Các Yếu Tố Và Tác Ý"
 translators:
   - "OpenCode Space Bunny Free (agent)"
 reviewers: []
@@ -9,52 +9,58 @@ tags:
   - "book-of-the-twos"
   - "dve-hoti"
   - "dhammavagga"
+  - "kinh-hai-loai-thanh-thao-tot-lanh-ve-cac-yeu-to-va-tac-y"
 quality:
   scores:
     source_provenance: 9.6
-    semantic_fidelity: 9.4
+    semantic_fidelity: 9.5
     grammar_logic: 9.4
     segment_alignment: 10.0
-    terminology: 9.3
-    triangulation: 9.0
+    terminology: 9.2
+    triangulation: 9.3
     vietnamese_clarity: 9.4
     han_viet_balance: 9.3
-    ambiguity_integrity: 9.2
-    technical_integrity: 10.0
-  final_score: 9.46
-  blocking_errors:
-    - "Bản dịch chỉ phủ 1 khoá có nội dung; lát được chia bằng bộ lọc coverage 40 ký tự thay vì missingAll nên bài thiếu khoá, validate yêu cầu requireComplete."
+    ambiguity_integrity: 9.3
+    technical_integrity: 9.4
+  final_score: 9.44
+  blocking_errors: []
   assessed_at: "2026-09-30"
   assessed_by:
     - "OpenCode Space Bunny Free (agent)"
 notes: |-
-  **Phạm vi: đúng một khoá** (`an2.96:1.3`). Bài chỉ có 5 khoá, trong đó
-  `kiểm` của `_hvi.py` đòi đúng một khoá. Tôi dịch khoá đó và **không** tự thêm
-  `1.0`/`1.1`/`1.2`/`1.4` — cùng nguyên tắc đã ghi ở `notes` của `cp35`. Hệ quả phải
-  nói thẳng: người đọc sẽ thấy cột Việt dự án chỉ có một dòng, và dấu `“` mở ở
-  `1.1` của Pāli sẽ không xuất hiện.
+  Mất rồi làm lại (người điều phối, có bằng chứng): bản nháp 1 khoá của bài này tồn
+  tại ở PR #169 đã bị `git reset --hard` của tôi xoá khi tôi định tách PR Anh — vì
+  nó chưa được commit. Mất đúng 4 khoá (1.0/1.1/1.2/1.4) và bản sửa 1.3 (bản nháp
+  dùng `pháp tử` cho `dhātu` và thêm `đúng lý` vốn không có trong Pāli). Số đo
+  `docs/store-verification.json` tự phát hiện: khoá Việt rơi 106.854 → 106.850.
+  Nay dịch lại từ Pāli, không dựng lại từ trí nhớ, và ghi sự cố này vào đây.
 
-  **Tiền lệ, tất cả đều tra trong `content/translation/vi/project/sutta/`:**
-  `an2.96:1.1`, `:1.2`, `:1.4` có Pāli **giống hệt** `an2.97` (cùng file
-  `an2.87-97_root-pli-ms.json`), nên nếu sau này dịch nốt thì phải dùng lại nguyên văn
-  câu đã có: *Có hai loại pháp, này các tỳ-kheo.* / *Thế nào là hai?* /
-  *Này các tỳ-kheo, đây là hai loại pháp”*. `kusalatā` → *sự thành thạo tốt lành*
-  (`an2.97:1.3`, cùng Phẩm Pháp). `dhātu` → *pháp tử*: **1 chỗ** trong tầng Việt, câu
-  nhân quả *có tuổi, pháp bệnh tật thì có sức khỏe, pháp tử thần thì có mạng sống*.
-  `manasikāra` → *suy nghĩ*: `an10.76:5.1` dịch `ayoniso manasikāraṁ` =
-  *suy nghĩ không đúng lý*, suy ra `yoniso` = *đúng lý*.
-  **0 tiền lệ cho cả cụm `dhātukusalatā` và `manasikārakusalatā`**: quét toàn bộ
-  snapshot Pāli, hai cụm chỉ xuất hiện đúng ở `an2.96:1.3`, không có bản Việt nào
-  để bám theo.
+  Dùng lại nguyên văn đã có (Pāli `1.1`/`1.2`/`1.4` giống hệt `an2.97` cùng tệp
+  `an2.87-97_root-pli-ms.json`): *Có hai loại pháp, này các tỳ-kheo.* / *Thế nào là
+  hai?* / *Này các tỳ-kheo, đây là hai loại pháp”*. `1.0` là số thứ tự, mô phỏng anh em.
+  Khung `kusalatā` → *sự thành thạo tốt lành* có 3 tiền lệ (an2.97:1.3, an2.163:1.3,
+  và bản nháp đã xoá), nên `1.3` đi nguyên khung đó.
 
-  **Đối chiếu được tầng Anh.** Sujato (đã ghim) cho đúng khoá này: *Skill in the
-  elements and skill in application of mind.* Khớp với lựa chọn của tôi ở cả hai vế
-  (pháp tử / sự suy nghĩ), nên `triangulation` cao hơn các bài Khuddaka cùng lát.
-  Tầng Việt tham khảo (Thích Minh Châu) không có Tăng Chi Bộ tại commit đã ghim, nên
-  không đối chiếu được.
+  `dhātu` → *các yếu tố* (Sujato: "the elements"). Đo được: `dhātu`/`dhātū` trong tầng
+  Việt chỉ có 5 cặp, cả 5 đều là "giới tánh" trong câu liệt kê `sáu giới tánh`
+  (sn18.10:2.4, sn27.10:2.4, an3.136) — tức là không có tiền lệ nào cho nghĩa "phạm vi
+  thực hành". Chọn *yếu tố* vì chữ này có 140 lượt / 59 bài trong tầng, đúng nghĩa
+  (element), và tránh lẫn với `sīla` → *giới* (3.522 lượt) khi hai cụm kusalatā đứng
+  cạnh nhau trong chính câu này. Ghi thay thế: *giới tánh* (đúng với nghĩa liệt kê nhưng
+  lệch ngữ cảnh), *các pháp tử* (bản nháp cũ — `dhātu` không phải `dhamma`, tiền lệ
+  "pháp tử" trong tầng là `dhamma`).
 
-  **Bất định đã ghi nhận:** `dhātu` ở đây là bốn đại pháp tử, nhưng cụm Pāli đứng
-  trần nên tôi dịch là *các pháp tử* (số nhiều) theo Sujato (*the elements*) chứ không
-  ghi rõ *bốn đại pháp tử* — ghi rõ sẽ là thêm ý không có trong câu. Tiếng Việt chỉ có
-  1 chỗ `dhātu` nên `pháp tử` là chữ dịch **đặt mới theo một tiền lệ duy nhất**, đây là
-  lý do hạ `terminology` xuống 9.3.
+  `manasikāra` → *tác ý*. Quét từng cặp Pāli↔Việt có `manasikār`: 120 cặp, 52 dịch
+  *tác ý* (kể cả `yonisomanasikāra` → *khéo tác ý* ở sn45.76), 2 dịch *hành ý*
+  (an2.124:1.3, sn47.42:1.11), 1 dịch *suy nghĩ* (an10.76:5.1 — chính là tiền lệ mà
+  bản nháp cũ dựa vào, và nó chỉ có 1 chỗ nên không đủ sức làm chuẩn). `cetanā` thì
+  để riêng là *chủ ý*, không trộn vào đây.
+
+  Số nhiều *các yếu tố* theo Sujato (elements) chứ không ghi rõ *bốn đại pháp tử*:
+  cụm Pāli đứng trần, ghi thêm số là thêm ý.
+
+  Đối chiếu được Sujato cho cả 4 khoá có chữ (1.1–1.4); tầng Việt hiện hành không có
+  Tăng Bộ tại commit đã ghim (giới hạn upstream, đã đo: `translation/vi/phantuananh/`
+  chỉ có Pháp Cú), nên `triangulation` ở 9.3 chứ không cao hơn. Bản dịch đi qua chốt
+  `kiểm`/`_ghi` của `_hvi.py`: 5/5 khoá, NFC, ngoặc kép cân trên cả bài (mở ở 1.1,
+  đóng ở 1.4), dấu lược 0 = 0, không Pāli lọt.
