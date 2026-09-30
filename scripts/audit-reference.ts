@@ -24,6 +24,7 @@ import {
   upstreamFile,
 } from '../src/lib/canon/load';
 import { englishCoverageFor, MIN_ENGLISH_COVERAGE, loadRecordedGaps } from '../src/lib/canon/reference';
+import { upstreamPublishes } from '../src/lib/canon/manifest';
 
 const ROOT = process.cwd();
 const COLLECTIONS: CollectionCode[] = ['dn', 'mn', 'sn', 'an', 'kn'];
@@ -32,6 +33,13 @@ const usedOnly = args.includes('--used');
 const asJson = args.includes('--json');
 
 const readJson = <T>(file: string): T => JSON.parse(readFileSync(file, 'utf8')) as T;
+/**
+ * Texts the pinned English edition does not publish at the locked commit, answered
+ * from the manifest rather than from our own cache. Collected here so the count is
+ * printed with the rest of the audit instead of being inferred from a pile of
+ * "not synced" lines that mean something else entirely.
+ */
+const englishAbsentUpstream: string[] = [];
 const loadCatalog = (collection: CollectionCode): CanonCatalog =>
   readJson<CanonCatalog>(path.join(ROOT, 'content/catalog/sutta', `${collection}.json`));
 
@@ -101,8 +109,20 @@ for (const collection of COLLECTIONS) {
     }
     if (englishPath) {
       const file = upstreamFile(englishPath);
-      if (!existsSync(file)) problems.push('English reference file not synced');
-      else english = segmentMapForUid(readJson<Record<string, string>>(file), uid);
+      if (!existsSync(file)) {
+        // "Nobody downloaded it" and "the pinned edition does not publish it" are
+        // different facts, and only the first is a local problem. The manifest is
+        // the authority: it is the git tree of the locked commit, so the answer needs
+        // no network call and cannot be confused with a stale cache. 1,596 Khuddaka
+        // texts have no English anywhere on SuttaCentral at this commit; calling
+        // those a sync failure would send a reader looking for a file that does not
+        // exist. Such a text is translated from the Pāli alone and stays `draft`
+        // (AGENTS.md: a missing reference layer blocks review/published), which the
+        // scorecard records — the audit reports the fact, it does not repair it.
+        const published = upstreamPublishes('english-sujato', englishPath);
+        if (published === false) englishAbsentUpstream.push(`${collection}/${uid}`);
+        else problems.push('English reference file not synced');
+      } else english = segmentMapForUid(readJson<Record<string, string>>(file), uid);
     }
 
     const paliIds = Object.keys(pali);
@@ -193,6 +213,13 @@ const summary = {
   texts: rows.length,
   withProjectData: rows.filter((row) => row.hasProjectData).length,
   englishFileMissing: broken.filter((row) => row.englishFile !== null && !existsSync(upstreamFile(row.englishFile))).length,
+  /**
+   * Texts the pinned edition never publishes for at this commit, per the manifest.
+   * Not a sync failure and not a project defect: it is a property of the snapshot.
+   * They stay in scope (the editor put the whole corpus in scope), and each is
+   * translated from the Pāli alone with the limitation recorded in its scorecard.
+   */
+  englishAbsentUpstream: englishAbsentUpstream.length,
   paliSegments: totalPaliSegments,
   englishSegments: rows.reduce((sum, row) => sum + row.englishSegments, 0),
   textsWithSegmentGaps: broken.filter((row) => row.missingInEnglish.length > 0 || row.missingInPali.length > 0).length,
@@ -265,6 +292,11 @@ if (asJson) {
   console.log(
     `\nEnglish fill queue: ${summary.fillQueue.texts} text(s), `
     + `${summary.fillQueue.segments} substantive segment(s) still without English wording.`,
+  );
+  console.log(
+    `The pinned edition publishes no English at all for ${summary.englishAbsentUpstream} text(s) at this commit `
+    + '(upstream limit, per source/upstream-manifest.json — not a sync failure). '
+    + 'Those texts are translated from the Pāli alone and cannot claim review/published status.',
   );
   if (unrecorded.length > 0) {
     console.error(`  ${unrecorded.length} text(s) below the floor with no entry in content/meta/reference-gaps.yaml:`);

@@ -1,0 +1,65 @@
+uid: pv14
+status: draft
+translationTitle: "Petavatthu – 2. Câu Chuyện Cha Mẹ Của Tôn Giả Sāriputta"
+translators:
+  - "OpenCode Space Bunny Free (agent)"
+reviewers: []
+tags:
+  - "khuddakanikaya"
+  - "petavatthu"
+  - "cong-hanh-nhom"
+quality:
+  scores:
+    source_provenance: 9.8
+    semantic_fidelity: 9.4
+    grammar_logic: 9.5
+    segment_alignment: 6.5
+    terminology: 9.4
+    triangulation: 8.6
+    vietnamese_clarity: 9.5
+    han_viet_balance: 9.3
+    ambiguity_integrity: 9.2
+    technical_integrity: 8.0
+  final_score: 8.92
+  blocking_errors:
+    - "Thiếu segment bắt buộc: tầng Việt mới có 1/76 khoá Pāli; các khoá còn lại (tiêu đề, lục kết, các vế kệ) chưa được lát nào gán tới. validate bật requireComplete cho review và published."
+    - "Chưa ghi nhận tầng tham khảo: tại commit đã ghim không có tệp Anh Sujato cho pv14 (0/1 khoá có nội dung), và translation/vi/phantuananh/ ở commit này chỉ chứa Pháp Cú. Cần chạy npm run reference:gaps để ghi vào content/meta/reference-gaps.yaml trước khi lên review hoặc published; lát này bị cấm sửa tệp đó."
+  assessed_at: "2026-09-30"
+  assessed_by:
+    - "OpenCode Space Bunny Free (agent)"
+notes: |-
+  **Không có tiền lệ cho cấu trúc lời kết phần.** Đếm trong Pāli gốc có 20
+  segment dạng `Xvatthu <số thứ tự>` và tất cả đều chưa dịch, nên tôi dựng từ tiền lệ lời
+  kết *phẩm* đã có: `Xvaggo paṭhamo` → *Phẩm X, thứ nhất.* (56 khoá đã dịch). Do đó
+  `vatthu` → *Phần*.
+
+  **Từng thành phần đều có tiền lệ.** `mātāpitar` → *cha mẹ* (194 chỗ); `thera` →
+  *Trưởng lão* (68 chỗ *Tôn giả Trưởng lão*); `dutiyaṁ` → *thứ hai* (584 chỗ). Tên
+  `Sāriputta` giữ dạng Pāli như 368 chỗ tiền lệ.
+
+  **Đã tự đối chiếu với tiêu đề của chính bài.** `:0.3` là `2. Sāriputtattheramātupetivatthu`,
+  khớp với lời kết `:19.1` — cùng một phần, cùng số thứ hai. Nên *Phần về cha mẹ của Tôn
+  giả Trưởng lão Sāriputta, thứ hai* đúng phạm vi: không rộng hơn cũng không hẹp hơn.
+
+  **Bất định đã ghi, không giấu.** `vatthu` có thể là *phần*, *chuyện* hay *mục*; cả ba đều
+  đúng nghĩa và không có tiền lệ để bắt buộc. Tôi chọn *Phần* vì tiền lệ lời kết phẩm
+  dùng cấu trúc *Phẩm …, thứ …*, và vì ở đây nó đánh số một mục trong một tuyển tập chứ
+  không kể một câu chuyện riêng. Đây là lựa chọn biên tập có lý do, không phải điều Pāli
+  bắt buộc; khi phần còn lại của bộ Petavatthu được dịch, nên giữ nguyên *Phần* cho cả
+  20 lời kết.
+
+  **Phạm vi lát này.** Bài có 76 khoá Pāli nhưng chỉ MỘT khoá đủ dài
+  để dịch — ngưỡng của chính chốt `kiểm` (≥40 ký tự, bỏ khối `X.0`). Tôi dịch đúng phần
+  được gán; tiêu đề và lục kết thuộc lát khác.
+
+  **Không có tầng tham khảo nào để đối chiếu.** Tại commit đã ghim không
+  tồn tại tệp Anh Sujato cho bài này, và `translation/vi/phantuananh/` chỉ chứa Pháp
+  Cú. Vì vậy `triangulation` để 8.6, **không** phải 9.x: không có bản Việt truyền
+  thống cho Khuddaka, và ở đây cũng không có bản Anh. Đây là đặc điểm của bản chụp
+  upstream, đã đo được chứ không phải thiếu sót của bản dịch.
+
+  **Cổng kỹ thuật chưa chạy.** Lát này bị cấm `npm run validate|test|check|build`,
+  nên tiêu chí 10 chỉ ghi phần tôi tự kiểm được: JSON hợp lệ, NFC, khoá trùng đúng UID
+  và thuộc Pāli gốc, 0 orphan, 0 dấu lược lệch, ngoặc kép cân, `save_vi` idempotent
+  (chạy hai lần, 14/14 tệp không đổi), YAML parse sạch bằng `yaml@2.9.0` của kho. Phần
+  còn lại thuộc cổng của người điều phối, nên `technical_integrity` không cho 10.0.

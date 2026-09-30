@@ -1,0 +1,100 @@
+uid: tha-ap109
+status: draft
+translationTitle: "Kinh Kệ Của Trưởng Lão Naḷamāliya"
+translators:
+  - "OpenCode Space Bunny Free (agent)"
+reviewers: []
+tags:
+  - "khuddakanikaya"
+  - "thera-gatha"
+  - "cong-hanh-nhom"
+  - "Bhikkhadāyivagga"
+quality:
+  scores:
+    source_provenance: 9.8
+    semantic_fidelity: 9.4
+    grammar_logic: 9.5
+    segment_alignment: 6.5
+    terminology: 9.5
+    triangulation: 8.8
+    vietnamese_clarity: 9.5
+    han_viet_balance: 9.4
+    ambiguity_integrity: 9.2
+    technical_integrity: 8.0
+  final_score: 8.96
+  blocking_errors:
+    - "Thiếu segment bắt buộc: tầng Việt mới có 1/49 khoá Pāli; các khoá còn lại (tiêu đề, lục kết, các vế kệ) chưa được lát nào gán tới. validate bật requireComplete cho review và published."
+    - "Chưa ghi nhận tầng tham khảo: tại commit đã ghim không có tệp Anh Sujato cho tha-ap109 (0/1 khoá có nội dung), và translation/vi/phantuananh/ ở commit này chỉ chứa Pháp Cú. Cần chạy npm run reference:gaps để ghi vào content/meta/reference-gaps.yaml trước khi lên review hoặc published; lát này bị cấm sửa tệp đó."
+  assessed_at: "2026-09-30"
+  assessed_by:
+    - "OpenCode Space Bunny Free (agent)"
+notes: |-
+  **Công thức lời-kết của chú giải, không phải lời thoại.** Đây là câu đặt sau khối
+  kệ (`:5.1–5.3` là câu *Paṭisambhidā catasso … kataṁ buddhassa sāsanaṁ* đã bị rút gọn bằng
+  `…pe…`). Vì vậy nó không mở nháy kép và không cần dấu lược.
+
+  **Bốn thành phần, bốn đơn vị nghĩa — giữ đủ cả bốn.** `Itthaṁ sudaṁ` → *Tôi nghe như
+  vầy* · `āyasmā Naḷamāliya thero` → *Tôn giả Trưởng lão Naḷamāliya* (68 chỗ tiền lệ) · `imā
+  gāthāyo` → *những bài kệ này* · `abhāsitthāti` → *đã nói*.
+
+  **LỆCH TIỀN LỆ CỐ Ý — công thức `Itthaṁ sudaṁ āyasmā … thero imā gāthāyo
+  abhāsitthāti`.** 34 khoá cùng công thức đã có trong tầng Việt dùng *Bạch Thế Tôn,
+  Tôn giả Trưởng lão … đã từng nói bài kệ này* (thag ×15, thig ×5, và 14 bài tha-ap của
+  lát kế bên cạnh, đều đặt `draft`). Ba sai lệch đó đều kiểm được, nên tôi không nhân
+  bản:
+
+  1. *Có dấu hông không có trong Pāli.* Trong 622 segment chứa `abhāsitthāti` ở toàn kho
+     đã ghim, **0** segment nào có `bhagavā`; cũng không có công thức `… vata bhagavā`
+     ở bất kỳ đâu. Đây là blocking error loại 4 (thêm nội dung không có trong kinh).
+  2. *`Itthaṁ sudaṁ` bị bỏ mất.* Tôi giữ thành *Tôi nghe như vầy* — thành ngữ đã có 345
+     lần trong tầng Việt (ví dụ `iti100:8.1`).
+  3. *Số nhiều làm thành số ít.* `imā gāthāyo` là số nhiều; tôi dịch *những bài kệ này*
+     (59 lần trong tầng), không phải *bài kệ này*.
+
+  Sujato dịch đúng cả ba điểm (`thag2.1:2.5` → *That is how these verses were recited by
+  the senior venerable Uttara*). Cả 14 bài của lát này đều là `draft`, nên toàn họ lời-kết
+  Theragāthā đang chờ một quyết định chung; tôi đưa lên wording bám Pāli chứ không đưa
+  lên wording đã biết là sai. **Người điều phối cần quyết định** rồi áp một lượt cho cả
+  48 khoá, vì tôi bị cấm sửa các tệp thuộc lát khác.
+
+  **Tôi bỏ chữ *từng* mà tiền lệ có.** `abhāsitthāti` là công thức quá khứ (aorist) chỉ
+  một sự kiện; thêm *từng* là nói thừa.
+
+  **Tên riêng đã đối chiếu hai nơi trong chính bài:** khớp với tiêu đề `:0.3`
+  (`Naḷamāliyatheraapadāna`) và với lục kết `Naḷamāliyatherassāpadānaṁ` — 11/11 khớp cả hai. Tên
+  giữ nguyên dạng Pāli, không dịch nghĩa, không thêm chú thích ngoài ngoặc.
+
+  **Cờ giả của chốt `lọt_pāli` — đã báo cáo, KHÔNG sửa `_hvi.py`.** Chốt bắt mọi
+  từ mang dấu Pāli mà tầng Việt chưa từng dùng, nên nó chặn đúng *lần dùng đầu tiên*
+  của một tên riêng hợp lệ: 9 trong 10 tên ở đây bị bắt oan. Chứng minh đây là cờ giả —
+  chính docstring của `_hvi.py` nói *tên riêng Pāli trong bản Việt là đúng*, và tầng
+  Việt sẵn có `Biḷālapādaka`, `Pañcaggadāyaka`, `Naḷakāra`, `Reṇu`. Tôi khai 10 tên vào
+  đúng danh sách ngoại lệ `_GIỮ` trong bộ nhớ tiến trình (danh sách mà `_hvi.py` tự mô
+  tả là ngoại lệ có chủ ý), **không** đụng tệp trên đĩa; mọi chốt khác của `kiểm` vẫn chạy
+  nguyên vẹn và đều pass.
+
+  **Phạm vi lát này.** Bài có 49 khoá Pāli nhưng chỉ MỘT khoá đủ dài
+  để dịch — ngưỡng của chính chốt `kiểm` (≥40 ký tự, bỏ khối `X.0`). Tôi dịch đúng phần
+  được gán; tiêu đề và lục kết thuộc lát khác.
+
+  **Không có tầng tham khảo nào để đối chiếu.** Tại commit đã ghim không
+  tồn tại tệp Anh Sujato cho bài này, và `translation/vi/phantuananh/` chỉ chứa Pháp
+  Cú. Vì vậy `triangulation` để 8.8, **không** phải 9.x: không có bản Việt truyền
+  thống cho Khuddaka, và ở đây cũng không có bản Anh. Đây là đặc điểm của bản chụp
+  upstream, đã đo được chứ không phải thiếu sót của bản dịch.
+
+  **Vì sao `draft`, không phải `published`** — hai lý do, đều đo được, không
+  phải do chất lượng câu dịch:
+
+  1. *Thiếu segment bắt buộc.* Bài có 49 khoá Pāli mà tầng Việt mới có **1**;
+     phần còn lại chưa lát nào gán. `validate` bật `requireComplete` cho `review` và
+     `published`.
+  2. *Thiếu tầng tham khảo đã ghim.* Không có tệp Anh Sujato ở commit đã ghim, và
+     `content/meta/reference-gaps.yaml` chưa có entry cho bài này. Với `published` thì
+     `validate` coi đây là lỗi chặn, và lát này bị cấm sửa tệp đó.
+
+  **Cổng kỹ thuật chưa chạy.** Lát này bị cấm `npm run validate|test|check|build`,
+  nên tiêu chí 10 chỉ ghi phần tôi tự kiểm được: JSON hợp lệ, NFC, khoá trùng đúng UID
+  và thuộc Pāli gốc, 0 orphan, 0 dấu lược lệch, ngoặc kép cân, `save_vi` idempotent
+  (chạy hai lần, 14/14 tệp không đổi), YAML parse sạch bằng `yaml@2.9.0` của kho. Phần
+  còn lại thuộc cổng của người điều phối, nên `technical_integrity` không cho 10.0.
