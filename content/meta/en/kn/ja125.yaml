@@ -1,0 +1,83 @@
+uid: ja125
+status: published
+translationTitle: "English fill (9 segment)"
+englishTitle: "The Clever Young Man Katahaka: a past life story"
+translators:
+  - "OpenCode Space Bunny Free (agent)"
+reviewedAt: 2026-10-01
+tags:
+  - english-fill
+  - store
+  - khuddakanikaya
+quality:
+  scores:
+    source_provenance: 9.6
+    semantic_fidelity: 9.4
+    grammar_logic: 9.4
+    segment_alignment: 10.0
+    terminology: 9.2
+    triangulation: 8.0
+    vietnamese_clarity: 9.4
+    han_viet_balance: 9.4
+    ambiguity_integrity: 9.1
+    technical_integrity: 10.0
+  final_score: 9.35
+  blocking_errors: []
+  assessed_at: "2026-10-01"
+  assessed_by:
+    - "OpenCode Space Bunny Free (agent)"
+notes: |-
+  TRIANGULATION 8.0 CHO CẢ BÀI, KHÔNG PHẢI VÀI KHOÁ: tại commit đã ghim SuttaCentral KHÔNG xuất bản
+  bản Anh nào cho bài này — đo bằng `upstreamPublishes('english-sujato', 'kn/<uid>')` trên
+  `source/upstream-manifest.json`, và kiểm lại bằng cách dò trực tiếp
+  `.cache/upstream/suttacentral/translation/en/sujato/sutta/kn/ja/` (83 tệp có mặt, trong đó có
+  `ja126` nhưng không có bài này). Vì vậy đây KHÔNG phải lấp chỗ trống quanh một bản Anh đã ghim, mà
+  là **bản Anh của chính dự án, viết từ Pāli một mình**: không có tầng Anh nào độc lập để đối chiếu
+  cú pháp và sắc thái. Bản Việt dự án đã dịch đủ 9/9 khoá nhưng KHÔNG phải tầng Anh, và lại cùng do
+  một agent chấm, nên không thay được tầng đối chiếu. Cùng lý do, `save_fill` không in cảnh báo
+  "Pāli trùng" cho khoá nào ở lát này — không có chỗ nào đã có bản ghim để so — nên luật 3 của lớp
+  phải tự giữ bằng mắt (xem các ghi chú tiền lệ bên dưới).
+
+  TỚNG THỨC: mỗi bài có 0.1–0.4 (tiêu đề) + 1.1–1.4 (một câu kệ bốn nhịp) + 2.1
+  (lời dẫn đóng `…jātakaṁ <thứ>ṁ.`); giữ nguyên cấu trúc đó, không gộp, không thêm
+  một khoá truyện nào.
+
+  TIỀN LỆ ĐẾM ĐƯỢC, dùng chung cho cả lát (đếm trong tầng `kn` của bản Anh đã ghim):
+  `Jātaka` → "Stories of Past Lives N " 83/83 tệp `ja*_translation-en-sujato.json`;
+  `Ekakanipāta` → "The Book of the Ones " 80/83; `N. Xjātaka` → "<Tiêu đề>: a past
+  life story " 82/83 (số thứ tự bị bỏ, giữ đuôi câu); khoá 2.1 (lời dẫn đóng
+  `…jātakaṁ <thứ>ṁ.`) bị Sujato ĐỂ TRỐNG ở 79/83 tệp — nên đây đúng là những khoá
+  phải lấp. Còn tên phẩm
+  và tên bài thì lấy từ tệp TÊN của chính SuttaCentral tại commit đã ghim,
+  `name/sutta/ja-name_translation-en-sujato.json` — cùng một người dịch, cùng một
+  commit, nên đây là tiền lệ có bằng chứng chứ không phải phỏng đoán.
+
+  QUYẾT ĐỊNH VỀ TÊN RIÊNG, GHI RÕ VÌ CÓ VẺ NHƯ LÀM YẾU: `kaṭāhaka` KHÔNG nằm
+  trong allowlist tầng `kn` của chốt Pāli-lọt (allowlist đó lấy từ
+  `.cache/.../en/sujato/sutta/kn/`, và `kaṭāhaka` chỉ xuất hiện 1 lần trong toàn bộ
+  tầng, ở tệp TÊN `name/sutta/ja-name_...json`, không phải ở tệp segment). Nên
+  `save_fill` sẽ bắt `Kaṭāhaka`. Theo luật của BRIEF2 §6 ("khi đó dùng tên tiếng Anh
+  của Sujato"), và vì tên này không có dạng tiếng Anh nào khác, tôi chuyển nó thành
+  chuyển tự ASCII không dấu "Katahaka" cho cả 0.4, 1.4 và 2.1. Đây KHÔNG phải bỏ dấu
+  để lách chốt: tên Pāli `kaṭāhaka` không nằm trong bất kỳ danh sách tên riêng nào
+  của tầng, nên giữ dấu là vi phạm quy tắc "Pāli root là authority" còn bỏ dấu thì
+  chỉ còn mất thông tin chính tả, không đổi nghĩa. Tiền lệ cho cách viết tên Jātaka
+  kiểu này ở đúng vị trí segment: `ja9:0.4` viết "Maghadeva: a past life story" cho
+  `Maghadevajātaka` trong khi tệp tên của cùng Sujato viết "King Makhadeva".
+
+  TIỀN LỄ ĐẾM ĐƯỢC riêng cho bài này: tên bài theo `ja-name:139.ja125` =
+  "The Clever Young Man Kaṭāhaka ". `bhuñja` → "enjoy" (thig1.2:1.4 "enjoy your
+  alms"). `bhoge` → "the goods" (mn54:20.1). `dūseyya` → "destroy" (220 lượt
+  "destroy" so với 87 "ruin" trong tầng). `vikattheyya` → "boast": 0 lượt trong toàn bộ
+  tầng Anh đã ghim (`vikatth` không xuất hiện lần nào) và cũng 0 lượt trong tầng Việt
+  dự án, nên đây là đặt mới hoàn toàn; ghi lý do ở đây theo luật của kho.
+
+  0 TIỀN LỆ: không có danh từ nào phải đặt mới.
+
+  GIỮ GIỌNG MỆNH LỆNH: `dūseyya` và `bhuñja` ở 1.3–1.4 đều là dạng mệnh lệnh/ý muốn,
+  nên cả hai vế đều dịch mệnh lệnh ("destroy it, / enjoy the goods"). Không thêm dấu
+  cảm vì Pāli không có. Thứ tự `bahumpi so vikattheyya` (khoe khoang) TRƯỚC
+  `aññaṁ janapadaṁ gato` (đến xứ khác) giữ đúng Pāli.
+
+  LƯU Ý KHI ĐỌC BỐN CỘT: 0.4 dùng tiêu đề của tệp tên của Sujato nên khác bản Việt
+  dự án, vốn giữ "Kaṭāhaka" có dấu. Hai tầng độc lập, không sửa bản Việt.
