@@ -1,0 +1,29 @@
+uid: ja54
+status: published
+translationTitle: "Kinh Cây Quả Gì"
+translators:
+  - "OpenCode Space Bunny Free (agent)"
+reviewers: []
+tags:
+  - khuddaka-nikaya
+  - jataka
+quality:
+  scores:
+    source_provenance: 9.6
+    semantic_fidelity: 9.3
+    grammar_logic: 9.3
+    segment_alignment: 10.0
+    terminology: 8.9
+    triangulation: 8.5
+    vietnamese_clarity: 9.2
+    han_viet_balance: 9.4
+    ambiguity_integrity: 9.0
+    technical_integrity: 9.6
+  final_score: 9.28
+  blocking_errors: []
+  assessed_at: "2026-10-01"
+  assessed_by:
+    - "OpenCode Space Bunny Free (agent)"
+notes: |-
+  Dịch đủ 9/9 khoá từ Pāli root tại commit đã ghim, đã đọc hết v5/p2.txt trước khi viết. Tầng english-sujato CÓ mặt ở commit này (8/9 khoá có prose); khoá 2.1 Sujato để trống như ở mọi Jātaka, dịch từ Pāli theo tiền lệ ja1/ja2 đã published. Không có segment Pāli ≥ 40 ký tự nên sàn coverage 0,8 không kích hoạt và reference-gaps.yaml không liên quan. Tầng vietnamese-current ở commit đã ghim chỉ có Pháp Cú (countsTowardCoverage false, requiredFor rỗng) nên không có bản Hòa thượng Thích Minh Châu để đối chiếu — đây là giới hạn của bản chụp upstream, không phải thiếu sót của repo. 0.1 Jātaka giữ nguyên âm: 70/70 tệp kn/ja* sẵn có làm vậy, kể cả ja1/ja2 đã published. 0.2 Ekakanipāta → Bộ Một Bài Kinh (83 occ). Không có dấu lược …pe… nên hai phía đều 0. technical_integrity 9.6 vì chốt _hvi.py pass và tôi tự kiểm lại 108 khoá (NFC, trùng Pāli, Pāli lọt, số dấu lược, ngoặc kép, ký tự phi Latin) — nhưng repo-wide validate/test/build không chạy vì lát này cấm, nên không thể cho 10.0.
+  Tiêu đề kiṁ-phala → Cây Quả Gì. Đây là tên cây, kiṁ = gì và phala = quả; Sujato giữ nguyên The What-fruit. Tôi dịch nghĩa thay vì giữ âm Pāli vì hai lý do có thể kiểm: một là kho đã dịch nghĩa tên Jātaka (Kinh Bụi Dơ, Kinh Sa Mạc, Kinh Gỗ Yếu, Kinh Nai Bốn Sừng) chứ ít khi giữ âm; hai là lọt_pāli trong _hvi.py chặn lần dùng đầu tiên của một tên có dấu Pāli mà corpus chưa có (đã tra _từ_vi: kiṁphala false), nên giữ âm sẽ phải khai tên vào bộ nhớ tiến trình. Còn 1.4 sāduphalo dumo nói thẳng cây không cho quả ngọt, nên tiêu đề không đứng một mình. Ba chữ phủ định nā (1.1) + napi (1.2) + nā (1.4) đều giữ, không lược. Điểm trừ: tiêu đề nghe lạ với người Việt, đã ghi thay vì tự thêm một tên dễ hiểu hơn.
