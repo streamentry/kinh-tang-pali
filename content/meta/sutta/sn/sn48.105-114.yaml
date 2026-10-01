@@ -1,0 +1,50 @@
+uid: sn48.105-114
+status: published
+translationTitle: "Phẩm Tìm Cầu"
+translators:
+  - "OpenCode Space Bunny Free (agent)"
+reviewers: []
+tags:
+  - samyutta-nikaya
+  - cong-hanh-nhom
+  - pham-tim-cau
+  - 11. Phẩm Tìm Cầu
+quality:
+  scores:
+    source_provenance: 9.6
+    semantic_fidelity: 9.3
+    grammar_logic: 9.3
+    segment_alignment: 10.0
+    terminology: 9.0
+    triangulation: 8.2
+    vietnamese_clarity: 9.3
+    han_viet_balance: 9.3
+    ambiguity_integrity: 9.0
+    technical_integrity: 9.6
+  final_score: 9.26
+  blocking_errors: []
+  assessed_at: "2026-10-01"
+  assessed_by:
+    - "OpenCode Space Bunny Free (agent)"
+notes: |-
+  **BÀI UID-GỘP — KHOÁ THẬT ĐÃ ĐO, KHÔNG GIẢ ĐỊNH.** Lát này cảnh báo bài học `sn12.83-92`: ở bài đó khoá mang uid TỪNG BÀI (`sn12.83:1.1`). Tôi đã mở thẳng tệp Pāli theo `path` trong `v6/v5.json` và đếm: cả 9 khoá của tệp đều mang CHÍNH uid gộp (`sn48.105-114:0.1` …), còn `sn48.83:1.1` **không tồn tại** trong nguồn. `all` của lát khớp 100% key của tệp Pāli. Tôi dùng `pre`/uid đúng như đọc được, không suy từ tên bài.
+
+  **CHỐT KHÔNG TỰ CHẠY — ĐÃ TỰ KIỂM THỦ CÔNG.** `_hvi.kiểm` chỉ quét `cần` = khoá Pāli ≥ 40 ký tự. Khoá dài nhất cả lát chỉ **35** ký tự, nên `cần` = 0 ở CẢ 12 bài và vòng `for k in cần` — nơi có chốt NFC, chốt trùng nguyên văn Pāli, chốt Pāli lọt và chốt số dấu lược — **không chạy lần nào**. Tôi tự quét lại **108/108 khoá** bằng chính các hàm đó (`_tvd6_5_chk.py`): 0 lỗi — không khoá rỗng, không khoá trùng nguyên văn Pāli (trừ hai tiêu đề `:0.1` mà `excludeReferenceBlock: true` cố ý bỏ qua), mọi chuỗi NFC, số dấu lược khớp Pāli từng khoá, ngoặc kép cân trên cả bài, ngoặc tròn cân. `save_vi` chạy hai lần idempotent, tệp trên đĩa không đổi.
+
+  **TAẦNG THAM KHẢO: ANH SUJATO CÓ, VÀ ĐỦ.** 9/9 khoá có key trong bản Anh đã ghim; khoá Sujato để trống nội dung là `:2.0` (`Tassuddānaṁ`) — đúng như mọi bài Tăng Bộ khác trên đĩa. Tôi chạy đúng hàm `englishCoverageFor` của kho (chỉ đọc): `substantiveSegments = 0`, `substantiveWithoutEnglish = 0`, `ratio = 1`, trên ngưỡng 0.8. Vì không khoá nào đủ 40 ký tự nên **không** cần mục trong `content/meta/reference-gaps.yaml`; tệp đó tôi không đụng tới.
+
+  **KHÔNG ĐỐI CHIẾU ĐƯỢC TẦNG VIỆT HIỆN HÀNH.** Tại commit đã ghim, `translation/vi/` của bilara chỉ chứa Pháp Cú, nên không có bản Hòa thượng Thích Minh Châu cho Tăng Bộ. Đây là đặc điểm của bản chụp upstream, không phải thiếu sót của kho; `triangulation` vì thế chỉ là **Pāli + English Sujato**, và tôi chấm thấp cho đúng lý do.
+
+  **`:0.1` — PẢI CHỈ CÓ SỐ ĐẦU, TÔI BỔ DẢI.** Pāli là `Saṁyutta Nikāya 48.105`, tức tệp gốc chỉ ghi số bài đầu của dải. Sáu bài uid-gộp đã có trên đĩa đều viết đủ dải lấy từ uid (đo được: 3 bài dùng DẤU GẠCH DÀI, 3 bài dùng gạch nối), và bản Anh Sujato cũng ghi đủ dải. Tôi theo đa số và dùng dấu gạch dài. Đây là khối TIÊU ĐỀ, không phải lời kinh, nên không tính là thêm chữ vào thân bản.
+
+  **`:1.1` — KHÔNG CHÈ SỐ BÀI THAM CHIẾU CỦA SujATO.** Pāli chỉ nói `(Esanāvaggo vitthāretabbo.)`, tức phẩm này cần được giảng rộng. Bản Anh Sujato thêm cả dấu ngoặc chỉ sang `SN 45.139–148` / `45.149–160` / `45.161–170`; số ấy là chú thích biên tập của Sujato, **không có trong Pāli khoá này**, nên tôi không chèn vào thân bản (quy tắc của kho: không tự thêm chữ không nguồn nào chứng thực). Dạng ngoặc *(Phẩm … cần được giảng rộng.)* theo đúng khuôn của `sn49.23-34:1.7`.
+
+  **THUẬT NGỮ PHẨM, ĐẾM ĐƯỢC.** `Esanāvagga` → *Phẩm Tìm Cầu* (theo `4. Esanāvagga` → *4. Phẩm Tìm Cầu* của `sn49.35-44`). `Tassuddānaṁ` → *Tóm lược:* — 2.180 khoá trên đĩa, và cả 7 bài Tăng Bộ uid-gộp đã có đều dùng đúng dạng này.
+
+  **UDDĀNA `Esanāvagga` — DÙNG LẠI BẢN ĐA SỐ.** Bốn vế trùng y hệt Pāli ở nhiều bài trong tầng; lấy **bản đa số**: *Tìm kiếm, sự quyết định, lậu,* (6×) · *hữu và ba sự khổ;* (6×) · *rỡ rạc, ô nhiễm, tối tăm,* (6×). Vế `Vedanā taṇhā tasinā cāti.` bị **hòa 3–3** giữa *thọ, khát ái, sự háu và vậy.* và *Cảm thọ, khát ái với khát là vậy.*; tôi chọn **Cảm thọ** vì `vedanā` → *cảm thọ* có 1.037 tiền lệ trong tầng, còn *thọ* trần thì không tự nó là thuật ngữ đúng của `vedanā`.
+
+  **HAI CHỖ KHÓ, GHI LẠI.** (1) `Bhavo ca dukkhatā tisso;` — `tisso` là *ba*, và ba bài đa số đọc theo ba kiểu khác nhau (*hữu và ba sự khổ* / *hữu và ba loại khổ* / *sự trở thành, khổ, và ba sự này*). Tôi theo đa số. (2) `tasinā` = *người khát*, nhưng ở đây nó là chữ thứ tư của bài đố chứ không phải tên bài thứ mười (tên bài thứ mười của phẩm là *Taṇhā*); Sujato dịch *and thirst*. Tôi dịch *với khát*, giữ đúng `cāti` (*là vậy*).
+
+  **BỐN VẾ NÀY LÀ BÀI ĐỐ CỦA PHẨM**: mười bài kinh trong phẩm được đặt tên bằng mười hình ấy, và đối chiếu được với tên bài thật trong nguồn (SN 45.161 *Esanā*, 45.162 *Vidhā*, 45.163 *Āsava*, 45.164 *Bhava*, 45.165 *Dukkhata*, 45.166 *Khila*, 45.167 *Mala*, 45.168 *Nīgha*, 45.169 *Vedanā*, 45.170 *Taṇhā*).
+
+  **KỸ THUẬT.** Tôi KHÔNG chạy `npm run validate|test|build` — đợt này người điều phối cấm và chạy tập trung. Vì vậy `technical_integrity` chấm **9.6 chứ không phải 10.0**; đó là hạn chế thật của lượt đánh giá này chứ không phải lời khen. Tất cả những gì chạy được thì đã chạy: `save_vi` hai lần idempotent, chốt `kiểm` của `_hvi.py` xanh, kiểm thủ công 108/108 khoá xanh, YAML parse sạch bằng chính thư viện `yaml` của kho.
