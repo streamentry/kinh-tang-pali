@@ -25,7 +25,7 @@ import {
   englishPathFor,
 } from '../../src/lib/canon/load';
 import { englishCoverageFor, loadRecordedGaps, MIN_ENGLISH_COVERAGE } from '../../src/lib/canon/reference';
-import { contentPathForLayer, coverageCreditLayers, fillableSegments, storeLayer } from '../../src/lib/canon/layers';
+import { contentPathForLayer, coverageCreditLayers, fillableSegments, resolveLayer, storeLayer } from '../../src/lib/canon/layers';
 import { TRANSLATION_QUALITY_KEYS, type CollectionCode } from '../../src/lib/canon/types';
 
 const synced = existsSync('.cache/upstream/suttacentral/root/pli/ms/sutta/mn/mn118_root-pli-ms.json');
@@ -90,14 +90,32 @@ test('no fill segment sits outside the fillable set', fullSync, () => {
   // `fillableSegments` compares only against *pinned upstream* layers, so it cannot be
   // satisfied by the fill itself. If the fill ever drifts out of that set, the rule has
   // been broken somewhere other than the validator.
+  //
+  // A fill text is NOT in `usedTargets()` (it has no `content/meta/sutta` entry, so
+  // `source:sync:used` never downloads its Pāli root), which means `fillableSegments`
+  // returns `[]` for it — the Pāli authority layer is simply absent from the cache.
+  // Reporting every segment of such a text as "misplaced" would make this test red in
+  // CI while green locally, and it says nothing true about the fill. So a text whose
+  // Pāli root is not synced is skipped here, exactly as `no fill segment shadows…`
+  // already does for an unsynced pinned English file. A local run with the full cache
+  // checks all of them; the `assert.ok` below keeps the skip from going unnoticed.
   const misplaced: string[] = [];
+  const notSynced: string[] = [];
+  let checked = 0;
   for (const { collection, uid, segments } of fills) {
+    const pali = resolveLayer('pali', collection, uid, { catalog: loadCatalog(collection) });
+    if (!pali?.present) {
+      notSynced.push(`${collection}/${uid}`);
+      continue;
+    }
+    checked += 1;
     const allowed = new Set(fillableSegments(collection, uid));
     for (const id of Object.keys(segments)) {
       if (!allowed.has(id)) misplaced.push(`${collection}/${uid}:${id}`);
     }
   }
   assert.deepEqual(misplaced, []);
+  assert.ok(checked > 0, `checked no fill at all (${notSynced.length} text(s) had no Pāli root synced)`);
 });
 
 test('every fill has its own status and a complete quality scorecard', () => {

@@ -20,7 +20,14 @@ import {
   englishCoverageFor,
   loadRecordedGaps,
 } from '../../src/lib/canon/reference';
+import { upstreamPublishes } from '../../src/lib/canon/manifest';
+import { parse } from 'yaml';
 import type { CanonCatalog, CollectionCode } from '../../src/lib/canon/types';
+
+interface SuttaMeta {
+  status?: string;
+  quality?: { blocking_errors?: string[] };
+}
 
 const readJson = <T>(file: string): T => JSON.parse(readFileSync(file, 'utf8')) as T;
 const catalog = (collection: CollectionCode): CanonCatalog =>
@@ -135,6 +142,14 @@ test('the coverage floor is set from the audit, not chosen to be convenient', ()
 test('every in-scope text resolves to a synced, segment-aligned English reference', { skip: !existsSync(upstreamFile('translation/en/sujato/sutta/mn/mn118_translation-en-sujato.json')) ? 'run npm run source:sync:used' : false }, () => {
   const problems: string[] = [];
   const emptyInBothLayers: string[] = [];
+  // Texts the pinned edition does not publish at all. The editor has put the whole
+  // corpus in scope, so these get translated — but AGENTS.md is explicit that a
+  // missing reference layer blocks `review` and `published`, and the manifest is
+  // what separates "upstream never published it" from "nobody downloaded it".
+  // So the requirement moves rather than disappears: such a text must be `draft`
+  // and must carry a recorded blocker. That is the same rule `validate` enforces,
+  // and it is checked here per text so a silent promotion cannot slip through.
+  const unpublishedUpstream: string[] = [];
   let checked = 0;
   for (const collection of ['dn', 'mn', 'sn', 'an', 'kn'] as CollectionCode[]) {
     const dir = `content/meta/sutta/${collection}`;
@@ -148,7 +163,23 @@ test('every in-scope text resolves to a synced, segment-aligned English referenc
       checked += 1;
       const english = loadEnglishReference(collection, uid);
       if (!english?.present) {
-        problems.push(`${collection}/${uid}: English file not synced (${english?.sourcePath ?? 'unmapped'})`);
+        const sourcePath = english?.sourcePath ?? englishPathFor(collection, uid, item.sourcePath);
+        const published = sourcePath ? upstreamPublishes('english-sujato', sourcePath) : null;
+        if (published === true) {
+          problems.push(`${collection}/${uid}: pinned English exists but is not synced (${sourcePath})`);
+        } else if (published === false) {
+          unpublishedUpstream.push(`${collection}/${uid}`);
+          const meta = parse(readFileSync(`${dir}/${name}`, 'utf8')) as SuttaMeta;
+          if (meta.status !== 'draft') {
+            problems.push(`${collection}/${uid}: no pinned English edition at this commit, so ${meta.status} cannot stand`);
+          }
+          const blockers = meta.quality?.blocking_errors ?? [];
+          if (blockers.length === 0) {
+            problems.push(`${collection}/${uid}: no pinned English edition and no recorded blocker`);
+          }
+        } else {
+          problems.push(`${collection}/${uid}: cannot tell whether the pinned edition publishes English for it`);
+        }
         continue;
       }
       const paliPath = sourcePathFor(collection, uid, item.sourcePath)!;
@@ -178,6 +209,12 @@ test('every in-scope text resolves to a synced, segment-aligned English referenc
   // sub-range UIDs (`sn12.93-103`, `sn12.104-114`, …). It is recorded rather than
   // silently remapped, and the test fails if upstream ever fixes it unnoticed.
   assert.deepEqual(emptyInBothLayers, []);
+  // Pinned, so the branch above cannot go vacuous: 1,596 Khuddaka texts have no
+  // English anywhere on SuttaCentral at the locked commit, and `kn/ja101` is one
+  // of the project's own translations among them. If upstream ever publishes
+  // English for these, this fails and the scorecards have to be re-triangulated.
+  assert.ok(unpublishedUpstream.length > 100, `expected the no-English group, found ${unpublishedUpstream.length}`);
+  assert.ok(unpublishedUpstream.includes('kn/ja101'), 'kn/ja101 has no pinned English and must be checked as such');
 });
 
 test('coverage measures substantive Pāli, not raw segment count', { skip: !existsSync(upstreamFile('translation/en/sujato/sutta/an/an2/an2.1-10_translation-en-sujato.json')) ? 'run npm run source:sync:all' : false }, () => {
