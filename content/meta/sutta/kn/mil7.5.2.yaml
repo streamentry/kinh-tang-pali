@@ -1,0 +1,57 @@
+uid: mil7.5.2
+status: draft
+translationTitle: "2. Câu Hỏi Về Phần Của Con Nhện"
+translators:
+  - "OpenCode Space Bunny Free (agent)"
+reviewers: []
+tags:
+  - khuddaka-nikaya
+  - milindapanha
+  - opammakatha
+  - pham-con-mối
+  - dẫn-với-ví-dụ
+  - năm-uẩn
+quality:
+  scores:
+    source_provenance: 9.5
+    semantic_fidelity: 9.4
+    grammar_logic: 9.3
+    segment_alignment: 10.0
+    terminology: 9.3
+    triangulation: 7.5
+    vietnamese_clarity: 9.3
+    han_viet_balance: 9.3
+    ambiguity_integrity: 9.1
+    technical_integrity: 9.6
+  final_score: 9.23
+  blocking_errors:
+    - "Không có tầng tham khảo tiếng Anh tại commit đã ghim: tệp `translation/en/sujato/sutta/kn/mil/mil7.5.2_translation-en-sujato.json` không tồn tại trong `.cache/upstream/suttacentral/`, và `source/upstream-manifest.json` (edition `translation/en/sujato`, 4291 tệp) không liệt kê bất kỳ tệp nào cho uid này — đây là `not-published-upstream`, KHÔNG phải `not-synced`. Đo coverage theo đúng công thức `source/layers.yaml` (Pāli có nội dung ≥ 40 ký tự, loại block tham chiếu) cho 0 trên 8 khoá = 0%, dưới ngưỡng 0.8. `scripts/validate.ts` coi tệp Anh thiếu là **error** khi status là `review` hoặc `published`, nên bài bắt buộc `draft`. Tầng `vietnamese-current` cũng vắng: `translation/vi/phantuananh` tại commit đã ghin chỉ có 26 tệp và toàn bộ là Pháp Cú. Lớp lấp `english-project` của dự án cũng không có cho uid này. Ba tầng tham khảo đều vắng ⇒ bài dịch chỉ từ Pāli root ⇒ blocker thật."
+  assessed_at: "2026-10-02"
+  assessed_by:
+    - "OpenCode Space Bunny Free (agent)"
+notes: |-
+  17 khoá, tất cả đã dịch. Bài thứ 2 của `Upacikāvagga`, ngay cạnh mil7.5.1, mil7.5.4,
+  mil7.5.5.
+
+  TẦNG THAM KHẢO — 0/17 có Anh Sujato. Không có bản Việt hiện hành. ⇒ `draft`.
+
+  PĀLI TRÙNG: `0.1`, `0.2`, `0.3` `Upacikāvagga` → *Phẩm Con Mối* (mil7.5.1, mil7.5.4,
+  mil7.5.5 — 4 tiền lệ), và `2.4` `Bhāsitampetaṁ, mahārāja, bhagavatā devātidevena—` → *Đức
+  Thế Tôn, bậc Thiên Nhân, đã nói trong tập kinh—* (mil7.8.2:2.5, đúng nguyên văn).
+
+  **Bốn câu kệ ở `3.1–3.4` là bài Ādittapariyāya.** Pāli không nêu tên bài kinh (chỉ có `—`), nên
+  tôi **không** tự thêm tên vào bản dịch; giữ nguyên khung *đã nói trong tập kinh* như tiền lệ.
+
+  `2.2` liệt **đủ 15 vế** của công thức `iti rūpaṁ iti rūpassa samudayo iti rūpassa atthaṅgamo`
+  × 5 uẩn; tôi đếm lại sau khi viết. 0 tiền lệ cho cụm này trong tầng Việt, nên đặt mới:
+  *tướng / thọ / tưởng / các hành / thức* và *nguyên nhân của …* / *sự tan rã của …*. `rūpa` →
+  *tướng* và `viññāṇa` → *thức* là cách dùng phổ biến của tầng.
+
+  THUẬT NGỮ MỚI (0 tiền lệ): `biḷāra` → *con nhện*; `undūra` → *chỗ đất trống không có chỗ
+  che*; `susi` → *kẽ hổng* (bản nháp đầu ghi *lòng đất*, đã sửa vì `susi` là khoảng trống/kẽ hổng
+  chứ không phải lòng đất); `bhavagga` → *thế sau*.
+
+  **Không nén `2.2`.** Công thức năm uẩn chỉ xuất hiện **một lần** trong cả bài, nén nó sẽ mất
+  nghĩa giáo lý không được lặp lại ở đâu khác — đúng tình huống §10.2 nói phải viết đủ.
+
+  Đợt này bị cấm chạy `npm run validate|test|check|build` theo chỉ đạo của người điều phối, nên `technical_integrity` bị chặn ở **9.6**. Tôi đã **tự tái lập bằng script** những kiểm mà `validate` làm cho tầng Việt và ghi kết quả vào đây: đủ 17 khoá với đúng segment ID, không orphan, không thừa, mọi khoá NFC, không rỗng, dấu lược khớp Pāli **từng khoá** (kể cả khoá ngắn hơn 40 ký tự mà `kiểm()` của `_hvi.py` không quét), ngoặc kép `“”` cân trên cả bài, không còn `(…)`, và không có Pāli lọt vào bản Việt. Đây **không** thay thế được `validate`; nó là bằng chứng cho tới khi cổng kỹ thuật được chạy.

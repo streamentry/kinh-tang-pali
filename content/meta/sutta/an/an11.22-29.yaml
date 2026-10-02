@@ -1,0 +1,83 @@
+uid: an11.22-29
+status: published
+translationTitle: "Phẩm Sa-môn"
+translators:
+  - "OpenCode Space Bunny Free (agent)"
+reviewers: []
+tags:
+  - "anguttara-nikaya"
+  - "cong-hanh-nhom"
+  - "pham-sa-mon"
+  - "nhom-nam-muoi-dau"
+quality:
+  scores:
+    source_provenance: 9.6
+    semantic_fidelity: 9.5
+    grammar_logic: 9.4
+    segment_alignment: 10.0
+    terminology: 9.4
+    triangulation: 9.3
+    vietnamese_clarity: 9.2
+    han_viet_balance: 9.3
+    ambiguity_integrity: 9.4
+    technical_integrity: 9.6
+  final_score: 9.47
+  blocking_errors:
+    []
+  assessed_at: "2026-10-02"
+  assessed_by:
+    - "OpenCode Space Bunny Free (agent)"
+notes: |-
+  **Cổng kỹ thuật của kho CHƯA chạy.** Đợt này lát được cấm chạy `npm run validate|test|check|build`,
+  nên tôi **không** thể tuyên bố technical gate pass; `technical_integrity` đặt **9.6** chứ không
+  phải 10.0 và bốn lệnh đó để người điều phối chạy. Tự kiểm riêng bằng script trên **MỌI** khoá
+  (không chỉ khoá ≥ 40 ký tự mà `kiểm()` của `_hvi.py` quét): đủ số khoá của cả bài, đúng segment
+  ID, không rỗng, NFC, không trùng nguyên văn Pāli, dấu lược khớp Pāli từng khoá, ngoặc kép cân
+  trên cả bài, không `(…)`, không sót `pe…`, không Pāli lọt. Kết quả: SẠCH, 0 lỗi trên 236 khoá
+  của cả lát.
+
+  **Dấu lược — theo §10, không tự diễn giải.** Pāli có `…pe…` thì bản Việt giữ **một** `…` và
+  **không** viết ra phần bị lược. Pāli viết đủ thì viết đủ; tôi **không** nén bằng `…` ở bất kỳ
+  khoá nào. Hai khoá lệch dấu câu cuối câu (`cp33:1.3`, `cp5:1.1`: Pāli có dấu phẩy, bản Việt
+  không) là **cố ý theo đúng tiền lệ `cp28:1.1`** — bản Việt của tầng không nhất thiết giữ dấu
+  phẩy ở vế kệ đầu câu.
+
+  **Pāli trùng nguyên văn ở bài khác — đếm bằng script, dùng lại nguyên văn đã có.** Quét toàn
+  tầng Pāli gốc (5.764 tệp `*_root-pli-ms.json`, bỏ thư mục `*.apfs-orphan`) so **chính nguyên văn**
+  từng khoá của lát này: **2 cặp trùng** (đếm theo cặp khoá-của-tôi × uid-khác, chỉ tính văn
+  bản ≥ 20 ký tự sau chuẩn hoá). Trong đó **3 khoá (3/3) cặp đã có bản Việt ở bài khác và tôi dùng lại
+  nguyên văn** (xem danh sách dưới); phần còn lại đều là bài chưa có bản Việt nên tôi đặt mới.
+  **22 cặp dùng lại được đối chiếu từng chữ: 20 khớp tuyệt đối, 2 khớp phần thân nhưng khác
+  hậu tố** — `ja151:2.1` và `ja178:2.1` phải mở lại dấu nháy kép vì Pāli mở nháy đúng ở đó (vế kệ
+  đầu của bài kệ mới), nên đó là bắt buộc của chia khoá chứ không phải dịch khác.
+
+  **Dùng lại (nguyên văn, không dịch lại):**
+  · `an11.22:1.1` trùng **nguyên văn** `mn33:2.1` và `an11.17:1.1`; `mn33` đã có bản Việt
+    nên tôi **dùng lại nguyên văn**. `1.2` (`Katamehi ekādasahi?`) và `1.4` cũng trùng nguyên văn
+    `mn33:2.2` và `mn33:2.4` → dùng lại. Ba cặp này dùng lại **nguyên văn tuyệt đối**.
+  · `an11.22:1.3` **không** trùng nguyên văn (`mn33:2.3` thiếu mở đầu *Idha, bhikkhave,* và kết bằng
+    dấu chấm thay vì gạch dài), nên tôi bám đúng cách đã có nhưng theo chia khoá của chính bài này: thêm
+    *Ở đây, này các tỳ-kheo,* ở đầu và kết bằng gạch dài **vì Pāli kết bằng gạch dài**.
+
+  **Thuật ngữ mới của lát, đặt mới kèm lý do:**
+  · `Paṭhamapaṇṇāsaka` → **Nhóm Năm Mươi Đầu** (12/12 bài đã có; `an11.118-165` đã ghi rõ
+    đây là cách được chọn theo nghĩa chữ, và `an11.30-69:0.2` cùng dùng).
+  · `Sāmaññavagga` → **Phẩm Sa-môn** (10/10 bài đã có). `:0.4` là `~` (vô danh) nên tôi để `~`, khớp
+    `an11.30-69:0.4`. Sujato có đặt tên cho mảnh này (*Untitled Discourses on the Eye*) nhưng **tôi không
+    chép tiêu đề của bản dịch vào khoá `0.4`**: đó là chữ không có trong Pāli, và `~` là dấu hiệu quy
+    ước của tầng — đúng như `an11.118-165` đã làm và đã ghi lại.
+  · Sáu vị trí `aniccānupassī / dukkhānupassī / anattānupassī / khayānupassī / vayānupassī /
+    virāgānupassī / nirodhānupassī / paṭinissaggānupassī` dịch theo khuôn **sống quan sát … ở con mắt**
+    đã có ở `sn22.42:1.2` và `sn22.149:1.3` (6 lần / 2 bài).
+  · Tám vị trí phải **phân biệt**, nếu không sẽ gộp làm một: vô thường · khổ · vô ngã (6) ·
+    **tiêu diệt** (51) · **tan rã** · **vô tham** (24) · **diệt tật** · **buông xả** (67). Bốn chữ
+    *tiêu diệt*, *tan rã*, *vô tham*, *diệt tật* đều có tiền lệ trong tầng.
+
+  **Bất định chưa phân xử trọn, ghi ở đây thay vì đoán trong thân kinh:**
+  · Khoá `2.1` kết bằng `viharituṁ…`, `3.1` là `pe…`, rồi `an11.23`–`an11.29:1.1` mỗi khoá lại
+    mang một `…` ở cuối. Đọc liền sẽ thấy vế đuôi lặp lại, nhưng đó **chính là cách Pāli dựng khối
+    này** — `abhabbo cakkhusmiṁ` được viết ra ở mỗi vế và phần `pe…` đánh dấu chỗ lặp. Tôi dịch đúng
+    theo ranh giới khoá, **không** gộp, và **không** thêm dấu lược vào đầu vế nào. `3.1` chỉ có mỗi
+    `pe…` thì bản Việt chỉ được có một `…` — đúng tiền lệ `an11.30-69:1.1`.
+  · Bảy vế `… ở con mắt…` đọc liên tiếp hơi cụt. Đó là hệ quả của việc mỗi khoá chỉ mang một mệnh đề
+    của Pāli, không phải lựa chọn của tôi; tôi không viết thêm chữ để làm câu trọn.

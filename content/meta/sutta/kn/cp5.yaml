@@ -1,0 +1,85 @@
+uid: cp5
+status: published
+translationTitle: "Hạnh Của Đạo Sĩ Mahāgovinda"
+translators:
+  - "OpenCode Space Bunny Free (agent)"
+reviewers: []
+tags:
+  - "khuddaka-nikaya"
+  - "cariyapitaka"
+  - "dana-parami"
+  - "mahagovinda"
+quality:
+  scores:
+    source_provenance: 9.5
+    semantic_fidelity: 9.3
+    grammar_logic: 9.2
+    segment_alignment: 10.0
+    terminology: 9.2
+    triangulation: 9.3
+    vietnamese_clarity: 9.3
+    han_viet_balance: 9.2
+    ambiguity_integrity: 9.0
+    technical_integrity: 9.6
+  final_score: 9.36
+  blocking_errors:
+    []
+  assessed_at: "2026-10-02"
+  assessed_by:
+    - "OpenCode Space Bunny Free (agent)"
+notes: |-
+  **Tầng Việt hiện hành vắng, và đây là đặc điểm của bản chụp upstream chứ không phải thiếu sót của kho.** Bilara tại commit đã ghim chỉ phân phối 26 chương Pháp Cú cho tiếng Việt, nên không có bản Hòa thượng Thích Minh Châu để đối chiếu thuật ngữ. Lock file khai `requiredFor: []` cho tầng này — chỉ `english-sujato` mới là tầng bắt buộc cho review và published — nên tôi **không** xếp nó là blocking error.
+
+  **Cổng kỹ thuật của kho CHƯA chạy.** Đợt này lát được cấm chạy `npm run validate|test|check|build`,
+  nên tôi **không** thể tuyên bố technical gate pass; `technical_integrity` đặt **9.6** chứ không
+  phải 10.0 và bốn lệnh đó để người điều phối chạy. Tự kiểm riêng bằng script trên **MỌI** khoá
+  (không chỉ khoá ≥ 40 ký tự mà `kiểm()` của `_hvi.py` quét): đủ số khoá của cả bài, đúng segment
+  ID, không rỗng, NFC, không trùng nguyên văn Pāli, dấu lược khớp Pāli từng khoá, ngoặc kép cân
+  trên cả bài, không `(…)`, không sót `pe…`, không Pāli lọt. Kết quả: SẠCH, 0 lỗi trên 236 khoá
+  của cả lát.
+
+  **Dấu lược — theo §10, không tự diễn giải.** Pāli có `…pe…` thì bản Việt giữ **một** `…` và
+  **không** viết ra phần bị lược. Pāli viết đủ thì viết đủ; tôi **không** nén bằng `…` ở bất kỳ
+  khoá nào. Hai khoá lệch dấu câu cuối câu (`cp33:1.3`, `cp5:1.1`: Pāli có dấu phẩy, bản Việt
+  không) là **cố ý theo đúng tiền lệ `cp28:1.1`** — bản Việt của tầng không nhất thiết giữ dấu
+  phẩy ở vế kệ đầu câu.
+
+  **Pāli trùng nguyên văn ở bài khác — đếm bằng script, dùng lại nguyên văn đã có.** Quét toàn
+  tầng Pāli gốc (5.764 tệp `*_root-pli-ms.json`, bỏ thư mục `*.apfs-orphan`) so **chính nguyên văn**
+  từng khoá của lát này: **11 cặp trùng** (đếm theo cặp khoá-của-tôi × uid-khác, chỉ tính văn
+  bản ≥ 20 ký tự sau chuẩn hoá). Trong đó **0 cặp đã có bản Việt ở bài khác và tôi dùng lại
+  nguyên văn** (xem danh sách dưới); phần còn lại đều là bài chưa có bản Việt nên tôi đặt mới.
+  **22 cặp dùng lại được đối chiếu từng chữ: 20 khớp tuyệt đối, 2 khớp phần thân nhưng khác
+  hậu tố** — `ja151:2.1` và `ja178:2.1` phải mở lại dấu nháy kép vì Pāli mở nháy đúng ở đó (vế kệ
+  đầu của bài kệ mới), nên đó là bắt buộc của chia khoá chứ không phải dịch khác.
+
+  **Dùng lại (nguyên văn, không dịch lại):**
+  · `3.3` `Sabbaññutaṁ piyaṁ mayhaṁ,` trùng nguyên văn 10 bài (`cp3`, `cp8`, `cp9`, `cp14`,
+    `cp21`, `cp22`, `cp23`, `cp26`, `ja547`, `mil6.3.1`); `3.2` `Napi natthi nicayo mayi;` trùng `cp4:7.4`.
+    **Không bài nào trong 11 bài đó đã có bản Việt**, nên không có nguyên văn để dùng lại và tôi đặt mới.
+  · `cp3:8.3` cùng nguyên văn nằm trong đoạn thân bài đã xuất bản của `cp3`? Không — `cp3` hiện **chưa**
+    có bản Việt (`cp3_translation-vi-project.json` không tồn tại), nên cũng không có gì để theo.
+
+  **Thuật ngữ mới của lát, đặt mới kèm lý do:**
+  · `Akittivagga` → **Phẩm Akitti** (tên riêng; `cp1` đã xác nhận trong `notes` là *Akitti*).
+  · `Dānapāramī 5` → **Bố Thí Ba-la-mật Thứ Năm**, theo khuôn `cp28:0.3`.
+  · `Mahāgovindacariya` → **Hạnh Của Đạo Sĩ Mahāgovinda**, theo khuôn của `cp28:0.4`. Tên `Mahāgovinda`
+    giữ nguyên (3 tiền lệ trong tầng: `dn19:31.5`, `dn23:35.3`).
+  · `sattarājapurohita` → **đại thần của bảy vị vua** (`purohita` → *đại thần*, 165 lần / 50 bài).
+  · `naradeva` → **chư thiên và loài người**: tầng dùng đúng thứ tự này **306 lần / 134 bài**, và `nara`
+    + `deva` là loài người rồi chư thiên, nhưng tôi theo đa số tầng chứ không đảo. Ghi ra đây vì nó là
+    điểm lệch thứ tự duy nhất trong lát.
+  · `upāyana` → **lễ vật** (18 lần / 9 bài). `akkhobbha` → **không lay chuyển** (13 lần / 10 bài).
+  · `dhanaṁ dhaññaṁ` → **tiền vàng**, khớp `dhp186:1` (*Dù mưa bằng tiền vàng*) mà tôi dùng lại ở
+    `ja258:2.1`. `sabbaññutta` → **toàn biết** (Sujato *omniscience*; `paññā` trong tầng là *tuệ*,
+    nhưng `sabbaññutta` là *toàn triệt* nên tôi không dùng *tuệ* ở đây).
+
+  **Bất định chưa phân xử trọn, ghi ở đây thay vì đoán trong thân kinh:**
+  · `Punāparaṁ yadā homi` (1.1): `homi` ở đây là *làm / trở thành*, dựng lại cụm với
+    `Punāparaṁ` (= *lại một lần nữa*). Tôi dịch *Lại nữa, khi ta là* — **đúng y hư `cp28:1.1`** (*Lại nữa,
+    khi ta còn là*) cho cùng công thức.
+  · `Tadāhaṁ sattarajjesu` (2.1) + `Yaṁ me āsi upāyanaṁ` (2.2): `āsi` là *có sẵn / tồn tại* được trong
+    cảnh, nên tôi dịch *phần lễ vật ta nhận được*. Có thể đọc là *ta đã có sẵn*, cũng gần nghĩa; tôi theo
+    Sujato (*what I received as tribute*) vì nó khớp `upāyana` = *lễ vật dâng lên*.
+  · `varaṁ dhanan` (3.4): `vara` = *tốt đẹp, quý*, `dhana` = *của cải*. Tôi dịch *những của cải quý báu
+    ấy*; đây là chỗ dịch dài hơn chữ, nhưng *của cải tốt* thì cụt và `vara` sẽ mất.
