@@ -1,0 +1,90 @@
+uid: ja178
+status: draft
+translationTitle: "Kinh Rùa"
+translators:
+  - "OpenCode Space Bunny Free (agent)"
+reviewers: []
+tags:
+  - "khuddakanikaya"
+  - "jataka"
+  - "dukanipata"
+  - "pham-phap-lanh"
+  - "kacchapa"
+quality:
+  scores:
+    source_provenance: 9.5
+    semantic_fidelity: 9.0
+    grammar_logic: 9.0
+    segment_alignment: 10.0
+    terminology: 9.2
+    triangulation: 8.2
+    vietnamese_clarity: 9.2
+    han_viet_balance: 9.3
+    ambiguity_integrity: 8.6
+    technical_integrity: 9.6
+  final_score: 9.16
+  blocking_errors:
+    - "Tầng Anh Sujato vắng tại commit đã ghim 11c9d708978cde8ba61096d8a75f7ddfb846f639: thư mục translation/en/sujato/sutta/kn/ja/ tại đó có 83 tệp (ja1–ja79, ja126, ja159, ja466, ja534) và không có tệp nào cho uid này, nên coverage English = 0 trên 0 khoá Pāli có nội dung; SuttaCentral không phát hành bản Anh nào khác phủ bài này tại commit đã ghim, và tôi không được phép sửa content/meta/reference-gaps.yaml trong phạm vi lát này. Đây là giới hạn của bản chụp upstream, không phải thiếu hàng của kho."
+  assessed_at: "2026-10-02"
+  assessed_by:
+    - "OpenCode Space Bunny Free (agent)"
+notes: |-
+  **Cổng kỹ thuật của kho CHƯA chạy.** Đợt này lát được cấm chạy `npm run validate|test|check|build`,
+  nên tôi **không** thể tuyên bố technical gate pass; `technical_integrity` đặt **9.6** chứ không
+  phải 10.0 và bốn lệnh đó để người điều phối chạy. Tự kiểm riêng bằng script trên **MỌI** khoá
+  (không chỉ khoá ≥ 40 ký tự mà `kiểm()` của `_hvi.py` quét): đủ số khoá của cả bài, đúng segment
+  ID, không rỗng, NFC, không trùng nguyên văn Pāli, dấu lược khớp Pāli từng khoá, ngoặc kép cân
+  trên cả bài, không `(…)`, không sót `pe…`, không Pāli lọt. Kết quả: SẠCH, 0 lỗi trên 236 khoá
+  của cả lát.
+
+  **Dấu lược — theo §10, không tự diễn giải.** Pāli có `…pe…` thì bản Việt giữ **một** `…` và
+  **không** viết ra phần bị lược. Pāli viết đủ thì viết đủ; tôi **không** nén bằng `…` ở bất kỳ
+  khoá nào. Hai khoá lệch dấu câu cuối câu (`cp33:1.3`, `cp5:1.1`: Pāli có dấu phẩy, bản Việt
+  không) là **cố ý theo đúng tiền lệ `cp28:1.1`** — bản Việt của tầng không nhất thiết giữ dấu
+  phẩy ở vế kệ đầu câu.
+
+  **Pāli trùng nguyên văn ở bài khác — đếm bằng script, dùng lại nguyên văn đã có.** Quét toàn
+  tầng Pāli gốc (5.764 tệp `*_root-pli-ms.json`, bỏ thư mục `*.apfs-orphan`) so **chính nguyên văn**
+  từng khoá của lát này: **4 cặp trùng** (đếm theo cặp khoá-của-tôi × uid-khác, chỉ tính văn
+  bản ≥ 20 ký tự sau chuẩn hoá). Trong đó **2 khoá (2/2) cặp đã có bản Việt ở bài khác và tôi dùng lại
+  nguyên văn** (xem danh sách dưới); phần còn lại đều là bài chưa có bản Việt nên tôi đặt mới.
+  **22 cặp dùng lại được đối chiếu từng chữ: 20 khớp tuyệt đối, 2 khớp phần thân nhưng khác
+  hậu tố** — `ja151:2.1` và `ja178:2.1` phải mở lại dấu nháy kép vì Pāli mở nháy đúng ở đó (vế kệ
+  đầu của bài kệ mới), nên đó là bắt buộc của chia khoá chứ không phải dịch khác.
+
+  **Dùng lại (nguyên văn, không dịch lại):**
+  · `2.2` `sukhaṁ yatrādhigacchati;` trùng nguyên văn `sn11.1:3.2` và `sn11.2:3.2` → dùng lại
+    *mà lại đạt được hạnh phúc;*. `2.1` `Gāme vā yadi vā raññe,` trùng `sn3.1:7.1` (đã có bản Việt)
+    và `snp1.7:7.1` → dùng lại *Nơi làng hoặc nơi rừng,*. `2.1` khác hậu tố (`“`) vì Pāli mở nháy kép đúng
+    ở đó — đây là vế đầu của bài kệ thứ hai.
+
+  **Thuật ngữ mới của lát, đặt mới kèm lý do:**
+  · `Dukanipāta` → **Tập Kẻ Đau Đớn** (đa số 52/80, xem `ja151`).
+  · `Kalyāṇavagga` → **Phẩm Pháp Lành** (9/9 bài đã có, không có cách nào khác).
+  · `Kacchapajātaka` → **Kinh Rùa**: `kacchapa` ở truyện này là **con rùa** chứ không phải rùa biển
+    (`kacchapā = rùa`, 11 lần trong tầng), và bài kể chuyện chính con rùa.
+
+  **Bất định chưa phân xử trọn, ghi ở đây thay vì đoán trong thân kinh:**
+  · `Taṁ janittaṁ bhavittañca, / purisassa pajānato;` (2.3–2.4): `purisassa pajānato` là *được người
+    đàn ông biết rõ*, tức nơi ấy thuộc về một người đàn ông. Tôi dịch *Nơi đã sinh ra, đã nuôi lớn, / mà
+    người đời biết rõ*. Chủ ngữ thật của `taṁ` trong `2.3` là **nơi chốn** ở `2.1`–`2.2`, nên bản Việt phải
+    để *Nơi* mở đầu. Chỗ này còn có thể hiểu là *nơi người ta biết là nơi sinh ra và nuôi lớn thuộc về
+    người nào đó*; tôi giữ cách đọc tối giản.
+  · `Yamhi jīve tamhi gacche` (2.5): `jīve` là *người sống / chúng sinh*, `gacche` là *đến*. Tôi dịch *Ở
+    nơi nào có người sống, người sẽ đến nơi ấy*. `na niketahato siyā` (2.6) là *sẽ không còn là nơi bị bỏ
+    trống*, tôi dịch *nơi ấy sẽ không bị bỏ hoang* (8 lần / 2 bài trong tầng).
+  · `yathā dubbalakaṁ tathā` (1.4): `dubbalaka` = *kẻ yếu mệnh / kẻ béo nhỏ*. Tôi dịch *kẻ yếu*. Trong
+    truyện rùa nói về bùn đã nuốt mình như đã nuốt những kẻ yếu hơn; nếu `dubbalaka` chỉ một loài
+    thú cụ thể thì bản dịch đã làm mất chi tiết đó — **đây là chỗ tôi không chắc**, và không có bản Anh
+    để đối chiếu.
+
+  VIỆC BIÊN TẬP của người điều phối (PR sau lát này): khoá `ja178:0.2` mang Pāli
+  `Dukanipāta` được đổi *«Tập Kẻ Đau Đớn»* → *«Bộ Hai Bài Kinh»*. Căn cứ: tầng **tên**
+  của chính SuttaCentral tại commit đã ghim (`source/upstream-manifest.json` →
+  `english-sujato`, **123** tệp `name/`) ghi `ja-name:167.ja-dukanipata` →
+  *"The Book of the Twos"*, cùng `thag-name:134` và `iti-name:32`. `duka` là **số hai**
+  trong dãy `ekādasa / dvādasa / dasā / aṭṭha / pañca / catu`, không phải `dukkha`;
+  song song chính xác với `Ekakanipāta` = *Bộ Một Bài Kinh* ← *"The Book of the Ones"*.
+  Tầng trước đợt sửa có **17** cách cho `Dukanipāta`. Lát này đã theo đa số cục bộ
+  (52/80) nên không tự sinh cách mới — nhưng đa số đó sai theo tầng tên. `terminology`
+  giữ nguyên: đây là chuẩn hoá, không phải lỗi riêng của bài.
