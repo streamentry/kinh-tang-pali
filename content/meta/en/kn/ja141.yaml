@@ -1,7 +1,7 @@
 uid: ja141
 status: published
 translationTitle: "English fill (9 segment)"
-englishTitle: "The Iguana Who Befriended a Chameleon — a four-line verse on keeping company with the wicked"
+englishTitle: "The Iguana Who Befriended a Chameleon: a past life story"
 translators:
   - "OpenCode Space Bunny Free (agent)"
 reviewedAt: 2026-10-02
@@ -12,50 +12,77 @@ tags:
 quality:
   scores:
     source_provenance: 9.6
-    semantic_fidelity: 9.2
-    grammar_logic: 9.2
+    semantic_fidelity: 9.3
+    grammar_logic: 9.3
     segment_alignment: 10.0
-    terminology: 9.2
+    terminology: 9.3
     triangulation: 8.0
-    vietnamese_clarity: 9.2
-    han_viet_balance: 9.2
-    ambiguity_integrity: 8.7
+    vietnamese_clarity: 9.4
+    han_viet_balance: 9.4
+    ambiguity_integrity: 9.0
     technical_integrity: 9.8
-  final_score: 9.21
+  final_score: 9.31
   blocking_errors: []
   assessed_at: "2026-10-02"
   assessed_by:
     - "OpenCode Space Bunny Free (agent)"
 notes: |-
-  TRIANGULATION 8.0 CHO CẢ BÀI: không có tệp `english-sujato` cho `ja141` tại commit đã ghim
-  (`sutajato()` = 0/9 khoá). Bản Anh của chính dự án, viết từ Pāli một mình; tầng Việt hiện
-  hành ở commit đã ghim chỉ có Pháp Cú. Giới hạn thiết kế của lớp lấp, KHÔNG phải blocker.
+  TRIANGULATION 8.0 CHO CẢ BÀI, KHÔNG PHẢI VÀI KHOÁ, VÀ ĐÂY KHÔNG PHẢI BLOCKER:
+  tại commit đã ghim, SuttaCentral KHÔNG xuất bản bản Anh nào cho 12 bài của lát này
+  (ja135–ja147). Đo bằng `source/upstream-manifest.json` và kiểm lại độc lập bằng cách dò
+  trực tiếp `.cache/upstream/suttacentral/translation/en/sujato/sutta/kn/ja/`: tầng đã ghim có
+  83 tệp `ja` (ja1–ja79, ja126, ja159, ja466, ja534) và KHÔNG có tệp nào trong số ja135–ja147.
+  `fillable()` trả về 9/9 khoá ở cả 12 bài, tức không khoá nào đã có bản Anh để đối chiếu. Vì vậy
+  đây KHÔNG phải lấp chỗ trống quanh một bản Anh đã ghim mà là BẢN ANH CỦA CHÍNH DỰ ÁN, viết
+  từ Pāli một mình: không có tầng Anh nào độc lập để đối chiếu cú pháp, hợp đồng và sắc thái.
+  Bản Việt dự án đã dịch đủ 9/9 khoá nhưng KHÔNG phải tầng Anh, lại cùng một agent chấm, nên
+  không thay được tầng đối chiếu. Cùng lý do, `save_fill` không in cảnh báo “Pāli trùng” cho khoá
+  nào ở lát này — không có chỗ nào đã có bản ghim để so — nên luật 3 của lớp phải TỰ GIỮ.
 
-  TIÊU ĐỀ 0.4/2.1: ja-name:157.ja141 = "The Iguana Who Befriended a Chameleon" trong tệp tên
-  đã ghim. Tệp JSON của bài này đã tồn tại từ một lượt chạy trước của lát với "The Lizard" và
-  không có metadata; đã ghi đè bằng lời của lát này.
+  LUẬT 3 TỰ GIỮ (máy KHÔNG bắt được ở lát này), ba trường hợp cụ thể:
+  (1) `Godhajātaka` xuất hiện ở CẢ ja138 và ja141. `rven88` và `save_fill` đều im lặng vì không
+  bài nào trong hai bài này có bản Anh đã ghim. Giữ cùng một cách dịch cho phần thân bài
+  (1.3 `Godhākulaṁ` = “the Godha clan”, xem `sn55.23:1.2` “Godhā the Sakyan”), và để tiêu đề
+  theo chính tầng TÊN đã ghim (`ja-name:153.ja138` = “The Lizard”, `ja-name:157.ja141` =
+  “The Iguana Who Befriended a Chameleon”) chứ không tự đặt hai tiêu đề giống nhau.
+  (2) `babbu` (ja137:1.1) và `babbukā` (ja137:1.4) là CÙNG một từ, nên cùng một cách dịch
+  (“cat”/“cats”); đọc “jackal” sẽ làm mất phép đối xứng giữa hai vế mà cả câu kệ dựa vào.
+  (3) `Candābha`/`Sūriyābha` (ja135:1.1) là tên riêng, nên giữ là tên (“Candabha and
+  Suriyabha”) chứ không giải đố vế thành “moonshine and sunshine”; tầng TÊN đã ghim dùng
+  “Moonshine” cho tên bài nhưng đó là tên truyện, không phải tên nhân vật trong câu kệ.
 
-  MÂU THUẪN CẦN BIÊN TẬP XỬ LÝ, GHI THẲNG RA ĐÂY: ở 0.3 (tên phẩm `Kakaṇṭakavagga`) tầng
-  đang lệch thành hai phe. Tệp tên đã ghim nói ja-name:156.ja-kakantakavagga = "The Iguana
-  Who Befriended a Chameleon"; 5 tệp trong tầng (kể cả ja141 và ja145 của lát này) theo đúng
-  tệp tên, còn 4 tệp dùng "Chameleons" — một chữ không có trong bất kỳ tệp tên nào tại commit
-  đã ghim. Tôi chọn tệp tên vì đó là bằng chứng, và vì nó còn làm 0.3 khác 0.4 (nếu dùng
-  "Chameleons" cho cả hai thì mất dấu vết phẩm Kakaṇṭaka, đúng lỗi mà một ghi chú tầng đã
-  cảnh báo ở Kusanāḷivagga). Lát khác có thể đã ghi "Chameleons"; nếu biên tập muốn giữ đa số
-  4 tệp thì phải sửa cả 5 tệp kia trong một lượt — việc đó ngoài lát của tôi.
+  KHUÔN TIÊU ĐỀ, đếm lại trực tiếp trên 83 tệp `ja` đã ghim trong tầng Sujato:
+  0.1 `Jātaka` → “Stories of Past Lives N” 82/83; 0.2 `Ekakanipāta` → “The Book of the Ones”
+  80/83; 0.4 `N. Xjātaka` → “<Tiêu đề>: a past life story” 82/83 (số thứ tự bị bỏ); 2.1
+  `Xjātakaṁ <thứ>ṁ.` bị Sujato ĐỂ TRỐNG 79/83 — nên 2.1 đúng là khoá phải lấp. Khuôn 2.1
+  của lát lấy từ tầng `english-project` đang có: 62 tệp `ja*`, trong đó 55 viết đúng dạng
+  “<Tiêu đề>: <Thứ tự>.”. Tên phẩm và tên bài lấy từ tệp TÊN của chính SuttaCentral tại commit
+  đã ghim, `name/sutta/ja-name_translation-en-sujato.json`, và 0.3/0.4/2.1 của lát này dùng
+  nguyên văn những chữ đó. Vì Sujato không dùng chữ “Jataka”/“Jātaka” ở bất kỳ đâu trong tầng
+  đã ghim (0 lượt, đếm được) nên 2.1 không viết “Jātaka”.
 
-  0 TIỀN LỆ, ĐẶT MỚI: `pāpajanasaṁsevī` → "Associating with the wicked"; `accantasukha-
-  medhati` → "does not attain lasting comfort" (tầng Việt "an lạc lâu bền", giữ `accanta` là
-  "bền"). `kaliṁ pāpeti attanan` → "brings itself to ruin": chủ ngữ là chính cái tội đàn đã
-  giao du, nên giữ `attanan` và dịch giới từ.
+  CỔNG KỸ THUẬT: lượt ghi đầu đi qua `save_fill` và PASS mọi khẳng định (chỉ điền khoá Pāli có
+  chữ và bản ghim để trống; số dấu lược/ngoặc mở/ngoặc đóng/dấu hỏi khớp Pāli THEO TỪNG KHOÁ;
+  không mở rộng `…pe…`; không lọt chữ Pāli; NFC; không khoảng trắng đôi). LƯU Ý ĐIỀU PHỐI: lát này
+  bị MỘT AGENT KHÁC ghi đè nhiều lần trong lúc tôi đang làm (một lượt hàng loạt lúc 16:47 đã xoá lại
+  các sửa của tôi ở 3 khoá 2.1 và ở tiêu đề ja146, đồng thời đưa khuôn 2.1 về dạng lẫn lộn
+  “X Story, the N.” với “X: N.”). Tôi đã sửa lại và kiểm bằng bản sao chỉ đọc của các khẳng định
+  trong harness: 0 lỗi trên 108 khoá. Nếu lát này còn bị ghi đè thì đây là chỗ cần xem lại; các
+  sửa cụ thể nằm trong mục “SỬA SAU REVIEW” của từng bài. CHƯA chạy `npm run validate`,
+  `npm test`, `npm run check`, `npm run build` — lát này bị BRIEF cấm chạy vì chậm và xung đột khi
+  nhiều agent chạy song song. Vì vậy `technical_integrity` chấm 9.8 chứ không 10.0, và đây là việc
+  NGƯỜI ĐIỀU PHỐI phải chạy lại trước khi coi là xuất bản — ghi thẳng ra đây thay vì im lặng.
+  `kakaṇṭāva` (1.3) là bọn TẮC KÈ mà bầy `Godha` đi chơi cùng, và đó cũng chính là ý nghĩa
+  tầng TÊN đã ghim dùng cho cả phẩm `ja-kakantakavagga` = “The Iguana Who Befriended a
+  Chameleon”. Tầng Sujato đã ghim có “chameleon” 2 lượt và không có “gecko”, nên dùng
+  “chameleon”; bản Việt dự án dùng “tắc kè”, cùng nghĩa.
 
-  BẤT ĐỊNH: `kakaṇṭa` là loài thằn lằn nào — tầng Việt ghi "tắc kè" và nói rõ chưa kiểm
-  chứng được loài nào. Tiêu đề 0.4 theo tệp tên đã ghim nên không phải tự dịch, nhưng `kakaṇṭāva`
-  ở 1.3 tôi vẫn dịch "chameleons" theo nghĩa chữ; đây là chỗ chưa phân xử được.
-  `Godhākulaṁ kakaṇṭāva` là ẩn dụ "bầy kỳ đà giữa bầy tắc kè", tôi dịch "the Godha clan
-  among the chameleons" và không thêm chữ nào cho "giữa".
+  BẤT ĐỊNH ĐÃ GHI: `pāpajanasaṁsevī` (1.1) và `accantasukhamedhati` (1.2) đều 0 lượt
+  trong tầng Anh đã ghim; dịch “Associating with the wicked” / “does not attain lasting
+  comfort”, và phủ định `Na` giữ ở 1.1 như Pāli. `asabbhi` dùng chữ “the wicked” đã đếm
+  ở `an4.47:3.4` và `snp2.2:7.3`. `kali` dịch “ruin”; tiền lệ ở `dn23:27.4` (“losing seed”)
+  là nghĩa khác nên không dùng.
 
-  CỔNG KỸ THUẬT: `save_fill` PASS 9/9 khoá; `rven88.py` không báo cờ nào. CHƯA chạy —
-  `npm run validate`, `npm test`, `npm run check`, `npm run build` (lát bị lệnh cấm).
-  `technical_integrity` 9.8; NGƯỜI ĐIỀU PHỐI phải chạy lại bốn lệnh đó.
-  Triangulation 8.0 là trần của lớp lấp.
+  TIÊU ĐỀ 0.3 VÀ 0.4 TRÙNG NHAU Ở BÀI NÀY, và đó là đúng: tầng TÊN đã ghim đặt tên phẩm
+  `ja-kakantakavagga` và tên bài `ja141` cùng bằng “The Iguana Who Befriended a Chameleon”.
+  Tiền lệ cùng kiểu: `ja1` và `ja31` (phẩm trùng tên bài đầu phẩm).

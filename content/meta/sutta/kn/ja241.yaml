@@ -1,0 +1,69 @@
+uid: ja241
+status: draft
+translationTitle: "Kinh Kẻ Cướp"
+translators:
+  - "OpenCode Space Bunny Free (agent)"
+reviewers: []
+tags:
+  - khuddaka-nikaya
+  - jataka
+  - dukanipata
+  - pham-singala
+  - ke-cuop
+quality:
+  scores:
+    source_provenance: 9.5
+    semantic_fidelity: 9.0
+    grammar_logic: 8.9
+    segment_alignment: 10.0
+    terminology: 8.8
+    triangulation: 8.0
+    vietnamese_clarity: 9.0
+    han_viet_balance: 9.2
+    ambiguity_integrity: 8.6
+    technical_integrity: 9.8
+  final_score: 9.08
+  blocking_errors:
+    - "Không có tầng tham khảo tiếng Anh Sujato tại commit đã ghim: thư mục translation/en/sujato/sutta/kn/ja/ có 83 tệp (ja1–ja79, ja126, ja159, ja466, ja534) và không có tệp nào cho uid này; tầng Việt hiện hành (translation/vi/phantuananh/) chỉ có 26 tệp Pháp Cú nên Jātaka cũng không có bản Hòa thượng Thích Minh Châu."
+  assessed_at: "2026-10-02"
+  assessed_by:
+    - "OpenCode Space Bunny Free (agent)"
+notes: |-
+  Bản này chỉ có **một** tầng tham khảo: Pāli root đã ghim. **Không có Anh Sujato** —
+  tại commit đã ghim thư mục `translation/en/sujato/sutta/kn/ja/` có **83** tệp
+  (ja1–ja79, ja126, ja159, ja466, ja534) và **không** có tệp nào cho 14 uid của lát này.
+  Đây là đặc điểm của bản chụp upstream, không phải thiếu sót của kho. Tầng Việt hiện
+  hành (`translation/vi/phantuananh/`) tại cùng commit chỉ có 26 tệp Pháp Cú, nên Jātaka
+  không có bản Hòa thượng Thích Minh Châu để đối chiếu. Vì vậy `triangulation` chỉ
+  8,0–8,4: dịch từ Pāli, phân xử cú pháp bằng **Pāli trùng nguyên văn ở bài khác** (sn3.15,
+  sn21.6, ja202, thag2.38, vv33) và bằng chú giải Jātaka khi Pāli gốc im lặng.
+  **Cổng kỹ thuật chưa chạy.** Đợt này cấm `npm run validate|test|check|build`, nên tôi
+  **không** thể tuyên bố technical gate pass; `technical_integrity` hạ còn 9,8 và bốn
+  lệnh đó để người điều phối chạy.
+  **13 khoá, đủ cả bài** (`:0.1`–`:0.4` tiêu đề, `:1.1`–`:2.4` kệ, `:3.1` dòng kết).
+  `kiểm()` của `_hvi.py` chỉ quét khoá Pāli **≥ 40 ký tự**, mà lát này **không có khoá nào**
+  rơi vào tập đó — nên tôi tự kiểm riêng **mọi** khoá: phủ đủ 13/13, không rỗng, NFC,
+  không trùng nguyên văn Pāli, dấu lược khớp từng khoá, ngoặc kép cân trên cả bài, dấu
+  câu cuối câu kệ khớp Pāli, không còn `(…)`. Pāli lát này **không có** `…pe…` nên hai
+  phía đều 0 dấu lược.
+  **Tiền lệ dùng lại, đếm được trên tầng Việt:** `:0.1` `Jātaka` giữ nguyên (171 tệp
+  Jātaka); `:0.2` `Dukanipāta` → *Bộ Một Bài Kinh* (237 tệp); `:0.3` `…vagga` → *Phẩm
+  <tên>*, theo khuôn `Phẩm Haṁci` (ja117:0.3) và `Phẩm Bīraṇathambha` (ja211:0.3);
+  dòng kết `<Tên>jātakaṁ <số>ṁ` → *Kinh <Tên> thứ <tư>*, theo `ja22:2.1` (*Kinh Chó Săn
+  thứ hai.*).
+  **Điểm `grammar_logic` thấp nhất lát, có lý do:** `Siṅgālo mānathaddho ca, / parivārena
+  atthiko;` — `atthiko` là số nhiều, nên câu có thể là *mô tả cả hai con chim* lẫn *chỉ
+  chim sừng*. Tôi đọc là *chim sừng thì kiêu ngạo, / lại khát khao một đám tùy tùng* (chủ
+  ngữ số ít, nhất quán với `rājāsi` ở `1.4`). Cách đọc kia — *chim sừng và bồ câu đều
+  kiêu ngạo* — cho cùng một nghĩa ở câu Việt gần như tương đươt, nên canonical wording
+  không đổi, nhưng tôi ghi ra đây vì không dám khẳng định.
+  **`siṅgālo` chưa phân xử trọn.** Trong kinh văn `siṅgāla` là *chim sừng, chim mào*
+  (có mỏ lớn, mổ mắt); tôi dịch *chim sừng*. Nhưng đếm trên tầng Việt, `chim sừng` = 0
+  và `chim mào` = 0, và từ vựng tầng không có từ nào cho loài chim này, nên đây là cách
+  đặt mới. Trong truyện `siṅgāla` còn là tên một thôn xóm; ở bài này Pāli dùng làm loài
+  chim nên tôi giữ nghĩa loài. `dāṭhina` = *cướp* (đếm `cướp` trên tầng rất nhiều, có
+  tiền lệ).
+  **Pāli trùng nguyên văn, khớp tuyệt đối.** `2.1` trùng `sn21.6:3.1` và `ja202:2.1`
+  (cả hai `published`), `2.3` trùng `sn21.6:3.3` và `ja202:2.3` — tôi dùng lại đúng nguyên
+  văn *Cũng vậy giữa loài người,* và *Vị ấy ở đó là lớn,*. `2.2` thì **khác** (`yo hoti
+  parivāravā` chứ không phải `daharo cepi paññavā`) nên tôi dịch riêng.

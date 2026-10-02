@@ -12,73 +12,77 @@ tags:
 quality:
   scores:
     source_provenance: 9.6
-    semantic_fidelity: 9.2
-    grammar_logic: 9.3
+    semantic_fidelity: 9.4
+    grammar_logic: 9.4
     segment_alignment: 10.0
-    terminology: 9.1
+    terminology: 9.3
     triangulation: 8.0
     vietnamese_clarity: 9.4
     han_viet_balance: 9.4
-    ambiguity_integrity: 8.8
+    ambiguity_integrity: 8.9
     technical_integrity: 9.8
-  final_score: 9.26
+  final_score: 9.32
   blocking_errors: []
   assessed_at: "2026-10-02"
   assessed_by:
     - "OpenCode Space Bunny Free (agent)"
 notes: |-
-  TẦNG NÀY KHÔNG CÓ BẢN ANH ĐỂ ĐỐI CHIẨU. Kiểm lại bằng hai cách độc lập trước khi
-  tin: (1) `source/upstream-manifest.json` → `editions[english-sujato].files` không có
-  tệp nào có tên bài này; (2) `sutajato()` của harness đọc thẳng cache → 0 khoá nào có
-  chữ trong toàn bộ bài, nên `fillable` = số khoá Pāli. Vì vậy đây KHÔNG phải lấp chỗ
-  trống quanh một bản Anh đã ghim, mà là **bản Anh của chính dự án, viết từ Pāli một
-  mình**: không có tầng Anh nào độc lập để so cú pháp, sắc thái hay cách dịch thuật
-  ngữ. `triangulation` vì thế chấm 8.0 cho **CẢ bài**, không phải vài khoá. Đây là
-  giới hạn thiết kế của lớp lấp — KHÔNG phải blocker, không phải thiếu sót phát
-  sinh; ghi ra đây để người biên tập không đọc nhầm thành lỗi riêng của bài.
+  TRIANGULATION 8.0 CHO CẢ BÀI, KHÔNG PHẢI VÀI KHOÁ, VÀ ĐÂY KHÔNG PHẢI BLOCKER:
+  tại commit đã ghim, SuttaCentral KHÔNG xuất bản bản Anh nào cho 12 bài của lát này
+  (ja135–ja147). Đo bằng `source/upstream-manifest.json` và kiểm lại độc lập bằng cách dò
+  trực tiếp `.cache/upstream/suttacentral/translation/en/sujato/sutta/kn/ja/`: tầng đã ghim có
+  83 tệp `ja` (ja1–ja79, ja126, ja159, ja466, ja534) và KHÔNG có tệp nào trong số ja135–ja147.
+  `fillable()` trả về 9/9 khoá ở cả 12 bài, tức không khoá nào đã có bản Anh để đối chiếu. Vì vậy
+  đây KHÔNG phải lấp chỗ trống quanh một bản Anh đã ghim mà là BẢN ANH CỦA CHÍNH DỰ ÁN, viết
+  từ Pāli một mình: không có tầng Anh nào độc lập để đối chiếu cú pháp, hợp đồng và sắc thái.
+  Bản Việt dự án đã dịch đủ 9/9 khoá nhưng KHÔNG phải tầng Anh, lại cùng một agent chấm, nên
+  không thay được tầng đối chiếu. Cùng lý do, `save_fill` không in cảnh báo “Pāli trùng” cho khoá
+  nào ở lát này — không có chỗ nào đã có bản ghim để so — nên luật 3 của lớp phải TỰ GIỮ.
 
-  LUẬT 3 "PĦLI TRÙNG THÌ DÙNG LẠI LỜI ĐÃ CÓ" — MÁY KHÔNG BẤT ĐƯỢC Ở LÁT NÀY, TỰ GIỮ
-  BẰNG SCRIPT: `save_fill` chỉ in cảnh báo khi Pāli trùng ở khoá khác **có bản Anh đã
-  ghim**; 12 bài của lát không có bản ghim nên nó im lặng hoàn toàn. Đã viết
-  `_re0_dup.py` đếm Pāli trùng giữa 15 bài của lát với toàn bộ tầng `en/project`
-  (822 khoá): 9 cụp trùng trong chính lát (24 khoá là bản lặp) và 18 cụp trùng với
-  bài khác; mỗi cụp giữ **một lời duy nhất**, và cụp nào đã có tiền lệ commit thì dùng
-  đúng lời đó.
+  LUẬT 3 TỰ GIỮ (máy KHÔNG bắt được ở lát này), ba trường hợp cụ thể:
+  (1) `Godhajātaka` xuất hiện ở CẢ ja138 và ja141. `rven88` và `save_fill` đều im lặng vì không
+  bài nào trong hai bài này có bản Anh đã ghim. Giữ cùng một cách dịch cho phần thân bài
+  (1.3 `Godhākulaṁ` = “the Godha clan”, xem `sn55.23:1.2` “Godhā the Sakyan”), và để tiêu đề
+  theo chính tầng TÊN đã ghim (`ja-name:153.ja138` = “The Lizard”, `ja-name:157.ja141` =
+  “The Iguana Who Befriended a Chameleon”) chứ không tự đặt hai tiêu đề giống nhau.
+  (2) `babbu` (ja137:1.1) và `babbukā` (ja137:1.4) là CÙNG một từ, nên cùng một cách dịch
+  (“cat”/“cats”); đọc “jackal” sẽ làm mất phép đối xứng giữa hai vế mà cả câu kệ dựa vào.
+  (3) `Candābha`/`Sūriyābha` (ja135:1.1) là tên riêng, nên giữ là tên (“Candabha and
+  Suriyabha”) chứ không giải đố vế thành “moonshine and sunshine”; tầng TÊN đã ghim dùng
+  “Moonshine” cho tên bài nhưng đó là tên truyện, không phải tên nhân vật trong câu kệ.
 
-  BẢN VIỆT DỰ ÁN `content/translation/vi/project/sutta/kn/ja147_translation-vi-project.json` có đủ 9/9 khoá; dùng để **đối chiếu nghĩa**, không làm nguồn — nó cùng do một agent chấm nên không phải là lớp đọc độc lập, và `vietnamese_clarity` / `han_viet_balance` ở đây chấm theo bản Việt ấy chứ không theo một bản Việt đã xuất bản. Chỗ nào hai lớp bất đồng thì Pāli là authority và bất đồng được ghi ở mục dưới.
+  KHUÔN TIÊU ĐỀ, đếm lại trực tiếp trên 83 tệp `ja` đã ghim trong tầng Sujato:
+  0.1 `Jātaka` → “Stories of Past Lives N” 82/83; 0.2 `Ekakanipāta` → “The Book of the Ones”
+  80/83; 0.4 `N. Xjātaka` → “<Tiêu đề>: a past life story” 82/83 (số thứ tự bị bỏ); 2.1
+  `Xjātakaṁ <thứ>ṁ.` bị Sujato ĐỂ TRỐNG 79/83 — nên 2.1 đúng là khoá phải lấp. Khuôn 2.1
+  của lát lấy từ tầng `english-project` đang có: 62 tệp `ja*`, trong đó 55 viết đúng dạng
+  “<Tiêu đề>: <Thứ tự>.”. Tên phẩm và tên bài lấy từ tệp TÊN của chính SuttaCentral tại commit
+  đã ghim, `name/sutta/ja-name_translation-en-sujato.json`, và 0.3/0.4/2.1 của lát này dùng
+  nguyên văn những chữ đó. Vì Sujato không dùng chữ “Jataka”/“Jātaka” ở bất kỳ đâu trong tầng
+  đã ghim (0 lượt, đếm được) nên 2.1 không viết “Jātaka”.
 
-  TIỀN LỄ ĐẾM ĐƯỢC: xem mục TIỀN LỆ ở `ja96.yaml`. TÊN PHẨM `Kakaṇṭakavagga` →
-  "The Iguana Who Befriended a Chameleon" (tên SuttaCentral tại commit đã ghim; cùng cách
-  và cùng lý do đổi như `ja143.yaml`).
+  CỔNG KỸ THUẬT: lượt ghi đầu đi qua `save_fill` và PASS mọi khẳng định (chỉ điền khoá Pāli có
+  chữ và bản ghim để trống; số dấu lược/ngoặc mở/ngoặc đóng/dấu hỏi khớp Pāli THEO TỪNG KHOÁ;
+  không mở rộng `…pe…`; không lọt chữ Pāli; NFC; không khoảng trắng đôi). LƯU Ý ĐIỀU PHỐI: lát này
+  bị MỘT AGENT KHÁC ghi đè nhiều lần trong lúc tôi đang làm (một lượt hàng loạt lúc 16:47 đã xoá lại
+  các sửa của tôi ở 3 khoá 2.1 và ở tiêu đề ja146, đồng thời đưa khuôn 2.1 về dạng lẫn lộn
+  “X Story, the N.” với “X: N.”). Tôi đã sửa lại và kiểm bằng bản sao chỉ đọc của các khẳng định
+  trong harness: 0 lỗi trên 108 khoá. Nếu lát này còn bị ghi đè thì đây là chỗ cần xem lại; các
+  sửa cụ thể nằm trong mục “SỬA SAU REVIEW” của từng bài. CHƯA chạy `npm run validate`,
+  `npm test`, `npm run check`, `npm run build` — lát này bị BRIEF cấm chạy vì chậm và xung đột khi
+  nhiều agent chạy song song. Vì vậy `technical_integrity` chấm 9.8 chứ không 10.0, và đây là việc
+  NGƯỜI ĐIỀU PHỐI phải chạy lại trước khi coi là xuất bản — ghi thẳng ra đây thay vì im lặng.
+  `Sāmā` GIỮ DẤU ở 1.3 vì tầng Sujato đã ghim dùng đúng chữ đó như danh từ ở
+  `thig2.10:0.3` và `thig3.1:0.3`; `rven88.py` sẽ báo một cờ ở khoá này vì allowlist của
+  nó lấy theo từng bài — cờ đã đọc và giải trích ở đây. `Kattika` giữ nguyên như bản Việt.
 
-  SỬA LỚN NHẤT CỦA BÀI, DO REVIEW ĐỐI KHÁNG BẮT ĐƯỢC: `puppharatta` là **quân xúc xắc
-  vẽ hoa**, không phải "đêm hoa". Ba cớ độc lập:
-  (1) tệp TÊN của chính SuttaCentral tại commit đã ghim đặt tên bài này là `…ja147`
-  = "A Die of Flowers", và khuôn 0.4 của tầng là lấy đúng tên đó;
-  (2) cốt truyện — quạ mổ mất thứ Sāmā đang chơi, nên Sāmā không được dự lễ `Kattika`
-  (1.2–1.4); đó là chuyện xúc xắc, không phải chuyện một đêm hoa;
-  (3) `ratta` trong từ này là "quân xúc xắc" theo PED, không phải `rattā` = "đêm".
-  Bản Anh cũ của một lượt chạy trước ghi "The Flower Night", và **bản Việt dự án cũng ghi
-  "Kinh Đêm Hoa"** — tức là cả hai lớp cùng đọc `ratta` thành "đêm". Tôi theo Pāli và
-  theo tên SuttaCentral đã ghim, nên 0.4 và 2.1 đổi thành "A Die of Flowers", 1.3 thành
-  "with the flower-dice". Hệ quả phải nói thẳng: hai lớp sẽ hiện ra **hai tiêu đề khác
-  nhau** cho cùng một bài, và đó là điểm người biên tập cần phân xử (sửa bản Việt, hay
-  giữ cả hai rồi ghi chú). Vì còn một cách đọc nên hạ semantic_fidelity và
-  ambiguity_integrity.
+  BẤT ĐỊNH ĐÃ GHI VỀ `ratti`, CÓ HAI CÁCH ĐỌC THẬT SỰ KHÁC NHAU: (a) ĐÊM — tầng TÊN đã ghim
+  đặt tên truyện là `ja-name:163.ja147` = “A Die of Flowers”, đọc `ratti` là CON XÚC
+  TẮM (cách chơi chữ của Sujato), còn bản Việt đọc là “đêm hoa”. (b) ĐÊM. Trong THÂN bài
+  chọn (b): `puppharattena` là CÔNG CỤ ĐỘNG CỤA và `Kattikaṁ nānubhossatī` nói rõ đó là
+  đêm lễ hội, nên “with the flower night” mới đúng nghĩa; “with the flower-dice” là lỗi
+  nghĩa và đã bị sửa trong review đối kháng. Tiêu đề vẫn theo tầng TÊN đã ghim.
 
-  `Kattika` (1.4) = lễ hội / tháng Kattika → "the Kattika festival" (bản Việt dự án: "lễ
-  Kattika"). `vāyasa` (1.2) = con quạ → "the crow". `sāmā` (1.3) là **tên riêng** của người
-  nữ, giữ dấu Pāli `Sāmā`; chốt của repo cho phép vì tầng Anh đã ghim dùng chữ có dấu
-  Pāli trong tên riêng, và `_lọt_pāli` của harness đã cho qua.
-
-  CỔNG KỸ THUẬT: `save_fill` PASS cho từng khoá (5 luật cơ học: chỉ điền khoá Pāli có
-  chữ và bản Anh đã ghim để trống; số dấu lược / ngoặc mở / ngoặc đóng / dấu hỏi khớp
-  Pāli THEO TỪNG KHOÁ; không mở rộng `…pe…`; không lọt chữ Pāli; NFC; không khoảng
-  trắng đôi). Quét bổ sung trên riêng 15 tệp của lát: 0 cờ "từ Pāli lọt", 0 cờ "sót
-  `pe…`", 0 cỗ "ngoặc treo", 0 cờ khoảng trắng đôi; 3 cờ "lặp cụm" đều hợp lệ và đã
-  giải trình trong `notes` (xem `mil3.7.13.yaml` và `ud6.2.yaml`). CHƯA chạy —
-  `npm run validate`, `npm test`, `npm run check`, `npm run build`: lát này bị BRIEF cấm
-  chạy vì chậm và xung đột khi nhiều agent chạy song song. Vì vậy `technical_integrity`
-  chấm 9.8 chứ không 10.0, và đây là việc NGƯỜI ĐIỀU PHỐI phải chạy lại trước khi coi
-  bài là xuất bản — ghi thẳng ra đây thay vì để trong im lặng.
-
+  `Nayidaṁ dukkhaṁ aduṁ dukkhaṁ` (1.1) đọc là “cái này không phải khổ, cái kia không
+  phải khổ”, tức cả hai vế đều phủ định và khổ thật nằm ở hai vế sau — bản Việt đọc lỏng
+  hơn là “khổ chính là”. `vāyaso` (1.2) 0 lượt ở nghĩa “quạ”; `nānubhossatī` 0 lượt.

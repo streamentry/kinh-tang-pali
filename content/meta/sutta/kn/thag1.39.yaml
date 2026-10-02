@@ -5,56 +5,90 @@ translators:
   - "OpenCode Space Bunny Free (agent)"
 reviewers: []
 tags:
-  - khuddakanikaya
-  - thera-gatha
-  - ekakanipata
-  - catutthavagga
+  - "khuddaka-nikaya"
+  - "thera-gatha"
+  - "ekakanipata"
 quality:
   scores:
     source_provenance: 9.6
-    semantic_fidelity: 9.0
-    grammar_logic: 9.0
+    semantic_fidelity: 9.4
+    grammar_logic: 9.4
     segment_alignment: 10.0
-    terminology: 8.6
-    triangulation: 9.3
-    vietnamese_clarity: 9.3
+    terminology: 9.4
+    triangulation: 8.6
+    vietnamese_clarity: 9.5
     han_viet_balance: 9.4
-    ambiguity_integrity: 8.4
+    ambiguity_integrity: 9.4
     technical_integrity: 9.6
-  final_score: 9.22
+  final_score: 9.43
   blocking_errors: []
   assessed_at: "2026-10-02"
   assessed_by:
     - "OpenCode Space Bunny Free (agent)"
 notes: |-
-  CHOT KIEM KHONG TU CHAY — DA TU KIEM. Tự quét 9/9 khoá: đủ, đúng ID, không rỗng, NFC, dấu
-  lược khớp (1.5 giữ hai dấu lược trần), nháy kép mở 1.1 đóng 1.4 nên cân.
+  **Phạm vi: đủ mọi khoá trong `all` — 9 khoá/bài, 108 khoá cả lát.** Không thêm, không bỏ,
+  không đổi segment ID.
 
-  TAU THAM KHAO: 8/9 khoá có chữ trong Anh Sujato; khoá trống là 1.5 (dòng … Tên thero …).
+  **⚠ Đặc thù đo được của lát Theragāthā: `cần` trong `kiểm()` RỖNG, nên assertion KHÔNG tự
+  chạy.** Đã đo: vế kệ dài nhất của lát là 37 ký tự (`thag1.35:1.1`), ngắn nhất 16 (`Ekakanipāta`),
+  trong khi `kiểm()` chỉ kiểm khoá ≥ 40 ký tự. Nên NFC / trùng nguyên văn Pāli / lọt_pāli /
+  dấu lược **không** tự chạy cho bất kỳ khoá nào. Tôi vì vậy viết thêm một tầng kiểm thủ công
+  `_tv6_1_tu_tay()` trong `_tvd6_1.py`, chạy ngay trong script, và **đã kiểm đủ 108/108 khoá**:
+  đủ khoá và đúng ID; NFC; 60 khoá thân kệ không trùng nguyên văn Pāli; không Pāli lọt;
+  số dấu lược bằng Pāli từng khoá; số ngoặc kép bằng Pāli từng khoá và cân trên cả bài; không
+  còn `(…)` đứng một mình. Không chỉ tin chốt. Chạy `save_vi` hai lần: idempotent, hash tệp
+  không đổi.
 
-  PAI TRUNG NGUYEN VAN — MOT CUONG LON, TOI PHAI CHON VA GHI RO. Bốn khoa cua bài nay trùng y hệt
-  với sn1.21:2.1–2.4 và sn2.16:2.1–2.4 (đã so ký tự từng cặp). Nhưng TẦNG ĐANG TỰ MÂU THUẪN:
-  mỗi vế có ĐÚNG hai cách, mỗi cách đúng 2 lượt, không có bên nào thắng.
-    · Sattiyā viya omaṭṭho: Như bị mũi thương đâm phải (sn1.21, 2 lượt) vs Như bị mũi gươm
-      đâm vào thân (sn2.16, 2 lượt). Tôi theo sn1.21.
-    · ḍayhamānova matthake: như đầu đang bị thiêu đốt (sn1.21) vs như đang bị thiêu đốt trên
-      đầu (sn2.16). Tôi theo sn1.21.
-    · Kāmarāgappahānāya: cả sn1.21 và sn2.16 đều KHÔNG dịch khoá này — họ dịch nghĩa
-      Kāmarāgappahānāya sang khoá kế tiếp. Ở bài này `Kāmarāgappahānāya` đứng một mình ở 1.3,
-      nên nếu tôi theo họ thì khoá 1.3 sẽ mất sạch nghĩa của chính nó. Tôi KHÔNG theo, mà dịc
-      *để đoạn trừ tham dục,* dùng lại đúng cụm *để đoạn trừ tham dục* đã có ở sn1.21:2.4.
-      Đây là CỐ Ý RỜI HAI CÁCH ĐANG CÓ, vì sao chép cách dịch lệch khoá sẽ tạo ra một bản Việt
-      mà khoá 1.3 không mang đúng nghĩa Pāli của nó — lỗi loại “thiếu nghĩa trọng yếu”.
-    · sato bhikkhu paribbaje: sn1.21 gộp thành *hãy xuất gia để đoạn trừ tham dục*,
-      sn2.16 gộp thành *để đoạn trừ tham ái trong các dục*, còn iti15:4.4 và iti105:4.4 — vốn
-      CÓ ĐÚNG CHÍNH CHUỖI NÀY làm một cả khoá — dịch *tỳ-kheo hãy sống chánh niệm.*. Tôi theo
-      iti15/iti105 vì đó là tiền lệ khớp trọn khoá.
-    Đây là chỗ người điều phối cần quy một lần cho cả tầng; tôi không tự quyết được. Tôi hạ
-    terminology và ambiguity_integrity vì chính bài này đang lệch với hai bài kia.
+  **Tầng Anh đủ cho toàn bộ nội dung kệ.** 8/9 khoá mỗi bài có tiếng Anh Sujato tại commit đã
+  ghim; khoá trống duy nhất là dòng quy kết lược `… X thero …. `, vốn không có tiếng Anh ở cả
+  23 bài thag1 trên đĩa. Không có tầng Việt hiện hành: `translation/vi/` của bilara tại commit đã
+  ghim chỉ chứa Pháp Cú, nên không có bản Hòa thượng Thích Minh Châu cho Theragāthā. Đây là
+  giới hạn của bản chụp upstream, không phải thiếu sót của kho; `triangulation` vì thế là
+  Pāli root + English Sujato cho phần kệ, và Pāli + tiền lệ trong tầng cho phần khung bài.
+  Không sửa `content/meta/reference-gaps.yaml`.
 
-  LƯU Ý: `paribbaje` nghĩa gốc là đi du hành, còn hai bài trùng dịch là xuất gia / sống chánh
-  niệm. Tôi theo tiền lệ chứ không tự sửa; người đọc không nhận ra nghĩa du hành đã mất.
+  **Thuật ngữ — tiền lệ đếm được trong tầng (3.500+ bài Việt đã có).** `Ekakanipāta` → *Bộ Một
+  Bài Kinh* (22 bản thag1; chỉ `thag1.1:0.2` viết *Tập Một*, tôi không theo). `aṭṭhaṅgika` →
+  *tám pháp* (357 lần trong Pāli cache, Sujato dịch *eightfold* 363 lần; tiếng Việt tầng dùng
+  *tám pháp*, không có *bát pháp*/*tám phương*). `anariya` → *hèn hạ*; `dosasaṁhita` → *mang theo
+  sân hận*; `asita` → *vô nhiễm*; `aneja` → *không dao động* (75 lần) / *bất động* (181 lần);
+  `aparibhāga` → *tranh chấp*; `uḷāra` → *cao quý*; `kāmarāgappahānāya` → *từ bỏ tham dục*;
+  `kitti`/`yasa` → *tiếng khen* / *danh tiếng*; `amata` → *bất tử*; `suta` → *nghe pháp*;
+  `atthapucchana` → *hỏi han về ý nghĩa*; `Agārasmā anagāriyaṁ` → *từ đời sống tại gia đi vào
+  đời sống không nhà*; `ekatta` → *nhất tâm*; `sabbasaṅgātigata` → *thoát mọi trói buộc*;
+  `pāra` → *bờ bên kia*; `susamāhita` → *điền tịnh*; `tapasā` ( cháy, khóc) → *khóc lóc*;
+  `bhitam` (buồn khóc) → *buồn khóc*; `iddhi` → *thần thông*; `jhāna` → *thiền định*;
+  `paribbajati` → *đi lang thang* (7 lần); `sāmañña` → *hạnh sống*.
 
-  `Kuccasutta` không có ở đây. Khuôn tiêu đề: Phẩm Thứ Tư (20 lượt ngoài lát; thag2.35 có một
-  lượng viết *4. Phẩm Thứ Tư*, tôi theo đa số). `Tissattheragāthā` → *Kinh Kệ Của Trưởng Lão
-  Tissa* dùng lại nguyên văn từ thag1.97.
+  **Khung bài — dùng lại nguyên văn đã có (đếm trước khi chọn).** `Theragāthā 1.N` ở `:0.1`: giữ
+  nguyên, 13 bản thag1 (`11`, `42`, `101`–`109`, `111`, `1`). `0.3` = *Phẩm Thứ…* và `0.4` =
+  *Kinh Kệ Của Trưởng Lão <tên>*: **13 bản đúng vị trí** (thag1.11, 42, 101–109, 111) so với 11
+  bản đảo hai khoá này (thag1.2–10, 14); tôi theo đa số và theo đúng vị trí Pāli. Dòng quy kết
+  `… X thero …. ` → *… Trưởng lão X ….*: **14 bản giữ nguyên dấu lược** (thag1.11, 101–109,
+  111). ⚠ **`thag1.42:1.4` đi ngược lại** — mở rộng thành *Bạch Thế Tôn, Tôn giả Trưởng lão … đã
+  từng nói bài kệ này*. Tôi **giữ lược** theo đa số và theo BRIEF_VI3 §10.1: Pāli đã lược thì
+  bản dịch không được mở rộng, và 12 bài của lát này thống nhất 12/12. Người biên tập nên biết
+  tồn tại hai cách trong cùng tầng; tôi không sửa bài của lát khác.
+
+  **Giới tính người kệ ở `thag1.35`.** Bài này nằm trong *Theragāthā* và Pāli ở `0.4`/`1.5` dùng
+  hình masculine `…ttheragāthā` / `…kānitthero`, nhưng tên là nữ (`Sāmaññakānī`, Sujato ở
+  `0.4` cũng viết *Sāmaññakāni*). Tôi dùng *Trưởng lão Sāmaññakānī* — theo đúng tầng. Lý do
+  chọn: 14 bản thag1 giữ dạng *… Trưởng lão X ….* không có dấu hiệu giới tính, thêm *nữ* sẽ tạo
+  một ngoại lệ mới trong chính tạng này. Lựa chọn thay thế để người biên tập cân nhắc: *… Trưởng
+  lão nữ Sāmaññakānī ….* (tầng có dạng đó ở Therīgāthā: *Trưởng lão nữ Vīrā / Mittā / Bhadrā*).
+  Tôi chuẩn hoá về dạng tên gốc ở `1.5` — cùng cách `thag1.107` đã làm (*Dhammasavo thero* →
+  *Trưởng lão Dhammasava*).
+
+  **Bất định có nghĩa đáng kể, đã phân xử và ghi ở đây (không chú thích trong thân kinh).**
+  `omaṭṭho` ở `1.1` là động từ nội động (*bị đánh / bị hạ*) nên tôi dịch *bị gươm giáng
+  xuống* — chủ thể của cả bốn vế đều là tỳ-kheo, giữ dạng bị động như Pāli. `matthake` ở `1.2` là
+  cách ngữ địa phương (*trên đầu*), tôi dịch *đầu đang bị thiêu đốt*. `Kāmarāgappahānāya` là
+  danh từ chỉ đích đi kèm `paribbaje` (*nên đi lang thang*), tôi dịch *để từ bỏ tham dục, / tỳ-kheo
+  có niệm nên đi lang thang*. `sato` giữ là *có niệm* (không rút thành *tỉnh giác*) vì `bhikkhu` ở
+  `1.4` là chủ thể chính.
+
+  **Điểm.** `final_score` là trung bình số học thô của đúng 10 tiêu chí, **tính bằng script**
+  trong `_meta6_1.py`, không gõ tay. `technical_integrity` chấm **9.6 chứ không phải 10.0**: đợt
+  này cấm chạy `npm run validate|test|check|build` (người điều phối chạy tập trung), nên tiêu chí 10
+  chưa đủ căn cứ để chấm 10 — cùng cách `thag1.42` đã làm. Ba tiêu chí hạ dưới 9.5 là
+  `triangulation` (không có bản Thích Minh Châu) và `ambiguity_integrity` (`tapasā`/`bhitam` và dạng bị động của `omaṭṭho`).

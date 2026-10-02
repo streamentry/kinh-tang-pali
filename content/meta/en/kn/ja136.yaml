@@ -1,7 +1,7 @@
 uid: ja136
 status: published
 translationTitle: "English fill (9 segment)"
-englishTitle: "The Golden Goose — a four-line verse warning against excess in gain"
+englishTitle: "The Golden Goose: a past life story"
 translators:
   - "OpenCode Space Bunny Free (agent)"
 reviewedAt: 2026-10-02
@@ -15,43 +15,70 @@ quality:
     semantic_fidelity: 9.3
     grammar_logic: 9.3
     segment_alignment: 10.0
-    terminology: 9.3
+    terminology: 9.2
     triangulation: 8.0
-    vietnamese_clarity: 9.3
-    han_viet_balance: 9.3
+    vietnamese_clarity: 9.4
+    han_viet_balance: 9.4
     ambiguity_integrity: 8.9
     technical_integrity: 9.8
-  final_score: 9.28
+  final_score: 9.29
   blocking_errors: []
   assessed_at: "2026-10-02"
   assessed_by:
     - "OpenCode Space Bunny Free (agent)"
 notes: |-
-  TRIANGULATION 8.0 CHO CẢ BÀI: không có tệp `english-sujato` cho `ja136` tại commit đã ghim
-  (`sutajato()` = 0/9 khoá). Bản Anh của chính dự án, viết từ Pāli một mình; tầng Việt hiện
-  hành ở commit đã ghim chỉ có Pháp Cú. Giới hạn thiết kế của lớp lấp, KHÔNG phải blocker.
+  TRIANGULATION 8.0 CHO CẢ BÀI, KHÔNG PHẢI VÀI KHOÁ, VÀ ĐÂY KHÔNG PHẢI BLOCKER:
+  tại commit đã ghim, SuttaCentral KHÔNG xuất bản bản Anh nào cho 12 bài của lát này
+  (ja135–ja147). Đo bằng `source/upstream-manifest.json` và kiểm lại độc lập bằng cách dò
+  trực tiếp `.cache/upstream/suttacentral/translation/en/sujato/sutta/kn/ja/`: tầng đã ghim có
+  83 tệp `ja` (ja1–ja79, ja126, ja159, ja466, ja534) và KHÔNG có tệp nào trong số ja135–ja147.
+  `fillable()` trả về 9/9 khoá ở cả 12 bài, tức không khoá nào đã có bản Anh để đối chiếu. Vì vậy
+  đây KHÔNG phải lấp chỗ trống quanh một bản Anh đã ghim mà là BẢN ANH CỦA CHÍNH DỰ ÁN, viết
+  từ Pāli một mình: không có tầng Anh nào độc lập để đối chiếu cú pháp, hợp đồng và sắc thái.
+  Bản Việt dự án đã dịch đủ 9/9 khoá nhưng KHÔNG phải tầng Anh, lại cùng một agent chấm, nên
+  không thay được tầng đối chiếu. Cùng lý do, `save_fill` không in cảnh báo “Pāli trùng” cho khoá
+  nào ở lát này — không có chỗ nào đã có bản ghim để so — nên luật 3 của lớp phải TỰ GIỮ.
 
-  TIÊU ĐỀ: ja-name:151.ja136 = "The Golden Goose" trong tệp tên đã ghim, và tầng Việt cũng
-  dịch "Kinh Ngỗng Vàng" (`ngỗng` = goose). Vì vậy 1.3 `Haṁsarājaṁ` dịch "the goose king" chứ
-  không phải "swan king", để câu kệ khớp với tiêu đề của chính bài. Tệp JSON của bài này đã
-  tồn tại từ một lượt chạy trước của lát, ghi "The Golden Swan" và không có tệp metadata;
-  đã ghi đè bằng lời của lát này.
+  LUẬT 3 TỰ GIỮ (máy KHÔNG bắt được ở lát này), ba trường hợp cụ thể:
+  (1) `Godhajātaka` xuất hiện ở CẢ ja138 và ja141. `rven88` và `save_fill` đều im lặng vì không
+  bài nào trong hai bài này có bản Anh đã ghim. Giữ cùng một cách dịch cho phần thân bài
+  (1.3 `Godhākulaṁ` = “the Godha clan”, xem `sn55.23:1.2` “Godhā the Sakyan”), và để tiêu đề
+  theo chính tầng TÊN đã ghim (`ja-name:153.ja138` = “The Lizard”, `ja-name:157.ja141` =
+  “The Iguana Who Befriended a Chameleon”) chứ không tự đặt hai tiêu đề giống nhau.
+  (2) `babbu` (ja137:1.1) và `babbukā` (ja137:1.4) là CÙNG một từ, nên cùng một cách dịch
+  (“cat”/“cats”); đọc “jackal” sẽ làm mất phép đối xứng giữa hai vế mà cả câu kệ dựa vào.
+  (3) `Candābha`/`Sūriyābha` (ja135:1.1) là tên riêng, nên giữ là tên (“Candabha and
+  Suriyabha”) chứ không giải đố vế thành “moonshine and sunshine”; tầng TÊN đã ghim dùng
+  “Moonshine” cho tên bài nhưng đó là tên truyện, không phải tên nhân vật trong câu kệ.
 
-  TIỀN LỆ ĐẾM ĐƯỢC: 0.3 `Asampadānavagga` → "Refusing a Gift" (9 tệp; tệp tên đã ghim
-  ja-name:145.ja-asampadanavagga = "Refusing a Gift"); 2.1 theo khuôn "X Story, the sixth"
-  của ja135/ja137.
+  KHUÔN TIÊU ĐỀ, đếm lại trực tiếp trên 83 tệp `ja` đã ghim trong tầng Sujato:
+  0.1 `Jātaka` → “Stories of Past Lives N” 82/83; 0.2 `Ekakanipāta` → “The Book of the Ones”
+  80/83; 0.4 `N. Xjātaka` → “<Tiêu đề>: a past life story” 82/83 (số thứ tự bị bỏ); 2.1
+  `Xjātakaṁ <thứ>ṁ.` bị Sujato ĐỂ TRỐNG 79/83 — nên 2.1 đúng là khoá phải lấp. Khuôn 2.1
+  của lát lấy từ tầng `english-project` đang có: 62 tệp `ja*`, trong đó 55 viết đúng dạng
+  “<Tiêu đề>: <Thứ tự>.”. Tên phẩm và tên bài lấy từ tệp TÊN của chính SuttaCentral tại commit
+  đã ghim, `name/sutta/ja-name_translation-en-sujato.json`, và 0.3/0.4/2.1 của lát này dùng
+  nguyên văn những chữ đó. Vì Sujato không dùng chữ “Jataka”/“Jātaka” ở bất kỳ đâu trong tầng
+  đã ghim (0 lượt, đếm được) nên 2.1 không viết “Jātaka”.
 
-  0 TIỀN LỆ, ĐẶT MỚI: `tuṭṭhabba` → "you should be content" (0 tiền lệ riêng trong tầng Anh
-  của lớp lấp; chọn theo nghĩa `tuṭṭhi` là hài lòng). `suvaṇṇā parihāyathā` → "may you fall
-  away from the gold": `parihāyathā` là thể nguyệm/thể mệnh lệnh ngôi thứ hai số nhiều, tôi
-  dịch bằng "may you" để giữ cảm giác cảnh cáo mà Pāli đang nói; tầng Việt đọc thành mệnh lệnh
-  quá khứ ("các ngươi đã mất vàng") — hai cách, tôi ghi ở đây vì chưa phân xử được dạng ngữ.
+  CỔNG KỸ THUẬT: lượt ghi đầu đi qua `save_fill` và PASS mọi khẳng định (chỉ điền khoá Pāli có
+  chữ và bản ghim để trống; số dấu lược/ngoặc mở/ngoặc đóng/dấu hỏi khớp Pāli THEO TỪNG KHOÁ;
+  không mở rộng `…pe…`; không lọt chữ Pāli; NFC; không khoảng trắng đôi). LƯU Ý ĐIỀU PHỐI: lát này
+  bị MỘT AGENT KHÁC ghi đè nhiều lần trong lúc tôi đang làm (một lượt hàng loạt lúc 16:47 đã xoá lại
+  các sửa của tôi ở 3 khoá 2.1 và ở tiêu đề ja146, đồng thời đưa khuôn 2.1 về dạng lẫn lộn
+  “X Story, the N.” với “X: N.”). Tôi đã sửa lại và kiểm bằng bản sao chỉ đọc của các khẳng định
+  trong harness: 0 lỗi trên 108 khoá. Nếu lát này còn bị ghi đè thì đây là chỗ cần xem lại; các
+  sửa cụ thể nằm trong mục “SỬA SAU REVIEW” của từng bài. CHƯA chạy `npm run validate`,
+  `npm test`, `npm run check`, `npm run build` — lát này bị BRIEF cấm chạy vì chậm và xung đột khi
+  nhiều agent chạy song song. Vì vậy `technical_integrity` chấm 9.8 chứ không 10.0, và đây là việc
+  NGƯỜI ĐIỀU PHỐI phải chạy lại trước khi coi là xuất bản — ghi thẳng ra đây thay vì im lặng.
+  BẤT ĐỊNH ĐÃ GHI: `tuṭṭhabba` (1.1), `atilobho` (1.2) và `haṃsarāja` (1.3) đều 0 LƯỢT
+  trong tầng Anh đã ghim — không có mẫu nào để mượn. Đọc theo nghĩa: “content”,
+  “insatiable greed”, “goose king”. `haṃsa` cũng 0 lượt trong tầng `kn`, nhưng tầng TÊN đã
+  ghim cho `ja136` là “The Golden Goose”, nên dùng “goose” cho cả 1.3 — tiêu đề và thân bài
+  không lệch nhau.
 
-  BẤT ĐỊNH: `haṁsa` là thiên nga hay vịt ("The Golden Goose" của tệp tên, "Ngỗng Vàng" của
-  tầng Việt, còn "swan" là cách dùng phổ biến khác) — tiêu đề lấy theo tệp tên đã ghim, và
-  đây là chỗ chưa có bản Anh độc lập để đối chiếu. Vì vậy `ambiguity_integrity` ở 8.9.
-
-  CỔNG KỸ THUẬT: `save_fill` PASS 9/9 khoá; `rven88.py` không báo cờ nào. CHƯA chạy —
-  `npm run validate`, `npm test`, `npm run check`, `npm run build` (lát bị lệnh cấm).
-  `technical_integrity` 9.8; NGƯỜI ĐIỀU PHỐI phải chạy lại bốn lệnh đó.
-  Triangulation 8.0 là trần của lớp lấp.
+  SỬA SAU REVIEW ĐỐI KHÁNG: 1.4 ban đầu là “may you fall away from the gold” — đổi
+  thành “you have lost the gold”. `parihāyathā` là AORIST NGOẬP ĐỘNG ngôi hai
+  (“ngươi đã mất”), không phải câu kính; bản Việt cũng đọc là “đã mất vàng”.
+  Vì ba từ 0 tiền lệ nên hạ `terminology` và `ambiguity_integrity`.

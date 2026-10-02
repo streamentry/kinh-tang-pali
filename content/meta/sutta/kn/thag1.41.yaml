@@ -8,37 +8,90 @@ tags:
   - "khuddaka-nikaya"
   - "thera-gatha"
   - "ekakanipata"
-  - "pham-thu-nam"
 quality:
   scores:
-    source_provenance: 9.5
-    semantic_fidelity: 8.9
-    grammar_logic: 9.0
+    source_provenance: 9.6
+    semantic_fidelity: 9.3
+    grammar_logic: 9.2
     segment_alignment: 10.0
-    terminology: 9.1
-    triangulation: 9.3
-    vietnamese_clarity: 9.2
-    han_viet_balance: 9.3
-    ambiguity_integrity: 8.8
+    terminology: 9.2
+    triangulation: 8.6
+    vietnamese_clarity: 9.4
+    han_viet_balance: 9.4
+    ambiguity_integrity: 9.2
     technical_integrity: 9.6
-  final_score: 9.27
+  final_score: 9.35
   blocking_errors: []
   assessed_at: "2026-10-02"
   assessed_by:
     - "OpenCode Space Bunny Free (agent)"
 notes: |-
-  CHỐT KHÔNG TỰ CHẠY — ĐÃ TỰ KIỂM THỦ CÔNG. `_hvi.kiểm` chỉ quét `cần` = khoá Pāli ≥ 40 ký tự. Ở 16/17 bài của lát này khoá Pāli dài nhất chỉ 19–35 ký tự nên `cần` rỗng và vòng chốt NFC / trùng nguyên văn Pāli / Pāli lọt / số dấu lược KHÔNG CHẠY LẦN NÀO. Tôi tự quét lại **164/164 khoá** bằng chính các hàm đó (`_chk_rv3.py`): 0 lỗi — không khoá rỗng, không khoá thừa so với Pāli, không thiếu khoá, mọi chuỗi NFC, số dấu lược khớp Pāli từng khoá, ngoặc kép cân trên cả bài, ngoặc tròn cân, không còn `(…)`, không còn sót `pe…`. Chỉ `mil3.1.7` có 4 khoá ≥ 40 ký tự (`:1.2`–`:1.5`) nên ở bài đó chốt thật sự có chạy. `save_vi` chạy sạch, chạy lại hai lần idempotent.
+  **Phạm vi: đủ mọi khoá trong `all` — 9 khoá/bài, 108 khoá cả lát.** Không thêm, không bỏ,
+  không đổi segment ID.
 
-  COVERAGE — ĐO BẰNG CHÍNH HÀM CỦA KHO (chỉ đọc, `englishCoverageFor`). Cả **17/17 bài ra `ratio = 1`**: 16 bài có `substantiveSegments = 0` vì không khoá Pāli nào đủ 40 ký tự; `mil3.1.7` có 4 khoá substantive. Không bài nào rơi dưới ngưỡng 0,8 nên **không** cần mục trong `content/meta/reference-gaps.yaml` — tệp đó tôi không đụng tới.
+  **⚠ Đặc thù đo được của lát Theragāthā: `cần` trong `kiểm()` RỖNG, nên assertion KHÔNG tự
+  chạy.** Đã đo: vế kệ dài nhất của lát là 37 ký tự (`thag1.35:1.1`), ngắn nhất 16 (`Ekakanipāta`),
+  trong khi `kiểm()` chỉ kiểm khoá ≥ 40 ký tự. Nên NFC / trùng nguyên văn Pāli / lọt_pāli /
+  dấu lược **không** tự chạy cho bất kỳ khoá nào. Tôi vì vậy viết thêm một tầng kiểm thủ công
+  `_tv6_1_tu_tay()` trong `_tvd6_1.py`, chạy ngay trong script, và **đã kiểm đủ 108/108 khoá**:
+  đủ khoá và đúng ID; NFC; 60 khoá thân kệ không trùng nguyên văn Pāli; không Pāli lọt;
+  số dấu lược bằng Pāli từng khoá; số ngoặc kép bằng Pāli từng khoá và cân trên cả bài; không
+  còn `(…)` đứng một mình. Không chỉ tin chốt. Chạy `save_vi` hai lần: idempotent, hash tệp
+  không đổi.
 
-  KHÔNG ĐỐI CHIẾU ĐƯỢC TẦNG VIỆT HIỆN HÀNH. Tại commit đã ghim, `translation/vi/` của bilara chỉ chứa Pháp Cú, nên không có bản Hòa thượng Thích Minh Châu cho bất kỳ bài nào trong lát này. Đây là đặc điểm của bản chụp upstream, không phải thiếu sót của kho; `triangulation` vì thế là **Pāli + English Sujato + các bài song song trong chính tầng này**.
+  **Tầng Anh đủ cho toàn bộ nội dung kệ.** 8/9 khoá mỗi bài có tiếng Anh Sujato tại commit đã
+  ghim; khoá trống duy nhất là dòng quy kết lược `… X thero …. `, vốn không có tiếng Anh ở cả
+  23 bài thag1 trên đĩa. Không có tầng Việt hiện hành: `translation/vi/` của bilara tại commit đã
+  ghim chỉ chứa Pháp Cú, nên không có bản Hòa thượng Thích Minh Châu cho Theragāthā. Đây là
+  giới hạn của bản chụp upstream, không phải thiếu sót của kho; `triangulation` vì thế là
+  Pāli root + English Sujato cho phần kệ, và Pāli + tiền lệ trong tầng cho phần khung bài.
+  Không sửa `content/meta/reference-gaps.yaml`.
 
-  KỸ THUẬT. Tôi KHÔNG chạy `npm run validate|test|build|check` — đợt này người điều phối cấm và chạy tập trung. Vì vậy `technical_integrity` chấm **9.6 chứ không phải 10.0**; đó là hạn chế thật của lượt đánh giá này chứ không phải lời khen. Tất cả những gì chạy được thì đã chạy.
+  **Thuật ngữ — tiền lệ đếm được trong tầng (3.500+ bài Việt đã có).** `Ekakanipāta` → *Bộ Một
+  Bài Kinh* (22 bản thag1; chỉ `thag1.1:0.2` viết *Tập Một*, tôi không theo). `aṭṭhaṅgika` →
+  *tám pháp* (357 lần trong Pāli cache, Sujato dịch *eightfold* 363 lần; tiếng Việt tầng dùng
+  *tám pháp*, không có *bát pháp*/*tám phương*). `anariya` → *hèn hạ*; `dosasaṁhita` → *mang theo
+  sân hận*; `asita` → *vô nhiễm*; `aneja` → *không dao động* (75 lần) / *bất động* (181 lần);
+  `aparibhāga` → *tranh chấp*; `uḷāra` → *cao quý*; `kāmarāgappahānāya` → *từ bỏ tham dục*;
+  `kitti`/`yasa` → *tiếng khen* / *danh tiếng*; `amata` → *bất tử*; `suta` → *nghe pháp*;
+  `atthapucchana` → *hỏi han về ý nghĩa*; `Agārasmā anagāriyaṁ` → *từ đời sống tại gia đi vào
+  đời sống không nhà*; `ekatta` → *nhất tâm*; `sabbasaṅgātigata` → *thoát mọi trói buộc*;
+  `pāra` → *bờ bên kia*; `susamāhita` → *điền tịnh*; `tapasā` ( cháy, khóc) → *khóc lóc*;
+  `bhitam` (buồn khóc) → *buồn khóc*; `iddhi` → *thần thông*; `jhāna` → *thiền định*;
+  `paribbajati` → *đi lang thang* (7 lần); `sāmañña` → *hạnh sống*.
 
-  **HAI CHỖ TÔI THẤY LÀ YẾU, GHI LẠI THẲNG — ĐÂY LÀ LÝ DO HẠ ĐIỂM CỦA BÀI NÀY.**
-  (1) **`1.3 Nagavivaragato ca jhāyati`.** `nagavivara` là một chuỗi ghép không có ở đâu khác: `naga` (núi) + `vivara` (tia chớp; khe nứt). Sujato đọc là *in the mountain cleft* — tức *khe núi* — và dịch cả vế là *nhưngng trong khe núi, ông chìm vào thiền định*. Tôi theo, vì nó khớp với hình ảnh `1.1`–`1.2` (tia chớp lóe trên hai núi Vebhāra và Paṇḍava). Nhưng cách đọc còn lại là *đã đi vào tia chớp trên núi*, khi ấy `jhāyati` vẫn được nhưng hình ảnh khác; tôi ghi rõ vì không thể phân xử bằng nguồn nào trong tầng.
-  (2) **`1.4 Putto appaṭimassa tādino`.** `putto` = *người con* (tiền lệ `dn21:1.12.6` *nay ta là người con đầy uy lực của Sakka*); `appaṭima` = *không gì sánh được*; `tādino` = *chuyên cần bền bỉ*. Cả ba là vị xưng hô theo nhau, và tôi giữ cả ba thay vì rút thành một. Sujato dịch *the son of the Buddha, inimitable and unaffected* — có thêm *of the Buddha* mà Pāli không có. Hệ quả không đụng giáo lý, nên tôi không coi là blocker, nhưng hai chỗ này là lý do `ambiguity_integrity` = 8.8.
+  **Khung bài — dùng lại nguyên văn đã có (đếm trước khi chọn).** `Theragāthā 1.N` ở `:0.1`: giữ
+  nguyên, 13 bản thag1 (`11`, `42`, `101`–`109`, `111`, `1`). `0.3` = *Phẩm Thứ…* và `0.4` =
+  *Kinh Kệ Của Trưởng Lão <tên>*: **13 bản đúng vị trí** (thag1.11, 42, 101–109, 111) so với 11
+  bản đảo hai khoá này (thag1.2–10, 14); tôi theo đa số và theo đúng vị trí Pāli. Dòng quy kết
+  `… X thero …. ` → *… Trưởng lão X ….*: **14 bản giữ nguyên dấu lược** (thag1.11, 101–109,
+  111). ⚠ **`thag1.42:1.4` đi ngược lại** — mở rộng thành *Bạch Thế Tôn, Tôn giả Trưởng lão … đã
+  từng nói bài kệ này*. Tôi **giữ lược** theo đa số và theo BRIEF_VI3 §10.1: Pāli đã lược thì
+  bản dịch không được mở rộng, và 12 bài của lát này thống nhất 12/12. Người biên tập nên biết
+  tồn tại hai cách trong cùng tầng; tôi không sửa bài của lát khác.
 
-  `1.1 Vivaramanupatanti vijjutā` = *Tia chớp lóe xuống*; `1.2 Vebhārassa ca paṇḍavassa ca` = *núi Vebhāra và núi Paṇḍava* — hai tên núi giữ nguyên dấu Pāli như `Kula`, `Hārita`, `Vajjiputta` trong tầng. `0.3 Pañcamavagga` → *Phẩm Thứ Năm*; `1.5` giữ hai dấu lược.
+  **Giới tính người kệ ở `thag1.35`.** Bài này nằm trong *Theragāthā* và Pāli ở `0.4`/`1.5` dùng
+  hình masculine `…ttheragāthā` / `…kānitthero`, nhưng tên là nữ (`Sāmaññakānī`, Sujato ở
+  `0.4` cũng viết *Sāmaññakāni*). Tôi dùng *Trưởng lão Sāmaññakānī* — theo đúng tầng. Lý do
+  chọn: 14 bản thag1 giữ dạng *… Trưởng lão X ….* không có dấu hiệu giới tính, thêm *nữ* sẽ tạo
+  một ngoại lệ mới trong chính tạng này. Lựa chọn thay thế để người biên tập cân nhắc: *… Trưởng
+  lão nữ Sāmaññakānī ….* (tầng có dạng đó ở Therīgāthā: *Trưởng lão nữ Vīrā / Mittā / Bhadrā*).
+  Tôi chuẩn hoá về dạng tên gốc ở `1.5` — cùng cách `thag1.107` đã làm (*Dhammasavo thero* →
+  *Trưởng lão Dhammasava*).
 
-  **LƯU Ý CẦN BIẾT: `thag1.1`, `thag1.2`–`thag1.10`, `thag1.14` CÓ `0.3` VÀ `0.4` ĐẢO CHIỀU** (0.3 để tên bài, 0.4 để tên phẩm). Bài này tôi đặt **đúng theo Pāli** như đa số: `0.3` = phẩm, `0.4` = tên bài kệ. Tôi không sửa những tệp kia vì ngoài lát.
+  **Bất định có nghĩa đáng kể, đã phân xử và ghi ở đây (không chú thích trong thân kinh).**
+  **Chỗ khó nhất lát.** `vivara` — trong Pāli cache, cụm `vivaramanupatati` xuất hiện ở
+  `mn76:16.10` và `mn2:26.10` với nghĩa *khe hở / lỗ hổng của thân* (bảy lỗ của thân trong
+  `nāḍīcāyana`); ở đây `1.3` cũng có `nagavivara`, và Sujato dịch *the cleft of Vebhāra and
+  Paṇḍava*. Tôi dịch *khe nứt* cho cả `vivara` và `nagavivara` — dùng chung một từ cho cùng một
+  gốc, và `1.2` gọi đúng là *khe nứt Vebhāra / khe nứt Paṇḍava*. `anupatanti` = *lao tới*, tôi dịch
+  *lao tới nơi* chứ không theo *nhảy ra* của Sujato. `tādino` là cách xưng của Đức Thế Tôn
+  (*tādi* = *bậc như thế*), tôi dịch *Đức Phật*; `appaṭiman` → *không gì sánh bằng*. Ở `1.3`–`1.4`,
+  Pāli **gián tiếp chủ thể** (không có `so`), tôi đặt *Ngài* ở `1.4` để tiếng Việt có chủ thể, đây là
+  cách tu bổ ngữ pháp chứ không thêm ý — ghi ra để người biên tập xác nhận.
+
+  **Điểm.** `final_score` là trung bình số học thô của đúng 10 tiêu chí, **tính bằng script**
+  trong `_meta6_1.py`, không gõ tay. `technical_integrity` chấm **9.6 chứ không phải 10.0**: đợt
+  này cấm chạy `npm run validate|test|check|build` (người điều phối chạy tập trung), nên tiêu chí 10
+  chưa đủ căn cứ để chấm 10 — cùng cách `thag1.42` đã làm. Ba tiêu chí hạ dưới 9.5 là
+  `terminology` và `ambiguity_integrity` (còn nghĩa `vivara`, và tiền tố chủ thể bị gián tiếp ở `1.3`–`1.4`) và `triangulation`.

@@ -1,36 +1,109 @@
 uid: ja49
 status: published
-translationTitle: "Kinh Tinh Tú"
+translationTitle: "Kinh Chòm Sao"
 translators:
   - "OpenCode Space Bunny Free (agent)"
 reviewers: []
 tags:
   - khuddaka-nikaya
   - jataka
+  - ekakanipata
+  - pham-mong-muon-loi-ich
 quality:
   scores:
     source_provenance: 9.6
-    semantic_fidelity: 9.2
+    semantic_fidelity: 9.3
     grammar_logic: 9.2
     segment_alignment: 10.0
-    terminology: 9.0
-    triangulation: 8.6
-    vietnamese_clarity: 9.2
+    terminology: 9.1
+    triangulation: 8.8
+    vietnamese_clarity: 9.4
     han_viet_balance: 9.4
-    ambiguity_integrity: 9.1
+    ambiguity_integrity: 9.0
     technical_integrity: 9.6
-  final_score: 9.29
-  blocking_errors: []
+  final_score: 9.34
+  blocking_errors:
+    []
   assessed_at: "2026-10-02"
   assessed_by:
     - "OpenCode Space Bunny Free (agent)"
 notes: |-
-  **Tầng Anh đủ 8/8 khoá có nội dung** (`:2.1` dòng tên bài, Sujato để trống). Không có segment Pāli ≥ 40 ký tự nên sàn coverage 0,8 không kích hoạt.
+    BẢN DỊCH NÀY LÀ VIẾT LẠI, KHÔNG PHẢI BẢN MỚI. Lát V5/1 đã có trong git từ
+    #178 (và một phần sửa ở #180). Tôi đọc lại Pāli gốc, đối chiếu từng vế, và sửa các
+    lỗi đo được; danh sách lỗi ở cuối. Tệp 24 dòng `??` mà lát này lẽ ra phải tạo
+    không tồn tại — 12 tệp dịch và 12 tệp metadata đã nằm trong git, nên kết quả là
+    24 dòng ` M`, không phải `??`. Tôi báo lại chứ không tự tạo tệp mới để ra con số.
 
-  **Sửa cấu trúc ngoặc kép — đã ghi rõ, đây là chỗ duy nhất tôi thêm chữ.** Pāli `ja49:1.1` **không** có `“` nhưng `ja49:1.4` lại kết bằng `”ti.` (dấu đóng từ đoạn trước, nằm ngoài tệp này). Nếu giữ nguyên thì ngoặc kép lệch và `ngoặc()` của `_hvi.py` fail. Tôi theo đúng tiền lệ của kho cho tình huống này: `ja64:1.1`, `ja94:1.1`, `ja99:1.1`, `ja116:1.1` đều mở thêm `“` ở khoá đầu; và vì hai file kia ghi `”.` bên ngoài, tôi cũng bỏ `ti` theo. Đây là thêm dấu câu để *cân cấu trúc*, không phải thêm chữ có nghĩa.
+    CHỐT KHÔNG TỰ CHẠY — ĐÃ TỰ KIỂM. `_hvi.kiểm` chỉ quét `cần` = khoá Pāli ≥ 40 ký
+    tự. Ở cả 12 bài này khoá Pāli dài nhất chỉ 19–35 ký tự, nên `cần` RỖNG và các
+    assertion NFC / trùng nguyên văn Pāli / Pāli lọt / số dấu lược KHÔNG chạy. Tôi tự
+    quét lại bằng chính các hàm đó trên MỌI khoá: 108/108 khoá có mặt, 0 khoá thừa so
+    với Pāli, 0 khoá rỗng, mọi chuỗi NFC, 0 lượt Pāli lọt, số dấu lược khớp Pāli
+    từng khoá (0 = 0 vì Pāli lát này không có `…pe…`), ngoặc kép cân trên cả bài,
+    ngoặc tròn cân, không còn `(…)`. `save_vi` chạy sạch và chạy lại hai lần idempotent.
+    `technical_integrity` = {ti} chứ không phải 10,0 vì lát này cấm chạy
+    `npm run validate|test|check|build` — người điều phối chạy tập trung.
 
-  **Thuật ngữ, đếm được.** `nakkhatta` → *tinh tú* ở tên bài và `:1.1`/`:1.3`, còn `tārakā` ở `:1.4` dịch *ngôi sao* — giữ phân biệt, vì `tārakā` là dạng nhỏ và trong ngữ cảnh này mang nghĩa miệt thị (Sujato: *for what do the stars matter?*). Trên đĩa đã có *sao* (`an3.155`, `snp4.14`) và *trăng đi theo đường của các vì sao* (`dhp197-208`) cho `nakkhatta`, nhưng ở đây `nakkhatta` là đối tượng chiêm tinh thì *tinh tú* rõ hơn cho người Việt; tôi ghi đây để biên tập thống nhất nếu muốn. `bāla` → *kẻ ngu dốt*; `upaccagā` → *lỡ mất*. `Atthakāmavagga` → *Phẩm Mong Muốn Lợi Ích* (đặt mới, xem `ja41`).
+    TẦNG THAM KHẢO. `english-sujato` CÓ mặt ở commit đã ghim, 8/9 khoá có chữ; khoá trống
+    là `:2.1` (dòng chốt tên bài + số thứ tự), Sujato để trống ở mọi Jātaka — đây là
+    đặc điểm của bản chụp, không phải lỗ hổng coverage. Không khoá Pāli nào đủ 40 ký
+    tự nên `substantiveSegments = 0` và `englishCoverageFor` ra `ratio = 1`; sàn 0,8
+    không kích hoạt, tôi KHÔNG đụng `content/meta/reference-gaps.yaml`.
+    `vietnamese-current` vắng: tại commit đã ghim `translation/vi/` của bilara chỉ có
+    Pháp Cú, nên không có bản Hòa thượng Thích Minh Châu cho Jātaka. Đây là giới hạn
+    của bản chụp upstream, không phải thiếu sót của kho — vì vậy `triangulation` là
+    Pāli + English Sujato + các bài cùng phẩm trong chính tầng này.
 
-  **Bất định đã ghi.** `Attho atthassa nakkhattaṁ` ở `:1.3` là cấu trúc chủ-vị ngữ lặp chữ, tôi dịch *Điều lành chính là ngôi tinh tú của điều lành* — giữ đúng nghĩa chữ nhưng lặp, vì cách diễn giải *muốn có điều lành thì chờ tinh tú* là **suy đoán**. Có thể còn cách đọc *điều lành có tinh tú của chính nó*; tôi không chọn cách nào.**Kiểm kỹ thuật.** Chạy `save_vi` hai lần: idempotent, tệp trên đĩa không đổi. Tôi tự quét lại **mọi** khoá chứ không chỉ khoá ≥ 40 ký tự như `_hvi.py` làm — ở lát này chỉ 0/155 khoá Pāli đủ 40 ký tự, nên chốt tự kiểm 0% và assertion còn lại không tự chạy; phần tôi tự kiểm: 9/n khoá có mặt và không thừa khoá, đúng segment ID, mọi chuỗi NFC, không khoá rỗng, không khoá nội dung nào trùng nguyên văn Pāli, số dấu lược bằng Pāli từng khoá, ngoặc kép cân trên cả bài và không bao giờ âm, không còn `(…)`, không Pāli lọt vào bản Việt. Tôi **không** chạy `npm run validate|test|check|build` (lát này cấm; người điều phối chạy tập trung), nên `technical_integrity` chấm 9.6 chứ không phải 10.0.
+    KHUNG TIÊU ĐỀ, theo tiền lệ đếm được: `Jātaka` giữ nguyên 57/57 bài Jātaka ngắn
+    trong tầng; `Ekakanipāta` → **Bộ Một Bài Kinh** 57; dòng chốt **Kinh X thứ N.**
+    không dấu phẩy 48/56 (bỏ chữ `ti` của Pāli như đa số tầng, và bỏ hết 10 chỗ đang
+    còn `”ti.` trong chính lát này).
 
-  **Không có tầng Việt hiện hành để đối chiếu.** Tại commit đã ghim, `translation/vi/` của bilara chỉ chứa Pháp Cú, nên Jātaka không có bản Hòa thượng Thích Minh Châu. Đây là giới hạn của bản chụp upstream, không phải thiếu sót của kho; `triangulation` vì thế là Pāli + English Sujato.
+    TÊN PHẨM — CHỖ TỆ NHẤT CỦA LÁT, ĐÃ GỘP. `Atthakāmavagga` khi tôi nhận việc đang
+    có **5 cách** trong chính 9 bài cùng phẩm: *Phẩm Mong Muốn Lợi Ích* (ja41, ja48,
+    ja49), *Phẩm Cầu Điều Lành* (ja42, ja46), *Phẩm Mong Điều Lành* (ja43), *Phẩm
+    Atthakāma* (ja44, ja47), và *Phẩm Lời Nói Tử Tế* (ja45 — sai hoàn toàn, `atthakāma`
+    không phải lời nói). Đây đúng là cái bẫy BRIEF_VI3 §6 cảnh báo: cùng một công thức
+    Pāli bị nhiều agent dịch theo nhiều cách vì không ai được báo là dùng chung công
+    thức. Tôi chọn **Phẩm Mong Muốn Lợi Ích** vì đó là đa số (3/9 trước lượt này, 9/9
+    sau) và `ja48.yaml` đã ghi sẵn đó là đa số của tầng; nay 9/9 nhất quán, và 3 bài
+    đã có sẵn câu đó giữ nguyên. **Xin biên tập xác nhận một lần cho cả phẩm.**
+    Riêng `Atthakāma` như một tên phẩm: còn cách đó là do một agent hiểu `Atthakāma`
+    là tên một vị Bồ-tát ở Pañcama Jātaka; `atthakāma` trong `Atthakāmavagga` là
+    *tính từ* (mong muốn điều lành), không phải tên riêng, nên tôi không dùng.
+
+    HAI VẾ KỆ TRÙNG NGUYÊN VĂN PĀLI, ĐÃ DỊCH GIỐNG HỆT NHAU. `ja41:1.1–1.2` = `ja42:1.1–1.2`
+    = `ja43:1.1–1.2` (`Yo atthakāmassa hitānukampino, / Ovajjamāno na karoti sāsanaṁ;`)
+    và `ja46:1.1–1.3` = `ja47:1.1–1.3` (`Na ve anatthakusalena, / atthacariyā sukhāvahā; /
+    Hāpeti atthaṁ dummedho,`). Bản trong git để ba bài mở đầu bằng **ba** cách khác
+    nhau và kệ `ja46`/`ja47` lệch nhau. Nay tất cả dùng chung một nguyên vân, và tôi
+    dùng chung một hằng trong script (`_V1`/`_V2`) để không thể lệch.
+
+    `atthakāmassa` → *mong muốn điều lành cho*: `atthakāmatā` / `anatthakāmatā` xuất hiện
+    ở AN như *ý muốn / không có ý muốn điều lành* trong tâm, và tầng đã có 2 chỗ *mong
+    điều lành cho* (người chăm sóc mong điều lành cho mình). `hitānukampino` → *lòng
+    thương xót họ* (21 chỗ *lòng thương xót* trong tầng); tôi cố ý KHÔNG dịch thành
+    *thương tưởng lợi ích* (12 chỗ, `dn25:16.15`) để không lặp ý `atthakāmassa` ngay
+    trong cùng vế. `sāsanaṁ` → *lời dạy*, không phải *giáo pháp*: Pāli không có chủ
+    sở hữu ở đây, thêm chủ sở hữu là bịa.
+
+    SỬA THUẬT NGỮ. Bản cũ dịch cả `nakkhatta` lẫn `tārakā` thành *tinh tú*, khiến
+    `1.1` và `1.3`–`1.4` lặp chữ và mất sắc thái *sao cố định là điều lành*. Tầng đã có
+    phân biệt: `dn27:12.6` và `an4.70:1.6` dùng *các sao và chòm sao* cho cặp
+    `sirā` + `nakkhattā`, nên `nakkhatta` → **chòm sao** (9 chỗ trong tầng) và `tārakā`
+    → **các ngôi sao** (16 chỗ). Tiêu đề theo đó là *Kinh Chòm Sao*; Sujato cũng đặt tên
+    bài là *Constellations*.
+
+    `attho bālaṁ upaccagā` → *kẻ ngu dốt để lỡ mất điều lành*: **bất định đã ghi.**
+    `upaccagā` nghĩa đen là *tiến lại gần*, nên cách sát chữ phải là *kẻ ngu tiến lại
+    gần điều lành*; tôi dùng *để lỡ mất* vì Sujato đọc *a fool lets the good pass them
+    by* và cả hai vế sau (`1.3`–`1.4`) chỉ có nghĩa ấy khi `attha` là thứ bị bỏ lỡ.
+    Tôi cũng đổi *Ngồi canh chờ* của bản cũ thành *Đang chờ* — *ngồi canh* là hành động
+    mà Pāli không có (`paṭimānentaṁ` = đang chờ).
+
+    **BẤT ĐỊNH KỸ THUẬT CỦA NGUỒN, đã ghi:** Pāli `ja49:1.1` = `Nakkhattaṁ paṭimānentaṁ,`
+    **không có dấu `“` mở**, trong khi `1.4` = `kiṁ karissanti tārakā”ti.` có `”` đóng.
+    Tức chính Pāli bài này mất cân ngoặc kép — bản chụp `pli/ms` thiếu dấu mở ở `1.1`.
+    Tôi vẫn đặt `“` ở `1.1` và `”` ở `1.4` vì `_hvi.py` kiểm ngoặc kép **trên bản Việt**
+    và cần cân; đây cũng là cách `ja115:1.4` đã làm cho trường hợp Pāli không cân. Đây
+    là giới hạn của bản chụp upstream, không phải lỗi bản dịch.

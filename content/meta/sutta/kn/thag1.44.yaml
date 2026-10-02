@@ -5,43 +5,44 @@ translators:
   - "OpenCode Space Bunny Free (agent)"
 reviewers: []
 tags:
-  - "khuddaka-nikaya"
-  - "thera-gatha"
-  - "ekakanipata"
-  - "pham-thu-nam"
+  - khuddaka-nikaya
+  - thera-gatha
+  - ekakanipata
 quality:
   scores:
     source_provenance: 9.6
-    semantic_fidelity: 9.7
+    semantic_fidelity: 9.6
     grammar_logic: 9.5
     segment_alignment: 10.0
-    terminology: 9.4
+    terminology: 9.5
     triangulation: 9.3
-    vietnamese_clarity: 9.6
-    han_viet_balance: 9.3
-    ambiguity_integrity: 9.3
-    technical_integrity: 10.0
-  final_score: 9.57
-  blocking_errors:
-    []
+    vietnamese_clarity: 9.4
+    han_viet_balance: 9.4
+    ambiguity_integrity: 9.4
+    technical_integrity: 9.5
+  final_score: 9.52
+  blocking_errors: []
   assessed_at: "2026-10-02"
   assessed_by:
     - "OpenCode Space Bunny Free (agent)"
 notes: |-
-  9 khoá, bản dịch phủ đủ, dấu lược `…` ở `1.5` giữ nguyên.
-  
-  **Bài sạch nhất trong nhóm Trưởng Lão của lô.** Cả bốn vế đều đúng và tự nhiên; tôi không tìm ra lỗi nghĩa nào.
-  
-  **Kép ý ở `1.1`–`1.2` được giữ trọn.** Pāli nối hai vế bằng kép `vā` … `vā`: *hoặc* khóc người chết, *hoặc* khóc người còn sống nhưng không thấy. Bản dịch giữ kép (*Mẹ ơi, người ta khóc kẻ đã chết, / hay kẻ còn sống mà không thấy đâu*) — không gộp thành một ý.
-  
-  **`Yo vā jīvaṁ na dissati` → *hay kẻ còn sống mà không thấy đâu*** ✓. `na dissati` là "không thấy (ở đâu)", giữ đúng nghĩa vắng mặt chứ không phải chết. Đây là chỗ dễ nhầm với kệ trước, và bản dịch không nhầm.
-  
-  **`Jīvantaṁ maṁ amma passantī` → *Mẹ thấy con còn sống đây*** ✓ — `maṁ` (con) và `amma` (mẹ) đúng chiều. `Kasmā maṁ amma rodasī` → *vậy sao mẹ lại khóc con* ✓ giữ cả `Kasmā` (vì sao).
-  
-  **Danh xưng `amma` → *mẹ*** ✓ xuyên suốt cả bốn vế, nhất quán.
-  
-  **Tầng Anh** có mặt đủ và còn xác nhận chi tiết mà bản dịch không sai: Sujato dịch `Yo vā jīvaṁ na dissati` là *or for one who's alive but missing* — đúng "còn sống nhưng vắng mặt", không phải chết.
-  
-  **Tên phẩm** `Pañcamavagga` → *Phẩm Thứ Năm* khớp 2 tệp thag cùng phẩm.
-  
-  **Tầng Việt**: không có Thích Minh Châu cho Trưởng Lão ở commit đã ghim.
+  Khung bốn khối tiêu đề giữ y hệt các bài thag1 đã có: 0.1 giữ Pāli kèm số,
+  0.2 Bộ Một Bài Kinh (258 bài), 0.3 tên phẩm theo thứ tự, 0.4 Kinh Kệ Của Trưởng Lão
+  với chữ Lão hoa (89 bài; bốn bài lẻ dùng lão thường). Dòng kết 1.5 giữ HAI dấu lược
+  như Pāli (BRIEF_VI3 §10.1, không mở rộng), mở nháy kép ở 1.1 và đóng ở 1.4 y hệt Pāli.
+  BỐN VẾ DÙNG LẠI NGUYÊN VĂN — KHÔNG DỊCH LẠI. Câu kệ này trùng với sn10.5:8.1-8.4,
+  vế 1.1 trùng tuyệt đối, ba vế còn lại chỉ khác chữ hoa và có thêm maṁ. Tôi lấy nguyên văn
+  đã có: Mẹ ơi, người ta khóc kẻ đã chết, / hay kẻ còn sống mà không thấy đâu; / Mẹ thấy
+  con còn sống đây, / vậy sao mẹ lại khóc con. Vì hai nơi cùng xưng hô mẹ và cùng nghĩa,
+  bản Việt chung là đúng và không có chỗ nào phải dịch khác.
+  Vì đây là lần dùng lại gần như tuyệt đối, đây là bài tôi chấm cao nhất trong lát.
+
+  Kỹ thuật: 9/9 khoá, không rỗng, thứ tự khớp Pāli, NFC, số dấu lược bằng Pāli từng
+  khoá, nháy kép cân trên cả bài, không còn (…). save_vi sạch, chạy lại hai lần
+  idempotent. Vì mọi khoá Pāli của Trưởng Lão ngắn hơn 40 ký tự nên cần trong kiểm()
+  rỗng và các assertion không tự chạy, tôi tự quét MỌI khoá bằng script riêng. Không
+  chạy npm run validate|test|check|build (lát này cấm) nên technical_integrity 9.5.
+  Tầng Việt hiện hành tại commit đã ghim chỉ có Pháp Cú nên không có bản Hòa thượng
+  Thích Minh Châu cho Trưởng Lão; bản Anh Sujato có mặt và tôi đã đọc ở tất cả tám bài
+  này. Ô English trống ở dòng kết không phải sự đồng thuận, mà là chỗ Pāli phải tự đứng
+  vững.

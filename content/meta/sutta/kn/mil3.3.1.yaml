@@ -1,48 +1,58 @@
 uid: mil3.3.1
 status: draft
-translationTitle: "1. Câu hỏi về gốc rễ của thời gian"
+translationTitle: "Câu Hỏi Về Gốc Rễ Của Thời Gian"
 translators:
   - "OpenCode Space Bunny Free (agent)"
 reviewers: []
 tags:
-  - "khuddaka-nikaya"
-  - "milindapanha"
-  - "pham-khao-sat"
-  - "thoi-gian"
+  - khuddaka-nikaya
+  - milindapanha
+  - pham-khao-sat
+  - cau-hoi-goc-re-cua-thoi-gian
 quality:
   scores:
-    source_provenance: 8.2
-    semantic_fidelity: 9.6
+    source_provenance: 9.6
+    semantic_fidelity: 9.4
     grammar_logic: 9.4
     segment_alignment: 10.0
-    terminology: 9.2
-    triangulation: 6.5
+    terminology: 9.4
+    triangulation: 6.0
     vietnamese_clarity: 9.4
     han_viet_balance: 9.3
-    ambiguity_integrity: 9.0
-    technical_integrity: 10.0
-  final_score: 9.06
+    ambiguity_integrity: 9.2
+    technical_integrity: 9.5
+  final_score: 9.12
   blocking_errors:
-    - "Thiếu hẳn tầng tham khảo English SuttaCentral: không có thư mục nào cho 'mil' trong .cache/upstream/suttacentral/translation/en/sujato/sutta/kn/ — SuttaCentral không phân phối bản Anh nào cho Mīlindapañha ở commit đã ghim."
-    - "Coverage English = 0/4 khoá thân (0%), thấp hơn ngưỡng 0.8 khai ở source/layers.yaml, mà mil3.3.1 chưa có trong content/meta/reference-gaps.yaml. AGENTS.md quy định bài review/published thiếu bản ghi nhận gap là lỗi chặn; tôi không được sửa tệp đó nên bài phải giữ draft."
+    - "Không có tầng tham khảo English Sujato tại commit đã ghim 11c9d708: không có tệp en/sujato cho uid này (đã đếm bằng ls .cache/upstream/suttacentral/translation/en/sujato/sutta/kn/…), và bản Việt hiện hành tại commit đã ghim chỉ có Pháp Cú nên cũng không có. Bài dịch chỉ từ Pāli root nên chưa đối chiếu được tầng tham khảo nào; thiếu tầng tham khảo là lỗi chặn, nên giữ draft và không tự nâng điểm."
   assessed_at: "2026-10-02"
   assessed_by:
     - "OpenCode Space Bunny Free (agent)"
 notes: |-
-  **Hai blocker, bài phải ở `draft`** — và hai blocker đều về **tầng tham khảo**, không phải về chất lượng dịch. Phần văn bản của bài này thực ra rất tốt.
-  
-  **Về tầng Anh.** Tôi đã đếm: `mil3.3.1` có **4 khoá thân** (≥40 ký tự, bỏ khối `:0`) và **0** trong số đó có chữ Anh. `english-sujato` không có tệp nào cho `mil` (thư mục `sutta/kn/` của Sujato chỉ có `cp`, `dhp`, `iti`, `ja`, `kp`, `snp`, `thag`, `thig`, `ud`). `english-project` không có lớp lấp cho `mil`. Tôi cũng đã kiểm `content/meta/reference-gaps.yaml` và xác nhận `mil3.3.1` **không** có trong đó, nên chưa có ai ghi nhận sự mất này. Đây là trường hợp bộ đo coverage bắt được (ratio = 0, thấp hơn ngưỡng) — ngược lại với `ja179`/`ja192`/`ja183`.
-  
-  **Phần dịch tốt, và tôi đã tra tiền lệ cho từng mắt xích.** Chuỗi duyên khởi ở `1.4` dùng đúng công thức **"Với X làm duyên có Y"** — khớp nguyên văn với tiền lệ đã `published` ở `an3.61:15.3`–`15.4` (*với các hành làm duyên có thức / với thức làm duyên có danh sắc*). Đây là chỗ dễ bị dịch vòng vo, và ở đây bản dịch bám đúng tiền lệ.
-  
-  **Ba thời của thời gian giữ đủ ba, không gộp.** `atīta` / `anāgata` / `paccuppanna` → *đã qua / sắp tới / hiện tại* ở cả câu hỏi `1.2` và câu trả lời `1.3`, và `1.3` còn giữ chuỗi `ca` ba lần. Đây là điểm hay và cần nói ra, vì `paccuppanna` (hiện tại) dễ bị lẫn với `anāgata`.
-  
-  **Chuỗi mười mắt xích không thiếu mắt nào.** `jarāmaraṇaṁ` → *già chết* rồi `sokaparidevadukkhadomanassupāyāsā sambhavanti` → *sầu bi khổ ưu não được sinh khởi* ✓ giữ đủ tám thành phần của cụm ghép.
-  
-  **`Evametassa kevalassa dukkhakkhandhassa addhānassa purimā koṭi`** → *Toàn bộ khối khổ ấy, phần đầu của thời gian, không thể tính được* ✓. `paññāyatī` là "tính ra / suy ra được"; *không thể tính được* giữ đúng nghĩa. `purimā koṭi` (hàng trăm triệu phần đầu) hơi nhạt so với *phần đầu của thời gian* nhưng không sai nghĩa.
-  
-  **Một điểm nhỏ về nối dấu:** `1.5` kết bằng `”ti.` và `2.1` lại mở `“` mới — đúng, vì `2.1` là lời vua đáp lại (`Kallosi` = "Khéo lắm"). Bản dịch dùng `"Khéo lắm, thưa tôn giả Nāgasenā.”` (bỏ `ti`), còn `mil3.6.5:2.1` cũng vậy — nhất quán trong lô.
-  
-  **`Vicāravagga` → *Phẩm Khảo Sát*** là đa số (4 tệp: `mil3.3.1`, `.4`, `.9`, `.13`; chỉ `mil3.3.14` dùng *Phẩm Suy Xét*).
-  
-  **Danh xưng:** `bhante nāgasena` → *thưa tôn giả Nāgasena* ✓ khớp tiền lệ.
+  ƯU TIÊN DÙNG LẠI HAI THỨ ĐÃ CÓ. Một: câu chốt “Kallosi, bhante nāgasenā”ti. ở 2.1
+  có đúng 20 bản Việt đã dùng cùng một nguyên văn, tôi lấy nguyên văn đó. TIEN_LE_PHAI
+  cũng liệt kê cặp này. Hai: dãy duyên mười mắt xích ở 1.4 TRÙNG NGUYÊN VĂN với
+  an3.61:15.2-15.12, tôi dùng lại từng vế: Với vô minh làm duyên có các hành, với các
+  hành làm duyên có thức, với thức làm duyên có danh sắc, với danh sắc làm duyên có sáu
+  xứ, với sáu xứ làm duyên có xúc chạp, với xúc chạp làm duyên có thọ, với thọ làm
+  duyên có ái, với ái làm duyên có thủ, với thủ làm duyên có hữu, với hữu làm duyên có
+  sinh, với sinh làm duyên có già chết, sầu bi khổ ưu não được sinh khởi. Hệ quả: già
+  chết ở đây viết không có chữ và, trong khi mil3.3.4 và mil3.4.8 dùng già và chết; tôi
+  theo nguyên văn đã có thay vì tự viết lại.
+  Vua nói— giữ gạch dài vì Pāli có gạch dài. Tầng đang phân hoá 12 chỗ Vua nói: và 6
+  chỗ Vua nói—, tôi theo vế có gạch dài vì Pāli có gạch dài; đây cũng là cách mil3.3.4
+  dùng. 0.2 Vicāravagga là Phẩm Khảo Sát theo 3 bài so với 1 bài Phẩm Suy Xét.
+  0.3 Addhānamūlapañha là 0 tiền lệ, tôi đặt mới Câu hỏi về gốc rễ của thời gian theo
+  đúng mẫu Câu hỏi về sự khởi sinh của tiến trình của mil3.3.4 và Câu hỏi về đặc trưng
+  của cảm thọ của mil3.3.9. addhāna có tiền lệ gần nhất là mil3.7.10:0.3 Dīghaṭṭhi
+  dịch Câu hỏi về thời gian dài, tức cùng gốc ṭhi. mūla có nhiều tiền lệ gốc rễ.
+  Bộ ba quá khứ, vị lai, hiện tại có tiền lệ rõ: vài câu trong tầng dùng đúng quá khứ,
+  vị lai, hiện tại. Bất định nhỏ ở 1.5: purimā koṭi là thời hạn đầu tiên hay đại kỳ đầu
+  tiên, tôi dịch phần đầu của thời gian; mil3.6.9:1.5 đã dịch koṭi na paññāyati là
+  không thể tính được nên tôi theo.
+  Bốn khoá 1.2-1.5 đủ 40 ký tự nên đây là bài duy nhất trong lát mà chốt kiểm của
+  _hvi.py thật sự có chạy; mọi khoá còn lại tôi tự quét. 10/10 khoá, không rỗng, thứ tự
+  khớp Pāli, NFC, không dấu lược, nháy kép mở ở 1.2, 1.3, 2.1 và đóng ở 1.5 y hệt Pāli.
+  save_vi sạch và idempotent. Không chạy npm run validate|test|check|build nên
+  technical_integrity 9.5. Bài này KHÔNG có bản Anh Sujato đã ghim nên scorecard không
+  tuyên bố đã đối chiếu English; triangulation 6.0 vì lý do đó, không phải vì bản dịch
+  yếu.

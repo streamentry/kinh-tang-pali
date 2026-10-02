@@ -1,0 +1,71 @@
+uid: ja236
+status: draft
+translationTitle: "Kinh Chim Bồ Câu"
+translators:
+  - "OpenCode Space Bunny Free (agent)"
+reviewers: []
+tags:
+  - khuddaka-nikaya
+  - jataka
+  - dukanipata
+  - pham-upahana
+  - chim-bo-cau
+quality:
+  scores:
+    source_provenance: 9.5
+    semantic_fidelity: 9.0
+    grammar_logic: 9.0
+    segment_alignment: 10.0
+    terminology: 8.7
+    triangulation: 8.0
+    vietnamese_clarity: 9.0
+    han_viet_balance: 9.2
+    ambiguity_integrity: 8.5
+    technical_integrity: 9.8
+  final_score: 9.07
+  blocking_errors:
+    - "Không có tầng tham khảo tiếng Anh Sujato tại commit đã ghim: thư mục translation/en/sujato/sutta/kn/ja/ có 83 tệp (ja1–ja79, ja126, ja159, ja466, ja534) và không có tệp nào cho uid này; tầng Việt hiện hành (translation/vi/phantuananh/) chỉ có 26 tệp Pháp Cú nên Jātaka cũng không có bản Hòa thượng Thích Minh Châu."
+  assessed_at: "2026-10-02"
+  assessed_by:
+    - "OpenCode Space Bunny Free (agent)"
+notes: |-
+  Bản này chỉ có **một** tầng tham khảo: Pāli root đã ghim. **Không có Anh Sujato** —
+  tại commit đã ghim thư mục `translation/en/sujato/sutta/kn/ja/` có **83** tệp
+  (ja1–ja79, ja126, ja159, ja466, ja534) và **không** có tệp nào cho 14 uid của lát này.
+  Đây là đặc điểm của bản chụp upstream, không phải thiếu sót của kho. Tầng Việt hiện
+  hành (`translation/vi/phantuananh/`) tại cùng commit chỉ có 26 tệp Pháp Cú, nên Jātaka
+  không có bản Hòa thượng Thích Minh Châu để đối chiếu. Vì vậy `triangulation` chỉ
+  8,0–8,4: dịch từ Pāli, phân xử cú pháp bằng **Pāli trùng nguyên văn ở bài khác** (sn3.15,
+  sn21.6, ja202, thag2.38, vv33) và bằng chú giải Jātaka khi Pāli gốc im lặng.
+  **Cổng kỹ thuật chưa chạy.** Đợt này cấm `npm run validate|test|check|build`, nên tôi
+  **không** thể tuyên bố technical gate pass; `technical_integrity` hạ còn 9,8 và bốn
+  lệnh đó để người điều phối chạy.
+  **13 khoá, đủ cả bài** (`:0.1`–`:0.4` tiêu đề, `:1.1`–`:2.4` kệ, `:3.1` dòng kết).
+  `kiểm()` của `_hvi.py` chỉ quét khoá Pāli **≥ 40 ký tự**, mà lát này **không có khoá nào**
+  rơi vào tập đó — nên tôi tự kiểm riêng **mọi** khoá: phủ đủ 13/13, không rỗng, NFC,
+  không trùng nguyên văn Pāli, dấu lược khớp từng khoá, ngoặc kép cân trên cả bài, dấu
+  câu cuối câu kệ khớp Pāli, không còn `(…)`. Pāli lát này **không có** `…pe…` nên hai
+  phía đều 0 dấu lược.
+  **Tiền lệ dùng lại, đếm được trên tầng Việt:** `:0.1` `Jātaka` giữ nguyên (171 tệp
+  Jātaka); `:0.2` `Dukanipāta` → *Bộ Một Bài Kinh* (237 tệp); `:0.3` `…vagga` → *Phẩm
+  <tên>*, theo khuôn `Phẩm Haṁci` (ja117:0.3) và `Phẩm Bīraṇathambha` (ja211:0.3);
+  dòng kết `<Tên>jātakaṁ <số>ṁ` → *Kinh <Tên> thứ <tư>*, theo `ja22:2.1` (*Kinh Chó Săn
+  thứ hai.*).
+  **Cố ý KHÔNG sao chép tiền lệ ở `2.1`–`2.2`, và đây là lý do.** `Nāssa sīlaṁ vijānātha,
+  anaññāya pasaṁsatha;` trùng **nguyên văn** với `ja175:2.1`–`2.2` (và với `ja384:3.1`–`3.2`).
+  Bản Việt sẵn có ở ja175 là *Đừng vội bảo hắn không có giới, / hãy nhận biết rồi hãy khen* —
+  vế đầu **không có tiền đối chiếu** trong Pāli của bài này: ở ja236 không ai bảo hắn
+  không có giới, nên chép vế đó vào đây là đưa chữ không có nguồn vào thân kinh. AGENTS.md
+  xếp *Pāli meaning* trên đầu thứ tự ưu tiên và tính phần thêm nghĩa không có nguồn là
+  lỗi loại 4, nên tôi dịch theo Pāli: *Hãy nhận biết giới hạnh của hắn, / biết rồi hãy
+  khen*. **Cần người biên tập phán xử:** nên sửa **cả hai** bài cho khớp, và bản sửa được
+  chọn nên theo hướng nào. Ghi đây để không ai coi đây là sự lãng quên.
+  Đối chiếu: `ja175` và `ja236` đều đang `draft`, nên **không** có mâu thuẫn với bất kỳ bản
+  `published` nào; `sn3.15` và `sn21.6` thì có, và ở đó tôi khớp tuyệt đối.
+  **Tên bài.** `baka` trong Pāli là *chim cút, bồ câu, đại điểu* — nhiều nghĩa, và nhân vật
+  chính của truyện là `mayūra` (con công), **không** phải `baka`. Tôi chọn nghĩa *chim bồ
+  câu* cho tên bài và ghi lý do; không chuẩn hoá một nghĩa cho cả tầng.
+  **Bất định.** `mandamanda` chỉ xuất hiện đúng một lần trong toàn bộ Pāli đã ghim (ở
+  chính khoá này), không có parallel nào để đối chiếu; tôi đọc là *bầu sen tròn* (cụm
+  `kumuda` ở `1.2` cho ngữ cảnh sen). `Vūpasantehi pakkhehi` dịch *đôi cánh đã tan tành*,
+  còn chủ ngữ của `jhāyati` thì để theo `1.2` là *người kia*.

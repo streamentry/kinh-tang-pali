@@ -1,0 +1,67 @@
+uid: ja246
+status: draft
+translationTitle: "Kinh Lời Nói Ngu"
+translators:
+  - "OpenCode Space Bunny Free (agent)"
+reviewers: []
+tags:
+  - khuddaka-nikaya
+  - jataka
+  - dukanipata
+  - pham-singala
+  - loi-noi-ngu
+quality:
+  scores:
+    source_provenance: 9.5
+    semantic_fidelity: 9.3
+    grammar_logic: 9.3
+    segment_alignment: 10.0
+    terminology: 9.3
+    triangulation: 8.2
+    vietnamese_clarity: 9.2
+    han_viet_balance: 9.3
+    ambiguity_integrity: 9.1
+    technical_integrity: 9.8
+  final_score: 9.3
+  blocking_errors:
+    - "Không có tầng tham khảo tiếng Anh Sujato tại commit đã ghim: thư mục translation/en/sujato/sutta/kn/ja/ có 83 tệp (ja1–ja79, ja126, ja159, ja466, ja534) và không có tệp nào cho uid này; tầng Việt hiện hành (translation/vi/phantuananh/) chỉ có 26 tệp Pháp Cú nên Jātaka cũng không có bản Hòa thượng Thích Minh Châu."
+  assessed_at: "2026-10-02"
+  assessed_by:
+    - "OpenCode Space Bunny Free (agent)"
+notes: |-
+  Bản này chỉ có **một** tầng tham khảo: Pāli root đã ghim. **Không có Anh Sujato** —
+  tại commit đã ghim thư mục `translation/en/sujato/sutta/kn/ja/` có **83** tệp
+  (ja1–ja79, ja126, ja159, ja466, ja534) và **không** có tệp nào cho 14 uid của lát này.
+  Đây là đặc điểm của bản chụp upstream, không phải thiếu sót của kho. Tầng Việt hiện
+  hành (`translation/vi/phantuananh/`) tại cùng commit chỉ có 26 tệp Pháp Cú, nên Jātaka
+  không có bản Hòa thượng Thích Minh Châu để đối chiếu. Vì vậy `triangulation` chỉ
+  8,0–8,4: dịch từ Pāli, phân xử cú pháp bằng **Pāli trùng nguyên văn ở bài khác** (sn3.15,
+  sn21.6, ja202, thag2.38, vv33) và bằng chú giải Jātaka khi Pāli gốc im lặng.
+  **Cổng kỹ thuật chưa chạy.** Đợt này cấm `npm run validate|test|check|build`, nên tôi
+  **không** thể tuyên bố technical gate pass; `technical_integrity` hạ còn 9,8 và bốn
+  lệnh đó để người điều phối chạy.
+  **13 khoá, đủ cả bài** (`:0.1`–`:0.4` tiêu đề, `:1.1`–`:2.4` kệ, `:3.1` dòng kết).
+  `kiểm()` của `_hvi.py` chỉ quét khoá Pāli **≥ 40 ký tự**, mà lát này **không có khoá nào**
+  rơi vào tập đó — nên tôi tự kiểm riêng **mọi** khoá: phủ đủ 13/13, không rỗng, NFC,
+  không trùng nguyên văn Pāli, dấu lược khớp từng khoá, ngoặc kép cân trên cả bài, dấu
+  câu cuối câu kệ khớp Pāli, không còn `(…)`. Pāli lát này **không có** `…pe…` nên hai
+  phía đều 0 dấu lược.
+  **Tiền lệ dùng lại, đếm được trên tầng Việt:** `:0.1` `Jātaka` giữ nguyên (171 tệp
+  Jātaka); `:0.2` `Dukanipāta` → *Bộ Một Bài Kinh* (237 tệp); `:0.3` `…vagga` → *Phẩm
+  <tên>*, theo khuôn `Phẩm Haṁci` (ja117:0.3) và `Phẩm Bīraṇathambha` (ja211:0.3);
+  dòng kết `<Tên>jātakaṁ <số>ṁ` → *Kinh <Tên> thứ <tư>*, theo `ja22:2.1` (*Kinh Chó Săn
+  thứ hai.*).
+  **`bhuttā` đã tra toàn Pāli và không tìm ra nghĩa — nói thật thay vì bịa.** `Bhutvā
+  aṇḍañca potañca` chỉ có ở `ja384:3.3` trong toàn bộ Pāli đã ghim (lát này không có
+  `bhuttā` ở khoá nào), và `bhuttā` là dạng của `bhujjati` / `bhū` theo kiểu *bhūta*
+  (uống). Không có từ điển nào trong kho để phân xử, và Jātaka này không có bản Anh Sujato
+  để đối chiếu. Vì vậy tôi dịch `Bhuttvā` thành *sau khi ăn* theo nghĩa gốc *uống/ăn* và
+  **không** thêm chi tiết nào cho `aṇḍañca potañca` (trứng và nồi) vì không biết chắc các
+  từ ấy còn giữ nghĩa nguyên văn ở câu kệ này hay không. Người biên tập nên tra lại; nếu
+  cần an toàn thì sửa cả `ja384` cùng lúc.
+  **Pāli trùng nguyên văn trong chính bài, khớp tuyệt đối.** `deti dānaṁ asaññato;` và
+  `Deti dānaṁ asaññato;` chỉ khác chữ hoa thứ nhất (Pāli cũng vậy), nên tôi dùng lại đúng
+  một cách dịch cho cả hai: *…bố thí, không hề hay biết*. `dānaṁ` → *bố thí* theo 697
+  tiền lệ trên tầng; `asaññato` = *không hay biết* (không phải *vô ý thức*).
+  `upalippati` = *bị tội lỗi ám vào* theo 33 tiền lệ của *ám vào*; `pāpa` ở đây là *tội
+  lỗi* (23 tiền lệ) chứ không phải *điều ác*.
