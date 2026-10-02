@@ -1,0 +1,66 @@
+uid: sn35.119
+status: published
+translationTitle: "Câu Hỏi Của Pañcasikha"
+translators:
+  - "OpenCode Space Bunny Free (agent)"
+reviewers: []
+tags:
+  - samyutta-nikaya
+  - cong-hanh-nhom
+  - pañcasikha
+  - 12. Phẩm Dục Thuộc Thế Gian
+quality:
+  scores:
+    source_provenance: 9.7
+    semantic_fidelity: 9.5
+    grammar_logic: 9.5
+    segment_alignment: 10.0
+    terminology: 9.5
+    triangulation: 9.3
+    vietnamese_clarity: 9.5
+    han_viet_balance: 9.6
+    ambiguity_integrity: 9.5
+    technical_integrity: 9.6
+  final_score: 9.57
+  blocking_errors: []
+  assessed_at: "2026-10-02"
+  assessed_by:
+    - "OpenCode Space Bunny Free (agent)"
+notes: |-
+  KỸ THUẬT. Đợt này tôi KHÔNG chạy `npm run validate|test|build|check` — người điều phối cấm và chạy tập trung. Vì vậy tôi KHÔNG tuyên bố technical gate pass: `technical_integrity` chấm 9,6 chứ không phải 10,0. Bốn lệnh đó để người điều phối chạy lại.
+
+  CHỐT KHÔNG TỰ CHẠY — ĐÃ TỰ KIỂM THỦ CÔNG. Vòng chốt của `_hvi.kiểm()` chỉ quét khoá Pāli ≥ 40 ký tự; tôi tự quét lại TOÀN BỘ 19 khoá từ đĩa bằng chính các hàm đó (`_chk_w11.py`):
+  đủ khoá, không khoá thừa/thiếu so với Pāli, chuỗi NFC, không khoá rỗng, số dấu lược khớp TỪNG KHOÁ, ngoặc kép `“`/`”` cân trên cả bài — kiểm CẢ theo thứ tự số LẪN theo thứ tự chuỗi mà `sorted()` của chốt dùng, không Pāli lọt, không có `(…)`, không trùng nguyên văn Pāli. Kết quả: 0 lỗi trên 266 khoá / 14 bài.
+
+  COVERAGE. Đo lại đúng quy tắc `source/layers.yaml` (substantivePaliMinChars 40, excludeReferenceBlock, floor 0,8, `english-project` chỉ tính khi `published`):
+  14 khoá Pāli có nội dung (≥ 40 ký tự, ngoài khối `:0`), **14** khoá có chữ Anh Sujato ⇒ coverage 1,00 ≥ ngưỡng 0,8. Lớp lấp `english-project` không cần dùng cho bài này.
+
+  KHÔNG ĐỐI CHIẾU ĐƯỢC TẦNG VIỆT HIỆN HÀNH. Tại commit đã ghim, `translation/vi/` của bilara chỉ chứa Pháp Cú, nên không có bản Hòa thượng Thích Minh Châu cho bài này. Đây là đặc điểm của bản chụp upstream, không phải thiếu sót của kho; `budsas.org` chỉ là tra cứu toàn văn và không có căn cứ alignment ở mức segment.
+
+  DẤU LƯỢC §10. Không khoá nào trong lát này được MỞ RỘNG chỗ Pāli lược. Bản Anh Sujato đã ghim mở rộng nhiều chỗ `…pe…` (ví dụ `sn45.24:2.2` và `sn55.31:4.1` liệt kê đủ tám ngành Bát Chánh Đạo, `sn46.14:3.3` liệt kê đủ bảy giác chi) — tôi KHÔNG theo, vì mở rộng là thêm chữ không đánh dấu. Cũng không khoá nào bị nén thêm: mọi `…` trong bản Việt đều ăn đúng một dấu lược ứng với một `…pe…` của Pāli, đếm từng khoá.
+
+  DÙNG LẠI NGUYÊN VĂN ĐÃ CÓ — ĐO ĐƯỢC. **2 khoá có Pāli trùng nguyên văn** với
+    `sn35.126:1.3` và `sn35.128:1.3` (cùng câu hỏi), và tôi theo đúng nguyên văn đã có cho phần
+    lõi *trong thế giới này những người ấy … ngay trong hiện tại*, chỉ sửa lỗi của bản chụp: hai
+    tệp kia để dấu nháy kép mở không đóng, và đóng `”ti?` thành `”?` — tôi giữ `”ti?` như
+    Pāli và quy ước chung của tầng. `iṭṭhā kantā manāpā piyarūpā kāmūpasaṁhitā rajanīyā` →
+    *đáng ưa, lấy lòng, khớp lòng, có dáng vẻ đẹp, phù hợp với ham muốn, quyến rũ*: đa số
+    **trong chính SN35** (11 lần ở `sn35.104/122/123/229`). Họ khác là `mn122/mn139/mn145` với
+    *đáng thích, dễ chịu, hấp dẫn, khơi dậy ham muốn* (6 bài) — tôi chọn của SN35 cho đúng
+    bối cảnh. Riêng `cakkhuviññeyyā` tôi dịch *sắc do mắt nhận biết*, KHÔNG theo *những sắc
+    mắt có thể nhận biết có thể nhận biết* của bốn bài kia — lặp đó là lỗi dịch, `cakkhuviññeyyā`
+    chỉ là một từ. `abhinandati, abhivadati, ajjhosāya tiṭṭhati` → *ưa thích, tán thán, chấp
+    thủ mà đứng giữ* theo `mn106:10.11`. `tannissitaṁ viññāṇaṁ hoti tadupādānaṁ` → *thức
+    nương tựa nơi ấy và thủ nơi ấy* theo `mn106:10.12`. `Saupādāno/Anupādāno` → *còn bám
+    thủ / không còn bám thủ*. Tên phẩm: `Lokakāmaguṇavagga` → *12. Phẩm Dục Thuộc Thế Gian*
+    (2 bài, toàn bộ đồng thuận). 0 tiền lệ, đặt mới: `Pañcasikhasutta` → *Câu Hỏi Của
+    Pañcasikha*; `gandhabbadevaputto` → *vị gandhabba* (tiền lệ *vị gandhabba* đã có ở `sn35`
+    khác; `dn21` chỉ gọi tên); `m’idhekacce sattā` → *trong thế giới này những người ấy* theo
+    `sn35.126/128` chứ không theo *những hữu tình* của `mn41/42`.
+  REVIEW ĐỐI KHÁNG. Tôi in lại Pāli ↔ Việt từng cặp và đọc lại với mục tiêu tìm lỗi.
+  Lỗi đã bắt được và đã sửa trước khi ghi lần cuối: 
+  **(1)** `1.9`/`2.4` bản nháp thêm *nơi ấy*/*nơi nào` trong khi Pāli chỉ có
+      `Saupādāno`/`Anupādāno`; đã viết lại thành cặp đối xứng *còn bám thủ* / *không còn
+      bám thủ*. **(2)** `1.7` bản nháp dịch theo `mn145` (*hoan hỉ, hoan lạc*) trong khi `mn145`
+      dùng bộ động tử khác; đã theo `mn106:10.11` đúng bộ `abhinandati, abhivadati,
+      ajjhosāya tiṭṭhati` (*ưa thích, tán thán, chấp thủ mà đứng giữ*).

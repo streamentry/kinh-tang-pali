@@ -1,0 +1,45 @@
+uid: sn47.38
+status: published
+translationTitle: "Kinh Biết Trọn Vẹn"
+translators:
+  - "OpenCode Space Bunny Free (agent)"
+reviewers: []
+tags:
+  - samyutta-nikaya
+  - cong-hanh-nhom
+  - ananussutavagga
+  - kinh-biet-tron-ven
+quality:
+  scores:
+    source_provenance: 9.5
+    semantic_fidelity: 9.5
+    grammar_logic: 9.5
+    segment_alignment: 10.0
+    terminology: 9.3
+    triangulation: 9.5
+    vietnamese_clarity: 9.4
+    han_viet_balance: 9.4
+    ambiguity_integrity: 9.2
+    technical_integrity: 9.6
+  final_score: 9.49
+  blocking_errors: []
+  assessed_at: "2026-10-02"
+  assessed_by:
+    - "OpenCode Space Bunny Free (agent)"
+notes:
+  - |-
+    **Không có tầng Việt hiện hành để đối chiếu.** Tại commit đã ghim, bilara chỉ phân phối 26 chương Pháp Cú cho tiếng Việt, nên không tồn tại bản Hòa thượng Thích Minh Châu cho bài này; đó là đặc điểm của snapshot upstream, không phải thiếu sót của repo. Ba tầng còn lại là Pāli root, bản Anh Sujato đã ghim và bản Việt dự án.
+  - |-
+    **`kiểm()` của `_hvi.py` gần như vô dụng ở bài này**: nó chỉ quét khoá Pāli từ 40 ký tự trở lên, mà mọi vế kệ ở đây đều ngắn hơn, nên `cần` rỗng và assertion không chạy. Vì vậy tôi tự quét **toàn bộ** khoá từ đĩa: đủ khoá, đúng exact ID, NFC, không rỗng, dấu lược khớp Pāli từng khoá, ngoặc kép cân cả bài, không Pāli lọt, không `(…)`. Kết quả: **0 lỗi trên 252 khoá**.
+  - |-
+    **Đã tự dựng chỉ mục Pāli↔Việt toàn tầng rồi so khoá của lát, không đoán.** Nạp mọi tệp Pāli gốc trong cache (284.708 khoá) và mọi tệp Việt dự án (111.657 khoá), ghép theo khoá vì khoá là duy nhất toàn hệ thống. Lát này tìm được **4 khoá có Pāli trùng nguyên văn với bài đã có bản Việt ngoài lát (236 cặp)**, và **16 cụm Pāli trùng nguyên văn nội lát**. Mọi bản Việt đã có đều được dùng lại nguyên văn, không dịch lần hai.
+  - |-
+    **Mười bảy cụm Pāli trùng nguyên văn với sn47.37 trong chính lát, dịch giống hệt** — cùng `0.2`, `1.1`, `1.2`, `1.3`, `2.1`, `3.1`, `4.1`. Hai bài chỉ khác ở vế kết của mỗi tứ: sn47.37 nói *sự tham ấy được từ bỏ* còn bài này nói *thân/cảm thọ/tâm/pháp được biết trọn vẹn*; chỗ đó không được dịch giống nhau. Ba khoá trùng trong chính sn47.37 (`Chandassa pahānā amataṁ sacchikataṁ hoti`) cũng dịch giống hệt.
+  - |-
+    **Cùng lý do ba chỗ tranh chấp như sn47.37, và cùng cách xử lý.** `0.2` `Ananussutavagga` chia 3–3 giữa *Phẩm Không Nghe Lại* và *Phẩm Chưa Từng Nghe*; tôi theo sn47.36 và giữ nguyên lựa chọn đó ở đây để không tự phân kỳ trong lát. `1.1` theo sn47.36. `1.2` theo sn47.36/sn47.41, vốn cũng là đa số của tầng sn (38 so với 17).
+  - |-
+    **Coverage English 12/12 = 100%.** Khác sn47.37 ở chỗ Sujato dịch `pariññāto hoti` thành *completely understand*; tôi dùng *biết trọn vẹn* theo nghĩa kỹ thuật của `pariññā` đã có sẵn trong tầng. `amataṁ sacchikataṁ hoti` ông vẫn dịch *freedom from death*, tôi vẫn giữ *bất tử* — lý do ghi ở sn47.37.
+  - |-
+    **Review đối kháng bắt được 1 lỗi, cùng loại với sn47.37.** `2.1/3.1/4.1` bản nháp tôi mở đầu *Ở đây, này các tỳ-kheo,* — nhưng ba khoá đó không có `idha`/`bhikkhave` trong Pāli. Đây là lần thứ hai trong lát tôi tự thêm vế gọi vào thân kinh, đã xóa cả ở hai bài.
+  - |-
+    **Tiêu đề 0 tiền lệ.** `Pariññātasutta` chưa có bản Việt nào; tôi đặt *Kinh Biết Trọn Vẹn* theo đúng `pariññāta` dùng trong thân bài.

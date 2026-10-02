@@ -1,0 +1,77 @@
+uid: sn46.14
+status: published
+translationTitle: "Kinh Người Bệnh (Một)"
+translators:
+  - "OpenCode Space Bunny Free (agent)"
+reviewers: []
+tags:
+  - samyutta-nikaya
+  - cong-hanh-nhom
+  - nguoi-benh
+  - giac-chi
+  - 2. Phẩm Bệnh
+quality:
+  scores:
+    source_provenance: 9.8
+    semantic_fidelity: 9.7
+    grammar_logic: 9.7
+    segment_alignment: 10.0
+    terminology: 9.6
+    triangulation: 9.5
+    vietnamese_clarity: 9.5
+    han_viet_balance: 9.6
+    ambiguity_integrity: 9.6
+    technical_integrity: 9.6
+  final_score: 9.66
+  blocking_errors: []
+  assessed_at: "2026-10-02"
+  assessed_by:
+    - "OpenCode Space Bunny Free (agent)"
+notes: |-
+  KỸ THUẬT. Đợt này tôi KHÔNG chạy `npm run validate|test|build|check` — người điều phối cấm và chạy tập trung. Vì vậy tôi KHÔNG tuyên bố technical gate pass: `technical_integrity` chấm 9,6 chứ không phải 10,0. Bốn lệnh đó để người điều phối chạy lại.
+
+  CHỐT KHÔNG TỰ CHẠY — ĐÃ TỰ KIỂM THỦ CÔNG. Vòng chốt của `_hvi.kiểm()` chỉ quét khoá Pāli ≥ 40 ký tự; tôi tự quét lại TOÀN BỘ 19 khoá từ đĩa bằng chính các hàm đó (`_chk_w11.py`):
+  đủ khoá, không khoá thừa/thiếu so với Pāli, chuỗi NFC, không khoá rỗng, số dấu lược khớp TỪNG KHOÁ, ngoặc kép `“`/`”` cân trên cả bài — kiểm CẢ theo thứ tự số LẪN theo thứ tự chuỗi mà `sorted()` của chốt dùng, không Pāli lọt, không có `(…)`, không trùng nguyên văn Pāli. Kết quả: 0 lỗi trên 266 khoá / 14 bài.
+
+  COVERAGE. Đo lại đúng quy tắc `source/layers.yaml` (substantivePaliMinChars 40, excludeReferenceBlock, floor 0,8, `english-project` chỉ tính khi `published`):
+  14 khoá Pāli có nội dung (≥ 40 ký tự, ngoài khối `:0`), **14** khoá có chữ Anh Sujato ⇒ coverage 1,00 ≥ ngưỡng 0,8. Lớp lấp `english-project` không cần dùng cho bài này.
+
+  KHÔNG ĐỐI CHIẾU ĐƯỢC TẦNG VIỆT HIỆN HÀNH. Tại commit đã ghim, `translation/vi/` của bilara chỉ chứa Pháp Cú, nên không có bản Hòa thượng Thích Minh Châu cho bài này. Đây là đặc điểm của bản chụp upstream, không phải thiếu sót của kho; `budsas.org` chỉ là tra cứu toàn văn và không có căn cứ alignment ở mức segment.
+
+  DẤU LƯỢC §10. Không khoá nào trong lát này được MỞ RỘNG chỗ Pāli lược. Bản Anh Sujato đã ghim mở rộng nhiều chỗ `…pe…` (ví dụ `sn45.24:2.2` và `sn55.31:4.1` liệt kê đủ tám ngành Bát Chánh Đạo, `sn46.14:3.3` liệt kê đủ bảy giác chi) — tôi KHÔNG theo, vì mở rộng là thêm chữ không đánh dấu. Cũng không khoá nào bị nén thêm: mọi `…` trong bản Việt đều ăn đúng một dấu lược ứng với một `…pe…` của Pāli, đếm từng khoá.
+
+  DÒNH CHIẾU ĐƯỢC THÊM TẦNG `english-project`. Sujato để trống `sn46.14:4.4`, và
+    lớp lấp của dự án có `content/meta/en/sn/sn46.14.yaml` với `status: published` nên tầng này
+    được tính vào coverage. Câu đó đọc *That way Venerable Mahākassapa's illness came to an
+    end*, khớp bản Việt *Và bệnh ấy của Tôn giả Mahākassapa đã được đoạn trừ như vậy* (theo
+    `sn46.16:3.4`).
+
+  DÙNG LẠI NGUYÊN VĂN ĐÃ CÓ — ĐO ĐƯỢC. `sn46.16` là bài em cùng phẩm và có công thức gần
+    trùng nguyên văn: `Satisambojjhaṅgo kho, bhante, bhagavatā sammadakkhāto bhāvito
+    bahulīkato abhiññāya sambodhāya nibbānāya saṁvattati …pe… upekkhāsambojjhaṅgo kho…` →
+    *Giác chi …, do … khéo giảng, đã tu tập, đã làm cho sung mãn thì đưa đến thắng trí, giác
+    ngộ, Niết-bàn … giác chi …* (tôi theo cả khung câu này). `mayā sammadakkhātā bhāvitā
+    bahulīkatā abhiññāya sambodhāya nibbānāya saṁvattanti` → *do Ta khéo giảng, đã tu tập, đã
+    làm cho sung mãn thì đưa đến thắng trí, giác ngộ, Niết-bàn*. `Kacci te, kassapa,
+    khamanīyaṁ kacci yāpanīyaṁ? …` và `Na me, bhante, khamanīyaṁ…` → *liệu ngươi có dễ chịu
+    không, có đủ sức không? …* / *con không dễ chịu gì, không đủ sức gì. …* theo `mn143:3.2`
+    và `4.1` (cùng cấu tạo với `Na me, bhante sāriputta`). `Idamavoca bhagavā` → *Đức Thế Tôn
+    nói như vậy* (đa số 10 bài dn); `Attamano āyasmā X bhagavato bhāsitaṁ abhinandi` →
+    *Tôn giả X hoan hỷ và tán đồng lời Đức Phật dạy* (7 bài); `Vuṭṭhahi cāyasmā X tamhā
+    ābādhā` → *Tôn giả X từ đó khỏi bệnh* theo `an10.60`; `Tathāpahīno … so ābādho ahosīti`
+    → *Và bệnh ấy của … đã được đoạn trừ như vậy* theo `sn46.16:3.4`; `taggha` → *Đúng vậy*
+    theo `sn46.16:2.5`; `sugata` → *Thiện Thệ* theo `dn14/dn18/dn21` (6 bài);
+    `pippaliguhāyaṁ` → *hang Pipphali* theo `ud1.6:1.3`. Tên phẩm: `Gilānavagga` → *2. Phẩm
+    Bệnh* (đa số 4 so với 3 và 1); `Paṭhamagilānasutta` → *Kinh Người Bệnh (Một)* theo
+    `sn46.16:0.3` (*Ba*). 0 tiền lệ, đặt mới: `veḷuvane kalandakanivāpe` → *tại Trúc Lâm, chỗ
+    nuôi dưỡng sóc* (trong SN46 chỉ có một bài đã dịch nên không có đa số đo được; 4 bài an
+    cùng Pāli dùng *vườn tre/rừng Trúc, nơi nuôi dưỡng các con sóc*, 5 bài dùng *Trúc Lâm,
+    chỗ nuôi dưỡng sóc* — tôi theo nhóm sau).
+  REVIEW ĐỐI KHÁNG. Tôi in lại Pāli ↔ Việt từng cặp và đọc lại với mục tiêu tìm lỗi.
+  Lỗi đã bắt được và đã sửa trước khi ghi lần cuối: 
+  **(1)** `Satisambojjhaṅgo …pe… upekkhāsambojjhaṅgo` bản nháp dùng *giác chi
+      niệm … giác chi xả* (đúng 1 tiền lệ `sn46.27`); đếm lại toàn SN46 thì *giác chi có
+      nhớ tưởng … giác chi có bình thản* chiếm đa số (5 so với 3 và 1) → đã đổi, và dùng
+      nhất quán cho cả `sn46.15` và `sn46.29:1.3`. **(2)** `3.3` và `3.4` bản nháp lặp *do Đức
+      Thế Tôn khéo giảng* trong khi Pāli là `mayā` (của Ta); đã dùng *do Ta khéo giảng* cho
+      toàn bộ ba khoá.

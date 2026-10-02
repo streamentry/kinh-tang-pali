@@ -1,0 +1,87 @@
+uid: mil3.3.3
+status: draft
+translationTitle: "Câu Hỏi Về Gốc Rễ Của Trí Tuệ"
+translators:
+  - "OpenCode Space Bunny Free (agent)"
+reviewers: []
+tags:
+  - khuddaka-nikaya
+  - milindapanha
+  - pham-khao-sat
+  - vong-lan-qua-khu
+quality:
+  scores:
+    source_provenance: 9.3
+    semantic_fidelity: 9.3
+    grammar_logic: 9.4
+    segment_alignment: 10.0
+    terminology: 9.4
+    triangulation: 6.6
+    vietnamese_clarity: 9.3
+    han_viet_balance: 9.5
+    ambiguity_integrity: 9.2
+    technical_integrity: 9.6
+  final_score: 9.16
+  blocking_errors:
+    - "Thiếu tầng tham khảo English Sujato tại commit đã ghim: thư mục translation/en/sujato/sutta/kn/ không có tệp nào chứa khoá của bài này (bản Sujato ở commit đã ghim không phát hành Jātaka/Milindapañha), nên bài chỉ đối chiếu được với Pāli root một mình."
+    - "Coverage English dưới ngưỡng 0,8 của source/layers.yaml, mà content/meta/reference-gaps.yaml chưa có mục cho bài này; đợt này tôi không được sửa tệp đó."
+  assessed_at: "2026-10-02"
+  assessed_by:
+    - "OpenCode Space Bunny Free (agent)"
+notes: |-
+  KỸ THUẬT. Đợt này tôi KHÔNG chạy `npm run validate|test|build|check` — người điều phối cấm và chạy tập trung. Vì vậy tôi KHÔNG tuyên bố technical gate pass: `technical_integrity` chấm 9,6 chứ không phải 10,0. Bốn lệnh đó để người điều phối chạy lại.
+
+  CHỐT KHÔNG TỰ CHẠY — ĐÃ TỰ KIỂM THỦ CÔNG. Vòng chốt của `_hvi.kiểm()` chỉ quét khoá Pāli ≥ 40 ký tự; tôi tự quét lại TOÀN BỘ 19 khoá từ đĩa bằng chính các hàm đó (`_chk_w11.py`):
+  đủ khoá, không khoá thừa/thiếu so với Pāli, chuỗi NFC, không khoá rỗng, số dấu lược khớp TỪNG KHOÁ, ngoặc kép `“`/`”` cân trên cả bài — kiểm CẢ theo thứ tự số LẪN theo thứ tự chuỗi mà `sorted()` của chốt dùng, không Pāli lọt, không có `(…)`, không trùng nguyên văn Pāli. Kết quả: 0 lỗi trên 266 khoá / 14 bài.
+
+  COVERAGE. Đo lại đúng quy tắc `source/layers.yaml` (substantivePaliMinChars 40, excludeReferenceBlock, floor 0,8, `english-project` chỉ tính khi `published`):
+
+  10 khoá Pāli có nội dung, **0** khoá mang chữ Anh Sujato ⇒ 0,00 < 0,8; và
+    bản Sujato ở commit đã ghim không phát hành Milindapañha nên tầng lấp `english-project`
+    cũng không có cho bài này.
+
+  KHÔNG ĐỐI CHIẾU ĐƯỢC TẦNG VIỆT HIỆN HÀNH. Tại commit đã ghim, `translation/vi/` của bilara chỉ chứa Pháp Cú, nên không có bản Hòa thượng Thích Minh Châu cho bài này. Đây là đặc điểm của bản chụp upstream, không phải thiếu sót của kho; `budsas.org` chỉ là tra cứu toàn văn và không có căn cứ alignment ở mức segment.
+
+  DẤU LƯỢC §10. Không khoá nào trong lát này được MỞ RỘNG chỗ Pāli lược. Bản Anh Sujato đã ghim mở rộng nhiều chỗ `…pe…` (ví dụ `sn45.24:2.2` và `sn55.31:4.1` liệt kê đủ tám ngành Bát Chánh Đạo, `sn46.14:3.3` liệt kê đủ bảy giác chi) — tôi KHÔNG theo, vì mở rộng là thêm chữ không đánh dấu. Cũng không khoá nào bị nén thêm: mọi `…` trong bản Việt đều ăn đúng một dấu lược ứng với một `…pe…` của Pāli, đếm từng khoá.
+
+  BLOCKER THẬT — BÀI Ở `draft`. Tại commit đã ghim, `translation/en/sujato/sutta/kn/`
+    có **0 tệp** chứa khoá của `mil3.3.3` (đã kiểm cả `source/upstream-manifest.json`). Bản
+    chụp upstream không phát hành Milindapañha bằng tiếng Anh. Thêm nữa coverage English đo
+    được là 0/10 khoá Pāli có nội dung, dưới ngưỡng 0,8 của `source/layers.yaml`, mà
+    `content/meta/reference-gaps.yaml` chưa có mục cho bài này và đợt này tôi không được sửa tệp
+    đó. Blocker thắng điểm.
+
+  DÙNG LẠI NGUYÊN VĂN ĐÃ CÓ — ĐO ĐƯỢC. `“Kallosi, bhante nāgasenā”ti.` có **32 bài** đã
+    dùng đúng một nguyên văn *“Khéo lắm, thưa tôn giả Nāgasenā.”* và `TIEN_LE_PHAI.md` ghi cặp
+    `mil3.5.6:2.1 == mil3.6.6:2.1`; tôi dùng lại y nguyên. `Vicāravagga` → *Phẩm Khảo Sát*
+    (4 bài so với 1) · `Arūpadhammavavatthānavagga` → *Phẩm Xác Định Pháp Vô Sắc* (7 bài, toàn
+    bộ đồng thuận) · `bhante nāgasena` → *Thưa tôn giả Nāgasena* (đồng thuận toàn bộ bài mil đã
+    có) · `mahārāja` → *Đại vương* · `Āma` → *Vâng* (5 bài) · `Thero āha` → *Trưởng lão nói—
+    theo `mil3.5.6:1.3` và `mil3.7.12:1.3` · `Rājā āha—` → *Vua nói—* (4 bài có dấu gạch dài,
+    và Pāli của bài này mang `—`) · `Opammaṁ karohī` → *Hãy xét một thí dụ* (đa số 3 bài) ·
+    `purimā koṭī na paññāyati` → *quá khứ không thể tính được* theo `mil3.3.1:1.5`
+    (*không thể tính được*) · `avijjā` → *vô minh* · `sabbena sabbaṁ sabbathā sabbaṁ` → *toàn
+    bộ, tất cả, mọi phương diện, hết thảy* (bốn từ tăng cường, giữ đủ bốn) ·
+    `khandhā` → *uẩn* theo `dn10` và `dn22` · `bījānī` → *hạt giống* · `yojana` → *do-tuần*
+    (4 bài dn đã có) · `ubhato chinnaṁ` → *đứt ở cả hai đầu*.
+
+  0 tiền lệ, đặt mới có lý do: `Koṭipaññāyanapañha` → *Câu hỏi về gốc rễ của trí tuệ* theo
+    đúng khuôn của `mil3.3.1:0.3` (*Câu hỏi về gốc rễ của thời gian*, `Addhānamūlapañha`);
+    `paṭivigacchati` → *diệt*; `sakkā vaḍḍhetun` → *có thể cắt đứt* theo `dn10:2.24` và
+    `mn77:30` (*thứ cần phải cắt đứt*).
+
+  BẤT ĐỊNH ĐÃ PHÂN XỬ. `mil3.3.3:1.7` (`esā purimā koṭi na paññāyati, yaṁ ahutvā sambhoti,
+    hutvā paṭivigacchati, esā purimā koṭi paññāyatī`) nói hai vế về *cùng một* quá khứ mà
+    vừa *không tính được* vừa *tính được*, và mệnh đề quan hệ trung gian rất khó. Tôi giữ cả
+    hai vế và dịch vế quan hệ thành hai mệnh đề đứng riêng (*quá khứ này không thể tính được,
+    cái chưa tồn tại thì sinh, cái đã tồn tại thì diệt; còn quá khứ này thì có thể tính
+    được*) — không thêm từ giải thích nào, không đoán mối liên hệ. Người biên tập nên đối
+    chiếu lại với bản in PTS của Luṇṇāva; đây là chỗ đáng xem nhất của bài.
+  REVIEW ĐỐI KHÁNG. Tôi in lại Pāli ↔ Việt từng cặp và đọc lại với mục tiêu tìm lỗi.
+  Lỗi đã bắt được và đã sửa trước khi ghi lần cuối: 
+  **(1)** `mil3.3.3:1.2` bản nháp dịch `katamā` là *bao nhiêu*; ở đây câu hỏi
+      là *cái quá khứ ấy là gì* (câu trả lới `1.3` mang tính mệnh lề) — đã sửa. **(2)**
+      `mil3.3.3:2.3` bản nháp có thêm *cả hai đầu* trong khi Pāli chỉ có `sāpi sakkā
+      vaḍḍhetun`; đã sửa thành *nó cũng có thể cắt đứt*. **(3)** `mil3.3.3:1.7` bản nháp dịch
+      `sabbena sabbaṁ sabbathā sabbaṁ` thành ba vế; Pāli có bốn từ tăng cường, đã viết đủ
+      bốn vế.

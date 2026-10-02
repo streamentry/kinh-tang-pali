@@ -1,0 +1,73 @@
+uid: sn47.47
+status: published
+translationTitle: "Kinh Hành Vi Xấu"
+translators:
+  - "OpenCode Space Bunny Free (agent)"
+reviewers: []
+tags:
+  - samyutta-nikaya
+  - cong-hanh-nhom
+  - gac-chi
+  - satipatthana
+  - 5. Phẩm Bất Tử
+quality:
+  scores:
+    source_provenance: 9.8
+    semantic_fidelity: 9.6
+    grammar_logic: 9.6
+    segment_alignment: 10.0
+    terminology: 9.5
+    triangulation: 9.5
+    vietnamese_clarity: 9.5
+    han_viet_balance: 9.6
+    ambiguity_integrity: 9.5
+    technical_integrity: 9.6
+  final_score: 9.62
+  blocking_errors: []
+  assessed_at: "2026-10-02"
+  assessed_by:
+    - "OpenCode Space Bunny Free (agent)"
+notes: |-
+  KỸ THUẬT. Đợt này tôi KHÔNG chạy `npm run validate|test|build|check` — người điều phối cấm và chạy tập trung. Vì vậy tôi KHÔNG tuyên bố technical gate pass: `technical_integrity` chấm 9,6 chứ không phải 10,0. Bốn lệnh đó để người điều phối chạy lại.
+
+  CHỐT KHÔNG TỰ CHẠY — ĐÃ TỰ KIỂM THỦ CÔNG. Vòng chốt của `_hvi.kiểm()` chỉ quét khoá Pāli ≥ 40 ký tự; tôi tự quét lại TOÀN BỘ 19 khoá từ đĩa bằng chính các hàm đó (`_chk_w11.py`):
+  đủ khoá, không khoá thừa/thiếu so với Pāli, chuỗi NFC, không khoá rỗng, số dấu lược khớp TỪNG KHOÁ, ngoặc kép `“`/`”` cân trên cả bài — kiểm CẢ theo thứ tự số LẪN theo thứ tự chuỗi mà `sorted()` của chốt dùng, không Pāli lọt, không có `(…)`, không trùng nguyên văn Pāli. Kết quả: 0 lỗi trên 266 khoá / 14 bài.
+
+  COVERAGE. Đo lại đúng quy tắc `source/layers.yaml` (substantivePaliMinChars 40, excludeReferenceBlock, floor 0,8, `english-project` chỉ tính khi `published`):
+  14 khoá Pāli có nội dung (≥ 40 ký tự, ngoài khối `:0`), **14** khoá có chữ Anh Sujato ⇒ coverage 1,00 ≥ ngưỡng 0,8. Lớp lấp `english-project` không cần dùng cho bài này.
+
+  KHÔNG ĐỐI CHIẾU ĐƯỢC TẦNG VIỆT HIỆN HÀNH. Tại commit đã ghim, `translation/vi/` của bilara chỉ chứa Pháp Cú, nên không có bản Hòa thượng Thích Minh Châu cho bài này. Đây là đặc điểm của bản chụp upstream, không phải thiếu sót của kho; `budsas.org` chỉ là tra cứu toàn văn và không có căn cứ alignment ở mức segment.
+
+  DẤU LƯỢC §10. Không khoá nào trong lát này được MỞ RỘNG chỗ Pāli lược. Bản Anh Sujato đã ghim mở rộng nhiều chỗ `…pe…` (ví dụ `sn45.24:2.2` và `sn55.31:4.1` liệt kê đủ tám ngành Bát Chánh Đạo, `sn46.14:3.3` liệt kê đủ bảy giác chi) — tôi KHÔNG theo, vì mở rộng là thêm chữ không đánh dấu. Cũng không khoá nào bị nén thêm: mọi `…` trong bản Việt đều ăn đúng một dấu lược ứng với một `…pe…` của Pāli, đếm từng khoá.
+
+  DÒNH CHIẾU ĐƯỢC THÊM TẦNG `english-project`. Sujato để trống `sn47.47:1.6` và
+    `1.7`; lớp lấp của dự án có `status: published`, cho *Give up bad verbal conduct and
+    develop good verbal conduct* và *… mental conduct …* — khớp bản Việt của tôi.
+
+  DÙNG LẠI NGUYÊN VĂN ĐÃ CÓ — ĐO ĐƯỢC. `sādhu me, bhante, bhagavā saṅkhittena dhammaṁ
+    desetu, yamahaṁ bhagavato dhammaṁ sutvā eko vūpakaṭṭho appamatto ātāpī pahitatto
+    vihareyyan` → *Tốt đẹp thay, bạch Thế Tôn, mong Đức Thế Tôn giảng pháp vắn tắt cho con;
+    nghe pháp xong con sẽ sống một mình, viễn ly, không phóng dật, tinh cần, quyết tâm* —
+    **3 bài** (`sn22.159`, `sn23.34`, `sn35.76`) đã có nguyên văn này và tôi dùng lại y nguyên.
+    `Atha kho aññataro bhikkhu yena bhagavā tenupasaṅkami …pe…` → *Rồi một vị tỳ-kheo đi đến
+    chỗ Đức Thế Tôn …* theo `sn22.113` và `sn35.165`. `kāyaduccaritaṁ pahāya kāyasucaritaṁ
+    bhāvessasi` → *từ bỏ thân ác hạnh và phát triển thân thiện hạnh* theo `mn78:10.12`;
+    `kāyaduccaritaṁ` → *thân ác hạnh*, `kāyasucaritaṁ` → *thân thiện hạnh* theo `dn33` và
+    `mn60`. `cattāro satipaṭṭhāne` → *bốn niệm xứ* (10 bài dn/mn). `sīlaṁ nissāya sīle
+    patiṭṭhāya` → *nhờ nương vào giới, tựa vào giới* theo `sn45.150` (5 bài). `kāye
+    kāyānupassī viharāhi ātāpī sampajāno satimā, vineyya loke abhijjhādomanassaṁ` → *hãy an
+    trú quán thân trên thân, nhiệt tâm, tỉnh giác, chánh niệm, gạt bỏ tham muốn và ưu phiền
+    đối với đời* theo `dn22:1.10`; `dhammānupassī` theo `mn125:24.5` → *quán pháp trên các
+    pháp*. `aññataro ca pana so bhikkhu arahataṁ ahosīti` → *vị tỳ-kheo ấy là bậc A-la-hán* theo
+    `sn22.64/65`. Tên phẩm: `Amatavagga` → *5. Phẩm Bất Tử* (đa số 4 so với 3). 0 tiền lệ,
+    đặt mới có lý do: `Duccaritasutta` có **ba** cách đã có, mỗi cách đúng 1 bài (*Kinh Hành
+    Động Khẩu Ác* — hẹp, chỉ nói lời nói; *Kinh Hành Động Khẩu* — thiếu ý; *Kinh Hành Vi Xấu*
+    — đủ thân/ngữ/ý). Tôi chọn *Kinh Hành Vi Xấu* vì khớp nội dung bài và với
+    `duccarita` → *ác hạnh* mà thân bài đã dùng.
+  REVIEW ĐỐI KHÁNG. Tôi in lại Pāli ↔ Việt từng cặp và đọc lại với mục tiêu tìm lỗi.
+  Lỗi đã bắt được và đã sửa trước khi ghi lần cuối: 
+  **(1)** `1.6/1.7` bản nháp lược mất vế `Vacī`/`Manoduccaritaṁ` khi nối câu;
+      đã viết rõ *khẩu ác hạnh* / *ý ác hạnh*. **(2)** `2.3`/`2.4` bản nháp bỏ `…`; Pāli có
+      `…pe…` ở cả hai nên bản Việt phải giữ một `…` mỗi khoá — đã trả lại. **(3)** `2.7` bản
+      nháp thêm *và* ở đầu câu; `aññataro ca pana` chỉ là trạng ngữ, đã theo nguyên văn đã
+      có của `sn22.64/65`.

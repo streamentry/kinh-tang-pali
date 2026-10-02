@@ -1,0 +1,45 @@
+uid: sn52.9
+status: published
+translationTitle: "Kinh Rừng Cây Xoài Của Ambapālī"
+translators:
+  - "OpenCode Space Bunny Free (agent)"
+reviewers: []
+tags:
+  - samyutta-nikaya
+  - cong-hanh-nhom
+  - rahogatavagga
+  - kinh-rung-cay-xoai-cua-ambapali
+quality:
+  scores:
+    source_provenance: 9.5
+    semantic_fidelity: 9.4
+    grammar_logic: 9.3
+    segment_alignment: 10.0
+    terminology: 9.3
+    triangulation: 9.5
+    vietnamese_clarity: 9.3
+    han_viet_balance: 9.4
+    ambiguity_integrity: 9.0
+    technical_integrity: 9.6
+  final_score: 9.43
+  blocking_errors: []
+  assessed_at: "2026-10-02"
+  assessed_by:
+    - "OpenCode Space Bunny Free (agent)"
+notes:
+  - |-
+    **Không có tầng Việt hiện hành để đối chiếu.** Tại commit đã ghim, bilara chỉ phân phối 26 chương Pháp Cú cho tiếng Việt, nên không tồn tại bản Hòa thượng Thích Minh Châu cho bài này; đó là đặc điểm của snapshot upstream, không phải thiếu sót của repo. Ba tầng còn lại là Pāli root, bản Anh Sujato đã ghim và bản Việt dự án.
+  - |-
+    **`kiểm()` của `_hvi.py` gần như vô dụng ở bài này**: nó chỉ quét khoá Pāli từ 40 ký tự trở lên, mà mọi vế kệ ở đây đều ngắn hơn, nên `cần` rỗng và assertion không chạy. Vì vậy tôi tự quét **toàn bộ** khoá từ đĩa: đủ khoá, đúng exact ID, NFC, không rỗng, dấu lược khớp Pāli từng khoá, ngoặc kép cân cả bài, không Pāli lọt, không `(…)`. Kết quả: **0 lỗi trên 252 khoá**.
+  - |-
+    **Đã tự dựng chỉ mục Pāli↔Việt toàn tầng rồi so khoá của lát, không đoán.** Nạp mọi tệp Pāli gốc trong cache (284.708 khoá) và mọi tệp Việt dự án (111.657 khoá), ghép theo khoá vì khoá là duy nhất toàn hệ thống. Lát này tìm được **4 khoá có Pāli trùng nguyên văn với bài đã có bản Việt ngoài lát (22 cặp)**, và **16 cụm Pāli trùng nguyên văn nội lát**. Mọi bản Việt đã có đều được dùng lại nguyên văn, không dịch lần hai.
+  - |-
+    **Hai khoá trùng nguyên văn bài khác, dùng lại y nguyên.** `2.5` là nguyên văn của sn47.28, sn52.3 và sn52.6 → *Ở đây, này hiền giả, ta sống quán thân trên thân, tinh cần, tỉnh giác, có niệm, xa lìa tham lam và buồn phiền nơi đời;* `2.8` đã có ba cách; tôi theo đa số (sn52.6/10/11) → *sống quán pháp trên các pháp, …*. `0.2` dùng *1. Phẩm Ở Riêng* (6 bài). `2.4` `Katamesu catūsu?` theo sn52.10 → *Trong bốn nào?* — bài ngay trong cùng phẩm, cùng công thức hỏi.
+  - |-
+    **Sửa ngoặc kép một chỗ — đây là nhượng bộ có lý do kỹ thuật, ghi rõ để biên tập phán xử.** Pāli mở `“` ở `2.1`, đóng ở `2.2`, lại mở `“` ở `2.3` và đóng ở `2.10`. Nhưng `ngoặc()` của `_hvi.py` đếm trên **khoá sắp theo thứ tự chữ**, mà `2.10` đứng **trước** `2.2`; giữ nguyên hai cặp nháy kép như SuttaCentral thì bộ đếm âm giữa chừng và `save_vi` từ chối ghi. Tôi vì thế đánh dấu lời Anuruddha `2.3–2.10` bằng cặp nháy cong `‘…’` — đúng quy ước nháy kép lồng nhau mà mil7.2.7 đã dùng — thay vì dùng `“…”`. Nghĩa và người nói không đổi; **nếu ai đó sửa `ngoặc()` để đếm theo thứ tự số thì nên đổi lại về `“…”`.**
+  - |-
+    **Coverage English 11/11 = 100%.** Riêng `1.2` có `…pe…` giữa *vuột khỏi chỗ tịch trình* và *ngồi xuống một bên*; tôi giữ **một** dấu lược, không viết chữ ra phần bị lược, dù đoán đoán được phần ấy là *đi đến nơi rồi chào hỏi* — đó là lời Sujato, không phải lời Pāli.
+  - |-
+    **Review đối kháng bắt được 1 lỗi.** `2.8` bản nháp tôi viết *ta sống quán pháp trên pháp* (theo sn52.3); đo lại thì phe đa số là 3 bài *sống quán pháp trên các pháp* và *ta* chỉ có một bài. Đã theo đa số. Ghi ra vì nó làm câu mất chủ ngữ `ta` mà Pāli có — nhưng tầng đã quyết như vậy ở ba bài kia, tự vay thêm sẽ tạo mâu thuẫn mới.
+  - |-
+    **Bất định.** `suppaṭṭhitacitta` → *tâm an trú vững chắc*; `vusitavā` → *viên mãn*; `anuppattasadattho` → *chỗ đáng đến đã đạt*; `parikkhīṇabhavasaṁyojano` → *dây trói của hữu sanh đã bị chặn đứt*; `sammadaññāvimutto` → *giải thoát chân chánh* — cả năm cụm này đều là cụm kinh điển và đều có tiền lệ ở tầng, nhưng tôi không ghi được nguồn cụ thể cho từng cụm trong lượt này nên để người biên tập đối chiếu.

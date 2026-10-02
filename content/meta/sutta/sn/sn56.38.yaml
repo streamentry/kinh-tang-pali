@@ -1,0 +1,64 @@
+uid: sn56.38
+status: published
+translationTitle: "Kinh Mặt Trời (Hai)"
+translators:
+  - "OpenCode Space Bunny Free (agent)"
+reviewers: []
+tags:
+  - samyutta-nikaya
+  - cong-hanh-nhom
+  - ch-an-ly
+  - tu-dien
+  - 4. Phẩm Rừng Sīsapā
+quality:
+  scores:
+    source_provenance: 9.8
+    semantic_fidelity: 9.6
+    grammar_logic: 9.6
+    segment_alignment: 10.0
+    terminology: 9.4
+    triangulation: 9.4
+    vietnamese_clarity: 9.5
+    han_viet_balance: 9.6
+    ambiguity_integrity: 9.6
+    technical_integrity: 9.6
+  final_score: 9.61
+  blocking_errors: []
+  assessed_at: "2026-10-02"
+  assessed_by:
+    - "OpenCode Space Bunny Free (agent)"
+notes: |-
+  KỸ THUẬT. Đợt này tôi KHÔNG chạy `npm run validate|test|build|check` — người điều phối cấm và chạy tập trung. Vì vậy tôi KHÔNG tuyên bố technical gate pass: `technical_integrity` chấm 9,6 chứ không phải 10,0. Bốn lệnh đó để người điều phối chạy lại.
+
+  CHỐT KHÔNG TỰ CHẠY — ĐÃ TỰ KIỂM THỦ CÔNG. Vòng chốt của `_hvi.kiểm()` chỉ quét khoá Pāli ≥ 40 ký tự; tôi tự quét lại TOÀN BỘ 19 khoá từ đĩa bằng chính các hàm đó (`_chk_w11.py`):
+  đủ khoá, không khoá thừa/thiếu so với Pāli, chuỗi NFC, không khoá rỗng, số dấu lược khớp TỪNG KHOÁ, ngoặc kép `“`/`”` cân trên cả bài — kiểm CẢ theo thứ tự số LẪN theo thứ tự chuỗi mà `sorted()` của chốt dùng, không Pāli lọt, không có `(…)`, không trùng nguyên văn Pāli. Kết quả: 0 lỗi trên 266 khoá / 14 bài.
+
+  COVERAGE. Đo lại đúng quy tắc `source/layers.yaml` (substantivePaliMinChars 40, excludeReferenceBlock, floor 0,8, `english-project` chỉ tính khi `published`):
+  14 khoá Pāli có nội dung (≥ 40 ký tự, ngoài khối `:0`), **14** khoá có chữ Anh Sujato ⇒ coverage 1,00 ≥ ngưỡng 0,8. Lớp lấp `english-project` không cần dùng cho bài này.
+
+  KHÔNG ĐỐI CHIẾU ĐƯỢC TẦNG VIỆT HIỆN HÀNH. Tại commit đã ghim, `translation/vi/` của bilara chỉ chứa Pháp Cú, nên không có bản Hòa thượng Thích Minh Châu cho bài này. Đây là đặc điểm của bản chụp upstream, không phải thiếu sót của kho; `budsas.org` chỉ là tra cứu toàn văn và không có căn cứ alignment ở mức segment.
+
+  DẤU LƯỢC §10. Không khoá nào trong lát này được MỞ RỘNG chỗ Pāli lược. Bản Anh Sujato đã ghim mở rộng nhiều chỗ `…pe…` (ví dụ `sn45.24:2.2` và `sn55.31:4.1` liệt kê đủ tám ngành Bát Chánh Đạo, `sn46.14:3.3` liệt kê đủ bảy giác chi) — tôi KHÔNG theo, vì mở rộng là thêm chữ không đánh dấu. Cũng không khoá nào bị nén thêm: mọi `…` trong bản Việt đều ăn đúng một dấu lược ứng với một `…pe…` của Pāli, đếm từng khoá.
+
+  DÙNG LẠI NGUYÊN VĂN ĐÃ CÓ — ĐO ĐƯỢC. `Tasmātiha, bhikkhave, ‘idaṁ dukkhan’ti
+    yogo karaṇīyo …pe… ‘ayaṁ dukkhanirodhagāminī paṭipadā’ti yogo karaṇīyo”ti.` trùng nguyên văn
+    với `sn56.10:3.1` và `sn56.19:2.1` → đã dùng lại NGUYÊN VĂN đã có: *Vì vậy, này các tỳ-kheo,
+    ‘đây là khổ’ thì cần gắng sức … ‘đây là con đường đưa đến diệt tận của khổ’ thì cần gắng
+    sức”ti.* `Dukkhassa ariyasaccassa …pe… dukkhanirodhagāminiyā paṭipadāya ariyasaccassa`
+    trùng `sn56.34:2.3` và `sn56.35:2.9`; hai bản chọn hai cách nên tôi theo `sn56.34` (*Diệu
+    đế của bậc Thánh về khổ … diệu đế của bậc Thánh về con đường đưa đến việc diệt tận khổ*) vì
+    trong sn56 chữ *diệu đế* đứng **33 so với 26** *thánh đế*. Tên phẩm: `Paṭhamasūriyasutta`
+    → *Kinh Mặt Trời (Một)* (`sn56.37`) nên `Dutiyasūriyasutta` → *Kinh Mặt Trời (Hai)*;
+    `Sīsapāvanavagga` → *4. Phẩm Rừng Sīsapā* (đa số 3 so với 2 và 1). 0 tiền lệ, đặt mới:
+    `catunnaṁ ariyasaccānaṁ ācikkhaṇā hoti desanā paññāpanā paṭṭhapanā vivaraṇā
+    vibhajanā uttānīkammaṁ` → *chỉ dạy, thuyết trình, thiết lập, khai mở, phân biệt, trình bày
+    rõ ràng* — lấy **đúng bộ từ** của `mn141` (6 bài đã có), chia đúng sáu Pāli từ thành sáu
+    vế; `yāvakīvañca` → *chừng nào* theo `sn48.52` và `ud6.10`; `andhakāratimisā` → *tối đen,
+    đen thẫm* theo `dn14:1.17.5` (các bản khác dùng *tối tăm u ám*, *u tối, mịt mù*, *đêm tối
+    mịt* — cùng một ý).
+  REVIEW ĐỐI KHÁNG. Tôi in lại Pāli ↔ Việt từng cặp và đọc lại với mục tiêu tìm lỗi.
+  Lỗi đã bắt được và đã sửa trước khi ghi lần cuối: 
+  **(1)** `1.2`/`2.5` là Pāli trùng nguyên văn; bản nháp viết khác nhau, đã thống
+      nhất. **(2)** `2.2`/`3.2` cũng vậy. **(3)** `1.3` bản nháp đổi *không được nhận biệt* thành
+      *không có tháng và nửa tháng*, mất vế `paññāyanti` thứ hai và thứ ba; đã trả lại đủ ba
+      vế phủ định.

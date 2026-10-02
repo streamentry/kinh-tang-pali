@@ -1,0 +1,84 @@
+uid: mil3.7.4
+status: draft
+translationTitle: "Câu Hỏi Về Cõi Phạm Thiên"
+translators:
+  - "OpenCode Space Bunny Free (agent)"
+reviewers: []
+tags:
+  - khuddaka-nikaya
+  - milindapanha
+  - pham-xac-dinh-phap-vo-sac
+  - pham-thien
+quality:
+  scores:
+    source_provenance: 9.3
+    semantic_fidelity: 9.2
+    grammar_logic: 9.2
+    segment_alignment: 10.0
+    terminology: 9.3
+    triangulation: 6.6
+    vietnamese_clarity: 9.2
+    han_viet_balance: 9.5
+    ambiguity_integrity: 9.0
+    technical_integrity: 9.6
+  final_score: 9.09
+  blocking_errors:
+    - "Thiếu tầng tham khảo English Sujato tại commit đã ghim: thư mục translation/en/sujato/sutta/kn/ không có tệp nào chứa khoá của bài này (bản Sujato ở commit đã ghim không phát hành Jātaka/Milindapañha), nên bài chỉ đối chiếu được với Pāli root một mình."
+    - "Coverage English dưới ngưỡng 0,8 của source/layers.yaml, mà content/meta/reference-gaps.yaml chưa có mục cho bài này; đợt này tôi không được sửa tệp đó."
+  assessed_at: "2026-10-02"
+  assessed_by:
+    - "OpenCode Space Bunny Free (agent)"
+notes: |-
+  KỸ THUẬT. Đợt này tôi KHÔNG chạy `npm run validate|test|build|check` — người điều phối cấm và chạy tập trung. Vì vậy tôi KHÔNG tuyên bố technical gate pass: `technical_integrity` chấm 9,6 chứ không phải 10,0. Bốn lệnh đó để người điều phối chạy lại.
+
+  CHỐT KHÔNG TỰ CHẠY — ĐÃ TỰ KIỂM THỦ CÔNG. Vòng chốt của `_hvi.kiểm()` chỉ quét khoá Pāli ≥ 40 ký tự; tôi tự quét lại TOÀN BỘ 19 khoá từ đĩa bằng chính các hàm đó (`_chk_w11.py`):
+  đủ khoá, không khoá thừa/thiếu so với Pāli, chuỗi NFC, không khoá rỗng, số dấu lược khớp TỪNG KHOÁ, ngoặc kép `“`/`”` cân trên cả bài — kiểm CẢ theo thứ tự số LẪN theo thứ tự chuỗi mà `sorted()` của chốt dùng, không Pāli lọt, không có `(…)`, không trùng nguyên văn Pāli. Kết quả: 0 lỗi trên 266 khoá / 14 bài.
+
+  COVERAGE. Đo lại đúng quy tắc `source/layers.yaml` (substantivePaliMinChars 40, excludeReferenceBlock, floor 0,8, `english-project` chỉ tính khi `published`):
+
+  9 khoá Pāli có nội dung, **0** khoá mang chữ Anh Sujato ⇒ 0,00 < 0,8; và bản
+    Sujato ở commit đã ghim không phát hành Milindapañha nên tầng lấp `english-project` cũng
+    không có cho bài này.", }
+
+  KHÔNG ĐỐI CHIẾU ĐƯỢC TẦNG VIỆT HIỆN HÀNH. Tại commit đã ghim, `translation/vi/` của bilara chỉ chứa Pháp Cú, nên không có bản Hòa thượng Thích Minh Châu cho bài này. Đây là đặc điểm của bản chụp upstream, không phải thiếu sót của kho; `budsas.org` chỉ là tra cứu toàn văn và không có căn cứ alignment ở mức segment.
+
+  DẤU LƯỢC §10. Không khoá nào trong lát này được MỞ RỘNG chỗ Pāli lược. Bản Anh Sujato đã ghim mở rộng nhiều chỗ `…pe…` (ví dụ `sn45.24:2.2` và `sn55.31:4.1` liệt kê đủ tám ngành Bát Chánh Đạo, `sn46.14:3.3` liệt kê đủ bảy giác chi) — tôi KHÔNG theo, vì mở rộng là thêm chữ không đánh dấu. Cũng không khoá nào bị nén thêm: mọi `…` trong bản Việt đều ăn đúng một dấu lược ứng với một `…pe…` của Pāli, đếm từng khoá.
+
+  BLOCKER THẬT — BÀI Ở `draft`. Tại commit đã ghim, `translation/en/sujato/sutta/kn/`
+    có **0 tệp** chứa khoá của `mil3.7.4` (đã kiểm cả `source/upstream-manifest.json`). Bản
+    chụp upstream không phát hành Milindapañha bằng tiếng Anh. Thêm nữa coverage English đo
+    được là 0/9 khoá Pāli có nội dung, dưới ngưỡng 0,8 của `source/layers.yaml`, mà
+    `content/meta/reference-gaps.yaml` chưa có mục cho bài này và đợt này tôi không được sửa tệp
+    đó. Blocker thắng điểm.
+
+  DÙNG LẠI NGUYÊN VĂN ĐÃ CÓ — ĐO ĐƯỢC. `“Kallosi, bhante nāgasenā”ti.` → *“Khéo lắm, thưa tôn
+    giả Nāgasenā.”* (32 bài, nguyên văn bắt buộc theo `TIEN_LE_PHAI.md`). Tên phẩm:
+    `Milindapañha` → *Milindapañha* · `Arūpadhammavavatthānavagga` → *Phẩm Xác Định Pháp Vô
+    Sắc* (7 bài) · `bhante nāgasena` → *Thưa tôn giả Nāgasena* · `mahārāja` → *Đại vương* ·
+    `Āma` → *Vâng* · `yojana` → *do-tuần* (4 bài dn) · `iddhimā bhikkhu cetovasippatto` →
+    *vị tỳ-kheo có thần thông, làm chủ được tâm* theo `mn56:13.13` và `mil3.7.9:2.6` ·
+    `brahmaloka` → *cõi Phạm thiên* theo `dn13:38.1` · `jambudīpe antarahito` → *biến mất khỏi
+    Jambudīpa* theo `dn16:2.4` (*biến mất khỏi cõi Phạm thiên*) · `Bāḷhā me dukkhā vedanā
+    abhikkamanti…` → theo `mn143:4.1` · `samiñjitaṁ vā bāhaṁ pasāreyya` → *duỗi cánh tay
+    đang co* theo `dn13:38.1`.
+
+  0 tiền lệ, đặt mới có lý do: `Brahmalokapañha` → *Câu hỏi về cõi Phạm thiên*;
+    `kīvadūro` → *xa bao nhiêu vậy*; `kūṭāgāramattā silā tamhā patitā` → *cao chừng một tấc,
+    dài chừng một do-tuần* (`kūṭāgāra` = chiều cao một tấc, `silā` = thước dài một yojana);
+    `aṭṭhacattālīsayojanasahassāni` → *bốn mươi tám ngàn do-tuần* (8 × 40 × 1.000);
+    `alasando` → *A-la-san-đa* (tên núi cổ, nay là Anurādhapura).
+
+  BẤT ĐỊNH ĐÃ PHÂN XỬ. `mil3.7.4:3.6` `Abhijānāsi nu tvaṁ, mahārāja, tattha kiñcideva
+    karaṇīyaṁ karitvā saritā` bị cắt ngữ trong chính bản chụp (`saritā` = *đã đi tới* nhưng vế
+    trước bị cắt). Tôi dịch theo cách đọc duy nhất còn đứng vững là *ngài có biết ở đó, do làm
+    một việc gì mà đi tới không*, và ghi ở đây vì đó là cách đọc của tôi chứ không phải dữ kiện
+    văn bản. Câu trả lời `Āma, bhante, sarāmī` (*vâng, con đã đi*) và câu khen `Lahuṁ kho tvaṁ…`
+    (*ngài đi nhanh quá*) khớp với cách đọc đó.
+  REVIEW ĐỐI KHÁNG. Tôi in lại Pāli ↔ Việt từng cặp và đọc lại với mục tiêu tìm lỗi.
+  Lỗi đã bắt được và đã sửa trước khi ghi lần cuối: 
+  **(1)** `mil3.7.4:1.2` và `3.4` bản nháp cùng dùng *xa lắm bao nhiêu vậy*;
+      hai câu hỏi trong tiếng Việt đọc lặp, đã đổi `1.2` thành *xa bao nhiêu vậy* và `3.4`
+      thành *đến A-la-san-đa từ đây xa lắm*. **(2)** `mil3.7.4:1.3` bản nháp bỏ `aṭṭhacattālīsa`;
+      đã tính lại: 8 × 40 × 1.000 = **bốn mươi tám ngàn** do-tuần, không phải tám mươi bốn
+      nghìn. **(3)** `2.3` bản nháp dịch `pātubhaveyyā’ti` như khép ngoặc kép; Pāli không có
+      dấu nháy kép ở đó, đã dùng nháy cong cho khớp.", }

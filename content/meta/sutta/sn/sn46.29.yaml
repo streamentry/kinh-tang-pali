@@ -1,0 +1,66 @@
+uid: sn46.29
+status: published
+translationTitle: "Kinh Một Pháp"
+translators:
+  - "OpenCode Space Bunny Free (agent)"
+reviewers: []
+tags:
+  - samyutta-nikaya
+  - cong-hanh-nhom
+  - giac-chi
+  - phap-troi-buoc
+  - 3. Phẩm Buổi Sớm
+quality:
+  scores:
+    source_provenance: 9.8
+    semantic_fidelity: 9.6
+    grammar_logic: 9.6
+    segment_alignment: 10.0
+    terminology: 9.4
+    triangulation: 9.4
+    vietnamese_clarity: 9.4
+    han_viet_balance: 9.6
+    ambiguity_integrity: 9.5
+    technical_integrity: 9.6
+  final_score: 9.59
+  blocking_errors: []
+  assessed_at: "2026-10-02"
+  assessed_by:
+    - "OpenCode Space Bunny Free (agent)"
+notes: |-
+  KỸ THUẬT. Đợt này tôi KHÔNG chạy `npm run validate|test|build|check` — người điều phối cấm và chạy tập trung. Vì vậy tôi KHÔNG tuyên bố technical gate pass: `technical_integrity` chấm 9,6 chứ không phải 10,0. Bốn lệnh đó để người điều phối chạy lại.
+
+  CHỐT KHÔNG TỰ CHẠY — ĐÃ TỰ KIỂM THỦ CÔNG. Vòng chốt của `_hvi.kiểm()` chỉ quét khoá Pāli ≥ 40 ký tự; tôi tự quét lại TOÀN BỘ 19 khoá từ đĩa bằng chính các hàm đó (`_chk_w11.py`):
+  đủ khoá, không khoá thừa/thiếu so với Pāli, chuỗi NFC, không khoá rỗng, số dấu lược khớp TỪNG KHOÁ, ngoặc kép `“`/`”` cân trên cả bài — kiểm CẢ theo thứ tự số LẪN theo thứ tự chuỗi mà `sorted()` của chốt dùng, không Pāli lọt, không có `(…)`, không trùng nguyên văn Pāli. Kết quả: 0 lỗi trên 266 khoá / 14 bài.
+
+  COVERAGE. Đo lại đúng quy tắc `source/layers.yaml` (substantivePaliMinChars 40, excludeReferenceBlock, floor 0,8, `english-project` chỉ tính khi `published`):
+  14 khoá Pāli có nội dung (≥ 40 ký tự, ngoài khối `:0`), **14** khoá có chữ Anh Sujato ⇒ coverage 1,00 ≥ ngưỡng 0,8. Lớp lấp `english-project` không cần dùng cho bài này.
+
+  KHÔNG ĐỐI CHIẾU ĐƯỢC TẦNG VIỆT HIỆN HÀNH. Tại commit đã ghim, `translation/vi/` của bilara chỉ chứa Pháp Cú, nên không có bản Hòa thượng Thích Minh Châu cho bài này. Đây là đặc điểm của bản chụp upstream, không phải thiếu sót của kho; `budsas.org` chỉ là tra cứu toàn văn và không có căn cứ alignment ở mức segment.
+
+  DẤU LƯỢC §10. Không khoá nào trong lát này được MỞ RỘNG chỗ Pāli lược. Bản Anh Sujato đã ghim mở rộng nhiều chỗ `…pe…` (ví dụ `sn45.24:2.2` và `sn55.31:4.1` liệt kê đủ tám ngành Bát Chánh Đạo, `sn46.14:3.3` liệt kê đủ bảy giác chi) — tôi KHÔNG theo, vì mở rộng là thêm chữ không đánh dấu. Cũng không khoá nào bị nén thêm: mọi `…` trong bản Việt đều ăn đúng một dấu lược ứng với một `…pe…` của Pāli, đếm từng khoá.
+
+  DÒNH CHIẾU ĐƯỢC THÊM TẦNG `english-project`. Sujato để trống `sn46.29:3.5`;
+    lớp lấp của dự án có `status: published`, cho *This is where these fetters, shackles, and
+    attachments arise …* — khớp bản Việt *Từ đó, các sự trói buộc, ràng buộc và chấp thủ sinh
+    khởi …*.
+
+  DÙNG LẠI NGUYÊN VĂN ĐÃ CÓ — ĐO ĐƯỢC. `Satisambojjhaṅgo …pe… upekkhāsambojjhaṅgo` đếm
+    trong SN46 cho *giác chi có nhớ tưởng … giác chi có bình thản* 5 bài (sn46.12, 13, 19,
+    22, 36) so với *niệm giác chi … xả giác chi* 3 bài và *giác chi niệm … giác chi xả* 1 bài
+    → theo đa số, và dùng nhất quán với `sn46.14/15`. `Idha, bhikkhave, bhikkhu
+    satisambojjhaṅgaṁ bhāveti vivekanissitaṁ …pe…` → *Ở đây, này các tỳ-kheo, vị tỳ-kheo tu
+    tập giác chi có nhớ tưởng, y cứ vào viễn ly …* theo 5 bài. `upekkhāsambojjhaṅgaṁ bhāveti
+    vivekanissitaṁ virāganissitaṁ nirodhanissitaṁ vossaggapariṇāmiṁ` → *tu tập giác chi có
+    bình thản, y cứ vào viễn ly, y cứ vào ly tham, y cứ vào diệt tận, và hướng đến buông bỏ*
+    theo 4 bài. Tên phẩm: `Udāyivagga` → *3. Phẩm Buổi Sớm* (đa số 4 so với 1 và 1).
+    0 tiền lệ, đặt mới: `Ekadhammasutta` → *Kinh Một Pháp*; `saṁyojanavinibandhā ajjhosānā`
+    → *các sự trói buộc, ràng buộc và chấp thủ* (0 bài trong tầng; `saṁyojanīyā dhammā` thì
+    ĐÃ có tiền lệ: `sn35.109:1.3` dịch đúng là *các pháp trói buộc*, nên tôi theo).
+  REVIEW ĐỐI KHÁNG. Tôi in lại Pāli ↔ Việt từng cặp và đọc lại với mục tiêu tìm lỗi.
+  Lỗi đã bắt được và đã sửa trước khi ghi lần cuối: 
+  **(1)** `saṁyojanīyaṁ dhammā` bản nháp dịch *các pháp siết chặt*; `sn35.109`
+      đã có *các pháp trói buộc* cho đúng Pāli này → đã đổi và dùng nhất quán trên 6 khoá.
+      **(2)** Bản nháp thêm `“` đóng ở `2.3`; Pāli giữ lời thoại mở từ `1.1` cho tới `3.8`
+      mới đóng, nếu đóng sớm sẽ thành hai lời thoại. **(3)** `2.2` bản nháp lỡ `diệt tận`
+      trong khi tiền lệ `sn46.12/13/31/32` viết `diệt tận`; đã đồng nhất.

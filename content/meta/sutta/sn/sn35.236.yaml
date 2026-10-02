@@ -1,0 +1,45 @@
+uid: sn35.236
+status: published
+translationTitle: "Kinh Ví Dụ Về Tay Và Chân (Nhất)"
+translators:
+  - "OpenCode Space Bunny Free (agent)"
+reviewers: []
+tags:
+  - samyutta-nikaya
+  - cong-hanh-nhom
+  - samuddavagga
+  - kinh-vi-du-ve-tay-va-chan-nhat
+quality:
+  scores:
+    source_provenance: 9.6
+    semantic_fidelity: 9.5
+    grammar_logic: 9.4
+    segment_alignment: 10.0
+    terminology: 9.4
+    triangulation: 9.5
+    vietnamese_clarity: 9.4
+    han_viet_balance: 9.4
+    ambiguity_integrity: 9.2
+    technical_integrity: 9.6
+  final_score: 9.50
+  blocking_errors: []
+  assessed_at: "2026-10-02"
+  assessed_by:
+    - "OpenCode Space Bunny Free (agent)"
+notes:
+  - |-
+    **Không có tầng Việt hiện hành để đối chiếu.** Tại commit đã ghim, bilara chỉ phân phối 26 chương Pháp Cú cho tiếng Việt, nên không tồn tại bản Hòa thượng Thích Minh Châu cho bài này; đó là đặc điểm của snapshot upstream, không phải thiếu sót của repo. Ba tầng còn lại là Pāli root, bản Anh Sujato đã ghim và bản Việt dự án.
+  - |-
+    **`kiểm()` của `_hvi.py` gần như vô dụng ở bài này**: nó chỉ quét khoá Pāli từ 40 ký tự trở lên, mà mọi vế kệ ở đây đều ngắn hơn, nên `cần` rỗng và assertion không chạy. Vì vậy tôi tự quét **toàn bộ** khoá từ đĩa: đủ khoá, đúng exact ID, NFC, không rỗng, dấu lược khớp Pāli từng khoá, ngoặc kép cân cả bài, không Pāli lọt, không `(…)`. Kết quả: **0 lỗi trên 252 khoá**.
+  - |-
+    **Đã tự dựng chỉ mục Pāli↔Việt toàn tầng rồi so khoá của lát, không đoán.** Nạp mọi tệp Pāli gốc trong cache (284.708 khoá) và mọi tệp Việt dự án (111.657 khoá), ghép theo khoá vì khoá là duy nhất toàn hệ thống. Lát này tìm được **6 khoá có Pāli trùng nguyên văn với bài đã có bản Việt ngoài lát (8 cặp)**, và **16 cụm Pāli trùng nguyên văn nội lát**. Mọi bản Việt đã có đều được dùng lại nguyên văn, không dịch lần hai.
+  - |-
+    **Năm khoá trùng nguyên văn sn35.237, dùng lại y nguyên — bắt buộc, vì đây là cặp bài kế nhau.** `1.5` → *Cũng vậy, này các tỳ-kheo, khi có con mắt thì do xúc chạm của con mắt mà sinh khởi, ở chính nó, sự dễ chịu, sự khổ …* · `1.7` → *khi có tâm thì do xúc chạm của tâm mà sinh khởi, ở chính nó, sự dễ chịu, sự khổ …* · `2.5` → *Cũng vậy, này các tỳ-kheo, khi không có con mắt thì do xúc chạm của con mắt mà không sinh khởi, ở chính nó, sự dễ chịu, sự khổ …* · `2.6` → *khi không có lưỡi thì không do xúc chạm của lưỡi mà sinh khởi …* · `2.7` → *khi không có tâm thì do xúc chạm của tâm mà không sinh khởi, ở chính nó, sự dễ chịu, sự khổ*`ti`. Kể cả chữ `ti` ở `2.7` tôi cũng giữ nguyên, vì nó nằm trong nguyên văn bắt buộc. `0.2` dùng *18. Phẩm Biển* (3 bài) và `0.3` theo cặp *(Nhất)*/*(Hai)* mà sn35.237 đã lập.
+  - |-
+    **Coverage English 14/14 = 100%.** Sujato dịch đủ, nhưng ở `1.6` và `2.6` hắn gộp tai–mũi–lưỡi–thân vào một chỗ bằng dấu chấm lửng; Pāli thì lược. Tôi dịch đủ khoá lưỡi theo Pāli, giữ đúng một dấu lược ở `1.6`, và **không** mở rộng những gì Pāli đã lược — tai và mũi không có mặt trong khoá này.
+  - |-
+    **Vì sao có `…pe…` mà bản Việt không thêm gì.** `1.5–1.7` và `2.5–2.6` mỗi khoá mang một `…pe…`; quy tắc là giữ **một** `…` và không bao giờ mở rộng. Vì thế khoá lưỡi nhảy từ mắt sang lưỡi mà không kê tai và mũi — người đọc thấy `…` nên biết có chỗ bị nén. Không chỗ nào trong bài này được nén thêm so với Pāli.
+  - |-
+    **Review đối kháng bắt được 1 lỗi.** Bản nháp tôi viết `1.7` là *sự dỡ chịu* thay vì *sự dễ chịu* — một chữ lệch nghĩa, và lệch với sn35.237 đã có. Máy không bắt được: cả hai đều là tiếng Việt hợp lệ, chỉ đối chiếu với bài kế mới thấy.
+  - |-
+    **Bất định nhỏ, đã ghi.** `1.7` Pāli kết bằng `…pe….` — dấu lược ở **cuối** khoá; bản Việt đặt `…` ở cuối theo đúng công thức, không mở rộng.

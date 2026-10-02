@@ -1,0 +1,47 @@
+uid: sn54.7
+status: published
+translationTitle: "Kinh Mahākappina"
+translators:
+  - "OpenCode Space Bunny Free (agent)"
+reviewers: []
+tags:
+  - samyutta-nikaya
+  - cong-hanh-nhom
+  - ekadhammavagga
+  - kinh-mahakappina
+quality:
+  scores:
+    source_provenance: 9.5
+    semantic_fidelity: 9.4
+    grammar_logic: 9.4
+    segment_alignment: 10.0
+    terminology: 9.2
+    triangulation: 9.4
+    vietnamese_clarity: 9.4
+    han_viet_balance: 9.4
+    ambiguity_integrity: 9.0
+    technical_integrity: 9.6
+  final_score: 9.43
+  blocking_errors: []
+  assessed_at: "2026-10-02"
+  assessed_by:
+    - "OpenCode Space Bunny Free (agent)"
+notes:
+  - |-
+    **Không có tầng Việt hiện hành để đối chiếu.** Tại commit đã ghim, bilara chỉ phân phối 26 chương Pháp Cú cho tiếng Việt, nên không tồn tại bản Hòa thượng Thích Minh Châu cho bài này; đó là đặc điểm của snapshot upstream, không phải thiếu sót của repo. Ba tầng còn lại là Pāli root, bản Anh Sujato đã ghim và bản Việt dự án.
+  - |-
+    **`kiểm()` của `_hvi.py` gần như vô dụng ở bài này**: nó chỉ quét khoá Pāli từ 40 ký tự trở lên, mà mọi vế kệ ở đây đều ngắn hơn, nên `cần` rỗng và assertion không chạy. Vì vậy tôi tự quét **toàn bộ** khoá từ đĩa: đủ khoá, đúng exact ID, NFC, không rỗng, dấu lược khớp Pāli từng khoá, ngoặc kép cân cả bài, không Pāli lọt, không `(…)`. Kết quả: **0 lỗi trên 252 khoá**.
+  - |-
+    **Đã tự dựng chỉ mục Pāli↔Việt toàn tầng rồi so khoá của lát, không đoán.** Nạp mọi tệp Pāli gốc trong cache (284.708 khoá) và mọi tệp Việt dự án (111.657 khoá), ghép theo khoá vì khoá là duy nhất toàn hệ thống. Lát này tìm được **7 khoá có Pāli trùng nguyên văn với bài đã có bản Việt ngoài lát (397 cặp)**, và **16 cụm Pāli trùng nguyên văn nội lát**. Mọi bản Việt đã có đều được dùng lại nguyên văn, không dịch lần hai.
+  - |-
+    **Một khoá trùng nguyên văn bài khác, dùng lại y nguyên — và cách dùng đó làm mất một nghĩa, nên ghi công khai.** `5.2` `So satova assasati, satova passasati …pe…` giống hệt sn54.3:5.2 và sn54.4:5.2, và cả hai tệp đó dịch là *Vị ấy chỉ hít vào, chỉ thở ra …*. Tôi dùng lại y nguyên. Nhưng `satova` là **có niệm**, và bản cũ đọc nó thành *chỉ*, nên *có niệm* biến mất khỏi bản Việt. Đây là xung đột thật giữa luật *dùng lại nguyên văn* và luật *giữ đủ nghĩa Pāli*; tôi chọn luật thứ nhất để không tự mâu thuẫn, và **giao cho người biên tập**. Cách sửa nếu phán xử theo hướng kia: đổi cả ba bài cùng lúc, không được sửa riêng sn54.7.
+  - |-
+    **Ba chỗ trùng Pāli đã theo đa số, có đếm.** `5.1` nguyên văn giống mn118/mn119 (2 bài) → dùng lại y nguyên *Ở đây, này các tỳ-kheo, vị tỳ-kheo đi đến rừng vắng, đi đến gốc cây, hay đi đến nhà trống, ngồi xuống kiết già, giữ thân thẳng, thiết lập niệm trước mặt.* `1.1` → *Tại Sāvatthī.* (373 bài) · `1.4` → *Thấy vậy, Đức Thế Tôn gọi các tỳ-kheo:* (4 bài) · `0.2` → *1. Phẩm Một Pháp* · `0.3` → *Kinh Mahākappina*.
+  - |-
+    **Coverage English 12/12 = 100%.** `5.2` có `…pe…` giữa *hít vào* và *thở ra*; tôi giữ một dấu lược và không mở rộng. `5.3` Sujato dịch *observing letting go*, tôi theo sn54.4 là *quán sự phân ly* — vì sn54.3 dùng *có sự vô ngã ở sự phân ly* (theo chú giải) còn sn54.4 và mn118 dùng *quán*, và `anupassī` là *quán sát*; đây là bốn cách cho cùng một Pāli, tôi chọn cách của bài ngay cạnh.
+  - |-
+    **Review đối kháng bắt được 1 lỗi văn phong.** `2.1/2.2/3.1/3.2/4.1/4.2/5.4` bản nháp tôi viết *rung rẩy hay phất phẫu* — *phất phẫu* không có trong tiếng Việt, đó là chữ máy sinh ra. Sửa thành *rung rẩy hay lắc lư* ở cả bảy khoá (`phandita` = rung rung, và *lắc lư* đã có 5 tiền lệ trong tầng).
+  - |-
+    **Bất định.** `ānāpānassatisamādhi` → *định chứng của sự chánh niệm về hơi thở*: đây là thuật ngữ **0 tiền lệ** trong toàn tầng (không có *tỉnh giác về hơi thở*, *niệm về hơi thở*, *quán hơi thở* hay *ánh mạt*), nên tôi ghép từ hai thành phần đã có. Đây là thuật ngữ quan trọng của cả bài và người biên tập nên xem lại; nếu đổi thì phải đổi ở `4.1`, `4.2`, `5.4` cùng lúc. `paṭinissagga` → *sự phân ly* (theo sn54.4).
+  - |-
+    **Nháy kép.** `“` mở ở `2.1`, đóng ở `2.2`, mở ở `3.1`, đóng ở `5.4` — đúng với bốn dấu `“…”` và `”` có trong Pāli.

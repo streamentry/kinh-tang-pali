@@ -1,0 +1,76 @@
+uid: sn55.31
+status: published
+translationTitle: "Kinh Dòng Phước Chảy Tràn Thứ Nhất"
+translators:
+  - "OpenCode Space Bunny Free (agent)"
+reviewers: []
+tags:
+  - samyutta-nikaya
+  - cong-hanh-nhom
+  - phuoc
+  - tam-bao-quan
+  - 4. Phẩm Gặp Gác Công Đức
+quality:
+  scores:
+    source_provenance: 9.8
+    semantic_fidelity: 9.6
+    grammar_logic: 9.6
+    segment_alignment: 10.0
+    terminology: 9.4
+    triangulation: 9.5
+    vietnamese_clarity: 9.5
+    han_viet_balance: 9.6
+    ambiguity_integrity: 9.6
+    technical_integrity: 9.6
+  final_score: 9.62
+  blocking_errors: []
+  assessed_at: "2026-10-02"
+  assessed_by:
+    - "OpenCode Space Bunny Free (agent)"
+notes: |-
+  KỸ THUẬT. Đợt này tôi KHÔNG chạy `npm run validate|test|build|check` — người điều phối cấm và chạy tập trung. Vì vậy tôi KHÔNG tuyên bố technical gate pass: `technical_integrity` chấm 9,6 chứ không phải 10,0. Bốn lệnh đó để người điều phối chạy lại.
+
+  CHỐT KHÔNG TỰ CHẠY — ĐÃ TỰ KIỂM THỦ CÔNG. Vòng chốt của `_hvi.kiểm()` chỉ quét khoá Pāli ≥ 40 ký tự; tôi tự quét lại TOÀN BỘ 19 khoá từ đĩa bằng chính các hàm đó (`_chk_w11.py`):
+  đủ khoá, không khoá thừa/thiếu so với Pāli, chuỗi NFC, không khoá rỗng, số dấu lược khớp TỪNG KHOÁ, ngoặc kép `“`/`”` cân trên cả bài — kiểm CẢ theo thứ tự số LẪN theo thứ tự chuỗi mà `sorted()` của chốt dùng, không Pāli lọt, không có `(…)`, không trùng nguyên văn Pāli. Kết quả: 0 lỗi trên 266 khoá / 14 bài.
+
+  COVERAGE. Đo lại đúng quy tắc `source/layers.yaml` (substantivePaliMinChars 40, excludeReferenceBlock, floor 0,8, `english-project` chỉ tính khi `published`):
+  14 khoá Pāli có nội dung (≥ 40 ký tự, ngoài khối `:0`), **14** khoá có chữ Anh Sujato ⇒ coverage 1,00 ≥ ngưỡng 0,8. Lớp lấp `english-project` không cần dùng cho bài này.
+
+  KHÔNG ĐỐI CHIẾU ĐƯỢC TẦNG VIỆT HIỆN HÀNH. Tại commit đã ghim, `translation/vi/` của bilara chỉ chứa Pháp Cú, nên không có bản Hòa thượng Thích Minh Châu cho bài này. Đây là đặc điểm của bản chụp upstream, không phải thiếu sót của kho; `budsas.org` chỉ là tra cứu toàn văn và không có căn cứ alignment ở mức segment.
+
+  DẤU LƯỢC §10. Không khoá nào trong lát này được MỞ RỘNG chỗ Pāli lược. Bản Anh Sujato đã ghim mở rộng nhiều chỗ `…pe…` (ví dụ `sn45.24:2.2` và `sn55.31:4.1` liệt kê đủ tám ngành Bát Chánh Đạo, `sn46.14:3.3` liệt kê đủ bảy giác chi) — tôi KHÔNG theo, vì mở rộng là thêm chữ không đánh dấu. Cũng không khoá nào bị nén thêm: mọi `…` trong bản Việt đều ăn đúng một dấu lược ứng với một `…pe…` của Pāli, đếm từng khoá.
+
+  DÒNH CHIẾU ĐƯỢC THÊM TẦNG `english-project`. Sujato để trống `sn55.31:1.5`,
+    `2.2`, `3.2`; lớp lấp của dự án có `status: published` cho ba khoá đó, và cả ba đọc khớp
+    bản Việt của tôi (*… teacher of gods and humans, awakened, blessed* / *… to be realized
+    directly by the wise* / *… the supreme field of merit in the world*). Ở `4.1` Sujato KHÔNG
+    để trống mà mở rộng đủ danh sách tính tốt — tôi không theo.
+
+  DÙNG LẠI NGUYÊN VĂN ĐÃ CÓ — ĐO ĐƯỢC. **5 khoá trùng nguyên văn**: `1.4` (trùng
+    `sn55.14:1.3` và `sn55.15:1.3`) → *Ở đây, này các tỳ-kheo, vị đệ tử Thánh đầy đủ với niềm
+    tín xác quyết nơi Đức Phật—*; `1.5` (trùng `sn55.14/15/16:1.4`) → *rằng Đức Thế Tôn ấy …
+    Đạo Sư chư thiên và người, bậc Giác ngộ, bậc Đáng Kính.*; `1.6` và `4.2` trùng
+    `sn55.32/33` → *Đây là dòng phước chảy tràn thứ nhất…*. `puññābhisandā kusalābhisandā
+    sukhassāhārā` → *dòng phước chảy tràn, dòng thiện chảy tràn, là những chất nuôi dưỡng hạnh
+    phúc* theo `sn55.32:1.1`. `suppaṭipanno bhagavato sāvakasaṅgho …pe… anuttaraṁ
+    puññakkhettaṁ lokassāti` → *… là ruộng phước vô thượng cho thế gian* theo `mn118:8.3`.
+    `akhaṇḍehi …pe… samādhisaṁvattanikehi` → *không đứt đoạn … đưa đến định* (đa số 3 bài so
+    với 1 bài *không đập phá … đưa đến sự an định*). Tên phẩm: `Puññābhisandavagga` → *4. Phẩm
+    Gặp Gác Công Đức* (5 bài, toàn bộ đồng thuận). 0 tiền lệ, đặt mới: không có.
+
+  XUNG ĐỘT THUẬT NGỮ ĐÃ PHÂN XỬ — `ariyasāvako`. `sn55.14/15/16` (Pāli trùng nguyên văn với
+    `1.4` của bài này) dịch *vị đệ tử Thánh*; `sn55.32/33/34` dịch *bậc Thánh đa văn* (thêm
+    chữ *đa văn* không có trong Pāli). Tôi chọn *vị đệ tử Thánh* trên cả bốn khoá của bài vì
+    (a) nó là cách của chính những bài có Pāli trùng nguyên văn, (b) `ariyasāvako` không mang
+    nghĩa *đa văn*, và (c) nếu dùng hai cách trong một bài thì bài tự mâu thuẫn. Hệ quả: `4.1`
+    lệch `sn55.34:4.1`; tôi giữ lấy *vị đệ tử Thánh* nhưng mượn vế *đầy đủ các giới được bậc
+    Thánh yêu mến* của `sn55.14:1.7` và vế *không đứt đoạn … đưa đến định* (đa số).
+  REVIEW ĐỐI KHÁNG. Tôi in lại Pāli ↔ Việt từng cặp và đọc lại với mục tiêu tìm lỗi.
+  Lỗi đã bắt được và đã sửa trước khi ghi lần cuối: 
+  **(1)** `ariyasāvako` bản nháp dùng *bậc Thánh đa văn* (theo `sn55.32/33/34`)
+      ở `4.1` nhưng *vị đệ tử Thánh* (theo `sn55.14/15`, Pāli trùng nguyên văn) ở `1.4/2.1/
+      3.1` — bài tự mâu thuẫn; đã thống nhất *vị đệ tử Thánh* trên cả bốn khoá, vì `ariyasāvako`
+      không có nghĩa *đa văn* và đó cũng là cách đã có tiền lệ Pāli trùng. **(2)** `2.2`/`3.2`
+      bản nháp có thêm dấu `”`; Pāli hai khoá này không mang dấu nháy (lời thoại chỉ đóng ở
+      `4.3`), đã bỏ. **(3)** `4.3` bản nháp theo *Có bốn…* của `sn55.32`; Pāli đây là `Ime`
+      (những cái này) nên phải là *Đây là bốn…* — đã sửa.
