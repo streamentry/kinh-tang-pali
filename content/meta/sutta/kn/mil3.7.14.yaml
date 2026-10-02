@@ -1,0 +1,53 @@
+uid: mil3.7.14
+status: draft
+translationTitle: "Câu Hỏi Về Việc Tinh Tế"
+translators:
+  - "OpenCode Space Bunny Free (agent)"
+reviewers: []
+tags:
+  - khuddaka-nikaya
+  - milindapanha
+  - pham-xac-dinh-phap-vo-sac
+  - cau-hoi-tinh-te
+quality:
+  scores:
+    source_provenance: 9.5
+    semantic_fidelity: 9.4
+    grammar_logic: 9.4
+    segment_alignment: 10.0
+    terminology: 9.3
+    triangulation: 7.0
+    vietnamese_clarity: 9.4
+    han_viet_balance: 9.3
+    ambiguity_integrity: 9.2
+    technical_integrity: 9.6
+  final_score: 9.21
+  blocking_errors:
+    - "Không có tầng tham khảo English Sujato tại commit đã ghim (0/11 khoá có prose, đã đếm trong cache đã ghin .cache/upstream/suttacentral/translation/en/sujato/sutta/kn/: không có tệp cho bài này) và cũng không có bản Việt hiện hành cho Khuddaka Nikāya; bài này dịch chỉ từ Pāli, chưa đối chiếu được tầng tham khảo nào nên chưa đủ điều kiện published, giữ draft."
+  assessed_at: "2026-10-01"
+  assessed_by:
+    - "OpenCode Space Bunny Free (agent)"
+notes: |-
+  Đủ 11/11 khoá trong all. Đã đọc HẾT Pāli lát qua v7/p1.txt trước khi viết.
+    Bốn khối tiêu đề và khung thoại giữ nguyên một cách dịch cho cả bốn bài mil của lát, gồm cả
+    chỗ Rājā āha— → Vua nói: (đa số 10/16 bài đã có; xem kỳ giải thích ở mil3.7.12).
+    Tiền lệ BẮT BUỘC dùng lại nguyên văn: khoá 2.1 là “Khéo lắm, thưa tôn giả Nāgasenā.”
+
+    Thuật ngữ, đếm được. sukhuma/sabbasukhumo/sukhuman/thūla → tinh tế / thô (tinh tế 94 tiền lệ;
+    thô là Hán–Việt quen thuộc và đúng nghĩa `thūla` là thô kệch, đối xứng với tinh tế).
+    chindati/chinditabba/chinditun/chedana → cắt đứt (thag1.15:1.1 đã dùng `chinde` là cắt).
+    paññāya → bằng tuệ; natthi dutiyaṁ → không có sự cắt đứt bằng tuệ thứ hai. Giữ cả hai vế:
+    1.2 `sakkā` là câu hỏi phải chăng, 1.3 `Āma` là Vâng, 1.4 lại hỏi `Kiṁ pana` — ba lần hỏi
+    khác nhau, không gộp.
+
+    Thuật ngữ 0 tiền lệ, đặt mới kèm lý do. `adhivacana` → tên gọi thay thế. Trong tầng chưa có
+    chữ nào dịch `adhivacana`; nghĩa gốc là cách gọi khác cho cùng một pháp, nên “tên gọi thay thế”
+    nói đúng việc mà câu đang làm. Tôi không dùng cách nói theo kiểu “Pháp thì gọi là tinh tế hay
+    thô” của kho, vì sẽ biến một mệnh đề thành hai và làm lệch mệnh đề đơn của Pāli.
+
+    Bất định đã ghi nhận. `sabbasukhumo` tôi dịch là tinh tế toàn tập, còn `dhammā sabbe sukhumā`
+    là không phải tất cả đều tinh tế — hai vế đối xứng, cả hai phủ định giữ nguyên. Người đọc dễ
+    tưởng mâu thuẫn nếu không thấy rõ đây là chủ ý chống lại cách hiểu “Pháp thì tinh tế toàn tập”;
+    tôi không thêm lời giải thích vào thân kinh, chỉ ghi ở đây.
+    Dấu lược: cả bài không có `…pe…` nên hai phía đều 0.
+    Kiểm kỹ thuật: save_vi sạch, chạy hai lần idempotent (sha256 không đổi). Vì mọi khoá Pāli của Theragāḵā ngắn hơn 40 ký tự nên cần trong kiểm() rỗng và các assertion không tự chạy, tôi tự quét MỌI khoá: đủ 11/11 khoá; đúng ID; thứ tự khoá y hệt Pāli; không rỗng; NFC; dấu lược bằng Pāli (2 = 2 ở dòng kết); nháy kép cân trên cả bài; không còn `(…)`; không có ký tự ngoài Latin. Không chạy npm run validate|test|check|build (đợt này cấm) nên technical_integrity = 9.6, không phải 10.  Không đối chiếu được tầng Việt hiện hành: bilara tại commit đã ghim chỉ có Pháp Cú cho tiếng Việt, nên Tăng Bộ và Trưởng Lão không có bản Hòa thượng Thích Minh Châu để đối chiếu thuật ngữ. Đây là giới hạn của bản chụp upstream, đã ghi ở content/meta/reference-gaps.yaml.

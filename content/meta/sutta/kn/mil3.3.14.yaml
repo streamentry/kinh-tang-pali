@@ -1,0 +1,44 @@
+uid: mil3.3.14
+status: draft
+translationTitle: "14. Câu Hỏi Về Dấu Hiệu Của Sự Suy Xét."
+translators:
+  - "OpenCode Space Bunny Free (agent)"
+reviewers: []
+tags:
+  - khuddaka-nikaya
+  - milindapanha
+  - vicāravagga
+  - ban-hai-bai
+quality:
+  scores:
+    source_provenance: 9.5
+    semantic_fidelity: 9.0
+    grammar_logic: 9.0
+    segment_alignment: 10.0
+    terminology: 8.8
+    triangulation: 6.5
+    vietnamese_clarity: 9.1
+    han_viet_balance: 9.2
+    ambiguity_integrity: 8.8
+    technical_integrity: 9.6
+  final_score: 8.95
+  blocking_errors:
+    - "Tầng English Sujato vắng mặt tại commit đã ghim (không có tệp upstream cho thư mục này) nên chưa đối chiếu được một bản Anh độc lập; validate đòi tầng này cho review và published, nên bài giữ draft dù đã dịch đủ mọi khoá từ Pāli root."
+  assessed_at: "2026-10-01"
+  assessed_by:
+    - "OpenCode Space Bunny Free (agent)"
+notes: |-
+  **Bốn khoá có nội dung** (`1.1`, `1.2`, `2.2`, `2.3`) — nhiều nhất trong lát — nhưng **không một khoá nào có tiếng Anh**: tại commit đã ghim tầng English Sujato không có thư mục `kn/mil` (`ls …/en/sujato/sutta/kn/` cho `cp dhp iti ja kp snp thag thig ud`), `englishCoverageFor('kn','mil3.3.14')` lúc tôi đo cho `substantiveSegments: 4`, `substantiveWithoutEnglish: 4`, tỉ lệ **0%**. Giữa lúc đó một agent khác đã ghi vào đĩa `content/translation/en/project/sutta/kn/mil3.3.14_translation-en-project.json` (12 khoá) kèm scorecard `status: published`, nên chỉ số coverage của kho bây giờ là 100%. Tôi **không** nâng `triangulation` vì đó là bản lấp English **do chính tầng dự án tạo ra**, và `assessed_by` của nó trùng `assessed_by` của bài Việt này — không phải bản Anh độc lập (`AGENTS.md`: bản lấp cùng người chấm thì scorecard tiếng Việt không được tuyên bố đã đối chiếu English). Bản Anh **đã ghim** vẫn không có, và đó mới là thứ `validate` đòi. `validate` coi thiếu tệp Anh là lỗi chặn cho `review`/`published` và đồng thời còn đòi khoảng trống phải được ghi trong `content/meta/reference-gaps.yaml` — tệp đó tôi **không** được sửa, nên bài giữ `draft`. Đây là giới hạn của bản chụp upstream, không phải thiếu sót của kho.
+
+  **Tự kiểm.** `kiểm()` của `_hvi.py` bắt được đúng bốn khoá này và tôi chạy lại từ đĩa: pass. Nhưng ngoài bốn khoá đó thì không có assertion nào chạy, nên tôi tự quét MỌI khoá của cả lát (`_tvd7_2_chk.py`, 136 khoá): đúng tập khoá `all` (12), NFC, **số dấu lược khớp Pāli từng khoá** (bài này không có dấu lược nào ở bất kỳ khoá nào), ngoặc kép cân trên cả bài — mở và đóng cùng khoá ở `1.1`, `1.2`, `2.1`, `3.1`, và **mở ở `2.2` rồi đóng ở `2.3`**, đúng như Pāli — không Pāli lọt, không `(…)`, không trùng Pāli; `save_vi` hai lần không đổi byte.
+
+  **Tiến lệ trực tiếp, dùng lại nguyên văn.** `“Kallosi, bhante nāgasenā”ti.` trùng y hệt `mil3.5.6:2.1` và `mil3.6.6:2.1` (cả hai `published`) → *“Khéo lắm, thưa tôn giả Nāgasenā.”* Cấu trúc hội thoại (`1.1` vua hỏi / `1.2` trưởng lão đáp) theo đúng hai bài đó. `bhante nāgasena` → *Thưa tôn giả Nāgasena*; `mahārāja` → *Này Đại vương* (`mil3.5.6:1.4`, `mil3.6.6:1.3`). `Milindapañha` → giữ nguyên (mẫu `mil3.5.6:0.1`). `Vicāralakkhaṇapañho cuddasamo` → *Câu hỏi về dấu hiệu của sự suy xét, thứ mười bốn*; `Vicāravaggo tatiyo` → *Phẩm Suy Xét, thứ ba*; `Imasmiṁ vagge cuddasa pañhā` → *Trong phẩm này có mười bốn câu hỏi* (đúng nguyên văn `mil3.6.11:5.1`). Mẫu tiêu đề dùng dấu chấm hết câu như `mil3.5.6:0.3`.
+
+  **Hai thuật ngữ đặt mới, 0 tiền lệ trong tầng — ghi ra đây.**
+  Số đếm lấy trên cây làm việc lúc bàn giao; các agent khác còn đang viết song song nên các con số này sẽ trôi — điều bền vững là tên khoá tiền lệ nêu kèm: `vicāra` → *suy xét* (0 chỗ; chỗ duy nhất tầng có `vicāro` là `mn111:4.1`, ở đó nó là yếu tố thứ tư của sơ thiền và tầng dịch *tứ*, nên **không** dùng làm tiền lệ cho nghĩa *suy xét* ở đây). `anumajjana` → *cân nhắc* (0 chỗ). `pāyāsi`/`vicāra` cùng phẩm với `lakkhaṇa` → *dấu hiệu* (0 chỗ cho `lakkhaṇa`; tôi dùng vì cấu trúc câu `kiṁlakkhaṇo vicāro` / `anumajjanalakkhaṇo vicāro` là hỏi–đáp về **đặc trưng nhận biết**).
+
+  **Bất định lớn nhất: ví dụ ở `2.2`–`2.3`, tôi dịch theo chữ và KHÔNG diễn giải.** `kaṁsathālaṁ ākoṭitaṁ pacchā anuravati anusandahati` — *tấm đúc đồng đã đổ đầy, lật úp xuống thì phần đã đổ vào chảy ngược và tụ lại bên trong*. Tôi **không** nói chất lỏng ấy là *nước*, vì Pāli không nói; và **không** nói mục đích của ví dụ là gì. `ākoṭanā` → *cái khuôn đúc ấy* là **thứ đem ra để so**, còn `vitakko` → *sự suy nghĩ* mới là **thứ phải xem xét**; tôi đã sửa một lỗi ở bản nháp là cho *tấm đúc ấy* làm vế phải xem xét, tức là dịch nhầm vế. Bản dịch dừng ở đó vì phần còn lại của câu hỏi (Nāgasena trả lời thế nào) **không có trong lát này** — nó thuộc những khoá của các câu hỏi khác trong `vicāravagga`, và tôi không tra cùng bài ở bài khác để viết trước. Vì vậy `semantic_fidelity`, `grammar_logic` và `ambiguity_integrity` chỉ 9,0 / 9,0 / 8,8.
+
+  **Không có bản Việt tham khảo** tại commit đã ghim (`translation/vi/` bilara chỉ có 26 tệp Pháp Cú), nên `triangulation` chỉ 6,5.
+
+  **`technical_integrity` 9,6** vì đợt này cấm `npm run validate|test|build`.

@@ -1,0 +1,82 @@
+uid: ja201
+status: draft
+translationTitle: "Kinh Nhà Trói Buộc"
+translators:
+  - "OpenCode Space Bunny Free (agent)"
+reviewers: []
+tags:
+  - khuddaka-nikaya
+  - jataka
+  - dukanipata
+  - pham-bo-lua
+quality:
+  scores:
+    source_provenance: 9.6
+    semantic_fidelity: 9.4
+    grammar_logic: 9.3
+    segment_alignment: 10
+    terminology: 9.3
+    triangulation: 8.5
+    vietnamese_clarity: 9.3
+    han_viet_balance: 9.3
+    ambiguity_integrity: 9.3
+    technical_integrity: 9.6
+  final_score: 9.36
+  blocking_errors:
+    - "Bài này KHÔNG có tầng english-sujato tại commit đã ghim: manifest chỉ liệt kê 84 bài ja* có bản Anh (ja1–ja79, ja126, ja159, ja466, ja534), không có ja195–ja211. Thiếu tầng tham khảo là lỗi chặn đối với review/published theo AGENTS.md, nên đặt draft."
+  assessed_at: "2026-10-01"
+  assessed_by:
+    - "OpenCode Space Bunny Free (agent)"
+notes: |-
+    Lát v7/7: 12 bài Jātaka Ekakanipāta (Dūkaṇipāta), 156 khoá, dịch đủ MỌI khoá
+    trong `all` của v7/v7.json. Đã đọc HẾT v7/p7.txt trước khi viết.
+
+    **Sàn coverage 80% KHÔNG kích hoạt — nhưng ô Anh trống KHÔNG phải sự đồng
+    thuận.** Đo được: mọi vế kệ của Ekakanipāta đều NGẮN HƠN 40 ký tự (156 khoá,
+    `substantiveSegments = 0`), nên `englishCoverageFor` cho `ratio = 1` và bài
+    không cần entry trong `content/meta/reference-gaps.yaml`. Hệ quả thật: hàm
+    `kiểm()` của `_hvi.py` lọc `cần = [k for k in p if len(p[k]) >= 40 …]` nên
+    `cần` RỖNG ở cả 12 bài, và **NFC / trùng nguyên văn Pāli / Pāli lọt / số dấu
+    lược không tự chạy**. Tôi đã tự kiểm thủ công đủ 156 khoá bằng một lớp kiểm
+    riêng áp đúng các quy tắc đó lên MỌI khoá (0 lỗi), và đọc đối kháng từng cặp
+    Pāli ↔ Việt. Tầng Việt tham khảo (Hòa thượng Thích Minh Châu) ở commit đã
+    ghim chỉ có Pháp Cú, nên không có bản Việt nào để đối chiếu cho 12 bài này —
+    đây là giới hạn của bản chụp upstream, không phải thiếu sót của kho.
+
+    **Dấu lược:** không khoá nào trong 12 bài có `…pe…` hay `…`, nên cả hai phía
+    đều 0. Không mở rộng, không thêm, không bớt.
+
+    **Ngoại lệ đã đo, không phải lỗi:** khoá `:0.1` = `Jātaka` trùng nguyên văn
+    Pāli ở **128/128** tệp `kn/ja*` có cả hai khoá (đếm bằng script, không suy đoán).
+    Tôi giữ nguyên theo đúng tiền lệ ấy và nêu ở đây.
+
+    **Thiếu tầng Anh:** xem `blocking_errors`. Chỗ nào Sujato im lặng thì tôi dịch
+    từ Pāli; ô Anh trống ở đây KHÔNG được đọc là đồng thuận về cách dịch.
+    ⚠ **Bài này trùng gāthā đã publish — và tôi ĐÃ SỬA để bám đúng tiền lệ.**
+    Tám vế của bài trùng nguyên văn hai nơi đã `published`:
+      · `dhp345:1`–`dhp346:4` + `dhp347:3` (`content/meta/sutta/kn/dhp334-359.yaml`
+        = published);
+      · `sn21.6:2–3` (`content/meta/sutta/sn/sn21.6.yaml` = published).
+    Bản nháp đầu tôi tự viết lại từng vế. Đọc lại TIEN_LE_PHAI.md ("Pāli trùng thì
+    dùng lại nguyên văn cách dịch đã có, không dịch lại") thì sai cách, nên tôi đã
+    thay bằng đúng chữ đã có. Đây là thay đổi **terminology/consistency**, không
+    đổi nghĩa.
+
+    **Hai nơi đã publish cùng gāthā nhưng dịch KHÁC nhau — tôi chọn và ghi lại:**
+    `dhp345-346` và `sn3.10:4-5` là hai bản khác nhau của cùng bài kệ. Tôi theo
+    `dhp345-346` vì đó là bản trùng **từng chữ** với Jātaka, còn `sn3.10` là biến
+    thể (`dārujaṁ pabbajañca`, `sithilaṁ`, `paribbajanti`). Vì hai bản đã publish
+    ấy vốn đã lệch nhau, tôi **không** tự sửa `sn3.10` (ngoài phạm vi lát); nếu
+    người biên tập muốn thống nhất thì đó là việc riêng.
+
+    **`1.2` là chỗ tôi CỐ TÌNH không chép `dhp345:2`.** Bản `dhp` dịch "những thứ
+    làm bằng sắt, gỗ hay dây thừng", nhưng Pāli `Yadāyasaṁ dārujapabbajañca`
+    chỉ có **gỗ** và **gông gỗ** (`yadāyasa` = làm bằng gỗ, `dāruja` = gỗ,
+    `pabbaja` = gông). "Sắt" và "dây thừng" không có trong Pāli — có lẽ bản `dhp`
+    mượn từ văn xuôi `sn3.10:2.3` vốn kể dây thừng, gông xiềng, xích. Theo
+    `skill/translation.md` §3.2 (Pāli là authority) tôi dịch theo Pāli: "dù làm
+    bằng gỗ hay bằng gông gỗ". Đây là **lệch có chủ ý so với tiền lệ**, nêu ở đây.
+
+    **`maṇikuṇḍala`:** theo `mn94:7.3` (published) = "châu ngọc"; `sārattarattā`
+    là tính từ "nhọn/sắc", tôi dịch cả vế là "sự say đắm nơi châu ngọc" theo đúng
+    bản `dhp345:3` đã publish.

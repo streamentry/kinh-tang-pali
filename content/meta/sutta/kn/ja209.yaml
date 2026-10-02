@@ -1,0 +1,68 @@
+uid: ja209
+status: draft
+translationTitle: "Kinh Chim Cút"
+translators:
+  - "OpenCode Space Bunny Free (agent)"
+reviewers: []
+tags:
+  - khuddaka-nikaya
+  - jataka
+  - dukanipata
+  - pham-bo-lua
+quality:
+  scores:
+    source_provenance: 9.6
+    semantic_fidelity: 9
+    grammar_logic: 9
+    segment_alignment: 10
+    terminology: 9.1
+    triangulation: 7
+    vietnamese_clarity: 9.2
+    han_viet_balance: 9.3
+    ambiguity_integrity: 8.7
+    technical_integrity: 9.6
+  final_score: 9.05
+  blocking_errors:
+    - "Bài này KHÔNG có tầng english-sujato tại commit đã ghim: manifest chỉ liệt kê 84 bài ja* có bản Anh (ja1–ja79, ja126, ja159, ja466, ja534), không có ja195–ja211. Thiếu tầng tham khảo là lỗi chặn đối với review/published theo AGENTS.md, nên đặt draft."
+  assessed_at: "2026-10-01"
+  assessed_by:
+    - "OpenCode Space Bunny Free (agent)"
+notes: |-
+    Lát v7/7: 12 bài Jātaka Ekakanipāta (Dūkaṇipāta), 156 khoá, dịch đủ MỌI khoá
+    trong `all` của v7/v7.json. Đã đọc HẾT v7/p7.txt trước khi viết.
+
+    **Sàn coverage 80% KHÔNG kích hoạt — nhưng ô Anh trống KHÔNG phải sự đồng
+    thuận.** Đo được: mọi vế kệ của Ekakanipāta đều NGẮN HƠN 40 ký tự (156 khoá,
+    `substantiveSegments = 0`), nên `englishCoverageFor` cho `ratio = 1` và bài
+    không cần entry trong `content/meta/reference-gaps.yaml`. Hệ quả thật: hàm
+    `kiểm()` của `_hvi.py` lọc `cần = [k for k in p if len(p[k]) >= 40 …]` nên
+    `cần` RỖNG ở cả 12 bài, và **NFC / trùng nguyên văn Pāli / Pāli lọt / số dấu
+    lược không tự chạy**. Tôi đã tự kiểm thủ công đủ 156 khoá bằng một lớp kiểm
+    riêng áp đúng các quy tắc đó lên MỌI khoá (0 lỗi), và đọc đối kháng từng cặp
+    Pāli ↔ Việt. Tầng Việt tham khảo (Hòa thượng Thích Minh Châu) ở commit đã
+    ghim chỉ có Pháp Cú, nên không có bản Việt nào để đối chiếu cho 12 bài này —
+    đây là giới hạn của bản chụp upstream, không phải thiếu sót của kho.
+
+    **Dấu lược:** không khoá nào trong 12 bài có `…pe…` hay `…`, nên cả hai phía
+    đều 0. Không mở rộng, không thêm, không bớt.
+
+    **Ngoại lệ đã đo, không phải lỗi:** khoá `:0.1` = `Jātaka` trùng nguyên văn
+    Pāli ở **128/128** tệp `kn/ja*` có cả hai khoá (đếm bằng script, không suy đoán).
+    Tôi giữ nguyên theo đúng tiền lệ ấy và nêu ở đây.
+
+    **Thiếu tầng Anh:** xem `blocking_errors`. Chỗ nào Sujato im lặng thì tôi dịch
+    từ Pāli; ô Anh trống ở đây KHÔNG được đọc là đồng thuận về cách dịch.
+    ⚠ **Chỗ tôi đã sửa sau review:** `yathā tvaṁ rukkha sakkasi` (`1.4`) bản nháp
+    tôi dịch "như ngươi, cây non, có được", tức đọc `rukkhā` như danh từ và thêm
+    chữ "non" không có trong Pāli. Nhưng ở đây `rukkhā` là **từ xưng hô bàn về cây**
+    (gọi kẻ nghe như một cái cây, câu đối của truyện gà nuôi cút), và "non" là chữ
+    tôi tự thêm. Đã sửa thành "như cây, ngươi có được". Việc này không đổi nghĩa
+    Pāli nhưng bỏ được một chữ không có nguồn.
+
+    **`assakaṇṇā`** (`1.2`) dịch "toàn trắng": chữ chỉ xuất hiện ở `ja209:1.2` và
+    `ja541:151.4` (`assakaṇṇo girī brahā` = núi trắng). Nghĩa "trắng nhợn" khớp
+    `vibhīṭakā` ("đáng kinh sợ") ngay sau. Tôi giữ "toàn trắng, đáng kinh sợ" theo
+    cả hai vế.
+
+    **`Kusalo vāḷapāsānaṁ`** (`2.3`) dịch "khéo tay trong nghề thợ"; `vāḷa` =
+    thợ/thợ thủ công, `vāḷapāsāna` = việc của thợ. Vế này khó; ghi lại.
