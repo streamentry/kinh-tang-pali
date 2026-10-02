@@ -35,3 +35,19 @@ notes: |-
   **Bất định đã ghi.** `mahākāyappadālano` (`1.4`) xuất hiện đúng một lần trong toàn bộ corpus Pāli đã ghim (chính khoá này), nên tôi dựa `padāletā` của `an4.196` (*phá vỡ được*) và đọc `kāya` là thân, dịch *phá vỡ được những thân hình lớn*; cách đọc *rộn ràng thân hình* cũng có thể, tôi ghi ra đây chứ không đưa vào thân kinh. `ah` của `Ajiyā` tôi hiểu là *con dê* (`aji`); nếu là *con dê cái* thì bản Việt không đổi.**Kiểm kỹ thuật.** Chạy `save_vi` hai lần: idempotent, tệp trên đĩa không đổi. Tôi tự quét lại **mọi** khoá chứ không chỉ khoá ≥ 40 ký tự như `_hvi.py` làm — ở lát này chỉ 0/155 khoá Pāli đủ 40 ký tự, nên chốt tự kiểm 0% và assertion còn lại không tự chạy; phần tôi tự kiểm: 13/n khoá có mặt và không thừa khoá, đúng segment ID, mọi chuỗi NFC, không khoá rỗng, không khoá nội dung nào trùng nguyên văn Pāli, số dấu lược bằng Pāli từng khoá, ngoặc kép cân trên cả bài và không bao giờ âm, không còn `(…)`, không Pāli lọt vào bản Việt. Tôi **không** chạy `npm run validate|test|check|build` (lát này cấm; người điều phối chạy tập trung), nên `technical_integrity` chấm 9.6 chứ không phải 10.0.
 
   **Không có tầng Việt hiện hành để đối chiếu.** Tại commit đã ghim, `translation/vi/` của bilara chỉ chứa Pháp Cú, nên Jātaka không có bản Hòa thượng Thích Minh Châu. Đây là giới hạn của bản chụp upstream, không phải thiếu sót của kho; `triangulation` vì thế là Pāli + English Sujato.
+
+  VIỆC BIÊN TẬP của người điều phối (cùng PR): khoá `ja181:0.2` mang Pāli `Dukanipāta` được
+  đổi *«Tập Kẻ Đau Đớn»* → *«Bộ Hai Bài Kinh»*. Căn cứ: tầng **tên** của chính SuttaCentral tại commit đã
+  ghim (`source/upstream-manifest.json` → `english-sujato`, **123** tệp `name/`) ghi
+  `ja-name:167.ja-dukanipata` → *"The Book of the Twos"*, cùng `thag-name:134` và `iti-name:32`. `duka` là **số hai** trong dãy `ekādasa / dvādasa / dasā / aṭṭha / pañca / catu`, không phải `dukkha`. Song song chính xác với `Ekakanipāta` = *Bộ Một Bài Kinh* ← *"The Book of
+  the Ones"*. Tầng này trước đợt sửa có **17** cách cho `Dukanipāta` và **6** cho
+  `Asadisavagga`: đó là lý do các agent đợt trước đi theo đa số cục bộ rồi tự sinh cách
+  mới. `terminology` giữ nguyên — đây là chuẩn hoá, không phải lỗi riêng của bài này.
+
+  VIỆC BIÊN TẬP của người điều phối (cùng PR): khoá `ja181:0.3` mang Pāli `Asadisavagga` được
+  đổi *«Phẩm Vô Đối Đẳng»* → *«Phẩm Bất Đối Đẳng»*. Căn cứ: tầng **tên** của chính SuttaCentral tại commit đã
+  ghim (`source/upstream-manifest.json` → `english-sujato`, **123** tệp `name/`) ghi
+  `ja-name:201.ja-asadisavagga` → *"Prince Peerless"* ⇒ `asadi` là **vô đối**, không phải *bất thành tựu*. Song song chính xác với `Ekakanipāta` = *Bộ Một Bài Kinh* ← *"The Book of
+  the Ones"*. Tầng này trước đợt sửa có **17** cách cho `Dukanipāta` và **6** cho
+  `Asadisavagga`: đó là lý do các agent đợt trước đi theo đa số cục bộ rồi tự sinh cách
+  mới. `terminology` giữ nguyên — đây là chuẩn hoá, không phải lỗi riêng của bài này.
