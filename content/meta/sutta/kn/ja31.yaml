@@ -1,0 +1,44 @@
+uid: ja31
+status: published
+translationTitle: "Kinh Tổ Chim"
+translators:
+  - "OpenCode Space Bunny Free (agent)"
+reviewers: []
+tags:
+  - "khuddaka-nikaya"
+  - "jataka"
+  - "ekakanipata"
+  - "pham-to-chim"
+quality:
+  scores:
+    source_provenance: 9.5
+    semantic_fidelity: 9.3
+    grammar_logic: 9.2
+    segment_alignment: 10.0
+    terminology: 9.2
+    triangulation: 9.5
+    vietnamese_clarity: 9.4
+    han_viet_balance: 9.3
+    ambiguity_integrity: 9.1
+    technical_integrity: 9.6
+  final_score: 9.41
+  blocking_errors: []
+  assessed_at: "2026-10-02"
+  assessed_by:
+    - "OpenCode Space Bunny Free (agent)"
+notes: |-
+  CHỐT KHÔNG TỰ CHẠY — ĐÃ TỰ KIỂM THỦ CÔNG. `_hvi.kiểm` chỉ quét `cần` = khoá Pāli ≥ 40 ký tự. Ở 16/17 bài của lát này khoá Pāli dài nhất chỉ 19–35 ký tự nên `cần` rỗng và vòng chốt NFC / trùng nguyên văn Pāli / Pāli lọt / số dấu lược KHÔNG CHẠY LẦN NÀO. Tôi tự quét lại **164/164 khoá** bằng chính các hàm đó (`_chk_rv3.py`): 0 lỗi — không khoá rỗng, không khoá thừa so với Pāli, không thiếu khoá, mọi chuỗi NFC, số dấu lược khớp Pāli từng khoá, ngoặc kép cân trên cả bài, ngoặc tròn cân, không còn `(…)`, không còn sót `pe…`. Chỉ `mil3.1.7` có 4 khoá ≥ 40 ký tự (`:1.2`–`:1.5`) nên ở bài đó chốt thật sự có chạy. `save_vi` chạy sạch, chạy lại hai lần idempotent.
+
+  COVERAGE — ĐO BẰNG CHÍNH HÀM CỦA KHO (chỉ đọc, `englishCoverageFor`). Cả **17/17 bài ra `ratio = 1`**: 16 bài có `substantiveSegments = 0` vì không khoá Pāli nào đủ 40 ký tự; `mil3.1.7` có 4 khoá substantive. Không bài nào rơi dưới ngưỡng 0,8 nên **không** cần mục trong `content/meta/reference-gaps.yaml` — tệp đó tôi không đụng tới.
+
+  KHÔNG ĐỐI CHIẾU ĐƯỢC TẦNG VIỆT HIỆN HÀNH. Tại commit đã ghim, `translation/vi/` của bilara chỉ chứa Pháp Cú, nên không có bản Hòa thượng Thích Minh Châu cho bất kỳ bài nào trong lát này. Đây là đặc điểm của bản chụp upstream, không phải thiếu sót của kho; `triangulation` vì thế là **Pāli + English Sujato + các bài song song trong chính tầng này**.
+
+  KỸ THUẬT. Tôi KHÔNG chạy `npm run validate|test|build|check` — đợt này người điều phối cấm và chạy tập trung. Vì vậy `technical_integrity` chấm **9.6 chứ không phải 10.0**; đó là hạn chế thật của lượt đánh giá này chứ không phải lời khen. Tất cả những gì chạy được thì đã chạy.
+
+  **BÀI ĐỐI ĐÃ CÓ TRONG TẦNG — DÙNG LẠI TỪNG VẾ.** Câu kệ này nằm nguyên văn trong `sn11.6:2.1`–`2.4` (đã `published`), cùng cảnh chư thiên đánh nhau với A-tu-la ngoài rừng simbalī. Tôi dùng lại nguyên văn đã có: `Kāmaṁ cajāma asuresu pāṇaṁ,` → *thà ta dâng mạng sống cho các A-tu-la,* (nguyên văn `sn11.6:2.3`); `Īsāmukhena parivajjayassu;` → *đừng lấy đầu trục xe mà né tránh* (từ cụm *bằng đầu trục xe* của `sn11.6:2.2`); `Mātali` giữ nguyên; `asura` → *A-tu-la*; `simbali` → *rừng simbalī*; `Kulāvakasutta` → *Kinh Tổ Chim* (nguyên văn `sn11.6:0.3`) nên `0.4` → *1. Kinh Tổ Chim*.
+
+  **BẤT ĐỊNH ĐÃ GHI — `1.1 Kulāvakā`.** `Kulāvakā` là từ xưng hô danh từ số nhiều, đứng cùng `mātali` (từ xưng hô) và `simbalismiṁ` (nơi chốn), nên nó là tiếng gọi. Ở `sn11.6` Sakka gọi Mātali như vậy (vì Mái xe của Mātali đã nghiến tổ chim), và bản Anh đã ghim dịch cả câu là *Mātali, don’t ram the bird nests…* — bỏ mất chữ này. Tôi KHÔNG bỏ: dịch *Này tổ chim* để giữ đủ bốn thành phần. Đây là chỗ tôi lệch có chủ ý với bản Anh.
+
+  **BẤT ĐỊNH ĐÃ GHI — `1.4 Māme dijā vikkulāvā ahesun`.** Bản Jātaka khác `sn11.6` ở đúng vế này: SN là `Māyime dijā vikulāvakā ahesuṁ` (tổ chim bị bỏ rơi), Jātaka là `Māme dijā vikkulāvā ahesun` (mẹ ta bị bỏ rơi). Sujato dịch cả hai vế theo bản SN (*deprive these birds of their nests*), tức lấy nghĩa của bản kia cho bản này. Pāli là authority nên tôi theo Jātaka: *còn hơn để mẹ ta bị bỏ rơi suốt một thời gian dài*. `vikkulāvā` là quá khứ bị động (bị bỏ rơi), nên tôi dịch thành *bị bỏ rơi*, không phải *bỏ*.
+
+  **`0.3 Kulāvakavagga` — TẦNG NÀY ĐANG CÓ BỐN CÁCH.** Khi tôi bắt đầu lát này, `Kulāvakavagga` chưa bài nào dịch; trong lúc tôi làm thì agent khác ghi thêm: `ja38` = *Phẩm Tổ Chim*, `ja32` = *Phẩm Chim Cu*, `ja36` = *Phẩm Kulāvaka*, `ja34` = *Phẩm Tổ*. Tôi dùng **Phẩm Tổ Chim** (trùng nguyên văn `ja38`, và nhất quán với *Kinh Tổ Chim* của `sn11.6:0.3`). Cả bốn đều chưa thống nhất — **biên tập nên chọn một và quyết cho cả phẩm.**

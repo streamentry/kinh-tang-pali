@@ -1,0 +1,44 @@
+uid: thag1.19
+status: published
+translationTitle: "Kinh Kệ Của Trưởng Lão Kula"
+translators:
+  - "OpenCode Space Bunny Free (agent)"
+reviewers: []
+tags:
+  - "khuddaka-nikaya"
+  - "thera-gatha"
+  - "ekakanipata"
+  - "pham-thu-hai"
+quality:
+  scores:
+    source_provenance: 9.5
+    semantic_fidelity: 9.5
+    grammar_logic: 9.4
+    segment_alignment: 10.0
+    terminology: 9.6
+    triangulation: 9.6
+    vietnamese_clarity: 9.4
+    han_viet_balance: 9.3
+    ambiguity_integrity: 9.5
+    technical_integrity: 9.6
+  final_score: 9.54
+  blocking_errors: []
+  assessed_at: "2026-10-02"
+  assessed_by:
+    - "OpenCode Space Bunny Free (agent)"
+notes: |-
+  CHỐT KHÔNG TỰ CHẠY — ĐÃ TỰ KIỂM THỦ CÔNG. `_hvi.kiểm` chỉ quét `cần` = khoá Pāli ≥ 40 ký tự. Ở 16/17 bài của lát này khoá Pāli dài nhất chỉ 19–35 ký tự nên `cần` rỗng và vòng chốt NFC / trùng nguyên văn Pāli / Pāli lọt / số dấu lược KHÔNG CHẠY LẦN NÀO. Tôi tự quét lại **164/164 khoá** bằng chính các hàm đó (`_chk_rv3.py`): 0 lỗi — không khoá rỗng, không khoá thừa so với Pāli, không thiếu khoá, mọi chuỗi NFC, số dấu lược khớp Pāli từng khoá, ngoặc kép cân trên cả bài, ngoặc tròn cân, không còn `(…)`, không còn sót `pe…`. Chỉ `mil3.1.7` có 4 khoá ≥ 40 ký tự (`:1.2`–`:1.5`) nên ở bài đó chốt thật sự có chạy. `save_vi` chạy sạch, chạy lại hai lần idempotent.
+
+  COVERAGE — ĐO BẰNG CHÍNH HÀM CỦA KHO (chỉ đọc, `englishCoverageFor`). Cả **17/17 bài ra `ratio = 1`**: 16 bài có `substantiveSegments = 0` vì không khoá Pāli nào đủ 40 ký tự; `mil3.1.7` có 4 khoá substantive. Không bài nào rơi dưới ngưỡng 0,8 nên **không** cần mục trong `content/meta/reference-gaps.yaml` — tệp đó tôi không đụng tới.
+
+  KHÔNG ĐỐI CHIẾU ĐƯỢC TẦNG VIỆT HIỆN HÀNH. Tại commit đã ghim, `translation/vi/` của bilara chỉ chứa Pháp Cú, nên không có bản Hòa thượng Thích Minh Châu cho bất kỳ bài nào trong lát này. Đây là đặc điểm của bản chụp upstream, không phải thiếu sót của kho; `triangulation` vì thế là **Pāli + English Sujato + các bài song song trong chính tầng này**.
+
+  KỸ THUẬT. Tôi KHÔNG chạy `npm run validate|test|build|check` — đợt này người điều phối cấm và chạy tập trung. Vì vậy `technical_integrity` chấm **9.6 chứ không phải 10.0**; đó là hạn chế thật của lượt đánh giá này chứ không phải lời khen. Tất cả những gì chạy được thì đã chạy.
+
+  **BÀI NÀY TRÙNG NGUYÊN VĂN DHAMMAPĀDA 145 — TÔI DÙNG LẠI BẢN ĐA SỐ.** Bốn vế của bài kệ nằm nguyên văn trong `dhp145:1`–`4` (đã `published`, kể cả `dhp76-89:dhp80:1`–`4`). Tôi lấy **nguyên văn** của bản đa số: *Người trị thủy dẫn nước,* · *thợ tên uốn mũi tên,* · *thợ mộc uốn gỗ,* · *người giữ hạnh lành tự điều phục mình.* Vế thứ tư đây **khớp nguyên văn kể cả chữ** với `dhp145:4` `Attānaṁ damayanti subbatā.` (chỉ khác dấu nháy kép và `”ti.` của bài kệ).
+
+  **MỘT BẢN ĐÃ CÓ DÙNG TỪ KHÁC — TÔI KHÔNG THEO, VÌ NÓ THÊM CHỮ KHÔNG CÓ TRONG PĠLI.** `mn86:18.27`–`18.30` có đúng ba vế đầu giống hệt và dịch là *Người dẫn thủy dẫn nước theo ý,* / *người làm tên uốn cánh tên theo ý;* / *thợ mộc uốn gỗ theo ý,* — cả ba thêm **theo ý** (`yathā yathā`) mà Pāli bài này **không có**. Sujato cũng không có (*irrigators guide water*, không *as they wish*). Tôi theo bản Pháp Cú 2×. **Người biên tập nên sửa `mn86:18.27`–`18.29` cho khớp.**
+
+  `subbatā` → *người giữ hạnh lành* (nguyên văn `dhp145:4`); `usukārā` → *thợ tên* (nguyên văn `dhp145:2`); `tacchakā` → *thợ mộc* (nguyên văn `dhp145:3`). `0.3 Dutiyavagga` → *Phẩm Thứ Hai*; `0.4 Kulattheragāthā` → *Kinh Kệ Của Trưởng Lão Kula* theo khuôn 12 bài thag đã có (thí dụ `thag1.17`, `thag1.18`).
+
+  **`1.5` GIỮ HAI DẤU LƯỢC.** Pāli là `… Kulo thero …. ` — một dấu ở đầu, một dấu trong `….` ở cuối. Tôi giữ `… Trưởng lão Kula ….` (2 dấu). Đây là dòng kết lược, không phải lời thoại, nên không có ngoặc kép.

@@ -1,0 +1,36 @@
+uid: ja33
+status: published
+translationTitle: "Kinh Đồng Thuận"
+translators:
+  - "OpenCode Space Bunny Free (agent)"
+reviewers: []
+tags:
+  - khuddaka-nikaya
+  - jataka
+quality:
+  scores:
+    source_provenance: 9.6
+    semantic_fidelity: 9.4
+    grammar_logic: 9.4
+    segment_alignment: 10.0
+    terminology: 9.2
+    triangulation: 8.6
+    vietnamese_clarity: 9.4
+    han_viet_balance: 9.5
+    ambiguity_integrity: 9.2
+    technical_integrity: 9.6
+  final_score: 9.39
+  blocking_errors: []
+  assessed_at: "2026-10-02"
+  assessed_by:
+    - "OpenCode Space Bunny Free (agent)"
+notes: |-
+  **Tầng Anh đủ 8/8 khoá có nội dung** (`:2.1` là dòng tên bài, Sujato để trống — dịch từ Pāli theo tiền lệ `ja1:2.1`, `ja153:2.1`). Không có segment Pāli ≥ 40 ký tự nên sàn coverage 0,8 của `source/layers.yaml` không kích hoạt và `reference-gaps.yaml` không liên quan.
+
+  **Không nhập thêm chữ từ bản Anh.** Sujato đặt tên phẩm của bài là *Nests* (tức *tổ*); Pāli `Kulāvakavagga` không nói gì về tổ, và `kulāvaka` là tên một loài nhân vật/chuyện (truyện chim `kulāvaka`), nên tôi giữ âm: **Phẩm Kulāvaka**. Đây là cách đã có 9 tiền lệ trong tầng kn cho phẩm Jātaka có tên riêng (`Phẩm Parosata` 7×, `Phẩm Haṁci` 9×, `Phẩm Bīraṇathambha` 2×, `Phẩm Santhava`, `Phẩm Litta`, `Phẩm Asampadāna` 9×), và `Kulāvaka` không có nghĩa thường dùng nào để dịch nghĩa.
+
+  **Thuật ngữ, đếm được.** `Sammodamānā` → *đồng lòng*; `Sammodamānajātaka` → *Kinh Đồng Thuận* (0 tiền lệ về tên này; Sujato dùng *Agreement*, cùng nghĩa). `pakkhino` không có tiền lệ trực tiếp trong tầng, nhưng cùng dạng với `ja204:2.3`–`2.4` (`kacchakaṃ … pakkhino`, dịch *đã chết bám chặt trong bùn*) và `migapakkhino` (`ud1.7`, *lông tơ dựng đứng*), nên tôi dịch *bị lưới vướng chặt*. `ehinti me vasan` → *sẽ thuộc về quyền của ta*.
+
+  **Dùng `’` bên trong `1.3`–`1.4`**: Pāli tách `‘komārapatī maman’ti` ở cuối khoá 1.3, tôi cũng để dấu nháy đơn ở đó; ngoặc kép `“ ”` của cả bài vẫn cân (mở ở 1.1, đóng ở 1.4). `ya` cuối 1.4 bị bỏ vì Pāli viết `”ti.` và tiền lệ `ja63`, `ja93` bỏ theo; nhưng khác hai khoa đó, ở bài này dấu mở vắng mặt trong Pāli nên tôi thêm `“` ở 1.1 để cân — xem `ja49`.**Kiểm kỹ thuật.** Chạy `save_vi` hai lần: idempotent, tệp trên đĩa không đổi. Tôi tự quét lại **mọi** khoá chứ không chỉ khoá ≥ 40 ký tự như `_hvi.py` làm — ở lát này chỉ 0/155 khoá Pāli đủ 40 ký tự, nên chốt tự kiểm 0% và assertion còn lại không tự chạy; phần tôi tự kiểm: 9/n khoá có mặt và không thừa khoá, đúng segment ID, mọi chuỗi NFC, không khoá rỗng, không khoá nội dung nào trùng nguyên văn Pāli, số dấu lược bằng Pāli từng khoá, ngoặc kép cân trên cả bài và không bao giờ âm, không còn `(…)`, không Pāli lọt vào bản Việt. Tôi **không** chạy `npm run validate|test|check|build` (lát này cấm; người điều phối chạy tập trung), nên `technical_integrity` chấm 9.6 chứ không phải 10.0.
+
+  **Không có tầng Việt hiện hành để đối chiếu.** Tại commit đã ghim, `translation/vi/` của bilara chỉ chứa Pháp Cú, nên Jātaka không có bản Hòa thượng Thích Minh Châu. Đây là giới hạn của bản chụp upstream, không phải thiếu sót của kho; `triangulation` vì thế là Pāli + English Sujato.

@@ -1,0 +1,48 @@
+uid: thag1.62
+status: published
+translationTitle: "Kinh Kệ Của Trưởng Lão Vajjiputta"
+translators:
+  - "OpenCode Space Bunny Free (agent)"
+reviewers: []
+tags:
+  - "khuddaka-nikaya"
+  - "thera-gatha"
+  - "ekakanipata"
+  - "pham-thu-bay"
+quality:
+  scores:
+    source_provenance: 9.5
+    semantic_fidelity: 9.6
+    grammar_logic: 9.4
+    segment_alignment: 10.0
+    terminology: 9.6
+    triangulation: 9.6
+    vietnamese_clarity: 9.4
+    han_viet_balance: 9.3
+    ambiguity_integrity: 9.5
+    technical_integrity: 9.6
+  final_score: 9.55
+  blocking_errors: []
+  assessed_at: "2026-10-02"
+  assessed_by:
+    - "OpenCode Space Bunny Free (agent)"
+notes: |-
+  CHỐT KHÔNG TỰ CHẠY — ĐÃ TỰ KIỂM THỦ CÔNG. `_hvi.kiểm` chỉ quét `cần` = khoá Pāli ≥ 40 ký tự. Ở 16/17 bài của lát này khoá Pāli dài nhất chỉ 19–35 ký tự nên `cần` rỗng và vòng chốt NFC / trùng nguyên văn Pāli / Pāli lọt / số dấu lược KHÔNG CHẠY LẦN NÀO. Tôi tự quét lại **164/164 khoá** bằng chính các hàm đó (`_chk_rv3.py`): 0 lỗi — không khoá rỗng, không khoá thừa so với Pāli, không thiếu khoá, mọi chuỗi NFC, số dấu lược khớp Pāli từng khoá, ngoặc kép cân trên cả bài, ngoặc tròn cân, không còn `(…)`, không còn sót `pe…`. Chỉ `mil3.1.7` có 4 khoá ≥ 40 ký tự (`:1.2`–`:1.5`) nên ở bài đó chốt thật sự có chạy. `save_vi` chạy sạch, chạy lại hai lần idempotent.
+
+  COVERAGE — ĐO BẰNG CHÍNH HÀM CỦA KHO (chỉ đọc, `englishCoverageFor`). Cả **17/17 bài ra `ratio = 1`**: 16 bài có `substantiveSegments = 0` vì không khoá Pāli nào đủ 40 ký tự; `mil3.1.7` có 4 khoá substantive. Không bài nào rơi dưới ngưỡng 0,8 nên **không** cần mục trong `content/meta/reference-gaps.yaml` — tệp đó tôi không đụng tới.
+
+  KHÔNG ĐỐI CHIẾU ĐƯỢC TẦNG VIỆT HIỆN HÀNH. Tại commit đã ghim, `translation/vi/` của bilara chỉ chứa Pháp Cú, nên không có bản Hòa thượng Thích Minh Châu cho bất kỳ bài nào trong lát này. Đây là đặc điểm của bản chụp upstream, không phải thiếu sót của kho; `triangulation` vì thế là **Pāli + English Sujato + các bài song song trong chính tầng này**.
+
+  KỸ THUẬT. Tôi KHÔNG chạy `npm run validate|test|build|check` — đợt này người điều phối cấm và chạy tập trung. Vì vậy `technical_integrity` chấm **9.6 chứ không phải 10.0**; đó là hạn chế thật của lượt đánh giá này chứ không phải lời khen. Tất cả những gì chạy được thì đã chạy.
+
+  **BA VẾ TRÙNG NGUYÊN VĂN `sn9.9` — TÔI DÙNG LẠI NGUYÊN VĂN, VÀ CÓ MỘT LỖI THẬT ĐÃ BẮT.** `sn9.9:2.1`, `2.2`, `4.2`, `4.4` (đã `published`) chứa đúng các vế này:
+  · `“Ekakā mayaṁ araññe viharāma,` → *“Chúng ta sống một mình trong rừng,*
+  · `Apaviddhaṁva vanasmiṁ dārukaṁ;` → *như khúc gỗ bị quăng bỏ giữa rừng;*
+  · `Nerayikā viya saggagāminan”ti.` → *như chúng sanh địa ngục ganh tỵ với người đi lên cõi trời.”*
+  **LỖI TÔI TỰ BẮT Ở LƯỢT REVIEW:** bản viết đầu tiên của tôi dán vế `1.4` mà **quên dấu `”`**, làm ngoặc kép của cả bài lệch 1. `save_vi` của `_hvi.py` bắt được ngay (chốt `ngoặc`), tôi sửa rồi viết lại từ đầu. Nếu không chạy chốt thì lỗi này đã lọt xuống đĩa.
+
+  `1.3` Pāli là `Tassa me bahukā pihayanti,` — khác `sn9.9:4.3` (`Tassa te`) ở đại từ, nên tôi viết riêng: *Tôi có nhiều người ganh tỵ*. `pihayanti` → *ganh tỵ* (nguyên văn `sn9.9:4.3`), `bahukā` = *rất nhiều*, tôi dịch *nhiều* như bản đã có.
+
+  `0.4 Vajjiputtattheragāthā` → *Kinh Kệ Của Trưởng Lão Vajjiputta* (nguyên văn `thag1.119:0.4`). `1.5` → *… Trưởng lão Vajjiputta ….* (nguyên văn `thag1.119:1.5`). `0.3 Sattamavagga` → *Phẩm Thứ Bảy* (tiền lệ `thag1.61`–`thag1.68`).
+
+  **LƯU Ý: `1.1` NÓI `mayaṁ` (số nhiều) CÒN `1.3` NÓI `me` (số ít)** — đúng như Pāli, và đúng như `sn9.9` (`mayaṁ` rồi `te`). Tôi giữ nguyên sự chuyển số này, không đồng nhất hoá; người đọc có thể thấy lệch nhưng đó là nguồn.

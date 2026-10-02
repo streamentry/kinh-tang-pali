@@ -1,0 +1,47 @@
+uid: mil3.1.7
+status: draft
+translationTitle: "Câu Hỏi Về Việc Khéo Tác Ý"
+translators:
+  - "OpenCode Space Bunny Free (agent)"
+reviewers: []
+tags:
+  - "khuddaka-nikaya"
+  - "milindapanha"
+  - "cong-hanh-nhom"
+  - "dai-pham"
+quality:
+  scores:
+    source_provenance: 9.4
+    semantic_fidelity: 9.0
+    grammar_logic: 9.1
+    segment_alignment: 10.0
+    terminology: 8.9
+    triangulation: 8.0
+    vietnamese_clarity: 9.0
+    han_viet_balance: 9.2
+    ambiguity_integrity: 8.8
+    technical_integrity: 9.6
+  final_score: 9.1
+  blocking_errors:
+    - "Thiếu tầng tham khảo English Sujato tại commit đã ghim: `source/upstream-manifest.json` xác nhận không có bản Anh nào cho `mil3.1.7` trong git tree của commit đã ghim, nên bài chỉ đối chiếu được với Pāli root một mình."
+  assessed_at: "2026-10-02"
+  assessed_by:
+    - "OpenCode Space Bunny Free (agent)"
+notes: |-
+  CHỐT KHÔNG TỰ CHẠY — ĐÃ TỰ KIỂM THỦ CÔNG. `_hvi.kiểm` chỉ quét `cần` = khoá Pāli ≥ 40 ký tự. Ở 16/17 bài của lát này khoá Pāli dài nhất chỉ 19–35 ký tự nên `cần` rỗng và vòng chốt NFC / trùng nguyên văn Pāli / Pāli lọt / số dấu lược KHÔNG CHẠY LẦN NÀO. Tôi tự quét lại **164/164 khoá** bằng chính các hàm đó (`_chk_rv3.py`): 0 lỗi — không khoá rỗng, không khoá thừa so với Pāli, không thiếu khoá, mọi chuỗi NFC, số dấu lược khớp Pāli từng khoá, ngoặc kép cân trên cả bài, ngoặc tròn cân, không còn `(…)`, không còn sót `pe…`. Chỉ `mil3.1.7` có 4 khoá ≥ 40 ký tự (`:1.2`–`:1.5`) nên ở bài đó chốt thật sự có chạy. `save_vi` chạy sạch, chạy lại hai lần idempotent.
+
+  COVERAGE — ĐO BẰNG CHÍNH HÀM CỦA KHO (chỉ đọc, `englishCoverageFor`). Cả **17/17 bài ra `ratio = 1`**: 16 bài có `substantiveSegments = 0` vì không khoá Pāli nào đủ 40 ký tự; `mil3.1.7` có 4 khoá substantive. Không bài nào rơi dưới ngưỡng 0,8 nên **không** cần mục trong `content/meta/reference-gaps.yaml` — tệp đó tôi không đụng tới.
+
+  KHÔNG ĐỐI CHIẾU ĐƯỢC TẦNG VIỆT HIỆN HÀNH. Tại commit đã ghim, `translation/vi/` của bilara chỉ chứa Pháp Cú, nên không có bản Hòa thượng Thích Minh Châu cho bất kỳ bài nào trong lát này. Đây là đặc điểm của bản chụp upstream, không phải thiếu sót của kho; `triangulation` vì thế là **Pāli + English Sujato + các bài song song trong chính tầng này**.
+
+  KỸ THUẬT. Tôi KHÔNG chạy `npm run validate|test|build|check` — đợt này người điều phối cấm và chạy tập trung. Vì vậy `technical_integrity` chấm **9.6 chứ không phải 10.0**; đó là hạn chế thật của lượt đánh giá này chứ không phải lời khen. Tất cả những gì chạy được thì đã chạy.
+
+  **BLOCKER: THIẾU TẦNG THAM KHẢO ANH.** Thư mục `translation/en/sujato/sutta/kn/` của commit đã ghim chỉ có 9 tệp `kp1`–`kp9` trong thư mục con `kp`; không có tệp nào chứa khoá `mil3.1.7`. `source/upstream-manifest.json` xác nhận đây là `not-published-upstream` (bản Sujato ở commit này không phát hành Milindapañha), **không phải** cache chưa tải. Bài vì thế chỉ đứng trên Pāli, tôi đặt `draft` và không tự nâng điểm.
+
+  **BỐN DANH TỪ GIỮ NGUYÊN PĀLI — VÀ VÌ SAO.** `1.5` viết năm loài vật thành MỘT chuỗi ghép không có dấu phân cách: `ajeḷakagoṇamahiṁsaoṭṭhagadrabhānampi`. Tôi không đoán loài: `gadrabha` = *con voi* (chắc chắn, và `voi` đã có 30+ tiền lệ), còn bốn tên kia tôi **giữ nguyên Pāli** — `ajeḷaka`, `goṇa`, `mahiṁsa`, `oṭṭha`. Lý do: hai bản dịch Anh có sẵn trên SuttaCentral **không nhất trí với nhau** về những con vật này (John Kelly 2023: *Goats, rams, bulls, buffalos, camels, and donkeys* — sáu con gia súc; T.W. Rhys Davids 1890: *Sheep and goats, oxen and buffaloes, camels and asses* — cũng sáu, khác tên), trong khi Pāli chỉ có năm chữ. Dịch vòng qua Anh rồi dịch lại là đúng thứ bị cấm, nên tôi giữ danh từ. **Đây là chỗ yếu thật của bài** và tôi hạ `terminology` cùng `semantic_fidelity` vì nó.
+
+  **CÁCH KHAI TÊN CHO `lọt_pāli`.** `_hvi.lọt_pāli` chặn đúng lần dùng đầu tiên của một tên hợp lệ, và docstring của hàm chỉ định agent tự tra chứng rồi khai tên vào bộ nhớ tiến trình. Vì bốn tên nằm trong chuỗi ghép nên không nằm trong tập Pāli riêng của khoá mà hàm so, tôi assert trước rằng cả bốn **là thành phần của đúng chuỗi Pāli gốc của `mil3.1.7:1.5`** rồi mới khai. Tôi KHÔNG sửa `_hvi.py`.
+
+  **DÙNG LẠI NGUYÊN VĂN ĐÃ CÓ.** `Rājā āha—` → *Vua nói—* (`mil3.3.4:1.1`, `mil3.4.8:1.1`, `mil3.4.7:1.1`); `“Kallosi, bhante nāgasenā”ti.` → *“Khéo lắm, thưa tôn giả Nāgasenā.”* — **bắt buộc**, cùng Pāli với 6 bài đã có, và `TIEN_LE_PHAI.md` cũng đã ghi cặp `mil3.5.6:2.1 == mil3.6.6:2.1`; tôi dùng đúng nguyên văn ấy (kể cả dấu chấm trong ngoặc kép). `Mahāvagga` → *Đại Phẩm* (`pv48`/`pv49`). `0.3` theo đúng khuôn Milindapañha: `N. <X>pañha` → *N. Câu hỏi về việc <X>.*, và `yonisomanasikāra` → *khéo tác ý* (78 chỗ đã dùng trong tầng, khớp với Sujato *proper attention*).
+
+  **`paṭisandahati`.** = *thấu triển* (hiểu thấu, nắm thấu). `yo na paṭisandahati` / `nanu so yoniso manasikārena na paṭisandahatī` giữ đúng hai vế của câu hỏi — có phải vì không khéo tác ý mà không thấu triển — chứ không rút thành một mệnh đề. `añño manasikāro, aññā paññā` = *khéo tác ý là một, trí tuệ là một*, và tôi giữ cả hai vế chứ không gộp.

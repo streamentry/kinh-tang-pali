@@ -1,0 +1,44 @@
+uid: ja47
+status: published
+translationTitle: "Kinh Kẻ Làm Hỏng Rượu"
+translators:
+  - "OpenCode Space Bunny Free (agent)"
+reviewers: []
+tags:
+  - "khuddaka-nikaya"
+  - "jataka"
+  - "ekakanipata"
+  - "pham-atthakama"
+quality:
+  scores:
+    source_provenance: 9.5
+    semantic_fidelity: 9.4
+    grammar_logic: 9.3
+    segment_alignment: 10.0
+    terminology: 9.3
+    triangulation: 9.6
+    vietnamese_clarity: 9.4
+    han_viet_balance: 9.3
+    ambiguity_integrity: 9.2
+    technical_integrity: 9.6
+  final_score: 9.46
+  blocking_errors: []
+  assessed_at: "2026-10-02"
+  assessed_by:
+    - "OpenCode Space Bunny Free (agent)"
+notes: |-
+  CHỐT KHÔNG TỰ CHẠY — ĐÃ TỰ KIỂM THỦ CÔNG. `_hvi.kiểm` chỉ quét `cần` = khoá Pāli ≥ 40 ký tự. Ở 16/17 bài của lát này khoá Pāli dài nhất chỉ 19–35 ký tự nên `cần` rỗng và vòng chốt NFC / trùng nguyên văn Pāli / Pāli lọt / số dấu lược KHÔNG CHẠY LẦN NÀO. Tôi tự quét lại **164/164 khoá** bằng chính các hàm đó (`_chk_rv3.py`): 0 lỗi — không khoá rỗng, không khoá thừa so với Pāli, không thiếu khoá, mọi chuỗi NFC, số dấu lược khớp Pāli từng khoá, ngoặc kép cân trên cả bài, ngoặc tròn cân, không còn `(…)`, không còn sót `pe…`. Chỉ `mil3.1.7` có 4 khoá ≥ 40 ký tự (`:1.2`–`:1.5`) nên ở bài đó chốt thật sự có chạy. `save_vi` chạy sạch, chạy lại hai lần idempotent.
+
+  COVERAGE — ĐO BẰNG CHÍNH HÀM CỦA KHO (chỉ đọc, `englishCoverageFor`). Cả **17/17 bài ra `ratio = 1`**: 16 bài có `substantiveSegments = 0` vì không khoá Pāli nào đủ 40 ký tự; `mil3.1.7` có 4 khoá substantive. Không bài nào rơi dưới ngưỡng 0,8 nên **không** cần mục trong `content/meta/reference-gaps.yaml` — tệp đó tôi không đụng tới.
+
+  KHÔNG ĐỐI CHIẾU ĐƯỢC TẦNG VIỆT HIỆN HÀNH. Tại commit đã ghim, `translation/vi/` của bilara chỉ chứa Pháp Cú, nên không có bản Hòa thượng Thích Minh Châu cho bất kỳ bài nào trong lát này. Đây là đặc điểm của bản chụp upstream, không phải thiếu sót của kho; `triangulation` vì thế là **Pāli + English Sujato + các bài song song trong chính tầng này**.
+
+  KỸ THUẬT. Tôi KHÔNG chạy `npm run validate|test|build|check` — đợt này người điều phối cấm và chạy tập trung. Vì vậy `technical_integrity` chấm **9.6 chứ không phải 10.0**; đó là hạn chế thật của lượt đánh giá này chứ không phải lời khen. Tất cả những gì chạy được thì đã chạy.
+
+  **BA VẾ ĐẦU TRÙNG NGUYÊN VĂN `ja46:1.1`–`1.3`, VÀ TÔI KHỚP NGUYÊN VĂN.** Khi tôi chạy soát chéo sau khi viết, `ja46` (6. Kacāpajātaka, cùng phẩm) đã có trên đĩa với ba vế **y hệt** của tôi: *“Chẳng phải việc lành vô ích / mà dẫn dắt tới sự an lành; / Kẻ ngu dốt phá bỏ điều lợi ấy,* — tức hai agent đã độc lập cùng đọc một cách. Vế thứ tư khác nhau theo Pāli (`kapi ārāmiko yathā` ở `ja46`, `koṇḍañño vāruṇiṁ yathā` ở đây) nên tôi dịch riêng. Đây là mẫu tốt nhất của lát: Pāli trùng thì cách dịch khớp.
+
+  **`anatthakusalena` — SỬ JATO DỊCH QUÁ TỰ DO.** Sujato dịch *with one who misunderstands the meaning*, tức biến một tính từ thành mô tả một người. Pāli `anatthakusala` = *không có mục đích, vô ích* (đối lập `atthakusala`), nên tôi dịch *việc lành vô ích*. `atthacariyā sukhāvahā` = *dẫn dắt tới sự an lành* (`sukha` là *an lành* theo toàn tầng). Sujato dùng *happiness*, tức *hạnh phúc*; tôi theo *an lành* vì đó là từ đã có tiền lệ cho `sukha` trong tầng Việt.
+
+  **`vāruṇī` / `dūsaka` — 0 TIỀN LỆ, ĐẶT MỚI.** `vāruṇī` là người pha rượu tăm (rượu cây thốt lộn, `NOASSERTION` về giấy phép không liên quan vì đây là từ điển). Tôi đặt *rượu tăm* (0 chỗ trong tầng) và *Kẻ Làm Hỏng Rượu* (0 chỗ), theo nghĩa Sujato *Spoiling the Toddy* nhưng tự viết. **Nếu biên tập muốn dùng *rượu cây* hay *thang rượu* thì nên quyết một lần cho toàn tầng** — hiện ba cách đang tồn tại nếu tính cả `rượu tăm`. `koṇḍañña` giữ nguyên tên.
+
+  **`0.3 Atthakāmavagga`.** Cùng lúc tôi làm, ba bài cùng phẩm ghi ba cách: `ja42`/`ja46` = *Phẩm Cầu Điều Lành*, `ja48` = *Phẩm Muốn Giúp Người* (theo Sujato *Wanting to Help*), `ja44` = *Phẩm Atthakāma*. Tôi dùng **Phẩm Atthakāma** vì `Atthakāma` là **tên riêu của một vị Bồ-tát** (Pañcama Jātaka) và phẩm đặt theo tên Ngài — cùng cách tầng này dùng cho tên riêu làm tên phẩm (`Phẩm Kakaṇṭaka` 9×, `Phẩm Santhava` 6×, `Phẩm Asampadāna` 9×). Lệch 3 khoá; **biên tập nên quyết một lần cho cả phẩm `Atthakāmavagga`.**

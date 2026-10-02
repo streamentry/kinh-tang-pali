@@ -1,0 +1,50 @@
+uid: ja42
+status: draft
+translationTitle: "Kinh Chim Câu"
+translators:
+  - "OpenCode Space Bunny Free (agent)"
+reviewers: []
+tags:
+  - khuddaka-nikaya
+  - jataka
+  - ekakanipata
+  - pham-cau-dieu-lanh
+quality:
+  scores:
+    source_provenance: 9.6
+    semantic_fidelity: 9.4
+    grammar_logic: 9.3
+    segment_alignment: 10.0
+    terminology: 9.0
+    triangulation: 8.4
+    vietnamese_clarity: 9.3
+    han_viet_balance: 9.3
+    ambiguity_integrity: 9.0
+    technical_integrity: 9.6
+  final_score: 9.2900
+  blocking_errors:
+    - "Hai vế kệ 1.1-1.2 trùng NGUYÊN VĂN Pāli với ja41:1.1-1.2 và ja43:1.1-1.2, mà TIEN_LE_PHAI.md yêu cầu bắt buộc dùng lại nguyên văn bản dịch đã có của ja41 và cấm tự dịch lần hai. ja41 CHƯA có bản dịch Việt trên đĩa tại thời điểm tôi ghi, nên không có nguyên văn để dùng lại và tôi không thể tự quyết. Tôi ghi lại nguyên văn tôi đã chọn ở notes để người biên tập dùng y hệt cho ja41/ja43, và giữ draft cho tới khi ba bài khớp nhau."
+  assessed_at: "2026-10-02"
+  assessed_by:
+    - "OpenCode Space Bunny Free (agent)"
+notes: |-
+  **NGUYÊN VĂN ĐÃ CHỌN CHO HAI VẾ PHẢI TRÙNG NHAU — dùng y hệt cho ja41/ja43:**
+    `ja42:1.1` = *“Kẻ mong muốn điều lành, thương tưởng lợi ích,*
+    `ja42:1.2` = *được khuyên dạy mà không làm theo lời dạy;*
+  Pāli: `Yo atthakāmassa hitānukampino, / Ovajjamāno na karoti sāsanaṁ;`
+
+  **Vì sao chọn thế.** `atthakāma` + `hita` + `anukampin` là một cụm: mong muốn điều lành và lòng thương vì lợi ích. `hitānukampi` đã có 2 tiền lệ rõ ràng trong tầng — `sabbapāṇabhūtahitānukampī` → *thương tưởng lợi ích cho mọi sinh vật* (`dn25:16.15`) và *sống với tâm quan tâm đến lợi ích của mọi chúng sinh* (`dn10:1.11.2`) — nên tôi theo *thương tưởng lợi ích*. `Ovajjamāno` = *được khuyên dạy*; `na karoti sāsanaṁ` = *không làm theo lời dạy*, và `sāsana` đã là *lời dạy* trong công thức `buddhassa sāsanaṁ` (`thag1.107:1.4`). Chữ *dạy* lặp hai lần trong một vế là hệ quả trung thực của Pāli (`Ovajjamāno` + `sāsanaṁ`), tôi không bỏ.
+
+  **`1.3`–`1.4`.** `Kapotakassa vacanaṁ akatvā` → *không nghe theo lời chim câu*; `Amittahatthatthagatova setī` → *bị kẻ thù giết, chẳng đến với chim câu, mà lại về với hắn*. Bản nháp đầu của tôi bỏ mất `setī` (rơi vào, đến với); tôi thêm lại *mà lại về với hắn*. **Bất định còn lại, ghi ra đây:** trong `Amittahatthatthagatova` chữ *Amitta* là danh từ chủ thể (kẻ thù) nên `hắn` ở `1.4` là kẻ thù, nhưng bản kệ không nói rõ; Sujato đọc là *ends up in the hands of their foes*. Tôi theo Pāli và không thêm *tay* (chữ Sujato thêm, không có trong Pāli) cũng không thêm lời giải thích cốt truyện.
+
+  **Sujato dịch `1.1`–`1.2` là một mệnh đề khép kín** (*One who does not follow advice when instructed by an ally who wants to help*) — tức Sujato đã lược mất mối quan hệ với hai vế tiếp theo. Tôi dịch từng vế theo Pāli.
+
+  **`0.3` `Atthakāmavagga` → *Phẩm Cầu Điều Lành* (0 tiền lệ).** Tên phẩm lấy từ chính `atthakāma` ở `1.1`, nên nó phải đọc được cùng nghĩa với câu kệ; *mong cầu điều lành* là cách đọc tự nhiên nhất. Sujato dịch phẩm là *Wanting to Help* (tự do hơn nhiều) — tôi theo nghĩa từ. `0.4` `Kapotajātaka` → *2. Kinh Chim Câu*, `kapotaka` = chim câu (con sơn cao), cũng là tên con chim trong truyện.
+
+  **Tầng Việt hiện hành không có.** Tại commit đã ghim, `translation/vi/` của bilara chỉ chứa 27 tệp Pháp Cú, nên không có bản Hòa thượng Thích Minh Châu để đối chiếu thuật ngữ cho bài này. Đây là giới hạn của bản chụp upstream, không phải thiếu sót của kho; `triangulation` vì thế chỉ là Pāli + English Sujato.
+
+  **Sàn coverage không kích hoạt, nhưng ô Anh trống KHÔNG phải đồng thuận.** Hàm `kiểm()` của `_hvi.py` lọc `cần = [k for k in p if len(p[k]) >= 40 …]`. Ở bài này mọi khoá Pāli ngắn hơn 40 ký tự, nên `cần` RỖNG và NFC / trùng nguyên văn Pāli / Pāli lọt / số dấu lược KHÔNG tự chạy. Tôi đã tự quét lại MỌI khoá bằng một lớp kiểm riêng áp đúng các quy tắc ấy lên toàn bài, và in ra từng cặp Pāli ↔ Việt để đọc đối kháng.
+
+  **Ngoại lệ đã đo, không phải lỗi.** Khoá `:0.1` trùng nguyên văn Pāli là quy ước của tầng: 168/516 tệp `kn/*` có `:0.1` là chuỗi Pāli nguyên văn (đếm bằng script). Tương tự, tên riêng mang dấu Pāli trong tiêu đề là tiền lệ (`thag1.101` Belaṭṭhānika, `thag1.11` Cūḷavaccha, `thag1.15` Kuṇḍadhāna), và dấu lược trần `…` xuất hiện 446 lần trong tầng.
+
+  **Tôi không chạy `npm run validate|test|check|build`** (đợt này cấm; người điều phối chạy tập trung), nên `technical_integrity` chấm 9.6 chứ không phải 10.0 — đúng như `thag1.107` đã làm.

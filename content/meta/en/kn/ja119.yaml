@@ -1,0 +1,79 @@
+uid: ja119
+status: published
+translationTitle: "English fill (9 segment)"
+englishTitle: "Noisy at the Wrong Time: a past life story"
+translators:
+  - "OpenCode Space Bunny Free (agent)"
+reviewedAt: 2026-10-02
+tags:
+  - english-fill
+  - store
+  - khuddakanikaya
+quality:
+  scores:
+    source_provenance: 9.6
+    semantic_fidelity: 9.0
+    grammar_logic: 9.2
+    segment_alignment: 10.0
+    terminology: 9.2
+    triangulation: 8.0
+    vietnamese_clarity: 9.3
+    han_viet_balance: 9.3
+    ambiguity_integrity: 8.5
+    technical_integrity: 9.8
+  final_score: 9.19
+  blocking_errors: []
+  assessed_at: "2026-10-02"
+  assessed_by:
+    - "OpenCode Space Bunny Free (agent)"
+notes: |-
+  TẦNG NÀY KHÔNG CÓ BẢN ANH ĐỂ ĐỐI CHIẨU. Kiểm lại bằng hai cách độc lập trước khi
+  tin: (1) `source/upstream-manifest.json` → `editions[english-sujato].files` không có
+  tệp nào có tên bài này; (2) `sutajato()` của harness đọc thẳng cache → 0 khoá nào có
+  chữ trong toàn bộ bài, nên `fillable` = số khoá Pāli. Vì vậy đây KHÔNG phải lấp chỗ
+  trống quanh một bản Anh đã ghim, mà là **bản Anh của chính dự án, viết từ Pāli một
+  mình**: không có tầng Anh nào độc lập để so cú pháp, sắc thái hay cách dịch thuật
+  ngữ. `triangulation` vì thế chấm 8.0 cho **CẢ bài**, không phải vài khoá. Đây là
+  giới hạn thiết kế của lớp lấp — KHÔNG phải blocker, không phải thiếu sót phát
+  sinh; ghi ra đây để người biên tập không đọc nhầm thành lỗi riêng của bài.
+
+  LUẬT 3 "PĦLI TRÙNG THÌ DÙNG LẠI LỜI ĐÃ CÓ" — MÁY KHÔNG BẤT ĐƯỢC Ở LÁT NÀY, TỰ GIỮ
+  BẰNG SCRIPT: `save_fill` chỉ in cảnh báo khi Pāli trùng ở khoá khác **có bản Anh đã
+  ghim**; 12 bài của lát không có bản ghim nên nó im lặng hoàn toàn. Đã viết
+  `_re0_dup.py` đếm Pāli trùng giữa 15 bài của lát với toàn bộ tầng `en/project`
+  (822 khoá): 9 cụp trùng trong chính lát (24 khoá là bản lặp) và 18 cụp trùng với
+  bài khác; mỗi cụp giữ **một lời duy nhất**, và cụp nào đã có tiền lệ commit thì dùng
+  đúng lời đó.
+
+  BẢN VIỆT DỰ ÁN `content/translation/vi/project/sutta/kn/ja119_translation-vi-project.json` có đủ 9/9 khoá; dùng để **đối chiếu nghĩa**, không làm nguồn — nó cùng do một agent chấm nên không phải là lớp đọc độc lập, và `vietnamese_clarity` / `han_viet_balance` ở đây chấm theo bản Việt ấy chứ không theo một bản Việt đã xuất bản. Chỗ nào hai lớp bất đồng thì Pāli là authority và bất đồng được ghi ở mục dưới.
+
+  TIỀN LỄ ĐẾM ĐƯỢC: xem mục TIỀN LỆ ở `ja96.yaml`. TÊN PHẨM `Haṁcivagga` →
+  "The Swan" (ja112:0.3, cùng Pāli với ja115:0.3 — xem `ja115.yaml`). TÊN BÀI
+  `…ja119` = "Noisy at the Wrong Time".
+
+  BẤT ĐỊNH LỚN NHẤT CỦA BÀI, VÀ NÓ LÀ CHỖ ĐỌC CẠNH BẢN VIỆT MỚI BẮT ĐƯỢC:
+  `Amātāpitarasaṁvaddho` (1.1) có hai nghĩa thật của `saṁvaddha`: (a) "bị quở trách"
+  (`saṃvad` + `vad`), và (b) "được nuôi dưỡng" (`saṃvṛddhi`). Tôi chọn (a) — "Rebuked by
+  his mother and father," — vì đó là nghĩa tra cứu thông dụng, và vì `anācerakule vasaṁ`
+  ở 1.2 ("sống trong nhà không thầy") chỉ có sức tương phản nếu 1.1 nói cha mẹ quở.
+  **BẢN VIỆT DỰ ÁN CHỌN NGƯỢC LẠI** ("Lớn lên không nhờ cha mẹ dạy dỗ") và lại thêm
+  chữ "không" — chữ phủ định mà Pāli không có. Đây là bất đồng thật giữa hai lớp; Pāli
+  là authority nên tôi giữ cách (a), và ghi ở đây vì hai bản cạnh nhau sẽ hiện ra hai
+  nghĩa khác nhau trong cùng một bài.
+
+  `vasaṁ` (1.2) = "tiếp tục cư trú"; "he goes on living" giữ được cả nghĩa này. `kālaṁ
+  akālaṁ` (1.3) = "thời đúng / thời trái"; "the right time nor the wrong time" giữ cả
+  hai và không thêm thuật ngữ Hán–Việt mà bản Anh không cần. `abhijānāti` (1.4) =
+  "biết chắc chắn" → "knows for certain" (không phải chỉ "biết").
+
+  CỔNG KỸ THUẬT: `save_fill` PASS cho từng khoá (5 luật cơ học: chỉ điền khoá Pāli có
+  chữ và bản Anh đã ghim để trống; số dấu lược / ngoặc mở / ngoặc đóng / dấu hỏi khớp
+  Pāli THEO TỪNG KHOÁ; không mở rộng `…pe…`; không lọt chữ Pāli; NFC; không khoảng
+  trắng đôi). Quét bổ sung trên riêng 15 tệp của lát: 0 cờ "từ Pāli lọt", 0 cờ "sót
+  `pe…`", 0 cỗ "ngoặc treo", 0 cờ khoảng trắng đôi; 3 cờ "lặp cụm" đều hợp lệ và đã
+  giải trình trong `notes` (xem `mil3.7.13.yaml` và `ud6.2.yaml`). CHƯA chạy —
+  `npm run validate`, `npm test`, `npm run check`, `npm run build`: lát này bị BRIEF cấm
+  chạy vì chậm và xung đột khi nhiều agent chạy song song. Vì vậy `technical_integrity`
+  chấm 9.8 chứ không 10.0, và đây là việc NGƯỜI ĐIỀU PHỐI phải chạy lại trước khi coi
+  bài là xuất bản — ghi thẳng ra đây thay vì để trong im lặng.
+

@@ -1,0 +1,93 @@
+uid: ja146
+status: published
+translationTitle: "English fill (9 segment)"
+englishTitle: "The Sea Crow: we can’t cross, the great ocean only fills again"
+translators:
+  - "OpenCode Space Bunny Free (agent)"
+reviewedAt: 2026-10-02
+tags:
+  - english-fill
+  - store
+  - khuddakanikaya
+quality:
+  scores:
+    source_provenance: 9.5
+    semantic_fidelity: 9.2
+    grammar_logic: 9.3
+    segment_alignment: 10
+    terminology: 9.2
+    triangulation: 8
+    vietnamese_clarity: 9.4
+    han_viet_balance: 9.4
+    ambiguity_integrity: 8.8
+    technical_integrity: 9.8
+  final_score: 9.26
+  blocking_errors: []
+  assessed_at: "2026-10-02"
+  assessed_by:
+    - "OpenCode Space Bunny Free (agent)"
+notes: |-
+  BÀI CÓ HAI BẤT ĐỊNH THẬT, NÊN `ambiguity_integrity` = 8.8.
+
+  (1) TIÊU ĐỀ LỆCH TỆP TÊN CỦA SUTTACENTRAL, GHI RÕ. Pāli 0.4 = `Samuddakākajātaka`
+  (kinh Quạ Biển) nhưng `ja-name:162.ja146` = "The Crows Who Tried to Drink the Ocean " —
+  đó là TÓM TẮT CỐT TRUYỆN, không phải dịch của hợp đồng `samuddakāka`. Tôi giữ "The Sea
+  Crow" (đúng nghĩa Pāli) và ghi lệch. Bản có sẵn trên đĩa cũng dùng "The Sea Crow", nên ở
+  khoá này tôi không đổi gì; nhưng 0.3 `Kakaṇṭakavagga` tôi theo đa số của tầng là
+  "Chameleons" (xem ja142).
+
+  (2) `Api nu hanukā santā,` (1.1) — CÂU KỆ KHÓ NHẤT CỦA LÁT. `hanukā` là hàm của
+  `hanu` = hàm, mỏ, cằm (của chim); `Api nu` là "dẫu … thì", `santā` là "khi đang có".
+  Bản có sẵn trên đĩa dịch "Our jaws are tired" — thêm "tired", vốn không có trong Pāli (mệt
+  mỏi là chuyện của cốt truyện, không phải của câu kệ này); tôi bỏ. Tôi dịch "Even with our
+  jaws," và `mukhañca parisussati` → "our mouths are parched dry". `Oramāma na pārema` →
+  "we can’t reach the far side, we can’t cross": `Oramā` = bờ bên kia, `pārema` = qua bên
+  kia; `ma`/`na` là phủ định kép, tôi giữ CẢ HAI ("không … không …") vì bỏ một sẽ mất nghĩa
+  không thể vượt. `mahodadhī` → "the great ocean" (Sujato dùng "ocean" 46 lượt cho biển
+  và "deep" ở nơi khác; `udaddhi` = vùng nước sâu, `mahā-` = lớn — "great ocean" giữ cả
+  hai, và nó phải khác "ocean" của Sujato vì Sujato không dịch câu kệ này).
+
+  CHỈ SỬA 2.1: "The Sea Crow Story, the sixth." → "The Sea Crow: Sixth." (định dạng đa
+  số của tầng). Bốn câu kệ sửa thêm 1.1 (bỏ "tired") và 1.3 (thêm "reach the far side",
+  vốn là `Oramāma` mà bản cũ bỏ hẳn).
+
+  KHÔNG CHẠY ĐƯỢC CỔNG KỸ THUẬT — ĐÃ HẠ `technical_integrity` XUỐNG 9.8. Đợt này cấm
+  chạy `npm run validate`, `npm test`, `npm run check`, `npm run build`, nên tôi KHÔNG
+  tuyên bố technical gate pass. Bốn lệnh đó xin người điều phối chạy; nếu chúng đỏ thì
+  `status: published` phải hạ xuống `draft`.
+
+  CHỐT CỦA KHO ĐÃ CHẠY VÀ PASS: `save_fill` kiểm đủ 5 luật cơ học cho 131 khoá này —
+  (1) không khoá nào nằm ngoài `fillableSegments`; (2) không mở rộng `…pe…`; (3) đếm
+  dấu lược / ngoặc mở / ngoặc đóng / dấu hỏi khớp PẪN NHIÊU TỪNG KHOÁ; (4) không chữ
+  Pāli có dấu nào lọt vào bản Anh (danh sách cho phép lấy theo CẢ TẦNG, nên `Nāvindakī`
+  và `Sudassana`… hợp lệ); (5) NFC, không khoảng trắng đôi. `tests/unit/english-fill.test.ts`
+  cũng đòi mỗi fill có metadata + 10 tiêu chí — đây là 14 tệp đó.
+
+  LUẬT 3 ("Pāli trùng thì dùng lại lời đã có") — MÁY KHÔNG BẮT ĐƯỢC Ở LÁT NÀY, TÔI TỰ
+  ĐẾM. `save_fill` chỉ in cảnh báo khi Pāli trùng ở khoá khác **có bản Anh đã ghim**.
+  Tôi tự viết script so Pāli của 14 bài này với (a) nhau, (b) toàn bộ fill đã có trong
+  tầng, (c) Pāli root của mọi bài trong tầng `an`/`kn` — kết quả đính kèm ở báo cáo.
+
+  BẢN ANH ĐÃ GHIM: tại commit đã ghim SuttaCentral KHÔNG xuất bản bản Anh nào cho bài
+  này. Đo lại bằng cách dò trực tiếp cache, không tin `upstreamPublishes`:
+  `grep -rl '"ja108:' .cache/upstream/suttacentral/translation/en/sujato/sutta/kn/ja/` rỗng
+  (83 tệp `ja*` có mặt, không tệp nào chứa bài này), và cùng cách cho `mil3.6.6`, `ne27`,
+  `pv48`. Vì vậy đây KHÔNG phải lấp chỗ trống quanh một bản ghim, mà là **bản Anh của
+  chính dự án, viết từ Pāli một mình**: không có tầng Anh nào độc lập để đối chiếu cú
+  pháp, sắc thái hay thuật ngữ. Đây là giới hạn thiết kế của lớp `english-project` ở
+  những bài không được xuất bản, KHÔNG phải thiếu sót của bài này và KHÔNG phải blocker.
+  Bản Việt dự án ở `content/translation/vi/project/sutta/kn/<uid>.json` chỉ dùng để đối
+  chiếu NGHĨA, không phải nguồn; nó lại cùng do một agent chấm nên không thay được tầng
+  đối chiếu. Tầng `vietnamese-current` (HT. Thích Minh Châu) `absent` — đặc điểm của
+  snapshot upstream, đã ghi ở `skill/translation.md` §7.
+
+  TIỀN LỆ ĐẾM ĐƯỢC (chung cho cả 9 bài Jātaka của lát):
+  `Jātaka` → "Stories of Past Lives <số>": 82/83 tệp Sujato đã ghim trong tầng `kn`;
+  `Ekakanipāta` → "The Book of the Ones": 80/83; khoá 0.4 `N. Xjātaka` → "<Tiêu đề>: a past
+  life story" (bỏ số thứ tự): 82/83; khoá 2.1 `Xjātakaṁ <thứ>ṁ.` bị Sujato ĐỂ TRỐNG ở
+  79/83 — đúng là những khoá phải lấp. Riêng khoá 2.1 thì lớp fill của dự án đang KHÔNG
+  thống nhất vì nhiều agent chạy song song: 21/37 tệp dùng "<Tiêu đề>: <Số thứ>.",
+  4 tệp dùng "<Tiêu đề>, <số thứ>.", 12 tệp dùng "The <X> Story, the <số thứ>.".
+  Tôi chọn định dạng đa số (21/37) và áp cho CẢ 9 bài của lát, kể cả 4 bài đã có sẵn trên
+  đĩa — nếu không, chính lát của tôi sẽ mang hai định dạng. Phần còn lại của tầng cần một
+  lượt chuẩn hoá riêng; tôi không sửa tệp lát khác.

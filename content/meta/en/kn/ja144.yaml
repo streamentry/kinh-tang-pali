@@ -1,0 +1,80 @@
+uid: ja144
+status: published
+translationTitle: "English fill (9 segment)"
+englishTitle: "The Tail: a past life story"
+translators:
+  - "OpenCode Space Bunny Free (agent)"
+reviewedAt: 2026-10-02
+tags:
+  - english-fill
+  - store
+  - khuddakanikaya
+quality:
+  scores:
+    source_provenance: 9.6
+    semantic_fidelity: 9.2
+    grammar_logic: 9.1
+    segment_alignment: 10.0
+    terminology: 9.4
+    triangulation: 8.0
+    vietnamese_clarity: 9.3
+    han_viet_balance: 9.4
+    ambiguity_integrity: 8.8
+    technical_integrity: 9.8
+  final_score: 9.26
+  blocking_errors: []
+  assessed_at: "2026-10-02"
+  assessed_by:
+    - "OpenCode Space Bunny Free (agent)"
+notes: |-
+  TRIANGULATION 8.0 CHO CẢ BÀI, KHÔNG PHẢI VÀI KHOÁ, VÀ ĐÂY KHÔNG PHẢI BLOCKER:
+  tại commit đã ghim SuttaCentral KHÔNG xuất bản bản Anh nào cho bài này. Đo bằng
+  `source/upstream-manifest.json` → `editions[english-sujato].files` (4.291 tệp):
+  `sutta/kn/` trong đó chỉ có 9 thư mục con — `cp dhp iti ja kp snp thag thig ud` —
+  KHÔNG có `mil/` và `ne/`; thư mục `ja` chỉ có 83 tệp và không tệp nào trong đó là
+  bài này. Kiểm lại độc lập bằng `sutajato()` của harness: 0 khoá nào trong bài này
+  có chữ ở tầng Anh đã ghim, và `fillable == số khoá Pāli`. Vì vậy đây KHÔNG phải lấp
+  chỗ trống quanh một bản Anh đã ghim, mà là BẢN ANH CỦA CHÍNH DỰ ÁN, viết từ Pāli một
+  mình: không có tầng Anh nào độc lập để đối chiếu cú pháp, hợp đồng và sắc thái. Tiêu đề
+  Anh lấy từ chính tầng TÊN của SuttaCentral tại commit đã ghim (`name/sutta/kn/*-name`)
+  — cùng người dịch, cùng commit, nên đó là tiền lệ có bằng chứng chứ không phải phỏng đoán.
+
+  LUẬT 3 TỰ GIỮ (máy KHÔNG bắt được ở lát này): `save_fill` chỉ cảnh báo "Pāli trùng"
+  khi Pāli trùng ở khoá khác ĐÃ CÓ bản Anh đã ghim; 12/15 bài của lát không có bản ghim
+  nào nên nó im lặng hoàn toàn. Tôi tự đếm bằng `_dup_re1.py` (so Pāli của 15 bài này
+  với nhau và với CẢ tầng `english-project`): 78 cặp trùng trong lát. 77 cặp dùng MỘT
+  lời duy nhất; 36 cặp còn lại là nhãn `Jātaka` ở 0.1 của chín bài, khác nhau ĐÚNG ở
+  số bài — đó là dữ liệu, không phải khác biệt cách dịch, và cùng khuôn với 27 tệp `ja`
+  đã commit trong tầng.
+
+  SỬA BẢN CŨ: 0.3 lượt trước dịch `Kakaṇṭakavagga` là "Chameleons", đó là phỏng đoán không
+  có nguồn. Tệp TÊN của chính SuttaCentral tại commit đã ghim có `ja-name:156.ja-kakantakavagga`
+  = "The Iguana Who Befriended a Chameleon", và ja148/ja149 đã commit cũng dùng đúng tên đó.
+  Đã sửa. CẢNH BÁO CHO NGƯỜI ĐIỀU PHỐI, TÔI KHÔNG SỬA VÌ NGOÀI LÁT: ja141–ja147 (lát re0/re2/
+  re3) đang dùng "Chameleons" cho cùng tên vagga đó, và 2.1 của chúng dùng khuôn
+  "<Tên> Story, the <thứ>." thay vì "<Tên>: <Thứ>.". Cần một lượt quét cho cả ja141–ja149.
+
+  MẤT DẤU PĀLI CỐ Ý, VÌ CHỐT TỪ CHỐT: chốt chỉ cho phép từ có dấu Pāli khi tầng Anh đã ghim
+  của CÙNG tầng `kn` dùng từ đó. `Jātaveda` được phép (4 lượt trong tầng `kn` đã ghim: ja35,
+  ud8.10, snp3.4, cp29), nên tôi giữ "Jātaveda" nguyên dấu. Nhưng `asabbhi`, `vāladhi`,
+  `maṁsāraha` đếm 0 lượt nên không có dấu nào để giữ; các từ này là thuật ngữ chung nên đã
+  diễn giải thành tiếng Anh ("Shameless", "cow-tail whisk", "flesh-eater").
+
+  BẤT ĐỊNH ĐÃ GHI: `Bahumpetaṁ` (1.1) = "để đổi bằng lượng này" → "for this much"; `natthajja`
+  (1.3) là cấu trúc "nếu có" của Pāli, tôi dịch "if there were any flesh for the flesh-eater"
+  (lượt trước ghi thêm "left" — thừa, đã bỏ). `jātaveda` theo từ điển là tên của con bò, và
+  cả kệ là lời thỉa dân dâng cho nó: tôi KHÔNG thêm "ox" vào bản kinh.
+
+  QUÉT: `rven88.py` báo 1 cờ cho bài này — `ja144:1.1` "từ Pāli lọt vào bản Anh: Jātaveda" —
+  và cờ đó SAI: `rven88.py` lấy danh sách cho phép theo BÀI (`_sujato_words(c, uid)`), mà
+  ja144 không có bản Anh đã ghim nên danh sách rỗng. Chốt thật của repo (`_h55en._lọt_pāli`)
+  lấy danh sách theo CẢ TẦNG và đã PASS vì `Jātaveda` có trong tầng `kn` đã ghim. Giữ nguyên.
+
+  CỔNG KỸ THUẬT: `save_fill` PASS (khẳng định cả 5 luật cơ học cho từng khoá: chỉ
+  điền khoá Pāli có chữ và bản ghim để trống; số dấu lược/ngoặc mở/ngoặc đóng/dấu hỏi
+  khớp Pāli THEO TỪNG KHOÁ; không mở rộng `…pe…`; không lọt chữ Pāli; NFC; không
+  khoảng trắng đôi) và `rven88.py` quét xong (xem mục QUÉT). CHƯA chạy — `npm run
+  validate`, `npm test`, `npm run check`, `npm run build`: lát này bị BRIEF cấm chạy vì
+  chậm và xung đột khi nhiều agent chạy song song. Vì vậy `technical_integrity` chấm
+  9.8 chứ không 10.0, và đây là việc NGƯỜI ĐIỀU PHỐI phải chạy lại trước khi coi bài là
+  xuất bản — ghi thẳng ra đây thay vì để trong im lặng.

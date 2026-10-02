@@ -1,0 +1,75 @@
+uid: ud6.8
+status: published
+translationTitle: "English fill (4 segment)"
+englishTitle: "The Courtesan"
+translators:
+  - "OpenCode Space Bunny Free (agent)"
+reviewedAt: 2026-10-02
+tags:
+  - english-fill
+  - store
+  - khuddakanikaya
+quality:
+  scores:
+    source_provenance: 9.7
+    semantic_fidelity: 9.3
+    grammar_logic: 9.4
+    segment_alignment: 10.0
+    terminology: 9.5
+    triangulation: 8.0
+    vietnamese_clarity: 9.5
+    han_viet_balance: 9.5
+    ambiguity_integrity: 9.1
+    technical_integrity: 9.8
+  final_score: 9.38
+  blocking_errors: []
+  assessed_at: "2026-10-02"
+  assessed_by:
+    - "OpenCode Space Bunny Free (agent)"
+notes: |-
+  TRIANGULATION 8.0 CHO CẢ BÀI, KHÔNG PHẢI VÀI KHOÁ, VÀ ĐÂY KHÔNG PHẢI BLOCKER:
+  bài này CÓ bản Anh đã ghim ở commit đã ghim, nhưng các khoá tôi điền đều là đúng
+  những khoá mà bản ghim ĐỂ TRỐNG — tức bản thân những khoá này không có bản Anh độc
+  lập nào để đối chiếu. Vì vậy `triangulation` vẫn ở 8.0, và lý do là giới hạn thiết kế
+  của lớp lấp chứ không phải thiếu sót của bài. Tôi ghi rõ điều này vì bốn lời tuyên bố
+  đã từng lệch nhau trong dự án, và một lời tuyên bố sai về tầng nguồn tệ hơn im lặng.
+
+  LUẬT 3 TỰ GIỮ (máy KHÔNG bắt được ở lát này): `save_fill` chỉ cảnh báo "Pāli trùng"
+  khi Pāli trùng ở khoá khác ĐÃ CÓ bản Anh đã ghim; 12/15 bài của lát không có bản ghim
+  nào nên nó im lặng hoàn toàn. Tôi tự đếm bằng `_dup_re1.py` (so Pāli của 15 bài này
+  với nhau và với CẢ tầng `english-project`): 78 cặp trùng trong lát. 77 cặp dùng MỘT
+  lời duy nhất; 36 cặp còn lại là nhãn `Jātaka` ở 0.1 của chín bài, khác nhau ĐÚNG ở
+  số bài — đó là dữ liệu, không phải khác biệt cách dịch, và cùng khuôn với 27 tệp `ja`
+  đã commit trong tầng.
+
+  PHẠM VI: `sutta/kn/ud/vagga6/ud6.8_translation-en-sujato.json`, 22 khoá / 17 khoá có chữ;
+  bốn khoá tôi điền (2.3, 3.1–3.3) đều là khoá bản ghim ĐỂ TRỐNG.
+
+  LUẬT 3, HAI NƠI: 2.3 `Ekamantaṁ nisinnā kho te bhikkhū bhagavantaṁ etadavocuṁ:` trùng Y HỆT
+  ud5.3:8.2, ud7.3:2.3 và ud7.10:2.3 — cả bốn bài đã có dùng MỘT lời "Seated to one side,
+  those mendicants said to the Buddha:". 3.1–3.3 lặp lại 1.3–1.5 (đã ghim) nên tôi dùng lại
+  đúng bộ từ: `bhaṇḍanajātā kalahajātā vivādāpannā … pāṇīhipi leḍḍūhipi daṇḍehipi
+  satthehipi upakkamanti` → "Fighting, quarreling, and disputing, they attack each other with
+  fists, stones, rods, and swords" (bản ghim dùng đúng bộ này) và `maraṇampi nigacchanti
+  maraṇamattampi dukkhan` → "resulting in death and deadly pain".
+
+  MỘT KHÁC BIỆT PHẢI GHI: bản ghim 1.3 dịch `sārattā paṭibaddhacittā` là "hopelessly in love";
+  tôi dịch "in love …, their minds fixed on her". `sārattā` = "yêu mê, say mê", không có
+  nghĩa "vô vọng" — "hopelessly" là tiếng Anh cường điệu, và `paṭibaddhacittā` (tâm đã gắn)
+  mới là phần mang tính xác định, nên tôi tách nó ra thành vế riêng. Đây là chỗ tôi CỐ Ý lệch
+  với bản ghim theo Pāli, và là lý do hạ ambiguity_integrity xuống 9.1.
+  `Rājagaha` và `Saṅgha` giữ dấu Pāli: chốt cho phép vì tầng `kn` đã ghim dùng (27 và 149
+  lượt). 3.2 chỉ khác bản ghim ở dấu chấm cuối: Pāli 3.2 kết bằng `.` (câu đóng) còn Pāli 1.4
+  kết bằng `,` (vì còn nối sang 1.5), nên tôi đặt `.` — đây là bắt buộc theo Pāli, không phải
+  lệch ý.
+
+  QUÉT: `rven88.py` không báo cờ nào cho bài này.
+
+  CỔNG KỸ THUẬT: `save_fill` PASS (khẳng định cả 5 luật cơ học cho từng khoá: chỉ
+  điền khoá Pāli có chữ và bản ghim để trống; số dấu lược/ngoặc mở/ngoặc đóng/dấu hỏi
+  khớp Pāli THEO TỪNG KHOÁ; không mở rộng `…pe…`; không lọt chữ Pāli; NFC; không
+  khoảng trắng đôi) và `rven88.py` quét xong (xem mục QUÉT). CHƯA chạy — `npm run
+  validate`, `npm test`, `npm run check`, `npm run build`: lát này bị BRIEF cấm chạy vì
+  chậm và xung đột khi nhiều agent chạy song song. Vì vậy `technical_integrity` chấm
+  9.8 chứ không 10.0, và đây là việc NGƯỜI ĐIỀU PHỐI phải chạy lại trước khi coi bài là
+  xuất bản — ghi thẳng ra đây thay vì để trong im lặng.

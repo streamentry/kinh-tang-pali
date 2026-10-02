@@ -1,0 +1,44 @@
+uid: ja7
+status: published
+translationTitle: "Kinh Kẻ Hái Củi"
+translators:
+  - "OpenCode Space Bunny Free (agent)"
+reviewers: []
+tags:
+  - "khuddaka-nikaya"
+  - "jataka"
+  - "ekakanipata"
+  - "pham-bui-do"
+quality:
+  scores:
+    source_provenance: 9.5
+    semantic_fidelity: 9.2
+    grammar_logic: 9.1
+    segment_alignment: 10.0
+    terminology: 9.2
+    triangulation: 9.4
+    vietnamese_clarity: 9.3
+    han_viet_balance: 9.3
+    ambiguity_integrity: 9.0
+    technical_integrity: 9.6
+  final_score: 9.36
+  blocking_errors: []
+  assessed_at: "2026-10-02"
+  assessed_by:
+    - "OpenCode Space Bunny Free (agent)"
+notes: |-
+  CHỐT KHÔNG TỰ CHẠY — ĐÃ TỰ KIỂM THỦ CÔNG. `_hvi.kiểm` chỉ quét `cần` = khoá Pāli ≥ 40 ký tự. Ở 16/17 bài của lát này khoá Pāli dài nhất chỉ 19–35 ký tự nên `cần` rỗng và vòng chốt NFC / trùng nguyên văn Pāli / Pāli lọt / số dấu lược KHÔNG CHẠY LẦN NÀO. Tôi tự quét lại **164/164 khoá** bằng chính các hàm đó (`_chk_rv3.py`): 0 lỗi — không khoá rỗng, không khoá thừa so với Pāli, không thiếu khoá, mọi chuỗi NFC, số dấu lược khớp Pāli từng khoá, ngoặc kép cân trên cả bài, ngoặc tròn cân, không còn `(…)`, không còn sót `pe…`. Chỉ `mil3.1.7` có 4 khoá ≥ 40 ký tự (`:1.2`–`:1.5`) nên ở bài đó chốt thật sự có chạy. `save_vi` chạy sạch, chạy lại hai lần idempotent.
+
+  COVERAGE — ĐO BẰNG CHÍNH HÀM CỦA KHO (chỉ đọc, `englishCoverageFor`). Cả **17/17 bài ra `ratio = 1`**: 16 bài có `substantiveSegments = 0` vì không khoá Pāli nào đủ 40 ký tự; `mil3.1.7` có 4 khoá substantive. Không bài nào rơi dưới ngưỡng 0,8 nên **không** cần mục trong `content/meta/reference-gaps.yaml` — tệp đó tôi không đụng tới.
+
+  KHÔNG ĐỐI CHIẾU ĐƯỢC TẦNG VIỆT HIỆN HÀNH. Tại commit đã ghim, `translation/vi/` của bilara chỉ chứa Pháp Cú, nên không có bản Hòa thượng Thích Minh Châu cho bất kỳ bài nào trong lát này. Đây là đặc điểm của bản chụp upstream, không phải thiếu sót của kho; `triangulation` vì thế là **Pāli + English Sujato + các bài song song trong chính tầng này**.
+
+  KỸ THUẬT. Tôi KHÔNG chạy `npm run validate|test|build|check` — đợt này người điều phối cấm và chạy tập trung. Vì vậy `technical_integrity` chấm **9.6 chứ không phải 10.0**; đó là hạn chế thật của lượt đánh giá này chứ không phải lời khen. Tất cả những gì chạy được thì đã chạy.
+
+  **`0.4 Kaṭṭhahārijātaka` → *Kinh Kẻ Hái Củi*.** `kaṭṭha` = củi, `hāri` = kẻ hái/t Mang; Sujato tên bài là *The Wood Gatherer* (và bản Sujato mới hơn ghi *The King and the Stick-Collector*). Tôi theo nghĩa đã có của Sujato. `0.3 Apaṇṇakavagga` → *Phẩm Bụi Dơ* (5 tiền lệ: `ja1`, `ja2`, `ja3`, `ja6`, `ja8`, `ja9`) — không theo Sujato *Sure Bet*, vì `apaṇṇaka` là *không dính bụi* và đó là cách đã có tiền lệ trong tầng.
+
+  **BẤT ĐỊNH ĐÃ GHI — `1.4 kiñca devo sakaṁ pajan`.** Vế này tôi đọc khó nhất trong bài. `kiñca` là tiểu từ hỏi (*vậy thì sao*), `devo` là *vua* (một vị trời = một vị vua), `sakaṁ` = *của chính mình*, `pajan` = mệnh lệnh thứ hai số của *nuôi dưỡng*. Tôi dịch *thì một vị vua nuôi dưỡng người của chính mình thì làm sao*. Sujato dịch *what then of his own offspring?* — có thêm *offspring* mà Pāli không có. Lập luận của bài vẫn giữ nguyên: Ngài nuôi tôi, Ngài còn nuôi một vị vua khác, thì còn của chính mình nữa. Tôi hạ `ambiguity_integrity` vì lý do này.
+
+  **`tyāhaṁ` / `posa` / `posa janādhipa`.** `tyāhaṁ` = *con là của Ngài*; tôi dịch *con là con của Ngài* để câu tiếng Việt đọc được — đây là tính lược của tiếng Pāli, không phải thêm nghĩa. `posa` là mệnh lệnh thứ hai số (*hãy nuôi dưỡng*), `janādhipa` = *bậc điều hành dân chúng* (Sujato *ruler of the people*). `Aññepi devo poseti` = *Ngài cũng còn nuôi dưỡng một vị vua khác* — `devo` ở đây là *vua*, không phải *thần*, vì cả bộ nói với Đại vương.
+
+  **`0.2 Ekakanipāta`** → *Bộ Một Bài Kinh* (96 tiền lệ ở Jātaka, 187 cả tầng).

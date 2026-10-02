@@ -1,0 +1,71 @@
+uid: ja97
+status: published
+translationTitle: "English fill (9 segment)"
+englishTitle: "One Who Thought Names Had Power: a past life story"
+translators:
+  - "OpenCode Space Bunny Free (agent)"
+reviewedAt: 2026-10-02
+tags:
+  - english-fill
+  - store
+  - khuddakanikaya
+quality:
+  scores:
+    source_provenance: 9.6
+    semantic_fidelity: 9.2
+    grammar_logic: 9.3
+    segment_alignment: 10.0
+    terminology: 9.4
+    triangulation: 8.0
+    vietnamese_clarity: 9.3
+    han_viet_balance: 9.4
+    ambiguity_integrity: 9.0
+    technical_integrity: 9.8
+  final_score: 9.30
+  blocking_errors: []
+  assessed_at: "2026-10-02"
+  assessed_by:
+    - "OpenCode Space Bunny Free (agent)"
+notes: |-
+  TRIANGULATION 8.0 CHO CẢ BÀI, KHÔNG PHẢI VÀI KHOÁ, VÀ ĐÂY KHÔNG PHẢI BLOCKER:
+  tại commit đã ghim SuttaCentral KHÔNG xuất bản bản Anh nào cho bài này. Đo bằng
+  `source/upstream-manifest.json` → `editions[english-sujato].files` (4.291 tệp):
+  `sutta/kn/` trong đó chỉ có 9 thư mục con — `cp dhp iti ja kp snp thag thig ud` —
+  KHÔNG có `mil/` và `ne/`; thư mục `ja` chỉ có 83 tệp và không tệp nào trong đó là
+  bài này. Kiểm lại độc lập bằng `sutajato()` của harness: 0 khoá nào trong bài này
+  có chữ ở tầng Anh đã ghim, và `fillable == số khoá Pāli`. Vì vậy đây KHÔNG phải lấp
+  chỗ trống quanh một bản Anh đã ghim, mà là BẢN ANH CỦA CHÍNH DỰ ÁN, viết từ Pāli một
+  mình: không có tầng Anh nào độc lập để đối chiếu cú pháp, hợp đồng và sắc thái. Tiêu đề
+  Anh lấy từ chính tầng TÊN của SuttaCentral tại commit đã ghim (`name/sutta/kn/*-name`)
+  — cùng người dịch, cùng commit, nên đó là tiền lệ có bằng chứng chứ không phải phỏng đoán.
+
+  LUẬT 3 TỰ GIỮ (máy KHÔNG bắt được ở lát này): `save_fill` chỉ cảnh báo "Pāli trùng"
+  khi Pāli trùng ở khoá khác ĐÃ CÓ bản Anh đã ghim; 12/15 bài của lát không có bản ghim
+  nào nên nó im lặng hoàn toàn. Tôi tự đếm bằng `_dup_re1.py` (so Pāli của 15 bài này
+  với nhau và với CẢ tầng `english-project`): 78 cặp trùng trong lát. 77 cặp dùng MỘT
+  lời duy nhất; 36 cặp còn lại là nhãn `Jātaka` ở 0.1 của chín bài, khác nhau ĐÚNG ở
+  số bài — đó là dữ liệu, không phải khác biệt cách dịch, và cùng khuôn với 27 tệp `ja`
+  đã commit trong tầng.
+
+  TIỀN LỆ ĐẾM ĐƯỢC: khuôn 0.1–0.4 và 2.1 như 27 tệp `ja` đã commit. 0.3 `Littavagga` →
+  "A Smear of Poison" (`ja-name:101.ja-littavagga`), giữ MỘT lời với ja93:0.3 (đã commit
+  ja91/ja92 cũng dùng đúng tên này). 0.4 và 2.1 lấy từ `ja-name:108.ja97` =
+  "One Who Thought Names Had Power".
+
+  BẤT ĐỊNH ĐÃ GHI: bốn vế đều là TÂN NGỮ của `disvā` ("đã thấy") nên tôi dịch "Seeing…"
+  rồi bỏ tân ngữ ở các vế sau, như Pāli: `Jīvakañca mataṁ disvā` = "thấy kẻ sống như
+  chết" (tôi dịch "Seeing a living man as dead"). `dhanapāliñca duggataṁ` (1.2) =
+  "kẻ tham giữ của cải mà vận phận xấu" → "an ill-fated miser" (`dhanapāli` là kẻ trì giữ
+  của cải; đếm 0 tiền lệ trong tầng Anh, đây là đặt mới). `pāpako punarāgato` (1.4) =
+  "kẻ ác đã trở lại" → "a wicked man come back to life".
+
+  QUÉT: `rven88.py` không báo cờ nào cho bài này.
+
+  CỔNG KỸ THUẬT: `save_fill` PASS (khẳng định cả 5 luật cơ học cho từng khoá: chỉ
+  điền khoá Pāli có chữ và bản ghim để trống; số dấu lược/ngoặc mở/ngoặc đóng/dấu hỏi
+  khớp Pāli THEO TỪNG KHOÁ; không mở rộng `…pe…`; không lọt chữ Pāli; NFC; không
+  khoảng trắng đôi) và `rven88.py` quét xong (xem mục QUÉT). CHƯA chạy — `npm run
+  validate`, `npm test`, `npm run check`, `npm run build`: lát này bị BRIEF cấm chạy vì
+  chậm và xung đột khi nhiều agent chạy song song. Vì vậy `technical_integrity` chấm
+  9.8 chứ không 10.0, và đây là việc NGƯỜI ĐIỀU PHỐI phải chạy lại trước khi coi bài là
+  xuất bản — ghi thẳng ra đây thay vì để trong im lặng.

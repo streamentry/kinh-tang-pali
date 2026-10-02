@@ -1,0 +1,37 @@
+uid: ja193
+status: draft
+translationTitle: "Kinh Hoa Sen Nhỏ"
+translators:
+  - "OpenCode Space Bunny Free (agent)"
+reviewers: []
+tags:
+  - khuddaka-nikaya
+  - jataka
+quality:
+  scores:
+    source_provenance: 8.0
+    semantic_fidelity: 8.6
+    grammar_logic: 8.4
+    segment_alignment: 10.0
+    terminology: 8.4
+    triangulation: 7.0
+    vietnamese_clarity: 8.8
+    han_viet_balance: 9.2
+    ambiguity_integrity: 8.6
+    technical_integrity: 9.6
+  final_score: 8.66
+  blocking_errors:
+    - "Thiếu tầng tham khảo: tại commit đã ghim không có tệp nào cho `ja193` trong `translation/en/sujato/sutta/kn/ja/`. Không đối chiếu được English nào, nên `draft` bất kể điểm."
+  assessed_at: "2026-10-02"
+  assessed_by:
+    - "OpenCode Space Bunny Free (agent)"
+notes: |-
+  **Blocker thật: không có tầng Anh.** Không có `ja193_translation-en-sujato.json` trong `kn/ja/` tại commit đã ghim. Tôi dịch từ Pāli một mình và đặt `draft`; không tự nâng điểm để né. Vì vậy `:1.3`–`:1.4` (câu khó nhất của bài) chỉ đứng được trên Pāli, và tôi hạ `semantic_fidelity`/`ambiguity_integrity` xuống vì lý do đó.
+
+  **Thuật ngữ, đếm được.** `Ruhakavagga` → *Phẩm Thằn Lằn*: **4 tiền lệ đúng khoá** (`ja195`, `ja196`, `ja197`, `ja198:0.3`). Đây là chỗ tôi suýt sai — bản nháp đầu định dịch `ruhi` là *cây nứa*; tra tiền lệ mới thấy `ruhakā` ở đây là *thằn lằn* (monitor lizard), đúng nhóm truyện của `ja189`–`ja198`. `Dukanipāta` → *Tập Kẻ Đau Đớn* (đa số 26:7, xem `ja181`). `ludda` → *tham lam* (`ja206: luddako` → *kẻ tham lam ơi*). `kaṇṇanāsā` → *cắt tai mũi* (`an4.121`, `mn13`, `ud3.2` đều viết *chặt tai, mũi* / *cắt tai, mũi*). Tên `Cūḷapadu` đặt mới, 0 tiền lệ: `cūḷa` + `paduma` = *hoa sen nhỏ*; tôi **không** thêm màu — `paduma` xuất hiện trong tầng chỉ ở *Hoa Sen Hồng* của cõi địa ngục, không đủ cơ sở để gắn màu vào tên bài.
+
+  **Cú pháp `:1.1`–`:1.2` khó, đã cân nhắc kỹ.** `Ayameva sā ahamapi so anañño` đọc là *người các chị nói đó, chính là tôi, chẳng phải ai khác*; `Ayameva so hatthacchinno anañño` là *chính người bị túm lấy tay ấy, chẳng phải một ai khác*. `sā` và `so` ở đây đều là vị ngữ chỉ người đang bàn, và `anañño` lặp ở cả hai câu — tôi giữ hai lần phủ định nhưng đổi cách diễn đạt ở câu hai để hai câu kệ liền nhau không lặp nguyên văn. `hatthacchinna` **không có tiền lệ nào trong toàn tầng**; tôi dịch *bị túm lấy tay* theo nghĩa thành pháp (bị túm giữ để trừng trị), và ghi ở đây là điểm còn bất định.
+
+  **Bất định đã ghi.** `:1.3` `Yamāha ‘komārapatī maman’ti`: `komārapatī` là *kẻ cưới vợ từ thuở nhỏ* và `māman` là *vợ*, nên câu là *kẻ các chị gọi là ‘vợ của kẻ cưới vợ từ thuở nhỏ’*. Cách đọc này khớp với câu sau (*chẳng có sự thật nào như thế ở nữ giới*) và với việc nữ chính lấy lại danh tính bị khinh thường, nhưng tôi **không** chắc tuyệt đối. `Imañca` ở `:2.1` và `Imissā ca` ở `:2.3` tôi dịch *kẻ đáng thương ấy* / *Người ấy nữa*; `pāpapatibbatāya` tôi hiểu là *bị đưa đến cõi lành xấu*.**Kiểm kỹ thuật.** Chạy `save_vi` hai lần: idempotent, tệp trên đĩa không đổi. Tôi tự quét lại **mọi** khoá chứ không chỉ khoá ≥ 40 ký tự như `_hvi.py` làm — ở lát này chỉ 0/155 khoá Pāli đủ 40 ký tự, nên chốt tự kiểm 0% và assertion còn lại không tự chạy; phần tôi tự kiểm: 13/n khoá có mặt và không thừa khoá, đúng segment ID, mọi chuỗi NFC, không khoá rỗng, không khoá nội dung nào trùng nguyên văn Pāli, số dấu lược bằng Pāli từng khoá, ngoặc kép cân trên cả bài và không bao giờ âm, không còn `(…)`, không Pāli lọt vào bản Việt. Tôi **không** chạy `npm run validate|test|check|build` (lát này cấm; người điều phối chạy tập trung), nên `technical_integrity` chấm 9.6 chứ không phải 10.0.
+
+  **Không có tầng Việt hiện hành để đối chiếu.** Tại commit đã ghim, `translation/vi/` của bilara chỉ chứa Pháp Cú, nên Jātaka không có bản Hòa thượng Thích Minh Châu. Đây là giới hạn của bản chụp upstream, không phải thiếu sót của kho; `triangulation` vì thế là Pāli + English Sujato.

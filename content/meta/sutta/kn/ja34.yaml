@@ -1,0 +1,44 @@
+uid: ja34
+status: published
+translationTitle: "Kinh Cá"
+translators:
+  - "OpenCode Space Bunny Free (agent)"
+reviewers: []
+tags:
+  - khuddaka-nikaya
+  - jataka
+  - ekakanipata
+  - pham-to
+quality:
+  scores:
+    source_provenance: 9.6
+    semantic_fidelity: 9.4
+    grammar_logic: 9.4
+    segment_alignment: 10.0
+    terminology: 9.1
+    triangulation: 8.4
+    vietnamese_clarity: 9.4
+    han_viet_balance: 9.3
+    ambiguity_integrity: 9.1
+    technical_integrity: 9.6
+  final_score: 9.3300
+  blocking_errors: []
+  assessed_at: "2026-10-02"
+  assessed_by:
+    - "OpenCode Space Bunny Free (agent)"
+notes: |-
+  **Bản Anh Sujato có 4/4 vế kệ, nhưng tôi KHÔNG dịch theo Sujato ở `1.1`–`1.2`.** Sujato viết *Just as a mother would be good to her beloved only child* — chữ *a mother* **không có trong Pāli**: `Yathāapi ekaputtasmiṁ` chỉ là *như đối với một đứa trẻ*. Tôi bỏ mẹ, vì thêm người mẹ vào thân kệ là thêm nhân vật không có nguồn. Sujato cũng bỏ luôn `piyasmiṁ` (được yêu thương) và gộp nó vào *beloved*; tôi giữ hai vế theo Pāli.
+
+  **Cả bốn vế đều là phủ định, và tôi giữ nguyên.** `Na maṁ sītaṁ na maṁ uṇhaṁ` và `na maṁ jālasmi bādhanaṁ` là *không phải lạnh, không phải nóng* và *không phải lưới giết* — nên tôi dùng *chẳng hề* hai lần, và *lưới đánh bắt* cho `jālasmi bādhanaṁ` (`jāla` = lưới, `bādhana` = giết hại).
+
+  **`macchī` tôi dịch *bà cá* (0 tiền lệ).** Đây là danh từ cái (con cá mẹ, cũng là nữ hoàng của bầy cá), và chính bài kệ nói bà ấy *nhầm ta là bạn đực rồi đi đến bên khác* (`aññaṁ so ratiyā goto`). *Bà cá* giữ được cả hai nét; *cá* thì mất. Sujato dịch *my lady, the fish*.
+
+  **`0.3` `Kulāvakavagga` → *Phẩm Tổ* (0 tiền lệ).** `kula` = tổ (tổ chim, tổ ong), Sujato dịch *Nests* cho đúng phẩm này. **Nói rõ:** `Phẩm Tổ` là tên mới, chưa có tiền lệ trong tầng. `0.4` `Macchajātaka` → *4. Kinh Cá* theo tiền lệ `ja1` (*Kinh Bụi Dơ*) và `ja2` (*Kinh Sa Mạc*): dịch tên bài thay vì phi chuyển.
+
+  **Tầng Việt hiện hành không có.** Tại commit đã ghim, `translation/vi/` của bilara chỉ chứa 27 tệp Pháp Cú, nên không có bản Hòa thượng Thích Minh Châu để đối chiếu thuật ngữ cho bài này. Đây là giới hạn của bản chụp upstream, không phải thiếu sót của kho; `triangulation` vì thế chỉ là Pāli + English Sujato.
+
+  **Sàn coverage không kích hoạt, nhưng ô Anh trống KHÔNG phải đồng thuận.** Hàm `kiểm()` của `_hvi.py` lọc `cần = [k for k in p if len(p[k]) >= 40 …]`. Ở bài này mọi khoá Pāli ngắn hơn 40 ký tự, nên `cần` RỖNG và NFC / trùng nguyên văn Pāli / Pāli lọt / số dấu lược KHÔNG tự chạy. Tôi đã tự quét lại MỌI khoá bằng một lớp kiểm riêng áp đúng các quy tắc ấy lên toàn bài, và in ra từng cặp Pāli ↔ Việt để đọc đối kháng.
+
+  **Ngoại lệ đã đo, không phải lỗi.** Khoá `:0.1` trùng nguyên văn Pāli là quy ước của tầng: 168/516 tệp `kn/*` có `:0.1` là chuỗi Pāli nguyên văn (đếm bằng script). Tương tự, tên riêng mang dấu Pāli trong tiêu đề là tiền lệ (`thag1.101` Belaṭṭhānika, `thag1.11` Cūḷavaccha, `thag1.15` Kuṇḍadhāna), và dấu lược trần `…` xuất hiện 446 lần trong tầng.
+
+  **Tôi không chạy `npm run validate|test|check|build`** (đợt này cấm; người điều phối chạy tập trung), nên `technical_integrity` chấm 9.6 chứ không phải 10.0 — đúng như `thag1.107` đã làm.

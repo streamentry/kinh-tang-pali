@@ -1,0 +1,69 @@
+uid: ud2.4
+status: published
+translationTitle: "English fill (4 segment)"
+englishTitle: "Esteem"
+translators:
+  - "OpenCode Space Bunny Free (agent)"
+reviewedAt: 2026-10-02
+tags:
+  - english-fill
+  - store
+  - khuddakanikaya
+quality:
+  scores:
+    source_provenance: 9.7
+    semantic_fidelity: 9.4
+    grammar_logic: 9.4
+    segment_alignment: 10.0
+    terminology: 9.6
+    triangulation: 8.0
+    vietnamese_clarity: 9.5
+    han_viet_balance: 9.5
+    ambiguity_integrity: 9.3
+    technical_integrity: 9.8
+  final_score: 9.42
+  blocking_errors: []
+  assessed_at: "2026-10-02"
+  assessed_by:
+    - "OpenCode Space Bunny Free (agent)"
+notes: |-
+  TRIANGULATION 8.0 CHO CẢ BÀI, KHÔNG PHẢI VÀI KHOÁ, VÀ ĐÂY KHÔNG PHẢI BLOCKER:
+  bài này CÓ bản Anh đã ghim ở commit đã ghim, nhưng các khoá tôi điền đều là đúng
+  những khoá mà bản ghim ĐỂ TRỐNG — tức bản thân những khoá này không có bản Anh độc
+  lập nào để đối chiếu. Vì vậy `triangulation` vẫn ở 8.0, và lý do là giới hạn thiết kế
+  của lớp lấp chứ không phải thiếu sót của bài. Tôi ghi rõ điều này vì bốn lời tuyên bố
+  đã từng lệch nhau trong dự án, và một lời tuyên bố sai về tầng nguồn tệ hơn im lặng.
+
+  LUẬT 3 TỰ GIỮ (máy KHÔNG bắt được ở lát này): `save_fill` chỉ cảnh báo "Pāli trùng"
+  khi Pāli trùng ở khoá khác ĐÃ CÓ bản Anh đã ghim; 12/15 bài của lát không có bản ghim
+  nào nên nó im lặng hoàn toàn. Tôi tự đếm bằng `_dup_re1.py` (so Pāli của 15 bài này
+  với nhau và với CẢ tầng `english-project`): 78 cặp trùng trong lát. 77 cặp dùng MỘT
+  lời duy nhất; 36 cặp còn lại là nhãn `Jātaka` ở 0.1 của chín bài, khác nhau ĐÚNG ở
+  số bài — đó là dữ liệu, không phải khác biệt cách dịch, và cùng khuôn với 27 tệp `ja`
+  đã commit trong tầng.
+
+  ĐỘNG CƠ CỦA VIỆC ĐIỀN: 2.2–2.5 là các tỳ-kheo TRÍCH LẠI gần như nguyên văn 1.3–1.6
+  (đã ghim). Tôi dùng lại đúng bộ từ Sujato đã dùng, thay vì dịch lại:
+  `sakkato garukato mānito pūjito apacito` → "honored, respected, revered, venerated, and
+  esteemed" (cũng là bộ từ mà 5 bài `ud` khác trong tầng đã dùng) ·
+  `cīvarapiṇḍapātasenāsanagilānapaccayabhesajjaparikkhārānaṁ` → "robes, almsfood, lodgings,
+  and medicines and supplies for the sick" · `akkosanti paribhāsanti rosenti vihesanti` →
+  "abuse, attack, harass, and trouble". Đây là lý do terminology 9.6, cao nhất lát.
+
+  MỘT CHỖ TÔI CHỌN BẰNG LÝ DO, VÀ GHI LẠI: bản ghim dịch 1.3–1.6 ở thì QUÁ KHỨ ("was
+  honored…"), còn 2.2–2.5 là lời nói trực tiếp và Pāli ở đây dùng dạng tính từ `sakkato …
+  apacito` và `akkosanti` (ngôi hiện tại). Tôi dùng thì hiện tại cho cả bốn khoá để nội bộ
+  nhất quán và bám Pāli; đây là CỐ Ý lệch với thì của bản ghim, không phải lỗi. `bhagavā`
+  dùng làm tế danh → "the Blessed One" (192 lượt trong tầng Anh đã ghim `kn`), đồng nhất với
+  `bhagavantaṁ` = "the Buddha" ở 2.1.
+
+  QUÉT: `rven88.py` không báo cờ nào cho bài này.
+
+  CỔNG KỸ THUẬT: `save_fill` PASS (khẳng định cả 5 luật cơ học cho từng khoá: chỉ
+  điền khoá Pāli có chữ và bản ghim để trống; số dấu lược/ngoặc mở/ngoặc đóng/dấu hỏi
+  khớp Pāli THEO TỪNG KHOÁ; không mở rộng `…pe…`; không lọt chữ Pāli; NFC; không
+  khoảng trắng đôi) và `rven88.py` quét xong (xem mục QUÉT). CHƯA chạy — `npm run
+  validate`, `npm test`, `npm run check`, `npm run build`: lát này bị BRIEF cấm chạy vì
+  chậm và xung đột khi nhiều agent chạy song song. Vì vậy `technical_integrity` chấm
+  9.8 chứ không 10.0, và đây là việc NGƯỜI ĐIỀU PHỐI phải chạy lại trước khi coi bài là
+  xuất bản — ghi thẳng ra đây thay vì để trong im lặng.

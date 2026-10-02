@@ -1,0 +1,42 @@
+uid: thag1.72
+status: published
+translationTitle: "Kinh Kệ Của Trưởng Lão Ātuma"
+translators:
+  - "OpenCode Space Bunny Free (agent)"
+reviewers: []
+tags:
+  - "khuddaka-nikaya"
+  - "thera-gatha"
+  - "ekakanipata"
+  - "pham-thu-tam"
+quality:
+  scores:
+    source_provenance: 9.5
+    semantic_fidelity: 9.2
+    grammar_logic: 9.2
+    segment_alignment: 10.0
+    terminology: 9.2
+    triangulation: 9.3
+    vietnamese_clarity: 9.4
+    han_viet_balance: 9.3
+    ambiguity_integrity: 9.1
+    technical_integrity: 9.6
+  final_score: 9.38
+  blocking_errors: []
+  assessed_at: "2026-10-02"
+  assessed_by:
+    - "OpenCode Space Bunny Free (agent)"
+notes: |-
+  CHỐT KHÔNG TỰ CHẠY — ĐÃ TỰ KIỂM THỦ CÔNG. `_hvi.kiểm` chỉ quét `cần` = khoá Pāli ≥ 40 ký tự. Ở 16/17 bài của lát này khoá Pāli dài nhất chỉ 19–35 ký tự nên `cần` rỗng và vòng chốt NFC / trùng nguyên văn Pāli / Pāli lọt / số dấu lược KHÔNG CHẠY LẦN NÀO. Tôi tự quét lại **164/164 khoá** bằng chính các hàm đó (`_chk_rv3.py`): 0 lỗi — không khoá rỗng, không khoá thừa so với Pāli, không thiếu khoá, mọi chuỗi NFC, số dấu lược khớp Pāli từng khoá, ngoặc kép cân trên cả bài, ngoặc tròn cân, không còn `(…)`, không còn sót `pe…`. Chỉ `mil3.1.7` có 4 khoá ≥ 40 ký tự (`:1.2`–`:1.5`) nên ở bài đó chốt thật sự có chạy. `save_vi` chạy sạch, chạy lại hai lần idempotent.
+
+  COVERAGE — ĐO BẰNG CHÍNH HÀM CỦA KHO (chỉ đọc, `englishCoverageFor`). Cả **17/17 bài ra `ratio = 1`**: 16 bài có `substantiveSegments = 0` vì không khoá Pāli nào đủ 40 ký tự; `mil3.1.7` có 4 khoá substantive. Không bài nào rơi dưới ngưỡng 0,8 nên **không** cần mục trong `content/meta/reference-gaps.yaml` — tệp đó tôi không đụng tới.
+
+  KHÔNG ĐỐI CHIẾU ĐƯỢC TẦNG VIỆT HIỆN HÀNH. Tại commit đã ghim, `translation/vi/` của bilara chỉ chứa Pháp Cú, nên không có bản Hòa thượng Thích Minh Châu cho bất kỳ bài nào trong lát này. Đây là đặc điểm của bản chụp upstream, không phải thiếu sót của kho; `triangulation` vì thế là **Pāli + English Sujato + các bài song song trong chính tầng này**.
+
+  KỸ THUẬT. Tôi KHÔNG chạy `npm run validate|test|build|check` — đợt này người điều phối cấm và chạy tập trung. Vì vậy `technical_integrity` chấm **9.6 chứ không phải 10.0**; đó là hạn chế thật của lượt đánh giá này chứ không phải lời khen. Tất cả những gì chạy được thì đã chạy.
+
+  **`kaḷīro` → *trúc*** (tiền lệ: *rừng trúc Veḷuvana* 9× cho `Veḷuvana`, và `mil6.2.10` dịch *gối trúc*). `susu` = ngọn/mầm non; `vaḍḍhitaggo` = *đã lớn thêm ở ngọn*. Sujato gộp hai vế thành một (*A young bamboo is hard to extract when the point is grown and become all woody*) — tức dịch theo nghĩa chứ không theo ranh giới vế; tôi theo ranh giới vế: `1.1` = *Như cây trúc non, ngọn đã lớn thêm,* / `1.2` = *khó nhổ, đã có lõi cứng;*. `pasākha` = lõi/sọc cứng trong thân cây; `dunnikkhamo` = *khó nhổ*. Hình ảnh là cây trúc non vừa đủ cứng không còn dễ nhổ — tức người đã bị dẫn về với người vợ thì không còn dễ rút lui.
+
+  `Evaṁ ahaṁ bhariyāyānitāya` = *Tôi cũng vậy, bị dẫn về với người vợ* — `bhariyāya anīta` là mệnh đề bị động (*bị dẫn về*), tôi dịch bị động, không chủ động. `Anumaññaṁ maṁ pabbajitomhi dānī` = *xin hãy để tôi được xuất gia ngay bây giờ* — `anumañña` là cầu phép (*xin hãy để*), `pabbajitomhi` là *tôi sẽ xuất gia* (thể điệu bị động tương lai).
+
+  `0.3 Aṭṭhamavagga` → *Phẩm Thứ Tám* (0 tiền lệ trong tầng Việt tại thời điểm tôi viết, nhưng khuôn số thứ tự đã có đủ: *Thứ Hai/Tư/Năm/Bảy/Chín*; xem `thag1.75`–`thag1.80` sau đó ghi *Phẩm Thứ Tám* y hệt). `1.5` giữ hai dấu lược.

@@ -1,0 +1,41 @@
+uid: ja41
+status: published
+translationTitle: "Kinh Losaka"
+translators:
+  - "OpenCode Space Bunny Free (agent)"
+reviewers: []
+tags:
+  - khuddaka-nikaya
+  - jataka
+quality:
+  scores:
+    source_provenance: 9.6
+    semantic_fidelity: 9.4
+    grammar_logic: 9.4
+    segment_alignment: 10.0
+    terminology: 9.3
+    triangulation: 8.6
+    vietnamese_clarity: 9.4
+    han_viet_balance: 9.5
+    ambiguity_integrity: 9.3
+    technical_integrity: 9.6
+  final_score: 9.41
+  blocking_errors: []
+  assessed_at: "2026-10-02"
+  assessed_by:
+    - "OpenCode Space Bunny Free (agent)"
+notes: |-
+  **Tầng Anh đủ 8/8 khoá có nội dung** (`:2.1` dòng tên bài, Sujato để trống — dịch từ Pāli theo `ja1:2.1`). Không có segment Pāli ≥ 40 ký tự nên sàn coverage 0,8 không kích hoạt.
+
+  **`:1.1`–`:1.2` LÀ NGUYÊN VĂN CHUẨN CHO BA BÀI — người điều phối cần đọc.** `Yo atthakāmassa hitānukampino, / Ovajjamāno na karoti sāsanaṁ;` trùng **nguyên văn** ở `ja41`, `ja42`, `ja43` (đã kiểm Pāli cả ba: `ja42:1.1`–`1.2` và `ja43:1.1`–`1.2` giống hệt). `TIEN_LE_PHAI.md` ghi *dùng lại nguyên văn của ja41*, nên bản Việt của tôi là bản gốc để `ja42`/`ja43` chép lại:
+
+    · `ja41:1.1` = “Kẻ mong muốn điều lành cho họ, lại có lòng thương cảm họ,
+    · `ja41:1.2` = được khuyên nhủ mà không làm theo lời dạy;
+
+  Nếu hai bài kia đã có bản dịch khác đi thì phải sửa theo hai dòng trên, không sửa hai dòng này.
+
+  **Thuật ngữ, đếm được.** `hitānukampin` → *có lòng thương cảm*; `ovajjamāno` → *được khuyên nhủ*; `na karoti sāsanaṁ` → *không làm theo lời dạy* (Pāli là *sāsana* = lời can thiệp, không phải giáo pháp — cố ý không dịch thành *giáo pháp*). `Atthakāmavagga` → *Phẩm Mong Muốn Lợi Ích*: **0 tiền lệ**, đặt mới — `attha` = điều lành/lợi ích, `kāma` = mong muốn; Sujato dịch phẩm là *Wanting to Help*, tôi theo nghĩa gốc vì `ja49` (cùng phẩm, đã có trong lát này) cho thấy `atthakāma` là **lợi ích**, không riêng là *giúp người*. Tên `Losaka` giữ nguyên âm Pāli, 0 tiền lệ, vì Pāli chỉ nhắc tên ở `:0.4` và `:2.1` và không cho biết loài vật — dịch nghĩa lúc này là **bịa**.
+
+  **Bất định đã ghi.** `Mittako` ở `:1.4` chỉ có trong chính bài này (0 tiền lệ); theo truyện con công kẹp giữa khe đá, tôi giữ tên và dịch phần vế như *khóc lóc như Mittaka* (Sujato: *grieves like Mittaka*). `Ajiyā pādamolamba` tôi dịch *bám vào chân con dê*; `pāda` có thể là *chân* hoặc *cánh*, nhưng `molamba` (bám-vào) kéo theo nghĩa chân.**Kiểm kỹ thuật.** Chạy `save_vi` hai lần: idempotent, tệp trên đĩa không đổi. Tôi tự quét lại **mọi** khoá chứ không chỉ khoá ≥ 40 ký tự như `_hvi.py` làm — ở lát này chỉ 0/155 khoá Pāli đủ 40 ký tự, nên chốt tự kiểm 0% và assertion còn lại không tự chạy; phần tôi tự kiểm: 9/n khoá có mặt và không thừa khoá, đúng segment ID, mọi chuỗi NFC, không khoá rỗng, không khoá nội dung nào trùng nguyên văn Pāli, số dấu lược bằng Pāli từng khoá, ngoặc kép cân trên cả bài và không bao giờ âm, không còn `(…)`, không Pāli lọt vào bản Việt. Tôi **không** chạy `npm run validate|test|check|build` (lát này cấm; người điều phối chạy tập trung), nên `technical_integrity` chấm 9.6 chứ không phải 10.0.
+
+  **Không có tầng Việt hiện hành để đối chiếu.** Tại commit đã ghim, `translation/vi/` của bilara chỉ chứa Pháp Cú, nên Jātaka không có bản Hòa thượng Thích Minh Châu. Đây là giới hạn của bản chụp upstream, không phải thiếu sót của kho; `triangulation` vì thế là Pāli + English Sujato.

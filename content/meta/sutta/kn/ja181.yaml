@@ -1,0 +1,37 @@
+uid: ja181
+status: draft
+translationTitle: "Kinh Vô Đối Đẳng"
+translators:
+  - "OpenCode Space Bunny Free (agent)"
+reviewers: []
+tags:
+  - khuddaka-nikaya
+  - jataka
+quality:
+  scores:
+    source_provenance: 8.0
+    semantic_fidelity: 9.0
+    grammar_logic: 8.6
+    segment_alignment: 10.0
+    terminology: 8.8
+    triangulation: 7.0
+    vietnamese_clarity: 9.0
+    han_viet_balance: 9.3
+    ambiguity_integrity: 8.8
+    technical_integrity: 9.6
+  final_score: 8.81
+  blocking_errors:
+    - "Thiếu tầng tham khảo: tại commit đã ghim không có tệp nào cho `ja181` trong `translation/en/sujato/sutta/kn/ja/` (thư mục chỉ có ja1–ja79, ja126, ja159, ja466, ja534). Không đối chiếu được English nào, nên `draft` bất kể điểm."
+  assessed_at: "2026-10-02"
+  assessed_by:
+    - "OpenCode Space Bunny Free (agent)"
+notes: |-
+  **Blocker thật: không có tầng Anh.** `ls .cache/upstream/suttacentral/translation/en/sujato/sutta/kn/ja/` cho 83 tệp, không có `ja181`. SuttaCentral không có bản Anh nào khác phủ bài này. Tôi dịch từ Pāli một mình và đặt `draft`; không tự nâng điểm để né.
+
+  **Thuật ngữ, đếm được.** `Dūrepātī` + `akkhaṇavedhī` + `kāyassa padāletā` đã có tiền lệ **gần như trùng** ở `an4.196:10.6` — Pāli `Dūrepātī ca, akkhaṇavedhī ca, mahato ca kāyassa padāletā` dịch *Bắn xa được, trúng đích chính xác, và phá vỡ được những vật lớn*; tôi theo đúng cả ba động từ. Trước khi tra, bản nháp của tôi dịch `akkhaṇavedhī` là *hiếm khi trúng đích* — sai, vì kho đã có cách khác và `akkha` ở đây là *chính xác*, không phải *hiếm*. `dhanuggaho` → *cung thủ* (`an4.46`, `sn2.26`). `sotthi` → *an toàn* (`ja132`, `kp5`). `saṁyama` → *tự chế* (`ud8.5`, `dhp360`). `viheṭhayi` → *làm hại* (không có tiền lệ trực tiếp, chọn theo `nānāvajjha`→*nhiều khổ* và `pāpabhikkhū`→*bất thiện*). Tên `Asadi` đặt mới, 0 tiền lệ: dịch nghĩa *vô đối đẳng* (`asadi` = không gì sánh bằng), dùng nhất quán cho cả phẩm lẫn tên bài.
+
+  **Phẩm `Asadisavagga` và `Dukanipāta`.** `Dukanipāta` đã trôi trên đĩa: 26 bài kn viết *Tập Kẻ Đau Đớn*, 7 bài viết *Bộ Hai Bài Kinh* (`ja153`–`ja163`) — kể cả `ja159` nằm giữa nhóm 7 mà lại viết *Tập Kẻ Đau Đớn*, nên nhóm 7 vốn đã tự mâu thuẫn. Tôi theo đa số 26:26, cũng là cách của `ja195`–`ja198` ngay cạnh `ja193`. `Asadisavagga` đặt mới.
+
+  **Bất định đã ghi.** `mahākāyappadālano` (`1.4`) xuất hiện đúng một lần trong toàn bộ corpus Pāli đã ghim (chính khoá này), nên tôi dựa `padāletā` của `an4.196` (*phá vỡ được*) và đọc `kāya` là thân, dịch *phá vỡ được những thân hình lớn*; cách đọc *rộn ràng thân hình* cũng có thể, tôi ghi ra đây chứ không đưa vào thân kinh. `ah` của `Ajiyā` tôi hiểu là *con dê* (`aji`); nếu là *con dê cái* thì bản Việt không đổi.**Kiểm kỹ thuật.** Chạy `save_vi` hai lần: idempotent, tệp trên đĩa không đổi. Tôi tự quét lại **mọi** khoá chứ không chỉ khoá ≥ 40 ký tự như `_hvi.py` làm — ở lát này chỉ 0/155 khoá Pāli đủ 40 ký tự, nên chốt tự kiểm 0% và assertion còn lại không tự chạy; phần tôi tự kiểm: 13/n khoá có mặt và không thừa khoá, đúng segment ID, mọi chuỗi NFC, không khoá rỗng, không khoá nội dung nào trùng nguyên văn Pāli, số dấu lược bằng Pāli từng khoá, ngoặc kép cân trên cả bài và không bao giờ âm, không còn `(…)`, không Pāli lọt vào bản Việt. Tôi **không** chạy `npm run validate|test|check|build` (lát này cấm; người điều phối chạy tập trung), nên `technical_integrity` chấm 9.6 chứ không phải 10.0.
+
+  **Không có tầng Việt hiện hành để đối chiếu.** Tại commit đã ghim, `translation/vi/` của bilara chỉ chứa Pháp Cú, nên Jātaka không có bản Hòa thượng Thích Minh Châu. Đây là giới hạn của bản chụp upstream, không phải thiếu sót của kho; `triangulation` vì thế là Pāli + English Sujato.

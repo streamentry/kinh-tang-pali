@@ -1,0 +1,56 @@
+uid: ja104
+status: draft
+translationTitle: "Kinh Mittavinda"
+translators:
+  - "OpenCode Space Bunny Free (agent)"
+reviewers: []
+tags:
+  - khuddaka-nikaya
+  - jataka
+  - ekakanipata
+  - pham-parosata
+quality:
+  scores:
+    source_provenance: 9.6
+    semantic_fidelity: 9.2
+    grammar_logic: 9.2
+    segment_alignment: 10.0
+    terminology: 9.2
+    triangulation: 8.0
+    vietnamese_clarity: 9.2
+    han_viet_balance: 9.3
+    ambiguity_integrity: 8.8
+    technical_integrity: 9.6
+  final_score: 9.21
+  blocking_errors:
+    - "Thiếu tầng tham khảo tiếng Anh tại commit đã ghim: không có bất kỳ tệp nào của kn/ja104 trong translation/en/sujato; bản Anh duy nhất là bản lấp của chính dự án nên không phải cách đọc English độc lập"
+  assessed_at: "2026-10-02"
+  assessed_by:
+    - "OpenCode Space Bunny Free (agent)"
+notes: |-
+  BLOCKER — THIẾU TẦNG THAM KHẢO ANH TẠI COMMIT ĐÃ GHIM. Kiểm bằng ba cách, cùng kết quả:
+  `source/upstream-manifest.json` (git tree của commit 11c9d70) không có mục nào khớp `kn/ja104`
+  trong tầng `english-sujato`; thư mục `kn/ja/` trong cache không có `ja104_translation-en-sujato.json`;
+  và `grep` trên toàn tầng `translation/en/sujato` không ra. SuttaCentral không xuất bản bản Anh
+  nào cho bài này tại commit đã ghim. Bản Anh duy nhất tồn tại là BẢN LẤP CỦA CHÍNH DỰ ÁN
+  (`content/translation/en/project/sutta/kn/ja104_translation-en-project.json`, trạng thái
+  `published`) — do cùng một agent viết, nên KHÔNG phải cách đọc English độc lập để đối chiếu
+  cú pháp và sắc thái. Đó là lý do `triangulation` chấm 8.0 cho cả bài. Không có bản Việt hiện
+  hành cho Jātaka ở commit đã ghim, nên cũng không có tầng Việt nào để đối chiếu thuật ngữ.
+  BẤT ĐỊNH ĐÃ GHI, KHÔNG GIẤU. `Catubbhi aṭṭhajjhagamā` / `aṭṭhāhipi ca soḷasa` /
+  `Soḷasāhi ca bāttiṁsa` chỉ có CON SỐ (bốn, tám, mười sáu, ba mươi hai) mà không kèm đơn vị đo
+  nào. Tôi KHÔNG thêm "dặm" hay "yojana" vào thân kinh, vì đó là thông tin không có trong nguồn;
+  nhưng để vậy thì câu đọc lên không đủ ý. Đây là lý do hạ semantic_fidelity và grammar_logic.
+  Cách sửa khi có người biên tập: thêm "dặm" kèm chú thích, hoặc để ngoặc vuông [dặm] theo quy ước
+  chú giải. `Catubbhi` là "bốn" dạng bốn cái gì — trong câu kệ này không có mệnh đề nào để bám, nên
+  tôi dịch sát ("Bốn thì đi tới tám") thay vì đoán "bốn loại tham"; đoán là bịa.
+  Tiền lệ đếm được: `Parosatavagga` → "Phẩm Parosata" (8 tệp); tên bài giữ Pāli theo đúng khuôn
+  của ja102 ("Kinh Paṇṇikajātaka") và ja106 ("Kinh Udañcanījātaka"); colophon không dấu phẩy theo
+  cả 8 tệp cùng phẩm. `bánh xe` có 178 chỗ; `trục` cho `matthake` là chỗ đặt mới (tiền lệ Anh
+  đã ghim: "axle" 16 lượt, "nave" 2 lượt — đếm cho "axle").
+  Vì mọi khoá Pāli ngắn hơn 40 ký tự nên `cần` trong `kiểm()` RỖNG và các assertion không tự
+  chạy; tôi tự quét MỌI khoá bằng `review.py` (12 kiểm: đủ khoá, không thừa, không rỗng, thứ tự
+  khoá y hệt Pāli, NFC, không trùng nguyên văn Pāli ở khoá nội dung, dấu lược khớp từng khoá, không
+  còn `(…)`, ngoặc kép cân, không Pāli lọt, ký tự lạ, khoảng trắng đôi) — sạch. Không chạy
+  `npm run validate|test|check|build` (đợt này cấm), nên technical_integrity = 9.6 chứ không phải
+  10.0; đây là việc NGƯỜI ĐIỀU PHỐI phải chạy lại trước khi coi bài là xuất bản.
