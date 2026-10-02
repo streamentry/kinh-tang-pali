@@ -1,0 +1,50 @@
+uid: mil7.7.1
+status: draft
+translationTitle: "Câu Hỏi Về Con Khỉ Đi Trên Đường"
+translators:
+  - "OpenCode Space Bunny Free (agent)"
+reviewers: []
+tags:
+  - khuddaka-nikaya
+  - milindapanha
+  - pham-ke-nhac-nho
+  - panthamakkataka
+quality:
+  scores:
+    source_provenance: 9.5
+    semantic_fidelity: 9.2
+    grammar_logic: 9.2
+    segment_alignment: 10.0
+    terminology: 9.0
+    triangulation: 6.8
+    vietnamese_clarity: 9.2
+    han_viet_balance: 9.2
+    ambiguity_integrity: 9.0
+    technical_integrity: 9.6
+  final_score: 9.07
+  blocking_errors:
+    - "Không có tầng tham khảo English Sujato tại commit đã ghim: đã duyệt .cache/upstream/suttacentral/translation/en/sujato/sutta/kn/ và không có tệp cho uid này (0/14 khoá có prose), và tầng Việt hiện hành tại commit đã ghim chỉ có Pháp Cú nên Khuddaka Nikāya cũng không có bản Hòa thượng Thích Minh Châu; bài dịch chỉ từ Pāli, chưa đối chiếu được tầng tham khảo nào nên giữ draft."
+  assessed_at: "2026-10-02"
+  assessed_by:
+    - "OpenCode Space Bunny Free (agent)"
+notes: |-
+  Đủ 14/14 khoá. Đã đọc HẾT w7.pali.txt trước khi viết, không dựng bản nháp từ trí nhớ.
+
+  Tiền lệ đếm được, dùng lại:
+  · `Opammakathāpañha` → Câu hỏi về cách dùng dẫn với ví dụ (trùng nguyên văn với mil7.3.7:0.2 và mil7.7.2:0.2, đã có sẵn trong tầng).
+  · `Makkaṭakavagga` → Phẩm Kẻ Nhắc Nhở (trùng nguyên văn với mil7.7.2:0.3; bản mil7.7.2 đã publish).
+  · Khung câu hỏi của cả loạt Opammakathāpañha theo đúng mil7.7.2:1.1 và mil7.3.7:1.1: Thưa tôn giả Nāgasena, tôn giả đã dạy rằng ...; phần ấy là phần nào cần phải nắm lấy.
+  · `yoginā yogāvacarena` → người hành trì thực hành (đúng như mil7.7.2:1.3).
+  · `therena anuruddhena` → Bậc trưởng lão Anuruddha (thang bậc trưởng lão đã có trong tầng).
+  · `satipaṭṭhāna` → niệm xứ (142 khoá trong tầng, xem mn137), `chasu dvāresu` → sáu cửa (1 tiền lệ, chỗ dùng dvāra = cửa giác).
+
+  Đặt mới, có lý do:
+  · `Kumbhavagga` không có tiền lệ trong tầng nên đặt mới; ở mil7.8.1 tôi dùng Phẩm Bình Vò, theo `kumbho` → bình (an3.30, an4.103 đã có trong tầng). Ở bài này tôi dùng `makkaṭaka` → khỉ: PED xếp makkaṭaka là một loài khỉ (langur), và đã đếm thì chưa từ có cách dùng nào cho makkaṭaka trong tầng (0 khoá chứa chữ này), nên không có gì để theo.
+  · `paṭaṅgo` dịch sâu bọ. Trong chính kinh tảng, mil6.2.7:1.6 liệt kê `paṭaṅgavaṇṇena` bên cạnh kipillika, ahiva, vicchika, satapadi — tức một loài côn trùng/bò sát nhỏ; tôi giữ nghĩa loài vật nhỏ bám vào thay vì đoán tên loài. Ghi lại vì đây là điểm chưa chắc.
+  · `makkhikā` dịch con ruồi (không phải ong như bản nháp đầu tiên của tôi — đã sửa ở lượt review đối kháng). Việc dùng lại hình ảnh ruồi ở cả 1.2 và 1.3 là đúng vì `kilesamakkhikā` cũng là ruồi; đó là mệnh đề so sánh của bản kinh, không phải lặp từ máy móc.
+  · `Satipaṭṭhānavaruttame` dịch niệm xứ là tối thượng nhất (bản nháp ghi bậc tối thượng, sai giới từ vì `varuttama` không nói về người; đã sửa).
+
+  Kiểm thủ công trên TOÀN BỘ 14 khoá (chốt kiểm() của _hvi.py chỉ quét khoá Pāli từ 40 ký tự, bài này có đúng 5 khoá như vậy nên 9 khoá còn lại phải tự quét): đủ khoá, đúng ID, không rỗng, NFC, không trùng nguyên văn Pāli, dấu lược bằng Pāli (cả hai phía đều 0), nháy kép cân xuyên suốt bài (mở ở 1.1 và đóng ngay ở 1.1; mở ở 1.2, đóng ở 2.4), không có `(…)` dở. save_vi chạy hai lần, idempotent.
+  Không chạy npm run validate|test|check|build (đợt này cấm), nên technical_integrity = 9.6, không phải 10.
+
+  LỖ HỔNG TẦNG THAM KHẢO: Không có tầng tham khảo English Sujato tại commit đã ghim: đã duyệt .cache/upstream/suttacentral/translation/en/sujato/sutta/kn/ và không có tệp cho uid này (0/14 khoá có prose), và tầng Việt hiện hành tại commit đã ghim chỉ có Pháp Cú nên Khuddaka Nikāya cũng không có bản Hòa thượng Thích Minh Châu; bài dịch chỉ từ Pāli, chưa đối chiếu được tầng tham khảo nào nên giữ draft. Bản Việt hiện hành tại commit đã ghim cũng không có cho Khuddaka Nikāya (bilara chỉ phân phối Pháp Cú cho tiếng Việt), đây là giới hạn của bản chụp upstream chứ không phải thiếu sót của repo; vì vậy mọi thuật ngữ ở đây chỉ đối chiếu được với chính tầng Việt dự án.

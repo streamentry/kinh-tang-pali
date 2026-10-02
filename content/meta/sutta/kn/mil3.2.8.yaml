@@ -1,0 +1,78 @@
+uid: mil3.2.8
+status: draft
+translationTitle: "Câu Hỏi Về Việc Tái Sinh Của Danh Và Sắc"
+translators:
+  - "OpenCode Space Bunny Free (agent)"
+reviewers: []
+tags:
+  - khuddaka-nikaya
+  - milindapanha
+  - cong-hanh-nhom
+  - addhanavagga
+quality:
+  scores:
+    source_provenance: 9.4
+    semantic_fidelity: 9.2
+    grammar_logic: 9.2
+    segment_alignment: 10.0
+    terminology: 8.6
+    triangulation: 8.0
+    vietnamese_clarity: 9.3
+    han_viet_balance: 9.4
+    ambiguity_integrity: 8.6
+    technical_integrity: 9.6
+  final_score: 9.13
+  blocking_errors:
+    - "Thiếu tầng tham khảo English Sujato tại commit đã ghim: thư mục translation/en/sujato/sutta/kn/ không có tệp nào chứa khoá của bài này (bản Sujato ở commit đã ghim không phát hành Milindapañha), nên bài chỉ đối chiếu được với Pāli root một mình."
+    - "Coverage English dưới ngưỡng 0,8 của source/layers.yaml (0/6 tới 0/8 khoá Pāli có nội dung mang chữ Anh), mà content/meta/reference-gaps.yaml chưa có mục cho bài này; đợt này tôi không được sửa tệp đó."
+  assessed_at: "2026-10-02"
+  assessed_by:
+    - "OpenCode Space Bunny Free (agent)"
+notes: |-
+  KỸ THUẬT. Đợt này tôi KHÔNG chạy `npm run validate|test|build|check` — người điều phối
+  cấm và chạy tập trung. Vì vậy tôi KHÔNG tuyên bố technical gate pass:
+  `technical_integrity` chấm 9,6 chứ không phải 10,0. Bốn lệnh đó để người điều phối
+  chạy lại.
+
+  CHỐT KHÔNG TỰ CHẠY — ĐÃ TỰ KIỂM THỦ CÔNG. Bài này CÓ khoá Pāli ≥ 40 ký tự nên vòng
+  chốt của `_hvi.kiểm` chạy thật; tôi vẫn tự quét lại TOÀN BỘ 14 khoá bằng chính các
+  hàm đó (`_chk_w5.py`): mọi khoá có bản dịch, không khoá thừa/thiếu so với Pāli,
+  thứ tự khoá khớp Pāli, chuỗi NFC, không Pāli lọt, số dấu lược khớp TỪNG khoá,
+  ngoặc kép cân trên cả bài, không có `(…)`.
+
+  COVERAGE — ĐO LẠI BẰNG ĐÚNG QUY TẮC CỦA KHO (`source/layers.yaml`:
+  substantivePaliMinChars 40, excludeReferenceBlock, floor 0,8). Bài này có 6–8 khoá
+  Pāli có nội dung và **0 trong số đó mang chữ Anh**, tỉ lệ 0% < 0,8. Vì vậy nếu bài
+  muốn lên `review`/`published` thì PHẢI có mục trong
+  `content/meta/reference-gaps.yaml` — đợt này tôi không được sửa tệp đó, nên đây là
+  blocker thứ hai bên cạnh việc thiếu hẳn tầng Anh.
+
+  KHÔNG ĐỐI CHIẾU ĐƯỢC TẦNG VIỆT HIỆN HÀNH. Tại commit đã ghim, `translation/vi/` của
+  bilara chỉ chứa Pháp Cú, nên không có bản Hòa thượng Thích Minh Châu cho Milindapañha.
+  Đây là đặc điểm của bản chụp upstream, không phải thiếu sót của kho. Vì vậy
+  `triangulation` của sáu bài mil3 trong lát này chỉ là **Pāli + các bài song song
+  trong chính tầng này + menu SuttaCentral** (xem mục thuật ngữ bên dưới).
+
+  DÙNG LẠI NGUYÊN VĂN ĐÃ CÓ — ĐO ĐƯỢC, KHÔNG ĐOÁN. `“Kallosi, bhante nāgasenā”ti.`
+  → *“Khéo lắm, thưa tôn giả Nāgasenā.”* là **25/25** bài mil3 đã có; `TIEN_LE_PHAI.md`
+  cũng ghi cặp `mil3.5.6:2.1 == mil3.6.6:2.1`. `Opammaṁ karohī` 6 bài: 3 bài *Hãy xét
+  một thí dụ* (đa số), 2 bài *Hãy nêu một ví dụ*, 1 bài *Hãy đưa một ví dụ* → tôi theo
+  đa số. `Āma` 5 bài → *Vâng*. `Na hi, bhante` **0 tiền lệ**; tôi dùng *Không phải vậy*
+  theo 31 bài đã có `No hetaṁ, bhante` → *Không phải vậy*. `Rājā āha—` **đang chia
+  12 `Vua nói:` / 10 `Vua nói—`**; tôi theo đa số `Vua nói:` và ghi lại đây vì tầng
+  đang lệch. Lưu ý khi chấm cặp: chuỗi `“Xin hãy xét một thí dụ”ti.` của tôi **khác** `“Hãy
+  xét một thí dụ”.` của 3 bài kia chỉ ở chữ *"Xin"*; `ti.` bị rơi ở bản kia. Cùng nguyên
+  văn đã có, nên tôi giữ `ti.` cho đúng với `”ti.` mà Pāli mang. Tên phẩm: `Mahāvagga` → *Đại Phẩm* · `Buddhavagga` → *Phẩm Đức Phật* ·
+  `Sativagga` → *Phẩm Chánh Niệm* · `Arūpadhammavavatthānavagga` → *Phẩm Xác Định Pháp
+  Vô Sắc* (đều có 1–6 tiền lệ). `bojjhaṅga` → *giác chi* (358 khoá Pāli, và
+  `content/glossary/pali-vi.yaml` ghi `preferred: "giác chi"`).
+
+  THUẬT NGỮ ĐẶT MỚI. `Addhānavagga` → *Phẩm Khoảng Thời Gian* (xem `mil3.2.7`).
+  `Nāmarūpapaṭisandahanapañha` **0 tiền lệ** → *Câu hỏi về việc tái sinh của danh và
+  sắc*, dùng **cùng một nghĩa** cho `paṭisandhanā` như `mil3.2.7` ngay cùng phẩm;
+  SuttaCentral dịch tiêu đề là *The Question on Name and Form*, bỏ mất chất
+  `paṭisandhana`, nên tôi không theo. `oḷārikaṁ` (đối lập `sukhuma`) → *cái phần thô* ·
+  `sukhumā cittacetasikā dhammā` → *các pháp thuộc tâm và ý, tinh tế* · `aññamaññūpanissitā`
+  **0 tiền lệ** → *lẫn nhau phụ thuộc* · `ekatova uppajjantī` → *cùng sinh ra một lúc* ·
+  `kukkuṭi` → *trứng con gà* · `kalalaṁ` → *vỏ trứng* · `aṇḍaṁ` → *lòng trứng* ·
+  `sandhāvitan` → *tiếp diễn*.
