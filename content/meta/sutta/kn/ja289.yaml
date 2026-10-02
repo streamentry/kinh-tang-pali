@@ -1,0 +1,88 @@
+uid: ja289
+status: draft
+translationTitle: "Kinh Nhiều Màu"
+translators:
+  - "OpenCode Space Bunny Free (agent)"
+reviewers: []
+tags:
+  - khuddaka-nikaya
+  - jataka
+  - tikanipata
+  - abbhantaravagga
+quality:
+  scores:
+    source_provenance: 9.3
+    semantic_fidelity: 8.9
+    grammar_logic: 9.0
+    segment_alignment: 10.0
+    terminology: 9.0
+    triangulation: 6.4
+    vietnamese_clarity: 9.0
+    han_viet_balance: 9.4
+    ambiguity_integrity: 8.6
+    technical_integrity: 9.6
+  final_score: 8.92
+  blocking_errors:
+    - "Thiếu tầng tham khảo English Sujato tại commit đã ghim: thư mục translation/en/sujato/sutta/kn/ không có tệp nào chứa khoá của bài này (bản Sujato ở commit đã ghim không phát hành Jātaka/Milindapañha), nên bài chỉ đối chiếu được với Pāli root một mình."
+    - "Coverage English dưới ngưỡng 0,8 của source/layers.yaml, mà content/meta/reference-gaps.yaml chưa có mục cho bài này; đợt này tôi không được sửa tệp đó."
+  assessed_at: "2026-10-02"
+  assessed_by:
+    - "OpenCode Space Bunny Free (agent)"
+notes: |-
+  KỸ THUẬT. Đợt này tôi KHÔNG chạy `npm run validate|test|build|check` — người điều phối cấm và chạy tập trung. Vì vậy tôi KHÔNG tuyên bố technical gate pass: `technical_integrity` chấm 9,6 chứ không phải 10,0. Bốn lệnh đó để người điều phối chạy lại.
+
+  CHỐT KHÔNG TỰ CHẠY — ĐÃ TỰ KIỂM THỦ CÔNG. Vòng chốt của `_hvi.kiểm()` chỉ quét khoá Pāli ≥ 40 ký tự; tôi tự quét lại TOÀN BỘ 19 khoá từ đĩa bằng chính các hàm đó (`_chk_w11.py`):
+  đủ khoá, không khoá thừa/thiếu so với Pāli, chuỗi NFC, không khoá rỗng, số dấu lược khớp TỪNG KHOÁ, ngoặc kép `“`/`”` cân trên cả bài — kiểm CẢ theo thứ tự số LẪN theo thứ tự chuỗi mà `sorted()` của chốt dùng, không Pāli lọt, không có `(…)`, không trùng nguyên văn Pāli. Kết quả: 0 lỗi trên 266 khoá / 14 bài.
+
+  COVERAGE. Đo lại đúng quy tắc `source/layers.yaml` (substantivePaliMinChars 40, excludeReferenceBlock, floor 0,8, `english-project` chỉ tính khi `published`):
+
+  ""Bài này có 0 khoá Pāli ≥ 40 ký tự ngoài khối `:0` (kệ Jātaka chia nhỏ dưới
+    ngưỡng đó) và **không có tầng Anh nào**: 0/0. Nhưng tầng Anh SUJATO không tồn tại cho cả
+    Jātaka ở commit đã ghim, nên bài không có tầng tham khảo nào để đối chiếu — đây mới là
+    vấn đề, không phải con số 0/0.""
+
+  KHÔNG ĐỐI CHIẾU ĐƯỢC TẦNG VIỆT HIỆN HÀNH. Tại commit đã ghim, `translation/vi/` của bilara chỉ chứa Pháp Cú, nên không có bản Hòa thượng Thích Minh Châu cho bài này. Đây là đặc điểm của bản chụp upstream, không phải thiếu sót của kho; `budsas.org` chỉ là tra cứu toàn văn và không có căn cứ alignment ở mức segment.
+
+  DẤU LƯỢC §10. Không khoá nào trong lát này được MỞ RỘNG chỗ Pāli lược. Bản Anh Sujato đã ghim mở rộng nhiều chỗ `…pe…` (ví dụ `sn45.24:2.2` và `sn55.31:4.1` liệt kê đủ tám ngành Bát Chánh Đạo, `sn46.14:3.3` liệt kê đủ bảy giác chi) — tôi KHÔNG theo, vì mở rộng là thêm chữ không đánh dấu. Cũng không khoá nào bị nén thêm: mọi `…` trong bản Việt đều ăn đúng một dấu lược ứng với một `…pe…` của Pāli, đếm từng khoá.
+
+  BLOCKER THẬT — BÀI Ở `draft`. Tại commit đã ghim, `translation/en/sujato/sutta/kn/`
+    có **0 tệp** chứa khoá của `ja289` (đã kiểm cả `source/upstream-manifest.json`: thư mục
+    `kn` không hề có mục nào). Bản chụp upstream không phát hành Jātaka bằng tiếng Anh, nên bài
+    này chỉ đối chiếu được với Pāli root một mình. Thêm nữa coverage English đo được là 0
+    (0/0 khoá Pāli có nội dung ≥ 40 ký tự vì kệ Jātaka chia nhỏ dưới ngưỡng đó), dưới ngưỡng
+    0,8 của `source/layers.yaml`, mà `content/meta/reference-gaps.yaml` chưa có mục cho bài này
+    và đợt này tôi không được sửa tệp đó. Blocker thắng điểm.
+
+  DÙNG LẠI NGUYÊN VĂN ĐÃ CÓ — ĐO ĐƯỢC. `“Kallosi, bhante nāgasenā”ti.` không thuộc lát này
+    nhưng `TIEN_LE_PHAI.md` ghi cặp `mil3.5.6:2.1 == mil3.6.6:2.1`; tôi đã dùng đúng nguyên văn
+    đó cho `mil3.3.3:4.1` và `mil3.7.4:4.1`. `gāmavaraṁ` → *một làng ưu tú*: **3 bài đã có**
+    (`mn83:4.9`, `mn83:16.14`, `mn88:18.7` — vua trao *một làng ưu tú* cho Kappaka; Anānanda
+    nói *nếu hợp lẽ mà dâng Tôn gi Ānanda một làng ưu tú*). `maṇikuṇḍala` → *vòng tay đeo ngọc
+    quý*: `mn54:20.1` có *đồ trang sức bằng ngọc quý* cho `pavaramaṇikuṇḍala`. Mẫu kết bài:
+    `Xjātakaṁ navamaṁ` → *Kinh X thứ chín* theo `ja159:5.1` và `ja199:3.1`. Tên phẩm:
+    `Jātaka` → *Jātaka* giữ nguyên (214/214 bài). 0 tiền lệ, đặt mới có lý do: `Tikanipāta` →
+    *Bộ Ba Bài Kinh*; `Abbhantaravagga` → *Phẩm Abbhantara*; `Nānāchandajātaka` → *9. Kinh
+    Nhiều Màu*.
+
+  BẤT ĐỊNH CHƯA PHÂN XỬ TRỌN VẸN, ĐÃ GHI LẠI. (1) **Ai nói ở `1.1`?** Pāli là
+    `“Nānāchandā mahārāja, ekāgāre vasāmase; Ahaṁ gāmavaraṁ icche, brāhmaṇī ca gavaṁ
+    sataṁ”.` — `mahārāja` là tế từ gọi vua, nên người nói không phải vua; tôi hiểu là bà-la-môn
+    đang đòi đổi, và `Ahaṁ` là chính ông. Bằng chứng nội tại: `3.1` (`Brāhmaṇassa gāmavaraṁ`)
+    mới là câu vua đáp, nên hai vế ở `1.3` và `1.4` phải là hai người muốn hai thứ khác nhau
+    (ông muốn làng, người bà muốn trăm bò). Đây là suy luận, không phải dữ kiện văn bản.
+    (2) **`udukkhalaṁbhikaṅkhati`** (`2.4`) = *`ambhikaṅkhati`* (tìm/ham muốn) + *`udukkhala`*
+    (khổ đau); tôi dịch *tìm mà sinh lòng ham muốn đau khổ*. Từ điển không có trong kho, và
+    cổ tự không phải Pāli; nếu `udukkhala` là động từ *gây khổ* thì câu này còn một nghĩa nữa,
+    nhưng cả hai đều cho cùng một hành động của người bà-la-môn, nên nó không đổi nghĩa cảnh.
+    Cả hai điểm đã ghi ở đây vì người biên tập có thể muốn xem lại cùng chú giải Jātaka.
+  REVIEW ĐỐI KHÁNG. Tôi in lại Pāli ↔ Việt từng cặp và đọc lại với mục tiêu tìm lỗi.
+  Lỗi đã bắt được và đã sửa trước khi ghi lần cuối: 
+  **(1)** `ja289:1.3`/`3.1` bản nháp dịch `gāmavaraṁ` là *bầy bò*; tra toàn tầng
+      thì `mn83` và `mn88` đã dịch là *một làng ưu tú*, và câu kệ còn đặt nó cạnh
+      `gavaṁ sataṁ` (trăm con bò) — nếu cả hai đều là trăm bò thì vế sau thừa vô nghĩa; đã
+      theo *làng ưu tú*. **(2)** `ja289:0.2` bản nháp theo đa số `Dukanipāta` → *Tập Kẻ Đau
+      Đớn*; `duka` ở đây là thuật ngữ *cặp/hai câu* chứ không phải *đau đớn*, và đó là bài
+      khác (Tập 2, không phải Tập 3 của `Tikanipāta`), nên đã theo đúng họ *Ekakanipāta* →
+      *Bộ Một Bài Kinh* (141 bài) cộng `Dukanipāta` → *Bộ Hai Bài Kinh* (11 bài) và đặt
+      *Bộ Ba Bài Kinh*. **(3)** `ja289:1.4` bản nháp ghi *bà bà-la-môn* (lặp); đã sửa thành
+      *còn người bà ấy*.

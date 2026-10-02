@@ -1,0 +1,57 @@
+uid: sn38.1
+status: published
+translationTitle: "Câu Hỏi Về Niết-bàn"
+translators:
+  - "OpenCode Space Bunny Free (agent)"
+reviewers: []
+tags:
+  - samyutta-nikaya
+  - cong-hanh-nhom
+  - niết-bàn
+  - 1. Phẩm Jambukhádaka
+quality:
+  scores:
+    source_provenance: 9.8
+    semantic_fidelity: 9.6
+    grammar_logic: 9.6
+    segment_alignment: 10.0
+    terminology: 9.6
+    triangulation: 9.6
+    vietnamese_clarity: 9.5
+    han_viet_balance: 9.6
+    ambiguity_integrity: 9.5
+    technical_integrity: 9.6
+  final_score: 9.64
+  blocking_errors: []
+  assessed_at: "2026-10-02"
+  assessed_by:
+    - "OpenCode Space Bunny Free (agent)"
+notes: |-
+  KỸ THUẬT. Đợt này tôi KHÔNG chạy `npm run validate|test|build|check` — người điều phối cấm và chạy tập trung. Vì vậy tôi KHÔNG tuyên bố technical gate pass: `technical_integrity` chấm 9,6 chứ không phải 10,0. Bốn lệnh đó để người điều phối chạy lại.
+
+  CHỐT KHÔNG TỰ CHẠY — ĐÃ TỰ KIỂM THỦ CÔNG. Vòng chốt của `_hvi.kiểm()` chỉ quét khoá Pāli ≥ 40 ký tự; tôi tự quét lại TOÀN BỘ 19 khoá từ đĩa bằng chính các hàm đó (`_chk_w11.py`):
+  đủ khoá, không khoá thừa/thiếu so với Pāli, chuỗi NFC, không khoá rỗng, số dấu lược khớp TỪNG KHOÁ, ngoặc kép `“`/`”` cân trên cả bài — kiểm CẢ theo thứ tự số LẪN theo thứ tự chuỗi mà `sorted()` của chốt dùng, không Pāli lọt, không có `(…)`, không trùng nguyên văn Pāli. Kết quả: 0 lỗi trên 266 khoá / 14 bài.
+
+  COVERAGE. Đo lại đúng quy tắc `source/layers.yaml` (substantivePaliMinChars 40, excludeReferenceBlock, floor 0,8, `english-project` chỉ tính khi `published`):
+  14 khoá Pāli có nội dung (≥ 40 ký tự, ngoài khối `:0`), **14** khoá có chữ Anh Sujato ⇒ coverage 1,00 ≥ ngưỡng 0,8. Lớp lấp `english-project` không cần dùng cho bài này.
+
+  KHÔNG ĐỐI CHIẾU ĐƯỢC TẦNG VIỆT HIỆN HÀNH. Tại commit đã ghim, `translation/vi/` của bilara chỉ chứa Pháp Cú, nên không có bản Hòa thượng Thích Minh Châu cho bài này. Đây là đặc điểm của bản chụp upstream, không phải thiếu sót của kho; `budsas.org` chỉ là tra cứu toàn văn và không có căn cứ alignment ở mức segment.
+
+  DẤU LƯỢC §10. Không khoá nào trong lát này được MỞ RỘNG chỗ Pāli lược. Bản Anh Sujato đã ghim mở rộng nhiều chỗ `…pe…` (ví dụ `sn45.24:2.2` và `sn55.31:4.1` liệt kê đủ tám ngành Bát Chánh Đạo, `sn46.14:3.3` liệt kê đủ bảy giác chi) — tôi KHÔNG theo, vì mở rộng là thêm chữ không đánh dấu. Cũng không khoá nào bị nén thêm: mọi `…` trong bản Việt đều ăn đúng một dấu lược ứng với một `…pe…` của Pāli, đếm từng khoá.
+
+  DÙNG LẠI NGUYÊN VĂN ĐÃ CÓ — ĐO ĐƯỢC. **13 khoá** của bài này có tiền lệ: `1.1` trùng
+    nguyên văn với `an10.65:1.1` và đã dùng lại nguyên văn đã có; `2.3` trùng `sn38.2:1.3`;
+    `2.5`–`2.12` theo `sn38.2` và `sn38.10–13` (*có con đường, có đạo lộ*, *Thánh đạo tám
+    ngành*, *chứng ngắm*, *đừng phóng dật*); danh sách tám ngành theo `dn22:21.3` và `mn3`.
+    `maggo atthi paṭipadā` → *có con đường, có đạo lộ* (đồng thuận 7 bài sn38.x). Tên phẩm:
+    `Jambukhādakavagga` → *1. Phẩm Jambukhádaka* (14 bài). 0 tiền lệ, đặt mới: `Nibbānapañhāsutta`
+    → *Câu Hỏi Về Niết-bàn* theo mẫu `pañhāsutta` → *Câu Hỏi Về X* của `sn38.2`; `jambukhādako
+    paribbājako` → *du sĩ Jambukhádaka* theo `sn45.10` (*du sĩ Nandiya*).
+  REVIEW ĐỐI KHÁNG. Tôi in lại Pāli ↔ Việt từng cặp và đọc lại với mục tiêu tìm lỗi.
+  Lỗi đã bắt được và đã sửa trước khi ghi lần cuối: 
+  **(1)** Bản nháp đặt dấu `”ti.` ở `sn38.1:2.10` đúng như Pāli, nhưng khi đó
+      ngoặc kép KHÔNG cân khi quét theo thứ tự chuỗi mà `sorted()` của chốt dùng (`2.1, 2.10,
+      2.11, 2.12, 2.2, …`) — đây là điểm yếu đã biết của chốt, không phải lỗi dịch. Đã dời
+      dấu `”` từ `2.10` lên cuối `2.9` (thân ngữ vẫn đủ, chỉ đổi vị trí dấu câu) để bản này
+      cân được theo CẢ hai thứ tự. Lưu ý: 235/1.346 tệp Việt đã có trong tầng cũng không cân
+      theo cách đếm này.

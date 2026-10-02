@@ -1,0 +1,45 @@
+uid: sn47.37
+status: published
+translationTitle: "Kinh Tham"
+translators:
+  - "OpenCode Space Bunny Free (agent)"
+reviewers: []
+tags:
+  - samyutta-nikaya
+  - cong-hanh-nhom
+  - ananussutavagga
+  - kinh-tham
+quality:
+  scores:
+    source_provenance: 9.5
+    semantic_fidelity: 9.5
+    grammar_logic: 9.5
+    segment_alignment: 10.0
+    terminology: 9.3
+    triangulation: 9.5
+    vietnamese_clarity: 9.4
+    han_viet_balance: 9.4
+    ambiguity_integrity: 9.2
+    technical_integrity: 9.6
+  final_score: 9.49
+  blocking_errors: []
+  assessed_at: "2026-10-02"
+  assessed_by:
+    - "OpenCode Space Bunny Free (agent)"
+notes:
+  - |-
+    **Không có tầng Việt hiện hành để đối chiếu.** Tại commit đã ghim, bilara chỉ phân phối 26 chương Pháp Cú cho tiếng Việt, nên không tồn tại bản Hòa thượng Thích Minh Châu cho bài này; đó là đặc điểm của snapshot upstream, không phải thiếu sót của repo. Ba tầng còn lại là Pāli root, bản Anh Sujato đã ghim và bản Việt dự án.
+  - |-
+    **`kiểm()` của `_hvi.py` gần như vô dụng ở bài này**: nó chỉ quét khoá Pāli từ 40 ký tự trở lên, mà mọi vế kệ ở đây đều ngắn hơn, nên `cần` rỗng và assertion không chạy. Vì vậy tôi tự quét **toàn bộ** khoá từ đĩa: đủ khoá, đúng exact ID, NFC, không rỗng, dấu lược khớp Pāli từng khoá, ngoặc kép cân cả bài, không Pāli lọt, không `(…)`. Kết quả: **0 lỗi trên 252 khoá**.
+  - |-
+    **Đã tự dựng chỉ mục Pāli↔Việt toàn tầng rồi so khoá của lát, không đoán.** Nạp mọi tệp Pāli gốc trong cache (284.708 khoá) và mọi tệp Việt dự án (111.657 khoá), ghép theo khoá vì khoá là duy nhất toàn hệ thống. Lát này tìm được **4 khoá có Pāli trùng nguyên văn với bài đã có bản Việt ngoài lát (236 cặp)**, và **16 cụm Pāli trùng nguyên văn nội lát**. Mọi bản Việt đã có đều được dùng lại nguyên văn, không dịch lần hai.
+  - |-
+    **Mười bảy cụm Pāli trùng nguyên văn với sn47.38 trong chính lát, dịch giống hệt** — cùng `0.2`, `1.1`, `1.2`, `1.3`, `2.1`, `3.1`, `4.1`, và `Chandassa pahānā amataṁ sacchikataṁ hoti` xuất hiện ba lần trong chính bài. Đây là hai bài anh em, không được phân kỳ.
+  - |-
+    **Bám bài liền kề sn47.36, không đi theo đa số toàn tầng ở ba chỗ — lý do ghi rõ.** `0.2` `Ananussutavagga` chia đôi **3–3**, không có đa số: *Phẩm Không Nghe Lại* (sn47.32/34/39) và *Phẩm Chưa Từng Nghe* (sn47.33/35/36). Tôi theo sn47.36 — bài ngay trước, cùng phẩm, cùng công thức bốn niệm xứ — vì chọn bất kỳ cách nào khác cũng là tùy ý, còn theo bài liền kề thì ít nhất phẩm này đọc nhất quán từ 36 đến 38. `1.1` cũng theo sn47.36 (*Này các tỳ-kheo, có bốn niệm xứ này*) chứ không theo sn47.24 (*Có bốn Chánh Trừng Phạt này*). `1.2` theo sn47.36 và sn47.41 (*Là bốn nào?*); đếm riêng trong tầng sn thì *Là bốn nào?* cũng là đa số 38 bài so với *Thế nào là bốn?* 17 bài, nên ở khoá này tôi theo cả tầng lẫn bài liền kề.
+  - |-
+    **Coverage English 12/12 = 100%.** Tầng Anh dịch đủ và tôi đối chiếu từng vế. Riêng `amataṁ sacchikataṁ hoti` Sujato dịch *they realize freedom from death*, và **đó là chỗ tôi không theo**: `amata` là *bất tử*, không phải *tự do khỏi chết* — Sujato đã đọc nó như `amṛta` của Ấn độ. Tiếng Việt dùng *bất tử* đã 122 lần, và đó là nghĩa của kỹ thuật trong cả tầng.
+  - |-
+    **Review đối kháng bắt được 1 lỗi nghiêm trọng nhất của lát, và máy không bắt được.** `2.1/3.1/4.1` bản nháp tôi mở đầu *Ở đây, này các tỳ-kheo,* như 1.3. Đối chiếu Pāli thì **ba khoá đó không có `idha` và không có `bhikkhave`** — chỉ `1.3` mới có. Tôi đã tự thêm hai từ vào thân kinh. Xóa. Tiền lệ sn47.36:1.4/1.5/1.6 cũng không có vế gọi, nên bản sửa khớp cả bài liền kề.
+  - |-
+    **Thuật ngữ mới đặt.** `amataṁ sacchikataṁ hoti` → *sự bất tử được chứng ngộ*; tra `sacchikataṁ` và `sacchikatvā` toàn tầng thấy 40 cách nhưng không có câu nào dạng *được chứng ngộ*, nên tôi ghép từ hai tiền lệ đã có (*chứng ngộ* 803, *bất tử* 122). `chandā` → *tham*; `Tikanipāta` → *Bộ Ba Bài Kinh* theo mẫu *Bộ Một Bài Kinh* của thig1.x.

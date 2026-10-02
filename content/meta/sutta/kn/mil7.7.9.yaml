@@ -1,0 +1,45 @@
+uid: mil7.7.9
+status: draft
+translationTitle: "Câu Hỏi Về Phần Của Bè Câu"
+translators:
+  - "OpenCode Space Bunny Free (agent)"
+reviewers: []
+tags:
+  - khuddaka-nikaya
+  - milindapanha
+  - makkaṭakavagga
+  - pham-ke-nhac-nho
+  - cau-hoi-ve-phan-cua-be-cau
+quality:
+  scores:
+    source_provenance: 8.8
+    semantic_fidelity: 9.1
+    grammar_logic: 9.3
+    segment_alignment: 10.0
+    terminology: 9.0
+    triangulation: 8.0
+    vietnamese_clarity: 9.2
+    han_viet_balance: 9.2
+    ambiguity_integrity: 8.8
+    technical_integrity: 9.6
+  final_score: 9.10
+  blocking_errors:
+    - "Tầng tham khảo Anh SuttaCentral vắng mặt hoàn toàn: tại commit đã ghim không có tệp dịch Anh Sujato cho bài này, nên coverage English = 0 và không thể đối chiếu độc lập. Bài phải giữ draft cho tới khi tầng tham khảo được cung cấp hoặc khoản mất được ghi nhận."
+  assessed_at: "2026-10-02"
+  assessed_by:
+    - "OpenCode Space Bunny Free (agent)"
+notes:
+  - |-
+    **Không có tầng Việt hiện hành để đối chiếu.** Tại commit đã ghim, bilara chỉ phân phối 26 chương Pháp Cú cho tiếng Việt, nên không tồn tại bản Hòa thượng Thích Minh Châu cho bài này; đó là đặc điểm của snapshot upstream, không phải thiếu sót của repo. Ba tầng còn lại là Pāli root, bản Anh Sujato đã ghim và bản Việt dự án.
+  - |-
+    **`kiểm()` của `_hvi.py` gần như vô dụng ở bài này**: nó chỉ quét khoá Pāli từ 40 ký tự trở lên, mà mọi vế kệ ở đây đều ngắn hơn, nên `cần` rỗng và assertion không chạy. Vì vậy tôi tự quét **toàn bộ** khoá từ đĩa: đủ khoá, đúng exact ID, NFC, không rỗng, dấu lược khớp Pāli từng khoá, ngoặc kép cân cả bài, không Pāli lọt, không `(…)`. Kết quả: **0 lỗi trên 252 khoá**.
+  - |-
+    **Đã tự dựng chỉ mục Pāli↔Việt toàn tầng rồi so khoá của lát, không đoán.** Nạp mọi tệp Pāli gốc trong cache (284.708 khoá) và mọi tệp Việt dự án (111.657 khoá), ghép theo khoá vì khoá là duy nhất toàn hệ thống. Lát này tìm được **4 khoá có Pāli trùng nguyên văn với bài đã có bản Việt ngoài lát (87 cặp)**, và **16 cụm Pāli trùng nguyên văn nội lát**. Mọi bản Việt đã có đều được dùng lại nguyên văn, không dịch lần hai.
+  - |-
+    **Review đối kháng bắt được 1 lỗi nghĩa chữ.** `3.2` `Vimokkhañcāppaṇihitaṁ` bản nháp tôi dịch *cùng giải thoát đã hướng đến* — `appaṇihita` không có nghĩa *hướng đến*, mà là *ở ngay bên cạnh*; sửa thành *cùng giải thoát ở ngay bên cạnh*. Sai này đổi cả nghĩa cả vế, vì nó là mệnh đề thứ hai của cặp `Suññatā … Vimokkhā …`.
+  - |-
+    **Dùng lại y nguyên hai chỗ, không dịch lần hai.** `2.5` là nguyên văn của mil7.2.7:1.5 → *Trưởng lão Rāhula đã nói:—* · `0.3` dùng *Phẩm Kẻ Nhắc Nhở* (mil7.7.1/2) · `sāmaññaphala` → *quả Sa-môn hiện tại* (26 bài, dn2).
+  - |-
+    **Thuật ngữ mới đặt, không có tiền lệ** (grep toàn tầng = 0): `bāḷisika` → *bè câu* — dụng cụ đánh bắt làm bằng tre, có túi đựng cá và chính nó nhấc cá lên khỏi nước; Pāli `baḷisena` giữ thành *dùng chính nó*, không dịch lặp. `lokāmisa` → *mồi nhử của thế gian* (theo sn4.17:3.3 *đã nhổ bỏ mồi nhử của thế gian*; đếm được *mồi nhử* 8, *miếng mồi* 2). `chaḷabhiññā` → *sáu trí thức*. `suññatā` → *trống không*, `animitta` → *vô tưởng*.
+  - |-
+    **Bất định chưa phân xử — sợ nhất lát này.** `3.4` `Cajitvā lokāmisaṁ labhe`: `cajitvā` là thắng trần rồi mới đạt, còn `lokāmisa` có thể là mồi câu của thế gian lẫn của cải vật thế gian. Tôi dịch theo nghĩa quả công — thắng trần thì đạt được mồi của thế gian — vì đó là cách đọc làm khuôn bốn quả và sáu trí thức có ý nghĩa. Cách đọc thứ hai (*vượt qua thế gian rồi đạt lợi ích thế gian*) cho ra cùng kết quả bằng tiếng Việt, nên tôi không hạ điểm vì nó, nhưng ghi lại ở đây vì người đọc không có cách nào thấy nguyên văn.

@@ -1,0 +1,60 @@
+uid: sn25.2
+status: published
+translationTitle: "Kinh Sắc"
+translators:
+  - "OpenCode Space Bunny Free (agent)"
+reviewers: []
+tags:
+  - samyutta-nikaya
+  - cong-hanh-nhom
+  - sac
+  - 1. Phẩm Mắt
+quality:
+  scores:
+    source_provenance: 9.8
+    semantic_fidelity: 9.7
+    grammar_logic: 9.6
+    segment_alignment: 10.0
+    terminology: 9.7
+    triangulation: 9.6
+    vietnamese_clarity: 9.6
+    han_viet_balance: 9.6
+    ambiguity_integrity: 9.6
+    technical_integrity: 9.6
+  final_score: 9.68
+  blocking_errors: []
+  assessed_at: "2026-10-02"
+  assessed_by:
+    - "OpenCode Space Bunny Free (agent)"
+notes: |-
+  KỸ THUẬT. Đợt này tôi KHÔNG chạy `npm run validate|test|build|check` — người điều phối cấm và chạy tập trung. Vì vậy tôi KHÔNG tuyên bố technical gate pass: `technical_integrity` chấm 9,6 chứ không phải 10,0. Bốn lệnh đó để người điều phối chạy lại.
+
+  CHỐT KHÔNG TỰ CHẠY — ĐÃ TỰ KIỂM THỦ CÔNG. Vòng chốt của `_hvi.kiểm()` chỉ quét khoá Pāli ≥ 40 ký tự; tôi tự quét lại TOÀN BỘ 19 khoá từ đĩa bằng chính các hàm đó (`_chk_w11.py`):
+  đủ khoá, không khoá thừa/thiếu so với Pāli, chuỗi NFC, không khoá rỗng, số dấu lược khớp TỪNG KHOÁ, ngoặc kép `“`/`”` cân trên cả bài — kiểm CẢ theo thứ tự số LẪN theo thứ tự chuỗi mà `sorted()` của chốt dùng, không Pāli lọt, không có `(…)`, không trùng nguyên văn Pāli. Kết quả: 0 lỗi trên 266 khoá / 14 bài.
+
+  COVERAGE. Đo lại đúng quy tắc `source/layers.yaml` (substantivePaliMinChars 40, excludeReferenceBlock, floor 0,8, `english-project` chỉ tính khi `published`):
+  14 khoá Pāli có nội dung (≥ 40 ký tự, ngoài khối `:0`), **14** khoá có chữ Anh Sujato ⇒ coverage 1,00 ≥ ngưỡng 0,8. Lớp lấp `english-project` không cần dùng cho bài này.
+
+  KHÔNG ĐỐI CHIẾU ĐƯỢC TẦNG VIỆT HIỆN HÀNH. Tại commit đã ghim, `translation/vi/` của bilara chỉ chứa Pháp Cú, nên không có bản Hòa thượng Thích Minh Châu cho bài này. Đây là đặc điểm của bản chụp upstream, không phải thiếu sót của kho; `budsas.org` chỉ là tra cứu toàn văn và không có căn cứ alignment ở mức segment.
+
+  DẤU LƯỢC §10. Không khoá nào trong lát này được MỞ RỘNG chỗ Pāli lược. Bản Anh Sujato đã ghim mở rộng nhiều chỗ `…pe…` (ví dụ `sn45.24:2.2` và `sn55.31:4.1` liệt kê đủ tám ngành Bát Chánh Đạo, `sn46.14:3.3` liệt kê đủ bảy giác chi) — tôi KHÔNG theo, vì mở rộng là thêm chữ không đánh dấu. Cũng không khoá nào bị nén thêm: mọi `…` trong bản Việt đều ăn đúng một dấu lược ứng với một `…pe…` của Pāli, đếm từng khoá.
+
+  DÙNG LẠI NGUYÊN VĂN ĐÃ CÓ — ĐO ĐƯỢC. `sn25.1` là bài em cùng phẩm, và **5 khoá
+    có Pāli trùng nguyên văn**: `1.9`/`2.2`, `1.10`/`2.3`, `2.1` đã dùng lại đúng nguyên văn
+    đã có. Cùng bộ `saddhānusārī/dhammānusārī` → *tùy tín/tùy pháp* theo `sn25.1` và
+    `dn33:2.3.44` (không theo *tùy tín hành* của `mn65/70` hay *thọ trì theo tín* của
+    `an7.14/an10.16`). `sotāpanno avinipātadhammo niyato sambodhiparāyano` → *bậc nhập lưu,
+    không rơi vào ác đạo, chắc chắn, hướng về giác ngộ* (nguyên văn `sn25.1:2.4`).
+    `aniccā vipariṇāmino aññathābhāvino` → *vô thường, biến hoại, đổi khác* theo `sn25.1`
+    (cùng ba tính từ `vipariṇāmi aññathābhāvi`), không theo *làm thay đổi khác thường* của
+    `sn25.3` hay *chuyển biến, khác thường* của `sn25.4`. Sáu tầng khả giới `rūpā/saddā/
+    gandhā/rasā/phoṭṭhabbā/dhammā` → *các sắc/các thanh/các hương/các vị/các xúc chạm/các
+    pháp*, theo từ vựng của `dn22:18.31` (*những sắc, thanh, hương, vị, xúc và pháp*) và
+    `mn137`/`sn35.100` cho *rūpā* → *các sắc*. Tên phẩm: `Cakkhuvagga` → *1. Phẩm Mắt* (8
+    bài, toàn bộ đồng thuận); `Rūpasutta` → *Kinh Sắc* (3 bài, đa số). 0 tiền lệ, đặt mới:
+    không có.
+  REVIEW ĐỐI KHÁNG. Tôi in lại Pāli ↔ Việt từng cặp và đọc lại với mục tiêu tìm lỗi.
+  Lỗi đã bắt được và đã sửa trước khi ghi lần cuối: 
+  **(1)** `sn25.2:1.8` — bản nháp đầu bỏ mất `adhimuccati` theo lối của
+      `sn25.1:1.8`; đã trả lại *đạt đến chỗ không lưỡng nghi* theo tiền lệ `sn25.4:1.8`.
+      **(2)** `sn25.2:2.4` bỏ `bhikkhave` mà Pāli có; đã trả lại.

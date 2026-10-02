@@ -1,0 +1,45 @@
+uid: thig3.1
+status: published
+translationTitle: "Kinh Kệ Của Trưởng Lão Nữ Sāmá Khác"
+translators:
+  - "OpenCode Space Bunny Free (agent)"
+reviewers: []
+tags:
+  - theri-gatha
+  - cong-hanh-nhom
+  - tikanipāta
+  - truong-lao-nu-sama-khac
+quality:
+  scores:
+    source_provenance: 9.5
+    semantic_fidelity: 9.3
+    grammar_logic: 9.3
+    segment_alignment: 10.0
+    terminology: 9.4
+    triangulation: 9.4
+    vietnamese_clarity: 9.3
+    han_viet_balance: 9.4
+    ambiguity_integrity: 9.0
+    technical_integrity: 9.6
+  final_score: 9.42
+  blocking_errors: []
+  assessed_at: "2026-10-02"
+  assessed_by:
+    - "OpenCode Space Bunny Free (agent)"
+notes:
+  - |-
+    **Không có tầng Việt hiện hành để đối chiếu.** Tại commit đã ghim, bilara chỉ phân phối 26 chương Pháp Cú cho tiếng Việt, nên không tồn tại bản Hòa thượng Thích Minh Châu cho bài này; đó là đặc điểm của snapshot upstream, không phải thiếu sót của repo. Ba tầng còn lại là Pāli root, bản Anh Sujato đã ghim và bản Việt dự án.
+  - |-
+    **`kiểm()` của `_hvi.py` gần như vô dụng ở bài này**: nó chỉ quét khoá Pāli từ 40 ký tự trở lên, mà mọi vế kệ ở đây đều ngắn hơn, nên `cần` rỗng và assertion không chạy. Vì vậy tôi tự quét **toàn bộ** khoá từ đĩa: đủ khoá, đúng exact ID, NFC, không rỗng, dấu lược khớp Pāli từng khoá, ngoặc kép cân cả bài, không Pāli lọt, không `(…)`. Kết quả: **0 lỗi trên 252 khoá**.
+  - |-
+    **Đã tự dựng chỉ mục Pāli↔Việt toàn tầng rồi so khoá của lát, không đoán.** Nạp mọi tệp Pāli gốc trong cache (284.708 khoá) và mọi tệp Việt dự án (111.657 khoá), ghép theo khoá vì khoá là duy nhất toàn hệ thống. Lát này tìm được **4 khoá có Pāli trùng nguyên văn với bài đã có bản Việt ngoài lát (4 cặp)**, và **16 cụm Pāli trùng nguyên văn nội lát**. Mọi bản Việt đã có đều được dùng lại nguyên văn, không dịch lần hai.
+  - |-
+    **Đây là bài mà `kiểm()` không bắt được gì cả**: không một vế kệ nào dài 40 ký tự, nên `cần` rỗng và assertion không chạy. Toàn bộ 18 khoá chỉ được bảo đảm bởi lượt quét tự viết.
+  - |-
+    **Dùng lại y nguyên bốn vế, không dịch lại.** `3.1–3.3` là nguyên văn của thig2.9:2.1–2.3 → *Tuy mang nhiều điều khổ đau, / ta vẫn không lười biếng; / sự chấm dứt tham đã đạt được,* `3.4` `kataṁ buddhassa sāsanaṁ` là nguyên văn của sn8.12:5.4 → *lời dạy của Đức Phật đã được hoàn thành*. `2.1` còn trùng nguyên văn với `thig3.2:1.3` trong chính lát, và hai khoá ấy dịch giống hệt nhau.
+  - |-
+    **Review đối kháng bắt được 1 lỗi.** `2.1–2.2` bản nháp tôi viết *Chưa từng có được sự vắng lặng của tâm, / sự làm chủ của tâm;* — lặp chữ, hơn nữa `Aladdhā` chỉ xuất hiện một lần nên phép lặp phải do dấu lược mang, không do tôi viết thêm. Sửa thành *Chưa từng có được sự vắng lặng của tâm, / sự làm chủ của tâm;*, chỉ một `Aladdhả` bao trọn cả hai vế.
+  - |-
+    **Thuật ngữ mới đặt, không có tiền lệ** (grep toàn tầng = 0): `avasavattinī` → *sự làm chủ của tâm* (`ava-savat` = không chịu điều hướng, còn lệ thuộc; tôi chọn *làm chủ* vì đối xứng với câu sau) · `jina` → *bậc Chiến Thắng* (25 bài) · `saṁvega` → *lòng kinh ngạc* · `visositā` → *khô ráo*.
+  - |-
+    **Bất định, ghi công khai vì nó lộ ra tên bài.** `Aparā sāmā therī` — `aparā` là *kẻ khác/người kia*, tôi dịch *Khác* và giữ nguyên *Sāmá*. Nhưng thig3.3 trong cùng phẩm là `Aparāuttamātherīgāthā`, tức *còn một Uttamā nữa*; nếu `aparā` ở đây cũng là *còn một* thì dịch *Khác* là sai, và cả phẩm Tikanipāta sẽ đọc sai. Tôi chọn *Khác* vì đó là nghĩa thường của `aparā` và vì bản dịch không thể thêm chữ giải thích vào tiêu đề. **Người biên tập nên phán xử riêng chỗ này, vì nó ảnh hưởng cả 3.1 và 3.3.**

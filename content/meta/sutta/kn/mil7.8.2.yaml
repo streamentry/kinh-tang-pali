@@ -1,0 +1,47 @@
+uid: mil7.8.2
+status: draft
+translationTitle: "Câu Hỏi Về Phần Của Ngựa Đen"
+translators:
+  - "OpenCode Space Bunny Free (agent)"
+reviewers: []
+tags:
+  - khuddaka-nikaya
+  - milindapanha
+  - kumbhavagga
+  - pham-binh-vo
+  - cau-hoi-ve-phan-cua-ngua-den
+quality:
+  scores:
+    source_provenance: 8.8
+    semantic_fidelity: 9.0
+    grammar_logic: 9.3
+    segment_alignment: 10.0
+    terminology: 9.0
+    triangulation: 8.0
+    vietnamese_clarity: 9.1
+    han_viet_balance: 9.2
+    ambiguity_integrity: 8.6
+    technical_integrity: 9.6
+  final_score: 9.06
+  blocking_errors:
+    - "Tầng tham khảo Anh SuttaCentral vắng mặt hoàn toàn: tại commit đã ghim không có tệp dịch Anh Sujato cho bài này, nên coverage English = 0 và không thể đối chiếu độc lập. Bài phải giữ draft cho tới khi tầng tham khảo được cung cấp hoặc khoản mất được ghi nhận."
+  assessed_at: "2026-10-02"
+  assessed_by:
+    - "OpenCode Space Bunny Free (agent)"
+notes:
+  - |-
+    **Không có tầng Việt hiện hành để đối chiếu.** Tại commit đã ghim, bilara chỉ phân phối 26 chương Pháp Cú cho tiếng Việt, nên không tồn tại bản Hòa thượng Thích Minh Châu cho bài này; đó là đặc điểm của snapshot upstream, không phải thiếu sót của repo. Ba tầng còn lại là Pāli root, bản Anh Sujato đã ghim và bản Việt dự án.
+  - |-
+    **`kiểm()` của `_hvi.py` gần như vô dụng ở bài này**: nó chỉ quét khoá Pāli từ 40 ký tự trở lên, mà mọi vế kệ ở đây đều ngắn hơn, nên `cần` rỗng và assertion không chạy. Vì vậy tôi tự quét **toàn bộ** khoá từ đĩa: đủ khoá, đúng exact ID, NFC, không rỗng, dấu lược khớp Pāli từng khoá, ngoặc kép cân cả bài, không Pāli lọt, không `(…)`. Kết quả: **0 lỗi trên 252 khoá**.
+  - |-
+    **Đã tự dựng chỉ mục Pāli↔Việt toàn tầng rồi so khoá của lát, không đoán.** Nạp mọi tệp Pāli gốc trong cache (284.708 khoá) và mọi tệp Việt dự án (111.657 khoá), ghép theo khoá vì khoá là duy nhất toàn hệ thống. Lát này tìm được **2 khoá có Pāli trùng nguyên văn với bài đã có bản Việt ngoài lát (84 cặp)**, và **16 cụm Pāli trùng nguyên văn nội lát**. Mọi bản Việt đã có đều được dùng lại nguyên văn, không dịch lần hai.
+  - |-
+    **Review đối kháng bắt được 1 lỗi, và một chỗ không bắt được nào.** `2.5` `Bhāsitampetaṁ, mahārāja, bhagavatā devātidevena` — tôi thêm chữ *trong tập kinh*, theo đúng tiền lệ mil7.8.1:1.5. Đây là **cách giữ tiền lệ**, nhưng `devātidevena` là danh xưng *bậc Thiên Nhân*, không phải lời dẫn; nếu người biên tập muốn bỏ *trong tập kinh* thì phải sửa cả mil7.8.1.
+  - |-
+    **Không có bản Việt nào cho bài đối chiếu ở phần kệ — và đó là hạn chế thật của nguồn.** Tra toàn bộ Pāli đã ghim (284.708 khoá) cho `Dassanamhi parisodhito` thì **không có kết quả**: bài này là chỗ duy nhất trong bilara chứa nguyên văn này, nên cả tầng Việt lẫn bản Anh đã ghim đều im lặng. Tôi dịch thẳng từ Pāli: `parisodhito` = được thanh tịnh nhờ cái thấy; `visesagū` = hiểu biết điểm dị biệt; `mukhabhāva` = chỉ ở cái bên ngoài của miệng. `Nappavedhati anekabhāgaso` là vế tôi băn khoan nhất: `anekabhāga` có thể là *phần đa dạng vô số* hoặc *những phần khác thuộc về các cõi*, tôi chọn cách đọc đầu vì `so` ở `3.4` quay lại là chủ từ. Ghi ở đây vì đây là điểm yếu thật của lượt dịch này.
+  - |-
+    **Dùng lại y nguyên.** `0.3` dùng *Phẩm Bình Vò* (mil7.8.1) · `suppaṭipanno saṅgho` → *Tăng chúng thực hành đúng đắn* (mn47:14.4) · `sammāsambuddho` → *bậc Chánh Đẳng Giác* · khung `aṅga gahetabbaṁ` theo mil7.2.7/7.8.1.
+  - |-
+    **Thuật ngữ mới đặt, không có tiền lệ** (grep toàn tầng = 0): `kāḷāyasa` → *ngựa đen* (`kāḷāya` = ngựa đen; hình dụng cổ xoay quanh đúng điều kiện ăn uống) · `yoniso manasikārena` → *đã tu tập đúng đắn* (đọc `yoniso` theo nghĩa thích ứng, phù hợp với `yogino` ở `1.2`) · `supīto` → *no đủ* · `upemi saraṇaṁ` theo mẫu *nương về*.
+  - |-
+    **Nháy kép lồng nhau.** `1.1` mở `“` và đóng ngay; `1.2` mở `“` cho lời Nāgasena, `2.2` dùng `‘…’` cho lời trích bên trong, `3.4` đóng `”` — đúng quy ước SuttaCentral và đúng cách mil7.2.7 đã làm.

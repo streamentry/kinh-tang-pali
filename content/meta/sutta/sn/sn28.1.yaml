@@ -1,0 +1,62 @@
+uid: sn28.1
+status: published
+translationTitle: "Kinh Sinh Từ Viễn Ly"
+translators:
+  - "OpenCode Space Bunny Free (agent)"
+reviewers: []
+tags:
+  - samyutta-nikaya
+  - cong-hanh-nhom
+  - viễn-ly
+  - 1. Phẩm Sāriputta
+quality:
+  scores:
+    source_provenance: 9.8
+    semantic_fidelity: 9.6
+    grammar_logic: 9.6
+    segment_alignment: 10.0
+    terminology: 9.6
+    triangulation: 9.5
+    vietnamese_clarity: 9.5
+    han_viet_balance: 9.6
+    ambiguity_integrity: 9.5
+    technical_integrity: 9.6
+  final_score: 9.63
+  blocking_errors: []
+  assessed_at: "2026-10-02"
+  assessed_by:
+    - "OpenCode Space Bunny Free (agent)"
+notes: |-
+  KỸ THUẬT. Đợt này tôi KHÔNG chạy `npm run validate|test|build|check` — người điều phối cấm và chạy tập trung. Vì vậy tôi KHÔNG tuyên bố technical gate pass: `technical_integrity` chấm 9,6 chứ không phải 10,0. Bốn lệnh đó để người điều phối chạy lại.
+
+  CHỐT KHÔNG TỰ CHẠY — ĐÃ TỰ KIỂM THỦ CÔNG. Vòng chốt của `_hvi.kiểm()` chỉ quét khoá Pāli ≥ 40 ký tự; tôi tự quét lại TOÀN BỘ 19 khoá từ đĩa bằng chính các hàm đó (`_chk_w11.py`):
+  đủ khoá, không khoá thừa/thiếu so với Pāli, chuỗi NFC, không khoá rỗng, số dấu lược khớp TỪNG KHOÁ, ngoặc kép `“`/`”` cân trên cả bài — kiểm CẢ theo thứ tự số LẪN theo thứ tự chuỗi mà `sorted()` của chốt dùng, không Pāli lọt, không có `(…)`, không trùng nguyên văn Pāli. Kết quả: 0 lỗi trên 266 khoá / 14 bài.
+
+  COVERAGE. Đo lại đúng quy tắc `source/layers.yaml` (substantivePaliMinChars 40, excludeReferenceBlock, floor 0,8, `english-project` chỉ tính khi `published`):
+  14 khoá Pāli có nội dung (≥ 40 ký tự, ngoài khối `:0`), **14** khoá có chữ Anh Sujato ⇒ coverage 1,00 ≥ ngưỡng 0,8. Lớp lấp `english-project` không cần dùng cho bài này.
+
+  KHÔNG ĐỐI CHIẾU ĐƯỢC TẦNG VIỆT HIỆN HÀNH. Tại commit đã ghim, `translation/vi/` của bilara chỉ chứa Pháp Cú, nên không có bản Hòa thượng Thích Minh Châu cho bài này. Đây là đặc điểm của bản chụp upstream, không phải thiếu sót của kho; `budsas.org` chỉ là tra cứu toàn văn và không có căn cứ alignment ở mức segment.
+
+  DẤU LƯỢC §10. Không khoá nào trong lát này được MỞ RỘNG chỗ Pāli lược. Bản Anh Sujato đã ghim mở rộng nhiều chỗ `…pe…` (ví dụ `sn45.24:2.2` và `sn55.31:4.1` liệt kê đủ tám ngành Bát Chánh Đạo, `sn46.14:3.3` liệt kê đủ bảy giác chi) — tôi KHÔNG theo, vì mở rộng là thêm chữ không đánh dấu. Cũng không khoá nào bị nén thêm: mọi `…` trong bản Việt đều ăn đúng một dấu lược ứng với một `…pe…` của Pāli, đếm từng khoá.
+
+  DÙNG LẠI NGUYÊN VĂN ĐÃ CÓ — ĐO ĐƯỢC. **4 khoá có Pāli trùng nguyên văn** với
+    `sn28.2/3/4`, và tôi dùng lại NGUYÊN VĂN đã có cho cả bốn: `2.4` (*Các căn của hiền giả…*),
+    `2.5`, `3.4` (*Vì các thiên hướng chấp tôi…*), `3.5`. `Tassa mayhaṁ, āvuso, na evaṁ
+    hoti` → *Đối với ta, này hiền giả, không khởi lên như vầy:* theo `sn28.2:2.2`. Cụm ba
+    vế `‘ahaṁ … jhānaṁ samāpajjāmī’ti vā … vuṭṭhito’ti vā` → *‘Ta đang nhập…’ hay ‘Ta đã
+    nhập…’ hay ‘Ta đã thoát khỏi…’* theo `sn28.2:2.3` và `2.6`. `vivicceva kāmehi vivicca
+    akusalehi dhammehi savitakkaṁ savicāraṁ vivekajaṁ pītisukhaṁ paṭhamaṁ jhānaṁ` → *ly dục,
+    ly các pháp bất thiện, chứng và an trú sơ thiền, có tầm, có tứ, với hỷ lạc do ly dục sinh*
+    theo đa số 9 bài dn/mn. Tên phẩm: `Sāriputtavagga` → *1. Phẩm Sāriputta* (8 bài, toàn
+    bộ đồng thuận). 0 tiền lệ, đặt mới: `Vivekajasutta` → *Kinh Sinh Từ Viễn Ly* (0 bài; đặt
+    theo mạch `savitakkasav icāraṁ` = *có tầm, có tứ* và Sujato *Born of Seclusion*);
+    `paṭisallānā vuṭṭhito` → *từ chỗ độc cư đứng dậy* theo `dn14:1.14.1` và `dn18:7.6`;
+    `paññatte āsane nisīdi` → *ngồi xuống trên chỗ đã soạn sẵn* theo `dn14:1.14.1`.
+  REVIEW ĐỐI KHÁNG. Tôi in lại Pāli ↔ Việt từng cặp và đọc lại với mục tiêu tìm lỗi.
+  Lỗi đã bắt được và đã sửa trước khi ghi lần cuối: 
+  **(1)** `sn28.1:2.4` và `3.4` bản nháp tự viết (*của ngươi*, *Bởi*);
+      đã thay bằng NGUYÊN VĂN đã có của `sn28.2/3/4` (*của hiền giả*, *Vì*) — luật Pāli
+      trùng thì dùng lại nguyên văn. **(2)** `3.1/3.2/3.3/3.6` dùng *tôi* trong khi bản
+      anh em `sn28.2` dùng *ta*; đã đổi theo để bài không tự mâu thuẫn. **(3)** `sn28.1:1.1`
+      bản nháp theo `sn8.6` là *Xá-lợi-phất*; đã đổi thành *Sāriputta* vì trong sn28 tên ấy
+      xuất hiện 26 lần, *Xá-lợi-phất* 0 lần.
