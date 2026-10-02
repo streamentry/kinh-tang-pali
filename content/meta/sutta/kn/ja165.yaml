@@ -1,0 +1,44 @@
+uid: ja165
+status: draft
+translationTitle: "Kinh Chồn Hương"
+translators:
+  - "OpenCode Space Bunny Free (agent)"
+reviewers: []
+tags:
+  - khuddaka-nikaya
+  - jataka
+  - dukanipata
+  - pham-santhava
+  - kinh-chon-huong
+quality:
+  scores:
+    source_provenance: 9.5
+    semantic_fidelity: 9.3
+    grammar_logic: 9.3
+    segment_alignment: 10.0
+    terminology: 9.1
+    triangulation: 7.5
+    vietnamese_clarity: 9.3
+    han_viet_balance: 9.3
+    ambiguity_integrity: 9.2
+    technical_integrity: 10.0
+  final_score: 9.25
+  blocking_errors:
+    - "Không có tầng tham khảo English Sujato tại commit đã ghim 11c9d708 (đã đếm trong source/upstream-manifest.json: bản Sujato chỉ có 83 tệp Tăng Bộ, cao nhất là ja79 rồi ja126, ja159, ja466, ja534; không có ja164…ja176), và tầng Việt hiện hành tại commit đã ghim chỉ có Pháp Cú. Bài này dịch chỉ từ Pāli nên chưa đối chiếu được tầng tham khảo nào; validate chuyển thiếu tệp Anh đã ghim thành lỗi khi status là review hoặc published, nên giữ draft."
+  assessed_at: "2026-10-01"
+  assessed_by:
+    - "OpenCode Space Bunny Free (agent)"
+notes: |-
+  Đã đọc HẾT v7/p5.txt trước khi viết chữ nào. 13 khoá mỗi bài, 156 khoá cả lát, không khoá nào rỗng. Không segment nào có …pe… nên cả hai phía đều 0 dấu lược.
+  Ngưỡng 40 ký tự của kiểm() không chạy ở lát này: mọi vế kệ của mười hai bài đều ngắn hơn 40 ký tự, nên cần rỗng và các assertion NFC, trùng nguyên văn Pāli, lọt_pāli, dấu lược không tự chạy. Tôi đã kiểm thủ công đủ 156 khoá bằng script riêng, không dựa vào ngưỡng: NFC, khoá đủ và không thừa, trùng nguyên văn Pāli, lọt_pāli, số dấu lược, và số dấu nháy kép theo từng khoá. Kết quả 0 lỗi trên 156 khoá.
+  Cùng hệ quả đó: englishCoverageFor đo substantiveSegments = 0 trên cả 12 bài nên ratio = 1, sàn coverage 80% không kích hoạt và bài không cần entry ở content/meta/reference-gaps.yaml. Nhưng ô English trống không phải sự đồng thuận về cách dịch; Pāli ở từng vế phải tự đứng vững, và đó chính là lý do bài giữ draft.
+  Một điểm phải sửa ngay trong mô tả lát: văn bản giao cho tôi gọi đây là Ekakanipāta, nhưng Pāli đã ghim ở khoá 0.2 của cả mười hai bài đều ghi Dukanipāta. Chỉ khoá 0.3 khác nhau, sáu bài đầu thuộc Santhavavagga và sáu bài sau thuộc Kalyāṇavagga. Tôi theo Pāli.
+  Dấu nháy kép giữ đúng số và đúng vị trí theo Pāli từng khoá. Ở năm bài (ja166, ja167, ja168, ja169, ja171) Pāli chỉ mở một lần ở 1.1 và chỉ đóng ở 2.4 cho trọn hai bài kệ, nên tôi không thêm dấu ở 1.4 hay 2.1. Ở bảy bài còn lại mỗi bài kệ tự mở và tự đóng, tôi giữ nguyên. Không khoá nào để lại (…) dạng khoá chưa dịch.
+  Khoá 0.1 giữ nguyên Jātaka nên trùng nguyên văn Pāli. Đây là quy ước đã có của tầng (ja101, ja12, ja21, ja51, ja62, ja79, ja91, ja159 đều vậy) và các khoá này ngắn hơn 40 ký tự nên chốt không kiểm. Tôi ghi ra đây để không ai tưởng là sót.
+  Dukanipāta dịch là Tập Kẻ Đau Đớn theo đúng ja159, cùng collection và cùng khoá 0.2. Có hai cách khác trong chính tầng này và tôi không giấu: Itivuttaka (iti28…iti31) dịch Dukanipāta là Phẩm Hai Pháp, và bản Anh Sujato đã ghim dịch là The Book of the Twos. Cả hai đọc duka là số đếm, và lập luận về số đếm có sức mạnh: năm tập của Tăng Bộ mang tên Duka, Tika, Catu, Panca, Chakka, nên chỉ Duka có thể mang nghĩa đau đớn, bốn tên kia thì không. Tôi vẫn chọn Tập Kẻ Đau Đớn vì đó là tiền lệ đã published cho đúng khoá này trong Tăng Bộ, và phá nó ra sẽ làm bài đã publish tự mâu thuẫn. Người biên tập nên biết cả hai lựa chọn và có thể đổi cả cùng một lúc.
+  Santhavavagga giữ nguyên là Phẩm Santhava. Pāli không giải nghĩa chữ này, trong tầng chưa có tiền lệ, và tầng đã dùng cách giữ romanize cho tên phẩm không dịch được (Phẩm Haṁci, Phẩm Kakaṇṭaka, Phẩm Parosata, Phẩm Asampadāna). Bản Anh Sujato đã ghim gloss phẩm này là Acquaintance nhưng tôi không dịch theo vì đó là tên sáng tác của dịch giả chứ không phải nghĩa của chữ, và không có nguồn Pāli nào giải thích Santhava.
+  Tên bài lấy từ tầng name của SuttaCentral đã ghim, là tầng tham khảo duy nhất còn có cho mười hai bài này; nó có tiêu đề từng bài trong khi tầng sutta thì không. Mỗi tên tôi ghi kèm lựa chọn khác trong notes của bài đó.
+  Tên: Sujato đặt tên cho Nakulajātaka là The Mongoose. Tôi dịch Kinh Chồn Hương; nakula là loài chồn ăn trứng. Tên riêng khác trong bài không có.
+  Bất định quan trọng nhất của lát này: Sandhi ở 1.1. Tôi dịch là lưới, tức Dệt lưới để bắt kẻ không phải bạn. Chữ này còn có thể là mối nối, bắt tay, và ông dịch giả có thể đọc theo nghĩa bắt tay với kẻ không phải bạn. Tôi chọn nghĩa lưới vì câu 1.2 là aṇḍajena jalābuja, loài sinh từ trứng và loài sinh từ nước, tức hai loài cá mà lưới bắt được, và vì kẻ bị nói là chồn hương trong chính bài. Nếu đọc theo nghĩa mối nối thì câu 1.2 không còn chủ thể. Đây là chỗ dễ sai và tôi ghi lại để người biên tập xét.
+  Tiền lệ có đếm: vissasa, tuṇhī, kantatī, vivariya đều không có tiền lệ nào trong tầng, đặt mới. arañña có tiền lệ là rừng, ví dụ mn4:4.6 và mn26:34.1. brāhmaṇa ở bài kế không có, nhưng dn16:1.3.1 dịch là Bà-la-môn nên tôi giữ khi dùng. sappaṇño có tiền lệ là người trí, ví dụ sn1.23:2.1, nên tôi dùng người có trí cho người có trí. ariyo có tiền lệ là bậc Thánh và bậc A-la-hán tùy chỗ; ở đây tôi dùng bậc A-la-hán.
+  2.4 api mūlāni kantatī: tôi dịch chính những rễ ấy cũng lấp lánh lên. mūlāni là rễ, kantatī là sáng lấp lánh. Không thêm chủ thể nào vì Pāli không nêu.

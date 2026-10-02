@@ -1,0 +1,69 @@
+uid: ja202
+status: draft
+translationTitle: "Kinh Keḷisīla"
+translators:
+  - "OpenCode Space Bunny Free (agent)"
+reviewers: []
+tags:
+  - khuddaka-nikaya
+  - jataka
+  - dukanipata
+  - pham-bo-lua
+quality:
+  scores:
+    source_provenance: 9.6
+    semantic_fidelity: 9.4
+    grammar_logic: 9.4
+    segment_alignment: 10
+    terminology: 9.4
+    triangulation: 8.5
+    vietnamese_clarity: 9.4
+    han_viet_balance: 9.3
+    ambiguity_integrity: 9.2
+    technical_integrity: 9.6
+  final_score: 9.38
+  blocking_errors:
+    - "Bài này KHÔNG có tầng english-sujato tại commit đã ghim: manifest chỉ liệt kê 84 bài ja* có bản Anh (ja1–ja79, ja126, ja159, ja466, ja534), không có ja195–ja211. Thiếu tầng tham khảo là lỗi chặn đối với review/published theo AGENTS.md, nên đặt draft."
+  assessed_at: "2026-10-01"
+  assessed_by:
+    - "OpenCode Space Bunny Free (agent)"
+notes: |-
+    Lát v7/7: 12 bài Jātaka Ekakanipāta (Dūkaṇipāta), 156 khoá, dịch đủ MỌI khoá
+    trong `all` của v7/v7.json. Đã đọc HẾT v7/p7.txt trước khi viết.
+
+    **Sàn coverage 80% KHÔNG kích hoạt — nhưng ô Anh trống KHÔNG phải sự đồng
+    thuận.** Đo được: mọi vế kệ của Ekakanipāta đều NGẮN HƠN 40 ký tự (156 khoá,
+    `substantiveSegments = 0`), nên `englishCoverageFor` cho `ratio = 1` và bài
+    không cần entry trong `content/meta/reference-gaps.yaml`. Hệ quả thật: hàm
+    `kiểm()` của `_hvi.py` lọc `cần = [k for k in p if len(p[k]) >= 40 …]` nên
+    `cần` RỖNG ở cả 12 bài, và **NFC / trùng nguyên văn Pāli / Pāli lọt / số dấu
+    lược không tự chạy**. Tôi đã tự kiểm thủ công đủ 156 khoá bằng một lớp kiểm
+    riêng áp đúng các quy tắc đó lên MỌI khoá (0 lỗi), và đọc đối kháng từng cặp
+    Pāli ↔ Việt. Tầng Việt tham khảo (Hòa thượng Thích Minh Châu) ở commit đã
+    ghim chỉ có Pháp Cú, nên không có bản Việt nào để đối chiếu cho 12 bài này —
+    đây là giới hạn của bản chụp upstream, không phải thiếu sót của kho.
+
+    **Dấu lược:** không khoá nào trong 12 bài có `…pe…` hay `…`, nên cả hai phía
+    đều 0. Không mở rộng, không thêm, không bớt.
+
+    **Ngoại lệ đã đo, không phải lỗi:** khoá `:0.1` = `Jātaka` trùng nguyên văn
+    Pāli ở **128/128** tệp `kn/ja*` có cả hai khoá (đếm bằng script, không suy đoán).
+    Tôi giữ nguyên theo đúng tiền lệ ấy và nêu ở đây.
+
+    **Thiếu tầng Anh:** xem `blocking_errors`. Chỗ nào Sujato im lặng thì tôi dịch
+    từ Pāli; ô Anh trống ở đây KHÔNG được đọc là đồng thuận về cách dịch.
+    ⚠ **Trùng nguyên văn `sn21.6:2–3` (published) — đã dùng lại đúng chữ đã có.**
+    Cả tám vế trùng từng chữ. Bản nháp đầu tôi tự viết ("Hạc, bồ nông, cả công
+    nữa / nai rừng chân sạch…") và đã sửa.
+
+    **Kết quả khi bám tiền lệ làm lộ một điểm tôi đã hiểu sai:** `hatthayo pasadā
+    migā` tôi định dịch "nai rừng chân sạch", tức đọc `migā` là số ít và bỏ `hatthayo
+    pasadā` (voi, nai đốm). Bản đã publish dịch "voi, nai đốm, nai;" — và đó mới
+    đúng: Pāli liệt kê **nhiều loài**, `hatthayo` (chân) + `pasadā` (sạch/trơn)
+    là phần tính từ, còn `migā` là "nai/động vật hoang". Dịch theo bản `sn21.6` cũng
+    tránh mất hai loài vật mà bản nháp của tôi đã xoá. Tôi đã học được: trước khi
+    dịch riêng một vế trùng nguyên văn, hãy tra tiền lệ đã publish.
+
+    **Riêng `2.4`:** tôi giữ dấu `”` + dấu chấm như `sn21.6:3.4` nhưng bỏ hậu tố
+    `ti` — vì `…”ti.` là công thức bilara đóng bài, và tiền lệ `ja` trong kho đã
+    bỏ `ti` ở mọi bài (0/90 tệp `kn/ja*` giữ `ti`).

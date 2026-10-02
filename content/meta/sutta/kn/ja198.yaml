@@ -1,0 +1,67 @@
+uid: ja198
+status: draft
+translationTitle: "Kinh Rādha"
+translators:
+  - "OpenCode Space Bunny Free (agent)"
+reviewers: []
+tags:
+  - khuddaka-nikaya
+  - jataka
+  - dukanipata
+  - pham-than-lan
+quality:
+  scores:
+    source_provenance: 9.6
+    semantic_fidelity: 8.6
+    grammar_logic: 8.7
+    segment_alignment: 10
+    terminology: 9
+    triangulation: 7
+    vietnamese_clarity: 9
+    han_viet_balance: 9.2
+    ambiguity_integrity: 8.4
+    technical_integrity: 9.6
+  final_score: 8.91
+  blocking_errors:
+    - "Bài này KHÔNG có tầng english-sujato tại commit đã ghim: manifest chỉ liệt kê 84 bài ja* có bản Anh (ja1–ja79, ja126, ja159, ja466, ja534), không có ja195–ja211. Thiếu tầng tham khảo là lỗi chặn đối với review/published theo AGENTS.md, nên đặt draft."
+  assessed_at: "2026-10-01"
+  assessed_by:
+    - "OpenCode Space Bunny Free (agent)"
+notes: |-
+    Lát v7/7: 12 bài Jātaka Ekakanipāta (Dūkaṇipāta), 156 khoá, dịch đủ MỌI khoá
+    trong `all` của v7/v7.json. Đã đọc HẾT v7/p7.txt trước khi viết.
+
+    **Sàn coverage 80% KHÔNG kích hoạt — nhưng ô Anh trống KHÔNG phải sự đồng
+    thuận.** Đo được: mọi vế kệ của Ekakanipāta đều NGẮN HƠN 40 ký tự (156 khoá,
+    `substantiveSegments = 0`), nên `englishCoverageFor` cho `ratio = 1` và bài
+    không cần entry trong `content/meta/reference-gaps.yaml`. Hệ quả thật: hàm
+    `kiểm()` của `_hvi.py` lọc `cần = [k for k in p if len(p[k]) >= 40 …]` nên
+    `cần` RỖNG ở cả 12 bài, và **NFC / trùng nguyên văn Pāli / Pāli lọt / số dấu
+    lược không tự chạy**. Tôi đã tự kiểm thủ công đủ 156 khoá bằng một lớp kiểm
+    riêng áp đúng các quy tắc đó lên MỌI khoá (0 lỗi), và đọc đối kháng từng cặp
+    Pāli ↔ Việt. Tầng Việt tham khảo (Hòa thượng Thích Minh Châu) ở commit đã
+    ghim chỉ có Pháp Cú, nên không có bản Việt nào để đối chiếu cho 12 bài này —
+    đây là giới hạn của bản chụp upstream, không phải thiếu sót của kho.
+
+    **Dấu lược:** không khoá nào trong 12 bài có `…pe…` hay `…`, nên cả hai phía
+    đều 0. Không mở rộng, không thêm, không bớt.
+
+    **Ngoại lệ đã đo, không phải lỗi:** khoá `:0.1` = `Jātaka` trùng nguyên văn
+    Pāli ở **128/128** tệp `kn/ja*` có cả hai khoá (đếm bằng script, không suy đoán).
+    Tôi giữ nguyên theo đúng tiền lệ ấy và nêu ở đây.
+
+    **Thiếu tầng Anh:** xem `blocking_errors`. Chỗ nào Sujato im lặng thì tôi dịch
+    từ Pāli; ô Anh trống ở đây KHÔNG được đọc là đồng thuận về cách dịch.
+    **Bất định về `Pavāsā` ở `1.1`:** đây là chữ lạ. Trong tầng Pāli đã ghim
+    `pavā` xuất hiện 135 lần nhưng với nghĩa "đuổi đi" (`pavāheyya`); ở đây
+    `Pavāsā āgato tāta` ("ngươi từ ... mà về đây, người ơi") rõ ràng là **địa
+    danh/nguồn đi**. Tôi dịch "từ thôn" vì đó là cách đọc ít giả định nhất và
+    khớp mạch truyện; **đây là chỗ tôi không chắc**, nên ghi ở đây thay vì im lặng.
+
+    **`Mummure upakūthito` ở `2.4`:** `mummu`/`mummura` là kẻ ấp úng, giữ tiếng
+    không nói ra; `upakūṭhita` là bị ấn/chặn. Tôi dịch "ngập ngừng mấp máy như
+    kẻ bị ấn chặt", giữ cả hai vế. Đây là một trong những vệ từ khó nhất của lát
+    này và bản dịch có thể vẫn chưa sát; ghi lại để người biên tập xem.
+
+    **Tiêu đề `Rādhajātaka`:** giữ Pāli "Kinh Rādha", đúng với tiền lệ đã publish
+    `sn22.71:0.3` = "Kinh Rādha" (cùng nhân vật).

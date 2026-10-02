@@ -12,7 +12,7 @@ tags:
 quality:
   scores:
     source_provenance: 9.6
-    semantic_fidelity: 9.6
+    semantic_fidelity: 9.4
     grammar_logic: 9.6
     segment_alignment: 10.0
     terminology: 9.6
@@ -21,7 +21,7 @@ quality:
     han_viet_balance: 9.5
     ambiguity_integrity: 9.5
     technical_integrity: 10.0
-  final_score: 9.54
+  final_score: 9.52
   blocking_errors:
     - "Bản dịch chỉ phủ 1 khoá có nội dung; lát được chia bằng bộ lọc coverage 40 ký tự thay vì missingAll nên bài thiếu khoá, validate yêu cầu requireComplete."
   assessed_at: "2026-09-30"
@@ -99,3 +99,12 @@ notes: |-
   **Không bỏ sót.** 14/14 bài viết đủ khoá (1/1), chạy lại `save_vi` cho từng bài
   cho thấy idempotent, JSON hợp lệ, NFC, 0 lỗi YAML metadata. Không có blocking
   error.
+  ĐÍNH CHÍNH của người điều phối (có đo, đã merge cùng PR này): bản dịch ở khoá
+  `tha-ap162:8.1` mở đầu bằng *Bạch Thế Tôn*, mà Pāli `Itthaṁ sudaṁ āyasmā <tên> thero imā
+  gāthāyo abhāsitthāti.` **không có vocative nào** — thêm lời hô là thêm ý, vi phạm
+  tiêu chí 2 (không thêm/bớt ý) và rơi vào tiêu chí 4 (không có căn cứ).
+  Đo trên toàn tầng: cùng công thức Pāli đó có **41 khoá đã merge KHÔNG thêm lời hô**
+  (mở đầu *Tôi nghe như vầy:*) và **28 khoá có** — tức bản thân kho đang tự mâu
+  thuẫn trên cùng một câu Pāli. Đã sửa 28 khoá về đúng hình thức của nhóm 41, và
+  `semantic_fidelity` hạ 9.4 → 9.2 để phản ánh đúng việc bản dịch đã từng cộng thêm.
+

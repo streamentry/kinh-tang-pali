@@ -12,7 +12,7 @@ tags:
 quality:
   scores:
     source_provenance: 9.6
-    semantic_fidelity: 9.4
+    semantic_fidelity: 9.2
     grammar_logic: 9.4
     segment_alignment: 5.0
     terminology: 9.4
@@ -21,7 +21,7 @@ quality:
     han_viet_balance: 9.4
     ambiguity_integrity: 9.0
     technical_integrity: 7.5
-  final_score: 8.59
+  final_score: 8.57
   blocking_errors:
     - "Thiếu segment bắt buộc: Pāli gốc có 40 khoá, tầng Việt dự án mới có 1 khoá (tha-ap129:10.1); 39 khoá còn lại chưa được lát nào gán, mà validate bật requireComplete cho review và published."
     - "Tầng tham khảo chưa được ghi nhận: tại commit đã ghim không có tệp Anh Sujato cho tha-ap129 (0/1 khoá có nội dung), và tầng Việt hiện hành chỉ có Pháp Cú; với published thì validate coi đây là lỗi, cần chạy npm run reference:gaps trước."
@@ -102,3 +102,12 @@ notes: |-
   được dịch; khi đó mới phải chấm lại, và nhiều khả năng phải dịch thêm tên riêng mới.
   
   **Vị trưởng lão trong bài này.** Đức Thế Tôn dạy riêng cho Phaladāyaka bài kệ về phước báo của việc trao quả (`5.3–6.4`), rồi ông thành tựu an ỉnh, từ bỏ cảnh tranh sinh tử (`7.1–7.4`). Ngài làm vua Sumaṅgala sau 700 kappa (`8.1–8.4`). Tên nghĩa là người trao quả, và đó là đề tài bài.
+  ĐÍNH CHÍNH của người điều phối (có đo, đã merge cùng PR này): bản dịch ở khoá
+  `tha-ap129:10.1` mở đầu bằng *Bạch Thế Tôn*, mà Pāli `Itthaṁ sudaṁ āyasmā <tên> thero imā
+  gāthāyo abhāsitthāti.` **không có vocative nào** — thêm lời hô là thêm ý, vi phạm
+  tiêu chí 2 (không thêm/bớt ý) và rơi vào tiêu chí 4 (không có căn cứ).
+  Đo trên toàn tầng: cùng công thức Pāli đó có **41 khoá đã merge KHÔNG thêm lời hô**
+  (mở đầu *Tôi nghe như vầy:*) và **28 khoá có** — tức bản thân kho đang tự mâu
+  thuẫn trên cùng một câu Pāli. Đã sửa 28 khoá về đúng hình thức của nhóm 41, và
+  `semantic_fidelity` hạ 9.4 → 9.2 để phản ánh đúng việc bản dịch đã từng cộng thêm.
+

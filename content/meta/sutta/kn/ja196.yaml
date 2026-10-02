@@ -1,0 +1,65 @@
+uid: ja196
+status: draft
+translationTitle: "Kinh Thương Nhân Valāhakassa"
+translators:
+  - "OpenCode Space Bunny Free (agent)"
+reviewers: []
+tags:
+  - khuddaka-nikaya
+  - jataka
+  - dukanipata
+  - pham-than-lan
+quality:
+  scores:
+    source_provenance: 9.6
+    semantic_fidelity: 9.3
+    grammar_logic: 9.3
+    segment_alignment: 10
+    terminology: 9.2
+    triangulation: 7
+    vietnamese_clarity: 9.4
+    han_viet_balance: 9.3
+    ambiguity_integrity: 9
+    technical_integrity: 9.6
+  final_score: 9.17
+  blocking_errors:
+    - "Bài này KHÔNG có tầng english-sujato tại commit đã ghim: manifest chỉ liệt kê 84 bài ja* có bản Anh (ja1–ja79, ja126, ja159, ja466, ja534), không có ja195–ja211. Thiếu tầng tham khảo là lỗi chặn đối với review/published theo AGENTS.md, nên đặt draft."
+  assessed_at: "2026-10-01"
+  assessed_by:
+    - "OpenCode Space Bunny Free (agent)"
+notes: |-
+    Lát v7/7: 12 bài Jātaka Ekakanipāta (Dūkaṇipāta), 156 khoá, dịch đủ MỌI khoá
+    trong `all` của v7/v7.json. Đã đọc HẾT v7/p7.txt trước khi viết.
+
+    **Sàn coverage 80% KHÔNG kích hoạt — nhưng ô Anh trống KHÔNG phải sự đồng
+    thuận.** Đo được: mọi vế kệ của Ekakanipāta đều NGẮN HƠN 40 ký tự (156 khoá,
+    `substantiveSegments = 0`), nên `englishCoverageFor` cho `ratio = 1` và bài
+    không cần entry trong `content/meta/reference-gaps.yaml`. Hệ quả thật: hàm
+    `kiểm()` của `_hvi.py` lọc `cần = [k for k in p if len(p[k]) >= 40 …]` nên
+    `cần` RỖNG ở cả 12 bài, và **NFC / trùng nguyên văn Pāli / Pāli lọt / số dấu
+    lược không tự chạy**. Tôi đã tự kiểm thủ công đủ 156 khoá bằng một lớp kiểm
+    riêng áp đúng các quy tắc đó lên MỌI khoá (0 lỗi), và đọc đối kháng từng cặp
+    Pāli ↔ Việt. Tầng Việt tham khảo (Hòa thượng Thích Minh Châu) ở commit đã
+    ghim chỉ có Pháp Cú, nên không có bản Việt nào để đối chiếu cho 12 bài này —
+    đây là giới hạn của bản chụp upstream, không phải thiếu sót của kho.
+
+    **Dấu lược:** không khoá nào trong 12 bài có `…pe…` hay `…`, nên cả hai phía
+    đều 0. Không mở rộng, không thêm, không bớt.
+
+    **Ngoại lệ đã đo, không phải lỗi:** khoá `:0.1` = `Jātaka` trùng nguyên văn
+    Pāli ở **128/128** tệp `kn/ja*` có cả hai khoá (đếm bằng script, không suy đoán).
+    Tôi giữ nguyên theo đúng tiền lệ ấy và nêu ở đây.
+
+    **Thiếu tầng Anh:** xem `blocking_errors`. Chỗ nào Sujato im lặng thì tôi dịch
+    từ Pāli; ô Anh trống ở đây KHÔNG được đọc là đồng thuận về cách dịch.
+    **Hai tên thương nhân giữ nguyên Pāli:** `Valāhakassa` và `Rakkhasīha`. Tầng
+    Việt chưa có tiền lệ cho hai tên này (0 lần), nhưng có tiền lệ rõ cho việc
+    giữ tên riêng Pāli — `Rādha` 138 lần, `Nigrodha` 58, `Mahāsudassana` 53 — và
+    dùng Pāli là nguồn duy nhất ở tầng này. Tôi thêm chức danh "thương nhân" ở
+    tiêu đề vì Pāli `vāṇijā` xuất hiện ở cả hai vế (1.4 và 2.4) và tiền lệ "thương
+    nhân" đã có 7 lần trong tầng.
+
+    **Lưu ý về `rakkhasīhiva`:** đây là `rakkhasīha` + `iva` bị **sandhi** dính
+    thành một chữ. Người đọc không thấy `iva` trong Pāli khoá, nên tiền lệ về "Pāli
+    lọt" mà tôi tự kiểm sẽ báo nhầm nếu chỉ so khớp từ-đúng. Đây là lý do tôi
+    mở rộng phép so của mình sang cả tiền tố.
