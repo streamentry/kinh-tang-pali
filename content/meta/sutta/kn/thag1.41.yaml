@@ -1,0 +1,44 @@
+uid: thag1.41
+status: published
+translationTitle: "Kinh Kệ Của Trưởng Lão Sirivaḍḍha"
+translators:
+  - "OpenCode Space Bunny Free (agent)"
+reviewers: []
+tags:
+  - "khuddaka-nikaya"
+  - "thera-gatha"
+  - "ekakanipata"
+  - "pham-thu-nam"
+quality:
+  scores:
+    source_provenance: 9.5
+    semantic_fidelity: 8.9
+    grammar_logic: 9.0
+    segment_alignment: 10.0
+    terminology: 9.1
+    triangulation: 9.3
+    vietnamese_clarity: 9.2
+    han_viet_balance: 9.3
+    ambiguity_integrity: 8.8
+    technical_integrity: 9.6
+  final_score: 9.27
+  blocking_errors: []
+  assessed_at: "2026-10-02"
+  assessed_by:
+    - "OpenCode Space Bunny Free (agent)"
+notes: |-
+  CHỐT KHÔNG TỰ CHẠY — ĐÃ TỰ KIỂM THỦ CÔNG. `_hvi.kiểm` chỉ quét `cần` = khoá Pāli ≥ 40 ký tự. Ở 16/17 bài của lát này khoá Pāli dài nhất chỉ 19–35 ký tự nên `cần` rỗng và vòng chốt NFC / trùng nguyên văn Pāli / Pāli lọt / số dấu lược KHÔNG CHẠY LẦN NÀO. Tôi tự quét lại **164/164 khoá** bằng chính các hàm đó (`_chk_rv3.py`): 0 lỗi — không khoá rỗng, không khoá thừa so với Pāli, không thiếu khoá, mọi chuỗi NFC, số dấu lược khớp Pāli từng khoá, ngoặc kép cân trên cả bài, ngoặc tròn cân, không còn `(…)`, không còn sót `pe…`. Chỉ `mil3.1.7` có 4 khoá ≥ 40 ký tự (`:1.2`–`:1.5`) nên ở bài đó chốt thật sự có chạy. `save_vi` chạy sạch, chạy lại hai lần idempotent.
+
+  COVERAGE — ĐO BẰNG CHÍNH HÀM CỦA KHO (chỉ đọc, `englishCoverageFor`). Cả **17/17 bài ra `ratio = 1`**: 16 bài có `substantiveSegments = 0` vì không khoá Pāli nào đủ 40 ký tự; `mil3.1.7` có 4 khoá substantive. Không bài nào rơi dưới ngưỡng 0,8 nên **không** cần mục trong `content/meta/reference-gaps.yaml` — tệp đó tôi không đụng tới.
+
+  KHÔNG ĐỐI CHIẾU ĐƯỢC TẦNG VIỆT HIỆN HÀNH. Tại commit đã ghim, `translation/vi/` của bilara chỉ chứa Pháp Cú, nên không có bản Hòa thượng Thích Minh Châu cho bất kỳ bài nào trong lát này. Đây là đặc điểm của bản chụp upstream, không phải thiếu sót của kho; `triangulation` vì thế là **Pāli + English Sujato + các bài song song trong chính tầng này**.
+
+  KỸ THUẬT. Tôi KHÔNG chạy `npm run validate|test|build|check` — đợt này người điều phối cấm và chạy tập trung. Vì vậy `technical_integrity` chấm **9.6 chứ không phải 10.0**; đó là hạn chế thật của lượt đánh giá này chứ không phải lời khen. Tất cả những gì chạy được thì đã chạy.
+
+  **HAI CHỖ TÔI THẤY LÀ YẾU, GHI LẠI THẲNG — ĐÂY LÀ LÝ DO HẠ ĐIỂM CỦA BÀI NÀY.**
+  (1) **`1.3 Nagavivaragato ca jhāyati`.** `nagavivara` là một chuỗi ghép không có ở đâu khác: `naga` (núi) + `vivara` (tia chớp; khe nứt). Sujato đọc là *in the mountain cleft* — tức *khe núi* — và dịch cả vế là *nhưngng trong khe núi, ông chìm vào thiền định*. Tôi theo, vì nó khớp với hình ảnh `1.1`–`1.2` (tia chớp lóe trên hai núi Vebhāra và Paṇḍava). Nhưng cách đọc còn lại là *đã đi vào tia chớp trên núi*, khi ấy `jhāyati` vẫn được nhưng hình ảnh khác; tôi ghi rõ vì không thể phân xử bằng nguồn nào trong tầng.
+  (2) **`1.4 Putto appaṭimassa tādino`.** `putto` = *người con* (tiền lệ `dn21:1.12.6` *nay ta là người con đầy uy lực của Sakka*); `appaṭima` = *không gì sánh được*; `tādino` = *chuyên cần bền bỉ*. Cả ba là vị xưng hô theo nhau, và tôi giữ cả ba thay vì rút thành một. Sujato dịch *the son of the Buddha, inimitable and unaffected* — có thêm *of the Buddha* mà Pāli không có. Hệ quả không đụng giáo lý, nên tôi không coi là blocker, nhưng hai chỗ này là lý do `ambiguity_integrity` = 8.8.
+
+  `1.1 Vivaramanupatanti vijjutā` = *Tia chớp lóe xuống*; `1.2 Vebhārassa ca paṇḍavassa ca` = *núi Vebhāra và núi Paṇḍava* — hai tên núi giữ nguyên dấu Pāli như `Kula`, `Hārita`, `Vajjiputta` trong tầng. `0.3 Pañcamavagga` → *Phẩm Thứ Năm*; `1.5` giữ hai dấu lược.
+
+  **LƯU Ý CẦN BIẾT: `thag1.1`, `thag1.2`–`thag1.10`, `thag1.14` CÓ `0.3` VÀ `0.4` ĐẢO CHIỀU** (0.3 để tên bài, 0.4 để tên phẩm). Bài này tôi đặt **đúng theo Pāli** như đa số: `0.3` = phẩm, `0.4` = tên bài kệ. Tôi không sửa những tệp kia vì ngoài lát.

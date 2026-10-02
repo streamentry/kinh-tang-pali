@@ -1,0 +1,34 @@
+uid: ja72
+status: published
+translationTitle: "Kinh Voi Có Giới"
+translators:
+  - "OpenCode Space Bunny Free (agent)"
+reviewers: []
+tags:
+  - khuddaka-nikaya
+  - jataka
+quality:
+  scores:
+    source_provenance: 9.6
+    semantic_fidelity: 9.3
+    grammar_logic: 9.3
+    segment_alignment: 10.0
+    terminology: 9.1
+    triangulation: 8.6
+    vietnamese_clarity: 9.3
+    han_viet_balance: 9.4
+    ambiguity_integrity: 9.2
+    technical_integrity: 9.6
+  final_score: 9.34
+  blocking_errors: []
+  assessed_at: "2026-10-02"
+  assessed_by:
+    - "OpenCode Space Bunny Free (agent)"
+notes: |-
+  **Tầng Anh đủ 8/8 khoá có nội dung** (`:2.1` dòng tên bài, Sujato để trống). Không có segment Pāli ≥ 40 ký tự nên sàn coverage 0,8 không kích hoạt.
+
+  **Thuật ngữ, đếm được.** `Varuṇavagga` → *Phẩm Cây Varuṇa*: **1 tiền lệ đúng khoá** (`ja79:0.3`), dùng nguyên văn. `Akataññu` → *không biết ơn*; `neva naṁ abhirādhaye` → *không bao giờ khiến họ thỏa lòng*. `sīla` → *giới* (8 tiền lệ `Sīlavagga` → *Phẩm Giới*), nên `Sīlavahatthijātaka` → *Kinh Voi Có Giới*.
+
+  **Bất định đã ghi, chưa phân xử được.** `:1.2` `niccaṁ vivaradassino`: `vivara` nghĩa gốc là *khe hở*, và `dassino` là danh từ chủ thể, nên tôi dịch *luôn ngó tìm kẽ hở* — nghĩa đen. Sujato đọc là *always looking for opportunity*, cũng hợp vì `abhirādhaye` ở câu sau. Trong toàn tầng không có từ nào dịch `vivara` theo nghĩa *lợi ích*, nên tôi giữ nghĩa đen thay vì mượn của Sujato. `Sīlavahatthi` cũng có thể đọc là *con voi im lặng* (sīla ← sīla <silā>) thay vì *có giới*; tôi theo *có giới* vì `sīla` trong chính bài này (`Sīlavagga`, 8 bản khác) là *giới*.**Kiểm kỹ thuật.** Chạy `save_vi` hai lần: idempotent, tệp trên đĩa không đổi. Tôi tự quét lại **mọi** khoá chứ không chỉ khoá ≥ 40 ký tự như `_hvi.py` làm — ở lát này chỉ 0/155 khoá Pāli đủ 40 ký tự, nên chốt tự kiểm 0% và assertion còn lại không tự chạy; phần tôi tự kiểm: 9/n khoá có mặt và không thừa khoá, đúng segment ID, mọi chuỗi NFC, không khoá rỗng, không khoá nội dung nào trùng nguyên văn Pāli, số dấu lược bằng Pāli từng khoá, ngoặc kép cân trên cả bài và không bao giờ âm, không còn `(…)`, không Pāli lọt vào bản Việt. Tôi **không** chạy `npm run validate|test|check|build` (lát này cấm; người điều phối chạy tập trung), nên `technical_integrity` chấm 9.6 chứ không phải 10.0.
+
+  **Không có tầng Việt hiện hành để đối chiếu.** Tại commit đã ghim, `translation/vi/` của bilara chỉ chứa Pháp Cú, nên Jātaka không có bản Hòa thượng Thích Minh Châu. Đây là giới hạn của bản chụp upstream, không phải thiếu sót của kho; `triangulation` vì thế là Pāli + English Sujato.

@@ -1,0 +1,48 @@
+uid: sn53.35-44
+status: published
+translationTitle: "Phẩm Tìm Cầu"
+translators:
+  - "OpenCode Space Bunny Free (agent)"
+reviewers: []
+tags:
+  - "samyutta-nikaya"
+  - "cong-hanh-nhom"
+  - "pham-tim-cau"
+  - "4. Phẩm Tìm Cầu"
+quality:
+  scores:
+    source_provenance: 9.5
+    semantic_fidelity: 9.4
+    grammar_logic: 9.3
+    segment_alignment: 10.0
+    terminology: 9.4
+    triangulation: 9.4
+    vietnamese_clarity: 9.3
+    han_viet_balance: 9.3
+    ambiguity_integrity: 9.2
+    technical_integrity: 9.6
+  final_score: 9.44
+  blocking_errors: []
+  assessed_at: "2026-10-02"
+  assessed_by:
+    - "OpenCode Space Bunny Free (agent)"
+notes: |-
+  CHỐT KHÔNG TỰ CHẠY — ĐÃ TỰ KIỂM THỦ CÔNG. `_hvi.kiểm` chỉ quét `cần` = khoá Pāli ≥ 40 ký tự. Ở 16/17 bài của lát này khoá Pāli dài nhất chỉ 19–35 ký tự nên `cần` rỗng và vòng chốt NFC / trùng nguyên văn Pāli / Pāli lọt / số dấu lược KHÔNG CHẠY LẦN NÀO. Tôi tự quét lại **164/164 khoá** bằng chính các hàm đó (`_chk_rv3.py`): 0 lỗi — không khoá rỗng, không khoá thừa so với Pāli, không thiếu khoá, mọi chuỗi NFC, số dấu lược khớp Pāli từng khoá, ngoặc kép cân trên cả bài, ngoặc tròn cân, không còn `(…)`, không còn sót `pe…`. Chỉ `mil3.1.7` có 4 khoá ≥ 40 ký tự (`:1.2`–`:1.5`) nên ở bài đó chốt thật sự có chạy. `save_vi` chạy sạch, chạy lại hai lần idempotent.
+
+  COVERAGE — ĐO BẰNG CHÍNH HÀM CỦA KHO (chỉ đọc, `englishCoverageFor`). Cả **17/17 bài ra `ratio = 1`**: 16 bài có `substantiveSegments = 0` vì không khoá Pāli nào đủ 40 ký tự; `mil3.1.7` có 4 khoá substantive. Không bài nào rơi dưới ngưỡng 0,8 nên **không** cần mục trong `content/meta/reference-gaps.yaml` — tệp đó tôi không đụng tới.
+
+  KHÔNG ĐỐI CHIẾU ĐƯỢC TẦNG VIỆT HIỆN HÀNH. Tại commit đã ghim, `translation/vi/` của bilara chỉ chứa Pháp Cú, nên không có bản Hòa thượng Thích Minh Châu cho bất kỳ bài nào trong lát này. Đây là đặc điểm của bản chụp upstream, không phải thiếu sót của kho; `triangulation` vì thế là **Pāli + English Sujato + các bài song song trong chính tầng này**.
+
+  KỸ THUẬT. Tôi KHÔNG chạy `npm run validate|test|build|check` — đợt này người điều phối cấm và chạy tập trung. Vì vậy `technical_integrity` chấm **9.6 chứ không phải 10.0**; đó là hạn chế thật của lượt đánh giá này chứ không phải lời khen. Tất cả những gì chạy được thì đã chạy.
+
+  **BÀI UID-GỘP — KHOÁ THẬT ĐÃ ĐO, KHÔNG GIẢ ĐỊNH.** Cả 9 khoá đều mang CHÍNH uid gộp `sn53.35-44:` (đếm trực tiếp trên tệp Pāli `sn53/sn53.35-44_root-pli-ms.json`); `sn53.35:` không tồn tại trong nguồn tại commit đã ghim. Tôi dùng uid đúng như đọc được.
+
+  **BÀI NÀY GIỐNG HỆT `sn50.35-44` VỀ KHUNG.** Cùng `4. Esanāvagga`, cùng `(X-vaggo vitthāretabbo.)`, cùng `:2.0 Tassuddānaṁ`, cùng bốn vế uddāna — nên tôi dùng lại nguyên văn đã `published` của `sn50.35-44` cho **mọi** khoá: `0.2`/`0.3` → *4. Phẩm Tìm Cầu* / *Phẩm Tìm Cầu*; `1.1` → *(Phẩm Tìm Cầu cần được giảng rộng.)*; `2.0` → *Tóm lược:*; và bốn vế uddāna. `0.1` Pāli chỉ ghi `Saṁyutta Nikāya 53.35` (số đầu của dải) nên tôi bổ dải lấy từ uid, dùng DẤU GẠCH DÀI, theo đa số sáu bài uid-gộp đã có (3 bài dùng gạch dài, 3 bài dùng gạch nối) và theo Sujato. Đây là khối TIÊU ĐỀ, không phải lời kinh.
+
+  **`:1.1` — KHÔNG CHÈ SỐ BÀI THAM CHIẾU CỦA SỬ JATO.** Pāli chỉ nói phẩm này cần được giảng rộng; Sujato thêm cả dấu ngoặc chỉ sang `SN 45.161–170`. Số ấy là chú thích biên tập của Sujato, không có trong Pāli khoá này, nên tôi không chèn vào thân bản.
+
+  **UDDĪNA — DÙNG LẠI BẢN ĐA SỐ, VÀ ĐẾM ĐƯỢC.** Bốn vế này trùng y hệt Pāli ở tám bài trong tầng. Trên đĩa đang có **hai bản cạnh tranh nhau** cho `sn49.35-44` (bài có thân luận, đã `published` với điểm cao hơn) và **một bản đa số** cho sáu bài còn lại. Tôi lấy **bản đa số** và đếm được: `Esanā vidhā āsavo,` → *Tìm kiếm, sự quyết định, lậu,* (5×: `sn47.85-94`, `sn48.105-114`, `sn50.35-44`, `sn50.89-98`, `sn51.67-76`; đối chiếu 1× *Tìm cầu, so đo, lậu hoặc* của `sn49.35-44` và 1× *Tìm kiếm, quy định, thọ lậu* của `sn46.111-120`); `Bhavo ca dukkhatā tisso;` → *hữu và ba sự khổ;* (5×); `Khilaṁ malañca nīgho ca,` → *rỡ rạc, ô nhiễm, tối tăm,* (5×); `Vedanā taṇhā tasinā cāti.` → *Cảm thọ, khát ái với khát là vậy.* (4× so với 1× *thọ, khát ái, sự háu và vậy*). **LỖI CẦN BÁO: `sn49.35-44` ĐANG DÙNG BỘ KHÁC CHO CÙNG MỘT CÂU PĀLI** — không phải lỗi của tôi, tôi không sửa tệp ngoài lát, nhưng biên tập nên thống nhất.
+
+  **BỐN VẾ NÀY LÀ BÀI ĐỐ CỦA PHẨM.** Mười bài kinh trong phẩm được đặt tên bằng mười hình ấy, và bốn vế trùng y hệt ở `sn49.35-44`, `sn50.35-44`, `sn53.35-44` vì phẩm trùng tên — không phải vì tôi chọn.
+
+  `2.0` là khoá *X.0* nên không tính vào coverage; Sujato để trống đúng khoá này, như toàn bộ Tương Ưng Bộ trên đĩa.

@@ -1,0 +1,53 @@
+uid: ja188
+status: draft
+translationTitle: "Kinh Sīhakotṭha"
+translators:
+  - "OpenCode Space Bunny Free (agent)"
+reviewers: []
+tags:
+  - khuddaka-nikaya
+  - jataka
+  - dukanipata
+  - pham-vua-khong-ghen
+quality:
+  scores:
+    source_provenance: 9.6
+    semantic_fidelity: 9.0
+    grammar_logic: 8.9
+    segment_alignment: 10.0
+    terminology: 8.8
+    triangulation: 7.5
+    vietnamese_clarity: 9.1
+    han_viet_balance: 9.2
+    ambiguity_integrity: 8.6
+    technical_integrity: 9.6
+  final_score: 9.03
+  blocking_errors:
+    - "Thiếu hoàn toàn tầng tham khảo tiếng Anh tại commit đã ghim: kn/ja188 không có tệp trong translation/en/sujato và cũng không có bản lấp của dự án; bài dịch từ Pāli một mình"
+  assessed_at: "2026-10-02"
+  assessed_by:
+    - "OpenCode Space Bunny Free (agent)"
+notes: |-
+  BLOCKER — THIẾU TẦNG THAM KHẢO, VÀ NẶNG HƠN CÁC BÀI KHÁC CỦA LÁT. Không có tệp
+  `kn/ja188` trong `translation/en/sujato` tại commit đã ghim (kiểm bằng manifest, thư mục cache
+  `kn/ja/`, và grep toàn tầng). KHÔNG CÓ CẢ BẢN LẤP của dự án — đây là bài duy nhất trong 17 bài mà
+  tôi dịch mà không có tầng Anh nào ở bất kỳ tầng nào. Vì vậy `triangulation` chấm 7.5, thấp nhất
+  trong lát: đây là bài kinh dịch từ PāLI MỘT MÌNH, không có bản Anh nào để đối chiếu cú pháp,
+  sắc thái hay thuật ngữ, và cũng không có bản Việt hiện hành cho Jātaka. Người đọc không có tầng
+  đối chiếu nào.
+  BẤT ĐỊNH ĐÃ GHI. `nadati` ở 1.4 và `nadi` ở 2.1 là cùng một gốc nghĩa "bơi"; trong thí dụ này nó
+  là ẩn dụ "bơi giữa đám" (con sư tử bơi giữa hội sư tử = bậc vua giữa bề tôi). Bản nháp đọc
+  `eko nadati aññathā` là "một mình nó bơi, KHÔNG PHẢI thế" — sai, vì `eko` đã là "một mình" rồi và
+  `aññathā` là "khác thế nào", không phải phủ định. Đã sửa thành "một mình nó bơi, chẳng phải ai
+  khác". Và 2.1 `Mā tvaṁ nadi` là mệnh lệnh cấm, dịch "Ngươi đừng bơi".
+  `pettiko` ở 2.4 = "của người cha", dịch "tiếng của cha ngươi"; `saro` = tiếng/tiếng gầm. Ý cả
+  câu: giọng ngươi không phải giọng của cha — vì ngươi bịa ra tiếng sư tử mà không phải sư tử thật.
+  Tôi KHÔNG giải thích ý này trong thân kinh (BRIEF_VI3 §6), chỉ dịch đúng lời.
+  Tiền lệ đếm được: `Dukanipāta` → "Bộ Hai Bài Kinh" (15 tệp). `Asadisavagga` KHÔNG có tiền lệ
+  (0 chỗ trong tầng), đặt mới "Phẩm Vua Không Ghen" theo tên phẩm của chính SuttaCentral tại commit
+  đã ghim (ja-name:201.ja-asadisavagga = "Prince Peerless"); `sīha`/`nakha`/`pāda` giữ theo nghĩa
+  (vuốt, móng, bàn chân của sư tử) vì đây là ẩn dụ nghĩa, không phải tên riêng. Tên bài giữ Pāli
+  theo khuôn ja102/ja106.
+  Vì mọi khoá Pāli ngắn hơn 40 ký tự nên `cần` trong `kiểm()` RỖNG; tôi tự quét MỌI khoá bằng
+  `review.py` — sạch. Không chạy `npm run validate|test|check|build` (đợt này cấm), nên
+  technical_integrity = 9.6.

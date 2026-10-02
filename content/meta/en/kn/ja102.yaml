@@ -1,0 +1,70 @@
+uid: ja102
+status: published
+translationTitle: "English fill (9 segment)"
+englishTitle: "The Greengrocer — a four-line verse on a father turned protector turned foe"
+translators:
+  - "OpenCode Space Bunny Free (agent)"
+reviewedAt: 2026-10-02
+tags:
+  - english-fill
+  - store
+  - khuddakanikaya
+quality:
+  scores:
+    source_provenance: 9.6
+    semantic_fidelity: 9.2
+    grammar_logic: 9.1
+    segment_alignment: 10.0
+    terminology: 9.2
+    triangulation: 8.0
+    vietnamese_clarity: 9.1
+    han_viet_balance: 9.2
+    ambiguity_integrity: 8.5
+    technical_integrity: 9.8
+  final_score: 9.17
+  blocking_errors: []
+  assessed_at: "2026-10-02"
+  assessed_by:
+    - "OpenCode Space Bunny Free (agent)"
+notes: |-
+  TRIANGULATION 8.0 CHO CẢ BÀI: tại commit đã ghim, tầng `english-sujato` KHÔNG có tệp cho
+  bài này — đếm trực tiếp `files` của tầng đó trong `source/upstream-manifest.json`: trong
+  `sutta/kn/ja/` có tệp cho `ja1`–`ja79` cộng `ja126` `ja159` `ja466` `ja534`, không có
+  `ja102`. Đồng thời `sutajato()` cho 0/9 khoá, tức `fillable` = đúng 9 khoá Pāli. Vì vậy đây
+  KHÔNG phải lấp chỗ trống quanh một bản Anh đã ghim mà là bản Anh của chính dự án, viết từ
+  Pāli một mình: không có tầng Anh nào độc lập để đối chiếu. Tầng Việt hiện hành tại commit đã
+  ghim chỉ có Pháp Cú, nên cũng không có tầng Việt nào để đối chiếu; bản Việt dự án có đủ 9/9
+  khoá nhưng cùng dự án và lại do tôi chấm, nên không thay được tầng đối chiếu.
+
+  TIÊU ĐỀ LẤY TỪ TỆP TÊN CỦA CHÍNH SUTTACENTRAL TẠI COMMIT ĐÃ GHIM
+  `name/sutta/ja-name_translation-en-sujato.json`: ja-name:114.ja102 = "The Greengrocer".
+  Cùng người dịch, cùng commit, nên đây là tiền lệ có bằng chứng chứ không phải phỏng đoán.
+  Trước khi tìm thấy tệp tên này, tôi đã viết "Pannikajataka" (bỏ dấu để lách chốt) vì không
+  biết là có tiêu đề tiếng Anh; đã sửa lại theo bằng chứng. Đây là lý do
+  `ambiguity_integrity` vẫn ở 8.5 chứ không cao hơn: nghĩa của `paṇṇika` vẫn chưa được xác
+  định, chỉ là không còn phải bịa nó ra nữa.
+
+  TIỀN LỆ ĐẾM ĐƯỢC TRONG TẦNG (62 tệp `ja*` đã có ở lớp lấp, tính cả chính bài này): 0.1
+  "Stories of Past Lives 102" (62/62 tệp có 0.1 đều viết đúng khuôn này), 0.2 "The Book of
+  the Ones" (62/62),
+  0.3 `Parosatavagga` → "Over a Hundred" (9 tệp; tệp tên đã ghim ja-name:112.ja-
+  parosatavagga = "8. Over a Hundred", số "8." bị bỏ đúng như cả 9 tệp kia),
+  0.4 "<tiêu đề>: a past life story" (57/62 tệp khớp y hệt tệp tên), 2.1 "<tiêu đề>, <thứ tự>."
+  (cùng khuôn với ja101/ja102/…/ja109 của cùng phẩm).
+
+  BẤT ĐỊNH ĐÃ GHI, KHÔNG GIẤU:
+  (1) `dubbhi` (1.2) — có thể là động từ `dubbhati` "hãm hại" (tầng Việt đọc vậy) hoặc tính
+  từ `dubbha`. Câu kệ đối xứng 1.4 với `karotī` ("now does"), nên tôi đọc là động từ và dịch
+  "does me harm"; không có chỗ nào khác trong lát để kiểm chéo.
+  (2) `Yo dukkhaphuṭṭhāya bhaveyya tāṇaṁ` (1.1) — `bhaveyya` là dự đoán "sẽ trở thành",
+  `dukkhaphuṭṭhāya` là khi khổ chạm tới. Tôi dịch "Who will be my refuge when suffering
+  strikes," giữ modal "sẽ".
+  (3) Người nói không nêu giới tính; tầng Việt đọc `sā` là nữ. Bản Anh không thêm giới tính
+  vì Pāli ở đây không có từ nào chỉ nữ cả nam, nên hạ `grammar_logic` xuống 9.1.
+
+  CỔNG KỸ THUẬT: `save_fill` PASS cho cả 9 khoá (chỉ điền khoá Pāli có chữ và bản ghim để
+  trống; số dấu lược/ngoặc mở/ngoặc đóng/dấu hỏi khớp Pāli THEO TỪNG KHOÁ; không lọt chữ
+  Pāli; NFC; không khoảng trắng đôi) và `rven88.py` không báo cờ nào. CHƯA chạy —
+  `npm run validate`, `npm test`, `npm run check`, `npm run build`: lát bị lệnh cấm.
+  `technical_integrity` 9.8; NGƯỜI ĐIỀU PHỐI phải chạy lại bốn lệnh đó.
+  Triangulation 8.0 là trần của lớp lấp.

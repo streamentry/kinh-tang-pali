@@ -1,0 +1,42 @@
+uid: thag1.29
+status: published
+translationTitle: "Kinh Kệ Của Trưởng Lão Hārita"
+translators:
+  - "OpenCode Space Bunny Free (agent)"
+reviewers: []
+tags:
+  - "khuddaka-nikaya"
+  - "thera-gatha"
+  - "ekakanipata"
+  - "pham-thu-ba"
+quality:
+  scores:
+    source_provenance: 9.5
+    semantic_fidelity: 9.3
+    grammar_logic: 9.3
+    segment_alignment: 10.0
+    terminology: 9.4
+    triangulation: 9.4
+    vietnamese_clarity: 9.4
+    han_viet_balance: 9.3
+    ambiguity_integrity: 9.2
+    technical_integrity: 9.6
+  final_score: 9.44
+  blocking_errors: []
+  assessed_at: "2026-10-02"
+  assessed_by:
+    - "OpenCode Space Bunny Free (agent)"
+notes: |-
+  CHỐT KHÔNG TỰ CHẠY — ĐÃ TỰ KIỂM THỦ CÔNG. `_hvi.kiểm` chỉ quét `cần` = khoá Pāli ≥ 40 ký tự. Ở 16/17 bài của lát này khoá Pāli dài nhất chỉ 19–35 ký tự nên `cần` rỗng và vòng chốt NFC / trùng nguyên văn Pāli / Pāli lọt / số dấu lược KHÔNG CHẠY LẦN NÀO. Tôi tự quét lại **164/164 khoá** bằng chính các hàm đó (`_chk_rv3.py`): 0 lỗi — không khoá rỗng, không khoá thừa so với Pāli, không thiếu khoá, mọi chuỗi NFC, số dấu lược khớp Pāli từng khoá, ngoặc kép cân trên cả bài, ngoặc tròn cân, không còn `(…)`, không còn sót `pe…`. Chỉ `mil3.1.7` có 4 khoá ≥ 40 ký tự (`:1.2`–`:1.5`) nên ở bài đó chốt thật sự có chạy. `save_vi` chạy sạch, chạy lại hai lần idempotent.
+
+  COVERAGE — ĐO BẰNG CHÍNH HÀM CỦA KHO (chỉ đọc, `englishCoverageFor`). Cả **17/17 bài ra `ratio = 1`**: 16 bài có `substantiveSegments = 0` vì không khoá Pāli nào đủ 40 ký tự; `mil3.1.7` có 4 khoá substantive. Không bài nào rơi dưới ngưỡng 0,8 nên **không** cần mục trong `content/meta/reference-gaps.yaml` — tệp đó tôi không đụng tới.
+
+  KHÔNG ĐỐI CHIẾU ĐƯỢC TẦNG VIỆT HIỆN HÀNH. Tại commit đã ghim, `translation/vi/` của bilara chỉ chứa Pháp Cú, nên không có bản Hòa thượng Thích Minh Châu cho bất kỳ bài nào trong lát này. Đây là đặc điểm của bản chụp upstream, không phải thiếu sót của kho; `triangulation` vì thế là **Pāli + English Sujato + các bài song song trong chính tầng này**.
+
+  KỸ THUẬT. Tôi KHÔNG chạy `npm run validate|test|build|check` — đợt này người điều phối cấm và chạy tập trung. Vì vậy `technical_integrity` chấm **9.6 chứ không phải 10.0**; đó là hạn chế thật của lượt đánh giá này chứ không phải lời khen. Tất cả những gì chạy được thì đã chạy.
+
+  **`1.2 usukārova tejanaṁ` — DÙNG LẠI CỤM TỪ ĐÃ CÓ.** Vế này rút gọn từ `Usukārā namayanti tejanaṁ;` của Pháp Cú 145 và `dhp80:2`, đã dịch sẵn *thợ tên uốn mũi tên*. Tôi thêm `như … tên` theo đúng `usukārova` (*như thợ tên làm với mũi tên*) → *như thợ tên uốn mũi tên;*, giữ nguyên cụm đã có thay vì đặt cụm thứ ba cho cùng một hành động.
+
+  **`1.1 Samunnamayamattānaṁ`.** `sam-unnamaya` là *làm cho thẳng ngắn*, `attānaṁ` là *chính mình* → *Hãy làm cho chính mình ngay thẳng*. Sujato dịch *Straighten yourself*; tôi giữ chủ thể `chính mình` vì Pāli có `attānaṁ` và bài nói về tự thắm trị. `Cittaṁ ujuṁ karitvāna` = *Đã làm cho tâm ngay thẳng* (`uju` = ngay thẳng; `citta` → *tâm* theo toàn tầng). `avijjaṁ bhinda` = *hãy đập vỡ vô minh* — `avijjā` → *vô minh* có 410 chỗ trong tầng, `bhinda` (chia, vỡ) có tiền lệ *tác ý sự đập vỡ vô minh* (4×). `hāritā` là từ xưng hô danh từ số nhiều, tôi dùng lại tên *Hārita* như `dhp145:4` dùng tên chính không dịch.
+
+  `0.3 Tatiyavagga` → *Phẩm Thứ Ba* (18 tiền lệ). `1.5` giữ hai dấu lược.

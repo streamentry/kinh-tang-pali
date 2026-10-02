@@ -1,0 +1,48 @@
+uid: ja5
+status: published
+translationTitle: "Kinh Gạo Rang Và Đậu"
+translators:
+  - "OpenCode Space Bunny Free (agent)"
+reviewers: []
+tags:
+  - khuddaka-nikaya
+  - jataka
+  - ekakanipata
+  - pham-nhung-dieu-tam-thuong
+quality:
+  scores:
+    source_provenance: 9.6
+    semantic_fidelity: 9.4
+    grammar_logic: 9.3
+    segment_alignment: 10.0
+    terminology: 9.0
+    triangulation: 8.4
+    vietnamese_clarity: 9.4
+    han_viet_balance: 9.3
+    ambiguity_integrity: 9.0
+    technical_integrity: 9.6
+  final_score: 9.3000
+  blocking_errors: []
+  assessed_at: "2026-10-02"
+  assessed_by:
+    - "OpenCode Space Bunny Free (agent)"
+notes: |-
+  **Bản Anh Sujato VỀ SAI CHỖ ở `1.1`/`1.2`.** Sujato đặt *Speak, O King: what value has a cup of rice* vào khoá `1.1`, nhưng Pāli `1.1` là `Kimagghati taṇḍulanāḷikāyaṁ` (*gạo rang với đậu đáng giá bao nhiêu*) và `1.2` mới là `Assāna mūlāya vadehi rāja` (*… hãy nói, bạch đi vương*). Tôi dịch theo Pāli từng khoá. Sujato cũng thêm *horses* vào `1.2` — không có trong Pāli, tôi không dịch.
+
+  **`taṇḍula` tôi dịch *gạo rang*, khác tiền lệ *gạo* — và tôi nói rõ vì sao.** Trong tầng, `taṇḍula` đã được dịch *gạo* (`dn1:1.21.2` *tế gạo* cho `taṇḍulahoma`, `dn27:16.1` *hạt gạo* cho `taṇḍulapphala`). Nhưng `taṇḍula` theo từ điển tra là *gạo rang*, và ở đây nó là **tên một món ăn** — `taṇḍulanāḷikā` là món gạo rang trộn đậu, một đĩa cụ thể mà người ta định giá. Mất chữ *rang* thì mất chính cái đang được định giá. Tôi chọn *gạo rang* và ghi lại; nếu biên tập muốn thống nhất với *gạo* thì đổi một chữ ở `0.4`, `1.1`, `1.4`, `2.1`.
+
+  **`nāḷi` trong `taṇḍulanāḷi` là một loại đậu, nên tôi dịch *đậu*** (không khoá trong `taṇḍulanāḷikāyaṁ`; `nāḷi` ở `mn17:2.15.10` là đơn vị đo và tầng giữ chữ *nāḷi*, nhưng đó là nghĩa khác, không lẫn).
+
+  **`Bārāṇasī` tôi ghi *Varanasi*, theo 5 tiền lệ trong tầng** (`mn2.54` *Ta đến Varanasi*, `an3` *gần Varanasi*). Pāli Jātaka viết `Bārāṇasī`, nhưng chuẩn Việt của tầng là *Varanasi* và đồng nhất quan trọng hơn việc giữ nguyên dạng Pāli ở một tên riêng đã có 5 tiền lệ.
+
+  **`Assāna` (0 tiền lệ) tôi dịch *trăm đơn vị*.** Đây là đơn vị đo lương thực cổ (một `assanā` bằng khoảng trăm `nāḷi`), nên *trăm đơn vị* trung thành hơn *trăm* đứng trần. `rāja` gọi hô thì tôi dùng *thưa nhà vua*, đúng tiền lệ `mn82:42.50` cho thế cách gọi `rāja`.
+
+  **`0.3` `Apaṇṇakavagga` → *Phẩm Những Điều Tầm Thường* (0 tiền lệ).** `apaṇṇa` = tầm thường, vô dụng, không đáng suy nghĩ. Sujato dịch phẩm là *Sure Bet*, gần như không liên quan, nên tôi theo nghĩa từ. Đây là tên mới, chưa có tiền lệ trong tầng.
+
+  **Tầng Việt hiện hành không có.** Tại commit đã ghim, `translation/vi/` của bilara chỉ chứa 27 tệp Pháp Cú, nên không có bản Hòa thượng Thích Minh Châu để đối chiếu thuật ngữ cho bài này. Đây là giới hạn của bản chụp upstream, không phải thiếu sót của kho; `triangulation` vì thế chỉ là Pāli + English Sujato.
+
+  **Sàn coverage không kích hoạt, nhưng ô Anh trống KHÔNG phải đồng thuận.** Hàm `kiểm()` của `_hvi.py` lọc `cần = [k for k in p if len(p[k]) >= 40 …]`. Ở bài này mọi khoá Pāli ngắn hơn 40 ký tự, nên `cần` RỖNG và NFC / trùng nguyên văn Pāli / Pāli lọt / số dấu lược KHÔNG tự chạy. Tôi đã tự quét lại MỌI khoá bằng một lớp kiểm riêng áp đúng các quy tắc ấy lên toàn bài, và in ra từng cặp Pāli ↔ Việt để đọc đối kháng.
+
+  **Ngoại lệ đã đo, không phải lỗi.** Khoá `:0.1` trùng nguyên văn Pāli là quy ước của tầng: 168/516 tệp `kn/*` có `:0.1` là chuỗi Pāli nguyên văn (đếm bằng script). Tương tự, tên riêng mang dấu Pāli trong tiêu đề là tiền lệ (`thag1.101` Belaṭṭhānika, `thag1.11` Cūḷavaccha, `thag1.15` Kuṇḍadhāna), và dấu lược trần `…` xuất hiện 446 lần trong tầng.
+
+  **Tôi không chạy `npm run validate|test|check|build`** (đợt này cấm; người điều phối chạy tập trung), nên `technical_integrity` chấm 9.6 chứ không phải 10.0 — đúng như `thag1.107` đã làm.

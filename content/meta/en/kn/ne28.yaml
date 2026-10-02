@@ -1,0 +1,86 @@
+uid: ne28
+status: published
+translationTitle: "English fill (8 segment)"
+englishTitle: "Conveying a Reversal"
+translators:
+  - "OpenCode Space Bunny Free (agent)"
+reviewedAt: 2026-10-02
+tags:
+  - english-fill
+  - store
+  - khuddakanikaya
+quality:
+  scores:
+    source_provenance: 9.6
+    semantic_fidelity: 9.2
+    grammar_logic: 9.2
+    segment_alignment: 10.0
+    terminology: 9.2
+    triangulation: 8.0
+    vietnamese_clarity: 9.2
+    han_viet_balance: 9.3
+    ambiguity_integrity: 8.8
+    technical_integrity: 9.8
+  final_score: 9.23
+  blocking_errors: []
+  assessed_at: "2026-10-02"
+  assessed_by:
+    - "OpenCode Space Bunny Free (agent)"
+notes: |-
+  TẦNG NÀY KHÔNG CÓ BẢN ANH ĐỂ ĐỐI CHIẨU. Kiểm lại bằng hai cách độc lập trước khi
+  tin: (1) `source/upstream-manifest.json` → `editions[english-sujato].files` không có
+  tệp nào có tên bài này; (2) `sutajato()` của harness đọc thẳng cache → 0 khoá nào có
+  chữ trong toàn bộ bài, nên `fillable` = số khoá Pāli. Vì vậy đây KHÔNG phải lấp chỗ
+  trống quanh một bản Anh đã ghim, mà là **bản Anh của chính dự án, viết từ Pāli một
+  mình**: không có tầng Anh nào độc lập để so cú pháp, sắc thái hay cách dịch thuật
+  ngữ. `triangulation` vì thế chấm 8.0 cho **CẢ bài**, không phải vài khoá. Đây là
+  giới hạn thiết kế của lớp lấp — KHÔNG phải blocker, không phải thiếu sót phát
+  sinh; ghi ra đây để người biên tập không đọc nhầm thành lỗi riêng của bài.
+
+  LUẬT 3 "PĦLI TRÙNG THÌ DÙNG LẠI LỜI ĐÃ CÓ" — MÁY KHÔNG BẤT ĐƯỢC Ở LÁT NÀY, TỰ GIỮ
+  BẰNG SCRIPT: `save_fill` chỉ in cảnh báo khi Pāli trùng ở khoá khác **có bản Anh đã
+  ghim**; 12 bài của lát không có bản ghim nên nó im lặng hoàn toàn. Đã viết
+  `_re0_dup.py` đếm Pāli trùng giữa 15 bài của lát với toàn bộ tầng `en/project`
+  (822 khoá): 9 cụp trùng trong chính lát (24 khoá là bản lặp) và 18 cụp trùng với
+  bài khác; mỗi cụp giữ **một lời duy nhất**, và cụp nào đã có tiền lệ commit thì dùng
+  đúng lời đó.
+
+  BẢN VIỆT DỰ ÁN `content/translation/vi/project/sutta/kn/ne28_translation-vi-project.json` có đủ 8/8 khoá; dùng để **đối chiếu nghĩa**, không làm nguồn — nó cùng do một agent chấm nên không phải là lớp đọc độc lập, và `vietnamese_clarity` / `han_viet_balance` ở đây chấm theo bản Việt ấy chứ không theo một bản Việt đã xuất bản. Chỗ nào hai lớp bất đồng thì Pāli là authority và bất đồng được ghi ở mục dưới.
+
+  TỚNG THỨC NETTI: 0.1–0.4 (tiêu đề) + 1.1 (câu hỏi) + 2.1 (dẫn bài kệ) + 2.2
+  (nội dung) + 2.3 (`Niyutto parivattano hārasampāto.`).
+
+  TIỀN LỄ ĐẾM ĐƯỢC: `Netti` → "Netti" (4 tệp); `Paṭiniddesavāra` →
+  "Counter-demonstrative Subsection" (4 tệp); `Sampāta N` → "Combined Treatment N";
+  `…hārasampāta` → "Conveying …" (ne24:0.4 "Conveying Characteristics", ne30:0.4
+  "Conveying Descriptions", ne34:0.4 "Conveying Requisites"); câu hỏi và dòng chốt đi theo
+  khuôn "And what is the conveying of X?" / "The conveying of X has been applied." của
+  ne24:1.1 + 2.6 và ne30:1.1 + 2.6. Vì vậy 1.1 và 2.3 đã sửa từ "reversal-conveying"
+  (vênh, không có trong tầng) sang đúng khuôn đó.
+
+  PĀLI TRÙNG ĐÃ GIỮ MỘT LỜI: 2.1 `“Tasmā rakkhitacittassa, sammāsaṅkappagocaro”ti
+  gāthā.` trùng **nguyên văn** với ne24:2.1, ne30:2.1, ne34:2.1 — bốn tệp phải có một
+  lời, và ne28 giữ nguyên văn lời của ba tệp kia.
+
+  LỖI ĐÃ PHÁT HIỆN Ở TỆP KHÁC, KHÔNG THUỘC LÁT NÀY, KHÔNG TỰ SỬA: `ne29:2.1` có Pāli
+  **giống hệt** ne24/ne28/ne30/ne34, nhưng bản Anh lại dịch **một bài kệ khác** ("“Therefore
+  the guarded in mind has right purpose as its destination” is a verse.") — và đó lại là lời
+  của khoá 2.2 ngay bên cạnh (`“Tasmā rakkhitacittassā”ti cittaṁ mano viññāṇaṁ…`). Tức là
+  2.1 của ne29 đã lệch sang cấu trúc của 2.2. Đây là blocking error của một tệp khác;
+  báo ở đây để người điều phối xử lý.
+
+  `paṭipakkhena` (2.2) = "theo chiều đảo ngược" (đi ngược thứ tự của āryā ṣaṭṭaṅgika
+  marga) → "in reverse order"; bản Việt dự án: "theo chiều đảo ngược" ✓ khớp. `nirodho
+  phalaṁ` = "extinguishment is the fruit" ✓.
+
+  CỔNG KỸ THUẬT: `save_fill` PASS cho từng khoá (5 luật cơ học: chỉ điền khoá Pāli có
+  chữ và bản Anh đã ghim để trống; số dấu lược / ngoặc mở / ngoặc đóng / dấu hỏi khớp
+  Pāli THEO TỪNG KHOÁ; không mở rộng `…pe…`; không lọt chữ Pāli; NFC; không khoảng
+  trắng đôi). Quét bổ sung trên riêng 15 tệp của lát: 0 cờ "từ Pāli lọt", 0 cờ "sót
+  `pe…`", 0 cỗ "ngoặc treo", 0 cờ khoảng trắng đôi; 3 cờ "lặp cụm" đều hợp lệ và đã
+  giải trình trong `notes` (xem `mil3.7.13.yaml` và `ud6.2.yaml`). CHƯA chạy —
+  `npm run validate`, `npm test`, `npm run check`, `npm run build`: lát này bị BRIEF cấm
+  chạy vì chậm và xung đột khi nhiều agent chạy song song. Vì vậy `technical_integrity`
+  chấm 9.8 chứ không 10.0, và đây là việc NGƯỜI ĐIỀU PHỐI phải chạy lại trước khi coi
+  bài là xuất bản — ghi thẳng ra đây thay vì để trong im lặng.
+

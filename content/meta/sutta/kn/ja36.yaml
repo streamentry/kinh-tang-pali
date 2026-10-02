@@ -1,0 +1,43 @@
+uid: ja36
+status: published
+translationTitle: "Kinh Sakuṇajātaka"
+translators:
+  - "OpenCode Space Bunny Free (agent)"
+reviewers: []
+tags:
+  - khuddaka-nikaya
+  - jataka
+  - ekakanipata
+  - kulavakavagga
+quality:
+  scores:
+    source_provenance: 9.5
+    semantic_fidelity: 9.2
+    grammar_logic: 9.1
+    segment_alignment: 10.0
+    terminology: 9.1
+    triangulation: 8.9
+    vietnamese_clarity: 9.3
+    han_viet_balance: 9.3
+    ambiguity_integrity: 8.8
+    technical_integrity: 9.6
+  final_score: 9.28
+  blocking_errors:
+    []
+  assessed_at: "2026-10-02"
+  assessed_by:
+    - "OpenCode Space Bunny Free (agent)"
+notes: |-
+  **Tự kiểm, vì `cần` của `_hvi.py` RỖNG** (mọi vế kệ dưới 40 ký tự). Tôi quét MỌI khoá: đúng 9/9, đúng segment ID, NFC, số dấu lược bằng Pāli từng khoá, ngoặc kép mở ở `1.1` và đóng ở `:2.1` (hoặc `1.4`), nên cân trên cả bài, không Pāli lọt, không còn `(…)`. `kiểm()` chạy lại từ đĩa pass; `save_vi` hai lần không đổi byte.
+
+  **Tiêu đề và phẩm theo tiền lệ, đếm được.** `Jātaka` giữ nguyên (129 chỗ). `Ekakanipāta` → *Bộ Một Bài Kinh*. Dòng niết `<X>jātakaṁ <số>` → *Kinh <X> thứ <số>.* theo đa số trên đĩa (71 chỗ không dấu phẩy so với 24 có). Tên riêng giữ nguyên dạng Pāli ở cả `:0.4` và dòng niết — cùng cách *Kinh Paṇṇikajātaka*, *Kinh Udañcanījātaka*, *Kinh Sālittakajātaka*, *Kinh Parosata* đã có.
+
+  **Ngoặc kép ở khoá cuối.** Pāli `ja67:1.4` là `Yato sodariyamānayeti.` — mở `“` ở `1.1` mà **không** có `”ti` đóng. Tôi đóng `”` ở `1.4` (không có `ti`, vì Pāli không có), đúng cách `ja115:1.4` đã làm cho đúng trường hợp này. Các bài Jātaka còn lại trong lát có `”ti` ở vế cuối nên tôi giữ `”ti`.
+
+  **Không đối chiếu được tầng Việt hiện hành** tại commit đã ghim (bilara `translation/vi/` chỉ có 26 chương Pháp Cú), nên `triangulation` là Pāli + English Sujato.
+  **Tôi cố ý không theo Sujato ở ba chỗ, và ghi lại để biên tập cân.** (1) `vakkaṅgā` — Sujato dịch thành *Geese!*, tức thêm loài vật không có trong Pāli; Pāli `vakkaṅga` là *có hông/cánh*, nên tôi dịch *hỡi những kẻ có cánh*. (2) `Yaṁ … nissitā jagatiruhaṁ vihaṅgamā` — Sujato đọc `jagatiruhaṁ` là *the great evergreen* và thêm *evergreen* (thường xanh) không có trong Pāli; tôi dịch *cây đại thụ của thế giới ấy* theo nghĩa gốc. (3) `Disā` là *sang hướng kia*, không phải *to the quarters* của Sujato; tôi dịch *Hãy chạy sang bên kia*.
+
+  **Bất định thật, đã ghi, cần người biên tập quyết:** `Jātaṁ saraṇato bhayan`. `saraṇato` có hai nghĩa cạnh tranh — *cây saraṇa* (tên loài cây) và *chỗ nương tựa*. Sujato đọc theo nghĩa thứ hai (*The threat is born from the refuge*). **Tôi chọn nghĩa cây** vì lập luận ngữ pháp: nếu `saraṇato` là *chỗ nương tựa* thì `Jātaṁ … bhayan` (*đã sinh … từ nỗi sợ*) thiếu động từ chủ đạo, câu không đứng được; đọc thành *cây saraṇa đã mọc lên* thì câu đủ mệnh — và truyện Sakuṇa, chim trú trên cây. Đây là chỗ tôi hạ `ambiguity_integrity` xuống 8.8 vì chưa có parallel Pāli nào trong corpus đã ghim để phân xử tuyệt đối.
+
+  **Thuật ngữ đặt mới, kèm số tiền lệ.** `sakuṇa` (**0 tiền lệ**) → giữ Pāli trong tiêu đề *Kinh Sakuṇajātaka*, vì `sakuṇa` là tên một loài chim và Sujato chỉ để *Bird*; giữ Pāli an toàn hơn đặt tên loài. `Kulāvakavagga` → *Phẩm Kulāvaka* (**0 tiền lệ**; giữ Pāli, cùng cách *Phẩm Santhava* / *Phẩm Litta*; `kulāvaka` là chim nhỏ, cách Việt chắc chắn không có). `vihaṅgamā` → *đang bay lượn*; `nissitā` → *nương vào* (quan hệ nhân, không phải *bám*); `jagatiruha` → *cây đại thụ của thế giới*; `svāyaṁ` → *lớn*; `pamuñcati` → *bùng lên*; `bhajatha` → *chạy*; `bhayan` → *mối nguy*.
+  **Những lỗi bản đầu tôi tự bắt khi đọc đối kháng (đã sửa hết, ghi lại để người đọc scorecard biết điều gì đã qua):** `1.1` bản đầu đảo mất `Yaṁ … nissitā` và dịch `jagatiruhaṁ` thành *cây đại thụ ấy* — sửa thành *Các ngươi đang bay lượn, nương vào cây đại thụ của thế giới ấy,* để không mất chức năng quan hệ của `Yaṁ`.

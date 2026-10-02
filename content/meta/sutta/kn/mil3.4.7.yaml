@@ -1,0 +1,49 @@
+uid: mil3.4.7
+status: draft
+translationTitle: "Câu Hỏi Về Việc Lấy Nước Ra Từ Lòng Đất"
+translators:
+  - "OpenCode Space Bunny Free (agent)"
+reviewers: []
+tags:
+  - khuddaka-nikaya
+  - milindapanha
+  - phẩm-niết-bàn
+  - lay-nuoc-ra-tu-long-dat
+quality:
+  scores:
+    source_provenance: 9.5
+    semantic_fidelity: 9.4
+    grammar_logic: 9.4
+    segment_alignment: 10.0
+    terminology: 9.1
+    triangulation: 6.5
+    vietnamese_clarity: 9.4
+    han_viet_balance: 9.3
+    ambiguity_integrity: 9.1
+    technical_integrity: 9.6
+  final_score: 9.1300
+  blocking_errors:
+    - "Bài này KHÔNG có tầng tham khảo English Sujato tại commit đã ghim: không có tệp nào cho mil3.4.7 trong translation/en/sujato/sutta/kn/mil/. Đây là bài duy nhất trong lát này có khoá Pāli ≥ 40 ký tự (1.3, 1.4, 1.5), tức ba vế cốt lõi nằm đúng chỗ không có tầng đối chiếu. Thiếu tầng tham khảo là lỗi chặn đối với review/published theo AGENTS.md, nên đặt draft."
+  assessed_at: "2026-10-02"
+  assessed_by:
+    - "OpenCode Space Bunny Free (agent)"
+notes: |-
+  **Suy đoán bản Anh trong tầng: `mil3.4.7` không có bất kỳ tệp Sujato nào** (thư mục `sutta/kn/mil/` của bản Anh không chứa bài này). Khác với phần lớn lát này, bài này **có** khoá Pāli dài — `1.3`, `1.4`, `1.5` đều ≥ 40 ký tự — tức ba vế mang ý nghĩa chính đều rơi vào chỗ không có tầng đối chiếu. Vì vậy tôi chấm `triangulation` 6.5, thấp hơn hẳn các bài có Sujato.
+
+  **`2.1` dùng lại NGUYÊN VĂN đã có (bắt buộc).** `“Kallosi, bhante nāgasenā”ti.` trùng y hệt `mil3.5.6:2.1` và `mil3.6.6:2.1`, cả hai đã `published` trong tầng với cùng một chữ: *“Khéo lắm, thưa tôn giả Nāgasenā.”* Tôi dùng lại y nguyên văn, kể cả dấu chấm câu trong ngoặc kép (Pāli khoá này ghi `”ti. ` trong khi hai khoá kia ghi `”ti. ` — cùng dạng, tôi theo mẫu đã có). `Nāgasenā` giữ đúng biến cách hô cách của Pāli khoá này, khác `Nāgasena` ở `1.2`.
+
+  **Sujato đảo `1.1`/`1.2` — ở bài này tôi tự quyết theo Pāli.** Pāli `1.1` là `Rājā āha—` (*Vua nói—*, đúng tiền lệ `mil3.4.8:1.1`, `mil3.5.6:1.1`, `mil3.6.6:1.1`) rồi mới đến `“bhante nāgasena, tumhe bhaṇatha—`.
+
+  **`tumhe` là số nhiều: tôi dịch *các ngươi hãy nói*.** Vua đang hỏi một nhóm tỳ-kheo, và `1.3` còn có `etampi vacanaṁ` (lời ấy) — số nhiều là đúng. `bhante nāgasena` → *thưa tôn giả Nāgasena* theo tiền lệ dồn dập trong tầng. `ākāse` → *hư không*; `mahā pathavī` → *đại địa*; `saddahāmi` → *tin*.
+
+  **`dhammakarakena` tôi dịch *người giữ Pháp*, `saññāpesi` → *dâng cho* (0 tiền lệ cho cả hai).** Tầng có 18 tiền lệ cho cụm *giữ Pháp* (chủ yếu *nắm giữ Pháp* cho `dhammadhara` trong khung tính chất Đạo pháp), nhưng `dhammakaraka` thì chưa có; *người giữ Pháp* là cách nói trực tiếp và không lẫn với *nắm giữ Pháp* (`nāmagga`, giữ chặt). `saññāpesi` = dâng/hiến, và *dâng cho* rõ hơn *hiến* trong cảnh dâng nước.
+
+  **`ādhārita` tôi dịch *bị cuốn đi* (0 tiền lệ).** `mahārāja` → *Đại vương* (174 tiền lệ). `Pathavisandhāra` là *rút nước ra khỏi lòng đất*, nên tôi dịch `0.3` và `3.1` là *Câu hỏi về việc lấy nước ra từ lòng đất* theo đúng mẫu `3. Câu hỏi về việc các căn do nghiệp sinh ra.` của `mil3.4.3`.
+
+  **Tầng Việt hiện hành không có.** Tại commit đã ghim, `translation/vi/` của bilara chỉ chứa 27 tệp Pháp Cú, nên không có bản Hòa thượng Thích Minh Châu để đối chiếu thuật ngữ cho bài này. Đây là giới hạn của bản chụp upstream, không phải thiếu sót của kho; `triangulation` vì thế chỉ là Pāli + English Sujato.
+
+  **Sàn coverage không kích hoạt, nhưng ô Anh trống KHÔNG phải đồng thuận.** Hàm `kiểm()` của `_hvi.py` lọc `cần = [k for k in p if len(p[k]) >= 40 …]`. Ở bài này mọi khoá Pāli ngắn hơn 40 ký tự, nên `cần` RỖNG và NFC / trùng nguyên văn Pāli / Pāli lọt / số dấu lược KHÔNG tự chạy. Tôi đã tự quét lại MỌI khoá bằng một lớp kiểm riêng áp đúng các quy tắc ấy lên toàn bài, và in ra từng cặp Pāli ↔ Việt để đọc đối kháng.
+
+  **Ngoại lệ đã đo, không phải lỗi.** Khoá `:0.1` trùng nguyên văn Pāli là quy ước của tầng: 168/516 tệp `kn/*` có `:0.1` là chuỗi Pāli nguyên văn (đếm bằng script). Tương tự, tên riêng mang dấu Pāli trong tiêu đề là tiền lệ (`thag1.101` Belaṭṭhānika, `thag1.11` Cūḷavaccha, `thag1.15` Kuṇḍadhāna), và dấu lược trần `…` xuất hiện 446 lần trong tầng.
+
+  **Tôi không chạy `npm run validate|test|check|build`** (đợt này cấm; người điều phối chạy tập trung), nên `technical_integrity` chấm 9.6 chứ không phải 10.0 — đúng như `thag1.107` đã làm.

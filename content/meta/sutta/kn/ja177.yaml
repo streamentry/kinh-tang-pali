@@ -1,0 +1,49 @@
+uid: ja177
+status: draft
+translationTitle: "Kinh Chim Tinduka"
+translators:
+  - "OpenCode Space Bunny Free (agent)"
+reviewers: []
+tags:
+  - "khuddaka-nikaya"
+  - "jataka"
+  - "dukanipata"
+  - "pham-phap-lanh"
+quality:
+  scores:
+    source_provenance: 9.4
+    semantic_fidelity: 8.6
+    grammar_logic: 8.5
+    segment_alignment: 10.0
+    terminology: 8.8
+    triangulation: 8.0
+    vietnamese_clarity: 8.8
+    han_viet_balance: 9.0
+    ambiguity_integrity: 8.6
+    technical_integrity: 9.6
+  final_score: 8.93
+  blocking_errors:
+    - "Thiếu tầng tham khảo English Sujato tại commit đã ghim: `source/upstream-manifest.json` xác nhận `sutta/kn/ja/ja177_translation-en-sujato.json` không có trong git tree của commit đã ghim (not-published-upstream), nên bài chỉ đối chiếu được với Pāli root một mình."
+  assessed_at: "2026-10-02"
+  assessed_by:
+    - "OpenCode Space Bunny Free (agent)"
+notes: |-
+  CHỐT KHÔNG TỰ CHẠY — ĐÃ TỰ KIỂM THỦ CÔNG. `_hvi.kiểm` chỉ quét `cần` = khoá Pāli ≥ 40 ký tự. Ở 16/17 bài của lát này khoá Pāli dài nhất chỉ 19–35 ký tự nên `cần` rỗng và vòng chốt NFC / trùng nguyên văn Pāli / Pāli lọt / số dấu lược KHÔNG CHẠY LẦN NÀO. Tôi tự quét lại **164/164 khoá** bằng chính các hàm đó (`_chk_rv3.py`): 0 lỗi — không khoá rỗng, không khoá thừa so với Pāli, không thiếu khoá, mọi chuỗi NFC, số dấu lược khớp Pāli từng khoá, ngoặc kép cân trên cả bài, ngoặc tròn cân, không còn `(…)`, không còn sót `pe…`. Chỉ `mil3.1.7` có 4 khoá ≥ 40 ký tự (`:1.2`–`:1.5`) nên ở bài đó chốt thật sự có chạy. `save_vi` chạy sạch, chạy lại hai lần idempotent.
+
+  COVERAGE — ĐO BẰNG CHÍNH HÀM CỦA KHO (chỉ đọc, `englishCoverageFor`). Cả **17/17 bài ra `ratio = 1`**: 16 bài có `substantiveSegments = 0` vì không khoá Pāli nào đủ 40 ký tự; `mil3.1.7` có 4 khoá substantive. Không bài nào rơi dưới ngưỡng 0,8 nên **không** cần mục trong `content/meta/reference-gaps.yaml` — tệp đó tôi không đụng tới.
+
+  KHÔNG ĐỐI CHIẾU ĐƯỢC TẦNG VIỆT HIỆN HÀNH. Tại commit đã ghim, `translation/vi/` của bilara chỉ chứa Pháp Cú, nên không có bản Hòa thượng Thích Minh Châu cho bất kỳ bài nào trong lát này. Đây là đặc điểm của bản chụp upstream, không phải thiếu sót của kho; `triangulation` vì thế là **Pāli + English Sujato + các bài song song trong chính tầng này**.
+
+  KỸ THUẬT. Tôi KHÔNG chạy `npm run validate|test|build|check` — đợt này người điều phối cấm và chạy tập trung. Vì vậy `technical_integrity` chấm **9.6 chứ không phải 10.0**; đó là hạn chế thật của lượt đánh giá này chứ không phải lời khen. Tất cả những gì chạy được thì đã chạy.
+
+  **BLOCKER: THIẾU TẦNG THAM KHẢO ANH.** `source/upstream-manifest.json` (tầng `english-sujato`, 4.291 tệp) **không** có `sutta/kn/ja/ja177*`; `ls .cache/upstream/suttacentral/translation/en/sujato/sutta/kn/ja/ | grep ja177` rỗng. Đây là `not-published-upstream`, không phải cache chưa tải. Bài vì thế chỉ đứng được trên Pāli root một mình, và tôi đặt `draft` — không tự nâng điểm để né blocker.
+
+  **TÔI ĐÃ DÙNG ĐƯỢC GÌ ĐỂ ĐỌC PĀLI KHI KHÔNG CÓ TẦNG ANH.** (1) API SuttaCentral cho tên bài và blurb của chính bài: `Tinduka Jātaka`, blurb *All around us see them stand* — chuyện Đức Thế Tôn kể ở Jetavana về **sự hiểu biết toàn tâm**. (2) Blurb đó xác nhận ý câu kệ: *không phải chỉ lần này Ta mới có trí tuệ, mà trước đây Ta cũng có, và đầy tài năng sáng tạo*. (3) Tên bài dùng tiếng Anh `translations` của SuttaCentral: W.H.D. Rouse 1895, Dutoit 2007, Zoysa — tôi **không** chép văn bản dịch của họ vào thân bản, chỉ dùng metadata tên bài. Những tra cứu này là từ điển/tư liệu học thuật theo `skill/translation.md` §3.2 mục 5, không phải tầng store nên không tính vào coverage.
+
+  **BẤT ĐỊNH ĐÃ GHI — `1.1 Dhanuhatthakalāpehi` (CHƯA PHÂN XỬ ĐƯỢC).** Đây là một chuỗi ghép không có trong chỗ nào khác của kinh điển và không có bản Anh đã ghim: `dhanu` (cung) + `hattha` (tay) + `kalāpa` (dải, hàng, cả). Tôi đọc là *tay chân chim cứng đơ như dải cung* — ấn tượng chung của bài khi chim bị trói, và khớp với `1.2` (`nettiṁ savaradhāribhi` = dây cương và những kẻ mang tên). **Đây là chỗ dịch thiếu chắc nhất của lát này**; nếu biên tập có một bản Việt Thích Minh Châu (budsas) cho Tạng Bộ thì nên đối chiếu lại đúng cặp `1.1`–`1.2`. Tôi đã hạ `semantic_fidelity` và `ambiguity_integrity` vì lý do này.
+
+  **BẤT ĐỊNH ĐÃ GHI — `2.4 khajjathaññeva tindukan`.** `khajjathañña` = *thứ đáng ăn*. Tôi dịch *chỉ có chim Tinduka mới biết thức ăn ấy*, giữ tức từ. Cách đọc khả dĩ: cây chưa chặt (`Atthi rukkhassa acchinnaṁ`) thì **chỉ chim Tinduka biết là thức ăn** — tức là kiến thức ấy của nó là độc nhất, đúng chủ đề của bài.
+
+  **TÊN BÀI.** `tinduka` là tên loài chim (PED), nên tôi giữ *Chim Tinduka* chứ không đoán loài cụ thể; Sujato tên bài là *Tinduka*, không dịch loài. `0.3 Kalyāṇavagga` → *Phẩm Pháp Lành* (6 tiền lệ: `ja171`–`ja176`).
+
+  **`0.2 Dukanipāta` — TÔI CỐ Ý KHÔNG THEO ĐA SỐ, XEM DƯỚI.** 33 bài Jātaka Dukanipāta đã có trên đĩa: 26 dùng *Tập Kẻ Đau Đớn*, 7 dùng *Bộ Hai Bài Kinh*. Tôi chọn **Bộ Hai Bài Kinh** vì `duka` trong `Dukanipāta` là **số hai** chứ không phải *đau* — cùng loại với `catu`, `pañca`, `aṭṭha`, `dasā`, `ekādasa`, `dvādasa` trong dãy nipāta, và tầng này đã tự dịch `Ekakanipāta` → *Bộ Một Bài Kinh*. *Tập Kẻ Đau Đớn* là lỗi đọc từ. **Người biên tập nên sửa 26 khoá `:0.2` kia cho cả một quyết định.**

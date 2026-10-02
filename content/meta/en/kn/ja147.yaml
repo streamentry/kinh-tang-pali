@@ -1,0 +1,84 @@
+uid: ja147
+status: published
+translationTitle: "English fill (9 segment)"
+englishTitle: "A Die of Flowers: a past life story"
+translators:
+  - "OpenCode Space Bunny Free (agent)"
+reviewedAt: 2026-10-02
+tags:
+  - english-fill
+  - store
+  - khuddakanikaya
+quality:
+  scores:
+    source_provenance: 9.6
+    semantic_fidelity: 9.2
+    grammar_logic: 9.3
+    segment_alignment: 10.0
+    terminology: 9.1
+    triangulation: 8.0
+    vietnamese_clarity: 9.4
+    han_viet_balance: 9.4
+    ambiguity_integrity: 8.8
+    technical_integrity: 9.8
+  final_score: 9.26
+  blocking_errors: []
+  assessed_at: "2026-10-02"
+  assessed_by:
+    - "OpenCode Space Bunny Free (agent)"
+notes: |-
+  TẦNG NÀY KHÔNG CÓ BẢN ANH ĐỂ ĐỐI CHIẨU. Kiểm lại bằng hai cách độc lập trước khi
+  tin: (1) `source/upstream-manifest.json` → `editions[english-sujato].files` không có
+  tệp nào có tên bài này; (2) `sutajato()` của harness đọc thẳng cache → 0 khoá nào có
+  chữ trong toàn bộ bài, nên `fillable` = số khoá Pāli. Vì vậy đây KHÔNG phải lấp chỗ
+  trống quanh một bản Anh đã ghim, mà là **bản Anh của chính dự án, viết từ Pāli một
+  mình**: không có tầng Anh nào độc lập để so cú pháp, sắc thái hay cách dịch thuật
+  ngữ. `triangulation` vì thế chấm 8.0 cho **CẢ bài**, không phải vài khoá. Đây là
+  giới hạn thiết kế của lớp lấp — KHÔNG phải blocker, không phải thiếu sót phát
+  sinh; ghi ra đây để người biên tập không đọc nhầm thành lỗi riêng của bài.
+
+  LUẬT 3 "PĦLI TRÙNG THÌ DÙNG LẠI LỜI ĐÃ CÓ" — MÁY KHÔNG BẤT ĐƯỢC Ở LÁT NÀY, TỰ GIỮ
+  BẰNG SCRIPT: `save_fill` chỉ in cảnh báo khi Pāli trùng ở khoá khác **có bản Anh đã
+  ghim**; 12 bài của lát không có bản ghim nên nó im lặng hoàn toàn. Đã viết
+  `_re0_dup.py` đếm Pāli trùng giữa 15 bài của lát với toàn bộ tầng `en/project`
+  (822 khoá): 9 cụp trùng trong chính lát (24 khoá là bản lặp) và 18 cụp trùng với
+  bài khác; mỗi cụp giữ **một lời duy nhất**, và cụp nào đã có tiền lệ commit thì dùng
+  đúng lời đó.
+
+  BẢN VIỆT DỰ ÁN `content/translation/vi/project/sutta/kn/ja147_translation-vi-project.json` có đủ 9/9 khoá; dùng để **đối chiếu nghĩa**, không làm nguồn — nó cùng do một agent chấm nên không phải là lớp đọc độc lập, và `vietnamese_clarity` / `han_viet_balance` ở đây chấm theo bản Việt ấy chứ không theo một bản Việt đã xuất bản. Chỗ nào hai lớp bất đồng thì Pāli là authority và bất đồng được ghi ở mục dưới.
+
+  TIỀN LỄ ĐẾM ĐƯỢC: xem mục TIỀN LỆ ở `ja96.yaml`. TÊN PHẨM `Kakaṇṭakavagga` →
+  "The Iguana Who Befriended a Chameleon" (tên SuttaCentral tại commit đã ghim; cùng cách
+  và cùng lý do đổi như `ja143.yaml`).
+
+  SỬA LỚN NHẤT CỦA BÀI, DO REVIEW ĐỐI KHÁNG BẮT ĐƯỢC: `puppharatta` là **quân xúc xắc
+  vẽ hoa**, không phải "đêm hoa". Ba cớ độc lập:
+  (1) tệp TÊN của chính SuttaCentral tại commit đã ghim đặt tên bài này là `…ja147`
+  = "A Die of Flowers", và khuôn 0.4 của tầng là lấy đúng tên đó;
+  (2) cốt truyện — quạ mổ mất thứ Sāmā đang chơi, nên Sāmā không được dự lễ `Kattika`
+  (1.2–1.4); đó là chuyện xúc xắc, không phải chuyện một đêm hoa;
+  (3) `ratta` trong từ này là "quân xúc xắc" theo PED, không phải `rattā` = "đêm".
+  Bản Anh cũ của một lượt chạy trước ghi "The Flower Night", và **bản Việt dự án cũng ghi
+  "Kinh Đêm Hoa"** — tức là cả hai lớp cùng đọc `ratta` thành "đêm". Tôi theo Pāli và
+  theo tên SuttaCentral đã ghim, nên 0.4 và 2.1 đổi thành "A Die of Flowers", 1.3 thành
+  "with the flower-dice". Hệ quả phải nói thẳng: hai lớp sẽ hiện ra **hai tiêu đề khác
+  nhau** cho cùng một bài, và đó là điểm người biên tập cần phân xử (sửa bản Việt, hay
+  giữ cả hai rồi ghi chú). Vì còn một cách đọc nên hạ semantic_fidelity và
+  ambiguity_integrity.
+
+  `Kattika` (1.4) = lễ hội / tháng Kattika → "the Kattika festival" (bản Việt dự án: "lễ
+  Kattika"). `vāyasa` (1.2) = con quạ → "the crow". `sāmā` (1.3) là **tên riêng** của người
+  nữ, giữ dấu Pāli `Sāmā`; chốt của repo cho phép vì tầng Anh đã ghim dùng chữ có dấu
+  Pāli trong tên riêng, và `_lọt_pāli` của harness đã cho qua.
+
+  CỔNG KỸ THUẬT: `save_fill` PASS cho từng khoá (5 luật cơ học: chỉ điền khoá Pāli có
+  chữ và bản Anh đã ghim để trống; số dấu lược / ngoặc mở / ngoặc đóng / dấu hỏi khớp
+  Pāli THEO TỪNG KHOÁ; không mở rộng `…pe…`; không lọt chữ Pāli; NFC; không khoảng
+  trắng đôi). Quét bổ sung trên riêng 15 tệp của lát: 0 cờ "từ Pāli lọt", 0 cờ "sót
+  `pe…`", 0 cỗ "ngoặc treo", 0 cờ khoảng trắng đôi; 3 cờ "lặp cụm" đều hợp lệ và đã
+  giải trình trong `notes` (xem `mil3.7.13.yaml` và `ud6.2.yaml`). CHƯA chạy —
+  `npm run validate`, `npm test`, `npm run check`, `npm run build`: lát này bị BRIEF cấm
+  chạy vì chậm và xung đột khi nhiều agent chạy song song. Vì vậy `technical_integrity`
+  chấm 9.8 chứ không 10.0, và đây là việc NGƯỜI ĐIỀU PHỐI phải chạy lại trước khi coi
+  bài là xuất bản — ghi thẳng ra đây thay vì để trong im lặng.
+

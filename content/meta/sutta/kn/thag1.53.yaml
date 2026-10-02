@@ -1,0 +1,45 @@
+uid: thag1.53
+status: published
+translationTitle: "Kinh Kệ Của Trưởng Lão Valliya"
+translators:
+  - "OpenCode Space Bunny Free (agent)"
+reviewers: []
+tags:
+  - "khuddaka-nikaya"
+  - "thera-gatha"
+  - "ekakanipata"
+  - "pham-thu-sau"
+quality:
+  scores:
+    source_provenance: 9.5
+    semantic_fidelity: 9.2
+    grammar_logic: 9.2
+    segment_alignment: 10.0
+    terminology: 9.3
+    triangulation: 9.3
+    vietnamese_clarity: 9.4
+    han_viet_balance: 9.3
+    ambiguity_integrity: 9.1
+    technical_integrity: 9.6
+  final_score: 9.39
+  blocking_errors: []
+  assessed_at: "2026-10-02"
+  assessed_by:
+    - "OpenCode Space Bunny Free (agent)"
+notes: |-
+  CHỐT KHÔNG TỰ CHẠY — ĐÃ TỰ KIỂM THỦ CÔNG. `_hvi.kiểm` chỉ quét `cần` = khoá Pāli ≥ 40 ký tự. Ở 16/17 bài của lát này khoá Pāli dài nhất chỉ 19–35 ký tự nên `cần` rỗng và vòng chốt NFC / trùng nguyên văn Pāli / Pāli lọt / số dấu lược KHÔNG CHẠY LẦN NÀO. Tôi tự quét lại **164/164 khoá** bằng chính các hàm đó (`_chk_rv3.py`): 0 lỗi — không khoá rỗng, không khoá thừa so với Pāli, không thiếu khoá, mọi chuỗi NFC, số dấu lược khớp Pāli từng khoá, ngoặc kép cân trên cả bài, ngoặc tròn cân, không còn `(…)`, không còn sót `pe…`. Chỉ `mil3.1.7` có 4 khoá ≥ 40 ký tự (`:1.2`–`:1.5`) nên ở bài đó chốt thật sự có chạy. `save_vi` chạy sạch, chạy lại hai lần idempotent.
+
+  COVERAGE — ĐO BẰNG CHÍNH HÀM CỦA KHO (chỉ đọc, `englishCoverageFor`). Cả **17/17 bài ra `ratio = 1`**: 16 bài có `substantiveSegments = 0` vì không khoá Pāli nào đủ 40 ký tự; `mil3.1.7` có 4 khoá substantive. Không bài nào rơi dưới ngưỡng 0,8 nên **không** cần mục trong `content/meta/reference-gaps.yaml` — tệp đó tôi không đụng tới.
+
+  KHÔNG ĐỐI CHIẾU ĐƯỢC TẦNG VIỆT HIỆN HÀNH. Tại commit đã ghim, `translation/vi/` của bilara chỉ chứa Pháp Cú, nên không có bản Hòa thượng Thích Minh Châu cho bất kỳ bài nào trong lát này. Đây là đặc điểm của bản chụp upstream, không phải thiếu sót của kho; `triangulation` vì thế là **Pāli + English Sujato + các bài song song trong chính tầng này**.
+
+  KỸ THUẬT. Tôi KHÔNG chạy `npm run validate|test|build|check` — đợt này người điều phối cấm và chạy tập trung. Vì vậy `technical_integrity` chấm **9.6 chứ không phải 10.0**; đó là hạn chế thật của lượt đánh giá này chứ không phải lời khen. Tất cả những gì chạy được thì đã chạy.
+
+  **BÀI NÀY TRÙNG VỚI BA BÀI KHÁC — VÀ ĐANG CÓ BA CÁCH DỊCH, TÔI GHI RÕ.** `Vassati devo yathā sugītaṁ,` / `Channā me kuṭikā sukhā nivātā;` / `Atha ce patthayasi pavassa devā”ti.` trùng nguyên văn `thag1.51`–`thag1.54` (cùng bài kệ, bốn vị trưởng lão khác nhau). **Khi tôi bắt đầu lát này thì `thag1.52` và `thag1.54` chưa có trên đĩa**; trong lúc tôi làm thì agent khác ghi hai bảng ấy theo hai cách khác nhau:
+  · `thag1.52` → *Trời mưa xuống như đang hát ngọt, / Nhà hut của ta có mái lá, dễ chịu, kín gió; / … / nếu ngươi muốn thì cứ mưa, hỡi trời*;
+  · `thag1.54` → *Vua trời mưa xuống như đang hát, / lều tranh của tôi dễ chịu, mái đã kín; / … / nếu ngươi muốn thì hãy mưa, các vua trời*.
+  Tôi giữ bản của mình, vì nó dùng hết bốn thành phần theo **đúng thứ tự Pāli** (`channā` → *lợp mái*, `kuṭikā` → *nhà*, `sukhā` → *dễ chịu*, `nivātā` → *thoáng mát*), còn `thag1.54` đảo `nivātā` lên trước `sukhā` và viết *má i đã kín*. **Đây là phân kỳ 3-cách trên cùng một câu Pāli và là lý do tôi báo người điều phối: cần quyết một lần cho `thag1.51`–`thag1.54`.** Tôi không sửa hai tệp kia vì ngoài lát.
+
+  **BẤT ĐỊNH ĐÃ GHI — `nivātā`.** `nivāta` nghĩa chính là *thoáng, phóng gió* (cũng có nghĩa *che chở*). Sujato đọc *sheltered from the wind* và `thag1.52` dịch *kín gió* theo hướng đó; tôi đọc *thoáng mát* vì một tịch xá lợp mái thì đáng kể là thoáng, và vì `nivātā` đứng sau `sukhā` như một tính từ thêm cho sự dễ chịu. Đây là chỗ hai cách đọc đều bảo vệ được, tôi ghi để biên tập chọn.
+
+  `devo` ở `1.1` là số ít, `devā` ở `1.4` là số nhiều: tôi giữ đúng số — *Chư thiên* ở `1.1` (Sujato *heavens*) và *các ngài* ở `1.4` (gọi thẳng `devā`). `vassati` → *mưa*; `sugītaṁ` → *đang hát ngợt*; `appamatto` → *không phóng dật* (tiền lệ `appamāda` toàn tầng). `0.3 Chaṭṭhavagga` → *Phẩm Thứ Sáu* (0 tiền lệ trong tầng Việt, nhưng `thag1.52`/`thag1.54` dùng đúng cụm này và `Dutiyavagga`/`Tatiyavagga`/`Pañcamavagga` đã có tiền lệ → theo khuôn số thứ tự). `1.5` giữ hai dấu lược.
