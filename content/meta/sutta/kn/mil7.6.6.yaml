@@ -1,0 +1,104 @@
+uid: mil7.6.6
+status: draft
+translationTitle: "Câu Hỏi Về Phần Của Con Sếu"
+translators:
+  - "OpenCode Space Bunny Free (agent)"
+reviewers: []
+tags:
+  - khuddaka-nikaya
+  - milindapanha
+  - opammakatha
+  - pham-su-tu
+  - cau-hoi-ve-phan-cua-con-seu
+quality:
+  scores:
+    source_provenance: 9.5
+    semantic_fidelity: 9.2
+    grammar_logic: 9.3
+    segment_alignment: 10.0
+    terminology: 9.1
+    triangulation: 7.5
+    vietnamese_clarity: 9.3
+    han_viet_balance: 9.3
+    ambiguity_integrity: 8.9
+    technical_integrity: 9.6
+  final_score: 9.17
+  blocking_errors:
+    - "Không có tầng tham khảo tiếng Anh tại commit đã ghim: 0/14 bài của lát w6 có tệp `*_translation-en-sujato.json`. Đã đếm ở nguồn sự thật là `source/upstream-manifest.json` (edition `translation/en/sujato`: 4291 tệp, trong đó 755 tệp `kn/`, và KHÔNG có tệp `mil*` nào ngoài `name/sutta/mil-name`), rồi đếm lại trong cache đã ghin. Cũng không có bản Việt hiện hành: `translation/vi/phantuananh` tại commit đã ghim chỉ có 26 tệp, toàn bộ là Pháp Cú. Lớp lấp English của chính dự án cũng không có cho 14 uid này. Bài dịch chỉ từ Pāli root nên chưa đối chiếu được tầng tham khảo đã ghim; giữ draft."
+  assessed_at: "2026-10-02"
+  assessed_by:
+    - "OpenCode Space Bunny Free (agent)"
+notes: |-
+  Đã đọc HẾT Pāli lát (w6.pali.txt, 447 dòng, 196 khoá / 14 bài) trước khi viết chữ nào.
+
+  TẦNG THAM KHẢO — đo, không đoán. 0/14 bài có bản Anh Sujato tại commit đã ghim: tôi đếm ở
+  `source/upstream-manifest.json` (edition `translation/en/sujato` có 4291 tệp; trong `kn/` chỉ
+  755 tệp thuộc cp, dhp, iti, ja, kp, snp, thag, thig, ud; KHÔNG có tệp mil* nào ngoài
+  `name/sutta/mil-name`), rồi đếm lại trong `.cache/upstream/suttacentral/translation/en/sujato/`
+  và bằng `find . -name 'mil*'`: kết quả vẫn 1 tệp tên. Đây là `not-published-upstream`, KHÔNG
+  phải `not-synced`. Tầng `vietnamese-current` cũng vắng: `translation/vi/phantuananh` tại commit
+  đã ghim có 26 tệp và toàn bộ là Pháp Cú, nên Trường Bộ không có bản Thích Minh Châu để đối
+  chiếu. Lớp lấp English của dự án (`content/translation/en/project/sutta/kn/`) có 24 tệp mil*
+  nhưng không có uid nào của lát w6. Ba tầng tham khảo đều vắng ⇒ blocker thật ⇒ status `draft`.
+
+  BẰNG CHỨNG NGOÀI TẦNG ĐÃ GHIM — ghi rõ để không ai tưởng là tầng store. Để phân xử mấy từ khó
+  khó, tôi tra (1) Từ điển Pāli–Anh của PTS (Childs 2001) qua DDSA, và (2) bản dịch
+  T.W. Rhys Davids 1890/1894 mà SuttaCentral dựng lại từ Internet Sacred Text Archive — bản
+  công cộng, KHÔNG nằm trong `source/suttacentral.lock.json`, chỉ dùng làm bằng chứng về cách
+  parse cú pháp Pāli (mục 5 của thứ bậc nguồn trong `skill/translation.md`), không phải authority.
+  Cả hai đều được nêu tên ở từng chỗ dùng. Bản Việt hiện hành trên SuttaCentral (Bhikkhu
+  Indacanda, 2011) tôi cố tình KHÔNG đọc, để bản dịch là của mình chứ không phải bản Việt lại.
+
+  PĀLI TRÙNG NGUYÊN VĂN — tự tra bằng script, không tin bảng tiền lệ. Tôi dựng chỉ mục
+  Pāli↔Việt của toàn tầng (155.801 khoá Pāli `kn`, 17.756 khoá Việt `kn`, khớp theo
+  chuẩn hoá khoảng trắng) rồi so 196 khoá của lát: tìm được **33 cặp** Pāli trùng nguyên văn
+  với bài khác, trong đó **29 cặp là khoá khối tiêu đề** (`:0.1`–`:0.4`: `Milindapañha`,
+  `Opammakathāpañha`, tên phẩm) và chỉ **4 cặp là nội dung**. Cả 4 cặp nội dung đều dùng lại
+  y hệt, không dịch lần hai:
+  · `mil3.7.9:1.1` `Rājā āha—` và `mil3.7.9:3.1` `“Kallosi, bhante nāgasenā”ti.` — cùng nguyên
+    văn với 22 và 25 khoá đã có; dùng lại đúng nguyên văn của tầng.
+  · `mil7.2.4:2.2/2.3` `Nāgo pūtilataṁva dālayitvā;` / `Nāhaṁ punupessaṁ gabbhaseyyaṁ,` —
+    trùng `snp1.2:12.3`/`12.4` đã `published`; dùng lại y hệt. Cả bốn vế kệ `2.1`–`2.4` lấy từ
+    `snp1.2:12.1`–`12.5`.
+  Ngoài ra có các khoá trùng NỘI TRONG lát, và tôi dùng lại y hệt: `Bhāsitampetaṁ …
+  therena sāriputtena dhammasenāpatinā—` (mil7.3.9:1.5 == mil7.5.5:1.5),
+  `Bhāsitampetaṁ … therena upasenena vaṅgantaputtena—` (mil7.5.1:1.5 == mil7.5.3:1.5 ==
+  mil7.5.4:1.5), `viharanto vipassako;` (mil7.5.3:2.2 == mil7.5.4:2.2). Bảng `TIEN_LE_PHAI.md`
+  không có mục nào rơi vào lát w6 (mụn gần nhất là `mil3.5.6:2.1 == mil3.6.6:2.1`).
+
+  BỐN XUNG ĐỘT THUẬT NGỮ ĐANG TREO mà người điều phối nêu — lát w6 KHÔNG chạm tới cái nào:
+  không có `Dukanipāta`, `Kulāvakavagga`, `Atthakāmavagga`, cũng không có câu
+  `Channā me kuṭikā sukhā nivātā;`. Vì vậy tôi không tự chuẩn hoá gì và không sửa bài ngoài lát.
+  Tương tự, hai phép đa nghĩa đã đo (`aṇḍajā nāgā` và `rañño nāgo rājabhoggo`) không xuất hiện.
+
+  DẤU LƯỢC — theo §10 của BRIEF_VI3. Cả 14 bài không có `…pe…` nào và không khoá nào tôi nén
+  bằng `…`, nên hai phía đều 0 và không có chuyện mở rộng. Tôi đã kiểm lại từng khoá, không
+  có `(…)` đứng một mình.
+
+  KIỂM THỦ CÔNG MỌI KHOÁ (không chạy npm — đợt này cấm `npm run validate|test|check|build`).
+  `kiểm()` của `_hvi.py` chỉ quét khoá Pāli từ 40 ký tự trở lên; lát này có khoá dài tới 286 ký tự
+  nên `cần` KHÔNG rỗng, nhưng tôi vẫn tự quét TOÀN BỘ 196 khoá: đủ khoá, đúng ID, thứ tự khoá
+  y hệt Pāli, không rỗng, NFC, không khoá thừa, số dấu lược khớp từng khoá, nháy kép cân trên cả
+  bài, không có `(…))`, không Pāli lọt. Kết quả 0 lỗi; 14 khoá `:0.1` trùng Pāli là tên tác phẩm,
+  đúng như 45 bài mil/thig đã có trong tầng. `save_vi` gọi hai lần cho cả lát: sha256 không
+  đổi một byte. **Vì technical gate tập trung chưa chạy, `technical_integrity` chấm 9.6 chứ
+  không phải 10.0, và tôi KHÔNG tuyên bố technical gate pass.**
+  Thuật ngữ có tiền lệ: `Opammakathāpañha` và `yoginā yogāvacarena` như mil7.2.3;
+  `mahārāja` → Đại vương; `therena piṇḍolabhāradvājena` → Trưởng lão Piṇḍolabhāradvāja;
+  `niraya` → địa ngục (599 khoá); `nibbāna` → Niết-bàn (911 khoá); `vipula` → vô tận;
+  `dassetabbāni` → phải được chỉ bày.
+
+  0 tiền lệ, đặt mới: `satapatta` → **con sếu**. Đây là tên loài khó nhất trong 14 bài, nên tôi
+  ghi đầy đủ: PTS KHÔNG có mục `satapatta`; nơi khác của PTS, từ điển súc tích của BuddhaSasana ghi
+  `(nt.) a lotus. (m.) a woodpecker`; và PTS ở chú thích bản in ghi `the Indian crane (or
+  woodpecker?)`. Rhys Davids chọn `the Indian crane`. Tôi chọn *con sếu* vì (1) đó là nghĩa đầu
+  trong chính chú thích của PTS, (2) `ravitvā … ācikkhati` là tiếng kêu báo tin, hợp với sếu hơn
+  với chim gõ (chim gõ gõ thân chứ không kêu), và (3) hình ảnh con sếu báo trước việc làng xóm
+  sắp lành hay nguy thì đúng với logic của cả ẩn dụ. Nhưng tôi ghi rõ mức chắc chắn: đây là
+  chỗ có thay thế hợp lệ là *chim gõ*, và vì vậy `ambiguity_integrity` chỉ 8.9. Nếu biên tập
+  chọn phía kia thì phải sửa cả tiêu đề, 1.1, 1.4 và 3.1.
+  `ravitvā` → kêu lên; `khema` → an toàn; `bhayam` → nguy hiểm; `vinipāta` → sự hủy diệt;
+  `dassayitabba` → chỉ bày.
+
+  `3.1` colophon ghi `chaṭṭho` (thứ sáu) dù Pāli ở 0.4 ghi `6.`; tôi dịch theo Pāli của khoá
+  colophon, không suy ra lại từ 0.4.
