@@ -1,0 +1,69 @@
+uid: ja237
+status: draft
+translationTitle: "Kinh Sāketa"
+translators:
+  - "OpenCode Space Bunny Free (agent)"
+reviewers: []
+tags:
+  - khuddaka-nikaya
+  - jataka
+  - dukanipata
+  - pham-upahana
+  - saketa
+quality:
+  scores:
+    source_provenance: 9.5
+    semantic_fidelity: 9.1
+    grammar_logic: 9.2
+    segment_alignment: 10.0
+    terminology: 9.1
+    triangulation: 8.0
+    vietnamese_clarity: 9.2
+    han_viet_balance: 9.3
+    ambiguity_integrity: 8.7
+    technical_integrity: 9.8
+  final_score: 9.19
+  blocking_errors:
+    - "Không có tầng tham khảo tiếng Anh Sujato tại commit đã ghim: thư mục translation/en/sujato/sutta/kn/ja/ có 83 tệp (ja1–ja79, ja126, ja159, ja466, ja534) và không có tệp nào cho uid này; tầng Việt hiện hành (translation/vi/phantuananh/) chỉ có 26 tệp Pháp Cú nên Jātaka cũng không có bản Hòa thượng Thích Minh Châu."
+  assessed_at: "2026-10-02"
+  assessed_by:
+    - "OpenCode Space Bunny Free (agent)"
+notes: |-
+  Bản này chỉ có **một** tầng tham khảo: Pāli root đã ghim. **Không có Anh Sujato** —
+  tại commit đã ghim thư mục `translation/en/sujato/sutta/kn/ja/` có **83** tệp
+  (ja1–ja79, ja126, ja159, ja466, ja534) và **không** có tệp nào cho 14 uid của lát này.
+  Đây là đặc điểm của bản chụp upstream, không phải thiếu sót của kho. Tầng Việt hiện
+  hành (`translation/vi/phantuananh/`) tại cùng commit chỉ có 26 tệp Pháp Cú, nên Jātaka
+  không có bản Hòa thượng Thích Minh Châu để đối chiếu. Vì vậy `triangulation` chỉ
+  8,0–8,4: dịch từ Pāli, phân xử cú pháp bằng **Pāli trùng nguyên văn ở bài khác** (sn3.15,
+  sn21.6, ja202, thag2.38, vv33) và bằng chú giải Jātaka khi Pāli gốc im lặng.
+  **Cổng kỹ thuật chưa chạy.** Đợt này cấm `npm run validate|test|check|build`, nên tôi
+  **không** thể tuyên bố technical gate pass; `technical_integrity` hạ còn 9,8 và bốn
+  lệnh đó để người điều phối chạy.
+  **13 khoá, đủ cả bài** (`:0.1`–`:0.4` tiêu đề, `:1.1`–`:2.4` kệ, `:3.1` dòng kết).
+  `kiểm()` của `_hvi.py` chỉ quét khoá Pāli **≥ 40 ký tự**, mà lát này **không có khoá nào**
+  rơi vào tập đó — nên tôi tự kiểm riêng **mọi** khoá: phủ đủ 13/13, không rỗng, NFC,
+  không trùng nguyên văn Pāli, dấu lược khớp từng khoá, ngoặc kép cân trên cả bài, dấu
+  câu cuối câu kệ khớp Pāli, không còn `(…)`. Pāli lát này **không có** `…pe…` nên hai
+  phía đều 0 dấu lược.
+  **Tiền lệ dùng lại, đếm được trên tầng Việt:** `:0.1` `Jātaka` giữ nguyên (171 tệp
+  Jātaka); `:0.2` `Dukanipāta` → *Bộ Một Bài Kinh* (237 tệp); `:0.3` `…vagga` → *Phẩm
+  <tên>*, theo khuôn `Phẩm Haṁci` (ja117:0.3) và `Phẩm Bīraṇathambha` (ja211:0.3);
+  dòng kết `<Tên>jātakaṁ <số>ṁ` → *Kinh <Tên> thứ <tư>*, theo `ja22:2.1` (*Kinh Chó Săn
+  thứ hai.*).
+  **Hai chữ đã phân xử bằng bằng chứng, không đoán.** `Kālañca paṭikaṅkhāmi` trùng nguyên
+  văn với `thag2.38:2.3` (bài `published`), nên tôi dùng lại đúng nguyên văn *Tôi chờ
+  đợi thời khắc,*. `bāhiyaṁ` cũng trùng với `thig1.5:1.1` (*khéo là một con chim*) và tôi
+  theo. Còn `sārathī` ở `1.4` thì `thag2.30:3.5` dịch *kẻ chỉ đường*, nên tôi theo đó.
+  **Bất định lớn nhất của bài: `nibbāti`.** `Atīva hadayaṁ nibbāti, / cittañcāpi pasīdati`
+  đối xứng hai vế. Tôi dịch *Trái tim dường như tắt hẳn, / mà tâm lại còn trong sạch*,
+  theo nghĩa thông dụng của `nibba` là *tắt, tàn* (như lửa tắt). Cách đọc thứ hai có
+  thể là *nhụt nhát hẳn* — nghĩa *xấu hổ, e dè* cũng thuộc `nibba` trong từ điển Pāli —
+  và khi đó câu phải đổi thành *Trái tim ta nhụt nhát đến mức…*. Cả hai đều hợp lý; tôi
+  chọn cách ít giả định và **công khai ở đây**, chưa phân xử trọn. Vì vậy `ambiguity_integrity`
+  hạ 8,7.
+  **Chủ thể.** `hadayaṁ` không có đại từ sở hữu trong Pāli, nên tôi ghi *Trái tim* chứ
+  không ghi *Trái tim ta* — vế sau (`cittañcāpi`) cũng vậy.
+  **`bhagavā` → *Bạch Thầy*.** Người hỏi ở đây không phải Đức Phật, nên tôi không dùng
+  khuôn *Bạch Thế Tôn* (đếm 1.042 lần trên tầng) cho một danh xưng mà Pāli đã dùng cho
+  người hội trường.

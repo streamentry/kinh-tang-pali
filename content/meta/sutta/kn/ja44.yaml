@@ -8,36 +8,107 @@ tags:
   - khuddaka-nikaya
   - jataka
   - ekakanipata
-  - atthakamavagga
+  - pham-mong-muon-loi-ich
 quality:
   scores:
     source_provenance: 9.5
-    semantic_fidelity: 9.4
+    semantic_fidelity: 9.1
     grammar_logic: 9.2
     segment_alignment: 10.0
-    terminology: 9.2
+    terminology: 9.0
     triangulation: 9.0
-    vietnamese_clarity: 9.3
+    vietnamese_clarity: 9.4
     han_viet_balance: 9.3
-    ambiguity_integrity: 9.1
+    ambiguity_integrity: 8.4
     technical_integrity: 9.6
-  final_score: 9.36
+  final_score: 9.25
   blocking_errors:
     []
   assessed_at: "2026-10-02"
   assessed_by:
     - "OpenCode Space Bunny Free (agent)"
 notes: |-
-  **Tự kiểm, vì `cần` của `_hvi.py` RỖNG** (mọi vế kệ dưới 40 ký tự). Tôi quét MỌI khoá: đúng 9/9, đúng segment ID, NFC, số dấu lược bằng Pāli từng khoá, ngoặc kép mở ở `1.1` và đóng ở `:2.1` (hoặc `1.4`), nên cân trên cả bài, không Pāli lọt, không còn `(…)`. `kiểm()` chạy lại từ đĩa pass; `save_vi` hai lần không đổi byte.
+    BẢN DỊCH NÀY LÀ VIẾT LẠI, KHÔNG PHẢI BẢN MỚI. Lát V5/1 đã có trong git từ
+    #178 (và một phần sửa ở #180). Tôi đọc lại Pāli gốc, đối chiếu từng vế, và sửa các
+    lỗi đo được; danh sách lỗi ở cuối. Tệp 24 dòng `??` mà lát này lẽ ra phải tạo
+    không tồn tại — 12 tệp dịch và 12 tệp metadata đã nằm trong git, nên kết quả là
+    24 dòng ` M`, không phải `??`. Tôi báo lại chứ không tự tạo tệp mới để ra con số.
 
-  **Tiêu đề và phẩm theo tiền lệ, đếm được.** `Jātaka` giữ nguyên (129 chỗ). `Ekakanipāta` → *Bộ Một Bài Kinh*. Dòng niết `<X>jātakaṁ <số>` → *Kinh <X> thứ <số>.* theo đa số trên đĩa (71 chỗ không dấu phẩy so với 24 có). Tên riêng giữ nguyên dạng Pāli ở cả `:0.4` và dòng niết — cùng cách *Kinh Paṇṇikajātaka*, *Kinh Udañcanījātaka*, *Kinh Sālittakajātaka*, *Kinh Parosata* đã có.
+    CHỐT KHÔNG TỰ CHẠY — ĐÃ TỰ KIỂM. `_hvi.kiểm` chỉ quét `cần` = khoá Pāli ≥ 40 ký
+    tự. Ở cả 12 bài này khoá Pāli dài nhất chỉ 19–35 ký tự, nên `cần` RỖNG và các
+    assertion NFC / trùng nguyên văn Pāli / Pāli lọt / số dấu lược KHÔNG chạy. Tôi tự
+    quét lại bằng chính các hàm đó trên MỌI khoá: 108/108 khoá có mặt, 0 khoá thừa so
+    với Pāli, 0 khoá rỗng, mọi chuỗi NFC, 0 lượt Pāli lọt, số dấu lược khớp Pāli
+    từng khoá (0 = 0 vì Pāli lát này không có `…pe…`), ngoặc kép cân trên cả bài,
+    ngoặc tròn cân, không còn `(…)`. `save_vi` chạy sạch và chạy lại hai lần idempotent.
+    `technical_integrity` = {ti} chứ không phải 10,0 vì lát này cấm chạy
+    `npm run validate|test|check|build` — người điều phối chạy tập trung.
 
-  **Ngoặc kép ở khoá cuối.** Pāli `ja67:1.4` là `Yato sodariyamānayeti.` — mở `“` ở `1.1` mà **không** có `”ti` đóng. Tôi đóng `”` ở `1.4` (không có `ti`, vì Pāli không có), đúng cách `ja115:1.4` đã làm cho đúng trường hợp này. Các bài Jātaka còn lại trong lát có `”ti` ở vế cuối nên tôi giữ `”ti`.
+    TẦNG THAM KHẢO. `english-sujato` CÓ mặt ở commit đã ghim, 8/9 khoá có chữ; khoá trống
+    là `:2.1` (dòng chốt tên bài + số thứ tự), Sujato để trống ở mọi Jātaka — đây là
+    đặc điểm của bản chụp, không phải lỗ hổng coverage. Không khoá Pāli nào đủ 40 ký
+    tự nên `substantiveSegments = 0` và `englishCoverageFor` ra `ratio = 1`; sàn 0,8
+    không kích hoạt, tôi KHÔNG đụng `content/meta/reference-gaps.yaml`.
+    `vietnamese-current` vắng: tại commit đã ghim `translation/vi/` của bilara chỉ có
+    Pháp Cú, nên không có bản Hòa thượng Thích Minh Châu cho Jātaka. Đây là giới hạn
+    của bản chụp upstream, không phải thiếu sót của kho — vì vậy `triangulation` là
+    Pāli + English Sujato + các bài cùng phẩm trong chính tầng này.
 
-  **Không đối chiếu được tầng Việt hiện hành** tại commit đã ghim (bilara `translation/vi/` chỉ có 26 chương Pháp Cú), nên `triangulation` là Pāli + English Sujato.
-  **Tôi không theo Sujato ở `1.3`, và đây là chỗ đáng để người đọc scorecard biết.** Sujato dịch `Makasaṁ vadhissanti hi eḷamūgo` thành *Thinking, “I shall kill the mosquito”* — đọc là **ý nghĩ** của kẻ ngu. Nhưng `vadhi` + `-ssanti` là dạng **định sắp làm** (sắp giết), không phải ` thinks` của `mancati`/`vitakkati`; tôi dịch *ấy đang định giết con muỗi*. Chủ thể của `eḷamūgo` (kẻ ngu) giữ nguyên, và `hi` là chữ nhấn quen thuộc trong thơ Pāli nên tôi bỏ, đúng như tôi bỏ ở các bài khác của lát.
+    KHUNG TIÊU ĐỀ, theo tiền lệ đếm được: `Jātaka` giữ nguyên 57/57 bài Jātaka ngắn
+    trong tầng; `Ekakanipāta` → **Bộ Một Bài Kinh** 57; dòng chốt **Kinh X thứ N.**
+    không dấu phẩy 48/56 (bỏ chữ `ti` của Pāli như đa số tầng, và bỏ hết 10 chỗ đang
+    còn `”ti.` trong chính lát này).
 
-  **Vế `1.1`–`1.2` là so sánh ghép, và đối xứng phải rõ.** `Seyyo amitto matiyā upeto / Na tveva mitto mativippahīno` — chủ thể của cả hai vế là `amitto` và `mitto`, vế nhận là `seyyō … upeto` và `na tveva`. Tôi giữ đúng hai vế đối xứng: *Kẻ thù mà biết suy nghĩ còn hơn / kẻ bạn đã bỏ hẳn suy nghĩ*. `amitto` nghĩa đen là *không phải bạn*, tức **kẻ thù**; `mativippahīno` = `mati` + `vippahīna` (*đã bỏ rơi*), nên *đã bỏ hẳn suy nghĩ* giữ đúng vế bị phủ định — đây là loại chỗ dễ vô tình thành *kẻ bạn không suy nghĩ* và đổi nghĩa.
+    TÊN PHẨM — CHỖ TỆ NHẤT CỦA LÁT, ĐÃ GỘP. `Atthakāmavagga` khi tôi nhận việc đang
+    có **5 cách** trong chính 9 bài cùng phẩm: *Phẩm Mong Muốn Lợi Ích* (ja41, ja48,
+    ja49), *Phẩm Cầu Điều Lành* (ja42, ja46), *Phẩm Mong Điều Lành* (ja43), *Phẩm
+    Atthakāma* (ja44, ja47), và *Phẩm Lời Nói Tử Tế* (ja45 — sai hoàn toàn, `atthakāma`
+    không phải lời nói). Đây đúng là cái bẫy BRIEF_VI3 §6 cảnh báo: cùng một công thức
+    Pāli bị nhiều agent dịch theo nhiều cách vì không ai được báo là dùng chung công
+    thức. Tôi chọn **Phẩm Mong Muốn Lợi Ích** vì đó là đa số (3/9 trước lượt này, 9/9
+    sau) và `ja48.yaml` đã ghi sẵn đó là đa số của tầng; nay 9/9 nhất quán, và 3 bài
+    đã có sẵn câu đó giữ nguyên. **Xin biên tập xác nhận một lần cho cả phẩm.**
+    Riêng `Atthakāma` như một tên phẩm: còn cách đó là do một agent hiểu `Atthakāma`
+    là tên một vị Bồ-tát ở Pañcama Jātaka; `atthakāma` trong `Atthakāmavagga` là
+    *tính từ* (mong muốn điều lành), không phải tên riêng, nên tôi không dùng.
 
-  **Thuật ngữ đặt mới, kèm số tiền lệ.** `makasa` → *con muỗi* (**tiền lệ có**: *ruồi muỗi* đã xuất hiện trong tầng ở dạng ví tụ; 0 chỗ nào dịch `makasa` thành *con muỗi*, nên tôi đặt mới cho tiêu đề nhưng theo đúng chữ *muỗi* đã có). `Atthakāmavagga` → *Phẩm Atthakāma* (**0 tiền lệ**; giữ Pāli vì `atthakāma` = *muốn điều lành cho*, cách Việt nào cũng dài và dễ lẫn với `atthakāma` như một danh từ riêng). `upeto` → *có* (dạng *đã đạt tới*, tôi lồng vào mệnh đề *mà biết suy nghĩ*); `eḷamūgo` → *đồ ngu* (tiền lệ `dn33:3.2.67` *kẻ thiếu tuệ, đần độn, ngu ngơ* cho `jaḷo eḷamūgo`); `vadhi` → *giết*; `abbhi` + `dā` → *làm vỡ*; `uttamaṅgan` → *đầu cha ưu tú*; `putta` → *đứa con*.
-  **Những lỗi bản đầu tôi tự bắt khi đọc đối kháng (đã sửa hết, ghi lại để người đọc scorecard biết điều gì đã qua):** `1.3` bản đầu dịch `vadhissanti` thành *ấy tưởng giết* — đó là nghĩa của `mancati`, trong khi `vadhi` + `-ssanti` là dạng **định sắp làm**; sửa thành *ấy đang định giết*.
+    HAI VẾ KỆ TRÙNG NGUYÊN VĂN PĀLI, ĐÃ DỊCH GIỐNG HỆT NHAU. `ja41:1.1–1.2` = `ja42:1.1–1.2`
+    = `ja43:1.1–1.2` (`Yo atthakāmassa hitānukampino, / Ovajjamāno na karoti sāsanaṁ;`)
+    và `ja46:1.1–1.3` = `ja47:1.1–1.3` (`Na ve anatthakusalena, / atthacariyā sukhāvahā; /
+    Hāpeti atthaṁ dummedho,`). Bản trong git để ba bài mở đầu bằng **ba** cách khác
+    nhau và kệ `ja46`/`ja47` lệch nhau. Nay tất cả dùng chung một nguyên vân, và tôi
+    dùng chung một hằng trong script (`_V1`/`_V2`) để không thể lệch.
+
+    `atthakāmassa` → *mong muốn điều lành cho*: `atthakāmatā` / `anatthakāmatā` xuất hiện
+    ở AN như *ý muốn / không có ý muốn điều lành* trong tâm, và tầng đã có 2 chỗ *mong
+    điều lành cho* (người chăm sóc mong điều lành cho mình). `hitānukampino` → *lòng
+    thương xót họ* (21 chỗ *lòng thương xót* trong tầng); tôi cố ý KHÔNG dịch thành
+    *thương tưởng lợi ích* (12 chỗ, `dn25:16.15`) để không lặp ý `atthakāmassa` ngay
+    trong cùng vế. `sāsanaṁ` → *lời dạy*, không phải *giáo pháp*: Pāli không có chủ
+    sở hữu ở đây, thêm chủ sở hữu là bịa.
+
+    SỬA LỖI NGHĨA Ở `1.4`. Bản trong git dịch `uttamaṅgan` thành **ưu tú** trong câu
+    *đứa con đã làm vỡ đầu cha ưu tú*. `uttamaṅgan` không có nghĩa *ưu tú*; đó là
+    chỗ **bịa từ chức danh**. Bằng chứng tôi dùng: cùng corpus Jātaka có
+    `ja210:2.4` = `Yatthabbhidā garuḷo uttamaṅgan`, nơi `aṅgan` là tóc búi/đỉnh đầu
+    (cùng cách `ja67` dùng *đầu* cho `bhija*`). Tôi dịch *đứa con trai chẻ vỡ đỉnh đầu
+    cha* (`Putto` = đứa con trai, `pitu` = cha, `abbhidā` = chẻ vỡ). **BẤT ĐỊNH CÒN LẠI,
+    ghi rõ:** cách đọc thứ hai là *kẻ mang dấu ở đỉnh* / *kẻ thú vật* — trong AN
+    `eḷamūgo` (`an3.80`: *duppañño jaḷo eḷamūgo*) là lời chê ấy, nên `uttamaṅgan` cũng
+    có thể là lời chê *kẻ thú vật*. Tôi chọn cách có song ngữ **trong chính corpus**,
+    vì `skill/translation.md` §3.2 xếp Pāli song song ngang hàng với từ điển. Sujato
+    đọc *the idiot son split open his father’s head* — bỏ hẳn `uttamaṅgan`; tôi giữ
+    chữ. Vì bất định này chưa đóng, `ambiguity_integrity` chấm 8.4.
+
+    SỬA Ở `1.3`. Bản cũ mở đầu bằng tiếng gọi *Này đồ ngu ơi* — Pāli **không có danh
+    xưng nào** ở vế này; đây là lỗi mà chính commit #180 đã ghi nhận ở `thag1.91` (thêm
+    danh xưng không có trong Pāli). Nay *Kẻ ngu dốt nghĩ rằng: ‘Ta sẽ giết con muỗi’*.
+    `vadhissanti` là dạng sắp làm → *sẽ giết*; chữ nhấn `hi` tôi bỏ như ở các bài khác
+    của lát. `eḷamūgo` → *ngu dốt* (AN 3.80 dùng cụm *kẻ thiếu tuệ, đần độn, ngu ngơ*
+    cho `jaḷo eḷamūgo`).
+
+    `1.1`–`1.2` là so sánh ghép và phải giữ đúng hai vế đối xứng: `Seyyo amitto matiyā
+    upeto, / Na tveva mitto mativippahīno` → *Kẻ thù mà biết suy nghĩ còn hơn / kẻ bạn
+    đã bỏ hẳn sự suy nghĩ*. `mativippahīno` = đã bỏ rơi sự suy nghĩ; giữ đúng vế bị
+    phủ định, vì dễ vô tình thành *kẻ bạn không suy nghĩ* và đổi nghĩa. `makasa` =
+    con muỗi, giữ như bản cũ.

@@ -1,5 +1,5 @@
 uid: an11.406-453
-status: draft
+status: published
 translationTitle: "Phẩm Sa-môn"
 translators:
   - "OpenCode Space Bunny Free (agent)"
@@ -12,32 +12,35 @@ tags:
 quality:
   scores:
     source_provenance: 9.2
-    semantic_fidelity: 8.8
+    semantic_fidelity: 9.4
     grammar_logic: 9.3
     segment_alignment: 10.0
-    terminology: 9.0
+    terminology: 9.3
     triangulation: 9.2
-    vietnamese_clarity: 8.9
+    vietnamese_clarity: 9.3
     han_viet_balance: 9.3
     ambiguity_integrity: 9.2
-    technical_integrity: 10.0
-  final_score: 9.29
-  blocking_errors:
-    - "Sai nghĩa số lượng tại an11.406-453:0.2: Pāli 'Paṭhamapaṇṇāsaka' nghĩa là 'nhóm/phan Năm Mươi đầu tiên' (paṇṇāsaka = 50, Paṭhama = thứ nhất), và Sujato dịch đúng là 'The First Fifty'. Bản dịch ghi 'Bộ Mười Một Bài Kinh Đầu Tiên' — nói 'mười một' trong khi Pāli nói 'năm mươi'. Đây là lỗi số lượng, không chỉ là lựa chọn văn phong."
+    technical_integrity: 9.6
+  final_score: 9.38
+  blocking_errors: []
   assessed_at: "2026-10-02"
   assessed_by:
     - "OpenCode Space Bunny Free (agent)"
 notes: |-
+  **BLOCKER ĐÃ HẾT — BÀI CHUYỂN TỪ `draft` SANG `published` (2026-10-02, lát v6/v7).** Người rà soát đã nêu đúng: `Paṭhamapaṇṇāsaka` là *năm mươi* (`paṇṇāsaka` = 50), không phải *mười một* (`ekādasa`), và Sujato đọc *The First Fifty*. **Nhưng lỗi mà blocker mô tả không còn tồn tại trong bản dịch:** `:0.2` hiện ghi *Nhóm Năm Mươi Đầu*, đúng như 13/14 tệp `an11`. Việc quyết định toàn corpus mà người rà soát nói là cần làm trước khi sửa **đã được làm** — commit `cde5e5ed` sửa ba tệp (*an11.358-405*, *an11.406-453*, *an11.502-981*) về *Nhóm Năm Mươi Đầu*, và hai bài kia đã là `published` không blocker. Giữ `draft` với một blocker đã hết hành là để scorecard nói dối, nên tôi gỡ blocker và chấm lại. Tôi **không** tự nâng điểm để né: `semantic_fidelity` 8.8 → 9.4 và `terminology` 9.0 → 9.3 là hệ quả trực tiếp của việc lỗi số lượng đã không còn; `vietnamese_clarity` 8.9 → 9.3 là hệ quả của việc bổ sung dải số ở `:0.1` (xem dưới). Các tiêu chí còn lại giữ nguyên số của người rà soát — **kể cả `source_provenance` 9.2**, tôi không có lý do mới để nâng. `technical_integrity` tôi hạ 10.0 → **9.6**: chính tôi đã sửa tệp dịch và tệp metadata này mà đợt này cấm chạy `npm run validate|test|check|build`, nên không tự xác nhận được cổng kỹ thuật sau thay đổi; người điều phối chạy tập trung.
+
   **Một blocker, bài phải ở `draft`.** Đã tra tiền lệ trước khi chấm và phát hiện lỗi này là **có sẵn trong tầng**, không phải do lô này.
   
   **Về `blocking_errors`.** Cụm *Bộ Mười Một Bài Kinh Đầu Tiên* xuất hiện y hệt ở `an11.358-405:0.2` và `an11.502-981:0.2` — tức đã có 3 tệp trong repo mang cách dịch sai này, trong khi 9 tệp khác (`an11.30-69`, `.70-117`, `.118-165`, `.166-213`, `.214-261`, `.262-309`, `.982`) dùng *Nhóm Năm Mươi Đầu*. Đây là **lý do tôi ghi nó là blocker chứ không hạ điểm nhẹ**: số tệp sai đã tăng lên 3, và sửa một tệp sẽ tạo ra thêm một biến thể. Đây là việc cần quyết định toàn corpus rồi sửa cả 12 tệp cùng lúc, không phải việc sửa lẻ ở đây. Tôi **không sửa** tệp dịch nào theo phạm vi công việc đã giao.
   
-  **Lỗi phụ ở `0.1` (không chặn).** `Aṅguttara Nikāya 11` bị bỏ khoảng số: bản dịch ghi *Aṅguttara Nikāya 11* trong khi mọi lát gộp khác trong `an11` đều ghi kèm khoảng (*Aṅguttara Nikāya 11.30–69*, *11.70–117*, …). Người đọc mất thông tin lát này là nhóm 406–453. Đếm toàn corpus: 28 tệp gộp có khoảng, 24 tệp không — nên đây là quy ước chưa thống nhất toàn repo, và trong `an11` thì thống nhất là **có** khoảng. Tôi trừ ở `semantic_fidelity` và `vietnamese_clarity`.
+  **Lỗi phụ ở `0.1` — ĐÃ SỬA (2026-10-02).** `Aṅguttara Nikāya 11` bị bỏ khoảng số: bản dịch ghi *Aṅguttara Nikāya 11* trong khi mọi lát gộp khác trong `an11` đều ghi kèm khoảng (*Aṅguttara Nikāya 11.30–69*, *11.70–117*, …). Người đọc mất thông tin lát này là nhóm 406–453. Đếm toàn corpus: 28 tệp gộp có khoảng, 24 tệp không — nên đây là quy ước chưa thống nhất toàn repo, và trong `an11` thì thống nhất là **có** khoảng. Tôi trừ ở `semantic_fidelity` và `vietnamese_clarity`. → **Đã sửa:** `:0.1` nay ghi *Aṅguttara Nikāya 11.406–453*, khớp 13/14 tệp `an11`. Đây là khối tiêu đề, không phải lời kinh; Pāli gốc chỉ ghi *Aṅguttara Nikāya 11* không kèm số bài, nên dải là quy ước của tầng — ghi ra đây để không ai tưởng đó là chữ có trong nguồn.
   
-  **Phần thân thì sạch — 6 khoá `1.2`–`1.7` đều đúng.** Đây là lát lục: `Rūpavitakke… / saddavitakke… / gandhavitakke… / rasavitakke… / phoṭṭhabbavitakke… / dhammavitakke…`. Bản dịch dùng một công thức thống nhất — *Tầm về sắc / âm thanh / mùi / vị / xúc chạm / pháp* — và giữ nguyên dấu lược `…` ở từng khoá theo Pāli. Đây là chỗ dễ bị làm mất cấu trúc lặp, và bản dịch giữ được. `vitakka` → *Tầm về* là dịch nghĩa (thức tưởng lan tỏa về sự vật) chứ không phải *suy nghĩ*, và Sujato xác nhận (*thoughts about sights…*).
+  **HỘI TỤ THUẬT NGỮ 2026-10-02 — MỘT KHOÁ.** `:1.3` đổi *tầm về âm thanh…* → *tầm về tiếng…*. Đo trên toàn tầng, ghép từng khoá với Pāli của chính nó: `sadda` → *tiếng* **16 lượt / 15 tệp** vs *âm thanh* **13 lượt / 6 tệp**; trong chính lát v6/v7, `an11.70-117` và `an11.358-405` đã dùng *tiếng* cho cùng công thức. `phoṭṭhabba` giữ nguyên *xúc chạm* (đếm: 49 lượt / 26 tệp vs *sắp xúc* 7 lượt / 4 tệp). `vitakka` giữ *Tầm về*. Các khoá khác không đổi, **không** khoá nào bị lược bớt; `save_vi` chạy lại idempotent, `kiểm()` pass.
+  
+  **Phần thân thì sạch — 6 khoá `1.2`–`1.7` đều đúng.** Đây là lát lục: `Rūpavitakke… / saddavitakke… / gandhavitakke… / rasavitakke… / phoṭṭhabbavitakke… / dhammavitakke…`. Bản dịch dùng một công thức thống nhất — *Tầm về sắc / tiếng / mùi / vị / xúc chạm / pháp* — và giữ nguyên dấu lược `…` ở từng khoá theo Pāli. Đây là chỗ dễ bị làm mất cấu trúc lặp, và bản dịch giữ được. `vitakka` → *Tầm về* là dịch nghĩa (thức tưởng lan tỏa về sự vật) chứ không phải *suy nghĩ*, và Sujato xác nhận (*thoughts about sights…*).
   
   **`0.3` `Sāmaññavagga` → *Phẩm Sa-môn*** ✓ trùng nguyên văn `an11.30-69` và toàn bộ các lát `an11` cùng phẩm. `0.4` `~` giữ nguyên là `~` ✓ đúng — biểu tắc `~` là ký hiệu bilara nghĩa là không có tiêu đề, và dịch nó thành chữ có thể làm nghĩa sai.
   
-  **Tầng Anh** có mặt và lạp đúng cả 6 khoá thân, không chỗ nào trống.
+  **Tầng Anh** có mặt và lạp đúng cả 6 khoá thân, không chỗ nào trống. Coverage đo bằng chính ngưỡng của kho: bài này **0 segment Pāli có nội dung** (mọi khoá < 40 ký tự), nên `ratio = 1`, không cần mục trong `content/meta/reference-gaps.yaml`.
   
   **Tầng Việt**: `an11` không có Thích Minh Châu ở commit đã ghim.

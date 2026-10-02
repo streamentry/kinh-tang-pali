@@ -1,6 +1,6 @@
 uid: ja42
-status: draft
-translationTitle: "Kinh Chim Câu"
+status: published
+translationTitle: "Kinh Bồ Câu"
 translators:
   - "OpenCode Space Bunny Free (agent)"
 reviewers: []
@@ -8,43 +8,98 @@ tags:
   - khuddaka-nikaya
   - jataka
   - ekakanipata
-  - pham-cau-dieu-lanh
+  - pham-mong-muon-loi-ich
 quality:
   scores:
     source_provenance: 9.6
-    semantic_fidelity: 9.4
-    grammar_logic: 9.3
+    semantic_fidelity: 9.5
+    grammar_logic: 9.4
     segment_alignment: 10.0
-    terminology: 9.0
-    triangulation: 8.4
-    vietnamese_clarity: 9.3
-    han_viet_balance: 9.3
-    ambiguity_integrity: 9.0
+    terminology: 9.3
+    triangulation: 8.8
+    vietnamese_clarity: 9.4
+    han_viet_balance: 9.4
+    ambiguity_integrity: 9.2
     technical_integrity: 9.6
-  final_score: 9.2900
+  final_score: 9.42
   blocking_errors:
-    - "Hai vế kệ 1.1-1.2 trùng NGUYÊN VĂN Pāli với ja41:1.1-1.2 và ja43:1.1-1.2, mà TIEN_LE_PHAI.md yêu cầu bắt buộc dùng lại nguyên văn bản dịch đã có của ja41 và cấm tự dịch lần hai. ja41 CHƯA có bản dịch Việt trên đĩa tại thời điểm tôi ghi, nên không có nguyên văn để dùng lại và tôi không thể tự quyết. Tôi ghi lại nguyên văn tôi đã chọn ở notes để người biên tập dùng y hệt cho ja41/ja43, và giữ draft cho tới khi ba bài khớp nhau."
+    []
   assessed_at: "2026-10-02"
   assessed_by:
     - "OpenCode Space Bunny Free (agent)"
 notes: |-
-  **NGUYÊN VĂN ĐÃ CHỌN CHO HAI VẾ PHẢI TRÙNG NHAU — dùng y hệt cho ja41/ja43:**
-    `ja42:1.1` = *“Kẻ mong muốn điều lành, thương tưởng lợi ích,*
-    `ja42:1.2` = *được khuyên dạy mà không làm theo lời dạy;*
-  Pāli: `Yo atthakāmassa hitānukampino, / Ovajjamāno na karoti sāsanaṁ;`
+    BẢN DỊCH NÀY LÀ VIẾT LẠI, KHÔNG PHẢI BẢN MỚI. Lát V5/1 đã có trong git từ
+    #178 (và một phần sửa ở #180). Tôi đọc lại Pāli gốc, đối chiếu từng vế, và sửa các
+    lỗi đo được; danh sách lỗi ở cuối. Tệp 24 dòng `??` mà lát này lẽ ra phải tạo
+    không tồn tại — 12 tệp dịch và 12 tệp metadata đã nằm trong git, nên kết quả là
+    24 dòng ` M`, không phải `??`. Tôi báo lại chứ không tự tạo tệp mới để ra con số.
 
-  **Vì sao chọn thế.** `atthakāma` + `hita` + `anukampin` là một cụm: mong muốn điều lành và lòng thương vì lợi ích. `hitānukampi` đã có 2 tiền lệ rõ ràng trong tầng — `sabbapāṇabhūtahitānukampī` → *thương tưởng lợi ích cho mọi sinh vật* (`dn25:16.15`) và *sống với tâm quan tâm đến lợi ích của mọi chúng sinh* (`dn10:1.11.2`) — nên tôi theo *thương tưởng lợi ích*. `Ovajjamāno` = *được khuyên dạy*; `na karoti sāsanaṁ` = *không làm theo lời dạy*, và `sāsana` đã là *lời dạy* trong công thức `buddhassa sāsanaṁ` (`thag1.107:1.4`). Chữ *dạy* lặp hai lần trong một vế là hệ quả trung thực của Pāli (`Ovajjamāno` + `sāsanaṁ`), tôi không bỏ.
+    CHỐT KHÔNG TỰ CHẠY — ĐÃ TỰ KIỂM. `_hvi.kiểm` chỉ quét `cần` = khoá Pāli ≥ 40 ký
+    tự. Ở cả 12 bài này khoá Pāli dài nhất chỉ 19–35 ký tự, nên `cần` RỖNG và các
+    assertion NFC / trùng nguyên văn Pāli / Pāli lọt / số dấu lược KHÔNG chạy. Tôi tự
+    quét lại bằng chính các hàm đó trên MỌI khoá: 108/108 khoá có mặt, 0 khoá thừa so
+    với Pāli, 0 khoá rỗng, mọi chuỗi NFC, 0 lượt Pāli lọt, số dấu lược khớp Pāli
+    từng khoá (0 = 0 vì Pāli lát này không có `…pe…`), ngoặc kép cân trên cả bài,
+    ngoặc tròn cân, không còn `(…)`. `save_vi` chạy sạch và chạy lại hai lần idempotent.
+    `technical_integrity` = {ti} chứ không phải 10,0 vì lát này cấm chạy
+    `npm run validate|test|check|build` — người điều phối chạy tập trung.
 
-  **`1.3`–`1.4`.** `Kapotakassa vacanaṁ akatvā` → *không nghe theo lời chim câu*; `Amittahatthatthagatova setī` → *bị kẻ thù giết, chẳng đến với chim câu, mà lại về với hắn*. Bản nháp đầu của tôi bỏ mất `setī` (rơi vào, đến với); tôi thêm lại *mà lại về với hắn*. **Bất định còn lại, ghi ra đây:** trong `Amittahatthatthagatova` chữ *Amitta* là danh từ chủ thể (kẻ thù) nên `hắn` ở `1.4` là kẻ thù, nhưng bản kệ không nói rõ; Sujato đọc là *ends up in the hands of their foes*. Tôi theo Pāli và không thêm *tay* (chữ Sujato thêm, không có trong Pāli) cũng không thêm lời giải thích cốt truyện.
+    TẦNG THAM KHẢO. `english-sujato` CÓ mặt ở commit đã ghim, 8/9 khoá có chữ; khoá trống
+    là `:2.1` (dòng chốt tên bài + số thứ tự), Sujato để trống ở mọi Jātaka — đây là
+    đặc điểm của bản chụp, không phải lỗ hổng coverage. Không khoá Pāli nào đủ 40 ký
+    tự nên `substantiveSegments = 0` và `englishCoverageFor` ra `ratio = 1`; sàn 0,8
+    không kích hoạt, tôi KHÔNG đụng `content/meta/reference-gaps.yaml`.
+    `vietnamese-current` vắng: tại commit đã ghim `translation/vi/` của bilara chỉ có
+    Pháp Cú, nên không có bản Hòa thượng Thích Minh Châu cho Jātaka. Đây là giới hạn
+    của bản chụp upstream, không phải thiếu sót của kho — vì vậy `triangulation` là
+    Pāli + English Sujato + các bài cùng phẩm trong chính tầng này.
 
-  **Sujato dịch `1.1`–`1.2` là một mệnh đề khép kín** (*One who does not follow advice when instructed by an ally who wants to help*) — tức Sujato đã lược mất mối quan hệ với hai vế tiếp theo. Tôi dịch từng vế theo Pāli.
+    KHUNG TIÊU ĐỀ, theo tiền lệ đếm được: `Jātaka` giữ nguyên 57/57 bài Jātaka ngắn
+    trong tầng; `Ekakanipāta` → **Bộ Một Bài Kinh** 57; dòng chốt **Kinh X thứ N.**
+    không dấu phẩy 48/56 (bỏ chữ `ti` của Pāli như đa số tầng, và bỏ hết 10 chỗ đang
+    còn `”ti.` trong chính lát này).
 
-  **`0.3` `Atthakāmavagga` → *Phẩm Cầu Điều Lành* (0 tiền lệ).** Tên phẩm lấy từ chính `atthakāma` ở `1.1`, nên nó phải đọc được cùng nghĩa với câu kệ; *mong cầu điều lành* là cách đọc tự nhiên nhất. Sujato dịch phẩm là *Wanting to Help* (tự do hơn nhiều) — tôi theo nghĩa từ. `0.4` `Kapotajātaka` → *2. Kinh Chim Câu*, `kapotaka` = chim câu (con sơn cao), cũng là tên con chim trong truyện.
+    TÊN PHẨM — CHỖ TỆ NHẤT CỦA LÁT, ĐÃ GỘP. `Atthakāmavagga` khi tôi nhận việc đang
+    có **5 cách** trong chính 9 bài cùng phẩm: *Phẩm Mong Muốn Lợi Ích* (ja41, ja48,
+    ja49), *Phẩm Cầu Điều Lành* (ja42, ja46), *Phẩm Mong Điều Lành* (ja43), *Phẩm
+    Atthakāma* (ja44, ja47), và *Phẩm Lời Nói Tử Tế* (ja45 — sai hoàn toàn, `atthakāma`
+    không phải lời nói). Đây đúng là cái bẫy BRIEF_VI3 §6 cảnh báo: cùng một công thức
+    Pāli bị nhiều agent dịch theo nhiều cách vì không ai được báo là dùng chung công
+    thức. Tôi chọn **Phẩm Mong Muốn Lợi Ích** vì đó là đa số (3/9 trước lượt này, 9/9
+    sau) và `ja48.yaml` đã ghi sẵn đó là đa số của tầng; nay 9/9 nhất quán, và 3 bài
+    đã có sẵn câu đó giữ nguyên. **Xin biên tập xác nhận một lần cho cả phẩm.**
+    Riêng `Atthakāma` như một tên phẩm: còn cách đó là do một agent hiểu `Atthakāma`
+    là tên một vị Bồ-tát ở Pañcama Jātaka; `atthakāma` trong `Atthakāmavagga` là
+    *tính từ* (mong muốn điều lành), không phải tên riêng, nên tôi không dùng.
 
-  **Tầng Việt hiện hành không có.** Tại commit đã ghim, `translation/vi/` của bilara chỉ chứa 27 tệp Pháp Cú, nên không có bản Hòa thượng Thích Minh Châu để đối chiếu thuật ngữ cho bài này. Đây là giới hạn của bản chụp upstream, không phải thiếu sót của kho; `triangulation` vì thế chỉ là Pāli + English Sujato.
+    HAI VẾ KỆ TRÙNG NGUYÊN VĂN PĀLI, ĐÃ DỊCH GIỐNG HỆT NHAU. `ja41:1.1–1.2` = `ja42:1.1–1.2`
+    = `ja43:1.1–1.2` (`Yo atthakāmassa hitānukampino, / Ovajjamāno na karoti sāsanaṁ;`)
+    và `ja46:1.1–1.3` = `ja47:1.1–1.3` (`Na ve anatthakusalena, / atthacariyā sukhāvahā; /
+    Hāpeti atthaṁ dummedho,`). Bản trong git để ba bài mở đầu bằng **ba** cách khác
+    nhau và kệ `ja46`/`ja47` lệch nhau. Nay tất cả dùng chung một nguyên vân, và tôi
+    dùng chung một hằng trong script (`_V1`/`_V2`) để không thể lệch.
 
-  **Sàn coverage không kích hoạt, nhưng ô Anh trống KHÔNG phải đồng thuận.** Hàm `kiểm()` của `_hvi.py` lọc `cần = [k for k in p if len(p[k]) >= 40 …]`. Ở bài này mọi khoá Pāli ngắn hơn 40 ký tự, nên `cần` RỖNG và NFC / trùng nguyên văn Pāli / Pāli lọt / số dấu lược KHÔNG tự chạy. Tôi đã tự quét lại MỌI khoá bằng một lớp kiểm riêng áp đúng các quy tắc ấy lên toàn bài, và in ra từng cặp Pāli ↔ Việt để đọc đối kháng.
+    `atthakāmassa` → *mong muốn điều lành cho*: `atthakāmatā` / `anatthakāmatā` xuất hiện
+    ở AN như *ý muốn / không có ý muốn điều lành* trong tâm, và tầng đã có 2 chỗ *mong
+    điều lành cho* (người chăm sóc mong điều lành cho mình). `hitānukampino` → *lòng
+    thương xót họ* (21 chỗ *lòng thương xót* trong tầng); tôi cố ý KHÔNG dịch thành
+    *thương tưởng lợi ích* (12 chỗ, `dn25:16.15`) để không lặp ý `atthakāmassa` ngay
+    trong cùng vế. `sāsanaṁ` → *lời dạy*, không phải *giáo pháp*: Pāli không có chủ
+    sở hữu ở đây, thêm chủ sở hữu là bịa.
 
-  **Ngoại lệ đã đo, không phải lỗi.** Khoá `:0.1` trùng nguyên văn Pāli là quy ước của tầng: 168/516 tệp `kn/*` có `:0.1` là chuỗi Pāli nguyên văn (đếm bằng script). Tương tự, tên riêng mang dấu Pāli trong tiêu đề là tiền lệ (`thag1.101` Belaṭṭhānika, `thag1.11` Cūḷavaccha, `thag1.15` Kuṇḍadhāna), và dấu lược trần `…` xuất hiện 446 lần trong tầng.
+    SỬA LỖI BỊA Ở `1.4` — loại nặng nhất AGENTS.md gọi tên. Bản trong git ghi *bị kẻ thù
+    giết, chẳng đến với chim câu, mà lại về với hắn*. Pāli `1.4` chỉ có
+    `Amittahatthatthagatova setī` = rơi vào hủy diệt trong tay kẻ thù; vế *chẳng đến với
+    chim câu, mà lại về với hắn* **không có trong Pāli** (có vẻ do đọc nhầm từ một vế
+    kệ khác), và chính `notes` bản cũ tự thừa nhận là đã *thêm lại*. Nay là *bị hủy
+    diệt trong tay kẻ thù* — không thêm, không bớt. Chữ *tay* trong bản cũ cũng là của
+    Sujato (*in the hands of their foes*), Pāli chỉ có `amittahattha`.
 
-  **Tôi không chạy `npm run validate|test|check|build`** (đợt này cấm; người điều phối chạy tập trung), nên `technical_integrity` chấm 9.6 chứ không phải 10.0 — đúng như `thag1.107` đã làm.
+    SỬA `kapota` → **bồ câu**, không phải *chim câu* như bản cũ: `kapota` = bồ câu
+    (20 chỗ *bồ câu* trong tầng), *chim câu* là một loài khác. Tiêu đề theo đó là *Kinh
+    Bồ Câu*. `1.3` *không nghe theo lời chim câu* → *không nghe theo lời bồ câu*.
+
+    SỬA TRẠNG THÁI. Bản cũ để `draft` với blocker *1.1–1.2 trùng Pāli với ja41/ja43 mà
+    chưa có bản dịch để dùng lại*. Blocker đó **đã hết hiệu lực**: cả ba bài nay dùng
+    chung một nguyên vân, tôi hằng nó trong script để không thể lệch. `ja42.yaml` và
+    `ja43.yaml` cũng sẽ bỏ blocker tương ứng.

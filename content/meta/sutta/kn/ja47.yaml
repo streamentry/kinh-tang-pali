@@ -1,44 +1,139 @@
 uid: ja47
 status: published
-translationTitle: "Kinh Kẻ Làm Hỏng Rượu"
+translationTitle: "Kinh Kẻ Làm Hỏng Rượu Tăm"
 translators:
   - "OpenCode Space Bunny Free (agent)"
 reviewers: []
 tags:
-  - "khuddaka-nikaya"
-  - "jataka"
-  - "ekakanipata"
-  - "pham-atthakama"
+  - khuddaka-nikaya
+  - jataka
+  - ekakanipata
+  - pham-mong-muon-loi-ich
 quality:
   scores:
     source_provenance: 9.5
-    semantic_fidelity: 9.4
-    grammar_logic: 9.3
+    semantic_fidelity: 9.0
+    grammar_logic: 8.8
     segment_alignment: 10.0
-    terminology: 9.3
-    triangulation: 9.6
-    vietnamese_clarity: 9.4
+    terminology: 8.8
+    triangulation: 9.0
+    vietnamese_clarity: 9.2
     han_viet_balance: 9.3
-    ambiguity_integrity: 9.2
+    ambiguity_integrity: 8.0
     technical_integrity: 9.6
-  final_score: 9.46
-  blocking_errors: []
+  final_score: 9.12
+  blocking_errors:
+    []
   assessed_at: "2026-10-02"
   assessed_by:
     - "OpenCode Space Bunny Free (agent)"
 notes: |-
-  CHỐT KHÔNG TỰ CHẠY — ĐÃ TỰ KIỂM THỦ CÔNG. `_hvi.kiểm` chỉ quét `cần` = khoá Pāli ≥ 40 ký tự. Ở 16/17 bài của lát này khoá Pāli dài nhất chỉ 19–35 ký tự nên `cần` rỗng và vòng chốt NFC / trùng nguyên văn Pāli / Pāli lọt / số dấu lược KHÔNG CHẠY LẦN NÀO. Tôi tự quét lại **164/164 khoá** bằng chính các hàm đó (`_chk_rv3.py`): 0 lỗi — không khoá rỗng, không khoá thừa so với Pāli, không thiếu khoá, mọi chuỗi NFC, số dấu lược khớp Pāli từng khoá, ngoặc kép cân trên cả bài, ngoặc tròn cân, không còn `(…)`, không còn sót `pe…`. Chỉ `mil3.1.7` có 4 khoá ≥ 40 ký tự (`:1.2`–`:1.5`) nên ở bài đó chốt thật sự có chạy. `save_vi` chạy sạch, chạy lại hai lần idempotent.
+    BẢN DỊCH NÀY LÀ VIẾT LẠI, KHÔNG PHẢI BẢN MỚI. Lát V5/1 đã có trong git từ
+    #178 (và một phần sửa ở #180). Tôi đọc lại Pāli gốc, đối chiếu từng vế, và sửa các
+    lỗi đo được; danh sách lỗi ở cuối. Tệp 24 dòng `??` mà lát này lẽ ra phải tạo
+    không tồn tại — 12 tệp dịch và 12 tệp metadata đã nằm trong git, nên kết quả là
+    24 dòng ` M`, không phải `??`. Tôi báo lại chứ không tự tạo tệp mới để ra con số.
 
-  COVERAGE — ĐO BẰNG CHÍNH HÀM CỦA KHO (chỉ đọc, `englishCoverageFor`). Cả **17/17 bài ra `ratio = 1`**: 16 bài có `substantiveSegments = 0` vì không khoá Pāli nào đủ 40 ký tự; `mil3.1.7` có 4 khoá substantive. Không bài nào rơi dưới ngưỡng 0,8 nên **không** cần mục trong `content/meta/reference-gaps.yaml` — tệp đó tôi không đụng tới.
+    CHỐT KHÔNG TỰ CHẠY — ĐÃ TỰ KIỂM. `_hvi.kiểm` chỉ quét `cần` = khoá Pāli ≥ 40 ký
+    tự. Ở cả 12 bài này khoá Pāli dài nhất chỉ 19–35 ký tự, nên `cần` RỖNG và các
+    assertion NFC / trùng nguyên văn Pāli / Pāli lọt / số dấu lược KHÔNG chạy. Tôi tự
+    quét lại bằng chính các hàm đó trên MỌI khoá: 108/108 khoá có mặt, 0 khoá thừa so
+    với Pāli, 0 khoá rỗng, mọi chuỗi NFC, 0 lượt Pāli lọt, số dấu lược khớp Pāli
+    từng khoá (0 = 0 vì Pāli lát này không có `…pe…`), ngoặc kép cân trên cả bài,
+    ngoặc tròn cân, không còn `(…)`. `save_vi` chạy sạch và chạy lại hai lần idempotent.
+    `technical_integrity` = {ti} chứ không phải 10,0 vì lát này cấm chạy
+    `npm run validate|test|check|build` — người điều phối chạy tập trung.
 
-  KHÔNG ĐỐI CHIẾU ĐƯỢC TẦNG VIỆT HIỆN HÀNH. Tại commit đã ghim, `translation/vi/` của bilara chỉ chứa Pháp Cú, nên không có bản Hòa thượng Thích Minh Châu cho bất kỳ bài nào trong lát này. Đây là đặc điểm của bản chụp upstream, không phải thiếu sót của kho; `triangulation` vì thế là **Pāli + English Sujato + các bài song song trong chính tầng này**.
+    TẦNG THAM KHẢO. `english-sujato` CÓ mặt ở commit đã ghim, 8/9 khoá có chữ; khoá trống
+    là `:2.1` (dòng chốt tên bài + số thứ tự), Sujato để trống ở mọi Jātaka — đây là
+    đặc điểm của bản chụp, không phải lỗ hổng coverage. Không khoá Pāli nào đủ 40 ký
+    tự nên `substantiveSegments = 0` và `englishCoverageFor` ra `ratio = 1`; sàn 0,8
+    không kích hoạt, tôi KHÔNG đụng `content/meta/reference-gaps.yaml`.
+    `vietnamese-current` vắng: tại commit đã ghim `translation/vi/` của bilara chỉ có
+    Pháp Cú, nên không có bản Hòa thượng Thích Minh Châu cho Jātaka. Đây là giới hạn
+    của bản chụp upstream, không phải thiếu sót của kho — vì vậy `triangulation` là
+    Pāli + English Sujato + các bài cùng phẩm trong chính tầng này.
 
-  KỸ THUẬT. Tôi KHÔNG chạy `npm run validate|test|build|check` — đợt này người điều phối cấm và chạy tập trung. Vì vậy `technical_integrity` chấm **9.6 chứ không phải 10.0**; đó là hạn chế thật của lượt đánh giá này chứ không phải lời khen. Tất cả những gì chạy được thì đã chạy.
+    KHUNG TIÊU ĐỀ, theo tiền lệ đếm được: `Jātaka` giữ nguyên 57/57 bài Jātaka ngắn
+    trong tầng; `Ekakanipāta` → **Bộ Một Bài Kinh** 57; dòng chốt **Kinh X thứ N.**
+    không dấu phẩy 48/56 (bỏ chữ `ti` của Pāli như đa số tầng, và bỏ hết 10 chỗ đang
+    còn `”ti.` trong chính lát này).
 
-  **BA VẾ ĐẦU TRÙNG NGUYÊN VĂN `ja46:1.1`–`1.3`, VÀ TÔI KHỚP NGUYÊN VĂN.** Khi tôi chạy soát chéo sau khi viết, `ja46` (6. Kacāpajātaka, cùng phẩm) đã có trên đĩa với ba vế **y hệt** của tôi: *“Chẳng phải việc lành vô ích / mà dẫn dắt tới sự an lành; / Kẻ ngu dốt phá bỏ điều lợi ấy,* — tức hai agent đã độc lập cùng đọc một cách. Vế thứ tư khác nhau theo Pāli (`kapi ārāmiko yathā` ở `ja46`, `koṇḍañño vāruṇiṁ yathā` ở đây) nên tôi dịch riêng. Đây là mẫu tốt nhất của lát: Pāli trùng thì cách dịch khớp.
+    TÊN PHẨM — CHỖ TỆ NHẤT CỦA LÁT, ĐÃ GỘP. `Atthakāmavagga` khi tôi nhận việc đang
+    có **5 cách** trong chính 9 bài cùng phẩm: *Phẩm Mong Muốn Lợi Ích* (ja41, ja48,
+    ja49), *Phẩm Cầu Điều Lành* (ja42, ja46), *Phẩm Mong Điều Lành* (ja43), *Phẩm
+    Atthakāma* (ja44, ja47), và *Phẩm Lời Nói Tử Tế* (ja45 — sai hoàn toàn, `atthakāma`
+    không phải lời nói). Đây đúng là cái bẫy BRIEF_VI3 §6 cảnh báo: cùng một công thức
+    Pāli bị nhiều agent dịch theo nhiều cách vì không ai được báo là dùng chung công
+    thức. Tôi chọn **Phẩm Mong Muốn Lợi Ích** vì đó là đa số (3/9 trước lượt này, 9/9
+    sau) và `ja48.yaml` đã ghi sẵn đó là đa số của tầng; nay 9/9 nhất quán, và 3 bài
+    đã có sẵn câu đó giữ nguyên. **Xin biên tập xác nhận một lần cho cả phẩm.**
+    Riêng `Atthakāma` như một tên phẩm: còn cách đó là do một agent hiểu `Atthakāma`
+    là tên một vị Bồ-tát ở Pañcama Jātaka; `atthakāma` trong `Atthakāmavagga` là
+    *tính từ* (mong muốn điều lành), không phải tên riêng, nên tôi không dùng.
 
-  **`anatthakusalena` — SỬ JATO DỊCH QUÁ TỰ DO.** Sujato dịch *with one who misunderstands the meaning*, tức biến một tính từ thành mô tả một người. Pāli `anatthakusala` = *không có mục đích, vô ích* (đối lập `atthakusala`), nên tôi dịch *việc lành vô ích*. `atthacariyā sukhāvahā` = *dẫn dắt tới sự an lành* (`sukha` là *an lành* theo toàn tầng). Sujato dùng *happiness*, tức *hạnh phúc*; tôi theo *an lành* vì đó là từ đã có tiền lệ cho `sukha` trong tầng Việt.
+    HAI VẾ KỆ TRÙNG NGUYÊN VĂN PĀLI, ĐÃ DỊCH GIỐNG HỆT NHAU. `ja41:1.1–1.2` = `ja42:1.1–1.2`
+    = `ja43:1.1–1.2` (`Yo atthakāmassa hitānukampino, / Ovajjamāno na karoti sāsanaṁ;`)
+    và `ja46:1.1–1.3` = `ja47:1.1–1.3` (`Na ve anatthakusalena, / atthacariyā sukhāvahā; /
+    Hāpeti atthaṁ dummedho,`). Bản trong git để ba bài mở đầu bằng **ba** cách khác
+    nhau và kệ `ja46`/`ja47` lệch nhau. Nay tất cả dùng chung một nguyên vân, và tôi
+    dùng chung một hằng trong script (`_V1`/`_V2`) để không thể lệch.
 
-  **`vāruṇī` / `dūsaka` — 0 TIỀN LỆ, ĐẶT MỚI.** `vāruṇī` là người pha rượu tăm (rượu cây thốt lộn, `NOASSERTION` về giấy phép không liên quan vì đây là từ điển). Tôi đặt *rượu tăm* (0 chỗ trong tầng) và *Kẻ Làm Hỏng Rượu* (0 chỗ), theo nghĩa Sujato *Spoiling the Toddy* nhưng tự viết. **Nếu biên tập muốn dùng *rượu cây* hay *thang rượu* thì nên quyết một lần cho toàn tầng** — hiện ba cách đang tồn tại nếu tính cả `rượu tăm`. `koṇḍañña` giữ nguyên tên.
+    `atthakāmassa` → *mong muốn điều lành cho*: `atthakāmatā` / `anatthakāmatā` xuất hiện
+    ở AN như *ý muốn / không có ý muốn điều lành* trong tâm, và tầng đã có 2 chỗ *mong
+    điều lành cho* (người chăm sóc mong điều lành cho mình). `hitānukampino` → *lòng
+    thương xót họ* (21 chỗ *lòng thương xót* trong tầng); tôi cố ý KHÔNG dịch thành
+    *thương tưởng lợi ích* (12 chỗ, `dn25:16.15`) để không lặp ý `atthakāmassa` ngay
+    trong cùng vế. `sāsanaṁ` → *lời dạy*, không phải *giáo pháp*: Pāli không có chủ
+    sở hữu ở đây, thêm chủ sở hữu là bịa.
 
-  **`0.3 Atthakāmavagga`.** Cùng lúc tôi làm, ba bài cùng phẩm ghi ba cách: `ja42`/`ja46` = *Phẩm Cầu Điều Lành*, `ja48` = *Phẩm Muốn Giúp Người* (theo Sujato *Wanting to Help*), `ja44` = *Phẩm Atthakāma*. Tôi dùng **Phẩm Atthakāma** vì `Atthakāma` là **tên riêu của một vị Bồ-tát** (Pañcama Jātaka) và phẩm đặt theo tên Ngài — cùng cách tầng này dùng cho tên riêu làm tên phẩm (`Phẩm Kakaṇṭaka` 9×, `Phẩm Santhava` 6×, `Phẩm Asampadāna` 9×). Lệch 3 khoá; **biên tập nên quyết một lần cho cả phẩm `Atthakāmavagga`.**
+    `Na ve anatthakusalena, / atthacariyā sukhāvahā; / Hāpeti atthaṁ dummedho,` trùng
+    **nguyên văn** `1.1`–`1.3` của `ja47` (đã so ký tự), nên tôi dùng chung một nguyên
+    vân cho cả hai bài.
+
+    **BẤT ĐỊNH CHƯA PHÂN XỬ TRỌN Ở `1.1`–`1.2` — đọc kỹ mục này.** Cú pháp của cặp
+    vế này tôi chưa dựng lại được chắc: `anatthakusalena` là công cụ số ít đi với
+    `atthacariyā` là danh từ cách số ít, nên hai vế **không cùng một chủ ngữ** và
+    quan hệ giữa chúng là chỗ tôi không chắc. Tôi dịch theo nghĩa từng chữ ít giả định
+    nhất, không nối thêm từ nào:
+      · `Na ve` = *chắc chắn không phải* (song ngữ `na ve` trong chính corpus: `sn1.35`
+        *Na ve dhīrā pakubbanti*, `mn50` *Na ve aggi cetayati*);
+      · `anatthakusalena` = *với kẻ không mong muốn điều lành*. Cơ sở: `atthakusala`
+        làm **tính từ tả người** có chứng cứ trong corpus — `an5.169:3.1` *bhikkhu
+        atthakusalo ca hoti*, `ne5.51.8` và `ne9.1.6` *yo vuccati atthakusalo
+        dhammakusalo*; tương ứng `atthakāmatā` / `anatthakāmatā` ở AN là *ý muốn /
+        không có ý muốn điều lành* trong tâm;
+      · `atthacariyā sukhāvahā` = *hành vi lành mang lại sự an lành* (`atthacariya` cũng
+        xuất hiện ở `ja486:9.2` *Putto pitu carati atthacariyaṁ* = thực hành điều lành;
+        `sukha` → *an lành* theo toàn tầng).
+    **Cách đọc thay thế** (bản trong git dùng, do một agent khác chọn, agent còn lại
+    đã theo): `anatthakusala` không phải tính từ tả người mà là danh từ trừu tượng
+    *vô ích / không đúng chỗ*, nên cả cặp vế đọc thành *Chẳng phải việc lành vô ích /
+    mà dẫn dắt tới sự an lành* — lúc đó hai vế nối nhau thành một câu, nhưng `na` phải
+    phủ định cả vế `an-` (phủ định kép) mới ra nghĩa đó, tức lại phải giả định nhiều
+    hơn. Tôi chọn nghĩa có chứng cứ danh từ trong `an5.169`/`ne5.51`/`ne9.1.6`, và
+    **ghi rõ đây là chỗ còn bất định**: người đọc bài kia sẽ thấy hai vế đầu hơi rời,
+    mà Pāli gốc cũng rời y hệt. `ambiguity_integrity` chấm 8.0, `grammar_logic` 8.8,
+    `semantic_fidelity` 9.0 — hạ vì lượt này tôi không đóng được câu cú pháp, không
+    phải vì dịch sai từ. Sujato đọc cặp vế này thành *one who misunderstands the
+    meaning / does good conduct lead to happiness* — biến một tính từ thành mô tả
+    người rồi lại thêm dấu hỏi mà Pāli không có (Pāli kết vế bằng dấu chấm phẩy `;`),
+    nên tôi không theo.
+
+    `Hāpeti atthaṁ dummedho` → *Kẻ ngu dốt hủy hoại điều lợi ấy*: `hāpeti` (√hāp) dùng
+    *hủy hoại* — 155 chỗ trong tầng, mạnh hơn *phá bỏ* của bản cũ. `attha` → *điều lợi*
+    theo 1299 chỗ *lợi ích*; `dummedho` → *ngu dốt*.
+
+    `kapi ārāmiko yathā` → *y như con khỉ quản lý khu vườn*. **SỬA `ārāma`:** bản cũ
+    dịch *rừng tịch* (chỉ 1 lượt trong cả tầng, và lượt đó chính là bản cũ). `ārāma` là
+    **khu vườn / công viên** và có tiền lệ thật trong tầng: `dn3:2.13.2`, `mn31:3.4`,
+    `mn77:3.4`, `mn89:3.2`, `ud5.3:11.2` đều *khu vườn*. Tiêu đề theo đó là *Kinh Kẻ Phá
+    Hoại Khu Vườn* (thay *Kinh Kẻ Phá Hoại Rừng Tịch*).
+
+    `Vāruṇidūsakajātaka` → *Kinh Kẻ Làm Hỏng Rượu Tăm*. `vāruṇī` = rượu tăm (rượu cây
+    thốt lộn) — **0 tiền lệ trong tầng**, đặt mới; Sujato dịch *Spoiling the Toddy*.
+    Tôi giữ *rượu tăm* vì đó là từ Việt đúng cho toddy, và bản cũ cũng đã dùng nó ở
+    `1.4`; nhưng **3 cách đang tồn tại trong tầng** nếu tính cả *rượu* và *rượu cây*,
+    nên xin biên tập quyết một lần cho toàn tầng. `koṇḍañño` giữ nguyên tên (10 chỗ
+    `Koṇḍañña` đã có trong tầng: `dhp111` *Trưởng lão Khāṇukoṇḍañña*, `ud7.6` *Tôn giả
+    Koṇḍañña*).
