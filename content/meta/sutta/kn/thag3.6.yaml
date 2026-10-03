@@ -1,0 +1,47 @@
+uid: thag3.6
+status: draft
+translationTitle: "Kinh Kệ Của Trưởng Lão Khujjasobhita"
+translators:
+  - "OpenCode Space Bunny Free (agent)"
+reviewers: []
+tags:
+  - thera-gatha
+  - cong-hanh-nhom
+  - tikanipāta
+  - truong-lao-khujjasobhita
+quality:
+  scores:
+    source_provenance: 9.5
+    semantic_fidelity: 8.0
+    grammar_logic: 8.5
+    segment_alignment: 10.0
+    terminology: 9.1
+    triangulation: 8.6
+    vietnamese_clarity: 8.9
+    han_viet_balance: 9.3
+    ambiguity_integrity: 8.0
+    technical_integrity: 9.6
+  final_score: 8.95
+  blocking_errors:
+    - "Sai chiều của mệnh đề tại `thag3.6:3.3`: Pāli `Brahmacariyānuciṇṇena` và bản Anh đã ghim đều chỉ theo chiều *đã không bỏ rơi phạm hạnh*, còn bản Việt viết *với việc không bám nơi phạm hạnh* — tức chiều ngược lại, thành *không giữ phạm hạnh*. Đây là chỗ bản Việt đi ngược bản Anh đã ghim mà không ghi lại lý do ở bất kỳ đâu, và câu cũng không thành tiếng Việt."
+    - "Thêm từ không có nguồn tại `thag3.6:3.1`: bản Việt viết *Với **nền** đánh bại vững chắc*, trong khi Pāli `Suyuddhena suyiṭṭhena, saṅgāmavijayena ca` không có danh từ nào chỉ nền móng; tương ứng, Sujato dịch *By war well fought, by sacrifice well made, by victory in battle*."
+  assessed_at: "2026-10-03"
+  assessed_by:
+    - "OpenCode Space Bunny Free (agent)"
+notes:
+  - |-
+    **Không có tầng Việt hiện hành để đối chiếu.** Tại commit đã ghim, bilara chỉ phân phối 26 chương Pháp Cú cho tiếng Việt, nên không tồn tại bản Hòa thượng Thích Minh Châu cho bài này; đó là đặc điểm của snapshot upstream, không phải thiếu sót của repo. Ba tầng còn lại là Pāli root, bản Anh Sujato đã ghim và bản Việt dự án.
+  - |-
+    **`kiểm()` của harness gần như không kiểm gì ở bài này, nên tôi tự quét toàn bộ khoá từ đĩa.** Mọi vế kệ ngắn hơn 40 ký tự nên bộ lọc `substantivePaliMinChars: 40` trong `source/layers.yaml` không thấy segment nào; tôi đọc Pāli thật của từng khoá từ `.cache/upstream/suttacentral/` theo `sourcePath` trong catalog, đối chiếu tay với bản Việt, rồi quét máy: tập khoá Việt bằng đúng tập khoá Pāli (17/17, đúng exact ID, không orphan), mọi giá trị NFC và không rỗng, ngoặc kép cong cân trên cả bài, không có `(…)`, dấu lược khớp Pāli từng khoá.
+  - |-
+    **Không thể tuyên bố technical gate pass.** Đợt này bị cấm chạy `npm run validate`, `npm test`, `npm run check`, `npm run build`, nên tiêu chí 10 bị chặn ở 9.6: tôi chỉ xác minh được JSON hợp lệ, đủ khoá, NFC, ngoặc kép cân cả bài và YAML sạch. Người biên tập phải chạy lại bốn lệnh trên trước khi đổi trạng thái.
+  - |-
+    **Lỗi chặn 1: chiều nghĩa ở `3.3`.** `anuciṇṇena` là dạng quá khứ của `anuciñña`, nghĩa *đã gửi trao, đã ôm lấy*; trong cụm này nó là *đã không bỏ rơi phạm hạnh*. Bản Anh đã ghim dịch *by leading the spiritual life* — chiều dương, khớp với chuyện hai ông già tinh tấn đứng ở bậc cửa mà kệ `1–2` kể. Bản Việt dùng *không bám* là chiều âm. Lưu ý bản Anh cũng không phải chuẩn: Pāli mới là chuẩn, và Pāli ở đây có một chút vướng; nhưng khi bản Việt chọn cách đọc ngược hẳn cách đọc sẵn có mà **không ghi lại là bất định ở bất kỳ tệp nào**, thì canonical wording không bảo vệ được. Đó là blocker loại unresolved ambiguity của AGENTS.md.
+  - |-
+    **Lỗi chặn 2: thêm *nền* ở `3.1`.** `Suyuddhena` và `suyiṭṭhena` đều là công cụ, nối vào mệnh đề chủ vị `evāyaṁ sukhamedhatī`; không có danh từ nào để mà thêm *nền* vào. Đây là loại chèn từ, không phải lựa chọn văn phong.
+  - |-
+    **Ba khống chế được đúng.** `1.3` và `2.3` đều là `Tesaññataroyamāyuvā` và được dịch giống hệt *một người trong số ấy chính là đời ta* — đúng cách đọc `ayam āyā` theo nghĩa đời người như trong DN 16. `1.4` và `2.4` phân biệt đúng hai người: `Khujjasobhita` và `dính bụi bặm` cho `māluterito`; bản Anh thêm *shivering in the gale* ở `2.4` mà Pāli không có, bản Việt không lấy.
+  - |-
+    **Chỗ hơi lệch, đã ghi.** `1.3` *chính là đời ta* là cách đọc nhân bản của `āyā`, bản Anh đọc là *the old man*; hai cách đều dựa trên chữ *ta/tao* của `āyā` nhưng cho ra hai câu khác nhau và Pāli không có gì để phân xử. Đây là bất định đáng ghi, tôi hạ `ambiguity_integrity` vì nó không được ghi lại.
+  - |-
+    **Tầng Anh.** 12/13 khoá nội dung có prose Sujato, im lặng ở `3.5`. Ở `2.1–2.4` bản Anh gần như lặp nguyên văn `1.1–1.4` chứ không dịch theo khác biệt Pāli giữa `khujjasobhito` và `māluterito`; bản Việt đã đọc Pāli và làm đúng, nên ở khoảng này Pāli thắng và tôi ghi nhận.

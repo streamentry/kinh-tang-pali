@@ -1,0 +1,45 @@
+uid: thag3.2
+status: published
+translationTitle: "Kinh Kệ Của Trưởng Lão Paccaya"
+translators:
+  - "OpenCode Space Bunny Free (agent)"
+reviewers: []
+tags:
+  - thera-gatha
+  - cong-hanh-nhom
+  - tikanipāta
+  - truong-lao-paccaya
+quality:
+  scores:
+    source_provenance: 9.5
+    semantic_fidelity: 9.0
+    grammar_logic: 9.1
+    segment_alignment: 10.0
+    terminology: 9.3
+    triangulation: 9.3
+    vietnamese_clarity: 9.4
+    han_viet_balance: 9.4
+    ambiguity_integrity: 9.2
+    technical_integrity: 9.6
+  final_score: 9.38
+  blocking_errors: []
+  assessed_at: "2026-10-03"
+  assessed_by:
+    - "OpenCode Space Bunny Free (agent)"
+notes:
+  - |-
+    **Không có tầng Việt hiện hành để đối chiếu.** Tại commit đã ghim, bilara chỉ phân phối 26 chương Pháp Cú cho tiếng Việt, nên không tồn tại bản Hòa thượng Thích Minh Châu cho bài này; đó là đặc điểm của snapshot upstream, không phải thiếu sót của repo. Ba tầng còn lại là Pāli root, bản Anh Sujato đã ghim và bản Việt dự án.
+  - |-
+    **`kiểm()` của harness gần như không kiểm gì ở bài này, nên tôi tự quét toàn bộ khoá từ đĩa.** Mọi vế kệ ngắn hơn 40 ký tự nên bộ lọc `substantivePaliMinChars: 40` trong `source/layers.yaml` không thấy segment nào; tôi đọc Pāli thật của từng khoá từ `.cache/upstream/suttacentral/` theo `sourcePath` trong catalog, đối chiếu tay với bản Việt, rồi quét máy: tập khoá Việt bằng đúng tập khoá Pāli (17/17, đúng exact ID, không orphan), mọi giá trị NFC và không rỗng, ngoặc kép cong cân trên cả bài, không có `(…)`, dấu lược khớp Pāli từng khoá.
+  - |-
+    **Không thể tuyên bố technical gate pass.** Đợt này bị cấm chạy `npm run validate`, `npm test`, `npm run check`, `npm run build`, nên tiêu chí 10 bị chặn ở 9.6: tôi chỉ xác minh được JSON hợp lệ, đủ khoá, NFC, ngoặc kép cân cả bài và YAML sạch. Người biên tập phải chạy lại bốn lệnh trên trước khi đổi trạng thái.
+  - |-
+    **Tầng Anh có thật và gần như đủ: 12/13 khoá nội dung có prose Sujato**, khoá im lặng duy nhất là `3.5` `… Paccayo thero ….`, tức dòng ghi tên người kệ — Sujato không dịch dòng bảng hiệu ấy ở toàn bộ Theragāthā. Không có lớp `english-project` cho bài này. Vì không một khoá nào đủ 40 ký tự nên `englishCoverage` không đo được gì cho bài, thuộc nhóm `no substantive segment`; đó là hạn chế của phép đo, không phải bằng chứng rằng tầng Anh đầy đủ.
+  - |-
+    **Bản Việt chốt đúng chỗ Sujato mở rộng, và đó là điểm tốt.** `2.1` `Nāsissaṁ na pivissāmi` chỉ nói không uống nước trong tịnh xá; Sujato viết *I won’t eat; I won’t drink* — thêm một mệnh đề không có trong Pāli. Bản Việt giữ đúng một mệnh đề.
+  - |-
+    **Một lệch nhỏ đã ghi, không sửa được trong đợt này.** `2.3` `Napi passaṁ nipātessaṁ`: `Napi` là `na api`, tức *cũng không/còn gì nữa không*, còn `passaṁ` là *hoàn toàn*. Bản Việt viết *tôi không nằm nghiêng xuống **nữa*** — phủ định thì giữ nguyên nhưng mất `passaṁ` và thêm chữ *nữa* không có trong Pāli. Không đảo nghĩa, nên hạ điểm chứ không xếp blocker.
+  - |-
+    **Thuật ngữ đều có tiền lệ, không có thuật ngữ mới.** `taṇhāsalle` → *mũi tên ái* (3 lần toàn tầng), `vīriye parakkamaṁ` → *sự tinh tấn nỗ lực*, `Tisso vijjā` → *tam-minh* (33 lần), `taṇhā` → *ái*. Tiêu đề `Paccayattheragāthā` dịch theo đúng khuôn *Kinh Kệ Của Trưởng Lão X* đang dùng ở 139 tiêu đề Theragāthā trong tầng.
+  - |-
+    **Bất định không có gì đáng kể.** `2.4` `anūhate` là động từ bị động *chưa được nhổ ra*, bản Việt *khi mũi tên ái chưa được nhổ đi* giữ đúng thời và thể. `1.2` `appattamānaso` và `1.4` `paṇidhī ahu` đã được nối nhau thành một mệnh đề liên tục, đúng cách đọc.
