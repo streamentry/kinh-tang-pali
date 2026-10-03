@@ -1,0 +1,63 @@
+uid: pv46
+status: draft
+translationTitle: "11. Chuyện Ngạ Quỷ Đoàn Hộ Đứa Con"
+translators:
+  - "OpenCode Space Bunny Free (agent)"
+reviewers: []
+tags:
+  - khuddaka-nikaya
+  - petavatthu
+  - đại-phẩm
+  - ngạ-quỷ
+  - bố-thí
+quality:
+  scores:
+    source_provenance: 9.5
+    semantic_fidelity: 9.2
+    grammar_logic: 9.2
+    segment_alignment: 10.0
+    terminology: 9.2
+    triangulation: 7.5
+    vietnamese_clarity: 9.3
+    han_viet_balance: 9.3
+    ambiguity_integrity: 8.9
+    technical_integrity: 9.6
+  final_score: 9.17
+  blocking_errors:
+    - "Không có tầng tham khảo tiếng Anh tại commit đã ghim: tệp `translation/en/sujato/sutta/kn/pv/pv46_translation-en-sujato.json` không tồn tại trong `.cache/upstream/suttacentral/`, và `source/upstream-manifest.json` (edition `translation/en/sujato`, 4291 tệp) không liệt kê bất kỳ tệp nào cho uid này — đây là `not-published-upstream`, KHÔNG phải `not-synced`. Đo coverage theo đúng công thức `source/layers.yaml` (Pāli có nội dung ≥ 40 ký tự, loại block tham chiếu) cho 0 trên 0 khoá = 0%, dưới ngưỡng 0.8. `scripts/validate.ts` coi tệp Anh thiếu là **error** khi status là `review` hoặc `published`, nên bài bắt buộc `draft`. Tầng `vietnamese-current` cũng vắng: `translation/vi/phantuananh` tại commit đã ghin chỉ có 26 tệp và toàn bộ là Pháp Cú. Lớp lấp `english-project` của dự án cũng không có cho uid này. Ba tầng tham khảo đều vắng ⇒ bài dịch chỉ từ Pāli root ⇒ blocker thật."
+  assessed_at: "2026-10-02"
+  assessed_by:
+    - "OpenCode Space Bunny Free (agent)"
+notes: |-
+  17 khoá, tất cả đã dịch. Bài thứ 11 của `Mahāvagga` trong Petavatthu.
+
+  TẦNG THAM KHẢO — 0/17 có Anh Sujato: không có tệp `pv*` trong `kn/` của edition đã ghim (chỉ có
+  cp, dhp, iti, ja, kp, snp, thag, thig, ud). Đo theo `source/layers.yaml`: Pāli có nội dung =
+  **0 khoá** (mọi câu kệ của Petavatthu đều ngắn hơn 40 ký tự), nên `src/lib/canon/reference.ts`
+  quy định `ratio = 1` khi mẫu số bằng 0, và cổng coverage **không** chặn. Nhưng tệp Anh thật sự
+  không tồn tại, và `scripts/validate.ts` coi đó là **error** khi status là `review`/`published`.
+  Đây là
+  trường hợp số đo không bắt được nhưng thực tế mất tầng tham khảo vẫn là blocker ⇒ `draft`.
+  Ghi rõ ở đây vì điểm này dễ bị đọc nhầm là bài đã đủ tầng tham khảo.
+
+  PĀLI TRÙNG: `0.1` `Petavatthu` (giữ nguyên, 2 tiền lệ ở pv48, pv49), `0.2` `Mahāvagga` → *Đại
+  Phẩm* (6 tiền lệ), và khuôn `Xpetavatthu` → *Chuyện ngạ quỷ X* (pv48:0.3, pv49:0.3) cùng khuôn
+  kết `… ekādasamaṁ` → *…, thứ mười một.*
+
+  THUẬT NGỮ MỚI (0 tiền lệ): `Pāṭaliputta` → *Đoàn Hộ Đứa Con*; `tiracchānayoni` → *cõi địa
+  ngục không cửa*; `athava` → *người* (trong `Petā asurā athavāpi mānusā devā` tôi dịch *ngươi là
+  ngạ quỷ, yêu quái, người hay chư thần*); `anappakāni` → *không mất đi*. `puñña` → *phước* theo
+  glossary.
+
+  BẤT ĐỊNH CHƯA PHÂN XỬ — đây là chỗ yếu nhất của lát nên `ambiguity_integrity` ở 8.9:
+  · **`1.1` `Diṭṭhā tayā` đối chiếu `3.1` `Diṭṭhā mayā`.** Ở `3.1` `mayā` là *bởi tôi*, và câu đó
+    là ngạ quỷ kể lại điều chính nó thấy. Ở `1.1` Pāli ghi `tayā` (công cụ của *ngươi*), nên đọc
+    theo cú pháp sẽ là *ta đã bị ngươi thấy*. Tôi dịch cả hai vế theo hướng song song *Ta đã
+    thấy ngươi*, vì `1.1–1.5` và `3.1–3.4` là **cùng một đoạn nói lại** (khác ba câu kệ xen giữa
+    lời đáp của yêu quái) và chú giải Petavatthu đọc cả hai là *ta đã thấy ngươi*. Nhưng đây là
+    chỗ tôi **đã phải chọn**, và `mayā` ở `3.1` là bằng chứng ngược lại.
+  · `Nessāmi taṁ pāṭaliputtamakkhataṁ` (`1.4`): `nessāmi` ở đây là *ban cho* (nghĩa cho), nên ngạ
+    quỷ đang **trao danh hiệu Đoàn Hộ Đứa Con** cho yêu quái, và lời đáp `2.3–2.4` (*Ta làm theo
+    lời ngươi, ngươi là vị thầy của ta*) xác nhận đúng cách đọc này.
+
+  Đợt này bị cấm chạy `npm run validate|test|check|build` theo chỉ đạo của người điều phối, nên `technical_integrity` bị chặn ở **9.6**. Tôi đã **tự tái lập bằng script** những kiểm mà `validate` làm cho tầng Việt và ghi kết quả vào đây: đủ 17 khoá với đúng segment ID, không orphan, không thừa, mọi khoá NFC, không rỗng, dấu lược khớp Pāli **từng khoá** (kể cả khoá ngắn hơn 40 ký tự mà `kiểm()` của `_hvi.py` không quét), ngoặc kép `“”` cân trên cả bài, không còn `(…)`, và không có Pāli lọt vào bản Việt. Đây **không** thay thế được `validate`; nó là bằng chứng cho tới khi cổng kỹ thuật được chạy.

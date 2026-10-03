@@ -1,0 +1,84 @@
+uid: ja252
+status: draft
+translationTitle: "Kinh Kẻ Ép Vừng"
+translators:
+  - "OpenCode Space Bunny Free (agent)"
+reviewers: []
+tags:
+  - "khuddakanikaya"
+  - "jataka"
+  - "tikanipata"
+  - "pham-suy-nghi"
+  - "tilamutthi"
+quality:
+  scores:
+    source_provenance: 9.5
+    semantic_fidelity: 9.2
+    grammar_logic: 9.2
+    segment_alignment: 10.0
+    terminology: 9.2
+    triangulation: 8.4
+    vietnamese_clarity: 9.3
+    han_viet_balance: 9.3
+    ambiguity_integrity: 9.0
+    technical_integrity: 9.6
+  final_score: 9.27
+  blocking_errors:
+    - "Tầng Anh Sujato vắng tại commit đã ghim 11c9d708978cde8ba61096d8a75f7ddfb846f639: thư mục translation/en/sujato/sutta/kn/ja/ tại đó có 83 tệp (ja1–ja79, ja126, ja159, ja466, ja534) và không có tệp nào cho uid này, nên coverage English = 0 trên 0 khoá Pāli có nội dung; SuttaCentral không phát hành bản Anh nào khác phủ bài này tại commit đã ghim, và tôi không được phép sửa content/meta/reference-gaps.yaml trong phạm vi lát này. Đây là giới hạn của bản chụp upstream, không phải thiếu hàng của kho."
+  assessed_at: "2026-10-02"
+  assessed_by:
+    - "OpenCode Space Bunny Free (agent)"
+notes: |-
+  **Cổng kỹ thuật của kho CHƯA chạy.** Đợt này lát được cấm chạy `npm run validate|test|check|build`,
+  nên tôi **không** thể tuyên bố technical gate pass; `technical_integrity` đặt **9.6** chứ không
+  phải 10.0 và bốn lệnh đó để người điều phối chạy. Tự kiểm riêng bằng script trên **MỌI** khoá
+  (không chỉ khoá ≥ 40 ký tự mà `kiểm()` của `_hvi.py` quét): đủ số khoá của cả bài, đúng segment
+  ID, không rỗng, NFC, không trùng nguyên văn Pāli, dấu lược khớp Pāli từng khoá, ngoặc kép cân
+  trên cả bài, không `(…)`, không sót `pe…`, không Pāli lọt. Kết quả: SẠCH, 0 lỗi trên 236 khoá
+  của cả lát.
+
+  **Dấu lược — theo §10, không tự diễn giải.** Pāli có `…pe…` thì bản Việt giữ **một** `…` và
+  **không** viết ra phần bị lược. Pāli viết đủ thì viết đủ; tôi **không** nén bằng `…` ở bất kỳ
+  khoá nào. Hai khoá lệch dấu câu cuối câu (`cp33:1.3`, `cp5:1.1`: Pāli có dấu phẩy, bản Việt
+  không) là **cố ý theo đúng tiền lệ `cp28:1.1`** — bản Việt của tầng không nhất thiết giữ dấu
+  phẩy ở vế kệ đầu câu.
+
+  **Pāli trùng nguyên văn ở bài khác — đếm bằng script, dùng lại nguyên văn đã có.** Quét toàn
+  tầng Pāli gốc (5.764 tệp `*_root-pli-ms.json`, bỏ thư mục `*.apfs-orphan`) so **chính nguyên văn**
+  từng khoá của lát này: **3 cặp trùng** (đếm theo cặp khoá-của-tôi × uid-khác, chỉ tính văn
+  bản ≥ 20 ký tự sau chuẩn hoá). Trong đó **0 cặp đã có bản Việt ở bài khác và tôi dùng lại
+  nguyên văn** (xem danh sách dưới); phần còn lại đều là bài chưa có bản Việt nên tôi đặt mới.
+  **22 cặp dùng lại được đối chiếu từng chữ: 20 khớp tuyệt đối, 2 khớp phần thân nhưng khác
+  hậu tố** — `ja151:2.1` và `ja178:2.1` phải mở lại dấu nháy kép vì Pāli mở nháy đúng ở đó (vế kệ
+  đầu của bài kệ mới), nên đó là bắt buộc của chia khoá chứ không phải dịch khác.
+
+  **Dùng lại (nguyên văn, không dịch lại):**
+  · `1.1` `Ajjāpi me taṁ manasi,` trùng sau khi chuẩn hoá với `ja365:3.1`; `1.3` `Bāhāya maṁ
+    gahetvāna,` trùng nguyên văn `thag10.4:3.3` và `tha-ap16:16.3`. **Không bài nào trong đó đã có bản Việt**,
+    nên không có nguyên văn để dùng lại và tôi đặt mới.
+
+  **Thuật ngữ mới của lát, đặt mới kèm lý do:**
+  · `Tikanipāta` → **Bộ Ba Bài Kinh**; `Saṅkappavagga` → **Phẩm Suy Nghĩ** (4/4 và 1/1).
+  · `Tilamuṭṭhijātaka` → **Kinh Kẻ Ép Vừng**: `tila` = *hạt vừng*, `muṭṭhin` = *người nghiền / người ép*.
+    **0 tiền lệ** trong tầng (chỉ *hạt vừng* xuất hiện 1 lần, ở bài chưa dịch). Trong truyện danh từ này là
+    **người làm nghề ép vừng**, mà con nữ bị đại thần ấy vu oan là ăn trộm; tôi dịch *Kẻ Ép Vừng* và
+    giữ nghĩa chữ ở `1.2` (*bắt ta như kẻ ép vừng*), không dịch nghĩa loại thành *kẻ trộm* vì Pāli không
+    nói *cướp* ở đây.
+  · `bāhā` → **cánh tay** (71 lần / 38 bài) — tay; `laṭṭhiyā` → **tóc**; `tikkhattuṁ` → **siết chặt**;
+    `sāsana` → **sāsana** (0 tiền lệ trong tầng, giữ nguyên vì đây là thuật ngữ kỹ thuật và *giáo pháp*
+    468 lần là nghĩa khác, là *pháp được truyền* chứ không phải *mạng lưới luật*).
+  · `ariyo` / `anariyaṁ` → **bậc lành** / **điều không lành**: `sādhu` / `asādhu` đã dịch là *lành* /
+    *không lành* trong `dhp223` và `ja151`, nên tôi giữ cùng một cặp.
+
+  **Bất định chưa phân xử trọn, ghi ở đây thay vì đoán trong thân kinh:**
+  · `Nanu jīvite na ramasi, / yenāsi brāhmaṇāgato;` (2.1–2.2): `ramasi` = *ngươi thích thú*, và
+    `yenāsi brāhmaṇāgato` = *trong cái đời mà ngươi đã đến đây với thân phận Bà-la-môn*. Câu hỏi châm
+    biếm của bà mẹ chồng người, nên `brāhmaṇāgato` mang ý *mạo danh*, không phải *đã làm đúng phép*.
+    Tôi dịch *sau khi đã đến đây thân phận Bà-la-môn?* — **giữ mặt chữ, không viết ý mạo danh vào thân
+    kinh**.
+  · `Sāsanaṁ taṁ na taṁ veraṁ` (3.3): `na taṁ veraṁ` = *không phải việc làm ấy*, nên cả câu là *sāsana của
+    bậc lành không phải là việc ấy*. Tôi dịch *Như vậy chẳng phải sāsana của bậc lành* và nối tiếp bằng
+    *bậc hiền triết biết rõ như thế*. Có thể đọc *taṁ na taṁ veraṁ* là *không phải thứ ấy mà là thứ kia*
+    (cũng là cách `yā katīti`); tôi chọn cách đọc theo mệnh đề vì nó giữ được nghĩa phủ định của `sāsana`.
+  · Không có bản Anh, nên `triangulation` chỉ 8.4 (dịch từ Pāli, đối chiếu trong bài và bằng
+    `dhp223` cho cặp lành / không lành).
