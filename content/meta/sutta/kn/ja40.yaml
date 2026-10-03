@@ -1,0 +1,118 @@
+uid: ja40
+status: published
+translationTitle: "Kinh Khadiraṅgārajātaka"
+translators:
+  - "OpenCode Space Bunny Free (agent)"
+reviewers: []
+tags:
+  - khuddaka-nikaya
+  - jataka
+  - ekakanipata
+quality:
+  scores:
+    source_provenance: 9.5
+    semantic_fidelity: 9.3
+    grammar_logic: 9.3
+    segment_alignment: 10.0
+    terminology: 9.2
+    triangulation: 8.5
+    vietnamese_clarity: 9.3
+    han_viet_balance: 9.3
+    ambiguity_integrity: 9.2
+    technical_integrity: 9.6
+  final_score: 9.32
+  blocking_errors: []
+  assessed_at: "2026-10-03"
+  assessed_by:
+    - "OpenCode Space Bunny Free (agent)"
+notes: |-
+  TẦNG THAM KHẢO — ĐO TRÊN ĐĨA, KHÔNG ĐOÁN. Lát `g00` gồm 5 Jātaka ngắn của pli/ms.
+  Bản Anh Sujato tại commit đã ghim: có tệp `ja40_translation-en-sujato.json`, và
+  tệp đó còn nằm trong cache. Đối chiếu `source/upstream-manifest.json` (commit
+  `11c9d708978cde8ba61096d8a75f7ddfb846f639`, mục `editions` với
+  `layerId=english-sujato`) xác nhận `sutta/kn/ja/ja40_translation-en-sujato.json`
+  nằm trong cây git đã ghim. Bốn khoá `0.1–0.4` có Anh để đối chiếu trực tiếp;
+  **11 khoá `1.1–4.4` Sujato để trống** (Sujato không dịch kệ và uddāna), nên
+  `triangulation` đặt ở mức 8.5 thay vì trần.
+
+  SAI LỆCH SO VỚI BRIEF ĐÃ ĐO, CẦN GHI RÕ. Brief nói cả 5 bài đều có tầng Việt hiện
+  hành (Hòa thượng Thích Minh Châu). Đo thì **không bài nào có**. Tầng
+  `vietnamese-current` (`translation/vi/phantuananh`) tại commit đã ghim chỉ có
+  **26 tệp, toàn bộ nằm dưới `kn/dhp/`**: mục `editions` với
+  `layerId=vietnamese-current` cho `fileCount = 26`, và tra `ja40/ja60/ja70/ja80/ja90`
+  trong cây git của edition đó ra **0 tệp**. Đây là đặc điểm của bản chụp upstream,
+  đúng như `source/layers.yaml` đã ghi sẵn cho tầng này (chỉ có Pháp Cú), **không
+  phải** thiếu sót của repo. Hệ quả trực tiếp: không có tầng Việt nào để đối chiếu
+  ở bất kỳ bài nào trong lát, nên mọi dịch ở đây là tam giác hai tầng (Pāli + Anh
+  Sujato), và đó là lý do `triangulation` không thể lên 9.
+
+  CHỐT KIỂM KHÔNG ĐỦ — ĐÃ TỰ KIỂM MỌI KHOÁ. Ngưỡng 40 ký tự khai trong
+  `source/layers.yaml` (`substantivePaliMinChars`) **không chạy** ở lát này: đo trên
+  cả 5 bài, số khoá Pāli có nội dung từ 40 ký tự trở lên (bỏ block tham chiếu `:0`)
+  là **0**. Nghĩa là `englishCoverage` và `reference-gaps` không có gì để đo cho lát
+  này, và một chỉ kiểm dựa trên ngưỡng đó sẽ báo đủ một cách rỗng. Tôi kiểm thủ
+  công **75/75 khoá**: đủ khoá, 0 orphan, 0 rỗng, NFC, cân dấu lược (không khoá nào
+  có `…pe…` hay `...`), không `(…)` đứng một mình, không khoá nào để lọt Pāli Latin
+  vào tiếng Việt ngoài tên riêng đã giữ dấu.
+  `technical_integrity` đặt **9.6 chứ không phải 10.0** vì đợt này cấm chạy cổng:
+  `npm run validate`, `npm test`, `npm run check` và `npm run build` **để coordinator
+  chạy**; tôi không chạy và không tự nhận đã pass.
+
+  ỨD NGHĨA 4.1–4.4 — CỐ Ý KHÔNG MỞ MÃ HOÁ. `Sirimātali dhītara pakkhivaro` …
+  là uddāna Ekakanipāta: danh sách tên-mangala của mười bài trong phẩm, **không
+  phải** mười tên bài kinh. Bản chụp đã ghim không có lớp chú giải nào giải thích,
+  nên tôi giữ nguyên danh sách Pāli kèm dấu, chỉ dịch từ nối: `ca puna` thành
+  "lại nữa", `Tathā … dasāti` thành "rồi tới … — mười bài ấy". Đây cũng là tiền lệ
+  có sẵn trong tầng: đếm ở JA ngoài lát này, "— mười bài ấy." 6 lần so với
+  "thành ra mười bài đấy." 2 lần; tôi theo nhóm đa số.
+
+  CÔNG THỨC ĐÃ THEO TIỀN LỄ (đếm trên đĩa, JA ngoài lát này):
+  - `<Tên>jātakaṁ <thứ tự>.` thành `Kinh <Tên> thứ <N>.` — **không dấu phẩy** trước
+    "thứ": 96 không so với 33 có, trên 129 cặp đúng công thức. Bản nháp có sẵn trên
+    đĩa lúc bắt đầu đặt dấu phẩy ở `2.1` và `2.2` của cả 5 bài; tôi bỏ theo đa số.
+  - `<Vagga>vaggo <thứ tự>.` thành `Phẩm <Tên> thứ <N>.` — 5 mẫu có sẵn: 3 có dấu
+    phẩy, 2 không. Năm bài trong lát này theo **không dấu phẩy** để nhất quán với
+    `2.1` của chính lát, và để khớp hai mẫu gần nhất về cấu trúc: `ja20:2.2`
+    "Phẩm Giới thứ hai." và `ja30:2.2` "Phẩm Nai Bốn Sừng thứ ba." cũng không dấu
+    phẩy.
+  - `0.1` `Jātaka` giữ nguyên `Jātaka`: **264/264** khoá `0.1` ở JA.
+  - `0.2` `Ekakanipāta` thành **Bộ Một Bài Kinh**, đúng bảng tên đã chốt ở
+    `BRIEF_VI3.md` mục 11 (`ja-name:1` cho "The Book of the Ones"); tiền lệ ở JA: 144.
+  - `0.3` `Kulāvakavagga` thành **Phẩm Tổ Chim** (`ja-name:35` cho "The Nestling
+    Birds"); khớp cả 9 bài `ja31–ja39` đã có trong tầng.
+  - `3.1` `Tassuddānaṁ` thành **Tóm lược:**. Đếm toàn tầng: "Tóm lược" 259+21 so với
+    "Tóm tắt phẩm" 19+3; đây là lý do lát trước đã đổi sang "Tóm lược:".
+  - Số thứ tự `2.2` đối chiếu hai bên trong cùng phẩm, không suy từ tên uid:
+    `Kulāvakavaggo catuttho` là thứ tư, và `ja31–ja39` đã mang "Phẩm Tổ Chim";
+    `ja40:2.1` là "thứ mười", khớp `dasamaṁ` và khớp vị trí thứ 10 trong phẩm.
+
+  PĀLI TRÙNG NGUYÊN VĂN — ĐÃ ĐO, ĐÃ DÙNG LẠI. Tôi tự dựng chỉ mục Pāli ký Việt của
+  toàn tầng bằng script: nạp mọi tệp Pāli trong cache và mọi tệp Việt dự án, ghép
+  theo khoá (182.916 văn bản Pāli và 81.557 văn bản Việt, đọc thẳng từ đĩa, cả 5
+  collection), rồi so 75 khoá của lát. Tìm được **5 cặp trùng nguyên văn**, tất cả
+  đều là khoá `0.1` (`Jātaka` thành `Jātaka`, đã có sẵn ở `ja100` và các bài kế).
+  Không có cặp trùng nào rơi vào thân kệ hay uddāna, nên **số khoá thân dùng lại
+  nguyên văn là 0**; các khoá đã có bản Việt thì tôi dùng lại đúng nguyên văn đó.
+  Ba cặp **Pāli trùng nhau** (chưa có bản Việt) cũng được ghi nhận để lát sau dùng
+  lại: `ja40:1.2` trùng `ja516:15.2`; `ja90:1.2` trùng `ja409:5.2`;
+  `ja60:1.1` và `ja60:1.2` trùng `ja59:1.1` và `ja59:1.2`.
+
+  LƯỢT REVIEW ĐỐI KHÁNG ĐÃ BẮT LỖI, ĐÃ SỬA. Bản nháp có sẵn trên đĩa lúc tôi bắt
+  đầu (mtime 10:24, **không có scorecard**) đã bị tôi đọc lại từng cặp Pāli ký Việt
+  và sửa 4 lỗi trên 5 bài của lát; riêng bài này sửa 1 lỗi:
+  - `ja40:1.2` draft ghi "ta ngã ngửa đầu, đâm nhào xuống". `uddhampādo` là **chân
+    ngược, đầu chúi** (`ud-` là trên hoặc lộn, `pāda` là bàn chân: bàn chân lên
+    trời); "ngửa đầu" là nghĩa ngược lại. Sửa thành "đầu chúi chân ngược", khớp
+    Sujato "head over heels".
+  Lỗi còn lại của lát: `ja70` sai nghĩa `sādhu` và `avajī`; `ja90` thiếu tân ngữ
+  `kattāraṁ`; `ja80` sai cả bốn vế thân kệ. Chi tiết ở `ja70.yaml`, `ja80.yaml`,
+  `ja90.yaml`.
+
+  THUẬT NGỮ, KÈM SỐ ĐẾM TOÀN TẦNG. `Kāmaṁ` thành *tham dục* (78 khoá đã có);
+  `nirayaṁ` thành *địa ngục* (515); `anariyaṁ` thành *hèn hạ* (31); `handa … paṭiggahā`
+  thành "xin hãy nhận lấy" ("xin hãy" có 43 khoá); `piṇḍaṁ` thành *phần ăn khất*
+  ("ăn khất" 125 khoá); `avaṁsiro` thành *ngã nhào*; `uddhampāda` thành "đầu chúi
+  chân ngược" — **0 tiền lệ** vì cả tầng chưa dịch cụm này, ghi đây để người điều
+  phối gộp nếu lát khác gặp. `Khadiraṅgāra` giữ nguyên dấu Pāli: đây là địa danh
+  có 0 bản Việt nào trong tầng, và tầng đã làm y vậy cho `Naccajātaka`,
+  `Sakuṇajātaka`, `Guṇa`, `Kosiyajātaka`.
