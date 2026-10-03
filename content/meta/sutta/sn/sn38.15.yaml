@@ -1,0 +1,48 @@
+uid: sn38.15
+status: draft
+translationTitle: "Kinh Câu Hỏi Về Hữu Thân"
+translators:
+  - "OpenCode Space Bunny Free (agent)"
+reviewers: []
+tags:
+  - samyutta-nikaya
+  - cong-hanh-nhom
+  - kinh-câu-hỏi-về-hữu-thân
+  - "1. Phẩm Jambukhádaka"
+quality:
+  scores:
+    source_provenance: 9.7
+    semantic_fidelity: 9.6
+    grammar_logic: 9.5
+    segment_alignment: 10.0
+    terminology: 9.6
+    triangulation: 8.0
+    vietnamese_clarity: 9.5
+    han_viet_balance: 9.5
+    ambiguity_integrity: 9.4
+    technical_integrity: 9.6
+  final_score: 9.44
+  blocking_errors:
+    - "Tầng tham khảo Anh rơi dưới ngưỡng khai trong `source/layers.yaml` và chưa được ghi nhận. Đếm trên Pāli có nội dung từ 40 ký tự, bỏ khối `:0`: 11 khoá, Sujato có prose ở 6, tức 54,5% — thấp hơn ngưỡng 0,8. Sujato im lặng ở `1.8`, `1.9`, `1.10`, `1.11`, `1.12`, `1.13`, `1.14`, tức gần hết mạch hội thoại cuối bài, và không có lớp `english-project` lấp cho bài này. Đây là giới hạn của bản chụp English đã ghim, không phải thiếu sót của repo, nhưng AGENTS.md quy định bài review hoặc published mà thiếu ghi nhận trong `content/meta/reference-gaps.yaml` là lỗi chặn. Cần chạy `npm run reference:gaps` để ghi nhận, hoặc chờ lớp lấp English, trước khi nâng lên trạng thái cao hơn."
+  assessed_at: "2026-10-03"
+  assessed_by:
+    - "OpenCode Space Bunny Free (agent)"
+notes:
+  - |-
+    **Không có tầng Việt hiện hành để đối chiếu.** Tại commit đã ghim, bilara chỉ phân phối 26 chương Pháp Cú cho tiếng Việt, nên không tồn tại bản Hòa thượng Thích Minh Châu cho bài này; đó là đặc điểm của snapshot upstream, không phải thiếu sót của repo. Ba tầng còn lại là Pāli root, bản Anh Sujato đã ghim và bản Việt dự án.
+  - |-
+    **`kiểm()` của harness gần như không kiểm gì ở bài này, nên tôi tự quét toàn bộ khoá từ đĩa.** Mọi vế kệ ngắn hơn 40 ký tự nên bộ lọc `substantivePaliMinChars: 40` trong `source/layers.yaml` không thấy segment nào; tôi đọc Pāli thật của từng khoá từ `.cache/upstream/suttacentral/` theo `sourcePath` trong catalog, đối chiếu tay với bản Việt, rồi quét máy: tập khoá Việt bằng đúng tập khoá Pāli (17/17, đúng exact ID, không orphan), mọi giá trị NFC và không rỗng, ngoặc kép cong cân trên cả bài, không có `(…)`, dấu lược khớp Pāli từng khoá.
+  - |-
+    **Không thể tuyên bố technical gate pass.** Đợt này bị cấm chạy `npm run validate`, `npm test`, `npm run check`, `npm run build`, nên tiêu chí 10 bị chặn ở 9.6: tôi chỉ xác minh được JSON hợp lệ, đủ khoá, NFC, ngoặc kép cân cả bài và YAML sạch. Người biên tập phải chạy lại bốn lệnh trên trước khi đổi trạng thái.
+  - |-
+    **Lỗi chặn về tầng tham khảo, không phải về bản dịch — và tôi nói rõ để không ai hiểu nhầm là dịch sai.** Bản Việt của bài này là bản tốt nhất trong 14: không tôi nào tìm được lỗi ngữ nghĩa. Cái chặn nó đến từ chỗ bản Anh đã ghin im lặng. Số đếm cụ thể: trên phép đo chính thức, 11 khoá Pāli có nội dung, 6 khoá có English, **54,5%**; ngưỡng khai trong `source/layers.yaml` là 0,8. `content/meta/reference-gaps.yaml` chưa có bản ghi cho `sn38.15` (đã kiểm bằng cách liệt kê thật, không suy đoán). Đợt này tôi bị cấm sửa tệp đó nên chỉ ghi blocker. **Đây là lý do bị đặt draft dù `final_score` 9,44.**
+  - |-
+    **Chỗ mất tầng Anh quan trọng nhất, phải nói thẳng:** `1.9` `Ayameva kho, āvuso, ariyo aṭṭhaṅgiko maggo` và `1.10` `sammādiṭṭhi …pe… sammāsamādhi` đều không có English. Đây là mệnh đề nêu tên con đường — Thánh đạo tám ngành — tức đáp án của cả bài. Bản Việt dịch *Thánh đạo tám ngành* dựa vào Pāli và vào tiền lệ 153 lần trong tầng, nên câu vẫn đúng; nhưng nó là chỗ không có ai đối chiếu, và người đọc cũng không có cách nào thấy điều đó từ bốn cột.
+  - |-
+    **Dấu lược giữ đúng chính sách.** `1.10` Pāli là `sammādiṭṭhi …pe… sammāsamādhi.` — hai dấu lược, vì `pe` nằm giữa. Bản Việt viết *chánh kiến … chánh định.*, tức **một** dấu lược, đúng quy tắc là Pāli lược thì bản Việt giữ một `…` và không bao giờ mở rộng. Không mở rộng `…pe…` thành liệt kách tám ngành, dù có thể làm vậy từ trí nhớ; đây là điểm cần ghi vì rất nhiều bài đã publish trong tầng đã mở rộng chỗ này sai.
+  - |-
+    **Thuật ngữ nhất quán tuyệt đối, đây là điểm mạnh rõ ràng nhất của bài.** `sakkāyo` xuất hiện mười hai lần trong bốn cột và bản Việt dùng *hữu thân* ở **cả mười hai lần**, từ tiêu đề `Sakkāyapañhāsutta` → *Kinh Câu Hỏi Về Hữu Thân* đến câu hỏi, câu trả lời và lời kết. Không có lần nào lệch sang *sắc thân* hay *thực thể*. `ariyo aṭṭhaṅgiko maggo` → *Thánh đạo tám ngành* (153 lần trong tầng), `pañcupādānakkhandhā` → *năm thủ uẩn*, và năm uẩn được kê đúng thứ tự Pāli.
+  - |-
+    **Mạch hội thoại và điều kiện phủ định giữ đúng.** `Atthi panāvuso …` ở `1.6` là câu hỏi có dấu hỏi ở bản Việt, `1.7` trả lời *Có*, `1.8` hỏi lại *con đường nào*, `1.11` chốt *đây là con đường, đây là đạo lộ*. `1.12` `Bhaddako … maggo bhaddikā paṭipadā` giữ đúng cặp so sánh *con đường này là tốt / đạo lộ này là tốt hơn* chứ không làm phẳng thành *tốt*. `1.13` `Alañca panāvuso sāriputta, appamādāyā` giữ cả vế gọi tên *này hiền giả Sāriputta* lẫn mệnh lệnh *hãy đừng phóng dật*.
+  - |-
+    **`1.14` `Pannarasamaṁ` → *Thứ mười lăm* đúng với vị trí đếm của bài** (sau `Catutthaṁ` ở `sn14.14` cùng phẩm), và Sujato cũng để trống, nên không có gì để đối chiếu nhưng cũng không có gì sai. `:0.2` `1. Jambukhādakavagga` → *1. Phẩm Jambukhádaka*, khớp đúng cách `sn38.14` đã publish trong cùng phẩm.

@@ -1,0 +1,45 @@
+uid: thag3.3
+status: published
+translationTitle: "Kinh Kệ Của Trưởng Lão Bākula"
+translators:
+  - "OpenCode Space Bunny Free (agent)"
+reviewers: []
+tags:
+  - thera-gatha
+  - cong-hanh-nhom
+  - tikanipāta
+  - truong-lao-bakula
+quality:
+  scores:
+    source_provenance: 9.5
+    semantic_fidelity: 8.6
+    grammar_logic: 9.2
+    segment_alignment: 10.0
+    terminology: 9.3
+    triangulation: 9.3
+    vietnamese_clarity: 9.1
+    han_viet_balance: 9.4
+    ambiguity_integrity: 9.1
+    technical_integrity: 9.6
+  final_score: 9.31
+  blocking_errors: []
+  assessed_at: "2026-10-03"
+  assessed_by:
+    - "OpenCode Space Bunny Free (agent)"
+notes:
+  - |-
+    **Không có tầng Việt hiện hành để đối chiếu.** Tại commit đã ghim, bilara chỉ phân phối 26 chương Pháp Cú cho tiếng Việt, nên không tồn tại bản Hòa thượng Thích Minh Châu cho bài này; đó là đặc điểm của snapshot upstream, không phải thiếu sót của repo. Ba tầng còn lại là Pāli root, bản Anh Sujato đã ghim và bản Việt dự án.
+  - |-
+    **`kiểm()` của harness gần như không kiểm gì ở bài này, nên tôi tự quét toàn bộ khoá từ đĩa.** Mọi vế kệ ngắn hơn 40 ký tự nên bộ lọc `substantivePaliMinChars: 40` trong `source/layers.yaml` không thấy segment nào; tôi đọc Pāli thật của từng khoá từ `.cache/upstream/suttacentral/` theo `sourcePath` trong catalog, đối chiếu tay với bản Việt, rồi quét máy: tập khoá Việt bằng đúng tập khoá Pāli (17/17, đúng exact ID, không orphan), mọi giá trị NFC và không rỗng, ngoặc kép cong cân trên cả bài, không có `(…)`, dấu lược khớp Pāli từng khoá.
+  - |-
+    **Không thể tuyên bố technical gate pass.** Đợt này bị cấm chạy `npm run validate`, `npm test`, `npm run check`, `npm run build`, nên tiêu chí 10 bị chặn ở 9.6: tôi chỉ xác minh được JSON hợp lệ, đủ khoá, NFC, ngoặc kép cân cả bài và YAML sạch. Người biên tập phải chạy lại bốn lệnh trên trước khi đổi trạng thái.
+  - |-
+    **Tầng Anh có thật: 12/13 khoá nội dung có prose Sujato**, im lặng ở `3.5` dòng bảng hiệu. Không có lớp `english-project`. `englishCoverage` không đo được gì cho bài vì mọi vế kệ dưới 40 ký tự, thuộc nhóm `no substantive segment`.
+  - |-
+    **Một mất nghĩa thật, đã ghi và không sửa.** `1.3` `Sukhā so dhaṁsate ṭhānā` — `Sukhā` là cách đọc số nhiều địa phương của `sukha`, `ṭhānā` là số nhiều địa phương của `ṭhāna`, nên cả vế là *những trạng thái hạnh phúc bị thiêu đốt*, tức mất đi nguồn an lạc. Bản Việt viết *vô ích, người ấy bị thiêu đốt* — bỏ hẳn tân ngữ `Sukhā … ṭhānā` và thay bằng *vô ích*, một từ không có trong Pāli. Sujato giữ được mạng lưới nghĩa (*has lost the causes for happiness*) nên vế vẫn đọc hiểu được, nhưng về mặt semantic unit thì Pāli có mà bản Việt không có. Tôi hạ `semantic_fidelity` xuống 8.6 vì lý do này và không nâng điểm chỗ khác để bù.
+  - |-
+    **Lỗi này lặp nguyên văn ở `thag3.15`, vì hai bài có cùng Pāli.** Đã đối chiếu: `thag3.15:1.1–3.4` trùng nguyên văn `thag3.3:1.1–3.4` và bản Việt dịch giống hệt từng vế. Tính nhất quán đạt được, nhưng cùng nghĩa là cùng thiếu sót phải sửa ở cả hai bài.
+  - |-
+    **Ba vế còn lại rất sạch.** `2.1–2.2` giữ đúng cặp phủ định kép *làm gì thì nói nấy / không làm thì đừng nói*; `2.3–2.4` `Akarontaṁ bhāsamānaṁ … parijānanti paṇḍitā` giữ chủ thể *bậc trí tuệ* là bên nhận biết, không đảo thành bên nói. `3.3` `Asokaṁ virajaṁ khemaṁ` dịch đủ ba vế *không sầu / không bụi / an ổn* theo Sujato.
+  - |-
+    **Bất định nhỏ.** `3.1` `Susukhaṁ vata nibbānaṁ`: `vata` là tiếng cảm thán *ô!/biết bao*, bản Việt dịch *biết bao* thì hợp với giọng kệ nhưng không giữ được sắc thánh ngạc nhiên của tiếng Pāli; `3.3` *tịch diệu* cho `Susukhaṁ` là cách gộp hai mệnh đề mà Pāli tách riêng, vẫn chấp nhận được vì người đọc Việt cần một mệnh đề.

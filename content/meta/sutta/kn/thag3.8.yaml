@@ -1,0 +1,46 @@
+uid: thag3.8
+status: draft
+translationTitle: "Kinh Kệ Của Trưởng Lão Vassika"
+translators:
+  - "OpenCode Space Bunny Free (agent)"
+reviewers: []
+tags:
+  - thera-gatha
+  - cong-hanh-nhom
+  - tikanipāta
+  - truong-lao-vassika
+quality:
+  scores:
+    source_provenance: 9.5
+    semantic_fidelity: 8.0
+    grammar_logic: 8.2
+    segment_alignment: 10.0
+    terminology: 8.6
+    triangulation: 9.1
+    vietnamese_clarity: 9.2
+    han_viet_balance: 9.3
+    ambiguity_integrity: 8.9
+    technical_integrity: 9.6
+  final_score: 9.04
+  blocking_errors:
+    - "Sai chủ thể và tân ngữ tại `thag3.8:2.1`: Pāli `Niggayha anukampāya, coditā ñātayo mayā` nghĩa là ông đã **nén thân tương** của mình vì lòng thương, tức tân ngữ là `ñātayo` ở `2.2`; bản Việt viết *Ta **nén mình** vì lòng thương xót*, đổi thành hành động tự nén. Bản Anh đã ghim dịch *I curbed my family out of sympathy*, đúng chiều Pāli. Chủ thể và tân ngữ đều đổi nên đây là sai nghĩa trọng yếu, không chỉ là lệch văn phong."
+  assessed_at: "2026-10-03"
+  assessed_by:
+    - "OpenCode Space Bunny Free (agent)"
+notes:
+  - |-
+    **Không có tầng Việt hiện hành để đối chiếu.** Tại commit đã ghim, bilara chỉ phân phối 26 chương Pháp Cú cho tiếng Việt, nên không tồn tại bản Hòa thượng Thích Minh Châu cho bài này; đó là đặc điểm của snapshot upstream, không phải thiếu sót của repo. Ba tầng còn lại là Pāli root, bản Anh Sujato đã ghim và bản Việt dự án.
+  - |-
+    **`kiểm()` của harness gần như không kiểm gì ở bài này, nên tôi tự quét toàn bộ khoá từ đĩa.** Mọi vế kệ ngắn hơn 40 ký tự nên bộ lọc `substantivePaliMinChars: 40` trong `source/layers.yaml` không thấy segment nào; tôi đọc Pāli thật của từng khoá từ `.cache/upstream/suttacentral/` theo `sourcePath` trong catalog, đối chiếu tay với bản Việt, rồi quét máy: tập khoá Việt bằng đúng tập khoá Pāli (17/17, đúng exact ID, không orphan), mọi giá trị NFC và không rỗng, ngoặc kép cong cân trên cả bài, không có `(…)`, dấu lược khớp Pāli từng khoá.
+  - |-
+    **Không thể tuyên bố technical gate pass.** Đợt này bị cấm chạy `npm run validate`, `npm test`, `npm run check`, `npm run build`, nên tiêu chí 10 bị chặn ở 9.6: tôi chỉ xác minh được JSON hợp lệ, đủ khoá, NFC, ngoặc kép cân cả bài và YAML sạch. Người biên tập phải chạy lại bốn lệnh trên trước khi đổi trạng thái.
+  - |-
+    **Lỗi chặn: `2.1` nén nhầm tân ngữ.** Câu Pāli là một mệnh đề: `Niggayha` là động từ thông động, tân ngữ là `ñātayo` ở vế sau (*Ta khuyên nhủ **thân tương của ta***). Đặt *nén mình* vào `2.1` làm mệnh đề tự chuyển sang hành vi của chính người kệ, và hai vế không còn nối được với nhau. Tác giả ghi chú: đây là bài của Trưởng lão Vassika nói về việc ông đã nén thân tương. Tôi không sửa.
+  - |-
+    **Hai mất nghĩa nhỏ khác, đã ghi.** (1) `3.2` `pattā te tidivaṁ sukhaṁ`: `tidivaṁ` là *cõi trời thứ ba*, tức Tāvatīṃsa — một danh xưng riêng có số thứ tự; bản Việt rút thành *cõi trời* nên mất chữ *ba*. (2) `3.4` `modanti kāmakāmino` là *vui mừng vì thèm muốn các điều dục*, bản Việt thêm *mọi* vào *mọi dục muốn*.
+  - |-
+    **Chỗ hơi lệch, đã ghi.** `3.1` `Te abbhatītā kālaṅkatā`: `kālaṅkata` là *đã đi hết thời gian/đã hết hạn*, bản Việt *lìa bỏ thân này tới ngày hết hạn* đọc được nhưng lặp ý với chính *lìa bỏ thân này* và nghe cứng.
+  - |-
+    **Khoảng `1.1–1.4` chuẩn.** `Ekopi saddho medhāvī` giữ đúng *ngay cả một người* và hai vế *có lòng tin / có trí tuệ*; `assaddhānīdha ñātinaṁ` giữ phủ định đối chiếu *khác hẳn bọn vô tin trong họ hàng*; `atthāya` dịch *chỗ nương tựa* — đúng nghĩa *làm chỗ dựa cho* chứ không phải *mục đích*, nên không nên dịch là *vì lợi ích*.
+  - |-
+    **Tầng Anh.** 12/13 khoá nội dung có prose Sujato, im lặng ở `3.5`. Bản Anh dùng *the Third Heaven* ở `3.2`, tức có *ba*; đây là nơi bản Anh giúp lộ ra chỗ mất ý của bản Việt.
