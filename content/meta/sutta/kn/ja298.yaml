@@ -1,0 +1,49 @@
+uid: "ja298"
+status: "draft"
+translationTitle: "Kinh Cây Sung"
+translators:
+  - "OpenCode Space Bunny Free (agent)"
+reviewers: []
+tags:
+  - "jataka"
+  - "khuddaka-nikaya"
+  - "tikanipata"
+  - "pham-binh-vo"
+  - "kinh-cay-sung"
+quality:
+  scores:
+    source_provenance: 9.5
+    semantic_fidelity: 9
+    grammar_logic: 9
+    segment_alignment: 10
+    terminology: 8.7
+    triangulation: 6.4
+    vietnamese_clarity: 9.2
+    han_viet_balance: 9.2
+    ambiguity_integrity: 8.8
+    technical_integrity: 9.6
+  final_score: 8.94
+  blocking_errors:
+    - "Không có tầng tham khảo English Sujato tại commit đã ghim 11c9d708978cde8ba61096d8a75f7ddfb846f639. Đếm bằng script trên source/upstream-manifest.json: tầng translation/en/sujato có 4.291 tệp, trong đó thư mục sutta/kn/mil có 0 tệp và sutta/kn/ja chỉ có 83 tệp (ja1..ja79, ja126, ja159, ja466, ja534); không tệp nào chứa khoá của ja298, và tầng ref/en trong cache cũng không có tệp nào cho ja298. SuttaCentral không phát hành bản Anh nào khác phủ bài này tại commit đã ghim, nên bài chỉ đối chiếu được với Pāli root một mình."
+    - "Coverage tầng Anh đo được là 0 trên 0 khoá Pāli có nội dung: mọi vế kệ Jātaka của ja298 đều ngắn hơn ngưỡng 40 ký tự (vế dài nhất chỉ 35), nên không có khoá nào được tính vào tỉ lệ. Dưới ngưỡng 0.8 khai ở source/layers.yaml, mà content/meta/reference-gaps.yaml chưa có mục cho bài này và đợt này tôi bị cấm sửa tệp đó."
+  assessed_at: "2026-10-03"
+  assessed_by:
+    - "OpenCode Space Bunny Free (agent)"
+notes: |-
+  CHỐT LƯỢC TỪNG VẾ. (1) kapitthanā ở 1.2 (0 tiền lệ trong tầng, đã tra bằng grep): kapittha là Limonia acidissima, tên Việt phổ thông là hồng xiêm hay mít ẻ; tôi dịch cây mít theo cách quen thuộc trong kinh Việt và theo ja208:1.2 đã dùng quả mít cho một danh sách trái cây, và ghi rõ để người biên tập xét. (2) nigrodha là cây bàng, dịch cây bàng. (3) na hi jiṇṇo jarākapī ở 3.4 là câu khuyết: bạc già tuổi già không đáng bị khinh, tôi dịch chứ bạc già đâu có hết thời xuân; ý này là lời thọ thần cây an ủi con khỉ già, và tôi không đưa vào thân kinh. (4) suhito ở 2.1 và 2.3 là no béo, tôi dùng no béo thay vì mập để giữ nghĩa được no đủ.
+
+  HAI VẾ CHƯA CÓ BẢN VIỆT NÀO. 1.2 nigrodhā ca kapitthanā trùng byte-for-byte với sáu chỗ trong ja547; 1.2 cũng là vế người sau sẽ phải dùng lại. Tôi đặt mới và ghi lại ở đây.
+
+  ĐỢT NÀY KHÔNG CHẠY CỔNG KỸ THUẬT CỦA KHO. Người điều phòng cấm npm run validate, npm test, npm run check và npm run build trong lát này, nên tôi KHÔNG tuyên bố technical gate pass và technical_integrity đặt 9.6 chứ không phải 10.0. Bốn lệnh đó cần người điều phòng chạy lại sau khi gộp lát.
+
+  CHỐT KHÔNG TỰ CHẠY — ĐÃ TỰ QUÉT MỌI KHOÁ TỪ ĐĨA. Vòng chốt của kiểm cổ chỉ quét khoá Pāli từ 40 ký tự trở lên; ở bảy bài Jātaka của lát này mọi vế kệ đều ngắn hơn ngưỡng đó (vế dài nhất 35 ký tự) nên assertion về bản chất KHÔNG chạy. Tôi tự quét lại TOÀN BỘ 238 khoá của 14 bài từ tệp đã ghi trên đĩa: đủ khoá và không thừa so với Pāli (sắp theo thứ tự số), không rỗng, chuỗi NFC, số dấu lược khớp từng khoá, không có (…), không thừa dấu lược, và số dấu nháy kép so với Pāli từng khoá. Kết quả: 0 lỗi trên 238 khoá.
+
+  DẤU LƯỢC §10. Không khoá nào trong 238 khoá của lát này chứa …pe… hay dấu lược — đã kiểm bằng script trên từng khoá. Vì vậy cả 238 bản Việt đều có 0 dấu lược, khớp Pāli. Không mở rộng, không nén, không có (…) đứng một mình.
+
+  PĀLI TRÙNG Ở BÀI KHÁC, ĐẾM ĐƯỢC. Tôi tự dựng chỉ mục Pāli↔Việt bằng script: nạp 5.764 tệp Pāli trong .cache/upstream/suttacentral/root/pli (bỏ *.apfs-orphan) và 4.136 tệp Việt dự án trong content/translation/vi/project/sutta — tổng 112.947 khoá Việt — ghép theo khoá, rồi quét từng khoá thân bài của lát theo nguyên văn căn thẳng và theo dạng đã chuẩn hoá dấu câu, nháy kép, hoa thường, và loại bỏ chính 14 tệp của lát để đo đúng trạng thái trước khi tôi ghi. Kết quả: 44 cặp Pāli trùng ở thân bài, 42 trùng byte-for-byte và 2 trùng sau chuẩn hoá. Trong đó 33 cặp đã có bản Việt ở bài khác, tôi DÙNG LẠI NGUYÊN VĂN ở: ja275 2.3, 2.4, 3.1, 3.2, 3.3, 3.4 ← ja274; ja294 3.1 ← sn1.1; mil3.1.11 3.2 và 3.3 ← sn10.12:5.2 và 5.3 (tôi lấy cả bộ bốn vế ở sn10.12:5.1–5.4 để bài này không tự mâu thuẫn với bài nguồn); Opammaṁ karohī ở mil3.1.11:2.1, mil3.1.14:2.1, mil3.1.15:2.1, mil3.2.2:2.1, mil3.5.10:2.1, mil3.7.16:2.1; mil3.1.14 3.1 ← mil3.1.12:3.1 và 3.5 ← mil3.1.12:3.4; Kallosi ở mil3.1.11:4.1, mil3.1.14:4.1, mil3.1.15:3.1, mil3.2.2:3.1, mil3.2.9:2.1, mil3.5.10:3.1 ← 54 tệp mil khác; mil3.2.2 2.4 ← mil3.5.9:2.3; mil3.5.10 6.1 ← mil3.4.10:5.1 và mil6.2.10:5.1; mil3.7.16 5.1 ← mil3.1.16:6.1. Mười một cặp còn lại thì chưa bản Việt nào ở bài khác có, tôi phải đặt mới: ja294 2.1 và 2.2, ja295 2.1 và 2.2 (bốn khoá này là hai cặp trùng nhau — chính bài trong lát đã trùng nhau; tôi đặt một lần rồi dùng lại nguyên văn cho cả hai bài), ja295 1.3 và 1.4 (trùng ja308:1.3 và 1.4), ja297 1.2 (trùng ja429:6.2 và ja430:6.2), ja298 1.2 (trùng sáu chỗ trong ja547), mil3.1.11 1.3 và 2.4 (trùng nhau, chỉ khác ở dấu nháy) và mil3.2.9 5.1 (trùng mil6.1.9:12.1). Ghi lại đây để lát sau dùng lại nguyên văn của tôi thay vì dịch lần hai.
+
+  MỌI CÔNG THỨC HỘI THOẠI ĐÃ CÓ TIỀN LỆ, TÔI THEO NGUYÊN VĂN. Rājā āha— → Vua nói: (đếm trong tầng mil có 30 tệp dùng Vua nói: và 12 tệp dùng Vua nói—, tôi theo đa số; 11 tệp còn lại dùng Vua nói:—). Thero āha— → Trưởng lão nói: (3 tệp dùng dạng có dấu hai chấm và 3 tệp dùng dạng có gạch nối, hòa nhau; tôi chọn dạng có dấu hai chấm để nhất quán với Vua nói: trong chính lát này). Kallosi, bhante nāgasenā → Khéo lắm, thưa tôn giả Nāgasenā. (54 tệp mil, chỉ một cách). Opammaṁ karohī → Xin hãy xét một thí dụ ti. (đúng mil3.1.12:2.1, mil3.2.7:2.1, mil3.2.8:2.1). Bhiyyo opammaṁ karohī → Xin hãy xét một thí dụ nữa ti. (đúng mil3.1.12:3.1). Bhāsitampetaṁ, mahārāja, bhagavatā— → Điều này, này Đại vương, Đức Thế Tôn đã nói — (đúng mil3.1.12:3.4). Imasmiṁ vagge dasa pañhā và Imasmiṁ vagge soḷasa pañhā → Trong phẩm này có … câu hỏi. (đúng mil3.4.10:5.1, mil6.2.10:5.1, mil3.1.16:6.1). Rājā → vua, Mahārāja → Đại vương, bhagavā/bhagavatā → Đức Thế Tôn hoặc Đức Thật Chứng Ấy, Thero → Trưởng lão, Kāma → tình dục, sīla → đức hạnh.
+
+  TÊN PHẨM ĐÃ CHỐT. Tikanipāta → Bộ Ba Bài Kinh (bốn bài lân cận đã có: ja276, ja291, ja292, ja293). Udapānavagga → Phẩm Nước Uống (đúng ja276 và ja279; tôi tự đếm bằng script trên Pāli gốc: 10 bài mang tên phẩm này là ja271..ja280, và ja275 nằm trong đúng khoảng đó). Kumbhavagga → Phẩm Bình Vò: tên này CHƯA có trong bảng chốt của BRIEF_VI3 §11, nên tôi theo đa số trong chính phẩm đang làm — ba bài đã có (ja291, ja292, ja293) đều dùng Phẩm Bình Vò; tôi tự đếm Kumbhavagga chiếm đúng ja291..ja300, trong đó lát này có sáu bài. Người biên tập nếu muốn chốt khác thì phải sửa cả mười bài cùng lúc. Các tên phẩm Milindapañha cũng theo đúng bầy bài lân cận: Mahāvagga → Đại Phẩm, Addhānavagga → Phẩm Khoảng Thời Gian, Buddhavagga → Phẩm Đức Phật, Arūpadhammavavatthānavagga → Phẩm Xác Định Pháp Vô Sắc.
+
+  STATUS. Hai blocking error ở trên là thật và đo được (thiếu hẳn tầng Anh Sujato tại commit đã ghim; coverage dưới ngưỡng chưa được ghi nhận trong reference-gaps.yaml), nên mọi bài lát này đặt draft bất kể final_score. Tôi không nâng điểm để né blocker và cũng không hạ điểm để tỏ ra thận trọng: điểm ghi ở trên là chấm theo đúng mười tiêu chí, kể cả triangulation thấp vì không có tầng tham khảo nào.
