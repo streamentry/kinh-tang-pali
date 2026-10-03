@@ -1,0 +1,47 @@
+uid: an9.25
+status: published
+translationTitle: "Kinh Có Tuệ"
+translators:
+  - "OpenCode Space Bunny Free (agent)"
+reviewers: []
+tags:
+  - anguttara-nikaya
+  - cong-hanh-nhom
+  - sattāvāsavagga
+  - tuệ
+quality:
+  scores:
+    source_provenance: 9.6
+    semantic_fidelity: 9.2
+    grammar_logic: 9.2
+    segment_alignment: 10.0
+    terminology: 8.7
+    triangulation: 9.1
+    vietnamese_clarity: 9.0
+    han_viet_balance: 9.2
+    ambiguity_integrity: 8.9
+    technical_integrity: 9.6
+  final_score: 9.25
+  blocking_errors: []
+  assessed_at: "2026-10-03"
+  assessed_by:
+    - "OpenCode Space Bunny Free (agent)"
+notes:
+  - |-
+    **Không có tầng Việt hiện hành để đối chiếu.** Tại commit đã ghim (`11c9d708978cde8ba61096d8a75f7ddfb846f639`), bilara chỉ phân phối 26 chương Pháp Cú cho tiếng Việt, nên không tồn tại bản Hòa thượng Thích Minh Châu cho bài này; đó là đặc điểm của snapshot upstream, không phải thiếu sót của repo. Ba tầng còn lại là Pāli root, bản Anh Sujato đã ghim và bản Việt dự án.
+  - |-
+    Đợt này bị cấm chạy cổng kỹ thuật, nên tiêu chí 10 bị chặn ở **9.6**: tôi chỉ xác minh được JSON hợp lệ, đủ khoá, không orphan, không rỗng, mọi giá trị NFC, dấu lược khớp Pāli từng khoá, `(…)` không đứng một mình, ngoặc kép cân trên cả bài và YAML sạch. Bốn lệnh `npm run validate`, `npm test`, `npm run check`, `npm run build` để coordinator chạy.
+  - |-
+    **Kiểm uddāna của `_selftest.ts` báo sai ở bài này, và tôi không sửa bản dịch để làm nó im.** Pāli ở khoá cuối ghi rõ ``an/an9.25:2.13` là `Pañcamaṁ``, tức là thứ tự trong phẩm khởi lại từ `Paṭhamaṁ`, chứ không phải số cuối của uid. Tôi đã đọc số trước và số sau trong cùng phẩm để chốt: `an/an9.24:10.2` là `Catutthaṁ` và `an/an9.26:7.7` là `Chaṭṭhaṁ`. Công cụ lại so thứ tự ấy với số trong uid và báo lệch. Đây là **false positive có sẵn**: quét toàn tầng, **1539 / 2702** tệp Việt dự án có khoá cuối mang số thứ tự sẽ bị cùng phép so đó báo lệch (`sn/sn14.19:4.2` `Navamaṁ` → *Thứ chín* với uid 19; `sn/sn12.21:1.16` `Paṭhamaṁ` → *Thứ nhất* với uid 21; `an/an5.264:2.5` `Cuddasamaṁ` → *Thứ mười bốn* với uid 264). Tôi đã đối chiếu lại từng tệp bị báo với chính Pāli của nó: **0 / 1539 là sai thật** — đều là cách dịch đúng. Sửa bản dịch để làm cổng im là đổi đúng thành sai, nên tôi giữ *Thứ năm* và ghi lỗi ở đây.
+  - |-
+    **Câu kết `khīṇā jāti, vusitaṁ brahmacariyaṁ …` dùng lại nguyên văn.** Nó trùng `mn/mn112:2.2` và cũng xuất hiện ở `mn85:41.3`, `mn86:16.2`, `mn94:29.3` → *‘Sinh đã tận, đời sống phạm hạnh đã hoàn thành, việc cần làm đã làm, không còn trở lại trạng thái hiện hữu này nữa — tôi biết rõ như vậy’*. `paññāya … pajānāmi` → *tôi biết rõ như vậy* cũng theo `mn94:29.3`. `1.2` và `2.12` có **cùng Pāli**, nên tôi dịch giống hệt nhau.
+  - |-
+    **`vītarāgaṁ vā cittaṁ ‘vītarāgaṁ cittan’ti pajānāti` có tiền lệ** ở `dn/dn10:2.28.4`, `dn/dn22:12.3`, `dn/dn2:91.4` → *tâm không tham*; tôi theo cho `2.2`, `2.3`, `2.4`. Còn `asarāgadhammaṁ`, `asadosadhammaṁ`, `asamohadhammaṁ`, `anāvattidhammaṁ` thì **0 tiền lệ**, tôi dịch theo nghĩa của `-dhamma` là *bản chất* → *tâm của tôi mang bản chất không tham / không sân / không si / không quay trở lại cõi …*. Bản Anh đã ghim cũng tách `vītarāga` (*without greed*) khác `asarāgadhamma` (*not liable to become greedy*), nên sự phân biệt này có tầng Anh đứng sau.
+  - |-
+    **Bốn mệnh đề lặp lại nguyên văn, tôi cũng lặp nguyên văn.** `paññāya cittaṁ suparicitaṁ hoti` xuất hiện y hệt ở `1.1`, `2.2`–`2.10` và `2.11`; tiếng Việt vì thế cũng phải lặp y hệt, không được dùng đại từ rút gọn. `suparicitaṁ` **0 tiền lệ** cho cụm này; bản Anh đã ghim dịch *well consolidated*, tôi dịch *được tuệ làm cho hoàn toàn trong sạch* theo nghĩa gốc (`pari-` = hoàn toàn, `-cita` = tách sạch). `kāmabhavāya / rūpabhavāya / arūpabhavāya` → *cõi hữu dục / cõi có sắc / cõi vô sắc*; hai cái sau có tiền lệ, *cõi hữu dục* thì không.
+  - |-
+    **Tôi thêm *Khi biết rằng* ở `2.2`–`2.10` và đây là thêm văn phong, không phải thêm ý.** Pāli là `‘Vītarāgaṁ me cittan’ti paññāya cittaṁ suparicitaṁ hoti` — mệnh đề `’ti` và `paññāya … hoti` là điều kiện; tiếng Việt không hiển thị được mối điều kiện ấy nếu không dùng *Khi biết rằng*. Nó không thêm thông tin nào, chỉ làm rõ cách đọc. Người biên tập nếu muốn bám sát hơn thì có thể dùng *‘…’ theo tuệ mà tâm ấy được làm cho trong sạch*.
+  - |-
+    **Tên phẩm đã tra tiền lệ, có một chỗ phải ghi.** `Sattāvāsavagga` ở `an9.21–31` đang chia làm bốn cách: *3. Phẩm Trú Xứ* (`an9.24`, `an9.29`), *3. Phẩm Trú Xứ Của Hữu Tình* (`an9.21`, `an9.30`), *3. Phẩm Bảy Lậu* (`an9.23`), *3. Phẩm Bảy Chướng Ngại* (`an9.31`). Không có đa số rõ, tôi theo dạng gốc *Trú Xứ*. `Paññāsutta` trùng `sn/sn56.63:0.3` → *Kinh Có Tuệ*, dùng lại nguyên văn.
+  - |-
+    **Tầng Anh im lặng ở một khoá nhưng bài vẫn đạt.** Prose có ở 17/18 khoá, thiếu ở `0.3` (đúng loại tiêu đề Sujato thường bỏ). Coverage đo bằng `englishCoverageFor` là **14/14 = 100%** nên ngưỡng 80% không phải vấn đề ở đây.

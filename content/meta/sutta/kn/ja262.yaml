@@ -1,0 +1,103 @@
+uid: ja262
+status: draft
+translationTitle: "Kinh Con Cua Móng Cụt"
+translators:
+  - "OpenCode Space Bunny Free (agent)"
+reviewers: []
+tags:
+  - "jataka"
+  - "khuddaka-nikaya"
+  - "tikanipata"
+  - "pham-bong-sen"
+  - "kinh-con-cua-mong-cut"
+quality:
+  scores:
+    source_provenance: 9.4
+    semantic_fidelity: 8.7
+    grammar_logic: 8.7
+    segment_alignment: 10.0
+    terminology: 8.7
+    triangulation: 6.8
+    vietnamese_clarity: 9.0
+    han_viet_balance: 9.1
+    ambiguity_integrity: 8.5
+    technical_integrity: 9.6
+  final_score: 8.85
+  blocking_errors:
+    - "Thiếu hẳn tầng tham khảo English Sujato tại commit đã ghim 11c9d708978cde8ba61096d8a75f7ddfb846f639: đếm trực tiếp trên source/upstream-manifest.json (cùng commit) cho thấy tầng translation/en/sujato có 4.291 tệp, trong đó thư mục sutta/kn/ja/ chỉ có 83 tệp, không có tệp nào chứa khoá của bài này; hàm upstreamPublishes của kho trả về false cho đường dẫn này, nghĩa là SuttaCentral không phát hành bản Anh nào phủ bài này tại commit đã ghim. Tầng vietnamese-current cũng không có (đúng 26 tệp, chỉ Pháp Cú), nên bài chỉ đối chiếu được với Pāli root một mình. Đây là giới hạn của bản chụp upstream, không phải thiếu sót của kho, nhưng theo AGENTS.md thì thiếu tầng tham khảo là lỗi chặn đối với review và published, và tests/unit/reference-source.test.ts kiểm đúng điều đó. Bài đặt draft và không nâng điểm để né."
+  assessed_at: "2026-10-03"
+  assessed_by:
+    - "OpenCode Space Bunny Free (agent)"
+notes: |-
+  LÁT NÀY KHÔNG CÓ TẦNG THAM KHẢO NÀO, ĐÃ ĐẾM KHÔNG SUY. Với mười ba bài Jātaka này:
+  source/upstream-manifest.json tại commit đã ghim 11c9d708978cde8ba61096d8a75f7ddfb846f639 ghi tầng translation/en/sujato có 4.291
+  tệp, trong đó thư mục sutta/kn/ja/ chỉ có 83 tệp, không có tệp nào chứa khoá của bài này; hàm
+  upstreamPublishes của kho trả false cho cả mười ba, tức SuttaCentral không phát hành bản Anh nào
+  phủ chúng. Tầng translation/vi/phantuananh tại cùng commit chỉ có đúng 26 tệp và toàn bộ là Pháp Cú
+  (dhp1-20 … dhp383-423), nên KHÔNG có bản Hòa thượng Thích Minh Châu cho bất kỳ bài Jātaka nào ở đây —
+  đây là đặc điểm của bản chụp upstream đã ghi ở chính source/layers.yaml, không phải thiếu sót của
+  kho, và cũng không phải lý do để tôi né việc chấm điểm. Bài chỉ đối chiếu được với Pāli root một
+  mình, nên triangulation chấm thấp và bài đặt draft.
+
+  COVERAGE KHÔNG PHẢI LÝ DO BLOCK, VÀ TÔI ĐÃ TÍNH LẠI CHO ĐÚNG. Trong mười ba bài này mọi vế kệ
+  Jātaka đều ngắn hơn ngưỡng 40 ký tự khai ở source/layers.yaml, và mọi khoá tiêu đề nằm trong khối
+  tham chiếu, nên substantiveSegments = 0. Hàm englishCoverageFor trả ratio = 1 khi
+  substantiveSegments = 0, và cả validate lẫn tests/unit/translation-store.test.ts đều bỏ qua bài có
+  substantiveSegments = 0. Tôi đã chạy hàm đó cho cả mười ba: đều ratio 1.000. Vì vậy tôi KHÔNG ghi
+  blocker coverage dưới ngưỡng — ghi thì sẽ là một lỗi đo sai. Blocker thật, duy nhất, là mất hẳn
+  tầng tham khảo English.
+
+  CHỐT KHÔNG TỰ CHẠY — ĐÃ TỰ QUÉT MỌI KHOÁ TỪ ĐĨA. Vòng chốt mặc định chỉ quét khoá Pāli từ 40
+  ký tự trở lên; ở Jātaka mọi vế kệ đều ngắn hơn ngưỡng đó nên phần chốt đó về bản chất KHÔNG chạy.
+  Tôi tự quét lại toàn bộ 238 khoá của lát bằng script riêng, đọc thẳng từ tệp đã ghi trên đĩa:
+  đủ khoá và không thừa so với Pāli gốc, không rỗng, chuỗi NFC, số dấu lược khớp TỪNG KHOÁ (Pāli có
+  …pe… thì Việt đúng một …, Pāli không có thì Việt không có), không có (…) đứng một mình, vị trí
+  ngoặc kép mở và đóng khớp PĀLI TỪNG KHOÁ (không chỉ tổng số trên cả bài), ngoặc kép cân trên
+  cả bài, không chữ phiên tự, không còn sót thẻ chữ Pāli. Kết quả 0 lỗi trên 238 khoá / 14 bài.
+
+  TÊN PHẨM, ĐÃ ĐO THEO BẢNG CHỐT VÀ THEO TẦNG. Tikanipāta → Bộ Ba Bài Kinh: đếm trên toàn tầng
+  Việt TRƯỚC khi lát này ghi, đã có 24 tệp Jātaka và 15 tệp thag3/thig3 dùng đúng cách này, và KHÔNG
+  tệp Jātaka nào dùng cách khác; cách Phẩm Ba Pháp chỉ do 50 tệp iti50..iti99 dùng mà tôi không đụng
+  tới. Sau khi lát này ghi, con số Jātaka là 37/37. Tôi theo đa số TRONG CHÍNH TÁC PHẨM ĐANG LÀM theo
+  BRIEF_VI3 §11, và cũng vì nó khớp song song với hai mục đã chốt là Bộ Một Bài Kinh và Bộ Hai Bài
+  Kinh. Người điều phối gộp có thể muốn thống nhất cả tầng iti sau này, nhưng đó không thuộc lát này.
+  Saṅkappavagga → Phẩm Suy Nghĩ (trước lát này 7 tệp, không lệch; sau đó 8); Padumavagga → Phẩm Bông
+  Sen (trước 1 tệp, không lệch; sau đó 9, và cả chín tệp trong phẩm đều giống nhau); Udapānavagga →
+  Phẩm Nước Uống (trước 4 tệp, không lệch; sau đó 8). Dấu uddāna: trước lát này đã đếm 22 tệp có
+  dạng Kinh <tên>, thứ <từ>. và 3 tệp không có dấu phẩy; tôi dùng dạng có dấu phẩy, và đã kiểm
+  bằng script rằng số thứ tự trong uddāna khớp số đứng trước mặt trong 0.4 của cùng phẩm, không suy
+  từ tên uid.
+
+  PĀLI TRÙNG NGUYÊN VĂN, ĐÃ DỰNG CHỈ MỤC BẰNG SCRIPT VÀ ĐÃ DÙNG LẠI. Tôi nạp 5.764 tệp Pāli
+  gốc trong cache (bỏ mọi thư mục *.apfs-orphan) và 4.038 tệp Việt dự án, ghép theo khoá, rồi so
+  TRÙNG NGUYÊN VĂN có chuẩn hoá hoa thường, khoảng trắng và dấu câu biên. Riêng lát này: 102 khoá
+  trùng ở nơi khác; 52 khoá trùng đó đã có bản Việt ở bài khác, và tôi DÙNG LẠI NGUYÊN VĂN 51 khoá
+  (39 khoá tiêu đề, 12 khoá thân kệ). Một khoá trong 52 là ngoại lệ có chủ ý: ja264:3.1 trùng nguyên
+  văn với sn1.50:11.1, nhưng bản Việt đã có mở ngoặc kép ở đầu khoá trong khi Pāli khoá này không mở,
+  nên tôi chép phần chữ và bỏ ngoặc kép thay vì chép y nguyên. Ngoài ra có 8 cả ván bốn vế trùng nguyên
+  văn ở bài khác, và cả tám đều chưa có bản Việt để mượn. Trong lát này có 3 khoá trùng
+  nguyên văn, đều là ba vế mở đầu lặp lại trong ja265; tôi đã dùng lại đúng một cách dịch cho cả
+  hai lần, và script tự kiểm bắt được chỗ lệch nếu có.
+
+  TÊN RIÊNG CÓ DẤU PĀLI, CỐ Ý GIỮ, KHÔNG BỎ DẤU. Jātaka, Tikanipāta, Sakka, Panāda, Missībhāvitthi,
+  kāḷi, Jātavedas, Gāṅgā, Yamunā, Kassapa — tất cả giữ đúng dấu Pāli như tầng đang làm; tôi không
+  bỏ dấu ở bất kỳ tên nào, kể cả tên không có bản Việt nào để đối chiếu.
+
+  ĐỢT NÀY KHÔNG CHẠY CỔNG KỸ THUẬT CỦA KHO. Người điều phòng cấm npm run validate, npm test, npm run check và npm run build trong lát này, nên tôi KHÔNG tuyên bố technical gate pass và technical_integrity đặt 9.6 chứ không phải 10.0. Bốn lệnh đó cần người điều phòng chạy lại sau khi gộp lát.
+
+  STATUS. Có một blocking error thật (thiếu hẳn tầng tham khảo English Sujato tại commit đã ghim), nên
+  bài đặt draft bất kể final_score. Tôi không nâng điểm để né blocker, và cũng không hạ điểm để tỏ ra
+  thận trọng: điểm ghi ở trên là chấm theo đúng mười tiêu chí, kể cả triangulation thấp vì không có
+  tầng tham khảo nào.
+
+  VẾ 2 VÀ VẾ 3 CỦA BÀI NÀY TRÙNG NGUYÊN VĂN VỚI JA263. Tôi dịch một lần rồi dùng lại đúng nguyên
+  văn cho cả hai bài, và script tự kiểm sẽ bắt lỗi nếu hai bài lệch nhau. 2.4 ārakā parivajjaye đã có
+  sẵn trong tầng ở an3.29:9.2 với dịch hãy tránh xa từ xa, nên tôi dùng lại nguyên văn đó.
+
+  CHỖ CHƯA CHẮC. (1) nāgo ở 1.2 là tiền thưởng, không phải voi và không phải rồng — đây đúng loại đa
+  nghĩa đã gây lỗi ở lát khác; ở cung văn này nāga nghĩa là phần thưởng, phần đã tuyên rõ. (2) muduko
+  ở 1.1 và trong tên bài: tôi dịch là càng của hắn cùn, dù pāṇi có thể là tay; vì con cua thì càng mới
+  đúng nghĩa. (3) 2.3 Sīdanti: tôi dịch là họ xấu hổ, để giữ chủ từ số nhiều của Pāli; từ này còn có
+  nghĩa là chìm xuống, thì câu sẽ thành chúng chìm mất khi biết điều ấy — cả hai đều dẫn tới lời can
+  ở 2.4. (4) 3.3 Jātavedova saṁ ṭhānaṁ: tôi dịch là chắc chắn nơi ấy, lửa Jātavedas, giữ tên
+  thần lửa theo chữ Pāli thay vì dịch thành lửa thiêu.

@@ -1,0 +1,48 @@
+uid: mil3.4.2
+status: draft
+translationTitle: "Câu Hỏi Của Nāgasena"
+translators:
+  - "OpenCode Space Bunny Free (agent)"
+reviewers: []
+tags:
+  - milindapañha
+  - cong-hanh-nhom
+  - phẩm-niết-bàn
+  - vị-mặn
+quality:
+  scores:
+    source_provenance: 9.6
+    semantic_fidelity: 8.7
+    grammar_logic: 8.6
+    segment_alignment: 10.0
+    terminology: 8.4
+    triangulation: 6.5
+    vietnamese_clarity: 8.7
+    han_viet_balance: 8.9
+    ambiguity_integrity: 8.4
+    technical_integrity: 9.6
+  final_score: 8.74
+  blocking_errors:
+    - "Không có tầng tham khảo English tại commit đã ghim: `source/upstream-manifest.json` không liệt kê `translation/en/sujato/sutta/kn/mil/mil3.4.2_translation-en-sujato.json` (đã đếm bằng script trên cả bốn tệp `mil3.1.12`, `mil3.4.2`, `mil3.5.1`, `mil3.5.5` — cả bốn đều vắng). Đo bằng chính `englishCoverageFor` của repo: 0 / 6 segment Pāli có nội dung (≥ 40 ký tự) mang chữ Anh = 0%. Dưới ngưỡng 80%, mà đợt này tôi bị cấm sửa `content/meta/reference-gaps.yaml` nên gap chưa được ghi nhận; `validate` sẽ đỏ. Bài bị ép `draft` dù điểm không đến mức đó. Người biên tập chạy `npm run reference:gaps` rồi xét lại."
+  assessed_at: "2026-10-03"
+  assessed_by:
+    - "OpenCode Space Bunny Free (agent)"
+notes:
+  - |-
+    **Không có tầng Việt hiện hành để đối chiếu.** Tại commit đã ghim (`11c9d708978cde8ba61096d8a75f7ddfb846f639`), bilara chỉ phân phối 26 chương Pháp Cú cho tiếng Việt, nên không tồn tại bản Hòa thượng Thích Minh Châu cho bài này; đó là đặc điểm của snapshot upstream, không phải thiếu sót của repo. Ba tầng còn lại là Pāli root, bản Anh Sujato đã ghim và bản Việt dự án.
+  - |-
+    Đợt này bị cấm chạy cổng kỹ thuật, nên tiêu chí 10 bị chặn ở **9.6**: tôi chỉ xác minh được JSON hợp lệ, đủ khoá, không orphan, không rỗng, mọi giá trị NFC, dấu lược khớp Pāli từng khoá, `(…)` không đứng một mình, ngoặc kép cân trên cả bài và YAML sạch. Bốn lệnh `npm run validate`, `npm test`, `npm run check`, `npm run build` để coordinator chạy.
+  - |-
+    **Ba tầng còn lại là Pāli root và bản Việt dự án; tầng Anh và tầng Việt hiện hành đều vắng.** Bài này dịch từ Pāli một mình nên `triangulation` bị ép 6.5 và `ambiguity_integrity` chỉ 8.4 — có hai chỗ Pāli ở commit đã ghim đọc được nhưng diễn giải còn phải chọn (xem dưới).
+  - |-
+    **Lỗi thật lượt review đối kháng bắt được, đã sửa.** Ở `2.2` tôi đã đóng ngoặc kép (`… điều trọng đại”.`) trong khi Pāli **không** đóng ở đó: dấu `”` mở ở `2.1` và Pāli đóng ở `2.3` (`tulayitun”ti?`), rồi lại mở ở `2.4`. Bản Việt vì thế sẽ lệch dấu nháy với Pāli. Đã sửa `2.2` thành *… và vị mặn là điều trọng đại.* (không dấu nháy).
+  - |-
+    **Hai chỗ Pāli ở commit đã ghim cần phán, tôi ghi lại thay vì giấu.**
+    (1) `1.2` và `1.5` `cakkhuviññeyyan` / `jivhāviññeyyan` — dạng `-ya` cuối là **chữ lạ**; `suttanta` đáng lẽ phải là `cakkhuviññeyyaṁ`. Tôi dịch theo nghĩa rõ ràng nhất của đoạn hội thoại (muối thì phải biết bằng mắt, rồi bằng lưỡi) → *phải biết bằng mắt* / *phải biết bằng lưỡi*, và ghi vào đây là chỗ chắc chắn thấp.
+    (2) `2.2` `ekatobhāvagatā ete dhammā gocaranānattagatā` — `gocaranānattagatā` **0 tiền lệ** trong tầng; tôi dịch *đều quy về một hướng, đều vượt quá tầm hiểu biết*. Nghĩa `an-attagata` là *đã vượt qua tầm tiếp cận*, tức nằm ngoài tầm nhận thức thường; đây là cách đọc của tôi, chưa có tầng nào xác nhận.
+  - |-
+    **`garubhāva` là trục của cả bài, tôi giữ *trọng đại* ở cả `2.2` và `2.5`.** `2.5` `garubhāvo tulāya tuliyatī` → *điều trọng đại thì khi cân, nó nặng hơn cân* — tức **không** phải thí dụ thành công, mà là phản đề: việc trọng đại không cân nổi. Nếu tôi dịch *nặng* ở một chỗ và *quan trọng* ở chỗ kia thì mất thí dụ. `sakaṭehi balībaddā āharanti` → *cất giữ nó trong bao nang dệt dày bao* (`sakaṭa` có tiền lệ *bao gánh* ở `dn23:23.20`, nhưng ở đây là túi đựng).
+  - |-
+    **Tiêu đề `Nāgasenapañha` không có tiền lệ và tôi dịch chữ, không diễn giải.** `pañha` ở các bài `mil` khác luôn là *câu hỏi* (`mil3.1.8`, `mil3.4.4`, `mil3.5.7` — mười bài có sẵn), nên `2. Câu hỏi của Nāgasena` và kết *Câu hỏi của Nāgasena, thứ hai.* Bản Anh Sujato đặt tiêu đề *With the Wanderer Sajjha* cho bài khác, không có bản Anh cho bài này nên không có gì để đối chiếu.
+  - |-
+    **Hội thoại giữ nguyên sự đối xứng.** Vua hỏi `Kiṁ pana, bhante, …` và tỳ-kheo đáp `Āma, mahārāja, …` ở `1.3`, `1.6`, `1.8`, `2.4`; tôi dùng *Vâng, thưa tôn giả* khi vua hỏi và *Vâng, này Đại vương* khi vua đáp, đúng theo `mil3.1.8` (`2.4` *“Vâng, thưa tôn giả, tôi biết”ti.* so với `1.3` *“Vâng, này Đại vương, …”ti.*).

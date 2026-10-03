@@ -1,0 +1,49 @@
+uid: mil3.1.12
+status: draft
+translationTitle: "Câu Hỏi Về Dấu Hiệu Của Tinh Tấn"
+translators:
+  - "OpenCode Space Bunny Free (agent)"
+reviewers: []
+tags:
+  - milindapañha
+  - cong-hanh-nhom
+  - đại-phẩm
+  - tinh-tấn
+quality:
+  scores:
+    source_provenance: 9.6
+    semantic_fidelity: 8.8
+    grammar_logic: 8.7
+    segment_alignment: 10.0
+    terminology: 8.5
+    triangulation: 6.5
+    vietnamese_clarity: 8.8
+    han_viet_balance: 8.9
+    ambiguity_integrity: 8.5
+    technical_integrity: 9.6
+  final_score: 8.79
+  blocking_errors:
+    - "Không có tầng tham khảo English tại commit đã ghim: `source/upstream-manifest.json` không liệt kê `translation/en/sujato/sutta/kn/mil/mil3.1.12_translation-en-sujato.json` (đã đếm bằng script trên cả bốn tệp `mil3.1.12`, `mil3.4.2`, `mil3.5.1`, `mil3.5.5` — cả bốn đều vắng). Đo bằng chính `englishCoverageFor` của repo: 0 / 7 segment Pāli có nội dung (≥ 40 ký tự) mang chữ Anh = 0%. Dưới ngưỡng 80%, mà đợt này tôi bị cấm sửa `content/meta/reference-gaps.yaml` nên gap chưa được ghi nhận; `validate` sẽ đỏ. Bài bị ép `draft` dù điểm không đến mức đó. Người biên tập chạy `npm run reference:gaps` rồi xét lại."
+  assessed_at: "2026-10-03"
+  assessed_by:
+    - "OpenCode Space Bunny Free (agent)"
+notes:
+  - |-
+    **Không có tầng Việt hiện hành để đối chiếu.** Tại commit đã ghim (`11c9d708978cde8ba61096d8a75f7ddfb846f639`), bilara chỉ phân phối 26 chương Pháp Cú cho tiếng Việt, nên không tồn tại bản Hòa thượng Thích Minh Châu cho bài này; đó là đặc điểm của snapshot upstream, không phải thiếu sót của repo. Ba tầng còn lại là Pāli root, bản Anh Sujato đã ghim và bản Việt dự án.
+  - |-
+    Đợt này bị cấm chạy cổng kỹ thuật, nên tiêu chí 10 bị chặn ở **9.6**: tôi chỉ xác minh được JSON hợp lệ, đủ khoá, không orphan, không rỗng, mọi giá trị NFC, dấu lược khớp Pāli từng khoá, `(…)` không đứng một mình, ngoặc kép cân trên cả bài và YAML sạch. Bốn lệnh `npm run validate`, `npm test`, `npm run check`, `npm run build` để coordinator chạy.
+  - |-
+    **Ba tầng còn lại là Pāli root và bản Việt dự án; tầng Anh và tầng Việt hiện hành đều vắng ở bài này.** Vì vậy `triangulation` bị ép 6.5: tôi dịch từ Pāli một mình, không có lớp nào để đối chiếu nghĩa. Đây là hạn chế thật của bản dịch, không phải khiêm tốn hình thức.
+  - |-
+    **Mọi công thức hội thoại đã có tiền lệ và tôi theo nguyên văn.** `Rājā āha—` → *Vua nói:* (đa số 29/44 tệp `mil`); `“Kallosi, bhante nāgasenā”ti.` → *“Khéo lắm, thưa tôn giả Nāgasenā.”* (46/50); `bhante nāgasena` → *thưa tôn giả Nāgasena* (109 lần so với 14 lần *bạch tôn giả* trong `kn/mil`); `“Opammaṁ karohī”ti.` → *“Xin hãy xét một thí dụ”ti.* (đúng `mil3.2.7:2.1` và `mil3.2.8:2.1`); `“Na hi, bhante”ti.` → *“Không phải vậy, thưa tôn giả”ti.*; `“Na hi, mahārājā”ti.` → *“Không có, này Đại vương”ti.* (đúng `mil3.5.7:1.3`). `3.4` `Bhāsitampetaṁ, mahārāja, bhagavatā—` dùng nguyên văn `mil3.4.4:2.5` → *Điều này, này Đại vương, Đức Thế Tôn đã nói —*.
+  - |-
+    **`Bhiyyo opammaṁ karohī` 0 tiền lệ trong tầng.** Tôi dịch *“Xin hãy xét một thí dụ nữa”ti.*, giữ cấu trúc `lại nữa, xin…` của `Opammaṁ karohī`. `upatthambha` (0 tiền lệ) → *thúc đẩy / ghì lại*; `vīriya` → *tinh tấn* (theo `vīriyindriyaṁ` = *tinh tấn căn* ở `mn70:20.3`).
+  - |-
+    **Lượt review đối kháng bắt được ba chỗ, đã sửa.**
+    (1) `1.3` và `2.3`, `3.3`: nháp đầu đặt *này Đại vương* ở cuối câu, sai thứ tự Pāli (`Upatthambhanalakkhaṇaṁ, mahārāja, vīriyaṁ`) — đã sửa `1.3` thành *“Này Đại vương, dấu hiệu của tinh tấn là: …”*; hai khoản còn lại Pāli đã đặt `evameva kho, mahārāja` trước nên giữ nguyên.
+    (2) `2.2` `aññena dārunā upatthambheyya`: nháp đầu dịch *người khác ghì nặng, ngăn lại* — `ghì nặng` là động từ của vật nặng, không phải của người. Đã sửa thành *người khác ra sức ghì lại*.
+    (3) `3.2` `anussāreyya anupeseyya`: nháp đầu bỏ mất hai động từ *xem xét, thẩm định*. Đã sửa thành *thì vua phải tự mình xem xét, thẩm định, và ban thêm sức lực của mình cho đạo quân nhỏ ấy*.
+  - |-
+    **`Suddhamattānaṁ pariharatī` là một chữ hợp (`suddham attānaṁ`)**, không phải `suddham attā` + `naṁ`. Tôi dịch *Vị ấy tự chăm sóc mình trong thanh tịnh* — giữ `pariharatī` (tự gìn giữ) chứ không nới thành *giữ mình thanh tịnh*, vì `suddham` là cách, còn `pariharatī` là việc làm.
+  - |-
+    **Tiêu đề theo khuôn của các bài `mil3.1` đã có**: `mil3.1.8:0.3` *8. Câu hỏi về dấu hiệu của việc khéo tác ý*, `mil3.1.16:0.3` *16. Câu hỏi về việc nhiều pháp khác nhau cùng thành tựu một việc*. `Vīriyalakkhaṇapañha` → *12. Câu hỏi về dấu hiệu của tinh tấn*; `lakkhaṇa` → *dấu hiệu* theo chính `mil3.1.8`. Số thứ tự `dvādasamo` → *thứ mười hai*, khớp số 12 của bài.
