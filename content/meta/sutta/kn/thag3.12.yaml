@@ -1,0 +1,51 @@
+uid: thag3.12
+status: published
+translationTitle: "Kinh Kệ Của Trưởng Lão Uttarapāla"
+translators:
+  - "OpenCode Space Bunny Free (agent)"
+reviewers: []
+tags:
+  - "khuddaka-nikaya"
+  - "thera-gatha"
+  - "tikanipāta"
+  - "paṭhamavagga"
+quality:
+  scores:
+    source_provenance: 9.6
+    semantic_fidelity: 9.3
+    grammar_logic: 9.3
+    segment_alignment: 10.0
+    terminology: 9.3
+    triangulation: 9.1
+    vietnamese_clarity: 9.4
+    han_viet_balance: 9.3
+    ambiguity_integrity: 9.0
+    technical_integrity: 9.6
+  final_score: 9.39
+  blocking_errors: []
+  assessed_at: "2026-10-03"
+  assessed_by:
+    - "OpenCode Space Bunny Free (agent)"
+notes:
+  - |-
+    **Phạm vi: đủ mọi khoá Pāli của lát — 17 khoá/bài, 238 khoá cả lát.** Tự quét MỌI khoá từ đĩa, không tin ngưỡng 40 ký tự của `kiểm()`: ở **13 bài thag của lát này `substantiveSegments` = 0** (vế kệ dài nhất 29 ký tự, `thag3.1:1.2`), nên assertion của harness **không tự chạy**; riêng `mil4.2` thì = 4 (khoá dài nhất `2.3`, 393 ký tự). Đo bằng script: đủ khoá và đúng exact ID (17/17 từng bài), 0 orphan, 0 rỗng, mọi giá trị NFC, ngoặc kép `“` cân với Pāli (14/14 bài), dấu lược khớp Pāli từng khoá, không còn `(…)`, không có script ngoài Latin. Chạy lại script dịch hai lần: idempotent, hash tệp không đổi.
+
+    **Đợt này cấm chạy cổng kỹ thuật nên không thể tuyên bố technical gate pass.** Tôi bị cấm `npm run validate`, `npm test`, `npm run check`, `npm run build`; người điều phối chạy tập trung bốn lệnh đó. Vì vậy `technical_integrity` chấm **9.6, KHÔNG phải 10.0** — cùng cách `thag1.39` và `thag3.2` đã làm.
+
+    **Tầng tham khảo — đo, không phải suy.** Bản Anh Sujato có ở commit đã ghim cho bài này (tệp `.cache/upstream/suttacentral/translation/en/sujato/sutta/kn/thag/<uid>_translation-en-sujato.json` tồn tại), nhưng **Sujato để trống toàn bộ 7 khoá `2.0`–`2.6`** (dòng tục lược uddāna) và dòng quy kết `1.5`. `englishCoverage` vì thế **không đo được** (`no substantive segment`), thuộc hạn chế của phép đo chứ không phải bằng chứng tầng Anh đầy đủ. Tầng `vietnamese-current` vắng: `translation/vi/phantuananh` tại commit đã ghin chỉ có 26 chương Pháp Cú, không có Thích Minh Châu cho Theragāthā — đặc điểm của snapshot upstream, không phải thiếu sót của kho. Không sửa `content/meta/reference-gaps.yaml`.
+
+    **Dấu lược.** Dòng quy kết Pāli đã lược (`… X thero …`), bản Việt **giữ lược** theo BRIEF_VI3 §10.1, không mở rộng thành công thức `Itthaṁ sudaṁ …` — và cấu trúc mở đầu chuỗi Theragāḵā ấy **không có vocative**, nên cũng không thêm lời hô “Bạch Thế Tôn”. `Tassuddānaṁ` → *Tóm lược:* (254 tiền lệ so 21 *Tóm lược* và 19 *Tóm tắt phẩm*). Không nén bất kỳ khoá nào bằng `…`.
+
+    **Tên phẩm — dùng đúng bảng đã chốt trong BRIEF_VI3 §11, đếm trên toàn tầng.** `Ekakanipāta` → *Bộ Một Bài Kinh* (300/300 cặp Pāli trùng trong tầng); `Dukanipāta` → *Bộ Hai Bài Kinh* (168); `Tikanipāta` → *Bộ Ba Bài Kinh* (38 ở thag3/thig3/ja25x, khớp song parallel với *Bộ Một/Hai Bài Kinh*; 50 lần *Phẩm Ba Pháp* đều thuộc `iti`, không lấy theo). `Dutiyavagga`…`Navamavagga` → *Phẩm Thứ Hai/Ba/Tư/Năm/Sáu/Bảy/Tám/Chín* (47/35/25/27/9/9/9/9 tiền lệ). Tiêu đề `<tên>ttheragāthā` → *Kinh Kệ Của Trưởng Lão <tên>* (154 bản so 4 *Bài Kệ*). Dòng `1.6` `vaggo <thứ số>` → *Phẩm thứ <số>, mười bài.* — số ở `1.6` đã đối chiếu với `0.3` của chính bài, không suy từ tên uid.
+
+    **Pāli trùng nguyên văn — tự dựng chỉ mục Pāli↔Việt rồi đếm, không đoán.** Nạp 284.708 khoá Pāli trong `.cache/upstream/suttacentral/root/pli/ms/sutta/` (bỏ `*.apfs-orphan/`) và 115.696 khoá Việt trong `content/translation/vi/project/sutta/` (đã bỏ 14 tệp của lát), so theo segment ID. Kết quả: **30 cặp Pāli trùng nguyên văn ngay trong lát** (29/30 dùng lại nguyên văn; cặp lệch duy nhất là `thag2.36:1.4` / `:2.4`, chỉ khác dấu chấm câu) và **6.283 cặp** Pāli trùng với khoá ở uid khác đã có bản Việt, trong đó **5.454 cặp trùng nguyên văn** và 829 cặp lệch có chủ đích (chủ yếu `Tassuddānaṁ` — tầng đang có 11 cách — và các khoá chung như `Katame aṭṭha?`, nên ở đó tôi theo **đa số trong tầng** chứ không theo từng bài.
+
+    **Điểm.** `final_score` là trung bình số học thô của đúng 10 tiêu chí, **tính bằng script**, không gõ tay. `triangulation` thấp vì Sujato im lặng ở cả dòng uddāna và không có tầng Việt hiện hành; `ambiguity_integrity` thấp hơn vì uddāna là danh sách tên có phụ danh mà không có chú giải trong tầng — các chỗ đó đã phân xử và ghi ở đây, không chú thích lẫn vào thân kinh.
+  - |-
+    **Ba khoá cuối TRÙNG NGUYÊN VĂN với `thag1.87` — dùng lại nguyên văn.** `bhavā sabbe padālitā;` trùng `thag1.87:1.2` → *mọi hữu trạng đều bị phá tan;*; `Vikkhīṇo jātisaṁsāro,` trùng `thag1.87:1.3` → *luân hồi tái sinh đã cạn ráo,*; `natthi dāni punabbhavo”ti.` trùng `thag1.87:1.4` → *nay không còn tái sinh nữa”ti.*. Cùng cách đó đã dùng ở `thag1.90:1.3-1.4` và `thag1.80:1.4`, nên **hai bài trong lát này tự nhất quán**.
+
+    **Chênh lệch CÙNG PĀLI giữa hai vị trí trong tầng, đã ghim và chọn một.** `Vikkhīṇo jātisaṁsāro,` và `natthi dāni punabbhavo”ti.` có **tám** bản Việt khác nhau cho cùng một Pāli (kể cả `thag1.67:1.3` *sự luân hồi qua các kiếp đã cùng đi* và `snp3.12:36.3` *vòng luân hồi sinh đã được tiêu diệt*). Tôi chọn một trong hai bản đã có — *luân hồi tái sinh đã cạn ráo,* / *nay không còn tái sinh nữa* — vì nó đi cùng `bhavā sabbe padālitā` ở `thag1.87:1.2` y hệt, tức là đúng ngữ cảnh kệ của bài này; **không** chọn loại *sự luân hồi trong các đời đã tận* của văn xuôi. Tôi không sửa các bài ngoài lát.
+
+    **Phân xử đã ghi.** `vata` là tiểu từ nhấn mạnh → *Quả thật*. `santaṁ` là tính từ (*an tĩnh*), tôi để riêng chứ không gộp vào *hiện trí* như Sujato (*astute scholar*) để không mất hai nghĩa. `alamatthavicintakaṁ`: tôi đọc `alam` là tiểu từ tăng cường (*luôn*) — đây là **suy luận** vì không có chú giải trong tầng, ghi ra. `sammohā pātayiṁsu maṁ` là thì quá khứ của `pāta` + tân ngữ → *đã khiến ta chìm trong mê lầm*. `daḷhasallasamappito`: `salla` dịch *mũi tên* theo `thag3.2:2.4` (`taṇhāsalle` → *mũi tên ái*) và 34 tiền lệ cho *mũi tên*; `māra` dịch *Ma* theo `thag2.29:1.4` (*sau khi thắng Ma cùng quân đội*).
+
+    **Thuật ngữ không có tiền lệ, đã ghi:** `maccurāja` → *vua Tử Khối* (0 tiền lệ cho *Tử Khối* lẫn *Maccu* trong tầng); `kāmaguṇa` → *môn trì dụ* (0 tiền lệ cho cụm). Tôi không bịa thêm tên riêng nào cho `kāmaguṇā` vì Pāli cũng không nêu. `asakkhi` (số ít *tôi đã có thể*) giữ là *Vậy mà ta đã tự giải thoát được*, khớp với `ahaṁ` ở `2.4` (*với tôi* → *khỏi chiếc bẫy…*).
