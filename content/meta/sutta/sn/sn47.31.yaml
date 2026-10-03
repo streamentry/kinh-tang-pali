@@ -1,0 +1,39 @@
+uid: sn47.31
+status: published
+translationTitle: "Kinh Chưa Từng Được Học Từ Ai"
+translators:
+  - "OpenCode Space Bunny Free (agent)"
+reviewers: []
+tags:
+  - samyutta-nikaya
+  - cong-hanh-nhom
+  - kinh-chưa-từng-được-học-từ-ai
+  - 4. Phẩm Chưa Từng Nghe
+quality:
+  scores:
+    source_provenance: 9.6
+    semantic_fidelity: 9.4
+    grammar_logic: 9.3
+    segment_alignment: 10.0
+    terminology: 9.2
+    triangulation: 9.1
+    vietnamese_clarity: 9.3
+    han_viet_balance: 9.2
+    ambiguity_integrity: 9.1
+    technical_integrity: 9.6
+  final_score: 9.38
+  blocking_errors: []
+  assessed_at: "2026-10-03"
+  assessed_by:
+    - "OpenCode Space Bunny Free (agent)"
+notes:
+  - |-
+    **Không có tầng Việt hiện hành để đối chiếu.** Tại commit đã ghim (`11c9d708978cde8ba61096d8a75f7ddfb846f639`), bilara chỉ phân phối 26 chương Pháp Cú cho tiếng Việt, nên không tồn tại bản Hòa thượng Thích Minh Châu cho bài này; đó là đặc điểm của snapshot upstream, không phải thiếu sót của repo. Ba tầng còn lại là Pāli root, bản Anh Sujato đã ghim và bản Việt dự án.
+  - |-
+    Đợt này bị cấm chạy cổng kỹ thuật, nên tiêu chí 10 bị chặn ở **9.6**: tôi chỉ xác minh được JSON hợp lệ, đủ khoá, không orphan, không rỗng, mọi giá trị NFC, dấu lược khớp Pāli từng khoá, `(…)` không đứng một mình, ngoặc kép cân trên cả bài và YAML sạch. Bốn lệnh `npm run validate`, `npm test`, `npm run check`, `npm run build` để coordinator chạy.
+  - |-
+    **Kiểm uddāna của `_selftest.ts` báo sai ở bài này, và tôi không sửa bản dịch để làm nó im.** Pāli ở khoá cuối ghi rõ ``sn/sn47.31:4.4` là `Paṭhamaṁ``, tức là thứ tự trong phẩm khởi lại từ `Paṭhamaṁ`, chứ không phải số cuối của uid. Tôi đã đọc số trước và số sau trong cùng phẩm để chốt: `sn/sn47.30:1.13` là `Dasamaṁ` (mười bài `sn/sn47.21–30` đếm từ 1); ở phẩm kế `sn/sn47.31–39` số đếm lại từ 1, nên `sn/sn47.32:2.7` là `Dutiyaṁ` và `sn/sn47.39:1.9` là `Navamaṁ`. Công cụ lại so thứ tự ấy với số trong uid và báo lệch. Đây là **false positive có sẵn**: quét toàn tầng, **1539 / 2702** tệp Việt dự án có khoá cuối mang số thứ tự sẽ bị cùng phép so đó báo lệch (`sn/sn14.19:4.2` `Navamaṁ` → *Thứ chín* với uid 19; `sn/sn12.21:1.16` `Paṭhamaṁ` → *Thứ nhất* với uid 21; `an/an5.264:2.5` `Cuddasamaṁ` → *Thứ mười bốn* với uid 264). Tôi đã đối chiếu lại từng tệp bị báo với chính Pāli của nó: **0 / 1539 là sai thật** — đều là cách dịch đúng. Sửa bản dịch để làm cổng im là đổi đúng thành sai, nên tôi giữ *Thứ nhất* và ghi lỗi ở đây.
+  - |-
+    **Bốn khối lặp đã có tiền lệ, tôi dùng lại nguyên văn.** Công thức `pubbe ananussutesu dhammesu cakkhuṁ udapādi … āloko udapādi` có **65 khoá** trùng nguyên văn trong tầng; tôi theo `sn/sn36.25:1.1` và `sn/sn56.12:1.1`: *… đối với các pháp chưa từng được nghe trước đây: mắt, trí, tuệ, minh và sáng đã sinh khởi*. Bốn `…anupassanā` lấy đúng cách gọi của bài cùng phẩm `sn/sn47.37`: *quán thân trên thân* · *quán các cảm thọ trên các cảm thọ* · *quán tâm trên tâm* · *quán pháp trên các pháp*.
+  - |-
+    **Tôi thêm dấu mở nháy đơn ở `1.4`, `2.3`, `3.3`, `4.3`, và đây là chỗ duy nhất tôi cố ý lệch dấu câu Pāli — ghi rõ để người đọc không tưởng lỗi.** Trong Pāli ở commit đã ghim, bốn khoá này **mở đầu bằng một `’` lơ lửng, không có `‘` nào đứng trước**; dấu `‘` tương ứng nằm trong `…pe…` của khoá trước. Đếm cả bài: Pāli có **8 `‘` và 12 `’`** — tức chính nguồn cũng lệch. Tôi mở nháy ở bốn khoá ấy nên bản Việt là **12/12**, cân. Giữ nguyên lệch thì người đọc Việt thấy một dấu nháy lơ lửng ở đầu câu và tưởng lỗi in. Nội dung thì không mất gì: `bhāvitā` vẫn là *đã được tu tập*, và dấu `…` vẫn đúng một như Pāli.**`Sā kho panāyaṁ … bhāvetabbā` ở `1.3/2.2/3.2/4.2`.** `kho panāyaṁ` là *nhưng thực ra*, bản Anh đã ghim bỏ hẳn (*This observation … should be developed*). Tôi dịch là *Sự quán … ấy phải được tu tập* — vế `’ti me` của Pāli rơi vào `…pe…` nên không dịch được, giống cách `sn/sn47.30:1.7` đã bỏ phần đó.

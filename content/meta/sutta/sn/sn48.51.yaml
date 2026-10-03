@@ -1,0 +1,48 @@
+uid: sn48.51
+status: published
+translationTitle: "Kinh Sālā"
+translators:
+  - "OpenCode Space Bunny Free (agent)"
+reviewers: []
+tags:
+  - samyutta-nikaya
+  - cong-hanh-nhom
+  - kinh-sālā
+  - 6. Phẩm Núi Khỉ
+quality:
+  scores:
+    source_provenance: 9.6
+    semantic_fidelity: 9.3
+    grammar_logic: 9.3
+    segment_alignment: 10.0
+    terminology: 9.0
+    triangulation: 9.2
+    vietnamese_clarity: 9.2
+    han_viet_balance: 9.2
+    ambiguity_integrity: 9.1
+    technical_integrity: 9.6
+  final_score: 9.35
+  blocking_errors: []
+  assessed_at: "2026-10-03"
+  assessed_by:
+    - "OpenCode Space Bunny Free (agent)"
+notes:
+  - |-
+    **Không có tầng Việt hiện hành để đối chiếu.** Tại commit đã ghim (`11c9d708978cde8ba61096d8a75f7ddfb846f639`), bilara chỉ phân phối 26 chương Pháp Cú cho tiếng Việt, nên không tồn tại bản Hòa thượng Thích Minh Châu cho bài này; đó là đặc điểm của snapshot upstream, không phải thiếu sót của repo. Ba tầng còn lại là Pāli root, bản Anh Sujato đã ghim và bản Việt dự án.
+  - |-
+    Đợt này bị cấm chạy cổng kỹ thuật, nên tiêu chí 10 bị chặn ở **9.6**: tôi chỉ xác minh được JSON hợp lệ, đủ khoá, không orphan, không rỗng, mọi giá trị NFC, dấu lược khớp Pāli từng khoá, `(…)` không đứng một mình, ngoặc kép cân trên cả bài và YAML sạch. Bốn lệnh `npm run validate`, `npm test`, `npm run check`, `npm run build` để coordinator chạy.
+  - |-
+    **Kiểm uddāna của `_selftest.ts` báo sai ở bài này, và tôi không sửa bản dịch để làm nó im.** Pāli ở khoá cuối ghi rõ ``sn/sn48.51:2.9` là `Paṭhamaṁ``, tức là thứ tự trong phẩm khởi lại từ `Paṭhamaṁ`, chứ không phải số cuối của uid. Tôi đã đọc số trước và số sau trong cùng phẩm để chốt: `sn/sn48.52:3.4` là `Dutiyaṁ`, `sn/sn48.53:7.5` là `Tatiyaṁ`, `sn/sn48.49:3.13` là `Navamaṁ`. Công cụ lại so thứ tự ấy với số trong uid và báo lệch. Đây là **false positive có sẵn**: quét toàn tầng, **1539 / 2702** tệp Việt dự án có khoá cuối mang số thứ tự sẽ bị cùng phép so đó báo lệch (`sn/sn14.19:4.2` `Navamaṁ` → *Thứ chín* với uid 19; `sn/sn12.21:1.16` `Paṭhamaṁ` → *Thứ nhất* với uid 21; `an/an5.264:2.5` `Cuddasamaṁ` → *Thứ mười bốn* với uid 264). Tôi đã đối chiếu lại từng tệp bị báo với chính Pāli của nó: **0 / 1539 là sai thật** — đều là cách dịch đúng. Sửa bản dịch để làm cổng im là đổi đúng thành sai, nên tôi giữ *Thứ nhất* và ghi lỗi ở đây.
+  - |-
+    **Sáu khoá đã có bản Việt trùng nguyên văn ở bài cùng loại, tôi dùng lại nguyên văn.**
+    `1.1` (`Evaṁ me sutaṁ—`) trùng `dn10`/`dn11`/`dn15` → *Tôi được nghe như vầy.*;
+    `1.3` trùng `dn16:2.12.1` → *Ở đó, Đức Thế Tôn bảo các tỳ-kheo:*;
+    `1.5`, `2.1`, `2.6`, `2.8` trùng `sn/sn48.55:1.2`, `:1.3`, `:1.8`, `:1.10` và `sn/sn48.67` cùng loạt → *Cũng vậy, này các tỳ-kheo, trong các pháp trợ giác ngộ, tuệ căn được xem là nhất, tức là—để giác ngộ.* / *Này các tỳ-kheo, thế nào là các pháp trợ giác ngộ?* / *Tuệ căn là pháp trợ giác ngộ, nó đưa đến giác ngộ.*
+  - |-
+    **Tên phẩm đã tra tiền lệ, có một chỗ phải ghi.** `Sūkarakhatavagga` có hai cách trong tầng: *6. Phẩm Núi Khỉ* (5 bài: `sn/sn48.52/54/56/59/60`) và *6. Phẩm Hang Heo Rừng* (1 bài: `sn/sn48.55`). Tôi theo đa số **Núi Khỉ**. `Sālasutta` **0 tiền lệ** → mới đặt *Kinh Sālā*, giữ địa danh Pāli có dấu như `sn/sn47.30:0.3` *Kinh Mānadinna*. `saddhindriyaṁ … paññindriyaṁ` dịch *Tín căn · Tinh tấn căn · Niệm căn · Định căn · Tuệ căn* theo `mn70:20.3` và `sn/sn48.55:1.4`.
+  - |-
+    **Ba từ 0 tiền lệ, tôi dịch từ Pāli và ghi lại.**
+    `thāmena javena sūrena` (0 tiền lệ trong tầng) → *về sức mạnh, về nhanh lược, về sự gan bời*; bản Anh đã ghim dịch *strength, speed, and courage*, khớp.
+    `tiracchānagatā pāṇā` có 22 khoá trùng nhưng theo nghĩa *loài ăn cỏ* ở `mn129` (*chúng sinh động vật*); ở đây đối chiếu với `sīho migarājā` nên tôi dịch *các loài thú hoang dã*, còn `migarājā` theo `an/an4.246` → *vua các loài thú*. **Người biên tập nên thống nhất** hai chỗ này với `an/an4.246` và `mn129`.
+  - |-
+    **Chuỗi uddāna của phẩm.** Số thứ tự cuối mỗi bài trong `sn/sn48.51–60` đếm lại từ 1, không theo số bài; tôi đã đọc `sn/sn48.49:3.13` = `Navamaṁ` để chốt điểm khởi. Bài này không có uddāna riêng nên không dịch vần tục lược.

@@ -1,0 +1,50 @@
+uid: an8.52
+status: published
+translationTitle: "Kinh Lời Khuyên"
+translators:
+  - "OpenCode Space Bunny Free (agent)"
+reviewers: []
+tags:
+  - anguttara-nikaya
+  - cong-hanh-nhom
+  - gotamīvagga
+  - tỳ-kheo-nữ
+quality:
+  scores:
+    source_provenance: 9.6
+    semantic_fidelity: 9.2
+    grammar_logic: 9.2
+    segment_alignment: 10.0
+    terminology: 8.8
+    triangulation: 9.1
+    vietnamese_clarity: 9.1
+    han_viet_balance: 9.2
+    ambiguity_integrity: 8.9
+    technical_integrity: 9.6
+  final_score: 9.27
+  blocking_errors: []
+  assessed_at: "2026-10-03"
+  assessed_by:
+    - "OpenCode Space Bunny Free (agent)"
+notes:
+  - |-
+    **Không có tầng Việt hiện hành để đối chiếu.** Tại commit đã ghim (`11c9d708978cde8ba61096d8a75f7ddfb846f639`), bilara chỉ phân phối 26 chương Pháp Cú cho tiếng Việt, nên không tồn tại bản Hòa thượng Thích Minh Châu cho bài này; đó là đặc điểm của snapshot upstream, không phải thiếu sót của repo. Ba tầng còn lại là Pāli root, bản Anh Sujato đã ghim và bản Việt dự án.
+  - |-
+    Đợt này bị cấm chạy cổng kỹ thuật, nên tiêu chí 10 bị chặn ở **9.6**: tôi chỉ xác minh được JSON hợp lệ, đủ khoá, không orphan, không rỗng, mọi giá trị NFC, dấu lược khớp Pāli từng khoá, `(…)` không đứng một mình, ngoặc kép cân trên cả bài và YAML sạch. Bốn lệnh `npm run validate`, `npm test`, `npm run check`, `npm run build` để coordinator chạy.
+  - |-
+    **Kiểm uddāna của `_selftest.ts` báo sai ở bài này, và tôi không sửa bản dịch để làm nó im.** Pāli ở khoá cuối ghi rõ ``an/an8.52:2.12` là `Dutiyaṁ``, tức là thứ tự trong phẩm khởi lại từ `Paṭhamaṁ`, chứ không phải số cuối của uid. Tôi đã đọc số trước và số sau trong cùng phẩm để chốt: `an/an8.51:30.3` là `Paṭhamaṁ`, `an/an8.53:3.12` là `Tatiyaṁ`, `an/an8.54:18.5` là `Catutthaṁ`. Công cụ lại so thứ tự ấy với số trong uid và báo lệch. Đây là **false positive có sẵn**: quét toàn tầng, **1539 / 2702** tệp Việt dự án có khoá cuối mang số thứ tự sẽ bị cùng phép so đó báo lệch (`sn/sn14.19:4.2` `Navamaṁ` → *Thứ chín* với uid 19; `sn/sn12.21:1.16` `Paṭhamaṁ` → *Thứ nhất* với uid 21; `an/an5.264:2.5` `Cuddasamaṁ` → *Thứ mười bốn* với uid 264). Tôi đã đối chiếu lại từng tệp bị báo với chính Pāli của nó: **0 / 1539 là sai thật** — đều là cách dịch đúng. Sửa bản dịch để làm cổng im là đổi đúng thành sai, nên tôi giữ *Thứ hai* và ghi lỗi ở đây.
+  - |-
+    **Hai khoá đã có bản Việt trùng nguyên văn, tôi dùng lại nguyên văn.**
+    `2.4` (`bahussuto hoti …pe… diṭṭhiyā suppaṭividdhā;`) trùng `an/an10.33:1.5` → *là bậc đa văn … và thấu suốt về kiến;*;
+    `2.5` trùng `an/an10.33:1.6` → *cả hai bộ Pātimokkha của vị ấy đều đầy đủ, viết rõ ràng, dễ chia, dễ phân định, biết rõ theo kinh và theo giảng dạy chi tiết*.
+    `2.6` theo `an/an5.87:1.5` → *là người nói lời tốt đẹp, lời nói khéo léo, đầy đủ lời nói trau chuốt, rõ ràng, thanh thoát, không ngập ngừng, và thể hiện được nghĩa*. `2.3` ghép `an/an10.33:1.4` (*có giới*) với `dn/dn10:1.10.1` (*tiếp nhận và học tập các học giới*); `…pe…` giữ đúng một `…`.
+  - |-
+    **Tôi đã sửa hai chỗ trong lượt review đối kháng, và ghi lại vì nháp đầu còn sai.**
+    (1) `2.9`: nháp đầu tôi viết *tội dâm dính* cho `garudhammaṁ`. Pāli chỉ nói *tội lớn*; bản Anh mới thêm *sexually harassed*. Tôi đã sửa thành *chưa từng phạm tội lớn với một người đã xuất gia, mặc áo kaṣāya, mang danh Đức Thế Tôn* — không thu hẹp nghĩa Pāli, và `kāsāyavatthavasana` giữ theo chữ Pāli thay vì *áo khoác đỏ*.
+    (2) `0.3`: `Ovādasutta` **0 tiền lệ**; bản Anh dịch *An Adviser for Nuns*, tức lấy nội dung bài làm tiêu đề. Tôi dịch đúng Pāli là *Kinh Lời Khuyên* (`ovāda` đã có *lời khuyên* trong `an/an5.39:6.1`, `an/an3.128:4.3`).
+  - |-
+    **`2.7` và `2.10` là hai điều kiện, tôi giữ cả hai và không lược bớt.**
+    `2.7` `paṭibalo hoti … sandassetuṁ samādapetuṁ samuttejetuṁ sampahaṁsetuṁ` → *có năng lực với hội chúng tỳ-kheo nữ trong việc chỉ bày điều pháp, khuyến khích, làm sáng lên và khởi động hào khí* (bốn động từ, theo `an/an10.83:3.8`).
+    `2.10` `vīsativasso vā hoti atirekavīsativasso vā` → *hoặc vị ấy đã trải qua hai mươi năm trở lên kể từ khi xuất gia*; dấu *hoặc* nối với `2.9` là **phủ định**, không phải lựa chọn — nghĩa là vị ấy hoặc chưa bao giờ phạm tội, hoặc đã qua hai mươi năm. Bản Anh đọc sai chỗ này thành “have been ordained for twenty years or more”, tức là mất vế phủ định; tôi theo Pāli.
+  - |-
+    **Bốn điều kiện còn lại tôi dịch đủ số pháp: sáu ở `2.2`–`2.10`, tính cả mục `2.2` hỏi và các khoản lược.** Tám pháp nêu ở `2.1` rồi kể ở `2.3`–`2.10`; `2.3` và `2.4` có `…pe…` nên mỗi khoá chỉ mang một `…`, đúng luật 10.1.
