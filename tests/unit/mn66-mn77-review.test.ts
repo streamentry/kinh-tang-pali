@@ -21,23 +21,26 @@ test('MN66 restores the quail, calm idiom and the acquisition-root claim at its 
 test('MN77 retains seven awakening factors, their qualifiers and the ten kasinas', () => {
   const v = read('mn77');
   assert.match(v['mn77:20.1'], /bảy giác chi/);
-  // Not all seven carry the qualifiers in Pāli, so not all seven should carry them
-  // in Vietnamese. :20.2, :20.8 and the intervening four spell out
-  // `vivekanissitaṁ virāganissitaṁ nirodhanissitaṁ vossaggapariṇāmiṁ` in full;
-  // :20.3 is `dhammavicayasambojjhaṅgaṁ bhāveti …pe…`, so the elided run of
-  // qualifiers must be an ellipsis there rather than written-out text that no
-  // Pāli key backs. :20.4–:20.7 end in a *bare* `…` — a different class, still
-  // awaiting an editorial decision, so their qualifiers stand for now.
-  for (const i of [2, 4, 5, 6, 7, 8]) {
+  // Not all seven carry the qualifiers in Pāli, so not all seven may carry them
+  // in Vietnamese. Only :20.2 and :20.8 spell out
+  // `vivekanissitaṁ virāganissitaṁ nirodhanissitaṁ vossaggapariṇāmiṁ`; the five in
+  // between elide that run of text — :20.3 with `…pe…`, :20.4–:20.7 with a *bare*
+  // `…` (the same bilara marker, split across the key boundary). Writing the
+  // qualifiers out at those five would put words in a place no Pāli key backs.
+  for (const i of [2, 8]) {
     assert.match(v[`mn77:20.${i}`], /viễn ly/);
     assert.match(v[`mn77:20.${i}`], /ly tham/);
     assert.match(v[`mn77:20.${i}`], /buông xả/);
   }
-  assert.equal(
-    v['mn77:20.3'].replace(/…/g, '').trim(),
-    'Vị ấy tu tập trạch pháp giác chi',
-    'the elision at :20.3 replaces the qualifiers, and nothing else',
-  );
+  const elided = { 3: 'trạch pháp', 4: 'tinh tấn', 5: 'hỷ', 6: 'khinh an', 7: 'định' } as const;
+  for (const [i, chánhĐiều] of Object.entries(elided)) {
+    const got = v[`mn77:20.${i}`].replace(/…/g, '').trim();
+    assert.equal(
+      got,
+      `Vị ấy tu tập ${chánhĐiều} giác chi`,
+      `:20.${i} elides the qualifiers, and keeps nothing but the factor itself`,
+    );
+  }
   assert.match(v['mn77:24.1'], /mười biến xứ/);
   assert.match(v['mn77:24.11'], /biến xứ thức/);
   assert.match(v['mn77:23.5'], /vô lượng/);
