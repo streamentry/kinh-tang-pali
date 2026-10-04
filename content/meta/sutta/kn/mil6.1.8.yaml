@@ -1,0 +1,42 @@
+uid: mil6.1.8
+status: draft
+translationTitle: "Câu Hỏi Về Hành Xấu"
+translators:
+  - "OpenCode Space Bunny Free (agent)"
+reviewers: []
+tags:
+  - "kn"
+  - "khuddaka-nikaya"
+  - "milindapanha"
+  - "anumanapanha"
+  - "buddhavagga"
+  - "dussilapanha"
+quality:
+  scores:
+    source_provenance: 9.5
+    semantic_fidelity: 9.3
+    grammar_logic: 9.3
+    segment_alignment: 10.0
+    terminology: 9.2
+    triangulation: 7.5
+    vietnamese_clarity: 9.3
+    han_viet_balance: 9.4
+    ambiguity_integrity: 9.2
+    technical_integrity: 9.6
+  final_score: 9.23
+  blocking_errors:
+    - "Không có tầng tham khảo tiếng Anh tại commit đã ghim: cây translation/en/sujato trong source/upstream-manifest.json liệt kê 0 tệp dưới kn/mil (248 tệp kn/mil có trong tầng Pāli root), nên tệp translation/en/sujato/sutta/kn/mil/mil6.1.8_translation-en-sujato.json không tồn tại trong .cache/upstream/suttacentral/ — đây là not-published-upstream, KHÔNG phải not-synced. Đo coverage theo đúng công thức source/layers.yaml (Pāli có nội dung ≥ 40 ký tự sau khi gộp khoảng trắng, loại block tham chiếu :0) cho 0 trên 22 khoá = 0%, dưới ngưỡng 0.8. Tầng vietnamese-current cũng vắng: translation/vi/phantuananh tại commit đã ghim chỉ có 26 tệp và toàn bộ là Pháp Cú. Lớp lấp english-project của dự án cũng không có cho uid này. Ba tầng tham khảo đều vắng ⇒ bài dịch chỉ từ Pāli root ⇒ blocker thật, và đây là giới hạn upstream, không phải lỗi của người dịch. Vì vậy triangulation bị chặn ở 7.5 (≤ 8.0) chứ không nâng để né blocker."
+  assessed_at: "2026-10-04"
+  assessed_by:
+    - "OpenCode Space Bunny Free (agent)"
+notes: |-
+  Dịch trực tiếp từ Pāli root tại commit bilara đã ghim (11c9d708978cde8ba61096d8a75f7ddfb846f639, khoá dựng từ tiền tố pre của lát, không phải từ uid).
+  Tầng Anh đã ghim không có bài nào trong thư viện Milindapañha, tầng Việt hiện hành chỉ có Pháp Cú, lớp lấp english-project không có ⇒ dịch một tầng, nên triangulation bị chặn.
+  Văn xưng theo mil đã merge: Thưa Đại đức Nāgasena (7 tệp) và Tâu Đại vương (chữ hoa ở đầu câu, chữ thường sau); Thế Tôn cho bhagavā, Trưởng lão cho thera, Đấng Chiến Thắng cho buddha khi tán dương.
+  `Buddhavagga` và `Anumānapañha` theo `mil6.1.3`/`mil6.1.4` đã merge. `0.4 Dussīlapañha` đặt mới: Câu Hỏi Về Hành Xấu.
+  0 tiền lệ, đặt mới có lý do: `gihidussīla`/`samaṇadussīla` → kẻ giới chúng xấu xa / sa-môn xấu xa (giữ nguyên cặp đối xứng suốt bài, 15 lần lặp); `dakkhiṇa` (nghĩa lễ dâng) → sự dâng cúng, `visodheti` → làm cho thanh tịnh hơn; `isisāmaññabhaṇḍuliṅga` → dáng vẻ của một bậc làm bố sa-môn (isi = gậy, bhaṇḍu = túi); `anavajjakavacadhāraṇatā` → giữ lời nói không đáng chê; `pavaradhamma` → pháp của bậc chở đò; `ekantaujudiṭṭhitā` → khẳng định một cách dứt khoát; `uposathasamādāna` → giữ lễ Bố-tát (1 tiền lệ, mn83 giữ lễ Bố-tát); `savanabahulo` → học hỏi nhiều.
+  Bất định đã phân xử và ghi lại: `Sā dakkhiṇā dāyakato visujjhatī` — Pāli dùng `visujjhati` (thanh tịnh) trong khi chính văn bản này dùng `visodheti` cho sự dâng cúng; tôi thống nhất cả hai là thanh tịnh hơn, vì hai từ cùng nghĩa và bài đã dùng `visodheti` mười một lần.
+  Ba khoá kết `5.3`, `6.2`, `7.2` lặp nguyên văn cùng một câu; tôi dịch giống hệt nhau, đúng như Pāli.
+  Bốn vế trong `9.2` và `9.3` dùng lại nguyên văn bản Anh-Pālĩ đã có ở `mn142`: được của chân chính mà có, tâm đầy tịnh tín; tin chắc vào nghiệp quả rộng lớn bậc nhất (3 lần ở mn142).
+  Pāli trùng nguyên văn: `Dhammena laddhaṁ supasannacitto` và `Abhisaddahaṁ kammaphalaṁ uḷāraṁ` trùng `mn142` (3 lần) — dịch lại y nguyên; cộng `“Bhante nāgasena, bhāsitampetaṁ bhagavatā—` chung toàn lát.
+  technical_integrity 9.6 vì agent lát này không chạy gate. Bốn lệnh gate do coordinator chạy trước khi publish: npm run validate, npm test, npm run check, npm run build.

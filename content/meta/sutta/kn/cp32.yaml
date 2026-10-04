@@ -1,0 +1,66 @@
+uid: cp32
+status: published
+translationTitle: "Hạnh Của Sutasoma"
+translators:
+  - "OpenCode Space Bunny Free (agent)"
+reviewers: []
+tags:
+  - khuddaka-nikaya
+  - cariyāpiṭaka
+  - yudhañjayavagga
+  - saccapāramī
+quality:
+  scores:
+    source_provenance: 9.4
+    semantic_fidelity: 9.3
+    grammar_logic: 9.3
+    segment_alignment: 10.0
+    terminology: 9.1
+    triangulation: 8.5
+    vietnamese_clarity: 9.4
+    han_viet_balance: 9.4
+    ambiguity_integrity: 9.2
+    technical_integrity: 9.6
+  final_score: 9.32
+  blocking_errors: []
+  assessed_at: "2026-10-04"
+  assessed_by:
+    - "OpenCode Space Bunny Free (agent)"
+notes: |-
+  TẦNG THAM KHẢO: có Sujato cho 30/31 khoá (chỉ `cp32:7.1` bị bỏ trống — khoá đánh số
+  vị trí bài, dưới 40 ký tự nên không tính vào coverage). Tệp Anh có đủ 31 khoá, không thiếu
+  khoá nào; `translation/vi/phantuananh` tại commit đã ghim không có Hạnh Tạng. Đo coverage
+  cho bài này: **0 khoá Pāli đủ 40 ký tự** (mọi câu kệ ngắn hơn) ⇒ `ratio = 1`, sàn 0.8 không
+  kích hoạt ⇒ đủ điều kiện `published`.
+  Lát c14. 4/31 khoá trùng nguyên văn, đã dùng lại:
+  `Cariyāpiṭaka` → “Hạnh Tạng” (10 bản, đa số tuyệt đối so với “Cariyāpiṭaka” 1);
+  `Yudhañjayavagga` → “Phẩm Yudhañjaya” (6/6); `“Punāparaṁ yadā homi,` → ““Lại nữa,
+  khi ta còn là” (cp28:1.1, cùng Pāli y hệt); `Saccena me samo natthi,` → “Về sự chân
+  thật, không ai sánh bằng ta:” (cp27:4.3). Tên bài và câu kết theo đúng mẫu cp27:4.5 “Hạnh
+  của vua khỉ, thứ bảy” → “Hạnh của Sutasoma, thứ mười hai.”
+
+  0 tiền lệ, phải tự đặt (grep trong toàn tầng Việt trả 0):
+  · `porisāda` (kẻ ăn thịt người) — 20 lần xuất hiện trong Pāli, 0 lần trong bản Việt
+    đã merge. Tôi dịch “kẻ ăn thịt người”; giữ nguyên ở cả 4 khoá để thống nhất.
+  · `mahīpati` → “chúa đất” (tầng có “chúa tể muôn dân” 1, “vua cai quản cõi đất” 1, “chúa
+    tể nhân quần” 1 — thưa thảt trong các câu kệ ngắn, nên tôi chọn cách gọn và đúng nghĩa).
+  · `jinasevita` (Pháp do các Đấng Thắng trước thực hành) — 2 lần trong Pāli, 0 trong
+    bản Việt đã merge.
+  · `saṅgaraṁ` (lời hứa) — trong tầng chỉ có `saṅgara` = “hai tháng” (ja199), nên tôi
+    dịch “lời hứa” theo nghĩa và theo Sujato “I remembered my promise”.
+  · `khattiyānaṁ` → “vị Sát-đế-lỵ” (đa số tuyệt đối: 149 so với “quân tử” 2, “khiêm
+    cung” 3).
+
+  Bất định: `pamilāpetvā` ở khoá 2.3 — Sujato dịch “Having drained their blood” (rút cạn
+  máu), nhưng `pamilā` nghĩa gốc là làm cạn/kiệt quệ (bao nhiêu nước hoặc sức), và Pāli
+  không nói đến máu. Tôi theo Pāli: “làm cho bọn chúng cạn mòn”, và ghi ở đây.
+
+  Một lượt review tự bắt được và đã sửa: khoá 4.3 `puraṁ rammaṁ` ban đầu tôi dịch “thành
+  phố xứng đáng” — `ramma` là thú vị/dễ chịu, không phải “xứng đáng”; đã sửa thành “thành
+  phố thú vị”. 0 tiền lệ cho `Ārambhakathā` nên `translationTitle` của mil1 cũng phải tự
+  đặt.
+
+  Tầng tham khảo: có Sujato cho cp32 (30/31 khoá có prose). `translation/vi/phantuananh`
+  tại commit đã ghim không có Hạnh Tạng ⇒ `triangulation` 8.5.
+
+  Bị chặn cổng kỹ thuật (đợt này không được chạy `npm run validate|test|check|build`), nên tiêu chí 10 bị chặn ở **9.6**: tôi chỉ xác minh được JSON hợp lệ, đủ khoá, không orphan, không rỗng, mọi giá trị NFC, dấu lược khớp Pāli từng khoá, `(…)` không đứng một mình, ngoặc kép cân trên cả bài và YAML sạch. Bốn lệnh `npm run validate`, `npm test`, `npm run check`, `npm run build` để coordinator chạy.

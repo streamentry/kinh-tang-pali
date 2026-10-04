@@ -1,0 +1,47 @@
+uid: an2.15
+status: published
+translationTitle: "Kinh Tự Xét Lại Khi Tranh Chấp"
+translators:
+  - "OpenCode Space Bunny Free (agent)"
+reviewers: []
+tags:
+  - anguttara-nikaya
+  - cong-hanh-nhom
+  - kinh-tự-xét-lại-khi-tranh-chấp
+  - "2. Phẩm Vấn Đề Giới Luật"
+quality:
+  scores:
+    source_provenance: 9.5
+    semantic_fidelity: 9.4
+    grammar_logic: 9.4
+    segment_alignment: 10.0
+    terminology: 9.1
+    triangulation: 9.2
+    vietnamese_clarity: 9.3
+    han_viet_balance: 9.3
+    ambiguity_integrity: 9.3
+    technical_integrity: 9.6
+  final_score: 9.41
+  blocking_errors: []
+  assessed_at: "2026-10-04"
+  assessed_by:
+    - "OpenCode Space Bunny Free (agent)"
+notes:
+  - >-
+    **Không đối chiếu được tầng Việt hiện hành.** Bilara tại commit đã ghim chỉ có 26 chương Pháp Cú cho tiếng Việt, nên không có bản Hòa thượng Thích Minh Châu để đối chiếu thuật ngữ; đây là đặc điểm của snapshot upstream, không phải thiếu sót của repo. Hai tầng còn lại là Pāli root (authority) và bản Anh Bhikkhu Sujato đã ghim.
+  - >-
+    **Coverage tầng Anh 1,000** (28 Pāli có nội dung, 28 có chữ Sujato — tệp gộp `an2.11-20_translation-en-sujato.json`, đúng khoá thật `an2.15:`).
+  - >-
+    **Hai khối phản chiếu trùng nhau (`āpanno` / `codako`) — dịch song song có chủ ý**, để người đọc thấy đúng nghĩa: `:2.3`–`:2.11` là từ-kẻ-phạm nhìn lại chính mình, `:3.3`–`:3.11` là vị-quở-trách nhìn lại chính mình. Chỉ khác chủ từ và phân từ, giữ nguyên điệu cấu trúc.
+  - >-
+    **Bài song song đã dịch: `an2.63` (`Kinh Hội Chúng Có Lối Thoát`).** Cùng phẩm về `adhikaraṇa` và có **trùng nguyên văn** `dīghattāya kharattāya vāḷattāya saṁvattissati, bhikkhū ca na phāsuṁ viharissanti` — lấy nguyên văn *kéo dài thành lâu dài, thành đổi bậy, và các vị tỳ-kheo sẽ không sống yên tĩnh được*, và `adhikaraṇa` → *cuộc tranh chấp*. **Bất định đã ghi:** cụm *kéo dài thành lâu dài* lặp chữ và đọc hơi vướng; đã **giữ nguyên** thay vì tự tạo cách thứ ba cho cùng một Pāli, nhưng nên gộp lại khi biên tập cả phẩm.
+  - >-
+    **0 tiền lệ, đặt mới — năm thuật ngữ giới luật.** `codako bhikkhu` → *vị tỳ-kheo đi quở trách* (`codako` chỉ có 1 tiền lệ: `sn2.29:5.4` → *quở trách*) · `āpanno bhikkhu` → *vị tỳ-kheo đã vi phạm* (`āpatti` → *vi phạm* đã có 8 chỗ trong tầng an) · `paccavekkhati` → *tự xem xét lại chính mình* (`paccavekkhati` có tiền lệ *phản tư* 53 và *xem xét lại* 6; chọn cụm dài hơn vì `attanāva attānaṁ paccavekkhati` là hành động tự soi, không chỉ *phản tư*) · `paṭisañcikkhati` → *tự suy niệm* (theo `an10.60:4.2`) · `suṅkadāyakaṁva bhaṇḍasmin` → *như kẻ phải nộp thuế quan cho hàng hóa của mình* (**0 tiền lệ**; `suṅkadāyaka` chỉ xuất hiện trong chính tệp `an2.11-20`, chọn *thuế quan* vì hành ý là thuế biên quan).
+  - >-
+    **`akusalaṁ āpannaṁ kañcideva desaṁ kāyena` → *điều phi pháp nào đó bằng thân*.** Giữ `kañcideva` (một điều nào đó, không nêu đích danh) và `desaṁ` (khía cạnh, không nói *hành động* cụ thể nào). `anattamano` → *bất mãn* (149) · `ārocesi` → *báo cho* (38) · `accayo` → *lỗi*.
+  - >-
+    **Tiêu đề biên tập.** Bài này Pāli chỉ có số `15` (`:1.0`), **không có** segment tiêu đề; bản Việt đặt *Kinh Tự Xét Lại Khi Tranh Chấp* theo đúng tiền lệ `an2.63` (*Kinh Hội Chúng Có Lối Thoát*) và `an2.11` (*Kinh Hai Lực*). Cần người điều phối duyệt lại tên này khi gộp cả phẩm.
+  - >-
+    **Bản Việt còn thiếu tên phẩm.** Bài không có khoá `:0.2`, nên phần `2. Phẩm Vấn Đề Giới Luật` chỉ nằm trong `tags`, theo đúng cấu trúc của `an2.12`–`an2.20` đã có.
+  - >-
+    `technical_integrity` 9.6 vì bốn lệnh cổng **do coordinator chạy**, lát này đã tự kiểm mọi thứ còn lại bằng `_hvi.kiểm` (NFC, dấu lược khớp từng khoá, nháy kép cân trên cả bài, không Pāli lọt): `npm run validate` · `npm test` · `npm run check` · `npm run build`.

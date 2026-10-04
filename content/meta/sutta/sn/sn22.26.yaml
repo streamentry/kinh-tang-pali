@@ -1,0 +1,53 @@
+uid: sn22.26
+status: draft
+translationTitle: "Kinh Vị Ngọt"
+translators:
+  - "OpenCode Space Bunny Free (agent)"
+reviewers: []
+tags:
+  - "samyutta-nikaya"
+  - "3-bharavagga"
+  - "sn22"
+  - "assada"
+quality:
+  scores:
+    source_provenance: 9.5
+    semantic_fidelity: 9.4
+    grammar_logic: 9.3
+    segment_alignment: 10.0
+    terminology: 9.2
+    triangulation: 8.2
+    vietnamese_clarity: 9.3
+    han_viet_balance: 9.4
+    ambiguity_integrity: 9.0
+    technical_integrity: 9.6
+  final_score: 9.29
+  blocking_errors:
+    - "Coverage tầng tham khảo tiếng Anh thấp hơn ngưỡng: đo theo đúng công thức `source/layers.yaml` (Pāli có nội dung ≥ 40 ký tự, loại block tham chiếu `:0`, lớp lấp `english-project` chỉ tính khi meta của nó là published) cho 17/22 = 0.773, dưới ngưỡng 0.8. Năm khoá thiếu Anh tại commit đã ghim 11c9d708978cde8ba61096d8a75f7ddfb846f639 là 1.13, 1.14, 1.17, 1.18 và 2.3. `content/meta/reference-gaps.yaml` chưa có entry cho sn22.26, và lát này không được phép sửa tệp đó (BRIEF §4), nên khoảng trống chưa được ghi nhận ở đâu cả. Theo AGENTS.md, bài `review`/`published` thiếu entry này là lỗi chặn; bài bắt buộc `draft`. Lớp lấp `english-project` của dự án cũng chưa có cho sn22.26. Để xuất bản sau, coordinator cần chạy `npm run reference:gaps` để ghi nhận khoảng trống này rồi mới cân nhắc lại status. Đây là giới hạn của bản Anh đã ghim, không phải lỗi của người dịch; `triangulation` hạ theo thực tế đó."
+  assessed_at: "2026-10-04"
+  assessed_by:
+    - "OpenCode Space Bunny Free (agent)"
+notes: |-
+  Soạn từ Pāli root, đối chiếu Anh Sujato 17/22; 1.13, 1.14, 1.17, 1.18, 2.3 không
+  có chữ Anh nào tại commit đã ghim. Không có bản Việt Thích Minh Châu (ngoài Pháp Cú).
+  Ba bài sn22.26 + sn22.27 + sn22.28 là một bộ liền nhau trong Phẩm Gánh Nặng, nên
+  dùng CHUNG một bộ thuật ngữ với sn22.28 (bài kế bên): vị ngọt / sự nguy hại /
+  sự xuất ly, và tiêu đề theo Kinh Vị Ngọt Thứ Ba của sn22.28. Ghi lại đây vì tầng
+  đang có hai bộ: sn22.73 dịch `Assādasutta` là Kinh Sự Đáng Ưa và sn22.130 là
+  Kinh Sự Đáng Ưa (Hai), còn sn22.129 lại dịch thành Kinh Vô Minh (sai, `assāda`
+  không phải vô minh). Chọn sn22.28 vì ba bài phải nhất quán với nhau khi đọc liên
+  tiếp; nếu người điều phối muốn thống nhất theo sn22.73 thì cả 0.3 của sn22.26 và
+  sn22.27 phải đổi cùng lúc.
+  1.2 trùng PẢI sn14.31:1.2 (bài song song) nên dùng lại nguyên văn; 1.8 trùng
+  sn14.31:2.1; 2.4 trùng sn14.31:4.2; 2.5 theo sn14.31:4.3. 1.9-1.14 và 1.16-1.21
+  theo đúng khung của sn14.31 (giới tánh → sắc/thọ/tưởng/các hành/thức).
+  2.1-2.3 theo sn14.31:3.1 và 4.1, chỉ đổi bốn giới tánh thành năm thủ uẩn theo
+  Pāli bài này.
+  Tiền lệ đếm được: Saṁyutta Nikāya giữ Pāli 1074/1408; `3. Bhāravagga` →
+  3. Phẩm Gánh Nặng 9/9 trong sn22; `Sāvatthinidānaṁ.` → Tại Sāvatthī. 391/410;
+  `chandarāgavinayo chandarāgappahānaṁ` theo sn14.31 (sự nhiếp phục dục tham, đoạn trừ
+  dục tham); `akuppā me vimutti` theo sn14.31.
+  Ghi nhận bất định: 1.15 giữ đúng một dấu lược cho `…pe…`; 2.5 dùng dấu hai chấm
+  phẩy theo Pāli (`vimutti;`) vì Pāli bài này viết dấu chấm phẩy ở đây, khác
+  sn14.31:4.3 dùng dấu phẩy. Nhắy kép mở ở 1.2 và đóng ở 2.5, đúng như Pāli.
+  technical_integrity 9.6 vì lát này không chạy gate (BRIEF cấm). Bốn lệnh gate do coordinator chạy trước khi xuất bản: `npm run validate`, `npm test`, `npm run check`, `npm run build`.

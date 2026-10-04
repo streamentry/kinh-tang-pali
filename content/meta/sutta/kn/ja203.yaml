@@ -1,0 +1,55 @@
+uid: ja203
+status: draft
+translationTitle: "Kinh Khaṇḍajātaka"
+translators:
+  - "OpenCode Space Bunny Free (agent)"
+reviewers: []
+tags:
+  - khuddaka-nikaya
+  - jataka
+  - dukanipāta
+  - nataṁdaḷhavagga
+  - khaṇḍajātaka
+quality:
+  scores:
+    source_provenance: 9.3
+    semantic_fidelity: 9.5
+    grammar_logic: 9.4
+    segment_alignment: 10.0
+    terminology: 9.4
+    triangulation: 7.5
+    vietnamese_clarity: 9.4
+    han_viet_balance: 9.4
+    ambiguity_integrity: 9.2
+    technical_integrity: 9.6
+  final_score: 9.27
+  blocking_errors:
+    - "Tầng tham khảo tiếng Anh KHÔNG tồn tại tại commit đã ghim. Đã kiểm ba nơi, không suy đoán: (1) `source/upstream-manifest.json` — edition `translation/en/sujato` tại commit `11c9d708978cde8ba61096d8a75f7ddfb846f639` KHÔNG liệt kê bất kỳ tệp nào cho uid này; (2) `.cache/upstream/suttacentral/translation/en/sujato/sutta/...` — tệp không tồn tại; (3) toàn edition `translation/en/sujato/sutta/kn/ja/` chỉ có 83 tệp: ja1–ja79, ja126, ja159, ja466, ja534 — không có ja203/ja360/ja381/ja390, và trong đó không có uid này. Đây là `not-published-upstream`, KHÔNG phải `not-synced`: chạy `npm run source:sync:used` cũng không tạo ra tệp. Tầng `vietnamese-current` cũng vắng — `translation/vi/phantuananh` tại commit đã ghim chỉ có 26 tệp và toàn bộ là Pháp Cú. Lớp lấp `english-project` của dự án cũng không có cho uid này. Cả ba tầng tham khảo đều vắng nên bài dịch chỉ từ Pāli root; `scripts/validate.ts` coi tệp Anh thiếu là **error** khi status là `review` hoặc `published`, nên bài bắt buộc `draft`. Đây là **giới hạn upstream**, không phải lỗi của người dịch. Vì vậy `triangulation` bị chặn ở 7.5 (≤ 8.0) chứ không nâng để né blocker. Coverage đo được: 0 khoá Pāli đủ 40 ký tự, 0 khoá có prose Anh."
+  assessed_at: "2026-10-04"
+  assessed_by:
+    - "OpenCode Space Bunny Free (agent)"
+notes: |-
+  Lát c14. 25/31 khoá trùng nguyên văn — mức cao nhất của 4 bài Jātaka — vì 24
+  vế kệ của bài này trùng Y HỆT với AN 4.67 (Mettā Sutta, “Kinh Từ Bi”). Đã dùng lại đúng
+  nguyên văn đã có: `“Virūpakkhehi me mettaṁ` → ““Tôi có lòng từ với loài Virūpakkha,”
+  … `Namo sattannaṁ sammāsambuddhānan”ti.` → “đảnh lễ bảy vị Chánh Đẳng Giác.”” (an4.67:5.1
+  –10.6). Vì vậy khoá 1.1 mở nháy kép và khoá 6.4 đóng, đúng như an4.67; tôi KHÔNG dịch lại
+  từ đầu, vì dịch lại sẽ khiến cùng một câu kệ có hai cách dịch trong tầng.
+
+  Hai khoá không có bản trùng vì Pāli ở đây viết gộp chữ (`Ahivicchikasatapadī,` thay vì
+  `Ahivicchikā satapadī,`) nên tôi ghép lại từ an4.67:10.1-10.2: “Rắn, bọ cạp, rít trăm
+  chân,” / “nhện, thằn lằn, và chuột.”
+
+  Tiền lệ tên phẩm theo BRIEF_VI3 §11 (tầng `name/` của chính SuttaCentral):
+  `Dukanipāta` → “Bộ Hai Bài Kinh” (178 bản, đa số áp đảo); `Nataṁdaḷhavagga` → “Phẩm Bó
+  Lúa” (9/9); `Jātaka` → “Jātaka” (358 so với “Chuyện Tiền Thân” 16).
+
+  0 tiền lệ cho tên phẩm: `Khaṇḍajātaka` không có bản Việt nào trong tầng (grep = 0; chỉ
+  có `Khaṇḍa` là tên riêng ở tha-ap77 và vua tử Khaṇḍa trong cp-không liên quan). Tôi giữ
+  nguyên dạng Pāli “Kinh Khaṇḍajātaka” theo đúng tiền lệ `Kinh Paṇṇikajātaka`,
+  `Kinh Verijātaka`, `Kinh Mittavindakajātaka` của các bài chưa có tên Việt — KHÔNG tự
+  đặt tên dịch, vì đặt tên cho truyện mà mình chưa đọc cốt truyện là bịa.
+
+  Tầng tham khảo: KHÔNG có Sujato tại commit đã ghim cho ja203 ⇒ `draft`.
+
+  Bị chặn cổng kỹ thuật (đợt này không được chạy `npm run validate|test|check|build`), nên tiêu chí 10 bị chặn ở **9.6**: tôi chỉ xác minh được JSON hợp lệ, đủ khoá, không orphan, không rỗng, mọi giá trị NFC, dấu lược khớp Pāli từng khoá, `(…)` không đứng một mình, ngoặc kép cân trên cả bài và YAML sạch. Bốn lệnh `npm run validate`, `npm test`, `npm run check`, `npm run build` để coordinator chạy.

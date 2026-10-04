@@ -1,0 +1,45 @@
+uid: sn35.105
+status: published
+translationTitle: "Kinh Chấp Thủ"
+translators:
+  - "OpenCode Space Bunny Free (agent)"
+reviewers: []
+tags:
+  - samyutta-nikaya
+  - cong-hanh-nhom
+  - kinh-chấp-thủ
+  - "11. Phẩm An Ổn Khỏi Ách"
+quality:
+  scores:
+    source_provenance: 9.6
+    semantic_fidelity: 9.5
+    grammar_logic: 9.4
+    segment_alignment: 10.0
+    terminology: 9.4
+    triangulation: 9.4
+    vietnamese_clarity: 9.4
+    han_viet_balance: 9.4
+    ambiguity_integrity: 9.4
+    technical_integrity: 9.6
+  final_score: 9.51
+  blocking_errors: []
+  assessed_at: "2026-10-04"
+  assessed_by:
+    - "OpenCode Space Bunny Free (agent)"
+notes:
+  - >-
+    **Không đối chiếu được tầng Việt hiện hành.** Bilara tại commit đã ghim chỉ có 26 chương Pháp Cú cho tiếng Việt, nên không có bản Hòa thượng Thích Minh Châu để đối chiếu thuật ngữ; đây là đặc điểm của snapshot upstream, không phải thiếu sót của repo. Hai tầng còn lại là Pāli root (authority) và bản Anh Bhikkhu Sujato đã ghim.
+  - >-
+    **Coverage tầng Anh đo được 0,846** (13 Pāli có nội dung, 11 có chữ Anh Sujato; trống `sn35.105:11.1` và `:13.1`) — trên ngưỡng 0,80 của `source/layers.yaml`. Hai đoạn trống thuộc công thức lặp đã dịch ở `sn35.108:12.1` và `:14.1` (cùng Pāli), nên vẫn có tầng đối chiếu.
+  - >-
+    **Bài song song trùng Pāli, dùng lại nguyên văn.** `sn35.108` (`Seyyohamasmisutta`, đã `published`) là cùng phẩm Yogakkhemi và cùng khung hỏi–đáp: dùng lại `:2.1` (`Bhagavaṁmūlakā no…`), `:3.2` (`do ý có mặt…`), `:16.1` (`…nhàm chán đối với ý`), `:16.2` (`Do nhàm chán…`), `:16.3`. Công thức `Taṁ kiṁ maññatha` đi theo đa số kho (19 lần `Điều ấy các ông nghĩ sao…`) thay vì cách riêng của `sn35.108` (5 lần), vì cách đa số giữ được `taṁ`.
+  - >-
+    **Ngoặc kép: Pāli ở commit đã ghim lệch một dấu đóng.** `sn35.105:1.1` có cả `“` và `”`, nhưng `:3.4` chỉ có `”` — không thể cân. Đọc đúng kiểu biên tập (giống bản Anh Sujato) là `:1.1` mở, `:3.4` đóng; dấu `“` thừa ở `:3.1` bị bỏ. Nhờ vậy `_hvi.ngoặc` cân. **Không** chép lỗi của `sn35.108` (`ngoặc` lệch −1 vì `:3.5` và `:8.3` đóng hai lần).
+  - >-
+    **Dấu lược — quyết định từng khoá.** Pāli có `…pe…` ở `:2.1 :3.1 :8.1 :14.1 :21.1`; bản Việt giữ **một** `…` mỗi khoá, không mở rộng (luật BRIEF_VI3 §10.1). Không khoá nào nén thêm bằng `…`.
+  - >-
+    **Thuật ngữ đã đếm.** `upādāna` → *chấp thủ* (697) · `sati` → *có mặt* (theo `sn35.108:1.1`) · `sukhaṁ dukkhaṁ` → *lạc và khổ* (77) · `ajjhattaṁ` → *chính mình* (331) · `vipariṇāmadhamma` → *chịu sự biến hoại* (theo `sn35.108:7.1`) · `Dhīghattāya`… `vītasallo` → *đã nhổ sạch mũi tên* (theo `sn35.90:1.2`) · `nibbindati` → *nhàm chán* (147).
+  - >-
+    **Khác kho, có chủ ý — số đếm.** `Saṁyutta Nikāya` → *Tương Ưng Bộ* (đúng 316 lần ở tầng sn, nhưng 1.074 tệp sn khác để nguyên Pāli `Saṁyutta Nikāya`; dn/mn/an đều đã dịch: *Trường Bộ Kinh*, *Trung Bộ Kinh*, *Kinh Tăng Chi Bộ*). Chọn bản đã dịch vì bản Việt phải hiểu được ngay. `Upādāyasutta` → *Kinh Chấp Thủ* (0 tiền lệ; theo `Upādāniyasutta` = *Kinh Pháp Chấp Thủ* ở `sn35.110:0.3`). `mana` → *ý* (theo `sn35.108:10.1` và `sn35.90:3.2`; kho còn có *tâm* ở `sn35.109/110`). `Aniccaṁ/Dukkhaṁ, bhante` → *Vô thường* / *Khổ* (11 và 6 lần) thay vì *Là vô thường* của `sn35.108`. Ghi ra đây để người điều phối gộp nếu muốn thống nhất toàn tầng.
+  - >-
+    `technical_integrity` 9.6 vì bốn lệnh cổng **do coordinator chạy**, lát này đã tự kiểm mọi thứ còn lại bằng `_hvi.kiểm` (NFC, dấu lược khớp từng khoá, nháy kép cân trên cả bài, không Pāli lọt): `npm run validate` · `npm test` · `npm run check` · `npm run build`.

@@ -1,0 +1,61 @@
+uid: mil1
+status: draft
+translationTitle: "Phần Dẫn Nhập"
+translators:
+  - "OpenCode Space Bunny Free (agent)"
+reviewers: []
+tags:
+  - khuddaka-nikaya
+  - milindapanha
+  - ārambhakathā
+quality:
+  scores:
+    source_provenance: 9.4
+    semantic_fidelity: 9.1
+    grammar_logic: 9.0
+    segment_alignment: 10.0
+    terminology: 8.9
+    triangulation: 7.5
+    vietnamese_clarity: 9.0
+    han_viet_balance: 9.1
+    ambiguity_integrity: 8.9
+    technical_integrity: 9.6
+  final_score: 9.05
+  blocking_errors:
+    - "Tầng tham khảo tiếng Anh KHÔNG tồn tại tại commit đã ghim. Đã kiểm ba nơi, không suy đoán: (1) `source/upstream-manifest.json` — edition `translation/en/sujato` tại commit `11c9d708978cde8ba61096d8a75f7ddfb846f639` KHÔNG liệt kê bất kỳ tệp nào cho uid này; (2) `.cache/upstream/suttacentral/translation/en/sujato/sutta/...` — tệp không tồn tại; (3) toàn edition `translation/en/sujato/sutta/kn/mil/` chỉ có 0 tệp — Sujato không dịch Milindapañha, và trong đó không có uid này. Đây là `not-published-upstream`, KHÔNG phải `not-synced`: chạy `npm run source:sync:used` cũng không tạo ra tệp. Tầng `vietnamese-current` cũng vắng — `translation/vi/phantuananh` tại commit đã ghim chỉ có 26 tệp và toàn bộ là Pháp Cú. Lớp lấp `english-project` của dự án cũng không có cho uid này. Cả ba tầng tham khảo đều vắng nên bài dịch chỉ từ Pāli root; `scripts/validate.ts` coi tệp Anh thiếu là **error** khi status là `review` hoặc `published`, nên bài bắt buộc `draft`. Đây là **giới hạn upstream**, không phải lỗi của người dịch. Vì vậy `triangulation` bị chặn ở 7.5 (≤ 8.0) chứ không nâng để né blocker. Coverage đo được: 7 khoá Pāli đủ 40 ký tự, 0 khoá có prose Anh."
+  assessed_at: "2026-10-04"
+  assessed_by:
+    - "OpenCode Space Bunny Free (agent)"
+notes: |-
+  Lát c14. KHÔNG có Sujato tại commit đã ghim cho mil1 ⇒ `draft`, xem
+  blocking_errors.
+
+  2/31 khoá trùng nguyên văn: `Milindapañha` → “Milindapañha” (152 bản so với “Mi-lan-đà
+  Vấn Đạo” 8, “Mi-tiên Vấn Đáp” 3); `Namo tassa Bhagavato Arahato Sammāsambuddhassa.` →
+  “Kính lễ Đức Phật, bậc A-la-hán, bậc Chánh Đẳng Giác.” (8 bản — bv1:1.1 — so với “Kính
+  lễ Đức Thế Tôn” 1 ở kp1:1.1 và “Kính lạ Đức Thế Tôn” 1 ở thig1.1:1.0). Đây là công thức
+  khai mở rất phổ biến; tôi theo đa số và không tự tạo cách thứ N+1.
+
+  Đây là bài có điểm thấp nhất lát, và tôi ghi rõ vì sao thay vì nâng điểm: 2.4 khoá mô tả
+  thành phố Sāgalā (7.2-7.3) là HAI khoá văn xuôi liên tục dài nhất trong lát, gồm hàng
+  chục danh từ ghép chưa từng có tiền lệ trong tầng Việt. Tôi đã tra từng cái (grep tầng
+  Việt = 0): `yonakānaṁ nānāpuṭabhedanaṁ` (bốn ngã tư), `upavanataḷākapokkharaṇi`
+  (hồ sen), `nihatapaccatthikaṁ`, `daḷhamaṭṭālakoṭṭhaka` (gạch vữa), `gopapura` (nhà trọ
+  công cộng), `paripūritantarāpaṇa` (hào trong), `dānagga` (kho lẫm), `kosakoṭṭhāgāra`
+  (kho lẫm lớn), `pajjotamānanidhi` (đảo ngọc), `uttarakuru` ×0, `āḷaka`/`mandā` ×0,
+  `siṅgāra` ×0, `hi-mă-lạ` (Himalaya). Tên riêng Sāgalā, Āḷaka, Mandā, Siṅgāra đã khai vào
+  bộ nhớ tiến trình đúng cơ chế `lọt_pāli` của `_hvi.py` (Pāli viết chúng trong từ ghép
+  nên so-token không nhận ra). Không có tầng tham khảo nào để đối chiếu 310 từ đó.
+
+  0 tiền lệ cho `Ārambhakathā` (grep tầng Việt = 0) ⇒ tôi đặt “1. Phần Dẫn Nhập” và ghi ở
+  đây; người điều phối nên thống nhất với tên các phần khác của Milindapañha.
+
+  Bất định đã ghi: `kaṅkhāṭṭhānavidālaneti` (6.4) — đây là tên bài đầu tiên của
+  Milindapañha trong bản Pāli này; tôi dịch nghĩa đen “kẻ phá tung chỗ chặn của sự khao
+  khát” (kaṅkhā = khao khát, āṭṭhāna = chỗ chặn/địa điểm, vidālana = phá tung). Có thể
+  đây là một danh xưng riêng; tôi giữ cách dịch nghĩa và ghi ở đây.
+
+  Một lượt review tự bắt được: `pubbayogo` (8.3) là “phương diện trước / trên bề mặt”,
+  không phải “trước đây”; tôi đã sửa từ “Trước đây” thành “Trên phương diện trước”.
+
+  Bị chặn cổng kỹ thuật (đợt này không được chạy `npm run validate|test|check|build`), nên tiêu chí 10 bị chặn ở **9.6**: tôi chỉ xác minh được JSON hợp lệ, đủ khoá, không orphan, không rỗng, mọi giá trị NFC, dấu lược khớp Pāli từng khoá, `(…)` không đứng một mình, ngoặc kép cân trên cả bài và YAML sạch. Bốn lệnh `npm run validate`, `npm test`, `npm run check`, `npm run build` để coordinator chạy.

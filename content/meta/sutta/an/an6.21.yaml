@@ -1,0 +1,42 @@
+uid: "an6.21"
+status: "draft"
+translationTitle: "Kinh Làng Sāma"
+translators:
+  - "OpenCode Space Bunny Free (agent)"
+reviewers: []
+tags:
+  - "anguttara-nikaya"
+  - "cong-hanh-nhom"
+  - "sáu-pháp-không-suy-diễn"
+  - "3. Phẩm Vượt Trội"
+quality:
+  scores:
+    source_provenance: 9.8
+    semantic_fidelity: 9.4
+    grammar_logic: 9.3
+    segment_alignment: 10.0
+    terminology: 9.3
+    triangulation: 7.2
+    vietnamese_clarity: 9.3
+    han_viet_balance: 9.3
+    ambiguity_integrity: 9.0
+    technical_integrity: 9.6
+  final_score: 9.22
+  blocking_errors:
+    - "Bản Anh Sujato tại commit đã ghim im lặng ở sáu khoá có nội dung: 3.2, 3.3, 3.4, 3.5, 3.6, 3.8 (đoạn Thế Tôn kể lại lời vị thiên nói) cùng 3.9, 4.2, 5.2, 5.3. Chỗ trống KHÔNG phải sự đồng thuận về cách dịch, mà là đặc điểm đã biết của bản đã ghim; các đoạn này tôi dịch từ Pāli và từ công thức lặp ngay trong chính bài."
+    - "Coverage tầng Anh đo được là 14/20 khoá Pāli có nội dung = 70%, dưới ngưỡng 0.8 khai ở source/layers.yaml, mà content/meta/reference-gaps.yaml chưa có mục cho an6.21 và đợt này tôi bị cấm sửa tệp đó; validate sẽ đỏ. Người biên tập chạy npm run reference:gaps rồi xét lại."
+  assessed_at: "2026-10-04"
+  assessed_by:
+    - "OpenCode Space Bunny Free (agent)"
+notes: |-
+  TẦNG THAM KHẢO. Tầng english-sujato tồn tại tại commit đã ghim 11c9d708978cde8ba61096d8a75f7ddfb846f639; bản Sujato có 14/20 khoá Pāli có nội dung, thiếu 6 khoá nêu trong blocking_errors. Tầng Việt hiện hành vắng với AN tại commit đã ghim.
+
+  DÙNG NGUYÊN VĂN BÀN ĐÃ CÓ. Năm khoá có Pāli trùng nguyên văn với an7.32 (cùng kiểu vị thiên nói ban đêm rồi Thế Tôn kể lại cho các tỳ-kheo) nên tôi DÙNG LẠI NGUYÊN VĂN: 2.5, 2.6, 2.7, 3.1, 3.7 lấy từ an7.32; 3.8 lấy từ an4.21 (Pāli trùng tuyệt đối). Cùng công thức parihānāya thì tôi theo an6.31 vì nó cùng cấu trúc câu (dhammā ... bhikkhuno parihānāya saṁvattanti) và cùng tầng an.
+
+  THUẬT NGỮ, ĐẾM ĐƯỢC. Kammārāmatā, bhassārāmatā, niddārāmatā → thích làm việc, thích nói chuyện, thích ngủ: an6.31:1.3 dùng đúng ba này cho cùng công thức Pāli; an6.22:1.3 dùng ham thích công việc, ham thích nói chuyện, ham thích ngủ nghỉ. Tôi theo an6.31 vì gần hơn. Saṅgaṇikārāmatā → thích tụ họp (an6.31:1.3). dovacassatā, pāpamittatā → khó được khuyên, kết bạn xấu: an6.115:1.3 dùng đúng hai này. Katame tayo → Là ba pháp nào theo an6.31:1.2 (Katame cha → Là sáu nào); an6.115:1.2 dùng Thế nào là ba, nên tôi ghi nơi đây để người biên tập biết còn một cách nữa đang tồn tại trong tầng an.
+
+  NHÁY KÉP BỔ SUNG. Pāli mở nháy kép ở 3.2 nhưng không đóng ở bất kỳ khoá nào (bản kinh cũng hở, vì an6.32 và an7.32 cùng lỗi này và cả hai tệp Việt đã merge đều hở). Tôi đóng nháy ở 4.2, đúng chỗ Pāli có dấu ”, để câu nói của Thế Tôn khép lại. Ba nhóm nháy còn lại (2.1–2.4, 4.5–5.3) khớp Pāli.
+
+  DẤU LƯỢC. Bài không có dấu lược nào; bản Việt cũng không có.
+
+  Cổng kỹ thuật do coordinator chạy sau khi gộp lát: npm run validate, npm test, npm run check, npm run build. Trong lát này tôi bị cấm chạy bốn lệnh đó, nên KHÔNG tuyên bố technical gate pass và technical_integrity đặt 9.6 chứ không phải 10.0.

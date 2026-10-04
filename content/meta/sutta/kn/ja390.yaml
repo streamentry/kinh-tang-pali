@@ -1,0 +1,56 @@
+uid: ja390
+status: draft
+translationTitle: "Kinh Mayhaka"
+translators:
+  - "OpenCode Space Bunny Free (agent)"
+reviewers: []
+tags:
+  - khuddaka-nikaya
+  - jataka
+  - chakkanipāta
+  - kharaputtavagga
+  - mayhakajātaka
+quality:
+  scores:
+    source_provenance: 9.3
+    semantic_fidelity: 9.2
+    grammar_logic: 9.1
+    segment_alignment: 10.0
+    terminology: 9.1
+    triangulation: 7.5
+    vietnamese_clarity: 9.2
+    han_viet_balance: 9.3
+    ambiguity_integrity: 9.0
+    technical_integrity: 9.6
+  final_score: 9.13
+  blocking_errors:
+    - "Tầng tham khảo tiếng Anh KHÔNG tồn tại tại commit đã ghim. Đã kiểm ba nơi, không suy đoán: (1) `source/upstream-manifest.json` — edition `translation/en/sujato` tại commit `11c9d708978cde8ba61096d8a75f7ddfb846f639` KHÔNG liệt kê bất kỳ tệp nào cho uid này; (2) `.cache/upstream/suttacentral/translation/en/sujato/sutta/...` — tệp không tồn tại; (3) toàn edition `translation/en/sujato/sutta/kn/ja/` chỉ có 83 tệp: ja1–ja79, ja126, ja159, ja466, ja534 — không có ja203/ja360/ja381/ja390, và trong đó không có uid này. Đây là `not-published-upstream`, KHÔNG phải `not-synced`: chạy `npm run source:sync:used` cũng không tạo ra tệp. Tầng `vietnamese-current` cũng vắng — `translation/vi/phantuananh` tại commit đã ghim chỉ có 26 tệp và toàn bộ là Pháp Cú. Lớp lấp `english-project` của dự án cũng không có cho uid này. Cả ba tầng tham khảo đều vắng nên bài dịch chỉ từ Pāli root; `scripts/validate.ts` coi tệp Anh thiếu là **error** khi status là `review` hoặc `published`, nên bài bắt buộc `draft`. Đây là **giới hạn upstream**, không phải lỗi của người dịch. Vì vậy `triangulation` bị chặn ở 7.5 (≤ 8.0) chứ không nâng để né blocker. Coverage đo được: 0 khoá Pāli đủ 40 ký tự, 0 khoá có prose Anh."
+  assessed_at: "2026-10-04"
+  assessed_by:
+    - "OpenCode Space Bunny Free (agent)"
+notes: |-
+  Lát c14. KHÔNG có Sujato tại commit đã ghim cho ja390 ⇒ `draft`, xem
+  blocking_errors.
+
+  Tiền lệ có đếm và dùng lại: `Chakkanipāta` → “Bộ Sáu Bài Kệ” (9/9, cùng ja381);
+  `Kharaputtavagga` → “Phẩm Kharaputta” (5/5); `Jātaka` → “Jātaka” (358);
+  `pecca sagge pamodatī”ti.` có ba cách ngang phiếu (2/2/2) nên tôi chọn “và sau khi chết
+  hoan lạc trên cõi trời”ti.”; `Evameva idhekacco,` đã có 1 bản “Cũng vậy, ở đây một hạng
+  người,” nên tôi mở đầu đoạn 3.1 bằng đúng nguyên văn đó.
+
+  0 tiền lệ, phải tự đặt: `mayhaka` (loài muỗi/muỗi nhỏ — tên phẩm, 0 lần trong tầng
+  Việt), `dijasaṅgha` (đàn sâu tơ, 0 lần), `rakkhato` (kẻ canh giữ, 0 lần), `pipphali`
+  (trứng/ấu trùng, 0 lần). Cả bốn giữ theo nghĩa từ ngữ có thể xác định từ chính câu kệ,
+  không cần đoán tên riêng.
+
+  Bất định đã ghi:
+  · `nevattano na ñātīnaṁ yathodhiṁ paṭipajjati` (3.3-3.4) — chữ `nevattano` (genitive
+    “của chính hắn”) đi cùng `na ñātīnaṁ` và động từ `paṭipajjati`; cách đọc khả dĩ là
+    “hắn không tuỳ ý mình mà phát cho bản thân hay cho bà con”. Tôi dịch theo cách đọc này
+    (khớp với 4.1-4.4 ngay sau, nơi hắn không hưởng gì và không gom góp cho bà con), nhưng
+    cấu trúc cú pháp Pāli ở đây rối nên ghi rõ.
+  · `akhajjabhojjaleyyapeyyasāyanīyaṁ` không có trong bài này; các khoá liên quan ở mil1
+    dùng cụm tương tự và tôi đã dịch “thích hợp cho uống, ăn, liếm và tắm” — dùng lại để
+    nhất với cùng một công thức trong lát.
+
+  Bị chặn cổng kỹ thuật (đợt này không được chạy `npm run validate|test|check|build`), nên tiêu chí 10 bị chặn ở **9.6**: tôi chỉ xác minh được JSON hợp lệ, đủ khoá, không orphan, không rỗng, mọi giá trị NFC, dấu lược khớp Pāli từng khoá, `(…)` không đứng một mình, ngoặc kép cân trên cả bài và YAML sạch. Bốn lệnh `npm run validate`, `npm test`, `npm run check`, `npm run build` để coordinator chạy.
