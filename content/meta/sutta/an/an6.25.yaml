@@ -1,0 +1,54 @@
+uid: an6.25
+status: draft
+translationTitle: "Kinh Chỗ Quán Nhớ"
+translators:
+  - "OpenCode Space Bunny Free (agent)"
+reviewers: []
+tags:
+  - "anguttara-nikaya"
+  - "3-anuttariyavagga"
+  - "an6"
+  - "anussatitthan"
+quality:
+  scores:
+    source_provenance: 9.6
+    semantic_fidelity: 9.3
+    grammar_logic: 9.3
+    segment_alignment: 10.0
+    terminology: 9.3
+    triangulation: 8.4
+    vietnamese_clarity: 9.3
+    han_viet_balance: 9.3
+    ambiguity_integrity: 9.2
+    technical_integrity: 9.6
+  final_score: 9.33
+  blocking_errors:
+    - "Bản Anh đã ghim chỉ phủ 24/34 segment Pāli có nội dung (70,6%), thấp hơn ngưỡng 80% khai ở source/layers.yaml, và mất mát này CHƯA được ghi trong content/meta/reference-gaps.yaml. Không sửa tệp gap (thuộc phạm vi coordinator); bài phải giữ draft cho tới khi coordinator chạy npm run reference:gaps để ghi nhận."
+  assessed_at: "2026-10-04"
+  assessed_by:
+    - "OpenCode Space Bunny Free (agent)"
+notes: |-
+  Dịch từ Pāli root; bản Anh Bhikkhu Sujato ở commit đã ghim phủ 24/34 segment có nội
+  dung (70,6%). Tầng Việt hiện hành không có bài này: `translation/vi/phantuananh/` ở
+  commit đã ghim chỉ chứa Pháp Cú.
+  COORDINATOR: 10 khoá không có một chữ Anh nào là 2.4, 2.5, 2.6, 3.4, 3.5, 3.6, 4.3,
+  4.4, 4.5, 6.7. Tất cả nằm ở phần bản đã ghin đã lược `…pe…` / blockquote, nên Sujato
+  để trống rồi nối câu qua chỗ trống. Đây KHÔNG phải thiếu sót của repo và cũng không phải
+  sự đồng thuận về cách dịch — chỗ đó Pāli phải tự đứng vững.
+  VÌ BỐN CỤM LẶP TRÙNG NGUYÊN VĂN Pāli, dịch từng cụm một lần rồi dùng lại y hệt:
+  đo bằng cách so Pāli từng cặp khoá, kết quả ghi trong notes: 1.6/2.4/3.4/4.3/7.2 trùng
+  nhau; 1.7/2.5/3.5/4.4/7.3 trùng nhau; 1.8/2.6/3.6/4.5/7.4 trùng nhau. Các khoá 1.5,
+  2.3, 3.3, 4.2 chỉ khác nhau ở tân ngữ quán nhớ, nên giữ nguyên phần chung, đổi đúng danh
+  từ. 5.4 chỉ có `…pe…` ⇒ giữ đúng một dấu lược, KHÔNG mở rộng (luật BRIEF §10.1).
+  6.4–6.6 là ba đoạn lược `…` nối tiếp, giữ nguyên theo Pāli.
+  Thuật ngữ: `anussatiṭṭhāna` dịch «chỗ quán nhớ» — tra tiền lệ trong tầng Việt dự án thì
+  "sở từ niệm" và "sở niệm" đều 0 kết quả, nên đây là cách diễn đạt mới của lát này; nếu
+  các lát sau có kinh quán nhớ, nên bám theo để khỏi sinh cách thứ N+1.
+  `pañcannetaṁ kāmaguṇānaṁ adhivacanaṁ` dịch «tên gọi của năm loại trần duyên» — giữ
+  mạch "đây là tên gọi" vì chính người nói đang giải thích nghĩa của chữ "tham".
+  `evam'idhekacce` dịch «được thanh tẩy như thế này» ("idhekacce" = sự thanh tẩy, "sạch
+  bằng thứ này"), không dịch "được cải thiện" để giữ nghĩa thanh lọc của tầng này.
+  technical_integrity 9.6: môi trường lát này không có shell, nên không tự chạy được
+  `npm run validate`/`test`/`build`; các bài đã tự kiểm bằng bản cài lại logic của
+  `_hvi.py` (đủ khoá, không thừa khoá, NFC, không trùng nguyên văn Pāli, số dấu lược
+  khớp từng khoá, ngoặc kép cân trên cả bài theo thứ tự số).
