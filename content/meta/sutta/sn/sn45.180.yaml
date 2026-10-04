@@ -12,16 +12,16 @@ tags:
 quality:
   scores:
     source_provenance: 9.6
-    semantic_fidelity: 9.4
+    semantic_fidelity: 9.1
     grammar_logic: 9.4
     segment_alignment: 10.0
-    terminology: 9.3
+    terminology: 9.2
     triangulation: 9.0
     vietnamese_clarity: 9.3
     han_viet_balance: 9.3
     ambiguity_integrity: 9.2
     technical_integrity: 9.6
-  final_score: 9.41
+  final_score: 9.37
   blocking_errors: []
   assessed_at: "2026-10-04"
   assessed_by:
@@ -38,3 +38,23 @@ notes: |-
   **Thuật ngữ 0 tiền lệ, đặt kèm lý do.** `hatthiyāyī / assayāyī / rathayāyī / yānayāyī` (0 bản trong tầng dịch *đi voi / đi ngựa / đi xe ngựa / đi xe cộ*) · `bhogabhogī` → *hưởng thọ phú tài* (0 tiền lệ) · `bhogakkhandhaṁ` → *khối tài sản lớn* (`dn33:2.1.48`) · `Bahukā` giữ nguyên tên riêng Pāli vì không có tiền lệ địa danh trong tầng. `uddhacca` → *trạo cử* và `māno` → *mạn* là **dùng lại nguyên văn** của `sn53.45-54:1.3`.
   **Dấu lược.** `1.7` và `2.7` giữ đúng một dấu `…` mỗi khoá; `2.7` có **hai** dấu lược trong Pāli (`…pe…` ở giữa và một dấu lược trần ở cuối câu, vì câu nói tiếp sang `2.8`) nên bản Việt cũng phải có hai. Không mở rộng ở chỗ nào; Sujato mở rộng `…pe…` ở `1.7` thành đủ tám ngành, tôi giữ lược.
   Cổng kỹ thuật do coordinator chạy, ghi lại ở đây vì technical_integrity chỉ 9.6: npm run validate; npm test; npm run check; npm run build.
+  **Vế thứ ba của ẩn dụ dòng sông: `pabbhāro` là *bãi bồn*, không phải *có dòng* — đã sửa 1 khoá
+  (1 lần).** `nibbānaninno hoti nibbānapoṇo nibbānapabbhāro` là ẩn dụ ba vế của một dòng sông: *có
+  xu hướng (nghiêng)* · *có bến* · *bãi bồn (đổ sang bờ bên kia)*. Bản đang có dịch vế ba là *có
+  dòng về phía Niết-bàn* — tức **lặp lại nghĩa vế nhất** (`ninno` đã là *có xu hướng về phía …*)
+  và **đánh rơi** nghĩa của `pabbhāro`, vốn là vế độc lập: chỗ nước dồn lên bãi rồi tràn sang bờ
+  bên kia. Đã sửa thành *có bãi bồn về phía Niết-bàn* theo mẫu đúng đã có sẵn ở `sn45.152:1.1`
+  (*cây trôi về phía đông, có bến về phía đông, có bãi bồn về phía đông*); giữ nguyên vế một, vế
+  hai và nhịp câu của chính bài này. Khoá đã sửa: `sn45.180:2.9`. Lớp lỗi này sinh ra từ chính
+  luật *Pāli trùng nguyên văn thì cách dịch phải khớp*: một bài sai trước đó được nhân bản sang
+  các bài cùng Pāli, nên nó lan rộng và trông rất nhất quất — đúng cái làm cho nó khó thấy. Quét
+  lại trên **mọi** dạng chia của `pabbhāra` (`nibbānapabbhāro` và `nibbānapabbhāraṁ`), chứ không
+  chỉ dạng danh từ, mới thấy hết lớp này. **Không** ép về khuôn *nghiêng / xuôi / đổ* của 28 khoá
+  ở 11 bài khác (`mn73`, `sn45.149`, `sn46.77-88`, `sn47.51-62`, `sn48.71-82`, `sn48.125-136`,
+  `sn49.1-12`, `sn50.1-12`, `sn50.55-66`, `sn51.33-44`, `sn55.22`) và 3 khoá *có bãi bồn* đã có
+  sẵn ở `sn45.152` — đó là các cách dịch khác hợp lệ; ép khuôn sẽ sinh vấn đề mới. Đo lại toàn
+  tầng sau khi sửa: Pāli có `nibbānapabbhāra*` ở 87 khoá / 32 bài, **0 khoá** nào còn dịch vế ba
+  bằng *có dòng*. Tệp này không có ghi chú cũ nào khen cụm *… dòng về phía …*, nên không có mục
+  nào bị thay thế. Hạ `semantic_fidelity` (−0.3 × 1) và `terminology` (−0.1 × 1) theo **số lần sai
+  × mức độ**; `final_score` tính lại bằng script từ trung bình số học thô của đúng 10 tiêu chí:
+  9.41 → 9.37, status `published` → `published`. Không blocker.
