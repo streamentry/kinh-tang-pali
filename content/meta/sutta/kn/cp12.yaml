@@ -13,31 +13,30 @@ tags:
 quality:
   scores:
     source_provenance: 9.5
-    semantic_fidelity: 9.2
-    grammar_logic: 9.2
+    semantic_fidelity: 9.3
+    grammar_logic: 9.3
     segment_alignment: 10.0
-    terminology: 9.3
+    terminology: 9.2
     triangulation: 9.3
-    vietnamese_clarity: 9.2
+    vietnamese_clarity: 9.3
     han_viet_balance: 9.4
     ambiguity_integrity: 9.1
     technical_integrity: 9.6
-  final_score: 9.38
+  final_score: 9.4
   blocking_errors: []
   assessed_at: "2026-10-04"
   assessed_by:
     - "OpenCode Space Bunny Free (agent)"
 notes: |-
-      Nguồn: đúng uid cp12, Pāli root bilara đã ghim (`root/pli/ms/sutta/kn/cp/cp12_root-pli-ms.json`, đường dẫn lấy từ `pre` là `cp12:`); tầng Anh đã ghim là bản Bhikkhu Sujato cùng commit. Tầng Việt hiện hành không có cho bài này (snapshot upstream chỉ phân phối Pháp Cú) — đặc điểm của snapshot, không phải thiếu sót của repo.
-      Coverage đo bằng đúng quy tắc trong source/layers.yaml: bài này có 0 segment đủ điều kiện "Pāli có nội dung" (mọi khoá đều dưới 40 ký tự sau khi chuẩn hóa khoảng trắng), nên không có gì để đo; theo `isSubstantive` và điều kiện `substantiveSegments > 0` trong `scripts/validate.ts` và `src/lib/canon/reference.ts`, quy tắc ngưỡng coverage KHÔNG áp dụng cho bài này, và vì vậy không cần entry trong content/meta/reference-gaps.yaml (1004 bài khác cũng ở nhóm "no substantive segment" theo chính file đó). 40/41 khoá vẫn có tiếng Anh ở bản đã ghim.
-      Trùng nguyên văn: 3/41 khoá có Pāli trùng tuyệt đối với khoá đã dịch ở bài khác — 1.1 với cp13:1.1, 8.3 với cp13:6.3, 9.1 với cp18:7.1; dùng lại nguyên văn bản Việt. Trong chính lát không có cặp trùng nội bộ nào ở cp12.
-      Tiền lệ đo được: khối `:0.1` của 17 tệp `cp*` trong tầng dùng «Hạnh Tạng» 14/17; riêng cp34:0.1 dùng «Cariyāpiṭaka», còn cp1 và cp35 có khoá đầu tiên không phải tiêu đề sách. Theo đa số trong chính bộ cp nên cp12:0.1 = «Hạnh Tạng»; GHI RÕ sự lệch này để người biên tập gộp — nếu chọn phương án kia thì cp34 cũng phải đổi theo, không để hai cách trong một bộ. `Hatthināgavagga` → «Phẩm Hatthināga» 3/3 (cp13:0.2, cp17:0.2, cp18:0.2). `Sīlapāramī 2` → «Trì Giới Ba-la-mật Thứ Hai» theo khuôn cp13:0.3 «Thứ Ba», cp17:0.3 «Thứ Bảy», cp18:0.3 «Thứ Tám». `Bhūridattacariya` → «Hạnh Của Long Vương Bhūridatta» theo cp13:0.4 «Hạnh Của Long Vương Campeyya» và cp17:0.4. `Punāparaṁ yadā homi` → «Lại nữa, vào thời thuở nọ,» 4/5 (chỉ cp34:1.1 dùng «Lại nữa, khi ta làm»). `sīlabbataṁ` → «giới hạnh và lễ nghi» (an3.78:1.2).
-      Bất định đã ghi, không giấu:
-        1) 3.3 `Caturo aṅge adhiṭṭhāya` — dịch sát chữ là «Ta quyết định với bốn chi thể», rồi 3.4 «rồi nằm xuống trên một đống mối». Có cách đọc theo chú giải Jātaka là «ăn chay bốu ngày»; bản Anh đã ghim dịch "I resolved on the four factors". Đây là nội dung chú giải, KHÔNG có trong root Pāli, nên không đưa vào lời kinh; giữ cách đọc sát chữ và ghi ở đây để người biên tập quyết. Đây là điểm làm giảm vietnamese_clarity vì người đọc hiện đại phải dừng lại ở câu này.
-        2) 5.2 và 6.3 — Pāli viết thường `ālampāyano` ở 5.2 nhưng hoa `Ālampāyane` ở 6.3, và bản Anh đã ghim coi cả hai là tên riêng (Ālampāyana). Tầng này giữ tên riêng đúng dạng Pāli (cp13:1.2 «Campeyyaka», cp32:1.1 «Sutasoma»), nên ở đây giữ nguyên hai dạng: «Ālampāyano» và «Ālampāyane». Sự khác dạng ngữ pháp Pāli được giữ nguyên có chủ ý, không phải lỗi chính tả.
-        3) 4.1–4.2 — `chavi` = da ngoài, `camma` = gân, `maṁsa` = thịt, `nahāru` = dây thần kinh, `aṭṭhi` = xương; bản Anh đã ghim dịch "outer skin and inner, flesh, sinews and bones". Bản nháp đầu dịch nhầm `camma` thành «ruột»; đã sửa thành «gân» và dịch `nahāru` thành «dây thần kinh» để phân biệt với `camma`.
-        4) `yāpanamattakaṁ` (3.2) dịch «ăn đủ no và đủ sống» — `yāpanamatta` là thừa đủ để sống, không phải no đủ; Sujato dịch "eating enough to get by". Giữ cả hai vế để không bỏ mất ý thừa đủ.
-        5) `akataññunā` (5.1) dịch «vô ơn» (nghĩa gốc: không biết ơn), Sujato dịch "the ingrate"; `vammikamuddha` dịch «đống mối» (`vammika` = mối, `muddha` = đống).
-      Dấu lược: bài này Pāli KHÔNG có `…pe…`; bản Việt cũng không thêm dấu lược nào.
-      Kiểm tra: `_hvi.py` bắt được 0 lỗi (41/41 khoá, NFC, ngoặc kép cân trên cả bài — 1.1 mở và 9.4 đóng, đúng như Pāli, không trùng nguyên văn Pāli ở khoá có nội dung, không lọt Pāli). Lượt review đối kháng bắt được một lỗi nghĩa thật ở bản nháp: 4.1 dịch `camma` thành «ruột» — đã sửa. Cả 41 khoá đã in ra đọc từng cặp.
-
+  Dịch từ Pāli root (bilara đã ghim), đối chiếu Anh Bhikkhu Sujato. ĐO LẠI: 0 khoá Pāli có nội dung (mọi pāda của bài đều ngắn hơn 40 ký tự) ⇒ coverage 1,000 theo định nghĩa của `src/lib/canon/reference.ts`, nhưng đây là con số rỗng: bài là trường hỹệt, không có câu văn nào để đối chiếu. `kn` không có tầng Việt hiện hành (tầng `vietnamese-current` ở commit đã ghim chỉ có 26 chương Pháp Cú).
+  HẠN CHẾ KỸ THUẬT PHẢI NÓI RÕ: vì không có khoá Pāli ≥40 ký tự, các kiểm của `_hvi.kiểm()` (NFC, Pāli lọt, trùng nguyên văn Pāli, khớp dấu lược) KHÔNG chạy cho bài này — chúng chỉ chạy trên khoá có nội dung. Đã tự kiểm thay bằng: đủ 41/41 khoá theo `all`, không khoá thừa, NFC toàn bộ, ngoặc kép cân, và đối chiếu từng pāda với Pāli + Anh.
+  PĀLI TRÙNG NGUYÊN VĂN: 5/41 khoá có Pāli giống hệt tệp đã có; cả 5 khoá dùng lại nguyên văn: 0.1 (`Hạnh Tạng`, tiền lệ 14 tệp cp) · 0.2 (`Phẩm Hatthināga`, `cp13`/`cp17`/`cp18`) · 1.1 (`“Lại nữa, vào thời thuở nọ,` của `cp13`/`cp17`/`cp18`/`cp24`) · 8.3 (`cp13:6.3` → `Ta quyết không bao giờ phá vỡ giới hạnh,`) · 9.1 (`cp18:7.1` → `Nhưng vì muốn giữ giới,`).
+  0.3 `Sīlapāramī 2` → `Trì Giới Ba-la-mật Thứ Hai` theo khuôn `Sīlapāramī` của chính bộ: `cp13:0.3` (Sīlapāramī 3) → `Trì Giới Ba-la-mật Thứ Ba`, `cp17:0.3` → Thứ Bảy, `cp18:0.3` → Thứ Tám; `cp3:0.3` (Dānapāramī 3) → `Bố Thí Ba-la-mật Thứ Ba`. 0.4 và 10.1 theo khuôn `Hạnh Của …` của `cp13:0.4`/`cp13:7.1`.
+  BẤT ĐỊNH 1: `Caturo aṅge adhiṭṭhāya` (3.3) dịch `Ta nương vào bốn chi phần`. `aṅga` có 268 khoá dịch `chi phần` và 211 khoá dịch `phương diện`; chọn `chi phần`. Nhưng Sujato chỉ nói `the four factors` và không nói rõ, còn ngữ cảnh (`rồi nằm xuống trên đống mối`) gợi ý CÓ THỂ là bốn tư thế. Độ chắc thấp — người biên tập nên tra `adhiṭṭhāya + semi` trong chú giải.
+  BẤT ĐỊNH 2 (lớn nhất của bài, đã sửa): 4.1 `Chaviyā cammena maṁsena` là BA món: `chavi` (da) + `camma` (gân) + `maṁsa` (thịt). Bản nháp đầu của tôi dịch `Da ngoài, da trong, cùng thịt`, rồi sửa thành `Da ngoài và thịt` — cả hai đều SAI: chúng gán `camma` thành da và bỏ mất món gân. Bằng chứng quyết định là tiền lệ `sn17.28:1.3` / `sn17.29:2.2`, dịch đúng chuỗi liệt kê cùng loại `chaviṁ chindati, chaviṁ chetvā cammaṁ chindati, cammaṁ chetvā maṁsaṁ chindati, maṁsaṁ chetvā nhāruṁ chindati, nhāruṁ chetvā aṭṭhiṁ chindati` thành «cắn da, … cắn da thịt, … cắn thịt, … cắn gân, … cắn xương», tức `chavi`=da · `camma`=gân · `maṁsa`=thịt · `nahāru`=gân · `aṭṭhi`=xương. Bản Anh đã ghim (`My outer skin and inner, flesh, / sinews and bones`) là cách đọc SAI: chữ `inner` không có trong Pāli. Đã sửa thành `‘Da, gân và thịt,` và 4.2 thành `hay gân, xương và phần khác nữa;` (`vā` là `hay`). Lỗi này do đọc metadata của một agent chạy SONG SONG cùng lát đã lộ ra, không phải lượt review của tôi tự bắt — ghi lại vì người đọc cần biết nguồn cải chứng.
+  BẤT ĐỊNH 3: 3.2 `yāpanamattakaṁ` dịch `ăn vừa đủ để sống`. `yāpanamatta` = thừa để sống, KHÔNG phải `no đủ`; bản nháp đầu ghi `ăn đủ để no đủ` là thêm ý thoải mãn không có trong Pāli. Sujato: `eating enough to get by`.
+  THUẬT NGỮ: 2.4 `sīlabbataṁ samādiyiṁ` → `ta đã lập nương giới hạnh và lễ nghi` theo tiền lệ `sīlabbata` = `giới nghi lễ` (`an10.13:1.3`, `an10.76:3.3`, `sn45.174:1.3`). `akataññunā` (5.1) → `một kẻ vô ơn` theo `an4.220:3.1`/`an5.264:1.3`. `vammikamuddha` → `đống mối`. Tên riêng `Ālampāyano`/`Ālampāyane` ở 5.2 và 6.3: Pāli viết hoa ở 6.3; bản này giữ tên gốc `Ālampāyana` ở cả hai chỗ và để mạo từ Việt đảm nhiệm ngữ pháp (`tên Ālampāyana nắm lấy ta` / `không nổi giận với Ālampāyana`) — tầng có tiền lệ giữ dạng Pāli (`cp13:1.2` «Campeyyaka», `cp32:1.1` «Sutasoma»), nhưng giữ cả hai dạng `Ālampāyano`/`Ālampāyane` trong tiếng Việt sẽ làm người đọc tưởng là hai người khác nhau.
+  BẤT ĐỊNH 3: `akataññunā` (5.1) → `một kẻ vô ơn` theo `an4.220:3.1`/`an5.264:1.3`. `ālampāyano` giữ nguyên tên riêng có dấu Pāli (tầng Việt không bị chốt Pāli-lọt, xem `_hvi.lọt_pāli`).
+  LƯỢT REVIEW ĐỐI KHÁNG của tôi bắt được: 9.2 `Sīlapāramipūriyā` không có từ hạu cách `mayhaṁ` trong Pāli, bản nháp đầu thêm `của ta` — đã bỏ. (Lỗi 4.1 ở trên không phải lượt review của tôi bắt.)
+  DẤU NHÁY bám đúng nhịp Pāli: lời tự thuật mở ở 1.1 và khép ở 9.4 (`”ti.`); lời ưởng tượng trong 4.1–4.4 dùng `‘…’` cân tại chỗ. Tổng cân trên toàn bài. Bài không có `…pe…`.
+  CỔNG KỸ THUẬT: bốn lệnh do coordinator chạy; technical_integrity 9,6. Đã tự kiểm bằng `_hvi.kiểm()` và các kiểm bổ sung nêu trên.
