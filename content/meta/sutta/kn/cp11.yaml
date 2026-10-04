@@ -1,0 +1,78 @@
+uid: cp11
+status: published
+translationTitle: "Hạnh Của Kẻ Phụng Dưỡng Mẹ"
+translators:
+  - "OpenCode Space Bunny Free (agent)"
+reviewers: []
+tags:
+  - "khuddaka-nikaya"
+  - "cariyapitaka"
+  - "hatthinagavagga"
+  - "matuposakacariya"
+  - "silaparami"
+quality:
+  scores:
+    source_provenance: 9.5
+    semantic_fidelity: 9.3
+    grammar_logic: 9.3
+    segment_alignment: 10.0
+    terminology: 9.2
+    triangulation: 9.3
+    vietnamese_clarity: 9.3
+    han_viet_balance: 9.4
+    ambiguity_integrity: 9.2
+    technical_integrity: 9.6
+  final_score: 9.41
+  blocking_errors: []
+  assessed_at: "2026-10-04"
+  assessed_by:
+    - "OpenCode Space Bunny Free (agent)"
+notes: |-
+  **Nguồn.** Pāli root từ snapshot bilara đã ghim `11c9d708978cde8ba61096d8a75f7ddfb846f639`,
+  đường dẫn `kn/cp/cp11_root-pli-ms.json`. Bản Anh tham khảo là Bhikkhu Sujato cùng commit,
+  **44/45 khoá có chữ**; khoá rỗng duy nhất là `:11.1` (`Mātuposakacariyaṁ paṭhamaṁ.`), đúng
+  như mọi bài `cp` khác vì đó là dòng ghi số thứ tự. `translation/vi/phantuananh/` tại commit
+  đã ghim chỉ có Pháp Cú, nên không có bản Hòa thượng Thích Minh Châu để đối chiếu.
+
+  **Coverage: bài này KHÔNG có khoá Pāli đủ 40 ký tự** — cả 45 khoá đều là câu kệ ngắn, nên
+  `substantiveSegments = 0`. Tôi đã đọc `scripts/queue.ts:86` và `scripts/validate.ts:242`:
+  cả hai đều kiểm `substantiveSegments > 0`, và `record-reference-gaps` cũng `continue` khi
+  không có khoá nào. Tức là ngưỡng coverage 0.8 **không áp dụng** cho cp11, và không cần entry
+  trong `content/meta/reference-gaps.yaml`. Tôi ghi điều này ra vì lệnh giao việc yêu cầu coi
+  *thiếu entry* là blocker, nhưng ở đây entry đó vốn không bao giờ được sinh ra cho bài này —
+  đặt `draft` chỉ vì thế sẽ là sai. Bù lại, tầng Anh ở bài này **có đủ** (44/45), nên mất mát
+  mà người điều phối cần lưu ý lại là ba bài Jātaka của lát (ja354, ja401, ja416).
+
+  **Mệnh đề `cp:0.1` — tôi tự tra lại, đúng như dự đoán.** 20 tệp `cp` trong tầng: **17** viết
+  *Hạnh Tạng*, **1** viết `Cariyāpiṭaka` (`cp34`), 2 không có khoá `:0.1`. Vậy `cp34` mới là
+  ngoại lệ lạt, số đông là *Hạnh Tạng*, và cp11 theo số đông. Nhưng xem mục kế tiếp — đây là
+  chỗ tôi **cố ý phá luật dùng lại nguyên văn**, nên ghi rõ.
+
+  **Pāli trùng nguyên văn: 6/45 khoá** (đo bằng index tự dựng, chỉ tính cặp mà khoá Pāli thực
+  sự thuộc bài ấy). Dùng lại nguyên văn ở: `0.2` `Hatthināgavagga` (4 bài, cả 4 đều *Phẩm
+  Hatthināga*), `4.1` `Tassa taṁ vacanaṁ sutvā,` (4 bài, chỉ một bản dịch khác vắng nên lấy
+  *Nghe lời nói ấy,*), và `9.1`–`9.3` trùng nguyên văn `cp12:9.1–9.3` — ba câu này tôi chép
+  lại đúng nguyên văn, kể cả dấu chấm phẩy.
+  **Ngoại lệ, ghi rõ để biên tập phán xử:** `cp11:0.1` = `Cariyāpiṭaka` trùng với **cả 20**
+  bài `cp`, nên luật dùng lại nguyên văn sẽ buộc tôi viết `Cariyāpiṭaka` (như `cp34`). Tôi
+  theo số đông *Hạnh Tạng* vì lệnh giao việc và 17/20 đã có. Đây là mâu thuẫn thật giữa hai
+  luật; người điều phối nên gộp bằng cách sửa `cp34` sang *Hạnh Tạng* (ngoài lát của tôi).
+
+  **Dấu lược và ngoặc.** `cp11` không có khoá nào chứa `…pe…`. Pāli mở `“` ở `1.1` và đóng
+  `”ti.` ở `10.4`; lời người tiểu phu (`2.3`–`3.4`) và lời người thuần voi (`6.3`) được Pāli
+  đặt trong `'` nên tôi dùng nháy cong `‘…’`, đúng như `cp12:4.1–4.4` đã làm.
+
+  **Bất định đã phân xử, ghi ở đây chứ không thêm vào thân kinh.** (1) `5.3` Pāli ghim là
+  `Bhisamuḷālaṁ` — mất dấu `a` đầu của dạng thông dụng `abhisamūlālaṁ`, và viết `ḷ` thay `l`.
+  Tôi dịch *rễ sen* theo Sujato (*lotus roots*); không tự thêm chữ nào vào. (2) `3.2`
+  `āḷakakāsuyā` = một cây cọc hay chồng để buộc; tôi dịch *cọc hay hố*, theo Sujato (*a post
+  in a pit*). (3) `7.1`–`7.2` `pākatikaṁ … sarīrānugataṁ` = sức mạnh bẩm sinh, thuận theo
+  thân; tôi giữ cả hai vế thay vì gộp làm một. (4) `11.1` dùng chữ *thấp* `của` như dòng
+  ghi số thứ tự của cp12/cp13/cp17/cp21, còn `:0.4` dùng *Hạnh Của …* — hai cách viết này là
+  của sẵn trong tầng, tôi theo y hệt.
+
+  **Cổng kỹ thuật.** Agent dịch không được chạy lệnh npm, nên `validate`/`test`/`check`/`build`
+  là việc của coordinator. Tôi tự kiểm: JSON hợp lệ, đủ 45/45 khoá trong `all`, không orphan,
+  mọi giá trị NFC, dấu lược khớp (bài không có lược), không `(…)` đứng một mình, ngoặc kép cân
+  trên cả bài, không Pāli lọt, không khoá nào trùng nguyên văn Pāli, thứ tự khoá đúng thứ tự
+  số (vì `_ghi` của `_hvi.py` dùng `sorted()` theo chữ cho tệp mới).

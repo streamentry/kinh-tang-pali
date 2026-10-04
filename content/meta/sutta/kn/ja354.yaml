@@ -1,0 +1,95 @@
+uid: ja354
+status: draft
+translationTitle: "Kinh Con Rắn"
+translators:
+  - "OpenCode Space Bunny Free (agent)"
+reviewers: []
+tags:
+  - "khuddaka-nikaya"
+  - "jataka"
+  - "pancakanipata"
+  - "manikundalavagga"
+  - "uragajataka"
+quality:
+  scores:
+    source_provenance: 9.4
+    semantic_fidelity: 9.2
+    grammar_logic: 9.2
+    segment_alignment: 10.0
+    terminology: 9.2
+    triangulation: 7.5
+    vietnamese_clarity: 9.2
+    han_viet_balance: 9.3
+    ambiguity_integrity: 8.8
+    technical_integrity: 9.6
+  final_score: 9.14
+  blocking_errors:
+    - "Bài này không có tầng Anh SuttaCentral đã ghim ở commit đã pin (0/45 khoá), nên thiếu tầng tham khảo bắt buộc để xuất bản; đối chiếu chỉ có Pāli ghim cùng commit + tiền lệ trong chính tầng Việt dự án."
+    - "`ja354` không nằm trong 83 tệp `ja` của tầng `english-sujato` đã ghim (chỉ có ja1–ja79, ja126, ja159, ja466, ja534), nên không thể đối chiếu một bản Anh độc lập cho bài này; `translation/vi/phantuananh/` ở commit đã ghim chỉ chứa Pháp Cú."
+  assessed_at: "2026-10-04"
+  assessed_by:
+    - "OpenCode Space Bunny Free (agent)"
+notes: |-
+  **Vì sao `draft`.** `ja354` không có một tầng tham khảo nào ngoài Pāli: tầng
+  `english-sujato` đã ghim chỉ có **83** tệp `ja` (ja1–ja79 cộng ja126, ja159, ja466,
+  ja534 — tôi đếm lại từ `.cache/upstream/suttacentral/translation/en/sujato`, không dùng
+  con số của lát trước), `ja354` không nằm trong đó; `translation/vi/phantuananh/` tại commit đã
+  ghim chỉ chứa Pháp Cú. Đối chiếu vì thế chỉ có Pāli root + tiền lệ trong chính tầng Việt
+  dự án, nên `triangulation` bị chặn ở 7.5 — đúng như phần lớn bài `ja` đã có (`ja300`–`ja412`
+  đều 7.5 và đều `draft`).
+  **Ghi rõ một điểm dễ gây hiểu nhầm:** bài này có `substantiveSegments = 0` (45 khoá đều là
+  câu kệ ngắn hơn 40 ký tự), nên ngưỡng coverage 0.8 của `scripts/validate.ts:242` **không**
+  chặn và `record-reference-gaps` cũng không sinh entry cho nó. Tức là `validate` sẽ không đỏ,
+  nhưng mất mát tầng Anh ở đây là thật, không phải hình thức. Tôi đặt `draft` theo lệnh giao
+  việc và để người điều phối quyết định: hoặc lấp tầng `english-project`, hoặc ghi nhận vào
+  `content/meta/reference-gaps.yaml`. Tôi không sửa tệp gap.
+
+  **Mệnh đề, tôi đo lại.** `ja:0.1`: 433 tệp → `Jātaka` 407, `Chuyện Tiền Thân` 16, không có
+  10 ⇒ giữ `Jātaka`. `cp:0.1`: 20 tệp → *Hạnh Tạng* 17, `Cariyāpiṭaka` 1 (`cp34`), không có 2
+  ⇒ ngoại lệ lạt là `cp34`, số đông là *Hạnh Tạng* (cp11/cp23/cp30 theo số đông, và tôi ghi
+  rõ ở `notes` của chúng rằng điều này phá luật dùng lại nguyên văn).
+
+  **Tên phẩm và tên bài — đo theo giá trị Pāli tuyệt đối, không đếm chuỗi Việt.**
+  `Pañcakanipāta` có **46** tệp đã dịch và **bảy** cách Việt: *Nhóm Năm* 19, *Nhóm Năm Bài Kệ*
+  15, *Bộ Năm Bài Kệ* 4, *Bộ Năm Kệ* 3, *Phẩm Năm Kệ* 2, *Nhóm Năm Kệ* 2, *Tập Năm* 1. Tôi lấy
+  đa số đơn nhất là *Nhóm Năm* (19) và **ghi rõ ở đây chỗ này cần người điều phối phán**: cùng một
+  giá trị Pāli mà bảy cách, và dòng ghi `Pañcakanipātaṁ niṭṭhitaṁ` ở `ja375:12.1` lại viết
+  *Bộ Năm Bài Kệ đã hoàn tất*. Tôi không tự chế cách thứ tám. `Maṇikuṇḍalavagga`: 9 tệp →
+  *Phẩm Hoa Tai Ngọc* 6, *Phẩm Maṇikuṇḍala* 2, không có 1 ⇒ theo đa số.
+  `Sattakanipāta`: 17/17 đều *Bộ Bảy Bài Kệ*; `Kukkuvagga`: 8/8 *Phẩm Kukku*;
+  `Gandhāravagga`: 6/6 *Phẩm Gandhāra* — dùng cho ja401 và ja416.
+
+  **Pāli trùng nguyên văn: 11/45 khoá, và một cái tên trùng đầy bẫy.** `ja154` cũng tên là
+  *Uragajātaka* và cũng đánh số **4**, nhưng đó là truyện khác hẳn (`Idhūragānaṁ pavaro
+  paviṭṭho…` — truyện vua rắn, thuộc Daḷhavagga của Dukanipāta), **không** phải truyện của
+  `ja354`. Tôi đã đối chiếu từng khoá để không lẫn. Bốn khoá Pāli trùng nguyên văn với nó (và
+  với `ja328:1.3`) nên tôi dùng lại nguyên văn: `0.4` = *4. Kinh Con Rắn*, `11.1` = *Kinh Con
+  Rắn thứ tư.*, `2.3`/`4.3`/`6.3`/`8.3`/`10.3` = *Vì thế tôi chẳng hề sầu muộn tiếc thương,*,
+  `3.3` = *Như đã đến thì đã đi,*. Vì khoá dùng lại nói **tôi**, cả bài tôi dùng **tôi** cho
+  người nói, thay vì *ta* như các bài `cp` — để bài không tự mâu thuẫn với chính câu mình đã chép.
+
+  **Cấu trúc lặp — dùng lại nguyên văn bên trong chính bài.** `2.1`–`2.4`, `4.1`–`4.4`,
+  `6.1`–`6.4`, `8.1`–`8.4`, `10.1`–`10.4` có Pāli giống nhau (chỉ `10.4` khác ở dấu `ī` cuối),
+  nên năm cụm dịch **giống hệt nhau** trong bản Việt. Đây là công thức kệ của Jātaka, giữ
+  nguyên là đúng, không phải lặp khuôn.
+
+  **Dấu lược và ngoặc.** `ja354` không có khoá nào chứa `…pe…`. Ngoặc kép bám Pāli từng khoá:
+  mở ở `1.1`, `3.1`, `5.1`, `7.1`, `9.1` và đóng ở `2.4`, `4.4`, `6.4`, `8.4`, `10.4` — cân
+  trên cả bài.
+
+  **Bất định, ghi ở đây chứ không thêm vào thân kinh.** (1) `1.1`–`1.2` `Urago va … saṁ
+  tanuṁ`: tôi dịch *như con rắn bỏ lớp da cũ, vẫn đi tiếp với thân mình* — `hitvā` là *bỏ đi*,
+  `saṁ tanuṁ` là *với thân mình*, nên hình ẵu là con rắn bỏ da cũ nhưng vẫn giữ thân mình;
+  tôi không giải thích thêm nghĩa tái sinh vào thân kinh. (2) `3.1`–`3.2` `anavhito …
+  ananuññāto …`: hai từ này nghĩa là *không ai mời* / *không ai báo trước*; tôi dịch theo nghĩa
+  đó (*Từ nơi kia không ai mời, từ nơi này không ai báo, mà vị ấy đi*) và **không** tự thêm ý
+  *tái sinh* hay *nghiệp*, vì không có bản Anh để đối chiếu. Đây là chỗ dễ sai nhất của bài, xem
+  điểm 6. (3) `5.1`–`5.2` `rode kisā` = lá gan và túi mật, tức hình ẵu *thân này chết đi*;
+  tôi dịch chữ nghĩa như Sujato thường làm và **không** thêm chữ *chết* vào, vì Pāli chỉ nói lá
+  gan và túi mật khô. (4) `7.1` `canda` tôi dịch *miếng bánh* (một nắm thức ăn cho con) — giữ cả
+  từ này thay vì bỏ, để không mất một nửa hình ẵu.
+
+  **Cổng kỹ thuật.** Agent dịch không được chạy lệnh npm. Tôi tự kiểm: JSON hợp lệ, đủ 45/45
+  khoá trong `all`, không orphan, mọi giá trị NFC, dấu lược khớp (bài không có lược), không
+  `(…)` đứng một mình, ngoặc kép cân trên cả bài, không Pāli lọt, không khoá nào trùng nguyên văn
+  Pāli, thứ tự khoá đúng thứ tự số.
