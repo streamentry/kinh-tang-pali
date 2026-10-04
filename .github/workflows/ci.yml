@@ -3,7 +3,16 @@ name: CI
 on:
   pull_request:
   push:
-    branches: [main]
+    branches: ['**']
+
+# CI is the gate: the local ECC pre-push no longer runs the Node battery (see AGENTS.md,
+# "Push và CI"), so a plain `git push` of a branch without a PR must still be verified here.
+# Group by PR number or branch so a re-push supersedes its own older run instead of stacking.
+# Never share a group across the two events: a push run must not cancel the PR-context run
+# that branch protection is waiting on.
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
 
 permissions:
   contents: read
@@ -45,6 +54,17 @@ jobs:
         run: npm run license:check
       - name: Translation store audit
         run: npm run audit:store
+      - name: Reference coverage audit
+        # Counts segments whose substantive Pāli carries no English prose and the texts
+        # below the coverage floor, then reports each cause (upstream blank vs not synced).
+        # Exits 1 only for a structurally broken pinned edition, so this gates file
+        # integrity without demanding that the English fill queue already be empty.
+        run: npm run audit:reference
+      - name: Glossary terminology check
+        # Advisory (exit 0): the corpus carries divergences recorded before the glossary
+        # existed, so --strict would fail on history. The report still prints every
+        # divergent segment, so terminology drift is visible in each run's log.
+        run: npm run glossary:check
       - name: Filesystem and cache doctor
         # Detects the APFS ghost-entry class that made a build appear to hang. On a clean
         # CI runner this must pass, which is the point: it is the control that says the

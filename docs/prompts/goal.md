@@ -186,7 +186,8 @@ npm run build
 ```
 
 Worktree: `git worktree add -f --detach /Volumes/SSD/_wtX HEAD`, symlink
-`node_modules` và `.cache`. **Push từ worktree sạch** (hook `pre-push` cần xanh).
+`node_modules` và `.cache`. **Push từ worktree sạch** — pre-push ECC không còn chạy phần
+Node ở repo này (`ecc.prepush.skipNode=true`), nên xanh hay không do **CI** quyết định.
 `verify-store.ts` in "No discrepancies…" rồi **exit 1** — phải đọc tới `##[error]` cuối.
 
 Đo trước/sau bằng `vimeas.ts` ở **hai worktree sạch** (`HEAD~1` và `HEAD`), script dùng
