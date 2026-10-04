@@ -16,16 +16,52 @@ còn lại là chấm lại / sửa, không phải dịch.
 
 ---
 
-## TRẠNG THÁI HIỆN TẠI (đo 2026-10-04 tại `8c6e44a9`, `main`)
+## TRẠNG THÁI HIỆN TẠI (đo 2026-10-05 tại `16dbe669`, `main`)
 
-HEAD của `main` = `8c6e44a9` — "dịch(vi): 7 bài / 314 khoá — lát c64 (#242)".
-PR đã merge gần nhất: #242 (c64), #241 (c67), #240 (lớp lấp `e7`), #239 (đợt 8a),
-#238 (`nibbānapabbhāro`), #237 (đợt 8a — đã đổi số), #236 (docs), #235 (4 nhóm lỗi thuật ngữ
-+ 188 tệp `notes`), #234 (đợt 7), #233 (lớp lấp `e5`+`e6`), #232 (`pācīna`), #231 (đợt 6),
-#230 (lớp lấp `e3`+`e4`), #229 (docs), #228 (đợt 5a), #227 (sửa `pages.yml`), #226 (đợt 4),
-#225 (`sync-source` verify tải).
+HEAD của `main` = `16dbe669` — "en(fill): lớp lấp e9 — 8 bài / 48 khoá (#251)".
+PR đã merge gần nhất: #251 (lớp lấp `e9`), #250 (đợt 10), #249 (lát `c78`), #248 (lớp lược trần),
+#247 (lớp lược `…pe…`), #246 (`c74` + lớp lấp `e8` + đổi phản ví dụ của phép đo coverage),
+#245 (đợt 9a), #244 (`dn16` 8 khoá lệch), #243 (docs), #242 (`c64`), #241 (`c67`), #240 (`e7`),
+#239 (đợt 8a), #238 (`nibbānapabbhāro`), #237 (đợt 8a), #236 (docs), #235 (4 nhóm lỗi thuật ngữ),
+#234 (đợt 7), #233 (`e5`+`e6`), #232 (`pācīna`), #231 (đợt 6), #230 (`e3`+`e4`), #229 (docs),
+#228 (đợt 5a), #227 (`pages.yml`), #226 (đợt 4), #225 (verify tải).
 
-**17 PR đã merge.** Bài đủ mọi khoá: 3.857 → **5.138**. Còn thiếu **998** bài / **136.641** khoá.
+**26 PR đã merge.** Bài đủ mọi khoá: 3.857 → **5.198**. Còn thiếu **938** bài / **133.814** khoá.
+
+> ⚠️ **PR #252 (đợt 11 — `c77`+`c81`, 12 bài / 582 khoá) đã push nhưng chưa merge tính vào số trên.**
+> Số ở đây là đo tại `main` đã merge; không trộn số của nhánh chưa merge.
+
+### Bốn lớp lỗi mới phát hiện bằng **quét ngược một mệnh đề**
+
+Không phải lớp kiếm mới, mà là **cùng một câu hỏi** quét trên toàn tầng. Cả bốn đều vượt qua cả
+13 cổng:
+
+| lớp | câu hỏi quét ngược | trước | sau | PR |
+|---|---|---|---|---|
+| `…pe…` bị bung thành văn | Pāli có `…pe…` mà Việt **không** giữ một `…`? | 251 khoá / 71 bài | **145** / 63 | #247 |
+| `…` **trần** bị bung thành văn | Pāli có `…` trần mà Việt viết đủ? | 181 khoá / 102 bài | **113** / 97 | #248 |
+| khoá lệch, chứa nội dung của khoá khác | Việt có khoá `(…)` trong khi Pāli có văn xuôi? | 3 khoá (`dn16`) | **0** | #244 |
+| `dn16:4.x` lệch một khoá | Việt dài > 1,6 × Pāli ở khoá có nội dung? | 3 khoá | **0** | #244 |
+
+Luật nền cho hai lớp đầu là `BRIEF_VI3` §10.1 (*"Pāli có `…pe…` → giữ nguyên một `…`. KHÔNG BAO
+GIỜ mở rộng"*) **và** chốt của chính harness: `_hvi.py:270` có
+`assert lược(v) == lược(p[k], "pāli")` cho từng khoá, mà `lược()` đếm `…` trần là **một** lược.
+
+### `npm test` bắt được lỗi mà 13 cổng không thấy — ba lần liên tiếp
+
+Cả ba lần, nguyên nhân đều là **test ghim một mệnh đề sai**, và sửa là sửa phép đo cho khớp sự
+thật chứ không phải tha lỗi:
+
+1. `sn24.37` được dùng làm phản ví dụ ("6/7 đoạn trống") — nhưng lớp lấp `e8` **đã lấp đủ**, nên
+   `ratio` về 1. Đổi phản ví dụ sang `mn58` (21/76, ratio 0,7237) và **ghim luôn** `sn24.37` là
+   đã lấp. (#246)
+2. `mn77:20.2`–`:20.8` bắt buộc phải có "viễn ly / ly tham / buông xả" — nhưng **không phải cả bảy
+   khoá nào có ở Pāli**: `20.3` là `…pe…`, `20.4`–`20.7` là `…` trần. Test đòi viết chữ ở nơi Pāli
+   lược. (#247, #248)
+3. Cùng test đó, lần sau: sau #248 thì **năm** khoá đã lược, không phải một.
+
+Nguyên nhân gốc của cả ba: **một con số chỉ đúng khi lỗ hổng còn chưa được lấp thì không phải
+test — đó là con số may mắn.**
 
 ### Hai nguyên nhân `main` đỏ, và tôi sửa một rồi bỏ sót cái kia
 
@@ -61,28 +97,39 @@ run push của nhánh `chore/ci-is-the-gate` từng fail ở `manifest:check` do
 403 rate limit (hạ tầng, không phải code) — run PR-context cùng commit pass nên merge
 vẫn đúng.
 
-**Cổng local tại HEAD** (worktree sạch ở `8c6e44a9`) — **13/13 xanh**:
+**Cổng local tại HEAD** (worktree sạch ở `16dbe669`) — **13/13 xanh**:
 
 ```
-reference:gaps 747 gap (chạy 2 lần, lần 2 không đổi ⇒ idempotent)
-reference:gaps:check ✓  747 gap / 5.235 text
+reference:gaps 755 gap (chạy 2 lần, lần 2 không đổi ⇒ idempotent)
+reference:gaps:check ✓  755 gap / 5.295 text
 verify:store:write ✓    verify:store:check ✓  (cache complete, đã so cả full-sync)
-validate ✓ 0 lỗi / 1.609 cảnh báo      test ✓ 141 pass / 0 fail      check ✓
+validate ✓ 0 lỗi / 1.633 cảnh báo      test ✓ 141 pass / 0 fail      check ✓
 catalog:check ✓ 6.137/6.137              manifest:check ✓            license:check ✓
 audit:store ✓  không orphan, không shadowing, không đảo authority
 audit:reference ✓  0 upstream defect
 build ✓
 ```
 
+⚠️ **Số trong khối này phải đọc từ output của lệnh, không gõ tay.** Trong lần cập nhật này tôi đã
+viết sai **ba** thân PR: lấy số của *một nhánh khác* rồi ghi vào PR này, và ở một chỗ còn
+khẳng định sai chiều (`text 5.265 → 5.241 (−24)` trong khi thật ra là **+6**). Nguyên nhân: chạy
+`reference:gaps`, nhìn **diff** để biết *thêm/gỡ* gì, nhưng lại **gõ** số tuyệt đối từ trí nhớ thay
+vì đọc giá trị lệnh vừa in ra. PR #246 (đã merge, đã sửa thân), #249 và #250 đều phải sửa lại.
+
+Một hệ quả phụ đáng ghi: số tuyệt đối của `reference-gaps` **đổi theo thứ tự merge** — cùng một
+nội dung dịch cho `747 → 755 → 759 → 760` tuỳ nhánh nào đã vào trước. Nên PR nào có PR khác
+đụng `reference-gaps.yaml` thì **phải rebase và đo lại trên cây đã rebase**, đừng dùng số đo
+trước rebase.
+
 **Việt** — `node --import tsx /Volumes/SSD/opencode-work/vimeas.ts`
 (`npx` bị chặn bởi pkg-age-guard, phải gọi `node --import tsx` trực tiếp)
 
-| | `a059dec5` (cũ) | `1e39dd88` | `9a0aa4e9` | `b73dc54f` | `b76976e7` | **`8c6e44a9` (nay)** |
-| --- | --- | --- | --- | --- | --- | --- |
-| catalogue | — | 6.137 | 6.137 | 6.137 | 6.137 | **6.137** (dn34/mn152/sn1819/an1781/kn2351) |
-| bài đủ mọi khoá | 3.857 | 4.679 | 4.817 | 5.006 | 5.097 | **5.138** |
-| bài còn thiếu | 2.279 | 1.457 | 1.319 | 1.130 | 1.039 | **998** |
-| khoá còn thiếu | 171.951 | 153.580 | 149.294 | 142.327 | 138.490 | **136.641** |
+| | `a059dec5` (cũ) | `1e39dd88` | `9a0aa4e9` | `b73dc54f` | `b76976e7` | `8c6e44a9` | **`16dbe669` (nay)** |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| catalogue | — | 6.137 | 6.137 | 6.137 | 6.137 | 6.137 | **6.137** |
+| bài đủ mọi khoá | 3.857 | 4.679 | 4.817 | 5.006 | 5.097 | 5.138 | **5.198** |
+| bài còn thiếu | 2.279 | 1.457 | 1.319 | 1.130 | 1.039 | 998 | **938** |
+| khoá còn thiếu | 171.951 | 153.580 | 149.294 | 142.327 | 138.490 | 136.641 | **133.814** |
 
 Đo **hai lần liên tiếp trên hai worktree sạch**, hai lần ra kết quả giống hệt.
 Mốc "trước" là commit trước cả các commit của PR, **không phải `HEAD~1`** — vì PR
@@ -229,7 +276,7 @@ English cho 1.596 bài kia** — đừng hứa vô lý trong PR body.
 **Lớp English của dự án** (`content/translation/en/project`, kèm đủ `content/meta/en`):
 **681 tệp trên đĩa** — dn 5 / mn 33 / sn 349 / an 166 / kn 128.
 `audit:store` báo **603 text / 2.234 segment** trong scope `used`; hai số khác nhau
-vì 681 là đếm tệp còn 603 là đếm text trong phạm vi 5.235 bài — ghi rõ phạm vi khi
+vì 681 là đếm tệp còn 603 là đếm text trong phạm vi 5.295 bài (tại `8c6e44a9`) — ghi rõ phạm vi khi
 báo cáo.
 
 **Một lớp lấp bịa dấu lược, và nó suýt qua `audit:store`.** Ở `an10.107:3.1` và `:6.4`, Pāli
