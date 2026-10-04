@@ -1,0 +1,37 @@
+uid: ja409
+status: draft
+translationTitle: "Kinh Daḷhadhamma"
+translators:
+  - "OpenCode Space Bunny Free (agent)"
+reviewers: []
+tags:
+  - "khuddaka-nikaya"
+  - "jataka"
+  - "sattakanipata"
+  - "gandharavagga"
+  - "dalhadhammajataka"
+quality:
+  scores:
+    source_provenance: 9.6
+    semantic_fidelity: 9.2
+    grammar_logic: 9.2
+    segment_alignment: 10.0
+    terminology: 9.3
+    triangulation: 7.5
+    vietnamese_clarity: 9.3
+    han_viet_balance: 9.4
+    ambiguity_integrity: 9.2
+    technical_integrity: 9.6
+  final_score: 9.23
+  blocking_errors:
+    - "Không có tầng tham khảo tiếng Anh tại commit đã ghim: tệp `translation/en/sujato/sutta/kn/ja/ja409_translation-en-sujato.json` không có trong git tree của commit `11c9d708978cde8ba61096d8a75f7ddfb846f639` theo `source/upstream-manifest.json` (tầng `english-sujato` có 4291 tệp, trong đó chỉ 83 tệp thuộc `sutta/kn/ja`), và cũng không có trong `.cache/upstream/suttacentral/` — đây là `not-published-upstream`, KHÔNG phải `not-synced`. Tầng `vietnamese-current` cũng vắng: `translation/vi/phantuananh` tại commit đã ghim chỉ có 26 tệp và toàn bộ là Pháp Cú. Lớp lấp `english-project` của dự án cũng không có cho uid này. Ba tầng tham khảo đều vắng nên bài dịch chỉ từ Pāli root; `scripts/validate.ts` coi tệp Anh ghim thiếu là **error** khi status là `review` hoặc `published`, nên bài bắt buộc `draft`. Đây là giới hạn của snapshot upstream, không phải lỗi của người dịch; vì vậy `triangulation` bị chặn ở 7.5 (≤ 8.0) chứ không nâng điểm để né blocker."
+  assessed_at: "2026-10-04"
+  assessed_by:
+    - "OpenCode Space Bunny Free (agent)"
+notes: |-
+  Dịch trực tiếp từ Pāli root; không có tầng `english-sujato` cho ja409 tại commit đã ghim, `vietnamese-current` tại commit đã ghim vắng với Jātaka.
+  Pāli trùng nguyên văn: 4 khoá, dùng lại nguyên văn cả 4 — `:5.1` và `:6.1` theo ja302:4.1 (Kẻ trước kia đã làm điều lành), `:5.2` theo ja90:1.2 (không hiểu được ý nghĩa của việc ấy), `:7.2` theo thag6.5:4.2 (những ai đã tập hợp ở đây).
+  Bản dịch tự nhất quán trong bài: `Yo pubbe katakalyāṇo` lặp ở `:5.1` và `:6.1`, và `ye honti abhipatthitā` lặp ở `:5.4` và `:6.4` chỉ khác vế trước theo đúng nghĩa Pāli (bị phá hủy hết so với được tăng trưởng thêm).
+  Bất định ghi rõ: `Ahañce daḷhadhammassa, vahantī nābhirādhayiṁ` ở `:1.1` là câu mong ước nên dịch bằng Nếu; `Dharantī urasi sallaṁ` ở `:1.3` dịch là kẻ mang tên trên ngực, giữ nghĩa của salla; `chakaṇahārikā` ở `:3.4` dịch là đồ chơi được trao tay; `pavīṇati` ở `:4.2` dịch là có tiếng loan truyền ra.
+  Thuật ngữ theo tiền lệ đếm được: `sagga` → cõi trời (đã dùng 102 lần trong tầng kn và rất nhiều lần ở tầng an), `kataññu` → biết ơn (7 tiền lệ), `kumbhakāra` → kẻ làm gốm, `hinto` không có. Tên phẩm Sattakanipāta → Bộ Bảy Bài Kệ, Gandhāravagga → Phẩm Gandhāra. Tên vua Daḷhadhamma giữ nguyên dấu Pāli theo 0.4 và được khai vào bộ nhớ tiến trình của `_hvi.py`.
+  Cổng kỹ thuật chưa chạy vì agent dịch không được chạy lệnh npm. Coordinator chạy bốn lệnh: `npm run validate`, `npm test`, `npm run check`, `npm run build`.
