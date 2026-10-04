@@ -97,18 +97,25 @@ biến khất khỏi danh sách gap.
 `Tatiyaṁ.` Đếm mọi segment sẽ báo `an1.1` — 12 segment, một nửa rỗng — là mất phủ,
 trong khi cả 4 segment có nội dung đều đã được dịch (100%).
 
-**Vì sao ngưỡng 0.8.** Phân bố thực đo trên 1.589 bài có bản dịch:
+**Vì sao ngưỡng 0.8.** Phân bố thực đo trên **4.540 bài có bản Anh đã ghim**
+(toàn catalogue, `2026-10-04` tại `9a0aa4e9`):
 
 | coverage | số bài | |
 | --- | --- | --- |
-| ≥ 99% | 1073 | nguyên vẹn |
-| 80–99% | 216 | nguyên vẹn |
-| 50–80% | 119 | mất tham khảo |
-| 1–50% | 16 | mất nặng |
-| 0% | 1 | không có English nào |
+| ≥ 99% | 4186 | nguyên vẹn |
+| 80–99% | 138 | nguyên vẹn |
+| 50–80% | 167 | mất tham khảo |
+| 1–50% | 49 | mất nặng |
+| 0% | 0 | không có English nào |
 
-1.073 bài đã ở ≥ 99%, nên 0.8 chỉ đúng vào 136 bài thực sự mất tầng tham khảo. Nới lên 0.5
-sẽ âm thầm chấp nhận 119 bài kế tiếp.
+4.186 bài đã ở ≥ 99%, nên 0.8 chỉ đúng vào **216 bài** thực sự mất tầng tham khảo.
+Nới lên 0.5 sẽ âm thầm chấp nhận thêm 49 bài nữa.
+
+⚠️ **Con số 216 là phạm vi toàn catalogue.** Cổng `audit:reference` luôn chạy với
+`--used` nên trong CI chỉ báo 143 — đó là 216 bài trừ đi 73 bài chưa có bản dịch Việt.
+Muốn đo đúng 216 thì chạy `node --import tsx scripts/audit-reference.ts` không kèm cờ.
+Cột `80–99%` ở bảng cũ (216 bài) là con số của phép đo trước đây, **đã bị thay**:
+216 nay là *tổng số bài dưới ngưỡng*, không phải số bài trong khoảng 80–99%.
 
 ## Gap được ghi nhận, không được che
 
@@ -140,11 +147,11 @@ chứa nhiều UID). Tổng segment Pāli: **284.574**.
 | | số |
 | --- | --- |
 | text | 6.137 |
-| text có dữ liệu biên tập (`content/meta/sutta`) | 1.589 |
+| text có dữ liệu biên tập (`content/meta/sutta`) | 4.914 |
 | text Pāli không resolve được segment | 1 (`sn12.93-213`, defect upstream) |
 | text không có bản English nào ở upstream | 1.596 (toàn bộ là `kn`) |
-| segment English **có key nhưng rỗng** | 19.762 |
-| text dưới ngưỡng 80% | 1.394 (136 trong số đó có dữ liệu biên tập, đều đã ghi nhận) |
+| segment English **có key nhưng rỗng** | 19.762 (trong đó **30.529** là Pāli ≥ 40 ký tự) |
+| text dưới ngưỡng 80% — toàn catalogue | **216** (143 trong scope `--used`, đều đã ghi nhận; 73 còn lại chưa có bản dịch Việt) |
 
 ### Vì sao 1.596 bài không có English
 

@@ -16,10 +16,24 @@ còn lại là chấm lại / sửa, không phải dịch.
 
 ---
 
-## TRẠNG THÁI HIỆN TẠI (đo 2026-10-04 tại `1e39dd88`, `main`)
+## TRẠNG THÁI HIỆN TẠI (đo 2026-10-04 tại `9a0aa4e9`, `main`)
 
-HEAD = `1e39dd88` — "ci: pre-push ECC bỏ battery Node, CI thành cổng trên mọi nhánh (#220)".
-PR gần nhất đã merge: #220 (CI gate), #219 (wave54 f196+f197), #218 (wave53), #217, #216.
+HEAD = `9a0aa4e9` — "dịch(vi): 36 bài đợt 2 + sửa giống tính puthujjano + gap record (#222)".
+PR gần nhất đã merge: #222 (đợt c22–c27), #221 (sửa CI), #220 (CI gate), #219 (wave54 f196+f197).
+
+### Đợt 1 đã giao bằng PR, đợt 2 cũng vậy
+
+Đợt 1 (112 bài Việt + 24 bài English lấp) đã **đẩy thẳng lên `main`** — sai quy
+trình, và nó làm `main` đỏ. Đợt 2 (PR #222) đã đi đúng đường: nhánh → CI xanh →
+squash merge. Cùng đợt đó tôi phát hiện và sửa nguyên nhân CI đỏ (PR #221).
+
+**Nguyên nhân CI đỏ (đã sửa, #221):** `pinned-snapshot.test.ts` quét **toàn bộ**
+catalogue 6.137 bài, nhưng CI chạy `source:sync:used` chỉ tải bài đã có dữ liệu
+dự án. `skip` guard của test viết trên tệp Pāli của `mil1` — mà đợt 1 đã dịch
+`mil1`, nên `--used` bắt đầu tải tệp đó, guard thôi bỏ qua, test chạy với corpus
+thiếu dữ liệu. Sửa: `source:sync:manifest`. **Bài học để nhớ: chính việc dịch
+thêm đã làm một test bị bỏ qua trở lại chạy** — đừng viết `skip` guard lên một
+bài cụ thể mà lát sau có thể dịch tới.
 
 **CI xanh ở `main`** — run `37165678349` pass đủ 17 step, gồm hai step mới
 (`Reference coverage audit`, `Glossary terminology check`). Lưu ý một lần đỏ giả:
@@ -27,24 +41,45 @@ run push của nhánh `chore/ci-is-the-gate` từng fail ở `manifest:check` do
 403 rate limit (hạ tầng, không phải code) — run PR-context cùng commit pass nên merge
 vẫn đúng.
 
-**Cổng local tại HEAD** (repo chính): `validate` exit 0 (1.316 WARN là cache local
-thiếu vài tệp kn vv — CI sync trước nên không ảnh hưởng), `test` 141/141,
-`reference:gaps:check` current (638 gaps / 4.766 texts), `glossary:check` exit 0
-advisory (4.776 texts, 130.990 segments, 33/128 terms dùng, 3.715 occurrences,
-2.337 divergences: 22 split thật, 9 unattested, 2 consistent).
+**Cổng local tại HEAD** (worktree sạch ở `9a0aa4e9`) — **13/13 xanh**:
+
+```
+reference:gaps 668 gap (chạy 3 lần, lần 3 không đổi ⇒ idempotent)
+reference:gaps:check ✓  668 gap / 4.914 text
+verify:store:write ✓    verify:store:check ✓  (cache complete, đã so cả full-sync)
+validate ✓ 0 lỗi / 1.399 cảnh báo      test ✓ 141 pass / 0 fail      check ✓
+catalog:check ✓ 6.137/6.137              manifest:check ✓            license:check ✓
+audit:store ✓  không orphan, không shadowing, không đảo authority
+audit:reference ✓  0 upstream defect
+build ✓
+glossary:check ✓ advisory — 4.914 text, 135.276 segment, 33/128 thuật ngữ,
+                             3.827 occurrence, 2.416 divergence
+```
 
 **Việt** — `node --import tsx /Volumes/SSD/opencode-work/vimeas.ts`
 (`npx` bị chặn bởi pkg-age-guard, phải gọi `node --import tsx` trực tiếp)
 
-| | `a059dec5` (cũ) | `1e39dd88` (nay) |
-| --- | --- | --- |
-| catalogue | — | **6.137** (dn34/mn152/sn1819/an1781/kn2351) |
-| bài đủ mọi khoá | 3.857 | **4.679** (+822) |
-| bài còn thiếu | 2.279 | **1.457** |
-| khoá còn thiếu | 171.951 | **153.580** |
+| | `a059dec5` (cũ) | `1e39dd88` | **`9a0aa4e9` (nay)** |
+| --- | --- | --- | --- |
+| catalogue | — | 6.137 | **6.137** (dn34/mn152/sn1819/an1781/kn2351) |
+| bài đủ mọi khoá | 3.857 | 4.679 | **4.817** |
+| bài còn thiếu | 2.279 | 1.457 | **1.319** |
+| khoá còn thiếu | 171.951 | 153.580 | **149.294** |
 
-Còn thiếu: `sn` 317 bài / 17.592 khoá (đủ 1.501) · `an` 209 / 13.633 (đủ 1.572) ·
-`kn` 931 / 122.355 (đủ 1.420) · `dn`+`mn` đủ 100% (34, 152).
+Đo **hai lần liên tiếp trên hai worktree sạch** (`bd720c74` và `9a0aa4e9`),
+hai lần ra kết quả giống hệt. Mốc "trước" là `bd720c74` chứ không phải `HEAD~1`
+vì PR #222 có ba commit nên `HEAD~1` đã chứa sẵn đợt 2.
+
+Còn thiếu: `sn` 259 bài / 15.806 khoá (đủ 1.559) · `an` 193 / 13.128 (đủ 1.588) ·
+`kn` 867 / 120.360 (đủ 1.484) · `dn`+`mn` đủ 100% (34, 152).
+
+⚠️ **`vimeas` chỉ đo "đủ khoá", không đo trung thành.** Đợt 2 đã dùng một bộ dòm
+riêng (tỉ lệ ký tự Việt/Pāli lệch khỏi trung vị của chính bài) và tìm ra
+**25 đoạn / 15 bài** có lỗi mà `validate` không thấy:
+đoạn bị cụt thành stub + `…` (nặng nhất `an6.53:3.1` mất hẳn *"ubho atthe
+samadhiggayha"*), dấu lược `…pe…` bị bung ra (`an3.61:6.7`: 105 ký tự Pāli → 458
+ký tự Việt), và nội dung tràn sang khoá kế bên (`sn22.93`). **Bài nào "đủ mọi
+khoá" không đồng nghĩa bài đó đúng** — đừng báo cáo `vimeas` như một lời bảo đảm.
 
 ⚠️ **`an` có 10 bài đã có bản dịch nhưng chưa có scorecard**: `an5.181`–`an5.190`
 có `content/translation/vi/project/sutta/an/*.json` nhưng thiếu
@@ -54,31 +89,45 @@ dịch như mọi bài đã có.
 
 **English** — `node --import tsx /Volumes/SSD/opencode-work/engq.ts` và `npm run audit:reference`
 
-| phép đo | kết quả |
-| --- | --- |
-| `engq`: text có English đã ghim | 3.843 |
-| `engq`: text còn thiếu English | **376** (không đổi) |
-| `engq`: segment còn thiếu English | **6.750** (không đổi) |
-| `engq`: text dưới sàn | 229 (đếm **mọi** segment) |
-| `engq`: `noEnglishEditionUpstream` / đã ghi nhận | **1.596** / 1.596, `agreesWithStoreVerification true` |
-| `engq`: `textsWithNoEnglishUpstream` (scope hẹp) | 990 (23.889 segments) |
-| `audit:reference --used`: text dưới sàn coverage | **146** (trước 137) |
-| `audit:reference --used`: segment **có nội dung** dưới sàn | **3.319** (trước 3.252) |
-| `audit:reference --used`: "publishes no English at all" | **852** (trước 326) |
+| phép đo | `1e39dd88` | **`9a0aa4e9`** |
+| --- | --- | --- |
+| `engq`: text có English đã ghim | 3.843 | 3.843 |
+| `engq`: text còn thiếu English | 376 | **354** |
+| `engq`: segment còn thiếu English | 6.750 | **6.640** |
+| `engq`: text dưới sàn | 229 | **216** |
+| `engq`: `noEnglishEditionUpstream` / đã ghi nhận | 1.596 / 1.596 | **1.596 / 1.596**, `agreesWithStoreVerification true` |
+| `engq`: `textsWithNoEnglishUpstream` (scope hẹp) | 990 | 990 (23.889 segments) |
+| `audit:reference --used`: text dưới sàn coverage | 146 | **143** (trong 4.007) |
+| `audit:reference` **toàn catalogue**: text dưới sàn | — | **216** (trong 4.540; 73 chưa ghi nhận) |
+| `audit:reference`: hàng đợi English lấp | — | **143 text / 3.318 segment** |
+| `audit:reference`: "publishes no English at all" | 852 | **907** |
+
+⚠️ **Con số cần đuổi về 0 là 216, không phải 143.** `audit:reference` luôn chạy với
+`--used` (xem `package.json`), nên trong CI nó chỉ đo 4.007 bài đã có dữ liệu dự
+án. Chạy `node --import tsx scripts/audit-reference.ts` (không cờ) ra
+`scope all-catalog · 216 of 4540` — đúng bằng `engq`. 73 bài kia chưa có bản dịch
+Việt nên chưa vào record gap. Tôi từng ghi trong PR #222 rằng 143 và 216 "lệch
+nhau chưa giải thích"; **đã giải thích: cùng một phép tính, khác phạm vi.**
+
+⚠️ **`--all` trong `audit:reference` không hoạt động** như tên cờ: mã kiểm
+`args.includes('--used')` nên `npm run audit:reference -- --all` vẫn ra
+`scope used`. Muốn toàn catalogue phải bỏ hẳn `--used`. Chưa sửa — đừng mất
+một lượt chạy như tôi đã mất.
 
 **Số cần dùng: 1.596 bài `kn` không có tệp Anh Sujato nào ở commit đã ghim.**
 `engq` nay tự báo `noEnglishEditionUpstream 1596` và `agreesWithStoreVerification
 true`, khớp đúng `AGENTS.md` — hết thời phải đối chiếu tay.
 
-⚠️ **990 / 852 / 1.596 là ba lát cắt khác nhau của cùng một thực tế**, đừng dùng thay nhau:
+⚠️ **907 / 990 / 1.596 là ba lát cắt khác nhau của cùng một thực tế**, đừng dùng thay nhau:
 - 1.596 = toàn bộ bài không có tệp `*_translation-en-sujato.json` (đo từ `source/upstream-manifest.json`).
 - 990 = tập con trong scope hẹp của `engq`.
-- 852 = tập con trong scope `--used` của `audit:reference` (chỉ bài đã có dữ liệu dự án); số này **tăng theo mỗi wave vì scope phình ra**, không phải vì upstream mất thêm bản Anh (326 cũ là cùng định nghĩa ở thời ít bài hơn).
+- 907 = tập con trong scope `--used` của `audit:reference` (chỉ bài đã có dữ liệu dự án); số này **tăng theo mỗi wave vì scope phình ra**, không phải vì upstream mất thêm bản Anh.
 
 Khi viết báo cáo, **luôn ghi kèm công cụ + scope + định nghĩa** cạnh mỗi con số.
 
-⚠️ **Hai con số 376 và 146 cũng không mâu thuẫn**: `engq` đếm **mọi** segment,
-`audit:reference` chỉ đếm segment Pāli **≥ 40 ký tự** (bỏ khối tham chiếu `:0`).
+⚠️ **354 và 3.318 cũng không mâu thuẫn**: `engq` đếm **mọi** segment,
+`audit:reference` chỉ đếm segment Pāli **≥ 40 ký tự** (bỏ khối tham chiếu `:0`),
+và phạm vi là `used` so với toàn catalogue.
 
 ⚠️ **1.596 bài `kn` không có bản Anh là giới hạn upstream**, không phải thiếu sót.
 Với chúng: `triangulation ≤ 8.0` cho **cả bài**, `draft` + blocker thật trong
@@ -86,7 +135,10 @@ Với chúng: `triangulation ≤ 8.0` cho **cả bài**, `draft` + blocker thậ
 English cho 1.596 bài kia** — đừng hứa vô lý trong PR body.
 
 **Lớp English của dự án** (`content/translation/en/project`, kèm đủ `content/meta/en`):
-dn 4 / mn 27 / sn 315 / an 147 / kn 124 = **617 bài**.
+**641 tệp trên đĩa** — dn 4 / mn 30 / sn 333 / an 147 / kn 127.
+`audit:store` báo **517 text / 1.904 segment** trong scope `used`; hai số khác nhau
+vì 641 là đếm tệp còn 517 là đếm text trong phạm vi 4.914 bài — ghi rõ phạm vi khi
+báo cáo.
 
 ---
 
