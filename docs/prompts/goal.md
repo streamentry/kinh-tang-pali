@@ -2,7 +2,7 @@
 
 ## MỤC TIÊU
 
-Đưn **100%** khoá Pāli có nội dung của **mọi** bài kinh trong `content/catalog/sutta/`
+Đưa **100%** khoá Pāli có nội dung của **mọi** bài kinh trong `content/catalog/sutta/`
 vào hai tầng dịch của dự án, mỗi bài kèm scorecard hợp lệ, tất cả 13 cổng xanh, và
 giao bằng **PR đã merge**:
 
@@ -16,49 +16,77 @@ còn lại là chấm lại / sửa, không phải dịch.
 
 ---
 
-## SỐ ĐO NHIỀU (đo tại `a059dec5`, đừng tin lại)
+## TRẠNG THÁI HIỆN TẠI (đo 2026-10-04 tại `1e39dd88`, `main`)
 
-**Việt** — `npx tsx /Volumes/SSD/opencode-work/vimeas.ts`
+HEAD = `1e39dd88` — "ci: pre-push ECC bỏ battery Node, CI thành cổng trên mọi nhánh (#220)".
+PR gần nhất đã merge: #220 (CI gate), #219 (wave54 f196+f197), #218 (wave53), #217, #216.
 
-| | |
-| --- | --- |
-| bài đủ mọi khoá | **3.857** |
-| bài còn thiếu | **2.279** |
-| khoá còn thiếu | **171.951** |
+**CI xanh ở `main`** — run `37165678349` pass đủ 17 step, gồm hai step mới
+(`Reference coverage audit`, `Glossary terminology check`). Lưu ý một lần đỏ giả:
+run push của nhánh `chore/ci-is-the-gate` từng fail ở `manifest:check` do GitHub API
+403 rate limit (hạ tầng, không phải code) — run PR-context cùng commit pass nên merge
+vẫn đúng.
 
-Theo bộ: `sn` 458 bài / 20.892 khoá · `an` 263 bài / 14.898 khoá ·
-`kn` 1.558 bài / 136.161 khoá (đã đủ lần lượt 1.360 / 1.518 / 793).
+**Cổng local tại HEAD** (repo chính): `validate` exit 0 (1.316 WARN là cache local
+thiếu vài tệp kn vv — CI sync trước nên không ảnh hưởng), `test` 141/141,
+`reference:gaps:check` current (638 gaps / 4.766 texts), `glossary:check` exit 0
+advisory (4.776 texts, 130.990 segments, 33/128 terms dùng, 3.715 occurrences,
+2.337 divergences: 22 split thật, 9 unattested, 2 consistent).
 
-**English** — `npx tsx /Volumes/SSD/opencode-work/engq.ts` và `npm run audit:reference`
+**Việt** — `node --import tsx /Volumes/SSD/opencode-work/vimeas.ts`
+(`npx` bị chặn bởi pkg-age-guard, phải gọi `node --import tsx` trực tiếp)
+
+| | `a059dec5` (cũ) | `1e39dd88` (nay) |
+| --- | --- | --- |
+| catalogue | — | **6.137** (dn34/mn152/sn1819/an1781/kn2351) |
+| bài đủ mọi khoá | 3.857 | **4.679** (+822) |
+| bài còn thiếu | 2.279 | **1.457** |
+| khoá còn thiếu | 171.951 | **153.580** |
+
+Còn thiếu: `sn` 317 bài / 17.592 khoá (đủ 1.501) · `an` 209 / 13.633 (đủ 1.572) ·
+`kn` 931 / 122.355 (đủ 1.420) · `dn`+`mn` đủ 100% (34, 152).
+
+⚠️ **`an` có 10 bài đã có bản dịch nhưng chưa có scorecard**: `an5.181`–`an5.190`
+có `content/translation/vi/project/sutta/an/*.json` nhưng thiếu
+`content/meta/sutta/an/*.yaml` (chiều ngược lại không thiếu). Việc còn lại của 10 bài
+này là chấm + scorecard, không phải dịch — và lát mới phải loại chúng khỏi hàng đợi
+dịch như mọi bài đã có.
+
+**English** — `node --import tsx /Volumes/SSD/opencode-work/engq.ts` và `npm run audit:reference`
 
 | phép đo | kết quả |
 | --- | --- |
-| `engq`: text còn thiếu English | **376** |
-| `engq`: segment còn thiếu English | **6.750** |
-| `audit:reference`: text dưới sàn coverage | **137** |
-| `audit:reference`: segment **có nội dung** dưới sàn | **3.252** |
-| `audit:reference`: "publishes no English at all" | **326** |
+| `engq`: text có English đã ghim | 3.843 |
+| `engq`: text còn thiếu English | **376** (không đổi) |
+| `engq`: segment còn thiếu English | **6.750** (không đổi) |
+| `engq`: text dưới sàn | 229 (đếm **mọi** segment) |
+| `engq`: `noEnglishEditionUpstream` / đã ghi nhận | **1.596** / 1.596, `agreesWithStoreVerification true` |
+| `engq`: `textsWithNoEnglishUpstream` (scope hẹp) | 990 (23.889 segments) |
+| `audit:reference --used`: text dưới sàn coverage | **146** (trước 137) |
+| `audit:reference --used`: segment **có nội dung** dưới sàn | **3.319** (trước 3.252) |
+| `audit:reference --used`: "publishes no English at all" | **852** (trước 326) |
 
-**Số cần dùng: 1.596 bài `kn` không có tệp Anh Sujato nào ở commit đã ghim.** Đo trực
-tiếp từ `source/upstream-manifest.json` → `english-sujato` (4.291 tệp): 4.355 bài có
-tệp `*_translation-en-sujato.json`, **1.596 không có** — và con số này khớp đúng dòng
-ghi trong `AGENTS.md`.
+**Số cần dùng: 1.596 bài `kn` không có tệp Anh Sujato nào ở commit đã ghim.**
+`engq` nay tự báo `noEnglishEditionUpstream 1596` và `agreesWithStoreVerification
+true`, khớp đúng `AGENTS.md` — hết thời phải đối chiếu tay.
 
-⚠️ **990 (`engq`) và 326 (`audit:reference`) là hai tập con khác, đo theo định nghĩa
-khác.** Đừng dùng chúng thay cho 1.596, và đừng trộn hai bảng số:
+⚠️ **990 / 852 / 1.596 là ba lát cắt khác nhau của cùng một thực tế**, đừng dùng thay nhau:
+- 1.596 = toàn bộ bài không có tệp `*_translation-en-sujato.json` (đo từ `source/upstream-manifest.json`).
+- 990 = tập con trong scope hẹp của `engq`.
+- 852 = tập con trong scope `--used` của `audit:reference` (chỉ bài đã có dữ liệu dự án); số này **tăng theo mỗi wave vì scope phình ra**, không phải vì upstream mất thêm bản Anh (326 cũ là cùng định nghĩa ở thời ít bài hơn).
 
-- `engq.textsWithNoEnglishUpstream` = 990 — tập con của 1.596 (có lẽ đã trừ phần đã lấp).
-- `audit:reference` "no English at all" = 326 — tập con của 990.
+Khi viết báo cáo, **luôn ghi kèm công cụ + scope + định nghĩa** cạnh mỗi con số.
 
-Khi viết báo cáo, **luôn ghi kèm công cụ và định nghĩa** cạnh mỗi con số.
-
-⚠️ **Hai con số 376 và 137 cũng không mâu thuẫn**: `engq` đếm **mọi** segment,
+⚠️ **Hai con số 376 và 146 cũng không mâu thuẫn**: `engq` đếm **mọi** segment,
 `audit:reference` chỉ đếm segment Pāli **≥ 40 ký tự** (bỏ khối tham chiếu `:0`).
 
 ⚠️ **1.596 bài `kn` không có bản Anh là giới hạn upstream**, không phải thiếu sót.
 Với chúng: `triangulation ≤ 8.0` cho **cả bài**, `draft` + blocker thật trong
 `blocking_errors`. Không nâng điểm để né. Đây cũng là lý do **không có mốc 100% ở cột
 English cho 1.596 bài kia** — đừng hứa vô lý trong PR body.
+
+**Lớp English của dự án** (`content/translation/en/project`, kèm đủ `content/meta/en`):
+dn 4 / mn 27 / sn 315 / an 147 / kn 124 = **617 bài**.
 
 ---
 
@@ -85,7 +113,9 @@ English cho 1.596 bài kia** — đừng hứa vô lý trong PR body.
 - `/Volumes/SSD/opencode-work/<đợt>/<tên>.pali.txt` — **Pāli gốc đã dump sẵn**
 - Tên lát = `f12`, `f13`, … cho Việt; `r9`, `r10`, … cho English.
 
-Đã có sẵn: `f1/` (12 lát `f0`–`f11`, **đã giao hết**), `w10/`, `w11/`, `re/`.
+Đã có sẵn: `f1/`–`f9/` (f1 gồm 12 lát `f0`–`f11`, **đã giao hết**), `w10/`, `w11/`,
+`w22/`, `re/`, `rv/`. `f9/` mới nhất tới `f199` (`f196`+`f197` đã merge ở #219) —
+lát tiếp theo bắt đầu từ `f200`.
 Sinh lát mới bằng script `/Volumes/SSD/opencode-work/_mkfleet.py` (`SLICES=n`).
 
 ### Vì sao phải loại bài đã có bản dịch trước khi chia lát
@@ -201,9 +231,14 @@ Node ở repo này (`ecc.prepush.skipNode=true`), nên xanh hay không do **CI**
 df -h / /Volumes/SSD
 ```
 
-`/Volumes/SSD` đang **98% (20 GiB trống)**. Đĩa đầy đã giết hai agent giữa chừng và
-làm mất scorecard. **Phải xem cả hai đĩa.** Nếu `/Volumes/SSD` < 30 GiB thì dọn cache
-trước, đừng giao thêm agent.
+`/Volumes/SSD` đang **9% (853 GiB trống)** — đã qua thời 98%/20 GiB từng giết agent
+giữa chừng và làm mất scorecard. **Vẫn phải xem cả hai đĩa** trước khi giao
+(`df -h / /Volumes/SSD`); quy tắc cũ (< 30 GiB thì dọn cache trước, đừng giao thêm
+agent) giữ nguyên.
+
+`/Volumes/SSD/_wt1` là worktree lưu từ wave54 (detached tại `2e359f4d`, chỉ còn
+`.cache` + `node_modules` untracked) — dọn trước khi mở worktree mới:
+`git worktree remove --force /Volumes/SSD/_wt1`.
 
 ---
 
