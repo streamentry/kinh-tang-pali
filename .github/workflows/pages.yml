@@ -34,7 +34,12 @@ jobs:
         # The store tests assert against the pinned upstream layers, so this workflow needs
         # the same snapshot CI tests against; `npm run build` syncs anyway, but only after
         # the tests have already run, so sync here rather than letting two tests fail.
-        run: npm run source:sync:used
+        #
+        # `--manifest`, not `--used`, for the same reason as ci.yml: the tests walk the
+        # WHOLE catalogue (6,137 texts) while `--used` covers only the texts the project
+        # has data for. That gap made `main` red here even after ci.yml was fixed — I had
+        # fixed one workflow and left this one, so the same test failed in the other place.
+        run: npm run source:sync:manifest
 
       - name: Unit tests
         run: npm test
