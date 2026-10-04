@@ -21,11 +21,23 @@ test('MN66 restores the quail, calm idiom and the acquisition-root claim at its 
 test('MN77 retains seven awakening factors, their qualifiers and the ten kasinas', () => {
   const v = read('mn77');
   assert.match(v['mn77:20.1'], /bảy giác chi/);
-  for (let i = 2; i <= 8; i++) {
+  // Not all seven carry the qualifiers in Pāli, so not all seven should carry them
+  // in Vietnamese. :20.2, :20.8 and the intervening four spell out
+  // `vivekanissitaṁ virāganissitaṁ nirodhanissitaṁ vossaggapariṇāmiṁ` in full;
+  // :20.3 is `dhammavicayasambojjhaṅgaṁ bhāveti …pe…`, so the elided run of
+  // qualifiers must be an ellipsis there rather than written-out text that no
+  // Pāli key backs. :20.4–:20.7 end in a *bare* `…` — a different class, still
+  // awaiting an editorial decision, so their qualifiers stand for now.
+  for (const i of [2, 4, 5, 6, 7, 8]) {
     assert.match(v[`mn77:20.${i}`], /viễn ly/);
     assert.match(v[`mn77:20.${i}`], /ly tham/);
     assert.match(v[`mn77:20.${i}`], /buông xả/);
   }
+  assert.equal(
+    v['mn77:20.3'].replace(/…/g, '').trim(),
+    'Vị ấy tu tập trạch pháp giác chi',
+    'the elision at :20.3 replaces the qualifiers, and nothing else',
+  );
   assert.match(v['mn77:24.1'], /mười biến xứ/);
   assert.match(v['mn77:24.11'], /biến xứ thức/);
   assert.match(v['mn77:23.5'], /vô lượng/);
