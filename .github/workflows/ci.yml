@@ -30,7 +30,17 @@ jobs:
       - name: Sync pinned source
         # The store tests assert against the pinned upstream layers, so CI needs the
         # same snapshot a translator works from rather than skipping those checks.
-        run: npm run source:sync:used
+        #
+        # `--manifest`, not `--used`: `pinned-snapshot.test.ts` walks the WHOLE catalogue
+        # (6,137 texts) while `--used` covers only the texts the project has data for
+        # (4,887 today). That gap stayed invisible until this wave translated `mil1`: the
+        # test's `skip` guard is written on `mil1`'s root file, so the moment `mil1` gained
+        # project data, `--used` began fetching it, the guard stopped skipping, and the
+        # test ran against a corpus it could only partly read (`ENOENT` on `sn12.1`).
+        # Syncing the manifest makes the scope a property of the job instead of a side
+        # effect of what has been translated, so no future text can silently un-skip a
+        # whole-catalogue test.
+        run: npm run source:sync:manifest
       - name: Pinned snapshot manifest is current
         # Fails if the lock moved without the manifest being re-fetched, which would
         # otherwise let the content checks verify against a stale file list.
