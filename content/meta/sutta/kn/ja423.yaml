@@ -1,0 +1,42 @@
+uid: ja423
+status: draft
+translationTitle: "Kinh Indriyajātaka"
+translators:
+  - "OpenCode Space Bunny Free (agent)"
+reviewers: []
+tags:
+  - khuddaka-nikaya
+  - jataka
+  - kaccanivagga
+  - aṭṭhakanipāta
+quality:
+  scores:
+    source_provenance: 9.4
+    semantic_fidelity: 9.0
+    grammar_logic: 8.8
+    segment_alignment: 10.0
+    terminology: 9.2
+    triangulation: 7.8
+    vietnamese_clarity: 8.9
+    han_viet_balance: 9.2
+    ambiguity_integrity: 8.6
+    technical_integrity: 9.6
+  final_score: 9.05
+  blocking_errors:
+    - "Tầng Anh chưa được ghim cho ja423: manifest tại commit 11c9d708978cde8ba61096d8a75f7ddfb846f639 chỉ có 83 tệp ja trong english-sujato và ja423 không có, nên không có tầng tham khảo Anh nào để đối chiếu và validate sẽ chặn nếu đặt review hoặc published."
+  assessed_at: "2026-10-04"
+  assessed_by:
+    - "OpenCode Space Bunny Free (agent)"
+notes:
+  - >-
+    **BLOCKER: tầng Anh chưa được ghim cho bài này.** Đã kiểm `source/upstream-manifest.json` tại commit `11c9d708978cde8ba61096d8a75f7ddfb846f639`: tầng `english-sujato` có **83** tệp `ja` và `ja423` **không có** trong số đó (kiểm cả trên đĩa: không có `.cache/upstream/suttacentral/translation/en/sujato/sutta/kn/ja/ja423_translation-en-sujato.json`). Vì vậy `scripts/validate.ts` sẽ đẩy `pinned English reference missing` vào **errors** nếu status là `review` hoặc `published` — bài buộc phải ở `draft`. Hệ quả: **không có một lần đọc Anh nào để đối chiếu**, `triangulation` 7,8, và mọi chỗ khó đã dịch từ Pāli một mình (xem các mục bất định bên dưới).
+  - >-
+    **Đo lại: ngưỡng coverage không đo được gì cho bài này.** Cả 43 khoá đều ngắn hơn 40 ký tự (ngự ngâm), nên `substantiveSegments = 0` và tỷ lệ được coi là 1 theo công thức của `src/lib/canon/reference.ts`. Nghĩa là bài này *qua* cổng coverage một cách rỗng — cổng không phát hiện được tầng Anh vắng hẳn. Đây là điểm cần nói rõ, không phải bằng chứng rằng bài đã đối chiếu tốt.
+  - >-
+    **Tên phẩm và tiêu đề, có số đếm.** `0.1` *Jātaka* (396/422 tệp `ja`; 16 tệp viết *Chuyện Tiền Thân*). `0.2` `Aṭṭhakanipāta` → *Bộ Tám Bài Kệ* (6/6 trong sáu tệp cùng Bộ Tám: ja417/418/419/420/421/424). `0.3` `Kaccānivagga` → *Phẩm Kaccānivagga* (6/6 — khuôn chính xác của nhóm này, giữ Pāli như *Phẩm Kāsāva*, *Phẩm Kāliṅga*, *Phẩm Cūḷakuṇāla* ở các phẩm khác). `0.4` → *7. Kinh Indriyajātaka* và `10.1` → *Kinh Indriyajātaka, thứ bảy.* (ja417 *1. Kinh Kaccāni*, ja418 *2. Kinh Aṭṭhasaddajātaka*, ja424 *8. Kinh Ādittajātaka*). `ja422` không có trong kho nên số thứ tự 7 của bài này khớp `0.4` của Pāli.
+  - >-
+    **Thuật ngữ, có số đếm.** `indriya` → *căn* (kn=154) · `kāma` → *dục* (kn=357) · `dhīra` → *dũng mãnh* (kn=25) · `nibbatto` → *được giải thoát* · `ariyadhammā` → *các pháp cao thượng*. Cả 43 khoá là bài ngâm ngắn, dịch theo văn pháp kệ hiện có trong kho (chữ hoa ở đầu câu đầu, chữ thường ở các câu tiếp — xem `ja424`).
+  - >-
+    **BẤT ĐỊNH ĐÃ GHI, KHÔNG GIẤU — bốn chỗ dịch từ Pāli một mình.** (a) `:3.1`–`:3.4` `Kicchakāle kicchasaho / yo kicchaṁ nātivattati / Sa kicchantaṁ sukhaṁ dhīro / yogaṁ samadhigacchati`: ngự ngâm về việc hài lòng với chút ít; dịch *Ít mà còn hơn ít, / ai không vượt quá cái ít ấy; / Người dũng mãnh kia, lấy chút ít làm điều vui, / thì đạt được chỗ tập trung.* `yogaṁ samadhigacchati` dịch *đạt được chỗ tập trung* — chắc `yoga` ở đây là bốn tâm vô lượng nhưng **không có bản Anh để phân xử**, nên không dám khẳng định. (b) `:8.1` `Sohaṁ sahassajīnova` dịch *Một nghìn năm kiếp bên kia* — `sohaṁ` là dạng chữ không rõ; giữ nghĩa số lượng, không đoán thêm. (c) `:9.3` `So sukhaṁ nādhigacchāmi` — chủ ngữ `so` (ngôi 3) nhưng động từ `nādhigacchāmi` (ngôi 1); dịch *Ta không chứng ngộ được điều dễ chịu*, và ghi rõ sự lệch ngôi này thay vì chọn một bên. (d) `:5.3`–`:5.4` `Ahāso atthalābhesu, atthabyāpatti abyatho` dịch *Có vẻ như các mục tiêu đã bị xâm phạm, / mà lại không hề bị xâm phạm*; cụm này không có tiền lệ trong kho và cũng không có bản Anh.
+  - >-
+    **Bốn cặp nháy kép trong Pāli, giữ nguyên vị trí:** mở/đóng ở `:1.1`–`:4.4`, `:5.1`–`:5.4`, `:6.1`–`:6.4`, `:7.1`–`:9.4`. **Không đối chiếu được tầng Việt hiện hành** (tại commit đã ghim chỉ có 26 chương Pháp Cú).
