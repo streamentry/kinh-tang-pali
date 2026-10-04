@@ -1,0 +1,100 @@
+uid: ja438
+status: draft
+translationTitle: "Kinh Daddara"
+translators:
+  - "OpenCode Space Bunny Free (agent)"
+reviewers: []
+tags:
+  - "khuddaka-nikaya"
+  - "jataka"
+  - "navakanipata"
+  - "gijjhavagga"
+  - "daddarajataka"
+quality:
+  scores:
+    source_provenance: 9.4
+    semantic_fidelity: 9.0
+    grammar_logic: 9.0
+    segment_alignment: 10.0
+    terminology: 9.1
+    triangulation: 7.4
+    vietnamese_clarity: 9.0
+    han_viet_balance: 9.2
+    ambiguity_integrity: 8.4
+    technical_integrity: 9.6
+  final_score: 9.01
+  blocking_errors:
+    - "Bài này không có tầng Anh SuttaCentral đã ghim ở commit đã pin (0/0 segment có nội dung, không có tệp nào trong english-sujato), nên thiếu tầng tham khảo bắt buộc để xuất bản; đối chiếu chỉ có Pāli ghim cùng commit + tiền lệ trong chính tầng Việt dự án."
+    - "`ja438` không nằm trong 83 tệp `ja` của tầng `english-sujato` đã ghim (đo lại từ source/upstream-manifest.json: ja1–ja79 cộng ja126, ja159, ja466, ja534), và translation/vi/phantuananh/ ở commit đã ghim chỉ chứa Pháp Cú, nên không thể đối chiếu một bản Anh độc lập cho bài này."
+    - "Người nói và quan hệ giữa các nhân vật ở 1.1–2.4 và 9.3–9.4 chưa phân xử được từ Pāli ghim (xem notes); bài không có bản Anh nào ở commit đã ghim để quyết, nên tôi dịch từng từ một theo Pāli và không tuyên bố đã đối chiếu."
+  assessed_at: "2026-10-04"
+  assessed_by:
+    - "OpenCode Space Bunny Free (agent)"
+notes: |-
+  **Vì sao `draft` (hai lý do chung + một lý do của riêng bài này).** (1) `ja438` không có tầng
+  tham khảo nào ngoài Pāli: tầng `english-sujato` đã ghim có **83** tệp `ja` (ja1–ja79 cộng
+  ja126, ja159, ja466, ja534 — tôi đếm lại từ `source/upstream-manifest.json`), `ja438` không có
+  mặt; `translation/vi/phantuananh/` tại commit đã ghim chỉ chứa Pháp Cú. (2) Bài này
+  `substantiveSegments = 0` (47 khoá đều là câu kệ ngắn hơn 40 ký tự), nên ngưỡng coverage 0.8
+  của `scripts/validate.ts:242` không chặn và `record-reference-gaps` không sinh entry — `validate`
+  sẽ không đỏ, nhưng mất tầng Anh là thật; tôi không sửa `content/meta/reference-gaps.yaml`.
+  (3) Xem mục bất định bên dưới. `triangulation` vì thế bị chặn ở 7.4.
+
+  **Nguồn.** `ja438` = `12. Daddarajātaka` — **bài cuối của Bộ Chín Bài Kệ**, nên bài này mang
+  cả `Navakanipātaṁ niṭṭhitaṁ` (`11.1`) và bốn câu `Tassuddānaṁ` (`12.1`–`13.4`). 47 khoá, đủ
+  47 khoá đã dịch. Pāli ghim `root/pli/ms/sutta/kn/ja/ja438_root-pli-ms.json`; commit đã ghim
+  `11c9d708978cde8ba61096d8a75f7ddfb846f639`.
+
+  **Tên phẩm, đo lại trên chính tầng Việt (đếm theo giá trị Pāli tuyệt đối).**
+  `Navakanipāta` → *Bộ Chín Bài Kệ* **9/9** · `Gijjhavagga` → *Phẩm Hươu* **9/9** ·
+  `Jātaka` ở `0.1`: 433 tệp `ja`, **417** giữ `Jātaka`, 16 dùng *Chuyện Tiền Thân*. Dòng
+  `0.4` theo khuôn cùng phẩm. `11.1` `Xniṭṭhitaṁ` → *Bộ … Bài Kệ đã hoàn tất*, theo
+  `ja426:10.1` (*Bộ Tám Bài Kệ đã hoàn tất*) và `ja416`. `12.1` `Tassuddānaṁ` → *Tóm lược:*
+  (đếm toàn tầng 362 lần, áp đảo). `10.1` `dvādasamaṁ` → *thứ mười hai*, theo *thứ mười một*
+  ở `ja437:10.1`.
+
+  **Dùng lại nguyên văn.** `6.1`–`6.2` và `9.1`–`9.2` lặp **nguyên văn**
+  `Kānissa kammāyatanāni assu, / Purisassa vuttisamodhānatāya;` — tôi dùng lại **nguyên văn y hệt**
+  cả bốn khoá (*Ngươi đã nghe những nguồn gốc nghiệp ấy, / nhưng không phải vì thế mà ngươi đã
+  hiểu trọn vẹn ý người ấy;*), đúng như `sn55.41`/`sn55.43` đã làm. Cụm *bạn hiền tử* cho `sākha`
+  dùng nhất quán cả bài.
+
+  **Bốn câu `uddāna` — mật mã liệt kê tên bài, và chúng KHÔNG khớp với tên bài trong tệp ghim.**
+  `13.1`–`13.4` liệt kê mười hai tên (*Varagijjha, Samajjana, Haṁsavaro, Nidhisavhaya,
+  Hārita, Pāṭaliko, Ajarāmara, Dhaṅka, Titikkha, Kuto, Pekkhana, Daddara*), nhưng mười hai bài
+  `ja427`–`ja438` trong tệp Pāli ghim lại mang tên *Gijjha, Kosambi, Mahāsuvajātaka,
+  Cūḷasuvajātaka, Haritacajātaka, Padakusalamāṇavajātaka, Lomasakassapajātaka, Cakkavākajātaka,
+  Haliddirāgajātaka, Samuggajātaka, Pūtimaṁsajātaka, Daddarajātaka* — chỉ *Gijjha* (tức
+  *Varagijjha*) và *Daddara* trùng. Đối chiếu ngược lại: `uddāna` của `Aṭṭhakanipāta` ở
+  `ja426:12.1`–`12.4` **có** khớp đủ mười hai tên, nên đây là đặc điểm thật của bộ tệp đã ghim ở
+  `Navakanipāta`, không phải lỗi của tôi. Tôi giữ tên dạng chuyển âm theo khuôn `ja426`/`ja437`
+  và **không** tự ghép tên nào với bài nào.
+
+  **Ngoặc kép — Pāli đã cân sẵn, giữ nguyên vị trí.** Sáu dấu `“` ở `1.1`, `2.1`, `4.1`, `5.1`,
+  `6.1`, `7.1` và sáu dấu `”` ở `1.4`, `3.4`, `4.4`, `5.4`, `6.4`, `9.4` — trong đó `3.4` và
+  `9.4` đứng lệch so với dấu mở gần nhất (người đọc hiểu là lời kêu kéo dài). Lần đầu tôi đã
+  đổi hai chỗ đó sang nháy cong để cân vòng đếm; sau khi đếm lại từng dấu trên Pāli ghim thì
+  **Pāli vốn đã cân (6/6)**, nên tôi **hoàn nguyên** về đúng sáu `”` của Pāli. Sau khi hoàn
+  nguyên, vị trí từng dấu khớp Pāli 100% và `_hvi.ngoặc` trả `True`.
+
+  **Bất định, ghi ở đây chứ không thêm vào thân kinh.**
+  (1) **Người nói ở `1.1`–`2.4`.** `1.1` `“Yo te puttake akhādi` và `2.1` `“Ākiṇṇaluddo puriso`
+  là hai lời mở khác nhau, nhưng `2.3` `Padesaṁ taṁ na passāmi` (*Ta không thấy nơi nào…*) lại
+  là lời của chính người đang kế hoạch hại. Tôi **không** tự chỉ định ai là ai; mỗi vế được
+  dịch theo đúng chủ thể của nó và giữ nguyên `ta`/`ngươi` như Pāli.
+  (2) `kammāyatanāni` ở `5.3`/`6.1`/`9.1` — tôi dịch *nguồn gốc nghiệp*. `kammāyatana` là
+  *chỗ phát sinh của nghiệp*, tức tiền nghiệp; `vuttisamodhānatāya` ở `6.2`/`9.2` là *để hiểu trọn
+  ý người ấy*, tôi dịch *hiểu trọn vẹn ý người ấy*. Cả hai từ đều không có tiền lệ trong tầng.
+  (3) `piṇḍapaṭiggahena` ở `8.4` — xiềng xích của kẻ bị buộc phải đi xin ăn; tôi dịch *xích
+  của kẻ phải đi xin ăn*.
+  (4) `yathā ayaṁ dissati lomapiṇḍo` ở `9.3` — hình ảnh một cục phân tai trông như thế này;
+  người nói dùng nó để ám chỉ Daddara. Tôi dịch đúng hình ảnh, **không** diễn giải thêm.
+  (5) `Daṇḍena` ở `7.4` tôi giữ chuyển âm *Danda* vì đây là tên riêng trong Pāli, không có
+  bản Việt nào đã dùng.
+
+  **Dấu lược.** `ja438` không có khoá nào chứa `…pe…`.
+
+  **Cổng kỹ thuật.** `npm run validate|test|check|build` bị cấm trong lát này. Tôi tự kiểm bằng
+  chính `_hvi.py`: JSON hợp lệ, đủ 47/47 khoá trong `all`, không khoá thừa, không khoá nào trùng
+  nguyên văn Pāli, mọi giá trị NFC, bài không có dấu lược, không `(…)` đứng một mình, ngoặc kép
+  cân trên cả bài, không Pāli lọt, thứ tự khoá đúng thứ tự số.
