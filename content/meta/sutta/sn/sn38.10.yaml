@@ -16,12 +16,12 @@ quality:
     grammar_logic: 9.3
     segment_alignment: 10.0
     terminology: 9.2
-    triangulation: 8.4
+    triangulation: 8.0
     vietnamese_clarity: 9.3
     han_viet_balance: 9.3
     ambiguity_integrity: 9.4
     technical_integrity: 10.0
-  final_score: 9.39
+  final_score: 9.35
   blocking_errors: []
   assessed_at: "2026-09-29"
   assessed_by:
@@ -45,3 +45,10 @@ notes:
     Bất định đã ghi: `an6.106` (đúng bài `Taṇhāsutta` của Aṅguttara) dịch `taṇhā` thành *khát ái* và gọi tiêu đề *Kinh Khát Ái*; kho đang dùng *ái* (đa số 67/67 tiền lệ). Hai cách đều có nền. **Người biên tập nên chọn một và thống nhất.**
   - >-
     terminology fix (gộp tên phẩm, 2026-10-04, coordinator): khối tiêu đề đổi sang cách dịch đa số toàn tầng — `1. Jambukhādakavagga` → «1. Phẩm Jambukhádaka». Đếm bằng cách ghép PāLI↔Việt ở mọi khối `:0.1`–`:0.9` có số thứ tự phẩm; cùng tên PāLI ở hai bộ khác nhau là hai phẩm khác nên không so chéo. Khối tiêu đề, không đổi nghĩa segment nào.
+  - >-
+    **Sửa `triangulation` sau khi lớp lấp English của dự án phủ các khoá này (2026-10-04, coordinator).**
+    Bản Anh đã ghim trống ở chính các khoá mà lớp lấp `sn38.*` lấp, nên trước đó chỗ này
+    không có tầng Anh nào để đối chiếu; nay tầng Anh ở đó là **bản dịch của chính người
+    chấm scorecard này**, theo đúng nguyên tắc trong `AGENTS.md`: khi lớp lấp và tầng Việt
+    trùng `assessed_by`, scorecard Việt **không được** tuyên bố đã đối chiếu English.
+    Vì vậy `triangulation` bị chặn ở **8,0** như lớp lấp, và `final_score` tính lại bằng script.
