@@ -13,33 +13,40 @@ quality:
   scores:
     source_provenance: 9.7
     semantic_fidelity: 9.4
-    grammar_logic: 9.4
+    grammar_logic: 9.2
     segment_alignment: 10.0
-    terminology: 9.5
+    terminology: 9.4
     triangulation: 9.3
     vietnamese_clarity: 9.4
     han_viet_balance: 9.4
     ambiguity_integrity: 9.2
     technical_integrity: 9.6
-  final_score: 9.49
+  final_score: 9.46
   blocking_errors: []
   assessed_at: "2026-10-04"
   assessed_by:
     - "OpenCode Space Bunny Free (agent)"
 notes: |-
-  Dịch từ Pāli root tại commit đã ghim; bản Anh Bhikkhu Sujato ở tầng `english-sujato` phủ 25/25 khoá Pāli có nội dung (coverage 100%). Tầng `vietnamese-current` không có cho bài này (bilara tại commit đã ghim chỉ phân phối Pháp Cú cho tiếng Việt).
-  ĐO LẠI (không tin số của người khác):
-    · 0.1 bài sn: quét 1.598 tệp sn đã dịch có khoá `:0.1` -> 1.468 ghi `Saṁyutta Nikāya`, 130 ghi dạng hợp nhất `Saṁyutta Nikāya <n>`, và 0 tệp nào ghi `Saṡyutta` (grep `Saṡyutta` trong cả tầng = 0 hit). Chốt `Saṁyutta Nikāya`.
-    · 0.1 bài an: quét 1.240 tệp an có `:0.1` -> `Kinh Tăng Chi Bộ` 887, `Aṅguttara Nikāya` 353. Đa số CẢ BỘ là `Kinh Tăng Chi Bộ` nên cả 4 bài an của lát đều dùng nó.
-    · Số đo CỤC BỘ theo quyển (cùng một lần đo, chỉ tách nhóm): quyển 8 `Aṅguttara` 43 / `Kinh Tăng Chi Bộ` 14 (nghiêng PāLI); quyển 10 `Aṅguttara` 19 / `Kinh Tăng Chi Bộ` 156 (nghiêng tiếng Việt); quyển 11 `Aṅguttara` 23 / `Kinh Tăng Chi Bộ` 4 (nghiêng PāLI). Ghi cả hai số ở đây rồi chọn theo đa số cả bộ, đồng nhất với các lát trước.
-    · Tên phẩm, đếm bằng cách ghép Pāli↔Việt ở khối `:0.2` trên toàn tầng: `1. Cittavagga` -> `1. Phẩm Tâm` (3 tệp, sn41.9); `2. Pāsādakampanavagga` -> `2. Phẩm Vui Vẻ` (7 tệp, sn51.12-sn51.19); `1. Rahogatavagga` -> `1. Phẩm Ở Riêng`10 tệp, sn52.2-sn52.11); `12. Paccorohaṇivagga` -> `12. Phẩm bước xuống` (6 tệp); `17. Jāṇussoṇivagga` -> `17. Phẩm Vua Jāṇussoṇi` (7 tệp); `2. Mahāvagga` -> `2. Phẩm Lớn` (5 tệp, an8.15-an8.18). Không tạo cách thứ N+1.
-    · Tiêu đề bài: `Saṅgāravasutta` -> `Kinh Saṅgārava` (sn7.21:0.3, an3.60:0.3); `Assājānīyasutta` -> `Kinh Ngựa Thuần Thục` (an5.203:0.3, Pāli trùng tuyệt đối).
-    · Dấu lược: mọi `…pe…` của Pāli giữ đúng MỘT `…`, không mở rộng ở đâu cả. Đối chiếu từng khoá: sn41.2:3.10 (1), sn51.14:5.5 (1), 5.6 (1), 5.16 (2), sn52.1:7.1 (1), 7.2 (1), 7.3 (3), 8.1 (1), 9.1 (1), 9.2 (1), 9.3 (2), 10.1 (1), an10.170:1.2 (1), an8.13:2.1 (1), 2.16 (1), 2.19 (1).
-    · Một lượt review đối kháng riêng đã chạy: in 316 cặp Pāli↔Việt và đọc từng cặp, rồi chạy lại `save_vi` (idempotent, không đổi gì), NFC toàn bộ (0 lỗi), ngoặc kép cân trên cả bài (0 lỗi), số dấu lược khớp từng khoá (0 lỗi), không còn `(…)` khoá chưa dịch (0 lỗi). `save_vi` bắt được đúng một lỗi thật trong lúc viết: sn52.1:9.3 thiếu một dấu lược (Pāli có hai `…pe…`), đã sửa và chạy lại sạch.
-    · Quy ước đóng ngoặc kép: tầng đang phân hai cách — kết thúc bằng `”ti.` 1.935 tệp so với `”.` 2.384 tệp (đo toàn tầng), và dn/mn chỉ dùng `”.`. Lát này theo đa số `”.` ở mọi chỗ mình dịch, giữ `”ti.` ở đúng bốn khoá mà bản Việt tiền lệ đã viết `”ti.` (an10.117:6.6, an10.169:7.6, an10.170:6.6 theo an10.118:7.6; an8.13:2.19 theo an8.57:1.11) — sửa chúng thành `”.` sẽ phá vỡ nguyên văn dùng lại, nên giữ nguyên và ghi ra đây.
-    · `validate`/`test`/`build` không chạy (bị cấm trong lát này), nên `technical_integrity` đặt 9.6 thay vì 10.0.
+  Dịch từ Pāli root tại commit đã ghim. COVERAGE ĐO LẠI bằng chính hàm của kho (`englishCoverageFor`, ngưỡng 0.8 khai trong `source/layers.yaml`): `english-sujato` phủ 25/25 khoá Pāli có nội dung = 1.000; `english-project` có tệp lấp cho bài này nên được tính vào. Tầng `vietnamese-current` không có — tại commit đã ghim bilara chỉ phân phối Pháp Cú cho tiếng Việt, nên không có bản Hòa thượng Thích Minh Châu để đối chiếu.
 
-  Dùng lại nguyên văn bản Việt đã có, Pāli trùng tuyệt đối: `sn41.5:7.2` <- `sn47.29:4.7` (đối chiếu byte-for-byte, khớp).
-  Tiền lệ thuật ngữ, đều có số đếm: `sīla` -> `giới luật` · `vimutti` -> `giải thoát` · `sati` -> `chánh niệm` · `arahanto` -> `bậc A-la-hán` · `taṇhā` -> `ái` · `nīgho` -> `tối tăm` (90 chỗ trong tầng) · `bandhanaṁ` -> `trói buộc` (741 chỗ) · `khīṇāsavo bhikkhu` -> `vị tỳ-kheo đã đoạn tận các lậu` · `pahīnā ucchinnamūlā tālāvatthukatā anabhāvaṅkatā āyatiṁ anuppādadhammā` -> `trừ bỏ, bị chặt tận gốc, được làm như gốc chà là, bị tiêu diệt, là pháp không sinh lại trong tương lai` (nguyên văn sn23.10:1.6) · `saṅkhittena bhāsitassa vitthārena attho` -> `ý nghĩa chi tiết của lời dạy vắn tắt` (nguyên văn sn22.70:2.1) · `muhuttaṁ` -> `một lát` · `cātumahābhūtikassa kāyassa … odanakummāsūpacayassa aniccucchādanaparimaddanabhedanaviddhaṁsanadhammassa` -> `thân thể tứ đại này … được tích tụ từ cơm nếu cháo, có bản chất vô thường, chập phá, bị nghiền nát, tan rã` (theo an9.15:2.1, chỉ khác `odananalakumma` ở nguồn nên lấy `cơm nếu cháo`) · `paṇḍito` -> `bậc trí`.
-  0 tiền lệ, đặt mới kèm lý do: `nelaṅgo` -> `không tỳ vết` (33 chỗ trong tầng, nhưng chưa ở đây; đọc cùng `anukkama` tứ đảnh trong `sn48.8` mà tầng dịch `không tỳ vết`) · `setapacchādo` -> `tấm che trắng` · `ekāro` -> `chỉ một càng` · `vattatī` -> `vận chạy tới` · `ratho` -> `xe cở` (`xe ngựa` có 33 chỗ nhưng `cở` đúng nghĩa cỗi xe và giữ được hình ảnh tầm nhìn thấp của bánh xe) · `anīgha` -> `không u buồn` (theo `nīgho` = sầu bi, và 5.6 giải nghĩa `nīgha` là tham sân vô minh) · `chinnasota` -> `đã cắt dòng sông` · `abandhana` -> `không trói buộc`.
-  Bất định đã phân xử: (1) `sn41.5:5.16` (`Iti kho, bhante, yaṁ taṁ bhagavatā vuttaṁ:`) trong Pāli không có `saṅkhitta` cũng không có `vitthārena attho`, nhưng dịch thẳng thì thành câu vô nghĩa; mình dùng `ý nghĩa chi tiết của lời Đức Thế Tôn nói vắn tắt được hiểu như sau:` — lấy từ chính `sn41.5:7.1` ngay sau đó và từ cách tầng dịch `saṅkhittena bhāsitassa vitthārena attho`; không thêm ý vào thân kinh. (2) `anīgha` có thể đọc là `an-īgha` (không bệnh tật) — chọn `không u buồn` vì 5.6 giải nghĩa `nīgha` là tham/sân/vô minh và Sujato dịch *untroubled*.
+  ĐỢT NÀY LÀ LƯỢT REVIEW ĐỐI KHÁNG THỨ HAI, trên bản dịch đã có trên đĩa. Sửa 2 khoá, giữ nguyên 39/39 khoá:
+    · `7.1` — LỖI XƯNG NGÔ. Pāli `Imassa kho, bhante, bhagavatā saṅkhittena bhāsitassa evaṁ vitthārena atthaṁ ājānāmī”ti.` do gia chủ Citta nói; bản dịch dùng `tôi`. Cùng người này dùng `con` với Tôn giả Kāmabhū ở `4.2` và `4.4` trong chính bài này, và trong tầng có 7 chỗ dịng dạng `con hiểu ý nghĩa chi tiết của lời … nói vắn tắt … như vậy` cho `ājānāmī` (5 + 1 + 1) so với đúng 1 chỗ dùng `tôi` — chính là chỗ này. Đã sửa thành `con`.
+    · `7.3` — LỖI NHẤT QUÁN TRONG CÙNG MỘT CÂU NÓI. Pāli `Yassa te gambhīre buddhavacane paññācakkhu kamatī”ti.` dùng `te` như `7.2` (`Lābhā te … suladdhaṁ te`), mà `7.2` dịch `ngươi` (đúng byte-for-byte với `sn47.29:4.7` và `sn47.30`), thì `7.3` lại dịch `bạn`. Đã sửa thành `ngươi`.
+  Số khoá sửa: 2, cùng loại lỗi xưng ngô/thống nhất xưng hô. Không có khoá thừa, thiếu hay lệch, vẫn 39/39 khớp đúng khoá Pāli, nên `segment_alignment` giữ 10.0; `grammar_logic` hạ 9.2 vì hai lỗi trên là lỗi quan hệ chủ thể thật, không chỉ là văn phong.
+
+  ĐO LẠI TIỀN LỆ (không tin số của người khác):
+    · 0.1 bài sn: quét 1.608 khoá `:0.1` trong tầng `sn` -> 1.608/1.608 viết `Saṁyutta Nikāya`, 0 tệp nào trong cả tầng ghi `Saṡyutta` (grep `Saṡyutta` trong `content/translation/vi/project/` = 0 hit). Chốt `Saṁyutta Nikāya 41.5`.
+    · 0.1 bài an: quét 1.248 khoá `:0.1` trong tầng `an` -> `Kinh Tăng Chi Bộ` 895, `Aṅguttara Nikāya` 353, không có dạng thứ ba.
+    · Tên phẩm: `1. Cittavagga` -> `1. Phẩm Tâm` (3 tệp) · `2. Pāsādakampanavagga` -> `2. Phẩm Vui Vẻ` (7 tệp) · `1. Rahogatavagga` -> `1. Phẩm Ở Riêng` (10 tệp) · `12. Paccorohaṇivagga` -> `12. Phẩm bước xuống` (6 tệp) · `17. Jāṇussoṇivagga` -> `17. Phẩm Vua Jāṇussoṇi` (7 tệp) · `2. Mahāvagga` -> `2. Phẩm Lớn` (5 tệp). Không tạo cách thứ N+1.
+    · Dấu lược: bài này Pāli không có `…pe…` nào, bản Việt cũng không có dấu `…` nào. Cả 39 khoá khớp.
+    · Ngoặc kép cân trên cả bài (đếm cả `“` và `”` toàn bài, kể cả ngoặc lồng nhau), 0 lỗi. NFC toàn bộ 0 lỗi. Không có khoá rỗng, không có `(…)` khoá chưa dịch, không có khoá tràn. Số khoá 39 = 39.
+    · Dùng lại NGUYÊN VĂN khi Pāli trùng tuyệt đối, đối chiếu byte-for-byte: `7.2` <- `sn47.29:4.7` (Pāli `“Lābhā te, gahapati, suladdhaṁ te, gahapati.` trùng; cùng cụm còn có ở `sn47.30`).
+
+  Tiền lệ thuật ngữ, đều có số đếm: `sīla` -> `giới luật` · `vimutti` -> `giải thoát` · `sati` -> `chánh niệm` · `arahanto` -> `bậc A-la-hán` · `taṇhā` -> `ái` · `nīgho` -> `tối tăm` (90 chỗ trong tầng) · `bandhanaṁ` -> `trói buộc` (741 chỗ) · `khīṇāsavo bhikkhu` -> `vị tỳ-kheo đã đoạn tận các lậu` · `pahīnā ucchinnamūlā tālāvatthukatā anabhāvaṅkatā āyatiṁ anuppādadhammā` -> `trừ bỏ, bị chặt tận gốc, được làm như gốc chà là, bị tiêu diệt, là pháp không sinh lại trong tương lai` (nguyên văn `sn23.10:1.6`) · `saṅkhittena bhāsitassa vitthārena attho` -> `ý nghĩa chi tiết của lời dạy vắn tắt` (`sn22.70:2.1`) · `muhuttaṁ` -> `một lát` · `paṇḍito` -> `bậc trí`.
+  0 tiền lệ, đặt mới kèm lý do: `nelaṅgo` -> `không tỳ vết` (33 chỗ `không tỳ vết` trong tầng, đọc cùng dãy `anukkama` tứ đảnh ở `sn48.8`) · `setapacchādo` -> `tấm che trắng` · `ekāro` -> `chỉ một càng` · `vattatī` -> `vận chạy tới` · `ratho` -> `xe cở` (`xe ngựa` có 33 chỗ, nhưng `cở` đúng nghĩa cỗi xe và giữ được hình ảnh tầm nhìn thấp của bánh xe) · `anīgha` -> `không u buồn` (theo `nīgho` = sầu bi, và `5.6` giải nghĩa `nīgha` là tham sân vô minh) · `chinnasota` -> `đã cắt dòng sông` · `abandhana` -> `không trói buộc` · `odanakummāsūpacayassa` -> `tích tụ từ cơm nếu cháo` (`an9.15:2.1` chỉ có `tích tụ từ đất, nước, gió, lửa` cho `cātumahābhūtikassa`, không có cụm tương ứng với `odanakummā`; grep `cơm nếu` trong tầng trước đợt này = 0 hit).
+
+  Bất định đã phân xử:
+    (1) `5.16` (`Iti kho, bhante, yaṁ taṁ bhagavatā vuttaṁ:`) trong Pāli không có `saṅkhitta` cũng không có `vitthārena attho`; dịch thẳng sẽ thành câu vô nghĩa. Đã dùng `ý nghĩa chi tiết của lời Đức Thế Tôn nói vắn tắt được hiểu như sau:` — lấy từ chính `7.1` ngay sau đó và từ cách tầng dịch `saṅkhittena bhāsitassa vitthārena attho`. Đây là chỗ duy nhất trong bài có chữ thêm ngoài Pāli, nên `ambiguity_integrity` hạ 9.2.
+    (2) `anīgha` có thể đọc `an-īgha` (không bệnh tật); chọn `không u buồn` vì `5.6` giải nghĩa `nīgha` là tham/sân/vô minh và Sujato dịch *untroubled*.
+
+  Cổng kỹ thuật: `technical_integrity` đặt 9.6 thay vì 10.0 vì lát này bị cấm chạy `npm run validate`, `npm test`, `npm run check` và `npm run build` (bốn lệnh này là cổng thật do CI chạy). Đã tự kiểm bằng node: JSON hợp lệ, 39/39 khoá khớp Pāli, 0 khoá thừa/thiếu/rỗng, NFC sạch, dấu lược khớp từng khoá, ngoặc kép cân. Coverage tầng Anh đo lại bằng hàm của kho nên không có blocker loại 1. Không sửa `content/meta/reference-gaps.yaml`, không sửa `source/`, không sửa `scripts/` hay `src/`.
