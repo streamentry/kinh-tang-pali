@@ -1,0 +1,57 @@
+uid: tha-ap32
+status: draft
+translationTitle: "Bài Kệ Tuyên Ngợ Về Trưởng Lão Khomadāyako"
+translators:
+  - "OpenCode Space Bunny Free (agent)"
+reviewers: []
+tags:
+  - "kn"
+  - "khuddaka-nikaya"
+  - "therapadana"
+  - "subhutivagga"
+quality:
+  scores:
+    source_provenance: 9.5
+    semantic_fidelity: 9.2
+    grammar_logic: 9.2
+    segment_alignment: 10.0
+    terminology: 9.1
+    triangulation: 7.5
+    vietnamese_clarity: 9.2
+    han_viet_balance: 9.3
+    ambiguity_integrity: 9.0
+    technical_integrity: 9.6
+  final_score: 9.16
+  blocking_errors:
+    - "Không có tầng tham khảo tiếng Anh tại commit đã ghim: bản Sujato ở `translation/en/sujato/sutta/kn/` chỉ có mười thư mục con — cp, dhp, iti, ja, kp, snp, thag, thig, ud — KHÔNG có `tha-ap`, và `source/upstream-manifest.json` không liệt kê bất kỳ tệp dịch nào cho uid này; đây là `not-published-upstream`, KHÔNG phải `not-synced`. Đo coverage theo đúng công thức `source/layers.yaml` (`englishCoverage.substantivePaliMinChars: 40`, `excludeReferenceBlock: true`) cho 0 trên 1 khoá Pāli có nội dung = 0%, dưới ngưỡng 0.8. `scripts/validate.ts` coi tệp Anh thiếu là error khi status là `review` hoặc `published`, nên bài bắt buộc `draft`. Lớp lấp `english-project` của dự án cũng không có cho uid này. Tầng `vietnamese-current` cũng vắng: `translation/vi/phantuananh` tại commit đã ghim chỉ có 26 tệp và toàn bộ là Pháp Cú. Ba tầng tham khảo đều vắng nên bài dịch chỉ từ Pāli root, đây là giới hạn upstream chứ không phải lỗi của người dịch; vì vậy `triangulation` bị chặn ở 7.5 (≤ 8.0) chứ không nâng để né blocker."
+  assessed_at: "2026-10-04"
+  assessed_by:
+    - "OpenCode Space Bunny Free (agent)"
+notes: |-
+  Bản dịch tiếng Việt mới cho bài kinh tha-ap32 — trưởng lão Khomadāyako, bài thứ mười
+  và bài cuối của Subhūtivagga. Tên bài nghĩa là vị trưởng lão cho bột thọ.
+
+  Tiền kiếp: ở kinh đô Bandhumatī ông là thương nhân, tự mình nuôi dưỡng người vợ ấy và
+  gieo hạt giống của điều lành; Đức Vipassī đến đại lộ ấy và ông dâng một đo bột thọ vì lợi
+  lành cho bậc Đạo Sư. Vào chín mươi mốt kiếp trước là quả của việc cúng dường bột thọ;
+  vào hai mươi hai kiếp trước ông làm vua có đủ bảy món báu, làm chúa trên bốn châu lục.
+
+  Bất định đã ghi lại, không sửa trong kinh:
+  - `Rathiyaṁ paṭipannassa, vipassissa mahesino` (2.1–2.2) là cụm danh từ rời trong Pāli.
+    `rathiya` dịch là đại lộ theo ba cặp tiền lệ tha-ap259:1.2 và tha-ap186:1.4. Bản dịch
+    giữ vị trí từng vế và không thêm chủ ngữ.
+  - `Ekaṁ khomaṁ` dịch là một đo bột thọ: `khoma` là bột gạo, và đơn vị đong đo đúng theo
+    ngữ cảnh cho một người bán.
+  - `bījasampadaṁ` (1.4) dịch là hạt giống của điều lành, không mở rộng thành công đức
+    hay giới luật.
+  - `Catutthabhāṇavāraṁ` (12.1) dịch là Lần thứ tư. Cụm này không có tiền lệ trong tầng
+    Việt; theo mẫu `<số thứ tự> bhāṇavāraṁ` của chính hệ Apadāna ở ha-ap và a-ap thì nó
+    là dấu hiệu lần tuyên thuyết, không phải tiêu đề mới.
+  - uddāna 9.1–10.1 giữ tên Pāli nguyên văn như tiền lệ tha-ap252:9, kể cả ba dạng gốc
+    `dhūpo`, `pulino`, `uttiyena` — vì đó là các danh từ gốc của kinh, dịch ra sẽ thành
+    lời bịa.
+  - `Subhūtivaggo tatiyo` (11.1) là phẩm thứ ba; số thứ tự phẩm truyền thống ở đây không
+    theo chỉ số bài, dịch đúng như Pāli.
+  - `Vimokkhāpi ca aṭṭhime` dịch giống hệt tha-ap31:4.2 và tha-ap27:6.2.
+
+  Bốn lệnh cổng kỹ thuật của dự án là `npm run validate`, `npm test`, `npm run check` và `npm run build` (lớp CI chạy cả bốn; lát này không tự chạy vì BRIEF cấm, nên `technical_integrity` đặt 9.6 chứ không phải 10). Trong lát, mọi khoá đã qua kiểm của chính tầng Việt qua `_hvi.save_vi`: đủ 36/36 khoá, cân ngoặc kép trên cả bài, đúng số dấu lược theo Pāli, NFC, không trùng nguyên văn Pāli, không lọt Pāli. `final_score` là trung bình số học thô của đúng 10 tiêu chí, tính bằng script.

@@ -1,0 +1,40 @@
+uid: vv12
+status: draft
+translationTitle: "Chuyện Cung Điện Nữ Gả Chồng Thứ Hai"
+translators:
+  - "OpenCode Space Bunny Free (agent)"
+reviewers: []
+tags:
+  - "kn"
+  - "khuddaka-nikaya"
+  - "vimanavatthu"
+  - "itthivimana"
+  - "pithavagga"
+quality:
+  scores:
+    source_provenance: 9.4
+    semantic_fidelity: 9.0
+    grammar_logic: 8.9
+    segment_alignment: 10.0
+    terminology: 8.8
+    triangulation: 7.5
+    vietnamese_clarity: 9.0
+    han_viet_balance: 9.3
+    ambiguity_integrity: 8.7
+    technical_integrity: 9.6
+  final_score: 9.02
+  blocking_errors:
+    - "Không có tầng tham khảo tiếng Anh tại commit đã ghim: tệp `translation/en/sujato/sutta/kn/vv/vv12_translation-en-sujato.json` không tồn tại trong `.cache/upstream/suttacentral/` và `source/upstream-manifest.json` không liệt kê tệp nào cho uid này — đây là `not-published-upstream`, KHÔNG phải `not-synced`. `scripts/validate.ts` xếp tệp Anh thiếu là **error** khi status là `review` hoặc `published`, nên bài bắt buộc `draft`. Tầng `vietnamese-current` cũng vắng (commit đã ghim chỉ có 26 tệp Pháp Cú) và lớp lấp `english-project` không có cho vv12 ⇒ ba tầng tham khảo đều vắng, bài dịch chỉ từ Pāli root. Vì đây là **giới hạn upstream** chứ không phải lỗi người dịch, `triangulation` bị chặn ở 7.5 (≤ 8.0) chứ không nâng để né blocker."
+  assessed_at: "2026-10-04"
+  assessed_by:
+    - "OpenCode Space Bunny Free (agent)"
+notes: |-
+  Dịch TRỰC TIẾP từ Pāli root — không có tầng Anh đã ghim cho vv12, xem `blocking_errors`. Đối chiếu bằng song song `vv11` (cùng khung `paṭibbatā`, cùng công thức) và bằng tiền lệ ở `vv26`, `vv27`, `vv41`, `vv49`, `vv77`.
+  Dùng lại nguyên văn các khoá trùng Pāli: 2.1, 2.2, 2.3, 2.4, 3.1, 3.4, 5.3, 5.4, 6.1 — tổng 9 cặp; phần lớn đều lấy từ vv26/vv27/vv41/vv49.
+  BẤT ĐỊNH (tên bài): `Dutiyapatibbatā` 0 tiền lệ; theo PED `patibba` là người phụ nữ đã kết hôn, nên dịch Nữ Gả Chồng. Song song `vv11` là `Paṭhamapatibbatā`, cùng lý do.
+  BẤT ĐỊNH (đại từ ở 7.1–7.4): `Akkhāmi te bhikkhu` (ta nói với ngươi, này tỳ-kheo) cho thấy người nói không phải nữ thiên đang kể, nhưng `me` ở 7.4 lại cùng giọng kể của nữ thiên (6.2–6.4 cũng dùng `me`). Cả hai cách đọc đều không khớp trọn vẹn; giữ đúng cách chia đại từ của Pāli (`te` bị nói với, `me` là của người nói) và KHÔNG tự chọn một cách hiểu trong thân kinh.
+  BẤT ĐỊNH (ngôi kể 4.1–6.4): tiền lệ chia làm hai (`tôi` 10 lần cho `Tena metādiso vaṇṇo,`; `ta` 3 lần, và vv26/27/49 dùng `ta`). Chọn `ta` xuyên suốt bài để không trộn hai ngôi trong cùng một lời thoại.
+  `Pīṭhavagga` (0.3) 1 tiền lệ: một agent khác đang làm `vv1` chọn đúng `Phẩm Pīṭha` — theo mẫu `Phẩm Mañjiṭṭhaka` cho `Mañjiṭṭhakavagga` mà giữ tên riêng Pāli.
+  0.1 giữ `Vimānavatthu` theo tiền lệ 24/25; 0.2 `Itthivimāna` theo đa số 4/5 (Cung Điện Nữ Hư Không).
+  Tên bộ: coordinator nói `vv` là Kinh Tập Bài Kệ, nhưng đo trên đĩa chuỗi đó có 0 lần xuất hiện; tầng tên của chính SuttaCentral tại commit đã ghim ghi `super-name:28.vv` = Chuyện Thiên cung. 0 tiền lệ trong kho nên theo tiền lệ tầng.
+  Cổng kỹ thuật: `npm run validate`, `npm test`, `npm run check` do coordinator chạy; `npm run build` chỉ cần thêm cho bài `published`. technical_integrity 9.6 vì chưa tự chạy các lệnh này trong lát này.
