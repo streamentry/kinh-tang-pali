@@ -1,0 +1,80 @@
+uid: sn36.22
+status: draft
+translationTitle: "Kinh Một Trăm Linh Tám"
+translators:
+  - "OpenCode Space Bunny Free (agent)"
+reviewers: []
+tags:
+  - "samyutta-nikaya"
+  - "vedanasamyutta"
+  - "aṭṭhasatapariyāya"
+quality:
+  scores:
+    source_provenance: 9.4
+    semantic_fidelity: 9.4
+    grammar_logic: 9.4
+    segment_alignment: 10.0
+    terminology: 9.3
+    triangulation: 7.4
+    vietnamese_clarity: 9.3
+    han_viet_balance: 9.4
+    ambiguity_integrity: 9.3
+    technical_integrity: 9.6
+  final_score: 9.25
+  blocking_errors:
+    - "Coverage Anh Sujato chỉ 13/18 = 0.72, dưới ngưỡng 0.8 trong source/layers.yaml; bài chưa có entry trong content/meta/reference-gaps.yaml nên validate sẽ chặn review/published — cần coordinator chạy npm run reference:gaps"
+    - "Tầng Anh mất 5/18 khoá Pāli có nội dung (1.5, 1.6, 1.7, 1.8, 1.9, 1.10, 2.16, 2.19 và 2.22 — nhóm `X vedanā vuttā pariyāyena` và nhóm `imā vuccanti` ở mười tám/ba mươi sáu/một trăm linh tám cảm thọ); những khoá này chỉ đứng một mình trên Pāli root"
+  assessed_at: "2026-10-04"
+  assessed_by:
+    - "OpenCode Space Bunny Free (agent)"
+notes: |-
+  **BLOCKER — vì vậy `status: draft`, không phải vì bản dịch kém.** Đo coverage theo
+  đúng luật trong `source/layers.yaml` (Pāli ≥ 40 ký tự, loại khối tham chiếu `.0`):
+  **13/18 = 0.722**, dưới ngưỡng **0.8**. Bản Sujato đã ghim để trống đúng nhóm liệt
+  kê `X vedanā vuttā pariyāyena` (sau `2` hai loại) và nhóm `imā vuccanti … vedanā` ở
+  mười tám / ba mươi sáu / một trăm linh tám cảm thọ — vì bilara render đoạn lặp và
+  blockquote thành chuỗi rỗng rồi nối câu vòng. SuttaCentral không có bản Anh nào
+  khác phủ bài này ở commit đã ghim, và `content/meta/en/sn/sn36.22.yaml` không tồn tại
+  nên lớp lấp `english-project` không tính coverage. Bản dịch dùng Pāli root làm chân
+  đối và không coi ô English trống là sự đồng thuận.
+
+  **Còn entry trong `content/meta/reference-gaps.yaml` thì CHƯA có** (đo: 0 lần khớp
+  `sn36.22` trong 694 entry của tệp). Đó cũng là một blocker, vì `validate` chặn
+  `review`/`published` khi bài dưới ngưỡng mà chưa được ghi nhận. Tôi không được sửa
+  tệp đó — **xin coordinator chạy `npm run reference:gaps`** rồi merge.
+
+  Tầng Việt hiện hành vắng ở commit đã ghim 11c9d708 (bilara chỉ phân phối 26 tệp tiếng Việt, toàn bộ là Pháp Cú), nên không có bản Hòa thượng Thích Minh Châu để đối chiếu thuật ngữ cho bài này; đây là đặc điểm của snapshot upstream, không phải thiếu sót của kho. Vì mất 5 khoá ở đúng nhóm liệt kê, `triangulation` hạ xuống **7.4** (mức
+  mất tầng), không nâng điểm ở tiêu chí khác để né.
+
+  **5/37 khoá có Pāli trùng nguyên văn; 4 cặp tôi dùng lại NGUYÊN VĂN** —
+  `0.2` (8/8 bản: *3. Phẩm Một Trăm Linh Tám Cách*) · `1.2` *Hãy lắng nghe điều ấy.*
+  (32/51) · `2.5` *Cảm thọ dễ chịu, cảm thọ đau khổ và cảm thọ không khổ không lạc—*
+  (3/12) · `2.8` *Căn sước, căn khổ, căn vui, căn buồn, căn bình thản—* (1/1) ·
+  `2.24` *Thứ hai.* (238/242).
+
+  **Nhịp `1.4`-`1.10` theo bài song song `sn36.21`** (cùng câu, chưa chia segment:
+  *Ta đã tuyên bố về cảm thọ theo phương tiện hai loại, cũng đã tuyên bố theo phương
+  tiện ba loại, năm loại…*) và `sn36.20:1.1`. Vì Pāli lặp lại `mayā vedanā vuttā
+  pariyāyena` ở từng câu, mỗi segment của tôi đủ nghĩa, không cần dấu lược.
+
+  **`2.15`, `2.18` theo `mn137` — cùng nội dung, 6 cặp trùng nguyên văn.**
+  `somanassūpavicārā` → *sáu hỷ suy tầm* · `domanassūpavicārā` → *sáu ưu suy tầm* ·
+  `upekkhūpavicārā` → *sáu xả suy tầm* · `gehasitā` → *cận cư gia đình* ·
+  `nekkhammasitā` → *cận cư xuất thế*. `2.21` theo `mn137` cho *thuộc về quá khứ /
+  vị lai / hiện tại*.
+
+  **Quyết định diễn đạt, ghi rõ vì đây là chỗ tôi không dịch sát.** `imā vuccanti …
+  dve vedanā` dịch *đây là hai loại cảm thọ* chứ không dịch *được gọi là hai loại cảm
+  thọ* — giữ `vuccanti` sẽ lặp *loại cảm thọ* hai lần trong một câu ngắn. Nghĩa xác
+  định được giữ nguyên (đây chính là hai loại ấy); nếu sau này người biên tập muốn
+  theo nghĩa bị động thì phải sửa cả bảy khoá `2.3, 2.6, 2.9, 2.13, 2.16, 2.19, 2.22`
+  cùng lúc. `2.2` `kāyikā ca cetasikā ca` → *Thuộc thân và thuộc tâm* (Sujato:
+  *Physical and mental*); 0 tiền lệ cho cụm này, nhưng `an8.28` đã dùng *hạnh thân /
+  hạnh khẩu* cho `kāya-/vacīsamācāra` nên *thân/tâm* là nhánh trong cùng hệ.
+
+  **`0.3` đặt mới (0 tiền lệ).** `Aṭṭhasatasutta` → *Kinh Một Trăm Linh Tám*, theo
+  đúng cách đặt tên phẩm đã chốt ở `0.2`.
+
+  **Dấu lược.** Chỉ `2.11` có `…pe…`; giữ đúng MỘT `…` và không mở rộng.
+
+  Cổng kỹ thuật do coordinator chạy, ghi lại ở đây vì technical_integrity chỉ 9.6: npm run validate; npm test; npm run check; npm run build.
