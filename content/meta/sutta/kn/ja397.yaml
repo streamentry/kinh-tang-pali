@@ -1,0 +1,37 @@
+uid: ja397
+status: draft
+translationTitle: "Kinh Manoja"
+translators:
+  - "OpenCode Space Bunny Free (agent)"
+reviewers: []
+tags:
+  - "khuddaka-nikaya"
+  - "jataka"
+  - "sattakanipata"
+  - "kukkuvagga"
+  - "manojajataka"
+quality:
+  scores:
+    source_provenance: 9.6
+    semantic_fidelity: 9.2
+    grammar_logic: 9.2
+    segment_alignment: 10.0
+    terminology: 9.3
+    triangulation: 7.5
+    vietnamese_clarity: 9.3
+    han_viet_balance: 9.4
+    ambiguity_integrity: 9.2
+    technical_integrity: 9.6
+  final_score: 9.23
+  blocking_errors:
+    - "Không có tầng tham khảo tiếng Anh tại commit đã ghim: tệp `translation/en/sujato/sutta/kn/ja/ja397_translation-en-sujato.json` không có trong git tree của commit `11c9d708978cde8ba61096d8a75f7ddfb846f639` theo `source/upstream-manifest.json` (tầng `english-sujato` có 4291 tệp, trong đó chỉ 83 tệp thuộc `sutta/kn/ja`), và cũng không có trong `.cache/upstream/suttacentral/` — đây là `not-published-upstream`, KHÔNG phải `not-synced`. Tầng `vietnamese-current` cũng vắng: `translation/vi/phantuananh` tại commit đã ghim chỉ có 26 tệp và toàn bộ là Pháp Cú. Lớp lấp `english-project` của dự án cũng không có cho uid này. Ba tầng tham khảo đều vắng nên bài dịch chỉ từ Pāli root; `scripts/validate.ts` coi tệp Anh ghim thiếu là **error** khi status là `review` hoặc `published`, nên bài bắt buộc `draft`. Đây là giới hạn của snapshot upstream, không phải lỗi của người dịch; vì vậy `triangulation` bị chặn ở 7.5 (≤ 8.0) chứ không nâng điểm để né blocker."
+  assessed_at: "2026-10-04"
+  assessed_by:
+    - "OpenCode Space Bunny Free (agent)"
+notes: |-
+  Dịch trực tiếp từ Pāli root; không có tầng `english-sujato` cho ja397 tại commit đã ghim, `vietnamese-current` tại commit đã ghim vắng với Jātaka.
+  Dùng lại nguyên văn 3 khoá theo Pāli trùng nguyên văn: `:3.1` theo ja141:1.1 (Kẻ giao du với người xấu ác), `:3.2` theo sn11.1:5.2 (hưởng hạnh phúc vô tận), `:7.2` theo an3.26:4.2 (Gần gũi người ngang hàng không khi nào thụt lùi).
+  Bất định đã xử lý và ghi lại: `haññate` ở `:1.3` là bị giết theo nghĩa gốc của ngữ cảnh, không nới thành bị hại; `Te kathaṁ nu karissanti` (`:1.1` và `:3.3`) có thể là họ nhắc tới cha mẹ hoặc là trạng ngữ thời gian, chọn cách đọc họ và giữ nguyên vẹn ở cả hai chỗ để bài không tự mâu thuẫn; `giriyassa` ở `:3.4` là bậc đáng kính, dịch theo nghĩa tôn kính chứ không dịch núi.
+  Bản dịch này còn tự nhất quán trong bài: `Manojaṁ passa semānaṁ` lặp ở `:3.3` và `:4.3` dịch giống nhau; `Acchannaṁ samhi lohite` dịch là không giấu nổi, da thịt dính máu.
+  Tên phẩm chưa chốt, 0 tiền lệ: Sattakanipāta → Bộ Bảy Bài Kệ, Kukkuvagga → Phẩm Kukku, xem kỹ ghi chú chung của lát này ở ja396.
+  Cổng kỹ thuật chưa chạy vì agent dịch không được chạy lệnh npm. Coordinator chạy bốn lệnh: `npm run validate`, `npm test`, `npm run check`, `npm run build`.

@@ -1,0 +1,36 @@
+uid: ja404
+status: draft
+translationTitle: "Kinh Kapi"
+translators:
+  - "OpenCode Space Bunny Free (agent)"
+reviewers: []
+tags:
+  - "khuddaka-nikaya"
+  - "jataka"
+  - "sattakanipata"
+  - "kukkuvagga"
+  - "kapijataka"
+quality:
+  scores:
+    source_provenance: 9.6
+    semantic_fidelity: 9.2
+    grammar_logic: 9.2
+    segment_alignment: 10.0
+    terminology: 9.2
+    triangulation: 7.5
+    vietnamese_clarity: 9.3
+    han_viet_balance: 9.4
+    ambiguity_integrity: 9.1
+    technical_integrity: 9.6
+  final_score: 9.21
+  blocking_errors:
+    - "Không có tầng tham khảo tiếng Anh tại commit đã ghim: tệp `translation/en/sujato/sutta/kn/ja/ja404_translation-en-sujato.json` không có trong git tree của commit `11c9d708978cde8ba61096d8a75f7ddfb846f639` theo `source/upstream-manifest.json` (tầng `english-sujato` có 4291 tệp, trong đó chỉ 83 tệp thuộc `sutta/kn/ja`), và cũng không có trong `.cache/upstream/suttacentral/` — đây là `not-published-upstream`, KHÔNG phải `not-synced`. Tầng `vietnamese-current` cũng vắng: `translation/vi/phantuananh` tại commit đã ghim chỉ có 26 tệp và toàn bộ là Pháp Cú. Lớp lấp `english-project` của dự án cũng không có cho uid này. Ba tầng tham khảo đều vắng nên bài dịch chỉ từ Pāli root; `scripts/validate.ts` coi tệp Anh ghim thiếu là **error** khi status là `review` hoặc `published`, nên bài bắt buộc `draft`. Đây là giới hạn của snapshot upstream, không phải lỗi của người dịch; vì vậy `triangulation` bị chặn ở 7.5 (≤ 8.0) chứ không nâng điểm để né blocker."
+  assessed_at: "2026-10-04"
+  assessed_by:
+    - "OpenCode Space Bunny Free (agent)"
+notes: |-
+  Dịch trực tiếp từ Pāli root; không có tầng `english-sujato` cho ja404 tại commit đã ghim, `vietnamese-current` tại commit đã ghim vắng với Jātaka.
+  Pāli trùng nguyên văn: 3 khoá, dùng lại nguyên văn cả 3 — `:1.2` và `:1.3` theo ja103:1.2–1.3 (bậc trí không nên ở nơi ấy; dù chỉ một đêm hay hai đêm), `:6.3` và `:6.4` theo thag6.12:3.1–3.2 (Người ấy hành động vì lợi ích của cả hai; cho chính bản thân mình và cho cả người khác). Ngoài ra `:1.1` chỉ khác ja103:1.1 một chữ (nivasati so với nivisati) nên cũng dùng lại nguyên văn cho cả câu kệ.
+  Bất định ghi rõ: `tidasānaṁva vāsavo` ở `:5.4` dịch theo nghĩa chữ là như gió tháng ba, không diễn giải thêm vì hình ảnh gió tháng ba ở đây không có tác giả nào giải thích trong tầng; `lahucittassa` ở `:2.1` dịch là kẻ nông dại; `parihārako` ở `:3.2` và `:4.2` là làm tổn hại, còn ở `:5.2` là làm người gìn giữ — giữ đúng sắc thái hai nghĩa của cùng một từ.
+  Tên phẩm Sattakanipāta → Bộ Bảy Bài Kệ, Kukkuvagga → Phẩm Kukku, xem ghi chú chung của lát ở ja396. `verī` → kẻ thù, `yūtha` → bầy, `sakuṇa` → chim đều có tiền lệ ở tầng.
+  Cổng kỹ thuật chưa chạy vì agent dịch không được chạy lệnh npm. Coordinator chạy bốn lệnh: `npm run validate`, `npm test`, `npm run check`, `npm run build`.

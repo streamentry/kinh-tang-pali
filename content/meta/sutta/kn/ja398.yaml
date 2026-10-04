@@ -1,0 +1,36 @@
+uid: ja398
+status: draft
+translationTitle: "Kinh Sutanu"
+translators:
+  - "OpenCode Space Bunny Free (agent)"
+reviewers: []
+tags:
+  - "khuddaka-nikaya"
+  - "jataka"
+  - "sattakanipata"
+  - "kukkuvagga"
+  - "sutanujataka"
+quality:
+  scores:
+    source_provenance: 9.6
+    semantic_fidelity: 9.2
+    grammar_logic: 9.3
+    segment_alignment: 10.0
+    terminology: 9.3
+    triangulation: 7.5
+    vietnamese_clarity: 9.3
+    han_viet_balance: 9.4
+    ambiguity_integrity: 9.2
+    technical_integrity: 9.6
+  final_score: 9.24
+  blocking_errors:
+    - "Không có tầng tham khảo tiếng Anh tại commit đã ghim: tệp `translation/en/sujato/sutta/kn/ja/ja398_translation-en-sujato.json` không có trong git tree của commit `11c9d708978cde8ba61096d8a75f7ddfb846f639` theo `source/upstream-manifest.json` (tầng `english-sujato` có 4291 tệp, trong đó chỉ 83 tệp thuộc `sutta/kn/ja`), và cũng không có trong `.cache/upstream/suttacentral/` — đây là `not-published-upstream`, KHÔNG phải `not-synced`. Tầng `vietnamese-current` cũng vắng: `translation/vi/phantuananh` tại commit đã ghim chỉ có 26 tệp và toàn bộ là Pháp Cú. Lớp lấp `english-project` của dự án cũng không có cho uid này. Ba tầng tham khảo đều vắng nên bài dịch chỉ từ Pāli root; `scripts/validate.ts` coi tệp Anh ghim thiếu là **error** khi status là `review` hoặc `published`, nên bài bắt buộc `draft`. Đây là giới hạn của snapshot upstream, không phải lỗi của người dịch; vì vậy `triangulation` bị chặn ở 7.5 (≤ 8.0) chứ không nâng điểm để né blocker."
+  assessed_at: "2026-10-04"
+  assessed_by:
+    - "OpenCode Space Bunny Free (agent)"
+notes: |-
+  Dịch trực tiếp từ Pāli root; không có tầng `english-sujato` cho ja398 tại commit đã ghim, `vietnamese-current` tại commit đã ghim vắng với Jātaka.
+  Dùng lại nguyên văn 2 khoá theo Pāli trùng nguyên văn: `:4.2` theo an4.57:3.2 (tinh khiết, ngon lành, đầy đủ hương vị) và `:7.2` theo ja359:5.2 (cùng với toàn thể quyến thuộc bà con). Ngoài ra hai chỗ Pāli chỉ khác ở dấu chấm câu nên vẫn dùng lại nguyên văn: `:1.2` theo ja309:2.2 (được rưới nước canh thịt tinh khiết).
+  Bất định: `Sudullabho hehiti bhakkhite mayi` ở `:4.4` dịch là lúc ta ăn thì khó lấy được lắm — đây là cách đọc theo nghĩa vế `bhakkhite mayi`, không thêm vế nào nữa. `rañño ca vacanaṁ katan` ở `:7.4` là lời nhà vua, theo genitive của từ chỉ vua.
+  Thuật ngữ theo tiền lệ đếm được: `yakkha` → dạ-xoa (68 tiền lệ trong tầng kn), `māṇava` → hỡi người (theo ja163:2.3), `bhikkhā` → các bậc nữ, `saññino` → nghĩ đến, `sagga` không có ở đây nhưng cùng dòng với `cõi trời` đã dùng ở tầng an. Tên phẩm Sattakanipāta → Bộ Bảy Bài Kệ, Kukkuvagga → Phẩm Kukku, xem ghi chú chung của lát ở ja396.
+  Cổng kỹ thuật chưa chạy vì agent dịch không được chạy lệnh npm. Coordinator chạy bốn lệnh: `npm run validate`, `npm test`, `npm run check`, `npm run build`.
