@@ -156,6 +156,18 @@ async function syncLayer(
     }
   });
 
+  // A fetch that reported success but left nothing readable on disk is exactly the
+  // failure that later surfaces as a confusing `npm test` error on a fresh runner.
+  // Check presence directly and name what is missing, so the sync itself is where
+  // it fails rather than a downstream gate.
+  const notCoveredSet = new Set(notCovered);
+  for (const p of paths) {
+    if (notCoveredSet.has(p)) continue;
+    if (!isReadableFile(upstreamFile(p))) {
+      failed.push({ path: p, error: 'reported a download but is not readable on disk' });
+    }
+  }
+
   const stats: LayerStats = { required: paths.length, downloaded, notCovered, unmappable, failed };
   const detail = [
     `${stats.required} path(s)`,
@@ -220,6 +232,22 @@ if (syncManifest) {
   }
   if (failures.length > 0) {
     for (const message of failures.slice(0, 20)) console.error(`FAILED: ${message}`);
+    console.error(`Manifest sync failed for ${failures.length} path(s).`);
+    process.exit(1);
+  }
+  // Verify presence directly: a manifest fetch that returns success must leave a
+  // readable file. `npm test` otherwise fails much later with "Pāli root not
+  // synced" and hides the real cause.
+  for (const edition of manifest.editions) {
+    for (const name of Object.keys(edition.files)) {
+      const relativePath = `${edition.path}/${name}` as SourcePath;
+      if (!isReadableFile(upstreamFile(relativePath))) {
+        console.error(`MISSING: ${relativePath} — pinned by the manifest but not readable on disk`);
+        failures.push(`missing ${relativePath}`);
+      }
+    }
+  }
+  if (failures.length > 0) {
     console.error(`Manifest sync failed for ${failures.length} path(s).`);
     process.exit(1);
   }
