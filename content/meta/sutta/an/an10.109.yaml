@@ -12,20 +12,21 @@ tags:
 quality:
   scores:
     source_provenance: 9.8
-    semantic_fidelity: 9.4
+    semantic_fidelity: 9.3
     grammar_logic: 9.4
     segment_alignment: 10.0
-    terminology: 9.2
+    terminology: 9.1
     triangulation: 8.0
     vietnamese_clarity: 9.3
     han_viet_balance: 9.3
     ambiguity_integrity: 9.2
     technical_integrity: 10.0
-  final_score: 9.36
+  final_score: 9.34
   blocking_errors: []
-  assessed_at: "2026-09-28"
+  assessed_at: "2026-10-04"
   assessed_by:
     - "OpenCode Space Bunny Free (agent)"
+    - "Space Bunny Free (OpenCode) — re-scored 2026-10-04 after an ellipsis-marker and terminology audit of already-published segments found and fixed segment-level defects; see notes"
 notes:
   - >-
     **Chỗ tôi cố ý không theo Sujato.** Sujato dịch `vantā` ở đây là *"vomited
@@ -56,3 +57,13 @@ notes:
     có Pháp Cú cho tiếng Việt, nên Tăng Chi Bộ không có bản Thích Minh Châu để
     đối chiếu thuật ngữ. Giới hạn của bản chụp upstream, đã ghi ở
     `content/meta/reference-gaps.yaml`.
+  - >-
+    **Sửa lỗi hậu xuất bản (2026-10-04) — lỗi phát hiện SAU khi bài đã được chấm và xuất
+    bản.** Ký hiệu lược `…pe…` của bilara lọt nguyên văn vào bản Việt ở **4 khoá**. `…pe…`
+    là **ký hiệu lược**, không phải chữ; quy ước kho là giữ **đúng MỘT** `…`. Ở **4 khoá**
+    Pāli ghim **có** dấu lược nên chỉ rút cụm còn một `…`, nghĩa không đổi: `an10.109:2.2`,
+    `an10.109:3.1`, `an10.109:5.8`, `an10.109:6.4`.
+
+    `final_score` tính lại bằng script (trung bình số học thô của đúng 10 tiêu chí),
+    `assessed_at` cập nhật. Đây là sửa lỗi kỹ thuật/thuật ngữ ở mức khoá, không phải biên
+    dịch lại bài; không blocker, trạng thái giữ nguyên theo quality gate.

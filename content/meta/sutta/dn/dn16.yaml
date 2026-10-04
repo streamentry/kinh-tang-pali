@@ -9,17 +9,41 @@ tags:
 quality:
   scores:
     source_provenance: 9.8
-    semantic_fidelity: 9.4
+    semantic_fidelity: 9.3
     grammar_logic: 9.5
     segment_alignment: 10.0
-    terminology: 9.5
+    terminology: 9.4
     triangulation: 9.4
     vietnamese_clarity: 9.3
     han_viet_balance: 9.5
     ambiguity_integrity: 9.4
     technical_integrity: 10.0
-  final_score: 9.58
+  final_score: 9.56
   blocking_errors: []
-  assessed_at: "2026-09-12"
+  assessed_at: "2026-10-04"
   assessed_by:
     - "GLM-5.3 Flash (ZCode)"
+    - "Space Bunny Free (OpenCode) — re-scored 2026-10-04 after an ellipsis-marker and terminology audit of already-published segments found and fixed segment-level defects; see notes"
+notes: |-
+  **Sửa lỗi hậu xuất bản (2026-10-04) — lỗi phát hiện SAU khi bài đã được chấm và xuất
+  bản.** Ký hiệu lược `…pe…` của bilara lọt nguyên văn vào bản Việt ở **28 khoá**. `…pe…`
+  là **ký hiệu lược**, không phải chữ; quy ước kho là giữ **đúng MỘT** `…`. Ở **28 khoá**
+  Pāli ghim **có** dấu lược nên chỉ rút cụm còn một `…`, nghĩa không đổi: `dn16:1.10.5`,
+  `dn16:1.11.5`, `dn16:1.8.2`, `dn16:1.8.3`, `dn16:1.9.1`, `dn16:2.12.6`, `dn16:2.12.7`,
+  `dn16:2.26.4`, `dn16:2.26.5`, `dn16:2.6.7`, `dn16:2.7.6`, `dn16:3.23.1`, `dn16:3.36.4`,
+  `dn16:3.36.5`, `dn16:3.36.6`, `dn16:3.36.7`, `dn16:3.39.1`, `dn16:3.42.1`,
+  `dn16:3.44.1`, `dn16:3.46.1`, `dn16:3.5.1`, `dn16:4.10.11`, `dn16:5.16.21`,
+  `dn16:5.16.22`, `dn16:5.16.31`, `dn16:5.16.32`, `dn16:5.24.10`, `dn16:6.6.1`.
+
+  `final_score` tính lại bằng script (trung bình số học thô của đúng 10 tiêu chí),
+  `assessed_at` cập nhật. Đây là sửa lỗi kỹ thuật/thuật ngữ ở mức khoá, không phải biên
+  dịch lại bài; không blocker, trạng thái giữ nguyên theo quality gate.
+  - >-
+    **Sửa nốt một khoá lược bị cắt đôi qua ranh giới segment.** `dn16:4.10.6` còn giữ nguyên
+    `pe… ` — nghĩa là **ký hiệu lược của bilara lọt vào bản Việt**, không phải chữ. Pāli ghim ở
+    `4.10.5` kết thúc bằng `…` và `4.10.6` là `pe… `, ghép lại đúng `…pe… `; kho có **12
+    tiền lệ** render dạng này thành **đúng một** `…` (`dn1:3.4.1`, `dn1:3.8.1`, `mn75:11.2`,
+    `mn93:18.4`, `mn96:8.6`, `mn96:8.8`, `dn33:1.11.31`, `an11.22:3.1`, `mn119:15-17.8`…).
+    Đã theo đúng tiền lệ. Quét lại toàn tầng: **0** khoá Việt nào còn chứa `…pe…`, `pe…`
+    hay `…pe`.
+
