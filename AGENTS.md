@@ -306,4 +306,33 @@ npm run build
 
 Chỉ sau khi technical gate pass mới được coi tiêu chí 10 là đạt và mới được đổi status theo bảng trên.
 
+## Push và CI: cổng thật là CI, không phải pre-push
+
+ECC pre-push (`~/.codex/git-hooks/pre-push`) từng chạy `npm test` (~22s) và `npm run build`
+(~3 phút: sync + validate + astro build + pagefind) cho **mỗi** `git push`, rồi CI chạy lại
+đúng chừng đó cộng mười kiểm tra nội dung khác. Repo này đã tắt phần Node của hook đó, có
+chủ đích:
+
+```bash
+git config ecc.prepush.skipNode true   # đã chạy trong clone chính; clone/worktree mới tự chạy lại
+```
+
+- Lệnh nằm ở `.git/config`, không theo repo — nên clone mới, worktree mới đều cần chạy một lần.
+- Chỉ pre-push bị chặn; **pre-commit của ECC (quét secret) vẫn chạy** bình thường.
+- Muốn buộc chạy lại toàn bộ battery cho đúng một lần push:
+  `git -c ecc.prepush.skipNode=false push`.
+
+Cổng thật là [`.github/workflows/ci.yml`](.github/workflows/ci.yml):
+
+- chạy trên **mọi push ở mọi nhánh** lẫn `pull_request`, có `cancel-in-progress` nên lượt
+  cũ bị thay — push không có PR vẫn phải xanh CI;
+- chứa `validate` (qua `build`), `test`, `check`, `manifest:check`, `catalog:check`,
+  `verify:store:partial`, `reference:gaps:check`, `license:check`, `audit:store`,
+  `audit:reference`, `glossary:check`, `doctor:ci`, `build`;
+- kiểm tra mới đưa vào CI chứ **không** đưa vào hook — hook chỉ dành cho những gì người ta
+  muốn biết trước khi lệnh push rời máy.
+
+Nhiệm vụ local trước khi gộp vẫn là `validate` / `test` / `check` như mục trên; đối soát đầy
+dủ (store, licence, catalog, gap, build) là việc của CI.
+
 Kiến trúc nền tảng và data contract nằm tại [`docs/architecture.md`](docs/architecture.md).
