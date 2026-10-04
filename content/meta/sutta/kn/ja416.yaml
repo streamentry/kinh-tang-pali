@@ -1,0 +1,89 @@
+uid: ja416
+status: draft
+translationTitle: "Kinh Parantapa"
+translators:
+  - "OpenCode Space Bunny Free (agent)"
+reviewers: []
+tags:
+  - "khuddaka-nikaya"
+  - "jataka"
+  - "sattakanipata"
+  - "gandharavagga"
+  - "parantapajataka"
+quality:
+  scores:
+    source_provenance: 9.4
+    semantic_fidelity: 9.1
+    grammar_logic: 9.1
+    segment_alignment: 10.0
+    terminology: 9.1
+    triangulation: 7.4
+    vietnamese_clarity: 9.1
+    han_viet_balance: 9.3
+    ambiguity_integrity: 8.5
+    technical_integrity: 9.6
+  final_score: 9.06
+  blocking_errors:
+    - "Bài này không có tầng Anh SuttaCentral đã ghim ở commit đã pin (0/45 khoá), nên thiếu tầng tham khảo bắt buộc để xuất bản; đối chiếu chỉ có Pāli ghim cùng commit + tiền lệ trong chính tầng Việt dự án."
+    - "`ja416` không nằm trong 83 tệp `ja` của tầng `english-sujato` đã ghim (chỉ có ja1–ja79, ja126, ja159, ja466, ja534), nên không thể đối chiếu một bản Anh độc lập cho bài này; `translation/vi/phantuananh/` ở commit đã ghim chỉ chứa Pháp Cú."
+    - "`sākhā` ở `2.4`/`3.4`/`4.4` chưa phân xử được là tên riêng hay ẩn dụ (xem `notes`); bài này không có bản Anh nào ở commit đã ghim để quyết định, nên tôi giữ `draft` thay vì tuyên bố đã đối chiếu."
+  assessed_at: "2026-10-04"
+  assessed_by:
+    - "OpenCode Space Bunny Free (agent)"
+notes: |-
+  **Vì sao `draft` (ba lý do, và lý do thứ ba là của riêng bài này).** (1) `ja416` không có tầng
+  tham khảo nào ngoài Pāli: tầng `english-sujato` đã ghim có **83** tệp `ja` (ja1–ja79 cộng
+  ja126, ja159, ja466, ja534 — tôi đếm lại từ `.cache/upstream/suttacentral/translation/en/`,
+  không dùng số của lát trước), `ja416` không có mặt; `translation/vi/phantuananh/` tại commit đã
+  ghim chỉ chứa Pháp Cú. (2) Bài này `substantiveSegments = 0` (45 khoá đều là câu kệ ngắn hơn
+  40 ký tự), nên ngưỡng coverage 0.8 của `scripts/validate.ts:242` không chặn và
+  `record-reference-gaps` không sinh entry — `validate` sẽ không đỏ, nhưng mất tầng Anh là thật;
+  tôi không sửa `content/meta/reference-gaps.yaml`. (3) Xem mục bất định bên dưới: `sākhā` ở
+  `2.4`/`3.4`/`4.4` còn hai cách đọc ngang nhau mà tôi không có bản Anh để phân xử.
+  `triangulation` vì thế bị chặn ở 7.4, thấp hơn ja354/ja401 (7.5).
+
+  **Ngoặc kép — phải sửa ba dấu, ghi rõ để biên tập phán xử.** Pāli ghim của `ja416` **thừa dấu
+  mở ngay trong nguyên văn**: 6 dấu `“` (ở `1.1`, `2.1`, `3.1`, `4.1`, `5.1`, `7.1`) nhưng chỉ 4
+  dấu `”` (`1.4`, `4.4`, `6.4`, `7.4`). Bản Việt không thể theo nguyên văn mà vẫn cân, và
+  `_hvi.kiểm` chặn. Tôi giữ ba cặp mở–đóng đúng theo Pāli (`1.1→1.4`, `7.1→7.4`) cộng cặp
+  `2.1→4.4`, bỏ ba dấu mở thừa ở `3.1`, `4.1`, `5.1` và bỏ dấu đóng thừa ở `6.4` — để lời kêu
+  chạy liên tục `2.1`→`4.4`. Đây đúng là cách `ja405` đã làm khi Pāli của nó lệch một đơn vị
+  (xem `notes` của `ja405`): bỏ dấu thừa, giữ nguyên mọi chữ.
+
+  **Pāli trùng nguyên văn: 5/45 khoá.** Dùng lại nguyên văn ở: `0.1` (`Jātaka`, 407/434 tệp),
+  `0.2` (*Bộ Bảy Bài Kệ*, 17/17), `0.3` (*Phẩm Gandhāra*, 6/6), `9.1` `Tassuddānaṁ` — có **432**
+  bài trùng Pāli và tới **21** cách Việt, tôi lấy *Tóm lược:* (319 bài, áp đảo), và `11.1`
+  `Atha vagguddānaṁ` — 9 bài, lấy *Và tóm lược các phẩm:* (8/9).
+  `0.4`, `8.1`, `8.2`, `13.1` không có bản nào trùng Pāli, tôi theo khuôn đã có: dòng ghi số thứ
+  tự là *Kinh X, thứ N.* / *Phẩm X là phẩm thứ N.* (`ja405:9.1–9.2`), và dòng
+  `Xniṭṭhitaṁ` là *Bộ … Bài Kệ đã hoàn tất.* (`ja300`, `ja375`, `ja395`, `ja426`).
+  **Bốn câu uddāna (`10.1`–`10.4`) là mật mã liệt kê tên các bài trong phẩm**, tôi giữ tên dạng
+  chuyển âm theo tiền lệ `ja405:11.1–11.4` và `ja426:12.1–12.4`. Mười một tên được liệt kê
+  (*Varagāma, Mahākapi, Bhaggava, Daḷhadhamma, Sakuñjara, Kesavaro, Urago, Vidhuro,
+  Jāgaratā, Kosalādhipa, Parantapa*) — tôi **không** tự ghép tên nào với bài kinh nào, vì Pāli
+  ở đây chỉ liệt kê, và tôi không có căn cứ để ánh xạ.
+
+  **Bất định, ghi ở đây chứ không thêm vào thân kinh.** (1) **`sākhā` là chỗ khó nhất của bài.**
+  Ở `1.3`–`1.4` nó chắc chắn là *cành cây* (`calitā sākhā, manussena migena vā` — một cành rơi
+  xuống, do người hay do nai). Nhưng ở `2.4`/`3.4`/`4.4` (`sāva sākhā parantapaṁ`) và `5.4`
+  (`taṃ sākhamakampayi`) tôi **không biết** đó vẫn là ẩn dụ *cành cây* hay là **tên riêng**
+  *Sākha* của một nhân vật. Tôi chọn phương án ít giả định nhất — giữ *cành cây* ở mọi nơi để
+  bài nhất quán với `1.3` và không tự đặt tên riêng; hệ quả là `7.3` đọc thành *bỏ ta lại bằng
+  những cành cây*, và đó là điểm tôi ít chắc nhất. Nếu `Sākha` là tên riêng thì `7.1`–`7.4` phải
+  dịch khác. Đây là lý do bài giữ `draft`.
+  (2) `2.1`–`2.2` `Bhīruyā nūna me kāmo, avidūre vasantiyā` — `kāmo` là *khoải ham* và `kāma`
+  cũng có thể là *người vợ*; tôi dịch *khoải ham* vì `kantā` ở `3.1` mới là *người yêu*, giữ hai
+  từ khác nhau. (3) `5.2` `asaṁsi nūna so tava` — `tava` là *tiếng*, `asaṁsi` là *bụi*; tôi dịch
+  *chắc tiếng kia đang đến* và **không** thêm *bụi* vì cách đọc `asaṁsi` ở vị trí này không chắc.
+  (4) `10.4` `cāti` = *thế là đủ* (hết danh sách), không phải *đã nói*.
+
+  **Dấu lược.** `ja416` không có khoá nào chứa `…pe…`.
+
+  **Mệnh đề, đo lại.** `ja:0.1` 433 tệp → `Jātaka` 407, `Chuyện Tiền Thân` 16, không có 10.
+  `cp:0.1` 20 tệp → *Hạnh Tạng* 17, `Cariyāpiṭaka` 1 (`cp34`), không có 2 ⇒ ngoại lệ lạt là
+  `cp34`. `Sattakanipāta` 17/17 và `Gandhāravagga` 6/6 không có ngoại lệ.
+
+  **Cổng kỹ thuật.** Agent dịch không được chạy lệnh npm. Tôi tự kiểm: JSON hợp lệ, đủ 45/45
+  khoá trong `all`, không orphan, mọi giá trị NFC, dấu lược khớp (bài không có lược), không
+  `(…)` đứng một mình, ngoặc kép cân trên cả bài (đã cân tay: +1 −1 +1 −1 +1 −1), không Pāli lọt,
+  không khoá nào trùng nguyên văn Pāli, thứ tự khoá đúng thứ tự số.
