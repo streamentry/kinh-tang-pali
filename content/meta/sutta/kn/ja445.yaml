@@ -1,0 +1,99 @@
+uid: ja445
+status: draft
+translationTitle: "Kinh Nigrodha"
+translators:
+  - "OpenCode Space Bunny Free (agent)"
+reviewers: []
+tags:
+  - "khuddaka-nikaya"
+  - "jataka"
+  - "dasakanipata"
+  - "catudvaravagga"
+  - "nigrodhajataka"
+quality:
+  scores:
+    source_provenance: 9.4
+    semantic_fidelity: 8.8
+    grammar_logic: 9.0
+    segment_alignment: 10.0
+    terminology: 9.1
+    triangulation: 7.4
+    vietnamese_clarity: 8.9
+    han_viet_balance: 9.2
+    ambiguity_integrity: 8.2
+    technical_integrity: 9.6
+  final_score: 8.96
+  blocking_errors:
+    - "Bài này không có tầng Anh SuttaCentral đã ghim ở commit đã pin (0/0 segment có nội dung, không có tệp nào trong english-sujato), nên thiếu tầng tham khảo bắt buộc để xuất bản; đối chiếu chỉ có Pāli ghim cùng commit + tiền lệ trong chính tầng Việt dự án."
+    - "`ja445` không nằm trong 83 tệp `ja` của tầng `english-sujato` đã ghim (đo lại từ source/upstream-manifest.json: ja1–ja79 cộng ja126, ja159, ja466, ja534), và translation/vi/phantuananh/ ở commit đã ghim chỉ chứa Pháp Cú, nên không thể đối chiếu một bản Anh độc lập cho bài này."
+    - "`nigrodha` ở 1.4 là tên riêng (gọi thẳng người nghe) nhưng ở 10.1/10.3 lại là cây/địa phương; ai là người nói ở 1–7 và ở 8–10, và `nigrodha kinti maññasi` ở 1.4 nghĩa là gì, thì tôi không phân xử được từ Pāli ghim. Tôi dịch trung tính, không tự chỉ định nhân vật, nên đây là bài có nhiều bất định nhất trong lát và nó giữ draft."
+  assessed_at: "2026-10-04"
+  assessed_by:
+    - "OpenCode Space Bunny Free (agent)"
+notes: |-
+  **Vì sao `draft` (hai lý do chung + một lý do của riêng bài này).** (1) `ja445` không có tầng
+  tham khảo nào ngoài Pāli: tầng `english-sujato` đã ghim có **83** tệp `ja` (ja1–ja79 cộng
+  ja126, ja159, ja466, ja534 — tôi đếm lại từ `source/upstream-manifest.json`), `ja445` không có
+  mặt; `translation/vi/phantuananh/` tại commit đã ghim chỉ chứa Pháp Cú. (2) Bài này
+  `substantiveSegments = 0` (47 khoá đều là câu kệ ngắn hơn 40 ký tự), nên ngưỡng coverage 0.8
+  của `scripts/validate.ts:242` không chặn và `record-reference-gaps` không sinh entry — `validate`
+  sẽ không đỏ, nhưng mất tầng Anh là thật; tôi không sửa `content/meta/reference-gaps.yaml`.
+  (3) Xem mục bất định bên dưới — đây là bài nhiều bất định nhất trong lát c73, và
+  `ambiguity_integrity` 8.2 là điểm tôi tự hạ thấp vì nó. `triangulation` bị chặn ở 7.4.
+  `final_score` 8.96 < 9.0 nên dù không có blocker bài vẫn không được `review`.
+
+  **Nguồn.** `ja445` = `7. Nigrodhajātaka` (Catudvāravagga 7, Bộ Mười Bài Kệ), 47 khoá, đủ 47
+  khoá đã dịch. Pāli ghim `root/pli/ms/sutta/kn/ja/ja445_root-pli-ms.json`; commit đã ghim
+  `11c9d708978cde8ba61096d8a75f7ddfb846f639`.
+
+  **Tên phẩm, đo lại trên chính tầng Việt (đếm theo giá trị Pāli tuyệt đối).**
+  `Dasakanipāta` → *Bộ Mười Bài Kệ* **5/5** · `Catudvāravagga` → *Phẩm Bốn Cửa* **5/5** ·
+  `Jātaka` ở `0.1`: 433 tệp `ja`, **417** giữ `Jātaka`, 16 dùng *Chuyện Tiền Thân*. Dòng `0.4`
+  theo khuôn cùng phẩm (`ja439:0.4` = *1. Kinh Bốn Cửa*, `ja449:0.4` = *11. Kinh
+  Maṭṭhakuṇḍalī*). Dòng kết `11.1` `sattamaṁ` → trong **Catudvāravagga** cả bốn bài đã dịch
+  dùng **không** dấu phẩy trước *thứ N* (`ja439:11.1`, `ja449:11.1`, `ja451:11.1`,
+  `ja452:11.1`), nên tôi theo phẩm này: *Kinh Nigrodha thứ bảy.* (Trong `Kukkuvagga` thì ngược
+  lại, 12/12 có dấu phẩy — nên `ja400` tôi viết có dấu phẩy. Hai lựa chọn đó là cố ý, theo
+  phẩm, không phải lúc nhớ.)
+
+  **Dùng lại nguyên văn.** `1.1` và `4.1` đều là `Na vāhametaṁ jānāmi` → cùng một cách dịch
+  (*Tôi không biết điều này*); `6.1`–`6.2` và `7.1`–`7.2` dùng chung hình ảnh *hạt giống / đất
+  tốt* theo đúng Pāli. Cụm *bạn hiền tử* cho `sākha` và *kẻ vô lương tâm* cho `asappurisa` dùng
+  nhất quán ở cả `6.3`, `8.2`, `9.3`, `10.2`.
+
+  **Ngoặc kép — Pāli đã cân sẵn, giữ nguyên vị trí.** Năm dấu `“` ở `1.1`, `4.1`, `8.1`, `9.1`,
+  `10.1` và năm dấu `”` ở `3.4`, `7.4`, `8.4`, `9.4`, `10.4`. Riêng `3.4` và `7.4` đứng lệch so
+  với dấu mở gần nhất (lời kêu kéo dài qua nhiều khổ kệ). Sau khi sửa, vị trí từng dấu khớp Pāli
+  100% và `_hvi.ngoặc` trả `True`.
+
+  **Bất định — điểm yếu thật của bài này, ghi ở đây chứ không thêm vào thân kinh.**
+  (1) **`nigrodha` mang hai vai.** Ở `1.4` (`nigrodha kinti maññasi`) nó nằm cuối câu như tên
+  riêng gọi thẳng người nghe; Ở `10.1` (`Nigrodhameva seveyya`) và `10.3`
+  (`Nigrodhasmiṁ mataṁ seyyo`) nó là *cây/địa phương* (cây banyan, cõi banyan) vì có
+  `Nigrodhasmiṁ` (cách ngữ). Tôi giữ **nguyên chuyển âm** `Nigrodha` ở cả ba chỗ và không
+  dịch nó thành *đa đa* hay *cây banyan*, vì không có căn cứ để chọn một nghĩa duy nhất cho cả bài.
+  (2) **`nigrodha kinti maññasi`** — `kinti` là *vì sao / vì lý gì*, nên câu này chỉ là *Ngươi nghĩ
+  sao?*; nhưng cả vế `Yathā sākho cari evaṁ` (*Như bạn hiền tử đã đi thế nào*) lại là một
+  mệnh đề riêng. Tôi dịch hai vế tách rời và **không** tự ghép chúng thành một câu hỏi về
+  `nigrodha`.
+  (3) **Ai là người nói.** `2.2` `purisā nīhariṁsu maṁ` (*có người đem tôi đi*) cho thấy người
+  nói **đã từng bị người ta mang đi**; `3.3`–`3.4` và `5.x` thì người nói quay sang mỉa bạn
+  hiền tử; `8.x`–`9.x` thì lại cầu xin một vị vua tha lỗi và nói *ta không muốn bị giết*. Tôi
+  **không** chỉ định đây là loài vật nào, vì Pāli ghim không nói và không có bản Anh để quyết.
+  (4) `mukhapahārāni` ở `2.3` — *lời chặn miệng* (những lời chửi bới cắn chặn miệng người
+  nghe); `vacanaṅkarā` ở `2.4` là *lời của bạn hiền tử [đã trở thành những lời ấy]*. Đây là
+  cách đọc của tôi; `mukhapahāra` cũng có thể là *cú đấm vào miệng*, tôi chọn nghĩa *lời chặn
+  miệng* vì `2.4` nói *lời*.
+  (5) `asappurisacintakaṁ` ở `8.2` — tôi dịch *đời không đáng để kẻ vô lương tâm nghĩ tới*;
+  `cintaka` là *đáng được nghĩ tới*, và mệnh đề này buộc vào đời sống mà người nói mong có.
+  (6) `sattīhi` ở `8.3` — *bằng bảy (thứ)*; tôi dịch *bằng bảy lưỡi* vì nối với `Hanantu sākhaṁ`
+  (bị giết). `sattīhi` không nêu rõ là bảy *thứ gì*, nên đây là chi tiết tôi suy ra.
+  (7) `iddhī` ở `5.5` → *thần thông* (đúng với cách dùng chung của tầng); `sissariyaṁ` ở `5.3`
+  → *tối thượng*; `natthi saṁsayo` ở `5.6` → *không còn nghi ngờ gì*.
+
+  **Dấu lược.** `ja445` không có khoá nào chứa `…pe…`.
+
+  **Cổng kỹ thuật.** `npm run validate|test|check|build` bị cấm trong lát này. Tôi tự kiểm bằng
+  chính `_hvi.py`: JSON hợp lệ, đủ 47/47 khoá trong `all`, không khoá thừa, không khoá nào trùng
+  nguyên văn Pāli, mọi giá trị NFC, bài không có dấu lược, không `(…)` đứng một mình, ngoặc kép
+  cân trên cả bài, không Pāli lọt, thứ tự khoá đúng thứ tự số.

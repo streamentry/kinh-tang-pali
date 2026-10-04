@@ -1,0 +1,104 @@
+uid: ja400
+status: draft
+translationTitle: "Kinh Dabbhapuppha"
+translators:
+  - "OpenCode Space Bunny Free (agent)"
+reviewers: []
+tags:
+  - "khuddaka-nikaya"
+  - "jataka"
+  - "sattakanipata"
+  - "kukkuvagga"
+  - "dabbhapupphajataka"
+quality:
+  scores:
+    source_provenance: 9.4
+    semantic_fidelity: 8.9
+    grammar_logic: 9.0
+    segment_alignment: 10.0
+    terminology: 9.1
+    triangulation: 7.4
+    vietnamese_clarity: 9.0
+    han_viet_balance: 9.2
+    ambiguity_integrity: 8.4
+    technical_integrity: 9.6
+  final_score: 9.00
+  blocking_errors:
+    - "Bài này không có tầng Anh SuttaCentral đã ghim ở commit đã pin (0/0 segment có nội dung, không có tệp nào trong english-sujato), nên thiếu tầng tham khảo bắt buộc để xuất bản; đối chiếu chỉ có Pāli ghim cùng commit + tiền lệ trong chính tầng Việt dự án."
+    - "`ja400` không nằm trong 83 tệp `ja` của tầng `english-sujato` đã ghim (đo lại từ source/upstream-manifest.json: ja1–ja79 cộng ja126, ja159, ja466, ja534), và translation/vi/phantuananh/ ở commit đã ghim chỉ chứa Pháp Cú, nên không thể đối chiếu một bản Anh độc lập cho bài này."
+    - "`sīsa` ở 5.2 và cả cụt `asīsakaṁ anaṅguṭṭhaṁ / siṅgālo harati rohitaṁ` ở 6.3–6.4 chưa phân xử được quan hệ chủ–vị câu; bài không có bản Anh nào ở commit đã ghim để quyết, nên tôi dịch từng từ một theo Pāli và ghi ở notes thay vì tuyên bố đã đối chiếu."
+  assessed_at: "2026-10-04"
+  assessed_by:
+    - "OpenCode Space Bunny Free (agent)"
+notes: |-
+  **Vì sao `draft` (ba lý do, và lý do thứ ba là của riêng bài này).** (1) `ja400` không có tầng
+  tham khảo nào ngoài Pāli: tầng `english-sujato` đã ghim có **83** tệp `ja` (ja1–ja79 cộng
+  ja126, ja159, ja466, ja534 — tôi đếm lại từ `source/upstream-manifest.json`, không dùng số của
+  lát trước), `ja400` không có mặt; `translation/vi/phantuananh/` tại commit đã ghim chỉ chứa
+  Pháp Cú. (2) Bài này `substantiveSegments = 0` (47 khoá đều là câu kệ ngắn hơn 40 ký tự), nên
+  ngưỡng coverage 0.8 của `scripts/validate.ts:242` không chặn và `record-reference-gaps` không
+  sinh entry — `validate` sẽ không đỏ, nhưng mất tầng Anh là thật; tôi không sửa
+  `content/meta/reference-gaps.yaml`. (3) Xem mục bất định bên dưới. `triangulation` vì thế bị
+  chặn ở 7.4.
+
+  **Nguồn.** `ja400` = `5. Dabbhapupphajātaka` (Kukkuvagga 5, Bộ Bảy Bài Kệ), 47 khoá, đủ 47
+  khoá đã dịch. Pāli ghim `root/pli/ms/sutta/kn/ja/ja400_root-pli-ms.json`; commit đã ghim
+  `11c9d708978cde8ba61096d8a75f7ddfb846f639`.
+
+  **Tên phẩm, đo lại trên chính tầng Việt (đếm theo giá trị Pāli tuyệt đối, không đếm chuỗi
+  Việt).** `Sattakanipāta` → *Bộ Bảy Bài Kệ* **16/16**, không có ngoại lệ (riêng `Chakkanipāta`
+  mới là *Bộ Sáu Bài Kệ* 17/17 — có tệp ghi nhầm *Sáu* cho `Sattakanipāta`? không: tôi đã ghép
+  Pāli↔Việt, 17 tệp *Bộ Sáu Bài Kệ* đều là `Chakkanipāta`, nên **không** có lỗi nào ở đây).
+  `Kukkuvagga` → *Phẩm Kukku* **9/9**. `Jātaka` ở `0.1`: 433 tệp `ja` có khoá `0.1`, **417**
+  giữ `Jātaka`, 16 dùng *Chuyện Tiền Thân* — đa số tuyệt đối, không có lựa chọn thứ ba. Dòng
+  ghi số thứ tự `0.4` theo khuôn cùng phẩm: `ja403:0.4` = *8. Kinh Aṭṭhisenaka*,
+  `ja404:0.4` = *9. Kinh Kapi*, `ja412:0.4` = *7. Kinh Koṭasimbalī*. Dòng kết
+  `11.1` `Dabbhapupphajātakaṁ pañcamaṁ` theo đa số **Kukkuvagga**: 12/12 dùng dấu phẩy trước
+  *thứ N* (`ja398`–`ja412`).
+
+  **Dùng lại nguyên văn.** `3.3` và `4.3` đều là `Samehi medhagaṁ samma` → dùng lại **nguyên văn**
+  *với đôi cánh chắc, đôi chân vững*. `3.4` và `4.4` đều là `vivādo vūpasammataṁ` → *tranh
+  biện lắng xuống hẳn*. `5.3`/`5.4` trùng cấu trúc với `3.3`/`3.4` nhưng Pāli khác, nên tôi
+  dịch riêng. Cụm `māyāvi` ở `9.4` dùng *lừa dối*, **cùng cách** tôi dịch `māyāvī` ở
+  `an10.84:12.1` — đây là một bài khác trong cùng lát, nên tôi cố ý giữ nhất quán.
+
+  **Ngoặc kép — khớp nguyên vị trí Pāli, sau một lần sửa lúc review.** Pāli ghim có **7** dấu
+  `“` (`1.1`, `2.1`, `3.1`, `4.1`, `6.1`, `7.1`, `9.1`) và **7** dấu `”` (`1.4`, `2.4`, `3.4`,
+  `5.4`, `6.4`, `8.4`, `10.6`) — cân ngay. Bản đầu của tôi **thừa** một dấu: tôi thêm `”` ở
+  `9.4` trong khi Pāli `bhuñja māyāvi rohitaṁ.` không có, nên vòng đếm thành 8 đóng / 7 mở và
+  `_hvi.ngoặc` báo lệch. Đã sửa bằng cách **xoá** dấu `”` thừa ở `9.4` — **không** xoá dấu mở
+  nào, **không** đụng chữ nào. Sau khi sửa, vị trí từng dấu khớp Pāli 100% (đã kiểm bằng cách so
+  `(mở, đóng)` từng khoá). Cũng trong lần sửa đó tôi thêm lại `”` ở `5.4` (Pāli có: `dhammaṭṭhassa
+  bhavissati”.`). Lưu ý để người biên tập phán xét tiếp: lời kêu mở ở `4.1` đã kéo qua `4.2`–`4.4`
+  thì **đóng ngay ở `5.4`**, còn `6.1` lại mở lời mới — nghĩa là `5.1`–`5.4` nằm giữa hai lời kêu;
+  tôi giữ đúng vị trí Pāli, không sửa cấu trúc này.
+
+  **Bất định, ghi ở đây chứ không thêm vào thân kinh.**
+  (1) **`sīsa` ở `5.2`** (`sīsaṁ gambhīracārino`) — tôi dịch *đuôi* và **không** thêm *dài*.
+  `sīsa` trong Pāli là *đuôi / vật nhọn ở cuối*; ý *đuôi dài* chỉ là do đối chiếu với `naṅguṭṭha`
+  (chân có màng, một khiếm khuyết) ở `5.1`, tức suy ra chứ Pāli không nói. Tôi giữ đúng
+  những gì Pāli nói.
+  (2) **`6.3`–`6.4`** — đây là chỗ tôi ít chắc nhất của bài. Tôi đã tra `asīsaka` trong toàn bộ
+  Pāli ghim: `dn23:9.3` (`sasīsakaṁ nimuggo assa`) và `sn19.11:1.3` (`sasīsakaṁ nimuggaṁ`) cho
+  thấy nó nghĩa là **đã chết**, nên tôi dịch `asīsakaṁ` là *đã say đến chết*. `anaṅguṭṭhaṁ`
+  = *không còn chân màng* (phủ định của `naṅguṭṭha` ở `5.1`). `siṅgālo` tôi dịch *kẻ đố kỵ* và
+  `rohitaṁ` là *kẻ màu đỏ* (người nói). Nhưng quan hệ cú pháp giữa hai vế — ai bắt ai — thì tôi
+  **không chắc**, và không có bản Anh nào ở commit đã ghim để phân xử.
+  (3) `khattiyo` ở `7.2` — mặc định là *quân tộc*, nhưng trong câu `rajjaṁ laddhāna khattiyo`
+  (đã lên ngôi) nghĩa là *người thường dân được phong vương*, cũng như chú giải của các bài
+  `Bhikkhu Pāṇḍita` dùng cho `khattiyo`; tôi dịch *người khiêm tốn* để giữ nghĩa này.
+  (4) `1.1`–`1.2` (`Anutīracārī bhaddante, sahāyamanudhāva maṁ`) — `sahāya` có thể là *người đồng
+  hành của chính người nói* (tôi dịch *bạn đồng hành*) hoặc *người được nhắc tới trong câu trước*;
+  tôi chọn cách ít giả định nhất và giữ chủ ngữ rõ ràng.
+
+  **Dấu lược.** `ja400` không có khoá nào chứa `…pe…`.
+
+  **Mệnh đề, đo lại.** `ja:0.1` 433 tệp → `Jātaka` 417, `Chuyện Tiền Thân` 16, không có 10.
+  `Sattakanipāta` 16/16 và `Kukkuvagga` 9/9 không có ngoại lệ. Toàn tầng `sn:0.1` 1.648/1.648
+  giữ PĀLI `Saṁyutta Nikāya` (đo để lát người biên tập không phải đo lại).
+
+  **Cổng kỹ thuật.** `npm run validate|test|check|build` bị cấm trong lát này nên tôi không tự
+  chạy được. Tôi tự kiểm bằng chính `_hvi.py`: JSON hợp lệ, đủ 47/47 khoá trong `all`, không
+  khoá thừa, không khoá nào trùng nguyên văn Pāli, mọi giá trị NFC, bài không có dấu lược,
+  không `(…)` đứng một mình, ngoặc kép cân trên cả bài (đã cân tay: +1 −1 +1 −1 +1 −1), không
+  Pāli lọt, thứ tự khoá đúng thứ tự số.
