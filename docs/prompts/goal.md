@@ -16,24 +16,39 @@ còn lại là chấm lại / sửa, không phải dịch.
 
 ---
 
-## TRẠNG THÁI HIỆN TẠI (đo 2026-10-04 tại `9a0aa4e9`, `main`)
+## TRẠNG THÁI HIỆN TẠI (đo 2026-10-04 tại `b73dc54f`, `main`)
 
-HEAD = `9a0aa4e9` — "dịch(vi): 36 bài đợt 2 + sửa giống tính puthujjano + gap record (#222)".
-PR gần nhất đã merge: #222 (đợt c22–c27), #221 (sửa CI), #220 (CI gate), #219 (wave54 f196+f197).
+HEAD = `b73dc54f` — "dịch(vi): 40 bài đợt 5a [c44,c46,c47,c48,c50] + sửa 17 khoá do lượt scorecard (#228)".
+PR gần nhất đã merge: #228 (đợt 5a), #227 (sửa `pages.yml`), #226 (đợt 4),
+#225 (`sync-source` verify tải), #224 (đợt 3), #223 (docs), #222 (đợt 2), #221 (sửa CI).
 
-### Đợt 1 đã giao bằng PR, đợt 2 cũng vậy
+### Hai nguyên nhân `main` đỏ, và tôi sửa một rồi bỏ sót cái kia
+
+**Lần 1 (PR #221).** `pinned-snapshot.test.ts` quét **toàn bộ** catalogue 6.137 bài, còn
+CI chạy `source:sync:used` chỉ tải bài dự án đã có dữ liệu. `skip` guard của test viết
+trên tệp Pāli của `mil1` — mà đợt 1 đã dịch `mil1`, nên `--used` bắt đầu tải tệp đó,
+guard thôi bỏ qua, test chạy với corpus thiếu dữ liệu. Sửa: `source:sync:manifest`.
+
+**Lần 2 (PR #227).** `main` vẫn đỏ vì **cùng lỗi đó** tồn tại trong
+`.github/workflows/pages.yml` — job `build` riêng chạy `source:sync:used` rồi chạy
+đúng bộ test đó. Tôi sửa một chỗ thấy được mà không quét hết chỗ còn lại, nên lỗi tự
+nhân bản. Đã quét lại toàn bộ `.github/workflows/`: không còn workflow nào vừa sync
+`used` vừa chạy test.
+
+**Hai nguyên nhân độc lập, không phải một.** PR #225 thêm kiểm presence cho `sync-source`:
+trước đó nhánh manifest biến `NotCoveredError` (404) thành `ok: true`, nên một path trong
+manifest mà upstream 404 bị coi là **đã sync xong** và vắng mặt im lặng cho tới khi test
+đổ. PR #225 không bắt được lần đỏ thứ hai — đúng như nó phải vậy, vì path thiếu lần đó
+nằm **ngoài scope `used`**, không phải path tải hỏng.
+
+### Đợt 1 sai quy trình; từ đợt 2 trở đi đều qua PR
 
 Đợt 1 (112 bài Việt + 24 bài English lấp) đã **đẩy thẳng lên `main`** — sai quy
-trình, và nó làm `main` đỏ. Đợt 2 (PR #222) đã đi đúng đường: nhánh → CI xanh →
-squash merge. Cùng đợt đó tôi phát hiện và sửa nguyên nhân CI đỏ (PR #221).
+trình, và nó làm `main` đỏ. Từ đợt 2 (PR #222) trở đi: nhánh → CI xanh → squash
+merge. Không còn lát nào đẩy thẳng lên `main`.
 
-**Nguyên nhân CI đỏ (đã sửa, #221):** `pinned-snapshot.test.ts` quét **toàn bộ**
-catalogue 6.137 bài, nhưng CI chạy `source:sync:used` chỉ tải bài đã có dữ liệu
-dự án. `skip` guard của test viết trên tệp Pāli của `mil1` — mà đợt 1 đã dịch
-`mil1`, nên `--used` bắt đầu tải tệp đó, guard thôi bỏ qua, test chạy với corpus
-thiếu dữ liệu. Sửa: `source:sync:manifest`. **Bài học để nhớ: chính việc dịch
-thêm đã làm một test bị bỏ qua trở lại chạy** — đừng viết `skip` guard lên một
-bài cụ thể mà lát sau có thể dịch tới.
+**Bài học để nhớ: chính việc dịch thêm đã làm một test bị bỏ qua trở lại chạy.**
+Đừng viết `skip` guard lên một bài cụ thể mà lát sau có thể dịch tới.
 
 **CI xanh ở `main`** — run `37165678349` pass đủ 17 step, gồm hai step mới
 (`Reference coverage audit`, `Glossary terminology check`). Lưu ý một lần đỏ giả:
@@ -41,45 +56,79 @@ run push của nhánh `chore/ci-is-the-gate` từng fail ở `manifest:check` do
 403 rate limit (hạ tầng, không phải code) — run PR-context cùng commit pass nên merge
 vẫn đúng.
 
-**Cổng local tại HEAD** (worktree sạch ở `9a0aa4e9`) — **13/13 xanh**:
+**Cổng local tại HEAD** (worktree sạch ở `b73dc54f`) — **13/13 xanh**:
 
 ```
-reference:gaps 668 gap (chạy 3 lần, lần 3 không đổi ⇒ idempotent)
-reference:gaps:check ✓  668 gap / 4.914 text
+reference:gaps 738 gap (chạy 2 lần, lần 2 không đổi ⇒ idempotent)
+reference:gaps:check ✓  738 gap / 5.103 text
 verify:store:write ✓    verify:store:check ✓  (cache complete, đã so cả full-sync)
-validate ✓ 0 lỗi / 1.399 cảnh báo      test ✓ 141 pass / 0 fail      check ✓
+validate ✓ 0 lỗi / 1.530 cảnh báo      test ✓ 141 pass / 0 fail      check ✓
 catalog:check ✓ 6.137/6.137              manifest:check ✓            license:check ✓
 audit:store ✓  không orphan, không shadowing, không đảo authority
 audit:reference ✓  0 upstream defect
 build ✓
-glossary:check ✓ advisory — 4.914 text, 135.276 segment, 33/128 thuật ngữ,
-                             3.827 occurrence, 2.416 divergence
 ```
 
 **Việt** — `node --import tsx /Volumes/SSD/opencode-work/vimeas.ts`
 (`npx` bị chặn bởi pkg-age-guard, phải gọi `node --import tsx` trực tiếp)
 
-| | `a059dec5` (cũ) | `1e39dd88` | **`9a0aa4e9` (nay)** |
-| --- | --- | --- | --- |
-| catalogue | — | 6.137 | **6.137** (dn34/mn152/sn1819/an1781/kn2351) |
-| bài đủ mọi khoá | 3.857 | 4.679 | **4.817** |
-| bài còn thiếu | 2.279 | 1.457 | **1.319** |
-| khoá còn thiếu | 171.951 | 153.580 | **149.294** |
+| | `a059dec5` (cũ) | `1e39dd88` | `9a0aa4e9` | **`b73dc54f` (nay)** |
+| --- | --- | --- | --- | --- |
+| catalogue | — | 6.137 | 6.137 | **6.137** (dn34/mn152/sn1819/an1781/kn2351) |
+| bài đủ mọi khoá | 3.857 | 4.679 | 4.817 | **5.006** |
+| bài còn thiếu | 2.279 | 1.457 | 1.319 | **1.130** |
+| khoá còn thiếu | 171.951 | 153.580 | 149.294 | **142.327** |
 
-Đo **hai lần liên tiếp trên hai worktree sạch** (`bd720c74` và `9a0aa4e9`),
-hai lần ra kết quả giống hệt. Mốc "trước" là `bd720c74` chứ không phải `HEAD~1`
-vì PR #222 có ba commit nên `HEAD~1` đã chứa sẵn đợt 2.
+Đo **hai lần liên tiếp trên hai worktree sạch**, hai lần ra kết quả giống hệt.
+Mốc "trước" là commit trước cả các commit của PR, **không phải `HEAD~1`** — vì PR
+có nhiều commit thì `HEAD~1` đã chứa sẵn đợt đó và đo ra 0.
 
-Còn thiếu: `sn` 259 bài / 15.806 khoá (đủ 1.559) · `an` 193 / 13.128 (đủ 1.588) ·
-`kn` 867 / 120.360 (đủ 1.484) · `dn`+`mn` đủ 100% (34, 152).
+Còn thiếu: `sn` 207 bài / 13.918 khoá (đủ 1.611) · `an` 161 / 11.926 (đủ 1.620) ·
+`kn` 762 / 116.483 (đủ 1.589) · `dn`+`mn` đủ 100% (34, 152).
+
+### ⚠️ Cần HAI lớp kiểm độc lập, không phải 13 cổng là đủ
+
+Cả 13 cổng xanh **không bắt được** hai lớp lỗi sau. Cả hai đều bắt được lỗi thật.
+
+**Lớp 1 — bộ dòm tỉ lệ Việt/Pāli** (đo tỉ lệ ký tự mỗi segment so với trung vị của
+chính bài đó; cờ khi lệch >4× hoặc <0.25× và Pāli ≥ 80 ký tự). Đợt 3 phát hiện
+**15 bài / 25 đoạn**, đọc cả bài thì thêm 51 đoạn. **15/15 là lỗi thật, 0 dương giả** —
+kể cả một mục tôi tự tin là dương giả (`an3.62:10.2`: đúng là câu hỏi, nhưng cụt mất
+`pahānāya samatikkamāya saṁvattati` và không có `…` đánh dấu chỗ bị cắt, nên câu hỏi
+không còn trả lời được).
+
+**Lớp 2 — agent scorecard chạy SAU khi đã commit bản dịch.** Đợt 5 bắt được **43 khoá**
+ở **mức bịa nội dung**: `pupphavasso` → *"mùa xoài"*, `Chattiṁsakkhattuṁ` (30) →
+*"sáu lần"*, `Vasīsatasahassehi` → *"ba trăm nghìn ngựa"* (sai số **và** bịa danh từ),
+`brahāraññe` → *"nước lớn"* (rừng), `vaṅkeyya` → *"chỗ nấp náu"* (nghĩa đúng: trò
+đánh lừa). Còn một lỗi **đảo xưng ngô thứ bật**: `sn41.2:4.4` Tôn giả nói với đệ tử
+nhỏ nhất mà dùng *"con"*.
+
+⚠️ **Bộ dòm của lớp 1 có độ chính xác thấp nếu không lọc.** Bản đầu tiên tôi viết dòm
+"nội dung Việt trùng nhau" thì ra **1.751 bài** — vì kinh Bộ Trường Bộ lặp công thức là
+bình thường. Chỉ khi lọc theo **tỉ lệ so với trung vị của chính bài** mới xuống 25 đoạn.
+Và phải tính trung vị trên **mọi** đoạn, không lọc trước — bản lọc Pāli ≥100 ký tự
+trước rồi mới tính trung vị thì **bỏ sót chính `sn22.93`** vì nó có ít đoạn dài.
+
+⚠️ **Luật "Pāli trùng thì dịch trùng" truyền cả lỗi.** `sn51.14:5.17` khớp byte-for-byte
+với `sn51.31:4.2`, và cả hai bản Việt đều có **hai chữ "hoặc"** không có trong Pāli — lỗi
+được **sao chép từ bài ngoài lát**. Luật đúng phải là: *trùng thì khớp, **trừ khi** bản
+tham chiếu sai thì sửa cả hai và ghi rõ*.
+
+⚠️ **Mọi file sinh ra bởi cổng đều phải được commit.** Tôi từng chạy `reference:gaps` trong
+worktree tạm rồi không đưa kết quả về commit: `npm test` local xanh (đọc file trong
+worktree tạm) còn CI đỏ — test `every text below the coverage floor is recorded` bắt
+đúng.
 
 ⚠️ **`vimeas` chỉ đo "đủ khoá", không đo trung thành.** Đợt 2 đã dùng một bộ dòm
 riêng (tỉ lệ ký tự Việt/Pāli lệch khỏi trung vị của chính bài) và tìm ra
 **25 đoạn / 15 bài** có lỗi mà `validate` không thấy:
 đoạn bị cụt thành stub + `…` (nặng nhất `an6.53:3.1` mất hẳn *"ubho atthe
 samadhiggayha"*), dấu lược `…pe…` bị bung ra (`an3.61:6.7`: 105 ký tự Pāli → 458
-ký tự Việt), và nội dung tràn sang khoá kế bên (`sn22.93`). **Bài nào "đủ mọi
-khoá" không đồng nghĩa bài đó đúng** — đừng báo cáo `vimeas` như một lời bảo đảm.
+ký tự Việt), và nội dung tràn sang khoá kề bên (`sn22.93`: `1.2` diễn 5 loài cây Pāli
+thành một cụm tự bịa **lặp 5 lần**, `1.3` chỉ có *"Cũng vậy,"* cho 178 ký tự Pāli).
+**Bài nào "đủ mọi khoá" không đồng nghĩa bài đó đúng** — đừng báo cáo
+`vimeas` như một lời bảo đảm.
 
 ⚠️ **`an` có 10 bài đã có bản dịch nhưng chưa có scorecard**: `an5.181`–`an5.190`
 có `content/translation/vi/project/sutta/an/*.json` nhưng thiếu
@@ -89,25 +138,27 @@ dịch như mọi bài đã có.
 
 **English** — `node --import tsx /Volumes/SSD/opencode-work/engq.ts` và `npm run audit:reference`
 
-| phép đo | `1e39dd88` | **`9a0aa4e9`** |
-| --- | --- | --- |
-| `engq`: text có English đã ghim | 3.843 | 3.843 |
-| `engq`: text còn thiếu English | 376 | **354** |
-| `engq`: segment còn thiếu English | 6.750 | **6.640** |
-| `engq`: text dưới sàn | 229 | **216** |
-| `engq`: `noEnglishEditionUpstream` / đã ghi nhận | 1.596 / 1.596 | **1.596 / 1.596**, `agreesWithStoreVerification true` |
-| `engq`: `textsWithNoEnglishUpstream` (scope hẹp) | 990 | 990 (23.889 segments) |
-| `audit:reference --used`: text dưới sàn coverage | 146 | **143** (trong 4.007) |
-| `audit:reference` **toàn catalogue**: text dưới sàn | — | **216** (trong 4.540; 73 chưa ghi nhận) |
-| `audit:reference`: hàng đợi English lấp | — | **143 text / 3.318 segment** |
-| `audit:reference`: "publishes no English at all" | 852 | **907** |
+| phép đo | `1e39dd88` | `9a0aa4e9` | **`b73dc54f`** |
+| --- | --- | --- | --- |
+| `engq`: text có English đã ghim | 3.843 | 3.843 | 3.843 |
+| `engq`: text còn thiếu English | 376 | 354 | **354** |
+| `engq`: segment còn thiếu English | 6.750 | 6.640 | **6.640** |
+| `engq`: text dưới sàn | 229 | 216 | **216** |
+| `engq`: `noEnglishEditionUpstream` / đã ghi nhận | 1.596 / 1.596 | 1.596 / 1.596 | **1.596 / 1.596**, `agreesWithStoreVerification true` |
+| `audit:reference --used`: text dưới sàn coverage | 146 | 143 | **147** (trong 4.100) |
+| `audit:reference` **toàn catalogue**: text dưới sàn | — | 216 | **216** |
+| `audit:reference`: "publishes no English at all" | 852 | 907 | **1.003** |
 
-⚠️ **Con số cần đuổi về 0 là 216, không phải 143.** `audit:reference` luôn chạy với
-`--used` (xem `package.json`), nên trong CI nó chỉ đo 4.007 bài đã có dữ liệu dự
-án. Chạy `node --import tsx scripts/audit-reference.ts` (không cờ) ra
+⚠️ **Con số cần đuổi về 0 là 216, không phải 143/147.** `audit:reference` luôn chạy
+với `--used` (xem `package.json`), nên trong CI nó chỉ đo 4.100 bài đã có dữ liệu
+dự án. Chạy `node --import tsx scripts/audit-reference.ts` (không cờ) ra
 `scope all-catalog · 216 of 4540` — đúng bằng `engq`. 73 bài kia chưa có bản dịch
 Việt nên chưa vào record gap. Tôi từng ghi trong PR #222 rằng 143 và 216 "lệch
 nhau chưa giải thích"; **đã giải thích: cùng một phép tính, khác phạm vi.**
+
+Và 143 → 147 trong hai lần đo gần nhau: cổng đo theo **scope `used`**, mà scope ấy
+**phình ra mỗi khi thêm bài**. Nên `147` tại `b73dc54f` không phải 216 tiến triển —
+đừng đọc nó như vậy.
 
 ⚠️ **`--all` trong `audit:reference` không hoạt động** như tên cờ: mã kiểm
 `args.includes('--used')` nên `npm run audit:reference -- --all` vẫn ra
@@ -137,7 +188,7 @@ English cho 1.596 bài kia** — đừng hứa vô lý trong PR body.
 **Lớp English của dự án** (`content/translation/en/project`, kèm đủ `content/meta/en`):
 **641 tệp trên đĩa** — dn 4 / mn 30 / sn 333 / an 147 / kn 127.
 `audit:store` báo **517 text / 1.904 segment** trong scope `used`; hai số khác nhau
-vì 641 là đếm tệp còn 517 là đếm text trong phạm vi 4.914 bài — ghi rõ phạm vi khi
+vì 641 là đếm tệp còn 517 là đếm text trong phạm vi 5.103 bài — ghi rõ phạm vi khi
 báo cáo.
 
 ---

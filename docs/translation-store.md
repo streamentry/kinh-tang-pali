@@ -112,7 +112,10 @@ trong khi cả 4 segment có nội dung đều đã được dịch (100%).
 Nới lên 0.5 sẽ âm thầm chấp nhận thêm 49 bài nữa.
 
 ⚠️ **Con số 216 là phạm vi toàn catalogue.** Cổng `audit:reference` luôn chạy với
-`--used` nên trong CI chỉ báo 143 — đó là 216 bài trừ đi 73 bài chưa có bản dịch Việt.
+`--used` nên trong CI chỉ báo 147 tại `b73dc54f` — đó là 216 bài trừ đi các bài chưa
+có bản dịch Việt. Số trong scope `used` **phình ra mỗi khi thêm bài** (143 lúc
+`9a0aa4e9`, 147 lúc `b73dc54f`), nên nó tăng lên mà *tiến độ không hề tăng* — đừng đọc
+nó là cải thiện.
 Muốn đo đúng 216 thì chạy `node --import tsx scripts/audit-reference.ts` không kèm cờ.
 Cột `80–99%` ở bảng cũ (216 bài) là con số của phép đo trước đây, **đã bị thay**:
 216 nay là *tổng số bài dưới ngưỡng*, không phải số bài trong khoảng 80–99%.
