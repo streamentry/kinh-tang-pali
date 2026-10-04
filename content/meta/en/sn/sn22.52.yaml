@@ -1,0 +1,85 @@
+uid: sn22.52
+status: published
+translationTitle: "English fill (6 segments)"
+englishTitle: "The end-of-relishing refrain, repeated for feeling and for choices"
+translators:
+  - "OpenCode Space Bunny Free (agent)"
+reviewedAt: 2026-10-04
+tags:
+  - english-fill
+  - store
+  - samyuttanikaya
+  - repeated-pali
+quality:
+  scores:
+    source_provenance: 9.7
+    semantic_fidelity: 9.5
+    grammar_logic: 9.4
+    segment_alignment: 10.0
+    terminology: 9.5
+    triangulation: 8.0
+    vietnamese_clarity: 9.3
+    han_viet_balance: 9.3
+    ambiguity_integrity: 9.3
+    technical_integrity: 10.0
+  final_score: 9.40
+  blocking_errors: []
+  assessed_at: "2026-10-04"
+  assessed_by:
+    - "OpenCode Space Bunny Free (agent)"
+notes: |-
+  **Bốn khoá trên sáu là bản sao nguyên văn** (đối chiếu bằng script, Pāli giống hệt từng chữ):
+
+  - `1.8` và `1.13` đều lặp `1.4` (và `1.17`) → "When relishing ends, greed ends. When greed
+    ends, relishing ends."
+  - `1.9` và `1.14` đều lặp `1.5` → "When relishing and greed end, the mind is freed, and is said
+    to be well freed."
+
+  Hai chỗ phải tự viết:
+
+  - `1.7` (`Vedanaṁ, bhikkhave, bhikkhu yoniso manasi karonto, vedanāniccatañca yathābhūtaṁ
+    samanupassanto vedanāya nibbindati.`) chép khuôn `1.3`, chỉ đổi `rūpa` → `vedanā` và
+    `rūpasmiṁ` → `vedanāya`: "When a mendicant does this, they grow disillusioned with feeling."
+  - `1.12` chép khuôn `1.3` với `saṅkhāresu`: "When a mendicant does this, they grow disillusioned
+    with choices." `saṅkhāra` → "choices" là tiền lệ đã ghim ngay trong bài: `1.11` ("choices …")
+    và `sn22.52:1.11` của bản Việt (*các hành*).
+
+  **Dịch bản Việt của lớp lấp trước đây ở bài song song đã dựng tiền lệ y hệt.** `sn22.51` (bài
+  thứ nhất của cùng công thức) đã có `content/translation/en/project/sutta/sn/sn22.51_…json` với
+  đúng bốn khoá lặp, và `content/meta/en/sn/sn22.51.yaml` ghi rõ: `1.8/1.13 repeat 1.4 and 1.17
+  verbatim`. Tôi dùng lại y nguyên văn đó, không dịch lần thứ hai.
+
+  **Biến thể Pāli, không phải lỗi dịch: `1.12` viết `saṅkhārāniccataṁ`, thiếu `ñca`** mà `1.3`
+  và `1.16` có (`rūpāniccatañca`, `viññāṇāniccatañca`). Thiếu `ñca` chỉ bỏ liên từ, không đổi nghĩa:
+  cả ba vế đều là "thấy rõ vô thường của … đúng như thật". Bản Việt `sn22.52:1.12` cũng dịch đủ
+  ("thấy rõ tính vô thường của các hành đúng như thật"). Không sửa Pāli, không ghi chú trong thân
+  kinh.
+
+  Lớp lấp: 6 khoá, tất cả nằm ở chỗ bản Anh đã ghim để trống. **Không khoá nào là blockquote
+  tham chiếu và không khoá nào có Pāli rỗng**, nên không có khoá nào bị bỏ.
+
+  ⚠️ **Sai lệch cần người biên tập xử lý, tôi KHÔNG tự sửa.** Trước lát này coverage English của
+  `sn22.52` là 10/16 = 0,625, dưới ngưỡng 0,8, và **có** record ở
+  `content/meta/reference-gaps.yaml:3409` (`substantiveSegments: 16`,
+  `substantiveWithoutEnglish: 6`, `coverage: 0.625`). Lớp lấp đưa nó lên 16/16 = 100%, nên record
+  đó **thành thừa** — `tests/unit/english-fill.test.ts` ("a fill never leaves a gap record it has
+  cured") sẽ đỏ. Tôi không chạy `npm run reference:gaps` và không sửa file đó. Người điều phối
+  chạy lại trong worktree sạch.
+
+  ⚠️ **Còn một tuyên bố cũ trong scorecard Việt đã thành sai.** `content/meta/sutta/sn/sn22.52.yaml`
+  đang `status: draft` với `blocking_errors` ghi rằng sáu khoá này *"Sujato bỏ trống đúng các
+  blockquote và đoạn lặp `…pe…`, và `content/translation/en/project/` **chưa có** lớp lấp cho
+  `sn22.52`"*. Cả hai vế đều sai: (a) sáu khoá này **không** phải blockquote và **không** có
+  `…pe…` — chúng là các mệnh đề lặp nguyên văn, đã đo ở trên; (b) lớp lấp nay đã có. Sau khi lớp
+  lấp publish, ngưỡng coverage đã đạt, nên `status` và `blocking_errors` của scorecard Việt phải
+  được rà lại. File đó ngoài lát này nên tôi không đụng vào.
+
+  ⚠️ **`validate` sẽ cảnh báo "same author" cho bài này.** Scorecard Việt
+  `content/meta/sutta/sn/sn22.52.yaml` ghi cả `translators` và `assessed_by` đều là
+  `"OpenCode Space Bunny Free (agent)"` — trùng đúng tên người viết lớp lấp. Cảnh báo đúng: bản
+  lấp không phải một lớp đọc Anh độc lập, nên scorecard Việt không được tuyên bố đã đối chiếu
+  Anh. Người biên tập nên hạ `triangulation` của scorecard Việt khi nâng trạng thái.
+
+  `triangulation` của lớp lấp bị chặn ở 8,0 vì lý do đó. Bài này **không** có tầng
+  `vietnamese-current`: tại commit đã ghim, bilara chỉ có Pháp Cú cho tiếng Việt, nên không có bản
+  Hòa thượng Thích Minh Châu để đối chiếu thuật ngữ.
