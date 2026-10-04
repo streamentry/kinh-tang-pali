@@ -1,0 +1,121 @@
+uid: vv31
+status: draft
+translationTitle: "Chuyện Cung Điện Pallaṅka Thứ Ba"
+translators:
+  - "OpenCode Space Bunny Free (agent)"
+reviewers: []
+tags:
+  - "kn"
+  - "khuddaka-nikaya"
+  - "vimanavatthu"
+  - "itthivimana"
+  - "pāricchattakavagga"
+  - "pallaṅkavimāna"
+quality:
+  scores:
+    source_provenance: 9.4
+    semantic_fidelity: 9.3
+    grammar_logic: 9.2
+    segment_alignment: 10.0
+    terminology: 9.2
+    triangulation: 7.5
+    vietnamese_clarity: 9.3
+    han_viet_balance: 9.3
+    ambiguity_integrity: 9.1
+    technical_integrity: 9.6
+  final_score: 9.19
+  blocking_errors:
+    - "Không có tầng tham khảo tiếng Anh tại commit đã ghim: `source/upstream-manifest.json` (commit 11c9d708, tầng `english-sujato`) liệt kê 4.291 tệp nhưng KHÔNG có tệp nào cho uid này, và `.cache/upstream/suttacentral/translation/en/sujato/` cũng không có — đây là `not-published-upstream`, KHÔNG phải `not-synced`; toàn bộ sub-collection `vv` của Kinh Tạng vắng mặt trong tầng Anh đã ghim. `scripts/validate.ts` (nhánh `if (!existsSync(englishFile))`) coi tệp Anh thiếu là **error** khi status là `review` hoặc `published`, nên bài bắt buộc `draft`. Tầng `vietnamese-current` cũng vắng: `translation/vi/phantuananh` tại commit đã ghim chỉ có 26 tệp và toàn bộ là Pháp Cú. Lớp lấp `english-project` của dự án cũng không có cho uid này. Ba tầng tham khảo đều vắng ⇒ bài dịch chỉ từ Pāli root ⇒ blocker thật, và đây là **giới hạn upstream**, không phải lỗi của người dịch. Vì vậy `triangulation` bị chặn ở 7.5 (≤ 8.0) chứ không nâng để né blocker. Ghi chú thêm: đo coverage theo đúng công thức `source/layers.yaml` (`substantivePaliMinChars: 40`, loại block tham chiếu `:0`) cho **0 trên 0** khoá Pāli đủ 40 ký tự — khuôn kệ của `vv` là kệ ngắn, mỗi vế dưới 40 ký tự — nên coverage không đo được, và ngưỡng 0.8 không phải nguyên nhân của blocker ở đây; nguyên nhân là tệp Anh không tồn tại."
+  assessed_at: "2026-10-04"
+  assessed_by:
+    - "OpenCode Space Bunny Free (agent)"
+notes: |-
+  Nguồn: dịch từ Pāli root đã ghim (`source/upstream-manifest.json`, commit 11c9d708,
+  tầng `pali`, `treeSha` 4d736429). Tầng Anh Sujato đã ghim KHÔNG có bài này (0/45 khoá),
+  nên không có mốc đối chiếu tiếng Anh cho câu nào; đây là giới hạn của bản chụp
+  upstream, đã ghi ở `blocking_errors`, không phải lựa chọn của người dịch.
+
+  MỆNH ĐỀ ĐO LẠI TRONG `vv` (44 tệp đã có, đếm bằng `grep` trên tầng Việt dự án) — lát
+  này chọn theo đa số, và ghi lại CẢ HAI HƯỚNG kèm số như sau.
+  · `Vimānavatthu` (0.1): giữ nguyên Pāli **43 tệp** ⟵ *Chuyện về cảnh giới thần* 1 tệp.
+  · `Itthivimāna` (0.2): *Chuyện Cung Điện Nữ Hư Không* **20 tệp** ⟵ *Chuyện Cung Điện
+    Nam Hư Không* 14 (14 tệp ấy thuộc `Purisavimāna`, không phải bài này) ⟵ *Thiên Cung Của
+    Nữ Giới* 1 ⟵ giữ Pāli `Purisavimāna` 3.
+  · `Pāricchattakavagga` (0.3, chỉ ở vv31): *Phẩm Cây San Hô* **1 tệp** (`vv36:0.3`), không
+    có cách thứ hai. Củng cố bằng tầng tên đã ghim `vv-name:32.vv-paricchattakavagga`
+    = The Chapter With the Coral Tree.
+  · `Pīṭhavagga` (0.3, vv6/vv7/vv9): *Phẩm Pīṭha* **9 tệp** ⟵ giữ Pāli 2
+    (`Mahārathavagga`, `Sunikkhittavagga`).
+  · NGÔI KỂ xưng tự: *vậy tôi* **30 dòng / 22 tệp** ⟵ *vậy ta* 4 dòng / 4 tệp ⇒ chọn
+    **vậy tôi**.
+  · `mahānubhāva`: *đại oai lực* **18 dòng / 9 tệp** ⟵ *uy thế lớn lao* 12 dòng / 9 tệp ⇒
+    chọn **đại oai lực**.
+  · `sabbadisā disā` toàn cục: *khắp mọi phương* **45 dòng / 27 tệp** ⟵ *khắp muôn phương*
+    31 dòng / 23 tệp ⟵ *khắp bốn phương* 7 dòng / 6 tệp.
+    ⚠ Nhưng đo theo CHÍNH CÁI PĀLI thì đảo ngược, và đây là mấu chốt của lát này:
+    `…te sabbadisā pabhāsatī”ti.` (Tôn giả hỏi, ngôi 2) → *muôn phương* **19 tệp** ⟵
+    *mọi phương* 8 ⟵ *bốn phương* 5; còn `…me sabbadisā pabhāsatī”ti.` (nữ thiên đáp,
+    ngôi 1) → *mọi phương* **19 tệp** ⟵ *muôn phương* 10 ⟵ *bốn phương* 2; và
+    `Obhāsentī disā sabbā,` → *mọi phương* **8/8 tệp**.
+    ⇒ Lát này theo **đa số theo từng PĀLI** (luật PĀLI trùng nguyên văn thì dùng lại nguyên
+    văn thắng số đếm toàn cục): câu hỏi → *muôn phương*, câu đáp → *mọi phương*.
+    Hệ quả trung thực: trong `vv6`/`vv7`/`vv9` cùng một ý `sabbadisā` mà hai bản dịch khác
+    nhau. Cụm `vv1`+`vv3`+`vv4`+`vv10`+`vv13`+`vv14` của kho cũng y hệt (hỏi *muôn phương*,
+    đáp *mọi phương*), tức đây là quy ước của cụm đông nhất chứ không phải lỗi đơn lẻ — nhưng
+    người biên tập có thể muốn thống nhất lại; nếu vậy thì phải sửa **cả hai vế ở cả 44 tệp**,
+    việc đó không thuộc lát này và tôi không tự ý sửa bài đã có.
+
+  Nguồn tên kinh: đọc tầng `name/` đã ghim cùng commit để phân giải ba chữ trong tên bài —
+  `vv-name:35.vv31` = Couch Mansion ⇒ `Pallaṅka` là kiều/ngai; `vv-name:8.vv6` và
+  `vv-name:9.vv7` = Ship Mansion / Second Ship Mansion ⇒ `Nāvā` là **thuyền** (đúng như
+  `pv28:5.2` `Nāvāya ca tvaṁ avalamba tiṭṭhasi;` đã dịch *còn ngươi thì dựa vào thuyền mà
+  đứng vững*); `vv-name:11.vv9` = Lamp Mansion ⇒ `Dīpa` là **đèn**. Ba tên đó được giữ
+  nguyên Pāli trong tiêu đề (`Phẩm Pīṭha`, `Cung Điện Pallaṅka`, `Cung Điện Nāvā`) theo đúng
+  cách 43/44 tệp `vv` đang làm với `Vimānavatthu`; riêng `Dīpavimānavatthu` dịch là *Đèn*
+  vì *đèn* là từ Việt phổ thông đúng nghĩa, còn `Pallaṅka`/`Nāvā`/`Pīṭha` thì không.
+  Tầng `name/` của `sn` không có tên từng bài (2119 mục nhưng `sn14.18`/`sn12.43`/`sn12.44`
+  đều để trống), nên ba bài `sn` của lát dùng tiêu đề dịch nghĩa.
+
+  Nháy kép: đặt đúng vị trí Pāli đặt, và cân trên cả bài (đã kiểm bằng `ngoặc()` của
+  `_hvi.py` cho từng khoá đã dịch). `vv1:4.4` có lỗi tiền lệ — dư một dấu `”` thành
+  `…muôn phương?”.”` — tôi KHÔNG sao chép lỗi ấy; bản đa số (5 tệp) là `…muôn phương?”`
+  và đã dùng nguyên văn bản ấy.
+
+  Dấu lược: không khoá nào của `vv31`/`vv6`/`vv7`/`vv9` có `…pe…` ở Pāli, và bản Việt cũng
+  không có một dấu lược nào — mỗi khoá khớp 0 = 0.
+
+  Bất định riêng của `vv31` (các vế kệ ngắn này không có tiền lệ nào trong 44 tệp `vv` đã có):
+  · `3.2` `suṇisā` — 0 tiền lệ; `suṇi` là *hiền lành, ngoan*, nhưng ba câu sau nói về thái
+    độ của bà với chồng, nên tôi dịch *hiền lành* thay vì *ngoan*; hai cách đều defend được,
+    không thay đổi ý.
+  · `7.5` `Patimhi kalyāṇī vasānuvattinī` — 0 tiền lệ. `kalyāṇī` có thể là đối với chồng thì
+    tôi đẹp đẽ, hoặc là tôi thuận tốt với chồng; tôi dịch theo cách thứ nhất rồi thêm
+    `vasānuvattinī` = *tận lòng thuận theo*, nên cả hai vế đều còn mặt. `sugata` → *Thiện
+    Thế* theo `iti84`/`iti107`.
+  · `8.4` `Deviddhipattā … āgatā` — Pāli đổi sang sở thứ 3 giữa lúc nữ thiên đang xưng *tôi*;
+    bản Việt giữ chủ ngữ *tôi* của câu trước (8.3) và để vế 8.4 không chủ thể, vì tiếng Việt
+    không có dạng chuyển ngôi đó mà vẫn giữ đủ nghĩa.
+  · `5.3` `Amajjapā no ca musā abhāṇiṁ` — tiền lệ **1 tệp** (`vv12:5.1`) dịch *Ta chưa từng
+    hành xử thô kệ, chưa từng nói lời không thật*, nhưng `amajjapā` là *không uống chất say*
+    chứ không phải *thô kệ*; `vv61` dịch đúng là *không uống chất say*. Tôi theo nghĩa đúng
+    và dùng *tôi* (tiền lệ ấy dùng *Ta* vì cả bài `vv12` xưng *ta/ngươi*). Đây là điểm **cố ý
+    lệch tiền lệ 1-tệp**, ghi lại để người biên tập cân.
+  · `6.3` `Pāṭihāriyapakkhañca` — tiền lệ chia làm hai phe: *Cùng kỳ phép nhiệm màu*
+    (2 tệp, 4 lần) và *và cả tuần lễ thần biến* (2 tệp, 2 lần; thêm 2 biến thể 1 lần).
+    Chọn *Cùng kỳ phép nhiệm màu* vì `pāṭihārikapakkha` là kỳ tròn thần thông, và đó cũng là
+    biến thể nhiều lần nhất.
+  · `6.2` `yā ca pakkhassa aṭṭhamī` — dùng nguyên văn *Và ngày thứ tám nửa tháng;*
+    (`an3.37:5.2`); riêng `vv25:6.2` dùng *và ngày mồng tám của nửa tháng* — cùng nghĩa.
+  · `1.1` `Pallaṅkaseṭṭhe` — dùng cụm *trên tòa tuyệt hay* của `pv28:2.3`; `1.4`
+    `Uccāvacā iddhi vikubbamānā` dùng nguyên văn `vv12:1.4` (*thi triển thần thông biến
+    hóa tùy ý*); `2.2` dùng nguyên văn `vv11:2.4` (*đang múa, đang hát, đang vui chơi*)
+    vì `vv11` là bài có **cùng khung** (2.1 của nó trùng nguyên văn `vv31:2.1`), còn `vv67:2.5`
+    dùng cụm khác.
+
+  Cổng kỹ thuật CHƯA chạy — agent dịch không được phép chạy `npm run validate|test|build|
+  check`. `save_vi` của `_hvi.py` đã pass cho cả 45/45 khoá của bài này (đủ khoá, không thừa,
+  NFC, không trùng nguyên văn PĀLI, PĀLI không lọt vào bản Việt, số dấu lược khớp từng
+  khoá, ngoặc kép cân trên cả bài), và `_rv67.py` quét lại không lỗi nào ngoài `:0.1` — vốn
+  là khối tiêu đề ngắn (< 40 ký tự) mà `_hvi.py` cố ý không kiểm, và giữ nguyên PĀLI là
+  **tiền lệ 43/44** trong `vv`. Người biên tập cần chạy đủ `npm run validate`, `npm test`,
+  `npm run check`, `npm run build` trước khi coi `technical_integrity: 9.6` là đạt.
