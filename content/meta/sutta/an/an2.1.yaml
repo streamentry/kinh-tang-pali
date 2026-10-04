@@ -1,0 +1,46 @@
+uid: an2.1
+status: published
+translationTitle: "Kinh Tội Lỗi"
+translators:
+  - "OpenCode Space Bunny Free (agent)"
+reviewers: []
+tags:
+  - "anguttara-nikaya"
+  - "cong-hanh-nhom"
+  - "kammakarana-vagga"
+  - "vajjasutta"
+quality:
+  scores:
+    source_provenance: 9.5
+    semantic_fidelity: 9.3
+    grammar_logic: 9.3
+    segment_alignment: 10.0
+    terminology: 9.2
+    triangulation: 8.0
+    vietnamese_clarity: 9.2
+    han_viet_balance: 9.3
+    ambiguity_integrity: 8.8
+    technical_integrity: 9.6
+  final_score: 9.22
+  blocking_errors: []
+  assessed_at: "2026-10-04"
+  assessed_by:
+    - "OpenCode Space Bunny Free (agent)"
+notes: |-
+  `Vajjasutta`, bài đầu của `Kammakaraṇavagga`. 35 khoá, tất cả đã dịch. Bài này **có** tầng Anh Sujato tại commit đã ghim (`translation/en/sujato/sutta/an/an2/an2.1-10_translation-en-sujato.json`, 125 khoá), nên nó không cùng cảnh với 7 bài `kn` của lát.
+
+  ĐO COVERAGE THEO ĐÚNG CÔNG THỨC (`source/layers.yaml`, ngưỡng 0.8): trên 22 khoá Pāli có nội dung (≥ 40 ký tự sau chuẩn hoá, bỏ khối `:0.x`), 20 khoá có chữ Anh = **90,9%**, trên ngưỡng. Hai khoá còn lại (`3.3`, `3.5`) là chỗ Sujato để trống, đã được lớp lấp `content/translation/en/project/sutta/an/an2.1_translation-en-project.json` phủ ⇒ coverage thực 100%. Vì thế **không** cần entry trong `content/meta/reference-gaps.yaml` và bài có thể `published`.
+
+  **KHÔNG TUYÊN BỐ ĐỐI CHIẾU ANH Ở HAI KHOÁ LẤP.** `content/meta/en/an/an2.1.yaml` ghi `assessed_by: OpenCode Space Bunny Free (agent)` — **trùng tên với người dịch Việt**. Lớp lấp vì thế KHÔNG phải một cách đọc Anh độc lập, và `scripts/validate.ts` sẽ cảnh báo đúng điều đó. Vì vậy `triangulation` bị chặn ở **8.0** (không phải 9.2 như `an8.57`) và `notes` này **không** tính `3.3`/`3.5` vào đối chiếu Anh. Hai tên hình phạt ở `3.3` cũng lấy từ lớp lấp, không từ Sujato.
+
+  DANH SÁCH MƯỜI BA TÊN HÌNH PHẠT — DÙNG LẠI NGUYÊN VĂN, ĐẾM ĐƯỢC. `bilaṅgathālikā`…`palālapīṭhakā` không có bản dịch Việt hay chú giải nào ngoài tầng dự án, nhưng **cùng danh sách đó** đã có ở `an4.121:4.3` (mục `daṇḍabhaya`) nên dùng lại nguyên văn cả 13: *cái chõ bã đậu · cạo hình vỏ sò · miệng Rāhu · vòng hoa lửa · bàn tay đốt lửa · cuộn cỏ hắc mạch · áo vỏ cây · con linh dương · móc thịt · đồng xu · nước muối xoáy · thanh gỗ xoay · chiếc rơm*. Cùng Pāli `Pajaṁ jātijarūpetaṁ` với `yathārūpānaṁ kho pāpakānaṁ kammānaṁ hetu …` cũng dùng lại nguyên văn. Đây là lý do `terminology` không lên quá 9.2: nguồn của các tên ấy là **tầng dự ân**, không phải từ điển.
+
+  BỐN KHOÁ ĐỒNG NHẤT VỚI TẦNG ĐÃ CÓ (đếm bằng script mục Pāli↔Việt, không bằng mắt): `Evaṁ me sutaṁ—` → *Tôi nghe như vầy.*; `ekaṁ samayaṁ bhagavā sāvatthiyaṁ viharati jetavane anāthapiṇḍikassa ārāme.` → *Một thời, Đức Phật ở gần Sāvatthī, tại rừng Jeta, trong tu viện của ông Anāthapiṇḍika.*; `“Bhadante”ti te bhikkhū bhagavato paccassosuṁ.` → *“Bạch Thế Tôn,” các vị tỳ-kheo đáp.*; `Tassa evaṁ hoti:` → *Người ấy nghĩ như vầy:* (theo `an4.121:5.1`).
+
+  THUẬT NGỮ — tra bằng `grep … | sort | uniq -c | sort -rn` trên tầng Việt trước khi chốt: `vajjāni` → *lỗi lầm* (`Kinh Lỗi Lầm` đã có ở `an3.4:0.3` và `sn11.24:0.3`; `Kinh Tội Lỗi` là cách **mới** cho `Vajjasutta`, chọn vì `an2.10:2.1` đã giữ `Vajjā` nguyên văn); `diṭṭhadhammikaṁ vajjaṁ` → *lỗi lầm hiện tại*; `samparāyikaṁ vajjaṁ` → *lỗi lầm liên quan đến đời sau* (tiền lệ `mn26`/`dn14`: *nguy hiểm trong lỗi lầm liên quan đến đời sau*); `duccarita`/`sucarita` → *hành động thân ác / hành động thân thiện* (theo `an4.121`, cùng công thức); `vajjabhayadassāvino` → *thấy nguy hiểm trong lỗi lầm*; `evaṁ sikkhitabbaṁ` → *cần học tập như vậy* (theo `an2.2:2.2`, cùng phẩm).
+
+  DẤU LƯỢC — chỉ một khoá có `…pe…`: `3.5` (`kasāhipi tāḷeyyuṁ …pe… asināpi sīsaṁ chindeyyun’ti.`), giữ **đúng một** `…` và bỏ phần bị che; **không** mở rộng. `4.12` là khoá đóng ngoặc kép (`”ti.`) của lời mở ở `2.1` (`“`), đếm trên toàn bài thì cân.
+
+  BẤT ĐỊNH ĐÃ GHI, KHÔNG GIẤU. `candavatiyā` ở `5.1` không có mục từ điển nào trong kho; dịch *lòng yêu cuồng nhiệt* như một cách đọc, và chỗ này **không** nâng `ambiguity_integrity`. `rāhu` trong *miệng Rāhu* giữ nguyên vì `an4.121` đã dùng tên này cho cùng hình phạt.
+
+  Bốn cổng kỹ thuật theo `AGENTS.md`: `npm run validate`, `npm test`, `npm run check`, `npm run build`. Lát này **không** chạy bốn lệnh đó — BRIEF cấm `npm run validate|test|build|check` trong từng lát, nên để CI hoặc người điều phối chạy. `technical_integrity` đặt **9.6** vì mọi chốt tự động của `_hvi.kiểm` đã xanh (thiếu khoá, thừa khoá, ngoặc kép cân trên cả bài, NFC, không trùng nguyên văn Pāli, không lọt Pāli, khớp số dấu lược) và 35/35 khoá của chính bài này; chưa đủ 10.0 vì cổng `npm` và lượt rà của người chưa chạy.

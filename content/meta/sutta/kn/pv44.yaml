@@ -1,0 +1,58 @@
+uid: pv44
+status: draft
+translationTitle: "9. Chuyện Ngạ Quỷ Ăn Dơ"
+translators:
+  - "OpenCode Space Bunny Free (agent)"
+reviewers: []
+tags:
+  - khuddaka-nikāya
+  - petavatthu
+  - đại-phẩm
+  - ngạ-quỷ
+  - gūthakhādapetivatthu
+quality:
+  scores:
+    source_provenance: 9.5
+    semantic_fidelity: 9.0
+    grammar_logic: 9.0
+    segment_alignment: 10.0
+    terminology: 9.0
+    triangulation: 7.5
+    vietnamese_clarity: 9.1
+    han_viet_balance: 9.2
+    ambiguity_integrity: 8.6
+    technical_integrity: 9.6
+  final_score: 9.05
+  blocking_errors:
+    - "Không có tầng tham khảo tiếng Anh tại commit đã ghim (11c9d708978cde8ba61096d8a75f7ddfb846f639): thư mục `kn/` của edition `translation/en/sujato` tại commit ấy chỉ có cp, dhp, iti, ja, kp, snp, thag, thig, ud — **không có mil, pv hay tha-ap**; `source/upstream-manifest.json` không liệt kê bất kỳ tệp nào cho uid này. Đây là `not-published-upstream`, KHÔNG phải `not-synced`. Bài này **không có segment Pāli có nội dung** (mọi câu kệ đều ngắn hơn 40 ký tự sau khi chuẩn hoá — đo được 0 trên 36 khoá), nên `src/lib/canon/reference.ts` quy định `ratio = 1` khi mẫu số bằng 0 và cổng coverage **không** chặn. Nhưng tệp Anh thật sự không tồn tại, và `scripts/validate.ts` coi đó là **error** khi status là `review` hoặc `published` ⇒ bài bắt buộc `draft`. Đây là trường hợp số đo không bắt được nhưng thực tế vẫn mất tầng tham khảo. Tầng `vietnamese-current` cũng vắng (chỉ 26 tệp Pháp Cú) và lớp lấp `english-project` cũng không có uid này ⇒ blocker thật."
+  assessed_at: "2026-10-04"
+  assessed_by:
+    - "OpenCode Space Bunny Free (agent)"
+notes: |-
+  TẦNG THAM KHẢO — không có tệp Anh Sujato cho uid này ở commit đã ghim (xem `blocking_errors`).
+  0 segment Pāli có nội dung trên 36 khoá ⇒ cổng coverage không chặt, nhưng tệp Anh vắng thì `validate` vẫn lỗi
+  với `review`/`published` ⇒ `draft`. Không có Việt hiện hành ⇒ `triangulation` 7.5.
+
+  BẢN NỮ CỦA pv43 — CẤU TRÚC GIỐNG HỆT, ĐÃ KIỂM BẰNG SỐ. Pāli của pv43 và pv44 có **25 cặp khoá trùng nguyên
+  văn**; bản Việt của cả 25 cặp giống hệt nhau. Kiểm lại toàn lát bằng script: **0/47 cặp trùng bị dịch khác**.
+  Chỗ Pāli **khác** giữa hai bài thì bản Việt mới khác, và khác đúng chỗ:
+  - `ko nu dīno` / `kā nu dīnā` (1.2) → “kẻ khốn khó ấy” / “người khốn khó ấy”;
+  - `petomhi` / `petīmhi` (2.1) và `duggato yamalokiko` / `duggatā yamalokikā` (2.2) — Pāli tự đã cho biết giới;
+    bản Việt không cần chia đựng (“con là ma”, “sinh về cõi khổ xa xôi”), vì “con”, “người ấy” vốn không mang
+    giới. Đây là chỗ **không** nên cố làm khác nhau;
+  - `…gato”.` / `…gatā”ti.` (2.4) và (5.4) — pv43 mất `ti` ở 2.4, pv44 có `ti`; giữ nguyên theo Pāli.
+
+  THUẬT NGỮ giống pv43 và cùng tiền lệ đếm được: `Petavatthu` giữ Pāli (1 cách duy nhất trong 11 nơi),
+  `Mahāvagga` → “Đại Phẩm” (1 cách trong 19 nơi), `…petivatthu` → “Chuyện Ngạ Quỷ …”. Riêng tiêu đề `:0.3`
+  là `petivatthu` (bản nữ) nên giữ nguyên hình thái “Ăn Dơ” như pv43 — hình thái nam/nữ là của Pāli, không
+  phải của tiêu đề.
+
+  BẤT ĐỊNH — cùng những chỗ đã ghi ở pv43, vì Pāli các câu ấy trùng nhau: `saddahase tuvaṃ` (1.4),
+  `hadantañño` / `hadāmi` (8.1, 8.3), `duggatā yamalokikā` (2.2), `kissā kammavipākena` (3.3), `pecca gatiṃ`
+  (6.4), `sīse tiṭṭhāmi matthake` (7.2). Xem `pv43.yaml` để có lý do từng chỗ.
+
+  DẤU LƯỢC — bài này **không có** `…pe…`.
+
+  Ngoặc kép cùng cấu trúc pv43; tự đếm lại: cân.
+
+  Đợt này bị cấm chạy cổng kỹ thuật, nên tiêu chí 10 bị chặn ở **9.6**: tôi chỉ xác minh được JSON hợp lệ, đủ khoá, không orphan, không rỗng, mọi giá trị NFC, dấu lược khớp Pāli từng khoá, `(…)` không đứng một mình, ngoặc kép cân trên cả bài và YAML sạch. Bốn lệnh `npm run validate`, `npm test`, `npm run check`, `npm run build` để coordinator chạy.

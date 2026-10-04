@@ -1,0 +1,55 @@
+uid: tha-ap318
+status: draft
+translationTitle: "Bài Kệ Tuyên Ngợ Về Trưởng Lão Āsanasanthaviko"
+translators:
+  - "OpenCode Space Bunny Free (agent)"
+reviewers: []
+tags:
+  - "kn"
+  - "khuddaka-nikaya"
+  - "therapadana"
+  - "arakkhadayakavagga"
+quality:
+  scores:
+    source_provenance: 9.5
+    semantic_fidelity: 9.2
+    grammar_logic: 9.2
+    segment_alignment: 10.0
+    terminology: 9.1
+    triangulation: 7.5
+    vietnamese_clarity: 9.2
+    han_viet_balance: 9.3
+    ambiguity_integrity: 9.0
+    technical_integrity: 9.6
+  final_score: 9.16
+  blocking_errors:
+    - "Không có tầng tham khảo tiếng Anh tại commit đã ghim: bản Sujato ở `translation/en/sujato/sutta/kn/` chỉ có mười thư mục con — cp, dhp, iti, ja, kp, snp, thag, thig, ud — KHÔNG có `tha-ap`, và `source/upstream-manifest.json` không liệt kê bất kỳ tệp dịch nào cho uid này; đây là `not-published-upstream`, KHÔNG phải `not-synced`. Đo coverage theo đúng công thức `source/layers.yaml` (`englishCoverage.substantivePaliMinChars: 40`, `excludeReferenceBlock: true`) cho 0 trên 2 khoá Pāli có nội dung = 0%, dưới ngưỡng 0.8. `scripts/validate.ts` coi tệp Anh thiếu là error khi status là `review` hoặc `published`, nên bài bắt buộc `draft`. Lớp lấp `english-project` của dự án cũng không có cho uid này. Tầng `vietnamese-current` cũng vắng: `translation/vi/phantuananh` tại commit đã ghim chỉ có 26 tệp và toàn bộ là Pháp Cú. Ba tầng tham khảo đều vắng nên bài dịch chỉ từ Pāli root, đây là giới hạn upstream chứ không phải lỗi của người dịch; vì vậy `triangulation` bị chặn ở 7.5 (≤ 8.0) chứ không nâng để né blocker."
+  assessed_at: "2026-10-04"
+  assessed_by:
+    - "OpenCode Space Bunny Free (agent)"
+notes: |-
+  Bản dịch tiếng Việt mới cho bài kinh tha-ap318 — trưởng lão Āsanasanthaviko, bài thứ sáu
+  trong Ārakkhadāyakavagga. Tên bài nghĩa là vị trưởng lão đã lo bỏ chỗ ngồi.
+
+  Tiền kiếp: bảo tháp tối thượng tên Cetiya của bậc đang tu hành được dựng trong rừng
+  hoang; ông khi ấy còn mù lòa mù mắt, bước ra từ Pavanā thì thấy ngai của bậc sư tử,
+  chắp tay cung kính; nửa ngày sau thấy Đức Phật thì phát ra lời kệ tán thán. Ông làm
+  dấu hiệu, đảnh lễ chỗ ngồi rồi lui về phía bắc. Vào ba mươi mốt kiếp trước ông tán
+  thán bậc được tuyên ngợ; vào hai mươi bảy kiếp trước ông làm vua có đủ bảy món báu.
+
+  Bất định đã ghi lại, không sửa trong kinh:
+  - `sikhino lokabandhuno` (1.2) dịch là bậc đang tu hành, bậc Thân Hữu của thế gian, khác
+    mười cặp tiền lệ ở tha-ap353, tha-ap520, tha-ap71 dịch “Đức Sikhī”. Lý do: `sikhin` là
+    danh từ chung có nghĩa người đang tu, biến nó thành tên riêng là bịa thêm một Đức Phật
+    tên Sikhī. Giữ nguyên văn Pāli quan trọng hơn số lượng tiền lệ.
+  - `Pavanā` giữ nguyên là tên địa danh; `Cetiya` giữ nguyên là tên tháp, đều lấy thẳng từ
+    Pāli của chính bài.
+  - `andhāhiṇḍāmahaṁ` (1.4) dịch là mù lòa mù mắt; từ này không có tiền lệ trong tầng,
+    giữ nghĩa gốc thay vì chọn một Hán–Việt không có cứu chứng.
+  - `thaviṁ vadataṁ varaṁ` (6.2) là ba vị từ cùng nghĩa: được tụng, được tuyên, cao quý;
+    dịch gộp thành bậc được tuyên ngợ, bậc cao quý.
+  - `Sattaratanasampannā, cakkavattī mahabbalā` (7.3–7.4) số nhiều, nên dịch là những vị
+    Chuyển Luân Vương; ở tha-ap32 và tha-ap320 dạng số ít mới dịch là là Chuyển Luân Vương.
+  - `Sattavīse ito kappe` là hai mươi bảy kiếp, khớp ba cặp tiền lệ tha-ap229, 293, 327.
+
+  Bốn lệnh cổng kỹ thuật của dự án là `npm run validate`, `npm test`, `npm run check` và `npm run build` (lớp CI chạy cả bốn; lát này không tự chạy vì BRIEF cấm, nên `technical_integrity` đặt 9.6 chứ không phải 10). Trong lát, mọi khoá đã qua kiểm của chính tầng Việt qua `_hvi.save_vi`: đủ 36/36 khoá, cân ngoặc kép trên cả bài, đúng số dấu lược theo Pāli, NFC, không trùng nguyên văn Pāli, không lọt Pāli. `final_score` là trung bình số học thô của đúng 10 tiêu chí, tính bằng script.
