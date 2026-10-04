@@ -9,16 +9,16 @@ tags:
 quality:
   scores:
     source_provenance: 9.8
-    semantic_fidelity: 9.3
+    semantic_fidelity: 8.9
     grammar_logic: 9.5
-    segment_alignment: 10.0
+    segment_alignment: 9.2
     terminology: 9.4
     triangulation: 9.4
     vietnamese_clarity: 9.3
     han_viet_balance: 9.5
     ambiguity_integrity: 9.4
     technical_integrity: 10.0
-  final_score: 9.56
+  final_score: 9.44
   blocking_errors: []
   assessed_at: "2026-10-04"
   assessed_by:
@@ -46,4 +46,32 @@ notes: |-
     `mn93:18.4`, `mn96:8.6`, `mn96:8.8`, `dn33:1.11.31`, `an11.22:3.1`, `mn119:15-17.8`…).
     Đã theo đúng tiền lệ. Quét lại toàn tầng: **0** khoá Việt nào còn chứa `…pe…`, `pe…`
     hay `…pe`.
+    **Sửa lớp lỗi lệch khoá ở `4.9` / `4.10` / `4.11` (2026-10-04).** Quét tìm trên toàn
+    tầng phát hiện **8 khoá** trong bài này sai theo cùng một kiểu: bản Việt **nhét nội dung
+    khoá kế vào khoá trước**, rồi để khoá thật là chuỗi rỗng `(…)`.
 
+    - `4.9.2` nuốt nội dung của `4.9.3` (dài 152 ký tự, gộp hai mệnh đề Pāli vào một);
+      `4.9.3` lại mang nội dung của `4.9.4`; `4.9.4` **trống** trong khi Pāli có 47 ký tự
+      văn xuôi — tức **một đoạn chưa hề được dịch**.
+    - `4.10.2` nuốt nội dung của `4.10.3`; `4.10.3` **trống** (Pāli 55 ký tự).
+    - `4.11.2` nuốt nội dung của `4.11.3`; `4.11.3` mang nội dung của `4.11.4`; `4.11.4`
+      **trống** (Pāli 47 ký tự).
+
+    Đã sửa theo **tiền lệ đúng ngay trong chính bài này**: `4.8.2` / `4.8.3` — khoá `:2`
+    giữ mệnh đề "Tôi đã nghe…", khoá `:3` giữ "đây là Pháp, đây là luật…". Và theo **từ vựng
+    của chính dn16**: `saṅghassa` → **đại chúng** (47 khoá, 0 khoá dùng *Tăng chúng*) ·
+    `therānaṁ` → **các vị trưởng lão** (theo `4.10.9`) · `sammukhā … paṭiggahitaṁ` →
+    **đã nghe trước mặt …, đã nhận được trước mặt …** (theo `3.40.1`, `4.8.2`, `4.42.7`).
+
+    Ba chuỗi Pāli này **trùng nguyên văn** với `an4.180:6.3/8.3/9.3` (một bản dịch 67
+    khoá có sẵn), nhưng bản đó dùng *Tăng chúng* và *đã lãnh nhận* — **không** dùng lại, vì
+    trong cùng một bài thì từ vựng phải khớp nhau trước. Đó là ngoại lệ có lý do cho luật
+    *"Pāli trùng thì dịch trùng"*, và ghi rõ ở đây.
+
+    Dấu chấm cuối mỗi khoá theo **đúng dấu cuối của Pāli khoá đó** (`4.9.3` hết bằng phẩy,
+    `4.10.3` / `4.11.3` hết bằng gạch dài). Kiểm lại: ngoặc kép toàn bài **cân** (491 mở /
+    491 đóng), 14/14 tệp NFC.
+
+    Hạ `semantic_fidelity` 9,3 → **8,9** và `segment_alignment` 10 → **9,2**: ba khoá **chưa
+    được dịch** và ba khoá **mang sai nội dung** là lỗi ở cả hai tiêu chí, không chỉ ở văn
+    phong.
