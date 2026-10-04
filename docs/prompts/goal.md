@@ -16,15 +16,16 @@ còn lại là chấm lại / sửa, không phải dịch.
 
 ---
 
-## TRẠNG THÁI HIỆN TẠI (đo 2026-10-04 tại `b76976e7`, `main` + PR #235)
+## TRẠNG THÁI HIỆN TẠI (đo 2026-10-04 tại `8c6e44a9`, `main`)
 
-HEAD của `main` = `e0c00a62` — "dịch(vi): 42 bài / 1.850 khoá — đợt 7 [c58–c63] (#234)".
-PR đang mở: **#235** (đảo 4 nhóm lỗi thuật ngữ + 188 tệp `notes` khẳng định sai hướng).
-PR đã merge gần nhất: #234 (đợt 7), #233 (lớp lấp `e5`+`e6`), #232 (`pācīna`),
-#231 (đợt 6), #230 (lớp lấp `e3`+`e4`), #229 (docs), #228 (đợt 5a), #227 (sửa
-`pages.yml`), #226 (đợt 4), #225 (`sync-source` verify tải).
+HEAD của `main` = `8c6e44a9` — "dịch(vi): 7 bài / 314 khoá — lát c64 (#242)".
+PR đã merge gần nhất: #242 (c64), #241 (c67), #240 (lớp lấp `e7`), #239 (đợt 8a),
+#238 (`nibbānapabbhāro`), #237 (đợt 8a — đã đổi số), #236 (docs), #235 (4 nhóm lỗi thuật ngữ
++ 188 tệp `notes`), #234 (đợt 7), #233 (lớp lấp `e5`+`e6`), #232 (`pācīna`), #231 (đợt 6),
+#230 (lớp lấp `e3`+`e4`), #229 (docs), #228 (đợt 5a), #227 (sửa `pages.yml`), #226 (đợt 4),
+#225 (`sync-source` verify tải).
 
-**11 PR đã merge.** Bài đủ mọi khoá: 3.857 → **5.097**.
+**17 PR đã merge.** Bài đủ mọi khoá: 3.857 → **5.138**. Còn thiếu **998** bài / **136.641** khoá.
 
 ### Hai nguyên nhân `main` đỏ, và tôi sửa một rồi bỏ sót cái kia
 
@@ -60,13 +61,13 @@ run push của nhánh `chore/ci-is-the-gate` từng fail ở `manifest:check` do
 403 rate limit (hạ tầng, không phải code) — run PR-context cùng commit pass nên merge
 vẫn đúng.
 
-**Cổng local tại HEAD** (worktree sạch ở `b76976e7`, tức `main` + PR #235) — **13/13 xanh**:
+**Cổng local tại HEAD** (worktree sạch ở `8c6e44a9`) — **13/13 xanh**:
 
 ```
-reference:gaps 744 gap (chạy 2 lần, lần 2 không đổi ⇒ idempotent)
-reference:gaps:check ✓  744 gap / 5.194 text
+reference:gaps 747 gap (chạy 2 lần, lần 2 không đổi ⇒ idempotent)
+reference:gaps:check ✓  747 gap / 5.235 text
 verify:store:write ✓    verify:store:check ✓  (cache complete, đã so cả full-sync)
-validate ✓ 0 lỗi / 1.586 cảnh báo      test ✓ 141 pass / 0 fail      check ✓
+validate ✓ 0 lỗi / 1.609 cảnh báo      test ✓ 141 pass / 0 fail      check ✓
 catalog:check ✓ 6.137/6.137              manifest:check ✓            license:check ✓
 audit:store ✓  không orphan, không shadowing, không đảo authority
 audit:reference ✓  0 upstream defect
@@ -76,19 +77,19 @@ build ✓
 **Việt** — `node --import tsx /Volumes/SSD/opencode-work/vimeas.ts`
 (`npx` bị chặn bởi pkg-age-guard, phải gọi `node --import tsx` trực tiếp)
 
-| | `a059dec5` (cũ) | `1e39dd88` | `9a0aa4e9` | `b73dc54f` | **`b76976e7` (nay)** |
-| --- | --- | --- | --- | --- | --- |
-| catalogue | — | 6.137 | 6.137 | 6.137 | **6.137** (dn34/mn152/sn1819/an1781/kn2351) |
-| bài đủ mọi khoá | 3.857 | 4.679 | 4.817 | 5.006 | **5.097** |
-| bài còn thiếu | 2.279 | 1.457 | 1.319 | 1.130 | **1.039** |
-| khoá còn thiếu | 171.951 | 153.580 | 149.294 | 142.327 | **138.490** |
+| | `a059dec5` (cũ) | `1e39dd88` | `9a0aa4e9` | `b73dc54f` | `b76976e7` | **`8c6e44a9` (nay)** |
+| --- | --- | --- | --- | --- | --- | --- |
+| catalogue | — | 6.137 | 6.137 | 6.137 | 6.137 | **6.137** (dn34/mn152/sn1819/an1781/kn2351) |
+| bài đủ mọi khoá | 3.857 | 4.679 | 4.817 | 5.006 | 5.097 | **5.138** |
+| bài còn thiếu | 2.279 | 1.457 | 1.319 | 1.130 | 1.039 | **998** |
+| khoá còn thiếu | 171.951 | 153.580 | 149.294 | 142.327 | 138.490 | **136.641** |
 
 Đo **hai lần liên tiếp trên hai worktree sạch**, hai lần ra kết quả giống hệt.
 Mốc "trước" là commit trước cả các commit của PR, **không phải `HEAD~1`** — vì PR
 có nhiều commit thì `HEAD~1` đã chứa sẵn đợt đó và đo ra 0.
 
-Còn thiếu: `sn` 179 bài / 12.745 khoá (đủ 1.639) · `an` 150 / 11.455 (đủ 1.631) ·
-`kn` 710 / 114.290 (đủ 1.641) · `dn`+`mn` đủ 100% (34, 152).
+Còn thiếu: `sn` 167 bài / 12.206 khoá (đủ 1.651) · `an` 145 / 11.225 (đủ 1.636) ·
+`kn` 686 / 113.210 (đủ 1.665) · `dn`+`mn` đủ 100% (34, 152).
 
 ### ⚠️ Cần BỐN lớp kiểm độc lập, không phải 13 cổng là đủ
 
@@ -173,26 +174,26 @@ dịch như mọi bài đã có.
 
 **English** — `node --import tsx /Volumes/SSD/opencode-work/engq.ts` và `npm run audit:reference`
 
-| phép đo | `1e39dd88` | `9a0aa4e9` | `b73dc54f` | **`b76976e7`** |
-| --- | --- | --- | --- | --- |
-| `engq`: text có English đã ghim | 3.843 | 3.843 | 3.843 | 3.843 |
-| `engq`: text còn thiếu English | 376 | 354 | 354 | **322** |
-| `engq`: segment còn thiếu English | 6.750 | 6.640 | 6.640 | **6.464** |
-| `engq`: text dưới sàn | 229 | 216 | 216 | **194** |
-| `engq`: `noEnglishEditionUpstream` / đã ghi nhận | 1.596 / 1.596 | 1.596 / 1.596 | 1.596 / 1.596 | **1.596 / 1.596**, `agreesWithStoreVerification true` |
-| `audit:reference --used`: text dưới sàn coverage | 146 | 143 | 147 | **130** (trong 4.146) |
-| `audit:reference` **toàn catalogue**: text dưới sàn | — | 216 | 216 | **194** (trong 4.540; 64 chưa ghi nhận) |
-| `audit:reference`: "publishes no English at all" | 852 | 907 | 1.003 | **1.048** |
-| tầng lấp: tệp trên đĩa | 617 | 641 | 641 | **673** (dn 4 / mn 30 / sn 349 / an 163 / kn 127) |
+| phép đo | `1e39dd88` | `9a0aa4e9` | `b73dc54f` | `b76976e7` | **`8c6e44a9`** |
+| --- | --- | --- | --- | --- | --- |
+| `engq`: text có English đã ghim | 3.843 | 3.843 | 3.843 | 3.843 | 3.843 |
+| `engq`: text còn thiếu English | 376 | 354 | 354 | 322 | **314** |
+| `engq`: segment còn thiếu English | 6.750 | 6.640 | 6.640 | 6.464 | **6.416** |
+| `engq`: text dưới sàn | 229 | 216 | 216 | 194 | **192** |
+| `engq`: `noEnglishEditionUpstream` / đã ghi nhận | 1.596 / 1.596 | 1.596 / 1.596 | 1.596 / 1.596 | 1.596 / 1.596 | **1.596 / 1.596**, `agreesWithStoreVerification true` |
+| `audit:reference --used`: text dưới sàn coverage | 146 | 143 | 147 | 130 | **130** (trong 4.170) |
+| `audit:reference` **toàn catalogue**: text dưới sàn | — | 216 | 216 | 194 | **192** (trong 4.540; 62 chưa ghi nhận) |
+| `audit:reference`: "publishes no English at all" | 852 | 907 | 1.003 | 1.048 | **1.065** |
+| tầng lấp: tệp trên đĩa | 617 | 641 | 641 | 673 | **681** (dn 5 / mn 33 / sn 349 / an 166 / kn 128) |
 
-**Lớp lấp English chuyển động từ đợt 7** (đợt 1–6 không đụng tới nó): 641 → **673** tệp,
-`engq` text dưới sàn 216 → **194**, segment còn thiếu 6.640 → **6.464**.
+**Lớp lấp English chuyển động từ đợt 7** (đợt 1–6 không đụng tới nó): 641 → **681** tệp,
+`engq` text dưới sàn 216 → **192**, segment còn thiếu 6.640 → **6.416**.
 
-⚠️ **Con số cần đuổi về 0 là 194 toàn catalogue, không phải 130 trong scope `used`.**
+⚠️ **Con số cần đuổi về 0 là 192 toàn catalogue, không phải 130 trong scope `used`.**
 `audit:reference` luôn chạy với `--used` (xem `package.json`), nên trong CI nó chỉ đo 4.146
 bài đã có dữ liệu dự án. Chạy `node --import tsx scripts/audit-reference.ts` (không cờ) ra
-`scope all-catalog · 6137 text(s), 5194 with project data` và `194 of 4540 text(s) fall
-below it (64 not yet recorded)` — đúng bằng `engq`. 64 bài kia chưa có bản dịch Việt nên
+`scope all-catalog · 6137 text(s), 5235 with project data` và `192 of 4540 text(s) fall
+below it (62 not yet recorded)` — đúng bằng `engq`. 62 bài kia chưa có bản dịch Việt nên
 chưa vào record gap. Tôi từng ghi trong PR #222 rằng 143 và 216 "lệch nhau chưa giải thích";
 **đã giải thích: cùng một phép tính, khác phạm vi.**
 
@@ -226,9 +227,9 @@ Với chúng: `triangulation ≤ 8.0` cho **cả bài**, `draft` + blocker thậ
 English cho 1.596 bài kia** — đừng hứa vô lý trong PR body.
 
 **Lớp English của dự án** (`content/translation/en/project`, kèm đủ `content/meta/en`):
-**673 tệp trên đĩa** — dn 4 / mn 30 / sn 349 / an 163 / kn 127.
-`audit:store` báo **557 text / 2.021 segment** trong scope `used`; hai số khác nhau
-vì 673 là đếm tệp còn 557 là đếm text trong phạm vi 5.103 bài — ghi rõ phạm vi khi
+**681 tệp trên đĩa** — dn 5 / mn 33 / sn 349 / an 166 / kn 128.
+`audit:store` báo **603 text / 2.234 segment** trong scope `used`; hai số khác nhau
+vì 681 là đếm tệp còn 603 là đếm text trong phạm vi 5.235 bài — ghi rõ phạm vi khi
 báo cáo.
 
 **Một lớp lấp bịa dấu lược, và nó suýt qua `audit:store`.** Ở `an10.107:3.1` và `:6.4`, Pāli
@@ -333,6 +334,20 @@ Tất cả đo được trong phiên trước:
 | Đưa số mệnh đề đã lỗi thời vào prompt agent | `tha-ap :0.3` tôi nói 165/80/62, đo lại là **176/84/65** | chỉ đưa **mệnh đề**, không đưa **số**; bắt agent tự đo |
 | Thêm tên công cụ vào `assessed_by` của metadata một cách máy móc | `npm test` đỏ trên `snp3.10`/`snp3.12` — tệp ghi ChatGPT lịch sử | kiểm `translators` có `ChatGPT (OpenAI)` không, **trước** khi ghi |
 
+**Quy trình đúng để sinh file do cổng tạo, viết lại sau bốn lần mắc:**
+1. Sinh trong **worktree sạch đúng commit**, tên riêng, không ai dùng.
+2. `git status --short` ở worktree đó — xác nhận **đúng** các tệp cần lấy.
+3. `cp` **CẢ HAI** tệp: `content/meta/reference-gaps.yaml` **và** `docs/store-verification.json`.
+4. `git status --short` ở repo chính — xác nhận **đúng hai** tệp đó đổi.
+5. Commit; chạy hai lần để chứng minh idempotent.
+
+Bốn lần mắc, mỗi lần một nguyên nhân khác nhau: sinh ở thư mục làm việc (có tệp chưa commit của
+agent khác) · chạy `git checkout -f --detach` trong **chính** worktree vừa sinh, tự xoá mất bản vừa
+sinh · copy **thiếu một tệp** · xung đột rebase giữa hai nhánh.
+
+Khi rebase xung đột ở hai file ấy: **đừng chọn bên nào** — `git rebase --skip` rồi **sinh lại từ cây
+đã rebase**. File do cổng tạo thì cây mới là nguồn sự thật, không phải bên nào.
+
 **Lời báo của agent là bằng chứng để kiểm, không phải bằng chứng đã kiểm.** Đã có **nhiều** lần
 lời báo sai: báo "đã sửa xong một lỗi không tồn tại"; báo "không đụng tệp nào" trong khi đang
 ghi; báo `e5.txt`/`e6.txt` tồn tại trong khi tệp thật là `p5.txt`/`p6.txt`; và **hai agent cùng
@@ -344,6 +359,33 @@ agent đầu kết thúc **không ghi tệp nào** (kiểm bằng `os.path.exist
 ngược thấy `_meta51.py` (38 KB) và `_tvd_51x.py` (34 KB). Bản nó ghi **bắt được hai lỗi nghĩa
 thật** mà bản tôi commit sai (`cp12:4.1` bỏ mất `camma`; `cp12:3.2` dịch sai `yāpanamattakaṁ`)
 — nên đã lấy bản nó, nhưng **phải so bằng script chứ không lấy vì nó đến sau**.
+
+🚨🚨 **HỆ THỐNG: HAI AGENT ĐÃ CHẠY `git commit` VÀ `git push`; MỘT AGENT KHÁC ĐANG SỬA MÃ
+NGUỒN TRONG CÙNG CÂY LÀM VIỆC.** Đây là sự cố nghiêm trọng nhất của phiên, và nó cho thấy cấm
+`git` bằng lời trong prompt là **không đủ**.
+
+**Sự cố 1 — commit 43 tệp ngoài lát.** Agent chạy `git commit -a -m "translate"` rồi push lên
+remote. Commit chứa 43 tệp, trong đó **`README.md`** và metadata `an1.1` `an1.10` `an1.100` — mà
+thay đổi ấy là **sửa attribution của người duy trì** (thêm "TS." vào tên). Một commit khác đưa
+`reference-gaps.yaml` và `store-verification.json` vào **thư mục gốc**: sai đường dẫn, và bản thừa
+đã lỗi thời (737 record / 5.152 text so với bản đúng 744 / 5.194).
+
+Đã xử lý: force-push nhánh về đúng commit, **hoàn tác** sửa attribution (credit là việc của người
+biên tập, không phải của agent), xoá hai tệp rác. Từ đó mọi prompt ghi rõ **"CẤM TUYỆT ĐỐI MỌI LỆNH
+`git`, kể cả `status`/`diff`/`log`"** chứ không chỉ `add/commit/push`.
+
+⚠️ Vẫn chưa đủ — **luôn kiểm `git status` trước khi commit** và **commit bằng danh sách tường
+minh**, không `git add -A`.
+
+**Sự cố 2 — session khác sửa mã nguồn trong cùng cây.** Một phiên khác (tính năng `summary`:
+`src/lib/canon/types.ts`, `document.ts`, `src/pages/sutta/[uid].astro`, `public/styles/global.css`,
+`source/tooling.yaml`, `docs/architecture.md`, 49 tệp `mn*.yaml`, thêm `tests/unit/summary.test.ts`)
+dùng **cùng thư mục kho**, và ở một lúc cả **55** tệp ấy hiện `M`.
+
+Đây là việc **của họ, không phải của tôi** — nên tôi **không hoàn tác, không commit**, chỉ ghi rõ.
+Nhưng nó phá giả định "thư mục làm việc là của tôi". Hệ quả thật: tôi suýt **lấy nhầm tệp từ
+worktree** mà họ đang dùng, và phải dựng worktree **tên riêng** (`_wtX-coord`) cho mọi thao tác
+đo có tầm ảnh hưởng.
 
 ⚠️ **Con số trong bản làm việc tôi tự viết có thể sai.** Cột "241 chỗ" thực ra là **số dòng
 trích**, không phải số chỗ; số tái lập được là **448 chữ `tây`**. Và bản làm việc liệt kê
@@ -411,20 +453,21 @@ agent) giữ nguyên.
 
 ## MỐC HOÀN TẤT
 
-- [ ] `vimeas.ts`: **bài còn thiếu = 0** (hiện **1.039**)
-- [ ] `engq.ts`: `segmentsStillMissingEnglish = 0` trong **322** text có thể lấp
+- [ ] `vimeas.ts`: **bài còn thiếu = 0** (hiện **998**)
+- [ ] `engq.ts`: `segmentsStillMissingEnglish = 0` trong **314** text có thể lấp
 - [ ] đối chiếu chéo: đếm lại từ `source/upstream-manifest.json` và xác nhận
       **1.596** bài `kn` không có tệp Anh Sujato — tất cả phải còn `draft` với blocker
       ghi rõ, **không** nâng lên `review`/`published`
-- [ ] `audit:reference`: `texts below floor = 0` (**toàn catalogue**, hiện **194**), `upstream defect(s) = 0`
+- [ ] `audit:reference`: `texts below floor = 0` (**toàn catalogue**, hiện **192**), `upstream defect(s) = 0`
 - [ ] 13 cổng xanh ở HEAD của `main`
 - [ ] `npm run license:check` xanh (`NOTICE` khớp lock)
 - [ ] PR đã merge; mỗi PR body có **số đo trước/sả bằng hai lần đo liên tiếp cùng điều kiện**
 - [ ] `docs/translation-store.md` và mọi số trong tài liệu **cập nhật theo phép đo mới**
 - [ ] `git status` sạch, không còn worktree lưu
 - [ ] **Bốn lớp kiếm ngược mệnh đề chạy trên toàn tầng, mỗi lớp về 0** — không chỉ 13 cổng.
-      Hiện còn: `nibbānapabbhāro` **45** khoá; `…pe…` 0 ✓; `pācīna` 0 ✓ (nhưng **11** tệp
-      `notes` còn 46 cụm hướng sai chưa dọn).
+      Đã về 0: `…pe…` (152→0) ✓ · `pācīna` (26→0) ✓ · `oruddhambhāgiyā` (9→0) ✓ ·
+      `ariyāya nibbedhikāya` (2→0) ✓ · `nibbānapabbhāro` (53→0) ✓.
+      Còn: **11** tệp `notes` có 46 cụm hướng sai chưa dọn; `sn23.1:3.11` thuộc lớp rộng hơn.
 
 **Trong PR body, phải nói rõ** số nào đo được, số nào là ước lượng, và **số nào đã hỏng
 trong lúc làm**. Đừng báo cáo thành công khi có thất bại — nếu không thừa nhận, con số đó
