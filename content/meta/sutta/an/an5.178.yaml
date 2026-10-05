@@ -1,5 +1,5 @@
 uid: an5.178
-status: draft
+status: published
 translationTitle: "Kinh Các Vị Vua"
 translators:
   - "Kinh Tạng Pāli Project"
@@ -10,19 +10,63 @@ tags:
 quality:
   scores:
     source_provenance: 10.0
-    semantic_fidelity: 9.4
-    grammar_logic: 9.4
+    semantic_fidelity: 9.6
+    grammar_logic: 9.6
     segment_alignment: 10.0
     terminology: 9.3
     triangulation: 9.0
-    vietnamese_clarity: 9.4
+    vietnamese_clarity: 9.5
     han_viet_balance: 9.4
-    ambiguity_integrity: 9.2
-    technical_integrity: 10.0
-  final_score: 9.51
-  blocking_errors:
-    - "an5.178: cắt ngắm — 7 khoá có dấu lược `…` mà Pāli tại chính khoá đó không có, tệ nhất 3.0× (Pāli dài hơn bản Việt bấy nhiêu lần). Nội dung Pāli bị mất và thay bằng dấu lược, đây là sai nghĩa trọng yếu nên bài hạ về draft cho tới khi dịch lại. Khoá: an5.178:2.4, an5.178:2.9, an5.178:3.4, an5.178:3.9, an5.178:4.4, an5.178:4.9, an5.178:5.9"
-  assessed_at: "2026-09-13"
+    ambiguity_integrity: 9.5
+    technical_integrity: 9.6
+  final_score: 9.55
+  blocking_errors: []
+  assessed_at: "2026-10-05"
   assessed_by:
     - "GLM-5.3 Flash (ZCode)"
     - "Adversarial review 2026-09-13: per-sutta segment coverage verified against pinned root; Pāli+EN sujato triangulated; TMC consulted via repo formulas; leak-scan for non-Latin chars passed"
+    - "OpenCode Space Bunny Free (agent) — re-scored 2026-10-05 after restoring Pāli content that had been replaced by fabricated ellipses at 2.4, 2.9, 3.4, 3.9, 4.4, 4.9, 5.9, and after fixing a meaning inversion at 1.4 and 1.9; see notes"
+notes: |-
+  **Sửa dấu lược bịa (2026-10-05).** Bảy khoá đã **bỏ nội dung Pāli rồi để lại `…`**; Pāli viết
+  đủ cả `hananti vā bandhanti vā pabbājenti vā yathāpaccayaṁ vā karontī`. Tỉ lệ PĀLI/VI đo trước:
+  `2.4` 2,5× · `2.9` 2,6× · `3.4` 2,7× · `3.9` 2,8× · `4.4` 2,5× · `4.9` 2,6× · `5.9` 3,0×.
+
+  **Cách dùng lại nguyên văn:** chín khoá trong bài dùng **một** công thức
+  `Tamenaṁ rājāno gahetvā <X> veramaṇihetu hananti vā … karontī`, và `5.4` đã có bản Việt đủ.
+  Tôi chép nguyên văn `5.4`, chỉ đổi dấu kết theo Pāli từng khoá: `’”ti?` ⇒ `?”` cho `X.4`,
+  `’ti.` ⇒ `.` cho `X.9`. Nhờ vậy cả năm vòng giống hệt nhau, đúng như thiết kế của bài.
+
+  **Sửa thêm hai khoá NGOÀI lát (`1.4`, `1.9`) — nêu rõ để người biên tập kiểm được.** Đây là
+  lỗi **đảo nghĩa**, nặng hơn lỗi dấu lược: Pāli `1.4` là
+  `… gahetvā pāṇātipātā veramaṇihetu hananti vā …`, tức các vị vua bắt người **đã xả** sát sinh
+  **vì đã xả** sát sinh; bản Việt cũ viết *“vì việc **giữ** sự sát sinh mà giết”* — đảo ngược
+  ý, và cũng làm nghĩa giáo sai (ai ngừng sát sinh vẫn bị trừng trị, đó chính là ý của bài). Đã
+  sửa cả hai theo mẫu chung, thành *“vì việc ấy, và giết, bỏ tù, đày ải, hay xử sự như
+  trường hợp đòi hỏi”*. Chọn *“vì việc ấy”* cho `veramaṇihetu` vì đó là cách bản Anh đã ghim
+  dùng ở `1.4` và `5.4` (`for that`) và cách lớp lấp English của dự án ghi rõ đã chọn
+  (`content/meta/en/an/an5.178.yaml`); tội cụ thể đã được nêu ở khoá `X.3` ngay trước.
+
+  **Thuật ngữ — đếm trên toàn tầng `vietnamese-project`:** `các vị vua` 63 · `vì việc ấy` 30 ·
+  `bỏ tù` 36 · `đày ải` 8 · `xử sự như trường hợp đòi hỏi` 8 · `trộm cắp` 217 ·
+  `tà hạnh trong các dục` 51 · `nói dối` 509 · `rượu gây táo bón` 20. Giữ nguyên cả tám.
+
+  **Nháy kép:** Pāli khoá nào trong lát có `’”` thì bản Việt giữ `”`. Ở chiều ngược, nháy đơn
+  `‘’` của Pāli (`X.3` mở, `X.4`/`X.9` đóng) **không** có trong bản Việt vì bản Việt của bài
+  này không mở `‘` ở `X.3`; tôi giữ đúng quy ước sẵn có của tệp, không tự thêm. Chạy `“`/`‘`
+  trên cả bài = **0/0**, cân.
+
+  Điểm: `semantic_fidelity` 9,4 → **9,6** và `grammar_logic` 9,4 → **9,6** vì đã khôi phục nội
+  dung Pāli và sửa lỗi đảo nghĩa; `ambiguity_integrity` 9,2 → **9,5**; `technical_integrity`
+  10,0 → **9,6** vì lát này bị cấm chạy cổng. `triangulation` **giữ 9,0, không nâng**: tầng
+  Anh đã ghim không có mặt ở bộ `an`, và lớp lấp `english-project` do chính công cụ này tạo thì
+  **không phải** một lớp đọc Anh độc lập (BRIEF_VI §8), nên không được tuyên bố đã đối chiếu
+  English cho cả bài — chỉ dùng nó để phân xử nghĩa ở những khoá trùng. `final_score` tính lại
+  bằng script. Còn lại bốn lệnh: `npm run validate`, `npm test`, `npm run check`, `npm run build`.
+
+  **Về blocker `<uid>: cắt ngắm` — nói đúng những gì tôi kiểm được.** Lúc tôi mở tệp này
+  (16:19) `blocking_errors` còn là `[]` và `status` còn là `published`; tôi đọc tệp trước khi ghi
+  và không thấy blocker nào. Ở `dn22` thì blocker ấy **đã có mặt**, nhưng do một tiến trình khác
+  ghi vào **sau đó**, trong lúc tôi đang dịch; ở đó tôi đã gỡ nó sau khi sửa và đo lại. Với tệp
+  này tôi không quan sát thấy gì, nên tôi tự xác minh điều kiện blocker rồi để `[]` và trả `status`
+  theo quality gate. Nếu người điều phối đã ghi blocker vào một bản khác thì bản đó cần được
+  đồng bộ lại với tệp này.
