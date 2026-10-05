@@ -134,6 +134,53 @@ thêm một `…` vào khoá sạch ⇒ đỏ).
 
 Worklist sửa: `/Volumes/SSD/opencode-work/_trunc2.txt`.
 
+### 🔴 Catalogue dùng **237 uid GỘP phạm vi** — và `pali.py` **không** dựng được
+
+Catalogue không liệt kê `an1.316`…`an1.332` riêng mà gộp thành **`an1.316-332`**; tương tự
+`sn35.33-42`, `sn45.110-114`, `sn23.23-33`, `sn24.20-35`, `an7.96-614`… Tổng **237** uid dạng này, và
+**233** đã có bản dịch.
+
+Nhưng khoá bên trong tệp Pāli lại mang **tiền tố uid riêng**, không phải uid gộp:
+
+```
+sn35.33-42 → sn35.33:0.1 … sn35.42:2.4
+an1.316-332 → an1.316:0.1 … an1.329:1.3
+```
+
+⇒ `pali.py` (bộ tra Pāli tôi dùng để sinh lát) **không** trả về 4 bài này, và lát của tôi **bỏ sót chúng**.
+Đo được: lát của tôi nói **798** bài thiếu, `vimeas` nói **802**. Chênh đúng **4** bài / **288** khoá.
+
+⇒ **Cách chữa (đã làm):** dựng lát gộp bằng chính `segmentMapForUid` của kho qua một script `.ts`, không
+dùng `pali.py`. Bốn bài này là lát `m1`–`m4`.
+
+⚠️ Và bài này là dạng lỗi mới: **không có công cụ nào báo** rằng lát của tôi bỏ sót 4 bài. Chỉ khi **đối
+chiếu hai phép đo khác nhau** mới thấy. Đây là lý do phải giữ hai phép đo độc lập.
+
+### 🔴 `sn12.93-213`: **vô hình với mọi cổng** — `segmentMap` rỗng
+
+Uid catalogue `sn12.93-213` trỏ tới `sn12.93-213_root-pli-ms.json`, nhưng tệp đó gồm **40 khoá** thuộc
+**11 uid khác nhau**:
+
+```
+sn12.93-103 · sn12.104-114 · sn12.115-125 · … · sn12.203-213
+```
+
+Không uid nào bằng `sn12.93-213` ⇒ `segmentMapForUid` trả về **0 khoá** ⇒ `vimeas` **bỏ qua** nó ở
+`if (ids.length === 0) continue`, tức nó **không** được tính vào *bài đủ* lẫn *bài thiếu*.
+
+```
+catalogue 6137 · đủ 5334 + thiếu 802 = 6136   ← thiếu đúng 1
+```
+
+Và 11 uid con đó **không** có trong catalogue (đo: `sn` có 135 uid trong `P(col)` mà catalogue không).
+
+⇒ Đây là lỗi ở **tầng catalogue / upstream**, **không sửa được ở tầng Việt**: Pāli có mặt nhưng không
+định danh được. Cần người biên tập: khai 11 uid con trong `content/catalog/sutta/sn.json`, hoặc sửa tệp
+Pāli ghim cho khoá mang tiền tố `sn12.93-213`.
+
+⚠️ **Hệ quả cho tiêu chí hoàn thành:** *"vimeas bài còn thiếu = 0"* **không** đủ, vì một bài có thể
+**không được đo**. Phải kiểm thêm `đủ + thiếu == catalogue`.
+
 ### 🔴 Cột gỡ **lớp B** và `… cho đến …` — hai lớp mà phép đo tỉ lệ **không** bắt
 
 Lớp B = **số dấu lược lệch** chiều ngược (Pāli có `…pe…`, Việt **bung thành văn**; hoặc `… cho đến …`
