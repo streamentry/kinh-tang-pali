@@ -5,6 +5,7 @@ import type { CanonCatalog, CollectionCode, EditorialMeta } from '../src/lib/can
 import { englishPathFor, segmentMapForUid, sourcePathFor, upstreamFile } from '../src/lib/canon/load';
 import { MIN_ENGLISH_COVERAGE, englishCoverageFor, loadRecordedGaps } from '../src/lib/canon/reference';
 import { assertStoreIntegrity, contentMetaPathForLayer, fillableSegments, resolveLayer, storeLayer } from '../src/lib/canon/layers';
+import { sharedCredit } from '../src/lib/canon/tooling';
 import { validateSegmentMap } from './lib/validation';
 import { validateQualityAssessment } from './lib/quality';
 
@@ -199,7 +200,11 @@ for (const collection of collections) {
           ...(meta.translators ?? []),
           ...(meta.reviewers ?? []),
         ]);
-        const shared = [...fillAuthors].filter((name) => viAuthors.has(name));
+        // Compared as tools, not as strings: the same tool is credited under several
+        // spellings (`Muse Spark`, `Space Bunny`, `OpenCode Space Bunny Free (agent)`),
+        // and an exact comparison reported a fill written by the same tool as an
+        // independent reading.
+        const shared = sharedCredit([...viAuthors], [...fillAuthors]);
         if (shared.length > 0) {
           warnings.push(
             `${uid}: English coverage here rests on our own fill, assessed by ${shared.join(', ')} — `
