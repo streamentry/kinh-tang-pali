@@ -136,6 +136,13 @@ Không lưu lại những dữ liệu có thể lấy chắc chắn từ canonic
 
 Không cần trường `revision` bằng số. Git commit, tag và release manifest là revision history thực.
 
+Máy đọc kinh còn hiển thị một mục "Tóm tắt & diễn giải" do dự án biên soạn, lưu trong trường
+`summary:` của cùng file metadata (văn xuôi thuần, ≤ 500 từ, chỉ diễn đạt điều bài kinh nói).
+Đây là lớp hỗ trợ đọc, không phải kinh văn: trang bài kinh đặt nó thành một khối riêng trước
+các segment và ghi rõ nội dung có thẩm quyền vẫn là Pāli + các bản dịch. Việc soạn đang tiến
+hành cho Trung Bộ (mn1–mn152) và Trường Bộ (dn1–dn34); công cụ soạn được khai ở
+`source/tooling.yaml`, không ghi tay vào trang.
+
 ### 2.3. Ghi chú người dịch
 
 Nếu cần footnote/comment theo segment:
