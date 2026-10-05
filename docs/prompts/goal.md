@@ -623,13 +623,38 @@ Cho tới khi có quyết định, tôi **không** tự điền và **không** s
 
 Và `sn41.7:2.2` `2.6` `5.4` dịch `bhante` thành *"này gia chủ"* — **lỗi xưng hô thật**.
 
-### Lớp dấu lược còn lại trong `sn` — **chưa lát nào đụng**
+### Lớp lược dấu `…` — đo lại toàn tầng: **744** khoá / **347** tệp (0,49%)
 
-- **160** khoá ở **117** tệp `sn` lệch **số dấu lược** so với Pāli (trên 32.809 khoá / 1.679 tệp `sn`).
-- **81** khoá đã **bung** `…pe…` thành *"… cho đến …"*.
+Bản ghi cũ ghi *"160 khoá ở 117 tệp `sn`"*. Số đó **tái lập đúng** cho `sn` — nhưng chỉ là
+**một phần năm** của cả tầng. Đo toàn tầng trên **153.054** khoá có so sánh được:
 
-Hai bản tiền lệ Pāli trùng nguyên văn mà **cùng sốt một `…` và mất vế `saññāyapi`** (chỉ còn 4 uẩn
-thay vì 5): `sn22.61:1.3` và `sn22.77:2.1`.
+| | số khoá |
+|---|---|
+| **lệch** | **744** (0,49%) · 347 tệp |
+| `an` 253 · `mn` 236 · `sn` **160** · `dn` 70 · `kn` 25 | |
+
+Chiều lệch gần cân: **VI nhiều hơn 494** · **VI ít hơn 250** — tức **không** phải một lỗi hệ
+thống. Đọc mẫu:
+
+- **52** khoá có cụm **"cho đến"** — `…pe…` bị bung thành *… cho đến …*, tức **hai** dấu lược nơi luật
+  chỉ cho **một**.
+- **250** khoá "VI ít hơn" phần lớn là ** bung ngược lại**: Pāli `…pe…` mà bản Việt **viết thẳng
+  nội dung ra**.
+- Vài ca dấu `…` đầu khoá bị dấu ngoặc kép `"` thay thế — có thể hợp lệ, cần đọc.
+
+⚠️ **Số này là hàng đợi ứng viên, KHÔNG phải danh sách lỗi.** Đã đọc mẫu và thấy thiên về nhiều.
+
+### ⚠️ Hai lần tôi **đo sai** số này trong một buổi — cùng một dạng lỗi
+
+1. **6.636** khoá: tôi đòi **số `…pe…`** bằng nhau thay vì **số dấu `…`**. Nhưng `…pe…` trong Pāli phải
+   thành **một** `…` ở bản Việt, nên phép đo sai bản chất. Mẫu `tha-ap505:5.2` — Pāli `…pe…`, Việt
+   `…` — là **đúng**, và phép đo của tôi gọi nó là lỗi.
+2. **749** khoá: bỏ sót biến thể **`… pe …`** có khoảng trắng (5 khoá Pāli dùng dạng này).
+
+⇒ Cùng dạng lỗi đã ghi nhiều lần trong phiên: **phép đo sai thì con số sai, và con số sai trông
+rất thuyết phục**. Trước khi gọi một bảng phân phối là "lớp lỗi", phải in ra mẫu và đọc.
+
+Worklist: `/Volumes/SSD/opencode-work/_el2.txt`.
 
 ### Ổ lưu trùng ở tầng upstream
 
