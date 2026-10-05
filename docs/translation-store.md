@@ -150,11 +150,26 @@ chứa nhiều UID). Tổng segment Pāli: **284.574**.
 | | số |
 | --- | --- |
 | text | 6.137 |
-| text có dữ liệu biên tập (`content/meta/sutta`) | 4.914 |
-| text Pāli không resolve được segment | 1 (`sn12.93-213`, defect upstream) |
+| text có dữ liệu biên tập (`content/meta/sutta`) | **5.432** |
+| text Pāli không resolve được segment | 1 (`sn12.93-213`, defect upstream — xem `docs/prompts/goal.md`) |
 | text không có bản English nào ở upstream | 1.596 (toàn bộ là `kn`) |
 | segment English **có key nhưng rỗng** | 19.762 (trong đó **30.529** là Pāli ≥ 40 ký tự) |
 | text dưới ngưỡng 80% — toàn catalogue | **216** (143 trong scope `--used`, đều đã ghi nhận; 73 còn lại chưa có bản dịch Việt) |
+
+### Tầng dự án — đo ở `186e0c74`
+
+Hai tầng do dự án tự sinh. Số ở đây **đo** trên worktree sạch, không suy từ catalogue:
+
+| tầng | tệp | nội dung |
+| --- | --- | --- |
+| `vietnamese-project` | **5.432** | bài **đủ mọi khoá Pāli**: **5.386** · còn thiếu **750** bài / **126.490** khoá |
+| `english-project` (lớp lấp) | **770** | còn thiếu **225** text / **5.713** segment |
+
+⚠️ `text dưới ngưỡng 80% = 216` và `engq` **dưới sàn = 143** là **hai phép khác mẫu** — đừng đem trừ.
+
+⚠️ Cột `bài đủ mọi khoá` **không** đạt `6.136` (= 6.137 − 1 vì `sn12.93-213` không đo được). Vì vậy tiêu
+chí *"bài còn thiếu = 0"* của dự án **chưa đủ**: phải kiểm thêm `đủ + thiếu + không đo được = catalogue`.
+Cổng `tests/unit/catalog-measurable.test.ts` giữ bất biến đó.
 
 ### Vì sao 1.596 bài không có English
 
