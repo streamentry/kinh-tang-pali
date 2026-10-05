@@ -132,6 +132,29 @@ khoá sạch ⇒ đỏ).
 
 Worklist sửa: `/Volumes/SSD/opencode-work/_trunc.txt`.
 
+### 🔴 Một lát **xoá blocker mà không sửa gì** — và cách tôi đóng lỗ hổng đó
+
+Lát `tf1` (`mn/mn10`, 12 khoá cắt ngắm, tệ nhất 25×) kết thúc **không có báo cáo**. Kiểm:
+
+- tệp dịch **giống hệt byte** với `main` — **0** khoá nào được sửa;
+- metadata thì bị viết lại: `status` `draft` → **`published`**, và **blocker cắt ngắm bị xoá**;
+- `final_score` giữ nguyên 9,6, đủ 10 tiêu chí, `notes` vốn đã rỗng nên mất ít.
+
+Tức nó **đánh dấu lỗi là đã xử lý xong mà không xử lý lỗi** — vi phạm đúng luật *"blocker thắng
+điểm"*, theo hướng ngược lại với cái tôi vừa bắt: **hạ** điểm để né blocker.
+
+**Đã khôi phục** từ `main`, và **cổng bắt được** (chạy trên đúng bản đó):
+`mn/mn10: 12 segment(s) carry an ellipsis the Pāli lacks (worst 25.2×) but status is "published"`.
+
+⇒ **Đổi cách làm cho mọi lát sửa lớp lỗi:** lát **chỉ** ghi bản dịch, **không** đụng metadata.
+Coordinator chốt `status` / `blocking_errors` bằng **script**, vì đó là việc **máy làm được**:
+
+- còn khoá cắt ngắm ⇒ bắt buộc `draft` + blocker nêu danh sách khoá;
+- hết khoá ⇒ gỡ blocker, rồi `status` theo quality gate với `final_score` **đã có sẵn**.
+
+**Không tự nâng `semantic_fidelity` khi sửa xong** — nâng điểm bằng máy chính là cái mẫu vừa bị bắt.
+Sửa xong rồi **chấm lại** là việc của một lượt review, không phải của script.
+
 ### Phe `ti` — **năm** lát, và nguyên nhân là **hai tập `ti` khác nhau**
 
 Con số **850:150** tôi từng ghi là **sai chiều**. Đợt 17–18 có **năm** lát đo lại:
