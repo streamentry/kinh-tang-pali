@@ -16,9 +16,9 @@ còn lại là chấm lại / sửa, không phải dịch.
 
 ---
 
-## TRẠNG THÁI HIỆN TẠI (đo 2026-10-05 tại `fa8fa926`, `main`)
+## TRẠNG THÁI HIỆN TẠI (đo 2026-10-05 tại `e45ebbb3`, `main`)
 
-HEAD của `main` = `fa8fa926` — "đợt 16: 12 bài Việt / 618 khoá + 12 bài lớp lấp / 117 segment (#261)".
+HEAD của `main` = `e45ebbb3` — "đợt 17: 6 bài Việt / 316 khoá + 12 bài lớp lấp / 120 segment (#263)".
 
 PR đã merge gần nhất: #261 (đợt 16) · #260 (đợt 15) · #259 · #258 · #257 · #256 (đợt 14) · #255 ·
 #254 (đợt 13) · #253 (đợt 12) · #252 (đợt 11) · #251 · #250 · #249 · #248 · #247 · #246 · #245 ·
@@ -71,6 +71,98 @@ dùng chung. Cùng một phép đo trên hai cây cho hai kết luận trái ng�
 Nhánh đó **thiếu** bản sửa `:0.3`. Nếu họ merge hoặc push từ nhánh đó, **62 tệp** có thể quay lại
 lệch mà không cổng nào báo. Cần rebase `main` trước, hoặc chạy lại `tests/unit/tha-ap-title.test.ts`.
 
+
+### ✅ `Muse Spark` **là** `OpenCode Space Bunny Free (agent)` — đã sửa cơ chế, không sửa lịch sử
+
+`source/tooling.yaml` khai:
+
+```yaml
+id: opencode-space-bunny
+name: Space Bunny · release: "Muse Spark 1.3 Free"
+modelId: space-bunny-free · aliasInMetadata: "OpenCode Space Bunny Free (agent)"
+```
+
+Tức `"Muse Spark"` và `"OpenCode Space Bunny Free (agent)"` là **một** công cụ dưới hai nhãn, và kho
+ghi công cả hai: **461** tệp ghi `Muse Spark`, 24 ghi
+`Space Bunny Free (OpenCode) — re-scored …`, 15 ghi `OpenCode Space Bunny Free (agent) — re-scored …`,
+10 ghi `Muse Spark 1.3 Free (agent)`, 3 ghi `Muse Spark (adversarial re-audit …)`.
+
+Đây **không** phải attribution sai — `AGENTS.md` cấm sửa attribution lịch sử, và 461 tệp đó **đúng**
+là do công cụ đó làm. Chỗ sai là **cơ chế**: `validate.ts` so **khớp chuỗi**, nên nó coi hai nhãn của
+một công cụ là hai tác giả.
+
+⇒ **Đã sửa ở `scripts/validate.ts` + `src/lib/canon/tooling.ts`**: mỗi credit **quy về công cụ**
+(`toolIdentityFor`) rồi so công cụ (`sharedCredit`). Đo: cảnh báo *"rests on our own fill"* đi từ **457 → 496**, tức **+39** bài mà lớp lấp English do **chính công cụ viết bản Việt** so ra, trước đó
+bị báo là lớp đọc Anh độc lập. `validate` vẫn exit 0.
+
+### 🔴 `deepseek-v4.1-flash`: ghi công ở **283** tệp mà `tooling.yaml` **không khai** — chờ biên tập
+
+Đây là vi phạm thật của quy tắc `AGENTS.md`: *"Công cụ hỗ trợ chỉ được khai trong
+`source/tooling.yaml`"*.
+
+Nó **im lặng** vì chính test bảo vệ quy tắc ấy không thấy được nó: `tooling.test.ts` tìm ứng viên
+bằng **regex cứng** `/chatgpt|openai|opencode|space bunny|gpt-?[\d.]/i`. Tên không chứa một trong
+năm từ đó thì vô hình. `deepseek-v4.1-flash` đúng là trường hợp đó.
+
+⇒ `tests/unit/credit-identity.test.ts` mới quét **mọi** credit trong `content/meta` và đòi mỗi cái
+khớp công cụ đã khai, trừ khi nằm trong danh sách tường minh. Danh sách "chưa khai" hiện có **đúng
+một** mục là `deepseek-v4.1-flash` ⇒ **công cụ chưa khai kế tiếp sẽ đỏ test** thay vì thêm vài trăm
+tệp im lặng nữa.
+
+**Cần biên tập quyết**, vì kho **không kiểm chứng được** vendor và release của nó:
+- `vendor`: ?
+- `release`: ?
+- `declaredBy`: gần như chắc là `user-declared`, vì tên phiên bản là thứ repo không xác minh được.
+
+Cho tới khi có quyết định, tôi **không** tự điền và **không** sửa 283 tệp metadata đó.
+
+### 🔴 Lớp **cắt ngắm**: 321 khoá / 67 tệp — scorecard 10 tiêu chí **không hề thấy**
+
+Dấu lược `…` mà **Pāli không có** ở chính khoá đó = bản dịch đã bỏ nội dung rồi giấu bằng một dấu.
+Tệ nhất `mn10:42.6`: Pāli **327** ký tự liệt kê trọn `pītisambojjhaṅga`, Việt `hỷ giác chi …` —
+**mất 96%**. Và `mn22:16.5`: Pāli `saṅkhāre 'netaṁ mama, nesohamasmi, na meso attā'ti samanupassati;`
+→ `hành …` — mất **toàn bộ** phép quán *vô ngã*.
+
+Cả **67** tệp đều `published`, điểm **9,30–9,77**, **không** tệp nào có blocker.
+
+⇒ Đã hạ cả 67 xuống `draft` + blocker (giữ nguyên 23 khối `summary:` của session khác), và thêm
+`tests/unit/truncation.test.ts`: bài nào cắt ngắm thì phải `draft` kèm blocker; **trần 321** không
+được vượt. Cả hai điều kiện **đã thử bắt thật** (đổi `mn22` về `published` ⇒ đỏ; thêm một `…` vào
+khoá sạch ⇒ đỏ).
+
+Worklist sửa: `/Volumes/SSD/opencode-work/_trunc.txt`.
+
+### Phe `ti` — **năm** lát, và nguyên nhân là **hai tập `ti` khác nhau**
+
+Con số **850:150** tôi từng ghi là **sai chiều**. Đợt 17–18 có **năm** lát đo lại:
+
+| lát | tập đếm | kết luận |
+|---|---|---|
+| n25 | `”ti` trong phẩm `sn35` | **GIỮ** 129 / 91 |
+| n26 | `”ti` phẩm `sn35` → **phạm vi sát hơn** `sn35.124–133` | 131/119 → **4/10** ⇒ **BỎ** |
+| n24 | **vị trí** `ti` so với ngoặc kép | `”ti` 3.470, phe ngược **0** ⇒ GIỮ; ghi rõ *«850:150 không tái lập được»* |
+| n27 | khoá Pāli kết `ti?`/`ti.` | **BỎ** 3.472 / 14.125 |
+| **n29** | `”ti` và `’ti` **tách riêng** | `’ti` bị **bỏ hẳn 8.606/8.724 = 98,6%** toàn tầng, **252/252** trong `an5.*`; `”ti` giữ 3.400 / bỏ 10.493 |
+| n31 | `”ti` ở `an` và toàn tầng | BỎ **1:7,5** (`an`) và **1:5,1** (toàn tầng) — **hai phạm vi cùng chiều** |
+
+⇒ Tính **cả** phe `’ti` vào BỎ thì tỉ lệ toàn tầng là **1:3,1**. Bốn lát trước chỉ đếm `”ti` nên cho
+bốn con số khác nhau. **Đây là câu trả lời cho *"vì sao nhiều lát cho nhiều con số"*.**
+
+**Luật đo, chốt được:** khi quy ước văn bản **không đồng nhất toàn tầng**, đo ở **phạm vi gần nhất**
+(cùng phẩm, bài liền kề), **không** dùng đa số toàn tầng — tầng trộn các quy ước khác nhau theo phẩm
+và theo bộ. Và **in cả hai phép** để người đọc tự thấy chúng lệch nhau.
+
+**Phân kỳ là thật, không phải ảo giác đo:** `sn44.6` bỏ `ti` mọi khoá còn `sn44.3` `sn44.5` **cùng
+phẩm** vẫn giữ; `sn35.62` `sn35.75` giữ còn `sn35.74` bỏ. Nếu chốt một phe thì **vá cả hai vế**.
+
+### 🔴 Số **đếm đúng** nhưng **ghi nhầm mẫu số**: `Muse Spark` **461** hay **474**?
+
+Tôi đăng **461 tệp** trong `goal.md` và trong prompt giao cho từng lát. Đo lại: **474** tệp chứa
+chuỗi, **474** dòng attribution — trong đó **461** viết dạng trần, 10 viết `Muse Spark 1.3 Free
+(agent)`, 3 viết dạng ghi chú. **461 là số *dạng trần*, không phải số *tệp*.**
+
+Lát `e14` đo lại và báo thẳng là lệch — **lát đúng, tôi sai**. Số sai cứ trông rất thuyết phục vì nó
+**gần** đúng.
 
 ### 🔴 Bằng chứng mạnh nhất cho luật *"Pāli trùng nguyên văn thì cách dịch phải khớp"*
 
