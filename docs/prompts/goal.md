@@ -196,6 +196,50 @@ báo cáo lát. ⇒ **Luật: khi nghe một lỗi, đo cả hai chiều trướ
 `pal()` lọc `k.startswith(uid + ":")` nên với `sn45.110-114` trả `{}` và `kiếm()` raise. Lát sau gặp uid
 gộp phải tự làm lại bộ kiểm (NFC · Pāli lọt · trùng nguyên văn · dấu lược · cân ngoặc kép).
 
+### 🔴 `Tiṁsakappasahassa`: tôi **tự phỏng đoán** rồi dùng nó để "sửa" — đã gỡ
+
+Tôi ghi `Tiṁsakappasahassamhi` = `tiṁsa` 3 × `kappa` 100 = **3.000**, dùng con số đó để sửa **4** tệp
+*"ba mươi ngàn"* thành *"ba nghìn"*. Một lát phản biện: cấu tạo đầy đủ là `tiṁsa` 3 × `kappa` 100 ×
+`sahassa` 1000 = **300.000**, còn cách đọc *"ba nghìn kiếp"* coi `kappasahassa` là "nghìn kiếp".
+
+⇒ **Tôi kiểm dữ liệu ghim:** toàn lớp Pāli chỉ có **một** dạng `Tiṁsakappasahassamhi,` (6 khoá, 6 tệp), và
+tầng Anh đã ghim **không có** bản dịch nào cho nó (`grep` toàn `.cache/upstream/suttacentral/` cho
+*"three hundred thousand"* lẫn *"thirty thousand"* cộng *kalpa* đều **0**).
+
+⇒ **Không có chứng cứ độc lập nào trong kho để phân xử.** Điều **chắc chắn** sai: **4** tệp ghi *"ba mươi
+ngàn"* = 30.000 — sai với **cả hai** ứng viên. Điều **chưa biết**: giá trị đúng là 3.000 hay 300.000.
+
+⇒ **Đã gỡ khỏi bảng kiểm** và đưa vào `UNVERIFIED` kèm lý do. **Không** giao lát sửa, vì sửa theo
+phỏng đoán của tôi là bịa số.
+
+**Còn lại chắc chắn sai, cần người biên tập chốt giá trị rồi mới sửa:**
+
+| khoá | hiện tại | ứng viên |
+|---|---|---|
+| `tha-ap47:4.1` `tha-ap79:1.1` `tha-ap115:10.3` `tha-ap450:8.1` | *"ba mươi ngàn kiếp"* = 30.000 | **3.000** hoặc **300.000** |
+| `tha-ap54:6.3` `tha-ap200:3.3` | *"ba mươi nghìn kiếp"* = 30.000 | như trên |
+| `tha-ap151:3.1` | *"ba nghìn kiếp"* = 3.000 | như trên |
+| `tha-ap109:10.1` | *"ba trăm nghìn"* = 300.000 | như trên |
+| `tha-ap108:4.3` `Kappasatasahassa` | *"trăm nghìn kiếp"* = 100.000 | **10.000.000** |
+
+⇒ **Luật:** một phép đo chỉ nên dùng để **sửa** khi **giá trị đích** được xác lập từ chứng cứ trong kho.
+Không xác lập được thì phép đo chỉ **báo**, không **sửa** — và con số tôi "chắc chắn" phải chịu đúng kiểm tra
+đó. Một lát đã bắt được điều này khi tôi đã ghi nó vào tài liệu.
+
+### ✅ Phép đo số: **hiệu chuẩn bắt được 5 lần lỗi của chính script**
+
+`_numcheck2.py` chỉ kiểm **9** từ khóa đã xác lập được, và **in `CALIBRATION FAILED`** thay vì báo "0 lệch"
+khi không tái lập được con số đã biết. Năm lần nó bắt tôi:
+
+1. So **khóa đơn vị Việt** với **token Pāli** ⇒ không bao giờ bằng ⇒ **"0 lệch"** trong khi đã biết 31 khoá sai.
+2. Đọc *"chín mươi mốt"* thành **19** — tiếng Việt có hai dạng `một`/`mốt`, `bốn`/`tư`, `năm`/`lăm`.
+3. Đọc *"Chín mươi mốt"* thành **1** — chính tả tầng không nhất quán `mười`/`mươi`, `Chín`/`chín`.
+4. Đọc *"ba mươi ngàn"* thành **1.030** và *"mười lăm nghìn"* thành **15** — thang lớn (`ngàn`/`nghìn`) nhân **cả** số đã tích lũy, không nhân `(cur or 1)`.
+5. Đơn vị `'nghìn kiếp'` trong bảng đơn vị làm **báo oan** *"ba nghìn kiếp"* thành 3.
+
+⇒ Ngoài ra: **hiệu chuẩn ghim cứng (21, 10) thì luôn FAIL sau khi sửa** — "0 lệch" và "hiệu chuẩn OK" là
+**loại trừ nhau**. Kỳ vọng phải **cập nhật** sau mỗi đợt sửa, và đó là việc của người điều phốn.
+
 ### 🔴 🔴 Bẫy lát **trùng**: đã mắc **hai** lần, cùng một cơ chế
 
 | lần | chuyện | vì sao phép đo **không** thấy |

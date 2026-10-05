@@ -1,0 +1,141 @@
+uid: ja455
+status: draft
+translationTitle: "Kinh Mātuposaka"
+translators:
+  - "OpenCode Space Bunny Free (agent)"
+reviewers: []
+tags:
+  - "khuddaka-nikaya"
+  - "jataka"
+  - "ekadasakanipata"
+  - "matuposakavagga"
+  - "matuposakajataka"
+quality:
+  scores:
+    source_provenance: 9.5
+    semantic_fidelity: 9.2
+    grammar_logic: 9.2
+    segment_alignment: 10.0
+    terminology: 9.1
+    triangulation: 7.0
+    vietnamese_clarity: 9.1
+    han_viet_balance: 9.3
+    ambiguity_integrity: 9.0
+    technical_integrity: 9.6
+  final_score: 9.1
+  blocking_errors:
+    - "Không có tầng tham khảo tiếng Anh tại commit đã ghim: tệp `sutta/kn/ja/ja455_translation-en-sujato.json` KHÔNG có trong `source/upstream-manifest.json` (tầng `english-sujato` 4291 tệp; riêng `sutta/kn/` có 755 tệp với cp 35 · dhp 26 · iti 112 · ja 83 · kp 9 · snp 73 · thag 264 · thig 73 · ud 80, trong đó `kn/ja` chỉ 83 tệp và không có tệp nào là ja455). Đây là `not-published-upstream`, KHÔNG phải `not-synced` (đã kiểm cả cache: `.cache/upstream/suttacentral/translation/en/sujato/sutta/kn/ja/` có đúng 83 tệp, không có ja455). Tầng `vietnamese-current` cũng vắng: `translation/vi/phantuananh` tại commit đã ghim chỉ có 26 tệp và toàn bộ là Pháp Cú. Lớp lấp `english-project` của dự án không có cho uid này (`find content/meta/en -name ja455*` rỗng, `find content/translation/en -name ja455*` rỗng). Cả ba tầng tham khảo đều vắng nên bài chỉ dịch được từ Pāli root — blocker thật, đây là giới hạn upstream chứ không phải lỗi của người dịch; bài bắt buộc `draft`, và `triangulation` bị chặn ở 7.0 (≤ 8.0) chứ không nâng để né blocker. Thêm nữa, mẫu số coverage bằng 0 (xem notes) nên cổng `reference-gaps.yaml` không đo được gì cho bài này, mà tôi không được phép sửa tệp đó."
+  assessed_at: "2026-10-05"
+  assessed_by:
+    - "OpenCode Space Bunny Free (agent)"
+notes: |-
+  BÀI MỚI, dịch từ Pāli root trong bối cảnh. Bản root `pli/ms` của Jātaka chỉ có THƠ
+  (tiêu đề + 12 câu kệ + colophon), KHÔNG có văn xuôi, nên khung truyện không đối chiếu
+  được ở commit đã ghim. Không tầng tham khảo tiếng Anh nào cho ja455.
+
+  PHÉP ĐẾM ĐÃ CHẠY (in ra số, không đoán).
+  · Khoá: 53 Pāli / 53 Việt, set bằng nhau, thiếu 0, thừa 0, thứ tự khớp Pāli.
+  · MẪU SỐ COVERAGE = Pāli >= 40 ký tự, bỏ khối `:0` = **0 khoá**. Khoá Pāli dài nhất là
+    32 ký tự (`ja455:2.4` và `ja455:1.3`). 53/53 khoá ngắn hơn 40 ký tự ⇒ chốt `_hvi.py`
+    chạy RỖNG ở phép kiểm nội dung (không phải pass); tôi tự quét cả 53 khoá. Sujato phủ
+    0/0 khoá có nội dung — đây là cổng KHÔNG đo được gì, KHÔNG phải «không cần ghi nhận».
+  · Dấu lược: Pāli 0, Việt 0; không `…pe…`, không `…` trần, không `(…)`; Pāli không có
+    khoá nào kết `….` nên quy ước ` ….` không áp dụng. Lệch = 0/53.
+  · Ngoặc kép: mở 10 / đóng 10, cân dồn = 0, không đóng trước khi mở. Mở ở 1.1, 3.1, 4.1,
+    5.1, 6.1, 7.1, 8.1, 10.1, 11.1, 12.1; đóng ở 2.4, 3.4, 4.4, 5.4, 6.4, 7.4, 9.4,
+    10.4, 11.4, 12.4 — y hệt Pāli (8.1 mở và 9.4 đóng vì một lời nói kéo dài hai câu kệ).
+    Nháy đơn `‘’`: Pāli 0, Việt 0. Dấu thẳng `"` và `'`: 0 cả hai.
+  · Pāli trùng nguyên văn TRONG CHÍNH BÀI: 3 nhóm — {4.2, 5.2, 6.2} `andhā apariṇāyikā;`,
+    {4.3, 5.3, 6.3} `Khāṇuṁ pādena ghaṭṭeti,`, {4.4, 5.4, 6.4} `giriṁ caṇḍoraṇaṁ pati”. `
+    ⇒ tổng 9 cặp Pāli trùng đã dò; Việt KHÁC ở **1 cặp** (4.4/5.4/6.4) và đó là CỐ Ý:
+    5.1 `Kā nu te` mở câu hỏi, 6.1 `Mātā me sā` mở lời đáp, nên 5.4 phải mang dấu hỏi;
+    nếu chép y hệt `.` thì 5.1–5.4 đọc thành mệnh đề và mất nghĩa hỏi. Đã ghi lại đây.
+  · Dựng chỉ mục Pāli→Việt toàn tầng (5.411 tệp Việt, trừ chính tệp này) rồi tra từng
+    khoá Pāli của ja455: **0 khoá** có Pāli trùng nguyên văn với bài khác ⇒ không có khoá
+    nào dùng lại được nguyên văn bản dịch đã có. Chỉ mục còn dùng để đo tiền lệ thuật ngữ.
+
+  SỐ PĀLI TRONG BÀI — tự tính, in phép.
+  · `0.2 Ekādasakanipāta`: eka = 1, dasaka = 10 ⇒ 1 + 10 = 11 ⇒ «Bộ Mười Một Bài Kinh».
+  · `13.1 paṭhamaṁ` = thứ nhất ⇒ «Kinh Mātuposaka, thứ nhất.»; `0.4` mang chữ số `1.` ⇒ «1.»,
+    và nó là bài ĐỆ NHẤT của Phẩm Voi Hiếu Mẹ nên `paṭhamaṁ` khớp với `1.`.
+  · Không có số lượng nào khác trong bài: quét `ekādasaka`/`paṭhamaṁ`/`dutiyā`/`tatiyā`/
+    `catutthā`/`pañcama` chỉ ra `paṭhamaṁ` x1, còn lại 0. Nói rõ vì số sai là blocking error.
+
+  `nāga` / `mahānāga` = VOI, dựng từ 6 lý do đo được (đây là quyết định lớn nhất của bài).
+  1. Tầng tên đã ghim tại cùng commit: `name/sutta/ja-name...` → `ja-name:512.ja455` và
+     `ja-name:511.ja-matuposakavagga` đều là The Elephant Who Cared for His Mother.
+  2. `mahānāga` = voi lớn ở **4** chỗ khác của Pāli ghim, cả bốn đều ví Đức Phật theo ẩn dụ
+     voi: `tha-ap21:9.3`, `tha-ap99:2.1` (Nibbutattaṁ mahānāgaṁ), `tha-ap111:4.1`,
+     `tha-ap288:1.3` (`Dvipadindaṁ mahānāgaṁ, lokajeṭṭhaṁ narāsabhaṁ`).
+  3. `4.3 Khāṇuṁ pādena ghaṭṭeti` — có chân (`pādena`) ⇒ không phải rắn.
+  4. `9.3 Soṇḍāyūdakamāhatvā` — cầm gậy giáo và vũ khí ⇒ hiến chiến, không phải loài bò.
+  5. `kuñjaro` / `kuñjarasevit-` = voi ở **6** chỗ khác trong Pāli ghim (`ja516:10.4`,
+     `ja526:2.4`, `thag10.2:3.2`, `tha-ap485:1.2`, `tha-ap560:1.2` và chính `ja455:9.2`),
+     nên `Nāgarāja` ở 2.2 là vua voi.
+  6. Ba bài anh em cùng Phẩm (ja457 Saṁvara, ja460 Yudhañcaya, ja462 Dhammadevaputta)
+     đều là truyện voi.
+  Cách đọc ngược lại (nāga = rắn) bị loại vì (3) và vì `2.1-2.2` không có con rắn nào được
+  khiêng như khiêng phẩm bốc lên vai vua. Ghi lại vì đây là chỗ đọc còn tranh luận.
+
+  TÊN PHẨM — dựng từ tầng `name/` đã ghim, không tự đặt (như ja457/ja460/ja462).
+  `ja-name:510 ja-ekadasakanipata` → The Book of the Elevens ⇒ Bộ Mười Một Bài Kinh
+  (tiền lệ đo được: 5 lần / 4 tệp — ja457, ja460, ja462, thig10.1).
+  `ja-name:511 ja-matuposakavagga` ⇒ Phẩm Voi Hiếu Mẹ (3 lần / 3 tệp — ja457, ja460,
+  ja462). `ja-name:512.ja455` = cùng chuỗi. Cần người điều phối ghi vào bảng tên để lát sau
+  không phát minh thêm cách thứ N+1.
+
+  THUẬT NGỮ, số đếm trên 5.411 tệp Việt (đã trừ chính tệp này).
+  `Jātaka` → Jātaka 432/448 tệp ja; `:0.4` «N. Kinh <tên>» 414/448 tệp ja (nên
+  `:0.4` = «1. Kinh Mātuposaka»); colophon «Kinh <tên>, thứ nhất.» theo ja101/ja108/ja113.
+  Có tiền lệ: người thân 162/43 · hồ sen 81/42 · Đại vương 1857/87 · thắng trận 44/30 ·
+  xứ Kāsi 41/9 · Kāsi 78/29 · Videha 19/7 · hầu cận 32/27 · trung thành 21/5 ·
+  gậy và vũ khí 5/5 · thoa dầu 11/4 · rực rỡ 371/165 · bằng phẳng 33/23 · nở rộ 26/6 ·
+  mù mắt 27/7 · đúng mùa 7/5 · khổ cực 5/5 · áo giáp 3/2 · khiêng 17/10.
+  KHÔNG có tiền lệ (0 kết quả), ghi rõ lý do theo luật kho: `chó lang thang` cho `kisako`
+  (chỉ có «chó hoang» 1/1 và «con chó» 51); `tiền chuộc` cho `mutta`; `làm giàu có` cho
+  `raṭṭhavaḍḍhana` (chỉ «làm giàu» 1); `kẻ khổ cực` cho `kapaṇikā` (chỉ «khổ cực» 5/5);
+  `việc của vua` cho `rājakiccāni`; `không ai điều phục được` cho `apariṇāyikā` (chỉ «điều
+  phục được» 3/3); `bó lúa khô` cho `kabaḷa` («bó cỏ» 12/5, «bó lúa» 6/3, «rơm» 69/42).
+  Ba tên hoa `sallakī`, `kuṭajā`, `kaṇikārā` và hai tên gộp `kuruvindakaravīrā`,
+  `bhisasāmā` có **0** tiền lệ trong toàn tầng (grep `sallakī|kuṭajā|kuruvinda|kaṇikārā`
+  đều ra 0). Tôi KHÔNG đặt tên loài tiếng Việt cho chúng vì không có từ điển đọc được
+  ở commit đã ghim và luật cấm bịa nghĩa từ điển; giữ nguyên dạng Pāli như tên thực vật.
+
+  BẤT ĐỊNH, ghi lại từng điểm.
+  1. `2.2 Nāgarājaṁ bharanti piṇḍena` → «khiêng vua voi đi như khiêng phẩm vật». `piṇḍena`
+     có thể là «bằng phẩm bốc» (bị khiêng như vật ăn) hoặc «mang theo phẩm bốc»; chọn cách
+     đọc thứ nhất vì `Nāgarājaṁ` là tân ngữ của `bharanti`.
+  2. `2.4 Kavacamabhihessati` → «khoác áo giáp». `kavaca` = giáp ở 5 chỗ Pāli ghim
+     (`sīlaṁ kavacam abbhutaṁ`, `Abhindi kavacam ivattsambhavan` ×4), nên KHÔNG dịch là
+     «kiệu»; nhưng `abhihessati` còn có thể là «được đưa đến», chưa phân xử dứt điểm được.
+  3. `1.1 Tassa nāgassa vippavāsena` → «Khi con voi ấy xa cách». `vippavāsa` là xa cách
+     hơn là vắng mặt; chọn «xa cách» vì «xa cách» có 60 tiền lệ còn «vắng mặt» chỉ 10.
+  4. `1.4 Nivāte` → «ở nơi bằng phẳng». `nivāta` là chỗ đất bằng; cũng có thể là lối chép,
+     chưa có văn xuôi để đối chiếu.
+  5. `1.3 Kuruvindakaravīrā bhisasāmā` — bản gốc viết dính, không tách được. Tôi GIỮ NGUYÊN
+     hai từ gộp thay vì tự chia, vì tự chia là bịa. Người biên tập có thể tách sau khi tra
+     từ điển.
+  6. `8.1-9.4` — chuỗi chủ ngữ: 8.1 `nāgo` (được thả) và 8.2 `kuñjaro` (người nộp tiền chuộc)
+     là hai cá thể khác nhau; `so` ở 9.1 có thể là con voi đã thả hoặc con voi đã nộp tiền.
+     Pāli không phân giải được, tôi dùng đại từ trung tính («Nó», «ông ấy») và KHÔNG bịa
+     thêm quan hệ nào.
+  7. `9.2 sītaṁ kuñjarasevitaṁ` → «chỗ mát mà voi thường lui tới». `kuñjarasevita` ở 5 chỗ
+     khác là nơi voi lui tới, nên 9.2 nói về một địa điểm chứ không phải hành động.
+  8. `10.1 anariyo devo` → «một vị thần hay tranh cãi». `devo` là thần/sinh vật; giữ «vị thần»
+     vì đó là nghĩa chính, nhưng trong miệng con voi nói về con của mình thì nghe lạ.
+  9. `10.2 akālenapi vassati` → «dù không đúng mùa vẫn cứ mưa xuống». Chủ ngữ `vassati` có
+     thể là con voi (rải nước) hoặc mưa thật; giữ nghĩa mưa.
+  10. `11.4 vedehena yasassinā` → «vốn là bậc thắng trận ở Videha». `vedehena` là tại Videha.
+
+  VỀ MỘT SỐ TIỀN LỆ ĐÃ DÙNG: `pabbaja` không có ở bài này; `rāja` → «nhà vua»; `ammā` →
+  «mẹ ơi»; `mahārāja` → «đại vương».
+
+  CHỐT `_hvi.py` SẠCH: 53/53 khoá, khoá thừa 0, thiếu 0, NFC OK, không trùng nguyên văn Pāli,
+  không Pāli lọt (tên thực vật Pāli đều nằm trong Pāli của chính khoá đó nên được chấp nhận),
+  dấu lược khớp từng khoá, ngoặc kép cân trên cả bài. Chạy lại `save_vi` lần hai cho kết
+  quả giống hệt (idempotent).
+
+  CỔNG KỸ THUẬT CHƯA CHẠY ĐƯỢC: tôi bị cấm `npm run validate|test|build|check|audit|
+  reference:gaps`, nên `technical_integrity` = 9,6 và không tuyên bố technical gate pass.
+  Bốn lệnh còn lại cho người biên tập chạy: `npm run validate` · `npm test` · `npm run check`
+  · `npm run build`.
