@@ -1,0 +1,89 @@
+uid: ja414
+status: draft
+translationTitle: "Kinh Jāgara"
+translators:
+  - "OpenCode Space Bunny Free (agent)"
+reviewers: []
+tags:
+  - "khuddaka-nikaya"
+  - "jataka"
+  - "sattakanipata"
+  - "gandharavagga"
+  - "jagarajataka"
+quality:
+  scores:
+    source_provenance: 9.5
+    semantic_fidelity: 9.3
+    grammar_logic: 9.3
+    segment_alignment: 10.0
+    terminology: 9.1
+    triangulation: 7.5
+    vietnamese_clarity: 9.3
+    han_viet_balance: 9.3
+    ambiguity_integrity: 8.8
+    technical_integrity: 9.6
+  final_score: 9.17
+  blocking_errors:
+    - "Không có tầng tham khảo tiếng Anh tại commit đã ghim. Tôi tra `source/upstream-manifest.json` (commit 11c9d708978cde8ba61096d8a75f7ddfb846f639, tầng english-sujato, 4291 tệp) theo mẫu đầy đủ `…_translation-en-sujato.json`: tầng này có đúng 83 tệp thuộc `sutta/kn/ja`, và không tệp nào trong số đó là `ja414`; `.cache/upstream/suttacentral/translation/en/sujato/sutta/kn/ja/` trên đĩa cũng có đúng 83 tệp, tập uid khớp từng tệp với manifest, không có `ja414`. Vậy đây là `not-published-upstream`, KHÔNG phải `not-synced`. Tầng `vietnamese-current` vắng (tầng đã ghim chỉ có 26 tệp, không có tệp `ja*` nào) và lớp lấp `english-project` vắng (chỉ có `dhp*` và `iti*`). Ba tầng tham khảo đều vắng nên bài chỉ dịch được từ Pāli root; theo AGENTS.md đây là lỗi chặn đối với `review` và `published`."
+    - "Cổng coverage KHÔNG ĐO ĐƯỢC GÌ, chứ không phải đo ra 0%. Đo theo đúng công thức của `source/layers.yaml` (Pāli có nội dung ≥ 40 ký tự, loại khối tham chiếu `:0.x`) thì MẪU SỐ = 0: cả 33/33 khoá đều là câu kệ ngắn hơn 40 ký tự. `ratio` đọc thành 1 nên ngưỡng coverage không đỏ, nhưng đó là hệ quả của mẫu số rỗng chứ không phải bằng chứng rằng đã đối chiếu được. Tôi ghi rõ mẫu số và không sửa `content/meta/reference-gaps.yaml`."
+    - "Còn bất định chưa phân xử được ở `4.4` và `5.4` `devate` và ở `4.2` `saṁyamoti damoti ca`: đây là hai chỗ mà bản Anh ở commit đã ghim sẽ quyết được ngay (ai được xưng hô và hai danh từ này phân biệt thế nào), mà tầng Anh của bài này không tồn tại, nên tôi ghi cách đọc đã chọn trong notes thay vì tuyên bố chắc chắn."
+  assessed_at: "2026-10-05"
+  assessed_by:
+    - "OpenCode Space Bunny Free (agent)"
+notes: |-
+  `Jāgarajātaka`, bài thứ chín của `Gandhāravagga` trong `Sattakanipāta`. 33/33 khoá đã dịch,
+  set khoá Việt bằng đúng set khoá Pāli (đối chiếu bằng set, không chỉ đếm 33).
+
+  TẦNG THAM KHẢO — đo, không đoán. Xem `blocking_errors` mục 1: không có tầng Anh, không có
+  `vietnamese-current`, không có lớp lấp `english-project`. Ba tầng tham khảo đều vắng ⇒
+  `draft`, và `triangulation` bị chặn ở 7.5 (≤ 8.0) chứ không nâng điểm để né blocker.
+
+  TÊN BÀI VÀ TÊN PHẨM — theo bầy lân cận, kèm số đếm trên 445 tệp `ja` đã có ở tầng này:
+  `:0.1` → *Jātaka* (429 tệp) chứ không phải *Chuyện Tiền Thân* (16 tệp);
+  `Sattakanipāta` → *Bộ Bảy Bài Kệ* (20/20 tệp có khoá `:0.2`);
+  `Gandhāravagga` → *Phẩm Gandhāra* (10/10 tệp có khoá `:0.3`);
+  `:0.4` → *N. Kinh X* (411/445 tệp); dòng kết `…thứ N.` (462 khoá ở 408 tệp).
+  ⇒ *9. Kinh Jāgara* và *Kinh Jāgara, thứ chín.* Tên riêng giữ dạng Pāli theo mẫu bầy lân
+  cận; chưa có tiền lệ Việt nào cho `Jāgara` (đo trong toàn tầng: 0). Có một điểm cần biên
+  tập lưu ý: uddāna của `Gandhāravagga` tại `ja416:10.3` ghi `Urago, Vidhuro, puna jāgarataṁ`
+  — dạng *Jāgaratā* — nên đây là tên phẩm dạng tính từ, không phải tên riêng có dấu `-a`.
+
+  PĀLI TRÙNG NGUYÊN VĂN — 5/33 khoá có Pāli trùng byte-for-byte ở bài khác: ba khoá tiêu
+  đề cộng `5.1` và `5.2`, cả hai trùng `sn1.23:3.1–3.2`. Cả năm đều dùng lại nguyên văn:
+  `5.1` lấy y hệt *Những ai tham, sân* và `5.2` lấy y hệt *và vô minh đã được diệt tận;*.
+  Bản nháp đầu tiên của tôi ghi *Những ai mà tham ưu cùng sân, / vô minh cũng đã bị loại trừ;*
+  — vừa là một cách Việt thứ hai cho cùng Pāli, vừa **lộng ngữ pháp**: `Yesaṁ` là cách sở
+  hữu (*của những ai*), không phải tân ngữ bổ nghĩa cho `rāgo`/`doso`. Cả hai lý do đều buộc
+  phải sửa.
+
+  CHỖ ĐỌC LẠI. `sutto` ở `1.1`, `2.1`, `3.1`, `6.1`, `7.1` không có tân ngữ trực tiếp, nghĩa
+  là *đã nghe rằng*, không phải *đã nghe nó*; bản nháp ghi *đã nghe nó đang thức* ở cả năm chỗ,
+  đã sửa. Cũng vậy `ko mametaṁ vijānāti` ở `1.3` — `mama` là cách sở hữu (*của ta*), tức
+  *ai trong số các ngươi*, không phải *anh em* như bản nháp đã ghi. Mệnh đề cân ở `4.1–4.2`
+  và `5.1–5.2` là hai vế đối xứng của cùng một lập luận (*kẻ không hiểu pháp thì ta chỉ canh
+  giữ* đối với *kẻ đã sạch tham sân vô minh thì ta hoàn toàn thức giác*), nên tôi dịch hai
+  vế bằng cùng một nhịp.
+
+  BẤT ĐỊNH — ghi ở đây, không thêm vào thân kinh. (a) **`devate` ở `4.4` và `5.4`** là
+  nghi vấn lớn nhất: đây là cách gọi (ngôi thứ hai số ít của `devatā`), tôi dịch *bạch đấng
+  thần*. Trong tầng này có 10 chỗ `devate` được dịch thành *thiên nữ*, nhưng tất cả đều là
+  ngữ cảnh nữ thần, không áp dụng ở đây. Nếu `devate` ở bài này là cách xưng hô vua thì
+  phải dịch khác, và tôi không có cách nào chọn dứt khoát khi không có bản Anh ở commit đã
+  ghim. (b) `4.2` `saṁyamoti damoti ca` — hai danh từ gần nghĩa nhau, tôi tách thành *kẻ
+  giữ mình, kẻ tự hãm dè* để giữ hình thức liệt kê mà Pāli có; nếu thực ra là một danh từ
+  lặp để nhấn thì câu đó cần rút lại. (c) Ai nói `1.1–1.4` và `7.1–7.4`: tôi cho rằng
+  `1.1–1.2` nói *về* sân trong khi `2.1–2.2` nói *từ chính miệng người thức*
+  (`ahaṁ … jāgaro`), và `7.x` là người đầu khen lại — sự đối xứng này giữ được ở tiếng Việt
+  nhờ việc tôi dịch `1.2` thành *sân là thức* và `2.2` thành *ta là thức*. Nếu cả `1.x` và
+  `2.x` đều thuộc một người thì sự đối xứng ấy biến mất.
+
+  DẤU LƯỢC: bài này không có khoá nào chứa `…pe…` và không có `…` trần; hai phía đều 0.
+  Đây là câu kệ, không có đoạn lược.
+
+  CỔNG KỸ THUẬT. Agent dịch không được chạy lệnh `npm` (BRIEF cấm
+  `validate|test|build|check`). Tôi tự kiểm và tất cả xanh: `_hvi.kiểm` pass; set khoá Việt
+  bằng set khoá Pāli (33/33, kể cả 33 khoá ngắn hơn 40 ký tự mà `_hvi` không quét); mọi giá
+  trị NFC; không khoá nào trùng nguyên văn Pāli ngoài `:0.1`; nháy kép cân trên cả bài
+  (5 mở, 5 đóng — khớp đúng với Pāli: `1.1`→`1.4`, `2.1`→`2.4`, `3.1`→`3.4`, `4.1`→`7.4`);
+  không có `(…)` đứng một mình; dấu lược khớp; thứ tự khoá theo số. Vì chưa chạy bốn cổng
+  `npm` và chưa có lượt rà của người, `technical_integrity` đặt **9.6** chứ không phải 10.0.
