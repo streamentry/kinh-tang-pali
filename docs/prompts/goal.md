@@ -155,6 +155,82 @@ Coordinator chốt `status` / `blocking_errors` bằng **script**, vì đó là 
 **Không tự nâng `semantic_fidelity` khi sửa xong** — nâng điểm bằng máy chính là cái mẫu vừa bị bắt.
 Sửa xong rồi **chấm lại** là việc của một lượt review, không phải của script.
 
+### 🔴 Nguồn gốc lớp cắt ngắm là **tầng Anh đã ghim**, không phải bản nháp tự bịa
+
+`tf4` dò ra, và điều này giải thích **vì sao `validate` không thấy**: `validate` đo `…` của tầng Việt mà
+**không** đối chiếu từng khoá với Pāli.
+
+| khoá | Pāli (root) | Sujato **đã ghim** | Việt trước |
+|---|---|---|---|
+| `an5.99:1.7` | `… sakkaccaññeva pahāraṁ deti, no asakkaccaṁ;` | `If he strikes a buffalo …` | `nếu nó vồ con trâu …` |
+| `mn24:11.3` | `“Kiṁ panāvuso, cittavisuddhi anupādāparinibbānan”ti?` | `“Is purification of mind …` | `“Thanh tịnh về tâm …` |
+
+**24/24** khoá lát `tf4` đều bị Sujato lược và bản Việt sao chép. Ở `mn26` còn tệ: Sujato lược `27.14`
+trong khi Pāli của `27.14` **trùng nguyên văn** với `27.7`/`27.19` mà Sujato dịch đủ ⇒ **bản Anh tự
+mâu thuẫn với chính nó**.
+
+⇒ **Bất kỳ agent nào dịch vòng qua tầng Anh thay vì đọc Pāli cũng tái tạo đúng lỗi này.** Đó là lý do
+luật *"Pāli là authority cuối cùng"* không phải khẩu hiệu.
+
+⇒ **Chặn căn** cần một phép kiểm **ở tầng Anh**: mỗi segment có `…` mà Pāli không có. Chưa làm.
+
+### 🔴 Còn một lớp **nặng hơn**: mất nội dung mà **không** có `…` nào
+
+`mn24:4.4` — Pāli `Assosi kho … “bhagavā **kira** sāvatthiṁ anuppatto; sāvatthiyaṁ viharati
+jetavane anāthapiṇḍikassa ārāme”ti.` — bản Việt mất **cả vị từ `kira`** (mức độ chắc chắn) lẫn phần
+*Ngài an trú ở rừng Jeta, trong tu viện của ông Anāthapiṇḍika*. Không dấu lược nào ⇒ **không** phép đo
+nào của tôi thấy, kể cả cổng mới.
+
+⇒ Đây là **nén văn xuôi**; chỉ phát hiện được bằng tỉ lệ độ dài, mà tỉ lệ thì **nhiễu** vì nén chữ
+là đúng. Cần lát riêng, và cần **đọc tay** — không để máy quyết.
+
+### ⚠️ Lát của tôi **bỏ sót** khoá vì chọn lát theo **tỉ lệ ký tự**
+
+`tf2` phát hiện `mn12:17.2` (4,5×, **cùng lớp**) không có trong lát: nó có `…pe…` thật nên **số dấu lược
+đã khớp**, mà phép chọn của tôi dựa trên tỉ lệ. `tf1` cũng báo: `24.1` tỉ lệ 1,0 bị xếp "nhẹ" **nhưng
+vẫn bịa `…`**.
+
+⇒ **Lọc theo tỉ lệ bỏ sót lỗi cùng loại.** Lát sau chọn theo **bất biến dấu lược**.
+
+### 🔴 Việc tồn đọng sau 12 bài vừa sửa — **lát riêng**, không gộp
+
+| việc | ở đâu | vì sao chưa sửa |
+|---|---|---|
+| `mn24:4.4` mất `kira` + cả vế Jeta | `mn24` | cần đọc tay, nằm ngoài lát |
+| `mn24:17.7` mất lời dẫn `‘āyasmā sāriputto’ti` ⇒ mất **chủ thể** | `mn24` | ngoài lát |
+| `mn24` **15** khoá cùng Pāli mà **3** cách dịch | `mn24` | ngoài lát |
+| `mn26:13.3` / `30.1` — Pāli 4 và 3 dấu lược, Việt **0** (chiều ngược) | `mn26` | ngoài lát |
+| `mn26` **6** nhóm Pāli trùng còn Việt khác | `mn26` | ngoài lát |
+| `dn3` ngoặc kép `“` = **−6**, hỏng sẵn từ trước | `dn3` | `_hvi` chặn cả tệp |
+| `dn3:2.2.17 2.10.1 2.10.4 2.10.7 2.10.10` Pāli `…pe…` mà Việt bung | `dn3` | ngoài lát |
+| `dn22:14.8` đóng ngoặc kép sớm, `14.11` mở lại | `dn22` | ngoài lát |
+| `an3.99:1.1` gộp 4 trạng thái (Pāli chỉ `nava`) + gloss *(vải gai thô)* **trong thân kinh** | `an3.99` | vi phạm `AGENTS.md` |
+
+### ✅ `_fixmeta.py`: vì sao `status`/`blocking_errors` phải là **việc của máy**
+
+Sau sự cố lát `tf1` xoá blocker mà không sửa gì, tôi viết `/Volumes/SSD/opencode-work/_fixmeta.py`:
+tính offender **từ dữ liệu**, rồi đặt `draft` + blocker nêu đúng danh sách khoá, hoặc gỡ blocker rồi đặt
+`status` theo quality gate. **Cố ý không nâng `semantic_fidelity`** — nâng điểm bằng máy chính là cái
+mẫu vừa bị bắt.
+
+**Tiêu chí nghiệm thu:** trên worktree sạch, nơi `tests/unit/truncation.test.ts` đã xanh, script phải
+báo **0 thay đổi**. Nếu lệch thì một trong hai đang sai.
+
+⚠️ Script này **lộ bốn lỗi của tôi** trước khi đạt:
+
+1. `SCORE_RE` dùng `^\s*final_score:` ⇒ ăn nhầm dòng `final_score` trong `notes` ⇒ `score` sai
+2. `STATUS_RE`/`BLOCK_RE` không `re.M`... không, chúng áp từng dòng; lỗi thật là `SCORE_RE` thiếu `re.M`
+   ⇒ `score = None` ⇒ **5.407** tệp bị hạ nhầm
+3. `ITEM_RE` giữ dấu nháy kép ⇒ `Khoá: …$` không khớp ⇒ điều kiện bỏ qua **âm thầm** không chạy
+4. `fm` là biến của **vòng duyệt cuối**, dùng trong vòng ghi ⇒ assert so **nhầm tệp**
+
+Và nó phải **thu hẹp phạm vi**: bản đầu còn định đặt `status` cho **mọi** tệp, tức cả những tệp
+`draft` vì lý do khác mà nó **không biết** — đó là sửa hàng loạt ngoài lát. Nay chỉ đụng tệp đang có
+hoặc vừa hết lớp lỗi này.
+
+⇒ Ba lần trong một buổi tôi đo chạy trên **sai cây**: cây chính không có các bản hạ trạng thái đã
+commit. Script báo 4.186 và 5.423 tệp trong khi thật chỉ có 67.
+
 ### Phe `ti` — **năm** lát, và nguyên nhân là **hai tập `ti` khác nhau**
 
 Con số **850:150** tôi từng ghi là **sai chiều**. Đợt 17–18 có **năm** lát đo lại:
