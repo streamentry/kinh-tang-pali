@@ -1,0 +1,95 @@
+uid: ps1.8
+status: draft
+translationTitle: "1.8. Luận Bàn Về Nghịch Đảo"
+translators:
+  - "OpenCode Space Bunny Free (agent)"
+reviewers: []
+tags:
+  - "kn"
+  - "khuddaka-nikaya"
+  - "patisambhidamagga"
+  - "nghich-dao"
+quality:
+  scores:
+    source_provenance: 9.4
+    semantic_fidelity: 9.2
+    grammar_logic: 9.2
+    segment_alignment: 10.0
+    terminology: 8.9
+    triangulation: 7.0
+    vietnamese_clarity: 9.2
+    han_viet_balance: 9.3
+    ambiguity_integrity: 8.7
+    technical_integrity: 9.6
+  final_score: 9.05
+  blocking_errors:
+    - "Không có tầng tham khảo tiếng Anh tại commit đã ghim: đã kiểm source/upstream-manifest.json, tầng english-sujato (4.291 tệp) trong thư mục con kn/ của sutta/ chỉ gồm cp, dhp, iti, ja, kp, snp, thag, thig, ud — KHÔNG có mil, ps, pv hay tha-ap, nên tệp .../kn/ps/ps1.8_translation-en-sujato.json không tồn tại ⇒ not-published-upstream, không phải not-synced. Đối chiếu trực tiếp trên manifest cho uid này: 0 tệp. Tầng vietnamese-current cũng vắng (translation/vi/phantuananh tại commit đã ghim chỉ có 26 tệp, toàn bộ là Pháp Cú) và lớp lấp english-project không có uid này ⇒ bài dịch chỉ từ Pāli, chưa đối chiếu được tầng tham khảo nào, không đủ điều kiện review/published, bắt buộc giữ draft."
+  assessed_at: "2026-10-05"
+  assessed_by:
+    - "OpenCode Space Bunny Free (agent)"
+notes: |-
+  Đã đọc HẾT p84.txt (912 dòng, cả 6 bài của lát) trước khi viết chữ nào. Bài này
+  50 khoá, chỉ 19 khoá Pāli có nội dung (≥ 40 ký tự sau nén, bỏ khối tham chiếu
+  `:0`) — phần còn lại là câu kệ ngắn và các tiêu đề.
+
+  COVERAGE ĐO ĐƯỢC. Đúng công thức `src/lib/canon/reference.ts` với
+  `source/layers.yaml` (`substantivePaliMinChars: 40`, `excludeReferenceBlock: true`):
+  substantive = 19, có chữ ở tầng Anh đã ghim = 0 ⇒ ratio = 0.0000 (ngưỡng `floor: 0.8`).
+
+  TÊN PHẨM — ĐO ĐƯỢC, KHÔNG LẤY TỪ TRÍ NHỚ. `ps` là `Peṭasatthe`; xác nhận bằng cách
+  tra `source/upstream-manifest.json` → tầng `english-sujato` → tệp
+  `name/sutta/ps-name_translation-en-sujato.json` (cùng commit đã ghim
+  11c9d708978cde8ba61096d8a75f7ddfb846f639). Tệp `name/` CHỈ có ở tầng Anh; trong
+  `kn/ps/` không có tệp dịch nào. Tệp tên ấy cũng cho biết Sujato đặt `ps1.8` là
+  `Discussion of Perversions` và `ps-mahavagga` là `The Great Chapter`.
+  Bài này là đệ tứ của `Mahāvagga`, nên `:0.2` = `Mahāvagga`.
+
+  ĐA SỐ TÊN ĐO ĐƯỢC, CÓ SỐ ĐẾM. `:0.1` `Paṭisambhidāmagga` giữ nguyên Pāli: 3/3 bài
+  `ps` đã có đều giữ (ps1.9, ps3.5, ps3.7). `:0.2` `Mahāvagga` cũng giữ Pāli: trong
+  chính `ps` thì 1/1 giữ (ps1.9:0.2), dù đo toàn tầng thì `Mahāvagga` là `Đại Phẩm`
+  24/24 — tôi theo BRIEF_VI3 §11 (đa số TRONG TÁC PHẨM ĐANG LÀM) và ghi sự lệch này ra
+  đây để người gộp quyết. `:0.3` `Vipallāsakathā` thì ngược lại: trong `ps` đa số là
+  DỊCH (2/3 — ps3.5 `3.5. Luận Bàn Về Hành`, ps3.7 `3.7. Bài Nói Về Sự Ngang Hàng`),
+  chỉ ps1.9 giữ Pāli, nên tôi dịch theo đúng khuôn `Luận Bàn Về …` đã có sẵn, không
+  tự tạo cách thứ N+1.
+
+  DÙNG LẠI NGUYÊN VĂN ĐÃ CÓ, ĐO BẰNG SCRIPT (tra cụm 3–4 khoá liên tiếp trùng nguyên
+  văn trong toàn bộ bài `kn` đã có bản Việt). (1) Cụm `Te yogayuttā mārassa, /
+  ayogakkhemino janā; / Sattā gacchanti saṁsāraṁ, / jātīmaraṇagāmino.` trùng nguyên
+  văn iti58:3.3–3.6 ⇒ dùng lại đúng bốn câu: `những người bị ách Ma trói buộc ấy,` /
+  `không được an ổn khỏi ách;` / `chúng sinh luân hồi,` / `đi trong sanh tử.`
+  (2) `dukkhūpasamagāminaṁ.` trùng nguyên văn iti103:4.6 và :6.6 (`con đường dẫn đến
+  sự lắng dịu khổ`) và snp3.12:5.6 (`dẫn đến sự tịch tĩnh của khổ`) ⇒ dùng `con đường
+  dẫn đến sự lắng dịu khổ`.
+
+  LỖI BẢN NHÁP BẮT ĐƯỢC KHI REVIEW ĐỐI KHÁNG (3 chỗ, đã sửa hết):
+  (1) `:2.1` — nháp đầu tiên mở thêm một cặp nháy kép `“…”` ở đầu câu, làm bài mất
+  cân (3 mở / 2 đóng). Pāli chỉ mở `“` HAI lần: ở `:1.2` (đóng ở `:2.7`) và ở
+  `:3.1` (đóng ở `:7.4`) — đo được `“`=2 `”`=2, `‘`=0 `’`=0. Đã bỏ dấu mở thừa.
+  (2) Nháp đầu tiên tự thêm nháy kép tròn quanh `tự thân là ta` (`:1.6`), `cái này
+  không phải ta` (`:2.5`), `là ta` (`:3.3`, `:8.5`) và `không phải ta` (`:7.1`) — Pāli
+  ở những chỗ ấy KHÔNG có nháy (`attāti`, `anattāti`, `niccasaññino`…). Tôi bỏ hết,
+  vì thêm nháy là thêm dấu không có ở nguồn. Đã sửa cả 5 chỗ.
+  (3) Cùng hệt với bài kề mil6.3.11, phải canh nháy kép là danh sách xuyên suốt bài:
+  đo bằng `ngoặc()` trên MỌI khoá đã dịch.
+
+  BẤT ĐỊNH ĐÃ GHI. (1) `vipallāsa` — 0 tiền lệ trong TOÀN TẦNG Việt dự án, nên đây là
+  lần đầu tiên phải chọn cách dịch: tôi dùng `sai lệch` (đã có sẵn trong tầng cho
+  `vipariññā`/sai khác: “lời sai lệch”, “nhận thức sai lệch”), đặt cạnh `đảo ngược`
+  mà tầng dùng cho `micchādiṭṭhi`. Vì thế `Vipallāsakathā` dịch là `Luận Bàn Về
+  Nghịch Đảo`, còn ba cụm thì là `sai lệch của tưởng / của tâm / của kiến`.
+  Nếu người biên tập chọn `đảo ngược` thì phải đổi cả `:0.3` cho khớp.
+  (2) `:8.7–8.9` `vatthu` — các khoá có tiền lệ đều là `vātha` = “nơi cư ngụ”, không
+  phải nghĩa “nền tảng”; ở đây `vatthu` là cái mà sự sai lệch tựa vào, tôi dịch
+  “nền tảng”. (3) `:7.4` `sabbaṁ dukkhaṁ upaccagun` — `upaccaguṇa` không tra được
+  nghĩa chắc chắn trong kho; tôi đọc là “đã thắng trừ” và dịch thành vế, ghi ở đây
+  thay vì bịa nghĩa khác. (4) `:6.2` `sacittaṁ paccaladdhu` — 0 tiền lệ cho cụm;
+  tôi dịch “đã thành thảo trong tâm, an trị được cái tâm của mình”.
+
+  THUẬT NGỮ ĐÃ TRA, CÓ SỐ ĐẾM. `pabhaṅkarā` → `tự tỏa sáng` (iti84:6.2, iti104:2.9,
+  4.2); `sappaññā` → `bậc có trí tuệ` (nhiều khoá iti/thag); `micchādiṭṭhi` → `tà
+  kiến` (31 khoá “chánh kiến” đối xứng); `sammādiṭṭhi` → `chánh kiến` và `sammāsamādhi`
+  → `chánh định` (ps1.9:1.2 đã dùng đúng hai chữ này); `dakkhuṁ`/`taddasuṁ` →
+  `thấy rõ`; `mahā` → `bốn` cho `cattāro` theo khuôn Phật giáo.
+
+  `technical_integrity` đặt 9.6 vì không ai rà lại bằng con người.
