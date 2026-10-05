@@ -1,0 +1,256 @@
+uid: ja466
+status: published
+translationTitle: "Kinh Thương Nhân Biển"
+translators:
+  - "OpenCode Space Bunny Free (agent)"
+reviewers: []
+tags:
+  - "khuddaka-nikaya"
+  - "jataka"
+  - "dvadasakanipata"
+  - "culakunalavagga"
+  - "samuddavanijajataka"
+quality:
+  scores:
+    source_provenance: 9.5
+    semantic_fidelity: 9.2
+    grammar_logic: 9.0
+    segment_alignment: 10.0
+    terminology: 9.0
+    triangulation: 9.0
+    vietnamese_clarity: 9.2
+    han_viet_balance: 9.2
+    ambiguity_integrity: 8.8
+    technical_integrity: 9.6
+  final_score: 9.25
+  blocking_errors: []
+  assessed_at: "2026-10-06"
+  assessed_by:
+    - "OpenCode Space Bunny Free (agent)"
+notes: |-
+  Jātaka 466, `Samuddavāṇijajātaka`, bài thứ 3 của `Cūḷakuṇālavagga` trong
+  `Dvādasakanipāta`. 55 khoá, tất cả đã dịch, thứ tự khoá bằng đúng thứ tự Pāli.
+
+  KHÁC VỚI BỐN BÀI ANH EM CÙNG PHẨM — ĐÂY LÀ ĐIỂM CẦN NGƯỜI ĐỌC LƯU Ý.
+  `ja464` `ja468` `ja469` `ja471` đều phải đặt `draft` vì tầng Anh đã ghim không có mặt.
+  `ja466` **CÓ** tầng Anh đã ghim, kiểm chứng được:
+  - `source/upstream-manifest.json`, edition `english-sujato`, khoá
+    `sutta/kn/ja/ja466_translation-en-sujato.json` = `c17bc3bad45e7e4fe669b4e26e7bf348277ca646`;
+    tệp trên đĩa tính lại git-blob SHA-1 ra **đúng** con số ấy.
+    Tệp Pāli root `kn/ja/ja466_root-pli-ms.json` cũng khớp `e332d35058d74de618d515fd9cfc2153bd1445f4`.
+  - Tệp Anh có **55/55** segment id của bài (không thiếu khoá nào); **54/55** khoá có chữ,
+    khoá rỗng duy nhất là `13.1` (dòng tên bài, không phải văn xuôi).
+  - 83 tệp `kn/ja/` của tầng Anh **không** có `ja464`, `ja468`, `ja469`, `ja471`.
+  ⇒ `scripts/validate.ts` không bắn thông điệp `pinned English reference missing` cho bài này,
+    nên `draft` không bắt buộc. Đây là khác biệt đo được, không phải tôi nới lỏng.
+
+  CỔNG COVERAGE — MẪU SỐ BẰNG 0, CỔNG KHÔNG ĐO ĐƯỢC GÌ.
+  - Ngưỡng khai ở `source/layers.yaml`: `substantivePaliMinChars: 40`, `excludeReferenceBlock: true`,
+    `floor: 0.8`.
+  - Số khoá Pāli **có nội dung** của ja466 = **0/55** (bỏ khối `:0`; khoá dài nhất còn lại là `12.4`,
+    **36** ký tự sau khi nén khoảng trắng theo đúng công thức `prose()` của `src/lib/canon/reference.ts`,
+    37 ký tự nguyên bản — toàn bài là kệ) ⇒ `substantiveSegments = 0`, `ratio = 1` theo
+    `src/lib/canon/reference.ts`. Cổng floor **không chặn**, nhưng đó là **cổng không đo được gì**,
+    KHÔNG phải *không cần ghi nhận* và KHÔNG phải *đã đủ tham khảo*. `reference-gaps.yaml` không
+    cần entry cho ja466: tệp Anh đã ghim phủ đủ **55/55** segment id, và nhánh coverage trong
+    `validate.ts` chỉ chạy khi `substantiveSegments > 0`.
+  - `english-project` của dự án: `content/translation/en/project/sutta/` không có tệp nào cho ja466,
+    `content/meta/en/kn/ja466.yaml` không tồn tại ⇒ không có lớp lấp, cũng không có chuyện trùng
+    `assessed_by` giữa lớp lấp Anh và bản Việt.
+  - `vietnamese-current`: 26 tệp, toàn bộ `sutta/kn/dhp/`, không có tệp `ja` nào. Đây là giới hạn
+    của bản chụp upstream tại commit đã ghim, không phải thiếu sót của kho.
+  ⇒ Vì `english-sujato` CÓ mặt và đủ 55 khoá, tôi **không** chặn `triangulation` ở 7,0 như bốn bài
+    anh em; nhưng vẫn giữ 9,0 vì thiếu hẳn tầng Việt hiện hành và vì cổng coverage không đo được gì.
+
+  SỐ PĀLI — TỰ TÍNH, KHÔNG CHÉP. Toàn bài chỉ có **năm** chỗ mang nghĩa số, quét từng từ Pāli trong
+  cả 55 khoá:
+  - `3.` ở `:0.4` = **3**, chữ số Pāli viết sẵn. Tự kiểm chéo bằng `tatiyaṁ` ở `13.1` (thứ ba)
+    và bằng chính chuỗi phẩm đọc từ Pāli ghim: ja464=1 (`paṭhamaṁ`), ja465=2 (`dutiyaṁ`),
+    ja466=3 (`tatiyaṁ`), ja467=4, ja468=5, ja469=6, ja470=7, ja471=8, ja472=9, ja473=10. Ba cách
+    này khớp nhau.
+  - `tatiyaṁ` (13.1) = **3** ⇒ *thứ ba*. (`tatiya` là chữ số thứ ba trong dãy; dùng như danh từ
+    cũng cho 3 — cùng kết quả với cách đếm chuỗi phẩm.)
+  - `Dvādasakanipāta` (0.2) = dvādas **12** ⇒ *Bộ Mười Hai Bài Kinh*. Khớp tầng `name/` đã ghim:
+    `ja-name:521` → *The Book of the Twelves*.
+  - `Eko … khemameko` (6.2) = eka **1**, lặp hai lần ⇒ *một vị … một vị*.
+  - `Tipañca` (2.1) = **15** ⇒ *ngày mười lăm*. Đây là chỗ duy nhất trong bài mà tầng Pāli ghim
+    không có bản Anh nào và cũng không có dạng nào khác để đối chiếu: `tipañca` chỉ có **4** lượt
+    trong 284708 khoá Pāli, và ba lượt kia đều là **tiền tố** trong từ ghép (`gahapatipañcamo`,
+    `vimuttipañcamena`, `tuggatipañcaviññāṇaṁ` — cả ba đều là pañca 5, không phải 15).
+    Căn cứ tôi dùng: (1) `rattū` là đêm trăng rằm, chỉ xảy ra ở ngày mười bốn–mười lăm; (2) tầng Anh
+    đã ghim tại cùng commit dịch `2.1` là *When the fifteenth day full moon has risen*. Cứ hai
+    độc lập mà khớp. Ghi lại ở đây vì đây là phép suy, không phải phép đếm trong tầng.
+  - KHÔNG có Navuti, Tālīsa, Sahassa, Koṭi, Kappa hay Tiṁsakappasahassa ⇒ không có cụm số nào khác
+    phải phân xử.
+
+  HAI CHỖ TẦNG ANH LỆCH VỚI PĀLI — TÔI THEO PĀLI ROOT, KHÔNG SỬA THEO BẢN ANH.
+  1. **4.1 và 4.2 bị đảo chỗ trong bản Anh.** Pāli: `4.1 Pahūtabhakkhaṁ bahuannapānaṁ` (thức ăn
+     dồi dào, nước uống dồi dào) rồi `4.2 Pattattha āvāsamimaṁ uḷāraṁ` (nơi cư trú tuyệt vời mà các
+     ngươi đã đến). Sujato đặt `You’ve come to this splendid abode` ở 4.1 và `full of food and drink`
+     ở 4.2, tức đảo hai vế. Tầng này căn cột theo **segment id**, nên bản Việt phải theo thứ tự Pāli.
+  2. **9.1–9.2.** Pāli `Na ve sugaṇhaṁ paṭhamena seṭṭhaṁ, Kaniṭṭhamāpāthagataṁ gahetvā` đọc thẳng
+     là *điều dễ nắm bắt nói ra trước, quả thật không phải là tốt đẹp nhất, dù đã nắm lấy điều tệ hơn
+     đến sau* — tức đừng coi lời nói ra trước là tự động đúng. Sujato dịch ngược chiều
+     (*best not accept the last word … when what was spoken by the first was best*), lấy `paṭhamena`
+     làm chủ ngữ của `seṭṭhaṁ`. Tôi giữ nghĩa Pāli vì Pāli là authority; hai cách đọc đều ghi ở đây.
+
+  MƯỚI CỤM HAPAX TRONG TOÀN BỘ PĀLI GIMH (284708 khoá / 5764 tệp) — ĐỀU CÓ BẢN ANH ĐỐI CHIẾU, KHÔNG CÓ TỪ ĐIỂN:
+  1. `Tipañcarattūpagatamhi` (2.1) — 1 lượt; xem mục số ở trên.
+  2. `Nayimassa` (1.3) — 1 lượt. Tôi dịch theo nghĩa *họ không có phần*: `na` (phủ định) + `dīpakassa
+     bhāgino` (những kẻ có phần trong hòn đảo). Cách đọc cạnh tranh là `Nayi` = *những người kia*
+     (số nhiều của `aya`) và `massa` chỉ là chữ nối, khi đó câu 1.3–1.4 phải hiểu theo kiểu khác.
+     Bản Anh đã ghim đọc *They have no share of this island*, trùng cách tôi chọn.
+  3. `Pattattha` (4.2) — 1 lượt (`mn34:12.14` cũng có, nhưng nghĩa khác: *đã đạt đến*). Tôi dịch là
+     thì quá khứ ngôi thứ hai số nhiều, khớp `vo` ở 2.4 và 4.3 ⇒ *mà các ngươi đã đến*.
+  4. `leṇamaññaṁ` (2.4) — 1 lượt, = `leṇa` (nơi trú) + `amaññaṁ` (đi tìm). Tôi dịch *hãy đi tìm nơi
+     trú ẩn khác*; tiền lệ `leṇa` → *trú ẩn* 4 khoá, *nơi trú* 3 khoá.
+  5. `bhayābhayassa` (5.3) — 1 lượt, = `bhaya` + `abhaya` (nguy / không nguy). Tôi dịch *không biết có
+     nguy hay không*; bản Anh dịch *doesn't know if there's a danger or not*.
+  6. `sabbayantūpapannaṁ` (7.2) — 1 lượt, = `sabbayantu` (mọi bộ phận) + `upapanna` (đã trang bị).
+     Tôi dịch *trang bị đủ mọi thứ*; tiền lệ `upapanna` không có nghĩa trang bị trong tầng (68 khoá,
+     đều là *sinh ra* / *tái sinh*), nên đây là chỗ tôi phải tách từ.
+  7. `āpadatthā` (7.5) — 1 lượt, = `āpa` (đi tới) + `atthā` (chỗ) ⇒ *nơi trú ẩn*. Từ này không có ở
+     đâu khác trong tầng Pāli.
+  8. `vinassimha` (6.4) — 1 lượt, thì hiện tại chúng ta hãy hủy diệt. Tôi dịch *đừng để tất cả chúng
+     ta cùng hủy diệt*.
+  9. `Kaniṭṭhamāpāthagataṁ` (9.2) — 1 lượt, = `kaniṭṭha` (kém hơn) + `mā` (và) + `apāthagata` (đến
+     sau) ⇒ *điều tệ hơn đến sau*.
+  10. `paviceyya` (9.3) — 1 lượt, thì động của √pavica + `-eyya` (đã suy xét rồi). Tôi dịch *suy xét*;
+      tiền lệ `paṭivijjhi` trong tầng rất mỏng (chỉ 1 khoá khớp *xét*, `mil5.3.4`), nên tôi đặt
+      *suy xét* cho cả `paṭivijjhi` ở 10.3 và 11.2 để nhất quán, và ghi là chỗ thiếu tiền lệ.
+  Ngoài ra: `anāgatattha` (10.3), `kiccakāla` (12.2 và 12.4, chỉ 2 lượt), `atthajāte` (11.3, chỉ 2 lượt,
+  lượng kia ở `ja542:185.3` chưa có bản Việt) — đều không có tiền lệ Việt nào trong tầng.
+
+  MÂU THUẪN NỘI TẠI CỦA PĀLI GỐI, ĐÃ GHI CHỨ KHÔNG TỰ SỬA:
+  `2.1–2.4` là lời một vị thần báo trước cơn lũ sẽ nhấn chìm hòn đảo và bảo các thương nhân đi nơi khác;
+  `5.1–5.2` lại nói *vị thần ở hướng nam kia cất tiếng kêu rằng chỗ này an toàn, lời ấy là thật*.
+  Hai câu cùng nhắc phương nam mà hướng đi ngược nhau. Tôi dịch đúng từng chữ theo Pāli ghim và theo
+  bản Anh đã ghim (Sujato hiểu `Khemanti` là tiếng kêu *It is safe!*). Cách đọc cạnh tranh, chưa phân xử
+  được: `Khemanti` là **tên riêng** của một vị thần khác (*Khemantī*, vị thần phương nam ấy nói thật*),
+  khi đó hai câu không mâu thuẫn mà chỉ là hai vị thần khác nhau. Pāli không đủ dữ kiện để chọn, và
+  tôi không thêm lời giải thích nào vào thân kinh.
+
+  THUẬT NGỮ — ĐẾM TIỀN LỆ BẰNG CHỈ MỤC TOÀN TẦNG (5436 tệp Việt / 159703 khoá lúc đo; Pāli 5764 tệp
+  / 284708 khoá), không đoán và không chép trí nhớ:
+  - `yakkhā` → **Dạ-xoa**: 51/91 khoá Pāli có `yakkhā` đã dịch theo hướng này; riêng `yakkha` thì 38/116.
+    Bản Anh đã ghim dịch là *these spirits* — tôi theo quy ước tầng Việt, ghi lại ở đây.
+  - `vāṇijā` → **thương nhân**: 26 khoá / 26 bài (tiền lệ sát nhất `dn11:85.2` *những thương nhân đi biển*,
+    `dn23:21.4` *một đoàn thương nhân*).
+  - `samudda` → **biển**: 127/256 khoá.
+  - `bhūripañño` → **bậc trí tuệ rộng lớn**: 13 khoá theo cụm này; gần nhất trong chính `ja` là
+    `ja452:1.1` *Nghe nói ngươi có trí tuệ rộng lớn*. Cũng có *đệ tử bậc Đại Tuệ* (`dn18:13.12`) và
+    *bậc đa trí tuệ* (`tha-ap135:4.2`) — thiểu số, tôi lấy đa số.
+  - `saccaṁ` → **thật**; `saccamāha` → **nói thật** (tiền lệ `ja110:1.4` *ta nói thật*).
+  - `paṭikkosati` → **bác bỏ**: 6/6 khoá Pāli khớp đã dịch theo hướng này (`an5.166:5.2` *đã bác bỏ ta
+    ba lần*).
+  - `sīdanti` → **chìm**: 7/7 (`thag2.14:1.4`, `thag3.16:2.4` *dù sống lành cũng chìm*).
+  - `taremu` → **vượt qua**: 12/12 (`sn2.15:2.1` *Kẻ nào vượt qua được dòng lũ*).
+  - `nāvaṁ` → **thuyền**: 19/45.
+  - `abhiruyha` → **lên**: 49/59 (nhóm còn lại là *leo* 10).
+  - `anāgata` → **tương lai** trong `anāgatattha`/`anāgata` cụt ngữ: 91/131 (nhóm còn lại *chưa đến* 32,
+    *về sau* 8). Ở đây tôi dịch *điều sẽ đến* / *cho đời sau* vì cụm là `anāgatattha` = *việc chưa đến*,
+    không phải *tương lai* như danh từ trừu tượng.
+  - `paṭivijjhi` / `appaṭivijjhiyatthaṁ` → **suy xét** (tiền lệ mỏng, xem mục 10 ở trên).
+  - `nimitta` → **dấu hiệu**: 237 khoá.
+  - `sotthi`, `khema` → **an toàn**: 148 khoá cho `an toàn`.
+  - `ava/āvāsa` → **nơi cư trú** (`dn14:3.27.1` *84.000 nơi cư ngụ*, `dn34:2.2.12` *chỗ trú của chúng sinh*).
+  - `samāgamma` → **tụ lại** (tiền lệ *tụ họp* `dn29:17.1`).
+  - `bhāgino` → **phần** (14 khoá, `an5.37:1.4` *có phần trong thọ mạng*).
+  - `kammaphala` → **quả báo**.
+  - `pahūta` → **dồi dào** (10/113 khoá khớp cụm *dồi dào / thừa / đầy*).
+  - `uḷāraṁ` → **tuyệt vời** (4/128; bản Anh đã ghim dùng *splendid*).
+  - `doṇiṁ daḷhaṁ` → **làm bằng sắt, cứng chắc**; `vego` → **cơn lũ** (bản Anh đã ghim: *a great
+    flood*); `vadhī` → **hủy diệt** (0 tiền lệ cho dạng danh từ này; `ja419:7.4` dịch `vadhati` là
+    *giết*, khác ngữ cảnh).
+  - `āputtaputtehi` (4.4) → **cháu con**: **0** tiền lệ Việt cho cụm này trong toàn tầng; tôi dịch theo
+    thành phần `āputta` (con trai) + `putta` (con), tức cháu. Bản Anh đã ghim đọc *sons of sons*, cùng
+    hướng.
+
+  KHUNG TIÊU ĐỀ — ĐO RIÊNG TỪNG TRƯỜNG, VÌ HAI TRƯỜNG CHO HAI ĐA SỐ KHÁC NHAU.
+  - `:0.1` (Pāli `Jātaka`) → **Jātaka**: **439** so với **16** *Chuyện Tiền Thân*, trên 455 tệp `ja`
+    có khoá `0.1` ⇒ đa số tuyệt đối, và trùng đúng `ja464` `ja468` `ja469` `ja471`.
+  - `:0.2` (Pāli `Dvādasakanipāta`) → **Bộ Mười Hai Bài Kinh**: khớp cả **4** bài anh em cùng `Dvādasakanipāta`
+    + `Cūḷakuṇālavagga` đã có (`ja464` `ja468` `ja469` `ja471`) ⇒ **dùng lại nguyên văn**, không phải đặt mới.
+    Tầng `name/` đã ghim xác nhận: `ja-name:521` → *The Book of the Twelves*.
+  - `:0.3` (Pāli `Cūḷakuṇālavagga`) → **Phẩm Cūḷakuṇāla**: **14/14** tệp dùng đúng tên phẩm này, không
+    ngoại lệ. `ja-name:522` ghi *The Chapter on the Cuckoo* — tầng Việt giữ dạng Pāli, tôi theo đa số.
+  - `:0.4` theo khuôn `<số>. Kinh <tên>`: **455/455** tệp `ja` có khoá `:0.4` khớp mẫu ⇒ khớp tuyệt đối.
+    Bản này viết `3. Kinh Thương Nhân Biển`.
+  - ⚠️ Trường `translationTitle` thì **ngược lại**: đo trên `content/meta/sutta/kn/ja*.yaml` có
+    **451** tệp mang trường này thì **419** KHÔNG có số thứ tự và chỉ **32** có số (31/32 trùng đúng
+    `:0.4`). Tôi theo đa số của **chính trường đó** ⇒ viết `Kinh Thương Nhân Biển`, không số, đúng
+    như `ja469` (*Kinh Mahākaṇha*) và `ja471` (*Kinh Câu Hỏi Của Meṇḍa*); `ja468` thì có số. Người
+    biên tập xem lại nếu muốn thống nhất theo hướng ngược lại — nhưng phải đổi cả tầng, không đổi riêng bài này.
+  - `Samuddavāṇijajātaka` → **Kinh Thương Nhân Biển**: 0 tiền lệ cho tên bài này; tầng `name/` đã ghim
+    (`ja466`) ghi *The Sea Merchants*. Tôi dịch `vāṇija` → *thương nhân* (26 tiền lệ) và `samudda` →
+    *biển* (127 tiền lệ) thay vì giữ Pāli, vì đó là cách `ja471` đã làm với *Kinh Câu Hỏi Của Meṇḍa*.
+    Tầng có tiền lệ giữ Pāli cho tên bài cùng họ *vāṇija*: `ja98:0.4` và `ja218:0.4` đều là
+    *8. Kinh Kūṭavāṇijajātaka* — người biên tập có thể chọn hướng đó nếu muốn thống nhất với hai bài kia.
+  - Dòng kết `13.1`: có dấu phẩy trước *thứ N* là **200**, không dấu phẩy **216** trên 462 tệp `ja`.
+    Tôi theo phía đông đa số nhưng ghi cả hai số vì chúng gần như ngang nhau: bài này viết
+    `Kinh Thương Nhân Biển, thứ ba.` (giống `ja471`), còn `ja464` `ja468` `ja469` viết không dấu phẩy.
+
+  DẤU LƯỢC: Pāli ja466 có **0** `…pe…`, **0** `…` trần, **0** `(…)`, **0** khoá kết `….`;
+  bản Việt cũng 0/0/0/0. Không sinh dấu lược, không xoá, không thêm nơi Pāli không có.
+
+  HAI CÁCH KIỂM RIÊNG ĐƯỢC YÊU CẦU, CẢ HAI ĐỀU TRẢ VỀ "KHÔNG LIÊN QUAN TỚI BÀI NÀY", NÊN KHÔNG
+  CÓ NGUY CƠ NÀO PHÁT SINH Ở JA466:
+  - **`ja536` có chứa mười hai câu kệ của `ja466` không?** Không. Một lát trước phát hiện `ja536`
+    (Kuṇālajātaka, 446 khoá, **chưa** có bản Việt) chứa **đúng 12** câu kệ của `ja464` chỉ khác chính tả,
+    nên tôi đã so từng khoá của ja466 với toàn bộ 446 khoá của ja536. Cả hai lần so — theo nguyên văn
+    và sau khi bỏ mọi dấu câu, hạ chữ thường, đồng nhất `ṁ`/`ṃ` — đều chỉ trùng **một** khoá, và đó là
+    dòng tên bộ `0.1` `Jātaka`. Từ khoá riêng của từng câu kệ cũng vắng: `Kasanti vapanti` 1 lượt toàn
+    tầng, `Tipañcaratt` 1, `Samuddavāṇija` 2 (đều ở chính ja466), `Uplavissa` 2 (chính ja466),
+    `kiccakāle` 2 (chính ja466), `taremu pāraṁ` 1 (chính ja466) — **không** lượt nào rơi vào ja536.
+    Riêng `Pahūtabhakkhaṁ bahuannapānaṁ` (`4.1`) thì có trùng byte ở `ja546:36.3`, `ja546:121.3`,
+    `ja524:15.5`, nhưng **không** phải ở ja536.
+  - **`sikhi` ở `ja`:** bài này **không có** chữ `sikh*` nào ở bất kỳ khoá nào ⇒ không phải chỗ phải
+    phân xử giữa *giáo* (vũ khí) và *danh xưng Đức Thế Tôn*. Để người biên tập thấy con số, tôi đếm cả hai
+    phạm vi trên chỉ mục Pāli ghim: đúng chữ `sikhi` thì **57** lượt trên **44** bài toàn tầng, còn trong
+    `kn/ja` chỉ **10** lượt trên **7** bài; tính cả gốc `sikh-` (sikha · sikhi · sikhī) thì **177** lượt /
+    **94** bài toàn tầng so với **25** lượt / **15** bài ở `kn/ja`. Nói cách khác, tầng Anh đã ghim đang
+    định hình nghĩa *danh xưng* phần lớn ở `kn/ja` (10 lượt / 7 bài), và bài `ja464:7.1` chọn nghĩa
+    *giáo* vì vế trước của nó là chuỗi vũ khí. ja466 không có chữ nào để quyết, nên tôi KHÔNG chép đa số
+    cũng không bịa; tôi chỉ ghi số để lát sau có chỗ so.
+
+  NGOẶC KÉP — ĐẶT ĐÚNG VỊ TRÍ PĀLI, KHÔNG SỬA CẤU TRÚC. Pāli có **5** dấu `“` (1.1, 2.1, 3.1, 5.1,
+  6.1) và **5** dấu `”` (1.4, 2.4, 4.4, 5.4, 12.4); nháy đơn `‘…’` đúng một cặt ở 12.2. Bản Việt y hệt.
+  Cấu trúc này có một điểm phải nói rõ: lời mở ở **3.1** không đóng ở 3.4 mà kéo tới **4.4** mới đóng;
+  lời mở ở **6.1** kéo tới **12.4** mới đóng, tức 6.1–12.4 (gồm cả phần luận đạo 9–12) nằm trong một
+  lời kêu dài. Tôi giữ đúng vị trí Pāli, không sửa — cùng cách xử lý đã dùng ở `ja469` (3.1 mở / 12.4 đóng).
+
+  NHẤT QUÁN TRONG BÀI: ba cặp Pāli chỉ khác nhau ở dấu cuối nên bản Việt phải khớp ngoại trừ dấu đó.
+  `2.3`/`3.2` (*làm chìm hôn đảo tuyệt vời này*, dấu phẩy vs chấm phẩy) và `3.4`/`5.4` (*đừng sợ hãi, sao
+  các ngươi buồn lo, hãy vui lên*) — đã giữ nguyên văn. Hai cặp `7.3–7.4` với `8.1–8.2` là cặp nghịch
+  đảo (`dakkhiṇo…uttaroyaṁ` / `uttaro…dakkhiṇoyaṁ`) nên bản Việt cũng đảo đúng chiều.
+
+  NĂN PHÉP TỰ CHẠY — KHÔNG DỰA VÀO BỘ CHỐT CỦA LÁT, VÌ 55/55 KHOÁ PĀLI ĐỀU NGẮN HƠN 40 KÝ TỰ
+  NÊN TẬP KIỂM RỖNG, TỨC KHÔNG KIỂM GÌ CHỨ KHÔNG PHẢI ĐẠT. Tôi tự quét lại trên **mọi** khoá:
+  1. `set(khoá Việt) == set(khoá Pāli)`: 55/55, thiếu 0, thừa 0 — PASS. Thứ tự khoá bằng đúng thứ tự Pāli.
+  2. Nháy đơn `‘’` và ngoặc kép `“”` khớp Pāli **từng khoá**: 220 phép (4 dấu × 55 khoá), lệch 0 — PASS.
+     Cân cả bài: cuối 0, không bao giờ âm.
+  3. Pāli trùng nguyên văn TRONG CHÍNH bài: **0 nhóm** ⇒ **PHÉP RỖNG**. Đây là *không có cặp trùng nào để
+     so*, KHÔNG phải *0 lỗi*. Ba cặp *gần* trùng đã nêu ở trên được so riêng và đều khớp.
+  4. `…pe…` → đúng một `…`: lệch 0/55. `…` trần: 0/0. `(…)`: 0 khoá ở Pāli, 0 ở Việt. `… cho đến …`:
+     0. Pāli kết `….`: 0 khoá. Pāli không có `…` mà Việt có: 0 — PASS.
+  5. Số trong notes do script in ra; xem mục *Số Pāli* ở trên.
+  Thêm: 55/55 giá trị NFC; 0 giá trị rỗng; 0 khoá có khoảng trắng đầu hoặc cuối (đo toàn tầng `kn`:
+  47941 khoá Pāli có khoảng trắng cuối, tầng giữ 874 và bỏ 47067, cùng 3/4 bài anh em giữ hướng bỏ);
+  0 khoá Pāli lọt sang tiếng Việt; 1 khoá trùng nguyên văn Pāli sau khi cắt khoảng trắng, đó là `0.1`
+  `Jātaka` — trùng với chính bản chất của dòng tên bộ, và `ja464` `ja468` `ja469` `ja471` cũng vậy.
+
+  TÁI SỬ DỤNG PĀLI TRÙNG: 4/55 khoá có Pāli trùng byte ở bài khác. Tổng số cặp đã dò (một khoá
+  ja466 × một khoá trùng) = **580**; trong đó **475** cặp có bản Việt ở nơi trùng, **105** cặp rơi vào bài
+  chưa dịch (91 ở `:0.1`, 6 ở `:0.2`, 5 ở `:0.3`, 3 ở `4.1`). Số cặp trong đó **bản Việt khác** = **16**,
+  và **16/16** đều là `:0.1` (*Jātaka* so với *Chuyện Tiền Thân*), tức phân kỳ đã biết của tầng, không phải
+  lỗi của bài này. Dùng lại nguyên văn: **3** khoá (`0.1` *Jātaka*, `0.2` *Bộ Mười Hai Bài Kinh*,
+  `0.3` *Phẩm Cūḷakuṇāla*); cố ý tách: **0** khoá. Riêng `4.1` có Pāli trùng byte ở `ja546:36.3`,
+  `ja546:121.3`, `ja524:15.5` nhưng cả ba bài ấy chưa có bản Việt, nên không có nguyên văn để dùng lại;
+  tôi dịch mới và ghi ở đây để lát sau có thể đối chiếu.
+
+  ĐỘ CHỚP LỊCH SỬ: tôi KHÔNG đụng `content/meta/reference-gaps.yaml`, KHÔNG chạy bất kỳ lệnh `git`, và
+  chỉ ghi đúng hai tệp của lát này.
+
+  `technical_integrity` đặt 9,6: lát này cấm chạy cổng nên tôi KHÔNG tuyên bố technical gate đã pass.
+  Bốn lệnh còn lại cho người biên tập chạy tập trung: `npm run validate` · `npm test` · `npm run check` ·
+  `npm run build`.

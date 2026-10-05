@@ -24,7 +24,7 @@ quality:
     technical_integrity: 9.6
   final_score: 8.68
   blocking_errors:
-    - "Bài DỞ — mới có 90/4.788 khoá. Đây là phần 1 của nhiều lát nối tiếp; phần còn lại chưa dịch nên bài không đủ khoá và không thể đạt cổng xuất bản, bắt buộc giữ draft."
+    - "Bài DỞ — mới có 180/4.788 khoá (phần 1 và phần 2 trong nhiều lát nối tiếp; còn 4.608 khoá chưa dịch, trong đó có khoảng trống liền giữa phần 1 và phần 2 là :31.24–:35.7 thuộc lát sau). Bài không đủ khoá nên không thể đạt cổng xuất bản, bắt buộc giữ draft; khoé segment_alignment phải thấp vì bài mới chỉ đầy 3,76%."
     - "Không có tầng tham khảo tiếng Anh tại commit đã ghim: đã tra source/upstream-manifest.json (commit 11c9d708978cde8ba61096d8a75f7ddfb846f639), tầng english-sujato có 4.291 tệp nhưng thư mục con sutta/kn/ chỉ gồm chín sub-collection cp, dhp, iti, ja, kp, snp, thag, thig, ud (755 tệp) — KHÔNG có ps, nên không tệp nào chứa ps1.1. Đây là not-published-upstream, KHÔNG phải not-synced. Tầng vietnamese-current cũng vắng (26 tệp, toàn bộ là Pháp Cú) và lớp lấp english-project không có uid này. Ba tầng tham khảo đều vắng ⇒ bài dịch chỉ từ Pāli root, nên triangulation bị chặn ở 7.0 và không nâng điểm để né blocker."
   assessed_at: "2026-10-06"
   assessed_by:
@@ -129,5 +129,113 @@ notes: |-
   dạng câu hỏi Kathaṁ … ṭṭhe của Pāli; đây là lựa chọn diễn đạt, không thêm nghĩa mới.
 
   `technical_integrity` đặt 9.6 vì bị cấm chạy cổng trong lát này, nên chưa ai xác nhận
+  technical gate. Bốn lệnh còn lại của kho cần chạy trước khi ghép: npm run validate ·
+  npm test · npm run check · npm run build.
+
+  PHẦN 2. Lát này dịch 90 khoá tiếp theo, `ps1.1:35.8` → `ps1.1:41.9`. Cộng với phần 1
+  thì tệp có 180/4.788 khoá (3,76%); còn 4.608 khoá chưa dịch. Lát được nạp vào tệp đã có
+  rồi mới bổ sung, không dựng lại: sau khi ghi, số khoá là 90 → 180 và thứ tự khoá vẫn khớp
+  đúng thứ tự trường `all` của Pāli. LƯU Ý KHOẢNG TRỐNG: `31.24`–`35.7` không thuộc lát 2
+  và cũng chưa có trên đĩa, chúng thuộc lát sau — số 4.608 ở trên không phải 4.698 như
+  ghi ở phần 1.
+
+  COVERAGE, ĐO LẠI. Mẫu số cả bài vẫn là 1.899 khoá Pāli có nội dung, không đổi vì lát 2
+  không thêm khoá nào. Mẫu số riêng của lát 2 chỉ bằng 2 (`:39.12` và `:41.4` là hai khoá
+  duy nhất ≥ 40 ký tự), nên tỉ lệ coverage gần-như-không của lát này là hệ quả độ dài Pāli,
+  KHÔNG phải bằng chứng là không có chỗ hụt và không cần ghi thêm vào sổ khoảng hụt. Ba
+  tầng tham khảo vẫn vắng như đã dẫn ở phần 1.
+
+  THUẬT NGỮ, ĐO BẰNG SỐ ĐẾM TRÊN TẦNG VIỆT, ĐÃ TRỪ CHÍNH 180 KHOÁ CỦA BÀI NÀY. Đây là
+  điểm phần 2 làm đúng hơn phần 1: chỉ mục đo gồm cả bản dịch của chính dự án, nên đếm
+  không loại ps1.1 thì mỗi bản dịch của tôi tự làm tiền lệ cho chính nó. Mọi số dưới đây
+  đã loại 180 khoá đó. `abhiññeyyā`: 33 khoá Pāli, 25 khoá “cần được thắng tri”, 0 khoá
+  trái chiều. `dhātu` → “giới”, `āyatana` → “xứ”, `rasāyatana` → “xứ vị” (2/4 khoá có
+  mặt, hai khoá kia vắng mặt chứ không phản đối). `taṇhā` → “ái” 656 so với “tham” 209;
+  `jāti` → “sinh” 572 so với “sanh” 229; `nāmarūpa` → “danh-sắc” 65 so với “danh sắc” 54
+  (có gạch nối, chọn theo đa số); `saḷāyatana` → “sáu xứ” 94; `upādāna` → “thủ” 429;
+  `viññāṇa` → “thức” 1.440; `avijjā` → “vô minh” 504; `vedanā` → “thọ” 1.388; `saṅkhārā`
+  → “các hành” 274; `jarāmaraṇa` → “già-chết” 54 so với “già chết” 46; `phasso` → “xúc”
+  135; `samudaya` → “tập khởi của” 187/223; `nirodha` → “diệt tận” 325; `paṭipadā` →
+  “con đường” 584, riêng cụm “con đường đưa đến” 291 nên `gāminī paṭipadā` ở `:41.4`
+  và `:41.8` dịch “con đường đưa đến …”.
+
+  JHĀNA VÀ CETOVIMUTTI. `jhāna`: dạng Hán–Việt “sơ/nhị/tam/tứ thiền” 97/68/66/82 so với
+  “thiền thứ nhất/hai” 65/56, nên dùng dạng Hán–Việt cho cả bốn, đồng bộ nhau. `cetovimutti`
+  → “giải thoát tâm từ”: chỉ có 2 khoá tiền lệ (an3.68:7.2 và :7.3) và cả hai đều đồng
+  ý; còn `bi`, `hoan hỷ`, `xả` thì 0 tiền lệ, tôi dựng theo cùng khuôn đó. Cần nói rõ:
+  150 khoá “giải thoát tâm” có sẵn trong tầng đều là dùng tính chất (“sự giải thoát tâm vô
+  lậu”), không phải chia bốn loại, nên chúng không phải tiền lệ cho việc chia này.
+
+  BỐN SAMĀPATTI. an1.451–:453 dịch `āyatana` thành “xứ vô số hư không / xứ vô số thức / xứ
+  vô sở hữu / xứ phi tưởng phi phi tưởng”, còn mn52:12.3, 13.3, 14.3 lại dịch đúng ba cụm
+  `…āyatanasamāpatti` thành “sự chứng đạt Không vô biên xứ / sự chứng đạt Thức vô biên xứ
+  / sự chứng đạt Vô sở hữu xứ”. Vì ps1.1:39.9–:39.12 là `samāpatti` (có “sự chứng đạt”)
+  chứ không thuần `āyatana`, tôi theo mn52 cho ba mục đầu. Mục thứ tư không có ở mn52
+  (mn52 kết ở `ākiñcaññā`), nên ghép khuôn của mn52 với cách dịch āyatana ở mn106:13.9
+  (“các tưởng về phi tưởng phi phi tưởng xứ”) cho ra “sự chứng đạt phi tưởng phi phi tưởng
+  xứ”. Đếm cả tầng: “vô biên xứ” 123 so với “vô số hư không” 24.
+
+  HAI CHỖ CÒN BẤT ĐỊNH, ĐÃ CHỌN VÀ GHI LẠI. (1) Trong chín mục `:38.4`–`:38.12` đều là các
+  loại `bhava`, phải dùng MỘT dạng cho cả chín. Đếm nguyên văn “hữu dục/hữu sắc/hữu vô
+  sắc” chỉ 1 khoá (dn33:1.10.45) so với “dục hữu/sắc hữu/vô sắc hữu” 3 khoá (mn9:30.3,
+  mn43:15.3, dn15:5.3) — theo đếm thuần thì thua 3:1. Tôi vẫn chọn “hữu dục” vì hai
+  lý do đo được: một danh sách liệt kê không thể lúc này “dục hữu” lúc nọi “hữu tưởng”;
+  và dn33:1.10 là ṅāṇavatthu — bảng liệt kê các nhóm “ba X” của chính Paṭisambhidāmagga,
+  đúng thể loại với ps1.1, trong khi ba khoá kia chỉ là nhắc vụn trong văn xuôi, dn15:5.3
+  còn là câu “chẳng hạn”. Người biên tập nếu chọn phạm vi toàn tầng thì phải đổi cả dn33.
+  (2) `vokāra` là chỗ tôi yếu nhất. Cụm `vokārabhava` không có khoá nào trên tầng, và hai
+  khoá duy nhất có chữ `vokāra` đứng riêng (mn98:9.21, snp3.9:23.3) lại dịch là “sai
+  biệt/phân biệt”, không phải “trói buộc”. Tôi vẫn dịch “trói buộc” vì ở đây `vokāra`
+  là nghĩa kỹ thuật “sợi trói” trong `ekavokāra/catuvokāra/pañcavokāra` (tức là hữu căn
+  theo số sợi trói), và cách dùng “trói buộc” cho sợi trói có tiền lệ dày: 110 khoá có
+  `saṃyojana` dịch “trói buộc”. Nhưng đây là lựa chọn đã ghi, không phải điều đã chứng
+  minh; nếu người biên tập chọn nghĩa của mn98 thì phải đổi cả ba khoá `:38.10`–`:38.12`.
+  Liên quan: `asaññā` đứng riêng chỉ có 2 khoá trên tầng, một khoá dịch “vô tưởng”
+  (mn102:9.3) và một khoá bị phủ định bởi `no` nên thành “không có tưởng” (an2.84:1.1);
+  không có khoá nào dịch trái, nên `hữu vô tưởng` ở `:38.8` đứng được.
+
+  DÙNG LẠI NGUYÊN VĂN ĐÃ CÓ, KHÔNG DỊCH LẠI TỪ ĐẦU. Trong chính bài có 7 nhóm Pāli
+  trùng nguyên văn có đủ cả hai bên đã dịch, và cả 7 đều dùng CÙNG một cách dịch, 0 lệch.
+  Ba nhóm là nối từ phần 1 sang phần 2, và đây là chỗ tôi cần ghi rõ vì dễ dịch lại: `:41.5`
+  dùng lại y hệt `:30.1` (Rūpaṁ), `:40.7` dùng lại y hệt `:30.2` (vedanā), `:40.2` dùng
+  lại y hệt `:30.4` (saṅkhārā). Bốn nhóm còn lại nằm trong 90 khoá đã có (`:29.10`/`:31.3`,
+  `:29.12`/`:31.4`, `:29.14`/`:31.5`) hoặc nằm trọn trong lát 2 (`:36.2`/`:38.2`, cùng
+  `rūpadhātu`). Riêng cụm `căn biết và nhớ điều chưa từng biết`, `căn biết`, `căn đã quen
+  biết` ở `:37.20`–`:37.22` tôi chép đúng sn48.23:1.3, không tự thêm dấu nháy nào.
+
+  NĂM PHÉP KIỂM, ĐO TRÊN CẢ 180 KHOÁ ĐANG CÓ. (1) Tập khoá Việt 180, tập khoá Pāli 4.788;
+  Việt không có khoá nào ngoài Pāli; trong 90 khoá của lát 2 không thiếu khoá nào; thứ tự
+  khớp đúng thứ tự Pāli. (2) Nháy: 161 khoá không có nháy, 19 khoá có nháy; dấu hiệu nháy khớp Pāli TỪNG KHOÁ, 0 lệch. Trong số khoá có nháy, 17 khoá cân ngay trong khoá và 2 khoá
+  không cân — `:29.1` mở nháy, `:29.20` đóng nháy, vì Pāli để một đôi nháy kép vắt qua mười
+  chín khoá; cả hai đều là khoá của phần 1. Dấu chấm cuối câu cũng so từng khoá: 0 lệch
+  trên 180 khoá. (3) Mục dùng lại nguyên văn ở trên: 7 nhóm, 0 lệch. (4) Dấu lược: Pāli có
+  đúng 1 `…pe…` (`:41.9`) và 4 dấu `…` trần (cả bốn ở phần 1), Việt khớp từng khoá, 0 lệch ở
+  cả ba loại, và Việt không có dấu `…` nào mà Pāli không có. (5) Số Pāli:
+  đối chiếu tự tính từng khoá, bốn số thứ tự thiền ở `:39.1`–`:39.4` khớp 4/4 và ba số
+  trói buộc ở `:38.10`–`:38.12` khớp 3/3; các danh sách còn lại khớp số khoá Pāli liệt kê
+  (12 xứ ở `:35`, 18 giới ở `:36`, 22 căn ở `:37`, 9 mục ở `:38`, 4 thiền + 4 chứng đạt ở
+  `:39`, 12 mắt xích ở `:40`, 4 vế khổ và 4 vế sắc ở `:41`); lát này không có số ghép kiểu
+  *navutito hay thang lớn. Thêm: 180/180 giá trị ở dạng NFC, 0 rỗng, 0 thừa khoảng trắng.
+
+  DẤU CHÚ THÍCH [N]. Lát 2 có sáu dấu: `[12]` ở `:35.12`, `[18]` ở `:36.18`, `[22]` ở
+  `:37.22`, `[12]` ở `:38.12`, `[12]` ở `:39.12`, `[12]` ở `:40.12`. Tôi bỏ như ở phần 1,
+  cùng lý do đã ghi: toàn tầng Việt hiện có 0 khoá nào mang `[N]`, và để lại một con số
+  không kèm danh mục chú thích là vô nghĩa với người đọc.
+
+  LỖI BẢN NHÁP BẮT ĐƯỢC KHI REVIEW ĐỐI KHÁNG. (1) Bản nháp đầu có sáu lỗi về hoa thường và
+  dấu chấm câu ở `:38.4`, `:38.6`, `:38.7`, `:38.10`, `:39.5`, `:39.9` — đã sửa, và cả sáu
+  đều lệch ở ranh giới câu, tức chỗ dễ bị người đọc đọc sai là có từ bị bỏ hay lặp. (2) Bộ
+  dò ký tự Pāli sót trong Việt báo nhầm `ạ` là ký tự Pāli; sau khi sửa, còn đúng 2 khoá có
+  ký tự Pāli là `:0.1` và `:0.2` của phần 1, và đó là chủ ý giữ nguyên tiêu đề Pāli. (3)
+  Phép đo số thứ tự thiền ban đầu không khớp “Sơ thiền” vì không phân biệt hoa thường, nên
+  báo nhầm là lệch 4/4; đã sửa, thật là 4/4. (4) Trong lượt đo của chính lát này, ba phép
+  đo phải bỏ vì nó đo sai và nếu ghi vào đây sẽ thành dối trá: đếm thuật ngữ bằng cách tìm
+  chuỗi con nên “vô sắc hữu” bị tính nhầm thành “sắc hữu”; đếm `cetovimutti` phân biệt
+  hoa thường nên bỏ sót an3.68:7.2 vì chữ “Giải” đứng đầu câu; và biểu thức tra khoá `mn52`
+  của tôi lọc nhầm nên tưởng là không có tiền lệ cho bốn samāpatti, trong khi thực ra có,
+  ở mn52:12.3, 13.3, 14.3. Cả ba đều là lỗi ở phép đo, không phải ở bản dịch — nhưng vì
+  vậy mọi con số ở mục trên đều phải in ra phép tính chứ không được ghi “0 lệch”.
+
+  `technical_integrity` vẫn đặt 9.6 vì lát này cũng bị cấm chạy cổng, chưa ai xác nhận
   technical gate. Bốn lệnh còn lại của kho cần chạy trước khi ghép: npm run validate ·
   npm test · npm run check · npm run build.
