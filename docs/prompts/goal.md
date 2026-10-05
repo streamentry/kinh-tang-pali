@@ -677,14 +677,29 @@ Cùng lớp, hai tiền lệ sai: `vv23:8.3` + `vv25:7.3` dịch `saññā` thà
 (đúng ra *ý thức*); `vv32:3.1–3.2` dịch cùng Pāli `Āveḷinī kañcanasannibhattace` thành *tràng hoa sen*
 / *xấu xí*.
 
-### Phe dấu `ti` ở khoá đóng — **chưa có lựa chọn thống nhất**
+### 🔴 Phe dấu `ti`: **bốn lát đo, bốn con số, và con số tôi ghi là sai chiều**
 
-Đo một lần trước: `”ti?` **850** vs `”?` **150** toàn tầng. Nhưng theo bộ thì lệch nhau:
-`kn/mil*` **giữ 862 / bỏ 606** · `an*` **giữ 30 / bỏ 1656**. Còn trong `sn35`: `sn35.62` `sn35.75` chọn
-**giữ**, `sn35.74` chọn **bỏ** — cùng công thức, khác nhau.
+Bản ghi cũ của tôi: *"`”ti?` **850** vs `”?` **150** toàn tầng"* — tức **GIỮ**. Đợt 17 có **bốn**
+lát độc lập đo lại:
 
-⇒ **Số trên đã cũ** (kho đã đổi nhiều đợt). Cần **một lần đo thống nhất toàn tầng**, và nếu chọn
-một phe thì **vá cả hai vế** — không vá riêng bài này.
+| lát | phạm vi đo | số | kết luận |
+|---|---|---|---|
+| `n25` | phẩm `sn35` | **129** giữ / 91 bỏ | GIỮ |
+| `n26` | phẩm `sn35`, rồi **sát hơn**: cùng phẩm `sn35.124–133` | 131/119 → **4/10** | **BỎ** |
+| `n24` | **vị trí `ti` so với ngoặc kép** | `”ti` **3.470** khoá, phe ngược **0** | GIỮ; ghi rõ *"850:150 không tái lập được"* |
+| `n27` | **khoá Pāli kết `ti?`/`ti.`** | giữ **3.472** / bỏ **14.125** | **BỎ**, nghiêng ~1:4 |
+
+⇒ Phe **BỎ** nghiêng ~1:4 toàn tầng, tức **con số 850:150 của tôi sai chiều**. Và bốn cách đo cho
+bốn con số vì **bốn phạm vi khác nhau** — mỗi lát đo đúng ô mình đo và rút kết luận vượt quá ô đó.
+**Đúng mẫu lặp của vụ `tha-ap :0.3` lần nữa.**
+
+Nhưng **phân kỳ là thật**: `sn44.6` bỏ `ti` ở mọi khoá, còn `sn44.3` `sn44.5` trong **cùng phẩm**
+vẫn giữ; `sn35.62` `sn35.75` giữ còn `sn35.74` bỏ.
+
+⇒ **Luật đo lại, chốt được:** khi một quy ước văn bản **không đồng nhất toàn tầng**, phải đo ở **phạm
+vi gần nhất** (cùng phẩm, bài liền kề) — **không** dùng đa số toàn tầng, vì tầng trộn các quy ước
+khác nhau theo phẩm và theo bộ. Và **in cả hai phép** để người đọc tự thấy chúng lệch nhau. Nếu chốt
+một phe thì **vá cả hai vế**, không vá riêng bài này.
 
 ### Câu hỏi thêm một phe: ngoặc kép `“ …pe…`
 
