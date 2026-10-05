@@ -8,42 +8,84 @@ tags:
   - "khuddakanikaya"
   - "jataka"
   - "tikanipāta"
+  - "saṅkappavagga"
   - "ran"
 quality:
   scores:
     source_provenance: 9.6
-    semantic_fidelity: 9.0
-    grammar_logic: 9.6
+    semantic_fidelity: 9.2
+    grammar_logic: 9.4
     segment_alignment: 10.0
-    terminology: 8.4
-    triangulation: 8.5
-    vietnamese_clarity: 9.0
-    han_viet_balance: 9.2
+    terminology: 9.0
+    triangulation: 8.4
+    vietnamese_clarity: 9.3
+    han_viet_balance: 9.3
     ambiguity_integrity: 9.2
-    technical_integrity: 10.0
-  final_score: 9.25
+    technical_integrity: 9.6
+  final_score: 9.30
   blocking_errors:
-    - "Bản dịch chỉ phủ 1 khoá có nội dung; lát được chia bằng bộ lọc coverage 40 ký tự thay vì missingAll nên bài thiếu khoá, validate yêu cầu requireComplete."
-  assessed_at: "2026-09-30"
+    - "Tại commit đã ghim không có tệp Anh Sujato cho bài này: `translation/en/sujato/sutta/kn/…_translation-en-sujato.json` không tồn tại và `source/upstream-manifest.json` không liệt kê nó, nên `npm run validate` sẽ báo pinned English reference missing — lỗi chặn với review và published. Lát này bị cấm chạy cổng nên không thể xác nhận ngược lại; đặt draft và chờ người điều phối."
+    - "Bốn cổng kỹ thuật không chạy được trong lát này (`npm run validate`, `npm test`, `npm run check`, `npm run build`), nên không thể tuyên bố technical gate pass."
+  assessed_at: "2026-10-05"
   assessed_by:
     - "OpenCode Space Bunny Free (agent)"
 notes: |-
-  **Chỉ một khoá trong lát này.** Bài có nhiều khoá hơn, nhưng `kiểm` của `_hvi.py` chỉ đòi phủ những khoá Pāli dài **≥ 40 ký tự** và không phải khoá đánh số phần `:N.0`; đếm trên tầng Pāli thì đúng **một** khoá rơi vào điều kiện đó, và đó là khoá được giao. Các vế kệ còn lại, dòng tiêu đề `:0.1`–`:0.4` và dòng kết bài không nằm trong lát, tôi **không** dịch và **không** tự thêm vào tệp.
-  **Tầng tham khảo đã đo, không đoán.** Tại commit đã ghim, bài này có 0 segment tiếng Anh Sujato; và tầng Việt hiện hành (`translation/vi/phantuananh/`) tại cùng commit chỉ có 26 tệp Pháp Cú, nên **không** có bản Hòa thượng Thích Minh Châu để đối chiếu. Vì vậy `triangulation` đặt 8,5: dịch từ Pāli root, đối chiếu cú pháp qua từ điển và qua bối cảnh trong chính bài. Đây là đặc điểm của bản chụp upstream, không phải thiếu hàng của kho.
-  **Tra tiền lệ (đếm được):** dòng kết `<Tên> jātakaṁ catutthaṁ` → *Kinh <Tên>, thứ
-  tư* (`ja1:3.1` "Kinh Bụi Dơ thứ nhất."; `ja159:5.1` "Kinh Con Công, thứ chín."; cụm
-  *thứ tư* đã có sẵn ở `an10.144:1.10` "Phẩm Lành, thứ tư." và `an10.40:3.8`).
-  **0 tiền lệ, đặt mới, ghi kèm lý do — đây là khoá khó nhất về thuật ngữ của lát:**
-  (1) `Kuṇḍakakucchi` là **tên riêng** của nāga, và tầng Việt chưa có tên nào cho nó
-  (0 tiền lệ; từ vựng tầng Việt có `Kuṇḍikā`, `Kuṇḍali`, `Kuṇḍalakesī` nhưng không có
-  từ nào khớp). Tôi chỉ giữ phần đặc trưng **Kucchi** và **không bịa cách phiên âm**
-  Việt cho phần `Kuṇḍaka-`, vì tự chế một cách viết tên riêng còn tệ hơn là giữ một
-  phần tên. (2) `sindhavajātaka` là nhãn nhóm của Tăng Bộ (nhóm kể trong hội trường
-  rắn-nāga), không phải một chữ có nghĩa thường; tôi dịch theo **nghĩa loại** là *rắn*
-  thay vì phiên âm `Sindhava` ra tiếng Việt. Ai muốn đổi sang giữ nguyên tên Pāli thì
-  được, nhưng phải thêm chữ vào danh mục từ trước, không sửa lúc này.
-  **Bối cảnh đã đọc trước khi dịch:** `1.1`–`3.4` nói chuyện nāga sống bằng cỏ
-  `kuṇḍaka` và câu *tiṇaparighāsa* / *ācāmakuṇḍaka* (bụi cỏ, lội cỏ non) — khớp
-  nghĩa "rắn", nên nghĩa loại tôi chọn có căn cứ ngay trong bài chứ không phải suy từ
-  ngoài.
-  **Điểm `terminology` 8,4 là cố ý**: tôi thừa nhận chỉ dịch được một phần tên riêng.
+  **Bài.** `ja254` — Jātaka 254, phẩm `Saṅkappavagga` (Tikaṇipāta), thứ tư. Bài có 17 khoá
+  Pā li; bản dịch phủ **17/17**, đủ cả khoá `4.1` mà lát trước đã ghi.
+
+  **Năm phép kiếm, số do script in ra (`_n33_checks.py`), không chép tay.**
+  (1) `set(khoá Việt) == set(khoá Pāli)`: thiếu **0**, thừa **0**.
+  (2) ngoặc kép `“”` và nháy đơn `‘’` so **từng khoá**: 17 khoá đã so, lệch **0**; cân cả bài
+  ngoặc kép Pā li 2 / Việt 2, nháy đơn Pā li 0 / Việt 0.
+  (3) Pā li trùng nguyên văn **trong chính bài**: **0** cặp, nên 0 cặp Việt khác.
+  (4) dấu lược `…pe…` và `…` trần so từng khoá: 17 khoá đã so, lệch **0**. Bài này Pā li
+  **không có** khoá lược nào (0 `…pe…`, 0 `…` trần) và bản Việt cũng **không có** `…` nào.
+  (5) chỉ mục Pā li→Việt toàn tầng: **4** cặp Pā li trùng nguyên văn đã dò, dùng lại nguyên văn
+  **4** khoá (`0.1`, `0.2`, `0.3`, `2.2`), Việt khác **0**.
+
+  **Tra tiền lệ kèm đếm (tầng Việt, 5.407 tệp / 155.826 khoá).**
+  `Jātaka` → *Jātaka* **427**, *Chuyện Tiền Thân* 16. `Tikanipāta` → *Bộ Ba Bài Kinh* **123/123**
+  (cùng cách ở `iti50`…`iti69`). `Saṅkappavagga` → *Phẩm Suy Nghĩ* **8** (`ja251`, `ja252`,
+  `ja253`, `ja255`…`ja259`) và *Phẩm Saṅkappa* **1** (`ja260`) — tôi theo nhóm 8, cùng phẩm với
+  bài này. `jātiyā vinayena vā;` → *bằng dòng dõi hay giới hạnh;* **1** (`ja304:2.2`), Pā li
+  trùng nguyên văn nên dùng lại y nguyên.
+
+  **Ngôi kể và ngoại động từ — đọc cả bài trước khi chốt.** `1.1`–`1.4` là lời chàng chăn
+  nói với con rắn, Pā li `te` → *ngươi*; `2.1`–`2.4` là lời con rắn đáp lại, `mahābrahme` là
+  từ xưng hô giữa bài nên tôi dịch *Đại Bà-la-môn* và giữ `“` mở ở `2.1` theo đúng Pā li; `3.1`–`3.4`
+  lại là lời chàng chăn: `pajānāsi` là ngôi 2 (*ngươi đã biết ta*) còn `bhakkhāmi` ở `3.4` là
+    ngôi 1 (*tao không cho ngươi ăn*), nên hai vế này phải đổi chiều.
+
+  **Dấu `ti`: đo ở phạm vi gần nhất rồi mới chọn.** Pā li kết bằng `”ti.`/`’ti.` thì trong
+  `ja` tầng Việt **giữ 212 : bỏ 122 : lạc dạng 100**, và bài anh em kề `ja253:3.4`, `ja255:3.4`
+  đều giữ — nên `3.4` tôi viết *…nữa”ti.*, GIỮ.
+
+  **Bất định đã ghi nhận, không che.**
+  1. `yādisāyaṁ hayuttamo` (`3.2`) — tôi đọc `hayu` là *lửa*, dịch *ngọn lửa trong ngươi hung
+  dữ thế nào*. Cụm này **không có** tiền lệ nào trong tầng (0 khóa Pā li trùng khác `3.4`), và
+  cách phân tích `hayuttamo` là của tôi, không phải của từ điển đã tra; tôi ghi kèm ở đây thay vì
+  bịa một thuật ngữ Hán–Việt cho chắc chắn hơn.
+  2. Tên `Kuṇḍakakucchi` — khoá `4.1` đã có sẵn trên đĩa là *Kinh Rắn Kucchi, thứ tư.* Tôi
+  giữ nguyên và làm `0.4` khớp (*4. Kinh Rắn Kucchi*) để không tự gây mâu thuẫn trong cùng một
+  tệp; nhưng phần `Kuṇḍaka-` **không** được dịch. Đây là hạn chế tôi thừa nhận, và là lý do
+  `terminology` chỉ 9,0. `sindhava` tôi dịch theo **nghĩa loại** là *rắn*, khớp cảnh nāga ăn
+  cỏ trong chính bài, chứ không phiên âm.
+  3. `tiṇaparighāsa` và `ācāmakuṇḍaka` tôi giữ nguyên dạng Pā li (loài cỏ) vì tầng Việt không có
+  tên đã tra cho hai từ này; `ācāmakuṇḍaka` dùng cùng một cách ở `1.2` và `2.4`.
+
+  **Coverage tầng Anh — mẫu số bằng 0, tức là KHÔNG ĐO ĐƯỢC GÌ, không phải đạt.** Đo bằng
+  Pā li ≥ 40 ký tự, bỏ khoá tham chiếu `:0`: `ja254` có **0** khoá thoả (các vế kệ ngắn nhất),
+  nên cổng coverage của bài này không đo được gì. Ba tầng tham khảo đều **không có**: Sujato
+  0 tệp (tầng `kn` của Sujato ở commit đã ghim chỉ có `cp dhp iti ja kp snp thag thig ud`,
+  tổng 755 tệp, và trong 83 tệp `ja` không có `ja254`), `english-project` 0 tệp,
+  `translation/vi/phantuananh/` 26 tệp toàn Pháp Cú nên không có bản Hòa thượng Thích Minh Châu
+  cho bài này. Vì vậy `triangulation` để **8,4**: tôi dịch từ Pā li root và đối chiếu bằng tiền lệ
+  trong chính tầng, đây là đặc điểm của bản chụp upstream đã đo được, không phải thiếu sót của
+  bản dịch. `ja254` không có mục trong `content/meta/reference-gaps.yaml` vì bài không có khoá
+  Pā li có nội dung nào để ghi nhận — đó là *cổng không đo được*, không phải *không cần ghi nhận*.
+
+  **Cổng kỹ thuật chưa chạy.** Lát này bị cấm `git`/`gh` và cấm `npm run validate|test|check|build`,
+  nên tôi **không** tuyên bố technical gate pass. Bốn lệnh còn lại thuộc cổng của người điều
+  phối: `npm run validate`, `npm test`, `npm run check`, `npm run build`. Phần tôi tự kiểm được:
+  JSON hợp lệ, NFC, thứ tự khoá y hệt Pā li, 0 orphan, 0 khoá lược lệch, ngoặc cân, YAML parse
+  sạch bằng `yaml@2.9.0` của kho. `technical_integrity` vì thế là **9,6**, không phải 10,0.

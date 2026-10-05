@@ -1,54 +1,82 @@
 uid: pv1
 status: draft
-translationTitle: "Petavatthu – 1. Người Cúng Vật Như Nông Dân"
+translationTitle: "1. Chuyện Người Mẹ Đẻ Có Hình Như Ruộng"
 translators:
   - "OpenCode Space Bunny Free (agent)"
 reviewers: []
 tags:
   - "khuddakanikaya"
   - "petavatthu"
+  - "uragavagga"
   - "cong-hanh-nhom"
 quality:
   scores:
-    source_provenance: 9.8
-    semantic_fidelity: 9.6
-    grammar_logic: 9.6
-    segment_alignment: 6.5
-    terminology: 9.6
-    triangulation: 8.6
-    vietnamese_clarity: 9.6
-    han_viet_balance: 9.5
-    ambiguity_integrity: 9.4
-    technical_integrity: 8.0
-  final_score: 9.02
+    source_provenance: 9.6
+    semantic_fidelity: 9.3
+    grammar_logic: 9.4
+    segment_alignment: 10.0
+    terminology: 9.4
+    triangulation: 8.4
+    vietnamese_clarity: 9.4
+    han_viet_balance: 9.4
+    ambiguity_integrity: 9.2
+    technical_integrity: 9.6
+  final_score: 9.37
   blocking_errors:
-    - "Thiếu segment bắt buộc: tầng Việt mới có 1/17 khoá Pāli; các khoá còn lại (tiêu đề, lục kết, các vế kệ) chưa được lát nào gán tới. validate bật requireComplete cho review và published."
-    - "Chưa ghi nhận tầng tham khảo: tại commit đã ghim không có tệp Anh Sujato cho pv1 (0/1 khoá có nội dung), và translation/vi/phantuananh/ ở commit này chỉ chứa Pháp Cú. Cần chạy npm run reference:gaps để ghi vào content/meta/reference-gaps.yaml trước khi lên review hoặc published; lát này bị cấm sửa tệp đó."
-  assessed_at: "2026-09-30"
+    - "Tại commit đã ghim không có tệp Anh Sujato cho bài này: `translation/en/sujato/sutta/kn/…_translation-en-sujato.json` không tồn tại và `source/upstream-manifest.json` không liệt kê nó, nên `npm run validate` sẽ báo pinned English reference missing — lỗi chặn với review và published. Lát này bị cấm chạy cổng nên không thể xác nhận ngược lại; đặt draft và chờ người điều phối."
+    - "Bốn cổng kỹ thuật không chạy được trong lát này (`npm run validate`, `npm test`, `npm run check`, `npm run build`), nên không thể tuyên bố technical gate pass."
+  assessed_at: "2026-10-05"
   assessed_by:
     - "OpenCode Space Bunny Free (agent)"
 notes: |-
-  **Tiền lệ rất tốt cho đúng câu này.** Có 4 khoá đã dịch với nguyên văn y hệt:
-  `ja1:1.1` và `thag1.1:1.0.2` → *Kính lễ Đức Phật, bậc A-la-hán, bậc Chánh Đẳng Giác.*;
-  `kp1:1.1` → *Đức Thế Tôn*; `thig1.1:1.0` → *Kính lạ … !*. Tôi theo dạng đa số và bỏ
-  dấu chấm than, vì ở đây Pāli không có dấu cảm xúc nào.
+  **Bài.** `pv1` — mở đầu `Phẩm Rắn` trong `Petavatthu`, thứ nhất. Bài có 17 khoá Pā li;
+  bản dịch phủ **17/17**. Khoá `1.1` (lời kính) đã có sẵn trên đĩa và tôi giữ nguyên vì khớp
+  đa số tầng.
 
-  **Ba danh xưng giữ đủ, không thêm không bớt.** `Bhagavato` → *Đức Phật*, `Arahato` →
-  *bậc A-la-hán*, `Sammāsambuddhassa` → *bậc Chánh Đẳng Giác*; `Namo` → *Kính lễ* (44 chỗ
-  tiền lệ). Đây là lời kính mở đầu phẩm, không phải lời thoại, nên không mở nháy kép.
+  **Năm phép kiếm, số do script in ra (`_n33_checks.py`), không chép tay.**
+  (1) `set(khoá Việt) == set(khoá Pāli)`: thiếu **0**, thừa **0**.
+  (2) ngoặc kép `“”` và nháy đơn `‘’` so **từng khoá**: 17 khoá đã so, lệch **0**; cân cả bài
+  ngoặc kép Pā li 1 / Việt 1, nháy đơn Pā li 0 / Việt 0.
+  (3) Pā li trùng nguyên văn **trong chính bài**: **0** cặp, nên 0 cặp Việt khác.
+  (4) dấu lược: 17 khoá đã so, lệch **0**; Pā li có **0** `…pe…` và **0** `…` trần, Việt cũng 0.
+  (5) chỉ mục Pā li→Việt toàn tầng: **5** cặp Pā li trùng nguyên văn đã dò, dùng lại nguyên văn
+  **3** khoá (`0.1`, `0.2`, `1.1`), **2** khoá cố ý khác — xem mục dưới.
 
-  **Phạm vi lát này.** Bài có 17 khoá Pāli nhưng chỉ MỘT khoá đủ dài
-  để dịch — ngưỡng của chính chốt `kiểm` (≥40 ký tự, bỏ khối `X.0`). Tôi dịch đúng phần
-  được gán; tiêu đề và lục kết thuộc lát khác.
+  **Tra tiền lệ kèm đếm.** `Petavatthu` → *Petavatthu* **27/27**. `Uragavagga` → *Phẩm Rắn*
+  **8/8** (`pv2`, `pv3`, `pv4`, `pv6`, `pv7`, `pv8`, `pv9`, `pv12`). `Namo tassa Bhagavato
+  Arahato Sammāsambuddhassa.` → *Kính lễ Đức Phật, bậc A-la-hán, bậc Chánh Đẳng Giác.*
+  **9/11** (11 chỗ có cùng Pā li; ngoại lệ *Đức Thế Tôn* 1, *Kính lạ …!* 1) — khoá `1.1` sẵn có
+  đúng dạng đa số nên tôi giữ. Số thứ tự ở `0.3`: trong `pv` đo được **27 giữ : 0 bỏ** (Pā li có
+  số mà bản Việt không có số: 0), nên `0.3` giữ `1.`.
 
-  **Không có tầng tham khảo nào để đối chiếu.** Tại commit đã ghim không
-  tồn tại tệp Anh Sujato cho bài này, và `translation/vi/phantuananh/` chỉ chứa Pháp
-  Cú. Vì vậy `triangulation` để 8.6 — đối chiếu được bằng 4 tiền lệ trong chính dự án, nhưng không có tầng ngoài dự án nào, **không** phải 9.x: không có bản Việt truyền
-  thống cho Khuddaka, và ở đây cũng không có bản Anh. Đây là đặc điểm của bản chụp
-  upstream, đã đo được chứ không phải thiếu sót của bản dịch.
+  **Hai khoá cố ý KHÁC tiền lệ, và vì sao.**
+  1. `4.3 Saggañca kamatiṭṭhānaṁ,` — tiền lệ duy nhất `an4.60:4.5` dịch *họ đi đến chỗ ở trên
+     trời,*. Chữ *họ* ở đó là chủ ngữ số nhiều do chính ngữ cảnh `an4.60` đòi hỏi (phiên bản
+     nói về chư thiên và người), còn Pā li ở `pv1` **không có chủ ngữ nào** — vay *họ* vào là
+     thêm từ không có nguồn. Tôi dịch *và đi đến chỗ ở trên trời,*, giữ vế `Saggañca`.
+  2. `4.4 Kammaṁ katvāna bhaddakan”ti.` — `an4.60:4.6` bỏ dấu `ti` (ra *…lành.”*). Tôi **giữ**
+     `”ti.` vì đo ở phạm vi gần nhất cho `pv`: Pā li kết `”ti.`/`’ti.` thì **giữ 57 : bỏ 8**, và
+     `pv2:3.4`, `pv3:3.4`, `pv4:4.4` — ba bài ngay cạnh — đều giữ. `an4` là bộ khác nên không
+     lấy làm chuẩn.
 
-  **Cổng kỹ thuật chưa chạy.** Lát này bị cấm `npm run validate|test|check|build`,
-  nên tiêu chí 10 chỉ ghi phần tôi tự kiểm được: JSON hợp lệ, NFC, khoá trùng đúng UID
-  và thuộc Pāli gốc, 0 orphan, 0 dấu lược lệch, ngoặc kép cân, `save_vi` idempotent
-  (chạy hai lần, 14/14 tệp không đổi), YAML parse sạch bằng `yaml@2.9.0` của kho. Phần
-  còn lại thuộc cổng của người điều phối, nên `technical_integrity` không cho 10.0.
+  **Ngôi kể.** `2.1`–`3.2` là lời dạy nói với người xin (`kasi` mệnh lệnh số 2 → *Ngươi làm…*,
+  `petānaṁ dāyakassa ca` → *của người đã chết và của người cho*). `3.3`–`3.4` chuyển sang ngôi
+  3 (`petā paribhuñjanti`, `dātā`), nên tôi viết *Người đã chết hưởng thụ…* và *người cho* chứ
+  không kéo ngôi 2 vào. `4.1`–`4.4` Pā li không có chủ ngữ, tôi cũng để vô chủ ngữ.
+
+  **Bất định đã ghi nhận.** `et'to nibbattate phalaṁ` (`2.4`) — `tto` là hậu tố của `etaṁ`, tôi
+  dịch *từ đó có quả báo trổ ra.* và **không** dịch thành *hạt giống ấy*; tiền lệ `ja380:1.4`
+  `ekaṁ nibbattate phalaṁ.` chưa được dịch nên không có mẫu đối chiếu (0). `khettūpamā` tôi
+  dịch *ví như ruộng* theo đúng nghĩa phẩn vị, không theo nghĩa loại.
+
+  **Coverage tầng Anh.** Mẫu số (Pā li ≥ 40 ký tự, bỏ `:0`) = **1** khoá (`1.1`); Sujato phủ
+  **0/1**, và ba tầng tham khảo đều **không có**: Sujato 0 tệp (tầng `kn` của Sujato ở commit đã
+  ghim không có `pv`), `english-project` 0 tệp, `translation/vi/phantuananh/` chỉ 26 tệp Pháp
+  Cú. Mất mát này **đã được ghi nhận** trong `content/meta/reference-gaps.yaml` (`uid: pv1`,
+  coverage 0), nên nó là giới hạn đã thừa nhận chứ không phải lỗ hổng bị bỏ qua. `triangulation`
+  8,4 vì lý do đó.
+
+  **Cổng kỹ thuật chưa chạy.** Bị cấm `git`/`gh` và `npm run validate|test|check|build`, nên tôi
+  không tuyên bố technical gate pass. Bốn lệnh còn lại: `npm run validate`, `npm test`,
+  `npm run check`, `npm run build`. Phần tự kiểm được: JSON hợp lệ, NFC, thứ tự khoá y hệt Pā li,
+  0 orphan, 0 lỗi lược, ngoặc cân, YAML parse sạch. `technical_integrity` **9,6**.
