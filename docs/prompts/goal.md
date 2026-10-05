@@ -196,6 +196,31 @@ báo cáo lát. ⇒ **Luật: khi nghe một lỗi, đo cả hai chiều trướ
 `pal()` lọc `k.startswith(uid + ":")` nên với `sn45.110-114` trả `{}` và `kiếm()` raise. Lát sau gặp uid
 gộp phải tự làm lại bộ kiểm (NFC · Pāli lọt · trùng nguyên văn · dấu lược · cân ngoặc kép).
 
+### ✅ `1.596` hay `2.019` bài `kn` không có Anh Sujato — **cả hai đúng**, khác mẫu
+
+Một lát báo *"`1.596` không tái lập được, tôi đo được `2.019`"* — nghe như phải sửa `AGENTS.md`. Tôi tự đo lại
+ba phép trên **worktree sạch**:
+
+| phép | mẫu | `kn` không có Anh Sujato |
+|---|---|---|
+| cache Pāli `kn` | 2.774 uid | **2.019** (2.774 − 755) |
+| **catalogue** `content/catalog/sutta/kn.json` | **2.351** uid | **1.596** (2.351 − 755) |
+| phần ngoài catalogue | 423 uid | 423 |
+
+Tầng `en-sujato` có `kn` = **755** tệp theo **cả hai** cách đo (đường dẫn trong manifest, và tệp thật trên
+đĩa cache) ⇒ tầng tham khảo **không** phải chỗ phân kỳ.
+
+⇒ **`1.596` trong `AGENTS.md` và `docs/translation-store.md` là ĐÚNG** (phạm vi catalogue = phạm vi mục
+tiêu). `2.019` cũng đúng (phạm vi cache đầy đủ). **Không sửa** tài liệu nào.
+
+⇒ **Luật (đã mắc lần thứ tư trong phiên):** hai phép cho hai con số khác nhau **không phải** mâu thuẫn
+trước khi kiểm **mẫu số**. Lần này mẫu khác ở **catalogue vs cache**; lần trước ở **catalogue vs `--used`**;
+còn `test dưới sàn 143` so với `text dưới ngưỡng 216` là **hai phép khác mẫu** chứ không phải mâu thuẫn.
+
+⇒ Và: một lát **báo cáo thật** rằng con số trong tài liệu không tái lập được — đó **không** phải lỗi của lát;
+đó là phép đo đúng đặt câu hỏi đúng. Đáp lại bằng cách **đo lại và chỉ ra mẫu số**, đừng bằng cách sửa
+tài liệu cho khớp.
+
 ### 🔴 `Tiṁsakappasahassa`: tôi **tự phỏng đoán** rồi dùng nó để "sửa" — đã gỡ
 
 Tôi ghi `Tiṁsakappasahassamhi` = `tiṁsa` 3 × `kappa` 100 = **3.000**, dùng con số đó để sửa **4** tệp
