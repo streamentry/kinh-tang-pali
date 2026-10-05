@@ -19,6 +19,7 @@ export function getStaticPaths() {
 const { collection, uid } = Astro.props;
 const document = composeDocument(collection.code as CollectionCode, uid);
 const statusLabel = document.hasProjectData ? document.status : 'not-started';
+const summaryParagraphs = (document.summary ?? '').split(/\n{2,}/).filter((para) => para.trim() !== '');
 ---
 <Base title={`${document.viTitle} · ${uid.toUpperCase()}`}>
   <main class="page reader-page">
@@ -42,8 +43,8 @@ const statusLabel = document.hasProjectData ? document.status : 'not-started';
     )}
     {document.summary && (
       <section class="sutta-summary" data-pagefind-body>
-        <h2>Tóm tắt & diễn giải</h2>
-        {document.summary.split(/\n{2,}/).map((para) => <p>{para}</p>)}
+        <h2>Tóm tắt &amp; diễn giải</h2>
+        {summaryParagraphs.map((para) => <p>{para}</p>)}
         <p class="summary-note" data-pagefind-ignore>
           Phần tóm tắt do dự án biên soạn để hỗ trợ đọc, không phải kinh văn. Bản Pāli và các
           bản dịch hiển thị bên dưới mới là nội dung có thẩm quyền.
