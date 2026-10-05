@@ -1,0 +1,91 @@
+uid: ja427
+status: draft
+translationTitle: "Kinh Gijjha"
+translators:
+  - "OpenCode Space Bunny Free (agent)"
+reviewers: []
+tags:
+  - "khuddaka-nikaya"
+  - "jataka"
+  - "navakanipata"
+  - "gijjhavagga"
+  - "gijjhajataka"
+quality:
+  scores:
+    source_provenance: 9.4
+    semantic_fidelity: 9.0
+    grammar_logic: 9.0
+    segment_alignment: 10.0
+    terminology: 9.1
+    triangulation: 7.4
+    vietnamese_clarity: 9.0
+    han_viet_balance: 9.2
+    ambiguity_integrity: 8.4
+    technical_integrity: 9.6
+  final_score: 9.01
+  blocking_errors:
+    - "Bài này không có tầng Anh SuttaCentral đã ghim ở commit đã pin (0/0 segment có nội dung, không có tệp nào trong english-sujato), nên thiếu tầng tham khảo bắt buộc để xuất bản; đối chiếu chỉ có Pāli ghim cùng commit + tiền lệ trong chính tầng Việt dự án."
+    - "`ja427` không nằm trong 83 tệp `ja` của tầng `english-sujato` đã ghim (đo lại từ source/upstream-manifest.json: ja1–ja79 cộng ja126, ja159, ja466, ja534), và translation/vi/phantuananh/ ở commit đã ghim chỉ chứa Pháp Cú, nên không thể đối chiếu một bản Anh độc lập cho bài này."
+    - "`vātasikhā tikkhā` ở 6.3 và `gijjhovātītasāsano` ở 9.4 không có bản Anh nào ở commit đã ghim để phân xử; tôi dịch theo nghĩa từng từ của Pāli và ghi ở notes, nên không tuyên bố đã đối chiếu cho các đoạn đó."
+  assessed_at: "2026-10-04"
+  assessed_by:
+    - "OpenCode Space Bunny Free (agent)"
+notes: |-
+  **Vì sao `draft` (hai lý do chung + một lý do của riêng bài này).** (1) `ja427` không có tầng
+  tham khảo nào ngoài Pāli: tầng `english-sujato` đã ghim có **83** tệp `ja` (ja1–ja79 cộng
+  ja126, ja159, ja466, ja534 — tôi đếm lại từ `source/upstream-manifest.json`), `ja427` không có
+  mặt; `translation/vi/phantuananh/` tại commit đã ghim chỉ chứa Pháp Cú. (2) Bài này
+  `substantiveSegments = 0` (47 khoá đều là câu kệ ngắn hơn 40 ký tự), nên ngưỡng coverage 0.8
+  của `scripts/validate.ts:242` không chặn và `record-reference-gaps` không sinh entry — `validate`
+  sẽ không đỏ, nhưng mất tầng Anh là thật; tôi không sửa `content/meta/reference-gaps.yaml`.
+  (3) Xem mục bất định bên dưới. `triangulation` vì thế bị chặn ở 7.4.
+
+  **Nguồn.** `ja427` = `1. Gijjhajātaka` (Gijjhavagga 1 — bài mở đầu Bộ Chín Bài Kệ), 47 khoá,
+  đủ 47 khoá đã dịch. Pāli ghim `root/pli/ms/sutta/kn/ja/ja427_root-pli-ms.json`; commit đã ghim
+  `11c9d708978cde8ba61096d8a75f7ddfb846f639`.
+
+  **Tên phẩm, đo lại trên chính tầng Việt (đếm theo giá trị Pāli tuyệt đối).**
+  `Navakanipāta` → *Bộ Chín Bài Kệ* **9/9** · `Gijjhavagga` → *Phẩm Hươu* **9/9** ·
+  `Jātaka` ở `0.1`: 433 tệp `ja`, **417** giữ `Jātaka`, 16 dùng *Chuyện Tiền Thân*, không có
+  lựa chọn thứ ba. Dòng `0.4` theo khuôn cùng phẩm (`ja428:0.4` = *2. Kinh Sự Tích Ở
+  Kosambī*, `ja429:0.4` = *3. Kinh Xoài Lớn*). Dòng kết `10.1` `Gijjhajātakaṁ paṭhamaṁ`:
+  trong **Gijjhavagga** có **6/9** dùng dấu phẩy trước *thứ N* (`ja431`–`ja437`) và 3/9 không
+  (`ja428`–`ja430`) — tôi theo **đa số của phẩm**: *Kinh Gijjha, thứ nhất.*
+
+  **Dùng lại nguyên văn.** `3.3` và `5.3` đều là `Sāgarena parikkhittaṁ` → cùng một cách dịch
+  (*bị biển bao quanh*); `3.4` và `5.4` đều là `cakkaṁva parimaṇḍalaṁ` → *như vòng tròn đáy
+  giếng*. Tôi dùng lại **nguyên văn** cả bốn khoá thay vì diễn đạt lần thứ hai. `2.2`–`2.4` và
+  `9.1`–`9.6` dùng chung khuôn *bạn hiền tử* cho `sākha`, đúng như toàn tầng.
+
+  **Ngoặc kép — Pāli chỉ có MỘT cặp cho cả bài, nên giữ đúng một cặp.** Pāli: `“` ở `1.1`, `”` ở
+  `9.6` — không có dấu nào ở giữa, dù bài có nhiều lời nói (cha ở `2.2`–`2.4`, quạ già ở `4.x`,
+  `6.x`). Tôi giữ đúng hai vị trí đó; lời của cha ở `2.2`–`2.4` tôi khoanh bằng **nháy cong**
+  `‘…’` (theo `an3.60`, nơi lời trích lồng nhau cũng dùng nháy cong) để đọc được mà **không** làm
+  lệch vòng đếm. Sau khi sửa, vị trí từng dấu `“`/`”` khớp Pāli 100%.
+
+  **Bất định, ghi ở đây chứ không thêm vào thân kinh.**
+  (1) **`vātasikhā tikkhā` ở `6.3`** — đây là chỗ tôi ít chắc nhất của bài. `sikhā` là *đỉnh /
+  sống lưng*, `tikkhā` là *nhọn sắc*, còn `vāta-` là *gió*; tôi dịch *nơi ấy có ngọn gió nhọn
+  sắc*. Có thể đó là *đỉnh núi nhọn chói nắng* (vì `6.4` `accahāsi baliṁ dijaṁ` = *rực rỡ sức
+  chói của mặt trời*), nhưng tôi không có căn cứ để chọn, nên giữ cách đọc từng từ.
+  (2) `gijjhovātītasāsano` ở `9.4` — tôi tách `gijjhovātīta` (*đã lấy con đường của quạ*) và `sāsano`
+  (*đi theo*), dịch *gánh lấy con đường của loài quạ*. `sāsano` cũng có thể là danh từ
+  `sāsana` (*giáo pháp*), mà khi đó câu phải hiểu khác; không có bản Anh để quyết.
+  (3) `Parisaṅkupatho nāma, gijjhapantho sanantano` ở `1.1`–`1.2` — `parisaṅkupatho` là *đường hẹp
+  chỉ vừa một đám*, `gijjhapantho` là *đường của quạ*, `sanantano` là *bằng phẳng, không vướng*.
+  Tôi dịch cả ba vế thành *Có con đường chỉ vừa đám, / là đường của quạ, bằng phẳng thẳng tắp*;
+  cách đọc `nāma` (tân ngữ giải thích) thì không chắc.
+  (4) `posesi` ở `1.4` tôi hiểu là *đã già* (cặp với `jiṇṇake`), `accahāsi` ở `1.6` và `6.4` là
+  *gục xuống / rực rỡ* theo hai nghĩa khác nhau của cùng từ.
+  (5) `dije` ở `8.4` là *bậc chủ nhân* (danh từ tôn xưng), `Tato tāta nivattassu` ở `3.5` là
+  *Từ đó, con hãy quay về* — `nivattassu` là mệnh lệnh thứ hai số, tôi dịch *hãy quay về*.
+
+  **Dấu lược.** `ja427` không có khoá nào chứa `…pe…`.
+
+  **Mệnh đề, đo lại.** `ja:0.1` 433 tệp → `Jātaka` 417 / *Chuyện Tiền Thân* 16, không có lựa
+  chọn thứ ba. `Navakanipāta` 9/9 và `Gijjhavagga` 9/9 không có ngoại lệ.
+
+  **Cổng kỹ thuật.** `npm run validate|test|check|build` bị cấm trong lát này. Tôi tự kiểm bằng
+  chính `_hvi.py`: JSON hợp lệ, đủ 47/47 khoá trong `all`, không khoá thừa, không khoá nào trùng
+  nguyên văn Pāli, mọi giá trị NFC, bài không có dấu lược, không `(…)` đứng một mình, ngoặc kép
+  cân trên cả bài, không Pāli lọt, thứ tự khoá đúng thứ tự số.

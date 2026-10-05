@@ -1,0 +1,49 @@
+uid: ja425
+status: draft
+translationTitle: "Kinh Aṭṭhānajātaka"
+translators:
+  - "OpenCode Space Bunny Free (agent)"
+reviewers: []
+tags:
+  - "khuddaka-nikaya"
+  - "jataka"
+  - "kaccanivagga"
+  - "aṭṭhakanipāta"
+quality:
+  scores:
+    source_provenance: 9.4
+    semantic_fidelity: 8.6
+    grammar_logic: 8.5
+    segment_alignment: 10.0
+    terminology: 8.4
+    triangulation: 7.6
+    vietnamese_clarity: 8.4
+    han_viet_balance: 8.8
+    ambiguity_integrity: 8.2
+    technical_integrity: 9.6
+  final_score: 8.75
+  blocking_errors:
+    - "Tầng Anh chưa được ghim cho ja425: tại commit 11c9d708978cde8ba61096d8a75f7ddfb846f639, tầng english-sujato chỉ có 83 tệp trong thư mục kn/ja và ja425 không có trong số đó (đã kiểm cả trên đĩa: không có tệp ja425_translation-en-sujato.json). Vì vậy không có một lần đọc Anh nào để đối chiếu, và validate sẽ chặn nếu đặt review hoặc published."
+    - "Bất định chưa phân xử được ở mức có thể bảo vệ canonical wording: bài này là ngự ngâm thuần túy nhưng chứa nhiều từ chỉ xuất hiện đúng một lần trong toàn bộ kho Pāli đã ghim (kumudinī, saṅkhavaṇṇā, kacchapalomāna, makasapadāna, avikampī, sasavisāṇa, nisseṇi, savaṭākara, bimboṭṭha, surāghaṭa, gaṇacāriṇī). Không có bản Anh, không có parallel trong Kinh Tạng và không có trong content/glossary/pali-vi.yaml để phân xử."
+  assessed_at: "2026-10-05"
+  assessed_by:
+    - "OpenCode Space Bunny Free (agent)"
+notes:
+  - >-
+    **BLOCKER 1: không có tầng Anh nào để đối chiếu.** Đếm trên đĩa: tầng `english-sujato` chỉ có **83** tệp trong `translation/en/sujato/sutta/kn/ja/`, và trong số đó **không có** `ja425` (tìm cả toàn cây cache: `find .cache/upstream -name '*ja425*'` chỉ trả về đúng một tệp, tệp Pāli root). Không có tầng Việt hiện hành cho Khuddaka Nikāya. Nghĩa là **toàn bộ 49 khoá dịch từ Pāli một mình**, và `triangulation` chỉ 7,6.
+  - >-
+    **BLOCKER 2: mười từ là hapax legomenon, không có gì để phân xử.** Dùng `_c80_grep.py` quét toàn bộ `root/pli/ms/sutta/{an,kn,sn,mn,dn}`: `kumudinī` (chỉ ở `:1.1`), `saṅkhavaṇṇā` (chỉ `:1.2`), `kacchapalomāna` (chỉ `:2.1`), `makasapādāna` (chỉ `:3.1`), `avikampī` (chỉ `:3.3`), `sasavisāṇāna` (chỉ `:4.1`), `nisseṇī` trong ngữ cảnh này (`:4.2`, `:5.1`), `savaṭākara` (chỉ `:11.2`), `bimboṭṭha` (chỉ `:7.1`; `ja543:200.3` có `bimboṭṭhasampanno` nhưng bài đó chưa dịch), `surāghaṭa` (chỉ `:6.1`), `gaṇacāriṇī` (chỉ `:6.2`). Không từ nào có bản Anh, không từ nào có parallel trong Kinh Tạng, và `content/glossary/pali-vi.yaml` không ghi từ nào trong số đó. Tôi chọn cách đọc ít giả định nhất và **ghi bằng chứng ở dưới**, nhưng không dám tuyên bố đây là cách dịch chắc chắn.
+  - >-
+    **Vì sao cổng coverage không bắt được vụ này.** Đo lại bằng đúng công thức của `src/lib/canon/reference.ts`: `substantiveSegments = 0` vì cả 49 khoá Pāli đều ngắn hơn 40 ký tự (dài nhất là `:9.2` với 25 ký tự), nên `ratio` được coi là 1 và bài **qua cổng coverage một cách rỗng**. Cổng này không phát hiện được tầng Anh vắng hẳn ở một bài ngự ngâm. Đây là điểm phải nói rõ, không phải bằng chứng rằng bài đã đối chiếu tốt.
+  - >-
+    **Cấu trúc bài: điều kiện bất khả thi rồi đến câu điệu lớn.** Mười một khoảng `:1.1–:11.3` đều mở bằng `Yadā` (trừ khoảng đầu không có `Yadā`) và nêu một việc không thể xảy ra; mỗi khoảng kết bằng câu điệu `athā nūna tadā siyā`, lặp **y hệt 11 lần** ở `:1.4 :2.4 :3.4 :4.4 :5.4 :6.4 :7.4 :8.4 :9.4 :10.4 :11.4`. Vì Pāli lặp nguyên văn, bản Việt cũng lặp nguyên văn (*chắc chắn lúc ấy sẽ có.*) — đây là repetition mang chức năng, không phải điền bằng khuôn. **Không có tầng Anh nào để xác nhận** ý nghĩa câu điệu này là lời cầu nguyện hay lời khẳng định; tôi dịch theo nghĩa điệu ngữ mong muốn của `siyā`.
+  - >-
+    **BẤT ĐỊNH TỪNG CHỖ, KHÔNG GIẤU — sáu chỗ khó nhất.** (a) `:1.1` `kumudinī` dịch *sen*; từ điển có hai đường (một loài cây, hoặc bông sen), nhưng vế kế `saṅkhavaṇṇā` (màu xanh) ủng hộ đường bông sen. (b) `:1.2` `saṅkhavaṇṇā` dịch *có màu xanh* — `saṅkha` là màu xanh-trắng như trăng non, và từ này không có tiền lệ. (c) `:3.1` `makasapadāna` dịch *con ruồi chân cá* theo nghĩa chữ (ruồi + chân); `pādāna` là hapax nên không có gì để kiểm chứng. (d) `:3.3` `avikampī` dịch *kẻ không chớp mắt* — `vi-kampī` là không lay động; cách đọc khác là không run rẩy. (e) `:4.1` `sasavisāṇāna` dịch *hội trường*; `:4.3` `saggassārohaṇatthāya` dịch *để làm đường lên cõi trời* (`cõi trời` là khuôn đã có, 699 lần). (f) `:7.1` `bimboṭṭha` dịch *con bò có đầu để mộc*; từ điển ghi là một loại bồ câu mộc đầu, tôi giữ yếu tố mộc đầu thay vì dịch thành một tên loài.
+  - >-
+    **Còn đây là chỗ bản nháp tôi tự bắt được trong lượt review đối kháng.** `:2.2` `pāvāro tividho siyā` nói *ba* loại trống nhưng `:2.3` chỉ kể *hai* (`Hemantikaṁ` và `pāvuraṇaṁ`); đây là thiếu sót của chính Pāli, tôi **không** bịa thêm loại thứ ba, và ghi ra đây để người biên tập biết câu này không khép kín. Thêm nữa, tôi đã sửa hai chỗ sau khi đọc lại: `:4.2` từ *chỗ nghỉ tốt đẹp* (không giữ được dạng nữ của `nisseṇī`) thành *bến tàu tốt đẹp* cho khớp với `:5.1`, và `:4.3` từ *để leo lên* thành *để làm đường lên* cho đúng `āsārohaṇa` là đường đi lên.
+  - >-
+    **Thuật ngữ, có số đếm.** `0.1` `Jātaka` giữ Pāli (417/443 tệp ja; 16 tệp viết *Chuyện Tiền Thân*). `0.2` `Aṭṭhakanipāta` → *Bộ Tám Bài Kệ* (8/8 trong sáu tệp cùng Bộ Tám: ja417, ja418, ja419, ja420, ja421, ja423, ja424, ja426). `0.3` `Kaccānivagga` → *Phẩm Kaccānivagga* (8/8). `0.4` và `12.1` theo khuôn bài anh em: ja418 *2. Kinh Aṭṭhasaddajātaka* / *Kinh Aṭṭhasaddajātaka, thứ hai.*; ja423 *7. Kinh Indriyajātaka* / *Kinh Indriyajātaka, thứ bảy.*; ja426 *10. Kinh Dīpijātaka* / *Kinh Dīpijātaka, thứ mười.* Trong thân bài: `Gaṅgā` → *sông Hằng* (60 lần) · `kokila` → *chim tu hú* (ja331:1.4) · `gadrabha` → *con lừa* (ja373:2.2, ja189:1.4, ja111:1.4, an3.82:1.1) · `sakuṇa` → *chim sẻ* (ja430:1.4) · `ulūka` → *cú* (34 lần) · `Rāhu` giữ Pāli (240 lần) · `ceṭo` → *chuột* (36 lần) · `mūsikā` → *chuột* · `aṅgāra` → *than củi*.
+  - >-
+    **Cặp nháy kép:** Pāli mở `“` ở `:1.1` và đóng `”` ở `:11.4` (kèm `”ti.` mà bản Việt bỏ `ti` theo đúng khuôn cp13/cp17). Cơ chốt `_hvi.py` chạy sạch với 49 khoá: đủ khoá, NFC, không trùng nguyên văn Pāli, không lọt Pāli, số dấu lược khớp, nháy kép cân.
+  - >-
+    **Đề xuất để gỡ blocker (không tự làm, vượt quyền lát này).** Gán một bản lấp `content/translation/en/project/sutta/kn/ja425*.json` cho ít nhất là các khoá `:1.1 :1.2 :2.1 :3.1 :3.3 :4.1 :4.3 :5.1 :7.1 :11.2`, rồi đối chiếu lại mười chỗ bất định ở trên và chấm lại scorecard. Chừng nào chưa làm, bài phải ở `draft`.

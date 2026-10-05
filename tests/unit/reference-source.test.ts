@@ -249,18 +249,38 @@ test('coverage measures substantive Pāli, not raw segment count', { skip: !exis
   );
   assert.equal(blockquoted.ratio, 1, 'so an2.1 is fully covered at store level');
 
-  // sn24.37 is the contrast that keeps this test meaningful: six of its seven
-  // substantive segments are blank in the pinned edition — a `…pe…` elision at
-  // :1.4 and stock repetitions across the aggregates — and the `english-project`
-  // layer has not filled them. Much of the meaning is recoverable from the
-  // repeated keys around them, which is exactly why the metric counts missing
-  // segments rather than declaring the text unreadable. It is the live
-  // counter-example now that an2.1 above — and an2.3 before it, whose four
-  // merged blanks the project fill has since covered — have been filled in.
+  // sn24.37 was the counter-example here until the project's own fill layer closed
+  // it: seven substantive segments, six blank in the pinned edition, and it sat
+  // just under the floor. Every one of the six is now covered, so the assertion
+  // below would have kept describing a hole the project had already cured. Keep
+  // the pin — the same shape as an2.1 and an2.3 — so dropping the fill again
+  // fails loudly instead of silently reopening the gap.
   const sn2437 = englishCoverageFor('sn', 'sn24.37')!;
   assert.equal(sn2437.substantiveSegments, 7);
-  assert.equal(sn2437.substantiveWithoutEnglish, 6);
-  assert.ok(sn2437.ratio < MIN_ENGLISH_COVERAGE, 'which does drop it below the floor');
+  assert.equal(
+    sn2437.substantiveWithoutEnglish,
+    0,
+    'the project fill now covers every blank the pinned edition left in sn24.37',
+  );
+  assert.equal(sn2437.ratio, 1, 'so sn24.37 is fully covered at store level');
+
+  // mn58 is the live counter-example that keeps this test meaningful. Twenty-one
+  // of its seventy-six substantive segments are blank in the pinned edition and
+  // the fill layer has not covered them, so it sits under the floor. The shape
+  // matters: nine of those twenty-one are Pāli repeated *verbatim* elsewhere in
+  // the same text (:3.18 and the six :6.1x–:6.2x replies), so much of the
+  // meaning is recoverable from the keys around them. That is exactly why the
+  // metric counts missing segments rather than declaring the text unreadable.
+  // It is the smallest text left with a genuinely thin pinned edition — every
+  // other sub-floor text is one the pin does not cover at all.
+  const mn58 = englishCoverageFor('mn', 'mn58')!;
+  assert.equal(mn58.substantiveSegments, 76);
+  assert.equal(mn58.substantiveWithoutEnglish, 21);
+  assert.ok(mn58.ratio < MIN_ENGLISH_COVERAGE, 'which does drop it below the floor');
+  assert.ok(
+    Math.abs(mn58.ratio - 0.7237) < 1e-4,
+    'and the hole is 21 of 76 substantive segments, not a rounded impression',
+  );
   const english = segmentMapForUid(
     readJson<Record<string, string>>(upstreamFile('translation/en/sujato/sutta/an/an2/an2.1-10_translation-en-sujato.json')),
     'an2.3',

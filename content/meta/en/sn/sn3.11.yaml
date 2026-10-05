@@ -1,0 +1,83 @@
+uid: sn3.11
+status: published
+translationTitle: "English fill (6 segments)"
+englishTitle: "The king quotes the Buddha’s four ways of knowing a person back, word for word"
+translators:
+  - "OpenCode Space Bunny Free (agent)"
+reviewedAt: 2026-10-04
+tags:
+  - english-fill
+  - store
+  - samyuttanikaya
+  - repeated-pali
+quality:
+  scores:
+    source_provenance: 9.7
+    semantic_fidelity: 9.4
+    grammar_logic: 9.3
+    segment_alignment: 10.0
+    terminology: 9.4
+    triangulation: 8.0
+    vietnamese_clarity: 9.3
+    han_viet_balance: 9.3
+    ambiguity_integrity: 9.2
+    technical_integrity: 10.0
+  final_score: 9.36
+  blocking_errors: []
+  assessed_at: "2026-10-04"
+  assessed_by:
+    - "OpenCode Space Bunny Free (agent)"
+notes: |-
+  Vua Pasenadi **dẫn lại nguyên văn** lời Đức Thế Tôn ở `4.1`–`5.4` trong `6.3`–`6.8`. Đó là
+  lý do `6.3`–`6.8` trống: bản Anh đã ghim không dịch khối trích lại này.
+
+  - `6.5` và `6.8`: Pāli giống hệt `5.1` và `5.4` → chép y nguyên văn đã ghim (đã đo bằng script).
+  - `6.3` + `6.4`: cùng nội dung `4.1`, nhưng ở đây Pāli tách thành hai khoá (`6.3` dừng ở dấu
+    hai chấm, `6.4` mở ngoặc kép). Tôi cắt đúng chỗ đó, chép y vế của `4.1`:
+    `6.3` = "‘Great king, as a layman enjoying sensual pleasures, … and accepting gold and currency,
+    it’s hard for you to know" (dừng, không dấu câu, vì `6.4` nối tiếp), `6.4` = "“who is perfected
+    or on the path to perfection.”". Dấu nháy bám theo Pāli: `6.3` mở `‘`, `6.4` mở và đóng `“`.
+
+  ⚠️ **`6.6` và `6.7` tôi CỐ Ý viết dài hơn bản ghim, và đây là chỗ cần người biên tập biết.**
+  Bản ghim ở `5.2` và `5.3` **bỏ rơi** vế `Tañca kho dīghena addhunā, na ittaraṁ; manasikarotā,
+  no amanasikarotā; paññavatā, no duppaññena.` và thay bằng dấu lược:
+  *"You can get to know a person’s purity by dealing with them. …"*. Ở `6.6`/`6.7` Pāli **có đủ**
+  vế đó (chỉ `6.7` dùng `So ca kho` thay `Tañca kho`), nên tôi viết trọn, chép y đúng vế đã ghim ở
+  `5.1`: "But only after a long time, not casually; only when attentive, not when inattentive; and
+  only by the wise, not the witless."
+
+  Ba lý do cho lựa chọn này:
+
+  - Không chép y `"…"` của `5.2`/`5.3`, vì luật là **không tự thêm `…` vào chỗ Pāli không có lược**;
+    ở `6.6`/`6.7` không có `…pe…`.
+  - Bỏ vế đó đi thì hai khoá thành orphan, mà thêm chữ thì lại là bịa.
+  - Chép y `"…"` sẽ để cột English ở `6.5–6.8` giống hệt `5.1–5.4` nhưng với nghĩa **ít hơn** ở
+    hai khoá giữa, tức là tự mâu thuẫn trong chính nó. Viết đủ thì `6.6`/`6.7` **dài hơn** `5.2`/`5.3`
+    một câu — đó là hệ quả trung thực của việc bản ghim đã nén, không phải lỗi dịch. Người biên
+    tập nên biết hai cột ấy sẽ lệch nhau ở `6.6`/`6.7`.
+
+  Còn `6.5` và `6.8` thì chép y trọn vẹn vì bản ghim đã viết đủ cả vế.
+
+  Lớp lấp: 6 khoá, tất cả nằm ở chỗ bản Anh đã ghim để trống. **Không khoá nào là blockquote
+  tham chiếu và không khoá nào có Pāli rỗng**, nên không có khoá nào bị bỏ. Đây cũng là bài duy
+  nhất trong lát này mà **mọi** khoá trống của bản Anh đã ghim đều nằm trong lát — không còn ô
+  trống nào dưới ngưỡng 40 ký tự (đã đếm: `empty=6`, cả 6 đều là khoá có Pāli ≥ 40 ký tự).
+
+  ⚠️ **Sai lệch cần người biên tập xử lý, tôi KHÔNG tự sửa.** Trước lát này coverage English của
+  `sn3.11` là 16/22 = 0,7273, dưới ngưỡng 0,8, và **có** record ở
+  `content/meta/reference-gaps.yaml:3584` (`substantiveSegments: 22`,
+  `substantiveWithoutEnglish: 6`, `coverage: 0.7273`). Lớp lấp đưa nó lên 22/22 = 100%, nên record
+  đó **thành thừa** và `tests/unit/english-fill.test.ts` sẽ đỏ. Tôi không chạy
+  `npm run reference:gaps` và không sửa file đó. Người điều phối chạy lại trong worktree sạch.
+
+  **Không có cảnh báo "same author" cho bài này.** Scorecard Việt
+  `content/meta/sutta/sn/sn3.11.yaml` ghi `translators: ["Lê Việt Hồng (Cư Sĩ Chánh Niệm)",
+  "ChatGPT (OpenAI), hỗ trợ biên dịch và QA"]` và `assessed_by: ["Muse Spark"]` — không trùng
+  `"OpenCode Space Bunny Free (agent)"`. Nhưng lớp lấp vẫn bị chặn `triangulation` ở 8,0 vì người
+  viết lớp lấp cũng là người chấm, nên đây không phải một lớp đọc Anh độc lập.
+
+  Thuật ngữ bám bản ghim trong bài: `mahārāja` → "Great king" (`4.1`), `duppañño` → "the witless"
+  (`5.1`/`5.4`), `sīla` → "ethics", `soceyya` → "purity", `thāmo` → "resilience", `sākacchā` →
+  "discussion", `manasikarotā`/`amanasikarotā` → "attentive"/"inattentive", `dīghena addhunā, na
+  ittaraṁ` → "after a long time, not casually". Bài này **không** có tầng `vietnamese-current`:
+  tại commit đã ghim, bilara chỉ có Pháp Cú cho tiếng Việt.
