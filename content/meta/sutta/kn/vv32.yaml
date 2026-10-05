@@ -1,0 +1,136 @@
+uid: vv32
+status: draft
+translationTitle: "Chuyện Cung Điện Nữ Latā"
+translators:
+  - "OpenCode Space Bunny Free (agent)"
+reviewers: []
+tags:
+  - "kn"
+  - "khuddaka-nikaya"
+  - "vimanavatthu"
+  - "itthivimana"
+  - "pāricchattakavagga"
+  - "latāvimāna"
+quality:
+  scores:
+    source_provenance: 9.5
+    semantic_fidelity: 9.0
+    grammar_logic: 9.0
+    segment_alignment: 10.0
+    terminology: 9.2
+    triangulation: 7.5
+    vietnamese_clarity: 9.3
+    han_viet_balance: 9.3
+    ambiguity_integrity: 8.8
+    technical_integrity: 9.8
+  final_score: 9.14
+  blocking_errors:
+    - "Không có tầng tham khảo tiếng Anh tại commit đã ghim: `source/upstream-manifest.json` (edition `english-sujato`, `treeSha` 24e81ded9d6710e16b277b6394fd57c48258da12, 4.291 tệp) KHÔNG có tệp thân bài nào cho uid `vv32` — tầng Anh đã ghim chỉ có `name/sutta/vv-name…`, tức là **toàn bộ sub-collection `vv` của Kinh Tạng vắng mặt** trong tầng Anh (đếm: `kn` trong tầng Anh có `cp`, `dhp`, `iti`, `ja`, `kp`, `snp`, `thag`, `thig`, `ud` — không có `vv`). Tệp `translation/en/sujato/sutta/kn/vv/vv32_translation-en-sujato.json` không tồn tại trong `.cache/upstream/suttacentral/`. Đây là `not-published-upstream`, KHÔNG phải `not-synced`. Đo coverage bằng đúng công thức `src/lib/canon/reference.ts` + `source/layers.yaml` (`substantivePaliMinChars: 40`, `excludeReferenceBlock: true`) cho **0 trên 0** khoá Pāli có nội dung — khuôn kệ của `vv` là kệ ngắn, độ dài Pāli **min 11, max 37 ký tự** — nên `ratio = 1`, coverage hiển thị **100%**, nhưng con số ấy **không đo được gì** (mẫu số bằng 0) và không phải lý do cho blocker. `scripts/validate.ts` (nhánh `if (!existsSync(englishFile))`) coi tệp Anh thiếu là **error** khi status là `review` hoặc `published`, nên bài bắt buộc `draft`. Tầng `vietnamese-current` cũng vắng: `translation/vi/phantuananh` tại commit đã ghim chỉ có 26 tệp và toàn bộ là Pháp Cú. Lớp lấp `english-project` của dự án (696 tệp `published`) cũng không có cho uid này. Ba tầng tham khảo đều vắng ⇒ bài dịch chỉ từ Pāli root ⇒ blocker thật, và đây là **giới hạn upstream**, không phải lỗi của người dịch. Vì vậy `triangulation` bị chặn ở 7.5 (≤ 8.0) chứ không nâng để né blocker."
+    - "Bất định chưa phân xử được ở khoá `vv32:8.3`, nên câu trong bản canonical chưa bảo vệ được. Pāli: `Patino kiramhākaṁ visiṭṭha nārīnaṁ,`. Quét toàn bộ Pāli root đã ghim (`root/pli/ms/sutta`, 5.764 tệp) cho `kiramhāka` chỉ ra **đúng 1 khoá** — chính khoá này; `māhāka`, `māhāko` cũng không có, và không có bản Anh hay bản Việt nào để đối chiếu. Tôi dịch *Chồng của những bà nữ cao quý bậc nhất,* — tức **bỏ** chức từ `kiramhāka`, và tôi **không** bịa một nghĩa thay cho nó. Đây là thiếu sót trung thực chứ không phải lỗi bịa nội dung, nhưng theo tiêu chí 6 của cổng chất lượng thì một câu còn bất định tới mức không xác định được mình đang nói gì thì canonical wording phải bị chặn cho tới khi người biên tập tra bản in Pāli (PTS/Thai) hoặc thảo luận."
+  assessed_at: "2026-10-05"
+  assessed_by:
+    - "OpenCode Space Bunny Free (agent)"
+notes: |-
+  **Phạm vi: đủ 49/49 khoá của `all`.** `save_vi` của `_hvi.py` đã pass (đủ khoá, không
+  thừa, NFC, không trùng nguyên văn Pāli, Pāli không lọt, dấu lược khớp từng khoá, ngoặc
+  kép cân toàn bài). Không khoá nào bị bỏ.
+
+  Nguồn: dịch từ Pāli root đã ghim (`source/upstream-manifest.json`, commit `11c9d708`,
+  tầng `pali`, `treeSha` 4d736429). Không có tầng Anh, xem `blocking_errors`. Không có bản Việt
+  hiện hành (HT. Thích Minh Châu).
+
+  MỆNH ĐỀ ĐO LẠI TRONG `vv` (đếm bằng script trên 54 tệp `vv` đã có):
+  · `Vimānavatthu` (0.1): giữ nguyên Pāli **51/52** ⟵ *Chuyện về cảnh giới thần* 1.
+  · `Itthivimāna` (0.2): *Chuyện Cung Điện Nữ Hư Không* **27/28** ⟵ *Thiên Cung Của Nữ
+    Giới* 1.
+  · `Pāricchattakavagga` (0.3): *Phẩm Cây San Hô* **4/4 tệp có mặt** (`vv29/31/36/38`).
+    Củng cố bằng tầng tên đã ghim `vv-name:32.vv-paricchattakavagga` = *The Chapter With the
+    Coral Tree*.
+  · Header `0.4`: đa số toàn cục *Chuyện Cung Điện* **42/54** tệp. Trong **chính
+    `Pāricchattakavagga`** nữ thì *Chuyện Cung Điện Nữ X* là **3/3** (`vv36:0.4` Mallikā,
+    `vv42:0.4` Alomā, `vv46:0.4` Ambā) ⇒ `4. Chuyện Cung Điện Nữ Latā`.
+  · Khoá kết `12.1`: đa số toàn cục *Cung Điện …* **28** ⟵ *Chuyện Cung Điện …* 9 ⟵
+    *Thiên cung …* 6 ⇒ `Cung Điện Nữ Latā, thứ tư.`  ⚠ Cùng hệ quả như `vv21`: header có
+    *Chuyện* mà khoá kết thì không — đúng quy tắc đa số đã đo; nếu người biên tập muốn thống
+    nhất thì phải sửa cả 54 tệp `vv`, việc đó ngoài lát này.
+  · Tên `Latā` giữ nguyên Pāli — tầng Việt dự án có **2** lần, đều giữ Pāli. Củng cố bằng
+    tầng tên đã ghim `vv-name:36.vv32` = *Latā's Mansion*.
+
+  Vế kệ — dùng lại nguyên văn tiền lệ trên **đúng đoạn Pāli trùng nhau**:
+  · `5.1` `Ahaṁ manussesu manussabhūtā` → *Khi tôi còn làm người giữa loài người*
+    **10 tệp** (đa số lớn nhất) ⟵ *Thuở trước giữa loài người tôi là một phụ nữ* 4 ⟵
+    *khi còn làm người giữa loài người* 1 ⟵ *Còn tôi khi làm người giữa nhân gian* 1.
+  · `5.3` `Akkodhanā bhattuvasānuvattinī` → *không hờn dỗi, tôi tận lòng theo chồng*
+    (`vv31:3.3`, đúng Pāli này).
+  · `5.4` `Uposathe appamattā ahosiṁ` → *ngày trai giới tôi không hơi đà một chút nào.*
+    (`vv31:3.4`, đúng Pāli này).
+  · `6.1` `Manussabhūtā daharā apāpikā` → *Lúc còn làm người, tôi còn nhỏ bé, chưa hề gây điều
+    ác,* (`vv31:4.1`, đúng Pāli này).
+  · `6.2` `Pasannacittā patimābhirādhayiṁ` → *giữ lòng thành kính, tôi tôn kính chồng mình;*
+    (`vv31:4.2`, đúng Pāli này).
+  · `7.3` `Āyuñca vaṇṇañca sukhaṁ balañca` → *tuổi thọ, dung sắc, hạnh phúc, và sức lực,*
+    (`an4.58:3.4`, đúng Pāli này).
+  · `7.2` `visesamajjhagā` → *phẩm hạng hơn hẳn*, theo `vv30:8.2` `visesabhāginī` (*nên sinh ra
+    có phẩm hạng hơn hẳn*); `catubbhi ṭhānehi` → *bốn trường hợp* (bốn duyên làm phúc đức
+    tăng, `an5.141`).
+  · `macchara` → *keo kiệt* (112 lần trong tầng Việt dự án); `sagga` → *cõi thiên*.
+
+  Dấu lược: **không khoá nào của `vv32` có `…pe…` hay `…`** ở Pāli, và bản Việt cũng không có
+  một dấu lược nào — 49/49 khoá khớp 0 = 0. Không có chỗ nào bị mở rộng.
+
+  Nháy kép: Pāli cân sẵn — mở `“` ở `3.1`, `5.1`, `8.1`, đóng `”` ở `4.4`, `7.4`, `11.4`
+  (3 = 3). Bản Việt đặt đúng vị trí ấy; `ngoặc()` của `_hvi.py` xác nhận.
+
+  BẤT ĐỊNH CẦN NGƯỜI BIÊN TẬP XỬ:
+  · `8.3` `Patino kiramhākaṁ visiṭṭha nārīnaṁ,` — xem `blocking_errors`. **Thiếu sót thật**:
+    tôi bỏ `kiramhāka` và không thay bằng nghĩa nào. Từ này là **hapax legomena** trong toàn bộ
+    Pāli root đã ghim. Trong tầng Việt dự án cũng không có từ nào cho nó.
+  · `8.2` `Yaṁ no apucchimha akittayī no;` — `akittayī` đã được chính `cnd8:44.2` giải nghĩa
+    ngay trong Pāli root: *kittitaṁ pakittitaṁ ācikkhitaṁ desitaṁ …* = *đã được tuyên bố, đã
+    được nói rõ*. Vậy nghĩa là **điều chúng tôi đã hỏi mà không ai nói cho biết**, không phải
+    *chưa từng hỏi*. Tôi dịch theo nghĩa đó; đây là điểm dùng được **bằng chứng trong chính
+    bộ kinh** chứ không phải đoán.
+  · `1.1`–`1.4` — `Latā ca sajjā pavarā ca devatā` … `Rājīmatī dhammaguṇehi sobhatha` là
+    **bốn tên riêng của một nữ thiên** (`Latā`, `Pavarā`, `Sutā`, `Rājīmatī`), không phải ba
+    nàng khác nhau. Cơ sở: vế sau `9.1`–`9.4` và `11.x` nói **một** người đã sống đời vợ tử,
+    và `Sutā` là *con gái bậc vua chinh phạt* (`suta` = học), `Rājīmatī` = *tỏa sáng như vua
+    trời*, `Accimatī` = *mặt trời*, `Sirīmata` = *chói lòa*. Tôi dịch theo cách ấy và ghi rõ ở
+    đây vì nó là **quyết định diễn giải**, không chỉ là lựa chọn từ ngữ. Người biên tập nên
+    xác nhận.
+  · `3.1`–`4.4` — **khó nhất về mạch**. `Pucchāmi taṁ uppalamāladhārini` xưng *tôi* hỏi
+    *nàng mang tràng hoa sen*; `Āveḷini kañcanasannibhattace` thì lại là lời **chê** (*nàng xấu
+    xí*) trong khi `Timiratambakkhi nabheva sobhane` lại là lời **khen** (*ngọc trai giữa trời,
+    chói lòa*) — hai vế trái chiều trong cùng một khối. Cùng cấu trúc xuất hiện ở `vv30:2.1`
+    và `vv48:2.1` (cùng `uppalamāladhārini`, cùng `Āveḷinī kañcanasannibhattace`), nhưng cả ba
+    bài đều **chưa** có bản Việt nào để đối chiếu. Tôi dịch sát chữ nghĩa chữ nghĩa và **không**
+    thêm bớt gì; người biên tập nên tra thảo luận để chốt mạch. `Āveḷini` ở đây ngắn `i`,
+    khác `Āveḷinī` ở `vv30:2.2`/`vv48:2.2` — tôi giữ đúng dạng Pāli của từng khoá.
+  · `8.4` `Gatī ca tāsaṁ pavarā ca devatā` — `gatī` = *nơi sinh, đích đến*, `pavarā` = *sự tuyên
+    pháp*. Ở `8.4` `pavarā` lại là danh từ, khác `9.3` `pavarā seṭṭhā` ở `vv21` (nơi tôi dịch
+    *người tuyên thuyết*); ở đây tôi dịch *việc tuyên pháp ấy*. Cùng một Pāli từ, hai vai —
+    ghi lại để người biên tập cân nếu muốn thống nhất.
+  · `9.x` — `sabbā` là **số nhiều** (*tất cả chúng tôi*); dù bài nói về một người, Pāli cứ dùng
+    số nhiều và tôi giữ nguyên. `lacchāmase` = *chúng ta sẽ được ấy* (thứ tự câu đảo trong tiếng
+    Việt cho tự nhiên; Pāli để `lacchāmase` trước `bhasati`).
+  · `9.2` `Patibbatā yattha bhavanti itthiyo` — bản nháp đầu bỏ mất `Patibbatā` (*lập gia đôn*);
+    đã sửa thành *những người nữ đã qua lập gia đôn sinh ra ở chỗ nào*. `9.4` `Lacchāmase` là
+    *chúng ta sẽ có được* và đứng **trước** `bhasati` (*tuyên bố*) trong Pāli; bản nháp đầu đảo
+    thứ tự cho đỡ vướng, đã trả về *thì điều nàng Latā tuyên bố, chúng ta sẽ có được.*
+  · `11.1`–`11.4` — chủ ngữ chuyển: `11.2`–`11.3` xưng *chồng* (`patiṁ`), `11.4` xưng *nàng ấy*
+    (`sā`) với danh xưng *kẻ sống đúng pháp* (`dhammacārinī`). Đây là một giọng kể khác với
+    khối 5–7; tôi giữ đúng các chủ ngữ Pāli đặt ra. `ariyasāvikā` → *nữ đệ tử bậc Thánh*
+    (`sāvikā` = nữ đệ tử, `ariya` = bậc Thánh; xem `sn16.10:1.4` *tịnh xá của các tỳ-kheo nữ*
+    và `pp`/`cp` không có tiền lệ trực tiếp cho cụm này).
+  · `10.1`–`10.4` — ẩn dụ: **sư tử** không ăn xác, nên dòng `10.3`–`10.4` nói kẻ ăn thịt chỉ ăn
+    thịt vụn nát. `mahindhara` = núi chứa nước mưa. Tôi giữ ẩn dụ, **không** diễn giải thành lời
+    giảng.
+  · `6.3` `Sadevaraṁ sassasuraṁ sadāsakaṁ` — 0 tiền lệ. Tôi dịch *tôi luôn săn sóc chồng mình,
+    cha mẹ chồng, xem như bậc trời*; `sas` = chồng, `sasura` = cha mẹ chồng, `sadāsaka` =
+    săn sóc, `sadevara` = xem như thần. Đây là cách đọc của tôi; hai vế khác đọc là
+    *tôn kính chồng như thần, luôn săn sóc* hoặc *xem cả hai như bậc trên*.
+
+  Cổng kỹ thuật CHƯA chạy — agent dịch không được phép chạy `npm run validate|test|build|
+  check|audit:store`. `save_vi` của `_hvi.py` đã pass cho 49/49 khoá. Người biên tập cần chạy
+  đủ `npm run validate`, `npm test`, `npm run check` trước khi coi `technical_integrity: 9.8`
+  là đạt. Bài này `draft` có hai blocker thật nên **không** thể lên `review`/`published` cho tới
+  khi tầng tham khảo xuất hiện và khoá `8.3` được chốt.

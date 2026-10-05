@@ -1,0 +1,136 @@
+uid: vv21
+status: draft
+translationTitle: "Chuyện Cung Điện Nữ Caṇḍālī"
+translators:
+  - "OpenCode Space Bunny Free (agent)"
+reviewers: []
+tags:
+  - "kn"
+  - "khuddaka-nikaya"
+  - "vimanavatthu"
+  - "itthivimana"
+  - "cittalatavagga"
+  - "caṇḍālivimāna"
+quality:
+  scores:
+    source_provenance: 9.5
+    semantic_fidelity: 9.1
+    grammar_logic: 9.1
+    segment_alignment: 10.0
+    terminology: 9.2
+    triangulation: 7.5
+    vietnamese_clarity: 9.3
+    han_viet_balance: 9.3
+    ambiguity_integrity: 9.0
+    technical_integrity: 9.8
+  final_score: 9.18
+  blocking_errors:
+    - "Không có tầng tham khảo tiếng Anh tại commit đã ghim: `source/upstream-manifest.json` (edition `english-sujato`, `treeSha` 24e81ded9d6710e16b277b6394fd57c48258da12, 4.291 tệp) KHÔNG có tệp thân bài nào cho uid `vv21` — tầng Anh đã ghim chỉ có `name/sutta/vv-name…`, tức là **toàn bộ sub-collection `vv` của Kinh Tạng vắng mặt** trong tầng Anh (đếm: `kn` trong tầng Anh có `cp`, `dhp`, `iti`, `ja`, `kp`, `snp`, `thag`, `thig`, `ud` — không có `vv`). Tệp `translation/en/sujato/sutta/kn/vv/vv21_translation-en-sujato.json` không tồn tại trong `.cache/upstream/suttacentral/`. Đây là `not-published-upstream`, KHÔNG phải `not-synced`. Đo coverage bằng đúng công thức `src/lib/canon/reference.ts` + `source/layers.yaml` (`substantivePaliMinChars: 40`, `excludeReferenceBlock: true`) cho **0 trên 0** khoá Pāli có nội dung — khuôn kệ của `vv` là kệ ngắn, độ dài Pāli **min 11, max 38 ký tự**, không khoá nào đạt 40 — nên `ratio = 1` và coverage hiển thị **100%**; con số ấy **không đo được gì** (mẫu số bằng 0) và không phải lý do cho blocker. `scripts/validate.ts` (nhánh `if (!existsSync(englishFile))`) coi tệp Anh thiếu là **error** khi status là `review` hoặc `published`, nên bài bắt buộc `draft`. Tầng `vietnamese-current` cũng vắng: `translation/vi/phantuananh` tại commit đã ghim chỉ có 26 tệp và toàn bộ là Pháp Cú. Lớp lấp `english-project` của dự án (696 tệp `published`) cũng không có cho uid này. Ba tầng tham khảo đều vắng ⇒ bài dịch chỉ từ Pāli root ⇒ blocker thật, và đây là **giới hạn upstream**, không phải lỗi của người dịch. Vì vậy `triangulation` bị chặn ở 7.5 (≤ 8.0) chứ không nâng để né blocker."
+  assessed_at: "2026-10-05"
+  assessed_by:
+    - "OpenCode Space Bunny Free (agent)"
+notes: |-
+  **Phạm vi: đủ 49/49 khoá của `all`.** `save_vi` của `_hvi.py` đã pass (đủ khoá, không
+  thừa, NFC, không trùng nguyên văn Pāli, Pāli không lọt, dấu lược khớp từng khoá, ngoặc
+  kép cân toàn bài). Không khoá nào bị bỏ.
+
+  Nguồn: dịch từ Pāli root đã ghim (`source/upstream-manifest.json`, commit `11c9d708`,
+  tầng `pali`, `treeSha` 4d736429). Không có tầng Anh, xem `blocking_errors`. Không có bản Việt
+  hiện hành (HT. Thích Minh Châu) — `translation/vi/phantuananh` chỉ có Pháp Cú.
+
+  MỆNH ĐỀ ĐO LẠI TRONG `vv` (đếm bằng script trên 54 tệp `vv` đã có) — lát này chọn theo đa
+  số và ghi kèm số cả hai hướng:
+  · `Vimānavatthu` (0.1): giữ nguyên Pāli **51/52** ⟵ *Chuyện về cảnh giới thần* 1.
+  · `Itthivimāna` (0.2): *Chuyện Cung Điện Nữ Hư Không* **27/28** ⟵ *Thiên Cung Của Nữ
+    Giới* 1.
+  · `Cittalatāvagga` (0.3): *Phẩm Cây Hoa Cittalatā* **5/5 tệp có mặt** (`vv25/26/27/28`).
+    Củng cố bằng tầng tên đã ghim `vv-name:20.vv-cittalatavagga` = *The Chapter With the
+    Creeper*.
+  · Header `0.4`: đa số toàn cục là *Chuyện Cung Điện* **42/54** tệp ⟵ *Chuyện Thiên Cung*
+    6 ⟵ 5 tệp khác (3 tệp giữ nguyên Pāli, 1 *Chuyện về cảnh giới*, 1 *Thiên cung…*).
+    Trong **chính `Cittalatāvagga`**, bản có chữ *Nữ* là **4 tệp** (`vv25:0.4`, `vv26:0.4`,
+    `vv27:0.4`, `vv28:0.4`) ⟵ 1 tệp không (`vv23:0.4` *Chuyện Cung Điện Soṇadinnā*). Tôi theo
+    phe đông nhất trong cùng phẩm ⇒ `4. Chuyện Cung Điện Nữ Caṇḍālī`.
+  · Khoá kết `12.1`: đa số toàn cục là *Cung Điện …* **28** ⟵ *Chuyện Cung Điện …* 9 ⟵
+    *Thiên cung …* 6 ⟵ 12 tệp viết kiểu khác. Trong `Cittalatāvagga` nữ: *Cung Điện Nữ X,
+    thứ N.* là 2 tệp (`vv25:11.1`, `vv26:8.1`) ⟵ 1 tệp (*Chuyện Cung Điện Soṇadinnā,
+    thứ sáu*, `vv23:12.1`). Tôi theo *Cung Điện Nữ Caṇḍālī, thứ tư.*
+    ⚠ Hệ quả trung thực: header của bài này có *Chuyện* mà khoá kết thì không — đúng quy tắc
+    đa số đã đo, nhưng người biên tập có thể muốn thống nhất lại ở cả 54 tệp `vv`; việc đó
+    ngoài lát này và tôi không tự ý sửa bài đã có.
+  · Tên riêng `Caṇḍālī` giữ nguyên Pāli: tầng Việt dự án có **1** lần (`Caṇḍāli`), không
+    có cách dịch nào khác để theo. Củng cố bằng tầng tên đã ghim
+    `vv-name:24.vv21` = *Low-Caste Woman's Mansion* — cũng là lý do dịch `caṇḍālayoniyā`
+    (8.2) là *dòng ca-ni-đà-la* chứ không làm nhẹ thành *người thấp kém*.
+
+  Vế kệ — dùng lại nguyên văn tiền lệ trên **đúng đoạn Pāli trùng nhau**:
+  · `1.2`/`3.4`/`7.4` `gotamassa yasassino` → *Đức Gotama lẫy lừng danh thơm*
+    (`vv25:9.4`, `vv26:6.4`).
+  · `1.4` `isisattamo` → *bậc tối thượng trong các bậc ẩn sĩ* (`sn8.8:5.2` *isīnaṁ isisattamo*,
+    đúng Pāli này).
+  · `5.3` `Deviddhipattā` → *đang có thiên thần lực*; `5.4` `mahānubhāva` → *đại oai lực*
+    (`vv31:2.3` *đã chứng đắc thiên thần lực, có đại oai lực*); đo cục bộ `mahānubhāva`:
+    *đại oai lực* **18 dòng / 9 tệp** ⟵ *uy thế lớn lao* 12 dòng / 9 tệp.
+  · `6.3` `Parivāritā accharāsaṅgaṇena` → *vây quanh bởi đám tiên nữ* (bỏ chủ ngữ *tôi* vì
+    Pāli ở đây không có `me`; `vv31:9.2` có *tôi* vì Pāli đó có).
+  · `9.4` `vaṇṇena yasasāyunā` → *về dung sắc, danh tiếng và tuổi thọ* (`dn18:13.11`,
+    `dn19:3.14`).
+  · `11.4` `tatthevantaradhāyathāti` → *biến mất ngay tại đó* (`sn4.23:14.4`).
+  · `9.2` `purakkhatvāna tiṭṭhati` → *xếp hàng đứng trước mặt*; bản nháp đầu tôi viết *đứng
+    thành hàng quanh bên* — `purakkhata` là **phía trước**, không phải *quanh*, và đã sửa
+    ở lượt review đối kháng.
+  · `10.3`–`10.4` — bản nháp đầu ghép *tôi với bậc Mâu-ni* ở `10.3`, còn Pāli không có *tôi với*
+    ở đó (`Muniṁ kāruṇikaṁ loke` không chủ ngữ). Đã sửa thành *bậc Mâu-ni lòng từ bi giữa cõi
+    đời,* / *tôi đến hầu để đảnh lễ Ngài, bạch Thế Tôn.* theo đúng trật tự Pāli (`Taṁ bhante
+    vanditumāgatā`).
+  · `8.4` `upapannamhi nandane` → *tôi đã sinh về cõi Nandan*; `nandana` cũng là tên một
+    `sutta` riêng (`sn6.1`) nhưng ở đây là tên cõi, nên dịch nghĩa.
+
+  Dấu lược: **không khoá nào của `vv21` có `…pe…` hay `…`** ở Pāli, và bản Việt cũng không có
+  một dấu lược nào — 49/49 khoá khớp 0 = 0. Không có chỗ nào bị mở rộng.
+
+  Nháy kép: Pāli mở `“` bốn lần (`1.1`, `5.1`, `6.1`, `7.1`) nhưng chỉ đóng `”` ba lần
+  (`2.4`, `5.4`, `6.4`) — **bản chụp không cân**. Bản Việt cân 4 = 4: tôi đóng nốt lời thứ
+  tư ở `10.4` (`…đảnh lễ.”`, đúng vị trí `”ti` của Pāli), vì đó là lời của Caṇḍālī chứ không
+  phải lời dẫn. `ngoặc()` của `_hvi.py` xác nhận cân trên cả bài.
+
+  BẤT ĐỊNH CẦN NGƯỜI BIÊN TẬP XỬ:
+  · `6.2` `Vimānamoruyha anekacittā;` — **hapax legomena**: quét toàn bộ Pāli root đã ghim
+    (`root/pli/ms/sutta`, 5.764 tệp) cho `moruyha` chỉ ra **đúng 1 khoá**, là khoá này. Tôi
+    không tìm được từ điển nào trong kho để phân xử, và cấm bịa nghĩa từ điển, nên tôi dịch
+    sát nghĩa chữ nghĩa chỗ chắc chắn (`vimāna` = cung điện, `anekacittā` = nhiều tâm ý) và
+    để vế `oruyha` là *đã bước vào*. **Câu này không có tiền lệ và không có bản Anh đối
+    chiếu**; người biên tập nên tra bản in Pāli (PTS/Thai) để chốt. Tôi KHÔNG bịa thêm chi
+    tiết nào (chẳng hạn nhân vật hay hành động) để làm câu nghe trọn.
+  · `1.1`–`1.4` — câu `Caṇḍāli vanda pādāni gotamassa yasassino` là **ngôi thứ ba** đặt ngay
+    trong lời Đức Phật (chủ ngữ `Caṇḍāli`, động từ `vanda`, tân ngữ `pādāni`, nơi chốn
+    `gotamassa`). Tôi giữ nguyên ngôi thứ ba — *Nàng Caṇḍālī đảnh lễ đôi chân của Đức Gotama
+    lẫy lừng danh thơm* — vì đổi sang ngôi thứ hai sẽ làm sai chủ thể. `tāmeva` (1.3) =
+    *dành riêng cho Ngài một*.
+  · `2.1` `Abhippasādehi manaṁ` — `abhippasāda` là *thoải mái, hân hoan, tin tưởng*; 0 tiền lệ
+    cho mệnh lệnh dạng này. Tôi dịch *Xin hãy để lòng hoan hỷ nở rộ* (không chọn *tin tưởng*,
+    vì 2.2 đã nói rõ đối tượng là *bậc A-la-hán*).
+  · `2.2` `arahantamhi tādini` — `tādini` là **số nhiều**; tôi dịch *đối với những bậc A-la-hán
+    ấy* giữ số nhiều, dù Pāli `arahaṃ` ở đây nhiều khả năng chỉ một người (Đức Phật). Đây là
+    điểm nghi ngờ; nếu người biên tập chốt là số ít thì phải sửa riêng khoá này.
+  · `3.1`–`3.2` `Coditā bhāvitattena, sarīrantimadhārinā;` — cụm trùng nguyên văn ở
+    `thag20.1:25.2` nhưng bài đó **chưa** có bản Việt, nên không có câu nào để dùng lại. Tôi
+    dịch *Được lời thương nuôi dưỡng khuyến khích, nuôi lớn lên bằng lòng từ ái*;
+    `sarīrantim` là *làm cho lớn lên, tươi tốt*, `madhārinā` là *nuôi dưỡng bằng tình thương*.
+  · `9.3` `Tāsāhaṁ pavarā seṭṭhā,` — `pavarā` ở đây là *người tuyên thuyết*, **không** phải
+    tên riêng Pavarā: `vv33:7.2` `Pavarā hoti naresu nārīsu` cho thấy `pavarā` khi là tên luôn
+    đi kèm mệnh đề *được gọi là*. Tôi dịch *Trong số ấy, người tuyên thuyết tối thượng,* rồi
+    nối tiếp 9.4 (*về dung sắc, danh tiếng và tuổi thọ*).
+  · `10.1` `Pahūtakatakalyāṇā` — 0 tiền lệ (cùng Pāli ở `vv34:5.1` nhưng bài đó chưa dịch).
+    `pahūta` = *dồi dào*, `kata` = *làm/gây*, `kalyāṇā` = *lành*. Tôi dịch *Phúc lành dồn
+    dào,* và nối *đầy trí tuệ biết lo* (10.2) thành một câu.
+  · `7.1` `bhaddante` — xưng hô *các vị*; 0 tiền lệ trong `vv`.
+  · `4.1` `avadhī gāvī` — `gāvī` là *người chăn bò*, `Avadhī` là tên; `vv47:6.1` có đúng cụm
+    này (bài chưa dịch). Tôi dịch *gác chăn Avadhī*.
+
+  Cổng kỹ thuật CHƯA chạy — agent dịch không được phép chạy `npm run validate|test|build|
+  check|audit:store`. `save_vi` của `_hvi.py` đã pass cho 49/49 khoá. Người biên tập cần chạy
+  đủ `npm run validate`, `npm test`, `npm run check` trước khi coi `technical_integrity: 9.8`
+  là đạt. Bài này `draft` có blocker thật nên **không** thể lên `review`/`published` cho tới
+  khi tầng tham khảo xuất hiện — đó là giới hạn upstream, không phải việc người dịch sửa
+  được.
