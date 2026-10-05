@@ -47,6 +47,12 @@ export interface EditorialMeta {
   reviewedAt?: string;
   quality?: TranslationQualityAssessment;
   tags?: string[];
+  /**
+   * "Tóm tắt & diễn giải" do dự án biên soạn: văn xuôi thuần, ≤ 500 từ, chỉ diễn đạt
+   * điều bài kinh nói. Đây là lớp hỗ trợ đọc, không phải kinh văn — hiển thị thành một
+   * mục riêng, tách khỏi các segment canonical ở dưới nó.
+   */
+  summary?: string;
 }
 
 /**
@@ -144,6 +150,8 @@ export interface CanonDocument {
   canonicalOrder: number;
   paliTitle?: string;
   viTitle: string;
+  /** Tóm tắt & diễn giải do dự án biên soạn, khi meta có trường `summary`. */
+  summary?: string;
   status: EditorialStatus;
   hasProjectData: boolean;
   segments: CanonSegment[];

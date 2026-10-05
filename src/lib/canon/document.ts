@@ -259,6 +259,7 @@ export function composeDocument(collection: CollectionCode, uid: string): CanonD
     canonicalOrder: item.order,
     paliTitle,
     viTitle: (meta as EditorialMeta | null)?.translationTitle || `${uid.toUpperCase()}`,
+    summary: meta?.summary,
     status: (meta as EditorialMeta | null)?.status ?? 'draft',
     hasProjectData,
     segments,

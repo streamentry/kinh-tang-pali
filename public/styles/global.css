@@ -63,6 +63,14 @@ h2 { letter-spacing: -.025em; }
 .provenance-line { color: var(--muted); font-size: .78rem; margin: -.4rem 0 1.1rem; }
 .provenance-line code { font-size: .95em; }
 
+/* Tóm tắt & diễn giải do dự án biên soạn. Phải trông khác hẳn các hàng kinh văn dưới nó:
+   đây là lớp hỗ trợ đọc của dự án, không phải kinh — viền trái màu accent thay vì
+   hàng segment trơn, và chữ nhỏ hơn chữ kinh. */
+.sutta-summary { border: 1px solid var(--line); border-left: 3px solid var(--accent); border-radius: .45rem; background: var(--surface); margin: 1.1rem 0 1.4rem; padding: 1rem 1.15rem; }
+.sutta-summary h2 { margin: 0 0 .6rem; font-size: .78rem; letter-spacing: .1em; text-transform: uppercase; font-weight: 800; color: var(--accent); }
+.sutta-summary p { margin: 0 0 .7rem; font-size: .93rem; line-height: 1.75; }
+.sutta-summary .summary-note { margin: .8rem 0 0; padding-top: .6rem; border-top: 1px dashed var(--line); color: var(--muted); font-size: .78rem; line-height: 1.6; }
+
 /* --- four-version comparison reader ------------------------------------ */
 
 .reader-toolbar { position: sticky; top: .5rem; z-index: 5; display: flex; justify-content: space-between; gap: 1rem; align-items: center; flex-wrap: wrap; padding: .55rem; background: color-mix(in srgb, var(--paper) 90%, transparent); backdrop-filter: blur(12px); border: 1px solid var(--line); border-radius: .55rem; margin: 1rem 0; }
