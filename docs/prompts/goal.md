@@ -269,6 +269,46 @@ Ngoài ra `Ito vīsakappasate` = 20×100 = **2.000** mà tầng ghi *"một tră
 ⇒ Phép thử đơn vị số nay **15/15**. `Catuttiṁse` (3.400) đã bị **gỡ khỏi** bảng kiểm: bản Việt *"ba mươi tư
 trăm"* nhập nhằng, đọc được cả 430 lẫn 3.400 ⇒ **không** phân xử được bằng phép.
 
+### 🔴 🔴 Lỗ hổng **cấu trúc**: **31** bài lớn sẽ không bao giờ được giao
+
+Bộ sinh lát chọn bài **tăng dần theo số khoá** (để lát đầu dễ). Nhưng phần còn lại **không** phân bố đều:
+
+| cỡ bài | số bài | số khoá |
+|---|---|---|
+| 41–80 | 273 | 17.739 |
+| 81–200 | 325 | 38.507 |
+| 201–600 | 91 | 30.213 |
+| **>600** | **31** | **38.664** |
+
+**20** bài lớn nhất giữ **30.491** khoá = **24%** tổng. `kn/ps1.1` riêng đã **4.788** khoá.
+
+⇒ Vì cắt theo ngân sách 95, **không** bài nào >600 khoá lọt vào lát. Khi các lát nhỏ cạn, chúng **nằm
+lại mãi** mà bộ sinh **không bao giờ** giao. Đây là lỗ hổng của **công cụ**, không phải thiếu việc.
+
+**Cách chữa — `_mkslice.py --split <col>/<uid>`:** chia **một** bài lớn thành nhiều lát **cùng uid**,
+mỗi lát một khoá-duyên nhất định, cỡ ngân sách. Lát sau **nối tiếp** lát trước. Bản làm việc mang
+`part` · `partial: true` · `keysTotal` · `keysDoneBefore`, và `BRIEF_SLICE.md` có mục riêng về luật lát dở.
+
+### 🔴 Và cái bẫy: **hai phần cùng lúc sẽ mất khoá, không có dấu hiệu**
+
+Thử đầu tiên cho thấy: `--take 2` sinh được **hai** phần, cả hai đều tính `keysDoneBefore` từ **cùng**
+trạng thái đĩa (0 khoá) ⇒ hai agent sẽ ghi **cùng một tệp** và agent sau **ghi đè** agent trước.
+
+⇒ Đã thêm khoá `vc/.split-<col>-<uid>.lock` (90 phút): còn khoá thì **từ chối** sinh phần tiếp theo và
+in lý do. Khoá quá 90 phút thì coi phần trước đã chết, cho phép ghi đè và đổi tên `.stale`.
+
+⇒ **Luật chung:** bất cứ lần nào nhiều lát cùng ghi **một tệp**, phải có khoá **và** phải tuần tự
+hoá. Ghi đè âm thầm là loại mất dữ liệu tệ nhất — không có báo cáo, không có thống kê, chỉ có khoá
+thiếu dần.
+
+### ⚠️ Tỉ lệ lát chết: **4 / 8** ở đợt gần nhất
+
+`n54` `n66` `n69` kết thúc *không có báo cáo* nhưng **đã ghi tệp**; `n72` kết thúc *không có báo cáo* và
+**không ghi gì**. Cả bốn đều cần giao lại hoặc giao lát review riêng.
+
+⇒ Đã thêm vào prompt: **ghi tệp sớm** (sau nửa bài thì ghi luôn), và brief dùng chung
+`BRIEF_SLICE.md` thay cho prompt dài. **Chưa** chứng minh là brief ngắn hơn giúp — phải đo ở đợt sau.
+
 ### 🔴 `Tiṁsakappasahassa`: tôi **tự phỏng đoán** rồi dùng nó để "sửa" — đã gỡ
 
 Tôi ghi `Tiṁsakappasahassamhi` = `tiṁsa` 3 × `kappa` 100 = **3.000**, dùng con số đó để sửa **4** tệp
