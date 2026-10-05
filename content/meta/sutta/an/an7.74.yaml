@@ -1,0 +1,67 @@
+uid: an7.74
+status: published
+translationTitle: "Kinh Araka"
+translators:
+  - "OpenCode Space Bunny Free (agent)"
+reviewers: []
+tags:
+  - "arakasutta"
+  - "araka"
+  - "tăng chi bộ"
+  - "phạm lớn"
+  - "vô thường"
+  - "sanh tử"
+quality:
+  scores:
+    source_provenance: 9.6
+    semantic_fidelity: 9.4
+    grammar_logic: 9.4
+    segment_alignment: 10.0
+    terminology: 9.4
+    triangulation: 9.0
+    vietnamese_clarity: 9.4
+    han_viet_balance: 9.3
+    ambiguity_integrity: 9.3
+    technical_integrity: 9.6
+  final_score: 9.44
+  blocking_errors: []
+  assessed_at: "2026-10-06"
+  assessed_by:
+    - "OpenCode Space Bunny Free (agent)"
+notes: |-
+  Dịch từ PĀLI root (authority cuối cùng), đối chiếu bản Anh Sujato đã ghim, và — quan trọng nhất với bài này — dùng lại NGUYÊN VĂN của chính những khoá trùng byte trong tầng Việt đã có.
+
+  **COVERAGE TẦNG ANH — ĐO THẬT: 40/40 khoá Pāli có nội dung = 1,0000** (ngưỡng 0,80 nên không phải ghi nhận gap; tôi KHÔNG đụng `content/meta/reference-gaps.yaml`). Mẫu số theo đúng `source/layers.yaml`: `substantivePaliMinChars = 40`, bỏ khối tham chiếu `:0`. 54 khoá ⇒ loại 3 khoá tham chiếu `0.1`–`0.3` và 11 khoá dưới 40 ký tự (`4.3`, `5.3`, `6.3`, `7.3` dài 24; `11.5` dài 8; `11.6` dài 18; `12.0` dài 11; `12.1` 18; `12.2` 24; `12.3` 23; `12.4` 20) ⇒ còn **40**. Tệp `sutta/an/an7/an7.74_translation-en-sujato.json` **có trong `source/upstream-manifest.json`** (tầng `english-sujato`, 4.291 tệp, treeSha 24e81ded…, commit `11c9d708978cde8ba61096d8a75f7ddfb846f639` khớp `source/suttacentral.lock.json`) và đã sync trên đĩa: 54 khoá, 43 khoá có chữ. **Số khoá Pāli có nội dung mà Sujato im lặng: 0.** 11 khoá Sujato rỗng đều là khoá Pāli ngắn hơn 40 ký tự (4 khoá `…amaraṇaṁ.` + 5 khoá đánh số + 2 khoá tiêu đề `Mahāvaggo`/`Tassuddānaṁ`), nên **không có khoá nào để lấp ở lớp `english-project`** (`content/meta/en/an/an7.74.yaml` không tồn tại và không nên tồn tại). Tầng `vietnamese-current` vắng tại commit đã ghim (chỉ 26 tệp, toàn bộ là Pháp Cú) ⇒ không có bản Hòa thượng Thích Minh Châu để đối chiếu; đây là đặc điểm của snapshot upstream, không phải thiếu sót của kho.
+
+  **🔴 TẦNG ANH ĐÃ GHIM CÓ LỖI Ở CHÍNH BÀI NÀY — dùng làm CẢNH BÁO, không làm nguồn.** Bốn chỗ, đã đo:
+  1. `3.2` bị lược sai. Pāli khoá này viết **đủ** công thức (`…bahupāyāsaṁ mantāyaṁ boddhabbaṁ, kattabbaṁ kusalaṁ, caritabbaṁ brahmacariyaṁ, natthi jātassa amaraṇaṁ.`, 193 ký tự, KHÔNG có `…pe…`), nhưng Sujato chỉ dịch `In the same way, life as a human is like a bubble. …`. Tôi viết **đủ**, theo luật không bao giờ mở rộng lược và cũng không bao giờ kế thừa lược sai của tầng tham khảo.
+  2. **Mùa đảo thứ tự, tự mâu thuẫn với chính nó.** `10.5`, `10.7`, `10.9` dịch `hemanta, gimha, vassa` thành "winter, summer, rains" (đông, hạ, mưa — đúng thứ tự Pāli); nhưng `10.11` và `10.13` lại dịch thành "summer, winter, and rains" (hạ trước đông). Tôi giữ thứ tự Pāli ở cả năm khoá.
+  3. `ratta` bị Sujato dịch là "days" ở `10.10` và "nights" ở `11.2` cho cùng một từ. Pāli `rattisahassāni` = **đêm**, tôi giữ "đêm"; chuỗi 2.400 nửa tháng × 15 = 36.000 khớp với "đêm" y như với "ngày", nên đây là chỗ Sujato chuẩn hoá, không phải chỗ tôi sửa số.
+  4. `kapimiddha` bị Sujato dịch là "anger" (sân), vốn không có cơ sở nào trong Pāli. Tôi dịch theo nghĩa gốc của `middha` và ghi bất định ở dưới.
+  ⇒ Vì lớp Anh có mặt và phủ 40/40 nhưng **không đáng tin tuyệt đối ở đúng bài này**, `triangulation` bị tôi hạ xuống **9,0** chứ không nâng lên 9,4 như một bài `an` chỉ có Anh đáng tin.
+
+  **`translationTitle` — ĐO, ghi cả hai số.** `translationTitle` ở `content/meta/sutta/an/*.yaml` là **tên bài** (khớp khoá `:0.3`), không phải tiêu đề sách. Đo trên 1.167 bài `an` có tên Pāli dạng `<X>sutta`: **giữ nguyên tên Pāli 47 · dịch nghĩa 1.074** ⇒ đa số toàn tầng DỊCH NGHĨA. Nhưng 47 bài giữ Pāli đều là bài đặt theo **tên riêng một người** (Saṅgārava, Upāli, Mahāli, Sāriputta, Vāhana, Ānanda, Subhūti, Hatthaka, Samiddha…), và 4 tiền lệ gần nhất trong đúng `an7` cũng thế: `an7.21` "Kinh Sārandada", `an7.59` "Kinh Kimila", `an7.7` "Kinh Ugga", `an7.73` "Kinh Sunetta". `Araka` là tên riêng một người, nên tôi chọn **"Kinh Araka"** và ghi rõ đây là chọn theo phạm vi gần, không phải theo đa số toàn tầng.
+
+  **Tiêu đề sách ở khoá `0.1` — hai phạm vi cho hai đa số khác nhau, ghi cả hai.** `Aṅguttara Nikāya 7.74` ⇒ tôi dịch **"Kinh Tăng Chi Bộ 7.74"**. Đếm: toàn bộ khoá `:0.1` trong `an` là **Kinh Tăng Chi Bộ 906 : Aṅguttara Nikāya 376**; nhưng thu hẹp vào `an7` thì đảo ngược: **Aṅguttara Nikāya 57 : Kinh Tăng Chi Bộ 24**. Tôi chọn "Kinh Tăng Chi Bộ" vì (a) hai phạm vi rộng (`an` 906:376, và `an5` đo được 902:363) đều nghiêng về dạng này, (b) bài anh em ngay sát trong cùng phẩm — `an7.73` — dùng đúng "Kinh Tăng Chi Bộ 7.73", và đổi sang dạng kia sẽ làm hai trang kề nhau lật dạng. Người rà soát nên phán lại một lần cho cả `an7`. `0.2` `7. Mahāvagga` ⇒ "7. Phẩm Lớn": **17/17 khoá trùng byte trong tầng đã dùng đúng dạng này**, không có ngoại lệ.
+
+  **5/54 khoá có PĀLI trùng byte ở bài khác trong tầng; tôi dùng lại NGUYÊN VĂN.** Đo trên chỉ số Pāli→Việt của 5.430 tệp Việt (159.289 khoá): **735 cặp trùng đã dò**, trong đó **620 cặp Việt khớp tuyệt đối, 115 cặp khác**. Cả 5 khoá:
+  1. `1.2` trùng `an7.73:2.7` **trùng byte** (`Arakassa kho pana, bhikkhave, satthuno anekāni sāvakasatāni ahesuṁ.`) ⇒ dùng lại nguyên văn *"Này các tỳ-kheo, đạo sư Araka có nhiều trăm đệ tử."* — không dịch lại, để bài không tự mâu thuẫn với bài trước nó.
+  2. `1.1` trùng công thức `titthakaro kāmesu vītarāgo` của `an7.73:1.1` và `:2.6` ⇒ dùng lại nguyên văn *"…là một giáo chủ ngoại đạo, đã ly tham đối với các dục."* (2 tiền lệ).
+  3. `11.6` trùng `an3.70:40.6` **trùng byte** (`Mahāvaggo sattamo.`, chỉ có 1 tiền lệ) ⇒ *"Phẩm Lớn, chương thứ bảy."*, khớp thêm với `0.2` là "Phẩm Lớn".
+  4. `11.5` trùng `Dasamaṁ.` (257 cặp) ⇒ *"Thứ mười."* (**255 : 257**, đối lập "Kinh thứ mười." 1 và "Bài thứ mười." 1).
+  5. `12.0` trùng `Tassuddānaṁ` (459 cặp) ⇒ *"Tóm lược:"* (**346 : 459** toàn tầng; thu hẹp `an`: **84 : 107**, đối lập "Tóm lược" không dấu hai chấm 19). Đây là 113 trong 115 cặp lệch.
+  Ngoài byte-trùng, còn dùng lại nguyên văn theo **cùng công thức**: `mantāyaṁ boddhabbaṁ` / `kattabbaṁ kusalaṁ` / `caritabbaṁ brahmacariyaṁ` / `natthi jātassa amaraṇaṁ` — bốn cụm này có tiền lệ `dn19:51.5`, `:53.3`, `:54.3`, `:55.3` (**4 khoá, cả bốn giống hệt nhau**) ⇒ *"điều này phải được suy xét và tỉnh thức … phải làm việc thiện, phải sống phạm hạnh, vì người đã sinh không ai thoát khỏi cái chết"*; `…khippaṁyeva paṭivigacchati, na ciraṭṭhitikā hoti` → `an3.132:3.3` ⇒ *"biến mất ngay tức khắc, không tồn tại lâu dài"*; `nadī pabbateyyā dūraṅgamā sīghasotā hārahārinī` → `an5.51:3.2`/`:4.2` (trùng byte) ⇒ *"dòng sông từ núi chảy xuống, chảy được xa, chảy nhanh, mang theo mọi thứ"*; `kheḷapiṇḍaṁ saṁyūhitvā` → `mn152:7.9` ⇒ *"vo tròn một cục nước bọt nơi đầu lưỡi rồi nhổ ra một cách không tốn sức"*; `ayokaṭāhe` → `mn152:9.9` ⇒ *"chảo sắt được đốt nóng suốt cả ngày"*; `pañcavassasatikā kumārikā alaṁpateyyā` → `dn26:23.3` (cùng công thức) ⇒ *"thiếu nữ năm trăm tuổi mới được xem là đủ tuổi kết hôn"*; `sītaṁ, uṇhaṁ, jighacchā, pipāsā, uccāro, passāvo` → `an10.49:1.3` (sáu mục đầu trùng byte) ⇒ *"Lạnh, nóng, đói, khát, đi tiêu, đi tiệu"*; `satthārā karaṇīyaṁ sāvakānaṁ hitesinā …` → `mn19:27.1` **trùng byte tới `upādāya`** ⇒ *"điều một người thầy vì mong lợi ích cho đệ tử, vì lòng thương xót, vì lòng bi mẫn cần phải làm"*; `rukkhamūlāni … jhāyatha, bhikkhave, mā pamādattha …` → `mn19:27.2` ⇒ *"Hãy tu thiền, này các tỳ-kheo! Đừng buông lung! Đừng để sau này phải hối tiếc!"*
+
+  **Pāli trùng nguyên văn TRONG CHÍNH bài — 1 nhóm, 4 khoá, Việt khớp tuyệt đối.** `4.3` = `5.3` = `6.3` = `7.3` (`natthi jātassa amaraṇaṁ.`) ⇒ cả bốn đều là *"vì người đã sinh không ai thoát khỏi cái chết."* **0 nhóm lệch.** (Mẫu số của phép này chỉ là 1 nhóm — nhóm này KHÔNG rỗng, khác hẳn bài không có cặp trùng nào.)
+
+  **Thuật ngữ — chọn theo số đếm được, mỗi số đo bằng script.** `brāhmaṇa` xưng hô giữ *"này Bà-la-môn"*: đếm toàn tầng trên mẫu `…, brāhmaṇa, …` là **có 533 : không 211**; trên mẫu hẹp `Seyyathāpi, brāhmaṇa` là **có 10 : không 12**, tức mẫu hẹp nghiêng ngược — tôi giữ dạng "Bà-la-môn" ở cả 16 khoá có xưng hô ấy để trong bài nhất quán, và ghi rõ hai số. `Seyyathāpi` ⇒ *"như thể"*: toàn tầng **Ví như 380 : Như thể 98 : Giả sử 21**, nhưng thu hẹp `an` thì **Như thể 39 : Ví như 30 : Giả sử 15** ⇒ đa số gần nghiêng về "như thể", và tiền lệ `an3.132:3.3` cho đúng công thức của khoá `4.1` cũng viết "Như thể". `evamevaṁ kho` mở đầu ⇒ *"Cũng vậy"* (**47 : 39**, tổng 91 khoá; 5 khoá dạng khác). `titthakaro` ⇒ *"giáo chủ ngoại đạo"* (tiền lệ `dn2` và `mn77` đều dùng "lập ra một giáo phái"/"giáo chủ ngoại đạo"; `an7.73` dùng đúng *"một giáo chủ ngoại đạo"*). `vītarāgo` ⇒ *"đã ly tham"* (2 tiền lệ cùng công thức ở `an7.73`). `anekāni sāvakasatāni` ⇒ *"nhiều trăm đệ tử"* (`anekāni` = không phải ít, `satāni` = hàng trăm). `bhūtapubbaṁ` ⇒ *"Thuở xưa"* (nguyên văn `an7.73:1.1`). `sammā vadamāno vadeyya` ⇒ *"đáng được nói đúng là"* (`dn18:27.9` cùng công thức). `Tassuddānaṁ` xem trên. `Dasamaṁ` xem trên.
+
+  **Ba chỗ KHÔNG có tiền lệ — ghi lại để lát sau khỏi phát minh thêm cách.** (1) `daṇḍarāji` là hapax toàn lớp Pāli ghim (đếm: 1 tệp). Tôi dịch *"vạch vẽ trên mặt nước"*; tiền lệ gần nhất cho ý "vết khắc trên nước" là `an3.132:3.3` (`udakalekhā` ⇒ "vết khắc trên nước"), nhưng đó là `lekhā` chứ không phải `rāji`, nên tôi **không** dùng lại nguyên văn ấy. (2) `kapimiddha` là hapax (1 tệp), **0 tiền lệ đọc được**. Tôi dịch *"kể cả khi say sưa cũng không ăn"* theo nghĩa gốc của `middha` (mê mỉ, say). Sujato dịch "anger" (sân) — vốn không bám `kapi` lẫn `middha`, tôi không theo. Đây là chỗ **bất định còn mở** (xem dưới). (3) `āyuppamāṇa` trong `11.2` là mục thứ hai sau `āyu` trong danh sách đếm; `dn14:1.13.3` dịch `āyuppamāṇatopi` thành *"tuổi thọ"* — trùng nghĩa với `āyupi` ở ngay mục trước, nên tôi dịch *"giới hạn của tuổi thọ"* để hai mục không đè lên nhau (Sujato cũng tách *"the limit of the lifespan"*).
+
+  **Bất định còn mở, đã ghi — không che, và không đưa vào thân kinh.** (a) `kapimiddha` ở `11.1`: đọc "say rượu" và đọc "gục xuống vì mê mỉ rượu" đều bảo vệ được; cả hai cùng một nghĩa trong danh sách ngăn không cho ăn. Tôi chọn "say sưa". Người rà soát nên phán một lần. (b) `uccāro, passāvo` ở `9.3`: Pāli đi theo thứ tự **tiểu tiện rồi đại tiện**, nhưng tiền lệ trùng byte `an10.49:1.3` lại viết *"đi tiêu, đi tiệu"* (đảo). Tôi theo tiền lệ trùng byte ⇒ **đi tiêu, đi tiệu**; dạng đối lập *"đi tiêu, tiểu tiện"* có 1 khoá (`an10.65:2.4`). (c) `āghātanaṁ nīyamānā` ở `8.1`: là nơi giết, tôi dịch "lò giết"; Sujato dịch "slaughterhouse". (d) `Tena kho pana … samayena` ở `9.1` và `9.2`: cùng một mốc thời gian nhắc hai lần, tôi dịch cả hai là *"vào thời ấy"* để người đọc thấy đó là một mốc, không phải hai thời điểm.
+
+  **Phép đo tự chạy trên đĩa, không chạy cổng của kho.** `set(khoá Việt) == set(khoá Pāli)`: **54 / 54**, thiếu 0, thừa 0, và `list(Việt) == list(Pāli)` đúng thứ tự. Nháy `‘’“”` khớp Pāli **từng khoá**: mẫu số 216 cặp (54 khoá × 4 dấu), lệch **0**; tổng Pāli `“1 ”1 ‘3 ’3` = tổng Việt `“1 ”1 ‘3 ’3`. Dấu lược: Pāli `…pe…` = **4** khoá (`4.2`, `5.2`, `6.2`, `7.2`) và mỗi khoá Việt có **đúng một** `…`; Pāli `…` trần = 0; 50 khoá không có dấu lược thì Việt cũng không có; `(…)`: Pāli 0, Việt 0. NFC sạch 54/54, không khoá rỗng, không khoảng trắng thừa, không có dấu tiếng Pāli lọt sang tiếng Việt (0 dấu Pāli-only; 0 từ ASCII ≥ 4 ký tự chưa từng xuất hiện trong 4.361 mẫu từ của tầng Việt). JSON hợp lệ.
+
+  **SỐ PĀLI — tự tính từng số và in phép.** `saṭṭhi` 60 × `vassasahassa` 1.000 năm = **60.000** ⇒ "sáu mươi ngàn năm" (`9.1`; tiền lệ `dn26:23.3` dịch `asītivassasahassa` là "tám mươi ngàn năm" cho 80 × 1.000). `pañca` 5 × `vassasata` 100 = **500** ⇒ "năm trăm tuổi". `chaḷeva` = **6**. `vassasata` = **100** ⇒ "trăm năm" (khớp nguyên văn `sn4.9:2.4`). `tīṇi` 3 × `utusata` 100 = **300** mùa. `dvādasa` 12 × `māsasata` 100 = **1.200** tháng. `catvāri` 4 × 100 = **400** tháng mỗi mùa (× 3 = 1.200, khớp). `catuvīsati` 24 × `addhamāsasata` 100 = **2.400** nửa tháng. `aṭṭha` 8 × 100 = **800** mỗi mùa (× 3 = 2.400, khớp). `chattiṁsa` 36 × `rattisahassa` 1.000 = **36.000** đêm. `dvādasa` × 1.000 = **12.000** mỗi mùa (× 3 = 36.000, khớp). `dvesattati` 72 × `bhattasahassa` 1.000 = **72.000** bữa cơm. `catuvīsati` × 1.000 = **24.000** mỗi mùa (× 3 = 72.000, khớp). Chuỗi liên kết tự kiểm: 300 mùa ÷ 3 mùa/năm = **100 năm** ✓ · 1.200 tháng ÷ 12 = **100 năm** ✓ · 2.400 nửa tháng ÷ 24 = **100 năm** ✓ · 2.400 × 15 ngày = **36.000** ✓ · 72.000 bữa ÷ 36.000 ngày = **2 bữa/ngày**, hợp lý ✓. `dasama` = **10**, `sattamo` = **7**.
+
+  **`technical_integrity` = 9,6, và tôi KHÔNG tuyên bố technical gate đã pass.** Tôi bị cấm chạy `npm run validate` · `npm test` · `npm run check` · `npm run build`. Những gì tôi **đã** tự kiểm bằng script và đều sạch: nội dung JSON hợp lệ 54/54 khoá; tập khoá và thứ tự khoá khớp Pāli; NFC; khoá rỗng; khoảng trắng thừa; dấu Pāli lọt sang tiếng Việt; nháy đơn và nháy kép khớp **từng khoá**; dấu lược khớp từng khoá; nhóm Pāli lặp trong bài có Việt khớp tuyệt đối; mọi số Pāli đã tính bằng phép ở trên. Bốn cổng còn lại thuộc coordinator và CI.
