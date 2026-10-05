@@ -1,6 +1,6 @@
 uid: cp1
-status: draft
-translationTitle: "Tập Hạnh Tạp, Phẩm Akitti – Dānapāramí 1: Hạnh Của Akitti"
+status: published
+translationTitle: "Hạnh Của Akitti"
 translators:
   - "OpenCode Space Bunny Free (agent)"
 reviewers: []
@@ -11,48 +11,107 @@ tags:
   - "dana-parami"
 quality:
   scores:
-    source_provenance: 9.6
-    semantic_fidelity: 9.6
-    grammar_logic: 9.5
+    source_provenance: 9.8
+    semantic_fidelity: 9.3
+    grammar_logic: 9.3
     segment_alignment: 10.0
-    terminology: 9.5
-    triangulation: 9.0
-    vietnamese_clarity: 9.5
+    terminology: 9.4
+    triangulation: 9.3
+    vietnamese_clarity: 9.4
     han_viet_balance: 9.4
-    ambiguity_integrity: 9.3
-    technical_integrity: 10.0
-  final_score: 9.54
-  blocking_errors:
-    - "Bản dịch chỉ phủ 1 khoá có nội dung; lát được chia bằng bộ lọc coverage 40 ký tự thay vì missingAll nên bài thiếu khoá, validate yêu cầu requireComplete."
-  assessed_at: "2026-09-30"
+    ambiguity_integrity: 9.2
+    technical_integrity: 9.6
+  final_score: 9.47
+  blocking_errors: []
+  assessed_at: "2026-10-05"
   assessed_by:
     - "OpenCode Space Bunny Free (agent)"
 notes: |-
-  **Phạm vi: đúng một khoá** (`cp1:1.1`) trong 46 khoá Pāli. Tôi dịch khoá được
-  giao và **không** tự thêm 45 khoá còn lại.
+  Bài này trước đây chỉ có 1/46 khoá (`:1.1`) và bị đặt `draft` với lý do *bản dịch chỉ phủ 1
+  khoá*. Lát này viết lại đủ 46 khoá, nên lý do đó hết; hai tệp đã ghi.
 
-  **Tiêu đề ghép cả bốn dòng tiêu đề** vì chúng chưa có bản Việt: `cp1:0.1` =
-  *Cariyāpiṭaka*, `0.2` = *Akittivagga*, `0.3` = *Dānapāramī 1*, `0.4` =
-  *Akitticariya*. Sujato (đã ghim) dịch bốn dòng này làm một cụm
-  *The Conduct Leading to Buddhahood / The Chapter With Akitti / The Perfection of
-  Giving (1st) / Akitti's Conduct*. Tôi ghép làm nhãn đầy đủ, theo cách `cp35` đã làm
-  cho bài đầu tiên của tầng này.
+  **Vì sao `published` được ở đây mà `tha-ap128` thì không — hai bài này khác nhều, đừng kết luận
+  chung.** Đo theo đúng predicate `isSubstantive` của kho (Pāli ≥ 40 ký tự sau khi bỏ block `:0`):
+  mẫu số của `cp1` là **1** (`cp1:1.1`, 48 ký tự) và Sujato phủ **1/1** ⇒ **100%**, trên ngưỡng
+  `0.8` khai ở `source/layers.yaml`. Ngoài ra `english-sujato` **có** tệp thân kinh cho `cp1`:
+  `sutta/kn/cp/cp1_translation-en-sujato.json`, tôi đã đếm tệp này có **46/46** khoá của bài (chỉ
+  `cp1:12.1` rỗng), nên kiểm tra *pinned English reference lacks N segments* của `validate` không
+  bắt. Ba tầng tham khảo: `english-sujato` **có**; `vietnamese-current` **không** (26 tệp, toàn
+  bộ Pháp Cú — đặc điểm của bản chụp upstream, không phải thiếu sót của repo, và `Cariyāpiṭaka`
+  không nằm trong Pháp Cú nên không có bản Thích Minh Châu để đối chiếu); `english-project` không
+  có entry cho bài này.
+  Với `tha-ap128` thì ngược lại: `english-sujato` không có tệp thân kinh nào cho cả phẩm, nên
+  `draft` + blocker.
 
-  Câu này xuất hiện **17 lần** trong snapshot Pāli đã ghim. Trong tầng Việt
-  đã có sẵn **hai** cách dịch khác nhau, nên đây là chỗ bắt buộc phải tra tiền lệ:
-  *Kính lễ Đức Phật, bậc A-la-hán, bậc Chánh Đẳng Giác.* (`pv1:1.1`, `ja1:1.1`,
-  `thag1.1:1.0.2` — 3/5 cách đã có), *Kính lễ Đức Thế Tôn, …* (`kp1:1.1`) và
-  *Kính lạ Đức Thế Tôn, …!* (`thig1.1:1.0`). Tôi dùng lại nguyên văn cách đa số.
+  **Nhưng tầng Anh đã ghim ở bài này *lệch*, nên tôi chỉ dùng nó làm cảnh báo chứ không làm nguồn.**
+  Đọc song song cho thấy Sujato trượt dòng ở `4.3–4.4`, `5.3–5.4`, `6.1–6.2` và hiểu sai
+  `atelañca aloṇikaṁ` thành *without oil or salt*, hiểu sai `upagañchi mamantikaṁ` thành *he came
+  to me*, hiểu sai `sarīrasmiṁ vivaṇṇiyaṁ` thành *my body is not discolored*, và thêm *did not*
+  vào `11.2` trong khi Pāli không có. Tôi giữ Pāli là authority cuối cùng ở từng khoá, kể cả ở
+  `2.3–2.4` và `8.1–8.4` nơi Sujato dịch đúng nghĩa nhưng lệch ranh giới vế. `triangulation` 9.3
+  là vì có một lớp Anh độc lập thật (khác `tha-ap128` không có gì), nhưng lớp ấy không đáng tin ở
+  đây.
 
-  **Bất định đã ghi nhận, chưa có cách nào tuyệt đối:** `bhagavato` là
-  *Bậc Đã Được Vinh Danh*, mà *Đức Thế Tôn* giữ nghĩa đó sát hơn *Đức Phật*. Tôi vẫn
-  chọn *Đức Phật* vì đó là cách đã có sẵn 3/5 trong tầng và là lối đọc quen với người
-  Việt; ở chính lát này tôi dùng *Đức Thế Tôn* cho `bhagavato` ở chuỗi `bhagavato
-  vaṁso` (xem `notes` của các phẩm bv), vì đó là cách dùng quen thuộc cho các Đức
-  Phật quá khứ. Biên tập có thể muốn thống nhất hai chỗ này.
+  **`translationTitle` đổi theo đa số 26 bài anh em, và nói rõ.** 26 tệp `cp` đã `published` đặt
+  `translationTitle` bằng **giá trị `:0.4`** (tên bài), không phải `:0.3` — ví dụ `cp2` *Hạnh Của
+  Saṅkha*, `cp3` *Hạnh Của Vua Kururāja*. Luật `translationTitle` = `:0.3` trong `BRIEF_THAP.md`
+  là luật riêng của phẩm `tha-ap`, ở đó `:0.3` mới là tiêu đề bài; ở `cp` thì `:0.3` là
+  *Ba-la-mật* và `:0.4` mới là tên bài. Tệp cũ để chuỗi ghép *Tập Hạnh Tạp, Phẩm Akitti –
+  Dānapāramī 1: Hạnh Của Akitti* (theo cách `cp35` làm), tức lệch với **26/26** bài anh em; tôi đổi
+  thành *Hạnh Của Akitti* và ghi lại việc đổi này để biên tập biết. Bốn khoá tiêu đề dịch theo
+  đúng số của lớp: `:0.1` *Hạnh Tạng* (**25** chỗ) · `:0.2` *Phẩm Akitti* (**6**) · `:0.3`
+  *Bố Thí Ba-la-mật Thứ Nhất* (anh em cp2–cp7 dùng *Bố Thí Ba-la-mật Thứ Hai/Thứ Ba/Thứ Tư/
+  Thứ Năm/Thứ Bảy*; riêng `cp6` lệch thành *Bố Thí Ba-la-mật 6*, tôi theo nhóm đa số) ·
+  `:0.4` *Hạnh Của Akitti*.
 
-  **Đối chiếu được tầng Anh.** Sujato có mặt ở **đúng khoá này**: *Homage to him, the
-  blessed one, the perfected one, the fully awakened Buddha!* — nên `triangulation` ở
-  mức cao của lát. Bản Việt tham khảo (Thích Minh Châu) không có `Cariyāpiṭaka` tại
-  commit đã ghim. Cũng như các bài khác của lát, chỗ dễ nhất là chữ *Đức Phật* ở
-  `bhagavato` (xem mục bất định ở trên) ⇒ `ambiguity_integrity` 9.3.
+  **Thuật ngữ, đếm được trong `content/translation/vi/project/sutta/` (5.408 tệp, 157.308 khoá).**
+  `Namo tassa Bhagavato Arahato Sammāsambuddhassa.` → *Kính lễ Đức Phật, bậc A-la-hán, bậc Chánh
+  Đẳng Giác.* **10** (nhóm kia là *Đức Thế Tôn* 1 và *Kính lạ* 1 — tôi theo nhóm đa số).
+  `sabbaññutaṁ` → *Nhất Thiết Chủng Trí* **7** vs *toàn biết* **1**; `cp3:8.3` và `cp23:10.3`
+  cùng phẩm đã dùng *Nhất Thiết Chủng Trí* nên tôi theo. `tāpaso` → *đạo sĩ* (toàn tầng *đạo sĩ*
+  **228** vs *ẩn sĩ* **180**; `cp28:1.2` dùng *đạo sĩ* cho `tāpaso`). `bhikkhāya` → *khất thực*:
+  `tha-ap284:1.4` `bhikkhāya mamupaṭṭhito` đã dịch *Ngài đã đến trước tôi khất thực.* — đó là
+  bằng chứng Pāli rằng `bhikkhāya` ở đây là *đi khất thực*, không phải *với tịch đạo sĩ*.
+  `upagañchi mamantikaṁ` → *dồn vào chiếc nệm*: `cp16:9.4` có đúng cụm này (`Rājānaṁ so
+  gahetvāna, upagañchi mamantikaṁ.` — bắt vua ném xuống chiếc nệm), nên đây là *ném/đồ lên*, không
+  phải *đến gần*. `bodhipācana` (gerundive của `pācayati`, *làm chín muồi*) → *làm cho giác ngộ
+  chín muồi*, giữ nghĩa *chín muồi* mà Sujato rút còn *ripens in awakening*.
+
+  **Năm bất định đã ghi, không đoán bừa và không che.** Cả năm đều là chuyện từ vựng hoặc ngữ pháp
+  của một câu, **không** đổi nghĩa giáo lý, nên không nâng thành blocker:
+  `6.2 aloṇikaṁ` có hai nghĩa đã đo được — *tự thuộc về mình, không chia với ai* và *nhạt, không
+  mặn*; nghĩa *nhạt* chỉ có hai chứng tử (`vv42:5.1` và `ja415:1.3`, đều trong danh sách vị:
+  *Sukkhāya aloṇikāya ca*), còn `atelaṃ` ngay cùng cụp đã mang nghĩa *không dính*, nên tôi chọn
+  nghĩa *chỉ thuộc riêng về nó* và ghi nghĩa kia. `7.4 pāvisiṁ` là cụm duy nhất trong corpus: có
+  thể là intensive present participle của `pavisati` (*bước vào*) — giống `cp23:9.4`, `cp24:8.4`,
+  `cp25:3.4` ngay trong cùng tập — hoặc tính từ *mờ ám*; tôi theo dạng động từ vì có bốn chứng tử
+  cùng tập. `7.3 puṇesanaṁ` là hapax toàn Pāli gốc; tôi dịch trung tính *sự tìm tìm* và không bịa
+  thêm tân ngữ nào. `5.1–5.4` là chỗ khó nhất: `maṁ` và `tidivābhibhū` đứng cùng một câu mà
+  `upāgami` lại ở vế sau, nên vị chúa tể ba thế giới phải là người đến (đó là chỗ bậc ẩn sĩ
+  mượn dạng Brāhmaṇa mà kệ `4.4` gọi là *đạo sĩ*, và người kể là Akitti ở `4.3–4.4`); tôi giữ
+  đủ từng từ của Pāli và đặt dấu chấm phẩy ở `5.2` để báo rằng vế sau là chủ thể mới, thay vì
+  tự chọn một chủ thể. `11.1–11.4`: `Na` chỉ có một lần ở `11.1`; tôi hiểu phạm vi của nó là
+  *không phải vì danh tiếng và lợi ích*, còn `Sabbaññutaṁ patthayāno` ở `11.3` là động cơ
+  thật, nên câu dịch là *không phải vì … mà mong danh tiếng và lợi ích; vì mong Nhất Thiết
+  Chủng Trí, tôi đã làm những việc ấy* — và điều đó khớp với kết quả ở `8.1–9.4` là làm vua,
+  chứ không phải toàn tri. Tôi **không** thêm phủ định thứ hai vào `11.3` vì Pāli không có.
+
+  **Trùng Pāli.** Đã dò **59** cặp Pāli trùng nguyên văn có bản Việt ở bài khác; dùng lại
+  nguyên văn **3** khoá (`:0.1`, `:0.2`, `:1.1`), viết khác **0**. **Trong chính bài này không có
+  cặp Pāli trùng nào mà Việt khác nhau: 0 nhóm.**
+
+  **Năm phép kiểm tự chạy, in số.** Mẫu số mỗi phép đều là **46 khoá**:
+  (1) `set(khoá Việt)` 46 = `set(khoá Pāli)` 46, thiếu 0, thừa 0.
+  (2) dấu `“ ” ‘ ’` khớp Pāli từng khoá: 46 khoá, lệch 0. Pāli mở `“` ở `:2.1` và đóng `”` ở
+  `:11.4`, nháy chạy qua khoá — bản Việt y hệt.
+  (3) Pāli trùng nguyên văn trong chính bài: 0 nhóm, 0 nhóm có Việt khác.
+  (4) `…pe…` / `…` trần / `(…)` / `….-…`: 46 khoá, lệch 0; bài này Pāli không có `…pe…` nào nên
+  bản Việt cũng không có `…` nào.
+  (5) NFC thuần 46/46; `(…)` đứng một mình 0.
+  `_hvi.py` tôi không chạy: 45/46 khoá Pāli ngắn hơn 40 ký tự nên bộ lọc của nó quét không mấy
+  khoá nào rồi báo xanh — đó là *không kiểm gì*, không phải pass.
+
+  **Cổng kỹ thuật chưa chạy.** Lát này bị cấm `npm run validate|test|check|build`, nên
+  `technical_integrity` để **9,6** và không tuyên bố technical gate pass. Bốn lệnh còn lại
+  thuộc cổng của người điều phối: `npm run validate` · `npm test` · `npm run check` ·
+  `npm run build`.
