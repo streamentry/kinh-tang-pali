@@ -1,0 +1,79 @@
+uid: sn4.21
+status: published
+translationTitle: "English fill (10 segment)"
+englishTitle: "Several — the mendicants report the brahmin who was Māra to the Buddha"
+translators:
+  - "OpenCode Space Bunny Free (agent)"
+reviewedAt: 2026-10-05
+tags:
+  - english-fill
+  - store
+  - samyuktanikaya
+  - repeated-pali
+quality:
+  scores:
+    source_provenance: 9.6
+    semantic_fidelity: 9.5
+    grammar_logic: 9.4
+    segment_alignment: 10.0
+    terminology: 9.5
+    triangulation: 7.5
+    vietnamese_clarity: 9.4
+    han_viet_balance: 9.4
+    ambiguity_integrity: 9.4
+    technical_integrity: 9.6
+  final_score: 9.33
+  blocking_errors: []
+  assessed_at: "2026-10-05"
+  assessed_by:
+    - "OpenCode Space Bunny Free (agent)"
+notes: |-
+  Mục 1 của bài là Māra cải trang thành Bà-la-môn nói với các tỳ-kheo; mục 2 là các tỳ-kheo
+  kể lại đúng cuộc gặp ấy cho Đức Phật. Vì vậy bản lấp ở đây **không dịch mới phần lớn**:
+  lấy lại bộ từ tầng đã ghim dùng cho cùng những mệnh đề ấy. Đo bằng máy:
+  - **4 khoá y nguyên từng chữ** với tầng đã ghim: 2.4 = 1.5 (lời Bà-la-môn), 2.9 = 1.9,
+    2.10 = 1.10, 2.11 = 1.11. Trong đó 2.9 và 2.10 còn có **Pāli trùng nguyên văn** với 1.9
+    và 1.10, nên bắt buộc phải dùng lại nguyên văn — đây là luật 2 của lớp lấp, đo được bằng
+    máy chứ không phải bằng trí nhớ.
+  - **3 khoá dựng lại từ dải đã ghim**: 2.2 (`appamattā ātāpino pahitattā` → lấy đúng
+    “diligent, keen, and resolute” của 1.3, cùng bài), 2.3 (danh sách vẻ ngoài Bà-la-môn lấy
+    nguyên từ 1.4: “a large matted dreadlock, wearing an antelope hide”, “old, bent double,
+    wheezing”, “a staff made of cluster fig tree wood”), 2.12 (cử chỉ lắc đầu/liế lưỡi/cau
+    trán lấy nguyên từ 1.12).
+  - **3 khoá là chiều đảo của dải đã ghim**: 2.8 là câu đảo của 2.9, 2.6 là câu đảo của 1.9
+    (`sandiṭṭhikaṁ hitvā kālikaṁ` ↔ `kālikaṁ hitvā sandiṭṭhikaṁ`), 2.7 là dẫn nhập câu.
+
+  Kiểm chéo ngoài bài: cụm `appamattā ātāpino pahitattā` còn xuất hiện ở `dn16:5.10.3`,
+  `dn23:11.42`, `mn31:9.1`, `mn128:14.9` và `sn4.21:1.3`, và tầng đã ghim dịch chúng thành
+  “diligent, keen, and resolute” ở cả năm nơi — nên 2.2 theo đúng bộ từ ấy.
+
+  BẤT ĐỊNH CẦN GHI, KHÔNG GIẤU: 2.5 (`Bhuñjantu bhavanto mānusake kāme.`) cũng trống ở tầng đã
+  ghim và nằm trong tập lấp được, nhưng **không thuộc lát này** (và chỉ 34 ký tự, dưới ngưỡng
+  40 của `substantivePaliMinChars`, nên nó không tính vào coverage). Hệ quả: cột Anh đọc 2.4
+  rồi thẳng 2.6, thiếu câu “Enjoy human sensual pleasures.” — vế mà Pāli 2.5 có. Ghi thẳng thay
+  vì bịa câu. 2.2 cũng vì vậy đọc hơi lơ lửng sau 2.1, vốn đã ghim là “They went up to the
+  Buddha, bowed, sat down to one side, and told him what had happened. The Buddha said,”.
+
+  2.8 và 2.6 thêm chữ `Brahmin,` ở đầu vì Pāli mở lời thoại bằng `‘na kho mayaṁ, brāhmaṇa,`
+  và `‘Mā …’`, còn 1.9/1.10 đã mang `, brāhmaṇa,` trong chính câu — giữ vậy thì hai cặp vế
+  đối xứng đọc cân.
+
+  Không có dấu lược trong Pāli của cả mười khoá (đã kiểm: không khoá nào chứa `…`).
+
+  Triangulation 7.5: scorecard Việt của `sn4.21` (`content/meta/sutta/sn/sn4.21.yaml`) ghi
+  `quality.assessed_by` là “Muse Spark”. Đó là **tên phát hành của chính công cụ đang chạy lát
+  này** (`source/tooling.yaml`: `release: "Muse Spark 1.3 Free"`, `aliasInMetadata: "OpenCode
+  Space Bunny Free (agent)"`), và nó xuất hiện ở 461 chỗ trong metadata Việt của kho. Cơ chế
+  cảnh báo trùng tác giả trong `validate` so **chuỗi**, nên không phát hiện ra. Vì vậy coi như
+  cùng họ công cụ: bản lấp **không** phải lớp đọc Anh độc lập cho bài này, và không được
+  tuyên bố đã đối chiếu Anh độc lập. Đối chiếu có: Pāli root + tầng Sujato đã ghim (34 khoá)
+  + bản Việt canonical (34 khoá). Không sửa metadata Việt.
+
+  technical_integrity 9.6: không được chạy `npm run validate`, `npm test`, `npm run check`,
+  `npm run build` trong lát này (cấm của người điều phốn), nên không tuyên bố technical gate
+  pass. Bốn lệnh đó còn lại cho người điều phốn.
+
+  Hệ quả với `content/meta/reference-gaps.yaml`: sau khi lớp lấp này `published`, coverage của
+  `sn/sn4.21` lên 23/23 = 1.0 (đo trước khi ghi: subst 23, substNoEn 10, ratio 0.5652), nên
+  record `sn4.21` trong file đó **thành thừa** và phải được bỏ bằng `npm run reference:gaps`.
+  Lớp lấp không tự sửa file đó (cấm), nên báo lại ở đây.
