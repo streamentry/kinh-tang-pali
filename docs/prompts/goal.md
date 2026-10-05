@@ -156,6 +156,38 @@ trong bản dịch trong khi Pāli `:0.3` của cả hai chỉ là `Suvaṇṇap
 Và `n35` cũng sửa `tha-ap144:6.1` / `tha-ap145:6.1`: bản nháp ghi *"đã từng nói **bài kệ này**"* trong khi
 Pāli `imā gāthāyo` là **số nhiều**, và `abhāsitthāti` là quá khứ của **một** sự kiện.
 
+### 🔴 🔴 Bẫy lát **trùng**: đã mắc **hai** lần, cùng một cơ chế
+
+| lần | chuyện | vì sao phép đo **không** thấy |
+|---|---|---|
+| `tf15` | chạy song song `tf12`; 16/25 khoá trong tệp làm việc **đã cũ** | tệp làm việc là **ảnh chụp** trạng thái đĩa *trước khi* lát kia sửa |
+| `n45` / `n46` | sinh ra **trùng** `n40` / `n41` đang chạy | tệp dịch của các bài đó trên đĩa lúc đó **chỉ có 1 khoá** (lượt trước lọc theo ngưỡng 40 ký tự) ⇒ phép đo "còn thiếu" **vẫn đúng**, chỉ sai về điều phốn |
+
+⇒ Nguyên nhân chung: **tệp làm việc không tự biết mình đã lỗi thời**. Không phải lỗi phép đo.
+
+**Cách chữa cấu trúc** — `/Volumes/SSD/opencode-work/_mkslice.py`:
+1. **loại** mọi bài của lát đang chạy khỏi phép đo, và `assert` không có trùng trước khi ghi;
+2. **không ghi đè** tên lát đã tồn tại — đổi thành `.bak` để còn đối chiếu được;
+3. **lọc theo catalogue** (cache Pāli có **824** bài ngoài phạm vi: `sn12.104-114`, `an1.248`, `dhp*`…);
+4. `--status` in lát nào đang chạy và còn bao nhiêu việc ngoài chúng.
+
+⇒ **Luật:** lát mới chỉ giao khi bộ này **không** in ra tên trùng, và phải đọc `--status` **trước**, không
+đếm lát đang chạy bằng trí nhớ.
+
+### ⚠️ Đã **không** sửa: "phi phi tưởng" — tra tiền lệ trước, và nó **không phải** lỗi
+
+`an1.453:1.1` / `an1.454:1.1` dịch `nevasaññānāsaññāyatana` thành *"xứ phi tưởng **phi phi tưởng**"*, thoạt
+nhìn như lặp từ. Đo toàn tầng: **168** khoá / **62** tệp đã dùng đúng dạng này, và `dn15` viết hoa là
+**"Phi Tưởng Phi Phi Tưởng Xứ"**. Đó là cách dịch **đã thành quy ước** (`nevasaññāna` + `āsaññāyatana`).
+
+⇒ Đã **không** sửa. Đây là lần thứ hai trong phiên tôi sắp sửa một thứ đúng vì **diễn ra** trông như lỗi; lần
+trước là `an1.574:2.3` (*"tâm ấy"* có tiền lệ ở `an1.53:1.4`). **Luật: "trông như lỗi" không phải tiêu chí
+sửa — tiêu chí là đo tiền lệ trước.**
+
+Còn `naṁ` trong `Ko pana vādo ye naṁ bahulīkarontī”ti.` thì **thực sự** là thủ phạm điển hình: Pāli trùng
+byte ở `an1.394:1.3` (*"thiền ấy"*) và `an1.574:2.3` (*"tâm ấy"*) mà vế trước ở mỗi bài lại khác nhau. Không
+ép một dạng — giao cho lát review đọc vế trước từng bài rồi **ghi lý do**.
+
 ### 🔴 Hai bất biến agent vi phạm **nhiều lần** — và vì sao phải để máy canh
 
 #### 1. `translationTitle` phải **BẰNG ĐÚNG** `:0.3` — vi phạm **4 lần**, 4 đợt
