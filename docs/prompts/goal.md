@@ -156,6 +156,58 @@ trong bản dịch trong khi Pāli `:0.3` của cả hai chỉ là `Suvaṇṇap
 Và `n35` cũng sửa `tha-ap144:6.1` / `tha-ap145:6.1`: bản nháp ghi *"đã từng nói **bài kệ này**"* trong khi
 Pāli `imā gāthāyo` là **số nhiều**, và `abhāsitthāti` là quá khứ của **một** sự kiện.
 
+### 🔴 Hai bất biến agent vi phạm **nhiều lần** — và vì sao phải để máy canh
+
+#### 1. `translationTitle` phải **BẰNG ĐÚNG** `:0.3` — vi phạm **4 lần**, 4 đợt
+
+`tha-ap147` · `tha-ap175` · `tha-ap200` · `tha-ap209`: agent đặt số thứ tự vào `:0.3` rồi **quên** đặt vào
+`translationTitle`. Người đọc thấy hai tên khác nhau cho cùng một bài.
+
+⇒ Đây là việc **không có phán đoán**: giá trị đích lấy nguyên văn từ `:0.3`. Nên nó là **việc của máy**,
+không phải việc nhớ của từng lát. Đã viết `_thaptitle.py` chạy sau **mỗi** đợt; tiêu chí nghiệm thu là
+báo **0** trên worktree sạch và chạy lần hai cũng **0**.
+
+⚠️ Bản đầu báo *"398 tệp"* ở **mọi** lượt chạy: `want` có khoảng trắng dẫn trong khi `current` đã
+`.strip()` ⇒ **không bao giờ** bằng. Thêm hai lỗi nữa: `skipped` là chuỗi chứ không phải cặp; và
+`assert new != raw` **giữa vòng duyệt** làm script chết sau vài tệp — nó đã chết giữa đường.
+
+⇒ **Luật tổng quát:** một bất biến **cơ học** mà agent phạm lần thứ hai thì phải chuyển thành script.
+Đừng để lát thứ ba mắc cùng một lỗi.
+
+#### 2. `published` **không** được đặt khi không có bản Anh đã ghim — **7** bài trong một đợt
+
+`n34` và `n35` đặt `published` cho 7 bài `tha-ap`, với lý do *chính đáng* — `reference-gaps.yaml` **đã có**
+entry cho chúng. Nhưng hai cổng đòi thứ khác: **không có tệp Anh đã ghim** thì `published` không đứng
+được, và phải có blocker. **Có entry gap không cứu được `published`.**
+
+Đo được: `english-sujato` ở `kn` chỉ phủ **9** sub-collection (cp·dhp·iti·ja·kp·snp·thag·thig·ud =
+755 tệp); tệp `tha-ap` duy nhất trong cả tầng là **tệp *tên*** (`name/sutta/tha-ap-name_…`), không phải
+thân kinh. `vietnamese-current` cũng không phủ (26 tệp, toàn bộ Pháp Cú).
+
+⇒ Hạ 7 bài xuống `draft` + blocker nêu đúng lý do. `n33` `n37` `n38` `n39` **tự** đặt `draft` ⇒ phần lớn
+lát không mắc, cổng chỉ bắt được phần bị lệch.
+
+### ⚠️ `_hvi.py` **chạy rỗng** ở bài ngắn — và báo xanh
+
+`_hvi.py` lọc khoá `len(pāli) >= 40`. Ở `tha-ap`, **23/24** khoá Pāli **ngắn hơn** ngưỡng (mỗi vế kệ chỉ
+18–26 ký tự) ⇒ nó quét **không mấy khoá nào** rồi báo pass. Ở lát `n34` là **82/86** khoá dưới ngưỡng.
+
+⇒ **Đó là không kiểm gì, không phải đạt.** Cả 8 lát đã phải tự viết năm phép và in số; đã ghi vào
+`BRIEF_THAP.md` để các lát sau không phải phát hiện lại.
+
+Ba lỗi khác của `_hvi.py` đã biết: chỉ đếm ngoặc **kép** không đếm nháy **đơn** `‘’`; lọc `\b\d+\.0\b` trong
+**nội dung Pāli** chứ không phải **tên khoá**; và báo sai khi `…pe…` chạy qua ranh giới khoá.
+
+### ⚠️ zsh trong `--title` của `gh`: backtick là **command substitution**
+
+```
+gh pr edit 270 --title "...`sn12.93-213`..."   →  command not found: sn12.93-213
+```
+
+`gh pr create` vẫn tạo được PR nhưng **tiêu đề bị mất đoạn**. ⇒ Dùng **nháy đơn** cho `--title` khi có
+ký tự backtick hoặc `!`. Nhân tiện: cùng đợt này tôi cũng phải dùng nháy đơn cho PR #267 sau khi zsh ăn
+mất `… cho đến …` trong `--title`.
+
 ### 🔴 Catalogue dùng **237 uid GỘP phạm vi** — và `pali.py` **không** dựng được
 
 Catalogue không liệt kê `an1.316`…`an1.332` riêng mà gộp thành **`an1.316-332`**; tương tự
