@@ -559,30 +559,58 @@ vẫn sửa được**, vì lỗi nằm ở nội dung khoá chứ không nằm 
 | `sn42.5` | Sujato **có tệp** nhưng chỉ 1/18 đoạn có chữ ⇒ **17 khoá còn lấp được** ở lớp `english-project` |
 | Ngưỡng 40 ký tự | đã để lọt **hai** colophon (`sn35.52:2.7` 41 ký tự · `sn45.114:1.8` 47 ký tự). Chỗ sửa đúng là `source/layers.yaml`, **không** phải tệp lấp |
 
-### ⚠️ `Muse Spark` là **tên phát hành của chính công cụ đang viết**, không phải công cụ khác
+### ✅ `Muse Spark` **là** `OpenCode Space Bunny Free (agent)` — đã sửa cơ chế, không sửa lịch sử
 
 `source/tooling.yaml` khai:
 
 ```yaml
-release: "Muse Spark 1.3 Free"
-modelId: space-bunny-free
-aliasInMetadata: "OpenCode Space Bunny Free (agent)"
+id: opencode-space-bunny
+name: Space Bunny · release: "Muse Spark 1.3 Free"
+modelId: space-bunny-free · aliasInMetadata: "OpenCode Space Bunny Free (agent)"
 ```
 
-⇒ `"Muse Spark"` trong `content/meta/sutta/` là **cùng một công cụ** với
-`"OpenCode Space Bunny Free (agent)"`, chỉ khác cách ghi tên. Đếm: **474** tệp Việt ghi `Muse Spark`.
+Tức `"Muse Spark"` và `"OpenCode Space Bunny Free (agent)"` là **một** công cụ dưới hai nhãn, và kho
+ghi công cả hai: **461** tệp ghi `Muse Spark`, 24 ghi
+`Space Bunny Free (OpenCode) — re-scored …`, 15 ghi `OpenCode Space Bunny Free (agent) — re-scored …`,
+10 ghi `Muse Spark 1.3 Free (agent)`, 3 ghi `Muse Spark (adversarial re-audit …)`.
 
-`tests/unit/tooling.test.ts` so **khớp chuỗi**, nên không phát hiện. Đây là cùng lớp lỗi attribution mà
-`npm test` bắt được còn `validate` bỏ qua — nhưng **ngược chiều**: ở đây **hai chuỗi khác nhau** cùng
-trỏ về **một** công cụ, nên so-chuỗi **về nguyên tắc** không thể bắt.
+Đây **không** phải attribution sai — `AGENTS.md` cấm sửa attribution lịch sử, và 461 tệp đó **đúng**
+là do công cụ đó làm. Chỗ sai là **cơ chế**: `validate.ts` so **khớp chuỗi**, nên nó coi hai nhãn của
+một công cụ là hai tác giả.
 
-**Hệ quả đã phát sinh:** ít nhất `sn3.8` `sn3.18` (lớp lấp `e2`) và các bài lấp khác do cùng công cụ
-viết có scorecard Việt ghi `Muse Spark` ⇒ `validate` **không** cảnh báo trùng tác giả, tức **không** ai
-được cảnh báo rằng lớp lấp không phải lớp đọc Anh độc lập. Lớp lấp đã tự hạ `triangulation` 7,5 và
-**không** tuyên bố đã đối chiếu Anh cho các bài đó — nhưng cơ chế thì **chưa** đóng.
+⇒ **Đã sửa ở `scripts/validate.ts` + `src/lib/canon/tooling.ts`**: mỗi credit **quy về công cụ**
+(`toolIdentityFor`) rồi so công cụ (`sharedCredit`). Đo: cảnh báo *"rests on our own fill"* đi từ
+**457 → 496**, tức **+39** bài mà lớp lấp English do **chính công cụ viết bản Việt** so ra, trước đó
+bị báo là lớp đọc Anh độc lập. `validate` vẫn exit 0.
 
-Cần người biên tập quyết: `tooling.test.ts` có nên so theo **họ công cụ** (mọi nhãn của cùng một mục
-trong `tooling.yaml`) thay vì khớp chuỗi không?
+### 🔴 `deepseek-v4.1-flash`: ghi công ở **283** tệp mà `tooling.yaml` **không khai** — chờ biên tập
+
+Đây là vi phạm thật của quy tắc `AGENTS.md`: *"Công cụ hỗ trợ chỉ được khai trong
+`source/tooling.yaml`"*.
+
+Nó **im lặng** vì chính test bảo vệ quy tắc ấy không thấy được nó: `tooling.test.ts` tìm ứng viên
+bằng **regex cứng** `/chatgpt|openai|opencode|space bunny|gpt-?[\d.]/i`. Tên không chứa một trong
+năm từ đó thì vô hình. `deepseek-v4.1-flash` đúng là trường hợp đó.
+
+⇒ `tests/unit/credit-identity.test.ts` mới quét **mọi** credit trong `content/meta` và đòi mỗi cái
+khớp công cụ đã khai, trừ khi nằm trong danh sách tường minh. Danh sách "chưa khai" hiện có **đúng
+một** mục là `deepseek-v4.1-flash` ⇒ **công cụ chưa khai kế tiếp sẽ đỏ test** thay vì thêm vài trăm
+tệp im lặng nữa.
+
+**Cần biên tập quyết**, vì kho **không kiểm chứng được** vendor và release của nó:
+- `vendor`: ?
+- `release`: ?
+- `declaredBy`: gần như chắc là `user-declared`, vì tên phiên bản là thứ repo không xác minh được.
+
+Cho tới khi có quyết định, tôi **không** tự điền và **không** sửa 283 tệp metadata đó.
+
+### Bốn lớp kiếm chưa có trong test nào — đã đưa vào prompt từng lát
+
+1. `set(khoá Việt) == set(khoá Pāli)` — `_hvi` chỉ quét khoá ≥ 40 ký tự, nên ở bài kệ ngắn nó
+   **chạy rỗng**.
+2. Nháy **đơn** `‘’` cân *từng khoá* + dấu `ti` — `ngoặc()` chỉ đếm ngoặc kép.
+3. **Pāli trùng nguyên văn TRONG CHÍNH bài** mà Việt khác.
+4. Dò Pāli trùng nguyên văn **giữa các bài trong lát** — sinh ra từ ca `vv30`/`vv48`.
 
 ### Bốn chỗ lệch **một khoá** ngoài lát — chưa ai sửa
 
