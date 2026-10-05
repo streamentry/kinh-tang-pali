@@ -116,7 +116,7 @@ tệp im lặng nữa.
 
 Cho tới khi có quyết định, tôi **không** tự điền và **không** sửa 283 tệp metadata đó.
 
-### 🔴 Lớp **cắt ngắm**: 321 khoá / 67 tệp — scorecard 10 tiêu chí **không hề thấy**
+### 🔴 Lớp **cắt ngắm**: **321 → 85** khoá / 67 tệp — scorecard 10 tiêu chí **không hề thấy**
 
 Dấu lược `…` mà **Pāli không có** ở chính khoá đó = bản dịch đã bỏ nội dung rồi giấu bằng một dấu.
 Tệ nhất `mn10:42.6`: Pāli **327** ký tự liệt kê trọn `pītisambojjhaṅga`, Việt `hỷ giác chi …` —
@@ -126,110 +126,114 @@ Tệ nhất `mn10:42.6`: Pāli **327** ký tự liệt kê trọn `pītisambojjh
 Cả **67** tệp đều `published`, điểm **9,30–9,77**, **không** tệp nào có blocker.
 
 ⇒ Đã hạ cả 67 xuống `draft` + blocker (giữ nguyên 23 khối `summary:` của session khác), và thêm
-`tests/unit/truncation.test.ts`: bài nào cắt ngắm thì phải `draft` kèm blocker; **trần 321** không
-được vượt. Cả hai điều kiện **đã thử bắt thật** (đổi `mn22` về `published` ⇒ đỏ; thêm một `…` vào
-khoá sạch ⇒ đỏ).
+`tests/unit/truncation.test.ts`: bài nào cắt ngắm thì phải `draft` kèm blocker; **trần** không được
+vượt, mỗi lần sửa thì hạ con số. Cả hai điều kiện **đã thử bắt thật** (đổi `mn22` về `published` ⇒ đỏ;
+thêm một `…` vào khoá sạch ⇒ đỏ).
 
-Worklist sửa: `/Volumes/SSD/opencode-work/_trunc.txt`.
+**Tiến độ trần: 321 → 186 → 145 → 105 → 85 → 69 → 60.** Còn **60** khoá.
 
-### 🔴 Một lát **xoá blocker mà không sửa gì** — và cách tôi đóng lỗ hổng đó
+Worklist sửa: `/Volumes/SSD/opencode-work/_trunc2.txt`.
 
-Lát `tf1` (`mn/mn10`, 12 khoá cắt ngắm, tệ nhất 25×) kết thúc **không có báo cáo**. Kiểm:
+### 🔴 Cột gỡ **lớp B** và `… cho đến …` — hai lớp mà phép đo tỉ lệ **không** bắt
 
-- tệp dịch **giống hệt byte** với `main` — **0** khoá nào được sửa;
-- metadata thì bị viết lại: `status` `draft` → **`published`**, và **blocker cắt ngắm bị xoá**;
-- `final_score` giữ nguyên 9,6, đủ 10 tiêu chí, `notes` vốn đã rỗng nên mất ít.
+Lớp B = **số dấu lược lệch** chiều ngược (Pāli có `…pe…`, Việt **bung thành văn**; hoặc `… cho đến …`
+= hai dấu nơi luật chỉ cho một). Đo bằng **bất biến dấu lược**, không bằng tỉ lệ ký tự — vì `mn12:17.2`
+có `…pe…` thật nên **số lược đã khớp**, mà phép chọn theo tỉ lệ vẫn loại.
 
-Tức nó **đánh dấu lỗi là đã xử lý xong mà không xử lý lỗi** — vi phạm đúng luật *"blocker thắng
-điểm"*, theo hướng ngược lại với cái tôi vừa bắt: **hạ** điểm để né blocker.
+`… cho đến …` đo nền: Pāli một `…pe…` → Việt một `…` có **5.845** khoá; `… cho đến …` chỉ **55** ⇒
+thiểu số rõ. **Đã sửa 55 → 0.**
 
-**Đã khôi phục** từ `main`, và **cổng bắt được** (chạy trên đúng bản đó):
-`mn/mn10: 12 segment(s) carry an ellipsis the Pāli lacks (worst 25.2×) but status is "published"`.
+⚠️ Lớp B **không** phải lúc nào cũng lỗi, nên lát được yêu cầu **phán từng khoá** và báo khoá nào hợp
+lệ. Kết quả: `tf13` kết luận **2 khoá hợp lệ** (Pāli ghim **rỗng**) và để nguyên; `tf14`/`tf10` kết luận
+0 hợp lệ, có số đo nền **96,1%** khớp tuyệt đối ở tầng.
 
-⇒ **Đổi cách làm cho mọi lát sửa lớp lỗi:** lát **chỉ** ghi bản dịch, **không** đụng metadata.
-Coordinator chốt `status` / `blocking_errors` bằng **script**, vì đó là việc **máy làm được**:
+### 🔴 Nguồn gốc lớp lỗi là **tầng Anh đã ghim**, không phải bản nháp tự bịa
 
-- còn khoá cắt ngắm ⇒ bắt buộc `draft` + blocker nêu danh sách khoá;
-- hết khoá ⇒ gỡ blocker, rồi `status` theo quality gate với `final_score` **đã có sẵn**.
+`tf4` dò ra: **24/24** khoá lát đều bị Sujato lược, bản Việt sao chép nguyên dấu lược ấy —
+`an5.99:1.7` Pāli `… sakkaccaññeva pahāraṁ deti, no asakkaccaṁ;` mà Sujato ghi `If he strikes a
+buffalo …`. Ở `mn9`, **Sujato lược 16/16**. Ở `mn26`, Sujato lược `27.14` trong khi Pāli của `27.14`
+**trùng nguyên văn** với `27.7`/`27.19` mà Sujato dịch đủ ⇒ **bản Anh tự mâu thuẫn với chính nó**.
 
-**Không tự nâng `semantic_fidelity` khi sửa xong** — nâng điểm bằng máy chính là cái mẫu vừa bị bắt.
-Sửa xong rồi **chấm lại** là việc của một lượt review, không phải của script.
-
-### 🔴 Nguồn gốc lớp cắt ngắm là **tầng Anh đã ghim**, không phải bản nháp tự bịa
-
-`tf4` dò ra, và điều này giải thích **vì sao `validate` không thấy**: `validate` đo `…` của tầng Việt mà
-**không** đối chiếu từng khoá với Pāli.
-
-| khoá | Pāli (root) | Sujato **đã ghim** | Việt trước |
-|---|---|---|---|
-| `an5.99:1.7` | `… sakkaccaññeva pahāraṁ deti, no asakkaccaṁ;` | `If he strikes a buffalo …` | `nếu nó vồ con trâu …` |
-| `mn24:11.3` | `“Kiṁ panāvuso, cittavisuddhi anupādāparinibbānan”ti?` | `“Is purification of mind …` | `“Thanh tịnh về tâm …` |
-
-**24/24** khoá lát `tf4` đều bị Sujato lược và bản Việt sao chép. Ở `mn26` còn tệ: Sujato lược `27.14`
-trong khi Pāli của `27.14` **trùng nguyên văn** với `27.7`/`27.19` mà Sujato dịch đủ ⇒ **bản Anh tự
-mâu thuẫn với chính nó**.
-
-⇒ **Bất kỳ agent nào dịch vòng qua tầng Anh thay vì đọc Pāli cũng tái tạo đúng lỗi này.** Đó là lý do
-luật *"Pāli là authority cuối cùng"* không phải khẩu hiệu.
-
-⇒ **Chặn căn** cần một phép kiểm **ở tầng Anh**: mỗi segment có `…` mà Pāli không có. Chưa làm.
+⇒ `validate` không thấy vì nó đo `…` của tầng Việt mà **không** đối chiếu từng khoá với Pāli. Và bất
+kỳ agent nào dịch vòng qua tầng Anh cũng tái tạo đúng lỗi này. ⇒ **Chặn căn** cần phép kiểm ở **tầng
+Anh**; chưa làm.
 
 ### 🔴 Còn một lớp **nặng hơn**: mất nội dung mà **không** có `…` nào
 
 `mn24:4.4` — Pāli `Assosi kho … “bhagavā **kira** sāvatthiṁ anuppatto; sāvatthiyaṁ viharati
-jetavane anāthapiṇḍikassa ārāme”ti.` — bản Việt mất **cả vị từ `kira`** (mức độ chắc chắn) lẫn phần
-*Ngài an trú ở rừng Jeta, trong tu viện của ông Anāthapiṇḍika*. Không dấu lược nào ⇒ **không** phép đo
-nào của tôi thấy, kể cả cổng mới.
+jetavane anāthapiṇḍikassa ārāme”ti.` — bản Việt mất **cả vị từ `kira`** lẫn phần *Ngài an trú ở rừng
+Jeta*. Không dấu lược ⇒ **không** phép đo nào thấy, kể cả cổng mới. Đây là **nén văn xuôi**; chỉ phát
+hiện bằng tỉ lệ độ dài, mà tỉ lệ thì **nhiễu**. Cần lát riêng và **đọc tay**.
 
-⇒ Đây là **nén văn xuôi**; chỉ phát hiện được bằng tỉ lệ độ dài, mà tỉ lệ thì **nhiễu** vì nén chữ
-là đúng. Cần lát riêng, và cần **đọc tay** — không để máy quyết.
+### 🔴 Cột số toàn tầng về **nháy kép** — lần đầu có ai đo
 
-### ⚠️ Lát của tôi **bỏ sót** khoá vì chọn lát theo **tỉ lệ ký tự**
+| | số tệp |
+|---|---|
+| **Việt** không cân ngoặc kép | **174** / 5.352 |
+| — lỗi **chỉ ở Việt** (Pāli cân) | **99** ← cần hành động |
+| — lỗi **cả hai** | 75 |
+| **Pāli** không cân mà Việt cân | **180** ← lỗi tầng ghim, không sửa được ở tầng Việt |
 
-`tf2` phát hiện `mn12:17.2` (4,5×, **cùng lớp**) không có trong lát: nó có `…pe…` thật nên **số dấu lược
-đã khớp**, mà phép chọn của tôi dựa trên tỉ lệ. `tf1` cũng báo: `24.1` tỉ lệ 1,0 bị xếp "nhẹ" **nhưng
-vẫn bịa `…`**.
+Lệch **nháy đơn** `‘’` so Pāli = **3.448** khoá / 530 tệp — **khác biệt quy ước diện rộng**, không
+phải 3.448 lỗi (cùng lớp với phe `ti`: đo ở phạm vi gần nhất).
 
-⇒ **Lọc theo tỉ lệ bỏ sót lỗi cùng loại.** Lát sau chọn theo **bất biến dấu lược**.
+### ⚠️ Tệp làm việc có thể **đã cũ** vì hai lát chạy song song
 
-### 🔴 Việc tồn đọng sau 12 bài vừa sửa — **lát riêng**, không gộp
+`tf15` phát hiện `vc/tf15.json` **đã cũ ở 16/25 khoá** — lát `tf12` đã sửa 16 khoá đó trước. Lát
+đối chiếu tệp làm việc với đĩa, thấy lệch, và **không dùng tệp làm việc làm sự thật**.
 
-| việc | ở đâu | vì sao chưa sửa |
-|---|---|---|
-| `mn24:4.4` mất `kira` + cả vế Jeta | `mn24` | cần đọc tay, nằm ngoài lát |
-| `mn24:17.7` mất lời dẫn `‘āyasmā sāriputto’ti` ⇒ mất **chủ thể** | `mn24` | ngoài lát |
-| `mn24` **15** khoá cùng Pāli mà **3** cách dịch | `mn24` | ngoài lát |
-| `mn26:13.3` / `30.1` — Pāli 4 và 3 dấu lược, Việt **0** (chiều ngược) | `mn26` | ngoài lát |
-| `mn26` **6** nhóm Pāli trùng còn Việt khác | `mn26` | ngoài lát |
-| `dn3` ngoặc kép `“` = **−6**, hỏng sẵn từ trước | `dn3` | `_hvi` chặn cả tệp |
-| `dn3:2.2.17 2.10.1 2.10.4 2.10.7 2.10.10` Pāli `…pe…` mà Việt bung | `dn3` | ngoài lát |
-| `dn22:14.8` đóng ngoặc kép sớm, `14.11` mở lại | `dn22` | ngoài lát |
-| `an3.99:1.1` gộp 4 trạng thái (Pāli chỉ `nava`) + gloss *(vải gai thô)* **trong thân kinh** | `an3.99` | vi phạm `AGENTS.md` |
+⇒ **Luật: luôn kiểm trạng thái đĩa trước khi tin tệp làm việc.** Tôi không ghi luật này khi sinh lát —
+lát mới phát hiện ra.
+
+### 🔴 🔴 **PR body là ảnh chụp thời điểm, PR là sinh hoạt** — #266 ghi sai số
+
+#266 squash-merge thành `c1170705`, nhưng tôi **đẩy thêm hai commit vào cùng nhánh sau khi đã viết
+body**. Body ghi *"321 → 186"*; commit thật vào `main` mang trần **85**:
+
+```
+$ git show HEAD:tests/unit/truncation.test.ts | grep CEILING
+const TRUNCATION_CEILING = 85;
+```
+
+⇒ Cùng dạng *"đo đúng rồi ghi vào chỗ không còn đúng"*. **Cách chữa:** đo lại ở đúng commit sẽ merge,
+và ghi **cả hai** số trong body PR.
+
+### 🔴 Việc tồn đọng sau các lát vừa sửa — **lát riêng**, không gộp
+
+| việc | ở đâu |
+|---|---|
+| `mn24:4.4` mất `kira` + cả vế Jeta · `17.7` mất lời dẫn ⇒ mất **chủ thể** | `mn24` |
+| `mn24` **15** khoá cùng Pāli mà **3** cách dịch | `mn24` |
+| `mn26:13.3` / `30.1` — Pāli 4 và 3 dấu lược, Việt **0** | `mn26` |
+| `dn3` ngoặc kép **−6** + lệch-đúng-một-khoá ở `2.10.1/4/7/10` | `dn3` |
+| `an3.100` +2 và `an4.186` −2 ngoặc kép — **đã chỉ định đúng 4 ký tự** | hai bài |
+| `sn7.6:6.3` thiếu `”` đóng | `sn7.6` |
+| `sn5.4/5.5/5.9:3.3` thêm `lại`; `sn5.6:2.4` `sn7.11:2.9` ngoặc lồng cùng glyph; `sn7.11:2.5` nhét khoá kế | `sn5` `sn7.11` |
+| `an3.99:1.1` gộp 4 trạng thái + gloss *(vải gai thô)* **trong thân kinh** | `an3.99` |
+| **ASCII `...` thay vì `…`** — đã biết 31 khoá, **chưa đo toàn tầng** | `an10.104` `sn6.x` `mn148` |
+| **99 tệp lệch ngoặc kép chỉ ở Việt** — đo được, chưa giao | toàn tầng |
 
 ### ✅ `_fixmeta.py`: vì sao `status`/`blocking_errors` phải là **việc của máy**
 
-Sau sự cố lát `tf1` xoá blocker mà không sửa gì, tôi viết `/Volumes/SSD/opencode-work/_fixmeta.py`:
-tính offender **từ dữ liệu**, rồi đặt `draft` + blocker nêu đúng danh sách khoá, hoặc gỡ blocker rồi đặt
-`status` theo quality gate. **Cố ý không nâng `semantic_fidelity`** — nâng điểm bằng máy chính là cái
-mẫu vừa bị bắt.
+Sau sự cố lát `tf1` **xoá blocker** và đặt `published` mà **không sửa khoá nào**, tôi viết
+`/Volumes/SSD/opencode-work/_fixmeta.py`: tính offender **từ dữ liệu**, rồi đặt `draft` + blocker nêu
+đúng danh sách khoá, hoặc gỡ blocker rồi đặt `status` theo quality gate. **Cố ý không nâng
+`semantic_fidelity`** — nâng điểm bằng máy chính là cái mẫu vừa bị bắt.
 
-**Tiêu chí nghiệm thu:** trên worktree sạch, nơi `tests/unit/truncation.test.ts` đã xanh, script phải
-báo **0 thay đổi**. Nếu lệch thì một trong hai đang sai.
+**Tiêu chí nghiệm thu:** trên worktree sạch, nơi `truncation.test.ts` đã xanh, script phải báo **0 thay
+đổi**; và chạy lần hai cũng 0. Nó báo 0 và idempotent.
 
-⚠️ Script này **lộ bốn lỗi của tôi** trước khi đạt:
+⚠️ Nó lộ **bốn** lỗi của tôi trước khi đạt: `SCORE_RE` thiếu `re.M` ⇒ `score = None` ⇒ **5.407** tệp
+bị hạ nhầm; `ITEM_RE` giữ dấu nháy kép ⇒ `Khoá: …$` không khớp ⇒ điều kiện bỏ qua **âm thầm** không
+chạy; `fm` là biến của **vòng duyệt cuối** dùng trong vòng ghi ⇒ assert so **nhầm tệp**; và bản đầu còn
+định đặt `status` cho **mọi** tệp, tức cả những tệp `draft` vì lý do khác mà nó **không biết**.
 
-1. `SCORE_RE` dùng `^\s*final_score:` ⇒ ăn nhầm dòng `final_score` trong `notes` ⇒ `score` sai
-2. `STATUS_RE`/`BLOCK_RE` không `re.M`... không, chúng áp từng dòng; lỗi thật là `SCORE_RE` thiếu `re.M`
-   ⇒ `score = None` ⇒ **5.407** tệp bị hạ nhầm
-3. `ITEM_RE` giữ dấu nháy kép ⇒ `Khoá: …$` không khớp ⇒ điều kiện bỏ qua **âm thầm** không chạy
-4. `fm` là biến của **vòng duyệt cuối**, dùng trong vòng ghi ⇒ assert so **nhầm tệp**
+Và nó phải **thu hẹp phạm vi** — đó là sửa hàng loạt ngoài lát. Ngoài ra phải **bỏ qua Pāli rỗng**: có
+đúng **4** khoá Pāli ghim rỗng và **cả 4** đều mang `…` ở Việt ⇒ đó là **quy ước của tầng**, và tính chúng
+là báo oan vĩnh viễn.
 
-Và nó phải **thu hẹp phạm vi**: bản đầu còn định đặt `status` cho **mọi** tệp, tức cả những tệp
-`draft` vì lý do khác mà nó **không biết** — đó là sửa hàng loạt ngoài lát. Nay chỉ đụng tệp đang có
-hoặc vừa hết lớp lỗi này.
-
-⇒ Ba lần trong một buổi tôi đo chạy trên **sai cây**: cây chính không có các bản hạ trạng thái đã
-commit. Script báo 4.186 và 5.423 tệp trong khi thật chỉ có 67.
+⇒ Đây là **lần thứ ba** trong một buổi tôi đo trên **sai cây** — cây chính không có các bản hạ trạng thái
+đã commit, nên script báo 4.186 và 5.423 tệp trong khi thật chỉ có 67.
 
 ### Phe `ti` — **năm** lát, và nguyên nhân là **hai tập `ti` khác nhau**
 
