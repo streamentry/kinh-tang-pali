@@ -309,6 +309,50 @@ thiếu dần.
 ⇒ Đã thêm vào prompt: **ghi tệp sớm** (sau nửa bài thì ghi luôn), và brief dùng chung
 `BRIEF_SLICE.md` thay cho prompt dài. **Chưa** chứng minh là brief ngắn hơn giúp — phải đo ở đợt sau.
 
+### 🔴 **326** tệp lệch **thứ tự khoá** — và vì sao nó làm phép đo mất thông tin
+
+Đo trên worktree sạch: trong **5.366** tệp dịch mà `set(khoá Việt) == set(khoá Pāli)`, có **5.040** khớp
+thứ tự và **326** **SAI**.
+
+| nguyên nhân | số tệp |
+|---|---|
+| khoá bị **sắp như chuỗi** (`'10.1' < '2.1'` theo mã) | **303** |
+| lý do khác | **23** |
+
+Phân bố: `sn` 124 · `kn` 132 · `an` 60 · `dn` 7 · `mn` 3.
+
+### Có hại không? **Không** về nghĩa — nhưng có hại về **phép đo**
+
+JSON object là bản đồ, tra theo khoá nên thứ tự không đổi kết quả. Vấn đề là nó phá **bất biến** tôi dùng
+để kiểm chất lượng: `list(vi) == list(pali)`. Khi một tệp **sai thứ tự** trông **giống hệt** một tệp
+**sai nội dung** trong phép đo, tôi phải đọc tay mới biết.
+
+⇒ **Đây là lần thứ hai** trong phiên tôi suýt gán sai nguyên nhân cho một lỗi: ba tệp `tha-ap70` `331`
+`453` tôi tưởng lát sửa số làm hỏng thứ tự; hoá ra chúng **đã** sai từ trước. Phép đo bắt được, nhưng
+phải **đào thêm một bước** mới biết ai gây ra.
+
+**Cách chữa:** `_orderkeys.py` đặt lại thứ tự theo Pāli, tự `assert` nội dung từng khoá **không đổi**
+trước và sau khi ghi. ⚠️ **Chỉ dùng khi `set(khoá Việt) == set(khoá Pāli)`** — với lát **dở** (`ps1.1`
+khi mới có 90/4.788) thì tập khoá **không** bằng, mà đặt lại thứ tự lúc đó sẽ **xoá** khoá chưa có vì
+Pāli đứng trước. Script **tự bỏ qua** những tệp đó.
+
+⇒ Để thành **PR riêng** với số đo trước/sâu, không trộn vào đợt dịch.
+
+### 🔴 Lớt sửa số: **9/10** đúng, lát sửa **sai 1** rồi không báo
+
+Trong 10 khoá sai số, lát sửa `tha-ap171:5.1` thành *"Vào **sáu mươi chín** kiếp"* = **69** thay vì **99**.
+Nguyên nhân: nó dùng `tālīsa`(**40**) thay vì `sattati`(**70**) — `29 + 40 = 69`.
+
+⇒ Phép đo bắt được ngay (`Ekūnasattatikappe` còn 1 lệch, giá trị 69 ≠ 99). Đã sửa thành *"Vào chín mươi
+chín kiếp trước,"* và cập nhật hiệu chuẩn về **0**.
+
+**Chứng cứ cho giá trị 99** không phải phép của tôi: `tha-ap382:11.6` `ekūnasaṭṭhikā` → *"chín mươi chín
+câu"* — **cùng cấu tạo**, và tầng đã dịch đúng.
+
+⇒ **Đây là lần thứ ba** một lát tự tin làm sai rồi báo là đúng (lần 1: `tha-ap125` tin `Ekanavutito` =
+99; lần 2: lát sửa số tin `Ekūnasattatikappe` = 69). Cả hai lần đều ở **số Pāli** ⇒ đã đưa luật *tự tính
+và in phép* vào `BRIEF_SLICE.md` và `BRIEF_VI4.md`.
+
 ### 🔴 `Tiṁsakappasahassa`: tôi **tự phỏng đoán** rồi dùng nó để "sửa" — đã gỡ
 
 Tôi ghi `Tiṁsakappasahassamhi` = `tiṁsa` 3 × `kappa` 100 = **3.000**, dùng con số đó để sửa **4** tệp

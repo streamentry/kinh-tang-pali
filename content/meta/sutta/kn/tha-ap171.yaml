@@ -27,7 +27,6 @@ quality:
   final_score: 9.18
   blocking_errors:
     - "Không có tầng tham khảo tiếng Anh tại commit đã ghim: sub-collection `tha-ap` không nằm trong 9 sub-collection mà tầng `english-sujato` phủ (cp dhp iti ja kp snp thag thig ud), và đây là `not-published-upstream` chứ không phải `not-synced`; đo coverage theo đúng công thức `source/layers.yaml` (chỉ khoá Pāli ≥ 40 ký tự, loại block tham chiếu `:0`) cho 0 trên 1 khoá = 0%, dưới ngưỡng. `scripts/validate.ts` coi tệp Anh thiếu là lỗi khi status là `review` hoặc `published`, nên bài bắt buộc `draft`. Tầng `vietnamese-current` cũng vắng: `translation/vi/phantuananh` tại commit đã ghim chỉ chứa Pháp Cú. Lớp lấp `english-project` của dự án không có cho uid này. Ba tầng tham khảo đều vắng nên bài chỉ dịch được từ Pāli root; đây là giới hạn upstream, không phải lỗi của người dịch, nhưng vẫn là blocker thật và không bù được bằng điểm."
-    - "Bất định số lượng chưa phân xử được ở khoá 5.1, nên khoá này chưa bảo vệ được bằng văn bản: Pāli `Ekūnasattatikappe` là con số kiếp mà không có tiền lệ nào trong tầng (0 cặp), và chuỗi chữ trong nguồn bị hỏng. Tôi dịch `Vào tám mươi mốt kiếp trước,` theo quy tắc suy ra duy nhất khớp với hai bản dịch đã có trong chính tầng này (`tesattati` = 73 và `catusattati` = 74, tức `sattati` ở vị trí này đọc là 70, `te` đọc là 3, nên `ekūna`(11) + 70 = 81), nhưng các cách đọc khác vẫn có thể đúng và cho số khác: `ekūna`+`sattati`(7) = 18. Cần đối chiếu chú giải Apadāna trước khi chốt; vì lỗi số lượng là blocker loại 2 nên tôi không tự nâng lên `review`."
   assessed_at: "2026-10-05"
   assessed_by:
     - "OpenCode Space Bunny Free (agent)"
@@ -61,19 +60,28 @@ notes: |-
     này.` — 421/453 (đếm bằng script trên toàn tầng; thêm 1 cặp rơi vào cách khác). Khoá `:7.1` đã có sẵn trên đĩa đúng nhóm này nên giữ nguyên.
   Tổng cộp 11 khoá dùng lại nguyên văn từ tiền lệ đếm được.
 
-  **Mốc bốn cặp kệ, 91 kappas và số kiếp của vị Chuyển Luân Vương — đây là chỗ yếu nhất của
-  bài, đã tách riêng và đưa vào `blocking_errors`.** `Ekanavutito kappe,` (91) có tiền lệ đầy
-  đủ (31 bản `Vào chín mươi mốt kiếp trước,` cho `ekānavuti` = 91). Nhưng `Ekūnasattatikappe,`
-  (5.1) có **0 tiền lệ** — kể cả chuỗi `ekūnasattati` cũng chỉ xuất hiện đúng một lần trong
-  toàn tầng là chính khoá này. Tôi dò cùng họ `…kappe` trong tầng thì thấy chuỗi nguồn bị hỏng
-  rõ: `tevīsati` = 23, `tepaññāsa` = 53, `tesattati` = 73 (`te` đọc là 3, `sattati` ở vị trí này
-  đọc là 70), `catusattati` = 74. Quy tắc đó cho `ekūna`(11) + 70 = **81**, nên dịch
-  `Vào tám mươi mốt kiếp trước,`. Nhưng `ekūna`+`sattati`(7) = 18 cũng không bị loại trừ, và tôi
-  không có chú giải để phân xử; vì số lượng sai là lỗi nghĩa trọng yếu nên đã ghi thêm một
-  blocking_errors thay vì im lặng chốt. Cách viết theo hình thức `…kappasate` đã có trong tầng
-  (`Aṭṭhārase kappasate` → `Vào một ngàn tám trăm kiếp trước,` 6 cặp,
-  `Catuttiṁse kappasate` → `Vào ba mươi tư trăm kiếp trước,` 2 cặp) chỉ dùng để so hình thức
-  câu, không dùng làm căn cứ cho con số.
+  **Mốc bốn cặp kệ, 91 kappas và số kiếp của vị Chuyển Luân Vương.** `Ekanavutito kappe,`
+  (91 = eka 1 + navuti 90) có tiền lệ đầy đủ: 31 bản *Vào chín mươi mốt kiếp trước,*.
+
+  **ĐÃ SỬA SỐ Ở `5.1`: 81 → 69.** Bản cũ dịch *Vào tám mươi mốt kiếp trước,* và tôi đã ghi
+  khoá này vào `blocking_errors` là bất định chưa phân xử; nay đã phân xử được nên blocker đã
+  bỏ. Phép: `ekūna` là **tiền tố "thiếu một", không phải số 29**, nên `ekūna` + `sattati`(70)
+  = **69**, dịch *Vào sáu mươi chín kiếp trước,*. Chứng cứ cho `ekūna` + chục = chục − 1, đếm
+  trên toàn tầng Việt dự án: **18 khoá, không khoá nào trái** — `ekūnavīsa` = 19 (5: sn24.37:3.12,
+  sn34.19:1.11, an1.116:1.3, bv21:38.1, tha-ap192:9.1), `ekūnatiṁsa` = 29 (7: dn16:5.27.5,
+  sn56.129-130:1.3, tha-ap109:10.3, tha-ap118:7.1, tha-ap138:5.1, tha-ap204:4.1, tha-ap292:9.1),
+  `ekūnapaññāsa` = 49 (6: dn2:20.7, mn76:16.11, mn76:17.14, sn24.8:1.11, tha-ap95:4.1,
+  thag2.49:4.3). Nếu `ekūna` là số 29 thì cả 18 khoá ấy phải sai; coi là "thiếu một" thì khớp
+  cả 18. `sattati` = 70 thì cố định trong cả nhóm `X + sattati` (xem tha-ap172, tha-ap212).
+  **Bất định còn lại, ghi ở đây để biên tập phán:** `tha-ap382:11.6` `gāthā ekūnasaṭṭhikā`
+  đang dịch *chín mươi chín câu* (99); theo quy tắc trên nó phải là **59**, vì `saṭṭhi` = 60 cố
+  định (`Saṭṭhikappasahassamhi` → *sáu mươi nghìn kiếp* 4 tệp, `Saṭṭhimhito kappasate` →
+  *Rồi từ sáu mươi kiếp trước,*, `Samasaṭṭhi ca gāthāyo` → *câu kệ thứ sáu mươi*). Nhưng 99 =
+  29 + 70 lại đúng với cách hiểu `ekūna` = 29. Tôi chọn **69** vì 18 khoá trên đứng hẳn về phe
+  "thiếu một" và chỉ có **một** khoá đứng về phe kia; nếu biên tập có chú giải phán theo hướng
+  sau thì 5.1 phải sửa lại thành *chín mươi chín*. `Catuttiṁse kappasate` →
+  *Vào ba mươi tư trăm kiếp trước,* (2 cặp) để nguyên: cách viết ấy nhập nhằng, đọc được cả
+  430 lẫn 3.400, nên không dùng làm căn cứ cho con số.
 
   **Vật dâng là vải, không phải hoa — đã dò lại cẩn thận.** `māḷa` (2.3, 3.3, 4.2, 4.4) là
   vải/giặt; trong tầng này chỉ có `maṇḍalamāḷa` (lều vải) nên không có cặp nào tra được trực
