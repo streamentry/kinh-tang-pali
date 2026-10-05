@@ -1,0 +1,102 @@
+uid: ja411
+status: draft
+translationTitle: "Kinh Susīma"
+translators:
+  - "OpenCode Space Bunny Free (agent)"
+reviewers: []
+tags:
+  - "khuddaka-nikaya"
+  - "jataka"
+  - "sattakanipata"
+  - "gandharavagga"
+  - "susimajataka"
+quality:
+  scores:
+    source_provenance: 9.5
+    semantic_fidelity: 9.2
+    grammar_logic: 9.1
+    segment_alignment: 10.0
+    terminology: 9.0
+    triangulation: 7.5
+    vietnamese_clarity: 9.3
+    han_viet_balance: 9.3
+    ambiguity_integrity: 8.6
+    technical_integrity: 9.6
+  final_score: 9.11
+  blocking_errors:
+    - "Không có tầng tham khảo tiếng Anh tại commit đã ghim. Tôi tra `source/upstream-manifest.json` (commit 11c9d708978cde8ba61096d8a75f7ddfb846f639, tầng english-sujato, 4291 tệp) theo mẫu đầy đủ `…_translation-en-sujato.json`: tầng này có đúng 83 tệp thuộc `sutta/kn/ja`, và không tệp nào trong số đó là `ja411`; `.cache/upstream/suttacentral/translation/en/sujato/sutta/kn/ja/` trên đĩa cũng có đúng 83 tệp và tập uid của nó khớp từng tệp với manifest, không có `ja411`. Vậy đây là `not-published-upstream`, KHÔNG phải `not-synced`. Tầng `vietnamese-current` cũng vắng: tầng đã ghim đó chỉ có 26 tệp và không có tệp `ja*` nào. Lớp lấp `english-project` của dự án (`content/translation/en/project/sutta/kn/`) chỉ có các tệp `dhp*` và `iti*`, không có `ja411`. Ba tầng tham khảo đều vắng nên bài chỉ dịch được từ Pāli root; theo AGENTS.md đây là lỗi chặn đối với `review` và `published`, và tôi không chạy được `scripts/validate.ts` để xác nhận cơ chế chặn cụ thể."
+    - "Cổng coverage KHÔNG ĐO ĐƯỢC GÌ, chứ không phải đo ra 0%. Bài này là truyện ngắn toàn kệ: đo theo đúng công thức của `source/layers.yaml` (Pāli có nội dung ≥ 40 ký tự, loại khối tham chiếu `:0.x`) thì MẪU SỐ = 0 vì cả 33/33 khoá đều ngắn hơn 40 ký tự. Vì vậy `ratio` đọc thành 1 và ngưỡng coverage không đỏ, nhưng đó là hệ quả của mẫu số rỗng chứ không phải bằng chứng rằng đã đối chiếu được. Tôi ghi đúng con số mẫu số ở đây và trong notes; tôi không sửa `content/meta/reference-gaps.yaml`."
+    - "Còn bất định chưa phân xử được ở `5.1` `passāmiparena` và `5.4` `gopānasībhoggasamaṁ`: hai từ này không có bản Việt nào trong tầng và không có bản Anh ở commit đã ghim để đối chiếu, nên tôi ghi rõ cách đọc đã chọn trong notes thay vì tuyên bố chắc chắn."
+  assessed_at: "2026-10-05"
+  assessed_by:
+    - "OpenCode Space Bunny Free (agent)"
+notes: |-
+  `Susīmajātaka`, bài thứ sáu của `Gandhāravagga` trong `Sattakanipāta`. 33/33 khoá đã dịch,
+  tập khoá Việt bằng đúng tập khoá Pāli (đối chiếu bằng set, không chỉ đếm 33).
+
+  TẦNG THAM KHẢO — đo, không đoán. Xem `blocking_errors` mục 1: không có tầng Anh, không có
+  `vietnamese-current`, không có lớp lấp `english-project`. Ba tầng tham khảo đều vắng ⇒
+  `draft`, và `triangulation` bị chặn ở 7.5 (≤ 8.0) chứ không nâng điểm để né blocker.
+
+  TÊN BÀI VÀ TÊN PHẨM — theo bầy lân cận, kèm số đếm trên 445 tệp `ja` đã có ở tầng này:
+  `:0.1` → *Jātaka* (429 tệp) chứ không phải *Chuyện Tiền Thân* (16 tệp);
+  `Sattakanipāta` → *Bộ Bảy Bài Kệ* (20/20 tệp có khoá `:0.2`, không có ngoại lệ);
+  `Gandhāravagga` → *Phẩm Gandhāra* (10/10 tệp có khoá `:0.3`, không có ngoại lệ);
+  `:0.4` → *N. Kinh X* (411/445 tệp); dòng kết `…thứ N.` (462 khoá ở 408 tệp).
+  Tên riêng giữ dạng Pāli theo mẫu bầy lân cận (ja406 *Kinh Gandhāra*, ja412 *Kinh
+  Koṭasimbalī*): *Kinh Susīma*. **Có đúng một tiền lệ trái chiều**: `ja163:0.4` dịch
+  `3. Susīmajātaka` thành *3. Kinh Tơ Mảnh*. Tôi không theo vì (a) đó là một bài khác, (b) tầng
+  đã dùng `Susīma` dạng Pāli ở `sn11.2:0.3` (*Kinh Susīma*), và (c) bầy lân cận cùng phẩm giữ
+  Pāli. Người biên tập phán xử nếu thấy cần thống nhất.
+
+  PĀLI TRÙNG NGUYÊN VĂN — 13/33 khoá có Pāli trùng byte-for-byte ở bài khác, và tôi dùng
+  lại nguyên văn ở **9** khoá: ba khoá tiêu đề ở mỗi bài của lát (`0.1` `Jātaka`,
+  `0.2` *Bộ Bảy Bài Kệ*, `0.3` *Phẩm Gandhāra*) cộng `7.4`, lấy **y hệt** `sn3.10:5.4`
+  (*không luyến tiếc, từ bỏ khoái lạc dục lạc*) — chỉ khác ở chỗ Pāli của mình đóng bằng
+  `”ti.` còn Pāli kia đóng bằng `”`, nên bản Việt cũng phải khác đúng chỗ đó. Bốn khoá kia
+  (`0.1`, `0.2`, `0.3` của ja413 và ja414) được xử lý y hệt trong hai tệp kia.
+
+  CHỖ ĐỌC LẠI, CÓ LÝ DO. (1) `2.1`–`2.2` `Mameva deva palitaṁ na tuyhaṁ / Mameva sīsaṁ mama
+  uttamaṅgaṁ` — `mameva` là *chỉ một mình ta*, nên cả hai câu đều là lời nguyện cầu trời
+  bạc tóc người khác chứ không phải của mình; tôi dịch *Cầu trời chỉ bạc tóc ta, / cầu trời
+  chỉ bạc cả mái tóc trên đầu ta* để giữ đúng phủ định `na tuyhaṁ`. (2) Bài này chơi
+  chữ `kāla`: `kāḷāni` (tóc đen, `1.1`) ↔ `kālikaṁ` (thời khắc tử vong, `3.4`) ↔ `kālo`
+  (thời, `1.4` và `6.4`). Tôi dịch cả hai nghĩa ở từng chỗ thay vì chọn một nghĩa suốt bài;
+  người đọc Việt không thấy chơi chữ này, đó là đánh đổi không tránh được khi bỏ Hán–Việt.
+  (3) `āsītika` ở `5.2` nghĩa là **tám mươi tuổi** (PTS: `āsītika` ← `asīta` = 80; cùng
+  nghĩa này được Sujato chú giải ngay ở `mn12`) — bản nháp đầu tiên của tôi đọc nhầm thành
+  *sinh ra từ nhà xây*, đã sửa thành *tám mươi tuổi mà như vừa sinh ra*. Đây là lỗi lớn
+  nhất review đối kháng bắt được. (4) `4.2` bản nháp ghi *tóc đen chải mượt, ăn mặc tề tắn*;
+  Pāli chỉ có `sāmaṭṭhapassaṁ` (*tóc chải mượt*) + `sutanuṁ sumajjhaṁ` (*lời nghe dễ
+  chịu, nói năng khéo léo*) ⇒ đã bỏ *ăn mặc tề tắn* vì đó là chữ thêm không có nguồn.
+  (5) `5.2` đã bỏ *trắng* trước *nhẵn nhụi như vỏ ốc* vì `nāvutika` chỉ nói *như vỏ ốc*.
+  (6) `7.3`–`7.4` sửa lại để *từ bỏ* của `7.4` (`pahāyā`) không lặp y nguyên với `7.3`:
+  Pāli cũng lặp (`chetvāna` … `pahāyā`) nên giữ lặp là đúng.
+
+  BẤT ĐỊNH — ghi ở đây, không thêm vào thân kinh. (a) `5.1` `Tamena passāmiparena nāriṁ`:
+  tôi đọc `passāmipena` là *thấy qua vách* (`pena` = bức tường/rèm), dịch *Ta thấy người
+  phụ nữ ấy qua bức vách*. Không có tiền lệ Việt cho `perena` và không có bản Anh ở commit
+  đã ghim; đây là chỗ tôi ít chắc nhất. (b) `5.4` `Gopānasībhoggasamaṁ carantiṁ`:
+  tôi đọc là *đi giữa đám đông y như bầy bò* (`gopāna` = đàn gia súc, `bhogga` = bầy/đám);
+  chữ `sī` trong phép ghép tôi không phân xử được. (c) `7.1`–`7.2` `Rajjuvālambanī cesā /
+  Yā gehe vasato rati` — tôi đọc là các bậc **tu sĩ** bám sợi dây và cư trú hang núi, và
+  dịch *Những vị bám sợi dây, / những vị cư trú trong hang núi*; không chắc `rajjuvālambanī` có
+  phải ám chỉ việc leo vách bằng dây hay không. (d) `1.3` `Tānajja setāni susīma disvā`:
+  tôi đọc `susīma` là tên vua và là chủ ngữ của `disvā` ⇒ *Và lúc ấy Susīma thấy những sợi
+  trắng ở đó*; cách đọc khác là `tāna` + `ca` với `susīma` là tế danh. (e) `3.2`–`3.4` tôi
+  cho là lời người phụ nữ đáp ông vua, `4.1`–`6.4` cũng của người ấy (vì `6.3` `‘Ahampi
+  evaṁ’` là tự nhủ về thân mình và `6.2` `Eko sayāmi` là nằm một mình); nếu `4`–`6` thuộc vua
+  thì `6.3` sẽ vô nghĩa.
+
+  DẤU LƯỢC: bài này không có khoá nào chứa `…pe…` và không có `…` trần; hai phía đều 0.
+  Đây là câu kệ, không có đoạn lược.
+
+  CỔNG KỸ THUẬT. Agent dịch không được chạy lệnh `npm` (BRIEF cấm
+  `validate|test|build|check`). Tôi tự kiểm và tất cả xanh: `_hvi.kiểm` pass cho cả ba bài của
+  lát; set khoá Việt bằng set khoá Pāli (33/33, kể cả 33 khoá ngắn hơn 40 ký tự mà `_hvi`
+  không quét); mọi giá trị NFC; không khoá nào trùng nguyên văn Pāli ngoài `:0.1`
+  (`Jātaka`, ngoại lệ có chủ đích của 429/445 tệp `ja`, và nằm ngoài tập kiểm của `_hvi`);
+  nháy kép cân trên cả bài (3 mở, 3 đóng — khớp đúng với Pāli) và nháy đơn `‘’` cân
+  từng khoá (2/2 ở `2.3` và `6.3`); không có `(…)` đứng một mình; dấu lược khớp; thứ tự
+  khoá theo số. Vì chưa chạy bốn cổng `npm` và chưa có lượt rà của người,
+  `technical_integrity` đặt **9.6** chứ không phải 10.0.

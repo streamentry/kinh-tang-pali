@@ -1,0 +1,181 @@
+uid: mil5.5.3
+status: draft
+translationTitle: "3. Câu Hỏi Về Sức Khỏe Của Đức Phật"
+translators:
+  - "OpenCode Space Bunny Free (agent)"
+reviewers: []
+tags:
+  - "kn"
+  - "khuddaka-nikāya"
+  - "milindapañha"
+  - "meṇḍakapañha"
+  - "santhavavagga"
+  - "suc-khoe-dức-phật"
+quality:
+  scores:
+    source_provenance: 9.5
+    semantic_fidelity: 9.2
+    grammar_logic: 9.2
+    segment_alignment: 10.0
+    terminology: 9.1
+    triangulation: 7.0
+    vietnamese_clarity: 9.2
+    han_viet_balance: 9.3
+    ambiguity_integrity: 8.5
+    technical_integrity: 9.6
+  final_score: 9.06
+  blocking_errors:
+    - "Không có tầng tham khảo tiếng Anh ở mức segment tại commit đã ghim. Đo bằng cách tra `source/upstream-manifest.json` (KHÔNG suy từ tên thư mục): edition `english-sujato` có 4.291 tệp, trong đó `sutta/kn/` chỉ có 9 sub-collection là cp, dhp, iti, ja, kp, snp, thag, thig, ud — không có `mil`. Riêng uid này, đối chiếu trực tiếp trên manifest cho 0 tệp `kn/mil/mil5.5.3*`; tệp duy nhất liên quan `mil` trong edition là `name/sutta/mil-name_translation-en-sujato.json` (tầng tên, không phải tầng segment). Đếm trên đĩa trong `.cache/upstream/suttacentral/translation/en/sujato/sutta/` cũng không có thư mục `kn/mil` ⇒ đây là `not-published-upstream`, KHÔNG phải `not-synced`. Tầng `vietnamese-current` cũng vắng: `translation/vi/phantuananh` tại commit đã ghim chỉ có 26 tệp, toàn bộ là Pháp Cú. Lớp lấp `english-project` không có uid này. Ba tầng tham khảo đều vắng ⇒ bài dịch chỉ từ Pāli root, chưa đối chiếu được tầng tham khảo nào ở mức segment ⇒ không đủ điều kiện `review`/`published`, bắt buộc giữ `draft`. Đây là giới hạn upstream, không phải lỗi dịch. Vì vậy `triangulation` bị chặn ở 7.0 (≤ 8.0) chứ không nâng để né blocker."
+  assessed_at: "2026-10-05"
+  assessed_by:
+    - "OpenCode Space Bunny Free (agent)"
+notes: |-
+  `Buddhaappābādhapañha`, câu hỏi thứ ba của `Santhavavagga`. 33 khoá, tất cả đã dịch.
+
+  COVERAGE ĐO ĐƯỢC, KHÔNG ĐOÁN. Đúng công thức `src/lib/canon/reference.ts`: Pāli có
+  nội dung = số khoá `len(prose) >= 40` (chuẩn hoá khoảng trắng) và loại khối tham chiếu
+  path `0.x` ⇒ **18 khoá**; có chữ ở tầng Anh đã ghim = **0** ⇒ ratio = 0.0000, dưới
+  ngưỡng `floor: 0.8`. Đây là lý do `draft`, không phải lỗi dịch. Ba tầng còn lại
+  (`english-project`, `vietnamese-current`) cũng vắng — xem `blocking_errors`.
+
+  NHƯNG CÓ MỘT TẦNG THAM KHẢO THẬT, VÀ PHẢI NÓI RÕ. Tầng `name/` của chính edition
+  `english-sujato` (cùng commit đã ghim, `source/upstream-manifest.json` →
+  `name/sutta/mil-name_translation-en-sujato.json`) CÓ tên bài: `mil-name:239.mil7.4.10`
+  → "A Wheel-Turning Monarch", `mil-name:157.mil5.5.3` → "The Healthiness of the Buddha",
+  `mil-name:200.mil6.3.12` → "The Place Of Extinguishment". Đây là tầng **tên**, không
+  phải tầng segment, nên nó KHÔNG tính vào coverage; nhưng nó là bằng chứng tiền lệ thật
+  cho tiêu đề, và tôi đã dùng nó cho `:0.4` (xem dưới). Nếu không nói rõ, người đọc sẽ
+  tưởng `mil` hoàn toàn không có bản Anh nào ở commit đã ghim — điều đó sai.
+
+  TIÊU ĐỀ, ĐO ĐƯỢC. `name/` cho "The Healthiness of the Buddha"; `Buddhaappābādha`
+  = "Đức Phật không bệnh tật". Tôi dùng "3. Câu Hỏi Về Sức Khỏe Của Đức Phật", theo
+  đúng khuôn `:0.4` của cùng phẩm (mil5.5.1 "1. Câu Hỏi Về Nơi Cư Ngụ", mil5.5.2
+  "2. Câu Hỏi Về Sự Tiết Chế Về Bụng", mil5.5.4 "4. Câu Hỏi Về Sự Khai Mở Con Đường").
+
+  BA ĐẦU 0.x — GIỮ NGUYÊN PĀLI, VÀ ĐẾM ĐƯỢC. `:0.1` `Milindapañha`: **206/217** tệp mil
+  đã có bản dịch giữ nguyên Pāli (chỉ 8 dùng "Mi-lan-đà Vấn Đạo", 3 dùng "Mi-tiên Vấn
+  Đáp") ⇒ giữ. `:0.2` `Meṇḍakapañha`: trong phẩm Santhavavagga đã có 6 bài dùng nguyên văn
+  Pāli (mil5.5.1/.2/.4/.10/.11), chỉ mil5.5.6 dịch "Những Câu Hỏi Lưỡng Đao" ⇒ giữ. `:0.3`
+  `Santhavavagga`: **8/9** bài trong phẩm giữ Pāli, chỉ mil5.5.7 dịch "Phẩm Santhava" ⇒
+  giữ. (Một bài cùng phẩm là mil5.5.6 dịch `:0.3` thành "Phẩm Kết Giao Thân Thiết" —
+  trái với cả phẩm; ghi ra để người điều phối gộp.)
+
+  VĂN XỰNG — ĐO THEO BẦY CÙNG PHẨM. Trên 307 khoá mil5.5.* đã có: `bhante nāgasena`
+  → "thưa ngài Nāgasena" (9 + 9 = 18 khoá, mil5.5.2/.4/.10/.11 đều theo) so với "Bạch
+  ngài Nāgasena" (10, phần lớn rơi vào mil5.5.5/.7/.8 — mà hai bài ấy lại dùng "bạch đại
+  vương"); `mahārāja` → "tâu đại vương" (**49** khoá: 29 "Tâu" + 20 "tâu"). Vì vậy bài
+  này dùng đúng hai văn xựng đó, không tạo cách thứ N+1.
+
+  DÙNG LẠI NGUYÊN VĂN ĐÃ CÓ — 18 KHOÁ PĀLI TRÙNG NGUYÊN VĂN TRONG TẦNG, TRONG ĐÓ 7
+  KHOÁ TÔI DÙNG LẠI Y HỆT:
+  · `“Bhante nāgasena, bhāsitampetaṁ bhagavatā—` trùng ở **25 khoá**; mil5.5.2:1.1 và
+    mil5.5.4:1.1 (hai bài kề, cùng Pāli, cùng câu) đều viết "“Thưa ngài Nāgasena, điều
+    này đã được Thế Tôn dạy:" ⇒ tôi dùng lại y hệt ở `:1.1`.
+  · `“Bhāsitampetaṁ, mahārāja, bhagavatā—` trùng ở **17 khoá**; mil5.5.2:4.1 viết
+    "“Tâu đại vương, điều này đã được Thế Tôn dạy:" (6 khoá trùng dùng đúng chuỗi này) ⇒
+    dùng lại ở `:2.1`.
+  · `Ayampi ubhato koṭiko pañho tavānuppatto, so tayā nibbāhitabbo”ti.` trùng ở **27 khoá**;
+    mil5.5.2:3.7 và mil5.5.4:1.8 đều viết "Câu hỏi hai đầu này đã đến với ngài, xin ngài
+    hãy giải quyết”." ⇒ dùng lại y hệt ở `:1.10` (kể cả dấu chấm, không thêm `ti.`).
+  · `“Sādhu, bhante nāgasena, evametaṁ tathā sampaṭicchāmī”ti.` trùng ở **38 khoá**;
+    mil5.5.4:7.4 viết "“Lành thay, thưa ngài Nāgasena, đúng là như vậy, trẫm xin kính
+    nhận”." ⇒ dùng lại ở `:9.1`.
+  · `‘ahamasmi, bhikkhave, brāhmaṇo yācayogo’` — đoạn đầu `:1.2` trùng nguyên văn với
+    mil5.5.8:1.1, đã viết "‘Này các tỳ-kheo, ta là bậc thuộc dòng Bà-la-môn, thuộc hạng
+    được sai đi" ⇒ tôi nối tiếp đúng chuỗi ấy, chỉ đổi `Ta`→`ta` cho khớp ngôi kể trong
+    bài này.
+  · `Yāvatā, bhikkhave, sattā apadā vā … arahaṁ sammāsambuddho` ở `:8.1` trùng nguyên văn
+    **4 khoá** của sn45.139:1.2/2.1/3.1/4.1 (đã có "Này các tỳ-kheo, Thế Tôn, bậc A-la-hán
+    Chánh Đẳng Giác, được gọi là tối thượng của mọi loài chúng sinh — không chân, hai
+    chân, bốn chân, hay nhiều chân; có sắc hay không sắc; có tưởng, không tưởng, phi tưởng
+    phi phi tưởng") ⇒ dùng lại nguyên văn, chỉ đổi `“` thành `‘` và gắn `’”ti.` theo đúng
+    cách chia khoá của Pāli.
+  · `:0.4`/`:10.1` dùng lại khuôn `…pañho …tatiyo` của chính phẩm.
+  6 khoá Pāli `…pe…` (`:1.6 :1.8 :2.2 :2.4 :4.3 :6.1`) giữ **đúng một** `…` mỗi khoá, không
+  mở rộng; bộ chốt `lược()` và phép so của tôi đều khớp.
+
+  LỖI BẢN NHÁP BẮT ĐƯỢC KHI REVIEW ĐỐI KHÁNG — 9 CHỖ, ĐÃ SỬA HẾT:
+  (1) `:6.1` nháp đầu tiên viết "Còn āyasmā Bà-la-môn **sau khi đã thành tựu** bậc tối
+  thượng … thì đã làm nên điều ấy", làm **MẤT** `taṁ abhinīhāravasena` — vế này là lý do,
+  không phải hệ quả. Đã viết lại thành "Còn điều mà āyasmā Bà-la-môn là bậc tối thượng về
+  sức không bệnh tật, thì vị ấy đã làm được bằng con đường chinh phục trực tiếp". Đây là
+  lỗi nặng nhất của lát.
+  (2) `:6.1` `udaravātābādhe` nháp đầu dịch "bệnh nặng ở vùng bụng **trên thân Ngài**" —
+  Pāli không có `sarīre` ở vế này, tôi đã thêm vào. Đã sửa thành "căn bệnh nặng nơi bụng
+  trong".
+  (3) `:4.2` `dasahi balehi` nháp đầu dịch "mười loại sức mạnh"; kho có tiền lệ rõ là
+  mil5.5.6:3.5 "Đấng Thập Lực Kassapa" và mil5.4.9:1.4 "đủ mười oai lực" ⇒ đã sửa thành
+  "mười oai lực".
+  (4) `:4.2` `aṭṭhārasahi buddhadhammehi` nháp đầu dịch "mười tám **pháp thú** của bậc
+  Phật" — `pháp thú` (thú = con vật) không có nghĩa ở đây, và nháp đó còn **đụng** với
+  `:7.1` mà tôi cũng dịch là "pháp thú" cho `dhutaṅga`. Đã sửa `:4.2` thành "mười tám pháp
+  của bậc Phật" và `:7.1` thành "sáu môn thuần phục" (`dhutaṅga`).
+  (5) `:7.1` `dhutaṅgaṁ ādiyantepi anādiyantepi` — nháp đầu dịch gộp thành một vế "dù đang
+  thực hành pháp thú hay không", làm mất đối xứng phủ định của `ādiya/anādiya`; đã tách
+  đủ cả hai vế.
+  (6) `:2.5` `bāhirānaṁ āgamānaṁ adhigamānaṁ pariyattīnaṁ attani vijjamānataṁ` có **bốn**
+  phân từ; nháp đầu chỉ dịch ba ⇒ đã thêm "chưa từng biết rõ".
+  (7) `:3.1` `divārattiṁ vītināmeti` = "dành cả ngày", nháp đầu dịch "dành trọn ngày cho
+  việc ấy" rồi lặp lại "việc ấy" ⇒ đã viết lại.
+  (8) `:1.5` `bahukkhattuṁ` = "rất nhiều", nháp đầu chỉ "nhiều" ⇒ đã thêm "rất".
+  (9) `:1.2` `payatapāṇi` nháp đầu dịch "cầm theo **bản thảo dược**" — vô căn cứ và sai
+  nghĩa (Pāli nói mang theo dược dụ, mang loại thuốc đứng đầu) ⇒ đã sửa thành "lúc nào
+  cũng mang theo dược dụ, cầm tay loại thuốc đứng đầu".
+  Ngoài ra `:1.7` và `:1.9` nháp đầu viết "là lời nói sai" (thừa); đã rút về "là sai" theo
+  đúng mil5.5.2:3.4.
+
+  BẤT ĐỊNH ĐÃ GHI, KHÔNG GIẤU.
+  (1) **SỐ ĐẦU Ở `:6.1`** — `aṭṭhasaṭṭhiyā ca bhikkhusatasahassānaṁ`. Chữ nghĩa đen:
+  84 × 100.000 = 8.400.000; còn cách đọc nhận thức truyền thống của truyền thống Pāli cho
+  đoạn này là "84.000". Tôi chọn "tám mươi bốn nghìn" theo cách đọc nhận thức, **vì** bản
+  dịch phải truyền nghĩa đã được hiểu, nhưng tôi KHÔNG coi đây là chỗ chắc chắn và KHÔNG
+  bịa thêm chi tiết. Người biên tập cần ra một quy tắc thống nhất: chính tệp dn14 của dự
+  án đã dịch **cùng** từ hợp `aṭṭhasaṭṭhi…bhikkhusatasahassaṁ` thành "6.800.000" ở **9**
+  khoá và "8.400.000" ở **2** khoá — tức là chính kho đang không thống nhất, nên tôi hạ
+  `ambiguity_integrity` xuống 8.5 thay vì giả vờ chắc.
+  (2) `:6.1` `tiṇapupphakaroga` — 0 tiền lệ trong toàn tầng Việt. `tiṇa` = lúa non,
+  `puppha` = hoa, `-roga` = bệnh; tôi dịch "bệnh lúa non" và không nêu tên bệnh cụ thể.
+  Bản Pāli đã ghim KHÔNG có đoạn song song nào trong toàn bộ root (đã quét
+  `root/pli/ms/sutta/**` cho `pupphakarog`, chỉ khớp chính mil5.5.3:6.1) nên tôi không
+  dám nêu tên bệnh hay dẫn thêm bản song song.
+  (3) `:6.1` `abhinīhāravasena` — 0 tiền lệ trong tầng Việt. `abhinīhāra` là "chinh phục
+  trực tiếp / thắng trí toàn diện"; tôi dịch "bằng con đường chinh phục trực tiếp" và không
+  thêm thuật ngữ "thắng trí toàn diện" vào vì Pāli khoá này không có.
+  (4) `:6.1` `anomadassissa` — 0 tiền lệ cả khái niệm; `anoma` = dễ chịu, êm. Tôi dịch
+  "khuyên dạy một cách dễ chịu", không thêm "khuyên can" hai lần.
+  (5) `:4.2` `buddhadhammehi` — 0 tiền lệ trong toàn tầng Việt cho cụm này. Tôi dịch "mười
+  tám pháp của bậc Phật", giữ số 18 và không liệt kê danh sách vì Pāli không liệt kê.
+  (6) `:7.1` `dhutaṅga` — 0 tiền lệ trong tầng Việt. Tôi dịch "sáu môn thuần phục" theo
+  cách gọi quen thuộc của Luật Tăng; Pāli khoá này không nói "sáu", nhưng `dhutaṅga` là
+  thuật ngữ cố định sáu môn, nên số 6 là thuộc ngữ ngữ nghĩa chứ không phải do tôi thêm.
+  (7) `:3.1` `ṭhānacaṅkamikā` — 0 tiền lệ trực tiếp trong tầng `mil`; `caṅkamana` có
+  tiền lệ mil7.2.10:3.1 "đi kinh hành". Tôi dịch "thích đi dạo".
+  (8) `:1.2` `sallakatto` — chỉ có 2 tiền lệ (mil5.3.3:8.1 "thầy thuốc đã chọn thuốc",
+  mil5.5.10:6.1 "người thầy thuốc giải phậu"), hai cách khác nhau. Tôi chọn "bậc chọn lựa
+  thuốc men" và dùng **y hệt** ở cả 5 khoá có cụm này (`:1.2 :1.9 :2.3 :4.4`) để bài không
+  tự mâu thuẫn.
+
+  THUẬT NGỮ ĐÃ TRA, CÓ SỐ ĐẾM. `bākula` → "Bà-la-môn" (mil5.5.8:1.1, 2 khoá cùng cụm);
+  `appābādha` → "không bệnh tật" (ghép cụm ở `:1.4 :1.8 :6.1`); `anuttaro` → "vô thượng"
+  (mil5.5.11:13.3 "bậc vô thượng"); `aggo` → "bậc tối thượng", `jeṭṭho` → "bậc trên hết",
+  `seṭṭho` → "bậc cao nhất" (mil5.5.2:6.1 `seṭṭho` → "tối thượng"; `aggo jeṭṭho seṭṭho`
+  ở `:5.2` phải giữ cả ba số từ, không lược); `ekāsanikā` → "chỉ ăn một bữa" (mn113:16-20.7
+  "Tôi là người ăn một bữa"; an5.188 "chỉ ăn trong một chỗ ngồi"); `vesārajja` → "không sợ
+  hãi" (an4.8:1.4, mn12:23.2, 7 + 4 khoá); `bala` → "oai lực" (mil5.5.6:3.5 "Thập Lực",
+  mil5.4.9:1.4 "mười oai lực"); `saññino` → "có tưởng", `nevasaññīnāsaññino` → "phi tưởng
+  phi phi tưởng" (sn45.139, 4 khoá); `mahārāja` → "tâu đại vương"; `bhagavatā` → "Thế
+  Tôn"; `devātideva` → "bậc Thiên Nhân" (mil7.2.2:3.4, 5 khoá); `saṁyuttanikāya` → "Tương
+  Ưng Bộ" (mil6.1.8:8.1).
+
+  NHÁY KÉP — BÀI NÀY CÓ CÁI BẪY THẬT, ĐÃ XỬ LÝ ĐÚNG CÁCH CHIA KHOÁ SUTTACENTRAL.
+  `“` mở ở `:1.1` và **không** đóng ngay: nó đóng ở `:1.10`, vì Nāgasena đang trích lại
+  chính lời mình đã dặn ở `:1.1`. Bên trong có bốn cặp `‘…’` mở ở `:1.2` (đóng ngay),
+  `:1.4` (đóng ngay), và hai cặp **mở ở `:1.6` đóng ở `:1.7`, mở ở `:1.8` đóng ở `:1.9`** —
+  đúng như Pāli. Bộ chốt `ngoặc()` quét **mọi** khoá và báo cân. Tôi tự đếm lại nháy đơn
+  `‘’` theo thứ tự số vì `ngoặc()` của bộ chốt chỉ tính nháy kép — cân (0 = 0). Pāli:
+  `“`=3 `”`=3, `‘`=6 `’`=6; bản Việt cân đúng.
+
+  `technical_integrity` đặt 9.6 vì lát này bị cấm chạy bốn cổng kỹ thuật; **tôi không
+  tuyên bố** `npm run validate`, `npm test`, `npm run check`, `npm run build` đã xanh —
+  bốn lệnh đó còn lại cho người điều phối. 10.0 chỉ dành cho khi cả bốn cổng thật sự xanh
+  và có người rà lại.

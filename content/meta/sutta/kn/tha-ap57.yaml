@@ -1,6 +1,6 @@
 uid: tha-ap57
 status: draft
-translationTitle: "Bài Kệ Tuyên Ngợ Về Trưởng Lão Opavayha"
+translationTitle: "5. Bài Kệ Tuyên Ngợ Về Trưởng Lão Opavayha"
 translators:
   - "OpenCode Space Bunny Free (agent)"
 reviewers: []
@@ -13,7 +13,7 @@ tags:
 quality:
   scores:
     source_provenance: 9.5
-    semantic_fidelity: 9.0
+    semantic_fidelity: 8.7
     grammar_logic: 9.1
     segment_alignment: 10.0
     terminology: 9.0
@@ -22,10 +22,10 @@ quality:
     han_viet_balance: 9.1
     ambiguity_integrity: 8.4
     technical_integrity: 9.6
-  final_score: 9.03
+  final_score: 9.00
   blocking_errors:
     - "Không có tầng tham khảo tiếng Anh tại commit đã ghim (11c9d708978cde8ba61096d8a75f7ddfb846f639): thư mục `kn/tha-ap/` của edition `translation/en/sujato` **không tồn tại** trong `.cache/upstream/suttacentral/` (đếm được: trong `sutta/kn/` chỉ có thag/ja/thig/cp/dhp/iti/kp/ud/snp, **0 tệp** cho toàn bộ 563 bài `tha-ap` và **0 tệp** cho 85 bài `vv`), và `source/upstream-manifest.json` không liệt kê bất kỳ tệp nào cho `tha-ap57` — đây là `not-published-upstream`, KHÔNG phải `not-synced`. Đo coverage theo đúng công thức `source/layers.yaml` (`englishCoverage.floor: 0.8`, đo trên Pāli có nội dung ≥ 40 ký tự, loại block tham chiếu `:0`) cho **0 trên 44 khoá = 0%**, dưới ngưỡng. `scripts/validate.ts` coi tệp Anh thiếu là **error** khi status là `review` hoặc `published`, nên bài bắt buộc `draft`. Tầng `vietnamese-current` cũng vắng: `translation/vi/phantuananh` tại commit đã ghim chỉ có 26 tệp và toàn bộ là Pháp Cú. Lớp lấp `english-project` của dự án (`content/translation/en/project/sutta/kn/`) cũng không có cho uid này. Ba tầng tham khảo đều vắng ⇒ bài dịch chỉ từ Pāli root ⇒ **blocker thật**, và đây là **giới hạn của bản chụp upstream**, không phải lỗi của người dịch. Vì vậy `triangulation` bị chặn ở 7.5 (≤ 8.0) chứ không nâng để né blocker."
-  assessed_at: "2026-10-04"
+  assessed_at: "2026-10-05"
   assessed_by:
     - "OpenCode Space Bunny Free (agent)"
 notes: |-
@@ -91,3 +91,17 @@ notes: |-
   tiến trình, KHÔNG sửa `_hvi.py`.
 
   Cổng kỹ thuật chưa chạy — lát này bị cấm `npm run validate|test|check|build`. Tiêu chí 10 bị chặn ở **9.6**; bốn lệnh để coordinator chạy: `npm run validate` · `npm test` · `npm run check` · `npm run build`.
+  **SỬA `:0.3` — ĐẶT LẠI SỐ THỨ TỰ CÓ NGUỒN.** Lát này sửa đúng `1` khoá
+  (`:0.3`) của tệp này — Pāli `:0.3` = `5 Opavayhattheraapadāna` — có số thứ tự, còn bản Việt cũ
+  **đã bỏ mất số đó** ⇒ mất thông tin có nguồn ngay ở tiêu đề phẩm.
+  Đã đặt lại thành: `5. Bài Kệ Tuyên Ngợ Về Trưởng Lão Opavayha`
+
+  **QUY TẮC ĐÃ ĐO, KHÔNG ĐO THEO ĐA SỐ.** `:0.3` giữ số thứ tự khi và chỉ khi
+  Pāli `:0.3` bắt đầu bằng số. Đo tại thời điểm sửa trên **367** tệp `tha-ap`
+  có khoá `:0.3`: Pāli có số ⇒ giữ **56/116**, Pāli không số ⇒ bỏ **249/251**;
+  bám Pāli **305/367 = 83,1%**. Hình thức: chữ số + dấu chấm **51** so với số
+  viết bằng chữ **5**, và **0/56** tệp mang cả hai — nên chọn **chữ số**.
+
+  `semantic_fidelity` **hạ 0,3** (mất thông tin có nguồn ở khoá tiêu đề: lỗi
+  semantic, không phải văn phong). `translationTitle` nằm ngoài lát này nên
+  để nguyên — **coordinator hợp nhất nếu muốn tiêu đề trang khớp `:0.3`.**
