@@ -156,6 +156,46 @@ trong bản dịch trong khi Pāli `:0.3` của cả hai chỉ là `Suvaṇṇap
 Và `n35` cũng sửa `tha-ap144:6.1` / `tha-ap145:6.1`: bản nháp ghi *"đã từng nói **bài kệ này**"* trong khi
 Pāli `imā gāthāyo` là **số nhiều**, và `abhāsitthāti` là quá khứ của **một** sự kiện.
 
+### 🔴 `(…)` **không phải** placeholder — lần thứ **ba** "trông như lỗi" hoá ra là quy ước
+
+`an1.464:1.1` chứa `(…)`; thoạt nhìn như chỗ chưa dịch, và `vimeas` coi nó là **đủ** vì giá trị khác rỗng.
+Đo toàn tầng: **31** khoá / **23** tệp. Tách hai dạng:
+
+| dạng | số | Pāli có `(…)`? |
+|---|---|---|
+| giá trị **đúng bằng** `(…)` | **12** | **12/12** (`dn16:1.11.11`, `ja434:2.5`, `sn37.4:1.8`, `mn124:3.8`) |
+| `(…)` **nằm trong** câu đã dịch | **19** | **19/19** (`mn40:8.1`: Pāli `…visuddhamattānaṁ samanupassati (…).`) |
+
+⇒ `(…)` là **phản chiếu trung thàcf** của tầng Pāli ghim. **Không** sửa, **không** viết cổng chặn.
+
+Đây là lần thứ **ba** trong một phiên tôi định sửa một thứ **đúng** vì nó **diễn ra** trông như lỗi — trước
+đó là *"phi phi tưởng"* (**168** khoá / **62** tệp đã dùng, `dn15` viết hoa *"Phi Tưởng Phi Phi Tưởng Xứ"*) và
+*"tâm ấy"* ở `an1.574:2.3` (tiền lệ `an1.53:1.4`).
+
+⇒ **Luật đã chốt và đưa vào `BRIEF_VI4.md` cho mọi lát:** *"trông như lỗi" không phải tiêu chí sửa. `grep`
+kèm đếm trên tầng, và đọc vế trước trong bài, **trước khi** sửa bất cứ thứ gì.*
+
+### ✅ Chiều đo còn **thiếu**: số thứ tự ở `:0.3`
+
+Tôi mới chỉ đo `THỪA` (Pāli **không** có số mà Việt **có**) mà **chưa** đo chiều ngược lại. Lát `n44` báo
+*"112 tệp THIẾU số"* — tôi đo cả hai:
+
+```
+tha-ap có :0.3 ở cả Pāli lẫn Việt: 401
+GIỮ số   (Pāli có ∧ VI có)      : 126
+THIẾU số (Pāli có mà VI không)  : 0
+BỎ số    (Pāli không ∧ VI không): 275
+THỪA số  (Pāli không mà VI có)  : 0
+```
+
+⇒ **0 ở cả hai chiều**; claim của lát sai. Nhưng nó **chỉ ra chỗ tôi chưa kiểm** — đó là giá trị thật của
+báo cáo lát. ⇒ **Luật: khi nghe một lỗi, đo cả hai chiều trước khi kết luận và trước khi sửa.**
+
+### 🔴 Bẫy mới: `_hvi.save_vi` **không chạy được** cho **uid gộp**
+
+`pal()` lọc `k.startswith(uid + ":")` nên với `sn45.110-114` trả `{}` và `kiếm()` raise. Lát sau gặp uid
+gộp phải tự làm lại bộ kiểm (NFC · Pāli lọt · trùng nguyên văn · dấu lược · cân ngoặc kép).
+
 ### 🔴 🔴 Bẫy lát **trùng**: đã mắc **hai** lần, cùng một cơ chế
 
 | lần | chuyện | vì sao phép đo **không** thấy |
