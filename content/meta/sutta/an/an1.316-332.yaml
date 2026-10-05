@@ -1,5 +1,5 @@
 uid: an1.316-332
-status: draft
+status: published
 translationTitle: "Kinh Một Cá Nhân Có Tà Kiến"
 translators:
   - "OpenCode Space Bunny Free (agent)"
@@ -11,56 +11,120 @@ tags:
 quality:
   scores:
     source_provenance: 9.6
-    semantic_fidelity: 9.3
+    semantic_fidelity: 9.4
     grammar_logic: 9.4
     segment_alignment: 10.0
-    terminology: 9.0
-    triangulation: 8.5
-    vietnamese_clarity: 9.2
+    terminology: 9.3
+    triangulation: 9.2
+    vietnamese_clarity: 9.3
     han_viet_balance: 9.3
-    ambiguity_integrity: 9.1
+    ambiguity_integrity: 9.2
     technical_integrity: 9.6
-  final_score: 9.30
-  blocking_errors:
-    - "Tệp nhóm mới giữ 8 khoá của pre an1.316, các pre an1.317 tới an1.332 chưa gộp nên requireComplete cho published sẽ đỏ"
-  assessed_at: "2026-09-30"
+  final_score: 9.43
+  blocking_errors: []
+  assessed_at: "2026-10-05"
   assessed_by:
     - "OpenCode Space Bunny Free (agent)"
 notes: |-
-  **Phạm vi lát c7: đủ mọi khoá trong `all` của bài, không thêm khoá nào.**
-  Chạy lại `save_vi` hai lần: idempotent, tệp trên đĩa không đổi. Tự kiểm những
-  cờ mà `rven88.py` không áp cho tầng Việt: đủ khoá và đúng segment ID theo `pre`
-  (tiền tố khoá thật, không phải uid-gộp); ngoặc kép cân trên cả bài; mọi chuỗi
-  đã NFC; không Pāli lọt; số dấu lược bằng Pāli.
+  **Phạm vi lát m3: đủ mọi khoá trong `all` của bài, không thêm khoá nào.** Tệp
+  trước khi ghi có **8** khoá, nay **60/60**; 8 khoá cũ kiểm lại từng chuỗi và
+  **giữ nguyên byte-identical**, chỉ thêm **52** khoá mới. Tiền tố khoá là
+  `an1.NNN:` theo từng bài, không phải uid-gộp `an1.316-332:`. Độ dài: Pāli
+  **3078** ký tự → Việt **3783** (1,23); riêng phần mới Pāli **2634** → Việt
+  **3253** (1,24).
+
+  **Năm phép kiếm tự chạy, in số.** (1) `set(khoá Việt) == set(Pāli)`: Pāli
+  **60** / Việt **60**, thiếu 0, thừa 0, rỗng 0, thứ tự đúng bằng `all`. (2) Nháy
+  đơn `‘…’`: Pāli **0** / Việt **0**, lệch **0** khoá; ngoặc kép Pāli **28** /
+  Việt **28**, lệch từng khoá **0**, cân xuyên bài dư **+0**. (3) Pāli trùng
+  nguyên văn mà Việt khác: dựng chỉ mục Pāli→Việt toàn tầng (**100.166** chuỗi
+  Pāli có bản Việt; **16.973** chuỗi xuất hiện > 1 nơi, **73.700** cặp, trong đó
+  **8.022** cặp Việt khác nhau và **8.951** cặp giống nhau); riêng hai bài lát:
+  **65** chuỗi trùng, **937** cặp, **16** nhóm Việt khác — xem dưới. (4) Dấu lược:
+  Pāli có **0** khoá `…pe…` và **3** dấu `…` trần (đều ở `an1.329:1.1`), Việt
+  **0** và **3**, `lược()` khớp từng khoá, lệch **0**. (5) Mọi số trong khối này
+  do script in.
+
+  ⚠ Các tổng số toàn tầng ở mục (3) **đổi mỗi lần đo** vì nhiều agent viết song
+  song trong cùng kho; đây là lần đo lúc ghi tệp này.
+
+  **Mười một khoá mới dùng lại nguyên văn bản dịch đã có.** `an1.319:1.2` và
+  `:1.3` dùng lại **nguyên văn** `an3.137:3.1`–`3.2` (Pāli trùng từng ký tự, đã
+  `published`) — đúng như ghi chú cũ của tệp này đã yêu cầu · `an1.320`–`an1.327`
+  tám khoá `:1.2` → *Vì sao vậy?* (đa số **77** khoá `an`, phạm vi gần nhất
+  `an1.3xx` **6/6**) · `an1.329:1.3` `Vaggo tatiyo` → *Phẩm thứ ba.* theo
+  **nguyên văn** `an1.218:1.2`, và đúng như `an1.315:1.10` đã làm với `Vaggo
+  dutiyo`.
+
+  **Thuật ngữ, kèm số đếm.** `ekapuggalo` → *một cá nhân* theo khoá cũ `316:1.1`
+  (đa số chung tầng là *một người*: `an1.170`, `an1.172`, `an1.174`; giữ khoá cũ
+  là chọn nhất quán trong chính tệp này) · `micchādiṭṭhi` → *tà kiến* và
+  `sammādiṭṭhi` → *chánh kiến* (tà kiến **444** / chánh kiến **597** theo thống kê
+  của tệp `an1.306-315`) · `viparītadassana` → *có cái thấy đảo lộn* và
+  `aviparītadassana` → *có cái thấy không đảo lộn*, dùng lại đúng khung của khoá
+  cũ `316:1.3` (tiền lệ cạnh tranh: *thấy sai lệch* 1, *không nhìn ngược* 8,
+  *quan niệm đảo ngược* 6) · `mahāsāvajja` → *đáng trách nặng* theo `mn56`
+  (*đáng trách nặng nhất* **11** chỗ) · `dhammavinaye` → *Pháp và Luật* ·
+  `durakkhāta` → *được giảng dạy vụng về* và `svākkhāta` → *được khéo giảng dạy*,
+  theo đúng cặp ở `dn29:4.13`/`dn29:6.11` · vế `yo ca samādapeti … sabbe te
+  bahuṁ apuññaṁ/puññaṁ pasavanti` dùng lại **nguyên văn** `dn29:4.11` và
+  `dn29:6.9` (*gây nhiều điều bất thiện* / *tạo nhiều phước đức*) · `dāyaka` →
+  *người cúng dường* và `paṭiggāhaka` → *người nhận* theo `an4.78` (mười khoá
+  cùng cặp) · `mattā jānitabbā` → *nên biết vừa đủ*, **0** tiền lệ cho cụm,
+  đặt mới theo nghĩa Pāli (Sujato *know moderation*) và theo *biết vừa đủ trong
+  ăn uống* của `mattaññu` · `āraddhavīriyo` → *tinh tấn nỗ lực* (tinh tấn nỗ lực
+  **8** chỗ; `āraddhavīriyo` đứng riêng là *tinh tấn* ở `dn34`, `sn2.29`) ·
+  `kusīto` → *lười biếng* (**10** chỗ) thay cho *biếng lười* (5) vì đây là người
+  chủ thể, không phải vế liệt kê · `dukkhaṁ/sukhaṁ viharati` → *sống trong khổ
+  đau / sống trong an lạc* (sống trong khổ đau **6**, sống trong an lạc **6**).
+  Đây là lý do `terminology` ở 9,3 chứ không cao hơn.
+
+  **`Seyyathāpi` → *Như thể*, có đếm.** Trong tầng `an`: *Như thể, này các tỳ-kheo*
+  **30** so với *Ví như, này các tỳ-kheo* **9**; ở `an1.306-315` lại là *Ví
+  như*. Tôi theo số đông của chính bộ và theo khoá `an1.319:1.2` đã dùng lại
+  nguyên văn. `mil5.1.10:3.6` có Pāli gần y hệt `an1.328:1.1` nhưng bản Việt đã
+  có **bỏ** mất `Seyyathāpi`; tôi giữ lại vì bỏ là mất một đơn vị nghĩa không
+  lấy được ở nơi khác.
+
+  **Một chỗ cố ý dịch khác tiền lệ, và lý do.** `an1.328:1.2` và
+  `an1.329:1.2` (Pāli **giống hệt nhau**, nên hai bản Việt cũng **giống hệt
+  nhau**): `appamattakampi bhavaṁ` và `accharāsaṅghātamattampi`. Tiền lệ duy
+  nhất là `mil5.1.10:3.7`, dịch *một tích tục hiện hữu nhỏ bé … tích tục như một
+  đàn kiến*. Tôi dịch *một cõi hiện hữu nhỏ bé … lượng nhỏ như một đàn kiến*
+  vì chính tệp tiền lệ ấy dịch `bhava` thành *cõi hiện hữu* ở `mil5.1.10:3.4` và
+  `:3.7` (cuối câu), nên *tích tục* trong `3.7` là chữ không nhất quán với chính
+  nó; `vaṇṇemi` thì theo đúng `:3.7` là *không ưa*.
+
+  **Bốn dấu `…` trần giữ nguyên, không mở rộng.** `an1.329:1.1` có ba `…` trần
+  ở Pāli, bản Việt giữ **ba** `…` trần; `muttaṁ` → *nước tiểu*, `kheḷo` → *nước
+  bọt*, `pubbo` → *mủ*, `lohitaṁ` → *máu* (cả bốn đều có tiền lệ ở `mn62`/`dn28`/
+  `mn119`), `gūtha` → *phân* và `duggandha` → *có mùi thối* theo
+  `mil5.1.10:3.6`.
+
+  **Khoá đánh số `:1.0`: quy ước không đồng nhất, đã đo ở phạm vi gần nhất.**
+  Trong tệp này tôi ghi **14** khoá dạng **số thuần** (`317`…`329`) và **0**
+  dạng dải. Đo ở phạm vi gần nhất `an1.25x`–`an1.3xx`: **45** số thuần / **9**
+  dải; đo toàn bộ 204 tệp `an1`: **185** số thuần / **16** dải. Cả hai số đều
+  nghiêng về số thuần nên tôi theo số thuần, và khoá cũ `an1.316:1.0` đã là số
+  thuần. ⚠ Sujato ghi `329–332` cho `an1.329:1.0` vì 330–332 không có khoá Pāli
+  riêng; Pāli đã ghim chỉ có `329`, và Pāli là authority, nên tôi giữ `329`.
+
+  **Sáu mươi khoá này là `an1.316` đến `an1.329`; `330`, `331`, `332` không có
+  khoá Pāli trong tệp ghim** nên `all` dừng ở `an1.329:1.3`. Tệp Pāli gốc
+  `an1.316-332_root-pli-ms.json` có đúng **60** khoá.
 
   **Không đối chiếu được tầng Việt hiện hành.** Tại commit đã ghim,
   `translation/vi/` của bilara chỉ chứa Pháp Cú, nên các bài này không có bản Hòa
   thượng Thích Minh Châu. Đây là giới hạn của bản chụp upstream, không phải thiếu
   sót của kho; `triangulation` vì thế chỉ ở mức Pāli + English Sujato.
 
-  Tôi **không** chạy `npm run validate|test|check|build` (đợt này cấm; người điều
-  phối chạy tập trung sau khi gộp các pre), nên `technical_integrity` chấm 9.6
-  chứ không phải 10.0.
+  **Đo được tầng Anh: mẫu số 27 khoá Pāli có nội dung (≥ 40 ký tự, bỏ khối
+  `:0`), Sujato phủ 27/27 = 100%.** Không có khoảng trống nào phải ghi nhận, nên
+  bài này không phụ thuộc `reference-gaps.yaml`.
 
-  **Khung `1.1`/`1.5` theo `an1.130:1.1` (đã `published`).** Cụm
-  *vì sự bất lợi và bất hạnh của nhiều người, vì sự tổn hại, bất lợi và khổ đau
-  của đông người, của chư thiên và loài người* dùng lại đúng chữ cho Pāli
-  `bahujanaahitāya bahujanaasukhāya, bahuno janassa anatthāya ahitāya dukkhāya
-  devamanussānaṃ*; `ekapuggala` → *một cá nhân* (`puggala` → *cá nhân* là quy
-  ước, ví dụ `an4.93`/`an4.94`); `1.2` *Một cá nhân nào?* theo mẫu *Một pháp
-  nào?* của `dn33` cho cấu trúc `Katamo …?`.
-
-  **`1.2`–`1.3` của `an1.319` (cùng nhóm, chưa tới lượt lát này) đã có sẵn
-  nguyên văn: `an3.137:3.1`–`3.2` (Pāli y hệt, đã `published`)** — *cái bẫy đặt
-  ở cửa sông … Makkhali kẻ mù quáng ấy có lẽ là cái bẫy của loài người*. Người
-  gộp nhóm sau này phải dùng lại đúng hai câu đó, không dịch lại.
-
-  **Thuật ngữ `1.3`, có lý do từng chữ.** `micchādiṭṭhi` → *tà kiến* là quy ước.
-  `viparītadassana` → *có cái thấy đảo lộn*: *đảo lộn* 41 chỗ cho họ
-  `viparīta`/`vipallāsa*, *cái thấy* cho `dassana` đã có tiền lệ.
-
-  **`1.4` đặt mới, 0 tiền lệ cho động từ.** `vuṭṭhāpeti` (thể khiến của *rời
-  khỏi*) → *đưa … ra khỏi Chánh pháp*; `patiṭṭhāpeti` → *đặt … vào phi pháp*
-  (`phi pháp* cho `asaddhamma* đã vững). Đây là lý do `terminology` chỉ 9.0 và
-  `vietnamese_clarity* 9.2 — câu giữ cấu trúc Pāli hơi cứng để không mất đối
-  xứng *ra khỏi / đặt vào*.
+  **technical_integrity 9,6** vì lát này **cấm chạy** `npm run validate`,
+  `npm test`, `npm run check`, `npm run build` — bốn lệnh còn lại, người điều
+  phối chạy sau khi gộp. Tôi không tuyên bố technical gate pass. Các kiểm thay
+  thế đã tự chạy và đều sạch: đủ khoá và đúng thứ tự, NFC, không Pāli lọt,
+  không khoá trùng nguyên văn Pāli, số dấu lược khớp từng khoá, ngoặc kép cân
+  trên cả bài.

@@ -1,5 +1,5 @@
 uid: an1.394-574
-status: draft
+status: published
 translationTitle: "Kinh Thiền Thứ Nhất Trong Khoảng Búng Ngón Tay"
 translators:
   - "OpenCode Space Bunny Free (agent)"
@@ -11,18 +11,17 @@ tags:
 quality:
   scores:
     source_provenance: 9.7
-    semantic_fidelity: 9.5
+    semantic_fidelity: 9.2
     grammar_logic: 9.4
     segment_alignment: 10.0
-    terminology: 9.3
+    terminology: 9.0
     triangulation: 8.5
-    vietnamese_clarity: 9.4
+    vietnamese_clarity: 9.3
     han_viet_balance: 9.4
     ambiguity_integrity: 9.2
     technical_integrity: 9.6
-  final_score: 9.4
-  blocking_errors:
-    - "Tệp nhóm mới giữ 82/169 khoá: đủ lát m1 (an1.394 tới an1.444), còn 87 khoá pre an1.445 tới an1.574 thuộc lát m2 chưa gộp, nên requireComplete cho review và published sẽ đỏ"
+  final_score: 9.33
+  blocking_errors: []
   assessed_at: "2026-10-05"
   assessed_by:
     - "OpenCode Space Bunny Free (agent)"
@@ -128,3 +127,148 @@ notes: |-
   (lát này cấm; người điều phối chạy tập trung sau khi gộp các lát), nên
   `technical_integrity` chấm 9,6 chứ không phải 10,0. `git` và `gh` cũng không
   chạy. Năm phép kiểm ở trên là tự viết, không thay được bốn cổng đó.
+  ---
+
+    **Lát m2 — lượt review đối kháng (2026-10-05): 87 khoá, `an1.444:1.4` tới `an1.574:2.4`.**
+    Lát m2 đã ghi 87 khoá này vào tệp gộp rồi kết thúc **không có báo cáo**, và metadata
+    vẫn còn là của lát m1. Lượt này đọc lại **từng khoá** từ Pāli đã ghim
+    (`root/pli/ms/sutta/an/an1/an1.394-574_root-pli-ms.json`, đối chiếu byte với trường
+    `pali` của lát: **0/169 lệch**), đối chiếu Sujato, sửa 6 khoá, rồi chấm lại cho **cả
+    169** khoá. Tiền tố uid riêng bên trong tệp được giữ nguyên.
+
+    **Sáu khoá đã sửa — mỗi khoá đều có lý do đo được:**
+    1. `an1.574:2.3` `naṁ`: **tâm ấy → điều ấy**. Xem mục `naṁ` bên dưới.
+    2. `an1.494:1.1` `upasamā`: **sự buông xả → sự an tịnh**. Xem mục `upasamā` bên dưới.
+    3. `an1.454:1.1`, `an1.464:1.1`, `an1.474:1.1`, `an1.484:1.1`, `an1.494:1.1`: đuôi
+       **`. …` → ` ….`** cho khớp Pāli `….`. Xem mục dấu lược bên dưới.
+
+    **Năm phép kiếm, tự viết, in số** (`_hvi.py` **không dùng được ở đây**: nó lọc
+    khoá `len(pāli) >= 40` mà ở `an1` phần lớn khoá **ngắn hơn**, nên nó quét không mấy
+    khoá nào rồi báo xanh — đó là **không kiểm gì, không phải đạt**; thêm nữa nó chỉ đếm
+    ngoặc **kép** không đếm nháy **đơn**, và lọc `\b\d+\.0\b` trong **nội dung Pāli**
+    chứ không phải **tên khoá**):
+    1. `set(khoá Việt) == set(khoá Pāli)`: Việt **169** = Pāli **169**, thiếu **0**,
+       thừa **0**; **thứ tự khoá trùng khớp Pāli** (`list(V) == list(P)` đúng). Lát m1
+       **82**, lát m2 **87**, giao nhau **0**, hợp **169**. Câu cũ của lát m1 ghi `82/169`
+       là **đã hết hiệu lực**; blocker cũ `giữ 82/169 khoá` đã xoá.
+    2. Nháy đơn `‘’` + ngoặc kép `“”` khớp Pāli **từng khoá**: dưng `“` trên cả bài là
+       **+0 ở Pāli và +0 ở Việt**, dưng `‘` là **+0 / +0**. Bốn khoá lệch về số ngoặc
+       *trong khoá* là `an1.394:1.1` và `an1.395:1.1` (mở `“`) cùng `an1.394:1.3` và
+       `an1.574:2.3` (đóng `”`) — đúng vì ngoặc kép Pāli **cố ý chạy qua ranh giới lát**:
+       mở ở `an1.394:1.1`, đóng ở `an1.574:2.3`. Không khoá nào lệch ở nháy đơn. **Giờ
+       cả bài đã cân** (lát m1 chỉ mới cân trong lát vì dấu đóng nằm ngoài lát).
+    3. Pāli trùng nguyên văn: trong **82** khoá m1 **3** nhóm; trong **87** khoá m2
+       **14** nhóm; **11** nhóm chung giữa hai lát; toàn tệp **16** nhóm. Nhóm Pāli trùng
+       mà **bản Việt khác nhau**: trong m1 **0**, trong m2 **0**, giữa hai lát **1** —
+       `Ko pana vādo ye naṁ bahulīkarontī”ti.`, và sau khi sửa thì khác nhau là **có
+       chủ ý**, xem mục `naṁ`. Nhóm lớn nhất: `Tāni abhibhuyya:` 8 khoá,
+       `‘jānāmi passāmī’ti—` 8 khoá, `evaṁsaññī hoti.` 8 khoá — cả ba đều bản Việt
+       giống nhau tuyệt đối.
+    4. `…pe…` và `…` trần so Pāli **từng khoá**: toàn tệp **8** khoá Pāli có `…pe…`,
+       **105** khoá có `…` trần, **56** khoá không dấu lược, **lệch 0**. Lát m2 riêng:
+       **0** khoá `…pe…`, **69** khoá `…` trần, **18** khoá không dấu lược, **lệch 0**.
+       Quy tắc `…pe…` → đúng **một** `…` đạt ở cả 8 khoá; Pāli không có `…` thì Việt
+       không có `…` đạt ở cả 56 khoá; **không** khoá nào có `… cho đến …`.
+    5. **Mọi số trong khối này do script in ra**, không đo bằng mắt.
+
+    **Dấu lược `….` — đo lại, không chép số của lát trước.** Pāli kết `…. ` là `…` **rồi
+    mới** tới chấm, nên bản Việt phải giữ đúng thứ tự đó. Trong tầng đã dùng có **760** khoá
+    mà Pāli kết `….`: Việt kết ` ….` **398**, kết `. …` **47**, rơi hẳn chấm (chỉ còn `…`)
+    **204**, kết kiểu khác **111**. Riêng phạm vi `an1` là **34** khoá: **16 / 6 / 10 / 2**.
+    ⇒ ` ….` là dạng của tầng, `. …` là dạng thiểu số, đúng hướng đã đo trước; số tôi đo
+    khác vì mẫu số của tôi là **760** chứ không phải một lát con. Lát m2 đã đưa **6** khoá
+    `bhāveti …. ` (`an1.454`, `an1.464`, `an1.474`, `an1.484`, `an1.494`, `an1.504`) về
+    một dạng. **Còn tồn đọng 5 khoá của lát m1** — `an1.401:1.1`, `an1.413:1.1`,
+    `an1.418:1.1`, `an1.430:1.1`, `an1.438:1.1` vẫn dùng `…` trần hoặc `. …` cho Pāli
+    `…. ` — tôi **không sửa** vì ngoài lát m1; đây là việc còn tồn đọng duy nhất trong tệp,
+    xin người biên tập phán một lượt cho cả 169 khoá.
+
+    **Ba chỗ đã tra tiền lệ bằng `grep` kèm đếm:**
+    * **`naṁ` trong `Ko pana vādo ye naṁ bahulīkarontī”ti.`** — cụm này trùng **byte**
+      ở đúng **5** khoá toàn tầng, và **tiền đối của `naṁ` khác nhau thật**, nên **không
+      ép một dạng**. Đọc vế trước ở **từng** bài: `an1.53:1.4`, `an1.54:1.4`, `an1.55:1.4`
+      đều đứng sau `bhikkhu mettācittaṁ …`, tức `naṁ` chỉ chính cái `cittaṁ` — nên *tâm ấy*
+      **đúng** ở cả ba; `an1.394:1.1` có `paṭhamaṁ jhānaṁ bhāveti`, `naṁ` chỉ `jhānaṁ` —
+      nên *thiền ấy* của lát m1 **đúng hơn**, tôi **giữ nguyên**; còn `an1.574:2.1` là
+      `Ayaṁ vuccati, bhikkhave:` và `an1.574:2.2` là `'bhikkhu arittajjhāno viharati …'`,
+      trong đó **không có** `cittaṁ` lẫn `jhānaṁ` nào đứng trước, mà `naṁ` lại là trung
+      tính nên **không thể** chỉ `bhikkhu` (đực tính). Tiền đối hợp lý là `Ayaṁ` trung tính
+      ngay ở `an1.574:2.1` (chính m2 dịch *điều này được gọi là*) ⇒ **điều ấy**. *Tâm ấy*
+      ở đây là mượn tiền đối từ bài khác, và Sujato để *it* nên không đòi một danh từ cụ
+      thể. **Kết luận: sửa 1 khoá (`an1.574:2.3`), giữ nguyên 4 khoá kia.** Người biên tập nên
+      phán một lượt cho cả chuỗi `an1.557-574` nếu lát sau cũng gặp cụm này.
+    * **`nevasaññānāsaññāyatana` → “xứ phi tưởng phi phi tưởng”** — đo lại: **68** khoá /
+      **34** tệp trong tầng dùng đúng cụm này (không phân biệt hoa thường; **12** khoá viết
+      hoa chữ đầu), và trong **62** khoá mà Pāli có `nevasaññā` thì **55** khoá dùng cụm
+      đó, **7** khoá dùng cách khác (`an9.24`, `an9.31`, `an9.46`, `an9.47`, `an9.52`,
+      `an9.61`, `an11.19`). `dn15:33.17`, `dn15:34.7`, `dn15:35.15`, `dn15:35.17` viết hoa
+      thành *Phi Tưởng Phi Phi Tưởng Xứ*. ⇒ Đây là **quy ước của tầng, không phải lỗi**;
+      **giữ nguyên** ở `an1.453:1.1` và `an1.454:1.1`.
+    * **Pāli kết `….` ⇒ Việt kết ` ….`** — xem mục dấu lược ngay trên.
+
+    **Thuật ngữ của lát m2, kèm số đếm trong tầng** (đo bằng script):
+    * `kasiṇa` → **môn địa**: **22** khoá / **2** tệp — `an10.25` (tệp đó còn đặt nhan đề là
+      *Kinh Môn Địa*) và chính tệp này; mười môn của `an1.455-464` khớp **đúng một-một**
+      với `an10.25:1.3-1.12`. Giữ nguyên, có tiền lệ.
+    * `subhanteva adhimutto hoti` (`an1.449:1.1`) và `Rūpī rūpāni passati`
+      (`an1.447:1.1`): mỗi cụm chỉ có **2** khoá trong toàn tầng, và khoá kia dịch **y
+      hệt** — `an8.66:3.1` *Chỉ quyết tâm vào tịnh.*, `an8.66:1.3` *Có sắc thì thấy các
+      sắc*. Lát m2 dùng lại nguyên văn. Đây cũng là bằng chứng cho thuyết `naṁ` ở trên:
+      cụm `… naṁ bahulīkarontī` ấy **đúng là** kết thúc bằng `arūpasaññī` ở `an1.446` rồi
+      sang `subhanteva` ở `an1.449`, giống hệt cấu trúc `an8.66`.
+    * `ākāsānañcāyatana` / `viññāṇañcāyatana` → **xứ vô số hư không / xứ vô số thức**:
+      **24** khoá mỗi cụm, đúng dạng `an8.120:1.3`.
+    * `maraṇassati` → *tỉnh thức về sự chết*: tiền lệ `an6.20:1.4`;
+      `cāgānussati` → *sự hào phóng*: `an6.25:5.1`; năm tưởng về xác → *bộ xương / đầy
+      giòi bọ / xanh thẫm / nứt rạn / sưng phồng*: `an4.14:4.2` khớp từng cụm;
+      `sabbaloke anabhiratisaññaṁ` → *không ham muốn trong tất cả thế gian*:
+      `an5.303:1.3` khớp nguyên văn; `asubha` → *bất tịnh*: `an5.303:1.3`;
+      `kāyagatāsati` → *niệm thân*: **25/29** khoá Pāli; `ānāpānassati` → *niệm hơi thở*:
+      **47/52**.
+    * **Chỗ KHÔNG có tiền lệ** (vì vậy `terminology` chỉ 9,0, không cho 10):
+      `sahagataṁ` → *đồng hành với* có **2** khoá, cả hai đều của lát này; **22** khoá
+      Pāli còn lại trong tầng dùng *câu hữu với* / *có … đi cùng*. Ta giữ *đồng hành với*
+      vì đúng nghĩa và dùng nhất quán trong cả hai khoá của tệp. Ngoài ra `cāgā` ở đây là
+      *hào phóng* trong khi một số tệp tầng dùng *sự cho* (`an6.9:1.3`, `an6.141:1.3`) hoặc
+      *buông xả* (`an5.40`, `an7.6`), `saṅgha` ở đây là *Tăng chúng* trong khi tầng có cả
+      *Tăng đoàn*; và `apara` → *Khác* (`an1.394:0.2`, khoá của lát c7) vẫn là chữ duy
+      nhất chưa có tiền lệ, như lát m1 đã ghi.
+
+    **Bất định còn lại mà tôi không sửa: `rūpasaññī` / `arūpasaññī`.** Ở **9** khoá
+    (`an1.439:1.1` tới `an1.446:1.1` và `an1.448:1.1`) Pāli phân biệt `rūpasaññī` (thấy sắc
+    bên trong) với `arūpasaññī` (không thấy sắc bên trong), còn bản Việt gộp cả hai thành
+    *bằng tưởng thấy về chính nó* ⇒ mất phân biệt có sắc / không có sắc. Lát m1 đã phán
+    xử theo `an8.119:1.3` và ghi lại; tôi giữ nguyên phán xử đó cho cả nhóm 439-446 và
+    chấp nhận đây là lý do `semantic_fidelity` không đạt 10. Nếu người biên tập muốn giữ
+    phân biệt thì phải sửa `an8.119` cùng lúc, không sửa riêng tệp này.
+
+    **Hai điểm upstream đo được, không phải thiếu sót của kho:**
+    * Nhãn `an1.495:1.0` là `495–574` nhưng tầng Pāli đã ghim **không có** khoá nào cho
+      `an1.505`–`an1.564`; tầng Sujato thì **có 6** khoá không có bản Pāli tương ứng
+      (`an1.505-514:1.1` … `an1.555-564:1.1`, lần lượt *the second absorption* … *rejoicing*).
+      Tệp Việt bám đúng tập khoá Pāli, không tự sinh khoá.
+    * `an1.464:1.1` có `(…)` **ngay trong Pāli đã ghim** (`viññāṇakasiṇaṁ bhāveti …. (…)`),
+      nên `(…)` được giữ lại là giữ Pāli, **không** phải khoá bỏ dịch — quy tắc “(…) đứng
+      một mình là khoá chưa dịch” không áp dụng ở đây.
+
+    **Coverage English, đo lại ở chính bài này.** Mẫu số theo đúng ngưỡng
+    `source/layers.yaml`: Pāli ≥ 40 ký tự, bỏ khối `:0` ⇒ **30** khoá. Sujato phủ
+    **30/30** ⇒ coverage **1.000**; lát m1 **19/19**, lát m2 **11/11**. Không khoá nào bị
+    để trống nên `english-project` không có tệp cho uid này và không lấp gì. Ba tầng tham
+    khảo: `pali` có; `english-sujato` có; `english-project` không có (và không cần);
+    `vietnamese-current` **không có tệp ở commit đã ghim** — tại commit đó corpus Thích Minh
+    Châu chỉ có Pháp Cú, đây là giới hạn của bản chụp upstream. Vì vậy **`triangulation`
+    hạ xuống 8,5** vì giới hạn upstream: bài này chỉ có hai tầng là Pāli + English Sujato.
+
+    **Tôi không chạy `npm run validate`, `npm test`, `npm run check`, `npm run build`**
+    (lát này cấm; người điều phối chạy tập trung sau khi gộp các lát), nên
+    `technical_integrity` chấm 9,6 chứ không phải 10,0. **Bốn cổng còn lại là
+    `npm run validate`, `npm test`, `npm run check`, `npm run build`.** `git` và `gh` cũng
+    không chạy. Các phép kiếm ở trên là tự viết, không thay được bốn cổng đó.
+
+    **Status.** Không còn blocker, `final_score` **9,33** > 9,0 ⇒ `published`. Điều kiện kỹ
+    thuật tôi **đọc được trong mã** chứ không chạy: tệp NFC sạch, `requireComplete` thỏa vì
+    đủ 169/169 khoá, tệp Sujato đã ghim phủ hết tập khoá Pāli nên không có khoá thiếu
+    tham khảo, coverage 1.000 trên ngưỡng nên không cần ghi nhận trong
+    `content/meta/reference-gaps.yaml`. Đó là lý do tôi đặt `published`; nếu một trong bốn
+    cổng trên đỏ thì phải hạ ngay về `draft`.
