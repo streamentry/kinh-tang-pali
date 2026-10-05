@@ -36,7 +36,7 @@ import type { CollectionCode } from '../../src/lib/canon/types';
  * A repair does not have to touch this file; the coordinator lowers the number in the same
  * commit as the repair.
  */
-const TRUNCATION_CEILING = 85;
+const TRUNCATION_CEILING = 60;
 
 const TRANSLATION_ROOT = 'content/translation/vi/project/sutta';
 const META_ROOT = 'content/meta/sutta';
