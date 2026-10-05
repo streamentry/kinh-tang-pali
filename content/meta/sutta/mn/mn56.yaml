@@ -16,7 +16,7 @@ tags:
 quality:
   scores:
     source_provenance: 9.9
-    semantic_fidelity: 9.6
+    semantic_fidelity: 9.5
     grammar_logic: 9.7
     segment_alignment: 10.0
     terminology: 9.5
@@ -25,8 +25,14 @@ quality:
     han_viet_balance: 9.7
     ambiguity_integrity: 9.5
     technical_integrity: 10.0
-  final_score: 9.72
+  final_score: 9.71
   blocking_errors: []
-  assessed_at: "2026-09-11"
+  assessed_at: "2026-10-05"
   assessed_by:
     - "GPT-5.6 Sol"
+
+notes: |-
+  Lớp lỗi dấu lược (Pāli ghi `…` ở giữa khoá, bản Việt bung thành văn xuôi): đã khôi phục 9 dấu lược, mỗi khoá đúng 1, khớp số dấu lược của Pāli sau khi sửa: 9.1, 20.7, 20.9, 20.10, 21.16, 21.19, 21.20, 26.4, 27.8.
+  Pāli mở dấu ngoặc kép ở `21.19` còn bản Việt đặt nhầm ở `21.20`; sửa luôn vị trí cho khớp Pāli, vì nếu không sẽ hỏng cân ngoặc của cụm đó. Đây là hệ quả trực tiếp của việc cắt lược trong `21.19` và `21.20`, nên tính vào lát này.
+  Hạ điểm chứ không che: `semantic_fidelity` 9.6 xuống 9.5 vì trước lát này còn 9 khoá diễn đạt trọn nơi Pāli đã lược.
+  Lưu ý ngoài phạm vi lát này, chưa đụng tới: dấu ngoặc kép của bản Việt lệch `+2` từ trước và vẫn `+2` sau khi sửa (từ khoá `8.3`/`9.4` và `29.2`/`29.3`). Đề nghị người gộp xử lý riêng.

@@ -9,17 +9,77 @@ tags:
 quality:
   scores:
     source_provenance: 9.8
-    semantic_fidelity: 9.3
+    semantic_fidelity: 8.7
     grammar_logic: 9.3
-    segment_alignment: 10.0
+    segment_alignment: 9.1
     terminology: 9.3
     triangulation: 9.2
     vietnamese_clarity: 9.4
     han_viet_balance: 9.3
     ambiguity_integrity: 8.9
     technical_integrity: 10.0
-  final_score: 9.45
+  final_score: 9.3
   blocking_errors: []
-  assessed_at: "2026-09-11"
+  assessed_at: "2026-10-05"
   assessed_by:
     - "GPT-5.6 Sol"
+    - "Space Bunny Free (OpenCode) — re-scored 2026-10-05 after a duplicate-Pāli audit of already-published segments found and fixed 11 off-by-one segment defects; see notes"
+notes: |-
+  **Sửa lớp lỗi lệch khoá (2026-10-05) — quét tìm trên toàn tầng.** Luật *"Pāli trùng
+  nguyên văn thì cách dịch phải khớp"*: bài này có **11 nhóm / 44 khoá** trùng Pāli mà bản
+  Việt khác nhau. Đọc từng nhóm cùng khoá liền trước / khoá / khoá liền sau cho thấy phần
+  lớn **không phải khác cách diễn đạt** mà là **lệch đúng một khoá** — cùng lớp với lỗi `dn16`
+  đã sửa ở PR #244.
+
+  **Đã sửa 11 khoá.**
+
+  - **Chuỗi lệch ở `38.14`–`38.22` (9 khoá).** Nguyên nhân đã xác định được: ở `34` và `36` Pāli
+    ghim **bị bilara cắt đôi** ở câu *"Các Tôn giả có biết con đường và cách thực hành…"* —
+    `34.14` + `34.15`, `36.14` + `36.15` — nên bản Việt tách làm hai khoá theo đúng nhịp đó. Ở
+    `38` Pāli **không** bị cắt (`38.14` là một khoá), nhưng bản Việt vẫn tách, nên **mọi khoá từ
+    `38.15` trở đi lệch đúng một khoá** và `38.22` phải gộp hai nội dung. Đã dựng lại:
+
+    | khoá | Pāli ghim | trước | sau |
+    |---|---|---|---|
+    | `38.14` | `‘api pana tumhe āyasmanto jānātha ayaṁ maggo … sacchikiriyāyā’ti?` | `“Các Tôn giả có biết` | `“Các Tôn giả có biết con đường thực hành đưa đến thế giới hoàn toàn hạnh phúc ấy không?” …` |
+    | `38.15` | `Iti puṭṭhā ‘no’ti vadanti.` | nội dung của `38.14` | `họ nói không …` |
+    | `38.16` | `Tyāhaṁ evaṁ vadāmi:` | nội dung của `38.15` | `Ta hỏi:` |
+    | `38.17` | `‘api pana tumhe āyasmanto yā tā devatā … saddaṁ suṇātha:` | nội dung của `38.16` | `“Các Tôn giả có từng nghe các vị trời đã sinh vào thế giới ấy nói` |
+    | `38.18` | `“suppaṭipannāttha … sacchikiriyāya;` | nội dung của `38.17` | `rằng hãy thực hành tốt và thẳng đúng để chứng thực thế giới ấy,` |
+    | `38.19` | `mayampi hi, mārisā … upapannā”’ti?` | nội dung của `38.18` | `vì chính họ đã thực hành như vậy và sinh vào đó không?” …` |
+    | `38.20` | `Iti puṭṭhā ‘no’ti vadanti.` | nội dung của `38.19` | `họ nói không.` |
+    | `38.21` | `Taṁ kiṁ maññasi, poṭṭhapāda, nanu evaṁ sante …` | nội dung của `38.20` | `Lời của họ chẳng phải không có cơ sở kiểm chứng sao?’` |
+    | `38.22` | `“Addhā kho, bhante …”ti.` | gộp `38.21` + `38.22` | `Đúng vậy, bạch Thế Tôn.` |
+
+    Dấu chấm cuối mỗi khoá theo **đúng dấu cuối của Pāli khoá đó**. Kiểm ngoặc kép toàn mục
+    `38`: trước **5 mở / 5 đóng**, sau **5 mở / 5 đóng**.
+  - **`35.5` và `37.4`**: Pāli `Iti puṭṭho ‘no’ti vadeyya.` (trả lời **không**) bị dịch thành
+    *"Anh ta đáp: “Tôi không biết.”"* — biến một lời **phủ nhận** thành lời **thừa nhận không
+    biết**, tức thêm một mệnh đề không có trong Pāli. `35.8` cùng chuỗi Pāli đã dịch đúng là
+    *"Anh ta đáp: “Không.”"*; đã sửa hai khoá theo `35.8`.
+
+  **Không xác định được ⇒ ĐỂ NGUYÊN** (khác biệt hợp lệ, hoặc ngoài danh sách):
+
+  - `Iti abhisaññānirodhaṁ paññapenti.` — `6.10` viết đủ *"…sự chấm dứt của tưởng…"*, còn
+    `6.17` / `6.24` / `6.31` rút gọn *"Có người giải thích như vậy."* Cùng một nghĩa, không lệch
+    khoá. Để nguyên.
+  - `Evaṁ vutte, poṭṭhapādo paribbājako bhagavantaṁ etadavoca:` — `54.1` viết *"Nghe vậy,
+    Poṭṭhapāda thưa:"* (có dịch `Evaṁ vutte`), `6.1` viết *"Poṭṭhapāda thưa:"* (bỏ vế dẫn).
+    Là rút gọn, không lệch khoá. Để nguyên.
+  - `Pare ce, poṭṭhapāda, amhe evaṁ puccheyyuṁ:` — `43.1` giữ *"Này Poṭṭhapāda,"*, `44.1` / `45.1`
+    bỏ. Là bỏ vế xưng hô, không lệch khoá. Để nguyên.
+  - `arūpo attapaṭilābhotveva tasmiṁ samaye saṅkhaṁ gacchati.` — `49.6` rút gọn *"mà chỉ được
+    gọi theo dạng vô sắc."*, `51.5` / `53.4` viết đủ. Khác độ dài, cùng nghĩa. Để nguyên.
+  - `‘api pana tumhe āyasmanto ekaṁ vā rattiṁ …` — `38.11` rút gọn danh sách *"một ngày hay một
+    đêm, hoặc nửa ngày hay nửa đêm"* thành *"một khoảng thời gian ngắn"*. Cả mục `38` vốn là
+    bản kể lược nén (xem `38.1`–`38.6` so với `36.1`–`36.6`), nên đây là **văn phong của mục**,
+    không phải lệch khoá. Để nguyên.
+  - `Tamenaṁ evaṁ vadeyyuṁ:` — cả sáu khoá (`35.3`, `35.6`, `35.9`, `37.2`, `37.5`, `46.2`) đều
+    thêm *"hỏi"* cho `vadeyyuṁ` (nói), nhưng khoá kế đều là câu hỏi nên đọc được. Khác nhau ở
+    *"Người ta hỏi anh ta:"* / *"Họ lại hỏi:"* / *"Họ hỏi:"*. Để nguyên.
+
+  Hạ `semantic_fidelity` 9,3 → **8,7** và `segment_alignment` 10 → **9,1**: chín khoá trong `38`
+  từng lệch khoá và hai khoá `35.5` / `37.4` từng thêm mệnh đề không có trong Pāli. `final_score`
+  tính lại bằng script (trung bình số học thô của đúng 10 tiêu chí), `assessed_at` cập nhật. Lỗi
+  đã sửa xong nên **không blocker**; `final_score` vẫn > 9,0 nên trạng thái giữ nguyên `published`
+  theo quality gate.

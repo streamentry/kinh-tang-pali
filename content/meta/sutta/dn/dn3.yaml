@@ -9,17 +9,78 @@ tags:
 quality:
   scores:
     source_provenance: 9.8
-    semantic_fidelity: 9.3
+    semantic_fidelity: 8.6
     grammar_logic: 9.4
-    segment_alignment: 10.0
+    segment_alignment: 9.0
     terminology: 9.3
     triangulation: 9.2
     vietnamese_clarity: 9.4
     han_viet_balance: 9.3
     ambiguity_integrity: 9.2
     technical_integrity: 10.0
-  final_score: 9.49
+  final_score: 9.32
   blocking_errors: []
-  assessed_at: "2026-09-11"
+  assessed_at: "2026-10-05"
   assessed_by:
     - "GPT-5.6 Sol"
+    - "Space Bunny Free (OpenCode) — re-scored 2026-10-05 after a duplicate-Pāli audit of already-published segments found and fixed 15 off-by-one segment defects; see notes"
+notes: |-
+  **Sửa lớp lỗi lệch khoá (2026-10-05) — quét tìm trên toàn tầng.** Luật *"Pāli trùng
+  nguyên văn thì cách dịch phải khớp"*: bài này có **9 nhóm / 45 khoá** trùng Pāli mà bản
+  Việt khác nhau. Đọc từng nhóm cùng khoá liền trước / khoá / khoá liền sau cho thấy phần
+  lớn **không phải khác cách diễn đạt** mà là **lệch đúng một khoá**: bản Việt nhét nội dung
+  khoá kế vào khoá trước rồi để khoá thật mang nội dung của khoá khác — cùng lớp với lỗi
+  `dn16` đã sửa ở PR #244.
+
+  **Đã sửa 15 khoá.**
+
+  - **Chuỗi lệch ở `2.4.10`–`2.4.19` (10 khoá).** Bản Việt lệch **đúng một khoá** suốt bốn
+    vòng hỏi–đáp: `2.4.10` mang nội dung của `2.4.11`, `2.4.11` của `2.4.12`, … Hệ quả là ba
+    khoá `“Taṁ kiṁ maññasi, ambaṭṭha, ` (`2.4.10`, `2.4.14`, `2.4.17`) **không còn lời Việt
+    nào** mang nội dung Pāli của chính nó, còn `2.4.18` và `2.4.19` lại mang hai câu tóm
+    lược (*"Ambaṭṭha, như vậy truyền thống của ông không thực hành những lối sống ấy."*,
+    *"Ngay cả những cách rời xa minh và hạnh ấy cũng không có nơi các ông."*) **không thuộc
+    Pāli hai khoá ấy**. Đã dựng lại theo đúng tiền lệ ngay trong chính bài này: `2.4.6`–`2.4.9`
+    (cùng dạng, cùng cấu trúc `hỏi → giả định → hỏi lại → đáp`) và `1.24`–`1.27`. Câu dài
+    *"Ông và truyền thống của mình có … mang cuốc và giỏ đi vào rừng, nghĩ rằng"* dời từ `2.4.10`
+    sang `2.4.11`; *"sẽ sống bằng củ và quả không?”"* từ `2.4.11` sang `2.4.12`; *"…dựng nhà lửa
+    gần làng hay thị trấn và sống thờ lửa thiêng không?”* từ `2.4.13` sang `2.4.15` (Pāli `2.4.15`
+    có `gāmasāmantaṁ vā nigamasāmantaṁ vā agyāgāraṁ`, `2.4.18` mới có
+    `cātumahāpathe catudvāraṁ agāraṁ`); *"…dựng nhà lửa bốn cửa tại ngã tư và sống ở đó,
+    nghĩ rằng:"* từ `2.4.15` sang `2.4.18`; *"‘Bất cứ sa-môn hay Bà-la-môn nào từ bốn phương
+    đến, ta sẽ tiếp đãi họ hết khả năng’ không?”"* từ `2.4.16` sang `2.4.19`. Dấu chấm cuối mỗi
+    khoá theo **đúng dấu cuối của Pāli khoá đó**. Kiểm ngoặc kép toàn khối `2.4.6`–`2.4.20`:
+    **8 mở / 8 đóng**.
+  - **`2.18.7` mang nội dung của `2.18.8`** (`"là tướng nam căn được che kín"`), còn `2.18.8` chỉ
+    dịch **nửa sau** của Pāli (`… pahūtajivhatāya cā”ti.`) thành *"và tướng lưỡi dài rộng."*. Đã
+    dựng lại: `2.18.7` theo `2.11.5`, `2.18.8` theo `2.12.4` = `2.11.6`.
+  - **`2.1.5`** mang câu không thuộc Pāli (*"Nhưng đó không phải tiêu chuẩn của minh và hạnh vô
+    thượng."*). Pāli `‘arahasi vā maṁ tvaṁ, na vā maṁ tvaṁ arahasī’ti.` đã được dịch đúng ở
+    `2.1.3`; đã sửa `2.1.5` theo **đúng câu ấy**.
+  - **`1.24.13` và `1.25.12`** mở ngoặc kép `"` mà không đóng, trong khi Pāli
+    `“No hidaṁ, bho gotama”. ` tự đóng. Đã đóng ngoặc theo `1.26.5`.
+
+  **Không xác định được ⇒ ĐỂ NGUYÊN** (khác biệt hợp lệ, hoặc ngoài danh sách):
+
+  - `Atha kho bhagavā ambaṭṭhaṁ māṇavaṁ etadavoca:` — `1.15.3` / `1.9.4` dịch **hỏi** vì khoá
+    kế là câu hỏi (`”ti?`: *"Ambaṭṭha, ông thuộc dòng họ nào?"*), `1.20.1` / `1.20.10` dịch
+    **nói** vì khoá kế là câu phát biểu / mệnh lệnh. Khác vị ngữ sở hữu từ → phải khác.
+  - `Atha kho bhagavato etadahosi:` — `1.15.1` = `1.23.1` dịch **nghĩ** vì khoá kế là ý nghĩ trong
+    ngoặc kép; `2.12.1` / `2.18.5` dịch **biết** vì khoá kế là mệnh đề tường thuật. Hợp lệ.
+  - `Dvīsu mahāpurisalakkhaṇesu kaṅkhati…` — `2.11.5` mở mệnh đề (*"về hai tướng ấy chàng còn
+    nghi ngờ:"*), `2.12.3` = `2.18.3` nối tiếp câu trước (*"và còn nghi ngờ"*). Khác vị ngữ.
+  - `“Api nu naṁ brāhmaṇā bhojeyyuṁ…` — `1.26.6` dùng *"Họ có cho người ấy ăn…"* thay *"Các
+    Bà-la-môn có…"*; đây là khác cách chỉ chủ ngữ đã dùng ngay ở `1.24.8`, `1.26.8`, `1.26.10`,
+    không phải lệch khoá. Để nguyên.
+  - `Bhagavantaṁ etadavoca:` — `2.12.9` *"Chàng nói:"*, `2.19.3` *"Ông thưa với Đức Thế Tôn:"*.
+    Khác độ dài, cùng nghĩa. Để nguyên.
+  - `2.4.3` mở `"` mà không đóng và `2.4.4` cũng không đóng ngoặc; Pāli `“No hidaṁ, bho gotama. `
+    ở `2.4.3` vốn chưa đóng — ngoài danh sách nên **không sửa**.
+  - `2.10.2`, `2.10.5`, `2.10.8`, `2.10.11` rút gọn `Evaṁ su te … seyyathāpi tvaṁ etarahi sācariyako”ti?`
+    thành *"Có phải như vậy không?”*. Là tóm lược, không lệch khoá; ngoài danh sách nên **không sửa**.
+
+  Hạ `semantic_fidelity` 9,3 → **8,6** và `segment_alignment` 10 → **9,0**: 13 khoá từng mang sai
+  nội dung và 12 khoá từng lệch khoá là lỗi ở **cả hai** tiêu chí, không chỉ ở văn phong.
+  `final_score` tính lại bằng script (trung bình số học thô của đúng 10 tiêu chí), `assessed_at`
+  cập nhật. Lỗi đã sửa xong nên **không blocker**; `final_score` vẫn > 9,0 nên trạng thái giữ
+  nguyên `published` theo quality gate.
