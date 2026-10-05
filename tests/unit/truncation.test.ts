@@ -36,7 +36,7 @@ import type { CollectionCode } from '../../src/lib/canon/types';
  * A repair does not have to touch this file; the coordinator lowers the number in the same
  * commit as the repair.
  */
-const TRUNCATION_CEILING = 321;
+const TRUNCATION_CEILING = 85;
 
 const TRANSLATION_ROOT = 'content/translation/vi/project/sutta';
 const META_ROOT = 'content/meta/sutta';
@@ -78,7 +78,11 @@ function truncations(): Offence[] {
       for (const [key, value] of Object.entries(viet)) {
         if (typeof value !== 'string' || !value.includes('…')) continue;
         const source = pali[key];
-        if (typeof source !== 'string' || source.includes('…')) continue;
+        // An **empty** Pāli segment has nothing to follow, and the layer has a convention for
+        // it: all four such keys in the corpus carry `…` in Vietnamese. Counting them would
+        // report a defect that cannot be repaired without emptying the translation — the four
+        // are `an3.102:4.3`, `an3.102:4.4`, `sn35.24:1.5`, `sn35.25:1.5`.
+        if (typeof source !== 'string' || source.trim() === '' || source.includes('…')) continue;
         out.push({
           collection: code,
           uid,
