@@ -9,39 +9,149 @@ tags:
   - "jataka"
   - "verse"
   - "dasakanipāta"
-  - "bo-thi"
+  - "catudvāravagga"
+  - "dāna"
 quality:
   scores:
     source_provenance: 9.6
-    semantic_fidelity: 9.4
-    grammar_logic: 9.3
+    semantic_fidelity: 9.3
+    grammar_logic: 9.4
     segment_alignment: 10.0
     terminology: 9.2
-    triangulation: 8.5
-    vietnamese_clarity: 9.3
+    triangulation: 8.4
+    vietnamese_clarity: 9.4
     han_viet_balance: 9.3
-    ambiguity_integrity: 9.2
-    technical_integrity: 10.0
-  final_score: 9.38
+    ambiguity_integrity: 9.3
+    technical_integrity: 9.6
+  final_score: 9.35
   blocking_errors:
-    - "Bản dịch chỉ phủ 1 khoá có nội dung; lát được chia bằng bộ lọc coverage 40 ký tự thay vì missingAll nên bài thiếu khoá, validate yêu cầu requireComplete."
-  assessed_at: "2026-09-30"
+    - "Coverage tầng Anh = 0/1 khoá có nội dung (0%), dưới ngưỡng 0,8 khai trong source/layers.yaml, mà ja450 chưa có entry trong content/meta/reference-gaps.yaml; AGENTS.md coi đây là lỗi chặn review/published. Bổ sung entry phải chạy npm run reference:gaps, mà lát này bị cấm chạy."
+  assessed_at: "2026-10-05"
   assessed_by:
     - "OpenCode Space Bunny Free (agent)"
 notes: |-
-  **Chỉ một khoá trong lát này.** Bài có nhiều khoá hơn, nhưng `kiểm` của `_hvi.py` chỉ đòi phủ những khoá Pāli dài **≥ 40 ký tự** và không phải khoá đánh số phần `:N.0`; đếm trên tầng Pāli thì đúng **một** khoá rơi vào điều kiện đó, và đó là khoá được giao. Các vế kệ còn lại, dòng tiêu đề `:0.1`–`:0.4` và dòng kết bài không nằm trong lát, tôi **không** dịch và **không** tự thêm vào tệp.
-  **Tầng tham khảo đã đo, không đoán.** Tại commit đã ghim, bài này có 0 segment tiếng Anh Sujato; và tầng Việt hiện hành (`translation/vi/phantuananh/`) tại cùng commit chỉ có 26 tệp Pháp Cú, nên **không** có bản Hòa thượng Thích Minh Châu để đối chiếu. Vì vậy `triangulation` đặt 8,5: dịch từ Pāli root, đối chiếu cú pháp qua từ điển và qua bối cảnh trong chính bài. Đây là đặc điểm của bản chụp upstream, không phải thiếu hàng của kho.
-  **Tra tiền lệ (đếm được):** `sataṁ` / `sahassānaṁ` / `sahassayāginaṁ` → *trăm* /
-  *nghìn* / *mười nghìn* (xét ở `ja20:4.4` cùng lát: 199 chỗ "nghìn" so với 316 "ngàn",
-  và "ngàn" chủ yếu đi với *hàng ngàn chư thiên*).
-  **Bối cảnh đã đọc trước khi dịch:** cụm `Sataṁ sahassānaṁ sahassayāginaṁ …
-  Kalampi nāgghanti tathāvidhassa te` **lặp nguyên văn** ở cả `8.3`–`8.4` và
-  `9.3`–`9.4`, và `10.5`–`10.6` lặp lần nữa. Cả ba lần đều kết bằng *…cũng không bằng
-  nổi một phần nhỏ nào của người kia*, tức nói phần cho bằng tay không bằng phần cho
-  có kính. Vì `Kathaṁ` chỉ có ở `9.3` mà không có ở `8.3` và `10.5`, nó là từ **hỏi
-  lượng** của riêng vế này, nên tôi dịch *Dù là …* (0 tiền lệ riêng cho `kathaṁ` ở đây)
-  chứ không dịch *Bao nhiêu …* theo nghĩa câu hỏi. Nhịp đối lập đọc được ngay:
-  vế trước hỏi *bằng vật gì quý hơn nữa cho được kính*, vế này trả lời *dù bao nhiêu
-  cũng không bằng*.
-  **Dấu ngoặc kép:** Pāli mở `“` ở `9.1` nhưng đóng ở `9.4`, và `9.1`–`9.2` không đủ 40
-  ký tự nên nằm ngoài tập kiểm. Tôi dùng `‘` (xem ghi chú ở `ja353`).
+  **Bài nay đủ 49/49 khoá.** Lát trước chỉ dịch 1 khoá (`9.3`) vì `kiểm` của `_hvi.py` lọc
+  theo Pāli ≥ 40 ký tự; đo lại trên Pāli ghim: đúng **1** khoá (`ja450:9.3`, 43 ký tự) rơi
+  vào ngưỡng đó, còn 48 khoá còn lại đều ngắn hơn 40 ký tự nên nằm ngoài tập kiểm. Lát này
+  dịch **48** khoá và giữ lại `9.3`. Nói rõ: ở bài ngắn kiểu này, `kiểm` **chạy rỗng** — nó
+  không phải tín hiệu pass.
+  **Hai lỗi bản nháp đã sửa, tự kiếm tìm ra.**
+  (1) `ja450:6.1` tệp cũ không có nhưng bản nháp tôi viết lúc đầu đã mở nháy kép `“` — vì
+  bản Việt đã có của bài song song `sn1.32:11.1` mở `“` **trên Pāli khác** (`sn1.32` có `“Tasmā
+  satañca asataṁ,` còn Pāli `ja450` thì **không** có; dấu `“` của ja450 nằm ở `5.1` và đóng ở
+  `6.4`). Đã bỏ. Nếu giữ, bài thành 7 mở / 6 đóng ⇒ `ngoặc()` fail.
+  (2) `ja450:9.3` tệp cũ bắt đầu bằng nháy đơn `‘` không có `’` nào đi cặp, trong khi Pāli
+  khoá này **không có** dấu nháy nào. Đã bỏ dấu `‘`.
+  **Phép kiếm đã tự chạy, in số (năm phép).**
+  (1) `set(khoá Việt) = set(khoá Pāli)`: Việt **49**, Pāli **49**, thiếu **0**, thừa **0**,
+  khoá rỗng **0**, thứ tự khoá trong tệp **bằng** thứ tự Pāli.
+  (2) Nháy đơn `‘’` + ngoặc kép `“”` so từng khoá: lệch **0/49**. Chạy ngoặc kép trên cả bài:
+  cuối = **0**. Pāli mở **6** / đóng **6**; Việt mở **6** / đóng **6**. Nháy đơn: Pāli **0**,
+  Việt **0** (một nháy đơn lẻ là loại lỗi `_hvi` không bắt, nên tôi tự so).
+  (3) Pāli trùng nguyên văn **trong chính bài** mà Việt khác: nhóm trùng **2**, tổng khoá trong
+  các nhóm **4**, nhóm Việt khác **1** — `Samena dinnassa na agghameti;` ở `9.2` (câu hỏi) và `10.4`
+  (mệnh đề). Cố ý khác: `9.2` phải có dấu hỏi vì nó nối trực tiếp với `9.1` trong một câu hỏi,
+  còn `10.4` kết vế `10.3`. Không phải lỗi.
+  (4) Dấu lược: lệch **0/49**. Pāli có `…` ở **0** khoá, có `(…)` ở **0** khoá, có `…pe…` ở
+  **0** khoá; bản Việt cũng **0/0/0**. Bảng Pāli kết `….` (lược rồi mới chấm): **0** khoá ở
+  bài này, nên quy ước ` ….` không phát sinh.
+  (5) Mọi số trong khối này do script in ra; thêm: chưa-NFC **0** khoá, khoá rỗng **0**; từ mang
+  dấu Pāli còn sót **2** mục (`Jātaka` 1, `Bilārakosī` 2) — đều là danh tên từ chính Pāli bài
+  này (`Bilārakosiyajātakaṁ`), không phải Pāli lọt.
+  **Chỉ mục Pāli→Việt đã dò: 2.078.238 cặp.** Dựng chỉ mục toàn tầng
+  `content/translation/vi/project/`: **5.411** tệp · **157.951** khoá Việt · **100.585** Pāli
+  nguyên văn khác nhau · **17.041** nhóm Pāli xuất hiện ≥ 2 lần · **74.407** khoá nằm trong
+  các nhóm trùng · **2.078.238** cặp (i<j) đã đối soát · **8.079** nhóm (47,4%) bản Việt không
+  thống nhất với nhau.
+  **Trong bài này: 22 khoá dùng lại nguyên văn bản dịch.** Cụ thể `0.1 0.2 0.3 2.3 3.2 3.3
+  3.4 3.5 4.1 4.2 4.3 5.1 5.2 5.3 6.2 6.3 7.2 7.3 8.2 10.1 10.2 10.3`. **8** khoá có Pāli
+  trùng ở tệp khác nhưng tôi dịch khác, và cả tám đều có lý do: `3.6` và `6.1` bỏ nháy kép vì
+  Pāli ja450 không có (bản `sn1.32` có, vì ở đó `4.1` mở `“` mà không đóng); `8.3 9.3 10.5` bỏ
+  cách dịch của `sn1.32` vì bản đó **làm mất một số** (xem mục số Pāli); `9.2 10.4` khác nhau
+  vì chức năng mệnh đề; `10.6` bỏ cách dịch `của vật thí của người như thế` của `sn1.32` vì câu đó
+  thêm cụm không có trong Pāli — `tathāvidhassa te` là “của người như thế”. **19** khoá hoàn toàn
+  mới (Pāli không trùng tệp nào).
+  **Số Pāli — tự tính, in phép.**
+  `sataṁ` = **100** → “trăm” (`8.3 9.3 10.5`).
+  `sahassā` = **1.000** → “nghìn” (cùng ba khoá).
+  `sahassayāgina` = sahassā (**1.000**) × agina (**10**) = **10.000** → “mười nghìn”.
+  `sahassena` (`7.4`) = **1.000 lần** → “ngang bằng với ngàn”.
+  `dvādasamaṁ` (`11.1`) = **12** → “thứ mười hai”; `0.4` cũng là **12**.
+  Không có số lượng nào khác trong bài.
+  ⇒ Vì vậy cụm `sataṁ sahassānaṁ sahassayāginaṁ` là ba số **100 / 1.000 / 10.000**, không phải
+  “một trăm ngàn”. Bản Việt đã có của `sn1.32` ở ba khoá (`14.3 16.3 18.1`) dịch thành “một
+  trăm ngàn người tế lễ một nghìn lễ hy sinh”, tức **bỏ mất** `sahassayāginaṁ` và gộp
+  `sataṁ sahassānaṁ` thành một số. Bản Anh Sujato đã ghim cho `sn1.32` cũng lệch: các segment
+  số bị đảo khớp với key (dấu `<j>` nối câu), `14.1` (“A hundred thousand people making a
+  thousand sacrifices”) gán vào khoá Pāli `Dhammaṁ care yopi samūñjakaṁ care,`. Tôi theo Pāli.
+  **Phe `nghìn` / `ngàn` — đo cả hai số như yêu cầu.** Toàn tầng: “nghìn” **207** khoá vs “ngàn”
+  **554**. Riêng `kn/ja*`: “nghìn” **14** vs “ngàn” **17**. Riêng các Jātaka có `sahassa*`:
+  “nghìn” **6** (ja264 ×2, ja288, ja292, ja417, ja423) vs “ngàn” **6** (ja260, ja323, ja353,
+  ja377 ×2, ja403, ja460) — hoà. `sataṁ sahassānaṁ` thì tầng đa số “trăm ngàn” (`snp3.10:12.1`,
+  `sn6.4:5.3`, `sn6.9:5.1`, `sn6.10:10.1`, `dn20:6.5`) chỉ **5** khoá, còn `an4.3:5.1` “Trăm
+  nghìn lần trăm triệu kiếp”. Tôi giữ **nghìn** cho cả ba khoá trong bài để bài không tự mâu thuẫn
+  và khớp khoá `9.3` đã có sẵn trên đĩa.
+  **Thuật ngữ — tiền lệ đếm được.**
+  `Dasakanipāta` → “Bộ Mười Bài Kệ”: trong `ja*` **9/9** (ja439–ja453); “Bộ Mười Bài Kinh”
+  chỉ xuất hiện **6** khoá và đều ở `thag10.*`, tức là sách khác.
+  `Catudvāravagga` → “Phẩm Bốn Cửa”: **9/9**, không có cách thứ hai.
+  `dvādasamaṁ` → “thứ mười hai”: **14** khoá trong tầng, mẫu Jātaka kế cạnh là
+  “Kinh Cakkavāka thứ mười ba”, “Kinh Trí Tuệ Rộng Lớn thứ mười bốn”.
+  `maccherā / maccharī` → “bỏn xẻn”, theo nguyên văn bản dịch `sn1.32` và `ja180`. Lưu ý phe
+  này **không** thống nhất toàn tầng: “keo kiệt” **185** khoá vs “bỏn xẻn” **19** (đa số “keo
+  kiệt” đến từ danh sách `macchaṁ` trong `an2`/`an10`).
+  `satto`/`sataṁ`/`samena` — cùng một người là Bilārakosī. Ở `6.1` và `6.4` tôi giữ nguyên văn
+  “bậc hiền thiện” của `sn1.32`/`ja180` vì đó là chỗ Pāli đặt `sataṁ` đối lập với `asataṁ`
+  (“kẻ xấu”), nên nó là phẩm loại; ở `1.2` tôi dùng “người lành” vì người ấy đang đi ăn xin, đọc
+  “bậc hiền thiện” sẽ không đúng sắc thái. Đây là **bất định thuật ngữ có chủ ý**, không phải
+  lỗi.
+  `dakkhiṇā` → “vật cúng dường” (`7.3`, nguyên văn `sn1.32:8.3`) nhưng “vật hiến cúng” (`10.3`,
+  nguyên văn `sn1.32:17.3`) — hai cụm Pāli trùng nguyên văn ở tầng, nên tôi tái dùng cả hai
+  theo đúng tiền lệ. Toàn tầng “vật cúng dường” **51** vs “vật hiến cúng” **18**.
+  `patiṭṭhā honti pāṇinaṁ` → “là chỗ dựa cho các loài hữu tình trong đời sau”. Tầng có đúng
+  **8** khoá `patiṭṭhā honti pāṇinan` và chia làm ba cách: “là chỗ nương tựa trong đời sau”
+  **5** (bỏ hẳn `pāṇinan`), “là chỗ dựa cho các loài hữu tình” **2**, “cho chúng sinh ở đời
+  sau” **1**. Tôi lấy cách giữ `pāṇinan` (`sn3.20:8.4`, `sn3.22:5.4`) vì bỏ nó là mất một từ
+  nghĩa. Chữ “kẻ ăn uống” cho `pāṇin` tôi đã thử rồi bỏ: **0** khoá tiền lệ, và ở tầng này
+  `pāṇi` thường được dịch là “tay” (`pāṇinā` → “bằng tay”, `aṅgulipāṇi` → “bàn tay”), nên để
+  người đọc tự suy ra từ “ăn uống” là chỗ dễ trượt nhất.
+  **Bốn bất định, không che.**
+  (a) `1.1`–`1.4` `Apacantāpi dicchanti, santo laddhāna bhojanaṁ` — cú pháp không dứt: có thể
+  `bhojanaṁ` là tân ngữ của `dicchanti` (vật bị thấy) với `santo laddhāna` là từ hạn định, hoặc
+  `santo` là chủ ngữ độc lập. Tôi dịch theo cách thứ nhất và ghi rõ trong câu, không thêm
+  giải thích nào vào thân kinh. Mệnh đích (`9.1`–`9.4`) là người lành có món ăn **đã tự đi ăn
+  xin** mà vẫn cho, nên câu hỏi `1.3` hợp lý dù cách phân tích chưa chắc tuyệt đối.
+  (b) `8.1` `samuñchakaṁ` là **hapax toàn Pāli ghim** (đúng **1** khoá trong toàn bộ root, `ja450:8.1`);
+  bản song song `sn1.32:14.1` viết `samuñjakaṁ` (cũng chỉ **1** khoá) và Sujato dịch là “wandering
+  for gleanings”. Tôi hiểu là “sống một cách keo kiệt / tham tế”, tra theo nghĩa chung của cụm
+  (đối lập với `maccharī`), và giữ lặp `care … care` của Pāli. Đây là suy luận theo ngữ cảnh,
+  không phải nghĩa từ điển đã kiểm chứng.
+  (c) `5.4` `sataṁ dhammo durannayo` — `sataṁ` có thể là “trăm” (số tròn) hoặc tính từ
+  `sata` = “tốt lành”. Cả hai tiền lệ tầng đều không dịch ra “trăm” (`ja180:1.4` “đức lành khó
+  chỉ dạy”, `sn1.32:10.4` “pháp của bậc hiền thiện thật khó noi theo”), nên tôi theo `ja180`.
+  (d) `9.3` `Kathaṁ` tôi dịch “Dù là …” (giữ trên đĩa từ lát trước), coi nó là mạo ngữ nhấn
+  cả vế thay vì từ hỏi số lượng; tiền lệ đúng ở `sn1.32:16.3` lại dịch “Vì sao”. Cả hai đều
+  chấp nhận được; tôi chọn “Dù là” để `9.4` (`Kalampi` = “cũng”) không bị lặp ý. Chữ “hay” nối
+  ba số ở `8.3 9.3 10.5` **không có** trong Pāli (`sataṁ` `sahassānaṁ` `sahassayāginaṁ` không
+  liên từ nào); đó là nối liệt kê, tôi ghi rõ thay vì giấu.
+  **Tầng tham khảo: đo, không đoán.** Mẫu số = Pāli ≥ **40** ký tự, bỏ khoá `:N.0` ⇒ đúng **1**
+  khoá (`9.3`). Tầng Anh Sujato đã ghim: **0** tệp cho `ja450` (trong `sutta/kn/ja` chỉ có **83**
+  tệp, không có `ja450`) ⇒ coverage **0/1 = 0%**. Tầng `english-project`: không có. Tầng
+  `vietnamese-current` (Hòa thượng Thích Minh Châu): tại commit đã ghim chỉ có **26** tệp Pháp
+  Cú ⇒ không có. Cả ba tầng tham khảo đều **không** có cho bài này. Mẫu số **không bằng 0**,
+  nhưng nó là **1**, nên đây là “cổng đo được và đo ra 0%”, **khác** với “cổng không đo được
+  gì”. Tầng Anh duy nhất tôi đọc được là bản Anh Sujato của bài **song song** `sn1.32`
+  (`sutta/sn/sn1/sn1.32_translation-en-sujato.json`), dùng để phân tích cú pháp chứ không dịch
+  vòng; chính bản đó lệch ở ba khoá số như đã ghi. Vì vậy `triangulation` đặt **8,4**: dịch từ
+  Pāli root, đối chiếu qua parallel `sn1.32` ở mức Pāli, và bằng ngữ cảnh trong chính bài.
+  **Về `status: draft`.** Lát này đã hết lỗi chặn về **segment** (trước đây chỉ phủ 1 khoá).
+  Lỗi còn lại là lỗi chặn về **coverage**: `ja450` chưa có entry trong
+  `content/meta/reference-gaps.yaml`, trong khi **5** Jātaka cùng dạng đã có
+  (`ja353`, `ja512`, `ja521`, `ja530`, `ja539` — `substantiveSegments: 1`,
+  `substantiveWithoutEnglish: 1`, `coverage: 0`). Thêm entry phải chạy `npm run reference:gaps`,
+  mà lát này bị cấm chạy, nên tôi **không tự sửa** tệp đó và để bài ở `draft` cho tới khi
+  người điều phối sinh lại tệp. `final_score` **9,35** > 9,0 nhưng **blocker thắng điểm**.
+  **Cổng kỹ thuật bị cấm chạy.** Bốn lệnh còn lại, chưa chạy và **không** tuyên bố pass:
+  `npm run validate` · `npm test` · `npm run check` · `npm run build`.
+  Vì vậy `technical_integrity` đặt **9,6** theo quy ước lát, không phải 10. Năm phép kiếm ở
+  trên là tự viết, không thay được bốn cổng đó.

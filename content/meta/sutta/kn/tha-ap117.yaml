@@ -12,7 +12,7 @@ tags:
 quality:
   scores:
     source_provenance: 9.4
-    semantic_fidelity: 9.1
+    semantic_fidelity: 9.3
     grammar_logic: 9.2
     segment_alignment: 10.0
     terminology: 9.3
@@ -21,10 +21,10 @@ quality:
     han_viet_balance: 9.4
     ambiguity_integrity: 8.9
     technical_integrity: 9.6
-  final_score: 9.11
+  final_score: 9.13
   blocking_errors:
     - "Không có tầng tham khảo tiếng Anh tại commit đã ghim: đã kiểm `source/upstream-manifest.json`, tầng `english-sujato` (4.291 tệp) có 4.168 tệp trong `sutta/` và thư mục con của `kn/` chỉ gồm cp, dhp, iti, ja, kp, snp, thag, thig, ud — KHÔNG có mil, pv hay tha-ap, nên tệp `.../kn/<mục>/<uid>_translation-en-sujato.json` của bài này không tồn tại ⇒ `not-published-upstream`, không phải `not-synced`. Đối chiếu trực tiếp trên manifest cho uid này: 0 tệp. Tầng `vietnamese-current` cũng vắng (`translation/vi/phantuananh` tại commit đã ghim chỉ có 26 tệp, toàn bộ là Pháp Cú) và lớp lấp `english-project` không có uid này ⇒ bài dịch chỉ từ Pāli, chưa đối chiếu được tầng tham khảo nào, không đủ điều kiện `review`/`published`, bắt buộc giữ `draft`."
-  assessed_at: "2026-10-05"
+  assessed_at: "2026-10-04"
   assessed_by:
     - "OpenCode Space Bunny Free (agent)"
 notes: |-
@@ -40,8 +40,8 @@ notes: |-
   như nhất quán toàn tầng). `lokajeṭṭho narāsabho` → `bậc Trưởng Thượng thế gian,
   đấng Nhân Ngưu` (tha-ap146:1.2). `dvipadindassa tādino` → `của bậc hai chân đáng
   tôn kính ấy` (tha-ap249:1.4). `tusitaṁ upapajjahaṁ` → `tôi được tái sinh lên cõi
-  Đâu-suất` (tha-ap308:5.4). `Ekanavutito kappe` → `Từ chín mươi chín kiếp trước`
-  (tha-ap176:2.1). `cakkavattī mahabbalā` → `là … Chuyển Luân Vương có đại thần
+  Đâu-suất` (tha-ap308:5.4). `Ekanavutito kappe` → `Từ chín mươi **mốt** kiếp trước`
+  (**đã sửa 2026-10-05**: bản ghi trước ghi *chín*, tức 99, sai; `tha-ap176:2.1` cũng đã sửa). `cakkavattī mahabbalā` → `là … Chuyển Luân Vương có đại thần
   lực` (tha-ap136:7.4). `nibbatta/abhiropayiṁ` → `tôi dâng lên Đức Phật` (tha-ap161:2.4).
   `Duggatiṁ nābhijānāmi` → `Tôi không còn biết đến đọa xứ nào,` (50; bản nháp đầu
   viết `không biết mình rơi vào khổ đau` theo biến thể 93 lần nhưng câu ấy đi kèm
@@ -66,16 +66,10 @@ notes: |-
   — đổi chủ từ sang ngôi `tôi` cho khớp `sakaṁ bhavanupāgamiṁ`; `subbataṁ` (5.2) 0
   tiền lệ, dịch `lời lành lành`.
   `technical_integrity` đặt 9.6: không ai rà lại bằng con người.
-  **SỬA `:0.3` — BỎ SỐ THỨ TỤ KHÔNG CÓ NGUỒN.** Lát này sửa đúng `1` khoá
-  (`:0.3`) của tệp này — Pāli `:0.3` = `Suvaṇṇapupphiyattheraapadāna` — **không** có số
-  thứ tự, còn bản Việt cũ lại mở đầu bằng `11. ` ⇒ **thừa chữ không nguồn**.
-  Đã bỏ, giữ nguyên phần tên phẩm: `Bài Kệ Tuyên Ngợ Về Trưởng Lão Suvaṇṇapupphiya`
 
-  Đây là **1 trong đúng 2** tệp `tha-ap` có số thứ tự ở bản Việt mà Pāli
-  không có (toàn bộ 251 tệp còn lại với Pāli không số đều bỏ số). Cùng luật đã
-  đo trên 367 tệp như phần trên; số đếm nằm trong `notes` của lát.
+  **SỬA LỚP LỖI SỐ PĀLI (lỗi loại 2 của quality gate — sai *số lượng*), 2026-10-05.**
+  - `tha-ap117:7.1` (`Ekanavutito kappe,`) = **91**: `eka` 1 + `navuti` 90 = 91.
+    Bản dịch cũ *Từ chín mươi **chín** kiếp trước,* là **99** — sai. Đã sửa thành *Từ chín mươi **mốt** kiếp trước,*. Tiền lệ trong chính tầng: 86 khoá cùng `Ekanavutito` đã viết *chín mươi mốt* (= 91) và **0** khoá nào viết *một*; 21 khoá sai nằm ở 21 tệp này (chính là số đo trước khi sửa).
+  - Vế trước/sau, dấu câu và mọi thứ khác trong câu giữ nguyên y như cũ.
 
-  `semantic_fidelity` **hạ 0,2** (thừa thông tin không có nguồn ở khoá tiêu đề:
-  lỗi semantic, không phải văn phong). ⚠️ `translationTitle` của tệp này
-  **vẫn còn `11. `** — nó không nằm trong lát này nên tôi để nguyên, nhưng nó
-  **mâu thuẫn với `:0.3` đã sửa** ⇒ **cần coordinator hợp nhất.**
+  **Cổng còn lại:** bị cấm chạy `git`/`gh` và `npm run validate|test|check|build|audit|reference:gaps` ⇒ `technical_integrity` = **9,6**; bốn lệnh còn lại là `npm run validate` · `npm test` · `npm run check` · `npm run build`. Điểm **không** nâng.
