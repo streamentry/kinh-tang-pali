@@ -1,0 +1,116 @@
+uid: mil3.1.4
+status: draft
+translationTitle: "Câu hỏi về thân vô tận"
+translators:
+  - "OpenCode Space Bunny Free (agent)"
+reviewers: []
+tags:
+  - khuddaka-nikaya
+  - milindapanha
+  - mahavagga
+quality:
+  scores:
+    source_provenance: 9.5
+    semantic_fidelity: 9.2
+    grammar_logic: 9.3
+    segment_alignment: 10.0
+    terminology: 9.2
+    triangulation: 7.5
+    vietnamese_clarity: 9.3
+    han_viet_balance: 9.4
+    ambiguity_integrity: 9.0
+    technical_integrity: 9.6
+  final_score: 9.2
+  blocking_errors:
+    - "Không có tầng tham khảo tiếng Anh tại commit đã ghim: đường dẫn `translation/en/sujato/sutta/kn/mil/mil3.1.4_translation-en-sujato.json` không tồn tại trong `.cache/upstream/suttacentral/`, và `source/upstream-manifest.json` chỉ liệt kê 9 sub-collection cho `kn` (cp · dhp · iti · ja · kp · snp · thag · thig · ud — 755 tệp) nên không có `mil`. Đây là `not-published-upstream`, KHÔNG phải `not-synced`. Đo coverage theo đúng công thức `source/layers.yaml` (Pāli có nội dung ≥ 40 ký tự, loại block tham chiếu `:0`) cho 0 trên 29 khoá = 0%, dưới ngưỡng 0.8. Tầng `vietnamese-current` cũng vắng: `translation/vi/phantuananh` tại commit đã ghim chỉ có 26 tệp và toàn bộ là Pháp Cú. Bài dịch chỉ từ Pāli root ⇒ blocker thật, và đây là **giới hạn upstream**, không phải lỗi của người dịch. Vì vậy `triangulation` bị chặn ở 7.5 (≤ 8.0) chứ không nâng để né blocker."
+    - "Bất định văn bản chưa phân xử được ở `4.12`: Pāli là `Ayaṁ bhaṇe sabbadinno aññathā bhaṇati, kiṁ nu mayaṁ nappaṭibalā bhikkhūnaṁ bhojanaṁ dātun”ti?`. Vế `Ayaṁ bhaṇe` không dịch được chắc chắn (có thể là `bhaṇe` thì hiện tại ba-số-người-kể, cũng có thể là vế bị hỏng), và câu hỏi `kiṁ nu mayaṁ…` không có chủ thể rõ ràng trong Pāli. Bản Việt chọn một cách đọc trung tính — *Còn Sabbadinno thì lại bàn khác: tại sao chúng ta không dọn cơm cho các tỳ-kheo?* — và ghi lại ở đây; không bịa thêm chủ thể để lấp chỗ trống. Không có tầng tham khảo nào để phân xử, nên đây là blocker thứ hai của bài, độc lập với việc thiếu tầng Anh."
+  assessed_at: "2026-10-05"
+  assessed_by:
+    - "OpenCode Space Bunny Free (agent)"
+notes: |-
+  Nội dung: vua Milinda sai bốn đại thần mời Tôn giả Nāgasena đến nội cung. Trong lúc ngài
+  đang đi vào thành Sāgalā cùng tám nghìn vị tỳ-kheo, quan Anantakāyo theo hỏi: khi ngài gọi
+  `Nāgasena` thì cái nào là `Nāgasena`. Trưởng lão đáp bằng ẩn dụ gió trong khoảng rỗng, rồi
+  một bài luận Abhidhamma.
+
+  TẦNG THAM KHẢO — 0 trên 29 khoá có English. Đo theo đúng `source/layers.yaml`: Pāli có nội
+  dung ≥ 40 ký tự, loại block tham chiếu `:0` ⇒ **29 khoá**, trong đó **0** khoá có chữ ở tầng
+  Anh nào. `source/upstream-manifest.json` xác nhận tầng `english-sujato` tại commit đã ghim chỉ có
+  755 tệp cho `kn` thuộc 9 sub-collection (cp 35 · dhp 26 · iti 112 · ja 83 · kp 9 · snp 73 ·
+  thag 264 · thig 73 · ud 80) — **không có `mil`**, nên đây là `not-published-upstream`, không phải
+  `not-synced`. Riêng tầng tên thì CÓ: `name/sutta/mil-name_translation-en-sujato.json`
+  (`mil-name:10.mil3.1.4` → *The Question of Anantakāya on the Breath and the Soul*) — đây là tầng
+  tên, không phải tầng kinh, nên không tính vào coverage. Tầng `vietnamese-current` vắng. ⇒ `draft`,
+  `triangulation` 7.5.
+
+  **CẢ 29 KHOÁ CÓ THỂ LẤP Ở LỚP `english-project`** — `content/meta/en/kn/mil3.1.4.yaml` KHÔNG
+  tồn tại và `content/translation/en/project/sutta/kn/mil3.1.4_translation-en-project.json` cũng
+  không. Vì tầng đã ghim không có tệp `mil` nào, **toàn bộ** 29 khoá có nội dung đều nằm trong
+  `fillableSegments` chứ không chỉ những chỗ Sujato im lặng. Riêng dòng này tôi không tự lấp: bản
+  lấp English và bản Việt cùng do một agent thì bản lấp không phải là lớp đọc Anh độc lập, và bài
+  này đã ở `draft` vì lý do khác.
+
+  `content/meta/reference-gaps.yaml` CHƯA có entry cho `kn/mil3.1.4` (đo: tệp có 775 entry, không
+  có uid này). Ở status `draft` thì `validate` chỉ **cảnh báo**, không chặn. Tôi bị cấm sửa tệp đó
+  và bị cấm chạy `npm run reference:gaps`, nên để coordinator chạy.
+
+  TÊN RIÊNG — GIỮ NGUYÊN DẠNG PĀLI GỐC, VÌ ĐÓ LÀ AUTHORITY. `Devamantiya`, `Anantakāyo`,
+  `Maṅkuro`, `Sabbadinno`, `Sāgalā`, `Milinda`, `Nāgasena`. Mọi số dưới đây đo trên tầng Việt
+  **đã trừ hai bài của lát N20** (nếu không trừ, số của chính bài này tự đẩy số đếm lên 1).
+  Đo được: **0** lần `Anantakāya`, **0** lần `Sabbadinna`, **0** lần `Sāgala`, **0** lần
+  `Anantakāyo`, **0** lần `Sabbadinno`, **0** lần `Maṅkuro`, **0** lần `Devamantiya`; chỉ có **2**
+  lần `Sāgalā` (ở `mil1:2.2` và `mil1:7.2`, cho `sāgalaṁ nāma nagaraṁ` → *có thành tên là
+  Sāgalā*). `Sabbadinna` và `Anantakāya` là dạng PTS, còn Pāli gốc tại commit đã ghim viết
+  `sabbadinno` và `anantakāyo` — tôi theo Pāli gốc. `Sāgalā` thì theo tầng Việt đã có, vì đó là
+  cách duy nhất trong kho.
+
+  HAI KHOÁ TIÊU ĐỀ CỐ TÌNH KHÔNG DÙNG TÊN RIÊNG. `:0.3` và `:7.1` ghi *Câu hỏi về thân vô tận* —
+  đó là nghĩa gốc của `ananta-kāya` (thân vô tận), và cũng khớp với tên trong tầng tên đã ghim
+  (*on the Breath and the Soul*), đồng thời đúng khuôn tiêu đề của loạt `mil3.1.*` (*Câu hỏi về
+  việc tái sinh*, *Câu hỏi về việc khéo tác ý*…). Trong thân bài, `Anantakāyo` dùng ở `3.5`,
+  `5.1`, `6.1`, `6.17` — đúng bốn khoá mà Pāli gốc có dạng `anantakāyo`.
+
+  `bhante` → *thưa tôn giả*, `bhante nāgasena` → *thưa tôn giả Nāgasena*. Đo trên **toàn bộ**
+  các bài `mil*` của tầng Việt (khoá Pāli có `bhante`): *thưa tôn giả* **369** · *bạch ngài* 123 ·
+  *bạch tôn giả* 89. Riêng loạt `mil3.1.*` thì *tôn giả Nāgasena* 13 với *ngài Nāgasena* 8. Tôi
+  theo số đông, dù `mil3.1.3` và `mil3.1.5` dùng *ngài*; nếu biên tập muốn thống nhất cả loạt thì
+  đây là chỗ cần gộp. `thera` → *Trưởng lão* · `āyasmā` → *Tôn giả* · `mahārāja` → *đại vương* ·
+  `rājā` → *Đức vua* · chủ ngữ vua → *trẫm* (theo `mil3.1.3:1.2`) · `abbhānumodi` → *hoan hỷ nhận
+  lời* (theo `mil3.1.3:1.9`) · `etadahosi` → *nghĩ* (theo `dn23:19.16` cho đúng công thức này;
+  `mil3.8:1.1` dùng *nói* — sai nghĩa, tôi không theo).
+
+  DẤU `ti` — GIỮ Ở MỌI KHOÁ MÀ PĀLI CÓ. Đo trên các bài `mil*`: khoá Pāli có `”ti` thì **giữ 862 /
+  bỏ 606** (58.7% giữ) — đa số giữ. Bản nháp đầu của tôi đã **sót 30 khoá**; phép kiếm riêng bắt
+  được, không phải harness `_hvi` (harness chỉ đếm cân ngoặc kép, không đối chiếu `ti`). Riêng khuôn
+  `“Na hi, bhante”ti.` thì 35/52 khoá trong kho ghi *Không phải vậy, thưa tôn giả*`ti.` — tôi theo
+  đúng khuôn đó cho cả bốn khoá `6.7/6.9/6.11/6.13`.
+
+  CÁC CÔNG THỨC ĐÃ TRA, ĐO ĐƯỢC (cùng cách trừ hai bài của lát). `pubbaṇhasamayaṁ nivāsetvā
+  pattacīvaramādāya` → *buổi sáng, đắp y, cầm bát và y* (đúng y như `an3.63` và `an10.75`;
+  `đắp y, cầm bát và y` = **59** so với `mặc y phục, cầm y bát` = **1** ở `mil3.8:4.1`).
+  `antepure` → *nội cung* (**17**; cùng nghĩa `rājantepure` ở `sn42.10` và `yaṁ kiñci antepure
+  kappiyaṁ` ở `mil3.8:2.3`). `uṭṭhāyāsanā` → *đứng dậy khỏi chỗ ngồi* (**32**) / *đứng dậy từ
+  chỗ ngồi* (**8**). `saṅkha` → *tù và* (theo `dn23:19.15` *cây tù và* cho `Neva so saṅkho
+  saddamakāsi`) · `vaṁsa` → *cây tre* · `siṅga` → *cái kèn* (0 tiền lệ cho `siṅga`, chọn theo nghĩa
+  ổng cầm để tạo tiếng để nói với bộ ba ẩn dụ này). `jīvo` → *linh hồn* (**40**, `dn23:18.x`),
+  `vāto` → *gió* ở đây nên *hơi thở* (**155**) dành cho `assāsapassāsā`; hai từ không lẫn được vì
+  `vāto` đã là gió trong khoảng rỗng ngay trước đó. `assāsapassāsā` → *hơi thở* (theo `mn44:14.2`
+  và `sn41.6:1.8`, và Sujato dịch *Breathing*) · `kāyasaṅkhārā` → *hoạt động của thân* (theo
+  `mn62:26.4` và `mn118:18.4`) · `sakkāro` → *lễ cúng dường* (theo `snp3.2:14.1`) · `maṅku ahosi` →
+  *thấy mình nhục nhã* (theo `dn25:20.11` cho `maṅkubhūto`) · `upāsakattaṁ paṭivedesī` → *đã trở
+  thành cư sĩ* (theo `dn4:24.0` *tuyên bố trở thành cư sĩ*) · `atthaṁ jappehī` → *hãy giảng giải ý
+  nghĩa cho tôi được hiểu* (theo `mil3.2.5:1.15` và `mil3.3.6:6.3`). **CỐ TÌNH KHÔNG DÙNG LẠI
+  `Trẫm` của `mil3.2.5:1.15`**: Pāli hai khoá gần như giống hệt nhau, nhưng người nói khác nhau —
+  `mil3.2.5` là vua, `6.15` là Anantakāyo, một cư sĩ.
+
+  KHÔNG CÓ DẤU LƯỢC nào ở bài này: đo trên cả 52 khoá, Pāli có **0** `…pe…` và **0** `…` trần.
+  Bốn nhóm Pāli trùng nguyên văn trong chính bài (`“rājā, bhante, milindo evamāha—` ×2 ·
+  `“āgacchatu, mahārāja, dasahi bhikkhūhi saddhin”ti.` ×3 · `“yattake bhikkhū icchati,
+  tattakehi bhikkhūhi saddhiṁ āgacchatū”ti.` ×2 · `“Na hi, bhante”ti.` ×4) đều có bản Việt nhất
+  quán — bài không tự mâu thuẫn.
+
+  Đợt này bị cấm chạy cổng kỹ thuật, nên tiêu chí 10 bị chặn ở **9.6**: tôi chỉ xác minh được
+  JSON hợp lệ, `set(khoá Việt) == set(khoá Pāli)` (52 == 52, 0 thiếu, 0 thừa), 0 khoá rỗng,
+  mọi giá trị NFC, dấu lược khớp Pāli từng khoá, mẫu nháy `“”` và `‘’` khớp Pāli từng khoá và
+  cân trên cả bài, không trùng nguyên văn Pāli, không Pāli lọt vào, không sót dấu `ti`, và YAML
+  sạch. Bốn lệnh `npm run validate`, `npm test`, `npm run check`, `npm run build` để coordinator chạy.
