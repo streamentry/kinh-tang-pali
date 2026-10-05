@@ -1,0 +1,146 @@
+uid: sn35.93
+status: draft
+translationTitle: "Kinh Đôi Nhóm (Hai)"
+translators:
+  - "OpenCode Space Bunny Free (agent)"
+reviewers: []
+tags:
+  - "samyutta-nikaya"
+  - "dutiyadvayasutta"
+  - "salāyatana"
+  - "9. Phẩm Channa"
+quality:
+  scores:
+    source_provenance: 9.6
+    semantic_fidelity: 9.4
+    grammar_logic: 9.4
+    segment_alignment: 10.0
+    terminology: 9.3
+    triangulation: 8.2
+    vietnamese_clarity: 9.3
+    han_viet_balance: 9.4
+    ambiguity_integrity: 9.2
+    technical_integrity: 9.6
+  final_score: 9.34
+  blocking_errors:
+    - "Cổng coverage tầng Anh dưới ngưỡng: đo được 29/40 khoá Pāli có nội dung = 0,7250, ngưỡng ở source/layers.yaml là 0,8. Sujato để trống toàn bộ 11 khoá 2.3-2.13 (phần lưỡi), và content/meta/reference-gaps.yaml chưa có entry nào cho sn35.93. Theo AGENTS.md thì bài review/published dưới ngưỡng mà chưa ghi nhận mất mát là lỗi chặn, nên bài để draft."
+    - "Cổng kỹ thuật chưa chạy: lát này bị cấm npm run validate, npm test, npm run check và npm run build, nên không thể tuyên bố technical gate pass."
+  assessed_at: "2026-10-05"
+  assessed_by:
+    - "OpenCode Space Bunny Free (agent)"
+notes:
+  - >-
+    **Bài này KHÔNG ĐỦ ĐIỀU KIỆN xuất bản — `status: draft`.** Điểm 9,34 vượt ngưỡng
+    9,0 nhưng **blocker thắng điểm**: coverage tầng Anh = 29/40 = 0,7250, dưới ngưỡng
+    0,8 khai trong `source/layers.yaml`. Người biên tập cần hoặc lấp các khoá còn
+    trống ở lớp `english-project`, hoặc ghi nhận mất mát vào
+    `content/meta/reference-gaps.yaml` (tệp này tôi không có quyền sửa).
+  - >-
+    **Coverage Anh đo được, kèm mẫu số.** Công thức lấy từ `source/layers.yaml`:
+    bỏ khối tham chiếu `:0`, ngưỡng Pāli ≥ 40 ký tự. Tệp Anh
+    `sutta/sn/sn35/sn35.93_translation-en-sujato.json` CÓ trong
+    `source/upstream-manifest.json` (đường dẫn phẳng, thư mục con theo chương —
+    ghép `uid + "_" + suffix` thành hai gạch dưới sẽ ra 0 khoá). Bài có **52** khoá
+    Pāli, trong đó **40** khoá đủ dài để tính. **Số khoá Sujato im lặng = 11**:
+    `2.3` `2.4` `2.5` `2.6` `2.7` `2.8` `2.9` `2.10` `2.11` `2.12` `2.13` — tức
+    **toàn bộ phần lưỡi** sau `2.2`. `2.1` có tiếng Anh nhưng tiếng Anh ấy gộp cả
+    tai, mũi, lưỡi, thân vào một câu, nên không phải tầng đọc được cho phần lưỡi.
+  - >-
+    **Lớp lấp `english-project` CÒN 11 KHOÁ LẤP ĐƯỢC.** `content/meta/en/sn/sn35.93.yaml`
+    KHÔNG tồn tại và tôi không tạo, vì nằm ngoài phạm vi lát. 11 khoá nêu trên đều là
+    Pāli có nội dung và đều nằm trong `fillableSegments`; lấp chúng sẽ đưa coverage
+    lên 40/40 = 1,0000. Nhắc người điều phối lát `english-project` tiếp theo.
+  - >-
+    **Không đối chiếu được tầng Việt hiện hành.** `translation/vi/phantuananh` tại
+    commit đã ghim chỉ có 26 tệp, toàn bộ thuộc `kn/dhp` (Pháp Cú). Đây là giới hạn
+    của bản chụp upstream, không phải thiếu sót của kho. Vì vậy `triangulation` 8,2.
+  - >-
+    **Pāli của bài này là DUY NHẤT trong toàn corpus — đo bằng script trên 284.708 khoá.**
+    Cụm `dvayaṁ paṭicca viññāṇaṁ sambhoti` chỉ xuất hiện ở 1 khoá / 1 bài (chính
+    sn35.93), và `imesaṁ tiṇṇaṁ dhammānaṁ saṅgati`, `phuṭṭho ceteti`,
+    `calā ceva byathā ca aniccā`, `sopi hetu sopi paccayo`,
+    `paccayaṁ paṭicca uppannaṁ` đều **0** khoá trong toàn tầng Việt. Nghĩa là phần
+    lớn bài phải dịch mới, và không có bản Việt nào để đối chiếu trực tiếp.
+  - >-
+    **BA CỤM PĀLI TRÙNG NGUYÊN VĂN ĐÃ DÙNG LẠI NGUYÊN VĂN BẢN DỊCH CŨ — bắt buộc
+    theo luật `sn11.24` trong AGENTS.md.** Cùng công thức ấy đã có 4 bài trong cùng
+    bộ sn35, dịch giống nhau, nên bài này phải y hệt, nếu không bài sẽ tự mâu thuẫn:
+    (1) `Cakkhuñca paṭicca rūpe ca uppajjati cakkhuviññāṇaṁ` → *Nhân mắt và sắc, nhãn
+    thức sinh khởi.* (tiền lệ `sn35.60:1.4`, `sn35.61`, `sn35.106`, `sn35.107` = 11 hit
+    cho đúng cụm này). (2) `Manañca paṭicca dhamme ca uppajjati manoviññāṇaṁ` →
+    *Nhân tâm và các pháp, tâm thức sinh khởi.* (10 hit cùng loại). (3)
+    `jivhañca paṭicca rase ca` → *Nhân lưỡi và vị, thức của lưỡi sinh khởi.*
+    (`sn35.60:1.10`). Vì thế `cakkhuviññāṇaṁ` → *nhãn thức*, `manoviññāṇaṁ` → *tâm
+    thức*, `jivhāviññāṇaṁ` → *thức của lưỡi*: mỗi từ lấy đúng cách đã có cho đúng
+    gốc Pāli ấy, kể cả khi ba cách ấy không đồng nhất với nhau. Lưu ý cho người gộp:
+    tầng sn còn *ý thức* 25 hit và *lưỡi thức* 6 hit cho cùng hai gốc; tôi theo cụm
+    đã có, không theo đếm từ rời.
+  - >-
+    **Thuật ngữ, kèm số đếm.** `aniccā vipariṇāmino aññathābhāvino` → *vô thường, biến
+    hoại, đổi khác* (đúng ba mệnh đề này, `sn25.2:1.2` và `sn25.10:1.5`).
+    `Yopi hetu yopi paccayo …uppādāya, sopi …` → *Dù nhân, dù duyên làm … sinh khởi,
+    thì nhân ấy …* (`sn35.141:1.2`, `sn35.142:1.5`). `kuto niccā bhavissatī` → *làm sao có
+    thể là thường còn* (`sn36.8:5.8`). `cakkhusamphasso` → *xúc chạm của con mắt*,
+    `jivhāsamphasso` → *xúc chạm của lưỡi*, `manosamphasso` → *xúc chạm của tâm*
+    (đếm trong sn35: 7 + 8 hit cho hai cụm đầu). `rūpā` → *các sắc*, `rasā` → *các vị*
+    (`sn35.162:2.9` *Các vị là vô thường*; `mil3.3.2` *Do duyên mắt và các sắc*).
+    `dhammā` (sau `mano`) → *các pháp* (`mn38:8.21`). `dvaya` → *đôi* (`sn35.92:1.3`
+    cùng phẩm). `saṅgati sannipāto samavāyo` → *hội họp, tụ họp, hòa hợp* (0 tiền lệ,
+    giữ cả ba danh từ như Pāli). `sañjānāti` → *nhận biết* (65 hit toàn tầng).
+    `vedeti` → *cảm thọ* (339 hit). `Dasamaṁ` → *Thứ mười.* · `Channavaggo
+    catuttho` → *Phẩm Channa, thứ tư.* (8 hit dạng này trong sn35, `sn35.83:3.5`) ·
+    `Tassuddānaṁ` → *Tóm lược:* (11 hit trong sn35).
+  - >-
+    **Hai chỗ KHÔNG có tiền lệ, tôi dịch mới:** `calañceva byathañca` → *chập chờn,
+    sắp đổ* (Sujato *tottering and toppling*) và `ceteti` → *có ý định* (Sujato
+    *intends*). Cả hai cụm xuất hiện **0** lần trong toàn tầng Việt theo phép tra
+    cụm từ, nên đây là chỗ người điều phối nên gộp nếu có bài khác chứa cùng cụm.
+  - >-
+    **Kệ `tassuddānaṁ` — bất định đã ghi nhận, không bịa.** `Palokasuññā saṅkhittaṁ,
+    / channo puṇṇo ca bāhiyo; / Ejena ca duve vuttā, / dvayehi apare duveti.` Số bài của
+    phẩm là 10 (`sn35.84`–`sn35.93`); kệ nêu 6 tên, rồi nói một bài ấy chứa hai bài,
+    rồi hai bài kia thành đôi — cộng lại không tròn vòng. Tôi dịch theo nghĩa văn
+    phục và đúng trạng thái lịch sử, không điền số: *Bài ấy đã nói ra hai bài, / còn
+    hai bài kia thì thành đôi.* Đã đối chiếu để giữ đúng: `sn35.89` (`Bāhiyasutta`,
+    33 khoá) là bài duy nhất trong phẩm nói cả hai vị trí mắt và tâm, nên câu
+    *bài ấy* khớp Bāhiya. `Suññā` và `Saṅkhitta` là tắt tên của `Suññatalokasutta`
+    (sn35.85 → *Kinh Thế Gian Trống Rỗng*) và `Saṅkhittadhammasutta` (sn35.86 →
+    *Kinh Giảng Vắn Tắt*), cùng phẩm.
+  - >-
+    **Dấu lược: `lược()` khớp TỪNG KHOÁ, 0 lệch.** `1.15` và `2.13` mang `…pe…` ⇒ mỗi
+    khoá **một** dấu `…`, không bao giờ mở rộng. `3.13` mang **cùng câu** nhưng Pāli
+    không có dấu lược ⇒ bản Việt cũng **không** có, đây là chỗ Pāli khác nên bản Việt
+    bắt buộc phải khác. Không khoá nào có Pāli viết đủ mà tôi nén bằng `…`, nên không
+    có chỗ nào cần người biên tập phán xử theo BRIEF_VI3 §10.2.
+  - >-
+    **Pāli trùng nguyên văn TRONG CHÍNH bài này — kiểm riêng, không dựa vào `_hvi`.**
+    Đo ra **5** cặp: `1.6`=`2.4`=`3.4`; `1.14`=`2.12`=`3.12`; `1.15`=`2.13`. Cả 5 đều
+    được dịch **y hệt nhau**, đúng như Pāli lặp. Câu lặp đúng một nơi là `3.13`: Pāli
+    viết đủ nên bản Việt viết đủ.
+  - >-
+    **Bản Anh đã ghim gộp khoá, Pāli là authority, tôi dịch từng khoá.** Ở `2.1` bản
+    Anh gộp *Ear / Nose / Tongue / Body consciousness* vào một câu, trong khi Pāli `2.1`
+    chỉ nói **lưỡi** — tai, mũi, thân nằm sau `…pe…` của bài khác (chính là `sn35.92`),
+    và bài này **không** lặp lại chúng. Tôi chỉ dịch lưỡi. Cùng kiểu ấy, Sujato dịch
+    `manoviññāṇaṁ` là *ideas*, mà `dhamme` ở đây là đối tượng của tâm nên tôi dịch
+    *các pháp*, theo `mn38:8.21`. Cũng lưu ý Sujato dịch `1.6` là *tottering and
+    toppling* trong khi Pāli là `calañceva byathañca` — tôi dịch *chập chờn, sắp đổ*.
+    **Tiền lệ cùng phẩm đã đọc trước khi viết:** `sn35.74` và `sn35.94` — ngoặc kép
+    cân 0/0 ở cả hai theo phép đếm của tôi, nên tôi không sao chép lỗi nào của chúng.
+  - >-
+    **`technical_integrity = 9,6`** vì bốn cổng kỹ thuật do coordinator chạy, tôi không
+    được chạy trong lát này: (1) `npm run validate` qua `npm run build` — kiểm metadata,
+    scorecard, `blocking_errors` và nội dung; (2) `npm test`; (3) `npm run check`;
+    (4) `npm run build`. Những gì tôi **đã** tự kiểm bằng script: `set(khoá Việt) ==
+    set(khoá Pāli)` (52 = 52); nháy đơn `‘…’` cân từng khoá (0 cặp ở bài này);
+    nháy kép `“”` cân trên **toàn bộ** 52 khoá đã dịch, không đi âm giữa chừng;
+    NFC từng khoá; `lược()` khớp từng khoá; không khoá nào trùng nguyên văn Pāli ngoài
+    `0.1` là dòng tiêu đề, giữ nguyên theo 160 hit tiền lệ; không Pāli lọt vào bản Việt;
+    không có `(…)` đứng một mình.
+  - >-
+    **Hai tên riêng phải khai vào bộ nhớ tiến trình của chốt `lọt_pāli`** (không sửa
+    `_hvi.py`, làm đúng như docstring của nó chỉ định): `Suññā` và `Saṅkhitta`. Cả hai
+    là tên bài kinh trong **chính phẩm 9** của bài này, do chính kệ `tassuddānaṁ` của
+    bài sinh ra, và đều đã có bản Việt ở sn35.85 và sn35.86. Các tên cùng loại
+    (`Paloka`, `Channa`, `Puṇṇa`, `Bāhiya`) đã có sẵn trong tầng Việt với đúng chữ hoa
+    nên chốt không chặn. Cần người điều phối biết để lát sau tái lập được.

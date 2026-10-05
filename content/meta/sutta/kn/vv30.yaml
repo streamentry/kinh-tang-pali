@@ -1,0 +1,145 @@
+uid: vv30
+status: draft
+translationTitle: "2. Chuyện Cung Điện Người Dâng Khúc Mía"
+translators:
+  - "OpenCode Space Bunny Free (agent)"
+reviewers: []
+tags:
+  - "vuttantavagga"
+  - "kn"
+  - "vv"
+  - "itthivimana"
+  - "paricchattakavagga"
+  - "dana"
+quality:
+  scores:
+    source_provenance: 9.4
+    semantic_fidelity: 9.1
+    grammar_logic: 9.3
+    segment_alignment: 10.0
+    terminology: 9.3
+    triangulation: 7.0
+    vietnamese_clarity: 9.4
+    han_viet_balance: 9.3
+    ambiguity_integrity: 9.0
+    technical_integrity: 9.6
+  final_score: 9.14
+  blocking_errors:
+    - "Không có tầng tham khảo nào ở commit đã ghim để đối chiếu: cây english-sujato đã ghim có 0 tệp sutta/kn/vv/ (chỉ có tầng tên name/sutta/vv-name), và vietnamese-current ở commit này chỉ có 26 tệp Pháp Cú"
+  assessed_at: "2026-10-05"
+  assessed_by:
+    - "OpenCode Space Bunny Free (agent)"
+notes: |-
+  Dịch từ Pāli root tại commit đã ghim `11c9d708978cde8ba61096d8a75f7ddfb846f639`,
+  đọc bằng `pali.pal('kn','vv30')` chứ không suy từ tên thư mục. Tầng tham khảo:
+    · `source/upstream-manifest.json` → `english-sujato` → `files`: sub-collection `kn`
+      ở commit này chỉ có 9 nhóm — `cp 35 · dhp 26 · iti 112 · ja 83 · kp 9 · snp 73 ·
+      thag 264 · thig 73 · ud 80` = 755 tệp. KHÔNG có `vv`; `sutta/kn/vv/` có 0 tệp.
+      Đường dẫn duy nhất chứa `vv` trong cả tầng Anh đã ghim là
+      `name/sutta/vv-name_translation-en-sujato.json` (tầng TÊN, không phải thân kinh).
+      ⇒ Vắng là `not-published-upstream`, KHÔNG phải `not-synced`. Đây là giới hạn của
+      bản chụp bilara tại commit đã ghim, không phải thiếu sót của repo.
+    · `vietnamese-current`: `fileCount` = 26, chỉ Pháp Cú.
+  ⇒ Bài KHÔNG có một tầng tham khảo nào để đối chiếu. Đó là lý do `status` là `draft`
+    và `blocking_errors` có một mục thật.
+
+  COVERAGE: MẪU SỐ = 0, cổng KHÔNG ĐO ĐƯỢC GÌ. Đo theo định nghĩa trong `AGENTS.md`
+  (Pāli ≥ 40 ký tự, bỏ khối tham chiếu `:0`): `vv30` có 51 khoá, **0 khoá** đạt ngưỡng;
+  dài nhất 36 ký tự (`vv30:5.3`, `vv30:5.4`, `vv30:2.4`). HAI VIỆC KHÁC NHAU:
+    (1) Tầng Anh vắng ⇒ không có gì để đối chiếu.
+    (2) Ngay cả nếu có tầng Anh thì cổng coverage vẫn KHÔNG ĐO ĐƯỢC GÌ, vì mẫu số
+        bằng 0. 0 khoá đo được KHÔNG phải không cần ghi nhận, cũng KHÔNG phải 100%.
+  Tôi không sửa `content/meta/reference-gaps.yaml` (ngoài phạm vi lát).
+
+  HỒ SƠ: `root/pli/ms/sutta/kn/vv/vv30_root-pli-ms.json`. Bài là `kāṇḍa` của
+  `Pāricchattakavagga`, số thứ hai trong `Itthivimāna`. Cấu trúc: mở tả cung điện và
+  lời xưng hô `1–2`, người hỏi hỏi `3`, người trả lời (một cư sĩ nam, gọi đối phương
+  là `bhante`) nói `4–11`, tên bài `12`.
+
+  DÙNG LẠI NGUYÊN VĂN khi Pāli trùng tuyệt đối, ĐO BẰNG SCRIPT: **7/51 khoá**
+  (đo trên 5.386 bài / 154.729 khoá tầng Việt, đã trừ lát n16):
+    · `0.1` ← 56 bài vv (`Vimānavatthu`) · `0.2` ← 31 bài (`Chuyện Cung Điện Nữ Hư
+      Không`) · `0.3` ← 5 bài (`Phẩm Cây San Hô`, 6 lượt).
+    · `3.5`, `3.6` ← `vv29:3.5` / `vv29:3.6` (cùng `vv36:6.3`, `vv38:7.3`).
+    · `2.4` ← `vv40:1.4` (`Kā tvaṁ subhe devate vandase mamaṁ.`) — cùng Pāli từng ký tự.
+    · `7.1` ← `vv82:8.1` (`Tadeva kammaṁ kusalaṁ kataṁ mayā,`).
+
+  HAI CHỖ CỐ Ý LỆCH TIỀN LỆ, vì tiền lệ sai theo Pāli:
+    (1) `2.1–2.2` `Pucchāmi taṁ uppalamāladhārinī, Āveḷinī kañcanasannibhattace;` —
+      Pāli này TRÙNG TỪNG KÝ TỰ với `vv32:3.1` / `vv32:3.2`, nhưng bản Việt của `vv32`
+      dịch `Tôi hỏi nàng mang tràng hoa sen,` / `nàng xấu xí, khó sánh được vàng ròng;`.
+      Cả hai sai: `uppalamāla` không phải tràng hoa sen (`saddāpuppha`/`paduma` mới là
+      sen), và `Āveḷinī` (từ `āvaḷa`/`aveḷī`, đồng bằng trống) không có nghĩa là
+      xấu xí. Tôi dịch `Tôi hỏi người trao tặng ngọn mía, / Āveḷinī có tài lộc như vàng
+      ròng;` ⇒ Người điều phối nên sửa `vv32:3.1` và `vv32:3.2` cùng lúc, và `vv48:2.1`,
+      `vv48:2.2` vẫn chưa dịch.
+    (2) `10.2` `Mahājutikā` với `9.2` `Mahāvipākā` — 0 tiền lệ cho cả hai trong tầng
+      (`Mahājuti` chỉ 2 chỗ trong Pāli root, đều là `vv30` và bản song song `vv48`).
+      Tôi giữ đúng phân biệt: `vipāka` là QUẢ BÁO nên `là quả lớn lao` ở `9.2`;
+      `juti` là uy lực/hiệu lực nên `là hiệu lực lớn lao` ở `10.2`.
+
+  TIỀN LỆ THUẬT NGỮ, kèm số đếm (đã trừ lát n16):
+    · `Pāricchattakavagga` → `Phẩm Cây San Hô` — 6 lượt / 5 bài (`vv29`, `vv31`, `vv32`,
+      `vv36`, `vv38`). Chưa chốt trong bảng tên ở `BRIEF_VI3` §11; tầng tên đã ghim dịch
+      là *The Chapter With the Coral Tree*, nên `Cây San Hô` bám đúng tầng tên.
+    · `ucchu` (mía) + `khaṇḍika` (một khúc) → `khúc mía` — 3 lượt / 1 bài tiền lệ
+      (`tha-ap437:2.1` `Cầm lấy một khúc mía ngọt,`, và `tha-ap437:0.3` dịch
+      `Ucchukhaṇḍika` là *Trưởng Lão Cúng Dường Khúc Mía*); `ngọn mía` chưa có chỗ nào.
+    · `Ucchudāyikā` → `Người Dâng Khúc Mía` — theo khuôn `Nāvādāyikā` đã có
+      (`vv10:9.1` *Chuyện Cung Điện Người Dâng Hạt Nành*).
+    · `brahmā` → `Phạm thiên` — 722 lượt / 180 bài · `tidāsa` → `A-tu-la` — 109 lượt /
+      36 bài · `deva-inda` → `Inda` — 50 lượt / 23 bài.
+    · `kāmaguṇehi pañcahi` → `năm dục lạc` — 13 lượt / 6 bài (`năm dục trưởng dưỡng`
+      24 lượt / 5 bài nhưng là cách dịch cho `kāmaguṇasamappita` trong kinh Đại Bộ).
+    · `bhante` → `bạch thầy` — 5 lượt / 2 bài (`thưa tôn giả` có 284 lượt / 97 bài, nhưng
+      đó là cách gọi Tôn giả trong kinh Đại Bộ; ở đây một vị tỳ-kheo trong đời gọi một
+      người khác, nên `bạch thầy` đúng hơn và cũng là tiền lệ có sẵn).
+    · `majjapānā` → `rượu chè` — dùng lại `vv23:9.4` / `vv25:8.4`.
+    · `appamāda` không có ở bài này; `issariya` → `quyền uy` — `mil6.1.6:3.1` đã dùng
+      `quyền uy hay quyền cai trị` cho `issariya`; `pīṭha` → `miếng ăn` — 5 lượt / 5 bài.
+    · `puṇñaphala` → `quả báo phước báu` — `quả báo` 507 lượt / 386 bài, `phước báu`
+      64 lượt / 37 bài.
+
+  BẤT ĐỊNH (đã ghi, không giấu, không bịa thêm):
+    (1) `10.4` `Sahassanettoriva nandane vane.` — CỐT BÀI NÀY KHÔNG ĐỦ THÔNG TIN ĐỂ
+      CHỐT HẾT, tôi ghi thẳng ra đây thay vì đoán. `sahassanetto` có 5 chỗ trong Pāli
+      root nhưng cả năm đều theo nghĩa TAI/ĐÔT: `ja417:3.3` (`Sahassanetto
+      atulānubhāvo`, nghĩa là có trăm nghìn tai để nghe tiếng gọi xa) và `ja535:83.2`
+      (`Sahassanetto tidasānamindo`) — cùng bối cảnh `kosiya` (gọi vang). Ở đây không có
+      `kosiya` nên có thể là NHIỀU LÁ/ĐỐT, và `riva` (ví như) cần một vật để so.
+      Cách duy nhất tôi bảo vệ được là `như trăm nghìn lá trong rừng Nandan.` Tôi KHÔNG
+      ghi kèm lý giải nào vào thân kinh; đây là chỗ người biên tập nên đọc lại.
+    (2) `6.3` `Pīṭhaṁ gahetvā pahāraṁ adāsi me` — `pahāraṁ` là BỘT (cái đánh), `adāsi
+      me` là đã đưa cho tôi. Vế này không nói rõ cái đánh rơi vào ai (người vợ hay vị
+      tỳ-kheo). Tôi dịch theo nghĩa chữ `ông ấy cầm lấy miếng ăn rồi đánh tôi một
+      cái,` và KHÔNG bịa thêm chi tiết nào.
+    (3) `2.1` `uppalamāladhārinī` — `uppāla` có thể là ngọn mía (`ucchuppāla`) hoặc cỏ
+      ngạc (`mnd16:253.5` `uppalamālaṁ` = vòng hoa cỏ ngạc). Vì bài này kể chuyện cho
+      một `khaṇḍika` mía và tên cung điện là `Ucchudāyikā`, tôi chọn nghĩa ngọn mía; lý do
+      đó nằm ở đây, KHÔNG đưa vào thân kinh.
+    (4) `7.3` / `9.3` `paricārayāmahaṁ` — `paricārayāmi` vừa là du hành vừa là hưởng
+      thụ; vế sau (`Modāmahaṁ kāmaguṇehi pañcahi`) đã nói rõ là vui thích, nên tôi giữ
+      `du hành` ở đây để không lặp `hưởng thụ` hai câu liên tiếp.
+    (5) `5.2` `vadhuke` là xưng hô người chồng với vợ; tôi dịch `nàng ơi` và dùng nháy
+      đơn `‘ ’` cho lời của chồng, theo tiền lệ `vv17:5.2`.
+    (6) CẢNH BÁO CHO NGƯỜI ĐIỀU PHỐI — `vv48` (bài song song, KHÔNG thuộc lát của tôi)
+      dùng chung **43 khoá Pāli trùng tuyệt đối** với `vv30`, và bản Việt hiện trên đĩa
+      (lúc 2026-10-05, có thể còn đang được viết) KHÁC ở **37** khoá. Vài chỗ trong đó
+      có vẻ sai theo Pāli: `vv48:5.1` và `vv48:6.2` dịch `sassu` (chồng nàng) thành
+      *thần Trăng*; `vv48:5.2` dịch `avākiri` (cất tiếng gọi) thành *ngươi đánh rơi* và
+      `vadhuke` thành *kẻ giết người*; `vv48:4.3`, `9.2`, `10.2` biến `ucchu`/`khaṇḍika`
+      thành tên riêng *Ucchu*; `vv48:10.4` đọc `sahassanetto` là *nghìn con mắt*
+      (trong Pāli root, cả 5 chỗ đều theo nghĩa tai/đốt); `vv48:7.4` dịch `kāmaguṇehi`
+      thành *dục công đức*. Tôi KHÔNG sửa `vv48` vì ngoài lát. Hai bài này cùng một văn,
+      nên người biên tập nên gộp lại một công thức tiếng Việt cho cả hai.
+
+  Cổng kỹ thuật: `technical_integrity` đặt 9.6 vì lát này bị cấm chạy `npm run validate`,
+  `npm test`, `npm run check` và `npm run build` — bốn lệnh đó mới là cổng thật do CI
+  chạy. Đã tự kiểm bằng script riêng (`_n16_check.py`): 51/51 khoá khớp Pāli, 0 khoá
+  thừa, 0 khoá rỗng, NFC sạch, nháy kép `“ ”` cân trên cả bài (mở 2 đóng 2), nháy đơn
+  `‘ ’` cân từng khoá (1 cặp, ở `5.2`), dấu lược khớp từng khoá (bài này không có `…`
+  nào ở Pāli lẫn bản Việt). Trong bài có 7 nhóm Pāli trùng nguyên văn — bản Việt trùng
+  tuyệt đối, kiểm bằng script; riêng cặp `4.4` / `11.4` chỉ khác `”ti` ở Pāli và bản
+  Việt cũng chỉ khác đúng `”ti`. `0.1` giữ nguyên `Vimānavatthu` như 56 bài vv khác.
+  Không sửa `content/meta/reference-gaps.yaml`, không sửa `source/`, `src/`, `scripts/`,
+  `tests/`, không chạy `git`, không đụng `README.md`.

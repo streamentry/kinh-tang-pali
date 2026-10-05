@@ -1,0 +1,97 @@
+uid: ne16
+status: draft
+translationTitle: "Nhóm Thanh Tẩy Hướng Dẫn"
+translators:
+  - "OpenCode Space Bunny Free (agent)"
+reviewers: []
+tags:
+  - "kn"
+  - "khuddaka-nikaya"
+  - "netti"
+  - "patiniddesavara"
+  - "nhom-thanh-tay-huong-dan"
+quality:
+  scores:
+    source_provenance: 9.6
+    semantic_fidelity: 9.3
+    grammar_logic: 9.3
+    segment_alignment: 10.0
+    terminology: 9.3
+    triangulation: 7.5
+    vietnamese_clarity: 9.3
+    han_viet_balance: 9.4
+    ambiguity_integrity: 9.0
+    technical_integrity: 9.6
+  final_score: 9.23
+  blocking_errors:
+    - "Không có tầng tham khảo tiếng Anh tại commit đã ghim (11c9d708978cde8ba61096d8a75f7ddfb846f639). Đo bằng source/upstream-manifest.json chứ không suy từ tên thư mục: cây translation/en/sujato có 4291 tệp, trong đó dưới sutta/kn chỉ 9 sub-collection (cp 35, dhp 26, iti 112, ja 83, kp 9, snp 73, thag 264, thig 73, ud 80; tổng 755 tệp) — không có ne, không có mil — trong khi tầng Pāli root có 37 tệp kn/ne. Không có tệp nào chứa ne16, nên đây là not-published-upstream, KHÔNG phải not-synced. Tầng vietnamese-current cũng vắng: 26 tệp, toàn bộ là kn/dhp. Lớp lấp english-project không có cho uid này. Đo coverage theo đúng công thức source/layers.yaml và src/lib/canon/reference.ts (bỏ khoảng trắng, ≥ 40 ký tự, loại block tham chiếu :0) cho mẫu số 13 khoá Pāli có nội dung, 0 trên 13 có chữ tiếng Anh = 0%, dưới ngưỡng 0.8. Ba tầng tham khảo đều vắng nên bài dịch chỉ từ Pāli root; đây là giới hạn upstream, không phải lỗi của người dịch. Vì vậy triangulation bị chặn ở 7.5 chứ không nâng để né blocker."
+  assessed_at: "2026-10-05"
+  assessed_by:
+    - "OpenCode Space Bunny Free (agent)"
+notes: |-
+  Đủ 52/52 khoá trong `all`, ghi bằng `save_vi("kn", "ne16", …)` qua `_hvi.py` (không
+  sửa `_hvi.py`). Dịch trực tiếp từ Pāli root đã đọc đầy đủ trong bối cảnh.
+
+  **Mẫu số coverage đo được, khác hai bài kia của lát.** `ne16` phần lớn là kệ, nên
+  chỉ **13** khoá đạt ngưỡng (không phải 0 như BRIFE_VI4 §4 cảnh báo). Cổng coverage
+  **có** đo được ở bài này, và kết quả là 0 trên 13 = 0%. Đo theo `prose()` của kho
+  (gộp khoảng trắng rồi cắt) cho 13, đếm thô `len >= 40` cũng cho 13 — hai cách khớp
+  nhau ở bài này. Hai khoá `4.5` và `7.3` đứng **đúng** ngưỡng (40 ký tự sau khi gộp),
+  nên nếu biên tập đổi công thức đo một ký tự thì mẫu số sẽ đổi theo.
+
+  **Tiền lệ rất dày, dùng lại nguyên văn bản Việt đã có.** 19 tệp `ne*` đã merge cho
+  bộ nhãn Netti: `Netti` → *Netti*; `Paṭiniddesavāra` → *Phần Giải Thích*;
+  `Vibhaṅga N` → *Nhóm N*; `Xhāravibhaṅga` → *Nhóm X Hướng Dẫn*; `Tattha katamo X
+  hāro?` → *Ở đây, nhóm X hướng dẫn là gì?*; `Niyutto X hāro` → *Nhóm X hướng dẫn đã
+  được vận dụng*; `Tenāha āyasmā mahākaccāyano …` → *Bởi vậy, Tôn giả Mahākaccāyana
+  nói:* (đếm `Tôn giả Mahākaccāyana` 3 so với `Trưởng lão Mahākaccāyana` 1).
+
+  **`sodhana` → *thanh tẩy*, có hai chứng cứ độc lập trong chính tầng Netti.**
+  `ne32:0.4` `Sodhanahārasampāta` đã dịch *Nhóm Phương Thức Thanh Tẩy*, và `ne2:1.2`
+  liệt kê đủ mười sáu hārā với `sodhano` → *thanh tẩy*. Đếm `thanh tẩy` trong các tệp
+  `ne*` đã có: 4 lần (loại trừ tệp này). Vì `ne16` là dạng **vibhaṅga** của đúng nhóm
+  `hāra` mà `ne32` là dạng **sampāta**, tôi dịch `Sodhanahāravibhaṅga` → *Nhóm Thanh
+  Tẩy Hướng Dẫn* theo khuôn của `ne8` (*Nhóm Đặc Trưng Hướng Dẫn*), không theo khuôn
+  *Phương Thức* của `ne32`; hai khuôn này đã song song sẵn trong tầng.
+
+  **`ārambha` → *việc khởi thành*, `visajjita` → *được giải quyết*** — bám `ne32:2.2`
+  và `2.3`, đã merge: *Ở nơi nào việc khởi thành đã trong sạch, thì câu hỏi ấy được
+  giải quyết* / *…không trong sạch, thì câu hỏi ấy vẫn chưa được giải quyết*. Tôi dùng
+  lại đúng hai câu đó ở `11.3` và `11.4`, và dùng *việc khởi thành trong sạch* cho
+  `Suddho ārambho` ở `4.4`, `7.2`, `11.1`.
+
+  **Hai mươi mốt khoá có Pāli trùng nguyên văn trong `snp5.2` (42 segment, đã merge) —
+  dùng lại nguyên văn bản Việt.** Đếm bằng script, không đoán. Đó là chính cuộc đối
+  thoại này: `Kenassu nivuto loko` / `Avijjāya nivuto loko` / `Savanti sabbadhi sotā` /
+  `Yāni sotāni lokasmiṁ` / `Yametaṁ pañhaṁ apucchi` → *Thế gian bị che phủ bởi gì? ·
+  Thế gian bị che phủ bởi vô minh · Các dòng chảy tuôn khắp nơi · Những dòng chảy
+  trong thế gian · Câu hỏi này mà ngươi đã hỏi*, cùng `(iccāyasmā ajito)` → *(Tôn giả
+  Ajita nói,)* và `(ajitāti bhagavā)` → *(Đức Thế Tôn trả lời:)*. `Vivicchā` ở `3.3`
+  (snp5.2 viết `Vevicchā`) dịch *xan tham*, theo cả hai tiền lệ đo được:
+  `snp5.2:2.3` và `dn19:46.17` (`Icchā vivicchā` → *ham muốn, xan tham*).
+
+  **Bốn cụm 0 tiền lệ trong TOÀN BỘ tầng Việt — tôi tự phân xử, ghi lại:**
+  (1) `padaṁ sodheti` (4 khoá) → *chỉnh lại câu ấy cho đúng*. Ở đây `sodheti` là
+  ngữ cảnh Paṭiniddesa: Đức Thế Tôn chỉ đọc lại và **hoàn chỉnh** câu hỏi của Ajita
+  (chứ không phải *thanh lọc* như 50 hit `sodheti` → *thanh lọc* trong 96 segment có
+  `sodheti` ở `dn10`), nên tôi
+  dịch theo nghĩa Netti.
+  (2) `no ca ārambhaṁ` (4 khoá) → *nhưng đó không phải là việc khởi thành*. Tôi cố tình
+  **không** thêm *trong sạch*, dù `4.4` và `7.2` là `suddho ārambho`; vì Pāli ở đây
+  chỉ phủ định `ārambha`. Liên hệ với `ne32:2.3` *không trong sạch* thì biên tập có
+  thể muốn viết *không phải là việc khởi thành trong sạch*; tôi để nguyên nghĩa Pāli
+  và ghi ở đây.
+  (3) `Pañhe—` (1 khoá, rubric) → *Trong câu hỏi—*.
+  (4) `pārāyane` ở `1.3` → *bậc Pārāyana*. Đây là **tên gọi của Đức Thế Tôn** có ngay
+  trong Pāli của chính bài (cũng thấy ở `sn1.35`), dạng gọi bổ nghĩa cho `bhagavantaṁ`
+  nên không phải tôi đặt ra. `lọt_pāli` của `_hvi` chỉ khớp đúng dạng từ trong Pāli
+  (`pārāyane` ≠ `Pārāyana`) nên chặn ở lần dùng đầu tiên; tôi khai tên này vào bộ nhớ
+  tiến trình đúng như docstring của hàm hướng dẫn, **không** sửa `_hvi.py`.
+
+  **Nháy kép.** Tự so `“ ”` và `‘ ’` từng khoá: bản Việt khớp **0** lệch so với Pāli;
+  chạy toàn bài thì cả hai loại đều về 0 và không bao giờ âm. Dấu lược: `ne16` không có
+  `…pe…` lẫn `…` trần (Pāli 0/0, Việt 0/0).
+
+  `technical_integrity` 9.6 vì lát này không được chạy cổng. Bốn lệnh còn lại do
+  coordinator chạy trước khi publish: `npm run validate`, `npm test`, `npm run check`,
+  `npm run build`.
