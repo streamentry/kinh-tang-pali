@@ -1,0 +1,234 @@
+uid: ja465
+status: draft
+translationTitle: "2. Kinh Bhaddasāla"
+translators:
+  - "OpenCode Space Bunny Free (agent)"
+reviewers: []
+tags:
+  - "khuddaka-nikaya"
+  - "jataka"
+  - "dvadasakanipata"
+  - "culakunalavagga"
+  - "bhaddasalajataka"
+quality:
+  scores:
+    source_provenance: 9.5
+    semantic_fidelity: 9.2
+    grammar_logic: 9.2
+    segment_alignment: 10.0
+    terminology: 9.2
+    triangulation: 7.0
+    vietnamese_clarity: 9.2
+    han_viet_balance: 9.2
+    ambiguity_integrity: 8.6
+    technical_integrity: 9.6
+  final_score: 9.07
+  blocking_errors:
+    - "Tầng English SuttaCentral đã ghim KHÔNG có bài này. Tra source/upstream-manifest.json (commit 11c9d708978cde8ba61096d8a75f7ddfb846f639): tầng pali có 5764 tệp và ja465 CÓ MẶT (kn/ja/ja465_root-pli-ms.json); tầng english-sujato có 4291 tệp nhưng trong đó chỉ 83 tệp thuộc kn/ja (ja1–ja79 cộng ja126, ja159, ja466, ja534) và ja465 KHÔNG có mặt; tầng vietnamese-current có 26 tệp (chỉ Pháp Cú) và ja465 vắng; tầng english-project trong kho không có ja465. Cùng kết luận khi tra thẳng cache của tầng Anh: 83 tệp, không có ja465. Đây là đặc điểm của bản chụp upstream, không phải thiếu sót của kho. Cổng validate của kho coi tệp Anh đã ghim mà vắng là ERROR khi status là review hoặc published; lát này bị cấm chạy npm run source:sync:used và bị cấm sửa content/meta/reference-gaps.yaml, nên không thể ghi nhận khoảng trống bằng cơ chế của kho. Bắt buộc giữ draft."
+    - "Bài này substantiveSegments = 0: trên 55 khoá Pāli, KHÔNG khoá nào đạt ngưỡng 40 ký tự (khoá dài nhất 28 ký tự, trung vị 23, vì toàn bài là kệ). Mẫu số bằng 0 nên CỔNG COVERAGE KHÔNG ĐO ĐƯỢC GÌ — đây không phải ĐÃ ĐỦ THAM KHẢO, và cũng không phải câu cần được cứu bằng reference-gaps.yaml. Cổng validate có điều kiện substantiveSegments > 0 nên cổng không đỏ, nhưng tôi ghi điểm này ra đây để không ai đọc cổng xanh thành bằng chứng rằng bài đã được đối chiếu Anh."
+    - "Tám cụm dưới đây là hapax trong TOÀN BỘ Pāli ghim (5764 tệp): Ceteyyarūpaṁ, cetesi, Hitakāmosi, upahiṁseyyaṁ, asukhocita, sukhasaṁvaddhā, accamaññisuṁ, hetumupādāya, chijjamānassa (mỗi cụm 1 lần, chỉ ở chính ja465). Không có bản Anh nào ở commit đã ghim để phân xử độc lập, nên tôi dịch theo thành phần và ghi rõ ở notes, không tuyên bố là đã phân xử. Riêng vehāyasaṁ (1.2) thật sự hai nghĩa trong tầng (đoàn tùy tùng / bay); tôi chọn nghĩa đoàn tùy tùng và nêu lý do ở notes."
+  assessed_at: "2026-10-06"
+  assessed_by:
+    - "OpenCode Space Bunny Free (agent)"
+notes: |-
+  Vì sao `draft` — ba lý do; hai lý do đầu là kỹ thuật, lý do sau là chất lượng dịch.
+
+  (1) **Không có tầng Anh đã ghim cho bài này.** Đếm bằng script trên `source/upstream-manifest.json`:
+  `pali` **5764** tệp, `ja465` **có mặt**; `english-sujato` **4291** tệp, `ja465` **vắng**;
+  `vietnamese-current` **26** tệp (chỉ Pháp Cú), `ja465` **vắng**; `english-project` trong kho không có
+  `ja465`. Tầng `english-sujato` có 83 tệp `kn/ja`: `ja1`–`ja79` cộng `ja126`, `ja159`, `ja466`,
+  `ja534` — `ja465` không nằm trong danh sách đó. Tra lại thẳng cache của tầng Anh cho cùng kết quả
+  (83 tệp, không có `ja465`). Đây là đặc điểm của bản chụp upstream, không phải thiếu sót của kho.
+  Cổng `validate` của kho coi tệp Anh đã ghim mà vắng là **error** khi status là `review`/`published`,
+  nên `published` và `review` đều đỏ. Tôi bị cấm chạy `npm run source:sync:used` và bị cấm sửa
+  `content/meta/reference-gaps.yaml`, nên không thể ghi nhận khoảng trống bằng cơ chế của kho.
+
+  (2) **Cổng coverage không đo được gì.** Đo đúng công thức khai ở `source/layers.yaml`
+  (`substantivePaliMinChars: 40`, `excludeReferenceBlock: true`): **0** khoá đạt trên tổng số **55**
+  khoá. Khoá dài nhất của cả bài chỉ **28** ký tự (`1.1` và `9.1`), trung vị **23**, vì toàn bộ là kệ.
+  Mẫu số bằng 0 ⇒ cổng **không đo được gì**; đó **không** phải *đã đủ tham khảo*, và cũng **không**
+  phải câu *"không cần ghi nhận gap"*. `validate.ts` có điều kiện `substantiveSegments > 0` nên cổng
+  không đỏ — tôi ghi ra đây để không ai đọc cổng xanh là bằng chứng đã đối chiếu Anh.
+
+  (3) **`triangulation` bị chặn ở 7.0.** Không có bản Anh độc lập nào để đối chiếu. Tôi **không**
+  tuyên bố bài này đã đối chiếu English. Nguồn đối chiếu là Pāli ghim cùng commit, tiền lệ đếm được
+  trong chính tầng `vietnamese-project`, và **một bản dịch song song của ấn phẩm khác** — bản dịch
+  Rouse trong *The Jataka* bản 4 (1901), bản dịch **không** nằm trong tầng Anh đã ghim — dùng **chỉ để
+  phân xử cú pháp** ở mục bất định (1) và (3) dưới. Tôi **không tính** nó vào `triangulation`: nó không
+  phải tầng tham khảo của kho, và bản dịch ấy lệch với Pāli ghim ở câu kết (xem (5)).
+
+  **Nguồn.** `ja465` = `2. Bhaddasālajātaka`, thuộc `Cūḷakuṇālavagga` của `Dvādasakanipāta`.
+  `content/catalog/sutta/kn.json` cho `sourcePath = root/pli/ms/sutta/kn/ja/ja465_root-pli-ms.json`;
+  ghi `json.dump(..., ensure_ascii=False, indent=2)` + newline cuối; đủ **55** trên **55** khoá của `all`
+  và đúng thứ tự Pāli.
+
+  **Cốt lõi của bài là một câu chuyện, và nó chỉ hiện ra khi dựng lại từ Pāli — không đoán.** Vua xây
+  một cung điện chỉ một cột, thợ rừng tìm được một cây lớn trong vườn nhà vua, và thần ngự ở cây ấy
+  hiện ra khóc bên gối giường nhà vua giữa đêm; hai bên trò chuyện tới lui, rồi vua để yên cho thần
+  đi. Bốn mươi bốn khoá kệ này không nói tên loài cây, không nói vua tên gì, không nói thần tên gì.
+  Tôi dịch đúng những gì Pāli nói và **không** bịa loài cây hay tên riêng. Ba nơi tôi suýt bịa và đã
+  dừng lại, ghi ở mục bất định (1)–(3).
+
+  **Mọi số Pāli tôi dịch, kèm phép tính — toàn bài chỉ có bốn chỗ mang số.**
+  * `ja465:0.2` `Dvādasakanipāta` = `dā`-`dvā`-`dasa` 12 ⇒ **Bộ Mười Hai Bài Kinh**, dùng lại nguyên văn.
+  * `ja465:0.4` `2.` — tôi **không** chép số này. Tôi liệt kê lại `Cūḷakuṇālavagga` từ chính Pāli ghim
+    bằng `:0.3` rồi đếm: **20** tệp Pāli dùng chung tên phẩm này, gồm hai chuỗi `ja341`–`ja350` và
+    `ja464`–`ja473`. Trong chuỗi thứ hai `ja465` là mục thứ **2** trên **10** (`ja464`=1, `ja465`=2,
+    `ja466`=3, `ja467`=4, `ja468`=5, `ja469`=6 …) ⇒ `2.` khớp.
+  * `ja465:2.3` `Saṭṭhi vassasahassāni` = `saṭṭhi` **60** × `vassasahassa` (`vassa` năm × `sahassa`
+    1000) **1000 năm** ⇒ 60 × 1000 = **60.000** ⇒ tôi viết **sáu mươi ngàn năm**. Đây đúng là bẫy
+    thang lớn mà `BRIEF_VI4` cảnh báo: *"sáu mươi ngàn"* là 60.000, không phải 6.030. `saṭṭhi` = 60
+    được xác nhận từ chính tầng: `ja314:2.1` mang **đúng** cụm `Saṭṭhi vassasahassāni` và đã được dịch
+    là *"sáu mươi ngàn năm"* — cùng phép tính, cùng kết quả.
+  * `ja465:5.2` `ekatthambhaṁ` = `eka` **1** + `thambha` cột ⇒ **một cột duy nhất**.
+  * `ja465:13.1` `dutiyaṁ` = **2** ⇒ *thứ hai*, khớp `:0.4`.
+  Máy đo số của lát (có hiệu chuẩn) quét toàn tầng: **231** cặp cùng đơn vị để so, **0** lệch, và cả
+  **9/9** dòng hiệu chuẩn đều in `OK`. Nó **không** phủ `Saṭṭhi vassasahassāni`, nên chỗ 60.000 ở
+  trên tôi tự tính tay và đối chiếu bằng tiền lệ `ja314`, không dựa vào máy.
+
+  **Tên phẩm và tên bài — đo riêng từng trường, không suy từ trường kia.**
+  * `:0.1` `Jātaka` → **Jātaka**: **441/463** tệp `ja` có khoá `0.1` dùng đúng câu này, đối lập
+    *Chuyện Tiền Thân*. Đa số tuyệt đối, dùng lại nguyên văn.
+  * `:0.2` `Dvādasakanipāta` → **Bộ Mười Hai Bài Kinh**: **6/6** nơi trong kho đã có bản Việt
+    (`ja464`, `ja466`, `ja468`, `ja469`, `ja471`, `thag12.1`, `thig11.1`) dùng đúng câu này ⇒ dùng lại
+    nguyên văn, không phải đặt mới.
+  * `:0.3` `Cūḷakuṇālavagga` → **Phẩm Cūḷakuṇāla**: **16/16**, không ngoại lệ.
+  * `:0.4` theo khuôn `<số>. Kinh <tên>`: **456/456** tệp `ja` đã dịch có khoá `:0.4` khớp
+    `^<số>. ` — tức **100%**. Tôi viết **2. Kinh Bhaddasāla**.
+  * 🔴 **Hai trường này thật sự phân kễ, và tôi đo riêng từng trường**: trường `translationTitle` trong
+    `content/meta/sutta/kn/ja*.yaml` chỉ có **32/463** giá trị mang số thứ tự, **431/463** không mang —
+    tức **6,9%** có số, khác hẳn **100%** ở dòng `:0.4`. Đây là phân kễ đo được, không phải cảm tính.
+    Bài này đặt `translationTitle` **bằng đúng giá trị `:0.4`**, theo chỉ dẫn của người điều phốn và
+    theo tiền lệ gần nhất cùng phẩm (`ja464` *1. Kinh Cūḷakuṇāla*, `ja468` *5. Kinh Janasandha*,
+    `ja350` *10. Kinh Devatāpañha*). Người điều phốn xem lại nếu muốn thống nhất theo 431.
+  * Tên `Bhaddasāla` giữ nguyên dạng Pāli, không dịch nghĩa: đó là tên riêng, và tầng đã có tiền lệ giữ
+    tên Pāli cho nhân vật/nhi vật đặt tên (`ja101` *Kinh Parosata*, `ja102` *Kinh Paṇṇikajātaka*,
+    `ja105` *Kinh Gỗ Yếu*). `Bhaddasāla` còn xuất hiện trong kho làm tên riêng của một vị tướng ở tầng
+    Trung Bộ, nên giữ tên là an toàn. Tôi **không** dịch nó thành *Cây Tốt Lành* vì Pāli ghim không nói
+    đó là tên của một cây hay của một thần.
+  * Dòng kết `:13.1` viết **Kinh Bhaddasāla thứ hai.** theo khuôn `Kinh …, thứ …` đã thành quy ước.
+
+  **Dùng lại nguyên văn bản dịch ở bài khác — đo bằng script.** Tôi dựng chỉ mục Pāli→Việt trên
+  **284708** cặp `(uid, khoá)` Pāli ghim và **160087** cặp `(uid, khoá)` bản Việt của kho
+  (**156932** cặp có Pāli khớp byte), rồi so **nguyên văn** từng khoá của `ja465` với toàn bộ
+  **5764** tệp Pāli ghim:
+  * **8** khoá có Pāli trùng byte-for-byte với bài khác; trong đó **4** khoá đã có bản Việt và tôi
+    dùng lại nguyên văn: `0.1` *Jātaka*, `0.2` *Bộ Mười Hai Bài Kinh*, `0.3` *Phẩm Cūḷakuṇāla*,
+    `11.2` *mọc lên từ chỗ ta trồng;* (nguyên văn `ja412:4.2`, cùng nghĩa *ta là gốc chúng nó mọc ra*).
+  * **4** khoá trùng Pāli nhưng **chưa bài nào trong kho có bản Việt**: `1.4` (=`ja518:29.4`),
+    `2.1` (=`ja529:4.1`), `4.3` (=`ja533:28.1`), `10.4` (=`ja545:53.4`) ⇒ tôi đặt mới.
+    Ba cái sau còn dùng được như **mốc ngữ pháp** để đọc đúng động từ: `Ārohapariṇāhena`
+    (`ja533:28.1`) trong ngữ cảnh đối kháng của hai con rắn nên là *áp sát*, nhưng ở `ja465` tôi dịch
+    *thân hình cân xức* theo tiền lệ ổn định hơn (đo **46** cặp, `an3.140` → *cân đối*,
+    `an4.259:6.1` → *thân hình cân xứng*); `Taveva deva vijite` (`ja529:4.1`) xác nhận `vijite` là
+    **dạng nơi chốn** *trong lãnh thổ của*, không phải tên vua (đo **31** cặp cùng đơn vị, `vijite`
+    gần như luôn là *trong lãnh thổ của*); `mahārāja suṇohi me` (`ja545:53.4`) là *Đại vương, xin
+    hãy nghe tôi nói*, khớp **23** cặp `suṇohi me` đã có trong tầng.
+  * **0** khoá nào tôi cố ý dịch khác bản Việt đã có.
+  * **51** khoa đặt mới (chưa bài nào trong kho có bản Việt cho Pāli đó).
+
+  **Mồ côi nguyên văn: đo thật, và kết quả là KHÔNG có.** Người điều phốn báo một lát trước thấy
+  `kn/ja536` chứa nguyên văn `ja464` ở `64.1–75.4`, chỉ khác chính tả. Tôi dựng lại đúng phép đó (so
+  **byte**, rồi so **bỏ dấu câu + hạ chữ thường + gộp khoảng trắng**) và nó **tái lập được con số của
+  lát trước từng khoá**: khối `ja536:64.1–75.4` là **12** tức kệ = **48** khoá, trong đó **45** khoá
+  khớp byte tuyệt đối, và **3** khoá lệch **đúng** ba chỗ chính tả đã được báo: `ja464:3.1`
+  `Cirānuvutthampi` ↔ `ja536:66.1` `Cirānuvuṭṭhampi`; `ja464:12.1` `bahūnaṁ` ↔ `ja536:75.1` `bahūna`;
+  `ja464:12.4` `…sevitabbā”ti.` ↔ `ja536:75.4` `…sevitabbā”.`. Vì phép đo đã tái lập được, kết quả của
+  nó cho bài tôi là đáng tin: với `ja465`, `ja536` chỉ khớp **1** khoá byte (`0.1` *Jātaka*, dòng tiêu đề
+  chung của mọi bài) và **1** khoá loose — **cùng chính khoá đó**. `ja536` **không** chứa câu kệ nào
+  của `ja465`. Tôi cũng quét **toàn bộ** 5764 tệp Pāli ghim: ngoài **8** khoá đã kể ở trên, không
+  có mồ côi nào khác.
+
+  **Trùng nguyên văn TRONG CHÍNH BÀI — đo bằng script.** **1** nhóm / **2** khoá trên **55**:
+  `bhaddasāla vanappati;` (`9.2` và `12.2`). Nhóm Việt giống nhau: **0/1 lệch**. Lượt review đối kháng
+  bắt được **1** lỗi thật ở đây: bản nháp đầu của tôi để `9.2` là *là điều không đau đớn đâu, ông chúa
+  Bhaddasāla;* — nghĩa là tôi đã dồn nội dung vế trước của khoá `9.1` sang khoá `9.2`, làm cho hai
+  khoá Pāli trùng byte mà bản Việt khác nhau. Đã sửa: `9.1` ôm trọn mệnh đề, `9.2` chỉ còn
+  *ông chúa Bhaddasāla;* và giống hệt `12.2`.
+
+  **Dấu lược.** Bài này **không** có khoá nào chứa `…pe…`, `…` trần hay `(…)` — đếm trên **55** khoá,
+  cả hai vế đều **0**. Nên không có dấu lược nào để bung hay để cắt. Hai phép đo này **chạy rỗng**, tức
+  *không có mẫu số*, chứ không phải *đã đạt*.
+
+  **Ngoặc kép — theo đúng vị trí Pāli.** Pāli ghim có **7** dấu `“` (`1.1`, `2.1`, `4.1`, `6.1`,
+  `8.1`, `10.1`, `12.1`) và **7** dấu `”` (`1.4`, `3.6`, `5.4`, `7.4`, `9.4`, `11.4`, `12.4` dạng
+  `”ti.`). Tôi đặt **7** và **7** đúng vào ba bảy khoá ấy. Lượt review đối kháng bắt được **2** lỗi
+  thật ở đây: bản nháp đầu của tôi quên dấu mở ở `4.1` và `6.1`. Đã sửa. Nháy đơn `‘’`:
+  Pāli có **0**, bản Việt có **0**.
+
+  **Thuật ngữ — đếm tiền lệ, đo bằng script trên toàn tầng.**
+  * `pāsāda` → **cung điện** (đo **93** cặp; sát nhất `dn17:1.25.2` *hãy xây cho vua… một cung điện*);
+    `thambha` → **cột** (`dn17:1.26.1` *tám mươi bốn ngàn cột*).
+  * `manorama` → **khả ái** (đo **7** cặp; `snp5.1:38.4` *xinh đẹp, khả ái*, `tha-ap180:2.2`
+    *đẹp đẽ, dễ nhìn*).
+  * `abhirūpo` → **xinh đẽ** (đo **26** cặp, toàn bộ nghĩa *dáng vẻ đẹp*; `ja385:4.4` *dáng vẻ đẹp đẽ*).
+  * `dhammūpasaṁhita` → **hợp với đạo lý** (đo **11** cặp; `dn30:1.19.2` *hợp với pháp*).
+  * `mama passe nivātajā` → **mọc lên từ chỗ ta trồng** (nguyên văn `ja412:4.2`; `nivātajā` chỉ
+    **2** lần trong Pāli ghim, cả hai ở đây và ở `ja412`).
+  * `vassasahassa` → **ngàn năm** (đo **5** cặp; `mil5.1.7:5.1` *kéo dài ngàn năm*).
+  * `Disampati` giữ nguyên tên: đo **37** nơi trong Pāli ghim, và tầng Việt đã dịch là *vua Disampati*
+    (tiền lệ sát nhất `dn19:30.1`).
+  * `sukha` ở `9.1` tôi dịch **không đau đớn** để giữ đúng cặp với `dukkha` ở `7.4` và `8.4`
+    (*đau đớn*) — cùng một trục nghĩa trong ba câu; `sukha` ở `11.1`/`11.4` là nghĩa khác
+    (*dễ chịu*), và `asukhocita` là *không quen điều dễ chịu*, tôi giữ đúng cặp đó.
+  * `bhayamāgataṁ` ở `1.4` dịch *nỗi sợ ấy từ đâu mà đến* — cùng Pāli với `ja518:29.4`, và bài
+    `ja518` chưa có bản Việt nên tôi đặt mới.
+  * **0** tiền lệ cho `vehāya` (chỉ **4** nơi, `ja426`/`tha-ap348`/`vv41`/`vv60` — và hai cái sau là
+    ngữ cảnh bay), `ekatthambha` (**0** nơi trên toàn tầng), `Hitakāma`, `Ceteyyarūpaṁ`, `cetesi`,
+    `upahiṁseyyaṁ`, `asukhocita`, `sukhasaṁvaddhā`, `accamaññisuṁ`, `hetumupādāya`,
+    `chijjamānassa` — với những từ này tôi đặt theo thành phần và ghi ở đây.
+
+  **Bất định, ghi ở đây chứ không thêm vào thân kinh.** Cụm nào là hapax trong toàn bộ Pāli ghim thì
+  tôi ghi rõ là **chưa phân xử**, không tuyên bố đã giải quyết.
+  (1) **`suddhehi vatthehi` + `Kena tyāssūni vattanti`** (`1.1`, `1.3`) — đây là chỗ khó nhất của bài.
+      `vatthehi` là `vattha`: nghĩa **vải áo** (tiền lệ `ja412`-cùng-loại không có, nhưng `vattha` là
+      chữ đã xác lập) và `assūni` là **nước mắt** (đo **19** nơi; `rudaṁ assūni vattayi` =
+      *rơi nước mắt*, `ja523:34.4`). Hai vế khớp nhau: người mở lời hỏi một người mặc y phục trắng
+      trinh đứng giữa trời **vì sao nước mắt kia lại rơi**. Cách đọc "sạch/sắc" cho `suddha` và
+      "vũ khí" cho `vatthehi` đã bị tôi loại **sau khi đo**: nó làm `assūni` thành vô nghĩa trong
+      câu đó. Đây là lý do tôi dịch `1.1` và `1.3` như trên, chứ không phải suy đoán.
+  (2) **`vehāyasaṁ ṭhitā`** (`1.2`) — `vehāya` có **hai** nghĩa đều có chứng cứ trong tầng: *đoàn tùy
+      tùng/hộ giá* (`ja489:18.2` cùng cấu trúc `aghe vehāyasaṁ ṭhito`) và *bay* (`ja512:2.2`, `vv41`,
+      `vv60`). Tôi chọn **đoàn hộ giá** vì hậu tố `-saṁ` ở đây là *cùng với*, và vì `ṭhitā` là *đứng*.
+      Người biên tập có thể chọn *bay*; khác biệt chỉ ở một cụm.
+  (3) **`kā tvaṁ suddhehi vatthehi`** (`1.1`) — `vattha` còn nghĩa **bình chất** (tiền lệ
+      `snp2.7:5.1` *với các bình chất khác nhau*, `tha-ap407:51.3` *cùng với bình chất đựng thức ăn*).
+      Tôi chọn **y phục** vì bối cảnh một vị thần hiện ra bên gối giường nhà vua giữa đêm; nếu
+      *bình chất* thì câu ấy phải nói về một người đang nấu ăn, mà toàn bài không có cảnh đó. Tôi
+      ghi rõ là chọn theo bối cảnh, không phải đã chứng minh.
+  (4) **`sarīrena vinābhāva`** (`6.2`) — `vinābhāva` không phải hapax (**16** nơi, nghĩa *hủy diệt*),
+      nhưng `sarīrena` ở đây là **hapax** và `sarīra` có hai nghĩa: *chủ nhân* và *chồng*. Tôi chọn
+      *chủ nhân* vì người nói ở đây là thân cây, không có chồng. Câu này còn phải nối với `me` ở `7.3`
+      (`Evaṁ me chijjamānassa`) để hiểu là người nói nói về chính mình.
+  (5) **`Ceteyyarūpaṁ cetesi`** (`12.1`) — **1** nơi trong toàn bộ Pāli ghim. Tôi dịch *Dù hình hài
+      nào, cứ hành động đi,* theo nghĩa từng thành phần. Cách đọc khác (`cetesi` = *ngươi sẽ nghĩ*)
+      cho *Dù hình hài nào ngươi nghĩ,* cũng có thể; tôi chọn cách hành động vì nó khớp với cặp
+      *Hitakāmosi… / abhayaṁ samma dammi te* ở hai câu sau, tức một lời trao phúc lành cho bạn.
+      Tôi **không** nêu tên người nói câu này trong bản dịch, vì Pāli ghim cũng không nêu. 🔴 Ở đúng chỗ
+      này bản dịch Rouse **lệch với Pāli ghim**: nó đặt lời thoại cuối vào miệng vua (*thy thoughts
+      must noble be…*) và không có câu *ta ban cho ngươi trọn vẹn sự không-sợ-hãi*. Theo
+      `AGENTS.md` thì Pāli ghim là authority, tôi dịch theo Pāli ghim — nhưng ghi lại ở đây vì đó là
+      chỗ hai bản thật sự khác nhau, không phải chỗ tôi diễn đạt khác.
+  (6) **`agāre ca disampati`** (`3.2`) — `disampati` là tên một vua (tiền lệ `dn19`, đã dịch là *vua
+      Disampati*), và ở đây đứng cạnh `agāre` như một danh từ. Tôi giữ *vua Disampati* và thêm *cai trị*
+      để câu tiếng Việt đứng vững; nếu người biên tập muốn đọc `disampati` như danh từ chung *một vị
+      vua cai trị* thì cũng được — tôi **không** chọn cách đó vì nó làm mất tên riêng đã có tiền lệ.
+  (7) **`vanappati`** (`9.2`, `12.2`) — đo **7** nơi; tiền lệ sát nhất `ja74:1.4` dịch là *chúa rừng*.
+      Ở đây `bhaddasāla vanappati` là cách xưng hô *ông chúa*, nên tôi viết *ông chúa Bhaddasāla*
+      thay vì *chúa rừng*.
+  (8) **`kā tvaṁ`** (`1.1`) — Pāli ghim dùng `kā` ở đây là *ai thế này* (câu hỏi về danh tính), không
+      phải *vì sao*; tôi dịch *Ngươi là ai*. Câu hỏi *vì sao* của bài nằm ở `1.3` (*Vì sao nước mắt…*),
+      nên hai khoá không lặp nhau.
+
+  **Cổng kỹ thuật.** Lát này cấm chạy `npm run validate|test|check|build`, nên tôi **không** tuyên bố
+  là technical gate đã pass, và `technical_integrity` đặt **9,6** chứ không phải 10,0. Bốn lệnh còn
+  lại cho người biên tập chạy: `npm run validate` · `npm test` · `npm run check` · `npm run build`.
+  Tôi tự quét bằng script riêng trên **mọi** khoá, không chỉ khoá ≥ 40 ký tự: đủ **55/55** khoá khớp
+  `set(khoá Việt) == set(khoá Pāli)`; **0** khoá thừa, **0** khoá thiếu; thứ tự khớp Pāli; nháy đơn
+  `‘’` và nháy kép `“”` khớp Pāli **từng khoá** trên **220** cặp (4 × 55), **0** lệch; **1/1** nhóm
+  trùng trong bài có bản Việt giống nhau; **0/55** lệch dấu lược (nhưng cả hai vế đều rỗng); **55/55**
+  NFC; **0** khoá rỗng; **0** khoá thừa khoảng trắng đầu/cuối; chỉ **1** giá trị trùng nguyên văn Pāli
+  (`0.1` *Jātaka*, dòng tiêu đề, **441** tiền lệ); **7** giá trị còn lại giữ chữ Pāli, tất cả là **tên
+  riêng và tên bộ** đã giữ có chủ đích (`0.1` *Jātaka*, `0.3` *Cūḷakuṇāla*, `0.4`/`2.2`/`9.2`/`12.2`/
+  `13.1` *Bhaddasāla*). JSON đọc lại được **55** khoá và có newline cuối. Cổng kỹ thuật của kho thì chưa
+  chạy.

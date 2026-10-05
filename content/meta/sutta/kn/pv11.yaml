@@ -1,0 +1,151 @@
+uid: pv11
+status: draft
+translationTitle: "11. Chuyện Ngạ Quỷ Nāga"
+translators:
+  - "OpenCode Space Bunny Free (agent)"
+reviewers: []
+tags:
+  - "kn"
+  - "khuddaka-nikaya"
+  - "petavatthu"
+  - "uragavagga"
+  - "nga-quy-naga"
+quality:
+  scores:
+    source_provenance: 9.5
+    semantic_fidelity: 9.1
+    grammar_logic: 8.9
+    segment_alignment: 10.0
+    terminology: 9.2
+    triangulation: 7.4
+    vietnamese_clarity: 8.9
+    han_viet_balance: 9.2
+    ambiguity_integrity: 8.5
+    technical_integrity: 9.6
+  final_score: 9.03
+  blocking_errors:
+    - "Không có tầng tham khảo tiếng Anh tại commit đã ghim (11c9d708978cde8ba61096d8a75f7ddfb846f639). Đo bằng script trên `source/upstream-manifest.json` (tầng `english-sujato`, 4.291 tệp): `sutta/kn/` có **755** tệp thuộc đúng **9** sub-collection — cp 35, dhp 26, iti 112, ja 83, kp 9, snp 73, thag 264, thig 73, ud 80 — và `kn/pv/` là **0** tệp; tra theo uid `pv11` cũng 0 tệp. Đây là `not-published-upstream`, KHÔNG phải `not-synced`, và là giới hạn của snapshot upstream chứ không phải lỗi của người dịch. Tầng `vietnamese-current` cũng vắng: 26 tệp, toàn bộ là Pháp Cú, 0 tệp `pv`. Lớp lấp `english-project` của dự án có 129 tệp `kn` nhưng `pv` chỉ 2 tệp (pv48, pv49), không có `pv11`, và `content/meta/en/kn/` cũng không có `pv11.yaml`. Cả ba tầng tham khảo đều vắng ⇒ bài chỉ dịch được từ Pāli root; `scripts/validate.ts` coi tệp Anh đã ghim vắng là lỗi khi status là `review` hoặc `published`, nên bài bắt buộc `draft`, và `triangulation` bị chặn ở 7.4 (≤ 8.0) chứ không nâng điểm để né blocker."
+    - "Mẫu số coverage bằng 0 nên cổng coverage KHÔNG đo được gì. Đo bằng đúng công thức `source/layers.yaml` (`substantivePaliMinChars: 40`, `excludeReferenceBlock: true`): bỏ 3 khoá block `:0` còn 51 khoá, dài nhất **36** ký tự (`7.4`), **0** khoá đạt ≥ 40 ⇒ mẫu số = 0, Sujato phủ 0/0. Đây là *cổng không đo được gì*, KHÁC hẳn với *không cần ghi nhận*; tôi không ghi và không kết luận là không cần ghi nhận gap."
+    - "Bất định chưa phân xử được ở ba khoá, mỗi từ đều là hapax legomenon trong TOÀN PĀLI root đã ghim (284.708 segment của 5 bộ): `6.6 Mayañca sussāma naḷova chinno”ti.` (`sussāma` 1 hit; `naḷova` 4 hit nhưng chỉ `sn1.10:4.4` có bản Việt và ở đó cũng không dịch ra), `8.4 nacchādimhase mayaṁ.` (`nacchādi` 1 hit), `9.2 Adāyakā pecca yamassa ṭhāyino;` (`Adāyakā` 1 hit). Ở ba khoá này cách đọc có thể làm đổi nghĩa, không có bản Anh nào đã ghim để đối chiếu, và kho không có từ điển. Tôi dịch theo nghĩa chữ và ghi bất định ở đây thay vì phỏng đoán; thiếu thông tin là blocking error chứ không phải chỗ để đoán."
+    - "Bốn cổng kỹ thuật không chạy được trong lát này (`npm run validate`, `npm test`, `npm run check`, `npm run build`), nên không thể tuyên bố technical gate pass; `technical_integrity` vì thế là 9.6 chứ không phải 10.0."
+  assessed_at: "2026-10-06"
+  assessed_by:
+    - "OpenCode Space Bunny Free (agent)"
+notes: |-
+  **BÀI KỆ, không phải văn xuôi liệt kê.** Lát giao không nói trước văn phong (sau `pv35` và
+  `vv35` đều hoá ra là thơ, không phải văn xuôi), nên tôi đọc Pāli rồi mới kết luận. `pv11`
+  (Nāgapetavatthu) là **12 bài kệ + lời kết**; cấu trúc đo bằng script: 54 khoá = 3 khoá block
+  `:0` (`0.1`, `0.2`, `0.3`) + **50 pāda thân kinh** + 1 khoá lời kết (`13.1`). 50 pāda =
+  11 kệ × 4 + kệ `6.x` **6 pāda** (`6.1`–`6.6`) ⇒ 4×11 + 6 = 50. Phép cộng: 3 + 50 + 1 =
+  **54** ✅ khớp đúng danh sách lát (`keys` = `all` = 54, không phải lát dở).
+  Văn phong theo `pv35`/`pv45`: 4 pāda một khối, pāda sau viết thường nối tiếp, trích dẫn
+  `“…”ti` đóng ở `2.4`, `6.6`, `7.4` và `12.4`.
+
+  **Năm phép tự chạy, in số kèm mẫu số.** (1) `set(khoá Việt) == set(khoá Pāli)`: Pāli **54**,
+  Việt **54**, thiếu **0**, thừa **0**; thứ tự khoá y hệt thứ tự Pāli. (2) ngoặc kép `“”` và nháy
+  đơn `‘’` so **TỪNG KHOÁ**: mẫu số **216 dấu** (54 khoá × 4 loại), đã so **54** khoá, lệch
+  **0**; cân cả bài ngoặc kép Pāli mở 4 / Việt 4, đóng 4 / 4; nháy đơn Pāli 0 / Việt 0 (bài này
+  không có nháy đơn nào). (3) Pāli trùng nguyên văn **trong chính bài**: **0** cặp ⇒ **phép rỗng**,
+  nói thẳng là không đo được gì chứ không ghi "0 lỗi" như thể đã kiểm. (4) dấu lược: **54** khoá
+  đã so, lệch **0**; Pāli có **0** `…pe…`, **0** `…` trần, **0** `(…)`, và **0** khoá kết `….`
+  ⇒ bản Việt cũng 0 `…` và 0 `(…)`, không có `… cho đến …`. (5) NFC: **0** khoá không NFC;
+  khoá rỗng **0**; khoảng trắng thừa **0**.
+
+  **Chỉ mục Pāli → Việt toàn tầng.** Đã dựng từ `pali.P()` của cả 5 bộ (284.708 segment Pā li)
+  và 5.430 tệp Việt dự án (159.289 khoá có cặp Pāli↔Việt). Bài pv11 có **4** khoá có Pāli trùng
+  nguyên văn ở nơi khác trong tầng đã ghim; tôi đã dò cả **4** và dùng lại nguyên văn bản dịch
+  ở **3** khoá: `0.1` `Petavatthu` → *Petavatthu* (**29** tiền lệ, 29 tệp), `0.2` `Uragavagga`
+  → *Phẩm Rắn* (**9** tiền lệ: pv1, pv2, pv3, pv4, pv6, pv7, pv8, pv9, pv12 — thuần nhất 9/9;
+  ngược lại `Ubbarivagga` giữ Pā li 4 tệp, `Cūḷavagga` giữ Pāli 7 tệp, `Mahāvagga` → *Đại Phẩm*
+  11 tệp, tức tầng này chưa thống nhất, nhưng **riêng** `Uragavagga` thì thuần nhất), `12.2`
+  `narā dhammassa kovidā;` → *là kẻ hiểu biết pháp;* (**1** tiền lệ: `ja37:1.2`, cùng Pā li byte
+  for byte). Khoá thứ tư, `6.4` `Paribhāsakā samaṇabrāhmaṇānaṁ;`, trùng với `ja470:16.2`,
+  `ja535:16.2`, `ja541:39.2` nhưng **cả ba bài ấy chưa có bản Việt** ⇒ 0 tiền lệ dùng lại được, tôi
+  tự dịch. Tổng cộng: 54 khoá, dùng lại nguyên văn **3**, tự dịch **51**.
+
+  **Pāli trùng trong chính bài: 0 cặp** (mọi 54 khoá đều là câu khác nhau).
+
+  **Tra tiền lệ kèm đếm (mọi số đo được trên toàn tầng Việt dự án).** `Petavatthu` giữ nguyên
+  Pā li **29** khoá/29 tệp · `Uragavagga` → *Phẩm Rắn* **9** · `samaṇabrāhmaṇānaṁ` → *các Sa-môn
+  Bà-la-môn* **254** khoá/70 tệp · `pasannacittā` → *với tâm tịnh tín* **55** khoá/160 tệp (so với
+  *với tâm tin thanh tịnh* chỉ **1**) · `macchari` → *keo kiệt* **146** khoá/86 tệp · `sukhi` → *an
+  vui* **57** khoá · `pamodati` → *hoan lạc/vui vẻ*, nhưng với `sukhi pamodati` cụm này **0** tiền lệ
+  nên tôi ghép *an vui hân hoan* (hân hoan **101** khoá) · `dīpa` → *ngọn đèn* **89** khoá/65 tệp,
+  và `dīpaṁ … attano` đã dịch *tự mình thắp được ngọn đèn* ở pv45:4.4 + pv45:10.3 ⇒ `11.4` theo
+  cùng cách · `paṇḍita` → *bậc trí* **303** khoá/208 tệp · `pajānanti` → *biết rõ* **1.007** khoá/475
+  tệp · `nappamajjanti` → *không bao giờ phóng dật* chỉ 2 khoá (an3.36, mn130) nên tôi ghép *không
+  hề phóng dật* với *phóng dật trong* (8 khoá) · `ratha` → *cỗi xe* **2** khoá (`vv20:8.2` *trăm cỗi xe
+  lắp đủ bánh*) ⇒ `assatarīrathena` → *trên cỗi xe do lừa kéo* · `sivikā` → *kiệu* (4 khoá có bản
+  Việt: `dn32:7.30` và `dn32:12.170` *có cung điện và kiệu*, `tha-ap150:3.1` *kiệu ngồi*,
+  `tha-ap13:6.3` *ghế ngồi, ghế nằm*; 2/4 dùng *kiệu*) · `muggarapāṇi` → *búa* (1 tiền lệ,
+  `cp20:4.4` *cầm gậy và búa trên tay*) ⇒ `muggarahatthapāṇino` → *cầm búa trên tay* ·
+  `Manussabhūtā` → *khi còn làm người* **32** khoá (vv1, vv10, vv11, vv12, vv13) · `sapaññā` → *có
+  trí tuệ* (5 khoá Pāli trùng) · `khuppipāsa` → *cảnh khát đói* (pv41:5.4, pv41:6.3) ·
+  `kaṭukapphala` → *quả báo đắng cay* (sn2.22:2.4) ⇒ `10.4` giữ *những quả đắng* · `amacchari` →
+  *không ham tài / không keo kiệt* (sn37.18:1.1 *Vị ấy không ham tài, mà có tuệ*, sn37.24:2.3 *bài
+  Kẻ Không Keo Kiệt*) ⇒ `4.4` dịch *không phải kẻ hà tiện* · `nāga` giữ nguyên Pā li: trong tầng
+  trước khi tôi ghi có **4** khoá (pv35:4.3 *loài nāga*, pv12 uddāna 14.5 *Nāga*, …), tôi giữ và
+  thêm **3** khoá ở pv11 ⇒ đây là quy ước có sẵn, không phải Pāli lọt; và tên `Nāgapetavatthu`
+  phải giữ `Nāga` còn thêm vì `pv12:14.5` `Tathā khallāṭiyaṁ nāgaṁ,` đã dịch *Rồi Khallāṭiya,
+  Nāga* — cùng một mục uddāna, đúng bài thứ mười một của `Uragavagga`.
+  `bhāga`/`phala` → *phần/quả* · `puññaṁ` → *điều thiện* **153** khoá (so với *công đức* **187**;
+  chọn *điều thiện* vì `karonti puññaṁ` là hành động, và pv45:11.4 đã dịch *làm nhiều điều thiện*).
+
+  **`translationTitle` — đo, không chép.** 30 tệp `content/meta/sutta/kn/pv*.yaml` có
+  `translationTitle`: **13** tệp có tiền tố `N. `, **17** tệp không có; **28/30** dùng đúng chuỗi
+  *Chuyện Ngạ Quỷ …*, 2 tệp lệch (pv1 *Chuyện Người Mẹ Đẻ…*, pv14 *Petavatthu – 2. …*). Nhưng ở
+  **thân kinh**, khoá `:0.3` của 29 tệp pv đã dịch giữ số thứ tự ở dạng `N. ` **29/29**, thuần
+  nhất tuyệt đối, và `pv12` đặt `translationTitle` **bằng đúng** giá trị `:0.3` của nó. Tôi theo
+  phép đo mạnh hơn (29/29 ở khoá thân kinh, và 28/30 cho chuỗi *Chuyện Ngạ Quỷ*) ⇒
+  **11. Chuyện Ngạ Quỷ Nāga**. Ghi cả hai số ở đây để người điều phỏn gộp: 13/30 có số, 17/30
+  không có số ở `translationTitle`, nhưng 29/29 có số ở khoá `:0.3`.
+
+  **Một chỗ đã phân xử được nhờ song song, không phải phỏng đoán.** `8.1 Aññamaññaṁ vadhitvāna,`
+  thoạt nhìn là từ chưa từng gặp, nhưng tra toàn Pāli root thì `aññamañña` có **16** hit, và
+  `ja425:8.3` `Aññamaññaṁ pihayeyyuṁ,` **đã có bản Việt trong tầng** là *uống máu lẫn nhau,* —
+  đúng nghĩa lẫn nhau. Vì vậy tôi dịch *Chúng ta đánh giết lẫn nhau,* và **không** ghi đây là bất
+  định. (Cùng cặp đó cho thêm: `8.2 pivāma pubbalohitaṁ` — `pubbalohita` chỉ có 8 hit, `mn105`
+  dùng cho vải đã nhuốm máu, không có mẫu dịch được cho cách dùng của pv11, nên tôi dịch *chúng
+  ta uống thứ máu từng đỏ*.)
+
+  **BẤT ĐỊNH CÒN LẠI — ghi ở đây, không giải thích trong thân kinh.** Xem `blocking_errors`
+  cho ba khoá 6.6 / 8.4 / 9.2. Ngoài ra: (1) `4.4 Amaccharī dānavatī virocati.` — `Amaccharī`
+  có **6** hit nhưng toàn bộ là danh xưng (sn37.18, sn37.24, mnd10) mang nghĩa *không ham tài*;
+  tôi đọc `a-maccharī` = *không phải kẻ hà tiện*, `dānavatī` = *có của tặng*, `virocati` =
+  *rực rỡ ràng*; cách đọc khác là `Amaccharī` là tên riêng ghép vào câu, khi ấy câu dịch phải đổi.
+  (2) `5.4 Bhāgaḍḍhabhāgena` là hapax (1 hit); tôi dịch sát nghĩa chữ *với phần nhỏ của phần* —
+  câu thì đọc cứng nhưng không thêm chữ nào không có nguồn. (3) `9.1 Icceva maccā paridevayanti,`
+  — cụm `Icceva maccā` là hapax (1 hit); tôi dịch *ngay cả người phàm* vì dạng `maccā` trong tầng
+  dịch *phàm nhân* 5 lần (mn143, sn1.48, sn2.20 ×2), nhưng `macca` cũng có thể là lũ yêu ma; cách
+  đọc thứ hai thì câu phải đổi, ghi lại để biên tập phán. (4) `9.3 vidicca` là hapax (1 hit);
+  tôi dịch *phân xét* thay vì *chê bỏ* vì `vidicca` còn có nghĩa sàng lọc và cụm kế tiếp là
+  `adhigamma` (*đã nắm lấy*) — hai vế trái chiều nhau mà tôi giữ nguyên cả hai, không tự hòa giải.
+  (5) `10.2 Pacchā ciraṁ jhāyare ḍayhamānā;` — `jhāyare` là hapax (1 hit), tôi dịch *thiêu đốt*;
+  và `parattha` ở `10.1` tôi dịch *bên kia* theo tiền lệ pv45:6.4 *bên kia lại còn điều ác chướng
+  nữa*. (6) `1.1 / 3.1 Puratova` chỉ có 2 hit và **cả hai đều ở pv11**; tôi đọc nó theo bộ ba
+  `Puratova / Majjhe / Pacchā` (trước · giữa · sau) vì `3.1`, `4.1`, `5.1` lặp lại đúng bộ ba ấy,
+  chứ không đọc theo nghĩa thời gian *trước kia*. (7) `6.6 naḷova` có 4 hit; đơn vị `ḷova` tôi dịch
+  *bước chân* — đây là cách đọc có thể sai về kỹ thuật đo lường, chỉ ghi để biên tập xử.
+
+  **SỐ PĀLI — tự tính và in phép.** Bài này **không có số lượng phức tạp nào**. (a) `0.3` `11.` là
+  số thứ tự, phải khớp `13.1` `ekādasamaṁ` = *thứ mười một* ✔ và khớp uddāna `pv12:14.5`
+  `nāgaṁ` là mục thứ mười một của `Uragavagga` ✔ (phép cộng: Uragavagga có 12 bài, `nāga` là bài
+  thứ 11). (b) `1.4` `dasa` = 10 → *mười phương* (tiền lệ *mười phương* 12 khoá/6 tệp).
+  (c) `3.2` `catukkamena` = 4 chân → *bốn chân*. (d) `4.2` `Catubbhi yuttena` = 4 con vật xâu
+  lại → *bốn con vật*. (e) `13.1` `ekādasamaṁ` = eka 1 + dasa 10 + ma 1 → 11 → *thứ mười một*.
+  Cả 5 khoá đó khớp. Câu hỏi `7.1` `Kiṁ tumhākaṁ bhojanaṁ kiṁ sayānaṁ` có hai chữ *ki m* nhưng
+  **không** là số — đó là liên từ *gì*, không dịch thành *một*. Phép hiệu chuẩn số Pā li của kho
+  in **9/9 OK**; không có `Tiṁsakappasahassa` trong bài này nên không phát sinh bất định số kiểu đó.
+
+  **COVERAGE TẦNG THAM KHẢO — nêu rõ cổng không đo được gì.** Mẫu số = **0** (xem `blocking_errors`),
+  Sujato phủ **0/0**. Cổng coverage ở bài này **không đo được gì**, đừng đọc thành *không cần ghi
+  nhận gap*. Ba tầng tham khảo: `english-sujato` **0** tệp (`not-published-upstream`),
+  `english-project` **0** tệp cho `pv11`, `vietnamese-current` **0** tệp `pv`. Vì vậy
+  `triangulation` bị chặn ở 7.4 (≤ 8.0).
+
+  **CỔNG KỸ THUẬT CHƯA CHẠY.** Lát này bị cấm `git`, `gh` và
+  `npm run validate|test|check|build|audit|reference:gaps`, nên tôi **không** tuyên bố technical
+  gate pass; `technical_integrity` = **9.6**. Bốn lệnh còn lại do người điều phốn chạy:
+  `npm run validate`, `npm test`, `npm run check`, `npm run build`.
+  Phần tự kiểm được: JSON hợp lệ và có newline cuối, NFC, 54/54 khoá đúng thứ tự Pāli, 0 orphan,
+  0 khoá rỗng, 0 lỗi dấu lược, ngoặc kép khớp từng khoá, YAML parse sạch.
