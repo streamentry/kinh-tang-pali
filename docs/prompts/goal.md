@@ -221,6 +221,54 @@ còn `test dưới sàn 143` so với `text dưới ngưỡng 216` là **hai ph�
 đó là phép đo đúng đặt câu hỏi đúng. Đáp lại bằng cách **đo lại và chỉ ra mẫu số**, đừng bằng cách sửa
 tài liệu cho khớp.
 
+### ✅ Truy ra `sattati` = **70** ⇒ chốt được **10** khoá sai số nữa
+
+Bắt đầu từ claim của lát `n68`: cùng chuỗi Pāli `Dvesattatimhito` đang được dịch **ba** số khác nhau
+(`tha-ap13`=72, `tha-ap172`=28, `tha-ap212`=140), còn tôi từng ghi **140** rồi gỡ vì không xác lập được.
+
+Tôi truy lại từ chứng cứ **trong chính tầng**, không dùng trí nhớ:
+
+| cần chứng minh | bằng chứng đo được |
+|---|---|
+| `sattati` = **70** | `Catusattatito` → *"bảy mươi tư"* (74 = 4+70) · `Pañcasattatikappamhi` → *"bảy mươi lăm"* (75) · `Aṭṭhasattatikappamhi` → *"bảy mươi tám"* (78) · `Tesattatimhito` → *"bảy mươi ba"* (73 = 3+70), 3 tệp |
+| `ekūna` = **29** | `ekūnasaṭṭhikā` → *"chín mươi chín câu"* (99 = 29+70, `tha-ap382:11.6`) — **chốt trực tiếp**; cộng `Ekūnapaññāsakappamhi`=49, `Ekūnatiṁsakappamhi`=29 ở 3 tệp, `Ekūnatiṁsasahasse`=29.000, `ekūnapaññāsaṁ`=49 |
+| `kappasate` = **×100** | `Aṭṭhārase kappasate` → *"tám trăm"* (8×100) · `Aṭṭhavīse` → *"tám trăm nghìn"* (8·20×100) |
+
+⇒ **`Dvesattatimhito` = 72** chắc chắn, và **10** khoá sai số có giá trị đích **đã xác lập từ chứng cứ**:
+
+| Pāli | đúng | bản dịch sai | tệp |
+|---|---|---|---|
+| `Dvesattatimhito` | **72** | 28 · 140 | `tha-ap172` `tha-ap212` |
+| `Tesattatimhi kappamhi` | **73** | 8 | `tha-ap244` `tha-ap245` |
+| `Ekūnasattatikappe` | **99** | 81 | `tha-ap171` |
+| `Catusattatikappamhi` | **74** | 48 | `tha-ap331` |
+| `Sattasattatikappasate` | **7.700** | 777 | `tha-ap70` |
+| `Aṭṭhārase kappasate` | **1.800** | 800 · 800 · 900 | `tha-ap241` `tha-ap313` `tha-ap453` |
+
+Ngoài ra `Ito vīsakappasate` = 20×100 = **2.000** mà tầng ghi *"một trăm hai mươi"* — lỗi thật, nhưng dạng
+`*ase kappasate` chưa có bảng nên **chưa** đưa vào phép đo.
+
+### ⚠️ Hai hình thức **cùng gốc**, **hai số** — đừng trộn
+
+- `Sattatiṁse` = **7** (hậu tố thứ tự `se`) — **5** tệp đều dịch *"ba mươi bảy"*.
+- `X sattati` = X + **70** — vd `Catusattatito` = 74.
+
+⇒ `sattati` **tự nó** không phải số cố định; nó chỉ là 70 **khi** đứng sau một từ số khác. Cùng logic với
+`navuti` (90) và `tālīsa` (40). Một bảng "từ số → giá trị" phải ghi **cấu tạo**, không ghi **từ đơn**.
+
+### 🔴 Bốn lỗi nữa của chính parser — mỗi lần đều do **hiệu chuẩn** bắt
+
+1. **`trăm` bị coi là thang tổng** ⇒ đọc *"một ngàn tám trăm"* thành **100.800**. Đúng: `mười` và `trăm` chỉ
+   nhân **chữ số đứng trước**; chỉ `nghìn`/`ngàn`/`vạn`/`triệu` mới nhân **cả** tổng luỹ.
+2. **Số nằm SAU từ đơn vị** không được đọc ⇒ bỏ sót *"kiếp **thứ** bảy mươi lăm"* (75).
+3. Nhánh "số sau đơn vị" quét **cả phần còn lại của câu** ⇒ 237 dương tính giả khi tôi thêm nó. Đã ràng buộc
+   bằng `VI_AFTER_OK` (chỉ nhận khi số **bám sát** đơn vị).
+4. `if w in t` (chuỗi con) khớp nhầm `Aṭṭhārase` với `Aṭṭhārasesu` ⇒ **16** dương tính giả. Đã thêm
+   `UNIT_REQUIRED`: `Aṭṭhārase` **bắt buộc** bám `kappasate`, vì `Aṭṭhārasesu` đếm kiếp đơn là **18**.
+
+⇒ Phép thử đơn vị số nay **15/15**. `Catuttiṁse` (3.400) đã bị **gỡ khỏi** bảng kiểm: bản Việt *"ba mươi tư
+trăm"* nhập nhằng, đọc được cả 430 lẫn 3.400 ⇒ **không** phân xử được bằng phép.
+
 ### 🔴 `Tiṁsakappasahassa`: tôi **tự phỏng đoán** rồi dùng nó để "sửa" — đã gỡ
 
 Tôi ghi `Tiṁsakappasahassamhi` = `tiṁsa` 3 × `kappa` 100 = **3.000**, dùng con số đó để sửa **4** tệp
