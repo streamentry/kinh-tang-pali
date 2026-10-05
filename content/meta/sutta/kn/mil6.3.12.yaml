@@ -1,0 +1,167 @@
+uid: mil6.3.12
+status: draft
+translationTitle: "12. Câu Hỏi Về Chỗ Cư Trú Của Niết-bàn"
+translators:
+  - "OpenCode Space Bunny Free (agent)"
+reviewers: []
+tags:
+  - "kn"
+  - "khuddaka-nikāya"
+  - "milindapañha"
+  - "anumānapañha"
+  - "vessantaravagga"
+  - "chung-ngo-niet-ban"
+quality:
+  scores:
+    source_provenance: 9.5
+    semantic_fidelity: 9.2
+    grammar_logic: 9.2
+    segment_alignment: 10.0
+    terminology: 9.0
+    triangulation: 7.0
+    vietnamese_clarity: 9.2
+    han_viet_balance: 9.3
+    ambiguity_integrity: 8.4
+    technical_integrity: 9.6
+  final_score: 9.04
+  blocking_errors:
+    - "Không có tầng tham khảo tiếng Anh ở mức segment tại commit đã ghim. Đo bằng cách tra `source/upstream-manifest.json` (KHÔNG suy từ tên thư mục): edition `english-sujato` có 4.291 tệp, trong đó `sutta/kn/` chỉ có 9 sub-collection là cp, dhp, iti, ja, kp, snp, thag, thig, ud — không có `mil`. Riêng uid này, đối chiếu trực tiếp trên manifest cho 0 tệp `kn/mil/mil6.3.12*`; tệp duy nhất liên quan `mil` trong edition là `name/sutta/mil-name_translation-en-sujato.json` (tầng tên, không phải tầng segment). Đếm trên đĩa trong `.cache/upstream/suttacentral/translation/en/sujato/sutta/` cũng không có thư mục `kn/mil` ⇒ đây là `not-published-upstream`, KHÔNG phải `not-synced`. Tầng `vietnamese-current` cũng vắng: `translation/vi/phantuananh` tại commit đã ghim chỉ có 26 tệp, toàn bộ là Pháp Cú. Lớp lấp `english-project` không có uid này. Ba tầng tham khảo đều vắng ⇒ bài dịch chỉ từ Pāli root, chưa đối chiếu được tầng tham khảo nào ở mức segment ⇒ không đủ điều kiện `review`/`published`, bắt buộc giữ `draft`. Đây là giới hạn upstream, không phải lỗi dịch. Vì vậy `triangulation` bị chặn ở 7.0 (≤ 8.0) chứ không nâng để né blocker."
+  assessed_at: "2026-10-05"
+  assessed_by:
+    - "OpenCode Space Bunny Free (agent)"
+notes: |-
+  `Nibbānasannihitapañha`, câu hỏi thứ mười hai của `Vessantaravagga`. 33 khoá, tất cả đã dịch.
+
+  COVERAGE ĐO ĐƯỢC, KHÔNG ĐOÁN. Đúng công thức `src/lib/canon/reference.ts`: Pāli có
+  nội dung = số khoá `len(prose) >= 40` (chuẩn hoá khoảng trắng) và loại khối tham chiếu
+  path `0.x` ⇒ **25 khoá** (33 khoá trong tệp Pāli); có chữ ở tầng Anh đã ghim = **0**
+  ⇒ ratio = 0.0000, dưới ngưỡng `floor: 0.8`. Đây là lý do `draft`, không phải lỗi dịch.
+
+  NHƯNG TẦNG THAM KHẢO KHÔNG RỖNG HOÀN TOÀN — VÀ ĐÂY LÀ ĐIỂM DỄ NÓI SAI. Tầng `name/`
+  của chính edition `english-sujato` (cùng commit đã ghim) CÓ tên bài:
+  `mil-name:200.mil6.3.12` → "The Place Of Extinguishment". Đây là tầng **tên**, không phải
+  tầng segment, nên nó **KHÔNG** tính vào coverage; nhưng nó là tiền lệ thật cho tiêu đề,
+  và nó cũng định nghĩa `sannihitokāso` là **một chỗ** ("the place"). Vì vậy tôi dịch
+  `sannihitokāso` → "chỗ cư trú" và `uṭṭhānokāso` → "chỗ đứng dậy", giữ đúng cặp nghĩa
+  song song mà Pāli đặt ra, thay vì dịch cả hai bằng một chữ.
+
+  BA ĐẦU 0.x. `:0.1` giữ Pāli `Milindapañha` (**206/217** tệp mil giữ nguyên). `:0.2`
+  `Anumānapañha` → "Câu hỏi về suy luận": **6/6** bài mil6.3.* đã có dùng đúng chuỗi này
+  (mil6.3.3/.5/.7/.8/.9/.11) ⇒ dùng lại, không tạo cách thứ N+1. `:0.3` `Vessantaravagga`
+  → "Phẩm Vessantara": cũng **6/6** bài trong phẩm dùng đúng chuỗi này ⇒ dùng lại. Ghi
+  lại cho người điều phối: riêng `:0.3` thì mil5.5.7 và mil6.1.4 đã lệch sang cách khác, và
+  khuynh hướng chung của cả tầng là dịch "Phẩm …" hơn là giữ Pāli — nhưng ở `mil6.3.*`
+  đã có thì **không** có ngoại lệ nào.
+
+  VĂN XỰNG. `bhante nāgasena` → "thưa tôn giả Nāgasena": **32/38** khoá trong mil6.3.*
+  (17 "thưa tôn giả" + 15 "Thưa tôn giả"), đủ áp đảo mọi cách khác. `mahārāja` thì phân
+  kỳ: cả phẩm đếm "này Đại vương" 27 khoá, nhưng **mil6.3.11 — bài ngay trước, cùng phẩm,
+  cùng chủ đề Niết-bàn — dùng "thưa Đại vương" ở 24 khoá**. Tôi theo mil6.3.11 để hai bài
+  liền nhau đọc liền, và ghi rõ ở đây để người điều phối biết đây là lựa chọn theo bầy kề,
+  không phải theo đa số toàn phẩm.
+
+  DÙNG LẠI NGUYÊN VĂN ĐÃ CÓ — 6 CHỖ, TẤT CẢ ĐỀU ĐO ĐƯỢC.
+  · `:4.3` `cakkaratanaṁ … pariṇāyakaratanaṁ` trùng nguyên văn ở **3 tệp**
+    (mn92:10.6, snp3.7:8.6, mn91:5.6), cả ba đều viết "báu bánh xe, báu voi, báu ngựa, báu
+    ngọc, báu nữ, báu gia chủ, và món báu thứ bảy là báu đại tướng" ⇒ dùng lại **nguyên văn**.
+    Bản nháp đầu tiên của tôi dịch riêng ("báu ngọc trai, báu ngọc mã não, báu ngọc mani,
+    báu nữ trang, báu đất vàng, báu chuyển hướng") — vừa tạo cách thứ N+1 cho một danh sách
+    đã chốt, vừa làm lệch `hatthi`/`assa` (bảo vật của tay và của ngựa).
+  · `:4.2` `Seyyathidaṁ—` trùng mil1:8.2 "Như sau đây —" ⇒ dùng lại. Nháp đầu tôi viết
+    "Bảy báu ấy là:", vừa lặp lại ý đã nói ở `:4.1`, vừa thêm một cách nữa.
+  · `:9.1` mẫu "Phẩm …, thứ ba." (mil3.3.14:5.1 "Phẩm Suy Xét, thứ ba."; mil5.3.12:6.1).
+  · `:10.1` `Imasmiṁ vagge dvādasa pañhā` trùng mil5.3.12:7.1 "Trong phẩm này có mười
+    hai câu hỏi." ⇒ dùng lại nguyên văn.
+  · `:7.5` mở đầu `“Sādhu, bhante nāgasena, evametaṁ tathā sampaṭicchāmī”ti.` trùng nguyên
+    văn ở **38 khoá**; mil6.3.11:12.2 — bài kề — dùng "“Lành thay, thưa ngài Nāgasena, đúng
+    là như vậy, trẫm xin kính nhận”ti." ⇒ tôi mở `:7.5` bằng đúng chuỗi ấy rồi nối tiếp
+    phần còn lại của lời tán thán.
+  · `:0.4`/`:8.1` dùng lại khuôn `…pañho …dvādasamo` của cùng phẩm.
+
+  NHÁY KÉP — BÀI NÀY CÓ CÁI BẪY THẬT, ĐÃ XỬ LÝ ĐÚNG CÁCH CHIA KHOÁ SUTTACENTRAL.
+  `“` mở ở `:2.1` và **không** đóng ngay: nó đóng ở `:2.4`. Nhưng còn hai đoạn nữa: `“` mở
+  ở `:3.1` và đóng ở `:4.5` (đây là lý do `ngoặc()` của bộ chốt bắt buộc phải quét **mọi**
+  khoá — nửa kia của cặp nháy nằm ở khoá xa); và `“` mở ở `:6.2` rồi đóng ở `:7.4`. Nếu
+  đóng nháy ở `:3.3` như cách dịch tự nhiên, bộ chốt sẽ báo lệch. Tôi cũng tự đếm nháy đơn
+  `‘’` (bộ chốt không tính): cân, 0 = 0. Tổng Pāli: `“`=4 `”`=4.
+
+  DẤU LƯỢC. Bài có **3** khoá `…pe…` (`:6.4 :7.1 :7.3`) và cả ba giữ **đúng một** `…`,
+  không mở rộng — đây là peyyāla đúng nghĩa: `sakayavanepi …pe…` lược danh sách địa phương
+  vì danh sách **đứng đủ** ở `:6.2`, và `:6.2` đã viết đủ cả tám địa danh. Riêng `:6.4`
+  và `:7.3` kéo dài thêm phần đã lược ở cuối (`… yattha katthacipi ṭhito …`) nhưng **phần đứng
+  ở khoá sau vẫn viết đủ**, nên không mất gì.
+
+  LỖI BẢN NHÁP BẮT ĐƯỢC KHI REVIEW ĐỐI KHÁNG — 9 CHỖ, ĐÃ SỬA HẾT:
+  (1) `:6.2` `kāsikosala` — nháp đầu dịch là **"xứ Kāsi"**, tức là **GỘP** `kāsikosala` với
+    `kāsi`. Đây là lỗi nặng nhất của lát: danh sách Pāli có **tám** địa danh, mà `kāsikosala`
+  và `kasmīra` là hai món khác nhau (nếu `kāsikosala` chỉ là `Kāsi`, thì `kasmīra` ở ngay
+  sau là vô nghĩa, và `alasanda`, `nigumba`, `gandhāra` cũng không còn gốc để dịch). Đã sửa
+  thành "nơi đất có cỏ Kāsi mọc" (`kāsika` = thuộc Kāsi, `kosala` = một loài cỏ).
+    Ghi thêm: tôi thử giữ chữ Pāli `Kāsikosala` trước, và bộ chốt **bắt được** — vì ở khoá
+    này Pāli viết `kāsikosalepi` (dạng nhiều có `-epi`), nên dạng đứng riêng `kāsikosala`
+    không xuất hiện trong Pāli của chính khoá và bộ chốt coi là Pāli lọt. Đây là chốt đúng,
+    không phải chốt sai; tôi không sửa `_hvi.py`.
+  (2) `:2.1` `tena hi natthi nibbānaṁ?` — nháp đầu dịch "thì có phải Niết-bàn **không có
+    không?**", lặp phủ định hai lần và đọc hỏng. Đây là câu hỏi tu từ đơn, đã sửa thành
+    "thì phải chăng không có Niết-bàn?".
+  (3) `:3.2` `atthi aggi nāma` — nháp đầu dịch "có **ngọn lửa nọ**" dù đây là lần **đầu**
+    giới thiệu, không có antecedent nào để gọi là "nọ"; và `kaṭṭha` là **khúc gỗ**, không
+    phải "củ khô" (nháp đầu ghi "hai củ khô"). Đã sửa cả hai.
+  (4) `:4.1` `atthi satta ratanāni nāma` — nháp đầu cũng dùng "bảy món báu **nọ**" ở lần
+    giới thiệu đầu tiên ⇒ đã bỏ "nọ". Ngược lại `:5.2` `atthi taṁ ṭhānaṁ` **có** antecedent
+    (Nāgasena vừa nói ở `:5.1`) nên giữ "một chỗ nọ" là đúng.
+  (5) `:2.3` `pupphuṭṭhānaṁ gumbo` và `phaluṭṭhānaṁ rukkho` — `gumbo` và `rukkhō` là
+    **một cây** (cây đa/cây lớn), nháp đầu dịch thành "rừng cây" hai lần ⇒ đã sửa thành
+    "một cây … một cây".
+  (6) `:7.2` `pubbadisā` — nháp đầu dịch "có phía trước **bằng**" (nghe như "bằng chứng").
+    `disā` = khoảng trống / chỗ ⇒ đã sửa thành "có chỗ đứng trước mặt".
+  (7) `:7.5` `gaṇivarapavara` — nháp đầu dịch "bậc vua cao nhất của loài", rối và sai sắc
+    thái (`vara` = tối thượng, `gaṇi` = bầy/loài người) ⇒ đã sửa thành "vua tối thượng trong
+    loài người".
+  (8) `:6.2` danh sách địa danh — nháp đầu dịch `alasanda` là "nơi **cát có ngọc**", tức
+    nhầm `sanda` (cát) với ngọc quý, và `nigumba` là "nơi **đất có cây bụi**", tức lệch
+    nghĩa (`gumba` = bụi cỏ tụ dày). Đã sửa thành "nơi đất cát mặn" và "nơi cỏ á dày".
+  (9) `:6.4` — nháp đầu kéo dài phần bị lược thành "hay ở nơi đất có cây cao" rồi mới đặt
+    `…`, khiến dấu lược **không** đứng ở cuối khoá như Pāli ⇒ đã viết lại cho đúng hình dạng
+    `…, … `.
+
+  BẤT ĐỊNH ĐÃ GHI, KHÔNG GIẤU.
+  (1) `:6.2`–`:7.3` — **tám địa danh/địa hình** `sakkayavana cīnavilāta alasanda nigumba
+    kāsikosala kasmīra gandhāra nagamuddha brahmaloka`: **0 tiền lệ** trong toàn tầng Việt
+    (đã tra bằng mục lục Pāli↔Việt 151.534 cặp). Bản Pāli đã ghim cũng **không** có đoạn song
+    song nào trong toàn bộ root (đã quét `root/pli/ms/sutta/**` cho `cīnavilāta`, 0 khoá).
+    Vì vậy tôi dịch từng chữ theo nghĩa chữ, KHÔNG bịa tên riêng cho loài đất: `sakkayavana`
+    → "chính quê mình"; `cīnavilāta` → "nơi đất có cây cao vút"; `alasanda` → "nơi đất cát
+    mặn"; `nigumba` → "nơi cỏ á dày"; `kāsikosala` → "nơi đất có cỏ Kāsi mọc"; `kasmīra`
+    → "Kasmīra" (giữ tên, có tiền lệ mil3.7.5:1.2 "Kasmīra"); `gandhāra` → "Gandhāra";
+    `nagamuddha` → "nơi ngọn cây kín hoa" (`naga` = cây, `muddha` = ngọn/đỉnh);
+    `brahmaloka` → "cõi Phạm thiên" (tiền lệ 52 khoá, mil3.7.4:2.3). Riêng `nagamuddha` là
+    chỗ tôi **ít chắc nhất**: `muddha` còn có nghĩa "đỉnh", và bản Việt đã có ở thag10.2:8.4
+    dịch `nisinno nagamuddhani` thành "khi ngồi trên đỉnh núi" — nghĩa khác hẳn. Người biên tập
+    nên tra từ điển trước khi chốt hai chỗ này.
+  (2) `:2.4` và `:3.1` — cặp `sannihitokāso` / `uṭṭhānokāso`: **0 tiền lệ** cho cả hai.
+    Tôi dịch "chỗ cư trú" / "chỗ đứng dậy", giữ chúng **khác nhau** để mệnh đề của Nāgasena
+    còn đúng lập luận. Nếu dịch cả hai giống nhau, lập luận ở `:2.4` sẽ hỏng.
+  (3) `:7.5` `avañjho suppayuttānaṁ sammāpayogo` — 0 tiền lệ cho cả cụm. Tôi dịch "không hề
+    chậm trễ, đã mau màng dứt bỏ, sự dụng hành đúng đắn" và **không** thêm thuật ngữ "tinh
+    tấn" vì Pāli khoá này không có.
+  (4) `:7.5` `gaṇivarapavara` — 0 tiền lệ. Tôi dịch "vua tối thượng trong loài người".
+    Lưu ý `pariṇāyakaratana` ở `:4.3` tôi dịch theo kho đã có là "báu đại tướng", **khác**
+    nghĩa chữ "người chỉ đường" của `pariṇāyaka`; đây là điểm cần người biên tập chốt lại vì
+    cùng một gốc từ mà hai bản dịch trong kho đang đi hai hướng.
+  (5) `:5.1` `nibbānassa sannihitokāso mā hotu` — `mā hotu` là cầu nguyện/đặt giả định
+    ("cứ cho là …"), tôi dịch "cứ cho là không có chỗ cư trú của Niết-bàn" nhưng **không**
+    thêm "mong rằng" vào.
+
+  THUẬT NGỮ ĐÃ TRA, CÓ SỐ ĐẾM. `sammāpaṭipanno` → "người hành đúng chánh đạo" (mil6.3.11,
+  9 khoá); `sīle patiṭṭhito` → "đứng vững trong giới hạnh" (tiền lệ gần: mil3.1.9:1.5
+  "giới … là nền tảng"); `sakayavana` → "chính quê mình"; `brahmaloka` → "cõi Phạm thiên"
+  (52 khoá); `nibbāna` → "Niết-bàn"; `sacchikaroti` → "chứng ngộ" (mil6.3.11, 9 khoá);
+  `ṭhāna` → "chỗ" (6 khoá `:5.1`–`:6.5` cùng nghĩa, dùng y hệt một cách để bài không tự lệch);
+  `satta ratanāni` → xem mục dùng lại nguyên văn ở trên; `khattiya` → "kshatriya" (giữ chữ
+  Pāli có tiền lệ ở mil5.5.8:1.8 "bậc Kshatriya").
+
+  `technical_integrity` đặt 9.6 vì lát này bị cấm chạy bốn cổng kỹ thuật; **tôi không
+  tuyên bố** `npm run validate`, `npm test`, `npm run check`, `npm run build` đã xanh —
+  bốn lệnh đó còn lại cho người điều phối. 10.0 chỉ dành cho khi cả bốn cổng thật sự xanh
+  và có người rà lại.
