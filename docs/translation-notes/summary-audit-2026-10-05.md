@@ -206,3 +206,199 @@
 | mn113 (12 segment) | `atammayatā` "pháp vô tham ái" → "tính không bị nó tác thành" | a + taṁ + mayatā; Sujato "not being determined by"; khớp câu 21.8/28.8 "Với cái nào họ quán niệm, thì với cái ấy trở thành khác đi" |
 | mn146:19-20.17/.19 | đáp án trượt một bậc: "Khổ"/"Không phải vậy" → "Vô thường"/"Khổ" | dải song song lần dạy đầu 7.18–7.24 trả đúng; Pāli `Aniccā`/`Dukkhaṁ` |
 | mn152:2.1/2.2 | "Pārāsariya" → "Pārāsiviya" | Pāli pin `pārāsiviyo` đồng nhất, 9 khoá khác trong cùng file đã đúng |
+
+## Rà soát lần 2 (2026-10-05) — trọng tâm dễ hiểu + đủ ý
+- **Phạm vi:** lại toàn bộ 186 tóm tắt, đọc từ `origin/main` (không dùng working tree đang lệch); 13 lượt agent + xác minh từng flag trên main trước khi áp.
+- **Kết quả:** 177 bài ĐẠT không chỉnh; 9 bài chỉnh (bảng dưới); các fix lần 1 được kiểm lại — mn62/mn74/dn33/mn148/mn119/mn126/mn96(đếm)/mn108/mn15/dn15/dn16 đạt; riêng mn113 phát hiện summary bị merge ghi đè mất đồng bộ atammayatā → dựng lại.
+- **Canonical:** mn87/mn113/mn146/mn152 xác nhận còn nguyên trên main sau các đợt merge song song.
+
+### Bảng verdict lần 2
+
+| uid | Verdict | Ghi chú |
+| --- | --- | --- |
+| mn1 | ĐẠT | — |
+| mn2 | ĐẠT | — |
+| mn3 | ĐẠT | — |
+| mn4 | ĐẠT | — |
+| mn5 | ĐẠT | — |
+| mn6 | ĐẠT | — |
+| mn7 | ĐẠT | — |
+| mn8 | ĐẠT | — |
+| mn9 | ĐẠT | — |
+| mn10 | ĐẠT | — |
+| mn11 | ĐẠT | — |
+| mn12 | ĐẠT | — |
+| mn13 | ĐẠT | — |
+| mn14 | ĐẠT | — |
+| mn15 | ĐẠT | — |
+| mn16 | ĐẠT | — |
+| mn17 | ĐẠT | — |
+| mn18 | ĐẠT | — |
+| mn19 | ĐẠT | — |
+| mn20 | ĐẠT | — |
+| mn21 | ĐÃ CHỈNH | "các tỳ-kheo tố cáo" → "một vị tỳ-kheo tố cáo" (nguồn: một vị trình báo). |
+| mn22 | ĐÃ CHỈNH | Bổ "và lòng thương kính" vào điều kiện hướng đến cõi lành (nguồn 47.2). |
+| mn23 | ĐẠT | — |
+| mn24 | ĐÃ CHỈNH | Bỏ so sánh "nhất" mà nguồn không có (nguồn hỏi "vị tỳ-kheo nào được tán thán như sau"). |
+| mn25 | ĐẠT | — |
+| mn26 | ĐẠT | — |
+| mn27 | ĐẠT | — |
+| mn28 | ĐẠT | — |
+| mn29 | ĐẠT | — |
+| mn30 | ĐẠT | — |
+| mn31 | ĐẠT | — |
+| mn32 | ĐẠT | — |
+| mn33 | ĐẠT | — |
+| mn34 | ĐẠT | — |
+| mn35 | ĐẠT | — |
+| mn36 | ĐẠT | — |
+| mn37 | ĐẠT | — |
+| mn38 | ĐẠT | — |
+| mn39 | ĐẠT | — |
+| mn40 | ĐẠT | — |
+| mn41 | ĐẠT | — |
+| mn42 | ĐẠT | — |
+| mn43 | ĐẠT | — |
+| mn44 | ĐẠT | — |
+| mn45 | ĐẠT | — |
+| mn46 | ĐẠT | — |
+| mn47 | ĐẠT | — |
+| mn48 | ĐẠT | — |
+| mn49 | ĐẠT | — |
+| mn50 | ĐẠT | — |
+| mn51 | ĐẠT | — |
+| mn52 | ĐẠT | — |
+| mn53 | ĐẠT | — |
+| mn54 | ĐẠT | — |
+| mn55 | ĐẠT | — |
+| mn56 | ĐẠT | — |
+| mn57 | ĐÃ CHỈNH | Sửa tên riêng: Puṇṭa → Puṇṭa-Puṇṇa (5 chỗ, nguồn ghi Puṇṭa 0 lần). |
+| mn58 | ĐẠT | — |
+| mn59 | ĐẠT | — |
+| mn60 | ĐẠT | — |
+| mn61 | ĐẠT | — |
+| mn62 | ĐẠT | — |
+| mn63 | ĐẠT | — |
+| mn64 | ĐẠT | — |
+| mn65 | ĐẠT | — |
+| mn66 | ĐẠT | — |
+| mn67 | ĐẠT | — |
+| mn68 | ĐẠT | — |
+| mn69 | ĐẠT | — |
+| mn70 | ĐẠT | — |
+| mn71 | ĐẠT | — |
+| mn72 | ĐẠT | — |
+| mn73 | ĐÃ CHỈNH | Bổ "tà hạnh trong dục" cho đủ mười pháp bất thiện (trước đó liệt kê 9/10). |
+| mn74 | ĐẠT | — |
+| mn75 | ĐẠT | — |
+| mn76 | ĐÃ CHỈNH | Tách "bốn đường tu không đáng tin cậy" đủ bốn mục — bản cũ gộp đường truyền khẩu + đường suy luận thành một (hai vị thầy, hai căn cứ riêng trong nguồn). |
+| mn77 | ĐẠT | — |
+| mn78 | ĐẠT | — |
+| mn79 | ĐẠT | — |
+| mn80 | ĐẠT | — |
+| mn81 | ĐẠT | — |
+| mn82 | ĐẠT | — |
+| mn83 | ĐẠT | — |
+| mn84 | ĐẠT | — |
+| mn85 | ĐẠT | — |
+| mn86 | ĐẠT | — |
+| mn87 | ĐẠT | — |
+| mn88 | ĐẠT | — |
+| mn89 | ĐẠT | — |
+| mn90 | ĐẠT | — |
+| mn91 | ĐẠT | — |
+| mn92 | ĐẠT | — |
+| mn93 | ĐẠT | — |
+| mn94 | ĐẠT | — |
+| mn95 | ĐẠT | — |
+| mn96 | ĐÃ CHỈNH | Câu tu từ "Ai khác có thể phục vụ Thủ-đà?" viết xuôi thành "vì ai khác có thể phục vụ" — đảo nghĩa; sửa "chẳng ai khác" + đồng bộ chú đẳng cấp cho vế Bà-la-môn. |
+| mn97 | ĐẠT | — |
+| mn98 | ĐẠT | — |
+| mn99 | ĐẠT | — |
+| mn100 | ĐẠT | — |
+| mn101 | ĐẠT | — |
+| mn102 | ĐẠT | — |
+| mn103 | ĐẠT | — |
+| mn104 | ĐẠT | — |
+| mn105 | ĐẠT | — |
+| mn106 | ĐẠT | — |
+| mn107 | ĐẠT | — |
+| mn108 | ĐẠT | — |
+| mn109 | ĐẠT | — |
+| mn110 | ĐẠT | — |
+| mn111 | ĐẠT | — |
+| mn112 | ĐẠT | — |
+| mn113 | ĐÃ CHỈNH | Gắn lại lần 2: summary trên main mất đồng bộ atammayatā do merge ghi đè — 3 chỗ "vô tham ái" → "tính không bị nó tác thành" (canonical đã sửa đúng từ PR #269). |
+| mn114 | ĐẠT | — |
+| mn115 | ĐẠT | — |
+| mn116 | ĐẠT | — |
+| mn117 | ĐẠT | — |
+| mn118 | ĐẠT | — |
+| mn119 | ĐẠT | — |
+| mn120 | ĐẠT | — |
+| mn121 | ĐẠT | — |
+| mn122 | ĐẠT | — |
+| mn123 | ĐẠT | — |
+| mn124 | ĐẠT | — |
+| mn125 | ĐẠT | — |
+| mn126 | ĐẠT | — |
+| mn127 | ĐẠT | — |
+| mn128 | ĐẠT | — |
+| mn129 | ĐẠT | — |
+| mn130 | ĐẠT | — |
+| mn131 | ĐẠT | — |
+| mn132 | ĐẠT | — |
+| mn133 | ĐẠT | — |
+| mn134 | ĐẠT | — |
+| mn135 | ĐẠT | — |
+| mn136 | ĐẠT | — |
+| mn137 | ĐẠT | — |
+| mn138 | ĐẠT | — |
+| mn139 | ĐẠT | — |
+| mn140 | ĐẠT | — |
+| mn141 | ĐẠT | — |
+| mn142 | ĐẠT | — |
+| mn143 | ĐẠT | — |
+| mn144 | ĐẠT | — |
+| mn145 | ĐẠT | — |
+| mn146 | ĐẠT | — |
+| mn147 | ĐẠT | — |
+| mn148 | ĐẠT | — |
+| mn149 | ĐẠT | — |
+| mn150 | ĐẠT | — |
+| mn151 | ĐẠT | — |
+| mn152 | ĐẠT | — |
+| dn1 | ĐẠT | — |
+| dn2 | ĐẠT | — |
+| dn3 | ĐẠT | — |
+| dn4 | ĐẠT | — |
+| dn5 | ĐẠT | — |
+| dn6 | ĐẠT | — |
+| dn7 | ĐẠT | — |
+| dn8 | ĐẠT | — |
+| dn9 | ĐẠT | — |
+| dn10 | ĐẠT | — |
+| dn11 | ĐẠT | — |
+| dn12 | ĐẠT | — |
+| dn13 | ĐẠT | — |
+| dn14 | ĐẠT | — |
+| dn15 | ĐẠT | — |
+| dn16 | ĐẠT | — |
+| dn17 | ĐẠT | — |
+| dn18 | ĐẠT | — |
+| dn19 | ĐÃ CHỈNH | Bổ đủ 8 lời tán thán (thiếu lời 5: dùng thực phẩm không kiêu mạn; lời 6: ưa độc cư nhưng không xua đuổi đệ tử). |
+| dn20 | ĐẠT | — |
+| dn21 | ĐẠT | — |
+| dn22 | ĐẠT | — |
+| dn23 | ĐẠT | — |
+| dn24 | ĐẠT | — |
+| dn25 | ĐẠT | — |
+| dn26 | ĐẠT | — |
+| dn27 | ĐẠT | — |
+| dn28 | ĐẠT | — |
+| dn29 | ĐẠT | — |
+| dn30 | ĐẠT | — |
+| dn31 | ĐẠT | — |
+| dn32 | ĐẠT | — |
+| dn33 | ĐẠT | — |
+| dn34 | ĐẠT | — |
