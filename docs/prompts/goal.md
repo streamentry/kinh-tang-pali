@@ -353,6 +353,60 @@ câu"* — **cùng cấu tạo**, và tầng đã dịch đúng.
 99; lần 2: lát sửa số tin `Ekūnasattatikappe` = 69). Cả hai lần đều ở **số Pāli** ⇒ đã đưa luật *tự tính
 và in phép* vào `BRIEF_SLICE.md` và `BRIEF_VI4.md`.
 
+### 🔴 Tôi **ghi đè 8** tệp bản làm việc cũ khi sinh lát lớp lấp
+
+Bộ sinh lát lớp lấp (`_mkfill.py`) tôi viết lấy tên lát `f100`…`f107` — **trùng đúng** dải tên lát **Việt**
+đã dùng ở phiên trước (`f1`–`f199`). Nó ghi không kiểm tra tồn tại, nên **8** tệp bị ghi đè lúc `05:30`.
+
+**Thiệt hại thật, đo được:** mất **bản làm việc**, **không** mất bản dịch — cả 8 bài lấp ứng viên đó
+(`sn3.14` `sn22.59` `sn22.126` `sn33.3` `sn33.4` `sn33.5` `sn35.70` `sn22.56`) đều **chưa** có tệp lớp lấp
+trong kho, và các lát Việt cũ đã merge (tệp dịch + scorecard nằm trong kho). Bản làm việc **tái sinh được**
+từ đĩa bằng chính bộ sinh lát.
+
+**Vì sao vẫn đáng ghi:** đây là **lần thứ hai** cùng một lỗi trong phiên — lần trước lát `n45` sinh trùng
+`n40` đang chạy, `n46` trùng `n41`. Cả hai lần đều vì **tên lát được đặt tay** thay vì do bộ sinh bảo đảm.
+
+⇒ **Đã sửa ở đúng chỗ sinh, không phải ở lời nhắc:** `_mkfill.py` giờ **từ chối** ghi đè
+(`🔴 {path} ĐÃ TỒN TẠI`), và có `--prefix` riêng — lớp lấp dùng `ff`, không tranh tên `f` của lát Việt.
+
+⇒ **Luật chung:** mọi bộ sinh lát **phải** từ chối ghi đè tệp bản làm việc, và **hai** loại lát (Việt và
+English) **phải** dùng **hai** dải tên. Một bộ sinh ghi đè âm thầm là mất dữ liệu không có dấu hiệu.
+
+### 🔴 🔴 Bộ sinh của tôi đếm **3.389** text, mục tiêu nói **225** — vì **khác mẫu**
+
+| phép | mẫu | kết quả |
+|---|---|---|
+| `_mkfill.py` (bản đầu) | **mọi** text có `fillableSegments`, kể cả bài **không** có bản Anh ghim | **3.389** text · **15.838** khoá trống |
+| `engq.ts` (chỉ số mục tiêu) | chỉ text **đã có** bản Anh đã ghim (`englishSegments > 0`) | **225** text · **5.713** khoá **có nội dung** |
+
+`fillableSegments` trả về khoá trống cho **cả** bài không có bản Anh ghim; lấp chúng **không** sửa được
+`textsBelowFloor`, vì `englishCoverageFor` trả `englishSegments == 0` ⇒ bài đó vào nhánh
+`noEnglishEditionUpstream` (**1.596** bài, thuộc tính của snapshot).
+
+⇒ **Hai lớp sai khác nhau, cùng tên "khoá còn thiếu":** `15.838` là **mọi** khoá trống (kể cả khoá dưới
+40 ký tự); `5.713` là **chỉ** khoá **có nội dung** ⇒ mới là cái làm `ratio` đổi.
+
+### 🔴 Và đo thêm một tầng nữa: **2.000+** bài có khoá trống nhưng **0** khoá có nội dung
+
+Cột `cóNộiDung` bằng **0** ở đầu bảng (`dn20` `dn28` `mn6` `mn16` …) nghĩa là bài có khoá trống, nhưng
+**toàn bộ** khoá trống đó **dưới 40 ký tự** ⇒ lấp chúng **không** giảm `segmentsStillMissingEnglish`.
+
+Đây **không** phải việc vô ích — `Taṁ kissa hetu?` (15 ký tự) là chỗ người đọc rõ nhất sẽ thấy thiếu câu,
+và một lát trước đã chỉ ra việc lấp nó tạo ra "khoảng trống rõ nhất ngay dưới một vế dài". Nhưng nó
+**không** phải việc để đưa `textsBelowFloor` về 0.
+
+⇒ Vì vậy bộ sinh lát lớp lấp **ưu tiên `substantiveWithoutEnglish` tăng dần**, và có `--below-only`:
+hiện còn **143** bài dưới ngưỡng, tổng **4.172** khoá có nội dung. Đợt này giao 8 lát cho 8 bài đầu
+(`sn3.14` `sn22.59` `sn22.126` `sn33.3` `sn33.4` `sn33.5` `sn35.70` `sn22.56`) — cả 8 lấp đủ sẽ về
+**1.0000** và rời danh sách đỏ.
+
+### 🔴 Đợt trước đã mắc đúng lỗi này, và con số đã ghi lại
+
+`engq.ts` mở đầu bằng ghi chú của chính nó: *"biết gì về lớp `english-project`. Sau lát này nó chỉ giảm 4
+dù đã điền 40 segment — 4 bài nhảy khỏi danh sách dưới ngưỡng, 36 bài còn lại vẫn dưới ngưỡng nên số thiếu
+không đổi. Đó là đo sai việc còn lại, không phải tiến bộ."*
+
+⇒ Bài học đã được **đặt vào công cụ**, không chỉ vào ghi chú: thứ tự ưu tiên giờ là theo chỉ số mục tiêu.
 ### 🔴 `Tiṁsakappasahassa`: tôi **tự phỏng đoán** rồi dùng nó để "sửa" — đã gỡ
 
 Tôi ghi `Tiṁsakappasahassamhi` = `tiṁsa` 3 × `kappa` 100 = **3.000**, dùng con số đó để sửa **4** tệp
