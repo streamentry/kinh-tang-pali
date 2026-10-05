@@ -559,6 +559,56 @@ vẫn sửa được**, vì lỗi nằm ở nội dung khoá chứ không nằm 
 | `sn42.5` | Sujato **có tệp** nhưng chỉ 1/18 đoạn có chữ ⇒ **17 khoá còn lấp được** ở lớp `english-project` |
 | Ngưỡng 40 ký tự | đã để lọt **hai** colophon (`sn35.52:2.7` 41 ký tự · `sn45.114:1.8` 47 ký tự). Chỗ sửa đúng là `source/layers.yaml`, **không** phải tệp lấp |
 
+### ⚠️ `Muse Spark` là **tên phát hành của chính công cụ đang viết**, không phải công cụ khác
+
+`source/tooling.yaml` khai:
+
+```yaml
+release: "Muse Spark 1.3 Free"
+modelId: space-bunny-free
+aliasInMetadata: "OpenCode Space Bunny Free (agent)"
+```
+
+⇒ `"Muse Spark"` trong `content/meta/sutta/` là **cùng một công cụ** với
+`"OpenCode Space Bunny Free (agent)"`, chỉ khác cách ghi tên. Đếm: **474** tệp Việt ghi `Muse Spark`.
+
+`tests/unit/tooling.test.ts` so **khớp chuỗi**, nên không phát hiện. Đây là cùng lớp lỗi attribution mà
+`npm test` bắt được còn `validate` bỏ qua — nhưng **ngược chiều**: ở đây **hai chuỗi khác nhau** cùng
+trỏ về **một** công cụ, nên so-chuỗi **về nguyên tắc** không thể bắt.
+
+**Hệ quả đã phát sinh:** ít nhất `sn3.8` `sn3.18` (lớp lấp `e2`) và các bài lấp khác do cùng công cụ
+viết có scorecard Việt ghi `Muse Spark` ⇒ `validate` **không** cảnh báo trùng tác giả, tức **không** ai
+được cảnh báo rằng lớp lấp không phải lớp đọc Anh độc lập. Lớp lấp đã tự hạ `triangulation` 7,5 và
+**không** tuyên bố đã đối chiếu Anh cho các bài đó — nhưng cơ chế thì **chưa** đóng.
+
+Cần người biên tập quyết: `tooling.test.ts` có nên so theo **họ công cụ** (mọi nhãn của cùng một mục
+trong `tooling.yaml`) thay vì khớp chuỗi không?
+
+### Bốn chỗ lệch **một khoá** ngoài lát — chưa ai sửa
+
+| uid:khoá | lỗi |
+|---|---|
+| `thig6.2:4.3–4.4` | `So me dhammamadesesi,` bị nhét nghĩa của `anukampāya` và ngược lại |
+| `thig6.4:4.2–4.4` | cùng lớp |
+| `thig6.5:5.1–5.2` | cùng lớp |
+| `sn22.54:4.10` | Pāli **trùng từng chữ** với `sn35.74:20.3`, nhưng bản Việt **bung** `vusitaṁ brahmacariyaṁ, kataṁ karaṇīyaṁ` vốn nằm trong `…pe…` |
+
+Và `sn41.7:2.2` `2.6` `5.4` dịch `bhante` thành *"này gia chủ"* — **lỗi xưng hô thật**.
+
+### Lớp dấu lược còn lại trong `sn` — **chưa lát nào đụng**
+
+- **160** khoá ở **117** tệp `sn` lệch **số dấu lược** so với Pāli (trên 32.809 khoá / 1.679 tệp `sn`).
+- **81** khoá đã **bung** `…pe…` thành *"… cho đến …"*.
+
+Hai bản tiền lệ Pāli trùng nguyên văn mà **cùng sốt một `…` và mất vế `saññāyapi`** (chỉ còn 4 uẩn
+thay vì 5): `sn22.61:1.3` và `sn22.77:2.1`.
+
+### Ổ lưu trùng ở tầng upstream
+
+- `thag4.12:6.5–6.6`: Pāli ở uddāna ghi **20 kệ / 13 vị**, thực tế **48 / 12**. Ổ tương tự ở `thag5.12`.
+- `tha-ap108` trùng gần như trọn 24 câu kệ `tha-ap334` (cùng bậc Udakapūjaka).
+- `thag7.2` có `Lakuṇḍakabhaddiya` còn `thag7.5:8.2` có `Lakuṇḍabhaddi` — hai bài cùng nói một người.
+
 ## MỐC HOÀN TẤT
 
 - [ ] `vimeas.ts`: **bài còn thiếu = 0** (hiện **998**)

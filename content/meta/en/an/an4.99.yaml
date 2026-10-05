@@ -1,0 +1,52 @@
+uid: an4.99
+status: published
+translationTitle: "English fill (8 segment)"
+englishTitle: "Training Rules — the four wrong acts Sujato folded into one sentence"
+translators:
+  - "OpenCode Space Bunny Free (agent)"
+reviewedAt: 2026-10-05
+tags:
+  - english-fill
+  - store
+  - anguttaranikaya
+  - repeated-pali
+quality:
+  scores:
+    source_provenance: 9.8
+    semantic_fidelity: 9.6
+    grammar_logic: 9.5
+    segment_alignment: 10.0
+    terminology: 9.5
+    triangulation: 8.0
+    vietnamese_clarity: 9.3
+    han_viet_balance: 9.3
+    ambiguity_integrity: 9.3
+    technical_integrity: 9.6
+  final_score: 9.39
+  blocking_errors: []
+  assessed_at: "2026-10-05"
+  assessed_by:
+    - "OpenCode Space Bunny Free (agent)"
+notes: |-
+  an4.99 khác an4.96 ở chỗ bộ ba không phải `rāga/dosa/moha` mà là **năm hành vi sai** (sát sinh, trộm cắp, hành dâm, nói dối, rượu). Sujato giữ lại mục đầu ở `2.2` và `3.2`, để trống **bốn** mục còn lại mỗi khối — đúng tám khoá của lát này. (Ở `4.2` và `5.2` Sujato đã lược bằng `…pe…`, không liên quan tới lát này.)
+
+  Đây là **dịch mới từ Pāli**, bám đúng hệ danh từ của bản ghim:
+  - `pāṇātipāta` = "kill living creatures", `adinnādāna` = "steal", `kāmesumicchācāra` = "sexual misconduct", `musāvāda` = "lie", `surāmerayamajjapamādaṭṭhāna` = "consume intoxicants of beer, wine, and liquor" — y hệt cách gọi ở `2.2` và `3.2`, không tự đặt từ mới.
+  - `paṭivirato hoti` = **refrain from** (đã từ bỏ) ⇒ khoản `2`.
+  - `appaṭivirato hoti` = **don't refrain from** ⇒ khoản `3`.
+  - `no paraṁ … veramaṇiyā samādapeti` = **don't encourage others to refrain from it** ⇒ khoản `2`.
+  - `paraṁ … veramaṇiyā samādapeti` = **encourage others to refrain from it** ⇒ khoản `3`.
+
+  ⚠ Điểm phải nói rõ, vì đây là chỗ dễ sai nhất của lát này: Sujato ở `3.2` **không** giữ phủ định — ông viết thẳng "It's when an individual kills living creatures, steals, …", tức gộp `appaṭivirato` thành hành vi dương. Tôi **giữ phủ định** ("don't refrain from stealing") vì `appaṭivirato` là một từ có nghĩa riêng và bản Việt canonical cũng giữ ("không tự mình từ bỏ lấy của không cho"). Hệ quả cần chấp nhận: hai khối trong cột Anh không còn đối xứng **thuật ngữ** như đối xứng **cấu trúc** — `2.3` nói "refrain from stealing" còn `3.3` nói "don't refrain from stealing". Tôi cân nhắc chép theo bản ghim (cho `3.3` thành "And they steal, but encourage others to refrain from it."), nhưng làm vậy là xoá mất từ `na`/`appa-` của Pāli; giữ phủ định là giữ authority.
+
+  Cấu trúc đối xứng đã được kiểm bằng máy: mỗi khoá `3.x` đúng là khoá `2.x` tương ứng với vế chủ thể bị phủ định và vế khuyến khích bị đảo dấu — bốn cặp, không cặp nào lệch.
+
+  Dấu lược: quét cả 31 khoá, **hai** khoá Pāli mang `…pe…` là `4.2` và `5.2` (đã được Sujato lược thành "kills, etc. … and doesn't encourage others to not do these things." và "doesn't kill, etc. … and encourages others to do the same."). Tám khoá lấp không mang dấu lược nào trong Pāli, nên không khoá nào được thêm. Tôi không đụng vào `4.2`/`5.2`.
+
+  ⚠ **Lớp lấp này KHÔNG phải lớp đọc Anh độc lập cho an4.99.** `content/meta/sutta/an/an4.99.yaml` ghi `quality.assessed_by: "GLM-5.3 Flash (ZCode)"` cùng một dòng review đối kháng, **khác** công cụ đã viết lớp lấp này, nên `triangulation` để **8.0**. Tôi **không sửa** scorecard tiếng Việt.
+
+  Coverage đo lại bằng phép của kho: Pāli có nội dung 23 khoá, `english-sujato` phủ 15 (0.652), thêm tám khoá lấp thành 23/23 = 1.0, vượt ngưỡng 0.8.
+
+  ⚠ **Record gap sẽ thành thừa — cần chạy lại `npm run reference:gaps`.** `content/meta/reference-gaps.yaml` hiện có entry cho bài này, và số trong entry đó **khớp đúng** số tôi đo lại bằng phép của kho. Khi lớp lấp này ở `status: published`, `englishCoverageFor` sẽ tính nó vào coverage và tỷ số thành 1.0; test `a fill never leaves a gap record it has cured` trong `tests/unit/english-fill.test.ts` sẽ **báo đỏ** vì entry ấy không còn mô tả đúng hiện trạng. Tôi bị cấm sửa `content/meta/reference-gaps.yaml`, nên việc gỡ entry nằm ngoài tầm của lát này.
+
+  Điểm `technical_integrity` = 9.6 vì lát này bị cấm chạy cổng. Còn lại: `npm run validate`, `npm test`, `npm run check`, `npm run build`.

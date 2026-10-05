@@ -1,0 +1,146 @@
+uid: vv20
+status: draft
+translationTitle: "3. Chuyện Cung Điện Ācāmadāyikā"
+translators:
+  - "OpenCode Space Bunny Free (agent)"
+reviewers: []
+tags:
+  - "vuttantavagga"
+  - "kn"
+  - "vv"
+  - "itthivimana"
+  - "cittalatavagga"
+  - "dana"
+quality:
+  scores:
+    source_provenance: 9.3
+    semantic_fidelity: 9.1
+    grammar_logic: 9.3
+    segment_alignment: 10.0
+    terminology: 9.2
+    triangulation: 8.5
+    vietnamese_clarity: 9.4
+    han_viet_balance: 9.3
+    ambiguity_integrity: 8.9
+    technical_integrity: 9.6
+  final_score: 9.26
+  blocking_errors:
+    - "Không có tầng tham khảo nào ở commit đã ghim để đối chiếu: english-sujato không phân phối sub-collection vv, vietnamese-current chỉ có 26 tệp Pháp Cú"
+  assessed_at: "2026-10-05"
+  assessed_by:
+    - "OpenCode Space Bunny Free (agent)"
+notes: |-
+  Dịch từ Pāli root tại commit đã ghim. TẦNG THAM KHẢO Ở BÀI NÀY KHÁC HẲN `sn41.6`, và
+  đây là điểm phải nói rõ chứ không được kết luận suy từ bài kia:
+    · `source/upstream-manifest.json` → `english-sujato` → các sub-collection có thật
+      trong cây đã ghim, đo từ `files` chứ không từ tên thư mục:
+      `cp dhp iti ja kp snp thag thig ud` — KHÔNG có `vv`. `sutta/kn/vv/vv20_…` không tồn
+      tại trong cây ghim ⇒ trạng thái vắng là `not-published-upstream`, KHÔNG phải
+      `not-synced` (tệp không bị thiếu trong cache; nó không được phân phối).
+      Đây là giới hạn của bản chụp bilara tại commit đã ghim, không phải thiếu sót của
+      repo.
+    · Tầng `vietnamese-current` (Hòa thượng Thích Minh Châu) cũng không có: commit đã
+      ghim chỉ phân phối 26 tệp Pháp Cú cho tiếng Việt.
+    ⇒ Bài này KHÔNG có một tầng tham khảo nào có thể đối chiếu. Đó là lý do `status`
+      là `draft` và `blocking_errors` có một mục thật, không phải vì điểm kém.
+
+  COVERAGE: MẪU SỐ = 0. Đây là bài KỆ (mỗi câu một vế ngang dài 13–28 ký tự), nên KHÔNG
+  khoá Pāli nào đạt ngưỡng 40 ký tự: 51 khoá, dài nhất là 28 ký tự (`vv20:1.2`,
+  `vv20:10.4`, `vv20:11.1`). Đo lại bằng chính định nghĩa trong `AGENTS.md` (≥ 40 ký tự,
+  bỏ khối tham chiếu `:0`) cho kết quả 0/51. HAI VIỆC NÀY LÀ KHÁC NHAU, và cả hai đều
+  đúng:
+    (1) Tầng Anh vắng ở bài này ⇒ không có gì để đối chiếu.
+    (2) Ngay cả nếu có tầng Anh thì cổng coverage vẫn KHÔNG ĐO ĐƯỢC GÌ, vì mẫu số
+        bằng 0. "0 khoá đo được" KHÔNG phải "không cần ghi nhận", và cũng không phải
+        "coverage = 100%".
+  Tôi không sửa `content/meta/reference-gaps.yaml` (ngoài phạm vi lát), nên nếu người
+  điều phối muốn mục này vào sổ gap thì phải thêm ở phiên khác.
+
+  CÁCH ĐỌC PĀLI: bài này là `kāṇḍa` (văn xen kệ) của Vuttantavagga. Bốn câu hỏi của
+  Tôn giả Moggallāna ở `1–2` và câu trả lời của nữ thiên ở `3–4` là hai lần lặp CÙNG
+  MỘT CÔNG THỨC, chỉ khác đại từ `te` / `me`. Tôi dịch hai lần khác nhau đúng một đại
+  từ: `1.1` + `3.1` = `ngươi` / `tôi`, `2.1` + `4.1` = `ngươi` / `tôi`. Ngược lại
+  `3.2–3.4` trùng `1.2–1.4` TUYỆT ĐỐI (không có đại từ) nên bản Việt phải trùng tuyệt
+  đối, và nó trùng đã được kiểm bằng script.
+
+  DÙNG LẠI NGUYÊN VĂN khi Pāli trùng tuyệt đối, ĐO BẰNG SCRIPT: **24/51 khoá**:
+    · `0.1` ← 53 bài vv khác (`Vimānavatthu`) · `0.2` ← 29 bài
+      (`Chuyện Cung Điện Nữ Hư Không`) · `0.3` ← 6 bài (`Phẩm Cây Hoa Cittalatā`).
+    · `1.1` ← `vv40:4.1` (`“Khi ngươi đi khất thực,`).
+    · `2.2`, `4.2` ← `vv13:6.4` (`với tâm tịnh tín bằng chính đôi bàn tay mình.`).
+      Pāli là `pasannā sehi pāṇibhi;` (dấu `;`) nên chỉ khớp `vv13:6.4`; `vv3:6.4`
+      cùng nghĩa và cùng câu chữ nhưng Pāli kết bằng `.` nên KHÔNG phải trùng tuyệt đối.
+    · `7.1–7.4`, `7.6`, `8.1–8.4`, `8.6`, `9.1–9.4`, `9.6`, `10.1`, `10.2`, `10.4` ←
+      `vv43:6–9` (16 khoá). `vv43` là bài cùng phẩm `Cittalatāvagga`, dùng đúng bộ so
+      sánh "một phần mười sáu" với các câu đồng điệu, Pāli trùng từng ký tự.
+      `10.1`, `10.2` còn khớp thêm `tha-ap93:3.1–3.2`.
+    · Riêng `7.5`, `8.5`, `9.5`, `10.3` Pāli là `Etassācāmadānassa` — chỉ khác danh từ
+      ở vế trước nên không trùng tuyệt đối; tôi giữ CÙNG một công thức tiếng Việt cho cả
+      bốn để bài không tự mâu thuẫn (`Bố thí của người đã bày món ăn dâng ấy,`).
+
+  TIỀN LỆ THUẬT NGỮ, kèm số đếm trên 5.367 tệp / 153.918 khoá:
+    · `pasannā sehi pāṇibhi` → `với tâm tịnh tín bằng chính đôi bàn tay mình` — 16 chỗ
+      trong tầng, trong đó 8 chỗ ở chính phẩm `vv` (`vv3:6.4`, `vv13:6.4`, `vv27:5.4`,
+      `vv28:5.4`, `vv29:6.4`, `vv39:7.4`, `vv59:6.4`, `vv60:5.4`).
+    · `kalaṁ nāgghati/nāgghanti soḷasiṁ` → `cũng không đạt được một phần mười sáu` —
+      5 chỗ cùng nghĩa trong tầng (`vv43:6.6, 7.6, 8.6`; `sn10.8:2.6, 5.3` dùng
+      `cũng không đáng giá một phần mười sáu`), nên tôi theo `đạt được` của `vv43`.
+    · `kapaṇā` → `thấp kém` — `an3.70` dịch `kapaṇaṁ mānusakaṁ rajjaṁ` là
+      `quyền làm người là điều thấp kém`.
+    · `mahiddhikā` → `đại oai lực` — `dn14:1.13.2` và `dn11:4.5` dịch
+      `mahiddhikatā mahānubhāvatā`; `mahānubhāva` → `đại oai lực` ở 76 chỗ.
+    · `Aho dānaṁ … suppatiṭṭhitaṁ … kassape` → theo `ud3.7:4.2`
+      (`“Ôi, bố thí ấy, sự bố thí tối thượng ấy được an lập nơi Kassapa!`), gồm cả
+      `đã được an lập nơi Kassapa`.
+    · `Catunnamapi dīpānaṁ` → `Cả bốn châu lục ấy` — 2 chỗ đã có (`vv43:9.1`,
+      `tha-ap93:3.1`); `cp12:8.4` cũng dùng `bốn châu lục`.
+    · `cakkavattissa rājino` → `của bậc Chuyển Luân Vương kia` — `vv43:6.2`, và
+      `Chuyển Luân Vương` là cách tầng dịch `cakkavatti` (`an10.15:7.1`).
+    · Khuôn `N. <tên>vimānavatthu` → `N. Chuyện Cung Điện <tên>`: 53 bài vv đã có, đều
+      theo một khuôn này. Khuôn `<tên>vimānaṁ <thứ tự>.` → `<tên>, thứ <số>` theo
+      `vv43:10.1` và `vv3:9.1`.
+    · Danh từ riêng giữ Pāli, đúng như cách tầng đã làm: `Ācāmadāyikā` (giống
+      `vv28:9.2`), `Kassapa`, `Nimmānaratino` (giống `Macchikāsaṇḍa`, `Nandana`,
+      `Pallaṅka` trong cùng phẩm).
+  0 tiền lệ, đặt mới kèm lý do:
+    · `ācāma` → `món ăn dâng`. `ācāma` chỉ có 8 chỗ trong toàn bộ Pāli root: 6 chỗ là
+      `ācāmabhakkho` trong danh sách `sākabhakkho … phāṇabhakkho` (`dn8`, `dn25`,
+      `mn45`, `mn51`, `mn94`), mà tầng đã có dịch cụm đó bằng `ăn cỏ dại, ăn … ăn phân
+      bò` — tức không giữ được nghĩa `ācāma`; còn 2 chỗ là chính `vv20` này. Trong
+      ngữ cảnh `Yā te adāsi ācāmaṁ` / `Etassācāmadānassa` thì `ācāma` là thứ đem dâng,
+      nên `món ăn dâng` giữ đúng chức năng ngữ cảnh mà không bịa thêm nghĩa gì. Đây là
+      chỗ tôi đặt nghĩa, nên `ambiguity_integrity` bị trừ.
+    · `parāgāra` → `nhà bên cạnh` (hapax: chỉ 2 chỗ, đều ở `vv20:1.4` và `3.4`).
+    · `parābhata` → `bị tước đoạt` (0 chỗ ngoài `vv20:6.3`).
+    · `dakkhiṇā` → `dầu quá` (0 chỗ ngoài `vv20:6.4`; các chỗ `dakkhiṇa` khác trong Pāli
+      root đều là `padakkhiṇa` = hành động đi nhiễu, không liên quan).
+
+  BẤT ĐỊNH:
+    (1) `varākiya` ở `6.1` là HAPAX TOÀN PẢI ROOT — 0 chỗ, không có ở bản Pāli nào khác
+      để đối chiếu, và không có tầng Anh đã ghim cho `vv` nên cũng không có Sujato. Tôi
+      dịch `cao quý` vì ngữ cảnh ép nghĩa khen ngợi (`Aho dānaṁ … suppatiṭṭhitaṁ … kassape`
+        trùng công thức `ud3.7:4.2`), và vì `cao quý` là cách dùng phổ biến (318 chỗ)
+        hơn `tối thượng` (1.235 chỗ, nhưng `paramadāna` mới là `tối thượng`). Tôi KHÔNG
+        bịa thêm chi tiết nào cho hapax này và ghi nó ở đây để người đọc phán xử; đây là
+        lý do `semantic_fidelity` không lên 9.5.
+    (2) `5.1` `Nimmānaratino nāma` — `Nimmānarati` có 8 chỗ trong Pāli root; 6 chỗ
+      `Nimmānaratino devā` đã được tầng dịch thành `chư thiên Hóa Lạc` (`sn5.7:2.3`,
+      `iti95:3.3`, `thig8.1:2.3` …). Ở đây Pāli là `Nimmānaratino nāma` + `santi devā
+      mahiddhikā`, tức có thể đọc là (a) TÊN một cung điện, hoặc (b) tên một loại thiên
+      rồi kể tiếp `santi devā`. Tôi chọn (a) vì bài này thuộc loại `vimānavatthu` (truyện
+      cung điện) và vì `santi devā mahiddhikā` đã là một vế độc lập nói về các vị thiên
+      đang cư ngụ nơi đó; nếu chọn (b) thì phải dịch `Nimmānaratino` thành `chư thiên
+      Hóa Lạc` và câu 5 sẽ thành `Chư thiên Hóa Lạc tên là …, có những vị thiên đại oai
+      lực` — vô nghĩa. Cách đọc (a) giữ được câu, nhưng đây là chỗ bất định thật, nên
+      `ambiguity_integrity` bị trừ.
+    (3) Bài này ở commit đã ghim không có `tassuddānaṁ` (phần tóm lược danh sách tên ở
+      cuối phẩm) và cũng không có phần `(Anantaraṁ …)` như `vv54:10.1`. Tôi dịch đúng
+      những gì Pāli có, không bịa phần vắng.
+
+  Cổng kỹ thuật: `technical_integrity` đặt 9.6 vì lát này bị cấm chạy `npm run validate`,
+  `npm test`, `npm run check` và `npm run build` — bốn lệnh đó mới là cổng thật do CI
+  chạy. Đã tự kiểm bằng script riêng: 51/51 khoá khớp Pāli, 0 khoá thừa, 0 khoá rỗng,
+  NFC sạch, nháy kép `“ ”` cân trên cả bài, nháy đơn `‘ ’` cân, dấu lược khớp từng
+  khoá. Bài kệ không có `…pe…` nào và bản Việt cũng không có dấu `…` nào. Không sửa
+  `content/meta/reference-gaps.yaml`, không sửa `source/`, `src/`, `scripts/`, `tests/`,
+  không chạy `git`, không đụng `README.md`.

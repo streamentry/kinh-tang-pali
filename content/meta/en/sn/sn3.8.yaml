@@ -1,0 +1,77 @@
+uid: sn3.8
+status: published
+translationTitle: "English fill (7 segments)"
+englishTitle: "King Pasenadi tells the Buddha what Queen Mallikā said"
+translators:
+  - "OpenCode Space Bunny Free (agent)"
+reviewedAt: 2026-10-05
+tags:
+  - english-fill
+  - store
+  - samyuttanikaya
+quality:
+  scores:
+    source_provenance: 9.7
+    semantic_fidelity: 9.5
+    grammar_logic: 9.4
+    segment_alignment: 10.0
+    terminology: 9.5
+    triangulation: 7.5
+    vietnamese_clarity: 9.4
+    han_viet_balance: 9.4
+    ambiguity_integrity: 9.3
+    technical_integrity: 9.6
+  final_score: 9.33
+  blocking_errors: []
+  assessed_at: "2026-10-05"
+  assessed_by:
+    - "OpenCode Space Bunny Free (agent)"
+notes: |-
+    Lớp lấp: 7 khoá nằm ở phần bản Anh đã ghim đã lược. `sn3.8` có đúng **7** khoá để trống, lát này
+    giao hết.
+
+    **Bài này kể chuyện đó hai lần, và lần hai phải nghe y hệt lần một.** `1.2`–`1.7` là vua Pasenadi
+    hỏi hoàng hậu Mallikā ngay trên lầu; `2.2`–`2.8` là chính vị vua kể lại với Đức Phật, và bốn khoá
+    trong số đó **trùng nguyên văn** với `1.4`–`1.7`:
+
+    - `2.3` ← `1.4`, chỉ đổi ngoặc kép theo Pāli khoá này (`‘…’ti?` thay cho `“…”ti?`):
+      "‘Mallikā, is there anyone more dear to you than yourself?’"
+    - `2.5` ← `1.5`: "‘No, Great King, there isn’t." (`‘` thay cho `“`).
+    - `2.6` ← `1.6`: "But is there anyone more dear to you than yourself?’" (`’` thay cho `”`; Pāli
+      `2.6` kết bằng `’ti?` nên dấu hỏi giữ nguyên).
+    - `2.8` ← `1.7`: "‘For me also, Mallikā, there’s no one.’”" — Pāli khoá này có **hai** dấu đóng
+      (`’”ti.`) vì nó vừa đóng lời trong ngoặc của vua, vừa đóng lời trong ngoặc đã mở ở `2.2`; giữ
+      đủ hai.
+
+    **Ba khoá phải tự dịch, và đây là chỗ dễ sai nhất của lát này.** `2.4` và `2.7` nhìn gần giống
+    nhau nhưng **khác chủ thể và khác cả hai chiều**:
+    - `2.4` `Evaṁ vutte, bhante, mallikā devī maṁ etadavoca:` — thì bị động, **hoàng hậu** nói **với
+      vua**: "When I had spoken thus, sir, the queen Mallikā said to me:"
+    - `2.7` `Evaṁ vuttāhaṁ, bhante, mallikaṁ deviṁ etadavocaṁ:` — chủ thể là **vua**, và **vua** nói
+      **với hoàng hậu**: "And when I had spoken thus, sir, I told the queen Mallikā:"
+    Đảo hai chiều này là biến một hội thoại thành hai hội thoại ngược nhau. Đã so cả nghĩa với bản
+    Việt (`Khi nghe nói vậy, bạch Thế Tôn, hoàng hậu Mallikā nói với con:` / `Khi nghe nói vậy, bạch Thế
+    Tôn, con đã nói với hoàng hậu Mallikā:`).
+    - `2.2` `“idhāhaṁ, bhante, mallikāya deviyā saddhiṁ uparipāsādavaragato mallikaṁ deviṁ
+      etadavocaṁ:` → "“So, sir, while I was upstairs in the stilt longhouse together with Queen
+      Mallikā, I told the queen Mallikā:". Vế `saddhiṁ … mallikāya deviyā` dùng "Queen Mallikā" (theo
+      `1.2` đã ghim), còn `mallikaṁ deviṁ` tân ngữ là người nghe nên dùng "the queen Mallikā".
+      `uparipāsādavaragato` → "upstairs in the stilt longhouse": tầng ghim dùng **hai** cách cho cùng
+      một công trình — `1.2` "royal longhouse", `2.1` "stilt longhouse" — và "stilt longhouse" là cách
+      phổ biến hơn (đếm trên toàn tầng Anh đã ghim: "stilt longhouse" **75** lần so với
+      "royal longhouse" **9** lần).
+
+    **`triangulation` hạ xuống 7.5, và đây là lý do phải báo.** Bản Việt của bài này
+    (`content/meta/sutta/sn/sn3.8.yaml`) ghi `quality.assessed_by: "Muse Spark"` — đó là **tên phát
+    hành của chính công cụ đang viết lớp lấp này** (`source/tooling.yaml`:
+    `opencode-space-bunny`, `release: "Muse Spark 1.3 Free"`, `modelId: space-bunny-free`). Nên bản
+    Việt và bản lấp **không phải hai lớp đọc độc lập** cho bài này; lớp lấp **không** tuyên bố đã đối
+    chiếu English. Không sửa file Việt — chỉ báo lại.
+
+    **Cần chạy lại `reference:gaps`.** `sn3.8` hiện **có** record trong
+    `content/meta/reference-gaps.yaml`. Sau khi bản lấp `published`, test
+    `a fill never leaves a gap record it has cured` sẽ đỏ cho tới khi `npm run reference:gaps` chạy
+    lại. Lát này bị cấm sửa tệp đó, nên **giao lại cho người điều phốn** — không sửa ở đây.
+
+    Bốn lệnh cổng còn lại **chưa** chạy vì lát này bị cấm: `npm run validate`, `npm test`,
+    `npm run check`, `npm run build`.
