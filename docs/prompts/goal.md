@@ -16,26 +16,26 @@ còn lại là chấm lại / sửa, không phải dịch.
 
 ---
 
-## TRẠNG THÁI HIỆN TẠI (đo 2026-10-05 tại `7162deb6`, `main`)
+## TRẠNG THÁI HIỆN TẠI (đo 2026-10-05 tại `fa8fa926`, `main`)
 
-HEAD của `main` = `7162deb6` — "đợt 12: 32 bài Việt / 1.499 khoá + 8 bài lớp lấp / 69 segment +
-sửa lớp 'Pāli trùng mà Việt lệch khoá' (#253)". Đang có PR #254 (đợt 13) chờ CI.
+HEAD của `main` = `fa8fa926` — "đợt 16: 12 bài Việt / 618 khoá + 12 bài lớp lấp / 117 segment (#261)".
 
-PR đã merge gần nhất: #254 đang chờ · #253 (đợt 12 + lớp lớn "Pāli trùng mà Việt lệch khoá"),
-#252 (đợt 11), #251 (lớp lấp `e9`), #250 (đợt 10), #249 (lát `c78`), #248 (lớp lược trần),
-#247 (lớp lược `…pe…`), #246 (`c74` + lớp lấp `e8` + đổi phản ví dụ của phép đo coverage),
-#245 (đợt 9a), #244 (`dn16` 8 khoá lệch), #243 (docs), #242 (`c64`), #241 (`c67`), #240 (`e7`),
-#239 (đợt 8a), #238 (`nibbānapabbhāro`), #237 (đợt 8a), #236 (docs), #235 (4 nhóm lỗi thuật ngữ),
-#234 (đợt 7), #233 (`e5`+`e6`), #232 (`pācīna`), #231 (đợt 6), #230 (`e3`+`e4`), #229 (docs),
-#228 (đợt 5a), #227 (`pages.yml`), #226 (đợt 4), #225 (verify tải).
+PR đã merge gần nhất: #261 (đợt 16) · #260 (đợt 15) · #259 · #258 · #257 · #256 (đợt 14) · #255 ·
+#254 (đợt 13) · #253 (đợt 12) · #252 (đợt 11) · #251 · #250 · #249 · #248 · #247 · #246 · #245 ·
+#244 · #243 · #242 · #241 · #240 · #239 · #238 · #237 · #236 · #235 · #234 · #233 · #232 ·
+#231 · #230 · #229 · #228 · #227 · #226 · #225.
 
-**28 PR đã merge.** Bài đủ mọi khoá: 3.857 → **5.240** (tại `7162deb6`); còn thiếu **896** bài /
-**131.733** khoá. Đợt 13 (PR #254) đưa lên **5.261** / còn **875** / **130.953** khoá.
+**30 PR đã merge.** Bài đủ mọi khoá: 3.857 → **5.321**; còn thiếu **815** bài / **128.657** khoá.
+Lớp lấp `english-project`: còn **247** text / **5.942** segment thiếu; **153** text dưới sàn
+coverage. Record `reference-gaps` **784** / 5.418 text. `test` **143 pass**.
 
-Lớp lấp `english-project`: còn **290** text / **6.269** segment thiếu; **179** text dưới sàn
-coverage. Record `reference-gaps` **781** / 5.358 text.
+Số tuyệt đối **đổi theo thứ tự merge**, nên hai tệp do cổng sinh (`reference-gaps.yaml`,
+`store-verification.json`) **phải sinh lại trên cây đã merge** trong worktree sạch, không dùng bản
+sinh trước đó.
 
-### ✅ Chính sách `tha-ap :0.3` — đã đo và **chốt** (2026-10-05)
+### ✅ Chính sách `tha-ap :0.3` — đã đo và **chốt**
+
+2026-10-05)
 
 **Quy tắc: bám Pāli.** `tha-ap*:0.3` giữ số thứ tự **khi và chỉ khi Pāli `:0.3` bắt đầu bằng số**.
 
@@ -559,30 +559,58 @@ vẫn sửa được**, vì lỗi nằm ở nội dung khoá chứ không nằm 
 | `sn42.5` | Sujato **có tệp** nhưng chỉ 1/18 đoạn có chữ ⇒ **17 khoá còn lấp được** ở lớp `english-project` |
 | Ngưỡng 40 ký tự | đã để lọt **hai** colophon (`sn35.52:2.7` 41 ký tự · `sn45.114:1.8` 47 ký tự). Chỗ sửa đúng là `source/layers.yaml`, **không** phải tệp lấp |
 
-### ⚠️ `Muse Spark` là **tên phát hành của chính công cụ đang viết**, không phải công cụ khác
+### ✅ `Muse Spark` **là** `OpenCode Space Bunny Free (agent)` — đã sửa cơ chế, không sửa lịch sử
 
 `source/tooling.yaml` khai:
 
 ```yaml
-release: "Muse Spark 1.3 Free"
-modelId: space-bunny-free
-aliasInMetadata: "OpenCode Space Bunny Free (agent)"
+id: opencode-space-bunny
+name: Space Bunny · release: "Muse Spark 1.3 Free"
+modelId: space-bunny-free · aliasInMetadata: "OpenCode Space Bunny Free (agent)"
 ```
 
-⇒ `"Muse Spark"` trong `content/meta/sutta/` là **cùng một công cụ** với
-`"OpenCode Space Bunny Free (agent)"`, chỉ khác cách ghi tên. Đếm: **474** tệp Việt ghi `Muse Spark`.
+Tức `"Muse Spark"` và `"OpenCode Space Bunny Free (agent)"` là **một** công cụ dưới hai nhãn, và kho
+ghi công cả hai: **461** tệp ghi `Muse Spark`, 24 ghi
+`Space Bunny Free (OpenCode) — re-scored …`, 15 ghi `OpenCode Space Bunny Free (agent) — re-scored …`,
+10 ghi `Muse Spark 1.3 Free (agent)`, 3 ghi `Muse Spark (adversarial re-audit …)`.
 
-`tests/unit/tooling.test.ts` so **khớp chuỗi**, nên không phát hiện. Đây là cùng lớp lỗi attribution mà
-`npm test` bắt được còn `validate` bỏ qua — nhưng **ngược chiều**: ở đây **hai chuỗi khác nhau** cùng
-trỏ về **một** công cụ, nên so-chuỗi **về nguyên tắc** không thể bắt.
+Đây **không** phải attribution sai — `AGENTS.md` cấm sửa attribution lịch sử, và 461 tệp đó **đúng**
+là do công cụ đó làm. Chỗ sai là **cơ chế**: `validate.ts` so **khớp chuỗi**, nên nó coi hai nhãn của
+một công cụ là hai tác giả.
 
-**Hệ quả đã phát sinh:** ít nhất `sn3.8` `sn3.18` (lớp lấp `e2`) và các bài lấp khác do cùng công cụ
-viết có scorecard Việt ghi `Muse Spark` ⇒ `validate` **không** cảnh báo trùng tác giả, tức **không** ai
-được cảnh báo rằng lớp lấp không phải lớp đọc Anh độc lập. Lớp lấp đã tự hạ `triangulation` 7,5 và
-**không** tuyên bố đã đối chiếu Anh cho các bài đó — nhưng cơ chế thì **chưa** đóng.
+⇒ **Đã sửa ở `scripts/validate.ts` + `src/lib/canon/tooling.ts`**: mỗi credit **quy về công cụ**
+(`toolIdentityFor`) rồi so công cụ (`sharedCredit`). Đo: cảnh báo *"rests on our own fill"* đi từ
+**457 → 496**, tức **+39** bài mà lớp lấp English do **chính công cụ viết bản Việt** so ra, trước đó
+bị báo là lớp đọc Anh độc lập. `validate` vẫn exit 0.
 
-Cần người biên tập quyết: `tooling.test.ts` có nên so theo **họ công cụ** (mọi nhãn của cùng một mục
-trong `tooling.yaml`) thay vì khớp chuỗi không?
+### 🔴 `deepseek-v4.1-flash`: ghi công ở **283** tệp mà `tooling.yaml` **không khai** — chờ biên tập
+
+Đây là vi phạm thật của quy tắc `AGENTS.md`: *"Công cụ hỗ trợ chỉ được khai trong
+`source/tooling.yaml`"*.
+
+Nó **im lặng** vì chính test bảo vệ quy tắc ấy không thấy được nó: `tooling.test.ts` tìm ứng viên
+bằng **regex cứng** `/chatgpt|openai|opencode|space bunny|gpt-?[\d.]/i`. Tên không chứa một trong
+năm từ đó thì vô hình. `deepseek-v4.1-flash` đúng là trường hợp đó.
+
+⇒ `tests/unit/credit-identity.test.ts` mới quét **mọi** credit trong `content/meta` và đòi mỗi cái
+khớp công cụ đã khai, trừ khi nằm trong danh sách tường minh. Danh sách "chưa khai" hiện có **đúng
+một** mục là `deepseek-v4.1-flash` ⇒ **công cụ chưa khai kế tiếp sẽ đỏ test** thay vì thêm vài trăm
+tệp im lặng nữa.
+
+**Cần biên tập quyết**, vì kho **không kiểm chứng được** vendor và release của nó:
+- `vendor`: ?
+- `release`: ?
+- `declaredBy`: gần như chắc là `user-declared`, vì tên phiên bản là thứ repo không xác minh được.
+
+Cho tới khi có quyết định, tôi **không** tự điền và **không** sửa 283 tệp metadata đó.
+
+### Bốn lớp kiếm chưa có trong test nào — đã đưa vào prompt từng lát
+
+1. `set(khoá Việt) == set(khoá Pāli)` — `_hvi` chỉ quét khoá ≥ 40 ký tự, nên ở bài kệ ngắn nó
+   **chạy rỗng**.
+2. Nháy **đơn** `‘’` cân *từng khoá* + dấu `ti` — `ngoặc()` chỉ đếm ngoặc kép.
+3. **Pāli trùng nguyên văn TRONG CHÍNH bài** mà Việt khác.
+4. Dò Pāli trùng nguyên văn **giữa các bài trong lát** — sinh ra từ ca `vv30`/`vv48`.
 
 ### Bốn chỗ lệch **một khoá** ngoài lát — chưa ai sửa
 
@@ -595,19 +623,141 @@ trong `tooling.yaml`) thay vì khớp chuỗi không?
 
 Và `sn41.7:2.2` `2.6` `5.4` dịch `bhante` thành *"này gia chủ"* — **lỗi xưng hô thật**.
 
-### Lớp dấu lược còn lại trong `sn` — **chưa lát nào đụng**
+### Lớp lược dấu `…` — đo lại toàn tầng: **744** khoá / **347** tệp (0,49%)
 
-- **160** khoá ở **117** tệp `sn` lệch **số dấu lược** so với Pāli (trên 32.809 khoá / 1.679 tệp `sn`).
-- **81** khoá đã **bung** `…pe…` thành *"… cho đến …"*.
+Bản ghi cũ ghi *"160 khoá ở 117 tệp `sn`"*. Số đó **tái lập đúng** cho `sn` — nhưng chỉ là
+**một phần năm** của cả tầng. Đo toàn tầng trên **153.054** khoá có so sánh được:
 
-Hai bản tiền lệ Pāli trùng nguyên văn mà **cùng sốt một `…` và mất vế `saññāyapi`** (chỉ còn 4 uẩn
-thay vì 5): `sn22.61:1.3` và `sn22.77:2.1`.
+| | số khoá |
+|---|---|
+| **lệch** | **744** (0,49%) · 347 tệp |
+| `an` 253 · `mn` 236 · `sn` **160** · `dn` 70 · `kn` 25 | |
+
+Chiều lệch gần cân: **VI nhiều hơn 494** · **VI ít hơn 250** — tức **không** phải một lỗi hệ
+thống. Đọc mẫu:
+
+- **52** khoá có cụm **"cho đến"** — `…pe…` bị bung thành *… cho đến …*, tức **hai** dấu lược nơi luật
+  chỉ cho **một**.
+- **250** khoá "VI ít hơn" phần lớn là ** bung ngược lại**: Pāli `…pe…` mà bản Việt **viết thẳng
+  nội dung ra**.
+- Vài ca dấu `…` đầu khoá bị dấu ngoặc kép `"` thay thế — có thể hợp lệ, cần đọc.
+
+⚠️ **Số này là hàng đợi ứng viên, KHÔNG phải danh sách lỗi.** Đã đọc mẫu và thấy thiên về nhiều.
+
+### ⚠️ Hai lần tôi **đo sai** số này trong một buổi — cùng một dạng lỗi
+
+1. **6.636** khoá: tôi đòi **số `…pe…`** bằng nhau thay vì **số dấu `…`**. Nhưng `…pe…` trong Pāli phải
+   thành **một** `…` ở bản Việt, nên phép đo sai bản chất. Mẫu `tha-ap505:5.2` — Pāli `…pe…`, Việt
+   `…` — là **đúng**, và phép đo của tôi gọi nó là lỗi.
+2. **749** khoá: bỏ sót biến thể **`… pe …`** có khoảng trắng (5 khoá Pāli dùng dạng này).
+
+⇒ Cùng dạng lỗi đã ghi nhiều lần trong phiên: **phép đo sai thì con số sai, và con số sai trông
+rất thuyết phục**. Trước khi gọi một bảng phân phối là "lớp lỗi", phải in ra mẫu và đọc.
+
+Worklist: `/Volumes/SSD/opencode-work/_el2.txt`.
 
 ### Ổ lưu trùng ở tầng upstream
 
 - `thag4.12:6.5–6.6`: Pāli ở uddāna ghi **20 kệ / 13 vị**, thực tế **48 / 12**. Ổ tương tự ở `thag5.12`.
 - `tha-ap108` trùng gần như trọn 24 câu kệ `tha-ap334` (cùng bậc Udakapūjaka).
 - `thag7.2` có `Lakuṇḍakabhaddiya` còn `thag7.5:8.2` có `Lakuṇḍabhaddi` — hai bài cùng nói một người.
+
+### 🔴 Bằng chứng mạnh nhất cho luật *"Pāli trùng nguyên văn thì cách dịch phải khớp"*
+
+`vv30` và `vv48` là **hai bài cùng một truyện**, và bản Việt trước đó lệch **37 trong 43** khoá có
+Pāli trùng nguyên văn. Không cổng nào bắt. Sai lệch cụ thể: `sassu` (chồng) → *thần Trăng* ·
+`avākiri` → *ngươi đánh rơi* · `ucchu` → tên riêng · `sahassanetto` → *nghìn con mắt* ·
+`bhante` → *bạch thầy*.
+
+⇒ **Quy tắc vận hành:** khi dựng lát, **dò Pāli trùng nguyên văn giữa các bài trong lát** và báo
+số cặp. Nếu hai bài cùng truyện thì cách dịch phải khớp, và **không** dùng bản của bài này làm tiền
+lệ cho bài kia khi bản kia đã lệch.
+
+Cùng lớp, hai tiền lệ sai: `vv23:8.3` + `vv25:7.3` dịch `saññā` thành *không nói lỗi* / *sát sinh*
+(đúng ra *ý thức*); `vv32:3.1–3.2` dịch cùng Pāli `Āveḷinī kañcanasannibhattace` thành *tràng hoa sen*
+/ *xấu xí*.
+
+### 🔴 Phe dấu `ti`: **bốn lát đo, bốn con số, và con số tôi ghi là sai chiều**
+
+Bản ghi cũ của tôi: *"`”ti?` **850** vs `”?` **150** toàn tầng"* — tức **GIỮ**. Đợt 17 có **bốn**
+lát độc lập đo lại:
+
+| lát | phạm vi đo | số | kết luận |
+|---|---|---|---|
+| `n25` | phẩm `sn35` | **129** giữ / 91 bỏ | GIỮ |
+| `n26` | phẩm `sn35`, rồi **sát hơn**: cùng phẩm `sn35.124–133` | 131/119 → **4/10** | **BỎ** |
+| `n24` | **vị trí `ti` so với ngoặc kép** | `”ti` **3.470** khoá, phe ngược **0** | GIỮ; ghi rõ *"850:150 không tái lập được"* |
+| `n27` | **khoá Pāli kết `ti?`/`ti.`** | giữ **3.472** / bỏ **14.125** | **BỎ**, nghiêng ~1:4 |
+
+⇒ Phe **BỎ** nghiêng ~1:4 toàn tầng, tức **con số 850:150 của tôi sai chiều**. Và bốn cách đo cho
+bốn con số vì **bốn phạm vi khác nhau** — mỗi lát đo đúng ô mình đo và rút kết luận vượt quá ô đó.
+**Đúng mẫu lặp của vụ `tha-ap :0.3` lần nữa.**
+
+Nhưng **phân kỳ là thật**: `sn44.6` bỏ `ti` ở mọi khoá, còn `sn44.3` `sn44.5` trong **cùng phẩm**
+vẫn giữ; `sn35.62` `sn35.75` giữ còn `sn35.74` bỏ.
+
+⇒ **Luật đo lại, chốt được:** khi một quy ước văn bản **không đồng nhất toàn tầng**, phải đo ở **phạm
+vi gần nhất** (cùng phẩm, bài liền kề) — **không** dùng đa số toàn tầng, vì tầng trộn các quy ước
+khác nhau theo phẩm và theo bộ. Và **in cả hai phép** để người đọc tự thấy chúng lệch nhau. Nếu chốt
+một phe thì **vá cả hai vế**, không vá riêng bài này.
+
+### Câu hỏi thêm một phe: ngoặc kép `“ …pe…`
+
+641 khoá có Pāli vừa mở ngoặc kép vừa mang lược; **637** bản Việt **bỏ** dấu mở — nhưng bỏ thì
+khoá sau thành ngoặc đóng không mở. `sn35.74:14.1` giữ (theo `sn18.11:1.12`), `sn35.62` giữ.
+⇒ Cùng tình huống, cần chốt một lần.
+
+### Lớp "Pāli ghim tự lệch ngoặc kép" — đã xử ở vài bài, **tầng ghim sửa được thì nên sửa**
+
+`sn35.94` lệch **−1** (`2.6` đóng `”` không mở) · `an6.29` lệch **+1** (`5.1` có `“` thừa của
+upstream) · `an3.91` đóng `”ti` nằm ở khoá **trống** ⇒ lớp lấp không thể cân.
+
+Cách xử đã dùng cho chiều **−1**: **thêm** `“` ở khoá mở chứ không **xoá** `”` (xoá mất luôn `”ti`).
+Chiều **+1**: **không** bịa `”` để bù (cắt ngang lời Ānanda và mất `”ti` ở khoá sau).
+
+### Ba tầng Anh cùng thiếu, nhưng ba cách xử khác nhau
+
+| tình huống | ví dụ | cổng coverage | hành động |
+|---|---|---|---|
+| Sujato **im lặng** ở đoạn có nội dung | `sn42.5` (1/18) · `sn35.93` (29/40) | **đo được**, dưới ngưỡng | `draft` + blocker, và **còn lấp được** ở lớp lấp |
+| Tệp Sujato **có** nhưng thiếu tầng lấp | `sn35.74` `sn35.94` | **100%** | `published`, không cần lấp |
+| **Không có tệp Sujato nào** | `vv` `mil` `ne` `tha-ap` `pv` `ps` | mẫu số = 0 ⇒ **không đo được gì** | `draft` + blocker thật, `triangulation ≤ 8.0` |
+
+### Ba lớp kiểm mà `_hvi.py` **không** bắt — đã đưa vào prompt từng lát
+
+1. `set(khoá Việt) == set(khoá Pāli)` — `_hvi` chỉ quét khoá **≥ 40 ký tự**; ở bài kệ ngắn nó **chạy
+   rỗng**, tức chạy xong mà kiểm không gì. ⇒ **luôn in số khoá so sánh** cùng kết quả.
+2. Nháy **đơn** `‘’` cân *từng khoá* — `ngoặc()` của `_hvi` **chỉ đếm ngoặc kép**. Nhân bản từ các
+   lát trước đã bắt được `an10.22:2.3`, `mil6.3.11:6.4`, `sn41.6:3.4/6.4`, và `mil3.1.4` **sót hẳn
+   30 khoá** dấu `ti`.
+3. **Pāli trùng nguyên văn TRONG CHÍNH bài** mà bản Việt khác — bắt được ở `thag7.2:6.2`/`7.2`.
+
+### Dạng lỗi lặp lại nhiều nhất trong phiên: **con số viết từ trí nhớ**
+
+Ba lát độc lập tự bắt số sai trong `notes` của chính mình: `n11` **6 chỗ** · `e2` **6 chỗ** (một cái
+**đảo chiều**: tưởng 41 ký tự *"trên ngưỡng"*, đo lại **37, dưới** ngưỡng) · `n15` **2 chỗ**. Tôi cũng
+phạm (`ghi "+5" rồi tự sửa thành 14`; `"thứ bốn mươi tám"` cho hai số khác nhau).
+
+⇒ Số sai theo hướng **có lợi** cho bản thân mới là nguy hiểm nhất. Mọi số trong PR phải đọc lại từ
+output lệnh.
+
+### Hai sai sót quy trình của tôi, đã ghi để không lặp
+
+1. Script sửa **71** tệp rồi `git add` theo **danh sách lát đã ghi sẵn** ⇒ **57** tệp không được
+   commit. Chính test mới bắt được ở lần chạy đầu trên worktree sạch.
+   ⇒ `git add` theo **output của chính script đó**.
+2. Script chép tệp ghép **đường dẫn tương đối** rồi `replace(R, W)` ⇒ không thay được, `copy2` ném
+   `SameFileError`, và bản chép **dừng giữa chừng** ⇒ PR có **một bài dịch không metadata**.
+   ⇒ Dùng `copy` để hợp nhất, và **không** báo "xong" khi script còn ngoại lệ.
+
+### ⚠️ Tranh chấp nhánh với **một session khác** trong cùng kho
+
+Session kia đã `git checkout` khỏi `vi-wave14` sang `feat/sutta-summary` **giữa chừng**, nên commit
+`6ef4468b` của tôi rơi lên nhánh của họ. Tôi **không** sửa nhánh của họ — cherry-pick sang
+`vi-wave14` trong worktree riêng. Nhưng `feat/sutta-summary` hiện **có** commit đó ở trên đỉnh.
+
+⇒ **Từ đợt 15 tôi không commit trong cây chính nữa**: agent ghi vào `/Volumes/SSD/kinh-tang-pali`,
+tôi **chép** sang `/Volumes/SSD/_wtX-coord` rồi commit ở đó. Cần người biên tập xử `feat/sutta-summary`.
 
 ## MỐC HOÀN TẤT
 
