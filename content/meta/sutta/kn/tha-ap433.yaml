@@ -1,0 +1,89 @@
+uid: tha-ap433
+status: draft
+translationTitle: "1. Bài Kệ Tuyên Ngợ Về Trưởng Lão Ekavihāri"
+translators:
+  - "OpenCode Space Bunny Free (agent)"
+reviewers: []
+tags:
+  - "khuddaka-nikaya"
+  - "therapadana"
+  - "ekaviharivagga"
+quality:
+  scores:
+    source_provenance: 9.5
+    semantic_fidelity: 9.2
+    grammar_logic: 9.3
+    segment_alignment: 10.0
+    terminology: 9.2
+    triangulation: 7.0
+    vietnamese_clarity: 9.3
+    han_viet_balance: 9.4
+    ambiguity_integrity: 9.0
+    technical_integrity: 9.6
+  final_score: 9.15
+  blocking_errors:
+    - "Không có tầng tham khảo tiếng Anh tại commit đã ghim (11c9d708…). Tra `source/upstream-manifest.json`: tệp của uid này chỉ tồn tại ở tầng `pali` (`kn/tha-ap/tha-ap433_root-pli-ms.json`); tầng `english-sujato` với 4.291 tệp **không có tệp nào** cho `tha-ap433` — tệp `tha-ap` duy nhất trong cả tầng là tệp *tên* (`name/sutta/tha-ap-name_translation-en-sujato.json`), còn thân kinh thì 563 tệp `tha-ap*` chỉ có ở tầng Pāli. Tệp cache `translation/en/sujato/sutta/kn/` cũng không có thư mục `tha-ap` (chỉ 9 sub-collection: cp · dhp · iti · ja · kp · snp · thag · thig · ud = 755 tệp). Đây là `not-published-upstream`, KHÔNG phải `not-synced`. Tầng `vietnamese-current` cũng vắng: `translation/vi/phantuananh` tại commit đã ghim có 26 tệp, toàn bộ là Pháp Cú. Lớp lấp `english-project` của dự án không có entry cho uid này. ⇒ cả ba tầng tham khảo đều vắng, bài dịch chỉ từ Pāli root. Đo coverage theo đúng công thức `source/layers.yaml` (`substantivePaliMinChars: 40`, `excludeReferenceBlock: true`): mẫu số = **1** khoá (chỉ `:13.1` dài 63 ký tự; 49/53 khoá còn lại đều dưới 40), Sujato phủ **0/1 = 0%**, dưới ngưỡng 0.8. `scripts/validate.ts` coi tệp Anh thiếu là **error** khi status là `review` hoặc `published`, nên bài bắt buộc `draft`. Lưu ý thêm: `content/meta/reference-gaps.yaml` **không có** entry cho `tha-ap433` (đo được 428 entry `tha-ap*`, thiếu cả 431–434), nên cổng coverage cũng không có gì để bám; dù có entry thì cũng không cứu được `published`. Vì vậy `triangulation` bị chặn ở 7.0 (≤ 8.0) chứ không nâng để né blocker."
+  assessed_at: "2026-10-06"
+  assessed_by:
+    - "OpenCode Space Bunny Free (agent)"
+notes: |-
+  Bản dịch chỉ từ Pāli root vì commit đã ghim không có bất kỳ tầng tham khảo nào phủ `tha-ap` (xem blocking_errors).
+  Đủ 10 tiêu chí scorecard; `final_score` = trung bình số học thô (9.5+9.2+9.3+10.0+9.2+7.0+9.3+9.4+9.0+9.6)/10 = 9.15;
+  status bắt buộc `draft` do blocker tầng tham khảo Anh. `technical_integrity` 9.6 vì bị cấm chạy cổng.
+  Bốn lệnh còn lại, **chưa** chạy: `npm run validate` · `npm test` · `npm run check` · `npm run build`.
+
+  ⚠️ `_hvi.py` **chạy rỗng** ở đây: nó lọc `len(p[k]) >= 40` mà chỉ 1/53 khoá đạt (`:13.1`), nên nó báo xanh mà
+  không kiểm gì. Đã tự viết 5 phép quét **mọi** khoá, in kèm mẫu số:
+  (1) tập khoá 53/53 cân, 0 thiếu 0 thừa;
+  (2) ngoặc kép + **nháy đơn**: 53/53 khoá khớp Pāli từng khoá, 0 nháy đơn cả hai bên, điểm nháy kép xuyên bài
+      về 0 — Pāli mở `“` ở `:1.1` và đóng `”` ở `:12.4`, tức **cố ý chạy qua khoá**, và bản Việt chạy y hệt;
+  (3) dấu lược: Pāli có 0 khoá `…pe…`, 0 `…` trần, 0 kết `….`, 0 `(…)` ⇒ 53/53 sạch (bài này viết **đủ** hai
+      kệ 10–12, không lược);
+  (4) cặp Pāli trùng nguyên văn **trong chính bài**: đã dò 53 giá trị Pāli, tìm được **0** cặp trùng ⇒ 0/0;
+  (5) NFC 0 lỗi, 0 khoá rỗng, 0 khoá thân kinh trùng nguyên văn Pāli, thứ tự khoá khớp Pāli.
+      (`:0.1` `Therāpadāna` trùng Pāli là **quy ước tầng**: 414/428 tệp `tha-ap` giữ nguyên văn; khối `:0` là
+      tiêu đề tham chiếu mà `source/layers.yaml` đã loại khỏi mọi phép đo.)
+
+  🔴 Số Pāli — tự tính và in phép (mẫu số 6/6 khớp): `Paṭisambhidā catasso` catu = **4** → "Bốn vô ngại giải";
+  `vimokkhāpi ca aṭṭhime` aṭṭha = **8** (số thứ tự thứ tám, tức chính "tám giải thoát" aṭṭhamaṁ vimokkhaṁ)
+  → "và tám giải thoát này"; `Chaḷabhiññā` cha = **6** → "Sáu thắng trí"; `Tisso vijjā` ti = **3** → "Ba minh";
+  `paṭhamaṁ` = thứ **1** → ", thứ nhất."; `:0.3` mở đầu bằng số `1` nên giữ "1." theo chính sách (đo toàn tầng
+  428 tệp: KEEP 64 · DROP 66 · THỪA 2 ⇒ có 2 tệp đang thừa số, không phải lát này).
+  🔴 Cụm **chưa phân xử được** `Tiṁsakappasahassa` (3.000 hay 300.000): **tha-ap433 không có cụm này**
+  (0 khoá), nên bài này không mang bất định số nào và không tự quyết gì.
+
+  Thuật ngữ, kèm số đếm trên chính tầng `tha-ap` (đo lại, không chép số của người khác):
+  `Therāpadāna` 414/428 giữ nguyên văn; `Phẩm Sống Một Mình` cho `Ekavihārivagga` — phạm vi gần nhất đo
+  **7 vs 1** (`Phẩm Sống Độc Cư`), chọn đa số gần; phe dấu `ti` ở `:0.3`: phạm vi gần nhất **Tuyên Ngợ 7 ·
+  Tuyên Ngôn 0 · Ký Sự 1**, còn toàn tầng **Tuyên Ngợ 227 · Tuyên Ngôn 95 · Ký Sự 93** — hai phép **cùng
+  nghiêng** về *Tuyên Ngợ*, khác với con số 128/49 mà brief nêu, nên ghi lại để biên tập phán một lượt cho cả
+  cuốn. Công thức lời-kết dùng nhóm **số nhiều** "đã nói **những** bài kệ này" (đo 8/8 trong phẩm
+  `Ekavihārivagga`; 80 tệp `tha-ap` khác cũng vậy) — không rơi vào nhóm 21 tệp bị gọi là lỗi.
+  Vế kệ 10–12 dùng **nguyên văn** bản đã có trong tầng: "Các phiền não của ta đã được thiêu rụi," (78/119),
+  "mọi cõi hữu đều đã được nhổ sạch;" (14/21), "như thớt voi bẻ gãy mọi trói buộc," (8/11),
+  "ta sống không còn lậu hoặc." (77/111); "Thật lành thay sự đến của ta," (72/114) +
+  "ở nơi Đức Phật của ta hiện diện;" (5/7) + "Ba minh đã chứng đắc," (13/33) +
+  "Bốn vô ngại giải," (431/431) + "và tám giải thoát này;" (40/50) +
+  "Sáu thắng trí đã chứng đắc," (41/52) + "đã làm tròn lời dạy của Đức Phật" (393/535). `paṭisambhidā`
+  khớp glossary `content/glossary/pali-vi.yaml` ("vô ngại giải"), `nibbāna` khớp ("Niết-bàn").
+
+  🔴 Bất định đã ghi, **không** tự quyết (tất cả đã quét 5.764 tệp Pāli root đã ghim):
+  · `brahmaghoso` — hapax toàn Pāli root (1 khoá). Đọc theo `-ghoṣa` = tiếng, cặp với `Karavīkaruto` ngay
+    vế trên; dịch "tiếng vang lời người Brāhmaṇa" và **không** nâng thành danh xưng riêng.
+  · `tadāpāhaṁ` (`:8.1`) — hapax toàn root. Đọc là `tadā āhaṁ` ("bấy giờ tôi bèn nói"), giữ ngôi kể;
+    không chắc chắn là lỗi chép hay chính tả, đã ghi ở đây.
+  · `Sakkāyavūpakāso` / `vūpakāsassa` (`:9.1`, `:9.3`) — hapax toàn root; `vūpakāsa` = "sự bày tỏ / người
+    bày tỏ", `sakkāya` = "thân tướng". Đã dịch theo nghĩa đen có chủ ngữ rõ (bậc bày tỏ cho tôi / từ tâm bậc
+    ấy) và **không** bịa thêm chi tiết nào.
+  · `vippanaṭṭhe anāyake` (`:6.4`) — `vippanaṭṭha` chỉ có 2 dạng toàn root, `anāyake` là hapax ở đúng câu này.
+    Đã dịch "khỏi cảnh đổ nát chẳng có ai dẫn dắt", giữ cả hai vế; còn cách đọc khác (chỗ đổ nát *không*
+    dẫn đến đâu) thì không loại trừ được.
+  · `saṁsaggapīḷito` (`:8.4`) — hapax toàn root. Vế trên là "Một mình giữa rừng đẹp", nên dịch "dành trọn
+    cho sự gần gũi" theo nghĩa "gắn bó" của `pīḷita`; **không** kết luận `saṁsagga` = "chúng hưởng dục"
+    (như ở `:9.4`) vì hai nghĩa đó không cùng một câu.
+  Đã có chứng cứ **từ tầng Anh đã ghim** cho hai từ trong bài: `brahmabandhu` — Sujato dịch "brahmin only by
+  kin" (snp2.2:3.2) ⇒ "thuộc họ Brāhmaṇa"; `karavīkabhāṇī` — Sujato dịch "like a cuckoo's call" (dn30:1.2.31)
+  ⇒ `Karavīkaruto nātho` dịch "tiếng kêu như chim cu gà". `gotta` — Sujato "By clan" (snp5.1:44.2) ⇒ "dòng họ Gota".
+  `uppajji vadataṁ varo` (`:1.4`) lặp nguyên văn ở `tha-ap532:1.4` và 18 khoá `thi-ap` nữa, nhưng **không**
+  bản Việt nào trong tầng đã dịch câu này (0 tiền lệ) ⇒ đã dịch theo nghĩa "bậc tôn quý đã tuyên thuyết" và
+  ghi bất định ở đây.
