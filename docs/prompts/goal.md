@@ -16,20 +16,48 @@ còn lại là chấm lại / sửa, không phải dịch.
 
 ---
 
-## TRẠNG THÁI HIỆN TẠI (đo 2026-10-05 tại `16dbe669`, `main`)
+## TRẠNG THÁI HIỆN TẠI (đo 2026-10-05 tại `7162deb6`, `main`)
 
-HEAD của `main` = `16dbe669` — "en(fill): lớp lấp e9 — 8 bài / 48 khoá (#251)".
-PR đã merge gần nhất: #251 (lớp lấp `e9`), #250 (đợt 10), #249 (lát `c78`), #248 (lớp lược trần),
+HEAD của `main` = `7162deb6` — "đợt 12: 32 bài Việt / 1.499 khoá + 8 bài lớp lấp / 69 segment +
+sửa lớp 'Pāli trùng mà Việt lệch khoá' (#253)". Đang có PR #254 (đợt 13) chờ CI.
+
+PR đã merge gần nhất: #254 đang chờ · #253 (đợt 12 + lớp lớn "Pāli trùng mà Việt lệch khoá"),
+#252 (đợt 11), #251 (lớp lấp `e9`), #250 (đợt 10), #249 (lát `c78`), #248 (lớp lược trần),
 #247 (lớp lược `…pe…`), #246 (`c74` + lớp lấp `e8` + đổi phản ví dụ của phép đo coverage),
 #245 (đợt 9a), #244 (`dn16` 8 khoá lệch), #243 (docs), #242 (`c64`), #241 (`c67`), #240 (`e7`),
 #239 (đợt 8a), #238 (`nibbānapabbhāro`), #237 (đợt 8a), #236 (docs), #235 (4 nhóm lỗi thuật ngữ),
 #234 (đợt 7), #233 (`e5`+`e6`), #232 (`pācīna`), #231 (đợt 6), #230 (`e3`+`e4`), #229 (docs),
 #228 (đợt 5a), #227 (`pages.yml`), #226 (đợt 4), #225 (verify tải).
 
-**26 PR đã merge.** Bài đủ mọi khoá: 3.857 → **5.198**. Còn thiếu **938** bài / **133.814** khoá.
+**28 PR đã merge.** Bài đủ mọi khoá: 3.857 → **5.240** (tại `7162deb6`); còn thiếu **896** bài /
+**131.733** khoá. Đợt 13 (PR #254) đưa lên **5.261** / còn **875** / **130.953** khoá.
 
-> ⚠️ **PR #252 (đợt 11 — `c77`+`c81`, 12 bài / 582 khoá) đã push nhưng chưa merge tính vào số trên.**
-> Số ở đây là đo tại `main` đã merge; không trộn số của nhánh chưa merge.
+Lớp lấp `english-project`: còn **290** text / **6.269** segment thiếu; **179** text dưới sàn
+coverage. Record `reference-gaps` **781** / 5.358 text.
+
+### ✅ Chính sách `tha-ap :0.3` — đã đo và **chốt** (2026-10-05)
+
+**Quy tắc: bám Pāli.** `tha-ap*:0.3` giữ số thứ tự **khi và chỉ khi Pāli `:0.3` bắt đầu bằng số**.
+
+Đo trên **357** tệp `tha-ap` đã có bản Việt và có Pāli `:0.3` không rỗng:
+
+| | Việt **giữ** số | Việt **bỏ** số |
+|---|---|---|
+| **Pāli CÓ số** (115) | **66** | 49 |
+| **Pāli KHÔNG có số** (242) | 2 | **240** |
+
+Bám Pāli khớp **306/357 = 85,7%**. "Luôn bỏ" sai **66** tệp; "luôn giữ" sai **240** tệp.
+
+⚠️ **Ba lát và tôi đã đo ba ô khác nhau của cùng bảng này rồi báo ba kết luận.** Cả ba lát
+(`c85` 66/49 · `s4` 73/274 · `s7` 240/2) và tôi (đợt 9a, "66/275") đều kết luận **BỎ**. Số của `s7`
+đúng về mặt đo nhưng là **tỉ lệ có điều kiện**: nó chỉ chứng minh *Pāli không có số ⇒ Việt không có
+số*, **không** chứng minh *nên bỏ số khi Pāli có số*. Tôi đã đọc nó như toàn bộ mệnh đề.
+
+⇒ Đây là lý do phải **in ra bảng phân phối đầy đủ**, không chỉ một tỉ lệ: ba lát đều đo thật, đều
+báo đúng ô mình đo, nhưng rút kết luận vượt quá ô đó.
+
+Còn **49** tệp bỏ mất số mà Pāli có, và **5** tệp thêm số mà Pāli không có. Danh sách kèm Pāli và
+bản Việt: `/Volumes/SSD/opencode-work/_thaap03.txt`.
 
 ### Bốn lớp lỗi mới phát hiện bằng **quét ngược một mệnh đề**
 
@@ -497,6 +525,39 @@ agent) giữ nguyên.
 `git worktree remove --force /Volumes/SSD/_wt1`.
 
 ---
+
+## VIỆC CHỜ BIÊN TẬP PHÁN — cập nhật 2026-10-05
+
+### Chặn bởi `summary:` của **một session khác** đang làm dở
+
+Tám tệp metadata có khối `summary:` **chưa commit** (`git show HEAD:<tệp>` = 0 dòng `summary:`, nhưng
+tệp trên đĩa có). Git không tách được một tệp, nên **không sửa tệp metadata đó** — còn **tệp bản dịch
+vẫn sửa được**, vì lỗi nằm ở nội dung khoá chứ không nằm trong metadata.
+
+| tệp | đã sửa trong bản dịch | cần làm khi session kia xong |
+|---|---|---|
+| `content/meta/sutta/mn/mn30.yaml` | 6 khoá (lớp trùng Pāli) | `semantic_fidelity` 9,5→9,0 · `segment_alignment` 10→9,5 · `assessed_at`→2026-10-05 · **thêm** khối `notes` (tệp này **hiện chưa có** `notes`; dạng chuẩn là `notes: |-`, khác dạng list `- >-` ở `sn`) |
+| `mn59.yaml` | 13 khoá (lớp lược) | `semantic_fidelity` **−0,1** · `assessed_at`→2026-10-05 · cộng mục `notes` |
+| `mn36.yaml` | 9 khoá (lớp lược) | `semantic_fidelity` **−0,1** · `assessed_at`→2026-10-05 · cộng mục `notes` |
+
+⚠️ Thiên lệch theo phía **thận trọng**: scorecard ghi **cao hơn** thực tế, không ghi quá thấp.
+
+### Các mục khác
+
+| việc | trạng thái |
+|---|---|
+| `tha-ap :0.3` | **đã chốt xong** — xem mục ở trên. Còn 49 + 5 tệp cần vá theo luật *bám Pāli*. |
+| `sn12.54:0.3` và `sn12.52:0.3` | hai Pāli **khác nhau** ra **một** tên (*Kinh Sự Chấp Thủ (Hai)*) |
+| `sn11` vs `mn38` | hai bản Việt của **cùng một Pāli** đang tồn tại **hai** cách |
+| `sn16.6:1.1` | `rājagahe veḷuvane` dịch *chỗ cho sóc ăn* — lỗi tiền lệ (đa số *Trúc Lâm*, 17 khoá) |
+| `mn59` | `tisso vedanā vuttā bhagavatā` dịch *Ngài nói có ba loại:* — **mất** `vedanā` |
+| `an7.51:0.3` | tiêu đề dài hơn hẳn các tiêu đề khác |
+| `an8.77:0.3` | lệch `sn1.69:0.3`; chốt một tên thì phải sửa **cả hai** |
+| `Balasutta` (`an9.5`) | **6** cách trong kho, mỗi cách 1 lần ⇒ **không có đa số** |
+| `Dasakanipāta` | **8/6** trong kho (*Bộ Mười Bài Kệ* 8/8 bài `ja` vs *Bộ Mười Bài Kinh* 6/6 bài `thag10.*`) |
+| `tha-ap482` `tha-ap512` | cả hai dịch *"thứ bốn mươi tám"* cho hai số khác nhau |
+| `sn42.5` | Sujato **có tệp** nhưng chỉ 1/18 đoạn có chữ ⇒ **17 khoá còn lấp được** ở lớp `english-project` |
+| Ngưỡng 40 ký tự | đã để lọt **hai** colophon (`sn35.52:2.7` 41 ký tự · `sn45.114:1.8` 47 ký tự). Chỗ sửa đúng là `source/layers.yaml`, **không** phải tệp lấp |
 
 ## MỐC HOÀN TẤT
 
