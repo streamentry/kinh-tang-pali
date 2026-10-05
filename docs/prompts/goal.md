@@ -196,6 +196,119 @@ báo cáo lát. ⇒ **Luật: khi nghe một lỗi, đo cả hai chiều trướ
 `pal()` lọc `k.startswith(uid + ":")` nên với `sn45.110-114` trả `{}` và `kiếm()` raise. Lát sau gặp uid
 gộp phải tự làm lại bộ kiểm (NFC · Pāli lọt · trùng nguyên văn · dấu lược · cân ngoặc kép).
 
+### ✅ `1.596` hay `2.019` bài `kn` không có Anh Sujato — **cả hai đúng**, khác mẫu
+
+Một lát báo *"`1.596` không tái lập được, tôi đo được `2.019`"* — nghe như phải sửa `AGENTS.md`. Tôi tự đo lại
+ba phép trên **worktree sạch**:
+
+| phép | mẫu | `kn` không có Anh Sujato |
+|---|---|---|
+| cache Pāli `kn` | 2.774 uid | **2.019** (2.774 − 755) |
+| **catalogue** `content/catalog/sutta/kn.json` | **2.351** uid | **1.596** (2.351 − 755) |
+| phần ngoài catalogue | 423 uid | 423 |
+
+Tầng `en-sujato` có `kn` = **755** tệp theo **cả hai** cách đo (đường dẫn trong manifest, và tệp thật trên
+đĩa cache) ⇒ tầng tham khảo **không** phải chỗ phân kỳ.
+
+⇒ **`1.596` trong `AGENTS.md` và `docs/translation-store.md` là ĐÚNG** (phạm vi catalogue = phạm vi mục
+tiêu). `2.019` cũng đúng (phạm vi cache đầy đủ). **Không sửa** tài liệu nào.
+
+⇒ **Luật (đã mắc lần thứ tư trong phiên):** hai phép cho hai con số khác nhau **không phải** mâu thuẫn
+trước khi kiểm **mẫu số**. Lần này mẫu khác ở **catalogue vs cache**; lần trước ở **catalogue vs `--used`**;
+còn `test dưới sàn 143` so với `text dưới ngưỡng 216` là **hai phép khác mẫu** chứ không phải mâu thuẫn.
+
+⇒ Và: một lát **báo cáo thật** rằng con số trong tài liệu không tái lập được — đó **không** phải lỗi của lát;
+đó là phép đo đúng đặt câu hỏi đúng. Đáp lại bằng cách **đo lại và chỉ ra mẫu số**, đừng bằng cách sửa
+tài liệu cho khớp.
+
+### ✅ Truy ra `sattati` = **70** ⇒ chốt được **10** khoá sai số nữa
+
+Bắt đầu từ claim của lát `n68`: cùng chuỗi Pāli `Dvesattatimhito` đang được dịch **ba** số khác nhau
+(`tha-ap13`=72, `tha-ap172`=28, `tha-ap212`=140), còn tôi từng ghi **140** rồi gỡ vì không xác lập được.
+
+Tôi truy lại từ chứng cứ **trong chính tầng**, không dùng trí nhớ:
+
+| cần chứng minh | bằng chứng đo được |
+|---|---|
+| `sattati` = **70** | `Catusattatito` → *"bảy mươi tư"* (74 = 4+70) · `Pañcasattatikappamhi` → *"bảy mươi lăm"* (75) · `Aṭṭhasattatikappamhi` → *"bảy mươi tám"* (78) · `Tesattatimhito` → *"bảy mươi ba"* (73 = 3+70), 3 tệp |
+| `ekūna` = **29** | `ekūnasaṭṭhikā` → *"chín mươi chín câu"* (99 = 29+70, `tha-ap382:11.6`) — **chốt trực tiếp**; cộng `Ekūnapaññāsakappamhi`=49, `Ekūnatiṁsakappamhi`=29 ở 3 tệp, `Ekūnatiṁsasahasse`=29.000, `ekūnapaññāsaṁ`=49 |
+| `kappasate` = **×100** | `Aṭṭhārase kappasate` → *"tám trăm"* (8×100) · `Aṭṭhavīse` → *"tám trăm nghìn"* (8·20×100) |
+
+⇒ **`Dvesattatimhito` = 72** chắc chắn, và **10** khoá sai số có giá trị đích **đã xác lập từ chứng cứ**:
+
+| Pāli | đúng | bản dịch sai | tệp |
+|---|---|---|---|
+| `Dvesattatimhito` | **72** | 28 · 140 | `tha-ap172` `tha-ap212` |
+| `Tesattatimhi kappamhi` | **73** | 8 | `tha-ap244` `tha-ap245` |
+| `Ekūnasattatikappe` | **99** | 81 | `tha-ap171` |
+| `Catusattatikappamhi` | **74** | 48 | `tha-ap331` |
+| `Sattasattatikappasate` | **7.700** | 777 | `tha-ap70` |
+| `Aṭṭhārase kappasate` | **1.800** | 800 · 800 · 900 | `tha-ap241` `tha-ap313` `tha-ap453` |
+
+Ngoài ra `Ito vīsakappasate` = 20×100 = **2.000** mà tầng ghi *"một trăm hai mươi"* — lỗi thật, nhưng dạng
+`*ase kappasate` chưa có bảng nên **chưa** đưa vào phép đo.
+
+### ⚠️ Hai hình thức **cùng gốc**, **hai số** — đừng trộn
+
+- `Sattatiṁse` = **7** (hậu tố thứ tự `se`) — **5** tệp đều dịch *"ba mươi bảy"*.
+- `X sattati` = X + **70** — vd `Catusattatito` = 74.
+
+⇒ `sattati` **tự nó** không phải số cố định; nó chỉ là 70 **khi** đứng sau một từ số khác. Cùng logic với
+`navuti` (90) và `tālīsa` (40). Một bảng "từ số → giá trị" phải ghi **cấu tạo**, không ghi **từ đơn**.
+
+### 🔴 Bốn lỗi nữa của chính parser — mỗi lần đều do **hiệu chuẩn** bắt
+
+1. **`trăm` bị coi là thang tổng** ⇒ đọc *"một ngàn tám trăm"* thành **100.800**. Đúng: `mười` và `trăm` chỉ
+   nhân **chữ số đứng trước**; chỉ `nghìn`/`ngàn`/`vạn`/`triệu` mới nhân **cả** tổng luỹ.
+2. **Số nằm SAU từ đơn vị** không được đọc ⇒ bỏ sót *"kiếp **thứ** bảy mươi lăm"* (75).
+3. Nhánh "số sau đơn vị" quét **cả phần còn lại của câu** ⇒ 237 dương tính giả khi tôi thêm nó. Đã ràng buộc
+   bằng `VI_AFTER_OK` (chỉ nhận khi số **bám sát** đơn vị).
+4. `if w in t` (chuỗi con) khớp nhầm `Aṭṭhārase` với `Aṭṭhārasesu` ⇒ **16** dương tính giả. Đã thêm
+   `UNIT_REQUIRED`: `Aṭṭhārase` **bắt buộc** bám `kappasate`, vì `Aṭṭhārasesu` đếm kiếp đơn là **18**.
+
+⇒ Phép thử đơn vị số nay **15/15**. `Catuttiṁse` (3.400) đã bị **gỡ khỏi** bảng kiểm: bản Việt *"ba mươi tư
+trăm"* nhập nhằng, đọc được cả 430 lẫn 3.400 ⇒ **không** phân xử được bằng phép.
+
+### 🔴 🔴 Lỗ hổng **cấu trúc**: **31** bài lớn sẽ không bao giờ được giao
+
+Bộ sinh lát chọn bài **tăng dần theo số khoá** (để lát đầu dễ). Nhưng phần còn lại **không** phân bố đều:
+
+| cỡ bài | số bài | số khoá |
+|---|---|---|
+| 41–80 | 273 | 17.739 |
+| 81–200 | 325 | 38.507 |
+| 201–600 | 91 | 30.213 |
+| **>600** | **31** | **38.664** |
+
+**20** bài lớn nhất giữ **30.491** khoá = **24%** tổng. `kn/ps1.1` riêng đã **4.788** khoá.
+
+⇒ Vì cắt theo ngân sách 95, **không** bài nào >600 khoá lọt vào lát. Khi các lát nhỏ cạn, chúng **nằm
+lại mãi** mà bộ sinh **không bao giờ** giao. Đây là lỗ hổng của **công cụ**, không phải thiếu việc.
+
+**Cách chữa — `_mkslice.py --split <col>/<uid>`:** chia **một** bài lớn thành nhiều lát **cùng uid**,
+mỗi lát một khoá-duyên nhất định, cỡ ngân sách. Lát sau **nối tiếp** lát trước. Bản làm việc mang
+`part` · `partial: true` · `keysTotal` · `keysDoneBefore`, và `BRIEF_SLICE.md` có mục riêng về luật lát dở.
+
+### 🔴 Và cái bẫy: **hai phần cùng lúc sẽ mất khoá, không có dấu hiệu**
+
+Thử đầu tiên cho thấy: `--take 2` sinh được **hai** phần, cả hai đều tính `keysDoneBefore` từ **cùng**
+trạng thái đĩa (0 khoá) ⇒ hai agent sẽ ghi **cùng một tệp** và agent sau **ghi đè** agent trước.
+
+⇒ Đã thêm khoá `vc/.split-<col>-<uid>.lock` (90 phút): còn khoá thì **từ chối** sinh phần tiếp theo và
+in lý do. Khoá quá 90 phút thì coi phần trước đã chết, cho phép ghi đè và đổi tên `.stale`.
+
+⇒ **Luật chung:** bất cứ lần nào nhiều lát cùng ghi **một tệp**, phải có khoá **và** phải tuần tự
+hoá. Ghi đè âm thầm là loại mất dữ liệu tệ nhất — không có báo cáo, không có thống kê, chỉ có khoá
+thiếu dần.
+
+### ⚠️ Tỉ lệ lát chết: **4 / 8** ở đợt gần nhất
+
+`n54` `n66` `n69` kết thúc *không có báo cáo* nhưng **đã ghi tệp**; `n72` kết thúc *không có báo cáo* và
+**không ghi gì**. Cả bốn đều cần giao lại hoặc giao lát review riêng.
+
+⇒ Đã thêm vào prompt: **ghi tệp sớm** (sau nửa bài thì ghi luôn), và brief dùng chung
+`BRIEF_SLICE.md` thay cho prompt dài. **Chưa** chứng minh là brief ngắn hơn giúp — phải đo ở đợt sau.
+
 ### 🔴 `Tiṁsakappasahassa`: tôi **tự phỏng đoán** rồi dùng nó để "sửa" — đã gỡ
 
 Tôi ghi `Tiṁsakappasahassamhi` = `tiṁsa` 3 × `kappa` 100 = **3.000**, dùng con số đó để sửa **4** tệp
