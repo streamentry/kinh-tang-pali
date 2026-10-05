@@ -19,8 +19,11 @@ a { color: inherit; }
   max-width: var(--measure); margin: 0 auto; padding: 1.1rem 1.5rem;
   display: flex; align-items: center; justify-content: space-between; gap: 1rem;
 }
-.site-header { border-bottom: 1px solid var(--line); }
-.site-header nav { display: flex; gap: 1rem; font-size: .9rem; }
+.site-header { border-bottom: 1px solid var(--line); flex-wrap: wrap; }
+.site-header nav { display: flex; align-items: center; flex-wrap: wrap; gap: 1rem; font-size: .9rem; }
+.site-header .feedback-button { padding: .55rem .75rem; color: var(--accent); background: var(--accent-soft); white-space: nowrap; }
+.site-header .feedback-button:hover { border-color: var(--accent); }
+.site-header .feedback-button:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
 .brand { font-weight: 750; text-decoration: none; letter-spacing: -.02em; }
 .site-footer { border-top: 1px solid var(--line); color: var(--muted); font-size: .8rem; margin-top: 4rem; }
 .page { max-width: var(--measure); margin: 0 auto; padding: 3rem 1.5rem 5rem; }
