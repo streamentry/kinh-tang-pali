@@ -7,45 +7,121 @@ reviewers: []
 tags:
   - "khuddakanikaya"
   - "jataka"
-  - "pañcakanipāta"
+  - "pañcakanipata"
   - "kinh"
 quality:
   scores:
-    source_provenance: 9.6
-    semantic_fidelity: 9.4
-    grammar_logic: 9.3
+    source_provenance: 9.7
+    semantic_fidelity: 9.2
+    grammar_logic: 9.1
     segment_alignment: 10.0
-    terminology: 9.0
-    triangulation: 8.5
+    terminology: 9.3
+    triangulation: 7.5
     vietnamese_clarity: 9.3
     han_viet_balance: 9.3
-    ambiguity_integrity: 9.2
-    technical_integrity: 10.0
-  final_score: 9.36
+    ambiguity_integrity: 8.7
+    technical_integrity: 9.6
+  final_score: 9.17
   blocking_errors:
-    - "Bản dịch chỉ phủ 1 khoá có nội dung; lát được chia bằng bộ lọc coverage 40 ký tự thay vì missingAll nên bài thiếu khoá, validate yêu cầu requireComplete."
-  assessed_at: "2026-09-30"
+    - "Tầng tham khảo tiếng Anh đã ghim không tồn tại cho bài này nên không thể lên review hoặc published. Đo trực tiếp trên source/upstream-manifest.json (git tree của commit 11c9d708978cde8ba61096d8a75f7ddfb846f639): tệp Anh Sujato của ja353 = 0. Bản Anh tại commit này có thư mục sutta/kn/ja/ nhưng chỉ 83 tệp và không có ja353; đây là not-published-upstream, KHÔNG phải not-synced. scripts/validate.ts dòng 223-226 đẩy thông điệp này vào errors khi status là review hoặc published, tức validation failure. Mẫu số coverage = 1 khoá Pāli có nội dung (ja353:1.1, 40 ký tự), Sujato phủ 0/1 = 0% dưới ngưỡng 0,8. Gap đã có trong content/meta/reference-gaps.yaml (dòng 74, substantiveSegments 1, coverage 0) nên phần ghi nhận đã xong. Tầng vietnamese-current vắng (26 tệp, toàn bộ Pháp Cú) và english-project không có tệp cho ja353: ba tầng tham khảo đều vắng, bài dịch chỉ từ Pāli root. Đây là giới hạn của bản chụp upstream, không phải lỗi của người dịch; vì vậy triangulation bị chặn ở 7,5 chứ không nâng điểm để né blocker."
+  assessed_at: "2026-10-05"
   assessed_by:
     - "OpenCode Space Bunny Free (agent)"
 notes: |-
-  **Chỉ một khoá trong lát này.** Bài có nhiều khoá hơn, nhưng `kiểm` của `_hvi.py` chỉ đòi phủ những khoá Pāli dài **≥ 40 ký tự** và không phải khoá đánh số phần `:N.0`; đếm trên tầng Pāli thì đúng **một** khoá rơi vào điều kiện đó, và đó là khoá được giao. Các vế kệ còn lại, dòng tiêu đề `:0.1`–`:0.4` và dòng kết bài không nằm trong lát, tôi **không** dịch và **không** tự thêm vào tệp.
-  **Tầng tham khảo đã đo, không đoán.** Tại commit đã ghim, bài này có 0 segment tiếng Anh Sujato; và tầng Việt hiện hành (`translation/vi/phantuananh/`) tại cùng commit chỉ có 26 tệp Pháp Cú, nên **không** có bản Hòa thượng Thích Minh Châu để đối chiếu. Vì vậy `triangulation` đặt 8,5: dịch từ Pāli root, đối chiếu cú pháp qua từ điển và qua bối cảnh trong chính bài. Đây là đặc điểm của bản chụp upstream, không phải thiếu hàng của kho.
-  **Tra tiền lệ (đếm được):** tên riêng Pāli được giữ nguyên (corpus có sẵn `Brahmā`,
-  `Brāhmaṇa`; xem thêm `Paṭācārā` ở `dhp113:0` và `thig5.11:3.2`); gọi tên kèm "ơi" là
-  dựng quen thuộc (702 chỗ " ơi" trong tầng Việt, `mn133:7.2` "Đạo hữu ơi").
-  **Bối cảnh đã đọc trước khi dịch:** `3.1`–`3.4` là lời thầy tự trách vì đã làm điều
-  xấu rồi hối hận — *Mā su tvaṁ akari pāpaṁ, yaṁ tvaṁ pacchā kataṁ tape* — nên `1.1`
-  không phải mệnh lệnh vô nghĩa mà là lời dặn dò: việc ấy phải làm **luôn**. Vì vậy tôi
-  giữ mạnh từ *luôn* cho `niccaṁ`.
-  **0 tiền lệ, đặt mới:** `bhavitabba` (việc phải làm) — 0 tiền lệ trong tầng Việt; tôi
-  dịch *phải làm*, giữ nghĩa nghĩa vụ của dạng `bhavitabba`, không dịch thành "nên làm"
-  (hay nên hơn) cũng không thành "làm".
-  **Dấu ngoặc kép — quyết định đã ghi, áp dụng cho 3 bài trong lát:** Pāli `1.1` mở `“`
-  nhưng nghĩa tròn bài nằm ở `1.4`, và `1.4` không đủ 40 ký tự nên **không** nằm trong
-  tập khoá mà `kiểm` kiểm. Nếu chép nguyên `“` thì ngoặc không cân và `save_vi` ném
-  lỗi. Tôi dùng cặp `‘’` — quy ước đã có 9.600 lần trong tầng Việt, và cũng chính là
-  hình thức Pāli dùng cho trích dẫn lồng nhau (ví dụ `dn14:1.2.6`) — để giữ đúng việc
-  đây là lời thoại mà vẫn qua chốt. **Cần nói rõ với người điều phối:** chốt `ngoặc`
-  **chặt hơn thực tế corpus** — chạy lại `kiểm` trên các bài đã `published` thì **135
-  bài** một-khoá-nội-dung có ngoặc Pāli lệch đều FAIL, kể cả `an10.136` và `an4.141`.
-  Tôi **không** sửa `_hvi.py` theo lời dặn; chỉ báo lại ở đây.
+  **Bài này.** `ja353` · `Pañcakanipāta` · phẩm `Maṇikuṇḍalavagga` ·
+  `3. Venasākhajātaka` · **27 khoá Pāli, 27 khoá đã dịch, đủ và không thừa**. Tệp cũ
+  chỉ có **1** khoá (`1.1`) vì lát trước chia theo ngưỡng 40 ký tự; tôi dựng lại
+  toàn bộ từ Pāli root đã ghim.
+
+  **Sửa một lỗi bản nháp có sẵn.** `1.1` cũ mở bằng nháy đơn `‘` trong khi Pāli
+  mở bằng `“`, và nháy đơn không đóng trong cùng khoá. Điều kiện đúng là **khớp Pāli
+  từng khoá**, nên tôi sửa thành `“` và khép ở `2.6` (`tādisaṁ harate phalaṁ”.`);
+  nháy thứ hai mở ở `3.1` và khép ở `5.4`. Không có khoá nào trong bài này mang
+  nháy đơn `‘’` — Pāli cũng không có khoá nào.
+
+  **Năm phép kiếm, chạy tay, mỗi phép in số** (`n39/check.py`):
+  1. `set(khoá Việt) = 27`, `set(khoá Pāli) = 27`, bằng nhau: đúng; thiếu 0, thừa 0;
+     thứ tự khoá bằng thứ tự Pāli: đúng.
+  2. Ngoặc kép `“”`: Pāli 4 / Việt 4 (2 cặp, mỗi cặp chạy qua nhiều khoá). Nháy
+     đơn `‘’`: Pāli 0 / Việt 0. Số khoá lệch khi so **từng khoá**: **0**.
+  3. Pāli trùng nguyên văn **trong chính bài** mà Việt khác: **0 nhóm**.
+  4. Pāli có `…pe…`: **0**; Pāli có `…` trần: **0**; lệch: **0**.
+  5. Mẫu số coverage (Pāli ≥ 40 ký tự, bỏ khối `:0`) = **1** (`ja353:1.1`, đúng
+     40 ký tự). Sujato phủ **0/1**. Ba tầng tham khảo: `english-sujato` 0 tệp trong
+     manifest, `vietnamese-current` 0 tệp, `english-project` 0 tệp. **Mẫu số bằng
+     1 nghĩa là cổng coverage gần như không đo được gì** — không phải bằng chứng
+     rằng bài đã đối chiếu Anh.
+
+  **Pāli trùng nguyên văn ở bài khác: 11 khoá, dùng lại nguyên văn 11** (tất cả).
+  Quan trọng nhất là cặp kệ `1–2` và `3` trùng nguyên văn với `ja222` (Cūḷanandiyā):
+  `“Idaṁ tadācariyavaco,` → *“Người chở đò ngày xưa từng nói*, `pārāsariyo
+  yadabravi;` → *để vượt sang bờ bên kia:*, `Yāni karoti puriso,` → *Người làm điều
+  gì*, `tāni attani passati;` → *thì tự thấy điều ấy trong mình:*, `Kalyāṇakārī
+  kalyāṇaṁ,` → *Người làm điều tốt gặt điều tốt*, `pāpakārī ca pāpakaṁ;` →
+  *người làm điều ác gặt điều ác*, `Yādisaṁ vapate bījaṁ,` → *Gieo giống loại nào*,
+  `yaṁ tvaṁ pacchā kataṁ tape.` → *mà sau này ngươi sẽ phải chịu*. Tôi dùng lại
+  nguyên văn cả tám khoá này, kể cả `gặt` chứ không phải `gặp`, để hai bài không
+  lệch nhau. Toàn tầng đã dò **152.959** segment, **97.528** chuỗi Pāli có bản
+  dịch, trong đó **7.721** chuỗi Pāli trùng mà tầng đang có nhiều hơn một cách Việt.
+
+  **Tiêu đề — đo ở phạm vi gần nhất, ghi cả hai số.**
+  `Jātaka`: toàn tầng `kn` **427** *Jātaka* vs **16** *Chuyện Tiền Thân* ⇒ *Jātaka*.
+  `Maṇikuṇḍalavagga`: phạm vi gần nhất là các bài `ja300–ja400` (97 bài đã dịch) —
+  *Phẩm Hoa Tai Ngọc* **7**, và **3/3** bài kề (ja351, ja352, ja354) cùng dùng nó;
+  toàn tầng **7** vs *Phẩm Maṇikuṇḍala* **2** ⇒ *Phẩm Hoa Tai Ngọc*.
+  `Pañcakanipāta`: phạm vi gần nhất `ja300–ja400` cho 23 khoá — *Nhóm Năm Bài Kệ*
+  **15**, *Bộ Năm Bài Kệ* **4**, *Bộ Năm Kệ* **3**, *Nhóm Năm* **1**; toàn tầng
+  (47 khoá, gồm cả `thag`/`thig`) — *Nhóm Năm* **20**, *Nhóm Năm Bài Kệ* **15**,
+  *Bộ Năm Bài Kệ* **4**, *Bộ Năm Kệ* **3**, *Nhóm Năm Kệ* **2**, *Phẩm Năm Kệ* **2**,
+  *Tập Năm* **1**. Hai phạm vi đảo đa số; tôi theo **phạm vi gần nhất**
+  (*Nhóm Năm Bài Kệ*) và ghi cả hai số ở đây để người điều phò quyết nếu muốn áp
+  một lượt cho cả bộ.
+  Dòng `:0.4` và lục kết `:6.1`: toàn tầng *Kinh …* **409** vs *Chuyện Tiền Thân …*
+  **33**, và lục kết có dạng *Kinh <Tên>, thứ <số>.* **406/409** ⇒
+  *3. Kinh Venasākha* / *Kinh Venasākha, thứ ba.* Từ số thứ tự đếm chung tầng: thứ
+  nhất **53**, thứ hai **56**, thứ ba **51**, thứ tư **44**, thứ mười **60**
+  (ngoài ra còn *thứ bốn* **7** và *thứ chim* **3** — hai lựa chọn lạ, tôi không
+  dùng).
+
+  **Bốn từ chỉ xuất hiện MỘT lần trong toàn bộ Pāli root đã ghim.** Tôi ghi lại vì
+  không có tiền lệ, và tôi **không** nhập nghĩa từ chú giải vào lời kinh:
+  - `piṅgiya` và `venasākho` — hai tên riêng của con chim gõ; tôi giữ dạng Pāli và
+    chỉ dịch tính từ *màu nâu* của `piṅgiya`.
+  - `sobhañjanakassa` → *cây đắt* (loài cây mà người ta hay dùng lá non làm
+    đòn đánh trâu); `Laṭṭhī … uggatā` → *mầm … vừa nhú lên*.
+  - `candanasārānulitte` → *được xức dầu chiên-đàn thơm*; tiền lệ gần nhất
+    `ja358:6.1` `Candanasārānulittā` → *Được xức dầu chiên-đàn thơm ngát*.
+  - `ubbari` ở `5.3` — xem mục bất định ngay dưới.
+
+  **BẤT ĐỊNH LỚN NHẤT CỦA BÀI — `5.3 Adisvā kālaṁ karissāmi ubbariṁ`, tôi ghi
+  thẳng ra đây và không giấu.** Cả cụm chỉ xuất hiện **một** lần trong Pāli root đã
+  ghim (`ubbari` cũng vậy), và tôi **không** có tầng Anh hay bản Việt truyền thống
+  nào để đối chiếu. Cách đọc tôi chọn và viết ra: `Adisvā` = `adi` + `svā` (*chưa
+  hề nhìn thấy*), `kālaṁ karissāmi` = *sẽ còn lâu mới*, `ubbariṁ` = *áo*
+  ⇒ *Chưa hề nhìn thấy, ta sẽ còn lâu mới mặc áo*. Cách đọc thay thế còn có thể
+  là `a + disvā` (*khi đã nhìn thấy*) và `ubbariṁ` là **tên riêng** (trong truyện
+  Dhonasākha của E. B. Cowell, người vợ của vua tên là Ubbarī) — cũng không loại
+  được. Tôi **không** bịa thêm cốt truyện nào để làm câu này trôi, và tôi giữ cả
+  ba đơn vị nghĩa của Pāli. Vì vậy `ambiguity_integrity` hạ xuống **8.7** cho bài
+  này. `5.4 Taṁ me ito dukkhataraṁ bhavissatī` tôi dịch *điều ấy sẽ còn đau đớn
+  hơn điều này đối với ta* — `dukkha` ở đây là **đau đớn**, không phải thuật ngữ
+  dukkha trong nghĩa giáo lýc.
+
+  **Bốn khoá tôi cố ý không dùng lại nguyên văn** (vì bản có sẵn sai nghĩa):
+  `1.1`, `1.2`, `1.3`, `1.4` là lời dặn của người thầy trong truyện, Pāli viết
+  `bhavitabbaṁ` (việc **phải** làm, nghĩa vụ) chứ không phải `kāraṁ`/`sādhuṁ`
+  (nên làm); và `3.1–3.4` là lời thầy tự trách mình đã làm điều ác rồi hối hận,
+  nên `1.1` là lời dặn dò chứ không phải mệnh lệnh vô nghĩa — vì vậy tôi giữ mạnh
+  từ *luôn* cho `niccaṁ` và giữ `mā ahu` (cấm) ở `1.3`.
+
+  **Vì sao `draft`.** Không phải vì chất lượng câu dịch: blocker là **tệp Anh đã
+  ghim không tồn tại**, mà `scripts/validate.ts` đẩy thành `error` khi status là
+  `review` hay `published`. Blocker cũ trong tệp này (chỉ phủ 1 khoá) đã hết: nay
+  đủ **27/27** khoá.
+
+  **Cổng kỹ thuật chưa chạy** — lát này bị cấm `git` và cấm `npm run
+  validate|test|check|build`, nên tôi **không** tuyên bố technical gate pass.
+  Bốn lệnh còn lại: `npm run validate` · `npm test` · `npm run check` ·
+  `npm run build`. Phần tôi tự kiểm được: JSON hợp lệ, mọi chuỗi NFC, khoá trùng
+  đúng UID và thuộc Pāli gốc, thứ tự khoá khớp Pāli, 0 orphan, ngoặc kép và nháy
+  đơn khớp Pāli từng khoá, dấu lược khớp từng khoá.

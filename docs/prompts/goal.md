@@ -134,6 +134,28 @@ thêm một `…` vào khoá sạch ⇒ đỏ).
 
 Worklist sửa: `/Volumes/SSD/opencode-work/_trunc2.txt`.
 
+### ✅ Số `:0.3` phẩm `tha-ap` — **hai phép khác mẫu số**, và bất biến **đúng**
+
+Lát `n35` đo **KEEP 53 · DROP 65**, còn tôi ghi **số trần 16 · bỏ số 302**. Đây **không phải** mâu thuẫn —
+hai phép khác mẫu số:
+
+| phép | mẫu | kết quả |
+|---|---|---|
+| tôi ghi: **hình thức** | 373 tệp | `N. ` **55** · số trần **16** · bỏ số **302** |
+| `n35`: **đúng quy tắc** (chỉ tệp mà Pāli `:0.3` **bắt đầu bằng số**) | **118** tệp | KEEP **53** · DROP **65** |
+| phép chung, **toàn tầng** | **374** tệp | KEEP **119** · DROP **255** · **THỪA 0** |
+
+⇒ **Bất biến cần giữ: `THỪA = 0`** — không tệp `tha-ap` nào thêm số thứ tự ở chỗ Pāli không có. Đo được
+**0 / 374**. Đây mới là thứ quality gate cần chặn; hai cột KEEP/DROP kia là **mô tả quy ước**, không phải
+lỗi.
+
+`n35` phát hiện và **đã sửa** **2 tệp vi phạm bất biến này**: `tha-ap117` và `tha-ap427` có số thứ tự
+trong bản dịch trong khi Pāli `:0.3` của cả hai chỉ là `Suvaṇṇapupphiyattheraapadāna ` /
+`Koraṇḍapupphiyattheraapadāna `. ⇒ Cột **THỪA = 0** ở trên là số **đã sau** khi lát sửa.
+
+Và `n35` cũng sửa `tha-ap144:6.1` / `tha-ap145:6.1`: bản nháp ghi *"đã từng nói **bài kệ này**"* trong khi
+Pāli `imā gāthāyo` là **số nhiều**, và `abhāsitthāti` là quá khứ của **một** sự kiện.
+
 ### 🔴 Catalogue dùng **237 uid GỘP phạm vi** — và `pali.py` **không** dựng được
 
 Catalogue không liệt kê `an1.316`…`an1.332` riêng mà gộp thành **`an1.316-332`**; tương tự
