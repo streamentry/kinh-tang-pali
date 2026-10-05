@@ -15,56 +15,120 @@ quality:
     grammar_logic: 9.4
     segment_alignment: 10.0
     terminology: 9.2
-    triangulation: 8.3
+    triangulation: 7.8
     vietnamese_clarity: 9.3
     han_viet_balance: 9.3
-    ambiguity_integrity: 9.2
+    ambiguity_integrity: 9.0
     technical_integrity: 9.6
-  final_score: 9.32
+  final_score: 9.25
   blocking_errors:
-    - "Tệp nhóm mới giữ 6 khoá của pre sn45.110, các pre sn45.111 tới sn45.114 chưa gộp nên requireComplete cho published sẽ đỏ"
     - "English của toàn nhóm chỉ phủ 5 trên 11 segment có nội dung, dưới ngưỡng 80 phần trăm, mà gap sn45.110-114 chưa có trong reference-gaps.yaml và đợt này cấm sửa tệp đó"
-  assessed_at: "2026-09-30"
+  assessed_at: "2026-10-05"
   assessed_by:
     - "OpenCode Space Bunny Free (agent)"
 notes: |-
-  **Phạm vi lát c7: đủ mọi khoá trong `all` của bài, không thêm khoá nào.**
-  Chạy lại `save_vi` hai lần: idempotent, tệp trên đĩa không đổi. Tự kiểm những
-  cờ mà `rven88.py` không áp cho tầng Việt: đủ khoá và đúng segment ID theo `pre`
-  (tiền tố khoá thật, không phải uid-gộp); ngoặc kép cân trên cả bài; mọi chuỗi
-  đã NFC; không Pāli lọt; số dấu lược bằng Pāli.
+  **Phạm vi lát m3: đủ mọi khoá trong `all` của bài, không thêm khoá nào.** Tệp
+  trước khi ghi có **6** khoá, nay **23/23**; 6 khoá cũ kiểm lại từng chuỗi và
+  **giữ nguyên byte-identical**, chỉ thêm **17** khoá mới. Tiền tố khoá là
+  `sn45.NNN:` theo từng bài, không phải uid-gộp. Độ dài: Pāli **1433** ký tự →
+  Việt **1777** (1,24); riêng phần mới Pāli **1234** → Việt **1562** (1,27).
 
-  **Không đối chiếu được tầng Việt hiện hành.** Tại commit đã ghim,
-  `translation/vi/` của bilara chỉ chứa Pháp Cú, nên các bài này không có bản Hòa
-  thượng Thích Minh Châu. Đây là giới hạn của bản chụp upstream, không phải thiếu
-  sót của kho; `triangulation` vì thế chỉ ở mức Pāli + English Sujato.
+  **Năm phép kiếm tự chạy, in số.** (1) `set(khoá Việt) == set(Pāli)`: Pāli
+  **23** / Việt **23**, thiếu 0, thừa 0, rỗng 0, thứ tự đúng bằng `all`. (2) Nháy
+  đơn `‘…’`: Pāli **0** / Việt **0**, lệch **0** khoá; ngoặc kép Pāli **6** /
+  Việt **10**, lệch từng khoá **4** — xem mục khiếm khuyết tầng Pāli dưới; cân
+  xuyên bài dư **+0**. (3) Pāli trùng nguyên văn mà Việt khác: toàn tầng
+  **100.166** chuỗi Pāli có bản Việt, **16.973** chuỗi trùng, **73.700** cặp, trong
+  đó **8.022** cặp Việt khác; riêng hai bài lát **65** chuỗi trùng / **937** cặp
+  / **16** nhóm Việt khác. Trong 16 nhóm đó có **bốn** khoá mới mà bản Việt của tôi
+  **không phải đa số**, ghi thẳng ra ở đây: `an1.317:1.2` (**2/6** — chọn *Một cá
+  nhân nào?* để khớp khoá cũ `an1.316:1.2`, còn *Một người ấy là ai?* chiếm
+  4/6) · `sn45.111:1.3`, `112:1.3`, `113:1.3` (mỗi khoá **1/5** hoặc **1/6**,
+  nhưng khác biệt **chỉ ở dấu ngoặc `”` buộc phải có**; riêng *Thứ ba / Thứ tư /
+  Thứ năm* là đa số) · và `sn45.114:1.1` **hòa 2/4** với `sn45.108:1.1`, tôi chọn
+  theo lý do trung thành với Pāli nêu dưới. Mười hai nhóm còn lại thì bản Việt của
+  tôi là đa số. (4) Dấu lược: Pāli có **5**
+  khoá `…pe…` (`sn45.110:1.2`, `111:1.2`, `112:1.2`, `113:1.2`, `114:1.5`) và
+  **0** `…` trần; Việt **0** và **5** — mỗi `…pe…` rút còn **đúng một** `…` theo
+  quy tắc kho, `lược()` khớp từng khoá, lệch **0**. (5) Mọi số trong khối này do
+  script in.
 
-  Tôi **không** chạy `npm run validate|test|check|build` (đợt này cấm; người điều
-  phối chạy tập trung sau khi gộp các pre), nên `technical_integrity` chấm 9.6
-  chứ không phải 10.0.
+  **Mười khoá mới dùng lại nguyên văn bản dịch đã có.** `sn45.114:1.2` → `sn45.98-102:1.10` ·
+  `sn45.114:1.3` → `sn45.109:1.2` · `:1.4` → `sn45.109:1.3` · `:1.5` →
+  `sn45.109:1.4` (cũng trùng `sn45.56:1.5`, `sn45.70:1.7`, `sn45.84:1.4`,
+  `sn45.103:1.4`, `sn45.139:2.5`) · `:1.6` → `sn45.109:1.5` · `:1.7` `Chaṭṭhaṁ`
+  → *Thứ sáu.* (đa số rất áp đảo) · `sn45.111:1.2`, `112:1.2`, `113:1.2` → **nguyên
+  văn** khoá cũ `sn45.110:1.2` · `sn45.114:1.1` → **nguyên văn** `sn45.96:1.1`.
 
-  **Công thức theo đúng nhóm anh em `sn45.104-108` (cùng phẩm, đã
-  `published`).** `0.2` dùng lại *10. Phẩm Chuỗi Lặp Sông Gaṅgā Lần Hai*; bộ ba
-  *nghiêng về … xuôi về … đổ về …* giữ nguyên khung, chỉ đổi hướng từ *đông*
-  sang *biển* đúng theo Pāli `samuddaninnā samuddapoṇā samuddapabbhārā*; `1.2`
-  dùng lại *cũng vậy, này các tỳ-kheo, vị tỳ-kheo …*, giữ một dấu lược cho một
-  `…pe…` của Pāli.
+  ⚠ Các tổng số toàn tầng ở mục (3) **đổi mỗi lần đo** vì nhiều agent viết song
+  song trong cùng kho; đây là lần đo lúc ghi tệp này.
 
-  **Một chữ tôi chủ ý dịch khác nhóm anh em.** `sn45.104:1.1` bỏ `seyyathāpi`,
-  mở thẳng bằng *Này các tỳ-kheo, sông Yamunā …*; nhưng `sn45.109:1.1` (cùng
-  tương ưng, đã `published`) giữ *Như thể, này các tỳ-kheo, dòng sông Gaṅgā …*.
-  Tôi theo `sn45.109` vì `seyyathāpi` là đơn vị nghĩa mở đầu cho *cũng vậy*
-  (`evameva`) ở `1.2` — bỏ là mất nửa cặp so sánh. Đây là lý do duy nhất
-  `terminology` không đạt 9.4, và người biên tập nên chọn một hướng cho cả hai
-  nhóm rồi sửa nhóm còn lại.
+  **Ba khoá số thứ tự.** `tatiyaṁ` → *Thứ ba.*, `catutthaṁ` → *Thứ tư.*,
+  `pañcamaṁ` → *Thứ năm.* — theo đa số (`sn46.59:1.2`, `sn46.60:1.2`,
+  `sn46.61:1.2` và 2 chỗ nữa cho mỗi cụm). ⚠ Nhóm anh em `sn45.104-108` và
+  `sn45.116-120` dùng *Thứ thứ ba / Thứ thứ tư / Thứ thứ năm* — chữ *thứ* lặp
+  và có vẻ là lỗi gõ, vì Pāli chỉ là `tatiyaṁ`; tôi không sao lại lỗi đó.
 
-  **`1.3` ghi *Thứ hai.*, không theo nhóm anh em.** `sn45.104:1.3` ghi *Thứ thứ
-  hai.* — chữ *thứ* lặp, có vẻ là lỗi gõ (Pāli chỉ là `dutiyaṃ`). Tôi không sao
-  lại lỗi đó; đồng thời ngoặc `”` ở đây đóng ngoặc `“` mở từ `1.1`, vì chốt
-  ngoặc của `_hvi.py` đếm xuyên suốt bài và nhóm anh em hiện để mở (tệp cũ,
-  ngoài lát của tôi, tôi không sửa).
+  **Khung ba vế của dòng sông.** `samuddaninnā samuddapoṇā samuddapabbhārā` dùng
+  *trôi ra biển, có bến ra biển, trôi ra bờ bên kia* — **19** khoá trên toàn
+  tầng với đúng ba từ này, và **6/6** trong phạm vi gần nhất `sn45.122-126`.
+  ⚠ **Hai chỗ lệch, đã ghi để người biên tập quyết, tôi không tự sửa khoá cũ:**
+  (1) khoá cũ `sn45.110:1.1` dùng *sông Yamunā nghiêng về biển, xuôi về biển, đổ
+  về biển* — đó là khung của `pācīnaninnā` (đông) mà `sn45.104-108` và
+  `sn45.116-120` dùng cho hướng **đông**; ở hướng **biển** thì 19 khoá kia dùng
+  khung *trôi ra biển …*. Tôi viết `sn45.111`–`113:1.1` theo đa số, nên **trong
+  chính tệp này** `sn45.110:1.1` lệch với ba bài kế. Khoá cũ nằm ngoài lát tôi và
+  lệnh là giữ nguyên, nên tôi để nguyên và ghi ở đây. (2) `sn45.114:1.1` có
+  **hai** tiền lệ cùng Pāli, và hai bản Việt **chia đôi 2/2**: `sn45.96:1.1`
+  giữ *Như thể* còn `sn45.108:1.1` và `sn45.120:1.1` **bỏ** `Seyyathāpi`. Tôi
+  theo `sn45.96:1.1` vì giữ mới đúng Pāli và khớp khoá cũ `sn45.110:1.1`; đây là
+  **hòa**, không phải đa số.
 
-  **`0.3` đặt mới.** `Dutiyādisamuddaninna` (chuỗi thứ hai, mở đầu bằng bài
-  nghiêng về biển) → *Bài Nghiêng Về Biển (Hai)*; Sujato đặt *Slanting to the
-  Ocean*.
-  terminology fix (gộp tên phẩm, 2026-10-04, coordinator): khối tiêu đề đổi sang cách dịch đa số toàn tầng — `10. Dutiyagaṅgāpeyyālavagga` → «10. Phẩm Chuỗi Lặp Sông Lớn Lần Hai». Đếm bằng cách ghép PāLI↔Việt ở mọi khối `:0.1`–`:0.9` có số thứ tự phẩm; cùng tên PāLI ở hai bộ khác nhau là hai phẩm khác nên không so chéo. Khối tiêu đề, không đổi nghĩa segment nào.
+  **`nibbānapabbhāro` → *có bãi bồn về phía Niết-bàn*** — đây là khung ba vế đã
+  được sửa và ghi rõ trong `notes` của `sn45.109`; 87 khoá `nibbānapabbhāra*` /
+  32 bài, **0** khoá nào còn dịch vế ba là *có dòng*. Tôi theo đúng khung đó cho
+  `sn45.114:1.3`, `1.4`, `1.6`.
+
+  **`1.5` giữ `…` của `…pe…` và không mở rộng**, dù Sujato để trống cả sáu
+  khoá ở bài này. `rāgavinayapariyosāna` → *sự khuếch tán và loại bỏ* theo đúng
+  `sn45.109:1.4`.
+
+  **Khiếm khuyết ở tầng Pāli, ghi lại chứ không sửa Pāli.** Pāli mở `“` ở
+  `sn45.110:1.1`, `111:1.1`, `112:1.1`, `113:1.1` nhưng **không có** `”` đóng ở
+  bất kỳ khoá `…:1.3` nào (Pāli chỉ viết `dutiyaṁ.`, `tatiyaṁ.`, `catutthaṁ.`,
+  `pañcamaṁ.`). Bản Việt đóng ngoặc ở cả bốn khoá `1.3`, **đúng theo khoá cũ đã có
+  sẵn** `sn45.110:1.3` = *Thứ hai.”* — nếu không thì bài mất cân và
+  `ngoặc()` của `_hvi` đỏ. Đây là **4 khoá lệch** mà phép kiếm 2 in ra, và nó là
+  sửa bản dịch cho khiếm khuyết Pāli, không phải lệch ý.
+
+  **`sn45.114:1.8` là colophon, không phải lời thoại.** `(Rāgavinayadvādasakī
+  dutiyakī samuddaninnanti.)` dịch theo đúng hình dạng colophon đã có ở
+  `sn45.122-126:1.16` (`Amatogadhadvādasakī tatiyakī` → *Bài thứ mười hai trong
+  loạt …, lần thứ ba*). `rāgavinaya` → *Đoạn Trừ Tham*, ghép từ tiền lệ
+  `sn45.109:1.4` (*loại bỏ tham*) và `sn46.175-184:3.1` (*Hết Giận Dữ*).
+  ⚠ Khuôn `dvādasakī` = *bài thứ mười hai trong loạt* chỉ có **1** tiền lệ;
+  `dutiyakī` = *lần thứ hai* theo cùng tiền lệ. Đây là chỗ đặt mới, và là lý do
+  `ambiguity_integrity` ở 9,0. ⚠ Pāli khoá này dài **48** ký tự nên **lọt vào
+  mẫu số coverage** dù là colophon (đúng loại cảnh báo trong `BRIEF_VI4` §4).
+
+  **Đo được tầng Anh — đây là lý do bài giữ `draft`.** Mẫu số: Pāli ≥ 40 ký tự,
+  bỏ khối `:0` và bỏ khoá đánh số `X.0` ⇒ **11** khoá. Sujato phủ **5/11 =
+  45,5%**, dưới ngưỡng 80% khai trong `content/meta/reference-gaps.yaml`; sáu khoá
+  trống là `sn45.114:1.2`, `:1.3`, `:1.4`, `:1.5`, `:1.6`, `:1.8`. Trong mười một
+  khoá mẫu, **một** khoá là colophon `sn45.114:1.8`; bỏ nó thì 5/10 = 50%, vẫn
+  dưới ngưỡng. **Ba tầng tham khảo khác: `english-project` không có, Sujato có
+  nhưng im lặng ở sáu khoá, `translation/vi/phantuananh` không có** (bilara tại
+  commit đã ghim chỉ có Pháp Cú cho tiếng Việt). Tệp này **không có** trong
+  `content/meta/reference-gaps.yaml`, mà lát này cấm sửa tệp đó, nên
+  `validate` sẽ chặn `review`/`published`. Tôi để nguyên blocker cũ và **xoá**
+  đúng blocker cũ về *giữ 6/23 khoá* vì nay đã đủ 23/23.
+
+  **Không có tầng lấp `english-project` cho hai bài** nên ở đây không có vấn đề
+  tự chấm bài của mình: sáu khoá phải dựa một mình vào Pāli.
+
+  **technical_integrity 9,6** vì lát này **cấm chạy** `npm run validate`,
+  `npm test`, `npm run check`, `npm run build` — bốn lệnh còn lại, người điều
+  phối chạy sau khi gộp. Tôi không tuyên bố technical gate pass. Các kiểm thay
+  thế đã tự chạy và đều sạch: đủ khoá và đúng thứ tự, NFC, không Pāli lọt,
+  không khoá trùng nguyên văn Pāli, số dấu lược khớp từng khoá, ngoặc kép cân
+  trên cả bài.
