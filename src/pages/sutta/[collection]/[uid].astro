@@ -43,7 +43,7 @@ const statusLabel = document.hasProjectData ? document.status : 'not-started';
     {document.summary && (
       <section class="sutta-summary" data-pagefind-body>
         <h2>Tóm tắt & diễn giải</h2>
-        {document.summary.split(/\n{2,}/).map((para) => <p>{para}</p>)}
+        {document.summary.split('\n\n').map((para) => <p>{para}</p>)}
         <p class="summary-note" data-pagefind-ignore>
           Phần tóm tắt do dự án biên soạn để hỗ trợ đọc, không phải kinh văn. Bản Pāli và các
           bản dịch hiển thị bên dưới mới là nội dung có thẩm quyền.
