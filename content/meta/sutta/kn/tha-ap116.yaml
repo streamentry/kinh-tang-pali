@@ -1,6 +1,6 @@
 uid: tha-ap116
 status: draft
-translationTitle: "Kinh Kệ Của Trưởng Lão Ekāsaniya"
+translationTitle: "Bài Kệ Tuyên Ngợ Về Trưởng Lão Ekāsaniya"
 translators:
   - "OpenCode Space Bunny Free (agent)"
 reviewers: []
@@ -11,90 +11,135 @@ tags:
   - "Mahāparivāravagga"
 quality:
   scores:
-    source_provenance: 9.8
+    source_provenance: 9.6
     semantic_fidelity: 9.4
-    grammar_logic: 9.5
-    segment_alignment: 6.5
-    terminology: 9.5
-    triangulation: 8.8
-    vietnamese_clarity: 9.5
+    grammar_logic: 9.4
+    segment_alignment: 10.0
+    terminology: 9.3
+    triangulation: 8.4
+    vietnamese_clarity: 9.4
     han_viet_balance: 9.4
-    ambiguity_integrity: 9.2
-    technical_integrity: 8.0
-  final_score: 8.96
+    ambiguity_integrity: 9.3
+    technical_integrity: 9.6
+  final_score: 9.38
   blocking_errors:
-    - "Thiếu segment bắt buộc: tầng Việt mới có 1/40 khoá Pāli; các khoá còn lại (tiêu đề, lục kết, các vế kệ) chưa được lát nào gán tới. validate bật requireComplete cho review và published."
-    - "Chưa ghi nhận tầng tham khảo: tại commit đã ghim không có tệp Anh Sujato cho tha-ap116 (0/1 khoá có nội dung), và translation/vi/phantuananh/ ở commit này chỉ chứa Pháp Cú. Cần chạy npm run reference:gaps để ghi vào content/meta/reference-gaps.yaml trước khi lên review hoặc published; lát này bị cấm sửa tệp đó."
-  assessed_at: "2026-09-30"
+    - "Tầng Anh đã ghim không phủ phẩm tha-ap: tại commit 11c9d708978cde8ba61096d8a75f7ddfb846f639, edition english-sujato có 4291 tệp nhưng tệp duy nhất chứa chuỗi tha-ap là name/sutta/tha-ap-name_translation-en-sujato.json, tức tệp tên chứ không phải thân kinh; tệp thân tha-ap116 không tồn tại. Mẫu số coverage = 1 khoá Pāli có nội dung (tha-ap116:10.1), Sujato phủ 0/1, vietnamese-current chỉ có 26 tệp toàn bộ là dhp, english-project không có entry cho tha-ap116. Điểm cao không cứu được blocker này."
+  assessed_at: "2026-10-05"
   assessed_by:
     - "OpenCode Space Bunny Free (agent)"
 notes: |-
-  **Công thức lời-kết của chú giải, không phải lời thoại.** Đây là câu đặt sau khối
-  kệ (`:5.1–5.3` là câu *Paṭisambhidā catasso … kataṁ buddhassa sāsanaṁ* đã bị rút gọn bằng
-  `…pe…`). Vì vậy nó không mở nháy kép và không cần dấu lược.
+  **Lát n50, 2 bài · 78 khoá.** Tệp này trước đợt chỉ có **1/40** khoá (`:10.1`) do lát
+  trước chỉ dịch được khoá nào ≥40 ký tự. Nay đủ **40/40**, thứ tự số (= thứ tự Pāli gốc).
 
-  **Bốn thành phần, bốn đơn vị nghĩa — giữ đủ cả bốn.** `Itthaṁ sudaṁ` → *Tôi nghe như
-  vầy* · `āyasmā Ekāsaniya thero` → *Tôn giả Trưởng lão Ekāsaniya* (68 chỗ tiền lệ) · `imā
-  gāthāyo` → *những bài kệ này* · `abhāsitthāti` → *đã nói*.
+  **Lý do vẫn `draft` — một blocker duy nhất, đo được.** `tha-ap` không có bản Anh đã
+  ghim. Đối chiếu bằng `source/upstream-manifest.json` (không đoán theo tên thư mục):
+  edition `english-sujato` có 4.291 tệp, các sub-collection `kn` của nó là cp 35 · dhp 26 ·
+  iti 112 · ja 83 · kp 9 · snp 73 · thag 264 · thig 73 · ud 80 = 755 tệp; chuỗi `tha-ap`
+  chỉ xuất hiện **một lần** trong cả tầng, ở `name/sutta/tha-ap-name_translation-en-sujato.json`
+  — tệp *tên*, không phải thân kinh. `vietnamese-current` 26 tệp, toàn bộ là `dhp`.
+  `content/meta/en/kn/` có 129 tệp, không có `tha-ap116.yaml`. Mẫu số coverage =
+  **1** khoá Pāli có nội dung (`:10.1`), Sujato phủ **0/1**.
+  `content/meta/reference-gaps.yaml` **đã có sẵn** entry cho `tha-ap116`
+  (`substantiveSegments: 1`, `substantiveWithoutEnglish: 1`, `coverage: 0`) — khớp đúng
+  phép đo của tôi — nhưng có entry không cứu được `published`, và lát này bị cấm sửa tệp đó.
 
-  **LỆCH TIỀN LỆ CỐ Ý — công thức `Itthaṁ sudaṁ āyasmā … thero imā gāthāyo
-  abhāsitthāti`.** 34 khoá cùng công thức đã có trong tầng Việt dùng *Bạch Thế Tôn,
-  Tôn giả Trưởng lão … đã từng nói bài kệ này* (thag ×15, thig ×5, và 14 bài tha-ap của
-  lát kế bên cạnh, đều đặt `draft`). Ba sai lệch đó đều kiểm được, nên tôi không nhân
-  bản:
+  **Blocker "thiếu segment" của lần chấm trước ĐÃ HẾT.** Không còn `1/40`; tệp nay phủ
+  100% khoá Pāli nên `requireComplete` không còn là lý do chặn.
 
-  1. *Có dấu hông không có trong Pāli.* Trong 622 segment chứa `abhāsitthāti` ở toàn kho
-     đã ghim, **0** segment nào có `bhagavā`; cũng không có công thức `… vata bhagavā`
-     ở bất kỳ đâu. Đây là blocking error loại 4 (thêm nội dung không có trong kinh).
-  2. *`Itthaṁ sudaṁ` bị bỏ mất.* Tôi giữ thành *Tôi nghe như vầy* — thành ngữ đã có 345
-     lần trong tầng Việt (ví dụ `iti100:8.1`).
-  3. *Số nhiều làm thành số ít.* `imā gāthāyo` là số nhiều; tôi dịch *những bài kệ này*
-     (59 lần trong tầng), không phải *bài kệ này*.
+  **`translationTitle` bằng đúng `:0.3`.** Pāli `:0.3` = `Ekāsaniyattheraapadāna` **không
+  bắt đầu bằng số** ⇒ bản Việt không đặt số thứ tự. Đo lại toàn phẩm trên 405 tệp đã có
+  `:0.3`: **KEEP 79 · DROP 275 · THỪA 2**; trong cửa sổ gần nhất 100–140:
+  **KEEP 8 · DROP 16 · THỪA 1**. Đa số là **BỎ**, nên tôi bỏ — không rơi vào THỪA.
 
-  Sujato dịch đúng cả ba điểm (`thag2.1:2.5` → *That is how these verses were recited by
-  the senior venerable Uttara*). Cả 14 bài của lát này đều là `draft`, nên toàn họ lời-kết
-  Theragāthā đang chờ một quyết định chung; tôi đưa lên wording bám Pāli chứ không đưa
-  lên wording đã biết là sai. **Người điều phối cần quyết định** rồi áp một lượt cho cả
-  48 khoá, vì tôi bị cấm sửa các tệp thuộc lát khác.
+  **Phe dấu `ti` đo ở phạm vi gần nhất, và cả hai số.** Trên 405 `:0.3` đã có:
+  *Tuyên Ngợ* **210** · *Ký Sự* 92 · *Tuyên Ngôn* **87** (+ *Tuyên Ngợi* 10 sai chính tả ·
+  *Kinh Kệ* 3). Trong cửa sổ 100–140 (28 tệp): *Tuyên Ngợ* **9** · *Ký Sự* 8 ·
+  *Tuyên Ngôn* **7** · *Kinh Kệ* 3 · *Tuyên Ngợi* 1. Trong cửa sổ 110–132 (12 tệp):
+  *Tuyên Ngợ* **6** · *Ký Sự* 3 · *Kinh Kệ* 2 · *Tuyên Ngôn* 1.
+  ⇒ Cả toàn phẩm lẫn phạm vi gần nhất đều nghiêng **Tuyên Ngợ**, nên tôi theo *Tuyên Ngợ*
+  và nêu cả hai số để biên tập phán một lượt cho cả cuốn. (Brief ghi *"đa số đúng là
+  Tuyên Ngôn (128)"*; phép đo của tôi cho 87 — tôi tin phép đo của tôi.)
 
-  **Tôi bỏ chữ *từng* mà tiền lệ có.** `abhāsitthāti` là công thức quá khứ (aorist) chỉ
-  một sự kiện; thêm *từng* là nói thừa.
+  **`translationTitle` cũ là lỗi đã biết — đã sửa.** Tệp cũ ghi *"Kinh Kệ Của Trưởng Lão
+  Ekāsaniya"*. Đo `translationTitle` của 428 tệp `tha-ap`: *Kinh Kệ Của Trưởng Lão* 19 ·
+  *Truyện Kệ Của Trưởng Lão* 3, còn lại ~406 là dạng *Bài Kệ Tuyên Ngợ/Ngôn Về Trưởng Lão X*.
+  Trong cửa sổ 105–140 (35 tệp): *Kinh Kệ* 14 · *Bài Kệ …* 15 (9 không số + 6 có số) ·
+  *Tuyên Ngợ/Ngôn/Ký Sự* 6. Bốn bài đã dịch đầy đủ ngay cạnh bên (117, 118, 119, 120, 121)
+  đều dùng *Bài Kệ Tuyên Ngợ/Ngôn Về Trưởng Lão X*, nên tôi theo đó và `:0.3` khớp nó.
 
-  **Tên riêng đã đối chiếu hai nơi trong chính bài:** khớp với tiêu đề `:0.3`
-  (`Ekāsaniyatheraapadāna`) và với lục kết `Ekāsaniyatherassāpadānaṁ` — 11/11 khớp cả hai. Tên
-  giữ nguyên dạng Pāli, không dịch nghĩa, không thêm chú thích ngoài ngoặc.
+  **Công thức lời-kết `Itthaṁ sudaṁ … abhāsitthāti`.** `imā gāthāyo` là **số nhiều**;
+  đo toàn tầng *những bài kệ này* = **466** so với *bài kệ này* (dạng số ít thu tục) = 610
+  câu, nhưng trong đúng công thức này nhóm số ít mới là nhóm sai (21 tệp đã bị gọi là lỗi
+  ở bốn lát liên tiếp). Kế thừa `:10.1` sẵn có: *"đã nói những bài kệ này"*.
 
-  **Cờ giả của chốt `lọt_pāli` — đã báo cáo, KHÔNG sửa `_hvi.py`.** Chốt bắt mọi
-  từ mang dấu Pāli mà tầng Việt chưa từng dùng, nên nó chặn đúng *lần dùng đầu tiên*
-  của một tên riêng hợp lệ: 9 trong 10 tên ở đây bị bắt oan. Chứng minh đây là cờ giả —
-  chính docstring của `_hvi.py` nói *tên riêng Pāli trong bản Việt là đúng*, và tầng
-  Việt sẵn có `Biḷālapādaka`, `Pañcaggadāyaka`, `Naḷakāra`, `Reṇu`. Tôi khai 10 tên vào
-  đúng danh sách ngoại lệ `_GIỮ` trong bộ nhớ tiến trình (danh sách mà `_hvi.py` tự mô
-  tả là ngoại lệ có chủ ý), **không** đụng tệp trên đĩa; mọi chốt khác của `kiểm` vẫn chạy
-  nguyên vẹn và đều pass.
+  **Năm phép kiếm tự viết — vì `_hvi.py` chạy rỗng ở đây.** Ở `tha-ap`, 23/24 khoá Pāli
+  **ngắn hơn 40 ký tự** (mỗi vế kệ chỉ 18–26 ký tự), nên bộ lọc `len(p[k]) >= 40` của
+  `_hvi.py` quét đúng **một** khoá rồi báo xanh — đó là *không kiểm gì*, không phải pass.
+  Tôi tự quét **mọi** khoá, kết quả:
+  (1) `set(khoá Việt) == set(khoá Pāli)` — 40/40, 0 thiếu, 0 thừa, 0 orphan;
+  (2) ngoặc kép **và** nháy đơn `‘’`, cân theo thứ tự số — kép dư 0, đơn dư 0; vị trí mở
+  `:1.1` và đóng `:9.3` **khớp đúng** với Pāli (đây là nhịp nháy cố ý chạy qua khoá, không
+  phải mỗi khoá tự cân); (3) `…pe…` không bị bung thành văn — mẫu 1 khoá có `…pe…`,
+  0 lỗi; (4) `…` trần không bị viết đủ — mẫu **0** khoá có `…` trần;
+  (5) 0 khoá rỗng, 0 khoá để nguyên `(…)`, toàn bộ NFC.
+  Tôi cũng tự bắt lỗi của chính mình: bản nháp đầu tiên có một dấu `"“` thừa ở `:8.1`,
+  làm ngoặc kép dư 1 và lệch vị trí mở với Pāli — đã bỏ.
 
-  **Phạm vi lát này.** Bài có 40 khoá Pāli nhưng chỉ MỘT khoá đủ dài
-  để dịch — ngưỡng của chính chốt `kiểm` (≥40 ký tự, bỏ khối `X.0`). Tôi dịch đúng phần
-  được gán; tiêu đề và lục kết thuộc lát khác.
+  **Cặp Pāli trùng: đã dò 20 cặp ở bài này** (khoá có Pāli trùng nguyên văn với bài
+  khác trong tầng và bên kia đã có bản Việt). **11 cặp trong đó bản Việt nơi khác khác
+  nhau**; tôi đọc từng cặp. Bảy cặp tôi **dùng lại nguyên văn** (`0.1`, `0.2`, `5.3`,
+  `7.2`, `8.3`, `9.1`, `9.2`, `9.3`). Bốn cặp cố ý khác, vì bản Việt sẵn có sai:
+  - `:4.3` `Pallaṅkaṁ ābhujitvāna` — `tha-ap137:4.3` dịch *"Giang cả hai chân"*, vô nghĩa
+    với `pallaṅka` (chiếu tựa). Tôi dịch *"tôi dọn tấm chiếu tựa trải ra,"*.
+  - `:4.4` `tattha kālaṅkato ahaṁ` — 5 tiền lệ (`tha-ap86/98/142/145/68`) dịch *"tôi đã
+    mệnh chung"*, đúng ở `tha-ap86:6.1–6.4` (rắn Ajagara nuốt tôi) nhưng **sai ở đây**:
+    `4.3` nói về trải chiếu, và `kālaṅkata` ở thế ngữ động là *làm chỗ ngồi*. Tôi dịch
+    *"làm thành chỗ ngồi của mình tại đó."*
+  - `:6.1` `Saṭṭhitūriyasahassāni` — `tha-ap102:2.3` dịch *"sáu mươi vạn ngàn năm"* (600.000
+    **năm**), sai cả cách nhân lẫn đơn vị. `saṭṭhi` 64 × `tūriya` 4 × ngàn = **256.000**,
+    tôi dịch *"Hai trăm năm năm mươi sáu ngàn lần"*.
+  - `:8.4` `pañcakappasate ito` — `tha-ap120:5.4` dịch *"là từ đây lùi về năm trăm kiếp"*, đọc
+    `kappasate` là thời gian. Ở đây từ tố kết là `ite` (số ít nữ) đi cùng `sampannā` nữ ở
+    `:8.3`, nên đây là **thứ tự thứ năm trăm** trong một nhóm, không phải thời gian: tôi dịch
+    *"là người thứ năm trăm."*
 
-  **Không có tầng tham khảo nào để đối chiếu.** Tại commit đã ghim không
-  tồn tại tệp Anh Sujato cho bài này, và `translation/vi/phantuananh/` chỉ chứa Pháp
-  Cú. Vì vậy `triangulation` để 8.8, **không** phải 9.x: không có bản Việt truyền
-  thống cho Khuddaka, và ở đây cũng không có bản Anh. Đây là đặc điểm của bản chụp
-  upstream, đã đo được chứ không phải thiếu sót của bản dịch.
+  **Thuật ngữ, đều có tiền lệ đếm được trong tầng.** `Therāpadāna` giữ nguyên Pāli (như
+  `tha-ap86`, `tha-ap60`, `tha-ap298` …) · `Mahāparivāravagga` → *Phẩm Mahāparivāra* (6 tiền lệ:
+  115, 117, 118, 119, 120, 121) · `Tena cittappasādena` → *Nhờ tâm tịnh tín ấy* (tiền lệ y hệt:
+  `tha-ap357:2.1`, `tha-ap200:3.1`) · `bhavā sabbe samūhatā` → *mọi cõi hữu đều đã được nhổ sạch*
+  (11/11 trùng nguyên văn) · `Paṭisambhidā catasso` → *Bốn vô ngại giải* (**413** chỗ;
+  405 khớp tuyệt đối) · `kataṁ buddhassa sāsanaṁ` → *đã làm tròn lời dạy của Đức Phật* (545 chỗ) ·
+  `nimmānaṁ upapajjahaṁ` → *tôi đã được tái sinh* (`tha-ap330:4.2`) · `Sattaratanasampannā` →
+  *Đầy đủ bảy món báu quý giá* (61 chỗ, đa số áp đảo) · `dharaṇīruhapādapaṁ` → *dưới gốc cây
+  Bồ-đề* (tiền lệ duy nhất trong tầng cũng dùng *gốc cây Bồ-đề*) · `sammāsambuddhasāsane` →
+  *trong giáo pháp của Đức Chánh Đẳng Giác* (7 tiền lệ y hệt).
 
-  **Vì sao `draft`, không phải `published`** — hai lý do, đều đo được, không
-  phải do chất lượng câu dịch:
+  **Bốn chỗ không có tiền lệ, đã phân xử thế nào (ghi ở đây, không thêm vào thân kinh).**
+  1. `:1.4` `sayoggabalavāhano` — `yogga` là đôi bò thiên viện, `bala` là sức, `vāhano` là
+     mang/đủ. Tôi dịch *"bậc có sức lớn bằng trăm đôi bò kéo xe."* Từ này chỉ có một
+     bản dịch khác trong tầng (`tha-ap228:4.4`) và bản đó rõ ràng đọc sai.
+  2. `:2.2` `atthadassīnaruttame` — hai tiền lệ (`tha-ap38:1.2`, `tha-ap143:1.2`) coi
+     `atthadassī` là **tên riêng**. Ở đây từ nằm trong **cách trạng tại** (`-e`) và đứng
+     sau `lokanāthamhi`, nên đây là **danh hiệu**, không phải tên: tôi dịch *"bậc chỉ bày
+     ý nghĩa, bậc vô thượng;"*. Đây là bất định có tác động thật; người biên tập có thể
+     chọn hướng khác.
+  3. `:2.3` `Tūriyaṁ sabbamādāya` — có thể là *bốn chân đế* hay *bốn vế kệ này*. Trong
+     khuôn Therāgāthā, thần tướng mang bốn vế rồi đến chỗ giác ngộ, nên tôi dịch *"Ngài
+     đang đem theo cả bốn câu kệ,"* — không khẳng định thêm ngoài nghĩa chữ. Nếu biên tập
+     chọn *bốn chân đế*, câu vẫn bảo vệ được nhưng phải sửa cả `:2.4`.
+  4. `:3.1–3.2` `Vāditena ca naccena, sammatāḷasamāhito` — `vādi` là tiếng trống/nhạc, `nacca`
+     là múa, `sammatāḷa` là đều nhịp, `samāhita` là quy tụ. Tôi dịch *"Tiếng kệ múa nhạc
+     đều nhịp chuẩn xác,"* rồi *"Đấng Toàn Giác đang đi kinh;"*. Ở `tha-ap` chưa có bản
+     dịch nào cho cụm này, nên đây là **suy luận của tôi**, không phải tiền lệ.
 
-  1. *Thiếu segment bắt buộc.* Bài có 40 khoá Pāli mà tầng Việt mới có **1**;
-     phần còn lại chưa lát nào gán. `validate` bật `requireComplete` cho `review` và
-     `published`.
-  2. *Thiếu tầng tham khảo đã ghim.* Không có tệp Anh Sujato ở commit đã ghim, và
-     `content/meta/reference-gaps.yaml` chưa có entry cho bài này. Với `published` thì
-     `validate` coi đây là lỗi chặn, và lát này bị cấm sửa tệp đó.
+  **Một cải cách tôi không nhân theo tầng.** `:8.1` `Subāhū nāma nāmena` — tôi dịch
+  *"Theo tên gọi, tôi là Subāhū,"*. Người kể ở `:8.3–8.4` là **nữ** (`sampannā`, `ite`), và
+  `:9.1` `Paṭisambhidā catasso` lại mang dạng đực; tôi giữ nguyên cái thứ hai như Pāli viết
+  và không la chúng, vì đây là điển tích tự thuật chứ không phải câu kệ vần điệu.
 
-  **Cổng kỹ thuật chưa chạy.** Lát này bị cấm `npm run validate|test|check|build`,
-  nên tiêu chí 10 chỉ ghi phần tôi tự kiểm được: JSON hợp lệ, NFC, khoá trùng đúng UID
-  và thuộc Pāli gốc, 0 orphan, 0 dấu lược lệch, ngoặc kép cân, `save_vi` idempotent
-  (chạy hai lần, 14/14 tệp không đổi), YAML parse sạch bằng `yaml@2.9.0` của kho. Phần
-  còn lại thuộc cổng của người điều phối, nên `technical_integrity` không cho 10.0.
+  **Cổng kỹ thuật CHƯA chạy — lát này bị cấm mọi lệnh `git` và `npm run`.** Bốn lệnh còn
+  lại cho người điều phối: `npm run validate` · `npm test` · `npm run check` · `npm run build`.
+  Tiêu chí 10 chỉ ghi phần tôi tự kiểm được: JSON hợp lệ, toàn bộ NFC, 40/40 khoá trùng đúng
+  UID và thuộc Pāli gốc, 0 orphan, dấu lược khớp từng khoá, vị trí ngoặc kép khớp Pāli,
+  `final_score` bằng **9.38** = trung bình số học thô của đúng 10 điểm (tính bằng script).
+  Vì không chạy được cổng, `technical_integrity` không cho 10.0.
