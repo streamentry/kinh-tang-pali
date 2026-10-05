@@ -25,7 +25,8 @@ import assert from 'node:assert/strict';
 import test from 'node:test';
 import { readFileSync, readdirSync, existsSync } from 'node:fs';
 import { parse as parseYaml } from 'yaml';
-import { COLLECTIONS, loadCatalog, segmentMapForUid, sourcePathFor, upstreamFile } from '../../src/lib/canon/load';
+import { loadCatalog, segmentMapForUid, sourcePathFor, upstreamFile } from '../../src/lib/canon/load';
+import type { CollectionCode } from '../../src/lib/canon/types';
 
 const TRANSLATION_DIR = 'content/translation/vi/project/sutta/kn';
 const META_DIR = 'content/meta/sutta/kn';
@@ -46,7 +47,7 @@ function vietnameseOrdinal(viet: string | undefined): string | null {
   return null;
 }
 
-function readPali(code: string, uid: string): Record<string, string> {
+function readPali(code: CollectionCode, uid: string): Record<string, string> {
   const item = loadCatalog(code).texts.find((t) => t.uid === uid);
   const sp = item && sourcePathFor(code, uid, item.sourcePath);
   if (!sp) return {};
@@ -77,7 +78,7 @@ test('tha-ap :0.3 carries an ordinal exactly when the Pāli does', () => {
     const vi = JSON.parse(readFileSync(`${TRANSLATION_DIR}/${file}`, 'utf8')) as Record<string, string>;
     const key = `${uid}:0.3`;
     if (!(key in vi)) continue;
-    const pali = readPali('kn', uid)[key];
+    const pali = readPali('kn' as CollectionCode, uid)[key];
     if (typeof pali !== 'string' || !pali.trim()) continue; // no Pāli at this key: nothing to follow
     compared += 1;
     const want = paliOrdinal(pali);
