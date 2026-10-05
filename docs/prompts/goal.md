@@ -16,26 +16,26 @@ còn lại là chấm lại / sửa, không phải dịch.
 
 ---
 
-## TRẠNG THÁI HIỆN TẠI (đo 2026-10-05 tại `7162deb6`, `main`)
+## TRẠNG THÁI HIỆN TẠI (đo 2026-10-05 tại `fa8fa926`, `main`)
 
-HEAD của `main` = `7162deb6` — "đợt 12: 32 bài Việt / 1.499 khoá + 8 bài lớp lấp / 69 segment +
-sửa lớp 'Pāli trùng mà Việt lệch khoá' (#253)". Đang có PR #254 (đợt 13) chờ CI.
+HEAD của `main` = `fa8fa926` — "đợt 16: 12 bài Việt / 618 khoá + 12 bài lớp lấp / 117 segment (#261)".
 
-PR đã merge gần nhất: #254 đang chờ · #253 (đợt 12 + lớp lớn "Pāli trùng mà Việt lệch khoá"),
-#252 (đợt 11), #251 (lớp lấp `e9`), #250 (đợt 10), #249 (lát `c78`), #248 (lớp lược trần),
-#247 (lớp lược `…pe…`), #246 (`c74` + lớp lấp `e8` + đổi phản ví dụ của phép đo coverage),
-#245 (đợt 9a), #244 (`dn16` 8 khoá lệch), #243 (docs), #242 (`c64`), #241 (`c67`), #240 (`e7`),
-#239 (đợt 8a), #238 (`nibbānapabbhāro`), #237 (đợt 8a), #236 (docs), #235 (4 nhóm lỗi thuật ngữ),
-#234 (đợt 7), #233 (`e5`+`e6`), #232 (`pācīna`), #231 (đợt 6), #230 (`e3`+`e4`), #229 (docs),
-#228 (đợt 5a), #227 (`pages.yml`), #226 (đợt 4), #225 (verify tải).
+PR đã merge gần nhất: #261 (đợt 16) · #260 (đợt 15) · #259 · #258 · #257 · #256 (đợt 14) · #255 ·
+#254 (đợt 13) · #253 (đợt 12) · #252 (đợt 11) · #251 · #250 · #249 · #248 · #247 · #246 · #245 ·
+#244 · #243 · #242 · #241 · #240 · #239 · #238 · #237 · #236 · #235 · #234 · #233 · #232 ·
+#231 · #230 · #229 · #228 · #227 · #226 · #225.
 
-**28 PR đã merge.** Bài đủ mọi khoá: 3.857 → **5.240** (tại `7162deb6`); còn thiếu **896** bài /
-**131.733** khoá. Đợt 13 (PR #254) đưa lên **5.261** / còn **875** / **130.953** khoá.
+**30 PR đã merge.** Bài đủ mọi khoá: 3.857 → **5.321**; còn thiếu **815** bài / **128.657** khoá.
+Lớp lấp `english-project`: còn **247** text / **5.942** segment thiếu; **153** text dưới sàn
+coverage. Record `reference-gaps` **784** / 5.418 text. `test` **143 pass**.
 
-Lớp lấp `english-project`: còn **290** text / **6.269** segment thiếu; **179** text dưới sàn
-coverage. Record `reference-gaps` **781** / 5.358 text.
+Số tuyệt đối **đổi theo thứ tự merge**, nên hai tệp do cổng sinh (`reference-gaps.yaml`,
+`store-verification.json`) **phải sinh lại trên cây đã merge** trong worktree sạch, không dùng bản
+sinh trước đó.
 
-### ✅ Chính sách `tha-ap :0.3` — đã đo và **chốt** (2026-10-05)
+### ✅ Chính sách `tha-ap :0.3` — đã đo và **chốt**
+
+2026-10-05)
 
 **Quy tắc: bám Pāli.** `tha-ap*:0.3` giữ số thứ tự **khi và chỉ khi Pāli `:0.3` bắt đầu bằng số**.
 
@@ -608,6 +608,88 @@ thay vì 5): `sn22.61:1.3` và `sn22.77:2.1`.
 - `thag4.12:6.5–6.6`: Pāli ở uddāna ghi **20 kệ / 13 vị**, thực tế **48 / 12**. Ổ tương tự ở `thag5.12`.
 - `tha-ap108` trùng gần như trọn 24 câu kệ `tha-ap334` (cùng bậc Udakapūjaka).
 - `thag7.2` có `Lakuṇḍakabhaddiya` còn `thag7.5:8.2` có `Lakuṇḍabhaddi` — hai bài cùng nói một người.
+
+### 🔴 Bằng chứng mạnh nhất cho luật *"Pāli trùng nguyên văn thì cách dịch phải khớp"*
+
+`vv30` và `vv48` là **hai bài cùng một truyện**, và bản Việt trước đó lệch **37 trong 43** khoá có
+Pāli trùng nguyên văn. Không cổng nào bắt. Sai lệch cụ thể: `sassu` (chồng) → *thần Trăng* ·
+`avākiri` → *ngươi đánh rơi* · `ucchu` → tên riêng · `sahassanetto` → *nghìn con mắt* ·
+`bhante` → *bạch thầy*.
+
+⇒ **Quy tắc vận hành:** khi dựng lát, **dò Pāli trùng nguyên văn giữa các bài trong lát** và báo
+số cặp. Nếu hai bài cùng truyện thì cách dịch phải khớp, và **không** dùng bản của bài này làm tiền
+lệ cho bài kia khi bản kia đã lệch.
+
+Cùng lớp, hai tiền lệ sai: `vv23:8.3` + `vv25:7.3` dịch `saññā` thành *không nói lỗi* / *sát sinh*
+(đúng ra *ý thức*); `vv32:3.1–3.2` dịch cùng Pāli `Āveḷinī kañcanasannibhattace` thành *tràng hoa sen*
+/ *xấu xí*.
+
+### Phe dấu `ti` ở khoá đóng — **chưa có lựa chọn thống nhất**
+
+Đo một lần trước: `”ti?` **850** vs `”?` **150** toàn tầng. Nhưng theo bộ thì lệch nhau:
+`kn/mil*` **giữ 862 / bỏ 606** · `an*` **giữ 30 / bỏ 1656**. Còn trong `sn35`: `sn35.62` `sn35.75` chọn
+**giữ**, `sn35.74` chọn **bỏ** — cùng công thức, khác nhau.
+
+⇒ **Số trên đã cũ** (kho đã đổi nhiều đợt). Cần **một lần đo thống nhất toàn tầng**, và nếu chọn
+một phe thì **vá cả hai vế** — không vá riêng bài này.
+
+### Câu hỏi thêm một phe: ngoặc kép `“ …pe…`
+
+641 khoá có Pāli vừa mở ngoặc kép vừa mang lược; **637** bản Việt **bỏ** dấu mở — nhưng bỏ thì
+khoá sau thành ngoặc đóng không mở. `sn35.74:14.1` giữ (theo `sn18.11:1.12`), `sn35.62` giữ.
+⇒ Cùng tình huống, cần chốt một lần.
+
+### Lớp "Pāli ghim tự lệch ngoặc kép" — đã xử ở vài bài, **tầng ghim sửa được thì nên sửa**
+
+`sn35.94` lệch **−1** (`2.6` đóng `”` không mở) · `an6.29` lệch **+1** (`5.1` có `“` thừa của
+upstream) · `an3.91` đóng `”ti` nằm ở khoá **trống** ⇒ lớp lấp không thể cân.
+
+Cách xử đã dùng cho chiều **−1**: **thêm** `“` ở khoá mở chứ không **xoá** `”` (xoá mất luôn `”ti`).
+Chiều **+1**: **không** bịa `”` để bù (cắt ngang lời Ānanda và mất `”ti` ở khoá sau).
+
+### Ba tầng Anh cùng thiếu, nhưng ba cách xử khác nhau
+
+| tình huống | ví dụ | cổng coverage | hành động |
+|---|---|---|---|
+| Sujato **im lặng** ở đoạn có nội dung | `sn42.5` (1/18) · `sn35.93` (29/40) | **đo được**, dưới ngưỡng | `draft` + blocker, và **còn lấp được** ở lớp lấp |
+| Tệp Sujato **có** nhưng thiếu tầng lấp | `sn35.74` `sn35.94` | **100%** | `published`, không cần lấp |
+| **Không có tệp Sujato nào** | `vv` `mil` `ne` `tha-ap` `pv` `ps` | mẫu số = 0 ⇒ **không đo được gì** | `draft` + blocker thật, `triangulation ≤ 8.0` |
+
+### Ba lớp kiểm mà `_hvi.py` **không** bắt — đã đưa vào prompt từng lát
+
+1. `set(khoá Việt) == set(khoá Pāli)` — `_hvi` chỉ quét khoá **≥ 40 ký tự**; ở bài kệ ngắn nó **chạy
+   rỗng**, tức chạy xong mà kiểm không gì. ⇒ **luôn in số khoá so sánh** cùng kết quả.
+2. Nháy **đơn** `‘’` cân *từng khoá* — `ngoặc()` của `_hvi` **chỉ đếm ngoặc kép**. Nhân bản từ các
+   lát trước đã bắt được `an10.22:2.3`, `mil6.3.11:6.4`, `sn41.6:3.4/6.4`, và `mil3.1.4` **sót hẳn
+   30 khoá** dấu `ti`.
+3. **Pāli trùng nguyên văn TRONG CHÍNH bài** mà bản Việt khác — bắt được ở `thag7.2:6.2`/`7.2`.
+
+### Dạng lỗi lặp lại nhiều nhất trong phiên: **con số viết từ trí nhớ**
+
+Ba lát độc lập tự bắt số sai trong `notes` của chính mình: `n11` **6 chỗ** · `e2` **6 chỗ** (một cái
+**đảo chiều**: tưởng 41 ký tự *"trên ngưỡng"*, đo lại **37, dưới** ngưỡng) · `n15` **2 chỗ**. Tôi cũng
+phạm (`ghi "+5" rồi tự sửa thành 14`; `"thứ bốn mươi tám"` cho hai số khác nhau).
+
+⇒ Số sai theo hướng **có lợi** cho bản thân mới là nguy hiểm nhất. Mọi số trong PR phải đọc lại từ
+output lệnh.
+
+### Hai sai sót quy trình của tôi, đã ghi để không lặp
+
+1. Script sửa **71** tệp rồi `git add` theo **danh sách lát đã ghi sẵn** ⇒ **57** tệp không được
+   commit. Chính test mới bắt được ở lần chạy đầu trên worktree sạch.
+   ⇒ `git add` theo **output của chính script đó**.
+2. Script chép tệp ghép **đường dẫn tương đối** rồi `replace(R, W)` ⇒ không thay được, `copy2` ném
+   `SameFileError`, và bản chép **dừng giữa chừng** ⇒ PR có **một bài dịch không metadata**.
+   ⇒ Dùng `copy` để hợp nhất, và **không** báo "xong" khi script còn ngoại lệ.
+
+### ⚠️ Tranh chấp nhánh với **một session khác** trong cùng kho
+
+Session kia đã `git checkout` khỏi `vi-wave14` sang `feat/sutta-summary` **giữa chừng**, nên commit
+`6ef4468b` của tôi rơi lên nhánh của họ. Tôi **không** sửa nhánh của họ — cherry-pick sang
+`vi-wave14` trong worktree riêng. Nhưng `feat/sutta-summary` hiện **có** commit đó ở trên đỉnh.
+
+⇒ **Từ đợt 15 tôi không commit trong cây chính nữa**: agent ghi vào `/Volumes/SSD/kinh-tang-pali`,
+tôi **chép** sang `/Volumes/SSD/_wtX-coord` rồi commit ở đó. Cần người biên tập xử `feat/sutta-summary`.
 
 ## MỐC HOÀN TẤT
 
