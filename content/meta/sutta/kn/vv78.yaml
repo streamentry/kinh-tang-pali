@@ -1,0 +1,169 @@
+uid: vv78
+status: draft
+translationTitle: "Chuyện Cung Điện Vàng"
+translators:
+  - "OpenCode Space Bunny Free (agent)"
+reviewers: []
+tags:
+  - "kn"
+  - "khuddaka-nikaya"
+  - "vimanavatthu"
+  - "sunikkhittavagga"
+  - "suvanna"
+quality:
+  scores:
+    source_provenance: 9.5
+    semantic_fidelity: 9.2
+    grammar_logic: 9.0
+    segment_alignment: 10.0
+    terminology: 9.2
+    triangulation: 7.5
+    vietnamese_clarity: 9.3
+    han_viet_balance: 9.3
+    ambiguity_integrity: 9.0
+    technical_integrity: 9.6
+  final_score: 9.16
+  blocking_errors:
+    - "Không có tầng tham khảo tiếng Anh tại commit đã ghim. Đo trên `source/upstream-manifest.json`: tầng `en-sujato` có tệp cho 9 sub-collection của `kn` (cp, dhp, iti, ja, kp, snp, thag, thig, ud) và **0 tệp** cho `vv`, nên đây là `not-published-upstream`, KHÔNG phải `not-synced`. Cổng coverage của bài này còn **không đo được gì** vì lý do riêng (mẫu số bằng 0, xem `notes`), nên không có cách nào chứng minh tầng Anh phủ được bao nhiêu. Tầng `vietnamese-current` cũng vắng: bản Việt đã ghim ở commit đã ghim chỉ có Pháp Cú, không có Nikāya. Lớp lấp `english-project` của dự án không có tệp nào cho bài này (trong thư mục `kn` của lớp lấp chỉ có một tệp `vv`, và không phải vv78). Ba tầng tham khảo đều vắng ⇒ bài dịch chỉ từ Pāli root. `scripts/validate.ts` coi tệp Anh thiếu là error khi status là `review` hoặc `published`, nên bài bắt buộc `draft`; đây là giới hạn upstream chứ không phải lỗi của người dịch. Vì vậy `triangulation` bị chặn ở 7.5 (≤ 8.0) chứ không nâng để né blocker."
+  assessed_at: "2026-10-06"
+  assessed_by:
+    - "OpenCode Space Bunny Free (agent)"
+notes: |-
+  Dịch từ Pāli root đã ghim, 54/54 khoá, thứ tự khoá khớp đúng thứ tự Pāli.
+
+  **Với bài này, cổng không đo được gì — và đó không phải "không cần ghi nhận gap".**
+  Cụ thể: đo theo đúng công thức `source/layers.yaml` (Pāli ≥ 40 ký tự, loại block tham
+  chiếu `:0`) thì vv78 có **0** segment trên tổng 54: khoá Pāli dài nhất là 26 ký tự tính
+  cả dấu cách cuối (25 sau khi bỏ), và đó là khoá `1.1`. Mẫu số bằng 0 nên `ratio` ra 1,0000
+  và ngưỡng 0.8 không hề bị vượt. Hai sự thật này khác nhau: "không có gì để đo" không
+  phải "đã đo và không thiếu". Bài này vì thế không được coi là đã đối chiếu English.
+
+  **Hai quy ước đánh số của phẩm `vv`, đo lại rồi mới làm theo — không trộn hai cái.**
+  Tệp dịch, khoá `:0.4`, **giữ** số thứ tự: đo 64/64 tệp `vv` đã có đều mở đầu bằng
+  `N.`, nên `0.4` ở đây viết *4. Chuyện Cung Điện Vàng*. Metadata `translationTitle`
+  thì **bỏ** số: đo 64 tệp metadata `vv` thì **51 bỏ** và **13 giữ**, và 13 tệp giữ
+  số chính là 13 tệp chép nguyên dòng `0.4` sang. Đa số rõ ràng là bỏ (79,7%), nên
+  `translationTitle` viết *Chuyện Cung Điện Vàng*, không có số. Lưu ý cho người điều
+  phối: con số 49/62 nêu trong brief đã cũ, đo lại trên đĩa hôm nay là 51/64 vì đã có
+  thêm bài mới; **đạo hướng đa số thì không đổi** — hai con số cũng như hai tỉ lệ, và
+  theo luật phải tin phép đo của mình.
+
+  **Tên phẩm và tiêu đề, đều theo đa số có số đếm.** `0.1` `Vimānavatthu` giữ nguyên
+  Pāli: 63/64 bài `vv` giữ, chỉ 1 bài dịch. `0.2` `Purisavimāna` → *Chuyện Cung Điện
+  Nam Hư Không* 17/26 bài `vv` (vs *Thiên Cung Của Nam Giới* 5, giữ Pāli 3); phạm vi
+  gần nhất — cùng phẩm `Sunikkhittavagga` — là 6/6 theo cách này, và `vv85:11.5`
+  dịch `Purisānaṁ` thành *Trong Cung Điện Nam Hư Không*, khớp. `0.3` `Sunikkhittavagga`
+  → *Phẩm Khéo Đặt Để* 6/7 toàn tầng và 6/6 cùng phẩm. Đầu từ của tiêu đề `*vimānavatthu`
+  đo được *Cung Điện* 54/64 trong tệp dịch và 52/64 trong metadata, *Thiên Cung* 6, *Lâu
+  Đài* 3 (vv59, vv60, vv77) — nên đa số là *Cung Điện*, và `Suvaṇṇavimāna` dịch *Cung
+  Điện Vàng*. Ghi rõ mâu thuẫn này vì nó có thật trong tầng: vv60 `Paṭhamanāgavimāna`
+  dùng *Lâu Đài* còn vv61 `Dutiyanāgavimāna` lại dùng *Cung Điện* cho cùng một nhóm
+  bài; tôi theo đa số đo được, không tự sinh cách thứ N+1. `13.1` theo dạng *Cung Điện X,
+  thứ tư*: `catutthaṁ` → *thứ tư* đã đúng ở 6 bài `vv` (vv4, vv21, vv28, vv32, vv42,
+  vv68), và ở bài này `:0.4` ghi `4.` còn `:13.1` ghi `catutthaṁ` — hai chỗ **khớp nhau**,
+  không có mâu thuẫn nào cần phân xử.
+
+  **Văn phong: đã đọc Pāli rồi kết luận, không suy đoán từ tên bộ.** `vv` **là** thơ 4
+  vế ngắn nhưng khuôn là **câu văn xuôi tiếp vế**: vế sau bắt đầu chữ thường, vế trước
+  kết bằng dấu phẩy hoặc dấu chấm phẩy (ví dụ `7.1` *Trong tòa cung điện nguy nga ấy,* /
+  `7.2` *vị thiên tử, bậc đại uy lực,*). Bài này viết đúng khuôn đó; chỉ ba khoá ngữ cảnh
+  (`:0`, và khoá mở lời thoại `1.1`, `10.1`) được viết hoa. Không dịch văn xuôi từng
+  câu như AN/SN. Xác nhận bằng chính bài: 25 khoá có dấu câu ở cuối vế và 29 khoá bắt đầu
+  bằng chữ thường.
+
+  **Bốn chỗ crux, ghi thẳng ra chứ không bịa chỗ trống.**
+  - `devaputto mahappabho` (7.2): trong Pāli, `devaputta` và `mahappabho` **đều có thể
+    là từ gọi** (gọi `devaputta` giống hệt cách gọi), mà vế sau `Atirocasi` là ngôi thứ
+    hai và `bhāṇumā` là *tôi*. Khung chuẩn của `vv` là hỏi → *So devaputto attamano* →
+    trả lời, mà ở đây 7.1–8.4 nằm **trước** 9.1 (`So devaputto attamano`), nên người
+    nói 7–8 là bên **hỏi** (Tôn giả Moggallāna), và `devaputto mahappabho` phải là hai
+    từ gọi. Dịch *vị thiên tử, bậc đại uy lực,* và xưng *ngài* ở 7.3.
+  - `bhāṇumā` (7.4) không phải *tôi* mà là **mặt trăng**: cùng một hậu tố trong
+    `vv64:17.4` (*Abbhuddayaṁ sāradikova bhāṇumā*) và `thag21.1:44.2` (*…vītamalova
+    bhāṇumā*), cả hai đều là mặt trăng; 5 chỗ trong toàn Pāli đã ghim. Cho nên
+    `udyantova bhāṇumā` là *như mặt trăng vừa mới mọc lên*, không phải *như vừa bước
+    lên tôi*.
+  - `Dānassa te idaṁ phalaṁ` (8.1): `te` là **của ngài**, không phải *tôi đã cho ngài*.
+    Lý do: lời đáp ở 10.3–11.3 là **người kể tự kể** (`Ahaṁ`, `Vihāraṁ satthu kāresiṁ`),
+    nên sự bố thí là của chính vị thiên tử. 8.1–8.3 trùng nguyên văn với `vv5:6.1–6.3`
+    đã có bản Việt, nhưng bản đó dùng *của nàng* — ở `vv5` người nói là nữ thiên và
+    *nàng* là chính bà ấy, còn ở đây người nói là **nam** thiên tử và đang được gọi
+    *ngài*, nên *của nàng* sẽ thành lỗi ngôi kể. Giữ cấu trúc câu, đổi đại từ: *của
+    ngài*. Đây là **cố ý không chép nguyên văn**.
+  - `Ahaṁ andhakavindasmiṁ, buddhassādiccabandhuno;` (10.1–10.2): Pāli **hụt** một vế
+    nối. Đọc theo khuôn `vv42:4.1–4.2` (cùng chuỗi `buddhassādiccabandhuno`) thì
+    `buddhassādiccabandhuno` là thuộc tính bổ nghĩa cho `satthu` ở 10.3, không phải tân
+    ngữ riêng. Vì thế dịch *Tôi từng mù lòa, mắt không thấy được. / Đức Phật, bậc thân
+    quyến của Mặt Trời, / tôi đã cho dựng tu viện cho bậc Thầy,* — **không** dùng y
+    nguyên *đối với Đức Phật, thân quyến của Mặt Trời* của `vv42`, vì ở `vv42` danh từ
+    ấy là tân ngữ của `Adāsiṁ` còn ở đây nó là bổ nghĩa cho `satthu`: khác vị ngữ thì
+    bản Việt phải khác.
+
+  **Thuật ngữ, đều kèm số đếm.** `veḷuriya` → **lưu ly** (đa số rõ: cụm *vàng, bạc,
+  lưu ly và pha lê* 8 lần, *Cầu thang lưu ly có trụ lưu ly, thanh ngang và lan can
+  pha lê* 3 lần; chỉ 1 chỗ dịch *ngọc bích*); `phalikā` → **pha lê** (cùng 8+3 cặp đó);
+  `rūpiya` → **bạc**; `suvaṇṇa` → **vàng ròng** (theo *trang sức vàng ròng* đã dùng ở
+  `vv77:2.4` và `vv85:2.4` cho `suvaṇṇachannā`); `lohitaṅga` → **hồng ngọc** (3 lần,
+  trong đúng loại danh sách ngọc này); `masāragalla` giữ dạng Pāli **đá quý masāragalla**
+  (3 lần trong danh sách ngọc, không bịa tên tiếng Việt); `maṇī` → **ngọc quý**.
+  `thambhā` → **cột** (4 lần: `vv54:1.4`, `vv56:1.4`, `vv57:1.4`, `vv58:1.4` dịch
+  *cột bằng ngọc lưu ly*), `sukatā thambhā` → *cột trụ tốt đẹp*. `sopāna` → **cầu
+  thang** (3 lần *Cầu thang vàng có trụ vàng…*), `vedi` → **bậc thềm**, `daddalla` → **dãy
+  thềm**. `devaputto` → **thiên tử** (15 bài dùng *Vị thiên tử ấy vô cùng hoan hỷ* cho
+  đúng `So devaputto attamano`, 4 bài khác dùng cách khác); `attamano` → **hoan hỷ**.
+  `sīla` → **giới hạnh**, `añjalikamma` → **nghiệp cúi chắp tay**, `vihāra` → **tu viện**.
+  `vihāra` → **tu viện**. `pasanno sehi pāṇibhi` → *với đôi tay tịnh tín* (7/19 cặp
+  trùng nguyên văn dùng đúng *với tâm tịnh tín bằng chính đôi tay mình*; bản ở đây rút
+  gọn vì `sehi pāṇibhi` là công thức cố định, nên **không** phải chép nguyên văn).
+  `vippasannena cetasā` → *với tâm trong sáng*: đây là **hoà** 3/18 với *với tâm tịnh
+  tín rõ ràng* (3/18), nên chọn theo nghĩa chứ không theo đa số — `vippasanna` là *trong
+  sáng*, còn *tịnh tín* là `pasanna`/`saddhā` và không có trong hai khoá này.
+  `yassa kammassidaṁ phalaṁ` → *quả báo của nghiệp này là thế* (33/45, và 4/4 bài cùng
+  phẩm).
+  `nandane + vane` → **rừng Nandana** (theo `vv40:2.4`).
+
+  **Bốn từ mới, không có tiền lệ trong tầng, dịch theo nghĩa và ghi ở đây.**
+  - `aṭṭhaṁsā` (2.1) = *tám phần mười sáu* (8/16, tức một nửa). Dịch **chữ** chứ
+    không rút thành *một nửa*, để phép kiểm số kiểm được. Đây là **con số duy nhất** cần
+    tự tính trong bài, và nó được viết ra đúng như cấu tạo Pāli.
+  - `ratanā satta` (2.4) = *bảy viên ngọc quý*. **Tự đếm lại danh sách ở 3.1–3.4 và khớp:
+    lưu ly 1, vàng ròng 1, pha lê 1, bạc 1, masāragalla 1, hồng ngọc 1, ngọc quý 1 = 7.**
+    Đây là phép đối soát nội bộ duy nhất của bài và nó đi qua.
+  - `gopāṇasī` (4.3) và `kūṭa` (4.4): **0 tiền lệ trong tầng Việt** (chỉ xuất hiện trong
+    ẩn dụ mái nhà gò của `an10.9–10` chưa dịch, và ở đó Pāli viết không có dấu mũ:
+    `gopānasi`, `gopānasiyo`). `gopāṇasī` là **chất màu vàng** sơn lên tày dài, nên ở
+    đây là màu sơn mặt đất. Giữ dạng Pāli `gopāṇasī` như đã giữ `masāragalla` và
+    `Vimānavatthu`, và dịch `kūṭa` thành **vạch kẻ**. Cách đọc `pītā` là tính từ ứng với
+    `Gopānasīgaṇā` (màu vàng của chất gopāṇasī) là cách đọc an toàn nhất; cách đọc
+    `pītā` là mạo từ dạt của `verūpā`/`sattā` vẫn mở nhưng không cần, vì nghĩa không đổi.
+  - `aṁsiyā` (2.3): `aṁsi` = **gương**; dịch *Từng cây một đều có gương*. `vindita`
+    không có ở đây nên không thêm ý *ánh sáng* vào.
+
+  **13 khoá dùng lại y nguyên văn, và phép đếm ngay dưới đây.** Đếm được **17** khoá của bài
+  này có Pāli **trùng nguyên văn** với ít nhất một khoá đã dịch ở nơi khác, tổng cộng
+  **916** cặp trùng đã dò; trong đó **841** cặp có bản Việt **y hệt** bản của tôi và
+  **75** cặp khác. **13** trong 17 khoá đó tìm được ít nhất một bản Việt trùng khớp từng
+  chữ nên dùng lại y nguyên: `0.1` (63/64 bài `vv` giữ Pāli), `0.2`, `0.3`, `8.3`, `8.4`,
+  `9.1`, `9.2` (`…pe…` → đúng một `…`), `9.3`, và `12.1`–`12.4` (**trùng nguyên văn
+  vv79:12.1–12.4** — cùng câu kệ tả rừng Nandana, dịch giống hệt để hai bài không tự
+  mâu thuẫn). Bốn khoá còn lại **không** có bản Việt nào trùng, và cả bốn đều là chỗ đã
+  ghi ở mục crux: `8.1`/`8.2` (`vv5:6.1–6.2` dùng *của nàng*, sai ngôi kể ở đây),
+  `10.2` (thuộc tính bổ nghĩa cho `satthu` chứ không phải tân ngữ như ở `vv42`), `10.4`
+  (rút gọn). 75 cặp lệch **không** tập trung ở `9.2` — khoá đó 695/695 cặp đều y hệt —
+  mà rơi vào `10.4` 19, `11.4` 15, `9.3` 12, `0.2` 9, `9.1` 8, `10.2` 5, `8.4` 3, còn lại
+  rải đều; xem lý do ở các mục crux và thuật ngữ. **Phép kiểm Pāli trùng nguyên văn
+  *trong chính bài này* thì chạy rỗng**: vv78 không có hai khoá nào trùng nhau, nên mẫu số
+  bằng 0, không có gì để so.
+
+  **Năm phép kiểm, in kèm mẫu số.** (1) Tập khoá: 54/54 khớp Pāli, cả tập và cả thứ tự.
+  (2) Nháy `‘’` và `“”` khớp Pāli **từng khoá**: so 54 khoá, 0 lệch; Pāli mở `“` ở `1.1`
+  và `10.1`, đóng `”` ở `8.4` và `12.4`, và bản Việt y hệt. (3) Pāli trùng trong chính
+  bài mà Việt khác: **mẫu số 0, phép này rỗng**. (4) Dấu lược: so 54 khoá, 0 lệch; Pāli
+  có `…pe…` ở đúng 1 khoá (`9.2`) và bản Việt giữ **đúng một** `…`, không bao giờ mở
+  rộng; `…` trần 0 ở cả hai đầu; `(…)` 0 ở cả hai đầu nên không có chỗ nào phải giữ.
+  (5) NFC, khoá rỗng, khoảng trắng thừa, Pāli lọt sang tiếng Việt: 54 khoá, 0 lệch; ba
+  chữ Pāli giữ có chủ ý là `Vimānavatthu`, `masāragalla`, `gopāṇasī`.
+
+  Bốn lệnh cổng kỹ thuật do coordinator chạy, không chạy trong lát agent: `npm run validate`,
+  `npm test`, `npm run check`, `npm run build`. Vì bốn lệnh ấy chưa chạy ở lát này,
+  `technical_integrity` đặt 9,6 chứ không 10,0.

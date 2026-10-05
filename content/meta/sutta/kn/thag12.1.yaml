@@ -1,0 +1,157 @@
+uid: thag12.1
+status: published
+translationTitle: "Kinh Kệ Của Trưởng Lão Sīlavattha"
+translators:
+  - "OpenCode Space Bunny Free (agent)"
+reviewers: []
+tags:
+  - khuddaka-nikaya
+  - theragāthā
+  - bộ-mười-hai-bài-kinh
+  - phẩm-thứ-nhất
+  - sīlavattha
+quality:
+  scores:
+    source_provenance: 9.5
+    semantic_fidelity: 9.1
+    grammar_logic: 9.0
+    segment_alignment: 10.0
+    terminology: 8.8
+    triangulation: 8.3
+    vietnamese_clarity: 9.2
+    han_viet_balance: 9.3
+    ambiguity_integrity: 8.8
+    technical_integrity: 9.6
+  final_score: 9.16
+  blocking_errors: []
+  assessed_at: "2026-10-06"
+  assessed_by:
+    - "OpenCode Space Bunny Free (agent)"
+notes: |-
+  LƯỢT REVIEW ĐỐI KHÁNG + CHẤM ĐIỂM. Bản dịch có sẵn trên đĩa do phiên trước ghi rồi chết
+  trước bước metadata; bài này đã chết HAI lần trước nên tôi không tin tệp là đúng và đã
+  dựng lại từng câu từ Pāli root đã ghim. Đã đọc hết 53/53 khoá, không đọc mẫu rồi kết luận.
+
+  ⚠️ MẪU SỐ COVERAGE = 0 — CỔNG NÀY KHÔNG ĐO ĐƯỢC GÌ.
+  `source/layers.yaml` đặt `substantivePaliMinChars: 40`, `excludeReferenceBlock: true`. Bài
+  này có 49 khoá thân (bỏ khối `:0`), nhưng khoá Pāli thân dài nhất chỉ **25 ký tự** (5 khoá
+  dài nhất: 25, 25, 24, 24, 24) ⇒ **0/49** đạt ngưỡng. Nguyên nhân là cấu trúc Theragāthā:
+  mỗi pāda một khoá nên không khoá nào dài. Vì vậy phép coverage theo đúng định nghĩa kho
+  **không lấy mẫu được**: nó là *"không đo được gì"*, KHÔNG phải *"không cần ghi nhận gap"*,
+  và tôi KHÔNG dùng nó làm căn cứ để kết luận `published`. (`src/lib/canon/reference.ts` quy
+  định `ratio = 1` khi mẫu số bằng không — đó là **quy tắc kho**, không phải bằng chứng đối
+  chiếu.)
+
+  TẦNG THAM KHẢO — tra `source/upstream-manifest.json`, không suy từ tên thư mục.
+    · `english-sujato`: CÓ trong bản chụp đã ghim (tệp `sutta/kn/thag/thag12.1_...` của tầng
+      `translation/en/sujato`). Đo thô trên **mọi** 53 khoá: **52/53** có prose, khoá trống
+      duy nhất là `:12.5` (dòng bìa `… Sīlavo thero ….`, không ai dịch dòng bìa). Đây là độ phủ
+      thô để người biên tập tự phán, KHÔNG phải coverage theo cổng.
+    · `english-project`: không có tệp cho bài này.
+    · `vietnamese-current`: vắng. Tại commit đã ghim lớp Bilara tiếng Việt chỉ có 26 tệp
+      Pháp Cú; đây là **đặc điểm của cả tầng** ở `thag`, không phải thiếu sót của repo.
+
+  ⚠ TẦNG ANH KHÔNG ĐÁNG TIN Ở ĐÚNG BÀI NÀY — CHỈ LÀM CẢNH BÁO.
+  Cấu trúc khoá của bản Anh **lệch** so với Pāli: `:1.4` mang lời của Pāli `:2.1`, `:2.4`
+  mang lời của Pāli `:2.1`, `:3.2` mang lời của Pāli `:3.1`, v.v. — tức bản Anh không khớp
+  ranh giới khoá Pāli, nên **không dùng được như neo đối chiếu ở mức khoá**. Nó cũng **tự
+  mâu thuẫn**: `:6.3` dịch `Titthañca sabbabuddhānaṁ` thành *the ford where all the Buddhas
+  cross over* (coi `titthi` là bến), trong khi một chỗ khác cùng tầng dịch `Titthajātakaṁ` là
+  *Bến Lội*. Mọi quyết định nghĩa dưới đây đều quay về Pāli.
+
+  ĐO TỈ LỆ TÊN PHẨM — ghi cả hai số, theo đúng lưu ý là đừng áp chính sách `:0.3` của `tha-ap`.
+    · `:0.2` `Dvādasakanipāta` → *Bộ Mười Hai Bài Kinh*. **Phạm vi gần nhất chỉ có 1 tệp**:
+      chính bài này — `thag12.1` là tệp `thag` duy nhất thuộc quyển 12 đã có bản Việt. Không có
+      đa số cục bộ để đo. Phạm vi rộng: khuôn *Bộ <N> Bài Kinh* chiếm 120/240 cho
+      `Ekanipāta` (*Bộ Một Bài Kinh*) và 49/240 cho `Dukanipāta` (*Bộ Hai Bài Kinh*); tôi theo
+      đúng khuôn đó.
+    · `:0.3` `Paṭhamavagga` → *Phẩm Thứ Nhất*: **78/91** tệp `thag` có Pāli đúng `Paṭhamavagga`
+      (xét theo **giá trị Pāli tuyệt đối**, không đếm chuỗi Việt). Đây là đa số rõ ràng ở `thag`
+      và khớp với con số 76/76 nêu trong đầu việc. ⇒ giữ *Phẩm Thứ Nhất*.
+    · `:0.4` theo khuôn *Kinh Kệ Của Trưởng Lão <tên Pāli>*: **189/240** tệp `thag`.
+  `translationTitle` = *Kinh Kệ Của Trưởng Lão Sīlavattha*, cùng khuôn 189/240.
+
+  SỬA 1 KHOÁ (đọc hết 53, tìm ra đúng một).
+  `:3.3`. **LỖI ĐẢO VAI CHỦ THỂ — TÁC NHÂN / BỊ NẠN NHÂN.** Pāli `Dussīlo pana mittehi,
+  dhaṁsate pāpamācaraṁ`. `mittehi` là **cách số nhiều của `mitta`** (chữ `hi` tức `-ehi`), nên
+  nó là **tác nhân**: *bởi bạn bè*; còn `dhaṁsate` mang đuôi thụ động `-te` ⇒ *bị đẩy đi*;
+  `pāpamācaraṁ` là chủ ngữ. Bản dịch cũ viết *"Còn kẻ thiếu giới, **cùng bạn bè** bị đẩy đi,
+  kẻ làm điều ác"*, tức biến bạn bè thành **người bị đẩy đi đi cùng**, đảo ngược quan hệ tác
+  nhân — và đảo mất đúng ý đối lập với `3.1–3.2` (người có giới *có được* bạn nhờ tự chế).
+  Đã sửa thành *"Còn kẻ thiếu giới, bị bạn bè đẩy đi, kẻ làm điều ác."*
+  Tiền lệ đã đo: `mittehi`/`paccāmittehi` trong tầng luôn là tác nhân (`dn30:1.11.6`,
+  `dn30:1.6.4` dịch *bởi kẻ thù địch*); `dhaṁsate` thụ động luôn dịch *bị …* (5 khoá
+  `an4.61` dịch *bị tan rã*, `thag3.3`/`thag3.15` dịch *bị thiêu đốt*). Sujato đọc ngược
+  (*drives away their friends*) nhưng cách đó **không đúng ngữ pháp**: `dhaṁsate` không thể
+  chủ động và `mittehi` không phải tân ngữ (tân ngữ số nhiều là `mitte`). Pāli là authority
+  cuối cùng nên tôi theo Pāli và ghi lại ở đây.
+
+  ĐÃ ĐO MÀ CỐ TÌNH KHÔNG SỬA — ba chỗ trông như lỗi nhưng đo ra là tiền lệ hoặc đúng.
+    · `:8.1` `Sīlaṁ setu mahesakkho` → *"là cầu nối vững chắc"*. Trông như bỏ mất `mahesakkho`
+      (nếu đọc là *"bậc trưởng lão"*) và thêm *"vững chắc"*. Nhưng `mahesakkho` ở giữa pāda và
+      đứng sau danh từ là **tính từ** bổ nghĩa cho `setu` = *cầu nối vững chắc / uy lực*, và
+      tầng dùng `mahesakkha` làm tính từ (`an4.33:1.9` *có oai lực lớn*, `an5.199:3.1` *có uy
+      thế lớn*). Cấu trúc song song `9.1–9.3` (`sambalamevaggaṁ` / `pātheyyamuttamaṁ` /
+      `seṭṭho ativāho`) xác nhận đây là danh ngữ ba danh từ, không phải câu kể. Không sửa.
+    · `:3.3` trước khi sửa còn hợp với `Sujato`; đã nêu lý do ở trên.
+    · `:12.5` `… Sīlavo thero ….` → *"… Trưởng lão Sīlavattha …."*. Bản Anh để trống. Khuôn
+      đo ở `thag`: **194/227** dòng bìa Pāli `… X thero ….` dịch kết `….` không có khoảng
+      trắng trước (toàn tầng thì ` ….` mới là đa số 398/760 — nhưng phạm vi gần hơn là
+      `thag`, nên tôi theo `thag`). Giữ **đúng hai** dấu lược, không gộp.
+
+  NĂM PHÉP KIỂM (tự viết, in kèm mẫu số; không dùng bộ lọc `len ≥ 40` vì ở bài này nó chạy rỗng).
+    1. `set(khoá Việt) == set(khoá Pāli)`: **53 = 53**, mẫu số 53; thiếu 0, thừa 0, và **thứ
+       tự khoá khớp đúng thứ tự Pāli**.
+    2. Nháy **đơn** `‘’` + ngoặc kép `“”` **khớp Pāli từng khoá**: **0/53 lệch**. Tổng: `“` 1/1,
+       `”` 1/1, `‘` 0/0, `’` 0/0. (Phép *cân tổng cả bài* cũng trả về 0 lệch ở bài này, nhưng
+       tôi vẫn đo từng khoá vì phép cân tổng từng bỏ sót 10 dấu ở lát trước.)
+    3. Pāli trùng nguyên văn **trong chính bài**: 1 nhóm (`5.4` + `6.4`, cùng `tasmā sīlaṁ
+       visodhaye.`) và cả hai dịch **giống hệt** ⇒ 0 nhóm lệch. **Pāli trùng nguyên văn ở bài
+       khác**: 5 khoá trong 49 khoá thân tìm thấy nguyên văn ở tệp khác của tầng; 4/5 dịch
+       giống hệt, 1/5 khác — đó là `:12.3` `Manussesu ca devesu`, và bản Việt **dùng lại
+       nguyên văn** `thag1.70:1.3` (*Ở giữa loài người và chúng thiên*); khác biệt còn lại là
+       `tha-ap116:6.3` (*Ở cả loài người và loài trời*), khác bối cảnh nên không ép.
+    4. Dấu lược: `…pe…` = 0 khoá; `…` trần = 1 khoá (`:12.5`, khớp); `(…)` = 0 khoá ở Pāli nên
+       0 ở Việt. Lỗi = **0/53**.
+    5. Số Pāli: chỉ có **một** con số trong cả bài, `tayo` ở `:2.2` = `ta` + `yo` ⇒ **3**, dịch
+       *ba loại an lạc* ✔. **Không có** `sattatīti`, `sattatiṁse`, `sattati` hay
+       `Tiṁsakappasahassa` trong bài này (đã tra toàn bộ khoá kể cả `:0`), nên cái bẫy
+       `sattatīti` = 7 của đầu việc **không áp dụng ở đây** và tôi không dùng con số 70 cho bất
+       cứ chỗ nào.
+  Vệ sinh: JSON hợp lệ, 53/53 khoá NFC, 0 khoá rỗng, 0 khoảng trắng thừa, 0 khoá Pāli lọt.
+
+  VÌ SAO `status: published` MẠT BẰNG CHỈ CAO 0,16 TRÊN NGƯỠNG 9,0.
+  Không có blocker: 53/53 khoá, 0 khoá thừa, 0 khoá thiếu, dấu lược và nháy khớp Pāli từng
+  khoá, tệp Anh đã ghim đủ **53/53** khoá ID nên không mất tầng tham khảo ở mức khoá, và lỗi
+  nghĩa duy nhất tôi tìm ra đã sửa xong. Cổng là máy: 0 blocker và trung bình 9,16 > 9,0 ⇒
+  `published`. Tôi **không** dùng cổng coverage (mẫu số = 0) làm lý do, vì nó không đo được
+  gì; lý do là chính lượt review này. Biên độ 0,16 là mỏng, nên các điểm còn dưới 9,0 là nơi
+  người biên tập nên soi trước nếu muốn hạ về `review`: `triangulation: 8.3` (tầng Anh lệch
+  cấu trúc khoá nên không đối chiếu được ở mức segment, `vietnamese-current` vắng),
+  `terminology: 8.8` và `ambiguity_integrity: 8.8` (hai chỗ dưới đây chưa phân xử trọn vẹn).
+  Hạ **một** trong ba điểm đó xuống 9,0 là đủ để bài về `review` — tôi ghi rõ để việc đó là
+  lựa chọn của biên tập chứ không phải việc của tôi âm thầm.
+
+  BẤT ĐỊNH CÒN LẠI (ghi ở đây, **không** thêm vào thân kinh).
+    · `:6.3` `Titthañca sabbabuddhānaṁ` → *là bến qua của mọi bậc Giác ngộ*. `titthi` đọc
+      được hai nghĩa không tương đương nhau: **bến / điểm vượt qua** (Sujato đọc *the ford where
+      all the Buddhas cross over*) hoặc **chỗ đứng vững / nền tảng** (nghĩa thường của `titthi`
+      trong kinh điển, và hợp với việc các câu kệ trước xếp `sīla` là *ranh giới*, *sự thu
+      thúc*, *sự lặp lại của tâm*). Bản Việt theo cách đọc thứ nhất. Chỗ này **chưa phân
+      xử**, và tầng không có tiền lệ nào cho công thức này để cân. Người biên tập nếu chọn cách
+      đọc thứ hai thì chỉ sửa một khoá, không đụng khoá khác.
+    · `:8.1` `Sīlaṁ setu mahesakkho` → *là cầu nối vững chắc*. Tôi đọc `mahesakkho` là **tính
+      từ** bổ nghĩa cho `setu`, không phải danh từ *bậc trưởng lão*, vì nó đứng giữa pāda sau
+      danh từ và cấu trúc song song `9.1–9.3` xác nhận đây là danh ngữ ba danh từ; tầng cũng
+      dùng `mahesakkha` làm tính từ (`an4.33:1.9`, `an5.199:3.1`). **Cách đọc này là suy luận
+      từ ngữ pháp và tiền lệ dùng từ, chưa có tra chứng từ điển**, nên ghi lại thay vì giả vờ
+      đã chắc.
+    · Bốn siêu từ `agga` (`12.1`), `uttama` (`7.2`, `9.2`, `12.2`), `seṭṭha` (`7.3`, `8.3`) và
+      `anuttara` (`8.2`) đều dịch *tối thượng* nên bị làm phẳng. Trong Pāli chúng gần nghĩa
+      nhau nên tôi giữ, nhưng `7.1` `appaṭimaṁ` lại dịch *không gì sánh bằng* cho cùng một ý
+      ⇒ hơi không nhất quán trong chính bài. Đây là lý do `terminology: 8.8`.
+
+  CỔNG KỸ THUẬT CHƯA CHẠY — lát này bị cấm chạy lệnh npm.
+  Bốn lệnh còn lại để người biên tập chạy trước khi coi `technical_integrity: 9.6` là đạt và
+  để xác nhận `status: published` không đỏ: `npm run validate`, `npm test`, `npm run check`,
+  `npm run build`.

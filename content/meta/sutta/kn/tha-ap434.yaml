@@ -1,0 +1,132 @@
+uid: tha-ap434
+status: draft
+translationTitle: "Bài Kệ Tuyên Ngợ Về Trưởng Lão Ekasaṅkhiya"
+translators:
+  - "OpenCode Space Bunny Free (agent)"
+reviewers: []
+tags:
+  - "khuddaka-nikaya"
+  - "therapadana"
+  - "ekaviharivagga"
+quality:
+  scores:
+    source_provenance: 9.5
+    semantic_fidelity: 9.2
+    grammar_logic: 9.2
+    segment_alignment: 10.0
+    terminology: 9.2
+    triangulation: 7.0
+    vietnamese_clarity: 9.2
+    han_viet_balance: 9.3
+    ambiguity_integrity: 9.0
+    technical_integrity: 9.6
+  final_score: 9.12
+  blocking_errors:
+    - "Không có tầng tham khảo tiếng Anh tại commit đã ghim (11c9d708978cde8ba61096d8a75f7ddfb846f639). Tra `source/upstream-manifest.json`: tầng `pali` có đúng một tệp cho uid này (`kn/tha-ap/tha-ap434_root-pli-ms.json`), còn tầng `english-sujato` (4.291 tệp) **không có tệp thân kinh nào** cho `tha-ap` — tệp `tha-ap` duy nhất trong cả tầng là tệp *tên* (`name/sutta/tha-ap-name_translation-en-sujato.json`); đây là `not-published-upstream`, KHÔNG phải `not-synced`. Tầng `vietnamese-current` cũng vắng (26 tệp, toàn bộ là Pháp Cú), và lớp lấp `english-project` không có entry cho uid này. ⇒ cả ba tầng tham khảo đều vắng, bài dịch chỉ từ Pāli root. Đo coverage theo đúng công thức `source/layers.yaml` (`substantivePaliMinChars: 40`, `excludeReferenceBlock: true`): mẫu số chỉ **1** khoá (`:14.1`, 64 ký tự; 53/54 khoá còn lại đều dưới 40) nên Sujato phủ **0/1**, tức cổng coverage gần như **không đo được gì** chứ không phải 'đạt'. `scripts/validate.ts` coi tệp Anh thiếu là **error** khi status là `review` hoặc `published`, nên bài bắt buộc `draft`; `content/meta/reference-gaps.yaml` có hay không có entry cũng không cứu được `published`. Đây là giới hạn upstream, không phải lỗi của người dịch. Vì vậy `triangulation` bị chặn ở 7.0 (≤ 8.0) chứ không nâng để né blocker."
+  assessed_at: "2026-10-06"
+  assessed_by:
+    - "OpenCode Space Bunny Free (agent)"
+notes: |-
+  Bản dịch chỉ từ Pāli root vì commit đã ghim không có bất kỳ tầng tham khảo nào phủ `tha-ap` (xem blocking_errors).
+  Đủ 10 tiêu chí scorecard; `final_score` = trung bình số học thô
+  (9.5+9.2+9.2+10.0+9.2+7.0+9.2+9.3+9.0+9.6)/10 = 9.12; status bắt buộc `draft` do blocker tầng tham khảo Anh.
+  `technical_integrity` 9.6 vì bị cấm chạy cổng. Bốn lệnh còn lại, **chưa** chạy:
+  `npm run validate` · `npm test` · `npm run check` · `npm run build`.
+
+  🔴 `translationTitle` bằng **đúng** giá trị `:0.3`, và `:0.3` của bài này **không** có số thứ tự
+  (Pāli `Ekasaṅkhiyattheraapadāna` không mở đầu bằng số) nên **không** thêm số vào tiêu đề. Đo lại trên
+  432 tệp `tha-ap` đã dịch: 131 tệp có số ở Pāli `:0.3`, trong đó KEEP 65 · DROP 66; cộng 301 tệp Pāli
+  không có số mà Việt cũng không có ⇒ **DROP 367 vs KEEP 65**, đa số rõ ràng là BỎ.
+
+  ⚠️ Phép đo bằng công cụ lọc `len(Pāli) >= 40` **chạy rỗng** ở đây: chỉ **1/54** khoá đạt ngưỡng, nên nó báo
+  xanh mà không kiểm gì. Đã tự quét **mọi** khoá, in kèm mẫu số:
+  (1) tập khoá **54/54** cân, 0 thiếu 0 thừa, `list(vi) == list(pali)` đúng ⇒ thứ tự khoá y hệt Pāli;
+  (2) ngoặc kép + **nháy đơn**: **54/54** khoá khớp Pāli từng khoá, 0 lệch; Pāli có `“` ở `:1.1` và `”` ở
+      `:13.3` tức **cố ý chạy qua khoá**, và bản Việt chạy y hệt (cùng đúng tập khoá chứa dấu);
+  (3) dấu lược: Pāli có 3 khoá `…pe…` (`:11.2`, `:12.2`, `:13.2`) và bản Việt để **đúng một** `…` ở cả ba,
+      không mở rộng; Pāli có 0 `…` trần, 0 `(…)`, 0 kết `….` ⇒ **54/54 sạch, 0 lỗi**;
+  (4) cặp Pāli trùng **trong chính bài**: đã dò 54 giá trị Pāli, tìm được **2 nhóm trùng**
+      (`buddhapūjāyidaṁ phalaṁ.` ở `:5.4`+`:10.4`; `…pe…` ở `:11.2`+`:12.2`+`:13.2`) — cả hai nhóm bản
+      Việt **giống nhau tuyệt đối**, nên 0 nhóm lệch. Phép này **có** mẫu đo, khác với trường hợp không có
+      cặp trùng nào (khi đó không được viết '0 lỗi');
+  (5) NFC 0 lỗi, 0 khoá rỗng, 0 khoảng trắng thừa, 0 khoá thân kinh trùng nguyên văn Pāli.
+  Riêng `:0.1` `Therāpadāna` trùng Pāli là **quy ước tầng**: 417/431 tệp `tha-ap` khác giữ nguyên văn; khối
+  `:0` là tiêu đề tham chiếu mà `source/layers.yaml` đã loại khỏi mọi phép đo.
+
+  🔴 Số Pāli — tự tính, in phép (mẫu số 6/6 khoá có số):
+  · `Saṭṭhituriyasahassāni` `:5.1` = (saṭṭhi **60** + tūriya **3**) × sahassa **1000** = **63.000** →
+    "Sáu mươi ba nghìn". Căn cứ trong chính tầng: `saṭṭhi` = 60 (`saṭṭhimattānaṁ bhikkhūnaṁ` = sáu mươi
+    vị tỳ-kheo, nhiều chỗ) và `tūriya` = 3 (`pañcaṅgikassa tūriyassa` = thứ tư trong năm; `catuttari` = thứ tư).
+    Còn cách **cộng** của tầng là `aṭṭhasaṭṭhi` = 68, chứng cứ `aṭṭhasaṭṭhibhikkhusatasahassaṁ` → 6.800.000
+    (= 68 × 100.000) và `Aṭṭhasaṭṭhisahassāni` → 68.000. 🔴 **Còn bất định, đã ghi ở đây**: cụm này có tiền lệ
+    Việt sai ở cả **3** nơi đã dịch — `tha-ap41:3.1` "sáu mươi ngàn" (bỏ mất `tūriya`), `tha-ap102:2.3`
+    "sáu mươi vạn ngần năm" và `tha-ap116:6.1` "Hai trăm năm năm mươi sáu ngần lần" — không nơi nào cho
+    63.000, nên **không có tiền lệ trực tiếp** xác nhận; 63.000 là cách đọc theo đúng ngữ pháp số của chính
+    lớp Pāli này, còn hai cách đọc khác là 60.000 (bỏ `tūriya`) và 180.000 (nhân 60 × 3.000). Đề nghị biên
+    tập phán một lượt cho cả cụm.
+  · `Ekasattatime kappe` `:6.1` = eka **1** + sattati **70** = **71** → "Từ bảy mươi mốt kiếp trước".
+    `sattati` = 70 xác lập bằng 14 khoá đã dịch trong tầng: `Tesattatimhito` = 73, `Catusattatito` = 74,
+    `Pañcasattatikappamhi` = 75, `Aṭṭhasattatikappamhi` = 78, `Ekūnasattatikappe` = 79, `Sattasattatikappamhi`
+    = 77, `Dvesattatimhito` = 72, `sattatiṁsa` = **37** (hậu tố `ṁsa` cho thấy từ số chỉ có giá trị khi đứng
+    sau từ số khác), `sattatikappamhi` = **7**. Cũng vậy `Ekasaṭṭhimhito` của tầng dịch "bảy mươi bảy" là
+    **sai** (1 + 60 = 61) — ngoài lát này, chỉ báo.
+  · `Ekanavutito kappe` `:10.1` = eka **1** + navuti **90** = **91** → "Từ chín mươi mốt kiếp trước" (109
+    khoá trùng nguyên văn trong tầng, đa số "… chín mươi mốt kiếp trước,").
+  · `Cāturanto` `:6.3` = catu **4** → "Đủ bốn món báu" (bốn vật báu của vua chúa).
+  · `Paṭisambhidā catasso` `:13.1` = catu **4** → "Bốn vô ngại giải".
+  · `dutiyaṁ` `:15.1` = **2** → ", thứ hai."
+  🔴 Cụm **chưa phân xử được** `Tiṁsakappasahassa`: **tha-ap434 không có cụm này** (0 khoá) nên bài này không
+  mang bất định đó.
+
+  🔴 Bất định đã ghi ở đây, **không** tự quyết và **không** đưa vào thân kinh:
+  · `aṅgasatā turiyā` `:7.1` — `aṅgasata` là **hapax toàn bộ lớp Pāli root đã ghim** (quét 5.764 tệp; các
+    khoá trùng `ṅgasata` chỉ là `saṅgasata`/`saṅgasatehi` = bảy sự trần, không liên quan). Cụm nằm trong
+    công thức kệ "con số … `parivārenti maṁ sadā`" (19 nơi trong `tha-ap`, mọi nơi đều đi kèm danh từ bị
+    lược), nên `satā turiyā` = "hàng trăm" là phần **chắc chắn**; còn giá trị của `aṅga` thì không xác lập
+    được. Bản dịch chỉ dịch phần chắc chắn ("Rồi hàng trăm,") và **không** bịa một số cụ thể — số bịa là
+    lỗi loại 2. Đề nghị biên tập tra thêm hoặc chấp nhận cách lược này.
+  · `vajjare bheriyo sadā` `:8.4` — `vajjare` là nơi chốn ("trong lõi trống"), `bheriyo` số nhiều, `sadā` =
+    "luôn luôn"; cả vế cũng là **hapax** (`vajjare bheriyo` chỉ có đúng 1 khoá toàn root). Đã dịch theo
+    nghĩa đen, giữ cả ba thành phần.
+  · `orakaṁ` `:2.1` — 0 tiền lệ trong tầng. Đọc là "thấp kém" (thuộc hạng), và `taṁ` là **người** ấy chứ
+    không phải việc cúng dường, vì hai vế sau (`buddhaseṭṭho bhavissati` + `Yassāyaṁ`) nói về **người** mà
+    đại giác ấy và bậc Đạo Sư đáng cúng dường.
+  · `mahābodhimaho ahu` `:1.2` — cùng nguyên văn với 3 khoá đã dịch, cả 3 đều đọc "có đại lễ cúng dường cây
+    Đại Bồ-đề" (`tha-ap56:1.2`, `tha-ap91:1.2`, và 1 nơi nữa). Cách đọc đó **không** hợp ở đây, vì `:1.4`
+    đã lấy `bodhi` làm tân ngữ của `pūjenti`. Đã dịch theo nghĩa "đại giác của Ngài vĩ đại" và ghi lệch ở đây.
+  · `avandiṁ bodhimuttamaṁ` `:3.4` — cùng nguyên văn `tha-ap60:3.2` ("tung mảnh đất lên giác ngộ tối thượng"),
+    nhưng trong 10 khoá chứa `avandiṁ` đã dịch thì **8** đọc là đảnh lễ/vái lạy (`avandiṁ satthuno ahaṁ`
+    → "cúi đầu đảnh lễ bậc Đạo Sư"), chỉ `tha-ap60:3.2` đọc là "tung mảnh đất"; và ngữ cảnh `:3.1` (cầm
+    tràng hoa) hợp với đảnh lễ hơn. Đa số 8–1, đã theo đa số.
+  · `sukhemā` / `Sivaṁ` `:9.3` — 0 tiền lệ cho `sukhemaṁ` và `Sivaṁ` trong tầng; dịch "thanh thoát, an ổn,
+    bất tử" theo nghĩa văn dụng quen thuộc.
+
+  Thuật ngữ, kèm số đếm trên chính tầng (đo lại, không chép số của người khác). Công thức lời-kết đã dùng
+  nhóm **số nhiều** "đã nói **những** bài kệ này": đo 429 vs 3 trong 432 tệp `tha-ap` đã dịch **kể cả bài
+  này** — không rơi vào nhóm số ít bị gọi là lỗi. Phe dấu `ti` ở `:0.3`: toàn tầng **Tuyên Ngợ 229 · Tuyên
+  Ngôn 96 · Ký Sự 93**, phạm vi gần nhất (425–445) **Tuyên Ngợ 9 · Ký Sự 4 · Tuyên Ngôn 2** — hai phép
+  **cùng nghiêng** về *Tuyên Ngợ*, khác với con số 128/49 mà brief nêu, nên ghi lại để biên tập phán một
+  lượt cho cả cuốn. Cùng phép cho khoá lời-kết: Tuyên Ngợ 206 · Tuyên Ngôn 93 · Ký Sự 37.
+  `Phẩm Sống Một Mình` cho `Ekavihārivagga`: phạm vi gần nhất đo **8 vs 1** so với `Phẩm Sống Độc Cư`,
+  chọn đa số gần. `Therāpadāna` giữ nguyên văn ở 417/431 tệp khác.
+  Vế kệ 5, 7, 10–13 dùng **nguyên văn** bản đã có trong tầng: "đây là quả báo của việc cúng dường Đức
+  Phật." (38/93 trùng nguyên văn) · "luôn luôn vây quanh ta;" (2/3) · "đây là quả báo của sự phụng sự."
+  (tha-ap291) · "ta đã bước đến nơi không lay chuyển." (tha-ap504, trùng nguyên văn `pattomhi acalaṁ
+  padaṁ.`) · "Kaḷevara đã tìm đến ta," + "dù ở cõi trời ta vẫn rực rỡ lắm." (tha-ap56, trùng nguyên văn)
+  · "Nghiệp ta đã làm ở ngay đây," (tha-ap523) · "Ta thọ hưởng nghiệp lành của mình," (tha-ap459) ·
+  "Các phiền não của ta đã được thiêu rụi," (80/122) · "ta sống không còn lậu hoặc." (79/114) ·
+  "Thật lành thay sự đến của ta," (74/118) · "đã làm tròn lời dạy của Đức Phật" (96 không dấu ngoặc /
+  394 có dấu ngoặc kép) · "Bốn vô ngại giải," (427/435). Các vế còn lại đã đo và theo đa số: `Duggatiṁ
+  nābhijānāmi` 130/372 → "Ta không biết mình rơi vào khổ đau," · `yaṁ kammamakariṁ tadā` 11/46 → "khi ta
+  làm thiện nghiệp ấy;" · `Yaṁ yaṁ yonupapajjāmi` 8/12 → "Dù sinh vào cảnh giới nào," ·
+  `devattaṁ atha mānusaṁ;` 5/13 → "dù làm chư thiên hay làm người;" · `bodhimuttamaṁ` → "giác ngộ tối
+  thượng" · `buddhaseṭṭho` → "bậc Phật tối thượng" · `issaro` → "chúa tể" (đối chiếu `jambusaṇḍassa issaro.`
+  tại mn92 đã dịch "chúa tể xứ Jambu.") · `bheri` → "trống" · `mātukucchi` → "bụng mẹ" · `Kaḷevara` giữ
+  nguyên danh từ. `paṭisambhidā` khớp glossary `content/glossary/pali-vi.yaml` ("vô ngại giải").
+
+  🔴 Tái dùng: đã dò **27** khoá có Pāli trùng **byte** với bài khác trong tầng; **24** khoá dùng lại
+  nguyên văn bản dịch đã có, **3** khoa lệch và đã ghi lý do ở trên (`:1.1` `:1.2` `:6.3`).
+  Riêng `:1.1` `“Vipassino bhagavato,` trùng byte 7 nơi: 4 nơi đọc đúng (dạng "… Thế Tôn Vipassī,"),
+  nhưng **3** nơi (`tha-ap176:1.1`, `tha-ap237:1.1`, `tha-ap306:1.1`) đọc sai `Vipassino` thành
+  "Đức Thế Tôn, bậc quán sát,"; `Vipassino` ở đây là cách sái genitive của danh Vipassī, không phải tính
+  từ "quán sát" (tính từ ấy là `vipassī`/`vipassaka`). Ngoài lát này, **chỉ báo không sửa**.
