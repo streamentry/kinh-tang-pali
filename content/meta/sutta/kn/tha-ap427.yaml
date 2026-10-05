@@ -13,7 +13,7 @@ tags:
 quality:
   scores:
     source_provenance: 9.5
-    semantic_fidelity: 9.3
+    semantic_fidelity: 9.1
     grammar_logic: 9.3
     segment_alignment: 10.0
     terminology: 9.2
@@ -22,10 +22,10 @@ quality:
     han_viet_balance: 9.4
     ambiguity_integrity: 9.3
     technical_integrity: 9.6
-  final_score: 9.24
+  final_score: 9.22
   blocking_errors:
     - "Không có tầng tham khảo tiếng Anh tại commit đã ghim: tệp `translation/en/sujato/sutta/kn/tha-ap/tha-ap427_translation-en-sujato.json` không tồn tại trong `.cache/upstream/suttacentral/`, và `source/upstream-manifest.json` (commit `11c9d708978cde8ba61096d8a75f7ddfb846f639`, tầng `english-sujato` 4.291 tệp) không liệt kê bất kỳ tệp nào cho uid này — đây là `not-published-upstream`, KHÔNG phải `not-synced`. Đo coverage theo `source/layers.yaml` (`substantivePaliMinChars: 40`, `excludeReferenceBlock: true`, `floor: 0.8`) cho 0 trên 2 khoá = 0%, dưới ngưỡng 0.8; mẫu số chỉ bằng 2 vì phần lớn bài là các vế kệ ngắn. `scripts/validate.ts` coi tệp Anh ghim thiếu là lỗi khi status là `review` hoặc `published`, nên bài bắt buộc `draft`. Tầng `vietnamese-current` cũng vắng: `translation/vi/phantuananh` tại commit đã ghim chỉ có 26 tệp và toàn bộ là Pháp Cú. Lớp lấp `english-project` của dự án cũng không có cho uid này. Ba tầng tham khảo đều vắng ⇒ bài dịch chỉ từ Pāli root ⇒ blocker thật, và đây là giới hạn upstream, không phải lỗi của người dịch. Vì vậy `triangulation` bị chặn ở 7.5 (≤ 8.0) chứ không nâng để né blocker."
-  assessed_at: "2026-10-04"
+  assessed_at: "2026-10-05"
   assessed_by:
     - "OpenCode Space Bunny Free (agent)"
 notes: |-
@@ -38,3 +38,16 @@ notes: |-
   Bất định đã ghi, không che: (1) `Pārāvā` không có tiền lệ trong tầng; tôi giữ nguyên tên riêng chữ Pāli vì đây là danh xưng của người kể, không phải thuật ngữ cần dịch. (2) `āsayasāmantā` ở `2.1` nghĩa là có bậc thầy hiện diện; tôi dịch Nhờ Đức Phật, đạo sư của tôi, để giữ cả hai vế `āraya` (thầy) và `sāmantā` (hiện diện) mà không thêm giải thích nào vào thân kinh. (3) `tavatiṁsa` dịch theo tiền lệ là cõi trời Ba mươi ba.
   Dấu nháy kép: chỉ 1 cặp `“`/`”` ở Pāli, mở ở `:1.1` và đóng ở `:10.3` kèm `”.`; bản Việt giữ đúng 1 cặp và cân trên cả bài.
   Cổng kỹ thuật CHƯA chạy vì agent dịch không được chạy lệnh npm. Đã tự xác minh được: JSON hợp lệ, đủ 42/42 khoá trong `all` và trùng khớp 42/42 khoá Pāli trong `root/pli/ms/sutta/kn/tha-ap/tha-ap427_root-pli-ms.json`, không orphan, mọi giá trị NFC, dấu lược khớp Pāli từng khoá, không có `(…)` đứng một mình, ngoặc kép cân trên cả bài, không Pāli lọt vào bản Việt, không trùng nguyên văn Pāli ở khoá có nội dung, và YAML parse sạnh. Bốn lệnh để coordinator chạy trước khi coi `technical_integrity: 9.6` là đạt: `npm run validate`, `npm test`, `npm run check`, `npm run build`.
+  **SỬA `:0.3` — BỎ SỐ THỨ TỤ KHÔNG CÓ NGUỒN.** Lát này sửa đúng `1` khoá
+  (`:0.3`) của tệp này — Pāli `:0.3` = `Koraṇḍapupphiyattheraapadāna` — **không** có số
+  thứ tự, còn bản Việt cũ lại mở đầu bằng `5. ` ⇒ **thừa chữ không nguồn**.
+  Đã bỏ, giữ nguyên phần tên phẩm: `Bài Kệ Tuyên Ngôn Về Trưởng Lão Koraṇḍapupphiya`
+
+  Đây là **1 trong đúng 2** tệp `tha-ap` có số thứ tự ở bản Việt mà Pāli
+  không có (toàn bộ 251 tệp còn lại với Pāli không số đều bỏ số). Cùng luật đã
+  đo trên 367 tệp như phần trên; số đếm nằm trong `notes` của lát.
+
+  `semantic_fidelity` **hạ 0,2** (thừa thông tin không có nguồn ở khoá tiêu đề:
+  lỗi semantic, không phải văn phong). ⚠️ `translationTitle` của tệp này
+  **vẫn còn `5. `** — nó không nằm trong lát này nên tôi để nguyên, nhưng nó
+  **mâu thuẫn với `:0.3` đã sửa** ⇒ **cần coordinator hợp nhất.**
