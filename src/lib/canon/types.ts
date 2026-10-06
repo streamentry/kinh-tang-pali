@@ -23,6 +23,8 @@ export interface TranslationQualityAssessment {
   blocking_errors: string[];
   assessed_at?: string;
   assessed_by?: string[];
+  /** The saved full review selected for the current publication gate. */
+  assessment_id?: string;
 }
 
 export interface CatalogText {
