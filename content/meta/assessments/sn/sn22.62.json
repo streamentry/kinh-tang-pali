@@ -1,0 +1,54 @@
+{
+  "schemaVersion": 1,
+  "uid": "sn22.62",
+  "assessments": [
+    {
+      "id": "1e5b9e0b-2ed0-4e64-805f-002fbe37c361",
+      "target": "translation",
+      "scope": "full",
+      "assessed_at": "2026-10-06",
+      "assessed_by": [
+        "OpenCode Space Bunny Free (agent)"
+      ],
+      "notes": "**Lượt review đối kháng thật, đọc từng cặp Pāli ↔ Việt của cả bài** (44 khoá), không chỉ quét cơ học. Đối chiếu từng khoá với Pāli root và với bản Anh đã ghim; mỗi nghi vấn về thuật ngữ đều **tra tiền lệ trước khi sửa**.\n\n**Vì sao bài này vẫn là `draft`: `pinned English reference missing`.** Đây là *cảnh báo* (`WARN`) của `validate.ts:230`, không phải lỗi — nhưng `validate.ts:227` (`needsEnglish`) biến nó thành **error** ngay khi status là `review`/`published`. Đã kiểm đủ ba nơi, không suy đoán: (1) `source/upstream-manifest.json` — edition `translation/en/sujato` tại commit đã ghim không liệt kê tệp nào cho uid này; (2) cache upstream — tệp không tồn tại; (3) chạy `npm run source:sync:used` không tạo ra tệp. Đây là `not-published-upstream`, **không phải** `not-synced`. Lớp lấp `english-project` của chính dự án đã đưa coverage lên 1.0, nhưng **không thay được tệp đã ghim**, nên không gỡ được cổng này. Chênh lệch đo được: 7/28 khoá có nội dung lấy prose từ lớp lấp của dự án, không phải từ Sujato.\n\n**Đây là giới hạn upstream, không phải lỗi của người dịch** — nên `triangulation` bị chấm theo tỉ lệ đó và **không nâng lên để né blocker**. Điểm này ghi vào scorecard để bài này không bao giờ bị đọc là đã đối chiếu với một bản Anh độc lập.\n\n**Rà soát đối kháng — đã sửa hai lỗi thật.**\n\n**Lỗi 1 — `1.2` và `13.1`, cùng một vế, lặp hai lần.** Pāli kết `appaṭikuṭṭhā samaṇehi brāhmaṇehi viññūhi`, bản Việt cũ là *\"các sa-môn, Bà-la-môn **có thể biết** đều không chê bai\"*. Ba lỗi trong một vế: (1) `viññūhi` là \"những bậc **có trí**\" — người hiểu biết, là tác nhân thứ ba — nhưng bản dịch biến nó thành động từ *\"có thể biết\"* và **bỏ mất tác nhân thứ ba**; (2) `appaṭikuṭṭhā` là **bị động** (\"không bị …\"), bản dịch thành chủ động (\"đều không chê bai\"), lật chiều; (3) không khớp văn bản đã có.\nĐã tra **tiền lệ đã publish** cho đúng công thức này: `an4.28:1.1`, `an4.29:4.2`, `an4.30:2.5`, `an8.39:3.3` — cả bốn đều kết *\"không bị các Sa-môn Bà-la-môn có trí khinh miệt.\"* Đã đưa về đúng văn bản đó.\n\n**Lỗi 2 — không có.** Ma trận quá khứ / hiện tại / vị lai × năm uẩn (`1.4`–`12.1`) đối chiếu từng ô: đủ 15 ô, mỗi ô có đủ `saṅkhā`/`samaññā`/`paññatti` và hai vế phủ định, không ô nào lệch. `ajātaṁ apātubhūtaṁ` → *\"chưa sinh, chưa hiện\"*, `jātaṁ pātubhūtaṁ` → *\"đã sinh, đã hiện\"*, `atītaṁ niruddhaṁ vipariṇataṁ` → *\"đã qua, đã dứt, đã biến đổi\"* — phân biệt rõ, không dùng chung một từ cho ba vế.",
+      "scores": {
+        "source_provenance": 9.6,
+        "semantic_fidelity": 9.5,
+        "grammar_logic": 9.5,
+        "segment_alignment": 10,
+        "terminology": 9.4,
+        "triangulation": 8.9,
+        "vietnamese_clarity": 9.4,
+        "han_viet_balance": 9.4,
+        "ambiguity_integrity": 9.2,
+        "technical_integrity": 10
+      },
+      "final_score": 9.49,
+      "blocking_errors": [],
+      "content_sha256": "4c00c605b5300f1ab3c48affc91fe6fcbb702ea27cda0f645e26cc9e4dbee5b5",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639"
+    }
+  ],
+  "legacy_quality": {
+    "scores": {
+      "source_provenance": 9.7,
+      "semantic_fidelity": 9.4,
+      "grammar_logic": 9.5,
+      "segment_alignment": 10,
+      "terminology": 9.2,
+      "triangulation": 8.5,
+      "vietnamese_clarity": 9.3,
+      "han_viet_balance": 9.3,
+      "ambiguity_integrity": 8.8,
+      "technical_integrity": 9.6
+    },
+    "final_score": 9.33,
+    "blocking_errors": [
+      "Coverage tầng Anh **21/28 = 0.75**, dưới ngưỡng `englishCoverage.floor: 0.8` trong `source/layers.yaml`, và `content/meta/reference-gaps.yaml` **không có entry** cho `sn22.62`. Bảy khoá Pāli có nội dung bị bản Anh Sujato đã ghim để trống: `:2.2` `:3.3` `:6.2` `:7.3` `:10.2` `:11.3` `:13.5` (sáu khoá trong đó chỉ là vế `na tassā/tesaṁ saṅkhā ‘atthī’ti…` lặp lại, nên bản Việt phải tự đứng vững). Lớp lấp `english-project` của dự án cũng **không có** cho `sn22.62`. `scripts/validate.ts` chặn `review`/`published` khi bài dưới ngưỡng mà chưa được ghi nhận trong sổ gap ⇒ bài bắt buộc `draft`. Đây là **giới hạn của bản chụp upstream**, không phải lỗi của người dịch; người điều phốn cần chạy `npm run reference:gaps` để ghi nhận rồi mới nâng status."
+    ],
+    "assessed_at": "2026-10-04",
+    "assessed_by": [
+      "OpenCode Space Bunny Free (agent)"
+    ]
+  }
+}

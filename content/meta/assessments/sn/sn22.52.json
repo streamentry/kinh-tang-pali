@@ -1,0 +1,54 @@
+{
+  "schemaVersion": 1,
+  "uid": "sn22.52",
+  "assessments": [
+    {
+      "id": "57c7e5bf-3dd6-4913-a4be-cd5ebcf93960",
+      "target": "translation",
+      "scope": "full",
+      "assessed_at": "2026-10-06",
+      "assessed_by": [
+        "OpenCode Space Bunny Free (agent)"
+      ],
+      "notes": "**Lượt review đối kháng thật, đọc từng cặp Pāli ↔ Việt của cả bài** (34 khoá), không chỉ quét cơ học. Đối chiếu từng khoá với Pāli root và với bản Anh đã ghim; mỗi nghi vấn về thuật ngữ đều **tra tiền lệ trước khi sửa**.\n\n**Vì sao bài này vẫn là `draft`: `pinned English reference missing`.** Đây là *cảnh báo* (`WARN`) của `validate.ts:230`, không phải lỗi — nhưng `validate.ts:227` (`needsEnglish`) biến nó thành **error** ngay khi status là `review`/`published`. Đã kiểm đủ ba nơi, không suy đoán: (1) `source/upstream-manifest.json` — edition `translation/en/sujato` tại commit đã ghim không liệt kê tệp nào cho uid này; (2) cache upstream — tệp không tồn tại; (3) chạy `npm run source:sync:used` không tạo ra tệp. Đây là `not-published-upstream`, **không phải** `not-synced`. Lớp lấp `english-project` của chính dự án đã đưa coverage lên 1.0, nhưng **không thay được tệp đã ghim**, nên không gỡ được cổng này. Chênh lệch đo được: 6/16 khoá có nội dung lấy prose từ lớp lấp của dự án, không phải từ Sujato.\n\n**Đây là giới hạn upstream, không phải lỗi của người dịch** — nên `triangulation` bị chấm theo tỉ lệ đó và **không nâng lên để né blocker**. Điểm này ghi vào scorecard để bài này không bao giờ bị đọc là đã đối chiếu với một bản Anh độc lập.\n\n**Rà soát đối kháng — không sửa gì.** Bốn vòng `yoniso manasi karotha` (rūpa / vedanā / saññā [khoá lược] / saṅkhārā / viññāṇa): đối chiếu từng vòng với nhau, đủ năm uẩn, `saññā` dùng vế lược nên `1.10` giữ `…`. `nibbindati` → *\"nhàm chán\"* và `Nandikkhayā rāgakkhayo` → *\"Do diệt tận hỷ ái nên diệt tận tham ái\"*`; cả hai cặp đều lặp nguyên vẹn ở cả bốn vòng, không vòng nào lệch — đây là điều dễ hỏng nhất của bài và nó **đúng**.",
+      "scores": {
+        "source_provenance": 9.6,
+        "semantic_fidelity": 9.4,
+        "grammar_logic": 9.4,
+        "segment_alignment": 10,
+        "terminology": 9.4,
+        "triangulation": 8.6,
+        "vietnamese_clarity": 9.4,
+        "han_viet_balance": 9.4,
+        "ambiguity_integrity": 9.2,
+        "technical_integrity": 10
+      },
+      "final_score": 9.440000000000001,
+      "blocking_errors": [],
+      "content_sha256": "3bea23d1d3b4d0281b387394e9dea476a0034a9cace8d09817b82afe2f5f8698",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639"
+    }
+  ],
+  "legacy_quality": {
+    "scores": {
+      "source_provenance": 9.4,
+      "semantic_fidelity": 9.2,
+      "grammar_logic": 9.2,
+      "segment_alignment": 10,
+      "terminology": 9,
+      "triangulation": 7.5,
+      "vietnamese_clarity": 9.2,
+      "han_viet_balance": 9.2,
+      "ambiguity_integrity": 8.6,
+      "technical_integrity": 9.6
+    },
+    "final_score": 9.09,
+    "blocking_errors": [
+      "Bài này có tầng Anh đã ghim phủ 10/16 = 62,5% trên Pāli có nội dung, thấp hơn ngưỡng 0,8 trong `source/layers.yaml`, và **không** có entry trong `content/meta/reference-gaps.yaml`. Theo AGENTS.md đây là lỗi chặn đối với `review`/`published`, nên bài phải giữ `draft`. Sáu khoá trống: `1.7`, `1.8`, `1.9`, `1.12`, `1.13`, `1.14` — Sujato bỏ trống đúng các blockquote và đoạn lặp `…pe…`, và `content/translation/en/project/` **chưa có** lớp lấp cho `sn22.52`. Người biên tập nên lấp sáu khoá này ở tầng `english-project`, hoặc ghi nhận gap rồi mới nâng trạng thái."
+    ],
+    "assessed_at": "2026-10-04",
+    "assessed_by": [
+      "OpenCode Space Bunny Free (agent)"
+    ]
+  }
+}

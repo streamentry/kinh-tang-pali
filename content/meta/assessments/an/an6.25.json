@@ -1,0 +1,54 @@
+{
+  "schemaVersion": 1,
+  "uid": "an6.25",
+  "assessments": [
+    {
+      "id": "541d8268-057a-48fe-aaff-0fce13f60832",
+      "target": "translation",
+      "scope": "full",
+      "assessed_at": "2026-10-06",
+      "assessed_by": [
+        "OpenCode Space Bunny Free (agent)"
+      ],
+      "notes": "**Lượt review đối kháng thật, đọc từng cặp Pāli ↔ Việt của cả bài** (46 khoá), không chỉ quét cơ học. Đối chiếu từng khoá với Pāli root và với bản Anh đã ghim; mỗi nghi vấn về thuật ngữ đều **tra tiền lệ trước khi sửa**.\n\n**Vì sao bài này vẫn là `draft`: `pinned English reference missing`.** Đây là *cảnh báo* (`WARN`) của `validate.ts:230`, không phải lỗi — nhưng `validate.ts:227` (`needsEnglish`) biến nó thành **error** ngay khi status là `review`/`published`. Đã kiểm đủ ba nơi, không suy đoán: (1) `source/upstream-manifest.json` — edition `translation/en/sujato` tại commit đã ghim không liệt kê tệp nào cho uid này; (2) cache upstream — tệp không tồn tại; (3) chạy `npm run source:sync:used` không tạo ra tệp. Đây là `not-published-upstream`, **không phải** `not-synced`. Lớp lấp `english-project` của chính dự án đã đưa coverage lên 1.0, nhưng **không thay được tệp đã ghim**, nên không gỡ được cổng này. Chênh lệch đo được: 10/34 khoá có nội dung lấy prose từ lớp lấp của dự án, không phải từ Sujato.\n\n**Đây là giới hạn upstream, không phải lỗi của người dịch** — nên `triangulation` bị chấm theo tỉ lệ đó và **không nâng lên để né blocker**. Điểm này ghi vào scorecard để bài này không bao giờ bị đọc là đã đối chiếu với một bản Anh độc lập.\n\n**Rà soát đối kháng — đã sửa một lỗi thật.**\n\n**Lỗi ở `5.3`.** Pāli `5.2` bị lược bằng `…pe…`, và `5.3` mang phần còn lại. Bản Việt cũ dịch `maccheramala` thành *\"vết nhơ **tham lam**\"* — `maccheramala` là \"vết nhơ **keo kiệt**\" (Sujato: \"the stain of **stinginess**\"), còn *\"tham lam\"* nghĩa là tham/greed: **sai nghĩa**. Phần còn lại cũng lệch văn bản đã có (*\"rộng lượng, cởi mở, thích buông bỏ, chuyên tâm bố thí\"* thay cho văn bản đã dùng ở đây).\nĐã tra **tiền lệ đã publish** cho đúng công thức: `an5.47:5.2` và `an7.6:7.2` có Pāli `Idha, bhikkhave, ariyasāvako vigatamalamaccherena cetasā agāraṁ ajjhāvasati muttacāgo payatapāṇi vosaggarato yācayogo dānasaṁvibhāgarato`. Cả hai đã publish và cùng dịch *\"buông xả tự do, tay rộng mở, thích việc từ bỏ, hướng về việc cầu xin, thích việc phân chia bố thí\"*. Đã đưa `5.3` về đúng văn bản đó, chỉ sửa **một** khoá — cụm `vết nhơ tham lam` và `rộng lượng, cởi mở` mỗi cụm chỉ có **1** lần trong toàn tầng, tức là chỉ ở khoá này.\n\n**Không gộp hai khoá dễ nhầm:** `17.2` của `mn6` giữ `…` vì Pāli `17.2` **có** `…pe…`, còn `18.2` **không** — đó là khác biệt thật của nguồn.\n\nChuỗi `rāga/dosa/moha vinayapariyosāna` lặp ở `1.x`, `2.x`, `3.x`, `4.x`; đối chiếu từng vòng, không vòng nào đảo thứ tự. `anussatiṭṭhāna` đã thống nhất về *\"chỗ để nhớ\"* khớp `an6.29` đã publish.",
+      "scores": {
+        "source_provenance": 9.6,
+        "semantic_fidelity": 9.5,
+        "grammar_logic": 9.5,
+        "segment_alignment": 10,
+        "terminology": 9.4,
+        "triangulation": 8.7,
+        "vietnamese_clarity": 9.4,
+        "han_viet_balance": 9.4,
+        "ambiguity_integrity": 9.2,
+        "technical_integrity": 10
+      },
+      "final_score": 9.470000000000002,
+      "blocking_errors": [],
+      "content_sha256": "9ef2255860dc37b2286ec467a294bbd0cb4c9745126dd50a4d7ca0329a449e4b",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639"
+    }
+  ],
+  "legacy_quality": {
+    "scores": {
+      "source_provenance": 9.6,
+      "semantic_fidelity": 9.3,
+      "grammar_logic": 9.3,
+      "segment_alignment": 10,
+      "terminology": 9.3,
+      "triangulation": 8.4,
+      "vietnamese_clarity": 9.3,
+      "han_viet_balance": 9.3,
+      "ambiguity_integrity": 9.2,
+      "technical_integrity": 9.6
+    },
+    "final_score": 9.33,
+    "blocking_errors": [
+      "Bản Anh đã ghim chỉ phủ 24/34 segment Pāli có nội dung (70,6%), thấp hơn ngưỡng 80% khai ở source/layers.yaml, và mất mát này CHƯA được ghi trong content/meta/reference-gaps.yaml. Không sửa tệp gap (thuộc phạm vi coordinator); bài phải giữ draft cho tới khi coordinator chạy npm run reference:gaps để ghi nhận."
+    ],
+    "assessed_at": "2026-10-04",
+    "assessed_by": [
+      "OpenCode Space Bunny Free (agent)"
+    ]
+  }
+}

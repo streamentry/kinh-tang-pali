@@ -1,0 +1,54 @@
+{
+  "schemaVersion": 1,
+  "uid": "an9.14",
+  "assessments": [
+    {
+      "id": "1b05bc81-a3ab-4135-a7cd-305af830e543",
+      "target": "translation",
+      "scope": "full",
+      "assessed_at": "2026-10-06",
+      "assessed_by": [
+        "OpenCode Space Bunny Free (agent)"
+      ],
+      "notes": "**Lượt review đối kháng thật, đọc từng cặp Pāli ↔ Việt của cả bài** (34 khoá), không chỉ quét cơ học. Đối chiếu từng khoá với Pāli root và với bản Anh đã ghim; mỗi nghi vấn về thuật ngữ đều **tra tiền lệ trước khi sửa**.\n\n**Vì sao bài này vẫn là `draft`: `pinned English reference missing`.** Đây là *cảnh báo* (`WARN`) của `validate.ts:230`, không phải lỗi — nhưng `validate.ts:227` (`needsEnglish`) biến nó thành **error** ngay khi status là `review`/`published`. Đã kiểm đủ ba nơi, không suy đoán: (1) `source/upstream-manifest.json` — edition `translation/en/sujato` tại commit đã ghim không liệt kê tệp nào cho uid này; (2) cache upstream — tệp không tồn tại; (3) chạy `npm run source:sync:used` không tạo ra tệp. Đây là `not-published-upstream`, **không phải** `not-synced`. Lớp lấp `english-project` của chính dự án đã đưa coverage lên 1.0, nhưng **không thay được tệp đã ghim**, nên không gỡ được cổng này. Chênh lệch đo được: 6/13 khoá có nội dung lấy prose từ lớp lấp của dự án, không phải từ Sujato.\n\n**Đây là giới hạn upstream, không phải lỗi của người dịch** — nên `triangulation` bị chấm theo tỉ lệ đó và **không nâng lên để né blocker**. Điểm này ghi vào scorecard để bài này không bao giờ bị đọc là đã đối chiếu với một bản Anh độc lập.\n\n**Rà soát đối kháng — không sửa gì.** Chín cặp hỏi–đáp ở `11.1`–`11.12` đối chiếu từng cặp; đây là phần dễ lẫn nhất của bài nên đọc kỹ nhất:\n`kva nānattaṁ gacchantī` → *\"đi đến đâu để trở nên khác biệt\"*; `kiṁsamudayā`/`phassasamudayā` → *\"Nguyên nhân … do xúc chở khởi\"*; `kiṁsamosaraṇā`/`vedanāsamosaraṇā` → *\"hội tụ ở cảm thọ\"*; `kiṁpamukhā`/`samādhippamukhā` → *\"đứng đầu là định\"*; `kiṁadhipateyyā`/`satādhipateyyā` → *\"chánh niệm làm người chỉ huy\"* (`adhipateyya` khác `pamukha` — bản Việt phân biệt đúng); `kiṁuttarā`/`paññuttarā` → *\"trí tuệ là bậc tối thượng\"*; `kiṁsārā`/`vimuttisārā` → *\"cốt lõi là giải thoát\"*; `kiṁogadhā`/`amatogadhā` → *\"bám vào bất tử\"*.\nSuy đoán thử xem `11.6` có lẫn với `11.5` (`samādhi`) không — không, `satā` là chánh niệm và bản Việt đúng. Không sửa.",
+      "scores": {
+        "source_provenance": 9.6,
+        "semantic_fidelity": 9.4,
+        "grammar_logic": 9.4,
+        "segment_alignment": 10,
+        "terminology": 9.4,
+        "triangulation": 8.4,
+        "vietnamese_clarity": 9.4,
+        "han_viet_balance": 9.4,
+        "ambiguity_integrity": 9.2,
+        "technical_integrity": 10
+      },
+      "final_score": 9.42,
+      "blocking_errors": [],
+      "content_sha256": "4da02c09f3dec4606b2578ad954e7e3abd9135d2fa1f74bd1860733e97b17414",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639"
+    }
+  ],
+  "legacy_quality": {
+    "scores": {
+      "source_provenance": 9.6,
+      "semantic_fidelity": 9.4,
+      "grammar_logic": 9.5,
+      "segment_alignment": 10,
+      "terminology": 9.5,
+      "triangulation": 7.6,
+      "vietnamese_clarity": 9.5,
+      "han_viet_balance": 9.5,
+      "ambiguity_integrity": 9.1,
+      "technical_integrity": 9.6
+    },
+    "final_score": 9.33,
+    "blocking_errors": [
+      "Tầng Anh Sujato có thật cho an9.14 (`translation/en/sujato/sutta/an/an9/an9.14_translation-en-sujato.json`), nhưng coverage đo theo đúng công thức `src/lib/canon/reference.ts` chỉ **7/13 = 0.538** trên Pāli có nội dung, tức dưới ngưỡng 0.8 khai ở `source/layers.yaml`: Sujato để trống 6 khoá (11.3–11.8, phần đối chiếu lại và đoạn kết `Catutthaṁ`). Ô trống đó KHÔNG phải sự đồng thuận về cách dịch — 6 đoạn ấy phải tự đứng vững bằng Pāli root. `content/meta/reference-gaps.yaml` hiện **không có** entry `an9.14` (tệp do `scripts/record-reference-gaps.ts` sinh và lát này không được sửa tệp đó), nên `npm run reference:gaps:check` sẽ đỏ nếu status là `review` hay `published` ⇒ bài bắt buộc `draft`. Vì vậy `triangulation` bị chặn ở 7.6 (≤ 8.0) chứ không nâng để né blocker."
+    ],
+    "assessed_at": "2026-10-04",
+    "assessed_by": [
+      "OpenCode Space Bunny Free (agent)"
+    ]
+  }
+}
