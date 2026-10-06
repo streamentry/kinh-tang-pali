@@ -270,6 +270,17 @@ export function loadEnglishReference(collection: CollectionCode, uid: string): E
  * The literal UID is always a candidate; the expanded per-sutta prefixes are
  * added when the UID parses as a range. Both conventions are harmless to include
  * at once, because a prefix that the file does not use simply matches nothing.
+ *
+ * A range bundle may *also* carry **composite sub-ranges** inside its own span:
+ * `an1.296-305_root-pli-ms.json` holds both `an1.296:*` and `an1.297-305:*`. Enumerating
+ * only the single integers yields `an1.296:`…`an1.305:`, none of which match the key
+ * `an1.297-305:1.1`, so that segment belonged to no UID at all — invisible to
+ * `requireComplete`, and a `published` text could serve without it.
+ *
+ * `segmentPrefixesForUid` therefore stays an enumeration, because callers use it for
+ * display and tests pin its shape. It is *not* used to decide membership on hot paths:
+ * enumerating sub-ranges costs O(span²) and `an5.308-1152` alone would build 357,435
+ * prefixes. Use {@link segmentBelongsToUid} for that.
  */
 export function segmentPrefixesForUid(uid: string): string[] {
   const range = uid.match(/^([a-z]+[\d.]*?)(\d+)-(\d+)$/);
@@ -289,13 +300,38 @@ export function segmentPrefixesForUid(uid: string): string[] {
   return [uid];
 }
 
+/**
+ * Does `id` belong to `uid`?
+ *
+ * Equivalent to matching `segmentPrefixesForUid` against `${prefix}:`, plus the
+ * composite sub-range case that enumeration misses, without building the enumeration.
+ * A range UID owns `base<n>:*` and `base<n>-<m>:*` for `start <= n <= m <= end`.
+ */
+export function segmentBelongsToUid(uid: string, id: string): boolean {
+  if (id.startsWith(`${uid}:`)) return true;
+  const range = uid.match(/^([a-z]+[\d.]*?)(\d+)-(\d+)$/);
+  if (!range) return false;
+  const [, base, startText, endText] = range;
+  const start = Number(startText);
+  const end = Number(endText);
+  if (!Number.isFinite(start) || !Number.isFinite(end) || end < start) return false;
+  // base is a literal prefix here; no regex escaping is needed because it is [a-z0-9.] only.
+  const key = id.slice(base.length);
+  const hit = key.match(/^(\d+)(?:-(\d+))?(?=:)/);
+  if (!hit) return false;
+  const n = Number(hit[1]);
+  if (n < start || n > end) return false;
+  if (hit[2] === undefined) return true;
+  const m = Number(hit[2]);
+  return m >= n && m <= end;
+}
+
 export function segmentMapForUid(
   segments: Record<string, string>,
   uid: string,
 ): Record<string, string> {
-  const prefixes = segmentPrefixesForUid(uid).map((prefix) => `${prefix}:`);
   return Object.fromEntries(
-    Object.entries(segments).filter(([id]) => prefixes.some((prefix) => id.startsWith(prefix))),
+    Object.entries(segments).filter(([id]) => segmentBelongsToUid(uid, id)),
   );
 }
 

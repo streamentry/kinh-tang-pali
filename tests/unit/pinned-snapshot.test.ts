@@ -167,9 +167,9 @@ test('every catalogue text resolves the Pāli authority layer, and only the know
       count.segments += Object.keys(map).length;
     }
   }
-  // One upstream bilara-data defect: `sn12.93-213` ships segments labelled with nested
-  // sub-range UIDs, so the Pāli root resolves nothing for it. Recorded, never guessed.
-  assert.deepEqual(unresolved, ['sn/sn12.93-213']);
+  // The `sn12.93-213` defect is repaired: nested sub-range UIDs now resolve, so nothing
+  // is left unresolved. This assertion is the tripwire for that.
+  assert.deepEqual(unresolved, []);
   assert.ok(count.texts > 6000, `expected the whole corpus, resolved ${count.texts}`);
   assert.ok(count.segments > 280000, `expected the whole corpus, resolved ${count.segments} segments`);
 });
