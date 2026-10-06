@@ -301,23 +301,31 @@ test('coverage measures substantive Pāli, not raw segment count', { skip: !exis
   assert.equal(merged.ratio, 1, 'so an2.3 is fully covered at store level');
 });
 
-test('a text with no English prose at all falls below the coverage floor', { skip: !existsSync(upstreamFile('translation/en/sujato/sutta/an/an4/an4.46_translation-en-sujato.json')) ? 'run npm run source:sync:all' : false }, () => {
-  // an4.46 keeps its join keys but has no English for the Buddha's whole answer,
-  // including "Gamanena na pattabbo, lokassanto kudācanaṁ".
-  const coverage = englishCoverageFor('an', 'an4.46')!;
+// The specimen below used to be an/an4.46, which the pinned English edition left
+// with no prose at all for the Buddha's whole answer ("Gamanena na pattabbo,
+// lokassanto kudācanaṁ"). The project fill layer has since covered every one of
+// its fillable segments and published it, so an4.46 is no longer below the floor
+// and cannot witness this property any more. The specimen moved to sn/sn42.5,
+// which is still below the floor for the same reason: the pinned edition stops
+// after the first line of the villager's answer. Keep this note — if the specimen
+// ever moves again, the previous one was *filled*, not merely deleted.
+test('a text with no English prose at all falls below the coverage floor', { skip: !existsSync(upstreamFile('translation/en/sujato/sutta/sn/sn42/sn42.5_translation-en-sujato.json')) ? 'run npm run source:sync:all' : false }, () => {
+  // sn42.5 keeps its join keys but has no English for the rest of the gāmaṇi's
+  // answer, including "yo so assāroho saṅgāme ussahati vāyamati…".
+  const coverage = englishCoverageFor('sn', 'sn42.5')!;
   assert.equal(coverage.englishSegments, coverage.paliSegments, 'join is exact');
   assert.equal(coverage.substantiveSegments, 18);
-  assert.equal(coverage.substantiveWithoutEnglish, 15);
+  assert.equal(coverage.substantiveWithoutEnglish, 17);
   assert.ok(coverage.ratio < MIN_ENGLISH_COVERAGE, `expected below floor, got ${coverage.ratio}`);
   // Pinned exactly: if the pinned commit ever changes, this must be revisited on
   // purpose rather than drifting unnoticed.
-  assert.equal(coverage.ratio, 3 / 18);
-  assert.ok(coverage.worstMissingSegment, 'the tool points at a concrete hole');
+  assert.equal(coverage.ratio, 1 / 18);
+  assert.equal(coverage.worstMissingSegment, 'sn42.5:3.8', 'the tool points at a concrete hole');
   const pali = segmentMapForUid(
-    readJson<Record<string, string>>(upstreamFile('root/pli/ms/sutta/an/an4/an4.46_root-pli-ms.json')),
-    'an4.46',
+    readJson<Record<string, string>>(upstreamFile('root/pli/ms/sutta/sn/sn42/sn42.5_root-pli-ms.json')),
+    'sn42.5',
   );
-  assert.ok(pali['an4.46:4.1'].length > 40, 'and that hole is real prose');
+  assert.ok(pali['sn42.5:3.8'].length > 40, 'and that hole is real prose');
 });
 
 test('every text below the coverage floor is recorded, and nothing else is', { skip: !existsSync(upstreamFile('translation/en/sujato/sutta/mn/mn118_translation-en-sujato.json')) ? 'run npm run source:sync:all' : false }, () => {
