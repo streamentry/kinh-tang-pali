@@ -1,0 +1,54 @@
+{
+  "schemaVersion": 1,
+  "uid": "ja471",
+  "assessments": [
+    {
+      "id": "ed9a867a-f41c-461d-b45c-a068d59487d2",
+      "target": "translation",
+      "scope": "technical",
+      "assessed_at": "2026-10-06",
+      "assessed_by": [
+        "Repository segment validator"
+      ],
+      "scores": {
+        "source_provenance": null,
+        "semantic_fidelity": null,
+        "grammar_logic": null,
+        "segment_alignment": 10,
+        "terminology": null,
+        "triangulation": null,
+        "vietnamese_clarity": null,
+        "han_viet_balance": null,
+        "ambiguity_integrity": null,
+        "technical_integrity": null
+      },
+      "final_score": null,
+      "blocking_errors": [],
+      "notes": "Kiểm tra tự động 53 segment với Pāli trong cache: đủ ID, giá trị, NFC và hệ chữ Latin. Chưa đọc đối chiếu nghĩa, ngữ pháp hoặc văn phong; chưa chấm lại 10 tiêu chí. Đây không phải chứng nhận hash upstream hoặc giấy phép, không xác nhận trạng thái xuất bản.",
+      "content_sha256": "84e8186475a108e06bc01d160b68d78083df930e4646eaa69f557fc5ee9d4092",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639"
+    }
+  ],
+  "legacy_quality": {
+    "scores": {
+      "source_provenance": 9.5,
+      "semantic_fidelity": 9.2,
+      "grammar_logic": 9,
+      "segment_alignment": 10,
+      "terminology": 9,
+      "triangulation": 7,
+      "vietnamese_clarity": 9.2,
+      "han_viet_balance": 9.3,
+      "ambiguity_integrity": 9,
+      "technical_integrity": 9.6
+    },
+    "final_score": 9.08,
+    "blocking_errors": [
+      "Không có tầng tham khảo tiếng Anh tại commit đã ghim: `source/upstream-manifest.json` cho thấy tầng `english-sujato` có 4291 tệp, trong đó 755 tệp thuộc `kn/` và chỉ 83 tệp thuộc `kn/ja/`; KHÔNG có tệp nào chứa `ja471`, và `.cache/upstream/suttacentral/translation/en/sujato/sutta/kn/ja/` cũng không có `ja471*`. Đây là `not-published-upstream`, KHÔNG phải `not-synced` — tôi đã thử tra bilara-data tại nhánh `published` và `ja471_translation-en-sujato.json` trả 404, trong khi `ja10` (có trong tầng đã ghim) tải được, nên URL đúng và sự vắng mặt là thật. `scripts/validate.ts` đẩy thông điệp này vào `errors` khi status là `review` hoặc `published`, nên bài bắt buộc `draft`. Tầng `vietnamese-current` cũng vắng: `translation/vi/phantuananh` tại commit đã ghim có 26 tệp, toàn bộ là Pháp Cú (`dhp1-20` … `dhp234`), không có tệp `ja` nào. Lớp lấp `english-project` của dự án cũng không có: `content/translation/en/project/sutta/kn/` có 129 tệp nhưng không tệp nào cho uid này, và `content/meta/en/kn/ja471.yaml` không tồn tại. Ba tầng tham khảo đều vắng ⇒ bài dịch chỉ từ Pāli root ⇒ blocker thật, và đây là **giới hạn upstream**, không phải lỗi của người dịch. Vì vậy `triangulation` bị chặn ở 7.0 (≤ 8.0) chứ không nâng để né blocker."
+    ],
+    "assessed_at": "2026-10-06",
+    "assessed_by": [
+      "OpenCode Space Bunny Free (agent)"
+    ]
+  }
+}

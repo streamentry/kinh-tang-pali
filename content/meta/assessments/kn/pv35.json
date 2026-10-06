@@ -1,0 +1,56 @@
+{
+  "schemaVersion": 1,
+  "uid": "pv35",
+  "assessments": [
+    {
+      "id": "9c3659c8-4550-4a69-8ee6-b635531b326a",
+      "target": "translation",
+      "scope": "technical",
+      "assessed_at": "2026-10-06",
+      "assessed_by": [
+        "Repository segment validator"
+      ],
+      "scores": {
+        "source_provenance": null,
+        "semantic_fidelity": null,
+        "grammar_logic": null,
+        "segment_alignment": 10,
+        "terminology": null,
+        "triangulation": null,
+        "vietnamese_clarity": null,
+        "han_viet_balance": null,
+        "ambiguity_integrity": null,
+        "technical_integrity": null
+      },
+      "final_score": null,
+      "blocking_errors": [],
+      "notes": "Kiểm tra tự động 53 segment với Pāli trong cache: đủ ID, giá trị, NFC và hệ chữ Latin. Chưa đọc đối chiếu nghĩa, ngữ pháp hoặc văn phong; chưa chấm lại 10 tiêu chí. Đây không phải chứng nhận hash upstream hoặc giấy phép, không xác nhận trạng thái xuất bản.",
+      "content_sha256": "bed48b48a01658d2aecc0e8577a7a1265e458a8530d4d43e02f242e6895bc442",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639"
+    }
+  ],
+  "legacy_quality": {
+    "scores": {
+      "source_provenance": 9.4,
+      "semantic_fidelity": 9,
+      "grammar_logic": 9,
+      "segment_alignment": 10,
+      "terminology": 9.1,
+      "triangulation": 7.4,
+      "vietnamese_clarity": 9.2,
+      "han_viet_balance": 9.3,
+      "ambiguity_integrity": 8.8,
+      "technical_integrity": 9.6
+    },
+    "final_score": 9.08,
+    "blocking_errors": [
+      "Không có tầng tham khảo tiếng Anh tại commit đã ghim: `source/upstream-manifest.json` (commit 11c9d708, tầng `english-sujato`, 4.291 tệp) liệt kê 0 tệp cho uid `pv35`, và `.cache/upstream/suttacentral/translation/en/sujato/` cũng không có — đây là `not-published-upstream`, KHÔNG phải `not-synced`. Tầng `vietnamese-current` cũng vắng (26 tệp, toàn bộ Pháp Cú). Lớp lấp `english-project` không có tệp `content/translation/en/project/sutta/kn/pv/pv35_translation-en-project.json` và không có `content/meta/en/kn/pv35.yaml`. Ba tầng tham khảo đều vắng ⇒ bài dịch chỉ từ Pāli root ⇒ blocker thật; đây là giới hạn upstream, không phải lỗi của người dịch. Vì vậy `triangulation` bị chặn ở 7.4 (≤ 8.0) chứ không nâng để né blocker.",
+      "Mẫu số coverage bằng 0 nên cổng coverage KHÔNG đo được gì: theo đúng công thức `source/layers.yaml` (Pāli có nội dung ≥ 40 ký tự, loại block tham chiếu `:0`) mẫu số = 0/0. Đây là trường hợp BRIEF_VI4 §4 gọi là *cổng không đo được gì*, KHÁC với *không cần ghi nhận*; `content/meta/reference-gaps.yaml` hiện không có entry nào cho `pv` (grep `  pv` cho 0 dòng) và tôi không được chạy `reference:gaps` để cập nhật.",
+      "Bất định chưa phân xử được ở bài kệ 2 (`2.1–2.4`): `satthaṁ gahetvāna`, `Khārena`, `paripphositvā`, `okkantanti` — cả bốn từ này đều là hapax legomenon trong TOÀN BỘ Pāli root đã ghim (quét 284.708 segment của 5 bộ: `satthaṁ gahetvāna` 1 hit, `Khārena` 1 hit, `paripphosit` 1 hit, `okkantanti` 0 hit). Không có bản Anh nào đã ghim, không có từ điển trong kho, và mối chủ thể của kệ này (`okkantanti` là ngôi thứ ba số nhiều trong khi cả bài là lời ngạ quỷ nói với người sống) cũng chưa rõ. Tôi dịch theo nghĩa chữ và ghi bất định ở đây thay vì phỏng đoán; theo BRIEF_VI3 §12, thiếu thông tin là blocking error chứ không phải chỗ để đoán."
+    ],
+    "assessed_at": "2026-10-06",
+    "assessed_by": [
+      "OpenCode Space Bunny Free (agent)"
+    ]
+  }
+}

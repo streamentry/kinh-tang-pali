@@ -1,0 +1,47 @@
+---
+import Base from '../layouts/Base.astro';
+import { COLLECTIONS, loadCatalog, loadMeta } from '../lib/canon/load';
+import { loadAssessmentHistory, assessmentIsCurrent } from '../lib/canon/quality';
+import { withBase } from '../lib/url';
+const groups = COLLECTIONS.map(collection => ({ collection, rows: loadCatalog(collection.code).texts.map(item => {
+  const meta = loadMeta(collection.code, item.uid);
+  const history = loadAssessmentHistory(collection.code, item.uid);
+  const entries = history.assessments.filter(entry => entry.target === 'translation');
+  const full = entries.filter(entry => entry.scope === 'full').at(-1);
+  const content = entries.filter(entry => entry.scope === 'content').at(-1);
+  const technical = entries.filter(entry => entry.scope === 'technical').at(-1);
+  return { uid: item.uid, meta, legacy: history.legacy_quality ?? meta?.quality, full, content, technical };
+}).filter(row => row.meta) }));
+const totals = groups.reduce((sum, group) => ({
+  translations: sum.translations + group.rows.length,
+  full: sum.full + group.rows.filter(row => row.full && assessmentIsCurrent(group.collection.code, row.uid, row.full)).length,
+  technical: sum.technical + group.rows.filter(row => row.technical && assessmentIsCurrent(group.collection.code, row.uid, row.technical)).length,
+}), { translations: 0, full: 0, technical: 0 });
+---
+<Base title="Rubric và lịch sử đánh giá · Kinh Tạng Pāli Việt">
+  <main class="page">
+    <a href={withBase()}>← Năm bộ kinh</a>
+    <h1>Rubric và lịch sử đánh giá</h1>
+    <p>{totals.translations} bản có metadata · {totals.technical} có kiểm tra kỹ thuật khớp nội dung · {totals.full} có đánh giá đầy đủ mới khớp nội dung.</p>
+    <p>Scorecard lịch sử được giữ nguyên ngày cũ. Kiểm tra máy không thay thế đối chiếu nghĩa toàn bài. Mỗi trang kinh hiển thị đủ rubric, điểm từng tiêu chí, ngày và ghi chú; MN/DN có rubric tóm tắt riêng.</p>
+    {groups.map(({collection, rows}) => <details>
+      <summary>{collection.titleVi} · {rows.length} bản</summary>
+      <div class="table-scroll"><table>
+        <thead><tr><th>Bài kinh</th><th>Scorecard lịch sử</th><th>Đánh giá đầy đủ mới</th><th>Kiểm tra kỹ thuật mới</th></tr></thead>
+        <tbody>{rows.map(({uid, meta, legacy, full, content, technical}) => <tr>
+          <th scope="row"><a href={withBase(`sutta/${collection.code}/${uid}/#quality-translation`)}>{uid.toUpperCase()} · {meta?.translationTitle}</a></th>
+          <td>{legacy ? `${legacy.final_score.toFixed(2)}/10 · ${legacy.assessed_at ?? 'chưa ghi ngày'}` : 'Chưa có'}</td>
+          <td>{full ? `${full.final_score?.toFixed(2)}/10 · ${full.assessed_at}${assessmentIsCurrent(collection.code, uid, full) ? '' : ' · nội dung đã đổi'}` : content ? `${content.assessed_at} · đã đối chiếu nội dung, chờ kỹ thuật` : 'Chưa chấm lại đầy đủ'}</td>
+          <td>{technical ? `${technical.assessed_at} · ${technical.blocking_errors.length ? `${technical.blocking_errors.length} lỗi` : 'đạt phạm vi đã kiểm'}${assessmentIsCurrent(collection.code, uid, technical) ? '' : ' · nội dung đã đổi'}` : 'Chưa kiểm'}</td>
+        </tr>)}</tbody>
+      </table></div>
+    </details>)}
+  </main>
+</Base>
+<style>
+  details { margin-block: 1.5rem; }
+  summary { font-weight: 600; cursor: pointer; }
+  .table-scroll { overflow-x: auto; }
+  table { border-collapse: collapse; width: 100%; text-align: left; font-size: .85rem; }
+  th, td { padding: .6rem; border-bottom: 1px solid #ddd; vertical-align: top; min-width: 8rem; }
+</style>

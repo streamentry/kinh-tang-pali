@@ -1,0 +1,80 @@
+{
+  "schemaVersion": 1,
+  "uid": "tha-ap225",
+  "assessments": [
+    {
+      "id": "ae28fe30-5e91-4e6b-a7eb-0fa4d7d94f37",
+      "target": "translation",
+      "scope": "technical",
+      "assessed_at": "2026-10-05",
+      "assessed_by": [
+        "Repository segment validator"
+      ],
+      "scores": {
+        "source_provenance": null,
+        "semantic_fidelity": null,
+        "grammar_logic": null,
+        "segment_alignment": 10,
+        "terminology": null,
+        "triangulation": null,
+        "vietnamese_clarity": null,
+        "han_viet_balance": null,
+        "ambiguity_integrity": null,
+        "technical_integrity": null
+      },
+      "final_score": null,
+      "blocking_errors": [],
+      "notes": "Kiểm tra tự động 33 segment với Pāli trong cache: đủ ID, giá trị, NFC và hệ chữ Latin. Chưa đọc đối chiếu nghĩa, ngữ pháp hoặc văn phong; chưa chấm lại 10 tiêu chí. Đây không phải chứng nhận hash upstream hoặc giấy phép, không xác nhận trạng thái xuất bản.",
+      "content_sha256": "9c87ed2a44cfa962ecfa72abc64f8ad4e2091b1bcf1045e10dde640b2e6e11cb",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639"
+    },
+    {
+      "id": "05f5733f-caa6-4c5f-9cf5-da7be1e0f9f0",
+      "target": "translation",
+      "scope": "technical",
+      "assessed_at": "2026-10-06",
+      "assessed_by": [
+        "Repository segment validator"
+      ],
+      "scores": {
+        "source_provenance": null,
+        "semantic_fidelity": null,
+        "grammar_logic": null,
+        "segment_alignment": 10,
+        "terminology": null,
+        "triangulation": null,
+        "vietnamese_clarity": null,
+        "han_viet_balance": null,
+        "ambiguity_integrity": null,
+        "technical_integrity": null
+      },
+      "final_score": null,
+      "blocking_errors": [],
+      "notes": "Kiểm tra tự động 33 segment với Pāli trong cache: đủ ID, giá trị, NFC và hệ chữ Latin. Chưa đọc đối chiếu nghĩa, ngữ pháp hoặc văn phong; chưa chấm lại 10 tiêu chí. Đây không phải chứng nhận hash upstream hoặc giấy phép, không xác nhận trạng thái xuất bản.",
+      "content_sha256": "9c87ed2a44cfa962ecfa72abc64f8ad4e2091b1bcf1045e10dde640b2e6e11cb",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639"
+    }
+  ],
+  "legacy_quality": {
+    "scores": {
+      "source_provenance": 9.7,
+      "semantic_fidelity": 9.3,
+      "grammar_logic": 9.2,
+      "segment_alignment": 10,
+      "terminology": 9.4,
+      "triangulation": 8,
+      "vietnamese_clarity": 9.4,
+      "han_viet_balance": 9.3,
+      "ambiguity_integrity": 9.3,
+      "technical_integrity": 9.6
+    },
+    "final_score": 9.32,
+    "blocking_errors": [
+      "Không có tầng tham khảo tiếng Anh cho bài này tại commit đã ghim 11c9d708978cde8ba61096d8a75f7ddfb846f639: trong `source/upstream-manifest.json`, edition `translation/en/sujato` có 4.291 tệp và các sub-collection của `kn/` chỉ gồm cp, dhp, iti, ja, kp, snp, thag, thig, ud — KHÔNG có `sutta/tha-ap/`. Tệp `tha-ap` duy nhất mà edition đó liệt kê là tầng TÊN `name/sutta/tha-ap-name_translation-en-sujato.json` (619 khoá), không phải kinh văn. Đây là `not-published-upstream`, KHÔNG phải `not-synced`. Đo coverage theo đúng công thức `source/layers.yaml` (`substantivePaliMinChars: 40`, `excludeReferenceBlock: true`, `floor: 0.8`): Anh 0 trên 1 khoá Pāli có nội dung = 0%, dưới ngưỡng. Tầng `vietnamese-current` cũng không phủ: `source/layers.yaml` khai corpus đó chỉ có Pháp Cú (26 tệp dưới `kn/dhp`), không có `tha-ap`. Lớp lấp `english-project` của dự án (`content/translation/en/project/sutta/kn/`, 129 tệp) cũng không có tệp nào cho `tha-ap`. Ba tầng tham khảo đều vắng ⇒ bản dịch chỉ có thể dựa vào Pāli root, và `scripts/validate.ts` coi tệp Anh thiếu là **error** khi status là `review` hoặc `published` ⇒ bài bắt buộc `draft`. Đây là giới hạn của bản chụp upstream, KHÔNG phải lỗi của người dịch; vì vậy `triangulation` bị chặn ở 8.0 (≤ 8.0) chứ không nâng để né blocker. Bài này có **hai** khoá được Anh đã ghim xác nhận trực tiếp: `:2.3` `Sadevakasmiṁ lokasmiṁ,` trùng nguyên văn `iti112:13.3` (\"In the world with its gods,\") và `:6.4` `cakkavattī mahabbalo.` trùng `cp4:1.4` (\"a wheel-turning monarch of great power.\"). Tầng `name/` cũng có `tha-ap-name:245.tha-alambanadayakavagga` = “Chapter Beginning With Ālambanadāyaka”. Đó là tầng tên, không thay được tầng kinh văn."
+    ],
+    "assessed_at": "2026-10-05",
+    "assessed_by": [
+      "OpenCode Space Bunny Free (agent)"
+    ]
+  }
+}

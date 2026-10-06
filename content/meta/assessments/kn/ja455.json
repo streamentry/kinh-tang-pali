@@ -1,0 +1,54 @@
+{
+  "schemaVersion": 1,
+  "uid": "ja455",
+  "assessments": [
+    {
+      "id": "f7e28337-5581-46ba-a306-efc16193bfc0",
+      "target": "translation",
+      "scope": "technical",
+      "assessed_at": "2026-10-06",
+      "assessed_by": [
+        "Repository segment validator"
+      ],
+      "scores": {
+        "source_provenance": null,
+        "semantic_fidelity": null,
+        "grammar_logic": null,
+        "segment_alignment": 10,
+        "terminology": null,
+        "triangulation": null,
+        "vietnamese_clarity": null,
+        "han_viet_balance": null,
+        "ambiguity_integrity": null,
+        "technical_integrity": null
+      },
+      "final_score": null,
+      "blocking_errors": [],
+      "notes": "Kiểm tra tự động 53 segment với Pāli trong cache: đủ ID, giá trị, NFC và hệ chữ Latin. Chưa đọc đối chiếu nghĩa, ngữ pháp hoặc văn phong; chưa chấm lại 10 tiêu chí. Đây không phải chứng nhận hash upstream hoặc giấy phép, không xác nhận trạng thái xuất bản.",
+      "content_sha256": "affe9ec2c7092068d082814a0a62282a2e1f41259d4a5328299beec4538d2a80",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639"
+    }
+  ],
+  "legacy_quality": {
+    "scores": {
+      "source_provenance": 9.5,
+      "semantic_fidelity": 9.2,
+      "grammar_logic": 9.2,
+      "segment_alignment": 10,
+      "terminology": 9.1,
+      "triangulation": 7,
+      "vietnamese_clarity": 9.1,
+      "han_viet_balance": 9.3,
+      "ambiguity_integrity": 9,
+      "technical_integrity": 9.6
+    },
+    "final_score": 9.1,
+    "blocking_errors": [
+      "Không có tầng tham khảo tiếng Anh tại commit đã ghim: tệp `sutta/kn/ja/ja455_translation-en-sujato.json` KHÔNG có trong `source/upstream-manifest.json` (tầng `english-sujato` 4291 tệp; riêng `sutta/kn/` có 755 tệp với cp 35 · dhp 26 · iti 112 · ja 83 · kp 9 · snp 73 · thag 264 · thig 73 · ud 80, trong đó `kn/ja` chỉ 83 tệp và không có tệp nào là ja455). Đây là `not-published-upstream`, KHÔNG phải `not-synced` (đã kiểm cả cache: `.cache/upstream/suttacentral/translation/en/sujato/sutta/kn/ja/` có đúng 83 tệp, không có ja455). Tầng `vietnamese-current` cũng vắng: `translation/vi/phantuananh` tại commit đã ghim chỉ có 26 tệp và toàn bộ là Pháp Cú. Lớp lấp `english-project` của dự án không có cho uid này (`find content/meta/en -name ja455*` rỗng, `find content/translation/en -name ja455*` rỗng). Cả ba tầng tham khảo đều vắng nên bài chỉ dịch được từ Pāli root — blocker thật, đây là giới hạn upstream chứ không phải lỗi của người dịch; bài bắt buộc `draft`, và `triangulation` bị chặn ở 7.0 (≤ 8.0) chứ không nâng để né blocker. Thêm nữa, mẫu số coverage bằng 0 (xem notes) nên cổng `reference-gaps.yaml` không đo được gì cho bài này, mà tôi không được phép sửa tệp đó."
+    ],
+    "assessed_at": "2026-10-05",
+    "assessed_by": [
+      "OpenCode Space Bunny Free (agent)"
+    ]
+  }
+}

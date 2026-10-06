@@ -1,0 +1,82 @@
+{
+  "schemaVersion": 1,
+  "uid": "ja383",
+  "assessments": [
+    {
+      "id": "6ff6ba58-ef62-4549-b9dc-e879116cf725",
+      "target": "translation",
+      "scope": "full",
+      "assessed_at": "2026-10-05",
+      "assessed_by": [
+        "OpenCode Space Bunny Free (agent)"
+      ],
+      "notes": "**Tệp dịch tiếng Việt của lát này vắng mặt trên đĩa, dù scorecard đã chấm đủ 10 tiêu chí.** Đây là lỗ hổng thật: `content/meta/sutta/kn/ja383.yaml` tuyên bố 33/33 khoá, còn `content/translation/vi/project/sutta/kn/ja383_translation-vi-project.json` thì không tồn tại — nên `npm run audit:store` báo *layer vietnamese-project should be present but is not*, và người đọc bài này trên site sẽ chỉ thấy Pāli. Tệp đã được dựng lại từ Pāli root, 33/33 khoá, đúng tập khoá và thứ tự của `sourcePath` trong catalog.\n\n**Cách viết bám đúng các quyết định đã ghi sẵn trong `notes` của scorecard**, và mỗi quyết định đó tôi đã đo lại được chứ không tin lại: `Chakkanipāta` → *Bộ Sáu Bài Kệ* (chuỗi này trong tầng chỉ có một cách dịch, 17/17); `Avāriyavagga` → *Phẩm Avāriya* (9/9 tệp `ja` đã có bản dịch dùng đúng tên này, **không** phải 0 tiền lệ như bản nháp đầu); `Kukkuṭajātaka` → *Kinh Kukkuṭa* (giữ Pāli, theo mẫu lân cận trong Chakkanipāta 6/6); `kukkuṭa` → *gà*; `sattu`/`biḷāri` → *kẻ thù* (đo toàn tầng: *sư tử* chỉ có nghĩa sư tử thật, 22 lần); `Muccate sattusambādhā` ở `7.3` dùng lại **nguyên văn** văn bản đã có — đếm lại: cụm này có **3** bản *Sẽ thoát khỏi cạm bẫy của kẻ thù* và 1 bản *được giải thoát khỏi sức mạnh của kẻ thù*, nên theo đa số; `ariyena vedena` → *bằng cách công khai*; bỏ dấu `”ti` cuốn bài theo đa số đo được (222 bỏ vs 207 giữ).\n\n**Nháy kép đặt đúng như Pāli**: mở ở `1.1`, `2.1`, `3.1`, `4.1` và `5.1`, đóng ở `1.4`, `2.4`, `3.4`, `4.4` và `7.4` — tức 5 mở / 5 đóng. Bản nháp đầu của tác giả đóng sớm ở `5.4`, làm lệch cặp; ở đây đã giữ đúng.\n\n**Vì sao vẫn `draft`.** Tầng `english-sujato` không có tệp cho `ja383` tại commit đã ghim, và `scripts/validate.ts` coi tệp Anh thiếu là **error** khi status là `review` hay `published`. Đây là `not-published-upstream`, không phải `not-synced`. Tầng `vietnamese-current` cũng vắng (`translation/vi/phantuananh` tại commit đã ghim chỉ có 26 tệp, toàn bộ là Pháp Cú). Cổng coverage đo được là **0/0**: 33 khoá, khoá dài nhất 27 ký tự, không khoá nào đạt ngưỡng 40 ký tự của `source/layers.yaml` — đây là mẫu số bằng 0, không phải 0% đã đo và không đạt. Ba tầng tham khảo đều vắng nên bài dịch chỉ từ Pāli root, và `triangulation` bị chặn ở 7.5 chứ không nâng để né blocker.\n\n**Bốn cổng kỹ thuật đã chạy ở đợt này** — `npm run validate` · `npm test` (336/336) · `npm run check` · `npm run build` — nên `technical_integrity` nâng lên 10.0 so với 9.6 của bản nháp. Điểm còn lại giữ nguyên như đã chấm.",
+      "scores": {
+        "source_provenance": 9.5,
+        "semantic_fidelity": 9.2,
+        "grammar_logic": 9.2,
+        "segment_alignment": 10,
+        "terminology": 9.3,
+        "triangulation": 7.5,
+        "vietnamese_clarity": 9.2,
+        "han_viet_balance": 9.4,
+        "ambiguity_integrity": 9.1,
+        "technical_integrity": 10
+      },
+      "final_score": 9.24,
+      "blocking_errors": [
+        "Không có tầng tham khảo tiếng Anh tại commit đã ghim: tầng `english-sujato` không có tệp cho `ja383` (đã đếm trong `source/upstream-manifest.json`: `.../kn/ja/` chỉ có 83 tệp, gồm ja1–ja79 cộng 126, 159, 466, 534 — không có ja383), nên đây là `not-published-upstream`, KHÔNG phải `not-synced`. `scripts/validate.ts` coi tệp Anh thiếu là error khi status là `review` hoặc `published`, nên bài bắt buộc `draft`. Tầng `vietnamese-current` cũng vắng: `translation/vi/phantuananh` tại commit đã ghim chỉ có 26 tệp, toàn bộ là Pháp Cú. Lớp lấp `english-project` không có cho uid này. Ba tầng tham khảo đều vắng ⇒ bài dịch chỉ từ Pāli root. Đây là giới hạn upstream, không phải lỗi của người dịch, nhưng vẫn là blocker thật nên không bù được bằng điểm."
+      ],
+      "content_sha256": "0c0c335df068e449fb7a825c51dd2c113298a7fd2a0fc8c456785b7c0f870180",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639"
+    },
+    {
+      "id": "bf8c2532-0f20-49e0-95e1-ac3ca21413b5",
+      "target": "translation",
+      "scope": "technical",
+      "assessed_at": "2026-10-06",
+      "assessed_by": [
+        "Repository segment validator"
+      ],
+      "scores": {
+        "source_provenance": null,
+        "semantic_fidelity": null,
+        "grammar_logic": null,
+        "segment_alignment": 10,
+        "terminology": null,
+        "triangulation": null,
+        "vietnamese_clarity": null,
+        "han_viet_balance": null,
+        "ambiguity_integrity": null,
+        "technical_integrity": null
+      },
+      "final_score": null,
+      "blocking_errors": [],
+      "notes": "Kiểm tra tự động 33 segment với Pāli trong cache: đủ ID, giá trị, NFC và hệ chữ Latin. Chưa đọc đối chiếu nghĩa, ngữ pháp hoặc văn phong; chưa chấm lại 10 tiêu chí. Đây không phải chứng nhận hash upstream hoặc giấy phép, không xác nhận trạng thái xuất bản.",
+      "content_sha256": "0c0c335df068e449fb7a825c51dd2c113298a7fd2a0fc8c456785b7c0f870180",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639"
+    }
+  ],
+  "legacy_quality": {
+    "scores": {
+      "source_provenance": 9.5,
+      "semantic_fidelity": 9.2,
+      "grammar_logic": 9.2,
+      "segment_alignment": 10,
+      "terminology": 9.3,
+      "triangulation": 7.5,
+      "vietnamese_clarity": 9.2,
+      "han_viet_balance": 9.4,
+      "ambiguity_integrity": 9.1,
+      "technical_integrity": 9.6
+    },
+    "final_score": 9.2,
+    "blocking_errors": [
+      "Không có tầng tham khảo tiếng Anh tại commit đã ghim: `source/upstream-manifest.json` cho thấy tầng `english-sujato` chỉ có **83** tệp dưới `.../kn/ja/` (ja1–ja79, cộng 126, 159, 466, 534), trong đó **không có** ja372/ja383/ja391 ⇒ `not-published-upstream`, KHÔNG phải `not-synced`. Cổng coverage của kho đo trên Pāli có nội dung (≥ 40 ký tự): ja383 có **mẫu số = 0** (33 khoá, khoá dài nhất 27 ký tự), nên cổng **không đo được gì** — đây là `0/0`, không phải `0%` đã kiểm rồi không đạt, và cũng không phải cơ sở để bỏ qua việc ghi nhận. `scripts/validate.ts` coi tệp Anh thiếu là **error** khi status là `review` hoặc `published`, nên bài bắt buộc `draft`. Tầng `vietnamese-current` cũng vắng: `translation/vi/phantuananh` tại commit đã ghim chỉ có 26 tệp, toàn bộ là Pháp Cú. Lớp lấp `english-project` cũng không có cho uid này. Ba tầng tham khảo đều vắng ⇒ bài dịch chỉ từ Pāli root ⇒ blocker thật, đây là **giới hạn upstream**, không phải lỗi của người dịch. Vì vậy `triangulation` bị chặn ở 7.5 (≤ 8.0) chứ không nâng để né blocker."
+    ],
+    "assessed_at": "2026-10-05",
+    "assessed_by": [
+      "OpenCode Space Bunny Free (agent)"
+    ]
+  }
+}

@@ -1,0 +1,80 @@
+{
+  "schemaVersion": 1,
+  "uid": "mil3.3.5",
+  "assessments": [
+    {
+      "id": "f489d576-335a-4e6e-8208-7397c7ac7903",
+      "target": "translation",
+      "scope": "technical",
+      "assessed_at": "2026-10-05",
+      "assessed_by": [
+        "Repository segment validator"
+      ],
+      "scores": {
+        "source_provenance": null,
+        "semantic_fidelity": null,
+        "grammar_logic": null,
+        "segment_alignment": 10,
+        "terminology": null,
+        "triangulation": null,
+        "vietnamese_clarity": null,
+        "han_viet_balance": null,
+        "ambiguity_integrity": null,
+        "technical_integrity": null
+      },
+      "final_score": null,
+      "blocking_errors": [],
+      "notes": "Kiểm tra tự động 42 segment với Pāli trong cache: đủ ID, giá trị, NFC và hệ chữ Latin. Chưa đọc đối chiếu nghĩa, ngữ pháp hoặc văn phong; chưa chấm lại 10 tiêu chí. Đây không phải chứng nhận hash upstream hoặc giấy phép, không xác nhận trạng thái xuất bản.",
+      "content_sha256": "52cdd4f59794d506079719bb81cd14fcdfb04056bf42f2e4b44492ed7310a4a8",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639"
+    },
+    {
+      "id": "57a20861-8a4c-4665-bd7a-1586256a7dac",
+      "target": "translation",
+      "scope": "technical",
+      "assessed_at": "2026-10-06",
+      "assessed_by": [
+        "Repository segment validator"
+      ],
+      "scores": {
+        "source_provenance": null,
+        "semantic_fidelity": null,
+        "grammar_logic": null,
+        "segment_alignment": 10,
+        "terminology": null,
+        "triangulation": null,
+        "vietnamese_clarity": null,
+        "han_viet_balance": null,
+        "ambiguity_integrity": null,
+        "technical_integrity": null
+      },
+      "final_score": null,
+      "blocking_errors": [],
+      "notes": "Kiểm tra tự động 42 segment với Pāli trong cache: đủ ID, giá trị, NFC và hệ chữ Latin. Chưa đọc đối chiếu nghĩa, ngữ pháp hoặc văn phong; chưa chấm lại 10 tiêu chí. Đây không phải chứng nhận hash upstream hoặc giấy phép, không xác nhận trạng thái xuất bản.",
+      "content_sha256": "52cdd4f59794d506079719bb81cd14fcdfb04056bf42f2e4b44492ed7310a4a8",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639"
+    }
+  ],
+  "legacy_quality": {
+    "scores": {
+      "source_provenance": 9.5,
+      "semantic_fidelity": 9.2,
+      "grammar_logic": 9.2,
+      "segment_alignment": 10,
+      "terminology": 8.9,
+      "triangulation": 6.5,
+      "vietnamese_clarity": 9.2,
+      "han_viet_balance": 9.3,
+      "ambiguity_integrity": 9.1,
+      "technical_integrity": 9.6
+    },
+    "final_score": 9.05,
+    "blocking_errors": [
+      "Tầng tham khảo tiếng Anh KHÔNG tồn tại tại commit đã ghim, và coverage Pāli có nội dung bằng 0 — thấp hơn ngưỡng 0.8 khai trong source/layers.yaml (englishCoverage.floor). Đo đếm được: 21 khoá Pāli ≥40 ký tự, 0 khoá có prose Anh Sujato. Kiểm ba nơi, không suy đoán: (1) `source/upstream-manifest.json` — edition `translation/en/sujato` tại commit `11c9d708978cde8ba61096d8a75f7ddfb846f639` không liệt kê tệp nào cho uid này; (2) `.cache/upstream/suttacentral/translation/en/sujato/sutta/kn/mil/` — không có tệp `mil3.3.5`; (3) toàn bộ uid `mil*` trong edition đó không có bản Anh, vì Sujato không dịch Milindapañha. Đây là `not-published-upstream`, KHÔNG phải `not-synced`: chạy `npm run source:sync:used` cũng không tạo ra tệp. Lớp lấp `english-project` của dự án cũng không có cho uid này (grep toàn `content/translation/en/project/sutta/` = 0). Tầng `vietnamese-current` cũng vắng: `translation/vi/phantuananh` tại commit đã ghim chỉ có 26 tệp và toàn bộ là Pháp Cú. Vì `content/meta/reference-gaps.yaml` hiện CHƯA có entry cho `mil3.3.5`, `validate` sẽ chặn `review`/`published`. Bài bắt buộc `draft`. Đây là giới hạn upstream, không phải lỗi của người dịch — và vì vậy `triangulation` bị chặn ở 6.5 chứ không nâng để né blocker. Coordinator: chạy `npm run reference:gaps` để sinh entry rồi `npm run reference:gaps:check`."
+    ],
+    "assessed_at": "2026-10-04",
+    "assessed_by": [
+      "OpenCode Space Bunny Free (agent)"
+    ]
+  }
+}

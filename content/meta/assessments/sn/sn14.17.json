@@ -1,0 +1,80 @@
+{
+  "schemaVersion": 1,
+  "uid": "sn14.17",
+  "assessments": [
+    {
+      "id": "11750f7d-813c-4acb-8a38-5855c8799fba",
+      "target": "translation",
+      "scope": "technical",
+      "assessed_at": "2026-10-05",
+      "assessed_by": [
+        "Repository segment validator"
+      ],
+      "scores": {
+        "source_provenance": null,
+        "semantic_fidelity": null,
+        "grammar_logic": null,
+        "segment_alignment": 10,
+        "terminology": null,
+        "triangulation": null,
+        "vietnamese_clarity": null,
+        "han_viet_balance": null,
+        "ambiguity_integrity": null,
+        "technical_integrity": null
+      },
+      "final_score": null,
+      "blocking_errors": [],
+      "notes": "Kiểm tra tự động 50 segment với Pāli trong cache: đủ ID, giá trị, NFC và hệ chữ Latin. Chưa đọc đối chiếu nghĩa, ngữ pháp hoặc văn phong; chưa chấm lại 10 tiêu chí. Đây không phải chứng nhận hash upstream hoặc giấy phép, không xác nhận trạng thái xuất bản.",
+      "content_sha256": "b143b72813eca97187d3a8dda22886392c8bc56ca200bb173ff6acac81b9b260",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639"
+    },
+    {
+      "id": "17653d34-ffa8-4cdf-8fe1-553de1ffde39",
+      "target": "translation",
+      "scope": "technical",
+      "assessed_at": "2026-10-06",
+      "assessed_by": [
+        "Repository segment validator"
+      ],
+      "scores": {
+        "source_provenance": null,
+        "semantic_fidelity": null,
+        "grammar_logic": null,
+        "segment_alignment": 10,
+        "terminology": null,
+        "triangulation": null,
+        "vietnamese_clarity": null,
+        "han_viet_balance": null,
+        "ambiguity_integrity": null,
+        "technical_integrity": null
+      },
+      "final_score": null,
+      "blocking_errors": [],
+      "notes": "Kiểm tra tự động 50 segment với Pāli trong cache: đủ ID, giá trị, NFC và hệ chữ Latin. Chưa đọc đối chiếu nghĩa, ngữ pháp hoặc văn phong; chưa chấm lại 10 tiêu chí. Đây không phải chứng nhận hash upstream hoặc giấy phép, không xác nhận trạng thái xuất bản.",
+      "content_sha256": "b143b72813eca97187d3a8dda22886392c8bc56ca200bb173ff6acac81b9b260",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639"
+    }
+  ],
+  "legacy_quality": {
+    "scores": {
+      "source_provenance": 9.7,
+      "semantic_fidelity": 9.4,
+      "grammar_logic": 9.4,
+      "segment_alignment": 10,
+      "terminology": 9.4,
+      "triangulation": 8,
+      "vietnamese_clarity": 9.4,
+      "han_viet_balance": 9.5,
+      "ambiguity_integrity": 9.2,
+      "technical_integrity": 9.6
+    },
+    "final_score": 9.36,
+    "blocking_errors": [
+      "Tầng tham khảo Anh không đủ và mất mát CHƯA được ghi nhận. Tệp Sujato đã ghim có mặt (`translation/en/sujato/sutta/sn/sn14/sn14.17_translation-en-sujato.json`, 50 khoá nhưng chỉ 26 khoá có chữ), và lớp lấp `english-project` của dự án KHÔNG có cho uid này. Đo coverage bằng đúng công thức `source/layers.yaml` (Pāli có nội dung ≥ 40 ký tự sau nén, loại khối tham chiếu `:0`) cho 20/35 khoá = 57,14%, thấp hơn ngưỡng 0,8, và `content/meta/reference-gaps.yaml` KHÔNG có entry cho `sn/sn14.17` (đã tra bằng grep trên toàn tệp). `scripts/validate.ts` coi đây là error khi status là `review` hoặc `published`, nên bài bắt buộc `draft`. 15 khoá còn im lặng là `2.2`–`2.8`, `3.2`, `3.3`, `3.7`, `3.8`, `4.2`, `4.7`, `4.8`, `5.13` — tức phần lớn là các vế quá khứ và vị lai mà Sujato bỏ trống rồi nối câu. Tôi không sửa `content/meta/reference-gaps.yaml` vì đợt này bị cấm; người điều phối cần chạy `npm run reference:gaps` để ghi nhận, hoặc lấp lớp `english-project` cho 15 khoá này. Đây là hạn chế của bản chụp upstream, không phải lỗi của người dịch; vì vậy `triangulation` bị chặn ở 8.0."
+    ],
+    "assessed_at": "2026-10-05",
+    "assessed_by": [
+      "OpenCode Space Bunny Free (agent)"
+    ]
+  }
+}

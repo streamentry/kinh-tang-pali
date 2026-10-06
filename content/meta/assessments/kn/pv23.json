@@ -1,0 +1,81 @@
+{
+  "schemaVersion": 1,
+  "uid": "pv23",
+  "assessments": [
+    {
+      "id": "0d6f3b3c-9ac1-4aa5-b307-abe80ce950c7",
+      "target": "translation",
+      "scope": "technical",
+      "assessed_at": "2026-10-05",
+      "assessed_by": [
+        "Repository segment validator"
+      ],
+      "scores": {
+        "source_provenance": null,
+        "semantic_fidelity": null,
+        "grammar_logic": null,
+        "segment_alignment": 10,
+        "terminology": null,
+        "triangulation": null,
+        "vietnamese_clarity": null,
+        "han_viet_balance": null,
+        "ambiguity_integrity": null,
+        "technical_integrity": null
+      },
+      "final_score": null,
+      "blocking_errors": [],
+      "notes": "Kiểm tra tự động 32 segment với Pāli trong cache: đủ ID, giá trị, NFC và hệ chữ Latin. Chưa đọc đối chiếu nghĩa, ngữ pháp hoặc văn phong; chưa chấm lại 10 tiêu chí. Đây không phải chứng nhận hash upstream hoặc giấy phép, không xác nhận trạng thái xuất bản.",
+      "content_sha256": "7602c875aa7826a1be7e8c98f3090a110bc6f3084d67f7012a4e322452619f6d",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639"
+    },
+    {
+      "id": "1e86b785-8800-4d41-978f-85c7c2b7b377",
+      "target": "translation",
+      "scope": "technical",
+      "assessed_at": "2026-10-06",
+      "assessed_by": [
+        "Repository segment validator"
+      ],
+      "scores": {
+        "source_provenance": null,
+        "semantic_fidelity": null,
+        "grammar_logic": null,
+        "segment_alignment": 10,
+        "terminology": null,
+        "triangulation": null,
+        "vietnamese_clarity": null,
+        "han_viet_balance": null,
+        "ambiguity_integrity": null,
+        "technical_integrity": null
+      },
+      "final_score": null,
+      "blocking_errors": [],
+      "notes": "Kiểm tra tự động 32 segment với Pāli trong cache: đủ ID, giá trị, NFC và hệ chữ Latin. Chưa đọc đối chiếu nghĩa, ngữ pháp hoặc văn phong; chưa chấm lại 10 tiêu chí. Đây không phải chứng nhận hash upstream hoặc giấy phép, không xác nhận trạng thái xuất bản.",
+      "content_sha256": "7602c875aa7826a1be7e8c98f3090a110bc6f3084d67f7012a4e322452619f6d",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639"
+    }
+  ],
+  "legacy_quality": {
+    "scores": {
+      "source_provenance": 9.6,
+      "semantic_fidelity": 9.2,
+      "grammar_logic": 9.2,
+      "segment_alignment": 10,
+      "terminology": 9.2,
+      "triangulation": 7.5,
+      "vietnamese_clarity": 9.3,
+      "han_viet_balance": 9.3,
+      "ambiguity_integrity": 8.9,
+      "technical_integrity": 9.6
+    },
+    "final_score": 9.18,
+    "blocking_errors": [
+      "Không có tầng tham khảo tiếng Anh tại commit đã ghim: manifest `source/upstream-manifest.json` khai 4.291 tệp cho `english-sujato`, trong đó `sutta/kn/` chỉ có 9 sub-collection (cp 35, dhp 26, iti 112, ja 83, kp 9, snp 73, thag 264, thig 73, ud 80) — không có `pv`, nên `pv23` không có tệp nào. Đây là `not-published-upstream`, KHÔNG phải `not-synced`. Lớp lấp `english-project` của dự án cũng không có cho uid này (`content/meta/en/kn/pv23.yaml` không tồn tại). Đây là GIỚI HẠN UPSTREAM, không phải lỗi của người dịch.",
+      "Coverage Anh không đo được gì: mẫu Pāli có nội dung (≥ 40 ký tự, loại block tham chiếu) của pv23 là 0/32 khoá — khoá dài nhất chỉ 37 ký tự — nên cổng `englishCoverage.floor` của `source/layers.yaml` có mẫu số bằng 0. Đây KHÁC `0/0 = không đạt ngưỡng`: là cổng không đo được gì. Vì vậy bài không thể tuyên bố đã đạt hay không đạt ngưỡng 0.8; nó chỉ có thể ghi nhận là chưa có tầng Anh, và khoảng mất mát đó phải được ghi vào `content/meta/reference-gaps.yaml` — tệp đó ngoài phạm vi lát này, người điều phối phải chạy `npm run reference:gaps`."
+    ],
+    "assessed_at": "2026-10-05",
+    "assessed_by": [
+      "OpenCode Space Bunny Free (agent)"
+    ]
+  }
+}

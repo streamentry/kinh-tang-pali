@@ -1,0 +1,80 @@
+{
+  "schemaVersion": 1,
+  "uid": "vv43",
+  "assessments": [
+    {
+      "id": "d580fe74-fe13-4e00-9647-8405a4df7c1f",
+      "target": "translation",
+      "scope": "technical",
+      "assessed_at": "2026-10-05",
+      "assessed_by": [
+        "Repository segment validator"
+      ],
+      "scores": {
+        "source_provenance": null,
+        "semantic_fidelity": null,
+        "grammar_logic": null,
+        "segment_alignment": 10,
+        "terminology": null,
+        "triangulation": null,
+        "vietnamese_clarity": null,
+        "han_viet_balance": null,
+        "ambiguity_integrity": null,
+        "technical_integrity": null
+      },
+      "final_score": null,
+      "blocking_errors": [],
+      "notes": "Kiểm tra tự động 44 segment với Pāli trong cache: đủ ID, giá trị, NFC và hệ chữ Latin. Chưa đọc đối chiếu nghĩa, ngữ pháp hoặc văn phong; chưa chấm lại 10 tiêu chí. Đây không phải chứng nhận hash upstream hoặc giấy phép, không xác nhận trạng thái xuất bản.",
+      "content_sha256": "5e58ffc0422f7431a5dc32f0c5573e1d41f72344018b92fb32b0c87e393f76f8",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639"
+    },
+    {
+      "id": "53499bd4-c2d4-4be5-b219-cf555d222445",
+      "target": "translation",
+      "scope": "technical",
+      "assessed_at": "2026-10-06",
+      "assessed_by": [
+        "Repository segment validator"
+      ],
+      "scores": {
+        "source_provenance": null,
+        "semantic_fidelity": null,
+        "grammar_logic": null,
+        "segment_alignment": 10,
+        "terminology": null,
+        "triangulation": null,
+        "vietnamese_clarity": null,
+        "han_viet_balance": null,
+        "ambiguity_integrity": null,
+        "technical_integrity": null
+      },
+      "final_score": null,
+      "blocking_errors": [],
+      "notes": "Kiểm tra tự động 44 segment với Pāli trong cache: đủ ID, giá trị, NFC và hệ chữ Latin. Chưa đọc đối chiếu nghĩa, ngữ pháp hoặc văn phong; chưa chấm lại 10 tiêu chí. Đây không phải chứng nhận hash upstream hoặc giấy phép, không xác nhận trạng thái xuất bản.",
+      "content_sha256": "5e58ffc0422f7431a5dc32f0c5573e1d41f72344018b92fb32b0c87e393f76f8",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639"
+    }
+  ],
+  "legacy_quality": {
+    "scores": {
+      "source_provenance": 9.5,
+      "semantic_fidelity": 8.8,
+      "grammar_logic": 8.9,
+      "segment_alignment": 10,
+      "terminology": 8.8,
+      "triangulation": 7.5,
+      "vietnamese_clarity": 9,
+      "han_viet_balance": 9,
+      "ambiguity_integrity": 8,
+      "technical_integrity": 9.6
+    },
+    "final_score": 8.91,
+    "blocking_errors": [
+      "Không có tầng tham khảo tiếng Anh tại commit đã ghim (11c9d708978cde8ba61096d8a75f7ddfb846f639): thư mục `kn/vv/` của edition `translation/en/sujato` **không tồn tại** trong `.cache/upstream/suttacentral/` (đếm được: trong `sutta/kn/` chỉ có thag/ja/thig/cp/dhp/iti/kp/ud/snp, **0 tệp** cho toàn bộ 563 bài `tha-ap` và **0 tệp** cho 85 bài `vv`), và `source/upstream-manifest.json` không liệt kê bất kỳ tệp nào cho `vv43` — đây là `not-published-upstream`, KHÔNG phải `not-synced`. Đo coverage theo đúng công thức `source/layers.yaml` (`englishCoverage.floor: 0.8`, đo trên Pāli có nội dung ≥ 40 ký tự, loại block tham chiếu `:0`) cho **0 trên 44 khoá = 0%**, dưới ngưỡng. `scripts/validate.ts` coi tệp Anh thiếu là **error** khi status là `review` hoặc `published`, nên bài bắt buộc `draft`. Tầng `vietnamese-current` cũng vắng: `translation/vi/phantuananh` tại commit đã ghim chỉ có 26 tệp và toàn bộ là Pháp Cú. Lớp lấp `english-project` của dự án (`content/translation/en/project/sutta/kn/`) cũng không có cho uid này. Ba tầng tham khảo đều vắng ⇒ bài dịch chỉ từ Pāli root ⇒ **blocker thật**, và đây là **giới hạn của bản chụp upstream**, không phải lỗi của người dịch. Vì vậy `triangulation` bị chặn ở 7.5 (≤ 8.0) chứ không nâng để né blocker."
+    ],
+    "assessed_at": "2026-10-04",
+    "assessed_by": [
+      "OpenCode Space Bunny Free (agent)"
+    ]
+  }
+}

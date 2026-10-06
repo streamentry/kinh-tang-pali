@@ -1,0 +1,80 @@
+{
+  "schemaVersion": 1,
+  "uid": "ja409",
+  "assessments": [
+    {
+      "id": "2e73492b-dba8-4014-ae64-0195fafd2fd0",
+      "target": "translation",
+      "scope": "technical",
+      "assessed_at": "2026-10-05",
+      "assessed_by": [
+        "Repository segment validator"
+      ],
+      "scores": {
+        "source_provenance": null,
+        "semantic_fidelity": null,
+        "grammar_logic": null,
+        "segment_alignment": 10,
+        "terminology": null,
+        "triangulation": null,
+        "vietnamese_clarity": null,
+        "han_viet_balance": null,
+        "ambiguity_integrity": null,
+        "technical_integrity": null
+      },
+      "final_score": null,
+      "blocking_errors": [],
+      "notes": "Kiểm tra tự động 33 segment với Pāli trong cache: đủ ID, giá trị, NFC và hệ chữ Latin. Chưa đọc đối chiếu nghĩa, ngữ pháp hoặc văn phong; chưa chấm lại 10 tiêu chí. Đây không phải chứng nhận hash upstream hoặc giấy phép, không xác nhận trạng thái xuất bản.",
+      "content_sha256": "f27b522c3fa6c6366ac0d69c8a78141fba17aa1b7a3ee62a3692784a47fe83c0",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639"
+    },
+    {
+      "id": "f829dc34-a4cc-43de-a034-02cd138484d8",
+      "target": "translation",
+      "scope": "technical",
+      "assessed_at": "2026-10-06",
+      "assessed_by": [
+        "Repository segment validator"
+      ],
+      "scores": {
+        "source_provenance": null,
+        "semantic_fidelity": null,
+        "grammar_logic": null,
+        "segment_alignment": 10,
+        "terminology": null,
+        "triangulation": null,
+        "vietnamese_clarity": null,
+        "han_viet_balance": null,
+        "ambiguity_integrity": null,
+        "technical_integrity": null
+      },
+      "final_score": null,
+      "blocking_errors": [],
+      "notes": "Kiểm tra tự động 33 segment với Pāli trong cache: đủ ID, giá trị, NFC và hệ chữ Latin. Chưa đọc đối chiếu nghĩa, ngữ pháp hoặc văn phong; chưa chấm lại 10 tiêu chí. Đây không phải chứng nhận hash upstream hoặc giấy phép, không xác nhận trạng thái xuất bản.",
+      "content_sha256": "f27b522c3fa6c6366ac0d69c8a78141fba17aa1b7a3ee62a3692784a47fe83c0",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639"
+    }
+  ],
+  "legacy_quality": {
+    "scores": {
+      "source_provenance": 9.6,
+      "semantic_fidelity": 9.2,
+      "grammar_logic": 9.2,
+      "segment_alignment": 10,
+      "terminology": 9.3,
+      "triangulation": 7.5,
+      "vietnamese_clarity": 9.3,
+      "han_viet_balance": 9.4,
+      "ambiguity_integrity": 9.2,
+      "technical_integrity": 9.6
+    },
+    "final_score": 9.23,
+    "blocking_errors": [
+      "Không có tầng tham khảo tiếng Anh tại commit đã ghim: tệp `translation/en/sujato/sutta/kn/ja/ja409_translation-en-sujato.json` không có trong git tree của commit `11c9d708978cde8ba61096d8a75f7ddfb846f639` theo `source/upstream-manifest.json` (tầng `english-sujato` có 4291 tệp, trong đó chỉ 83 tệp thuộc `sutta/kn/ja`), và cũng không có trong `.cache/upstream/suttacentral/` — đây là `not-published-upstream`, KHÔNG phải `not-synced`. Tầng `vietnamese-current` cũng vắng: `translation/vi/phantuananh` tại commit đã ghim chỉ có 26 tệp và toàn bộ là Pháp Cú. Lớp lấp `english-project` của dự án cũng không có cho uid này. Ba tầng tham khảo đều vắng nên bài dịch chỉ từ Pāli root; `scripts/validate.ts` coi tệp Anh ghim thiếu là **error** khi status là `review` hoặc `published`, nên bài bắt buộc `draft`. Đây là giới hạn của snapshot upstream, không phải lỗi của người dịch; vì vậy `triangulation` bị chặn ở 7.5 (≤ 8.0) chứ không nâng điểm để né blocker."
+    ],
+    "assessed_at": "2026-10-04",
+    "assessed_by": [
+      "OpenCode Space Bunny Free (agent)"
+    ]
+  }
+}

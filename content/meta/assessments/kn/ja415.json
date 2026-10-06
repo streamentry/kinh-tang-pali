@@ -1,0 +1,82 @@
+{
+  "schemaVersion": 1,
+  "uid": "ja415",
+  "assessments": [
+    {
+      "id": "9da0cf61-9d26-4a92-83cf-3f8ed6eeb86f",
+      "target": "translation",
+      "scope": "technical",
+      "assessed_at": "2026-10-05",
+      "assessed_by": [
+        "Repository segment validator"
+      ],
+      "scores": {
+        "source_provenance": null,
+        "semantic_fidelity": null,
+        "grammar_logic": null,
+        "segment_alignment": 10,
+        "terminology": null,
+        "triangulation": null,
+        "vietnamese_clarity": null,
+        "han_viet_balance": null,
+        "ambiguity_integrity": null,
+        "technical_integrity": null
+      },
+      "final_score": null,
+      "blocking_errors": [],
+      "notes": "Kiểm tra tự động 53 segment với Pāli trong cache: đủ ID, giá trị, NFC và hệ chữ Latin. Chưa đọc đối chiếu nghĩa, ngữ pháp hoặc văn phong; chưa chấm lại 10 tiêu chí. Đây không phải chứng nhận hash upstream hoặc giấy phép, không xác nhận trạng thái xuất bản.",
+      "content_sha256": "9ba3bc836fe633828546602f9327c5e50b140f9cae5b48306223cdc48aec0606",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639"
+    },
+    {
+      "id": "8750b830-cfbd-4528-8c14-3f3b1a44eebe",
+      "target": "translation",
+      "scope": "technical",
+      "assessed_at": "2026-10-06",
+      "assessed_by": [
+        "Repository segment validator"
+      ],
+      "scores": {
+        "source_provenance": null,
+        "semantic_fidelity": null,
+        "grammar_logic": null,
+        "segment_alignment": 10,
+        "terminology": null,
+        "triangulation": null,
+        "vietnamese_clarity": null,
+        "han_viet_balance": null,
+        "ambiguity_integrity": null,
+        "technical_integrity": null
+      },
+      "final_score": null,
+      "blocking_errors": [],
+      "notes": "Kiểm tra tự động 53 segment với Pāli trong cache: đủ ID, giá trị, NFC và hệ chữ Latin. Chưa đọc đối chiếu nghĩa, ngữ pháp hoặc văn phong; chưa chấm lại 10 tiêu chí. Đây không phải chứng nhận hash upstream hoặc giấy phép, không xác nhận trạng thái xuất bản.",
+      "content_sha256": "9ba3bc836fe633828546602f9327c5e50b140f9cae5b48306223cdc48aec0606",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639"
+    }
+  ],
+  "legacy_quality": {
+    "scores": {
+      "source_provenance": 9.5,
+      "semantic_fidelity": 8.8,
+      "grammar_logic": 9,
+      "segment_alignment": 10,
+      "terminology": 8.8,
+      "triangulation": 7,
+      "vietnamese_clarity": 9.2,
+      "han_viet_balance": 9.2,
+      "ambiguity_integrity": 8.6,
+      "technical_integrity": 9.6
+    },
+    "final_score": 8.97,
+    "blocking_errors": [
+      "Không có tầng tham khảo tiếng Anh tại commit đã ghim. Đo bằng script trên `source/upstream-manifest.json` (commit 11c9d708978cde8ba61096d8a75f7ddfb846f639, tầng `english-sujato`, 4291 tệp): dưới `sutta/kn/ja/` có đúng 83 tệp và không tệp nào là `ja415`; quét cả tầng cũng không có `ja415`. Cache trên đĩa `.cache/upstream/suttacentral/translation/en/sujato/sutta/kn/ja/` cũng đúng 83 tệp, không `ja415`. Vậy đây là `not-published-upstream`, KHÔNG phải `not-synced`. Tầng `vietnamese-current` chỉ có 26 tệp Pháp Cú, không tệp `ja*` nào; lớp lấp `english-project` có 62 tệp `ja*` nhưng chỉ từ `ja81` đến `ja149`, không `ja415`. Ba tầng tham khảo đều vắng nên bài chỉ dịch được từ Pāli root; theo AGENTS.md đây là lỗi chặn đối với `review` và `published`.",
+      "Cổng coverage KHÔNG ĐO ĐƯỢC GÌ, chứ không phải đo ra 0%. Đo theo đúng công thức của `source/layers.yaml` (`substantivePaliMinChars: 40`, `excludeReferenceBlock: true`, `floor: 0.8`) thì MẪU SỐ = 0: cả 53/53 khoá đều là câu kệ ngắn hơn 40 ký tự, toàn bài chỉ 1312 ký tự Pāli. `ratio` đọc thành 1 nên ngưỡng không đỏ, nhưng đó là hệ quả của mẫu số rỗng chứ không phải bằng chứng rằng đã đối chiếu được. Tôi ghi rõ mẫu số và không sửa `content/meta/reference-gaps.yaml`.",
+      "Còn bất định chưa phân xử được, và nó đổi ý nghĩa đoạn chứ không chỉ đổi cách diễn đạt. (a) `6.3` `Adaṁ buddhāna kummāsaṁ`: người nhận là `buddhāna` (bậc đã giác ngộ), nhưng `5.2` nói người hầu là bốn nhà Bà-la-môn — hai tầng tham khảo đều vắng nên không có cách nào chọn dứt khoát là bản gốc có lỗi chữ hay đây là hai sự kiện. (b) `1.1` `Na kiratthi anomadassisu`: `kiratthi` chỉ xuất hiện 3 lần trong toàn bộ Pāli `kn` (ja14:1.1, ja20:4.2, ja415:1.1), và mỗi chỗ đều khó; tôi đọc theo nghĩa `na` phủ định + `anomadassisu` làm chủ ngữ. (c) `2.3` `Nāriyo cimā accharūpamā`: `nāriyo` là số nữ nhân hay là ẩn dụ cho người đẹp như bậc tiên, Pāli không nói."
+    ],
+    "assessed_at": "2026-10-05",
+    "assessed_by": [
+      "OpenCode Space Bunny Free (agent)"
+    ]
+  }
+}

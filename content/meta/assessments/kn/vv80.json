@@ -1,0 +1,82 @@
+{
+  "schemaVersion": 1,
+  "uid": "vv80",
+  "assessments": [
+    {
+      "id": "c588e80b-a84f-468d-86b4-24c1e7139899",
+      "target": "translation",
+      "scope": "technical",
+      "assessed_at": "2026-10-05",
+      "assessed_by": [
+        "Repository segment validator"
+      ],
+      "scores": {
+        "source_provenance": null,
+        "semantic_fidelity": null,
+        "grammar_logic": null,
+        "segment_alignment": 10,
+        "terminology": null,
+        "triangulation": null,
+        "vietnamese_clarity": null,
+        "han_viet_balance": null,
+        "ambiguity_integrity": null,
+        "technical_integrity": null
+      },
+      "final_score": null,
+      "blocking_errors": [],
+      "notes": "Kiểm tra tự động 52 segment với Pāli trong cache: đủ ID, giá trị, NFC và hệ chữ Latin. Chưa đọc đối chiếu nghĩa, ngữ pháp hoặc văn phong; chưa chấm lại 10 tiêu chí. Đây không phải chứng nhận hash upstream hoặc giấy phép, không xác nhận trạng thái xuất bản.",
+      "content_sha256": "2f07933d5477bbfb43b954ee9c90c0e86f4fdbf1e9e90a2b29fee49ba15a9039",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639"
+    },
+    {
+      "id": "2f1b88f1-5f34-4edd-9366-1cb84faa1388",
+      "target": "translation",
+      "scope": "technical",
+      "assessed_at": "2026-10-06",
+      "assessed_by": [
+        "Repository segment validator"
+      ],
+      "scores": {
+        "source_provenance": null,
+        "semantic_fidelity": null,
+        "grammar_logic": null,
+        "segment_alignment": 10,
+        "terminology": null,
+        "triangulation": null,
+        "vietnamese_clarity": null,
+        "han_viet_balance": null,
+        "ambiguity_integrity": null,
+        "technical_integrity": null
+      },
+      "final_score": null,
+      "blocking_errors": [],
+      "notes": "Kiểm tra tự động 52 segment với Pāli trong cache: đủ ID, giá trị, NFC và hệ chữ Latin. Chưa đọc đối chiếu nghĩa, ngữ pháp hoặc văn phong; chưa chấm lại 10 tiêu chí. Đây không phải chứng nhận hash upstream hoặc giấy phép, không xác nhận trạng thái xuất bản.",
+      "content_sha256": "2f07933d5477bbfb43b954ee9c90c0e86f4fdbf1e9e90a2b29fee49ba15a9039",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639"
+    }
+  ],
+  "legacy_quality": {
+    "scores": {
+      "source_provenance": 9.5,
+      "semantic_fidelity": 8.8,
+      "grammar_logic": 8.9,
+      "segment_alignment": 10,
+      "terminology": 9.1,
+      "triangulation": 7.5,
+      "vietnamese_clarity": 9,
+      "han_viet_balance": 9.3,
+      "ambiguity_integrity": 8.7,
+      "technical_integrity": 9.6
+    },
+    "final_score": 9.04,
+    "blocking_errors": [
+      "Không có tầng tham khảo tiếng Anh tại commit đã ghim. Đo bằng `source/upstream-manifest.json` (commit 11c9d708978cde8ba61096d8a75f7ddfb846f639): edition `english-sujato` (treeSha 24e81ded9d6710e16b277b6394fd57c48258da12, 4.291 tệp) có **0 tệp** dưới `sutta/kn/vv/`; 755 tệp `kn` thuộc 9 sub-collection (cp 35, dhp 26, iti 112, ja 83, kp 9, snp 73, thag 264, thig 73, ud 80). `vietnamese-current` 26 tệp, toàn bộ là Pháp Cú. `english-project` 760 tệp, không có tệp nào cho `vv80`. Tầng `english-sujato` có `ja541` không? **không** — sub-collection `ja` của tầng Anh chỉ có 83 tệp và `ja541` không nằm trong đó, nên không thể dùng bản Anh của Jātaka để phân xử. Ba tầng tham khảo đều vắng ⇒ `not-published-upstream` ⇒ blocker thật, `triangulation` bị chặn ở 7.5.",
+      "⚠ RIÊNG BÀI NÀY, cổng coverage **không đo được gì**, và đó KHÔNG phải *không cần ghi nhận*. Đo bằng đúng công thức `source/layers.yaml` (`substantivePaliMinChars: 40`, `excludeReferenceBlock: true`) và bộ lọc `src/lib/canon/reference.ts` (bỏ block tham chiếu `:0`): ngoài block `:0` có **48** khoá, độ dài Pāli **min 4, max 38 ký tự** ⇒ số khoá Pāli có nội dung ≥ 40 ký tự = **0**. Mẫu số bằng 0 nên `ratio = 1` và coverage hiển thị 100%, nhưng con số ấy **không đo được gì** (`vv32` ghi đúng việc này: khuôn kệ của `vv` là kệ ngắn). Khác `vv19`, bài này có 3 khoá ≥ 40 ký tự nên cổng ấy đo được thật. Vì thế không được ghi vào `content/meta/reference-gaps.yaml` là *không thiếu* — thiếu là do **ngưỡng đo**, không phải do mất tầng; và cũng không được nói là đã kiểm tra phủ 100%.",
+      "Bất định chưa phân xử được ở khoá `vv80:6.2`, nên câu canonical chưa bảo vệ được. Pāli: `Saṅgamma rakkhissaṁ paresaṁ dhenuyo;`. Quét toàn bộ Pāli root đã ghim (5.764 tệp) cho `dhenuy` ra **đúng 1 khoá** — chính khoá này; `dhenu`, `dhenuka`, `dhenuyā` cũng không có chỗ nào trong tầng tham khảo nào. `paresa` thì có nghĩa *người chăn nuôi, người trông coi* đã chứng trong chính bộ kinh (`dn26:10.5`, `dn26:10.8` — *puriso paresaṁ*), nên tôi dịch *người chăn bò* cho `paresaṁ`. Với `dhenuyo` tôi **bỏ** và **không** bịa nghĩa thay cho nó — đúng như tiền lệ `vv32:8.3` với `kiramhāka`. Câu 6.2 vì thế là mảnh vắt không chủ ngữ, đúng như Pāli vốn vậy. Người biên tập cần tra bản in Pāli (PTS/Thai) hoặc thảo luận: tôi **không** loại trừ khả năng đây là lỗi sao chép của `dhanuyo` (giàu của), nhưng không đủ chứng cứ để dịch theo."
+    ],
+    "assessed_at": "2026-10-05",
+    "assessed_by": [
+      "OpenCode Space Bunny Free (agent)"
+    ]
+  }
+}

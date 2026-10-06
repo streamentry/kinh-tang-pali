@@ -1,0 +1,158 @@
+{
+  "schemaVersion": 1,
+  "uid": "sn1.4",
+  "assessments": [
+    {
+      "id": "b815eeeb-fb59-4116-892a-892ce8f1390c",
+      "target": "translation",
+      "scope": "technical",
+      "assessed_at": "2026-10-05",
+      "assessed_by": [
+        "Repository segment validator"
+      ],
+      "scores": {
+        "source_provenance": null,
+        "semantic_fidelity": null,
+        "grammar_logic": null,
+        "segment_alignment": 10,
+        "terminology": null,
+        "triangulation": null,
+        "vietnamese_clarity": null,
+        "han_viet_balance": null,
+        "ambiguity_integrity": null,
+        "technical_integrity": null
+      },
+      "final_score": null,
+      "blocking_errors": [],
+      "notes": "Kiểm tra tự động 13 segment với Pāli trong cache: đủ ID, giá trị, NFC và hệ chữ Latin. Chưa đọc đối chiếu nghĩa, ngữ pháp hoặc văn phong; chưa chấm lại 10 tiêu chí. Đây không phải chứng nhận hash upstream hoặc giấy phép, không xác nhận trạng thái xuất bản.",
+      "content_sha256": "230ede6d0cd4b88099a682234b76031f104f65e4f9ca6714eac069e3ea4efcd0",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639"
+    },
+    {
+      "target": "translation",
+      "scope": "content",
+      "assessed_at": "2026-10-05",
+      "assessed_by": [
+        "Codex"
+      ],
+      "notes": "Đã đọc đủ 13 segment Pāli/Sujato/Việt và comment. Kiểm accentī/kālā, tarayanti/rattiyo, vayoguṇā/anupubbaṁ: bản Việt giữ thời gian, đêm và các chặng đời, không thay toàn bộ chặng đời bằng tuổi thanh xuân. Các dòng lặp giữ nguyên. Hai kết luận tạo công đức và bỏ lokāmisa khác nhau, không bị nhập lại. Cách dịch lạc thú thế gian có ghi alternative ở comment; chưa xác minh lại các trích dẫn từ điển trong comment. Nguồn: pinned bilara 11c9d708978cde8ba61096d8a75f7ddfb846f639; store xác nhận Sujato phủ 100% các segment Pāli có nội dung theo ngưỡng đo. Tầng Việt hiện hành không có trong snapshot cho bài này; chưa đọc được bản Việt truyền thống độc lập trong lượt chấm lại, không kế thừa claim nghiên cứu của người chấm trước. technical_integrity chưa chấm: bộ test toàn repository còn lỗi ở phần tóm tắt chưa hoàn tất và bản NOTICE build cũ; chưa chốt điểm tổng hoặc trạng thái phát hành. Điểm là nhận định biên tập, không phải xác suất bản dịch đúng.",
+      "scores": {
+        "source_provenance": 9.5,
+        "semantic_fidelity": 9.3,
+        "grammar_logic": 9.4,
+        "segment_alignment": 10,
+        "terminology": 9.2,
+        "triangulation": 8.2,
+        "vietnamese_clarity": 9.6,
+        "han_viet_balance": 9.5,
+        "ambiguity_integrity": 9,
+        "technical_integrity": null
+      },
+      "final_score": null,
+      "blocking_errors": [],
+      "id": "58b8276a-be13-478f-94c5-ba9f26cbefab",
+      "content_sha256": "230ede6d0cd4b88099a682234b76031f104f65e4f9ca6714eac069e3ea4efcd0",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639"
+    },
+    {
+      "target": "translation",
+      "scope": "full",
+      "assessed_at": "2026-10-05",
+      "assessed_by": [
+        "Codex"
+      ],
+      "notes": "Kiểm trọn 13 segment và comment. Vayoguṇā giữ phạm vi các chặng đời, không thu hẹp chỉ tuổi thanh xuân; accentī/tarayanti giữ hai hình ảnh thời gian trôi và đêm vụt qua. Các dòng lặp nhất quán. Hai kết luận công đức/từ bỏ không nhập làm một. Với lokāmisa dùng lại kết quả tra DPD đã đọc trực tiếp cho SN1.3, không coi việc trùng câu là đủ để bỏ đọc context. Phạm vi: đủ toàn bài Pāli/Sujato/Việt và comment, tiếp theo một lượt review đối kháng riêng. Đối chiếu thêm bản HT. Thích Minh Châu ở chương I https://budsas.net/uni/u-kinh-tuongungbo/tu1-01.htm, phần tương ứng; nguồn sao chép bên thứ ba, tra cứu toàn văn không aligned, licence NOASSERTION, không phải tầng store. Snapshot pin không có Việt hiện hành cho bài này; English substantive coverage 100%. Đã phân biệt nguồn trực tiếp vừa đọc với claim nghiên cứu lịch sử trong comment. Gate kỹ thuật: validate/check/build gần nhất qua; npm test vẫn fail vì các tóm tắt MN/DN chưa có. Technical chấm 2/10, có lỗi chặn, buộc draft; không đánh tráo điểm cao nội dung thành đủ điều kiện xuất bản. Điểm là nhận định biên tập.",
+      "scores": {
+        "source_provenance": 9.7,
+        "semantic_fidelity": 9.5,
+        "grammar_logic": 9.5,
+        "segment_alignment": 10,
+        "terminology": 9.4,
+        "triangulation": 9.4,
+        "vietnamese_clarity": 9.6,
+        "han_viet_balance": 9.5,
+        "ambiguity_integrity": 9.4,
+        "technical_integrity": 2
+      },
+      "final_score": 8.8,
+      "blocking_errors": [
+        "Validation failure: npm test toàn repository chưa qua do phần tóm tắt MN/DN chưa hoàn tất; chưa đạt technical release gate."
+      ],
+      "id": "433df67c-e0b5-4707-9a16-d19837c83b91",
+      "content_sha256": "230ede6d0cd4b88099a682234b76031f104f65e4f9ca6714eac069e3ea4efcd0",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639"
+    },
+    {
+      "target": "translation",
+      "scope": "full",
+      "assessed_at": "2026-10-05",
+      "assessed_by": [
+        "Codex"
+      ],
+      "scores": {
+        "source_provenance": 9.7,
+        "semantic_fidelity": 9.5,
+        "grammar_logic": 9.5,
+        "segment_alignment": 10,
+        "terminology": 9.4,
+        "triangulation": 9.4,
+        "vietnamese_clarity": 9.6,
+        "han_viet_balance": 9.5,
+        "ambiguity_integrity": 9.4,
+        "technical_integrity": 10
+      },
+      "blocking_errors": [],
+      "notes": "Technical-gate follow-up to current full assessment 433df67c-e0b5-4707-9a16-d19837c83b91 dated 2026-10-05. The content scores are carried forward unchanged from that current whole-text Pāli review; this entry re-assesses only technical_integrity after npm test passed (336 tests), npm run check reported 0 errors, integrated npm run validate passed, and npm run build completed all 6,146 pages with Pagefind indexing 6,136 pages. The previous entry's sole blocker was the global validation/build gate, which is now resolved. Content and source fingerprints are recalculated by the recorder.",
+      "id": "1e8633c6-4fd2-4b3b-bd85-3a0cdbdd95c5",
+      "content_sha256": "230ede6d0cd4b88099a682234b76031f104f65e4f9ca6714eac069e3ea4efcd0",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
+      "final_score": 9.6
+    },
+    {
+      "id": "597e0bb0-d69c-4cb9-8223-c93f7b3e7444",
+      "target": "translation",
+      "scope": "technical",
+      "assessed_at": "2026-10-06",
+      "assessed_by": [
+        "Repository segment validator"
+      ],
+      "scores": {
+        "source_provenance": null,
+        "semantic_fidelity": null,
+        "grammar_logic": null,
+        "segment_alignment": 10,
+        "terminology": null,
+        "triangulation": null,
+        "vietnamese_clarity": null,
+        "han_viet_balance": null,
+        "ambiguity_integrity": null,
+        "technical_integrity": null
+      },
+      "final_score": null,
+      "blocking_errors": [],
+      "notes": "Kiểm tra tự động 13 segment với Pāli trong cache: đủ ID, giá trị, NFC và hệ chữ Latin. Chưa đọc đối chiếu nghĩa, ngữ pháp hoặc văn phong; chưa chấm lại 10 tiêu chí. Đây không phải chứng nhận hash upstream hoặc giấy phép, không xác nhận trạng thái xuất bản.",
+      "content_sha256": "230ede6d0cd4b88099a682234b76031f104f65e4f9ca6714eac069e3ea4efcd0",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639"
+    }
+  ],
+  "legacy_quality": {
+    "scores": {
+      "source_provenance": 9.9,
+      "semantic_fidelity": 9.7,
+      "grammar_logic": 9.8,
+      "segment_alignment": 10,
+      "terminology": 9.6,
+      "triangulation": 9.8,
+      "vietnamese_clarity": 9.8,
+      "han_viet_balance": 9.8,
+      "ambiguity_integrity": 9.8,
+      "technical_integrity": 10
+    },
+    "final_score": 9.82,
+    "blocking_errors": [],
+    "assessed_at": "2026-09-11",
+    "assessed_by": [
+      "GPT-5.6 Sol"
+    ]
+  }
+}

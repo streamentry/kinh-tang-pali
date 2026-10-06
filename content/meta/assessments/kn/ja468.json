@@ -1,0 +1,54 @@
+{
+  "schemaVersion": 1,
+  "uid": "ja468",
+  "assessments": [
+    {
+      "id": "cfba2018-2ec1-4046-91ec-f00b798f2844",
+      "target": "translation",
+      "scope": "technical",
+      "assessed_at": "2026-10-06",
+      "assessed_by": [
+        "Repository segment validator"
+      ],
+      "scores": {
+        "source_provenance": null,
+        "semantic_fidelity": null,
+        "grammar_logic": null,
+        "segment_alignment": 10,
+        "terminology": null,
+        "triangulation": null,
+        "vietnamese_clarity": null,
+        "han_viet_balance": null,
+        "ambiguity_integrity": null,
+        "technical_integrity": null
+      },
+      "final_score": null,
+      "blocking_errors": [],
+      "notes": "Kiểm tra tự động 53 segment với Pāli trong cache: đủ ID, giá trị, NFC và hệ chữ Latin. Chưa đọc đối chiếu nghĩa, ngữ pháp hoặc văn phong; chưa chấm lại 10 tiêu chí. Đây không phải chứng nhận hash upstream hoặc giấy phép, không xác nhận trạng thái xuất bản.",
+      "content_sha256": "2b32018167a6c4d6ad8913249367fedee5c99512997967a1e64498dea52f1337",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639"
+    }
+  ],
+  "legacy_quality": {
+    "scores": {
+      "source_provenance": 9.5,
+      "semantic_fidelity": 9.2,
+      "grammar_logic": 9,
+      "segment_alignment": 10,
+      "terminology": 9,
+      "triangulation": 7,
+      "vietnamese_clarity": 9.2,
+      "han_viet_balance": 9.2,
+      "ambiguity_integrity": 9,
+      "technical_integrity": 9.6
+    },
+    "final_score": 9.07,
+    "blocking_errors": [
+      "Không có tầng tham khảo tiếng Anh tại commit 11c9d708978cde8ba61096d8a75f7ddfb846f639: tệp sutta/kn/ja/ja468_translation-en-sujato.json không có trong source/upstream-manifest.json (thư mục kn/ của edition english-sujato chỉ có cp 35, dhp 26, iti 112, ja 83, kp 9, snp 73, thag 264, thig 73, ud 80; 83 tệp kn/ja/ không có ja468) và cũng không có trên đĩa trong .cache/upstream/suttacentral ⇒ not-published-upstream, KHÔNG phải not-synced. Lớp lấp english-project của dự án không có ja468: thiếu cả content/translation/en/project/sutta/kn/ja468_translation-en-project.json lẫn content/meta/en/kn/ja468.yaml. Tầng vietnamese-current cũng vắng: edition đã ghim chỉ có 26 tệp và toàn bộ là sutta/kn/dhp/. Ba tầng tham khảo đều vắng ⇒ bài này dịch CHỈ từ Pāli root, và scripts/validate.ts đẩy thông điệp pinned English reference missing vào errors khi status là review hoặc published ⇒ bài bắt buộc draft. Thêm nữa, MẪU SỐ COVERAGE BẰNG 0: số segment Pāli có nội dung của ja468 là 0/53 theo ngưỡng substantivePaliMinChars = 40 khai ở source/layers.yaml, nên cổng coverage KHÔNG đo được gì (ratio = 1 theo src/lib/canon/reference.ts) — đây là cổng không đo được, KHÔNG phải đã ghi nhận đủ. Đây là giới hạn upstream, không phải lỗi của người dịch; vì vậy triangulation bị chặn ở 7.0 chứ không nâng để né blocker."
+    ],
+    "assessed_at": "2026-10-06",
+    "assessed_by": [
+      "OpenCode Space Bunny Free (agent)"
+    ]
+  }
+}

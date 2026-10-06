@@ -1,0 +1,80 @@
+{
+  "schemaVersion": 1,
+  "uid": "an6.27",
+  "assessments": [
+    {
+      "id": "c0e1078b-99c2-41db-a97c-cead8a5e6402",
+      "target": "translation",
+      "scope": "technical",
+      "assessed_at": "2026-10-05",
+      "assessed_by": [
+        "Repository segment validator"
+      ],
+      "scores": {
+        "source_provenance": null,
+        "semantic_fidelity": null,
+        "grammar_logic": null,
+        "segment_alignment": 10,
+        "terminology": null,
+        "triangulation": null,
+        "vietnamese_clarity": null,
+        "han_viet_balance": null,
+        "ambiguity_integrity": null,
+        "technical_integrity": null
+      },
+      "final_score": null,
+      "blocking_errors": [],
+      "notes": "Kiểm tra tự động 39 segment với Pāli trong cache: đủ ID, giá trị, NFC và hệ chữ Latin. Chưa đọc đối chiếu nghĩa, ngữ pháp hoặc văn phong; chưa chấm lại 10 tiêu chí. Đây không phải chứng nhận hash upstream hoặc giấy phép, không xác nhận trạng thái xuất bản.",
+      "content_sha256": "9980c7031e8f7124672f65160bc06fbc2747fa85358053c367a3cbf6bedb6515",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639"
+    },
+    {
+      "id": "19ec098e-28aa-4075-b8bb-5808132c6653",
+      "target": "translation",
+      "scope": "technical",
+      "assessed_at": "2026-10-06",
+      "assessed_by": [
+        "Repository segment validator"
+      ],
+      "scores": {
+        "source_provenance": null,
+        "semantic_fidelity": null,
+        "grammar_logic": null,
+        "segment_alignment": 10,
+        "terminology": null,
+        "triangulation": null,
+        "vietnamese_clarity": null,
+        "han_viet_balance": null,
+        "ambiguity_integrity": null,
+        "technical_integrity": null
+      },
+      "final_score": null,
+      "blocking_errors": [],
+      "notes": "Kiểm tra tự động 39 segment với Pāli trong cache: đủ ID, giá trị, NFC và hệ chữ Latin. Chưa đọc đối chiếu nghĩa, ngữ pháp hoặc văn phong; chưa chấm lại 10 tiêu chí. Đây không phải chứng nhận hash upstream hoặc giấy phép, không xác nhận trạng thái xuất bản.",
+      "content_sha256": "9980c7031e8f7124672f65160bc06fbc2747fa85358053c367a3cbf6bedb6515",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639"
+    }
+  ],
+  "legacy_quality": {
+    "scores": {
+      "source_provenance": 9.5,
+      "semantic_fidelity": 9.3,
+      "grammar_logic": 9.4,
+      "segment_alignment": 10,
+      "terminology": 9.2,
+      "triangulation": 7.5,
+      "vietnamese_clarity": 9.2,
+      "han_viet_balance": 9.4,
+      "ambiguity_integrity": 8.8,
+      "technical_integrity": 9.6
+    },
+    "final_score": 9.19,
+    "blocking_errors": [
+      "Tầng Anh chỉ phủ 22/34 segment Pāli có nội dung = 64,7%, dưới ngưỡng 0,8 khai ở `source/layers.yaml`. 12 khoá không có một chữ Anh nào: `3.2`–`3.4`, `4.2`–`4.4`, `5.2`–`5.4`, `6.2`–`6.4` — tức là `‘ahaṁ kho, āvuso …’` và `‘Sādhu vata me āyasmā … dhammaṁ desetū’ti.` của bốn dịp liên tiếp (sân hận, hôn trầm, uể oải, nghi ngờ). Lớp lấp `english-project` của dự án chưa có cho an6.27, nên không có tầng Anh nào bù. `content/meta/reference-gaps.yaml` CHƯA có entry cho `an/an6.27` (đã kiểm bằng YAML parse: 729 entry, không có `an/an6.27`); coordinator cần chạy `npm run reference:gaps` để ghi nhận. Tầng `vietnamese-current` cũng vắng. Ba tầng tham khảo đều thiếu ở 12 khoá đó ⇒ dịch từ Pāli root một mình, và `scripts/validate.ts` coi đây là error khi status là `review` hoặc `published`, nên bài bắt buộc `draft`."
+    ],
+    "assessed_at": "2026-10-04",
+    "assessed_by": [
+      "OpenCode Space Bunny Free (agent)"
+    ]
+  }
+}

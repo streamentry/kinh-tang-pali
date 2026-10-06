@@ -1,0 +1,80 @@
+{
+  "schemaVersion": 1,
+  "uid": "tha-ap443",
+  "assessments": [
+    {
+      "id": "f238b616-bffb-492a-b1e7-3805895cc9e8",
+      "target": "translation",
+      "scope": "technical",
+      "assessed_at": "2026-10-05",
+      "assessed_by": [
+        "Repository segment validator"
+      ],
+      "scores": {
+        "source_provenance": null,
+        "semantic_fidelity": null,
+        "grammar_logic": null,
+        "segment_alignment": 10,
+        "terminology": null,
+        "triangulation": null,
+        "vietnamese_clarity": null,
+        "han_viet_balance": null,
+        "ambiguity_integrity": null,
+        "technical_integrity": null
+      },
+      "final_score": null,
+      "blocking_errors": [],
+      "notes": "Kiểm tra tự động 33 segment với Pāli trong cache: đủ ID, giá trị, NFC và hệ chữ Latin. Chưa đọc đối chiếu nghĩa, ngữ pháp hoặc văn phong; chưa chấm lại 10 tiêu chí. Đây không phải chứng nhận hash upstream hoặc giấy phép, không xác nhận trạng thái xuất bản.",
+      "content_sha256": "ab87f07520b260a8a68bb8ba9c02777167f72c127a948153f708bd618e7bad5d",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639"
+    },
+    {
+      "id": "fa9e6ad7-3db0-4e35-8c1a-573a95779f70",
+      "target": "translation",
+      "scope": "technical",
+      "assessed_at": "2026-10-06",
+      "assessed_by": [
+        "Repository segment validator"
+      ],
+      "scores": {
+        "source_provenance": null,
+        "semantic_fidelity": null,
+        "grammar_logic": null,
+        "segment_alignment": 10,
+        "terminology": null,
+        "triangulation": null,
+        "vietnamese_clarity": null,
+        "han_viet_balance": null,
+        "ambiguity_integrity": null,
+        "technical_integrity": null
+      },
+      "final_score": null,
+      "blocking_errors": [],
+      "notes": "Kiểm tra tự động 33 segment với Pāli trong cache: đủ ID, giá trị, NFC và hệ chữ Latin. Chưa đọc đối chiếu nghĩa, ngữ pháp hoặc văn phong; chưa chấm lại 10 tiêu chí. Đây không phải chứng nhận hash upstream hoặc giấy phép, không xác nhận trạng thái xuất bản.",
+      "content_sha256": "ab87f07520b260a8a68bb8ba9c02777167f72c127a948153f708bd618e7bad5d",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639"
+    }
+  ],
+  "legacy_quality": {
+    "scores": {
+      "source_provenance": 9.6,
+      "semantic_fidelity": 9.2,
+      "grammar_logic": 9.3,
+      "segment_alignment": 10,
+      "terminology": 9.2,
+      "triangulation": 8,
+      "vietnamese_clarity": 9.3,
+      "han_viet_balance": 9.4,
+      "ambiguity_integrity": 9.1,
+      "technical_integrity": 9.6
+    },
+    "final_score": 9.27,
+    "blocking_errors": [
+      "Không có tầng tham khảo tiếng Anh tại commit đã ghim: `source/upstream-manifest.json` (repo bilara-data, commit `11c9d708978cde8ba61096d8a75f7ddfb846f639`, tầng `english-sujato` 4.291 tệp / treeSha `24e81ded9d6710e16b277b6394fd57c48258da12`) **không có một tệp nào** cho uid này. Đếm trên chính manifest: trong `translation/en/sujato/sutta/kn/` có 755 tệp thuộc đúng 9 sub-collection — cp 35, dhp 26, iti 112, ja 83, kp 9, snp 73, thag 264, thig 73, ud 80 — và **không có `tha-ap`**; tệp duy nhất của tầng Anh mang chuỗi `tha-ap` là `name/sutta/tha-ap-name_translation-en-sujato.json`, tức file *tên phẩm*, không phải bản dịch bài. Đây là `not-published-upstream`, KHÔNG phải `not-synced`. Tầng `vietnamese-current` cũng vắng: `translation/vi/phantuananh` tại commit đã ghim chỉ có 26 tệp và toàn bộ nằm trong `dhp`. Lớp lấp `english-project` không có cho uid này (`content/translation/en/project/sutta/kn/` chỉ có `dhp*`, `iti*`, `ja*`). Ba tầng tham khảo đều vắng ⇒ bài dịch chỉ từ Pāli root, đây là blocker thật và là giới hạn của snapshot upstream chứ không phải lỗi của người dịch. Đo coverage theo đúng công thức `source/layers.yaml` (`substantivePaliMinChars: 40`, `excludeReferenceBlock: true`, chỉ tính tầng `english-sujato` + `english-project`) cho **0 trên 2** khoá Pāli có nội dung (`:8.1` 69 ký tự và `:9.1` 43 ký tự) = **0,00**, dưới ngưỡng 0,8. `scripts/validate.ts` coi tệp Anh đã ghim mà thiếu là lỗi khi status là `review` hoặc `published`, nên bài bắt buộc `draft`. Vì vậy `triangulation` bị chặn ở 8,0 (≤ 8,0) chứ không nâng để né blocker."
+    ],
+    "assessed_at": "2026-10-05",
+    "assessed_by": [
+      "OpenCode Space Bunny Free (agent)"
+    ]
+  }
+}

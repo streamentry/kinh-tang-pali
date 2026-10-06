@@ -1,0 +1,81 @@
+{
+  "schemaVersion": 1,
+  "uid": "vv32",
+  "assessments": [
+    {
+      "id": "645cbbef-5813-480f-a220-d66c8b956824",
+      "target": "translation",
+      "scope": "technical",
+      "assessed_at": "2026-10-05",
+      "assessed_by": [
+        "Repository segment validator"
+      ],
+      "scores": {
+        "source_provenance": null,
+        "semantic_fidelity": null,
+        "grammar_logic": null,
+        "segment_alignment": 10,
+        "terminology": null,
+        "triangulation": null,
+        "vietnamese_clarity": null,
+        "han_viet_balance": null,
+        "ambiguity_integrity": null,
+        "technical_integrity": null
+      },
+      "final_score": null,
+      "blocking_errors": [],
+      "notes": "Kiểm tra tự động 49 segment với Pāli trong cache: đủ ID, giá trị, NFC và hệ chữ Latin. Chưa đọc đối chiếu nghĩa, ngữ pháp hoặc văn phong; chưa chấm lại 10 tiêu chí. Đây không phải chứng nhận hash upstream hoặc giấy phép, không xác nhận trạng thái xuất bản.",
+      "content_sha256": "9aa6e6781f45565b211dbb96c9eb9811f6c1f9e87fb74a4db00b0a24ae52643c",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639"
+    },
+    {
+      "id": "2c79a3a0-6be8-46e1-8ced-934b17d60d1a",
+      "target": "translation",
+      "scope": "technical",
+      "assessed_at": "2026-10-06",
+      "assessed_by": [
+        "Repository segment validator"
+      ],
+      "scores": {
+        "source_provenance": null,
+        "semantic_fidelity": null,
+        "grammar_logic": null,
+        "segment_alignment": 10,
+        "terminology": null,
+        "triangulation": null,
+        "vietnamese_clarity": null,
+        "han_viet_balance": null,
+        "ambiguity_integrity": null,
+        "technical_integrity": null
+      },
+      "final_score": null,
+      "blocking_errors": [],
+      "notes": "Kiểm tra tự động 49 segment với Pāli trong cache: đủ ID, giá trị, NFC và hệ chữ Latin. Chưa đọc đối chiếu nghĩa, ngữ pháp hoặc văn phong; chưa chấm lại 10 tiêu chí. Đây không phải chứng nhận hash upstream hoặc giấy phép, không xác nhận trạng thái xuất bản.",
+      "content_sha256": "9aa6e6781f45565b211dbb96c9eb9811f6c1f9e87fb74a4db00b0a24ae52643c",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639"
+    }
+  ],
+  "legacy_quality": {
+    "scores": {
+      "source_provenance": 9.5,
+      "semantic_fidelity": 9,
+      "grammar_logic": 9,
+      "segment_alignment": 10,
+      "terminology": 9.2,
+      "triangulation": 7.5,
+      "vietnamese_clarity": 9.3,
+      "han_viet_balance": 9.3,
+      "ambiguity_integrity": 8.8,
+      "technical_integrity": 9.8
+    },
+    "final_score": 9.14,
+    "blocking_errors": [
+      "Không có tầng tham khảo tiếng Anh tại commit đã ghim: `source/upstream-manifest.json` (edition `english-sujato`, `treeSha` 24e81ded9d6710e16b277b6394fd57c48258da12, 4.291 tệp) KHÔNG có tệp thân bài nào cho uid `vv32` — tầng Anh đã ghim chỉ có `name/sutta/vv-name…`, tức là **toàn bộ sub-collection `vv` của Kinh Tạng vắng mặt** trong tầng Anh (đếm: `kn` trong tầng Anh có `cp`, `dhp`, `iti`, `ja`, `kp`, `snp`, `thag`, `thig`, `ud` — không có `vv`). Tệp `translation/en/sujato/sutta/kn/vv/vv32_translation-en-sujato.json` không tồn tại trong `.cache/upstream/suttacentral/`. Đây là `not-published-upstream`, KHÔNG phải `not-synced`. Đo coverage bằng đúng công thức `src/lib/canon/reference.ts` + `source/layers.yaml` (`substantivePaliMinChars: 40`, `excludeReferenceBlock: true`) cho **0 trên 0** khoá Pāli có nội dung — khuôn kệ của `vv` là kệ ngắn, độ dài Pāli **min 11, max 37 ký tự** — nên `ratio = 1`, coverage hiển thị **100%**, nhưng con số ấy **không đo được gì** (mẫu số bằng 0) và không phải lý do cho blocker. `scripts/validate.ts` (nhánh `if (!existsSync(englishFile))`) coi tệp Anh thiếu là **error** khi status là `review` hoặc `published`, nên bài bắt buộc `draft`. Tầng `vietnamese-current` cũng vắng: `translation/vi/phantuananh` tại commit đã ghim chỉ có 26 tệp và toàn bộ là Pháp Cú. Lớp lấp `english-project` của dự án (696 tệp `published`) cũng không có cho uid này. Ba tầng tham khảo đều vắng ⇒ bài dịch chỉ từ Pāli root ⇒ blocker thật, và đây là **giới hạn upstream**, không phải lỗi của người dịch. Vì vậy `triangulation` bị chặn ở 7.5 (≤ 8.0) chứ không nâng để né blocker.",
+      "Bất định chưa phân xử được ở khoá `vv32:8.3`, nên câu trong bản canonical chưa bảo vệ được. Pāli: `Patino kiramhākaṁ visiṭṭha nārīnaṁ,`. Quét toàn bộ Pāli root đã ghim (`root/pli/ms/sutta`, 5.764 tệp) cho `kiramhāka` chỉ ra **đúng 1 khoá** — chính khoá này; `māhāka`, `māhāko` cũng không có, và không có bản Anh hay bản Việt nào để đối chiếu. Tôi dịch *Chồng của những bà nữ cao quý bậc nhất,* — tức **bỏ** chức từ `kiramhāka`, và tôi **không** bịa một nghĩa thay cho nó. Đây là thiếu sót trung thực chứ không phải lỗi bịa nội dung, nhưng theo tiêu chí 6 của cổng chất lượng thì một câu còn bất định tới mức không xác định được mình đang nói gì thì canonical wording phải bị chặn cho tới khi người biên tập tra bản in Pāli (PTS/Thai) hoặc thảo luận."
+    ],
+    "assessed_at": "2026-10-05",
+    "assessed_by": [
+      "OpenCode Space Bunny Free (agent)"
+    ]
+  }
+}

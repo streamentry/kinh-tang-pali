@@ -1,9 +1,11 @@
 ---
 import Base from '../../../layouts/Base.astro';
+import QualityHistory from '../../../components/QualityHistory.astro';
 import SuttaReader from '../../../components/SuttaReader.astro';
-import { COLLECTIONS, loadCatalog } from '../../../lib/canon/load';
+import { COLLECTIONS, loadCatalog, loadMeta } from '../../../lib/canon/load';
 import { composeDocument } from '../../../lib/canon/document';
-import type { CollectionCode } from '../../../lib/canon/types';
+import { loadAssessmentHistory } from '../../../lib/canon/quality';
+import type { CollectionCode, TranslationQualityAssessment } from '../../../lib/canon/types';
 import { withBase } from '../../../lib/url';
 
 export function getStaticPaths() {
@@ -18,6 +20,14 @@ export function getStaticPaths() {
 
 const { collection, uid } = Astro.props;
 const document = composeDocument(collection.code as CollectionCode, uid);
+const meta = loadMeta(collection.code, uid);
+const history = loadAssessmentHistory(collection.code, uid);
+const selectedIsSaved = Boolean(meta?.quality?.assessment_id && history.assessments.some(entry => entry.id === meta?.quality?.assessment_id));
+const legacyScores = [history.legacy_quality, selectedIsSaved ? undefined : meta?.quality]
+  .filter((quality): quality is TranslationQualityAssessment => Boolean(quality))
+  .filter((quality, index, all) => all.findIndex(item => JSON.stringify(item) === JSON.stringify(quality)) === index);
+const supportsSummary = ['mn', 'dn'].includes(collection.code);
+const hasSummary = supportsSummary && Boolean(document.summary);
 const statusLabel = document.hasProjectData ? document.status : 'not-started';
 const summaryParagraphs = (document.summary ?? '').split(/\n{2,}/).filter((para) => para.trim() !== '');
 ---
@@ -51,6 +61,9 @@ const summaryParagraphs = (document.summary ?? '').split(/\n{2,}/).filter((para)
         </p>
       </section>
     )}
+    {supportsSummary && !hasSummary && <p data-pagefind-ignore>Chưa có nội dung tóm tắt cho bài kinh này.</p>}
+    {supportsSummary && <QualityHistory collection={collection.code} uid={uid} target="summary" assessments={history.assessments} />}
+    {document.hasProjectData && <QualityHistory collection={collection.code} uid={uid} target="translation" assessments={history.assessments} legacy={legacyScores} />}
     <SuttaReader document={document} />
   </main>
 </Base>

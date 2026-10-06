@@ -1,0 +1,80 @@
+{
+  "schemaVersion": 1,
+  "uid": "pv41",
+  "assessments": [
+    {
+      "id": "45fee4cc-2df7-4865-b600-db8ac9da2b3a",
+      "target": "translation",
+      "scope": "technical",
+      "assessed_at": "2026-10-05",
+      "assessed_by": [
+        "Repository segment validator"
+      ],
+      "scores": {
+        "source_provenance": null,
+        "semantic_fidelity": null,
+        "grammar_logic": null,
+        "segment_alignment": 10,
+        "terminology": null,
+        "triangulation": null,
+        "vietnamese_clarity": null,
+        "han_viet_balance": null,
+        "ambiguity_integrity": null,
+        "technical_integrity": null
+      },
+      "final_score": null,
+      "blocking_errors": [],
+      "notes": "Kiểm tra tự động 34 segment với Pāli trong cache: đủ ID, giá trị, NFC và hệ chữ Latin. Chưa đọc đối chiếu nghĩa, ngữ pháp hoặc văn phong; chưa chấm lại 10 tiêu chí. Đây không phải chứng nhận hash upstream hoặc giấy phép, không xác nhận trạng thái xuất bản.",
+      "content_sha256": "fe91507c3107c3ef800482130936cb1a724f4a5d0a90848224de4f1020738057",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639"
+    },
+    {
+      "id": "56985af5-0b90-40a3-b7a6-d16bd764c41f",
+      "target": "translation",
+      "scope": "technical",
+      "assessed_at": "2026-10-06",
+      "assessed_by": [
+        "Repository segment validator"
+      ],
+      "scores": {
+        "source_provenance": null,
+        "semantic_fidelity": null,
+        "grammar_logic": null,
+        "segment_alignment": 10,
+        "terminology": null,
+        "triangulation": null,
+        "vietnamese_clarity": null,
+        "han_viet_balance": null,
+        "ambiguity_integrity": null,
+        "technical_integrity": null
+      },
+      "final_score": null,
+      "blocking_errors": [],
+      "notes": "Kiểm tra tự động 34 segment với Pāli trong cache: đủ ID, giá trị, NFC và hệ chữ Latin. Chưa đọc đối chiếu nghĩa, ngữ pháp hoặc văn phong; chưa chấm lại 10 tiêu chí. Đây không phải chứng nhận hash upstream hoặc giấy phép, không xác nhận trạng thái xuất bản.",
+      "content_sha256": "fe91507c3107c3ef800482130936cb1a724f4a5d0a90848224de4f1020738057",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639"
+    }
+  ],
+  "legacy_quality": {
+    "scores": {
+      "source_provenance": 9.5,
+      "semantic_fidelity": 9,
+      "grammar_logic": 9.1,
+      "segment_alignment": 10,
+      "terminology": 9,
+      "triangulation": 7.5,
+      "vietnamese_clarity": 9.2,
+      "han_viet_balance": 9.3,
+      "ambiguity_integrity": 8.5,
+      "technical_integrity": 9.6
+    },
+    "final_score": 9.07,
+    "blocking_errors": [
+      "Không có tầng tham khảo tiếng Anh tại commit đã ghim: `translation/en/sujato/sutta/kn/{d}/{u}_translation-en-sujato.json` không tồn tại trong `.cache/upstream/suttacentral/`, và thư mục `kn/` của edition đã ghim chỉ có cp, dhp, iti, ja, kp, snp, thag, thig, ud — **không có mil, pv hay tha-ap**. Đếm lại trực tiếp trên đĩa bằng `find` cho 0 tệp ⇒ đây là `not-published-upstream`, KHÔNG phải `not-synced`. Bài này **không có segment Pāli có nội dung** (mọi câu kệ đều ngắn hơn 40 ký tự sau khi chuẩn hoá), nên `src/lib/canon/reference.ts` quy định `ratio = 1` khi mẫu số bằng 0 và cổng coverage **không** chặn. Nhưng tệp Anh thật sự không tồn tại, và `scripts/validate.ts` coi đó là **error** khi status là `review` hoặc `published` ⇒ bài bắt buộc `draft`. Đây là trường hợp số đo không bắt được nhưng thực tế vẫn mất tầng tham khảo. Tầng `vietnamese-current` cũng vắng (`translation/vi/phantuananh` tại commit đã ghim chỉ có 26 tệp, toàn bộ là Pháp Cú) và lớp lấp `english-project` cũng không có uid này ⇒ blocker thật."
+    ],
+    "assessed_at": "2026-10-04",
+    "assessed_by": [
+      "OpenCode Space Bunny Free (agent)"
+    ]
+  }
+}

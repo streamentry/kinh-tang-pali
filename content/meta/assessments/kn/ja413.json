@@ -1,0 +1,82 @@
+{
+  "schemaVersion": 1,
+  "uid": "ja413",
+  "assessments": [
+    {
+      "id": "2457d394-6f8d-4f45-9ae6-2beb902e4d87",
+      "target": "translation",
+      "scope": "technical",
+      "assessed_at": "2026-10-05",
+      "assessed_by": [
+        "Repository segment validator"
+      ],
+      "scores": {
+        "source_provenance": null,
+        "semantic_fidelity": null,
+        "grammar_logic": null,
+        "segment_alignment": 10,
+        "terminology": null,
+        "triangulation": null,
+        "vietnamese_clarity": null,
+        "han_viet_balance": null,
+        "ambiguity_integrity": null,
+        "technical_integrity": null
+      },
+      "final_score": null,
+      "blocking_errors": [],
+      "notes": "Kiểm tra tự động 33 segment với Pāli trong cache: đủ ID, giá trị, NFC và hệ chữ Latin. Chưa đọc đối chiếu nghĩa, ngữ pháp hoặc văn phong; chưa chấm lại 10 tiêu chí. Đây không phải chứng nhận hash upstream hoặc giấy phép, không xác nhận trạng thái xuất bản.",
+      "content_sha256": "bd78bbf79edc7a2e90c6694415ce59de634706d74e11de6d760d2907b6173715",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639"
+    },
+    {
+      "id": "e703b6e3-1cf5-4edf-9e3b-5d0978211c07",
+      "target": "translation",
+      "scope": "technical",
+      "assessed_at": "2026-10-06",
+      "assessed_by": [
+        "Repository segment validator"
+      ],
+      "scores": {
+        "source_provenance": null,
+        "semantic_fidelity": null,
+        "grammar_logic": null,
+        "segment_alignment": 10,
+        "terminology": null,
+        "triangulation": null,
+        "vietnamese_clarity": null,
+        "han_viet_balance": null,
+        "ambiguity_integrity": null,
+        "technical_integrity": null
+      },
+      "final_score": null,
+      "blocking_errors": [],
+      "notes": "Kiểm tra tự động 33 segment với Pāli trong cache: đủ ID, giá trị, NFC và hệ chữ Latin. Chưa đọc đối chiếu nghĩa, ngữ pháp hoặc văn phong; chưa chấm lại 10 tiêu chí. Đây không phải chứng nhận hash upstream hoặc giấy phép, không xác nhận trạng thái xuất bản.",
+      "content_sha256": "bd78bbf79edc7a2e90c6694415ce59de634706d74e11de6d760d2907b6173715",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639"
+    }
+  ],
+  "legacy_quality": {
+    "scores": {
+      "source_provenance": 9.5,
+      "semantic_fidelity": 9.2,
+      "grammar_logic": 9.1,
+      "segment_alignment": 10,
+      "terminology": 9,
+      "triangulation": 7.5,
+      "vietnamese_clarity": 9.2,
+      "han_viet_balance": 9.2,
+      "ambiguity_integrity": 8.7,
+      "technical_integrity": 9.6
+    },
+    "final_score": 9.1,
+    "blocking_errors": [
+      "Không có tầng tham khảo tiếng Anh tại commit đã ghim. Tôi tra `source/upstream-manifest.json` (commit 11c9d708978cde8ba61096d8a75f7ddfb846f639, tầng english-sujato, 4291 tệp) theo mẫu đầy đủ `…_translation-en-sujato.json`: tầng này có đúng 83 tệp thuộc `sutta/kn/ja`, và không tệp nào trong số đó là `ja413`; `.cache/upstream/suttacentral/translation/en/sujato/sutta/kn/ja/` trên đĩa cũng có đúng 83 tệp, tập uid khớp từng tệp với manifest, không có `ja413`. Vậy đây là `not-published-upstream`, KHÔNG phải `not-synced`. Tầng `vietnamese-current` vắng (tầng đã ghim chỉ có 26 tệp, không có tệp `ja*` nào) và lớp lấp `english-project` vắng (chỉ có `dhp*` và `iti*`). Ba tầng tham khảo đều vắng nên bài chỉ dịch được từ Pāli root; theo AGENTS.md đây là lỗi chặn đối với `review` và `published`.",
+      "Cổng coverage KHÔNG ĐO ĐƯỢC GÌ, chứ không phải đo ra 0%. Đo theo đúng công thức của `source/layers.yaml` (Pāli có nội dung ≥ 40 ký tự, loại khối tham chiếu `:0.x`) thì MẪU SỐ = 0: cả 33/33 khoá đều là câu kệ ngắn hơn 40 ký tự. `ratio` đọc thành 1 nên ngưỡng coverage không đỏ, nhưng đó là hệ quả của mẫu số rỗng chứ không phải bằng chứng rằng đã đối chiếu được. Tôi ghi rõ mẫu số và không sửa `content/meta/reference-gaps.yaml`.",
+      "Còn bất định chưa phân xử được ở `6.3` `Kiso` và `2.1` `ajayūthena`: hai điểm này quyết định danh tính chủ thể trong toàn bài mà không có bản Anh ở commit đã ghim để đối chiếu, nên tôi ghi cách đọc đã chọn và lý do trong notes thay vì tuyên bố chắc chắn."
+    ],
+    "assessed_at": "2026-10-05",
+    "assessed_by": [
+      "OpenCode Space Bunny Free (agent)"
+    ]
+  }
+}
