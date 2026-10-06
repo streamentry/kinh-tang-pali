@@ -5,6 +5,7 @@ translators:
   - "OpenCode Space Bunny Free (agent)"
 reviewers:
   - OpenCode Space Bunny Free (agent)
+  - Codex (GPT-6)
 tags:
   - "samyutta-nikaya"
   - "3-bharavagga"
@@ -12,43 +13,21 @@ tags:
   - "assada"
 quality:
   scores:
-    source_provenance: 9.6
-    semantic_fidelity: 9.4
+    source_provenance: 9.7
+    semantic_fidelity: 9.5
     grammar_logic: 9.4
     segment_alignment: 10
     terminology: 9.4
-    triangulation: 9
-    vietnamese_clarity: 9.4
-    han_viet_balance: 9.4
-    ambiguity_integrity: 9.2
+    triangulation: 9.2
+    vietnamese_clarity: 9.3
+    han_viet_balance: 9.3
+    ambiguity_integrity: 9.4
     technical_integrity: 10
-  final_score: 9.48
+  final_score: 9.52
   blocking_errors: []
   assessed_at: 2026-10-06
   assessed_by:
-    - OpenCode Space Bunny Free (agent)
-  assessment_id: 335f7365-f08d-40a7-bed6-f4ecfe769e93
+    - Codex (GPT-6)
+  assessment_id: b13edc70-842c-4050-8688-8519defec3bf
 notes: |-
-  Soạn từ Pāli root, đối chiếu Anh Sujato 17/22; 1.13, 1.14, 1.17, 1.18, 2.3 không
-  có chữ Anh nào tại commit đã ghim. Không có bản Việt Thích Minh Châu (ngoài Pháp Cú).
-  Ba bài sn22.26 + sn22.27 + sn22.28 là một bộ liền nhau trong Phẩm Gánh Nặng, nên
-  dùng CHUNG một bộ thuật ngữ với sn22.28 (bài kế bên): vị ngọt / sự nguy hại /
-  sự xuất ly, và tiêu đề theo Kinh Vị Ngọt Thứ Ba của sn22.28. Ghi lại đây vì tầng
-  đang có hai bộ: sn22.73 dịch `Assādasutta` là Kinh Sự Đáng Ưa và sn22.130 là
-  Kinh Sự Đáng Ưa (Hai), còn sn22.129 lại dịch thành Kinh Vô Minh (sai, `assāda`
-  không phải vô minh). Chọn sn22.28 vì ba bài phải nhất quán với nhau khi đọc liên
-  tiếp; nếu người điều phối muốn thống nhất theo sn22.73 thì cả 0.3 của sn22.26 và
-  sn22.27 phải đổi cùng lúc.
-  1.2 trùng PẢI sn14.31:1.2 (bài song song) nên dùng lại nguyên văn; 1.8 trùng
-  sn14.31:2.1; 2.4 trùng sn14.31:4.2; 2.5 theo sn14.31:4.3. 1.9-1.14 và 1.16-1.21
-  theo đúng khung của sn14.31 (giới tánh → sắc/thọ/tưởng/các hành/thức).
-  2.1-2.3 theo sn14.31:3.1 và 4.1, chỉ đổi bốn giới tánh thành năm thủ uẩn theo
-  Pāli bài này.
-  Tiền lệ đếm được: Saṁyutta Nikāya giữ Pāli 1074/1408; `3. Bhāravagga` →
-  3. Phẩm Gánh Nặng 9/9 trong sn22; `Sāvatthinidānaṁ.` → Tại Sāvatthī. 391/410;
-  `chandarāgavinayo chandarāgappahānaṁ` theo sn14.31 (sự nhiếp phục dục tham, đoạn trừ
-  dục tham); `akuppā me vimutti` theo sn14.31.
-  Ghi nhận bất định: 1.15 giữ đúng một dấu lược cho `…pe…`; 2.5 dùng dấu hai chấm
-  phẩy theo Pāli (`vimutti;`) vì Pāli bài này viết dấu chấm phẩy ở đây, khác
-  sn14.31:4.3 dùng dấu phẩy. Nhắy kép mở ở 1.2 và đóng ở 2.5, đúng như Pāli.
-  technical_integrity 9.6 vì lát này không chạy gate (BRIEF cấm). Bốn lệnh gate do coordinator chạy trước khi xuất bản: `npm run validate`, `npm test`, `npm run check`, `npm run build`.
+  Lượt review toàn bài ngày 2026-10-06 sau khi đối chiếu main và các sửa chưa được chuyển lên canonical. Đã đọc đủ 30 segment Pāli root và bản Sujato ghim tại 11c9d708978cde8ba61096d8a75f7ddfb846f639; đọc bản toàn văn của Hòa thượng Thích Minh Châu tại https://www.dhammatalks.net/suttacentral/sc2016/sc/vn/sn22.26.html. Đây là bản sao SuttaCentral 2016, không phải tầng Việt đã ghim theo segment. Sửa lỗi gõ “Rối thì” ở 1.3, paccaññāsiṁ là tuyên bố và pajā là quần chúng ở 2.1/2.3; giữ phủ định, mệnh đề điều kiện và ranh segment 2.2/2.3. Không bung dấu lược ở 1.15, không thêm/bớt segment. Bản English-project lấp 1.13/1.14/1.17/1.18/2.3 do cùng tác giả với bản Việt cũ nên không dùng làm đối chứng độc lập; các đoạn đó được đối chiếu trực tiếp với Pāli trong ngữ cảnh cả bài. TMC được dùng để đối chiếu truyền thống từ ngữ, không dùng làm authority hoặc cột segment. Các lượt chấm trước và reviewer lịch sử giữ nguyên. Cổng kỹ thuật đã xác nhận trên nhánh sửa này: npm test 350/350, npm run check 0 lỗi và 0 cảnh báo (5 hint), npm run validate + quality:check qua, verify:store:partial không có discrepancy và khớp số liệu đã ghi, npm run build qua. Chỉ sau các cổng này mới chấm technical_integrity 10 và áp dụng published.

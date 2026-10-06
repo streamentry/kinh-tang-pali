@@ -240,3 +240,16 @@ test('chapter references are scoped to explicitly reviewed UIDs and do not fill 
   assert.equal(document.layers.find(layer => layer.id === 'viCurrent')?.withText, 0);
   assert.equal(document.layers.some(layer => layer.sourceLayers.includes(reference.id)), false);
 });
+
+
+test('reviewed 2016 Vietnamese references resolve only the two verified texts', () => {
+  const ref = referenceById('suttacentral-2016-an6-sn22-reviewed');
+  for (const uid of ['an6.29', 'sn22.26']) {
+    assert.equal(pageUrlFor(ref, uid), `https://www.dhammatalks.net/suttacentral/sc2016/sc/vn/${uid}.html`);
+  }
+  for (const uid of ['an6.28', 'sn22.27', 'mn1', 'dhp1-20']) assert.equal(pageUrlFor(ref, uid), null);
+  assert.equal(ref.alignment, 'none');
+  assert.equal(ref.licence.spdx, 'NOASSERTION');
+  assert.equal(ref.attribution.translator, 'Hòa thượng Thích Minh Châu');
+  assert.match(creditForReference(ref), /bản sao chép bên thứ ba/);
+});
