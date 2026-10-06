@@ -322,7 +322,7 @@ Bốn cột kinh văn trên một màn hình là không đọc nổi, và trên 
 - **hẹp** (`≤1100px`): một cột mỗi lần, chọn bằng nút tập trung. Không có JavaScript thì
   cả bốn cột xếp chồng và vẫn đọc được — nội dung luôn nằm trong markup.
 - **chế độ** `Bốn bản` (mặc định) · `Đối chiếu` (một segment, bốn bản xếp dọc) ·
-  `Chỉ Việt` (Pāli + Việt dự án, để đọc).
+  `Chỉ Việt` (chỉ Việt dự án, để đọc; Pāli còn trong markup nhưng không hiển thị).
 
 Cột vắng mặt không biến mất lặng lẽ: thẻ bản vẫn hiện ở `0/N`, bị khoá
 (`aria-disabled`) kèm lý do, và thẻ giải thích trong `layer-legend` nói rõ giới hạn
