@@ -11,21 +11,19 @@
  * if (ids.length === 0) continue;   // ← counted as neither done nor missing
  * ```
  *
- * `sn12.93-213` is in that hole today. The catalogue names it, the pinned Pāli file exists, and that
- * file holds forty segments belonging to **eleven other uids** — `sn12.93-103`, `sn12.104-114`,
- * `sn12.115-125`, … `sn12.203-213`. Not one prefix matches the uid the catalogue uses, so
- * `segmentMapForUid` returns nothing. The Pāli is present but unaddressable, so no amount of
- * translation can complete it, and no count of missing keys will ever say so.
+ * `sn12.93-213` was the one text in that hole, and it is **repaired**. Its pinned Pāli file
+ * holds forty segments keyed with nested sub-range UIDs — `sn12.93-103`, `sn12.104-114`,
+ * … `sn12.203-213` — and no single generated prefix matched, so `segmentMapForUid`
+ * returned nothing. `segmentBelongsToUid` now resolves a range UID against
+ * `base<n>[-<m>]:` for `start <= n <= m <= end`, which is what those keys are. The same
+ * hole hid 94 further segments inside six *published* texts; see
+ * `tests/unit/pali-segment-ownership.test.ts`.
  *
- *   catalogue 6137 · complete 5334 + missing 802 = 6136
+ *   catalogue 6137 · complete 5335 + missing 802 = 6137
  *
- * One text short. That single text is the whole difference between "no gaps" and "nothing was ever
- * checked", which is why this test exists.
- *
- * The repair belongs in the catalogue or upstream, not in a translation layer: either declare the
- * eleven child uids in `content/catalog/sutta/sn.json`, or make the pinned Pāli file key its segments
- * with the `sn12.93-213` prefix. Until an editor picks one, the text is pinned below — and this test
- * fails if the count changes, so a second unmeasurable text cannot slip in unnoticed.
+ * One text short is what separated "no gaps" from "nothing was ever checked", which is why
+ * this test exists. `KNOWN_UNMEASURABLE` is now empty and must stay that way: raise it
+ * only together with a real, measured reason.
  */
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
@@ -36,14 +34,7 @@ import { COLLECTIONS, loadCatalog, segmentMapForUid, sourcePathFor, upstreamFile
  * Catalogue texts known to have an empty segment map, and why. Empty means "no text is unmeasurable";
  * raise it only together with a real reason, and lower it when one is repaired.
  */
-const KNOWN_UNMEASURABLE = new Map<string, string>([
-  [
-    'sn/sn12.93-213',
-    'tệp Pāli gồm 40 khoá của 11 uid khác (sn12.93-103, sn12.104-114, …, sn12.203-213); ' +
-      'không uid nào khớp nên segmentMapForUid trả về rỗng. Cần biên tập khai 11 uid con, ' +
-      'hoặc sửa tầng ghim cho khoá mang tiền tố sn12.93-213',
-  ],
-]);
+const KNOWN_UNMEASURABLE = new Map<string, string>([]);
 
 interface Empty {
   code: string;

@@ -1,4 +1,4 @@
-import { segmentPrefixesForUid } from '../../src/lib/canon/load';
+import { segmentBelongsToUid } from '../../src/lib/canon/load';
 
 export interface SegmentValidationOptions {
   uid: string;
@@ -15,12 +15,11 @@ export function validateSegmentMap(
   const errors: string[] = [];
   const { uid, sourceIds, requireComplete = false, requireLatinScript = false } = options;
   const seen = new Set<string>();
-  const allowedPrefixes = segmentPrefixesForUid(uid).map((prefix) => `${prefix}:`);
 
   for (const [id, value] of Object.entries(segments)) {
     if (seen.has(id)) errors.push(`${uid}: duplicate segment ${id}`);
     seen.add(id);
-    if (!allowedPrefixes.some((prefix) => id.startsWith(prefix))) {
+    if (!segmentBelongsToUid(uid, id)) {
       errors.push(`${uid}: segment ${id} has wrong UID prefix`);
     }
     if (!sourceIds.has(id)) errors.push(`${uid}: orphan segment ${id} does not exist in pinned Pāli source`);

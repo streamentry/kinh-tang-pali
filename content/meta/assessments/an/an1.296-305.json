@@ -1,0 +1,54 @@
+{
+  "schemaVersion": 1,
+  "uid": "an1.296-305",
+  "assessments": [
+    {
+      "id": "e77c1ab1-bc27-4626-aded-2f8a2e237ccc",
+      "target": "translation",
+      "scope": "full",
+      "assessed_at": "2026-10-06",
+      "assessed_by": [
+        "OpenCode Space Bunny Free (agent)"
+      ],
+      "notes": "**Phát hiện bởi một cuộc kiểm kê tính đầy đủ, không phải một lượt review nghĩa mới — nói thẳng để không ai đọc nhầm.** Bài này đang `published` nhưng **thiếu 6 khoá** mà Pāli đã ghim khai báo, nên theo blocking error #3 (\"thiếu segment bắt buộc … canonical structure bị hỏng\") trong chính cổng chất lượng của dự án, nó **không được** `published`. Hạ về `draft`.\n\n**Vì sao trước đây không ai thấy.** `segmentPrefixesForUid` nới khoảng UID ra thành các số nguyên đơn lẻ, nên với `an1.296-305` nó sinh `an1.296:1.1`-style prefixes cho từng số trong khoảng — nhưng **không sinh được khoảng con ghép** như `an1.297-305:1.1`. Tệp `an1.296-305_root-pli-ms.json` lại chứa đúng những khoá ghép như vậy, nên chúng không khớp prefix nào và **không vào `sourceIds`**. `requireComplete` duyệt `sourceIds`, mà `sourceIds` không có chúng, nên kiểm tra trượt. Đã sửa bằng `segmentBelongsToUid` và thêm `tests/unit/pali-segment-ownership.test.ts` để lỗ hổng này không mở lại.\n\n**Các khoá thiếu:** an1.297-305:1.0 an1.297-305:1.1 an1.297-305:1.2 an1.297-305:1.3 an1.297-305:1.4 an1.297-305:1.5\n\n**Cách trở lại `published`:** dịch 6 khoá này rồi chấm lại 10 tiêu chí. Điểm số bên dưới **giữ nguyên** từ lượt review trước vì đợt này chỉ kiểm kê tính đầy đủ, chưa đọc lại nghĩa; đừng coi nó là một lượt đối chiếu ngữ nghĩa mới.",
+      "scores": {
+        "source_provenance": 9.7,
+        "semantic_fidelity": 9.5,
+        "grammar_logic": 9.5,
+        "segment_alignment": 10,
+        "terminology": 9.2,
+        "triangulation": 8.4,
+        "vietnamese_clarity": 9.4,
+        "han_viet_balance": 9.3,
+        "ambiguity_integrity": 9.1,
+        "technical_integrity": 10
+      },
+      "final_score": 9.41,
+      "blocking_errors": [
+        "Thiếu 6 khoá có nội dung trong Pāli đã ghim (an1.297-305:1.0 an1.297-305:1.1 an1.297-305:1.2 …) mà bản Việt không có; canonical structure không đầy đủ nên không được phép là 'published'."
+      ],
+      "content_sha256": "7a9fe94974852f1722264e3bfe51cd1cf0d0ed04a5e7401070dcf97eedd0f341",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639"
+    }
+  ],
+  "legacy_quality": {
+    "scores": {
+      "source_provenance": 9.7,
+      "semantic_fidelity": 9.5,
+      "grammar_logic": 9.5,
+      "segment_alignment": 10,
+      "terminology": 9.2,
+      "triangulation": 8.4,
+      "vietnamese_clarity": 9.4,
+      "han_viet_balance": 9.3,
+      "ambiguity_integrity": 9.1,
+      "technical_integrity": 10
+    },
+    "final_score": 9.41,
+    "blocking_errors": [],
+    "assessed_at": "2026-09-29",
+    "assessed_by": [
+      "OpenCode Space Bunny Free (agent)"
+    ]
+  }
+}

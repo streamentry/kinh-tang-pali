@@ -408,9 +408,10 @@ test('a full catalogue sync resolves every English edition that exists, and name
     }
   }
   assert.deepEqual(problems, []);
-  // `sn12.93-213` is the sole text bilara-data files under a UID its own segments do
-  // not carry, so the Pāli root resolves nothing for it. Recorded, not guessed.
-  assert.deepEqual(unresolved, ['sn/sn12.93-213']);
+  // `sn12.93-213` was the sole text bilara-data files under a UID its own segments do
+  // not carry. Repaired by `segmentBelongsToUid`, so nothing is unresolved now; this
+  // assertion is the tripwire.
+  assert.deepEqual(unresolved, []);
   // Pinned so a change in the upstream edition's coverage cannot pass unnoticed.
   const byCollection = new Map<string, number>();
   for (const entry of noEnglishEdition) {
