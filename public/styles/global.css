@@ -178,7 +178,11 @@ h2 { letter-spacing: -.025em; }
   /* Four scripture columns stop being readable well before the phone breakpoint, so
      they collapse to one at a time, chosen by the tabs. Nothing is removed from the
      markup: search and print still see every version. */
-  .segment { grid-template-columns: 4.5rem minmax(0, 1fr); }
+  /* Selector carries the shell's data attributes: an unqualified `.segment`
+     loses the cascade to `.reader-shell[data-open-columns="4"] .segment` and the
+     per-mode templates above (higher specificity), so phones rendered four
+     ~75px columns with one word per line — the bug this qualifier fixes. */
+  .reader-shell[data-open-columns][data-reader-mode] .segment { grid-template-columns: 4.5rem minmax(0, 1fr); }
   .cell { grid-column: 2; }
   .cell + .cell { margin-top: .55rem; }
   .cell::before { content: attr(data-label); display: block; font-family: "Be Vietnam Pro", Inter, sans-serif; font-size: .64rem; text-transform: uppercase; letter-spacing: .1em; font-weight: 800; color: var(--muted); margin-bottom: .15rem; }
@@ -202,7 +206,8 @@ h2 { letter-spacing: -.025em; }
   .reader-toolbar { position: static; align-items: flex-start; flex-direction: column; }
   .column-tabs { width: 100%; }
   .column-tab { flex: 1 1 auto; }
-  .segment { grid-template-columns: 1fr; gap: .4rem; }
+  .reader-shell[data-open-columns][data-reader-mode] .segment { grid-template-columns: 1fr; gap: .4rem; }
+  .cell::before { font-size: .62rem; letter-spacing: .08em; }
   .segment-id, .cell, .comment { grid-column: 1 !important; }
   .segment-id { margin-bottom: .15rem; }
   .comment { margin-left: 0; }
