@@ -12,7 +12,7 @@
     "preview": "astro preview",
     "check": "astro check",
     "test": "node --import tsx --test tests/**/*.test.ts",
-    "validate": "tsx scripts/validate.ts",
+    "validate": "tsx scripts/validate.ts && npm run quality:check",
     "source:sync": "tsx scripts/sync-source.ts",
     "source:sync:used": "tsx scripts/sync-source.ts --used",
     "source:sync:all": "tsx scripts/sync-source.ts --all",
@@ -39,7 +39,9 @@
     "book:mn:pdf": "tsx scripts/build-book.ts books/mn-vol-1.yaml pdf",
     "audit:dn-mn": "tsx scripts/audit-dn-mn.ts",
     "doctor:ci": "tsx scripts/doctor.ts --allow-partial-cache",
-    "license:check": "tsx scripts/generate-notice.ts --check"
+    "license:check": "tsx scripts/generate-notice.ts --check",
+    "quality": "tsx scripts/assess-quality.ts",
+    "quality:check": "tsx scripts/assess-quality.ts --check"
   },
   "dependencies": {
     "astro": "7.3.2",

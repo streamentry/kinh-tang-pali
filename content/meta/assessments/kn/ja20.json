@@ -1,0 +1,54 @@
+{
+  "schemaVersion": 1,
+  "uid": "ja20",
+  "assessments": [
+    {
+      "id": "73551406-b9e5-42ce-832d-2f0973f07a2b",
+      "target": "translation",
+      "scope": "full",
+      "assessed_at": "2026-10-05",
+      "assessed_by": [
+        "OpenCode Space Bunny Free (agent)"
+      ],
+      "notes": "**Blocker cũ dựa trên một cách đếm sai.** Blocker ghi: *coverage đo được đúng 1 khoá Pāli có nội dung (`ja20:4.4`); Sujato để trống khoá đó nên coverage = 0/1 = 0%*. Đếm lại bằng chính hàm của kho: `isSubstantive` lấy `substantivePaliMinChars: 40` trong `source/layers.yaml`, mà `ja20:4.4` dài **39** ký tự — dưới ngưỡng, nên **không** phải khoá có nội dung. Bài không còn khoá có nội dung nào thiếu tiếng Anh; `englishCoverageFor` trả `ratio = 1`. Vì vậy cũng **không** cần entry trong `content/meta/reference-gaps.yaml`.\n\nCần ghi lại vì đây là loại lỗi dễ lặp lại: ngưỡng 40 ký tự là ranh giới **tuỳ ý có chủ ý**, nên một khoá dài 39 hay 41 ký tự làm đổi cả kết luận coverage. Người đọc bản chụp phải đo bằng hàm, không đếm bằng mắt.\n\n**Đã đối chiếu lại toàn bài 15 khoá trong đợt này**, không chỉ để gỡ blocker: `1.1`–`1.4` giữ đúng cả hai vế của `Disvā padamanuttiṇṇaṁ, / Disvānotaritaṁ padaṁ` (*thấy dấu chân đi xuống / dấu chân không trở lại*) và `Naḷena vāriṁ pissāma` (*uống nước qua ống nọc*). Uddāna `3.1`–`4.4` theo đúng khuôn của các bài Jātaka đã có: `Tassuddānaṁ` → *Tóm lược:*, tên bài giữ nguyên Pāli, và `dasāti` → *thành ra mười bài đấy* (khớp `ja10:3.1`). Tiêu đề `0.4` và `2.1` khớp nhau. Không sửa một chữ dịch nào.\n\n`triangulation` 8.8 vì tầng Anh đã ghim chỉ phủ phần tiêu đề và `4.4`; các vế kệ chính phải tự đứng vững bằng Pāli root.",
+      "scores": {
+        "source_provenance": 9.5,
+        "semantic_fidelity": 9.4,
+        "grammar_logic": 9.4,
+        "segment_alignment": 10,
+        "terminology": 9.4,
+        "triangulation": 8.8,
+        "vietnamese_clarity": 9.4,
+        "han_viet_balance": 9.4,
+        "ambiguity_integrity": 9.3,
+        "technical_integrity": 10
+      },
+      "final_score": 9.46,
+      "blocking_errors": [],
+      "content_sha256": "5bc0c365b760b70cbbd6669690366503e388957f70e1eac5ac70ab62f826834c",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639"
+    }
+  ],
+  "legacy_quality": {
+    "scores": {
+      "source_provenance": 9.3,
+      "semantic_fidelity": 9.3,
+      "grammar_logic": 9.2,
+      "segment_alignment": 10,
+      "terminology": 9,
+      "triangulation": 7.6,
+      "vietnamese_clarity": 9.2,
+      "han_viet_balance": 9.3,
+      "ambiguity_integrity": 9.2,
+      "technical_integrity": 9.6
+    },
+    "final_score": 9.17,
+    "blocking_errors": [
+      "Coverage Anh đo trên Pāli có nội dung (≥ 40 ký tự, bỏ khối :0) cho ra đúng 1 khoá: ja20:4.4; Sujato để trống đúng khoá đó nên coverage = 0/1 = 0%, dưới ngưỡng 0,8 khai ở source/layers.yaml. Cần một record trong content/meta/reference-gaps.yaml để được đối chiếu đủ, mà lát này bị cấm sửa tệp đó — nên tôi đặt draft và ghi lý do, không tự nâng điểm để né."
+    ],
+    "assessed_at": "2026-10-02",
+    "assessed_by": [
+      "OpenCode Space Bunny Free (agent)"
+    ]
+  }
+}
