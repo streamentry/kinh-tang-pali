@@ -353,6 +353,112 @@ câu"* — **cùng cấu tạo**, và tầng đã dịch đúng.
 99; lần 2: lát sửa số tin `Ekūnasattatikappe` = 69). Cả hai lần đều ở **số Pāli** ⇒ đã đưa luật *tự tính
 và in phép* vào `BRIEF_SLICE.md` và `BRIEF_VI4.md`.
 
+### 🔴 `manifest:check` **đỏ vì GitHub API rate limit** — không phải lỗi nội dung
+
+PR #299 có hai lượt CI trên **cùng** sha `0b547bd5`:
+
+| lượt | kết quả |
+|---|---|
+| `push/CI` id=37415169686 (04:45:00) | **failure** |
+| `pull_request/CI` id=37415242362 (04:45:52) | **success** |
+
+Log lượt đỏ, đúng một dòng:
+
+```
+Pinned snapshot manifest is current
+Error: GitHub API 403 rate limit exceeded for
+  https://api.github.com/repos/suttacentral/bilara-data/contents/?ref=11c9d708…
+```
+
+⇒ Cùng một commit, lượt chạy **52 giây sau** là xanh. Hai lượt `push` trên `main` cũng xanh, và **13/13** cổng
+chạy cục bộ trên đúng commit đã merge đều xanh (`test` **337 pass**).
+
+⇒ **Không** phải lỗi nội dung. Nhưng là **điểm yếu thật của kho**: `manifest:check` phụ thuộc một lời gọi
+GitHub API **không xác thực**, nên CI có thể đỏ vì lý do **không liên quan tới nội dung**. Khi đó PR rollup
+báo `FAILURE` trong khi nội dung hoàn toàn ổn.
+
+⇒ **Luật vận hành:** khi PR rollup báo `FAILURE`, **phải** đọc log **trước khi kết luận**, và phải phân biệt
+lỗi *hạ tầng* với lỗi *nội dung*. Đồng thời: nếu job hỏng là `manifest:check` với `403 rate limit` thì
+**không** cần sửa gì — chỉ cần chạy lại lượt đó.
+
+🔴 **Và tôi đã merge khi rollup còn `UNSTABLE`** — đó là lỗi quy trình của tôi, không phải của kho. Đáng ghi vì
+luật đã có sẵn trong bản ghi phiên này: *"`push` và `pull_request` là **hai lượt riêng*"*. Tôi biết điều đó và
+vẫn merge. Sửa: **chờ rollup `SUCCESS` trước khi merge**, trừ khi log chứng minh lỗi hạ tầng — và khi đó nói
+rõ trong PR body, không lặng lẽ merge.
+
+### 🔴 Nhật ký này lại lớn: **ba số tôi đưa cho lớp lớp đều sai**
+
+Đợt 30: ba lát đo lại trực tiếp.
+
+| tôi ghi | đo lại |
+|---|---|
+| nhãn thứ tự **2.402/2.402** | **1.824/1.824** (`ff142`, bài có tệp Anh) · **1.936** toàn tầng Pāli · **3.103**/**3.054** trống (`ff141`) · **2.746**/**2.403**/**3** có lời (`ff147`) |
+| dấu nhạt lượu **68** dạng, `’t` **9.279** | **8** dạng, `’s` **14.458** > `’t` **7.493** (`ff142`) |
+| `translationTitle` ở `an`: **47**/**1.074**/**1.167** | **37** (chặt)/**73** (lỏng)/**1.657** (`ff142`) · chỉ **1** tệp giữ Pāli khi so **bằng** với Pāli `0.3` (`ff147`) |
+
+⇒ **Kết luận không đổi** (nhãn thứ tự trống gần như **100%**; `’s` > `’t`), nhưng **con số** tôi đưa ra thì
+**không tái lập được**. Ba số đó lần lượt lấy từ một lát, một lát khác, và một **đoán** — và tôi đã ghi chúng
+vào brief như sự thật.
+
+⇒ **Luật đã chỉnh, đặt vào `BRIEF_FILL.md` mục 5f:** khi đưa một số cho lát để **đối chiếu**, ghi rõ nó là
+**đo ở đâu** và **đo bằng phép nào**. Số không đo được thì ghi *"chưa đo"* chứ đừng ghi số.
+
+### 🔴 Và bộ dò **gộp khoá** tôi đưa cho các lát **trượt đúng cái nó sinh ra**
+
+Tôi bảo các lát đo *"lời tầng ghim chứa ≥5 từ nội dung của khoá Pāli kế sau"*. `ff142` hiệu chuẩn lại trên
+**ba bài đã biết là dính** và đo được **0/6 · 0/9 · 0/9**.
+
+**Vì sao hỏng:** phép đó so **Pāli** với **English**. Sujato gộp khoá bằng cách **diễn giải**, không chép nguyên
+văn ⇒ phép chỉ bắt khi chép y, tức **bỏ sót đúng trường hợp quan trọng nhất**. `ff146` độc lập: phép ra
+**0/15** ở `an4.205` *"vì Sujato diễn giải, không chép"*.
+
+⇒ Mọi lát báo *"gộp khoá = 0"* phải hiểu là **"không bắt được"**, không phải **"không có"**. `ff141` còn
+loại bỏ **cả ba** bộ dò của tôi (v1 dựng run từ khoá trống đầu tiên; v2 nuốt giả 8 lần vì
+`bhikkhave`/`eva`/`kho`; v3 không rễ gốc Pāli) và chuyển sang **đọc trực tiếp** 32 giá trị ghim (~1.800 ký tự)
++ **kiểm kê độ dài**.
+
+**Phép thay thế** do `ff142` đưa: **dấu lược + khoá kế bị trống** ⇒ **1.406** khoá / **516** tệp toàn tầng,
+`an10` **105** khoá / **48** tệp, `an10.86` **8** cặp. Nhưng chỉ giải thích **1.406/18.971 = 7,4%** cặp liền
+khoá bị trống ⇒ **không** phải nguyên nhân duy nhất. `ff146` dùng phép khác và **bắt được**: Pāli
+`3.2`/`5.2` nêu **1** yếu tố, lời ghim nêu **8**.
+
+### 🔴 Kết luận "nguyên nhân chung" của tôi ở đợt trước **quá rộng**
+
+Tôi kết luận *"nguyên nhân chung của cả 8 lát là gộp khoá"*. `ff144` **phủ định** ở đúng bài của nó: tầng ghim
+`sn35.16` **dừng sạch sau `1.2`** — giá trị dài nhất cả tệp **61** ký tự, **24** khoá sau trống, **1.095** ký
+tự Pāli bị bỏ rơi. Đó là **cắt cụt**, không phải **dồn khối**.
+
+⇒ **Có hai cơ chế, không một.** Cắt cụt đo bằng *"ký tự Pāli bị bỏ"*; gộp khoá đo bằng *"số yếu tố Pāli ở
+khoá này / số yếu tố English ở khoá trước"*.
+
+### ✅ Một phát hiện về **chỉ số**: trung bình phẩm **giấu** 26 bài
+
+`ff143` đo phẩm `sn35` trên **201** bài: **2.702** khoá có nội dung, **2.325** có chữ ⇒ **0,8605** toàn phẩm.
+Nhưng **26** bài chỉ có đúng `:1.1` mang chữ, và **5** bài có **0** khoá nào có chữ.
+
+⇒ Phẩm *trông* ổn ở mức trung bình trong khi **26 bài** gần như trống. Đó là lý do `textsBelowFloor` tính
+**mức bài** chứ không tính trung bình phẩm — và là lý do **không** được dùng trung bình phẩm làm chỉ số tiến
+bộ.
+
+### 🔴 `an10` — lần đầu có số lỗi tầng Anh **toàn phẩm**
+
+`ff142` trên **5.904** khoá có chữ / **211** tệp: bịa `…` **190** · mở rộng `…pe…` **185** · lệch số dấu lược
+**70** · nén phủ định **182** · **thêm** phủ định **342** · nén nặng **163** · thêm ý ngoài Pāli **98** · sót
+markup **4** — đúng vệt `<j>`: `an10.26:2.2`, `an10.26:6.2`, `an10.89:10.2`, `an10.89:19.2`.
+
+Và lần đầu có lát đo **đảo cực nghĩa** ở cấp phẩm: **72** khoá sàng lọc, đọc **20** khoá đậm nhất ⇒ **0** lật
+cực. Cùng cơ chế đã đo ở `an4.183` (`4.2`) ⇒ **hiếm**, không phải phổ biến.
+
+### 🔴 Nhãn thứ tự: **hai** lát cùng phát hiện mâu thuẫn và **không** tự bỏ
+
+- `an4.107`: chỉ **một** nhãn (`5.9` = `Sattamaṁ`) trong khi bài liệt kê **bốn** loại ⇒ người đọc thấy
+  "Seventh" dưới mục thứ **tư**. Sửa thành "Fifth." phải sửa tầng Pāli.
+- `an10.86`: `20.3` = `Chaṭṭhaṁ.` → "Sixth." ở cuối bài **20** khối, vì nhãn đếm **bài trong chuỗi mười bài**
+  (`an10.81` Paṭhamaṁ → `an10.84` Catutthaṁ → `an10.85` Pañcamaṁ → **`an10.86` Chaṭṭhaṁ**).
+
+⇒ Cả hai **giữ** nhãn và **ghi cảnh báo** trong `notes` — đúng luật *"bỏ là mất khoá có thật"*. Cần biên tập quyết
+có giữ hay bỏ; **không** phải việc lát tự phán.
+
 ### 🔴 Session khác đã merge **7 PR** (#286, #288–#294) trong lúc tôi đang chạy
 
 Đợt lớp lấp English của tôi vừa mở PR #287 thì `main` đã nhảy tới #293. Tôi kiểm thay vì giả định:
