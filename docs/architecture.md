@@ -497,7 +497,7 @@ Ba mode:
   nút tập trung. Cột không có nội dung nào thì thu gọn thay vì chiếm chỗ, và số cột còn
   lại quyết định ở build time.
 - **Đối chiếu**: một segment mỗi lần, bốn bản xếp dọc — dùng khi tra một đoạn khó.
-- **Chỉ Việt**: Pāli + Việt dự án, hai cột, để đọc.
+- **Chỉ Việt**: chỉ Việt dự án, một cột, để đọc; Pāli còn trong markup nhưng không hiển thị.
 
 Không làm “một khối Pāli + một khối Việt”. Căn chỉnh luôn ở segment level.
 

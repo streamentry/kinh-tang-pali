@@ -152,12 +152,13 @@ h2 { letter-spacing: -.025em; }
 .reader-shell[data-reader-mode="interlinear"] .cell { grid-column: 2; }
 .reader-shell[data-reader-mode="interlinear"] .cell::before { content: attr(data-label); display: block; font-family: "Be Vietnam Pro", Inter, sans-serif; font-size: .64rem; text-transform: uppercase; letter-spacing: .1em; font-weight: 800; color: var(--muted); margin-bottom: .15rem; }
 .reader-shell[data-reader-mode="interlinear"] .cell + .cell { margin-top: .6rem; }
-/* `Chỉ Việt` — the reading view, the project's own translation with the Pāli beside it. */
+/* `Chỉ Việt` — the reading view: only the project's own translation. The Pāli stays in
+   the markup — search, print and the other modes still see it — but is not shown here. */
 .reader-shell[data-reader-mode="vi"] .cell-en,
-.reader-shell[data-reader-mode="vi"] .cell-vi-current { display: none; }
-.reader-shell[data-reader-mode="vi"] .segment { grid-template-columns: 5.5rem minmax(0, 1fr) minmax(0, 1fr); }
-.reader-shell[data-reader-mode="vi"] .cell-pali { grid-column: 2; }
-.reader-shell[data-reader-mode="vi"] .cell-vi { grid-column: 3; }
+.reader-shell[data-reader-mode="vi"] .cell-vi-current,
+.reader-shell[data-reader-mode="vi"] .cell-pali { display: none; }
+.reader-shell[data-reader-mode="vi"] .segment { grid-template-columns: 5.5rem minmax(0, 1fr); }
+.reader-shell[data-reader-mode="vi"] .cell-vi { grid-column: 2; }
 .empty-state { border: 1px dashed #cbd1cc; border-radius: .65rem; padding: 2rem; color: var(--muted); background: rgba(255,255,255,.45); }
 .empty-state h2 { color: var(--ink); }
 .search-form { display: flex; gap: .6rem; max-width: 48rem; margin: 2rem 0 1rem; }
@@ -192,10 +193,8 @@ h2 { letter-spacing: -.025em; }
   /* A collapsed column stays collapsed here; its absence is in the legend, and the
      live columns get the width instead of a notice repeated on every segment. */
   .reader-shell[data-reader-mode="interlinear"] .cell { display: block; }
-  .reader-shell[data-reader-mode="vi"] .cell-pali,
-  .reader-shell[data-reader-mode="vi"] .cell-vi { display: block; }
-  .reader-shell[data-reader-mode="vi"] .cell-pali,
-  .reader-shell[data-reader-mode="vi"] .cell-vi { grid-column: 2; }
+  /* Pāli is not re-shown here: the base vi-mode rule hides it at every width. */
+  .reader-shell[data-reader-mode="vi"] .cell-vi { display: block; grid-column: 2; }
 }
 @media (max-width: 760px) {
   .collection-grid { grid-template-columns: 1fr; }
