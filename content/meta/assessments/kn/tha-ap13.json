@@ -1,0 +1,57 @@
+{
+  "schemaVersion": 1,
+  "uid": "tha-ap13",
+  "assessments": [
+    {
+      "id": "b59c9b01-e78f-4a4f-8fd1-400787c83c53",
+      "target": "translation",
+      "scope": "technical",
+      "assessed_at": "2026-10-06",
+      "assessed_by": [
+        "Repository segment validator"
+      ],
+      "scores": {
+        "source_provenance": null,
+        "semantic_fidelity": null,
+        "grammar_logic": null,
+        "segment_alignment": 10,
+        "terminology": null,
+        "triangulation": null,
+        "vietnamese_clarity": null,
+        "han_viet_balance": null,
+        "ambiguity_integrity": null,
+        "technical_integrity": null
+      },
+      "final_score": null,
+      "blocking_errors": [],
+      "notes": "Kiểm tra tự động 53 segment với Pāli trong cache: đủ ID, giá trị, NFC và hệ chữ Latin. Chưa đọc đối chiếu nghĩa, ngữ pháp hoặc văn phong; chưa chấm lại 10 tiêu chí. Đây không phải chứng nhận hash upstream hoặc giấy phép, không xác nhận trạng thái xuất bản.",
+      "content_sha256": "2a5a9b6ab5bcaf78d65706872f8ab315004459c236c9e66923846ddc5188baaf",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639"
+    }
+  ],
+  "legacy_quality": {
+    "scores": {
+      "source_provenance": 9.5,
+      "semantic_fidelity": 9.2,
+      "grammar_logic": 9.2,
+      "segment_alignment": 10,
+      "terminology": 9.2,
+      "triangulation": 7.5,
+      "vietnamese_clarity": 9.3,
+      "han_viet_balance": 9.3,
+      "ambiguity_integrity": 9,
+      "technical_integrity": 9.6
+    },
+    "final_score": 9.18,
+    "blocking_errors": [
+      "Tầng tham khảo tiếng Anh đã ghim không tồn tại cho bài này, nên không thể lên review hoặc published. Đo trực tiếp trên source/upstream-manifest.json (git tree của commit 11c9d708978cde8ba61096d8a75f7ddfb846f639): tệp Anh Sujato của tha-ap13 = 0. Thư mục sutta/kn/ của bản Anh tại commit này có đúng 9 thư mục con (cp 35, dhp 26, iti 112, ja 83, kp 9, snp 73, thag 264, thig 73, ud 80 = 755 tệp); tệp duy nhất mang tên tha-ap trong cả tầng là tệp TÊN (name/sutta/tha-ap-name_translation-en-sujato.json), không phải thân kinh. Đây là not-published-upstream, KHÔNG phải not-synced. scripts/validate.ts dòng 223-226 đẩy thông điệp này thành errors khi status là review hoặc published, tức validation failure. Mẫu số coverage đo theo đúng công thức source/layers.yaml (Pāli có nội dung từ 40 ký tự trở lên, loại khối tham chiếu :0) chỉ bằng 2 trên 53 khoá; Sujato phủ 0 trên 2 = 0 phần trăm. Tầng vietnamese-current cũng vắng: 26 tệp và toàn bộ là Pháp Cú (dhp). Lớp lấp english-project của dự án không có tệp nào cho uid này (content/translation/en/project/sutta/kn/ có 129 tệp, 0 tệp tha-ap). Ba tầng tham khảo đều vắng nên bài dịch chỉ từ Pāli root. Đây là giới hạn của bản chụp upstream, không phải lỗi của người dịch; vì vậy triangulation bị chặn ở 7,5 chứ không nâng điểm để né blocker.",
+      "Cụm số ở 10.1, 10.3 và 11.1 chưa được kho chốt, và tôi không tự quyết. Pha của công cụ số Pāli của dự án (_numcheck2.py, bảng UNVERIFIED dòng 82) liệt kê rõ Dvesattatimhito với ghi chú: tầng dịch 28; dve 2 cộng sattati 70 ra 72; chưa chốt. Tầng hiện chứa ba giá trị mâu thuẫn cho đúng chuỗi Pāli Dvesattatimhito kappe,: tha-ap172:4.1 ghi hai mươi tám (28), tha-ap212:5.1 ghi một trăm bốn mươi (140), còn 72 là phép tính từ cấu tạo. Tôi ghi 73 cho Tesattatimhito (te 3 + sattati 70), 72 cho Dvesattatimhito (dve 2 + sattati 70) và 73 cho Samasattatito (sama 3 + sattati 70), dựa trên hai chứng cứ độc lập trong chính tầng: sattati = 70 đã được thiết lập (tha-ap142:13.3 sattati dve dịch là bảy mươi hai), và tha-ap104:5.1 chính là Tesattatimhito kappe, dịch bảy mươi ba. Vì con số này nằm trong một tuyên bố về thời gian nghiệp nên sai số là lỗi nặng, cần người biên tập phán một lượt cho cả nhóm công thức sattatimhita trước khi bài này được xuất bản.",
+      "Số ở 5.1 cũng chưa chốt. Sataṁ kaññāsahassāni là hapax trong toàn Pāli root đã ghim (284.708 segment: 0 khoá nào khác trùng nguyên văn cụm này), và tầng Anh đã ghim không có bản nào để đối chiếu. Ba bản dịch sẵn có của cùng chuỗi Pāli (vv20:8.3, vv43:7.3, sn10.8:2.3) đều đọc là một trăm ngàn, tức bỏ qua kañña. Phép tính theo cả ba thành phần cho sata 100 nhân kañña 50 nhân sahassa 1000 bằng 5.000.000. Tôi theo tiền lệ tầng (một trăm ngàn) vì BRIEF_VI4 yêu cầu khi chưa xác lập được giá trị một cụm số thì phải báo chứ không tự quyết, và ghi rõ ứng viên 5.000.000 ở đây để người biên tập phán; nếu phán theo 5.000.000 thì ba tệp kia cũng phải sửa cùng lúc.",
+      "Gap coverage của bài chưa được ghi nhận trong content/meta/reference-gaps.yaml: tra đúng chuỗi “  - uid: tha-ap13” trong tệp đó không ra kết quả (10 lần khớp đều là tha-ap130 đến tha-ap139, tức là tiền tố chứ không phải uid này). Lát này bị cấm sửa content/meta/reference-gaps.yaml theo luật cấm, nên phần ghi nhận gap còn lại là việc của người điều phối; bài vẫn phải giữ draft cho đến khi entry tồn tại. Có entry trong tệp đó cũng không cứu được published — việc có entry là chuyện khác."
+    ],
+    "assessed_at": "2026-10-06",
+    "assessed_by": [
+      "OpenCode Space Bunny Free (agent)"
+    ]
+  }
+}

@@ -1,0 +1,56 @@
+{
+  "schemaVersion": 1,
+  "uid": "ja469",
+  "assessments": [
+    {
+      "id": "c689417b-95d3-4d61-bc09-fbec23d0ad65",
+      "target": "translation",
+      "scope": "technical",
+      "assessed_at": "2026-10-06",
+      "assessed_by": [
+        "Repository segment validator"
+      ],
+      "scores": {
+        "source_provenance": null,
+        "semantic_fidelity": null,
+        "grammar_logic": null,
+        "segment_alignment": 10,
+        "terminology": null,
+        "triangulation": null,
+        "vietnamese_clarity": null,
+        "han_viet_balance": null,
+        "ambiguity_integrity": null,
+        "technical_integrity": null
+      },
+      "final_score": null,
+      "blocking_errors": [],
+      "notes": "Kiểm tra tự động 53 segment với Pāli trong cache: đủ ID, giá trị, NFC và hệ chữ Latin. Chưa đọc đối chiếu nghĩa, ngữ pháp hoặc văn phong; chưa chấm lại 10 tiêu chí. Đây không phải chứng nhận hash upstream hoặc giấy phép, không xác nhận trạng thái xuất bản.",
+      "content_sha256": "23355cae52d8fb67f4df2b352ccd89b8ebfead44ed929a9fb2ca90884c258a42",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639"
+    }
+  ],
+  "legacy_quality": {
+    "scores": {
+      "source_provenance": 9.5,
+      "semantic_fidelity": 9.2,
+      "grammar_logic": 9.1,
+      "segment_alignment": 10,
+      "terminology": 9,
+      "triangulation": 7,
+      "vietnamese_clarity": 9.1,
+      "han_viet_balance": 9.2,
+      "ambiguity_integrity": 8.4,
+      "technical_integrity": 9.6
+    },
+    "final_score": 9.01,
+    "blocking_errors": [
+      "Tầng English SuttaCentral đã ghim KHÔNG có bài này: source/upstream-manifest.json ở commit đã pin cho thấy english-sujato có 4291 tệp mà `ja469` không có mặt (grep trên danh sách tệp của edition cho kết quả rỗng), nên scripts/validate.ts dòng 223-226 coi đây là lỗi (error) khi status là review hoặc published. Tôi không được chạy npm run source:sync:used (lệnh cấm của lát) và cũng không được sửa content/meta/reference-gaps.yaml, nên không thể ghi nhận khoảng trống tham khảo theo cơ chế của kho. Bắt buộc giữ draft.",
+      "Bài này substantiveSegments = 0 (0 trên 53 khoá Pāli đạt ngưỡng 40 ký tự; khoá dài nhất chỉ 26 ký tự, toàn bộ bài là kệ), nên cổng coverage của source/layers.yaml không đo được gì — đây là CỔNG KHÔNG ĐO ĐƯỢC, không phải ĐÃ ĐỦ. Mất tầng Anh là thật, và không có chỗ nào trong phạm vi lát cho tôi ghi nhận điều đó.",
+      "Bốn cụm thuật ngữ là hapax trong TOÀN BỘ Pāli ghim (5764 tệp): usīnaka (1 lần), Dīghottaroṭṭhā (1), asappurisacintakā (1), Sukkacchavī vedhaverā (2). Không tầng Anh nào ở commit đã ghim để đối chiếu độc lập, nên tôi dịch theo nghĩa thành phần, ghi rõ ở notes, và không tuyên bố là đã phân xử."
+    ],
+    "assessed_at": "2026-10-06",
+    "assessed_by": [
+      "OpenCode Space Bunny Free (agent)"
+    ]
+  }
+}

@@ -1,0 +1,80 @@
+{
+  "schemaVersion": 1,
+  "uid": "tha-ap61",
+  "assessments": [
+    {
+      "id": "75af9463-db8b-430b-8ed3-2ef5de1ac8aa",
+      "target": "translation",
+      "scope": "technical",
+      "assessed_at": "2026-10-05",
+      "assessed_by": [
+        "Repository segment validator"
+      ],
+      "scores": {
+        "source_provenance": null,
+        "semantic_fidelity": null,
+        "grammar_logic": null,
+        "segment_alignment": 10,
+        "terminology": null,
+        "triangulation": null,
+        "vietnamese_clarity": null,
+        "han_viet_balance": null,
+        "ambiguity_integrity": null,
+        "technical_integrity": null
+      },
+      "final_score": null,
+      "blocking_errors": [],
+      "notes": "Kiểm tra tự động 48 segment với Pāli trong cache: đủ ID, giá trị, NFC và hệ chữ Latin. Chưa đọc đối chiếu nghĩa, ngữ pháp hoặc văn phong; chưa chấm lại 10 tiêu chí. Đây không phải chứng nhận hash upstream hoặc giấy phép, không xác nhận trạng thái xuất bản.",
+      "content_sha256": "a2a8b311176641f15b1da3eebe22e12cd579196ceae7ee3483af56e601691725",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639"
+    },
+    {
+      "id": "ae8afcd8-bf41-44a0-b8b4-75ae411bbfd0",
+      "target": "translation",
+      "scope": "technical",
+      "assessed_at": "2026-10-06",
+      "assessed_by": [
+        "Repository segment validator"
+      ],
+      "scores": {
+        "source_provenance": null,
+        "semantic_fidelity": null,
+        "grammar_logic": null,
+        "segment_alignment": 10,
+        "terminology": null,
+        "triangulation": null,
+        "vietnamese_clarity": null,
+        "han_viet_balance": null,
+        "ambiguity_integrity": null,
+        "technical_integrity": null
+      },
+      "final_score": null,
+      "blocking_errors": [],
+      "notes": "Kiểm tra tự động 48 segment với Pāli trong cache: đủ ID, giá trị, NFC và hệ chữ Latin. Chưa đọc đối chiếu nghĩa, ngữ pháp hoặc văn phong; chưa chấm lại 10 tiêu chí. Đây không phải chứng nhận hash upstream hoặc giấy phép, không xác nhận trạng thái xuất bản.",
+      "content_sha256": "a2a8b311176641f15b1da3eebe22e12cd579196ceae7ee3483af56e601691725",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639"
+    }
+  ],
+  "legacy_quality": {
+    "scores": {
+      "source_provenance": 9.5,
+      "semantic_fidelity": 9.2,
+      "grammar_logic": 9.2,
+      "segment_alignment": 10,
+      "terminology": 9.3,
+      "triangulation": 7.5,
+      "vietnamese_clarity": 9.3,
+      "han_viet_balance": 9.2,
+      "ambiguity_integrity": 8.9,
+      "technical_integrity": 9.6
+    },
+    "final_score": 9.17,
+    "blocking_errors": [
+      "Không có tầng tham khảo tiếng Anh tại commit đã ghim (11c9d708978cde8ba61096d8a75f7ddfb846f639). Đo coverage bằng ĐÚNG công thức của kho (`src/lib/canon/reference.ts`: `prose() >= source/layers.yaml:englishCoverage.substantivePaliMinChars = 40`, loại block tham chiếu theo `/^0(\\.|$)/` trên phần sau dấu `:`): `tha-ap61` có **1** Pāli có nội dung (`tha-ap61:12.1` *Itthaṁ sudaṁ āyasmā padumo thero imā gāthāyo abhāsitthāti.*, 68 ký tự) và **0** trong số đó mang chữ Anh ⇒ ratio **0,0000**, dưới ngưỡng 0,8. Nguyên nhân là `not-published-upstream`, KHÔNG phải `not-synced`: `source/upstream-manifest.json` (edition `english-sujato`, 4.291 tệp) **không có** `sutta/kn/tha-ap/tha-ap61_translation-en-sujato.json`, và trong `sutta/kn/` của edition này không tồn tại thư mục `tha-ap/` lẫn `vv/` (chỉ có `cp dhp iti ja kp snp thag thig ud`). Cùng tệp đó chỉ liệt kê tệp Pāli `kn/tha-ap/tha-ap61_root-pli-ms.json` cho uid này. `scripts/validate.ts` đẩy thông điệp này vào `errors` khi status là `review` hoặc `published` (dòng 222–225), nên bài **bắt buộc `draft`**. Tầng `vietnamese-current` cũng vắng: `translation/vi/phantuananh` tại commit đã ghim chỉ có **26** tệp và toàn bộ là Pháp Cú. Lớp lấp `english-project` của dự án cũng không có cho uid này. Ba tầng tham khảo đều vắng ⇒ bài dịch chỉ từ Pāli root ⇒ **blocker thật**, thuộc giới hạn của bản chụp upstream chứ không phải lỗi của người dịch. Vì thế `triangulation` bị chặn ở **7,5** (≤ 8,0) chứ không nâng lên để né blocker."
+    ],
+    "assessed_at": "2026-10-05",
+    "assessed_by": [
+      "OpenCode Space Bunny Free (agent)"
+    ]
+  }
+}

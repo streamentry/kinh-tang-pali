@@ -1,0 +1,81 @@
+{
+  "schemaVersion": 1,
+  "uid": "vv19",
+  "assessments": [
+    {
+      "id": "8e0c14e1-53aa-46ad-af73-26d500632e26",
+      "target": "translation",
+      "scope": "technical",
+      "assessed_at": "2026-10-05",
+      "assessed_by": [
+        "Repository segment validator"
+      ],
+      "scores": {
+        "source_provenance": null,
+        "semantic_fidelity": null,
+        "grammar_logic": null,
+        "segment_alignment": 10,
+        "terminology": null,
+        "triangulation": null,
+        "vietnamese_clarity": null,
+        "han_viet_balance": null,
+        "ambiguity_integrity": null,
+        "technical_integrity": null
+      },
+      "final_score": null,
+      "blocking_errors": [],
+      "notes": "Kiểm tra tự động 52 segment với Pāli trong cache: đủ ID, giá trị, NFC và hệ chữ Latin. Chưa đọc đối chiếu nghĩa, ngữ pháp hoặc văn phong; chưa chấm lại 10 tiêu chí. Đây không phải chứng nhận hash upstream hoặc giấy phép, không xác nhận trạng thái xuất bản.",
+      "content_sha256": "ae3bfe9907938141af9a0f7360c980af456d92a150777dbb16b75710308143a9",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639"
+    },
+    {
+      "id": "6e25f98f-330f-4690-b867-e8bc88a47d34",
+      "target": "translation",
+      "scope": "technical",
+      "assessed_at": "2026-10-06",
+      "assessed_by": [
+        "Repository segment validator"
+      ],
+      "scores": {
+        "source_provenance": null,
+        "semantic_fidelity": null,
+        "grammar_logic": null,
+        "segment_alignment": 10,
+        "terminology": null,
+        "triangulation": null,
+        "vietnamese_clarity": null,
+        "han_viet_balance": null,
+        "ambiguity_integrity": null,
+        "technical_integrity": null
+      },
+      "final_score": null,
+      "blocking_errors": [],
+      "notes": "Kiểm tra tự động 52 segment với Pāli trong cache: đủ ID, giá trị, NFC và hệ chữ Latin. Chưa đọc đối chiếu nghĩa, ngữ pháp hoặc văn phong; chưa chấm lại 10 tiêu chí. Đây không phải chứng nhận hash upstream hoặc giấy phép, không xác nhận trạng thái xuất bản.",
+      "content_sha256": "ae3bfe9907938141af9a0f7360c980af456d92a150777dbb16b75710308143a9",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639"
+    }
+  ],
+  "legacy_quality": {
+    "scores": {
+      "source_provenance": 9.6,
+      "semantic_fidelity": 9,
+      "grammar_logic": 9.1,
+      "segment_alignment": 10,
+      "terminology": 9.2,
+      "triangulation": 7.5,
+      "vietnamese_clarity": 9.3,
+      "han_viet_balance": 9.3,
+      "ambiguity_integrity": 8.6,
+      "technical_integrity": 9.6
+    },
+    "final_score": 9.12,
+    "blocking_errors": [
+      "Không có tầng tham khảo tiếng Anh tại commit đã ghim. Đo bằng `source/upstream-manifest.json` (commit 11c9d708978cde8ba61096d8a75f7ddfb846f639): edition `english-sujato` (path `translation/en/sujato`, treeSha 24e81ded9d6710e16b277b6394fd57c48258da12, 4.291 tệp) có **0 tệp** nào dưới `sutta/kn/vv/`; 755 tệp `kn` của tầng này thuộc đúng 9 sub-collection: cp 35, dhp 26, iti 112, ja 83, kp 9, snp 73, thag 264, thig 73, ud 80 — không có `vv`. Tầng này chỉ có tệp **tên** `name/sutta/vv-name_translation-en-sujato.json` (94 khoá), không có tệp thân bài. Đây là `not-published-upstream`, KHÔNG phải `not-synced`. Tầng `vietnamese-current` (`translation/vi/phantuananh`, treeSha a6a1ba063bada3d338b5350f200def2189f018f1) chỉ có 26 tệp và tất cả đều là Pháp Cú (`sutta/kn/dhp/`). Lớp lấp `english-project` (`content/translation/en/project/sutta`, 760 tệp json) không có tệp nào cho uid `vv19`. Ba tầng tham khảo đều vắng ⇒ bài dịch chỉ từ Pāli root (`root/pli/ms/sutta`, treeSha 4d736429e54946e4eb13c914ee90aa00dfc95690, 5.764 tệp) ⇒ blocker thật, và đây là giới hạn upstream chứ không phải lỗi người dịch. `scripts/validate.ts` coi tệp Anh thiếu là error khi status là `review`/`published`, nên bài bắt buộc `draft`. `triangulation` bị chặn ở 7.5 (≤ 8.0), không nâng để né blocker.",
+      "Bất định chưa phân xử được ở khoá `vv19:8.3`, nên câu canonical chưa bảo vệ được. Pāli: `Saññamā saṁvibhāgā ca,`. Quét toàn bộ Pāli root đã ghim (5.764 tệp) cho `Saññamā saṁvibhāgā` ra **7 khoá, tất cả trong `vv`**: `vv15:7.3`, `vv19:8.3`, `vv22:7.3`, `vv23:8.3`, `vv24:7.3`, `vv25:7.3`, `vv37:8.3` — cùng một vị trí kệ, sau `Uposathaṁ upavasissaṁ, / sadā sīlesu saṁvutā;` và trước `vimānaṁ āvasāmahaṁ.` Đối chiếu: đúng bài kệ này trong Jātaka `ja541` (Gaṇḍavāḍha/Sudhañña, nguồn gốc của các nữ thiên `Vimānavatthu`) đọc `Saṁyamā saṁvibhāgā ca,` ở **8 khoá** (`ja541:89.5`, `:96.3`, `:100.5`, `:109.3`, `:117.3`, `:126.3`, `:135.3`, `:142.3`). Tức bản `vv` đọc thành `saññā` ở cả 7 chỗ, còn Jātaka đọc `saṁyama` ở cả 8 chỗ; `saṁyama` (giới hạnh) + `saṁvibhāgā` (bố thí sẻ chia) là cặp quen thuộc trong Phật giáo, còn `saññā` (ý thức) không thuộc loại phẩm hạnh nào mà kệ đang liệt kê. Tôi theo chỉ đạo (Pāli root là authority, `saññā` = ý thức) và dịch *ý thức và sự chia sẻ,*, **không** tự ý sửa Pāli thành `Saṁyamā`. Người biên tập cần tra bản in Pāli (PTS/Thai) hoặc thảo luận; nếu chốt theo `ja541` thì phải sửa cả 7 khoá `vv` và đây là việc ngoài lát này."
+    ],
+    "assessed_at": "2026-10-05",
+    "assessed_by": [
+      "OpenCode Space Bunny Free (agent)"
+    ]
+  }
+}

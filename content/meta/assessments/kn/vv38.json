@@ -1,0 +1,80 @@
+{
+  "schemaVersion": 1,
+  "uid": "vv38",
+  "assessments": [
+    {
+      "id": "588afa4c-641c-439e-9983-1c62f943cac5",
+      "target": "translation",
+      "scope": "technical",
+      "assessed_at": "2026-10-05",
+      "assessed_by": [
+        "Repository segment validator"
+      ],
+      "scores": {
+        "source_provenance": null,
+        "semantic_fidelity": null,
+        "grammar_logic": null,
+        "segment_alignment": 10,
+        "terminology": null,
+        "triangulation": null,
+        "vietnamese_clarity": null,
+        "han_viet_balance": null,
+        "ambiguity_integrity": null,
+        "technical_integrity": null
+      },
+      "final_score": null,
+      "blocking_errors": [],
+      "notes": "Kiểm tra tự động 48 segment với Pāli trong cache: đủ ID, giá trị, NFC và hệ chữ Latin. Chưa đọc đối chiếu nghĩa, ngữ pháp hoặc văn phong; chưa chấm lại 10 tiêu chí. Đây không phải chứng nhận hash upstream hoặc giấy phép, không xác nhận trạng thái xuất bản.",
+      "content_sha256": "4606e1de16b3ac005e4a7294812379ffc0f7355d2ce3d0adfe2969670d18d729",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639"
+    },
+    {
+      "id": "70761a50-5bd6-4ce8-85cd-5f74a51e643f",
+      "target": "translation",
+      "scope": "technical",
+      "assessed_at": "2026-10-06",
+      "assessed_by": [
+        "Repository segment validator"
+      ],
+      "scores": {
+        "source_provenance": null,
+        "semantic_fidelity": null,
+        "grammar_logic": null,
+        "segment_alignment": 10,
+        "terminology": null,
+        "triangulation": null,
+        "vietnamese_clarity": null,
+        "han_viet_balance": null,
+        "ambiguity_integrity": null,
+        "technical_integrity": null
+      },
+      "final_score": null,
+      "blocking_errors": [],
+      "notes": "Kiểm tra tự động 48 segment với Pāli trong cache: đủ ID, giá trị, NFC và hệ chữ Latin. Chưa đọc đối chiếu nghĩa, ngữ pháp hoặc văn phong; chưa chấm lại 10 tiêu chí. Đây không phải chứng nhận hash upstream hoặc giấy phép, không xác nhận trạng thái xuất bản.",
+      "content_sha256": "4606e1de16b3ac005e4a7294812379ffc0f7355d2ce3d0adfe2969670d18d729",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639"
+    }
+  ],
+  "legacy_quality": {
+    "scores": {
+      "source_provenance": 9.5,
+      "semantic_fidelity": 8.9,
+      "grammar_logic": 8.9,
+      "segment_alignment": 10,
+      "terminology": 9.1,
+      "triangulation": 7.5,
+      "vietnamese_clarity": 9.2,
+      "han_viet_balance": 9.2,
+      "ambiguity_integrity": 8.4,
+      "technical_integrity": 9.6
+    },
+    "final_score": 9.03,
+    "blocking_errors": [
+      "Không có tầng tham khảo tiếng Anh tại commit đã ghim (11c9d708978cde8ba61096d8a75f7ddfb846f639). `source/upstream-manifest.json` (edition `english-sujato`, 4.291 tệp) **không liệt kê** `sutta/kn/vv/vv38_translation-en-sujato.json`, và trong `sutta/kn/` của edition này không tồn tại thư mục `vv/` (chỉ có `cp dhp iti ja kp snp thag thig ud`) — đây là `not-published-upstream`, KHÔNG phải `not-synced`. Cùng tệp đó chỉ liệt kê tệp Pāli `kn/vv/vv38_root-pli-ms.json`. Về coverage: theo đúng công thức `src/lib/canon/reference.ts` (`prose() >= 40` và loại block tham chiếu theo `/^0(\\.|$)/`), `vv38` có **0** Pāli có nội dung — khoá dài nhất là `vv38:10.1` và `vv38:0.4`, mỗi khoá **29** ký tự — nên tỷ lệ được coi là 1 và cổng coverage không đo được gì cho bài này. Nhưng `scripts/validate.ts` kiểm tra **tệp** Anh trước (dòng 222–225): `needsEnglish = status === 'review' || 'published'`, thiếu tệp ⇒ `errors.push(...)`. ⇒ bài **bắt buộc `draft`**. Tầng `vietnamese-current` cũng vắng (`translation/vi/phantuananh` tại commit đã ghim chỉ có 26 tệp, toàn bộ là Pháp Cú); lớp lấp `english-project` cũng không có cho uid này. Ba tầng tham khảo đều vắng ⇒ bài dịch chỉ từ Pāli root ⇒ **blocker thật**, thuộc giới hạn của bản chụp upstream. `triangulation` bị chặn ở **7,5** (≤ 8,0) chứ không nâng lên để né blocker."
+    ],
+    "assessed_at": "2026-10-05",
+    "assessed_by": [
+      "OpenCode Space Bunny Free (agent)"
+    ]
+  }
+}

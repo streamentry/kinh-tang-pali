@@ -1,0 +1,81 @@
+{
+  "schemaVersion": 1,
+  "uid": "mil7.5.6",
+  "assessments": [
+    {
+      "id": "ce377768-83c5-44fe-b458-f6ff036f68fc",
+      "target": "translation",
+      "scope": "technical",
+      "assessed_at": "2026-10-05",
+      "assessed_by": [
+        "Repository segment validator"
+      ],
+      "scores": {
+        "source_provenance": null,
+        "semantic_fidelity": null,
+        "grammar_logic": null,
+        "segment_alignment": 10,
+        "terminology": null,
+        "triangulation": null,
+        "vietnamese_clarity": null,
+        "han_viet_balance": null,
+        "ambiguity_integrity": null,
+        "technical_integrity": null
+      },
+      "final_score": null,
+      "blocking_errors": [],
+      "notes": "Kiểm tra tự động 32 segment với Pāli trong cache: đủ ID, giá trị, NFC và hệ chữ Latin. Chưa đọc đối chiếu nghĩa, ngữ pháp hoặc văn phong; chưa chấm lại 10 tiêu chí. Đây không phải chứng nhận hash upstream hoặc giấy phép, không xác nhận trạng thái xuất bản.",
+      "content_sha256": "d67f261fa3dd22412051ce694d5650581ed7815089bea2639251dead3c7fece5",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639"
+    },
+    {
+      "id": "3cc20248-0476-4667-8ca8-66e27a0a52b4",
+      "target": "translation",
+      "scope": "technical",
+      "assessed_at": "2026-10-06",
+      "assessed_by": [
+        "Repository segment validator"
+      ],
+      "scores": {
+        "source_provenance": null,
+        "semantic_fidelity": null,
+        "grammar_logic": null,
+        "segment_alignment": 10,
+        "terminology": null,
+        "triangulation": null,
+        "vietnamese_clarity": null,
+        "han_viet_balance": null,
+        "ambiguity_integrity": null,
+        "technical_integrity": null
+      },
+      "final_score": null,
+      "blocking_errors": [],
+      "notes": "Kiểm tra tự động 32 segment với Pāli trong cache: đủ ID, giá trị, NFC và hệ chữ Latin. Chưa đọc đối chiếu nghĩa, ngữ pháp hoặc văn phong; chưa chấm lại 10 tiêu chí. Đây không phải chứng nhận hash upstream hoặc giấy phép, không xác nhận trạng thái xuất bản.",
+      "content_sha256": "d67f261fa3dd22412051ce694d5650581ed7815089bea2639251dead3c7fece5",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639"
+    }
+  ],
+  "legacy_quality": {
+    "scores": {
+      "source_provenance": 9.6,
+      "semantic_fidelity": 9.1,
+      "grammar_logic": 9,
+      "segment_alignment": 10,
+      "terminology": 9,
+      "triangulation": 6.5,
+      "vietnamese_clarity": 9.1,
+      "han_viet_balance": 9,
+      "ambiguity_integrity": 8.6,
+      "technical_integrity": 9.6
+    },
+    "final_score": 8.95,
+    "blocking_errors": [
+      "Không có tầng tham khảo English Sujato tại commit đã ghim. Đếm bằng script trên source/upstream-manifest.json: tầng english-sujato có 4.291 tệp, trong đó thư mục sutta/kn chỉ có 9 thư mục con (cp, dhp, iti, ja, kp, snp, thag, thig, ud) và KHÔNG có thư mục mil hay ne; duyệt cả danh sách 4.291 tệp cũng không tệp nào chứa khoá của bài này. Tệp trong cache .cache/upstream/suttacentral/translation/en/sujato/sutta/kn/ cũng chỉ có đúng 9 thư mục con ấy. Đây là not-published-upstream chứ không phải not-synced: tệp vắng mặt khỏi cây git của chính tầng đã ghim, nên không tải lại cũng không có. Tại commit này SuttaCentral không phát hành bản Anh nào khác phủ bài này, nên bài chỉ đối chiếu được với Pāli root một mình. Tầng Việt hiện hành (Hòa thượng Thích Minh Châu) tại commit đã ghim chỉ có 26 chương Pháp Cú, nên cũng không có bản đối chiếu cho bài này.",
+      "Coverage tầng Anh đo được là 0 trên 27 khoá Pāli có nội dung (đếm bằng script theo đúng quy tắc của source/layers.yaml: khoá thân bài dài từ 40 ký tự trở lên, bỏ khối tiêu đề :0). Dưới ngưỡng 0.8 khai ở source/layers.yaml, mà content/meta/reference-gaps.yaml chưa có mục cho bài này và đợt này tôi bị cấm sửa tệp đó; validate sẽ đỏ. Người biên tập chạy npm run reference:gaps rồi xét lại."
+    ],
+    "assessed_at": "2026-10-04",
+    "assessed_by": [
+      "OpenCode Space Bunny Free (agent)"
+    ]
+  }
+}

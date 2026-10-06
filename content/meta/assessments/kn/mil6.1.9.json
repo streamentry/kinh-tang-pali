@@ -1,0 +1,55 @@
+{
+  "schemaVersion": 1,
+  "uid": "mil6.1.9",
+  "assessments": [
+    {
+      "id": "005e1557-f17f-4765-9396-94f26ba69115",
+      "target": "translation",
+      "scope": "technical",
+      "assessed_at": "2026-10-06",
+      "assessed_by": [
+        "Repository segment validator"
+      ],
+      "scores": {
+        "source_provenance": null,
+        "semantic_fidelity": null,
+        "grammar_logic": null,
+        "segment_alignment": 10,
+        "terminology": null,
+        "triangulation": null,
+        "vietnamese_clarity": null,
+        "han_viet_balance": null,
+        "ambiguity_integrity": null,
+        "technical_integrity": null
+      },
+      "final_score": null,
+      "blocking_errors": [],
+      "notes": "Kiểm tra tự động 53 segment với Pāli trong cache: đủ ID, giá trị, NFC và hệ chữ Latin. Chưa đọc đối chiếu nghĩa, ngữ pháp hoặc văn phong; chưa chấm lại 10 tiêu chí. Đây không phải chứng nhận hash upstream hoặc giấy phép, không xác nhận trạng thái xuất bản.",
+      "content_sha256": "aee320fd9f814ae61116e97cd3788fd102a07146e18ed8401f3f3837bd8c3caf",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639"
+    }
+  ],
+  "legacy_quality": {
+    "scores": {
+      "source_provenance": 9.5,
+      "semantic_fidelity": 9.3,
+      "grammar_logic": 9.3,
+      "segment_alignment": 10,
+      "terminology": 9.2,
+      "triangulation": 7,
+      "vietnamese_clarity": 9.3,
+      "han_viet_balance": 9.4,
+      "ambiguity_integrity": 9,
+      "technical_integrity": 9.6
+    },
+    "final_score": 9.16,
+    "blocking_errors": [
+      "Không có tầng tham khảo tiếng Anh tại commit đã ghim: trong source/upstream-manifest.json, cây english-sujato (4291 tệp) liệt kê 0 tệp dưới kn/mil, trong khi cây pali (5764 tệp) liệt kê 248 tệp kn/mil; .cache/upstream/suttacentral/translation/en/sujato/sutta/kn/ chỉ có cp, dhp, iti, ja, kp, snp, thag, thig, ud — không có mil. Tệp mil6.1.9_translation-en-sujato.json không tồn tại trong cache, nên đây là not-published-upstream, KHÔNG phải not-synced. Đo coverage theo đúng công thức src/lib/canon/reference.ts (prose >= 40 ký tự sau khi gộp khoảng trắng, loại block tham chiếu :0) cho mẫu số 42/53 khoá, Sujato phủ 0 ⇒ 0.0%, dưới ngưỡng 0.8 khai trong source/layers.yaml.",
+      "Tầng vietnamese-current cũng vắng: manifest ghi cây này chỉ có 26 tệp và toàn bộ là Pháp Cú (kn/dhp); kn/mil có 0 tệp, và .cache/.../vi/phantuananh/sutta/kn/ chỉ có dhp — cũng là not-published-upstream, không phải not-synced. Lớp lấp english-project của dự án cũng không có cho uid này (content/translation/en/project/sutta/kn/mil6.1.9_translation-en-project.json không tồn tại, content/meta/en/kn/ có 24 tệp mil nhưng không có mil6.1.9) ⇒ not-started. Ba tầng tham khảo đều vắng nên bài dịch chỉ từ Pāli root; đây là giới hạn của ảnh chụp upstream, không phải lỗi của người dịch. Vì vậy triangulation bị chặn ở 7.0 và không nâng để né blocker."
+    ],
+    "assessed_at": "2026-10-06",
+    "assessed_by": [
+      "OpenCode Space Bunny Free (agent)"
+    ]
+  }
+}

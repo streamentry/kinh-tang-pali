@@ -227,3 +227,16 @@ test('the store layer list is unchanged by any of this', () => {
   assert.equal(storeLayers().length, 5);
   assert.equal(storeLayer('pali').id, 'pali');
 });
+
+test('chapter references are scoped to explicitly reviewed UIDs and do not fill reader columns', () => {
+  const reference = referenceById('budsas-sn1-reviewed');
+  assert.equal(pageUrlFor(reference, 'sn1.3'), 'https://budsas.net/uni/u-kinh-tuongungbo/tu1-01.htm');
+  assert.equal(pageUrlFor(reference, 'sn1.11'), null);
+  assert.equal(pageUrlFor(reference, 'sn2.1'), null);
+  assert.equal(reference.attribution.translator, 'Hòa thượng Thích Minh Châu');
+  assert.equal(reference.licence.spdx, 'NOASSERTION');
+  assert.equal(reference.attribution.distributorIsPublisher, false);
+  const document = composeDocument('sn', 'sn1.3');
+  assert.equal(document.layers.find(layer => layer.id === 'viCurrent')?.withText, 0);
+  assert.equal(document.layers.some(layer => layer.sourceLayers.includes(reference.id)), false);
+});

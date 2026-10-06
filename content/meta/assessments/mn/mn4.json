@@ -1,0 +1,290 @@
+{
+  "schemaVersion": 1,
+  "uid": "mn4",
+  "assessments": [
+    {
+      "id": "fc50f15b-a62c-447f-87f6-b7ce80e9f961",
+      "target": "translation",
+      "scope": "technical",
+      "assessed_at": "2026-10-05",
+      "assessed_by": [
+        "Repository segment validator"
+      ],
+      "scores": {
+        "source_provenance": null,
+        "semantic_fidelity": null,
+        "grammar_logic": null,
+        "segment_alignment": 10,
+        "terminology": null,
+        "triangulation": null,
+        "vietnamese_clarity": null,
+        "han_viet_balance": null,
+        "ambiguity_integrity": null,
+        "technical_integrity": null
+      },
+      "final_score": null,
+      "blocking_errors": [],
+      "notes": "Kiểm tra tự động 165 segment với Pāli trong cache: đủ ID, giá trị, NFC và hệ chữ Latin. Chưa đọc đối chiếu nghĩa, ngữ pháp hoặc văn phong; chưa chấm lại 10 tiêu chí. Đây không phải chứng nhận hash upstream hoặc giấy phép, không xác nhận trạng thái xuất bản.",
+      "content_sha256": "c8bb58bb939b0dc8cc69f686ca71500791e99187e7c655c20771c7e9b7aaa07e",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639"
+    },
+    {
+      "id": "3fd89807-b201-4325-b062-ca84e5efcf5c",
+      "target": "summary",
+      "scope": "technical",
+      "assessed_at": "2026-10-05",
+      "assessed_by": [
+        "Repository summary validator"
+      ],
+      "scores": {
+        "source_fidelity": null,
+        "core_coverage": null,
+        "argument_structure": null,
+        "context": null,
+        "terminology": null,
+        "clarity": null,
+        "concision": null,
+        "editorial_separation": null,
+        "ambiguity_integrity": null,
+        "technical_integrity": 10
+      },
+      "final_score": null,
+      "blocking_errors": [],
+      "notes": "Kiểm tra tự động: 470 từ, 4 đoạn, văn xuôi thuần và NFC. Chưa đối chiếu nội dung tóm tắt với toàn bài kinh; chưa chấm độ đúng nghĩa, đủ ý hay văn phong.",
+      "content_sha256": "da1399f9b3e280afdb5aacb193125b5a75614aaf523ec19bdc35aa72b49d8f41",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639"
+    },
+    {
+      "target": "translation",
+      "scope": "full",
+      "assessed_at": "2026-10-05",
+      "assessed_by": [
+        "Codex"
+      ],
+      "notes": "Full adversarial review 05/10/2026 after corrections. Read all 165 Pāli segments, project Vietnamese and comments; read the available 124 Sujato segments and 41 substantive Pāli segments where English has no prose. Also read the whole Vietnamese Thích Minh Châu/Bình Anson text at https://www.budsas.org/uni/u-kinh-trungbo/trung04.htm. Authority remains pinned Pāli at 11c9d708978cde8ba61096d8a75f7ddfb846f639; the Vietnamese scan is a whole-text third-party copy, NOASSERTION, not segment-aligned.\n\nFixed before this assessment: MN4:18.3 previously used a difficult double-negative (“Ta không phải người không có định, tâm không tán loạn”) for na kho panāhaṁ asamāhito vibbhantacitto. It now says the Buddha frequented the remote lodgings with a collected, undistracted mind, preserving both negated qualities. MN4:16.2/16.3 now use “thiếu tinh tấn” in place of the awkward “tinh tấn yếu kém”. Read the changed passages again against their Pāli and neighboring statement of the opposite virtue.\n\nReview checked the 16 repeated hindrance/defect statements for subject, negation, repeated formula, and the Buddha’s contrasting qualities; the forest-night example’s four postures and resolve to remove fear without changing posture; day/night perception; four jhānas; the three knowledges; karmic destinations; final freedom from the three āsavas; and the brahmin’s refuge. The 41 English gaps are primarily the repeated “then I thought” and echo passages in Sujato; they are not treated as agreement. The full TMC text was used as a prose reference for those passages, while exact segment alignment stayed with the Pāli. Coverage is only 67% of the 126 substantive Pāli segments, so triangulation is scored below high despite reading the whole TMC parallel.\n\nPotentially subtle point checked: `nāparaṁ itthattāya` is rendered “không còn trở lại trạng thái hiện hữu này nữa”; DPD defines itthatta as present/such an existence (https://dpdict.net/?q=itthatta), and the wording retains the clause’s present-state reference rather than deleting the rebirth-finality claim. I found no remaining known high-impact semantic error in the translation after the two fixes. Technical release blocker remains: current required tests/validator fail because DN15–34 summaries are absent and untracked English fill files AN4.108/AN4.110 lack metadata. The global gate failure forces draft; technical score 2 reflects that failure, not translation meaning.",
+      "scores": {
+        "source_provenance": 9.7,
+        "semantic_fidelity": 9.5,
+        "grammar_logic": 9.4,
+        "segment_alignment": 10,
+        "terminology": 9.3,
+        "triangulation": 8.8,
+        "vietnamese_clarity": 9.4,
+        "han_viet_balance": 9.5,
+        "ambiguity_integrity": 9.3,
+        "technical_integrity": 2
+      },
+      "final_score": 8.690000000000001,
+      "blocking_errors": [
+        "Required release gate fails: npm test and npm run validate report 20 missing DN summaries and untracked English fills for AN4.108/AN4.110 without their required metadata. Publication is blocked until those repository checks pass."
+      ],
+      "id": "1e96e1b0-433b-44a3-9fff-4eaf2efa8be4",
+      "content_sha256": "62f1a5224dca7fd7c108367e5c3f2dcbeb919d89c0279314ab2ac3ccf4c968f6",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639"
+    },
+    {
+      "target": "summary",
+      "scope": "full",
+      "assessed_at": "2026-10-05",
+      "assessed_by": [
+        "Codex"
+      ],
+      "notes": "Full summary review 05/10/2026 after reading all MN4 Pāli and Vietnamese segments/comments and the whole pinned English layer where available. The summary correctly identifies Jānussoṇi’s opening, the 16 faults and corresponding virtues, the Buddha’s determination to meet fear in each posture, day/night awareness, four jhānas, three knowledges, release from sensuality/becoming/ignorance, and the stated reasons to stay in the forest. It preserves the order from pre-awakening reflection to insight rather than implying all events happened in a single night. It correctly names the four fourteenth/fifteenth/eighth observance nights as occasions, not the whole fortnight. Wording distinguishes the text’s reported teaching from later commentary. Length and four-paragraph prose meet the summary contract.\n\nTechnical integrity remains blocked: required repository tests/validator fail on 20 absent DN summaries and untracked English fills lacking metadata. Full score therefore records a blocker and is not publication certification.",
+      "scores": {
+        "source_fidelity": 9.5,
+        "core_coverage": 9.5,
+        "argument_structure": 9.4,
+        "context": 9.7,
+        "terminology": 9.4,
+        "clarity": 9.4,
+        "concision": 9.4,
+        "editorial_separation": 9.7,
+        "ambiguity_integrity": 9.4,
+        "technical_integrity": 2
+      },
+      "final_score": 8.74,
+      "blocking_errors": [
+        "Required repository tests/validator fail; technical and release gate is not met."
+      ],
+      "id": "f8b56eba-7d86-4d87-abe5-c2cd60a40d10",
+      "content_sha256": "011da86a3851d4a9e6805ad0f8fa0e5c90c02f01d51b90fbf10b058873020552",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639"
+    },
+    {
+      "id": "01bcb009-2b73-419c-a68f-6036f8cb5f0b",
+      "target": "translation",
+      "scope": "technical",
+      "assessed_at": "2026-10-05",
+      "assessed_by": [
+        "Repository segment validator"
+      ],
+      "scores": {
+        "source_provenance": null,
+        "semantic_fidelity": null,
+        "grammar_logic": null,
+        "segment_alignment": 10,
+        "terminology": null,
+        "triangulation": null,
+        "vietnamese_clarity": null,
+        "han_viet_balance": null,
+        "ambiguity_integrity": null,
+        "technical_integrity": null
+      },
+      "final_score": null,
+      "blocking_errors": [],
+      "notes": "Kiểm tra tự động 165 segment với Pāli trong cache: đủ ID, giá trị, NFC và hệ chữ Latin. Chưa đọc đối chiếu nghĩa, ngữ pháp hoặc văn phong; chưa chấm lại 10 tiêu chí. Đây không phải chứng nhận hash upstream hoặc giấy phép, không xác nhận trạng thái xuất bản.",
+      "content_sha256": "62f1a5224dca7fd7c108367e5c3f2dcbeb919d89c0279314ab2ac3ccf4c968f6",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639"
+    },
+    {
+      "id": "0cb10a03-55f3-4278-b7d9-ba01a18a6e9f",
+      "target": "summary",
+      "scope": "technical",
+      "assessed_at": "2026-10-05",
+      "assessed_by": [
+        "Repository summary validator"
+      ],
+      "scores": {
+        "source_fidelity": null,
+        "core_coverage": null,
+        "argument_structure": null,
+        "context": null,
+        "terminology": null,
+        "clarity": null,
+        "concision": null,
+        "editorial_separation": null,
+        "ambiguity_integrity": null,
+        "technical_integrity": 10
+      },
+      "final_score": null,
+      "blocking_errors": [],
+      "notes": "Kiểm tra tự động: 470 từ, 4 đoạn, văn xuôi thuần và NFC. Chưa đối chiếu nội dung tóm tắt với toàn bài kinh; chưa chấm độ đúng nghĩa, đủ ý hay văn phong.",
+      "content_sha256": "011da86a3851d4a9e6805ad0f8fa0e5c90c02f01d51b90fbf10b058873020552",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639"
+    },
+    {
+      "target": "summary",
+      "scope": "full",
+      "assessed_at": "2026-10-05",
+      "assessed_by": [
+        "Codex"
+      ],
+      "scores": {
+        "source_fidelity": 9.5,
+        "core_coverage": 9.5,
+        "argument_structure": 9.4,
+        "context": 9.7,
+        "terminology": 9.4,
+        "clarity": 9.4,
+        "concision": 9.4,
+        "editorial_separation": 9.7,
+        "ambiguity_integrity": 9.4,
+        "technical_integrity": 10
+      },
+      "blocking_errors": [],
+      "notes": "Technical-gate follow-up to current full assessment f8b56eba-7d86-4d87-abe5-c2cd60a40d10 dated 2026-10-05. The content scores are carried forward unchanged from that current whole-text Pāli review; this entry re-assesses only technical_integrity after npm test passed (336 tests), npm run check reported 0 errors, integrated npm run validate passed, and npm run build completed all 6,146 pages with Pagefind indexing 6,136 pages. The previous entry's sole blocker was the global validation/build gate, which is now resolved. Content and source fingerprints are recalculated by the recorder.",
+      "id": "96e018bc-aa88-4944-b3db-c24e78325bd3",
+      "content_sha256": "011da86a3851d4a9e6805ad0f8fa0e5c90c02f01d51b90fbf10b058873020552",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
+      "final_score": 9.540000000000001
+    },
+    {
+      "target": "translation",
+      "scope": "full",
+      "assessed_at": "2026-10-05",
+      "assessed_by": [
+        "Codex"
+      ],
+      "scores": {
+        "source_provenance": 9.7,
+        "semantic_fidelity": 9.5,
+        "grammar_logic": 9.4,
+        "segment_alignment": 10,
+        "terminology": 9.3,
+        "triangulation": 8.8,
+        "vietnamese_clarity": 9.4,
+        "han_viet_balance": 9.5,
+        "ambiguity_integrity": 9.3,
+        "technical_integrity": 10
+      },
+      "blocking_errors": [],
+      "notes": "Technical-gate follow-up to current full assessment 1e96e1b0-433b-44a3-9fff-4eaf2efa8be4 dated 2026-10-05. The content scores are carried forward unchanged from that current whole-text Pāli review; this entry re-assesses only technical_integrity after npm test passed (336 tests), npm run check reported 0 errors, integrated npm run validate passed, and npm run build completed all 6,146 pages with Pagefind indexing 6,136 pages. The previous entry's sole blocker was the global validation/build gate, which is now resolved. Content and source fingerprints are recalculated by the recorder.",
+      "id": "d2a82142-b752-4d3a-82cf-198d117b2026",
+      "content_sha256": "62f1a5224dca7fd7c108367e5c3f2dcbeb919d89c0279314ab2ac3ccf4c968f6",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
+      "final_score": 9.49
+    },
+    {
+      "id": "e855fd27-b751-4f61-9434-58bd1b03fcd3",
+      "target": "translation",
+      "scope": "technical",
+      "assessed_at": "2026-10-06",
+      "assessed_by": [
+        "Repository segment validator"
+      ],
+      "scores": {
+        "source_provenance": null,
+        "semantic_fidelity": null,
+        "grammar_logic": null,
+        "segment_alignment": 10,
+        "terminology": null,
+        "triangulation": null,
+        "vietnamese_clarity": null,
+        "han_viet_balance": null,
+        "ambiguity_integrity": null,
+        "technical_integrity": null
+      },
+      "final_score": null,
+      "blocking_errors": [],
+      "notes": "Kiểm tra tự động 165 segment với Pāli trong cache: đủ ID, giá trị, NFC và hệ chữ Latin. Chưa đọc đối chiếu nghĩa, ngữ pháp hoặc văn phong; chưa chấm lại 10 tiêu chí. Đây không phải chứng nhận hash upstream hoặc giấy phép, không xác nhận trạng thái xuất bản.",
+      "content_sha256": "62f1a5224dca7fd7c108367e5c3f2dcbeb919d89c0279314ab2ac3ccf4c968f6",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639"
+    },
+    {
+      "id": "b5567dab-521c-4add-af53-f727e98afba0",
+      "target": "summary",
+      "scope": "technical",
+      "assessed_at": "2026-10-06",
+      "assessed_by": [
+        "Repository summary validator"
+      ],
+      "scores": {
+        "source_fidelity": null,
+        "core_coverage": null,
+        "argument_structure": null,
+        "context": null,
+        "terminology": null,
+        "clarity": null,
+        "concision": null,
+        "editorial_separation": null,
+        "ambiguity_integrity": null,
+        "technical_integrity": 10
+      },
+      "final_score": null,
+      "blocking_errors": [],
+      "notes": "Kiểm tra tự động: 470 từ, 4 đoạn, văn xuôi thuần và NFC. Chưa đối chiếu nội dung tóm tắt với toàn bài kinh; chưa chấm độ đúng nghĩa, đủ ý hay văn phong.",
+      "content_sha256": "011da86a3851d4a9e6805ad0f8fa0e5c90c02f01d51b90fbf10b058873020552",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639"
+    }
+  ],
+  "legacy_quality": {
+    "scores": {
+      "source_provenance": 10,
+      "semantic_fidelity": 9.7,
+      "grammar_logic": 9.7,
+      "segment_alignment": 10,
+      "terminology": 9.5,
+      "triangulation": 9.8,
+      "vietnamese_clarity": 9.4,
+      "han_viet_balance": 9.6,
+      "ambiguity_integrity": 9.8,
+      "technical_integrity": 10
+    },
+    "final_score": 9.75,
+    "blocking_errors": [],
+    "assessed_at": "2026-09-11",
+    "assessed_by": [
+      "GPT-5.6 Sol"
+    ]
+  }
+}

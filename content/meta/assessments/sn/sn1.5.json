@@ -1,0 +1,212 @@
+{
+  "schemaVersion": 1,
+  "uid": "sn1.5",
+  "assessments": [
+    {
+      "id": "0d266172-f14b-41ad-8e2a-85c16b1d5a08",
+      "target": "translation",
+      "scope": "technical",
+      "assessed_at": "2026-10-05",
+      "assessed_by": [
+        "Repository segment validator"
+      ],
+      "scores": {
+        "source_provenance": null,
+        "semantic_fidelity": null,
+        "grammar_logic": null,
+        "segment_alignment": 10,
+        "terminology": null,
+        "triangulation": null,
+        "vietnamese_clarity": null,
+        "han_viet_balance": null,
+        "ambiguity_integrity": null,
+        "technical_integrity": null
+      },
+      "final_score": null,
+      "blocking_errors": [],
+      "notes": "Kiểm tra tự động 13 segment với Pāli trong cache: đủ ID, giá trị, NFC và hệ chữ Latin. Chưa đọc đối chiếu nghĩa, ngữ pháp hoặc văn phong; chưa chấm lại 10 tiêu chí. Đây không phải chứng nhận hash upstream hoặc giấy phép, không xác nhận trạng thái xuất bản.",
+      "content_sha256": "480461fc4e0170443387a4624d597154b66661d25b10c588e7960ff2880af2dd",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639"
+    },
+    {
+      "target": "translation",
+      "scope": "content",
+      "assessed_at": "2026-10-05",
+      "assessed_by": [
+        "Codex"
+      ],
+      "notes": "Đã đọc đủ 13 segment Pāli/Sujato/Việt và comment. Review adversarial các số năm ở 3.1–3.3, hai động từ chinde/jahe và cuttari = ca + uttari, đối tượng bhikkhu và câu gọi là vượt dòng lũ. Không đưa tên các kiết sử/căn từ chú giải vào kinh. Phải trong các câu hỏi/trả lời có sắc thái mạnh hơn optative nên grammar_logic không chấm tuyệt đối. Chưa đọc độc lập chú giải hoặc bản Việt truyền thống mà comment dẫn. Nguồn: pinned bilara 11c9d708978cde8ba61096d8a75f7ddfb846f639; store xác nhận Sujato phủ 100% các segment Pāli có nội dung theo ngưỡng đo. Tầng Việt hiện hành không có trong snapshot cho bài này; chưa đọc được bản Việt truyền thống độc lập trong lượt chấm lại, không kế thừa claim nghiên cứu của người chấm trước. technical_integrity chưa chấm: bộ test toàn repository còn lỗi ở phần tóm tắt chưa hoàn tất và bản NOTICE build cũ; chưa chốt điểm tổng hoặc trạng thái phát hành. Điểm là nhận định biên tập, không phải xác suất bản dịch đúng.",
+      "scores": {
+        "source_provenance": 9.5,
+        "semantic_fidelity": 9.5,
+        "grammar_logic": 9.1,
+        "segment_alignment": 10,
+        "terminology": 9.4,
+        "triangulation": 8.3,
+        "vietnamese_clarity": 9.5,
+        "han_viet_balance": 9.5,
+        "ambiguity_integrity": 9.3,
+        "technical_integrity": null
+      },
+      "final_score": null,
+      "blocking_errors": [],
+      "id": "ba103859-013f-4ebe-a04c-1d7a60abc707",
+      "content_sha256": "480461fc4e0170443387a4624d597154b66661d25b10c588e7960ff2880af2dd",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639"
+    },
+    {
+      "target": "translation",
+      "scope": "full",
+      "assessed_at": "2026-10-05",
+      "assessed_by": [
+        "Codex"
+      ],
+      "notes": "Kiểm đủ 13 segment: ba câu về số năm và lời gọi là vượt dòng lũ đều đúng; chinde/jahe không làm phẳng, cuttari giữ ý thêm nữa. Không chèn tên các căn hay kiết sử mà Pāli chỉ nói số lượng. Phải trong câu hỏi là cách nói Việt về yêu cầu tu tập; vẫn có sắc thái mạnh hơn optative nên grammar_logic không chấm tuyệt đối. Không coi chú giải là kinh văn. Phạm vi: đủ toàn bài Pāli/Sujato/Việt và comment, tiếp theo một lượt review đối kháng riêng. Đối chiếu thêm bản HT. Thích Minh Châu ở chương I https://budsas.net/uni/u-kinh-tuongungbo/tu1-01.htm, phần tương ứng; nguồn sao chép bên thứ ba, tra cứu toàn văn không aligned, licence NOASSERTION, không phải tầng store. Snapshot pin không có Việt hiện hành cho bài này; English substantive coverage 100%. Đã phân biệt nguồn trực tiếp vừa đọc với claim nghiên cứu lịch sử trong comment. Gate kỹ thuật: validate/check/build gần nhất qua; npm test vẫn fail vì các tóm tắt MN/DN chưa có. Technical chấm 2/10, có lỗi chặn, buộc draft; không đánh tráo điểm cao nội dung thành đủ điều kiện xuất bản. Điểm là nhận định biên tập.",
+      "scores": {
+        "source_provenance": 9.7,
+        "semantic_fidelity": 9.5,
+        "grammar_logic": 9.3,
+        "segment_alignment": 10,
+        "terminology": 9.4,
+        "triangulation": 9.4,
+        "vietnamese_clarity": 9.5,
+        "han_viet_balance": 9.5,
+        "ambiguity_integrity": 9.4,
+        "technical_integrity": 2
+      },
+      "final_score": 8.77,
+      "blocking_errors": [
+        "Validation failure: npm test toàn repository chưa qua do phần tóm tắt MN/DN chưa hoàn tất; chưa đạt technical release gate."
+      ],
+      "id": "786262cd-b866-4614-abb4-d6c67911df2f",
+      "content_sha256": "480461fc4e0170443387a4624d597154b66661d25b10c588e7960ff2880af2dd",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639"
+    },
+    {
+      "target": "translation",
+      "scope": "full",
+      "assessed_at": "2026-10-05",
+      "assessed_by": [
+        "Codex"
+      ],
+      "notes": "Sau lượt chấm trước, sửa 2.1–2.2 và 3.1–3.2: phải → nên, giữ mood optative của chinde/jahe/bhāvaye. Đọc lại toàn bộ 13 segment sau sửa, đối chiếu Pāli/Sujato và phần V của bản HT. Thích Minh Châu trong nguồn budsas-sn1-reviewed. Review đối kháng xác nhận cắt/từ bỏ không làm phẳng, cuttari còn ý thêm, đủ số năm và đúng điều kiện được gọi là vượt dòng lũ. Không đưa danh sách kiết sử/căn từ chú giải vào nguyên văn. Điểm là nhận định biên tập sau một lượt review riêng, không phải xác suất đúng. Pāli authority pin 11c9d708978cde8ba61096d8a75f7ddfb846f639; không dùng bản Việt ngoài store để tăng coverage. Gate kỹ thuật mới nhất: validator nội dung qua, check qua, build trước batch qua; npm test còn fail do các tóm tắt chưa có. Technical 2/10 và lỗi chặn buộc draft, không được bù bằng điểm nội dung. Lịch sử trước sửa vẫn được giữ với hash cũ.",
+      "scores": {
+        "source_provenance": 9.7,
+        "semantic_fidelity": 9.5,
+        "grammar_logic": 9.6,
+        "segment_alignment": 10,
+        "terminology": 9.4,
+        "triangulation": 9.4,
+        "vietnamese_clarity": 9.5,
+        "han_viet_balance": 9.5,
+        "ambiguity_integrity": 9.4,
+        "technical_integrity": 2
+      },
+      "final_score": 8.8,
+      "blocking_errors": [
+        "Validation failure: npm test toàn repository chưa qua do các tóm tắt MN/DN còn thiếu; chưa đạt technical release gate."
+      ],
+      "id": "927a46ea-a102-494b-a472-358bc7317010",
+      "content_sha256": "be65d970f82f05c4e62eefe3c23fd11242a8faae11481233269c60949c07dacf",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639"
+    },
+    {
+      "id": "6982ef9f-f870-4bfc-96f7-c2660a759a2e",
+      "target": "translation",
+      "scope": "technical",
+      "assessed_at": "2026-10-05",
+      "assessed_by": [
+        "Repository segment validator"
+      ],
+      "scores": {
+        "source_provenance": null,
+        "semantic_fidelity": null,
+        "grammar_logic": null,
+        "segment_alignment": 10,
+        "terminology": null,
+        "triangulation": null,
+        "vietnamese_clarity": null,
+        "han_viet_balance": null,
+        "ambiguity_integrity": null,
+        "technical_integrity": null
+      },
+      "final_score": null,
+      "blocking_errors": [],
+      "notes": "Kiểm tra tự động 13 segment với Pāli trong cache: đủ ID, giá trị, NFC và hệ chữ Latin. Chưa đọc đối chiếu nghĩa, ngữ pháp hoặc văn phong; chưa chấm lại 10 tiêu chí. Đây không phải chứng nhận hash upstream hoặc giấy phép, không xác nhận trạng thái xuất bản.",
+      "content_sha256": "be65d970f82f05c4e62eefe3c23fd11242a8faae11481233269c60949c07dacf",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639"
+    },
+    {
+      "target": "translation",
+      "scope": "full",
+      "assessed_at": "2026-10-05",
+      "assessed_by": [
+        "Codex"
+      ],
+      "scores": {
+        "source_provenance": 9.7,
+        "semantic_fidelity": 9.5,
+        "grammar_logic": 9.6,
+        "segment_alignment": 10,
+        "terminology": 9.4,
+        "triangulation": 9.4,
+        "vietnamese_clarity": 9.5,
+        "han_viet_balance": 9.5,
+        "ambiguity_integrity": 9.4,
+        "technical_integrity": 10
+      },
+      "blocking_errors": [],
+      "notes": "Technical-gate follow-up to current full assessment 927a46ea-a102-494b-a472-358bc7317010 dated 2026-10-05. The content scores are carried forward unchanged from that current whole-text Pāli review; this entry re-assesses only technical_integrity after npm test passed (336 tests), npm run check reported 0 errors, integrated npm run validate passed, and npm run build completed all 6,146 pages with Pagefind indexing 6,136 pages. The previous entry's sole blocker was the global validation/build gate, which is now resolved. Content and source fingerprints are recalculated by the recorder.",
+      "id": "db40e926-445b-49c9-9373-0787db451f96",
+      "content_sha256": "be65d970f82f05c4e62eefe3c23fd11242a8faae11481233269c60949c07dacf",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
+      "final_score": 9.6
+    },
+    {
+      "id": "97e61daa-aae1-4d92-9cda-41e84662d310",
+      "target": "translation",
+      "scope": "technical",
+      "assessed_at": "2026-10-06",
+      "assessed_by": [
+        "Repository segment validator"
+      ],
+      "scores": {
+        "source_provenance": null,
+        "semantic_fidelity": null,
+        "grammar_logic": null,
+        "segment_alignment": 10,
+        "terminology": null,
+        "triangulation": null,
+        "vietnamese_clarity": null,
+        "han_viet_balance": null,
+        "ambiguity_integrity": null,
+        "technical_integrity": null
+      },
+      "final_score": null,
+      "blocking_errors": [],
+      "notes": "Kiểm tra tự động 13 segment với Pāli trong cache: đủ ID, giá trị, NFC và hệ chữ Latin. Chưa đọc đối chiếu nghĩa, ngữ pháp hoặc văn phong; chưa chấm lại 10 tiêu chí. Đây không phải chứng nhận hash upstream hoặc giấy phép, không xác nhận trạng thái xuất bản.",
+      "content_sha256": "be65d970f82f05c4e62eefe3c23fd11242a8faae11481233269c60949c07dacf",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639"
+    }
+  ],
+  "legacy_quality": {
+    "scores": {
+      "source_provenance": 9.9,
+      "semantic_fidelity": 9.8,
+      "grammar_logic": 9.9,
+      "segment_alignment": 10,
+      "terminology": 9.7,
+      "triangulation": 9.9,
+      "vietnamese_clarity": 9.8,
+      "han_viet_balance": 9.8,
+      "ambiguity_integrity": 9.9,
+      "technical_integrity": 10
+    },
+    "final_score": 9.87,
+    "blocking_errors": [],
+    "assessed_at": "2026-09-11",
+    "assessed_by": [
+      "GPT-5.6 Sol"
+    ]
+  }
+}

@@ -1,0 +1,81 @@
+{
+  "schemaVersion": 1,
+  "uid": "mil3.1.4",
+  "assessments": [
+    {
+      "id": "4245835f-62df-42ea-b57f-0496c91dd009",
+      "target": "translation",
+      "scope": "technical",
+      "assessed_at": "2026-10-05",
+      "assessed_by": [
+        "Repository segment validator"
+      ],
+      "scores": {
+        "source_provenance": null,
+        "semantic_fidelity": null,
+        "grammar_logic": null,
+        "segment_alignment": 10,
+        "terminology": null,
+        "triangulation": null,
+        "vietnamese_clarity": null,
+        "han_viet_balance": null,
+        "ambiguity_integrity": null,
+        "technical_integrity": null
+      },
+      "final_score": null,
+      "blocking_errors": [],
+      "notes": "Kiểm tra tự động 52 segment với Pāli trong cache: đủ ID, giá trị, NFC và hệ chữ Latin. Chưa đọc đối chiếu nghĩa, ngữ pháp hoặc văn phong; chưa chấm lại 10 tiêu chí. Đây không phải chứng nhận hash upstream hoặc giấy phép, không xác nhận trạng thái xuất bản.",
+      "content_sha256": "f752fc7f00e9836ae9ef5d257cfdf74006148d50ffb2615878690bd1ff5e6461",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639"
+    },
+    {
+      "id": "ffddd701-388b-406a-b57b-c5f940dabf00",
+      "target": "translation",
+      "scope": "technical",
+      "assessed_at": "2026-10-06",
+      "assessed_by": [
+        "Repository segment validator"
+      ],
+      "scores": {
+        "source_provenance": null,
+        "semantic_fidelity": null,
+        "grammar_logic": null,
+        "segment_alignment": 10,
+        "terminology": null,
+        "triangulation": null,
+        "vietnamese_clarity": null,
+        "han_viet_balance": null,
+        "ambiguity_integrity": null,
+        "technical_integrity": null
+      },
+      "final_score": null,
+      "blocking_errors": [],
+      "notes": "Kiểm tra tự động 52 segment với Pāli trong cache: đủ ID, giá trị, NFC và hệ chữ Latin. Chưa đọc đối chiếu nghĩa, ngữ pháp hoặc văn phong; chưa chấm lại 10 tiêu chí. Đây không phải chứng nhận hash upstream hoặc giấy phép, không xác nhận trạng thái xuất bản.",
+      "content_sha256": "f752fc7f00e9836ae9ef5d257cfdf74006148d50ffb2615878690bd1ff5e6461",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639"
+    }
+  ],
+  "legacy_quality": {
+    "scores": {
+      "source_provenance": 9.5,
+      "semantic_fidelity": 9.2,
+      "grammar_logic": 9.3,
+      "segment_alignment": 10,
+      "terminology": 9.2,
+      "triangulation": 7.5,
+      "vietnamese_clarity": 9.3,
+      "han_viet_balance": 9.4,
+      "ambiguity_integrity": 9,
+      "technical_integrity": 9.6
+    },
+    "final_score": 9.2,
+    "blocking_errors": [
+      "Không có tầng tham khảo tiếng Anh tại commit đã ghim: đường dẫn `translation/en/sujato/sutta/kn/mil/mil3.1.4_translation-en-sujato.json` không tồn tại trong `.cache/upstream/suttacentral/`, và `source/upstream-manifest.json` chỉ liệt kê 9 sub-collection cho `kn` (cp · dhp · iti · ja · kp · snp · thag · thig · ud — 755 tệp) nên không có `mil`. Đây là `not-published-upstream`, KHÔNG phải `not-synced`. Đo coverage theo đúng công thức `source/layers.yaml` (Pāli có nội dung ≥ 40 ký tự, loại block tham chiếu `:0`) cho 0 trên 29 khoá = 0%, dưới ngưỡng 0.8. Tầng `vietnamese-current` cũng vắng: `translation/vi/phantuananh` tại commit đã ghim chỉ có 26 tệp và toàn bộ là Pháp Cú. Bài dịch chỉ từ Pāli root ⇒ blocker thật, và đây là **giới hạn upstream**, không phải lỗi của người dịch. Vì vậy `triangulation` bị chặn ở 7.5 (≤ 8.0) chứ không nâng để né blocker.",
+      "Bất định văn bản chưa phân xử được ở `4.12`: Pāli là `Ayaṁ bhaṇe sabbadinno aññathā bhaṇati, kiṁ nu mayaṁ nappaṭibalā bhikkhūnaṁ bhojanaṁ dātun”ti?`. Vế `Ayaṁ bhaṇe` không dịch được chắc chắn (có thể là `bhaṇe` thì hiện tại ba-số-người-kể, cũng có thể là vế bị hỏng), và câu hỏi `kiṁ nu mayaṁ…` không có chủ thể rõ ràng trong Pāli. Bản Việt chọn một cách đọc trung tính — *Còn Sabbadinno thì lại bàn khác: tại sao chúng ta không dọn cơm cho các tỳ-kheo?* — và ghi lại ở đây; không bịa thêm chủ thể để lấp chỗ trống. Không có tầng tham khảo nào để phân xử, nên đây là blocker thứ hai của bài, độc lập với việc thiếu tầng Anh."
+    ],
+    "assessed_at": "2026-10-05",
+    "assessed_by": [
+      "OpenCode Space Bunny Free (agent)"
+    ]
+  }
+}

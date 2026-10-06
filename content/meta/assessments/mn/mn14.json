@@ -1,0 +1,182 @@
+{
+  "schemaVersion": 1,
+  "uid": "mn14",
+  "assessments": [
+    {
+      "id": "2f813315-ce6b-4709-9665-0fa8dfac9224",
+      "target": "translation",
+      "scope": "technical",
+      "assessed_at": "2026-10-05",
+      "assessed_by": [
+        "Repository segment validator"
+      ],
+      "scores": {
+        "source_provenance": null,
+        "semantic_fidelity": null,
+        "grammar_logic": null,
+        "segment_alignment": 10,
+        "terminology": null,
+        "triangulation": null,
+        "vietnamese_clarity": null,
+        "han_viet_balance": null,
+        "ambiguity_integrity": null,
+        "technical_integrity": null
+      },
+      "final_score": null,
+      "blocking_errors": [],
+      "notes": "Kiểm tra tự động 144 segment với Pāli trong cache: đủ ID, giá trị, NFC và hệ chữ Latin. Chưa đọc đối chiếu nghĩa, ngữ pháp hoặc văn phong; chưa chấm lại 10 tiêu chí. Đây không phải chứng nhận hash upstream hoặc giấy phép, không xác nhận trạng thái xuất bản.",
+      "content_sha256": "397f59cfb9a3c925fd7204031a3f35cd022481f20cebb6b7dd8b8ff54f3a99ff",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639"
+    },
+    {
+      "id": "a79cbd24-7c80-4697-a654-44354c6ee0be",
+      "target": "summary",
+      "scope": "technical",
+      "assessed_at": "2026-10-05",
+      "assessed_by": [
+        "Repository summary validator"
+      ],
+      "scores": {
+        "source_fidelity": null,
+        "core_coverage": null,
+        "argument_structure": null,
+        "context": null,
+        "terminology": null,
+        "clarity": null,
+        "concision": null,
+        "editorial_separation": null,
+        "ambiguity_integrity": null,
+        "technical_integrity": 10
+      },
+      "final_score": null,
+      "blocking_errors": [],
+      "notes": "Kiểm tra tự động: 469 từ, 5 đoạn, văn xuôi thuần và NFC. Chưa đối chiếu nội dung tóm tắt với toàn bài kinh; chưa chấm độ đúng nghĩa, đủ ý hay văn phong.",
+      "content_sha256": "7bea24834683d63a229a85ce74e37b645a55fa84388779a7ec2ef23fb9f2ee01",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639"
+    },
+    {
+      "target": "translation",
+      "scope": "full",
+      "assessed_at": "2026-10-06",
+      "assessed_by": [
+        "Codex (GPT-6)"
+      ],
+      "final_score": 9.49,
+      "blocking_errors": [],
+      "scores": {
+        "source_provenance": 9.8,
+        "semantic_fidelity": 9.4,
+        "grammar_logic": 9.4,
+        "segment_alignment": 10,
+        "terminology": 9.3,
+        "triangulation": 9.2,
+        "vietnamese_clarity": 9.3,
+        "han_viet_balance": 9.3,
+        "ambiguity_integrity": 9.2,
+        "technical_integrity": 10
+      },
+      "notes": "Đọc đủ 144 segment qua store: Pāli root pinned commit 11c9d708978cde8ba61096d8a75f7ddfb846f639, English Sujato và 11 segment English-project. Sujato phủ 90% file; 100% trong 108 segment Pāli có nội dung được phủ sau fill. Bản fill do cùng công cụ với người từng chấm bản Việt, nên không dùng như English reading độc lập; đối chiếu Pāli, Sujato và TMC toàn văn ở snapshot ngoài store ghi trong comment mn14:0.2. Review sửa: sammoha là rối trí; giữ đủ sáu tính của cảnh dục; 10.1 tranh cãi tách khỏi tấn công 10.2; 12.2 chakaṇaka là phân; 13.1 ekāgārika là cướp một nhà riêng lẻ; 13.3 chỉnh các nhãn hình phạt có từ điển; anavassava là không còn effect/outflow trong tương lai; 20.1/20.3 bỏ lời dẫn thêm; 20.8/20.9 trả mệnh đề về đúng segment; 17.4 sửa “dạy” thành “nói”. No blockers. Local checks pass: npm test 336/336; npm run check 0 errors/0 warnings/5 hints; direct validator passes with 1724 recorded reference advisories; audit:store, audit:reference, and verify:store report no discrepancies. Build will be completed before recording.",
+      "id": "104df3c8-7943-4161-9ec1-dc5cfe9a8cc1",
+      "content_sha256": "32b1d90fc5808742d7727c5cb057d8cce472371ecd404432a45c009e17c1254b",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639"
+    },
+    {
+      "target": "summary",
+      "scope": "full",
+      "assessed_at": "2026-10-06",
+      "assessed_by": [
+        "Codex (GPT-6)"
+      ],
+      "final_score": 9.540000000000001,
+      "blocking_errors": [],
+      "scores": {
+        "source_fidelity": 9.6,
+        "core_coverage": 9.3,
+        "argument_structure": 9.4,
+        "context": 9.5,
+        "terminology": 9.3,
+        "clarity": 9.4,
+        "concision": 9.5,
+        "editorial_separation": 10,
+        "ambiguity_integrity": 9.4,
+        "technical_integrity": 10
+      },
+      "notes": "Full review ngày 06/10; đối chiếu summary 431 từ với 144 segment Pāli và bản Việt đã sửa. Bao quát Mahānāma, ba chủ đề vị ngọt/nguy hại/lối thoát, lập luận Nigaṇṭha và đối đáp về vua Bimbisāra. No blockers. Local checks pass: npm test 336/336; npm run check 0 errors/0 warnings/5 hints; direct validator passes with 1724 recorded reference advisories; audit:store, audit:reference, and verify:store report no discrepancies. Build will be completed before recording.",
+      "id": "6876cd81-bdf8-4d08-9cfa-61c86c138b7b",
+      "content_sha256": "d0423c12248b679168974b8a774b82144b18e1fd1bd23279ed6a42dd15417ce2",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639"
+    },
+    {
+      "id": "6784e055-ed67-43ad-8b97-0330e6cffe8a",
+      "target": "translation",
+      "scope": "technical",
+      "assessed_at": "2026-10-06",
+      "assessed_by": [
+        "Repository segment validator"
+      ],
+      "scores": {
+        "source_provenance": null,
+        "semantic_fidelity": null,
+        "grammar_logic": null,
+        "segment_alignment": 10,
+        "terminology": null,
+        "triangulation": null,
+        "vietnamese_clarity": null,
+        "han_viet_balance": null,
+        "ambiguity_integrity": null,
+        "technical_integrity": null
+      },
+      "final_score": null,
+      "blocking_errors": [],
+      "notes": "Kiểm tra tự động 144 segment với Pāli trong cache: đủ ID, giá trị, NFC và hệ chữ Latin. Chưa đọc đối chiếu nghĩa, ngữ pháp hoặc văn phong; chưa chấm lại 10 tiêu chí. Đây không phải chứng nhận hash upstream hoặc giấy phép, không xác nhận trạng thái xuất bản.",
+      "content_sha256": "32b1d90fc5808742d7727c5cb057d8cce472371ecd404432a45c009e17c1254b",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639"
+    },
+    {
+      "id": "95bf27b5-8bf4-4472-a094-92e86540512c",
+      "target": "summary",
+      "scope": "technical",
+      "assessed_at": "2026-10-06",
+      "assessed_by": [
+        "Repository summary validator"
+      ],
+      "scores": {
+        "source_fidelity": null,
+        "core_coverage": null,
+        "argument_structure": null,
+        "context": null,
+        "terminology": null,
+        "clarity": null,
+        "concision": null,
+        "editorial_separation": null,
+        "ambiguity_integrity": null,
+        "technical_integrity": 10
+      },
+      "final_score": null,
+      "blocking_errors": [],
+      "notes": "Kiểm tra tự động: 431 từ, 7 đoạn, văn xuôi thuần và NFC. Chưa đối chiếu nội dung tóm tắt với toàn bài kinh; chưa chấm độ đúng nghĩa, đủ ý hay văn phong.",
+      "content_sha256": "d0423c12248b679168974b8a774b82144b18e1fd1bd23279ed6a42dd15417ce2",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639"
+    }
+  ],
+  "legacy_quality": {
+    "scores": {
+      "source_provenance": 10,
+      "semantic_fidelity": 9.5,
+      "grammar_logic": 9.5,
+      "segment_alignment": 10,
+      "terminology": 9.3,
+      "triangulation": 9.6,
+      "vietnamese_clarity": 9.4,
+      "han_viet_balance": 9.4,
+      "ambiguity_integrity": 9.5,
+      "technical_integrity": 10
+    },
+    "final_score": 9.62,
+    "blocking_errors": [],
+    "assessed_at": "2026-09-11",
+    "assessed_by": [
+      "Muse Spark"
+    ]
+  }
+}

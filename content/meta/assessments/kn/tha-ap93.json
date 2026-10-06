@@ -1,0 +1,80 @@
+{
+  "schemaVersion": 1,
+  "uid": "tha-ap93",
+  "assessments": [
+    {
+      "id": "49019abc-74ed-4663-aa34-aa2807d7acb2",
+      "target": "translation",
+      "scope": "technical",
+      "assessed_at": "2026-10-05",
+      "assessed_by": [
+        "Repository segment validator"
+      ],
+      "scores": {
+        "source_provenance": null,
+        "semantic_fidelity": null,
+        "grammar_logic": null,
+        "segment_alignment": 10,
+        "terminology": null,
+        "triangulation": null,
+        "vietnamese_clarity": null,
+        "han_viet_balance": null,
+        "ambiguity_integrity": null,
+        "technical_integrity": null
+      },
+      "final_score": null,
+      "blocking_errors": [],
+      "notes": "Kiểm tra tự động 33 segment với Pāli trong cache: đủ ID, giá trị, NFC và hệ chữ Latin. Chưa đọc đối chiếu nghĩa, ngữ pháp hoặc văn phong; chưa chấm lại 10 tiêu chí. Đây không phải chứng nhận hash upstream hoặc giấy phép, không xác nhận trạng thái xuất bản.",
+      "content_sha256": "4e4b8a7a0060ec7cae760920154542c4dba9a49fa11ec32227650b69b3858972",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639"
+    },
+    {
+      "id": "bf41eeb4-6864-457c-bf26-a7f318be6366",
+      "target": "translation",
+      "scope": "technical",
+      "assessed_at": "2026-10-06",
+      "assessed_by": [
+        "Repository segment validator"
+      ],
+      "scores": {
+        "source_provenance": null,
+        "semantic_fidelity": null,
+        "grammar_logic": null,
+        "segment_alignment": 10,
+        "terminology": null,
+        "triangulation": null,
+        "vietnamese_clarity": null,
+        "han_viet_balance": null,
+        "ambiguity_integrity": null,
+        "technical_integrity": null
+      },
+      "final_score": null,
+      "blocking_errors": [],
+      "notes": "Kiểm tra tự động 33 segment với Pāli trong cache: đủ ID, giá trị, NFC và hệ chữ Latin. Chưa đọc đối chiếu nghĩa, ngữ pháp hoặc văn phong; chưa chấm lại 10 tiêu chí. Đây không phải chứng nhận hash upstream hoặc giấy phép, không xác nhận trạng thái xuất bản.",
+      "content_sha256": "4e4b8a7a0060ec7cae760920154542c4dba9a49fa11ec32227650b69b3858972",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639"
+    }
+  ],
+  "legacy_quality": {
+    "scores": {
+      "source_provenance": 9.7,
+      "semantic_fidelity": 9.2,
+      "grammar_logic": 9.3,
+      "segment_alignment": 10,
+      "terminology": 9.3,
+      "triangulation": 8,
+      "vietnamese_clarity": 9.4,
+      "han_viet_balance": 9.3,
+      "ambiguity_integrity": 9.3,
+      "technical_integrity": 9.6
+    },
+    "final_score": 9.31,
+    "blocking_errors": [
+      "Không có tầng tham khảo tiếng Anh cho bài này tại commit đã ghim 11c9d708978cde8ba61096d8a75f7ddfb846f639: trong `source/upstream-manifest.json`, edition `translation/en/sujato` có 4.291 tệp và các sub-collection của `kn/` chỉ gồm cp, dhp, iti, ja, kp, snp, thag, thig, ud — KHÔNG có `sutta/tha-ap/`. Tệp `tha-ap` duy nhất mà edition đó liệt kê là tầng TÊN `name/sutta/tha-ap-name_translation-en-sujato.json` (619 khoá), không phải kinh văn. Đây là `not-published-upstream`, KHÔNG phải `not-synced`. Đo coverage theo đúng công thức `source/layers.yaml` (`substantivePaliMinChars: 40`, `excludeReferenceBlock: true`, `floor: 0.8`): Anh 0 trên 1 khoá Pāli có nội dung = 0%, dưới ngưỡng. Tầng `vietnamese-current` cũng không phủ: `source/layers.yaml` khai corpus đó chỉ có Pháp Cú (26 tệp dưới `kn/dhp`), không có `tha-ap`. Lớp lấp `english-project` của dự án (`content/translation/en/project/sutta/kn/`, 129 tệp) cũng không có tệp nào cho `tha-ap`. Ba tầng tham khảo đều vắng ⇒ bản dịch chỉ có thể dựa vào Pāli root, và `scripts/validate.ts` coi tệp Anh thiếu là **error** khi status là `review` hoặc `published` ⇒ bài bắt buộc `draft`. Đây là giới hạn của bản chụp upstream, KHÔNG phải lỗi của người dịch; vì vậy `triangulation` bị chặn ở 8.0 (≤ 8.0) chứ không nâng để né blocker. Đây là bài trong ba bài của lát **có tam chứng Anh đã ghim thật**, nên `triangulation` cao hơn hai bài kia: `:1.1`–`:1.4` trùng nguyên văn với `dhp195` (Kinh Pháp Cú câu 195) và bản Anh đã ghim của `dhp` đọc câu đó. Tầng `name/` cũng có `tha-ap-name:102.tha-sudhavagga` = “Chapter Beginning With Sudhāpiṇḍiya”, xác nhận trưởng lão của `tha-ap93` đúng là Sudhāpiṇḍiya."
+    ],
+    "assessed_at": "2026-10-05",
+    "assessed_by": [
+      "OpenCode Space Bunny Free (agent)"
+    ]
+  }
+}

@@ -1,0 +1,158 @@
+{
+  "schemaVersion": 1,
+  "uid": "sn1.2",
+  "assessments": [
+    {
+      "id": "f573a2c4-ea3d-4aa4-9f87-33e28ee51162",
+      "target": "translation",
+      "scope": "technical",
+      "assessed_at": "2026-10-05",
+      "assessed_by": [
+        "Repository segment validator"
+      ],
+      "scores": {
+        "source_provenance": null,
+        "semantic_fidelity": null,
+        "grammar_logic": null,
+        "segment_alignment": 10,
+        "terminology": null,
+        "triangulation": null,
+        "vietnamese_clarity": null,
+        "han_viet_balance": null,
+        "ambiguity_integrity": null,
+        "technical_integrity": null
+      },
+      "final_score": null,
+      "blocking_errors": [],
+      "notes": "Kiểm tra tự động 13 segment với Pāli trong cache: đủ ID, giá trị, NFC và hệ chữ Latin. Chưa đọc đối chiếu nghĩa, ngữ pháp hoặc văn phong; chưa chấm lại 10 tiêu chí. Đây không phải chứng nhận hash upstream hoặc giấy phép, không xác nhận trạng thái xuất bản.",
+      "content_sha256": "2ed9be8de1f677df8e5aae4864ad3c8afc35195f8574ce20667df68609a2ba66",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639"
+    },
+    {
+      "target": "translation",
+      "scope": "content",
+      "assessed_at": "2026-10-05",
+      "assessed_by": [
+        "Codex"
+      ],
+      "notes": "Đã đọc đủ 13 segment Pāli/Sujato/Việt và comment; kiểm riêng ba danh từ nimokkha, pamokkha, viveka, các ablative nhân do ở 5.1–5.3 và câu trả lời 5.4–5.5. Bản Việt giữ đủ ba vế. Nandībhavaparikkhayā được chọn là vui thích trong hiện hữu; comment ghi cách đọc đoạn tận hỷ và hữu. Lượt này không xác minh lại claim DPD/Bodhi của comment, nên giảm triangulation và ambiguity; không tự chứng nhận tham khảo Việt truyền thống. Nguồn: pinned bilara 11c9d708978cde8ba61096d8a75f7ddfb846f639; store xác nhận Sujato phủ 100% các segment Pāli có nội dung theo ngưỡng đo. Tầng Việt hiện hành không có trong snapshot cho bài này; chưa đọc được bản Việt truyền thống độc lập trong lượt chấm lại, không kế thừa claim nghiên cứu của người chấm trước. technical_integrity chưa chấm: bộ test toàn repository còn lỗi ở phần tóm tắt chưa hoàn tất và bản NOTICE build cũ; chưa chốt điểm tổng hoặc trạng thái phát hành. Điểm là nhận định biên tập, không phải xác suất bản dịch đúng.",
+      "scores": {
+        "source_provenance": 9.5,
+        "semantic_fidelity": 9.2,
+        "grammar_logic": 9.4,
+        "segment_alignment": 10,
+        "terminology": 9.3,
+        "triangulation": 8.2,
+        "vietnamese_clarity": 9.2,
+        "han_viet_balance": 9.1,
+        "ambiguity_integrity": 9,
+        "technical_integrity": null
+      },
+      "final_score": null,
+      "blocking_errors": [],
+      "id": "3bf73d7f-6bb7-407d-bf3b-37b79f1229f5",
+      "content_sha256": "2ed9be8de1f677df8e5aae4864ad3c8afc35195f8574ce20667df68609a2ba66",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639"
+    },
+    {
+      "target": "translation",
+      "scope": "full",
+      "assessed_at": "2026-10-05",
+      "assessed_by": [
+        "Codex"
+      ],
+      "notes": "Đã phân xử nandībhavaparikkhaya qua DPD trực tiếp ngày 05/10/2026: https://dpdict.net/?q=nandībhavaparikkhaya. Cách đọc dứt tận niềm vui thích trong hiện hữu có căn cứ; DPD cũng ghi cách đọc chú giải là hỷ và hữu cùng đoạn tận, đã được comment thừa nhận. Không xem đây là cách đọc duy nhất. Đủ ba danh từ nimokkha/pamokkha/viveka, ba quan hệ nhân do 5.1–5.3 và mệnh đề kết ở 5.4–5.5; không chèn phép gán đạo/quả/Niết-bàn từ chú giải vào nguyên văn. Phạm vi: đủ toàn bài Pāli/Sujato/Việt và comment, tiếp theo một lượt review đối kháng riêng. Đối chiếu thêm bản HT. Thích Minh Châu ở chương I https://budsas.net/uni/u-kinh-tuongungbo/tu1-01.htm, phần tương ứng; nguồn sao chép bên thứ ba, tra cứu toàn văn không aligned, licence NOASSERTION, không phải tầng store. Snapshot pin không có Việt hiện hành cho bài này; English substantive coverage 100%. Đã phân biệt nguồn trực tiếp vừa đọc với claim nghiên cứu lịch sử trong comment. Gate kỹ thuật: validate/check/build gần nhất qua; npm test vẫn fail vì các tóm tắt MN/DN chưa có. Technical chấm 2/10, có lỗi chặn, buộc draft; không đánh tráo điểm cao nội dung thành đủ điều kiện xuất bản. Điểm là nhận định biên tập.",
+      "scores": {
+        "source_provenance": 9.7,
+        "semantic_fidelity": 9.5,
+        "grammar_logic": 9.4,
+        "segment_alignment": 10,
+        "terminology": 9.5,
+        "triangulation": 9.5,
+        "vietnamese_clarity": 9.2,
+        "han_viet_balance": 9.1,
+        "ambiguity_integrity": 9.5,
+        "technical_integrity": 2
+      },
+      "final_score": 8.739999999999998,
+      "blocking_errors": [
+        "Validation failure: npm test toàn repository chưa qua do phần tóm tắt MN/DN chưa hoàn tất; chưa đạt technical release gate."
+      ],
+      "id": "b1ad4857-0914-42d9-bd07-330fae78b5d6",
+      "content_sha256": "2ed9be8de1f677df8e5aae4864ad3c8afc35195f8574ce20667df68609a2ba66",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639"
+    },
+    {
+      "target": "translation",
+      "scope": "full",
+      "assessed_at": "2026-10-05",
+      "assessed_by": [
+        "Codex"
+      ],
+      "scores": {
+        "source_provenance": 9.7,
+        "semantic_fidelity": 9.5,
+        "grammar_logic": 9.4,
+        "segment_alignment": 10,
+        "terminology": 9.5,
+        "triangulation": 9.5,
+        "vietnamese_clarity": 9.2,
+        "han_viet_balance": 9.1,
+        "ambiguity_integrity": 9.5,
+        "technical_integrity": 10
+      },
+      "blocking_errors": [],
+      "notes": "Technical-gate follow-up to current full assessment b1ad4857-0914-42d9-bd07-330fae78b5d6 dated 2026-10-05. The content scores are carried forward unchanged from that current whole-text Pāli review; this entry re-assesses only technical_integrity after npm test passed (336 tests), npm run check reported 0 errors, integrated npm run validate passed, and npm run build completed all 6,146 pages with Pagefind indexing 6,136 pages. The previous entry's sole blocker was the global validation/build gate, which is now resolved. Content and source fingerprints are recalculated by the recorder.",
+      "id": "eecc15e9-6195-44c0-a138-346880a367e8",
+      "content_sha256": "2ed9be8de1f677df8e5aae4864ad3c8afc35195f8574ce20667df68609a2ba66",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
+      "final_score": 9.54
+    },
+    {
+      "id": "2f3b8e3b-3711-43d9-9c6f-b423f0563a91",
+      "target": "translation",
+      "scope": "technical",
+      "assessed_at": "2026-10-06",
+      "assessed_by": [
+        "Repository segment validator"
+      ],
+      "scores": {
+        "source_provenance": null,
+        "semantic_fidelity": null,
+        "grammar_logic": null,
+        "segment_alignment": 10,
+        "terminology": null,
+        "triangulation": null,
+        "vietnamese_clarity": null,
+        "han_viet_balance": null,
+        "ambiguity_integrity": null,
+        "technical_integrity": null
+      },
+      "final_score": null,
+      "blocking_errors": [],
+      "notes": "Kiểm tra tự động 13 segment với Pāli trong cache: đủ ID, giá trị, NFC và hệ chữ Latin. Chưa đọc đối chiếu nghĩa, ngữ pháp hoặc văn phong; chưa chấm lại 10 tiêu chí. Đây không phải chứng nhận hash upstream hoặc giấy phép, không xác nhận trạng thái xuất bản.",
+      "content_sha256": "2ed9be8de1f677df8e5aae4864ad3c8afc35195f8574ce20667df68609a2ba66",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639"
+    }
+  ],
+  "legacy_quality": {
+    "scores": {
+      "source_provenance": 9.9,
+      "semantic_fidelity": 9.6,
+      "grammar_logic": 9.8,
+      "segment_alignment": 10,
+      "terminology": 9.5,
+      "triangulation": 9.9,
+      "vietnamese_clarity": 9.7,
+      "han_viet_balance": 9.5,
+      "ambiguity_integrity": 9.7,
+      "technical_integrity": 10
+    },
+    "final_score": 9.76,
+    "blocking_errors": [],
+    "assessed_at": "2026-09-11",
+    "assessed_by": [
+      "GPT-5.6 Sol"
+    ]
+  }
+}

@@ -59,6 +59,8 @@ export interface ExternalReference {
   indexUrl?: string;
   urlTemplate: string;
   urlNumber: string;
+  /** Explicit verified mappings for pages containing several suttas; no guessing outside this set. */
+  urlByUid?: Record<string, string>;
   collections: string[];
   mappedRange?: string;
   verified?: {
@@ -117,6 +119,7 @@ function mnemonicNumber(uid: string): string | null {
  */
 export function pageUrlFor(reference: ExternalReference, uid: string): string | null {
   if (!reference.collections.includes(uid.match(/^([a-z]+)/)?.[1] ?? '')) return null;
+  if (reference.urlByUid) return reference.urlByUid[uid] ?? null;
   const number = mnemonicNumber(uid);
   return number === null ? null : reference.urlTemplate.replace('{N}', number);
 }
