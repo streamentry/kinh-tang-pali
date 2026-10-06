@@ -1,0 +1,54 @@
+{
+  "schemaVersion": 1,
+  "uid": "sn24.4",
+  "assessments": [
+    {
+      "id": "617b7f8a-f23a-4ec9-8077-f0a5e928ec06",
+      "target": "translation",
+      "scope": "full",
+      "assessed_at": "2026-10-06",
+      "assessed_by": [
+        "OpenCode Space Bunny Free (agent)"
+      ],
+      "notes": "**Lượt review đối kháng thật, đọc từng cặp Pāli ↔ Việt của cả bài** (36 khoá), không chỉ quét cơ học. Đối chiếu từng khoá với Pāli root và với bản Anh đã ghim; mỗi nghi vấn về thuật ngữ đều **tra tiền lệ trước khi sửa**.\n\n**Vì sao bài này vẫn là `draft`: `pinned English reference missing`.** Đây là *cảnh báo* (`WARN`) của `validate.ts:230`, không phải lỗi — nhưng `validate.ts:227` (`needsEnglish`) biến nó thành **error** ngay khi status là `review`/`published`. Đã kiểm đủ ba nơi, không suy đoán: (1) `source/upstream-manifest.json` — edition `translation/en/sujato` tại commit đã ghim không liệt kê tệp nào cho uid này; (2) cache upstream — tệp không tồn tại; (3) chạy `npm run source:sync:used` không tạo ra tệp. Đây là `not-published-upstream`, **không phải** `not-synced`. Lớp lấp `english-project` của chính dự án đã đưa coverage lên 1.0, nhưng **không thay được tệp đã ghim**, nên không gỡ được cổng này. Chênh lệch đo được: 5/15 khoá có nội dung lấy prose từ lớp lấp của dự án, không phải từ Sujato.\n\n**Đây là giới hạn upstream, không phải lỗi của người dịch** — nên `triangulation` bị chấm theo tỉ lệ đó và **không nâng lên để né blocker**. Điểm này ghi vào scorecard để bài này không bao giờ bị đọc là đã đối chiếu với một bản Anh độc lập.\n\n**Rà soát đối kháng — không sửa gì, và một nghi vấn đã bác bỏ.** Nghi vấn: bản Việt chèn dấu tương lai — `no cassaṁ, no ca me siyā` → *\"Có thể chẳng có, và **sẽ** chẳng phải của tôi\"*, trong khi Pāli chỉ có phủ định trần, không có thì tương lai. Đã tra tiền lệ: `sn22.153` (**đã publish**) mang **cùng Pāli** `no cassaṁ, no ca me siyā, nābhavissa, na me bhavissatī` và dịch **y hệt**. Vậy đây là văn bản đã được chấp nhận và publish, không phải lỗi riêng của bài này. **Không sửa** — sửa ở đây sẽ làm bài này lệch với chính bài đã publish.\n\nMa trận `sati / upādāya / abhinivissa` lặp ở `2.1`–`2.7` cho năm uẩn; `3.x` hỏi `niccaṁ vā aniccaṁ vā` cho từng uẩn rồi hỏi `api nu taṁ anupādāya` — đủ hai vế, không mất vế nào. Vế phủ định kép `na tassa saṅkhā …` dịch *\"không phải … cũng không phải …\"* giữ đủ hai lần.",
+      "scores": {
+        "source_provenance": 9.6,
+        "semantic_fidelity": 9.4,
+        "grammar_logic": 9.4,
+        "segment_alignment": 10,
+        "terminology": 9.4,
+        "triangulation": 8.7,
+        "vietnamese_clarity": 9.4,
+        "han_viet_balance": 9.4,
+        "ambiguity_integrity": 9.2,
+        "technical_integrity": 10
+      },
+      "final_score": 9.450000000000001,
+      "blocking_errors": [],
+      "content_sha256": "151b60c64d358bf2568cb7b13547dfb0a4013c01987ffeaa5123ce2b99d5f24c",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639"
+    }
+  ],
+  "legacy_quality": {
+    "scores": {
+      "source_provenance": 9.6,
+      "semantic_fidelity": 9.4,
+      "grammar_logic": 9.4,
+      "segment_alignment": 10,
+      "terminology": 9.3,
+      "triangulation": 8,
+      "vietnamese_clarity": 9.3,
+      "han_viet_balance": 9.4,
+      "ambiguity_integrity": 9.2,
+      "technical_integrity": 9.6
+    },
+    "final_score": 9.32,
+    "blocking_errors": [
+      "Coverage tầng tham khảo Anh dưới ngưỡng và chưa được ghi nhận: đo theo đúng công thức `isSubstantive` của `src/lib/canon/reference.ts` (Pāli có nội dung ≥ 40 ký tự, bỏ khối tham chiếu `:0`) cho **11 trên 16** khoá = **0,688**, dưới ngưỡng 0,8 khai ở `source/layers.yaml`. Năm khoá trống là `3.4`, `3.5`, `3.12`, `3.13`, `3.18` — Sujato để trống ở đúng những chỗ có `…pe…` và khối `“Aniccaṁ, bhante” …`. Lớp lấp `content/translation/en/project/sutta/sn/sn24.4_*.json` có đủ 5 khoá ấy nhưng **chưa có** `content/meta/en/sutta/sn/sn24.4.yaml`, nên trạng thái của nó không phải `published` và theo `source/layers.yaml` (`countsOnlyWhenStatus: published`) KHÔNG được tính vào coverage — đây là điều kiện của chính kho, không phải lỗi của người dịch. `content/meta/reference-gaps.yaml` chưa có entry cho uid này; lát agent này bị cấm sửa tệp đó nên chưa bổ sung được, và `review`/`published` sẽ đỏ. Cách gỡ: coordinator chạy `npm run reference:gaps` để ghi entry, và/hoặc publish scorecard của lớp lấp English. Vì vậy `triangulation` bị chặn ở 8,0 và bài giữ `draft`."
+    ],
+    "assessed_at": "2026-10-04",
+    "assessed_by": [
+      "OpenCode Space Bunny Free (agent)"
+    ]
+  }
+}

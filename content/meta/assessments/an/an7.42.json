@@ -1,0 +1,54 @@
+{
+  "schemaVersion": 1,
+  "uid": "an7.42",
+  "assessments": [
+    {
+      "id": "079281f4-291d-4b8d-936d-1e08dd5bc9b5",
+      "target": "translation",
+      "scope": "full",
+      "assessed_at": "2026-10-06",
+      "assessed_by": [
+        "OpenCode Space Bunny Free (agent)"
+      ],
+      "notes": "**Lượt review đối kháng thật, đọc từng cặp Pāli ↔ Việt của cả bài** (36 khoá), không chỉ quét cơ học. Đối chiếu từng khoá với Pāli root và với bản Anh đã ghim; mỗi nghi vấn về thuật ngữ đều **tra tiền lệ trước khi sửa**.\n\n**Vì sao bài này vẫn là `draft`: `pinned English reference missing`.** Đây là *cảnh báo* (`WARN`) của `validate.ts:230`, không phải lỗi — nhưng `validate.ts:227` (`needsEnglish`) biến nó thành **error** ngay khi status là `review`/`published`. Đã kiểm đủ ba nơi, không suy đoán: (1) `source/upstream-manifest.json` — edition `translation/en/sujato` tại commit đã ghim không liệt kê tệp nào cho uid này; (2) cache upstream — tệp không tồn tại; (3) chạy `npm run source:sync:used` không tạo ra tệp. Đây là `not-published-upstream`, **không phải** `not-synced`. Lớp lấp `english-project` của chính dự án đã đưa coverage lên 1.0, nhưng **không thay được tệp đã ghim**, nên không gỡ được cổng này. Chênh lệch đo được: 10/30 khoá có nội dung lấy prose từ lớp lấp của dự án, không phải từ Sujato.\n\n**Đây là giới hạn upstream, không phải lỗi của người dịch** — nên `triangulation` bị chấm theo tỉ lệ đó và **không nâng lên để né blocker**. Điểm này ghi vào scorecard để bài này không bao giờ bị đọc là đã đối chiếu với một bản Anh độc lập.\n\n**Rà soát đối kháng — không sửa gì, và một nghi vấn đã bác bỏ bằng chứng cứng.** Nghi vấn: `1.3`/`3.3` `atippago kho tāva sāvatthiyaṁ piṇḍāya carituṁ` dịch *\"khất thực ở Sāvatthī **còn quá sớm**\"*, mà `atippago` nghĩa đen là *\"đã đi quá lâu\"*. Đã tra bản Anh **đã ghim** tại đúng khoá: Sujato dịch *\"**It’s too early** to wander for alms in Sāvatthī\"* — bản Việt **bám đúng** bản tham khảo đã ghim. `atippago` ở đây đọc theo nghĩa *\"đã trôi qua khá xa trong đêm\"*. Không sửa: sửa thì sẽ **trái** tầng tham khảo chính thức. Ghi lại như điểm bất định đã phân xử.\n\nTiêu đề `Paṭhamaniddasasutta` → *\"Kinh Tốt Nghiệp Thứ Nhất\"* khớp với bài anh em `an7.43` `Dutiyaniddasasutta` → *\"Kinh Tốt Nghiệp (Hai)\"*; `niddasa` là \"vô tội/trọn vẹn\", dùng cho tỳ-kheo. `Aṅguttara Nikāya` → *\"Kinh Tăng Chi Bộ\"* là quy ước chiếm đa số (**914** so với 377 lần giữ `Aṅguttara Nikāya`). Cặp đối chiếu `neva abhinandi nappaṭikkosi` → *\"không tán thánh cũng không bác bỏ\"* giữ đúng hai vế.",
+      "scores": {
+        "source_provenance": 9.6,
+        "semantic_fidelity": 9.4,
+        "grammar_logic": 9.4,
+        "segment_alignment": 10,
+        "terminology": 9.4,
+        "triangulation": 8.7,
+        "vietnamese_clarity": 9.4,
+        "han_viet_balance": 9.4,
+        "ambiguity_integrity": 9,
+        "technical_integrity": 10
+      },
+      "final_score": 9.430000000000001,
+      "blocking_errors": [],
+      "content_sha256": "db08fa4be424ede7400c03126cb3a5cf6a4de2231ab5140ed67e6202418673cc",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639"
+    }
+  ],
+  "legacy_quality": {
+    "scores": {
+      "source_provenance": 9.4,
+      "semantic_fidelity": 9.3,
+      "grammar_logic": 9.3,
+      "segment_alignment": 10,
+      "terminology": 9,
+      "triangulation": 8.4,
+      "vietnamese_clarity": 9.4,
+      "han_viet_balance": 9.4,
+      "ambiguity_integrity": 9.2,
+      "technical_integrity": 9.6
+    },
+    "final_score": 9.3,
+    "blocking_errors": [
+      "Coverage tầng Anh dưới ngưỡng 0,8 của `source/layers.yaml` và **chưa được ghi nhận** trong `content/meta/reference-gaps.yaml`. Đo bằng script trên Pāli có nội dung (≥ 40 ký tự, loại block `:0`): 20/30 = 66,7%. Sujato bỏ trống đúng mười khoá liên tiếp `3.1`–`3.11` (toàn bộ lời Sāriputta kể lại, đúng dạng blockquote mà bilara không dịch), và lớp lấp `english-project` cũng không có cho uid này. Vì `grep 'uid: an7' content/meta/reference-gaps.yaml` không ra kết quả nên mất dữ liệu chưa được thừa nhận, mà `review`/`published` thì bị chặn. Đây là `not-published-upstream` của bản Anh đã ghim, **không phải** `not-synced` và không phải lỗi của người dịch; cách mở là chạy `npm run reference:gaps` (tệp đó nằm ngoài lát của tôi nên tôi không sửa). Trong lúc đó bài giữ `draft`."
+    ],
+    "assessed_at": "2026-10-04",
+    "assessed_by": [
+      "OpenCode Space Bunny Free (agent)"
+    ]
+  }
+}
