@@ -16,18 +16,77 @@ còn lại là chấm lại / sửa, không phải dịch.
 
 ---
 
-## TRẠNG THÁI HIỆN TẠI (đo 2026-10-05 tại `e45ebbb3`, `main`)
+## TRẠNG THÁI HIỆN TẠI (đo 2026-10-06 tại `65f74c9f`, `main`)
 
-HEAD của `main` = `e45ebbb3` — "đợt 17: 6 bài Việt / 316 khoá + 12 bài lớp lấp / 120 segment (#263)".
+HEAD của `main` = `65f74c9f` — "gom việc tồn từ các phiên: comment 26 bài, sửa nhỏ 64 khoá Việt, an8.19 lớp lấp, trang lịch sử chất lượng, tham chiếu budsas SN 1 (#303)".
 
-PR đã merge gần nhất: #261 (đợt 16) · #260 (đợt 15) · #259 · #258 · #257 · #256 (đợt 14) · #255 ·
+PR đã merge gần nhất: #303 (gom việc tồn) · #302 (fix CSS chế độ Chỉ Việt) · #301 · #300 · #299 ·
+#298 (94 khoá `published` đang phục vụ thiếu khoá) · #297 · #296 (12 bài `draft` → `published` +
+quyết định về 741 bài `kn` bị chặn) · #295 (fix mobile reader) · #294 · #293 (gỡ hai lỗi đỏ main) ·
+#292 · #291 (khai Codex trong tooling) · #290 · #289 · #288 (publish bài draft) · #287 · #286 ·
+#285 · #284 · #283 · #282 · #281 · #280 · #279 · #278 · #277 · #276 · #275 (rà soát lần 2 toàn bộ
+186 tóm tắt) · #274 · #273 · #272 · #271 (worklog audit tóm tắt) · #270 · #269 (audit đối kháng
+186 tóm tắt) · #268 (nút góp ý + issue template) · #267 · #266 (321 khoá cắt ngắm) · #265 (tóm tắt
+186 bài hoàn tất + dn15–dn34) · #264 (đợt 18) · #263 (đợt 17) · #262 (tóm tắt mn121–mn149 +
+dn1–dn16) · #261 (đợt 16) · #260 (đợt 15) · #259 · #258 · #257 · #256 (đợt 14) · #255 ·
 #254 (đợt 13) · #253 (đợt 12) · #252 (đợt 11) · #251 · #250 · #249 · #248 · #247 · #246 · #245 ·
 #244 · #243 · #242 · #241 · #240 · #239 · #238 · #237 · #236 · #235 · #234 · #233 · #232 ·
 #231 · #230 · #229 · #228 · #227 · #226 · #225.
 
-**30 PR đã merge.** Bài đủ mọi khoá: 3.857 → **5.321**; còn thiếu **815** bài / **128.657** khoá.
-Lớp lấp `english-project`: còn **247** text / **5.942** segment thiếu; **153** text dưới sàn
-coverage. Record `reference-gaps` **784** / 5.418 text. `test` **143 pass**.
+**49 PR đã merge.** Bài đủ mọi khoá: 3.857 → **5.444**; còn thiếu **692** bài / **123.422** khoá.
+Còn **1** bài không đo được: file chùm `sn12.93-213` — mốc "thiếu = 0" phải xử lý riêng bài này.
+Lớp lấp `english-project`: còn **174** text / **5.107** segment thiếu; **92** text dưới sàn
+coverage (toàn catalogue). Record `reference-gaps` **754** / 5.471 text. `test` **350 pass**.
+
+### Đo 2026-10-06 tại `65f74c9f` (ngay sau PR #303)
+
+| phép đo | giá trị | công cụ |
+|---|---|---|
+| catalogue | 6.137 | `vimeas` |
+| bài đủ mọi khoá | 5.444 | `vimeas` |
+| bài còn thiếu | **692** — sn 110 / 9.527 khoá · an 116 / 9.702 · kn 466 / 104.193 · dn+mn đủ 100% | `vimeas` |
+| khoá còn thiếu | **123.422** | `vimeas` |
+| text còn thiếu English | **174** | `engq` |
+| segment còn thiếu English | **5.107** | `engq` |
+| text dưới sàn coverage (toàn catalogue) | **92** | `engq` |
+| `noEnglishEditionUpstream` | 1.596 / 1.596 đã ghi nhận, `agreesWithStoreVerification true` | `engq` |
+
+### PR #303 — gom việc tồn từ các phiên: lọc 960 tệp thành 5.486 tệp thật sự chưa merge
+
+Cây làm việc dùng chung nhiều session dồn **960** tệp thay đổi trên nhánh cũ
+`feat/sutta-summary` (tại `6ef4468b`, đã tụt sau main 47 commit). Phân loại từng tệp
+so với `origin/main` (nội dung + mtime + `git log` từng path):
+
+| kết quả | số tệp | xử lý |
+|---|---|---|
+| giống hệt main (đã vào qua PR khác) | 360 | bỏ |
+| main có bản mới hơn (mtime cũ hơn lần main chạm path) | 480 | **bỏ — main thắng** |
+| thật sự chưa merge | ~120 | giữ, kiểm nội dung từng nhóm |
+
+Giữ và merge: 26 tệp comment (18 sửa + 8 mới) · 64 khoá Việt sửa tại chỗ + 13 meta ·
+lớp lấp `an8.19` · **5.382** assessment history JSON + trang lịch sử chất lượng
+(`quality.astro` + `QualityHistory.astro` + test) · tham chiếu `budsas-sn1-reviewed`
+(`alignment: none`) + hiển thị SuttaReader · `NOTICE` sinh lại · `.zcodeignore`.
+
+⚠️ **Bị loại một cách có chủ đích, mỗi cái một cổng bắt:**
+
+- `ud5.6` / `sn22.7` / `an10.87` lớp lấp **không có meta/scorecard riêng** → bỏ, không bịa điểm
+  (`english-fill.test.ts` bắt).
+- `sn22.26` sửa 3 khoá làm `content_sha256` của assessment chính thức lệch → bỏ, sửa sẽ đi kèm
+  lượt chấm lại (`quality:check` bắt — `assessmentIsCurrent`).
+- `dn10` / `dn33` assessment history **hai lịch sử phân kỳ, không bên nào là superset** → giữ
+  bản main.
+- 14 meta chỉ thêm reviewers + hạ điểm mà main đã có lượt review riêng
+  (mn2/4/7/8/9/10/11/14/83/85/133, dn25/34, an11.14 — main đã `published` với blocker đã gỡ) →
+  giữ bản main, không gộp hai lượt chấm xung đột.
+- `docs/prompts/goal.md` bản trong cây là bản **cũ hơn** main (đo tại `7162deb6` thời #254 còn
+  chờ) — mtime mới hơn không có nghĩa là nội dung mới hơn: **bản đó bị bỏ**.
+
+⚠️ **Bài học đo đạc trên cây dùng chung:** mtime và "cùng thư mục" đều không phải bằng chứng.
+Quy tắc gộp được dùng ở #303, để tái dụng: (1) nội dung giống main → bỏ; (2) main chạm path
+sau khi tệp được ghi → main thắng trừ khi bản local là superset rõ ràng (ví dụ notes
+`ja372` "PHẢI ĐỌC TRƯỚC KHI GỘP" có phép đo *sau khi ghi lát*); (3) file do cổng sinh phải sinh
+lại trên cây đích; (4) lịch sử assessment xung đột không tự gộp union.
 
 Số tuyệt đối **đổi theo thứ tự merge**, nên hai tệp do cổng sinh (`reference-gaps.yaml`,
 `store-verification.json`) **phải sinh lại trên cây đã merge** trong worktree sạch, không dùng bản
@@ -961,12 +1020,12 @@ tôi **chép** sang `/Volumes/SSD/_wtX-coord` rồi commit ở đó. Cần ngư�
 
 ## MỐC HOÀN TẤT
 
-- [ ] `vimeas.ts`: **bài còn thiếu = 0** (hiện **998**)
-- [ ] `engq.ts`: `segmentsStillMissingEnglish = 0` trong **314** text có thể lấp
+- [ ] `vimeas.ts`: **bài còn thiếu = 0** (hiện **692**, thêm 1 bài `sn12.93-213` không đo được)
+- [ ] `engq.ts`: `segmentsStillMissingEnglish = 0` trong **174** text có thể lấp
 - [ ] đối chiếu chéo: đếm lại từ `source/upstream-manifest.json` và xác nhận
       **1.596** bài `kn` không có tệp Anh Sujato — tất cả phải còn `draft` với blocker
       ghi rõ, **không** nâng lên `review`/`published`
-- [ ] `audit:reference`: `texts below floor = 0` (**toàn catalogue**, hiện **192**), `upstream defect(s) = 0`
+- [ ] `audit:reference`: `texts below floor = 0` (**toàn catalogue**, hiện **92**), `upstream defect(s) = 0`
 - [ ] 13 cổng xanh ở HEAD của `main`
 - [ ] `npm run license:check` xanh (`NOTICE` khớp lock)
 - [ ] PR đã merge; mỗi PR body có **số đo trước/sả bằng hai lần đo liên tiếp cùng điều kiện**
