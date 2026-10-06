@@ -353,6 +353,71 @@ câu"* — **cùng cấu tạo**, và tầng đã dịch đúng.
 99; lần 2: lát sửa số tin `Ekūnasattatikappe` = 69). Cả hai lần đều ở **số Pāli** ⇒ đã đưa luật *tự tính
 và in phép* vào `BRIEF_SLICE.md` và `BRIEF_VI4.md`.
 
+### 🔴 Session khác đã merge **7 PR** (#286, #288–#294) trong lúc tôi đang chạy
+
+Đợt lớp lấp English của tôi vừa mở PR #287 thì `main` đã nhảy tới #293. Tôi kiểm thay vì giả định:
+
+- PR của tôi ở `d7f5198c`, và **các tệp lớp lấp còn nguyên** trên `main` (`sn3.15`, `an7.43`,
+  `sn55.25` đã đối chiếu bằng `git cat-file -e` trên `origin/main`).
+- 11/11 cổng xanh trên `main` mới `3a52267c` · `test` **337 pass** · `textsBelowFloor` không đổi (**123**)
+  — đúng như dự kiến, vì các PR đó đều ở **tầng Việt** mà không đụng `englishCoverageFor`.
+
+⇒ **Không mất gì.** Nhưng đây là lần thứ hai trong phiên phải kiểm `origin/main` thay vì tin nhánh mình.
+
+### ✅ Các blocker đã được **session khác** phục hồi — cập nhật bảng việc chờ biên tập
+
+| blocker tôi đã ghi | trạng thái |
+|---|---|
+| `mn24:4.4` mất `kira` | ✅ #291 khôi phục, #292 sửa `content_sha256` của assessment `mn6` |
+| `mn6:18.2` | ✅ #291 khôi phục |
+| 12 bài `draft` có **blocker chẩn đoán sai** | ✅ #288 sửa **12** lỗi nghĩa thật + **5** blocker sai → `published` |
+| 8 bài `draft` còn lại | ✅ #290 publish, gồm *khắc phục blocker cắt ngắm* + *khôi phục nội dung tứ thiền bị lược* |
+| `an6.29` → `published` và `an6.60` đang publish có **cùng một lỗi** | ✅ #289 sửa cả hai |
+| `source/tooling.yaml` thiếu `Codex` ⇒ `NOTICE` thiếu dòng Codex | ✅ #291 khai + #292 sửa `NOTICE` |
+
+⇒ Còn lại trong bảng chờ biên tập: `Kappasatasahassa` = 10.000.000 · `Tiṁsakappasahassa` ·
+`tha-ap117:6.1`/`tha-ap118:4.1` hai hướng trái ngược · 9 tệp đặt `:0.3` = *Trưởng Lão Ký Sự* cho Pāli
+`Therāpadāna` · phe `ti` ở `:0.3` · `tha-ap109`/`tha-ap473` · `snp1.7:12.1–12.3` · `mn26:13.3`/`30.1` ·
+`dn3` ngoặc kép −6 · `sn7.6:6.3` thiếu `”` · ASCII `...` · 99 tệp lệch ngoặc kép · `vv60:0.4` ·
+`thag10.6` · `ps1.1` mất `[10]/[30]/[5]` · `sn12.93-213` cần 11 uid con · 326 tệp lệch thứ tự khoá ·
+`deepseek-v4.1-flash` ở **570** tệp mà `tooling.yaml` không khai.
+
+### 🔴 `deepseek-v4.1-flash` — số đã lớn lên, và **cổng không bắt được**
+
+Tôi ghi **283** tệp; đo lại trên cây chính: **570** tệp `content/meta` nhắc nó, `source/tooling.yaml`
+**không** khai. `tests/unit/tooling.test.ts` **không** đỏ vì nó chỉ soi dòng khớp
+`chatgpt|openai|opencode|…`, mà `deepseek` không khớp mẫu nào.
+
+⇒ Đây là **hai** lỗi khác nhau, cần tách khi xử lý:
+1. **Khoảng trống khai báo thật** — `tooling.yaml` thiếu một công cụ đang được ghi công ở 570 tệp.
+2. **Khoảng trống của cổng** — `tooling.test.ts` bỏ sót một dạng tên công cụ. Sửa (1) mà không sửa (2) thì
+   lần sau lại sót tên khác, không phải vì người quên.
+
+### 🔴 Một lớp lỗi tầng Anh **mới**, không chữa được từng bài
+
+`an7.43` đo được: **165/165** khoá `Tassuddānaṁ` và **661/661** khoá chứa `vaggo` trong tầng Anh đã ghim
+**đều trống** ⇒ **mọi** bài Tăng Bộ mất bảng mục lục ở cột English.
+
+Đây là lý do `8.1`–`8.4` của `an7.43` rơi vào nhóm C: **không có tiền lệ Anh nào để mượn**, dù Pāli viết
+đủ. Dù lát lấp viết lại `8.1`–`8.4` cho một bài, các bài Tăng Bộ **chưa** lấp vẫn hở.
+
+⇒ **Cần biên tập quyết**: có để lớp lấp viết udāna cho *mọi* bộ không. Đây là quyết định về **phạm vi**,
+không phải về một bài — nên tôi **không tự** mở rộng.
+
+### ✅ Luật đã đặt vào `BRIEF_FILL.md` sau **hai** lần vi phạm
+
+Tệp `content/meta/reference-gaps.yaml` là **sinh tự động** từ `npm run reference:gaps` trên worktree sạch.
+Hai lát **tự ý** sửa nó (một xoá record riêng, một **sinh lại cả tệp**: 112 dòng thêm / 167 dòng xoá,
+`textsConsidered` 5358 → 5428).
+
+Lý do của chúng **đúng** — record thành thừa làm `reference:gaps:check` đỏ. Nhưng bản sinh tay dùng
+**phạm vi khác** (5428) với bộ đo của người điều phốn (5443) ⇒ đưa một con số **không tái lập được** vào tệp
+cổng, và agent bị cấm chạy cổng nên **không** kiểm được hậu quả.
+
+⇒ **Đơn giản hơn nhiều và kiểm được:** cứ để record thành thừa, người điều phốn sinh lại. Tôi đã trả về
+`git checkout` trên cây chính và tái sinh trên worktree sạch — **787** record, **0** uid trùng, nên "record
+trùng" mà một lát báo là do lát kia tạo, **không** có ở bản gốc.
+
 ### 🔴 Tôi **ghi đè 8** tệp bản làm việc cũ khi sinh lát lớp lấp
 
 Bộ sinh lát lớp lấp (`_mkfill.py`) tôi viết lấy tên lát `f100`…`f107` — **trùng đúng** dải tên lát **Việt**
