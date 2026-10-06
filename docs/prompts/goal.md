@@ -16,11 +16,12 @@ còn lại là chấm lại / sửa, không phải dịch.
 
 ---
 
-## TRẠNG THÁI HIỆN TẠI (đo 2026-10-06 tại `65f74c9f`, `main`)
+## TRẠNG THÁI HIỆN TẠI (đo 2026-10-06 tại `f06b7874`, `main`)
 
-HEAD của `main` = `65f74c9f` — "gom việc tồn từ các phiên: comment 26 bài, sửa nhỏ 64 khoá Việt, an8.19 lớp lấp, trang lịch sử chất lượng, tham chiếu budsas SN 1 (#303)".
+HEAD của `main` = `f06b7874` — "dịch(vi): đợt 15 wave 2 — 8 bài / 456 khoá [f202 f203] (#306)".
 
-PR đã merge gần nhất: #303 (gom việc tồn) · #302 (fix CSS chế độ Chỉ Việt) · #301 · #300 · #299 ·
+PR đã merge gần nhất: #306 (đợt 15 wave 2: 8 bài / 456 khoá) · #305 (đợt 15 wave 1: 7 bài / 392
+khoá) · #304 (docs goal) · #303 (gom việc tồn) · #302 (fix CSS chế độ Chỉ Việt) · #301 · #300 · #299 ·
 #298 (94 khoá `published` đang phục vụ thiếu khoá) · #297 · #296 (12 bài `draft` → `published` +
 quyết định về 741 bài `kn` bị chặn) · #295 (fix mobile reader) · #294 · #293 (gỡ hai lỗi đỏ main) ·
 #292 · #291 (khai Codex trong tooling) · #290 · #289 · #288 (publish bài draft) · #287 · #286 ·
@@ -33,12 +34,43 @@ dn1–dn16) · #261 (đợt 16) · #260 (đợt 15) · #259 · #258 · #257 · #
 #244 · #243 · #242 · #241 · #240 · #239 · #238 · #237 · #236 · #235 · #234 · #233 · #232 ·
 #231 · #230 · #229 · #228 · #227 · #226 · #225.
 
-**49 PR đã merge.** Bài đủ mọi khoá: 3.857 → **5.444**; còn thiếu **692** bài / **123.422** khoá.
-Còn **1** bài không đo được: file chùm `sn12.93-213` — mốc "thiếu = 0" phải xử lý riêng bài này.
+**51 PR đã merge.** Bài đủ mọi khoá: 3.857 → **5.453**; còn thiếu **684** bài / **122.708** khoá.
+Bất invariant đo được đã sạch: `đủ 5.453 + thiếu 684 = 6.137 = catalogue`, **0 bài không đo được**
+(`sn12.93-213` giờ trả đúng 40 khoá — đã vào hàng đợi, xem `_queue.ts`).
 Lớp lấp `english-project`: còn **174** text / **5.107** segment thiếu; **92** text dưới sàn
-coverage (toàn catalogue). Record `reference-gaps` **754** / 5.471 text. `test` **350 pass**.
+coverage (toàn catalogue). Record `reference-gaps` **754** / 5.486 text. `test` **350 pass**.
 
-### Đo 2026-10-06 tại `65f74c9f` (ngay sau PR #303)
+### Đo 2026-10-06 tại `f06b7874` (sau đợt 15, PR #305 + #306)
+
+| phép đo | giá trị | công cụ |
+|---|---|---|
+| catalogue | 6.137 | `vimeas` |
+| bài đủ mọi khoá | **5.453** (+9 so với `65f74c9f`) | `vimeas` |
+| bài còn thiếu | **684** — sn 103 / 9.115 khoá · an 115 / 9.400 · kn 466 / 104.193 · dn+mn đủ 100% | `vimeas` |
+| khoá còn thiếu | **122.708** (trừ 714 kể từ `65f74c9f`) | `vimeas` + `_queue` (hai phép khớp nhau) |
+| text còn thiếu English | 174 | `engq` |
+| segment còn thiếu English | 5.107 | `engq` |
+| text dưới sàn coverage (toàn catalogue) | 92 | `engq` |
+| `noEnglishEditionUpstream` | 1.596 / 1.596 đã ghi nhận, `agreesWithStoreVerification true` | `engq` |
+
+### Đợt 15 — hai wave agent, 15 bài / 848 khoá (#305 + #306, cả hai CI xanh)
+
+Quy trình đã tái lập được: `_queue.ts` (hàng đợi tăng dần theo khoá thiếu) → `_mkslice.ts` (lát
+f200–f203 kèm dump Pāli theo `segmentMapForUid`) → **2 agent nền / wave** (mỗi agent 3–4 bài,
+168–228 khoá; đọc `skill/translation.md` trước) → coordinator kiểm độc lập `_checkwave.ts` +
+đếm `lược(vi) == lược(pāli)` theo `_hvi.py` (848/848 khoá pass) → 13 cổng trên worktree sạch →
+PR → squash merge → CI main xanh.
+
+Kết quả kiểm độc lập bắt được thứ lời báo agent không nói: (1) lần đầu tôi viết phép đếm lược
+đếm thô ký tự `…` — **sai với quy ước `_hvi.py`** (`…pe…` = MỘT lược; một khoá Pāli có
+`(…)` + `…pe…` thì Việt phải có 2) — 29 khoá "báo đỏ" đều là lỗi phép đo của tôi, không phải
+lỗi bản dịch; sửa phép đo rồi đo lại mới là số thật; (2) `an10.86` coverage Anh ≥99% nhờ tầng
+lấp `english-project` có sẵn — agent đếm 68,3% vì chỉ nhìn Sujato; (3) agent báo thêm **5 lỗi
+tệp đã có**: `sn14.8:3.1` bung `…pe…` · `an10.84:15.2` hạt `ti` thừa · `an8.48:6.1` lặp "Tiền
+của của" · `an8.75:4.3` "chân điến" · căng tên "Sự Viên Mãn" (an5.92/an8.75/an8.76) — **chờ
+biên tập**, không tự sửa trong lát (sửa sẽ lệch `content_sha256` của assessment).
+
+### Đo 2026-10-06 tại `65f74c9f` (ngay sau PR #303) — lưu ở đây để so trend
 
 | phép đo | giá trị | công cụ |
 |---|---|---|
@@ -1020,7 +1052,7 @@ tôi **chép** sang `/Volumes/SSD/_wtX-coord` rồi commit ở đó. Cần ngư�
 
 ## MỐC HOÀN TẤT
 
-- [ ] `vimeas.ts`: **bài còn thiếu = 0** (hiện **692**, thêm 1 bài `sn12.93-213` không đo được)
+- [ ] `vimeas.ts`: **bài còn thiếu = 0** (hiện **684**; `sn12.93-213` đã đo được — 40 khoá trong hàng đợi, bất biến "không bài nào bị bỏ qua" ✓)
 - [ ] `engq.ts`: `segmentsStillMissingEnglish = 0` trong **174** text có thể lấp
 - [ ] đối chiếu chéo: đếm lại từ `source/upstream-manifest.json` và xác nhận
       **1.596** bài `kn` không có tệp Anh Sujato — tất cả phải còn `draft` với blocker
