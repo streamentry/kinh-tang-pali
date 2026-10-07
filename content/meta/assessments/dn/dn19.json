@@ -105,6 +105,32 @@
       "notes": "Kiểm tra tự động: 470 từ, 5 đoạn, văn xuôi thuần và NFC. Chưa đối chiếu nội dung tóm tắt với toàn bài kinh; chưa chấm độ đúng nghĩa, đủ ý hay văn phong.",
       "content_sha256": "5972e27fc11a82ec1921f94a165621d74489118a6140e69b4076539bb854559f",
       "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639"
+    },
+    {
+      "target": "translation",
+      "scope": "full",
+      "assessed_at": "2026-10-08",
+      "assessed_by": [
+        "Claude Opus 5.5 (Claude Code)"
+      ],
+      "notes": "Lượt review thứ ba (sau lượt hai mean 8.92). Review của AI (Claude Opus 5.5), không phải chứng nhận của chuyên gia Pāli độc lập. Đọc lại đủ 559 segment (Pāli + Sujato + bản Việt + comment) và trọn bản HT. Thích Minh Châu. Sửa mới 70 segment + 4 comment. [accuracy] Hô cách: lượt hai coi các `bhante`/`bho` lặp là dương tính giả, nhưng DN18 (cùng khung kể) dịch đủ 59/59 `bhante`; khôi phục 16 `Bạch Thế Tôn` (3.2, 3.21, 12.4, 16.8–16.12, 16.15–17.2, 18.2–18.4, 28.2, 28.5–28.6) và 39 `bho`/`bhotī`: lời kể của Sanaṅkumāra ‘Này chư vị’ (29.6–58.4, 24 seg), lời Đại Điển Tôn ‘Tâu Đại vương/Thưa các vị/Này các phu nhân/Thưa ngài’ (39.4–57.5, 15 seg). Chỉ còn `vata bho` thán từ (3.3, 3.5, 3.22, 17.4, 29.8, 31.5) không thêm. [accuracy] Chỗ chép theo Sujato rút gọn: 16.9–16.12, 28.6 khôi phục ‘Phạm thiên Sanaṅkumāra … trước chư thiên Tāvatiṁsa’; 18.2 ‘nói điều ấy’; 12.4, 28.2 ‘tám lời tán thán đúng sự thật về Đức Thế Tôn’; 31.6 thiếu danh xưng ‘Govinda’; 62.3–62.4 thiếu vế `ye na sabbenasabbaṁ sāsanaṁ ājānanti`, 62.2 bỏ ‘có người’ không có trong root (`te`, comment mới). 44.12–44.13 `pajja` = dầu thoa chân (không phải nước rửa chân), bỏ ‘xứng đáng’ (comment). [alignment] 16.15/17.1, 28.4/28.5: ranh giới câu ví dụ theo Pāli (`Seyyathāpi … evameva`). [terminology] 28.3 theo câu song song DN18 18.3 ‘đồng tử Pañcasikha’ (Sujato, TMC cùng hướng), giữ cách đọc ‘năm búi tóc’ trong comment viết lại; 61.4–61.9 `ekanta-` ‘dẫn thẳng’ → ‘đưa đến hoàn toàn’ (DN21, MN122). Quyết định theo đếm grep `content/translation/vi/project/sutta/dn/`: Sát-đế-lỵ 14 file/102 lần vs Sát-đế-lợi 4 file/47 → giữ Sát-đế-lỵ; ‘y màu đất’ 4 file (dn4, dn5, dn19, dn26) vs ‘y cà-sa’ 1 file (dn14), ‘áo cà-sa’ 2 file (dn2, dn10) → giữ ‘y màu đất’ theo đa số DN; lưu ý MN dùng ‘áo cà-sa’ 13 file và Sát-đế-lợi 11 file — đề xuất người điều phối chốt diện rộng. Comment mới 45.13: `ekodibhūta` ‘nhất tâm’ nhưng lời giải 46.4–46.6 là sống một mình nơi vắng. Điểm: fidelity 8.9→9.1, grammar 8.9→9.1 (người nói/cấp lời rõ hơn), alignment 9.0→9.2, terminology 8.9→9.1, triangulation 8.8→9.0 (TMC trọn, dùng phân xử 44.12, 45.13, 62.2), clarity 8.7→8.9, ambiguity 8.9→9.2. Còn lại: lặp ‘Này chư vị’ dày theo đúng root; vài nhãn người nói không có trong Pāli (‘Vua nói:’ 39.9; ‘Họ nói:’ 40.9, 41.10, 42.9, 56.6, 57.6); 31.5 kèm ‘Đại Điển Tôn’ như lời giới thiệu tên; ‘năm dục trưởng dưỡng’ giữ chuẩn MN. Sujato trống 20.1–28.1 và nhiều đoạn lặp 33–55. check.py OK; vocatives.py --full còn 103: đã kiểm, đều là ‘Này chư vị’/‘thưa các vị’ chữ thường mà scanner không nhận hoặc `vata bho` thán từ.",
+      "scores": {
+        "source_provenance": 9,
+        "semantic_fidelity": 9.1,
+        "grammar_logic": 9.1,
+        "segment_alignment": 9.2,
+        "terminology": 9.1,
+        "triangulation": 9,
+        "vietnamese_clarity": 8.9,
+        "han_viet_balance": 8.8,
+        "ambiguity_integrity": 9.2,
+        "technical_integrity": 9.3
+      },
+      "blocking_errors": [],
+      "id": "7608e66f-d082-4bd1-8590-338101aa92ba",
+      "content_sha256": "b8367eede00a86741353ede12afabf4a1cca82a5781927786f7a4d25807d4d75",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
+      "final_score": 9.07
     }
   ],
   "legacy_quality": {
