@@ -1094,9 +1094,116 @@ tôi **chép** sang `/Volumes/SSD/_wtX-coord` rồi commit ở đó. Cần ngư�
   SAI theo measure mới (scope = 84 khi `segmentBelongsToUid` đã sửa) — đã thu hồi và ghi lại thay
   vì xoá; ĐÍNH CHÍNH cũ giữ nguyên làm lịch sử.
 
+## CẬP NHẬT 2026-10-07 — wave 17 lane 1 (n174 + n175 + n176) hoàn tất: 3 bài / 171 khoá, PR #313 merge
+
+- **PR #313 đã squash-merge** tại `f330333d` (nhánh `vi-wave17-n174`, commit `480de309`, base
+  `6dd901b7`): CI hai lượt (push + pull_request) cùng rollup **SUCCESS** (10m55s / 10m7s).
+- **Số đo sau merge (vimeas chạy tại `f330333d`)**: catalogue **6137** · đủ **5471** (+3 so với
+  5468) · thiếu **666** bài / **121.952** khoá (−171 = 3×57 khoá, khớp đúng) · **0** bài không đo
+  được · bất biến `đủ+thiếu=catalogue` ✓. `engq` không đổi (174 text / 5.107 segment thiếu
+  English, 92 dưới sàn) — lane Việt không đụng lớp lấp.
+- **n174 an10.95** (57 khoá, `_checkwave` ✓): 10 câu hỏi theo mn72 · `abyākataṁ kho etaṁ … mayā`
+  xưng "Ta" (Đức Phật tự nói; sn44.x "Thế Tôn" vì đệ tử nói) · trích dẫn lại 4.1–6.11 theo khuôn
+  sn44.3:3.x/mn72:13.x · 10.4+10.6 dùng lại nguyên văn sn47.12:6.3/6.5 · `nīyati` → "giải thoát".
+  **published 9.50**.
+- **n175 an11.13** (57 khoá): `itipi` theo an5.47:2.3 · `ārādhako` → "có khả năng thành tựu"
+  (an10.156-166) · 9.3 dùng lại đuôi an3.42:1.3 · khóa lặp 4.2+4.3=3.4+3.5 … **published 9.51**.
+- **n176 ja443** (57 khoá): 0 Anh upstream → **draft 9.11 + blocker** (0/57 khoá ≥40 ký tự,
+  coverage không đo được — blocker thắng điểm) · `kodho dummedhagocaro` (6.4/7.4/8.4) cùng một
+  cách dịch · 3 chỗ bất định ghi vào notes.
+- Assessment history nối entry `full` mới bằng `--record` + `--apply` (an10.95 `71fd1ffe…`,
+  an11.13 `447eee5a…`); ja443 draft chỉ cần scorecard. `reference:gaps` sinh lại: textsConsidered
+  5495 → 5498, gaps giữ 758.
+- 13 cổng cục bộ cùng điều kiện chạy trên cây chính TRƯỚC commit worktree: validate ✓
+  (quality:check 5.423 history 0 errors) · test 351/351 ✓ · check 0 errors · manifest/catalog/
+  verify:store:partial/reference:gaps(758-5498)/license/glossary/audit:store/audit:reference/
+  doctor:ci/build ✓.
+- Quy trình worktree được lặp lại sạch: `git worktree add` → symlink `node_modules` + `.cache` →
+  chép 9 file → gates trên worktree → commit → push → 2 CI SUCCESS → squash merge → so
+  `hash-object` từng file local với `origin/main` (cùng bean) → dọn local → `pull --ff-only`.
+
+## CẬP NHẬT 2026-10-07 — wave 17 lane 2 (n177 + n178 + n179) hoàn tất: 3 bài / 171 khoá, PR #315 merge
+
+- **PR #315 đã squash-merge** tại `67060c60` (nhánh `vi-wave17-n177`, commit `4e5689bd`, base
+  `f330333d`): CI hai lượt (push + pull_request) cùng rollup **SUCCESS** (10m49s / 10m16s).
+- **Số đo sau merge (vimeas chạy tại `67060c60`)**: catalogue **6137** · đủ **5474** (+3 so
+  với 5471) · thiếu **663** bài / **121.781** khoá (−171 = 3×57 khoá, khớp đúng) · **0** bài
+  không đo được · bất biến `đủ+thiếu=catalogue` ✓. `engq` không đổi (174 text / 5.107 segment
+  thiếu English, 92 dưới sàn) — lane Việt không đụng lớp lấp.
+- Cả 3 bài `kn` không có Anh upstream (không trong manifest) → **draft + blocker** (0 khoá ≥40
+  ký tự, coverage không đo được — blocker thắng điểm, triangulation 7.8):
+  - **n177 ja456 Juṇhajātaka** (57 khoá, `_checkwave` ✓): **draft 9.21** · tiêu đề "Bộ Mười Một
+    Bài Kinh"/"Phẩm Voi Hiếu Mẹ" dùng lại ja455.
+  - **n178 ja467 Kāmajātaka** (57 khoá): **draft 9.26** · "Bộ Mười Hai Bài Kinh"/"Phẩm
+    Cūḷakuṇāla" (16 tiền lệ).
+  - **n179 ja475 Phandanajātaka** (57 khoá): **draft 9.22** · "Bộ Mười Ba Bài Kinh"/"Phẩm Xoài"
+    — 2 tên MỚI theo tầng tên `ja-name:533`="The Book of the Thirteens", `ja-name:534`="Mangoes".
+- Review đối kháng trước khi chốt: đồng nhất 3 cặp trùng `Puṭṭho me samma akkhāhi` (ja475
+  1.3/2.3/4.3), 12 chỗ dấu câu cuối dòng khớp Pāli, bỏ ngoặc vuông (tiền lệ tier gần như 0).
+- Research đối chiếu: Chalmers 1895 (wisdomlib doc80630/80641/80649) + bản Việt Indacanda
+  (tamtangpaliviet.net/VHoc/32/) + chú giải ePitaka — `satta gavaṁsatāni`=700, `nahuta`=10.000.
+- Assessment: draft chỉ scorecard trong YAML (không `--record`). `reference:gaps` sinh lại:
+  textsConsidered 5498 → **5501**, gaps giữ **758**.
+- 13 cổng cục bộ trên cây chính TRƯỚC commit worktree: validate ✓ (quality:check 5.423 history
+  0 errors) · test **355/355** ✓ · check 0 errors · manifest/catalog/verify:store:partial/
+  reference:gaps(758-5501)/license/glossary/audit:store/audit:reference/doctor:ci/build ✓.
+- Dọn worktree `_wt-vi18` + nhánh `vi-wave17-n177` sau merge; 7 file local so `hash-object`
+  khớp `origin/main` → checkout/rm → `pull --ff-only --autostash` (goal.md là thay đổi chưa
+  commit, giữ nguyên qua autostash).
+
+## CẬP NHẬT 2026-10-07 — wave 17 lane 3 (n180 + n181 + n182) hoàn tất: 3 bài / 171 khoá, PR #319 merge
+
+- **PR #319 đã squash-merge** tại `311d6cfb` (nhánh `vi-wave17-n180`, commit `655efb91` +
+  `d550ce2a`, base `374edaa4` — giữa chừng main nhận thêm #316/#317/#318 từ session khác):
+  CI hai lượt cùng **PASS** (8m37s / 11m32s).
+- **Số đo sau merge (vimeas chạy tại `311d6cfb`)**: catalogue **6137** · đủ **5477** (+3) ·
+  thiếu **660** bài / **121.610** khoá (−171 = 3×57, khớp) · **0** bài không đo được · bất biến
+  `đủ+thiếu=catalogue` ✓. `engq` không đổi (5107 segment / 92 dưới sàn) — lane Việt không đụng
+  lớp lấp.
+- Cả 3 bài **không có tệp `translation-en` nào** trong manifest → **draft + blocker**:
+  - **n180 mil3.2.6** (57 khoá, `_checkwave` ✓): **draft 9.22** · model mil3.2.5 (`Đức vua nói—` /
+    `Trưởng lão nói—`, bỏ `ti`) · `:0.2` `Phẩm Khoảng Thời Gian` (đa số 6 tiền lệ + hàng xóm
+    mil3.2.7 — ba bài kề đang dùng 3 kiểu cho cùng một Pāli) · `…pe…` giữ `…` trần · cặp áp dụng
+    `2.7`=`3.10`, `4.6`=`5.9`=`6.10` dịch y hệt.
+  - **n181 mil5.2.5** (57 khoá): **draft 9.11** · `:0.2` giữ `Meṇḍakapañha` (36/45 toàn tầng) ·
+    `:0.4` `5. Câu Hỏi Về Trở Ngại Đối Với Sự Đạt Được Của Đức Phật` — `lābha` phân xử bằng
+    heading SBE của Rhys Davids cho đúng đoạn này (*Mara's interference with alms*) · cấu trúc
+    nháy `5.1`→`11.2` là một câu nói dài của Nāgasena, kiểm từng khoá.
+  - **n182 tha-ap17** (57 khoá): **draft 9.06** · vượt `tests/unit/tha-ap-title.test.ts` cả hai
+    đầu (số 5 + `translationTitle` == `:0.3`) · 21/57 khoá reuse nguyên văn Pāli trùng ở bài đã
+    dịch, 4 chỗ ngữ biến chủ đích ghi trong notes.
+- **✅ `Tiṁsakappasahassa` — phân xử xong bằng chứng trong KHÔNG phải phỏng đoán**: mọi cụm
+  cùng khuôn `X kappasahassamhi` đều nhân X × 1000 — `Vīsa`(20) → "hai mươi ngàn" (tha-ap152)
+  và "hai vạn" (tha-ap178); `Saṭṭhi`(60) → "sáu mươi nghìn" (tha-ap15/191/53/54); `Satta`(7) →
+  "bảy nghìn"; `Pañca`(5) → "năm nghìn" (tha-ap15). `tiṁsa` = 30 là số đếm Pāli (`tīṇi` mới là 3)
+  ⇒ **30.000**. Hai ứng viên 3.000 / 300.000 trong bảng chờ đều dựng trên tiền đề `tiṁsa = 3`
+  — sai. tha-ap17:10.1 dịch `Trong ba mươi ngàn kiếp,`; **6 tệp đang có "ba mươi ngàn" là đúng**,
+  chỉ `tha-ap151` ("ba nghìn") và `tha-ap109` ("ba trăm nghìn") là lệch — đóng mục chờ biên tập
+  tại đây, sửa 2 tệp kia khi có dịp.
+- **🔴 Hai bài học về cổng, cả hai đều suýt tự lừa mình:**
+  1. **`| tail` che mất exit code.** Loop `npm run X 2>&1 | tail -2 || echo FAILED` không bao giờ
+     báo FAILED vì exit thuộc về `tail`, không thuộc npm — tôi từng tuyên bố "13 xanh" trên một
+     vòng như vậy. Sửa: capture `code=$?` **ngay sau** lệnh, không qua pipe; làm lại đủ 13 với exit
+     thật trước khi commit.
+  2. **`verify:store:partial` fail IM LẶNG khi invariant di chuyển.** Nó là `--check` so với
+     `docs/store-verification.json` đã ghi; 3 record gap mới đưa `textsBelowFloorWithEditorialData`
+     và `recordedGaps` 758 → 761 ⇒ exit 1 mà **không in dòng `FAILED` nào** (khối in "No
+     discrepancies" chạy TRƯỚC khối `--check`); CI đỏ đúng bước "Verify the store by counting"
+     trong khi log toàn chữ xanh. Sửa: `npm run verify:store:write` rồi commit
+     `docs/store-verification.json` (tiền lệ #311). Luật: PR nào thêm record gap hoặc đổi
+     `fillTexts`/`fillSegments`/`catalogueTexts` đều phải write lại report.
+- `reference:gaps` sinh lại: textsConsidered 5501 → **5504**, gaps 758 → **761** (3 record mới
+  đúng 3 uid, `substantiveSegments` 31/44/1 khớp blocker).
+- 13 cổng exit-0 THẬT trên worktree base `374edaa4` trước commit: validate ✓ (quality:check
+  5423 history 0 errors) · test **355/355** · check 0 errors · manifest/catalog/verify:store:partial
+  (sau write)/reference:gaps:check(761-5504)/license/glossary/audit:store/audit:reference/
+  doctor:ci/build ✓.
+- Cây chính có session khác đang sửa AGENTS.md/README/skill/src song song (23:36) — không thuộc
+  change này, không đụng vào; goal.md giữ nguyên dạng chưa commit, sẽ qua PR doc-only.
+
 ## MỐC HOÀN TẤT
 
-- [ ] `vimeas.ts`: **bài còn thiếu = 0** (hiện **669**; `sn12.93-213` đã đủ 40/40 — bất biến "không bài nào bị bỏ qua" ✓)
+- [ ] `vimeas.ts`: **bài còn thiếu = 0** (hiện **660**; `sn12.93-213` đã đủ 40/40 — bất biến "không bài nào bị bỏ qua" ✓)
 - [ ] `engq.ts`: `segmentsStillMissingEnglish = 0` trong **174** text có thể lấp
 - [ ] đối chiếu chéo: đếm lại từ `source/upstream-manifest.json` và xác nhận
       **1.596** bài `kn` không có tệp Anh Sujato — tất cả phải còn `draft` với blocker
