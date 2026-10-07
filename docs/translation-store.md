@@ -283,7 +283,7 @@ Cả hai được `tests/unit/english-fill.test.ts` kiểm.
 | Pāli | `pali` | **nguồn chuẩn** — quyết định nghĩa |
 | English | `english-sujato` + `english-project` | tham khảo (Sujato, chỗ trống thì bù bằng bản lấp của dự án) |
 | Việt hiện hành | `vietnamese-current` | tham khảo (HT. Thích Minh Châu) |
-| Việt dự án | `vietnamese-project` | **bản canonical** — bản đang biên tập |
+| Việt 2026 | `vietnamese-project` | **bản canonical** — bản đang biên tập |
 
 Pāli là tập key: mọi bản khác đều căn theo nó, nên một dòng của bảng so sánh là một
 segment Pāli và tương ứng của cả ba bản kia. Cột English ghép hai lớp theo đúng thứ tự
@@ -322,7 +322,7 @@ Bốn cột kinh văn trên một màn hình là không đọc nổi, và trên 
 - **hẹp** (`≤1100px`): một cột mỗi lần, chọn bằng nút tập trung. Không có JavaScript thì
   cả bốn cột xếp chồng và vẫn đọc được — nội dung luôn nằm trong markup.
 - **chế độ** `Bốn bản` (mặc định) · `Đối chiếu` (một segment, bốn bản xếp dọc) ·
-  `Chỉ Việt` (chỉ Việt dự án, để đọc; Pāli còn trong markup nhưng không hiển thị).
+  `Chỉ Việt` (chỉ Việt 2026, để đọc; Pāli còn trong markup nhưng không hiển thị).
 
 Cột vắng mặt không biến mất lặng lẽ: thẻ bản vẫn hiện ở `0/N`, bị khoá
 (`aria-disabled`) kèm lý do, và thẻ giải thích trong `layer-legend` nói rõ giới hạn
@@ -341,7 +341,7 @@ truy vấn Pāli và một truy vấn English đều dẫn tới cùng một bà
 ### Sách/EPUB không đổi
 
 `scripts/build-book.ts` chỉ đọc `segment.pali` và `segment.vi`, nên sách vẫn ra Pāli +
-Việt dự án và **không** rò English hay Việt tham khảo vào bản phát hành. Đã kiểm trên
+Việt 2026 và **không** rò English hay Việt tham khảo vào bản phát hành. Đã kiểm trên
 `mn-vol-1` và `mn118-smoke`.
 
 ## Nguồn, giấy phép và ghi công
