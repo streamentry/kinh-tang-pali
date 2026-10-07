@@ -99,7 +99,7 @@ Tuy nhiên:
 
 - ChatGPT **không phải nguồn kinh điển** và không phải authority về Pāli.
 - Nội dung AI tạo ra phải chịu cùng source hierarchy, validation và quality gate như mọi nội dung khác trong repository.
-- Một trạng thái `published` nghĩa là bài đã vượt quality gate được mô tả trong [`AGENTS.md`](AGENTS.md); **không nên suy diễn rằng mọi segment đều đã được một học giả Pāli hoặc chuyên gia con người độc lập thẩm định**.
+- Một trạng thái `published` nghĩa là bài đã vượt quality gate được mô tả trong [`docs/quality-assessments.md`](docs/quality-assessments.md); **không nên suy diễn rằng mọi segment đều đã được một học giả Pāli hoặc chuyên gia con người độc lập thẩm định**.
 - Human review được hoan nghênh và khuyến khích, nhưng hiện không phải điều kiện bắt buộc để mọi bài đạt `published`.
 
 ### 6. Không có hàm ý bảo trợ hay chứng thực
