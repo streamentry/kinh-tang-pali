@@ -1050,9 +1050,48 @@ Session kia đã `git checkout` khỏi `vi-wave14` sang `feat/sutta-summary` **g
 ⇒ **Từ đợt 15 tôi không commit trong cây chính nữa**: agent ghi vào `/Volumes/SSD/kinh-tang-pali`,
 tôi **chép** sang `/Volumes/SSD/_wtX-coord` rồi commit ở đó. Cần người biên tập xử `feat/sutta-summary`.
 
+## CẬP NHẬT 2026-10-06 — sau #308 + #309 + #310, main ở 5896e17c
+
+- #308 (đợt 16, f204): 4 bài an1 nhóm (an1.278-286, an1.287-295, an1.296-305, an1.394-574) bổ sung đủ khoá, 5453 → 5457 bài đủ, 684 → 680 bài thiếu, 122.708 → 122.678 khoá thiếu.
+- #309: phục hồi bản dịch đã rà soát cho an6.29 và sn22.26 (không đổi bộ đếm).
+- #310: rà lại #308 bắt được 5 khoá mở nháy `“` bị thiếu (an1.281-283:1.1, an1.285-286:1.1, an1.288-289:1.1, an1.291-292:1.1, an1.294-295:1.1) — nháy kép trên cả bài của an1.278-286/an1.287-295 không cân; và 2 tệp thiếu `\n` cuối (an1.296-305, an1.394-574). Đã vá; entry assessment `full` mới được nối thêm (điểm giữ 9.56/published vì delta chỉ dấu câu/định dạng); CI xanh (2 lượt SUCCESS).
+- Đo lại tầng Việt tại 5896e17c: catalogue **6137** · đủ **5457** · thiếu **680** bài / **122.678** khoá · sn 103/9.115 · an 111/9.370 · kn 466/104.193 · **0** bài không đo được · bất biến `đủ+thiếu=catalogue` ✓.
+- Tây nguyên trang mới ở `main` đã về tay coordinator: plan wave 16 lan 2 = f205 (kn/mil7.4.5, ne18, pv5, pv42 · 224 khoá) + f206 (an1.575-615 +31, an1.333-377 +33, sn/sn12.93-213 mới 40 · 104 khoá) + f207 (kn/vv15, ne7, pv51, vv16 · 227 khoá) — 3 agent nền, moi lát một bài-tệp theo BRIEF_SLICE; sau đó coordinator kiểm `_checkwave.ts` + 5 phép + cổng, PR.
+
+## CẬP NHẬT 2026-10-07 — wave 16 lan 2 (f205 + f206 + f207) hoàn tất: 11 bài / 555 khoá, 13 cổng xanh cục bộ
+
+- **Đo lại bằng `vimeas`/`engq` sau khi ghi đủ 3 lát**: catalogue **6137** · đủ **5468** (+11 so
+  với 5457 tại `5896e17c`) · thiếu **669** bài / **122.123** khoá (−555 = 224 f205 + 104 f206 +
+  227 f207 — khớp đúng kế hoạch) · **0** bài không đo được · bất biến `đủ+thiếu=catalogue` ✓.
+  `engq` không đổi (174 text / 5.107 segment thiếu English, 92 dưới sàn) — lane này không đụng
+  lớp lấp.
+- **f205** (4 bài, `_checkwave` ✓): mil7.4.5 9.04 · ne18 9.07 · pv5 9.34 · pv42 8.98 — cả 4 `draft`
+  với blocker không có tầng Anh upstream (blocking error thắng điểm số).
+- **f206** (104 khoá, coordinator kiêm dịch): an1.575-615 vá +31 (51/51 khoá, 9.47) · an1.333-377
+  vá +33 (84/84 khoá, 9.44) · sn12.93-213 tạo mới 40/40 (9.33) — cả 3 `published`, blocker đã gỡ;
+  assessment history nối entry `full` mới bằng `--record` + `--apply` (không sửa tay `quality` —
+  `quality:check` bắt mismatch khi sửa thẳng meta).
+- **f207** (4 bài, agent nền sập phiên sau khi ghi đủ khoá, coordinator rà lại): vv15/vv16/pv51
+  9.13 · ne7 9.11 — cả 4 `draft` với blocker coverage Anh (0 < 0.8).
+- **13 cổng cục bộ cùng điều kiện, cùng lúc**: validate ✓ (0 errors · quality:check 5.421 history
+  0 errors) · test **351/351** ✓ — 3 fail baseline đã hết nhờ `reference:gaps` sinh lại (vv15) và
+  `build` sinh lại `dist/notice.txt` · check ✓ · license/glossary/reference-gaps/manifest/catalog
+  ✓ · verify:store:partial ✓ (đã `--write` vì hai bất biến `textsBelowFloorWithEditorialData` /
+  `recordedGaps` 754 → 758: thêm 4 bài dưới sàn có editorial, mọi bài dưới sàn đều đã record gap
+  758/758) · audit:store ✓ · audit:reference ✓ · doctor:ci ✓ · build ✓ (6.137 trang).
+- **Sửa phép đo `_checkwave`**: rule cũ *“Pāli có `…pe…` ⇒ lược(VI) = 1”* chỉ đúng khi mỗi khoá
+  đúng MỘT `…pe…`; với `an1.348-350:1.3` (HAI `…pe…`) nó buộc bản dịch phải mất một dấu lược —
+  tức phép đo đang ép bản dịch sai. Đã đổi thành **cân bằng tuyệt đối** `lược(VI) == lược(Pāli)`
+  từng khoá, kể cả `…` trần (đúng nghĩa header “cân bằng dấu lược so với Pāli”). Tiền lệ published:
+  `an1.132-139:1.1` bảy `…pe…` → bảy `…`. Nhờ thế mọi khoá của cả 6 tệp đều kiểm được, thay vì
+  chỉ khoá có `…pe…`.
+- **Đính chính trong meta `an1.333-377`**: khẳng định cũ *“33 khoá lồng-range không uid nào nhận”*
+  SAI theo measure mới (scope = 84 khi `segmentBelongsToUid` đã sửa) — đã thu hồi và ghi lại thay
+  vì xoá; ĐÍNH CHÍNH cũ giữ nguyên làm lịch sử.
+
 ## MỐC HOÀN TẤT
 
-- [ ] `vimeas.ts`: **bài còn thiếu = 0** (hiện **684**; `sn12.93-213` đã đo được — 40 khoá trong hàng đợi, bất biến "không bài nào bị bỏ qua" ✓)
+- [ ] `vimeas.ts`: **bài còn thiếu = 0** (hiện **669**; `sn12.93-213` đã đủ 40/40 — bất biến "không bài nào bị bỏ qua" ✓)
 - [ ] `engq.ts`: `segmentsStillMissingEnglish = 0` trong **174** text có thể lấp
 - [ ] đối chiếu chéo: đếm lại từ `source/upstream-manifest.json` và xác nhận
       **1.596** bài `kn` không có tệp Anh Sujato — tất cả phải còn `draft` với blocker

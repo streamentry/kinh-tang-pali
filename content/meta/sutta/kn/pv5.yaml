@@ -1,0 +1,41 @@
+uid: pv5
+status: draft
+translationTitle: "5. Chuyện Ngạ Quỷ Ngoài Bức Tường"
+translators:
+  - "Codebuff (agent)"
+reviewers: []
+tags:
+  - "kn"
+  - "khuddaka-nikaya"
+  - "petavatthu"
+  - "uragavagga"
+  - "tirokuṭṭapetavatthu"
+quality:
+  scores:
+    source_provenance: 9.6
+    semantic_fidelity: 9.5
+    grammar_logic: 9.5
+    segment_alignment: 10.0
+    terminology: 9.4
+    triangulation: 7.5
+    vietnamese_clarity: 9.5
+    han_viet_balance: 9.5
+    ambiguity_integrity: 9.3
+    technical_integrity: 9.6
+  final_score: 9.34
+  blocking_errors:
+    - "Không có tầng tham khảo tiếng Anh tại commit đã ghim — `english-sujato` không liệt kê tệp nào cho uid (thuộc kỳ `not-published-upstream`, không phải `not-synced`). Toàn bộ bài là kệ ngắn, không segment nào đạt ngưỡng Pāli có nội dung ≥ 40 ký tự (0/56, loại block `:0`) nên coverage **không đo được gì** — không có khoá nào để tầng Anh phủ, và cũng không thể đạt ratio ≥ 0.8 theo công thức ⇒ bài bắt buộc `draft` và `triangulation ≤ 8.0`. Tầng `vietnamese-current` chỉ có Pháp Cú tại commit đã ghim; lớp `english-project` chưa có cho uid này. Đây là giới hạn upstream, không phải lỗi của người dịch."
+  assessed_at: "2026-10-07"
+  assessed_by:
+    - "Codebuff (agent)"
+notes: |-
+  Đợt 16, lát f205. **Dùng lại toàn bộ tầng Việt của `kp7` (Kinh Ngoài Bức Tường)**
+  theo từng dòng: kệ `Tirokuṭṭa` trong bài này chính là kệ kp7, nên `:1.x–12.3`
+  lấy nguyên văn `kp7:1.1–13.3` đã publish; chỉ thêm dấu ngoặc theo đúng vị trí
+  trong Pāli pv5 (`“` ở `:1.1`, `‘/’` ở `:3.5–3.6`, `:5.1–5.4`, `:9.1–9.2`, `”ti` ở `:12.4`)
+  và đổi `:12.4` cho khớp kết句 pv5. `:0.3` và `:13.1` dịch `Tirokuṭṭa` theo `kp7:0.2`
+  (*Ngoài Bức Tường*) để cùng một thuật ngữ tên kinh trong hai bộ. `:0.2` Uragavagga
+  → *Phẩm Rắn* (theo `pv1`–`pv11`). Không có bản Anh upstream; kiểm độc lập: 56/56 khoá,
+  lệch ngoặc 0, NFC, thứ tự khớp Pāli. Cổng kỹ thuật CHƯA chạy — cần đủ bốn lệnh
+  trước khi coi `technical_integrity: 9.6` là đạt:
+  `npm run validate`, `npm test`, `npm run check`, `npm run build`.
