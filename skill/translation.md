@@ -4,7 +4,7 @@
 >
 > **Mục tiêu:** tạo một bản dịch Kinh tạng Pāli tiếng Việt mới **chính xác tối đa, truy nguyên rõ ràng và dễ hiểu hơn đối với người Việt hiện đại**. Phương pháp mặc định là **đối chiếu Pāli gốc + bản dịch tiếng Anh chất lượng cao trên SuttaCentral + bản dịch Hòa thượng Thích Minh Châu**, sau đó viết một bản tiếng Việt mới, sáng rõ hơn nhưng không thêm hoặc bớt nghĩa của kinh.
 
-`AGENTS.md` định nghĩa quality scorecard 10 tiêu chí, blocking errors và ngưỡng `draft` / `review` / `published`. Skill này và `AGENTS.md` phải được đọc cùng nhau. Nếu có xung đột về publication gate, **rule mới nhất trong `AGENTS.md` thắng**.
+Phương pháp QC — scorecard 10 tiêu chí, blocking errors, ngưỡng `draft` / `review` / `published`, cách ghi và áp dụng lượt chấm — định nghĩa duy nhất ở [`docs/quality-assessments.md`](../docs/quality-assessments.md). Skill này, `AGENTS.md` và file đó phải được đọc cùng nhau. Nếu có xung đột về publication gate, **`docs/quality-assessments.md` và code mà nó trỏ tới thắng**.
 
 ---
 
@@ -352,29 +352,13 @@ Validation/test/check/build fail là **blocking error**. Không được chấm 
 
 Sau khi bản dịch đã hoàn chỉnh, thực hiện một lượt review riêng với mục tiêu **tìm lỗi**, không bảo vệ bản dịch vừa viết.
 
-Chấm đúng 10 tiêu chí trong `AGENTS.md` từ 0–10 và tính:
-
-```text
-final_score = tổng 10 điểm / 10
-```
-
-Dùng mean thô để quyết định status, không dùng mean làm tròn.
-
-Trước khi xét điểm, kiểm tra blocking errors trong `AGENTS.md`. **Blocker thắng mọi điểm số.**
+Kiểm blocking errors trước (**blocker thắng mọi điểm số**), rồi chấm đúng 10 tiêu chí 0–10 và tính `final_score` bằng mean thô — theo [`docs/quality-assessments.md`](../docs/quality-assessments.md) §2–§5. Ghi lượt chấm bằng `npm run quality -- --record <uid> <assessment.json>` (§7).
 
 ### Bước 10 — Chốt status và lưu ngay
 
-- Có blocker → `draft`.
-- Không blocker, `final_score > 9.0` → **`published` trực tiếp**.
-- Không blocker, `8.0 <= final_score <= 9.0` → `review`.
-- Không blocker, `final_score < 8.0` → `draft`.
-- Chưa chấm đủ 10 tiêu chí → `draft`.
+Chốt bằng `npm run quality -- --apply <uid> <assessment-id>` (§8); công cụ tự đặt status theo bảng ở §5. Không sửa tay `meta.quality` hay `status`. Nhắc lại hai điểm dễ sai: **đúng 9.0 không đủ — phải lớn hơn 9.0 mới `published`**, và human review **không bắt buộc** để publish. Nếu có human review chất lượng cao, dùng nó như thêm evidence và ghi một lượt chấm mới khi cần.
 
-**Điểm đúng 9.0 không đủ. Phải lớn hơn 9.0 mới được `published`.**
-
-Human review **không bắt buộc** để publish. Nếu có human review chất lượng cao, dùng nó như thêm evidence và cập nhật scorecard/bản dịch khi cần.
-
-Khi bài đạt `published`, cập nhật metadata và lưu translation/comment/glossary liên quan vào repository ngay trong cùng batch công việc, không giữ lại `draft` chỉ để chờ review thủ công.
+Khi bài đạt `published`, lưu translation/comment/glossary/metadata liên quan vào repository ngay trong cùng batch công việc, không giữ lại `draft` chỉ để chờ review thủ công.
 
 ---
 
@@ -424,7 +408,7 @@ AI agent có thể **dịch, tự review, chấm điểm và publish** nếu đ�
 
 Agent phải:
 
-- đọc `AGENTS.md` và file này trước translation task;
+- đọc `AGENTS.md`, file này và `docs/quality-assessments.md` trước translation task;
 - chủ động lấy và đọc Pāli root + English SuttaCentral + bản Thích Minh Châu khi có;
 - không hallucinate Pāli, dictionary meaning, translator, parallel hoặc source;
 - không tự thêm explanatory meaning cho “dễ hiểu”;
@@ -459,7 +443,7 @@ Một bài được xem là **hoàn tất** khi:
 9. các technical validation bắt buộc pass;
 10. không có nội dung bên thứ ba bị copy dài hoặc thiếu provenance/license;
 11. đã hoàn thành scorecard 10 tiêu chí và blocking-error check;
-12. metadata status khớp chính xác với rule trong `AGENTS.md`.
+12. metadata status khớp chính xác với quality gate trong `docs/quality-assessments.md`.
 
 `published` không đồng nghĩa “không bao giờ còn sửa”. Nó có nghĩa bản hiện tại đã vượt publication threshold theo evidence đang có. Nếu evidence mới cho thấy lỗi, sửa bản dịch và cập nhật quality assessment.
 
