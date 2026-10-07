@@ -150,7 +150,15 @@ h2 { letter-spacing: -.025em; }
    against every version without four narrow columns. */
 .reader-shell[data-reader-mode="interlinear"] .segment { grid-template-columns: 5.5rem minmax(0, 1fr); }
 .reader-shell[data-reader-mode="interlinear"] .cell { grid-column: 2; }
-.reader-shell[data-reader-mode="interlinear"] .cell::before { content: attr(data-label); display: block; font-family: "Be Vietnam Pro", Inter, sans-serif; font-size: .64rem; text-transform: uppercase; letter-spacing: .1em; font-weight: 800; color: var(--muted); margin-bottom: .15rem; }
+/* Stacked views label each version with a compact chip (short name only), not a
+   sentence repeated on every segment. The fill mirrors the standing badge in the
+   legend — soft green = authority, grey = reference, accent = the project's own —
+   and the full standing is stated once, on the first segment of the text. */
+.reader-shell[data-reader-mode="interlinear"] .cell::before { content: attr(data-short); display: inline-block; font-family: "Be Vietnam Pro", Inter, sans-serif; font-size: .6rem; text-transform: uppercase; letter-spacing: .08em; font-weight: 800; line-height: 1; padding: .26rem .5rem .22rem; border-radius: 999px; margin-bottom: .35rem; }
+.reader-shell[data-reader-mode="interlinear"] .segment:first-child .cell::before { content: attr(data-label); }
+.cell-pali::before { background: #e8ede9; color: #3d5045; }
+.cell-en::before, .cell-vi-current::before { background: #eef0f1; color: #5b646c; }
+.cell-vi::before { background: var(--accent-soft); color: var(--accent); }
 .reader-shell[data-reader-mode="interlinear"] .cell + .cell { margin-top: .6rem; }
 /* `Chỉ Việt` — the reading view: only the project's own translation. The Pāli stays in
    the markup — search, print and the other modes still see it — but is not shown here. */
@@ -186,7 +194,12 @@ h2 { letter-spacing: -.025em; }
   .reader-shell[data-open-columns][data-reader-mode] .segment { grid-template-columns: 4.5rem minmax(0, 1fr); }
   .cell { grid-column: 2; }
   .cell + .cell { margin-top: .55rem; }
-  .cell::before { content: attr(data-label); display: block; font-family: "Be Vietnam Pro", Inter, sans-serif; font-size: .64rem; text-transform: uppercase; letter-spacing: .1em; font-weight: 800; color: var(--muted); margin-bottom: .15rem; }
+  .cell::before { content: attr(data-short); display: inline-block; font-family: "Be Vietnam Pro", Inter, sans-serif; font-size: .6rem; text-transform: uppercase; letter-spacing: .08em; font-weight: 800; line-height: 1; padding: .26rem .5rem .22rem; border-radius: 999px; margin-bottom: .3rem; }
+  .segments .segment:first-child .cell::before { content: attr(data-label); }
+  /* Chỉ Việt shows a single version, so a name chip on every segment is pure
+     repetition — the mode name already says what is on screen. */
+  .reader-shell[data-reader-mode="vi"] .cell::before,
+  .reader-shell[data-reader-mode="vi"] .segment:first-child .cell::before { content: none; }
   .reader-shell[data-reader-mode="compare"] .cell { display: none; }
   .reader-shell[data-reader-mode="compare"] .cell.is-shown,
   .reader-shell[data-reader-mode="compare"]:not([data-focus]) .cell { display: block; }
@@ -206,7 +219,7 @@ h2 { letter-spacing: -.025em; }
   .column-tabs { width: 100%; }
   .column-tab { flex: 1 1 auto; }
   .reader-shell[data-open-columns][data-reader-mode] .segment { grid-template-columns: 1fr; gap: .4rem; }
-  .cell::before { font-size: .62rem; letter-spacing: .08em; }
+  .cell::before { font-size: .56rem; padding: .22rem .4rem .18rem; }
   .segment-id, .cell, .comment { grid-column: 1 !important; }
   .segment-id { margin-bottom: .15rem; }
   .comment { margin-left: 0; }
