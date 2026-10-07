@@ -90,7 +90,7 @@ Trang bài kinh hiện ra **bốn bản** đối chiếu nhau, theo thứ tự �
 | Pāli | **nguồn chuẩn** |
 | English | tham khảo (Sujato, chỗ trống thì bù bằng bản lấp của dự án) |
 | Việt hiện hành | tham khảo (HT. Thích Minh Châu) |
-| Việt dự án | **bản canonical** — bản đang biên tập |
+| Việt 2026 | **bản canonical** — bản đang biên tập |
 
 Quy tắc khi sửa reader:
 
@@ -107,7 +107,7 @@ Quy tắc khi sửa reader:
   khác với bản vắng mặt cả bài.
 - Không giấu bản nào khỏi tìm kiếm; thay vào đó cho phép lọc theo bản và ghi rõ kết
   quả tìm được ở bản nào.
-- Sách/EPUB chỉ lấy Pāli + Việt dự án; English và Việt tham khảo không được rò vào bản
+- Sách/EPUB chỉ lấy Pāli + Việt 2026; English và Việt tham khảo không được rò vào bản
   phát hành.
 
 ## Lớp `english-project`: bản dịch English của chính dự án

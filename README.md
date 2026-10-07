@@ -200,7 +200,7 @@ Trang bài kinh hiện bốn bản cạnh nhau, theo từng segment:
 | Pāli | **nguồn chuẩn** quyết định nghĩa |
 | English | tham khảo (Sujato; chỗ Sujato im lặng thì bù bằng bản lấp của dự án, có gắn nhãn riêng) |
 | Việt hiện hành | tham khảo (HT. Thích Minh Châu) |
-| Việt dự án | **bản canonical** của dự án |
+| Việt 2026 | **bản canonical** của dự án |
 
 Một bản vắng mặt nói rõ lý do thay vì để trống: bản chụp đã pin không có bản dịch cho bài
 này (giới hạn của upstream), hay bài này có nhưng tệp chưa tải về cache (trạng thái
@@ -245,7 +245,7 @@ Không copy Pāli vào file dịch. Mọi alignment dùng segment ID.
 - `source/upstream-manifest.json`: danh sách file + git hash của từng edition tại commit đã pin.
 - `source/tooling.yaml`: khai báo duy nhất các công cụ hỗ trợ (mọi trang đọc từ đây).
 - `src/lib/canon/`: lớp domain compose dữ liệu.
-  - `document.ts` — dựng bốn bản để đối chiếu (Pāli · English · Việt hiện hành · Việt dự án).
+  - `document.ts` — dựng bốn bản để đối chiếu (Pāli · English · Việt hiện hành · Việt 2026).
   - `manifest.ts` — đọc manifest đã pin để phân biệt "bản chụp không có bản dịch" với "chưa tải về cache".
 - `src/pages/sutta/`: reader tĩnh, bốn bản theo segment.
 - `books/` + `pandoc/`: publication manifests và defaults.

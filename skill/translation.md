@@ -172,7 +172,7 @@ Vì vậy:
 - xác định bản English SuttaCentral sẽ tham khảo và dịch giả/source của nó khi có;
 - xác định đúng bản Thích Minh Châu dùng để đối chiếu, hoặc ghi rõ là không có.
 
-Cách đọc một bài qua toàn bộ store (Pāli + mọi tầng English + Việt hiện hành + Việt dự án):
+Cách đọc một bài qua toàn bộ store (Pāli + mọi tầng English + Việt hiện hành + Việt 2026):
 
 ```bash
 npm run store -- mn118

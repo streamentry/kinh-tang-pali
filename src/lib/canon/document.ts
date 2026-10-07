@@ -286,7 +286,7 @@ export function composeDocument(collection: CollectionCode, uid: string): CanonD
         note: 'HT. Thích Minh Châu.',
       }),
       summarise('vi', orderedIds, columns.vi, {
-        title: 'Việt dự án',
+        title: 'Việt 2026',
         standing: 'project',
         role: 'Bản dịch canonical của dự án. Đây là bản đang biên tập.',
         status: (meta as EditorialMeta | null)?.status ?? 'not-started',

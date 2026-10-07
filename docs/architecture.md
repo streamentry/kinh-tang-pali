@@ -489,7 +489,7 @@ URL dùng exact UID. Không zero-pad chỉ để Finder sort đẹp.
 ### 6.3. Pāli–Việt reader
 
 Bốn bản, căn theo segment: Pāli (nguồn chuẩn) · English (tham khảo) · Việt hiện hành
-(tham khảo) · Việt dự án (canonical).
+(tham khảo) · Việt 2026 (canonical).
 
 Ba mode:
 
@@ -497,7 +497,7 @@ Ba mode:
   nút tập trung. Cột không có nội dung nào thì thu gọn thay vì chiếm chỗ, và số cột còn
   lại quyết định ở build time.
 - **Đối chiếu**: một segment mỗi lần, bốn bản xếp dọc — dùng khi tra một đoạn khó.
-- **Chỉ Việt**: chỉ Việt dự án, một cột, để đọc; Pāli còn trong markup nhưng không hiển thị.
+- **Chỉ Việt**: chỉ Việt 2026, một cột, để đọc; Pāli còn trong markup nhưng không hiển thị.
 
 Không làm “một khối Pāli + một khối Việt”. Căn chỉnh luôn ở segment level.
 
@@ -510,7 +510,7 @@ Pagefind index HTML sau Astro build.
 
 Index:
 
-- cả **bốn bản** của mỗi bài (Pāli, English, Việt hiện hành, Việt dự án) — không bản nào
+- cả **bốn bản** của mỗi bài (Pāli, English, Việt hiện hành, Việt 2026) — không bản nào
   bị giấu khỏi tìm kiếm;
 - Vietnamese/Pāli title;
 - UID;

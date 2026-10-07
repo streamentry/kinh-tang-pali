@@ -3,7 +3,7 @@
  * The four-version comparison reader.
  *
  * One segment row, four columns: Pāli (authority), English (reference), Việt hiện
- * hành (reference), Việt dự án (canonical). Every column header states what that
+ * hành (reference), Việt 2026 (canonical). Every column header states what that
  * version is, because the whole risk of a view like this is a reader mistaking a
  * reference for the authority.
  *
@@ -196,7 +196,7 @@ const editable = shown.find((layer) => layer.id === 'vi');
 
   {editable && (
     <p class="editing-note" data-pagefind-ignore>
-      Bản đang biên tập: <strong>Việt dự án</strong>
+      Bản đang biên tập: <strong>Việt 2026</strong>
       {editable.status && editable.status !== 'not-started' && <> · trạng thái <strong>{editable.status}</strong></>}
       {editable.reason === 'not-started' && <> · chưa bắt đầu</>}
     </p>
@@ -277,9 +277,9 @@ const editable = shown.find((layer) => layer.id === 'vi');
               class:list={['cell', 'cell-vi', isUntranslated && 'is-untranslated']}
               lang="vi"
               data-column="vi"
-              data-label="Việt dự án · bản canonical"
-              data-short="Việt dự án"
-              data-pagefind-filter="version:Việt dự án"
+              data-label="Việt 2026 · bản canonical"
+              data-short="Việt 2026"
+              data-pagefind-filter="version:Việt 2026"
             >
               {segment.vi || (
                 <span class="missing" data-pagefind-ignore>Chưa dịch</span>
