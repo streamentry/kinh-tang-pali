@@ -1060,6 +1060,11 @@ tôi **chép** sang `/Volumes/SSD/_wtX-coord` rồi commit ở đó. Cần ngư�
 
 ## CẬP NHẬT 2026-10-07 — wave 16 lan 2 (f205 + f206 + f207) hoàn tất: 11 bài / 555 khoá, 13 cổng xanh cục bộ
 
+- **PR #311 đã squash-merge** tại `47e2d911` (nhánh `vi-wave16-lane2`, commit `f1c9b933`, base
+  `5896e17c`): CI hai lượt (push + pull_request) cùng rollup **SUCCESS**, tree của merge commit
+  bằng tree của PR head. **Đo lại tại `47e2d911` khớp đúng**: catalogue 6137 · đủ 5468 · thiếu
+  669 bài / 122.123 khoá · 0 bài không đo được.
+
 - **Đo lại bằng `vimeas`/`engq` sau khi ghi đủ 3 lát**: catalogue **6137** · đủ **5468** (+11 so
   với 5457 tại `5896e17c`) · thiếu **669** bài / **122.123** khoá (−555 = 224 f205 + 104 f206 +
   227 f207 — khớp đúng kế hoạch) · **0** bài không đo được · bất biến `đủ+thiếu=catalogue` ✓.
