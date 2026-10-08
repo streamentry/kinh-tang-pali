@@ -67,6 +67,14 @@ export interface ExternalReference {
    * be read as a claim about texts nobody looked at.
    */
   verifiedUids?: Record<string, string[]>;
+  /**
+   * Set when the text itself is held in a pinned checkout (`legacyHtml` in the lock) and
+   * shown on the sutta page, rather than only linked. It is still a whole-text reference:
+   * no segment alignment, no column, no coverage.
+   */
+  localCopy?: 'legacyHtml';
+  /** The author line(s) the source's own files carry, so a file cannot be credited to someone else. */
+  fileAuthors?: string[];
   collections: string[];
   mappedRange?: string;
   verified?: {
@@ -125,18 +133,43 @@ function mnemonicNumber(uid: string): string | null {
  * opens "Kinh X" and finds "Kinh Y" has no way to know, and the failure is silent. Returning
  * null is what lets the reader say "chưa đối chiếu ánh xạ" honestly.
  */
-export function pageUrlFor(reference: ExternalReference, uid: string): string | null {
-  const collection = uid.match(/^([a-z]+)/)?.[1] ?? '';
+export function pageUrlFor(
+  reference: ExternalReference,
+  uid: string,
+  collectionCode?: string,
+  sourceKey?: string,
+): string | null {
+  // A Khuddaka uid such as `thag1.1` starts with its book, not with `kn`, so callers that know
+  // the collection pass it; the prefix is only a fallback for the Nikāyas named in the uid.
+  const collection = collectionCode ?? uid.match(/^([a-z]+)/)?.[1] ?? '';
   if (!reference.collections.includes(collection)) return null;
   if (reference.urlByUid) return reference.urlByUid[uid] ?? null;
   if (reference.verifiedUids) {
-    // The uid itself is the address for sources keyed by SuttaCentral's own ids.
-    return reference.verifiedUids[collection]?.includes(uid)
-      ? reference.urlTemplate.replace('{uid}', uid)
-      : null;
+    const key = legacyKeyFor(reference, uid, collection, sourceKey);
+    return key ? reference.urlTemplate.replace('{uid}', key) : null;
   }
   const number = mnemonicNumber(uid);
   return number === null ? null : reference.urlTemplate.replace('{N}', number);
+}
+
+/**
+ * The key this reference files a text under: the uid itself, or the ranged file that holds it.
+ *
+ * SuttaCentral files `an1.1`–`an1.10` as one text, `an1.1-10`, and that is also the pinned
+ * Pāli file those ten texts are read from. A page for `an1.5` therefore resolves to the ranged
+ * text, and says so, rather than showing nothing or guessing which paragraph is its own.
+ */
+export function legacyKeyFor(
+  reference: ExternalReference,
+  uid: string,
+  collection: string,
+  sourceKey?: string,
+): string | null {
+  const verified = reference.verifiedUids?.[collection];
+  if (!verified) return null;
+  if (verified.includes(uid)) return uid;
+  if (sourceKey && sourceKey !== uid && verified.includes(sourceKey)) return sourceKey;
+  return null;
 }
 
 /**

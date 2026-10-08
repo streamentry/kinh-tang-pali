@@ -7,8 +7,8 @@
     "node": ">=22.12.0"
   },
   "scripts": {
-    "dev": "npm run source:sync:used && astro dev",
-    "build": "npm run source:sync:used && npm run validate && astro build && pagefind --site dist",
+    "dev": "npm run source:sync:used && npm run legacy:sync && astro dev",
+    "build": "npm run source:sync:used && npm run legacy:sync && npm run validate && astro build && pagefind --site dist",
     "preview": "astro preview",
     "check": "astro check",
     "test": "node --import tsx --test tests/**/*.test.ts",
@@ -17,6 +17,8 @@
     "source:sync:used": "tsx scripts/sync-source.ts --used",
     "source:sync:all": "tsx scripts/sync-source.ts --all",
     "source:sync:manifest": "tsx scripts/sync-source.ts --manifest",
+    "legacy:sync": "tsx scripts/sync-legacy-vi.ts",
+    "legacy:check": "tsx scripts/sync-legacy-vi.ts --check",
     "source:sync:mn": "tsx scripts/sync-source.ts --collection mn",
     "manifest:fetch": "tsx scripts/fetch-upstream-manifest.ts",
     "manifest:check": "tsx scripts/fetch-upstream-manifest.ts --check",

@@ -149,6 +149,12 @@ export interface CanonLayerSummary {
 export interface CanonDocument {
   uid: string;
   collection: CollectionCode;
+  /**
+   * The pinned Pāli file this text is read from, without directory or suffix. It equals `uid`
+   * except where the Pāli is one ranged file for several texts (`an1.1` is read from
+   * `an1.1-10`), which is also how SuttaCentral files the matching legacy Vietnamese.
+   */
+  sourceKey: string;
   canonicalOrder: number;
   paliTitle?: string;
   viTitle: string;

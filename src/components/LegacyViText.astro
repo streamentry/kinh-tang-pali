@@ -1,0 +1,57 @@
+---
+/**
+ * A whole Vietnamese text from SuttaCentral's legacy HTML, shown as read — not as a column.
+ *
+ * It sits inside the "Tra cứu toàn văn" panel, under the credit and the caveat that state it
+ * is continuous prose with no segment alignment. Blocks are rendered as text nodes: nothing
+ * from the source's markup reaches the page. The footer is printed verbatim as the text's
+ * provenance, because who translated it and under what permission is a fact about this
+ * file and is stated by the file.
+ */
+import type { LegacyViText } from '../lib/canon/legacy-vi';
+
+interface Props { text: LegacyViText; pageUid: string }
+const { text, pageUid } = Astro.props;
+
+/** True when SuttaCentral files this page's text inside a larger ranged text. */
+const ranged = text.uid !== pageUid;
+
+const blockCount = text.articles.reduce((total, article) => total + article.blocks.length, 0);
+const multiple = text.articles.length > 1;
+---
+
+{blockCount === 0 ? (
+  <p class="legacy-missing">
+    Tệp bản Việt của {text.uid} trên SuttaCentral chỉ có tiêu đề và chân trang, không có nội dung văn bản.
+  </p>
+) : (
+<details class="legacy-text" open lang="vi">
+  <summary>Đọc toàn bài <span class="legacy-count">· {blockCount} khối văn bản</span></summary>
+  {ranged && (
+    <p class="legacy-range-note">
+      SuttaCentral gộp <strong>{pageUid}</strong> vào một bài chung <strong>{text.uid}</strong>, nên dưới
+      đây là cả bài chung; phần của {pageUid} không được tách riêng.
+    </p>
+  )}
+  {text.articles.map((article) => (
+    <section class="legacy-article">
+      {multiple && article.title && <h4 class="legacy-article-title">{article.title}</h4>}
+      {article.blocks.map((block) => (
+        block.kind === 'verse' ? (
+          <blockquote class="legacy-verse">{block.text}</blockquote>
+        ) : block.kind === 'heading' ? (
+          <h4 class="legacy-heading">{block.text}</h4>
+        ) : (
+          <p class:list={['legacy-p', block.kind === 'colophon' && 'is-colophon']}>{block.text}</p>
+        )
+      ))}
+    </section>
+  ))}
+  {text.footer.length > 0 && (
+    <div class="legacy-provenance">
+      <h4>Nguồn của bản này, nguyên văn chân trang của tệp</h4>
+      {text.footer.map((line) => <p>{line}</p>)}
+    </div>
+  )}
+</details>
+)}

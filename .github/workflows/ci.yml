@@ -41,6 +41,12 @@ jobs:
         # effect of what has been translated, so no future text can silently un-skip a
         # whole-catalogue test.
         run: npm run source:sync:manifest
+      - name: Sync pinned legacy Vietnamese HTML
+        # The whole-text Vietnamese shown on sutta pages (SuttaCentral `sc-data`, pinned by
+        # commit under `legacyHtml` in the lock). A sparse git checkout, so git verifies every
+        # file; the script also fails on a wrong HEAD, a wrong file count or a modified file.
+        # Without it the tests that read these files would skip rather than run.
+        run: npm run legacy:sync
       - name: Pinned snapshot manifest is current
         # Fails if the lock moved without the manifest being re-fetched, which would
         # otherwise let the content checks verify against a stale file list.
