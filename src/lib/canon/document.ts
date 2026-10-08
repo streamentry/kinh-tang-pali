@@ -209,6 +209,7 @@ export function composeDocument(collection: CollectionCode, uid: string): CanonD
   ));
 
   const sourcePath = sourcePathFor(collection, uid, item.sourcePath);
+  const sourceKey = sourcePath ? path.basename(sourcePath).replace(/_root-pli-ms\.json$/, '') : uid;
   const paliSource = sourcePath ? loadSegmentMap(upstreamFile(sourcePath)) : {};
   const pali = segmentMapForUid(paliSource, uid);
 
@@ -256,6 +257,7 @@ export function composeDocument(collection: CollectionCode, uid: string): CanonD
   return {
     uid,
     collection,
+    sourceKey,
     canonicalOrder: item.order,
     paliTitle,
     viTitle: (meta as EditorialMeta | null)?.translationTitle || `${uid.toUpperCase()}`,

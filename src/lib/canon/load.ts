@@ -141,6 +141,19 @@ export interface ProjectLicense {
   note?: string;
 }
 
+/** Whole-text Vietnamese HTML pinned from a second SuttaCentral repository. Not a store layer. */
+export interface LegacyHtmlPin {
+  repo: string;
+  ref: string;
+  commit: string;
+  pinnedAt: string;
+  /** Sub-path inside the repository that is checked out; the only part the project reads. */
+  path: string;
+  /** How many `.html` files the pinned commit holds under `path`, so a partial checkout is detectable. */
+  fileCount: number;
+  note: string;
+}
+
 export interface SourceLock {
   repo: string;
   ref: string;
@@ -149,6 +162,7 @@ export interface SourceLock {
   paths: string[];
   referenceEditions: ReferenceEdition[];
   pinnedAt: string;
+  legacyHtml: LegacyHtmlPin;
   /**
    * What this project produced, and under which terms.
    *

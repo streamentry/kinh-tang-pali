@@ -26,6 +26,7 @@ import {
   referenceById,
 } from '../../src/lib/canon/external';
 import { storeLayer, storeLayers } from '../../src/lib/canon/layers';
+import { loadLock, sourcePathFor } from '../../src/lib/canon/load';
 import { composeDocument } from '../../src/lib/canon/document';
 
 const references = externalReferences();
@@ -254,51 +255,135 @@ test('reviewed 2016 Vietnamese references resolve only the two verified texts', 
   assert.match(creditForReference(ref), /bản sao chép bên thứ ba/);
 });
 
-test('the SuttaCentral Vietnamese reference is a whole-text reference with no reviser asserted', () => {
-  // The reviser named on the budsas copy of MN is not transferred here: the SuttaCentral page
-  // was not read text by text, so naming anyone as reviser would be a guess.
-  const sc = referenceById('suttacentral-vi-minh-chau');
-  assert.equal(sc.kind, 'whole-text-reference');
-  assert.equal(sc.alignment, 'none');
-  assert.equal(sc.attribution.translator, 'Hòa thượng Thích Minh Châu');
-  assert.equal(sc.attribution.reviser, undefined, 'no reviser is asserted without reading the text');
-  assert.equal(sc.attribution.distributorIsPublisher, false);
-  assert.equal(sc.licence.spdx, 'NOASSERTION');
-  assert.equal(sc.licence.statementFrom, null);
-  const credit = creditForReference(sc);
-  assert.doesNotMatch(credit, /hiệu đính/, 'the credit must not invent a reviser');
-  assert.match(credit, /bản sao chép bên thứ ba/);
-  assert.match(credit, /Không theo segment/);
-  assert.ok(
-    !/CC0|public domain|phạm vi công cộng/i.test(credit),
-    `the credit must not imply free reuse: ${credit}`,
-  );
+const SC_IDS = ['suttacentral-vi-minh-chau-binh-anson', 'suttacentral-vi-minh-chau', 'suttacentral-vi-indacanda'];
+const scReferences = SC_IDS.map((id) => referenceById(id));
+
+test('the SuttaCentral Vietnamese texts are whole-text references, credited to who made each one', () => {
+  for (const reference of scReferences) {
+    assert.equal(reference.kind, 'whole-text-reference', `${reference.id}: is a reference`);
+    assert.equal(reference.alignment, 'none', `${reference.id}: claims no segment alignment`);
+    assert.equal(reference.localCopy, 'legacyHtml', `${reference.id}: held in the pinned checkout`);
+    assert.equal(reference.licence.spdx, 'NOASSERTION', `${reference.id}: no licence is asserted`);
+    assert.equal(reference.licence.statementFrom, null);
+    assert.equal(reference.attribution.distributorIsPublisher, false);
+    const credit = creditForReference(reference);
+    assert.match(credit, /bản sao chép bên thứ ba/);
+    assert.match(credit, /Không theo segment/);
+    assert.ok(!/CC0|public domain|phạm vi công cộng/i.test(credit), `${reference.id}: credit implies free reuse`);
+  }
+  const [revised, chau, indacanda] = scReferences;
+  // Majjhima and Dīgha files name Bình Anson as reviser; Saṁyutta and Aṅguttara files do not.
+  assert.equal(revised.attribution.translator, 'Hòa thượng Thích Minh Châu');
+  assert.equal(revised.attribution.reviser, 'Bình Anson');
+  assert.match(creditForReference(revised), /hiệu đính Bình Anson/);
+  assert.equal(chau.attribution.translator, 'Hòa thượng Thích Minh Châu');
+  assert.equal(chau.attribution.reviser, undefined, 'no reviser is named where the files name none');
+  assert.doesNotMatch(creditForReference(chau), /hiệu đính/);
+  // Most of Khuddaka is Bhikkhu Indacanda's. Crediting it to Thích Minh Châu would hand him a
+  // translation he did not make; the files themselves say otherwise.
+  assert.equal(indacanda.attribution.translator, 'Bhikkhu Indacanda');
+  assert.doesNotMatch(creditForReference(indacanda), /Minh Châu/);
+  assert.match(indacanda.urlTemplate, /\/vi\/indacanda$/, 'SuttaCentral files these under the author id indacanda');
+  assert.match(chau.urlTemplate, /\/vi\/minh_chau$/);
+  assert.match(revised.urlTemplate, /\/vi\/minh_chau$/);
 });
 
-test('a SuttaCentral link is given only for a uid that was verified against the source', () => {
-  const sc = referenceById('suttacentral-vi-minh-chau');
-  assert.equal(pageUrlFor(sc, 'mn1'), 'https://suttacentral.net/mn1/vi/minh_chau');
-  assert.equal(pageUrlFor(sc, 'dn34'), 'https://suttacentral.net/dn34/vi/minh_chau');
-  assert.equal(pageUrlFor(sc, 'sn1.1'), 'https://suttacentral.net/sn1.1/vi/minh_chau');
+test('every legacy text belongs to exactly one SuttaCentral reference, and the pin counts them all', () => {
+  const owner = new Map<string, string>();
+  for (const reference of scReferences) {
+    for (const uids of Object.values(reference.verifiedUids ?? {})) {
+      for (const uid of uids) {
+        assert.equal(owner.has(uid), false, `${uid} is claimed by both ${owner.get(uid)} and ${reference.id}`);
+        owner.set(uid, reference.id);
+      }
+    }
+    const listed = Object.values(reference.verifiedUids ?? {}).reduce((n, uids) => n + uids.length, 0);
+    assert.equal(reference.verified?.matched, listed, `${reference.id}: matched count equals the list`);
+    assert.equal(reference.verified?.checked, listed, `${reference.id}: checked count equals the list`);
+  }
+  assert.equal(owner.size, loadLock().legacyHtml.fileCount, 'the lists together are exactly the files the pin records');
+});
+
+test('every verified SuttaCentral uid is a catalogued text or the pinned Pāli file one is read from', () => {
+  for (const reference of scReferences) {
+    for (const [collection, uids] of Object.entries(reference.verifiedUids ?? {})) {
+      assert.ok(reference.collections.includes(collection), `${reference.id}: ${collection} is declared`);
+      const catalog = JSON.parse(readFileSync(`content/catalog/sutta/${collection}.json`, 'utf8')) as {
+        texts: Array<{ uid: string; sourcePath?: string }>;
+      };
+      // A ranged file such as `an1.1-10` is not a catalogued uid; it is the Pāli file `an1.1`
+      // to `an1.10` are read from, and SuttaCentral files their Vietnamese under the same name.
+      const known = new Set<string>();
+      for (const item of catalog.texts) {
+        known.add(item.uid);
+        const sourcePath = sourcePathFor(collection as 'mn', item.uid, item.sourcePath) ?? '';
+        known.add(sourcePath.split('/').pop()?.replace(/_root-pli-ms\.json$/, '') ?? item.uid);
+      }
+      const missing = uids.filter((uid) => !known.has(uid));
+      assert.deepEqual(missing, [], `${reference.id}: uids with no pinned Pāli in ${collection}`);
+    }
+  }
+});
+
+test('a SuttaCentral link is given only for the reference that owns the uid', () => {
+  const [revised, chau, indacanda] = scReferences;
+  assert.equal(pageUrlFor(revised, 'mn1', 'mn'), 'https://suttacentral.net/mn1/vi/minh_chau');
+  assert.equal(pageUrlFor(revised, 'dn34', 'dn'), 'https://suttacentral.net/dn34/vi/minh_chau');
+  assert.equal(pageUrlFor(revised, 'snp3.7', 'kn'), 'https://suttacentral.net/snp3.7/vi/minh_chau');
+  assert.equal(pageUrlFor(chau, 'sn1.1', 'sn'), 'https://suttacentral.net/sn1.1/vi/minh_chau');
   // A range uid keeps its range: SuttaCentral lists an1.1-10 as one text.
-  assert.equal(pageUrlFor(sc, 'an1.1-10'), 'https://suttacentral.net/an1.1-10/vi/minh_chau');
-  // Pāli is pinned for these, but SuttaCentral has no Vietnamese for them. No link, not a
-  // neighbour's link.
-  assert.equal(pageUrlFor(sc, 'an1.1'), null, 'an1.1 has no Vietnamese text on SuttaCentral');
-  assert.equal(pageUrlFor(sc, 'sn12.104-114'), null, 'sn12.104-114 has no Vietnamese text on SuttaCentral');
-  // Outside the declared collections entirely.
-  assert.equal(pageUrlFor(sc, 'kn1.1'), null);
-  assert.equal(pageUrlFor(sc, 'dhp1'), null);
+  assert.equal(pageUrlFor(chau, 'an1.1-10', 'an'), 'https://suttacentral.net/an1.1-10/vi/minh_chau');
+  assert.equal(pageUrlFor(chau, 'kp1', 'kn'), 'https://suttacentral.net/kp1/vi/minh_chau');
+  assert.equal(pageUrlFor(indacanda, 'thag1.1', 'kn'), 'https://suttacentral.net/thag1.1/vi/indacanda');
+  // SuttaCentral files an1.1–an1.10 as one text. A page for an1.5 resolves to that ranged text
+  // through the Pāli file it is read from — and only through it.
+  assert.equal(pageUrlFor(chau, 'an1.5', 'an', 'an1.1-10'), 'https://suttacentral.net/an1.1-10/vi/minh_chau');
+  assert.equal(pageUrlFor(chau, 'an1.5', 'an'), null, 'an1.5 is not itself a verified uid');
+  // Pāli is pinned for these, but SuttaCentral has no Vietnamese for them: no link.
+  assert.equal(pageUrlFor(chau, 'sn3.15', 'sn', 'sn3.15'), null, 'sn3.15 has no Vietnamese text');
+  assert.equal(pageUrlFor(chau, 'an9.113-432', 'an', 'an9.113-432'), null, 'an9.113-432 has no Vietnamese text');
+  // A Khuddaka text is not credited to the wrong translator through the other reference.
+  assert.equal(pageUrlFor(indacanda, 'kp1', 'kn'), null, 'kp1 is Thích Minh Châu\'s, not Indacanda\'s');
+  assert.equal(pageUrlFor(chau, 'thag1.1', 'kn'), null, 'thag1.1 is Indacanda\'s, not Thích Minh Châu\'s');
+  // Outside the declared collections.
+  assert.equal(pageUrlFor(revised, 'dhp1-20', 'kn'), null);
+  assert.equal(pageUrlFor(chau, 'mn1', 'mn'), null);
 });
 
-test('the SuttaCentral mapping counts match what was checked', () => {
-  const sc = referenceById('suttacentral-vi-minh-chau');
-  assert.ok(sc.verified, 'the mapping records how it was established');
-  const listed = Object.values(sc.verifiedUids ?? {}).reduce((n, uids) => n + uids.length, 0);
-  assert.equal(listed, sc.verified.matched, 'the listed uids are exactly the matched count');
-  assert.equal(sc.verified.checked, 4225, 'the checked count is every pinned Pāli uid in the four collections');
-  assert.equal(sc.verified.matched, 3386);
-  assert.deepEqual(Object.keys(sc.verifiedUids ?? {}).sort(), ['an', 'dn', 'mn', 'sn']);
-  assert.equal(sc.verifiedUids?.mn.length, 152);
-  assert.equal(sc.verifiedUids?.dn.length, 34);
+test('the reader shows legacy text as text, from the declaration, and never as markup', () => {
+  const reader = readFileSync('src/components/SuttaReader.astro', 'utf8');
+  const component = readFileSync('src/components/LegacyViText.astro', 'utf8');
+  assert.match(reader, /LegacyViText/);
+  // The empty Việt hiện hành card points down at the whole text instead of only saying "none".
+  assert.match(reader, /tra-cuu-toan-van/);
+  // A source with a checked uid list is listed only on the texts it holds.
+  assert.match(reader, /entry\.url \|\| !\(entry\.reference\.verifiedUids \|\| entry\.reference\.urlByUid\)/);
+  assert.match(reader, /localCopy/);
+  for (const [name, source] of [['SuttaReader.astro', reader], ['LegacyViText.astro', component]] as const) {
+    assert.ok(!/set:html|innerHTML/.test(source), `${name} must not inject third-party HTML`);
+  }
+  // Credit comes from the declaration and from the file's own footer, not from typed names.
+  assert.ok(!/Indacanda|Bình Anson/.test(component), 'LegacyViText.astro names no one; the footer does');
+});
+
+test('the number of reader pages that show a legacy Vietnamese text is counted, not assumed', () => {
+  // Every catalogued text, resolved the way the reader resolves it: by uid, or by the ranged
+  // Pāli file it is read from. The totals are what the site actually shows.
+  const shown: Record<string, number> = {};
+  const total: Record<string, number> = {};
+  for (const collection of ['mn', 'dn', 'sn', 'an', 'kn'] as const) {
+    const catalog = JSON.parse(readFileSync(`content/catalog/sutta/${collection}.json`, 'utf8')) as {
+      texts: Array<{ uid: string; sourcePath?: string }>;
+    };
+    for (const item of catalog.texts) {
+      total[collection] = (total[collection] ?? 0) + 1;
+      const sourcePath = sourcePathFor(collection, item.uid, item.sourcePath) ?? '';
+      const sourceKey = sourcePath.split('/').pop()?.replace(/_root-pli-ms\.json$/, '') ?? item.uid;
+      const owners = scReferences.filter((reference) => pageUrlFor(reference, item.uid, collection, sourceKey));
+      assert.ok(owners.length <= 1, `${item.uid} resolves through ${owners.map((o) => o.id).join(' and ')}`);
+      if (owners.length === 1) shown[collection] = (shown[collection] ?? 0) + 1;
+    }
+  }
+  assert.deepEqual(shown, { mn: 152, dn: 34, sn: 1805, an: 1768, kn: 1429 });
+  assert.deepEqual(total, { mn: 152, dn: 34, sn: 1819, an: 1781, kn: 2351 });
 });
