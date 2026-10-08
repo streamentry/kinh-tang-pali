@@ -20,13 +20,26 @@ import { LEGACY_CACHE_DIR } from '../src/lib/canon/legacy-vi';
 const pin = loadLock().legacyHtml;
 const checkOnly = process.argv.includes('--check');
 
+/**
+ * The environment git runs with. Every `GIT_*` variable is dropped: run from inside a hook,
+ * `GIT_DIR` or `GIT_INDEX_FILE` would point these commands at the project repository instead
+ * of the cache. Global and system config are ignored too, so a user's hooks or aliases never
+ * run against the cache.
+ */
+function gitEnv(): NodeJS.ProcessEnv {
+  const env: NodeJS.ProcessEnv = {};
+  for (const [key, value] of Object.entries(process.env)) {
+    if (!key.startsWith('GIT_')) env[key] = value;
+  }
+  return { ...env, GIT_TERMINAL_PROMPT: '0', GIT_CONFIG_GLOBAL: '/dev/null', GIT_CONFIG_NOSYSTEM: '1' };
+}
+
 function git(args: string[]): string {
-  return execFileSync('git', args, {
+  return execFileSync('git', ['-c', 'core.hooksPath=/dev/null', ...args], {
     cwd: LEGACY_CACHE_DIR,
     encoding: 'utf8',
     stdio: ['ignore', 'pipe', 'pipe'],
-    // The cache is ours alone; a user's global hooks or aliases have no business in it.
-    env: { ...process.env, GIT_TERMINAL_PROMPT: '0' },
+    env: gitEnv(),
   }).trim();
 }
 
@@ -70,6 +83,8 @@ function fetchPin(): void {
     git(['init', '-q']);
     git(['remote', 'add', 'origin', pin.repo]);
   }
+  // The lock may name a different repository than the one this cache was first made from.
+  git(['remote', 'set-url', 'origin', pin.repo]);
   git(['config', 'core.sparseCheckout', 'true']);
   // sc-data is large and the project reads one sub-tree. A blob-less fetch brings the commit
   // and tree objects, and the checkout then downloads only the blobs the sparse path names.

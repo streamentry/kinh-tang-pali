@@ -20,6 +20,11 @@ const blockCount = text.articles.reduce((total, article) => total + article.bloc
 const multiple = text.articles.length > 1;
 ---
 
+{blockCount === 0 ? (
+  <p class="legacy-missing">
+    Tệp bản Việt của {text.uid} trên SuttaCentral chỉ có tiêu đề và chân trang, không có nội dung văn bản.
+  </p>
+) : (
 <details class="legacy-text" open lang="vi">
   <summary>Đọc toàn bài <span class="legacy-count">· {blockCount} khối văn bản</span></summary>
   {ranged && (
@@ -49,3 +54,4 @@ const multiple = text.articles.length > 1;
     </div>
   )}
 </details>
+)}

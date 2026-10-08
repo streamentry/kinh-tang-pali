@@ -86,6 +86,37 @@ test('script and style never reach the output', () => {
   assert.deepEqual(article.blocks, [{ kind: 'paragraph', text: 'Văn bản.' }]);
 });
 
+test('text outside any block is kept, not dropped', () => {
+  const html = `<body><article id='sn1.13'><header><h1>T</h1></header>
+<span class='add'>(Tạp 36.14, Ðại 2,263b)</span>
+<p>Đoạn.</p></article></body>`;
+  const [article] = parseLegacyHtml('sn1.13', html).articles;
+  assert.deepEqual(article.blocks.map((block) => block.text), ['(Tạp 36.14, Ðại 2,263b)', 'Đoạn.']);
+});
+
+test('stanzas in a verse are kept apart by a blank line', () => {
+  const html = `<body><article id='x'><header><h1>T</h1></header>
+<blockquote class='gatha'><p>Dòng một,<br>dòng hai.</p><p><span class='speaker'>(Thế Tôn):</span> Dòng ba.</p></blockquote>
+</article></body>`;
+  const [verse] = parseLegacyHtml('x', html).articles[0].blocks;
+  assert.equal(verse.text, 'Dòng một,\ndòng hai.\n\n(Thế Tôn): Dòng ba.');
+});
+
+test('an edition marker that never closes does not swallow what follows', () => {
+  const html = `<body><article id='x'><header><h1>T</h1></header>
+<p>Một <a class='ref sc' id='sc1'>SC 1</p><p>Hai.</p></article></body>`;
+  const [article] = parseLegacyHtml('x', html).articles;
+  assert.deepEqual(article.blocks.map((block) => block.text), ['Một', 'Hai.']);
+});
+
+test('every author line is collected, and an impossible entity is left as written', () => {
+  const html = `<body><article id='x'><header><h1>T</h1></header><p>&#99999999; &#x41;</p>
+<footer><p><span class='author'>A</span> và <span class='author'>B</span></p></footer></article></body>`;
+  const text = parseLegacyHtml('x', html);
+  assert.deepEqual(text.authors, ['A', 'B']);
+  assert.equal(text.articles[0].blocks[0].text, '&#99999999; A');
+});
+
 const synced = legacyViSynced();
 const skip = synced ? false : 'run `npm run legacy:sync` to fetch the pinned checkout';
 
@@ -101,10 +132,12 @@ test('every declared uid has a file, and the file names the author the declarati
       for (const uid of uids) {
         const text = loadLegacyVi(uid);
         assert.ok(text, `${reference.id}: ${uid} has no file in the checkout`);
-        assert.ok(
-          text.author && allowed.has(text.author),
-          `${reference.id}: ${uid} names '${text.author}', not one of ${[...allowed].join(' | ')}`,
-        );
+        // Every author line counts, not only the last: a co-translated file must not pass
+        // because the one allowed name happens to come last.
+        assert.ok(text.authors.length > 0, `${reference.id}: ${uid} names no author`);
+        for (const author of text.authors) {
+          assert.ok(allowed.has(author), `${reference.id}: ${uid} names '${author}', not one of ${[...allowed].join(' | ')}`);
+        }
         assert.ok(text.footer.length > 0, `${uid}: the footer carrying the credit is present`);
       }
     }
@@ -119,6 +152,14 @@ test('real texts extract to the structure the file has', { skip }, () => {
   const sn12 = loadLegacyVi('sn1.2')!;
   assert.deepEqual(sn12.articles[0].blocks.map((block) => block.kind), ['paragraph', 'paragraph', 'paragraph', 'paragraph', 'verse']);
   assert.equal(loadLegacyVi('thag1.1')!.author, 'Bhikkhu Indacanda');
+});
+
+test('the pinned files with no body text are counted, and are exactly these', { skip }, () => {
+  // These carry a header and a footer only. The page says so instead of opening an empty text.
+  const empty = [...legacyViIndex().keys()]
+    .filter((uid) => loadLegacyVi(uid)!.articles.every((article) => article.blocks.length === 0))
+    .sort();
+  assert.deepEqual(empty, ['sn35.161', 'sn48.137-146', 'sn48.147-158', 'sn48.159-168', 'sn53.13-22', 'sn53.35-44']);
 });
 
 test('no extracted block carries markup', { skip }, () => {

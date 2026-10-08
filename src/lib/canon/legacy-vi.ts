@@ -49,6 +49,8 @@ export interface LegacyViText {
   footer: string[];
   /** As the file states it; not normalised, because spellings differ between files. */
   author?: string;
+  /** Every author line in the footer. Usually one name, sometimes repeated; all are checked. */
+  authors: string[];
   editor?: string;
   publicationDate?: string;
 }
@@ -60,7 +62,8 @@ function decode(text: string): string {
   return text.replace(/&(#x[0-9a-f]+|#\d+|[a-z]+);/gi, (whole, body: string) => {
     if (body[0] === '#') {
       const code = body[1].toLowerCase() === 'x' ? parseInt(body.slice(2), 16) : parseInt(body.slice(1), 10);
-      return Number.isFinite(code) ? String.fromCodePoint(code) : whole;
+      const valid = Number.isFinite(code) && code >= 0 && code <= 0x10ffff && (code < 0xd800 || code > 0xdfff);
+      return valid ? String.fromCodePoint(code) : whole;
     }
     return ENTITIES[body.toLowerCase()] ?? whole;
   });
@@ -79,6 +82,7 @@ function tidy(raw: string): string {
 }
 
 const COLOPHON_CLASSES = new Set(['end', 'endsutta', 'endbook', 'endsection', 'namo', 'uddana']);
+const BLOCK_ELEMENTS = new Set(['p', 'blockquote', 'h1', 'h2', 'h3', 'li', 'article', 'header', 'footer', 'section']);
 const SKIP_ELEMENTS = new Set(['head', 'script', 'style', 'title']);
 /** Edition page markers (`Vi-n 1-4.`, `S.i.2`): scaffolding, not text. */
 const MARKER_ANCHOR = /(^|\s)(ref|pts)(\s|$)/;
@@ -99,6 +103,7 @@ export function parseLegacyHtml(uid: string, html: string): LegacyViText {
   const articles: LegacyArticle[] = [];
   const footer: string[] = [];
   const meta: { author?: string; editor?: string; publicationDate?: string } = {};
+  const authors: string[] = [];
 
   let skipping: string | null = null;
   let inHeader = false;
@@ -108,6 +113,7 @@ export function parseLegacyHtml(uid: string, html: string): LegacyViText {
   let buffer: string | null = null;
   let bufferKind: LegacyBlockKind | 'footer' | 'title' | 'division' | null = null;
   let metaField: keyof typeof meta | null = null;
+  let inArticle = false;
   let metaBuffer = '';
 
   const current = (): LegacyArticle => {
@@ -143,6 +149,9 @@ export function parseLegacyHtml(uid: string, html: string): LegacyViText {
     const [, closing, rawName, attributes = '', text] = match;
     if (text !== undefined) {
       if (skipping || suppressAnchor) continue;
+      // Body text that sits outside any block (a cross-reference `span.add` directly under
+      // <article>) still belongs to the text; give it a paragraph rather than drop it.
+      if (buffer === null && inArticle && !inHeader && !inFooter && text.trim()) open('paragraph');
       append(text);
       continue;
     }
@@ -156,9 +165,13 @@ export function parseLegacyHtml(uid: string, html: string): LegacyViText {
     }
     if (!isClose && SKIP_ELEMENTS.has(name)) { skipping = name; continue; }
 
-    if (name === 'article' && !isClose) {
+    // A marker anchor that never closed must not swallow the rest of the file.
+    if (suppressAnchor && !isClose && BLOCK_ELEMENTS.has(name)) suppressAnchor = false;
+
+    if (name === 'article') {
       close();
-      articles.push({ id: attributeOf(attributes, 'id') || uid, title: '', divisions: [], blocks: [] });
+      inArticle = !isClose;
+      if (!isClose) articles.push({ id: attributeOf(attributes, 'id') || uid, title: '', divisions: [], blocks: [] });
     } else if (name === 'header') {
       close();
       inHeader = !isClose;
@@ -175,7 +188,8 @@ export function parseLegacyHtml(uid: string, html: string): LegacyViText {
       if (!isClose) open('verse');
     } else if (name === 'p') {
       if (isClose) {
-        if (inBlockquote) { append(NEWLINE); } else close();
+        // Each <p> in a verse is a stanza; a blank line keeps stanzas apart.
+        if (inBlockquote) { append(NEWLINE + NEWLINE); } else close();
       } else if (inFooter) {
         open('footer');
       } else if (!inHeader && !inBlockquote) {
@@ -198,6 +212,7 @@ export function parseLegacyHtml(uid: string, html: string): LegacyViText {
         if (metaField) {
           const value = tidy(metaBuffer);
           if (value) meta[metaField] = value;
+          if (value && metaField === 'author') authors.push(value);
           metaField = null; metaBuffer = '';
         }
       } else if (cls === 'author') { metaField = 'author'; metaBuffer = ''; }
@@ -207,7 +222,7 @@ export function parseLegacyHtml(uid: string, html: string): LegacyViText {
   }
   close();
 
-  return { uid, articles: articles.filter((a) => a.blocks.length > 0 || a.title), footer, ...meta };
+  return { uid, articles: articles.filter((a) => a.blocks.length > 0 || a.title), footer, authors, ...meta };
 }
 
 let fileIndex: Map<string, string> | null = null;
@@ -225,7 +240,10 @@ export function legacyViIndex(): Map<string, string> {
     }
   };
   if (existsSync(base)) walk(base);
-  return (fileIndex = index);
+  // An empty index is not cached: in `astro dev`, a sync run after the server started should
+  // be picked up without a restart.
+  if (index.size > 0) fileIndex = index;
+  return index;
 }
 
 /** Whether the pinned checkout is present at all, as opposed to a single text being absent. */
