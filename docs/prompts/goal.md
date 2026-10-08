@@ -14,6 +14,13 @@ giao bằng **PR đã merge**:
 **Không tự dịch lại từ đầu bài đã có.** Bài nào đủ khoá + có scorecard rồi thì việc
 còn lại là chấm lại / sửa, không phải dịch.
 
+### ⚡ CHIẾN LƯỢC TĂNG TỐC: ĐIỀU PHỐI 3–5 SUB-AGENTS SONG SONG MỖI PHIÊN
+
+Để tăng tốc tối đa hoàn thành toàn bộ corpus (hiện còn **652 bài / 121.148 khoá**), **mỗi phiên làm việc lập kế hoạch và tạo 3–5 sub-agents chạy cùng lúc (song song qua `invoke_subagent`)**:
+- **Phân bổ công việc độc lập**: Mỗi sub-agent nhận trọn gói 1 bài (~50–60 khoá) hoặc 1 lát riêng biệt, có prompt đầy đủ ngữ cảnh, danh sách khoá Pāli, tiền lệ bộ kinh, và ràng buộc chất lượng.
+- **Tự trị & tự kiểm tra**: Mỗi sub-agent tự đọc `skill/translation.md`, tra cứu Pāli root + English/TMC reference, dịch đủ khoá, tự chạy 5 phép kiểm tra đối chiếu (khớp tập khoá, khớp nháy kép/đơn, nhất quán Pāli trùng lặp trong bài, chuẩn hoá `…pe…` → `…`, kiểm tra số Pāli), tạo file JSON bản dịch và file YAML meta kèm scorecard đầy đủ 10 tiêu chí.
+- **Coordinator tổng hợp & gác cổng**: Coordinator đón kết quả từ 3–5 sub-agents, chạy script kiểm tra độc lập (`_checkwave.ts`), sinh lại gap report (`npm run reference:gaps`) và store verification (`npm run verify:store:write`) nếu có bài mới dưới sàn coverage, kiểm tra toàn bộ 13 cổng kỹ thuật trên worktree sạch, tạo PR và squash merge khi CI xanh.
+
 ---
 
 ## TRẠNG THÁI HIỆN TẠI (đo 2026-10-06 tại `f06b7874`, `main`)
@@ -1201,9 +1208,40 @@ tôi **chép** sang `/Volumes/SSD/_wtX-coord` rồi commit ở đó. Cần ngư�
 - Cây chính có session khác đang sửa AGENTS.md/README/skill/src song song (23:36) — không thuộc
   change này, không đụng vào; goal.md giữ nguyên dạng chưa commit, sẽ qua PR doc-only.
 
+## CẬP NHẬT 2026-10-08 — wave 18 lane 1 (n186 + n187 + n188) hoàn tất: 3 bài / 174 khoá, PR #326
+
+- **PR #326 đã squash-merge** tại `b7996261` (nhánh `vi-wave18-n186`, commit `8ef26739`): 3 bài Samyutta Nikāya (174 khoá), CI hai lượt PASS.
+- **Quy định điều phối mới**: Bắt buộc tạo **3–5 sub-agents chạy cùng lúc mỗi phiên** qua `invoke_subagent` để tăng tốc độ phủ corpus.
+- **Số đo sau wave 18 lane 1 (vimeas tại `b7996261`)**: catalogue **6.137** · đủ **5.480** (+3 bài so với 5.477) · thiếu **657** bài / **121.436** khoá (−174 = 3 × 58, khớp tuyệt đối) · **0** bài không đo được · bất biến `đủ + thiếu = catalogue` ✓. Phân bố thiếu: sn 99 / 8.901 khoá · an 107 / 9.192 khoá · kn 451 / 103.343 khoá · dn+mn đủ 100%. `engq` giữ 5.107 segment / 92 dưới sàn (toàn catalogue).
+- **Chi tiết 3 bài**:
+  - **n186 `sn12.28`** (58 khoá, Bhikkhusutta): **published 9.60**, assessment `2fd768a0-74c1-4968-a97d-82b18bf38225`. Bài về Duyên Khởi Nidāna, 32 khoá có dấu lược `…`, cân bằng tuyệt đối với Pāli.
+  - **n187 `sn22.7`** (58 khoá, Upādāparitassanāsutta): **draft 9.18** + blocker độ phủ Anh Sujato 68.3% < 80% (31/58 substantive segments có Anh). Cấu trúc 5 uẩn lặp lại theo cả hai chiều chấp thủ và không chấp thủ. Đã ghi nhận gap vào `reference-gaps.yaml`.
+  - **n188 `sn46.55`** (58 khoá, Saṅgāravasutta): **published 9.60**, assessment `b1dc60e5-9b3e-4b0a-9479-383319c8ddcb`. Đối thoại với Saṅgārava về 5 triền cái (5 ví dụ nước bẩn) và 7 giác chi (nước trong lặng). 17 khoá có dấu lược `…` cân bằng Pāli.
+- `reference:gaps` cập nhật: 761 → **762** gaps (thêm `sn22.7`).
+- `docs/store-verification.json` cập nhật bằng `npm run verify:store:write`: recordedGaps 761 → **762**.
+## CẬP NHẬT 2026-10-08 — wave 18 lane 2 (n183 + n184 + n185 + n189 + n190) hoàn tất: 5 bài / 288 khoá, PR #327
+
+- **PR #327 đã squash-merge** tại `e966f1ef` (nhánh `vi-wave18-lane2`): 5 bài (288 khoá) hoàn tất bởi 5 sub-agents chạy song song theo đúng chính sách điều phối tốc độ cao; CI hai lượt PASS (7m42s / 11m17s).
+- **Số đo sau wave 18 lane 2 (đo tại `e966f1ef`)**:
+  - Catalogue: **6.137** bài.
+  - Bài đủ mọi khoá: 5.480 → **5.485** (+5 bài).
+  - Bài còn thiếu: 657 → **652** (−5 bài).
+  - Khoá còn thiếu: 121.436 → **121.148** (−288 khoá = 57 + 57 + 58 + 58 + 58, khớp tuyệt đối).
+  - Bất biến: `đủ (5.485) + thiếu (652) = catalogue (6.137)`.
+  - Phân bố thiếu: SN: 97 bài / 8.785 khoá · AN: 106 bài / 9.134 khoá · KN: 449 bài / 103.229 khoá · DN+MN: đủ 100%.
+- **Chi tiết 5 bài**:
+  - **n183 `tha-ap6`** (57 khoá, KN): **draft 9.16** + blocker `noEnglishEditionUpstream`. Kótivisasatherāpadāna (Trưởng lão Koṭivīsa / Sona Kotivisa); :0.3 và title '6. Kótivisasatherāpadāna' giữ nguyên số thứ tự; 1 đoạn Pāli nội dung không có bản dịch Sujato tại commit đã pin (coverage Anh 0% ghi nhận upstream).
+  - **n184 `vv47`** (57 khoá, KN): **draft 9.14** + blocker `noEnglishEditionUpstream`. Vimānavatthu Mahārathavimāna; thể kệ 4 câu/gāthā mạch lạc; không có bản Anh upstream.
+  - **n185 `an7.29`** (58 khoá, AN): **published 9.45**, assessment `232d5f9f-7fe7-45e1-b47b-19fdc56a987f`. Dutiyaparihānisutta — bảy pháp bất thối của người cư sĩ; đối chiếu an7.28; coverage Anh 7/7 = 100%.
+  - **n189 `sn12.35`** (58 khoá, SN): **published 9.50**, assessment `e733d0f0-b6b4-41d8-8019-65e7f0eb2930`. Avijjāpaccayasutta — vô minh là duyên, vấn đề linh hồn (jīva) và thân xác (sarīra) trong duyên khởi; 16 dấu lược cân bằng tuyệt đối; coverage Anh 32/32 = 100%.
+  - **n190 `sn35.238`** (58 khoá, SN): **published 9.60**, assessment `36f9ee16-27fb-46f3-b6e6-c85c139b5416`. Āsīvisasutta — kinh ví dụ con rắn độc; các đại ẩn dụ bốn đại, năm uẩn, sáu nội ngoại xứ, biển bộc lưu và chiếc bè thánh đạo; 6/6 dấu lược cân bằng Pāli; coverage Anh 53/55 = 96.4%.
+- `reference:gaps` cập nhật: 762 → **763** gaps (thêm `tha-ap6`).
+- `docs/store-verification.json` cập nhật bằng `npm run verify:store:write`: recordedGaps 762 → **763**, vietnamese-project segments 163.272 → **163.560** (+288 khoá).
+- 13 cổng xanh trên worktree sạch trước commit: `validate` (0 errors), `test` (355/355 pass), `check` (0 errors), `manifest:check`, `catalog:check`, `verify:store:partial`, `reference:gaps:check`, `license:check`, `audit:store`, `audit:reference`, `glossary:check`, `doctor:ci`, `build` (6.146 pages built, pagefind indexed).
+
 ## MỐC HOÀN TẤT
 
-- [ ] `vimeas.ts`: **bài còn thiếu = 0** (hiện **660**; `sn12.93-213` đã đủ 40/40 — bất biến "không bài nào bị bỏ qua" ✓)
+- [ ] `vimeas.ts`: **bài còn thiếu = 0** (hiện **652**; bất biến "không bài nào bị bỏ qua" ✓)
 - [ ] `engq.ts`: `segmentsStillMissingEnglish = 0` trong **174** text có thể lấp
 - [ ] đối chiếu chéo: đếm lại từ `source/upstream-manifest.json` và xác nhận
       **1.596** bài `kn` không có tệp Anh Sujato — tất cả phải còn `draft` với blocker
