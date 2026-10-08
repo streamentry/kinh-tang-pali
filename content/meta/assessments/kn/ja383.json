@@ -55,6 +55,34 @@
       "notes": "Kiểm tra tự động 33 segment với Pāli trong cache: đủ ID, giá trị, NFC và hệ chữ Latin. Chưa đọc đối chiếu nghĩa, ngữ pháp hoặc văn phong; chưa chấm lại 10 tiêu chí. Đây không phải chứng nhận hash upstream hoặc giấy phép, không xác nhận trạng thái xuất bản.",
       "content_sha256": "0c0c335df068e449fb7a825c51dd2c113298a7fd2a0fc8c456785b7c0f870180",
       "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639"
+    },
+    {
+      "target": "translation",
+      "scope": "full",
+      "assessed_at": "2026-10-08",
+      "assessed_by": [
+        "Claude Opus 5.5 (Claude Code)"
+      ],
+      "notes": "Dọn lỗi toàn Kinh tạng ngày 2026-10-08: bỏ đuôi trích dẫn Pāli “ti” còn sót, sửa chữ hỏng/lỗi gõ (rà theo danh sách âm tiết hiếm/sai cấu trúc), sửa câu bỏ dở (“…” Pāli không có), thống nhất công thức theo glossary. Việc trong bài: bỏ đuôi “ti” / chữ hỏng. Đổi 1 segment: 7.4. Không review lại toàn bài: điểm mang theo nguyên từ lượt full 6ff6ba58-ef62-4549-b9dc-e879116cf725 (2026-10-05); các sửa đều là lỗi rõ ràng đối chiếu với Pāli. Technical gate chạy lại. Đây là review của AI, không phải chứng nhận của chuyên gia Pāli.",
+      "scores": {
+        "source_provenance": 9.5,
+        "semantic_fidelity": 9.2,
+        "grammar_logic": 9.2,
+        "segment_alignment": 10,
+        "terminology": 9.3,
+        "triangulation": 7.5,
+        "vietnamese_clarity": 9.2,
+        "han_viet_balance": 9.4,
+        "ambiguity_integrity": 9.1,
+        "technical_integrity": 10
+      },
+      "blocking_errors": [
+        "Không có tầng tham khảo tiếng Anh tại commit đã ghim: tầng `english-sujato` không có tệp cho `ja383` (đã đếm trong `source/upstream-manifest.json`: `.../kn/ja/` chỉ có 83 tệp, gồm ja1–ja79 cộng 126, 159, 466, 534 — không có ja383), nên đây là `not-published-upstream`, KHÔNG phải `not-synced`. `scripts/validate.ts` coi tệp Anh thiếu là error khi status là `review` hoặc `published`, nên bài bắt buộc `draft`. Tầng `vietnamese-current` cũng vắng: `translation/vi/phantuananh` tại commit đã ghim chỉ có 26 tệp, toàn bộ là Pháp Cú. Lớp lấp `english-project` không có cho uid này. Ba tầng tham khảo đều vắng ⇒ bài dịch chỉ từ Pāli root. Đây là giới hạn upstream, không phải lỗi của người dịch, nhưng vẫn là blocker thật nên không bù được bằng điểm."
+      ],
+      "id": "8a84da2f-4bb4-4579-9bdf-649e203cc449",
+      "content_sha256": "d228dda805d1bfa67d35397877737b94b45bf7e39aaae4900926a7ef50d61b25",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
+      "final_score": 9.24
     }
   ],
   "legacy_quality": {

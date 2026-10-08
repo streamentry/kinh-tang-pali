@@ -36,7 +36,7 @@ import type { CollectionCode } from '../../src/lib/canon/types';
  * A repair does not have to touch this file; the coordinator lowers the number in the same
  * commit as the repair.
  */
-const TRUNCATION_CEILING = 60;
+const TRUNCATION_CEILING = 0;
 
 const TRANSLATION_ROOT = 'content/translation/vi/project/sutta';
 const META_ROOT = 'content/meta/sutta';
@@ -66,8 +66,12 @@ function readPali(code: CollectionCode, uid: string): Record<string, string> {
 }
 
 /** Every segment whose Vietnamese carries an ellipsis the Pāli at that same segment lacks. */
+/** Legitimate ellipses read — `…` in Vietnamese where the Pāli segment also elides. Proves the scan reads files. */
+let legitimateEllipses = 0;
+
 function truncations(): Offence[] {
   const out: Offence[] = [];
+  legitimateEllipses = 0;
   for (const code of ['dn', 'mn', 'sn', 'an', 'kn'] as CollectionCode[]) {
     const dir = `${TRANSLATION_ROOT}/${code}`;
     if (!existsSync(dir)) continue;
@@ -82,6 +86,7 @@ function truncations(): Offence[] {
         // it: all four such keys in the corpus carry `…` in Vietnamese. Counting them would
         // report a defect that cannot be repaired without emptying the translation — the four
         // are `an3.102:4.3`, `an3.102:4.4`, `sn35.24:1.5`, `sn35.25:1.5`.
+        if (typeof source === 'string' && source.includes('…')) legitimateEllipses += 1;
         if (typeof source !== 'string' || source.trim() === '' || source.includes('…')) continue;
         out.push({
           collection: code,
@@ -143,10 +148,13 @@ test('the number of truncating segments does not grow', () => {
   // first test would keep passing while the defect spread to new texts, since each new one
   // could simply be marked `draft`.
   const offences = truncations();
+  // The corpus reached zero on 2026-10-08. Zero is only meaningful if the scan actually read the
+  // translations, so require that it saw the legitimate `…pe…` ellipses the Pāli itself carries.
   assert.ok(
-    offences.length > 0,
-    'no truncating segments found — the check would pass vacuously, which means it is reading the wrong files',
+    legitimateEllipses > 100,
+    `only ${legitimateEllipses} legitimate ellipses seen — the check would pass vacuously, which means it is reading the wrong files`,
   );
+  if (offences.length === 0) return;
   const worst = offences.reduce(
     (a, b) => (a.paliLength / Math.max(a.vietLength, 1)) >= (b.paliLength / Math.max(b.vietLength, 1)) ? a : b,
   );
