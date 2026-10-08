@@ -16,32 +16,32 @@ còn lại là chấm lại / sửa, không phải dịch.
 
 ### ⚡ CHIẾN LƯỢC TĂNG TỐC: ĐIỀU PHỐI 3–5 SUB-AGENTS SONG SONG MỖI PHIÊN
 
-Để tăng tốc tối đa hoàn thành toàn bộ corpus (hiện còn **605 bài / 109.826 khoá**), **mỗi phiên làm việc lập kế hoạch và tạo 3–5 sub-agents chạy cùng lúc (song song qua `invoke_subagent`)**:
+Để tăng tốc tối đa hoàn thành toàn bộ corpus (hiện còn **600 bài / 109.523 khoá**), **mỗi phiên làm việc lập kế hoạch và tạo 3–5 sub-agents chạy cùng lúc (song song qua `invoke_subagent`)**:
 - **Phân bổ công việc độc lập**: Mỗi sub-agent nhận trọn gói 1 bài (~50–60 khoá) hoặc 1 lát riêng biệt, có prompt đầy đủ ngữ cảnh, danh sách khoá Pāli, tiền lệ bộ kinh, và ràng buộc chất lượng.
 - **Tự trị & tự kiểm tra**: Mỗi sub-agent tự đọc `skill/translation.md`, tra cứu Pāli root + English/TMC reference, dịch đủ khoá, tự chạy 5 phép kiểm tra đối chiếu (khớp tập khoá, khớp nháy kép/đơn, nhất quán Pāli trùng lặp trong bài, chuẩn hoá `…pe…` → `…`, kiểm tra số Pāli), tạo file JSON bản dịch và file YAML meta kèm scorecard đầy đủ 10 tiêu chí.
 - **Coordinator tổng hợp & gác cổng**: Coordinator đón kết quả từ 3–5 sub-agents, chạy script kiểm tra độc lập (`_checkwave.ts`), sinh lại gap report (`npm run reference:gaps`) và store verification (`npm run verify:store:write`) nếu có bài mới dưới sàn coverage, kiểm tra toàn bộ 13 cổng kỹ thuật trên worktree sạch, tạo PR và squash merge khi CI xanh.
 
 ---
 
-## TRẠNG THÁI HIỆN TẠI (đo 2026-10-08 tại `704dd38a`, `main`)
+## TRẠNG THÁI HIỆN TẠI (đo 2026-10-08 tại `7bf10a68`, `main`)
 
-HEAD của `main` = `704dd38a` — "dịch(vi): đợt 19 wave 3 — 5 bài / 300 khoá [an6.42 an7.62 an8.50 an9.12 sn56.11] (#340)".
+HEAD của `main` = `7bf10a68` — "dịch(vi): đợt 19 wave 4 — 5 bài / 303 khoá [sn36.7 sn36.31 sn22.101 an6.26 an7.61] (#343)".
 
-PR đã merge gần nhất: #340 (đợt 19 wave 3: 5 bài / 300 khoá) · #339 (cập nhật số đo goal.md) · #338 · #337 (đợt 19 wave 2: 5 bài / 295 khoá) · #335 (cập nhật số đo goal.md) · #334 (đợt 19 wave 1: 5 bài / 292 khoá) · #333 (chuẩn hoá thuật ngữ toàn Kinh tạng) · #332 · #331 · #330 · #329 (đợt 18 lane 3: 5 bài / 290 khoá) · #327 (đợt 18 lane 2: 5 bài / 288 khoá) · #326 (đợt 18 lane 1: 3 bài / 174 khoá) · #325...
+PR đã merge gần nhất: #343 (đợt 19 wave 4: 5 bài / 303 khoá) · #342 (cập nhật số đo goal.md) · #341 · #340 (đợt 19 wave 3: 5 bài / 300 khoá) · #339 (cập nhật số đo goal.md) · #338 · #337 (đợt 19 wave 2: 5 bài / 295 khoá) · #335 (cập nhật số đo goal.md) · #334 (đợt 19 wave 1: 5 bài / 292 khoá) · #333 (chuẩn hoá thuật ngữ toàn Kinh tạng)...
 
-Bài đủ mọi khoá: **5.532**; còn thiếu **605** bài / **109.826** khoá.
-Bất biến đo được: `đủ 5.532 + thiếu 605 = 6.137 = catalogue`, **0 bài không đo được**.
-Record `reference-gaps` **766** / 5.532 text. `test` **355 pass**.
+Bài đủ mọi khoá: **5.537**; còn thiếu **600** bài / **109.523** khoá.
+Bất biến đo được: `đủ 5.537 + thiếu 600 = 6.137 = catalogue`, **0 bài không đo được**.
+Record `reference-gaps` **767** / 5.537 text. `test` **358 pass**.
 
-### Đo 2026-10-08 tại `704dd38a` (sau đợt 19 wave 3, PR #340)
+### Đo 2026-10-08 tại `7bf10a68` (sau đợt 19 wave 4, PR #343)
 
 | phép đo | giá trị | công cụ |
 |---|---|---|
 | catalogue | 6.137 | `vimeas` |
-| bài đủ mọi khoá | **5.532** (+5 bài sau PR #340) | `vimeas` |
-| bài còn thiếu | **605** (dn+mn đủ 100%) | `vimeas` |
-| khoá còn thiếu | **109.826** (trừ 300 khoá) | `vimeas` + `_queue` (hai phép khớp nhau) |
-| text dưới sàn coverage ghi nhận (`reference-gaps`) | 766 | `npm run reference:gaps` |
+| bài đủ mọi khoá | **5.537** (+5 bài sau PR #343) | `vimeas` |
+| bài còn thiếu | **600** (dn+mn đủ 100%) | `vimeas` |
+| khoá còn thiếu | **109.523** (trừ 303 khoá) | `vimeas` + `_queue` (hai phép khớp nhau) |
+| text dưới sàn coverage ghi nhận (`reference-gaps`) | 767 | `npm run reference:gaps` |
 | `noEnglishEditionUpstream` | 1.596 / 1.596 đã ghi nhận, `agreesWithStoreVerification true` | store verification |
 
 ### Đợt 15 — hai wave agent, 15 bài / 848 khoá (#305 + #306, cả hai CI xanh)
