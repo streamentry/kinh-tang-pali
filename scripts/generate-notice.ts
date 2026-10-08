@@ -217,7 +217,7 @@ ${externalReferences().map((reference) => {
     attribution       ${reference.licence.attributionRequired ? 'required, and given' : 'not required'}
     covers            ${reference.collections.join(', ')}${reference.mappedRange ? ` (${reference.mappedRange})` : ''}
     alignment         none. ${reference.purpose.split('. ')[0]}.
-    verified          ${reference.verified ? `${reference.verified.matched}/${reference.verified.checked} sampled pages matched the Pāli name; the rest are typos in the site's own titles.` : 'not recorded'}`;
+    verified          ${reference.verified ? (reference.verified.summary ?? `${reference.verified.matched}/${reference.verified.checked} sampled pages matched the Pāli name; the rest are typos in the site's own titles.`) : 'not recorded'}`;
 }).join('\n\n')}
 
   A source with no machine-readable licence is recorded as ${externalReferences()[0]?.licence.spdx ?? 'NOASSERTION'} rather than guessed at. The word "no" in "no segment alignment" is

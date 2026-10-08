@@ -61,10 +61,18 @@ export interface ExternalReference {
   urlNumber: string;
   /** Explicit verified mappings for pages containing several suttas; no guessing outside this set. */
   urlByUid?: Record<string, string>;
+  /**
+   * Per-collection uids that were checked against the source and found to have a page. A uid
+   * outside this list gets no link, even when the collection is covered, so a template cannot
+   * be read as a claim about texts nobody looked at.
+   */
+  verifiedUids?: Record<string, string[]>;
   collections: string[];
   mappedRange?: string;
   verified?: {
     method: string;
+    /** One line for NOTICE, when the default wording (Pāli-name check) would be wrong. */
+    summary?: string;
     checked: number;
     matched: number;
     exceptions?: Array<{ uid: string; page: string; siteTitle: string; expected: string; note: string }>;
@@ -118,8 +126,15 @@ function mnemonicNumber(uid: string): string | null {
  * null is what lets the reader say "chưa đối chiếu ánh xạ" honestly.
  */
 export function pageUrlFor(reference: ExternalReference, uid: string): string | null {
-  if (!reference.collections.includes(uid.match(/^([a-z]+)/)?.[1] ?? '')) return null;
+  const collection = uid.match(/^([a-z]+)/)?.[1] ?? '';
+  if (!reference.collections.includes(collection)) return null;
   if (reference.urlByUid) return reference.urlByUid[uid] ?? null;
+  if (reference.verifiedUids) {
+    // The uid itself is the address for sources keyed by SuttaCentral's own ids.
+    return reference.verifiedUids[collection]?.includes(uid)
+      ? reference.urlTemplate.replace('{uid}', uid)
+      : null;
+  }
   const number = mnemonicNumber(uid);
   return number === null ? null : reference.urlTemplate.replace('{N}', number);
 }
