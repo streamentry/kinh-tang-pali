@@ -16,7 +16,7 @@ còn lại là chấm lại / sửa, không phải dịch.
 
 ### ⚡ CHIẾN LƯỢC TĂNG TỐC: ĐIỀU PHỐI 3–5 SUB-AGENTS SONG SONG MỖI PHIÊN
 
-Để tăng tốc tối đa hoàn thành toàn bộ corpus (hiện còn **652 bài / 121.148 khoá**), **mỗi phiên làm việc lập kế hoạch và tạo 3–5 sub-agents chạy cùng lúc (song song qua `invoke_subagent`)**:
+Để tăng tốc tối đa hoàn thành toàn bộ corpus (hiện còn **647 bài / 120.858 khoá**), **mỗi phiên làm việc lập kế hoạch và tạo 3–5 sub-agents chạy cùng lúc (song song qua `invoke_subagent`)**:
 - **Phân bổ công việc độc lập**: Mỗi sub-agent nhận trọn gói 1 bài (~50–60 khoá) hoặc 1 lát riêng biệt, có prompt đầy đủ ngữ cảnh, danh sách khoá Pāli, tiền lệ bộ kinh, và ràng buộc chất lượng.
 - **Tự trị & tự kiểm tra**: Mỗi sub-agent tự đọc `skill/translation.md`, tra cứu Pāli root + English/TMC reference, dịch đủ khoá, tự chạy 5 phép kiểm tra đối chiếu (khớp tập khoá, khớp nháy kép/đơn, nhất quán Pāli trùng lặp trong bài, chuẩn hoá `…pe…` → `…`, kiểm tra số Pāli), tạo file JSON bản dịch và file YAML meta kèm scorecard đầy đủ 10 tiêu chí.
 - **Coordinator tổng hợp & gác cổng**: Coordinator đón kết quả từ 3–5 sub-agents, chạy script kiểm tra độc lập (`_checkwave.ts`), sinh lại gap report (`npm run reference:gaps`) và store verification (`npm run verify:store:write`) nếu có bài mới dưới sàn coverage, kiểm tra toàn bộ 13 cổng kỹ thuật trên worktree sạch, tạo PR và squash merge khi CI xanh.
@@ -1239,9 +1239,29 @@ tôi **chép** sang `/Volumes/SSD/_wtX-coord` rồi commit ở đó. Cần ngư�
 - `docs/store-verification.json` cập nhật bằng `npm run verify:store:write`: recordedGaps 762 → **763**, vietnamese-project segments 163.272 → **163.560** (+288 khoá).
 - 13 cổng xanh trên worktree sạch trước commit: `validate` (0 errors), `test` (355/355 pass), `check` (0 errors), `manifest:check`, `catalog:check`, `verify:store:partial`, `reference:gaps:check`, `license:check`, `audit:store`, `audit:reference`, `glossary:check`, `doctor:ci`, `build` (6.146 pages built, pagefind indexed).
 
+## CẬP NHẬT 2026-10-08 — wave 18 lane 3 (n191 + n192 + n193 + n194 + n195) hoàn tất: 5 bài / 290 khoá, PR #329
+
+- **PR #329 đã squash-merge** tại `21dd2c7d` (nhánh `vi-wave18-lane3`): 5 bài (290 khoá) hoàn tất bởi 5 sub-agents chạy song song; CI hai lượt PASS (11m4s / 10m49s).
+- **Số đo sau wave 18 lane 3 (đo tại `21dd2c7d`)**:
+  - Catalogue: **6.137** bài.
+  - Bài đủ mọi khoá: 5.485 → **5.490** (+5 bài).
+  - Bài còn thiếu: 652 → **647** (−5 bài).
+  - Khoá còn thiếu: 121.148 → **120.858** (−290 khoá = 5 × 58, khớp tuyệt đối).
+  - Bất biến: `đủ (5.490) + thiếu (647) = catalogue (6.137)`.
+  - Phân bố thiếu: SN: 94 bài / 8.611 khoá · AN: 105 bài / 9.076 khoá · KN: 448 bài / 103.171 khoá · DN+MN: đủ 100%.
+- **Chi tiết 5 bài**:
+  - **n191 `sn45.161`** (58 khoá, SN): **published 9.49**, assessment `59e3d9ef-1863-4a02-be9d-c052ac8cee3c`. Esanāsutta — Kinh Tìm Kiếm, Phẩm Tìm Kiếm; ba sự tìm kiếm và Bát Thánh Đạo; cụm Niết-bàn (4.7) chuẩn xác 'hướng về, nghiêng về, xuôi về'; coverage Anh 18/20 = 90.0%.
+  - **n192 `sn48.40`** (58 khoá, SN): **published 9.55**, assessment `c807fd1d-5ac6-41a2-87a7-982c8d4c0981`. Uppaṭipāṭikasutta — Kinh Theo Thứ Tự Ngược, Phẩm Sukhindriyavagga; 5 căn (khổ, ưu, lạc, hỷ, xả) diệt tận qua các tầng thiền; cấu trúc đối xứng chuẩn mực; coverage Anh 41/41 = 100%.
+  - **n193 `sn51.11`** (58 khoá, SN): **draft 9.25** + blocker `lowEnglishCoverage`. Pubbasutta — Kinh Trước Kia; 4 Như Ý Túc và 6 Thần Thông; coverage Anh 38/48 = 79.2% do Sujato để trống các đoạn lặp thần thông; bản Việt dịch đủ từ Pāli root.
+  - **n194 `an7.52`** (58 khoá, AN): **draft 9.30** + blocker `lowEnglishCoverage`. Dānamahapphalasutta — Kinh Bố Thí Có Quả Lớn; 7 động cơ bố thí và các cõi trời tương ứng; bậc Bất Lai không trở lui đời này; coverage Anh 33/44 = 75.0%.
+  - **n195 `cp31`** (58 khoá, KN): **draft 9.20** + blocker `noEnglishEditionUpstream`. Kaṇhadīpāyanacariya — Hạnh Nguyện của Ẩn Sĩ Kaṇhadīpāyana (Saccapāramī 5); thể thơ kệ 4 câu/gāthā mạch lạc; lời thề chân thật saccakiriya cứu sống đứa trẻ; không có bản Anh upstream (blocker).
+- `reference:gaps` sinh lại: textsConsidered 5512 → **5517**, gaps giữ 763.
+- `docs/store-verification.json` cập nhật bằng `npm run verify:store:write`: vietnamese-project segments 163.560 → **163.850** (+290 khoá).
+- 13 cổng xanh trên worktree sạch trước commit: `validate` (0 errors), `test` (355/355 pass), `check` (0 errors), `manifest:check`, `catalog:check`, `verify:store:partial`, `reference:gaps:check`, `license:check`, `audit:store`, `audit:reference`, `glossary:check`, `doctor:ci`, `build` (6.146 pages built, pagefind indexed).
+
 ## MỐC HOÀN TẤT
 
-- [ ] `vimeas.ts`: **bài còn thiếu = 0** (hiện **652**; bất biến "không bài nào bị bỏ qua" ✓)
+- [ ] `vimeas.ts`: **bài còn thiếu = 0** (hiện **647**; bất biến "không bài nào bị bỏ qua" ✓)
 - [ ] `engq.ts`: `segmentsStillMissingEnglish = 0` trong **174** text có thể lấp
 - [ ] đối chiếu chéo: đếm lại từ `source/upstream-manifest.json` và xác nhận
       **1.596** bài `kn` không có tệp Anh Sujato — tất cả phải còn `draft` với blocker
