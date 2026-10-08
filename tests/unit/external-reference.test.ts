@@ -253,3 +253,52 @@ test('reviewed 2016 Vietnamese references resolve only the two verified texts', 
   assert.equal(ref.attribution.translator, 'Hòa thượng Thích Minh Châu');
   assert.match(creditForReference(ref), /bản sao chép bên thứ ba/);
 });
+
+test('the SuttaCentral Vietnamese reference is a whole-text reference with no reviser asserted', () => {
+  // The reviser named on the budsas copy of MN is not transferred here: the SuttaCentral page
+  // was not read text by text, so naming anyone as reviser would be a guess.
+  const sc = referenceById('suttacentral-vi-minh-chau');
+  assert.equal(sc.kind, 'whole-text-reference');
+  assert.equal(sc.alignment, 'none');
+  assert.equal(sc.attribution.translator, 'Hòa thượng Thích Minh Châu');
+  assert.equal(sc.attribution.reviser, undefined, 'no reviser is asserted without reading the text');
+  assert.equal(sc.attribution.distributorIsPublisher, false);
+  assert.equal(sc.licence.spdx, 'NOASSERTION');
+  assert.equal(sc.licence.statementFrom, null);
+  const credit = creditForReference(sc);
+  assert.doesNotMatch(credit, /hiệu đính/, 'the credit must not invent a reviser');
+  assert.match(credit, /bản sao chép bên thứ ba/);
+  assert.match(credit, /Không theo segment/);
+  assert.ok(
+    !/CC0|public domain|phạm vi công cộng/i.test(credit),
+    `the credit must not imply free reuse: ${credit}`,
+  );
+});
+
+test('a SuttaCentral link is given only for a uid that was verified against the source', () => {
+  const sc = referenceById('suttacentral-vi-minh-chau');
+  assert.equal(pageUrlFor(sc, 'mn1'), 'https://suttacentral.net/mn1/vi/minh_chau');
+  assert.equal(pageUrlFor(sc, 'dn34'), 'https://suttacentral.net/dn34/vi/minh_chau');
+  assert.equal(pageUrlFor(sc, 'sn1.1'), 'https://suttacentral.net/sn1.1/vi/minh_chau');
+  // A range uid keeps its range: SuttaCentral lists an1.1-10 as one text.
+  assert.equal(pageUrlFor(sc, 'an1.1-10'), 'https://suttacentral.net/an1.1-10/vi/minh_chau');
+  // Pāli is pinned for these, but SuttaCentral has no Vietnamese for them. No link, not a
+  // neighbour's link.
+  assert.equal(pageUrlFor(sc, 'an1.1'), null, 'an1.1 has no Vietnamese text on SuttaCentral');
+  assert.equal(pageUrlFor(sc, 'sn12.104-114'), null, 'sn12.104-114 has no Vietnamese text on SuttaCentral');
+  // Outside the declared collections entirely.
+  assert.equal(pageUrlFor(sc, 'kn1.1'), null);
+  assert.equal(pageUrlFor(sc, 'dhp1'), null);
+});
+
+test('the SuttaCentral mapping counts match what was checked', () => {
+  const sc = referenceById('suttacentral-vi-minh-chau');
+  assert.ok(sc.verified, 'the mapping records how it was established');
+  const listed = Object.values(sc.verifiedUids ?? {}).reduce((n, uids) => n + uids.length, 0);
+  assert.equal(listed, sc.verified.matched, 'the listed uids are exactly the matched count');
+  assert.equal(sc.verified.checked, 4225, 'the checked count is every pinned Pāli uid in the four collections');
+  assert.equal(sc.verified.matched, 3386);
+  assert.deepEqual(Object.keys(sc.verifiedUids ?? {}).sort(), ['an', 'dn', 'mn', 'sn']);
+  assert.equal(sc.verifiedUids?.mn.length, 152);
+  assert.equal(sc.verifiedUids?.dn.length, 34);
+});

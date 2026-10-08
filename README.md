@@ -66,7 +66,7 @@ npm run reference:gaps:check   # CI: phát hiện record đã cũ
 
 SuttaCentral không có bản Anh nào khác phủ được những đoạn đó, nên dự án **tự dịch** sang English ở tầng `english-project`. Đó là một bản dịch độc lập của dự án, không phải nguồn SuttaCentral, và không bao giờ ghi đè bản đã pin.
 
-Bản Việt hiện hành của Hòa thượng Thích Minh Châu tại commit đang pin **chỉ có Pháp Cú**; các bài khác sẽ báo tầng này là `absent`, đó là đặc điểm của snapshot upstream chứ không phải thiếu sót của repo.
+Bản Việt hiện hành của Hòa thượng Thích Minh Châu tại commit đang pin **chỉ có Pháp Cú**; các bài khác sẽ báo tầng này là `absent`, đó là đặc điểm của snapshot upstream chứ không phải thiếu sót của repo. Trang SuttaCentral trực tiếp có bản này cho Trung Bộ, Trường Bộ, Tương Ưng và Tăng Chi như **tra cứu toàn văn** (văn xuôi liên tục, không đối chiếu theo segment, không phải tầng); xem `source/external-references.yaml`.
 
 Không giả định toàn bộ Kinh tạng trên SuttaCentral do một dịch giả duy nhất thực hiện. Dịch giả/provenance phải được xác định theo từng collection hoặc từng bài khi cần. Tại commit đang pin, Sujato là bản Anh duy nhất phủ hết 5 Nikāya; các dịch giả Anh khác trên SuttaCentral chỉ phủ một phần.
 

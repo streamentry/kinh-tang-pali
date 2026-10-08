@@ -185,6 +185,10 @@ Tại commit đang pin, corpus Thích Minh Châu trong bilara-data **chỉ có P
 còn lại không có bản Việt hiện hành trong snapshot. `sync-source` báo `not covered
 upstream` chứ không coi là lỗi, và `verify:store` xếp vào advisory.
 
+Trang SuttaCentral trực tiếp không bị giới hạn này: xem mục *SuttaCentral: bản Việt của Hòa
+thượng Thích Minh Châu* bên dưới. Đó là tra cứu toàn văn, không phải tầng store, nên không làm
+tăng `vietnamese-current`.
+
 ## Nhập snapshot chuẩn vào catalog
 
 Catalog trước đây mới liệt kê 3.049/5.764 file Pāli. Theo `docs/roadmap.md` phase 2 —
@@ -460,9 +464,41 @@ Phương Lan; tập VI–VII hai người cùng dịch) — phải ghi tác gi�
 hay "dùng tự do" là bịa. Nó cũng là **bản sao của bên thứ ba, không phải bản xuất bản** — bản
 gốc in 1973 (tập I) và tái in 1986, nay vẫn tái bản thương mại.
 
-**Ranh giới được test giữ.** `tests/unit/external-reference.test.ts` (12 test) chặn cả hai
+**Ranh giới được test giữ.** `tests/unit/external-reference.test.ts` (17 test) chặn cả hai
 chiều: một tra cứu toàn văn không bao giờ thành tầng store, và một tầng store không được khai
 ở đây. Test quan trọng nhất so **snapshot trước/sau** khi resolve — nếu một tra cứu toàn văn
 lọt vào cột, số segment và nội dung từng phiên bản sẽ khác, và test bắt được.
+
+## SuttaCentral: bản Việt của Hòa thượng Thích Minh Châu (văn bản liền mạch)
+
+Khai trong `source/external-references.yaml` dưới `suttacentral-vi-minh-chau`, cùng loại
+`alignment: none` với bản budsas. Trang `suttacentral.net/<uid>/vi/minh_chau` là văn bản liền
+mạch (`segmented: false`), không căn được theo segment bilara.
+
+**Sự thật đã đếm** (danh mục `api/suttaplex/<bộ>`, chỉ bài lá, đối chiếu với Pāli đã ghim):
+
+| Bộ | Pāli đã ghim | Có bản `minh_chau` trên SC | Thiếu bản Việt trên SC |
+| --- | --- | --- | --- |
+| MN | 152 | 152 | 0 |
+| DN | 34 | 34 | 0 |
+| SN | 1.954 | 1.805 | 149 |
+| AN | 2.085 | 1.395 | 690 |
+
+Không có uid nào có bản Việt trên SC mà thiếu Pāli. Phần thiếu được ghi trong `verified` của
+khai báo; không có link cho các uid đó.
+
+**Đã kiểm được gì và chưa kiểm được gì:**
+- Đã kiểm: sự tồn tại và danh tính uid trong dữ liệu SuttaCentral. Với MN và DN, tên tiếng Anh
+  của SC trùng với tiêu đề Sujato đã ghim ở 140/152 và 29/34; phần còn lại là khác cách dịch
+  cùng một bài, đã xem tay một mẫu.
+- Chưa kiểm: nội dung từng trang. Trang là ứng dụng phía client, `curl` chỉ nhận khung HTML.
+- Chưa kiểm: có hay không dòng hiệu đính của Bình Anson trên bản SC. Vì vậy **không ghi người
+  hiệu đính** cho bản này; bản budsas của MN thì vẫn ghi như đã nêu ở trên.
+
+**Giấy phép và ghi công:** `NOASSERTION`. SuttaCentral xếp bản dịch bên thứ ba vào nhóm có
+bản quyền thuộc dịch giả hoặc nhà xuất bản, được dùng theo giấy phép của họ hoặc với sự cho
+phép (`licensing:14`). Danh mục không có trường giấy phép máy đọc được cho bản này. Ngày xuất
+bản SC chỉ ghi cho một số bài (SN 1.1: 1980; AN 1.1–10: 1980–1981), nên không suy ra ấn bản
+gốc cho toàn bộ.
 
 Quy tắc chi tiết: `skill/translation.md` §7.1–§7.2 và `source/external-references.yaml` `rules:`.
