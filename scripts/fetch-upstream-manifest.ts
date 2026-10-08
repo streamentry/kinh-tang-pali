@@ -32,6 +32,13 @@ interface Manifest {
   fetchedAt: string;
   /** Human note about how the counts were produced. */
   method: string;
+  /**
+   * Every translator directory under `translation/vi` at the pinned commit — segmented
+   * Vietnamese, whether or not the project reads it. Recorded so a new segmented Vietnamese
+   * translation cannot arrive with a re-pin and go unread: `tests/unit/vietnamese-segmented.test.ts`
+   * fails until each one is either a store layer or declared non-scripture.
+   */
+  vietnameseTranslators: string[];
   editions: Array<{
     /** Store layer id, or the lock's `role` for a pinned edition that is not a layer. */
     layerId: string;
@@ -152,6 +159,13 @@ for (const [upstreamRoot, meta] of roots) {
   });
 }
 
+const viListing = await api(`${API}/contents/translation/vi?ref=${lock.commit}`) as TreeEntry[];
+if (!Array.isArray(viListing)) throw new Error(`cannot list translation/vi at ${lock.commit}`);
+const vietnameseTranslators = viListing
+  .filter((entry) => entry.type === 'dir')
+  .map((entry) => entry.name ?? entry.path.split('/').pop() ?? entry.path)
+  .sort();
+
 const manifest: Manifest = {
   schemaVersion: 1,
   repo: lock.repo,
@@ -160,6 +174,7 @@ const manifest: Manifest = {
   method: 'GitHub trees API recursive listing of each pinned edition at the locked commit. '
     + '`files` maps each blob path to its git object hash, so a local file can be verified '
     + 'byte-for-byte against the pin with `git hash-object`.',
+  vietnameseTranslators,
   editions,
 };
 
@@ -180,6 +195,12 @@ if (process.argv.includes('--check')) {
   // than the fetchedAt timestamp, which would make the file permanently dirty.
   const before = JSON.stringify(editions.map((e) => [e.path, e.treeSha, e.fileCount]));
   const after = JSON.stringify(currentParsed.editions.map((e) => [e.path, e.treeSha, e.fileCount]));
+  if (JSON.stringify(currentParsed.vietnameseTranslators ?? null) !== JSON.stringify(vietnameseTranslators)) {
+    console.error(`${OUT}: the Vietnamese translators at the pin are ${vietnameseTranslators.join(', ')}; `
+      + `the manifest records ${(currentParsed.vietnameseTranslators ?? []).join(', ') || 'none'}. `
+      + 'Run: npm run manifest:fetch');
+    process.exit(1);
+  }
   if (before === after) {
     console.log('Upstream manifest is current (tree hashes unchanged).');
     process.exit(0);

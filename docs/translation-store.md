@@ -469,36 +469,50 @@ chiều: một tra cứu toàn văn không bao giờ thành tầng store, và m�
 ở đây. Test quan trọng nhất so **snapshot trước/sau** khi resolve — nếu một tra cứu toàn văn
 lọt vào cột, số segment và nội dung từng phiên bản sẽ khác, và test bắt được.
 
-## SuttaCentral: bản Việt của Hòa thượng Thích Minh Châu (văn bản liền mạch)
+## SuttaCentral: bản Việt nguyên bài (hiển thị trên trang, không phải tầng)
 
-Khai trong `source/external-references.yaml` dưới `suttacentral-vi-minh-chau`, cùng loại
-`alignment: none` với bản budsas. Trang `suttacentral.net/<uid>/vi/minh_chau` là văn bản liền
-mạch (`segmented: false`), không căn được theo segment bilara.
+SuttaCentral phân phối bản Việt của nhiều bài dưới dạng HTML nguyên bài (kho `sc-data`,
+`html_text/vi/pli/sutta`), không có segment ID. Repo ghim kho đó theo commit trong
+`source/suttacentral.lock.json` (`legacyHtml`), tải về bằng `npm run legacy:sync` (sparse git
+checkout, git tự xác minh từng tệp; script kiểm HEAD, số tệp và tệp bị sửa), rồi hiển thị nguyên
+bài trong mục *Tra cứu toàn văn* **ở cuối trang**, dưới bảng đối chiếu. Bản Việt *phân đoạn* (bilara)
+thì vào cột Việt hiện hành; bản nguyên bài thì không. Quyết định 2026-10-08, ghi trong `AGENTS.md`. `npm run legacy:check` chỉ kiểm, không tải.
 
-**Sự thật đã đếm** (danh mục `api/suttaplex/<bộ>`, chỉ bài lá, đối chiếu với Pāli đã ghim):
+**Vì sao không điền vào cột Việt hiện hành.** Đã đo: số khối văn bản trong HTML bằng số đoạn
+(section) của Pāli ở 1/152 bài MN, 0/34 DN, 231 SN và 145 AN; phần còn lại lệch (ví dụ dn14:
+225 khối HTML so với 3 đoạn Pāli). Căn lề theo đoạn hay theo câu đều phải tự chọn, và chọn sai thì
+bốn cột hiện sai mà người đọc không biết. Nên chúng là `alignment: none`, không tăng coverage,
+và `tests/unit/external-reference.test.ts` giữ cột đó trống.
 
-| Bộ | Pāli đã ghim | Có bản `minh_chau` trên SC | Thiếu bản Việt trên SC |
+**Ba nguồn, vì ba nhóm tác giả khác nhau.** Tác giả đọc từ dòng *author* trong chân trang của chính
+từng tệp, không suy từ bộ kinh:
+
+| Khai báo | Tác giả trong tệp | Tệp | Ghi công |
 | --- | --- | --- | --- |
-| MN | 152 | 152 | 0 |
-| DN | 34 | 34 | 0 |
-| SN | 1.954 | 1.805 | 149 |
-| AN | 2.085 | 1.395 | 690 |
+| `suttacentral-vi-minh-chau-binh-anson` | Hòa thượng Thích Minh Châu dịch Việt | 187 (MN 152, DN 34, snp3.7) | Bình Anson hiệu đính, dựa theo bản Anh |
+| `suttacentral-vi-minh-chau` | Hòa thượng Thích Minh Châu | 3.211 (SN 1.805, AN 1.395, KN 11) | không có người hiệu đính |
+| `suttacentral-vi-indacanda` | Bhikkhu Indacanda | 1.417 (KN) | dịch 2011, theo ấn bản Buddha Jayanthi |
 
-Không có uid nào có bản Việt trên SC mà thiếu Pāli. Phần thiếu được ghi trong `verified` của
-khai báo; không có link cho các uid đó.
+Ba nhóm cộng lại đúng 4.815 tệp mà lock ghi. Chân trang của mỗi tệp được in nguyên văn dưới bản
+văn: người dịch, ấn bản, người chuẩn bị cho SuttaCentral và lời cho phép. Nhóm Indacanda ghi
+*"Used by kind permission of the translator"*; Tăng Chi Bộ ghi sự cho phép của webmaster
+budsas.net. Đó là sự cho phép dành cho SuttaCentral, **không phải giấy phép cho dự án này**, nên
+điều khoản vẫn là `NOASSERTION`.
 
-**Đã kiểm được gì và chưa kiểm được gì:**
-- Đã kiểm: sự tồn tại và danh tính uid trong dữ liệu SuttaCentral. Với MN và DN, tên tiếng Anh
-  của SC trùng với tiêu đề Sujato đã ghim ở 140/152 và 29/34; phần còn lại là khác cách dịch
-  cùng một bài, đã xem tay một mẫu.
-- Chưa kiểm: nội dung từng trang. Trang là ứng dụng phía client, `curl` chỉ nhận khung HTML.
-- Chưa kiểm: có hay không dòng hiệu đính của Bình Anson trên bản SC. Vì vậy **không ghi người
-  hiệu đính** cho bản này; bản budsas của MN thì vẫn ghi như đã nêu ở trên.
+**Bao nhiêu trang có bản Việt** (đếm theo catalog, đúng như trang đọc phân giải):
 
-**Giấy phép và ghi công:** `NOASSERTION`. SuttaCentral xếp bản dịch bên thứ ba vào nhóm có
-bản quyền thuộc dịch giả hoặc nhà xuất bản, được dùng theo giấy phép của họ hoặc với sự cho
-phép (`licensing:14`). Danh mục không có trường giấy phép máy đọc được cho bản này. Ngày xuất
-bản SC chỉ ghi cho một số bài (SN 1.1: 1980; AN 1.1–10: 1980–1981), nên không suy ra ấn bản
-gốc cho toàn bộ.
+| Bộ | Trang | Có bản Việt | Ghi chú |
+| --- | --- | --- | --- |
+| MN | 152 | 152 | |
+| DN | 34 | 34 | |
+| SN | 1.819 | 1.805 | thiếu 14, ví dụ sn3.15, sn35.82 |
+| AN | 1.781 | 1.768 | 411 trang nằm trong tệp khoảng; thiếu 13, ví dụ an9.113-432 |
+| KN | 2.351 | 1.429 | 922 trang chưa có |
+
+SuttaCentral gộp nhiều bài vào một tệp (`an1.1`–`an1.10` là `an1.1-10`). Trang `an1.5` hiện cả tệp
+chung và nói rõ là đã gộp, vì không có căn cứ để tách đoạn nào của bài nào.
+
+**Chưa làm.** Nội dung không nằm trong chỉ mục tìm kiếm (mục tra cứu đặt `data-pagefind-ignore`).
+Văn bản chưa được đối chiếu từng câu với Pāli. Pháp Cú vẫn đi qua tầng `vietnamese-current`.
 
 Quy tắc chi tiết: `skill/translation.md` §7.1–§7.2 và `source/external-references.yaml` `rules:`.

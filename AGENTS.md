@@ -26,6 +26,7 @@ Mọi tác vụ liên quan đến dịch, sửa/review bản dịch, chọn thu�
 - **Không có giấy phép máy đọc được thì `NOASSERTION`, kèm lý do.** `budsas.org` không có tuyên bố quyền tác giả. Không suy ra CC0, không suy ra "dùng tự do". `assertStoreIntegrity` đã chặn bản tham khảo bên thứ ba tự nhận CC0.
 - **Nguồn không phải git thì ghim yếu hơn, và phải gọi đúng tên là yếu hơn.** Tầng này ghi URL · thời điểm tải · SHA-256 từng file · `ETag`/`Last-Modified`. Tái tải thấy khác thì cảnh báo, nhưng **không** chứng minh được lịch sử nội dung như một commit git. Không được trình bày pin đó ngang hàng pin bilara.
 - **Nguồn tra cứu toàn văn khai ở `source/external-references.yaml`, KHÔNG phải ở `layers.yaml`.** Tầng store thì hàm ý có text ở mức segment; một trang văn xuôi liên tục thì không, và đưa nhầm vào đó sẽ làm **coverage tăng vì text không so sánh được ở mức segment** mà không ai nhận ra. `tests/unit/external-reference.test.ts` chặn cả hai chiều và so snapshot trước/sau khi resolve. `alignment: none` là nghĩa đen — đừng hạ xuống thành giá trị khác.
+- **Việt hiện hành: phân đoạn thì vào cột, nguyên bài thì xuống cuối trang.** Quyết định của người biên tập ngày 2026-10-08; xem mục *Việt hiện hành: cột và nguyên bài* bên dưới trước khi đụng vào cột Việt hiện hành, mục Tra cứu toàn văn hay `legacyHtml`.
 - **Cắt HTML thành segment ID phải chứng minh được, không giả định.** Cắt lệch một đoạn thì bốn cột đối chiếu hiện sai âm thầm và người đọc không có cách nào biết. Không cắt tay rồi tin; phải đếm được bao nhiêu segment khớp và bao nhiêu không.
 - Một tầng tham khảo có file và key đúng vẫn có thể **không có prose** ở những đoạn Pāli có nội dung. Vì vậy phải đo coverage trên Pāli có nội dung; dưới ngưỡng thì `review`/`published` bị chặn trừ khi mất mát đã được **ghi nhận** trong `content/meta/reference-gaps.yaml`. Không được coi chỗ English rỗng là sự đồng thuận về cách dịch.
 - Canonical Vietnamese scripture là segmented JSON trong `content/translation/vi/project/`.
@@ -38,6 +39,62 @@ Mọi tác vụ liên quan đến dịch, sửa/review bản dịch, chọn thu�
 - Có thể giữ Hán–Việt khi đúng, quen thuộc và súc tích; giảm Hán–Việt khi nó làm câu tối nghĩa mà không tăng độ chính xác.
 - Không tự thêm explanatory meaning để làm câu “dễ hiểu”. Giải thích, alternative reading và uncertainty thuộc lớp comment/glossary.
 - Không copy nguyên văn dài từ bản dịch bên thứ ba vào canonical translation; mọi nguồn tham khảo quan trọng phải có provenance phù hợp.
+
+---
+
+# Việt hiện hành: cột và nguyên bài (quyết định 2026-10-08)
+
+Người biên tập đã quyết định, **đừng làm lại theo cách khác** nếu chưa hỏi lại:
+
+1. **Bản Việt nào SuttaCentral có *phân đoạn* (bilara-data, `translation/vi/<dịch giả>/`) thì hiện
+   trong cột "Việt hiện hành", từng segment.** Đây là tầng `vietnamese-current` trong
+   `source/layers.yaml`. Tại commit đang ghim, và cả ở bilara-data `published` ngày 2026-10-07,
+   chỉ có một bản như vậy: Pháp Cú, `phantuananh`, 26 tệp.
+2. **Bản Việt *không phân đoạn* (HTML nguyên bài) thì KHÔNG vào cột.** Nó hiện nguyên bài ở mục
+   *Tra cứu toàn văn* **cuối trang**, dưới bảng đối chiếu. Thẻ cột Việt hiện hành khi trống có một
+   dòng chỉ xuống đó (`#tra-cuu-toan-van`). Đừng đưa mục này lên trên bảng, đừng gom nó vào cột.
+3. **Không tự căn lề bản nguyên bài vào segment**, kể cả "căn tự động có gắn nhãn". Người biên tập
+   đã được hỏi và chọn không làm. Lý do đã đo, không phải đoán:
+   - SuttaCentral tự nó không chia các bản này theo câu: API ghi `segmented: false` cho cả 4.815 tệp.
+   - MN chỉ có neo `sc1…` theo cách đánh số cũ, bilara không dùng (mn1: 26 neo, Pāli 194 đoạn).
+   - DN có neo `pts-cs` nhưng chỉ khớp 769/1.489 với tệp `reference/` của bilara, số lượng cũng lệch.
+   - SN (`vi-n`, `pts`), AN (`ttc`), KN (`bjt`) dùng hệ neo không có trong bilara.
+   - Số khối HTML bằng số đoạn Pāli chỉ ở 1/152 MN và 0/34 DN.
+
+**Nguồn nguyên bài.** Kho `suttacentral/sc-data`, `html_text/vi/pli/sutta`, ghim theo commit ở
+`legacyHtml` trong `source/suttacentral.lock.json` (4.815 tệp). `npm run legacy:sync` tải về
+`.cache/upstream/sc-data` bằng sparse git checkout (git tự xác minh từng tệp; script kiểm HEAD, số tệp,
+tệp bị sửa); `npm run legacy:check` chỉ kiểm. CI chạy `legacy:sync` trước test; `build` và `dev`
+cũng chạy. Bộ trích xuất `src/lib/canon/legacy-vi.ts` chỉ lấy chữ, không bao giờ đưa HTML lên trang.
+
+**Ghi công đọc từ chân trang của từng tệp, không suy từ bộ kinh.** Ba khai báo trong
+`source/external-references.yaml`:
+
+| Khai báo | Dòng tác giả trong tệp | Tệp |
+| --- | --- | --- |
+| `suttacentral-vi-minh-chau-binh-anson` | Hòa thượng Thích Minh Châu dịch Việt; Bình Anson hiệu đính | 187 (MN, DN, snp3.7) |
+| `suttacentral-vi-minh-chau` | Hòa thượng Thích Minh Châu | 3.211 (SN, AN, 11 KN) |
+| `suttacentral-vi-indacanda` | Bhikkhu Indacanda | 1.417 (KN); URL dùng mã `indacanda`, không phải `minh_chau` |
+
+Gần như toàn bộ Tiểu Bộ ở đó là của **Bhikkhu Indacanda**; ghi cho Hòa thượng Thích Minh Châu là ghi
+công sai. Chỉ MN/DN mang dòng Bình Anson. Chân trang được in nguyên văn dưới bản văn.
+"Used by kind permission" là sự cho phép dành cho SuttaCentral, **không phải giấy phép cho dự án**:
+điều khoản vẫn là `NOASSERTION`.
+
+**Tệp gộp.** SuttaCentral gộp nhiều bài vào một tệp (`an1.1`–`an1.10` là `an1.1-10`), trùng với tệp
+Pāli đã ghim (`CanonDocument.sourceKey`). Trang `an1.5` hiện cả tệp chung và nói rõ đã gộp, không tách.
+
+**Phạm vi đã đếm** (trang đọc có bản nguyên bài): MN 152/152, DN 34/34, SN 1.805/1.819, AN 1.768/1.781
+(411 qua tệp gộp), KN 1.429/2.351. `tests/unit/external-reference.test.ts` khoá các số này.
+
+**Khi đổi pin bilara.** `npm run manifest:fetch` ghi `vietnameseTranslators` (mọi thư mục dưới
+`translation/vi` tại commit ghim). `tests/unit/vietnamese-segmented.test.ts` fail nếu có dịch giả Việt
+phân đoạn mới mà chưa tầng nào đọc: khi đó **mở rộng tầng `vietnamese-current`** và khai giấy phép trong
+lock, để bài đó vào cột theo quy tắc 1. Nếu một bài có cả bản phân đoạn lẫn nguyên bài, cột hiện bản
+phân đoạn và nguyên bài vẫn ở cuối trang.
+
+**Khi đổi pin `sc-data`.** Cập nhật `commit` và `fileCount` trong `legacyHtml`, chạy lại nhóm tác giả
+theo chân trang, rồi cập nhật `verifiedUids` của ba khai báo; test chặn uid trùng, tác giả lệch, số tệp lệch.
 
 ---
 

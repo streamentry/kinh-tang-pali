@@ -193,71 +193,61 @@ references:
       checked: 2
       matched: 2
 
-  - id: suttacentral-vi-minh-chau
+  - id: suttacentral-vi-minh-chau-binh-anson
     kind: whole-text-reference
-    title: "SuttaCentral: bản Việt của Hòa thượng Thích Minh Châu (văn bản liền mạch)"
+    # The text itself is held in the pinned `legacyHtml` checkout and shown on the sutta page.
+    localCopy: legacyHtml
+    title: "Hòa thượng Thích Minh Châu, Bình Anson hiệu đính (SuttaCentral, nguyên bài)"
     purpose: >-
-      Tra cứu toàn văn bản Việt của Hòa thượng Thích Minh Châu cho các bài Trung, Trường,
-      Tương Ưng và Tăng Chi mà SuttaCentral đang phân phối. KHÔNG phải cột đối chiếu: đây là
-      văn xuôi liên tục, SuttaCentral không căn theo segment của bilara, nên không đặt cạnh
-      Pāli từng câu được.
+      Bản Việt Trung Bộ và Trường Bộ như SuttaCentral phân phối, kèm một bài Kinh Tập (snp3.7). Văn bản
+      nguyên bài được tải về cache theo commit đã ghim và hiển thị trên trang bài kinh. KHÔNG phải cột
+      đối chiếu: đây là văn xuôi liên tục, không có segment ID của bilara. Số khối văn bản trong tệp
+      bằng số đoạn Pāli ở 1/152 bài Trung Bộ và 0/34 bài Trường Bộ, nên không đặt cạnh Pāli từng
+      câu được mà không tự chọn câu nào nhận đoạn nào.
     alignment: none
-
-    # ---- who made it, and who distributes it --------------------------------------------
-    # No reviser is recorded. The SuttaCentral page is rendered client-side and was not read
-    # text-by-text, so the budsas copy's note that Bình Anson revised the MN text is neither
-    # confirmed nor denied for this copy. Naming a reviser here would be a guess.
     attribution:
       translator: "Hòa thượng Thích Minh Châu"
+      reviser: "Bình Anson"
+      reviserBasis: >-
+        Chân trang các tệp ghi "Bình Anson hiệu đính … dựa theo bản Anh ngữ": "The Middle Length
+        Discourses of the Buddha", Tỳ kheo Nanamoli và Tỳ kheo Bodhi dịch, 1995 (Trung Bộ);
+        "The Long Discourses of the Buddha", Maurice Walshe dịch, 1987 (Trường Bộ). Tức đây là bản
+        Bình Anson hiệu đính lại bản dịch của Hòa thượng Thích Minh Châu có đối chiếu bản Anh,
+        không phải nguyên văn bản dịch của Hòa thượng.
       distributor: "SuttaCentral"
       distributorIsPublisher: false
-
-    # ---- original publication ------------------------------------------------------------
-    # The catalogue carries a publication year for some texts only (1980 for SN 1.1, 1980–1981
-    # for AN 1.1–10) and none for most. A year on one text is not a publication record for all.
     originalPublication: >-
-      SuttaCentral không ghi ấn bản gốc của bản này. Danh mục chỉ ghi năm xuất bản cho một số
-      bài (ví dụ SN 1.1: 1980; AN 1.1–10: 1980–1981) và để trống phần còn lại; không suy ra
-      ấn bản cho toàn bộ từ đó.
-
-    # ---- licence --------------------------------------------------------------------------
+      Chân trang ghi người hiệu đính, ngày hiệu đính, lời cảm ơn người gửi bản điện tử và người chuẩn
+      bị cho SuttaCentral (ví dụ MN 1: hiệu đính tháng 8–1999 và 10–06–2004, nhắc bản in 1986 ở một
+      chú thích, Blake Walsh chuẩn bị; DN 1: hiệu đính 15–06–2007). Chân trang không nêu ấn bản in
+      gốc cho từng bài; không suy ra ấn bản cho toàn bộ từ ví dụ trên.
     licence:
       spdx: NOASSERTION
-      holder: "Hòa thượng Thích Minh Châu (bản dịch)"
+      holder: "Hòa thượng Thích Minh Châu (bản dịch); Bình Anson (hiệu đính)"
       basis: >-
         SuttaCentral xếp bản dịch bên thứ ba vào nhóm có bản quyền thuộc dịch giả hoặc nhà xuất
-        bản, được dùng theo giấy phép của họ hoặc với sự cho phép (licensing:14). Danh mục không
-        có trường giấy phép máy đọc được cho các bản này; ghi NOASSERTION, không suy ra CC0.
+        bản (licensing:14). Chân trang các tệp này không nêu giấy phép; chỉ có lời cảm ơn người
+        gửi bản điện tử và tên người chuẩn bị. Ghi NOASSERTION, không suy ra CC0 hay quyền dùng
+        tự do. Dự án hiển thị lại bản này như một bản sao có ghi nguồn; đó không phải là giấy phép.
       statementFrom: null
       attributionRequired: true
-
-    # ---- where the pages are -------------------------------------------------------------
     baseUrl: "https://suttacentral.net/"
     urlTemplate: "https://suttacentral.net/{uid}/vi/minh_chau"
     urlNumber: >-
-      Dùng uid nguyên văn của SuttaCentral (ví dụ sn1.1, an1.1-10). Chỉ các uid trong
-      verifiedUids mới có link; uid khác không được suy từ số thứ tự.
-    collections: [mn, dn, sn, an]
-    mappedRange: "152 MN, 34 DN, 1.805 SN, 1.395 AN; xem verifiedUids."
-
-    # ---- how the mapping was established ------------------------------------------------
+      Dùng uid nguyên văn của SuttaCentral. Chỉ các uid trong verifiedUids mới có link; uid khác
+      không được suy từ số thứ tự.
+    collections: [mn, dn, kn]
+    mappedRange: "152 MN, 34 DN, 1 KN (snp3.7); xem verifiedUids."
+    fileAuthors: ["Hòa thượng Thích Minh Châu dịch Việt"]
     verified:
       method: >-
-        Lấy danh mục SuttaCentral theo bộ (api/suttaplex/<bộ>). Một uid được đưa vào khi và chỉ
-        khi là bài lá có mục dịch lang=vi, author_uid=minh_chau, và uid đó có file Pāli đã ghim
-        trong root. Đây là đối chiếu sự tồn tại và danh tính uid trong dữ liệu SuttaCentral; không
-        phải đọc nội dung từng trang, vì trang là ứng dụng phía client. Với MN và DN, tên tiếng
-        Anh trong danh mục được so với tiêu đề Sujato đã ghim: trùng chữ 140/152 (MN) và 29/34
-        (DN); các chỗ còn lại là khác cách dịch cùng một bài, đã kiểm ở mn16, mn23, mn24, mn50,
-        dn8, dn11, dn13, dn25. SN và AN không có phép so tiêu đề này, vì khoá tiêu đề của Sujato
-        ở đó là tiêu đề chương.
-      summary: "3386 trên 4225 uid Pāli đã ghim trong bốn bộ có bản Việt trên SuttaCentral; đối chiếu theo uid, không đọc nội dung từng trang. MN và DN: tên Anh trùng tiêu đề Sujato 140/152 và 29/34."
-      checked: 4225
-      matched: 3386
-      unmatchedByCollection:
-        pali-without-vietnamese-on-suttacentral: { mn: 0, dn: 0, sn: 149, an: 690 }
-        vietnamese-without-pali: 0
-
+        Mọi tệp .html trong commit đã ghim được nhóm theo dòng tác giả ghi trong chân trang của
+        chính tệp. Uid là tên tệp, và phải có trong Pāli đã ghim. Nhóm này gồm các tệp có dòng
+        "Hòa thượng Thích Minh Châu dịch Việt". Đây là đối chiếu theo uid và chân trang, không
+        phải đối chiếu từng câu với Pāli.
+      summary: "187 tệp đã ghim; uid nào cũng có Pāli đã ghim. Tác giả và người hiệu đính đọc từ chân trang từng tệp."
+      checked: 187
+      matched: 187
     verifiedUids:
       mn: [
         "mn1", "mn2", "mn3", "mn4", "mn5", "mn6", "mn7", "mn8", "mn9", "mn10", "mn11", "mn12",
@@ -281,6 +271,61 @@ references:
         "dn13", "dn14", "dn15", "dn16", "dn17", "dn18", "dn19", "dn20", "dn21", "dn22", "dn23",
         "dn24", "dn25", "dn26", "dn27", "dn28", "dn29", "dn30", "dn31", "dn32", "dn33", "dn34",
       ]
+      kn: [
+        "snp3.7",
+      ]
+
+  - id: suttacentral-vi-minh-chau
+    kind: whole-text-reference
+    localCopy: legacyHtml
+    title: "Hòa thượng Thích Minh Châu (SuttaCentral, nguyên bài)"
+    purpose: >-
+      Bản Việt Tương Ưng Bộ và Tăng Chi Bộ của Hòa thượng Thích Minh Châu như SuttaCentral phân
+      phối, kèm mười một bài Tiểu Bộ do Hòa thượng dịch (Khuddakapāṭha và hai bài Kinh Tập).
+      Văn bản nguyên bài được tải về cache theo commit đã ghim và hiển thị trên trang bài kinh.
+      KHÔNG phải cột đối chiếu: đây là văn xuôi liên tục, không có segment ID của bilara.
+    alignment: none
+    # No reviser: unlike the Majjhima and Dīgha files, these footers name none.
+    attribution:
+      translator: "Hòa thượng Thích Minh Châu"
+      distributor: "SuttaCentral"
+      distributorIsPublisher: false
+    originalPublication: >-
+      Chân trang từng tệp ghi ấn bản. Ví dụ SN 1.2: Hòa thượng Thích Minh Châu dịch, Thiền viện
+      Vạn Hạnh phát hành đầu thập niên 1980, tái bản 1993; AN 1.1–10: dịch 1976–1977, Viện Phật
+      Học Vạn Hạnh (Sài Gòn) ấn hành 1980–1981, hiệu đính và tái bản 1996. Không suy ra ấn bản
+      của một bài từ ví dụ của bài khác.
+    licence:
+      spdx: NOASSERTION
+      holder: "Hòa thượng Thích Minh Châu (bản dịch)"
+      basis: >-
+        SuttaCentral xếp bản dịch bên thứ ba vào nhóm có bản quyền thuộc dịch giả hoặc nhà xuất
+        bản (licensing:14). Chân trang Tăng Chi Bộ ghi "These texts have been used with the kind
+        permission of the webmaster of http://www.budsas.net/": đó là sự cho phép dành cho
+        SuttaCentral, không phải giấy phép cho dự án này, và chân trang Tương Ưng Bộ không có
+        dòng ấy. Ghi NOASSERTION, không suy ra CC0. Dự án hiển thị lại bản này như một bản sao có
+        ghi nguồn; đó không phải là giấy phép.
+      statementFrom: null
+      attributionRequired: true
+    baseUrl: "https://suttacentral.net/"
+    urlTemplate: "https://suttacentral.net/{uid}/vi/minh_chau"
+    urlNumber: >-
+      Dùng uid nguyên văn của SuttaCentral (ví dụ sn1.1, an1.1-10). Chỉ các uid trong
+      verifiedUids mới có link; uid khác không được suy từ số thứ tự.
+    collections: [sn, an, kn]
+    mappedRange: "1.805 SN, 1.395 AN, 11 KN; xem verifiedUids."
+    fileAuthors: ["Hòa thượng Thích Minh Châu", "Thích Minh Châu"]
+    verified:
+      method: >-
+        Mọi tệp .html trong commit đã ghim được nhóm theo dòng tác giả ghi trong chân trang của
+        chính tệp. Uid là tên tệp, và phải có trong Pāli đã ghim. Nhóm này gồm các tệp có dòng
+        "Hòa thượng Thích Minh Châu" hoặc "Thích Minh Châu". Đây là đối chiếu theo uid và chân
+        trang, không phải đối chiếu từng câu với Pāli. Pāli đã ghim có 1.954 bài SN và 2.085 bài
+        AN; SuttaCentral có bản Việt cho 1.805 và 1.395 bài trong số đó.
+      summary: "3211 tệp đã ghim; uid nào cũng có Pāli đã ghim. SN còn thiếu 149 bài, AN còn thiếu 690 bài so với Pāli."
+      checked: 3211
+      matched: 3211
+    verifiedUids:
       sn: [
         "sn1.1", "sn1.2", "sn1.3", "sn1.4", "sn1.5", "sn1.6", "sn1.7", "sn1.8", "sn1.9",
         "sn1.10", "sn1.11", "sn1.12", "sn1.13", "sn1.14", "sn1.15", "sn1.16", "sn1.17", "sn1.18",
@@ -688,6 +733,262 @@ references:
         "an11.5", "an11.6", "an11.7", "an11.8", "an11.9", "an11.10", "an11.11", "an11.12",
         "an11.13", "an11.14", "an11.15", "an11.16", "an11.17", "an11.18", "an11.19", "an11.20",
         "an11.21", "an11.22-29", "an11.982", "an11.983-991",
+      ]
+      kn: [
+        "kp1", "kp2", "kp3", "kp4", "kp5", "kp6", "kp7", "kp8", "kp9", "snp1.8", "snp2.4",
+      ]
+
+  - id: suttacentral-vi-indacanda
+    kind: whole-text-reference
+    localCopy: legacyHtml
+    title: "Bhikkhu Indacanda (SuttaCentral, nguyên bài)"
+    purpose: >-
+      Bản Việt phần lớn Tiểu Bộ của Bhikkhu Indacanda như SuttaCentral phân phối. Văn bản nguyên bài
+      được tải về cache theo commit đã ghim và hiển thị trên trang bài kinh. KHÔNG phải cột đối
+      chiếu: đây là văn xuôi liên tục, không có segment ID của bilara. Dịch giả khác Hòa thượng
+      Thích Minh Châu, nên bản này không được ghi công cho Hòa thượng.
+    alignment: none
+    attribution:
+      translator: "Bhikkhu Indacanda"
+      distributor: "SuttaCentral"
+      distributorIsPublisher: false
+    originalPublication: >-
+      Chân trang ghi "Translated by Bhikkhu Indacanda, 2011. Based on the Buddha Jayanthi edition of
+      the Pali canon, as corrected by Bhikkhu Indacanda", và nói toàn văn, bản dịch và chú thích có
+      trên trang của dịch giả (http://tamtangpaliviet.net/). SuttaCentral là bản sao của bên thứ
+      ba, không phải nơi xuất bản.
+    licence:
+      spdx: NOASSERTION
+      holder: "Bhikkhu Indacanda (bản dịch)"
+      basis: >-
+        SuttaCentral xếp bản dịch bên thứ ba vào nhóm có bản quyền thuộc dịch giả hoặc nhà xuất
+        bản (licensing:14). Chân trang ghi "Used by kind permission of the translator": đó là sự
+        cho phép dành cho SuttaCentral, không phải giấy phép cho dự án này. Ghi NOASSERTION,
+        không suy ra CC0. Dự án hiển thị lại bản này như một bản sao có ghi nguồn; đó không phải
+        là giấy phép.
+      statementFrom: null
+      attributionRequired: true
+    baseUrl: "https://suttacentral.net/"
+    urlTemplate: "https://suttacentral.net/{uid}/vi/indacanda"
+    urlNumber: >-
+      Dùng uid nguyên văn của SuttaCentral; mã tác giả trong đường dẫn là indacanda, khác với
+      minh_chau của hai nhóm Hòa thượng Thích Minh Châu. Chỉ các uid trong verifiedUids mới có
+      link; uid khác không được suy từ số thứ tự.
+    collections: [kn]
+    mappedRange: "1.417 KN; xem verifiedUids."
+    fileAuthors: ["Bhikkhu Indacanda"]
+    verified:
+      method: >-
+        Mọi tệp .html trong commit đã ghim được nhóm theo dòng tác giả ghi trong chân trang của
+        chính tệp. Uid là tên tệp, và phải có trong Pāli đã ghim. Nhóm này gồm các tệp có dòng
+        "Bhikkhu Indacanda". Đây là đối chiếu theo uid và chân trang, không phải đối chiếu từng
+        câu với Pāli. Pāli đã ghim có 2.774 bài KN; SuttaCentral có bản Việt cho 1.429 bài, trong
+        đó 1.417 bài này.
+      summary: "1417 tệp đã ghim; uid nào cũng có Pāli đã ghim. Tác giả đọc từ chân trang từng tệp, không suy từ đường dẫn."
+      checked: 1417
+      matched: 1417
+    verifiedUids:
+      kn: [
+        "bv1", "bv2", "bv3", "bv4", "bv5", "bv6", "bv7", "bv8", "bv9", "bv10", "bv11", "bv12",
+        "bv13", "bv14", "bv15", "bv16", "bv17", "bv18", "bv19", "bv20", "bv21", "bv22", "bv23",
+        "bv24", "bv25", "bv26", "bv27", "bv28", "bv29", "cp1", "cp2", "cp3", "cp4", "cp5", "cp6",
+        "cp7", "cp8", "cp9", "cp10", "cp11", "cp12", "cp13", "cp14", "cp15", "cp16", "cp17",
+        "cp18", "cp19", "cp20", "cp21", "cp22", "cp23", "cp24", "cp25", "cp26", "cp27", "cp28",
+        "cp29", "cp30", "cp31", "cp32", "cp33", "cp34", "cp35", "mil1", "mil2", "mil3.8",
+        "mil4.1", "mil4.2", "mil4.3", "mil4.4", "mil4.5", "mil4.6", "mil7.1", "mil8", "mil3.1.1",
+        "mil3.1.10", "mil3.1.11", "mil3.1.12", "mil3.1.13", "mil3.1.14", "mil3.1.15",
+        "mil3.1.16", "mil3.1.2", "mil3.1.3", "mil3.1.4", "mil3.1.5", "mil3.1.6", "mil3.1.7",
+        "mil3.1.8", "mil3.1.9", "mil3.2.1", "mil3.2.2", "mil3.2.3", "mil3.2.4", "mil3.2.5",
+        "mil3.2.6", "mil3.2.7", "mil3.2.8", "mil3.2.9", "mil3.3.1", "mil3.3.10", "mil3.3.11",
+        "mil3.3.12", "mil3.3.13", "mil3.3.14", "mil3.3.2", "mil3.3.3", "mil3.3.4", "mil3.3.5",
+        "mil3.3.6", "mil3.3.7", "mil3.3.8", "mil3.3.9", "mil3.4.1", "mil3.4.10", "mil3.4.2",
+        "mil3.4.3", "mil3.4.4", "mil3.4.5", "mil3.4.6", "mil3.4.7", "mil3.4.8", "mil3.4.9",
+        "mil3.5.1", "mil3.5.10", "mil3.5.2", "mil3.5.3", "mil3.5.4", "mil3.5.5", "mil3.5.6",
+        "mil3.5.7", "mil3.5.8", "mil3.5.9", "mil3.6.1", "mil3.6.10", "mil3.6.11", "mil3.6.2",
+        "mil3.6.3", "mil3.6.4", "mil3.6.5", "mil3.6.6", "mil3.6.7", "mil3.6.8", "mil3.6.9",
+        "mil3.7.1", "mil3.7.10", "mil3.7.11", "mil3.7.12", "mil3.7.13", "mil3.7.14", "mil3.7.15",
+        "mil3.7.16", "mil3.7.2", "mil3.7.3", "mil3.7.4", "mil3.7.5", "mil3.7.6", "mil3.7.7",
+        "mil3.7.8", "mil3.7.9", "mil5.1.1", "mil5.1.10", "mil5.1.2", "mil5.1.3", "mil5.1.4",
+        "mil5.1.5", "mil5.1.6", "mil5.1.7", "mil5.1.8", "mil5.1.9", "mil5.2.1", "mil5.2.2",
+        "mil5.2.3", "mil5.2.4", "mil5.2.5", "mil5.2.6", "mil5.2.7", "mil5.2.8", "mil5.3.1",
+        "mil5.3.10", "mil5.3.11", "mil5.3.12", "mil5.3.2", "mil5.3.3", "mil5.3.4", "mil5.3.5",
+        "mil5.3.6", "mil5.3.7", "mil5.3.8", "mil5.3.9", "mil5.4.1", "mil5.4.10", "mil5.4.2",
+        "mil5.4.3", "mil5.4.4", "mil5.4.5", "mil5.4.6", "mil5.4.7", "mil5.4.8", "mil5.4.9",
+        "mil5.5.1", "mil5.5.10", "mil5.5.11", "mil5.5.2", "mil5.5.3", "mil5.5.4", "mil5.5.5",
+        "mil5.5.6", "mil5.5.7", "mil5.5.8", "mil5.5.9", "mil6.1.1", "mil6.1.2", "mil6.1.3",
+        "mil6.1.4", "mil6.1.5", "mil6.1.6", "mil6.1.7", "mil6.1.8", "mil6.1.9", "mil6.2.1",
+        "mil6.2.10", "mil6.2.2", "mil6.2.3", "mil6.2.4", "mil6.2.5", "mil6.2.6", "mil6.2.7",
+        "mil6.2.8", "mil6.2.9", "mil6.3.1", "mil6.3.10", "mil6.3.11", "mil6.3.12", "mil6.3.2",
+        "mil6.3.3", "mil6.3.4", "mil6.3.5", "mil6.3.6", "mil6.3.7", "mil6.3.8", "mil6.3.9",
+        "mil6.4.1", "mil6.4.2", "mil7.2.1", "mil7.2.10", "mil7.2.2", "mil7.2.3", "mil7.2.4",
+        "mil7.2.5", "mil7.2.6", "mil7.2.7", "mil7.2.8", "mil7.2.9", "mil7.3.1", "mil7.3.10",
+        "mil7.3.2", "mil7.3.3", "mil7.3.4", "mil7.3.5", "mil7.3.6", "mil7.3.7", "mil7.3.8",
+        "mil7.3.9", "mil7.4.1", "mil7.4.10", "mil7.4.2", "mil7.4.3", "mil7.4.4", "mil7.4.5",
+        "mil7.4.6", "mil7.4.7", "mil7.4.8", "mil7.4.9", "mil7.5.1", "mil7.5.10", "mil7.5.2",
+        "mil7.5.3", "mil7.5.4", "mil7.5.5", "mil7.5.6", "mil7.5.7", "mil7.5.8", "mil7.5.9",
+        "mil7.6.1", "mil7.6.10", "mil7.6.2", "mil7.6.3", "mil7.6.4", "mil7.6.5", "mil7.6.6",
+        "mil7.6.7", "mil7.6.8", "mil7.6.9", "mil7.7.1", "mil7.7.10", "mil7.7.2", "mil7.7.3",
+        "mil7.7.4", "mil7.7.5", "mil7.7.6", "mil7.7.7", "mil7.7.8", "mil7.7.9", "mil7.8.1",
+        "mil7.8.2", "mil7.8.3", "mil7.8.4", "mil7.8.5", "mil7.8.6", "mil7.8.7", "ps1.0", "ps1.1",
+        "ps1.2", "ps1.3", "ps1.4", "ps1.5", "ps1.6", "ps1.7", "ps1.8", "ps1.9", "ps1.10",
+        "ps2.1", "ps2.2", "ps2.3", "ps2.4", "ps2.5", "ps2.6", "ps2.7", "ps2.8", "ps2.9",
+        "ps2.10", "ps3.1", "ps3.2", "ps3.3", "ps3.4", "ps3.5", "ps3.6", "ps3.7", "ps3.8",
+        "ps3.9", "ps3.10", "pv1", "pv2", "pv3", "pv4", "pv5", "pv6", "pv7", "pv8", "pv9", "pv10",
+        "pv11", "pv12", "pv13", "pv14", "pv15", "pv16", "pv17", "pv18", "pv19", "pv20", "pv21",
+        "pv22", "pv23", "pv24", "pv25", "pv26", "pv27", "pv28", "pv29", "pv30", "pv31", "pv32",
+        "pv33", "pv34", "pv35", "pv36", "pv37", "pv38", "pv39", "pv40", "pv41", "pv42", "pv43",
+        "pv44", "pv45", "pv46", "pv47", "pv48", "pv49", "pv50", "pv51", "tha-ap1", "tha-ap2",
+        "tha-ap3", "tha-ap4", "tha-ap5", "tha-ap6", "tha-ap7", "tha-ap8", "tha-ap9", "tha-ap10",
+        "tha-ap11", "tha-ap12", "tha-ap13", "tha-ap14", "tha-ap15", "tha-ap16", "tha-ap17",
+        "tha-ap18", "tha-ap19", "tha-ap20", "tha-ap21", "tha-ap22", "tha-ap23", "tha-ap24",
+        "tha-ap25", "tha-ap26", "tha-ap27", "tha-ap28", "tha-ap29", "tha-ap30", "tha-ap31",
+        "tha-ap32", "tha-ap33", "tha-ap34", "tha-ap35", "tha-ap36", "tha-ap37", "tha-ap38",
+        "tha-ap39", "tha-ap40", "tha-ap41", "tha-ap42", "tha-ap43", "tha-ap44", "tha-ap45",
+        "tha-ap46", "tha-ap47", "tha-ap48", "tha-ap49", "tha-ap50", "tha-ap51", "tha-ap52",
+        "tha-ap53", "tha-ap54", "tha-ap55", "tha-ap56", "tha-ap57", "tha-ap58", "tha-ap59",
+        "tha-ap60", "tha-ap61", "tha-ap62", "tha-ap63", "tha-ap64", "tha-ap65", "tha-ap66",
+        "tha-ap67", "tha-ap68", "tha-ap69", "tha-ap70", "tha-ap71", "tha-ap72", "tha-ap73",
+        "tha-ap74", "tha-ap75", "tha-ap76", "tha-ap77", "tha-ap78", "tha-ap79", "tha-ap80",
+        "tha-ap81", "tha-ap82", "tha-ap83", "tha-ap84", "tha-ap85", "tha-ap86", "tha-ap87",
+        "tha-ap88", "tha-ap89", "tha-ap90", "tha-ap91", "tha-ap92", "tha-ap93", "tha-ap94",
+        "tha-ap95", "tha-ap96", "tha-ap97", "tha-ap98", "tha-ap99", "tha-ap100", "tha-ap101",
+        "tha-ap102", "tha-ap103", "tha-ap104", "tha-ap105", "tha-ap106", "tha-ap107",
+        "tha-ap108", "tha-ap109", "tha-ap110", "tha-ap111", "tha-ap112", "tha-ap113",
+        "tha-ap114", "tha-ap115", "tha-ap116", "tha-ap117", "tha-ap118", "tha-ap119",
+        "tha-ap120", "tha-ap121", "tha-ap122", "tha-ap123", "tha-ap124", "tha-ap125",
+        "tha-ap126", "tha-ap127", "tha-ap128", "tha-ap129", "tha-ap130", "tha-ap131",
+        "tha-ap132", "tha-ap133", "tha-ap134", "tha-ap135", "tha-ap136", "tha-ap137",
+        "tha-ap138", "tha-ap139", "tha-ap140", "tha-ap141", "tha-ap142", "tha-ap143",
+        "tha-ap144", "tha-ap145", "tha-ap146", "tha-ap147", "tha-ap148", "tha-ap149",
+        "tha-ap150", "tha-ap151", "tha-ap152", "tha-ap153", "tha-ap154", "tha-ap155",
+        "tha-ap156", "tha-ap157", "tha-ap158", "tha-ap159", "tha-ap160", "tha-ap161",
+        "tha-ap162", "tha-ap163", "tha-ap164", "tha-ap165", "tha-ap166", "tha-ap167",
+        "tha-ap168", "tha-ap169", "tha-ap170", "tha-ap171", "tha-ap172", "tha-ap173",
+        "tha-ap174", "tha-ap175", "tha-ap176", "tha-ap177", "tha-ap178", "tha-ap179",
+        "tha-ap180", "tha-ap181", "tha-ap182", "tha-ap183", "tha-ap184", "tha-ap185",
+        "tha-ap186", "tha-ap187", "tha-ap188", "tha-ap189", "tha-ap190", "tha-ap191",
+        "tha-ap192", "tha-ap193", "tha-ap194", "tha-ap195", "tha-ap196", "tha-ap197",
+        "tha-ap198", "tha-ap199", "tha-ap200", "tha-ap201", "tha-ap202", "tha-ap203",
+        "tha-ap204", "tha-ap205", "tha-ap206", "tha-ap207", "tha-ap208", "tha-ap209",
+        "tha-ap210", "tha-ap211", "tha-ap212", "tha-ap213", "tha-ap214", "tha-ap215",
+        "tha-ap216", "tha-ap217", "tha-ap218", "tha-ap219", "tha-ap220", "tha-ap221",
+        "tha-ap222", "tha-ap223", "tha-ap224", "tha-ap225", "tha-ap226", "tha-ap227",
+        "tha-ap228", "tha-ap229", "tha-ap230", "tha-ap231", "tha-ap232", "tha-ap233",
+        "tha-ap234", "tha-ap235", "tha-ap236", "tha-ap237", "tha-ap238", "tha-ap239",
+        "tha-ap240", "tha-ap241", "tha-ap242", "tha-ap243", "tha-ap244", "tha-ap245",
+        "tha-ap246", "tha-ap247", "tha-ap248", "tha-ap249", "tha-ap250", "tha-ap251",
+        "tha-ap252", "tha-ap253", "tha-ap254", "tha-ap255", "tha-ap256", "tha-ap257",
+        "tha-ap258", "tha-ap259", "tha-ap260", "tha-ap261", "tha-ap262", "tha-ap263",
+        "tha-ap264", "tha-ap265", "tha-ap266", "tha-ap267", "tha-ap268", "tha-ap269",
+        "tha-ap270", "tha-ap271", "tha-ap272", "tha-ap273", "tha-ap274", "tha-ap275",
+        "tha-ap276", "tha-ap277", "tha-ap278", "tha-ap279", "tha-ap280", "tha-ap281",
+        "tha-ap282", "tha-ap283", "tha-ap284", "tha-ap285", "tha-ap286", "tha-ap287",
+        "tha-ap288", "tha-ap289", "tha-ap290", "tha-ap291", "tha-ap292", "tha-ap293",
+        "tha-ap294", "tha-ap295", "tha-ap296", "tha-ap297", "tha-ap298", "tha-ap299",
+        "tha-ap300", "tha-ap301", "tha-ap302", "tha-ap303", "tha-ap304", "tha-ap305",
+        "tha-ap306", "tha-ap307", "tha-ap308", "tha-ap309", "tha-ap310", "tha-ap311",
+        "tha-ap312", "tha-ap313", "tha-ap314", "tha-ap315", "tha-ap316", "tha-ap317",
+        "tha-ap318", "tha-ap319", "tha-ap320", "tha-ap321", "tha-ap322", "tha-ap323",
+        "tha-ap324", "tha-ap325", "tha-ap326", "tha-ap327", "tha-ap328", "tha-ap329",
+        "tha-ap330", "tha-ap331", "tha-ap332", "tha-ap333", "tha-ap334", "tha-ap335",
+        "tha-ap336", "tha-ap337", "tha-ap338", "tha-ap339", "tha-ap340", "tha-ap341",
+        "tha-ap342", "tha-ap343", "tha-ap344", "tha-ap345", "tha-ap346", "tha-ap347",
+        "tha-ap348", "tha-ap349", "tha-ap350", "tha-ap351", "tha-ap352", "tha-ap353",
+        "tha-ap354", "tha-ap355", "tha-ap356", "tha-ap357", "tha-ap358", "tha-ap359",
+        "tha-ap360", "tha-ap361", "tha-ap362", "tha-ap363", "tha-ap364", "tha-ap365",
+        "tha-ap366", "tha-ap367", "tha-ap368", "tha-ap369", "tha-ap370", "tha-ap371",
+        "tha-ap372", "tha-ap373", "tha-ap374", "tha-ap375", "tha-ap376", "tha-ap377",
+        "tha-ap378", "tha-ap379", "tha-ap380", "tha-ap381", "tha-ap382", "tha-ap383",
+        "tha-ap384", "tha-ap385", "tha-ap386", "tha-ap387", "tha-ap388", "tha-ap389",
+        "tha-ap390", "tha-ap391", "tha-ap392", "tha-ap393", "tha-ap394", "tha-ap395",
+        "tha-ap396", "tha-ap397", "tha-ap398", "tha-ap399", "tha-ap400", "tha-ap401",
+        "tha-ap402", "tha-ap403", "tha-ap404", "tha-ap405", "tha-ap406", "tha-ap407",
+        "tha-ap408", "tha-ap409", "tha-ap410", "tha-ap411", "tha-ap412", "tha-ap413",
+        "tha-ap414", "tha-ap415", "tha-ap416", "tha-ap417", "tha-ap418", "tha-ap419",
+        "tha-ap420", "tha-ap421", "tha-ap422", "tha-ap423", "tha-ap424", "tha-ap425",
+        "tha-ap426", "tha-ap427", "tha-ap428", "tha-ap429", "tha-ap430", "tha-ap431",
+        "tha-ap432", "tha-ap433", "tha-ap434", "tha-ap435", "tha-ap436", "tha-ap437",
+        "tha-ap438", "tha-ap439", "tha-ap440", "tha-ap441", "tha-ap442", "tha-ap443",
+        "tha-ap444", "tha-ap445", "tha-ap446", "tha-ap447", "tha-ap448", "tha-ap449",
+        "tha-ap450", "tha-ap451", "tha-ap452", "tha-ap453", "tha-ap454", "tha-ap455",
+        "tha-ap456", "tha-ap457", "tha-ap458", "tha-ap459", "tha-ap460", "tha-ap461",
+        "tha-ap462", "tha-ap463", "tha-ap464", "tha-ap465", "tha-ap466", "tha-ap467",
+        "tha-ap468", "tha-ap469", "tha-ap470", "tha-ap471", "tha-ap472", "tha-ap473",
+        "tha-ap474", "tha-ap475", "tha-ap476", "tha-ap477", "tha-ap478", "tha-ap479",
+        "tha-ap480", "tha-ap481", "tha-ap482", "tha-ap483", "tha-ap484", "tha-ap485",
+        "tha-ap486", "tha-ap487", "tha-ap488", "tha-ap489", "tha-ap490", "tha-ap491",
+        "tha-ap492", "tha-ap493", "tha-ap494", "tha-ap495", "tha-ap496", "tha-ap497",
+        "tha-ap498", "tha-ap499", "tha-ap500", "tha-ap501", "tha-ap502", "tha-ap503",
+        "tha-ap504", "tha-ap505", "tha-ap506", "tha-ap507", "tha-ap508", "tha-ap509",
+        "tha-ap510", "tha-ap511", "tha-ap512", "tha-ap513", "tha-ap514", "tha-ap515",
+        "tha-ap516", "tha-ap517", "tha-ap518", "tha-ap519", "tha-ap520", "tha-ap521",
+        "tha-ap522", "tha-ap523", "tha-ap524", "tha-ap525", "tha-ap526", "tha-ap527",
+        "tha-ap528", "tha-ap529", "tha-ap530", "tha-ap531", "tha-ap532", "tha-ap533",
+        "tha-ap534", "tha-ap535", "tha-ap536", "tha-ap537", "tha-ap538", "tha-ap539",
+        "tha-ap540", "tha-ap541", "tha-ap542", "tha-ap543", "tha-ap544", "tha-ap545",
+        "tha-ap546", "tha-ap547", "tha-ap548", "tha-ap549", "tha-ap550", "tha-ap551",
+        "tha-ap552", "tha-ap553", "tha-ap554", "tha-ap555", "tha-ap556", "tha-ap557",
+        "tha-ap558", "tha-ap559", "tha-ap560", "tha-ap561", "thag1.1", "thag1.2", "thag1.3",
+        "thag1.4", "thag1.5", "thag1.6", "thag1.7", "thag1.8", "thag1.9", "thag1.10", "thag1.11",
+        "thag1.12", "thag1.13", "thag1.14", "thag1.15", "thag1.16", "thag1.17", "thag1.18",
+        "thag1.19", "thag1.20", "thag1.21", "thag1.22", "thag1.23", "thag1.24", "thag1.25",
+        "thag1.26", "thag1.27", "thag1.28", "thag1.29", "thag1.30", "thag1.31", "thag1.32",
+        "thag1.33", "thag1.34", "thag1.35", "thag1.36", "thag1.37", "thag1.38", "thag1.39",
+        "thag1.40", "thag1.41", "thag1.42", "thag1.43", "thag1.44", "thag1.45", "thag1.46",
+        "thag1.47", "thag1.48", "thag1.49", "thag1.50", "thag1.51", "thag1.52", "thag1.53",
+        "thag1.54", "thag1.55", "thag1.56", "thag1.57", "thag1.58", "thag1.59", "thag1.60",
+        "thag1.61", "thag1.62", "thag1.63", "thag1.64", "thag1.65", "thag1.66", "thag1.67",
+        "thag1.68", "thag1.69", "thag1.70", "thag1.71", "thag1.72", "thag1.73", "thag1.74",
+        "thag1.75", "thag1.76", "thag1.77", "thag1.78", "thag1.79", "thag1.80", "thag1.81",
+        "thag1.82", "thag1.83", "thag1.84", "thag1.85", "thag1.86", "thag1.87", "thag1.88",
+        "thag1.89", "thag1.90", "thag1.91", "thag1.92", "thag1.93", "thag1.94", "thag1.95",
+        "thag1.96", "thag1.97", "thag1.98", "thag1.99", "thag1.100", "thag1.101", "thag1.102",
+        "thag1.103", "thag1.104", "thag1.105", "thag1.106", "thag1.107", "thag1.108",
+        "thag1.109", "thag1.110", "thag1.111", "thag1.112", "thag1.113", "thag1.114",
+        "thag1.115", "thag1.116", "thag1.117", "thag1.118", "thag1.119", "thag1.120", "thag2.1",
+        "thag2.2", "thag2.3", "thag2.4", "thag2.5", "thag2.6", "thag2.7", "thag2.8", "thag2.9",
+        "thag2.10", "thag2.11", "thag2.12", "thag2.13", "thag2.14", "thag2.15", "thag2.16",
+        "thag2.17", "thag2.18", "thag2.19", "thag2.20", "thag2.21", "thag2.22", "thag2.23",
+        "thag2.24", "thag2.25", "thag2.26", "thag2.27", "thag2.28", "thag2.29", "thag2.30",
+        "thag2.31", "thag2.32", "thag2.33", "thag2.34", "thag2.35", "thag2.36", "thag2.37",
+        "thag2.38", "thag2.39", "thag2.40", "thag2.41", "thag2.42", "thag2.43", "thag2.44",
+        "thag2.45", "thag2.46", "thag2.47", "thag2.48", "thag2.49", "thag3.1", "thag3.2",
+        "thag3.3", "thag3.4", "thag3.5", "thag3.6", "thag3.7", "thag3.8", "thag3.9", "thag3.10",
+        "thag3.11", "thag3.12", "thag3.13", "thag3.14", "thag3.15", "thag3.16", "thag4.1",
+        "thag4.2", "thag4.3", "thag4.4", "thag4.5", "thag4.6", "thag4.7", "thag4.8", "thag4.9",
+        "thag4.10", "thag4.11", "thag4.12", "thag5.1", "thag5.2", "thag5.3", "thag5.4",
+        "thag5.5", "thag5.6", "thag5.7", "thag5.8", "thag5.9", "thag5.10", "thag5.11",
+        "thag5.12", "thag6.1", "thag6.2", "thag6.3", "thag6.4", "thag6.5", "thag6.6", "thag6.7",
+        "thag6.8", "thag6.9", "thag6.10", "thag6.11", "thag6.12", "thag6.13", "thag6.14",
+        "thag7.1", "thag7.2", "thag7.3", "thag7.4", "thag7.5", "thag8.1", "thag8.2", "thag8.3",
+        "thag9.1", "thag10.1", "thag10.2", "thag10.3", "thag10.4", "thag10.5", "thag10.6",
+        "thag10.7", "thag11.1", "thag12.1", "thag12.2", "thag13.1", "thag14.1", "thag14.2",
+        "thag15.1", "thag15.2", "thag16.1", "thag16.2", "thag16.3", "thag16.4", "thag16.5",
+        "thag16.6", "thag16.7", "thag16.8", "thag16.9", "thag16.10", "thag17.1", "thag17.2",
+        "thag17.3", "thag18.1", "thag19.1", "thag20.1", "thag21.1", "thi-ap1", "thi-ap2",
+        "thi-ap3", "thi-ap4", "thi-ap5", "thi-ap6", "thi-ap7", "thi-ap8", "thi-ap9", "thi-ap10",
+        "thi-ap11", "thi-ap12", "thi-ap13", "thi-ap14", "thi-ap15", "thi-ap16", "thi-ap17",
+        "thi-ap18", "thi-ap19", "thi-ap20", "thi-ap21", "thi-ap22", "thi-ap23", "thi-ap24",
+        "thi-ap25", "thi-ap26", "thi-ap27", "thi-ap28", "thi-ap29", "thi-ap30", "thi-ap31",
+        "thi-ap32", "thi-ap33", "thi-ap34", "thi-ap35", "thi-ap36", "thi-ap37", "thi-ap38",
+        "thi-ap39", "thi-ap40", "thig1.1", "thig1.2", "thig1.3", "thig1.4", "thig1.5", "thig1.6",
+        "thig1.7", "thig1.8", "thig1.9", "thig1.10", "thig1.11", "thig1.12", "thig1.13",
+        "thig1.14", "thig1.15", "thig1.16", "thig1.17", "thig1.18", "thig2.1", "thig2.2",
+        "thig2.3", "thig2.4", "thig2.5", "thig2.6", "thig2.7", "thig2.8", "thig2.9", "thig2.10",
+        "thig3.1", "thig3.2", "thig3.3", "thig3.4", "thig3.5", "thig3.6", "thig3.7", "thig3.8",
+        "thig4.1", "thig5.1", "thig5.2", "thig5.3", "thig5.4", "thig5.5", "thig5.6", "thig5.7",
+        "thig5.8", "thig5.9", "thig5.10", "thig5.11", "thig5.12", "thig6.1", "thig6.2",
+        "thig6.3", "thig6.4", "thig6.5", "thig6.6", "thig6.7", "thig6.8", "thig7.1", "thig7.2",
+        "thig7.3", "thig8.1", "thig9.1", "thig10.1", "thig11.1", "thig12.1", "thig13.1",
+        "thig13.2", "thig13.3", "thig13.4", "thig13.5", "thig14.1", "thig15.1", "thig16.1",
+        "vv1", "vv2", "vv3", "vv4", "vv5", "vv6", "vv7", "vv8", "vv9", "vv10", "vv11", "vv12",
+        "vv13", "vv14", "vv15", "vv16", "vv17", "vv18", "vv19", "vv20", "vv21", "vv22", "vv23",
+        "vv24", "vv25", "vv26", "vv27", "vv28", "vv29", "vv30", "vv31", "vv32", "vv33", "vv34",
+        "vv35", "vv36", "vv37", "vv38", "vv39", "vv40", "vv41", "vv42", "vv43", "vv44", "vv45",
+        "vv46", "vv47", "vv48", "vv49", "vv50", "vv51", "vv52", "vv53", "vv54", "vv55", "vv56",
+        "vv57", "vv58", "vv59", "vv60", "vv61", "vv62", "vv63", "vv64", "vv65", "vv66", "vv67",
+        "vv68", "vv69", "vv70", "vv71", "vv72", "vv73", "vv74", "vv75", "vv76", "vv77", "vv78",
+        "vv79", "vv80", "vv81", "vv82", "vv83", "vv84", "vv85",
       ]
 
 # Rules that hold for every entry above.
