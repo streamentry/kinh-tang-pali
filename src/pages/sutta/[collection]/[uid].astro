@@ -4,6 +4,7 @@ import QualityHistory from '../../../components/QualityHistory.astro';
 import SuttaReader from '../../../components/SuttaReader.astro';
 import SuttaAudio from '../../../components/SuttaAudio.astro';
 import { loadAudio } from '../../../lib/canon/audio';
+import { adjacentTexts } from '../../../lib/audio/navigation';
 import { COLLECTIONS, loadCatalog, loadMeta } from '../../../lib/canon/load';
 import { composeDocument } from '../../../lib/canon/document';
 import { loadAssessmentHistory } from '../../../lib/canon/quality';
@@ -23,6 +24,9 @@ export function getStaticPaths() {
 const { collection, uid } = Astro.props;
 const document = composeDocument(collection.code as CollectionCode, uid);
 const audio = loadAudio(document);
+const neighbours = adjacentTexts(loadCatalog(collection.code).texts, uid);
+const previous = neighbours.previous ? { uid: neighbours.previous.uid, href: withBase(`sutta/${collection.code}/${neighbours.previous.uid}/`) } : undefined;
+const next = neighbours.next ? { uid: neighbours.next.uid, href: withBase(`sutta/${collection.code}/${neighbours.next.uid}/`), hasAudio: audio ? Boolean(loadAudio(composeDocument(collection.code as CollectionCode, neighbours.next.uid))) : false } : undefined;
 const meta = loadMeta(collection.code, uid);
 const history = loadAssessmentHistory(collection.code, uid);
 const selectedIsSaved = Boolean(meta?.quality?.assessment_id && history.assessments.some(entry => entry.id === meta?.quality?.assessment_id));
@@ -79,7 +83,7 @@ const permalink = new URL(withBase(`sutta/${collection.code}/${uid}/`), Astro.si
       </section>
     )}
     {supportsSummary && !hasSummary && <p data-pagefind-ignore>Chưa có nội dung tóm tắt cho bài kinh này.</p>}
-    {audio && <SuttaAudio audio={audio} title={document.viTitle} />}
+    {audio && <SuttaAudio audio={audio} title={document.viTitle} previous={previous} next={next} />}
     <SuttaReader document={document} />
     {supportsSummary && <QualityHistory collection={collection.code} uid={uid} target="summary" assessments={history.assessments} />}
     {document.hasProjectData && <QualityHistory collection={collection.code} uid={uid} target="translation" assessments={history.assessments} legacy={legacyScores} />}

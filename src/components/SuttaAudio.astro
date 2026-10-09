@@ -1,10 +1,11 @@
 ---
 import type { SuttaAudio } from '../lib/canon/audio';
-interface Props { audio: SuttaAudio; title: string; }
-const { audio, title } = Astro.props;
+interface Neighbour { uid: string; href: string; hasAudio?: boolean; }
+interface Props { audio: SuttaAudio; title: string; previous?: Neighbour; next?: Neighbour; }
+const { audio, title, previous, next } = Astro.props;
 const minutes = Math.round(audio.duration_seconds / 60);
 ---
-<sutta-audio class="listening" data-pagefind-ignore data-scripture={audio.scripture_start_seconds}>
+<sutta-audio class="listening" data-pagefind-ignore data-scripture={audio.scripture_start_seconds} data-next={next?.hasAudio ? next.href : undefined}>
   <div class="listening-heading">
     <div><p class="listening-label">Lắng nghe · Việt 2026</p><h2>{title}</h2></div>
     <span class="listening-length">{minutes} phút</span>
@@ -12,6 +13,11 @@ const minutes = Math.round(audio.duration_seconds / 60);
   <p class="listening-description">Tóm tắt, sau đó là kinh văn · Giọng nam trầm · Nhịp đọc vừa phải</p>
   {audio.review_status === 'pending' && <p class="listening-review">Bản đọc thử, đang chờ người biên tập nghe duyệt.</p>}
   <audio controls preload="metadata" src={audio.url} aria-label={`Nghe ${title}`}></audio>
+  <nav class="listening-navigation" aria-label="Chuyển bài kinh">
+    {previous ? <a class="listen-neighbour" href={previous.href} aria-label={`Bài trước: ${previous.uid.toUpperCase()}`}>&lt; Back <span>{previous.uid.toUpperCase()}</span></a> : <button class="listen-neighbour" disabled aria-label="Không có bài trước">&lt; Back</button>}
+    {next ? <a class="listen-neighbour" href={next.href} aria-label={`Bài tiếp theo: ${next.uid.toUpperCase()}`}>Next &gt; <span>{next.uid.toUpperCase()}</span></a> : <button class="listen-neighbour" disabled aria-label="Không có bài tiếp theo">Next &gt;</button>}
+    <label class="listen-auto" hidden><input type="checkbox" role="switch" checked data-auto-next /><span>Tự chuyển bài</span></label>
+  </nav>
   <div class="listening-custom" hidden>
     <div class="listening-transport">
       <button type="button" class="listen-play" aria-label="Phát bài đọc"><span data-play-icon>▶</span><span data-play-label>Phát</span></button>
@@ -22,6 +28,7 @@ const minutes = Math.round(audio.duration_seconds / 60);
     </div>
     <input class="listen-seek" type="range" min="0" max={audio.duration_seconds} step="1" value="0" aria-label="Vị trí phát" />
     <div class="listening-footer"><button type="button" data-scripture-jump>Đến phần kinh văn →</button><a href={audio.url} target="_blank" rel="noopener">Mở MP3 ↗</a></div>
+    <p class="listen-notice" role="status" hidden></p>
     <p class="listen-error" role="status" hidden>Không tải được âm thanh. Bạn có thể thử lại hoặc mở MP3 trực tiếp.</p>
   </div>
 </sutta-audio>
@@ -49,13 +56,28 @@ const minutes = Math.round(audio.duration_seconds / 60);
   .listening-footer { display:flex; align-items:center; justify-content:space-between; gap:1rem; }
   .listening-footer button { padding-left:0; color:var(--accent); }
   .listening-footer a { font-size:.8rem; color:var(--muted); text-underline-offset:4px; }
+  .listening-navigation { display:flex; align-items:center; gap:.6rem; flex-wrap:wrap; margin:0 0 1rem; }
+  .listen-neighbour { display:inline-flex; align-items:center; gap:.5rem; padding:.65rem .8rem; min-height:44px; border-radius:.65rem; text-decoration:none; font-size:.85rem; background:var(--surface); }
+  .listen-neighbour span { font-size:.7rem; color:var(--muted); }
+  .listen-neighbour:hover { background:#d4e1d7; }
+  .listen-neighbour:disabled { opacity:.45; cursor:default; }
+  .listen-auto { display:flex; align-items:center; gap:.55rem; margin-left:auto; font-size:.8rem; cursor:pointer; min-height:44px; }
+  .listen-auto[hidden] { display:none; }
+  .listen-auto input { appearance:none; width:2.5rem; height:1.5rem; border-radius:1rem; background:#b4beb7; position:relative; cursor:pointer; margin:0; flex-shrink:0; }
+  .listen-auto input::after { content:""; position:absolute; top:.2rem; left:.2rem; width:1.1rem; height:1.1rem; border-radius:50%; background:white; }
+  .listen-auto input:checked { background:var(--accent); }
+  .listen-auto input:checked::after { transform:translateX(1rem); }
+  .listen-notice { color:var(--muted); font-size:.85rem; line-height:1.5; }
   .listen-error { color:var(--warning); font-size:.85rem; }
   :is(button,select,input,a):focus-visible { outline:2px solid var(--accent); outline-offset:4px; }
   @media(max-width:480px) { .listen-speed { width:100%; margin-left:0; } .listening-footer { align-items:flex-start; } }
   @media(prefers-reduced-motion:reduce) { button { transition:none; } }
 </style>
 <script>
+  import { readAutoNext, saveAutoNext, rememberContinuation, consumeContinuation, AUTO_NEXT_KEY } from '../lib/audio/navigation';
   class SuttaAudioElement extends HTMLElement {
+    private cleanup?: () => void;
+    disconnectedCallback() { this.cleanup?.(); delete this.dataset.ready; }
     connectedCallback() {
       if (this.dataset.ready) return;
       this.dataset.ready = 'true';
@@ -64,6 +86,24 @@ const minutes = Math.round(audio.duration_seconds / 60);
       const play = this.querySelector<HTMLButtonElement>('.listen-play')!;
       const seek = this.querySelector<HTMLInputElement>('.listen-seek')!;
       const error = this.querySelector<HTMLElement>('.listen-error')!;
+      const notice = this.querySelector<HTMLElement>('.listen-notice')!;
+      const autoNext = this.querySelector<HTMLInputElement>('[data-auto-next]')!;
+      let enabled = true;
+      try { enabled = readAutoNext(localStorage); } catch { /* Storage access itself can be denied. */ }
+      autoNext.checked = enabled;
+      this.querySelector<HTMLElement>('.listen-auto')!.hidden = false;
+      autoNext.addEventListener('change', () => {
+        enabled = autoNext.checked;
+        try { saveAutoNext(localStorage, enabled); } catch { /* Keep the current choice in memory. */ }
+      });
+      const onStorage = (event: StorageEvent) => {
+        if (event.key === AUTO_NEXT_KEY || event.key === null) {
+          try { enabled = readAutoNext(localStorage); autoNext.checked = enabled; } catch { /* Keep current choice. */ }
+        }
+      };
+      window.addEventListener('storage', onStorage);
+      this.cleanup = () => window.removeEventListener('storage', onStorage);
+      const say = (message: string) => { notice.textContent = message; notice.hidden = false; };
       const format = (n: number) => `${Math.floor(n / 60)}:${Math.floor(n % 60).toString().padStart(2, '0')}`;
       const duration = () => Number.isFinite(audio.duration) ? audio.duration : Number(seek.max);
       const update = () => {
@@ -89,9 +129,25 @@ const minutes = Math.round(audio.duration_seconds / 60);
       this.querySelector('[data-scripture-jump]')!.addEventListener('click', () => { audio.currentTime = Number(this.dataset.scripture); update(); });
       this.querySelector('select')!.addEventListener('change', event => { audio.playbackRate = Number((event.target as HTMLSelectElement).value); });
       audio.addEventListener('loadedmetadata', update); audio.addEventListener('timeupdate', update);
-      audio.addEventListener('play', state); audio.addEventListener('pause', state); audio.addEventListener('ended', state);
+      audio.addEventListener('play', () => { notice.hidden = true; state(); }); audio.addEventListener('pause', state);
+      audio.addEventListener('ended', () => {
+        state();
+        if (!enabled) return;
+        const next = this.dataset.next;
+        if (!next) {
+          say(this.querySelector('a[aria-label^="Bài tiếp theo"]') ? 'Bài tiếp theo chưa có audio. Bạn có thể bấm Next để đọc bài.' : 'Bạn đã nghe hết bài cuối của bộ kinh.');
+          return;
+        }
+        try { rememberContinuation(sessionStorage, new URL(next, location.href).pathname); } catch { /* Navigate without autoplay if storage is denied. */ }
+        location.assign(next);
+      });
       audio.addEventListener('error', () => { error.hidden = false; state(); });
       audio.controls = false; audio.hidden = true; custom.hidden = false; update();
+      let continuing = false;
+      try { continuing = consumeContinuation(sessionStorage, location.pathname); } catch { /* Ordinary visits never autoplay. */ }
+      if (continuing && enabled) {
+        audio.play().catch(() => { say('Trình duyệt chưa cho phép tự phát. Bấm Phát để nghe tiếp bài này.'); state(); });
+      }
     }
   }
   if (!customElements.get('sutta-audio')) customElements.define('sutta-audio', SuttaAudioElement);

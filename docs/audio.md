@@ -67,3 +67,9 @@ npm run build
 ```
 
 Nguồn API: [Gemini speech generation](https://ai.google.dev/gemini-api/docs/speech-generation), [Wrangler R2 object helper](https://github.com/cloudflare/workers-sdk/blob/main/packages/wrangler/src/r2/helpers/object.ts).
+
+## Chuyển bài và tự phát tiếp
+
+Player có `< Back` / `Next >` theo thứ tự catalog trong cùng bộ kinh. Nút ở đầu/cuối bộ bị vô hiệu hóa; nút vẫn mở trang đọc khi bài liền kề chưa có audio. Toggle “Tự chuyển bài” mặc định bật, lưu tại localStorage `kinh-tang-pali:audio:auto-next:v1` và đồng bộ giữa các tab. Nếu storage bị chặn, lựa chọn vẫn hoạt động trong trang hiện tại.
+
+Khi phát hết, chỉ chuyển đến bài liền sau nếu metadata audio còn hợp lệ với nguồn hiện tại. Không tự bỏ qua bài chưa có MP3, không vòng về đầu bộ. Khi chuyển tự động, trang sau thử phát tiếp từ đầu qua marker sessionStorage dùng một lần, hết hạn sau 60 giây; truy cập trang bình thường không autoplay. Trình duyệt có thể chặn tự phát sau chuyển trang: player báo rõ và yêu cầu bấm Phát. Tắt toggle thì phát hết bài sẽ dừng.
