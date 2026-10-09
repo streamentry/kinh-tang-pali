@@ -151,7 +151,7 @@ Gmail xác nhận “Message sent” cho cả hai thư; tìm kiếm trong Sent c
 | Đầu mối | Bằng chứng công khai | Cách tiếp cận | Trạng thái |
 | --- | --- | --- | --- |
 | [Theravāda.vn — Liên hệ](https://theravada.vn/lien-he/) · [Liên kết web khác](https://theravada.vn/goc-thong-tin/lien-ket-web/) | Trang liên hệ mời góp ý tới Ban Biên tập; trang liên kết đang liệt kê tài nguyên về Majjhima, Dīgha, Saṃyutta, Aṅguttara và Khuddaka Nikāya. Địa chỉ công khai: `khanhhai.net@gmail.com`. | Đã gửi thư xin góp ý về provenance, đối chiếu và trạng thái bản dịch; thư mời tùy nghi giới thiệu mục lục MN, không đòi chứng thực hay liên kết đáp lại. | Đầu mối có độ phù hợp cao nhất. Gmail xác nhận gửi ngày 2026-10-09; Sent trả đúng một kết quả theo người nhận/chủ đề. Chưa có phản hồi hay backlink được xác nhận. |
-| [Thư viện Phật giáo](https://www.thuvienphatgiao.com/) | Catalog có nhóm “Kinh Tạng”, “PG. Nguyên Thủy”, sách Pāli và mục Liên hệ. | Trước tiên xác minh đơn vị biên tập có nhận đề xuất tài nguyên web hay chỉ lập catalog sách; chỉ liên hệ nếu có trang phù hợp. | Prospect nghiên cứu; chưa xác minh chính sách nhận link. |
+| [Thư viện Phật giáo — Liên hệ](https://www.thuvienphatgiao.com/contact/lien-he.html) · [Catalog](https://www.thuvienphatgiao.com/) | Trang liên hệ xác định đây là thư viện của Viện Nghiên cứu Phật học Việt Nam, có mục Kinh Tạng/PG. Nguyên Thủy và công khai `thuvienphatgiaovnc@gmail.com` để nhận góp ý, thắc mắc. | Hỏi trước xem thư viện có mục tài nguyên đọc trực tuyến hoặc tiêu chí giới thiệu công cụ tra cứu; không xin link đổi link. | Prospect phù hợp; kênh liên hệ đã xác minh nhưng chưa có chính sách nhận link. Bản nháp lưu bên dưới, chưa gửi. |
 | [phat.edu.vn — Thư viện Phật học](https://phat.edu.vn/thu-vien) | Có thư viện tiếng Việt và nội dung giải thích cách tiếp cận kinh điển. | Theo dõi chủ đề phù hợp để góp thông tin có nguồn; không xin chèn link nếu không có ngữ cảnh biên tập tự nhiên. | Prospect nội dung; chưa xác minh đầu mối nhận đề xuất. |
 
 Một nguồn lớn như [VIBUDRA — Kho tàng Thánh điển Pāli](https://www.vibudra.org/pali-canon) đã có chức năng thư viện và đối chiếu. **Suy luận:** lời giới thiệu chung “có kinh Pāli–Việt” sẽ không khác biệt; lợi thế đáng nói của dự án này là đối chiếu theo Bilara segment ID, Pāli làm chuẩn, provenance và trạng thái biên tập minh bạch. Không dùng tuyên bố hơn/kém nếu chưa có kiểm chứng độc lập.
@@ -177,4 +177,25 @@ Một nguồn lớn như [VIBUDRA — Kho tàng Thánh điển Pāli](https://ww
 > Trân trọng,
 > Người biên tập Kinh Tạng Pāli Việt
 
-Gmail hiển thị “Message sent”; tìm kiếm Sent theo địa chỉ và chủ đề trả đúng một kết quả. Điều này xác nhận thư đã gửi, không xác nhận người nhận đã đọc hay chấp nhận. Chưa có reply hoặc link mới được kiểm chứng.\n\n**Giới hạn outreach:** gửi từng thư có lý do cụ thể; tối đa một follow-up sau 7–10 ngày, rồi dừng nếu không có phản hồi. Theo dõi riêng thư đã gửi, phản hồi, link được kiểm tra trực tiếp trên trang đích và referral domains; không tính thư đã gửi là backlink. Khi chưa có Search Console, không tuyên bố hiệu quả SEO từ outreach.
+Gmail hiển thị “Message sent”; tìm kiếm Sent theo địa chỉ và chủ đề trả đúng một kết quả. Điều này xác nhận thư đã gửi, không xác nhận người nhận đã đọc hay chấp nhận. Chưa có reply hoặc link mới được kiểm chứng.
+
+### Bản nháp cho Thư viện Phật Giáo — chưa gửi
+
+**Người nhận:** `thuvienphatgiaovnc@gmail.com`, địa chỉ công khai tại [trang Liên hệ](https://www.thuvienphatgiao.com/contact/lien-he.html).
+
+**Chủ đề:** Xin hỏi về tài nguyên tra cứu Kinh Trung Bộ Pāli–Việt
+
+> Kính gửi Ban quản trị Thư viện Phật Giáo,
+>
+> Tôi đang biên tập một trình đọc Kinh Tạng Pāli Việt, hiện ưu tiên Kinh Trung Bộ: https://streamentry.github.io/kinh-tang-pali/sutta/mn/
+>
+> Dự án trình bày Pāli và các bản tham khảo theo từng đoạn, đồng thời ghi rõ nguồn, người dịch, giấy phép và trạng thái biên tập. Bản Việt của dự án là bản đang được biên tập; Pāli là nguồn chuẩn.
+>
+> Tôi thấy thư viện có mục Kinh Tạng và Phật giáo Nguyên Thủy. Xin hỏi thư viện có mục hoặc tiêu chí giới thiệu công cụ đọc/tra cứu kinh trực tuyến không? Nếu có và quý Ban thấy phù hợp, mong quý Ban xem qua đường dẫn trên. Nếu không, mọi góp ý về cách ghi nguồn và phân biệt bản dịch đều hữu ích.
+>
+> Việc giới thiệu hoàn toàn tùy ý; chúng tôi không đề nghị liên kết đáp lại.
+>
+> Trân trọng,
+> Người biên tập Kinh Tạng Pāli Việt
+
+**Giới hạn outreach:** gửi từng thư có lý do cụ thể; tối đa một follow-up sau 7–10 ngày, rồi dừng nếu không có phản hồi. Theo dõi riêng thư đã gửi, phản hồi, link được kiểm tra trực tiếp trên trang đích và referral domains; không tính thư đã gửi là backlink. Khi chưa có Search Console, không tuyên bố hiệu quả SEO từ outreach.
