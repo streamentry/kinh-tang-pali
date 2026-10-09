@@ -116,7 +116,7 @@ Theo dõi từng đề nghị: URL prospect, bằng chứng phù hợp, ngày ki
 - `npm run check`: 0 errors, 0 warnings; 5 hints có sẵn.
 - Astro build trực tiếp: 6.146 trang; Pagefind lập chỉ mục 6.137 trang.
 - `npm run seo:check`: 6.145 URL indexable khớp HTML và sitemap, canonical/metadata/JSON-LD/base links pass.
-- `npm run build`: pass toàn pipeline sync + validate + Astro + Pagefind. `source:sync --manifest`: đối soát 10.093 file của bốn edition, không cần tải thêm. Hosted push CI và pull_request CI đều pass ngày 2026-10-10 trên head `dbcceb7b27d21db0d94a6394b7eaabd536543c56` (test, verify:store, audits, Astro, build/Pagefind, seo:check). PR #363 vẫn mở; chưa release/deploy.
+- `npm run build`: pass toàn pipeline sync + validate + Astro + Pagefind. `source:sync --manifest`: đối soát 10.093 file của bốn edition, không cần tải thêm. Hosted push CI và pull_request CI pass ngày 2026-10-10 trên head `14ac7286e57cf5b275461a5f7a211e35af120fe4` (tests, verify:store, audits, Astro check, build/Pagefind, `seo:check`). PR #363 base `cf0f540`, 14 file SEO/strategy, vẫn mở; live production chưa nhận thay đổi.
 
 
 ### Mô tả 50 từ cho directory tiếng Anh
