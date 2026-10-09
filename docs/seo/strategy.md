@@ -19,7 +19,7 @@ https://developers.google.com/search/docs/essentials/spam-policies
 - Sitemap sinh từ catalog, gồm trang tra cứu ngay cả khi bản Việt dự án chưa bắt đầu: trang vẫn có giá trị nguồn đối chiếu, trạng thái phải nói rõ. Không liệt kê tìm kiếm nội bộ.
 - Search noindex,follow; sửa CTA dùng base path.
 
-GitHub Pages phục vụ project dưới /kinh-tang-pali/. robots.txt có hiệu lực ở gốc host, nên file /kinh-tang-pali/robots.txt không điều khiển crawler. Cần quản trị repo host streamentry.github.io để kiểm tra robots.txt và thêm dòng Sitemap: https://streamentry.github.io/kinh-tang-pali/sitemap.xml. Không chặn /search/ bằng robots vì crawler cần đọc noindex.
+GitHub Pages phục vụ project dưới /kinh-tang-pali/. robots.txt có hiệu lực ở gốc host; file /kinh-tang-pali/robots.txt không điều khiển crawler. Kiểm tra GitHub API ngày 2026-10-09 cho repo dự kiến streamentry/streamentry.github.io trả 404, nên hiện chưa xác minh được nơi sửa robots.txt ở origin root. Sau khi sitemap của project được deploy, nộp trực tiếp trong Search Console khi được cấp quyền; không tuyên bố đã thêm dòng Sitemap vào robots.txt. Không chặn /search/ bằng robots vì crawler cần đọc noindex.
 
 
 ## Trang chủ và cụm truy vấn ban đầu
