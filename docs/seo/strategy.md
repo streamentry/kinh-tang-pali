@@ -35,6 +35,32 @@ Truy vấn web ngày 2026-10-09 cho thấy kết quả ở nhóm rộng “Kinh 
 
 Không có search-volume data nên đây là nhóm truy vấn giả thuyết, không xếp hạng demand. Sau release, xuất Search Console queries 28 ngày, nhóm theo intent và chỉ viết nội dung mới khi có impression/click hoặc phản hồi người đọc chứng minh nhu cầu.
 
+## SERP mẫu tiếng Việt — 2026-10-09
+
+Đây là mẫu định tính từ truy vấn web; vị trí/quốc gia của công cụ tìm kiếm không được cố định. Không dùng mẫu này làm volume, thứ hạng hay báo cáo index.
+
+**Truy vấn đã thử:** “Kinh Trung Bộ Pali Việt online”, “đọc đối chiếu Pali Việt Kinh Trung Bộ”, “MN 10 Kinh Tứ Niệm Xứ Pāli Việt”, “MN 1 Kinh Pháp Môn Căn Bản Pali Việt”, và một truy vấn `site:` cho domain dự án.
+
+**Quan sát từ kết quả hiện ra:**
+
+- Nhóm tìm bản văn trực tiếp có catalog sách/bản dịch Thích Minh Châu, các trang đọc theo bài và thư viện số lớn như [Thư viện Phật giáo](https://thuvienphatgiao.com/buddhistbook/detail/book-1591/Kinh-Trung-Bo-tap-1.html), [Inti Dharma](https://dharma.inti.foundation/scripture/theravada/majjhima-nikaya/mn1) và [VNCPHVN](https://vncphvn.com/sutra/MV). [Pháp Học Online](https://phaphoc.online/thu-vien/kinh-dien/kinh-tang) cũng hiển thị một mục lục Pāli/Nikāya.
+- Nhóm tra cứu/đối chiếu có bảng thuật ngữ Pāli–Sanskrit–Hán Việt–Việt và mục lục tựa đề Pāli–Việt–Hán, như [phat.edu.vn](https://phat.edu.vn/bang-doi-chieu-pali-han-viet) và [Thư viện Hoa Sen](https://thuvienhoasen.org/p15a36833/so-tay-muc-luc-tam-tang-pali).
+- Truy vấn theo mã kinh cho thấy trang đơn bài có tiêu đề MN + tên Việt và phần dẫn giải, ví dụ [MN 1 trên Inti Dharma](https://dharma.inti.foundation/scripture/theravada/majjhima-nikaya/mn1) và [MN 10 trên Theravada.blog](https://theravada.blog/mn-10-kinh-niem-xu-satipatthanasutta).
+
+**Suy luận chiến lược:** “thư viện Kinh Phật online” và “Kinh Trung Bộ là gì” là các cụm rộng, có nhiều đối thủ đã có corpus lớn hoặc nội dung giải thích. Wedge hợp với sản phẩm hơn là truy vấn cụ thể theo UID/tên kinh và ý định đối chiếu Pāli–Việt từng đoạn, nơi dự án có permalink segment, provenance và trạng thái biên tập. Đây là suy luận từ mẫu SERP, chưa phải dữ liệu demand hay ranking.
+
+**Ý định và ưu tiên định tính:**
+
+| Cụm truy vấn | Ý định quan sát được | Trang phù hợp | Volume/KD |
+| --- | --- | --- | --- |
+| “Kinh Trung Bộ Pali/Pāli Việt”, “đọc Kinh Trung Bộ online” | Tìm nơi mở bộ kinh hoặc mục lục | Trang chủ → mục lục MN | Chưa biết |
+| “MN 1/10 + tên kinh Việt”, “[UID] Pāli Việt” | Mở/tra cứu một bài cụ thể | Trang sutta theo UID | Chưa biết |
+| “đối chiếu Pāli Việt”, “nguồn/ai dịch/trạng thái” | Kiểm chứng thuật ngữ, provenance, độ tin cậy | Trang bài, credits, quality | Chưa biết |
+
+Không tính Opportunity vì thiếu search volume và độ khó/backlink authority đáng tin cậy. Cụm `site:streamentry.github.io/kinh-tang-pali` không trả trang trong một lần thử; **điều này không chứng minh bị deindex**. URL Inspection và Page indexing trong Search Console mới là bằng chứng phù hợp; property hiện chưa cấp quyền cho tài khoản đang đăng nhập.
+
+**GEO:** Trang bài nên trả lời ngắn và có thể trích dẫn được các câu hỏi “đây là bài MN nào?”, “Pāli lấy từ edition nào?”, “bản Việt này do ai dịch và đang ở trạng thái nào?”, đồng thời gắn permalink tới đúng segment. Home và hub đã nêu Pāli là nguồn chuẩn; không viết thêm bài tổng quan chung chỉ để nhắc lại dữ kiện hiện có cho đến khi query data hoặc phản hồi người đọc chứng minh nhu cầu.
+
 ## Tài sản đáng được trích dẫn
 
 Ưu tiên trang bài cụ thể, đoạn có ID ổn định, trang nguồn /credits/ và lịch sử chất lượng /quality/. Khi trích dẫn ghi UID, segment ID, phiên bản/người dịch, trạng thái và ngày truy cập. Liên kết tới fragment dạng #mn118:1.1 khi đoạn đó thật sự tồn tại. Bản dự án và bản tham khảo phải được phân biệt; giấy phép kiểm tra tại /notice.txt. Không xuất toàn bộ văn bản bên thứ ba thành asset quảng bá.
