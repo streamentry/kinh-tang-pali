@@ -301,8 +301,8 @@ const editable = shown.find((layer) => layer.id === 'vi');
   )}
 
   {references.length > 0 && (
-    <div class="whole-text-refs" id="tra-cuu-toan-van" data-pagefind-ignore>
-      <h2 class="refs-heading">Tra cứu toàn văn</h2>
+    <details class="whole-text-refs" id="tra-cuu-toan-van" data-pagefind-ignore>
+      <summary class="refs-toggle"><h2 class="refs-heading">Tra cứu toàn văn</h2></summary>
       <p class="refs-hint">
         Nguồn dưới đây <strong>không phải cột đối chiếu</strong>. Nó là văn xuôi liên tục, không
         chia theo segment, nên không đặt cạnh Pāli từng câu được — dùng để tra từ ngữ và đối
@@ -337,7 +337,7 @@ const editable = shown.find((layer) => layer.id === 'vi');
       <p class="credits-link">
         <a href={withBase('credits/')}>Nguồn, giấy phép và ghi công đầy đủ</a>
       </p>
-    </div>
+    </details>
   )}
   {references.length === 0 && (
     <p class="credits-link" data-pagefind-ignore>
