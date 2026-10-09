@@ -53,7 +53,7 @@ Rủi ro: phổ biến bản nháp như kinh văn đã chốt; cộng đồng hi
 
 ## Link hiện hữu đã xác minh (không tính là backlink ngoài)\n\n| Nguồn | Vị trí và trạng thái link | Đích | Ý nghĩa |\n| --- | --- | --- | --- |\n| [Hướng Đến Nhập Lưu](https://streamentry.github.io/streamentry/) | Thẻ dự án trên trang chủ và footer; anchor “Cải tiến bản dịch Kinh tạng Pāli”. | https://streamentry.github.io/kinh-tang-pali/ | HTML công khai đã kiểm tra 2026-10-09. Hai URL cùng host `streamentry.github.io`, nên đây là liên kết chéo project/đường dẫn referral, không phải referring domain độc lập. |\n| [GitHub repository](https://github.com/streamentry/kinh-tang-pali) | Website field ở sidebar có `rel="noopener noreferrer nofollow"`; liên kết trong README được render `rel="nofollow"`. | https://streamentry.github.io/kinh-tang-pali/ | HTML công khai đã kiểm tra 2026-10-09. Có ích cho điều hướng và referral, nhưng không tính là backlink followed. |\n\nHiện có hai nguồn link điều hướng/referral đã xác minh ở trên; **chưa xác minh được backlink followed từ referring domain bên ngoài** và chưa có dữ liệu tổng hợp về referring domains, click hay tác động thứ hạng. Các directory bên dưới vẫn là prospect chưa liên hệ; email chưa gửi và chưa có link mới được xác nhận từ chúng.\n\n## Prospect shortlist
 
-Đây là ứng viên nghiên cứu, không phải đối tác hay backlink đã có. Không có contact/email được xác minh.
+Đây là ứng viên nghiên cứu, không phải đối tác hay backlink đã có. Với VRI và BuddhaNet, địa chỉ nhận đề xuất được công khai trên trang tài nguyên; chưa xác minh contact cá nhân, acceptance criteria bổ sung hay phản hồi của họ.
 
 | Nơi | Bằng chứng/đường dẫn | Đề nghị và điều kiện |
 | --- | --- | --- |
