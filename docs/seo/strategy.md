@@ -53,7 +53,7 @@ Rủi ro: phổ biến bản nháp như kinh văn đã chốt; cộng đồng hi
 
 ## Link hiện hữu đã xác minh (không tính là backlink ngoài)\n\n| Nguồn | Vị trí và trạng thái link | Đích | Ý nghĩa |\n| --- | --- | --- | --- |\n| [Hướng Đến Nhập Lưu](https://streamentry.github.io/streamentry/) | Thẻ dự án trên trang chủ và footer; anchor “Cải tiến bản dịch Kinh tạng Pāli”. | https://streamentry.github.io/kinh-tang-pali/ | HTML công khai đã kiểm tra 2026-10-09. Hai URL cùng host `streamentry.github.io`, nên đây là liên kết chéo project/đường dẫn referral, không phải referring domain độc lập. |\n| [GitHub repository](https://github.com/streamentry/kinh-tang-pali) | Website field ở sidebar có `rel="noopener noreferrer nofollow"`; liên kết trong README được render `rel="nofollow"`. | https://streamentry.github.io/kinh-tang-pali/ | HTML công khai đã kiểm tra 2026-10-09. Có ích cho điều hướng và referral, nhưng không tính là backlink followed. |\n\nHiện có hai nguồn link điều hướng/referral đã xác minh ở trên; **chưa xác minh được backlink followed từ referring domain bên ngoài** và chưa có dữ liệu tổng hợp về referring domains, click hay tác động thứ hạng. Các directory bên dưới vẫn là prospect chưa liên hệ; email chưa gửi và chưa có link mới được xác nhận từ chúng.\n\n## Prospect shortlist
 
-Đây là ứng viên nghiên cứu, không phải đối tác hay backlink đã có. Với VRI và BuddhaNet, địa chỉ nhận đề xuất được công khai trên trang tài nguyên; chưa xác minh contact cá nhân, acceptance criteria bổ sung hay phản hồi của họ.
+Đây là prospects, không phải đối tác hay backlink đã xác nhận. Đề xuất tới VRI và BuddhaNet đã gửi ngày 2026-10-09 sau khi người biên tập cho phép; hiện chờ phản hồi, chưa có thư mục nào xác nhận thêm liên kết. Các nơi khác trong bảng chưa được liên hệ.
 
 | Nơi | Bằng chứng/đường dẫn | Đề nghị và điều kiện |
 | --- | --- | --- |
@@ -93,7 +93,7 @@ Mô tả này nói rõ giới hạn phạm vi, không tự gọi dự án là đ
 
 Truy vấn tìm kiếm web ngày 2026-10-09 cho URL chính xác và tên dự án không trả trang kinh-tang-pali; nó trả các nguồn Tam tạng Pāli–Việt khác. Không thể suy ra deindexation vì loại truy vấn, coverage và thời gian cập nhật của search tool không được biết. Sau khi có quyền Search Console, URL Inspection và Page indexing là nguồn xác minh; theo dõi indexed pages, impressions và query data trước khi đổi nội dung hàng loạt.
 
-### Hai thư đề nghị cụ thể — bản nháp, chưa gửi
+### Hai đề xuất directory đã gửi — 2026-10-09
 
 **VRI / Tipitaka.org** — gửi `help@tipitaka.org` theo lời mời ở [Other Resources](https://www.tipitaka.org/other-resources).
 
@@ -113,4 +113,4 @@ Subject: Vietnamese Pāli Canon reader for BuddhaNet’s Theravada links
 
 > URL: https://streamentry.github.io/kinh-tang-pali/
 
-Chỉ gửi sau khi production đã trả sitemap 200, có URL mẫu hoạt động, và người biên tập duyệt hai bản nháp. Ghi lại phản hồi; không follow-up nếu directory từ chối.
+Gmail xác nhận “Message sent” cho cả hai thư; tìm kiếm trong Sent cho hai người nhận cũng trả đúng hai subject này. Tính đến 2026-10-09 chưa có phản hồi hoặc liên kết nào được xác nhận. Nếu không có phản hồi, chỉ gửi một follow-up trong khoảng 2026-10-16–19 (Asia/Saigon); dừng nếu directory từ chối. Website hiện hoạt động ở URL gốc, nhưng PR #363 chưa merge nên sitemap mới chưa có trên production.
