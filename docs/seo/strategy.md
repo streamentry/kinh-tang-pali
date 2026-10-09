@@ -21,6 +21,20 @@ https://developers.google.com/search/docs/essentials/spam-policies
 
 GitHub Pages phục vụ project dưới /kinh-tang-pali/. robots.txt có hiệu lực ở gốc host, nên file /kinh-tang-pali/robots.txt không điều khiển crawler. Cần quản trị repo host streamentry.github.io để kiểm tra robots.txt và thêm dòng Sitemap: https://streamentry.github.io/kinh-tang-pali/sitemap.xml. Không chặn /search/ bằng robots vì crawler cần đọc noindex.
 
+
+## Trang chủ và cụm truy vấn ban đầu
+
+Truy vấn web ngày 2026-10-09 cho thấy kết quả ở nhóm rộng “Kinh Phật online” bị chiếm bởi thư viện corpus lớn; riêng truy vấn về Kinh Trung Bộ trả sách/bản dịch HT. Thích Minh Châu và trình đọc nhiều ngôn ngữ. Một site nhỏ không nên cố cạnh tranh bằng tuyên bố “thư viện kinh lớn nhất”. Đây là quan sát từ kết quả tìm kiếm, không phải volume hay ranking report. Ví dụ đối thủ có thể kiểm tra: [Inti Dharma](https://dharma.inti.foundation/thu-vien-kinh), [Thư Viện Phật Giáo](https://thuvienphatgiao.com/buddhistbook/detail/book-1591/Kinh-Trung-Bo-tap-1.html), [Nikāya Reading](https://thegioiphatgiao.org/ngon-ngu-pali-sanskrit-phan/phan-mem-doc-kinh-nikaya-reading-tieng-pali-viet-anh-voi-tu-dien-pali-anh-viet-mai-the-hung.html).
+
+| Trang | Cụm ý định nên phục vụ | Lý do/ngưỡng kiểm chứng |
+| --- | --- | --- |
+| Trang chủ | “Kinh Trung Bộ Pāli–Việt”, “đọc/đối chiếu Kinh Trung Bộ” | Nhắm đúng ưu tiên MN và trải nghiệm đọc; kiểm impressions/clicks sau phát hành. Không tuyên bố toàn bộ canon đã được dịch mới. |
+| Mục lục bộ | “[Tên bộ] Pāli Việt”, “danh sách kinh [MN/DN/SN/AN/KN]” | Trang mục lục phải nói rõ bộ và trạng thái dự án; dùng cấu trúc catalog canonical. |
+| Trang bài | “[UID] [tên kinh] Pāli Việt”, “đối chiếu Pāli English Việt [UID]” | Title/description đã gồm UID và nhan đề; permalink + segment anchor giúp dẫn đúng đoạn. Search Console sẽ cho biết các UID có impressions. |
+| Nguồn/quality | “nguồn”, “giấy phép”, “đánh giá bản dịch”, “trạng thái biên tập” | Nhu cầu tin cậy và provenance; phù hợp citation intent, không phải trang landing để nhồi keyword. |
+
+Không có search-volume data nên đây là nhóm truy vấn giả thuyết, không xếp hạng demand. Sau release, xuất Search Console queries 28 ngày, nhóm theo intent và chỉ viết nội dung mới khi có impression/click hoặc phản hồi người đọc chứng minh nhu cầu.
+
 ## Tài sản đáng được trích dẫn
 
 Ưu tiên trang bài cụ thể, đoạn có ID ổn định, trang nguồn /credits/ và lịch sử chất lượng /quality/. Khi trích dẫn ghi UID, segment ID, phiên bản/người dịch, trạng thái và ngày truy cập. Liên kết tới fragment dạng #mn118:1.1 khi đoạn đó thật sự tồn tại. Bản dự án và bản tham khảo phải được phân biệt; giấy phép kiểm tra tại /notice.txt. Không xuất toàn bộ văn bản bên thứ ba thành asset quảng bá.
