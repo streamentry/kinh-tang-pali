@@ -31,7 +31,7 @@ const hasSummary = supportsSummary && Boolean(document.summary);
 const statusLabel = document.hasProjectData ? document.status : 'not-started';
 const summaryParagraphs = (document.summary ?? '').split(/\n{2,}/).filter((para) => para.trim() !== '');
 ---
-<Base title={`${document.viTitle} · ${uid.toUpperCase()}`}>
+<Base title={`${document.viTitle} · ${uid.toUpperCase()} · Kinh Tạng Pāli Việt`} description={`${uid.toUpperCase()} — ${document.viTitle}, thuộc ${collection.titleVi}. Đọc Pāli và các bản dịch đối chiếu từng đoạn; bản Việt của dự án: ${statusLabel}.`}>
   <main class="page reader-page">
     <a class="back-link" href={withBase(`sutta/${collection.code}/`)}>← {collection.titleVi}</a>
     <header class="sutta-header">
