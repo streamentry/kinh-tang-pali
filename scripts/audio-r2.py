@@ -49,7 +49,8 @@ def main():
     domain=request(base+'/'+bucket+'/domains/managed')
     if not domain.get('enabled'): raise SystemExit('Public access is disabled. Enable it only with explicit editor authorization, then retry.')
     host=domain['domain']; public_base='https://'+host
-    key=f'vi/mn/{uid}/{manifest["sha256"][:16]}.mp3'
+    collection='mn' if uid.startswith('mn') else 'dn'
+    key=f'vi/{collection}/{uid}/{manifest["sha256"][:16]}.mp3'
     request(base+'/'+bucket+'/objects/'+key,'PUT',mp3,{'Content-Type':'audio/mpeg',
         'Cache-Control':'public, max-age=31536000, immutable','Content-Length':str(len(mp3))},raw=True)
     url=public_base+'/'+key

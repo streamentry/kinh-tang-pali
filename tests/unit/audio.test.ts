@@ -31,3 +31,11 @@ test('registered MN1 audio matches the current source and disappears after text 
   assert.ok(audio.scripture_start_seconds < audio.duration_seconds);
   assert.equal(loadAudio({ ...doc, summary: doc.summary + ' changed' }), null);
 });
+
+test('DN narration source resolves Digha canonical summary and Vietnamese text', () => {
+  const doc = composeDocument('dn', 'dn1');
+  const source = narrationSource(doc);
+  assert.ok(source.summary);
+  assert.ok(source.segments.length);
+  assert.ok(source.segments.every(([id]) => id.startsWith('dn1:') && !id.startsWith('dn1:0.')));
+});
