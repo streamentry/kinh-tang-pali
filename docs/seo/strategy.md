@@ -1,0 +1,244 @@
+# SEO/GEO và liên kết giới thiệu — 2026-10-09
+
+## Định vị và giới hạn bằng chứng
+
+Kinh Tạng Pāli Việt là dự án dịch và tra cứu, với Pāli đã ghim làm nguồn chuẩn, đối chiếu từng segment và lịch sử biên tập công khai. Không tuyên bố bản dịch hoàn thiện, được giới học thuật chứng nhận, hoặc ưu việt hơn bản của các dịch giả khác.
+
+Đã kiểm tra mã nguồn: trước thay đổi thiếu canonical, metadata chia sẻ và sitemap; hai CTA trang chủ bỏ base path. HTTP kiểm tra ngày 2026-10-10: homepage trả 200 nhưng canonical/OG/JSON-LD vẫn vắng, CTA “Đọc Kinh Trung Bộ” vẫn trỏ sai base path; `/kinh-tang-pali/sitemap.xml` và `/robots.txt` ở gốc host trả 404. Search Console URL-prefix property hiện truy cập được. Sitemap `/sitemap.xml` đã nộp nhưng báo `Couldn't fetch`; trang chi tiết báo không đọc được, 0 trang/video phát hiện, và URL production trả 404. URL Inspection trang chủ báo `Crawled - currently not indexed`, lần crawl gần nhất 2026-10-09 16:24:52; crawl, fetch và indexing đều được phép nhưng không phát hiện sitemap/referring page. Hub MN và MN 1 báo `URL is unknown to Google`, không có referring sitemap/page. Page indexing, Performance và Links reports đang xử lý; chưa có baseline traffic, queries, tổng indexed URLs hay backlinks tổng hợp. Manual Actions và Security Issues báo không có vấn đề. GSC Core Web Vitals không đủ dữ liệu sử dụng 90 ngày trên cả mobile và desktop. Lighthouse/PageSpeed Insights chạy lab mobile ngày 2026-10-09: homepage 100 Performance/Accessibility/Best Practices/SEO, FCP/LCP 0,8 s, TBT 0, CLS 0; hub MN cũng 100 ở bốn nhóm, FCP/LCP 0,9 s, TBT 0, CLS 0, một long task và cảnh báo DOM size. PSI không có field data; điểm lab không chứng minh CWV thực địa hoặc thứ hạng. Không có DA/DR hay backlink index để tính profile authority/toxicity. PR SEO vẫn mở nên các cải tiến chưa có trên production.
+
+Google xác nhận SEO nền tảng vẫn áp dụng cho AI Search; không có schema GEO riêng hoặc yêu cầu llms.txt:
+https://developers.google.com/search/docs/appearance/ai-features
+Liên kết nhằm thao túng thứ hạng vi phạm chính sách:
+https://developers.google.com/search/docs/essentials/spam-policies
+
+## Đã triển khai
+
+- Canonical tuyệt đối từ Astro site + pathname, bỏ query/fragment.
+- WebPage/WebSite JSON-LD khớp tiêu đề, mô tả và ngôn ngữ hiển thị. Không gán toàn bộ bốn bản cho một tác giả hay một giấy phép.
+- Open Graph, Twitter summary và mô tả theo UID, tên bài, bộ kinh, trạng thái bản dịch.
+- Sitemap sinh từ catalog, gồm trang tra cứu ngay cả khi bản Việt dự án chưa bắt đầu: trang vẫn có giá trị nguồn đối chiếu, trạng thái phải nói rõ. Không liệt kê tìm kiếm nội bộ.
+- Search noindex,follow; sửa CTA dùng base path.
+
+GitHub Pages phục vụ project dưới `/kinh-tang-pali/`. `robots.txt` có hiệu lực ở gốc host; file `/kinh-tang-pali/robots.txt` không điều khiển crawler. Kiểm tra GitHub API ngày 2026-10-09 cho repo dự kiến `streamentry/streamentry.github.io` trả 404, nên chưa xác minh được nơi sửa `robots.txt` ở origin root. Search Console URL-prefix property hiện truy cập được; sitemap `/sitemap.xml` đang submit báo không đọc được và URL project trả 404 trên production. PR #363 tạo endpoint sitemap project-level. Sau khi merge/deploy, xác minh sitemap trả 200 rồi resubmit `/sitemap.xml` trong property hiện có; không tuyên bố đã thêm dòng Sitemap vào `robots.txt` ở origin root. Không chặn `/search/` bằng robots vì crawler cần đọc `noindex`.
+
+
+## Trang chủ và cụm truy vấn ban đầu
+
+Truy vấn web ngày 2026-10-09 cho thấy kết quả ở nhóm rộng “Kinh Phật online” bị chiếm bởi thư viện corpus lớn; riêng truy vấn về Kinh Trung Bộ trả sách/bản dịch HT. Thích Minh Châu và trình đọc nhiều ngôn ngữ. Một site nhỏ không nên cố cạnh tranh bằng tuyên bố “thư viện kinh lớn nhất”. Đây là quan sát từ kết quả tìm kiếm, không phải volume hay ranking report. Ví dụ đối thủ có thể kiểm tra: [Inti Dharma](https://dharma.inti.foundation/thu-vien-kinh), [Thư Viện Phật Giáo](https://thuvienphatgiao.com/buddhistbook/detail/book-1591/Kinh-Trung-Bo-tap-1.html), [Nikāya Reading](https://thegioiphatgiao.org/ngon-ngu-pali-sanskrit-phan/phan-mem-doc-kinh-nikaya-reading-tieng-pali-viet-anh-voi-tu-dien-pali-anh-viet-mai-the-hung.html).
+
+| Trang | Cụm ý định nên phục vụ | Lý do/ngưỡng kiểm chứng |
+| --- | --- | --- |
+| Trang chủ | “Kinh Trung Bộ Pāli–Việt”, “đọc/đối chiếu Kinh Trung Bộ” | Nhắm đúng ưu tiên MN và trải nghiệm đọc; kiểm impressions/clicks sau phát hành. Không tuyên bố toàn bộ canon đã được dịch mới. |
+| Mục lục bộ | “[Tên bộ] Pāli Việt”, “danh sách kinh [MN/DN/SN/AN/KN]” | Trang mục lục phải nói rõ bộ và trạng thái dự án; dùng cấu trúc catalog canonical. |
+| Trang bài | “[UID] [tên kinh] Pāli Việt”, “đối chiếu Pāli English Việt [UID]” | Title/description đã gồm UID và nhan đề; permalink + segment anchor giúp dẫn đúng đoạn. Search Console sẽ cho biết các UID có impressions. |
+| Nguồn/quality | “nguồn”, “giấy phép”, “đánh giá bản dịch”, “trạng thái biên tập” | Nhu cầu tin cậy và provenance; phù hợp citation intent, không phải trang landing để nhồi keyword. |
+
+**Chưa có search-volume data** nên đây là nhóm truy vấn giả thuyết, không xếp hạng demand. Search Console hiện truy cập được nhưng Performance report vẫn báo đang xử lý và không có query data. Khi có dữ liệu 28 ngày, nhóm queries theo intent và chỉ viết nội dung mới khi có impression/click hoặc phản hồi người đọc chứng minh nhu cầu.
+
+## SERP mẫu tiếng Việt — 2026-10-09
+
+Đây là mẫu định tính từ truy vấn web; vị trí/quốc gia của công cụ tìm kiếm không được cố định. Không dùng mẫu này làm volume, thứ hạng hay báo cáo index.
+
+**Truy vấn đã thử:** “Kinh Trung Bộ Pali Việt online”, “đọc đối chiếu Pali Việt Kinh Trung Bộ”, “MN 10 Kinh Tứ Niệm Xứ Pāli Việt”, “MN 1 Kinh Pháp Môn Căn Bản Pali Việt”, và một truy vấn `site:` cho domain dự án.
+
+**Quan sát từ kết quả hiện ra:**
+
+- Nhóm tìm bản văn trực tiếp có catalog sách/bản dịch Thích Minh Châu, các trang đọc theo bài và thư viện số lớn như [Thư viện Phật giáo](https://thuvienphatgiao.com/buddhistbook/detail/book-1591/Kinh-Trung-Bo-tap-1.html), [Inti Dharma](https://dharma.inti.foundation/scripture/theravada/majjhima-nikaya/mn1) và [VNCPHVN](https://vncphvn.com/sutra/MV). [Pháp Học Online](https://phaphoc.online/thu-vien/kinh-dien/kinh-tang) cũng hiển thị một mục lục Pāli/Nikāya.
+- Nhóm tra cứu/đối chiếu có bảng thuật ngữ Pāli–Sanskrit–Hán Việt–Việt và mục lục tựa đề Pāli–Việt–Hán, như [phat.edu.vn](https://phat.edu.vn/bang-doi-chieu-pali-han-viet) và [Thư viện Hoa Sen](https://thuvienhoasen.org/p15a36833/so-tay-muc-luc-tam-tang-pali).
+- Truy vấn theo mã kinh cho thấy trang đơn bài có tiêu đề MN + tên Việt và phần dẫn giải, ví dụ [MN 1 trên Inti Dharma](https://dharma.inti.foundation/scripture/theravada/majjhima-nikaya/mn1) và [MN 10 trên Theravada.blog](https://theravada.blog/mn-10-kinh-niem-xu-satipatthanasutta).
+
+**Suy luận chiến lược:** “thư viện Kinh Phật online” và “Kinh Trung Bộ là gì” là các cụm rộng, có nhiều đối thủ đã có corpus lớn hoặc nội dung giải thích. Wedge hợp với sản phẩm hơn là truy vấn cụ thể theo UID/tên kinh và ý định đối chiếu Pāli–Việt từng đoạn, nơi dự án có permalink segment, provenance và trạng thái biên tập. Đây là suy luận từ mẫu SERP, chưa phải dữ liệu demand hay ranking.
+
+**Ý định và ưu tiên định tính:**
+
+| Cụm truy vấn | Ý định quan sát được | Trang phù hợp | Volume/KD |
+| --- | --- | --- | --- |
+| “Kinh Trung Bộ Pali/Pāli Việt”, “đọc Kinh Trung Bộ online” | Tìm nơi mở bộ kinh hoặc mục lục | Trang chủ → mục lục MN | Chưa biết |
+| “MN 1/10 + tên kinh Việt”, “[UID] Pāli Việt” | Mở/tra cứu một bài cụ thể | Trang sutta theo UID | Chưa biết |
+| “đối chiếu Pāli Việt”, “nguồn/ai dịch/trạng thái” | Kiểm chứng thuật ngữ, provenance, độ tin cậy | Trang bài, credits, quality | Chưa biết |
+
+Không tính Opportunity vì thiếu search volume và độ khó/backlink authority đáng tin cậy. Cụm `site:streamentry.github.io/kinh-tang-pali` không trả trang trong một lần thử; **điều này không chứng minh bị deindex**. URL Inspection ngày 2026-10-09 cho thấy homepage `Crawled - currently not indexed`, còn hub MN `URL is unknown to Google`; cả hai không có sitemap/referring page được báo. Đây là trạng thái của hai URL mẫu, không phải số liệu toàn site. Báo cáo Page indexing, Performance và Links đang xử lý dữ liệu, nên chưa có coverage/query/backlink baseline.
+
+**GEO:** Trang bài nên trả lời ngắn và có thể trích dẫn được các câu hỏi “đây là bài MN nào?”, “Pāli lấy từ edition nào?”, “bản Việt này do ai dịch và đang ở trạng thái nào?”, đồng thời gắn permalink tới đúng segment. Home và hub đã nêu Pāli là nguồn chuẩn; không viết thêm bài tổng quan chung chỉ để nhắc lại dữ kiện hiện có cho đến khi query data hoặc phản hồi người đọc chứng minh nhu cầu.
+
+## Tài sản đáng được trích dẫn
+
+Ưu tiên trang bài cụ thể, đoạn có ID ổn định, trang nguồn /credits/ và lịch sử chất lượng /quality/. Khi trích dẫn ghi UID, segment ID, phiên bản/người dịch, trạng thái và ngày truy cập. Liên kết tới fragment dạng #mn118:1.1 khi đoạn đó thật sự tồn tại. Bản dự án và bản tham khảo phải được phân biệt; giấy phép kiểm tra tại /notice.txt. Không xuất toàn bộ văn bản bên thứ ba thành asset quảng bá.
+
+Phản đối mạnh nhất: thêm metadata không tạo nhu cầu đọc, và một bản dịch có AI hỗ trợ có thể chưa được cộng đồng tin cậy. Vì vậy vòng tăng trưởng bắt đầu bằng phản hồi về một bài và tính hữu ích của đối chiếu, không bắt đầu bằng số backlink.
+
+## Thử nghiệm 7 ngày
+
+1. Sau khi PR #363 merge/deploy: xác minh homepage, hub MN, một bài MN và sitemap trên production; kiểm tra canonical, metadata và CTA base path. Sitemap phải trả 200 trước khi resubmit `/sitemap.xml` trong Search Console property hiện có. Sau đó Request indexing cho homepage và hub MN; ghi ngày/trạng thái, kiểm tra lại sau khi Google recrawl. Không yêu cầu indexing trước khi thay đổi được deploy.
+2. Chọn ba bài đã published, kiểm tra trên web đủ nguồn, trạng thái và neo đoạn. Nhờ hai người đọc kinh đánh giá khả năng tra cứu và lỗi ghi công trước khi giới thiệu rộng.
+3. Chuẩn bị năm đề nghị cá nhân hóa cho người quản trị thư viện/nhóm đọc kinh phù hợp. Chỉ gửi sau khi người biên tập duyệt đối tượng và thông điệp. Một follow-up sau 7–10 ngày, dừng nếu không được phản hồi.
+
+Ngưỡng thử nghiệm (mục tiêu, không phải dự báo): 100% URL mẫu trả 200, canonical đúng base, mọi URL sitemap có trang; sau năm đề nghị cần ít nhất hai phản hồi có nội dung hoặc một nhóm dùng thử. Nếu không có phản hồi, sửa đề nghị/đối tượng thay vì tăng số lượng. Sau 30 ngày ghi impressions, clicks, indexed URLs, referral visits và liên kết thực được xác minh; không xem ít clicks là thất bại khi chưa có impressions.
+
+Rủi ro: phổ biến bản nháp như kinh văn đã chốt; cộng đồng hiểu nhầm AI là thẩm quyền; liên kết gắn sai tác giả; hàng nghìn trang khiến crawl phân tán. Theo dõi indexing theo bộ và trạng thái trước khi cân nhắc giảm sitemap. Không tự noindex toàn corpus thiếu bản Việt nếu trang còn nguồn hữu ích.
+
+## Link hiện hữu đã xác minh (không tính là backlink ngoài)
+
+| Nguồn | Vị trí và trạng thái link | Đích | Ý nghĩa |
+| --- | --- | --- | --- |
+| [Hướng Đến Nhập Lưu](https://streamentry.github.io/streamentry/) | Thẻ dự án trên trang chủ và footer; anchor “Cải tiến bản dịch Kinh tạng Pāli”. | https://streamentry.github.io/kinh-tang-pali/ | HTML công khai đã kiểm tra 2026-10-09. Hai URL cùng host `streamentry.github.io`, nên đây là liên kết chéo project/đường dẫn referral, không phải referring domain độc lập. |
+| [GitHub repository](https://github.com/streamentry/kinh-tang-pali) | Website field ở sidebar có `rel="noopener noreferrer nofollow"`; liên kết trong README được render `rel="nofollow"`. | https://streamentry.github.io/kinh-tang-pali/ | HTML công khai đã kiểm tra 2026-10-09. Có ích cho điều hướng và referral, nhưng không tính là backlink followed. |
+| [GitHub profile README](https://github.com/cschanhniem/cschanhniem) | Mục “Current focus” có link “Kinh Tạng Pali” tới homepage; HTML GitHub render `rel="nofollow"`. Kiểm tra 2026-10-10. | https://streamentry.github.io/kinh-tang-pali/ | Link referral trên `github.com`; hữu ích để điều hướng nhưng không phải backlink followed hay referring domain độc lập. |
+
+Hiện có ba vị trí referral đã xác minh: parent site cùng host và hai bề mặt GitHub (repository/profile README). **Chưa xác minh được backlink followed từ referring domain độc lập**; không có dữ liệu tổng hợp về referring domains, click hay tác động thứ hạng. Exa truy vấn URL/tên dự án ngày 2026-10-09 không trả mention chính xác; kết quả liên quan là các thư viện Pāli–Việt khác. Đây chỉ là mẫu discovery, không phải backlink index và không chứng minh có 0 backlink. Ba email tới VRI, BuddhaNet và Theravāda.vn đã gửi ngày 2026-10-09; Gmail tìm kiếm thư đến ngày 2026-10-10 theo cả ba người gửi trả không có thư nào, chưa có link mới được xác nhận. Các prospect khác trong bảng chưa được liên hệ.
+
+## Prospect shortlist
+
+Đây là prospects, không phải đối tác hay backlink đã xác nhận. Ba email tới VRI, BuddhaNet và Theravāda.vn đã gửi ngày 2026-10-09; Gmail xác nhận đã gửi; truy vấn thư đến ngày 2026-10-10 theo ba người gửi trả không có thư nào, và chưa có thư mục nào xác nhận link mới. Các nơi khác trong bảng chưa được liên hệ.
+
+| Nơi | Bằng chứng/đường dẫn | Đề nghị và điều kiện |
+| --- | --- | --- |
+| **VRI / Tipitaka.org** | [Other Resources](https://www.tipitaka.org/other-resources) — danh sách có SuttaCentral và nhiều công cụ tra cứu; trang công khai mời gửi tài nguyên hữu ích tới `help@tipitaka.org`. Kiểm tra 2026-10-09. | Đã gửi 2026-10-09 theo lời mời công khai; thư đề nghị tùy nghi xem xét tài nguyên, không xin bảo chứng. Chưa có phản hồi/link xác nhận; nếu không phản hồi, chỉ một follow-up trong cửa sổ 2026-10-16–19 rồi dừng. |
+| **BuddhaNet** | [Web Links](https://www.buddhanet.net/resources/) và [Theravadan Websites](https://www.buddhanet.net/l_thera/) — có phân mục nguồn Phật học; trang Theravada mời gửi mô tả khoảng 50 từ tới `webmaster@buddhanet.net`. Kiểm tra 2026-10-09. | Đã gửi mô tả 50 từ ngày 2026-10-09 theo chỉ dẫn công khai. Chưa có phản hồi/link xác nhận; nếu không phản hồi, chỉ một follow-up trong cửa sổ 2026-10-16–19 rồi dừng. |
+| Dhamma.Gift | [Multi-Tool resource guide](https://dhamma.gift/assets/common/multiTool.html) — danh mục có Pāli readers, SuttaCentral và công cụ nghiên cứu. Kiểm tra 2026-10-09. | Xin xem xét như một tài nguyên đọc Pāli–Việt; tìm kênh đóng góp trước. Không giả định họ nhận đề xuất. |
+| E-Piṭaka | [Bản tải Tipiṭaka tiếng Việt](https://epitaka.org/en/download) — phát hành Pāli và bản dịch theo dòng, gồm pack Vietnamese; trang nêu rõ CC-BY-4.0 cho bản dịch của họ. Kiểm tra 2026-10-09. | Đối tượng trùng một phần và sản phẩm đã đầy đủ hơn; chỉ đề nghị liên kết phương pháp/đối chiếu nếu giúp độc giả, không quảng bá là thay thế hay tương đương. |
+| BuddhaSasana | [Mục lục nguồn Việt](https://www.budsas.org/uni/) — thư viện đang lưu kinh Việt và ghi tên dịch giả theo bộ. Kiểm tra 2026-10-09. | Xin nhận xét công cụ đối chiếu; chỉ đề nghị đưa vào tài nguyên nếu quản trị thấy hữu ích. Không đề nghị thay thế bản HT. Thích Minh Châu. |
+| Viện Nghiên cứu Phật học Việt Nam | [Trang Kinh tạng Pāli](https://vncphvn.com/tam-tang/tang-pali/kinh-pali) và [phụ lục đối chiếu](https://vncphvn.com/sutra/SV/phu-luc-1) — tổ chức có trách nhiệm biên tập, trang nêu hệ số CST hỗ trợ đối chiếu nhiều ngôn ngữ. Kiểm tra 2026-10-09. | **Ưu tiên 3, xin đánh giá nội dung trước.** Có thể đề nghị góp ý cách ghi edition/UID và trạng thái dự án. Chỉ hỏi bổ sung vào thư mục tài nguyên khi có trang phù hợp; không ngụ ý viện ủng hộ. Liên hệ công khai trên site: `vncphvn.info@gmail.com`. |
+| Học viện Phật giáo Việt Nam tại TP.HCM — Khoa Pāli | [Chương trình Khoa Pāli](https://www.vbu.edu.vn/khoa/pali) mô tả PALI300 so sánh Trung Bộ với Trung A-hàm và PALI404 phiên dịch văn bản Pāli; trang công khai email văn phòng `vp@vbu.edu.vn`. Kiểm tra 2026-10-09. | Đầu mối học thuật Việt ngữ có độ liên quan cao; chưa thấy chính sách đăng danh mục tài nguyên. Nếu sau này tiếp cận, chỉ xin góp ý về khả năng tra cứu theo UID/segment hoặc hỏi chuyển đúng đầu mối khoa; không xin trường chứng thực hay đặt link. |
+| Theravāda.vn / Thư viện Hoa Sen | [Sơ đồ Tam tạng và tài liệu học](https://theravada.vn/so-do-kinh-diem-tam-tang-pali-tipi%E1%B9%ADaka/) và [sổ tay mục lục](https://thuvienhoasen.org/p15a36833/2/so-tay-muc-luc-tam-tang-pali) đã xuất hiện trong tìm kiếm. Kiểm tra 2026-10-09. | Tệp có liên quan nhưng chưa xác nhận có cổng nhận nguồn ngoài. Trước hết đọc kỹ và ghi một góp ý hữu ích; không gửi link unsolicited. |
+| Pháp Học Online, Inti Dharma, OpenTipitaka, WikiDhamma, Vietheravada, Tam Tạng Pāli Việt | [Pháp Học Online](https://phaphoc.online/thu-vien/kinh-dien/kinh-tang) công khai mục lục đủ 152 MN và bài chọn 10 bài Trung Bộ; [Inti Dharma](https://dharma.inti.foundation/thu-vien-kinh), [OpenTipitaka](https://www.opentipitaka.org/vi), [WikiDhamma](https://wikidhamma.com/), [Vietheravada](https://vietheravada.net/kinhdien/index.htm) và [Tam Tạng Pāli Việt](https://www.tamtangpaliviet.net/VHoc/VHoc_Web.htm) đã có tài nguyên Pāli–Việt/corpus. Tìm kiếm Exa ngày 2026-10-09 cũng trả các trang này thay cho mention chính xác của dự án. | Các trang này cùng phục vụ đọc/tra cứu Pāli–Việt; không tiếp cận hàng loạt để xin link. Kênh public của Tam Tạng Pāli Việt được tìm thấy trong thư ngỏ bảo trợ tài chính, còn Vietheravada ở trang sách/độc giả; không có lời mời rõ nhận đề xuất resource-link. Chỉ cân nhắc góp ý/tài nguyên chéo khi lợi ích độc giả cụ thể và có kênh phù hợp.
+
+## Mẫu đề nghị để duyệt, chưa gửi
+
+“Tôi đang biên tập Kinh Tạng Pāli Việt, một công cụ đọc đối chiếu Pāli và các bản dịch theo từng đoạn. Bản Việt mới có trạng thái và lịch sử kiểm tra công khai; dự án có AI hỗ trợ, còn Pāli là nguồn chuẩn. Tôi thấy trang [tài nguyên cụ thể] của quý vị phục vụ [nhu cầu cụ thể]. Xin quý vị thử [URL bài đã kiểm tra] và cho biết công cụ có giúp tra cứu hay có lỗi nguồn/ghi công nào cần sửa. Nếu thấy phù hợp, quý vị có thể giới thiệu như một tài nguyên đối chiếu đang biên tập. Không cần đặt liên kết nếu chưa thấy hữu ích.”
+
+Theo dõi từng đề nghị: URL prospect, bằng chứng phù hợp, ngày kiểm tra, người duyệt, ngày gửi, phản hồi, URL backlink thật, ngày xác minh. Không mua link, trao đổi link bắt buộc, tạo tài khoản hàng loạt hoặc đăng Wikipedia để tự quảng bá.
+
+## Kiểm chứng local
+
+- `npm test`: 378 pass, không skip.
+- `npm run validate`: pass, 1.839 cảnh báo cache nguồn tham khảo; không coi đây là store coverage đầy đủ.
+- `npm run check`: 0 errors, 0 warnings; 5 hints có sẵn.
+- Astro build trực tiếp: 6.146 trang; Pagefind lập chỉ mục 6.137 trang.
+- `npm run seo:check`: 6.145 URL indexable khớp HTML và sitemap, canonical/metadata/JSON-LD/base links pass.
+- `npm run build`: pass toàn pipeline sync + validate + Astro + Pagefind. `source:sync --manifest`: đối soát 10.093 file của bốn edition, không cần tải thêm. Hosted push CI và pull_request CI pass ngày 2026-10-10 trên head `14ac7286e57cf5b275461a5f7a211e35af120fe4` (tests, verify:store, audits, Astro check, build/Pagefind, `seo:check`). PR #363 base `cf0f540`, 14 file SEO/strategy, vẫn mở; live production chưa nhận thay đổi.
+
+
+### Mô tả 50 từ cho directory tiếng Anh
+
+> An independent, Vietnamese-first Pāli Canon reader focused on Majjhima Nikāya. It aligns pinned Mahāsaṅgīti Pāli text with English and Vietnamese references by Bilara segment ID. The project's Vietnamese translation is labelled by editorial status, with source, translator and licence details shown. Work is ongoing; Pāli remains authoritative when references differ.
+
+Mô tả này nói rõ giới hạn phạm vi, không tự gọi dự án là đầy đủ, học thuật hoặc được chứng thực. Mô tả có đúng 50 từ theo quy ước tách bằng khoảng trắng.
+
+
+### Tín hiệu index hiện có
+
+Truy vấn tìm kiếm web ngày 2026-10-09 cho URL chính xác và tên dự án không trả trang kinh-tang-pali; nó trả các nguồn Tam tạng Pāli–Việt khác. Không thể suy ra deindexation từ truy vấn này. Search Console URL-prefix property hiện truy cập được; URL Inspection cho thấy homepage `Crawled - currently not indexed`, còn hub MN và MN 1 `URL is unknown to Google`. Chưa thể kết luận trạng thái toàn site từ ba URL mẫu. Sitemap đã submit không đọc được; Page indexing, Performance và Links vẫn xử lý dữ liệu. Manual Actions/Security Issues không báo lỗi. Lighthouse mobile lab của homepage và hub MN đạt 100 SEO/Performance/Accessibility/Best Practices, nhưng PSI và GSC đều chưa có dữ liệu người dùng thực; chưa có bằng chứng impressions, query demand hay CWV thực địa.
+
+### Hai đề xuất directory đã gửi — 2026-10-09
+
+**VRI / Tipitaka.org** — gửi `help@tipitaka.org` theo lời mời ở [Other Resources](https://www.tipitaka.org/other-resources).
+
+Subject: Resource suggestion for the Pāli Tipiṭaka “Other Resources” page
+
+> Hello VRI team,
+>
+> Would you consider adding the Kinh Tạng Pāli Việt reader (https://streamentry.github.io/kinh-tang-pali/) to your Other Resources page? It is an independent, Vietnamese-first reader focused on the Majjhima Nikāya. Its pinned Mahāsaṅgīti Pāli text is aligned with available references by Bilara segment ID; the project’s Vietnamese translation carries an editorial status and source details. The project is ongoing and does not claim VRI endorsement.
+>
+> If this resource does not fit your list, no reply is needed. Thank you for maintaining these Tipiṭaka resources.
+
+**BuddhaNet** — gửi `webmaster@buddhanet.net` theo chỉ dẫn [Theravadan Websites](https://www.buddhanet.net/l_thera/); giữ mô tả đúng 50 từ.
+
+Subject: Vietnamese Pāli Canon reader for BuddhaNet’s Theravada links
+
+> An independent, Vietnamese-first Pāli Canon reader focused on Majjhima Nikāya. It aligns pinned Mahāsaṅgīti Pāli text with English and Vietnamese references by Bilara segment ID. The project’s Vietnamese translation is labelled by editorial status, with source, translator and licence details shown. Work is ongoing; Pāli remains authoritative when references differ.
+
+> URL: https://streamentry.github.io/kinh-tang-pali/
+
+Gmail xác nhận “Message sent” cho cả hai thư; tìm kiếm trong Sent cho hai người nhận cũng trả đúng hai subject này. Đến 2026-10-10, Gmail tìm thư đến từ ba người nhận của đợt outreach trả không có thư; chưa có phản hồi hoặc liên kết nào được xác nhận. Nếu không có phản hồi, chỉ gửi một follow-up trong khoảng 2026-10-16–19 (Asia/Saigon); dừng nếu directory từ chối. Website hiện hoạt động ở URL gốc, nhưng PR #363 chưa merge nên sitemap mới chưa có trên production.
+
+
+## Ưu tiên phân phối tiếng Việt — 2026-10-09
+
+**Quyết định:** tiếng Việt là thị trường tìm kiếm và giới thiệu chính; English là lớp tham khảo, không phải hướng outbound mặc định. Đây là lựa chọn phù hợp với định vị Pāli–Việt và người đọc mục tiêu. **Chưa có search-volume, conversion hoặc query data** để khẳng định demand hay tác động thứ hạng; Search Console có quyền truy cập nhưng các báo cáo tổng hợp vẫn đang xử lý.
+
+Ưu tiên các trang tiếng Việt hiện có: trang chủ và mục lục Kinh Trung Bộ, trang từng bài theo UID, trang nguồn, giấy phép và chất lượng biên tập. Khi tiếp cận bên ngoài, xin góp ý chuyên môn hoặc giới thiệu tài nguyên trong đúng ngữ cảnh; không trao đổi link, không yêu cầu chứng thực, không xin link hàng loạt. Link đích nên là trang cụ thể có ích cho độc giả (mục lục MN, trang nguồn/chất lượng hoặc bài kinh liên quan), không mặc định mọi nơi đều phải trỏ trang chủ.
+
+| Đầu mối | Bằng chứng công khai | Cách tiếp cận | Trạng thái |
+| --- | --- | --- | --- |
+| [Theravāda.vn — Liên hệ](https://theravada.vn/lien-he/) · [Liên kết web khác](https://theravada.vn/goc-thong-tin/lien-ket-web/) | Trang liên hệ mời góp ý tới Ban Biên tập; trang liên kết đang liệt kê tài nguyên về Majjhima, Dīgha, Saṃyutta, Aṅguttara và Khuddaka Nikāya. Địa chỉ công khai: `khanhhai.net@gmail.com`. | Đã gửi thư xin góp ý về provenance, đối chiếu và trạng thái bản dịch; thư mời tùy nghi giới thiệu mục lục MN, không đòi chứng thực hay liên kết đáp lại. | Đầu mối có độ phù hợp cao nhất. Gmail xác nhận gửi ngày 2026-10-09; Sent trả đúng một kết quả theo người nhận/chủ đề. Đến 2026-10-10, tìm kiếm Gmail thư đến từ địa chỉ này không có kết quả; chưa có phản hồi hay backlink được xác nhận. |
+| [Thư viện Phật giáo — Liên hệ](https://www.thuvienphatgiao.com/contact/lien-he.html) · [Catalog](https://www.thuvienphatgiao.com/) | Trang liên hệ xác định đây là thư viện của Viện Nghiên cứu Phật học Việt Nam, có mục Kinh Tạng/PG. Nguyên Thủy và công khai `thuvienphatgiaovnc@gmail.com` để nhận góp ý, thắc mắc. | Hỏi trước xem thư viện có mục tài nguyên đọc trực tuyến hoặc tiêu chí giới thiệu công cụ tra cứu; không xin link đổi link. | Prospect phù hợp; kênh liên hệ đã xác minh nhưng chưa có chính sách nhận link. Bản nháp lưu bên dưới, chưa gửi. |
+| [phat.edu.vn — Bảng đối chiếu Pāli](https://phat.edu.vn/bang-doi-chieu-pali-han-viet) | Trang đã được Ban biên tập duyệt, giải thích đối chiếu Pāli–Sanskrit–Hán Việt–Việt và có nút “Gửi góp ý”; site cũng có [thư viện Phật học](https://phat.edu.vn/thu-vien). | Hỏi góp ý về cách giúp người đọc đối chiếu thuật ngữ; chỉ nêu trình đọc MN như công cụ bổ trợ nếu phù hợp. Không yêu cầu link hay chứng thực. | Prospect nội dung có feedback UI; chưa thấy policy nhận resource link. Bản nháp bên dưới, chưa gửi. |
+
+Một nguồn lớn như [VIBUDRA — Kho tàng Thánh điển Pāli](https://www.vibudra.org/pali-canon) đã có chức năng thư viện và đối chiếu. **Suy luận:** lời giới thiệu chung “có kinh Pāli–Việt” sẽ không khác biệt; lợi thế đáng nói của dự án này là đối chiếu theo Bilara segment ID, Pāli làm chuẩn, provenance và trạng thái biên tập minh bạch. Không dùng tuyên bố hơn/kém nếu chưa có kiểm chứng độc lập.
+
+### Bản thư tiếng Việt đã gửi — 2026-10-09
+
+**Người nhận:** Ban Biên tập Theravāda.vn tại `khanhhai.net@gmail.com`, địa chỉ được hiển thị trên [trang Liên hệ](https://theravada.vn/lien-he/).
+
+**Chủ đề:** Xin góp ý về trình đọc Kinh Trung Bộ Pāli–Việt
+
+> Kính gửi Ban Biên tập Theravāda.vn,
+>
+> Tôi đang biên tập một trình đọc Kinh Tạng Pāli Việt, hiện ưu tiên Kinh Trung Bộ: https://streamentry.github.io/kinh-tang-pali/
+>
+> Trang đặt Pāli làm nguồn chuẩn, trình bày các bản tham khảo theo từng đoạn, đồng thời ghi rõ nguồn, người dịch, giấy phép và trạng thái biên tập của bản Việt của dự án. Bản dịch vẫn đang tiếp tục; dự án không đại diện và không xin quý Ban chứng thực.
+>
+> Trang Liên hệ của quý Ban có mời độc giả góp ý. Nếu thuận tiện, mong quý Ban xem qua và chỉ giúp những chỗ có thể khiến người đọc hiểu sai về nguồn văn bản, cách đối chiếu hoặc trạng thái bản dịch.
+>
+> Nếu quý Ban thấy tài nguyên này hữu ích cho độc giả, xin tùy nghi giới thiệu trang mục lục Kinh Trung Bộ tại: https://streamentry.github.io/kinh-tang-pali/sutta/mn/
+>
+> Việc giới thiệu hoàn toàn tùy ý; chúng tôi không đề nghị liên kết đáp lại.
+>
+> Trân trọng,
+> Người biên tập Kinh Tạng Pāli Việt
+
+Gmail hiển thị “Message sent”; tìm kiếm Sent theo địa chỉ và chủ đề trả đúng một kết quả. Điều này xác nhận thư đã gửi, không xác nhận người nhận đã đọc hay chấp nhận. Chưa có reply hoặc link mới được kiểm chứng.
+
+### Bản nháp cho Thư viện Phật Giáo — chưa gửi
+
+**Người nhận:** `thuvienphatgiaovnc@gmail.com`, địa chỉ công khai tại [trang Liên hệ](https://www.thuvienphatgiao.com/contact/lien-he.html).
+
+**Chủ đề:** Xin hỏi về tài nguyên tra cứu Kinh Trung Bộ Pāli–Việt
+
+> Kính gửi Ban quản trị Thư viện Phật Giáo,
+>
+> Tôi đang biên tập một trình đọc Kinh Tạng Pāli Việt, hiện ưu tiên Kinh Trung Bộ: https://streamentry.github.io/kinh-tang-pali/sutta/mn/
+>
+> Dự án trình bày Pāli và các bản tham khảo theo từng đoạn, đồng thời ghi rõ nguồn, người dịch, giấy phép và trạng thái biên tập. Bản Việt của dự án là bản đang được biên tập; Pāli là nguồn chuẩn.
+>
+> Tôi thấy thư viện có mục Kinh Tạng và Phật giáo Nguyên Thủy. Xin hỏi thư viện có mục hoặc tiêu chí giới thiệu công cụ đọc/tra cứu kinh trực tuyến không? Nếu có và quý Ban thấy phù hợp, mong quý Ban xem qua đường dẫn trên. Nếu không, mọi góp ý về cách ghi nguồn và phân biệt bản dịch đều hữu ích.
+>
+> Việc giới thiệu hoàn toàn tùy ý; chúng tôi không đề nghị liên kết đáp lại.
+>
+> Trân trọng,
+> Người biên tập Kinh Tạng Pāli Việt
+
+### Bản nháp cho phat.edu.vn — chưa gửi
+
+**Kênh:** nút “Gửi góp ý” trên [bảng đối chiếu Pāli](https://phat.edu.vn/bang-doi-chieu-pali-han-viet); chưa xác minh form này nhận đề xuất tài nguyên web.
+
+> Chào Ban Biên tập phat.edu.vn,
+>
+> Tôi đang biên tập một trình đọc Kinh Tạng Pāli Việt, hiện ưu tiên Kinh Trung Bộ: https://streamentry.github.io/kinh-tang-pali/sutta/mn/
+>
+> Tôi thấy bảng đối chiếu của quý trang nối thuật ngữ Pāli với Sanskrit, Hán Việt và tiếng Việt. Dự án của tôi trình bày Pāli cùng các bản tham khảo theo từng đoạn, có mã segment, nguồn và trạng thái bản dịch. Nếu thuận tiện, mong quý Ban góp ý xem cách trình bày này có giúp người đọc đối chiếu thuật ngữ theo ngữ cảnh không, hoặc chỉ giúp sửa chỗ nào dễ gây hiểu nhầm.
+>
+> Nếu quý Ban thấy công cụ hữu ích cho độc giả, xin tùy nghi giới thiệu; chúng tôi không đề nghị liên kết đáp lại hay sự chứng thực.
+>
+> Trân trọng,
+> Người biên tập Kinh Tạng Pāli Việt
+
+### Bản nháp cho Học viện Phật giáo Việt Nam tại TP.HCM — chưa gửi
+
+**Người nhận:** Văn phòng Học viện, `vp@vbu.edu.vn` (email công khai ở cuối trang Khoa Pāli; chưa xác nhận đây là đầu mối của khoa).
+
+**Chủ đề:** Xin góp ý về trình đọc Kinh Trung Bộ Pāli–Việt
+
+> Kính gửi Văn phòng Học viện,
+>
+> Tôi đang biên tập một trình đọc Kinh Tạng Pāli Việt, hiện ưu tiên Kinh Trung Bộ: https://streamentry.github.io/kinh-tang-pali/sutta/mn/
+>
+> Tôi đọc trang giới thiệu Khoa Pāli và thấy chương trình có nội dung so sánh Trung Bộ với Trung A-hàm, cùng học phần phiên dịch văn bản Pāli. Dự án độc lập của tôi trình bày Pāli và các bản tham khảo theo từng đoạn, ghi mã UID/segment, nguồn và trạng thái biên tập; bản dịch đang tiếp tục và không xin Học viện chứng thực.
+>
+> Nếu thuận tiện, mong Văn phòng chuyển lời mời này tới giảng viên hoặc người phụ trách phù hợp. Tôi chỉ xin góp ý về khả năng tra cứu theo từng đoạn và cách phân biệt nguồn/trạng thái; không yêu cầu đăng link hay giới thiệu dự án.
+>
+> Trân trọng,
+> Người biên tập Kinh Tạng Pāli Việt
+
+**Giới hạn outreach:** gửi từng thư có lý do cụ thể; tối đa một follow-up sau 7–10 ngày, rồi dừng nếu không có phản hồi. Theo dõi riêng thư đã gửi, phản hồi, link được kiểm tra trực tiếp trên trang đích và referral domains; không tính thư đã gửi là backlink. Search Console Links report hiện vẫn đang xử lý dữ liệu; không tuyên bố hiệu quả SEO từ outreach trước khi có referring-domain/click evidence.

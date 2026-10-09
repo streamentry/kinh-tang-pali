@@ -223,7 +223,11 @@ const editable = shown.find((layer) => layer.id === 'vi');
             id={segment.id}
             data-segment-id={segment.id}
           >
-            <div class="segment-id" aria-hidden="true">{segment.id}</div>
+            <div class="segment-id">
+              <a href={`#${segment.id}`} aria-label={`Liên kết trực tiếp tới đoạn ${segment.id}`} title="Liên kết trực tiếp tới đoạn này">
+                {segment.id}
+              </a>
+            </div>
 
             <div
               class="cell cell-pali"

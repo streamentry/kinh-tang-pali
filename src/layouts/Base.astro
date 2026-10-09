@@ -5,13 +5,21 @@ import { creditSummary } from '../lib/canon/tooling';
 interface Props {
   title?: string;
   description?: string;
+  noindex?: boolean;
 }
 const {
   title = 'Kinh Tạng Pāli Việt',
-  description = 'Bản dịch Pāli–Việt theo segment SuttaCentral/Bilara.',
+  description = 'Đọc Kinh tạng Pāli tiếng Việt, đối chiếu từng đoạn với Pāli và bản English. Tra cứu năm bộ Nikāya, nguồn văn bản và lịch sử biên tập.',
+  noindex = false,
 } = Astro.props;
 
 const assistance = creditSummary();
+const canonical = new URL(Astro.url.pathname, Astro.site).href;
+const pageSchema = {
+  '@context': 'https://schema.org', '@type': 'WebPage',
+  '@id': canonical, url: canonical, name: title, description, inLanguage: 'vi',
+  isPartOf: { '@type': 'WebSite', name: 'Kinh Tạng Pāli Việt', url: new URL(withBase(), Astro.site).href },
+};
 ---
 <!doctype html>
 <html lang="vi">
@@ -23,6 +31,18 @@ const assistance = creditSummary();
     <meta name="generator" content={Astro.generator} />
     <meta name="google-site-verification" content="Ydzx5wL5Yz9xT3ASFAU_l67uQgb5iIQBITZJjuA2EAE" />
     <title>{title}</title>
+    <link rel="canonical" href={canonical} />
+    <meta name="robots" content={noindex ? 'noindex,follow' : 'index,follow'} />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="vi_VN" />
+    <meta property="og:site_name" content="Kinh Tạng Pāli Việt" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <script is:inline type="application/ld+json" set:html={JSON.stringify(pageSchema).replace(/</g, '\\u003c')} />
     <link rel="stylesheet" href={withBase('styles/global.css')} />
   </head>
   <body>

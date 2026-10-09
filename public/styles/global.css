@@ -119,7 +119,7 @@ h2 { letter-spacing: -.025em; }
 .credits-link a { color: var(--accent); }
 
 .segments { border-top: 1px solid var(--line); }
-.segment { display: grid; column-gap: 1.1rem; border-bottom: 1px solid var(--line); padding: 1.2rem 0; }
+.segment { scroll-margin-top: 6rem; display: grid; column-gap: 1.1rem; border-bottom: 1px solid var(--line); padding: 1.2rem 0; }
 /* The number of live columns is decided at build time: a text whose pinned snapshot
    carries no English should give its Pāli the whole width, not one quarter of it. */
 .reader-shell[data-open-columns="1"] .segment { grid-template-columns: 5.5rem minmax(0, 1fr); }
@@ -127,6 +127,12 @@ h2 { letter-spacing: -.025em; }
 .reader-shell[data-open-columns="3"] .segment { grid-template-columns: 5.5rem repeat(3, minmax(0, 1fr)); }
 .reader-shell[data-open-columns="4"] .segment { grid-template-columns: 5.5rem repeat(4, minmax(0, 1fr)); }
 .segment-id { font: 600 .66rem/1.5 ui-monospace, SFMono-Regular, Menlo, monospace; color: #9aa09b; padding-top: .45rem; }
+.segment-id a { color: inherit; text-decoration: none; }
+.segment-id a:hover, .segment-id a:focus-visible { color: var(--accent); text-decoration: underline; }
+.citation-panel { margin: .5rem 0 1.25rem; border: 1px solid var(--line); border-radius: .45rem; padding: .75rem 1rem; color: var(--muted); font-size: .82rem; line-height: 1.6; }
+.citation-panel summary { color: var(--ink); font-weight: 700; cursor: pointer; }
+.citation-panel p:last-child { margin-bottom: 0; }
+.citation-panel a { color: var(--accent); overflow-wrap: anywhere; }
 .cell { font-family: Literata, "Noto Serif", Georgia, serif; font-size: .96rem; line-height: 1.72; min-width: 0; overflow-wrap: break-word; }
 .cell-pali { color: #4f5851; }
 .cell-en, .cell-vi-current { color: #5a626b; }

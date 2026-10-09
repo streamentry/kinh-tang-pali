@@ -18,7 +18,7 @@ const totals = groups.reduce((sum, group) => ({
   technical: sum.technical + group.rows.filter(row => row.technical && assessmentIsCurrent(group.collection.code, row.uid, row.technical)).length,
 }), { translations: 0, full: 0, technical: 0 });
 ---
-<Base title="Rubric và lịch sử đánh giá · Kinh Tạng Pāli Việt">
+<Base title="Rubric và lịch sử đánh giá · Kinh Tạng Pāli Việt" description="Xem scorecard và lịch sử đánh giá bản dịch Kinh Tạng Pāli Việt: phạm vi kiểm tra, ngày chấm, blocker và trạng thái nội dung.">
   <main class="page">
     <a href={withBase()}>← Năm bộ kinh</a>
     <h1>Rubric và lịch sử đánh giá</h1>
