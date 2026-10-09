@@ -144,7 +144,7 @@ Một nguồn lớn như [VIBUDRA — Kho tàng Thánh điển Pāli](https://ww
 >
 > Trang Liên hệ của quý Ban có mời độc giả góp ý. Nếu thuận tiện, mong quý Ban xem qua và chỉ giúp những chỗ có thể khiến người đọc hiểu sai về nguồn văn bản, cách đối chiếu hoặc trạng thái bản dịch.
 >
-> Nếu quý Ban thấy tài nguyên này hữu ích cho độc giả, xin tùy nghi giới thiệu trang mục lục Kinh Trung Bộ tại: https://streamentry.github.io/kinh-tang-pali/collections/mn/
+> Nếu quý Ban thấy tài nguyên này hữu ích cho độc giả, xin tùy nghi giới thiệu trang mục lục Kinh Trung Bộ tại: https://streamentry.github.io/kinh-tang-pali/sutta/mn/
 >
 > Việc giới thiệu hoàn toàn tùy ý; chúng tôi không đề nghị liên kết đáp lại.
 >
