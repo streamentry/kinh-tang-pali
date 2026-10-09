@@ -77,7 +77,16 @@ Ngưỡng thử nghiệm (mục tiêu, không phải dự báo): 100% URL mẫu 
 
 Rủi ro: phổ biến bản nháp như kinh văn đã chốt; cộng đồng hiểu nhầm AI là thẩm quyền; liên kết gắn sai tác giả; hàng nghìn trang khiến crawl phân tán. Theo dõi indexing theo bộ và trạng thái trước khi cân nhắc giảm sitemap. Không tự noindex toàn corpus thiếu bản Việt nếu trang còn nguồn hữu ích.
 
-## Link hiện hữu đã xác minh (không tính là backlink ngoài)\n\n| Nguồn | Vị trí và trạng thái link | Đích | Ý nghĩa |\n| --- | --- | --- | --- |\n| [Hướng Đến Nhập Lưu](https://streamentry.github.io/streamentry/) | Thẻ dự án trên trang chủ và footer; anchor “Cải tiến bản dịch Kinh tạng Pāli”. | https://streamentry.github.io/kinh-tang-pali/ | HTML công khai đã kiểm tra 2026-10-09. Hai URL cùng host `streamentry.github.io`, nên đây là liên kết chéo project/đường dẫn referral, không phải referring domain độc lập. |\n| [GitHub repository](https://github.com/streamentry/kinh-tang-pali) | Website field ở sidebar có `rel="noopener noreferrer nofollow"`; liên kết trong README được render `rel="nofollow"`. | https://streamentry.github.io/kinh-tang-pali/ | HTML công khai đã kiểm tra 2026-10-09. Có ích cho điều hướng và referral, nhưng không tính là backlink followed. |\n\nHiện có hai nguồn link điều hướng/referral đã xác minh ở trên; **chưa xác minh được backlink followed từ referring domain bên ngoài** và chưa có dữ liệu tổng hợp về referring domains, click hay tác động thứ hạng. Các directory bên dưới vẫn là prospect chưa liên hệ; email chưa gửi và chưa có link mới được xác nhận từ chúng.\n\n## Prospect shortlist
+## Link hiện hữu đã xác minh (không tính là backlink ngoài)
+
+| Nguồn | Vị trí và trạng thái link | Đích | Ý nghĩa |
+| --- | --- | --- | --- |
+| [Hướng Đến Nhập Lưu](https://streamentry.github.io/streamentry/) | Thẻ dự án trên trang chủ và footer; anchor “Cải tiến bản dịch Kinh tạng Pāli”. | https://streamentry.github.io/kinh-tang-pali/ | HTML công khai đã kiểm tra 2026-10-09. Hai URL cùng host `streamentry.github.io`, nên đây là liên kết chéo project/đường dẫn referral, không phải referring domain độc lập. |
+| [GitHub repository](https://github.com/streamentry/kinh-tang-pali) | Website field ở sidebar có `rel="noopener noreferrer nofollow"`; liên kết trong README được render `rel="nofollow"`. | https://streamentry.github.io/kinh-tang-pali/ | HTML công khai đã kiểm tra 2026-10-09. Có ích cho điều hướng và referral, nhưng không tính là backlink followed. |
+
+Hiện có hai nguồn link điều hướng/referral đã xác minh ở trên; **chưa xác minh được backlink followed từ referring domain bên ngoài** và chưa có dữ liệu tổng hợp về referring domains, click hay tác động thứ hạng. Các đề xuất tới VRI/BuddhaNet và email tới Theravāda.vn đã gửi ngày 2026-10-09; chưa có phản hồi hay link mới được xác nhận. Các prospect khác trong bảng chưa được liên hệ.
+
+## Prospect shortlist
 
 Đây là prospects, không phải đối tác hay backlink đã xác nhận. Đề xuất tới VRI và BuddhaNet đã gửi ngày 2026-10-09 sau khi người biên tập cho phép; hiện chờ phản hồi, chưa có thư mục nào xác nhận thêm liên kết. Các nơi khác trong bảng chưa được liên hệ.
 
