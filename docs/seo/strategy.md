@@ -4,7 +4,7 @@
 
 Kinh Tạng Pāli Việt là dự án dịch và tra cứu, với Pāli đã ghim làm nguồn chuẩn, đối chiếu từng segment và lịch sử biên tập công khai. Không tuyên bố bản dịch hoàn thiện, được giới học thuật chứng nhận, hoặc ưu việt hơn bản của các dịch giả khác.
 
-Đã kiểm tra mã nguồn: trước thay đổi thiếu canonical, metadata chia sẻ và sitemap; hai CTA trang chủ bỏ base path. HTTP kiểm tra ngày 2026-10-09: trang chủ production trả 200, /robots.txt ở gốc host trả 404. Truy vấn web theo URL/tên site và Exa theo URL chính xác ngày 2026-10-09 không làm lộ trang độc lập nào liên kết rõ tới dự án. Đây là mẫu khám phá, không phải backlink index: không chứng minh backlink bằng 0 hay site bị deindex. Chưa có quyền truy cập Search Console, bộ dữ liệu backlink tổng hợp hay CWV thực địa. Đã xác minh thủ công một liên kết giới thiệu trên trang chủ dự án Hướng Đến Nhập Lưu; PR SEO vẫn mở nên chưa có bằng chứng rằng các cải tiến mới đã lên production. Không có baseline traffic, số referring domains hoặc điểm DA/DR. Không gán điểm tổng SEO/GEO khi các dữ liệu đó còn thiếu.
+Đã kiểm tra mã nguồn: trước thay đổi thiếu canonical, metadata chia sẻ và sitemap; hai CTA trang chủ bỏ base path. HTTP kiểm tra ngày 2026-10-09: trang chủ production trả 200, `/robots.txt` ở gốc host trả 404. Search Console URL-prefix property hiện truy cập được. Sitemap `/sitemap.xml` đã nộp nhưng báo `Couldn't fetch`; trang chi tiết báo không đọc được, 0 trang/video phát hiện, và URL production trả 404. URL Inspection trang chủ báo `Crawled - currently not indexed`, lần crawl gần nhất 2026-10-09 16:24:52; crawl, fetch và indexing đều được phép nhưng không phát hiện sitemap/referring page. Hub MN báo `URL is unknown to Google`, không có referring sitemap/page. Page indexing, Performance và Links reports đang xử lý dữ liệu; chưa có baseline traffic, queries, tổng indexed URLs, backlinks tổng hợp, CWV thực địa hay DA/DR. PR SEO vẫn mở nên các cải tiến chưa có trên production.
 
 Google xác nhận SEO nền tảng vẫn áp dụng cho AI Search; không có schema GEO riêng hoặc yêu cầu llms.txt:
 https://developers.google.com/search/docs/appearance/ai-features
@@ -19,7 +19,7 @@ https://developers.google.com/search/docs/essentials/spam-policies
 - Sitemap sinh từ catalog, gồm trang tra cứu ngay cả khi bản Việt dự án chưa bắt đầu: trang vẫn có giá trị nguồn đối chiếu, trạng thái phải nói rõ. Không liệt kê tìm kiếm nội bộ.
 - Search noindex,follow; sửa CTA dùng base path.
 
-GitHub Pages phục vụ project dưới /kinh-tang-pali/. robots.txt có hiệu lực ở gốc host; file /kinh-tang-pali/robots.txt không điều khiển crawler. Kiểm tra GitHub API ngày 2026-10-09 cho repo dự kiến streamentry/streamentry.github.io trả 404, nên hiện chưa xác minh được nơi sửa robots.txt ở origin root. Sau khi sitemap của project được deploy, nộp trực tiếp trong Search Console khi được cấp quyền; không tuyên bố đã thêm dòng Sitemap vào robots.txt. Không chặn /search/ bằng robots vì crawler cần đọc noindex.
+GitHub Pages phục vụ project dưới `/kinh-tang-pali/`. `robots.txt` có hiệu lực ở gốc host; file `/kinh-tang-pali/robots.txt` không điều khiển crawler. Kiểm tra GitHub API ngày 2026-10-09 cho repo dự kiến `streamentry/streamentry.github.io` trả 404, nên chưa xác minh được nơi sửa `robots.txt` ở origin root. Search Console URL-prefix property hiện truy cập được; sitemap `/sitemap.xml` đang submit báo không đọc được và URL project trả 404 trên production. PR #363 tạo endpoint sitemap project-level. Sau khi merge/deploy, xác minh sitemap trả 200 rồi resubmit `/sitemap.xml` trong property hiện có; không tuyên bố đã thêm dòng Sitemap vào `robots.txt` ở origin root. Không chặn `/search/` bằng robots vì crawler cần đọc `noindex`.
 
 
 ## Trang chủ và cụm truy vấn ban đầu
@@ -33,7 +33,7 @@ Truy vấn web ngày 2026-10-09 cho thấy kết quả ở nhóm rộng “Kinh 
 | Trang bài | “[UID] [tên kinh] Pāli Việt”, “đối chiếu Pāli English Việt [UID]” | Title/description đã gồm UID và nhan đề; permalink + segment anchor giúp dẫn đúng đoạn. Search Console sẽ cho biết các UID có impressions. |
 | Nguồn/quality | “nguồn”, “giấy phép”, “đánh giá bản dịch”, “trạng thái biên tập” | Nhu cầu tin cậy và provenance; phù hợp citation intent, không phải trang landing để nhồi keyword. |
 
-Không có search-volume data nên đây là nhóm truy vấn giả thuyết, không xếp hạng demand. Sau release, xuất Search Console queries 28 ngày, nhóm theo intent và chỉ viết nội dung mới khi có impression/click hoặc phản hồi người đọc chứng minh nhu cầu.
+**Chưa có search-volume data** nên đây là nhóm truy vấn giả thuyết, không xếp hạng demand. Search Console hiện truy cập được nhưng Performance report vẫn báo đang xử lý và không có query data. Khi có dữ liệu 28 ngày, nhóm queries theo intent và chỉ viết nội dung mới khi có impression/click hoặc phản hồi người đọc chứng minh nhu cầu.
 
 ## SERP mẫu tiếng Việt — 2026-10-09
 
@@ -57,7 +57,7 @@ Không có search-volume data nên đây là nhóm truy vấn giả thuyết, kh
 | “MN 1/10 + tên kinh Việt”, “[UID] Pāli Việt” | Mở/tra cứu một bài cụ thể | Trang sutta theo UID | Chưa biết |
 | “đối chiếu Pāli Việt”, “nguồn/ai dịch/trạng thái” | Kiểm chứng thuật ngữ, provenance, độ tin cậy | Trang bài, credits, quality | Chưa biết |
 
-Không tính Opportunity vì thiếu search volume và độ khó/backlink authority đáng tin cậy. Cụm `site:streamentry.github.io/kinh-tang-pali` không trả trang trong một lần thử; **điều này không chứng minh bị deindex**. URL Inspection và Page indexing trong Search Console mới là bằng chứng phù hợp; property hiện chưa cấp quyền cho tài khoản đang đăng nhập.
+Không tính Opportunity vì thiếu search volume và độ khó/backlink authority đáng tin cậy. Cụm `site:streamentry.github.io/kinh-tang-pali` không trả trang trong một lần thử; **điều này không chứng minh bị deindex**. URL Inspection ngày 2026-10-09 cho thấy homepage `Crawled - currently not indexed`, còn hub MN `URL is unknown to Google`; cả hai không có sitemap/referring page được báo. Đây là trạng thái của hai URL mẫu, không phải số liệu toàn site. Báo cáo Page indexing, Performance và Links đang xử lý dữ liệu, nên chưa có coverage/query/backlink baseline.
 
 **GEO:** Trang bài nên trả lời ngắn và có thể trích dẫn được các câu hỏi “đây là bài MN nào?”, “Pāli lấy từ edition nào?”, “bản Việt này do ai dịch và đang ở trạng thái nào?”, đồng thời gắn permalink tới đúng segment. Home và hub đã nêu Pāli là nguồn chuẩn; không viết thêm bài tổng quan chung chỉ để nhắc lại dữ kiện hiện có cho đến khi query data hoặc phản hồi người đọc chứng minh nhu cầu.
 
@@ -69,7 +69,7 @@ Phản đối mạnh nhất: thêm metadata không tạo nhu cầu đọc, và m
 
 ## Thử nghiệm 7 ngày
 
-1. Sau khi release: kiểm tra homepage, một trang mỗi bộ, sitemap, canonical và query variants trên production. Xác minh Search Console URL-prefix property và nộp sitemap; lưu ngày cùng trạng thái xử lý. Chỉ chủ sở hữu thực hiện bước cần quyền tài khoản.
+1. Sau khi PR #363 merge/deploy: xác minh homepage, hub MN, một bài MN và sitemap trên production; kiểm tra canonical, metadata và CTA base path. Sitemap phải trả 200 trước khi resubmit `/sitemap.xml` trong Search Console property hiện có. Sau đó Request indexing cho homepage và hub MN; ghi ngày/trạng thái, kiểm tra lại sau khi Google recrawl. Không yêu cầu indexing trước khi thay đổi được deploy.
 2. Chọn ba bài đã published, kiểm tra trên web đủ nguồn, trạng thái và neo đoạn. Nhờ hai người đọc kinh đánh giá khả năng tra cứu và lỗi ghi công trước khi giới thiệu rộng.
 3. Chuẩn bị năm đề nghị cá nhân hóa cho người quản trị thư viện/nhóm đọc kinh phù hợp. Chỉ gửi sau khi người biên tập duyệt đối tượng và thông điệp. Một follow-up sau 7–10 ngày, dừng nếu không được phản hồi.
 
@@ -126,7 +126,7 @@ Mô tả này nói rõ giới hạn phạm vi, không tự gọi dự án là đ
 
 ### Tín hiệu index hiện có
 
-Truy vấn tìm kiếm web ngày 2026-10-09 cho URL chính xác và tên dự án không trả trang kinh-tang-pali; nó trả các nguồn Tam tạng Pāli–Việt khác. Không thể suy ra deindexation vì loại truy vấn, coverage và thời gian cập nhật của search tool không được biết. Sau khi có quyền Search Console, URL Inspection và Page indexing là nguồn xác minh; theo dõi indexed pages, impressions và query data trước khi đổi nội dung hàng loạt.
+Truy vấn tìm kiếm web ngày 2026-10-09 cho URL chính xác và tên dự án không trả trang kinh-tang-pali; nó trả các nguồn Tam tạng Pāli–Việt khác. Không thể suy ra deindexation từ truy vấn này. Search Console URL-prefix property hiện truy cập được; URL Inspection cho thấy homepage chưa được index và hub MN chưa được biết tới. Các báo cáo tổng hợp vẫn đang xử lý dữ liệu; chỉ kết luận về coverage, impressions hoặc query data sau khi các báo cáo sẵn sàng.
 
 ### Hai đề xuất directory đã gửi — 2026-10-09
 
@@ -153,7 +153,7 @@ Gmail xác nhận “Message sent” cho cả hai thư; tìm kiếm trong Sent c
 
 ## Ưu tiên phân phối tiếng Việt — 2026-10-09
 
-**Quyết định:** tiếng Việt là thị trường tìm kiếm và giới thiệu chính; English là lớp tham khảo, không phải hướng outbound mặc định. Đây là lựa chọn phù hợp với định vị Pāli–Việt và người đọc mục tiêu. **Chưa có Search Console, volume hoặc conversion data** để khẳng định nhu cầu hay tác động thứ hạng; các cụm truy vấn dưới đây là giả thuyết cần đo sau khi có quyền Search Console.
+**Quyết định:** tiếng Việt là thị trường tìm kiếm và giới thiệu chính; English là lớp tham khảo, không phải hướng outbound mặc định. Đây là lựa chọn phù hợp với định vị Pāli–Việt và người đọc mục tiêu. **Chưa có search-volume hoặc conversion data** để khẳng định nhu cầu hay tác động thứ hạng; Search Console hiện có quyền truy cập nhưng các báo cáo vẫn đang xử lý. Các cụm truy vấn dưới đây là giả thuyết cần đo khi dữ liệu sẵn sàng.
 
 Ưu tiên các trang tiếng Việt hiện có: trang chủ và mục lục Kinh Trung Bộ, trang từng bài theo UID, trang nguồn, giấy phép và chất lượng biên tập. Khi tiếp cận bên ngoài, xin góp ý chuyên môn hoặc giới thiệu tài nguyên trong đúng ngữ cảnh; không trao đổi link, không yêu cầu chứng thực, không xin link hàng loạt. Link đích nên là trang cụ thể có ích cho độc giả (mục lục MN, trang nguồn/chất lượng hoặc bài kinh liên quan), không mặc định mọi nơi đều phải trỏ trang chủ.
 
@@ -222,4 +222,4 @@ Gmail hiển thị “Message sent”; tìm kiếm Sent theo địa chỉ và ch
 > Trân trọng,
 > Người biên tập Kinh Tạng Pāli Việt
 
-**Giới hạn outreach:** gửi từng thư có lý do cụ thể; tối đa một follow-up sau 7–10 ngày, rồi dừng nếu không có phản hồi. Theo dõi riêng thư đã gửi, phản hồi, link được kiểm tra trực tiếp trên trang đích và referral domains; không tính thư đã gửi là backlink. Khi chưa có Search Console, không tuyên bố hiệu quả SEO từ outreach.
+**Giới hạn outreach:** gửi từng thư có lý do cụ thể; tối đa một follow-up sau 7–10 ngày, rồi dừng nếu không có phản hồi. Theo dõi riêng thư đã gửi, phản hồi, link được kiểm tra trực tiếp trên trang đích và referral domains; không tính thư đã gửi là backlink. Search Console Links report hiện vẫn đang xử lý dữ liệu; không tuyên bố hiệu quả SEO từ outreach trước khi có referring-domain/click evidence.
