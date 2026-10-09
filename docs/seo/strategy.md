@@ -152,7 +152,7 @@ Gmail xác nhận “Message sent” cho cả hai thư; tìm kiếm trong Sent c
 | --- | --- | --- | --- |
 | [Theravāda.vn — Liên hệ](https://theravada.vn/lien-he/) · [Liên kết web khác](https://theravada.vn/goc-thong-tin/lien-ket-web/) | Trang liên hệ mời góp ý tới Ban Biên tập; trang liên kết đang liệt kê tài nguyên về Majjhima, Dīgha, Saṃyutta, Aṅguttara và Khuddaka Nikāya. Địa chỉ công khai: `khanhhai.net@gmail.com`. | Đã gửi thư xin góp ý về provenance, đối chiếu và trạng thái bản dịch; thư mời tùy nghi giới thiệu mục lục MN, không đòi chứng thực hay liên kết đáp lại. | Đầu mối có độ phù hợp cao nhất. Gmail xác nhận gửi ngày 2026-10-09; Sent trả đúng một kết quả theo người nhận/chủ đề. Chưa có phản hồi hay backlink được xác nhận. |
 | [Thư viện Phật giáo — Liên hệ](https://www.thuvienphatgiao.com/contact/lien-he.html) · [Catalog](https://www.thuvienphatgiao.com/) | Trang liên hệ xác định đây là thư viện của Viện Nghiên cứu Phật học Việt Nam, có mục Kinh Tạng/PG. Nguyên Thủy và công khai `thuvienphatgiaovnc@gmail.com` để nhận góp ý, thắc mắc. | Hỏi trước xem thư viện có mục tài nguyên đọc trực tuyến hoặc tiêu chí giới thiệu công cụ tra cứu; không xin link đổi link. | Prospect phù hợp; kênh liên hệ đã xác minh nhưng chưa có chính sách nhận link. Bản nháp lưu bên dưới, chưa gửi. |
-| [phat.edu.vn — Thư viện Phật học](https://phat.edu.vn/thu-vien) | Có thư viện tiếng Việt và nội dung giải thích cách tiếp cận kinh điển. | Theo dõi chủ đề phù hợp để góp thông tin có nguồn; không xin chèn link nếu không có ngữ cảnh biên tập tự nhiên. | Prospect nội dung; chưa xác minh đầu mối nhận đề xuất. |
+| [phat.edu.vn — Bảng đối chiếu Pāli](https://phat.edu.vn/bang-doi-chieu-pali-han-viet) | Trang đã được Ban biên tập duyệt, giải thích đối chiếu Pāli–Sanskrit–Hán Việt–Việt và có nút “Gửi góp ý”; site cũng có [thư viện Phật học](https://phat.edu.vn/thu-vien). | Hỏi góp ý về cách giúp người đọc đối chiếu thuật ngữ; chỉ nêu trình đọc MN như công cụ bổ trợ nếu phù hợp. Không yêu cầu link hay chứng thực. | Prospect nội dung có feedback UI; chưa thấy policy nhận resource link. Bản nháp bên dưới, chưa gửi. |
 
 Một nguồn lớn như [VIBUDRA — Kho tàng Thánh điển Pāli](https://www.vibudra.org/pali-canon) đã có chức năng thư viện và đối chiếu. **Suy luận:** lời giới thiệu chung “có kinh Pāli–Việt” sẽ không khác biệt; lợi thế đáng nói của dự án này là đối chiếu theo Bilara segment ID, Pāli làm chuẩn, provenance và trạng thái biên tập minh bạch. Không dùng tuyên bố hơn/kém nếu chưa có kiểm chứng độc lập.
 
@@ -194,6 +194,21 @@ Gmail hiển thị “Message sent”; tìm kiếm Sent theo địa chỉ và ch
 > Tôi thấy thư viện có mục Kinh Tạng và Phật giáo Nguyên Thủy. Xin hỏi thư viện có mục hoặc tiêu chí giới thiệu công cụ đọc/tra cứu kinh trực tuyến không? Nếu có và quý Ban thấy phù hợp, mong quý Ban xem qua đường dẫn trên. Nếu không, mọi góp ý về cách ghi nguồn và phân biệt bản dịch đều hữu ích.
 >
 > Việc giới thiệu hoàn toàn tùy ý; chúng tôi không đề nghị liên kết đáp lại.
+>
+> Trân trọng,
+> Người biên tập Kinh Tạng Pāli Việt
+
+### Bản nháp cho phat.edu.vn — chưa gửi
+
+**Kênh:** nút “Gửi góp ý” trên [bảng đối chiếu Pāli](https://phat.edu.vn/bang-doi-chieu-pali-han-viet); chưa xác minh form này nhận đề xuất tài nguyên web.
+
+> Chào Ban Biên tập phat.edu.vn,
+>
+> Tôi đang biên tập một trình đọc Kinh Tạng Pāli Việt, hiện ưu tiên Kinh Trung Bộ: https://streamentry.github.io/kinh-tang-pali/sutta/mn/
+>
+> Tôi thấy bảng đối chiếu của quý trang nối thuật ngữ Pāli với Sanskrit, Hán Việt và tiếng Việt. Dự án của tôi trình bày Pāli cùng các bản tham khảo theo từng đoạn, có mã segment, nguồn và trạng thái bản dịch. Nếu thuận tiện, mong quý Ban góp ý xem cách trình bày này có giúp người đọc đối chiếu thuật ngữ theo ngữ cảnh không, hoặc chỉ giúp sửa chỗ nào dễ gây hiểu nhầm.
+>
+> Nếu quý Ban thấy công cụ hữu ích cho độc giả, xin tùy nghi giới thiệu; chúng tôi không đề nghị liên kết đáp lại hay sự chứng thực.
 >
 > Trân trọng,
 > Người biên tập Kinh Tạng Pāli Việt
