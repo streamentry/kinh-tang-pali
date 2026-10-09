@@ -4,7 +4,7 @@
 
 Kinh Tạng Pāli Việt là dự án dịch và tra cứu, với Pāli đã ghim làm nguồn chuẩn, đối chiếu từng segment và lịch sử biên tập công khai. Không tuyên bố bản dịch hoàn thiện, được giới học thuật chứng nhận, hoặc ưu việt hơn bản của các dịch giả khác.
 
-Đã kiểm tra mã nguồn: trước thay đổi thiếu canonical, metadata chia sẻ và sitemap; hai CTA trang chủ bỏ base path. HTTP kiểm tra ngày 2026-10-09: trang chủ production trả 200, /robots.txt ở gốc host trả 404. Truy vấn web theo URL và tên site ngày 2026-10-09 không trả trang của dự án; đây không phải Search Console và không chứng minh site chưa được index. Chưa có quyền truy cập Search Console, dữ liệu backlink, CWV thực địa hay bằng chứng site production đã nhận thay đổi. Không có baseline traffic, số referring domains hoặc điểm DA/DR. Không gán điểm tổng SEO/GEO khi các dữ liệu đó còn thiếu.
+Đã kiểm tra mã nguồn: trước thay đổi thiếu canonical, metadata chia sẻ và sitemap; hai CTA trang chủ bỏ base path. HTTP kiểm tra ngày 2026-10-09: trang chủ production trả 200, /robots.txt ở gốc host trả 404. Truy vấn web theo URL và tên site ngày 2026-10-09 không trả trang của dự án; đây không phải Search Console và không chứng minh site chưa được index. Chưa có quyền truy cập Search Console, bộ dữ liệu backlink tổng hợp hay CWV thực địa. Đã xác minh thủ công một liên kết giới thiệu trên trang chủ dự án Hướng Đến Nhập Lưu; PR SEO vẫn mở nên chưa có bằng chứng rằng các cải tiến mới đã lên production. Không có baseline traffic, số referring domains hoặc điểm DA/DR. Không gán điểm tổng SEO/GEO khi các dữ liệu đó còn thiếu.
 
 Google xác nhận SEO nền tảng vẫn áp dụng cho AI Search; không có schema GEO riêng hoặc yêu cầu llms.txt:
 https://developers.google.com/search/docs/appearance/ai-features
@@ -51,7 +51,7 @@ Ngưỡng thử nghiệm (mục tiêu, không phải dự báo): 100% URL mẫu 
 
 Rủi ro: phổ biến bản nháp như kinh văn đã chốt; cộng đồng hiểu nhầm AI là thẩm quyền; liên kết gắn sai tác giả; hàng nghìn trang khiến crawl phân tán. Theo dõi indexing theo bộ và trạng thái trước khi cân nhắc giảm sitemap. Không tự noindex toàn corpus thiếu bản Việt nếu trang còn nguồn hữu ích.
 
-## Prospect shortlist
+## Liên kết giới thiệu đã xác minh\n\n| Nguồn | Vị trí và anchor | Đích | Xác minh / giới hạn |\n| --- | --- | --- | --- |\n| [Hướng Đến Nhập Lưu](https://streamentry.github.io/streamentry/) | Thẻ dự án trên trang chủ, anchor “Cải tiến bản dịch Kinh tạng Pāli”; cùng liên kết xuất hiện ở footer. | https://streamentry.github.io/kinh-tang-pali/ | Đọc HTML công khai ngày 2026-10-09. Đây là một liên kết biên tập có ngữ cảnh, không phải số liệu tổng referring domains, referral clicks hoặc bằng chứng tác động thứ hạng. Không cần xin thêm liên kết từ property này. |\n\nCác directory trong bảng tiếp theo vẫn là prospect chưa liên hệ; email chưa gửi và chưa có link mới được xác nhận từ chúng.\n\n## Prospect shortlist
 
 Đây là ứng viên nghiên cứu, không phải đối tác hay backlink đã có. Không có contact/email được xác minh.
 
