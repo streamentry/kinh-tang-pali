@@ -124,15 +124,15 @@ Gmail xác nhận “Message sent” cho cả hai thư; tìm kiếm trong Sent c
 
 | Đầu mối | Bằng chứng công khai | Cách tiếp cận | Trạng thái |
 | --- | --- | --- | --- |
-| [Theravāda.vn — Liên hệ](https://theravada.vn/lien-he/) | Trang có mục Tam Tạng Tipiṭaka/Majjhimanikāya; Ban Biên tập công khai mời góp ý chân tình và nêu địa chỉ email. | Gửi thư xin góp ý về cách ghi nguồn, thuật ngữ và trạng thái bản dịch; chỉ thêm lời mời giới thiệu mục lục MN nếu họ thấy hữu ích. Không đề nghị link đổi link hay sự chứng thực. | Đầu mối phù hợp nhất đã xác minh. Web reader che địa chỉ email bằng Cloudflare và mailto trả 404, nên phải xác minh địa chỉ trước khi gửi. Chưa gửi. |
+| [Theravāda.vn — Liên hệ](https://theravada.vn/lien-he/) · [Liên kết web khác](https://theravada.vn/goc-thong-tin/lien-ket-web/) | Trang liên hệ mời góp ý tới Ban Biên tập; trang liên kết đang liệt kê tài nguyên về Majjhima, Dīgha, Saṃyutta, Aṅguttara và Khuddaka Nikāya. Địa chỉ công khai: `khanhhai.net@gmail.com`. | Đã gửi thư xin góp ý về provenance, đối chiếu và trạng thái bản dịch; thư mời tùy nghi giới thiệu mục lục MN, không đòi chứng thực hay liên kết đáp lại. | Đầu mối có độ phù hợp cao nhất. Gmail xác nhận gửi ngày 2026-10-09; Sent trả đúng một kết quả theo người nhận/chủ đề. Chưa có phản hồi hay backlink được xác nhận. |
 | [Thư viện Phật giáo](https://www.thuvienphatgiao.com/) | Catalog có nhóm “Kinh Tạng”, “PG. Nguyên Thủy”, sách Pāli và mục Liên hệ. | Trước tiên xác minh đơn vị biên tập có nhận đề xuất tài nguyên web hay chỉ lập catalog sách; chỉ liên hệ nếu có trang phù hợp. | Prospect nghiên cứu; chưa xác minh chính sách nhận link. |
 | [phat.edu.vn — Thư viện Phật học](https://phat.edu.vn/thu-vien) | Có thư viện tiếng Việt và nội dung giải thích cách tiếp cận kinh điển. | Theo dõi chủ đề phù hợp để góp thông tin có nguồn; không xin chèn link nếu không có ngữ cảnh biên tập tự nhiên. | Prospect nội dung; chưa xác minh đầu mối nhận đề xuất. |
 
 Một nguồn lớn như [VIBUDRA — Kho tàng Thánh điển Pāli](https://www.vibudra.org/pali-canon) đã có chức năng thư viện và đối chiếu. **Suy luận:** lời giới thiệu chung “có kinh Pāli–Việt” sẽ không khác biệt; lợi thế đáng nói của dự án này là đối chiếu theo Bilara segment ID, Pāli làm chuẩn, provenance và trạng thái biên tập minh bạch. Không dùng tuyên bố hơn/kém nếu chưa có kiểm chứng độc lập.
 
-### Bản thư tiếng Việt để biên tập duyệt
+### Bản thư tiếng Việt đã gửi — 2026-10-09
 
-**Người nhận:** Ban Biên tập Theravāda.vn — dùng địa chỉ liên hệ được hiển thị tại [trang Liên hệ](https://theravada.vn/lien-he/) sau khi xác minh địa chỉ thực.
+**Người nhận:** Ban Biên tập Theravāda.vn tại `khanhhai.net@gmail.com`, địa chỉ được hiển thị trên [trang Liên hệ](https://theravada.vn/lien-he/).
 
 **Chủ đề:** Xin góp ý về trình đọc Kinh Trung Bộ Pāli–Việt
 
@@ -151,4 +151,4 @@ Một nguồn lớn như [VIBUDRA — Kho tàng Thánh điển Pāli](https://ww
 > Trân trọng,
 > Người biên tập Kinh Tạng Pāli Việt
 
-**Giới hạn outreach:** gửi từng thư có lý do cụ thể; tối đa một follow-up sau 7–10 ngày, rồi dừng nếu không có phản hồi. Theo dõi riêng thư đã gửi, phản hồi, link được kiểm tra trực tiếp trên trang đích và referral domains; không tính thư đã gửi là backlink. Khi chưa có Search Console, không tuyên bố hiệu quả SEO từ outreach.
+Gmail hiển thị “Message sent”; tìm kiếm Sent theo địa chỉ và chủ đề trả đúng một kết quả. Điều này xác nhận thư đã gửi, không xác nhận người nhận đã đọc hay chấp nhận. Chưa có reply hoặc link mới được kiểm chứng.\n\n**Giới hạn outreach:** gửi từng thư có lý do cụ thể; tối đa một follow-up sau 7–10 ngày, rồi dừng nếu không có phản hồi. Theo dõi riêng thư đã gửi, phản hồi, link được kiểm tra trực tiếp trên trang đích và referral domains; không tính thư đã gửi là backlink. Khi chưa có Search Console, không tuyên bố hiệu quả SEO từ outreach.
