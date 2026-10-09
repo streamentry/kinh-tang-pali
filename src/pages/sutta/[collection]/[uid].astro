@@ -76,8 +76,8 @@ const permalink = new URL(withBase(`sutta/${collection.code}/${uid}/`), Astro.si
       </section>
     )}
     {supportsSummary && !hasSummary && <p data-pagefind-ignore>Chưa có nội dung tóm tắt cho bài kinh này.</p>}
+    <SuttaReader document={document} />
     {supportsSummary && <QualityHistory collection={collection.code} uid={uid} target="summary" assessments={history.assessments} />}
     {document.hasProjectData && <QualityHistory collection={collection.code} uid={uid} target="translation" assessments={history.assessments} legacy={legacyScores} />}
-    <SuttaReader document={document} />
   </main>
 </Base>

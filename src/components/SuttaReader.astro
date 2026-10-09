@@ -106,16 +106,16 @@ const editable = shown.find((layer) => layer.id === 'vi');
 
 <section
   class="reader-shell"
-  data-reader-mode="compare"
+  data-reader-mode="vi"
   data-open-columns={openCount}
   data-closed={closed.join(' ') || undefined}
   aria-label={`So sánh ${shown.length} bản của ${document.uid.toUpperCase()}`}
 >
   <div class="reader-toolbar" data-pagefind-ignore>
     <div class="mode-switch" role="group" aria-label="Chế độ hiển thị">
-      <button type="button" data-mode="compare" class="active">Bốn bản</button>
-      <button type="button" data-mode="interlinear">Đối chiếu</button>
-      <button type="button" data-mode="vi">Chỉ Việt</button>
+      <button type="button" data-mode="compare" aria-pressed="false">Bốn bản</button>
+      <button type="button" data-mode="interlinear" aria-pressed="false">Đối chiếu</button>
+      <button type="button" data-mode="vi" class="active" aria-pressed="true">Chỉ Việt</button>
     </div>
     <div class="column-tabs" role="group" aria-label="Tập trung vào một bản">
       {shown.map((layer) => (
@@ -142,11 +142,11 @@ const editable = shown.find((layer) => layer.id === 'vi');
 
   <div class="layer-legend" data-pagefind-ignore>
     {shown.map((layer) => (
-      <div class:list={['layer-card', `is-${layer.id}`, `standing-${layer.standing}`, `reason-${layer.reason}`]}>
-        <div class="layer-card-head">
+      <details class:list={['layer-card', `is-${layer.id}`, `standing-${layer.standing}`, `reason-${layer.reason}`]}>
+        <summary class="layer-card-head">
           <h2 class="layer-title" lang={layer.language}>{layer.title}</h2>
           <span class:list={['standing', layer.standing]}>{STANDING[layer.standing]}</span>
-        </div>
+        </summary>
         <p class="layer-role">{layer.role}</p>
         {layer.note && <p class="layer-note">{layer.note}</p>}
         {layer.reason !== 'none' && (
@@ -191,7 +191,7 @@ const editable = shown.find((layer) => layer.id === 'vi');
             )}
           </p>
         )}
-      </div>
+      </details>
     ))}
   </div>
 
@@ -365,8 +365,12 @@ const editable = shown.find((layer) => layer.id === 'vi');
     const tabs = Array.from(shell.querySelectorAll('.column-tab'));
     const setMode = (mode) => {
       shell.setAttribute('data-reader-mode', mode);
+      shell.removeAttribute('data-focus');
+      tabs.forEach((tab) => tab.setAttribute('aria-pressed', 'false'));
       shell.querySelectorAll('[data-mode]').forEach((item) => {
-        item.classList.toggle('active', item.getAttribute('data-mode') === mode);
+        const active = item.getAttribute('data-mode') === mode;
+        item.classList.toggle('active', active);
+        item.setAttribute('aria-pressed', String(active));
       });
     };
 
@@ -378,6 +382,7 @@ const editable = shown.find((layer) => layer.id === 'vi');
     // for the whole text cannot be worth reading and a button that looks live but does
     // nothing is worse than one that looks dead. This only attaches the handler.
     const showOnly = (column) => {
+      if (shell.getAttribute('data-reader-mode') !== 'compare') setMode('compare');
       if (shell.getAttribute('data-focus') === column) shell.removeAttribute('data-focus');
       else shell.setAttribute('data-focus', column);
       const focus = shell.getAttribute('data-focus');

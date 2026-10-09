@@ -14,7 +14,8 @@ const rubric = rubricFor(target);
 const label = target === 'summary' ? 'tóm tắt' : 'bản dịch';
 ---
 <section id={`quality-${target}`} class="quality-history" data-pagefind-ignore>
-  <h2>Rubric chất lượng {label}</h2>
+  <details class="quality-disclosure">
+  <summary><h2>Rubric chất lượng {label}</h2></summary>
   <p>Mỗi tiêu chí chấm từ 0 đến 10. Điểm chung là trung bình của đủ 10 tiêu chí. Kiểm tra kỹ thuật chỉ chấm phần đo được; ô chưa đánh giá không phải điểm 0.</p>
   {target === 'translation' && <p>Điểm trên 9, không có lỗi chặn và vượt kiểm tra phát hành mới đủ điều kiện published. Lỗi chặn luôn thắng điểm số.</p>}
   <details>
@@ -47,11 +48,15 @@ const label = target === 'summary' ? 'tóm tắt' : 'bản dịch';
     </tbody></table></div>
     <p>Lỗi chặn: {score.blocking_errors.length ? score.blocking_errors.join('; ') : 'không ghi nhận'}.</p>
   </details>)}
+  </details>
 </section>
 <style>
   .quality-history { margin-block: 2rem; border-top: 1px solid var(--border, #ddd); padding-top: 1rem; }
   details { margin-block: 1rem; }
   summary { cursor: pointer; font-weight: 600; padding-block: .5rem; }
+  .quality-disclosure { margin: 0; }
+  .quality-disclosure > summary h2 { display: inline; font-size: 1.15rem; margin: 0; }
+  summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
   .table-scroll { overflow-x: auto; }
   table { width: 100%; border-collapse: collapse; text-align: left; }
   th, td { border-bottom: 1px solid var(--border, #ddd); padding: .65rem; vertical-align: top; }

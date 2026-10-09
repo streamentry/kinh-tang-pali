@@ -88,12 +88,17 @@ h2 { letter-spacing: -.025em; }
 
 /* Legend: what each of the four versions is, so a reference is never read as the
    authority. Marked ignore so it does not pollute search results with labels. */
-.layer-legend { display: grid; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); gap: .6rem; margin: 1rem 0 1.25rem; }
+.layer-legend { display: grid; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); align-items: start; gap: .6rem; margin: 1rem 0 1.25rem; }
 .layer-card { border: 1px solid var(--line); border-left-width: 3px; border-radius: .45rem; padding: .8rem .9rem; background: var(--surface); }
 .layer-card.standing-authority { border-left-color: #4a5f52; }
 .layer-card.standing-reference { border-left-color: #9aa3ab; }
 .layer-card.standing-project { border-left-color: var(--accent); }
-.layer-card-head { display: flex; align-items: baseline; justify-content: space-between; gap: .5rem; }
+.layer-card-head { display: flex; align-items: baseline; gap: .5rem; cursor: pointer; list-style: none; }
+.layer-card-head::-webkit-details-marker { display: none; }
+.layer-card-head::before { content: '▸'; color: var(--muted); }
+.layer-card[open] > .layer-card-head::before { content: '▾'; }
+.layer-card-head .standing { margin-left: auto; }
+.layer-card-head:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
 .layer-title { font-size: 1rem; margin: 0; letter-spacing: -.01em; }
 .standing { font-size: .62rem; text-transform: uppercase; letter-spacing: .1em; font-weight: 800; padding: .15rem .4rem; border-radius: 999px; white-space: nowrap; }
 .standing.authority { background: #e8ede9; color: #3d5045; }
