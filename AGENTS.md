@@ -314,3 +314,12 @@ Nhiệm vụ local trước khi gộp vẫn là `validate` / `test` / `check` nh
 dủ (store, licence, catalog, gap, build) là việc của CI.
 
 Kiến trúc nền tảng và data contract nằm tại [`docs/architecture.md`](docs/architecture.md).
+
+
+## Cấu hình audio đã duyệt — bắt buộc giữ nhất quán
+
+- Cấu hình duy nhất là `source/narration-profile.json`, profile `vi-charon-mn1-v1`, được người biên tập duyệt giọng và nhịp ngày 2026-10-10 theo mẫu MP3 MN1.
+- Mọi audio dùng đúng model, Charon, style prompt, giới hạn chunk, khoảng nghỉ, encoding và tốc độ mặc định của profile. Không ghi đè qua CLI/env, không fallback sang model/giọng khác, không tự tăng/giảm tốc MP3.
+- Generator và uploader phải đi qua `scripts/narration_config.py`; không bỏ qua pin SHA-256. Thay profile/pin chỉ khi người biên tập yêu cầu và đã duyệt mẫu mới.
+- Duyệt giọng/nhịp không đồng nghĩa duyệt nội dung toàn bài. Giữ `review_status: pending` cho đến khi nghe duyệt đầy đủ.
+- Đọc `docs/audio.md` trước mọi tác vụ tạo hoặc upload audio. Nghe đối chiếu mẫu MN1 vì tốc độ TTS là hướng dẫn bằng prompt, không có bảo đảm nhịp tuyệt đối giữa các lần sinh.
