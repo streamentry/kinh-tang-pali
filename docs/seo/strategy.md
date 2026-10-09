@@ -114,3 +114,41 @@ Subject: Vietnamese Pāli Canon reader for BuddhaNet’s Theravada links
 > URL: https://streamentry.github.io/kinh-tang-pali/
 
 Gmail xác nhận “Message sent” cho cả hai thư; tìm kiếm trong Sent cho hai người nhận cũng trả đúng hai subject này. Tính đến 2026-10-09 chưa có phản hồi hoặc liên kết nào được xác nhận. Nếu không có phản hồi, chỉ gửi một follow-up trong khoảng 2026-10-16–19 (Asia/Saigon); dừng nếu directory từ chối. Website hiện hoạt động ở URL gốc, nhưng PR #363 chưa merge nên sitemap mới chưa có trên production.
+
+
+## Ưu tiên phân phối tiếng Việt — 2026-10-09
+
+**Quyết định:** tiếng Việt là thị trường tìm kiếm và giới thiệu chính; English là lớp tham khảo, không phải hướng outbound mặc định. Đây là lựa chọn phù hợp với định vị Pāli–Việt và người đọc mục tiêu. **Chưa có Search Console, volume hoặc conversion data** để khẳng định nhu cầu hay tác động thứ hạng; các cụm truy vấn dưới đây là giả thuyết cần đo sau khi có quyền Search Console.
+
+Ưu tiên các trang tiếng Việt hiện có: trang chủ và mục lục Kinh Trung Bộ, trang từng bài theo UID, trang nguồn, giấy phép và chất lượng biên tập. Khi tiếp cận bên ngoài, xin góp ý chuyên môn hoặc giới thiệu tài nguyên trong đúng ngữ cảnh; không trao đổi link, không yêu cầu chứng thực, không xin link hàng loạt. Link đích nên là trang cụ thể có ích cho độc giả (mục lục MN, trang nguồn/chất lượng hoặc bài kinh liên quan), không mặc định mọi nơi đều phải trỏ trang chủ.
+
+| Đầu mối | Bằng chứng công khai | Cách tiếp cận | Trạng thái |
+| --- | --- | --- | --- |
+| [Theravāda.vn — Liên hệ](https://theravada.vn/lien-he/) | Trang có mục Tam Tạng Tipiṭaka/Majjhimanikāya; Ban Biên tập công khai mời góp ý chân tình và nêu địa chỉ email. | Gửi thư xin góp ý về cách ghi nguồn, thuật ngữ và trạng thái bản dịch; chỉ thêm lời mời giới thiệu mục lục MN nếu họ thấy hữu ích. Không đề nghị link đổi link hay sự chứng thực. | Đầu mối phù hợp nhất đã xác minh. Web reader che địa chỉ email bằng Cloudflare và mailto trả 404, nên phải xác minh địa chỉ trước khi gửi. Chưa gửi. |
+| [Thư viện Phật giáo](https://www.thuvienphatgiao.com/) | Catalog có nhóm “Kinh Tạng”, “PG. Nguyên Thủy”, sách Pāli và mục Liên hệ. | Trước tiên xác minh đơn vị biên tập có nhận đề xuất tài nguyên web hay chỉ lập catalog sách; chỉ liên hệ nếu có trang phù hợp. | Prospect nghiên cứu; chưa xác minh chính sách nhận link. |
+| [phat.edu.vn — Thư viện Phật học](https://phat.edu.vn/thu-vien) | Có thư viện tiếng Việt và nội dung giải thích cách tiếp cận kinh điển. | Theo dõi chủ đề phù hợp để góp thông tin có nguồn; không xin chèn link nếu không có ngữ cảnh biên tập tự nhiên. | Prospect nội dung; chưa xác minh đầu mối nhận đề xuất. |
+
+Một nguồn lớn như [VIBUDRA — Kho tàng Thánh điển Pāli](https://www.vibudra.org/pali-canon) đã có chức năng thư viện và đối chiếu. **Suy luận:** lời giới thiệu chung “có kinh Pāli–Việt” sẽ không khác biệt; lợi thế đáng nói của dự án này là đối chiếu theo Bilara segment ID, Pāli làm chuẩn, provenance và trạng thái biên tập minh bạch. Không dùng tuyên bố hơn/kém nếu chưa có kiểm chứng độc lập.
+
+### Bản thư tiếng Việt để biên tập duyệt
+
+**Người nhận:** Ban Biên tập Theravāda.vn — dùng địa chỉ liên hệ được hiển thị tại [trang Liên hệ](https://theravada.vn/lien-he/) sau khi xác minh địa chỉ thực.
+
+**Chủ đề:** Xin góp ý về trình đọc Kinh Trung Bộ Pāli–Việt
+
+> Kính gửi Ban Biên tập Theravāda.vn,
+>
+> Tôi đang biên tập một trình đọc Kinh Tạng Pāli Việt, hiện ưu tiên Kinh Trung Bộ: https://streamentry.github.io/kinh-tang-pali/
+>
+> Trang đặt Pāli làm nguồn chuẩn, trình bày các bản tham khảo theo từng đoạn, đồng thời ghi rõ nguồn, người dịch, giấy phép và trạng thái biên tập của bản Việt của dự án. Bản dịch vẫn đang tiếp tục; dự án không đại diện và không xin quý Ban chứng thực.
+>
+> Trang Liên hệ của quý Ban có mời độc giả góp ý. Nếu thuận tiện, mong quý Ban xem qua và chỉ giúp những chỗ có thể khiến người đọc hiểu sai về nguồn văn bản, cách đối chiếu hoặc trạng thái bản dịch.
+>
+> Nếu quý Ban thấy tài nguyên này hữu ích cho độc giả, xin tùy nghi giới thiệu trang mục lục Kinh Trung Bộ tại: https://streamentry.github.io/kinh-tang-pali/collections/mn/
+>
+> Việc giới thiệu hoàn toàn tùy ý; chúng tôi không đề nghị liên kết đáp lại.
+>
+> Trân trọng,
+> Người biên tập Kinh Tạng Pāli Việt
+
+**Giới hạn outreach:** gửi từng thư có lý do cụ thể; tối đa một follow-up sau 7–10 ngày, rồi dừng nếu không có phản hồi. Theo dõi riêng thư đã gửi, phản hồi, link được kiểm tra trực tiếp trên trang đích và referral domains; không tính thư đã gửi là backlink. Khi chưa có Search Console, không tuyên bố hiệu quả SEO từ outreach.
