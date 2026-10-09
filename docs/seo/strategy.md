@@ -223,4 +223,21 @@ Gmail hiển thị “Message sent”; tìm kiếm Sent theo địa chỉ và ch
 > Trân trọng,
 > Người biên tập Kinh Tạng Pāli Việt
 
+### Bản nháp cho Học viện Phật giáo Việt Nam tại TP.HCM — chưa gửi
+
+**Người nhận:** Văn phòng Học viện, `vp@vbu.edu.vn` (email công khai ở cuối trang Khoa Pāli; chưa xác nhận đây là đầu mối của khoa).
+
+**Chủ đề:** Xin góp ý về trình đọc Kinh Trung Bộ Pāli–Việt
+
+> Kính gửi Văn phòng Học viện,
+>
+> Tôi đang biên tập một trình đọc Kinh Tạng Pāli Việt, hiện ưu tiên Kinh Trung Bộ: https://streamentry.github.io/kinh-tang-pali/sutta/mn/
+>
+> Tôi đọc trang giới thiệu Khoa Pāli và thấy chương trình có nội dung so sánh Trung Bộ với Trung A-hàm, cùng học phần phiên dịch văn bản Pāli. Dự án độc lập của tôi trình bày Pāli và các bản tham khảo theo từng đoạn, ghi mã UID/segment, nguồn và trạng thái biên tập; bản dịch đang tiếp tục và không xin Học viện chứng thực.
+>
+> Nếu thuận tiện, mong Văn phòng chuyển lời mời này tới giảng viên hoặc người phụ trách phù hợp. Tôi chỉ xin góp ý về khả năng tra cứu theo từng đoạn và cách phân biệt nguồn/trạng thái; không yêu cầu đăng link hay giới thiệu dự án.
+>
+> Trân trọng,
+> Người biên tập Kinh Tạng Pāli Việt
+
 **Giới hạn outreach:** gửi từng thư có lý do cụ thể; tối đa một follow-up sau 7–10 ngày, rồi dừng nếu không có phản hồi. Theo dõi riêng thư đã gửi, phản hồi, link được kiểm tra trực tiếp trên trang đích và referral domains; không tính thư đã gửi là backlink. Search Console Links report hiện vẫn đang xử lý dữ liệu; không tuyên bố hiệu quả SEO từ outreach trước khi có referring-domain/click evidence.
