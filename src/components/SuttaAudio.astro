@@ -1,0 +1,98 @@
+---
+import type { SuttaAudio } from '../lib/canon/audio';
+interface Props { audio: SuttaAudio; title: string; }
+const { audio, title } = Astro.props;
+const minutes = Math.round(audio.duration_seconds / 60);
+---
+<sutta-audio class="listening" data-pagefind-ignore data-scripture={audio.scripture_start_seconds}>
+  <div class="listening-heading">
+    <div><p class="listening-label">Lắng nghe · Việt 2026</p><h2>{title}</h2></div>
+    <span class="listening-length">{minutes} phút</span>
+  </div>
+  <p class="listening-description">Tóm tắt, sau đó là kinh văn · Giọng nam trầm · Nhịp đọc vừa phải</p>
+  {audio.review_status === 'pending' && <p class="listening-review">Bản đọc thử, đang chờ người biên tập nghe duyệt.</p>}
+  <audio controls preload="metadata" src={audio.url} aria-label={`Nghe ${title}`}></audio>
+  <div class="listening-custom" hidden>
+    <div class="listening-transport">
+      <button type="button" class="listen-play" aria-label="Phát bài đọc"><span data-play-icon>▶</span><span data-play-label>Phát</span></button>
+      <button type="button" data-jump="-15" aria-label="Lùi 15 giây">−15s</button>
+      <button type="button" data-jump="15" aria-label="Tiến 15 giây">+15s</button>
+      <span class="listen-clock"><span data-current>0:00</span> / <span data-duration>0:00</span></span>
+      <label class="listen-speed">Tốc độ <select aria-label="Tốc độ phát"><option value="0.85">0.85×</option><option value="1" selected>1×</option><option value="1.15">1.15×</option><option value="1.25">1.25×</option><option value="1.5">1.5×</option></select></label>
+    </div>
+    <input class="listen-seek" type="range" min="0" max={audio.duration_seconds} step="1" value="0" aria-label="Vị trí phát" />
+    <div class="listening-footer"><button type="button" data-scripture-jump>Đến phần kinh văn →</button><a href={audio.url} target="_blank" rel="noopener">Mở MP3 ↗</a></div>
+    <p class="listen-error" role="status" hidden>Không tải được âm thanh. Bạn có thể thử lại hoặc mở MP3 trực tiếp.</p>
+  </div>
+</sutta-audio>
+<style>
+  .listening { display:block; margin:2rem 0; padding:clamp(1.2rem,3vw,2rem); background:var(--accent-soft); border-radius:1.25rem; color:var(--ink); }
+  .listening-heading { display:flex; justify-content:space-between; align-items:center; gap:1rem; }
+  .listening-label { margin:0 0 .65rem; font-size:.75rem; color:var(--accent); font-weight:700; letter-spacing:.06em; }
+  h2 { margin:0; font-family:Literata,Georgia,serif; font-size:clamp(1.2rem,3vw,1.7rem); font-weight:550; }
+  .listening-length,.listening-description,.listening-review { font-size:.8rem; color:var(--muted); }
+  .listening-length { white-space:nowrap; font-variant-numeric:tabular-nums; }
+  .listening-description { margin:.75rem 0 1.5rem; line-height:1.6; }
+  .listening-review { margin:-.75rem 0 1.25rem; }
+  audio { width:100%; }
+  .listening-transport { display:flex; align-items:center; gap:.65rem; flex-wrap:wrap; }
+  button,select { font:inherit; cursor:pointer; color:inherit; }
+  button { border:0; padding:.75rem; min-height:44px; background:transparent; border-radius:.65rem; font-size:.85rem; transition:background .18s ease; }
+  button:hover { background:#d4e1d7; }
+  button:active { transform:translateY(1px); }
+  .listen-play { background:var(--accent); color:white; display:flex; gap:.75rem; align-items:center; padding:.85rem 1.3rem; min-width:7rem; }
+  .listen-play:hover { background:#244934; }
+  .listen-clock { font-size:.8rem; font-variant-numeric:tabular-nums; color:var(--muted); }
+  .listen-speed { margin-left:auto; font-size:.75rem; color:var(--muted); }
+  select { border:0; border-radius:.4rem; padding:.5rem; background:transparent; color:var(--ink); }
+  .listen-seek { width:100%; margin:1.2rem 0 .8rem; accent-color:var(--accent); cursor:pointer; min-height:24px; }
+  .listening-footer { display:flex; align-items:center; justify-content:space-between; gap:1rem; }
+  .listening-footer button { padding-left:0; color:var(--accent); }
+  .listening-footer a { font-size:.8rem; color:var(--muted); text-underline-offset:4px; }
+  .listen-error { color:var(--warning); font-size:.85rem; }
+  :is(button,select,input,a):focus-visible { outline:2px solid var(--accent); outline-offset:4px; }
+  @media(max-width:480px) { .listen-speed { width:100%; margin-left:0; } .listening-footer { align-items:flex-start; } }
+  @media(prefers-reduced-motion:reduce) { button { transition:none; } }
+</style>
+<script>
+  class SuttaAudioElement extends HTMLElement {
+    connectedCallback() {
+      if (this.dataset.ready) return;
+      this.dataset.ready = 'true';
+      const audio = this.querySelector('audio')!;
+      const custom = this.querySelector<HTMLElement>('.listening-custom')!;
+      const play = this.querySelector<HTMLButtonElement>('.listen-play')!;
+      const seek = this.querySelector<HTMLInputElement>('.listen-seek')!;
+      const error = this.querySelector<HTMLElement>('.listen-error')!;
+      const format = (n: number) => `${Math.floor(n / 60)}:${Math.floor(n % 60).toString().padStart(2, '0')}`;
+      const duration = () => Number.isFinite(audio.duration) ? audio.duration : Number(seek.max);
+      const update = () => {
+        this.querySelector('[data-current]')!.textContent = format(audio.currentTime);
+        this.querySelector('[data-duration]')!.textContent = format(duration());
+        seek.max = String(duration()); seek.value = String(audio.currentTime);
+        seek.setAttribute('aria-valuetext', `${format(audio.currentTime)} / ${format(duration())}`);
+      };
+      const state = () => {
+        play.setAttribute('aria-label', audio.paused ? 'Phát bài đọc' : 'Tạm dừng bài đọc');
+        this.querySelector('[data-play-label]')!.textContent = audio.paused ? 'Phát' : 'Dừng';
+        this.querySelector('[data-play-icon]')!.textContent = audio.paused ? '▶' : 'Ⅱ';
+      };
+      play.addEventListener('click', async () => {
+        error.hidden = true;
+        if (!audio.paused) { audio.pause(); return; }
+        try { await audio.play(); } catch { error.hidden = false; state(); }
+      });
+      seek.addEventListener('input', () => { audio.currentTime = Number(seek.value); update(); });
+      this.querySelectorAll<HTMLButtonElement>('[data-jump]').forEach(button => button.addEventListener('click', () => {
+        audio.currentTime = Math.max(0, Math.min(duration(), audio.currentTime + Number(button.dataset.jump))); update();
+      }));
+      this.querySelector('[data-scripture-jump]')!.addEventListener('click', () => { audio.currentTime = Number(this.dataset.scripture); update(); });
+      this.querySelector('select')!.addEventListener('change', event => { audio.playbackRate = Number((event.target as HTMLSelectElement).value); });
+      audio.addEventListener('loadedmetadata', update); audio.addEventListener('timeupdate', update);
+      audio.addEventListener('play', state); audio.addEventListener('pause', state); audio.addEventListener('ended', state);
+      audio.addEventListener('error', () => { error.hidden = false; state(); });
+      audio.controls = false; audio.hidden = true; custom.hidden = false; update();
+    }
+  }
+  if (!customElements.get('sutta-audio')) customElements.define('sutta-audio', SuttaAudioElement);
+</script>
