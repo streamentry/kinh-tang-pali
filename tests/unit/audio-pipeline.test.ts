@@ -22,6 +22,13 @@ p=load_profile()
 text=('Câu có nháy “đầy đủ.” Và câu sau …\\n\\n'*200)+'Kết thúc.'
 parts=split_text(text,1400)
 assert ''.join(parts)==text and all(len(s)<=1400 for s in parts)
+for boundary in [('x'*1398)+' . tail', ('x'*1400)+' tail', ('x'*1398)+'.\\n\\ntail']:
+ chunks=split_text(boundary,1400)
+ assert ''.join(chunks)==boundary and all(len(s)<=1400 for s in chunks)
+from gemini_tts import generate
+try:generate('not-a-key','x'*1401,p)
+except ValueError:pass
+else:raise AssertionError('Oversized request accepted')
 source={'summary':text,'segments':[['dn1:1.1',text],['dn1:1.2','…'],['dn1:1.3','Đoạn cuối.']]}
 plan=plan_source(source,p)
 assert ''.join(s['text'] for s in plan if s['section']=='summary')==text

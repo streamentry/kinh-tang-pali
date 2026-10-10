@@ -20,6 +20,8 @@ def load_env():
             os.environ.setdefault(k.strip(),v.strip().strip('\"').strip("'"))
 
 def generate(key, text, profile):
+    if not text or len(text)>profile['chunk_max_chars']:
+        raise ValueError('Narration chunk is empty or exceeds the approved character limit')
     payload = {'model':profile['model'],'input':[{'type':'user_input','content':[{'type':'text','text':text,
         'annotations':[{'type':'speech_metadata','style':profile['style']}]}]}],
         'response_format':{'type':'audio'},'generation_config':{'speech_config':[{'voice':profile['voice']}]}}

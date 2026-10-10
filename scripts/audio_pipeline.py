@@ -13,8 +13,9 @@ def split_text(text, limit):
     # Preserve all characters; prefer sentence ends, then whitespace. Never alter scripture.
     parts=[]
     while len(text)>limit:
-        matches=list(re.finditer(r'[.!?…][”’\"\']?\s+',text[:limit+1]))
-        cut=matches[-1].end() if matches else max(text.rfind(' ',0,limit+1),text.rfind('\n',0,limit+1))+1
+        matches=list(re.finditer(r'[.!?…][”’\"\']?\s+',text[:limit]))
+        cut=matches[-1].end() if matches else max(text.rfind(' ',0,limit),text.rfind('\n',0,limit))+1
+        if cut<=0 and text[limit].isspace(): cut=limit
         if cut<=0: raise ValueError('Unbroken token exceeds narration chunk limit')
         parts.append(text[:cut]);text=text[cut:]
     if text:parts.append(text)
