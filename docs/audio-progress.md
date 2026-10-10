@@ -108,3 +108,26 @@ Nhật ký append-only. Registry `content/audio/progress.json` được đối s
 - One new UID, MN10: 18 chunks / 233 scripture segments; summary first, scripture begins at 149.83s. Approved narration profile remains unchanged. Initial connection failure resumed once using two cached WAVs. Full offline Whisper comparison flagged indexes 7, 8, 14; one content retry each reused 15 other chunks. Final 18 reports have no differing spans >=12 tokens (similarity 0.8992–0.9873). This is machine QC; human listening is incomplete, review pending.
 - Final MP3 1869.67s / 37394400 bytes, SHA-256 `6f0eb8412b856b128ae70a4465b2387d9195d10fb059111fad066d9788adb641`, R2 key `vi/mn/mn10/6f0eb8412b856b12.mp3`. Uploader verified public MIME/hash/bytes/range-206. Local player at port 4325 passed play, +15s seek, scripture jump, pause; duration 1869.72s, readyState 4, no media error.
 - Small checkpoint follows editor request for frequent PR/merge/latest-main updates. No media/cache/secrets committed; PR/merge/deploy evidence follows actual completion.
+
+### MN10 merge checkpoint — PR #424
+
+- Remote PR readback confirms merged at 2026-10-10T13:36:10Z, squash `15df29af4a80e4bf8d3173e3c93ca5b3b13ddf41`, exact head `6c80dba87aa5c8a5893d2618f54a37f3d471a363`. Both CI runs 38047734717 and 38047726786 succeeded. Pages run 38056352391 is in progress; live verification remains outstanding. Review pending.
+
+### MN10 production verification
+
+- Pages workflow 38056352391 succeeded for merge `15df29af4a80e4bf8d3173e3c93ca5b3b13ddf41`. Reloaded production page and confirmed the reader displays “Bản nghe 31 phút” and the audio player with the expected R2 link `vi/mn/mn10/6f0eb8412b856b12.mp3`. On production, play changed to pause; +15s moved timeline to 0:16; “Kinh văn 2:29” moved it to 2:29 (150s); pause returned to play. Review remains pending.
+
+### MN11 blocked for content verification
+
+- MN11 source has 130 canonical scripture segments and five verified public summary paragraphs; approved narration profile unchanged. Generated 11 chunks and ran local Whisper over all of them. Chunks 5 and 8 were flagged; one bounded retry of each reused nine chunks. The retry improved chunk 5 similarity from 0.7332 to 0.8859 and chunk 8 had no long span, but full and overlapping Whisper windows still did not reliably recognize the response to the repeated question about freedom from delusion. This is not proof of a TTS omission; it leaves content unverifiable without human listening. Therefore MN11 is recorded blocked, remains review pending, and was not uploaded to R2. Local artifacts are retained under ignored `audio/mn11/e3c79bded67a639c/`. Continue with MN12 per the queue contract.
+
+### MN12 rebuild checkpoint
+
+- First pass generated 34 chunks / 370 canonical segments and passed R2 object hash/bytes/range verification, but it is not registered in the player. Local Whisper repeatedly recognized an extra continuation of the repeated MN12 quotation after chunk 3 ended mid-quote; ASR is not conclusive, so the audio is held for regeneration and listening review. The upload is retained on R2 but unregistered.
+- PR #430 merged as `7e0e91151c866dce1238078d5d2c909b36d368ea`. Its quote-aware planner keeps natural sentence boundaries and balances adjacent chunks when both fit the approved 1,400-character limit. The actual MN12 plan remains 34 chunks; 28 old chunk text hashes match, so only 6 WAVs need regeneration. Profile, model, prompt, pauses, and encoding are unchanged.
+
+### MN12 quote-safe rebuild and R2/player checkpoint
+
+- Planner correction PR #430 merged at `7e0e91151c866dce1238078d5d2c909b36d368ea`. The rebuilt 34-chunk plan reuses 28 exact text-hash WAVs and regenerates indexes [2, 3, 8, 9, 32, 33]. The previous R2 object `vi/mn/mn12/2bacd0292eb74107.mp3` remains unregistered; the new object is `vi/mn/mn12/954eeda4dfd9c315.mp3`.
+- New MP3: 3137.35s, 62748000 bytes, SHA-256 `954eeda4dfd9c315306f7a7c283735232f4765a42102f305fb94afb674cbc510`. Uploader verified public MIME/hash/bytes/range-206. Local player at port 4326 passed play, +15s seek, scripture jump at 2:30 and pause; review remains pending.
+- Full offline Whisper comparison covered 34 chunks, similarity range 0.7174–0.9821. Residual full-chunk ASR differences on repetitive passages are recorded in metadata; overlapping windows checked reused chunks 18, 26 and 27. This is machine QC, not human listening approval.
