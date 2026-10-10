@@ -21,6 +21,36 @@ def split_text(text, limit):
     if text:parts.append(text)
     return parts
 
+def _balanced_curly_quotes(text):
+    return text.count('“')==text.count('”') and text.count('‘')==text.count('’')
+
+def _balanced_cut(text, lower, upper, preferred):
+    """Choose a natural quote-balanced boundary closest to the existing chunk cut."""
+    candidates=[]
+    for pattern in (r'[.!?…][”’\"\']?\s+',r'\n\s*\n',r'\s+'):
+        candidates.extend(match.end() for match in re.finditer(pattern,text) if lower<=match.end()<=upper)
+        if candidates:
+            balanced=[cut for cut in candidates if _balanced_curly_quotes(text[:cut])]
+            if balanced:
+                return min(balanced,key=lambda cut:(abs(cut-preferred),cut))
+        candidates=[]
+    return None
+
+def rebalance_quote_boundaries(planned, limit):
+    """Repair an open curly quote at a TTS boundary by redistributing adjacent chunks."""
+    for index in range(len(planned)-1):
+        current,next_chunk=planned[index:index+2]
+        if current['section']!='scripture' or next_chunk['section']!='scripture':continue
+        if current.get('pause_after_seconds') is not None:continue
+        if _balanced_curly_quotes(current['text']):continue
+        combined=current['text']+next_chunk['text']
+        lower=max(1,len(combined)-limit);upper=min(limit,len(combined)-1)
+        cut=_balanced_cut(combined,lower,upper,len(current['text']))
+        if cut is None:continue
+        current['text']=combined[:cut];current['text_sha256']=digest(current['text'].encode())
+        next_chunk['text']=combined[cut:];next_chunk['text_sha256']=digest(next_chunk['text'].encode())
+    return planned
+
 def plan_source(source, profile):
     summary=source['summary']
     planned=[]
@@ -39,6 +69,7 @@ def plan_source(source, profile):
             continue
         group.append(value);expected.append(value)
     if group:append('scripture','\n\n'.join(group))
+    planned=rebalance_quote_boundaries(planned,profile['chunk_max_chars'])
     # Chunk boundaries only add/remove presentation whitespace between complete segments.
     normalize=lambda text:' '.join(text.split())
     if ''.join(p['text'] for p in planned if p['section']=='summary')!=summary:raise RuntimeError('Summary accounting failed')

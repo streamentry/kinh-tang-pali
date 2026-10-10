@@ -49,3 +49,23 @@ else:raise AssertionError('Bad MP3 accepted')
 print('accounting and cache checks passed')
 `],{encoding:'utf8'});assert.match(output,/checks passed/);
 });
+
+test('MN12 quote stays intact across a chunk boundary', () => {
+ const doc=composeDocument('mn','mn12');
+ const source=JSON.stringify({summary:doc.summary,segments:doc.segments.map(s=>[s.id,s.vi])});
+ const output=execFileSync('python3',['-c',`
+import json,sys
+sys.path.insert(0,'scripts')
+from audio_pipeline import plan_source
+from narration_config import load_profile
+plan=plan_source(json.load(sys.stdin),load_profile())
+assert all(len(item['text'])<=1400 for item in plan)
+# MN12's long dialogue quote previously ended open in one chunk. TTS would
+# sometimes read into the next chunk, duplicating the same repeated sentence.
+assert plan[2]['text'].count('“')==plan[2]['text'].count('”')
+assert plan[2]['text'].count('‘')==plan[2]['text'].count('’')
+assert plan[2]['text'].rstrip().endswith('chấm dứt khổ hoàn toàn.”')
+assert plan[3]['text'].startswith('Sau khi đi khất thực ở Vesālī')
+`],{input:source,encoding:'utf8'});
+ assert.equal(output,'');
+});
