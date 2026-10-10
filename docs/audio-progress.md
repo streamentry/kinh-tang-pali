@@ -59,3 +59,25 @@ Nhật ký append-only. Registry `content/audio/progress.json` được đối s
 
 - PR #409 exact head `1f33ca214fe3757dc34fb64473e4e4d4324c81dc` đã qua cả CI push và pull request; squash merge `87334bdb2b4ff6e60ccef040285eb67de9fd1fbf`.
 - Deploy GitHub Pages run `38032511502` SUCCESS. Production MN3 dùng đúng URL R2 hash `3037c9bf9e8e4540`; player phát được (readyState 4, không media error) và nút Kinh văn seek đúng 162,11s. Registry ghi `live`; review nội dung vẫn `pending`.
+
+## 2026-10-10 — Evidence merge và MN6 checkpoint
+
+- PR #411 exact head `ad01aa8e941771656bc0b73078efafcffdbe09ff` qua cả hai CI, merge `3f7ecc39846f328b5fb118484353b46309b8c25f`; deployment `38034166966` SUCCESS. Remote main ghi MN3 live, review pending.
+- MN6 source gate pass: 49 segment kinh văn, 8 chunk; xác minh cả 50 phần payload (summary và scripture) đã có trên trang production công khai. Auto-review chấp thuận request sau khi kiểm chứng này bác bỏ tiền đề văn bản chưa công khai.
+- Lần đầu MP3 806,38s; local ASR đủ 8 chunk phát hiện lặp dài tại index 2/4 và sai khác tại index 5. Giữ first attempt trong `qc-rejected-attempt-1`, retry đúng một lần ba index 2/4/5 với cùng profile, reuse năm chunk khác.
+- Retry MP3 939,25s; index 4 dài 284,56s, similarity 0,4051, còn long repetition/apparent omission; index 2 vẫn có extra long span. MN6 blocked cần nghe kiểm nội dung; không upload/đăng ký player, không tính vào quota thành công. Giữ hai attempt, không thay kinh văn/profile.
+
+## 2026-10-10 — MN7 upload checkpoint
+
+- Source gate pass: 145 segment kinh văn, 10 chunk; toàn bộ 146 phần payload khớp trang production công khai. Tóm tắt trước, Việt canonical sau, profile MN1 giữ nguyên.
+- Lần đầu 1.098,39s, ASR phát hiện index 5 dài 223,12s và extra repeated spans. Giữ first attempt, retry một lần index 5, reuse chín chunk. Retry 106,72s, similarity 0,9737 và không còn long differences. Full machine QC đủ 10 chunk, không tuyên bố đã nghe duyệt toàn bài.
+- MP3 mới 981,99s/19.641.120 byte, SHA-256 `61ca50790ebaebeb9086dafd25dbf7077bce2dd6ff526c48955b0761710e7a6d`; R2 `vi/mn/mn7/61ca50790ebaebeb.mp3`. MIME/byte/hash/range 206 verified sau refresh OAuth.
+- Player local từ R2 phát/tua +15s/chuyển kinh văn 172,23s/pause thành công, readyState 4, không media error. Ghi uploaded-verified, review pending; chưa merge/live. Batch MN-002 có một UID mới thành công (MN7); MN6 blocked không tính vào quota 10.
+
+## 2026-10-10 — MN8 upload, player verification pending
+
+- PR pipeline #415 qua hai CI và merge `03c6a00fbc6ac10e364e92dce1a3ad82eeaac4ee`: sửa off-by-one giới hạn chunk và chặn oversized request. MN8 kế hoạch mới 16 chunk, tối đa 1.395 ký tự; reuse 11 WAV có text/hash/format khớp, chỉ sinh năm chunk còn lại.
+- MP3 hoàn chỉnh khoảng 1.416,7s. Whisper local đối chiếu đủ 16 chunk, similarity 0,9211–1,0000, không có differing span từ 12 token trở lên. Machine check không phải phê duyệt nghe toàn bài.
+- R2 `vi/mn/mn8/cf3a6e3ff5108e2d.mp3` đã kiểm MIME/hash/bytes/range public sau refresh OAuth. Metadata giữ review pending; registry vẫn generated, chưa uploaded-verified vì chưa kiểm player. Chưa bắt đầu MN9.
+
+- MN8 player local phát từ đúng R2 URL, tua +15s, seek kinh văn 161,75s và pause thành công; duration 1.416,744s, readyState 4, không media error. Nâng uploaded-verified, review pending. Batch MN-002 có hai UID thành công MN7/MN8; chưa merge/live.
