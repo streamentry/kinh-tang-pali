@@ -1,0 +1,52 @@
+uid: vv53
+status: draft
+translationTitle: "Chuyện Cung Điện Chàng Thanh Niên Chatta"
+translators:
+  - "Claude Sonnet 5.5 (Claude Code)"
+reviewers: []
+tags:
+  - "kn"
+  - "khuddaka-nikaya"
+  - "vimanavatthu"
+  - "maharathavagga"
+  - "chatta"
+quality:
+  scores:
+    source_provenance: 9.50
+    semantic_fidelity: 9.00
+    grammar_logic: 9.00
+    segment_alignment: 10.00
+    terminology: 9.10
+    triangulation: 7.50
+    vietnamese_clarity: 9.20
+    han_viet_balance: 9.30
+    ambiguity_integrity: 9.00
+    technical_integrity: 9.60
+  final_score: 9.12
+  blocking_errors:
+    - "Không có tầng tham khảo tiếng Anh tại commit đã ghim: bản Anh đã ghim của Bhikkhu Sujato không phát hành tệp nào cho thư mục `sutta/kn/vv/` — `source/upstream-manifest.json` chỉ liệt kê tệp `kn` ở cp, dhp, iti, ja, kp, snp, thag, thig, ud và 0 tệp ở `vv`. Đây là `not-published-upstream`, KHÔNG phải `not-synced`. Lớp lấp `english-project` của dự án cũng không có tệp cho `vv53`, và tầng `vietnamese-current` chỉ có Pháp Cú. Ba tầng tham khảo đều vắng ⇒ dịch chỉ từ Pāli root. `scripts/validate.ts` coi tệp Anh thiếu là error khi status là `review` hoặc `published`, nên bài bắt buộc `draft`. Đây là giới hạn upstream, không phải lỗi của người dịch."
+  assessed_at: "2026-10-10"
+  assessed_by:
+    - "Claude Sonnet 5.5 (Claude Code)"
+notes: |-
+  Bản dịch tiếng Việt mới cho bài kinh vv53, dịch từ Pāli root (101/101 khoá khớp tiền tố `vv53:`; thứ tự khoá đúng thứ tự Pāli). Không có tầng tham khảo tiếng Anh hay tiếng Việt truyền thống ở commit đã ghim.
+
+  **Coverage English theo công thức của `source/layers.yaml`** (Pāli có nội dung ≥ 40 ký tự, loại khối `:0`): mẫu số là **2** khoá (`12.1` = 41 ký tự, `12.2` = 44 ký tự); Sujato phủ 0/2 = 0%, dưới ngưỡng 0,8. Mẫu số quá nhỏ nên cổng gần như không đo được gì — 99 khoá còn lại là kệ ngắn hoặc tiêu đề nằm dưới ngưỡng. Có blocker nên bài giữ `draft`; `content/meta/reference-gaps.yaml` do người điều phối ghi nhận bằng `npm run reference:gaps`.
+
+  **Năm phép kiểm.** (1) Tập khoá Việt = tập khoá Pāli, 101/101, cùng thứ tự. (2) Nháy kép `“”` khớp Pāli từng khoá, 0 lệch trên 101 khoá (Pāli mở ở 1.1, đóng ở 9.4, mở ở 10.1, đóng ở 24.4); Pāli không có nháy đơn `‘’` nên Việt cũng không có. (3) Pāli trùng nguyên văn trong chính bài: 2 nhóm (`Noti paṭhamaṁ avocahaṁ bhante,` ở 11.3/12.3/13.3/14.3/15.3/16.3 và `Pacchā te vacanaṁ tathevakāsiṁ.` ở 11.4–16.4), 30 cặp, 0 cặp bản Việt khác nhau — giữ y nguyên văn. (4) Bài không có `…pe…` hay `…` nào; Việt cũng không có `…`; không có `(…)`. (5) Số Pāli: `Sādhikavīsatiyojanāni` (5.2) = sādhika (hơn) + vīsati 20 + yojana ⇒ *hơn hai mươi do-tuần*; `pañca sikkhā` (17.1) ⇒ *năm học giới*; `catūsu … purisayugesu` (3.2) ⇒ *bốn đôi*; `aṭṭha … puggala` (3.3) ⇒ *tám hạng người*; `dve-patha` (17.3) ⇒ *ngã hai đường*; `tatiyaṁ` (25.1) ⇒ *thứ ba*. Không có phép nhân thang lớn nào. Ngoài ra kiểm NFC, khoá rỗng, khoảng trắng thừa, Pāli lọt sang Việt: 0 lỗi (trừ các tên riêng Chatta, Phussa, Sakya, Vimānavatthu, priyaṅgu cố ý giữ nguyên).
+
+  **Tiêu đề.** `:0.1` *Vimānavatthu* giữ nguyên Pāli (đa số trong bộ `vv`). `:0.2` *Purisavimāna* dịch *Chuyện Cung Điện Nam Hư Không* — đo toàn bộ `vv` đã dịch: 19 khoá dùng đúng dạng này, 5 khoá dùng *Thiên Cung Của Nam Giới*; theo phạm vi gần nhất (vv54–vv62) 9/9 là dạng 19-khoá. `:0.3` *Mahārathavagga* dịch *Phẩm Cỗ Xe Lớn* (7 bài cùng phẩm đã dịch như thế; 1 bài *Đại Xa Phẩm*, 2 bài để nguyên Pāli). `:0.4` và dòng kết `25.1` theo khuôn vv54–vv62: tên chuyện + *thứ ba*; *māṇavaka* dịch *chàng thanh niên* (bà-la-môn), giữ tên riêng *Chatta*.
+
+  **Chỗ cần người biên tập phán (bất định, không đưa vào thân kinh):**
+    - *Người nói.* Pāli đặt một cặp nháy duy nhất bao `1.1–9.4`, nên ba kệ quy y (1–3) và lời hỏi (4–9) cùng một người nói; từ `10.1` là lời đáp của vị thiên tử, gọi người hỏi là *bhante* (11.3) và *satthā* (10.2, 23.1). Bản dịch giữ nguyên *bậc Đạo Sư* và *bạch ngài* mà không xác định đó là Đức Phật hay một vị tôn giả; việc xác định thuộc chú giải, không thuộc lời kinh.
+    - `10.1–10.4`: đọc `sayaṁ idha pathe samecca māṇavena` là *tự thân gặp chàng thanh niên giữa đường*, `satthā` làm chủ ngữ của `anusāsi`, và `tava ratanavarassa dhammaṁ sutvā` là *nghe Pháp từ ngài, bậc châu báu tối thượng* (tức `tava … ratanavarassa` đồng vị, xưng hô người đối thoại). Cách đọc khác — *ratanavara* chỉ riêng Đức Phật — cũng có thể; Pāli root không phân xử dứt khoát. Vị thiên tử tự nhắc mình bằng tên `chatto` (10.4, 21.3) nên giữ ngôi thứ ba ở hai khoá đó.
+    - `11.3`: `Noti paṭhamaṁ avocahaṁ` dịch sát *lúc đầu con đã nói không*; không có nháy trong Pāli nên không thêm nháy, và nội dung bị từ chối không nêu trong khoá.
+    - `8.3` `anilapamuñcitā pavanti surabhiṁ` và `8.4` `tapaniyavitatā suvaṇṇachannā`: chủ ngữ của `pavanti` và chủ thể được *trải vàng đỏ, phủ vàng ròng* không nêu rõ trong Pāli; dịch theo mạch kệ (nam nữ ở 8.1–8.2, cung điện ở 8.4). `tapaniya` dịch *vàng đỏ*, `suvaṇṇa` dịch *vàng ròng*; không có tiền lệ đối chiếu trong tầng cho cặp từ này (0 khoá khác trong `vv`).
+    - `7.1–7.4`: `agarupiyaṅgucandanussadāhi` đọc là *thoa dày trầm hương, priyaṅgu và chiên-đàn*; giữ nguyên `priyaṅgu` (tên cây, không có tiền lệ Việt trong tầng). `7.4` `paripūraṁ` không có chủ ngữ riêng, dịch *cung điện đầy ắp*.
+    - `4.2` `phusso`: đọc là sao Phussa (*Pussa/Pusya*); một nguồn khác có thể hiểu khác — giữ nguyên tên.
+    - `23.2` `iti me sati agamā divā divassa`: đọc *sati* là ý niệm trong tâm và `agamā` là *đã đến*; `divā divassa` là *giữa ban ngày*. `23.3` `saccanāmaṁ` dịch *bậc có danh xưng chân thật*. Hai khoá này có hai cách phân tích hợp lý, chọn cách ít giả định nhất.
+    - `22.1–22.4`: lời tự hỏi của chư thiên không có nháy trong Pāli, nên dịch không nháy.
+    - `kāmakāmī` (18.4): theo tiền lệ `ja486:16.4` (*được điều mình mong muốn*).
+    - `hīnakammā` (19.4): theo tiền lệ `ud4.8`, `iti48`, `snp3.10` (*những kẻ làm nghiệp hèn hạ*); `pihayanti` theo tiền lệ `ud3.7`, `thag2.43` (*ao ước được như*).
+
+  Bốn lệnh cổng kỹ thuật chưa chạy trong lát này (người dịch bị cấm chạy): `npm run validate`, `npm test`, `npm run check`, `npm run build`. `technical_integrity` đặt 9,6, không phải tuyên bố đã pass cổng. Bài ở trạng thái `draft` do blocker không có tầng tham khảo tiếng Anh, bất kể điểm.
