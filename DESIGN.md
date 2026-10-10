@@ -26,6 +26,8 @@ Nét đẹp đến từ tỷ lệ chữ, khoảng trắng và sự nhất quán,
   hero và tranh Thầy Minh Tuệ ở mục tri ân. Giữ nguyên hình, không tạo hào quang,
   không ghép hình hay diễn giải hình tượng thành chứng cứ về quả vị. Lời tri ân giữ
   nguyên giọng người biên tập và nằm trước phần nguồn.
+- Ngoại lệ thứ hai, cũng do người biên tập yêu cầu ngày 2026-10-10: **mỗi bài Trường Bộ và
+  Trung Bộ có một ảnh bìa riêng** (186 bài). Các bộ khác chưa có ảnh bìa. Quy tắc ở §6.1.
 
 ## 2. Cơ sở kỹ thuật đang áp dụng trong năm 2026
 
@@ -64,6 +66,11 @@ kinh văn, nguồn, giấy phép và lịch sử chất lượng có mặt trong
 | `src/layouts/Base.astro` | Điều hướng, skip link, metadata và footer chung |
 | `source/visual-assets.json` | Nguồn, tác giả, điều khoản và SHA-256 từng hình trang chủ |
 | `src/assets/home/` | Bản hình gốc đã kiểm tra, tối ưu WebP responsive qua `HomeImage.astro` |
+| `source/sutta-covers.json` | Ảnh bìa DN/MN: tệp Commons, tác giả, giấy phép, SHA-1 bản gốc, SHA-256 bản lưu, chú thích, alt, điểm lấy nét |
+| `scripts/sutta-covers.mjs` | Tải ảnh bìa, đối chiếu lại giấy phép và SHA-1 với Commons, sinh WebP 1600px; `--check` chạy trong `design:check` |
+| `src/assets/covers/` | Bản WebP đã kiểm của từng ảnh bìa; Astro sinh 640–1600px khi build |
+| `src/components/SuttaMasthead.astro` | Ảnh bìa, tiêu đề, tên Pāli, dòng thông tin của trang đọc |
+| `src/components/SuttaNeighbours.astro` | Bài trước / bài tiếp ở cuối trang đọc, kèm ảnh bìa thu nhỏ |
 | `public/fonts/` | WOFF2 cùng giấy phép SIL OFL và provenance phiên bản |
 
 Sửa registry → `npm run design:generate` → `npm run design:check`.
@@ -161,6 +168,32 @@ chữ ký, không phủ text lên hình, không dùng filter để giả màu t�
 hotlink và ảnh gốc nhiều megabyte trên điện thoại. Nguồn/điều khoản của hình vẫn
 độc lập với giấy phép code, bản dịch và font; trang Nguồn phải đọc từ registry.
 
+### 6.1 Ảnh bìa bài kinh (DN, MN)
+
+Mục đích: cho mỗi bài một gương mặt riêng, giúp người đọc nhận ra bài và bối cảnh, với
+không khí tĩnh lặng, trang nghiêm — có định có tuệ — chứ không phải trang trí.
+
+- **Nguồn duy nhất là Wikimedia Commons**, chỉ nhận phạm vi công cộng, CC0, CC BY, CC BY-SA.
+  Loại NC, ND, GFDL đơn lẻ, giấy phép không rõ, ảnh có hình mờ hay chữ, ảnh do AI tạo.
+  Mọi giấy phép CC BY* phải có tác giả. Mỗi tệp Commons dùng cho đúng một bài.
+- **Ưu tiên**: phù điêu, bích họa cổ đúng tích của bài (Bharhut, Sāñcī, Gandhāra, Amarāvatī,
+  Ajanta, Borobudur…), rồi ảnh thánh tích đúng nơi bài kinh được thuyết (Linh Thứu, Kỳ-đà Lâm,
+  Câu-thi-na, Vương Xá…), rồi hình ảnh đúng ví dụ hay chủ đề của bài. Giọng Theravāda:
+  không dùng biểu tượng riêng của Đại thừa / Kim cương thừa, không kitsch, không đám đông du
+  khách, không cận mặt người tại gia nhận diện được.
+- Chú thích chỉ nói điều trang Commons xác nhận; không gán một phù điêu cho một tích khi nguồn
+  không nói vậy. Ảnh là minh họa, không phải chứng cứ lịch sử về sự kiện trong kinh.
+- Bản lưu trong repo là WebP rộng tối đa 1600px, làm từ bản gốc đã đối chiếu SHA-1 của
+  Commons. Không chỉnh màu, không filter, không ghép, không phủ chữ lên ảnh. Ảnh được cắt khung
+  rộng bằng `object-fit` với điểm lấy nét `focus`; bản gốc đủ khung vẫn mở được từ chú thích.
+- Tác giả và giấy phép in ngay dưới ảnh, và trang Nguồn liệt kê đủ từ registry.
+- Bố cục: ảnh 21:9 trên desktop, 16:9 dưới 1100px, 3:2 tràn lề trên điện thoại. Trên màn rộng,
+  thẻ tiêu đề nền giấy chồng lên mép dưới ảnh — lớp chồng thay cho shadow hay gradient; chữ
+  luôn nằm trên nền giấy nên contrast không phụ thuộc ảnh. Ảnh bìa tải ưu tiên (LCP),
+  ảnh thu nhỏ ở mục lục và bài liền kề lazy-load. Ảnh bìa cũng là `og:image` của trang.
+- Thêm/đổi ảnh: sửa registry → `npm run covers:fetch` → `npm run design:check` và
+  `tests/unit/sutta-covers.test.ts`.
+
 ## 7. Component và trạng thái
 
 **Điều hướng.** Logo chữ về trang chủ; links chính có `aria-current="page"` khi khớp
@@ -210,7 +243,15 @@ Thiết kế không cấp phép đổi giọng, nhịp, model, nội dung hay tr
 7. Việt hiện hành nguyên bài luôn ở mục Tra cứu toàn văn **sau** bảng segment.
    Không đưa lên đầu, không chia đoạn tự động, không đưa vào cột.
 8. Summary có nền / nhãn riêng; không dùng typography để làm nó giống kinh văn.
-9. Print bỏ shell và controls, ghi nhãn các bản. Sách/EPUB vẫn do pipeline riêng tạo
+9. Chế độ Chỉ Việt đọc như sách: các segment chảy thành đoạn văn theo số hiệu SuttaCentral
+   (`<phần>.<câu>`; khối `0` là đề kinh, số tận cùng `.0` / `.0.n` là tiêu đề mục). Mỗi segment
+   vẫn là một phần tử riêng với id và anchor; số mục hiện ở lề trái, `:target` được tô nền.
+   Chú thích của bản dịch thành sidenote đánh số ở lề phải từ 1280px, chen dưới câu khi hẹp hơn.
+   Cỡ chữ kinh văn chỉnh được (90–135%), lưu trong trình duyệt người đọc; không có JS thì
+   nhóm điều khiển này ẩn. Thanh tiến độ đọc 2px dùng CSS scroll-driven animation, tự tắt
+   khi trình duyệt không hỗ trợ hoặc khi giảm chuyển động.
+10. Bốn bản desktop có hàng tên cột dính dưới toolbar; hàng segment được tô nền khi hover.
+11. Print bỏ shell và controls, ghi nhãn các bản. Sách/EPUB vẫn do pipeline riêng tạo
    và chỉ lấy Pāli + Việt dự án; CSS không thay contract xuất bản.
 
 ## 9. Responsive, chuyển động và kiểm chứng

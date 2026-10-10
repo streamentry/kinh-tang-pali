@@ -7,11 +7,14 @@ interface Props {
   title?: string;
   description?: string;
   noindex?: boolean;
+  /** Absolute URL of a social preview image, with its alt text. */
+  image?: { url: string; alt: string };
 }
 const {
   title = 'Kinh Tạng Pāli Việt',
   description = 'Đọc Kinh tạng Pāli tiếng Việt, đối chiếu từng đoạn với Pāli và bản English. Tra cứu năm bộ Nikāya, nguồn văn bản và lịch sử biên tập.',
   noindex = false,
+  image,
 } = Astro.props;
 
 const assistance = creditSummary();
@@ -48,7 +51,9 @@ const pageSchema = {
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
-    <meta name="twitter:card" content="summary" />
+    {image && <meta property="og:image" content={image.url} />}
+    {image && <meta property="og:image:alt" content={image.alt} />}
+    <meta name="twitter:card" content={image ? 'summary_large_image' : 'summary'} />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
     <script is:inline type="application/ld+json" set:html={JSON.stringify(pageSchema).replace(/</g, '\\u003c')} />

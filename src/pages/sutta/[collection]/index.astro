@@ -3,6 +3,9 @@ import Base from '../../../layouts/Base.astro';
 import { COLLECTIONS, listCollection, collectionProgress } from '../../../lib/canon/load';
 import type { CollectionCode } from '../../../lib/canon/types';
 import { withBase } from '../../../lib/url';
+import { Image } from 'astro:assets';
+import { coverCollections, coverFor } from '../../../lib/canon/covers';
+import { STATUS_LABEL } from '../../../lib/canon/status-label';
 
 export function getStaticPaths() {
   return COLLECTIONS.map((collection) => ({
@@ -15,6 +18,7 @@ const { collection } = Astro.props;
 const code = collection.code as CollectionCode;
 const items = listCollection(code);
 const progress = collectionProgress(code);
+const withCovers = coverCollections.includes(code);
 ---
 <Base description={`${collection.titleVi} (${collection.titlePali}): mục lục bài kinh, bản Pāli và các bản dịch đối chiếu, kèm trạng thái biên tập của dự án.`} title={`${collection.titleVi} · Kinh Tạng Pāli Việt`}>
   <main id="main-content" tabindex="-1" class="page collection-page">
@@ -34,16 +38,22 @@ const progress = collectionProgress(code);
     </header>
 
     {items.length > 0 ? (
-      <ol class="sutta-list">
-        {items.map((item) => (
+      <ol class:list={['sutta-list', withCovers && 'has-covers']}>
+        {items.map((item) => {
+          const cover = withCovers ? coverFor(item.uid) : undefined;
+          return (
           <li>
             <a href={withBase(`sutta/${code}/${item.uid}/`)}>
+              {withCovers && (cover
+                ? <Image class="list-thumb" src={cover.image} alt="" width={144} widths={[96, 144]} sizes="4.5rem" format="webp" quality={65} loading="lazy" style={cover.focus ? `object-position: ${cover.focus}` : undefined} />
+                : <span class="list-thumb" aria-hidden="true"></span>)}
               <span class="uid">{item.uid.toUpperCase()}</span>
               <span class="sutta-title">{item.title}</span>
-              <span class:list={['status', item.status]}>{item.status}</span>
+              <span class:list={['status', item.status]} title={`Trạng thái: ${item.status}`}>{STATUS_LABEL[item.status] ?? item.status}</span>
             </a>
           </li>
-        ))}
+          );
+        })}
       </ol>
     ) : (
       <section class="empty-state">

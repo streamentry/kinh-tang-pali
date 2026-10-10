@@ -1,0 +1,57 @@
+---
+/**
+ * The opening of a reading page: cover (Dīgha and Majjhima only), title, Pāli title and a
+ * short line of facts. The title sits on paper, never on the photograph, so its contrast
+ * does not depend on the image; on wide screens the paper card overlaps the bottom of the
+ * cover instead of using a gradient or a shadow.
+ *
+ * The cover's author and terms are printed right under it. A cover is someone else's work
+ * under its own licence, and the page is where a reader meets it.
+ */
+import { Image } from 'astro:assets';
+import { coverFor, licenceLabel } from '../lib/canon/covers';
+import { STATUS_LABEL } from '../lib/canon/status-label';
+
+interface Props {
+  uid: string;
+  collectionTitle: string;
+  collectionPali: string;
+  viTitle: string;
+  paliTitle?: string;
+  status: string;
+  readingMinutes?: number;
+  segmentCount: number;
+  audioMinutes?: number;
+}
+const { uid, collectionTitle, collectionPali, viTitle, paliTitle, status, readingMinutes, segmentCount, audioMinutes } = Astro.props;
+const cover = coverFor(uid);
+const label = STATUS_LABEL[status] ?? status;
+---
+<header class:list={['sutta-masthead', cover && 'has-cover']}>
+  {cover && (
+    <>
+      <div class="cover-media">
+        <Image src={cover.image} alt={cover.altVi} widths={[640, 960, 1280, 1600]}
+          sizes="(min-width: 76rem) 70rem, 100vw" format="webp" quality={78}
+          loading="eager" fetchpriority="high" style={cover.focus ? `object-position: ${cover.focus}` : undefined} />
+      </div>
+      <p class="cover-credit" data-pagefind-ignore>
+        <span class="cover-subject">{cover.titleVi}</span>
+        <a href={cover.sourcePage} target="_blank" rel="noopener noreferrer license">
+          Ảnh: {cover.author ?? 'không rõ tác giả'} · {licenceLabel(cover)} ↗
+        </a>
+      </p>
+    </>
+  )}
+  <div class="sutta-title-card">
+    <p class="eyebrow">{collectionTitle} · {uid.toUpperCase()} · <span lang="pi">{collectionPali}</span></p>
+    <h1 data-pagefind-meta="title">{viTitle}</h1>
+    {paliTitle && <p class="pali-title large" lang="pi">{paliTitle}</p>}
+    <ul class="sutta-facts" data-pagefind-ignore aria-label="Thông tin bài kinh">
+      <li><span class:list={['status', status]} title={`Trạng thái bản Việt của dự án: ${status}`}>{label}</span></li>
+      {readingMinutes !== undefined && <li>Khoảng {readingMinutes} phút đọc</li>}
+      <li>{segmentCount} đoạn Pāli</li>
+      {audioMinutes !== undefined && <li><a href="#lang-nghe">Bản nghe {audioMinutes} phút</a></li>}
+    </ul>
+  </div>
+</header>

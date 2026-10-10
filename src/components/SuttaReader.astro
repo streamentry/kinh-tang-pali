@@ -104,6 +104,29 @@ const openCount = shown.length - closed.length;
 const editable = shown.find((layer) => layer.id === 'vi');
 // A text without a project translation must still open on readable source text.
 const initialMode = editable && editable.withText > 0 ? 'vi' : 'compare';
+
+/**
+ * Paragraph shape for the reading mode, derived from the SuttaCentral segment number alone.
+ *
+ * Bilara numbers a segment `<section>.<sentence>`: the `0` block is the text's own incipit
+ * (collection and title), a number ending in `.0` or `.0.n` is a section heading, and the
+ * other segments of one section share everything but their last number. The reading mode
+ * uses that to set sentences as running paragraphs; nothing is regrouped in the markup, so
+ * every segment keeps its own element, id and anchor.
+ */
+const parts = (id: string) => id.slice(id.indexOf(':') + 1).split('.');
+const roleOf = (id: string) => {
+  const p = parts(id);
+  if (p[0] === '0') return 'incipit';
+  return p.length > 1 && (p.at(-1) === '0' || p.at(-2) === '0') ? 'heading' : 'prose';
+};
+const paragraphOf = (id: string) => (roleOf(id) === 'heading' ? id : parts(id).slice(0, -1).join('.') || id);
+const shapes = segments.map((segment, index) => {
+  const role = roleOf(segment.id);
+  const previous = segments[index - 1];
+  const starts = !previous || role === 'heading' || roleOf(previous.id) === 'heading' || paragraphOf(previous.id) !== paragraphOf(segment.id);
+  return { role, starts, paragraph: paragraphOf(segment.id) };
+});
 ---
 
 <section
@@ -118,6 +141,11 @@ const initialMode = editable && editable.withText > 0 ? 'vi' : 'compare';
       <button type="button" data-mode="compare" class:list={[initialMode === 'compare' && 'active']} aria-pressed={initialMode === 'compare' ? 'true' : 'false'}>Bốn bản</button>
       <button type="button" data-mode="interlinear" aria-pressed="false">Đối chiếu</button>
       <button type="button" data-mode="vi" class:list={[initialMode === 'vi' && 'active']} aria-pressed={initialMode === 'vi' ? 'true' : 'false'} disabled={initialMode !== 'vi'} title={initialMode !== 'vi' ? 'Chưa có bản Việt của dự án cho bài này' : undefined}>Chỉ Việt</button>
+    </div>
+    <div class="text-size" role="group" aria-label="Cỡ chữ kinh văn" hidden>
+      <button type="button" data-size-step="-1" aria-label="Giảm cỡ chữ" title="Giảm cỡ chữ"><span aria-hidden="true">A−</span></button>
+      <output class="text-size-value" aria-live="polite">100%</output>
+      <button type="button" data-size-step="1" aria-label="Tăng cỡ chữ" title="Tăng cỡ chữ"><span aria-hidden="true">A+</span></button>
     </div>
     <div class="column-tabs" role="group" aria-label="Tập trung vào một bản">
       {shown.map((layer) => (
@@ -217,11 +245,20 @@ const initialMode = editable && editable.withText > 0 ? 'vi' : 'compare';
     </div>
   ) : (
     <div class="segments" data-pagefind-body>
-      {segments.map((segment) => {
+      <div class="segments-head" aria-hidden="true" data-pagefind-ignore>
+        <span class="head-id">Đoạn</span>
+        {shown.map((layer) => (
+          <span class:list={['head-cell', `head-${layer.id}`, `standing-${layer.standing}`]}>
+            {layer.title}<small>{STANDING[layer.standing]}</small>
+          </span>
+        ))}
+      </div>
+      {segments.map((segment, index) => {
         const isUntranslated = !segment.vi?.trim();
+        const shape = shapes[index];
         return (
           <article
-            class:list={['segment', isUntranslated && 'untranslated']}
+            class:list={['segment', isUntranslated && 'untranslated', `role-${shape.role}`, shape.starts && 'para-start']}
             id={segment.id}
             data-segment-id={segment.id}
           >
@@ -401,5 +438,37 @@ const initialMode = editable && editable.withText > 0 ? 'vi' : 'compare';
       if (tab.classList.contains('unavailable')) return;
       tab.addEventListener('click', () => showOnly(tab.getAttribute('data-column')));
     });
+
+    // Text size is a per-reader convenience; it lives in this browser only and the page
+    // reads fine at the default when storage is blocked.
+    const SIZE_KEY = 'kinh-tang-pali:reader:text-size:v1';
+    const SIZES = [0.9, 1, 1.1, 1.2, 1.35];
+    const sizeGroup = shell.querySelector('.text-size');
+    if (sizeGroup) sizeGroup.hidden = false;
+    const sizeValue = shell.querySelector('.text-size-value');
+    const sizeButtons = Array.from(shell.querySelectorAll('[data-size-step]'));
+    let sizeIndex = 1;
+    try { sizeIndex = Math.min(SIZES.length - 1, Math.max(0, Number(localStorage.getItem(SIZE_KEY) ?? 1))); } catch { sizeIndex = 1; }
+    const applySize = () => {
+      shell.style.setProperty('--reader-scale', String(SIZES[sizeIndex]));
+      if (sizeValue) sizeValue.textContent = `${Math.round(SIZES[sizeIndex] * 100)}%`;
+      sizeButtons.forEach((button) => {
+        const step = Number(button.getAttribute('data-size-step'));
+        button.disabled = step < 0 ? sizeIndex === 0 : sizeIndex === SIZES.length - 1;
+      });
+    };
+    sizeButtons.forEach((button) => button.addEventListener('click', () => {
+      sizeIndex = Math.min(SIZES.length - 1, Math.max(0, sizeIndex + Number(button.getAttribute('data-size-step'))));
+      try { localStorage.setItem(SIZE_KEY, String(sizeIndex)); } catch { /* Size still applies for this visit. */ }
+      applySize();
+    }));
+    applySize();
+
+    // The column header sticks right under the sticky toolbar, whose height depends on
+    // how its controls wrap.
+    const toolbar = shell.querySelector('.reader-toolbar');
+    if (toolbar && 'ResizeObserver' in window) {
+      new ResizeObserver(() => shell.style.setProperty('--toolbar-h', `${toolbar.getBoundingClientRect().height}px`)).observe(toolbar);
+    }
   });
 </script>

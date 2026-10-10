@@ -105,16 +105,14 @@ mark { color: var(--ink); background: var(--accent-soft); }
 .sutta-list li { border-bottom: 1px solid var(--line); }
 .sutta-list a { display: grid; grid-template-columns: 6rem minmax(0, 1fr) auto; gap: var(--space-5); align-items: center; padding: var(--space-4) var(--space-2); color: var(--ink); text-decoration: none; border-radius: var(--radius-sm); }
 .sutta-list a:hover { background: var(--surface-soft); }
+.sutta-list.has-covers a { grid-template-columns: 4.5rem 5rem minmax(0, 1fr) auto; }
+.list-thumb { display: block; width: 4.5rem; height: 3rem; object-fit: cover; border-radius: var(--radius-sm); background: var(--surface-soft); }
 .sutta-title { font-family: var(--font-reading); font-size: 1.0625rem; }
 .uid { font: .75rem/1.7 var(--font-mono); color: var(--muted); overflow-wrap: anywhere; }
 .status { display: inline-flex; align-items: center; border: 1px solid var(--line); border-radius: var(--radius-sm); padding: .2rem var(--space-2); font-size: .6875rem; color: var(--muted); white-space: nowrap; }
 .status.published { color: var(--accent); border-color: var(--line); background: var(--accent-soft); }
 .status.review { color: var(--warning); background: var(--warning-soft); }
 .status.not-started { color: var(--muted); }
-.sutta-header { display: flex; align-items: flex-start; justify-content: space-between; gap: var(--space-6); margin-block: var(--space-5); border-bottom: 1px solid var(--line); padding-bottom: var(--space-6); }
-.sutta-header h1 { font-size: clamp(2rem, 4vw, 3.25rem); }
-.sutta-header .status { margin-top: var(--space-3); }
-.sutta-header .pali-title { margin: 0; }
 .editorial-banner, .layer-absent, .legacy-range-note { border: 1px solid var(--warning-line); background: var(--warning-soft); color: var(--warning); border-radius: var(--radius-sm); padding: var(--space-3) var(--space-4); font-size: .8125rem; }
 .editorial-banner { margin-block: var(--space-5); }
 .provenance-line { color: var(--muted); font-size: .75rem; }
@@ -167,14 +165,14 @@ details > :last-child:not(summary) { margin-bottom: var(--space-4); }
 .credit-terms { color: var(--warning); }
 .segments { border-top: 1px solid var(--line); }
 .segment { scroll-margin-top: 8rem; display: grid; column-gap: var(--space-5); border-bottom: 1px solid var(--line); padding: var(--space-5) 0; }
-.reader-shell[data-open-columns="1"] .segment { grid-template-columns: 5.5rem minmax(0, 1fr); }
-.reader-shell[data-open-columns="2"] .segment { grid-template-columns: 5.5rem repeat(2, minmax(0, 1fr)); }
-.reader-shell[data-open-columns="3"] .segment { grid-template-columns: 5.5rem repeat(3, minmax(0, 1fr)); }
-.reader-shell[data-open-columns="4"] .segment { grid-template-columns: 5.5rem repeat(4, minmax(0, 1fr)); }
+.reader-shell[data-open-columns="1"] :is(.segment, .segments-head) { grid-template-columns: 5.5rem minmax(0, 1fr); }
+.reader-shell[data-open-columns="2"] :is(.segment, .segments-head) { grid-template-columns: 5.5rem repeat(2, minmax(0, 1fr)); }
+.reader-shell[data-open-columns="3"] :is(.segment, .segments-head) { grid-template-columns: 5.5rem repeat(3, minmax(0, 1fr)); }
+.reader-shell[data-open-columns="4"] :is(.segment, .segments-head) { grid-template-columns: 5.5rem repeat(4, minmax(0, 1fr)); }
 .segment-id { font: .6875rem/1.7 var(--font-mono); color: var(--muted); padding-top: var(--space-2); overflow-wrap: anywhere; }
 .segment-id a { color: inherit; text-decoration: none; display: inline-block; padding-block: .2rem; }
 .segment-id a:hover { color: var(--accent); text-decoration: underline; }
-.cell { font: 400 1.0625rem/1.9 var(--font-reading); min-width: 0; overflow-wrap: break-word; }
+.cell { font: 400 calc(1.0625rem * var(--reader-scale, 1))/1.9 var(--font-reading); min-width: 0; overflow-wrap: break-word; }
 .cell-pali { color: var(--ink); }
 .cell-en, .cell-vi-current { color: var(--reference); }
 .cell-vi { color: var(--ink); }
@@ -191,7 +189,7 @@ details > :last-child:not(summary) { margin-bottom: var(--space-4); }
 .reader-shell[data-reader-mode="interlinear"] .segment { grid-template-columns: 5.5rem minmax(0, 1fr); }
 .reader-shell[data-reader-mode="interlinear"] .cell { grid-column: 2; max-width: var(--reading-measure); }
 .reader-shell[data-reader-mode="interlinear"] .cell::before { content: attr(data-short); display: block; width: fit-content; font: 600 .625rem/1.6 var(--font-ui); padding: .15rem .4rem; border-radius: var(--radius-sm); margin-bottom: var(--space-2); }
-.reader-shell[data-reader-mode="interlinear"] .segment:first-child .cell::before { content: attr(data-label); }
+.reader-shell[data-reader-mode="interlinear"] .segment:first-of-type .cell::before { content: attr(data-label); }
 .cell-pali::before, .cell-vi::before { background: var(--accent-soft); color: var(--accent); }
 .cell-en::before, .cell-vi-current::before { background: var(--reference-soft); color: var(--reference); }
 .reader-shell[data-reader-mode="interlinear"] .cell + .cell { margin-top: var(--space-4); }
@@ -199,9 +197,118 @@ details > :last-child:not(summary) { margin-bottom: var(--space-4); }
 .reader-shell[data-reader-mode="vi"] .cell-vi-current,
 .reader-shell[data-reader-mode="vi"] .cell-pali { display: none; }
 .reader-shell[data-reader-mode="vi"] .segment { grid-template-columns: 5.5rem minmax(0, 1fr); max-width: calc(var(--reading-measure) + 7rem); margin-inline: auto; }
-.reader-shell[data-reader-mode="vi"] .cell-vi { grid-column: 2; font-size: 1.1875rem; line-height: 1.95; }
+.reader-shell[data-reader-mode="vi"] .cell-vi { grid-column: 2; font-size: calc(1.1875rem * var(--reader-scale, 1)); line-height: 1.95; }
 .empty-state { border-left: 2px solid var(--line); padding: var(--space-5) var(--space-6); color: var(--muted); background: var(--surface-soft); }
 .empty-state h2 { font-size: 1.25rem; color: var(--ink); }
+/* Masthead: cover (DN/MN), then the title on paper. The card overlaps the cover on wide
+   screens; text never sits on the photograph. */
+.sutta-masthead { margin-block: var(--space-4) var(--space-6); }
+.sutta-masthead.has-cover { display: grid; grid-template-columns: minmax(0, 1fr) minmax(12rem, 20rem); grid-template-rows: auto 4.5rem auto; column-gap: var(--space-6); }
+.cover-media { grid-column: 1 / -1; grid-row: 1 / 3; margin: 0; overflow: hidden; border-radius: var(--radius-md); background: var(--surface-soft); aspect-ratio: 21 / 9; }
+.cover-media img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.cover-credit { grid-column: 2; grid-row: 3; align-self: start; display: flex; flex-direction: column; gap: .15rem; margin: var(--space-3) 0 0; color: var(--muted); font-size: .6875rem; line-height: 1.7; text-align: right; }
+.cover-credit a { color: var(--muted); overflow-wrap: anywhere; }
+.cover-credit a:hover { color: var(--accent); }
+.sutta-title-card { min-width: 0; }
+.has-cover .sutta-title-card { grid-column: 1; grid-row: 2 / 4; position: relative; max-width: 42rem; padding: var(--space-6) var(--space-7) 0 0; background: var(--paper); border-radius: 0 var(--radius-md) 0 0; }
+.sutta-title-card h1 { margin: var(--space-2) 0 var(--space-3); font-size: clamp(2.25rem, 4.6vw, 3.75rem); line-height: 1.22; }
+.sutta-title-card .eyebrow { margin: 0; }
+.sutta-title-card .pali-title { margin: 0 0 var(--space-5); }
+.sutta-facts { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-2) var(--space-5); margin: 0; padding: var(--space-4) 0 0; list-style: none; border-top: 1px solid var(--line); color: var(--muted); font-size: .8125rem; font-variant-numeric: tabular-nums; }
+.sutta-facts li { display: inline-flex; align-items: center; min-height: 1.75rem; }
+.sutta-facts li + li::before { content: ""; width: .25rem; height: .25rem; margin-right: var(--space-5); border-radius: 50%; background: var(--line); }
+.sutta-facts .status { font-size: .75rem; }
+.reading-progress { display: none; }
+@supports (animation-timeline: scroll()) {
+  .reading-progress { display: block; position: fixed; inset: 0 0 auto; z-index: 30; height: 2px; background: var(--accent); transform: scaleX(0); transform-origin: 0 50%; animation: reading-progress linear both; animation-timeline: scroll(root); pointer-events: none; }
+  @keyframes reading-progress { to { transform: scaleX(1); } }
+}
+.sutta-summary .summary-lead { font-family: var(--font-reading); font-size: 1.0625rem; line-height: 1.9; color: var(--ink); }
+.summary-more > summary { display: inline-flex; align-items: center; gap: var(--space-2); min-height: var(--control-height); padding: 0; color: var(--accent); font-size: .8125rem; font-weight: 600; }
+.summary-more > summary span { color: var(--muted); font-weight: 400; }
+.summary-more[open] > summary { margin-bottom: var(--space-3); }
+/* Reader controls: text size is a reader preference, applied by multiplying the scripture sizes. */
+.text-size { display: inline-flex; align-items: center; gap: var(--space-1); }
+.text-size button { appearance: none; min-width: var(--control-height); min-height: var(--control-height); border: 1px solid var(--control-border); border-radius: var(--radius-sm); background: var(--surface); color: var(--ink); font: 600 .8125rem/1 var(--font-reading); cursor: pointer; }
+.text-size button:hover:not(:disabled) { border-color: var(--accent); background: var(--surface-soft); }
+.text-size button:disabled { color: var(--muted); cursor: not-allowed; background: var(--surface-soft); }
+.text-size-value { min-width: 3rem; text-align: center; color: var(--muted); font-size: .75rem; font-variant-numeric: tabular-nums; }
+/* Column header for the four-version grid; only meaningful when all open columns show. */
+.segments-head { display: none; }
+@media (min-width: 1101px) {
+  .reader-shell[data-reader-mode="compare"]:not([data-focus]) .segments-head { position: sticky; top: calc(var(--toolbar-h, 4.5rem) + var(--space-2)); z-index: 4; display: grid; column-gap: var(--space-5); padding: var(--space-3) 0; background: var(--paper); border-bottom: 1px solid var(--line); }
+  .reader-shell[data-reader-mode="compare"] .segment:hover { background: var(--surface-soft); }
+}
+.segments-head > span { min-width: 0; font: 600 .75rem/1.5 var(--font-ui); color: var(--ink); }
+.segments-head small { display: block; font-size: .625rem; font-weight: 600; color: var(--muted); }
+.segments-head .standing-authority small, .segments-head .standing-project small { color: var(--accent); }
+.segments-head .head-id { color: var(--muted); font-weight: 400; }
+.reader-shell[data-closed~="english"] .head-english,
+.reader-shell[data-closed~="viCurrent"] .head-viCurrent,
+.reader-shell[data-closed~="vi"] .head-vi { display: none; }
+.segment:target { background: var(--accent-soft); }
+/* Reading mode: segments flow as running paragraphs. Every segment keeps its element and
+   anchor; the paragraph shape comes from the SuttaCentral segment number. */
+@media screen {
+  .reader-shell[data-reader-mode="vi"]:not([data-closed~="vi"]) .segments { max-width: calc(var(--reading-measure) + 6rem); margin-inline: auto; padding: var(--space-6) 0 0 6rem; border-top: 0; }
+  .reader-shell[data-reader-mode="vi"]:not([data-closed~="vi"]) .segment { display: inline; padding: 0; border: 0; }
+  .reader-shell[data-reader-mode="vi"]:not([data-closed~="vi"]) .segment .cell-vi { display: inline; }
+  .reader-shell[data-reader-mode="vi"]:not([data-closed~="vi"]) .segment .cell-vi::after { content: " "; }
+  .reader-shell[data-reader-mode="vi"]:not([data-closed~="vi"]) .segment-id { display: none; }
+  .reader-shell[data-reader-mode="vi"]:not([data-closed~="vi"]) .segment.para-start::before { content: ""; display: block; margin-top: 1.15em; }
+  .reader-shell[data-reader-mode="vi"]:not([data-closed~="vi"]) .segment.para-start > .segment-id { display: block; float: left; width: 5rem; margin-left: -6rem; padding-top: .7em; text-align: right; }
+  .reader-shell[data-reader-mode="vi"]:not([data-closed~="vi"]) .segment:target .cell-vi { background: var(--accent-soft); box-decoration-break: clone; -webkit-box-decoration-break: clone; }
+  .reader-shell[data-reader-mode="vi"]:not([data-closed~="vi"]) .segment:target { background: transparent; }
+  .reader-shell[data-reader-mode="vi"]:not([data-closed~="vi"]) .comment { display: block; margin: var(--space-3) 0 var(--space-4); font-size: .8125rem; }
+  .reader-shell[data-reader-mode="vi"]:not([data-closed~="vi"]) .role-incipit { display: block; text-align: center; }
+  .reader-shell[data-reader-mode="vi"]:not([data-closed~="vi"]) .role-incipit.para-start::before { content: none; }
+  .reader-shell[data-reader-mode="vi"]:not([data-closed~="vi"]) .role-incipit .cell-vi { display: block; font: 600 .6875rem/1.8 var(--font-ui); letter-spacing: .12em; text-transform: uppercase; color: var(--accent); }
+  .reader-shell[data-reader-mode="vi"]:not([data-closed~="vi"]) .role-incipit + .role-incipit .cell-vi { margin-top: var(--space-2); font: 400 calc(1.5rem * var(--reader-scale, 1))/1.4 var(--font-reading); letter-spacing: 0; text-transform: none; color: var(--ink); }
+  .reader-shell[data-reader-mode="vi"]:not([data-closed~="vi"]) .role-incipit + :not(.role-incipit)::before { width: 3rem; margin: var(--space-6) auto var(--space-6) calc(var(--reading-measure) / 2 - 1.5rem); border-top: 1px solid var(--control-border); }
+  .reader-shell[data-reader-mode="vi"]:not([data-closed~="vi"]) .role-heading { display: block; }
+  .reader-shell[data-reader-mode="vi"]:not([data-closed~="vi"]) .role-heading .cell-vi { display: block; margin: 1.6em 0 .2em; font: 400 calc(1.375rem * var(--reader-scale, 1))/1.45 var(--font-reading); color: var(--ink); }
+  .reader-shell[data-reader-mode="vi"]:not([data-closed~="vi"]) .role-heading.para-start::before { margin-top: 0; }
+  .reader-shell[data-reader-mode="vi"]:not([data-closed~="vi"]) .role-heading > .segment-id { padding-top: 2.3em; }
+  .reader-shell[data-reader-mode="vi"]:not([data-closed~="vi"]) .role-incipit > .segment-id { display: none !important; }
+  .reader-shell[data-reader-mode="vi"]:not([data-closed~="vi"]) .role-incipit .comment { max-width: var(--reading-measure); margin-inline: auto; text-align: left; text-transform: none; letter-spacing: 0; font: 400 .8125rem/1.8 var(--font-ui); color: var(--muted); }
+  .reader-shell[data-reader-mode="vi"]:not([data-closed~="vi"]) .segments { counter-reset: note; }
+  .reader-shell[data-reader-mode="vi"]:not([data-closed~="vi"]) .role-prose .comment, .reader-shell[data-reader-mode="vi"]:not([data-closed~="vi"]) .role-heading .comment { counter-increment: note; }
+  .reader-shell[data-reader-mode="vi"]:not([data-closed~="vi"]) .role-prose .comment::before, .reader-shell[data-reader-mode="vi"]:not([data-closed~="vi"]) .role-heading .comment::before { content: counter(note) ". "; color: var(--accent); font-weight: 600; }
+}
+@media screen and (min-width: 1280px) {
+  .reader-shell[data-reader-mode="vi"]:not([data-closed~="vi"]) .role-prose .cell-vi:has(> .comment)::after, .reader-shell[data-reader-mode="vi"]:not([data-closed~="vi"]) .role-heading .cell-vi:has(> .comment)::after { content: counter(note); margin: 0 .3em 0 .1em; vertical-align: super; color: var(--accent); font: 600 .625em/1 var(--font-ui); }
+  .reader-shell[data-reader-mode="vi"]:not([data-closed~="vi"]) .segments { max-width: calc(var(--reading-measure) + 21rem); padding-right: 15rem; }
+  .reader-shell[data-reader-mode="vi"]:not([data-closed~="vi"]) .role-prose .comment, .reader-shell[data-reader-mode="vi"]:not([data-closed~="vi"]) .role-heading .comment { float: right; clear: right; width: 13rem; margin: .35em -15rem var(--space-4) 0; padding-left: var(--space-3); font-size: .75rem; line-height: 1.7; }
+}
+/* Previous / next at the end of a text. */
+.sutta-neighbours { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-4) var(--space-6); margin-top: var(--space-8); padding-top: var(--space-6); border-top: 1px solid var(--line); }
+.neighbour { display: flex; align-items: center; gap: var(--space-4); min-height: 5rem; padding: var(--space-3); border-radius: var(--radius-md); color: var(--ink); text-decoration: none; transition: background-color var(--duration-fast); }
+.neighbour:hover { background: var(--surface-soft); text-decoration: none; }
+.neighbour.is-next { grid-column: 2; flex-direction: row-reverse; text-align: right; }
+.neighbour-thumb { flex: none; width: 7.5rem; height: 5rem; object-fit: cover; border-radius: var(--radius-sm); }
+.neighbour-copy { display: flex; flex-direction: column; gap: .2rem; min-width: 0; }
+.neighbour-label { color: var(--muted); font-size: .75rem; font-variant-numeric: tabular-nums; }
+.neighbour-title { font-family: var(--font-reading); font-size: 1.1875rem; line-height: 1.4; }
+.neighbour:hover .neighbour-title { color: var(--accent); text-decoration: underline; text-underline-offset: .2em; text-decoration-thickness: 1px; }
+.neighbour-index { grid-column: 1 / -1; justify-self: center; display: inline-flex; align-items: center; min-height: var(--control-height); font-size: .8125rem; }
+@media (max-width: 1100px) {
+  .sutta-masthead.has-cover { grid-template-rows: auto 3.5rem auto; }
+  .cover-media { aspect-ratio: 16 / 9; }
+}
+@media (max-width: 760px) {
+  .sutta-masthead.has-cover { display: flex; flex-direction: column; }
+  .cover-media { aspect-ratio: 3 / 2; margin-inline: calc(-1 * clamp(1.25rem, 4vw, 3rem)); border-radius: 0; }
+  .cover-credit { order: 1; text-align: left; margin-top: var(--space-2); }
+  .has-cover .sutta-title-card { order: 2; padding: var(--space-5) 0 0; border-radius: 0; }
+  .sutta-facts li + li::before { margin-right: var(--space-3); }
+  .sutta-facts { gap: var(--space-1) var(--space-3); }
+  .reader-shell[data-reader-mode="vi"]:not([data-closed~="vi"]) .segments { padding-left: 0; }
+  .reader-shell[data-reader-mode="vi"]:not([data-closed~="vi"]) .segment.para-start > .segment-id { display: none; }
+  .reader-shell[data-reader-mode="vi"]:not([data-closed~="vi"]) .role-incipit + :not(.role-incipit)::before { margin-inline: auto; }
+  .sutta-neighbours { grid-template-columns: 1fr; }
+  .neighbour.is-next { grid-column: 1; flex-direction: row; text-align: left; }
+  .neighbour-thumb { width: 5.5rem; height: 4rem; }
+}
 .search-page { max-width: 62rem; }
 .search-form { display: flex; gap: var(--space-3); margin: var(--space-6) 0 var(--space-5); }
 .search-form input { flex: 1; min-width: 0; min-height: var(--control-height); font-size: 1rem; padding: var(--space-3) var(--space-4); border: 1px solid var(--control-border); border-radius: var(--radius-sm); background: var(--surface); color: var(--ink); }
@@ -345,9 +452,9 @@ thead th { color: var(--muted); }
   .cell { grid-column: 2; }
   .cell + .cell { margin-top: var(--space-4); }
   .cell::before { content: attr(data-short); display: block; width: fit-content; font: 600 .625rem/1.6 var(--font-ui); padding: .15rem .4rem; border-radius: var(--radius-sm); margin-bottom: var(--space-2); }
-  .segments .segment:first-child .cell::before { content: attr(data-label); }
+  .segments .segment:first-of-type .cell::before { content: attr(data-label); }
   .reader-shell[data-reader-mode="vi"] .cell::before,
-  .reader-shell[data-reader-mode="vi"] .segment:first-child .cell::before { content: none; }
+  .reader-shell[data-reader-mode="vi"] .segment:first-of-type .cell::before { content: none; }
   .reader-shell[data-reader-mode="compare"] .cell { display: none; }
   .reader-shell[data-reader-mode="compare"] .cell.is-shown,
   .reader-shell[data-reader-mode="compare"]:not([data-focus]) .cell { display: block; }
@@ -366,13 +473,15 @@ thead th { color: var(--muted); }
   .collection-card.priority { grid-column: auto; padding: var(--space-5); }
   .sutta-list a { grid-template-columns: 4.5rem minmax(0, 1fr); gap: var(--space-2) var(--space-3); }
   .sutta-list .status { grid-column: 2; justify-self: start; }
-  .sutta-header { flex-direction: column; gap: var(--space-2); }
+  .sutta-list.has-covers a { grid-template-columns: 4.5rem minmax(0, 1fr); }
+  .sutta-list.has-covers .list-thumb { grid-row: 1 / 4; }
+  .sutta-list.has-covers .uid, .sutta-list.has-covers .sutta-title, .sutta-list.has-covers .status { grid-column: 2; }
   .reader-toolbar { position: static; align-items: flex-start; flex-direction: column; }
   .column-tabs { width: 100%; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .column-tab { min-width: 0; }
   .reader-shell[data-open-columns][data-reader-mode] .segment { grid-template-columns: 1fr; gap: var(--space-3); }
   .segment-id, .cell, .comment { grid-column: 1 !important; }
-  .reader-shell[data-reader-mode="vi"] .cell-vi { font-size: 1.125rem; }
+  .reader-shell[data-reader-mode="vi"] .cell-vi { font-size: calc(1.125rem * var(--reader-scale, 1)); }
   .sutta-summary, .listening { padding: var(--space-5); }
   .credits-section { margin-top: var(--space-7); }
 }
@@ -389,7 +498,7 @@ thead th { color: var(--muted); }
 }
 @media print {
   html, body { background: var(--surface); color: var(--ink); }
-  .site-header, .site-footer, .reader-toolbar, .listening, .skip-link { display: none !important; }
+  .site-header, .site-footer, .reader-toolbar, .listening, .skip-link, .reading-progress, .sutta-neighbours, .segments-head { display: none !important; }
   .page { width: 100%; max-width: none; padding: 0; }
   .reader-shell[data-reader-mode] .segment { display: block; max-width: none; break-inside: avoid; }
   .reader-shell[data-reader-mode] .cell { display: block; font-size: 11pt; margin-block: .5rem; }

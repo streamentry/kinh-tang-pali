@@ -6,7 +6,7 @@ const { audio, title, previous, next } = Astro.props;
 const minutes = Math.round(audio.duration_seconds / 60);
 const timestamp = (seconds: number) => `${Math.floor(seconds / 60)}:${Math.floor(seconds % 60).toString().padStart(2, '0')}`;
 ---
-<sutta-audio class="listening" data-pagefind-ignore data-scripture={audio.scripture_start_seconds} data-next={next?.hasAudio ? next.href : undefined}>
+<sutta-audio class="listening" id="lang-nghe" data-pagefind-ignore data-scripture={audio.scripture_start_seconds} data-next={next?.hasAudio ? next.href : undefined}>
   <div class="listening-heading">
     <div><div class="listening-kicker"><p class="listening-label">Lắng nghe · Việt 2026</p>{audio.review_status === 'pending' && <span class="listening-review">Chờ nghe duyệt</span>}</div><h2>{title}</h2></div>
     <span class="listening-length">{audio.uid.toUpperCase()} · {minutes} phút</span>

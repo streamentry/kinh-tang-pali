@@ -15,6 +15,7 @@
  */
 import Base from '../layouts/Base.astro';
 import visuals from '../../source/visual-assets.json';
+import { allCovers, coverDerivativeNote, licenceLabel } from '../lib/canon/covers';
 import { existsSync, readFileSync, readdirSync } from 'node:fs';
 import { loadLock, upstreamFile, type ReferenceEdition } from '../lib/canon/load';
 import { storeLayers } from '../lib/canon/layers';
@@ -251,6 +252,34 @@ const projectLicense = projectContentLicense();
           </article>
         ))}
       </div>
+    </section>
+
+    <section class="section-heading" id="anh-bia">
+      <h2>Ảnh bìa bài kinh</h2>
+      <p class="hint">
+        {allCovers().length} bài Trường Bộ và Trung Bộ có ảnh bìa, khai trong
+        <code>source/sutta-covers.json</code>. Mỗi ảnh lấy từ Wikimedia Commons và giữ tác giả,
+        điều khoản riêng của nó — không thuộc CC0 của bản dịch hay MIT của mã nguồn. Ảnh chỉ là
+        minh họa bối cảnh, không phải chứng cứ lịch sử về sự kiện trong kinh. {coverDerivativeNote}
+      </p>
+      <details class="cover-credits">
+        <summary>Danh sách tác giả và giấy phép từng ảnh</summary>
+        <div class="table-scroll" tabindex="0" role="region" aria-label="Tác giả và giấy phép ảnh bìa">
+          <table class="credit-table">
+            <thead><tr><th scope="col">Bài</th><th scope="col">Ảnh</th><th scope="col">Tác giả</th><th scope="col">Giấy phép</th></tr></thead>
+            <tbody>
+              {allCovers().map((cover) => (
+                <tr>
+                  <td><a href={withBase(`sutta/${cover.collection}/${cover.uid}/`)}>{cover.uid.toUpperCase()}</a></td>
+                  <td><a href={cover.sourcePage} target="_blank" rel="noopener noreferrer">{cover.titleVi} ↗</a></td>
+                  <td>{cover.author ?? 'không rõ'}</td>
+                  <td>{cover.licenseUrl ? <a href={cover.licenseUrl} rel="license noopener noreferrer" target="_blank">{licenceLabel(cover)}</a> : licenceLabel(cover)}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </details>
     </section>
 
     <section class="section-heading">
