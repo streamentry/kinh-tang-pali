@@ -4,6 +4,7 @@ MN narration: canonical summary, then Vietnamese 2026; resumable WAV chunks.
 Requires lameenc (same encoder as The Thread Seers), and Node/tsx.
 """
 import fcntl
+import tempfile
 import argparse, base64, hashlib, io, json, os, subprocess, time, urllib.request, urllib.error, wave
 from pathlib import Path
 from narration_config import load_profile, profile_digest, profile_metadata
@@ -96,7 +97,7 @@ def main():
     print(f'Created {mp3}, {duration:.1f}s',flush=True)
 if __name__=='__main__':
     # One OS lock for all clones/worktrees using this machine. Released even after crashes.
-    with open('/private/tmp/kinh-tang-pali-tts.lock','a') as lock:
+    with open(Path(tempfile.gettempdir())/'kinh-tang-pali-tts.lock','a') as lock:
         try: fcntl.flock(lock,fcntl.LOCK_EX|fcntl.LOCK_NB)
         except BlockingIOError: raise SystemExit('Another narration process is running; do not start a duplicate.')
         main()
