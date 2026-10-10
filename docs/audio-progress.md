@@ -81,3 +81,8 @@ Nhật ký append-only. Registry `content/audio/progress.json` được đối s
 - R2 `vi/mn/mn8/cf3a6e3ff5108e2d.mp3` đã kiểm MIME/hash/bytes/range public sau refresh OAuth. Metadata giữ review pending; registry vẫn generated, chưa uploaded-verified vì chưa kiểm player. Chưa bắt đầu MN9.
 
 - MN8 player local phát từ đúng R2 URL, tua +15s, seek kinh văn 161,75s và pause thành công; duration 1.416,744s, readyState 4, không media error. Nâng uploaded-verified, review pending. Batch MN-002 có hai UID thành công MN7/MN8; chưa merge/live.
+
+## 2026-10-10 — MN7–MN8 merged checkpoint
+
+- PR #420 exact head `3024863401b2c8fd41ab1227344d7ff07db61ffd` qua cả CI push và pull request; squash merge `5752fe510391a4640128b311685c2c3d4fd74e88`, remote main đã đọc lại.
+- Registry MN7/MN8 ghi merged, review pending. Pages run `38042010626` đang pending, chưa ghi live hoặc production playback evidence. MN9 mới prepare-only: 20 chunk, tối đa 1.396 ký tự, 232 segment kinh văn; chưa gọi TTS.
