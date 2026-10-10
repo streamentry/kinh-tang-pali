@@ -1,0 +1,32 @@
+---
+/**
+ * Previous / next sutta at the end of a reading page, with the neighbour's cover as a
+ * small thumbnail where it has one. Plain links: reading on is a navigation, not an app.
+ */
+import { Image } from 'astro:assets';
+import { coverFor } from '../lib/canon/covers';
+
+interface Neighbour { uid: string; title: string; href: string; }
+interface Props { previous?: Neighbour; next?: Neighbour; collectionTitle: string; collectionHref: string; }
+const { previous, next, collectionTitle, collectionHref } = Astro.props;
+const entries = [
+  previous && { ...previous, direction: 'previous', label: 'Bài trước', cover: coverFor(previous.uid) },
+  next && { ...next, direction: 'next', label: 'Bài tiếp', cover: coverFor(next.uid) },
+].filter((entry): entry is NonNullable<typeof entry> => Boolean(entry));
+---
+<nav class="sutta-neighbours" aria-label="Bài kinh liền kề" data-pagefind-ignore>
+  {entries.map((entry) => (
+    <a class:list={['neighbour', `is-${entry.direction}`]} href={entry.href} rel={entry.direction === 'next' ? 'next' : 'prev'}>
+      {entry.cover && (
+        <Image src={entry.cover.image} alt="" width={240} widths={[160, 240]} sizes="7.5rem"
+          format="webp" quality={70} loading="lazy" class="neighbour-thumb"
+          style={entry.cover.focus ? `object-position: ${entry.cover.focus}` : undefined} />
+      )}
+      <span class="neighbour-copy">
+        <span class="neighbour-label">{entry.direction === 'previous' ? '←' : ''} {entry.label} · {entry.uid.toUpperCase()} {entry.direction === 'next' ? '→' : ''}</span>
+        <span class="neighbour-title">{entry.title}</span>
+      </span>
+    </a>
+  ))}
+  <a class="neighbour-index" href={collectionHref}>Mục lục {collectionTitle}</a>
+</nav>

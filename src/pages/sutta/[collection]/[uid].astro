@@ -3,9 +3,14 @@ import Base from '../../../layouts/Base.astro';
 import QualityHistory from '../../../components/QualityHistory.astro';
 import SuttaReader from '../../../components/SuttaReader.astro';
 import SuttaAudio from '../../../components/SuttaAudio.astro';
+import SuttaMasthead from '../../../components/SuttaMasthead.astro';
+import SuttaNeighbours from '../../../components/SuttaNeighbours.astro';
+import { getImage } from 'astro:assets';
+import { coverFor } from '../../../lib/canon/covers';
+import { readingMinutes } from '../../../lib/canon/status-label';
 import { loadAudio } from '../../../lib/canon/audio';
 import { adjacentTexts } from '../../../lib/audio/navigation';
-import { COLLECTIONS, loadCatalog, loadMeta } from '../../../lib/canon/load';
+import { COLLECTIONS, listCollection, loadCatalog, loadMeta } from '../../../lib/canon/load';
 import { composeDocument } from '../../../lib/canon/document';
 import { loadAssessmentHistory } from '../../../lib/canon/quality';
 import type { CollectionCode, TranslationQualityAssessment } from '../../../lib/canon/types';
@@ -38,18 +43,23 @@ const hasSummary = supportsSummary && Boolean(document.summary);
 const statusLabel = document.hasProjectData ? document.status : 'not-started';
 const summaryParagraphs = (document.summary ?? '').split(/\n{2,}/).filter((para) => para.trim() !== '');
 const permalink = new URL(withBase(`sutta/${collection.code}/${uid}/`), Astro.site).href;
+const titles = new Map(listCollection(collection.code as CollectionCode).map((item) => [item.uid, item.title]));
+const neighbourLink = (item?: { uid: string }) => item && { uid: item.uid, title: titles.get(item.uid) ?? item.uid.toUpperCase(), href: withBase(`sutta/${collection.code}/${item.uid}/`) };
+const minutesToRead = document.hasProjectData ? readingMinutes(document.segments.map((segment) => segment.vi)) : undefined;
+const cover = coverFor(uid);
+const [summaryLead, ...summaryRest] = summaryParagraphs;
+const socialImage = cover
+  ? { url: new URL((await getImage({ src: cover.image, width: 1200, format: 'jpeg', quality: 80 })).src, Astro.site).href, alt: cover.altVi }
+  : undefined;
 ---
-<Base title={`${document.viTitle} · ${uid.toUpperCase()} · Kinh Tạng Pāli Việt`} description={`${uid.toUpperCase()} — ${document.viTitle}, thuộc ${collection.titleVi}. Đọc Pāli và các bản dịch đối chiếu từng đoạn; bản Việt của dự án: ${statusLabel}.`}>
+<Base image={socialImage} title={`${document.viTitle} · ${uid.toUpperCase()} · Kinh Tạng Pāli Việt`} description={`${uid.toUpperCase()} — ${document.viTitle}, thuộc ${collection.titleVi}. Đọc Pāli và các bản dịch đối chiếu từng đoạn; bản Việt của dự án: ${statusLabel}.`}>
+  <div class="reading-progress" aria-hidden="true"></div>
   <main id="main-content" tabindex="-1" class="page reader-page">
     <a class="back-link" href={withBase(`sutta/${collection.code}/`)}>← {collection.titleVi}</a>
-    <header class="sutta-header">
-      <div class="sutta-identity">
-        <p class="eyebrow">{uid.toUpperCase()} · {collection.titlePali}</p>
-        <h1 data-pagefind-meta="title">{document.viTitle}</h1>
-        {document.paliTitle && <p class="pali-title large" lang="pi">{document.paliTitle}</p>}
-      </div>
-      <span class:list={['status', statusLabel]}>{statusLabel}</span>
-    </header>
+    <SuttaMasthead uid={uid} collectionTitle={collection.titleVi} collectionPali={collection.titlePali}
+      viTitle={document.viTitle} paliTitle={document.paliTitle} status={statusLabel}
+      readingMinutes={minutesToRead} segmentCount={document.segments.length}
+      audioMinutes={audio ? Math.round(audio.duration_seconds / 60) : undefined} />
     <p class="provenance-line" data-pagefind-ignore>
       Pāli đọc tại bilara commit <code>{document.commit.slice(0, 12)}</code> · 4 bản: Pāli,
       English, Việt hiện hành, Việt 2026
@@ -73,9 +83,15 @@ const permalink = new URL(withBase(`sutta/${collection.code}/${uid}/`), Astro.si
       </div>
     )}
     {document.summary && (
-      <section class="sutta-summary" data-pagefind-body>
-        <h2>Tóm tắt &amp; diễn giải</h2>
-        {summaryParagraphs.map((para) => <p>{para}</p>)}
+      <section class="sutta-summary" data-pagefind-body aria-labelledby="tom-tat">
+        <h2 id="tom-tat">Tóm tắt &amp; diễn giải</h2>
+        <p class="summary-lead">{summaryLead}</p>
+        {summaryRest.length > 0 && (
+          <details class="summary-more">
+            <summary data-pagefind-ignore>Đọc tiếp phần tóm tắt <span>({summaryRest.length} đoạn)</span></summary>
+            {summaryRest.map((para) => <p>{para}</p>)}
+          </details>
+        )}
         <p class="summary-note" data-pagefind-ignore>
           Phần tóm tắt do dự án biên soạn để hỗ trợ đọc, không phải kinh văn. Bản Pāli và các
           bản dịch hiển thị bên dưới mới là nội dung có thẩm quyền.
@@ -85,6 +101,8 @@ const permalink = new URL(withBase(`sutta/${collection.code}/${uid}/`), Astro.si
     {supportsSummary && !hasSummary && <p data-pagefind-ignore>Chưa có nội dung tóm tắt cho bài kinh này.</p>}
     {audio && <SuttaAudio audio={audio} title={document.viTitle} previous={previous} next={next} />}
     <SuttaReader document={document} />
+    <SuttaNeighbours previous={neighbourLink(neighbours.previous)} next={neighbourLink(neighbours.next)}
+      collectionTitle={collection.titleVi} collectionHref={withBase(`sutta/${collection.code}/`)} />
     {supportsSummary && <QualityHistory collection={collection.code} uid={uid} target="summary" assessments={history.assessments} />}
     {document.hasProjectData && <QualityHistory collection={collection.code} uid={uid} target="translation" assessments={history.assessments} legacy={legacyScores} />}
   </main>
