@@ -79,3 +79,5 @@ Nhật ký append-only. Registry `content/audio/progress.json` được đối s
 - PR pipeline #415 qua hai CI và merge `03c6a00fbc6ac10e364e92dce1a3ad82eeaac4ee`: sửa off-by-one giới hạn chunk và chặn oversized request. MN8 kế hoạch mới 16 chunk, tối đa 1.395 ký tự; reuse 11 WAV có text/hash/format khớp, chỉ sinh năm chunk còn lại.
 - MP3 hoàn chỉnh khoảng 1.416,7s. Whisper local đối chiếu đủ 16 chunk, similarity 0,9211–1,0000, không có differing span từ 12 token trở lên. Machine check không phải phê duyệt nghe toàn bài.
 - R2 `vi/mn/mn8/cf3a6e3ff5108e2d.mp3` đã kiểm MIME/hash/bytes/range public sau refresh OAuth. Metadata giữ review pending; registry vẫn generated, chưa uploaded-verified vì chưa kiểm player. Chưa bắt đầu MN9.
+
+- MN8 player local phát từ đúng R2 URL, tua +15s, seek kinh văn 161,75s và pause thành công; duration 1.416,744s, readyState 4, không media error. Nâng uploaded-verified, review pending. Batch MN-002 có hai UID thành công MN7/MN8; chưa merge/live.
