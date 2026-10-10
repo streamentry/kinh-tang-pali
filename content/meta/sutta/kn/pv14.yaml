@@ -1,65 +1,68 @@
 uid: pv14
 status: draft
-translationTitle: "Petavatthu – 2. Câu Chuyện Cha Mẹ Của Tôn Giả Sāriputta"
+translationTitle: "Chuyện Ngạ Quỷ Mẹ Của Trưởng Lão Sāriputta"
 translators:
-  - "OpenCode Space Bunny Free (agent)"
+  - "Claude Sonnet 5.5 (Claude Code)"
 reviewers: []
 tags:
-  - "khuddakanikaya"
+  - "kn"
+  - "khuddaka-nikaya"
   - "petavatthu"
-  - "cong-hanh-nhom"
+  - "ubbarivagga"
+  - "sariputtattheramatupetivatthu"
 quality:
   scores:
-    source_provenance: 9.8
-    semantic_fidelity: 9.4
-    grammar_logic: 9.5
-    segment_alignment: 6.5
-    terminology: 9.4
-    triangulation: 8.6
-    vietnamese_clarity: 9.5
-    han_viet_balance: 9.3
-    ambiguity_integrity: 9.2
-    technical_integrity: 8.0
-  final_score: 8.92
+    source_provenance: 9.4
+    semantic_fidelity: 8.8
+    grammar_logic: 9.0
+    segment_alignment: 10.0
+    terminology: 8.8
+    triangulation: 7.5
+    vietnamese_clarity: 8.9
+    han_viet_balance: 9.2
+    ambiguity_integrity: 8.7
+    technical_integrity: 9.6
+  final_score: 8.99
   blocking_errors:
-    - "Thiếu segment bắt buộc: tầng Việt mới có 1/76 khoá Pāli; các khoá còn lại (tiêu đề, lục kết, các vế kệ) chưa được lát nào gán tới. validate bật requireComplete cho review và published."
-    - "Chưa ghi nhận tầng tham khảo: tại commit đã ghim không có tệp Anh Sujato cho pv14 (0/1 khoá có nội dung), và translation/vi/phantuananh/ ở commit này chỉ chứa Pháp Cú. Cần chạy npm run reference:gaps để ghi vào content/meta/reference-gaps.yaml trước khi lên review hoặc published; lát này bị cấm sửa tệp đó."
-  assessed_at: "2026-09-30"
+    - "noEnglishEditionUpstream: Thiếu bản dịch tiếng Anh đối chiếu — tầng english-sujato tại commit đã ghim không có pv14 (kn của Sujato chỉ có cp, dhp, iti, ja, kp, snp, thag, thig, ud), tầng english-project của dự án chưa có pv14 (chỉ có pv48, pv49), và vietnamese-current chỉ có Pháp Cú. Cả ba tầng tham khảo đều vắng nên bài bắt buộc ở draft và triangulation không quá 8.0."
+  assessed_at: "2026-10-10"
   assessed_by:
-    - "OpenCode Space Bunny Free (agent)"
+    - "Claude Sonnet 5.5 (Claude Code)"
 notes: |-
-  **Không có tiền lệ cho cấu trúc lời kết phần.** Đếm trong Pāli gốc có 20
-  segment dạng `Xvatthu <số thứ tự>` và tất cả đều chưa dịch, nên tôi dựng từ tiền lệ lời
-  kết *phẩm* đã có: `Xvaggo paṭhamo` → *Phẩm X, thứ nhất.* (56 khoá đã dịch). Do đó
-  `vatthu` → *Phần*.
+  Dịch trực tiếp từ Pāli root snapshot bilara đã ghim, đường dẫn `kn/pv/pv14_root-pli-ms.json` (76/76 khoá, đủ và đúng thứ tự Pāli). Bản cũ của bài chỉ có đúng một khoá (`19.1`) và khoá ấy đã được dịch lại — xem mục sửa dưới đây.
 
-  **Từng thành phần đều có tiền lệ.** `mātāpitar` → *cha mẹ* (194 chỗ); `thera` →
-  *Trưởng lão* (68 chỗ *Tôn giả Trưởng lão*); `dutiyaṁ` → *thứ hai* (584 chỗ). Tên
-  `Sāriputta` giữ dạng Pāli như 368 chỗ tiền lệ.
-
-  **Đã tự đối chiếu với tiêu đề của chính bài.** `:0.3` là `2. Sāriputtattheramātupetivatthu`,
-  khớp với lời kết `:19.1` — cùng một phần, cùng số thứ hai. Nên *Phần về cha mẹ của Tôn
-  giả Trưởng lão Sāriputta, thứ hai* đúng phạm vi: không rộng hơn cũng không hẹp hơn.
-
-  **Bất định đã ghi, không giấu.** `vatthu` có thể là *phần*, *chuyện* hay *mục*; cả ba đều
-  đúng nghĩa và không có tiền lệ để bắt buộc. Tôi chọn *Phần* vì tiền lệ lời kết phẩm
-  dùng cấu trúc *Phẩm …, thứ …*, và vì ở đây nó đánh số một mục trong một tuyển tập chứ
-  không kể một câu chuyện riêng. Đây là lựa chọn biên tập có lý do, không phải điều Pāli
-  bắt buộc; khi phần còn lại của bộ Petavatthu được dịch, nên giữ nguyên *Phần* cho cả
-  20 lời kết.
-
-  **Phạm vi lát này.** Bài có 76 khoá Pāli nhưng chỉ MỘT khoá đủ dài
-  để dịch — ngưỡng của chính chốt `kiểm` (≥40 ký tự, bỏ khối `X.0`). Tôi dịch đúng phần
-  được gán; tiêu đề và lục kết thuộc lát khác.
-
-  **Không có tầng tham khảo nào để đối chiếu.** Tại commit đã ghim không
-  tồn tại tệp Anh Sujato cho bài này, và `translation/vi/phantuananh/` chỉ chứa Pháp
-  Cú. Vì vậy `triangulation` để 8.6, **không** phải 9.x: không có bản Việt truyền
-  thống cho Khuddaka, và ở đây cũng không có bản Anh. Đây là đặc điểm của bản chụp
-  upstream, đã đo được chứ không phải thiếu sót của bản dịch.
-
-  **Cổng kỹ thuật chưa chạy.** Lát này bị cấm `npm run validate|test|check|build`,
-  nên tiêu chí 10 chỉ ghi phần tôi tự kiểm được: JSON hợp lệ, NFC, khoá trùng đúng UID
-  và thuộc Pāli gốc, 0 orphan, 0 dấu lược lệch, ngoặc kép cân, `save_vi` idempotent
-  (chạy hai lần, 14/14 tệp không đổi), YAML parse sạch bằng `yaml@2.9.0` của kho. Phần
-  còn lại thuộc cổng của người điều phối, nên `technical_integrity` không cho 10.0.
+  - Tầng tham khảo:
+    Tầng `english-sujato` không có pv14; `english-project` chưa có cho uid này; `vietnamese-current` chỉ có Pháp Cú. Coverage English: mẫu số = 1 — chỉ khoá lời kết `19.1` (42 ký tự) đạt ngưỡng 40, 75 khoá còn lại ngắn hơn; Sujato phủ 0/1, không có bản English nào cho khoá đó, nên cổng coverage gần như không đo được gì; một ô English rỗng không phải bằng chứng đồng thuận về cách dịch. Vì ba tầng đều vắng, `triangulation` đặt 7.5 (không quá 8.0) và bài giữ `draft` với blocker `noEnglishEditionUpstream`. Không có bản English độc lập nào được đối chiếu; nghĩa các chỗ khó dựa vào Pāli, ngữ cảnh bài và tiền lệ cùng bộ.
+  - Sửa khoá cũ `19.1` (accuracy fix):
+    Bản trước dịch `mātupetivatthu` là “cha mẹ”. `mātu` là “mẹ”, không có “cha”; sai nghĩa nên đã sửa. Ngoài ra bản trước dùng “Phần về …” cho `vatthu`, trong khi toàn bộ khuôn colophon của bộ dùng “Chuyện ngạ quỷ …, thứ N” (pv1–pv12, pv20, pv22, pv28–pv35, pv40–pv51: 34/34 bài). Nay là “Chuyện ngạ quỷ mẹ của Trưởng lão Sāriputta, thứ hai.” (`dutiyaṁ` = thứ hai), cùng khuôn với `0.3`.
+  - Tiêu đề & phân loại:
+    + `0.1` “Petavatthu” giữ nguyên như 34/34 bài pv đã dịch. `0.2` “Ubbarivagga” giữ nguyên Pāli như pv20, pv22, pv23 (3/3 bài cùng phẩm).
+    + `0.3` “2. Chuyện Ngạ Quỷ Mẹ Của Trưởng Lão Sāriputta” theo khuôn “N. Chuyện Ngạ Quỷ …” của pv10, pv22 (pv22 `Uttaramātupetivatthu` → “Mẹ Uttara”).
+  - Số Pāli — tự tính:
+    + `catasso kuṭiyo` (8.1) = bốn túp lều (catu 4); `cātuddise` (8.2) = bốn phương (catu 4 + disā); `dutiyaṁ` (19.1) = thứ hai. Không còn số nào khác.
+  - Thuật ngữ & tiền lệ (đo trên tầng đã dịch):
+    + Dùng lại nguyên văn tầng cho Pāli trùng: 20 trên 26 khoá có Pāli trùng với bài khác (`0.1`, `0.2`, `9.1`, `9.2`, `9.4`, `10.1`, `10.2`, `11.1`–`13.4` mười hai khoá, `18.3`). Sáu khoá còn lại cố ý khác tiền lệ (xem dưới); số cặp trùng đã dò = 26 khoá, số khoá Việt khác = 6.
+    + `1.1` `Naggā dubbaṇṇarūpāsi`: pv6:1.1 và pv7:1.1 (2/2 tiền lệ) dịch “Này ngươi gầy gò, xấu xí” — bỏ mất `naggā` “trần truồng”; pv45:1.1 cũng bỏ. Bản này giữ “trần truồng” vì Pāli có. Tiền lệ nhiều lát vẫn lệch Pāli; đã báo, không sửa ngoài lát.
+    + `1.2` `kisā dhamanisanthatā`: pv45:1.2 dịch “gầy guộc, mùi thối khinh khỉnh” (1 tiền lệ), không có căn cứ Pāli cho “mùi thối”; `dhamani` “gân/mạch” + `santhata` “phủ kín”. Bản này dịch “gân nổi chằng chịt”.
+    + `2.3`–`2.4`, `14.3`–`14.4` `Upapannā pettivisayaṁ, khuppipāsasamappitā`: pv41:5.3–5.4 (1 tiền lệ) dịch “đã đi vào cõi về đường của các vong hồn … thiếu ăn thiếu uống”. `pettivisaya` → “cõi ngạ quỷ” theo ne20:6.14 và iti93:5.3; “đói khát bủa vây” gần thig6.2:2.4 “bị cơn đói khát bủa vây hành hạ”; không thêm “thiếu ăn thiếu uống” vì Pāli chỉ có `khuppipāsa` “đói khát”.
+    + `3.1`–`4.4`: các khoá này chưa có tiền lệ trùng Pāli. `kheḷa` → “nước bọt” (snp1.11:4.1), `siṅghāṇikā` → “nước mũi” (snp1.11:4.1; kp3:1.1 “dịch mũi”), `vasā` → “mỡ” (kp3:1.1), `silesuma` → “đờm dãi”.
+    + `dakkhiṇamādisī` (8.4) → “hồi hướng phần cúng dường”: pv10:6.4 (“hồi hướng phần cúng dường ấy cho nàng”), ja288:2.2 dùng cách khác; theo pv10. `anvādisāhi` (6.2) → “hồi hướng”.
+    + `cātuddise saṅghe` (8.2) → “Tăng chúng bốn phương”: tha-ap391:1.3 `Cātuddisassa saṅghassa` (1/1 tiền lệ).
+    + `kuṭi` (8.1, 8.3) → “túp lều”: thag1.57:1.3 `kuṭiyā` → “túp lều” (1/1); ud3.3:5.2 `paṇṇakuṭiyo` → “chòi lá”. Chọn “túp lều” cho từ không có `paṇṇa`.
+    + Lời kết kệ 11–13 (lời Kolita) giữ nguyên văn tầng: công thức `Abhikkantena vaṇṇena … sabbadisā pabhāsatī` có 12–32 khoá trùng Pāli trong tầng vv, chọn dạng đa số (vd `Kena tetādiso vaṇṇo` 22/34, `Uppajjanti ca te bhogā` “hiện khởi” 10 so với “hiện khưởi” 5 — lỗi chính tả ở dạng thiểu số, không dùng). `13.1` giữ “Tôi hỏi ngài” (15/15 khoá cùng Pāli) dù các dòng kế dùng “nàng”: đây là cách tầng đã dùng, không đổi.
+    + `bhante` (18.4) → “thưa tôn giả”: đa số của tầng (248 so với 4).
+    + `Muniṁ kāruṇikaṁ loke` (18.3) → “bậc Mâu-ni lòng từ bi giữa cõi đời”, dùng lại nguyên văn vv21:10.3 (Pāli trùng, 1/1).
+    + `Upatissa`, `Moggallāna`, `Anuruddha`, `Kappina`, `Kolita`, `Sāriputta`: giữ dạng Pāli như các bài trước (`Kolita` là tên khi còn tại gia của Moggallāna, `Upatissa` của Sāriputta — Pāli trong bài không giải thích nên bản dịch cũng không giải thích).
+    + Người nói và người nghe: nhiều khoá không có đại từ; người nói là Sāriputta (kệ 1), nữ ngạ quỷ nói với con trai mình (kệ 2–6), Kolita (kệ 11–13), nữ ngạ quỷ nói với Kolita (kệ 14–18). Đại từ “mẹ/con” dùng ở kệ 2 và 6 (nói với con), “tôi” ở kệ 14 và 18 (nói với Kolita). Các khoá có Pāli trùng giữa hai đoạn nói (3.x = 15.x, 4.x = 16.x, 5.2–5.4 = 17.2–17.4) giữ chung một bản Việt không đại từ, để không sai ngôi ở một trong hai chỗ.
+  - Trùng nguyên văn trong bài: 14 nhóm Pāli trùng (2.2=14.2, 2.3=14.3, 2.4=14.4, 3.1–3.4=15.1–15.4, 4.1–4.4=16.1–16.4, 5.2–5.4=17.2–17.4); 0 nhóm có bản Việt khác nhau. `5.1` và `17.1` khác một chữ Pāli (`bhakkhāmi` / `bhakkhissaṁ`) nhưng cùng một câu Việt, xem bất định.
+  - Bất định — ghi lại, không thêm vào thân kinh:
+    + `khipitaṁ` (3.1, 15.1): có thể là “vật bị ném bỏ” hoặc “vật hắt ra (khi hắt hơi)”; dịch “bị hắt ra”, nghĩa mơ hồ cả hai. Cặp `chaḍḍitaṁ khipitaṁ` thường được hiểu là vật bị nôn ra / vật bị khạc hắt ra.
+    + `vaṇikānaṁ` (4.1, 16.1): hiểu là “của những người bị thương” (`vaṇa` “vết thương”); vế `ghāna-sīsacchinnāna` bị cắt qua hai khoá bằng dấu gạch nối và được hiểu là “bị cắt mũi, bị chặt đầu”. Có thể đọc là một tập (bị thương ở mũi và đầu); bản dịch chọn hai tập liệt kê, ít giả định hơn về quan hệ giữa `vaṇika` và `chinna`.
+    + `nīlamañcaparāyaṇā` (5.4, 17.4): `nīlamañca` “giường xanh sẫm/xanh đen” — vật cụ thể (có thể là đòn khiêng người chết) không được Pāli nói rõ; dịch sát chữ, không thêm giải thích.
+    + `sakiyā mātā` (2.1): “mẹ ruột” cho `sakiyā` “của chính mình”; có thể đọc nhẹ hơn là “mẹ của con”.
+    + `bhakkhissaṁ` (17.1): hình thái giống ngôi thứ nhất tương lai, nhưng ngữ cảnh (kệ 14–16 mô tả cảnh khổ lúc trước và `bhuñjāmi` ở 16.3, 5.1 `bhakkhāmi`) cho thấy là cách đọc song song với 5.1. Vì tiếng Việt không đánh dấu thì nên cả 5.1 và 17.1 để “Ăn mủ và máu”; sự khác biệt hình thái của Pāli được ghi ở đây, không buộc nghĩa quá khứ hay tương lai.
+    + `Āmantayi` (7.3) → “đã gọi”: Pāli không nói lời gọi đó là gì; không thêm nội dung.
+    + `Muniṁ` (18.3): Pāli không nêu tên vị Mâu-ni; không xác định trong bản dịch.
+    Vì các chỗ trên và thiếu bản Anh độc lập, `semantic_fidelity` 8.8 và `ambiguity_integrity` 8.7.
+  - Kiểm tra: 76/76 khoá đúng tập và thứ tự Pāli; NFC, không khoá rỗng, không khoảng trắng thừa; nháy kép “ ” khớp Pāli từng khoá (8 khoá có nháy: 1.1, 1.4, 2.1, 6.4, 11.1, 13.4, 14.1, 18.4), nháy đơn 0/0; dấu lược `…` 0/0 (Pāli không có), `(…)` 0; không Pāli lọt vào thân bản dịch ngoài tên riêng và thuật ngữ giữ nguyên (Petavatthu, Ubbarivagga, Sāriputta, Moggallāna, Kāsi). Đã đọc đối chiếu từng cặp Pāli↔Việt.
+  - technical_integrity 9.6: cổng kỹ thuật do người điều phối chạy — npm run validate; npm test; npm run check; npm run build.
