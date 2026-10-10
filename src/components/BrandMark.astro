@@ -1,0 +1,8 @@
+---
+import mark from '../../source/brand-mark.json';
+interface Props { class?: string; }
+const { class: className = 'brand-mark' } = Astro.props;
+---
+<svg class={className} viewBox={mark.viewBox} width="48" height="48" aria-hidden="true" focusable="false">
+  {mark.paths.map(d => <path fill="currentColor" d={d} />)}
+</svg>
