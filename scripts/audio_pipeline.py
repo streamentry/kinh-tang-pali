@@ -11,10 +11,30 @@ def write_json(path, data):
 
 def split_text(text, limit):
     # Preserve all characters; prefer sentence ends, then whitespace. Never alter scripture.
+    def balanced_prefixes(value):
+        open_double=open_single=close_double=close_single=0
+        balanced=[True]
+        for char in value:
+            if char=='“': open_double+=1
+            elif char=='”': close_double+=1
+            elif char=='‘': open_single+=1
+            elif char=='’': close_single+=1
+            balanced.append(open_double==close_double and open_single==close_single)
+        return balanced
+
     parts=[]
     while len(text)>limit:
-        matches=list(re.finditer(r'[.!?…][”’\"\']?\s+',text[:limit]))
-        cut=matches[-1].end() if matches else max(text.rfind(' ',0,limit),text.rfind('\n',0,limit))+1
+        window=text[:limit]
+        balanced=balanced_prefixes(window)
+        sentence_cuts=[match.end() for match in re.finditer(r'[.!?…][”’\"\']?\s+',window)]
+        whitespace_cuts=[match.end() for match in re.finditer(r'\s+',window)]
+        # Do not leave a quoted passage open at the end of a TTS request when an
+        # earlier natural boundary can keep the whole quote in the next chunk.
+        candidates=sorted(set(sentence_cuts+whitespace_cuts),reverse=True)
+        cut=next((position for position in candidates if balanced[position]),0)
+        if cut<=0:
+            matches=sentence_cuts
+            cut=matches[-1] if matches else max(text.rfind(' ',0,limit),text.rfind('\n',0,limit))+1
         if cut<=0 and text[limit].isspace(): cut=limit
         if cut<=0: raise ValueError('Unbroken token exceeds narration chunk limit')
         parts.append(text[:cut]);text=text[cut:]
