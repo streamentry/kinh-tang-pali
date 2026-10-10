@@ -1,48 +1,76 @@
 uid: ja512
 status: draft
-translationTitle: "Kinh Kumbha"
+translationTitle: "Kinh Cái Bình"
 translators:
-  - "OpenCode Space Bunny Free (agent)"
+  - "Claude Sonnet 5.5 (Claude Code)"
 reviewers: []
 tags:
-  - "khuddakanikaya"
+  - "khuddaka-nikaya"
   - "jataka"
-  - "verse"
-  - "tim-sanipāta"
-  - "doc"
+  - "timsanipata"
+  - "kimchandavagga"
+  - "kumbhajataka"
 quality:
   scores:
-    source_provenance: 9.6
-    semantic_fidelity: 9.3
-    grammar_logic: 9.2
+    source_provenance: 9.5
+    semantic_fidelity: 8.8
+    grammar_logic: 8.9
     segment_alignment: 10.0
-    terminology: 9.2
-    triangulation: 8.5
-    vietnamese_clarity: 9.1
-    han_viet_balance: 9.3
+    terminology: 9.0
+    triangulation: 7.5
+    vietnamese_clarity: 9.0
+    han_viet_balance: 9.2
     ambiguity_integrity: 9.2
-    technical_integrity: 10.0
-  final_score: 9.34
+    technical_integrity: 9.6
+  final_score: 9.07
   blocking_errors:
-    - "Bản dịch chỉ phủ 1 khoá có nội dung; lát được chia bằng bộ lọc coverage 40 ký tự thay vì missingAll nên bài thiếu khoá, validate yêu cầu requireComplete."
-  assessed_at: "2026-09-30"
+    - "noEnglishEditionUpstream: Thiếu bản dịch tiếng Anh đối chiếu"
+  assessed_at: "2026-10-11"
   assessed_by:
-    - "OpenCode Space Bunny Free (agent)"
+    - "Claude Sonnet 5.5 (Claude Code)"
 notes: |-
-  **Chỉ một khoá trong lát này.** Bài có nhiều khoá hơn, nhưng `kiểm` của `_hvi.py` chỉ đòi phủ những khoá Pāli dài **≥ 40 ký tự** và không phải khoá đánh số phần `:N.0`; đếm trên tầng Pāli thì đúng **một** khoá rơi vào điều kiện đó, và đó là khoá được giao. Các vế kệ còn lại, dòng tiêu đề `:0.1`–`:0.4` và dòng kết bài không nằm trong lát, tôi **không** dịch và **không** tự thêm vào tệp.
-  **Tầng tham khảo đã đo, không đoán.** Tại commit đã ghim, bài này có 0 segment tiếng Anh Sujato; và tầng Việt hiện hành (`translation/vi/phantuananh/`) tại cùng commit chỉ có 26 tệp Pháp Cú, nên **không** có bản Hòa thượng Thích Minh Châu để đối chiếu. Vì vậy `triangulation` đặt 8,5: dịch từ Pāli root, đối chiếu cú pháp qua từ điển và qua bối cảnh trong chính bài. Đây là đặc điểm của bản chụp upstream, không phải thiếu hàng của kho.
-  **Tra tiền lệ (đếm được):** `kumbha` → *bình* (`snp2.7:27.4` "cho sữa đầy bình");
-  `dadhi` → *sữa* (`snp1.2:1.1` "đã nấu cơm, đã vắt sữa"); `madhu` → *mật ong*
-  (`dn26:19.4` "dầu, mật ong, mật mía và muối"); `vā … vā` → *dù là … hay …*; `rāja`
-  (ngữ vực) → *vua*.
-  **Bối cảnh đã đọc trước khi dịch:** `26.1`–`26.4` nói các vị trời ngày xưa uống phải
-  thứ độc lấy từ hộp trầu, và `27.3` nói rõ *thứ độc ấy trong bình là do ta bỏ vào*. Vì
-  vậy `27.1` cố ý đặt cả hai vế cùng cấp để người đọc hiểu: nhìn thì là sữa hay mật
-  ong, thật ra là độc. Tôi giữ cấu trúc "dù là … hay …" và **không** thêm chữ nào
-  nói trước là độc — phần đó thuộc vế sau, không thuộc khoá này.
-  **0 tiền lệ, đặt mới:** `nayaṁ` ở đầu khoá. Tôi quét **toàn bộ** 3.261 bài Việt đã
-  dịch, tìm mọi khoá Pāli dài ≥ 40 ký tự có chứa `nayaṁ` và đã có bản dịch: **0 khoá**.
-  Nên "Bây giờ" là lựa chọn mới, dùng như liên từ mở câu (nó không mang nghĩa thời gian
-  nào thêm). Đây là chỗ làm câu hơi nặng — tôi hạ `vietnamese_clarity` xuống 9,1 vì thế,
-  thay vì bỏ chữ.
-  **Dấu ngoặc kép:** Pāli khoá này không có ngoặc, và tôi cũng không thêm.
+  Dịch trực tiếp từ Pāli root snapshot bilara đã ghim, đường dẫn `kn/ja/ja512_root-pli-ms.json` (129/129 khoá, đúng thứ tự Pāli). Bài này trước đó mới có một khoá (`27.1`); lượt này dịch trọn bài, và sửa lại chính khoá `27.1` (xem mục Sửa khoá cũ).
+
+  - Tầng tham khảo:
+    Upstream commit đã ghim không có bản dịch tiếng Anh của Bhikkhu Sujato cho thân bài ja512 (`ja512_translation-en-sujato.json` vắng mặt; tầng `english-sujato` chỉ có 83 tệp `ja`, không có uid này), nên đây là `not-published-upstream`, không phải `not-synced`. Bản Việt hiện hành (`translation/vi/phantuananh/`) tại commit đã ghim chỉ có Pháp Cú. Lớp lấp `english-project` của dự án chưa có tệp cho bài này. Ba tầng tham khảo đều vắng nên bài mang trạng thái `draft` với blocker `noEnglishEditionUpstream`, và `triangulation` đặt 7.5 (≤ 8.0). Riêng tầng `name/` của Sujato có tên bài và tên phẩm (chỉ là tiêu đề, không phải thân kinh): `ja-timsanipata` "The Book of the Thirties", `ja-kimchandavagga` "What Is Your Desire?", `ja512` "The Sin Within the Cup"; tôi chỉ dùng chúng để chọn tên bộ và tên phẩm.
+  - Coverage English:
+    Mẫu số = 1: chỉ khoá `27.1` (41 ký tự) đạt ngưỡng 40 ký tự theo `source/layers.yaml` (bài toàn kệ ngắn, bỏ khối `:0`). Sujato phủ 0/1, `english-project` 0/1, `vietnamese-current` 0/1, tức coverage 0, dưới ngưỡng khai trong `source/layers.yaml`. `content/meta/reference-gaps.yaml` đã có mục ja512 (1 khoá, coverage 0); mục đó chỉ thừa nhận việc mất tầng, không cứu được `published`. Với 128 khoá còn lại cổng coverage không đo được gì, nên ngoài khoá `27.1` không có chỗ nào của bài được đối chiếu English; mọi chỗ khác dựa vào Pāli một mình, kèm tiền lệ Việt của kho và bối cảnh trong chính bài.
+  - Sửa khoá cũ (accuracy fix) `27.1`:
+    `Nayimasmiṁ kumbhasmiṁ dadhi vā madhu vā` là `na` + `imasmiṁ` ("trong bình này không có sữa chua hay mật ong"). Bản cũ đọc `nayaṁ` thành "Bây giờ" và bỏ mất phủ định, nên nói ngược lại điều Pāli nói. Phủ định này được chính bài xác nhận: `4.1`–`4.2` ("không phải bình bơ sữa… không phải bình mật ong") và `27.3` ("điều có trong bình này, tôi đã nói rõ"). Đó là lý do khoá này phải đổi, không phải đổi chữ cho khác.
+  - Phân loại & tiêu đề:
+    + `0.1` "Jātaka"; `0.2` "Bộ Ba Mươi Bài Kinh" (Tiṁsanipāta; tiṁsa = 30; theo `Vīsatinipāta` → "Bộ Hai Mươi Bài Kinh" ở `ja497`, `ja508`, và `Terasakanipāta` → "Bộ Mười Ba Bài Kinh" 9/9 khoá); `0.3` "Phẩm Mong Muốn Gì" (Kiṁchandavagga, theo tên Sujato "What Is Your Desire?"; phẩm này chưa có tiền lệ trong tầng, xin người điều phối gộp nếu ja511 chọn cách khác); `0.4` "2. Kinh Cái Bình" (kumbha = bình, theo `ja291` "Kinh Bình Rượu", `Kumbhavagga` → "Phẩm Bình Vò"; `0.4` mang số 2 và `32.1` "thứ hai" khớp nhau).
+    + `32.1` "Kinh Cái Bình, thứ hai." theo khuôn "Kinh Sulasā, thứ ba." (`ja419:10.1`).
+  - Lời nói và nháy kép:
+    Pāli có bốn đoạn lời nói: `1.1`–`3.4` (vua hỏi vị Bà-la-môn trên không), `4.1`–`27.4` (lời đáp dài, trong đó `4.4` kêu "hãy nghe" cả hội chúng), `28.1`–`29.4` (vua nhận lời, tặng lễ), `30.1`–`31.4` (Sakka tự lộ diện). Mở/đóng đúng từng khoá theo Pāli. Vua xưng "tôi", gọi "ngài" (theo `ja441:14.4` "tôi tặng ngài mười sáu làng thượng hạng"); Sakka trước khi lộ diện xưng "tôi" (`27.3`), sau khi lộ diện xưng "ta" (`30.4`, theo `ja470:14.3`).
+  - Pāli trùng nguyên văn:
+    Dò Pāli của 129 khoá với toàn bộ Pāli đã ghim có bản Việt (mọi bộ, 191.657 khoá): 6 khoá có ít nhất một dạng trùng ở bài khác. Dùng lại nguyên văn (5/6): `0.1` (Jātaka), `14.1` (`sn3.20:5.1`, chỉ khác dấu nháy mở), `29.2` (`ja456:3.2`, `ja456:12.2`), `29.3` (`ja441:14.2`), `31.4` (`ja483:18.4`). Cố ý khác tiền lệ (1/6): `29.1` so với `ja456:12.1` ("Ta ban cho ngươi"): `ja456` là lời gửi một người dưới quyền, còn ở đây là vua nói với vị được tôn kính, nên dùng "Tôi tặng ngài" theo `ja441:14.4`.
+    Trong chính bài: 1 Pāli trùng nguyên văn là điệp khúc `Tassā puṇṇaṁ kumbhamimaṁ kiṇātha` (20 khoá: `5.4`–`23.4` và `25.4`; `24` không có điệp khúc); cả 20 khoá dịch đúng một câu "hãy mua cái bình này, đầy thứ ấy." (0 cặp trùng mà Việt khác).
+  - Số Pāli:
+    `pañca` (29.1) = 5 → "năm làng"; `dāsīsataṁ` (29.2) = dāsī + sata = 100 → "một trăm tớ gái"; `satta gavaṁsatāni` (29.2) = 7 × 100 = 700 → "bảy trăm con bò" (khớp `ja456:3.2`); `dasa` (29.3) = 10 → "mười cỗ xe"; `dāsīsatam` (30.1) = 100 → "một trăm tớ gái ấy"; `cāturanto` (11.3) = cātu + anta = bốn phương; `tidasānamindo` (30.4) = chúa của ba mươi ba vị trời (theo `ja470:14.3`); `ekathūpā` (22.1) = eka 1 → "thành một đống"; `Tiṁsa` (0.2) = 30; `dutiyaṁ` (32.1) = 2, khớp "2." ở `0.4`. Bài không có số đếm nào khác.
+  - Thuật ngữ (có đếm trên tầng):
+    + `sappi` → "bơ sữa" (danh sách `sappi navanītaṁ telaṁ madhu phāṇitaṁ loṇaṁ` ở `dn26:19.4`, `an7.67:12.2`, `an7.67:24.2`; `phāṇita` → "mật mía" 9/14 khoá có `phāṇita` ("đường phèn" 3 khoá ở `sn7.13`, `sn14.16`; 2 khoá khác)); `dadhi` → "sữa chua" (`mn46:21.1`, `mn126:17.1`; `dn9:52.1` viết "sữa đông" nhưng ở đó là một nấc trong chuỗi chế biến); `tela` → "dầu".
+    + `sobbha` → "hố sâu" (`mn2:19.2`, `mn86`); `papāta` → "vực"; `candanikā` → "hố phân" (3 khoá `mn12:33.8`, `mn129:22.5` "hố phân" và `an3.57:3.2` "hố thải", so với "vũng nước bẩn" 2 và "đầm lầy" 2); `oḷigalla` → "cống rãnh" (`mn2:19.2`, `sn55.12:1.5`, `mn66:6.19`).
+    + `dittarūpa` → "mang vẻ kiêu ngạo" (`ja382:17.5`, "với vẻ kiêu ngạo"; `ja291:2.1` `ditta` → "ngạo nghễ"); `pubbadevā` → "chư thiên xưa kia" (`sn11.5:1.11`); `ativela` → "quá độ" (nhóm `dn24:2.18.*`); `thaṇḍila` → "đất trần" (`dn8:14.16`, `sn35.132:5.3` "nhịn ăn, nằm trên đất trần" — cùng cặp `anāsaka`/`thaṇḍilasāyin`); `accāyika karaṇīya` → "việc khẩn cấp" (`mn24:14.3`); `janinda` → "chúa của loài người" (`ja411:3.4`); `apāya` → "cõi dữ" (cụm `apāyaṁ duggatiṁ vinipātaṁ nirayaṁ` ở tầng: "cõi dữ" 84 khoá, "cõi ác" 42, "cảnh khổ" 38, "cảnh giới khổ" 33, "cõi khổ" 8; trong các Jātaka đã dịch: 0 tiền lệ); `maṁsodana` → "cơm thịt" (`dn26:19.6` "cơm gạo sāli với thịt"); `ācariya` → "thầy" (8/18 khoá `ja` có "thầy", 2 có "bậc thầy"); `hitānukampī` → "thương tưởng lợi ích" (nhóm `dn2:43.2`, `dn10:1.11.2`); `hirañña` → "vàng bạc" (`dn17:1.16.6`).
+    + `dhutta` (12.3): tầng chia đôi, `dn31:12.2` "ăn chơi", `dn17:1.6.13` "cờ bạc"; vì ở đây đi cùng `cora` (kẻ trộm) nên dịch "quân lưu manh". `vāruṇī` (23.2): giữ nguyên Pāli, thêm "rượu" để người đọc nhận ra loại thức uống; tầng không có tiền lệ.
+  - Chỗ bất định (không thêm vào thân kinh):
+    + `2.1` `chinnavātaṁ`: dịch sát chữ "nơi không gió" (vāta bị cắt đứt); không tra được tiền lệ.
+    + `2.4` `anaddhagūnaṁ`: `addhagū` là người đi đường dài / người đã đi qua một chặng dài; dịch sát chữ "những vị trời không phải bậc đi đường dài", nghĩa chính xác của lời so sánh này (không phải bậc cao tuổi hay không đi xa được?) chưa phân xử được từ Pāli một mình.
+    + `3.1` `gammamāgamma`: dịch "đến rồi đứng"; nghĩa đen "đã đi và đã đến" chưa chắc, không ảnh hưởng điều bài nói (vị Bà-la-môn đứng giữa không trung).
+    + `6.1` `cittasmimanesamāno`: "trong tâm chẳng còn tìm cầu điều gì" (cittasmiṁ + anesamāno); `6.3` `anāthamāno`: "chẳng cầu xin gì" (nāthati = xin, cầu); hai chỗ đều là dạng hiếm, cách đọc khác là "không ai thỉnh cầu".
+    + `8.3` `dārukaṭallakova`: "như con rối gỗ" (dāru = gỗ; kaṭalla chưa tra được trong tầng, đọc là vật gỗ cử động); có thể là "khúc gỗ".
+    + `10.3` `vantagato`: "nôn mửa" (vanta = đồ nôn); `byasanno` → "chìm trong tai họa" (byasana-panna).
+    + `19.1`–`19.3`: `yaṁ yācamānā na labhanti pubbe` tách rời khỏi `taṁ` ở `19.3`; tôi giữ nguyên cấu trúc ("Điều mà trước đây có cầu xin cũng chẳng được…") và không điền chữ nào để giải đại từ `yaṁ`.
+    + `23.2` `kuṭahatā`: `kūṭa` là búa hoặc bẫy; dịch trung tính "bị đánh gục". `23.2`–`23.3`: `na hi vāruṇiyā vego narena susahoriva` đọc "bởi đối với rượu vāruṇī, sức mạnh ấy người ta khó mà chịu nổi".
+    + `25.1` `andhakaveṇḍaputtā`: giữ dạng ghép "Andhakaveṇḍu" (tên dòng/ tên người, không tách đôi); không tra được tiền lệ trong tầng.
+    + `26.2` `sassatiyā samāya`: `samā` = năm; dịch "khỏi những năm tháng miên viễn"; cách đọc khác ít khả dĩ hơn là "khỏi hội chúng thường hằng".
+    + `27.4` `sabbamitta`: dịch như danh xưng "hỡi bậc bạn của muôn người"; không loại trừ đây là tên vua trong phần văn xuôi (tầng Pāli ghim không có phần văn xuôi để xác minh).
+    + `29.4` `hosi`: dịch ở thì hiện tại, "ngài là thầy của tôi"; cách đọc mệnh lệnh "hãy làm thầy của tôi" cũng ngữ pháp được.
+    + `31.2` `madhumāsapūve`: "bánh mật ong và đậu" (pūva = bánh, māsa = đậu); đọc ghép `madhu` + `māsa` + `pūva`.
+  - Phép kiểm tra:
+    1. Tập khoá Việt = tập khoá Pāli: 129/129, cùng thứ tự.
+    2. Nháy đơn `‘’` và kép `“”` khớp Pāli từng khoá: 0/129 lệch (Pāli không có nháy đơn; nháy kép 4 mở + 4 đóng, mở ở `1.1`, `4.1`, `28.1`, `30.1`, đóng ở `3.4`, `27.4`, `29.4`, `31.4`).
+    3. Pāli trùng nguyên văn trong chính bài: 1 Pāli (điệp khúc, 20 khoá), Việt khác 0.
+    4. Dấu lược: Pāli 0/129 khoá có `…` hay `(…)`; Việt 0/129.
+    5. Số Pāli: xem trên.
+    NFC đạt, không khoá rỗng, không khoảng trắng thừa, không Pāli lọt sang Việt ngoài tên riêng (`Jātaka`, `vāruṇī`, `Andhakaveṇḍu`).
+  - Công cụ kiểm của kho chưa chạy ở bước này, nên `technical_integrity` đặt 9.6 và không tuyên bố technical gate pass; còn phải chạy: `npm run validate`, `npm test`, `npm run check`, `npm run build`.
