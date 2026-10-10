@@ -112,3 +112,7 @@ Nhật ký append-only. Registry `content/audio/progress.json` được đối s
 ### MN10 merge checkpoint — PR #424
 
 - Remote PR readback confirms merged at 2026-10-10T13:36:10Z, squash `15df29af4a80e4bf8d3173e3c93ca5b3b13ddf41`, exact head `6c80dba87aa5c8a5893d2618f54a37f3d471a363`. Both CI runs 38047734717 and 38047726786 succeeded. Pages run 38056352391 is in progress; live verification remains outstanding. Review pending.
+
+### MN10 production verification
+
+- Pages workflow 38056352391 succeeded for merge `15df29af4a80e4bf8d3173e3c93ca5b3b13ddf41`. Reloaded production page and confirmed the reader displays “Bản nghe 31 phút” and the audio player with the expected R2 link `vi/mn/mn10/6f0eb8412b856b12.mp3`. On production, play changed to pause; +15s moved timeline to 0:16; “Kinh văn 2:29” moved it to 2:29 (150s); pause returned to play. Review remains pending.
