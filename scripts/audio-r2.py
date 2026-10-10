@@ -6,6 +6,8 @@ import argparse, hashlib, json, os, subprocess, time, tomllib, urllib.request, u
 from pathlib import Path
 from gemini_tts import ROOT, load_env
 from narration_config import load_profile, assert_profile_metadata
+from audio_pipeline import mp3_info, write_json
+from audio_progress import update, now
 
 def main():
     parser=argparse.ArgumentParser(); parser.add_argument('folder',type=Path); args=parser.parse_args()
@@ -25,7 +27,10 @@ def main():
         except urllib.error.HTTPError as e: raise SystemExit(f'Cloudflare authentication HTTP {e.code}; run bunx wrangler login.') from None
         if len(accounts)!=1: raise SystemExit('Set CLOUDFLARE_ACCOUNT_ID to select exactly one account.')
         account=accounts[0]['id']
-    bucket='kinh-tang-pali-audio'
+    storage_file=ROOT/'source/audio-storage.json'
+    storage=json.loads(storage_file.read_text())
+    if account!=storage['account_id']:raise RuntimeError('Authenticated account differs from pinned audio storage')
+    bucket=storage['bucket_name']
     base=f'https://api.cloudflare.com/client/v4/accounts/{account}/r2/buckets'
     def request(url,method='GET',body=None,headers=None,raw=False):
         h={'Authorization':'Bearer '+token, **(headers or {})}
@@ -41,6 +46,8 @@ def main():
     uid=manifest['uid']; mp3=(args.folder/f'{uid}.mp3').read_bytes()
     current=json.loads(subprocess.check_output(['node','--import','tsx','scripts/audio-source.ts',uid],cwd=ROOT))
     if current['source_sha256']!=manifest['source_sha256']:raise RuntimeError('Narration source changed; regenerate before uploading')
+    mp3_info(mp3)
+    if len(mp3)!=manifest['bytes']:raise RuntimeError('MP3 byte count mismatch')
     if hashlib.sha256(mp3).hexdigest()!=manifest['sha256']:raise RuntimeError('MP3 hash mismatch')
     try: info=request(base+'/'+bucket)
     except RuntimeError as e:
@@ -65,9 +72,17 @@ def main():
             if e.code not in (404,429,503) or attempt==5:raise RuntimeError(f'Public audio HTTP {e.code}') from None
             time.sleep(3)
     if hashlib.sha256(remote).hexdigest()!=manifest['sha256']:raise RuntimeError('Public R2 hash mismatch')
+    with urllib.request.urlopen(urllib.request.Request(url,headers={'User-Agent':'kinh-tang-pali-audio/1.0','Range':'bytes=0-1023'}),timeout=60) as response:
+        if response.status!=206 or response.read()!=mp3[:1024]:raise RuntimeError('Public range readback failed')
+    current=json.loads(subprocess.check_output(['node','--import','tsx','scripts/audio-source.ts',uid],cwd=ROOT))
+    if current['source_sha256']!=manifest['source_sha256']:raise RuntimeError('Source changed during upload; do not register stale player')
+    manifest['r2_verified_at']=now()
+    manifest['public_range_verified']=True
     manifest.update({'url':url,'bucket':bucket,'object_key':key})
     target=ROOT/'content/audio'/f'{uid}.json';target.parent.mkdir(parents=True,exist_ok=True)
-    target.write_text(json.dumps(manifest,ensure_ascii=False,indent=2)+'\n')
+    write_json(target,manifest)
+    update(uid,'generated',upload_verified=True,url=url,object_key=key,bucket=bucket,bytes=manifest['bytes'],sha256=manifest['sha256'],r2_verified_at=manifest['r2_verified_at'],public_range_verified=True)
+    # uploaded-verified is awarded only after browser playback verification, not merely an upload.
     storage_file=ROOT/'source/audio-storage.json'
     storage=json.loads(storage_file.read_text()) if storage_file.exists() else {}
     storage.update({'provider':'cloudflare-r2','account_id':account,'bucket_name':bucket,

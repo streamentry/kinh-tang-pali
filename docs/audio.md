@@ -73,3 +73,11 @@ Nguồn API: [Gemini speech generation](https://ai.google.dev/gemini-api/docs/sp
 Player có `< Back` / `Next >` theo thứ tự catalog trong cùng bộ kinh. Nút ở đầu/cuối bộ bị vô hiệu hóa; nút vẫn mở trang đọc khi bài liền kề chưa có audio. Toggle “Tự chuyển bài” mặc định bật, lưu tại localStorage `kinh-tang-pali:audio:auto-next:v1` và đồng bộ giữa các tab. Nếu storage bị chặn, lựa chọn vẫn hoạt động trong trang hiện tại.
 
 Khi phát hết, chỉ chuyển đến bài liền sau nếu metadata audio còn hợp lệ với nguồn hiện tại. Không tự bỏ qua bài chưa có MP3, không vòng về đầu bộ. Khi chuyển tự động, trang sau thử phát tiếp từ đầu qua marker sessionStorage dùng một lần, hết hạn sau 60 giây; truy cập trang bình thường không autoplay. Trình duyệt có thể chặn tự phát sau chuyển trang: player báo rõ và yêu cầu bấm Phát. Tắt toggle thì phát hết bài sẽ dừng.
+
+## Contract Gate và resume hàng loạt
+
+`audio-source.ts` chặn status chưa published, thiếu summary, chưa sync Pāli và bất kỳ đoạn Việt canonical còn thiếu. `audio-inventory.ts` kiểm mọi UID trong catalog MN/DN. `audio-progress.py --init` dựng/đối soát registry tất cả UID; thay nguồn/profile làm entry blocked để kiểm lại.
+
+Generator chia văn bản quá dài theo dấu kết câu hoặc khoảng trắng, giữ nguyên ký tự và thứ tự khi tái ghép. Cache fingerprint gồm source, profile và toàn bộ kế hoạch chunk. Mỗi WAV phải khớp text hash, WAV hash, sample format và frame count; checkpoint atomic ghi ngay sau từng chunk. Source được đọc lại trước mỗi request. Một OS flock dùng chung toàn máy ngăn TTS trùng tiến trình; restart dùng lại chunk hợp lệ. Nếu cần sử dụng `.env` ở checkout chính trong worktree riêng, đặt `NARRATION_ENV_FILE` tới file đó; không copy secrets.
+
+MP3 được kiểm toàn bộ frame MPEG-2 Layer III 24 kHz/160 kbps và đối chiếu duration với WAV trước upload. Uploader đọc storage registry, chặn sai account, kiểm SHA-256/bytes/range response và kiểm source lần nữa sau upload. Nó chỉ ghi upload evidence ở trạng thái generated; browser playback/seek/chuyển phần được xác minh riêng trước khi nâng uploaded-verified. Merge/live/review không tự suy ra từ upload.
