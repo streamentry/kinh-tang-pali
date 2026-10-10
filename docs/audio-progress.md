@@ -88,3 +88,8 @@ Nhật ký append-only. Registry `content/audio/progress.json` được đối s
 - Registry MN7/MN8 ghi merged, review pending. Pages run `38042010626` đang pending, chưa ghi live hoặc production playback evidence. MN9 mới prepare-only: 20 chunk, tối đa 1.396 ký tự, 232 segment kinh văn; chưa gọi TTS.
 
 - Pages run `38042010626` SUCCESS. Production MN7/MN8 dùng đúng URL R2 đã đăng ký; cả hai phát/tua +15s/chuyển kinh văn/pause thành công, readyState 4 và không media error. MN7 duration 982,056s, scripture 172,23s; MN8 duration 1.416,744s, scripture 161,75s. Ghi live, review nội dung vẫn pending.
+
+## 2026-10-10 — MN9 verified upload
+
+- 20 chunk/232 segment kinh văn, profile giữ nguyên. First attempt được giữ trong cache; local ASR có long apparent omissions ở index 4/11/13/14, retry đúng một lần bốn chunk và reuse 16 chunk khác. Full recheck không còn long differences; không tuyên bố human approval.
+- R2 `vi/mn/mn9/85e57d831718cc5f.mp3` đã kiểm MIME/hash/bytes/range public. Local reader phát đúng URL, tua +15s/chuyển kinh văn 164,35s/pause thành công; duration 1.966,2s, readyState 4, không media error. Ghi uploaded-verified, review pending; chưa merge/live.
