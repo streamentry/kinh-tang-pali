@@ -131,3 +131,7 @@ Nhật ký append-only. Registry `content/audio/progress.json` được đối s
 - Planner correction PR #430 merged at `7e0e91151c866dce1238078d5d2c909b36d368ea`. The rebuilt 34-chunk plan reuses 28 exact text-hash WAVs and regenerates indexes [2, 3, 8, 9, 32, 33]. The previous R2 object `vi/mn/mn12/2bacd0292eb74107.mp3` remains unregistered; the new object is `vi/mn/mn12/954eeda4dfd9c315.mp3`.
 - New MP3: 3137.35s, 62748000 bytes, SHA-256 `954eeda4dfd9c315306f7a7c283735232f4765a42102f305fb94afb674cbc510`. Uploader verified public MIME/hash/bytes/range-206. Local player at port 4326 passed play, +15s seek, scripture jump at 2:30 and pause; review remains pending.
 - Full offline Whisper comparison covered 34 chunks, similarity range 0.7174–0.9821. Residual full-chunk ASR differences on repetitive passages are recorded in metadata; overlapping windows checked reused chunks 18, 26 and 27. This is machine QC, not human listening approval.
+
+### MN12 production verification
+
+- Pages workflow 38065259426 succeeded for merge `52d0173cba1b1396a28f14035ef1171925564e93`. Production MN12 page displays the 52-minute player and new R2 key `vi/mn/mn12/954eeda4dfd9c315.mp3`. On production, play entered pause state; +15s advanced to 0:19; “Kinh văn 2:30” moved to 2:30; pause returned to play. Review remains pending.
