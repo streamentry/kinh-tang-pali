@@ -16,21 +16,21 @@ còn lại là chấm lại / sửa, không phải dịch.
 
 ### ⚡ CHIẾN LƯỢC TĂNG TỐC: ĐIỀU PHỐI 3–5 SUB-AGENTS SONG SONG MỖI PHIÊN
 
-Để tăng tốc tối đa hoàn thành toàn bộ corpus (hiện còn **542 bài / 113.823 khoá**), **mỗi phiên làm việc lập kế hoạch và tạo 3–5 sub-agents chạy cùng lúc (song song qua `invoke_subagent`)**:
+Để tăng tốc tối đa hoàn thành toàn bộ corpus (hiện còn **162 bài / 75.553 khoá**, đo tại `21446453`), **mỗi phiên làm việc lập kế hoạch và tạo 3–5 sub-agents chạy cùng lúc (song song qua `invoke_subagent`)**:
 - **Phân bổ công việc độc lập**: Mỗi sub-agent nhận trọn gói 1 bài (~50–60 khoá) hoặc 1 lát riêng biệt, có prompt đầy đủ ngữ cảnh, danh sách khoá Pāli, tiền lệ bộ kinh, và ràng buộc chất lượng.
 - **Tự trị & tự kiểm tra**: Mỗi sub-agent tự đọc `skill/translation.md`, tra cứu Pāli root + English/TMC reference, dịch đủ khoá, tự chạy 5 phép kiểm tra đối chiếu (khớp tập khoá, khớp nháy kép/đơn, nhất quán Pāli trùng lặp trong bài, chuẩn hoá `…pe…` → `…`, kiểm tra số Pāli), tạo file JSON bản dịch và file YAML meta kèm scorecard đầy đủ 10 tiêu chí.
 - **Coordinator tổng hợp & gác cổng**: Coordinator đón kết quả từ 3–5 sub-agents, chạy script kiểm tra độc lập (`_checkwave.ts`), sinh lại gap report (`npm run reference:gaps`) và store verification (`npm run verify:store:write`) nếu có bài mới dưới sàn coverage, kiểm tra toàn bộ 13 cổng kỹ thuật trên worktree sạch, tạo PR và squash merge khi CI xanh.
 
 ---
 
-## TRẠNG THÁI HIỆN TẠI (đo 2026-10-10 tại `00fc43c5`, `main`, sau wave 55–56)
+## TRẠNG THÁI HIỆN TẠI (đo 2026-10-11 tại `21446453`, `main`, sau wave 97 / PR #447)
 
-HEAD của `main` = `00fc43c5` — "dịch(vi): đợt 19 wave 55–56 — 10 bài / 740 khoá (#400)". Từ wave 22 đến 56 mỗi lane 5 bài (từ wave 47 gộp 2 lane / PR); sn+an đã dịch hết (còn lại **chỉ kn**), bài kn không có Sujato giữ `draft` + blocker `noEnglishEditionUpstream`.
+HEAD của `main` = `21446453` — "dịch(vi): đợt 19 wave 97 — 5 bài / 765 khoá (#447)". Từ wave 22 đến 97 mỗi lane 5 bài (từ wave 47 gộp 2 lane / PR); sn+an đã dịch hết (còn lại **chỉ kn**), bài kn không có Sujato giữ `draft` + blocker `noEnglishEditionUpstream`.
 
 PR đã merge gần nhất (đợt 19, wave 6 → 21): #365 (wave 21) · #364 (wave 20) · #361 (wave 19) · #360 (wave 18) · #359 (wave 17) · #358 (wave 16) · #357 (wave 15) · #356 (wave 14) · #355 (wave 13) · #354 (wave 12) · #353 (wave 11) · #352 (wave 10) · #351 (wave 9) · #350 (wave 8) · #349 (wave 7) · #348 (wave 6) · #345 (wave 5)...
 
-Bài đủ mọi khoá: **5.770**; còn thiếu **367** bài / **97.797** khoá.
-Bất biến đo được: `đủ 5.770 + thiếu 367 = 6.137 = catalogue`, **0 bài không đo được**.
+Bài đủ mọi khoá: **5.975**; còn thiếu **162** bài / **75.553** khoá (toàn kn; đủ 2.189).
+Bất biến đo được: `đủ 5.975 + thiếu 162 = 6.137 = catalogue`, **0 bài không đo được**.
 Record `reference-gaps` **776**.
 
 ⚠️ **Đính chính số đo:** các số ghi trước đây ở đợt 19 wave 4–5 (`5.537/600`, `5.542/595`) **không tái lập được** — `vimeas` trên `main` sạch ở `2a385124` ra **5.515 đủ / 622 thiếu / 119.365 khoá**. Chênh lệch 27 bài / ~10.000 khoá; delta từng wave vẫn khớp. Mọi số bên dưới đo lại trên worktree sạch.
