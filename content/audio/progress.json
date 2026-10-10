@@ -260,12 +260,12 @@
       "uid": "mn6",
       "collection": "mn",
       "order": 6,
-      "status": "not-started",
+      "status": "blocked",
       "source_sha256": "6f91569fff6b2f20f4c23a1eb8017c7309aa4b404f61bf8f10aa40c3bc1ff267",
       "profile_sha256": "a384c5852585077c32e1348a6ada5cfc70a69c989ad705b8b5129fef3e1c9a71",
-      "errors": [],
-      "updated_at": "2026-10-10T00:02:54.154018+00:00",
-      "batch": null,
+      "errors": ["Bounded retry exhausted: long repetition and apparent omission remain in offline ASR; listening/content review required before R2 upload."],
+      "updated_at": "2026-10-10T07:35:00+00:00",
+      "batch": "mn-002",
       "review_status": "pending",
       "url": null,
       "object_key": null,
@@ -275,7 +275,19 @@
       "bytes": null,
       "pr_url": null,
       "merge_commit": null,
-      "live_verified_at": null
+      "live_verified_at": null,
+      "checkpoint": "audio/mn6/636755f1f05946b3",
+      "qc_status": "bounded-retry-exhausted-review-needed",
+      "qc_evidence": {
+        "method": "offline MLX Whisper 0.4.3; full eight-chunk comparison",
+        "retry_chunks": [2, 4, 5],
+        "retry_attempts_per_chunk": 1,
+        "chunk4_retry_seconds": 284.56,
+        "chunk4_retry_similarity": 0.4051094890510949,
+        "issue": "long repetition and apparent omission remain after retry; no upload or player registration",
+        "human_listening_completed": false,
+        "retry_artifact_sha256": "48b016935a0fae6aa438a68c0914bcccd9089968c68b7e98790b23cb6245c197"
+      }
     },
     "mn7": {
       "uid": "mn7",
