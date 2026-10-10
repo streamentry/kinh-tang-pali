@@ -54,3 +54,8 @@ Nhật ký append-only. Registry `content/audio/progress.json` được đối s
 
 - Retry hoàn tất với MP3 1.500,81s/30.017.280 byte, nhưng local ASR vẫn thấy index 4 chỉ 172/303 token (similarity 0,6737), index 8 lệch dài (0,5000) và index 10 lệch dài (0,8347). Index 9 đạt 312/312 token (0,9744) nhưng không bù được ba chunk còn lại.
 - Dừng retry có giới hạn, không upload/đăng ký R2 và không gọi artifact là pass. MN5 chuyển `blocked`, review nội dung vẫn pending; giữ attempt đầu và retry trong checkpoint để nghe đối chiếu. Tiếp tục MN6 theo điều khoản skip blocked, không tính MN5 vào lô thành công.
+
+## 2026-10-10 — MN3 production checkpoint
+
+- PR #409 exact head `1f33ca214fe3757dc34fb64473e4e4d4324c81dc` đã qua cả CI push và pull request; squash merge `87334bdb2b4ff6e60ccef040285eb67de9fd1fbf`.
+- Deploy GitHub Pages run `38032511502` SUCCESS. Production MN3 dùng đúng URL R2 hash `3037c9bf9e8e4540`; player phát được (readyState 4, không media error) và nút Kinh văn seek đúng 162,11s. Registry ghi `live`; review nội dung vẫn `pending`.
