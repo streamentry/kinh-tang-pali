@@ -1,5 +1,5 @@
 import assert from 'node:assert/strict';
-import { readFileSync } from 'node:fs';
+import { existsSync, readFileSync } from 'node:fs';
 import { execFileSync } from 'node:child_process';
 import test from 'node:test';
 
@@ -35,4 +35,17 @@ test('generated design tokens match the registry and component CSS has no separa
   assert.doesNotMatch(css, /#[\da-f]{3,8}\b|rgba?\(|hsla?\(/i);
   assert.match(css, /prefers-reduced-motion/);
   assert.match(css, /forced-colors/);
+});
+
+test('self-hosted fonts cover ordinary Latin, Pāli diacritics and Vietnamese with original licenses', () => {
+  const css = readFileSync('public/styles/fonts.css', 'utf8');
+  for (const family of ['noto-serif', 'be-vietnam-pro']) {
+    for (const subset of ['latin', 'latin-ext', 'vietnamese']) {
+      assert.match(css, new RegExp(`${family}-${subset}-400-normal\\.woff2`));
+    }
+    assert.match(readFileSync(`public/fonts/${family}-OFL.txt`, 'utf8'), /SIL OPEN FONT LICENSE/);
+  }
+  for (const match of css.matchAll(/url\('\.\.\/fonts\/([^']+)'\)/g)) {
+    assert.ok(existsSync(`public/fonts/${match[1]}`), `Missing font: ${match[1]}`);
+  }
 });
