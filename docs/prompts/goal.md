@@ -23,14 +23,14 @@ còn lại là chấm lại / sửa, không phải dịch.
 
 ---
 
-## TRẠNG THÁI HIỆN TẠI (đo 2026-10-09 tại `46335942`, `main`)
+## TRẠNG THÁI HIỆN TẠI (đo 2026-10-10 tại `00fc43c5`, `main`, sau wave 55–56)
 
-HEAD của `main` = `46335942` — "dịch(vi): đợt 19 wave 21 — 5 bài / 387 khoá [an6.44 an7.47 an8.78 sn35.117 sn55.7] (#365)".
+HEAD của `main` = `00fc43c5` — "dịch(vi): đợt 19 wave 55–56 — 10 bài / 740 khoá (#400)". Từ wave 22 đến 56 mỗi lane 5 bài (từ wave 47 gộp 2 lane / PR); sn+an đã dịch hết (còn lại **chỉ kn**), bài kn không có Sujato giữ `draft` + blocker `noEnglishEditionUpstream`.
 
 PR đã merge gần nhất (đợt 19, wave 6 → 21): #365 (wave 21) · #364 (wave 20) · #361 (wave 19) · #360 (wave 18) · #359 (wave 17) · #358 (wave 16) · #357 (wave 15) · #356 (wave 14) · #355 (wave 13) · #354 (wave 12) · #353 (wave 11) · #352 (wave 10) · #351 (wave 9) · #350 (wave 8) · #349 (wave 7) · #348 (wave 6) · #345 (wave 5)...
 
-Bài đủ mọi khoá: **5.595**; còn thiếu **542** bài / **113.823** khoá.
-Bất biến đo được: `đủ 5.595 + thiếu 542 = 6.137 = catalogue`, **0 bài không đo được**.
+Bài đủ mọi khoá: **5.770**; còn thiếu **367** bài / **97.797** khoá.
+Bất biến đo được: `đủ 5.770 + thiếu 367 = 6.137 = catalogue`, **0 bài không đo được**.
 Record `reference-gaps` **776**.
 
 ⚠️ **Đính chính số đo:** các số ghi trước đây ở đợt 19 wave 4–5 (`5.537/600`, `5.542/595`) **không tái lập được** — `vimeas` trên `main` sạch ở `2a385124` ra **5.515 đủ / 622 thiếu / 119.365 khoá**. Chênh lệch 27 bài / ~10.000 khoá; delta từng wave vẫn khớp. Mọi số bên dưới đo lại trên worktree sạch.
@@ -40,9 +40,9 @@ Record `reference-gaps` **776**.
 | phép đo | giá trị | công cụ |
 |---|---|---|
 | catalogue | 6.137 | `vimeas` |
-| bài đủ mọi khoá | **5.595** | `vimeas` |
-| bài còn thiếu | **542** (dn+mn đủ 100%) | `vimeas` |
-| khoá còn thiếu | **113.823** | `vimeas` + `_queue` (hai phép khớp nhau) |
+| bài đủ mọi khoá | **5.770** | `vimeas` |
+| bài còn thiếu | **367** (dn+mn+sn+an đủ 100%, chỉ còn kn) | `vimeas` |
+| khoá còn thiếu | **97.797** | `vimeas` + `_queue` (hai phép khớp nhau) |
 | text dưới sàn coverage ghi nhận (`reference-gaps`) | 776 | `npm run reference:gaps` |
 | `noEnglishEditionUpstream` | 1.596 / 1.596 đã ghi nhận, `agreesWithStoreVerification true` | store verification |
 
@@ -1257,7 +1257,7 @@ tôi **chép** sang `/Volumes/SSD/_wtX-coord` rồi commit ở đó. Cần ngư�
 
 ## MỐC HOÀN TẤT
 
-- [ ] `vimeas.ts`: **bài còn thiếu = 0** (hiện **542**; bất biến "không bài nào bị bỏ qua" ✓)
+- [ ] `vimeas.ts`: **bài còn thiếu = 0** (hiện **367**; bất biến "không bài nào bị bỏ qua" ✓)
 - [ ] `engq.ts`: `segmentsStillMissingEnglish = 0` trong **174** text có thể lấp
 - [ ] đối chiếu chéo: đếm lại từ `source/upstream-manifest.json` và xác nhận
       **1.596** bài `kn` không có tệp Anh Sujato — tất cả phải còn `draft` với blocker
