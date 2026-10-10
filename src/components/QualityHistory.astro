@@ -20,7 +20,7 @@ const label = target === 'summary' ? 'tóm tắt' : 'bản dịch';
   {target === 'translation' && <p>Điểm trên 9, không có lỗi chặn và vượt kiểm tra phát hành mới đủ điều kiện published. Lỗi chặn luôn thắng điểm số.</p>}
   <details>
     <summary>10 tiêu chí chấm {label}</summary>
-    <div class="table-scroll"><table>
+    <div class="table-scroll" tabindex="0" role="region" aria-label="Tiêu chí và điểm đánh giá"><table>
       <thead><tr><th>Tiêu chí</th><th>Cách đánh giá</th></tr></thead>
       <tbody>{rubric.map(([, title, description]) => <tr><th scope="row">{title}</th><td>{description}</td></tr>)}</tbody>
     </table></div>
@@ -32,7 +32,7 @@ const label = target === 'summary' ? 'tóm tắt' : 'bản dịch';
       <p>Người/công cụ đánh giá: {entry.assessed_by.join(', ')}.</p>
       <p>{assessmentIsCurrent(collection, uid, entry) ? 'Khớp nội dung và nguồn đang hiển thị.' : 'Nội dung hoặc nguồn đã thay đổi từ lần đánh giá này; điểm không xác nhận bản hiện tại.'}</p>
       <p class="notes">{entry.notes}</p>
-      <div class="table-scroll"><table><thead><tr><th>Tiêu chí</th><th>Điểm / 10</th></tr></thead><tbody>
+      <div class="table-scroll" tabindex="0" role="region" aria-label="Tiêu chí và điểm đánh giá"><table><thead><tr><th>Tiêu chí</th><th>Điểm / 10</th></tr></thead><tbody>
         {rubric.map(([key, title]) => <tr><th scope="row">{title}</th><td>{entry.scores[key] === null ? 'Chưa đánh giá' : entry.scores[key]}</td></tr>)}
       </tbody></table></div>
       <p>Lỗi chặn ghi nhận: {entry.blocking_errors.length ? entry.blocking_errors.join('; ') : 'không ghi nhận trong phạm vi đánh giá này'}.</p>
@@ -43,24 +43,10 @@ const label = target === 'summary' ? 'tóm tắt' : 'bản dịch';
     <summary>{score.assessed_at ?? 'Chưa ghi ngày'} · Scorecard lịch sử · {score.final_score.toFixed(2)}/10</summary>
     <p>Người/công cụ đánh giá: {(score.assessed_by ?? []).join(', ') || 'Chưa ghi'}.</p>
     <p>Scorecard trong metadata cũ; chưa lưu dấu vân tay nội dung hoặc ghi chú của lần chấm. Không coi đây là một lượt chấm lại.</p>
-    <div class="table-scroll"><table><thead><tr><th>Tiêu chí</th><th>Điểm / 10</th></tr></thead><tbody>
+    <div class="table-scroll" tabindex="0" role="region" aria-label="Tiêu chí và điểm đánh giá"><table><thead><tr><th>Tiêu chí</th><th>Điểm / 10</th></tr></thead><tbody>
       {rubric.map(([key, title]) => <tr><th scope="row">{title}</th><td>{score.scores[key as keyof typeof score.scores]}</td></tr>)}
     </tbody></table></div>
     <p>Lỗi chặn: {score.blocking_errors.length ? score.blocking_errors.join('; ') : 'không ghi nhận'}.</p>
   </details>)}
   </details>
 </section>
-<style>
-  .quality-history { margin-block: 2rem; border-top: 1px solid var(--border, #ddd); padding-top: 1rem; }
-  details { margin-block: 1rem; }
-  summary { cursor: pointer; font-weight: 600; padding-block: .5rem; }
-  .quality-disclosure { margin: 0; }
-  .quality-disclosure > summary h2 { display: inline; font-size: 1.15rem; margin: 0; }
-  summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
-  .table-scroll { overflow-x: auto; }
-  table { width: 100%; border-collapse: collapse; text-align: left; }
-  th, td { border-bottom: 1px solid var(--border, #ddd); padding: .65rem; vertical-align: top; }
-  th { min-width: 10rem; }
-  .notes { white-space: pre-wrap; }
-  .fingerprint { font-size: .8rem; overflow-wrap: anywhere; }
-</style>

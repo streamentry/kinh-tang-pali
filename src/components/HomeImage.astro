@@ -1,0 +1,22 @@
+---
+import { Image } from 'astro:assets';
+import buddha from '../assets/home/samadhi-buddha.jpg';
+import minhTue from '../assets/home/thay-minh-tue.jpeg';
+import registry from '../../source/visual-assets.json';
+
+const files = { 'samadhi-buddha': buddha, 'thay-minh-tue': minhTue };
+interface Props { id: keyof typeof files; priority?: boolean; sizes: string; }
+const { id, priority = false, sizes } = Astro.props;
+const asset = registry.images.find(image => image.id === id)!;
+---
+<figure class:list={['home-image', `image-${id}`]}>
+  <Image src={files[id]} alt={asset.alt} width={800} widths={[400, 800]} sizes={sizes}
+    format="webp" quality={80} loading={priority ? 'eager' : 'lazy'}
+    fetchpriority={priority ? 'high' : 'auto'} />
+  <figcaption>
+    <span>{asset.title}</span>
+    <a href={asset.sourcePage} target="_blank" rel="noopener noreferrer">
+      {asset.author ? `Ảnh: ${asset.author} · ${asset.license}` : 'Nguồn ảnh: Bán Tranh'} ↗
+    </a>
+  </figcaption>
+</figure>

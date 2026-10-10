@@ -14,6 +14,7 @@
  * credits edition rather than retyped.
  */
 import Base from '../layouts/Base.astro';
+import visuals from '../../source/visual-assets.json';
 import { existsSync, readFileSync, readdirSync } from 'node:fs';
 import { loadLock, upstreamFile, type ReferenceEdition } from '../lib/canon/load';
 import { storeLayers } from '../lib/canon/layers';
@@ -119,7 +120,7 @@ const projectLicense = projectContentLicense();
 ---
 
 <Base title="Nguồn, giấy phép và ghi công · Kinh Tạng Pāli Việt" description="Tra cứu edition Pāli đã ghim, người dịch, nguồn phân phối và giấy phép của từng lớp tham khảo trong Kinh Tạng Pāli Việt.">
-  <main class="page credits-page">
+  <main id="main-content" tabindex="-1" class="page credits-page">
     <p class="eyebrow">PROVENANCE</p>
     <h1>Nguồn, giấy phép và ghi công</h1>
 
@@ -142,7 +143,7 @@ const projectLicense = projectContentLicense();
 
     <section class="section-heading">
       <h2>Các bản được hiển thị</h2>
-      <table class="credit-table">
+      <div class="table-scroll" tabindex="0" role="region" aria-label="Nguồn, bản dịch và giấy phép"><table class="credit-table">
         <thead>
           <tr>
             <th>Bản</th>
@@ -179,7 +180,7 @@ const projectLicense = projectContentLicense();
             <td>{humanise(projectLicense.spdx)} (tác phẩm của chúng ta)</td>
           </tr>
         </tbody>
-      </table>
+      </table></div>
       <p class="hint">
         Cột “Tệp” là số tệp đã tải về so với số tệp manifest ghi tại commit đã ghim, kiểm
         bằng <a href={withBase()}>npm run verify:store</a>. Bản tham khảo tiếng Việt chỉ có
@@ -240,6 +241,19 @@ const projectLicense = projectContentLicense();
     </section>
 
     <section class="section-heading">
+      <h2>Hình ảnh trên trang chủ</h2>
+      <div class="tool-list">
+        {visuals.images.map(asset => (
+          <article class="tool-card">
+            <h3>{asset.title}</h3>
+            <p class="hint">Tác giả: {asset.author ?? 'chưa xác minh'}. Nguồn: <a href={asset.sourcePage} target="_blank" rel="noopener noreferrer">{asset.author ? 'Wikimedia Commons' : 'Bán Tranh'} ↗</a>.</p>
+            <p class="hint">Điều khoản: {asset.licenseUrl ? <a href={asset.licenseUrl}>{asset.license}</a> : <code>{asset.license}</code>}. {asset.rightsNote}</p>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <section class="section-heading">
       <h2>Công cụ hỗ trợ</h2>
       <p class="hint">
         Khai trong <code>source/tooling.yaml</code>, và mọi trang đọc từ đó — không có tên công cụ
@@ -274,17 +288,3 @@ const projectLicense = projectContentLicense();
     </section>
   </main>
 </Base>
-
-<style>
-  .credit-table { width: 100%; border-collapse: collapse; margin: 1rem 0; font-size: .88rem; }
-  .credit-table th, .credit-table td { text-align: left; padding: .55rem .5rem; border-bottom: 1px solid var(--line); vertical-align: top; }
-  .credit-table th { font-size: .72rem; text-transform: uppercase; letter-spacing: .1em; color: var(--muted); }
-  .credit-table .num { text-align: right; font-variant-numeric: tabular-nums; }
-  .credit-table code { font-size: .82em; }
-  .credit-list { padding-left: 1.2rem; }
-  .credit-list li { margin: .35rem 0; }
-  .licence-groups { padding-left: 1.3rem; }
-  .licence-groups li { margin: .6rem 0; line-height: 1.6; }
-  .hint { color: var(--muted); font-size: .82rem; line-height: 1.6; }
-  .credits-page code { background: var(--paper); padding: .05rem .3rem; border-radius: .25rem; }
-</style>
