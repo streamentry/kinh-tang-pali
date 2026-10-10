@@ -1,6 +1,7 @@
 ---
 import { withBase } from '../lib/url';
 import { creditSummary } from '../lib/canon/tooling';
+import BrandMark from '../components/BrandMark.astro';
 
 interface Props {
   title?: string;
@@ -51,7 +52,10 @@ const pageSchema = {
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
     <script is:inline type="application/ld+json" set:html={JSON.stringify(pageSchema).replace(/</g, '\\u003c')} />
-    <link rel="icon" href={withBase('favicon.svg')} type="image/svg+xml" />
+    <link rel="icon" href={withBase('favicon.ico')} type="image/x-icon" sizes="16x16 32x32" />
+    <link rel="icon" href={withBase('favicon-32.png')} type="image/png" sizes="32x32" />
+    <link rel="icon" href={withBase('favicon.svg')} type="image/svg+xml" sizes="any" />
+    <link rel="apple-touch-icon" href={withBase('apple-touch-icon.png')} sizes="180x180" />
     <link rel="stylesheet" href={withBase('styles/fonts.css')} />
     <link rel="stylesheet" href={withBase('styles/tokens.css')} />
     <link rel="stylesheet" href={withBase('styles/global.css')} />
@@ -60,8 +64,11 @@ const pageSchema = {
     <a class="skip-link" href="#main-content">Đến nội dung chính</a>
     <header class="site-header" data-pagefind-ignore>
       <a class="brand" href={withBase()} aria-label="Kinh Tạng Pāli Việt · Trang chủ">
-        <span class="brand-name">Kinh Tạng Pāli Việt</span>
-        <span class="brand-note">Đọc &amp; đối chiếu kinh văn</span>
+        <BrandMark />
+        <span class="brand-copy">
+          <span class="brand-name">Kinh Tạng Pāli Việt</span>
+          <span class="brand-note">Đọc &amp; đối chiếu kinh văn</span>
+        </span>
       </a>
       <nav aria-label="Điều hướng chính">
         {navigation.map(item => (
@@ -73,7 +80,7 @@ const pageSchema = {
     <slot />
     <footer class="site-footer" data-pagefind-ignore>
       <div class="footer-heading">
-        <strong>Kinh Tạng Pāli Việt</strong>
+        <span class="footer-brand"><BrandMark class="brand-mark" /><strong>Kinh Tạng Pāli Việt</strong></span>
         <nav aria-label="Liên kết cuối trang">
           <a href={withBase('credits/')}>Nguồn &amp; giấy phép</a>
           <a href="https://streamentry.github.io/streamentry/" target="_blank" rel="noopener noreferrer">Hướng Đến Nhập Lưu</a>

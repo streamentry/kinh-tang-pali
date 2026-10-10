@@ -54,6 +54,9 @@ kinh văn, nguồn, giấy phép và lịch sử chất lượng có mặt trong
 | Tệp | Trách nhiệm |
 | --- | --- |
 | `source/design-tokens.json` | Giá trị chuẩn duy nhất của màu, khoảng cách, radius, font, measure, duration |
+| `source/brand-mark.json` | Hình học dấu Pāli Folio và tên token dùng cho logo / favicon |
+| `scripts/brand-assets.mjs` | Sinh SVG, ICO, PNG và Apple touch icon; kiểm nguồn / hash raster |
+| `src/components/BrandMark.astro` | Dấu SVG chung trong header và footer, dùng `currentColor` |
 | `scripts/design-tokens.mjs` | Sinh CSS và kiểm sự đồng nhất với registry |
 | `public/styles/tokens.css` | CSS sinh tự động; không chỉnh tay |
 | `public/styles/fonts.css` | Font tự lưu trữ và unicode range |
@@ -67,7 +70,12 @@ Sửa registry → `npm run design:generate` → `npm run design:check`.
 CI kiểm generated CSS khớp byte-for-byte. Mọi component dùng semantic token;
 không viết hex, font stack hoặc palette riêng vào style cục bộ. Không chồng một
 stylesheet “v2 overrides” lên kiểu cũ. Sửa component tại nguồn chung.
-Favicon là wordmark P nhỏ, dùng cùng palette; không là biểu tượng tôn giáo.
+Logo là **Pāli Folio**: chữ P serif tự vẽ, tách gáy và phần trang bằng một khe trắng.
+Tên đầy đủ vẫn là chữ Noto Serif thật, giữ đủ dấu Việt/Pāli. Favicon dùng cùng hình
+học, đảo sang trắng trên xanh trầm; có SVG, ICO 16/32px, PNG 32px và Apple touch icon
+180px. Không là biểu tượng tôn giáo hay dấu hiệu chứng nhận. `design:generate` sinh
+cả token lẫn bộ nhận diện; `design:check` chặn SVG hoặc nguồn/hash raster lệch registry.
+Chi tiết cách dùng tại [`docs/brand.md`](docs/brand.md).
 
 ## 4. Token và màu
 
