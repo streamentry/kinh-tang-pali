@@ -1,0 +1,67 @@
+uid: vv81
+status: draft
+translationTitle: "Chuyện Cung Điện Kaṇḍaka"
+translators:
+  - "Claude Sonnet 5.5 (Claude Code)"
+reviewers: []
+tags:
+  - "kn"
+  - "khuddaka-nikaya"
+  - "vimanavatthu"
+  - "purisavimana"
+  - "sunikkhittavagga"
+  - "kaṇḍakavimāna"
+quality:
+  scores:
+    source_provenance: 9.5
+    semantic_fidelity: 8.9
+    grammar_logic: 8.9
+    segment_alignment: 10.0
+    terminology: 8.9
+    triangulation: 7.8
+    vietnamese_clarity: 9.0
+    han_viet_balance: 9.3
+    ambiguity_integrity: 8.6
+    technical_integrity: 9.6
+  final_score: 9.05
+  blocking_errors:
+    - "noEnglishEditionUpstream: không có tầng tham khảo tiếng Anh tại commit đã ghim 11c9d708978cde8ba61096d8a75f7ddfb846f639. Đo trên `source/upstream-manifest.json`: edition `english-sujato` có 755 tệp `kn` nằm ở cp 35, dhp 26, iti 112, ja 83, kp 9, snp 73, thag 264, thig 73, ud 80 và **0 tệp** ở `vv`; tầng `vietnamese-current` chỉ có 26 tệp Pháp Cú; lớp lấp `english-project` không có tệp nào cho vv81 (trong `vv` chỉ có vv69). Đây là `not-published-upstream`, KHÔNG phải `not-synced`. `scripts/validate.ts` coi tệp Anh thiếu là error khi status là `review` hoặc `published`, nên bài bắt buộc `draft`. Riêng bài này cổng coverage cũng không đo được gì: đo theo đúng công thức `source/layers.yaml` (Pāli ≥ 40 ký tự, bỏ khối `:0`) thì vv81 có **0** khoá có nội dung, khoá dài nhất chỉ 27 ký tự, nên ratio ra 1,0000 mà không có nghĩa là đã kiểm phủ; chặn là do thiếu tệp Anh, không phải do coverage. `triangulation` bị chặn ở 7,8 (≤ 8,0) chứ không nâng để né blocker."
+  assessed_at: "2026-10-10"
+  assessed_by:
+    - "Claude Sonnet 5.5 (Claude Code)"
+notes: |-
+  **Phạm vi: đủ 116/116 khoá của bài, 0 khoá ngoài tập Pāli, thứ tự khoá đúng thứ tự Pāli.** Dịch từ Pāli root đã ghim (`vv81:` khớp tiền tố). Ba tầng tham khảo đều vắng, xem `blocking_errors`. Bản Việt nguyên bài của Bhikkhu Indacanda (SuttaCentral, dựa trên bản BJT) chỉ là nguồn tra cứu toàn văn, không phải tầng store; tôi đọc nó để kiểm chứng một vài điểm khó (xem dưới), không sao chép câu chữ, và không coi đó là đối chiếu độc lập đủ để nâng `triangulation`.
+
+  **Coverage English: không đo được gì.** Mẫu số = 0 (khoá Pāli dài nhất ngoài khối `:0` là 27 ký tự < 40). Đừng đọc là phủ 100% hay là không cần ghi nhận gap; chỉ có nghĩa là bài kệ ngắn nằm dưới ngưỡng đo. Tầng Sujato thật sự vắng cả bộ `vv`.
+
+  **Pāli trùng nguyên văn.** Trong chính bài: `2.2` ≡ `23.4` (`dibbaṁ devapuramhi ca`, chỉ khác dấu cuối `;` / `.`), bản Việt trùng chữ, 0 cặp lệch. Với tầng đã dịch: 28 khoá của bài có Pāli trùng byte với 1.082 khoá khác; bản Việt của bài này khác ở 60 cặp thuộc 16 khoá, trong đó:
+  - 3 tiêu đề `0.1`–`0.3` dùng đa số (`Vimānavatthu` 74/76, *Chuyện Cung Điện Nam Hư Không* 21/30, *Phẩm Khéo Đặt Để* 8/9).
+  - `13.1`, `13.2`: tầng có 2 cặp (vv78 *ngài*, vv5 *nàng*); khoá này nói với nam thiên tử nên dùng *ngài* như vv78, lệch vv5 là đúng phải khác.
+  - `13.4` (11 cặp, dùng dạng chiếm 6), `14.1` (25 cặp, dạng chiếm 17), `14.3` (55 cặp, dạng chiếm 39), `18.3` (6 cặp, dạng chiếm 4), `28.3` (9 cặp, dạng chiếm 6): giữ dạng đa số, lệch là phần thiểu số.
+  - 6 khoá lệch **toàn bộ** tiền lệ, là 6 chỗ tôi cố ý đổi, ghi rõ dưới đây: `3.1`, `3.3`, `3.4`, `10.2`, `12.4`, `17.4`.
+
+  **Những chỗ lệch tiền lệ, có lý do.**
+  - `12.4` `udayantova bhāṇumā`: vv78:7.4 (tiền lệ duy nhất cho đúng dòng này) dịch *mặt trăng*. Đo: `bhāṇumaṁ` dịch *mặt trời* hoặc *vầng thái dương* ở `tha-ap298:1.4`, `tha-ap317:1.2`, `tha-ap307:2.2`, `tha-ap286:1.4`, `tha-ap87:2.2`, và `udayanto` kèm `sūriya` dịch *mặt trời* ở `tha-ap326:3.3`, `tha-ap418:6.1`; `2.4` `udayantova raṁsimā` (`raṁsimā` = có tia sáng, mặt trời) cùng hình ảnh. Nên cả `2.4` và `12.4` dịch *mặt trời vừa mọc*. Lỗi ở vv78:7.4 nằm ngoài lát của tôi: **báo, không sửa**.
+  - `10.2` `vīṇāhi paṇavehi ca`: tiền lệ `thag7.2:2.2` (1 khoá) dịch *đàn và chũm chọe*; `paṇava` là trống nhỏ (không phải chũm chọe), nên dịch *đàn và trống nhỏ*. Báo `thag7.2:2.2` ngoài lát, không sửa.
+  - `3.3` `Masāragallamuttāhi`: vv78:3.3 bỏ mất `muttā` (ngọc trai); bài này dịch đủ *đá quý masāragalla và ngọc trai*. Từ `masāragalla` giữ nguyên Pāli theo vv78, không có nghĩa chắc: tầng dịch lẫn lộn (`vv78` *đá quý masāragalla*, `vv36:3.3` *san hô*, `mil6.2.4` *mã não*), nên không chọn nghĩa nào.
+  - `3.4` `lohitaṅgamaṇīhi ca`: `lohitaṅga` dịch *hồng ngọc* theo `thi-ap11:11.3`, `tha-ap5:11.2`, `vv36:3.1` (không dịch thêm *ngọc quý* như vv78 vì `maṇī` đã nằm trong cùng hợp từ).
+  - `3.1`: khối `3.1`–`3.4` ở đây đứng sau một câu đã trọn (`2.4`), khác vv78 nơi nó nối tiếp một danh sách; thêm *Với* để các dòng `3.x` không trôi tự do. Câu chữ còn lại giữ như vv78.
+  - `17.4` `patto sambodhimuttamaṁ`: 7 tiền lệ (`bv27:1.4`, `tha-ap547:4.4`, `cp35:10.4`–`14.4`) dịch *đã đạt giác ngộ tối thượng* ở chỗ `patto` là quá khứ; ở đây `patto` đi sau `tārayissaṁ` (tương lai) nên dịch *sau khi đạt giác ngộ tối thượng*.
+
+  **Bất định đã ghi, không giấu (đều không bịa nghĩa, đều không đưa giải thích vào thân kinh).**
+  - `18.4` `abhisīsiṁ` là **hapax** (đã quét toàn bộ Pāli root đã ghim: chỉ có khoá này). Tôi đọc là *mong cầu* do hai điểm: hình thái gần `āsīsati` (mong, cầu), và bản Việt nguyên bài của SuttaCentral cùng đọc *mong cầu*. Pāli không nêu đối tượng của lời mong; không thêm. Chưa phân xử được bằng chứng độc lập ngoài hai điểm đó.
+  - `23.1` `Tasseva ānubhāvena`: tôi đọc `tassa` là vị Sakya ở `22.1`–`22.2` (danh từ gần nhất) nên dịch *oai lực của vị ấy*; bản nguyên bài của SuttaCentral đọc là *việc ấy*. Hai cách đọc đều nằm trong ngữ pháp; chọn cách ít thêm chi tiết.
+  - `9.4` `vasavattīva`: giữ nguyên *Vasavattī* như danh xưng, không chú nghĩa trong thân kinh (có thể là chúa cõi Tha Hóa Tự Tại, tầng có `thi-ap1:14.4` *Tha Hóa Tự Tại*, nhưng Pāli khoá này không nói).
+  - `16.4` `jāli`: đọc là tướng *tay có tấm lưới* theo cách `dn30:1.16.6` dịch `jālahatthapādo` (*tay chân có tấm lưới*); `tambanakha` dịch *móng đỏ đồng* (tầng không có tiền lệ).
+  - `5.2` `puthuloma` giữ Pāli (tên loài cá, tầng không có tiền lệ) kèm *cá* theo nghĩa từ điển.
+  - `27.1` `kataññū katavedī` dịch *biết ơn, nhớ ơn* (khoá này ở vv21:11.2 dịch *biết ơn, đã hiểu điều ấy* cho `katavedinī`, nghe lệch; 1 tiền lệ, không theo).
+
+  **Không có trong Pāli root nên không đưa vào thân kinh.** Pāli của bài không nêu người hỏi (`14.2` là `…pe…` lược), không nói *Kaṇḍaka là con ngựa*, không nói Channa là người đánh xe. Bản nguyên bài của SuttaCentral ghi trưởng lão Moggallāna là người hỏi; tôi để câu hỏi ở ngôi thứ nhất (*tôi hỏi*) đúng như Pāli, các chi tiết kia đọc được từ ngữ cảnh (`17.1` vỗ vào đùi, `19.1` cưỡi lên) chứ không được viết thành lời kinh.
+
+  **Dấu lược và nháy.** `14.2` là `…pe…` của Pāli, bản Việt đúng một `…`; không có `(…)` trần ở khoá nào. Nháy kép khớp Pāli từng khoá: mở `1.1`, đóng `13.4`, mở `15.1`, đóng `26.4`; Pāli không có nháy đơn nên bản Việt không có. Lời nói của vị ấy ở `17.2`–`17.4` không có dấu nháy trong Pāli nên được dẫn bằng dấu hai chấm.
+
+  **Số Pāli.** Thân bài không có số lượng. Hai chỗ số thứ tự: `0.4` *7.* và `29.1` `sattamaṁ` = *thứ bảy*, khớp nhau.
+
+  **Tên phẩm.** `0.2` `Purisavimāna` → *Chuyện Cung Điện Nam Hư Không* (21/30 khoá cùng Pāli); `0.3` `Sunikkhittavagga` → *Phẩm Khéo Đặt Để* (8/9 khoá cùng Pāli); `0.4` dịch tên theo mẫu *Chuyện Cung Điện + tên* của vv79, vv80, vv83.
+
+  Bốn lệnh cổng kỹ thuật không chạy trong lát này: `npm run validate`, `npm test`, `npm run check`, `npm run build`. Vì chưa chạy, `technical_integrity` đặt 9,6 chứ không 10,0, và không tuyên bố technical gate đã pass.
