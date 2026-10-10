@@ -18,7 +18,7 @@ test('MN1 narration includes summary and canonical prose, never comments or head
 });
 
 test('unregistered texts have no player', () => {
-  assert.equal(loadAudio(composeDocument('mn', 'mn2')), null);
+  assert.equal(loadAudio({ ...composeDocument('mn', 'mn1'), uid: 'test-no-audio-registration' }), null);
 });
 
 test('registered MN1 audio matches the current source and disappears after text changes', {
