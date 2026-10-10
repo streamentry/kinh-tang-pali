@@ -1,0 +1,60 @@
+uid: thi-ap1
+status: draft
+translationTitle: "Bài Kệ Tuyên Ngợ Về Trưởng Lão Ni Sumedhā"
+translators:
+  - "Claude Sonnet 5.5 (Claude Code)"
+reviewers: []
+tags:
+  - "kn"
+  - "khuddaka-nikaya"
+  - "therīapadāna"
+  - "sumedhāvagga"
+  - "sumedhā"
+quality:
+  scores:
+    source_provenance: 9.5
+    semantic_fidelity: 9.0
+    grammar_logic: 9.0
+    segment_alignment: 10.0
+    terminology: 9.0
+    triangulation: 7.5
+    vietnamese_clarity: 9.0
+    han_viet_balance: 9.2
+    ambiguity_integrity: 8.8
+    technical_integrity: 9.6
+  final_score: 9.06
+  blocking_errors:
+    - "Không có tầng tham khảo tiếng Anh tại commit đã ghim (noEnglishEditionUpstream): bản Sujato ở `translation/en/sujato/sutta/kn/` chỉ có chín thư mục con — cp, dhp, iti, ja, kp, snp, thag, thig, ud — KHÔNG có `tha-ap` hay `thi-ap`; tệp `thi-ap` duy nhất trong cả tầng Anh là tệp tên phẩm (`name/sutta/thi-ap-name`), không phải thân kinh, và `source/upstream-manifest.json` không liệt kê tệp dịch Anh nào cho `thi-ap1`. Đây là `not-published-upstream`, KHÔNG phải `not-synced`. Mẫu số coverage theo `source/layers.yaml` (`englishCoverage.substantivePaliMinChars: 40`, bỏ khối tham chiếu `:0`) là 3 khoá Pāli có nội dung (`thi-ap1:1.1` 47 ký tự, `thi-ap1:4.2` 40 ký tự, `thi-ap1:22.1` 56 ký tự); Sujato phủ 0 trên 3 = 0%, dưới ngưỡng 0.8. `scripts/validate.ts` coi tệp Anh thiếu là lỗi khi status là `review` hoặc `published`, nên bài bắt buộc `draft`. Lớp lấp `english-project` của dự án không có cho uid này, và tầng `vietnamese-current` cũng vắng (`translation/vi/phantuananh` tại commit đã ghim chỉ có 26 tệp, toàn bộ là Pháp Cú). Ba tầng tham khảo đều vắng nên bài chỉ dịch từ Pāli root; đây là giới hạn upstream chứ không phải lỗi của người dịch, vì vậy `triangulation` bị chặn ở 7.5 (≤ 8.0) chứ không nâng để né blocker."
+  assessed_at: "2026-10-10"
+  assessed_by:
+    - "Claude Sonnet 5.5 (Claude Code)"
+notes: |-
+  Dịch trực tiếp từ Pāli root cho đủ 83/83 khoá, đúng thứ tự Pāli, không khoá thừa. Ba tầng tham khảo (english-sujato, english-project, vietnamese-current) đều vắng ở bài này; chỉ đối chiếu tiền lệ với bản Việt của chính dự án trong tầng thi-ap và tha-ap.
+
+  Cổng kỹ thuật CHƯA chạy vì người dịch không được chạy lệnh npm. Chỉ xác minh được: JSON hợp lệ, đủ 83/83 khoá, đúng thứ tự Pāli, mọi giá trị NFC, không khoá rỗng, không khoảng trắng thừa, dấu ngoặc kép khớp Pāli từng khoá (khoá 3.1 mở, khoá 21.4 đóng; Pāli bài này không có nháy đơn và không có dấu lược), không Pāli lọt vào thân kinh ngoài tên riêng. Bốn lệnh để coordinator chạy trước khi coi technical_integrity 9.6 là đạt: npm run validate, npm test, npm run check, npm run build.
+
+  Coverage English: mẫu số 3 (1.1, 4.2, 22.1), Sujato phủ 0/3; cổng coverage gần như không đo được gì ở bài kệ ngắn, và có entry trong content/meta/reference-gaps.yaml cũng không cứu được trạng thái published; entry cho uid này cần coordinator xử lý bằng npm run reference:gaps.
+
+  Tên và đề mục (đã đo, nêu cả hai phạm vi): :0.3 Pāli là Sumedhātherīapadāna, không bắt đầu bằng số nên :0.3 Việt không có số thứ tự và translationTitle bằng đúng :0.3. Phần mở đầu "Bài Kệ Tuyên Ngợ Về Trưởng Lão Ni" theo phạm vi gần nhất: trong 14 bài thi-ap đã dịch có 12 tệp dùng "Tuyên Ngợ" (cả 6 bài kế cận của Sumedhāvagga), 1 tệp "Tuyên Ngôn" (thi-ap29), 1 tệp để nguyên tên Pāli (thi-ap6); toàn tầng tha-ap "Tuyên Ngợ" 240 (thêm 10 "Tuyên Ngợi") so với "Tuyên Ngôn" 118 so với "Ký Sự" 101. "Tuyên Ngợ" có vẻ là chính tả sai của "Tuyên Ngôn"; hai phạm vi cho hai đa số khác nhau (gần nhất Ngợ, đúng chính tả Ngôn), nên giữ nhất quán với các bài kế cận và cần biên tập phán một lượt cho cả cuốn; dạng này cũng xuất hiện ở 2.1 và 23.1 để sửa hàng loạt được. 0.1 giữ Therīapadāna (13 so với 1 dịch "Trưởng Lão Ni Ký Sự"); 0.2 Phẩm Sumedhā (6 so với 1). Tên therī Sumedhā giữ nguyên Pāli (tên riêng). 23.1 "…, thứ nhất" theo tiền lệ đa số của tầng (dạng "…, thứ N"). 22.1 dùng nhóm "Tôi nghe như vầy: … đã nói những bài kệ này" (số nhiều đúng với imā gāthāyo; 407 so với 21 dạng số ít "bài kệ này").
+
+  Số Pāli (tự tính): 4.1 dasa 10 lần, sata 100 lần; 4.2 dasasata = 10 nhân 100 = 1.000 (một ngàn lần); satānañca satakkhattuṁ = 100 nhân 100 = 10.000 (mười ngàn lần); 3.3 tisso và 6.4 tayo = 3; 5.3 satta ratana = 7 báu; 11.1 satta dhītaro = 7 người con gái; 20.3 tisso vijjā = 3 minh; 21.1 catasso = 4; 21.2 aṭṭha = 8; 21.3 chaḷa = 6; 23.1 paṭhamaṁ = thứ nhất; tāvatiṁsa = Ba mươi ba. Không có cụm tiṁsakappasahassa. Chỗ cần người biên tập xác nhận: 4.2 satānañca satakkhattuṁ đọc là một trăm lần của hàng trăm (10.000), tiền lệ trong tầng không có dạng này.
+
+  Pāli trùng tiền lệ: 25 khoá có Pāli trùng nguyên văn ở nơi khác trong tầng Việt (1.745 cặp đã dò); 22 khoá dùng lại đúng văn bản đã có, 3 khoá khác (17.2, 19.3, 20.2): 17.2 và 20.2 mỗi khoá chỉ có 1–2 cặp tiền lệ, đều là cách diễn đạt khó đọc hơn ("ở nơi chư thiên cũng nơi loài người", "ở trước Đức Phật tối thượng!"); 19.3 khác thi-ap31:10.3 vì lý do nghĩa (xem bất định 11). 9.1 Imasmiṁyeva kappamhi có hai dạng tiền lệ (3 cặp "Ngay trong chính đại kiếp này", 2 cặp "Trong chính kiếp này"); Pāli chỉ có kappa nên chọn dạng "kiếp", khớp đa số của tầng (kappe: "kiếp" 458 so với "đại kiếp" 57 trong tha-ap và thi-ap). Trong chính bài có 2 nhóm Pāli trùng nguyên văn (8.1 và 15.1; 15.4 và 16.4) và cả hai nhóm có bản Việt giống hệt nhau; 0 cặp trùng nội bộ mà Việt khác.
+
+  Đại từ: dùng "tôi" cho ngôi kể (khoá nào Pāli là số nhiều thì "chúng tôi": adāsimha, upapajjimha, ahumha, pattā, samoditā). Đo hai phạm vi: trong 14 bài thi-ap, số lần xuất hiện "tôi" 81, "con" 65, "ta" 31 (theo từng tệp: tôi 6, con 6, ta 2); riêng công thức 19.1 trong thi-ap thì "con" 6 tệp, "tôi" 3, "ta" 3; riêng Sumedhāvagga "con" 3 tệp, "tôi" 3, "ta" 1; trong thig "tôi" 86, "ta" 95, "con" 65. Phạm vi gần cho kết quả hoà, toàn thi-ap nghiêng "tôi" theo số lần dùng; chọn "tôi" vì khớp thi-ap10 cùng phẩm và vì các khoá 20.4 và 21.4 Pāli không có đại từ nên bỏ đại từ theo đa số thi-ap (8 trên 14 tệp).
+
+  Thuật ngữ: saṅghārāma "tịnh xá của Tăng đoàn" (tha-ap20, thag10.4), vihāra "trú xá" (dn5), ārāma "tịnh xá" (tha-ap34); itthiratana "nữ báu" (dn3, dn14, dn17); sukhedhitā "được nuôi dưỡng trong an lạc" (sn55.6); rājakaññā "vương nữ"; upaṭṭhāka và upaṭṭhāna "phụng sự" (tha-ap163, 288, 291); mahesi "Đại Ẩn Sĩ"; narissara "vị chúa tể loài người" (nghĩa đen lord of men, tha-ap149 dịch khác nhưng khó đọc); Kāsirājā Kikī "vua xứ Kāsi tên là Kikī" (mn81); sīlesu susamāhitā "khéo an trú trong giới hạnh" (tha-ap21, ja221); mahesittamakārayiṁ "tôi đã giữ ngôi hoàng hậu" (thi-ap10, đúng cùng Pāli, 2 khoá); cakkavatti "vua Chuyển Luân"; Yāma "Dạ-ma" (8 khoá; vài khoá giữ nguyên Yāma), Tusita "Đâu-suất" (26), Nimmānarati "Hóa Lạc" (31), Vasavatti "Tha Hóa Tự Tại" (30; "Vasavatti" 1 khoá); tāvatiṁsa "cõi trời Ba mươi ba" (thi-ap10, tha-ap339, tha-ap345); paṭisambhidā "vô ngại giải" (476); chaḷabhiññā "sáu thắng trí" (57); tisso vijjā "ba minh" (18); kappa "kiếp"; samūhatā "nhổ sạch" (21); kilesā jhāpitā "phiền não bị thiêu rụi" (đa số).
+
+  Bất định (ghi ở notes, không thêm vào thân kinh):
+  (1) 3.3 janiyo: dịch "những phụ nữ" (sakhiyo tisso janiyo, ba người bạn gái), cũng có thể hiểu là những người mẹ; 6.4 ahampi ca tayo janā ủng hộ cách đọc "ba người" nhưng không phân xử được từ ngữ.
+  (2) 3.2 navanivesanamhi dịch "nơi cư xá mới dựng" (nivesana là chỗ ở, khu cư trú mới lập).
+  (3) 4.2 xem phần số Pāli: satānañca satakkhattuṁ đọc 100 nhân 100 = 10.000.
+  (4) 5.3 sattaratanamahesī hiểu là hoàng hậu của vị vua đầy đủ bảy báu (vua Chuyển Luân), không ghi rõ "Chuyển Luân" trong thân kinh vì Pāli không nói.
+  (5) 8.3 và 8.1 trộn số ít (upapajjāmi) và số nhiều (pattā) trong cùng đoạn Pāli; giữ như Pāli.
+  (6) 9.2 brahmabandhu dịch sát nghĩa gốc "thân quyến của Phạm thiên" theo thi-ap37 (cùng Pāli, cùng nhân vật Kassapa); tha-ap433 dịch "thuộc họ Brāhmaṇa", thag3.1 và thig12.1 dịch "Bà-la-môn chỉ nhờ dòng họ" cho cùng từ ở ngữ cảnh khác; chưa phân xử.
+  (7) 12.4 agāreva vataṁ cariṁ dịch "ngay tại gia tôi vẫn giữ hạnh nguyện"; vata là hạnh nguyện hay giới hạnh, trong tầng chưa có tiền lệ nào.
+  (8) 15.2 puññakammasamohitā dịch "được phước nghiệp kết hợp"; samohitā không có tiền lệ trong tầng và nghĩa chưa phân xử được.
+  (9) 16.3 maṇḍalīnañca rājūnaṁ dịch "các vị vua cai quản từng vùng" (maṇḍala là vùng lãnh thổ); các từ cùng gốc trong tầng chỉ có nghĩa "vầng thái dương tròn", không dùng được.
+  (10) 18.1–18.4 là cụm khó nhất của bài: dịch sát chữ "Đó là nhân, đó là nguồn gốc, lấy đó làm gốc, sự kham nhẫn trong giáo pháp; đó là sự hội tụ đầu tiên, đối với người ưa thích Pháp, đó là Niết-bàn." Cấu trúc cú pháp (tammūlaṁ sāsane khamaṁ; paṭhamaṁ taṁ samodhānaṁ; dhammaratāya) có nhiều cách đọc và không có tiền lệ nào trong tầng Pāli hay Việt; nghĩa của khamaṁ và samodhānaṁ chưa phân xử được. Đây là chỗ cần người biên tập đọc Pāli xác nhận; chưa đủ căn cứ để nâng thành blocker riêng.
+  (11) 19.3 Nāgīva dịch "voi cái" (cùng cấu trúc với Nāgova bandhanaṁ chetvā ở tha-ap62 và tha-ap463 dịch "voi"); thi-ap31:10.3 dịch Nāgīva thành "con rắn", không khớp với bandhanaṁ chetvā; ghi nhận ngoài lát, không sửa. Pāli Nāgīva bandhanaṁ chetvā có ở 6 bài thi-ap (thi-ap1, 17, 21, 30, 31, 40).
+  (12) 10.2 narissaro hiểu là vị vua (xem 10.3 Kāsirājā); 14.4 vasavattipuraṁ hiểu là cõi Tha Hóa Tự Tại (thứ sáu trong sáu cõi dục giới, theo thứ tự đã nêu ở 13.4–14.4).
