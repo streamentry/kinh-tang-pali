@@ -580,30 +580,72 @@
       "uid": "mn12",
       "collection": "mn",
       "order": 12,
-      "status": "blocked",
+      "status": "uploaded-verified",
       "source_sha256": "0b4fca181431a45e035e3798ab18ead61be96a0a1fbbacc73ab4e3225132cd13",
       "profile_sha256": "a384c5852585077c32e1348a6ada5cfc70a69c989ad705b8b5129fef3e1c9a71",
-      "errors": [
-        "Initial chunk plan ended inside a repeated open quotation. Full-chunk and overlapping-window offline ASR suggest speech may have continued beyond chunk 3 into the next chunk; this is not definitive, so the uploaded object is not being registered for playback. PR #430 merged a quote-balanced adjacent-chunk planner; regenerate the six changed chunks, then re-upload and re-verify before publishing metadata."
-      ],
-      "updated_at": "2026-10-10T15:19:42.479493+00:00",
+      "errors": [],
+      "updated_at": "2026-10-10T15:29:28.728837+00:00",
       "batch": "mn-005",
       "review_status": "pending",
-      "url": "https://pub-8fa53f5182904685bd0c13d6c894a0e9.r2.dev/vi/mn/mn12/2bacd0292eb74107.mp3",
-      "object_key": "vi/mn/mn12/2bacd0292eb74107.mp3",
-      "duration_seconds": 3156.309999999998,
+      "url": "https://pub-8fa53f5182904685bd0c13d6c894a0e9.r2.dev/vi/mn/mn12/954eeda4dfd9c315.mp3",
+      "object_key": "vi/mn/mn12/954eeda4dfd9c315.mp3",
+      "duration_seconds": 3137.3499999999976,
       "scripture_start_seconds": 150.10999999999999,
-      "sha256": "2bacd0292eb74107ae7d907c30707b79d154e9859a8d05073b0c7ea66070a64b",
-      "bytes": 63127200,
+      "sha256": "954eeda4dfd9c315306f7a7c283735232f4765a42102f305fb94afb674cbc510",
+      "bytes": 62748000,
       "pr_url": null,
       "merge_commit": null,
       "live_verified_at": null,
-      "checkpoint": "audio/mn12/4ae8e201830fb0a8",
+      "checkpoint": "audio/mn12/9fcb7dfb759435db",
       "upload_verified": true,
       "bucket": "kinh-tang-pali-audio",
-      "r2_verified_at": "2026-10-10T14:37:11.416532+00:00",
+      "r2_verified_at": "2026-10-10T15:28:34.859195+00:00",
       "public_range_verified": true,
-      "qc_status": "quote-boundary-rebuild-required"
+      "qc_status": "offline-asr-reviewed-pending-listening",
+      "qc_evidence": {
+        "method": "local MLX Whisper; no audio export; machine comparison only",
+        "model_revision": "0f058d38170d183f9fdee07908f5b515d91793a8",
+        "chunks_transcribed": 34,
+        "similarity_range": [
+          0.717434869739479,
+          0.982078853046595
+        ],
+        "long_difference_chunks_after_rebuild": [
+          10,
+          18,
+          26,
+          27
+        ],
+        "quote_safe_plan": true,
+        "old_plan_chunk_count": 34,
+        "new_plan_chunk_count": 34,
+        "reused_exact_text_hash_wavs": 28,
+        "regenerated_indexes": [
+          2,
+          3,
+          8,
+          9,
+          32,
+          33
+        ],
+        "windowed_rechecks_for_reused_text_chunks": [
+          18,
+          26,
+          27
+        ],
+        "human_listening_completed": false,
+        "review_status": "pending",
+        "interpretation": "Repeated formulas cause ASR alignment differences. Chunk 2 now ends after the complete quoted passage; the two expected occurrences match its full ASR transcript. Short-window rechecks on unchanged chunks 18, 26 and 27 covered the canonical sequences; outro phrases were Whisper hallucinations. Chunk 10 aligns the repeated power refrain poorly but its transcript token count is close to expected. Human listening remains required for approval."
+      },
+      "local_player_page": "http://127.0.0.1:4326/kinh-tang-pali/sutta/mn/mn12/",
+      "playback_verified_at": "2026-10-10T15:29:28.728837+00:00",
+      "playback_observation": {
+        "scope": "play, +15s seek, scripture jump, pause",
+        "duration_label": "52:17",
+        "scripture_seek_seconds": 150,
+        "r2_url": "https://pub-8fa53f5182904685bd0c13d6c894a0e9.r2.dev/vi/mn/mn12/954eeda4dfd9c315.mp3",
+        "player_action_sequence": "play -> 0:17; +15s -> 0:17; Kinh văn selector -> 2:30; pause -> 2:33"
+      }
     },
     "mn13": {
       "uid": "mn13",
