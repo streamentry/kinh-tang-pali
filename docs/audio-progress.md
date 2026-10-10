@@ -98,3 +98,7 @@ Nhật ký append-only. Registry `content/audio/progress.json` được đối s
 
 - Exact head `539fdb637dfbcfae3e352181e16c4a661d0ccf9d`; local validate/test (395)/check/build passed. CI push run 38044935106 and PR run 38044948914 attempt 2 succeeded; attempt 1 failed on upstream GitHub API rate limit.
 - Squash merge verified on remote main: `2423803b2ec1d3412835547c913c2f12c1f3d9c6`. Pages run 38045736696 is in progress; MN9 remains merged until production playback is verified. Review remains pending.
+
+### MN9 production verification
+
+- Pages run 38045736696 completed successfully for merge `2423803b2ec1d3412835547c913c2f12c1f3d9c6`. Production MN9 player uses `vi/mn/mn9/85e57d831718cc5f.mp3`; actual play, +15s seek, scripture jump at 164.35s and pause passed (duration 1966.2s, readyState 4, no media error). Registry is live; full listening review remains pending.
