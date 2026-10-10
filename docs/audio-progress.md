@@ -21,3 +21,36 @@ Nhật ký append-only. Registry `content/audio/progress.json` được đối s
 
 - MN2: 12/12 chunk, 123 segment kinh văn; MP3 1.078,61s, 21.573.600 byte, SHA-256 `d4b228a02455b58b99a8e4b560ca28588b6fc2333a488db513fdbb46b1cf4689`. Upload R2 và readback hash/byte/range 206 thành công; player local phát/tua/chuyển phần 163,63s thành công, readyState 4, không lỗi.
 - Google independent ASR chưa chạy: auto-review từ chối export audio riêng và yêu cầu phép rõ; đã gửi câu hỏi cho người biên tập. Registry MN2 ghi blocked với artifact đã tạo/upload và review pending, không ghi uploaded-verified/merged/live khi thiếu bước QC nội dung. Chưa bắt đầu MN3.
+
+## 2026-10-10 — MN2 offline QC và checkpoint production
+
+- PR #405 exact head `fb2e132fe5084c93c65085300455952be28adc0c`, merge `0e7d1718ac419cc408aae09cf4716645f4094bc4`; cả hai CI xanh. Pages run 38023815411 SUCCESS; production có đúng URL R2, playback/tua/chuyển kinh văn/pause không media error, readyState 4.
+- QC local MLX Whisper 0.4.3, model revision `0f058d38170d183f9fdee07908f5b515d91793a8`, đủ 12 chunk, token similarity 0,8238–0,9943. Không export audio cho Google. Điểm chỉ là phát hiện sai khác, không là phê duyệt.
+- Chunk 6: ASR toàn chunk bỏ hai mệnh đề; recheck 20–42s nhận ra cả hai mệnh đề. Cửa sổ ngắn khác sinh nội dung ngoài kinh, cho thấy ASR không quyết định được mọi sai khác. Không sửa canonical hoặc tái sinh WAV chỉ theo ASR. Giữ MN2 blocked cần nghe duyệt; các artifact upload/merge/production vẫn có bằng chứng riêng.
+- Theo Contract Gate cho phép tiếp tục UID sau khi một bài blocked có ghi lý do, tiếp tục MN3 tuần tự; chưa tính MN2 vào 10 bài thành công.
+
+## 2026-10-10 — MN3: retry có giới hạn cho chunk lặp
+
+- Lần đầu: 9 chunk, MP3 1.046,76s, đã upload R2/hash/byte/range; reader local play/seek tới kinh văn 162,11s và pause, readyState 4, không media error. Chưa PR/merge metadata MN3.
+- Offline ASR đủ 9 chunk; chunk index 5 dài 258,2s/1.355 ký tự và ASR có nhiều câu lặp ngoài text plan, similarity 0,5558. Giữ WAV/MP3/manifest/metadata lần đầu trong cache `qc-rejected-attempt-1`, rút đăng ký local của artifact chưa qua QC. Không xoá object R2 bất biến.
+- Retry đúng một lần chunk index 5 với model/voice/style/plan không đổi; reuse tám chunk khác. Không sửa kinh văn, không nới chunk limit/profile hoặc tự mở rộng dấu lược. Cần QC lại trước nhận artifact mới.
+
+- MN3 retry index 5: 94,92s, ASR similarity 0,9644, không còn extra repeated long spans. Tổng MP3 mới 883,48s, 17.670.720 byte, SHA-256 `3037c9bf9e8e4540339fa443085cc10f6bf4091f43bc6fb900f034f790a28f3e`, R2 key `vi/mn/mn3/3037c9bf9e8e4540.mp3`; byte/hash/range 206 verified.
+- Reader local dùng đúng URL mới, play/pause/tua +15s/chuyển kinh văn 162,11s thành công, readyState 4 không media error. Machine ASR đủ 9 chunk, similarity range 0,9161–0,9731; chỉ số không phải human approval. Ghi uploaded-verified, review pending; chưa ghi merged/live cho MN3.
+
+## 2026-10-10 — MN4 local QC và retry
+
+- Lần đầu hoàn tất 15 chunk/163 segment, MP3 1.478,86s/29.578.560 byte; upload public R2 hash/byte/range verified. Reader local dùng đúng URL: play/chuyển kinh văn 161,27s/pause, readyState 4 không media error. Chưa merge/live.
+- Offline Whisper nhận dạng đủ 15 chunk; index 5 có extra repeated paragraph hơn 100 token, duration 129,56s. Giữ WAV/MP3/manifest/registration cũ trong cache `qc-rejected-attempt-1`; retry đúng một lần index 5 với profile/plan không đổi, reuse 14 chunk. Không xóa object R2 hoặc sửa canonical.
+- Index 13 có câu ASR ngoài kinh cần kiểm lại; không coi ASR một lần là chứng cứ đủ kết luận TTS thêm lời. Review nội dung vẫn pending.
+
+- MN4 index 13 short-window 65s–end nhận đủ câu kết nguồn và không có outro ngoài kinh; không sửa WAV này theo ASR một lần. Index 5 retry có similarity 0,7210, vẫn còn long differences/repetition. Dừng retry có giới hạn, MN4 blocked cần nghe kiểm nội dung; không đăng ký/upload attempt mới, không gọi artifact cũ đã qua transport là QC pass.
+- Không đổi profile/plan/kinh văn. Giữ toàn bộ checkpoint và hai attempt. Tiếp tục UID MN5 theo điều khoản skip blocked, không tính MN4 vào lô thành công.
+
+## 2026-10-10 — MN5 first attempt và bounded QC retry
+
+- Lần đầu đủ 16 chunk/201 segment, MP3 1.685,08s. Chưa upload artifact đã có QC flags. Local ASR chỉ ra index 4 thiếu dài (similarity 0,6612/duration 66,4s), index 8 thêm dài (0,8127), index 9/10 lặp nhiều (0,5753/0,6318; duration 234,52/196,32s).
+- Giữ nguyên first attempt WAV/MP3/checkpoint/ASR trong cache `qc-rejected-attempt-1`; retry đúng một lần mỗi index 4,8,9,10, reuse 12 chunk khác. Không đổi profile/canonical/chunk limit; không bắt đầu MN6 trước khi artifact MN5 có checkpoint rõ.
+
+- Retry hoàn tất với MP3 1.500,81s/30.017.280 byte, nhưng local ASR vẫn thấy index 4 chỉ 172/303 token (similarity 0,6737), index 8 lệch dài (0,5000) và index 10 lệch dài (0,8347). Index 9 đạt 312/312 token (0,9744) nhưng không bù được ba chunk còn lại.
+- Dừng retry có giới hạn, không upload/đăng ký R2 và không gọi artifact là pass. MN5 chuyển `blocked`, review nội dung vẫn pending; giữ attempt đầu và retry trong checkpoint để nghe đối chiếu. Tiếp tục MN6 theo điều khoản skip blocked, không tính MN5 vào lô thành công.

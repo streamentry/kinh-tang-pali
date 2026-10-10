@@ -40,9 +40,9 @@
       "source_sha256": "98cb13229bfe81511598c46f34f9b0cf3559046197941c6e506d193a1ed5be75",
       "profile_sha256": "a384c5852585077c32e1348a6ada5cfc70a69c989ad705b8b5129fef3e1c9a71",
       "errors": [
-        "Awaiting explicit permission to export generated audio to Google Gemini for independent ASR/content QC."
+        "Offline ASR has ambiguous recognition differences requiring listening review; do not infer scripture omission from ASR alone."
       ],
-      "updated_at": "2026-10-10T03:51:56.142835+00:00",
+      "updated_at": "2026-10-10T04:43:32.547326+00:00",
       "batch": "mn-001",
       "review_status": "pending",
       "url": "https://pub-8fa53f5182904685bd0c13d6c894a0e9.r2.dev/vi/mn/mn2/d4b228a02455b58b.mp3",
@@ -51,19 +51,39 @@
       "scripture_start_seconds": 163.62999999999997,
       "sha256": "d4b228a02455b58b99a8e4b560ca28588b6fc2333a488db513fdbb46b1cf4689",
       "bytes": 21573600,
-      "pr_url": null,
-      "merge_commit": null,
-      "live_verified_at": null,
+      "pr_url": "https://github.com/streamentry/kinh-tang-pali/pull/405",
+      "merge_commit": "0e7d1718ac419cc408aae09cf4716645f4094bc4",
+      "live_verified_at": "2026-10-10T04:43:32.545390+00:00",
       "checkpoint": "audio/mn2/2e60893b0f7822f5",
       "upload_verified": true,
       "bucket": "kinh-tang-pali-audio",
       "r2_verified_at": "2026-10-10T03:50:34.832906+00:00",
       "public_range_verified": true,
       "playback_verified_at": "2026-10-10T03:51:56.141658+00:00",
-      "qc_status": "awaiting-provider-permission",
+      "qc_status": "offline-asr-review-needed",
       "local_player_page": "http://127.0.0.1:4322/kinh-tang-pali/sutta/mn/mn2/",
       "playback_observation": {
         "scope": "play/pause, +15 seconds seek, scripture jump",
+        "duration": 1078.68,
+        "scripture_seek": 163.63,
+        "ready_state": 4,
+        "media_error": null
+      },
+      "qc_evidence": {
+        "method": "local MLX Whisper, no audio export",
+        "model_revision": "0f058d38170d183f9fdee07908f5b515d91793a8",
+        "chunks_transcribed": 12,
+        "similarity_range": [
+          0.8237885462555066,
+          0.9942857142857143
+        ],
+        "chunk_5_repetition_recheck": "20-42s recognizes both previously omitted clauses; other short windows hallucinate unrelated text, so ASR is not decisive",
+        "human_listening_completed": false
+      },
+      "deploy_run": "https://github.com/streamentry/kinh-tang-pali/actions/runs/38023815411",
+      "production_page": "https://streamentry.github.io/kinh-tang-pali/sutta/mn/mn2/",
+      "production_playback_observation": {
+        "scope": "play, +15s seek, scripture jump, pause",
         "duration": 1078.68,
         "scripture_seek": 163.63,
         "ready_state": 4,
@@ -74,64 +94,158 @@
       "uid": "mn3",
       "collection": "mn",
       "order": 3,
-      "status": "not-started",
+      "status": "uploaded-verified",
       "source_sha256": "c8aa8545c499bf2b6b8fd8c5ca5895ec284f6563de47ed645323f10b96d2a872",
       "profile_sha256": "a384c5852585077c32e1348a6ada5cfc70a69c989ad705b8b5129fef3e1c9a71",
       "errors": [],
-      "updated_at": "2026-10-10T00:02:54.154014+00:00",
-      "batch": null,
+      "updated_at": "2026-10-10T04:57:01.592285+00:00",
+      "batch": "mn-001",
       "review_status": "pending",
-      "url": null,
-      "object_key": null,
-      "duration_seconds": null,
-      "scripture_start_seconds": null,
-      "sha256": null,
-      "bytes": null,
+      "url": "https://pub-8fa53f5182904685bd0c13d6c894a0e9.r2.dev/vi/mn/mn3/3037c9bf9e8e4540.mp3",
+      "object_key": "vi/mn/mn3/3037c9bf9e8e4540.mp3",
+      "duration_seconds": 883.4800000000002,
+      "scripture_start_seconds": 162.10999999999999,
+      "sha256": "3037c9bf9e8e4540339fa443085cc10f6bf4091f43bc6fb900f034f790a28f3e",
+      "bytes": 17670720,
       "pr_url": null,
       "merge_commit": null,
-      "live_verified_at": null
+      "live_verified_at": null,
+      "checkpoint": "audio/mn3/2b0ea99bc6007e67",
+      "upload_verified": true,
+      "bucket": "kinh-tang-pali-audio",
+      "r2_verified_at": "2026-10-10T04:55:47.280842+00:00",
+      "public_range_verified": true,
+      "qc_status": "machine-qc-completed-human-review-pending",
+      "playback_verified_at": "2026-10-10T04:57:01.591633+00:00",
+      "qc_evidence": {
+        "method": "offline MLX Whisper 0.4.3, local waveform only",
+        "model_revision": "0f058d38170d183f9fdee07908f5b515d91793a8",
+        "chunks_transcribed": 9,
+        "token_similarity_range": [
+          0.9161290322580645,
+          0.9731182795698925
+        ],
+        "corrected_chunk": {
+          "index": 5,
+          "attempts": 2,
+          "original_seconds": 258.2,
+          "accepted_seconds": 94.92,
+          "accepted_asr_similarity": 0.9644012944983819,
+          "profile_changed": false
+        },
+        "scope": "source/chunk accounting, signal/MP3 integrity, full machine transcript diff inspection and browser playback; no claim of full human listening",
+        "review_status": "pending"
+      },
+      "local_player_page": "http://127.0.0.1:4322/kinh-tang-pali/sutta/mn/mn3/",
+      "playback_observation": {
+        "scope": "play/pause, +15s seek and scripture jump",
+        "duration": 883.536,
+        "scripture_seek": 162.11,
+        "ready_state": 4,
+        "media_error": null
+      }
     },
     "mn4": {
       "uid": "mn4",
       "collection": "mn",
       "order": 4,
-      "status": "not-started",
+      "status": "blocked",
       "source_sha256": "e2fcd35dbee5160fcadd46274faa24df3e3669647cf47ff08a374136f9ea1b02",
       "profile_sha256": "a384c5852585077c32e1348a6ada5cfc70a69c989ad705b8b5129fef3e1c9a71",
-      "errors": [],
-      "updated_at": "2026-10-10T00:02:54.154016+00:00",
-      "batch": null,
+      "errors": [
+        "Chunk 5 remains ambiguous/extra repetitions after one bounded retry; listening/content review required before registering current artifact."
+      ],
+      "updated_at": "2026-10-10T05:56:52.448861+00:00",
+      "batch": "mn-001",
       "review_status": "pending",
       "url": null,
       "object_key": null,
-      "duration_seconds": null,
-      "scripture_start_seconds": null,
-      "sha256": null,
-      "bytes": null,
+      "duration_seconds": 1478.62,
+      "scripture_start_seconds": 161.26999999999998,
+      "sha256": "0c0fc4cfa8f26e85c1a6c31345e435e4850b3076cb974fb82b76bd6659da03a4",
+      "bytes": 29573760,
       "pr_url": null,
       "merge_commit": null,
-      "live_verified_at": null
+      "live_verified_at": null,
+      "checkpoint": "audio/mn4/a8748f2ca13e2c1c",
+      "upload_verified": true,
+      "bucket": "kinh-tang-pali-audio",
+      "r2_verified_at": "2026-10-10T05:53:04.481663+00:00",
+      "public_range_verified": true,
+      "qc_status": "bounded-retry-exhausted-review-needed",
+      "qc_evidence": {
+        "method": "offline MLX Whisper",
+        "model_revision": "0f058d38170d183f9fdee07908f5b515d91793a8",
+        "chunks_first_attempt_transcribed": 15,
+        "retry_chunk_index": 5,
+        "retry_attempts": 1,
+        "retry_similarity": 0.7209653092006033,
+        "chunk13_short_window": "65s to end matches scripture ending; unrelated full-ASR outro not reproduced",
+        "human_listening_completed": false
+      },
+      "previous_uploaded_artifact": {
+        "url": "https://pub-8fa53f5182904685bd0c13d6c894a0e9.r2.dev/vi/mn/mn4/e3d61fe54e7df1c8.mp3",
+        "sha256": "e3d61fe54e7df1c82fd3236ec2b1140a4a2f1ff1e8e1647eac4cc60209b882e1",
+        "bytes": 29578560,
+        "range_verified": true,
+        "player_verified_at": "2026-10-10T05:56:52.447793+00:00",
+        "status": "not accepted after QC"
+      }
     },
     "mn5": {
       "uid": "mn5",
       "collection": "mn",
       "order": 5,
-      "status": "not-started",
+      "status": "blocked",
       "source_sha256": "36e3143be295db7eef2e81a5ac03e09f8d9f8829aad3d1f9fba12fbdf7d770e5",
       "profile_sha256": "a384c5852585077c32e1348a6ada5cfc70a69c989ad705b8b5129fef3e1c9a71",
-      "errors": [],
-      "updated_at": "2026-10-10T00:02:54.154017+00:00",
-      "batch": null,
+      "errors": [
+        "Bounded retry exhausted: offline ASR still detects a long missing span in chunk 4 and long divergences in chunks 8 and 10; human listening/content review is required before any R2 upload."
+      ],
+      "updated_at": "2026-10-10T06:20:00+00:00",
+      "batch": "mn-001",
       "review_status": "pending",
       "url": null,
       "object_key": null,
-      "duration_seconds": null,
-      "scripture_start_seconds": null,
-      "sha256": null,
-      "bytes": null,
+      "duration_seconds": 1500.8099999999995,
+      "scripture_start_seconds": 158.23,
+      "sha256": "fdd25b26457f6630a5babe01dfeeda069b66afbc288f7eeaa2b0b3d22470297c",
+      "bytes": 30017280,
       "pr_url": null,
       "merge_commit": null,
-      "live_verified_at": null
+      "live_verified_at": null,
+      "checkpoint": "audio/mn5/f9de1454f9b4fd3c",
+      "qc_status": "bounded-retry-exhausted-review-needed",
+      "qc_flags": [
+        {
+          "chunk": 4,
+          "similarity": 0.6736842105263158,
+          "expected_tokens": 303,
+          "heard_tokens": 172,
+          "issue": "retry still has a long apparent missing span"
+        },
+        {
+          "chunk": 8,
+          "similarity": 0.5,
+          "expected_tokens": 298,
+          "heard_tokens": 370,
+          "issue": "retry still has a long apparent divergence"
+        },
+        {
+          "chunk": 10,
+          "similarity": 0.8346883468834688,
+          "expected_tokens": 315,
+          "heard_tokens": 423,
+          "issue": "retry still has a long apparent divergence"
+        },
+        {
+          "chunk": 9,
+          "similarity": 0.9743589743589743,
+          "expected_tokens": 312,
+          "heard_tokens": 312,
+          "issue": "retry accepted by local machine check"
+        }
+      ]
     },
     "mn6": {
       "uid": "mn6",
