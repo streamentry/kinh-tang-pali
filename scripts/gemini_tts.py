@@ -53,7 +53,7 @@ def main():
     summary_count=sum(p['section']=='summary' for p in planned)
     fingerprint=digest(json.dumps([source['source_sha256'],profile_digest(profile),planned],ensure_ascii=False,sort_keys=True).encode())
     folder=ROOT/'audio'/args.uid/fingerprint[:16]; folder.mkdir(parents=True,exist_ok=True)
-    (folder/'transcript.txt').write_text(''.join(parts[:summary_count])+'\n\n'+''.join(parts[summary_count:]))
+    (folder/'transcript.txt').write_text(source['summary']+'\n\n'+'\n\n'.join(value for _,value in source['segments'] if value.strip('… .')))
     write_json(folder/'plan.json',planned)
     checkpoint_path=folder/'checkpoint.json'
     checkpoint=json.loads(checkpoint_path.read_text()) if checkpoint_path.exists() else {'fingerprint':fingerprint,'chunks':{}}
