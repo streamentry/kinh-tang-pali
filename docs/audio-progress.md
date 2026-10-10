@@ -108,3 +108,7 @@ Nhật ký append-only. Registry `content/audio/progress.json` được đối s
 - One new UID, MN10: 18 chunks / 233 scripture segments; summary first, scripture begins at 149.83s. Approved narration profile remains unchanged. Initial connection failure resumed once using two cached WAVs. Full offline Whisper comparison flagged indexes 7, 8, 14; one content retry each reused 15 other chunks. Final 18 reports have no differing spans >=12 tokens (similarity 0.8992–0.9873). This is machine QC; human listening is incomplete, review pending.
 - Final MP3 1869.67s / 37394400 bytes, SHA-256 `6f0eb8412b856b128ae70a4465b2387d9195d10fb059111fad066d9788adb641`, R2 key `vi/mn/mn10/6f0eb8412b856b12.mp3`. Uploader verified public MIME/hash/bytes/range-206. Local player at port 4325 passed play, +15s seek, scripture jump, pause; duration 1869.72s, readyState 4, no media error.
 - Small checkpoint follows editor request for frequent PR/merge/latest-main updates. No media/cache/secrets committed; PR/merge/deploy evidence follows actual completion.
+
+### MN10 merge checkpoint — PR #424
+
+- Remote PR readback confirms merged at 2026-10-10T13:36:10Z, squash `15df29af4a80e4bf8d3173e3c93ca5b3b13ddf41`, exact head `6c80dba87aa5c8a5893d2618f54a37f3d471a363`. Both CI runs 38047734717 and 38047726786 succeeded. Pages run 38056352391 is in progress; live verification remains outstanding. Review pending.
