@@ -88,6 +88,8 @@ jobs:
         # CI runner this must pass, which is the point: it is the control that says the
         # local volume's damage is local, not a property of the repository.
         run: npm run doctor:ci
+      - name: Design token registry matches the stylesheet
+        run: npm run design:check
       - name: Astro type check
         run: npm run check
       - name: Production build + Pagefind

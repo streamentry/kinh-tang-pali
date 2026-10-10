@@ -19,14 +19,14 @@ const totals = groups.reduce((sum, group) => ({
 }), { translations: 0, full: 0, technical: 0 });
 ---
 <Base title="Rubric và lịch sử đánh giá · Kinh Tạng Pāli Việt" description="Xem scorecard và lịch sử đánh giá bản dịch Kinh Tạng Pāli Việt: phạm vi kiểm tra, ngày chấm, blocker và trạng thái nội dung.">
-  <main class="page">
-    <a href={withBase()}>← Năm bộ kinh</a>
+  <main id="main-content" tabindex="-1" class="page quality-page">
+    <a class="back-link" href={withBase()}>← Năm bộ kinh</a>
     <h1>Rubric và lịch sử đánh giá</h1>
     <p>{totals.translations} bản có metadata · {totals.technical} có kiểm tra kỹ thuật khớp nội dung · {totals.full} có đánh giá đầy đủ mới khớp nội dung.</p>
     <p>Scorecard lịch sử được giữ nguyên ngày cũ. Kiểm tra máy không thay thế đối chiếu nghĩa toàn bài. Mỗi trang kinh hiển thị đủ rubric, điểm từng tiêu chí, ngày và ghi chú; MN/DN có rubric tóm tắt riêng.</p>
     {groups.map(({collection, rows}) => <details>
       <summary>{collection.titleVi} · {rows.length} bản</summary>
-      <div class="table-scroll"><table>
+      <div class="table-scroll" tabindex="0" role="region" aria-label="Lịch sử đánh giá"><table>
         <thead><tr><th>Bài kinh</th><th>Scorecard lịch sử</th><th>Đánh giá đầy đủ mới</th><th>Kiểm tra kỹ thuật mới</th></tr></thead>
         <tbody>{rows.map(({uid, meta, legacy, full, content, technical}) => <tr>
           <th scope="row"><a href={withBase(`sutta/${collection.code}/${uid}/#quality-translation`)}>{uid.toUpperCase()} · {meta?.translationTitle}</a></th>
@@ -38,10 +38,3 @@ const totals = groups.reduce((sum, group) => ({
     </details>)}
   </main>
 </Base>
-<style>
-  details { margin-block: 1.5rem; }
-  summary { font-weight: 600; cursor: pointer; }
-  .table-scroll { overflow-x: auto; }
-  table { border-collapse: collapse; width: 100%; text-align: left; font-size: .85rem; }
-  th, td { padding: .6rem; border-bottom: 1px solid #ddd; vertical-align: top; min-width: 8rem; }
-</style>

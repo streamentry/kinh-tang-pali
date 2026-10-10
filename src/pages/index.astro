@@ -9,33 +9,33 @@ import { withBase } from '../lib/url';
   title="Đọc Kinh Trung Bộ Pāli–Việt · Kinh Tạng Pāli Việt"
   description="Tra cứu Kinh Trung Bộ và các bộ Nikāya; đối chiếu Pāli với English khi có, xem bản Việt của dự án cùng trạng thái biên tập và nguồn theo từng đoạn."
 >
-  <main class="page home">
+  <main id="main-content" tabindex="-1" class="page home">
     <section class="hero">
-      <p class="eyebrow">PĀLI → VIỆT · SEGMENT ALIGNED</p>
-      <h1>Đọc Kinh Trung Bộ Pāli–Việt, đối chiếu từng đoạn.</h1>
+      <p class="eyebrow">Pāli &amp; tiếng Việt · Năm bộ Nikāya</p>
+      <h1>Đọc kinh văn.<br />Đối chiếu từng đoạn.</h1>
       <p class="lede">Pāli là nguồn chuẩn. English SuttaCentral và bản Việt hiện hành là tài liệu tham khảo khi có; bản Việt của dự án được ghi trạng thái biên tập và gắn với segment nguồn.</p>
       <div class="hero-actions">
         <a class="button primary" href={withBase('sutta/mn/')}>Đọc Kinh Trung Bộ</a>
-        <a class="button" href={withBase('search/')}>Tìm kiếm</a>
+        <a class="text-link" href={withBase('search/')}>Tìm trong kinh văn →</a>
       </div>
     </section>
 
     <section>
       <div class="section-heading">
         <div>
-          <p class="eyebrow">NĂM BỘ KINH</p>
-          <h2>Ưu tiên Trung Bộ, nhưng không khóa kiến trúc vào riêng MN.</h2>
+          <p class="eyebrow">THƯ VIỆN KINH VĂN</p>
+          <h2>Năm bộ kinh Nikāya</h2>
         </div>
       </div>
       <div class="collection-grid">
-        {COLLECTIONS.map((collection) => {
+        {[...COLLECTIONS].sort((a, b) => Number(b.code === 'mn') - Number(a.code === 'mn')).map((collection) => {
           const progress = collectionProgress(collection.code);
           return <CollectionCard collection={collection} {...progress} />;
         })}
       </div>
     </section>
 
-    <section id="tri-an" class="credits-section" aria-labelledby="tri-an-heading">
+    <section id="tri-an" class="credits-section gratitude" aria-labelledby="tri-an-heading">
       <div class="section-heading">
         <div>
           <p class="eyebrow">TRI ÂN</p>
@@ -108,7 +108,11 @@ import { withBase } from '../lib/url';
           </p>
           <a href="https://www.dpdict.net/" target="_blank" rel="noopener noreferrer">Digital Pāḷi Dictionary ↗</a>
         </article>
+      </div>
 
+      <details class="tooling-disclosure">
+        <summary>Công cụ hỗ trợ biên tập</summary>
+        <div class="credits-grid">
         {supportTools().map((tool) => (
           <article class="credit-card ai-card">
             <p class="credit-kicker">AI-ASSISTED TRANSLATION & QA</p>
@@ -126,7 +130,8 @@ import { withBase } from '../lib/url';
             )}
           </article>
         ))}
-      </div>
+        </div>
+      </details>
 
       <div class="credit-disclaimer">
         <strong>Minh bạch:</strong> Đây là dự án độc lập. Việc ghi credit không hàm ý SuttaCentral,
@@ -145,98 +150,3 @@ import { withBase } from '../lib/url';
     </section>
   </main>
 </Base>
-
-<style>
-  .credits-section {
-    margin-top: 4.5rem;
-  }
-
-  .credits-lede {
-    max-width: 56rem;
-    margin-bottom: 2rem;
-  }
-
-  .credits-grid {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 1rem;
-  }
-
-  .credit-card {
-    background: var(--surface);
-    border: 1px solid var(--line);
-    border-radius: .65rem;
-    padding: 1.35rem;
-  }
-
-  .credit-card h3 {
-    margin: .35rem 0 .8rem;
-    font-size: 1.3rem;
-    letter-spacing: -.02em;
-  }
-
-  .credit-card > p:not(.credit-kicker) {
-    color: var(--muted);
-    line-height: 1.65;
-  }
-
-  .credit-card a,
-  .credit-contact a {
-    display: inline-block;
-    margin-top: .35rem;
-    font-size: .82rem;
-    font-weight: 700;
-    color: var(--accent);
-  }
-
-  .credit-kicker {
-    margin: 0;
-    font-size: .66rem;
-    font-weight: 800;
-    letter-spacing: .12em;
-    color: var(--accent);
-  }
-
-  .ai-card {
-    grid-column: span 2;
-    background: linear-gradient(135deg, var(--surface), var(--accent-soft));
-  }
-
-  .credit-disclaimer {
-    margin-top: 1rem;
-    padding: 1.1rem 1.2rem;
-    border-left: 3px solid var(--accent);
-    background: rgba(255, 255, 255, .5);
-    color: var(--muted);
-    font-size: .86rem;
-    line-height: 1.65;
-  }
-
-  .credit-disclaimer strong {
-    color: var(--ink);
-  }
-
-  .credit-contact {
-    margin-top: 1rem;
-    color: var(--muted);
-    font-size: .86rem;
-  }
-
-  .credit-contact strong {
-    color: var(--ink);
-  }
-
-  .credit-contact a {
-    margin: 0 0 0 .25rem;
-  }
-
-  @media (max-width: 760px) {
-    .credits-grid {
-      grid-template-columns: 1fr;
-    }
-
-    .ai-card {
-      grid-column: span 1;
-    }
-  }
-</style>

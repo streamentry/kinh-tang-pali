@@ -10,16 +10,18 @@ interface Props {
 const { collection, total, started, published } = Astro.props;
 ---
 <a class:list={['collection-card', collection.code === 'mn' && 'priority']} href={withBase(`sutta/${collection.code}/`)}>
-  <div class="eyebrow">{collection.code.toUpperCase()}</div>
-  <h2>{collection.titleVi}</h2>
+  <div class="eyebrow" aria-hidden="true">{collection.code.toUpperCase()}</div>
+  <div class="collection-card-content">
+  <h3>{collection.titleVi}</h3>
   <p class="pali-title">{collection.titlePali}</p>
   <p>{collection.description}</p>
   {total > 0 ? (
     <div class="progress-line">
-      <span>{published}/{total} published</span>
-      <span>{started}/{total} started</span>
+      <span>{published}/{total} đã xuất bản</span>
+      <span>{started}/{total} đã bắt đầu</span>
     </div>
   ) : (
-    <div class="progress-line"><span>Scaffold sẵn</span></div>
+    <div class="progress-line"><span>Chưa có bài</span></div>
   )}
+  </div>
 </a>

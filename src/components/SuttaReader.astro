@@ -102,20 +102,22 @@ const shown = ORDER
 const closed = shown.filter((layer) => layer.reason !== 'none').map((layer) => layer.id);
 const openCount = shown.length - closed.length;
 const editable = shown.find((layer) => layer.id === 'vi');
+// A text without a project translation must still open on readable source text.
+const initialMode = editable && editable.withText > 0 ? 'vi' : 'compare';
 ---
 
 <section
   class="reader-shell"
-  data-reader-mode="vi"
+  data-reader-mode={initialMode}
   data-open-columns={openCount}
   data-closed={closed.join(' ') || undefined}
   aria-label={`So sánh ${shown.length} bản của ${document.uid.toUpperCase()}`}
 >
   <div class="reader-toolbar" data-pagefind-ignore>
     <div class="mode-switch" role="group" aria-label="Chế độ hiển thị">
-      <button type="button" data-mode="compare" aria-pressed="false">Bốn bản</button>
+      <button type="button" data-mode="compare" class:list={[initialMode === 'compare' && 'active']} aria-pressed={initialMode === 'compare' ? 'true' : 'false'}>Bốn bản</button>
       <button type="button" data-mode="interlinear" aria-pressed="false">Đối chiếu</button>
-      <button type="button" data-mode="vi" class="active" aria-pressed="true">Chỉ Việt</button>
+      <button type="button" data-mode="vi" class:list={[initialMode === 'vi' && 'active']} aria-pressed={initialMode === 'vi' ? 'true' : 'false'} disabled={initialMode !== 'vi'} title={initialMode !== 'vi' ? 'Chưa có bản Việt của dự án cho bài này' : undefined}>Chỉ Việt</button>
     </div>
     <div class="column-tabs" role="group" aria-label="Tập trung vào một bản">
       {shown.map((layer) => (

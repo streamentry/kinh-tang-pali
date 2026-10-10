@@ -4,10 +4,11 @@ const rawBaseUrl = import.meta.env.BASE_URL;
 const baseUrl = rawBaseUrl.endsWith('/') ? rawBaseUrl : `${rawBaseUrl}/`;
 ---
 <Base noindex title="Tìm kiếm · Kinh Tạng Pāli Việt">
-  <main class="page search-page">
-    <p class="eyebrow">PAGEFIND</p>
+  <main id="main-content" tabindex="-1" class="page search-page">
+    <p class="eyebrow">Tra cứu kinh văn</p>
     <h1>Tìm trong kinh văn</h1>
     <form id="search-form" class="search-form" role="search">
+      <label class="visually-hidden" for="search-input">Từ khóa tìm kiếm</label>
       <input id="search-input" type="search" placeholder="Nhập tiếng Việt, Pāli, English hoặc UID…" autocomplete="off" />
       <button class="button primary" type="submit">Tìm</button>
     </form>
@@ -18,7 +19,7 @@ const baseUrl = rawBaseUrl.endsWith('/') ? rawBaseUrl : `${rawBaseUrl}/`;
       <label><input type="checkbox" name="version" value="Việt hiện hành" checked /> Việt hiện hành <span class="hint">tham khảo</span></label>
       <label><input type="checkbox" name="version" value="Việt 2026" checked /> Việt 2026 <span class="hint">bản canonical</span></label>
       <p class="hint filter-hint">
-        Mỗi bài kinh hiển thị bốn bản. Bỏ chọn một bản để chỉ tìm trong bản đó — hữu ích khi bạn
+        Mỗi bài kinh hiển thị bốn bản. Chỉ giữ chọn bản bạn muốn tìm — hữu ích khi bạn
         đang tra thuật ngữ trong một bản tham khảo mà không muốn kết quả lẫn bản dịch của dự án.
       </p>
     </fieldset>
@@ -108,7 +109,7 @@ const baseUrl = rawBaseUrl.endsWith('/') ? rawBaseUrl : `${rawBaseUrl}/`;
       }
     } catch (error) {
       console.error(error);
-      status.textContent = 'Search index chỉ có sau production build (`npm run build`).';
+      status.textContent = 'Chưa tải được dữ liệu tìm kiếm. Vui lòng thử lại sau.';
     }
   });
 </script>

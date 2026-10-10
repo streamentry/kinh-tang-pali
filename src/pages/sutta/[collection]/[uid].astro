@@ -40,7 +40,7 @@ const summaryParagraphs = (document.summary ?? '').split(/\n{2,}/).filter((para)
 const permalink = new URL(withBase(`sutta/${collection.code}/${uid}/`), Astro.site).href;
 ---
 <Base title={`${document.viTitle} · ${uid.toUpperCase()} · Kinh Tạng Pāli Việt`} description={`${uid.toUpperCase()} — ${document.viTitle}, thuộc ${collection.titleVi}. Đọc Pāli và các bản dịch đối chiếu từng đoạn; bản Việt của dự án: ${statusLabel}.`}>
-  <main class="page reader-page">
+  <main id="main-content" tabindex="-1" class="page reader-page">
     <a class="back-link" href={withBase(`sutta/${collection.code}/`)}>← {collection.titleVi}</a>
     <header class="sutta-header">
       <div class="sutta-identity">

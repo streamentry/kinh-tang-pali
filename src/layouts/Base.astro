@@ -14,6 +14,14 @@ const {
 } = Astro.props;
 
 const assistance = creditSummary();
+const navigation = [
+  { label: 'Trung Bộ', path: 'sutta/mn/' },
+  { label: 'Tìm kiếm', path: 'search/' },
+  { label: 'Nguồn', path: 'credits/' },
+  { label: 'Chất lượng', path: 'quality/' },
+];
+const activePath = Astro.url.pathname.replace(/\/$/, '');
+const isCurrent = (path: string) => activePath === withBase(path).replace(/\/$/, '');
 const canonical = new URL(Astro.url.pathname, Astro.site).href;
 const pageSchema = {
   '@context': 'https://schema.org', '@type': 'WebPage',
@@ -43,30 +51,41 @@ const pageSchema = {
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
     <script is:inline type="application/ld+json" set:html={JSON.stringify(pageSchema).replace(/</g, '\\u003c')} />
+    <link rel="icon" href={withBase('favicon.svg')} type="image/svg+xml" />
+    <link rel="stylesheet" href={withBase('styles/fonts.css')} />
+    <link rel="stylesheet" href={withBase('styles/tokens.css')} />
     <link rel="stylesheet" href={withBase('styles/global.css')} />
   </head>
   <body>
+    <a class="skip-link" href="#main-content">Đến nội dung chính</a>
     <header class="site-header" data-pagefind-ignore>
-      <a class="brand" href={withBase()}>Kinh Tạng Pāli Việt</a>
+      <a class="brand" href={withBase()} aria-label="Kinh Tạng Pāli Việt · Trang chủ">
+        <span class="brand-name">Kinh Tạng Pāli Việt</span>
+        <span class="brand-note">Đọc &amp; đối chiếu kinh văn</span>
+      </a>
       <nav aria-label="Điều hướng chính">
-        <a href={withBase('sutta/mn/')}>Trung Bộ</a>
-        <a href={withBase('search/')}>Tìm kiếm</a>
-        <a href={withBase('credits/')}>Nguồn</a>
-        <a href="https://github.com/streamentry/kinh-tang-pali" target="_blank" rel="noopener noreferrer">Đóng góp</a>
+        {navigation.map(item => (
+          <a href={withBase(item.path)} aria-current={isCurrent(item.path) ? 'page' : undefined}>{item.label}</a>
+        ))}
         <a class="button feedback-button" href="https://github.com/streamentry/kinh-tang-pali/issues/new?template=gop-y.md" target="_blank" rel="noopener noreferrer">Góp ý chỉnh sửa</a>
       </nav>
     </header>
     <slot />
     <footer class="site-footer" data-pagefind-ignore>
-      <span>
-        Dự án & biên tập: Lê Việt Hồng (Cư Sĩ Chánh Niệm) · Pāli: SuttaCentral Mahāsaṅgīti
-        (phạm vi công cộng) · tham khảo: Bhikkhu Sujato, HT. Thích Minh Châu — bản quyền thuộc
-        dịch giả · hỗ trợ: {assistance} ·
-        <a href="https://streamentry.github.io/streamentry/" target="_blank" rel="noopener noreferrer">Hướng Đến Nhập Lưu</a> ·
-        <a href={withBase('credits/')}>Nguồn, giấy phép & ghi công</a> ·
-        <a href="mailto:tostreamentry@gmail.com">Liên hệ / hỗ trợ</a> ·
-        <a href="https://github.com/streamentry/kinh-tang-pali" target="_blank" rel="noopener noreferrer">Đóng góp trên GitHub</a>
-      </span>
+      <div class="footer-heading">
+        <strong>Kinh Tạng Pāli Việt</strong>
+        <nav aria-label="Liên kết cuối trang">
+          <a href={withBase('credits/')}>Nguồn &amp; giấy phép</a>
+          <a href="https://streamentry.github.io/streamentry/" target="_blank" rel="noopener noreferrer">Hướng Đến Nhập Lưu</a>
+          <a href="mailto:tostreamentry@gmail.com">Liên hệ / hỗ trợ</a>
+          <a href="https://github.com/streamentry/kinh-tang-pali" target="_blank" rel="noopener noreferrer">Đóng góp trên GitHub</a>
+        </nav>
+      </div>
+      <p class="footer-credit">
+        Dự án &amp; biên tập: Lê Việt Hồng (Cư Sĩ Chánh Niệm). Pāli: SuttaCentral Mahāsaṅgīti
+        (phạm vi công cộng). Tham khảo: Bhikkhu Sujato, HT. Thích Minh Châu; bản quyền thuộc
+        dịch giả. Hỗ trợ: {assistance}.
+      </p>
     </footer>
   </body>
 </html>

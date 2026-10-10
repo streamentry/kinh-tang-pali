@@ -8,6 +8,17 @@ Mọi tác vụ liên quan đến dịch, sửa/review bản dịch, chọn thu�
 
 `skill/translation.md` là chuẩn có thẩm quyền cho mục tiêu dịch, hierarchy nguồn, provenance, phương pháp đối chiếu Pāli/English/Thích Minh Châu, semantic audit, văn phong và Definition of Done. Phương pháp QC/chấm điểm và quality gate quyết định trạng thái xuất bản nằm ở [`docs/quality-assessments.md`](docs/quality-assessments.md); mục **Translation Quality Gate** bên dưới chỉ tóm tắt.
 
+## Chuẩn thiết kế website
+
+Mọi tác vụ sửa giao diện, trang, component, CSS, điều hướng hoặc reader phải đọc
+đầy đủ [`DESIGN.md`](DESIGN.md) trước khi chỉnh. Đây là chuẩn thiết kế duy nhất:
+registry token ở `source/design-tokens.json`, CSS sinh bằng `npm run design:generate`,
+component dùng chung `public/styles/global.css`; `npm run design:check` là cổng CI.
+Giữ các contract provenance, segment, layer, tra cứu toàn văn và audio bên dưới.
+Không đổi kinh văn hay trạng thái chất lượng trong một tác vụ chỉ sửa thiết kế.
+Trước khi hoàn tất redesign, kiểm tra browser desktop/mobile và các mode reader
+như ma trận trong `DESIGN.md`; không coi build pass là bằng chứng giao diện đã đúng.
+
 ## Invariants của repository
 
 - Pāli source là snapshot SuttaCentral/Bilara được pin bởi `source/suttacentral.lock.json`; không dùng bản Pāli không rõ provenance làm authority.
