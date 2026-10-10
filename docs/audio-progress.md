@@ -135,3 +135,7 @@ Nhật ký append-only. Registry `content/audio/progress.json` được đối s
 ### MN12 production verification
 
 - Pages workflow 38065259426 succeeded for merge `52d0173cba1b1396a28f14035ef1171925564e93`. Production MN12 page displays the 52-minute player and new R2 key `vi/mn/mn12/954eeda4dfd9c315.mp3`. On production, play entered pause state; +15s advanced to 0:19; “Kinh văn 2:30” moved to 2:30; pause returned to play. Review remains pending.
+
+### MN12 PR #433 merge evidence
+
+- PR `https://github.com/streamentry/kinh-tang-pali/pull/433` merged at `2026-10-10T15:50:49Z`. Exact head `b9f0511777e7a52ccafd9ce0eae14d2e8d501dff`; squash merge `52d0173cba1b1396a28f14035ef1171925564e93`. CI runs 38064293678 and 38064288063 both succeeded. Pages deployment 38065259426 succeeded and production playback was verified.
