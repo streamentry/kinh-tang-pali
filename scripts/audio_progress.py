@@ -19,6 +19,9 @@ def initialize(inventory, profile_hash):
             'source_sha256':row['source_sha256'],'profile_sha256':profile_hash,
             'errors':row['issues']+(['Source/profile drift: reverify before resuming'] if changed else []),
             'updated_at':now(),'batch':old.get('batch',None),'review_status':old.get('review_status','pending')}
+    for row in existing['texts'].values():
+        for key in ['url','object_key','duration_seconds','scripture_start_seconds','sha256','bytes','pr_url','merge_commit','live_verified_at']:
+            row.setdefault(key,None)
     existing['catalog_uids']=expected;write_json(PROGRESS,existing)
 def update(uid,status,**evidence):
     if status not in STATES:raise ValueError('Invalid audio status')
