@@ -21,8 +21,11 @@ Nét đẹp đến từ tỷ lệ chữ, khoảng trắng và sự nhất quán,
 - `VISUAL_DENSITY: 4`: mục lục gọn; kinh văn thoáng; metadata có thể mở khi cần.
 - Một theme sáng cho toàn site. Chưa triển khai dark mode; không đưa từng khối tối
   vào trang sáng, không tự đảo màu theo hệ điều hành khi chưa kiểm tra đủ mọi lớp.
-- Không thêm ảnh trang trí, tượng Phật, chân dung, hoa sen hay họa tiết thiêng chỉ để
-  làm đầy bố cục. Lời tri ân giữ nguyên giọng của người biên tập và nằm trước phần nguồn.
+- Không thêm ảnh hay họa tiết thiêng chỉ để làm đầy bố cục. Ngoại lệ đã được người
+  biên tập yêu cầu ngày 2026-10-10: ảnh Samadhi Buddha (Anuradhapura, Sri Lanka) trong
+  hero và tranh Thầy Minh Tuệ ở mục tri ân. Giữ nguyên hình, không tạo hào quang,
+  không ghép hình hay diễn giải hình tượng thành chứng cứ về quả vị. Lời tri ân giữ
+  nguyên giọng người biên tập và nằm trước phần nguồn.
 
 ## 2. Cơ sở kỹ thuật đang áp dụng trong năm 2026
 
@@ -56,6 +59,8 @@ kinh văn, nguồn, giấy phép và lịch sử chất lượng có mặt trong
 | `public/styles/fonts.css` | Font tự lưu trữ và unicode range |
 | `public/styles/global.css` | Reset, shell, component, responsive, reduced motion và print |
 | `src/layouts/Base.astro` | Điều hướng, skip link, metadata và footer chung |
+| `source/visual-assets.json` | Nguồn, tác giả, điều khoản và SHA-256 từng hình trang chủ |
+| `src/assets/home/` | Bản hình gốc đã kiểm tra, tối ưu WebP responsive qua `HomeImage.astro` |
 | `public/fonts/` | WOFF2 cùng giấy phép SIL OFL và provenance phiên bản |
 
 Sửa registry → `npm run design:generate` → `npm run design:check`.
@@ -101,7 +106,7 @@ OFL riêng; không thuộc CC0 của bản dịch. Xem `public/fonts/README.md` 
 
 | Thành phần | Size | Line-height | Weight |
 | --- | --- | --- | --- |
-| Trang chủ H1 | 2.5–4.25rem fluid | 1.3 | serif 400 |
+| Trang chủ H1 | 2.5–3.65rem fluid | 1.3 | serif 400 |
 | H1 trang khác | 2.25–3.75rem fluid | 1.3 | serif 400 |
 | H2 | 1.5–2.1rem | 1.4 | serif 400 |
 | Kinh văn, chế độ Chỉ Việt | 1.1875rem desktop, 1.125rem phone | 1.95 | serif 400 |
@@ -120,12 +125,33 @@ Chiều rộng đọc Việt tối đa `--reading-measure: 43rem`; lede khoảng
 - Thang khoảng cách: .25, .5, .75, 1, 1.5, 2, 3, 4, 6rem.
 - Radius: .25rem cho điều khiển / nhãn; .5rem cho nhóm chức năng. Không pill tùy tiện.
 - Không shadow và gradient trang trí. Nền đặc giữ contrast ổn định.
-- Homepage: hero chữ vừa đủ đọc trong màn hình laptop → thư viện năm bộ → tri ân →
+- Homepage: hero chữ và ảnh Phật cạnh nhau trên desktop, xếp dọc trên mobile
+  → thư viện năm bộ → tri ân kèm tranh do người biên tập chọn →
   nguồn / phương pháp → danh sách công cụ mở theo yêu cầu → minh bạch / liên hệ.
 - Trung Bộ xuất hiện đầu tiên và có nền ưu tiên nhẹ; bốn bộ còn lại là directory
   hai cột desktop, một cột mobile. Số liệu lấy từ `collectionProgress`, không viết tay.
 - Footer chia liên kết hữu ích và attribution thành hai lớp dễ đọc; giữ nội dung
   nguồn / dịch giả / giấy phép thật, không bỏ sự thật để có footer ngắn.
+
+### Hình ảnh đã được chọn
+
+Ảnh Phật là tượng Samadhi tại Anuradhapura, Sri Lanka, thuộc bối cảnh Phật giáo
+Sri Lanka; dùng để đáp ứng lựa chọn Theravāda của người biên tập. Tượng là hình
+thể hiện Đức Phật ngồi thiền, không phải chân dung lịch sử chính xác. Tông đá nâu
+vàng và lá xanh hòa với nền giấy nâu của tranh Minh Tuệ và accent xanh của site.
+Nguồn kiểm chứng hiện vật: [Sri Lanka Tourism](https://srilanka.travel/buddhist-places/attractions.php).
+Ảnh do Price Zero chụp, [trang tệp và CC0 của tác giả](https://commons.wikimedia.org/wiki/File:Samadhi_Statue_Anuradhapura.jpg).
+
+Tranh Minh Tuệ lấy từ đúng URL người biên tập cung cấp, trang nguồn
+[Bán Tranh](https://bantranh.com/pd/thay-thich-minh-tue/). Tác giả và giấy phép chưa
+xác minh được: ghi `NOASSERTION`, không nhận đây là ảnh CC0 của dự án. Không đọc
+chữ ký rồi đoán tên tác giả. Việc ghi nguồn không chuyển tác quyền cho website.
+
+Hai hình giữ đủ khung gốc, có alt, kích thước và caption nguồn; không crop mất
+chữ ký, không phủ text lên hình, không dùng filter để giả màu tác phẩm. Hero tải
+ảnh ưu tiên; hình tri ân lazy-load. Astro sinh WebP 400/800px tại build để tránh
+hotlink và ảnh gốc nhiều megabyte trên điện thoại. Nguồn/điều khoản của hình vẫn
+độc lập với giấy phép code, bản dịch và font; trang Nguồn phải đọc từ registry.
 
 ## 7. Component và trạng thái
 

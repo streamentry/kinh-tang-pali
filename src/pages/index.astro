@@ -1,6 +1,7 @@
 ---
 import Base from '../layouts/Base.astro';
 import CollectionCard from '../components/CollectionCard.astro';
+import HomeImage from '../components/HomeImage.astro';
 import { COLLECTIONS, collectionProgress } from '../lib/canon/load';
 import { creditGroups, creditLabel, supportTools } from '../lib/canon/tooling';
 import { withBase } from '../lib/url';
@@ -11,13 +12,16 @@ import { withBase } from '../lib/url';
 >
   <main id="main-content" tabindex="-1" class="page home">
     <section class="hero">
-      <p class="eyebrow">Pāli &amp; tiếng Việt · Năm bộ Nikāya</p>
-      <h1>Đọc kinh văn.<br />Đối chiếu từng đoạn.</h1>
-      <p class="lede">Pāli là nguồn chuẩn. English SuttaCentral và bản Việt hiện hành là tài liệu tham khảo khi có; bản Việt của dự án được ghi trạng thái biên tập và gắn với segment nguồn.</p>
-      <div class="hero-actions">
-        <a class="button primary" href={withBase('sutta/mn/')}>Đọc Kinh Trung Bộ</a>
-        <a class="text-link" href={withBase('search/')}>Tìm trong kinh văn →</a>
+      <div class="hero-copy">
+        <p class="eyebrow">Pāli &amp; tiếng Việt · Năm bộ Nikāya</p>
+        <h1>Đọc kinh văn.<br />Đối chiếu từng đoạn.</h1>
+        <p class="lede">Pāli là nguồn chuẩn. English SuttaCentral và bản Việt hiện hành là tài liệu tham khảo khi có; bản Việt của dự án được ghi trạng thái biên tập và gắn với segment nguồn.</p>
+        <div class="hero-actions">
+          <a class="button primary" href={withBase('sutta/mn/')}>Đọc Kinh Trung Bộ</a>
+          <a class="text-link" href={withBase('search/')}>Tìm trong kinh văn →</a>
+        </div>
       </div>
+      <HomeImage id="samadhi-buddha" priority sizes="(max-width: 760px) 90vw, 34vw" />
     </section>
 
     <section>
@@ -36,15 +40,18 @@ import { withBase } from '../lib/url';
     </section>
 
     <section id="tri-an" class="credits-section gratitude" aria-labelledby="tri-an-heading">
-      <div class="section-heading">
-        <div>
-          <p class="eyebrow">TRI ÂN</p>
-          <h2 id="tri-an-heading">Thầy Minh Tuệ</h2>
+      <div class="gratitude-copy">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">TRI ÂN</p>
+            <h2 id="tri-an-heading">Thầy Minh Tuệ</h2>
+          </div>
         </div>
+        <p class="lede credits-lede">
+          Tôi thành kính tri ân Thầy Minh Tuệ, người đã giúp tôi biết đến và tìm về chánh pháp.
+        </p>
       </div>
-      <p class="lede credits-lede">
-        Tôi thành kính tri ân Thầy Minh Tuệ, người đã giúp tôi biết đến và tìm về chánh pháp.
-      </p>
+      <HomeImage id="thay-minh-tue" sizes="(max-width: 760px) 80vw, 24vw" />
     </section>
 
     <section id="nguon-va-credits" class="credits-section">

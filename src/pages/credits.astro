@@ -14,6 +14,7 @@
  * credits edition rather than retyped.
  */
 import Base from '../layouts/Base.astro';
+import visuals from '../../source/visual-assets.json';
 import { existsSync, readFileSync, readdirSync } from 'node:fs';
 import { loadLock, upstreamFile, type ReferenceEdition } from '../lib/canon/load';
 import { storeLayers } from '../lib/canon/layers';
@@ -237,6 +238,19 @@ const projectLicense = projectContentLicense();
         có <code>authority: true</code> thì mới là nguồn chuẩn — tức là chỉ có Pāli. Hai tầng
         tham khảo không bao giờ tự nhận là chuẩn, và tầng Việt của dự án là bản canonical.
       </p>
+    </section>
+
+    <section class="section-heading">
+      <h2>Hình ảnh trên trang chủ</h2>
+      <div class="tool-list">
+        {visuals.images.map(asset => (
+          <article class="tool-card">
+            <h3>{asset.title}</h3>
+            <p class="hint">Tác giả: {asset.author ?? 'chưa xác minh'}. Nguồn: <a href={asset.sourcePage} target="_blank" rel="noopener noreferrer">{asset.author ? 'Wikimedia Commons' : 'Bán Tranh'} ↗</a>.</p>
+            <p class="hint">Điều khoản: {asset.licenseUrl ? <a href={asset.licenseUrl}>{asset.license}</a> : <code>{asset.license}</code>}. {asset.rightsNote}</p>
+          </article>
+        ))}
+      </div>
     </section>
 
     <section class="section-heading">

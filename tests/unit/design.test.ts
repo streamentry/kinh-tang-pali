@@ -1,6 +1,7 @@
 import assert from 'node:assert/strict';
 import { existsSync, readFileSync } from 'node:fs';
 import { execFileSync } from 'node:child_process';
+import { createHash } from 'node:crypto';
 import test from 'node:test';
 
 const tokens = JSON.parse(readFileSync('source/design-tokens.json', 'utf8'));
@@ -48,4 +49,19 @@ test('self-hosted fonts cover ordinary Latin, Pāli diacritics and Vietnamese wi
   for (const match of css.matchAll(/url\('\.\.\/fonts\/([^']+)'\)/g)) {
     assert.ok(existsSync(`public/fonts/${match[1]}`), `Missing font: ${match[1]}`);
   }
+});
+
+test('homepage images retain pinned provenance and do not assign project CC0 to the supplied artwork', () => {
+  const registry = JSON.parse(readFileSync('source/visual-assets.json', 'utf8'));
+  for (const image of registry.images) {
+    assert.equal(createHash('sha256').update(readFileSync(image.file)).digest('hex'), image.sha256, image.id);
+    assert.ok(image.sourcePage && image.sourceUrl && image.alt && image.rightsNote);
+  }
+  const artwork = registry.images.find((image: { id: string }) => image.id === 'thay-minh-tue');
+  assert.equal(artwork.sourceUrl, 'https://bantranh.com/wp-content/uploads/2025/07/IMG_1756.jpeg');
+  assert.equal(artwork.license, 'NOASSERTION');
+  assert.equal(artwork.author, null);
+  const buddha = registry.images.find((image: { id: string }) => image.id === 'samadhi-buddha');
+  assert.equal(buddha.author, 'Price Zero');
+  assert.equal(buddha.license, 'CC0-1.0');
 });
