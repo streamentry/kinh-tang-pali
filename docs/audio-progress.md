@@ -93,3 +93,8 @@ Nhật ký append-only. Registry `content/audio/progress.json` được đối s
 
 - 20 chunk/232 segment kinh văn, profile giữ nguyên. First attempt được giữ trong cache; local ASR có long apparent omissions ở index 4/11/13/14, retry đúng một lần bốn chunk và reuse 16 chunk khác. Full recheck không còn long differences; không tuyên bố human approval.
 - R2 `vi/mn/mn9/85e57d831718cc5f.mp3` đã kiểm MIME/hash/bytes/range public. Local reader phát đúng URL, tua +15s/chuyển kinh văn 164,35s/pause thành công; duration 1.966,2s, readyState 4, không media error. Ghi uploaded-verified, review pending; chưa merge/live.
+
+### MN9 merge checkpoint — PR #423
+
+- Exact head `539fdb637dfbcfae3e352181e16c4a661d0ccf9d`; local validate/test (395)/check/build passed. CI push run 38044935106 and PR run 38044948914 attempt 2 succeeded; attempt 1 failed on upstream GitHub API rate limit.
+- Squash merge verified on remote main: `2423803b2ec1d3412835547c913c2f12c1f3d9c6`. Pages run 38045736696 is in progress; MN9 remains merged until production playback is verified. Review remains pending.
