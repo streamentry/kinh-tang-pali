@@ -3,27 +3,20 @@
 MN narration: canonical summary, then Vietnamese 2026; resumable WAV chunks.
 Requires lameenc (same encoder as The Thread Seers), and Node/tsx.
 """
+import fcntl
 import argparse, base64, hashlib, io, json, os, subprocess, time, urllib.request, urllib.error, wave
 from pathlib import Path
 from narration_config import load_profile, profile_digest, profile_metadata
+from audio_pipeline import plan_source, write_json, wav_info, cached_chunk_valid, mp3_info, digest
+from audio_progress import update
 ROOT = Path(__file__).resolve().parent.parent
 
 def load_env():
-    for line in (ROOT / '.env').read_text().splitlines():
+    env_path=Path(os.environ.get('NARRATION_ENV_FILE',str(ROOT / '.env')))
+    for line in env_path.read_text().splitlines():
         if '=' in line and not line.lstrip().startswith('#'):
             k,v = line.split('=',1)
             os.environ.setdefault(k.strip(),v.strip().strip('\"').strip("'"))
-
-def chunks(paragraphs, limit):
-    result, current = [], ''
-    for paragraph in paragraphs:
-        if len(paragraph) > limit:
-            raise ValueError('Paragraph exceeds chunk limit; split at sentence boundary first')
-        if current and len(current) + len(paragraph) + 2 > limit:
-            result.append(current); current = ''
-        current += ('\n\n' if current else '') + paragraph
-    if current: result.append(current)
-    return result
 
 def generate(key, text, profile):
     payload = {'model':profile['model'],'input':[{'type':'user_input','content':[{'type':'text','text':text,
@@ -55,38 +48,55 @@ def main():
     args=parser.parse_args()
     profile=load_profile()
     source=json.loads(subprocess.check_output(['node','--import','tsx','scripts/audio-source.ts',args.uid],cwd=ROOT))
-    summary=chunks(source['summary'].split('\n\n'),profile['chunk_max_chars'])
-    # Join adjacent segments into prose; segment IDs are provenance only, never spoken.
-    body=chunks([value for _,value in source['segments'] if value.strip('… .')],profile['chunk_max_chars'])
-    parts=summary+body
-    fingerprint=hashlib.sha256(json.dumps([source['source_sha256'],profile_digest(profile)],ensure_ascii=False).encode()).hexdigest()
+    planned=plan_source(source,profile)
+    parts=[p['text'] for p in planned]
+    summary_count=sum(p['section']=='summary' for p in planned)
+    fingerprint=digest(json.dumps([source['source_sha256'],profile_digest(profile),planned],ensure_ascii=False,sort_keys=True).encode())
     folder=ROOT/'audio'/args.uid/fingerprint[:16]; folder.mkdir(parents=True,exist_ok=True)
-    (folder/'transcript.txt').write_text('\n\n'.join(parts))
+    (folder/'transcript.txt').write_text(''.join(parts[:summary_count])+'\n\n'+''.join(parts[summary_count:]))
+    write_json(folder/'plan.json',planned)
+    checkpoint_path=folder/'checkpoint.json'
+    checkpoint=json.loads(checkpoint_path.read_text()) if checkpoint_path.exists() else {'fingerprint':fingerprint,'chunks':{}}
+    if checkpoint['fingerprint']!=fingerprint:raise RuntimeError('Checkpoint source/profile mismatch')
     (folder/'source.json').write_text(json.dumps(source,ensure_ascii=False,indent=2))
     (folder/'narration-profile.json').write_text(json.dumps(profile,ensure_ascii=False,indent=2)+'\n')
     print(f'{args.uid}: {len(parts)} chunks, {len(source["segments"])} scripture segments',flush=True)
     if args.prepare_only: return
+    update(args.uid,'generating',checkpoint=str(folder.relative_to(ROOT)),errors=[])
     load_env(); key=os.environ.get('GEMINI_API_KEY') or os.environ['GOOGLE_GENAI_API_KEY']
     import lameenc
     encoder=lameenc.Encoder(); encoder.set_bit_rate(profile['mp3_bitrate_kbps']); encoder.set_in_sample_rate(profile['sample_rate_hz']); encoder.set_channels(profile['channels']); encoder.set_quality(profile['encoder_quality'])
     encoded=bytearray(); duration=0; scripture_start=0
     for i,text in enumerate(parts):
+        current=json.loads(subprocess.check_output(['node','--import','tsx','scripts/audio-source.ts',args.uid],cwd=ROOT))
+        if current['source_sha256']!=source['source_sha256']:raise RuntimeError('Source changed during synthesis')
         file=folder/f'{i:03}.wav'
-        if not file.exists():
+        record=checkpoint['chunks'].get(str(i))
+        if not cached_chunk_valid(file,record,planned[i],profile):
             print(f'Synthesizing {i+1}/{len(parts)} ({len(text)} chars)',flush=True)
-            temp=file.with_suffix('.tmp'); temp.write_bytes(generate(key,text,profile)); temp.replace(file)
+            temp=file.with_suffix('.tmp'); temp.write_bytes(generate(key,text,profile)); wav_info(temp,profile); temp.replace(file)
+        checkpoint['chunks'][str(i)]={**planned[i],**wav_info(file,profile)}
+        write_json(checkpoint_path,checkpoint)
         with wave.open(str(file),'rb') as w:
             if (w.getframerate(),w.getnchannels(),w.getsampwidth()) != (profile['sample_rate_hz'],profile['channels'],profile['sample_width_bytes']): raise RuntimeError('Unexpected WAV format')
             frames=w.readframes(w.getnframes()); duration+=w.getnframes()/profile['sample_rate_hz']
             encoded.extend(encoder.encode(frames))
-        pause=profile['summary_to_scripture_pause_seconds'] if i==len(summary)-1 else profile['chunk_pause_seconds']
+        pause=profile['summary_to_scripture_pause_seconds'] if i==summary_count-1 else planned[i].get('pause_after_seconds',profile['chunk_pause_seconds'])
         encoded.extend(encoder.encode(b'\0'*(profile['sample_width_bytes']*profile['channels']*int(profile['sample_rate_hz']*pause)))); duration+=pause
-        if i==len(summary)-1: scripture_start=duration
+        if i==summary_count-1: scripture_start=duration
     encoded.extend(encoder.flush())
-    mp3=folder/f'{args.uid}.mp3'; mp3.write_bytes(encoded)
+    integrity=mp3_info(encoded)
+    if abs(integrity['duration_seconds']-duration)>0.2:raise RuntimeError('MP3/WAV duration mismatch')
+    mp3=folder/f'{args.uid}.mp3'; temp=mp3.with_suffix('.tmp'); temp.write_bytes(encoded); temp.replace(mp3)
     manifest={ 'uid':args.uid,'source_sha256':source['source_sha256'],'model':profile['model'],'voice':profile['voice'],
         'style':profile['style'],**profile_metadata(profile),'duration_seconds':duration,'scripture_start_seconds':scripture_start,
-        'sha256':hashlib.sha256(encoded).hexdigest(),'bytes':len(encoded),'review_status':'pending'}
+        'sha256':hashlib.sha256(encoded).hexdigest(),'bytes':len(encoded),'review_status':'pending','chunk_count':len(parts),'summary_chunk_count':summary_count,'chunk_plan_sha256':digest(json.dumps(planned,ensure_ascii=False,sort_keys=True).encode()),'mp3_integrity':integrity}
     (folder/'manifest.json').write_text(json.dumps(manifest,ensure_ascii=False,indent=2)+'\n')
+    update(args.uid,'generated',duration_seconds=duration,scripture_start_seconds=scripture_start,sha256=manifest['sha256'],bytes=manifest['bytes'],review_status='pending')
     print(f'Created {mp3}, {duration:.1f}s',flush=True)
-if __name__=='__main__': main()
+if __name__=='__main__':
+    # One OS lock for all clones/worktrees using this machine. Released even after crashes.
+    with open('/private/tmp/kinh-tang-pali-tts.lock','a') as lock:
+        try: fcntl.flock(lock,fcntl.LOCK_EX|fcntl.LOCK_NB)
+        except BlockingIOError: raise SystemExit('Another narration process is running; do not start a duplicate.')
+        main()
