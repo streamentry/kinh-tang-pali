@@ -196,22 +196,56 @@
       "uid": "mn5",
       "collection": "mn",
       "order": 5,
-      "status": "not-started",
+      "status": "blocked",
       "source_sha256": "36e3143be295db7eef2e81a5ac03e09f8d9f8829aad3d1f9fba12fbdf7d770e5",
       "profile_sha256": "a384c5852585077c32e1348a6ada5cfc70a69c989ad705b8b5129fef3e1c9a71",
-      "errors": [],
-      "updated_at": "2026-10-10T00:02:54.154017+00:00",
-      "batch": null,
+      "errors": [
+        "Bounded retry exhausted: offline ASR still detects a long missing span in chunk 4 and long divergences in chunks 8 and 10; human listening/content review is required before any R2 upload."
+      ],
+      "updated_at": "2026-10-10T06:20:00+00:00",
+      "batch": "mn-001",
       "review_status": "pending",
       "url": null,
       "object_key": null,
-      "duration_seconds": null,
-      "scripture_start_seconds": null,
-      "sha256": null,
-      "bytes": null,
+      "duration_seconds": 1500.8099999999995,
+      "scripture_start_seconds": 158.23,
+      "sha256": "fdd25b26457f6630a5babe01dfeeda069b66afbc288f7eeaa2b0b3d22470297c",
+      "bytes": 30017280,
       "pr_url": null,
       "merge_commit": null,
-      "live_verified_at": null
+      "live_verified_at": null,
+      "checkpoint": "audio/mn5/f9de1454f9b4fd3c",
+      "qc_status": "bounded-retry-exhausted-review-needed",
+      "qc_flags": [
+        {
+          "chunk": 4,
+          "similarity": 0.6736842105263158,
+          "expected_tokens": 303,
+          "heard_tokens": 172,
+          "issue": "retry still has a long apparent missing span"
+        },
+        {
+          "chunk": 8,
+          "similarity": 0.5,
+          "expected_tokens": 298,
+          "heard_tokens": 370,
+          "issue": "retry still has a long apparent divergence"
+        },
+        {
+          "chunk": 10,
+          "similarity": 0.8346883468834688,
+          "expected_tokens": 315,
+          "heard_tokens": 423,
+          "issue": "retry still has a long apparent divergence"
+        },
+        {
+          "chunk": 9,
+          "similarity": 0.9743589743589743,
+          "expected_tokens": 312,
+          "heard_tokens": 312,
+          "issue": "retry accepted by local machine check"
+        }
+      ]
     },
     "mn6": {
       "uid": "mn6",
