@@ -527,43 +527,83 @@
       "uid": "mn11",
       "collection": "mn",
       "order": 11,
-      "status": "not-started",
+      "status": "blocked",
       "source_sha256": "1492f8b975482903d6df915925dee9124c43c7b76758a18c7c6d240f5b7537a3",
       "profile_sha256": "a384c5852585077c32e1348a6ada5cfc70a69c989ad705b8b5129fef3e1c9a71",
-      "errors": [],
-      "updated_at": "2026-10-10T00:02:54.154024+00:00",
-      "batch": null,
+      "errors": [
+        "Offline ASR remained ambiguous on a repeated response after one bounded retry; overlapping local windows did not recognize the expected response to the question about freedom from delusion. ASR is not authority, but the content cannot be certified without human listening. No R2 upload or audio metadata was published."
+      ],
+      "updated_at": "2026-10-10T13:59:47.303477+00:00",
+      "batch": "mn-005",
       "review_status": "pending",
       "url": null,
       "object_key": null,
-      "duration_seconds": null,
-      "scripture_start_seconds": null,
-      "sha256": null,
-      "bytes": null,
+      "duration_seconds": 990.3400000000001,
+      "scripture_start_seconds": 175.30999999999997,
+      "sha256": "a24acf924e1a30e7b8e759930f7a3e23656ac626c995b4da07c437f1dd26b59f",
+      "bytes": 19808160,
       "pr_url": null,
       "merge_commit": null,
-      "live_verified_at": null
+      "live_verified_at": null,
+      "checkpoint": "audio/mn11/e3c79bded67a639c",
+      "qc_status": "offline-asr-ambiguous-after-bounded-retry",
+      "qc_evidence": {
+        "method": "local MLX Whisper; no audio export; machine QC only",
+        "model_revision": "0f058d38170d183f9fdee07908f5b515d91793a8",
+        "chunks_transcribed": 11,
+        "similarity_range": [
+          0.8858800773694391,
+          1.0
+        ],
+        "initial_flagged_chunk_indexes": [
+          4,
+          7
+        ],
+        "retried_chunk_indexes": [
+          4,
+          7
+        ],
+        "content_retries_per_chunk": 1,
+        "post_retry_long_differences": [
+          {
+            "chunk": 4,
+            "expected_excerpt": "response to “người còn si hay người không còn si” and following repeated question-answer clauses",
+            "observed": "full and overlapping windows did not reliably recognize the expected response"
+          }
+        ],
+        "human_listening_completed": false,
+        "human_listening_required": true
+      },
+      "local_checkpoint": "audio/mn11/e3c79bded67a639c"
     },
     "mn12": {
       "uid": "mn12",
       "collection": "mn",
       "order": 12,
-      "status": "not-started",
+      "status": "blocked",
       "source_sha256": "0b4fca181431a45e035e3798ab18ead61be96a0a1fbbacc73ab4e3225132cd13",
       "profile_sha256": "a384c5852585077c32e1348a6ada5cfc70a69c989ad705b8b5129fef3e1c9a71",
-      "errors": [],
-      "updated_at": "2026-10-10T00:02:54.154025+00:00",
-      "batch": null,
+      "errors": [
+        "Initial chunk plan ended inside a repeated open quotation. Full-chunk and overlapping-window offline ASR suggest speech may have continued beyond chunk 3 into the next chunk; this is not definitive, so the uploaded object is not being registered for playback. PR #430 merged a quote-balanced adjacent-chunk planner; regenerate the six changed chunks, then re-upload and re-verify before publishing metadata."
+      ],
+      "updated_at": "2026-10-10T15:19:42.479493+00:00",
+      "batch": "mn-005",
       "review_status": "pending",
-      "url": null,
-      "object_key": null,
-      "duration_seconds": null,
-      "scripture_start_seconds": null,
-      "sha256": null,
-      "bytes": null,
+      "url": "https://pub-8fa53f5182904685bd0c13d6c894a0e9.r2.dev/vi/mn/mn12/2bacd0292eb74107.mp3",
+      "object_key": "vi/mn/mn12/2bacd0292eb74107.mp3",
+      "duration_seconds": 3156.309999999998,
+      "scripture_start_seconds": 150.10999999999999,
+      "sha256": "2bacd0292eb74107ae7d907c30707b79d154e9859a8d05073b0c7ea66070a64b",
+      "bytes": 63127200,
       "pr_url": null,
       "merge_commit": null,
-      "live_verified_at": null
+      "live_verified_at": null,
+      "checkpoint": "audio/mn12/4ae8e201830fb0a8",
+      "upload_verified": true,
+      "bucket": "kinh-tang-pali-audio",
+      "r2_verified_at": "2026-10-10T14:37:11.416532+00:00",
+      "public_range_verified": true,
+      "qc_status": "quote-boundary-rebuild-required"
     },
     "mn13": {
       "uid": "mn13",
