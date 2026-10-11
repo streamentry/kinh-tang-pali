@@ -24,3 +24,7 @@ MN23 đã có MP3 cuối trên R2 sau một retry có giới hạn ở chunk 5. 
 - R2 URL `https://pub-8fa53f5182904685bd0c13d6c894a0e9.r2.dev/vi/mn/mn23/6fa53ffdd30fbd08.mp3`, key `vi/mn/mn23/6fa53ffdd30fbd08.mp3`. Uploader đã kiểm MIME, tải lại hash/bytes và range request `206`.
 - Local Astro preview `http://127.0.0.1:4333/kinh-tang-pali/sutta/mn/mn23/` đã phát MP3 R2 cuối; accessibility tree xác nhận trạng thái Phát→Tạm dừng, nút “Kinh văn 2:29” đưa slider đến 150 giây (làm tròn từ mốc 149,83), sau đó Tạm dừng trả về trạng thái Phát. Metadata/progress là `uploaded-verified`, review vẫn pending. Production chỉ hiển thị player sau khi PR được merge và Pages deploy thành công.
 - MP3/WAV/cache và report tự động nằm ngoài Git; `review_status` giữ `pending` cho tới khi người biên tập nghe duyệt.
+
+## Production deployment and live check
+
+PR [#510](https://github.com/streamentry/kinh-tang-pali/pull/510) merged as `a5c57c9b2da2d72cf9a7c013c73a381990152251`; Pages run [#655](https://github.com/streamentry/kinh-tang-pali/actions/runs/38143787220) succeeded. Production [MN23](https://streamentry.github.io/kinh-tang-pali/sutta/mn/mn23/) exposes the final R2 key `vi/mn/mn23/6fa53ffdd30fbd08.mp3`. The live browser started playback, advanced with +15s, sought to the 149.83s scripture mark (displayed 2:29), and paused. Content review remains pending.

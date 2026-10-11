@@ -39,3 +39,7 @@ Attempt0 được giữ trong `audio/mn22/40372f0ea9b1992b/attempt0/`; bản tr�
 Hai lane QC riêng được giao chia chunk 0–12 và 13–25, nhưng cả hai follow-up thread dừng do workspace hết credits trước khi hoàn tất report. Điều phối viên chạy bù full ASR 26 chunk và các cửa sổ cần thiết bằng model local đã ghim; report/hash mapping được giữ trong `audio/qc-mn22-full/` (ignored).
 
 Progress là `uploaded-verified`, `review_status: pending`. Chất giọng/nhịp giữ cùng profile đã được duyệt với MN1, nhưng lượt này chưa nghe duyệt toàn bài, chưa xác nhận từng tên Pāli bằng tai và không tuyên bố nội dung đã được người biên tập duyệt.
+
+## Production deployment and live check
+
+PR [#510](https://github.com/streamentry/kinh-tang-pali/pull/510) merged as `a5c57c9b2da2d72cf9a7c013c73a381990152251`; Pages run [#655](https://github.com/streamentry/kinh-tang-pali/actions/runs/38143787220) succeeded. Production [MN22](https://streamentry.github.io/kinh-tang-pali/sutta/mn/mn22/) exposes the final R2 key `vi/mn/mn22/f062adda04f29ab2.mp3`. The live browser started playback, advanced with +15s, sought to the 171.87s scripture mark (displayed 2:51), and paused. Content review remains pending.
