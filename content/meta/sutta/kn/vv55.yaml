@@ -1,5 +1,5 @@
 uid: vv55
-status: published
+status: review
 translationTitle: "Chuyện Cung Điện Người Gác Cổng"
 translators:
   - "OpenCode Space Bunny Free (agent)"
@@ -11,17 +11,17 @@ tags:
   - "maharathavagga"
 quality:
   scores:
-    source_provenance: 9.5
-    semantic_fidelity: 9.3
-    grammar_logic: 9.3
+    source_provenance: 9.2
+    semantic_fidelity: 8.8
+    grammar_logic: 9.0
     segment_alignment: 10.0
-    terminology: 9.2
+    terminology: 8.8
     triangulation: 7.5
-    vietnamese_clarity: 9.3
-    han_viet_balance: 9.4
-    ambiguity_integrity: 9.2
+    vietnamese_clarity: 9.0
+    han_viet_balance: 9.3
+    ambiguity_integrity: 8.4
     technical_integrity: 9.6
-  final_score: 9.23
+  final_score: 8.96
   blocking_errors:
     - "Không có tầng tham khảo tiếng Anh tại commit đã ghim: tệp
       `translation/en/sujato/sutta/kn/vv/vv55_translation-en-sujato.json` không
@@ -38,9 +38,9 @@ quality:
       Pāli root ⇒ blocker thật, và đây là **giới hạn upstream**, không phải lỗi
       của người dịch. Vì vậy `triangulation` bị chặn ở 7.5 (≤ 8.0) chứ không
       nâng để né blocker."
-  assessed_at: "2026-10-04"
+  assessed_at: "2026-10-11"
   assessed_by:
-    - "OpenCode Space Bunny Free (agent)"
+    - "Claude Sonnet 5.5 (Claude Code)"
   waiver:
     id: no-upstream-english
     blockers:
@@ -64,3 +64,10 @@ notes: |-
   Đối chiếu văn cảnh và chú giải để xác định ngữ nghĩa các từ cổ và cấu trúc đối thoại.
   Bảo toàn niêm luật kệ ngôn / cấu trúc văn xuôi, danh từ riêng giữ nguyên ký tự Pāli có dấu phụ.
   Toàn bộ 27 khoá được kiểm tra cẩn thận về phân đoạn, cân bằng dấu ngoặc kép và chuẩn hóa Unicode NFC.
+
+  Kiểm toán độc lập 2026-10-11: đọc đối kháng cả 27 khoá theo cặp Pāli↔Việt; sửa 12/27 khoá (1.1, 1.2, 2.1, 2.3, 2.4, 3.1, 3.3, 4.3, 4.4, 5.2, 5.4, 6.3); 15 khoá còn lại giữ nguyên. Điểm cũ (9.23) quá cao: bản trước không ghi bất định nào, và câu "đối chiếu chú giải" ở trên không kiểm chứng lại được trong kho nên không dùng làm căn cứ chấm.
+  Đã sửa: `1.1` "cao vút bằng cột ngọc báu" (cú pháp rối, như thể cung điện cao nhờ cột) thành "cao vút, có cột bằng ngọc báu" (`uccaṁ ... maṇithūṇaṁ`, hai tính từ của vimāna); `1.2` "chu vi rộng mười hai do-tuần" thành "rộng mười hai do-tuần khắp bốn phía" (`samantato` là mọi phía; "chu vi" là một cách đọc khác về kích thước, không có trong Pāli; 7/10 khoá cùng Pāli dùng "khắp bốn phía"); `2.1` bỏ "vui chơi" (Pāli chỉ có `acchasi pivasi khādasi`: ngồi/ở, uống, ăn); `2.3` "Hương vị" thành "Vị" (`rasā`, không có `gandha`) và thêm `ettha` ("ở nơi đây"); `2.4` bỏ "múa lượn quanh chàng" (không có trong Pāli); `2.1`/`3.1` "chàng" thành "ngài" (người hỏi là Tôn giả Moggallāna nói với thiên tử; 9/11 khoá cùng Pāli dùng "ngài"); `3.3`/`6.3` "sắc tướng" thành "dung sắc" cho đúng một từ `vaṇṇo` đã dịch "dung sắc" ở `3.1`/`6.1` ngay trong cùng đoạn (đa số 24+ khoá toàn tầng); `4.3` bỏ "liền" và "giải thích" thành "giải đáp" (`viyākāsi`, 5/7 khoá cùng Pāli); `4.4` "quả báo của nghiệp này là thế" thành "rằng đây là quả của nghiệp nào": `yassa` là đại từ quan hệ/nghi vấn của mệnh đề gián tiếp do `viyākāsi` đòi, không phải "này" (lỗi dạng lan ở ~41 khoá khác trong họ; chỉ `vv12:3.4` đọc đúng); `5.2` "được ca ngợi bằng lời nói, suy tưởng trong tâm" thành "được xướng lên bằng lời, do tâm khởi vận" (`abhigīta` không có sắc thái "ca ngợi" bắt buộc, `pavattita` là "được vận hành, được khởi lên", không phải "suy tưởng"); `5.4` bỏ "thọ hưởng trọn vẹn mọi" thành "đầy đủ các" (`samaṅgibhūto`).
+  Điểm đổi: semantic_fidelity 9.3 thành 8.8 (lỗi `4.4` và `5.2` là đọc sai quan hệ ngữ pháp, nay sửa nhưng `5.2` còn bất định); grammar_logic 9.3 thành 9.0; terminology 9.2 thành 8.8 (đã đồng nhất `vaṇṇo`, nhưng tiêu đề họ còn sai); vietnamese_clarity 9.3 thành 9.0 (`5.2` còn tối nghĩa vì bám sát Pāli); han_viet_balance 9.4 thành 9.3; source_provenance 9.5 thành 9.2; ambiguity_integrity 9.2 thành 8.4 (bản trước không nêu bất định nào dù có ba chỗ chưa phân xử). Không đổi: segment_alignment 10.0 (27/27 khoá khớp Pāli, đúng thứ tự), triangulation 7.5 (không có bản Anh độc lập), technical_integrity 9.6. final_score 9.23 thành 8.96.
+  Bất định còn lại, không phân xử được: `5.2` `Vācābhigītaṁ manasā pavattitaṁ` là hapax trong toàn tầng Pāli đã ghim, không có đối chiếu; không rõ tính từ này bổ nghĩa cho `āyu` ("tuổi thọ được xướng bằng lời, khởi vận bằng tâm") hay chỉ việc làm phước đã nêu, nên chỉ dịch sát chữ. `1.4` `rucakatthatā` dịch "trải thảm vàng": cả "thảm" lẫn "vàng" đều là suy diễn (`rucaka` có thể là vàng hay đồ trang sức), giữ nguyên vì không phân xử được. `5.3` `puññakammo` là ngôi thứ ba trong lời thiên tử tự thuật; hiểu là tự chỉ mình, giữ "Người làm phước". `5.1` `dibbaṁ ... vassasahassam`: "cõi trời" có thể thuộc "ngàn năm" hoặc "tuổi thọ", bản dịch giữ nguyên tính mơ hồ của Pāli.
+  Chưa sửa, lệch cả họ: `0.2` `Purisavimāna` dịch "Nam Hư Không" (Pāli không có `ākāsa`) và `0.3` "Phẩm Cỗ Xe Lớn"; không sửa riêng một tệp vì sẽ lệch cả bộ.
+  Kiểm tra tay: 27/27 khoá đúng tập khoá và thứ tự Pāli; nháy kép khớp Pāli từng khoá (0 lệch); `3.2` và `6.2` cùng Pāli `…pe…` đều là "…" (1 cặp trùng, 0 lệch); NFC sạch, không Pāli lọt sang Việt. Chưa chạy `npm run validate`, `npm test`, `npm run check`, `npm run build`.

@@ -11,16 +11,16 @@ tags:
 quality:
   scores:
     source_provenance: 9.5
-    semantic_fidelity: 9.3
-    grammar_logic: 9.3
+    semantic_fidelity: 9.0
+    grammar_logic: 9.2
     segment_alignment: 10.0
-    terminology: 9.2
+    terminology: 9.0
     triangulation: 7.5
-    vietnamese_clarity: 9.3
+    vietnamese_clarity: 9.2
     han_viet_balance: 9.4
-    ambiguity_integrity: 9.2
+    ambiguity_integrity: 9.0
     technical_integrity: 9.6
-  final_score: 9.23
+  final_score: 9.14
   blocking_errors:
     - "Không có tầng tham khảo tiếng Anh tại commit đã ghim: tệp
       `translation/en/sujato/sutta/kn/vv/vv49_translation-en-sujato.json` không
@@ -37,9 +37,9 @@ quality:
       Pāli root ⇒ blocker thật, và đây là **giới hạn upstream**, không phải lỗi
       của người dịch. Vì vậy `triangulation` bị chặn ở 7.5 (≤ 8.0) chứ không
       nâng để né blocker."
-  assessed_at: "2026-10-03"
+  assessed_at: "2026-10-11"
   assessed_by:
-    - "OpenCode Space Bunny Free (agent)"
+    - "Claude Sonnet 5.5 (Claude Code)"
   waiver:
     id: no-upstream-english
     blockers:
@@ -61,3 +61,10 @@ quality:
 notes: |-
   Bản dịch chỉ từ Pāli root do commit đã ghim không có bản Anh upstream (giới hạn upstream).
   Đầy đủ 10 tiêu chí scorecard; status bắt buộc draft do blocker tầng tham khảo Anh; technical_integrity 9.6.
+
+  Kiểm toán độc lập 2026-10-11: đọc đối kháng 22 khoá, đo tiền lệ trên toàn bộ Vimānavatthu (69 chỗ có công thức yassa kammassidaṁ phalaṁ; 10 tệp đã dịch đúng "về nghiệp mà đây là quả báo", 47 tệp, trong đó bài này, dịch thành câu khẳng định "quả báo của nghiệp này là thế"). Đã sửa 13/22 khoá, trong đó 1 lỗi nghĩa thật và 12 lỗi thêm nghĩa/lệch tiền lệ:
+  - Lỗi nghĩa (3.3): yassa kammassidaṁ phalaṁ là mệnh đề quan hệ phụ thuộc vào 3.1 (nữ thiên hoan hỷ giải đáp câu hỏi về nghiệp nào mà đây là quả báo); bản cũ biến thành câu khẳng định rời, bỏ chữ "yassa". Sửa thành "về nghiệp mà đây là quả báo."
+  - Thêm nghĩa không có trong Pāli: 3.1 "vô cùng"; 1.2 "ở nơi đây"; 1.3 "rực rỡ"; 1.4 "lấp lánh"; 4.3 "hoan hỷ" (trùng vittā ở 4.4) và cấu trúc "với tâm tịnh tín" biến động từ manaṁ pasādayiṁ thành trạng ngữ; 4.4 "hỷ lạc" (thuật ngữ thiền, không phải nghĩa của vitta) và "hướng về các ngài"; 2.3/5.3 "rực rỡ".
+  - Lệch tiền lệ: xưng "con" (4.1, 4.3, 4.4, 5.1, 5.3; "một con người giữa loài người" gượng) sang "tôi" theo đa số (nữ thiên đáp: 48/64 ở 5.1, 18/22 ở 4.1); 1.1 "sắc tướng" sang "dung sắc" cho cùng một từ vaṇṇa với 2.1/2.3/5.1/5.3; 2.1/5.1 "nhân duyên" sang "Do đâu"/"Nhờ vậy" theo đa số (29/41, 48/64).
+  Điểm: semantic_fidelity 9.3 sang 9.0; grammar_logic 9.3 sang 9.2; terminology 9.2 sang 9.0; vietnamese_clarity 9.3 sang 9.2; ambiguity_integrity 9.2 sang 9.0; các tiêu chí còn lại giữ nguyên; final_score 9.23 sang 9.14. Hô cách "devate" (1.2) đã đúng (này thiên nữ); "osadhī tārakā" = sao mai là cách dịch quen thuộc, giữ. Tiêu đề 0.2 "Thiên Cung Của Nữ Giới" không mắc lỗi "Nữ Hư Không" của họ vv; 0.3/0.4 giữ, translationTitle không đổi.
+  Bất định còn lại: 3.1 và 3.3 bị dấu lược …pe… (3.2) ngăn cách, nên câu đầy đủ (do ngài Moggallāna hỏi) phải dựa vào cấu trúc công thức của họ vv, không đọc được trực tiếp trong bài. technical_integrity 9.6; chưa chạy npm run validate, npm test, npm run check, npm run build.

@@ -1,6 +1,6 @@
 uid: vv42
-status: published
-translationTitle: "Chuyện Cung Điện Nữ Alomā"
+status: review
+translationTitle: "Chuyện Cung Điện Alomā"
 translators:
   - "OpenCode Space Bunny Free (agent)"
 reviewers: []
@@ -12,16 +12,16 @@ tags:
 quality:
   scores:
     source_provenance: 9.5
-    semantic_fidelity: 9.3
-    grammar_logic: 9.3
+    semantic_fidelity: 8.7
+    grammar_logic: 8.9
     segment_alignment: 10.0
-    terminology: 9.2
+    terminology: 8.6
     triangulation: 7.5
-    vietnamese_clarity: 9.3
+    vietnamese_clarity: 9.0
     han_viet_balance: 9.4
-    ambiguity_integrity: 9.2
+    ambiguity_integrity: 8.6
     technical_integrity: 9.6
-  final_score: 9.23
+  final_score: 8.98
   blocking_errors:
     - "Không có tầng tham khảo tiếng Anh tại commit đã ghim: tệp
       `translation/en/sujato/sutta/kn/vv/vv42_translation-en-sujato.json` không
@@ -38,9 +38,9 @@ quality:
       Pāli root ⇒ blocker thật, và đây là **giới hạn upstream**, không phải lỗi
       của người dịch. Vì vậy `triangulation` bị chặn ở 7.5 (≤ 8.0) chứ không
       nâng để né blocker."
-  assessed_at: "2026-10-04"
+  assessed_at: "2026-10-11"
   assessed_by:
-    - "OpenCode Space Bunny Free (agent)"
+    - "Claude Sonnet 5.5 (Claude Code)"
   waiver:
     id: no-upstream-english
     blockers:
@@ -64,3 +64,14 @@ notes: |-
   Đối chiếu văn cảnh và chú giải để xác định ngữ nghĩa các từ cổ và cấu trúc đối thoại.
   Bảo toàn niêm luật kệ ngôn / cấu trúc văn xuôi, danh từ riêng giữ nguyên ký tự Pāli có dấu phụ.
   Toàn bộ 26 khoá được kiểm tra cẩn thận về phân đoạn, cân bằng dấu ngoặc kép và chuẩn hóa Unicode NFC.
+
+  Kiểm toán độc lập 2026-10-11 (đọc đối kháng từng khoá Pāli↔Việt; bản trước tự chấm 9.23):
+  - Lỗi nghĩa thật đã sửa: (1) vv42:3.3 `yassa kammassidaṁ phalaṁ` là mệnh đề quan hệ ("nghiệp mà đây là quả"), bản cũ đọc thành mệnh đề chỉ định "quả báo của nghiệp này là thế" → "về nghiệp mà đây là quả báo" (tiếp nối động từ giải đáp bị lược ở 3.2; cùng lỗi lan ở khoảng 40 tệp vv khác, chưa sửa ở đây). (2) vv42:5.2 `kummāsapiṇḍiyā` là "nắm bánh kummāsa", bản cũ dịch thành "phần cúng dường", làm mất vật được dâng → "nắm bánh mạch kummāsa". (3) vv42:4.1 `Ahañca bārāṇasiyaṁ`: "Ahañca" là chủ ngữ ("Và tôi") còn `bārāṇasiyaṁ` là vị trí cách; bản cũ biến thành "tôi ở thành…" và thêm "Thuở trước" không có trong Pāli → "Và tôi, ở thành Bārāṇasī," (4.3 nối thành "đã dâng…").
+  - Thêm nghĩa/thừa chữ đã gỡ: 1.2 "nơi đây" (Pāli không có `idha`), 5.1 "Chỉ… ấy", 5.3 "nàng… thế này", 5.4 "các việc phước lành" (puññaṁ số ít → "tạo phước").
+  - Thuật ngữ: `vaṇṇo` ở 2.3 và 6.3 bản cũ dịch "sắc tướng" trong khi 1.1, 2.1, 6.1 dịch "dung sắc" cho cùng từ → thống nhất "dung sắc" (đa số 234 khoá vv dùng "dung sắc", 29 khoá dùng "sắc tướng"). `sukkhakummāsa` bản cũ "bánh cháo khô" (cháo khô tự mâu thuẫn) → "bánh mạch kummāsa khô", theo tiền lệ "nắm bánh mạch kummāsa" ở vv14:6.5 và vv71:4.3.
+  - Tiêu đề 0.4/7.1 và `translationTitle`: bỏ "Nữ" thừa ("Alomā" đã là tên; vv39–vv48 không thêm "Nữ").
+  - Không đổi, đã nghi ngờ: tiêu đề 0.2 "Chuyện Cung Điện Nữ Hư Không" sai gốc (`Itthivimāna` = cung điện của các nữ thiên, không có `ākāsa`), lặp ở khoảng 51 tệp vv nên không sửa riêng một tệp. 1.4 "rực rỡ tựa như sao mai": chữ "rực rỡ" là phần diễn đạt thêm nhẹ nhưng đã là quy ước 22 tệp.
+  - Bất định còn lại: `Alomaṁ` ở 5.3. Tên Alomā có trong bảng tóm lược cuối vv50 và tên cung điện, nên giữ làm tên riêng (đối cách giống cái), nhưng không phân xử được vì sao người nói tự gọi mình bằng tên ở ngôi thứ ba, hay chữ này mang nghĩa khác; không có tầng tham khảo nào để đối chiếu. 5.1–5.2: `sukkhāya aloṇikāya` là tính từ của `kummāsapiṇḍiyā`, nên giữ dạng đoạn "Khô và không có muối," để bám trật tự Pāli.
+  - Số khoá đổi: 12/26 (0.4, 1.2, 2.3, 3.3, 4.1, 4.3, 5.1, 5.2, 5.3, 5.4, 6.3, 7.1). Lỗi nghĩa thật: 3 khoá đã sửa (3.3, 4.1, 5.2) + 1 khoá chưa sửa do lỗi họ (0.2); còn lại là thêm nghĩa/thuật ngữ nhẹ.
+  - Điểm: semantic_fidelity 9.3→8.7, grammar_logic 9.3→8.9, terminology 9.2→8.6, vietnamese_clarity 9.3→9.0, ambiguity_integrity 9.2→8.6; các tiêu chí khác giữ; triangulation giữ 7.5 vì vẫn không có tầng tham khảo độc lập. `final_score` 9.23→8.98.
+  - Chưa chạy `npm run validate`, `npm test`, `npm run check`, `npm run build`; `technical_integrity` giữ 9.6.
