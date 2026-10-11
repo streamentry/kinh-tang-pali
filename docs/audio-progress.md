@@ -154,3 +154,30 @@ Nhật ký append-only. Registry `content/audio/progress.json` được đối s
 ### PR #459 deployment evidence
 
 - Pages run 38103659643 succeeded for merge `9e70280d0f060ee3a519261a3f3abd593771ee57` (verified by GitHub run readback). This technical planner PR registers no new audio; MN13 remains blocked and was not uploaded.
+
+### MN13 checkpoint merge and MN14 start
+
+- PR https://github.com/streamentry/kinh-tang-pali/pull/462 merged at 2026-10-11T02:24:43Z; exact head `f597f888ff62db7e5369eabffec4f5f2155ef6d0`, squash `ff21ab2bf15d7b0b1fc3bc81ae4f4008fa91cd79`. CI runs 38104332206 and 38104328717 both succeeded. Pages run 38105064963 remains in progress at this checkpoint; no new audio was registered by that PR.
+- Additional local overlapping windows (80–123.32s and final 25s) of MN13 chunk index 10 still recognized the repeated corpse-example passage after the bounded retry. ASR is not authority; human listening remains required, and no MN13 upload occurred.
+- After fetching the merge and switching to a clean branch from remote main, MN14 prepared 13 chunks / 142 canonical scripture segments, source SHA-256 `5b5aecd379659f3ed82828d51a3e6ede1e760572f64df07a739e8cb4d6fade6e`, plan `e7a15154828938dd`. Exact normalized HTML comparison verified all 142 canonical cells (excluding aside comments) and five summary paragraphs against production. Approved narration profile unchanged. One sequential TTS process started; voice/pace human comparison and full content listening are not claimed. Review pending.
+
+- MN14 early local QC: summary indexes 0/1 similarities 0.9455/0.9289 without long differences. Index 2 full ASR inserted a generic video outro; last-25s and last-12s local windows both recognized only the canonical ending and did not reproduce that insertion. This is narrower machine evidence, not full listening approval. Original ASR and window reports are retained locally; no retry is triggered solely by the unreproduced outro.
+
+### MN14 bounded content retry checkpoint
+
+- Generated all 13 chunks and final MP3 approximately 1238.4s. Full offline ASR covered all chunks. Generic outro insertions in indexes 2/7 were not reproduced in final25s/final12s windows. Index6 still recognizes a long fortress-example continuation outside its assigned text after one bounded retry (similarity0.7177). Original attempts and reports remain ignored locally. This is not proof of a TTS error; MN14 is blocked pending human listening/content verification, with no R2 upload or player registration. Review pending. Continue sequentially with MN15.
+- Pages run38105064963 succeeded for checkpointPR462 merge `ff21ab2bf15d7b0b1fc3bc81ae4f4008fa91cd79`, verified by GitHub run readback.
+
+### MN15 sequential start
+
+- MN15 prepared 20 chunks from summary followed by261canonical scripture segments; sourceSHA256 `0830164f792e32161f6906c3ee16d9182b9d83ae5e27af882576818d7d8da601`, plan `67e3985553a6ac90`, maximum1389characters within approved1400limit. One sequential generator started with pinnedMN1profile; no voice/pace human comparison or full listening is claimed. Reviewpending. MN14 remains blocked, not uploaded and not counted complete.
+
+### Parallel QC lanes and MN15 bounded retry
+
+- Editor explicitly authorized two parallel QC threads, each with separate worktree/log. Audio QC MN2–MN6 owns docs/audio-qc-mn2-mn6.md; Audio QC MN11–MN14 owns docs/audio-qc-mn11-mn14.md. They inspect copied cache artifacts and do not invoke TTS or mutate the shared registry. Main audio thread keeps one TTS process.
+- MN15 first pass generated20chunks, approximately1891s. Full localASR covered20chunks. One bounded retry of indexes[2,3,5,6,7,12,13,14,15,16] preserves originals and reuses10WAVs. Generic outro-only indexes10/18 were not reproduced in final25s/final12s ASR windows; retained without retry. Early retries2/3 still have longASRdifferences; no content approval, upload or player registration is claimed. Final review pending.
+
+### MN15 final bounded-retry checkpoint
+
+- FinalMP3 approximately1903.8s,20chunks/261canonical segments. Full offlineASR covered20chunks after one content retry of each of10flaggedindexes, reusing10WAVs. Remaining long scripture differences at indexes2,3,6,13,14,16; final similarity range0.6272–0.9897. Generic outro-only indexes10/18 were not reproduced in last25s/12s windows. ASR is not authority; content remains unproven without human listening. MN15 blocked, reviewpending, no R2 upload or player registration. Original attempts/reports and final artifact retained in ignored cache.
+- This checkpoint records0newsuccessfulaudio files and2blockedUIDs(MN14,MN15), following the requested frequentPR cadence; neither blocked UID counts toward10successes.
