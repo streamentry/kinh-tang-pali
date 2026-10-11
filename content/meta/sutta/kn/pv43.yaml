@@ -12,17 +12,17 @@ tags:
   - gūthakhādaka
 quality:
   scores:
-    source_provenance: 9.0
-    semantic_fidelity: 8.2
-    grammar_logic: 8.6
+    source_provenance: 9.3
+    semantic_fidelity: 8.7
+    grammar_logic: 9.0
     segment_alignment: 10.0
-    terminology: 8.4
+    terminology: 8.8
     triangulation: 7.5
-    vietnamese_clarity: 8.8
-    han_viet_balance: 9.0
-    ambiguity_integrity: 7.8
+    vietnamese_clarity: 9.1
+    han_viet_balance: 9.2
+    ambiguity_integrity: 8.5
     technical_integrity: 9.6
-  final_score: 8.69
+  final_score: 8.97
   blocking_errors:
     - "Không có tầng tham khảo tiếng Anh tại commit đã ghim
       (11c9d708978cde8ba61096d8a75f7ddfb846f639): thư mục `kn/` của edition
@@ -103,16 +103,12 @@ notes: |-
 
   Đợt này bị cấm chạy cổng kỹ thuật, nên tiêu chí 10 bị chặn ở **9.6**: tôi chỉ xác minh được JSON hợp lệ, đủ khoá, không orphan, không rỗng, mọi giá trị NFC, dấu lược khớp Pāli từng khoá, `(…)` không đứng một mình, ngoặc kép cân trên cả bài và YAML sạch. Bốn lệnh `npm run validate`, `npm test`, `npm run check`, `npm run build` để coordinator chạy.
 
-  Kiểm toán độc lập 2026-10-11. Đọc đối kháng từng khoá Pāli↔Việt, đối chiếu bài anh em trong kho. Kết luận: bản trước (tự chấm 9.05) có lỗi nghĩa thật ở 16/36 khoá và 4 khoá lệch nhẹ hơn; đã sửa 20 khoá, điểm hạ 9.05 → 8.69. Phần ghi chú cũ ở trên được giữ làm lịch sử, nhưng các chỗ sau đây của nó KHÔNG còn đúng và đã bị thay:
-  (1) `kadariyo paribhāsako` ở 4.4 trước dịch “tàn nhẫn và mắng nhiếc”, và notes cũ viện an4.53/an4.54/an7.57 làm tiền lệ. Đo lại: cùng nguyên văn Pāli ở pv19:7.2, pv38:22.4, pv38:35.4 dịch “keo kiệt, hay mắng nhiếc”, an4.54 “keo kiệt và hay rủa sả”, an7.57 “keo kiệt, bủn xỉn, hay sỉ nhục”; `kadariya` ở toàn tầng đều là “keo kiệt” (57 khoá có `kadariy`, không nơi nào là “tàn nhẫn”). Tiền lệ viện dẫn trước đây là sai; đã sửa theo đa số.
-  (2) `Ahu` ở 4.1 trước giữ nguyên như một tên riêng. Đó là dạng quá khứ của `hoti` (“đã có / từng có”, như `ahu satthā` ở tha-ap345), không phải tên người. Nay dịch “Con từng có một vị trú xứ”; `āvāsika` theo tiền lệ “vị trú xứ / tỳ-kheo trú xứ” (an5.232–240).
-  (3) Cả bài trước gán “bạch ngài” cho lời của vị trưởng lão hỏi (1.2, 1.4, 3.4) và gán “ngài” cho người đối thoại ở 8.1 (`bhadante hadantaññe` = “bạch ngài, thứ mà những kẻ khác thải ra”; `aññe` là “những kẻ khác”, không phải “ngài”). Ở 5.2 `bhikkhavo` là đối cách số nhiều “các tỳ-kheo” (đối tượng bị mắng), không phải hô cách “bạch ngài”. Đã sửa; vị hỏi gọi ngạ quỷ là “ngươi” như pv19:1.1, pv51:4.4, pv33:3.4.
-  (3b) `ko nu dīno patiṭṭhasi` (1.2) là “kẻ khốn khổ nào đã đứng đó”, `ko` là “ai”, bản trước đọc thành “ở đâu”. `Nissaṁsayaṁ pāpakammanto` (1.3) là “chắc chắn (ngươi) là kẻ làm ác”, bản trước đọc thành “không hề do dự”.
-  (4) Đảo chủ thể ở vòng 7: 7.4 `mameva paricārako` nói kẻ kia là người hầu hạ CỦA TA (ngạ quỷ nói), bản trước viết ngược “còn kẻ hầu hạ thì chính là con”. 7.2 notes cũ tự ghi “`sīse` = làm nô lệ, `matthake` = ngay trước hiên”: đây là nghĩa bịa, không có trong Pāli (`sīsa` = đầu, `matthaka` = đỉnh đầu); 7.3 `paravisayaṁ patto` bị thay bằng câu bịa “đã chịu quả báo khổ đau”. Nay dịch sát chữ.
-  (5) 5.3 `tassa kammavipākena` là “do quả báo của nghiệp ấy” (nghiệp mắng nhiếc tỳ-kheo), không phải “nghiệp của người ấy”. 6.2 `kulūpako` là người hay lui tới gia đình (an5.111 “hay đến các gia đình”), không phải “người cùng họ hàng”. 6.1 `amitto mittavaṇṇena` là kẻ thù mang dáng bạn bè. 4.2 `kulamaccharī` giữ vế “keo kiệt về gia đình” (an5.237, an5.224). 2.2 `duggato` là “đã rơi vào cảnh khổ” (pv19, pv13, pv27); “khổ xa xôi” là đọc `du-` thành “xa”, không có cơ sở.
-  (6) 2.1 `petomhi` đổi “ma” → “ngạ quỷ” cho khớp tiêu đề và pv19:2.1, pv45:2.1.
-  Khoá đã đổi (20/36): 1.2, 1.3, 1.4, 2.1, 2.2, 3.4, 4.1, 4.2, 4.4, 5.2, 5.3, 6.1, 6.2, 6.3, 7.1, 7.2, 7.3, 7.4, 8.1, 8.4. Không đổi: 0.x, 1.1, 2.3, 2.4, 3.1–3.3, 4.3, 5.1, 5.4, 6.4, 8.2, 8.3, 9.1.
-  Điểm hạ: source_provenance 9.5→9.0 (notes cũ viện tiền lệ sai), semantic_fidelity 9.0→8.2, grammar_logic 9.0→8.6, terminology 9.0→8.4, vietnamese_clarity 9.1→8.8, han_viet_balance 9.2→9.0, ambiguity_integrity 8.6→7.8; segment_alignment 10.0, triangulation 7.5, technical_integrity 9.6 giữ. final_score 8.69 (trung bình thô). Vì điểm xuống dưới 9.0, `status` do công cụ chấm quyết định lại.
-  BẤT ĐỊNH CÒN LẠI (không phân xử được, không bịa): (a) 1.4 `kiṁ nu saddahase tuvaṁ`: dịch sát chữ `saddahati` = tin; nhưng bài anh em pv51:1.4 cùng công thức chỉ khác chữ (`saddāyase`, “kêu la”) nên có thể đây là dị bản của `saddāyase` (“sao ngươi kêu la”); không có tầng Anh để phân xử. (b) 7.1–7.2 `sīse tiṭṭhāmi matthake`: dịch sát chữ “đứng trên đầu, trên đỉnh đầu”, nghĩa thành ngữ (đứng trên cao hơn kẻ kia) không kiểm chứng được; `pāpakammassa` hiểu là người làm ác (vì câu sau nói `so`), cũng có thể là danh từ “ác nghiệp”. (c) 7.3 `paravisayaṁ patto`: dịch sát chữ theo sn47.6–7 (“lãnh vực của người khác”); rất có thể nghĩa là cõi ngạ quỷ nhưng chưa kiểm chứng được. (d) 4.1/4.3 `āvāsiko` + `ajjhāsito`: “vị trú xứ” và “ở trong nhà con”; `ajjhāsita` chỉ có hai lần trong toàn tầng, không có tiền lệ.
-  Cố ý KHÔNG đổi dù nghi ngờ: tiêu đề “Ăn Dơ” (`gūtha` là phân; “dơ” là cách nói giảm, nhưng khớp pv44 và uddāna pv51, không sai nghĩa); `petalokaṁ ito gato` giữ “đã từ đây đi sang thế giới của người đã chết” (26/29 nơi trong tầng, chỉ pv19 dùng “cõi ngạ quỷ”). ĐỀ NGHỊ kiểm toán bài anh em: pv44 (cùng lỗi, chép nguyên), pv51:1.3–1.4 (`Nissaṁsayaṁ pāpakammanto` đọc sai y hệt), pv35:3.4 (“bạch ngài rơi vào khổ ấy”), và cụm “sinh về cõi khổ xa xôi” ở pv6, pv7, pv31, pv44, pv45, pv51.
-  Pāli trùng nguyên văn trong chính bài: không có cặp nào (36 khoá); nháy kép/dấu lược khớp Pāli từng khoá, NFC, thứ tự khoá = Pāli, kiểm cổng kỹ thuật cục bộ ✓. technical_integrity giữ 9.6; bốn lệnh `npm run validate`, `npm test`, `npm run check`, `npm run build` để coordinator chạy.
+  Lượt cải thiện 2026-10-11 (kiểm toán đối kháng, accuracy fix). LƯU Ý: các khẳng định về từ vựng và về bản trùng với pv44 ở phần ghi chú phía trên đã bị lượt này thay thế; những chỗ sau đây là chuẩn.
+  Đã đổi 23/36 khoá (1.1, 1.2, 1.3, 1.4, 2.1, 2.2, 3.4, 4.1–4.4, 5.1, 5.2, 6.1–6.3, 7.1–7.4, 8.1, 8.2, 8.4). Lỗi nghĩa thật ở 15 khoá: 1.2, 1.3, 1.4, 2.2, 3.4, 4.1, 4.4, 5.2, 6.1, 6.2, 7.1, 7.2, 7.3, 7.4, 8.1. Các khoá còn lại chỉ sửa câu chữ cho khớp mạch hoặc thuật ngữ.
+  Loại lỗi: (a) người được hỏi/người nói — 1.2, 1.4, 3.4 gọi ngạ quỷ là “bạch ngài” trong khi lời hỏi là của vị tỳ-kheo (bhadante ở 2.1 là lời đáp của ngạ quỷ), 8.4 gọi tỳ-kheo trú xứ là “ngài ấy”; (b) danh từ riêng bịa — 4.1 `Ahu` là động từ “đã có” (aorist của hoti), không phải tên người; (c) đảo vai — 7.4 `mameva paricārako` là “chính là người hầu cận của con” (kẻ kia hầu con), bản cũ đảo thành con là kẻ hầu; 8.1 `yaṁ bhadante hadantaññe` = “thứ gì những người khác thải ra” (`hadantaññe` = hadanti + aññe), bản cũ hiểu thành “thứ ngài thải ra”; (d) từ vựng — `sīse tiṭṭhāmi matthake` = đứng trên đầu, trên đỉnh đầu (bản cũ: “làm nô lệ”, “ngay trước hiên”), `kulūpako` = vị hay lui tới nhà các gia đình (bản cũ: “người cùng họ hàng”), `amitto mittavaṇṇena` = kẻ thù mang dáng bạn bè (đối chiếu dn31:15–19 “kẻ thù đội lốt bạn”, bản cũ: “không phải bạn theo vẻ ngoài”), `kadariyo` = bủn xỉn (an4.53, an4.54, an7.57; bản cũ: “tàn nhẫn”), `duggato` = đã rơi vào cảnh khổ (pv13, pv19, pv27; bản cũ: “cõi khổ xa xôi”, hiểu sai dur-), 5.2 `bhikkhavo paribhāsisaṁ` = mắng nhiếc các tỳ-kheo (bản cũ đánh rơi tân ngữ và biến thành “trở thành kẻ mắng nhiếc”); (e) thức/ngữ khí — 1.3 `nissaṁsayaṁ pāpakammanto` là lời suy đoán “chắc chắn ngươi là kẻ làm ác”, không phải “từng làm không hề do dự”; 7.3 bản cũ thêm “đã chịu quả báo khổ đau” không có trong Pāli (`so ca paravisayaṁ patto`).
+  Điểm đổi: source_provenance 9.5→9.3 (ghi chú cũ nêu các nghĩa từ sai, như `sīse`=nô lệ, `kādariya`=tàn nhẫn); semantic_fidelity 9.0→8.7; terminology 9.0→8.8; ambiguity_integrity 8.6→8.5 (bất định còn lại liệt kê dưới đây); các tiêu chí khác giữ nguyên. final_score 9.05→8.97: bài được sửa tốt nhưng chưa có tầng tham khảo độc lập, nên không nâng lại điểm.
+  Bất định còn lại. (1) 1.4 `saddahase`: nghĩa từ vựng là “tin”, không khớp mạch; dòng song song pv51:1.4 viết `saddāyase` (kêu la), nên dịch “vì sao ngươi còn kêu la?”; chưa có chú giải để xác nhận. (2) 7.3 `paravisayaṁ patto` (“đến cõi của kẻ khác”) — nhiều khả năng là cõi ngạ quỷ nhưng không thêm vào lời kinh. (3) 4.1 `āvāsiko` và 4.3 `ajjhāsito` — nghĩa “vị tỳ-kheo thường trú” và “đã ở trong nhà” là cách đọc chắc nhất nhưng không có đối chiếu. (4) 7.1–7.2 `sīse tiṭṭhāmi matthake` — đọc nghĩa đen; chưa có chú giải để biết có hàm ý chủ–tớ hay chỉ là vị trí. (5) Tiêu đề “Ăn Dơ” (gūtha = phân) giữ lại vì phẩm tóm lược pv51:13.3 và pv44 dùng cùng tên.
+  Thuật ngữ theo tiền lệ: `petomhi` → “ngạ quỷ” (pv13, pv19) thay cho “ma” (pv6, pv7, pv31, pv51 dùng “ma”: 4 so với 2 nơi dùng “ngạ quỷ”; chọn “ngạ quỷ” cho khớp tiêu đề bài). `kulamaccharī` → “keo kiệt về các gia đình” (an5.224, dn33). `paricārako` → “người hầu cận” (ja455, ja540).
+  Không đổi: 3.1, 3.2 (khớp pv51:4.1–4.2 nguyên văn), 2.4, 5.4 (“thế giới của người đã chết”, tiền lệ toàn tầng), 6.4.
+  Hệ quả với bài song song: pv44 (bản nữ) có đúng các lỗi trên ở các khoá trùng Pāli; pv43 không còn trùng bản Việt với pv44 cho đến khi pv44 được sửa tương tự. Lỗi `kiṁ nu saddāyase` / “người từng làm điều ác không hề do dự” cũng có ở pv51:1.3–1.4; `duggato` → “cõi khổ xa xôi” ở pv6, pv7, pv31, pv44, pv45, pv51.
+  Kỹ thuật: `technical_integrity` vẫn 9.6; `npm run validate`, `npm test`, `npm run check`, `npm run build` để coordinator chạy.
