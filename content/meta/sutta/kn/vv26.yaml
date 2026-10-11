@@ -12,16 +12,16 @@ tags:
 quality:
   scores:
     source_provenance: 9.5
-    semantic_fidelity: 9.3
-    grammar_logic: 9.3
+    semantic_fidelity: 8.7
+    grammar_logic: 9.0
     segment_alignment: 10.0
-    terminology: 9.2
+    terminology: 8.5
     triangulation: 7.5
-    vietnamese_clarity: 9.3
+    vietnamese_clarity: 9.1
     han_viet_balance: 9.4
-    ambiguity_integrity: 9.2
+    ambiguity_integrity: 8.8
     technical_integrity: 9.6
-  final_score: 9.23
+  final_score: 9.01
   blocking_errors:
     - "Không có tầng tham khảo tiếng Anh tại commit đã ghim: tệp
       `translation/en/sujato/sutta/kn/vv/vv26_translation-en-sujato.json` không
@@ -38,9 +38,9 @@ quality:
       Pāli root ⇒ blocker thật, và đây là **giới hạn upstream**, không phải lỗi
       của người dịch. Vì vậy `triangulation` bị chặn ở 7.5 (≤ 8.0) chứ không
       nâng để né blocker."
-  assessed_at: "2026-10-04"
+  assessed_at: "2026-10-11"
   assessed_by:
-    - "OpenCode Space Bunny Free (agent)"
+    - "Claude Sonnet 5.5 (Claude Code)"
   waiver:
     id: no-upstream-english
     blockers:
@@ -64,3 +64,30 @@ notes: |-
   Đối chiếu văn cảnh và chú giải để xác định ngữ nghĩa các từ cổ và cấu trúc đối thoại.
   Bảo toàn niêm luật kệ ngôn / cấu trúc văn xuôi, danh từ riêng giữ nguyên ký tự Pāli có dấu phụ.
   Toàn bộ 26 khoá được kiểm tra cẩn thận về phân đoạn, cân bằng dấu ngoặc kép và chuẩn hóa Unicode NFC.
+  Kiểm toán độc lập 2026-10-11 (đọc đối kháng từng cặp Pāli↔Việt, đối chiếu họ `vv`):
+  KẾT LUẬN: bản trước chấm 9.23 là hơi cao. Đổi 6/26 khoá; 1 khoá sai nghĩa/cấu trúc thật trong thân
+  kệ (≈ 4%), 5 khoá lỗi nhẹ. Hai tiêu đề phẩm vẫn mang lỗi lan cả họ (xem dưới), tính vào điểm.
+  Số đo: `(…)` ở Pāli → Việt giữ `(…)` ở 15/18 khoá toàn tầng kn; `yassa kammassidaṁ phalaṁ` 50 tệp
+  dịch *quả báo của nghiệp này là thế*, 1 tệp (`vv15:4.4`, đã kiểm toán) dịch đúng cấu trúc quan hệ.
+  Khoá sai nghĩa thật, đã sửa:
+  · `3.3` `yassa kammassidaṁ phalaṁ` — mệnh đề quan hệ nối với động từ ẩn sau `…pe…`
+    (*pañhaṁ puṭṭhā viyākāsi*): nữ thiên giải đáp *về nghiệp mà đây là quả báo*. Bản trước *quả báo của
+    nghiệp này là thế* biến thành câu khẳng định độc lập và đổi `yassa` (quan hệ) thành chỉ định. Theo
+    `vv15:4.4`. (Cùng lỗi ở ~50 tệp `vv` khác — ngoài lát, báo.)
+  Khoá lỗi nhẹ, đã sửa:
+  · `6.3` `upāsikā` = *nữ cư sĩ* (bản trước *đệ tử cư sĩ* mất giới tính và lệch `4.2`, nơi cùng từ dịch
+    *nữ cư sĩ*); `6.1` bỏ *luôn* và *gìn giữ* (Pāli `ratā` chỉ *hoan hỷ trong*, `sadā` chỉ có ở `4.4`);
+    `6.2` bỏ *nhiệm mầu* (Pāli `kovidā` không có); `5.1` `(…)` giữ đúng dấu lược của tầng Pāli;
+    `2.3` bỏ dấu chấm thừa sau `?”`.
+  Lỗi còn lại, KHÔNG sửa riêng (lan cả họ, cần người biên tập quyết chung):
+  · `0.2` `Itthivimāna` dịch *Nữ Hư Không* (48 tệp): Pāli không có `ākāsa`; nghĩa đúng là *cung điện của
+    các nữ thiên*.
+  · `0.3` `Cittalatāvagga` dịch *Phẩm Cây Hoa Cittalatā* (11 tệp): `Cittalatā` là tên khu rừng/ngự uyển
+    (`vv18`, `vv37`, `vv65` dịch *khu rừng/ngự uyển*); *Cây Hoa* không có căn cứ.
+  · `1.3` `osadhī viya tārakā`: *rực rỡ* không có trong khoá (từ vế ẩn `obhāsentī`), giữ theo công thức
+    22 tệp. `4.4` `saṁvibhāgaratā`: *bố thí* thêm vào *sẻ chia*, giữ theo công thức 4 tệp.
+  · `osadhī-tārakā` = *sao mai* (sao Kim) là cách hiểu truyền thống, không có tầng tham khảo để kiểm.
+  Chấm lại: semantic_fidelity 9.3 → 8.7, grammar_logic 9.3 → 9.0, terminology 9.2 → 8.5,
+  vietnamese_clarity 9.3 → 9.1, ambiguity_integrity 9.2 → 8.8; các điểm khác giữ. final_score 9.01.
+  Cổng kỹ thuật chưa chạy trong lượt này: `npm run validate`, `npm test`, `npm run check`,
+  `npm run build` — `technical_integrity` giữ 9.6.

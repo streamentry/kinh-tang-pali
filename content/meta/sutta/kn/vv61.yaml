@@ -11,16 +11,16 @@ tags:
 quality:
   scores:
     source_provenance: 9.5
-    semantic_fidelity: 9.2
-    grammar_logic: 9.3
+    semantic_fidelity: 8.9
+    grammar_logic: 9.2
     segment_alignment: 10.0
-    terminology: 9.1
+    terminology: 8.8
     triangulation: 7.5
     vietnamese_clarity: 9.3
     han_viet_balance: 9.3
-    ambiguity_integrity: 9.1
+    ambiguity_integrity: 8.9
     technical_integrity: 9.6
-  final_score: 9.19
+  final_score: 9.1
   blocking_errors:
     - "Không có tầng tham khảo tiếng Anh tại commit đã ghim: manifest
       `source/upstream-manifest.json` không liệt kê tệp Anh nào cho uid này, và
@@ -28,9 +28,9 @@ quality:
       `not-published-upstream`, KHÔNG phải `not-synced`. Tầng
       `vietnamese-current` cũng vắng vì commit đã ghim chỉ có Pháp Cú. Bài dịch
       chỉ từ Pāli root nên bắt buộc `draft`."
-  assessed_at: "2026-10-04"
+  assessed_at: "2026-10-11"
   assessed_by:
-    - "OpenCode Space Bunny Free (agent)"
+    - "Claude Sonnet 5.5 (Claude Code)"
   waiver:
     id: no-upstream-english
     blockers:
@@ -47,3 +47,7 @@ notes: |-
   Dòng 3.2 nêu đích danh Tôn giả Vaṅgīsa trong Pāli nên không giữ tên Moggallāna như khung vv65.
   cakkhumant ở 4.2 dịch là bậc Hữu Nhãn theo tiền lệ sn6.15 trong kho.
   technical_integrity 9.6 vì agent lát này không chạy gate. Bốn lệnh gate do coordinator chạy trước khi publish: `npm run validate`, `npm test`, `npm run check`, `npm run build`.
+  Kiểm toán độc lập 2026-10-11: đọc đối kháng 29 khoá với Pāli, 9 khoá được sửa. Lỗi nghĩa thật chỉ ở 3.4 và tiêu đề 0.2; còn lại là chỉnh nhẹ.
+  3.3 và 3.4: `yassa kammassidaṁ phalaṁ` là mệnh đề quan hệ, nội dung câu giải đáp là "quả báo này là của nghiệp nào"; bản cũ "quả báo của nghiệp ấy là đây" đọc yassa thành chỉ định "ấy" (accuracy fix, chung lỗi với 50 tệp vv khác dùng "của nghiệp này là thế"). Bỏ "liền" ở 3.3 vì Pāli không có.
+  1.6: bỏ "giữa các vì sao" vì Pāli chỉ có osadhī viya tārakā (một ngôi sao, sao mai), theo cách đa số của họ vv (22/25 tệp). 2.1 và 2.3: "chàng" đổi thành "ngài" theo tiền lệ vv43 và đa số họ (8 so với 2) vì người hỏi là Tôn giả Vaṅgīsa nói với thiên tử. 3.2: bỏ "gạn" (pucchito chỉ là hỏi). 4.4: "tránh lấy vật không cho" đổi thành "tránh xa việc lấy của không cho" theo đa số 6 trên 7 nơi dùng Loke adinnaṁ. 5.3 và 5.4: pasannacitto là chủ ngữ, annañca pānañca và dānaṁ vipulaṁ là tân ngữ của adāsiṁ nên viết lại cho đúng quan hệ cú pháp.
+  Chưa sửa có chủ ý: tiêu đề 0.2 "Chuyện Cung Điện Nam Hư Không" không có ākāsa trong Pāli Purisavimāna và lặp ở 26 tệp vv, nên không sửa riêng một tệp để tránh lệch cả bộ, cần sửa đồng loạt. Điểm hạ vì lý do này: semantic_fidelity 9.2 thành 8.9, terminology 9.1 thành 8.8; grammar_logic 9.3 thành 9.2 (cú pháp 5.3 cũ), ambiguity_integrity 9.1 thành 8.9. Các tiêu chí khác giữ nguyên; triangulation vẫn 7.5 vì không có bản Anh. final_score 9.19 thành 9.10. Bản thân bài kinh ngắn, các khoá còn lại đúng người nói, số lượng và phủ định.

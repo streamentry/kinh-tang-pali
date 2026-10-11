@@ -11,16 +11,16 @@ tags:
 quality:
   scores:
     source_provenance: 9.5
-    semantic_fidelity: 9.2
+    semantic_fidelity: 9.1
     grammar_logic: 9.3
     segment_alignment: 10.0
     terminology: 9.1
     triangulation: 7.5
     vietnamese_clarity: 9.3
     han_viet_balance: 9.3
-    ambiguity_integrity: 9.1
+    ambiguity_integrity: 9.0
     technical_integrity: 9.6
-  final_score: 9.19
+  final_score: 9.17
   blocking_errors:
     - "Không có tầng tham khảo tiếng Anh tại commit đã ghim: manifest
       `source/upstream-manifest.json` không liệt kê tệp Anh nào cho uid này, và
@@ -28,9 +28,9 @@ quality:
       `not-published-upstream`, KHÔNG phải `not-synced`. Tầng
       `vietnamese-current` cũng vắng vì commit đã ghim chỉ có Pháp Cú. Bài dịch
       chỉ từ Pāli root nên bắt buộc `draft`."
-  assessed_at: "2026-10-04"
+  assessed_at: "2026-10-11"
   assessed_by:
-    - "OpenCode Space Bunny Free (agent)"
+    - "Claude Sonnet 5.5 (Claude Code)"
   waiver:
     id: no-upstream-english
     blockers:
@@ -47,3 +47,13 @@ notes: |-
   Aṭṭhaṭṭhakā ở 2.2 là tám lần tám nên dịch là sáu mươi bốn nàng.
   Kuṇḍalī dịch mô tả là đeo bông tai theo tiền lệ bông tai ở sn10.8, không dựng tên mới.
   technical_integrity 9.6 vì agent lát này không chạy gate. Bốn lệnh gate do coordinator chạy trước khi publish: `npm run validate`, `npm test`, `npm run check`, `npm run build`.
+  Kiểm toán độc lập 2026-10-11: đọc đối kháng đủ 29 khoá cặp Pāli và Việt, đối chiếu tiền lệ họ Vimānavatthu. Không có khoá nào sai nghĩa nặng: người nói 5.x là thiên tử nam nên "ta" đúng, các hô cách không bị đọc thành tân ngữ, số sáu mươi bốn ở 2.2 đúng. Khoá đã sửa (9/29):
+  - 3.1, 3.2, 3.3, 3.4: "ngươi" đổi thành "ngài". Người hỏi là Trưởng lão Moggallāna nói với một thiên tử, gọi "ngươi" là lệch bậc xưng hô; tiền lệ họ vv là "ngài" (11 tệp: vv54, vv60, vv66–vv68, vv70, vv74–vv76, vv80, vv82). Không đổi nghĩa, chỉ sửa xưng hô.
+  - 1.4: bỏ "giữa trời" vì Pāli chỉ có yathāpi candimā, không có chữ nào cho bầu trời.
+  - 5.2: bỏ "thanh tịnh" thêm vào sīlavante; còn "giữ giới".
+  - 1.3 và 5.3: yasassī vốn dịch hai cách trong cùng bài ("đầy danh vọng" và "đầy vinh hiển"), thống nhất "có danh tiếng".
+  - 3.4 và 6.3: bỏ dấu chấm thừa sau nháy đóng, theo tiền lệ họ vv (`?”` và `.”`).
+  Điểm đổi: semantic_fidelity 9.2 thành 9.1 (có chỗ thêm nghĩa nhẹ ở 1.4 và 5.2 mà lượt trước chấm cao), ambiguity_integrity 9.1 thành 9.0 (hai bất định dưới đây lượt trước chưa ghi). final_score 9.19 thành 9.17.
+  Bất định còn lại: (a) 4.2 là …pe… che động từ trần thuật, nên 4.3 yassa kammassidaṁ phalaṁ đọc thành lời tự xưng của thiên tử; giữ "quả báo của nghiệp ấy là đây" (tiền lệ đa số "quả báo của nghiệp này là thế", hơn 30 chỗ; hai cách cùng nghĩa, không đổi để khỏi lệch bộ). (b) 5.5 "Với cơm ăn và nước uống, cùng tâm tịnh tín" theo khuôn chung vv11, vv12, vv61, vv65, vv73, vv74; Pāli là hai tân ngữ cộng với pasannacitto, bản dịch đọc được nhưng hơi lệch cú pháp.
+  Tiêu đề 0.2 "Chuyện Cung Điện Nam Hư Không" (Purisavimāna) chứa "Hư Không" mà Pāli không có; lỗi lặp ở hàng chục tệp vv nên không sửa riêng một tệp, ghi để sửa cả bộ cùng lúc. Notes cũ nói 0.2 theo họ "Chuyện Cung Điện" song song nam và nữ nhưng bản thực tế mang thêm "Hư Không".
+  technical_integrity vẫn 9.6; bốn lệnh `npm run validate`, `npm test`, `npm run check`, `npm run build` do coordinator chạy.

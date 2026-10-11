@@ -1,6 +1,6 @@
 uid: vv54
-status: published
-translationTitle: "Chuyện Cung Điện Người Cóc Cho Dâng"
+status: review
+translationTitle: "Chuyện Cung Điện Người Dâng Nước Cua"
 translators:
   - "OpenCode Space Bunny Free (agent)"
 reviewers: []
@@ -13,16 +13,16 @@ tags:
 quality:
   scores:
     source_provenance: 9.50
-    semantic_fidelity: 9.30
-    grammar_logic: 9.30
-    segment_alignment: 10.00
-    terminology: 9.20
+    semantic_fidelity: 8.60
+    grammar_logic: 9.00
+    segment_alignment: 9.80
+    terminology: 8.60
     triangulation: 7.50
-    vietnamese_clarity: 9.30
-    han_viet_balance: 9.40
-    ambiguity_integrity: 9.00
+    vietnamese_clarity: 8.80
+    han_viet_balance: 9.20
+    ambiguity_integrity: 8.60
     technical_integrity: 9.60
-  final_score: 9.2100
+  final_score: 8.9200
   blocking_errors:
     - "Không có tầng tham khảo tiếng Anh tại commit đã ghim: bản Anh đã ghim của
       Bhikkhu Sujato không phát hành bất kỳ tệp nào cho thư mục `sutta/kn/vv/` —
@@ -40,9 +40,9 @@ quality:
       lớp lấp `english-project` không có cho uid này ⇒ ba tầng tham khảo đều
       vắng ⇒ dịch chỉ từ Pāli root. Đây là giới hạn upstream, không phải lỗi của
       người dịch."
-  assessed_at: "2026-10-04"
+  assessed_at: "2026-10-11"
   assessed_by:
-    - "OpenCode Space Bunny Free (agent)"
+    - "Claude Sonnet 5.5 (Claude Code)"
   waiver:
     id: no-upstream-english
     blockers:
@@ -102,3 +102,37 @@ notes: |-
   4.4, mở ở 6.1, đóng ở 8.4 — Pāli cũng 2 mở / 2 đóng; `ngoặc()` của `_hvi.py` báo cân trên cả bài.
 
   Bốn lệnh cổng kỹ thuật do coordinator chạy, không chạy trong lát agent: `npm run validate`, `npm test`, `npm run check`. Bài ở trạng thái `draft` nên không cần `npm run build`. Vì bốn lệnh ấy chưa chạy ở lát này, `technical_integrity` đặt 9,6 chứ không 10,0.
+
+  **Kiểm toán độc lập 2026-10-11 (thay thế các nhận định cũ ở trên khi mâu thuẫn).** Đọc đối kháng 38 khoá
+  cặp Pāli↔Việt; đổi 21/38 khoá, trong đó 14 khoá lỗi nghĩa thật và 7 khoá lỗi chữ nghĩa nhẹ. Điểm hạ
+  từ 9,21 xuống 8,92 vì bản đã publish mang nhiều lỗi nghĩa mà lần chấm cũ không thấy.
+  Lỗi nghĩa thật đã sửa:
+    - `kakkaṭaka` là **con cua**, không phải con cóc (0.4, 6.2, 9.1, 10.1). Chứng cứ trong chính bài: 6.4
+      `dasapādako` *mười chân* (cua có mười chân); trong toàn tầng Pāli, `Suvaṇṇakakkaṭajātaka` là
+      *Cua vàng* (ja389, nơi đó đang dịch nhầm thành *rùa*; ngoài phạm vi bài này, chỉ báo). Tiêu đề cũ
+      *Người Cóc Cho Dâng* còn sai cấu trúc (`dāyaka` là *người dâng*, không đứng sau danh từ như tính từ).
+      `rasa` nay dịch **nước cua** (`kakkaṭakarasa` = nước/vị cua); nhận định cũ rằng 6.3 giải thích `rasa`
+      là sai vì 6.3 nói về con cua vàng ở cửa, không nói về vật được dâng.
+    - 6.1 `Satisamuppādakaro` là tính từ của con cua (6.2 `kakkaṭako ṭhito`), *làm khởi sanh niệm*; bản cũ
+      *Kẻ tạo ra hữu sanh* vô nghĩa. 6.3 `niṭṭhito jātarūpassa` là *làm xong từ vàng ròng* (cũ: *đã xong phần
+      sinh ra những vị màu vàng*, sai).
+    - 8.1 `mahānubhāva` là **hô cách** (*này tỳ-kheo có đại oai lực*), không phải tân ngữ *về đại oai lực ấy*;
+      8.2 `yamakāsi` do chính thiên tử nói (*phước báu tôi đã làm*), không phải *ngài đã tạo*; 8.3 `Tenamhi` là
+      *nhờ đó tôi có*, không phải *oai lực ngài* (xưng ngôi sai người).
+    - 5.3–5.4 `yassa kammassidaṁ phalaṁ` là *về nghiệp mà đây là quả báo*, không phải *quả báo của nghiệp này
+      là thế* (đảo quan hệ).
+    - 3.2, 7.2 `idha mijjhati`: *thành tựu được ở nơi đây* (cũ *rực rỡ ở nơi này*; `mijjhati` là *thành tựu*,
+      không phải *rực rỡ*). Ghi chú cũ ở trên nói ngược lại, nay thôi hiệu lực.
+    - 4.1 `deva` (hô cách) bị bỏ sót, nay thêm *này thiên tử*; 10.1 `pañcavimānaṁ` là *năm cung điện* (cũ
+      *cung điện thứ năm*); 2.4 `nāriyo` là *nữ nhân* (cũ *tiên nữ* và thêm *lượn bay* không có trong Pāli).
+  Lỗi nhẹ: 2.1 bỏ *thỏa thích*; 3.1 *sắc diện dung nhan* → *dung sắc*; 5.1 bỏ *vô cùng*; 5.2 *hỏi thăm* →
+  *hỏi*; 5.3 bỏ *liền*; 7.3 sửa chữ vô nghĩa *khưởi* → *khởi*; 4.2 *phước đức* → *phước báu* cho khớp 8.2.
+  Điểm đổi: semantic_fidelity 9,3→8,6; grammar_logic 9,3→9,0; segment_alignment 10→9,8; terminology
+  9,2→8,6; vietnamese_clarity 9,3→8,8; han_viet_balance 9,4→9,2; ambiguity_integrity 9,0→8,6; còn lại giữ.
+  Bất định còn lại (không phân xử được, không đoán): `rucakatthatā` (1.4) giữ *trải thảm rực rỡ* như các
+  bản vv khác, nhưng `rucaka` có thể là vàng và *thảm* là cách đọc biên tập; 6.1 `sati` đọc là *niệm*
+  (có thể là chỗ nhắc nhớ việc đã dâng; không có chú giải để kiểm); `rasa` = *nước cua* là nghĩa từ vựng,
+  chưa có bản song song; 3.4/7.4 `piyā` giữ công thức chung *dễ chịu với tâm*. Tiêu đề phẩm `Purisavimāna`
+  hiện là *Nam Hư Không* ở 26 tệp vv (không có `ākāsa` trong Pāli): không sửa riêng tệp này để khỏi lệch bộ,
+  ghi nhận để sửa cả bộ. Cổng kỹ thuật `npm run validate`, `npm test`, `npm run check`, `npm run build`
+  chưa chạy ở lượt này; `technical_integrity` giữ 9,6.

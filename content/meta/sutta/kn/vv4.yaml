@@ -13,16 +13,16 @@ tags:
 quality:
   scores:
     source_provenance: 9.4
-    semantic_fidelity: 9.4
+    semantic_fidelity: 8.8
     grammar_logic: 9.2
     segment_alignment: 10.0
-    terminology: 9.3
+    terminology: 8.8
     triangulation: 7.5
-    vietnamese_clarity: 9.3
-    han_viet_balance: 9.4
-    ambiguity_integrity: 9.1
+    vietnamese_clarity: 9.0
+    han_viet_balance: 9.3
+    ambiguity_integrity: 8.8
     technical_integrity: 9.6
-  final_score: 9.22
+  final_score: 9.04
   blocking_errors:
     - "Không có tầng tham khảo tiếng Anh tại commit đã ghim
       11c9d708978cde8ba61096d8a75f7ddfb846f639: tệp
@@ -37,9 +37,9 @@ quality:
       không có cho uid này. Ba tầng tham khảo đều vắng ⇒ bài dịch chỉ từ Pāli
       root. Vì đây là **giới hạn upstream** chứ không phải lỗi người dịch,
       `triangulation` bị chặn ở 7.5 (≤ 8.0) chứ không nâng để né blocker."
-  assessed_at: "2026-10-04"
+  assessed_at: "2026-10-11"
   assessed_by:
-    - "OpenCode Space Bunny Free (agent)"
+    - "Claude Sonnet 5.5 (Claude Code)"
   waiver:
     id: no-upstream-english
     blockers:
@@ -65,3 +65,12 @@ notes: |-
   `Itthivimāna` → *Chuyện Cung Điện Nữ Hư Không* (8 bài; bỏ `Thiên Cung Của Nữ Giới` 1× của vv49). `Pīṭhavagga` → *Phẩm Pīṭha* (2 bài: vv1, vv12). 0.1 giữ Pāli *Vimānavatthu* (29 bài).
   Nháy kép: `1.1` mở và `3.4` đóng (câu hỏi Moggallāna), `5.1` mở và `8.4` đóng (lời đáp của nữ thiên) — cân trên cả bài.
   Cổng kỹ thuật CHƯA chạy — agent dịch không được phép chạy `npm run validate|test|build|check`; coordinator cần chạy đủ bốn lệnh sau trước khi coi `technical_integrity: 9.6` là đạt: `npm run validate`, `npm test`, `npm run check`, và `npm run build`.
+  ---
+  Kiểm toán độc lập 2026-10-11 (đọc đối kháng từng khoá Pāli↔Việt, đối chiếu vv1–vv3 đã kiểm toán). Các ghi chú ở trên là của bản dịch đầu: những khẳng định "dùng lại nguyên văn 31/37", "bám đúng cách chia đại từ" và giải thích về `Pīṭhaṁ te…`, `Tassa adāsahaṁ pīṭhaṁ`, `Appassa kammassa…` bị thay thế bởi mục này — chúng mô tả cách dịch sai, không còn đúng với tệp hiện tại.
+  Sửa 21/37 khoá (14 khoá lỗi nghĩa thật, 7 khoá lỗi nhẹ/nhất quán):
+  LỖI NGHĨA THẬT — (a) `pīṭha` là cái GHẾ, không phải "nền": 1.1 `Pīṭhaṁ te veḷuriyamayaṁ` → *Chiếc ghế của nàng bằng ngọc lưu ly, cao quý* (và "ngươi" → "nàng", vì người nói là Tôn giả Moggallāna nói với nữ thiên); 6.3 `Tassa adāsahaṁ pīṭhaṁ` từng là *Tôi đã lễ bái vị ấy* (SAI: `adāsiṁ`/`adāsaṁ` là "đã cho/dâng") → *tôi đã dâng cho vị ấy chiếc ghế*. (b) 1.2–1.4 bị đọc sai cú pháp: `Manojavaṁ gacchati yenakāmaṁ` là chiếc ghế "nhanh như ý nghĩ, đi đến nơi tùy ý", không phải "đi đến đâu cũng theo ý, thật là dễ chịu"; `Alaṅkate malyadhare suvatthe` là HÔ CÁCH gọi nữ thiên ("hỡi nàng được trang sức, đeo vòng hoa, mặc y phục đẹp"), không phải "trên thảm tốt đẹp có hoa tươi"; `Obhāsasi vijjurivabbhakūṭaṁ` là "nàng chiếu sáng như tia chớp trên đỉnh mây" (`abbha-kūṭa` = đỉnh mây), không phải "làm sáng rực những cột trụ hình tia sét" (không có từ nào nghĩa "cột trụ"). (c) 3.1 `Pucchāmi taṁ devi mahānubhāve`: `taṁ` = nàng, `mahānubhāve` là hô cách → *Tôi hỏi nàng, này thiên nữ có đại oai lực* (trước đây "Tôi hỏi ngài … về đại oai lực ấy" gọi nữ thiên là "ngài" và biến hô cách thành tân ngữ). (d) 8.1 `Akkhāmi te bhikkhu mahānubhāva` cùng lỗi, ngược chiều: "bậc tỳ-kheo… về đại oai lực ấy" → *Tôi nói cho ngài, này tỳ-kheo có đại oai lực* (hô cách gọi Tôn giả Moggallāna). (e) 8.2 `yamakāsi` và 8.3 `Tenamhi`: người nói là nữ thiên ("tôi"), không phải "ngài": *khi còn làm người, tôi đã tạo phước báu nào*; *Nhờ điều ấy mà tôi có oai lực rực rỡ như vậy* (trước: "ngài đã tạo phước báu gì", "ngài có oai lực"). (f) 4.4 `yassa kammassidaṁ phalaṁ`: `yassa` là quan hệ/nghi vấn "của nghiệp nào" → *đây là quả báo của nghiệp nào* (trước: "nghiệp này"; cách dịch "quả báo của nghiệp này là thế" có ở 50 khoá toàn tầng, vẫn là lỗi lan truyền, chỉ sửa trong bài này). (g) 5.1–5.2 `Appassa kammassa phalaṁ mamedaṁ, Yenamhi evaṁ jalitānubhāvā`: từng là *Tôi từng thấy / rằng quả báo của nghiệp này là như vậy* — "tôi từng thấy" là bịa, và `appassa` ("nhỏ bé", điểm cốt lõi của câu chuyện: một nghiệp nhỏ cho quả lớn) bị bỏ mất → *Đây là quả báo của nghiệp nhỏ bé của tôi, nhờ đó tôi có oai lực rực rỡ như vậy*. (h) 2.2 và 7.2 `kena te idha mijjhati` / `tena me idha mijjhati` từng là "có được nơi này" → *thành tựu được ở nơi đây* (cách đã chốt ở vv1–vv3 đã kiểm toán).
+  LỖI NHẸ/NHẤT QUÁN — 3.4 giữ câu hỏi (`?”`) như vv1–vv3; 4.2 `pucchitā` "truy hỏi" → "hỏi" (không có nghĩa dồn ép); 5.3–5.4 `Ahaṁ manussesu manussabhūtā, Purimāya jātiyā manussaloke` viết lại thành câu trọn (*Tôi từng là người giữa loài người, trong kiếp trước, ở cõi người*; trước đó "Khi… ở nhân gian" treo lơ lửng sau khi 5.1–5.2 đã bị sửa); 6.1 bỏ "thanh tịnh" (không có trong Pāli, `viraja` = ly trần); 6.2 `vippasannamanāvilaṁ` = `vippasannaṁ + anāvilaṁ` (sandhi) → *trong sáng, không vẩn đục* — bản trước chèn "tâm ý" (không có chữ `mano`); 8.4 `Vaṇṇo ca me` → "dung sắc tôi chiếu sáng khắp muôn phương" cho khớp 3.4 (`vaṇṇo` đã là "dung sắc" ở 2.1, 3.4, 7.1; "sắc tướng" lệch trong cùng bài).
+  Điểm từ → sang: semantic_fidelity 9.4 → 8.8 (điểm cũ là ước lượng quá cao: 14/37 khoá sai nghĩa; sau sửa còn 0.2 `Itthivimāna` = "Nữ Hư Không" sai, xem dưới, và bất định `mijjhati`); grammar_logic 9.2 → 9.2 (con số giữ nguyên nhưng đã được xác lập lại trên bản đã sửa: cú pháp 1.2–1.4, hô cách và ngôi người nói nay đúng; bản trước đạt 9.2 là quá lời, thực tế khi chưa sửa chỉ khoảng 6–7); terminology 9.3 → 8.8 (`pīṭha` đã thống nhất là ghế trong thân bài nhưng vẫn để nguyên Pāli trong tiêu đề phẩm/bài; `Itthivimāna` lỗi cả bộ); vietnamese_clarity 9.3 → 9.0; han_viet_balance 9.4 → 9.3; ambiguity_integrity 9.1 → 8.8; triangulation 7.5 giữ (không có tầng tham khảo, trần ≤ 8.0); source_provenance, segment_alignment (37/37 khoá, đúng thứ tự Pāli), technical_integrity giữ. `final_score` 9.22 → 9.04 (trung bình số học thô).
+  Tiền lệ đã đo: `Obhāsasi vijjurivabbhakūṭaṁ.` có 4 khoá trong họ vv (vv1:2.4, vv2:1.4, vv3:1.4, vv4:1.4); bản chưa kiểm toán 3/4 khoá dịch "cột trụ hình tia sét" (sai), bản đã kiểm toán dịch như ở trên — vì vậy không theo đa số. `vippasannamanāvilaṁ` 8 khoá: 6 khoá dùng "tâm ý sáng trong không chút ô nhiễm", 1 khoá "trong sáng, không vẩn đục"; sửa theo dạng không chèn `tâm`. `pasannā sehi pāṇibhi` giữ *với tâm tịnh tín bằng chính đôi tay mình* (9/12 khoá, chữ "tâm" là gloss nhẹ nhưng đã thành quy ước). Pāli trùng nguyên văn trong chính bài: chỉ cặp 2.4/7.4 (`ye keci manaso piyā.`) và cả hai đã cùng bản Việt.
+  BẤT ĐỊNH CÒN LẠI: (1) `idha mijjhati` — "thành tựu được ở nơi đây" là cách đã chốt chung của họ vv, vẫn khá cứng; không phân xử được thêm. (2) `Itthivimāna` (0.2) = "Chuyện Cung Điện Nữ Hư Không" là sai (Pāli không có `ākāsa`: `itthi-vimāna` = cung điện của nữ giới), lặp ở ~51 tệp vv; KHÔNG sửa riêng trong bài này để khỏi lệch cả bộ — cần một lượt sửa đồng loạt. (3) `pīṭha` trong tiêu đề giữ nguyên là "Pīṭha" (đồng bộ họ vv), dù nghĩa là "ghế". (4) `appassa kammassa` dịch "nghiệp nhỏ bé"; không có tầng tham khảo nào để đối chiếu độc lập. Blocker "không có tầng tham khảo tiếng Anh/noEnglishEditionUpstream" giữ nguyên.
+  Cổng kỹ thuật vẫn chưa chạy lại trong lượt này: `npm run validate`, `npm test`, `npm run check`, `npm run build`; `technical_integrity` giữ 9.6.

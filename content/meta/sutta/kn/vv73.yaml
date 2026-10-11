@@ -11,16 +11,16 @@ tags:
 quality:
   scores:
     source_provenance: 9.5
-    semantic_fidelity: 9.2
+    semantic_fidelity: 9.0
     grammar_logic: 9.3
     segment_alignment: 10.0
     terminology: 9.1
     triangulation: 7.5
     vietnamese_clarity: 9.3
     han_viet_balance: 9.3
-    ambiguity_integrity: 9.1
+    ambiguity_integrity: 8.8
     technical_integrity: 9.6
-  final_score: 9.19
+  final_score: 9.14
   blocking_errors:
     - "Không có tầng tham khảo tiếng Anh tại commit đã ghim: manifest
       `source/upstream-manifest.json` không liệt kê tệp Anh nào cho uid này, và
@@ -28,9 +28,9 @@ quality:
       `not-published-upstream`, KHÔNG phải `not-synced`. Tầng
       `vietnamese-current` cũng vắng vì commit đã ghim chỉ có Pháp Cú. Bài dịch
       chỉ từ Pāli root nên bắt buộc `draft`."
-  assessed_at: "2026-10-04"
+  assessed_at: "2026-10-11"
   assessed_by:
-    - "OpenCode Space Bunny Free (agent)"
+    - "Claude Sonnet 5.5 (Claude Code)"
   waiver:
     id: no-upstream-english
     blockers:
@@ -46,3 +46,15 @@ notes: |-
   Như vv72, khác ở khổ 5.2 tới 5.4: sādhurūpe và sīlavante pasanne nên dịch là dáng vẻ khả kính, giữ giới, đầy tịnh tín.
   Kuṇḍalī dịch mô tả là đeo bông tai theo tiền lệ bông tai ở sn10.8, không dựng tên mới.
   technical_integrity 9.6 vì agent lát này không chạy gate. Bốn lệnh gate do coordinator chạy trước khi publish: `npm run validate`, `npm test`, `npm run check`, `npm run build`.
+  Kiểm toán độc lập 2026-10-11: đọc đối kháng 29 khoá Pāli↔Việt, không thấy lỗi nghĩa thật; sửa 10 khoá về thêm nghĩa, xưng hô và nhất quán nội bộ.
+  1.4: bỏ "giữa trời" vì Pāli chỉ có yathāpi candimā, không có ý "giữa trời", khớp vv72:1.4.
+  3.1–3.4: "ngươi" đổi thành "ngài" khi Tôn giả Moggallāna hỏi vị thiên tử (khớp vv72 và đa số họ vv; "ngươi" chỉ còn ở vài bài lẻ).
+  5.6, 6.1, 6.3: vị thiên tử đáp Tôn giả nên xưng "tôi" thay "ta", theo đa số các bài Purisavimāna đã dò (vv57–vv85: "tôi" áp đảo "ta").
+  1.3 và 5.3: cùng một từ yasassī nay cùng dịch "có danh tiếng" (trước là "đầy danh vọng" và "đầy vinh hiển", lệch nhau trong một bài; "danh vọng" dễ đọc thành lòng ham danh).
+  Điểm đổi: semantic_fidelity 9.2 → 9.0, ambiguity_integrity 9.1 → 8.8, vì hai bất định dưới đây có sẵn trong bản dịch mà notes cũ không nói; các tiêu chí khác giữ.
+  Bất định còn lại 1: 2.2 "aṭṭhaṭṭhakā sikkhitā sādhurūpā" là tính từ giống cái số nhiều, nằm giữa vīṇā và kaññā; bản dịch giữ cách đọc "sáu mươi bốn nàng" (người đàn) theo vv67, vv72, vv80, nhưng chữ "nàng" là cách hiểu, chưa phân xử được với nguồn đã ghim (không có bản Anh). Không đổi riêng một bài để khỏi lệch họ.
+  Bất định còn lại 2: 4.3 yassa kammassidaṁ phalaṁ là mệnh đề quan hệ ("nghiệp mà đây là quả báo"); bản dịch giữ "quả báo của nghiệp ấy là đây" (khớp vv72). Nghĩa chính không mất, nhưng "ấy" là chỉ định thay cho quan hệ; đa số họ vv (50/67 khoá trùng Pāli) lại dịch "quả báo của nghiệp này là thế", cũng không sát quan hệ. Họ chưa thống nhất nên không đổi riêng một bài.
+  Ghi nhận cho cả bộ: 0.2 Purisavimāna đang dịch "Chuyện Cung Điện Nam Hư Không" (25/34 khoá trùng Pāli), nhưng Pāli không có ākāsa; cần sửa đồng loạt ở cấp bộ, không sửa riêng bài này.
+  Đã đối chiếu và giữ: sādhurūpe (5.2) "dáng vẻ khả kính" (các bản Anh của Sujato ở dn24 và an6.54 dịch sādhurūpa là "holy"); pasanne (5.4) "tịnh tín" khớp cách dịch pasanna trong họ; Kuṇḍalī dịch mô tả "đeo bông tai".
+  Hai khoá 3.4 và 6.3 giữ cách đặt dấu chấm sau nháy đóng như cũ vì tầng dùng cả hai kiểu (43 và 20 khoá cho 3.4; 35 và 26 cho 6.3).
+  technical_integrity giữ 9.6, không chạy gate: `npm run validate`, `npm test`, `npm run check`, `npm run build` do coordinator chạy.
