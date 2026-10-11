@@ -1,5 +1,5 @@
 uid: vv82
-status: published
+status: review
 translationTitle: "Chuyện Cung Điện Nhiều Màu"
 translators:
   - "OpenCode Space Bunny Free (agent)"
@@ -13,16 +13,16 @@ tags:
 quality:
   scores:
     source_provenance: 9.50
-    semantic_fidelity: 9.30
-    grammar_logic: 9.20
+    semantic_fidelity: 8.60
+    grammar_logic: 8.80
     segment_alignment: 10.00
-    terminology: 9.20
+    terminology: 8.80
     triangulation: 7.50
-    vietnamese_clarity: 9.00
-    han_viet_balance: 9.40
-    ambiguity_integrity: 8.80
+    vietnamese_clarity: 8.60
+    han_viet_balance: 9.20
+    ambiguity_integrity: 8.60
     technical_integrity: 9.60
-  final_score: 9.1500
+  final_score: 8.9200
   blocking_errors:
     - "Không có tầng tham khảo tiếng Anh tại commit đã ghim: bản Anh đã ghim của
       Bhikkhu Sujato không phát hành bất kỳ tệp nào cho thư mục `sutta/kn/vv/` —
@@ -37,9 +37,9 @@ quality:
       là do tệp Anh thiếu, nhưng người đọc phải biết hai sự thật này khác nhau.
       Tầng `vietnamese-current` vắng, và lớp lấp `english-project` không có cho
       uid này."
-  assessed_at: "2026-10-04"
+  assessed_at: "2026-10-11"
   assessed_by:
-    - "OpenCode Space Bunny Free (agent)"
+    - "Claude Sonnet 5.5 (Claude Code)"
   waiver:
     id: no-upstream-english
     blockers:
@@ -95,3 +95,13 @@ notes: |-
   8.4; `ngoặc()` báo cân. `6.7` giữ cặp `‘…’` như Pāli.
 
   Bốn lệnh cổng kỹ thuật do coordinator chạy, không chạy trong lát agent: `npm run validate`, `npm test`, `npm run check`. Bài ở trạng thái `draft` nên không cần `npm run build`. Vì bốn lệnh ấy chưa chạy ở lát này, `technical_integrity` đặt 9,6 chứ không 10,0.
+
+  **Lượt cải thiện 2026-10-11 (kiểm toán đối kháng; thay thế các nhận định cũ ở trên khi mâu thuẫn).**
+  Đọc lại từng cặp Pāli↔Việt: bản trước có **18/38 khoá sai nghĩa thật**, 8 khoá khác chỉ gượng/lệch nhẹ; đã đổi 26 khoá. Các lỗi:
+    - Bịa nghĩa / dịch sai từ: `1.1` `darasokanāsanaṁ` (*diệt trừ lo âu và sầu muộn*; bản cũ *chỗ ngồi để tung xúc xắc*, không có trong Pāli); `1.3` `accharāsaṅgaṇena` là *đoàn tiên nữ* (cũ: *đám bất tử*; theo vv21:6.3, vv31:9.2); `5.3` `Puthujjano ananubodho` là *phàm phu, chưa chứng ngộ* (cũ: *người tại gian*); `5.4` bỏ *cùng các sa-môn* (không có trong Pāli); `7.1` `na māsi dānaṁ na ca matthi dātuṁ` là *không có vật thí, chẳng có gì để cho*; `7.3` `dhātuṁ` là *xá-lợi* (cũ: *thân tượng*).
+    - Sai người nói / người nghe: `5.1` `bhadante` là hô cách số ít gọi Tôn giả Moggallāna (cũ: *Bạch các Thế Tôn*); `7.2` `pare ca kho tattha samādapesiṁ` là *tôi khuyến khích những người khác ở đó* (cũ: *ngài vẫn khuyên tôi*, đảo chủ ngữ và tân ngữ); `7.4` `gamissatha` là ngôi hai số nhiều, người nghe là những người kia.
+    - Hiểu sai ngữ pháp: `7.4` `saggamito` = `saggaṁ` + `ito` (*từ đây … cõi trời*), **không** phải `sagga` + `-mito`; cách đọc *cùng ta về một nơi* ở ghi chú cũ bỏ đi, bất định `-mito` ở trên không còn. `8.3` `Modāmahaṁ` = `modāmi ahaṁ` (*tôi hoan hỷ*), không phải thể nguyện cầu; ghi chú cũ sai. `8.2` `anubhomi` là hiện tại (cũ: *sẽ tự hưởng*). `2.2` `yasena puññena ca iddhiyā ca` là cách công cụ chỉ phương diện (*về danh tiếng, phước báu, thần thông*), không phải đại từ nghi vấn. `2.3`–`2.4` `samecca` = *hội tụ*, `namassanti` = *lễ bái* (cũ: *vượt hơn*, *cúi lễ nghiêng nó như lòng trăng*). `6.1`–`6.4` các sở hữu cách `sumedhassa … satthuno parinibbutassa oghatiṇṇassa tādino` đi với `Ratanuccayaṁ hemajālena channaṁ` (cũ: *thầy của bậc …*, `Ratanuccaya` để nguyên Pāli); `5.2` bỏ *bậc Đấng*.
+    - Gượng nhẹ: `1.2` `anekacittaṁ` là *muôn vẻ* (theo vv11:1.4 `Anekacittaṁ` = *muôn màu muôn vẻ*); `1.4`, `2.1`, `2.5`, `2.6`, `6.4`, `8.4` chỉnh cho sát từ; `3.4` bỏ dấu chấm thừa sau `?”`.
+  Điểm đổi (trước → sau): `semantic_fidelity` 9,30 → 8,60 · `grammar_logic` 9,20 → 8,80 · `terminology` 9,20 → 8,80 · `vietnamese_clarity` 9,00 → 8,60 · `han_viet_balance` 9,40 → 9,20 · `ambiguity_integrity` 8,80 → 8,60 · các tiêu chí khác giữ. `final_score` 9,1500 → 8,9200. Điểm cũ không phản ánh việc 18 khoá sai nghĩa; điểm mới đã trừ cả phần bất định còn lại dưới đây.
+  Bất định còn lại (không phân xử được, không đoán thêm vào thân kinh): (a) `Sunimmito` (1.4) — tính từ *khéo được tạo nên* (cách dịch đã chọn) hay tên Sunimmita, vua chư thiên Nimmānarati; chỉ có một chỗ trong toàn Pāli ghim, không có bản đối chiếu; `bhūtapati` là danh hiệu của Sakka theo ja500:18.4 và ja521:11.1, thân bài dịch *chúa tể các loài*. (b) `Ratanuccayaṁ` (6.3) — danh từ chung *khối/đống châu báu* chỉ bảo tháp (cách dịch đã chọn) hay tên riêng; hapax trong Pāli ghim. (c) `taṁ taṁ` (2.4) — lặp đại từ, dịch một lần *ngài*; (d) `paribbajissaṁ` (5.4) — *sống đời xuất gia du hành*, chưa phân xử giữa *xuất gia* và *du sĩ*; (e) `kira` (7.4) — *quả thật* hay *nghe nói*; (f) `darasokanāsanaṁ` (1.1) là hapax, `dara` dịch *lo âu*. Công thức `yassa kammassidaṁ phalaṁ` (4.3) giữ *quả báo của nghiệp này là thế* theo đa số tầng (≈50 tệp) dù hơi lệch cấu trúc quan hệ (vv15:4.4 sát hơn); không đổi riêng một tệp.
+  Không đổi tiêu đề (`0.2` `Purisavimāna` → *Nam Hư Không*: Pāli không có `ākāsa`, lặp nhiều tệp vv; sửa theo bộ chứ không riêng tệp này); `translationTitle` giữ nguyên. Cổng kỹ thuật `npm run validate` · `npm test` · `npm run check` · `npm run build` chưa chạy ở lượt này; `technical_integrity` giữ 9,6.

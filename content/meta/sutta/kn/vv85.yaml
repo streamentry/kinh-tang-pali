@@ -1,5 +1,5 @@
 uid: vv85
-status: published
+status: review
 translationTitle: "Chuyện Cung Điện Khéo Đặt Để"
 translators:
   - "OpenCode Space Bunny Free (agent)"
@@ -13,16 +13,16 @@ tags:
 quality:
   scores:
     source_provenance: 9.5
-    semantic_fidelity: 9.2
-    grammar_logic: 9.2
+    semantic_fidelity: 8.4
+    grammar_logic: 8.8
     segment_alignment: 10.0
-    terminology: 9.0
+    terminology: 8.6
     triangulation: 7.5
-    vietnamese_clarity: 9.2
+    vietnamese_clarity: 8.8
     han_viet_balance: 9.3
-    ambiguity_integrity: 8.9
+    ambiguity_integrity: 8.4
     technical_integrity: 9.6
-  final_score: 9.14
+  final_score: 8.89
   blocking_errors:
     - "Không có tầng tham khảo tiếng Anh tại commit đã ghim: bản Sujato ở
       `translation/en/sujato/sutta/kn/` chỉ có mười thư mục con — cp, dhp, iti,
@@ -40,9 +40,9 @@ quality:
       bài dịch chỉ từ Pāli root, đây là giới hạn upstream chứ không phải lỗi của
       người dịch; vì vậy `triangulation` bị chặn ở 7.5 (≤ 8.0) chứ không nâng để
       né blocker."
-  assessed_at: "2026-10-04"
+  assessed_at: "2026-10-11"
   assessed_by:
-    - "OpenCode Space Bunny Free (agent)"
+    - "Claude Sonnet 5.5 (Claude Code)"
   waiver:
     id: no-upstream-english
     blockers:
@@ -134,3 +134,16 @@ notes: |-
   và `6.1`, đóng ở `4.4` và `8.4`), đúng số dấu lược theo Pāli, NFC, không trùng nguyên văn
   Pāli, không lọt Pāli. `final_score` là trung bình số học thô của đúng 10 tiêu chí, do
   `_meta71.ghi` tính.
+
+  Lượt cải thiện 2026-10-11 (kiểm toán đối kháng độc lập; bản tự chấm trước đó 9.14 đã bỏ sót lỗi nghĩa thật, nay chấm lại 8.89):
+  Đổi 16/46 khoá. LỖI NGHĨA NẶNG (5 khoá):
+  - `6.1`–`6.2`: `Dunnikkhittaṁ mālaṁ sunikkhipitvā` là "vòng hoa bị đặt không khéo, sau khi đặt lại cho khéo" (dunnikkhitta = đặt không khéo, sunikkhipitvā = đặt lại cho khéo), KHÔNG phải "vòng hoa thơm ngon ngập đều"; `Patiṭṭhapetvā … thūpe` = an trí trên bảo tháp. Đây chính là cốt truyện đặt tên bài (Cung Điện Khéo Đặt Để), bản cũ làm mất nó.
+  - `8.1`: `Akkhāmi te bhikkhu mahānubhāva` — `mahānubhāva` là hô cách đi với `bhikkhu`, bản cũ đọc thành tân ngữ "về đại oai lực ấy" (lỗi lan từ họ vv). Nay: "Tôi xin nói cho ngài, này tỳ-kheo có đại oai lực" (theo 4 tiền lệ đúng; 9 tiền lệ vv sai theo mẫu cũ).
+  - `8.3`: `Tenamhi evaṁ jalitānubhāvo` — người đáp là thiên tử, chủ ngữ là "tôi", bản cũ ghi "oai lực ngài" (sai người nói). Nay "tôi có oai lực rực rỡ như thế". `8.4` đồng bộ `muôn phương` với `4.4`.
+  - `11.2`: `Bhatako` = người làm thuê (bản cũ "vị đầu bếp" sai); `gopālakaṇḍako` = hai tên Gopāla và Kaṇḍaka (vv80, vv81), không phải một tên "Gopālakaṇḍa".
+  LỖI NGHĨA VỪA (5 khoá): `3.2` và `7.2` (`idha mijjhati`) nay "thành tựu được ở nơi đây" theo quyết định vv7 (trước đó mất `mijjhati`); `4.1` bổ sung hô cách `deva` ("hỡi thiên tử"); `6.3` `Mahiddhiko` = có đại thần thông (bản cũ bỏ `mahā`); `11.5` bỏ "vì thế" tự thêm (Pāli không có `tena`).
+  LỖI NHẸ (6 khoá): `2.1` bỏ "thỏa thích" thêm; `2.3` thêm `ettha` ("ở nơi đây"); `2.4` bỏ "lượn bay" thêm; `3.1` thống nhất "dung sắc" (29 + 2 tiền lệ), bỏ "sắc diện dung nhan"; `7.3` sửa lỗi chính tả "khưởi" thành "khởi" (khởi 16 + 2; khưởi 6 + 4 ở họ vv, ngoài lát này); `8.4`.
+  Các lỗi trên còn lan sang tệp họ vv khác (vv54 có `8.3`, `4.1`, `3.2`; ~9 tệp có `8.1`; 6 tệp có `2.4` lượn bay): báo, không sửa ngoài lát này.
+  Điểm đổi: semantic_fidelity 9.2→8.4, grammar_logic 9.2→8.8, terminology 9.0→8.6, vietnamese_clarity 9.2→8.8, ambiguity_integrity 8.9→8.4; các tiêu chí khác giữ nguyên (`triangulation` 7.5 vì không có bản Anh độc lập). final_score 9.14→8.89.
+  Bất định còn lại, không phân xử được: `1.4` `rucakatthatā` ("trải thảm rực rỡ", rucaka có thể là vàng/đồ trang sức); `5.4` `yassa kammassidaṁ phalaṁ` dịch theo đa số "quả báo của nghiệp này là thế" (26/38), hơi lệch quan hệ đại từ ("đây là quả của nghiệp nào"); `11.1` `Dve daliddā vanavihārā` (không rõ "sống trong rừng" gắn với hai người nghèo hay là một nhóm khác; uddāna tên ẩn dụ); `3.4`/`7.4` `piyā` dịch "dễ chịu" theo đa số (21/22). Tiêu đề họ `Purisavimāna` → "Nam Hư Không" (0.2, 11.5) là lỗi cả họ (không có `ākāsa`), không sửa lẻ một tệp.
+  Ghi chú sửa: đoạn notes cũ nói `3.1` dùng "đân gì" không khớp JSON (`3.1` thực dùng "sắc diện dung nhan"); nay đã đổi thành "dung sắc". Notes cũ giữ nguyên như lịch sử. Kiểm cuối: 46/46 khoá, thứ tự khoá = thứ tự Pāli, nháy khớp Pāli từng khoá, NFC, không `…` thừa, 1 cặp Pāli trùng nội bộ (`3.4`/`7.4`, Việt giống nhau). technical_integrity 9.6; chưa chạy `npm run validate`, `npm test`, `npm run check`, `npm run build`.

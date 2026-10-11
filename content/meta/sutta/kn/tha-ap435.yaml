@@ -13,16 +13,16 @@ tags:
 quality:
   scores:
     source_provenance: 9.7
-    semantic_fidelity: 8.9
-    grammar_logic: 9.1
+    semantic_fidelity: 9.0
+    grammar_logic: 9.2
     segment_alignment: 9.7
     terminology: 9.0
     triangulation: 7.0
     vietnamese_clarity: 9.3
     han_viet_balance: 9.3
-    ambiguity_integrity: 8.8
+    ambiguity_integrity: 9.0
     technical_integrity: 9.6
-  final_score: 9.04
+  final_score: 9.08
   blocking_errors:
     - "Không có tầng tham khảo tiếng Anh nào ở commit đã ghim
       11c9d708978cde8ba61096d8a75f7ddfb846f639. Đo lại bằng script trên
@@ -42,9 +42,9 @@ quality:
       giới hạn của upstream chứ không phải lỗi của người dịch — nhưng nó là
       blocker thật, nên triangulation bị chặn ở 7.0 và status bị ép xuống draft
       chứ không nâng điểm để né."
-  assessed_at: "2026-10-04"
+  assessed_at: "2026-10-11"
   assessed_by:
-    - "OpenCode Space Bunny Free (agent)"
+    - "Claude Sonnet 5.5 (Claude Code)"
   waiver:
     id: no-upstream-english
     blockers:
@@ -76,3 +76,8 @@ notes: |-
   NHÓM KỆ 7.x, 8.x, 9.x TRÙNG NGUYÊN VĂN Ở CẢ SÁU BÀI THA-AP TRONG LÁT. Tôi dựng chỉ mục Pāli → Việt trên toàn bộ tầng kn đã có (1.675 tệp, loại tám uid của lát) rồi đối chiếu: trong lát không còn một Pāli chung nào mà sáu bài dịch khác nhau, và mọi Pāli chung với bài ngoài lát đều trùng khớp hoặc chỉ lệch dấu câu. Bốn câu kệ dùng chung giữ nguyên cách đã có trong kho: Kilesā jhāpitā mayhaṁ = Các phiền não của ta đã được thiêu rụi; viharāmi anāsavo = ta sống không còn lậu hoặc; Svāgataṁ vata me āsi = Thật lành thay sự đến của ta; Paṭisambhidā catasso = Bốn vô ngại giải; kataṁ buddhassa sāsanaṁ = đã làm tròn lời dạy của Đức Phật.
   CHÚ Ý VỀ Svāgataṁ vata me āsi — TÔI CỐ Ý KHÔNG SỬA. Đếm được 54 tệp trong kho dịch câu này thành Thật lành thay sự đến của ta (đa số áp đảo; nhóm kế cạnh là Thật là đón mừng thù thắng thay cho tôi 21 tệp). Nghe thì có vẻ là đọc nhầm: svāgataṃ ở đây là tiếng than thở tự vệ, không phải danh từ sự đến. Nhưng sửa sáu khoá trong lát này sẽ tạo ra thứ tự N+1, và BRIEF_VI3 §6 nói rõ phải dịch nhất quán theo bản Việt đã có. Tôi giữ nguyên và giao việc này lại cho người điều phối quyết định thay cả kho; nếu đổi thì phải đổi cả ~54 tệp, không được sửa lẻ.
   Cổng kỹ thuật do người điều phối chạy sau khi gộp lát: npm run validate, npm test, npm run check, npm run build. Trong lát này tôi bị cấm chạy bốn lệnh đó, nên KHÔNG tuyên bố technical gate pass và technical_integrity đặt 9.6 chứ không phải 10.0. Những gì tôi tự kiểm được và đều sạch: JSON hợp lệ, đúng 38 khoá mỗi bài, tập khoá khớp tuyệt đối với content/catalog/sutta/kn.json và với all trong vc/c44.json, không orphan, không rỗng, không còn stub dạng (…), toàn bộ NFC, số dấu lược không bao giờ vượt số dấu lược của Pāli và mỗi …pe… của Pāli còn đúng một dấu …, YAML parse sạch bằng thư viện yaml của kho.
+
+  Lượt cải thiện 2026-10-11 (kiểm toán độc lập): lượt chấm 2026-10-04 đã bỏ sót nhiều lỗi nghĩa thật; điểm cũ (9.04) phản ánh bản chưa sửa kém hơn mức đã chấm. Đọc đối kháng từng cặp Pāli↔Việt, đối chiếu chỉ mục toàn tầng kn. Sửa 18/38 khoá, trong đó 9 khoá là lỗi nghĩa thật. Phần "Bất định còn mở" ở trên về :2.2/:2.4 và :5.3 nay đã được giải quyết và thay thế bằng mục này.
+  Lỗi nghĩa thật đã sửa. :1.3 vasī = bậc tự tại (đa số 7 tệp, "tôn túy" chỉ là chép lan ở tha-ap46 và bài này): "cùng một trăm ngàn bậc tự tại". :2.2 upasantassa tādino là sở hữu cách chỉ Đức Phật, không phải "thành ấy bỗng vắng vẻ": "bậc an tịnh, bậc Bất Động" (tādino = bậc Bất Động, đa số trong tầng). :2.4 nigghoso āsi tāvade = ngay khi ấy có tiếng vang lên, không phải "tiếng ồn dịu lại" (đảo nghĩa; chính notes cũ đã ghi bản Anh đọc ngược lại). :3.2 bherī vajjumaghaṭṭitā = vajjuṁ + aghaṭṭitā, trống không bị đánh mà vang (aghaṭṭitā = không bị chạm, tiền lệ ja526:33.3); "đánh bằng búa sắt" là bịa. :3.3 vīṇā là đàn vīṇā, bản cũ chép hỏng thành "vì vã". :3.4 pavisato puraṁ = khi Đức Phật bước vào thành, không phải "trước khi xuất hiện". :4.3 pāṭihīra là danh từ chung (phép lạ; tha-ap521:5.1 "phép lạ ấy"), không phải tên riêng. :5.3 Acetanāpi turiyā = ngay cả nhạc cụ vô tri; bản cũ đọc turiyā như số thứ tự "thứ tư" và acetanā như "vô tưởng" nên cả câu vô nghĩa; thẩm định này bác bỏ cách đọc cũ. :6.3 Duggatiṁ nābhijānāmi: "mình rơi vào khổ đau" (140 tệp, chép lan) mất thuật ngữ duggati; đổi sang "đọa xứ" (304 khoá dùng "đọa xứ/khổ xứ" so với 146 khoá "rơi vào khổ đau").
+  Sửa nhỏ. :1.4 thêm tadā ("khi ấy"). :2.1 "Ngài" thay "người ấy". :3.1 viết hoa đầu câu. :4.1 và :4.4 thống nhất xưng "ta" với :6.x và nhóm kệ dùng chung :7–:9 (bản cũ lẫn "Con", "tôi", "ta" trong cùng một người nói). :5.1 "Giáo Pháp" thay "những pháp ấy"; :5.2 "bậc Đạo Sư". :6.1 bỏ "đại" (kappa = kiếp; 11 tệp đúng nguyên văn "Vào một trăm ngàn kiếp trước"). Dấu câu cuối dòng của các khoá đã sửa đi theo Pāli.
+  Điểm đổi: semantic_fidelity 8.9 sang 9.0, grammar_logic 9.1 sang 9.2, ambiguity_integrity 8.8 sang 9.0; các tiêu chí còn lại giữ nguyên (triangulation vẫn 7.0 vì không có bản Anh độc lập; technical_integrity 9.6, chưa chạy các cổng npm run validate, npm test, npm run check, npm run build trong lượt này). Giữ nguyên, ghi nhận: Itthaṁ sudaṁ (:10.1) dịch "Tôi nghe như vầy:" theo quy ước tầng (613/624 khoá Itthaṁ sudaṁ trong tầng kn); tiêu đề "Bài Kệ Tuyên Ngợ" theo đa số tầng (228 so với 144 "Tuyên Ngôn"), nghi là chữ lệch nhưng thuộc quyết định cấp tầng, không sửa lẻ; :5.3 và :2.4 chắc ở mức cao nhưng không có bản Anh để đối chứng. Svāgataṁ vata me āsi vẫn giữ theo đa số như ghi ở trên. Lỗi lan ngoài lát (chỉ báo, không sửa): tha-ap46:2.3 "tôn túy" và 5.1 "đại kiếp", tha-ap434:5.1 (saṭṭhituriyasahassāni = sáu mươi nghìn nhạc cụ, bản dịch ghi "Sáu mươi ba nghìn", sai số và bỏ turiya), tha-ap434:10.3 và tha-ap46:5.3 "mình rơi vào khổ đau", tha-ap113 "Ôi những bậc Phật, ôi những pháp ấy" (5 tệp).

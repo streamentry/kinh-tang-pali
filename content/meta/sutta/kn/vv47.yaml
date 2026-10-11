@@ -13,21 +13,21 @@ tags:
 quality:
   scores:
     source_provenance: 9.5
-    semantic_fidelity: 9.2
+    semantic_fidelity: 8.9
     grammar_logic: 9.0
     segment_alignment: 10.0
-    terminology: 9.2
+    terminology: 9.0
     triangulation: 7.5
-    vietnamese_clarity: 9.2
+    vietnamese_clarity: 9.0
     han_viet_balance: 9.4
-    ambiguity_integrity: 8.8
+    ambiguity_integrity: 8.6
     technical_integrity: 9.6
-  final_score: 9.14
+  final_score: 9.05
   blocking_errors:
     - "noEnglishEditionUpstream: Thiếu bản dịch tiếng Anh đối chiếu"
-  assessed_at: "2026-10-08"
+  assessed_at: "2026-10-11"
   assessed_by:
-    - "OpenCode Space Bunny Free (agent)"
+    - "Claude Sonnet 5.5 (Claude Code)"
   waiver:
     id: no-upstream-english
     blockers:
@@ -62,3 +62,15 @@ notes: |-
   - kosātakī (4.1): tên loài dây leo thuộc họ bầu mướp (mướp đắng rừng, Luffa acutangula) có vị đắng không ai ưa thích, được giữ tên định danh theo văn cảnh.
 
   Bốn lệnh kiểm tra cổng kỹ thuật dành cho coordinator: npm run validate, npm test, npm run check, npm run build. Vì agent không chạy các lệnh này, technical_integrity được đặt 9.6.
+
+  Lượt cải thiện 2026-10-11 (kiểm toán độc lập, đọc đối kháng 57 khoá; đổi 7 khoá):
+  - 2.1 `Pītapāsādasayane`: trước "Giường nằm trong cung điện màu vàng" (hiểu thành giường đặt trong cung điện, mất màu vàng của giường); sau "Có cung điện và giường nằm màu vàng" (tiền tố pīta- chi phối cả cung điện lẫn giường; cả 2.1–2.4 là các hô cách song hành với 1.1–1.4 và `bhadde` ở 3.1). Đây là lỗi nghĩa thật. 2.4 `pītasse`: bỏ "đàn" (Pāli không có nghĩa số nhiều/bầy).
+  - 4.1 `bhante`: người đáp nói với Sakka (7.1 `devinda`, 8.1 `Idaṁ sutvā tidasādhipati`), không phải một tỳ-kheo; "Thưa tôn giả" → "Thưa ngài".
+  - 6.1 `avadhī`: "húc chết" → "giết" (Pāli chỉ nói giết; chi tiết húc thuộc chú giải, không thuộc lời kinh).
+  - 6.4 `bhiyyo`: "thù thắng hơn" → "nhiều hơn" (bhiyyo là "hơn nữa/nhiều hơn", không có nghĩa "thù thắng").
+  - 8.3 `Tāvatiṁse pasādento`: "làm cho cõi Ba Mươi Ba sinh lòng tịnh tín" → "làm cho chư thiên cõi Ba Mươi Ba tịnh tín" (người có tín tâm là chư thiên ở đó, không phải cõi).
+  - 10.1: "tâm đã có lòng tịnh tín" → "tâm đã tịnh tín" (bỏ lặp).
+  Điểm đổi: semantic_fidelity 9.2 → 8.9 (lỗi 2.1 và các chỗ thêm nghĩa nhỏ ở 6.1, 6.4 do bản trước tự chấm quá cao); terminology 9.2 → 9.0 (tiêu đề `Pīta` là tính từ "vàng" nhưng giữ nguyên Pāli theo tiền lệ Pabhassara/Nandana — xem dưới); vietnamese_clarity 9.2 → 9.0 (5.3 "nó" chưa có tiền ngữ khi đọc tuần tự; 1.1 treo); ambiguity_integrity 8.8 → 8.6 (thêm hai bất định chưa ghi nhận ở trên). final_score 9.14 → 9.05 (trung bình số học thô).
+  Bất định còn lại: (a) 6.3 `abhisañceyyaṁ` là dạng hiếm; "hoàn tất việc cúng dường" là cách đọc theo ngữ cảnh, chưa phân xử bằng dạng song song. (b) 6.2 `apattamānasaṁ` đọc là "ý nguyện đến bảo tháp chưa thành"; có thể đọc "tâm chưa đến được bảo tháp". (c) 5.4 `taggamanasā satī` giữ nguyên bất định như đã nêu ở 5.3-5.4. (d) Phép số: `tidasa` nghĩa đen là "ba mươi" (tidasādhipati ở 8.1), dùng làm tên gọi chư thiên Tāvatiṁsa; bản dịch theo tiền lệ vv41/vv48/vv67 (Tam Thập Tam) — không phải phép tính 33 trực tiếp như ghi ở mục Năm phép kiểm. 
+  Chỗ nghi ngờ nhưng không đổi: tiêu đề 0.4 và 14.1 giữ "Cung Điện Pīta" (Pīta = "vàng", tương tự ví dụ `amba` = xoài; đổi riêng một tệp sẽ lệch cả bộ); tiêu đề phẩm 0.2 `Itthivimāna` hiện dịch "Nữ Hư Không" (không có ākāsa trong Pāli, lặp ở khoảng 51 tệp vv) — không sửa riêng tệp này. Cách dịch 1.1-1.4 giữ nguyên với vv36:1.1-1.2 (cùng Pāli, cùng Việt).
+  Cổng kỹ thuật vẫn do người điều phối chạy: npm run validate · npm test · npm run check · npm run build.
