@@ -221,3 +221,14 @@ Nhật ký append-only. Registry `content/audio/progress.json` được đối s
 
 - Generated13chunks/148segments; one bounded content retry of indexes5/11 preserved originals and reused11WAVs. Final artifact approximately1195.7s. Full13chunkASR: index5 now0.9382 without long differences; index11 remains0.7098 with long missing quotation. Valid windows0–45s,40–60.28s and35.28–60.28s did not recognize the repeated quotation. An empty out-of-duration window was excluded and is not evidence. ASR is not authority; human listening required. MN18blocked, pending, noR2upload/playerregistration.
 - Pages38117261829 succeeded for checkpoint478 merge `18833efb50acc06f91464076ed7cb032857b19d5`, verified by GitHub readback.
+
+### MN18 checkpoint merge and MN19 start
+
+- PR489 merged at `2026-10-11T06:52:06Z`; exact head `ed62d46bbda64b510278474d0c24084aac0c3cd1`, squash merge `0857c602fe5ada655597459417c49a61d69f9ff8`. Both CI runs 38118529349 and38118525402 succeeded. MN18 remains blocked pending human listening, no upload.
+- After squash changed branch ancestry, the clean audio checkout was switched to a new branch from `origin/main`; no force/reset/stash. MN19 is prepared:121 canonical scripture segments,11 chunks; source `ac93dddc8189cdda421a6627d9714d3629bf897b088da56fccc2fc4e70cf41f0`, plan `6a81e5ad25371b57`, max chunk length1394. All121 canonical cells and5 summary paragraphs matched production before synthesis. Approved profile unchanged.
+
+### MN19 R2 and local player checkpoint
+
+- MN19 generated11chunks/121canonical segments; final MP3 duration1021.94s,20,439,840bytes; scripture begins160.51s. R2 uploader verified MIME/hash/bytes/range206; key `vi/mn/mn19/2dc6ff7a2edc9a49.mp3`.
+- Full localASR11chunks similarity0.9013–0.9848. Index8 had a generic outro insertion in full ASR; valid final25s and12s windows on MN19 chunk8 did not reproduce it. Window check uses the correct artifact and is stored in that artifact folder. This is machine evidence only; review pending and no human listening/voice approval claimed.
+- Local reader playback with actual R2 URL: play entered pause, +15s advanced timeline to0:17, scripturejump161s/2:40, pause returned to play at2:44. Marked uploaded-verified; merge and production verification pending.
