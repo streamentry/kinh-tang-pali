@@ -1,58 +1,53 @@
 uid: cnd1
 status: draft
-translationTitle: "Tiểu Tập Kể Lược, Bài Kệ Phẩm Bờ Kia – Phẩm 1. Vatthugāthā"
+translationTitle: "Tiểu Tập Kể Lược, Kệ Dẫn Nhập Phẩm Bờ Kia – 1"
 translators:
-  - "OpenCode Space Bunny Free (agent)"
+  - "Claude Sonnet 5.5 (Claude Code)"
 reviewers: []
 tags:
   - "khuddaka-nikaya"
+  - "culaniddesa"
+  - "parayana"
 quality:
   scores:
-    source_provenance: 9.6
-    semantic_fidelity: 9.6
+    source_provenance: 9.5
+    semantic_fidelity: 9.5
     grammar_logic: 9.5
     segment_alignment: 10.0
-    terminology: 9.5
-    triangulation: 8.5
-    vietnamese_clarity: 9.5
+    terminology: 9.4
+    triangulation: 8.0
+    vietnamese_clarity: 9.4
     han_viet_balance: 9.4
-    ambiguity_integrity: 9.3
-    technical_integrity: 10.0
-  final_score: 9.49
+    ambiguity_integrity: 9.2
+    technical_integrity: 9.6
+  final_score: 9.35
   blocking_errors:
-    - "Bản dịch chỉ phủ 1 khoá có nội dung; lát được chia bằng bộ lọc coverage 40 ký tự thay vì missingAll nên bài thiếu khoá, validate yêu cầu requireComplete."
-  assessed_at: "2026-09-30"
+    - "Không có tầng tham khảo tiếng Anh cho cnd1 tại commit đã ghim (noEnglishEditionUpstream): edition english-sujato chỉ có tệp tên mục cnd-name chứ không có tệp kinh cnd1 và thư mục kn/ của edition không có cnd; tầng english-project không có cnd1; vietnamese-current chỉ có Pháp Cú. Ba tầng tham khảo đều vắng nên bài chỉ dịch từ Pāli root và bản Việt của snp5.1 (kệ trùng), đây là giới hạn upstream chứ không phải lỗi người dịch. triangulation bị chặn ở 8.0, không nâng để né blocker."
+  assessed_at: "2026-10-11"
   assessed_by:
-    - "OpenCode Space Bunny Free (agent)"
+    - "Claude Sonnet 5.5 (Claude Code)"
 notes: |-
-  **Phạm vi: đúng một khoá** (`cnd1:0.4`) trong 235 khoá Pāli. **Lưu ý đặc biệt:
-  khoá này nằm trong khối tham chiếu `:0`**, mà `isSubstantive` của
-  `src/lib/canon/reference.ts` loại khối `:0` khỏi metric coverage. Nhưng `kiểm` của
-  `_hvi.py` không có ngoại lệ đó, nên vẫn đòi khoá này — và tôi dịch theo `_hvi.py`.
-  Đây là lý do `cnd1` **không** xuất hiện trong `shown` của `q_next.json` (metric
-  coverage) mà vẫn nằm trong lát này: hai bộ quy tắc đo khác nhau, không phải lỗi
-  đếm. Tôi dịch khoá được giao và **không** tự thêm 234 khoá còn lại.
+  **Phạm vi: đủ 235/235 khoá của `cnd1`** (Kệ Dẫn Nhập, `Vatthugāthā`, mở đầu Cūḷaniddesa). Khoá `0.4` (*Namo tassa…*) giữ nguyên câu đã có; 234 khoá còn lại dịch trong lượt này. Không có khoá nào ngoài tập khoá Pāli, thứ tự khoá đúng thứ tự Pāli.
 
-  **Tiêu đề ghép cả ba dòng tiêu đề** vì chúng không có bản Việt: `cnd1:0.1` =
-  *Cūḷaniddesa*, `0.2` = *Pārāyanavaggagāthā*, `0.3` = *1. Vatthugāthā*. *Phẩm Bờ Kia*
-  theo tiền lệ `snp5.19` đã dịch `Pārāyanānugītigāthā` = *Kệ Tiếp Theo Phẩm Bờ Kia*.
-  **`Vatthugāthā` tôi giữ nguyên chữ Pāli trong tiêu đề, không dịch** — `vatthu` ở đây
-  chưa được chính bản Pāli giải ngay trong `cnd1` (chỗ duy nhất Pāli giải từ là
-  `cnd1:16.1` và `:37.3`, đều là **tên địa danh** Kapilavatthu), nên dịch nó là bịa.
-  `Cūḷaniddesa` → *Tiểu Tập Kể Lược* cũng đặt mới: 0 tiền lệ trong tầng Việt.
+  **Quan hệ với `snp5.1` (đã đo).** Bài này chép lại nguyên các kệ Vatthugāthā của Kinh Tập 5.1. Đối chiếu từng khoá: **218/235** khoá có Pāli trùng `snp5.1` khi bỏ khác biệt chữ hoa và gạch nối; **203/235** khoá dùng lại **nguyên văn** bản Việt của `snp5.1`. Trong 218 cặp trùng, **21** cặp bản Việt khác `snp5.1`, và đều có lý do truy được về Pāli (xem dưới). Thêm **13** khoá có biến thể Pāli thật so với `snp5.1`: `2.2` · `13.1` · `14.2` · `22.2` · `27.4` · `30.4` · `36.1` · `36.2` · `41.2` · `41.4` · `46.3` · `51.4` · `52.2`; bốn khoá đầu (`0.1`–`0.4`) là tiêu đề và câu kính lễ. Sáu khoá trong số biến thể (`13.1` `22.2` `27.4` `36.2` `51.4` `52.2`) chỉ khác chính tả hoặc ngôi lịch sự, cùng nghĩa, nên giữ câu của `snp5.1`.
 
-  Câu này xuất hiện **17 lần** trong snapshot Pāli đã ghim. Trong tầng Việt
-  đã có sẵn **hai** cách dịch khác nhau, nên đây là chỗ bắt buộc phải tra tiền lệ:
-  *Kính lễ Đức Phật, bậc A-la-hán, bậc Chánh Đẳng Giác.* (`pv1:1.1`, `ja1:1.1`,
-  `thag1.1:1.0.2` — 3/5 cách đã có), *Kính lễ Đức Thế Tôn, …* (`kp1:1.1`) và
-  *Kính lạ Đức Thế Tôn, …!* (`thig1.1:1.0`). Tôi dùng lại nguyên văn cách đa số.
+  **21 khoá khác `snp5.1` dù Pāli trùng — vì sao.** (1) **Lệch ranh giới khoá** trong `snp5.1`: ở `12.1`–`12.2`, `25.1`–`25.2`, `26.1`–`26.2`, `30.1`–`30.4`, `48.3`–`48.4`, `49.1`–`49.4`, `50.1`–`50.2`, bản Việt của `snp5.1` đặt nội dung của khoá này sang khoá bên cạnh (ví dụ `49.1` đang mang nghĩa của `49.3`; `50.1` đang mang nghĩa của `50.2`). Bài này dịch lại đúng nội dung từng khoá theo Pāli để bốn cột đối chiếu không lệch. Đây là chỗ nên rà lại `snp5.1`; lượt này **không** sửa bài đó. (2) **Dấu nháy**: `19.1` bỏ nháy quanh *Chánh Đẳng Giác* vì Pāli `Sambuddhoti` không có nháy ở khoá này; `29.4` bỏ dấu nháy đóng thừa vì lời nói của Bāvari kéo dài đến `30.4`. (3) `31.2` bỏ chữ *thanh niên* vì Pāli chỉ nói `brāhmaṇā`; `38.2` tách *Vesālī* khỏi *thành của xứ Magadha* (`vesāliṁ māgadhaṁ puraṁ` là hai địa danh).
 
-  **Bất định đã ghi nhận, chưa có cách nào tuyệt đối:** `bhagavato` là
-  *Bậc Đã Được Vinh Danh*, mà *Đức Thế Tôn* giữ nghĩa đó sát hơn *Đức Phật*. Tôi vẫn
-  chọn *Đức Phật* vì đó là cách đã có sẵn 3/5 trong tầng và là lối đọc quen với người
-  Việt; ở chính lát này tôi dùng *Đức Thế Tôn* cho `bhagavato` ở chuỗi `bhagavato
-  vaṁso` (xem `notes` của các phẩm bv), vì đó là cách dùng quen thuộc cho các Đức
-  Phật quá khứ. Biên tập có thể muốn thống nhất hai chỗ này.
+  **Pāli trùng trong chính bài.** `6.4`/`11.4` (`idaṁ vacanamabravi`), `13.3`/`15.3`/`29.3`/`50.1` (`Muddhaṁ muddhādhipātañca`), `25.2`/`26.2` (`mahāpurisalakkhaṇā`), `30.3`/`49.3` (`Manasā pucchite pañhe`): 4 nhóm. `25.2`/`26.2` và `30.3`/`49.3` dịch **giống hệt** nhau; `6.4`/`11.4` khác chữ đầu (*rồi*/*và*) theo mạch câu liền trước; nhóm `muddhaṁ muddhādhipātañca` khác ở dấu câu và chữ hoa theo vị trí (dấu hỏi ở `15.3`, mở nháy ở `50.1`), không khác nghĩa.
 
-  **Không có tầng Anh.** 0/235 khoá có Anh Sujato (không có cả tệp Anh cho `cnd1`),
-  `translation/vi/phantuananh/` chỉ có Pháp Cú ⇒ `triangulation` ở mức thấp của lát.
+  **Chỗ còn bất định (chỉ ghi ở đây, không thêm vào thân kinh):**
+  - `2.2` `samāsane`: lấy theo `snp5.1` là *tại trú xứ của …*. Nghĩa sát hơn có thể là *giáp ranh/kề bên xứ Maḷaka*; chưa có chú giải đã ghim để phân xử nên không đổi.
+  - `36.1` `Maḷakassa patiṭṭhānaṁ`: dịch **Patiṭṭhāna của Maḷaka** (tên thành, như bản Anh của `snp5.1` đọc là tên thành). `snp5.1:36.1` đang dịch *nơi định cư*; hai bài hiện chưa thống nhất ở chỗ này.
+  - `41.2` `Pītaraṁsiṁva`: *tia sáng vàng*, theo 5 khoá `tha-ap` có cùng cụm `pītaraṁsiṁva bhāṇumaṁ` (đều dịch *vàng*). `snp5.1:41.2` có biến thể Pāli khác (`Sataraṁsiṁva`, *trăm tia*), nên hai bài khác nhau là đúng.
+  - `46.3` `Taṇhacchida` (*bậc đoạn trừ ái*) khác `snp5.1:46.3` (`Kaṅkhacchida`, *bậc đoạn trừ nghi hoặc*): là biến thể Pāli thật.
+  - `3.2` `gāmo ca vipulo ahu` giữ cách đọc của `snp5.1` (*một ngôi làng lớn đã hình thành*); cách đọc *đã có một ngôi làng thịnh vượng nương vào ông* cũng hợp lý.
+  - `49.1`–`49.4`: cấu trúc câu (*ai* là người hỏi, *ngài* đáp cho ai) dịch theo cách đọc Pāli tự nhiên; câu `kametaṁ paṭibhāsati` có thể đọc là *đang đáp lời ai*.
+  - `0.3` `Vatthugāthā` dịch *Kệ Dẫn Nhập* theo `snp5.1:0.2` (trước đây bản nháp giữ nguyên chữ Pāli vì chưa có tiền lệ).
+
+  **Tên tác phẩm.** `0.1` *Tiểu Tập Kể Lược* và `0.2` *Phẩm Bờ Kia* theo `cnd3:0.1`–`0.2` và `cnd4:0.1`–`0.2`; `0.3` *1. Kệ Dẫn Nhập* cùng khuôn với `cnd3:0.3` (*3. Kệ Tán Thán Phẩm Bờ Kia*) và `cnd4:0.3`.
+
+  **Số Pāli đã tính.** `satāni pañca`/`pañcasatāni` = năm trăm (`5.4`, `7.4`, `45.3`); `sattame divase` = ngày thứ bảy (`8.3`); `sattadhā` = bảy mảnh (`8.4`); `dvattiṁsāni` = ba mươi hai (`25.3`); `dveyeva` = hai, `tatiyā` = thứ ba (`26.3`–`26.4`); `soḷasa` = mười sáu (`31.2`); `pannarase` = ngày mười lăm (`41.3`); `vīsaṁ vassasataṁ` = 20 + 100 = một trăm hai mươi (`44.1`); `tīṇi` lakkhaṇā = ba tướng, `tiṇṇaṁ vedāna` = ba Vệ-đà (`44.3`–`44.4`). Không có số lớn nhân thang.
+
+  **Tầng tham khảo — đo, không đoán.** Pāli root: 235 khoá. Bản Anh Sujato **không có** cho `cnd1`: edition đã ghim chỉ có tệp tên mục `cnd-name`, không có tệp kinh `cnd1` (tra manifest; thư mục `kn/` của edition chỉ có `cp` `dhp` `iti` `ja` `kp` `snp` `thag` `thig` `ud`) ⇒ `not-published-upstream`. Lớp `english-project` cũng không có `cnd1`. `vietnamese-current` chỉ có Pháp Cú. **Coverage English: mẫu số = 0** (không khoá Pāli nào ≥ 40 ký tự, vì đây là kệ từng câu ngắn), nên cổng coverage **không đo được gì**; điều đó không phải là *đã đối chiếu English*. Ba tầng tham khảo đều vắng ⇒ `triangulation` đặt 8.0 (không cao hơn), `status` là `draft` kèm blocker `noEnglishEditionUpstream`, không nâng điểm để né blocker. Với chính các kệ này, Sujato có bản dịch cho `snp5.1` (một bài khác, cùng bài kệ); `snp5.1` đã `published` với `triangulation` 9.3 trong metadata của nó, và bài này kế thừa nguyên văn bản Việt đó cho 203 khoá (sau khi đã đối chiếu lại với Pāli của `cnd1`). Đó là bằng chứng gián tiếp, không phải tầng Anh của `cnd1`.
+
+  **Bốn cổng kỹ thuật theo `AGENTS.md`:** `npm run validate`, `npm test`, `npm run check`, `npm run build`. Lượt này **không** chạy bốn lệnh đó (bị cấm trong lát) ⇒ để CI hoặc người điều phối chạy; `technical_integrity` đặt **9.6**, không 10.0.
