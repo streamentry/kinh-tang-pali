@@ -817,11 +817,11 @@
       "uid": "mn16",
       "collection": "mn",
       "order": 16,
-      "status": "uploaded-verified",
+      "status": "live",
       "source_sha256": "f1ec019dd4d504f6a6edc17dba71a03b75f21a70d2571efc93ec9ef4de3958bb",
       "profile_sha256": "a384c5852585077c32e1348a6ada5cfc70a69c989ad705b8b5129fef3e1c9a71",
       "errors": [],
-      "updated_at": "2026-10-11T04:19:20.962675+00:00",
+      "updated_at": "2026-10-11T04:54:10.096954+00:00",
       "batch": "mn-010",
       "review_status": "pending",
       "url": "https://pub-8fa53f5182904685bd0c13d6c894a0e9.r2.dev/vi/mn/mn16/11c3c96ee760b79c.mp3",
@@ -830,9 +830,9 @@
       "scripture_start_seconds": 130.98999999999998,
       "sha256": "11c3c96ee760b79c95c1adf9b113e6383308d894f6e80d7985c9708c6cd086f2",
       "bytes": 16601760,
-      "pr_url": null,
-      "merge_commit": null,
-      "live_verified_at": null,
+      "pr_url": "https://github.com/streamentry/kinh-tang-pali/pull/471",
+      "merge_commit": "1f2f6d3cd61260ec26116b255a6ead357b607ad0",
+      "live_verified_at": "2026-10-11T04:54:10.096954+00:00",
       "checkpoint": "audio/mn16/806e2b2f28b52bee",
       "upload_verified": true,
       "bucket": "kinh-tang-pali-audio",
@@ -865,28 +865,82 @@
         "pause": "pause changed to play;2:17",
         "human_listening_completed": false
       },
-      "playback_verified_at": "2026-10-11T04:19:20.962675+00:00"
+      "playback_verified_at": "2026-10-11T04:19:20.962675+00:00",
+      "production_verification": {
+        "url": "https://streamentry.github.io/kinh-tang-pali/sutta/mn/mn16/",
+        "pages_run_id": 38112324730,
+        "deploy_commit": "1f2f6d3cd61260ec26116b255a6ead357b607ad0",
+        "verified_at": "2026-10-11T04:54:10.096954+00:00",
+        "method": "browser accessibility observable state; actual R2 URL confirmed",
+        "play": "play entered pause state",
+        "seek_forward": "timeline0:18/19s after+15s",
+        "scripture_jump": "timeline131s/2:10",
+        "pause": "returned to play at2:15",
+        "human_listening_completed": false
+      },
+      "production_page": "https://streamentry.github.io/kinh-tang-pali/sutta/mn/mn16/"
     },
     "mn17": {
       "uid": "mn17",
       "collection": "mn",
       "order": 17,
-      "status": "not-started",
+      "status": "blocked",
       "source_sha256": "92d1ad5a905d80bb12b094b647806a332e0597c2e2d40134dba8a5ae74153796",
       "profile_sha256": "a384c5852585077c32e1348a6ada5cfc70a69c989ad705b8b5129fef3e1c9a71",
-      "errors": [],
-      "updated_at": "2026-10-10T00:02:54.154031+00:00",
-      "batch": null,
+      "errors": [
+        "After one bounded retry of index9, full and overlapping localASR did not recognize the repeated reflection passage. Human listening/content verification required before upload; ASR not authority."
+      ],
+      "updated_at": "2026-10-11T05:04:46.328329+00:00",
+      "batch": "mn-011",
       "review_status": "pending",
       "url": null,
       "object_key": null,
-      "duration_seconds": null,
-      "scripture_start_seconds": null,
-      "sha256": null,
-      "bytes": null,
+      "duration_seconds": 871.74,
+      "scripture_start_seconds": 116.82999999999998,
+      "sha256": "28f819b13aa624602c37b2b19c91a44a96816505bc351027f1026b79590b4223",
+      "bytes": 17436000,
       "pr_url": null,
       "merge_commit": null,
-      "live_verified_at": null
+      "live_verified_at": null,
+      "checkpoint": "audio/mn17/a6bc607daf851a73",
+      "qc_status": "bounded-retry-exhausted-review-needed",
+      "qc_evidence": {
+        "method": "local MLX Whisper; full11chunkcomparison and overlapping windows; machine QC only",
+        "model_revision": "0f058d38170d183f9fdee07908f5b515d91793a8",
+        "chunks_transcribed": 11,
+        "retry_indexes": [
+          9
+        ],
+        "content_retries_per_chunk": 1,
+        "similarity_range": [
+          0.7816091954022989,
+          1.0
+        ],
+        "remaining_long_difference_indexes": [
+          9
+        ],
+        "window_ranges_seconds": [
+          [
+            0,
+            35
+          ],
+          [
+            30,
+            65
+          ],
+          [
+            60,
+            68.32
+          ],
+          [
+            43.32,
+            68.32
+          ]
+        ],
+        "window_observation": "ASR recognizes transition from easy requisites to lifelong following without repeated reflection; not proof of TTS omission",
+        "human_listening_completed": false,
+        "human_listening_required": true
+      }
     },
     "mn18": {
       "uid": "mn18",

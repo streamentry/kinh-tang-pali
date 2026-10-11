@@ -194,3 +194,20 @@ Nhật ký append-only. Registry `content/audio/progress.json` được đối s
 - Localreader4331 loads actualR2link. Play changed to pause; +15s moved timeline0:21; scripturejump131s/2:10; pause returned to play at2:17. Registry uploaded-verified; merge and productionverification still pending.
 
 - Pages38110600490 succeeded for checkpoint469 merge `7a290f066c654e4e0dc94a9844bf8ea47a9dab62` (GitHub run readback); that checkpoint registered no audio.
+
+### MN16 PR merge checkpoint
+
+- PR https://github.com/streamentry/kinh-tang-pali/pull/471 merged at2026-10-11T04:40:21Z; exacthead `7c6898b76e3ec4bfa95f672a02067546c7e60cb6`, squash `1f2f6d3cd61260ec26116b255a6ead357b607ad0`. CIruns38111523740/38111519965bothsucceeded. RemotePRreadbackconfirmedmerge andmainfetched. Pages38112324730pending; MN16markedmerged, notliveyet. Reviewpending.
+
+### MN16 production verification
+
+- Pages38112324730 succeeded for merge `1f2f6d3cd61260ec26116b255a6ead357b607ad0`. ProductionMN16page shows the14-minute player and R2key `vi/mn/mn16/11c3c96ee760b79c.mp3`. Browserplay changed to pause; +15s moved to0:18(19s slider); scripturejump131s/2:10; pause returned toplay at2:15. Markedlive with evidence. Fullhumanlistening remains incomplete; reviewpending.
+
+### MN17 sequential start
+
+- After verifiedMN16productionplayback, fetchedmain through `d15a56ca` without altering other work. MN17sourceSHA256 `92d1ad5a905d80bb12b094b647806a332e0597c2e2d40134dba8a5ae74153796`, plan `a6bc607daf851a73`,11chunks/81canonical scripture segments. Productiontext comparison matched81canonicalcells excluding comments and4summaryparagraphs. Profileunchanged; oneTTSprocess. Nohumanvoicecomparison/fullcontentlistening claimed; reviewpending.
+
+### MN17 bounded-retry content checkpoint
+
+- Generated11chunks/81canonical scripture segments. Full localASR flagged onlyindex9. One bounded retry reused10WAVs and preserved original. Final artifact approximately871.7s. Final11reports similarity0.7816–1.0000; index9 still has a long difference. Localwindows0–35s,30–65s,60–68.32s and43.32–68.32s recognized a transition from easy requisites to lifelong following without the repeated reflection. ASR is not authority and cannot certify omission; human listening required. MN17blocked, reviewpending, noR2upload orplayerregistration.
+- Checkpoint recordsMN16productionverification andMN17blocker; onlyonepreviouslymergedUID gainsliveevidence, zero newly uploadedfiles. Small checkpoint follows requested frequentPRcadence.
