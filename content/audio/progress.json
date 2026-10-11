@@ -710,43 +710,108 @@
       "uid": "mn14",
       "collection": "mn",
       "order": 14,
-      "status": "not-started",
+      "status": "blocked",
       "source_sha256": "5b5aecd379659f3ed82828d51a3e6ede1e760572f64df07a739e8cb4d6fade6e",
       "profile_sha256": "a384c5852585077c32e1348a6ada5cfc70a69c989ad705b8b5129fef3e1c9a71",
-      "errors": [],
-      "updated_at": "2026-10-10T00:02:54.154027+00:00",
-      "batch": null,
+      "errors": [
+        "After one bounded content retry of chunk index6, local ASR still recognizes a long fortress-example continuation outside assigned text. Human listening/content verification required; ASR is not authority. No upload."
+      ],
+      "updated_at": "2026-10-11T03:25:41.106478+00:00",
+      "batch": "mn-009",
       "review_status": "pending",
       "url": null,
       "object_key": null,
-      "duration_seconds": null,
-      "scripture_start_seconds": null,
-      "sha256": null,
-      "bytes": null,
+      "duration_seconds": 1238.4399999999996,
+      "scripture_start_seconds": 161.07,
+      "sha256": "93afaa9d3807fc3b3f438b61e91589caf27036960e7fa729ff34e516de1e51d3",
+      "bytes": 24769920,
       "pr_url": null,
       "merge_commit": null,
-      "live_verified_at": null
+      "live_verified_at": null,
+      "checkpoint": "audio/mn14/e7a15154828938dd",
+      "qc_status": "bounded-retry-exhausted-review-needed",
+      "qc_evidence": {
+        "method": "local MLX Whisper; machine QC only",
+        "chunks_transcribed": 13,
+        "retry_indexes": [
+          6
+        ],
+        "content_retries_per_chunk": 1,
+        "retry_similarity": 0.7177304964539007,
+        "similarity_range": [
+          0.7177304964539007,
+          0.9696969696969697
+        ],
+        "outro_flags_indexes": [
+          2,
+          7
+        ],
+        "outro_window_check": "final25s and12s windows did not reproduce generic outro",
+        "human_listening_completed": false,
+        "human_listening_required": true
+      }
     },
     "mn15": {
       "uid": "mn15",
       "collection": "mn",
       "order": 15,
-      "status": "not-started",
+      "status": "blocked",
       "source_sha256": "0830164f792e32161f6906c3ee16d9182b9d83ae5e27af882576818d7d8da601",
       "profile_sha256": "a384c5852585077c32e1348a6ada5cfc70a69c989ad705b8b5129fef3e1c9a71",
-      "errors": [],
-      "updated_at": "2026-10-10T00:02:54.154028+00:00",
-      "batch": null,
+      "errors": [
+        "After one bounded content retry each of10flaggedchunks, long scripture differences remain in localASR on indexes2,3,6,13,14,16. ASR is not authority; human listening/content verification required before R2 upload."
+      ],
+      "updated_at": "2026-10-11T03:48:38.099516+00:00",
+      "batch": "mn-009",
       "review_status": "pending",
       "url": null,
       "object_key": null,
-      "duration_seconds": null,
-      "scripture_start_seconds": null,
-      "sha256": null,
-      "bytes": null,
+      "duration_seconds": 1903.7699999999995,
+      "scripture_start_seconds": 146.47,
+      "sha256": "a21c96c33b5813bbbb07eada000424ad493c5cecf9ff7f6e9a1eab80b1321295",
+      "bytes": 38076480,
       "pr_url": null,
       "merge_commit": null,
-      "live_verified_at": null
+      "live_verified_at": null,
+      "checkpoint": "audio/mn15/67e3985553a6ac90",
+      "qc_status": "bounded-retry-exhausted-review-needed",
+      "qc_evidence": {
+        "method": "local MLX Whisper; machine QC only",
+        "model_revision": "0f058d38170d183f9fdee07908f5b515d91793a8",
+        "chunks_transcribed": 20,
+        "retry_indexes": [
+          2,
+          3,
+          5,
+          6,
+          7,
+          12,
+          13,
+          14,
+          15,
+          16
+        ],
+        "content_retries_per_chunk": 1,
+        "remaining_long_scripture_difference_indexes": [
+          2,
+          3,
+          6,
+          13,
+          14,
+          16
+        ],
+        "similarity_range": [
+          0.6271929824561403,
+          0.9897435897435898
+        ],
+        "outro_only_indexes": [
+          10,
+          18
+        ],
+        "short_window_check": "Both final25s and12s windows did not reproduce generic outro on indexes10/18",
+        "human_listening_completed": false,
+        "human_listening_required": true
+      }
     },
     "mn16": {
       "uid": "mn16",
