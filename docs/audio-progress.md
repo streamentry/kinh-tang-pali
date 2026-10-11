@@ -252,3 +252,11 @@ Nhật ký append-only. Registry `content/audio/progress.json` được đối s
 - MN20:9 chunks/85 canonical segments, MP3 about773.0s. One bounded retry each of indexes4/7 preserved originals and reused7 WAVs. Full local ASR still reports long omitted/extra repetitive passages in both chunks; this is not conclusive TTS evidence. MN20 blocked for human listening, no R2 upload/player; review pending.
 - MN21 source prepared and exact normalized production text comparison passed for all225 canonical cells and5 summary paragraphs. SourceSHA256 `e77c5b673b56c7317ae836246af0c63929999a6a309454c309e34b3e512cd6da`; plan `1b3d87d338f4562b` has16 chunks, max1394 chars. No TTS started.
 - Current checkpoint updates1 live item, records1 blocker and source-preparesMN21; zero newly uploaded files. Tests404/404, validate, Astrocheck, `audio:check` 186/0 and production build passed on this state.
+
+### MN21 bounded-retry QC checkpoint — 2026-10-11
+
+- MN21 source `e77c5b673b56c7317ae836246af0c63929999a6a309454c309e34b3e512cd6da`; 225 canonical scripture segments,16chunks; profile `vi-charon-mn1-v1` unchanged. Production page marks Việt 2026 published.
+- Attempt0 full offline ASR covered16/16 chunks. One bounded retry of indexes7/12/14 preserved attempt0, reused13 WAVs. Attempt1 MP3 `bb1c9668144ad40408e75b538345c6029fe9524de503ec3111a77e0fa4243420`,32,393,280bytes,1619.61s; all16 WAVs and67,486 MPEG frames pass structural/hash checks; scripture begins160.19s.
+- Index14 retry ASR0.9648/284 tokens recognizes the saw example. Index7 remains0.4289/301 expected vs944 heard,309.84s;25 overlapping windows recognize repeated out-of-plan narrative. Index12 remains0.5431/283 expected vs111 heard,38.92s; three overlapping windows still miss the burning-grass/Ganges example. ASR is not authority; no human listening completed.
+- MN21 is `blocked`, reviewpending, no R2 upload, metadata or player. Local attempt0/attempt1 and QC reports remain ignored. Detailed method/timing: `docs/audio-qc-mn21.md`.
+- Checkpoint records0 newly successful audio files and1 blocked UID; no MP3/WAV/QC cache enters Git. Two requested QC worktrees were used; workspace credit exhaustion interrupted follow-up, so coordinator completed index0–7 QC locally.

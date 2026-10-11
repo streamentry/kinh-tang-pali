@@ -1113,22 +1113,49 @@
       "uid": "mn21",
       "collection": "mn",
       "order": 21,
-      "status": "not-started",
+      "status": "blocked",
       "source_sha256": "e77c5b673b56c7317ae836246af0c63929999a6a309454c309e34b3e512cd6da",
       "profile_sha256": "a384c5852585077c32e1348a6ada5cfc70a69c989ad705b8b5129fef3e1c9a71",
-      "errors": [],
-      "updated_at": "2026-10-10T00:02:54.154036+00:00",
-      "batch": null,
+      "errors": [
+        "MN21 chunk 7 remains severely divergent after one bounded retry: offline ASR similarity 0.4289 (301 expected/944 heard tokens), 309.84s audio; overlapping windows show repeated narrative beyond its assigned text.",
+        "MN21 chunk 12 remains severely divergent after one bounded retry: offline ASR similarity 0.5431 (283 expected/111 heard tokens), 38.92s audio; the burning-grass/Ganges example is absent in full and overlapping-window ASR.",
+        "Machine ASR is not authority; human listening/content verification is required. No R2 upload or player registration; review remains pending."
+      ],
+      "updated_at": "2026-10-11T09:56:56.019670+00:00",
+      "batch": "mn-015",
       "review_status": "pending",
       "url": null,
       "object_key": null,
-      "duration_seconds": null,
-      "scripture_start_seconds": null,
-      "sha256": null,
-      "bytes": null,
+      "duration_seconds": 1619.6099999999992,
+      "scripture_start_seconds": 160.18999999999997,
+      "sha256": "bb1c9668144ad40408e75b538345c6029fe9524de503ec3111a77e0fa4243420",
+      "bytes": 32393280,
       "pr_url": null,
       "merge_commit": null,
-      "live_verified_at": null
+      "live_verified_at": null,
+      "checkpoint": "audio/mn21/1b3d87d338f4562b",
+      "qc_status": "blocked-content-differences",
+      "qc_evidence": {
+        "method": "offline MLX Whisper 0.4.3; full transcript and overlapping windows; ASR is a detector, not authority",
+        "model": "mlx-community/whisper-large-v3-turbo-4bit",
+        "model_revision": "0f058d38170d183f9fdee07908f5b515d91793a8",
+        "model_weights_sha256": "e2d6146b49644c13ed7467060d3c43c402bbdfca1f01f1c21f6fbeda23b6567e",
+        "model_config_sha256": "538e24557b8f9bc504700add5e7bbe32087c2353001ff563e64772ad4398671a",
+        "attempt0_full_chunks": 16,
+        "bounded_retry_chunks": [
+          7,
+          12,
+          14
+        ],
+        "attempt1_similarity": {
+          "7": 0.4289,
+          "12": 0.5431,
+          "14": 0.9648
+        },
+        "human_listening_completed": false,
+        "r2_uploaded": false,
+        "player_registered": false
+      }
     },
     "mn22": {
       "uid": "mn22",
