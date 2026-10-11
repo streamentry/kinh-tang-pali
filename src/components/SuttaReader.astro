@@ -171,62 +171,6 @@ const shapes = segments.map((segment, index) => {
     </div>
   </div>
 
-  <div class="layer-legend" data-pagefind-ignore>
-    {shown.map((layer) => (
-      <details class:list={['layer-card', `is-${layer.id}`, `standing-${layer.standing}`, `reason-${layer.reason}`]}>
-        <summary class="layer-card-head">
-          <h2 class="layer-title" lang={layer.language}>{layer.title}</h2>
-          <span class:list={['standing', layer.standing]}>{STANDING[layer.standing]}</span>
-        </summary>
-        <p class="layer-role">{layer.role}</p>
-        {layer.note && <p class="layer-note">{layer.note}</p>}
-        {layer.reason !== 'none' && (
-          <p class="layer-absent" data-pagefind-ignore>
-            <strong>{ABSENCE[layer.reason]}</strong>
-            {layer.reason === 'not-published-upstream' && (
-              <> Đây là giới hạn của bản chụp SuttaCentral, không phải thiếu sót của dự án.</>
-            )}
-            {layer.reason === 'not-synced' && (
-              <> Chạy <code>npm run source:sync:all</code> để tải.</>
-            )}
-          </p>
-        )}
-        {layer.id === 'viCurrent' && layer.reason !== 'none' && legacyTranslators.length > 0 && (
-          <p class="layer-absent-hint" data-pagefind-ignore>
-            Bản Việt nguyên bài của <strong>{legacyTranslators.join(', ')}</strong> có ở mục{' '}
-            <a href="#tra-cuu-toan-van">Tra cứu toàn văn</a> bên dưới. Đó là văn bản liền mạch,
-            chưa căn theo segment, nên không điền vào cột này.
-          </p>
-        )}
-        {layer.reason === 'none' && (
-          <p class="layer-coverage">
-            <strong>{withText(layer.withText)}</strong> segment có nội dung
-            {layer.sourceLayers.length > 1 && (
-              <> · ghép từ {layer.sourceLayers.join(', ')}</>
-            )}
-          </p>
-        )}
-        {/* Attribution is only printed where there is something to attribute. Naming a
-            translator on a text that contains none of their work states a credit the reader
-            cannot act on and implies the page draws on that translation when it does not —
-            the per-text failure of a per-layer credit. The absence is already stated above,
-            and the project's own reference is unchanged either way. */}
-        {layer.credit && (
-          <p class="layer-credit" data-pagefind-ignore>
-            <span class="credit-label">Nguồn</span>
-            {layer.credit}
-            {layer.license && layer.license.group === 'third-party' && (
-              <span class="credit-terms">
-                {' '}· SuttaCentral yêu cầu ghi rõ nguồn gốc khi sử dụng lại
-              </span>
-            )}
-          </p>
-        )}
-      </details>
-    ))}
-  </div>
-
-
   {editable && (
     <p class="editing-note" data-pagefind-ignore>
       Bản đang biên tập: <strong>Việt 2026</strong>
@@ -339,6 +283,61 @@ const shapes = segments.map((segment, index) => {
       })}
     </div>
   )}
+
+  <div class="layer-legend" data-pagefind-ignore>
+    {shown.map((layer) => (
+      <details class:list={['layer-card', `is-${layer.id}`, `standing-${layer.standing}`, `reason-${layer.reason}`]}>
+        <summary class="layer-card-head">
+          <h2 class="layer-title" lang={layer.language}>{layer.title}</h2>
+          <span class:list={['standing', layer.standing]}>{STANDING[layer.standing]}</span>
+        </summary>
+        <p class="layer-role">{layer.role}</p>
+        {layer.note && <p class="layer-note">{layer.note}</p>}
+        {layer.reason !== 'none' && (
+          <p class="layer-absent" data-pagefind-ignore>
+            <strong>{ABSENCE[layer.reason]}</strong>
+            {layer.reason === 'not-published-upstream' && (
+              <> Đây là giới hạn của bản chụp SuttaCentral, không phải thiếu sót của dự án.</>
+            )}
+            {layer.reason === 'not-synced' && (
+              <> Chạy <code>npm run source:sync:all</code> để tải.</>
+            )}
+          </p>
+        )}
+        {layer.id === 'viCurrent' && layer.reason !== 'none' && legacyTranslators.length > 0 && (
+          <p class="layer-absent-hint" data-pagefind-ignore>
+            Bản Việt nguyên bài của <strong>{legacyTranslators.join(', ')}</strong> có ở mục{' '}
+            <a href="#tra-cuu-toan-van">Tra cứu toàn văn</a> bên dưới. Đó là văn bản liền mạch,
+            chưa căn theo segment, nên không điền vào cột này.
+          </p>
+        )}
+        {layer.reason === 'none' && (
+          <p class="layer-coverage">
+            <strong>{withText(layer.withText)}</strong> segment có nội dung
+            {layer.sourceLayers.length > 1 && (
+              <> · ghép từ {layer.sourceLayers.join(', ')}</>
+            )}
+          </p>
+        )}
+        {/* Attribution is only printed where there is something to attribute. Naming a
+            translator on a text that contains none of their work states a credit the reader
+            cannot act on and implies the page draws on that translation when it does not —
+            the per-text failure of a per-layer credit. The absence is already stated above,
+            and the project's own reference is unchanged either way. */}
+        {layer.credit && (
+          <p class="layer-credit" data-pagefind-ignore>
+            <span class="credit-label">Nguồn</span>
+            {layer.credit}
+            {layer.license && layer.license.group === 'third-party' && (
+              <span class="credit-terms">
+                {' '}· SuttaCentral yêu cầu ghi rõ nguồn gốc khi sử dụng lại
+              </span>
+            )}
+          </p>
+        )}
+      </details>
+    ))}
+  </div>
 
   {references.length > 0 && (
     <details class="whole-text-refs" id="tra-cuu-toan-van" data-pagefind-ignore>

@@ -42,7 +42,6 @@ const supportsSummary = ['mn', 'dn'].includes(collection.code);
 const hasSummary = supportsSummary && Boolean(document.summary);
 const statusLabel = document.hasProjectData ? document.status : 'not-started';
 const summaryParagraphs = (document.summary ?? '').split(/\n{2,}/).filter((para) => para.trim() !== '');
-const permalink = new URL(withBase(`sutta/${collection.code}/${uid}/`), Astro.site).href;
 const titles = new Map(listCollection(collection.code as CollectionCode).map((item) => [item.uid, item.title]));
 const neighbourLink = (item?: { uid: string }) => item && { uid: item.uid, title: titles.get(item.uid) ?? item.uid.toUpperCase(), href: withBase(`sutta/${collection.code}/${item.uid}/`) };
 const minutesToRead = document.hasProjectData ? readingMinutes(document.segments.map((segment) => segment.vi)) : undefined;
@@ -64,19 +63,6 @@ const socialImage = cover
       Pāli đọc tại bilara commit <code>{document.commit.slice(0, 12)}</code> · 4 bản: Pāli,
       English, Việt hiện hành, Việt 2026
     </p>
-    <details class="citation-panel" data-pagefind-ignore>
-      <summary>Trích dẫn bài kinh và liên kết tới từng đoạn</summary>
-      <p>
-        <strong>Trích dẫn đề xuất:</strong> “{document.viTitle}” ({uid.toUpperCase()}, {collection.titleVi}),
-        Kinh Tạng Pāli Việt. <a href={permalink}>{permalink}</a> (Pāli snapshot: bilara-data commit
-        <code>{document.commit.slice(0, 12)}</code>).
-      </p>
-      <p>
-        Mã segment trong bảng bên dưới mở liên kết cố định tới đúng đoạn. Bản Việt của dự án hiện ở
-        trạng thái <strong>{statusLabel}</strong>; người trích dẫn nên ghi trạng thái này. Nguồn, người
-        dịch và giấy phép của các bản tham khảo được liệt kê ở <a href={withBase('credits/')}>trang nguồn</a>.
-      </p>
-    </details>
     {document.status !== 'published' && document.hasProjectData && (
       <div class="editorial-banner" data-pagefind-ignore>
         Bản này đang ở trạng thái <strong>{document.status}</strong>, chưa phải bản phát hành cuối.
