@@ -89,8 +89,8 @@ async function api(params) {
     const url = `${API}?${new URLSearchParams({ format: 'json', formatversion: '2', ...params })}`;
     const response = await fetch(url, { headers: { 'User-Agent': USER_AGENT } });
     if (response.ok) return response.json();
-    if (attempt >= 4 || ![429, 500, 502, 503, 504].includes(response.status)) throw new Error(`Commons API ${response.status} for ${params.titles}`);
-    await new Promise((resolve) => setTimeout(resolve, 2500 * attempt));
+    if (attempt >= 6 || ![429, 500, 502, 503, 504].includes(response.status)) throw new Error(`Commons API ${response.status} for ${params.titles}`);
+    await new Promise((resolve) => setTimeout(resolve, 3500 * attempt));
   }
 }
 
@@ -98,19 +98,44 @@ async function download(url) {
   for (let attempt = 1; ; attempt += 1) {
     const response = await fetch(url, { headers: { 'User-Agent': USER_AGENT } });
     if (response.ok) return Buffer.from(await response.arrayBuffer());
-    if (attempt >= 4 || ![429, 500, 502, 503, 504].includes(response.status)) throw new Error(`${response.status} downloading ${url}`);
-    await new Promise((resolve) => setTimeout(resolve, 3000 * attempt));
+    if (attempt >= 6 || ![429, 500, 502, 503, 504].includes(response.status)) throw new Error(`${response.status} downloading ${url}`);
+    await new Promise((resolve) => setTimeout(resolve, 4000 * attempt));
   }
 }
 
-async function fetchCover(cover, sharp) {
-  const data = await api({ action: 'query', titles: cover.file, prop: 'imageinfo', iiprop: 'url|sha1|size|mime|extmetadata' });
-  const info = data.query.pages[0]?.imageinfo?.[0];
-  if (!info) throw new Error(`${cover.uid}: ${cover.file} not found on Commons`);
-  const meta = info.extmetadata ?? {};
-  const licence = normaliseLicence(meta.LicenseShortName?.value);
-  if (!licence) throw new Error(`${cover.uid}: Commons licence ${meta.LicenseShortName?.value} is not allowed`);
-  if (cover.license && licence !== cover.license) throw new Error(`${cover.uid}: Commons now says ${meta.LicenseShortName?.value} (${licence}), registry says ${cover.license}`);
+async function fetchCover(cover, sharp, refresh = false) {
+  let info;
+  let licence;
+  let artist;
+  let credit;
+  let licenseShortName;
+  let licenseUrl;
+  if (!refresh && cover.sourceUrl && cover.originalSha1 && cover.license && cover.width && cover.height && cover.mime) {
+    info = {
+      url: cover.sourceUrl,
+      sha1: cover.originalSha1,
+      width: cover.width,
+      height: cover.height,
+      mime: cover.mime,
+    };
+    licence = cover.license;
+    artist = cover.commonsArtist ?? cover.author ?? null;
+    credit = cover.credit || 'Wikimedia Commons';
+    licenseShortName = cover.licenseShortName ?? cover.license;
+    licenseUrl = cover.licenseUrl ?? null;
+  } else {
+    const data = await api({ action: 'query', titles: cover.file, prop: 'imageinfo', iiprop: 'url|sha1|size|mime|extmetadata' });
+    info = data.query.pages[0]?.imageinfo?.[0];
+    if (!info) throw new Error(`${cover.uid}: ${cover.file} not found on Commons`);
+    const meta = info.extmetadata ?? {};
+    licence = normaliseLicence(meta.LicenseShortName?.value);
+    if (!licence) throw new Error(`${cover.uid}: Commons licence ${meta.LicenseShortName?.value} is not allowed`);
+    if (cover.license && licence !== cover.license) throw new Error(`${cover.uid}: Commons now says ${meta.LicenseShortName?.value} (${licence}), registry says ${cover.license}`);
+    artist = stripHtml(meta.Artist?.value) || null;
+    credit = cover.credit || stripHtml(meta.Credit?.value) || 'Wikimedia Commons';
+    licenseShortName = meta.LicenseShortName?.value ?? cover.licenseShortName;
+    licenseUrl = (meta.LicenseUrl?.value ?? cover.licenseUrl ?? null)?.replace(/^http:/, 'https:') ?? null;
+  }
   const original = await download(info.url);
   if (sha1(original) !== info.sha1) throw new Error(`${cover.uid}: downloaded bytes do not match Commons SHA-1`);
   const image = sharp(original, { limitInputPixels: false, failOn: 'none' }).rotate();
@@ -122,7 +147,6 @@ async function fetchCover(cover, sharp) {
   mkdirSync(dirname(asset), { recursive: true });
   writeFileSync(asset, output);
   const { width, height } = await sharp(output).metadata();
-  const artist = stripHtml(meta.Artist?.value) || null;
   return {
     ...cover,
     sourcePage: cover.sourcePage || `https://commons.wikimedia.org/wiki/${encodeURIComponent(cover.file.replace(/ /g, '_')).replace(/%3A/g, ':')}`,
@@ -132,10 +156,10 @@ async function fetchCover(cover, sharp) {
     height: info.height,
     mime: info.mime,
     author: cover.author || artist,
-    credit: cover.credit || stripHtml(meta.Credit?.value) || 'Wikimedia Commons',
+    credit,
     license: licence,
-    licenseShortName: meta.LicenseShortName?.value ?? cover.licenseShortName,
-    licenseUrl: (meta.LicenseUrl?.value ?? cover.licenseUrl ?? null)?.replace(/^http:/, 'https:') ?? null,
+    licenseShortName,
+    licenseUrl,
     commonsArtist: artist,
     asset,
     assetWidth: width,
@@ -182,36 +206,39 @@ async function main() {
       console.log(`${cover.uid} … ${updated.assetWidth}×${updated.assetHeight} ${(readFileSync(updated.asset).length / 1024).toFixed(0)} KB`);
       covers[idx] = updated;
       verifiedByFile.set(updated.file, updated);
+      await new Promise((resolve) => setTimeout(resolve, 400));
     }
   }
-  await Promise.all(Array.from({ length: Math.min(4, primaryIndices.length) }, () => worker()));
-
-  for (let i = 0; i < covers.length; i += 1) {
-    const cover = covers[i];
-    const primary = verifiedByFile.get(cover.file);
-    if (primary && primary !== cover) {
-      covers[i] = {
-        ...cover,
-        sourcePage: primary.sourcePage,
-        sourceUrl: primary.sourceUrl,
-        originalSha1: primary.originalSha1,
-        width: primary.width,
-        height: primary.height,
-        mime: primary.mime,
-        author: cover.author || primary.author,
-        credit: cover.credit || primary.credit,
-        license: primary.license,
-        licenseShortName: primary.licenseShortName,
-        licenseUrl: primary.licenseUrl,
-        commonsArtist: primary.commonsArtist,
-        asset: primary.asset,
-        assetWidth: primary.assetWidth,
-        assetHeight: primary.assetHeight,
-        sha256: primary.sha256,
-      };
+  try {
+    await Promise.all(Array.from({ length: Math.min(2, primaryIndices.length) }, () => worker()));
+  } finally {
+    for (let i = 0; i < covers.length; i += 1) {
+      const cover = covers[i];
+      const primary = verifiedByFile.get(cover.file);
+      if (primary && primary !== cover) {
+        covers[i] = {
+          ...cover,
+          sourcePage: primary.sourcePage,
+          sourceUrl: primary.sourceUrl,
+          originalSha1: primary.originalSha1,
+          width: primary.width,
+          height: primary.height,
+          mime: primary.mime,
+          author: cover.author || primary.author,
+          credit: cover.credit || primary.credit,
+          license: primary.license,
+          licenseShortName: primary.licenseShortName,
+          licenseUrl: primary.licenseUrl,
+          commonsArtist: primary.commonsArtist,
+          asset: primary.asset,
+          assetWidth: primary.assetWidth,
+          assetHeight: primary.assetHeight,
+          sha256: primary.sha256,
+        };
+      }
     }
+    writeFileSync(REGISTRY, `${JSON.stringify({ ...registry, covers }, null, 2)}\n`);
   }
-  writeFileSync(REGISTRY, `${JSON.stringify({ ...registry, covers }, null, 2)}\n`);
   const found = problems(covers);
   if (found.length) {
     console.error(found.join('\n'));
