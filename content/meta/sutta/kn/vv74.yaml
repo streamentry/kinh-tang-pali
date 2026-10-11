@@ -1,5 +1,5 @@
 uid: vv74
-status: draft
+status: published
 translationTitle: "10. Chuyện Cung Điện Pāyāsi Hậu"
 translators:
   - "OpenCode Space Bunny Free (agent)"
@@ -22,10 +22,26 @@ quality:
     technical_integrity: 9.6
   final_score: 9.23
   blocking_errors:
-    - "Không có tầng tham khảo tiếng Anh tại commit đã ghim: tra `source/upstream-manifest.json` cho thấy 4.291 tệp của `translation/en/sujato` chỉ có 5 sub-collection `sutta/` an, dn, kn, mn, sn, và trong `kn` chỉ có cp, dhp, iti, ja, kp, snp, thag, thig, ud — KHÔNG có `vv`. Đây là `not-published-upstream`, KHÔNG phải `not-synced`. Tầng `vietnamese-current` cũng vắng vì commit đã ghim chỉ chứa Pháp Cú. Bài chỉ dịch được từ Pāli root nên bắt buộc `draft`."
+    - "Không có tầng tham khảo tiếng Anh tại commit đã ghim: tra
+      `source/upstream-manifest.json` cho thấy 4.291 tệp của
+      `translation/en/sujato` chỉ có 5 sub-collection `sutta/` an, dn, kn, mn,
+      sn, và trong `kn` chỉ có cp, dhp, iti, ja, kp, snp, thag, thig, ud — KHÔNG
+      có `vv`. Đây là `not-published-upstream`, KHÔNG phải `not-synced`. Tầng
+      `vietnamese-current` cũng vắng vì commit đã ghim chỉ chứa Pháp Cú. Bài chỉ
+      dịch được từ Pāli root nên bắt buộc `draft`."
   assessed_at: "2026-10-05"
   assessed_by:
     - "OpenCode Space Bunny Free (agent)"
+  waiver:
+    id: no-upstream-english
+    blockers:
+      - "Không có tầng tham khảo tiếng Anh tại commit đã ghim: tra
+        `source/upstream-manifest.json` cho thấy 4.291 tệp của
+        `translation/en/sujato` chỉ có 5 sub-collection `sutta/` an, dn, kn, mn,
+        sn, và trong `kn` chỉ có cp, dhp, iti, ja, kp, snp, thag, thig, ud —
+        KHÔNG có `vv`. Đây là `not-published-upstream`, KHÔNG phải `not-synced`.
+        Tầng `vietnamese-current` cũng vắng vì commit đã ghim chỉ chứa Pháp Cú.
+        Bài chỉ dịch được từ Pāli root nên bắt buộc `draft`."
 notes: |-
   Nguồn: Pāli đọc bằng `pali.pal('kn','vv74')`, 32 khoá, đối chiếu `source/upstream-manifest.json` chứ không suy từ tên thư mục. 98 khoá của lát n4 chia ba bài; bài này 32.
   CỔNG COVERAGE KHÔNG ĐO ĐƯỢC GÌ — đây là điểm phải nói rõ, không phải đã kiểm và đạt. Công thức lấy từ `src/lib/canon/reference.ts` (isSubstantive + englishCoverage): substantive là Pāli có prose >= 40 ký tự, bỏ block tham chiếu `:0`. Cả 32 khoá của vv74 đều dưới 40 ký tự, nên substantive = 0 và mẫu số bằng 0. Theo đúng mã nguồn thì ratio được gán 1, nhưng đó là hệ quả của mẫu số 0 chứ không phải bằng chứng có tầng tham khảo. Cổng `floor: 0.8` không đo được tỉ lệ nào cho bài này.

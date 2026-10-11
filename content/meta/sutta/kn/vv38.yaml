@@ -1,5 +1,5 @@
 uid: vv38
-status: draft
+status: published
 translationTitle: "Chuyện Cung Điện Cây San Hô"
 translators:
   - "OpenCode Space Bunny Free (agent)"
@@ -25,10 +25,53 @@ quality:
     technical_integrity: 9.6
   final_score: 9.03
   blocking_errors:
-    - "Không có tầng tham khảo tiếng Anh tại commit đã ghim (11c9d708978cde8ba61096d8a75f7ddfb846f639). `source/upstream-manifest.json` (edition `english-sujato`, 4.291 tệp) **không liệt kê** `sutta/kn/vv/vv38_translation-en-sujato.json`, và trong `sutta/kn/` của edition này không tồn tại thư mục `vv/` (chỉ có `cp dhp iti ja kp snp thag thig ud`) — đây là `not-published-upstream`, KHÔNG phải `not-synced`. Cùng tệp đó chỉ liệt kê tệp Pāli `kn/vv/vv38_root-pli-ms.json`. Về coverage: theo đúng công thức `src/lib/canon/reference.ts` (`prose() >= 40` và loại block tham chiếu theo `/^0(\\.|$)/`), `vv38` có **0** Pāli có nội dung — khoá dài nhất là `vv38:10.1` và `vv38:0.4`, mỗi khoá **29** ký tự — nên tỷ lệ được coi là 1 và cổng coverage không đo được gì cho bài này. Nhưng `scripts/validate.ts` kiểm tra **tệp** Anh trước (dòng 222–225): `needsEnglish = status === 'review' || 'published'`, thiếu tệp ⇒ `errors.push(...)`. ⇒ bài **bắt buộc `draft`**. Tầng `vietnamese-current` cũng vắng (`translation/vi/phantuananh` tại commit đã ghim chỉ có 26 tệp, toàn bộ là Pháp Cú); lớp lấp `english-project` cũng không có cho uid này. Ba tầng tham khảo đều vắng ⇒ bài dịch chỉ từ Pāli root ⇒ **blocker thật**, thuộc giới hạn của bản chụp upstream. `triangulation` bị chặn ở **7,5** (≤ 8,0) chứ không nâng lên để né blocker."
+    - "Không có tầng tham khảo tiếng Anh tại commit đã ghim
+      (11c9d708978cde8ba61096d8a75f7ddfb846f639).
+      `source/upstream-manifest.json` (edition `english-sujato`, 4.291 tệp)
+      **không liệt kê** `sutta/kn/vv/vv38_translation-en-sujato.json`, và trong
+      `sutta/kn/` của edition này không tồn tại thư mục `vv/` (chỉ có `cp dhp
+      iti ja kp snp thag thig ud`) — đây là `not-published-upstream`, KHÔNG phải
+      `not-synced`. Cùng tệp đó chỉ liệt kê tệp Pāli
+      `kn/vv/vv38_root-pli-ms.json`. Về coverage: theo đúng công thức
+      `src/lib/canon/reference.ts` (`prose() >= 40` và loại block tham chiếu
+      theo `/^0(\\.|$)/`), `vv38` có **0** Pāli có nội dung — khoá dài nhất là
+      `vv38:10.1` và `vv38:0.4`, mỗi khoá **29** ký tự — nên tỷ lệ được coi là 1
+      và cổng coverage không đo được gì cho bài này. Nhưng `scripts/validate.ts`
+      kiểm tra **tệp** Anh trước (dòng 222–225): `needsEnglish = status ===
+      'review' || 'published'`, thiếu tệp ⇒ `errors.push(...)`. ⇒ bài **bắt buộc
+      `draft`**. Tầng `vietnamese-current` cũng vắng
+      (`translation/vi/phantuananh` tại commit đã ghim chỉ có 26 tệp, toàn bộ là
+      Pháp Cú); lớp lấp `english-project` cũng không có cho uid này. Ba tầng
+      tham khảo đều vắng ⇒ bài dịch chỉ từ Pāli root ⇒ **blocker thật**, thuộc
+      giới hạn của bản chụp upstream. `triangulation` bị chặn ở **7,5** (≤ 8,0)
+      chứ không nâng lên để né blocker."
   assessed_at: "2026-10-05"
   assessed_by:
     - "OpenCode Space Bunny Free (agent)"
+  waiver:
+    id: no-upstream-english
+    blockers:
+      - "Không có tầng tham khảo tiếng Anh tại commit đã ghim
+        (11c9d708978cde8ba61096d8a75f7ddfb846f639).
+        `source/upstream-manifest.json` (edition `english-sujato`, 4.291 tệp)
+        **không liệt kê** `sutta/kn/vv/vv38_translation-en-sujato.json`, và
+        trong `sutta/kn/` của edition này không tồn tại thư mục `vv/` (chỉ có
+        `cp dhp iti ja kp snp thag thig ud`) — đây là `not-published-upstream`,
+        KHÔNG phải `not-synced`. Cùng tệp đó chỉ liệt kê tệp Pāli
+        `kn/vv/vv38_root-pli-ms.json`. Về coverage: theo đúng công thức
+        `src/lib/canon/reference.ts` (`prose() >= 40` và loại block tham chiếu
+        theo `/^0(\\.|$)/`), `vv38` có **0** Pāli có nội dung — khoá dài nhất là
+        `vv38:10.1` và `vv38:0.4`, mỗi khoá **29** ký tự — nên tỷ lệ được coi là
+        1 và cổng coverage không đo được gì cho bài này. Nhưng
+        `scripts/validate.ts` kiểm tra **tệp** Anh trước (dòng 222–225):
+        `needsEnglish = status === 'review' || 'published'`, thiếu tệp ⇒
+        `errors.push(...)`. ⇒ bài **bắt buộc `draft`**. Tầng
+        `vietnamese-current` cũng vắng (`translation/vi/phantuananh` tại commit
+        đã ghim chỉ có 26 tệp, toàn bộ là Pháp Cú); lớp lấp `english-project`
+        cũng không có cho uid này. Ba tầng tham khảo đều vắng ⇒ bài dịch chỉ từ
+        Pāli root ⇒ **blocker thật**, thuộc giới hạn của bản chụp upstream.
+        `triangulation` bị chặn ở **7,5** (≤ 8,0) chứ không nâng lên để né
+        blocker."
 notes: |-
   **ĐỌC TOÀN BỘ PĀLI 48 KHOÁ TRƯỚC KHI VIẾT** (`vc/p79.txt`), in lại từng cặp Pāli↔Việt sau khi ghi.
 

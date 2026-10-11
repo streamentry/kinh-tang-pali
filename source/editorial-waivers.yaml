@@ -1,0 +1,42 @@
+# Editorial waivers — decisions the editor took to relax one named gate rule.
+#
+# A waiver never edits a score and never hides a blocker. The blocker stays in
+# `quality.blocking_errors` as the honest record; the waiver only says that this
+# one class of blocker no longer forces `draft`. Everything not named here (other
+# blockers, the 9.0 score threshold, the rubric, Pāli as the final authority)
+# keeps its force. `scripts/lib/quality.ts` reads this file; so does `validate`.
+#
+# A text carries `quality.waiver: { id, blockers }` in its metadata, written by
+# `npm run quality:waive`, never by hand. `validate` re-checks `condition` against the
+# pinned manifest, so a waiver cannot outlive the fact that justified it.
+
+schemaVersion: 1
+
+waivers:
+  - id: no-upstream-english
+    decidedBy: "Người biên tập dự án"
+    decidedAt: "2026-10-11"
+    title: "Không có bản Anh SuttaCentral đã ghim cho bài này"
+    rationale: >-
+      SuttaCentral không phát hành bản Anh cho phần lớn Tiểu Bộ (cnd, mnd, ps, pe, ne, mil,
+      tha-ap, thi-ap, bv, pv, vv và nhiều Jātaka) và cũng không phát hành cho một số bài
+      AN/SN. Đó là giới hạn của bản chụp upstream, không phải thiếu sót của bản dịch. Người
+      biên tập quyết định rằng thiếu bản Anh đối chiếu không còn tự thân chặn xuất bản, miễn
+      là Pāli root vẫn là authority, các tầng còn lại được đọc, bất định được ghi lại, và
+      điểm số vẫn vượt ngưỡng.
+    # Which blockers this waiver covers: only those whose text says the English reference
+    # layer is absent. Any other blocker on the same text still forces `draft`.
+    blockerPattern: "noEnglishEditionUpstream|(thiếu|không có|vắng|không phát hành|không có tệp)[^.]{0,80}(tầng|bản)[^.]{0,40}(tiếng )?(Anh|English)|tầng (tham khảo )?(tiếng )?(Anh|English)[^.]{0,60}(không có|vắng|thiếu)|không có[^.]{0,40}english-sujato"
+    # A blocker that also reports a textual defect is NOT covered even if it mentions the missing
+    # English: the defect is real and must be fixed or accepted by a human, not waived.
+    excludePattern: "hỏng|cụt|hapax|bất định|chưa phân xử|không phân xử|không thể phân xử|chưa bảo vệ|chưa chắc|không giải được|sai nghĩa|lệch nghĩa|cắt ngắm|thiếu khoá|mất segment|chưa thống nhất"
+    # Checked again by validate against `source/upstream-manifest.json`:
+    condition:
+      layer: english-sujato
+      mustBe: not-published-upstream
+    # What the waiver does NOT change, stated so the next reader does not have to infer it.
+    unchanged:
+      - "Pāli root vẫn là authority cuối cùng."
+      - "Blocker khác (sai nghĩa, mất segment, Pāli hỏng chưa phân xử…) vẫn ép `draft`."
+      - "Ngưỡng `final_score > 9.0` để `published` vẫn giữ; 8.0–9.0 là `review`."
+      - "Điểm `triangulation` vẫn phản ánh việc vắng bản Anh; không được tự nâng."

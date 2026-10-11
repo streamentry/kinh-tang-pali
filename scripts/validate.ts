@@ -146,7 +146,7 @@ for (const collection of collections) {
       continue;
     }
     if (!['draft', 'review', 'published'].includes(meta.status)) errors.push(`${metaFile}: invalid status ${meta.status}`);
-    errors.push(...validateQualityAssessment(meta));
+    errors.push(...validateQualityAssessment(meta, collection));
 
     const translationFile = path.join(ROOT, 'content/translation/vi/project/sutta', collection, `${uid}_translation-vi-project.json`);
     const commentFile = path.join(ROOT, 'content/comment/vi/project/sutta', collection, `${uid}_comment-vi-project.json`);
@@ -224,7 +224,9 @@ for (const collection of collections) {
       warnings.push(`${uid}: no deterministic English reference path; catalog entry must supply sourcePath before review`);
     } else {
       const englishFile = upstreamFile(englishPath);
-      const needsEnglish = meta.status === 'review' || meta.status === 'published';
+      // An editor's waiver (source/editorial-waivers.yaml) lifts this requirement for texts the
+      // pinned edition does not publish at all; validateQualityAssessment re-checks the fact.
+      const needsEnglish = (meta.status === 'review' || meta.status === 'published') && !meta.quality?.waiver;
       if (!existsSync(englishFile)) {
         const message = `${uid}: pinned English reference missing (${englishPath}); run npm run source:sync:used`;
         if (needsEnglish) errors.push(message);

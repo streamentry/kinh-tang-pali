@@ -1,5 +1,5 @@
 uid: mil3.3.5
-status: draft
+status: published
 translationTitle: "Câu Hỏi Về Sự Khởi Sinh Của Tiến Trình"
 translators:
   - "OpenCode Space Bunny Free (agent)"
@@ -23,10 +23,53 @@ quality:
     technical_integrity: 9.6
   final_score: 9.05
   blocking_errors:
-    - "Tầng tham khảo tiếng Anh KHÔNG tồn tại tại commit đã ghim, và coverage Pāli có nội dung bằng 0 — thấp hơn ngưỡng 0.8 khai trong source/layers.yaml (englishCoverage.floor). Đo đếm được: 21 khoá Pāli ≥40 ký tự, 0 khoá có prose Anh Sujato. Kiểm ba nơi, không suy đoán: (1) `source/upstream-manifest.json` — edition `translation/en/sujato` tại commit `11c9d708978cde8ba61096d8a75f7ddfb846f639` không liệt kê tệp nào cho uid này; (2) `.cache/upstream/suttacentral/translation/en/sujato/sutta/kn/mil/` — không có tệp `mil3.3.5`; (3) toàn bộ uid `mil*` trong edition đó không có bản Anh, vì Sujato không dịch Milindapañha. Đây là `not-published-upstream`, KHÔNG phải `not-synced`: chạy `npm run source:sync:used` cũng không tạo ra tệp. Lớp lấp `english-project` của dự án cũng không có cho uid này (grep toàn `content/translation/en/project/sutta/` = 0). Tầng `vietnamese-current` cũng vắng: `translation/vi/phantuananh` tại commit đã ghim chỉ có 26 tệp và toàn bộ là Pháp Cú. Vì `content/meta/reference-gaps.yaml` hiện CHƯA có entry cho `mil3.3.5`, `validate` sẽ chặn `review`/`published`. Bài bắt buộc `draft`. Đây là giới hạn upstream, không phải lỗi của người dịch — và vì vậy `triangulation` bị chặn ở 6.5 chứ không nâng để né blocker. Coordinator: chạy `npm run reference:gaps` để sinh entry rồi `npm run reference:gaps:check`."
+    - "Tầng tham khảo tiếng Anh KHÔNG tồn tại tại commit đã ghim, và coverage
+      Pāli có nội dung bằng 0 — thấp hơn ngưỡng 0.8 khai trong
+      source/layers.yaml (englishCoverage.floor). Đo đếm được: 21 khoá Pāli ≥40
+      ký tự, 0 khoá có prose Anh Sujato. Kiểm ba nơi, không suy đoán: (1)
+      `source/upstream-manifest.json` — edition `translation/en/sujato` tại
+      commit `11c9d708978cde8ba61096d8a75f7ddfb846f639` không liệt kê tệp nào
+      cho uid này; (2)
+      `.cache/upstream/suttacentral/translation/en/sujato/sutta/kn/mil/` — không
+      có tệp `mil3.3.5`; (3) toàn bộ uid `mil*` trong edition đó không có bản
+      Anh, vì Sujato không dịch Milindapañha. Đây là `not-published-upstream`,
+      KHÔNG phải `not-synced`: chạy `npm run source:sync:used` cũng không tạo ra
+      tệp. Lớp lấp `english-project` của dự án cũng không có cho uid này (grep
+      toàn `content/translation/en/project/sutta/` = 0). Tầng
+      `vietnamese-current` cũng vắng: `translation/vi/phantuananh` tại commit đã
+      ghim chỉ có 26 tệp và toàn bộ là Pháp Cú. Vì
+      `content/meta/reference-gaps.yaml` hiện CHƯA có entry cho `mil3.3.5`,
+      `validate` sẽ chặn `review`/`published`. Bài bắt buộc `draft`. Đây là giới
+      hạn upstream, không phải lỗi của người dịch — và vì vậy `triangulation` bị
+      chặn ở 6.5 chứ không nâng để né blocker. Coordinator: chạy `npm run
+      reference:gaps` để sinh entry rồi `npm run reference:gaps:check`."
   assessed_at: "2026-10-04"
   assessed_by:
     - "OpenCode Space Bunny Free (agent)"
+  waiver:
+    id: no-upstream-english
+    blockers:
+      - "Tầng tham khảo tiếng Anh KHÔNG tồn tại tại commit đã ghim, và coverage
+        Pāli có nội dung bằng 0 — thấp hơn ngưỡng 0.8 khai trong
+        source/layers.yaml (englishCoverage.floor). Đo đếm được: 21 khoá Pāli
+        ≥40 ký tự, 0 khoá có prose Anh Sujato. Kiểm ba nơi, không suy đoán: (1)
+        `source/upstream-manifest.json` — edition `translation/en/sujato` tại
+        commit `11c9d708978cde8ba61096d8a75f7ddfb846f639` không liệt kê tệp nào
+        cho uid này; (2)
+        `.cache/upstream/suttacentral/translation/en/sujato/sutta/kn/mil/` —
+        không có tệp `mil3.3.5`; (3) toàn bộ uid `mil*` trong edition đó không
+        có bản Anh, vì Sujato không dịch Milindapañha. Đây là
+        `not-published-upstream`, KHÔNG phải `not-synced`: chạy `npm run
+        source:sync:used` cũng không tạo ra tệp. Lớp lấp `english-project` của
+        dự án cũng không có cho uid này (grep toàn
+        `content/translation/en/project/sutta/` = 0). Tầng `vietnamese-current`
+        cũng vắng: `translation/vi/phantuananh` tại commit đã ghim chỉ có 26 tệp
+        và toàn bộ là Pháp Cú. Vì `content/meta/reference-gaps.yaml` hiện CHƯA
+        có entry cho `mil3.3.5`, `validate` sẽ chặn `review`/`published`. Bài
+        bắt buộc `draft`. Đây là giới hạn upstream, không phải lỗi của người
+        dịch — và vì vậy `triangulation` bị chặn ở 6.5 chứ không nâng để né
+        blocker. Coordinator: chạy `npm run reference:gaps` để sinh entry rồi
+        `npm run reference:gaps:check`."
 notes: |-
   Lát c55. Mệnh đề 0.1 `mil`: giữ Pāli “Milindapañha” theo đa số trong chính tầng `kn` —
   đếm được 183 bản dùng “Milindapañha”, chỉ 8 dùng “Mi-lan-đà” và 3 dùng “Mi-tiên Vấn

@@ -1,5 +1,7 @@
+import { blockerIsCovered, waiverById, waiverConditionHolds } from '../../src/lib/canon/waivers';
 import {
   TRANSLATION_QUALITY_KEYS,
+  type CollectionCode,
   type EditorialMeta,
   type EditorialStatus,
   type TranslationQualityAssessment,
@@ -11,17 +13,24 @@ export function arithmeticMean(scores: number[]): number {
   return scores.reduce((sum, value) => sum + value, 0) / scores.length;
 }
 
+/** Blockers that still force `draft` once the editor's waiver has been taken into account. */
+export function effectiveBlockers(blockingErrors: string[], waivedBlockers: string[] = []): string[] {
+  const waived = new Set(waivedBlockers);
+  return blockingErrors.filter((blocker) => !waived.has(blocker));
+}
+
 export function expectedStatusForQuality(
   finalScore: number,
   blockingErrors: string[],
+  waivedBlockers: string[] = [],
 ): EditorialStatus {
-  if (blockingErrors.length > 0) return 'draft';
+  if (effectiveBlockers(blockingErrors, waivedBlockers).length > 0) return 'draft';
   if (finalScore > 9.0) return 'published';
   if (finalScore >= 8.0) return 'review';
   return 'draft';
 }
 
-export function validateQualityAssessment(meta: EditorialMeta): string[] {
+export function validateQualityAssessment(meta: EditorialMeta, collection?: CollectionCode): string[] {
   const errors: string[] = [];
   const quality = meta.quality;
 
@@ -82,10 +91,29 @@ export function validateQualityAssessment(meta: EditorialMeta): string[] {
   const blockers = Array.isArray(quality.blocking_errors)
     ? quality.blocking_errors.filter((item): item is string => typeof item === 'string' && item.trim().length > 0)
     : [];
-  const expectedStatus = expectedStatusForQuality(mean, blockers);
+  const waiver = quality.waiver;
+  const waivedBlockers: string[] = [];
+  if (waiver) {
+    const rule = waiverById(waiver.id);
+    if (!rule) {
+      errors.push(`${meta.uid}: quality.waiver.id ${waiver.id} is not declared in source/editorial-waivers.yaml`);
+    } else if (!Array.isArray(waiver.blockers) || waiver.blockers.length === 0) {
+      errors.push(`${meta.uid}: quality.waiver.blockers must list the blockers it covers`);
+    } else {
+      for (const blocker of waiver.blockers) {
+        if (!blockers.includes(blocker)) errors.push(`${meta.uid}: quality.waiver covers a blocker that is not in blocking_errors`);
+        else if (!blockerIsCovered(rule, blocker)) errors.push(`${meta.uid}: waiver ${waiver.id} does not cover blocker "${blocker.slice(0, 60)}…"`);
+        else waivedBlockers.push(blocker);
+      }
+      if (collection && !waiverConditionHolds(rule, collection, meta.uid)) {
+        errors.push(`${meta.uid}: waiver ${waiver.id} no longer holds: ${rule.condition.layer} is not absent upstream at the pinned commit`);
+      }
+    }
+  }
+  const expectedStatus = expectedStatusForQuality(mean, blockers, waivedBlockers);
   if (meta.status !== expectedStatus) {
     errors.push(
-      `${meta.uid}: status ${meta.status} does not match quality gate; expected ${expectedStatus} for mean ${mean.toFixed(2)} with ${blockers.length} blocker(s)`,
+      `${meta.uid}: status ${meta.status} does not match quality gate; expected ${expectedStatus} for mean ${mean.toFixed(2)} with ${effectiveBlockers(blockers, waivedBlockers).length} blocker(s)`,
     );
   }
 

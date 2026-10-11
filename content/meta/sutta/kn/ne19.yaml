@@ -1,5 +1,5 @@
 uid: ne19
-status: draft
+status: review
 translationTitle: "Nhóm Gom Góp Hướng Dẫn"
 translators:
   - "Claude Sonnet 5.5 (Claude Code)"
@@ -24,10 +24,35 @@ quality:
     technical_integrity: 9.6
   final_score: 8.95
   blocking_errors:
-    - "noEnglishEditionUpstream: không có tầng tham khảo tiếng Anh tại commit đã ghim — `source/upstream-manifest.json` không liệt kê tệp nào của `kn/ne` ở `english-sujato` (tầng này chỉ có cp dhp iti ja kp snp thag thig ud), đây là `not-published-upstream`, không phải `not-synced`. Đo coverage theo công thức `source/layers.yaml` (Pāli có nội dung ≥ 40 ký tự, loại block `:0`): 0 trên 31 khoá = 0%, dưới ngưỡng 0.8. `vietnamese-current` chỉ có Pháp Cú tại commit đã ghim; lớp `english-project` chưa có cho uid này (có ne24, ne27–ne30, ne32, ne34 nhưng không có ne19). Ba tầng tham khảo đều vắng ⇒ dịch chỉ từ Pāli root, đối chiếu thuật ngữ với các bài Netti và Pháp Cú/Trường Bộ/Tương Ưng Bộ đã dịch trong tầng dự án; đây là giới hạn upstream, không phải lỗi của người dịch."
+    - "noEnglishEditionUpstream: không có tầng tham khảo tiếng Anh tại commit đã
+      ghim — `source/upstream-manifest.json` không liệt kê tệp nào của `kn/ne` ở
+      `english-sujato` (tầng này chỉ có cp dhp iti ja kp snp thag thig ud), đây
+      là `not-published-upstream`, không phải `not-synced`. Đo coverage theo
+      công thức `source/layers.yaml` (Pāli có nội dung ≥ 40 ký tự, loại block
+      `:0`): 0 trên 31 khoá = 0%, dưới ngưỡng 0.8. `vietnamese-current` chỉ có
+      Pháp Cú tại commit đã ghim; lớp `english-project` chưa có cho uid này (có
+      ne24, ne27–ne30, ne32, ne34 nhưng không có ne19). Ba tầng tham khảo đều
+      vắng ⇒ dịch chỉ từ Pāli root, đối chiếu thuật ngữ với các bài Netti và
+      Pháp Cú/Trường Bộ/Tương Ưng Bộ đã dịch trong tầng dự án; đây là giới hạn
+      upstream, không phải lỗi của người dịch."
   assessed_at: "2026-10-10"
   assessed_by:
     - "Claude Sonnet 5.5 (Claude Code)"
+  waiver:
+    id: no-upstream-english
+    blockers:
+      - "noEnglishEditionUpstream: không có tầng tham khảo tiếng Anh tại commit
+        đã ghim — `source/upstream-manifest.json` không liệt kê tệp nào của
+        `kn/ne` ở `english-sujato` (tầng này chỉ có cp dhp iti ja kp snp thag
+        thig ud), đây là `not-published-upstream`, không phải `not-synced`. Đo
+        coverage theo công thức `source/layers.yaml` (Pāli có nội dung ≥ 40 ký
+        tự, loại block `:0`): 0 trên 31 khoá = 0%, dưới ngưỡng 0.8.
+        `vietnamese-current` chỉ có Pháp Cú tại commit đã ghim; lớp
+        `english-project` chưa có cho uid này (có ne24, ne27–ne30, ne32, ne34
+        nhưng không có ne19). Ba tầng tham khảo đều vắng ⇒ dịch chỉ từ Pāli
+        root, đối chiếu thuật ngữ với các bài Netti và Pháp Cú/Trường Bộ/Tương
+        Ưng Bộ đã dịch trong tầng dự án; đây là giới hạn upstream, không phải
+        lỗi của người dịch."
 notes: |-
   Bản dịch từ Pāli root; không có bản Anh pinned (xem blocker), nên `triangulation` đặt 7.0 (≤ 8.0) và bài giữ `draft`. Mẫu số coverage = 31 khoá Pāli có nội dung (≥ 40 ký tự, loại khối `:0`), Sujato phủ 0 ⇒ 0/31.
   Tiêu đề: `:0.3` Vibhaṅga 16 → "Nhóm 16"; `:0.4` Samāropanahāravibhaṅga → "Nhóm Gom Góp Hướng Dẫn" theo bảng `X-hāravibhaṅga` → "Nhóm X Hướng Dẫn" (`ne7`, `ne8`, `ne11`–`ne13`, `ne16`, `ne18`); `samāropana` → "gom góp" theo danh sách mười sáu phương thức `ne2:1.2` và `ne2:4.4` (2/2 khoá). `ne35:1.1` và `ne35:3.6` dịch cùng từ là "gán ghép" (2 khoá); không lấy theo vì `ne35` cũng dịch `hārasampāta` là "tương hợp hành tướng", lệch khỏi khuôn "Nhóm Phương Thức X" của `ne20`–`ne34`.

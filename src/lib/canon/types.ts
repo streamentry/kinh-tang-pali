@@ -25,6 +25,11 @@ export interface TranslationQualityAssessment {
   assessed_by?: string[];
   /** The saved full review selected for the current publication gate. */
   assessment_id?: string;
+  /**
+   * An editorial waiver (source/editorial-waivers.yaml) covering some `blocking_errors`. The
+   * blockers stay on record; they just stop forcing `draft`. Written by `npm run quality:waive`.
+   */
+  waiver?: { id: string; blockers: string[] };
 }
 
 export interface CatalogText {

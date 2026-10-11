@@ -1,5 +1,5 @@
 uid: ja383
-status: draft
+status: published
 translationTitle: "Kinh Kukkuṭa"
 translators:
   - "OpenCode Space Bunny Free (agent)"
@@ -42,6 +42,21 @@ quality:
   assessed_by:
     - Claude Opus 5.5 (Claude Code)
   assessment_id: 8a84da2f-4bb4-4579-9bdf-649e203cc449
+  waiver:
+    id: no-upstream-english
+    blockers:
+      - "Không có tầng tham khảo tiếng Anh tại commit đã ghim: tầng
+        `english-sujato` không có tệp cho `ja383` (đã đếm trong
+        `source/upstream-manifest.json`: `.../kn/ja/` chỉ có 83 tệp, gồm
+        ja1–ja79 cộng 126, 159, 466, 534 — không có ja383), nên đây là
+        `not-published-upstream`, KHÔNG phải `not-synced`. `scripts/validate.ts`
+        coi tệp Anh thiếu là error khi status là `review` hoặc `published`, nên
+        bài bắt buộc `draft`. Tầng `vietnamese-current` cũng vắng:
+        `translation/vi/phantuananh` tại commit đã ghim chỉ có 26 tệp, toàn bộ
+        là Pháp Cú. Lớp lấp `english-project` không có cho uid này. Ba tầng tham
+        khảo đều vắng ⇒ bài dịch chỉ từ Pāli root. Đây là giới hạn upstream,
+        không phải lỗi của người dịch, nhưng vẫn là blocker thật nên không bù
+        được bằng điểm."
 
 notes: |-
   Bản dịch dựng từ Pāli root (content/catalog/sutta/kn.json → .cache/upstream, 33/33 khoá), không có tầng Anh đã ghim để đối chiếu — xem blocking_errors. Cổng coverage đo được là **0/0**, tức mẫu số bằng 0: bài truyện ngắn, khoá dài nhất 27 ký tự, không khoá nào đạt ngưỡng 40 ký tự của `source/layers.yaml`.

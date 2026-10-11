@@ -1,5 +1,5 @@
 uid: mil6.3.1
-status: draft
+status: published
 translationTitle: "Câu Hỏi Về Vessantara"
 translators:
   - "Claude Sonnet 5.5 (Claude Code)"
@@ -26,10 +26,46 @@ quality:
     technical_integrity: 9.6
   final_score: 9.08
   blocking_errors:
-    - "Không có tầng tham khảo tiếng Anh tại commit đã ghim. Đo bằng source/upstream-manifest.json và đọc trực tiếp cây cache, không suy từ tên thư mục: cây translation/en/sujato dưới sutta/kn chỉ có 9 sub-collection (cp, dhp, iti, ja, kp, snp, thag, thig, ud), không có mil; không có tệp mil6.3.1_translation-en-sujato.json, nên đây là not-published-upstream, KHÔNG phải not-synced (manifest chỉ nhắc mil6.3.1 đúng một lần, ở tầng Pāli root). Lớp lấp english-project của dự án không có tệp cho uid này, và tầng vietnamese-current cũng vắng (translation/vi/phantuananh chỉ có 26 tệp, toàn Pháp Cú). Đo coverage theo công thức src/lib/canon/reference.ts (gộp khoảng trắng, cắt hai đầu, từ 40 ký tự, loại khối tham chiếu :0): mẫu số 93 khoá Pāli có nội dung trên 124 khoá không phải khối tham chiếu, 0 trên 93 có chữ tiếng Anh = 0%, dưới ngưỡng 0,8; content/meta/reference-gaps.yaml chưa có entry cho mil6.3.1. Ba tầng tham khảo đều vắng nên bài dịch chỉ từ Pāli root; đây là giới hạn của upstream, không phải lỗi của người dịch. Vì vậy triangulation bị chặn ở 7.5 (không quá 8.0), không nâng để né blocker, và status giữ draft. Mã blocker: noEnglishEditionUpstream."
+    - "Không có tầng tham khảo tiếng Anh tại commit đã ghim. Đo bằng
+      source/upstream-manifest.json và đọc trực tiếp cây cache, không suy từ tên
+      thư mục: cây translation/en/sujato dưới sutta/kn chỉ có 9 sub-collection
+      (cp, dhp, iti, ja, kp, snp, thag, thig, ud), không có mil; không có tệp
+      mil6.3.1_translation-en-sujato.json, nên đây là not-published-upstream,
+      KHÔNG phải not-synced (manifest chỉ nhắc mil6.3.1 đúng một lần, ở tầng
+      Pāli root). Lớp lấp english-project của dự án không có tệp cho uid này, và
+      tầng vietnamese-current cũng vắng (translation/vi/phantuananh chỉ có 26
+      tệp, toàn Pháp Cú). Đo coverage theo công thức src/lib/canon/reference.ts
+      (gộp khoảng trắng, cắt hai đầu, từ 40 ký tự, loại khối tham chiếu :0): mẫu
+      số 93 khoá Pāli có nội dung trên 124 khoá không phải khối tham chiếu, 0
+      trên 93 có chữ tiếng Anh = 0%, dưới ngưỡng 0,8;
+      content/meta/reference-gaps.yaml chưa có entry cho mil6.3.1. Ba tầng tham
+      khảo đều vắng nên bài dịch chỉ từ Pāli root; đây là giới hạn của upstream,
+      không phải lỗi của người dịch. Vì vậy triangulation bị chặn ở 7.5 (không
+      quá 8.0), không nâng để né blocker, và status giữ draft. Mã blocker:
+      noEnglishEditionUpstream."
   assessed_at: "2026-10-11"
   assessed_by:
     - "Claude Sonnet 5.5 (Claude Code)"
+  waiver:
+    id: no-upstream-english
+    blockers:
+      - "Không có tầng tham khảo tiếng Anh tại commit đã ghim. Đo bằng
+        source/upstream-manifest.json và đọc trực tiếp cây cache, không suy từ
+        tên thư mục: cây translation/en/sujato dưới sutta/kn chỉ có 9
+        sub-collection (cp, dhp, iti, ja, kp, snp, thag, thig, ud), không có
+        mil; không có tệp mil6.3.1_translation-en-sujato.json, nên đây là
+        not-published-upstream, KHÔNG phải not-synced (manifest chỉ nhắc
+        mil6.3.1 đúng một lần, ở tầng Pāli root). Lớp lấp english-project của dự
+        án không có tệp cho uid này, và tầng vietnamese-current cũng vắng
+        (translation/vi/phantuananh chỉ có 26 tệp, toàn Pháp Cú). Đo coverage
+        theo công thức src/lib/canon/reference.ts (gộp khoảng trắng, cắt hai
+        đầu, từ 40 ký tự, loại khối tham chiếu :0): mẫu số 93 khoá Pāli có nội
+        dung trên 124 khoá không phải khối tham chiếu, 0 trên 93 có chữ tiếng
+        Anh = 0%, dưới ngưỡng 0,8; content/meta/reference-gaps.yaml chưa có
+        entry cho mil6.3.1. Ba tầng tham khảo đều vắng nên bài dịch chỉ từ Pāli
+        root; đây là giới hạn của upstream, không phải lỗi của người dịch. Vì
+        vậy triangulation bị chặn ở 7.5 (không quá 8.0), không nâng để né
+        blocker, và status giữ draft. Mã blocker: noEnglishEditionUpstream."
 notes: |-
   Đủ 128/128 khoá của bài, đúng thứ tự Pāli, không khoá nào ngoài tập khoá Pāli. Dịch trực tiếp từ Pāli root; đọc cả bài trong bối cảnh trước khi dịch từng khoá: vua Milinda nêu bảy điều khó làm của vua Vessantara (`2.1`–`8.1`), Nāgasena đáp bằng tiếng tốt của việc khó làm (`9.1`–`9.4`) và hai lý lẽ cho rằng bố thí làm khổ người khác vẫn có quả lạc (`10.1`–`11.5`); vua bác lại bằng khuôn bố thí quá mức (`12.1`–`12.2`), Nāgasena trả lời bằng những thí dụ đi đôi với tiếng tốt (`13.1`–`13.3`), bằng mười món không được xem là bố thí (`14.2`–`14.14`), và cuối cùng bằng các lý do khiến vua Vessantara cho vợ con (`15.1`–`33.4`) cùng kệ lấy từ Hạnh Tạng và kệ của hoàng tử Jāli.
 

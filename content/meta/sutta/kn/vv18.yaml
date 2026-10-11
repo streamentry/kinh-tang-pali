@@ -1,5 +1,5 @@
 uid: vv18
-status: draft
+status: review
 translationTitle: "Chuyện Cung Điện Nữ Tỳ"
 translators:
   - "Claude Sonnet 5.5 (Claude Code)"
@@ -25,10 +25,51 @@ quality:
     technical_integrity: 9.6
   final_score: 8.95
   blocking_errors:
-    - "Không có tầng tham khảo tiếng Anh tại commit đã ghim. Đo bằng `source/upstream-manifest.json` (commit 11c9d708978cde8ba61096d8a75f7ddfb846f639): edition `english-sujato` (path `translation/en/sujato`, treeSha 24e81ded9d6710e16b277b6394fd57c48258da12, 4.291 tệp) có **0 tệp** nào dưới `sutta/kn/vv/`; 755 tệp `kn` của tầng này thuộc đúng 9 sub-collection: cp 35, dhp 26, iti 112, ja 83, kp 9, snp 73, thag 264, thig 73, ud 80 — không có `vv`. Đây là `not-published-upstream`, KHÔNG phải `not-synced`. Tầng `vietnamese-current` (`translation/vi/phantuananh`, treeSha a6a1ba063bada3d338b5350f200def2189f018f1) chỉ có 26 tệp và tất cả đều là Pháp Cú (`sutta/kn/dhp/`). Lớp lấp `english-project` (`content/translation/en/project/sutta`, 821 tệp json) không có tệp nào cho uid `vv18` (trong `kn` chỉ có `vv69`). Ba tầng tham khảo đều vắng ⇒ bài dịch chỉ từ Pāli root (`root/pli/ms/sutta`, treeSha 4d736429e54946e4eb13c914ee90aa00dfc95690, 5.764 tệp) ⇒ blocker thật, và đây là giới hạn upstream chứ không phải lỗi người dịch. `scripts/validate.ts` coi tệp Anh thiếu là error khi status là `review`/`published`, nên bài bắt buộc `draft`. `triangulation` bị chặn ở 7.5 (≤ 8.0), không nâng để né blocker."
+    - "Không có tầng tham khảo tiếng Anh tại commit đã ghim. Đo bằng
+      `source/upstream-manifest.json` (commit
+      11c9d708978cde8ba61096d8a75f7ddfb846f639): edition `english-sujato` (path
+      `translation/en/sujato`, treeSha 24e81ded9d6710e16b277b6394fd57c48258da12,
+      4.291 tệp) có **0 tệp** nào dưới `sutta/kn/vv/`; 755 tệp `kn` của tầng này
+      thuộc đúng 9 sub-collection: cp 35, dhp 26, iti 112, ja 83, kp 9, snp 73,
+      thag 264, thig 73, ud 80 — không có `vv`. Đây là `not-published-upstream`,
+      KHÔNG phải `not-synced`. Tầng `vietnamese-current`
+      (`translation/vi/phantuananh`, treeSha
+      a6a1ba063bada3d338b5350f200def2189f018f1) chỉ có 26 tệp và tất cả đều là
+      Pháp Cú (`sutta/kn/dhp/`). Lớp lấp `english-project`
+      (`content/translation/en/project/sutta`, 821 tệp json) không có tệp nào
+      cho uid `vv18` (trong `kn` chỉ có `vv69`). Ba tầng tham khảo đều vắng ⇒
+      bài dịch chỉ từ Pāli root (`root/pli/ms/sutta`, treeSha
+      4d736429e54946e4eb13c914ee90aa00dfc95690, 5.764 tệp) ⇒ blocker thật, và
+      đây là giới hạn upstream chứ không phải lỗi người dịch.
+      `scripts/validate.ts` coi tệp Anh thiếu là error khi status là
+      `review`/`published`, nên bài bắt buộc `draft`. `triangulation` bị chặn ở
+      7.5 (≤ 8.0), không nâng để né blocker."
   assessed_at: "2026-10-10"
   assessed_by:
     - "Claude Sonnet 5.5 (Claude Code)"
+  waiver:
+    id: no-upstream-english
+    blockers:
+      - "Không có tầng tham khảo tiếng Anh tại commit đã ghim. Đo bằng
+        `source/upstream-manifest.json` (commit
+        11c9d708978cde8ba61096d8a75f7ddfb846f639): edition `english-sujato`
+        (path `translation/en/sujato`, treeSha
+        24e81ded9d6710e16b277b6394fd57c48258da12, 4.291 tệp) có **0 tệp** nào
+        dưới `sutta/kn/vv/`; 755 tệp `kn` của tầng này thuộc đúng 9
+        sub-collection: cp 35, dhp 26, iti 112, ja 83, kp 9, snp 73, thag 264,
+        thig 73, ud 80 — không có `vv`. Đây là `not-published-upstream`, KHÔNG
+        phải `not-synced`. Tầng `vietnamese-current`
+        (`translation/vi/phantuananh`, treeSha
+        a6a1ba063bada3d338b5350f200def2189f018f1) chỉ có 26 tệp và tất cả đều là
+        Pháp Cú (`sutta/kn/dhp/`). Lớp lấp `english-project`
+        (`content/translation/en/project/sutta`, 821 tệp json) không có tệp nào
+        cho uid `vv18` (trong `kn` chỉ có `vv69`). Ba tầng tham khảo đều vắng ⇒
+        bài dịch chỉ từ Pāli root (`root/pli/ms/sutta`, treeSha
+        4d736429e54946e4eb13c914ee90aa00dfc95690, 5.764 tệp) ⇒ blocker thật, và
+        đây là giới hạn upstream chứ không phải lỗi người dịch.
+        `scripts/validate.ts` coi tệp Anh thiếu là error khi status là
+        `review`/`published`, nên bài bắt buộc `draft`. `triangulation` bị chặn
+        ở 7.5 (≤ 8.0), không nâng để né blocker."
 notes: |-
   **Phạm vi: đủ 69/69 khoá của `all`.** Không khoá nào bị bỏ, không khoá nào ngoài tập Pāli;
   thứ tự khoá đúng thứ tự Pāli; NFC; không khoá rỗng; không khoảng trắng thừa; Pāli không lọt

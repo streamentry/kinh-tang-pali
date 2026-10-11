@@ -1,5 +1,5 @@
 uid: tha-ap485
-status: draft
+status: published
 translationTitle: "Bài Kệ Tuyên Ngợ Về Trưởng Lão Bhisadāyaka"
 translators:
   - "Claude Sonnet 5.5 (Claude Code)"
@@ -24,10 +24,38 @@ quality:
     technical_integrity: 9.6
   final_score: 9.27
   blocking_errors:
-    - "Không có tầng tham khảo tiếng Anh tại commit đã ghim (noEnglishEditionUpstream): `source/upstream-manifest.json` (commit `11c9d708978cde8ba61096d8a75f7ddfb846f639`, tầng `english-sujato`) không có thư mục `sutta/kn/tha-ap/`; trong `sutta/kn/` chỉ có cp, dhp, iti, ja, kp, snp, thag, thig, ud. Đây là `not-published-upstream`, KHÔNG phải `not-synced`. Tầng `vietnamese-current` cũng vắng: `translation/vi/phantuananh` tại commit đã ghim chỉ có 26 tệp và toàn bộ là Pháp Cú. Lớp lấp `english-project` không có entry cho uid này. Ba tầng tham khảo đều vắng nên bản dịch chỉ dựa vào Pāli root; `scripts/validate.ts` coi tệp Anh ghim thiếu là lỗi khi status là `review` hoặc `published`, nên bài bắt buộc `draft`. Đây là giới hạn của snapshot upstream, không phải lỗi của người dịch; vì vậy `triangulation` bị chặn ở mức 8.0 và không nâng điểm để né blocker."
+    - "Không có tầng tham khảo tiếng Anh tại commit đã ghim
+      (noEnglishEditionUpstream): `source/upstream-manifest.json` (commit
+      `11c9d708978cde8ba61096d8a75f7ddfb846f639`, tầng `english-sujato`) không
+      có thư mục `sutta/kn/tha-ap/`; trong `sutta/kn/` chỉ có cp, dhp, iti, ja,
+      kp, snp, thag, thig, ud. Đây là `not-published-upstream`, KHÔNG phải
+      `not-synced`. Tầng `vietnamese-current` cũng vắng:
+      `translation/vi/phantuananh` tại commit đã ghim chỉ có 26 tệp và toàn bộ
+      là Pháp Cú. Lớp lấp `english-project` không có entry cho uid này. Ba tầng
+      tham khảo đều vắng nên bản dịch chỉ dựa vào Pāli root;
+      `scripts/validate.ts` coi tệp Anh ghim thiếu là lỗi khi status là `review`
+      hoặc `published`, nên bài bắt buộc `draft`. Đây là giới hạn của snapshot
+      upstream, không phải lỗi của người dịch; vì vậy `triangulation` bị chặn ở
+      mức 8.0 và không nâng điểm để né blocker."
   assessed_at: "2026-10-10"
   assessed_by:
     - "Claude Sonnet 5.5 (Claude Code)"
+  waiver:
+    id: no-upstream-english
+    blockers:
+      - "Không có tầng tham khảo tiếng Anh tại commit đã ghim
+        (noEnglishEditionUpstream): `source/upstream-manifest.json` (commit
+        `11c9d708978cde8ba61096d8a75f7ddfb846f639`, tầng `english-sujato`) không
+        có thư mục `sutta/kn/tha-ap/`; trong `sutta/kn/` chỉ có cp, dhp, iti,
+        ja, kp, snp, thag, thig, ud. Đây là `not-published-upstream`, KHÔNG phải
+        `not-synced`. Tầng `vietnamese-current` cũng vắng:
+        `translation/vi/phantuananh` tại commit đã ghim chỉ có 26 tệp và toàn bộ
+        là Pháp Cú. Lớp lấp `english-project` không có entry cho uid này. Ba
+        tầng tham khảo đều vắng nên bản dịch chỉ dựa vào Pāli root;
+        `scripts/validate.ts` coi tệp Anh ghim thiếu là lỗi khi status là
+        `review` hoặc `published`, nên bài bắt buộc `draft`. Đây là giới hạn của
+        snapshot upstream, không phải lỗi của người dịch; vì vậy `triangulation`
+        bị chặn ở mức 8.0 và không nâng điểm để né blocker."
 notes: |-
   Dịch trực tiếp từ Pāli root; cả ba tầng tham khảo (english-sujato, english-project, vietnamese-current) đều vắng ở bài này. Đối chiếu tiền lệ chỉ với bản Việt của chính dự án cho cùng bộ `tha-ap`.
   Coverage English: mẫu số = 1 (chỉ `:20.1` đạt ngưỡng 40 ký tự theo `source/layers.yaml`, 63 ký tự; 75 khoá thân bài, mỗi vế kệ chỉ 18-26 ký tự), Sujato phủ 0/1. Với mẫu số nhỏ như vậy, cổng coverage gần như không đo được gì, và việc `content/meta/reference-gaps.yaml` chưa có entry cho uid này cần được coordinator xử lý bằng `npm run reference:gaps`; có entry cũng không cứu được `published`.

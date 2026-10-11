@@ -170,8 +170,11 @@ test('every in-scope text resolves to a synced, segment-aligned English referenc
         } else if (published === false) {
           unpublishedUpstream.push(`${collection}/${uid}`);
           const meta = parse(readFileSync(`${dir}/${name}`, 'utf8')) as SuttaMeta;
-          if (meta.status !== 'draft') {
-            problems.push(`${collection}/${uid}: no pinned English edition at this commit, so ${meta.status} cannot stand`);
+          // The editor's waiver `no-upstream-english` (source/editorial-waivers.yaml, decided
+          // 2026-10-11) is the one named way a text without a pinned English edition may stand
+          // as review/published. It must be recorded on the scorecard, and `validate` re-checks it.
+          if (meta.status !== 'draft' && meta.quality?.waiver?.id !== 'no-upstream-english') {
+            problems.push(`${collection}/${uid}: no pinned English edition at this commit, so ${meta.status} cannot stand without the editor's waiver`);
           }
           const blockers = meta.quality?.blocking_errors ?? [];
           if (blockers.length === 0) {

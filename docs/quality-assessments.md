@@ -123,6 +123,25 @@ Thứ tự quyết định:
 không bắt buộc; agent được publish trực tiếp nếu vượt gate và không có blocker. Bài `review`/
 `published` phải có `assessed_at` và `assessed_by`.
 
+### 5.1 Editorial waiver — miễn một loại blocker, có tên và kiểm được
+
+Bảng trên là luật mặc định. Người biên tập có thể **miễn đúng một loại blocker** bằng một
+waiver khai trong `source/editorial-waivers.yaml`. Waiver **không sửa điểm và không xoá blocker
+khỏi hồ sơ**: blocker vẫn nằm trong `quality.blocking_errors`, chỉ mất quyền ép `draft`. Bản đang có:
+
+- `no-upstream-english` (quyết định 2026-10-11): bản chụp SuttaCentral đã ghim **không phát hành**
+  bản Anh cho bài (`english-sujato` ở trạng thái `not-published-upstream`, đọc từ
+  `source/upstream-manifest.json`, không đoán từ cache). Blocker nói đúng điều đó thì không còn ép
+  `draft`; `validate` cũng không đòi tệp Anh cho bài `review`/`published` có waiver.
+
+Không đổi: blocker khác trên cùng bài (sai nghĩa, mất segment, Pāli hỏng chưa phân xử, bất định
+chưa phân xử…) vẫn ép `draft` — waiver loại trừ mọi blocker có dấu hiệu đó; ngưỡng `final_score > 9.0`
+vẫn giữ (8.0–9.0 là `review`); điểm `triangulation` vẫn phản ánh việc vắng bản Anh.
+
+Bài mang waiver có `quality.waiver: { id, blockers }`, ghi bằng `npm run quality:waive`
+(`-- --dry-run` để xem trước), **không sửa tay**. `validate` kiểm lại điều kiện mỗi lần chạy: nếu
+upstream từng phát hành bản Anh cho bài thì waiver mất hiệu lực và `status` phải hạ.
+
 `published` không có nghĩa "không bao giờ sửa". Phát hiện blocker sau khi publish → sửa ngay hoặc
 hạ về `draft` bằng một lượt `full` mới.
 

@@ -1,5 +1,5 @@
 uid: ja372
-status: draft
+status: published
 translationTitle: "Kinh Migapotaka"
 translators:
   - "OpenCode Space Bunny Free (agent)"
@@ -24,10 +24,44 @@ quality:
     technical_integrity: 9.6
   final_score: 9.23
   blocking_errors:
-    - "Không có tầng tham khảo tiếng Anh tại commit đã ghim: `source/upstream-manifest.json` cho thấy tầng `english-sujato` chỉ có **83** tệp dưới `.../kn/ja/` (ja1–ja79, cộng 126, 159, 466, 534), trong đó **không có** ja372/ja383/ja391 ⇒ `not-published-upstream`, KHÔNG phải `not-synced`. Cổng coverage của kho đo trên Pāli có nội dung (≥ 40 ký tự): ja372 có **mẫu số = 0** (33 khoá, khoá dài nhất 27 ký tự), nên cổng **không đo được gì** — đây là `0/0`, không phải `0%` đã kiểm rồi không đạt, và cũng không phải cơ sở để bỏ qua việc ghi nhận. `scripts/validate.ts` coi tệp Anh thiếu là **error** khi status là `review` hoặc `published`, nên bài bắt buộc `draft`. Tầng `vietnamese-current` cũng vắng: `translation/vi/phantuananh` tại commit đã ghim chỉ có 26 tệp, toàn bộ là Pháp Cú. Lớp lấp `english-project` cũng không có cho uid này. Ba tầng tham khảo đều vắng ⇒ bài dịch chỉ từ Pāli root ⇒ blocker thật, đây là **giới hạn upstream**, không phải lỗi của người dịch. Vì vậy `triangulation` bị chặn ở 7.5 (≤ 8.0) chứ không nâng để né blocker."
+    - "Không có tầng tham khảo tiếng Anh tại commit đã ghim:
+      `source/upstream-manifest.json` cho thấy tầng `english-sujato` chỉ có
+      **83** tệp dưới `.../kn/ja/` (ja1–ja79, cộng 126, 159, 466, 534), trong đó
+      **không có** ja372/ja383/ja391 ⇒ `not-published-upstream`, KHÔNG phải
+      `not-synced`. Cổng coverage của kho đo trên Pāli có nội dung (≥ 40 ký tự):
+      ja372 có **mẫu số = 0** (33 khoá, khoá dài nhất 27 ký tự), nên cổng
+      **không đo được gì** — đây là `0/0`, không phải `0%` đã kiểm rồi không
+      đạt, và cũng không phải cơ sở để bỏ qua việc ghi nhận.
+      `scripts/validate.ts` coi tệp Anh thiếu là **error** khi status là
+      `review` hoặc `published`, nên bài bắt buộc `draft`. Tầng
+      `vietnamese-current` cũng vắng: `translation/vi/phantuananh` tại commit đã
+      ghim chỉ có 26 tệp, toàn bộ là Pháp Cú. Lớp lấp `english-project` cũng
+      không có cho uid này. Ba tầng tham khảo đều vắng ⇒ bài dịch chỉ từ Pāli
+      root ⇒ blocker thật, đây là **giới hạn upstream**, không phải lỗi của
+      người dịch. Vì vậy `triangulation` bị chặn ở 7.5 (≤ 8.0) chứ không nâng để
+      né blocker."
   assessed_at: "2026-10-05"
   assessed_by:
     - "OpenCode Space Bunny Free (agent)"
+  waiver:
+    id: no-upstream-english
+    blockers:
+      - "Không có tầng tham khảo tiếng Anh tại commit đã ghim:
+        `source/upstream-manifest.json` cho thấy tầng `english-sujato` chỉ có
+        **83** tệp dưới `.../kn/ja/` (ja1–ja79, cộng 126, 159, 466, 534), trong
+        đó **không có** ja372/ja383/ja391 ⇒ `not-published-upstream`, KHÔNG phải
+        `not-synced`. Cổng coverage của kho đo trên Pāli có nội dung (≥ 40 ký
+        tự): ja372 có **mẫu số = 0** (33 khoá, khoá dài nhất 27 ký tự), nên cổng
+        **không đo được gì** — đây là `0/0`, không phải `0%` đã kiểm rồi không
+        đạt, và cũng không phải cơ sở để bỏ qua việc ghi nhận.
+        `scripts/validate.ts` coi tệp Anh thiếu là **error** khi status là
+        `review` hoặc `published`, nên bài bắt buộc `draft`. Tầng
+        `vietnamese-current` cũng vắng: `translation/vi/phantuananh` tại commit
+        đã ghim chỉ có 26 tệp, toàn bộ là Pháp Cú. Lớp lấp `english-project`
+        cũng không có cho uid này. Ba tầng tham khảo đều vắng ⇒ bài dịch chỉ từ
+        Pāli root ⇒ blocker thật, đây là **giới hạn upstream**, không phải lỗi
+        của người dịch. Vì vậy `triangulation` bị chặn ở 7.5 (≤ 8.0) chứ không
+        nâng để né blocker."
 
 notes: |-
   Bản dịch dựng từ Pāli root (content/catalog/sutta/kn.json → .cache/upstream, 33/33 khoá), không có tầng Anh đã ghim để đối chiếu — xem blocking_errors. Cổng coverage đo được là **0/0**, tức mẫu số bằng 0: bài truyện ngắn, khoá dài nhất 27 ký tự, không khoá nào đạt ngưỡng 40 ký tự của `source/layers.yaml`.

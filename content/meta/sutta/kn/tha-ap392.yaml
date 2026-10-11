@@ -1,5 +1,5 @@
 uid: tha-ap392
-status: draft
+status: review
 translationTitle: "10. Ký Sự Của Đức Phật Pubbakammapilotika"
 translators:
   - "Claude Sonnet 5.5 (Claude Code)"
@@ -23,10 +23,53 @@ quality:
     technical_integrity: 9.6
   final_score: 8.98
   blocking_errors:
-    - "Không có tầng tham khảo tiếng Anh tại commit đã ghim: thư mục `translation/en/sujato/sutta/kn/` chỉ có chín nhóm (cp, dhp, iti, ja, kp, snp, thag, thig, ud) và không có `tha-ap`; `source/upstream-manifest.json` chỉ liệt kê tệp Pāli root cho uid này, và tệp `tha-ap` duy nhất trong tầng Sujato là tệp tên `name/sutta/tha-ap-name_translation-en-sujato.json`, trong đó mục của tha-ap392 để trống, nên đây là `not-published-upstream`, không phải `not-synced`. Đo coverage theo công thức `source/layers.yaml` (Pāli có nội dung từ 40 ký tự, bỏ khối `:0`): mẫu số là 2 khoá (`tha-ap392:34.1`, 102 ký tự, và `tha-ap392:35.1`, 47 ký tự; cả hai là câu kết và dòng ghi tên bài), Sujato phủ 0 trên 2 là 0%, dưới ngưỡng 0.8; 155 khoá còn lại (không kể ba khoá tiêu đề) là các vế kệ và dòng ngắn dưới 40 ký tự nên cổng coverage không đo được gì ở đó. `scripts/validate.ts` coi tệp Anh thiếu là lỗi khi status là `review` hoặc `published`, nên bài bắt buộc `draft`. Tầng `vietnamese-current` cũng vắng (`translation/vi/phantuananh` tại commit đã ghim chỉ có 26 tệp, toàn bộ là Pháp Cú) và lớp `english-project` không có tệp nào cho `tha-ap`. Ba tầng tham khảo đều vắng nên bản dịch chỉ dựa vào Pāli root cùng tiền lệ trong tầng; đây là giới hạn của upstream, không phải lỗi của người dịch, và `triangulation` bị chặn ở 7.5 (không quá 8.0) chứ không nâng để né blocker."
+    - "Không có tầng tham khảo tiếng Anh tại commit đã ghim: thư mục
+      `translation/en/sujato/sutta/kn/` chỉ có chín nhóm (cp, dhp, iti, ja, kp,
+      snp, thag, thig, ud) và không có `tha-ap`; `source/upstream-manifest.json`
+      chỉ liệt kê tệp Pāli root cho uid này, và tệp `tha-ap` duy nhất trong tầng
+      Sujato là tệp tên `name/sutta/tha-ap-name_translation-en-sujato.json`,
+      trong đó mục của tha-ap392 để trống, nên đây là `not-published-upstream`,
+      không phải `not-synced`. Đo coverage theo công thức `source/layers.yaml`
+      (Pāli có nội dung từ 40 ký tự, bỏ khối `:0`): mẫu số là 2 khoá
+      (`tha-ap392:34.1`, 102 ký tự, và `tha-ap392:35.1`, 47 ký tự; cả hai là câu
+      kết và dòng ghi tên bài), Sujato phủ 0 trên 2 là 0%, dưới ngưỡng 0.8; 155
+      khoá còn lại (không kể ba khoá tiêu đề) là các vế kệ và dòng ngắn dưới 40
+      ký tự nên cổng coverage không đo được gì ở đó. `scripts/validate.ts` coi
+      tệp Anh thiếu là lỗi khi status là `review` hoặc `published`, nên bài bắt
+      buộc `draft`. Tầng `vietnamese-current` cũng vắng
+      (`translation/vi/phantuananh` tại commit đã ghim chỉ có 26 tệp, toàn bộ là
+      Pháp Cú) và lớp `english-project` không có tệp nào cho `tha-ap`. Ba tầng
+      tham khảo đều vắng nên bản dịch chỉ dựa vào Pāli root cùng tiền lệ trong
+      tầng; đây là giới hạn của upstream, không phải lỗi của người dịch, và
+      `triangulation` bị chặn ở 7.5 (không quá 8.0) chứ không nâng để né
+      blocker."
   assessed_at: "2026-10-11"
   assessed_by:
     - "Claude Sonnet 5.5 (Claude Code)"
+  waiver:
+    id: no-upstream-english
+    blockers:
+      - "Không có tầng tham khảo tiếng Anh tại commit đã ghim: thư mục
+        `translation/en/sujato/sutta/kn/` chỉ có chín nhóm (cp, dhp, iti, ja,
+        kp, snp, thag, thig, ud) và không có `tha-ap`;
+        `source/upstream-manifest.json` chỉ liệt kê tệp Pāli root cho uid này,
+        và tệp `tha-ap` duy nhất trong tầng Sujato là tệp tên
+        `name/sutta/tha-ap-name_translation-en-sujato.json`, trong đó mục của
+        tha-ap392 để trống, nên đây là `not-published-upstream`, không phải
+        `not-synced`. Đo coverage theo công thức `source/layers.yaml` (Pāli có
+        nội dung từ 40 ký tự, bỏ khối `:0`): mẫu số là 2 khoá (`tha-ap392:34.1`,
+        102 ký tự, và `tha-ap392:35.1`, 47 ký tự; cả hai là câu kết và dòng ghi
+        tên bài), Sujato phủ 0 trên 2 là 0%, dưới ngưỡng 0.8; 155 khoá còn lại
+        (không kể ba khoá tiêu đề) là các vế kệ và dòng ngắn dưới 40 ký tự nên
+        cổng coverage không đo được gì ở đó. `scripts/validate.ts` coi tệp Anh
+        thiếu là lỗi khi status là `review` hoặc `published`, nên bài bắt buộc
+        `draft`. Tầng `vietnamese-current` cũng vắng
+        (`translation/vi/phantuananh` tại commit đã ghim chỉ có 26 tệp, toàn bộ
+        là Pháp Cú) và lớp `english-project` không có tệp nào cho `tha-ap`. Ba
+        tầng tham khảo đều vắng nên bản dịch chỉ dựa vào Pāli root cùng tiền lệ
+        trong tầng; đây là giới hạn của upstream, không phải lỗi của người dịch,
+        và `triangulation` bị chặn ở 7.5 (không quá 8.0) chứ không nâng để né
+        blocker."
 notes: |-
   Dịch trọn 160 khoá (3 khoá tiêu đề :0.x; 33 khổ kệ 1 đến 33, tức 132 vế, cùng 12 khoá số thứ tự đoạn :4.0, :7.0, :10.0, :15.0, :17.0, :19.0, :21.0, :23.0, :25.0, :27.0, :28.0, :29.0 chép nguyên chữ số vì Pāli chỉ có số; lời kết 34.1, hai dòng kết 35.1 và 36.1, khoá 37.1, hai khổ tóm tắt 38 và 39 gồm 8 vế, khoá 40.1) trực tiếp từ Pāli root. Không có bản Anh của Sujato cho tha-ap392 (xem blocker), không có lớp english-project và không có bản Việt hiện hành tại commit đã ghim. Đối chiếu tên phẩm và tên bài với các bài cùng phẩm và liền kề (tha-ap383 đến tha-ap391, tha-ap395 đến tha-ap400), và đối chiếu từng khoá với toàn tầng tha-ap đã dịch qua Pāli trùng nguyên văn. Đây là bài kể về nghiệp quá khứ của chính Đức Phật (Buddhāpadāna) đặt ở cuối phẩm, nên giọng kể là Đức Phật tự nói và dùng ngôi Ta.
   Tên bài `:0.3`: Pāli `10 Pubbakammapilotikabuddhaapadāna` bắt đầu bằng số nên giữ số ở dạng `10. `; `translationTitle` bằng đúng giá trị `:0.3`. Dạng tên: bài khác các Ký Sự thông thường ở chỗ không có chữ thera (trưởng lão) mà là buddhāpadāna, nên viết Ký Sự Của Đức Phật; tên riêng Pubbakammapilotika giữ nguyên Pāli. Về mở đầu tên bài trong tầng tha-ap: Bài Kệ Tuyên Ngợ 255, Bài Kệ Tuyên Ngôn 138, Ký Sự 136 (toàn tầng); ở phạm vi gần (tha-ap360 đến tha-ap410) Tuyên Ngợ 24, Ký Sự 19, Tuyên Ngôn 1; trong phẩm Avaṭaphala Ký Sự 5, Tuyên Ngợ 4. Hai phạm vi cho đa số khác nhau; chọn Ký Sự vì là cách dịch đúng của apadāna, không mang lỗi chính tả (Tuyên Ngợ), và bài liền trước tha-ap391 cùng nhiều bài trong phẩm dùng dạng này; cần biên tập phán một lượt cho cả cuốn. Tên phẩm `Phẩm Trái Avaṭa` theo đa số cùng phẩm (8 trên 9 bài đã dịch). Tầng tên của Sujato chỉ có tiêu đề phẩm (Chapter Beginning With Avaṇṭaphaladāyaka), không có mục cho bài này.

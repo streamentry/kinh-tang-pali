@@ -1,5 +1,5 @@
 uid: tha-ap54
-status: draft
+status: published
 translationTitle: "2. Bài Kệ Tuyên Ngợ Về Trưởng Lão Sataraṁsi"
 translators:
   - "OpenCode Space Bunny Free (agent)"
@@ -24,10 +24,41 @@ quality:
     technical_integrity: 9.6
   final_score: 9.15
   blocking_errors:
-    - "Không có tầng tham khảo tiếng Anh tại commit đã ghim (11c9d708978cde8ba61096d8a75f7ddfb846f639). Đo bằng script trên `source/upstream-manifest.json` (tầng `english-sujato`, 4.291 tệp): `sutta/kn/` có 755 tệp thuộc đúng 9 sub-collection — cp 35, dhp 26, iti 112, ja 83, kp 9, snp 73, thag 264, thig 73, ud 80 — và `kn/pv/` lẫn `kn/tha-ap/` đều 0 tệp; tra theo uid `pv12` và `tha-ap54` cũng 0 tệp. Đây là `not-published-upstream`, KHÔNG phải `not-synced`, và là **giới hạn của snapshot upstream**, không phải lỗi của người dịch. Tầng `vietnamese-current` cũng vắng: `translation/vi/phantuananh` tại commit đã ghim chỉ có 26 tệp, toàn bộ là Pháp Cú. Lớp lấp `english-project` của dự án không có hai uid này. Cả ba tầng tham khảo đều vắng ⇒ bài chỉ dịch được từ Pāli root. `scripts/validate.ts` coi tệp Anh đã ghim vắng là **error** khi status là `review` hoặc `published`, nên bài bắt buộc `draft`, và `triangulation` bị chặn ở 7.5 (≤ 8.0) chứ không nâng điểm để né blocker."
+    - "Không có tầng tham khảo tiếng Anh tại commit đã ghim
+      (11c9d708978cde8ba61096d8a75f7ddfb846f639). Đo bằng script trên
+      `source/upstream-manifest.json` (tầng `english-sujato`, 4.291 tệp):
+      `sutta/kn/` có 755 tệp thuộc đúng 9 sub-collection — cp 35, dhp 26, iti
+      112, ja 83, kp 9, snp 73, thag 264, thig 73, ud 80 — và `kn/pv/` lẫn
+      `kn/tha-ap/` đều 0 tệp; tra theo uid `pv12` và `tha-ap54` cũng 0 tệp. Đây
+      là `not-published-upstream`, KHÔNG phải `not-synced`, và là **giới hạn của
+      snapshot upstream**, không phải lỗi của người dịch. Tầng
+      `vietnamese-current` cũng vắng: `translation/vi/phantuananh` tại commit đã
+      ghim chỉ có 26 tệp, toàn bộ là Pháp Cú. Lớp lấp `english-project` của dự
+      án không có hai uid này. Cả ba tầng tham khảo đều vắng ⇒ bài chỉ dịch được
+      từ Pāli root. `scripts/validate.ts` coi tệp Anh đã ghim vắng là **error**
+      khi status là `review` hoặc `published`, nên bài bắt buộc `draft`, và
+      `triangulation` bị chặn ở 7.5 (≤ 8.0) chứ không nâng điểm để né blocker."
   assessed_at: "2026-10-05"
   assessed_by:
     - "OpenCode Space Bunny Free (agent)"
+  waiver:
+    id: no-upstream-english
+    blockers:
+      - "Không có tầng tham khảo tiếng Anh tại commit đã ghim
+        (11c9d708978cde8ba61096d8a75f7ddfb846f639). Đo bằng script trên
+        `source/upstream-manifest.json` (tầng `english-sujato`, 4.291 tệp):
+        `sutta/kn/` có 755 tệp thuộc đúng 9 sub-collection — cp 35, dhp 26, iti
+        112, ja 83, kp 9, snp 73, thag 264, thig 73, ud 80 — và `kn/pv/` lẫn
+        `kn/tha-ap/` đều 0 tệp; tra theo uid `pv12` và `tha-ap54` cũng 0 tệp.
+        Đây là `not-published-upstream`, KHÔNG phải `not-synced`, và là **giới
+        hạn của snapshot upstream**, không phải lỗi của người dịch. Tầng
+        `vietnamese-current` cũng vắng: `translation/vi/phantuananh` tại commit
+        đã ghim chỉ có 26 tệp, toàn bộ là Pháp Cú. Lớp lấp `english-project` của
+        dự án không có hai uid này. Cả ba tầng tham khảo đều vắng ⇒ bài chỉ dịch
+        được từ Pāli root. `scripts/validate.ts` coi tệp Anh đã ghim vắng là
+        **error** khi status là `review` hoặc `published`, nên bài bắt buộc
+        `draft`, và `triangulation` bị chặn ở 7.5 (≤ 8.0) chứ không nâng điểm để
+        né blocker."
 notes: |-
   TẦNG THAM KHẢO — xem `blocking_errors`. Đo coverage bằng đúng công thức `source/layers.yaml`
   (`substantivePaliMinChars: 40`, `excludeReferenceBlock: true`, `floor: 0.8`): **mẫu số = 1**.
@@ -38,13 +69,13 @@ notes: |-
   lên `review`/`published` thì thiếu tệp Anh đã ghim và thiếu mục trong
   `content/meta/reference-gaps.yaml` đều thành **error**. Tôi không sửa
   `content/meta/reference-gaps.yaml` (ngoài phạm vi lát n22).
-  
+
   52 khoá, đủ 52/52; `set(khoá Việt) == set(khoá Pāli)` đo ra 52↔52, không thừa không thiếu,
   không khoá rỗng, NFC sạch, thứ tự khoá đúng thứ tự số. `…pe…` ở `12.2` giữ đúng **MỘT**
   dấu lược `…`, không mở rộng — theo 695× tiền lệ trong tầng. Nháy: Pāli có 1 cặp kép
   (`“` ở `1.1`, `”` ở `12.3`) và 2 cặp đơn (`‘` ở `3.1`→`’` ở `4.4`, `‘` ở `6.1`→`’` ở
   `8.4`); bản Việt mirror đúng từng khoá, tổng cân (0, 0).
-  
+
   DÙNG LẠI NGUYÊN VĂN — mọi câu dưới đây có Pāli **trùng nguyên văn** ở bài khác và tôi dùng
   lại **nguyên văn**, số đếm ngoài lát n22: `Therāpadāna` 351× · `Bījanivagga` → *Phẩm
   Hạt Giống* 6× (đa số; tha-ap55 ghi *Phẩm Cái Quạt* và tha-ap56 *Phẩm Bījanivagga* là
@@ -63,7 +94,7 @@ notes: |-
   Khoá `13.1` theo mẫu câu dùng **421/427** lần trong tầng: *Tôi nghe như vầy: Tôn giả Trưởng
   lão … đã nói những bài kệ này.*; khoá `14.1` theo mẫu *Bài Kệ Tuyên Ngợ Về Trưởng Lão …,
   thứ N.* (mẫu câu dài nhất trong tầng: **182×**).
-  
+
   `:0.3` — PĀLI `2 Sataraṁsittheraapadāna` **bắt đầu bằng số** nên tôi giữ số thứ tự ở dạng
   `N. `: *2. Bài Kệ Tuyên Ngợ Về Trưởng Lão Sataraṁsi*. Đo lại trên 428 tệp tha-ap đã có `:0.3` không rỗng: **55×** giữ dạng `N. `,
   **16×** giữ số trần, **357×** bỏ số. Trong nhóm **117** bài mà Pāli `:0.3` BẮT ĐẦU BẰNG SỐ:
@@ -72,7 +103,7 @@ notes: |-
   *bỏ số trừ khi Pāli có số*. ⚠ Số **101 `N.` vs 16 `N` trần** mà tôi được báo trước thì
   **KHÔNG khớp phép đo của tôi**: tôi đo được 55 `N.` (không phải 101) vs 16 `N` trần (khớp).
   Tôi tin phép đo của mình. `translationTitle` đặt đúng bằng `:0.3` vì đó là `<h1>` của web.
-  
+
   BẤT ĐỊNH (ghi ở đây, không giải thích trong thân kinh):
   (1) `Ubbiddhaṁ selamāruyha,` (1.1) — `selamāru` là tên núi (Gandhamādana). Tôi dịch *núi Kỳ
       Quê*. **Đo được 0 tiền lệ** trong tầng: không có bản Việt nào cho `selamāru`, và cũng
@@ -101,5 +132,5 @@ notes: |-
       nhưng tiền lệ 4× trong tầng đều dùng thì quá khứ *đã nói những bài kệ này*, và sibling
       tha-ap53:3.4 cũng vậy ngay trước khi bài kệ bắt đầu. Tôi theo tiền lệ; người biên tập
       có thể muốn đổi sang *xin hãy đọc bài kệ này* cho cả bài.
-  
+
   CỔNG KỸ THUẬT CHƯA CHẠY — agent dịch không được phép chạy `npm run validate|test|build|check`. `technical_integrity` 9.6, KHÔNG tuyên bố technical gate pass. Bốn lệnh coordinator cần chạy trước khi coi tiêu chí 10 là đạt: `npm run validate`, `npm test`, `npm run check`, `npm run build`.

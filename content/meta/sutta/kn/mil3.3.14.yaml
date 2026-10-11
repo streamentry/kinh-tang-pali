@@ -1,5 +1,5 @@
 uid: mil3.3.14
-status: draft
+status: review
 translationTitle: "14. Câu Hỏi Về Dấu Hiệu Của Sự Suy Xét."
 translators:
   - "OpenCode Space Bunny Free (agent)"
@@ -23,10 +23,20 @@ quality:
     technical_integrity: 9.6
   final_score: 8.95
   blocking_errors:
-    - "Tầng English Sujato vắng mặt tại commit đã ghim (không có tệp upstream cho thư mục này) nên chưa đối chiếu được một bản Anh độc lập; validate đòi tầng này cho review và published, nên bài giữ draft dù đã dịch đủ mọi khoá từ Pāli root."
+    - "Tầng English Sujato vắng mặt tại commit đã ghim (không có tệp upstream
+      cho thư mục này) nên chưa đối chiếu được một bản Anh độc lập; validate đòi
+      tầng này cho review và published, nên bài giữ draft dù đã dịch đủ mọi khoá
+      từ Pāli root."
   assessed_at: "2026-10-01"
   assessed_by:
     - "OpenCode Space Bunny Free (agent)"
+  waiver:
+    id: no-upstream-english
+    blockers:
+      - Tầng English Sujato vắng mặt tại commit đã ghim (không có tệp upstream
+        cho thư mục này) nên chưa đối chiếu được một bản Anh độc lập; validate
+        đòi tầng này cho review và published, nên bài giữ draft dù đã dịch đủ
+        mọi khoá từ Pāli root.
 notes: |-
   **Bốn khoá có nội dung** (`1.1`, `1.2`, `2.2`, `2.3`) — nhiều nhất trong lát — nhưng **không một khoá nào có tiếng Anh**: tại commit đã ghim tầng English Sujato không có thư mục `kn/mil` (`ls …/en/sujato/sutta/kn/` cho `cp dhp iti ja kp snp thag thig ud`), `englishCoverageFor('kn','mil3.3.14')` lúc tôi đo cho `substantiveSegments: 4`, `substantiveWithoutEnglish: 4`, tỉ lệ **0%**. Giữa lúc đó một agent khác đã ghi vào đĩa `content/translation/en/project/sutta/kn/mil3.3.14_translation-en-project.json` (12 khoá) kèm scorecard `status: published`, nên chỉ số coverage của kho bây giờ là 100%. Tôi **không** nâng `triangulation` vì đó là bản lấp English **do chính tầng dự án tạo ra**, và `assessed_by` của nó trùng `assessed_by` của bài Việt này — không phải bản Anh độc lập (`AGENTS.md`: bản lấp cùng người chấm thì scorecard tiếng Việt không được tuyên bố đã đối chiếu English). Bản Anh **đã ghim** vẫn không có, và đó mới là thứ `validate` đòi. `validate` coi thiếu tệp Anh là lỗi chặn cho `review`/`published` và đồng thời còn đòi khoảng trống phải được ghi trong `content/meta/reference-gaps.yaml` — tệp đó tôi **không** được sửa, nên bài giữ `draft`. Đây là giới hạn của bản chụp upstream, không phải thiếu sót của kho.
 

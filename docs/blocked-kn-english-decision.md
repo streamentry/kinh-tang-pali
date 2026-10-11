@@ -1,5 +1,13 @@
 # Vì sao 741 bài `kn` không thể lên `published` — và quyết định đã chọn
 
+> **Cập nhật 2026-10-11 — người biên tập đã đổi quyết định.** Đoạn dưới đây giữ nguyên làm lịch
+> sử lập luận. Sau khi xem số đo (1.660 bài `draft`, trong đó 1.343 đã có điểm trên 9.0, và chỉ
+> còn vướng blocker "không có bản Anh upstream"), người biên tập quyết định **miễn riêng blocker
+> đó** bằng một *editorial waiver* có tên, có điều kiện kiểm được và có ghi lại — không sửa điểm,
+> không xoá blocker khỏi hồ sơ. Chi tiết: `source/editorial-waivers.yaml`, mục 5.1 của
+> `docs/quality-assessments.md` và lệnh `npm run quality:waive`. Hai điều không đổi: blocker khác
+> vẫn ép `draft`, và ngưỡng `final_score > 9.0` vẫn giữ.
+
 Câu hỏi được giao: ~1.176 bài bị chặn vì bản Anh đã ghim không tồn tại. **Ghim commit mới
 hay sửa luật trong `validate.ts`?** Trả lời bằng số đo, không bằng suy đoán.
 
