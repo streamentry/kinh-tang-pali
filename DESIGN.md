@@ -247,6 +247,9 @@ Thiết kế không cấp phép đổi giọng, nhịp, model, nội dung hay tr
    (`<phần>.<câu>`; khối `0` là đề kinh, số tận cùng `.0` / `.0.n` là tiêu đề mục). Mỗi segment
    vẫn là một phần tử riêng với id và anchor; số mục hiện ở lề trái, `:target` được tô nền.
    Chú thích của bản dịch thành sidenote đánh số ở lề phải từ 1280px, chen dưới câu khi hẹp hơn.
+   Chú thích dài hiện tối đa 120 ký tự theo grapheme, ưu tiên hết từ, kết thúc bằng `...`;
+   dùng `details/summary` với “Xem thêm” / “Thu gọn” để đọc đầy đủ bằng cảm ứng, chuột
+   hoặc bàn phím, kể cả khi tắt JavaScript. Chú thích ngắn hiện đủ; bản in hiện toàn bộ.
    Cỡ chữ kinh văn chỉnh được (90–135%), lưu trong trình duyệt người đọc; không có JS thì
    nhóm điều khiển này ẩn. Thanh tiến độ đọc 2px dùng CSS scroll-driven animation, tự tắt
    khi trình duyệt không hỗ trợ hoặc khi giảm chuyển động.

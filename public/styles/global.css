@@ -181,7 +181,15 @@ details > :last-child:not(summary) { margin-bottom: var(--space-4); }
 .blank-ref { display: block; color: var(--warning); }
 .cell-en.is-own-fill { border-left: 2px solid var(--warning-line); padding-left: var(--space-3); }
 .fill-badge { display: inline-block; margin-top: var(--space-2); font: 600 .625rem/1.6 var(--font-ui); color: var(--warning); background: var(--warning-soft); border-radius: var(--radius-sm); padding: .15rem .35rem; }
-.comment { margin-top: var(--space-3); padding-left: var(--space-4); border-left: 2px solid var(--line); color: var(--muted); font: .8125rem/1.8 var(--font-ui); }
+.comment { margin-top: var(--space-3); padding-left: var(--space-4); border-left: 2px solid var(--line); color: var(--muted); font: .8125rem/1.8 var(--font-ui); overflow-wrap: anywhere; }
+.comment-toggle { display: block; padding: 0; color: inherit; list-style: none; }
+.comment-toggle::-webkit-details-marker { display: none; }
+.comment-preview { display: block; }
+.comment-action { display: flex; align-items: center; min-height: var(--control-height); width: fit-content; color: var(--accent); font-weight: 600; text-decoration: underline; text-underline-offset: .22em; }
+.comment-toggle:hover .comment-action { color: var(--accent-hover); }
+.comment-collapse, .comment-more[open] .comment-preview, .comment-more[open] .comment-expand { display: none; }
+.comment-more[open] .comment-collapse { display: inline; }
+.comment-more > .comment-full { margin: 0; white-space: pre-wrap; }
 /* Keep this higher specificity than all mode rules: closed references must stay closed. */
 .reader-shell[data-closed~="english"] .segments .cell-en,
 .reader-shell[data-closed~="viCurrent"] .segments .cell-vi-current,
@@ -273,7 +281,7 @@ details > :last-child:not(summary) { margin-bottom: var(--space-4); }
   .reader-shell[data-reader-mode="vi"]:not([data-closed~="vi"]) .role-incipit .comment { max-width: var(--reading-measure); margin-inline: auto; text-align: left; text-transform: none; letter-spacing: 0; font: 400 .8125rem/1.8 var(--font-ui); color: var(--muted); }
   .reader-shell[data-reader-mode="vi"]:not([data-closed~="vi"]) .segments { counter-reset: note; }
   .reader-shell[data-reader-mode="vi"]:not([data-closed~="vi"]) .role-prose .comment, .reader-shell[data-reader-mode="vi"]:not([data-closed~="vi"]) .role-heading .comment { counter-increment: note; }
-  .reader-shell[data-reader-mode="vi"]:not([data-closed~="vi"]) .role-prose .comment::before, .reader-shell[data-reader-mode="vi"]:not([data-closed~="vi"]) .role-heading .comment::before { content: counter(note) ". "; color: var(--accent); font-weight: 600; }
+  .reader-shell[data-reader-mode="vi"]:not([data-closed~="vi"]) :is(.role-prose, .role-heading) :is(.comment-preview, .comment-full)::before { content: counter(note) ". "; color: var(--accent); font-weight: 600; }
 }
 @media screen and (min-width: 1280px) {
   .reader-shell[data-reader-mode="vi"]:not([data-closed~="vi"]) .role-prose .cell-vi:has(> .comment)::after, .reader-shell[data-reader-mode="vi"]:not([data-closed~="vi"]) .role-heading .cell-vi:has(> .comment)::after { content: counter(note); margin: 0 .3em 0 .1em; vertical-align: super; color: var(--accent); font: 600 .625em/1 var(--font-ui); }
@@ -504,4 +512,8 @@ thead th { color: var(--muted); }
   .reader-shell[data-reader-mode] .cell { display: block; font-size: 11pt; margin-block: .5rem; }
   .reader-shell[data-reader-mode] .cell::before { content: attr(data-label); display: block; font: 600 8pt var(--font-ui); background: transparent; }
   .table-scroll { overflow: visible; }
+  /* Print complete notes even when their screen disclosure is closed. */
+  .comment-more > summary { display: none; }
+  .comment-more::details-content { content-visibility: visible; }
+  .comment-more > .comment-full { display: block; }
 }
