@@ -139,3 +139,18 @@ Nhật ký append-only. Registry `content/audio/progress.json` được đối s
 ### MN12 PR #433 merge evidence
 
 - PR `https://github.com/streamentry/kinh-tang-pali/pull/433` merged at `2026-10-10T15:50:49Z`. Exact head `b9f0511777e7a52ccafd9ce0eae14d2e8d501dff`; squash merge `52d0173cba1b1396a28f14035ef1171925564e93`. CI runs 38064293678 and 38064288063 both succeeded. Pages deployment 38065259426 succeeded and production playback was verified.
+
+### MN13 inherited-quotation planner checkpoint
+
+- PR https://github.com/streamentry/kinh-tang-pali/pull/459 merged as `9e70280d0f060ee3a519261a3f3abd593771ee57`, exact head `1e6f7b9ed486b532dda3634917956e2ad35f3d1d`. Both hosted CI runs 38102811603 and 38102795812 succeeded. The planner now tracks inherited nested quotations in order rather than comparing quote counts. No narration profile, source text, pause or encoding changed.
+- MN13 source SHA-256 `c938b5f23a3e44226ecfd456cf886eb3379fa82e2389df38cca27a6cf47aed05`; approved profile SHA-256 `a384c5852585077c32e1348a6ada5cfc70a69c989ad705b8b5129fef3e1c9a71`. New plan `78e3baeba20b9159` has 15 chunks and 150 canonical scripture segments. Thirteen WAVs matched exact text hashes and validated format/frame/hash checkpoints; indexes 10 and 11 need regeneration for the changed boundary.
+- One additional bounded content retry of index 5 preserves its original WAV and ASR report. The retry local Whisper similarity is 0.9741 (previously 0.7737), recognizes the asset-accumulation failure passage and has no differing span of 12 or more tokens. This is machine QC only; human listening remains incomplete and review pending. No MN13 R2 upload or player registration at this checkpoint.
+
+### MN13 bounded retry remains blocked
+
+- Replanned artifact `audio/mn13/78e3baeba20b9159` generated all 15 chunks; one bounded content retry each of indexes 5 and 10 preserved originals. Final local ASR covered all 15 chunks, similarity range 0.7924–0.9897. Index 5 now recognizes the asset-accumulation failure passage (0.9741, no long difference); index 10 still recognizes a long repeated passage after its bounded retry (0.7924). Index 11 has similarity 0.9505 without a long difference.
+- This does not prove a TTS error: ASR remains an imperfect check. MN13 is blocked pending human listening/content verification; no R2 object or audio metadata is registered. MP3, WAVs, plans, reports and original attempts remain in ignored local storage. Review pending. Continue the sequential queue with MN14 without counting MN13 as completed.
+
+### PR #459 deployment evidence
+
+- Pages run 38103659643 succeeded for merge `9e70280d0f060ee3a519261a3f3abd593771ee57` (verified by GitHub run readback). This technical planner PR registers no new audio; MN13 remains blocked and was not uploaded.
