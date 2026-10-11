@@ -11,16 +11,16 @@ tags:
 quality:
   scores:
     source_provenance: 9.5
-    semantic_fidelity: 8.9
+    semantic_fidelity: 8.8
     grammar_logic: 9.0
     segment_alignment: 10.0
-    terminology: 8.9
+    terminology: 8.8
     triangulation: 7.5
     vietnamese_clarity: 9.0
     han_viet_balance: 9.2
     ambiguity_integrity: 8.8
     technical_integrity: 9.6
-  final_score: 9.04
+  final_score: 9.02
   blocking_errors:
     - "Không có tầng tham khảo tiếng Anh tại commit đã ghim: bản Sujato ở
       `translation/en/sujato/sutta/kn/` chỉ có chín thư mục con — cp, dhp, iti,
@@ -38,7 +38,7 @@ quality:
       Cú). Ba tầng tham khảo đều vắng nên bản dịch chỉ dựa trên Pāli root, đây
       là giới hạn upstream chứ không phải lỗi của người dịch; vì vậy
       `triangulation` bị chặn ở 7.5 (≤ 8.0) chứ không nâng để né blocker."
-  assessed_at: "2026-10-10"
+  assessed_at: "2026-10-11"
   assessed_by:
     - "Claude Sonnet 5.5 (Claude Code)"
   waiver:
@@ -100,3 +100,17 @@ notes: |-
   Coverage English: mẫu số 1 khoá (18.1); Sujato 0/1; ba tầng tham khảo đều vắng; `content/meta/reference-gaps.yaml` chưa có entry cho tha-ap35 — việc ghi nhận gap thuộc người điều phối.
 
   Bốn lệnh cổng kỹ thuật của dự án là `npm run validate`, `npm test`, `npm run check` và `npm run build` (lớp CI chạy cả bốn; lát này không tự chạy vì bị cấm, nên `technical_integrity` đặt 9.6 chứ không phải 10). `final_score` là trung bình số học thô của đúng 10 tiêu chí.
+
+  Lượt cải thiện 2026-10-11 (kiểm toán đối kháng họ tha-ap): đọc lại cả 72 khoá cặp Pāli–Việt, đo tiền lệ bằng số đếm trên toàn tầng. Bản dịch nhìn chung chắc: không có khoá nào sai nghĩa nặng; không gặp các dạng lỗi lan của họ này (chép sai caṅkami, adāsahaṁ, apothayi, anāsave, Sumutto saravegova, "Hào quang của Ngài", tiṁsa = 3). Đã đổi 4 khoá:
+  - 11.4 (brahmabandhu bhavissati): "vị ấy sẽ là thân quyến của Phạm thiên" → "vị ấy sẽ là người dòng Bà-la-môn". Căn cứ: cùng nguyên văn câu thọ ký brahmabandhu bhavissati/bhavissasi có 7 khoá trong họ, 6 khoá dịch người dòng Bà-la-môn (tha-ap4:13.4, tha-ap10:12.2, tha-ap11:10.4, tha-ap24:48.4, tha-ap410:45.4, tha-ap487:20.2), 1 khoá dịch thân quyến của Phạm thiên (tha-ap562:49.4); ngoài họ, thag3.1, thig12.1, snp2.2, ja544 đều hiểu là Bà-la-môn theo dòng họ; và ở đây 14.2 xác nhận nhân vật sinh ra là Bà-la-môn. Cách đọc sát chữ dễ khiến người đọc tưởng ngài có quan hệ thân tộc với Phạm thiên. Đây là sửa nghĩa (accuracy), giải quyết một bất định ghi ở lượt trước.
+  - 6.3 (Tamahaṁ kittayissāmi): "Ta sẽ tán dương vị ấy" → "Ta sẽ tuyên thuyết về người ấy", theo 33/37 khoá cùng nguyên văn trong tầng (kitteti là nêu ra, công bố; ở đây là lời thọ ký, không phải lời ca ngợi). Sửa thuật ngữ.
+  - 12.4 (aggaṭṭhāne ṭhapessati): thêm tân ngữ ngầm "vị ấy": "sẽ đặt vị ấy vào chỗ tối thượng", theo 6/9 khoá có cùng động từ trong tầng; Pāli không nêu tân ngữ nhưng ṭhapessati là ngoại động từ và 12.1–12.2 đã nói về vị ấy. Sửa rõ nghĩa.
+  - 16.4 (etadagge ṭhapesi maṁ): "hàng tối thắng" → "vị trí tối thắng", theo ít nhất 17 khoá cùng nguyên văn trong họ (hàng chỉ có 1 khoá). Sửa thuật ngữ.
+  Điểm đổi: semantic_fidelity 8.9 → 8.8 và terminology 8.9 → 8.8, mỗi tiêu chí hạ 0.1 vì lượt này phát hiện thêm những chỗ lệch mà lượt trước không nêu và còn nguyên trong bản (xem dưới); các tiêu chí khác giữ nguyên vì không có cải thiện cụ thể đủ để nâng. final_score 9.04 → 9.02 (trung bình số học thô của 10 điểm).
+  Còn lại, KHÔNG sửa lẻ vì là quy ước chung của tầng, cần người biên tập quyết một lượt cho cả phẩm:
+  - 18.1 Itthaṁ sudaṁ … abhāsitthāti dịch "Tôi nghe như vầy: …": Itthaṁ sudaṁ nghĩa là "như vậy đấy", lời kết của người kết tập, không phải công thức Evaṁ me sutaṁ; cách dịch này có ở khoảng 620 khoá của họ (549 khoá cùng khuôn "Tôi nghe như vầy: Tôn giả Trưởng lão … đã nói những bài kệ này"). Đây là lệch nghĩa thật nhưng thuộc quy ước toàn tầng.
+  - 4.2 (satthuno) và 10.4 (satthā): "bậc Thầy" theo tầng (57 khoá ở dạng 10.4); satthā nên là Bậc Đạo Sư; để dành cho lượt thống nhất toàn tầng.
+  - 0.3 và 19.1: "Tuyên Ngôn" cho apadāna là hình thức nhiều nhất của tầng nhưng nghĩa của apadāna là sự tích/hạnh nghiệp; để người biên tập phán cho cả cuốn.
+  - 2.4 tādino dịch "bậc Như Vậy": tầng rất phân tán (Vững Vàng, Bất Động, Như Thật, như thị, Như Vậy); giữ nguyên, không đủ đa số để đổi.
+  Bất định còn lại: aṭṭharatanaṁ (9.3) vẫn giữ "tám ratana", khớp cách tầng để nguyên ratana làm đơn vị đo ở bv12/bv8/bv9/bv10/bv20 (aṭṭhapaṇṇāsaratanaṁ, "cao năm mươi tám ratana") dù an10.99, sn16.10, ud4.4 dịch thành thước; ābhāyābhibhavissati (7.4), cetiya (1.2) giữ như đã ghi. Blocker không có tầng tham khảo tiếng Anh giữ nguyên (đây là sự thật về upstream). Ngoài phạm vi bài này, gặp dòng sai nghĩa ở bài khác: tha-ap244:2.4 và tha-ap245:2.4 (Pāli tissassa lokabandhuno được dịch thành câu về đảnh lễ/rải cúng) và tha-ap118:1.4 (lokabandhuno dịch thành "kẻ cởi gánh nặng thế gian"); chỉ báo, không sửa.
+  Kiểm cơ học sau khi sửa: 72/72 khoá, thứ tự khớp Pāli, nháy kép và nháy đơn khớp Pāli từng khoá (riêng 17.2 là …pe… → đúng một …), NFC sạch, không Pāli lọt sang Việt, không khoá rỗng. technical_integrity giữ 9.6; bốn lệnh cổng kỹ thuật chưa chạy trong lượt này.

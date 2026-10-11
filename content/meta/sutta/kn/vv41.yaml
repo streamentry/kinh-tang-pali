@@ -1,5 +1,5 @@
 uid: vv41
-status: published
+status: review
 translationTitle: "3. Chuyện Cung Điện Con Voi"
 translators:
   - "OpenCode Space Bunny Free (agent)"
@@ -11,16 +11,16 @@ tags:
 quality:
   scores:
     source_provenance: 9.5
-    semantic_fidelity: 9.2
-    grammar_logic: 9.2
+    semantic_fidelity: 8.6
+    grammar_logic: 8.9
     segment_alignment: 10.0
-    terminology: 9.0
+    terminology: 8.7
     triangulation: 7.5
-    vietnamese_clarity: 9.2
-    han_viet_balance: 9.2
-    ambiguity_integrity: 9.0
+    vietnamese_clarity: 9.0
+    han_viet_balance: 9.0
+    ambiguity_integrity: 8.6
     technical_integrity: 9.6
-  final_score: 9.14
+  final_score: 8.94
   blocking_errors:
     - "Không có tầng tham khảo tiếng Anh tại commit đã ghim: manifest
       `source/upstream-manifest.json` không liệt kê tệp Anh nào cho uid này, và
@@ -28,9 +28,9 @@ quality:
       `not-published-upstream`, KHÔNG phải `not-synced`. Tầng
       `vietnamese-current` cũng vắng vì commit đã ghim chỉ có Pháp Cú. Bài dịch
       chỉ từ Pāli root nên bắt buộc `draft`."
-  assessed_at: "2026-10-04"
+  assessed_at: "2026-10-11"
   assessed_by:
-    - "OpenCode Space Bunny Free (agent)"
+    - "Claude Sonnet 5.5 (Claude Code)"
   waiver:
     id: no-upstream-english
     blockers:
@@ -46,3 +46,14 @@ notes: |-
   Công thức hỏi đáp 3.1 tới 3.4 theo khung vv65 đã có, đổi sang giống cái theo vv49.
   Cụm giáo lý 5.2 và 5.3 không có bản Anh để đối chiếu nên terminology và ambiguity không vượt 9.0.
   technical_integrity 9.6 vì agent lát này không chạy gate. Bốn lệnh gate do coordinator chạy trước khi publish: `npm run validate`, `npm test`, `npm run check`, `npm run build`.
+  Lượt cải thiện 2026-10-11 (kiểm toán độc lập, đọc đối kháng từng khoá Pāli↔Việt; 11/29 khoá đổi, 18 khoá giữ):
+  - 1.1–1.3: `maṇikañcanācitaṁ`, `sovaṇṇajālacitaṁ mahantaṁ` ở đối cách, bổ nghĩa cho `gajavaraṁ` (con voi), không phải cho người nữ `alaṅkatā`; bản cũ gán "ngọc ma-ni và vàng, phủ lưới vàng, to lớn" cho nàng. Đã sửa 1.1 và 1.3, 1.2 giữ chữ nhưng nay mang đúng chủ thể (con voi). Lỗi ngữ pháp/nghĩa thật: grammar_logic 9.2 → 8.9, semantic_fidelity 9.2 → 8.6 (đã tính cả các điểm dưới).
+  - 4.1: `Bārāṇasiyaṁ` là xử cách (ở Bārāṇasī), bản cũ dịch thành nơi đến ("đã đến thành Bārāṇasī"); đã sửa thành "Ở Bārāṇasī, ta đã đến gần," (tân ngữ của `upasaṅkamitvā` để ngầm như Pāli).
+  - 5.1–5.2: `me` ("Buddho ca me … adesayi") bị bỏ; đã đưa lại "cho ta" vào 5.2 (đối chiếu vv16:7.2 "dạy tôi").
+  - 5.4: `Maggaṁ` bị thêm "Thánh" (không có `ariya` trong Pāli) và `vijānisaṁ` (chủ động, 1 số ít) bị dịch bị động "được liễu tri"; đã sửa thành "đã giảng con đường, nhờ đó ta đã hiểu".
+  - 6.3: `pajāpati` (không có `jeṭṭha`/`agga`) bị thêm "chánh"; đo tiền lệ thấy `pajāpati` dịch "vợ" (thi-ap28, thi-ap30, tha-ap535); sửa thành "một người vợ của Sakka".
+  - Khoá nhỏ theo tiền lệ đã đo: 2.4 bỏ "vũ công" (Pāli chỉ có `manoharāyo` + `naccanti`); 3.1 `mahānubhāve` là hô cách → "hỡi bậc có đại oai lực" và dùng "oai lực" như 3.3 trong cùng khổ (vv11, vv31 cũng "đại oai lực"); 6.1 `appāyukī` "đoản mệnh" (ud5.2 ×3), `kālakatā` "qua đời" (ja318, pv17, pv23), `tato cutā` "từ đó mệnh chung" (36 nơi toàn tầng, thay vì đảo vai cho nhau); 6.2 "sanh vào" → "sinh vào" (sinh vào 7 nơi trong vv, "sanh" không có đa số).
+  - Tổng: 6 khoá lỗi nghĩa/ngữ pháp thật (1.1, 1.2, 1.3, 4.1, 5.4, 6.3) + 1 khoá bỏ sót đại từ (5.1/5.2) trên 29; 4 khoá chỉnh theo tiền lệ/văn phong (2.4, 3.1, 6.1, 6.2). Bản trước chấm 9.14 là quá tay vì lỗi 1.1–1.3 chưa bị bắt; điểm hạ về 8.94.
+  - Bất định còn lại, KHÔNG phân xử được và giữ nguyên bản dịch: (a) 5.2 `samudayadukkhaniccataṁ`: văn bản ghim ghi `-niccataṁ` (a ngắn), tức `niccatā` (tính thường); đọc thành "(a)niccataṁ" (vô thường) là theo giáo lý và bố cục 5.2–5.4 (khổ/tập đối với diệt/vô vi) và đã dùng cho cả vv16:7.2, nhưng không có bài song song hay bản Anh ghim để chứng minh; toàn bộ Pāli root chỉ có đúng hai nơi (vv16, vv41) dùng dạng này, không có hapax tương tự để đối chiếu. (b) 5.3 `dukkhanirodhasassataṁ` là một từ ghép; bản dịch (đồng với vv16:7.3) tách thành "sự diệt tận khổ đau, pháp thường hằng", cách đọc "sự diệt khổ thường hằng" cũng khả dĩ. (c) 2.3 `pabhijjare` ("vang lừng"): động từ gốc nghĩa là tách ra/vỡ ra; vv60:2.3 đọc `pavajjare` (vang). (d) đại từ ngôi nhất của nữ thiên là "ta" trong bài này nhưng "tôi" ở vv1, vv2, vv42, "con" ở vv49: không đổi vì chưa có quy ước chung.
+  - Tiêu đề 0.2 `Itthivimāna` vẫn dịch "Chuyện Cung Điện Nữ Hư Không" (sai: Pāli không có `ākāsa`, nghĩa đúng là cung điện của các nữ nhân); lỗi lặp ở cả phẩm nên không sửa riêng một tệp, cần sửa đồng loạt; đã tính vào semantic_fidelity và terminology.
+  technical_integrity vẫn 9.6 vì không chạy cổng trong lượt này; cần `npm run validate`, `npm test`, `npm run check`, `npm run build` trước khi chốt.

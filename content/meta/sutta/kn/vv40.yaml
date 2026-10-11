@@ -1,5 +1,5 @@
 uid: vv40
-status: published
+status: review
 translationTitle: "2. Chuyện Cung Điện Pabhassara"
 translators:
   - "OpenCode Space Bunny Free (agent)"
@@ -13,16 +13,16 @@ tags:
 quality:
   scores:
     source_provenance: 9.5
-    semantic_fidelity: 9.2
-    grammar_logic: 9.2
+    semantic_fidelity: 8.6
+    grammar_logic: 8.8
     segment_alignment: 10.0
-    terminology: 9.0
+    terminology: 8.8
     triangulation: 7.5
-    vietnamese_clarity: 9.2
+    vietnamese_clarity: 8.8
     han_viet_balance: 9.2
-    ambiguity_integrity: 9.0
+    ambiguity_integrity: 8.5
     technical_integrity: 9.6
-  final_score: 9.14
+  final_score: 8.93
   blocking_errors:
     - "Không có tầng tham khảo tiếng Anh tại commit đã ghim: tệp Anh của uid này
       KHÔNG có trong `source/upstream-manifest.json` (git tree của commit
@@ -39,9 +39,9 @@ quality:
       root ⇒ blocker thật, và đây là **giới hạn upstream**, không phải lỗi của
       người dịch. Vì vậy `triangulation` bị chặn ở 7,5 (≤ 8,0) chứ không nâng để
       né blocker."
-  assessed_at: "2026-10-04"
+  assessed_at: "2026-10-11"
   assessed_by:
-    - "OpenCode Space Bunny Free (agent)"
+    - "Claude Sonnet 5.5 (Claude Code)"
   waiver:
     id: no-upstream-english
     blockers:
@@ -69,3 +69,10 @@ notes: |-
   Dấu lược: bài này Pāli không có `…pe…` nào, bản Việt cũng không dùng `…` để nén — không có chỗ nào bị lược.
   `notes` ở đây là khối literal `|-` thụt 2 đặt ở GỐC file, đúng như `content/meta/sutta/kn/vv41.yaml` (đã đọc mẫu đích trước khi ghi).
   Cổng kỹ thuật: `npm run validate`, `npm test`, `npm run check` và `npm run build` (bài `published`) do coordinator chạy — lát agent này không chạy bốn lệnh đó, nên `technical_integrity` đặt 9.6 chứ không 10.0. Tự kiểm thay bằng harness `_hvi.kiểm()`: NFC, không Pāli lọt, không trùng nguyên văn Pāli, dấu lược khớp từng khoá, ngoặc kép cân trên cả bài.
+
+  Lượt cải thiện 2026-10-11 (kiểm toán đối kháng; GHI ĐÈ các nhận định cũ ở trên khi mâu thuẫn, kể cả các dòng thuật ngữ «Surattavatthavasane», «Pallaṅko», «bhante → bạch Đài Ngữ» và `final_score` 9,14): đọc lại từng cặp Pāli↔Việt, phát hiện bản trước sai nghĩa thật ở 13/36 khoá và lệch nhẹ (ngôi, từ, nhất quán) ở thêm 18 khoá; đã sửa 31/36 khoá. Điểm trước 9,14 là quá cao, chấm lại thành 8,93.
+  Lỗi nghĩa thật đã sửa: 1.1 `Pabhassaravaravaṇṇanibhe` là hô cách mô tả (ánh sắc rực sáng tuyệt hảo), bản cũ đọc thành tên riêng «Pabhassara» (tên cung điện chỉ lấy từ tiêu đề); 1.2 `Surattavatthavasane` là «mặc y phục đỏ thắm», bản cũ bịa «cung điện trải rộng trên trăm do-tuần» (Pāli không có vimāna lẫn yojana ở đây); 1.3 `mahiddhike candanaruciragatte` hô cách «có đại thần lực, thân thể xinh đẹp như đàn hương», bản cũ «nơi rực rỡ ánh hương đàn hương»; 3.1 `sucarita` là thiện hạnh, không phải «điềm lành»; 4.2 `phāṇita` là mật mía (tiền lệ `vv33:76.1`), bản cũ «chuỗi hoa»; 5.1 `Hoti ca me anutāpo` là «tôi có nỗi hối hận», bản cũ đảo thành «không hề hối hận»; 6.1 `Taṁ taṁ vadāmi` là người nói thưa với các ngài, bản cũ đảo thành «Ngài hãy nói với tôi»; 6.3 `taṁ samādapetha` tân ngữ là «người ấy» (taṁ), không phải «tôi»; 6.2 `anukampiyo` là gerundive, «nên thương xót», không phải «đã từng thương xót tôi»; 7.2 `dhamme ca saṅgharatane` là «nơi Pháp và nơi Tăng bảo», bản cũ «pháp được tụng giữ» làm mất Tăng; 7.3 `ativirocanti` là «chói sáng vượt trội hơn tôi» (tiền lệ `atirocati` = chiếu sáng vượt trội, bv17/bv21), bản cũ «làm tôi rực rỡ» đảo chiều; 8.1–8.2 `uttaritarā … aññe … mahiddhikatarā mayā` là «các vị trời khác vượt trội hơn tôi», bản cũ «chúng tôi hơn hẳn» đảo chủ thể.
+  Sửa nhẹ: 2.1 `Pallaṅka` → «ghế dài» (tiền lệ `vv81:8.1`; bản cũ «chiếc sàng ngủ» không có căn cứ); 2.4 `devarājā` → «vua chư thiên» (bản cũ «vua chúa thiên đế» thừa); 3.4 theo tiền lệ `vv24:13.3`/`vv44:7.3`; 3.5 `Kissa` → «nào»; ngôi nữ thiên nói với tỳ-kheo thống nhất «tôi/ngài» (4.1, 4.4 trước đó lẫn «ngươi/ta»); 4.2 bỏ cụm tự đặt «bạch Đài Ngữ» (không có nghĩa thật, không có tiền lệ ngoài bài) → «bạch ngài» (tiền lệ 6 khoá); 5.2 `aparaddhaṁ` «phạm tội» → «lầm lỗi»; 5.4 và 6.4 cùng Pāli `Sudesitaṁ dhammarājena` nay cùng một câu Việt (trước đó lệch nhau; 1 cặp trùng nguyên văn trong bài, 0 cặp lệch sau sửa); `Sudesita` → «khéo thuyết» (tiền lệ kp6, pe1).
+  Điểm đổi (từ → sang): semantic_fidelity 9,2 → 8,6; grammar_logic 9,2 → 8,8; terminology 9,0 → 8,8; vietnamese_clarity 9,2 → 8,8; ambiguity_integrity 9,0 → 8,5; các tiêu chí khác giữ. `segment_alignment` 10,0 giữ: tập khoá (36/36) và thứ tự khớp Pāli, nháy và ngoặc khớp Pāli từng khoá, ranh khoá không lệch.
+  Bất định còn lại: `Yassa me anukampiyo koci` (6.2) — `yassa … taṁ` không phải cặp quan hệ thông thường, `me` có thể là sở hữu hay tác nhân; chỉ có một lần trong toàn Pāli root (0 song song). Bản dịch chọn «người nào tôi nên thương xót»; mạch kề 7.1–8.2 (người có đức tin chói sáng hơn tôi) hợp với cách đọc này nhưng chưa phân xử được. `bhaddante` (6.1) chưa phân xử: «bậc hiền thiện» (số nhiều, hợp `samādapetha` số nhiều) so với «kính chúc ngài an lành» (`bhaddaṁ te`); `vv21:7.1` dịch «Các vị». `candanaruciragatte` (1.3): «đẹp như đàn hương» so với «tẩm đàn hương» (tiền lệ `ja353:5.1`) chưa phân xử. `aparaddhaṁ` (5.2): lầm lỗi hay lỡ cơ hội (`mnd12:90.2`). `aññe … devā` (8.2): đối tượng so sánh chưa rõ. Tiêu đề phẩm `Itthivimāna` hiện «Chuyện Cung Điện Nữ Hư Không» (dư `ākāsa`, chung cả bộ vv, không sửa riêng tệp này, đã ghi nhận).
+  `triangulation` giữ 7,5 (không bản Anh độc lập). Technical gate: bốn lệnh `npm run validate`, `npm test`, `npm run check`, `npm run build` chưa chạy trong lượt này, `technical_integrity` giữ 9,6.

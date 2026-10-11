@@ -14,13 +14,13 @@ quality:
     semantic_fidelity: 8.8
     grammar_logic: 9.0
     segment_alignment: 10.0
-    terminology: 8.8
+    terminology: 8.9
     triangulation: 7.5
     vietnamese_clarity: 9.1
     han_viet_balance: 9.2
     ambiguity_integrity: 8.7
     technical_integrity: 9.6
-  final_score: 9.01
+  final_score: 9.02
   blocking_errors:
     - "noEnglishEditionUpstream: Thiếu bản dịch tiếng Anh đối chiếu — tầng
       english-sujato tại commit đã ghim không có pv10 (upstream-manifest chỉ
@@ -29,7 +29,7 @@ quality:
       pv10 (chỉ có pv48, pv49), và vietnamese-current chỉ có Pháp Cú. Cả ba tầng
       tham khảo đều vắng nên bài bắt buộc ở draft và triangulation không quá
       8.0."
-  assessed_at: "2026-10-10"
+  assessed_at: "2026-10-11"
   assessed_by:
     - "Claude Sonnet 5.5 (Claude Code)"
   waiver:
@@ -73,3 +73,7 @@ notes: |-
     Vì các chỗ trên và thiếu bản Anh độc lập, `ambiguity_integrity` 8.7.
   - Kiểm tra: 66/66 khoá đúng tập và thứ tự Pāli; NFC, không khoá rỗng, không khoảng trắng thừa; nháy kép “ ” khớp Pāli từng khoá (12 khoá có nháy: 1.1, 1.4, 2.1, 2.4, 3.1, 3.6, 4.1, 5.4, 9.1, 9.4, 10.1, 15.4), nháy đơn 0/0; dấu lược `…` 0/0 (Pāli không có); `(…)` 0; không Pāli lọt vào thân bản dịch ngoài tên riêng và thuật ngữ giữ nguyên (Petavatthu, Khallāṭiya, Kāsi). Đã đọc đối chiếu từng cặp Pāli↔Việt.
   - technical_integrity 9.6: cổng kỹ thuật do người điều phối chạy — npm run validate; npm test; npm run check; npm run build.
+  - Lượt cải thiện 2026-10-11 (kiểm toán độc lập, đọc đối kháng 66/66 khoá, đối chiếu gợi ý họ pv/vv: hô cách `devate` → “này nữ thiên” đúng; người đáp xưng “tôi” đúng; thì tương lai ở 12.2–12.4 và 15.1–15.2 đúng; số 4 tháng, bốn góc/bốn cửa, 100 do-tuần đúng; không có `pokkharaṇī`, `pahūtamalyā`, `pāṇātipātā` trong bài này, `bhusa` (15.4) dịch “vô cùng” đúng): không phát hiện khoá nào sai nghĩa thật (0/66: không sai người nói, chủ thể, hô cách, thì, phủ định hay số).
+    + Đổi 2 khoá (terminology/clarity fix, không đổi nghĩa lớn): `10.3` `ujubhūta` “chân thành” → “ngay thẳng” — đo lại trên tầng: “chân thành” gần như chỉ nằm ở nhóm vv19, vv22–25, vv37 (cùng họ công thức, có nguy cơ lan từ một bản nháp), còn ngoài nhóm đó đa số là “ngay thẳng”/“chánh trực” (ja541 ×6, pv36:78.5, vv44:22.3, pe3:58.2, thi-ap34:8.2, tha-ap430:9.3, vv34:22.3, tha-ap252:2.3…); “ngay thẳng” sát hình thái `ujubhūta` (“trở nên ngay thẳng”) hơn “chân thành”. `2.4` `appakaṁ` “quá ít ỏi” → “thật ít ỏi”: Pāli chỉ nói `appakaṁ` (ít), không có sắc thái “quá”. Điểm đổi: terminology 8.8 → 8.9; `final_score` 9.01 → 9.02.
+    + Xem xét và giữ nguyên dù nghi ngờ nhẹ: `13.2` “đo đạc đều đặn” (`mitaṁ` chỉ là “được đo”; “đều đặn” là phần thêm nhẹ) nhưng khớp 7 khoá cùng Pāli (pv38:37.2, ja541:101.4, ja541:127.4, ja539:25.2, ja539:38.2…; pv19:14.2 dịch “được đo đạc”), không đổi riêng một khoá để khỏi lệch bộ; `2.3` “tôi chỉ có tóc che thân” (“chỉ” suy từ ngữ cảnh trần truồng, Pāli `kesehamhi paṭicchannā` “tôi được tóc che phủ”); `12.3–12.4` “hoàn toàn cay đắng, khủng khiếp” giữ nguyên thứ tự Pāli, bổ nghĩa cho `nirayaṁ` (địa ngục) ở dòng sau.
+    + Bất định còn lại không đổi: `doṇinimmajjaniṁ` (10.2) vẫn không có căn cứ trong tầng đã ghim để xác định vật dâng; do đó `semantic_fidelity` 8.8 và `ambiguity_integrity` 8.7 giữ nguyên. `triangulation` 7.5 giữ nguyên (không có bản English độc lập). Blocker `noEnglishEditionUpstream` và khối `waiver` giữ nguyên.
