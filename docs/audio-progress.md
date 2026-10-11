@@ -232,3 +232,11 @@ Nhật ký append-only. Registry `content/audio/progress.json` được đối s
 - MN19 generated11chunks/121canonical segments; final MP3 duration1021.94s,20,439,840bytes; scripture begins160.51s. R2 uploader verified MIME/hash/bytes/range206; key `vi/mn/mn19/2dc6ff7a2edc9a49.mp3`.
 - Full localASR11chunks similarity0.9013–0.9848. Index8 had a generic outro insertion in full ASR; valid final25s and12s windows on MN19 chunk8 did not reproduce it. Window check uses the correct artifact and is stored in that artifact folder. This is machine evidence only; review pending and no human listening/voice approval claimed.
 - Local reader playback with actual R2 URL: play entered pause, +15s advanced timeline to0:17, scripturejump161s/2:40, pause returned to play at2:44. Marked uploaded-verified; merge and production verification pending.
+
+### MN19 PR merge checkpoint
+
+- PR492 merged2026-10-11T07:29:08Z; exacthead `e2bf7b395413e3727f204ef45f3497cf1648c418`, squash `21554b4ddcdcd3d822fd54b6556ee174dbf4b878`. CIruns38120467196/38120463314both succeeded. Latestmain fetched; squash required a fresh branch. Pages38121521152 pending; MN19 marked merged, notlive untilproduction playback verification. Review pending.
+
+### MN19 production verification
+
+- PR492 squash `21554b4ddcdcd3d822fd54b6556ee174dbf4b878`; Pages workflow38121521152 succeeded. Production page `/sutta/mn/mn19/` showed the R2 player URL `vi/mn/mn19/2dc6ff7a2edc9a49.mp3`. Browser play entered pause, +15s advanced to about0:21, scripture selector moved to2:40 (161s), pause returned to play at2:44. Markedlive. Human full listening and voice comparison remain incomplete; reviewpending.
