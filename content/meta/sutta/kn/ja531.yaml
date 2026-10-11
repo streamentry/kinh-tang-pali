@@ -2,46 +2,76 @@ uid: ja531
 status: draft
 translationTitle: "Kinh Kusa"
 translators:
-  - "OpenCode Space Bunny Free (agent)"
+  - "Claude Sonnet 5.5 (Claude Code)"
 reviewers: []
 tags:
-  - "khuddakanikaya"
+  - "khuddaka-nikaya"
   - "jataka"
-  - "verse"
-  - "sattatinipāta"
-  - "kusa"
+  - "sattatinipata"
+  - "kusavagga"
+  - "kusajataka"
 quality:
   scores:
-    source_provenance: 9.6
-    semantic_fidelity: 9.4
-    grammar_logic: 9.3
+    source_provenance: 9.5
+    semantic_fidelity: 8.0
+    grammar_logic: 8.0
     segment_alignment: 10.0
-    terminology: 9.4
-    triangulation: 8.5
-    vietnamese_clarity: 9.4
-    han_viet_balance: 9.3
-    ambiguity_integrity: 9.2
-    technical_integrity: 10.0
-  final_score: 9.41
+    terminology: 8.3
+    triangulation: 7.5
+    vietnamese_clarity: 8.3
+    han_viet_balance: 9.2
+    ambiguity_integrity: 8.8
+    technical_integrity: 9.6
+  final_score: 8.72
   blocking_errors:
-    - "Bản dịch chỉ phủ 1 khoá có nội dung; lát được chia bằng bộ lọc coverage 40 ký tự thay vì missingAll nên bài thiếu khoá, validate yêu cầu requireComplete."
-  assessed_at: "2026-09-30"
+    - "noEnglishEditionUpstream: Thiếu bản dịch tiếng Anh đối chiếu. Tầng english-sujato tại commit đã ghim không có ja531_translation-en-sujato.json (ja chỉ có 83 tệp: ja1–79, ja126, ja159, ja466, ja534; đây là not-published-upstream, không phải not-synced), tầng vietnamese-current chỉ có Pháp Cú và lớp english-project không có tệp cho bài này. Cả ba tầng tham khảo đều vắng nên triangulation bị chặn ở 7.5 (≤ 8.0) và bài giữ draft."
+  assessed_at: "2026-10-11"
   assessed_by:
-    - "OpenCode Space Bunny Free (agent)"
+    - "Claude Sonnet 5.5 (Claude Code)"
 notes: |-
-  **Chỉ một khoá trong lát này.** Bài có nhiều khoá hơn, nhưng `kiểm` của `_hvi.py` chỉ đòi phủ những khoá Pāli dài **≥ 40 ký tự** và không phải khoá đánh số phần `:N.0`; đếm trên tầng Pāli thì đúng **một** khoá rơi vào điều kiện đó, và đó là khoá được giao. Các vế kệ còn lại, dòng tiêu đề `:0.1`–`:0.4` và dòng kết bài không nằm trong lát, tôi **không** dịch và **không** tự thêm vào tệp.
-  **Tầng tham khảo đã đo, không đoán.** Tại commit đã ghim, bài này có 0 segment tiếng Anh Sujato; và tầng Việt hiện hành (`translation/vi/phantuananh/`) tại cùng commit chỉ có 26 tệp Pháp Cú, nên **không** có bản Hòa thượng Thích Minh Châu để đối chiếu. Vì vậy `triangulation` đặt 8,5: dịch từ Pāli root, đối chiếu cú pháp qua từ điển và qua bối cảnh trong chính bài. Đây là đặc điểm của bản chụp upstream, không phải thiếu hàng của kho.
-  **Tra tiền lệ (đếm được):** `Kusāvatī` **đã có sẵn** trong tầng Việt dưới dạng tên
-  riêng — `dn17:1.3.3.0` "1. Kinh đô Kusāvatī", `dn17:1.3.9`, `dn16:5.18.4` — nên giữ
-  nguyên chữ, không dịch và không phiên âm. (Đây cũng là lý do chữ có dấu Pāli ở đây
-  không bị chốt `lọt_pāli` bắt: chốt cho phép từ đã có trong tầng Việt.) `Pabhāvatī`
-  (hoàng hậu, ở `1.3`) cũng đã có sẵn trong tầng Việt.
-  **0 tiền lệ, đặt mới:** `paṭigacchati` (mệnh lệnh) → *hãy đến*; `khippaṁ` → *mau*;
-  `nicchāmi` (ở `2.4`) → *tôi sẽ bỏ mạng*.
-  **Bối cảnh đã đọc trước khi dịch:** `1.1`–`1.4` là hoàng hậu Pabhāvatị trao vương
-  quốc cho vua Kusa và dặn hãy đi, nên `2.1`–`2.4` là **lời vua đáp**; `2.3` phải giữ
-  ngôi thứ hai. Vì thế tôi dùng *Hãy …* (mệnh lệnh, không có chủ từ) chứ không dịch
-  "anh hãy" hay "ngươi hãy" — bỏ chủ từ ở đây đúng, vì tiếng Việt không cần và thêm vào
-  là bịa.
-  **Dấu ngoặc kép:** Pāli khoá này **không** có ngoặc (lời thoại mở ở `2.1` với `“`),
-  và tôi cũng không thêm — dùng `‘` ở đây sẽ vỡ cặp trong bốn cột.
+  Dịch trực tiếp từ Pāli root snapshot bilara đã ghim, đường dẫn `kn/ja/ja531_root-pli-ms.json` (377/377 khoá, đúng thứ tự Pāli, không khoá thừa; bản cũ chỉ có một khoá `2.3` được viết lại cho khớp cách đọc mới). Bài toàn kệ (92 bài kệ cùng bốn dòng tiêu đề và dòng kết bài); phần văn xuôi của Jātaka không nằm trong tầng Pāli đã ghim, nên người nói ở từng bài kệ chủ yếu được suy từ lời xưng hô, nháy kép và mạch của chính các bài kệ. Nội dung chính: Kusa đi tìm Pabhāvatī, làm người nấu bếp trong cung vua Madda; nàng chê ngài xấu xí rồi nhận ra ngài khi bị cha dọa giết; Kusa thắng bảy vua đến vây thành, gả các công chúa Madda cho họ rồi đưa Pabhāvatī về Kusāvatī. Dịch sát chữ, không thêm giải thích vào thân kinh.
+
+  - Tầng tham khảo:
+    Tầng English của Sujato không có ja531 (Sujato Jātaka chỉ có 83 tệp, không có uid này; đây là not-published-upstream, không phải not-synced); tầng Việt hiện hành chỉ có Pháp Cú; lớp `english-project` chưa có tệp cho bài này. Chỉ có thể dựa vào Pāli, tiền lệ Việt của tầng và bối cảnh của chính bài. Câu chữ không lấy từ bản dịch nào ngoài tầng đã ghim; riêng việc xác định người nói ở một số bài kệ (`2`, `19`–`20`, `37`) có đối chiếu thêm với một bản tóm lược cốt truyện bên ngoài tầng, chỉ để xác định ai nói với ai, không dùng làm câu chữ hay đối chiếu độc lập. Vì vậy `triangulation` 7.5 và bài giữ `draft` với blocker `noEnglishEditionUpstream`.
+  - Coverage English:
+    Mẫu số = 0. Trong 373 khoá không phải khối `:0`, khoá Pāli dài nhất 39 ký tự, không khoá nào đạt ngưỡng 40 ký tự theo `source/layers.yaml` (bài toàn kệ ngắn), nên cổng coverage không đo được gì; điều đó không có nghĩa là không cần ghi nhận gap, và entry `reference-gaps.yaml` cũng không cứu được `published`. Sujato phủ 0/377 khoá, `english-project` 0/377, `vietnamese-current` 0/377.
+  - Phân loại & tiêu đề:
+    + `0.1` "Jātaka"; `0.2` "Bộ Bảy Mươi Bài Kinh" (Sattatinipāta, sattati = 70; theo khuôn "Bộ Sáu Mươi Bài Kinh" ở `ja529`–`ja530`, "Bộ Năm Mươi Bài Kinh" ở `ja526`–`ja528`); `0.3` "Phẩm Kusa" (Kusavagga, khuôn "Phẩm Soṇaka", "Phẩm Niḷinikā"); `0.4` "1. Kinh Kusa", `93.1` "Kinh Kusa, thứ nhất." (khuôn "Kinh <Tên>, thứ nhất" của `ja526`, `ja529`).
+  - Người nói (Pāli không ghi tên; suy từ xưng hô và nháy kép, không thêm vào thân kinh):
+    + `1`: Kusa nói với mẹ (`amma`); `2`: Pabhāvatī nói với Kusa (`kusa` ở `2.3`); `3`–`5`: Kusa nói với Pabhāvatī; `6`, `8`: Pabhāvatī; `7`, `9`–`11`: Kusa; `12`: Pabhāvatī; `13`: Kusa tự gọi tên; `14`–`18`: Kusa nói với cô gù (`khujje`); `19`: lời về Pabhāvatī và Kusa ở ngôi thứ ba, không rõ người nói; `20`: Pabhāvatī nói về cô gù; `21`–`33`: cô gù nói với Pabhāvatī (nháy mở ở `21.1`, đóng ở `33.4`); `34`: lời nhắn trước khi voi phá thành, người nói không nêu tên; `35`: vua Madda; `36`: lời kể (có nháy); `37`–`44`: Pabhāvatī nói (nháy mở ở `37.1`, đóng ở `44.6`; `44` nói với mẹ); `45`: lời kể (có nháy); `46`–`52`: hoàng hậu Madda nói (`46` với vua Madda, `47`–`52` với con gái; nháy mở ở `46.1`, đóng ở `52.4`); `53`: hỏi, `54`: Pabhāvatī đáp, `55`: hoàng hậu; `56`: Pabhāvatī; `57`: lời quở (mẹ hoặc cha nàng, không phân xử được); `58`–`64`: Pabhāvatī; `65`: vua Madda nói với con gái; `66`: vua Madda nói với Kusa; `67`: Kusa; `68`: vua Madda; `69`: lời kể (có nháy); `70`–`72`: Pabhāvatī; `73`–`75`: Kusa; `76`: Kusa; `77`–`84`: nháy mở ở `77.1` và đóng ở `84.4` bao cả đoạn kể `77`–`83`, `83.4`–`84.4` là lời Kusa nói với cha vợ (không có nháy riêng ở `83.4`, theo Pāli); `85`, `87`: vua Madda; `86`: Kusa; `88`–`93`: lời kể. Nháy đơn ‘ ’ không có ở bài này.
+  - Pāli trùng nguyên văn:
+    Dò Pāli của 377 khoá với toàn bộ Pāli đã ghim (mọi bộ) có bản Việt, loại các khoá dưới 10 ký tự chuẩn hoá: 13 khoá có dạng trùng ở bài khác, tổng 19 cặp, trong đó dùng lại nguyên văn ở 7 khoá (10 cặp): `5.4` (`ja529:36.4`), `36.3` (`ja516:31.3` "mắt đầy lệ"), `36.4` (`thag4.9:1.2`, `thig6.4:1.4` "được đoàn tỳ nữ vây quanh trước sau"), `69.3` (`ja523:42.3`), `79.2` (`sn22.78:5.4`), `80.2` (`ja462:7.2`, `ja520:8.2`), `86.2` (`ja517:26.4`); khác có lý do ở 5 khoá (9 cặp): `39.2` (`ja527:9.2` đứng độc lập như danh từ "tay mềm", ở đây là tính từ của "những cánh tay ấy"); `48.3`–`48.4` (`ja397:5.3`–`5.4` dịch "ai nghe lời dạy của người lành mà không làm theo thì không thấy được ý nghĩa", thêm "nghe" và đọc `atthadassinaṁ` làm vị ngữ; ở đây `hitānaṁ` và `atthadassinaṁ` cùng là sở hữu cách số nhiều của những người mong điều lợi ích); `70.4` (`ja260:1.4`, `2.4` dịch "với con"; ở đây vợ nói với chồng, "thiếp"); `71.2` (`ja465:10.4`, `ja530:10.4` "đại vương, xin hãy nghe tôi nói": ở đây người nói xưng "thiếp"); `80.1` (`ja462:7.1` "kẻ cưỡi voi, kẻ cưỡi ngựa" và `tha-ap410:4.1` "người cưỡi voi, quân hộ vệ" chia nhau cho cùng một dòng Pāli; theo `tha-ap410` cho `anīkaṭṭhā`, giữ "kẻ" như `ja462`).
+    Trong chính bài: 24 nhóm Pāli trùng nguyên văn (sau khi bỏ dấu câu), tổng 333 cặp (phần lớn do dãy kệ lặp `14`–`18`, `21`–`33`, `59`–`64`); bản Việt khác ở 8 cặp, đều có lý do: `12.1`/`13.1` (người nói khác: Pabhāvatī nhắc lời thầy tướng / Kusa nói lời nói nào cũng được); `60.2`/`61.2` với `62.2` (con/chiếc, loại từ cho xe); `62.2` với `63.2` (như trên); `68.2`/`69.4` (khác một chữ "của" do cú pháp: tân ngữ của "xin tha thứ" / sở hữu của "chân"); `71.x`/`74.x` (người nói khác: "thiếp"/"ta", "ngài"/"nàng"); `84.4`/`85.4` được viết giống nhau.
+  - Số Pāli:
+    `sattati` (`0.2`) = 70; `satta` (`35.1` `bile`, `83.2` `khattiye`, `86.1` `dhītaro`, `89.4` `khattiyā`) = bảy, khớp "bảy vị sát-đế-lợi" và "bảy người con gái" của vua Madda; `vīsatiṁ` đi với `…sahassāni` (`59.1`–`64.2`) = 20 × 1.000 = 20.000 ("hai mươi ngàn" Bà-la-môn, voi, ngựa, xe, bò đực, bò sữa); `diguṇaṁ` (`77.4`) = gấp đôi ("cánh tay gập đôi"); `ekarathe` (`91.1`) = một cỗ xe; `paṭhamaṁ` (`93.1`) = thứ nhất. Không có cụm thuộc loại chưa phân xử được, và không có `Tiṁsakappasahassa`.
+  - Thuật ngữ (có đếm trên tầng):
+    + `khattiya` → "sát-đế-lợi" (31 so với "khattiya" 9, "quý tộc" 6 trong 59 khoá `ja` chứa dạng này; `ja526`–`ja528` dùng "sát-đế-lợi"); `rathesabha` → "bậc chiến xa đệ nhất" (9/19 khoá; 13 khoá chứa "chiến xa"); `mahabbala` → "đầy uy lực" (54/237 khoá, "đại lực" 3, "sức mạnh" 3); `mahārāja`/`deva` ở xưng hô → "tâu đại vương"; `rāja` ở xưng hô → "tâu vua"; `devindo` → "vua chư thiên" (`ja523:47.4`, `ja499:20.1`; "chúa chư thiên" 24/44 khoá toàn tầng); `āḷārika` → "người nấu bếp" (tầng chỉ có `dn2:14.3`/`dn2:34.4` dịch "thợ làm bánh" trong danh sách nghề, `sūda` mới là "đầu bếp"; ở đây `āḷārika` là người làm bếp trong cung); `rājaputtī` → "công chúa"; `kuñjaro` → "voi" (62/71 khoá); `hatthikkhandha` → "lưng voi" (7 khoá kệ `pv38`, `pv42`, `thag2.37`, `thag2.39`, `tha-ap12`, `tha-ap229` so với "vai voi" 3 khoá văn xuôi ở `sn3.21`); `gijjha` → "kền kền" (7/28 khoá `ja`, theo `ja530`); `dhaṅka` → "quạ" (`sn10.3:3.4`); `siṅgāla` → "chó rừng" (17/40 khoá `ja`); `sīvathikā` → "nghĩa địa" (6/8 khoá); `sīhanādaṁ nadi` → "rống tiếng sư tử" (`dn24:2.6.8`, 23/68 khoá "tiếng sư tử", "sư tử hống" 16, "tiếng gầm sư tử" 3); `vellitagga` → "đầu xoăn" (`ja526:34.2`) ở đây "ngọn tóc xoăn"; `candanasāra` → "tinh chất đàn hương" (5/11 khoá, `ja527:9.2`); `kāsikacandana` → "đàn hương Kāsi" (`mn87:28.4`); `migamandalocanā` → "đôi mắt nai" (`ja527:6.1`); `sussoṇi` → "hỡi người hông đẹp" (`ja511:21.2` "người có đôi hông đầy đặn"); `kalyāṇi` → "hỡi người đẹp" (`dn21:1.5.27`); `bhakuṭi` → "cau mày" (`ja329:4.1`, `snp3.4:37.1` dịch "cau có mặt mày"); `kokila` → "chim kokila" (`dn32:7.56`; `ja506:33.2` dịch "chim tu hú"); `mayūrakoñca` → "tiếng công và chim koñca" (`dn32:7.55`; `thag19.1:23.1` "công và sếu"); `jāmātā` → "con rể" (`thig15.1:23.3`); `jīvaggāha` → "bắt sống" (`sn3.15:1.6`); `nemitta` → "thầy tướng" (`dn14:1.31.3` "Bà-la-môn thuật tướng"); `yamasādhana` → "chốn xử trị của Diêm Vương" (`ja499:11.4`, `ja530:29.4`), `yamakkhaya` → "cõi Diêm Vương" (`ja530:44.2`); `antepura` → "cung nội" (`dn14:2.2.10`); `koseyya` → "tơ lụa" (`dn30:1.28.4` dịch "lụa mịn"); `kulagandhino` → "làm ô nhục gia đình" (`iti74:6.4`); `caṇḍālī` → "nữ caṇḍāla" (`pv26:13.3` "nữ Caṇḍāla"); `veṇa` → "thợ tre" (`mn129:25.2`); `mañjussaro` → "giọng dịu dàng", `madhurassara` → "ngọt ngào" (`dn14:1.35.1`); `vaggu` → "du dương" (20/105 khoá; `dn14:1.35.1` dịch "uy nhã"); `bindu` (giọng) → "đầy đặn" (`dn18:19.2`; `dn19:18.2` "tròn tiếng", `mn91:21.4` "mạch lạc"); `sīhassara` → "giọng sư tử" (0 tiền lệ, đặt mới); `anaṅgaṇa` → "không tì vết" (tầng có 124 khoá chứa dạng này, như `dn10:2.21.1` dịch "không uế nhiễm" khi nói về tâm; cho gương mặt đặt "tì vết"), `viraja` → "không bụi bẩn" (`dn14:3.11.6` "không bụi").
+  - Chỗ bất định (không thêm vào thân kinh):
+    + `2.1`–`2.2` `anujjubhūtena haraṁ mahantaṁ`: đọc là "khom mình mang gánh nặng lớn" (`anujju` = không ngay thẳng, `hara` = mang); chỉ rõ Pabhāvatī nói với Kusa, người đang làm việc nặng. `2.4` `nicchāmi dubbaṇṇamahaṁ vasantaṁ` → "tôi không muốn ngài ở lại với dáng vẻ xấu xí" (có thể là "nước da xấu").
+    + `1.2` `sakāyuraṁ` → "có vòng xuyến" (`kāyūra`; `pv24:6.3`); `sayoggaṁ` → "đủ xe cộ" (`ja499:9.2` "xe cùng ngựa kéo"); `sabbakāmūpapannaṁ` → "đầy đủ mọi điều mong muốn" (`sabbakāmasamiddhi` ở `sn9.6:2.4`). `1.4`: `piyā pabhāvatī` đọc là "nơi có Pabhāvatī yêu dấu".
+    + `6.1` `abbhūti` → "tai họa" (đọc là `abhūti`; có thể là cách đọc khác, không phân xử được). `6.4` `akantaṁ kantumicchasi` → "muốn yêu mến người không đáng mến".
+    + `8.2` `kaṇikārassa dārunā` → "bằng khúc gỗ kaṇikāra". `9.3`–`9.4` `yo te sātaṁ na vindāmi, tirojanapadāgato`: `yo` chỉ Kusa tự nói về mình ("ta"), đọc `tirojanapadāgato` là "người từ xứ khác đến".
+    + `12.2`–`12.4` `nemittānaṁ bhavissati … kāmaṁ chindantu sattadhā`: logic của lời Pabhāvatī (dựa trên lời thầy tướng) và tân ngữ của `chindantu` không được nêu; bản Việt để mở ("cứ để họ chặt làm bảy phần, tùy ý"); `kāmaṁ` đọc là "tùy ý", cách đọc khác là "dục".
+    + `14.1` `nekkhaṁ` → "dây chuyền vàng" (`nekkha` là món trang sức bằng vàng đeo cổ; "vàng" là suy ý từ nghĩa của từ). `14.3` `nāganāsūrū` → "người có đùi như vòi voi" (0 tiền lệ). `17.4` `pamhāyeyya` → "cười rạng rỡ" (nghĩa không xác lập được; `umhāyeyya` ở `16.4` → "mỉm cười", theo `umhayamānā` ở `11.1`). `18.4`: Pāli không nêu chủ ngữ, bản Việt cũng không thêm.
+    + `19`: người nói không rõ, nên bản Việt không chốt đại từ; `19.4` `vetanena anatthike` → "không cần đến tiền công" (cũng có thể là "không vì tiền công"). `20`: câu chuyển từ người nói ở `19` sang Pabhāvatī là suy từ mạch.
+    + `21.1` `pāmesi` → "đánh giá" (cũng có thể là "khinh thường"); `21.2` `ārohena` → "bằng tầm vóc"; `21.4` `karassu rucire piyaṁ` → "hãy làm điều vừa lòng chàng" ("chàng" là `naṁ` ở `21.1`). `28.3` `bindussaro` xem phần thuật ngữ. `32.3` `Khattiyotipi` → "cũng là bậc sát-đế-lợi".
+    + `34`: người nói không nêu tên; `34.1` `upatthaddhā` → "đã sẵn sàng" (nghĩa gốc "được nâng đỡ"). `35.1` `bile` → "phần" (`bila` = mảnh, phần; không có tiền lệ).
+    + `37.1` `kakkūpanisevitaṁ` → "được thoa phấn kakku" (`kakku` là một chất thoa mặt; không có tiền lệ, giữ phiên âm); `37.2` `ādāsadantātharu…` → "gương cán ngà" (cách đọc `dantātharu` là cán ngà của chiếc gương; cách đọc khác "gương và ngà" không loại trừ được). `37.3` `anaṅgaṇaṁ` → "không tì vết". `37.4` `ṭhassati` → "sẽ ở lại" (nghĩa gốc "sẽ đứng"). `38.3` `samākule` → "rối bời". `40.1` `tālūpanibhe` → "giống trái thốt nốt"; `alambe` → "không chảy xệ" (nghĩa gốc "không treo"); `40.3` `lambissati` → "bám lấy" (nghĩa gốc "treo lủng lẳng"). `41.1` `sukoṭṭitaṁ` → "rắn chắc" (nghĩa gốc "được nện kỹ"); `41.3` `avatthaṁ` → "trần trụi" (nghĩa gốc "không y phục"). `42.2` `dāṭhino` → "loài có nanh". `43.2` `dūragāmino` → "những người đi xa". `44.4` `hemantānaṁ himaccaye` → "lúc giá lạnh của các mùa đông qua đi". `44.6` `evaṁvaṇṇā` → "có sắc như vậy" (như màu hoa kaṇikāra).
+    + `45.2` `khattiyā` (nữ) → "vị sát-đế-lợi nữ"; `45.3` `sūna` → "thớt chém" (nghĩa gốc "lò sát sinh, thớt"). `46.2` `susaññaṁ` → "dáng cân đối" (nghĩa không xác lập chắc; `tanumajjhimaṁ` → "eo thon"). `46.3` `madda` (hô cách) → "hỡi Madda".
+    + `47.4` `yamasādhana` theo `ja499:11.4`; `49.1`–`49.3`: cách đọc khó nhất của bài. `dhāresi` → "nuôi giữ"; `kumāraṁ` → "hoàng tử"; `Kusena jātaṁ` → "do Kusa sinh ra" (cũng có thể là "sinh ra từ dòng Kusa" hay "sinh ở nơi mang tên Kusa"); nếu `kumāra` chính là chồng của nàng thì nghĩa câu đổi; không phân xử được. `50`–`52` `bhadde` → "hỡi người hiền"; `51.1` `sisati` → "hí"; `51.2` `uparodati` → "khóc bên cạnh"; `52.2` `kokilābhinikūjite` → "rộn tiếng chim kokila".
+    + `53.3`/`54.3` `soḷārapaññāṇo`: hapax trong tầng Pāli đã ghim, tầng Việt không có tiền lệ, không tra được nghĩa; không bịa nghĩa, giữ nguyên phiên âm "soḷārapaññāṇa" như một tên hiệu của Kusa. Đây là một chỗ thiếu thông tin cho người biên tập phân xử. `53.4` `pamocaye` → "có thể giải thoát". `54.4` `te` đọc là "bọn họ" (nghĩa gốc có thể là "những kẻ ấy").
+    + `55.2` `andhabālā` → "kẻ mù lòa ngu dại" (`ja525:30.4` "ngu si mù quáng"). `56.3` `saṁvelliṁ` → "buộc chặt y phục" (không có tiền lệ; nghĩa gốc có thể là "thắt gọn y phục"); `56.4` `kumbhiṁ` → "cái nồi"; `oṇato` → "cúi mình".
+    + `57.1`–`57.2` `veṇī`, `adūsi`, `kulagandhinī`: ba danh xưng nhục mạ; `adūsi` → "kẻ đã làm ô uế" (hình thái động từ không xác định được là ngôi thứ hai hay thứ ba); `57.4` `kāmukaṁ` → "người tình" (cũng có thể là "kẻ ham muốn", bổ nghĩa cho `dāsaṁ`).
+    + `59.1`–`64.2`: `vīsatiṁ` đi với `…sahassāni` đọc là 20 ngàn mỗi loại; `yojenti` → "thắng cương" (nghĩa gốc "buộc, thắng"), `duhanti` → "vắt sữa". `65.3` `nāgaṁ maṇḍūkavaṇṇena` → "con voi mang hình dạng ếch" (`nāga` cũng là rồng; ẩn dụ). `66.3`–`66.4` `yaṁ taṁ aññātavesena` → "vì ngài mang dáng vẻ không ai biết, mà chúng tôi đã không nhận ra". `67.1`–`67.2` `na taṁ channaṁ` → "không thích hợp".
+    + `70.1`–`70.2` `yāmā ratyo atikkantā, tāmā deva tayā vinā`: đọc `yāmā` = `yā me`, `tāmā` = `tā me` ("những đêm của thiếp … đều không có ngài"). `71.1`/`74.1` `sabbaṁ te paṭijānāmi` → "xin hứa với … mọi điều" (cũng có thể là "xin nhận mọi điều"). `73.3` `vikuddho tyasmi` → "ta đã nổi giận với nàng" (`vikuddha` là phân từ quá khứ; không chắc `asmi` đứng với nghĩa hiện tại hay quá khứ). `75.2`–`75.4` `pahu … nayituṁ`: `pahu` đọc bao cả hai vế, nên "dù có đủ sức" (75.2) và "ta có thể đưa nàng đi" (75.4) cùng nói về khả năng của Kusa.
+    + `76.2` `nānācitte samāhite` → "đủ màu sắc, vững vàng" (`citta` ở đây đọc là "sặc sỡ", cách đọc khác "nhiều tâm tính"; `samāhite` nghĩa gốc "định tĩnh"). `76.3` `vegaṁ` → "sức xông tới". `77.4` `phoṭentaṁ diguṇaṁ bhujaṁ` → "vỗ vào cánh tay gập đôi". `78.2` `āropetvā` → "đặt (Pabhāvatī) lên" (Pāli không nói lên đâu). `80.1` `anīkaṭṭhā` → "quân hộ vệ" (xem phần Pāli trùng).
+    + `83.3`–`84.4`: `te` ở `84.3` đọc là "họ" (bảy vị vua); `kāmaṁ karohi te tayā` → "tùy ý ngài mà làm với họ" (`tayā` thừa trong cách đọc này). `85.3`/`87.3` `Tvaññeva no mahārāja` không có vị ngữ; bản Việt thêm "là chủ của chúng tôi" theo `87.2` `issaro`. `86.3`/`87.4` `nesaṁ` → "cho họ" (hai lần: bảy vua ở `86.3`, và `87.4` có thể là bảy cô gái hoặc bảy vua).
+    + `91.1` `Tyassu` đọc là "hai vị ấy" (Kusa và Pabhāvatī). `92.1`–`92.2` `ubhayo ca jayampatī`: không xác định được hai vợ chồng là ai (có thể là Kusa với Pabhāvatī, hoặc vua Okkāka với hoàng hậu Sīlavatī); bản Việt giữ "cả hai người vợ chồng".
+  - Phép kiểm tra:
+    1. Tập khoá Việt = tập khoá Pāli: 377/377, cùng thứ tự.
+    2. Nháy kép `“”` khớp Pāli từng khoá: 0/377 lệch (nháy kép mở ở `1.1`, `2.1`, `3.1`, `6.1`, `7.1`, `8.1`, `9.1`, `12.1`, `13.1`, `14.1`, `19.1`, `20.1`, `21.1`, `34.1`, `35.1`, `36.1`, `37.1`, `45.1`, `46.1`, `53.1`, `54.1`, `55.1`, `56.1`, `57.1`, `58.1`, `59.1`, `65.1`, `66.1`, `67.1`, `68.1`, `69.1`, `70.1`, `73.1`, `76.1`, `77.1`, `85.1`, `86.1`, `87.1`; dấu nháy đóng ở khoá cuối của mỗi đoạn). Nháy đơn `‘’`: 0 khoá có trong Pāli (phép chạy rỗng).
+    3. Pāli trùng nguyên văn trong chính bài: 24 nhóm, 333 cặp; Việt khác ở 8 cặp có lý do, xem trên. Trùng với bài khác: 13 khoá, 19 cặp.
+    4. Dấu lược `…pe…`, `…` trần và `(…)`: Pāli 0/377 khoá, Việt 0/377 (phép chạy rỗng).
+    5. Số Pāli: xem trên; tính tay từng số kèm phép tính; không có cụm chưa phân xử được.
+    NFC đạt, không khoá rỗng, không khoảng trắng thừa; Pāli lọt sang tiếng Việt chỉ là tên riêng hoặc từ giữ phiên âm có ghi chú (`Jātaka`, `Pabhāvatī`, `Kusāvatī`, `Kusa`, `Madda`, `Okkāka`, `Verocana`, `Kāsi`, `kaṇikāra`, `kakku`, `koñca`, `kokila`, `caṇḍāla`, `soḷārapaññāṇa`). Đã in cặp Pāli↔Việt ra đọc toàn bài (377 cặp) và sửa sau lượt đọc: `hatthikkhandha` từ "vai voi" sang "lưng voi" theo tiền lệ kệ; đồng nhất `84.4` với `85.4`.
+  - Công cụ kiểm của kho chưa chạy ở bước này, nên `technical_integrity` đặt 9.6 và không tuyên bố technical gate pass; còn phải chạy: `npm run validate`, `npm test`, `npm run check`, `npm run build`.
