@@ -1,6 +1,6 @@
 uid: vv31
-status: published
-translationTitle: "Chuyện Cung Điện Pallaṅka Thứ Ba"
+status: review
+translationTitle: "Chuyện Cung Điện Pallaṅka"
 translators:
   - "OpenCode Space Bunny Free (agent)"
 reviewers: []
@@ -14,16 +14,16 @@ tags:
 quality:
   scores:
     source_provenance: 9.4
-    semantic_fidelity: 9.3
-    grammar_logic: 9.2
-    segment_alignment: 10.0
-    terminology: 9.2
+    semantic_fidelity: 8.7
+    grammar_logic: 8.8
+    segment_alignment: 9.6
+    terminology: 8.8
     triangulation: 7.5
-    vietnamese_clarity: 9.3
-    han_viet_balance: 9.3
-    ambiguity_integrity: 9.1
+    vietnamese_clarity: 9.0
+    han_viet_balance: 9.2
+    ambiguity_integrity: 8.8
     technical_integrity: 9.6
-  final_score: 9.19
+  final_score: 8.94
   blocking_errors:
     - "Không có tầng tham khảo tiếng Anh tại commit đã ghim:
       `source/upstream-manifest.json` (commit 11c9d708, tầng `english-sujato`)
@@ -44,9 +44,9 @@ quality:
       0** khoá Pāli đủ 40 ký tự — khuôn kệ của `vv` là kệ ngắn, mỗi vế dưới 40
       ký tự — nên coverage không đo được, và ngưỡng 0.8 không phải nguyên nhân
       của blocker ở đây; nguyên nhân là tệp Anh không tồn tại."
-  assessed_at: "2026-10-04"
+  assessed_at: "2026-10-11"
   assessed_by:
-    - "OpenCode Space Bunny Free (agent)"
+    - "Claude Sonnet 5.5 (Claude Code)"
   waiver:
     id: no-upstream-english
     blockers:
@@ -116,8 +116,7 @@ notes: |-
   Tầng `name/` của `sn` không có tên từng bài (2119 mục nhưng `sn14.18`/`sn12.43`/`sn12.44`
   đều để trống), nên ba bài `sn` của lát dùng tiêu đề dịch nghĩa.
 
-  Nháy kép: đặt đúng vị trí Pāli đặt, và cân trên cả bài (đã kiểm bằng `ngoặc()` của
-  `_hvi.py` cho từng khoá đã dịch). `vv1:4.4` có lỗi tiền lệ — dư một dấu `”` thành
+  Nháy kép: đặt đúng vị trí Pāli đặt, và cân trên cả bài (đã kiểm từng khoá đã dịch). `vv1:4.4` có lỗi tiền lệ — dư một dấu `”` thành
   `…muôn phương?”.”` — tôi KHÔNG sao chép lỗi ấy; bản đa số (5 tệp) là `…muôn phương?”`
   và đã dùng nguyên văn bản ấy.
 
@@ -153,9 +152,58 @@ notes: |-
     dùng cụm khác.
 
   Cổng kỹ thuật CHƯA chạy — agent dịch không được phép chạy `npm run validate|test|build|
-  check`. `save_vi` của `_hvi.py` đã pass cho cả 45/45 khoá của bài này (đủ khoá, không thừa,
+  check`. phép kiểm lưu bài đã pass cho cả 45/45 khoá của bài này (đủ khoá, không thừa,
   NFC, không trùng nguyên văn PĀLI, PĀLI không lọt vào bản Việt, số dấu lược khớp từng
-  khoá, ngoặc kép cân trên cả bài), và `_rv67.py` quét lại không lỗi nào ngoài `:0.1` — vốn
-  là khối tiêu đề ngắn (< 40 ký tự) mà `_hvi.py` cố ý không kiểm, và giữ nguyên PĀLI là
+  khoá, ngoặc kép cân trên cả bài), và lượt quét lại không lỗi nào ngoài `:0.1` — vốn
+  là khối tiêu đề ngắn (< 40 ký tự) mà phép kiểm cố ý không đo, và giữ nguyên PĀLI là
   **tiền lệ 43/44** trong `vv`. Người biên tập cần chạy đủ `npm run validate`, `npm test`,
   `npm run check`, `npm run build` trước khi coi `technical_integrity: 9.6` là đạt.
+
+  Kiểm toán độc lập 2026-10-11: đọc đối kháng lại từng khoá Pāli↔Việt của lượt 2026-10-04.
+  Điểm cũ (final 9.19) quá cao: 34/45 khoá được sửa, trong đó 16 khoá sai nghĩa thật
+  (phần còn lại là xưng hô, dấu câu, từ thêm vào, khoá tiêu đề). Các mục "bất định" và
+  "tiền lệ" phía trên của lượt cũ có chỗ KHÔNG đúng và được thay bằng mục này:
+  · `1.1` `maṇisoṇṇacitte` — cũ *tâm ý vừa hợp*: đọc `citta` thành "tâm", bỏ mất ngọc ma-ni
+    và vàng. Nay *điểm tô bằng ngọc ma-ni và vàng* (cùng cách `vv36:7.1` dịch `maṇisoṇṇacittitaṁ`).
+    `Pallaṅka` dịch *ghế dài*; tiêu đề vẫn giữ Pāli như các tệp `vv` khác.
+  · `1.4` `Uccāvacā iddhi vikubbamānā` — cũ chép *tùy ý* và nói "nguyên văn `vv12:1.4`", nhưng
+    `vv12:1.4` thật ra là *đủ loại thần thông*; `uccāvaca` = đủ loại, không có "tùy ý". Nay *đủ loại*.
+  · `3.2` `suṇisā` — cũ *hiền lành* kèm lập luận "suṇi là hiền lành": lập luận ấy sai, `suṇisā`
+    là **con dâu** (cùng chữ trong `vv13:5.2`, `vv14:5.2`, `vv29:4.3` và tên bài `vv13`/`vv14`).
+    Nay *con dâu*. Lỗi cùng dạng còn ở `vv32:5.2` (ngoài phạm vi lượt này).
+  · `3.3`, `7.5` `vasānuvattinī` — cũ *tận lòng* (không có trong Pāli); `akkodhanā` cũ *hờn dỗi*
+    (sai sắc nghĩa, `akkodhanā` = không nóng giận). Nay *không nóng giận, thuận theo ý chồng*,
+    khớp `vv15:5.3`. `kalyāṇī` ở 7.5 cũ *đẹp đẽ* (tự khen nhan sắc) — ở vị trí này là phẩm hạnh
+    đối với chồng nên đổi *tốt lành*.
+  · `3.4` — cũ *không hơi đà một chút nào*: cụm vô nghĩa, bắt nguồn từ `vv32:5.4` (cùng lỗi, ngoài
+    phạm vi). `appamattā` nay *không phóng dật*.
+  · `4.1` `daharā` — cũ *nhỏ bé* (đọc như trẻ con); nay *còn trẻ*. `4.2` `patimābhirādhayiṁ` —
+    cũ *tôn kính chồng*; `abhirādheti` là làm vừa lòng, nay *làm vừa lòng chồng*.
+  · `5.1` `Pāṇātipātā` — cũ *sát người*; `pāṇa` là sinh vật, nay *sát sinh* (như `vv15:8.1`,
+    `vv37:9.1`). `5.2` cũ *thân ta* (sai ngôi, nữ thiên xưng *tôi*) và *chói lòa* (không có trong
+    Pāli); nay *thân hoàn toàn thanh tịnh, sống phạm hạnh trong sạch*.
+  · `5.4` `Sikkhāpadesu paripūrakārinī` — cũ *viên mãn trong các môn học*; `sikkhāpada` là học
+    giới (đối chiếu `vv17:6.3`). Nay *thực hành trọn vẹn các học giới*.
+  · `6.3` — cũ *Cùng kỳ phép nhiệm màu*; nay *cùng cả kỳ nửa tháng thần biến* (`pakkha` = nửa
+    tháng, khớp `vv15:6.3`, `vv23:7.3`; *tuần lễ* ở `vv19`/`vv22`/`vv25`/`vv37`/`vv52` là sai
+    vì `pakkha` không phải một tuần). `6.4`/`7.1`/`7.2` — câu Pāli đi liền từ `6.1` đến `7.2`
+    (*… với tâm tịnh tín, sống thuận theo pháp, ngày trai giới đủ tám chi phần, tôi đã giữ với
+    tâm hoan hỷ*); cũ làm `6.4` thành câu rời *tôi có tâm thành kính* và gắn *đủ tám chi phần*
+    vào chủ ngữ thay vì ngày trai giới. `aṭṭhaṅgupetaṁ` là định ngữ của `uposathaṁ`.
+  · `7.3`/`7.4` — cũ *phẩm cao quý … nương theo điều lành*: `phẩm` không có trong Pāli,
+    `samādiyitvā` là thọ trì chứ không phải nương theo, `sukhudrayaṁ` là quả an lạc. Nay sửa theo đó.
+  · `8.1`–`8.4` — cũ thêm *Nhiều* (số nhiều không có), `nên sinh ra có phẩm hạng hơn hẳn`
+    (thêm nhân quả), và `abhisamparāyaṁ` (đời sau) bị đọc thành *ra đi khỏi đời này*. Nay *ở
+    đời sau*; `visesabhāginī` = được phần thù thắng.
+  · `9.3`, `9.4` — cũ *ngắm nhìn tôi* (`ramenti` = làm vui thích) và *rồi đã vào cung điện thần,
+    ở rất lâu*: `dīghāyukiṁ` là định ngữ của `maṁ` (tôi, người trường thọ), không phải "ở lâu".
+    `9.1` `manorame` cũ *dễ chịu hết sức*; nay *làm đẹp lòng* (như `vv84:19.2`).
+  · Xưng hô người hỏi: `1.3`/`2.1` cũ *ngài*, các khoá còn lại *nàng*; thống nhất *nàng*
+    (như `vv10`–`vv14`). Khoá `2.3` hô cách `mahānubhāve` nay *hỡi bậc có đại oai lực* (như `vv41:3.1`).
+  · `0.4` bỏ *Thứ Ba* (không có trong Pāli, `3.` đã chỉ thứ tự) và đổi `translationTitle` cho khớp.
+  Còn bất định / không đổi: `0.2` `Itthivimāna` vẫn *Nữ Hư Không* theo cả bộ — Pāli không có `ākāsa`
+  nên đây là lỗi tiêu đề phẩm lan khoảng 51 tệp, cần sửa đồng loạt chứ không riêng bài này;
+  `6.3` `pāṭihāriyapakkha` chưa xác định chính xác kỳ nào, giữ cách dịch sát chữ; `2.2` `pamodayanti`
+  (dạng sai khiến, *làm cho hoan hỷ*) vẫn giữ *vui chơi* theo `vv11:2.4`. Tầng tham khảo tiếng
+  Anh vẫn vắng (`triangulation` 7.5, blocker giữ nguyên). Bản sửa chưa có người thẩm định thứ hai.
+  Cổng kỹ thuật vẫn CHƯA chạy: `npm run validate`, `npm test`, `npm run check`, `npm run build`.

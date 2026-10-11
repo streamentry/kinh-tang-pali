@@ -1,6 +1,6 @@
 uid: vv79
-status: published
-translationTitle: "Chuyện Cung Điện Ambā"
+status: review
+translationTitle: "Chuyện Cung Điện Xoài"
 translators:
   - "OpenCode Space Bunny Free (agent)"
 reviewers: []
@@ -12,17 +12,17 @@ tags:
   - "amba"
 quality:
   scores:
-    source_provenance: 9.50
-    semantic_fidelity: 9.30
-    grammar_logic: 9.20
+    source_provenance: 9.30
+    semantic_fidelity: 8.60
+    grammar_logic: 8.80
     segment_alignment: 10.00
-    terminology: 9.10
-    triangulation: 7.50
-    vietnamese_clarity: 9.30
-    han_viet_balance: 9.40
-    ambiguity_integrity: 8.80
+    terminology: 8.40
+    triangulation: 7.00
+    vietnamese_clarity: 8.80
+    han_viet_balance: 9.20
+    ambiguity_integrity: 8.50
     technical_integrity: 9.60
-  final_score: 9.17
+  final_score: 8.82
   blocking_errors:
     - "Không có tầng tham khảo tiếng Anh tại commit đã ghim
       11c9d708978cde8ba61096d8a75f7ddfb846f639: đo trên
@@ -41,9 +41,9 @@ quality:
       dịch chỉ từ Pāli root, đây là giới hạn upstream chứ không phải lỗi của
       người dịch. Vì vậy `triangulation` bị chặn ở 7.5 (≤ 8.0) chứ không nâng để
       né blocker."
-  assessed_at: "2026-10-05"
+  assessed_at: "2026-10-11"
   assessed_by:
-    - "OpenCode Space Bunny Free (agent)"
+    - "Claude Sonnet 5.5 (Claude Code)"
   waiver:
     id: no-upstream-english
     blockers:
@@ -141,3 +141,80 @@ notes: |-
   Bốn lệnh cổng kỹ thuật do coordinator chạy, không chạy trong lát agent: `npm run validate`,
   `npm test`, `npm run check`, `npm run build`. Vì bốn lệnh ấy chưa chạy ở lát này,
   `technical_integrity` đặt 9,6 chứ không 10,0.
+
+  **Kiểm toán độc lập 2026-10-11.**
+  Đọc đối kháng lại 51 khoá từ Pāli. Lượt chấm 2026-10-05 (9,17) **không đứng vững**: bản
+  nháp có **15/51 khoá sai nghĩa thật** và thêm **8 khoá lệch nhẹ** (thêm chữ, mất từ, tên).
+  Phần notes bên trên là lịch sử; những khẳng định sau trong đó **bị thay thế** bởi mục này:
+  `sittos` đọc nữ → *nàng tiên xoài*; `kilanta` = "tựa vào"; `pattacīvara` → *áo lá*;
+  `bhatako` → *kẻ lo thức ăn cho đám đông*, `poso` → *vị giới hạnh*; `patapante` là hapax
+  "chưa biết rọi sáng hay đã lặn"; "xưng hô thống nhất ngài/ngươi" (không còn là tiêu chí).
+
+  *Sửa lỗi nghĩa (accuracy fix), 15 khoá:*
+  - `10.1` `Ambo ca sitto` : `ambo` là cây xoài (nam, số ít), `sitto` là quá khứ phân từ của
+    `siñcati` (được tưới) → *Cây xoài đã được tưới*; không có nữ thần nào, và đây không phải
+    dạng nữ `sittā`. Bản cũ *nàng tiên xoài* là bịa. `nhāpito` → *đã được tắm*.
+  - `6.3`, `6.4` `kilanta` = mệt (`kilamati`; 23 khoá cùng gốc trong tầng `kn`, vd.
+    `sukilantarūpo` → *mệt nhọc*, `kilantosmi` → *Ta mệt*), không phải "tựa vào" → *thân có vẻ
+    mệt nhọc, nhưng tâm thì không mệt*. Cũng bỏ dòng cũ "rūpa = chỗ tựa".
+  - `6.1` mất động từ `āgamā` (*đi đến*); thêm lại.
+  - `7.3`, `7.4` `nhāpeyyaṁ` là **ngôi thứ nhất** số ít, thức khả năng (*tôi xin tắm*), `taṁ` là
+    tân ngữ "ngài", `yaṁ mamassa sukhāvahaṁ` là mệnh đề quan hệ *điều ấy sẽ đem lại an lạc cho
+    tôi* (`sukhāvaha` → *an lạc*, khớp `tha-ap` và `pv`). Bản cũ *xin hãy rửa cho người ấy* /
+    *nước này mang lại sự an ổn* đảo người và đưa "nước" vào chỗ không có.
+  - `8.2`, `8.4`, `9.4` `pattacīvara` = **bát và y** (57 khoá trong tầng `kn`, 0 khoá nào dịch
+    "áo lá"); `ekacīvara` = *chỉ mặc một y* (tiền lệ duy nhất khác: *bậc Mặc Một Tấm Áo*). Cụm
+    cũ *một tấm áo lá làm chỗ che nắng* không có trong Pāli. `chāyāya` = *trong bóng mát*.
+  - `5.3` `Paresaṁ bhatako poso` = *một người làm thuê cho kẻ khác* (`bhataka` = người làm
+    thuê; 26 khoá trong tầng `kn` cùng gốc, nhất quán). `poso` = người, không phải *vị giới
+    hạnh*; `asiñcati` là thì hiện tại kể chuyện → *đang tưới*.
+  - `10.3`, `10.4` `pītiyā kāyaṁ sabbaṁ pharati attano` = *với niềm hỷ, thấm nhuần thân, toàn bộ
+    của chính mình*; bản cũ *vui sướng thân thể / tràn đầy hạnh phúc* làm mất `kāya` và
+    `sabbaṁ`. Vẫn **không phân xử được** `so` là người nói tự xưng ngôi ba hay vị khác;
+    dịch trung tính *người ấy* (ambiguity giữ nguyên).
+  - `12.2` `nānādijagaṇāyute`: `dija` = chim (các khoá khác có `dija-` đều dịch *chim*, vd.
+    `dijābhighuṭṭhaṁ` → *vang tiếng chim*) → *đầy các đàn chim đủ loại*; bản cũ *các nhóm loài
+    khác nhau* mất "chim".
+  - `12.3` mất `naccagītehi` (múa và hát); `12.4` `purakkhato` → *được … vây quanh* (7 khoá trong
+    tầng, vd. `accharāhi purakkhato` → *được các tiên nữ vây quanh*), bỏ *từ phía trước*.
+  - `4.3` `yassa kammassidaṁ phalaṁ` là mệnh đề quan hệ "(nói) về nghiệp mà đây là quả báo", không
+    phải câu khẳng định *quả báo của nghiệp này là thế*. Sửa theo đúng cách đọc đó (đã có đúng
+    một tiền lệ trong tầng; 56/70 khoá cùng Pāli ở nơi khác vẫn dịch kiểu cũ — **lỗi lan**).
+
+  *Sửa nhẹ (thêm chữ, mất từ, tên), 8 khoá:* `2.1` bỏ *thỏa thích* (không có trong Pāli);
+  `2.4` `nāriyo` → *các nữ nhân* (tiền lệ `nārīgaṇa` → *đoàn nữ nhân*, để dành *tiên nữ* cho
+  `accharā`), bỏ *lượn bay* (Pāli chỉ có `naccanti`), bỏ *trang sức … ròng*; `5.2` `patapante`
+  → *khi mặt trời đang chói chang* (`patapati` là chiếu nóng, không có nghĩa "đã lặn"; ghi chú
+  hapax cũ sai); `6.2` `vissuto` → *nổi danh* (tiền lệ *nổi tiếng/nổi danh*, 29 khoá);
+  `7.1` *người ấy* → *vị ấy* (chỉ Sāriputta); `7.2` `avocaṁ` là **ngôi thứ nhất** → *tôi, người
+  tưới xoài, đã nói*; `9.1`, `9.2`, `9.3` khôi phục tân ngữ `tañca` (*vị ấy*), `naro` →
+  *người đàn ông*, `nhāpayī` → *đã tắm cho*; `10.2` `pasutaṁ anappakaṁ` → *đã tạo được phước đức
+  không nhỏ* (tiền lệ *đã tạo công đức không nhỏ*), bỏ *vô tận*; `11.1` bỏ *lành* và *nhỏ bé*
+  → *chỉ chừng ấy việc làm thôi*; `0.4`, `13.1` `Amba` = xoài, **không** phải tên nữ `Ambā` →
+  *Cung Điện Xoài* (khớp `Cung Điện Xoài` ở bài `Ambavimāna` thứ tám, và tên tầng English
+  *Mango Mansion*); `translationTitle` đổi theo.
+
+  *Không đổi dù nghi ngờ / còn bất định:*
+  - `0.2` `Purisavimāna` → *Chuyện Cung Điện Nam Hư Không*: `ākāsa` **không có** trong Pāli,
+    *Hư Không* là sai (`vimāna` = cung điện/thiên cung). Lỗi lan cả phẩm (14 bài); không sửa
+    riêng một tệp để khỏi lệch cả bộ — **cần sửa đồng loạt**. Vì thế `terminology` chỉ 8,4.
+  - `1.4` `rucakatthatā`: *trải thảm rực rỡ* (8 tệp giống nhau; 3 tệp khác dịch ba cách khác nhau).
+    `rucaka` có thể là vàng/đồ trang sức; chưa phân xử được, giữ.
+  - `1.1` *Tòa lâu đài* so với *cung điện* ở tiêu đề: giữ cho khớp 8 bài chung khối 1.1–2.4.
+  - `11.4` `nandanaṁ` giữ *rừng Nandana* (theo `vv40:2.4`); 12.1 cũng *rừng* nên lặp.
+  - Người hỏi ở `3.1`–`3.3` (Moggallāna) và dẫn nhập `4.1`–`4.3` bị lược `…pe…` nên không
+    thể xác nhận từ bài này; giữ nguyên.
+
+  *Lan sang bài khác (không sửa ở đây, chỉ báo):* `yassa kammassidaṁ phalaṁ` 56/70 khoá cũ;
+  `Paresaṁ bhatako ahaṁ` → *người bán thức ăn cho đám đông* ở `tha-ap497`; `Nāriyo ca naccanti
+  suvaṇṇachannā` 9 khoá có *lượn*; `Tatthacchasi pivasi khādasi ca` 8 khoá *thỏa thích*;
+  `nānādijagaṇāyute` / `Ramāmi naccagītehi` còn ở một tệp khác cùng lỗi.
+
+  *Chấm lại, không nâng cho đẹp:* semantic_fidelity 9,3 → 8,6; grammar_logic 9,2 → 8,8;
+  terminology 9,1 → 8,4; triangulation 7,5 → 7,0 (không có tầng tham khảo nào, và lượt đọc
+  này cũng chỉ từ Pāli + tiền lệ nội bộ); vietnamese_clarity 9,3 → 8,8 (chuỗi 9.1–9.4 và 10.3–10.4
+  buộc phải ngắt câu giữa chừng theo Pāli); han_viet_balance 9,4 → 9,2; ambiguity_integrity
+  8,8 → 8,5; source_provenance 9,5 → 9,3 (nhiều khẳng định trong notes cũ sai); segment_alignment
+  giữ 10,0, technical_integrity giữ 9,6 (bốn lệnh cổng chưa chạy ở lát này). `final_score`
+  9,17 → 8,82: vào vùng `review` theo bảng ngưỡng; blocker không có tầng tham khảo tiếng Anh
+  vẫn còn (giữ nguyên).

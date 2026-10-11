@@ -1,5 +1,5 @@
 uid: vv78
-status: published
+status: review
 translationTitle: "Chuyện Cung Điện Vàng"
 translators:
   - "OpenCode Space Bunny Free (agent)"
@@ -12,17 +12,17 @@ tags:
   - "suvanna"
 quality:
   scores:
-    source_provenance: 9.5
-    semantic_fidelity: 9.2
-    grammar_logic: 9.0
+    source_provenance: 9.0
+    semantic_fidelity: 8.5
+    grammar_logic: 8.6
     segment_alignment: 10.0
-    terminology: 9.2
+    terminology: 8.4
     triangulation: 7.5
-    vietnamese_clarity: 9.3
-    han_viet_balance: 9.3
-    ambiguity_integrity: 9.0
+    vietnamese_clarity: 8.8
+    han_viet_balance: 9.0
+    ambiguity_integrity: 8.0
     technical_integrity: 9.6
-  final_score: 9.16
+  final_score: 8.74
   blocking_errors:
     - "Không có tầng tham khảo tiếng Anh tại commit đã ghim. Đo trên
       `source/upstream-manifest.json`: tầng `en-sujato` có tệp cho 9
@@ -39,9 +39,9 @@ quality:
       buộc `draft`; đây là giới hạn upstream chứ không phải lỗi của người dịch.
       Vì vậy `triangulation` bị chặn ở 7.5 (≤ 8.0) chứ không nâng để né
       blocker."
-  assessed_at: "2026-10-06"
+  assessed_at: "2026-10-11"
   assessed_by:
-    - "OpenCode Space Bunny Free (agent)"
+    - "Claude Sonnet 5.5 (Claude Code)"
   waiver:
     id: no-upstream-english
     blockers:
@@ -199,3 +199,20 @@ notes: |-
   Bốn lệnh cổng kỹ thuật do coordinator chạy, không chạy trong lát agent: `npm run validate`,
   `npm test`, `npm run check`, `npm run build`. Vì bốn lệnh ấy chưa chạy ở lát này,
   `technical_integrity` đặt 9,6 chứ không 10,0.
+
+  **Kiểm toán độc lập 2026-10-11.** Đọc đối kháng lại từng cặp Pāli↔Việt (không tin lại các mục notes ở trên). Kết quả: **20/54 khoá có lỗi nghĩa thật** (37%), bản trước tự chấm 9,16 là quá cao. Đã sửa 36 khoá (20 khoá lỗi nghĩa và 16 khoá chỉnh nhỏ), giữ nguyên tập khoá và thứ tự khoá. Các mục notes cũ ở trên về `bhāṇumā`, `aṭṭhaṁsā`, `aṁsiyā`, `gopāṇasī`/`kūṭa`, `daddalla`, `vedi`, `andhakavinda`, `ratanā satta` và danh sách ngọc **bị thay thế bởi mục này**; phần lịch sử cũ được giữ nguyên làm hồ sơ.
+
+  Lỗi nghĩa thật đã sửa (khoá: trước → sau, căn cứ):
+  - Từ vựng bị bịa hoặc đọc sai: `1.2` `sabbatopabhaṁ` *trùm phủ* → *chiếu sáng khắp mọi phía* (`pabhā` là ánh sáng); `2.1` `aṭṭhaṁsā` *tám phần mười sáu* → *có tám cạnh* (cùng từ `aṭṭhaṁso` của `dn14:1.21.2`, Sujato *eight-faceted*, bản Việt dn14 *tám cạnh*); `2.3` `aṁsiyā` *có gương* → *ở mỗi một cạnh* (cùng gốc `aṁsa`); `4.3`–`4.4` `gopānasīgaṇā … kūṭaṁ dhārenti` *chất màu vàng … vạch kẻ* → *những dãy rui màu vàng … nâng đỡ đỉnh mái* (`gopānasi` là rui mái trong chính `sn45.141:1.1`, Sujato *rafters*, bản Việt *rui*, `kūṭa` là đỉnh mái; notes cũ đã thấy `an10.9` mà đọc sai); `5.4` `ādiccova` *tia chớp* → *mặt trời*; `6.1` `vediyā` *bậc thềm* → *lan can* (`dn17:1.22.12`, Sujato *balustrades*, bản Việt *lan can*); `6.3` `daddallamānā` *như những dãy thềm* → *chói lòa, tỏa sáng* (cùng cụm ở `vv44:10.3`, `vv17:3.4`; không có nghĩa *thềm*); `7.4` `bhāṇumā` *mặt trăng* → *mặt trời* (`sn8.11:3.2` và `thag21.1:44.2`, Sujato *shining immaculate sun*, và `vv64:17.4`, `vv81:2.4` trong tầng; lập luận cũ "cả hai đều là mặt trăng" sai); `10.1` `andhakavindasmiṁ` *mù lòa, mắt không thấy được* → *ở tại Andhakavinda* (địa danh, `vv43:4.1` cũng là địa danh; cụm *mắt không thấy được* là thêm không có trong Pāli).
+  - Bỏ hoặc thêm thành phần nghĩa: `3.3` bỏ `muttā` → *đá quý masāragalla và ngọc trai* (tái dùng nguyên văn `vv81:3.3`); `3.4` `lohitaṅgamaṇīhi` bị tách ra thêm *ngọc quý* → *cùng những viên hồng ngọc* (nguyên văn `vv81:3.4`); đếm lại bảy loại: lưu ly 1, vàng ròng 2, pha lê 3, bạc 4, masāragalla 5, ngọc trai 6, hồng ngọc 7 = 7, khớp `ratanā satta`; bản trước khớp bảy nhờ tách `maṇī` thành một món riêng và bỏ `muttā`, tức là đếm đúng bằng cách dịch sai; `7.3` `atirocasi` mất ý *vượt trội* → *chiếu sáng vượt trội bởi dung sắc*; `10.4` `pasanno sehi pāṇibhi` *đôi tay tịnh tín* (gán tịnh tín cho đôi tay, mất `sehi`) → *với tâm tịnh tín bằng chính đôi tay mình* (cách dịch đa số của tầng, khoảng 20 chỗ); `11.2` bỏ `paccayañca` và có chữ vô nghĩa *xứa* → *vật dụng thiết yếu và dầu thoa*; `12.2` `dijagaṇa` mất *chim* → *có đủ loại bầy chim tụ về* (nguyên văn `vv63:34.2`); `12.3` mất `naccagītehi`, thêm *đám tiên nữ* vào sai khoá → *Tôi vui hưởng múa hát* (nguyên văn `vv63:34.3`); `12.4` giờ đúng *được các tiên nữ vây quanh* (nguyên văn `vv63:34.4`).
+  - Hô cách: `7.2` `devaputto mahappabho` *vị thiên tử, bậc đại uy lực* → *hỡi thiên tử, bậc có hào quang lớn* (hô cách như `vv81:12.2`; `mahappabha` là hào quang lớn, không phải *đại uy lực* tức `mahānubhāva`).
+  - Công thức `yassa kammassidaṁ phalaṁ` (`9.3`): *quả báo của nghiệp này là thế* → *về nghiệp mà đây là quả báo* (cách đọc `vv15:4.4`; `yassa kammassa` là quan hệ từ chỉ nghiệp, không phải câu khẳng định). Mẫu *quả báo của nghiệp này là thế* lặp ở hơn 40 khoá toàn bộ `vv`; không sửa riêng khoá nào khác ngoài bài này.
+  - Chữ vô nghĩa: `4.2` *bối lên* → *bốc lên*.
+
+  Chỉnh nhỏ (không tính là lỗi nghĩa): `1.1` bỏ *này* thêm vào; `1.3`/`1.4`/`2.1`/`2.4`/`4.1`–`5.3`/`6.2` rút gọn cho sát Pāli (*chuông nhỏ*, bỏ *leng keng*, bỏ *Bề mặt*, *bảy loại ngọc quý*, *cầu thang … bốn phương*, *gian phòng bằng nhiều loại ngọc*); `8.4` `pucchito` → *khi được hỏi* (như `vv81:13.4`); `9.1` bỏ *vô cùng* thêm vào cho `attamano` (khớp *Nữ thiên ấy hoan hỷ* ở `vv15:4.1`); `10.2`–`10.3` *bậc Thầy* → *bậc Đạo Sư* (đa số trong `vv`: 11 chỗ so với 2); `11.1` *Nơi ấy* → *Tại đó*, bỏ *tươi* thêm vào; `11.4` `vippasannena cetasā` → *với tâm trong sáng thanh tịnh* (6 chỗ trong tầng, nguyên văn); `12.1` giữ.
+
+  Phép đo lại sau khi sửa: tập khoá và thứ tự khớp 54/54; nháy `“”‘’` khớp Pāli từng khoá 0 lệch trên 54 khoá; `…` đúng một ở `9.2` và Pāli cũng đúng một chỗ đó; NFC, khoảng trắng thừa 0 lỗi; Pāli lọt sang Việt chỉ còn `Vimānavatthu` và `masāragalla` (giữ có chủ ý); Pāli trùng nguyên văn trong bài: 0 cặp, phép rỗng. Chưa có khoá nào được kiểm lại bởi người thứ hai, nên điểm bên dưới là của một người đọc.
+
+  Bất định còn lại, không giấu: (a) `vediyā` *lan can* theo `dn17`; vật thể ở đây là bốn lan can hay bốn nền, không phân xử được. (b) `pītā` ở `4.3` đọc là *màu vàng* ứng với `gopānasīgaṇā`; đọc khác vẫn có thể. (c) `nimmitā` ở `4.4` đọc là *được tạo ra*; chủ thể `gaṇā` hay `kūṭaṁ` vẫn còn mở. (d) `gabbha` ở `5.3` *gian phòng* chưa có tiền lệ trong tầng. (e) `citrā` ở `4.1` giữ *rực rỡ* theo `vv81:4.1` dù nghĩa gốc là *nhiều màu*. (f) `8.1`–`8.3` Pāli là câu hỏi, bản Việt vẫn dùng kiểu *hoặc … hoặc* như `vv5`, `vv64`, `vv81`; *cúi* trong *nghiệp cúi chắp tay* là thêm so với `añjalikamma`, giữ vì tiền lệ ba bài. (g) `10.2` đọc `buddhassādiccabandhuno` là dành cho Đức Phật, đặt cạnh `satthu` ở `10.3`; cú pháp Pāli hụt vế nối nên đọc khác vẫn có thể. (h) `0.2` *Nam Hư Không* cùng khuôn lỗi với *Nữ Hư Không* (không có `ākāsa` trong `Purisavimāna`) lặp ở cả bộ `vv`; không sửa riêng một tệp để khỏi lệch cả bộ. (i) `vv79:12.1`–`12.4` và các bài `vv` khác còn mang cùng các lỗi `dijagaṇa`/`naccagītehi`/`yassa kammassidaṁ`; báo, không sửa ở đây.
+
+  Chấm lại: `source_provenance` 9,5 → 9,0 (các mục notes cũ nêu căn cứ sai: `bhāṇumā`, `gopāṇasī`, `ratanā satta`); `semantic_fidelity` 9,2 → 8,5; `grammar_logic` 9,0 → 8,6 (hô cách, cấu trúc câu `10.x`, `12.x`); `terminology` 9,2 → 8,4 (đã sửa từ vựng bịa, còn `vediyā`, `gabbha`, `citrā`); `vietnamese_clarity` 9,3 → 8,8 (đã bỏ chữ vô nghĩa); `han_viet_balance` 9,3 → 9,0; `ambiguity_integrity` 9,0 → 8,0 (bản cũ khẳng định chắc ở những chỗ sai, nay các bất định ở mục trên được ghi thẳng); `segment_alignment` 10,0, `triangulation` 7,5 và `technical_integrity` 9,6 giữ nguyên. Trung bình số học thô 8,74; bản dịch sau khi sửa tốt hơn bản cũ rõ ràng nhưng chưa tới mức publish theo cổng, và blocker không có tầng tham khảo tiếng Anh vẫn giữ nguyên là sự thật về upstream. Bốn lệnh cổng kỹ thuật chưa chạy trong lượt này: `npm run validate`, `npm test`, `npm run check`, `npm run build`.
