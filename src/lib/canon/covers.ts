@@ -27,6 +27,7 @@ export interface SuttaCover {
 
 const files = import.meta.glob<{ default: ImageMetadata }>('/src/assets/covers/*/*.webp', { eager: true });
 const covers = registry.covers as SuttaCover[];
+const coverByUid = new Map<string, SuttaCover>(covers.map((entry) => [entry.uid, entry]));
 
 export const coverCollections: readonly string[] = registry.collections;
 export const coverDerivativeNote: string = registry.derivative.note;
@@ -37,7 +38,7 @@ export function allCovers(): readonly SuttaCover[] {
 
 /** The cover for a sutta with its image module, or undefined when it has none. */
 export function coverFor(uid: string): (SuttaCover & { image: ImageMetadata }) | undefined {
-  const cover = covers.find((entry) => entry.uid === uid);
+  const cover = coverByUid.get(uid);
   const image = cover && files[`/${cover.asset}`]?.default;
   return cover && image ? { ...cover, image } : undefined;
 }

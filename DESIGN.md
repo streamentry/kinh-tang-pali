@@ -26,8 +26,9 @@ Nét đẹp đến từ tỷ lệ chữ, khoảng trắng và sự nhất quán,
   hero và tranh Thầy Minh Tuệ ở mục tri ân. Giữ nguyên hình, không tạo hào quang,
   không ghép hình hay diễn giải hình tượng thành chứng cứ về quả vị. Lời tri ân giữ
   nguyên giọng người biên tập và nằm trước phần nguồn.
-- Ngoại lệ thứ hai, cũng do người biên tập yêu cầu ngày 2026-10-10: **mỗi bài Trường Bộ và
-  Trung Bộ có một ảnh bìa riêng** (186 bài). Các bộ khác chưa có ảnh bìa. Quy tắc ở §6.1.
+- Ngoại lệ thứ hai, do người biên tập yêu cầu: **mỗi bài Trường Bộ và Trung Bộ có một ảnh bìa
+  riêng** (186 bài), và các bộ Tăng Chi Bộ, Tương Ưng Bộ, Tiểu Bộ cũng có ảnh bìa WebP từ
+  Wikimedia Commons (cho phép các bài gần hoặc liên quan trong cùng bộ dùng chung ảnh). Quy tắc ở §6.1.
 
 ## 2. Cơ sở kỹ thuật đang áp dụng trong năm 2026
 
@@ -66,7 +67,7 @@ kinh văn, nguồn, giấy phép và lịch sử chất lượng có mặt trong
 | `src/layouts/Base.astro` | Điều hướng, skip link, metadata và footer chung |
 | `source/visual-assets.json` | Nguồn, tác giả, điều khoản và SHA-256 từng hình trang chủ |
 | `src/assets/home/` | Bản hình gốc đã kiểm tra, tối ưu WebP responsive qua `HomeImage.astro` |
-| `source/sutta-covers.json` | Ảnh bìa DN/MN: tệp Commons, tác giả, giấy phép, SHA-1 bản gốc, SHA-256 bản lưu, chú thích, alt, điểm lấy nét |
+| `source/sutta-covers.json` | Ảnh bìa bài kinh: tệp Commons, tác giả, giấy phép, SHA-1 bản gốc, SHA-256 bản lưu, chú thích, alt, điểm lấy nét |
 | `scripts/sutta-covers.mjs` | Tải ảnh bìa, đối chiếu lại giấy phép và SHA-1 với Commons, sinh WebP 1600px; `--check` chạy trong `design:check` |
 | `src/assets/covers/` | Bản WebP đã kiểm của từng ảnh bìa; Astro sinh 640–1600px khi build |
 | `src/components/SuttaMasthead.astro` | Ảnh bìa, tiêu đề, tên Pāli, dòng thông tin của trang đọc |
@@ -168,14 +169,16 @@ chữ ký, không phủ text lên hình, không dùng filter để giả màu t�
 hotlink và ảnh gốc nhiều megabyte trên điện thoại. Nguồn/điều khoản của hình vẫn
 độc lập với giấy phép code, bản dịch và font; trang Nguồn phải đọc từ registry.
 
-### 6.1 Ảnh bìa bài kinh (DN, MN)
+### 6.1 Ảnh bìa bài kinh (DN, MN, SN, AN, KN)
 
 Mục đích: cho mỗi bài một gương mặt riêng, giúp người đọc nhận ra bài và bối cảnh, với
 không khí tĩnh lặng, trang nghiêm — có định có tuệ — chứ không phải trang trí.
 
 - **Nguồn duy nhất là Wikimedia Commons**, chỉ nhận phạm vi công cộng, CC0, CC BY, CC BY-SA.
   Loại NC, ND, GFDL đơn lẻ, giấy phép không rõ, ảnh có hình mờ hay chữ, ảnh do AI tạo.
-  Mọi giấy phép CC BY* phải có tác giả. Mỗi tệp Commons dùng cho đúng một bài.
+  Mọi giấy phép CC BY* phải có tác giả. Ở DN và MN mỗi tệp Commons dùng cho đúng một bài;
+  ở AN, SN và KN các bài gần hoặc liên quan trong cùng phẩm/nhóm có thể dùng chung một ảnh
+  và cùng bản lưu WebP. Không dùng lại ảnh giữa các bộ kinh khác nhau.
 - **Ưu tiên**: phù điêu, bích họa cổ đúng tích của bài (Bharhut, Sāñcī, Gandhāra, Amarāvatī,
   Ajanta, Borobudur…), rồi ảnh thánh tích đúng nơi bài kinh được thuyết (Linh Thứu, Kỳ-đà Lâm,
   Câu-thi-na, Vương Xá…), rồi hình ảnh đúng ví dụ hay chủ đề của bài. Giọng Theravāda:

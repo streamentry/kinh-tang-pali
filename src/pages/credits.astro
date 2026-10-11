@@ -118,6 +118,13 @@ const terms = (license: ReferenceEdition['license']): string => {
 // The content licence is declared once, in the lock. Reading it here rather than typing it
 // means the table cannot claim terms the rest of the repository no longer holds.
 const projectLicense = projectContentLicense();
+const coverGroupMap = new Map<string, ReturnType<typeof allCovers>[number][]>();
+for (const cover of allCovers()) {
+  const list = coverGroupMap.get(cover.asset) ?? [];
+  list.push(cover);
+  coverGroupMap.set(cover.asset, list);
+}
+const coverGroups = [...coverGroupMap.values()];
 ---
 
 <Base title="Nguồn, giấy phép và ghi công · Kinh Tạng Pāli Việt" description="Tra cứu edition Pāli đã ghim, người dịch, nguồn phân phối và giấy phép của từng lớp tham khảo trong Kinh Tạng Pāli Việt.">
@@ -257,7 +264,7 @@ const projectLicense = projectContentLicense();
     <section class="section-heading" id="anh-bia">
       <h2>Ảnh bìa bài kinh</h2>
       <p class="hint">
-        {allCovers().length} bài Trường Bộ và Trung Bộ có ảnh bìa, khai trong
+        {allCovers().length} bài kinh có ảnh bìa ({new Set(allCovers().map((c) => c.asset)).size} ảnh WebP từ Wikimedia Commons), khai trong
         <code>source/sutta-covers.json</code>. Mỗi ảnh lấy từ Wikimedia Commons và giữ tác giả,
         điều khoản riêng của nó — không thuộc CC0 của bản dịch hay MIT của mã nguồn. Ảnh chỉ là
         minh họa bối cảnh, không phải chứng cứ lịch sử về sự kiện trong kinh. {coverDerivativeNote}
@@ -268,14 +275,21 @@ const projectLicense = projectContentLicense();
           <table class="credit-table">
             <thead><tr><th scope="col">Bài</th><th scope="col">Ảnh</th><th scope="col">Tác giả</th><th scope="col">Giấy phép</th></tr></thead>
             <tbody>
-              {allCovers().map((cover) => (
-                <tr>
-                  <td><a href={withBase(`sutta/${cover.collection}/${cover.uid}/`)}>{cover.uid.toUpperCase()}</a></td>
-                  <td><a href={cover.sourcePage} target="_blank" rel="noopener noreferrer">{cover.titleVi} ↗</a></td>
-                  <td>{cover.author ?? 'không rõ'}</td>
-                  <td>{cover.licenseUrl ? <a href={cover.licenseUrl} rel="license noopener noreferrer" target="_blank">{licenceLabel(cover)}</a> : licenceLabel(cover)}</td>
-                </tr>
-              ))}
+              {coverGroups.map((list) => {
+                const cover = list[0];
+                const last = list[list.length - 1];
+                return (
+                  <tr>
+                    <td>
+                      <a href={withBase(`sutta/${cover.collection}/${cover.uid}/`)}>{cover.uid.toUpperCase()}</a>
+                      {list.length > 1 && <span>–{last.uid.toUpperCase()} ({list.length})</span>}
+                    </td>
+                    <td><a href={cover.sourcePage} target="_blank" rel="noopener noreferrer">{cover.titleVi} ↗</a></td>
+                    <td>{cover.author ?? 'không rõ'}</td>
+                    <td>{cover.licenseUrl ? <a href={cover.licenseUrl} rel="license noopener noreferrer" target="_blank">{licenceLabel(cover)}</a> : licenceLabel(cover)}</td>
+                  </tr>
+                );
+              })}
             </tbody>
           </table>
         </div>

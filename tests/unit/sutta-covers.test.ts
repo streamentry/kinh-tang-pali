@@ -22,18 +22,54 @@ const covers: Cover[] = registry.covers;
 const catalogUids = (code: string): string[] =>
   JSON.parse(readFileSync(`content/catalog/sutta/${code}.json`, 'utf8')).texts.map((text: { uid: string }) => text.uid);
 
-test('every Dīgha and Majjhima sutta has exactly one cover, and no other collection has one', () => {
-  assert.deepEqual(registry.collections, ['dn', 'mn']);
-  const expected = [...catalogUids('dn'), ...catalogUids('mn')].sort();
-  assert.deepEqual(covers.map((cover) => cover.uid).sort(), expected);
-  for (const cover of covers) assert.ok(registry.collections.includes(cover.collection), cover.uid);
+test('every Dīgha and Majjhima sutta has a cover, and every cover UID is in its collection catalogue', () => {
+  for (const required of ['dn', 'mn']) {
+    assert.ok(registry.collections.includes(required), required);
+    const actual = covers.filter((cover) => cover.collection === required).map((cover) => cover.uid).sort();
+    assert.deepEqual(actual, catalogUids(required).sort());
+  }
+  const catalogByCollection = new Map<string, Set<string>>(
+    registry.collections.map((code: string) => [code, new Set(catalogUids(code))]),
+  );
+  const seenUids = new Set<string>();
+  for (const cover of covers) {
+    assert.ok(!seenUids.has(cover.uid), `${cover.uid}: duplicate cover entry`);
+    seenUids.add(cover.uid);
+    assert.ok(registry.collections.includes(cover.collection), cover.uid);
+    assert.ok(catalogByCollection.get(cover.collection)?.has(cover.uid), `${cover.uid}: not in ${cover.collection} catalogue`);
+  }
 });
 
-test('no Commons file is reused across suttas', () => {
-  const files = covers.map((cover) => cover.file);
-  assert.equal(new Set(files).size, files.length);
-  const hashes = covers.map((cover) => cover.originalSha1);
-  assert.equal(new Set(hashes).size, hashes.length, 'two titles for the same original');
+test('no Commons file is reused in Dīgha/Majjhima or across different collections', () => {
+  const dnMnCovers = covers.filter((cover) => cover.collection === 'dn' || cover.collection === 'mn');
+  assert.equal(new Set(dnMnCovers.map((cover) => cover.file)).size, dnMnCovers.length);
+  assert.equal(new Set(dnMnCovers.map((cover) => cover.originalSha1)).size, dnMnCovers.length, 'two titles for the same original');
+
+  const collectionByFile = new Map<string, string>();
+  const collectionBySha1 = new Map<string, string>();
+  const primaryByFile = new Map<string, Cover>();
+  for (const cover of covers) {
+    const prevCollection = collectionByFile.get(cover.file);
+    if (prevCollection) {
+      assert.equal(prevCollection, cover.collection, `${cover.uid}: ${cover.file} reused across collections`);
+    } else {
+      collectionByFile.set(cover.file, cover.collection);
+    }
+    const prevSha1Collection = collectionBySha1.get(cover.originalSha1);
+    if (prevSha1Collection) {
+      assert.equal(prevSha1Collection, cover.collection, `${cover.uid}: SHA-1 reused across collections`);
+    } else {
+      collectionBySha1.set(cover.originalSha1, cover.collection);
+    }
+    const primary = primaryByFile.get(cover.file);
+    if (!primary) {
+      primaryByFile.set(cover.file, cover);
+      assert.equal(cover.asset, `src/assets/covers/${cover.collection}/${cover.uid}.webp`, cover.uid);
+    } else {
+      assert.equal(cover.asset, primary.asset, `${cover.uid}: shared cover must share derivative asset`);
+      assert.equal(cover.sha256, primary.sha256, `${cover.uid}: shared cover must share derivative sha256`);
+    }
+  }
 });
 
 test('covers carry only terms the project may republish, with an author where required', () => {
@@ -48,10 +84,16 @@ test('covers carry only terms the project may republish, with an author where re
 });
 
 test('each stored derivative is on disk and matches its recorded SHA-256', () => {
+  const hashByAsset = new Map<string, string>();
   for (const cover of covers) {
-    assert.equal(cover.asset, `src/assets/covers/${cover.collection}/${cover.uid}.webp`);
-    assert.ok(existsSync(cover.asset), cover.asset);
-    assert.equal(createHash('sha256').update(readFileSync(cover.asset)).digest('hex'), cover.sha256, cover.uid);
+    assert.match(cover.asset, new RegExp(`^src/assets/covers/${cover.collection}/[^/]+\\.webp$`), cover.uid);
+    let actualHash = hashByAsset.get(cover.asset);
+    if (!actualHash) {
+      assert.ok(existsSync(cover.asset), cover.asset);
+      actualHash = createHash('sha256').update(readFileSync(cover.asset)).digest('hex');
+      hashByAsset.set(cover.asset, actualHash);
+    }
+    assert.equal(actualHash, cover.sha256, cover.uid);
   }
 });
 
