@@ -260,3 +260,25 @@ Nhật ký append-only. Registry `content/audio/progress.json` được đối s
 - Index14 retry ASR0.9648/284 tokens recognizes the saw example. Index7 remains0.4289/301 expected vs944 heard,309.84s;25 overlapping windows recognize repeated out-of-plan narrative. Index12 remains0.5431/283 expected vs111 heard,38.92s; three overlapping windows still miss the burning-grass/Ganges example. ASR is not authority; no human listening completed.
 - MN21 is `blocked`, reviewpending, no R2 upload, metadata or player. Local attempt0/attempt1 and QC reports remain ignored. Detailed method/timing: `docs/audio-qc-mn21.md`.
 - Checkpoint records0 newly successful audio files and1 blocked UID; no MP3/WAV/QC cache enters Git. Two requested QC worktrees were used; workspace credit exhaustion interrupted follow-up, so coordinator completed index0–7 QC locally.
+
+### MN21 blocked-checkpoint merge and production readback
+
+- PR [#498](https://github.com/streamentry/kinh-tang-pali/pull/498) was opened at exact head `f2307df0d76721753cd62de0398ed0947d9aeac3`; push CI run38131548193 and pull-request CI run38131576734 both succeeded. Squash merge `a24ab2e495b0b11425458650f33fc0b47a4348a4` completed2026-10-11T10:36:53Z.
+- Pages deployment run38132579399 succeeded for that merge commit. Production `/sutta/mn/mn21/` still shows the published Việt 2026 text; browser readback found0 `<audio>` elements and no player, as expected because MN21 has no R2 registration. Source review is not audio/content approval.
+
+### MN22 upload/local-player checkpoint — batch mn-016
+
+- MN22 source `80bf4214d59c3060b8aa05a0303dde668cc55d0e2614b9759ec79205c8efc67d`; 357 canonical segments,26chunks; profile `vi-charon-mn1-v1` unchanged. Summary precedes scripture. Production marks the source published.
+- Two bounded retries, one each for indexes24 (`mn22:44.2–47.3`) and2 (`mn22:1.1–3.6`), preserved attempt0/attempt1 locally and reused other valid WAVs. Final offline ASR covered26/26 chunks, similarity range0.8036–0.9934. Retry24 improved0.3200→0.9408 (304/304 tokens), seven windows preserve expected outcomes; retry2 improved0.8427→0.8908 (283 expected/285 heard), seven windows recognize the repeated response. Some ASR differences remain in Pāli names/repetitive phrases; no full human listening, reviewpending.
+- Final MP3 SHA-256 `f062adda04f29ab2d040faec0a5c2e4cba763d4fbbb33b1bc53bee490a3bf606`,49,866,720bytes,2493.27s; scripture starts171.87s. R2 public MIME/hash/bytes/range206 passed; final key `vi/mn/mn22/f062adda04f29ab2.mp3`.
+- Browser local preview verified the real final R2 file: play/pause, +15s seek, scripture jump171.87s; readyState4, mediaError null. Registered player metadata, progress `uploaded-verified`, review pending. Production stays unchanged until the batch PR.
+- The earlier intermediate R2 key `vi/mn/mn22/7249225bfd3d757e.mp3` remains an unreferenced public object; no delete was requested. The two parallel QC threads ran out of workspace credits; coordinator completed the full local ASR and retained the separate ignored cache/report.
+- MN22 is1 newly uploaded-verified file in batch mn-016; blocked MN21 remains uncounted. No MP3/WAV/cache enters Git. Detailed QC: `docs/audio-qc-mn22.md`.
+
+### MN23 upload/local-player checkpoint — batch mn-016
+
+- MN23 source `9c25ae34c6591825dd1b9ad36b1183e3d93460e64c43eaec4c56944dc36bdbba`; 102 canonical scripture segments, summary 1.948 characters, 7 chunks; profile `vi-charon-mn1-v1` unchanged. Production source is published.
+- Full offline ASR covered 7/7 chunks with final similarity range 0.9263–0.9643. One bounded retry on index 5 (`mn23:4.16–4.35`) improved 0.8664→0.9562 and 297/297 tokens; the doubt/forked-path explanation and five-hindrances/strainer sequence now appear in order. No human full listening; review pending.
+- Final MP3 SHA-256 `6fa53ffdd30fbd0863e94834fc0b8445ddb0f03cd0e93360936ece26bfa7068f`, 12.569.760 bytes, 628,42 s; scripture begins at 149,83 s. R2 MIME/hash/bytes/range 206 passed; final key `vi/mn/mn23/6fa53ffdd30fbd08.mp3`.
+- Full `npm run build` passed; 6.146 static pages built and Pagefind indexed 6.137 pages. Local preview played the final R2 source, the “Kinh văn 2:29” selector sought to slider 150 s (rounding from 149,83), and pause worked. Progress is `uploaded-verified`, review pending; production awaits the checkpoint PR and Pages deployment.
+- This checkpoint contains 2 newly uploaded-verified files (MN22 and MN23) and 1 blocked UID (MN21, not counted). PR cadence is shortened so each small audio batch reaches production sooner; no MP3/WAV/cache is in Git. Detailed QC: `docs/audio-qc-mn23.md`.
