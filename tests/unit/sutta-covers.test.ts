@@ -22,8 +22,8 @@ const covers: Cover[] = registry.covers;
 const catalogUids = (code: string): string[] =>
   JSON.parse(readFileSync(`content/catalog/sutta/${code}.json`, 'utf8')).texts.map((text: { uid: string }) => text.uid);
 
-test('every Dīgha and Majjhima sutta has a cover, and every cover UID is in its collection catalogue', () => {
-  for (const required of ['dn', 'mn']) {
+test('every Dīgha, Majjhima, Saṁyutta, and Aṅguttara sutta has a cover, and every cover UID is in its collection catalogue', () => {
+  for (const required of ['dn', 'mn', 'sn', 'an']) {
     assert.ok(registry.collections.includes(required), required);
     const actual = covers.filter((cover) => cover.collection === required).map((cover) => cover.uid).sort();
     assert.deepEqual(actual, catalogUids(required).sort());
