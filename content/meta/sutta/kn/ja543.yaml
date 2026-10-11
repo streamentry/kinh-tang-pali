@@ -1,49 +1,83 @@
 uid: ja543
-status: draft
+status: review
 translationTitle: "Kinh Bhūridatta"
 translators:
-  - "OpenCode Space Bunny Free (agent)"
+  - "Claude Sonnet 5.5 (Claude Code)"
 reviewers: []
 tags:
-  - "khuddakanikaya"
+  - "khuddaka-nikaya"
   - "jataka"
-  - "verse"
-  - "mahānipāta"
-  - "te-le"
+  - "mahanipata"
+  - "mugapakkhavagga"
+  - "bhuridattajataka"
 quality:
   scores:
-    source_provenance: 9.6
-    semantic_fidelity: 9.5
-    grammar_logic: 9.4
-    segment_alignment: 10.0
-    terminology: 9.4
-    triangulation: 8.5
-    vietnamese_clarity: 9.5
-    han_viet_balance: 9.3
-    ambiguity_integrity: 9.4
-    technical_integrity: 10.0
-  final_score: 9.46
+    source_provenance: 9.4
+    semantic_fidelity: 7.9
+    grammar_logic: 7.6
+    segment_alignment: 9.8
+    terminology: 8.3
+    triangulation: 7.5
+    vietnamese_clarity: 8.0
+    han_viet_balance: 9.0
+    ambiguity_integrity: 8.6
+    technical_integrity: 9.6
+  final_score: 8.57
   blocking_errors:
-    - "Bản dịch chỉ phủ 1 khoá có nội dung; lát được chia bằng bộ lọc coverage 40 ký tự thay vì missingAll nên bài thiếu khoá, validate yêu cầu requireComplete."
-  assessed_at: "2026-09-30"
+    - "noEnglishEditionUpstream: Thiếu bản dịch tiếng Anh đối chiếu. Tầng
+      english-sujato tại commit đã ghim không có
+      ja543_translation-en-sujato.json (ja chỉ có 83 tệp: ja1–79, ja126, ja159,
+      ja466, ja534; đây là not-published-upstream, không phải not-synced), tầng
+      vietnamese-current chỉ có Pháp Cú và lớp english-project không có tệp cho
+      bài này. Cả ba tầng tham khảo đều vắng nên triangulation bị chặn ở 7.5 (≤
+      8.0) và bài giữ draft."
+  assessed_at: "2026-10-11"
   assessed_by:
-    - "OpenCode Space Bunny Free (agent)"
+    - "Claude Sonnet 5.5 (Claude Code)"
+  waiver:
+    id: no-upstream-english
+    blockers:
+      - "noEnglishEditionUpstream: Thiếu bản dịch tiếng Anh đối chiếu. Tầng
+        english-sujato tại commit đã ghim không có
+        ja543_translation-en-sujato.json (ja chỉ có 83 tệp: ja1–79, ja126,
+        ja159, ja466, ja534; đây là not-published-upstream, không phải
+        not-synced), tầng vietnamese-current chỉ có Pháp Cú và lớp
+        english-project không có tệp cho bài này. Cả ba tầng tham khảo đều vắng
+        nên triangulation bị chặn ở 7.5 (≤ 8.0) và bài giữ draft."
 notes: |-
-  **Chỉ một khoá trong lát này.** Bài có nhiều khoá hơn, nhưng `kiểm` của `_hvi.py` chỉ đòi phủ những khoá Pāli dài **≥ 40 ký tự** và không phải khoá đánh số phần `:N.0`; đếm trên tầng Pāli thì đúng **một** khoá rơi vào điều kiện đó, và đó là khoá được giao. Các vế kệ còn lại, dòng tiêu đề `:0.1`–`:0.4` và dòng kết bài không nằm trong lát, tôi **không** dịch và **không** tự thêm vào tệp.
-  **Tầng tham khảo đã đo, không đoán.** Tại commit đã ghim, bài này có 0 segment tiếng Anh Sujato; và tầng Việt hiện hành (`translation/vi/phantuananh/`) tại cùng commit chỉ có 26 tệp Pháp Cú, nên **không** có bản Hòa thượng Thích Minh Châu để đối chiếu. Vì vậy `triangulation` đặt 8,5: dịch từ Pāli root, đối chiếu cú pháp qua từ điển và qua bối cảnh trong chính bài. Đây là đặc điểm của bản chụp upstream, không phải thiếu hàng của kho.
-  **Tra tiền lệ (đếm được):** `disa` (phương, hướng) → *phương*, và bốn phương vị →
-  *Đông / tây / nam / bắc*. Tiền lệ rõ nhất: `an4.28:5.2` "nếu sống ở phương Tây",
-  `an4.28:5.4` "nếu sống ở phương Nam", `mn129:35.3` "chuyển về phương Đông". Vì vậy
-  tôi viết hoa chữ đầu của phương vị đứng đầu (*phương Đông*) như tiền lệ đã làm.
-  **Bối cảnh đã đọc trước khi dịch:** `140.1`–`140.2` nói các Bà-la-môn thông
-  `vāsava` tế lễ khắp mặt đất, `140.4` nói `Saṁvijjamānā janayanti vedaṁ` — tức là
-  *ngay trong lúc thờ phụng*, chứ không phải đi từ phương này sang phương khác. Vì vậy
-  `Purimaṁ disaṁ pacchimaṁ dakkhiṇuttaraṁ` là **tứ phương** một lượt, tôi dịch thành
-  danh sách bốn hướng chứ không thành động từ "đi tới".
-  **Không nhân bản chữ "phương":** Pāli chỉ có `disa` **một lần** cho cả bốn hướng; nếu
-  viết "phương Đông, phương Tây, phương Nam, phương Bắt" thì thêm ba chữ không có
-  trong nguồn. Tôi giữ đúng một chữ "phương" cho cả vế, và bốn hướng vẫn không nhập
-  nhằng.
-  **0 tiền lệ, đặt mới:** `brāhmaṇā` → *các Bà-la-môn* (`an1.10:2.3` "bà-la-môn
-  Pārāsariya" đã có); `vāsava` (thông kinh) → 0 tiền lệ riêng ở khoá này, tôi lược vì
-  không nằm trong lát.
+  Dịch trực tiếp từ Pāli root snapshot bilara đã ghim, đường dẫn `kn/ja/ja543_root-pli-ms.json` (815/815 khoá, đúng thứ tự Pāli, không khoá thừa). Bản trước trong kho chỉ có một khoá (`140.3`); khoá ấy được giữ nguyên vì khớp ngữ cảnh, 814 khoá còn lại được dịch mới từ Pāli. Bài toàn kệ: bốn dòng tiêu đề `0.1`–`0.4`, 204 bài kệ đánh số `1`–`204` (sáu bài chỉ có dấu lược Pāli `(…)` ở `14`, `39`, `67`, `113`, `126`, `189`) và dòng kết bài `205.1`; phần văn xuôi khung truyện không nằm trong tầng Pāli đã ghim, nên người nói được suy từ xưng hô, nháy và mạch của chính các bài kệ. Nội dung chính (suy từ kệ): Dhataraṭṭha, vua loài rồng, đòi cưới con gái vua Brahmadatta xứ Kāsi và cho rồng vào vây Bārāṇasī cho đến khi vua gả (`1`–`14`); Bhūridatta, con của hai người, giữ ngày trai giới trên đống mối, gặp một Bà-la-môn đi săn, mời xuống cõi rồng, đưa viên ngọc cõi trời và hứa ban của cải, vị Bà-la-môn cáo từ (`15`–`39`); sau đó vị Bà-la-môn đi săn thương lượng về một viên ngọc với Alampāna, người trừ độc rắn, rồi chỉ chỗ Bhūridatta nằm cho Alampāna bắt; con ông là Somadatta can cha và bỏ đi (`40`–`66`); mẹ Bhūridatta mơ thấy mất cánh tay phải, các anh em Sudassana, Ariṭṭha, Subhoga đi tìm (`68`–`88`); Subhoga thách Alampāna đấu ở nơi hội chúng bằng Ajamukhī, em gái khác mẹ của mình (`89`–`113`); đoạn đối thoại giữa Subhoga và vị Bà-la-môn đã phản bạn, về thành của Dhataraṭṭha dưới sông Yamunā (`114`–`126`), rồi cuộc tranh luận giữa Ariṭṭha và Subhoga về Veda, lửa, lễ tế giết vật và đẳng cấp (`127`–`188`); cuối cùng người ta hỏi về đoàn tùy tùng rực rỡ đang đến và được đáp rằng họ là các rồng con của Dhataraṭṭha và Samuddajā (`190`–`204`). Phần này không được đối chiếu với văn xuôi nào, nên các dòng tả cảnh và tả người nói dựa hoàn toàn vào kệ.
+  - Tầng tham khảo:
+    Tầng English của Sujato không có ja543 (ja chỉ có 83 tệp: ja1–79, ja126, ja159, ja466, ja534; đây là not-published-upstream, không phải not-synced); tầng Việt hiện hành chỉ có Pháp Cú; lớp `english-project` chưa có tệp cho bài này. Chỉ có thể dựa vào Pāli, tiền lệ Việt của tầng và bối cảnh của chính bài. Tiền lệ Việt trong tầng do cùng một nhóm dịch, nên không phải đối chiếu độc lập; tôi không dùng bản tóm lược hay bản dịch ngoài tầng đã ghim làm câu chữ hay đối chiếu. Vì vậy `triangulation` 7.5 và bài giữ `draft` với blocker `noEnglishEditionUpstream`. Nhiều bài kệ ở đây có chỗ hiểu khó, được liệt kê ở mục bất định; chúng làm `semantic_fidelity` và `grammar_logic` thấp hơn các bài kệ ngắn cùng bộ.
+  - Coverage English:
+    Mẫu số = 0: trong 815 khoá, không khoá nào có Pāli từ 40 ký tự trở lên (bỏ khối `:0`) theo `source/layers.yaml` (toàn vế kệ ngắn), nên cổng coverage không đo được gì ở bài này. Điều đó không có nghĩa là không cần ghi nhận gap; entry `reference-gaps.yaml` cũng không cứu được `published`. Sujato phủ 0/815 khoá, `english-project` 0/815, `vietnamese-current` 0/815.
+  - Phân loại & tiêu đề:
+    + `0.1` "Jātaka"; `0.2` "Bộ Lớn" và `0.3` "Phẩm Mūgapakkha" dùng nguyên văn `ja540:0.2`/`ja540:0.3` và `ja544:0.2`/`ja544:0.3`; `0.4` "6. Kinh Bhūridatta" theo khuôn "n. Kinh <Tên>" của `ja544:0.4` ("7. Kinh Candakumāra") và `ja538:0.4`; `205.1` "Kinh Bhūridatta, thứ sáu." theo khuôn `ja544:172.1`, `ja540:126.1`; `chaṭṭhaṁ` = thứ sáu, khớp "6." ở `0.4`. Tên Bhūridatta giữ phiên âm như `cp12:0.4` ("Hạnh Của Long Vương Bhūridatta") và tên các bài cùng phẩm.
+  - Người nói (Pāli không ghi tên; suy từ xưng hô, vị ngữ và nháy, không thêm vào thân kinh):
+    + `1` sứ giả của Dhataraṭṭha; `2` Brahmadatta; `3`–`4` sứ giả; `5`–`6` Brahmadatta; `7`–`9` Dhataraṭṭha; `10`–`13` lời kể; `15`–`16` Bà-la-môn đi săn hỏi Bhūridatta; `17`–`21` Bhūridatta; `22`–`26` Bà-la-môn; `27`–`28` Bhūridatta; `29`–`30` Bà-la-môn; `31`–`33` Bhūridatta; `34` Bà-la-môn; `35` Bhūridatta; `36` Bà-la-môn; `37.3`–`37.4` Bhūridatta sai bốn người; `38` lời kể; `40` người hỏi về viên ngọc; `41` người giữ ngọc đáp; `42`–`44` người muốn mua; `45` người giữ ngọc; `46` người muốn mua; `47`, `49`, `51`–`54` người giữ ngọc, tự xưng Alampāna ở `54.4`; `48`, `50` người hỏi Alampāna; `55` Bà-la-môn đi săn nói với con; `56`–`57` Somadatta; `58` cha; `59`–`60` Somadatta; `61` cha; `62` Somadatta; `63` lời kể; `64`–`65` Bà-la-môn đi săn nói với Alampāna; `66` lời kể; `68`–`70` Sudassana hỏi mẹ; `71`–`75` mẹ Bhūridatta (Samuddajā); `76` lời kể; `77`–`81` các phụ nữ của Bhūridatta; `82`–`83` lời kể; `84` Ariṭṭha hoặc Subhoga; `85`–`86` mẹ; `87`–`88` Sudassana; `89` người hỏi Alampāna; `90`–`91` Alampāna; `92` Subhoga đáp; `93` Alampāna; `94`–`95` Subhoga; `96` nhà vua; `97`–`98` Subhoga; `99` Alampāna; `100`–`101` Subhoga; `102`–`103` Alampāna; `104` Subhoga; `105`–`106` Alampāna; `107`–`112` Subhoga (`110`–`112` nói với vua Brahmadatta); `114` Bà-la-môn bị đưa xuống nước; `115` Subhoga; `116` Bà-la-môn ấy; `117`–`122` Subhoga nói với vị Bà-la-môn phản bạn; `123` Bà-la-môn; `124`–`125` Subhoga; `127`–`140` Ariṭṭha; `141`–`188` Subhoga (nháy mở `141.1`, đóng `188.4`); `190`–`203` người hỏi trong đoàn tùy tùng; `204` người đáp.
+    + Xưng hô: Bhūridatta nói "tôi/ông" với Bà-la-môn; Subhoga nói "ta/ngươi" với Bà-la-môn phản bạn (theo `ja373:3.4`, `ja518:38.1`) và "tôi/ông" với Alampāna; Alampāna nói "tôi/anh" với Subhoga; con nói "cha", "con", mẹ nói "mẹ", "con" (có `amma` ở `84.1`, `87.1`, `tāta` ở `71.1`, `85.1`).
+  - Pāli trùng nguyên văn:
+    Dò Pāli của 815 khoá với toàn bộ Pāli đã ghim (mọi bộ) có bản Việt, loại các khoá dưới 12 ký tự chuẩn hoá: 75 khoá có dạng trùng ở bài khác, tổng 192 cặp, trong đó bản Việt giống hệt (bỏ dấu câu) ở 120 cặp và khác ở 72 cặp. Dùng lại nguyên văn ở 43 khoá: `0.3`, `1.1` (`ja534:95.1`), `5.2` (`ja534:69.4`), `13.3`/`76.3` (`ja540:76.3`), `17.2`/`106.2` (`bv9:1.4`), `24.2` (`vv78:2.2`), `47.2` (`ja530:25.2`), `47.4` (`ja538:74.2`), `51.2` (`ja496:8.2`), `52.1` (`iti68:3.3`), `61.1` (`cnd1:4.1`, `snp5.1:4.1`), `81.1` (`pe1:61.1`), `88.2` (6/6 cặp), `105.2` (3 cặp), `105.4`/`107.4` (`iti26:5.4`, `pv21:74.4`), `121.3` (`ja518:38.1`), `122.2` (`ja373:3.4`), `123.3` (`dhp224:3`), `162.1`–`162.4` (`ja544:54`), `165.2`/`166.2` (3 cặp), `190.1`, `190.3`–`190.4`, `191`, `192`, `193.2`–`193.4`, `194.1` (`ja532:26`–`ja532:30`; `190.2` cũng theo `ja532:26.2`) và `200.4` (`ja503:3.4`); một phần: `10.1`/`38.1` (8/16 cặp), `22.3` (1/3, `thag18.1:13.3`), `46.4` (10/18 cặp), `52.4` (3/8: "không biếng trễ" 3 cặp so với "không mệt mỏi" 4 cặp ở `bv23:12.2`, `thag1.83:1.2`; giữ "biếng trễ" vì Pāli `atandito` là "không lười" và gần nhất là `ja413:2.4`), `68.2` (2/3 cặp), `84.2`/`85.2` (2/3 cặp), `118.2` (3/5 cặp), `120.2` (1/2 cặp), `131.3` (1/2 cặp), `204.2` (2/4 cặp).
+    Cặp khác có lý do: `23.4` (thêm "các hồ sen" vì khoá trước nêu "các hồ"), `24.1` (`vv78:2.1` dịch `aṭṭhaṁsā` thành "Tám phần mười sáu"; ở đây giữ nghĩa "tám cạnh", 8 góc cạnh của cột; chỉ báo, không sửa bài ngoài lát), `28.4` (`cp12:3.4` có "rồi nằm xuống" vì có liên từ), `32.3`/`32.4` (`ja398:5.3`, `ja399:6.3`: người nói và người nghe khác), `34.4` (`ja538:29.4` "ta", ở đây người nói là Bà-la-môn nên "tôi"), `51.1` (`tha-ap214:1.1`, `ja271:1.1` là lời gọi "hỡi vị sa-môn"; ở đây là sở hữu cách), `53.2` (`ja523:3.2` có "vị" vì khoá trước không nêu chủ ngữ; ở đây `53.1` đã có "vị ấy"), `57.4` (`ja533:39.4` gọi "bác"), `63.4` (`ja523:45.4` "nàng"), `69.4` (`ja375:3.2`: người nói khác), `75.3` (`an5.42:4.1` giữ, chỉ thêm "vị" vì đây là đồng vị với Bhūridatta), `76.1` (`ja526:7.1`, `thag4.9:2.1`: "nàng ấy"; ở đây "bà ấy" là mẹ), `83.1` (`ja534:59.1` "lời tuyên bố"; `nigghosa` ở đây là tiếng ồn than khóc, theo `ja544:6.3`), `86.4` (đổi đại từ "mẹ"), `101.2` (`thag20.1:8.2` "ngươi", ở đây "ông"), `107.2` (khoá không có `arahataṁ` ở `107.1` nên thêm "từ"), `111.4` (`ja528:43.2` chỉ có vế "tuyết cũng không rơi" trong câu khác), `169.2` (`ja408:3.2` nằm trong chuỗi "rồi cùng đi"), `183.1` (`ja162:2.3` khác cấu trúc: "vua sư tử, hổ, cùng con hươu").
+    Trong chính bài: 93 cặp Pāli trùng nguyên văn (sau khi bỏ dấu câu); bản Việt giống nhau ở 85 cặp, khác nhau ở 8 cặp, đều có lý do: `50.4`/`99.4` (câu hỏi so với câu khẳng định, và người nói khác nên "ông"/"anh"); `92.2`/`97.3` (`92.2` là vế đấu, `97.3` là vế đi trước động từ "khiến bị cắn"); `105.2`/`107.2` (khác ở `105.1`/`107.1`); `105.6`/`107.6` (Alampāna gọi Subhoga "anh", Subhoga gọi Alampāna "ông"); `114.4`/`124.2` (`ogāḷhaṁ` đứng với "tôi" ở `114`, với "thành" ở `124`); `138.4`/`174.4`/`175.2` giống hệt nhau, còn `176.4` thêm "nói rằng" vì `176.3` nêu chủ ngữ "những người tán dương lễ tế này".
+  - Số Pāli:
+    `pañcahi sahassehi` (`92.4`, `94.4`; `pañcannaṁ sahassānaṁ` `95.3`) = 5 × 1.000 = 5.000; `sataṁ nikkhaṁ` (`44.3`) = một trăm nikkha, không quy đổi; `caturo jane` (`37.2`) và `caturo janā` (`38.2`) = bốn người; `dasa nāriyo` (`15.4`) = mười người nữ; `tīhi ṭhānehi` (`123.3`) = ba điều (người tụng đọc, người chuyên cầu xin, người giữ lửa tế); `sattarattassa` (`88.3`) = bảy đêm; `satta vassāniyaṁ` (`111.3`) = bảy mùa mưa; `sattadhā` (`181.3`) = bảy mảnh; `vassasahassajīvī` (`133.1`) = sống một ngàn năm; `sahassabāhu` (`130.3`) = ngàn tay; `sahassathambhā` (`24.3`) = ngàn cột; `cāpasatāni pañca` (`130.1`) = 5 × 100 = 500 cây cung; `aṭṭhaṁsā` (`24.1`) = tám cạnh; `anekasataporiso` (`19.4`) = nhiều trăm tầm người; `sahassanettassa` (`26.2`) = Đấng Ngàn Mắt (Sakka); `lohitakkhasahassāhi` (`41.1`) = hàng ngàn kẻ mắt đỏ; `tayo vedā` (`185.1`, `186.1`) = ba bộ Veda; `catunnaṁ` (`186.4`) = bốn thứ (mưu lược của sát-đế-lợi cộng ba bộ Veda); `ito māsaṁ` (`71.2`, `77.2`) = một tháng; `purimaṁ disaṁ pacchimaṁ dakkhiṇuttaraṁ` (`140.3`) = bốn phương. Không có cụm thuộc loại `Tiṁsakappasahassa`.
+  - Thuật ngữ (có đếm trên tầng):
+    + `nāga` (loài rồng) → "rồng" (26 khoá ja, "Long vương" 5, giữ "nāga" 3; nghĩa "voi" 52 khoá thuộc từ khác; `ja506`, `cp12`); `uraga`, `ahi` → "rắn" (8/9 khoá ja); `mahānāga` → "đại long"; `supaṇṇa` → "kim sí điểu" (60 khoá ja); `garuḷa` giữ nguyên (6 khoá, so với "kim sí điểu" 6).
+    + `brāhmaṇa` → "Bà-la-môn"; `khattiya` → "sát-đế-lợi" (68 so với giữ "khattiya" 11); `vessa`, `sudda` giữ phiên âm (2 và 1 khoá).
+    + `veda` → "Veda" (111 khoá toàn tầng so với "Vệ-đà" 36; trong ja5xx là 1 so với 2; `ja536` cùng bộ dùng "Veda"); `ajjhāyaka` → "người tụng đọc" (`ja488:6.1`); `yañña` → "lễ tế"/"tế lễ" (84/82 trên 258 khoá; "cúng tế" 11); `mahāyañña` → "đại tế lễ" (`cnd1:4.1`); `yūpa` → "cột tế".
+    + `uposatha` → "trai giới" (`ja489:14.5` cùng Pāli; 15 so với "bố-tát" 2 trong ja); `caṇḍāla` giữ nguyên (18 so với "chiên-đà-la" 17); `milakkhu` → "man di" (4/4 khoá); `bhūnahu` → "kẻ phá hoại sự tăng trưởng" (9 trên 12 khoá, kể cả `ja530:21.1`; "kẻ giết người" 1 khoá).
+    + `maṇi` → "viên ngọc" (36 so với "ngọc" 30); `sela` → "viên đá ngọc" (để phân biệt trong cùng bài); `nikkha` giữ nguyên (10 khoá); `tapassin` → "khổ hạnh" (36/53); `kokila` → "chim tu hú" (42/61); `koñca` → "sếu" (10 so với giữ "koñca" 5); `cakkavāka` giữ nguyên (28 so với "vịt trời" 7); `kambukāyūra` → "vòng xuyến vàng" (`pv24:6.3`, `pv34:2.5`, `ja506:31.1`); `indagopaka` giữ nguyên (`thag18.1:13.3`, `ja482:3.3`); `rahada` → "hồ".
+    + Tên riêng giữ phiên âm: Dhataraṭṭha, Varuṇa, Yamunā, Samuddajā, Brahmadatta, Bārāṇasī, Kāsi, Videha, Bhūridatta, Sudassana, Ariṭṭha, Subhoga, Somadatta, Alampāna (Pāli `54.4`, `97.1`; vocative `Ālampa` ở `92.1`, `101.3` giữ theo Pāli), Ajamukhī, Kosiya, Payāga, Kambala, Assatara (`dn20:11.3`), Mucalinda, Sāgara, Lomapāda, Dudīpa, Ajjuna, Bhīmasena, Vāsava, Maghavā (Sakka/Inda).
+  - Chỗ bất định (không thêm vào thân kinh):
+    + `dvirasaññu` (`143.4`, `149.4`, `179.4`, `188.4`): hapax trong bài; chỉ có `mnd1:27.14` định nghĩa là "nếm vị bằng hai lưỡi", tức con rắn. Dịch "kẻ hai lưỡi" như một cách gọi chê (hợp với `188.4`, nơi nó đứng làm vị ngữ cho chính những người nêu thuyết Veda), không dịch "con rắn" vì ở `149.4` và `179.4` người bị gọi là Bà-la-môn. `dvirasaññurā` ở `188.4` đọc `rā` là hậu tố số nhiều.
+    + `māhu` (`138.4`, `174.4`, `175.2`, `176.4`, `179.4`, `180.4`): đọc "người ta nói" (có thể là `me āhu`, "họ bảo tôi"); `ariyā` (`128.1`, `154.1`) dịch "các bậc cao quý" mà không chỉ rõ là Bà-la-môn, vì `155.4` mới nêu.
+    + `41.1`–`41.4`: `parivāritaṁ` là đối cách nên đọc "viên ngọc được hàng ngàn kẻ mắt đỏ vây quanh"; không phân xử được ai là người đang giữ viên ngọc giữa Alampāna và Bà-la-môn, nên các đại từ ở `40`–`47` chỉ dùng "tôi/ông". `46.1` `tayā` dịch "theo ông"; `47.1` `saṁse` đọc "báo cho tôi biết về".
+    + `49.3` `āsīvisena vitto`: `vitta` có thể là "hài lòng" hoặc "giàu nhờ"; chọn "hài lòng" theo nghĩa thường gặp. `55.3` `daṇḍena`: đọc "hình phạt", không phải "cây gậy". `59.2` `mahissamapi vivarati`: đọc `mahī assa api vivarati` ("đất cũng nứt ra cho kẻ ấy"). `63.3` `ujjhāpetvāna bhūtāni`: đọc "khiến các loài hữu tình phải bất bình". `66.3` `satthuṁ`: đọc "chế ngự".
+    + `70.1` `nābhisasi`: không tìm được tiền lệ trong tầng; dịch "bị điều gì làm khổ" để không nói quá. `95.4` `pāṭibhogo hi kittima`: đọc `kittima` là lời gọi nhà vua ("bậc lừng danh"), căn cứ lời đáp ở `96`; không tìm được tiền lệ cho `kittima` trong tầng.
+    + `114`: `lokyaṁ sajantaṁ udakaṁ … komaṁ ajjhoharī bhūto`: đọc `komaṁ` là `ko maṁ` và "ogāḷhaṁ" đứng với "tôi", cùng khuôn với `139.3`–`139.4` (người tụng đọc rưới nước nơi bờ biển bị đại dương nuốt); `lokya` dịch "thế gian" không giải thích thêm. `116.2` `Kāsissa rañño amarādhipassa`: dịch sát chữ.
+    + `119.2` `piṅgalaṁ santhatāyutaṁ`: dịch "vàng nâu, trải rộng liền khắp"; `199.4` `kuppila` không có tiền lệ nào trong tầng (hapax), giữ nguyên; `104.1`–`104.2` `siluta`, `silābhu` giữ nguyên, chỉ `deḍḍubha` có tiền lệ ("rắn nước", `thig2.3:1.4`).
+    + `127.1` `anittarā ittarasampayuttā` và `127.3` `tadaggarayhañhi`: dịch sát chữ, nghĩa chưa chắc. `141.1` `kalī … kaṭaṁ`: đọc theo nghĩa lượt thua/lượt thắng trong trò xúc xắc; `141.4` `nātivahanti paññaṁ` có hai cách đọc ("không đưa trí tuệ vượt lên" hoặc "không vượt được trí tuệ"). `142.1` `dassa`: đọc "kẻ hung ác". `148.2` `ajjhenamaggiṁ`: đọc "lửa của việc tụng đọc".
+    + `171.1` `akāsiyā`: đọc `akasiyā`, "không làm ruộng"; `171.1`–`171.2` có thể có nghĩa khác. `172.1` `bāhārasi`: đọc `bāhā asi`. `180.1`–`180.4`: `mano manussaṁ ajanesi` đọc "Manu sinh ra loài người" (có thể hiểu "tâm sinh ra người"); `vosaggavibhaṅga` dịch "phân chia theo sự ban phát". `183.2`–`183.4` `porisiyaṁ balena`, `asamā samānā`: đọc "sư tử, hổ, báo có nòi giống không đồng đều, con người thì ngang nhau"; hai cách đọc khác khả dĩ. `185.1`, `186.1` `khattiyamantā`: đọc "mưu lược của sát-đế-lợi", cũng có thể là "thần chú". `187.1`, `188.1` `ibbhā`: đọc "người giàu" (ở `dn3`, `dn27` là lời mạt sát, nghĩa khác).
+    + `116.5`–`116.6` `ohārituṁ` dịch "kéo xuống"; `120.3` `yasasā jalaṁ` giữ theo `an4.15:2.4`. `77.1` `teyye` đọc `te ayye` ("thưa bà"). `89.3` `tāta` ở đây dịch "này bạn" vì người nói và người nghe không phải cha con.
+  - Kiểm kỹ thuật:
+    Sáu khoá chỉ có dấu lược Pāli `(…)` (`14.1`, `39.1`, `67.1`, `113.1`, `126.1`, `189.1`) được giữ nguyên `(…)` đúng như tầng Pāli (không dịch, không bung); phép kiểm cấp lát vì thế báo "(…) trần ở 6 khoá" mà đây là hình thức của nguồn, không phải khoá chưa dịch. Không chạy được `npm run validate`, `npm test`, `npm run check` và `npm run build` trong lát này, nên không tuyên bố technical gate pass; `technical_integrity` đặt 9.6 và bốn lệnh ấy còn phải chạy. Đã tự kiểm: tập khoá Việt = tập khoá Pāli (815/815), nháy đơn và nháy kép khớp Pāli từng khoá (132 dấu nháy, 0 lệch), dấu lược cân bằng Pāli từng khoá (0 lệch), không còn Pāli ngoài tên riêng và vài thuật ngữ giữ phiên âm, NFC sạch.

@@ -14,13 +14,13 @@ quality:
     semantic_fidelity: 8.8
     grammar_logic: 8.9
     segment_alignment: 10.0
-    terminology: 9.0
+    terminology: 8.8
     triangulation: 7.5
     vietnamese_clarity: 9.1
     han_viet_balance: 9.3
     ambiguity_integrity: 9.0
     technical_integrity: 9.6
-  final_score: 9.07
+  final_score: 9.05
   blocking_errors:
     - "noEnglishEditionUpstream: không có tầng tham khảo tiếng Anh tại commit đã
       ghim. Tệp
@@ -65,3 +65,4 @@ notes: |-
   Kiểm chuẩn cho lần soát này: 145 trên 145 khoá khớp tập khoá và thứ tự Pāli; dấu nháy kép khớp Pāli từng khoá (1.1, 25.4, 27.1, 33.4); Pāli không có dấu lược nên Việt cũng không có; NFC; không khoá rỗng; không Pāli lọt sang thân Việt ngoài tên riêng.
   Coverage English: mẫu số 0 (không khoá Pāli nào đạt 40 ký tự), cổng coverage không đo được gì; tầng Sujato phủ 0 khoá, ba tầng tham khảo đều vắng.
   technical_integrity đặt 9.6 vì chưa chạy các cổng của kho trong lần soát này; cần chạy npm run validate, npm test, npm run check và npm run build trước khi chốt trạng thái.
+  Lượt cải thiện 2026-10-11 (kiểm toán đối kháng, đọc lại 145 khoá cặp Pāli–Việt, đối chiếu danh sách lỗi lan của họ Vimānavatthu): (a) Không tìm thấy lỗi nghĩa thật ở thân kinh. Đã kiểm hô cách và người nói: 19.3 devinda và 32.2 muni đọc đúng là hô cách, không bị lặp thành tân ngữ; người nói ở 1–25 là Tôn giả Moggallāna nói với thiên tử (ngài/tôi đúng), 27–33 là thiên tử nói với Tôn giả (tôi đúng), 26 là lời dẫn. Không có cụm Tenamhi/Yaṁ kiñcimaṁ, pokkharaṇī, pahūtamalyā, bhusa-nhìn-xa, kaṭṭhaka hay idha mijjhati trong bài; bhusaṁ ở 24.4 là trạng từ vượt hẳn, đã dịch đúng; pokkharapatta ở 19.4 là lá sen, đúng. Số Pāli tính lại: sahassa 1.000, sata 100, pañcaṅgika năm phần, dasa disā mười, catu bốn, uddāna 36.3–36.4 hai, hai, ba, hai khớp với 14 bài của phẩm đã liệt kê (1+1+1+1+1+2+2+3+2). (b) Sửa 2 khoá, loại accuracy fix nhỏ: 20.1 và 22.3 (Pāli trùng nhau) đổi "Giữa những cây đàn vīṇā êm ái, nhiều vô số này" thành "Giữa nhiều cây đàn vīṇā êm ái này", vì bahūsu chỉ là nhiều, "vô số" nói quá mức Pāli; hai khoá vẫn giống nhau. Điểm tiêu chí không đổi do sửa này. (c) Hạ terminology từ 9.0 xuống 8.8: tiêu đề nhóm Purisavimāna dịch "Nam Hư Không" ở 0.2 và 36.5 là sai, vì Pāli không có ākāsa (cùng lỗi với "Nữ Hư Không" của Itthivimāna, lặp ở khoảng 51 tệp vv); không sửa riêng một tệp để khỏi lệch cả bộ, nhưng ghi nhận ở đây. Đếm khoá có lỗi nghĩa: 0 khoá thân kinh; 2 khoá tiêu đề/uddāna (0.2, 36.5) mang lỗi thuật ngữ hệ thống của cả bộ; 2 khoá (20.1, 22.3) nói quá mức, đã sửa. (d) Nghi ngờ nhưng giữ nguyên có chủ ý: 25.3 "cúi chắp tay" thêm chữ "cúi" so với añjalikamma, nhưng đồng nhất với vv5, vv78, vv81 nên không sửa lẻ; 26.2 "hỏi thăm" cho pucchito (vv54, vv55, vv85 cùng cách, vv60 hỏi han, vv65 gạn hỏi); 26.4 "nghiệp ấy" cho yassa kammassa. Mọi bất định kỹ thuật ở các từ hiếm (kubbara, aṁsa, gumba, nābhi, catukkama, ārohakambū, brahūpamā, samita, saṁvana) vẫn chưa phân xử được vì phần lớn các từ đó chỉ xuất hiện ở vv64 trong nhóm vv (đã quét), nên semantic_fidelity giữ 8.8, ambiguity_integrity giữ 9.0, triangulation giữ 7.5. Blocker noEnglishEditionUpstream giữ nguyên.

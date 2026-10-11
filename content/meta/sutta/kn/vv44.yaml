@@ -1,5 +1,5 @@
 uid: vv44
-status: published
+status: review
 translationTitle: "Chuyện Cung Điện Tinh Xá"
 translators:
   - "Claude Sonnet 5.5 (Claude Code)"
@@ -13,16 +13,16 @@ tags:
 quality:
   scores:
     source_provenance: 9.50
-    semantic_fidelity: 8.80
-    grammar_logic: 8.80
+    semantic_fidelity: 8.70
+    grammar_logic: 8.70
     segment_alignment: 10.00
     terminology: 8.90
     triangulation: 7.50
     vietnamese_clarity: 9.00
     han_viet_balance: 9.20
-    ambiguity_integrity: 9.00
+    ambiguity_integrity: 8.80
     technical_integrity: 9.60
-  final_score: 9.03
+  final_score: 8.99
   blocking_errors:
     - "Không có tầng tham khảo tiếng Anh tại commit đã ghim: bản Anh của Bhikkhu
       Sujato không phát hành tệp nào cho thư mục `sutta/kn/vv/` —
@@ -35,7 +35,7 @@ quality:
       bài bắt buộc `draft`. Đây là giới hạn của bản chụp upstream, không phải
       lỗi của người dịch; `triangulation` bị chặn ở 7.5 (không quá 8.0) và không
       nâng để né blocker."
-  assessed_at: "2026-10-10"
+  assessed_at: "2026-10-11"
   assessed_by:
     - "Claude Sonnet 5.5 (Claude Code)"
   waiver:
@@ -91,3 +91,13 @@ notes: |-
     - Nhóm khoá `2.1–2.4`, `3.1–3.4`: `sabbaso` dịch *khắp cả thân*, nghĩa là *trọn vẹn / mọi mặt*; `savanīyā` ⇒ *đáng nghe*; `manoramā` ⇒ *làm đẹp lòng*.
 
   Bốn lệnh cổng kỹ thuật chưa chạy trong lát này (người dịch bị cấm chạy): `npm run validate`, `npm test`, `npm run check`, `npm run build`. `technical_integrity` đặt 9,6, không phải tuyên bố đã pass cổng. Bài ở trạng thái `draft` do blocker không có tầng tham khảo tiếng Anh, bất kể điểm.
+
+  **Lượt cải thiện 2026-10-11 (kiểm toán đối kháng, đối chiếu từng khoá Pāli↔Việt và các lỗi lan trong họ Vimānavatthu).** Đổi 4 khoá trên 109, không đổi tập khoá hay thứ tự.
+    - `24.3` `Etehi seṭṭhā naravīrasāvakā`: trước *trong số họ, những đệ tử tối thắng…* ⇒ sau *chính những vị này là đệ tử tối thắng của bậc anh hùng loài người,*. Lý do: bản trước đọc `etehi` như cách công cụ/xuất xứ và dựng thành ý *trong số họ có những vị tối thắng* (chia bộ phận), nhưng `etehi seṭṭhā` không cho nghĩa ấy (cách công cụ không đi với `seṭṭha` kiểu đó; cách xuất xứ sẽ thành *hơn những vị này*, vô lý). Chữ `etehi` ở đây là hai chữ `ete hi` nối liền — khớp `eso hi saṅgho` ở `24.1` (cùng cấu trúc *hi*) và khớp khoá `vv34:24.3` cùng câu, mà tệp Pāli ghim ghi tách `Ete hi seṭṭhā`. Đây là lỗi nghĩa thật (nhẹ đến vừa, không đảo ý kinh nhưng đổi mệnh đề khẳng định thành phần chia); đã sửa. `grammar_logic` 8,80 ⇒ 8,70, `semantic_fidelity` 8,80 ⇒ 8,70 vì lỗi này đã lọt qua lượt tự chấm trước.
+    - `2.1`, `3.1` `Tassā te naccamānāya`: bỏ *như thế* (`tassā` chỉ nhắc lại `te`, không nói cách thức múa; chữ thêm là diễn giải ngoài Pāli). Nay *Khi nàng đang múa,*. Điểm không đổi vì đây là chỗ nhỏ.
+    - `23.4` `saṅghe dinnaṁ mahapphalaṁ`: *vật cho nơi Tăng* ⇒ *vật đã cho nơi Tăng* (`dinnaṁ` là quá khứ phân từ; *vật cho* đọc được thành danh từ ghép sai).
+    - Đã đối chiếu và **không đổi**: `7.3` `Devate pucchitācikkha` đã đúng hô cách và đúng mẫu `vv34:7.3`, `vv24:13.3` (không phải lỗi *hãy nói lời hỏi* của `vv22`, `vv29`, `vv30`); `9.2`/`16.2` khác ngôi có chủ ý; `pokkharañño` = *hồ sen* đúng; các lỗi lan trong họ (`Tenamhi…`, `pahūtamalyā`, `bhusa`, `kaṭṭhaka`, `idha mijjhati`) không có mặt trong bài này. Số: *mười sáu do-tuần* (9.3), *một trăm do-tuần* (10.4), *bốn đôi*, *bốn và bốn*, *tám hạng người* (`sataṁ` = của các bậc thiện) đều đúng.
+    - Bất định **còn lại, nay ghi rõ hơn**: `7.1–7.2` `Ghāyase taṁ sucigandhaṁ, rūpaṁ passasi amānusaṁ` — cả hai động từ là ngôi hai số ít chủ động và cả hai tân ngữ là đối cách, nên bản Việt thể bị động không nêu người (*được ngửi thấy / được nhìn thấy*) là diễn giải (đọc ngôi hai như ngôi hai phiếm chỉ), không phải bản dịch từng chữ; chữ sát nhất là *nàng ngửi thấy… nàng nhìn thấy…*, nhưng nghĩa ấy không hợp người nói. Cũng có khả năng văn bản đúng là ngôi nhất (`ghāyāmi … passāmi`); Pāli ghim không cho phép phân xử. Cùng câu ở `vv38:7.1`, `vv39:5.1` đang dịch mệnh lệnh *hãy hít lấy*, `vv50:7.1` dịch giống bài này; ba nơi chưa thống nhất, cần người điều phối quyết một lần cho họ. `8.4` `piyañca metaṁ` chưa phân xử. `22.4` `samāhita`: *đầy đủ* (bài này, `tha-ap430:9.4`) và *vững vàng* (`vv34:22.4`, `pv38:51.4`) chia đôi 2–2, cả hai đọc được; giữ nguyên.
+    - Tiêu đề `0.2` *Chuyện Cung Điện Nữ Hư Không*: chữ *Hư Không* không có trong Pāli (`itthi` = nữ, không có `ākāsa`); là quy ước lan cả họ (44 khoá), không sửa riêng bài này để khỏi lệch cả bộ — cần quyết một lần cho toàn bộ.
+    - Số khoá có lỗi nghĩa thật: **1/109** (`24.3`, loại: đọc sai chữ nối `ete hi`/`etehi`, đổi mệnh đề khẳng định thành chia bộ phận). Thêm **2** khoá thêm chữ ngoài Pāli (`2.1`, `3.1`, loại: thêm diễn giải) và **1** khoá dùng từ gây hiểu lệch nhẹ (`23.4`). **1 cụm** (`7.1–7.2`, hai khoá) là diễn giải ngôi chưa phân xử, giữ và ghi rõ. Không phát hiện lỗi hô cách bị đọc thành tân ngữ, sai người nói, phủ định, số lượng, hay từ/tên vật sai nghĩa. Không thêm blocker mới; blocker không có tầng tham khảo tiếng Anh vẫn nguyên.
+    - Bốn lệnh cổng kỹ thuật vẫn chưa chạy trong lượt này: `npm run validate`, `npm test`, `npm run check`, `npm run build`; `technical_integrity` giữ 9,6.

@@ -1,5 +1,5 @@
 uid: vv15
-status: published
+status: review
 translationTitle: "Chuyện Cung Điện Nữ Uttarā"
 translators:
   - "OpenCode Space Bunny Free (agent)"
@@ -13,16 +13,16 @@ tags:
 quality:
   scores:
     source_provenance: 9.5
-    semantic_fidelity: 9.0
-    grammar_logic: 9.1
+    semantic_fidelity: 8.7
+    grammar_logic: 8.9
     segment_alignment: 10.0
-    terminology: 9.0
+    terminology: 8.6
     triangulation: 7.5
-    vietnamese_clarity: 9.1
-    han_viet_balance: 9.4
-    ambiguity_integrity: 9.1
+    vietnamese_clarity: 9.0
+    han_viet_balance: 9.3
+    ambiguity_integrity: 8.7
     technical_integrity: 9.6
-  final_score: 9.13
+  final_score: 8.98
   blocking_errors:
     - "Không có tầng tham khảo tiếng Anh tại commit đã ghim — toàn bộ
       sub-collection này vắng mặt trong tầng Anh đã ghim
@@ -34,9 +34,9 @@ quality:
       — cũng không hỗ trợ. Lớp lấp `english-project` của dự án không có cho uid
       này. Ba tầng tham khảo đều vắng ⇒ dịch chỉ từ Pāli root. Đây là giới hạn
       upstream, không phải lỗi của người dịch."
-  assessed_at: "2026-10-06"
+  assessed_at: "2026-10-11"
   assessed_by:
-    - "OpenCode Space Bunny Free (agent)"
+    - "Claude Sonnet 5.5 (Claude Code)"
   waiver:
     id: no-upstream-english
     blockers:
@@ -54,3 +54,58 @@ notes: |-
   Dịch từ Pāli root: commit đã ghim không có bản Anh Sujato cho bộ phần này.
   Đợt 16, lát f207 (agent nền thuộc upstream 'Endpoint is unavailable', phiên sập sau khi ghi đủ 56/56 khoá ở 3/4 bài) — coordinator rà lại: key-set khớp 56/56, `lược(vi)==lược(pāli)` 0 lệch theo quy ước `…pe…`=1, cân nháy kép toàn bài sau hai sửa: `vv15:12.4` bỏ `”` thừa, `vv16` thêm 4 dấu `“` mở (vị trí khớp Pāli), `pv51:4.4` gỡ `”ti.` thừa.
   Cổng kỹ thuật CHƯA chạy — coordinator cần chạy đủ bốn lệnh trước khi coi `technical_integrity: 9.6` là đạt: `npm run validate`, `npm test`, `npm run check`, `npm run build`.
+  Lượt cải thiện 2026-10-11 (kiểm toán đối kháng độc lập, đọc từng cặp Pāli↔Việt):
+  KẾT LUẬN: bản trước chấm 9.13 là QUÁ CAO. Đổi 30/56 khoá; trong đó 11 khoá sai nghĩa thật
+  (≈ 20%), 19 khoá lỗi nhẹ (thêm nghĩa, lệch giọng, thì, chính tả). Tiền lệ trong họ `vv`/`pv`
+  (cùng công thức) lặp đúng các lỗi này, nên KHÔNG dùng được làm chỗ tựa; đối chiếu `vv33`,
+  `vv24`, `vv37` (làm đúng) và tầng Việt dự án (`mn15`, `dn25` cho `paḷāsa`).
+  Khoá sai nghĩa thật, đã sửa:
+  · HÔ CÁCH bị đọc thành tân ngữ (2): `3.1` `devi mahānubhāve` = *này thiên nữ có đại oai lực* (bản
+    trước *hỏi ngài… về đại oai lực ấy*); `12.1` `bhikkhu mahānubhāva` = *này tỳ-kheo có đại oai lực*.
+    Theo `vv33:5.1`, `vv33:10.1`.
+  · SAI NGƯỜI NÓI / CHỦ THỂ (1): `12.3` `Tenamhi` = *tena amhi* — nữ thiên nói về mình: *tôi có oai
+    lực*, bản trước viết *ngài có oai lực*.
+  · SAI PHỦ ĐỊNH (1 khoá, ảnh hưởng cả cấu trúc câu): `13.3` `Anacchariyaṁ` = *không lạ lùng*; bản
+    trước *Thật đáng lạ* đảo nghĩa. Đã dịch lại: *Chẳng có gì lạ lùng… nếu Đức Thế Tôn có thể tuyên bố
+    tôi ở một quả Sa-môn nào đó; điều ấy, Đức Thế Tôn đã tuyên bố ở quả Nhất Lai.* (`vv19:12.3` cùng
+    lỗi *Thật đáng lạ* — ngoài lát, báo.)
+  · SAI TỪ VỰNG (5): `7.3` `saññamā` = *tự chế* (không phải *ý thức*; theo `vv24:7.3`, `vv37:8.3`);
+    `8.1` `pāṇātipātā` = *sát sinh* (không phải *sát người*; theo `pv17:18.1`, `pv37:27.3`);
+    `8.3` `aticārā` = *tà hạnh* (không phải *làm quá đà*; theo `vv24:8.3`); `5.1` `paḷāso` =
+    *khinh miệt* (không phải *kiêu ngạo* = `māna`; tầng Việt dự án dịch `paḷāsī` là *khinh miệt* ở `mn15`, `dn25`, `dn33`); `6.3`
+    `pakkha` = *nửa tháng* (6.2 đã dịch đúng `pakkhassa` là *nửa tháng*), không phải *tuần lễ*; bản
+    Anh Sujato của `sn10.5`, `an3.37` = *fortnight of special displays*.
+  · `idha mijjhati` (2): `2.2`, `11.2` → *thành tựu được ở nơi đây* (quyết định đã ghi ở `vv7`; `mijjhati`
+    là *thành tựu*, `idha` không phải tân ngữ).
+  Lỗi nhẹ đã sửa (19): `4.2` *truy hỏi* → *được… hỏi* (`vv7:4.2`); `4.3`/`4.4` `yassa kammassidaṁ
+    phalaṁ` là mệnh đề quan hệ, bản trước làm mất `yassa` — nay *giải đáp về nghiệp mà đây là quả báo*;
+    `5.3` `akkodhanā` *hờn dỗi* → *không nóng giận* (`vv33:64.3`); `7.1` thì: bối cảnh quá khứ
+    (`nāhosi` ở 5.2) nên *đã giữ*; `7.2` bỏ *trong sạch* thêm vào; `7.4` `āvasāmi` *sống trong* (bỏ
+    *lấy… làm nơi ở*); `8.4` theo `vv24:8.4`; `9.1` bỏ *luôn… gìn giữ*; `9.2` bỏ *nhiệm mầu*; `9.3`
+    `upāsikā` là *nữ cư sĩ* (bản trước *đệ tử cư sĩ*); `10.1`/`10.2` bỏ vòng *danh tiếng là bậc có danh
+    tiếng* (nay *Chính tôi, nhờ giới hạnh của mình, nhờ danh tiếng mà lừng danh*); `10.4` `anāmayā`
+    *không bệnh* (bản trước *ít bệnh*); `12.2` `yaṁ` là quan hệ — *phước báu mà tôi đã tạo khi còn làm
+    người* (bản trước đọc thành câu hỏi *…phước báu gì*); `13.2` bỏ *Tôi tên là* thêm vào (Pāli ngôi ba) và
+    `bhante` trong lời nhắn là gọi Thế Tôn: *Bạch Ngài, nữ cư sĩ tên Uttarā…*; `2.3`/`11.3` chính tả
+    *khưởi* → *khởi* (chính tả, 2 khoá).
+  Điểm tiêu chí đổi (từ → sang): semantic_fidelity 9.0→8.7 · grammar_logic 9.1→8.9 · terminology
+  9.0→8.6 · vietnamese_clarity 9.1→9.0 · han_viet_balance 9.4→9.3 · ambiguity_integrity 9.1→8.7 ·
+  source_provenance 9.5, segment_alignment 10.0, triangulation 7.5, technical_integrity 9.6 giữ
+  nguyên. `final_score` 9.13 → 8.98. Blocker `no-upstream-english` GIỮ NGUYÊN.
+  CÒN LẠI, KHÔNG SỬA (đã đo, chỉ ghi):
+  · `0.2` `Itthivimāna` → *Chuyện Cung Điện Nữ Hư Không*: `itthi` = nữ, không có `ākāsa`; tiêu đề lặp ở
+    ~51 tệp — cần người biên tập quyết định chung.
+  · `6.3` `pāṭihāriyapakkha`: *kỳ nửa tháng thần biến* — đơn vị (nửa tháng) có căn cứ, nhưng nghĩa của
+    `pāṭihāriya` ở đây (*thần biến* hay *đặc biệt*) chưa phân xử; `sn10.5:2.3` còn *tuần lễ thần biến*,
+    `an3.37` *kỳ phép nhiệm màu*, `vv19`, `vv22`, `vv23`, `vv25`, `pv39` còn *tuần lễ*. Họ `vv` nay lệch.
+  · `7.1` `upavasissaṁ`: dạng -issaṁ có thể là tương lai hoặc quá khứ; chọn *đã giữ* theo ngữ cảnh,
+    `pv39:21.1` dịch *sẽ giữ*. Không phân xử chắc được.
+  · `13.3` `byākareyya` (khả năng/giả định): dịch *có thể tuyên bố*; cấu trúc `yaṁ… taṁ…` hiểu
+    `taṁ` = *điều ấy* — chắc khoảng 75%.
+  · `2.4`/`11.4` `ye keci manaso piyā` → *dù là gì dễ chịu với tâm* (công thức 22 tệp): `piyā` là *đáng
+    mến*; cách đặt *gì* nghe như câu hỏi — nhẹ, giữ theo công thức. `9.3` *Đấng Có Mắt Tuệ* thêm *tuệ*
+    cho `cakkhumā` — giữ theo công thức (≥ 7 tệp).
+  · NGOÀI PHẠM VI, ĐÃ LẶP LỖI Ở TỆP KHÁC: `vv19`, `vv22`, `vv23`, `vv25` (mọi lỗi 5.1–13.3 tương
+    ứng), cùng `pv13`–`pv16`, `vv18` (hô cách `mahānubhāve`).
+  Cổng kỹ thuật chưa chạy trong lượt này: `npm run validate`, `npm test`, `npm run check`,
+  `npm run build` — `technical_integrity` giữ 9.6.

@@ -1,5 +1,5 @@
 uid: vv1
-status: published
+status: review
 translationTitle: "Chuyện Cung Điện Pīṭha Thứ Nhất"
 translators:
   - "OpenCode Space Bunny Free (agent)"
@@ -12,17 +12,17 @@ tags:
   - "itthivimana"
 quality:
   scores:
-    source_provenance: 9.5
-    semantic_fidelity: 9.0
-    grammar_logic: 9.1
+    source_provenance: 9.2
+    semantic_fidelity: 8.8
+    grammar_logic: 8.9
     segment_alignment: 10.0
-    terminology: 9.0
-    triangulation: 7.5
-    vietnamese_clarity: 9.1
-    han_viet_balance: 9.4
-    ambiguity_integrity: 9.1
+    terminology: 8.4
+    triangulation: 7.0
+    vietnamese_clarity: 8.8
+    han_viet_balance: 9.0
+    ambiguity_integrity: 8.8
     technical_integrity: 9.6
-  final_score: 9.13
+  final_score: 8.85
   blocking_errors:
     - "Không có tầng tham khảo tiếng Anh tại commit đã ghim: tệp
       `.cache/upstream/suttacentral/translation/en/sujato/sutta/kn/vv/vv1_trans\
@@ -41,9 +41,9 @@ quality:
       Ba tầng tham khảo đều vắng ⇒ bài dịch chỉ từ Pāli root ⇒ blocker thật, và
       đây là **giới hạn upstream**, không phải lỗi của người dịch. Vì vậy
       `triangulation` bị chặn ở 7.5 (≤ 8.0) chứ không nâng để né blocker."
-  assessed_at: "2026-10-04"
+  assessed_at: "2026-10-11"
   assessed_by:
-    - "OpenCode Space Bunny Free (agent)"
+    - "Claude Sonnet 5.5 (Claude Code)"
   waiver:
     id: no-upstream-english
     blockers:
@@ -72,3 +72,9 @@ notes: |-
   Bất định còn lại: `kena te idha mijjhati` (3.2) và `tena me idha mijjhati` (7.2) — `idha mijjhati` nghĩa là `được tạo ra ở đây`; dịch `Do đâu nàng có được nơi này` / `nhờ vậy tôi có được nơi này` và giữ hai câu đối xứng nhau, không bịa thêm chủ thể cho `idha`. `Manojavaṁ gacchati yenakāmaṁ` (2.2) và `Alaṅkate malyadhare suvatthe` (2.3) cũng không có tiền lệ.
   Nháy kép: 2.1 mở và 4.4 đóng (lời hỏi của Tôn giả Moggallāna), 6.1 mở và 8.4 đóng (lời đáp của nữ thiên) — cân trên cả bài.
   Cổng kỹ thuật CHƯA chạy — agent dịch không được phép chạy `npm run validate|test|build|check`; coordinator cần chạy đủ bốn lệnh sau trước khi coi `technical_integrity: 9.6` là đạt: `npm run validate`, `npm test`, `npm run check`, và `npm run build`.
+  Lượt cải thiện 2026-10-11 (kiểm toán độc lập, đọc đối kháng từng khoá với Pāli; bản trước tự chấm 9.13, sau kiểm toán 8.85): đã đổi 15/34 khoá, trong đó 12 khoá sai nghĩa thật và 3 khoá lệch nhẹ. Phần "Dùng lại nguyên văn … có tiền lệ" ở trên không còn là bằng chứng đúng: nhiều tiền lệ trong họ `vv` (vv2–vv15, vv18–vv19, vv23) chứa chính các lỗi dưới đây, nên chỉ đối chiếu Pāli mới là căn cứ.
+  Accuracy fix (lỗi nghĩa thật): 2.1 `Pīṭhaṁ` là cái ghế, không phải "nền" → "Chiếc ghế của nàng bằng vàng"; 2.2 `Manojavaṁ gacchati yenakāmaṁ` là ghế đi nhanh như ý nghĩ, đến nơi nào tùy ý muốn (bản cũ bỏ `manojava`, đổi thành "dễ chịu"); 2.3 `Alaṅkate malyadhare suvatthe` là ba hô cách (nàng được trang sức, đeo vòng hoa, mặc y phục đẹp), bản cũ bịa "trên thảm … hoa tươi thơm ngát"; 2.4 `vijjurivabbhakūṭaṁ` = như tia chớp trên đỉnh mây (`abbha` + `kūṭa`), bản cũ "cột trụ hình tia sét" sai vật; 4.1 `devi mahānubhāve` là hô cách, không phải tân ngữ "về đại oai lực ấy" (theo mẫu vv33:5.1); 6.2 `Abbhāgatānāsanakaṁ` = `abbhāgatānaṁ āsanakaṁ`, dâng chỗ ngồi cho khách đến, bản cũ "phẩm vật cho những vị đến xin ăn" (đây là hành vi tạo nên chiếc ghế, và là nghĩa then chốt của cả bài); 6.4 `Yathānubhāvaṁ` = tùy theo khả năng, không phải "theo đúng bậc mỗi người"; 8.1 `bhikkhu mahānubhāva` là hô cách, bản cũ đọc thành tân ngữ; 8.2 `yamakāsi` = `yaṁ akāsiṁ`, phước do CHÍNH nữ thiên làm, bản cũ đảo người nói thành "ngài đã tạo"; 8.3 `Tenamhi` = nhờ đó TÔI, bản cũ "ngài có oai lực"; 3.2 và 7.2 `idha mijjhati` → "thành tựu được ở nơi đây" (bản cũ "có được nơi này" coi `idha` là tân ngữ, mất `mijjhati`).
+  Lệch nhẹ: 5.2 `pucchitā` là "được hỏi", không phải "bị truy hỏi" (theo vv33:6.2); 6.1 bỏ "Thuở trước … là một phụ nữ" (thêm nghĩa) theo đa số "Khi tôi còn làm người giữa loài người"; 6.3 `Abhivādayiṁ añjalikaṁ akāsiṁ` → "đã đảnh lễ và chắp tay" (bản cũ thêm "trước ngực").
+  Điểm đổi: source_provenance 9.5→9.2 (ghi tiền lệ sai là đúng); semantic_fidelity 9.0→8.8 (sau sửa còn bất định ở `mijjhati`, `abbhakūṭa`, `ye keci`); grammar_logic 9.1→8.9; terminology 9.0→8.4 (tên bộ và `Pīṭha` xem dưới); triangulation 7.5→7.0 (không có bản tham khảo độc lập, và bản trước đã trượt chính vì tin vào bản nháp họ vv); vietnamese_clarity 9.1→8.8; han_viet_balance 9.4→9.0; ambiguity_integrity 9.1→8.8. segment_alignment 10.0 và technical_integrity 9.6 giữ nguyên. final_score 8.85 < 9.0.
+  Còn tồn đọng, KHÔNG sửa riêng một tệp để khỏi lệch cả bộ: (a) tiêu đề phẩm `Itthivimāna` → "Chuyện Cung Điện Nữ Hư Không" không có `ākāsa` trong Pāli (lặp ở khoảng 51 tệp vv); (b) `pīṭha` là "ghế" nhưng tiêu đề 0.4/9.1 và `Phẩm Pīṭha` giữ Pāli theo quy ước họ vv — nên quyết một lần cho cả họ; (c) `Yathānubhāvañca adāsi`: `adāsi` là ngôi ba trong khi chủ ngữ là ngôi nhất, hiểu là `adāsiṁ`, không ảnh hưởng nghĩa; (d) `ye keci manaso piyā` (3.4, 7.4) "dù là gì dễ chịu với tâm" giữ theo đa số họ (calque nhưng giữ đủ nghĩa); (e) các tệp vv2–vv4, vv10–vv15, vv18–vv19, vv23 còn nguyên cùng loại lỗi (6.2/6.4 ở vv2; vv3:6.3 và vv4:6.3 `Tassa adāsahaṁ pīṭhaṁ` dịch "bánh nướng"/"lễ bái" trong khi `pīṭha` là ghế), cần kiểm toán riêng.
+  Cổng kỹ thuật vẫn CHƯA chạy ở lượt này: `npm run validate`, `npm test`, `npm run check`, `npm run build`.

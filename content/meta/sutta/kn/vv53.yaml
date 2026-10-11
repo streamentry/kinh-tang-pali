@@ -33,7 +33,7 @@ quality:
       khảo đều vắng ⇒ dịch chỉ từ Pāli root. `scripts/validate.ts` coi tệp Anh
       thiếu là error khi status là `review` hoặc `published`, nên bài bắt buộc
       `draft`. Đây là giới hạn upstream, không phải lỗi của người dịch."
-  assessed_at: "2026-10-10"
+  assessed_at: "2026-10-11"
   assessed_by:
     - "Claude Sonnet 5.5 (Claude Code)"
   waiver:
@@ -69,5 +69,9 @@ notes: |-
     - `22.1–22.4`: lời tự hỏi của chư thiên không có nháy trong Pāli, nên dịch không nháy.
     - `kāmakāmī` (18.4): theo tiền lệ `ja486:16.4` (*được điều mình mong muốn*).
     - `hīnakammā` (19.4): theo tiền lệ `ud4.8`, `iti48`, `snp3.10` (*những kẻ làm nghiệp hèn hạ*); `pihayanti` theo tiền lệ `ud3.7`, `thag2.43` (*ao ước được như*).
+
+  **Lượt cải thiện 2026-10-11 (kiểm toán đối kháng độc lập, so từng khoá với Pāli; đối chiếu danh sách lỗi họ Vimānavatthu).** Kết quả: trong 101 khoá, **0 khoá sai nghĩa nghiêm trọng** (không có hô cách bị đọc thành tân ngữ — bài không có công thức `devate/nāri`; không có lỗi người đáp nam/nữ kiểu `Tenamhi…`; không có `pokkharaṇī`, `pahūtamalyā`, `bhusa`, `idha mijjhati`; số `sādhikavīsatiyojana`, `pañca sikkhā`, `purisayuga`, `aṭṭha puggala` tính lại đúng). Sửa 4 khoá, đều là lỗi nhẹ (tổng 101 khoá, 4 đổi): (1) `1.1` *những người biết thuyết giảng* → *những người thuyết giảng*: Pāli `vadataṁ` không có nghĩa *biết*, và đo lại `vadataṁ varo/pavaro` trong tầng thì 21 khoá dùng *những người thuyết giảng*, chỉ khoá này thêm *biết* — sửa theo đa số (terminology fix). (2) `17.3` *ngã hai đường* → *ngã rẽ hai đường* theo tiền lệ `dvedhāpatha` ở `cnd9:23.10` (clarity fix). (3) `19.1`–`19.2`: bản cũ *Hãy xem sự tự chế … với quả báo của sự thực hành* làm đối tượng của `passa` trượt sang sự tự chế; Pāli `passa … vipākaṁ` có `vipākaṁ` là tân ngữ, còn `khaṇamuhuttasaññamassa` và `anudhammappaṭipattiyā` là hai thành tố phụ thuộc — nay dịch *Hãy xem quả báo của sự tự chế chỉ trong một khoảnh khắc, một thoáng ngắn ngủi, của sự thực hành thuận theo Pháp* (accuracy fix, nhẹ). Điểm không đổi: các sửa này không đủ để nâng tiêu chí nào, và các bất định thật vẫn còn (xem trên) nên không nâng `semantic_fidelity`/`ambiguity_integrity`; `triangulation` vẫn 7,5 vì không có bản Anh độc lập.
+
+  **Bất định đã cân nhắc lại và quyết định không đổi:** (a) `10.2`/`23.1` `satthā` có thể là hô cách (*bạch Đạo Sư, ngài đã giáo huấn…*) vì người nói xưng *tava*, *bhante*, *saccanāmaṁ* với cùng một vị; bản dịch hiện đọc là chủ ngữ ngôi ba và người đọc vẫn hiểu cùng một vị, nên giữ, ghi bất định. (b) `23.2` `iti me sati agamā divā divassa`: ngoài cách đọc hiện tại (*con đã nghĩ … và đã đến*) còn cách đọc `agamā` là *ngài đã đến* (gặp con giữa ban ngày) hoặc *ý niệm ấy đã đến với con*; Pāli root không phân xử — giữ, không nâng điểm. (c) `8.3`–`8.4` chủ ngữ của `pavanti` và của `vitatā/channā` (nam nữ, hoa, hay cung điện) không rõ; bản dịch giữ cách đọc cũ. (d) `4.2` `phusso` giữ là sao Phussa. (e) Tiêu đề `0.2` *Nam Hư Không* cho `Purisavimāna`: Pāli không có `ākāsa`, nên *Hư Không* là phần thừa; dạng này lặp ở khoảng 19 tệp trong bộ nên không sửa riêng tệp này (sẽ lệch cả bộ) — cần sửa đồng loạt ở cấp bộ (đề nghị: *Chuyện Cung Điện Của Nam Giới* hoặc dạng tương đương). Phép kiểm sau sửa: tập khoá Việt = tập khoá Pāli 101/101 cùng thứ tự; nháy kép/đơn/`…` khớp Pāli 0 lệch trên 101 khoá; 2 nhóm Pāli trùng (12 khoá) bản Việt vẫn y hệt; NFC, khoảng trắng, Pāli lọt sang Việt: 0 lỗi.
 
   Bốn lệnh cổng kỹ thuật chưa chạy trong lát này (người dịch bị cấm chạy): `npm run validate`, `npm test`, `npm run check`, `npm run build`. `technical_integrity` đặt 9,6, không phải tuyên bố đã pass cổng. Bài ở trạng thái `draft` do blocker không có tầng tham khảo tiếng Anh, bất kể điểm.

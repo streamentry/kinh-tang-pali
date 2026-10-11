@@ -1,5 +1,5 @@
 uid: vv7
-status: published
+status: review
 translationTitle: "Chuyện Cung Điện Nāvā Thứ Hai"
 translators:
   - "OpenCode Space Bunny Free (agent)"
@@ -13,17 +13,17 @@ tags:
   - "nāvā"
 quality:
   scores:
-    source_provenance: 9.4
-    semantic_fidelity: 9.3
-    grammar_logic: 9.2
+    source_provenance: 9.0
+    semantic_fidelity: 8.4
+    grammar_logic: 8.6
     segment_alignment: 10.0
-    terminology: 9.2
-    triangulation: 7.5
-    vietnamese_clarity: 9.3
-    han_viet_balance: 9.3
-    ambiguity_integrity: 9.1
+    terminology: 8.7
+    triangulation: 7.0
+    vietnamese_clarity: 8.7
+    han_viet_balance: 9.0
+    ambiguity_integrity: 8.5
     technical_integrity: 9.6
-  final_score: 9.19
+  final_score: 8.75
   blocking_errors:
     - "Không có tầng tham khảo tiếng Anh tại commit đã ghim:
       `source/upstream-manifest.json` (commit 11c9d708, tầng `english-sujato`)
@@ -44,9 +44,9 @@ quality:
       0** khoá Pāli đủ 40 ký tự — khuôn kệ của `vv` là kệ ngắn, mỗi vế dưới 40
       ký tự — nên coverage không đo được, và ngưỡng 0.8 không phải nguyên nhân
       của blocker ở đây; nguyên nhân là tệp Anh không tồn tại."
-  assessed_at: "2026-10-04"
+  assessed_at: "2026-10-11"
   assessed_by:
-    - "OpenCode Space Bunny Free (agent)"
+    - "Claude Sonnet 5.5 (Claude Code)"
   waiver:
     id: no-upstream-english
     blockers:
@@ -162,3 +162,64 @@ notes: |-
   là khối tiêu đề ngắn (< 40 ký tự) mà `_hvi.py` cố ý không kiểm, và giữ nguyên PĀLI là
   **tiền lệ 43/44** trong `vv`. Người biên tập cần chạy đủ `npm run validate`, `npm test`,
   `npm run check`, `npm run build` trước khi coi `technical_integrity: 9.6` là đạt.
+
+  Lượt cải thiện 2026-10-11 (kiểm toán đối kháng độc lập, đọc từng cặp Pāli↔Việt):
+  KẾT LUẬN: bản trước chấm 9.19 là QUÁ CAO. Trong 45 khoá có 19 khoá phải sửa, trong đó 13 khoá
+  sai nghĩa thật (tỷ lệ 13/45 ≈ 29% khoá sai nghĩa nghiêm trọng; 19/45 ≈ 42% khoá có lỗi gồm cả
+  lỗi nhẹ). Phần "Bất định riêng" ở trên dựa vào `pv28` làm chỗ tựa là KHÔNG đáng tin: bản Việt
+  của `pv28:3.1`–`3.2`, `2.2`, `4.2` chính nó sai (dịch `pokkharaṇī` là *tấm sàn*, `pahūtamalyā`
+  là *hoa nhài*, `bhusa` là *nhìn từ xa*), và `vv7` đã chép lại các lỗi ấy. Các mục `6.3`
+  (`najjo` là *tấm gương*), `ogāhasi pokkharaṇiṁ` là *bước xuống sàn thuyền*, `vālukasanthatā`
+  là *cát chặt* ở trên được thay bằng những lựa chọn dưới đây.
+  Khoá đã đổi và lý do:
+  · SAI NGƯỜI NÓI / CHỦ THỂ (3 khoá): `10.2` `Manussabhūtā yamakāsi puññaṁ` — người tạo phước
+    là nữ thiên đang đáp (*tôi*), bản trước viết *ngài đã tạo*; `10.3` `Tenamhi` = *tena amhi*
+    ("nhờ đó TÔI là…"), bản trước viết *ngài có oai lực*; `6.1` bản trước thêm *thấy* và đổi
+    chủ thể chung `yo` thành *vị ấy* (tỳ-kheo) — Pāli không có.
+  · SAI CÚ PHÁP — hô cách bị đọc thành tân ngữ (2 khoá): `3.1` `devi mahānubhāve` và `10.1`
+    `bhikkhu mahānubhāva` là HÔ CÁCH (*này thiên nữ có đại oai lực*, *này tỳ-kheo có đại oai
+    lực*), không phải "về đại oai lực ấy". Theo `vv33:5.1`, `vv33:10.1` (đã đúng); lỗi này lặp ở
+    ít nhất 15 tệp `vv` khác (xem dưới).
+  · SAI TỪ VỰNG / NGHĨA (8 khoá): `1.3` `pokkharaṇiṁ` = *hồ sen* (không phải sàn thuyền; theo
+    `pv24:10.5`); `1.4` `padmaṁ chindasi pāṇinā` = *dùng tay hái hoa sen* (*há ngắm* vô nghĩa);
+    `6.3` `najjo` = *các dòng sông* (không phải gương); `6.4` `pahūtamalyā bahupuṇḍarīkā` =
+    *nhiều hoa, nhiều sen trắng* (theo `vv84:14.2`; bỏ *hoa nhài*, *gần như phủ kín* vốn bịa);
+    `7.1` `anupariyanti` = *chảy quanh* (không phải *tràn tới từ mọi phía*); `7.2`
+    `vālukasanthatā` = *trải đầy cát* (theo `pv24:1.2`; bỏ *chặt*); `8.1` `bhūmibhāgehi
+    upetarūpaṁ` = *đầy đủ những khoảnh đất tươi đẹp* (theo `ja524:16.1`, `ja526:21.3`, 2/2);
+    `8.2` `bhusa sobhamānaṁ` = *vô cùng rực rỡ* (bỏ *thấy từ xa* vốn bịa; `bhusa` ở `ja478:10.6`,
+    `ja516:13.2` = *vô cùng*, *rất*).
+  · LỆCH GIỌNG / THÊM NGHĨA NHẸ (4 khoá): `1.2` *bạn* → *nàng* (Moggallāna nói với thiên nữ, và
+    `2.1`, `3.2` đã dùng *nàng*) và bỏ *nữ thiên* thêm vào `nāri`; `4.2` `pucchitā` = *được…
+    hỏi* (bản trước *bị… truy hỏi* thêm sắc thái thẩm vấn; theo `vv12:3.2`, `vv33:6.2`); `6.2` bỏ
+    *đều* (biến mệnh đề `yo… dadāti` thành khẳng định chung nhiều chủ thể); `8.4` `puññakatā
+    labhanti` là số nhiều → *Những người đã tạo phước thì đạt được*.
+  · NGHI SAI NGHĨA, ĐỔI CÓ CHỦ Ý LỆCH CÔNG THỨC (2 khoá): `2.2`/`9.2` `idha mijjhati` — `mijjhati`
+    là "thành tựu", không có tân ngữ *nơi này*; bản công thức 39 tệp (`pv13`–`pv16`, `vv10`…)
+    viết *có được nơi này*. Tôi đổi ở `vv7` thành *thành tựu được ở nơi đây* — chắc khoảng
+    80%; nếu người biên tập không chấp nhận lệch công thức thì trả về như `vv6`.
+  Điểm tiêu chí đổi (từ → sang): semantic_fidelity 9.3→8.4 · grammar_logic 9.2→8.6 ·
+  source_provenance 9.4→9.0 (chỗ tựa `pv28` không đáng tin) · terminology 9.2→8.7 ·
+  vietnamese_clarity 9.3→8.7 · han_viet_balance 9.3→9.0 · triangulation 7.5→7.0 (các bản
+  `vv`/`pv`/`ja` đối chiếu là cùng một dự án, không độc lập) · ambiguity_integrity 9.1→8.5 ·
+  segment_alignment 10.0 và technical_integrity 9.6 giữ nguyên. `final_score` 9.19 → 8.75.
+  Bài vẫn không có tầng tham khảo tiếng Anh/Việt ở upstream; blocker đó GIỮ NGUYÊN.
+  CÒN LẠI, KHÔNG SỬA (đã đo, chỉ ghi):
+  · `0.2` `Itthivimāna` → *Chuyện Cung Điện Nữ Hư Không*: `itthi` = nữ, không có `ākāsa`; nhưng
+    đây là tiêu đề của 51 tệp, sửa một tệp sẽ lệch cả bộ — cần người biên tập quyết định chung.
+  · `2.3`/`9.3` `bhogā ye keci manaso piyā` → *của cải nào… dễ chịu với tâm* (22 tệp): `piyā` là
+    "đáng mến", `bhoga` là "thọ dụng/của cải", cách đặt *nào* nghe như câu hỏi — nhẹ, giữ theo công
+    thức.
+  · `4.4` `yassa kammassidaṁ phalaṁ` là mệnh đề quan hệ ("đây là quả của nghiệp nào [nàng đã
+    làm]"), bản *quả báo của nghiệp này là thế* (70 tệp) làm mất chữ *yassa* — nhẹ, giữ.
+  · `7.1` `Taṁ` đọc là *cung điện* (song hành với `8.1` `Taṁ… vimānaseṭṭhaṁ`); khả năng nhỏ `Taṁ`
+    là người cho nước — không phân xử được bằng căn cứ trong kho.
+  · `1.1` `suvaṇṇacchadanaṁ` *bọc vàng* vs *mái vàng* — `chadana` là "lớp che/mái", giữ *bọc vàng*
+    theo công thức `vv6`/`vv8`.
+  · NGOÀI PHẠM VI, ĐÃ LẶP LỖI Ở TỆP KHÁC: `vv6`, `vv8` có đúng các lỗi `1.3`, `1.4`, `6.3`,
+    `6.4`, `7.1`, `7.2`, `8.1`, `8.2`; `vv1`–`vv4`, `vv6`, `vv9`–`vv15`, `vv18`, `vv19`, `vv23`,
+    `vv54`, `vv85` còn hô cách `mahānubhāve/va` bị đọc thành tân ngữ; `vv1`…`vv15` còn
+    `10.2`/`10.3` (hoặc tương đương) viết *ngài* thay *tôi* (`vv54`, `vv33` đúng); `pv28:3.1`
+    `pokkharaṇī` = *tấm sàn*, `pahūtamalyā` = *hoa nhài* (`pv37:14.2` cùng lỗi).
+  Cổng kỹ thuật chưa chạy trong lượt này: `npm run validate`, `npm test`, `npm run check`,
+  `npm run build` — `technical_integrity` giữ 9.6.

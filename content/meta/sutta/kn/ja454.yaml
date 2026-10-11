@@ -16,16 +16,16 @@ quality:
     semantic_fidelity: 9.2
     grammar_logic: 9.2
     segment_alignment: 10.0
-    terminology: 9.1
+    terminology: 9.2
     triangulation: 7.5
-    vietnamese_clarity: 9.2
+    vietnamese_clarity: 9.3
     han_viet_balance: 9.3
     ambiguity_integrity: 9.0
     technical_integrity: 9.6
-  final_score: 9.16
+  final_score: 9.18
   blocking_errors:
     - "noEnglishEditionUpstream: Thiếu bản dịch tiếng Anh đối chiếu"
-  assessed_at: "2026-10-10"
+  assessed_at: "2026-10-11"
   assessed_by:
     - "Claude Sonnet 5.5 (Claude Code)"
   waiver:
@@ -64,3 +64,13 @@ notes: |-
     5. Số Pāli: 1 cụm (`soḷasamaṁ` = 16), xem trên.
     NFC đạt, không khoá rỗng, không Pāli lọt sang Việt ngoài tên riêng.
   - Công cụ kiểm của kho chưa chạy ở bước này, nên `technical_integrity` đặt 9.6 và không tuyên bố technical gate pass; còn phải chạy: `npm run validate`, `npm test`, `npm run check`, `npm run build`.
+  - Lượt cải thiện 2026-10-11 (kiểm toán đối kháng độc lập, 73 khoá đọc cặp Pāli↔Việt):
+    + Không có sai nghĩa giáo lý, sai số lượng hay đảo phủ định. Có một lỗi chủ thể và vài chỗ cấu trúc/thuật ngữ; đã sửa 11 khoá.
+    + `12.3` (chủ thể): Pāli `osiñcaṁ` là phân từ chủ cách của Ghaṭa, nhưng bản trước viết "như rưới nước lên, dập tắt…" không có chủ ngữ, khiến câu đọc như chính người nói dập tắt nỗi bức bối. Nay "người ấy như rưới nước lên" (chủ ngữ là Ghaṭa theo `11.3`–`11.4`).
+    + `10.1`–`10.4` (phạm vi phủ định): "Không bằng X… có thể mang trở lại được" đọc được cả hai chiều. Nay theo Pāli trùng nguyên văn ở `pv18:10` (4/4 khoá trùng): "Bằng thần chú, … đều không thể mang trở lại, Kaṇha, người đã chết mà ngươi đang sầu thương" (`10.4` thêm ” đóng nháy theo Pāli).
+    + `3.1`–`3.3` (thuật ngữ, theo tiền lệ): `ummattarūpa` là "mất trí" ở 4/4 nơi đã dịch (`pv8:1.1`, `pv18:3.1`, `ja503:6.1`, `pv51:1.1`), bản trước dùng "phát điên"; `3.2`–`3.3` dùng lại nguyên văn `pv18:3.2`–`3.3` (bỏ chữ "thành" không có trong Pāli).
+    + `11.3` (đối tượng): thêm "ta" cho `nijjhāpaye` (đối tượng được làm cho thấu hiểu là người nói; xem `14.1`–`14.4`); `13.1` "người" → "người ấy" cho rõ là Ghaṭa (khớp `pv18:17.1`, `13.3`); `15.3` "quay lại khỏi" (không tự nhiên) → "quay khỏi" theo `pv18:19.3` (Pāli trùng).
+    + Tỷ lệ lỗi nghĩa thật: 2/73 khoá (`12.3`, `12.4` do mất chủ ngữ — một lỗi chủ thể, một vế câu); thêm 3/73 khoá có phạm vi phủ định mơ hồ (`10.1`–`10.3`); 6/73 khoá cần sửa vì tiền lệ/rõ ràng (`3.1`–`3.3`, `11.3`, `13.1`, `15.3`). Không lỗi nào đổi giáo nghĩa hay số lượng; không có blocker mới.
+    + Điểm: `terminology` 9.1 → 9.2 (tiền lệ `mất trí`); `vietnamese_clarity` 9.2 → 9.3 (`10`, `12.3`, `15.3`). Các tiêu chí khác giữ nguyên: `semantic_fidelity`/`grammar_logic` 9.2 là điểm cho văn bản sau sửa; bản trước đã bỏ sót lỗi chủ thể ở `12.3` nên điểm cũ hơi rộng tay.
+    + Chưa đổi dù nghi: `14.2` `anāvilo` = "không còn bối rối" (đa số nơi khác dịch "không vẩn đục", nhưng đó là nước/tâm; ở đây nói về người, giữ theo `ja352:7.2` và ghi nhận); `15.4` "người anh cả" (`jeṭṭha` có thể là "anh lớn" nói chung, đồng nhất `pv18:19.4`); `2.2` giữ "của Rohiṇeyya" thay vì "tức Rohiṇeyya" của `pv18:2.2` — Pāli là sở hữu cách; danh tính Rohiṇeyya vẫn không phân xử được từ Pāli đã ghim. `technical_integrity` giữ 9.6; chưa chạy `npm run validate`, `npm test`, `npm run check`, `npm run build`.
+    + Cập nhật ghi chú cũ: `pv18` hiện đã có bản Việt trong kho, nên các khoá trùng Pāli với `pv18` (3.2, 3.3, 10.x, 12.x, 13.x, 14.3, 15.x) đã được đối chiếu và đồng bộ ở lượt này.

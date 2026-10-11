@@ -1,5 +1,5 @@
 uid: vv84
-status: published
+status: review
 translationTitle: "Chuyện Cung Điện Serīsaka"
 translators:
   - "Claude Sonnet 5.5 (Claude Code)"
@@ -14,16 +14,16 @@ tags:
 quality:
   scores:
     source_provenance: 9.5
-    semantic_fidelity: 9.0
-    grammar_logic: 9.0
+    semantic_fidelity: 8.8
+    grammar_logic: 8.9
     segment_alignment: 10.0
-    terminology: 9.0
+    terminology: 8.7
     triangulation: 7.5
     vietnamese_clarity: 9.0
     han_viet_balance: 9.2
     ambiguity_integrity: 8.6
     technical_integrity: 9.6
-  final_score: 9.04
+  final_score: 8.98
   blocking_errors:
     - "noEnglishEditionUpstream: không có tầng tham khảo tiếng Anh tại commit đã
       ghim. Bản Anh của Bhikkhu Sujato ở `translation/en/sujato/sutta/kn/` chỉ
@@ -127,3 +127,13 @@ notes: |-
   **Kiểm trước khi chốt.** 229/229 khoá Việt khớp 229/229 khoá Pāli về tập và thứ tự; 0 lệch nháy trên 229 khoá; 0 khoá rỗng hay khoảng trắng thừa; NFC đạt; không Pāli lọt sang Việt ngoài danh xưng riêng và thuật ngữ đã ghi; đã in cặp Pāli và Việt từng khoá để đọc.
 
   Bốn lệnh cổng kỹ thuật chưa chạy ở lát này (cấm chạy trong lát agent): `npm run validate`, `npm test`, `npm run check`, `npm run build`. Vì vậy `technical_integrity` đặt 9.6 chứ không phải 10; `final_score` là trung bình số học thô của đúng 10 tiêu chí.
+
+  **Lượt cải thiện 2026-10-11 (kiểm toán đối kháng, đọc từng khoá Pāli↔Việt).** Đổi 2 khoá trên 229; 227 khoá còn lại đọc lại và giữ nguyên.
+    - `20.2` `udāhu devindo manussabhūto`: bản cũ tách thành hai vế (*hay chúa của chư thiên, hay là một con người*), thành bốn lựa chọn trong khi Pāli chỉ có ba (`devo`, `yakkho`, `devindo manussabhūto`); hai danh từ đứng cạnh nhau không có liên từ nên là đồng vị. Sửa thành *hay là chúa của chư thiên hiện làm người*. `manussabhūta` là *làm người, mang thân người* (`vv59:5.1`, `vv61:4.1`, `mil5.5.5:1.2`). Lỗi nghĩa thật: ngữ pháp, `semantic_fidelity` 9.0 → 8.8, `grammar_logic` 9.0 → 8.9.
+    - `11.2` `vettācaraṁ saṅkupathañca maggaṁ`: bản cũ *con đường chống gậy mây* thêm hành động *chống gậy* không có trong Pāli. Chuỗi `ajapatha`, `saṅkupatha`, `vettapatha` ở `mil6.3.1:19.1` là *đường dê, đường cọc, đường mây*; sửa thành *lối đi bằng dây mây*. Lỗi nghĩa thật nhỏ về chi tiết vật. `vettācāra` là tên lối đi ở `mnd7:57.1`, `mnd15:66.5` (không có bản Việt cùng khoá), nên *dây mây* vẫn là cách đọc theo ngữ cảnh, chưa phải nghĩa đã chốt.
+    - Hô cách đã kiểm đúng cả bài: `10.2` (*thưa dạ-xoa*), `12.4`, `32.1` (*các bạn thân mến*), `13.1`, `31.3` (*công tử*), `44.2` (*hỡi các thương nhân*), `45.3`, `47.1`, `47.3` (*thưa dạ-xoa*). Người nói đúng ở mọi khoá đối thoại: dạ-xoa nói `3`–`6`, `11`–`12`, `21`, `23`, `25`–`28`, `32`–`34`, `36`, `38`–`44`, `46`, `48`; đoàn buôn nói `7`–`10`, `13`–`20`, `22`, `24`, `29`–`31`, `35`, `37`, `45`, `47`. Các điểm của họ vv: `pokkharañño` *hồ sen* đúng, `pahūtamalyā` *nhiều hoa* đúng (không phải *hoa nhài*), `paṁsūhi ca vālukāhi ca` *bụi đất và cát* đúng; các chỗ `Tenamhi…`, `Yaṁ kiñcimaṁ…`, `idha mijjhati` không có trong bài.
+    - **Sửa lại một khẳng định cũ trong notes này.** Mục *Pāli trùng nguyên văn trong tầng Việt* ở trên ghi 11/229 khoá có Pāli trùng ở bài khác; số đó sai. `pv37` (Serīsakapetavatthu) có cùng một bài kệ: 218/229 khoá Pāli của `vv84` trùng nguyên văn với khoá tương ứng của `pv37` (11 khoá còn lại là khoá tiêu đề hoặc Pāli khác chữ), nhưng 202/218 cặp đó bản Việt của hai bài khác nhau (phần lớn là cách xưng hô và chọn chữ: *tôi*/*ta*, *các bạn*/*các vị*, *đoàn buôn*...). Quy tắc dùng lại nguyên văn cho Pāli trùng chưa được thực hiện giữa hai bài. Không đồng nhất hoá trong lượt này vì `pv37` ngoài phạm vi lát và chính nó mang các lỗi họ `pv`/`vv` đã biết (`14.2` *hoa nhài*; `20.2` một vế; `44.5` đọc khác). `terminology` 9.0 → 8.7 vì lẽ ấy.
+    - Chỗ hai bài cho cách đọc nghĩa khác nhau thật, cần người biên tập phân xử khi đồng nhất: `20.2` (đã sửa ở bài này), `11.2` (đã sửa ở bài này), `44.5` (xem dưới), `5.3` `luddānamāvāsa` (*những kẻ hung ác* ở đây, *những người thợ săn* ở `pv37`; `ludda` là cả *hung ác* lẫn *thợ săn*, giữ *hung ác* theo bản Indacanda), `14.2` (`pv37` sai, bài này đúng).
+    - **Bất định bổ sung.** `44.5` `taṁ khippamānena lahuṁ parena`: `khippamānena` và `parena` đều ở cách công cụ nên đi với nhau; hiểu *bị quăng bỏ* là của `taṁ` (người thợ cạo) là cách đọc lỏng về ngữ pháp, dù hợp mạch (`46.4` *chớ khinh thường ông ấy*); bản Indacanda cũng đọc `parena` là kẻ xử tệ với ông ấy. Giữ nguyên, vẫn là chỗ chưa phân xử được. `38.1` `mā ceva serīsamahaṁ akattha`: dịch cấm làm lễ hội, nhưng `53.4` họ vẫn làm lễ hội và dạ-xoa không phản đối, nên cũng có thể `ceva` nghĩa *chỉ riêng*; không đủ căn cứ để đổi, giữ nguyên. `19.1` `nārigaṇappabodhano`: bị động (*được đoàn nữ nhân đánh thức*) hay chủ động (*làm đoàn nữ nhân tỉnh thức*, như `pv37:19.1`) đều hợp cấu tạo từ; giữ bị động.
+    - **Tiêu đề `0.2`** *Chuyện Cung Điện Nam Hư Không* cho `Purisavimāna`: Pāli không có `ākāsa`, nên *Hư Không* là thêm nghĩa, cùng lỗi với tiêu đề phẩm `Itthivimāna` dịch *Nữ Hư Không* của cả họ `vv`. Không sửa riêng một tệp để khỏi lệch cả bộ; cần sửa đồng loạt.
+    - Điểm sau lượt này: `semantic_fidelity` 8.8, `grammar_logic` 8.9, `terminology` 8.7; các tiêu chí khác giữ như cũ vì không có cải thiện hay lỗi mới tương ứng. `final_score` 8.98 (trung bình số học thô của 10 điểm). Bản dịch nói chung vững: 2 lỗi nghĩa thật trên 229 khoá, cả hai đã sửa; các bất định còn lại đều đã nêu ở trên. Bốn lệnh cổng kỹ thuật (`npm run validate`, `npm test`, `npm run check`, `npm run build`) vẫn chưa chạy ở lát này.

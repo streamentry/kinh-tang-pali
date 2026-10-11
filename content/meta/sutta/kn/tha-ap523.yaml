@@ -1,5 +1,5 @@
 uid: tha-ap523
-status: published
+status: review
 translationTitle: "Bài Kệ Tuyên Ngợ Về Trưởng Lão Tiṇamuṭṭhidāyaka"
 translators:
   - "OpenCode Space Bunny Free (agent)"
@@ -12,17 +12,17 @@ tags:
   - "tiṇamuṭṭhidāyaka"
 quality:
   scores:
-    source_provenance: 9.5
-    semantic_fidelity: 9.4
-    grammar_logic: 9.3
-    segment_alignment: 10.0
-    terminology: 9.2
+    source_provenance: 9.2
+    semantic_fidelity: 8.4
+    grammar_logic: 8.8
+    segment_alignment: 9.6
+    terminology: 8.6
     triangulation: 7.5
-    vietnamese_clarity: 9.4
-    han_viet_balance: 9.3
-    ambiguity_integrity: 9.2
+    vietnamese_clarity: 8.8
+    han_viet_balance: 9.2
+    ambiguity_integrity: 8.4
     technical_integrity: 9.6
-  final_score: 9.24
+  final_score: 8.81
   blocking_errors:
     - "Không có tầng tham khảo tiếng Anh tại commit đã ghim
       (11c9d708978cde8ba61096d8a75f7ddfb846f639): thư mục `kn/tha-ap/` của
@@ -45,9 +45,9 @@ quality:
       bài dịch chỉ từ Pāli root ⇒ **blocker thật**, và đây là **giới hạn của bản
       chụp upstream**, không phải lỗi của người dịch. Vì vậy `triangulation` bị
       chặn ở 7.5 (≤ 8.0) chứ không nâng để né blocker."
-  assessed_at: "2026-10-06"
+  assessed_at: "2026-10-11"
   assessed_by:
-    - "OpenCode Space Bunny Free (agent)"
+    - "Claude Sonnet 5.5 (Claude Code)"
   waiver:
     id: no-upstream-english
     blockers:
@@ -195,3 +195,12 @@ notes: |-
   **CHƯA CHẠY CỔNG KỸ THUẬT** — lát này bị cấm `npm run validate|test|check|build`. Tiêu chí 10
   bị chặn ở **9.6**, tôi không tuyên bố technical gate pass. Bốn lệnh còn lại cho coordinator:
   `npm run validate` · `npm test` · `npm run check` · `npm run build`.
+
+  **Lượt cải thiện 2026-10-11 (kiểm toán độc lập, đọc đối kháng 53 khoá; phần này THAY THẾ mọi khẳng định trái ngược ở các đoạn ghi chú phía trên).**
+  Bài đang `published` với `final_score` 9.24, nhưng đọc từng cặp Pāli↔Việt cho thấy **11 khoá sai nghĩa thật** (11/53, khoảng 21%), cộng 9 khoá thêm hoặc lệch nghĩa nhẹ. Gốc của nhiều lỗi là các dạng dịch đã lan ra tầng nhờ một bản nháp chung (3 tệp cùng mắc, kể cả bài kề `tha-ap350`); "dùng lại tiền lệ" ở lượt trước đã sao chép chính các lỗi đó, nên các ghi chú cũ về "43/53 dùng lại nguyên văn" và về `:1.4`, `:2.1` không còn đúng. Pāli thắng tiền lệ. Thay đổi 20 khoá, mọi khoá đều có nêu Pāli:
+  · **Sai nghĩa (accuracy fix)** — `:1.3` `tisso sambuddho` là **danh xưng Tissa** (Đức Phật Tissa; 94 kiếp khớp `:9.1`; tầng này đã dịch `tisso` là *Tissa* ở 5 bài khác), không phải "bậc Toàn Giác ấy" — đã bỏ mất tên. `:1.4` `abbhokāsamhi caṅkami` = *kinh hành ngoài trời*, chủ ngữ là Đức Phật Tissa; bản cũ "đã đi đến gần núi ấy" sai cả động từ lẫn chủ thể. `:2.1` `Migaluddo` là danh từ chung *thợ săn thú* (bản song song `pv32:2.3`/`:2.4` `lohitapāṇi dāruṇo` xác nhận, và tên bài `Migaluddakapetavatthu`), không phải tên riêng "Migaluddha". `:2.4` `adāsahaṁ` = *đã dâng*, bản cũ "rải cỏ đủ một nắm tay" sai động từ và thêm "đủ". `:4.1` `gatamattassa` từ `gata` = *đi*, không phải "tới". `:4.2` `apothayi` (từ `pothati`, đánh/vồ) bị dịch "gầm lên", sai động từ; chủ thể là vua loài thú đánh *ta*. `:5.2` `anāsave` = *không còn lậu hoặc*, bản cũ "không hề chật hẹp" sai hẳn. `:5.3` `Sumutto saravegova` = *như tốc lực của mũi tên khéo buông*, bản cũ "Tuy đã thoát kiếp, vẫn rùng rình" vô nghĩa. `:7.1` `tassa` là của *cột* (`yūpo`), không phải "của Ngài". `:7.4` `āmodiṁ` = *đã hoan hỷ* và `kāmakāmī` = người được toại điều mong muốn; "tỏa ra mùi thơm ngọt ngào của tình yêu" bịa nghĩa. `:9.2` `nisīdanamadāsahaṁ` = *ta đã dâng chỗ ngồi*, bản cũ bỏ mất động từ *dâng*.
+  · **Thêm hoặc lệch nhẹ** — `:2.2` bỏ "lang thang … khuất" (Pāli không có); `:3.1` bỏ "nằm" và "đặt", đưa `datvā` về `:3.2`; `:3.4` `pakkāmiṁ` = *ra đi*, bỏ "quay về" gây hiểu nhầm; `:5.1` `āsanne` giữ nghĩa *cận kề* (vừa gần Phật vừa gần lúc chết, Pāli không phân định) thay cho "ở ngay đây"; `:6.1` bỏ "vàng ròng" (`subho` = đẹp); `:6.2` bỏ "đời trước" (`puññakammābhinimmito` chỉ nói do nghiệp công đức tạo thành); `:7.2` `sataraṁsīva uggato` = *như mặt trời trăm tia đã mọc* (4 tiền lệ đa số), bỏ "bốc lên như trăm tia nắng"; `:7.3` câu bị động gượng "Bị đông đúc bởi" sửa cho tự nhiên.
+  · **Điểm đổi (từ → sang):** source_provenance 9.5→9.2 (ghi chú cũ khẳng định sai); semantic_fidelity 9.4→8.4; grammar_logic 9.3→8.8; segment_alignment 10.0→9.6 (`datvā` lệch ranh `:3.1`/`:3.2`); terminology 9.2→8.6; triangulation giữ 7.5; vietnamese_clarity 9.4→8.8; han_viet_balance 9.3→9.2; ambiguity_integrity 9.2→8.4; technical_integrity giữ 9.6. `final_score` 9.24→8.81. Blocker "không có tầng tham khảo tiếng Anh" giữ nguyên (sự thật của upstream); không thêm blocker mới vì lỗi nghĩa đã sửa ở đây.
+  · **Bất định còn lại, không giải quyết được, KHÔNG sửa:** (1) `:6.3` `Sahassakaṇḍo satabheṇḍu` — "nghìn tấm vách, trăm ngọn tháp" là cách dịch chung của tầng (3 nơi) nhưng nghĩa của `kaṇḍa` (khúc, đoạn, cột?) và `bheṇḍu` không có căn cứ từ điển trong kho; `:6.4` `haritāmayo` "vàng xanh" cũng kế thừa tiền lệ. (2) `:6.1` `yūpo` giữ nghĩa đen *cột trụ*; có thể là tòa lâu đài hình trụ, chưa phân xử. (3) `:9.3` `Duggatiṁ nābhijānāmi` "Ta không biết mình rơi vào khổ đau" là dạng của 140 khoá trong tầng; sát hơn là *không biết đến cảnh khổ/đọa xứ* (3 dạng khác ở tầng, hơn 230 khoá) — giữ cho đồng bộ, nên sửa cả tầng một lần. (4) `:13.1` `Itthaṁ sudaṁ` ("Thế đó…") bị dịch "Tôi nghe như vầy" ở 613 khoá toàn tầng; đây là quy ước tầng nhưng thêm ý "tôi nghe" không có ở Pāli — người biên tập cần phán cả tầng. (5) `:0.3`/`:14.1` "Tuyên Ngợ" (173 tệp) lạ so với *Ký Sự* / *Tuyên Ngôn*; không rõ có phải lỗi chính tả hệ thống, giữ nguyên theo tiền lệ, báo người biên tập. (6) Bản Pāli root đã ghim đọc `tisso`; một bản Việt nguyên bài ở mục Tra cứu toàn văn dùng tên khác (Upatissa, tức dị bản đọc của một ấn bản khác); chỉ dùng để hiểu cách đọc, canonical theo root.
+  · **Lỗi cùng dạng ở tệp ngoài lát (báo, không sửa):** các dạng sai trên còn nằm ở các bài khác của tầng — "không hề chật hẹp" 2 khoá, "đã gầm lên" 2, "Tuy đã thoát kiếp, vẫn rùng rình" 2, "mùi thơm ngọt ngào của tình yêu" 2 (kể cả một khoá `āmodiṁ kāmakāmahaṁ`), "đã đi đến gần núi ấy" 3, "rải cỏ đủ một nắm tay" 2, "Hào quang của Ngài" 4 (cần kiểm `tassa` chỉ cái gì). Cần một lượt sửa cả cụm.
+  · **Kiểm lại sau sửa:** 53/53 khoá, thứ tự khoá = thứ tự Pāli; nháy kép `“”` và dấu lược `…` khớp Pāli từng khoá, lệch 0/53; NFC, khoảng trắng, giá trị rỗng: 0 lỗi; 4 khoá chứa chữ Pāli là tên riêng; số Pāli giữ nguyên (`catunnavutito` = 94, `tisso vijjā` = 3, `catasso` = 4, `aṭṭhime` = 8, `chaḷa` = 6, `sahassa` = 1.000, `sata` = 100). Cổng kỹ thuật chưa chạy: `npm run validate` · `npm test` · `npm run check` · `npm run build` cho điều phối.

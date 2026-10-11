@@ -14,16 +14,16 @@ tags:
 quality:
   scores:
     source_provenance: 9.5
-    semantic_fidelity: 8.9
+    semantic_fidelity: 8.8
     grammar_logic: 8.9
     segment_alignment: 10.0
-    terminology: 8.9
+    terminology: 8.6
     triangulation: 7.8
     vietnamese_clarity: 9.0
     han_viet_balance: 9.3
     ambiguity_integrity: 8.6
     technical_integrity: 9.6
-  final_score: 9.05
+  final_score: 9.01
   blocking_errors:
     - "noEnglishEditionUpstream: không có tầng tham khảo tiếng Anh tại commit đã
       ghim 11c9d708978cde8ba61096d8a75f7ddfb846f639. Đo trên
@@ -39,7 +39,7 @@ quality:
       chỉ 27 ký tự, nên ratio ra 1,0000 mà không có nghĩa là đã kiểm phủ; chặn
       là do thiếu tệp Anh, không phải do coverage. `triangulation` bị chặn ở 7,8
       (≤ 8,0) chứ không nâng để né blocker."
-  assessed_at: "2026-10-10"
+  assessed_at: "2026-10-11"
   assessed_by:
     - "Claude Sonnet 5.5 (Claude Code)"
   waiver:
@@ -95,3 +95,11 @@ notes: |-
   **Tên phẩm.** `0.2` `Purisavimāna` → *Chuyện Cung Điện Nam Hư Không* (21/30 khoá cùng Pāli); `0.3` `Sunikkhittavagga` → *Phẩm Khéo Đặt Để* (8/9 khoá cùng Pāli); `0.4` dịch tên theo mẫu *Chuyện Cung Điện + tên* của vv79, vv80, vv83.
 
   Bốn lệnh cổng kỹ thuật không chạy trong lát này: `npm run validate`, `npm test`, `npm run check`, `npm run build`. Vì chưa chạy, `technical_integrity` đặt 9,6 chứ không 10,0, và không tuyên bố technical gate đã pass.
+
+  **Lượt cải thiện 2026-10-11 (kiểm toán đối kháng độc lập, đọc lại cả 116 khoá cặp Pāli↔Việt, đối chiếu thêm các lỗi lan trong họ vv).** Kết quả: không thấy khoá nào sai người nói, sai chủ thể, sai phủ định, sai số hay hô cách bị đọc thành tân ngữ. `devaputta mahappabho` ở `12.2` đã đúng là hô cách (*hỡi thiên tử*); `pokkharaṇī` đúng là *hồ sen*; người đáp ở `15.x`–`26.x` là Kaṇḍaka (nam thiên tử) xưng *tôi*, người hỏi gọi *ngài*, đúng. Các công thức vv khác (`Tenamhi…`, `idha mijjhati`, `pahūtamalyā`, `bhusa`) không có trong bài này. Tìm được 2 khoá lệch nghĩa nhẹ đã sửa, 1 khoá sửa dấu hiệu danh xưng, và 3 chỗ lệch cấp họ (không sửa riêng một tệp):
+  - `13.4` `taṁ me akkhāhi pucchito`: *pucchito* là phân từ quá khứ của vị thiên tử (*khi được hỏi*), bản cũ viết *tôi hỏi* đổi chủ ngữ. Đã đổi thành *khi được hỏi* (accuracy fix; bản tiếng Việt nguyên bài đọc *được hỏi*). Tầng chỉ có 3 khoá trùng Pāli này (2 trong vv81, 1 `vv64:25.4`), `vv64` vẫn giữ *vì tôi hỏi*: báo, không sửa.
+  - `20.1` `Paresaṁ vijitaṁ gantvā`: *gantvā* + đối cách là *đi đến*, không phải *đi qua* (Pāli không nói vượt qua); đổi thành *Đi đến lãnh địa của những người khác* (accuracy fix; 0 tiền lệ khác trong tầng).
+  - `12.3`: *Ngài* viết hoa dễ nhầm với danh xưng dành cho Đức Phật (`25.4`); đổi thành *ngài* (clarity fix).
+  - Điểm đổi: `semantic_fidelity` 8.9 → 8.8 và `terminology` 8.9 → 8.6 (HẠ, không nâng); `final_score` 9.05 → 9.01. Lý do hạ: (1) `0.2` *Chuyện Cung Điện Nam Hư Không* thêm ý `ākāsa` không có trong `Purisavimāna`; lỗi lan ở toàn phẩm vv (cùng gốc với *Nữ Hư Không* của `Itthivimāna`), không sửa riêng một tệp để khỏi lệch cả bộ, ghi lại để sửa đồng loạt; (2) `14.3` `yassa kammassidaṁ phalaṁ` là mệnh đề quan hệ (*của nghiệp nào mà đây là quả*) bị đọc thành câu khẳng định *quả báo của nghiệp này là thế*, 52/68 khoá trong tầng cùng cách dịch (dạng lan cấp họ), bài này giữ theo đa số vì cùng công thức hỏi đáp bị lược ở `14.2`; (3) `14.1` `attamano` thêm *vô cùng* (19/27 khoá cùng cách, thiểu số bỏ), và `13.3` `añjalikammassa` thêm *cúi* không có trong Pāli (4/4 khoá cùng cách): để nguyên theo tiền lệ họ vv, ghi để sửa đồng loạt. Số khoá có lỗi nghĩa thật: 0 lỗi nghiêm trọng / 116; 2 lỗi nhẹ đã sửa (`13.4` đổi chủ ngữ, `20.1` đi qua/đi đến) và 4 chỗ lệch cấp họ chưa sửa (`0.2`, `13.3`, `14.1`, `14.3`).
+  - `18.4` `abhisīsiṁ`: vẫn là hapax trong Pāli root đã ghim (quét lại: duy nhất khoá này), vẫn chưa phân xử được bằng bằng chứng độc lập; không loại trừ khả năng dạng này tương ứng một động từ khác với nghĩa gần ngữ cảnh con ngựa (chưa kiểm chứng được trong kho, nên không đưa vào thân kinh và không dùng để nâng điểm). `ambiguity_integrity` giữ 8.6.
+  - Không đổi: `triangulation` (7,8, vẫn không có bản Anh độc lập), `technical_integrity` 9,6 (chưa chạy `npm run validate`, `npm test`, `npm run check`, `npm run build`). Tự kiểm sau sửa: 116/116 khoá, đúng thứ tự Pāli, nháy kép khớp Pāli từng khoá (0 lệch), NFC, `…` chỉ ở `14.2`.

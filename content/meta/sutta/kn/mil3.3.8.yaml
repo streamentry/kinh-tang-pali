@@ -11,16 +11,16 @@ tags:
 quality:
   scores:
     source_provenance: 9.5
-    semantic_fidelity: 9.3
+    semantic_fidelity: 9.4
     grammar_logic: 9.3
     segment_alignment: 10.0
-    terminology: 9.2
+    terminology: 9.4
     triangulation: 7.5
     vietnamese_clarity: 9.3
     han_viet_balance: 9.4
     ambiguity_integrity: 9.2
     technical_integrity: 9.6
-  final_score: 9.23
+  final_score: 9.26
   blocking_errors:
     - "Không có tầng tham khảo tiếng Anh tại commit đã ghim: tệp
       `translation/en/sujato/sutta/kn/mil/mil3.3.8_translation-en-sujato.json`
@@ -37,9 +37,9 @@ quality:
       Pāli root ⇒ blocker thật, và đây là **giới hạn upstream**, không phải lỗi
       của người dịch. Vì vậy `triangulation` bị chặn ở 7.5 (≤ 8.0) chứ không
       nâng để né blocker."
-  assessed_at: "2026-10-03"
+  assessed_at: "2026-10-11"
   assessed_by:
-    - "OpenCode Space Bunny Free (agent)"
+    - "Claude Sonnet 5.5 (Claude Code)"
   waiver:
     id: no-upstream-english
     blockers:
@@ -61,3 +61,9 @@ quality:
 notes: |-
   Bản dịch chỉ từ Pāli root do commit đã ghim không có bản Anh upstream (giới hạn upstream).
   Đầy đủ 10 tiêu chí scorecard; status bắt buộc draft do blocker tầng tham khảo Anh; technical_integrity 9.6.
+  Lượt cải thiện 2026-10-11 (kiểm toán đối kháng độc lập, đọc lại cặp Pāli-Việt cả 22 khoá): không thấy lỗi nghĩa trọng yếu (người nói, phủ định, số lượng, ranh giới khoá đều đúng; hai con cừu đực húc nhau, hai bàn tay vỗ vào nhau, hai cái chũm chọe gõ vào nhau, mỗi cặp là một ví dụ cho cặp mắt-sắc cảnh gặp nhau thành xúc). Sửa 13/22 khoá; 3 khoá có thêm nghĩa nhẹ, 10 khoá lệch tiền lệ thuật ngữ/xưng hô.
+  - Thêm nghĩa nhẹ: 6.1 `Kallosi` dịch "Ngài thật khéo giảng" thêm động từ "giảng" không có trong Pāli; đổi sang công thức đa số của tầng "Khéo lắm, thưa tôn giả Nāgasenā." (70 khoá; hai dạng có "giảng" chỉ 7). 4.4 và 5.4 là Pāli trùng nguyên văn với 3.4 (`Yathā tesaṁ sannipāto, evaṁ phasso daṭṭhabbo`) nhưng bản cũ tự đưa thêm động từ "vỗ vào nhau", "gõ vào nhau" vào chỗ Pāli chỉ nói `sannipāto`; nay dùng lại nguyên văn 3.4 ("và sự va chạm giữa chúng hãy xem như xúc"), 3 cặp trùng trong bài, 2 cặp lệch trước khi sửa, 0 sau khi sửa. Phép vỗ/gõ vẫn nằm ở 4.2 và 5.2 nơi Pāli có `vajjeyyuṁ`.
+  - Tiền lệ: `Vicāravagga` "Phẩm Tầm Tứ" -> "Phẩm Khảo Sát" (11 trên 14 bài cùng phẩm, so với 1 Tầm Tứ, 1 Suy Xét, 1 Vicāra); `lakkhaṇa` "đặc tính" -> "đặc trưng" (tầng Milindapañha 38 trên 20, và năm bài liền kề 3.3.9-13 đều dùng "đặc trưng"); gọi vua của Nāgasena "Này Đại vương"/"Vâng, này Đại vương" thay "Thưa đại vương" (1.425 trên 323 toàn tầng, và 3.3.7, 3.3.9, 3.3.10 cùng dạng); gọi tôn giả "Thưa tôn giả Nāgasena" thay "Bạch ngài Nāgasena" (165 trên 61). Điểm: terminology 9.2 -> 9.4, semantic_fidelity 9.3 -> 9.4.
+  - Không đổi dù nghi: `cetanā` dịch "tư" (cùng danh sách trong Milindapañha các bài 3.3.6, 3.3.11, 3.4.1, 3.7.16 dịch "ý chí", 8 chỗ; trong Nikāya 17 chỗ cùng danh sách dịch "tư", 0 chỗ "ý chí"; giữ "tư" vì sát nghĩa Pāli hơn, ghi bất định tiền lệ ở đây). `opammaṁ karohi` giữ "Xin ngài hãy cho một ví dụ" (đa số tầng là "Xin hãy xét một thí dụ" nhưng "xét" không sát `karohi`). `Rājā āha—` giữ "Đức vua nói—" (đa số "Vua nói:").
+  - triangulation giữ 7.5: vẫn không có tầng Anh hay Việt hiện hành cho bài này. Blocker về tầng tham khảo giữ nguyên; công cụ tự tính lại trạng thái.
+  - Tỷ lệ lỗi nghĩa thật: 0 lỗi trọng yếu trên 22 khoá; 3 trên 22 khoá thêm nghĩa nhẹ (đã sửa); 10 trên 22 khoá lệch tiền lệ (đã sửa). technical_integrity vẫn 9.6; chưa chạy npm run validate, npm test, npm run check, npm run build.

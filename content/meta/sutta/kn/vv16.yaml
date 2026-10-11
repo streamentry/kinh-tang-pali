@@ -1,5 +1,5 @@
 uid: vv16
-status: published
+status: review
 translationTitle: "Chuyện Cung Điện Nữ Sirimā"
 translators:
   - "OpenCode Space Bunny Free (agent)"
@@ -13,16 +13,16 @@ tags:
 quality:
   scores:
     source_provenance: 9.5
-    semantic_fidelity: 9.0
-    grammar_logic: 9.1
+    semantic_fidelity: 8.5
+    grammar_logic: 8.6
     segment_alignment: 10.0
-    terminology: 9.0
+    terminology: 8.6
     triangulation: 7.5
-    vietnamese_clarity: 9.1
-    han_viet_balance: 9.4
-    ambiguity_integrity: 9.1
+    vietnamese_clarity: 8.8
+    han_viet_balance: 9.2
+    ambiguity_integrity: 8.6
     technical_integrity: 9.6
-  final_score: 9.13
+  final_score: 8.89
   blocking_errors:
     - "Không có tầng tham khảo tiếng Anh tại commit đã ghim — toàn bộ
       sub-collection này vắng mặt trong tầng Anh đã ghim
@@ -34,9 +34,9 @@ quality:
       — cũng không hỗ trợ. Lớp lấp `english-project` của dự án không có cho uid
       này. Ba tầng tham khảo đều vắng ⇒ dịch chỉ từ Pāli root. Đây là giới hạn
       upstream, không phải lỗi của người dịch."
-  assessed_at: "2026-10-06"
+  assessed_at: "2026-10-11"
   assessed_by:
-    - "OpenCode Space Bunny Free (agent)"
+    - "Claude Sonnet 5.5 (Claude Code)"
   waiver:
     id: no-upstream-english
     blockers:
@@ -54,3 +54,9 @@ notes: |-
   Dịch từ Pāli root: commit đã ghim không có bản Anh Sujato cho bộ phần này.
   Đợt 16, lát f207 (agent nền thuộc upstream 'Endpoint is unavailable', phiên sập sau khi ghi đủ 57/57 khoá ở 3/4 bài) — coordinator rà lại: key-set khớp 57/57, `lược(vi)==lược(pāli)` 0 lệch theo quy ước `…pe…`=1, cân nháy kép toàn bài sau hai sửa: `vv15:12.4` bỏ `”` thừa, `vv16` thêm 4 dấu `“` mở (vị trí khớp Pāli), `pv51:4.4` gỡ `”ti.` thừa.
   Cổng kỹ thuật CHƯA chạy — coordinator cần chạy đủ bốn lệnh trước khi coi `technical_integrity: 9.6` là đạt: `npm run validate`, `npm test`, `npm run check`, `npm run build`.
+  Lượt cải thiện 2026-10-11 (kiểm toán đối kháng độc lập; bản trước chấm 9.13 là quá cao): đọc lại từng cặp Pāli↔Việt, phát hiện 12/57 khoá sai nghĩa thật và đã sửa; tổng 30/57 khoá đổi (12 sửa nghĩa, 13 khoá đổi đại từ `ngươi`→`nàng`, còn lại sửa câu/bổ sung từ bị bỏ). Điểm hạ: semantic_fidelity 9.0→8.5, grammar_logic 9.1→8.6, terminology 9.0→8.6, vietnamese_clarity 9.1→8.8, han_viet_balance 9.4→9.2, ambiguity_integrity 9.1→8.6; final_score 9.13→8.89. Các tiêu chí khác giữ nguyên.
+  Lỗi nghĩa thật đã sửa (khoá: trước → sau): 2.4 `Kasmā nu kāyā anadhivaraṁ upāgami` "do thân nghiệp nào ngươi đã đạt đến địa vị vô thượng" → "nàng từ nhóm chư thiên nào đã đến với bậc Vô Thượng" (`kāyā` là abl. của `kāya` = nhóm/hội chúng, đối ứng 3.3 `Tasmā kāyā` và vv34:2.3; `anadhivaraṁ` là tân ngữ chỉ Đức Phật, không phải "địa vị"); 3.3 `Tasmā kāyā` "Vì thế" → "Từ nhóm ấy"; 2.2 `jalamiva joti pāvako` "ngọn lửa cháy trên mặt nước" → "ngọn lửa đang rực cháy" (`jala` = cháy sáng, không phải nước; cùng nghĩa vv53:19.3 `Jalamiva yasasā`); 5.3 `Kassa vā tvaṁ vacanakarānusāsaniṁ` "Hay ngươi là ai, luôn vâng theo lời dạy bảo" → "Hay nàng vâng theo lời nói của ai, theo sự giáo huấn của ai" (câu hỏi về thầy, không hỏi tên); 6.1 bỏ sót `nagantare` → thêm "Giữa núi non"; 6.2 `rājavarassa` (số ít) "hàng vua chúa" → "vị vua ưu việt"; 6.4 `rājagahe` "trong hoàng cung" → "ở Rājagaha" (địa danh, đúng tiền lệ vv25/vv26/vv37/thig11.1); 9.3 `samathasamādhi` "tịnh chỉ và đẳng chí" → "định tịnh chỉ" (`samādhi` là định, không phải `samāpatti`=đẳng chí); 9.4 `paramaniyāmatā` "sự tự quyết ... niềm tin tối thượng" → "sự chắc chắn tối thượng" (`niyāma` = tính cố định/chắc chắn về chánh đạo, như `sammattaniyāma` sn25.1 "con đường chắc chắn"; không phải "niềm tin"); 10.2 `abhisamaye` (loc.) "qua sự giác ngộ" → "trong sự thấu triệt"; 11.1 `amatadasamhi` "ở cõi bất tử" → "đã thấy Bất Tử" (`amatadassī`, cf. mnd6 `amatadassino` "thấy cái bất tử"); 1.2 `aghasigamā` "tiến về chỗ hiểm họa" → "đi trên hư không" (xem bất định).
+  Sửa kèm theo (không phải lỗi nghĩa nặng): đại từ hô gọi `ngươi`→`nàng` ở 13 khoá của người hỏi (tiền lệ họ vv: `nàng` 7–11 lần ở vv1–vv15, vv18; `ngươi` hầu như chỉ ở vv16 và vài khoá vv4/vv12/vv17); 4.2 bỏ thêm nghĩa "không lo buồn" (`sukhedhitā` = lớn lên/được nuôi dưỡng trong an lạc) và đọc `kena` là nghi vấn; 5.1 bỏ chữ "là" thừa; 8.3 `susaṁvutā` "rất hộ trì" → "khéo thu thúc" (7 tiền lệ "khéo thu thúc" ở kn); 13.2 bỏ "kẻ" (hạ giọng) ở `dammasārathiṁ`; 13.3 `taṇhacchidaṁ` "kẻ chém đứt ái" → "bậc chặt đứt ái"; 13.4 bỏ "cung kính" không có trong `vandāmahaṁ`.
+  Đã kiểm, đúng, giữ nguyên: hô cách `devate` (5.2 "này thiên nữ"), `varatanu anomadassane` (2.3, nay là hô cách), người nói (1–2, 4–5 người hỏi; 3, 6–13 nữ thiên đáp), số `pañcarathāsatā` = năm trăm cỗ xe, `vināyaka` "bậc Điều Ngự" (46 tiền lệ trên tầng, so 3 "Hướng Đạo", 1 "Dẫn Đường"), `kāmavaṇṇinī` "mang nhan sắc khả ái" (khớp vv33 ×4), `samudayadukkhaniccataṁ` (7.2) đọc `dukkha`+`aniccataṁ` theo thủ pháp nuốt nguyên âm của kệ (như `Tathāgatassanadhivarassa`), nên giữ "vô thường" (vv41:5.2 cùng Pāli cùng cách dịch), 14.1 và tiêu đề 0.x.
+  Bất định còn lại: (1) `aghasigamā` (1.2) chỉ có một lần trong toàn root, không có bài song song; đọc `agha` = hư không theo ngữ cảnh xe ngựa bay (4.3 `vihaṅgamā`) — nếu đọc `agha` = khổ/tai ương thì nghĩa khác, chưa phân xử được. (2) `yamāhunuttaraṁ` (3.1): đại từ `yaṁ` trung tính với tiền ngữ lược; đọc là nhóm "hạng mà người ta gọi là tối thượng" (Hóa Lạc Thiên, vì 3.2 `nimmāya nimmāya ramanti`), phù hợp 3.3 `Tasmā kāyā`; đọc là "trạng thái vô thượng" như bản trước cũng khả dĩ về ngữ pháp, nhưng không thích hợp với `kāyā`. (3) `visesiya` (10.2) hiếm, đọc là động danh từ của `visesati` "trội hơn/đạt thù thắng". (4) `dukkhanirodhasassataṁ` (7.3) có thể là một hợp từ ("sự diệt khổ thường hằng") thay vì hai mục liệt kê như bản dịch; chưa phân xử. (5) `kenacchasi` (4.2) `acchasi` = "ở/an trú", giữ cách đọc câu hỏi `kena` nhưng chưa đối chiếu được bài song song. Tiêu đề phẩm `Itthivimāna` hiện dịch "Nữ Hư Không" (0.2) — không có `ākāsa`; lặp cả bộ vv nên KHÔNG sửa riêng bài này, để người biên tập xử lý toàn bộ.
+  Cổng kỹ thuật vẫn CHƯA chạy ở lượt này (bị cấm): `npm run validate`, `npm test`, `npm run check`, `npm run build`; `technical_integrity: 9.6` chưa phải kết quả máy.

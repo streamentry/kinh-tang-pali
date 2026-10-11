@@ -1,5 +1,5 @@
 uid: vv23
-status: published
+status: review
 translationTitle: "Chuyện Cung Điện Soṇadinnā"
 translators:
   - "OpenCode Space Bunny Free (agent)"
@@ -13,17 +13,17 @@ tags:
   - "soṇadinnā"
 quality:
   scores:
-    source_provenance: 9.5
-    semantic_fidelity: 9.0
-    grammar_logic: 9.0
+    source_provenance: 8.5
+    semantic_fidelity: 8.7
+    grammar_logic: 8.8
     segment_alignment: 10.0
-    terminology: 9.2
-    triangulation: 7.5
-    vietnamese_clarity: 9.2
-    han_viet_balance: 9.2
-    ambiguity_integrity: 8.8
+    terminology: 8.8
+    triangulation: 7.0
+    vietnamese_clarity: 8.8
+    han_viet_balance: 9.0
+    ambiguity_integrity: 8.0
     technical_integrity: 9.6
-  final_score: 9.10
+  final_score: 8.72
   blocking_errors:
     - "Không có tầng tham khảo tiếng Anh tại commit đã ghim
       (11c9d708978cde8ba61096d8a75f7ddfb846f639).
@@ -45,9 +45,9 @@ quality:
       tham khảo đều vắng ⇒ bài dịch chỉ từ Pāli root ⇒ **blocker thật**, thuộc
       giới hạn của bản chụp upstream. `triangulation` bị chặn ở **7,5** (≤ 8,0)
       chứ không nâng lên để né blocker."
-  assessed_at: "2026-10-05"
+  assessed_at: "2026-10-11"
   assessed_by:
-    - "OpenCode Space Bunny Free (agent)"
+    - "Claude Sonnet 5.5 (Claude Code)"
   waiver:
     id: no-upstream-english
     blockers:
@@ -102,6 +102,7 @@ notes: |-
   *N. Chuyện Cung Điện <tên>* và lời kết *Chuyện Cung Điện <tên>, thứ N.* đo trên **50**
   tệp `vv` đã dịch.
 
+  **[BỊ THAY THẾ 2026-10-11 — hai khẳng định từ vựng dưới đây SAI, xem mục "Lượt cải thiện 2026-10-11"]**
   **HAI CHỖ CỐ Ý KHÔNG NHÂN BẢN TIỀN LỆ, VÌ BẢN SẴN CÓ DỊCH SAI.**
   (a) `:6.2` `senāsanaṁ padīpiyaṁ;` — `vv25:5.2` dịch là *chỗ ngủ và thức uống;*. Pāli chỉ có
       `senāsana` (chỗ ở) + `padīpiya` (xa xôi); **"thức uống" không có trong Pāli** và
@@ -126,7 +127,7 @@ notes: |-
   · `Soṇadinnā` (`:0.4`, `:5.1`, `:12.1`) — **0 tiền lệ trong toàn tầng**. Tên nữ thiên trong
     `Vimānavatthu Saṃyutta`; giữ nguyên Pāli. Lưu ý: `Soṇḍinnā` là tên khác trong cùng bộ,
     không phải một tên.
-  · `nāḷandāyaṁ` (`:5.2`) — **0 tiền lệ**. `Nāḷandā` là **làng** gần Rājagaha, khác với
+  · [thay thế 2026-10-11: không phân xử được loại địa danh, khoá nay dịch *ở Nāḷandā*] `nāḷandāyaṁ` (`:5.2`) — **0 tiền lệ**. `Nāḷandā` là **làng** gần Rājagaha, khác với
     `rājagahasmiṁ` (*thành*) ở `vv25:4.2` và `vv26:4.2`, nên tôi dịch *ở nơi Nāḷandā* chứ
     không dịch *thành Nāḷandā*.
   · `vippasannena cetasā.` (`:6.4`) — 19 tiền lệ nhưng **tản ra 10 cách**, không có đa số
@@ -138,7 +139,7 @@ notes: |-
     `vv26` vì `vv23` cùng phẩm `Cittalatāvagga`.
   · `yā ca pakkhassa aṭṭhamī;` (`:7.2`) — 9 tiền lệ, đa số 5 là *Và ngày thứ tám nửa tháng;*
     tôi dùng đúng câu đó (hạ chữ hoa đầu câu).
-  · `Pāṭihāriyapakkhañca` (`:7.3`) — chỉ 3 tiền lệ: *tuần lễ thần biến* (2) và *kỳ phép nhiệm
+  · [thay thế 2026-10-11: *tuần lễ* sai số ngày, nay *nửa tháng thần biến*] `Pāṭihāriyapakkhañca` (`:7.3`) — chỉ 3 tiền lệ: *tuần lễ thần biến* (2) và *kỳ phép nhiệm
     màu* (1). Tôi theo nhánh 2.
   · `majjapānā` (`:9.4`) và `Theyyā ca aticārā ca` (`:9.3`) — dùng lại nguyên văn `vv25`
     (*cũng không rượu chè say sưa.* / *cũng không trộm cắp, không làm quá đà;*). Bản ấy ngắn gọn
@@ -153,3 +154,18 @@ notes: |-
   tiến trình theo đúng hướng dẫn của `lọt_pāli`, KHÔNG sửa `_hvi.py`.
 
   Cổng kỹ thuật chưa chạy — lát này bị cấm `npm run validate|test|check|build|audit|reference:gaps`. Tiêu chí 10 bị chặn ở **9.6**; bốn lệnh để coordinator chạy: `npm run validate` · `npm test` · `npm run check` · `npm run build`.
+
+  **Lượt cải thiện 2026-10-11 (kiểm toán đối kháng độc lập; 17/48 khoá đổi).**
+  Đọc lại từng cặp Pāli↔Việt; đối chiếu tiền lệ bằng đếm toàn tầng `kn` và bài cùng khuôn `vv24`/`vv37`. Bản trước TỰ NHẬN 9,10/`published` nhưng có **7 khoá sai nghĩa thật** và **10 khoá lệch/thêm nghĩa nhẹ**; điểm bị hạ cho khớp sự thật (9,10 → 8,72).
+  *Sai nghĩa thật (accuracy fix, 7):*
+  · `:3.1` `Pucchāmi taṁ devi mahānubhāve` — `devi`/`mahānubhāve` đều **hô cách** (gọi nữ thiên), không phải tân ngữ; bản cũ viết *Tôi hỏi ngài … về đại oai lực ấy* (ngài ≠ nàng, và biến hô cách thành "về oai lực"). Nay *Tôi hỏi nàng, này thiên nữ có đại oai lực:* (cùng `vv33:5.1`, 5 khoá).
+  · `:6.2` `senāsanaṁ padīpiyaṁ` — `padīpiya` = **đèn/ánh sáng** (cùng dòng `padīpeyya` trong công thức "chỗ nằm, chỗ ở, đèn" ở `iti75`, `cnd7`); đo toàn tầng: `vv24`, `vv37`, `ja524` đều dịch đèn. Bản cũ *tận xa xôi* là **bịa nghĩa** — chính ghi chú cũ khẳng định `padīpiya` = "xa xôi", sai. Nay *chỗ ở và đèn sáng;*.
+  · `:8.3` `Saññamā saṁvibhāgā ca` — `saññamā` = **sự tự chế/thu thúc** (ablative, "nhờ"), không phải "không nói lỗi" (ghi chú cũ bịa nghĩa từ điển). Nay *nhờ tự chế ngự và biết chia sẻ,* (như `vv24:7.3`; `vv37:8.3` *nhờ tự chế và chia sẻ*).
+  · `:8.4` `vimānaṁ āvasāmahaṁ` — `āvasāmi` = **cư ngụ**, không phải "thừa hưởng". Nay *tôi cư ngụ trong cung điện này.*
+  · `:9.1` `Pāṇātipātā viratā` — `pāṇa` = **sinh vật**, bản cũ *sát người* thu hẹp sai (giới thứ nhất là sát sinh). Nay *Tránh xa việc sát sinh,*.
+  · `:7.3` `Pāṭihāriyapakkha` — `pakkha` = **nửa tháng**, không phải tuần. Đo: *tuần lễ thần biến* 11 khoá (kn) vs *nửa tháng thần biến* 1 (`vv24:6.3`); đa số **sai nghĩa Pāli** nên không theo. Nay *cùng cả nửa tháng thần biến,*.
+  · `:2.2` `kena te idha mijjhati` — `mijjhati` = **thành tựu/đạt kết quả**, `idha` = ở đây; *có được nơi này* biến động từ thành tân ngữ. Nay *Do đâu ở nơi đây nàng được thành tựu;* (đã quyết ở vv7 theo hướng dẫn họ vv). Cùng lỗi *có được nơi này* còn ở `pv13:11.2` (20), `vv1:7.2` (15), `vv85:3.2`, v.v. — ngoài lát, chỉ báo.
+  *Lệch/thêm nghĩa nhẹ (10):* `:4.2` *truy hỏi* → *được … hỏi* (`pucchitā` chỉ là "được hỏi"; 16 khoá `vv1` dùng *truy hỏi*, 2 khoá dùng *được hỏi*); `:5.2` bỏ phân loại *nơi* (loại địa danh không phân xử được); `:8.1` `sadā` thuộc `:8.2`, không thuộc `:8.1` (bản cũ để *Luôn* ở sai khoá); `:8.2` bỏ *trong sạch* (`saṁvutā` = thu thúc); `:9.3` *không làm quá đà* → *không tà hạnh* (bối cảnh năm giới; `aticāra` đứng ở giới thứ ba); `:9.4` `ārakā` = *xa lánh*; `:10.1` bỏ *Luôn … gìn giữ* (Pāli không có `sadā`; `ratā` = hoan hỷ); `:10.2` bỏ *nhiệm mầu* (thêm nghĩa; `kovidā` = thông tỏ); `:10.3`–`:10.4` `upāsikā` giữ giống cái *nữ cư sĩ* và nối sở hữu *của Đức Gotama* như `vv24:9.3–9.4`.
+  *Điểm hạ và lý do:* `source_provenance` 9,5→8,5 (khẳng định nguồn từ vựng trong ghi chú cũ không kiểm lại được/sai); `semantic_fidelity` 9,0→8,7; `grammar_logic` 9,0→8,8 (hô cách, thì động từ, ablative đã sửa nhưng công thức `:4.4` vẫn rút gọn); `terminology` 9,2→8,8; `triangulation` 7,5→7,0 (không có bản Anh; đối chiếu chỉ bằng tiền lệ Pāli trong tầng, không có từ điển); `vietnamese_clarity` 9,2→8,8; `han_viet_balance` 9,2→9,0; `ambiguity_integrity` 8,8→8,0 (bản cũ nói chắc nghĩa bịa). `segment_alignment` 10,0 và `technical_integrity` 9,6 giữ. `final_score` 9,10→8,72 (mean thô).
+  *Cố ý KHÔNG đổi dù nghi ngờ:* `:6.3` `ujubhūtesu` *những vị chân thành* (`ujubhūta` sát nghĩa là *ngay thẳng*; giữ vì 8 khoá `vv`/`pv` cùng dùng *chân thành*, đổi một bài sẽ lệch tiền lệ — gợi ý người biên tập thống nhất cả họ); `:10.3` *Đấng Có Mắt Tuệ* (`cakkhumā` = "bậc có mắt"; *Tuệ* là thêm nhẹ nhưng 12/12 khoá cùng dùng); `:4.4` `yassa kammassidaṁ phalaṁ` — *quả báo của nghiệp này là thế* bỏ mệnh đề quan hệ "của nghiệp nào" (công thức chung toàn tầng); `:1.4` `osadhī … tārakā` = *sao mai* theo tiền lệ; tiêu đề `Itthivimāna` = *Nữ Hư Không* (không có `ākāsa` trong Pāli; lặp ~51 tệp `vv`, không sửa riêng một tệp).
+  *Blocker còn lại:* chỉ blocker upstream (không có tầng tham khảo tiếng Anh). Các lỗi nghĩa nêu trên đã sửa trong lượt này nên không ghi thêm blocker. Cổng kỹ thuật vẫn chưa chạy (`npm run validate` · `npm test` · `npm run check` · `npm run build`); do `final_score` 8,72 ≤ 9,0, trạng thái theo cổng là `review`, chờ công cụ chấm cập nhật.

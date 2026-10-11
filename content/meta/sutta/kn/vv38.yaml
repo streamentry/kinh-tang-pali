@@ -1,5 +1,5 @@
 uid: vv38
-status: published
+status: review
 translationTitle: "Chuyện Cung Điện Cây San Hô"
 translators:
   - "OpenCode Space Bunny Free (agent)"
@@ -13,17 +13,17 @@ tags:
   - "pāricchattaka"
 quality:
   scores:
-    source_provenance: 9.5
-    semantic_fidelity: 8.9
-    grammar_logic: 8.9
+    source_provenance: 9.0
+    semantic_fidelity: 8.2
+    grammar_logic: 8.5
     segment_alignment: 10.0
-    terminology: 9.1
+    terminology: 8.4
     triangulation: 7.5
-    vietnamese_clarity: 9.2
-    han_viet_balance: 9.2
-    ambiguity_integrity: 8.4
+    vietnamese_clarity: 8.8
+    han_viet_balance: 9.0
+    ambiguity_integrity: 8.0
     technical_integrity: 9.6
-  final_score: 9.03
+  final_score: 8.7
   blocking_errors:
     - "Không có tầng tham khảo tiếng Anh tại commit đã ghim
       (11c9d708978cde8ba61096d8a75f7ddfb846f639).
@@ -45,9 +45,9 @@ quality:
       tham khảo đều vắng ⇒ bài dịch chỉ từ Pāli root ⇒ **blocker thật**, thuộc
       giới hạn của bản chụp upstream. `triangulation` bị chặn ở **7,5** (≤ 8,0)
       chứ không nâng lên để né blocker."
-  assessed_at: "2026-10-05"
+  assessed_at: "2026-10-11"
   assessed_by:
-    - "OpenCode Space Bunny Free (agent)"
+    - "Claude Sonnet 5.5 (Claude Code)"
   waiver:
     id: no-upstream-english
     blockers:
@@ -141,3 +141,15 @@ notes: |-
   `lọt_pāli`, KHÔNG sửa `_hvi.py`.
 
   Cổng kỹ thuật chưa chạy — lát này bị cấm `npm run validate|test|check|build|audit|reference:gaps`. Tiêu chí 10 bị chặn ở **9.6**; bốn lệnh để coordinator chạy: `npm run validate` · `npm test` · `npm run check` · `npm run build`.
+
+  **Lượt cải thiện 2026-10-11 (kiểm toán đối kháng độc lập; lượt chấm 2026-10-05 tự chấm 9,03 và đã bị thay thế).**
+  Đọc lại từng cặp Pāli↔Việt cho thấy **19/48 khoá có lỗi nghĩa thật** (35 khoá được sửa, gồm cả lỗi từ ngữ và nhất quán). Phân loại lỗi nghĩa:
+  · **Chủ thể/ngôi sai (5):** `:1.4` *các nữ thiên hát* (Pāli `gāyantī sampamodasi` là ngôi hai số ít, nữ thiên một mình); `:2.1`, `:3.1` *bà ấy* (Pāli `tassā te` là ngôi hai, người hỏi nói với nữ thiên); `:4.3`, `:5.3` *họ* (`tesaṁ` chỉ đồ trang sức và vòng hoa, không chỉ người).
+  · **Từ/vật sai nghĩa (8):** `:1.1` *cao lớn* (không có trong Pāli; `koviḷāre` là danh từ định vị, tên cây); `:1.3` *đệm* → *kết* (`ganthamānā`); `:4.2` *cây đàn* → *bím tóc* (`veṇī` ở đây là bím tóc, khớp `vv44:4.2`, `vv50:4.2`; **lỗi bản nháp "đàn" cũ và lời ghi chú "PED liệt kê Veda và đàn" ở trên không có căn cứ, nay bị thay thế**); `:4.4`, `:5.4` *trống năm mặt* → *nhạc năm phần* (`tūriya` là nhạc cụ nói chung, theo đa số `vv36`, `vv44`, `vv50`, `vv64`); `:5.2` *quét đi* → *làm rung chuyển* (`sampakampitā`); `:8.1` *Mặt Trăng* (`pabhassaraṁ accimantaṁ` là tính từ của vòng hoa: rạng ngời, rực rỡ; **ghi chú cũ "danh xưng Mặt Trăng theo `candima`" là sai và bị thay thế**); `:9.4` *với tâm hân hoan hỷ phát đến* → *hoan hỷ, không bệnh tật* (`sampamodāmi` + `anāmayā`; **ghi chú cũ chọn theo `vv36:8.4` là lan lỗi từ khoá đó**).
+  · **Thức/hô cách sai (3):** `:7.1`, `:7.2` *hãy hít lấy*, *hãy nhìn* → *nàng ngửi*, *nàng thấy* (`ghāyase`, `passasi` là chỉ định ngôi hai, không phải mệnh lệnh); `:7.3` *hãy nói lời hỏi* → *được hỏi xin hãy nói* (`pucchitā ācikkha`).
+  · **Thêm/mất đơn vị nghĩa (3):** `:5.1` mất chủ ngữ `vaṭaṁsakā`; `:6.3` thêm chủ ngữ *gió* (Pāli `gandho vāti`: hương lan toả); `:8.3` *hằng là* không có trong Pāli, `asokapupphamālā` là tân ngữ của `upanāmayiṁ`.
+  Sửa thêm (không đếm lỗi nghĩa): `:2.2`, `:3.2` *tứ chi và khớp* → *từng chi phần* (`aṅgamaṅga`); `:2.3` bỏ *khắp nơi*; `:1.2`, `:2.4`, `:3.4`, `:6.2` *đáng ngợi ngơi*, *thơm ngon* → *làm đẹp lòng*, *hương trong sạch* (`manorama`, `sucigandha`); `:6.1` *ngài* → *nàng* (người nghe là nữ thiên); `:7.4` *ấy* → *đây là* (`idaṁ`); `:8.4` *ta* → *tôi* (nữ thiên tự xưng, khớp `:9.3`); `:9.1` thêm *tôi* (`tāhaṁ`); `:9.3` *sầu muốn* (lỗi gõ) → *sầu muộn*, *an ổn* → *an lạc*; `:6.4` *Mañjūsaka* → *mañjūsaka* (theo `vv44`, `vv50`). Cặp Pāli trùng trong bài (`:2.1=:3.1`, `:2.2=:3.2`, `:4.3=:5.3`, `:4.4=:5.4`) dịch giống nhau.
+  Điểm đổi: source_provenance 9,5→9,0 (các khẳng định từ vựng trong notes cũ không có nguồn) · semantic_fidelity 8,9→8,2 · grammar_logic 8,9→8,5 · terminology 9,1→8,4 · vietnamese_clarity 9,2→8,8 · han_viet_balance 9,2→9,0 · ambiguity_integrity 8,4→8,0 · `final_score` 9,03→8,70. Các tiêu chí khác giữ nguyên (`segment_alignment` 10,0, `triangulation` 7,5, `technical_integrity` 9,6). Điểm 8,70 nằm dưới ngưỡng `published` (> 9,0).
+  **Bất định thật còn lại.** (1) `:1.1` `Pāricchattake koviḷāre` — tôi đọc là hai danh từ định vị đồng vị (*cây San Hô, cây koviḷāra*); không có bản Anh pin để phân xử, giữ `koviḷāra` nguyên văn thay vì đặt tên Việt. (2) `:7.1–7.2` `ghāyase … passasi amānusaṁ` — đọc theo ngữ pháp là hai động từ ngôi hai số ít (người hỏi mô tả nữ thiên); `vv44`/`vv50` đọc thể bị động, tôi không theo vì `passasi` là chủ động ngôi hai. (3) `:5.1` `vaṭaṁsakā` — dịch *vòng hoa trang sức* (tiền lệ `cp9`, `thag9.1`), không khẳng định cài tai hay cài đầu như `vv44`/`vv50`. (4) `:4.4`, `:5.4` `pañcaṅgike tūriye` — *nhạc năm phần* theo đa số, nghĩa chi tiết của "năm phần" không phân xử được từ Pāli. (5) `:8.2` `saṁyutaṁ` → *đủ cả … lẫn …*, hiểu là vòng hoa có đủ hương và sắc.
+  **Lỗi lan họ vv (ngoài tệp này, báo, không sửa):** `vv36:8.4` giữ nguyên *với tâm hân hoan hỷ phát đến* và `vv39:8.4` dịch sai hẳn (*tôi chứng đắc thiên thần lực…*) cho cùng Pāli `sampamodāmanāmayā`; `vv22`, `vv29`, `vv30`, `vv36`, `vv37`, `vv39`, `vv48` còn *hãy nói lời hỏi*/*hãy hỏi cho rõ* cho `pucchitācikkha`; `vv39:5.1–5.2`, `vv39:4.3` còn *hãy hít lấy*, *Gió thổi mùi thơm*; tiêu đề phẩm `Itthivimāna` dịch *Nữ Hư Không* là sai (không có `ākāsa`) và lặp ở ~51 tệp, **không sửa riêng một tệp**.
+  Cổng kỹ thuật chưa chạy trong lượt này (cấm chạy lệnh): `npm run validate` · `npm test` · `npm run check` · `npm run build`; `technical_integrity` giữ 9,6. Chưa có phiên bản Anh độc lập nên blocker "không có tầng tham khảo tiếng Anh" giữ nguyên.
