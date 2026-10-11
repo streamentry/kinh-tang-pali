@@ -2,44 +2,87 @@ uid: ja521
 status: draft
 translationTitle: "Kinh Tesakuṇa"
 translators:
-  - "OpenCode Space Bunny Free (agent)"
+  - "Claude Sonnet 5.5 (Claude Code)"
 reviewers: []
 tags:
-  - "khuddakanikaya"
+  - "khuddaka-nikaya"
   - "jataka"
-  - "cattālīsanipāta"
-  - "tam-bai"
+  - "cattalisanipata"
+  - "tesakunavagga"
+  - "tesakunajataka"
 quality:
   scores:
-    source_provenance: 9.6
-    semantic_fidelity: 10.0
-    grammar_logic: 9.8
-    segment_alignment: 10.0
-    terminology: 9.8
-    triangulation: 8.6
-    vietnamese_clarity: 9.6
-    han_viet_balance: 9.4
-    ambiguity_integrity: 9.6
-    technical_integrity: 10.0
-  final_score: 9.64
+    source_provenance: 9.5
+    semantic_fidelity: 8.0
+    grammar_logic: 8.0
+    segment_alignment: 9.8
+    terminology: 8.8
+    triangulation: 7.5
+    vietnamese_clarity: 8.6
+    han_viet_balance: 9.2
+    ambiguity_integrity: 9.0
+    technical_integrity: 9.6
+  final_score: 8.8
   blocking_errors:
-    - "Bản dịch chỉ phủ 1 khoá có nội dung; lát được chia bằng bộ lọc coverage 40 ký tự thay vì missingAll nên bài thiếu khoá, validate yêu cầu requireComplete."
-  assessed_at: "2026-09-30"
+    - "noEnglishEditionUpstream: Thiếu bản dịch tiếng Anh đối chiếu. Tầng english-sujato tại commit đã ghim không có ja521_translation-en-sujato.json (ja chỉ có 83 tệp: ja1–79, ja126, ja159, ja466, ja534; đây là not-published-upstream, không phải not-synced), tầng vietnamese-current chỉ có Pháp Cú và lớp lấp english-project không có tệp cho bài này. Cả ba tầng tham khảo đều vắng nên triangulation bị chặn ở 7.5 (≤ 8.0) và bài giữ draft."
+  assessed_at: "2026-10-11"
   assessed_by:
-    - "OpenCode Space Bunny Free (agent)"
+    - "Claude Sonnet 5.5 (Claude Code)"
 notes: |-
-  **Chỉ một khoá trong lát này.** Bài có nhiều khoá hơn, nhưng `kiểm` của `_hvi.py` chỉ đòi phủ những khoá Pāli dài **≥ 40 ký tự** và không phải khoá đánh số phần `:N.0`; đếm trên tầng Pāli thì đúng **một** khoá rơi vào điều kiện đó, và đó là khoá được giao. Các vế kệ còn lại, dòng tiêu đề `:0.1`–`:0.4` và dòng kết bài không nằm trong lát, tôi **không** dịch và **không** tự thêm vào tệp.
-  **Tầng tham khảo đã đo, không đoán.** Tại commit đã ghim, bài này có 0 segment tiếng Anh Sujato; và tầng Việt hiện hành (`translation/vi/phantuananh/`) tại cùng commit chỉ có 26 tệp Pháp Cú, nên **không** có bản Hòa thượng Thích Minh Châu để đối chiếu. Vì vậy `triangulation` đặt 8,5: dịch từ Pāli root, đối chiếu cú pháp qua từ điển và qua bối cảnh trong chính bài. Đây là đặc điểm của bản chụp upstream, không phải thiếu hàng của kho.
-  **Dùng lại nguyên văn đã `published`, có đối chiếu bằng đếm chứ không bằng trí nhớ.**
-  Pāli của khoá này là `Namo tassa Bhagavato Arahato Sammāsambuddhassa` — **giống hệt**
-  Pāli của `ja1:1.1`, đã `published` với bản dịch *Kính lễ Đức Phật, bậc A-la-hán, bậc
-  Chánh Đẳng Giác.* Tôi lấy đúng câu đó, không dịch lại và không biến thành câu khác.
-  Nếu hai bài mà lệch nhau một chữ thì bốn cột đối chiếu hiện sai âm thầm.
-  **Cơ sở của từng danh xưng** (theo `an10.16:1.3` đã `published`): `bhagavā` → *Đức
-  Phật*; `arahā` → *A-la-hán*; `sammāsambuddho` → *Chánh Đẳng Giác*; `namo tassa` → *Kính
-  lễ*. `sammāsambuddha` cũng nằm trong danh sách giữ chữ Hán–Việt của chính `_hvi.py`.
-  **Điểm `triangulation` 8,6 (cao hơn 8,5) vì lý do thật:** đây là một trong hai bài
-  trong lát có **tầng Việt dự án đã xuất bản nói đúng câu này** — tức là có tiền lệ Việt
-  để đối chiếu, dù vẫn **không** có bản Thích Minh Châu và vẫn **không** có Anh Sujato.
-  **Bối cảnh đã đọc trước khi dịch:** `2.1` trở đi là lời hỏi của bậc vua Metteyya về
-  Vessantara, nên lời kính lễ ở `1.1` là lời mở của cả bài, không phải của riêng khoá.
+  Dịch trực tiếp từ Pāli root snapshot bilara đã ghim, đường dẫn `kn/ja/ja521_root-pli-ms.json` (203/203 khoá, đúng thứ tự Pāli, không khoá thừa). Khoá `1.1` đã có sẵn từ trước và được giữ nguyên; 202 khoá còn lại (`0.1`–`0.4`, `2.1`–`50.4`, `51.1`) được dịch trọn trong đợt này. Bài gồm các bài kệ đối đáp; phần văn xuôi của Jātaka không nằm trong tầng Pāli đã ghim, nên người nói ở từng bài kệ chỉ được suy từ lời xưng hô và mạch của chính các bài kệ.
+
+  - Tầng tham khảo:
+    Tầng English của Sujato không có ja521 (`translation/en/sujato/sutta/kn/ja/` có 83 tệp: ja1–79, ja126, ja159, ja466, ja534; manifest đã ghim không liệt kê `ja521_translation-en-sujato.json`, nên đây là not-published-upstream, không phải not-synced); tầng Việt hiện hành chỉ có Pháp Cú; lớp `english-project` không có tệp cho bài này. Cả ba tầng tham khảo đều vắng nên `triangulation` bị chặn ở 7.5 (≤ 8.0) và bài giữ `draft` với blocker `noEnglishEditionUpstream`. Chỉ có thể dựa vào Pāli, tiền lệ Việt của tầng và bối cảnh của chính bài; không dùng bản dịch bên ngoài tầng đã ghim.
+  - Coverage English:
+    Mẫu số = 1: chỉ khoá `1.1` (47 ký tự) đạt ngưỡng 40 ký tự theo `source/layers.yaml`; mọi khoá khác là dòng kệ ngắn hoặc tiêu đề (bỏ khối `:0`). Sujato phủ 0/1, `english-project` 0/1, `vietnamese-current` 0/1. Với mẫu số này cổng coverage gần như không đo được gì, nhưng điều đó không thay đổi thực tế: toàn bài không có lớp English đối chiếu.
+  - Phân loại & tiêu đề:
+    + `0.1` "Jātaka" dùng lại nguyên văn các ja đã dịch. `0.2` Cattālīsanipāta = "Bộ Bốn Mươi Bài Kinh" (cattālīsa = 40, dùng lại nguyên văn `thag18.1:0.2`; khác Catukkanipāta "Bộ Bốn Bài Kinh" = 4). `0.3` Tesakuṇavagga = "Phẩm Ba Loài Chim" (`tesakuṇa` đọc là "ba loài chim"; cách đọc này suy từ tên phẩm, không có trong thân kinh).
+    + `0.4` "1. Kinh Tesakuṇa" và `51.1` "Kinh Tesakuṇa, thứ nhất." (paṭhamaṁ = 1, khớp số "1." ở `0.4`) theo khuôn "Kinh <Tên>" / "Kinh <Tên>, thứ n" của `ja520`, `ja519`; tên giữ dạng phiên âm vì nghĩa của `tesakuṇa` không được thân kinh xác nhận.
+    + `1.1` giữ nguyên bản đã có, trùng nguyên văn Pāli với `ja1:1.1` (13 khoá trong tầng có cùng Pāli; 11 khoá dịch "Kính lễ Đức Phật, bậc A-la-hán, bậc Chánh Đẳng Giác.", 1 khoá "Đức Thế Tôn").
+  - Người nói (Pāli không ghi tên; suy từ lời xưng hô và bối cảnh trong bài):
+    + `2`: người hỏi nói với một loài chim (`sakuṇa`, `Vessantaraṁ taṁ pucchāmi`); `15`: người hỏi nói với Kuṇḍalinī; `27`: người hỏi nói với Jambuka và nhắc đã hỏi Kosiyagotta, rồi Kuṇḍalinī; `3`–`14`, `16`–`26`, `28`–`39` là ba lời đáp liên tiếp; `40`–`50` là lời khuyên "Dhammaṁ cara mahārāja", người nói không được nêu tên; `0.x`, `51.1` là phần biên soạn.
+    + Việc gán `3`–`14` cho Kosiyagotta (theo thứ tự ở `27.1`), `16`–`26` cho Kuṇḍalinī và `28`–`39` cho Jambuka là suy từ thứ tự và lời xưng hô; không có căn cứ trong tầng ghim để xác định ai là Vessantara, ai là Kaṁsa, hay quan hệ cha–con ở `3.1`–`3.4`.
+  - Pāli trùng nguyên văn:
+    Dò Pāli của 203 khoá với toàn bộ Pāli đã ghim (mọi bộ): 19 khoá có dạng trùng (từ 12 ký tự trở lên) ở bài khác đã có bản Việt (`0.2`, `1.1`, `6.1`–`6.4`, `14.3`, `25.3`, `25.4`, `30.4`, `33.2`, `34.3`, `40.3`, `41.3`, `42.3`, `43.3`, `44.2`, `47.3`, `48.3`). Dùng lại nguyên văn ở 9/19 (`0.2` = `thag18.1:0.2`; `1.1`; `6.1`–`6.4` và `25.3`–`25.4` = `ja520:4.1`–`4.4`; `44.2` = `tha-ap486:6.2`), chỉ đổi chữ hoa đầu câu ở 6/19 (`40.3`, `41.3`, `42.3`, `43.3`, `47.3`, `48.3`: "sau khi thực hành pháp ở đây," theo `pv15:34.1`, dạng chiếm 6/10 khoá trùng), khác 4/19: `14.3` ("đủ sức làm cho bạn bè được an vui": `ja238:2.5` hiện dịch "Đủ rồi, bạn ơi, hãy dừng lại," với cùng Pāli `Alaṁ mitte sukhāpetuṁ`, đọc `alaṁ` như lời can ngăn; ở đây `alaṁ` + động từ nguyên thể đi với `amittānaṁ dukhāya` ở `14.4` nên đọc là "đủ sức", đây là điểm cần người biên tập xét cả `ja238`); `30.4` (đổi "nắm giữ" thành "đạt được" theo `iti23:3.4` và `an5.43:10.4`, `adhigaṇhāti` dịch "đạt được"); `33.2` (theo `sn3.1:6.2`, đổi "Sát-đế-lợi" hoa thành "sát-đế-lợi" theo quy ước của `ja520`); `34.3` (theo `thag10.3:5.3` "Kẻ ở đây đi cùng tuệ", đổi sang "Người ở đời này đi cùng trí tuệ," cho rõ hơn).
+    Trong chính bài: 10 nhóm Pāli trùng nguyên văn từ 12 ký tự trở lên (`Rajjaṁ kāretukāmena,` ở `2.3`/`15.3`; `kiṁ su kiccaṁ kataṁ varaṁ”.` ở `2.4`/`15.4`; `Sabbe bhogā vinassanti,` ở `6.3`/`25.3`; `rañño taṁ vuccate aghaṁ.` ở `6.4`/`25.4`; `Tattheva te vattapadā,` ở `14.1`/`26.1`/`50.1`; `esāva anusāsanī;` ở `14.2`/`26.2`; `sammadattho vipaccati.` ở `37.4`/`38.4`; `Idha dhammaṁ caritvāna,` ở `40.3`–`43.3`, `47.3`, `48.3`; `rāja saggaṁ gamissasi.` ở `40.4`–`43.4`, `47.4`, `48.4`; `Dhammaṁ cara mahārāja,` ở `41.1`–`49.1`). Bản Việt giống nhau ở 8 nhóm; 2 nhóm cố ý khác: `Tattheva te vattapadā` (`14.1`, `26.1` "của con" khi người nói gọi `tāta`; `50.1` "của ngài" vì người nói ở đó chỉ gọi `mahārāja`), và `sammadattho vipaccati` (`37.4` "không chín muồi" so với `38.4` "chín muồi", xem mục chỗ bất định về `37.3`).
+  - Số Pāli:
+    `cattālīsa` (`0.2`) = 40; `paṭhamaṁ` (`51.1`) = 1, khớp `0.4`; `dveva` (`16.1`) = 2, khớp hai điều ở `16.3` (aladdhassa lābho) và `16.4` (laddhassa anurakkhaṇā); `pañcavidhaṁ` (`28.1`) = 5 loại sức mạnh, đếm được đủ 5: cánh tay (carimaṁ, cuối), của cải (dutiyaṁ = 2), cận thần (tatiyaṁ = 3), dòng dõi (catutthaṁ = 4) và trí tuệ (aggaṁ, đứng đầu); `dutiyaṁ` = thứ hai, `tatiyaṁ` = thứ ba, `catutthaṁ` = thứ tư. Bài không có số đếm nào khác.
+  - Thuật ngữ (có đếm trên tầng):
+    + `khattiya` → "sát-đế-lợi" (14/41 khoá ja ngắn có khattiya dùng dạng này, còn lại "quý tộc" 6, "vương" 3, "vua" 1, không nêu 17); `mahārāja` → "tâu đại vương" (28/44; "đại vương" 42/44 gồm dạng có "tâu"); `rāja` (vocative) → "tâu vua"; `kāsipati` → "chúa xứ Kāsi" ("xứ Kāsi" 14/50 khoá ja có Kāsi, "Kāsi" 20); `adhammika` → "phi pháp" (8/12 khoá ja); `pamāda` → "phóng dật" (14/29); `mando`/`dummedho` → "kẻ ngu" / "kẻ kém trí" ("kẻ ngu" 11/26 cho `mando`); `bhūtapati` → "chủ của muôn loài" (2/5, theo `ja488:21.2`, `ja500:18.4`); `dīghāvu` → "hỡi người trường thọ" (theo `ja516:32.3`); `uṭṭhāna`+`vīriya` → "nỗ lực, tinh tấn" (theo `sn11.1:8.1`); `anusūyaka` → "ganh tị" (theo `snp2.9`); `dussīla` → "phá giới" (45/183, theo `dhp110`, `dhp320`, `dhp308`); `vinipātika` → "sa vào đọa xứ"; `bala` → "sức mạnh"; `tāta` → "hỡi con" (trong 51 khoá ja ngắn có tāta, 32 có chữ "con" (gồm 3 "hỡi con"), 12 có chữ "cha"; ở bài này người được gọi `tāta` là người hỏi, người nói là bậc đáp nên chọn "con"); `naḷāgāra` → "căn nhà bằng lau sậy" (theo `ne10:2.4`); `Sirī`, `Alakkhī`, `Lakkhī`, `Kāḷakaṇṇī` giữ phiên âm vì là danh xưng nhân cách hoá (theo `ja192:2.3` giữ "Sirī" và "Kāḷakaṇṇī"); `lakkhī` ở `10.1` (danh từ thường) → "phúc lành" (theo `ja420:7.1`).
+  - Chỗ bất định (không thêm vào thân kinh):
+    + `2.1` `Vessantaraṁ taṁ pucchāmi`: đọc `Vessantaraṁ` là tên của người được hỏi (đồng vị với `taṁ`, "ta hỏi ngươi, Vessantara"); cách đọc khác coi Vessantara là chủ đề hỏi, không loại trừ được. `Vessantara` giữ phiên âm.
+    + `3.1`–`3.4` `tāto kaṁso bārāṇasiggaho ... pitā puttaṁ acodayi`: dịch sát "cha ta — Kaṁsa, người nắm giữ Bārāṇasī — dù phóng dật, đã nhắc nhở ta, người không phóng dật". Không rõ người cha này là ai trong quan hệ với người hỏi ở `2`; `acodayi` dịch "nhắc nhở" (có thể là "khuyên bảo", "khiển trách").
+    + `4.1` `vitathaṁ` → "sự giả dối" (`vitatha` = không thật); `4.4` `vataṁ` → "điều thực hành".
+    + `5.1` `tapokammaṁ` → "việc khổ hạnh"; `5.2` `katamasaṁsayaṁ` → "chắc chắn đã làm".
+    + `7.2`–`7.4`: Pāli nói cả Sirī và Alakkhī "đã nói điều này"; `7.3`–`7.4` hoan hỷ nơi người nỗ lực là lời của Sirī, `8` là lời của Kāḷakaṇṇī (= Alakkhī), suy từ nội dung đối nghịch giữa hai khổ kệ chứ Pāli không đánh dấu người nói.
+    + `8.4` `cakkabhañjanī` → "kẻ bẻ gãy bánh xe" (nghĩa của `cakka` không chắc: có thể là "bánh xe" hoặc "vòng quay/ quyền lực").
+    + `9.2` `rakkhito` → "được che chở" (đọc là quá khứ phân từ bị động; cách đọc "người bảo vệ" cũng ngữ pháp được).
+    + `12.2` `sājīvā honti tādino` → "đều là bạn đồng hành của người như thế" (`sājīva` = cùng sống); `12.4` `anutiṭṭhanti` → "theo giúp đỡ".
+    + `15.1` `sakkhisi` không có tân ngữ nên dịch "ngươi có thể chăng"; `15.2` `khattabandhuni` → "người nữ thân quyến dòng sát-đế-lợi".
+    + `17.3` `anakkhākitave` → "không phải kẻ cờ bạc" (`akkhakitava` = người chơi súc sắc).
+    + `19.1` `Susaṅgahitantajano`: đọc là "những người thân cận được vỗ về khéo" (`anta`/`anto` + `jana`); cách đọc khác là "dân vùng biên được vỗ về khéo" không loại trừ được. `19.3` `iṇadānaṁ` → "việc cho vay"; `19.4` `parapattiyā` → "vì tin vào người khác".
+    + `21.1` `jānapadaṁ atthaṁ` → "việc của xứ sở"; `21.3` `yuttā` → "quan chức" (người được giao việc).
+    + `23.1`–`23.2` `Mā te adhisare muñca, subāḷhamadhikopitaṁ`: khó nhất bài. Dịch "Chớ buông ra khi bột phát, lúc đã bị khích động quá mạnh"; `adhisare` không tra được ở nơi khác trong tầng, không có tân ngữ rõ cho `muñca` (mạch `23.3` nói về giận dữ, nhưng Pāli không nói tân ngữ là "cơn giận"), nên bản dịch giữ chỗ để ngỏ.
+    + `24.1`–`24.2` `anatthāya patārayi`: đọc `patāreti` là "dẫn đi" (như `ja515:38.3`) → "dẫn đến điều bất lợi"; `24.4` `dukhudrayo` → "điều dẫn đến khổ" (theo `ja498:17.4`).
+    + `25.1` `Apetalomahaṁsassa` → "hết rợn tóc gáy" (`lomahaṁsa` là dựng tóc gáy, ở `thag1.6:1.3` dịch "không còn sợ hãi"; ở đây giữ sát chữ).
+    + `26.3` `Dakkhassudāni` → "hãy là người khéo léo"; `26.6` `vinipātiko` → "sa vào đọa xứ".
+    + `28.2` `mahaggate` → "cao cả"; `28.4` `carimaṁ` → "cuối cùng" (cách xếp: trí tuệ đứng đầu, cánh tay cuối).
+    + `30.4` `adhigaṇhāti` → "đạt được" (cũng có thể là "nắm giữ").
+    + `33.4` `sabbenapi na jīvati` → "dù có tất cả cũng không sống nổi" (`sabbena` có thể chỉ "tất cả các sức mạnh kia" hoặc "tất cả mọi thứ").
+    + `35.4` `dhammaṭṭhaṁ avinibbhujaṁ` → "vị an trú trong pháp, không rời xa" (`avinibbhuja` không tra được ở nơi khác trong tầng; nghĩa "không rời xa/ không tách rời" suy từ `vinibbhujati` = tách ra).
+    + `36.1` `dhammavibhaṅgaññū` → "biết phân tích pháp"; `36.2` `matandito` đọc là `atandito` với âm đệm → "không lười nhác".
+    + `37.3` `Na nibbindiyakārissa` và `38.3` `Anibbindiyakārissa`: đọc `nibbindiyakārī` là "người làm việc mà nản chí", `anibbindiyakārī` là ngược lại; `37` là vế tiêu cực nên `na` được đọc là phủ định của `vipaccati` ở `37.4` (nếu `na` phủ định `nibbindiyakārissa` thì câu `37` sẽ cho kết quả ngược với `38` và mâu thuẫn với `37.1`–`37.2`). Do đó bản Việt đặt "không" ở `37.4` chứ không ở `37.3`.
+    + `38.1` `Ajjhattañca payuttassa` → "chuyên chú vào việc của chính mình" (`ajjhatta` có thể là "bên trong/ nội bộ/ tự thân"; không phân xử được từ Pāli một mình); `38.2` `tathāyatanasevino` → "thường lui tới chỗ thích hợp".
+    + `39.1` `Yogappayogasaṅkhātaṁ` → "điều được kể là chuyên cần và vận dụng"; `39.4` `mā akammāya randhayi` → "chớ để mình hư hỏng vì không làm việc" (`randheti` ở `dhp248:4` là "làm khổ", ở `tha-ap416:1.3` là "đập nát"; tân ngữ ngầm "mình" suy từ mạch).
+    + `43.2` `vāhanesu` → "các vật cưỡi" (cũng có thể là "xe cộ, phương tiện chuyên chở").
+    + `49.4` `pāmado` đọc là `pamādo` → "phóng dật đối với pháp".
+    + `50.3`–`50.4` `Sappaññasevī kalyāṇī, Samattaṁ sāma taṁ vidū`: dịch "người thân cận bậc có trí, người hiền thiện, tự mình biết trọn vẹn điều ấy"; `kalyāṇī` có thể là tính từ của `anusāsanī` ("lời chỉ dạy tốt lành") và `vidū` có thể là "những người biết" thay vì động từ; không phân xử được.
+    + Tên `Kosiyagotta`, `Kuṇḍalinī`, `Jambuka` giữ phiên âm; Pāli không nói loài của họ.
+  - Phép kiểm tra:
+    1. Tập khoá Việt = tập khoá Pāli: 203/203, cùng thứ tự.
+    2. Nháy đơn `‘’` và nháy kép `“”` khớp Pāli từng khoá: 0/203 lệch (Pāli 0 `‘’`; nháy kép mở ở `2.1`, `3.1`, `15.1`, `16.1`, `27.1`, `28.1`, `40.1`, đóng ở `2.4`, `14.4`, `15.4`, `26.6`, `27.4`, `39.6`, `50.4`).
+    3. Pāli trùng nguyên văn trong chính bài: 10 nhóm, xem trên; Việt khác 2 nhóm, cố ý.
+    4. Dấu lược: Pāli có `…pe…` ở 3 khoá (`44.3`, `45.3`, `46.3`) → Việt `…` đúng 1 dấu mỗi khoá; Pāli 0 khoá có `(…)`, Việt 0; 0/203 lệch.
+    5. Số Pāli: xem trên.
+    NFC đạt, không khoá rỗng, không khoảng trắng thừa; Pāli lọt sang tiếng Việt chỉ là tên riêng (`Jātaka`, `Tesakuṇa`, `Vessantara`, `Kaṁsa`, `Bārāṇasī`, `Sirī`, `Alakkhī`, `Lakkhī`, `Kāḷakaṇṇī`, `Kāsi`, `Kosiyagotta`, `Kuṇḍalinī`, `Jambuka`, `Sakka`, `Inda`). Đã in cặp Pāli↔Việt ra đọc toàn bài (203 cặp).
+  - Công cụ kiểm của kho chưa chạy ở bước này, nên `technical_integrity` đặt 9.6 và không tuyên bố technical gate pass; còn phải chạy: `npm run validate`, `npm test`, `npm run check`, `npm run build`.
