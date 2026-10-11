@@ -196,20 +196,24 @@ test('our own English fill is marked as ours, never presented as the pinned edit
   }
 });
 
-test('a text with no project data still renders every version it does have', fullSync, () => {
+test('a text with no project data still renders every version it does have', fullSync, (t) => {
   // Hundreds of catalogue texts have no project translation at all (790 in `kn` alone as
   // of 2026-10-04; the upstream-no-English class is 1,596 texts overall). The reader must
   // still be useful there: the Pāli and whatever references exist, and our panel marked as
   // not started rather than absent from the page.
   //
-  // The fixture was `mil1`, which stopped being valid the moment that text was translated —
-  // the test then failed for the right reason but the wrong subject. `bv2` is used instead
-  // and is asserted below to still be untranslated, so this test cannot silently go back to
-  // testing a text that now has project data.
-  const uid = 'bv2';
-  assert.equal(existsSync(`content/translation/vi/project/sutta/kn/${uid}_translation-vi-project.json`), false,
-    `${uid} must stay untranslated for this test to mean anything`);
-  const document = composeDocument('kn', uid);
+  // The fixture used to be a fixed uid (`mil1`, then `bv2`), and each stopped being valid the
+  // moment that text was translated. As the corpus approaches full coverage no fixed uid can
+  // last, so the subject is chosen from the catalogue: the first text with no project data.
+  // If every text is translated the premise no longer exists and the test says so instead of
+  // silently testing a text that has project data.
+  const candidates = (['kn', 'an', 'sn', 'mn', 'dn'] as CollectionCode[]).flatMap((code) =>
+    loadCatalog(code).texts.map((item) => ({ code, uid: item.uid })));
+  const subject = candidates.find(({ code, uid }) =>
+    !existsSync(`content/translation/vi/project/sutta/${code}/${uid}_translation-vi-project.json`));
+  if (!subject) { t.skip('every catalogue text has project data; the no-project-data case no longer exists'); return; }
+  const uid = subject.uid;
+  const document = composeDocument(subject.code, uid);
   assert.equal(document.hasProjectData, false);
   const project = document.layers.find((layer) => layer.id === 'vi')!;
   assert.equal(project.reason, 'not-started');
