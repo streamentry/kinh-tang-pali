@@ -211,3 +211,13 @@ Nhật ký append-only. Registry `content/audio/progress.json` được đối s
 
 - Generated11chunks/81canonical scripture segments. Full localASR flagged onlyindex9. One bounded retry reused10WAVs and preserved original. Final artifact approximately871.7s. Final11reports similarity0.7816–1.0000; index9 still has a long difference. Localwindows0–35s,30–65s,60–68.32s and43.32–68.32s recognized a transition from easy requisites to lifelong following without the repeated reflection. ASR is not authority and cannot certify omission; human listening required. MN17blocked, reviewpending, noR2upload orplayerregistration.
 - Checkpoint recordsMN16productionverification andMN17blocker; onlyonepreviouslymergedUID gainsliveevidence, zero newly uploadedfiles. Small checkpoint follows requested frequentPRcadence.
+
+### MN18 sequential start and checkpoint478merge
+
+- PR478 merged at2026-10-11T06:11:38Z; exacthead `a67f1fb8f37a00119ec0e4e5aea6eb84fba5db94`, squash `18833efb50acc06f91464076ed7cb032857b19d5`; CI38113950957/38113948154 bothsucceeded. Mainfetched before MN18; Pages38117261829 pending at start, no new audio registered by checkpoint.
+- MN18sourceSHA256 `b9ac1c404e9c4a9eb9a8e971191541606d9d4639a85911eb578e328f116f8a1c`, plan `0edaa56bac436d2f`,13chunks/148canonical scripturesegments. All148canonicalcells excludingasidecomments and5summaryparagraphs matchedproduction. Pinnedprofileunchanged; single sequentialTTSprocess. Firsttwo summaryWAVs localASRsimilarities0.9224/0.9451, no long differing spans. MachineQConly; nohumanvoicecomparison/fullcontentlistening claimed, reviewpending.
+
+### MN18 final bounded-retry checkpoint
+
+- Generated13chunks/148segments; one bounded content retry of indexes5/11 preserved originals and reused11WAVs. Final artifact approximately1195.7s. Full13chunkASR: index5 now0.9382 without long differences; index11 remains0.7098 with long missing quotation. Valid windows0–45s,40–60.28s and35.28–60.28s did not recognize the repeated quotation. An empty out-of-duration window was excluded and is not evidence. ASR is not authority; human listening required. MN18blocked, pending, noR2upload/playerregistration.
+- Pages38117261829 succeeded for checkpoint478 merge `18833efb50acc06f91464076ed7cb032857b19d5`, verified by GitHub readback.
