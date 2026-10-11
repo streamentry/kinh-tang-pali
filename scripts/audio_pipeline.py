@@ -21,16 +21,25 @@ def split_text(text, limit):
     if text:parts.append(text)
     return parts
 
-def _balanced_curly_quotes(text):
-    return text.count('“')==text.count('”') and text.count('‘')==text.count('’')
+def _quote_stack(text, initial=()):
+    stack=list(initial);closing={'”':'“','’':'‘'}
+    for char in text:
+        if char in ('“','‘'):
+            stack.append(char)
+        elif char in closing:
+            if not stack or stack.pop()!=closing[char]:return None
+    return tuple(stack)
 
-def _balanced_cut(text, lower, upper, preferred):
+def _balanced_curly_quotes(text, initial=()):
+    return _quote_stack(text,initial)==()
+
+def _balanced_cut(text, lower, upper, preferred, initial=()):
     """Choose a natural quote-balanced boundary closest to the existing chunk cut."""
     candidates=[]
     for pattern in (r'[.!?…][”’\"\']?\s+',r'\n\s*\n',r'\s+'):
         candidates.extend(match.end() for match in re.finditer(pattern,text) if lower<=match.end()<=upper)
         if candidates:
-            balanced=[cut for cut in candidates if _balanced_curly_quotes(text[:cut])]
+            balanced=[cut for cut in candidates if _balanced_curly_quotes(text[:cut],initial)]
             if balanced:
                 return min(balanced,key=lambda cut:(abs(cut-preferred),cut))
         candidates=[]
@@ -38,17 +47,24 @@ def _balanced_cut(text, lower, upper, preferred):
 
 def rebalance_quote_boundaries(planned, limit):
     """Repair an open curly quote at a TTS boundary by redistributing adjacent chunks."""
+    prefix=''
     for index in range(len(planned)-1):
         current,next_chunk=planned[index:index+2]
-        if current['section']!='scripture' or next_chunk['section']!='scripture':continue
-        if current.get('pause_after_seconds') is not None:continue
-        if _balanced_curly_quotes(current['text']):continue
+        if index==0 or planned[index-1]['section']!=current['section'] or planned[index-1].get('pause_after_seconds') is not None:prefix=''
+        if current['section']!='scripture' or next_chunk['section']!='scripture' or current.get('pause_after_seconds') is not None:
+            prefix+=current['text'];continue
+        initial=_quote_stack(prefix)
+        if initial is None:initial=()
+        if _balanced_curly_quotes(current['text'],initial):
+            prefix+=current['text'];continue
         combined=current['text']+next_chunk['text']
         lower=max(1,len(combined)-limit);upper=min(limit,len(combined)-1)
-        cut=_balanced_cut(combined,lower,upper,len(current['text']))
-        if cut is None:continue
+        cut=_balanced_cut(combined,lower,upper,len(current['text']),initial)
+        if cut is None:
+            prefix+=current['text'];continue
         current['text']=combined[:cut];current['text_sha256']=digest(current['text'].encode())
         next_chunk['text']=combined[cut:];next_chunk['text_sha256']=digest(next_chunk['text'].encode())
+        prefix+=current['text']
     return planned
 
 def plan_source(source, profile):
