@@ -39,14 +39,19 @@ for (const collection of COLLECTIONS) {
     const mean = arithmeticMean(Object.values(quality.scores) as number[]);
     const status = expectedStatusForQuality(mean, quality.blocking_errors, waiver.blockers);
     if (status === meta.status && JSON.stringify(quality.waiver) === JSON.stringify(waiver)) { bump('already-applied'); continue; }
-    // A waiver that leaves the text a draft (another blocker, or a score under 8.0) changes nothing.
-    if (status === 'draft') { bump('still-draft'); continue; }
-    const next = { ...meta, quality: { ...quality, waiver }, status };
+    // A waiver that leaves a draft a draft (another blocker, or a score under 8.0) changes nothing.
+    // A text that was review/published but no longer passes the gate (an audit found a new blocker or
+    // lowered the score) IS brought down, so the recorded status never outruns the scorecard.
+    if (status === 'draft' && meta.status === 'draft') { bump('still-draft'); continue; }
+    const keepWaiver = status !== 'draft';
+    const { waiver: _old, ...qualityWithoutWaiver } = quality;
+    const next = { ...meta, quality: keepWaiver ? { ...quality, waiver } : qualityWithoutWaiver, status };
     const errors = validateQualityAssessment(next, collection);
     if (errors.length) { bump('refused'); console.error(`${collection}/${uid}: ${errors.join('; ')}`); continue; }
     bump(`${meta.status}->${status}`);
     if (dryRun) continue;
-    document.setIn(['quality', 'waiver'], document.createNode(waiver));
+    if (keepWaiver) document.setIn(['quality', 'waiver'], document.createNode(waiver));
+    else document.deleteIn(['quality', 'waiver']);
     document.set('status', status);
     const temporary = `${file}.${randomUUID()}.tmp`;
     try {
