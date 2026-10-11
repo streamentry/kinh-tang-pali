@@ -26,7 +26,7 @@ import type { CanonCatalog, CollectionCode } from '../../src/lib/canon/types';
 
 interface SuttaMeta {
   status?: string;
-  quality?: { blocking_errors?: string[] };
+  quality?: { blocking_errors?: string[]; waiver?: { id: string } };
 }
 
 const readJson = <T>(file: string): T => JSON.parse(readFileSync(file, 'utf8')) as T;
