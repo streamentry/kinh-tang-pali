@@ -123,6 +123,13 @@ with patch('urllib.request.urlopen',side_effect=http_error) as request, patch('t
  assert request.call_count==1
  sleep.assert_not_called()
 
+# Transient HTTP 5xx still uses the bounded retry path.
+http_error=urllib.error.HTTPError('https://invalid.example',503,'temporary',None,io.BytesIO(b'private response'))
+with patch('urllib.request.urlopen',side_effect=[http_error,response()]) as request, patch('time.sleep') as sleep, redirect_stdout(io.StringIO()):
+ assert generate('test-key','small transcript',profile)==wav
+ assert request.call_count==2
+ assert sleep.call_args_list==[call(3)]
+
 # Five transient connection failures exhaust the fixed budget; no sixth request occurs.
 failures=[urllib.error.URLError(socket.timeout('private detail')) for _ in range(5)]
 with patch('urllib.request.urlopen',side_effect=failures) as request, patch('time.sleep') as sleep, redirect_stdout(io.StringIO()):
