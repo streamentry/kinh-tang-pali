@@ -250,6 +250,9 @@ Thiết kế không cấp phép đổi giọng, nhịp, model, nội dung hay tr
    Chú thích dài hiện tối đa 120 ký tự theo grapheme, ưu tiên hết từ, kết thúc bằng `...`;
    dùng `details/summary` với “Xem thêm” / “Thu gọn” để đọc đầy đủ bằng cảm ứng, chuột
    hoặc bàn phím, kể cả khi tắt JavaScript. Chú thích ngắn hiện đủ; bản in hiện toàn bộ.
+   Khối kinh văn phải chứa đủ chiều cao của mọi chú thích ở lề; Tra cứu toàn văn,
+   điều hướng bài trước / bài tiếp và các phần sau luôn bắt đầu dưới chú thích cuối,
+   cả khi thu gọn lẫn mở đầy đủ. Không cắt hay che chú thích để tránh chồng lấn.
    Cỡ chữ kinh văn chỉnh được (90–135%), lưu trong trình duyệt người đọc; không có JS thì
    nhóm điều khiển này ẩn. Thanh tiến độ đọc 2px dùng CSS scroll-driven animation, tự tắt
    khi trình duyệt không hỗ trợ hoặc khi giảm chuyển động.
