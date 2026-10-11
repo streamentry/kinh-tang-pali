@@ -87,3 +87,50 @@ assert all(len(item['text'])<=1400 for item in plan)
 `],{input:source,encoding:'utf8'});
  assert.equal(output,'');
 });
+
+test('Gemini retries bounded network failures and stops immediately on HTTP 429', () => {
+ const output=execFileSync('python3',['-c',`
+import base64,io,json,socket,sys,urllib.error,wave
+from contextlib import redirect_stdout
+from unittest.mock import call,patch
+sys.path.insert(0,'scripts')
+from gemini_tts import generate
+from narration_config import load_profile
+
+def make_wav():
+ data=io.BytesIO()
+ with wave.open(data,'wb') as writer:
+  writer.setnchannels(1);writer.setsampwidth(2);writer.setframerate(24000);writer.writeframes(b'\\0\\0'*240)
+ return data.getvalue()
+
+wav=make_wav()
+payload={'steps':[{'type':'model_output','content':[{'type':'audio','data':base64.b64encode(wav).decode()}]}]}
+def response(): return io.BytesIO(json.dumps(payload).encode())
+profile=load_profile()
+
+# A connection timeout gets a bounded exponential-backoff retry, then resumes.
+with patch('urllib.request.urlopen',side_effect=[urllib.error.URLError(socket.timeout('private detail')),response()]) as request, patch('time.sleep') as sleep, redirect_stdout(io.StringIO()):
+ assert generate('test-key','small transcript',profile)==wav
+ assert request.call_count==2
+ assert sleep.call_args_list==[call(3)]
+
+# Quota/rate-limit status 429 must not trigger another potentially billable request.
+http_error=urllib.error.HTTPError('https://invalid.example',429,'quota',None,io.BytesIO(b'private response'))
+with patch('urllib.request.urlopen',side_effect=http_error) as request, patch('time.sleep') as sleep, redirect_stdout(io.StringIO()):
+ try: generate('test-key','small transcript',profile)
+ except RuntimeError as error: assert '429' in str(error)
+ else: raise AssertionError('HTTP 429 was accepted')
+ assert request.call_count==1
+ sleep.assert_not_called()
+
+# Five transient connection failures exhaust the fixed budget; no sixth request occurs.
+failures=[urllib.error.URLError(socket.timeout('private detail')) for _ in range(5)]
+with patch('urllib.request.urlopen',side_effect=failures) as request, patch('time.sleep') as sleep, redirect_stdout(io.StringIO()):
+ try: generate('test-key','small transcript',profile)
+ except RuntimeError as error: assert 'retry budget exhausted' in str(error)
+ else: raise AssertionError('Network retry limit was not enforced')
+ assert request.call_count==5
+ assert sleep.call_args_list==[call(3),call(6),call(12),call(24)]
+print('network retry policy passed')
+`],{encoding:'utf8'});assert.match(output,/policy passed/);
+});

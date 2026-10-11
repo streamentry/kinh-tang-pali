@@ -5,7 +5,7 @@ Requires lameenc (same encoder as The Thread Seers), and Node/tsx.
 """
 import fcntl
 import tempfile
-import argparse, base64, hashlib, io, json, os, subprocess, time, urllib.request, urllib.error, wave
+import argparse, base64, hashlib, http.client, io, json, os, subprocess, time, urllib.request, urllib.error, wave
 from pathlib import Path
 from narration_config import load_profile, profile_digest, profile_metadata
 from audio_pipeline import plan_source, write_json, wav_info, cached_chunk_valid, mp3_info, digest
@@ -38,9 +38,20 @@ def generate(key, text, profile):
             return audio
         except urllib.error.HTTPError as e:
             # Never print request URLs, credentials or provider response text.
-            if e.code not in (429,500,502,503,504) or attempt==4:
+            # 429 may represent exhausted quota, so fail closed instead of making
+            # another potentially billable prediction. Auth and other 4xx also stop.
+            if e.code == 429:
+                raise RuntimeError('Gemini HTTP 429; stopping to protect quota and billing.') from None
+            if e.code not in (500,502,503,504) or attempt==4:
                 raise RuntimeError(f'Gemini HTTP {e.code}') from None
-            print(f'Provider busy ({e.code}), retry {attempt+1}',flush=True)
+            print(f'Provider busy ({e.code}), retry {attempt+1}/5',flush=True)
+            time.sleep(min(30,3*2**attempt))
+        except (urllib.error.URLError, TimeoutError, ConnectionError, http.client.HTTPException) as e:
+            # Connection setup/read failures are retryable, but remain bounded.
+            # Do not emit exception text: URLError reasons can contain URL details.
+            if attempt==4:
+                raise RuntimeError('Gemini network retry budget exhausted; resume from the saved chunk checkpoint.') from None
+            print(f'Provider network error ({type(e).__name__}), retry {attempt+1}/5',flush=True)
             time.sleep(min(30,3*2**attempt))
     raise RuntimeError('Retries exhausted')
 

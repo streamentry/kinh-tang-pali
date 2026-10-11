@@ -80,4 +80,6 @@ Khi phát hết, chỉ chuyển đến bài liền sau nếu metadata audio còn
 
 Generator chia văn bản quá dài theo dấu kết câu hoặc khoảng trắng, giữ nguyên ký tự và thứ tự khi tái ghép. Cache fingerprint gồm source, profile và toàn bộ kế hoạch chunk. Mỗi WAV phải khớp text hash, WAV hash, sample format và frame count; checkpoint atomic ghi ngay sau từng chunk. Source được đọc lại trước mỗi request. Một OS flock dùng chung toàn máy ngăn TTS trùng tiến trình; restart dùng lại chunk hợp lệ. Nếu cần sử dụng `.env` ở checkout chính trong worktree riêng, đặt `NARRATION_ENV_FILE` tới file đó; không copy secrets.
 
+Lỗi kết nối/time-out và HTTP 5xx tạm thời được retry tối đa 5 lần với backoff; nếu hết lượt, giữ nguyên cache và dừng để resume. HTTP 429 dừng ngay vì có thể là hết quota/rate limit; lỗi xác thực hoặc thanh toán cũng không được retry. Không đổi provider hoặc tự gửi thêm request sau khi đã báo lỗi.
+
 MP3 được kiểm toàn bộ frame MPEG-2 Layer III 24 kHz/160 kbps và đối chiếu duration với WAV trước upload. Uploader đọc storage registry, chặn sai account, kiểm SHA-256/bytes/range response và kiểm source lần nữa sau upload. Nó chỉ ghi upload evidence ở trạng thái generated; browser playback/seek/chuyển phần được xác minh riêng trước khi nâng uploaded-verified. Merge/live/review không tự suy ra từ upload.
