@@ -258,7 +258,9 @@ details > :last-child:not(summary) { margin-bottom: var(--space-4); }
 /* Reading mode: segments flow as running paragraphs. Every segment keeps its element and
    anchor; the paragraph shape comes from the SuttaCentral segment number. */
 @media screen {
-  .reader-shell[data-reader-mode="vi"]:not([data-closed~="vi"]) .segments { max-width: calc(var(--reading-measure) + 6rem); margin-inline: auto; padding: var(--space-6) 0 0 6rem; border-top: 0; }
+  /* Contain margin-note and UID floats so whole-text lookup and navigation start
+     below the final note, including when a disclosure grows. Do not clip the margin. */
+  .reader-shell[data-reader-mode="vi"]:not([data-closed~="vi"]) .segments { display: flow-root; max-width: calc(var(--reading-measure) + 6rem); margin-inline: auto; padding: var(--space-6) 0 0 6rem; border-top: 0; }
   .reader-shell[data-reader-mode="vi"]:not([data-closed~="vi"]) .segment { display: inline; padding: 0; border: 0; }
   .reader-shell[data-reader-mode="vi"]:not([data-closed~="vi"]) .segment .cell-vi { display: inline; }
   .reader-shell[data-reader-mode="vi"]:not([data-closed~="vi"]) .segment .cell-vi::after { content: " "; }
