@@ -181,3 +181,16 @@ Nhật ký append-only. Registry `content/audio/progress.json` được đối s
 
 - FinalMP3 approximately1903.8s,20chunks/261canonical segments. Full offlineASR covered20chunks after one content retry of each of10flaggedindexes, reusing10WAVs. Remaining long scripture differences at indexes2,3,6,13,14,16; final similarity range0.6272–0.9897. Generic outro-only indexes10/18 were not reproduced in last25s/12s windows. ASR is not authority; content remains unproven without human listening. MN15 blocked, reviewpending, no R2 upload or player registration. Original attempts/reports and final artifact retained in ignored cache.
 - This checkpoint records0newsuccessfulaudio files and2blockedUIDs(MN14,MN15), following the requested frequentPR cadence; neither blocked UID counts toward10successes.
+
+### MN14–MN15 checkpoint merge and MN16 start
+
+- PR https://github.com/streamentry/kinh-tang-pali/pull/469 merged at2026-10-11T04:07:50Z, exact head `3bdb8b6d8292b75a8f4ac1309d2bb3667cbd62d0`, squash `7a290f066c654e4e0dc94a9844bf8ea47a9dab62`. BothCIruns38109885637/38109882422 succeeded. Pages38110600490 remains inprogress at this checkpoint; no new audio registered. Fetched main includes QC logPR467 merge `40aa4022a08c8018fd7306994dd2348663da2e40`.
+- MN16 sourceSHA256 `f1ec019dd4d504f6a6edc17dba71a03b75f21a70d2571efc93ec9ef4de3958bb`, plan `806e2b2f28b52bee`,9chunks/81canonical scripture segments;81cells excluding aside comments and4summary paragraphs matched production via normalized HTML text. Pinned narrationprofileunchanged. One sequential generator started after fetching main. Voice/pace comparison and human listening not claimed; reviewpending.
+
+### MN16 R2 and local player checkpoint
+
+- MN16 generated9chunks/81canonical scripture segments. First fullASR flagged index8 hen-and-eggs example; one bounded retry preserves original and reuses8WAVs. Final fullASR9chunks has no differing span of12or more tokens, similarity0.8973–0.9929. This is machineQC, not listening approval; reviewpending.
+- MP3 SHA256 `11c3c96ee760b79c95c1adf9b113e6383308d894f6e80d7985c9708c6cd086f2`, 16601760bytes,830.04s; scripture starts130.99s. R2 key `vi/mn/mn16/11c3c96ee760b79c.mp3`; uploader verifiedpublicMIME/hash/bytes/range206 afterOAuthrefresh.
+- Localreader4331 loads actualR2link. Play changed to pause; +15s moved timeline0:21; scripturejump131s/2:10; pause returned to play at2:17. Registry uploaded-verified; merge and productionverification still pending.
+
+- Pages38110600490 succeeded for checkpoint469 merge `7a290f066c654e4e0dc94a9844bf8ea47a9dab62` (GitHub run readback); that checkpoint registered no audio.
