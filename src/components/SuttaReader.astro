@@ -28,6 +28,7 @@ import {
 
 import { legacyViSynced, loadLegacyVi } from '../lib/canon/legacy-vi';
 import LegacyViText from './LegacyViText.astro';
+import ReaderComment from './ReaderComment.astro';
 import { withBase } from '../lib/url';
 
 interface Props { document: CanonDocument }
@@ -330,7 +331,7 @@ const shapes = segments.map((segment, index) => {
                 <span class="missing" data-pagefind-ignore>Chưa dịch</span>
               )}
               {segment.commentVi && (
-                <aside class="comment" data-pagefind-ignore>{segment.commentVi}</aside>
+                <ReaderComment text={segment.commentVi} segmentId={segment.id} />
               )}
             </div>
           </article>

@@ -1,0 +1,28 @@
+---
+/** Presentation only: the complete editorial note remains in the HTML. */
+interface Props { text: string; segmentId: string }
+const { text, segmentId } = Astro.props;
+const compact = text.replace(/\s+/gu, ' ').trim();
+const graphemes = Array.from(new Intl.Segmenter('vi', { granularity: 'grapheme' }).segment(compact), ({ segment }) => segment);
+const isLong = graphemes.length > 120;
+const head = graphemes.slice(0, 120).join('');
+// Prefer a whole word; still bound unbroken URLs and preserve combining marks.
+const lastSpace = head.lastIndexOf(' ');
+const preview = `${(lastSpace > head.length / 2 ? head.slice(0, lastSpace) : head).trimEnd()}...`;
+---
+
+<aside class="comment" data-pagefind-ignore>
+  {isLong ? (
+    <details class="comment-more">
+      <summary class="comment-toggle">
+        <span class="comment-preview" aria-hidden="true">{preview}</span>
+        <span class="comment-action">
+          <span class="comment-expand">Xem thêm</span>
+          <span class="comment-collapse">Thu gọn</span>
+          <span class="visually-hidden"> chú thích cho đoạn {segmentId}</span>
+        </span>
+      </summary>
+      <p class="comment-full">{text}</p>
+    </details>
+  ) : <span class="comment-preview">{text}</span>}
+</aside>
