@@ -69,3 +69,21 @@ assert plan[3]['text'].startswith('Sau khi đi khất thực ở Vesālī')
 `],{input:source,encoding:'utf8'});
  assert.equal(output,'');
 });
+
+test('MN13 closes the inherited quotation before its repeated-example chunk boundary', () => {
+ const doc=composeDocument('mn','mn13');
+ const source=JSON.stringify({summary:doc.summary,segments:doc.segments.map(s=>[s.id,s.vi])});
+ const output=execFileSync('python3',['-c',`
+import json,sys
+sys.path.insert(0,'scripts')
+from audio_pipeline import plan_source,_quote_stack
+from narration_config import load_profile
+plan=plan_source(json.load(sys.stdin),load_profile())
+target='Này các tỳ-kheo, đây cũng là nguy hại của sắc.'
+following='Lại nữa, này các tỳ-kheo, giả sử các thầy thấy người phụ nữ ấy đã thành tử thi bị bỏ ở nghĩa địa—'
+assert any(target in item['text'] and following in item['text'] for item in plan)
+assert _quote_stack(''.join(item['text'] for item in plan[2:11]))==()
+assert all(len(item['text'])<=1400 for item in plan)
+`],{input:source,encoding:'utf8'});
+ assert.equal(output,'');
+});
