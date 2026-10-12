@@ -18,7 +18,7 @@ Người biên tập đã duyệt **giọng và tốc độ** của MP3 MN1 có 
 
 Giữ nguyên toàn bộ style prompt trong profile, model, Charon, giới hạn 1.400 ký tự mỗi chunk, khoảng nghỉ 0,35 giây giữa chunk và 1,6 giây giữa tóm tắt/kinh văn. Không tăng/giảm tốc file sau khi sinh; tốc độ phát mặc định là 1×. Mọi manifest lưu cả profile ID, hash và bản chụp cấu hình để truy nguyên.
 
-**Tốc độ sinh được điều khiển bằng style prompt `Moderate measured pace`, không phải một tham số số học của API.** Cùng cấu hình vẫn có thể có dao động ngữ điệu/nhịp giữa các lần sinh; vì vậy nghe đối chiếu mẫu MN1 trước khi phát hành mỗi bài. Không tự đổi model, dùng fallback khác hoặc điều chỉnh style để xử lý lỗi API.
+**Tốc độ sinh được điều khiển bằng style prompt `Moderate measured pace`, không phải một tham số số học của API.** Cùng cấu hình vẫn có thể có dao động ngữ điệu/nhịp giữa các lần sinh; người biên tập sẽ nghe kiểm trực tiếp trên website sau khi phát hành, kể cả đối chiếu mẫu MN1. Không tự đổi model, dùng fallback khác hoặc điều chỉnh style để xử lý lỗi API.
 
 ## Tạo MN1
 
@@ -83,3 +83,9 @@ Generator chia văn bản quá dài theo dấu kết câu hoặc khoảng trắn
 Lỗi kết nối/time-out và HTTP 5xx tạm thời được retry tối đa 5 lần với backoff; nếu hết lượt, giữ nguyên cache và dừng để resume. HTTP 429 dừng ngay vì có thể là hết quota/rate limit; lỗi xác thực hoặc thanh toán cũng không được retry. Không đổi provider hoặc tự gửi thêm request sau khi đã báo lỗi.
 
 MP3 được kiểm toàn bộ frame MPEG-2 Layer III 24 kHz/160 kbps và đối chiếu duration với WAV trước upload. Uploader đọc storage registry, chặn sai account, kiểm SHA-256/bytes/range response và kiểm source lần nữa sau upload. Nó chỉ ghi upload evidence ở trạng thái generated; browser playback/seek/chuyển phần được xác minh riêng trước khi nâng uploaded-verified. Merge/live/review không tự suy ra từ upload.
+
+## Quy trình phát hành cập nhật ngày 2026-10-12
+
+Theo quyết định của người biên tập: bỏ bước transcribe/ASR. Làm tuần tự từng bài: kiểm nguồn và profile → tạo MP3 → kiểm cấu trúc/hash → upload R2 và xác minh object → đăng ký, kiểm player → phát hành website. Không cần API key hoặc model nhận dạng để tiếp tục. Người biên tập nghe kiểm thủ công trực tiếp trên website; giữ `review_status: pending` đến khi có xác nhận nghe duyệt. Việc phát hành không chứng minh TTS đã đọc đúng toàn bài. Giữ nguyên mọi bằng chứng QC cũ, kể cả các lỗi đã ghi nhận; quyết định này không tự xóa lỗi hay biến bài bị chặn thành đã duyệt.
+
+Sau mỗi ba bài upload thành công, tạo/cập nhật PR, chờ CI, merge và kiểm deployment cùng player trên website live. Không đưa MP3/WAV/cache vào Git.

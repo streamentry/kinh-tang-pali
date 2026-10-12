@@ -313,3 +313,21 @@ Nhật ký append-only. Registry `content/audio/progress.json` được đối s
 - Local player preview loaded that exact R2 URL; play, +15s seek, “Kinh văn 2:33” jump to153,71s and pause worked. Progress is `uploaded-verified`, reviewpending; production awaits the MN24 PR and Pages deployment.
 - No full ASR or human listening is claimed. The transcription skill key was absent locally; an async request asked the editor to configure it without sharing the key in chat. Keep `review_status: pending` regardless.
 - MN24 is the first sutta in this per-article PR cadence. The upcoming PR will contain only MN24 metadata/progress/QC and the live evidence from #515; no MP3/WAV/cache is staged.
+
+### MN25 generated checkpoint — R2 authorization pending in batch mn-017
+
+- MN25 (`Kinh Nơi Gieo Mồi`) source `d334fad2cd6549242c27575220519f158ca32d4c438ec4d8ad8621752e29f242`; summary2.171 chars,197 canonical scripture segments,18 chunks (2 summary +16 scripture), maximum1.396 chars. Approved profile `vi-charon-mn1-v1` unchanged.
+- All18 WAVs pass checkpoint/text hash, sample-format, frame-count and completeness checks. Final MP3 SHA-256 `c719587d60efaf40e49da764b70de3a482e1ef6b31b6b93c2752da2aab131267`,33.521.760bytes, duration1.676,088s by MPEG frame count, scripture starts154,91s. No ASR or human full listening; reviewpending.
+- The R2 uploader returned HTTP401 while fetching the pinned bucket, before any object PUT. It did not write `content/audio/mn25.json`, URL or R2 success fields; progress remains `generated` with the failure recorded. The complete MP3 and all WAVs remain in ignored local cache. A Wrangler login refresh is currently waiting for Cloudflare browser authorization; no token or authorization URL has been exposed.
+- Current three-sutta group: MN24 `uploaded-verified` (included in open PR #529), MN25 `generated` but not uploaded, MN26 `not-started`. Do not start MN26 until MN25 upload and player verification complete. Do not merge PR #529 until three suttas have completed upload/player verification.
+
+### 2026-10-12 — Editor workflow change
+
+- Editor explicitly removed transcription/ASR from the workflow and will listen manually on the live website. Continue source/profile, WAV/MP3 integrity, R2 verification and player checks; keep review pending. No speech-content approval is inferred.
+- Release cadence remains three successfully uploaded suttas per PR/merge; current batch is MN24–MN26 in PR #529. Historical QC evidence and existing known flags remain recorded.
+
+### MN25 R2/player checkpoint — batch mn-017
+
+- User renewed Wrangler login; upload succeeded using the same generated MP3. Public SHA/bytes/range verified. Prior auth error cleared from current entry; historical failure retained above.
+- Browser verified play, +15s, scripture jump154.91s, pause, duration1676.088s, readyState4/no error. Status uploaded-verified; manual review pending, ASR skipped by editor.
+- MN24 and MN25 are two successful files in the three-file batch. MN26 source preparation passed:27 chunks/363 scripture segments.
