@@ -42,3 +42,11 @@ Các timestamp trong MP3 attempt 1: index 7 bắt đầu `664,26s`; index 12 b�
 Hai lane QC được giao vào hai worktree riêng theo yêu cầu. Lane index 8–15 đã tạo integrity record và tám report ASR trong worktree `Audio QC MN11–MN14`; lượt follow-up của cả hai thread dừng vì workspace hết credits. Điều phối viên chạy bù index 0–7 và QC các cửa sổ của artifact hiện hành bằng đúng model local đã ghim. Kết quả của index 14 dùng WAV attempt 1; report attempt 0 được lưu riêng.
 
 Không có người nghe hoàn tất cho MN21. Không upload R2, không tạo `content/audio/mn21.json`, không đăng ký player. Giữ `review_status: pending`; không phát hành attempt 1 khi chunk 7 và 12 còn khác biệt nội dung lớn. Không retry thêm chunk nào trong lượt này.
+
+## Phát hành cho nghe duyệt thủ công — 2026-10-12
+
+Theo quyết định biên tập ngày 2026-10-12, không chạy lại TTS hoặc ASR. Artifact hiện có đã được đối chiếu source/profile, checkpoint WAV, MP3 và hash; sau đó upload R2, đăng ký player và xác minh phát, tua, nhảy đến kinh văn, dừng trên trang cục bộ. Các cờ trong báo cáo QC ngày 2026-10-11 vẫn được giữ làm điểm cần nghe kiểm; `review_status` tiếp tục `pending`.
+
+- MP3 SHA-256 `bb1c9668144ad40408e75b538345c6029fe9524de503ec3111a77e0fa4243420`, 32.393.280 byte, thời lượng 1.619,664 giây; phần kinh văn bắt đầu tại 160,19 giây.
+- R2: https://pub-8fa53f5182904685bd0c13d6c894a0e9.r2.dev/vi/mn/mn21/bb1c9668144ad404.mp3
+- Trang đọc: https://streamentry.github.io/kinh-tang-pali/sutta/mn/mn21/

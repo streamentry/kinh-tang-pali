@@ -429,3 +429,35 @@ Nhật ký append-only. Registry `content/audio/progress.json` được đối s
 - MN14: existing13chunk artifact; browser play,+15s,scripture jump161.07s,pause; readyState4/no error. Historical flag says chunk6 retry still has possible extra continuation; manual listening pending.
 - MN15: existing20chunk artifact; browser play,+15s,scripture jump158.23s,pause; readyState4/no error. Historical flags across chunks2/3/6/13/14/16 remain for listening; no ASR rerun.
 - MN17: existing11chunk artifact; browser play,+15s,scripture jump117.47s,pause; readyState4/no error. Historical repeated-reflection flag retained.
+
+### Batch mn-020 merged — PR #545
+
+- MN14/MN15/MN17, exact headc55a5adf681552f251e75afaad5a0325809aa2fd; local validate,411tests,check,audio-check,build passed. Both push/PR CI runs completed success as shown on GitHub Checks.
+- Squash merge364f8c92fbf636d930589bd482b78b6b90f28647 via https://github.com/streamentry/kinh-tang-pali/pull/545. Fetched main and confirmed ancestry. Pages deployment/run state pending API quota recovery or GitHub UI inspection; don't mark live until verified.
+- Next branch codex/audio-mn-batch-021 starts from merged main. MN14/MN15/MN17 files are live candidates in this branch, not yet production-verified.
+
+### Batch mn-019 evidence clarification
+
+- In the prior MN13 live checkpoint, `scripture jump155?` was an imprecise transcription of the browser display. Exact metadata `scripture_start_seconds` is154.91s; player displayed2:34 and integer slider155s. The pause/media evidence and successful Pages run remain as recorded.
+
+### Batch mn-020 deployment in progress
+
+- PR #545 merged as `364f8c92fbf636d930589bd482b78b6b90f28647`; Pages run #690 for that SHA is currently building. Do not mark MN14/MN15/MN17 live until deployment succeeds and production pages/player are checked.
+- Wrangler refreshed the same R2 OAuth account after the MN14 pre-upload401; cached artifacts for MN14/MN15/MN17 subsequently uploaded and publicly verified without regeneration.
+
+### Batch mn-020 production verified — PR #545
+
+- Pages run690 (38209696050) at merge commit364f8c92fbf636d930589bd482b78b6b90f28647: build job114680938133 and deploy job114684309844 succeeded. The uploaded artifact was1.42GB; deploy completed success.
+- Production MN14/MN15/MN17 all returned HTTP200 and the exact final R2 URL in metadata. Browser representative MN17 played, +15s, scripture jump117.47s (display1:56), pause; duration871.8s,readyState4,no media error. All three marked live; manual review remains pending.
+
+### Batch mn-021 — MN18/MN20/MN21 artifact release preparation
+
+- MN18/MN20/MN21 existing cached MP3s reused; no TTS/ASR. R2 public hash/bytes/range and local playback,+15s,scripture selector,pause verified for each. Historical flags preserved; review pending.
+- MN14/MN15/MN17 Pages run #690 at merge364f8c92 is building; do not mark those entries live until success and production readback.
+- MN18/MN20/MN21 comprise three repaired UIDs, total3701.424s (~61m41s).
+
+### MN14/MN15/MN17 production readback — 2026-10-12
+
+- Pages run 690 (`38209696050`) completed successfully for merge commit `364f8c92fbf636d930589bd482b78b6b90f28647`. Canonical production URLs for MN14, MN15, and MN17 each returned the current reader page with one audio element and the exact registered R2 URL; progress is `live` for all three.
+- Một lần đọc MN14 ngay sau deploy trả về HTML cũ không có player; lần đọc lại URL chuẩn sau đó có player. Ghi nhận đây là phản hồi trang cũ tạm thời; không coi lần đọc đầu là xác minh live.
+- Production playback/seek/scripture-jump/pause was verified on MN17 in this batch. Local MN15 was separately verified at its actual sutta page with playback, +15s, scripture jump at 146.47s, and pause. All three retain `review_status: pending` and historical QC flags.
