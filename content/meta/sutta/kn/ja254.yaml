@@ -1,6 +1,6 @@
 uid: ja254
 status: draft
-translationTitle: "Kinh Rắn Kucchi"
+translationTitle: "Kinh Ngựa Sindhu Bụng Cám"
 translators:
   - "OpenCode Space Bunny Free (agent)"
 reviewers: []
@@ -9,31 +9,30 @@ tags:
   - "jataka"
   - "tikanipāta"
   - "saṅkappavagga"
-  - "ran"
+  - "ngua"
 quality:
   scores:
-    source_provenance: 9.6
-    semantic_fidelity: 9.2
-    grammar_logic: 9.4
+    source_provenance: 9.4
+    semantic_fidelity: 8.6
+    grammar_logic: 9.0
     segment_alignment: 10.0
-    terminology: 9.0
-    triangulation: 8.4
-    vietnamese_clarity: 9.3
-    han_viet_balance: 9.3
-    ambiguity_integrity: 9.2
+    terminology: 8.6
+    triangulation: 7.6
+    vietnamese_clarity: 8.8
+    han_viet_balance: 9.2
+    ambiguity_integrity: 9.0
     technical_integrity: 9.6
-  final_score: 9.30
+  final_score: 8.98
   blocking_errors:
     - "Tại commit đã ghim không có tệp Anh Sujato cho bài này: `translation/en/sujato/sutta/kn/…_translation-en-sujato.json` không tồn tại và `source/upstream-manifest.json` không liệt kê nó, nên `npm run validate` sẽ báo pinned English reference missing — lỗi chặn với review và published. Lát này bị cấm chạy cổng nên không thể xác nhận ngược lại; đặt draft và chờ người điều phối."
-    - "Bốn cổng kỹ thuật không chạy được trong lát này (`npm run validate`, `npm test`, `npm run check`, `npm run build`), nên không thể tuyên bố technical gate pass."
-  assessed_at: "2026-10-05"
+  assessed_at: "2026-10-12"
   assessed_by:
-    - "OpenCode Space Bunny Free (agent)"
+    - "Claude Sonnet 5.5 (Claude Code)"
 notes: |-
   **Bài.** `ja254` — Jātaka 254, phẩm `Saṅkappavagga` (Tikaṇipāta), thứ tư. Bài có 17 khoá
   Pā li; bản dịch phủ **17/17**, đủ cả khoá `4.1` mà lát trước đã ghi.
 
-  **Năm phép kiếm, số do script in ra (`_n33_checks.py`), không chép tay.**
+  **Năm phép kiếm, số do script in ra, không chép tay.**
   (1) `set(khoá Việt) == set(khoá Pāli)`: thiếu **0**, thừa **0**.
   (2) ngoặc kép `“”` và nháy đơn `‘’` so **từng khoá**: 17 khoá đã so, lệch **0**; cân cả bài
   ngoặc kép Pā li 2 / Việt 2, nháy đơn Pā li 0 / Việt 0.
@@ -89,3 +88,34 @@ notes: |-
   phối: `npm run validate`, `npm test`, `npm run check`, `npm run build`. Phần tôi tự kiểm được:
   JSON hợp lệ, NFC, thứ tự khoá y hệt Pā li, 0 orphan, 0 khoá lược lệch, ngoặc cân, YAML parse
   sạch bằng `yaml@2.9.0` của kho. `technical_integrity` vì thế là **9,6**, không phải 10,0.
+
+  **Giải quyết draft 2026-10-12 (thay thế các mục cũ về ngôi kể, tên bài và bất định `hayuttamo`/`Kuṇḍakakucchi`/`sindhava` ở trên).**
+  Đọc đối kháng toàn bài từ Pāli, bản đã chấm 2026-10-05 sai nghĩa ở gần như mọi khoá nội dung. Số khoá lỗi nghĩa thật: **13/17**
+  (`0.4` `1.1` `1.2` `1.3` `1.4` `2.1` `2.2` `2.3` `2.4` `3.1` `3.2` `3.3` `3.4`; `4.1` đổi theo tên bài; `0.1`–`0.3` giữ).
+  Các lỗi nghĩa chính: (a) `sindhava` là *ngựa (xứ Sindhu)*, không phải *rắn* — đây là chuyện con ngựa quý, nên toàn bài
+  trước đó là *rắn ăn cỏ* sai hẳn; `hayuttamo` = *tuấn mã tối thượng* (haya = ngựa, uttama = tối thượng), không phải *ngọn lửa*
+  (`hayu` không có nghĩa đó); `kucchi` = *bụng*, đổi tên bài thành *Kinh Ngựa Sindhu Bụng Cám* (khớp `translationTitle`, `0.4`, `4.1`;
+  tiền lệ `sindhava` = *ngựa xứ Sindhu* ở `ja529:46.4`, `ja538:69.2`, `ja539`). (b) `mahābrahme` ở `2.3` là hô cách của
+  *Mahābrahmā* (*hỡi Đại Phạm thiên*), không phải *Bà-la-môn*. (c) `na te bhakkhāmi` (`3.4`) là *ta không ăn cám của ngài* —
+  bản cũ viết *ta không cho ngươi ăn*, đảo chủ thể và động từ; `bhuñjasi` (`1.4`) là *ngươi (không) ăn*, `āsi` (`1.3`) quá khứ
+  *đã là*. (d) `kuṇḍaka` = *cám* (không phải *cỏ non*), `ācāma` = *nước cơm đóng váng* (tiền lệ: `mn51:8.6` *nước cơm đóng váng*,
+  `kaṇa` *cám gạo*); `ācāmakuṇḍaka` dịch *cám và nước cơm đóng váng*, giữ chung một cách ở `1.2` và `2.4`, bỏ chữ *non* tự thêm và
+  bỏ phiên âm `ācāmakuṇḍaka`/`tiṇaparighāsa`/`kuṇḍaka` trong thân kệ. (e) `2.1`–`2.2` Pāli trùng nguyên văn `ja304:3.1`–`3.2`
+  (`Yattha posaṁ na jānanti, jātiyā vinayena vā;`): dùng lại *Nơi người ta không nhận biết một người bằng dòng dõi hay giới hạnh*
+  — 1 cặp trùng liên bài đã dò, Việt khác 0 sau khi sửa (trước đó `2.1` lệch tiền lệ). (f) `3.1`–`3.4`: `pajānāsi maṁ`
+  *ngài biết ta*; `yādisāyaṁ hayuttamo` = *yādiso ayaṁ hayuttamo* (*bậc tuấn mã tối thượng này là hạng thế nào*);
+  `jānanto jānamāgamma` = *là kẻ biết, đã đến với người biết*.
+  **Xưng hô.** Người đáp (con ngựa) gọi người hỏi là *Đại Phạm thiên* nên dùng *ngài* ở `3.1`/`3.4`; người hỏi dùng *ngươi* ở `1.3`–`1.4`.
+  Pāli trùng nguyên văn trong chính bài: 0 cặp (phép này chạy rỗng).
+  **Blocker đã xử lý.** (A) Thiếu bản Anh Sujato upstream: GIỮ NGUYÊN câu blocker; đây là sự thật về bản chụp đã ghim
+  (Sujato không có `ja254`), do waiver `no-upstream-english` của người biên tập xử lý. (D→gỡ) Blocker "bốn cổng kỹ thuật không
+  chạy được" là thủ tục của lát cũ, không phải lỗi văn bản: gỡ khỏi `blocking_errors`; lát này cũng không chạy cổng, nên
+  `technical_integrity` giữ **9,6** và bốn lệnh `npm run validate`, `npm test`, `npm run check`, `npm run build` thuộc cổng CI/người điều phối.
+  **Bất định còn lại (ghi, không che).** (1) `tiṇaparighāsa` (`1.1`): `parighāsa` là phần ăn thừa/nhặt nhạnh; dịch *cỏ thừa*, nghĩa
+  chính xác của `parighāsa` trong tổ hợp này không phân xử được từ tầng đã ghim (0 tiền lệ trong tầng). (2) `ācāmakuṇḍaka` có thể
+  là *cám trộn với nước cơm đóng váng* (một món) hơn là hai vật liệt kê; bản dịch giữ trung tính bằng *cám và nước cơm đóng váng*.
+  (3) `kucchi` trong tên bài có thể là biệt danh *bụng cám* của con ngựa hay *bụng chứa cám*; dịch *Bụng Cám*. (4) Người hô *mahābrahme*
+  (vua, người chăn ngựa hay người hầu) không xác định được từ nguyên kệ, nên không gán danh phận; `jānanto jānamāgamma` đọc theo cách
+  *ta là kẻ biết đến với người biết*, một cách đọc khả dĩ chứ không duy nhất. (5) Coverage tầng Anh: mẫu số vẫn bằng 0 (không có khoá Pāli
+  ≥ 40 ký tự) nên cổng không đo được gì, và không có Sujato/`english-project`/`vietnamese-current`; do đó `triangulation` hạ xuống **7,6**
+  (không có bản Anh độc lập nào), `semantic_fidelity` **8,6**, `terminology` **8,6**; `final_score` 8,98 là trung bình thô, không làm tròn.

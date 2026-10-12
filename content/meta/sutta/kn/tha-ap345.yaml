@@ -1,6 +1,6 @@
 uid: tha-ap345
 status: draft
-translationTitle: "Bài Kệ Tuyên Ngợ Về Trưởng Lão Dhajadāyaka"
+translationTitle: "Ký Sự Về Trưởng Lão Dhajadāyaka"
 translators:
   - "OpenCode Space Bunny Free (agent)"
 reviewers: []
@@ -13,22 +13,22 @@ tags:
 quality:
   scores:
     source_provenance: 9.5
-    semantic_fidelity: 9.2
-    grammar_logic: 9.2
+    semantic_fidelity: 8.8
+    grammar_logic: 9.0
     segment_alignment: 10.0
-    terminology: 9.2
+    terminology: 8.8
     triangulation: 7.5
-    vietnamese_clarity: 9.3
-    han_viet_balance: 9.3
-    ambiguity_integrity: 9.0
+    vietnamese_clarity: 9.0
+    han_viet_balance: 9.0
+    ambiguity_integrity: 8.5
     technical_integrity: 9.6
-  final_score: 9.18
+  final_score: 8.97
   blocking_errors:
     - "Không có tầng tham khảo tiếng Anh tại commit đã ghim 11c9d708978cde8ba61096d8a75f7ddfb846f639: `source/upstream-manifest.json` cho thấy edition `english-sujato` có 4.291 tệp nhưng `sutta/kn` chỉ gồm 9 sub-collection (cp 35, dhp 26, iti 112, ja 83, kp 9, snp 73, thag 264, thig 73, ud 80); không có `tha-ap`. Thư mục cache `.cache/upstream/suttacentral/translation/en/sujato/sutta/kn/` cũng chỉ có đúng 9 thư mục con ấy và không có `tha-ap345_translation-en-sujato.json`. Đây là `not-published-upstream`, KHÔNG phải `not-synced`. MẪU SỐ CỔNG COVERAGE KHÔNG BẰNG 0: đo theo công thức của `source/layers.yaml` (Pāli có nội dung ≥ 40 ký tự, loại khối tham chiếu `:0`), bài này có 1 khoá đo được (`tha-ap345:8.1`, 64 ký tự) ⇒ cổng coverage ĐO ĐƯỢC và báo 0/1, tức là không đạt — khác hẳn trường hợp mẫu số = 0 là cổng không đo được gì. Ngoài ra `tha-ap` không có bản song ngữ nào trong `thag` (Theragāthā): đã dò 264 bài `thag` ghim, câu kệ mở đầu `Tisso nāma ahu satthā` xuất hiện 0 lần ngoài chính bài này. Tầng `vietnamese-current` cũng vắng (commit đã ghim chỉ có 26 tệp, toàn bộ là Pháp Cú). Ba tầng tham khảo đều vắng ⇒ bài chỉ dịch được từ Pāli root; đây là giới hạn upstream chứ không phải lỗi của người dịch. Vì vậy `triangulation` bị chặn ở 7.5 (≤ 8.0) chứ không nâng để né blocker, và vì tệp tham khảo tiếng Anh thiếu nên bài bắt buộc `draft`."
-    - "Bất định chưa phân xử trọn vẹn ở `tha-ap345:3.1` và `:3.3`: dãy số trong Pāli ghin ở bộ `tha-ap` bị hỏng, và bản dịch đã dùng lại cách diễn đạt của tiền lệ (2 bài) là cách làm MẤT số. Xem `notes`. Chưa ghi được vào `content/meta/reference-gaps.yaml` vì tôi bị cấm sửa tệp đó; người biên tập cần chạy `npm run reference:gaps` để đồng bộ."
-  assessed_at: "2026-10-05"
+    - "unresolvedTerm: `Tayopadhikkhaye` (tha-ap345:1.3) là hapax chưa phân xử được; bản dịch theo nghĩa `upadhikkhaye` và ngữ cảnh."
+  assessed_at: "2026-10-12"
   assessed_by:
-    - "OpenCode Space Bunny Free (agent)"
+    - "Claude Sonnet 5.5 (Claude Code)"
 notes: |-
   Dịch trực tiếp từ Pāli root đã ghim; đủ 32/32 khoá trong `all` của lát n2.
   ĐỘ ĐO `:0.3` (lát n2 đo lại, đi đúng hướng lát s7 là so với Pāli): Pāli của ba bài trong
@@ -108,4 +108,67 @@ notes: |-
   `technical_integrity` = 9,6 vì bị cấm chạy cổng: chưa chạy `npm run validate`, `npm test`,
   `npm run check`, `npm run build`. Đã tự kiểm: đủ 32/32 khoá, NFC, cân ngoặc kép trên cả
   bài (mở ở 1.1, đóng ở 7.3), `…pe…` giữ đúng một `…`, không Pāli lọt vào bản Việt, không
-  trùng nguyên văn Pāli — tất cả đều qua `_hvi.py` `kiểm()`.
+  trùng nguyên văn Pāli — tất cả đều đạt.
+  Giải quyết draft 2026-10-12: kiểm toán độc lập, đọc đối kháng từng khoá với Pāli root đã
+  ghim; Pāli thắng. Mục này THAY THẾ các kết luận cũ về `3.1`, `3.3`, `1.3`, `4.3`, `6.x`,
+  tiêu đề và `8.1` ở trên khi có xung đột.
+  KHOÁ ĐÃ SỬA (accuracy fix): 20/32 khoá đổi chữ (tập khoá giữ nguyên 32/32):
+  `1.1` `Tisso` là tên Đức Phật (bậc Đạo Sư) → `Có bậc Đạo Sư tên là Tissa,` (`ahu` = đã có;
+  bản cũ gán "ấy" không có trong Pāli). `3.1`/`3.3` `Satānaṁ tīṇikkhattuñca` / `pañcakkhattuñca`:
+  `satānaṁ` = của các trăm, `tīṇikkhattuṁ` = ba lần, `pañcakkhattuṁ` = năm lần ⇒ `Ba trăm lần,` /
+  `Và năm trăm lần,`. Bản cũ "Cả bảy món báu quý giá"/"cả năm món báu quý giá" là lỗi lan trong
+  tầng, không có chữ nào trong Pāli cho "món báu" hay "bảy". Đo trên 11 khoá Pāli trùng ở mỗi dòng:
+  `Ba trăm lần`/`Và ba trăm lần` 8/11 và `Năm trăm lần`/`năm trăm lần`/`Và năm trăm lần` 7/11 đúng
+  nghĩa; 3 khoá (dòng ba trăm) và 4 khoá (dòng năm trăm) còn lại là cách "món báu" sai (ngoài lát này, báo, không sửa).
+  `3.2` `devarajjaṁ akārayiṁ` → `ta đã nắm quyền cai trị cõi trời;` (theo tầng: `devarajjaṁ karissati`
+  22/28 `nắm quyền cai trị cõi trời`). `4.1` `Padesarajjaṁ vipulaṁ` → `Vương quyền cai quản các vùng
+  đất rộng lớn,` (33/49 khoá trùng; bản cũ `Vương quốc rộng lớn ấy,` 13/49 bỏ `padesa` và thêm "ấy").
+  `4.3` `sakaṁ` = của chính mình, KHÔNG phải `sukata`: bản cũ giải thích `sakaṁ` = lành là sai ⇒
+  `Ta thọ hưởng nghiệp của mình,`; `4.4` `sukatamattano` = `sukataṁ attano` ⇒ `do chính ta đã khéo
+  tạo từ trước.` `5.2` bỏ "thiện" không có trong Pāli (`kammaṁ` trung tính): `kể từ khi ta làm nghiệp
+  ấy;` (`yaṁ` = kể từ khi). `5.3` `Duggatiṁ` = đọa xứ, không phải "khổ đau", và Pāli không có
+  "mình rơi vào" ⇒ `Ta không biết đến đọa xứ nào,` (nhóm `đọa xứ`/`khổ xứ` trong tầng 245 khoá).
+  `5.4`/`6.4` `phalaṁ` thống nhất `quả báo` (tầng 4 `quả báo`/10 và 6 `quả báu`/10 ở `dhajadānassidaṁ
+  phalaṁ`, chọn một cách trong cùng bài); `idaṁ` = đây; bỏ "cúng" thừa ở `dhajadāna`.
+  `6.1`–`6.4` sửa lớn: `khomadussena` = bằng vải lanh (`khoma` = lanh, `dussa` = vải; nhóm
+  `khomakappāsika` = vải lanh và vải bông, 5 khoá), KHÔNG có "tấm vải tàn tích" (bản cũ tự ghép
+  `kho-madu-dussa` không có căn cứ). `kate phalaṁ` = quả của điều đã làm; `mayhaṁ` + `tadā` = của ta,
+  khi ấy ⇒ `đó là quả báo của việc ta đã làm khi ấy.` (bản cũ "tấm vải … đã lấy ra" là bịa). `Icchamāno`
+  = nếu muốn, `chādeyyaṁ` = có thể phủ (ý chỉ khả năng), `sakānanaṁ sapabbataṁ` = cả rừng lẫn núi.
+  Ngôi: `tôi` ở `6.1` đổi thành `ta` cho khớp cả bài.
+  `2.2` `cetanāpaṇidhīhi` = `cetanā` (ý chí/tác ý) + `paṇidhi` (nguyện); bản cũ `tâm nguyện và chí
+  hướng` (49/53 khoá trùng) hai vế đều là nguyện, mất `cetanā` ⇒ `cùng với ý chí và tâm nguyện;`.
+  `1.4` `dhajaṁ āropitaṁ mayā` ⇒ `ta đã dựng lên lá cờ.`
+  `8.1` `Itthaṁ sudaṁ` = như vậy; "Tôi nghe như vầy" là công thức `Evaṁ me sutaṁ`, không phải chữ này.
+  Đo: 560 khoá `Itthaṁ sudaṁ āyasmā … abhāsitthāti` trong tầng, 553 khoá dùng `Tôi nghe như vầy`, 5 khoá
+  dùng `Như vậy,`, 2 khoá khác (lỗi lan; ngoài lát này, báo, không sửa).
+  `0.3`/`9.1` `apadāna` = ký sự (tầng: `Ký Sự` 66 bài); `Tuyên Ngợ` (128 bài) không có chữ nào tương
+  ứng trong Pāli và không phải từ tiếng Việt ⇒ `Ký Sự Về Trưởng Lão Dhajadāyaka`; `translationTitle`
+  khớp. Đây là phần khác biệt với `tha-ap60:0.3` (cùng Pāli) và các bài khác trong tầng; biên tập nên
+  đồng nhất cả nhóm nếu thấy phù hợp.
+  GỠ BLOCKER thứ hai (bất định `3.1`/`3.3`, loại D): đã phân xử bằng Pāli (`satānaṁ` genitive
+  số nhiều của `sata`; `ikkhattuṁ` = lần) và đo tầng như trên; cách đọc cũ "bảy"/"món báu" không có
+  chữ nào trong Pāli.
+  GIỮ blocker thứ nhất (loại A, thiếu bản Anh upstream): đúng sự thật upstream; mô tả `tầng
+  vietnamese-current` vắng cũng nằm trong câu đó (loại C, giới hạn tham chiếu, không phải lỗi văn bản).
+  Coverage Anh Sujato: bài có 1 khoá đo được (`8.1`), 0/1; Sujato không phát hành bài này; đã đọc
+  đối kháng toàn bộ 32 khoá chỉ từ Pāli, bản dịch đứng vững từ Pāli ở mọi khoá, `triangulation`
+  giữ 7,5.
+  BẤT ĐỊNH CÒN LẠI (đã ghi thành blocker hẹp `unresolvedTerm`, theo yêu cầu biên tập) `1.3` `Tayopadhikkhaye disvā`: dạng này là hapax trong toàn bộ Pāli ghim (kn),
+  không phân tích được thành `tayo` (ba) + `upadhikkhaye` mà vẫn thành câu (`tayo` số nhiều chủ cách
+  không hợp `upadhikkhaye` vị trí cách). `upadhikkhaye` có tiền lệ trong tầng (`nibbutā upadhikkhaye` =
+  `khi các sanh y đã đoạn tận`, `tha-ap394:93.4`), và ngữ cảnh bài (thấy bậc Đạo Sư Tissa rồi dựng cờ)
+  khớp với việc thấy Ngài vào lúc sanh y đoạn tận; một bản
+  Việt toàn văn (chỉ để hiểu cách đọc, không chép chữ) cũng đọc theo ý ấy. Bản dịch: `Sau khi thấy
+  Ngài vào lúc các sanh y đoạn tận,` — đại từ `Ngài` do ngữ cảnh. Chữ `tayo-` không tải được nghĩa
+  riêng; có khả năng là biến thể chép lỗi của `tassa u-` nhưng điều này KHÔNG chứng minh được từ
+  tầng Pāli đã ghim, nên ghi là bất định chứ không chốt. `ambiguity_integrity` 8,5.
+  Chấm lại: source_provenance 9,5 · semantic_fidelity 9,2→8,8 (còn bất định `1.3`) · grammar_logic
+  9,2→9,0 · segment_alignment 10 · terminology 9,2→8,8 (`Tissa`, `đọa xứ`, `sanh y`, `vải lanh` khác
+  vài tiền lệ lỗi của tầng) · triangulation 7,5 (không có bản Anh độc lập) · vietnamese_clarity
+  9,3→9,0 · han_viet_balance 9,3→9,0 · ambiguity_integrity 9,0→8,5 · technical_integrity 9,6 (cổng
+  `npm run validate` · `npm test` · `npm run check` · `npm run build` chưa chạy trong lượt này).
+  Lỗi nghĩa thật ở bản cũ: 20/32 khoá đã sửa (`0.3`,`1.1`,`1.3`,`1.4`,`2.2`,`3.1`,`3.2`,`3.3`,`4.1`,`4.3`,
+  `4.4`,`5.2`,`5.3`,`5.4`,`6.1`–`6.4`,`8.1`,`9.1`), trong đó nặng nhất: `1.3`, `3.1`, `3.3`, `4.3`, `6.3`,
+  `6.4`. Đủ 32/32 khoá, `…pe…` giữ đúng một `…`, ngoặc kép mở ở `1.1` đóng ở `7.3` khớp Pāli, không
+  Pāli lọt vào bản Việt.

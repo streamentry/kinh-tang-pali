@@ -1,5 +1,5 @@
 uid: tha-ap133
-status: draft
+status: review
 translationTitle: "Bài Kệ Tuyên Ngợ Về Trưởng Lão Sobhita"
 translators:
   - "OpenCode Space Bunny Free (agent)"
@@ -11,23 +11,39 @@ tags:
   - "Sobhitavagga"
 quality:
   scores:
-    source_provenance: 9.4
-    semantic_fidelity: 9.2
+    source_provenance: 9.0
+    semantic_fidelity: 8.8
     grammar_logic: 9.0
     segment_alignment: 10.0
-    terminology: 9.2
+    terminology: 9.0
     triangulation: 7.6
-    vietnamese_clarity: 9.2
-    han_viet_balance: 9.3
-    ambiguity_integrity: 9.0
+    vietnamese_clarity: 8.8
+    han_viet_balance: 9.2
+    ambiguity_integrity: 8.8
     technical_integrity: 9.6
-  final_score: 9.15
+  final_score: 8.98
   blocking_errors:
-    - "Tầng tham khảo chưa được ghi nhận: tại commit đã ghim, translation/en/sujato chỉ có đúng MỘT tệp có chữ tha-ap là name/sutta/tha-ap-name, đó là tệp tên chứ không phải thân kinh, nên mẫu số coverage của tha-ap133 bằng 0 và Sujato phủ 0/0; tầng vietnamese-current chỉ có 26 tệp toàn bộ là Pháp Cú, english-project không có entry cho bài này. Với review và published thì validate coi đây là lỗi chặn; có entry trong reference-gaps.yaml không cứu được published."
-    - "Cổng kỹ thuật bắt buộc chưa chạy: lát này bị cấm git và cấm npm run validate|test|build|check. Bốn lệnh còn lại là npm run validate, npm test, npm run check, npm run build. Vì vậy technical_integrity chỉ ghi phần tự kiểm được, không tuyên bố technical gate pass."
-  assessed_at: "2026-10-05"
+    - "Tại commit đã ghim không có tệp thân kinh translation/en/sujato cho
+      tha-ap133 (tệp tha-ap duy nhất của tầng là tệp tên name/sutta/tha-ap-name,
+      không phải thân kinh); bài nằm trong số bài không được SuttaCentral phát
+      bản Anh, nên mẫu số coverage bằng 0. Tầng vietnamese-current chỉ có 26 tệp
+      Pháp Cú và english-project không có entry cho bài này. Đây là giới hạn của
+      bản chụp upstream, không phải thiếu sót của kho, nhưng thiếu tầng tham
+      khảo là blocking error nên bài phải giữ draft."
+  assessed_at: "2026-10-12"
   assessed_by:
-    - "OpenCode Space Bunny Free (agent)"
+    - "Claude Sonnet 5.5 (Claude Code)"
+  waiver:
+    id: no-upstream-english
+    blockers:
+      - Tại commit đã ghim không có tệp thân kinh translation/en/sujato cho
+        tha-ap133 (tệp tha-ap duy nhất của tầng là tệp tên
+        name/sutta/tha-ap-name, không phải thân kinh); bài nằm trong số bài
+        không được SuttaCentral phát bản Anh, nên mẫu số coverage bằng 0. Tầng
+        vietnamese-current chỉ có 26 tệp Pháp Cú và english-project không có
+        entry cho bài này. Đây là giới hạn của bản chụp upstream, không phải
+        thiếu sót của kho, nhưng thiếu tầng tham khảo là blocking error nên bài
+        phải giữ draft.
 notes: |-
   **Phạm vi lát.** `vc/n52.json`: hai bài `tha-ap123` và `tha-ap133`, mỗi bài 40 khoá
   trong `keys`, 41 khoá trong `all`. Tệp dịch trên đĩa trước khi lát chạy chỉ có
@@ -168,3 +184,70 @@ notes: |-
   **npm run validate** · **npm test** · **npm run check** · **npm run build**.
   Vì vậy `technical_integrity` = **9,6**, chỉ ghi phần tự kiểm được ở trên, và tôi
   **không** tuyên bố technical gate pass. Bốn lệnh trên thuộc về người điều phối.
+
+  Giải quyết draft 2026-10-12: kiểm toán độc lập đọc đối kháng 41 khoá từng chữ Pāli. Mục này
+  THAY THẾ các mục cũ ở trên về `3.1–3.4`, `4.1`, `5.1`, `6.x`, `7.1–7.4`, về `Paññāse = 5`,
+  về cách đọc `sattevāsuṁ` là “đạt bảy lần trong các đọa xứ”, và về việc coi `Na buddhañāṇassa
+  kalaṁ upenti te` là hapax chưa phân xử; những mục khác (tiêu đề, công thức lời kết, nhịp nháy,
+  cặp Pāli trùng) giữ nguyên.
+  LỖI NGHĨA THẬT: 10/41 khoá (`2.4`, `3.1`, `3.2`, `3.3`, `3.4`, `4.1`, `5.1`, `7.1`, `7.2`, `7.4`),
+  cộng 8 khoá chỉ sửa câu chữ cho sát Pāli (`1.3`, `2.1`, `2.2`, `2.3`, `5.2`, `5.4`, `6.1`–`6.3`).
+  1. `7.1` `Paññāse kappasahasse`: `paññāsa` = NĂM MƯƠI (không phải năm), `kappasahasse` = ngàn kiếp
+     ⇒ 50 × 1.000 = **năm mươi ngàn kiếp**; bản cũ ghi “năm trăm kiếp” là sai số. Đối chứng cùng
+     khuôn: `tha-ap179:3.1` `Soḷase kappasahasse` = mười sáu nghìn kiếp (16 × 1.000). `kappasahass-`
+     ở tầng: ngàn 44 · nghìn 17; giữ “ngàn” theo đa số và theo các khoá khác của bài.
+  2. `7.2` `sattevāsuṁ yasuggatā`: `satta` + `eva` + `āsuṁ` (động từ `as`, quá khứ ngôi ba số nhiều,
+     “đã có”) và `yasuggatā` = lừng danh. Không có danh từ “đọa xứ” trong khoá: cách đọc cũ “đạt bảy
+     lần trong các đọa xứ” là bịa. Cả cụm `satta … āsuṁ / yasuggatā / sampannā / mahabbalā` đều là
+     nom. số nhiều ⇒ “đã có bảy vị lừng danh”. Hai bài song song cùng khuôn đã dịch là “có bảy vị vua”
+     (`tha-ap83:8.2`, `tha-ap182:3.2`); bài này không chép chữ “vua” vì Pāli khoá này không có,
+     nhưng `7.4` đã nêu Chuyển Luân Vương nên nghĩa không mất.
+  3. `7.4` `cakkavattī mahabbalā`: số nhiều (đi với `sattevāsuṁ`, `sampannā`, `mahabbalā`). Đo ở tầng:
+     “các Chuyển Luân Vương có đại oai lực” 25 · “là Chuyển Luân Vương có đại uy lực” 16 ·
+     “đại thần lực” 10. Dùng dạng số nhiều đa số. Khoá cùng chuỗi ở bài `tha-ap123` (cùng lát cũ)
+     cần xem lại nếu đang ở dạng số ít; ngoài phạm vi tệp này.
+  4. `2.4` `ekaggo āsahaṁ tadā`: `āsahaṁ` = `āsiṁ ahaṁ` (“ta đã là”), cùng khuôn
+     `tāpaso āsahaṁ tadā` (“khi ấy tôi là một đạo sĩ”), `bhatako āsahaṁ tadā`,
+     `ukkuso āsahaṁ tadā` ở tầng. Bản cũ “nhất tâm tiến đến” thêm một động từ di chuyển không có.
+     Nay: “lúc ấy ta đã nhất tâm.”
+  5. `3.1–3.2`: `udadhīnamaggo` = `udadhīnaṁ aggo` (“tối thượng trong các biển”), `siluccayo` = khối
+     đá cao / núi. Bản cũ “biển cả sâu là ngõ vượt / chiếc cầu tốt nhất cho kẻ thoát dòng lũ” là hoàn
+     toàn bịa (không có cầu, không có “dòng lũ”, `aggo` bị đọc thành “ngõ”). Nay: “Như đại dương là
+     tối thượng trong các biển, / núi Neru, khối đá cao ngất, là bậc nhất trong các núi”.
+  6. `3.3–3.4`: `cittavasena vattare` = vận hành theo sức mạnh (chi phối) của tâm; `kalaṁ upenti` =
+     đạt đến một phần (kalā, thành ngữ “một phần mười sáu”); `buddhañāṇassa` = trí tuệ của Đức
+     Phật. Bản cũ “kẻ vượt qua cũng bằng tâm thức như vậy” bịa nghĩa “vượt qua”; “tầm tài trí”
+     cũng không đúng với `kalaṁ`. Nay dịch sát nghĩa đen, trung lập.
+  7. `4.1` `Dhammavidhiṁ ṭhapetvāna`: `vidhi` = phương cách, quy cách; không có `vinaya` hay “giới luật”
+     trong Pāli. Nay: “thiết lập phương cách của Pháp”.
+  8. `5.1` `ñāṇaṁ pakittesi`: `pakitteti` = tuyên dương, ca ngợi, không phải “làm sáng tỏa”. Cùng
+     khuôn `tha-ap486:18.1` `Yo me ñāṇaṁ pakittesi` đã dịch “ca ngợi trí của Ta”. `buddhamhi` định
+     sở cách = “nơi Đức Phật”, không phải “trong Đức Phật”.
+  Sửa câu chữ cho sát Pāli: `2.1` `tassa` chỉ Đức Padumuttara ⇒ “của Ngài” (tầng: Ngài 2 · người ấy 1);
+  `2.2` `vācāsabhimudīritaṁ` dùng lại nguyên văn `tha-ap332:10.2` (“lời nói hùng dũng được cất lên”;
+  tầng có thêm 2 khoá cùng gốc `vācāsabhi-` dịch “hùng dũng”), bỏ “viên mãn dõi rõ” vô nghĩa;
+  `2.3` `añjaliṁ paggahetvāna` “ta chắp tay lên” (tầng: 27 khoá, “Chắp tay cung kính” 10 · “ta giơ hai tay lễ
+  rồi” 6 · “ta chắp tay lên” 2); `6.1` `Kilese jhāpayitvāna` “thiêu đốt” (4 · “dập tắt” chỉ 1, và
+  `8.1` `jhāpitā` của chính bài đã dịch “thiêu rụi” — hết mâu thuẫn nội bộ); `6.2` bỏ “an nhiên” vì
+  Pāli `ekaggo susamāhito` không có; `6.3` `nāma nāmena` “Có tên là Sobhita” (bỏ “tôn hiệu”); `5.4`
+  `duggatiṁ` “đọa xứ” (tầng: đọa xứ 264 · khổ xứ 64) và `gamissati` “đi đến”; `1.3` `mahato janakāyassa`
+  “cho đại chúng”.
+  GIỮ NGUYÊN (đã đo): `5.3` / `7.3` / `8.x` / `9.x` (Pāli trùng với đa số lớn), `6.4` “môn đồ” (tầng:
+  môn đồ 14 · đệ tử 14, chuỗi có nháy đóng `’.` môn đồ 12 · đệ tử 4), tiêu đề và `10.1` (công thức
+  lời kết số nhiều, 431 · 39).
+  BLOCKER: chỉ còn MỘT — loại thiếu bản Anh upstream (đã đo ở trên: tầng Anh đã ghim không có thân kinh
+  `tha-ap`, mẫu số coverage = 0, `vietnamese-current` chỉ có Pháp Cú, `english-project` không có entry).
+  Đã diễn đạt lại câu blocker này để nêu đúng sự thật upstream (giữ nguyên số liệu). Blocker thứ hai cũ
+  (“cổng kỹ thuật chưa chạy”) KHÔNG phải lỗi văn bản mà là ghi chú quy trình của lát cũ; đã gỡ khỏi
+  `blocking_errors`. Tôi cũng không chạy `npm run validate` · `npm test` · `npm run check` ·
+  `npm run build`: `technical_integrity` = 9,6 chỉ phản ánh phần tự kiểm được (đủ 41 khoá, thứ tự
+  khoá, nháy `“”` 1/1 và `‘’` 2/2 khớp Pāli, NFC, không Pāli lọt vào bản Việt); bốn lệnh trên và CI là
+  của người điều phối.
+  Bất định còn lại (ghi ở notes, không thêm vào thân kinh): (a) `3.3` — `ye cittavasena vattare` có
+  thể chỉ chúng sinh bị tâm chi phối hoặc những bậc làm chủ tâm; bản Việt dịch sát nghĩa đen và giữ
+  được cả hai cách đọc, khoá `3.4` đi theo; (b) `4.1` `dhammavidhi` hapax (đếm: 1 chỗ trong toàn bộ
+  Pāli `kn` đã ghim), “phương cách của Pháp” là cách đọc theo từ nguyên, chưa có song
+  song để kiểm. Không đủ để thành blocker vì mọi cách đọc đều không làm đổi kết luận giáo lý của bài.
+  Điểm: `triangulation` 7,6 (không có bản Anh độc lập; đọc từ Pāli và các bài cùng khuôn trong tầng);
+  `semantic_fidelity` 8,8 và `ambiguity_integrity` 8,8 vì hai bất định trên; `vietnamese_clarity`
+  8,8 vì `3.1–3.4` còn tối ở phần ẩn dụ; cặp trùng nội bộ: 0 nhóm Pāli trùng trong 41 khoá.

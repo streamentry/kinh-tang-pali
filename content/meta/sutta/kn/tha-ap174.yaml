@@ -1,6 +1,6 @@
 uid: tha-ap174
 status: draft
-translationTitle: "2. Bài Kệ Tuyên Ngợ Về Trưởng Lão Nisseṇidāyaka"
+translationTitle: "2. Ký Sự Về Trưởng Lão Nisseṇidāyaka"
 translators:
   - "OpenCode Space Bunny Free (agent)"
 reviewers: []
@@ -12,28 +12,27 @@ tags:
   - "kumudavagga"
 quality:
   scores:
-    source_provenance: 9.6
-    semantic_fidelity: 9.3
+    source_provenance: 9.4
+    semantic_fidelity: 9.2
     grammar_logic: 9.3
     segment_alignment: 10.0
     terminology: 9.2
-    triangulation: 8.4
-    vietnamese_clarity: 9.3
-    han_viet_balance: 9.4
-    ambiguity_integrity: 9.2
+    triangulation: 8.0
+    vietnamese_clarity: 9.2
+    han_viet_balance: 9.3
+    ambiguity_integrity: 9.0
     technical_integrity: 9.6
-  final_score: 9.33
+  final_score: 9.22
   blocking_errors:
     - "Tại commit đã ghim không có tệp Anh Sujato cho bài này: `translation/en/sujato/sutta/kn/…_translation-en-sujato.json` không tồn tại và `source/upstream-manifest.json` không liệt kê nó, nên `npm run validate` sẽ báo pinned English reference missing — lỗi chặn với review và published. Lát này bị cấm chạy cổng nên không thể xác nhận ngược lại; đặt draft và chờ người điều phối."
-    - "Bốn cổng kỹ thuật không chạy được trong lát này (`npm run validate`, `npm test`, `npm run check`, `npm run build`), nên không thể tuyên bố technical gate pass."
-  assessed_at: "2026-10-05"
+  assessed_at: "2026-10-12"
   assessed_by:
-    - "OpenCode Space Bunny Free (agent)"
+    - "Claude Sonnet 5.5 (Claude Code)"
 notes: |-
   **Bài.** `tha-ap174` — `Therāpadāna apadāna`, phẩm `Kumudavagga`, thứ hai
   (`6.1` tự xác nhận). Bài có 20 khoá Pā li; bản dịch phủ **20/20**.
 
-  **Năm phép kiếm, số do script in ra (`_n33_checks.py`), không chép tay.**
+  **Năm phép kiếm, số đo bằng phép tính, không chép tay.**
   (1) `set(khoá Việt) == set(khoá Pāli)`: thiếu **0**, thừa **0**.
   (2) ngoặc kép `“”` và nháy đơn `‘’` so **từng khoá**: 20 khoá đã so, lệch **0**; cân cả bài
   ngoặc kép Pā li 1 / Việt 1, nháy đơn Pā li 0 / Việt 0.
@@ -105,3 +104,30 @@ notes: |-
   còn lại: `npm run validate`, `npm test`, `npm run check`, `npm run build`. Phần tự kiểm được:
   JSON hợp lệ, NFC, thứ tự khoá y hệt Pā li, 0 orphan, 0 lỗi lược, ngoặc cân, YAML parse sạch.
   `technical_integrity` **9,6**.
+
+  **Giải quyết draft 2026-10-12.** Đọc đối kháng lại cả 20 khoá từ Pāli; **5/20** khoá lỗi nghĩa thật
+  hoặc ngữ pháp, 2 khoá tiêu đề đổi theo.
+  - `3.1`–`3.2` (lỗi số, nặng nhất): `Ekattiṁsamhi … sahassamhi` là một số tách đôi, cùng cách
+    locative, nghĩa **31.000 kiếp** (cùng khuôn `Catutiṁsasahassamhi` ở `tha-ap57:9.1` và
+    `Pannarasasahassamhi / kappānaṁ aṭṭha āsu te` ở `tha-ap177:4.1`, đều dịch *… nghìn kiếp*).
+    Bản cũ *ba mươi mốt kiếp* thiếu hàng nghìn, và `tayo` là *ba* (số lượng vị vua), không phải
+    *ba nghìn vị*. Nay: *Vào ba mươi mốt nghìn kiếp trước, / đã có ba vị;*. Còn bất định: nghìn
+    thứ ba mươi mốt hiểu là 31.000 kiếp hay ước lệ quanh con số đó; tôi theo khuôn 2 bài song song.
+  - `3.3`: bỏ chữ *có* lặp, *các vị vua tên là Sambahulā,* (`rājāno` là chủ ngữ của `ahuṁ` ở `3.2`).
+  - `1.3`–`1.4`: `Ārohatthāya pāsādaṁ` là *để (Ngài) đi lên lầu đài* (`pāsādaṁ` là bổ ngữ của
+    `ārohatthāya`), `nisseṇī kāritā mayā` là *bậc thang đã được tôi cho làm* (bị động sai khiến);
+    bản cũ *tôi làm lầu đài* đảo ý (người này làm thang, không làm lầu) và thêm *cũng*.
+  - `2.2`: `anubhotvāna` là danh phân từ bất biến, chủ ngữ là `ahaṁ` của `2.3`; *anh* sai và là dạng
+    lan trong tầng (đo 7 chỗ, 3 chỗ *anh đã thọ nhận được thành tựu* gồm bài này và `tha-ap202:3.2`;
+    4 chỗ còn lại dùng *tôi/sau khi … thọ hưởng*). Nay *sau khi đã thọ hưởng các thành tựu;* theo `tha-ap474:18.2`.
+  - `0.3`, `6.1`: *Tuyên Ngợ* không phải từ tiếng Việt (222 chỗ trong tầng, so với *Ký Sự Về* 169 và
+    *Tuyên Ngôn* 138); `Apadāna` là *ký sự*, nên đổi theo `tha-ap182:0.3`. Đây là lỗi lan trong tầng,
+    chỉ sửa trong bài này, cần người điều phối xử lý chung.
+  - Blocker về cổng kỹ thuật chưa chạy: **gỡ**, vì đó là giới hạn của phiên làm việc chứ không phải lỗi
+    văn bản; cổng thật là CI. Vẫn **không** tuyên bố technical gate pass: `technical_integrity` 9,6 và
+    bốn lệnh `npm run validate`, `npm test`, `npm run check`, `npm run build` chưa chạy trong lát này.
+  - Blocker thiếu bản Anh Sujato: **giữ** (đúng sự thật upstream); công cụ waiver của người biên tập xử lý.
+  - Coverage Anh: mẫu số 1 khoá (`5.1`), Sujato 0/1; `triangulation` hạ còn 8,0 vì không có bản Anh độc lập.
+  - Phép kiểm sau sửa: tập khoá 20/20, `…` đúng một ở `4.2`, ngoặc `“”` khớp Pāli từng khoá, 0 cặp Pāli
+    trùng trong bài. Điểm: provenance 9,6→9,4; semantic 9,3→9,2; clarity 9,3→9,2; Hán–Việt 9,4→9,3;
+    ambiguity 9,2→9,0; triangulation 8,4→8,0; `final_score` 9,33→9,22.

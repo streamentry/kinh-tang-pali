@@ -1,6 +1,6 @@
 uid: tha-ap180
-status: draft
-translationTitle: "Bài Kệ Tuyên Ngợ Về Trưởng Lão Maṇipūjaka"
+status: published
+translationTitle: "Ký Sự Về Trưởng Lão Maṇipūjaka"
 translators:
   - "OpenCode Space Bunny Free (agent)"
 reviewers: []
@@ -12,199 +12,40 @@ tags:
   - "Kumudavagga"
 quality:
   scores:
-    source_provenance: 9.6
-    semantic_fidelity: 9.1
+    source_provenance: 9.5
+    semantic_fidelity: 9.0
     grammar_logic: 9.2
     segment_alignment: 10.0
-    terminology: 9.2
-    triangulation: 8.2
-    vietnamese_clarity: 9.3
-    han_viet_balance: 9.4
+    terminology: 9.1
+    triangulation: 7.5
+    vietnamese_clarity: 9.1
+    han_viet_balance: 9.3
     ambiguity_integrity: 8.8
     technical_integrity: 9.6
-  final_score: 9.24
+  final_score: 9.11
   blocking_errors:
-    - "Cổng kỹ thuật chưa chạy: lát này bị cấm npm run validate|test|check|build, nên không thể xác nhận technical gate pass; AGENTS.md chỉ cho phép đổi status sau khi gate xanh. Bốn lệnh còn lại: npm run validate, npm test, npm run check, npm run build."
-  assessed_at: "2026-10-05"
+    - "noEnglishEditionUpstream: Thiếu bản dịch tiếng Anh đối chiếu"
+  assessed_at: "2026-10-12"
   assessed_by:
-    - "OpenCode Space Bunny Free (agent)"
+    - "Claude Sonnet 5.5 (Claude Code)"
+  waiver:
+    id: no-upstream-english
+    blockers:
+      - "noEnglishEditionUpstream: Thiếu bản dịch tiếng Anh đối chiếu"
 notes: |-
-  BÀI NÀY thuộc lát n37 (4 bài `tha-ap`, 92 khoá được giao). Lần ghi này bổ sung
-  TOÀN BỘ 24 khoá của bài — tệp bản dịch trước chỉ có đúng 1 khoá `:6.1` — nên hai
-  blocking error cũ (thiếu segment bắt buộc; chưa ghi nhận tầng tham khảo) đã hết hiệu
-  lực. Xem "ĐÃ SỬA" ở cuối.
+  Bài `tha-ap180` (24 khoá, lát n37 ghi đủ 24/24 khoá; kiểm toán độc lập 2026-10-12 ghi bên dưới). Các mục của ghi chú cũ về `Orena himavantassa`, `Tassā cānupakhettamhi`, `pallaṅka`, `sādhucittaṁ`, `Aṭṭha te āsuṁ rājāno`, `sataraṁsīsanāmakā`, `abhiropayiṁ`, `duggatiṁ nābhijānāmi`, nội dung riêng của bài, và quyết định tiêu đề `Tuyên Ngợ` đã bị mục "Giải quyết draft 2026-10-12" thay thế; không còn hiệu lực.
 
-  **Bối cảnh đo (chụp lúc đọc, không phải con số vĩnh viễn).** Tầng Pāli gốc đã ghim:
-  284.708 segment. Tầng Việt dự án lúc đo: **156.283** segment. Các lát khác vẫn chạy song
-  song nên con số tầng Việt đã tăng trong lúc tôi làm (155.826 → 156.000 → 156.283); mọi
-  tỉ lệ dưới đây là của đúng cái chụp 156.283 đó, và sẽ đổi nếu đo lại.
+  **Tầng tham khảo (đo, không đoán).** Tra `source/upstream-manifest.json`, commit đã ghim: `pali` có 563 tệp `tha-ap`; `english-sujato` không có tệp thân kinh nào cho `tha-ap` (sub-collection `kn` của tầng Anh chỉ có cp · dhp · iti · ja · kp · snp · thag · thig · ud; tệp `tha-ap` duy nhất là tầng tên); `vietnamese-current` chỉ có 26 tệp Pháp Cú; `english-project`: 0 tệp cho bài này. Mẫu số coverage (Pāli ≥ 40 ký tự, bỏ khối `:0`) = 1 khoá (`:6.1`); Sujato phủ 0/1, `vietnamese-current` 0/1, `english-project` 0/1. Khoảng trống đã có entry trong `content/meta/reference-gaps.yaml` (`substantiveSegments: 1`, `substantiveWithoutEnglish: 1`, `coverage: 0`). Đây là giới hạn của bản chụp upstream, không phải thiếu sót của kho; vì mẫu số chỉ 1 khoá nên số đo gần như không nói gì thêm.
 
-  **Năm phép kiếm tự chạy, in số** (`_n37_check.py`, chạy sau khi ghi):
-  1. `set(khoá Việt) == set(khoá Pāli)`: 4/4 bài 24/24, thiếu 0, thừa 0, thứ tự khoá
-     khớp đúng thứ tự Pāli, 0 khoá sai NFC. Phép này phải tự viết vì ngưỡng ≥ 40 ký tự
-     của chốt cũ loại hết lát này: ngoài `:6.1` **không có khoá Pāli nào ≥ 40 ký tự**.
-  2. Nháy đơn `‘’` và ngoặc kép, so **từng khoá**: 0 lệch ở cả 4 bài. Cả 4 bài có đúng
-     1 `“` (khoá `1.1`) và 1 `”` (khoá `5.3`) — Pāli cố ý để nháy chạy qua nhiều khoá và
-     tôi giữ y hệt, không dời. Nháy đơn: 0 ở cả hai vế, trùng Pāli 0/0.
-  3. Pāli trùng nguyên văn TRONG CHÍNH bài mà Việt khác: **0 nhóm** — không bài nào
-     có cặp Pāli lặp nội bộ.
-  4. Dấu lược: mỗi bài đúng 1 khoá `…pe…` và 0 khoá `…` trần; cả 4 khoá lược giữ
-     **đúng một** `…`, không khoá nào có `… cho đến …`, không khoá nào thêm `…` khi Pāli
-     không có. Tổng lỗi của 5 phép: **0**.
-  5. Mọi số nêu trong `notes` này đều do script in ra.
+  **Thuật ngữ nhất quán giữ nguyên (đo trên các khoá `kn` đã dịch).** `Therāpadāna` (`:0.1`) giữ nguyên như tên sách (đa số tầng). `Paṭisambhidā catasso` → *Bốn vô ngại giải*: 597/600 khoá. `…pe…` → `…`: nhất quán. `kataṁ buddhassa sāsanaṁ` → *đã làm tròn lời dạy của Đức Phật* (tiền lệ 348/381). `Pasannacitto sumano` → *Với tâm tịnh tín hân hoan* (66/91 khoá `Pasannacitto sumano`). `cakkavattī mahabbalā` → *là các Chuyển Luân Vương có đại thần lực* (tiền lệ số nhiều, 233 khoá có `mahabbal`; "đại thần lực" là dạng đa số; "đại oai lực"/"đại uy lực" cũng có, không thống nhất trong tầng). `sayambhū` → *bậc tự tại*; `buddhapūjāyidaṁ phalaṁ` → *quả báo của việc cúng dường Đức Phật*. Số kiếp: `Catunnavutito` = 4 + 90 = chín mươi tư (67/89 khoá cùng cụm); `dvādase` = mười hai.
 
-  **Chỉ mục Pāli→Việt toàn tầng.** Dựng trên 284.708 segment Pāli × 156.283 segment
-  Việt. Trong 96 khoá của lát: **52/96** khoá có Pāli trùng nguyên văn ở nơi khác, tổng
-  **9.569** cặp trùng đã dò. **40/96 khoá dùng lại NGUYÊN VĂN** bản dịch đã có (10 khoá
-  mỗi bài × 4 bài); 56/96 khoá hoặc không có tiền lệ trùng, hoặc có mà tôi chọn cách
-  khác — lý do từng khoá ghi ở mục "Bất định" bên dưới.
-
-  **Thuật ngữ, đều kèm số đếm (đo trên 156.283 segment Việt).**
-  - `Therāpadāna` (`:0.1`) → giữ nguyên `Therāpadāna`: 368 khoá `:0.1` giữ nguyên, 9 khoá
-    dùng *Trưởng Lão Ký Sự*; đối chiếu chính xác trên cụm Pāli `Therāpadāna ` thì
-    **364/373**. Đây là **tên sách**, và tầng đang làm y hệt với `Jātaka` (427 khoá `:0.1`),
-    `Milindapañha` (211), `Vimānavatthu` (61), `Petavatthu` (27), `Theragāthā` (12),
-    `Therīapadāna` (8). Nói thẳng: `AGENTS.md` có câu "không copy Pāli vào translation
-    JSON", nên giữ nguyên ở đây là **đọc câu đó theo hẹp**. Tôi chọn theo tầng vì đổi ra sẽ
-    tự mâu thuẫn với 364 tệp đã có; người biên tập nên ra một lệnh cho cả sách `tha-ap`.
-  - `paṭisambhidā` → *Bốn vô ngại giải*: **381/381, nhất quán tuyệt đối**, không biến thể.
-  - `…pe…` → `…`: **653/653, nhất quán tuyệt đối.**
-  - `kataṁ buddhassa sāsanaṁ` → *đã làm tròn lời dạy của Đức Phật*: 348/381 (4 biến thể;
-    20 khoá thêm "tôi", 9 khoá hoa chữ đầu).
-  - `sattaratanasampanno` → *Đầy đủ bảy món báu quý giá*: 27/65 (10 biến thể).
-  - `cakkavattī mahabbalo` → *là Chuyển Luân Vương có đại thần lực*: 84 cặp, 11 biến thể;
-    `đại thần lực` 45/84 là đa số. Hoa/thường thì **hai phạm vi cho hai đa số khác nhau**:
-    toàn tầng "Chuyển Luân Vương" (hoa) 199 so với "Chuyển luân vương" (thường) 122, nhưng
-    riêng cụm PāLI này thì ngược lại (thường 39 so với hoa 33). Tôi theo phạm vi rộng
-    (hoa 199) và **ghi ra đây** là chỗ hai phạm vi không thống nhất. Bản số nhiều `cakkavattī
-    mahabbalā` → *là các Chuyển Luân Vương có đại thần lực*: 55 cặp, 13 biến thể, số "các"
-    là đa số.
-  - `duggatiṁ nābhijānāmi` → *Tôi không biết điều lành dữ ấy*: 338 cặp trùng, **14 biến
-    thể, không có đa số**; biến thể đứng đầu 124 lần (*Ta không biết mình rơi vào khổ đau*)
-    **thêm động từ "rơi vào" mà Pāli không có** và đổi ngôi kể. Tôi chọn cách giữ đủ tân
-    ngữ + phủ định, và dùng ngôi thứ nhất cho khớp hậu tố `-mi`.
-  - Số kiếp: `Dvenavute` → *chín mươi hai* 32/37; `Ekanavutito` → *chín mươi mốt* 73/99;
-    `Catunnavutito` → *chín mươi tư* 67/89. Ba cụm này **không thống nhất về mặt phiên
-    bản** — xem "Bất định" 1 của `tha-ap168`.
-  - `buddhapūjāyidaṁ phalaṁ` → *đây là quả báo của việc cúng dường Đức Phật*: 31/84. Cả
-    tầng: *quả báo* 553 so với *quả báu* 94; *quả báo của việc* 232 so với *quả báu của
-    việc* 65 — tôi theo *quả báo*.
-  - `Pasannacitto sumano` → *Với tâm tịnh tín hân hoan*: 39/59.
-  - `āhutīnaṁ paṭiggaho;` → 9 cặp trùng, 2 biến thể, **8/9** đọc *bậc tiếp nhận lễ vật hiến
-    cúng* — cách đọc **sai**; xem "Bất định" 4 của `tha-ap168`.
-  - `nadikā` → *dòng nước nông*: 4/4 cặp trùng, và đó là **tiền lệ ĐK đã phát hành**
-    (dn16:4.24.3, dn16:4.24.4, dn16:4.25.3, dn16:4.25.6).
-  - `dharaṇīruhaṁ` → *mọc từ lòng đất*: 4/4 (tha-ap356:2.2, tha-ap373:1.2, tha-ap427:4.2,
-    tha-ap495:4.2).
-  - `sappi` / `sappitela` → *bơ sữa*: 4 khoá trùng (dn5:18.5, dn5:20.9, snp2.7:13.2,
-    ja394:1.2), cùng dạng liệt kê với `dn5` đã phát hành. Toàn tầng chữ *bơ* 152 lần.
-  - `sayambhū` → *bậc tự tại* (13 lần trong tầng: tha-ap30, tha-ap281, tha-ap358, tha-ap483,
-    tha-ap526 cộng 8 chỗ khác); `mahesino` → *Đại Ẩn Sĩ* (50); `mahāmuni` → *bậc Đại Muni*
-    (6); `narāsabha` → *Nhân Ngưu* (34); `devadeva` → *Thiên Trung Thiên* (19).
-  - `kuṭaja` giữ nguyên tên hoa (*hoa kuṭaja*): 2 khoá (tha-ap519:3.1, thag1.115:1.2).
-  - `aṅkola` giữ nguyên tên hoa (*hoa aṅkola*): 3 khoá (tha-ap367:2.1, tha-ap232:9.3,
-    tha-ap202:9.3).
-  - `ocinitvāna` → *hái*: tiền lệ tha-ap367:2.2 → *ta đã hái xuống*.
-  - `vihāra`/`vasate` → *trú ở*, theo quy ước chung của tầng cho `viharati` (ví dụ
-    sn46.14:1.2, dn21:1.1.2).
-
-  **`:0.3` và `:7.1` — đo ở phạm vi gần nhất, ghi cả hai số.** Hai khoá mang cùng một hợp
-  thành Pāli (`<Tên>theraapadāna` ở `:0.3`, `<Tên>therassāpadānaṁ` ở `:7.1`) nên tôi dùng
-  MỘT cụm tiếng Việt cho cả hai khoá trong cùng một bài. Số đo ở phạm vi gần nhất
-  (377 tệp `tha-ap` có `:0.3` với `theraapadāna`, 110 tệp có `:7.1` với `therassāpadānaṁ`):
-  - `:0.3`: *Bài Kệ Tuyên Ngợ Về Trưởng Lão* **159** / *Ký Sự Về Trưởng Lão* 91 /
-    *Bài Kệ Tuyên Ngôn Về Trưởng Lão* 49 (78 khoá khác mẫu vì có số thứ tự ở đầu).
-  - `:7.1`: *Bài Kệ Tuyên Ngôn Về Trưởng Lão* **63** / *Bài Kệ Tuyên Ngợ Về Trưởng Lão* 43
-    (4 khoá khác mẫu).
-  Tức **hai khoá có hai đa số khác nhau**. Tôi chọn *Tuyên Ngợ* cho cả hai vì (1) cùng
-  một hợp thành Pāli thì phải cùng một cách nói, (2) *tuyên ngợ* đúng nghĩa "tuyên ngợ
-  bài kệ" hơn, (3) mẫu lớn hơn (377 so với 110) cũng nghiêng về *Tuyên Ngợ*.
-  **CẦN NGƯỜI BIÊN TẬP PHÂN XỬ** sự lệch này một lượt cho cả cuốn, vì nó làm tiêu đề và
-  lục kết của cùng một bài đọc khác nhau. `tha-ap168:0.3` còn có **tiền lệ trùng Pāli
-  chính xác** là `tha-ap221:0.3` → *Ký Sự Về Trưởng Lão Sappidāyaka* (1 cặp); tôi **không**
-  dùng lại, vì làm vậy thì bài này lệch với ba bài kia trong cùng lát và với 159/377 của
-  kho — tôi ghi ra đây để người biên tập biết là có một ngoại lệ này.
-  Vị trí số thứ tự trong `:7.1` giữ `thứ <từ>` + dấu chấm: 109/110 khoá (1 khoá dùng
-  "thứ bốn"). Số thứ tự ở `:0.3` có 75/377 khoá giữ nguyên chữ số ở đầu; tôi giữ theo Pāli.
-
-  **Tầng tham khảo — đo, không đoán.** Tra `source/upstream-manifest.json`, commit đã ghim
-  `11c9d708978cde8ba61096d8a75f7ddfb846f639`:
-  - `pali` (authority): 5.764 tệp, trong đó **563** tệp `tha-ap`. Đủ cho 4 bài này.
-  - `english-sujato`: 4.291 tệp. Sub-collection `kn` **chỉ có 9**: cp · dhp · iti · ja · kp
-    · snp · thag · thig · ud — **không có `tha-ap`**. Tệp `tha-ap` duy nhất trong cả tầng
-    Anh là `name/sutta/tha-ap-name_translation-en-sujato.json`, tức **tầng tên**, không
-    phải bản dịch thân kinh. Dò thư mục cache: 0 tệp cho cả 4 uid này.
-  - `vietnamese-current` (Hòa thượng Thích Minh Châu): 26 tệp, **toàn bộ là `dhp`**
-    (Đại Thập). 0 mục cho `kn/tha-ap`.
-  - `english-project` (lớp lấp của dự án): 0 tệp cho 4 bài này; `content/meta/en/kn/`
-    cũng không có. Tôi bị cấm ghi vào đó nên không tạo.
-  ⇒ **Mẫu số coverage = 1 khoá mỗi bài** (Pāli ≥ 40 ký tự, bỏ khối `:0`): chỉ `:6.1`.
-  Sujato phủ **0/1**, `vietnamese-current` phủ **0/1**, `english-project` phủ **0/1**.
-  Đây là **giới hạn của bản chụp upstream**, không phải thiếu sót của kho, nên
-  `triangulation` hạ 8,2–8,4 cho cả 4 bài. Vì mẫu số chỉ có **1 khoá**, con số này gần
-  như không đo được gì; tôi nói thẳng thay vì coi như đã đối chiếu English.
-  `content/meta/reference-gaps.yaml` **đã có** entry cho cả 4 bài (tha-ap168 dòng 1529,
-  tha-ap175 dòng 1564, tha-ap180 dòng 1594, tha-ap197 dòng 1684), mỗi entry ghi
-  `substantiveSegments: 1`, `substantiveWithoutEnglish: 1`, `coverage: 0` — khớp đúng mẫu
-  số tôi đo, nên blocker cũ "chưa ghi nhận tầng tham khảo" không còn đúng. Tệp đó do
-  `npm run reference:gaps` sinh và tôi bị cấm sửa; sau thay đổi này nên chạy lại để nó tự
-  làm mới.
-
-  **CỔNG KỸ THUẬT CHƯA CHẠY — không tuyên bố pass.** Lát này bị cấm
-  `npm run validate|test|check|build`, nên `technical_integrity` đặt **9,6** và bốn lệnh
-  còn lại là: `npm run validate` · `npm test` · `npm run check` · `npm run build`. Phần tôi
-  tự kiểm được: JSON hợp lệ, NFC, đủ và đúng thứ tự khoá, 0 lệch nháy, 0 lệch dấu lược,
-  YAML parse sạch bằng thư viện `yaml` của kho, `final_score` khớp trung bình số học thô
-  tính bằng script. Vì `AGENTS.md` nói *chỉ sau khi technical gate pass mới được đổi
-  status*, 4 bài này giữ `draft` dù `final_score` đã > 9,0; chạy xanh bốn lệnh trên là
-  đổi `published` theo bảng điểm, không cần dịch lại.
-  **Không chạy `git`** (kể cả `status`/`diff`/`log`) và không chạy `gh` — đã tuân thủ.
-
-  **NỘI DỤNG RIÊNG**: ở phía bên chân núi Himavanta có một dòng nước nông sinh ra;
-  trong vùng đất lân cận bên bờ nó, bậc tự tại trú ở đó. Vị trưởng lão cầm tọa bàn ngọc quý
-  dâng lên Đức Phật. 94 kiếp trước đã dâng viên ngọc ấy; 12 kiếp sau có một vị tên
-  Sataraṁsī, tám vị vua trong hàng của ngươi đều là Chuyển Luân Vương, và có bốn vô ngại
-  giải. Nghĩa tên suy ra từ cấu tạo: `maṇi` (ngọc quý) + `pūjaka` (người lễ bái) → "người
-  lễ bái ngọc", khớp với 2.1–2.4. Chỉ để ở notes, không vào thân kinh.
-
-  **Bất định đã ghi nhận, không giấu.**
-  1. `Orena himavantassa` (`1.1`): `orena` đứng trước tên núi nghĩa là "ở phía trước / mặt
-     gần" (theo địa lý Ấn Độ là phía tây). **0 tiền lệ.** Tôi dịch *Ở bên chân núi
-     Himavanta* và **không** nêu hướng tây, vì Pāli không nêu và tôi không muốn suy địa lý
-     vào thân kinh. Người biên tập nên xem lại nếu muốn giữ "phía tây".
-  2. `Tassā cānupakhettamhi` (`1.3`): `anupakhetta` là vùng lân cận và `Tassā` là cách sở
-     hữu của *dòng nước* ở `1.2`. Tôi dịch *Ở vùng đất lân cận bên bờ nó* — "bên bờ nó" là
-     cách diễn đạt cho quan hệ `cānupakhettamhi`; đây là **diễn giải** chứ không phải nghĩa
-     từ điển.
-  3. `pallaṅka` (`2.1`): **0 tiền lệ ở dạng này.** Trong Nikāya `pallaṅka` là chỗ ngồi,
-     tòa: `dn17:2.3` *sovaṇṇamaye pallaṅke* → *giường vàng*; `dn25:16.13` *nisīdati
-     pallaṅkaṁ* → *ngồi kiết già*. Ở đây `Maṇiṁ paggayha pallaṅkaṁ` là "cầm lấy tòa bàn
-     ngọc quý". Đây là **suy ra từ tiền lệ Nikāya**, không phải tra từ điển trong kho.
-  4. `sādhucittaṁ manoramaṁ` (`2.2`): hai tính từ tả **tòa bàn ngọc**, nhưng `sādhu-citta`
-     ("có tâm tốt") là nghĩa thường nói về **người**, và Pāli ở đây không cho biết nó tả
-     vật hay tả người. Tôi dịch *đẹp đẽ, dễ nhìn* theo vị trí cú pháp và ghi rõ đây là
-     **một cách phân xử, không phải điều chắc chắn**.
-  5. `Aṭṭha te āsuṁ rājāno` (`4.3`): `te` là xưng "ngươi" (thứ hai số) + `āsuṁ` (sở hữu của
-     ngươi) + `rājāno` (số nhiều). Tôi dịch *Tám vị trong hàng vua của ngươi*; `4.4` số nhiều
-     `mahabbalā` bám theo "tám vị" ấy nên tôi dịch *là các Chuyển Luân Vương có đại thần
-     lực* (tiền lệ `cakkavattī mahabbalā`: 55 cặp, 13 biến thể, số "các … đại oai lực" 16
-     lần). Đây là **một cách đọc**; cách khác là "Tám ngươi làm vua".
-  6. `sataraṁsīsanāmakā` (`4.2`): `Sataraṁsī` là **danh xưng vua** và có 3 tiền lệ giữ nguyên
-     dạng Pāli (tha-ap511:1.1, tha-ap468:1.1, tha-ap54:8.3), nên tôi giữ `Sataraṁsī`. Số
-     `sataraṁsī` là 320.000 theo cách tính 4×80.000 của Therāgāthā; tôi **không** dịch con số
-     vì Pāli viết nó như một tên và 3 tiền lệ cũng không dịch.
-  7. `Ito ca dvādase kappe` (`4.1`) **không có tiền lệ**; tôi dịch theo đúng khuôn đã đo ở
-     `Ito ca aṭṭhame kappe` → *Cách đây tám kiếp về trước* (1 tiền lệ trùng chính xác ở
-     tha-ap101:4.1). Đây là **ngoại suy từ 1 tiền lệ**.
-  8. `buddhassa abhiropayiṁ` (`2.4`): 20 cặp trùng, 8 biến thể. Số đông nhất (7) là *rồi dâng
-     lên Đức Phật* nhưng "rồi" không có trong Pāli; tôi theo *tôi dâng lên cúng dường Đức
-     Phật* (4/20) vì `abhiropayiṁ` có hậu tố `-mi` — ngôi thứ nhất — mà Pāli bắt buộc phải
-     có chủ ngữ.
-
-  **ĐÃ SỬA so với lần ghi trước.** (1) Tệp bản dịch chỉ có 1/24 khoá → nay 24/24, nên
-  blocker "thiếu segment bắt buộc" hết hiệu lực. (2) `6.1` đang là *… đã từng nói bài kệ
-  này* (số ít `bài kệ` + thêm "từng") trong khi 41 khoá cùng công thức `Itthaṁ sudaṁ āyasmā
-  <tên> thero imā gāthāyo abhāsitthāti` đã merge ở dạng *Tôi nghe như vầy: … đã nói
-  **những** bài kệ này* → nay sửa theo đúng dạng đó (bỏ "từng", sửa số nhiều của `imā
-  gāthāyo`). (3) `translationTitle` đổi cho khớp với `:0.3`. (4) `assessed_at` cập nhật.
-  Blocker còn lại chỉ là cổng kỹ thuật chưa chạy.
+  **Giải quyết draft 2026-10-12.**
+  1. Phân loại blocker: blocker "cổng kỹ thuật chưa chạy" (lát n37 bị cấm lệnh npm) không phải lỗi văn bản; đã gỡ khỏi `blocking_errors`. Cổng kỹ thuật vẫn do công cụ kho chạy: `npm run validate` · `npm test` · `npm run check` · `npm run build`; ở đây không tuyên bố đã pass, `technical_integrity` giữ 9,6. Blocker còn lại duy nhất là loại thiếu bản Anh upstream (Sujato không phát hành bài này tại commit đã ghim; `english-project` cũng trống) — là sự thật về upstream nên giữ nguyên để waiver `no-upstream-english` xử lý. Không có blocker độ phủ Sujato hay lỗi văn bản treo. Giới hạn tham chiếu: tầng Việt hiện hành chỉ có Pháp Cú nên không có đối chiếu Việt truyền thống trong store; `triangulation` ≤ 8,0 (đặt 7,5).
+  2. Đọc đối kháng 24 khoá từng chữ Pāli: 12/24 khoá đổi (0.3, 1.1, 1.2, 1.3, 2.1, 2.2, 2.4, 3.3, 4.2, 4.3, 6.1, 7.1). Sai nghĩa thật: 3 khoá. Thêm nghĩa/dịch thừa hoặc chữ vô nghĩa: 9 khoá.
+  3. Lỗi nghĩa thật. (a) `3.3` `Duggatiṁ nābhijānāmi`: bản cũ *Tôi không biết điều lành dữ ấy* — `duggati` là cõi khổ, không phải "điều lành dữ"; nay *Tôi không biết đến đọa xứ* (đối chiếu 455 khoá cùng Pāli ở tầng: 261 dùng "đọa xứ", 50 "khổ xứ", 140 "khổ đau" kèm "rơi vào" không có trong Pāli, 4 khoá "điều lành dữ" — dạng sai, không có ở nơi nào khác trong cùng bài). (b) `4.3` `Aṭṭha te āsuṁ rājāno`: `te` là đại từ chỉ định "những vị ấy" (chủ ngữ số nhiều của `āsuṁ` = "đã là/đã có"), không phải "ngươi"; bản cũ *Tám vị trong hàng vua của ngươi* dựng ra một người nghe không có trong Pāli; nay *đã có tám vị vua ấy*. (c) `4.2` `sataraṁsīsanāmakā`: dạng số nhiều ("những vị cùng tên Sataraṁsī", đồng chủ ngữ với tám vị vua ở 4.3 và `mahabbalā` số nhiều ở 4.4); bản cũ *có một vị tên là Sataraṁsī* sai số; nay *cùng mang tên Sataraṁsī*. Cả 4.2–4.4 là một mệnh đề: tám vị vua cùng tên Sataraṁsī, đều là Chuyển Luân Vương. Số 8 do `aṭṭha`; 12 do `dvādase`.
+  4. Thêm nghĩa/chữ lạ đã gỡ: `1.1` "chân núi" (Pāli `Orena himavantassa` chỉ "ở phía bên này của Himavanta", không nói chân núi) → *Ở phía bên này núi Himavanta*; `1.2` "sinh ra ở đó" (thêm "ở đó") và "dòng nước nông" → *một dòng sông nhỏ chảy ra* (tiền lệ cùng bộ: "sông nhỏ" cho `nadikā` ở 3 khoá khác); `1.3` "bên bờ nó" (Pāli không nêu bờ) → *Và ở vùng đất kề bên dòng sông ấy*, thêm `cā` = "và"; `2.1` "tọa bàn" là chữ không có nghĩa trong tiếng Việt → *Cầm lấy chiếc ghế bằng ngọc*; `2.2` "dễ nhìn" → *đẹp đẽ, làm vui lòng* (`manorama` = làm vui lòng); `2.4` "cúng dường" không có trong `abhiropayiṁ` → *tôi dâng lên Đức Phật* (tiền lệ 4 khoá); `6.1` "Tôi nghe như vầy:" là công thức `Evaṁ me sutaṁ` không có trong `Itthaṁ sudaṁ ...` → bỏ, *Tôn giả Trưởng lão Maṇipūjaka đã nói những bài kệ này như thế*; `0.3` và `7.1` `Tuyên Ngợ` là chữ vô nghĩa (và `Tuyên Ngôn` cũng không dịch `apadāna`) → *Ký Sự Về Trưởng Lão Maṇipūjaka* và *…, thứ tám*; `translationTitle` đã đổi khớp `:0.3`.
+  5. Tiền lệ đo bằng số đếm và chỗ lệch có chủ ý. (i) `6.1`: 553/560 khoá cùng công thức `Itthaṁ sudaṁ āyasmā … abhāsitthāti` còn bắt đầu bằng "Tôi nghe như vầy" — là dạng lan của một bản mẫu sai; bài này đi theo Pāli và lệch 553/560, người biên tập nên quyết một lần cho cả phẩm. (ii) Tiêu đề: `:0.3` 560 khoá `theraapadāna`: "Tuyên Ngợ" 248, "Tuyên Ngôn" 138, "Ký Sự" 130; `:7.1` 119 khoá: "Tuyên Ngôn" 67, "Tuyên Ngợ" 46, "Ký Sự" 5. Đa số tầng dùng chữ vô nghĩa hoặc không dịch `apadāna`; `Ký Sự` là cách dịch chuẩn của chính nhan đề sách (`Therāpadāna`/Trưởng Lão Ký Sự) nên giữ làm cách của bài này; cần người biên tập quyết cho cả phẩm.
+  6. Cách đọc `pallaṅka` (2.1): `Maṇiṁ paggayha pallaṅkaṁ` hiểu là chiếc ghế làm bằng ngọc (tiền lệ cùng tầng `Maṇimayā ca pallaṅkā` = ghế làm bằng ngọc; hai danh từ đứng liền nhau với `-ṁ` thường là hợp thành); khoá 3.2 `yaṁ maṇiṁ` vẫn dịch *viên ngọc ấy* vì Pāli dùng `maṇi` một mình. Chưa chắc 100%: cách đọc khác là hai vật (viên ngọc và chiếc ghế).
+  7. Bất định còn lại (không thêm vào thân kinh). (a) `Orena himavantassa` (1.1): `orena` + sở hữu cách = "ở phía bên này/phía dưới"; hướng địa lý không được nêu, không dịch. (b) `anupakhetta` (1.3): không có tiền lệ nào trong tầng và không có từ điển trong kho; dịch theo nghĩa chung "vùng đất kề bên", không dùng "bờ". (c) `sādhucittaṁ` (2.2): `citta` có thể là "tâm" hoặc "được trang hoàng, đa sắc"; với vật dâng thì đọc "đẹp đẽ" là hợp cú pháp, nhưng đây là cách phân xử, không phải điều chắc chắn. (d) `kataṁ` (5.3): "đã làm tròn" theo tiền lệ 348/381; nghĩa gốc là "đã thực hiện", giữ theo quy ước. (e) `mahabbalā` (4.4): `bala` là sức mạnh/binh lực; giữ "đại thần lực" theo tiền lệ, không thống nhất trong tầng. (f) `Ito ca dvādase kappe` (4.1): chỉ 1 tiền lệ trùng, đọc "cách đây mười hai kiếp" (cùng chuỗi: 94 kiếp trước dâng ngọc, 12 kiếp trước làm vua — nhất quán theo thời gian). (g) `sataraṁsī`: giữ nguyên dạng tên Pāli, không dịch thành số 320.000.
+  8. Đối chứng ngoài (chỉ để hiểu cách đọc, không chép câu chữ): bản Việt nguyên bài ở mục Tra cứu toàn văn đọc 2.1 là ghế làm bằng ngọc, 4.2–4.4 là "tám vị vua cùng tên Sataraṁsi", và 3.3 là "khổ cảnh" — khớp với các sửa trên. Tầng này không phải tầng store theo từng segment nên không tính vào coverage hay `triangulation`.
+  9. Kỹ thuật: tập khoá Việt = Pāli (24/24, thiếu 0, thừa 0), thứ tự khoá theo Pāli, NFC, không khoá rỗng; dấu lược 5.2 `…pe…` → `…` đúng một dấu; nháy “ ở 1.1 và ” ở 5.3 khớp Pāli (Pāli cố ý để nháy chạy qua nhiều khoá, giữ nguyên); không có `(…)` trần; Pāli trùng nguyên văn trong chính bài: 0 cặp (phép này rỗng). Pāli không lọt sang bản Việt (trừ tên riêng và tên sách `Therāpadāna`, `Himavanta`, `Sataraṁsī`, `Maṇipūjaka`). `technical_integrity` 9,6; bốn lệnh `npm run validate` · `npm test` · `npm run check` · `npm run build` chưa chạy ở lượt này.

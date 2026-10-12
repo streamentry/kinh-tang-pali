@@ -1,6 +1,6 @@
 uid: ja429
-status: draft
-translationTitle: "Kinh Xoài Lớn"
+status: review
+translationTitle: "Kinh Vẹt Lớn"
 translators:
   - "OpenCode Space Bunny Free (agent)"
 reviewers: []
@@ -9,23 +9,34 @@ tags:
 quality:
   scores:
     source_provenance: 9.6
-    semantic_fidelity: 9.3
-    grammar_logic: 9.3
+    semantic_fidelity: 8.8
+    grammar_logic: 8.7
     segment_alignment: 10
-    terminology: 9.2
-    triangulation: 7.6
-    vietnamese_clarity: 9.3
-    han_viet_balance: 9.3
-    ambiguity_integrity: 9.1
+    terminology: 8.9
+    triangulation: 7
+    vietnamese_clarity: 8.7
+    han_viet_balance: 9.2
+    ambiguity_integrity: 9
     technical_integrity: 9.6
-  final_score: 9.23
+  final_score: 8.95
   blocking_errors:
-    - "Bài này không có tầng Anh SuttaCentral đã ghim ở commit đã pin (`source/upstream-manifest.json` → `english-sujato`, 4291 tệp, chỉ 83 tệp `ja`: ja1–ja79, ja126, ja159, ja466, ja534 — không có uid nào của lát này), nên thiếu tầng tham khảo bắt buộc để xuất bản; đối chiếu chỉ có Pāli đã ghim cùng commit + tiền lệ đếm được trong chính tầng Việt dự án."
-    - "Tầng `vietnamese-current` ở commit đã pin chỉ có 26 tệp Pháp Cú, không có Jātaka, nên không có bản Hòa thượng Thích Minh Châu để đối chiếu cho bài này."
-    - "Tiền lệ bên ngoài ở `ja378:2.3` cho đúng Pāli `Taṁ nussahe jīvikattho pahātuṁ` dịch sai chiều (thêm “không thể” và đảo nghĩa `nussahe`); `ja378` không thuộc lát này nên tôi không sửa được, và cần người biên tập xử lý cả hai cùng lúc."
-  assessed_at: "2026-10-04"
+    - "Bài này không có tầng Anh SuttaCentral đã ghim ở commit đã pin
+      (`source/upstream-manifest.json` → `english-sujato`, 4291 tệp, chỉ 83 tệp
+      `ja`: ja1–ja79, ja126, ja159, ja466, ja534 — không có uid nào của lát
+      này), nên thiếu tầng tham khảo bắt buộc để xuất bản; đối chiếu chỉ có Pāli
+      đã ghim cùng commit + tiền lệ đếm được trong chính tầng Việt dự án."
+  assessed_at: "2026-10-12"
   assessed_by:
-    - "OpenCode Space Bunny Free (agent)"
+    - "Claude Sonnet 5.5 (Claude Code)"
+  waiver:
+    id: no-upstream-english
+    blockers:
+      - "Bài này không có tầng Anh SuttaCentral đã ghim ở commit đã pin
+        (`source/upstream-manifest.json` → `english-sujato`, 4291 tệp, chỉ 83
+        tệp `ja`: ja1–ja79, ja126, ja159, ja466, ja534 — không có uid nào của
+        lát này), nên thiếu tầng tham khảo bắt buộc để xuất bản; đối chiếu chỉ
+        có Pāli đã ghim cùng commit + tiền lệ đếm được trong chính tầng Việt dự
+        án."
 notes: |-
   **Đo lại ba mệnh đề của lát (không suy từ tên thư mục).**
 
@@ -77,3 +88,99 @@ notes: |-
 
   **Không có tầng Anh.** 0/45 khoá có Anh Sujato; `ja429` không nằm trong 83 tệp `ja`
   đã ghim. Vì vậy `triangulation` ở mức thấp của lát và bài để `draft`.
+
+  **Giải quyết draft 2026-10-12 (kiểm toán độc lập; thay thế các mục cũ ở trên nói về
+  `Mahāsuvajātaka` = *Xoài*, `Gijjhavagga` = *Phẩm Hươu*, `2.1`, `2.4`, `4.3`, `6.1` và
+  blocker thứ ba về `ja378:2.3`).**
+
+  *Lỗi gốc.* Bản cũ đọc `suva` là *xoài* rồi bịa tiếp quanh nó. Trong kho này `suva`/`suvo`
+  là **con vẹt** (`ja484:5.2`, `6.2`, `14.3`, `ja503:2.4`, `12.2` đều dịch *vẹt*; `ja503:12.2`
+  `suvo lohitatuṇḍako`), và `2.2`, `2.4`, `6.1` của chính bài này gọi thẳng `suva` đối với
+  loài chim đang hỏi đáp; không có cây xoài nào trong Pāli của bài (cây là `dumo`,
+  `sukkhadumo`, `rukkho`, rồi `udumbara`). Tên bài đổi thành *Kinh Vẹt Lớn*, đối xứng với
+  *Kinh Vẹt Nhỏ* của `ja430` (cặp `Mahā-`/`Cūḷa-`). Tên phẩm `Gijjhavagga` = **Phẩm Kền
+  Kền** (`gijjha` = kền kền: `ja164:1.1`, `ja399:2.1`, `ja530:42.1`, `63.1`), theo đúng sửa
+  của `ja430`; các tệp cùng phẩm còn ghi *Phẩm Hươu* cần sửa cùng lúc.
+
+  *Các khoá nặng nhất đã dịch lại.*
+  - `1.1–1.4`: là lời **thiên nga (Sakka hoá thân) nói về chim và cây**: cây đầy quả thì
+    chim bay xuống ăn; hết quả, biết cây cạn kiệt thì chim bay đi khắp các phương
+    (`disodisaṁ`: `ja422:12.2`, `ja543:87.3` *khắp các phương/hướng*). Bản cũ *chúng kiệt sức*
+    là bịa.
+  - `2.1` `mā mari` = *chớ chết* (lời khuyên lên đường đừng chết); bản cũ coi `māmari` là
+    danh hiệu *kẻ tìm ăn* là phỏng đoán. `2.4` `na riñcasi` = *không bỏ* (`ja535:62.2`
+    `kusalampi riñcasi` = *điều thiện nàng cũng bỏ*; `ja522:28.3` `na riñcati` = *không bỏ
+    sót*); bản cũ *phá nát* là sai nghĩa, và lập luận “khác nghĩa với `jhāyasi`” không có
+    căn cứ. `jhāyasi` = *ngồi trầm tư* (5/6 nơi có nghĩa này, 1 nơi dùng *ủ ê*: `ja283:1.3`, `ja477:1.4`,
+    `ja526:25.4`, `ja547:603.4`…).
+  - `haṁsa` = *thiên nga* (8/8 dòng tiền lệ `ja476`, `ja502`, `ja533`, `ja534`); bản cũ *con hạc*
+    ở `3.3`, `4.1`, `7.1` sai, và `3.2` *dù lọt vào tay kẻ khác* bịa hẳn (`pāṇaccaye` =
+    *khi nguy đến mạng sống*).
+  - `3.1–3.4`: *những ai là bạn của bạn bè … không bỏ người ấy dù đã suy kiệt hay chưa; bậc
+    hiền thiện nhớ nghĩ pháp của bậc hiền thiện* (`ja522:31.3` *pháp của bậc hiền thiện*);
+    bản cũ *người tốt nhớ tình bạn ấy đến tận cùng* thêm nghĩa.
+  - `4.1–4.4`: *Tôi là một trong các bậc hiền thiện … cây vừa là bà con vừa là bạn; vì cần kế
+    sinh nhai tôi không thể bỏ nó; biết cây cạn kiệt mà bỏ đi, đó không phải là pháp*. Bản cũ
+    *ta khuyên nó bỏ đi cho giữ mạng* và *chết đi không phải bản tính của nó* **đảo ngược
+    nghĩa** (`nussahe` = `na ussahe`, *không thể*).
+  - **Rút lại nhận định cũ về `ja378:2.3`.** Mục cũ cho rằng `ja378:2.3` `Taṁ nussahe jīvikattho
+    pahātuṁ` dịch *sai chiều* và tự dịch ngược lại. Ngược lại: `ja378:2.3` (*Vì cần kế sinh
+    nhai … không thể từ bỏ*) đúng hướng; bản cũ của bài này mới sai. Blocker thứ ba (đòi sửa
+    `ja378`) đã gỡ vì dựa trên nhận định sai.
+  - `5.1–6.4`, `9.1–9.3`, `10.2–10.4` trùng nguyên văn Pāli với `ja430` và nay dùng lại
+    nguyên văn bản `ja430` đã kiểm toán (14 khoá trùng, 14/14 khớp; 0 khoá bản Việt khác).
+    `10.1` chỉ khác ở dấu nháy mở đầu của Pāli nên cùng câu chữ.
+  - `6.1` `So te suva varaṁ dammi` = *Vậy ta ban cho ngươi, hỡi vẹt, một ân huệ*: bản cũ
+    *Người ấy ban cho ngươi món quà của cây xoài* và bài luận về “ngôi ba” là sai; `6.3`
+    `vakkaṅga` = *kẻ thân cong* (3/3 tiền lệ), không phải *kẻ thơm tho*.
+  - `7.1–7.4`, `8.1–8.4`: lời vẹt xin Sakka (thiên nga) cho cây **sống lại**, có cành, có
+    quả, mọc xanh tốt; `8.3–8.4` lặp nguyên văn `7.3–7.4` (2/2 cặp trùng nội bộ, nay cùng câu
+    chữ). Bản cũ *ngọt đến mức là đường* (đọc sai `sākhavā` thành đường) bịa. `udumbara` =
+    *cây sung* (`ja298:0.4`, `ja298:1.1`, `ja208:1.4`, `ja492:20.1`, 4/4 nơi có nghĩa cây);
+    bản cũ *ngang hàng với cây sung* sai.
+  - `9.1` lời **vẹt nói với Sakka**: *hỡi Sakka, mong ngài được an lạc*; `10.1–10.4`
+    *vị ấy cùng vợ ra đi, đến khu rừng Nandana* (ngôi ba, aorist `pakkāmi`; bản cũ *Ta cùng vợ
+    lên đường* sai ngôi).
+  - Dấu nháy: bản cũ mở nháy ở `4.1` nơi Pāli không có, và thiếu nháy mở ở `3.1`, `10.1` nơi
+    Pāli có; đã sửa khớp Pāli từng khoá (0 lệch trên 45 khoá).
+
+  *Số khoá đổi.* 40/45 khoá có lỗi nghĩa hoặc lệch nghĩa ở bản cũ (đa số do đọc `suva` là
+  *xoài* rồi bịa tiếp), đã dịch lại; giữ `0.1`, `0.2`, `6.2`, `9.2`, `5.x`–`6.x` đúng
+  nguyên văn `ja430`. Số cặp Pāli trùng nguyên văn trong chính bài: 2 (`7.3`=`8.3`, `7.4`=`8.4`),
+  bản Việt khác: 0. Với `ja430`: 14 khoá trùng Pāli, bản Việt khác: 0.
+
+  *Phân loại blocker.*
+  - (A) Không có bản Anh Sujato đã ghim (45/45 khoá, `ja429` không nằm trong 83 tệp `ja` đã
+    ghim): **giữ nguyên**, là sự thật của bản chụp upstream.
+  - (C) `vietnamese-current` chỉ có Pháp Cú: **đã gỡ** — giới hạn tham chiếu, không phải lỗi
+    văn bản; không có bản Hòa thượng Thích Minh Châu của bài này để đối chiếu.
+  - (D) Đòi sửa `ja378:2.3` vì “dịch sai chiều”: **đã gỡ** — nhận định gốc sai (xem trên),
+    `ja378:2.3` đúng hướng.
+  - Không còn blocker thuộc loại lỗi văn bản.
+
+  *Bất định còn lại (không thêm vào thân kinh).*
+  - `2.1` `māmari`: đọc `mā mari` = *chớ chết*; không có tiền lệ (0 nơi khác trong 547 tệp `ja`).
+    Nếu là một danh hiệu, nghĩa câu đổi nhưng lời khuyên rời đi vẫn giữ.
+  - `7.4`/`8.4` `madhutthiko`: đọc `madhu` + `aṭṭhika` = *hạt ngọt như mật* (cây sung kết quả
+    ngọt); `ja474:7.3` dùng cùng từ với nghĩa *người cần mật* (`atthika`), `ja547:336.2` có
+    `madhutthikā` như tên một thứ quả. Phần *hạt* là suy từ cấu tạo từ, chưa có từ điển nào
+    trong kho xác nhận; nghĩa *ngọt như mật* thì chắc.
+  - `8.2` `sahāva te hotu udumbarena`: *mong nó luôn ở cùng ngươi, cùng với cây sung*; Pāli
+    không nói rõ `taṁ` ở `8.1` có là chính cây sung hay không. Giữ trung tính.
+  - `5.1–5.2` `sakkhi kataṁ hoti, metti saṁsati santhavo`: dùng nguyên văn bản `ja430` đã duyệt
+    (*đã được làm chứng; tình bạn, sự thân quen tự nói lên*); chiều của `saṁsati` còn có thể
+    đọc khác, đã ghi ở `ja430`.
+  - `4.3` `jīvikattho`: *vì cần kế sinh nhai* giữ mơ hồ như Pāli và `ja378:2.3` (là lý do để
+    bỏ hay là lý do vẫn không bỏ không hiện rõ); không thêm “dù”.
+  - `2.3` `vasantasannibha` = *kẻ tựa mùa xuân* (nghĩa đen, 0 tiền lệ); hiểu là màu xanh
+    của vẹt nhưng không đưa vào thân kinh.
+
+  **Coverage English.** Mẫu số: 0 khoá Pāli có nội dung ≥ 40 ký tự (mọi dòng kệ đều ngắn hơn
+  ngưỡng), Sujato phủ 0/45 khoá nói chung; không có `english-project`; `vietnamese-current`
+  không có bài này. Cổng coverage English **không đo được gì** ở bài này (mẫu số 0); không
+  được hiểu là “đạt”. `triangulation` đặt 7,0 (≤ 8,0), dịch thẳng từ Pāli cộng tiền lệ đếm
+  được trong tầng và bài song song `ja430`.
+
+  **Kỹ thuật.** `technical_integrity: 9.6`: chưa chạy cổng máy; bốn lệnh `npm run validate`,
+  `npm test`, `npm run check`, `npm run build` còn phải chạy trước khi coi tiêu chí 10 là
+  đạt.

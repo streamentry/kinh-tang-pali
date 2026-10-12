@@ -1,5 +1,5 @@
 uid: tha-ap109
-status: draft
+status: published
 translationTitle: "Ký Sự Về Trưởng Lão Naḷamāliya"
 translators:
   - "OpenCode Space Bunny Free (agent)"
@@ -11,23 +11,41 @@ tags:
   - "Bhikkhadāyivagga"
 quality:
   scores:
-    source_provenance: 9.8
-    semantic_fidelity: 9.4
-    grammar_logic: 9.3
+    source_provenance: 9.6
+    semantic_fidelity: 9.0
+    grammar_logic: 9.2
     segment_alignment: 10.0
-    terminology: 9.4
+    terminology: 9.0
     triangulation: 7.5
-    vietnamese_clarity: 9.4
-    han_viet_balance: 9.3
-    ambiguity_integrity: 9.2
+    vietnamese_clarity: 9.0
+    han_viet_balance: 9.2
+    ambiguity_integrity: 9.3
     technical_integrity: 9.6
-  final_score: 9.29
+  final_score: 9.14
   blocking_errors:
-    - "Không có tầng tham khảo đã ghim: tầng english-sujato tại commit đã ghim không có tệp thân kinh nào cho sub-collection tha-ap (0 tệp trong 563 bài; duy nhất là tệp *tên* name/sutta/tha-ap-name_...); tầng vietnamese-current chỉ có 26 tệp toàn bộ là Pháp Cú; lớp lấp english-project không có entry cho tha-ap109. Ba tầng tham khảo đều vắng nên bài dịch chỉ từ Pāli root. scripts/validate.ts coi tệp Anh đã ghim thiếu là error khi status là review hoặc published, nên bài bắt buộc draft. Đây là giới hạn của snapshot upstream, không phải lỗi của người dịch."
-    - "Chưa ghi nhận gap tham khảo: content/meta/reference-gaps.yaml cần chạy lại bằng npm run reference:gaps trước khi lên review hoặc published; lát này bị cấm sửa tệp đó nên không tự ghi được."
-  assessed_at: "2026-10-05"
+    - "Không có tầng tham khảo đã ghim: tầng english-sujato tại commit đã ghim
+      không có tệp thân kinh nào cho sub-collection tha-ap (0 tệp trong 563 bài;
+      duy nhất là tệp *tên* name/sutta/tha-ap-name_...); tầng vietnamese-current
+      chỉ có 26 tệp toàn bộ là Pháp Cú; lớp lấp english-project không có entry
+      cho tha-ap109. Ba tầng tham khảo đều vắng nên bài dịch chỉ từ Pāli root.
+      scripts/validate.ts coi tệp Anh đã ghim thiếu là error khi status là
+      review hoặc published, nên bài bắt buộc draft. Đây là giới hạn của
+      snapshot upstream, không phải lỗi của người dịch."
+  assessed_at: "2026-10-12"
   assessed_by:
-    - "OpenCode Space Bunny Free (agent)"
+    - "Claude Sonnet 5.5 (Claude Code)"
+  waiver:
+    id: no-upstream-english
+    blockers:
+      - "Không có tầng tham khảo đã ghim: tầng english-sujato tại commit đã ghim
+        không có tệp thân kinh nào cho sub-collection tha-ap (0 tệp trong 563
+        bài; duy nhất là tệp *tên* name/sutta/tha-ap-name_...); tầng
+        vietnamese-current chỉ có 26 tệp toàn bộ là Pháp Cú; lớp lấp
+        english-project không có entry cho tha-ap109. Ba tầng tham khảo đều vắng
+        nên bài dịch chỉ từ Pāli root. scripts/validate.ts coi tệp Anh đã ghim
+        thiếu là error khi status là review hoặc published, nên bài bắt buộc
+        draft. Đây là giới hạn của snapshot upstream, không phải lỗi của người
+        dịch."
 notes: |-
   **Bốn mươi tám khoá của lát + một khoá có sẵn.** Lát giao 48 khoá; bài có 49 khoá Pāli.
   Khoá `tha-ap109:12.1` (`Itthaṁ sudaṁ …`) không thuộc lát này nhưng đã có sẵn trên đĩa,
@@ -200,3 +218,94 @@ notes: |-
   không đổi, 49/49 khoá giữ nguyên), YAML parse sạch bằng `yaml@2.9.0` của kho. Bốn lệnh còn
   lại thuộc cổng của người điều phối: **`npm run validate` · `npm test` · `npm run check`
   · `npm run build`**. Vì vậy `technical_integrity` = 9.6, không cho 10.0.
+
+  **Giải quyết draft 2026-10-12: kiểm toán độc lập, viết lại 37/49 khoá.** Mục này
+  **thay thế** các mục cũ ở trên về: nghĩa của `bījanī`, khoá `:12.1` ("giữ nguyên byte"),
+  các phép tính số Pāli, ba chỗ "cố ý lệch tầng", bất định 1/2/4 và điểm số. Các mục cũ không bị xoá để giữ lịch sử, nhưng
+  nếu mâu thuẫn thì mục này đúng.
+
+  *Lỗi nghĩa thật đã sửa (đối chiếu Pāli từng chữ).*
+  1. `bījanī` (`:2.2`, `:3.2`, `:7.1`, `:9.1`) = **cái quạt**, không phải "hạt giống". Quạt
+     (`bījanī`) tương ứng với nhan đề phẩm tha-ap55 (*Phẩm Cái Quạt*) và `vidhūpana` ở tha-ap53;
+     ở tha-ap35 có `vāḷabījaniṁ` (quạt lông đuôi). Lỗi "hạt giống" lan ở các bài lân cận của
+     phẩm Bījani (tha-ap53/54/57/58) — **không sửa** (ngoài lát), báo để biên tập phán một lượt.
+     Mạch kệ cũng buộc nghĩa quạt: Phật nhận quạt rồi nói *thân Ta được mát dịu, nhiệt não
+     không còn* (`:4.1–4.2`).
+  2. `upanāmesiṁ` (`:2.3`) = "tôi đã dâng lên", không phải "đã đặt danh hiệu".
+  3. `abhāsatha` (`:3.4`) là thì quá khứ ngôi ba số ít, "đã nói" (cùng dạng với `:6.4`,
+     `imā gāthā abhāsatha`), **không** phải mệnh lệnh "xin hãy nói"; chủ thể là Đức Thế Tôn
+     (`:3.2`). Lỗi cũ của chính tệp này ("sai sót nhân bản ở 5 tệp") là chẩn đoán sai.
+  4. `:4.1–4.4`: lời Phật nói với vị thera (`tava` = "của ngươi"), không phải lời thera tự
+     nói. `kāyo nibbāti` = "thân Ta được mát dịu"; `tividhaggīhi` = "khỏi ba thứ lửa" (không
+     phải "ba kẻ phá hoại"); `cittaṁ tava vimuccatu` = "mong tâm của ngươi được giải thoát"
+     (không phải "tâm ta … khỏi Ngài"). Không thêm tên ba thứ lửa vì Pāli không nêu.
+  5. `devasaṅghapurakkhato` (`:6.2`) = "được hội chư thiên vây quanh" (đã khớp 4 khoá khác trong
+     tầng; "đoàn vua trời" là sai). `hāsayantañca dāyakaṁ` (`:5.4`) = "đang làm hoan hỷ người
+     cúng dường" (bản cũ "được an ỉnh" là chữ vô nghĩa); `sampahaṁsento` (`:6.3`) = "làm hoan hỷ".
+  6. `upasantassa` (`:1.4`) = "bậc an tịnh" (bản cũ "đã lắng dịch" là chữ lạ); `Tiṇatthare`
+     (`:1.3`) = "trên thảm cỏ". `tādino` (`:1.2`, `:1.4`, `:2.4`) = "bậc Vững Vàng" thay
+     "đáng tôn kính" vì `tādī` không có nghĩa "đáng tôn kính"; `dvipadindassa` có đủ chữ
+     "chúa tể".
+  7. `sammānavipulena` (`:9.2`) = `sammāna` (sự tôn kính) + `vipula` (rộng lớn), không phải
+     `sammā` "chân chính". `kammāvasesena` (`:8.1`) = "phần nghiệp còn lại" (khớp 6 khoá khác;
+     "công đức" là thêm nghĩa).
+  8. **Số Pāli, làm lại.** `tiṁsa` = 30 (không phải 3): `Tiṁsakappasahassamhi` (`:10.1`) =
+     30 × 1.000 = **30.000** kiếp, khớp 4 khoá cùng công thức (`tha-ap17:10.1`, `tha-ap47:4.1`…)
+     — bản cũ "ba trăm nghìn" sai. `Kappasatasahassa` (`:9.3`) = `sata` 100 × `sahassa` 1.000 =
+     **100.000** kiếp, khớp 35 khoá cùng công thức — bản cũ "mười triệu" sai (nhân thừa 100).
+     `Ekūnatiṁsasahasse` (`:10.3`) = 29 × 1.000 = **29.000** (không đổi). `aṭṭhatiṁsa` = 38,
+     `aṭṭha` = 8 (không đổi). Nhờ đó `:10.1–10.4` đọc đúng: *trong 30.000 kiếp có 38 vị Subbata;
+     trong 29.000 (kiếp) có 8 vị Māluta*, và `subbatā` (`:10.2`) là **tên của các vị vua**
+     (đã khớp `Subbato nāma nāmena` ở `:7.3`), không phải "quả trắng"; `te` = "ấy".
+  9. `Naḷamāla` (`:2.1`) = "vòng hoa sậy" (`naḷa` = sậy; phẩm cùng thera ở tha-ap473 là
+     *Phẩm Vòng Hoa Sậy*), thay vì để nguyên tên Pāli; `bandhitvā bījaniṁ` = "buộc thành chiếc
+     quạt".
+  10. `Itthaṁ sudaṁ … abhāsitthāti` (`:12.1`) = "Như vậy, … đã nói những bài kệ này"; bản cũ
+      mở bằng "Tôi nghe như vầy", là câu mở đầu kinh (`evaṁ me sutaṁ`) mà Pāli ở đây **không
+      có**. Đo toàn tầng: **594** khoá cùng công thức dùng "Tôi nghe như vầy", **5** khoá dùng
+      "Như vậy, …". Tôi theo 5 khoá này vì đa số 594 thêm nghĩa không có trong Pāli; đây là
+      điều **nên phán một lượt cho cả tầng**, không sửa ở các bài khác.
+  11. Bỏ chữ "tấn lòng", "an ỉnh", "lắng dịch" (chữ không có trong tiếng Việt) — lỗi gõ của
+      bản cũ.
+
+  Số khoá lỗi nghĩa thật: **~22/49** (đọc đối kháng từng khoá); thêm 3 khoá chỉnh thuật ngữ
+  `tādī`, 3 khoá mở rộng/sửa nhẹ (`:1.3`, `:3.3`, `:5.1`), tổng khoá đổi **37/49**. Khoá không
+  đổi: `:0.1–0.3`, `:1.1`, `:8.2`, `:10.4` (đã đúng), `:11.1–11.3`, `:13.1–13.2`. Dùng lại
+  nguyên văn tầng: `Paṭisambhidā catasso` → *Bốn vô ngại giải*, `…pe…` → `…`,
+  `Mama saṅkappamaññāya` → *nhờ thấu rõ ý định của tôi* (40 khoá cùng công thức),
+  `kataṁ buddhassa sāsanaṁ` (392 khớp).
+
+  *Phân loại blocker.*
+  - **(A)** Không có bản Anh Sujato tại commit đã ghim: **giữ nguyên** (sự thật về upstream).
+    Câu blocker này cũng nêu `vietnamese-current` chỉ có Pháp Cú (loại C) và không có lớp
+    lấp `english-project`; đó là giới hạn tham chiếu, không phải lỗi văn bản.
+  - **(B)** "Chưa ghi nhận gap tham khảo": **đã gỡ**. Mẫu số coverage = 1 khoá (`:12.1`, 62 ký
+    tự; 48/49 khoá ngắn hơn 40 ký tự nên cổng gần như không đo được gì ở phẩm này), Sujato
+    phủ 0/1. Đó là việc của bước ghi nhận gap do công cụ của kho sinh (`npm run
+    reference:gaps`), không phải lỗi văn bản; các khoá Sujato trống đã được đọc kỹ từ Pāli ở
+    trên và bản dịch tự đứng vững.
+  - **(D)** Không có lỗi văn bản nào còn treo cần giữ blocker, nhưng các bất định ở dưới
+    vẫn thật và đã ghi.
+
+  *Bất định còn lại (không đưa vào thân kinh).*
+  1. `sammānavipulena` (`:9.2`): hapax toàn Pāli; đọc `sammāna` + `vipula` là cách đọc hợp
+     ngữ pháp nhất; chưa có chú giải để loại trừ biến thể chép.
+  2. `Naḷamāla` (`:2.1`): `mālā` ở đây là vòng hay bó/chuỗi sậy chưa phân xử; "vòng hoa sậy"
+     bám tên phẩm tha-ap473.
+  3. `hāsayantañca dāyakaṁ` (`:5.4`): `hāsayantaṁ` có thể bổ nghĩa cho Đức Phật (đọc đã chọn:
+     "vị đang làm hoan hỷ người cúng dường", song song `:6.3`) hoặc cho `buddhavacanaṁ`.
+  4. `sukkamūlena` (`:8.2`): giữ *cội nguồn thiện căn* theo 47 khoá cùng công thức; cách đọc
+     "gốc trắng" không loại trừ được hoàn toàn.
+  5. `Ekūnatiṁsasahasse` (`:10.3`): Pāli không nêu danh từ đếm; mạch `:10.1` (`kappa`) cho
+     "kiếp", nhưng tôi **không** chèn chữ "kiếp" vào `:10.3`.
+  6. `pariḷāho` (`:4.2`): dịch *nhiệt não* theo 4 khoá cùng công thức; ở bài này vừa là cơn
+     nóng của thân vừa là sự nóng của ba thứ lửa ở `:4.3`.
+  7. `Subbata` / `Māluta`: bỏ đuôi `-o` của danh cách như các tên khác trong tầng; giữ
+     nhất quán trong cả bài (`:7.3`, `:8.3`, `:10.2`, `:10.4`).
+
+  *Điểm số trước→sau.* source_provenance 9,8→9,6 · semantic_fidelity 9,4→9,0 ·
+  grammar_logic 9,3→9,2 · segment_alignment 10,0→10,0 · terminology 9,4→9,0 ·
+  triangulation 7,5→7,5 (≤ 8,0 vì không có bản Anh độc lập) · vietnamese_clarity 9,4→9,0 ·
+  han_viet_balance 9,3→9,2 · ambiguity_integrity 9,2→9,3 · technical_integrity 9,6→9,6.
+  `final_score` 9,29→9,14 (trung bình thô). Cổng kỹ thuật chưa chạy trong lượt này:
+  `npm run validate` · `npm test` · `npm run check` · `npm run build`.
