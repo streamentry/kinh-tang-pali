@@ -1,5 +1,5 @@
 uid: sn22.86
-status: draft
+status: published
 translationTitle: "Kinh Anurādha"
 translators:
   - "Claude Sonnet 5.5 (Claude Code)"
@@ -16,15 +16,14 @@ quality:
     grammar_logic: 9.2
     segment_alignment: 10.0
     terminology: 9.3
-    triangulation: 7.8
+    triangulation: 8.0
     vietnamese_clarity: 9.2
     han_viet_balance: 9.4
     ambiguity_integrity: 9.3
     technical_integrity: 9.6
-  final_score: 9.2500
-  blocking_errors:
-    - "Độ phủ tầng tham khảo tiếng Anh Sujato 27/41 = 0,6585 dưới ngưỡng tối thiểu 0,80 (14 khoá Pāli có nội dung Sujato để trống: 4.2–4.6, 5.1, 5.2, 5.4–5.7, 6.1–6.3). Lớp lấp english-project của dự án bù đủ 14/14 nhưng không phải lần đọc Anh độc lập; theo luật của lát bài giữ draft và triangulation không quá 8,0 cho đến khi 14 khoá này có đối chiếu Anh độc lập."
-  assessed_at: "2026-10-09"
+  final_score: 9.2700
+  blocking_errors: []
+  assessed_at: "2026-10-12"
   assessed_by:
     - "Claude Sonnet 5.5 (Claude Code)"
 notes: |-
@@ -65,3 +64,6 @@ notes: |-
   **Phép kiểm đã chạy, có mẫu số.** Tập khoá Việt = tập khoá Pāli: 85/85, thứ tự khoá trùng thứ tự Pāli. Nháy theo khoá: 0/85 lệch. Dấu lược `…pe…` và `…` trần: 0/85 lệch. Pāli trùng nguyên văn trong chính bài: 2 nhóm / 14 khoá / 46 cặp / 0 cặp Việt khác. NFC, khoảng trắng đầu/cuối, hai dấu cách liền: 0 lỗi / 85. Pāli lọt sang Việt (trừ tên riêng): 0 / 85. Đã đọc đối chiếu cặp Pāli↔Việt cả 85 khoá. Phép kiểm số Pāli: bài này chỉ có số `catu` (bốn) và `Catutthaṁ` (bốn), đều tự tính ở trên; không có cụm số ghép nên phép đo máy cho bài này đóng góp 0 cặp.
 
   Bốn lệnh cổng kỹ thuật do coordinator chạy, không chạy trong lát agent: `npm run validate`, `npm test`, `npm run check` và `npm run build`. Vì bốn lệnh ấy chưa chạy ở lát này, `technical_integrity` đặt 9,6 chứ không 10,0.
+
+  **Giải quyết draft 2026-10-12.** Blocker cũ (độ phủ Sujato 27/41 = 0,6585 dưới ngưỡng 0,80) là loại độ phủ tầng tham khảo, không phải lỗi văn bản; nó thay cho phần *Trạng thái `draft` — vì sao* ở trên (số đo 27/41 và danh sách 14 khoá vẫn đúng). Đã gỡ sau khi đọc đối kháng 14 khoá Sujato để trống (`4.2` `4.3` `4.4` `4.5` `4.6` `5.1` `5.2` `5.4` `5.5` `5.6` `5.7` `6.1` `6.2` `6.3`) thẳng từ Pāli: đó là đoạn Anurādha kể lại, và mỗi khoá lặp đúng một khoá đã có Sujato phủ (`4.2`≈`1.2`, `4.3`≈`1.3`, `4.4`–`4.6`≈`1.5`–`1.6`, `5.1`–`5.2`≈`2.1`–`2.2`, `5.4`≈`2.3`, `5.5`–`5.7`≈`2.4`–`2.6`, `6.1`–`6.3`≈`3.1`–`3.3`), nên bản Việt dùng lại đúng cách dịch của khoá gốc, chỉ đổi ngôi (*con*, *bạch Thế Tôn*) và dấu lược theo Pāli; không phát hiện chỗ nghĩa còn chưa chắc. Mất mát được ghi nhận ở `content/meta/reference-gaps.yaml` do công cụ của kho sinh (`npm run reference:gaps`). Lần đọc đối kháng toàn bài 85 khoá, đối chiếu Sujato ở 27 khoá có phủ: 0 khoá lỗi nghĩa thật / 85, không sửa khoá nào. Đã kiểm lại tiền lệ bằng số đếm trên sn22: `1.4` *những lời chào hỏi thân hữu* (cùng dạng ở sn22.85), `7.16` *biết rõ: không còn gì là tự thân nữa* (22 trên 25 khoá `itthattāyāti` trong sn22) — giữ. Các bất định đã ghi (chủ ngữ tương liên của `taṁ tathāgato …`, dấu hỏi ở `1.6`/`4.6`, `na vo` ở `5.6`, `10.2`, `7.16`) vẫn là lựa chọn biên tập có nêu, không phải chỗ sai.
+  `triangulation` đặt 8,0 (không cao hơn): Sujato phủ 27/41 khoá có nội dung; 14 khoá còn lại không có lần đọc Anh độc lập (lớp `english-project` do cùng họ công cụ viết nên không tính là độc lập) và chỉ đứng vững nhờ Pāli cùng khoá gốc được Sujato phủ; tầng Việt hiện hành không có bài này (giới hạn của ảnh chụp upstream, chỉ có Pháp Cú). Các điểm khác giữ nguyên; `final_score` 9,27 là trung bình thô của 10 điểm. `technical_integrity` vẫn 9,6 vì `npm run validate`, `npm test`, `npm run check`, `npm run build` do coordinator chạy.

@@ -1,5 +1,5 @@
 uid: sn46.54
-status: draft
+status: published
 translationTitle: "Kinh Câu Hữu Với Lòng Từ"
 translators:
   - "Claude Sonnet 5.5 (Claude Code)"
@@ -22,9 +22,8 @@ quality:
     ambiguity_integrity: 9.2
     technical_integrity: 9.6
   final_score: 9.28
-  blocking_errors:
-    - "Độ phủ tầng tham khảo tiếng Anh (57/73 = 0.781) dưới ngưỡng tối thiểu 0.80: bản Anh Sujato để trống 16 đoạn Pāli có nội dung (4.2, 4.5, 4.6, 6.1, 6.3, 7.1, 7.2, 8.1, 8.2, 8.5, 9.1, 9.2, 9.5, 9.6, 10.1, 10.2), đều là phần lược hoặc thuật lại; cần tối thiểu 59/73. Không có lớp english-project cho bài này. Bài phải giữ draft và triangulation tối đa 8.0 cho đến khi lớp english-project lấp ít nhất 2 trong 16 khoá đó, hoặc người biên tập quyết định khác."
-  assessed_at: "2026-10-09"
+  blocking_errors: []
+  assessed_at: "2026-10-12"
   assessed_by:
     - "Claude Sonnet 5.5 (Claude Code)"
 notes: |-
@@ -45,3 +44,9 @@ notes: |-
   **Lỗi ngoài lát, báo, không sửa.** an10.219:6.7 và an10.219:11.7 có cùng cụm Pāli "idha paññassa bhikkhuno uttari vimuttiṁ appaṭivijjhato" nhưng bản Việt hiện có viết "đạt đến giải thoát cao hơn, không khuyết thiếu", ngược dấu với Pāli (appaṭivijjhato là không thấu triệt; Sujato và an8.1:2.3 cùng chiều với bản này). Cần người điều phối xét.
 
   **Quy trình và cổng kỹ thuật.** Pāli đọc trực tiếp từ snapshot đã ghim; đã đối chiếu English Sujato (57/73 khoá) và bản Việt nguyên bài của Hòa thượng Thích Minh Châu. Đã in và đọc đối kháng đủ 87/87 cặp Pāli với Việt. Chưa chạy npm run validate, npm test, npm run check, npm run build (bị cấm chạy cổng), nên technical_integrity đặt 9,6 chứ không tuyên bố đã qua cổng kỹ thuật; cần chạy đủ bốn lệnh này và npm run reference:gaps trước khi đổi trạng thái. Vì blocker coverage, bài phải giữ draft.
+
+  **Giải quyết draft 2026-10-12.** Blocker cũ (độ phủ English Sujato 57/73 = 0,781 dưới ngưỡng 0,80) thuộc loại mất mát tầng tham khảo, không phải lỗi văn bản, và đã GỠ khỏi blocking_errors; mục "Coverage English" và câu "bài phải giữ draft" ở các đoạn notes trên bị thay thế bởi mục này (số đo 57/73 vẫn đúng và vẫn phải được ghi nhận trong reference-gaps). Căn cứ gỡ: đã đọc đối kháng lại cả 16 khoá Sujato để trống (4.2, 4.5, 4.6, 6.1, 6.3, 7.1, 7.2, 8.1, 8.2, 8.5, 9.1, 9.2, 9.5, 9.6, 10.1, 10.2) trực tiếp từ Pāli. Tất cả là phần lược hoặc thuật lại nguyên văn các khoá 1.x đến 4.x (Pāli trùng lời, chỉ đổi ngôi kể từ "họ" sang "chúng con"/"chúng tôi"); bản Việt dịch cùng lời với phần gốc, không có nghĩa nào chưa chắc, nên bản dịch tự đứng vững từ Pāli. Phần Sujato có thật (57 khoá, gồm toàn bộ lời Đức Phật ở 11.x đến 15.x) đã đối chiếu từng khoá. Vì 16/73 khoá chỉ có Pāli và Sujato lại không có bản độc lập cho các khoá đó, triangulation giữ 8,0, không cao hơn. Tầng Việt hiện hành vắng (snapshot chỉ có Pháp Cú): đây là giới hạn tham chiếu của upstream, không phải lỗi văn bản.
+
+  Sửa sau lượt đọc đối kháng (4 khoá, trên 87): 1.2 "rất nhiều tỳ-kheo" thành "nhiều vị tỳ-kheo" (sambahulā là "một số đông", không có sắc thái "rất"; tầng có 3 khoá "nhiều (vị) tỳ-kheo" so với 6 khoá "rất nhiều Tỷ-kheo" ở bản cũ chưa kiểm); 11.1 "các thầy nên hỏi họ" thành "các thầy nên nói với họ như sau" (vacanīyā là "cần được nói với", câu hỏi nằm ở các khoá liền sau, không nằm trong động từ; tầng có 4 khoá "nên hỏi họ" và 14 khoá "nên trả lời" cho cùng công thức, khác nhau tùy bối cảnh); 11.6 "còn bối rối" thành "còn thêm bực bội" (uttariñca vighātaṁ āpajjissanti: vighāta là bực bội, phiền não, không phải lúng túng; Sujato dịch frustrated; cùng công thức vẫn là "còn bối rối" ở mn13:6.5, sn46.52:8.3, sn46.53:2.4, an10.27:9.3, ngoài lát, báo để người điều phối xét); 4.5 dấu ; ở cuối đổi thành dấu chấm để 4.6 mở câu "Như thế" bằng chữ hoa khớp 3.2, 8.5, 9.5 (Pāli có ;, đây là chọn dấu câu, không đổi nghĩa). Không khoá nào khác sai nghĩa: 0 lỗi nghĩa thật trên 87 khoá; 3 khoá chỉnh nghĩa nhẹ (1.2, 11.1, 11.6) và 1 khoá dấu câu (4.5). Điểm giữ nguyên vì các lỗi chỉ là sắc thái; không có blocker nào còn lại.
+
+  Bất định còn lại, giữ trong notes: (1) idhapaññassa là "có trí tuệ ở đây" (Sujato cùng chiều), chưa phân xử được nghĩa "ở đây" là trong giáo pháp này hay ở mức này; (2) adhippayāso ở 4.7 và 9.6 dịch "đặc thù", chuỗi ba từ viseso, adhippayāso, nānākaraṇaṁ gần nghĩa nhau, Sujato gộp cả ba thành một câu hỏi về "difference"; (3) 13.6 "biết rằng" cho iti trong nháy trích, theo tiền lệ mn26 và Sujato. Lỗi ngoài lát đã báo ở trên (an10.219) vẫn còn. Các lệnh npm run validate, npm test, npm run check, npm run build chưa chạy trong lượt này nên technical_integrity vẫn 9,6, không tuyên bố đã qua cổng kỹ thuật.

@@ -15,19 +15,31 @@ tags:
 quality:
   scores:
     source_provenance: 9.9
-    semantic_fidelity: 9.4
-    grammar_logic: 9.4
+    semantic_fidelity: 8.9
+    grammar_logic: 8.9
     segment_alignment: 10.0
-    terminology: 9.3
-    triangulation: 9.5
-    vietnamese_clarity: 9.4
-    han_viet_balance: 9.4
-    ambiguity_integrity: 9.3
-    technical_integrity: 10.0
-  final_score: 9.56
+    terminology: 8.8
+    triangulation: 9.0
+    vietnamese_clarity: 9.2
+    han_viet_balance: 9.3
+    ambiguity_integrity: 8.8
+    technical_integrity: 9.6
+  final_score: 9.24
   blocking_errors: []
-  assessed_at: "2026-09-14"
+  assessed_at: "2026-10-12"
   assessed_by:
-    - "Muse Spark"
+    - "Claude Sonnet 5.5 (Claude Code)"
 notes: |-
   Coordinator (gộp thuật ngữ tên bộ, 2026-10-04): khối `:0.1` đổi "Tương Ưng Bộ" → "Saṁyutta Nikāya". Đếm lại trên toàn tầng: 1.211 tệp giữ PĀLI / 326 tệp dịch — 78,8% giữ PĀLI. Hai agent cùng đếm gần giống nhau rồi kết luận ngược nhau (1.187 vs 315 và 1.074 vs 316), nên đã đếm lại từ đầu thay vì theo lời báo. Đây là tên bộ ở khối tiêu đề, không đổi nghĩa segment nào. Phạm vi: cả tầng sn, gồm cả tệp đã merge trước đợt này.
+
+  Kiểm toán độc lập 2026-10-12 (thay thế bảng điểm 2026-09-14 và các điểm cũ của bản trước; các mục notes cũ giữ nguyên). Đọc đối kháng từng khoá với Pāli, đối chiếu bản English Sujato đã ghim, bài song song mn49 và bài Jātaka cùng kệ. Đã sửa 17/52 khoá; khoảng 12 khoá là lỗi nghĩa hoặc lỗi ngôi/cách thật, còn lại là tinh chỉnh dùng chữ.
+  - 3.2, 3.3, 3.4, 3.6 (đảo ngôi): Pāli nói về Baka ở ngôi thứ ba (`bako brahmā` chủ cách, `vakkhati`/`vakkhatī` ngôi thứ ba, không phải hô cách `baka brahme`); bản cũ đổi thành "này Phạm Thiên Baka, ngươi … ngươi lại nói". Nay: "Phạm Thiên Baka đã rơi vào vô minh … vị ấy lại nói" — khớp Sujato và cách dịch cùng câu ở mn49:4.2–4.6. Cũng đổi "chìm đắm" → "rơi vào" (`avijjāgato`).
+  - 4.3: `vedagū` là hô cách "này bậc đạt minh" (bản cũ đọc thành sở hữu cách "của bậc đạt minh trí" và thêm "trí"); bỏ "giới" không có trong Pāli (`brahmupapatti` = sự tái sanh làm Phạm Thiên). Nay: "sự tái sanh làm Phạm Thiên này là lần cuối cùng, này bậc đạt minh,".
+  - 6.1: bản cũ bỏ sót `bhagavā` (Baka tự xưng); "ánh mắt vô cùng" → "bậc Tôn Quý có tầm nhìn vô biên" (`anantadassī`); chữ "Tôn Quý" để phân biệt với danh xưng Thế Tôn của Đức Phật.
+  - 9.2: bỏ chữ "thịt" không có trong Pāli (`manussakamyā` = thèm muốn con người). 9.3: "nó" mơ hồ (có thể đọc là con rồng) → "con thuyền ấy" (đối tượng `gahītanāvaṁ`); bỏ "dữ dội" thêm vào (`balasā pasayha` = dùng sức mạnh mà áp chế).
+  - 10.1: bỏ "trung thành" không có trong Pāli. 10.2: "tưởng" → "cho là" (`amaññi` không hàm ý sai lầm); `vatinaṁ` = biết giữ bổn phận, không phải "đáng tin cậy".
+  - 11.4: bỏ "cả" thừa. 11.3: `jalitānubhāvo` = oai lực rực sáng, không phải "ánh hào quang". 11.2: `buddho` = "bậc Giác Ngộ" (bản cũ "Chánh Giác" là `sambuddha`).
+  - 1.3: `pāpakaṁ` = xấu ác (bản cũ "sai lạc" làm nhẹ nghĩa). 2.3: bỏ "liền" không có trong Pāli. 2.4: "mừng thay Tôn giả đã đến" → "chào mừng Tôn giả" (`svāgataṁ te`, khớp mn49:3.5). 5.1: bỏ "ở đây" không có trong Pāli (`etaṁ` = tuổi thọ này).
+  Điểm: semantic_fidelity 9.4 → 8.9, grammar_logic 9.4 → 8.9 (lỗi ngôi/cách ở nhiều khoá), terminology 9.3 → 8.8, triangulation 9.5 → 9.0 (bản Sujato độc lập có đủ và đã có cách đọc đúng ở 3.2 và 4.3 mà bản cũ không theo), ambiguity_integrity 9.3 → 8.8, vietnamese_clarity 9.4 → 9.2, han_viet_balance 9.4 → 9.3; segment_alignment 10.0 và source_provenance 9.9 giữ; technical_integrity 10.0 → 9.6 (chưa chạy cổng kỹ thuật trong lượt này; còn lại `npm run validate`, `npm test`, `npm run check`, `npm run build`).
+  Bất định còn lại, giữ nguyên bản dịch: (1) `eṇikūlasmiṁ` hiện dịch "bờ sông Eṇī"; Sujato coi là địa danh "Deer River Bank"; chưa xác định đây là tên sông hay tên nơi chốn. (2) `aññepi` ở 11.2 dạng nam tính số nhiều, hiện dịch "những điều khác"; có thể là "những kẻ khác" (chúng sanh khác); chưa phân xử. (3) `nirabbuda` giữ nguyên Pāli, chưa quy đổi số năm. (4) Bộ ba `acavanadhamma` "bất hoại", `na cavati` "không chuyển di", `cavanadhamma` "có tánh hoại diệt" dùng ba từ cho một gốc `cav-`; chưa đo tiền lệ toàn tầng nên chưa thống nhất. (5) `vasavattino` "có quyền lực", `vatasīlavatta` "hạnh tu giới đức" chưa đo tiền lệ. (6) 7.1 `apāyesi` không có đối tượng; "uống nước" là bổ sung theo ngữ cảnh (`pipāsite`).
+  Không có tầng Anh nào bị thiếu ở bài này (Sujato phủ đủ 52/52 khoá), nên không có blocker thiếu tầng tham khảo.

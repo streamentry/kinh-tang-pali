@@ -14,29 +14,37 @@ tags:
 quality:
   scores:
     source_provenance: 9.3
-    semantic_fidelity: 9.1
-    grammar_logic: 9.3
+    semantic_fidelity: 9.2
+    grammar_logic: 9.2
     segment_alignment: 10.0
-    terminology: 9.2
-    triangulation: 8.5
-    vietnamese_clarity: 9.4
-    han_viet_balance: 9.3
-    ambiguity_integrity: 8.9
+    terminology: 9.1
+    triangulation: 8.0
+    vietnamese_clarity: 9.1
+    han_viet_balance: 9.2
+    ambiguity_integrity: 9.2
     technical_integrity: 9.6
-  final_score: 9.26
+  final_score: 9.19
   blocking_errors:
-    - "Không có tầng tham khảo nào ở commit đã ghim để đối chiếu: english-sujato
-      không phân phối sub-collection vv, vietnamese-current chỉ có 26 tệp Pháp
-      Cú"
-  assessed_at: "2026-10-05"
+    - "noEnglishEditionUpstream: Không có tầng tham khảo tiếng Anh tại commit đã
+      ghim: `source/upstream-manifest.json` liệt kê
+      `kn/vv/vv20_root-pli-ms.json` (tầng Pāli) cho uid này, và `english-sujato`
+      chỉ có các tiểu bộ cp, dhp, iti, ja, kp, snp, thag, thig, ud, không có vv;
+      `content/translation/en/project/sutta/kn/` không có tệp vv20. Đây là
+      `not-published-upstream`, không phải `not-synced`. Giới hạn upstream,
+      không phải lỗi của người dịch."
+  assessed_at: "2026-10-12"
   assessed_by:
-    - "OpenCode Space Bunny Free (agent)"
+    - "Claude Sonnet 5.5 (Claude Code)"
   waiver:
     id: no-upstream-english
     blockers:
-      - "Không có tầng tham khảo nào ở commit đã ghim để đối chiếu:
-        english-sujato không phân phối sub-collection vv, vietnamese-current chỉ
-        có 26 tệp Pháp Cú"
+      - "noEnglishEditionUpstream: Không có tầng tham khảo tiếng Anh tại commit
+        đã ghim: `source/upstream-manifest.json` liệt kê
+        `kn/vv/vv20_root-pli-ms.json` (tầng Pāli) cho uid này, và
+        `english-sujato` chỉ có các tiểu bộ cp, dhp, iti, ja, kp, snp, thag,
+        thig, ud, không có vv; `content/translation/en/project/sutta/kn/` không
+        có tệp vv20. Đây là `not-published-upstream`, không phải `not-synced`.
+        Giới hạn upstream, không phải lỗi của người dịch."
 notes: |-
   Dịch từ Pāli root tại commit đã ghim. TẦNG THAM KHẢO Ở BÀI NÀY KHÁC HẲN `sn41.6`, và
   đây là điểm phải nói rõ chứ không được kết luận suy từ bài kia:
@@ -152,3 +160,115 @@ notes: |-
   khoá. Bài kệ không có `…pe…` nào và bản Việt cũng không có dấu `…` nào. Không sửa
   `content/meta/reference-gaps.yaml`, không sửa `source/`, `src/`, `scripts/`, `tests/`,
   không chạy `git`, không đụng `README.md`.
+
+  ─────────────────────────────────────────────────────────────────────────────
+  Giải quyết draft 2026-10-12 (kiểm toán đối kháng toàn bài, đọc lại từng khoá từ Pāli).
+  Mục này THAY THẾ các khẳng định cũ ở trên khi chúng mâu thuẫn; các mục cũ về coverage,
+  tầng tham khảo vắng, và đếm tiền lệ vẫn đúng.
+
+  BLOCKER. Chỉ có một blocker và nó thuộc loại "thiếu bản Anh upstream": giữ nguyên ý,
+  viết lại theo khuôn chuẩn (`noEnglishEditionUpstream: …`). Vế "vietnamese-current chỉ có
+  Pháp Cú" là giới hạn tham chiếu chứ không phải lỗi văn bản, nên đã gỡ khỏi blocker và ghi
+  ở đây: tầng Việt hiện hành cũng vắng ở bài này. Không có blocker kiểu "độ phủ Sujato dưới
+  ngưỡng": Sujato không phân phối bài này, và mẫu số coverage = 0 (51 khoá, dài nhất 28 ký
+  tự, không khoá nào đạt ngưỡng 40 ký tự), nên cổng coverage không đo được gì. Không có lỗi
+  văn bản nào còn chưa phân xử.
+
+  LỖI NGHĨA THẬT ĐÃ SỬA: 27/51 khoá bản nháp cũ sai hoặc thiếu nghĩa: `1.2–1.4`, `3.2–3.4`,
+  `2.1`, `4.1`, `4.4`, `5.1`, `6.1`, `6.3`, `6.4`, `7.1`, `7.4`, `7.5`, `8.1`, `8.2`, `8.4`, `8.5`,
+  `9.1–9.5`, `10.2`, `10.3` (chi tiết dưới đây). Thêm khoảng 12 khoá chỉ đổi đại từ/từ nhẹ
+  (`1.1`, `2.2–2.4`, `4.2–4.3`, `5.3–5.4`, `6.2`, `7.2–7.3`, `7.6`, `8.6`, `9.6`, `10.1`, `10.4`). Bản nháp cũ dựa vào bài vv43 cùng phẩm, và 16 khoá nó "dùng lại nguyên văn" chính là
+  nơi lỗi lan sang; đừng coi trùng Pāli với vv43 là bằng chứng bản dịch đúng.
+    · `6.1` `varākiyā` dịch "cao quý" là SAI; `varākī` là "người nữ khốn khổ, đáng thương"
+      (cùng gốc `manussavarāko` = "khốn khổ" ở `sn11.14`, `ud5.3`; `varākiyā` ở `thi-ap26:13.4`
+      = "khốn khổ", `ja485:5.2` = "khốn khổ"). Bản nháp cũ ghi nó là hapax: sai, gốc `varāk-` có 15 chỗ trong tầng.
+    · `5.1–5.2` `Nimmānaratino nāma santi devā mahiddhikā` là "Có chư thiên tên là Hóa Lạc, có
+      thần lực lớn" (cú pháp y hệt `an6.10:7.2` `santi devā nimmānaratino` = "Có chư thiên …
+      Hóa Lạc"); KHÔNG phải tên một cung điện. Bất định (a)/(b) của bản cũ là do hiểu sai,
+      không còn. `mahiddhikā` → "có thần lực lớn" theo `dn9:6.27` (`devatā mahiddhikā
+      mahānubhāvā` = "vị trời có thần lực và uy lực lớn").
+    · `1.2`, `3.2` `tuṇhībhūtassa tiṭṭhato` = "đứng im lặng"; "đứng rỗng không cơm không nước"
+      là bịa hoàn toàn.
+    · `1.3`, `3.3` `kapaṇā` = "khốn cùng" (cùng bộ ba `daliddo … kapaṇo … varāko` = "nghèo khổ,
+      cùng khốn, khốn khổ" ở `sn11.14:2.1`, `ud5.3:1.4`), không phải "thấp kém" (`kapaṇaṁ
+      mānusakaṁ rajjaṁ` ở `an8.45` là "điều thấp kém" nói về vương quyền, không áp được
+      cho người).
+    · `1.4`, `3.4` `parāgāraṁ apassitā` = "sống nương nhờ nhà người khác", không phải "chưa từng
+      thấy nhà bên cạnh". `apassita` ở đây là "nương tựa", cùng nghĩa `parabhattaṁ apassito`
+      (`tha-ap339:1.4` = "sống nương nhờ cơm của người"), `tapokammamapassito` (`tha-ap431`) và
+      `sakakammaṁ apassito` (`tha-ap52`) = "nương tựa". Lưu ý `tha-ap321:1.4` cùng Pāli với
+      `tha-ap339` lại dịch "chưa từng thấy ai đem đến": đó là lỗi nơi khác, ghi lại để báo.
+    · `ācāma` → "váng cơm" (không phải "món ăn dâng"): `mn25:9.8` "ăn váng cơm", `mn51:8.6`
+      "nước cơm đóng váng", `mn12:45.6` "váng cháo"; "món ăn dâng" là chữ đặt không căn cứ.
+      Áp ở `2.1`, `4.1`, `5.4`, `7.5`, `8.5`, `9.5`, `10.3`. Tên cung điện ở `0.4`, `11.1` giữ
+      `Ācāmadāyikā` (tên riêng, như `Kañjikadāyikā` ở `vv43`).
+    · `Etassācāmadānassa` (7.5, 8.5, 9.5, 10.3) là "của sự bố thí váng cơm này" (sở hữu cách
+      của sự so sánh với "một phần mười sáu"), KHÔNG phải "bố thí của người đã bày món ăn dâng
+      ấy". Cũng đảo chủ ngữ: cái "không đáng một phần mười sáu" là hoàng hậu/xe/voi/quyền
+      chủ tể, chứ không phải món bố thí.
+    · `2.1`, `4.1` `adāsi` do người nữ dâng cho vị Trưởng lão: "đã dâng cho ngài/tôi", không phải
+      "bày cho ngươi". `te` ở `1.1`, `2.1` gọi một vị khất thực (`piṇḍāya carantassa`) là
+      "ngài", không phải "ngươi".
+    · `2.3`, `4.3`: đại từ `sā` chỉ người nữ đã mất, nói ở ngôi thứ ba về một người đã khuất:
+      "Người ấy" thay cho "Nàng" (xưng hô ngôi thứ hai không có trong Pāli); và "thân người"
+      thay cho "thân xác người" (`mānusaṁ dehaṁ`).
+    · `2.4` `kaṁ nu sā disaṁ gatā` = "đã đi về phương nào?" (`disā` = phương/hướng).
+    · `4.4` `vippamuttā ito cutā` = "đã được giải thoát, từ đây mệnh chung"; "hoàn toàn tự do, đã
+      từ bỏ cõi này" thêm "hoàn toàn" và đổi `cutā` ("mệnh chung") thành "từ bỏ".
+    · `6.3` `parābhatena dānena` = "với vật thí do người khác mang đến", KHÔNG phải "bố thí bị
+      tước đoạt" (không có nghĩa tước đoạt trong `para + ābhata`).
+    · `6.4` `ijjhittha vata dakkhiṇā` = "quả thật sự cúng dường đã thành tựu", không phải "dường
+      như dầu quá đã tràn đổ" (`dầu quá` là chữ vô nghĩa, không có trong Pāli).
+    · `7.1` `Yā mahesittaṁ kāreyya` = "Người nào có thể giữ ngôi hoàng hậu": "làm nên ngọn núi
+      lớn" là SAI nặng. `mahesitta` ở `thi-ap8:11.2`, `thi-ap11:8.2`, `thi-ap9:13.2` (34 chỗ) =
+      "ngôi hoàng hậu"; `mahesittamakārayiṁ` = "tôi đã giữ ngôi hoàng hậu". Lỗi này cũng có ở
+      `vv43:6.1`.
+    · `7.4` `bhattu cānomadassikā` = "và có dung nhan không chút kém cỏi trong mắt chồng";
+      `anoma` là "không thấp kém", không phải "không chút tì vết".
+    · `8.1` THIẾU `nikkhā`: bản cũ bỏ mất "một trăm nikkha". Nay: "Trăm nikkha, trăm con ngựa";
+      `nikkha` giữ nguyên như `ja506:9.2`, `ja543:44.3`, `ja501:27.1` ("một trăm nikkha").
+    · `8.2` `assatarīrathā` = "cỗ xe do la kéo" (`sn10.8:2.2`, `ja546:12.2` = "xe do la kéo",
+      "cỗ xe do la kéo"); "cỗi xe lắp đủ bánh" là bịa, và "cỗi" là chữ sai chính tả.
+    · `8.4` `āmuttamaṇikuṇḍalā` = "đeo hoa tai ngọc" (18 khoá khớp trong tầng, trong đó `pv21:51.2`, `ja506:8.2`, `tha-ap24:43.4`); bản
+      cũ "đẹp nhất trong những người đeo vòng tai" thêm nghĩa so sánh cao nhất mà Pāli không có.
+    · `9.1` `hemavatā nāgā` = "voi vùng Hy Mã Lạp"; bản cũ "có vóc bằng vàng" sai (không có
+      "vàng" ở dòng này).
+    · `9.2` `īsādantā urūḷhavā` = "ngà như cán cày, thân hình to khỏe" (`tha-ap20:1.4`,
+      `tha-ap563:1.4`, `mn66:10.1`); "bước đi uy nghi" không có trong Pāli.
+    · `9.3` `suvaṇṇakacchā mātaṅgā` = "những con voi có đai bằng vàng" (6 chỗ: `ja539`, `ja529`,
+      `ja547`, `tha-ap409/410/413`); "Đeo dây vàng quanh ngực" sai/lệch.
+    · `9.4` `hemakappanavāsasā` = "khoác trang cụ bằng vàng" (6 chỗ ở `ja`, 3 ở `tha-ap`) thay vì
+      "mặc áo dệt bằng vàng" (không có "dệt").
+    · `10.1–10.2` `catunnamapi dīpānaṁ issaraṁ yodha kāraye` = "Đối với cả bốn châu lục, ai ở đây
+      có thể làm chúa tể"; "cầm quân đánh trận" là bịa hoàn toàn. Lỗi này cũng có ở `vv43:9.2`.
+    · Hậu quả thêm: bỏ "bậc … kia" ở `7.2` (`cakkavattissa rājino` = "của vua Chuyển Luân",
+      không có "kia"), và "cũng không đạt được" → "cũng không đáng giá" (`agghati` = đáng
+      giá, theo `sn10.8:2.6`).
+    · Khoá cũ giữ nguyên hoặc chỉ sửa nhẹ: `0.1–0.4`, `5.3` ("an vui"), `11.1`, `2.2`/`4.2`
+      ("với tâm tịnh tín bằng chính đôi bàn tay mình", 16 chỗ trong tầng; chỉ đổi dấu `.` thành
+      `;` cho khớp Pāli).
+    · Khoá giữ nguyên: `0.1`, `0.3`, `0.4`, `3.1`, `8.3`, `11.1`, và tiêu đề `0.2` (xem bất định (6)).
+
+  CHƯA PHÂN XỬ ĐƯỢC HẲN (ghi lại, không làm blocker):
+    (1) `7.4` `anomadassikā`: có thể hiểu "vẻ ngoài không kém cỏi trong mắt chồng" hoặc "nhìn
+      chồng bằng ánh mắt thiện" (bản nguyên bài ở mục Tra cứu toàn văn nghiêng về nghĩa "được chồng
+      quý", chỉ để hiểu cách đọc, không chép câu chữ). Chọn cách bám Pāli, ít giả định.
+    (2) `6.3` `parābhata` có thể là "do người khác mang đến" hoặc "nhận từ người khác"; chọn cách
+      hẹp hơn, bám `para + ābhata`.
+    (3) `nikkha` là một đơn vị vàng (xem `mn120:18.9`, `sn2.29:9.1` là `nikkhaṁ jambonadaṁ`);
+      bản dịch giữ nguyên danh từ như tiền lệ `ja`, không quy đổi.
+    (4) `Hemavata` và `Himavā` là cùng gốc; bản dịch dùng "Hy Mã Lạp" như `dn14:1.35.2`.
+    (5) Người nói ở khối 6–10 không được Pāli nêu (khối mở ngoặc mới); không thêm danh tính.
+    (6) Tiêu đề phẩm `Itthivimāna` = "Chuyện Cung Điện Nữ Hư Không" (`0.2`) là lỗi đã biết của cả
+      bộ vv (không có `ākāsa` trong Pāli); lặp ở ~51 tệp nên KHÔNG sửa riêng ở đây để khỏi lệch
+      bộ. Tương tự `0.3` `Phẩm Cây Hoa Cittalatā` ("Cây Hoa" không có trong Pāli) lặp ở 7 tệp.
+
+  LỖI NƠI KHÁC (chỉ báo, không sửa): `vv43` có cùng các khoá sai `6.1`, `6.4`, `7.2`, `7.4`,
+  `8.1–8.4`, `9.1–9.2` với bản cũ này; `tha-ap93:3.1–3.2` cùng Pāli với `10.1–10.2`; `tha-ap321:1.4`.
+
+  ĐIỂM: triangulation 8.5 → 8.0 (không có bản Anh độc lập; tầng Việt hiện hành cũng vắng);
+  semantic_fidelity 9.1 → 9.2 và grammar_logic 9.3 → 9.2 sau khi sửa (điểm cũ cao quá so với
+  28 khoá sai); terminology 9.2 → 9.1; ambiguity_integrity 8.9 → 9.2 vì chỗ chưa chắc nay được
+  nêu đúng, các bất định giả cũ (`varākiya` là hapax, `Nimmānaratino` là tên cung điện) đã gỡ.
+  `technical_integrity` vẫn 9.6: lượt này chỉ tự kiểm khoá/meta; `npm run validate`, `npm test`,
+  `npm run check`, `npm run build` chưa chạy trong lượt này.

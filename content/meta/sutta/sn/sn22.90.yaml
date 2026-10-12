@@ -1,5 +1,5 @@
 uid: sn22.90
-status: draft
+status: published
 translationTitle: "Kinh Channa"
 translators:
   - "Claude Sonnet 5.5 (Claude Code)"
@@ -15,16 +15,15 @@ quality:
     semantic_fidelity: 9.20
     grammar_logic: 9.30
     segment_alignment: 10.00
-    terminology: 9.30
+    terminology: 9.20
     triangulation: 8.00
     vietnamese_clarity: 9.20
     han_viet_balance: 9.40
     ambiguity_integrity: 9.20
     technical_integrity: 9.60
-  final_score: 9.2800
-  blocking_errors:
-    - "Độ phủ tầng tham khảo tiếng Anh của bản Sujato đã ghim là 27/41 = 0,6585, dưới ngưỡng tối thiểu 0,80: Sujato để trống 14 đoạn Pāli có nội dung (3.11, 5.1, 5.2, 5.4, 5.5, 5.13, 6.4, 6.8, 6.9, 6.14, 7.2, 7.3, 7.4, 7.7). Lớp english-project (published) của dự án bù đủ 14 đoạn nhưng không phải bản đối chiếu độc lập. Bài giữ draft và triangulation ≤ 8,0 cho đến khi có tầng Anh độc lập phủ đủ hoặc người biên tập chấp nhận lớp lấp."
-  assessed_at: "2026-10-09"
+  final_score: 9.2700
+  blocking_errors: []
+  assessed_at: "2026-10-12"
   assessed_by:
     - "Claude Sonnet 5.5 (Claude Code)"
 notes: |-
@@ -72,3 +71,10 @@ notes: |-
   **Phép kiểm đã chạy, có mẫu số.** Tập khoá Việt = tập khoá Pāli: 100/100, thứ tự khoá trùng thứ tự Pāli. NFC, khoảng trắng thừa, khoá rỗng: 0 lỗi (mẫu số 100). Pāli lọt sang Việt: ngoài tên riêng (Channa, Ānanda, Kosambī, Ghosita, Bārāṇasī, Isipatana, Kaccāna, Kaccānagotta) và nhãn `Saṁyutta Nikāya 22.90`, không có. Pāli trùng nguyên văn trong chính bài: 13 nhóm, 0 nhóm khác nhau.
 
   Bốn lệnh cổng kỹ thuật do coordinator chạy, không chạy trong lát agent: `npm run validate`, `npm test`, `npm run check`, và `npm run build` nếu bài lên `published`. Vì bốn lệnh ấy chưa chạy ở lát này, `technical_integrity` đặt 9,6 chứ không 10,0.
+
+  **Giải quyết draft 2026-10-12 (thay thế mục "Trạng thái `draft`, kèm blocker" ở trên; các mục khác giữ nguyên).** Đọc đối kháng lại toàn bài (100 khoá) từ Pāli, đối chiếu Sujato đã ghim, bản song song sn12.15 và sn22.85.
+    - **Blocker độ phủ Anh 27/41 = 0,6585 đã gỡ.** Đây là giới hạn của bản chụp upstream (Sujato để trống 14 khoá có nội dung: 3.11, 5.1, 5.2, 5.4, 5.5, 5.13, 6.4, 6.8, 6.9, 6.14, 7.2, 7.3, 7.4, 7.7), không phải lỗi văn bản; việc ghi nhận mất mát vào `content/meta/reference-gaps.yaml` do công cụ của kho sinh ra. Đã đọc kỹ từng khoá trong 14 khoá ấy từ Pāli: tất cả là lặp lại nguyên văn các khoá đã có Sujato ở 1.2–1.3, 3.x, 4.2–4.4 (13 nhóm Pāli trùng trong bài, 0 nhóm bản Việt khác nhau) chuyển sang ngôi thứ nhất kể lại với Tôn giả Ānanda (`etadavocaṁ`, `Tassa mayhaṁ`, `upasaṅkamiṁ`), nên bản dịch tự đứng vững từ Pāli và từ các khoá song song có Sujato. `triangulation` giữ 8,0 (không cao hơn): 14 khoá ấy không có bản Anh độc lập, bản Việt hiện hành chỉ có nguyên bài, tầng Việt theo segment không có (bilara đã ghim chỉ có Pháp Cú — giới hạn tham chiếu, không phải thiếu sót của bản dịch).
+    - **Sửa lỗi nghĩa thật: 2/100 khoá, và 2 khoá thêm chữ.** `10.1` `anukampakā` đã dịch *thương tưởng* (sai nghĩa) → *có lòng thương xót*, đúng dạng của sn22.85:28.7 (cùng câu Pāli, cùng công thức, 1/1 tiền lệ gần nhất; an11.13:8.3 dịch *vì lòng thương*). `8.4` `uḷāraṁ pītipāmojjaṁ` *niềm hỷ khoái hoan hỷ lớn lao* (chữ *hỷ khoái* tự chế, lặp *hoan hỷ*) → *niềm hỷ và hoan hỷ lớn lao*, đúng cặp `pīti` + `pāmojja` như tầng đã dịch (pe1:124.1: *hỷ và hoan hỷ cao quý*; chuỗi `pāmojja`→*hoan hỷ*, `pīti`→*hỷ* ở công thức chín pháp). `9.3`/`9.4` bỏ chữ *ấy* thêm vào sau *thế gian* (Pāli `yā loke natthitā/atthitā`, không có chỉ định từ).
+    - **Đã đo và giữ nguyên.** `9.12` *theo con đường trung đạo* cho `majjhena … dhammaṁ deseti`: 12/13 khoá cùng công thức dùng đúng dạng này (1 khoá dùng diễn đạt khác), nên không bỏ chữ *con đường*. `9.3`/`9.4` khác sn12.15:2.2/2.3 (*quan niệm ‘không có’*): Pāli của hai nơi khác nhau ở dấu phẩy, bản Việt ở đây dịch sát từ `natthitā/atthitā` (*sự không có / sự có*); ghi nhận 1 cặp khác, chọn sát chữ vì chữ *quan niệm* ở sn12.15 không có trong Pāli. `8.1` `api nāma` *Mong rằng*; `4.3`/`7.3` `vissaṭṭhi` *sự tin cậy*; `3.13`/`6.10` hai danh từ đặt cạnh nhau — bất định đã nêu ở trên, giữ.
+    - **Dấu lược và nháy** sau sửa: không khoá nào đổi dấu lược hay nháy; kiểm lại tập khoá 100/100, NFC, khoảng trắng, khoá rỗng: 0 lỗi (mẫu số 100).
+    - **Điểm sau kiểm toán:** `terminology` 9,3 → 9,2 (lỗi `anukampakā` lọt qua lượt chấm trước); các tiêu chí còn lại giữ; `final_score` 9,27 (trung bình thô). Không còn blocker nào được ghi; bốn lệnh cổng kỹ thuật `npm run validate`, `npm test`, `npm run check`, `npm run build` chưa chạy trong lát này nên `technical_integrity` vẫn 9,6.

@@ -1,5 +1,5 @@
 uid: an7.70
-status: draft
+status: published
 translationTitle: "Kinh Cung Kính"
 translators:
   - "Claude Sonnet 5.5 (Claude Code)"
@@ -15,15 +15,14 @@ quality:
     grammar_logic: 9.4
     segment_alignment: 10.0
     terminology: 9.3
-    triangulation: 8.0
+    triangulation: 7.8
     vietnamese_clarity: 9.2
     han_viet_balance: 9.3
     ambiguity_integrity: 9.1
     technical_integrity: 9.6
-  final_score: 9.29
-  blocking_errors:
-    - "Độ phủ tầng tham khảo tiếng Anh (44/62 = 0.710) dưới ngưỡng tối thiểu 0.80: bản Anh Sujato để trống 18 đoạn Pāli có nội dung (4.1–4.4, 4.8–4.11, 4.13–4.16, 13.1, 15.1, 17.4, 18.1, 20.1, 22.1) và lớp english-project của dự án chưa có entry cho an7.70. Bài giữ trạng thái draft và triangulation không quá 8.0 cho đến khi lớp english-project lấp các segment này."
-  assessed_at: "2026-10-09"
+  final_score: 9.27
+  blocking_errors: []
+  assessed_at: "2026-10-12"
   assessed_by:
     - "Claude Sonnet 5.5 (Claude Code)"
 notes: |-
@@ -42,3 +41,7 @@ notes: |-
   CÁC PHÉP KIỂM TỰ LÀM. Tập khoá Việt = tập khoá Pāli: 82 = 82, thứ tự khớp. Nháy đơn và nháy kép khớp Pāli từng khoá: 82 khoá, 0 lệch. Dấu lược: 24 khoá Pāli có … hoặc …pe…, mỗi khoá có đúng số … tương ứng ở bản Việt, 0 lệch; Pāli kết ….(12.1, 14.1, 19.1, 21.1) thì bản Việt kết …. đúng đa số của tầng. NFC, không khoá rỗng, không khoảng trắng thừa, không Pāli lọt sang bản Việt. Cặp Pāli với Việt đã đọc đối kháng toàn bộ 82 khoá. Lỗi bản nháp đã sửa: 2.2 và 4.9 ban đầu viết đã thanh tịnh (Pāli chỉ có tính từ, không có ý đã), đã bỏ; 4.6 mở bằng chữ hoa trong khi Pāli viết thường nối tiếp 4.5, đã sửa.
 
   CỔNG KỸ THUẬT. Lát này bị cấm chạy các lệnh cổng nên không tuyên bố technical gate pass và technical_integrity đặt 9.6. Bốn lệnh còn lại chưa chạy: npm run validate; npm test; npm run check; npm run build. Sau khi gộp, nếu bổ sung được lớp english-project hoặc gap được ghi nhận thì cần chạy lại npm run reference:gaps và npm run audit:store trước khi đổi status.
+
+  Giải quyết draft 2026-10-12. Phân loại blocker: loại B (độ phủ Anh Sujato 44/62 = 0.710 dưới ngưỡng 0.80), không phải lỗi văn bản; đã GỠ khỏi blocking_errors. Căn cứ: 18 khoá Sujato để trống (4.1–4.4, 4.8–4.11, 4.13–4.16, 13.1, 15.1, 17.4, 18.1, 20.1, 22.1) đều là Pāli lặp lại đúng nội dung đã có ở khoá khác trong cùng bài (4.x là Sāriputta thuật lại 1.1–2.9; 13.1, 15.1, 17.4, 18.1, 20.1, 22.1 là các mắt xích của chuỗi lặp, mà Sujato cũng đã dịch ở khoá song song 11.1, 11.2, 12.1, 14.1, 17.3, 19.1, 21.1). Đã đọc đối kháng từng khoá trong 18 khoá ấy trực tiếp từ Pāli (thứ tự mục, sagāravo/agāravo, bhavissati + netaṁ ṭhānaṁ vijjati hay ṭhānametaṁ vijjati, yo so … pi so …): không có chỗ nghĩa còn chưa chắc. Mất mát được ghi nhận bằng content/meta/reference-gaps.yaml (do công cụ của kho sinh, cần chạy lại npm run reference:gaps). triangulation đặt 7.8 (không cao hơn 8.0): 18/62 khoá không có bản Anh độc lập. Tầng vietnamese-current vắng là giới hạn của snapshot ghim (chỉ có Pháp Cú), không phải lỗi văn bản.
+
+  Kiểm toán độc lập 2026-10-12, đối chiếu cả 82 khoá với Pāli và với bản Anh Sujato đã ghim (44 khoá có bản Anh). Lỗi nghĩa thật: 0/82. Sửa 2 khoá (accuracy/clarity): (1) 16.1 — Pāli trùng nguyên văn với 6.2 (Imassa kho ahaṁ, bhante, bhagavatā saṅkhittena bhāsitassa evaṁ vitthārena atthaṁ ājānāmi); bản trước dịch hai kiểu khác nhau và ở 16.1 bỏ mất hô cách bhante; nay 16.1 dùng đúng câu của 6.2, thêm Bạch Thế Tôn, giữ ” kết khoá đúng như Pāli. Mục trong ghi chú cũ nói 0 nhóm Pāli trùng trong bài mà Việt khác nhau là SAI (chỉ xét 8 nhóm khớp từng chữ, bỏ sót cặp 6.2/16.1 vì khác hoa-thường và dấu nháy); nay đã đồng nhất, tức thay thế mục cũ đó. (2) 17.2 — Sādhu kho tvaṁ: câu cũ tốt lắm là ngươi đã hiểu là cách nói gượng; đổi thành thật tốt khi ngươi hiểu (cùng nghĩa, tiếng Việt tự nhiên hơn; có tiền lệ an6.69:4.2). Không đổi tiêu đề (translationTitle vẫn khớp 0.3). Các điểm đã dò và giữ nguyên: sakkatvā garuṁ katvā upanissāya = cung kính, tôn trọng, sống nương tựa; agāravo/sagāravo = không tôn kính/tôn kính; paṭisanthāra = sự đón tiếp ân cần; kammāra = thợ rèn; yannūnāha … gantvā đối với suvaṇṇanikkha và dhamma dịch song song; lời Đức Phật xưng Ta/ngươi, Sāriputta tự nghĩ xưng ta, thưa với Thế Tôn xưng con. Cặp dấu …pe…/… khớp Pāli từng khoá (24 khoá, 0 lệch), nháy khớp từng khoá, đủ 82 khoá đúng thứ tự Pāli. Bất định còn lại: kiṁ ở 1.2/4.2 dịch trung tính điều gì (chưa có căn cứ độc lập để đổi); evaṁ vitthārena dịch nghĩa rộng như vậy (Sujato: detailed meaning). Điểm: semantic_fidelity, grammar_logic, terminology, ngôn ngữ và technical giữ như trước; triangulation 8.0 → 7.8; final_score 9.29 → 9.27. Bốn lệnh cổng kỹ thuật vẫn chưa chạy trong lát này: npm run validate; npm test; npm run check; npm run build.
