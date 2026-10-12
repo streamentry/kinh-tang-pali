@@ -465,3 +465,22 @@ Nhật ký append-only. Registry `content/audio/progress.json` được đối s
 ### Batch mn-021 PR opened — #548
 
 - PR https://github.com/streamentry/kinh-tang-pali/pull/548 uses head `c5566d7e13c443eb2a20cf507aa81347c5d42821`. MN18/MN20/MN21 remain `uploaded-verified`, `review_status: pending`; CI is the final hosted build gate after the local temporary volume ran out of space during prerender.
+
+### Batch mn-021 production verified — PR #548
+
+- Squash merge `32be8aec742c00c58aa44414dad91978f394ece7`; Pages run #691 (`38214637587`) succeeded. Production MN18/MN20/MN21 canonical pages each returned HTTP 200, displayed one player in `Chờ nghe duyệt`, and loaded the exact registered R2 URL; all are now `live`, with `review_status: pending`.
+- Production MN20 playback test passed: play, +15s, jump to scripture at 121.79s (observed 121.921s), pause; duration 885.984s, readyState 4, no media error.
+- Next sequential source-ready items are MN27/MN28/MN29. No TTS started before the previous deployment gate completed.
+
+### Batch mn-022 — MN27/MN28/MN29 uploaded-verified, ready for PR
+
+- MN27: 15 chunks, 1,407.45s, MP3 SHA-256 `d9463d984747e09aac09c760369ee48d7b6e86a27bb1cd5ad12d69b829f132a0`, 28,150,080 bytes; scripture starts 164.91s. R2 object and public range verified; local player play/+15s/scripture/pause pass.
+- MN28: 13 chunks, 1,340.32s, MP3 SHA-256 `e4668a2ad8c5d7ba871205855bcf34ac266198857b21feb0c337746addcb0b6b`, 26,807,520 bytes; scripture starts 161.15s. Resumed from four valid WAV checkpoints without regenerating them. R2 object and public range verified; local player play/+15s/scripture/pause pass.
+- MN29: 14 chunks, 1,334.67s, MP3 SHA-256 `0477c46da3fee6ce910650d9e5000d8a6359ea4fe2da1c1a8b5d60524b7965e8`, 26,694,720 bytes; scripture starts 151.31s. R2 object and public range verified; local player play/+15s/scripture/pause pass.
+- All use profile `vi-charon-mn1-v1`, profile SHA-256 `a384c5852585077c32e1348a6ada5cfc70a69c989ad705b8b5129fef3e1c9a71`; combined duration 4,082.44s (~68m02s). No ASR; review remains pending; no media/cache is committed.
+
+### MN27/MN28/MN29 local release gates
+
+- Rebased batch head on main `8456e034`; `audio:check` reports 186 catalog entries and 0 errors. `npm test`: 410 passed, 1 skipped, 0 failed. `npm run check`: 0 errors and 0 warnings (5 existing hints). Direct validator + quality-history check: validation passed with 2,242 recorded advisory warnings; 5,447 assessment histories and 0 quality errors.
+- Full `npm run build` passed, including its nested validate/quality gates: 6,146 static pages built; Pagefind indexed 6,137 pages and 458,052 words. Built MN27/MN28/MN29 HTML each contains its exact R2 URL and audio hash. The temporary build output was placed on SSD because `/private/tmp` was nearly full, then removed after verification.
+- A standalone `npm run validate` attempt hits sandbox `tsx` IPC named-pipe `EPERM`; the same repository command completed successfully as part of the full production build.
