@@ -14,13 +14,13 @@ quality:
     semantic_fidelity: 9.3
     grammar_logic: 9.3
     segment_alignment: 10.0
-    terminology: 9.2
+    terminology: 9.3
     triangulation: 7.5
     vietnamese_clarity: 9.3
     han_viet_balance: 9.4
     ambiguity_integrity: 9.2
     technical_integrity: 9.6
-  final_score: 9.23
+  final_score: 9.24
   blocking_errors:
     - "Không có tầng tham khảo tiếng Anh tại commit đã ghim: tệp
       `translation/en/sujato/sutta/kn/vv/vv68_translation-en-sujato.json` không
@@ -37,9 +37,9 @@ quality:
       Pāli root ⇒ blocker thật, và đây là **giới hạn upstream**, không phải lỗi
       của người dịch. Vì vậy `triangulation` bị chặn ở 7.5 (≤ 8.0) chứ không
       nâng để né blocker."
-  assessed_at: "2026-10-03"
+  assessed_at: "2026-10-11"
   assessed_by:
-    - "OpenCode Space Bunny Free (agent)"
+    - "Claude Sonnet 5.5 (Claude Code)"
   waiver:
     id: no-upstream-english
     blockers:
@@ -61,3 +61,11 @@ quality:
 notes: |-
   Bản dịch chỉ từ Pāli root do commit đã ghim không có bản Anh upstream (giới hạn upstream).
   Đầy đủ 10 tiêu chí scorecard; status bắt buộc draft do blocker tầng tham khảo Anh; technical_integrity 9.6.
+
+  Kiểm toán độc lập 2026-10-11 (lượt cải thiện): đọc đối kháng 23 khoá, sửa 15 khoá, lỗi nghĩa/căn lề thật 9 khoá (1.4, 2.1, 2.4, 3.3, 4.1, 4.3, 4.4, 5.3, 6.1), còn lại là thêm nghĩa và thuật ngữ lệch tiền lệ. Mục điểm 2026-10-03 ở trên (segment_alignment 10.0 khi 4.3/4.4 đang lệch ranh khoá) bị thay thế bởi lượt này.
+  - Lỗi nghĩa/căn lề: 4.1 `bhariyā` là "vợ" (không phải "vợ con"); 4.3/4.4 `annañca pānañca` thuộc 4.3 (đã trả lại, trước đó bị dồn sang 4.4); 2.1 `mahānubhāvo` là "đại oai lực" (không phải "đại uy danh"); 2.4/5.3 `sabbadisā` là "khắp mọi phương" (không phải "bốn phương"); 3.3 `yassa kammassidaṁ phalaṁ` là mệnh đề quan hệ "về nghiệp mà đây là quả báo" (theo vv10); 6.1 `paṭhama` là "thứ nhất" (không phải "phần đầu"); 1.4 khôi phục `tiṭṭhati` ("đứng").
+  - Thêm nghĩa đã bỏ: "vô cùng" (3.1, `attamano` là "hoan hỷ"), "rực rỡ" thêm vào `obhāsayaṁ` (1.2, 1.4, 5.3), "hoan hỷ" thêm vào `pasannacittā` (4.3), "nhân duyên" (5.1).
+  - Thuật ngữ/tiền lệ: "thiên thần lực" (11/12/31 so với 1 chỗ "thần lực chư thiên"), "phước báu" (3 so với 1), "oai lực rực rỡ" cho `jalitānubhāvo` (đa số), "với cơm ăn và nước uống, cùng tâm tịnh tín" (khớp vv11/12/61/65).
+  - Đại từ: bỏ "con" (4.1, 4.4) dùng "tôi"/"chúng tôi" vì Pāli của bài không nêu người hỏi (đoạn 3.2 bị lược), không có căn cứ cho vai vế đệ tử với tăng; "ngài" cho người hỏi giữ nguyên.
+  - Bất định còn lại: (a) người hỏi không được nêu trong Pāli đã lược; (b) `antalikkhe` dịch "hư không" theo tiền lệ vv65/66/74/62 (5 so với 1 "không trung"), có thể chính xác hơn là "không trung", chưa đổi để khỏi lệch cả họ; (c) `jalita` "rực rỡ" theo tiền lệ họ vv. Tiêu đề `Purisavimāna` "Thiên Cung Của Nam Giới" không bị lỗi "Hư Không" của nhóm nữ, giữ nguyên.
+  - Điểm đổi: terminology 9.2 → 9.3 (khớp tiền lệ ở các chỗ trên); các tiêu chí khác giữ vì bản trước chấm cao khi còn lỗi, nay lỗi đã sửa nên giữ mức cũ chứ không nâng. final_score 9.23 → 9.24. Blocker tầng tham khảo tiếng Anh giữ nguyên (giới hạn upstream); triangulation giữ 7.5. technical_integrity 9.6 chưa chạy `npm run validate`, `npm test`, `npm run check`, `npm run build`.
