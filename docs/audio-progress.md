@@ -511,3 +511,9 @@ Nhật ký append-only. Registry `content/audio/progress.json` được đối s
 
 - Rebased on current main `b45674b6113d5c82a85b220be29e620417d85b71`; audio registry check: 186 catalog texts, 0 errors. `npm test`: 410 passed, 1 skipped, 0 failed. Astro check: 0 errors, 0 warnings, 5 existing hints. Validator passed with 2,241 recorded advisory warnings; quality histories checked: 5,447, 0 errors.
 - Full `npm run build` passed on this rebased head: 6,146 pages built; Pagefind indexed 6,137 pages and 458,030 words. Built MN30/MN31/MN32 HTML each contains the exact registered R2 URL and audio hash. No MP3/WAV/cache is staged.
+
+### Batch mn-023 production verified — PR #564
+
+- PR #564 exact head `7257bbf57fd931906e5fff340c20021dd5960cb9` passed push and PR CI; squash merge `a7d99b63060e1a0f5833e483b8a5c77e5c3a5e97`. Pages run for that merge `38277125787` completed successfully.
+- Production MN30/MN31/MN32 pages each returned HTTP 200, contain the reader audio player, show `Chờ nghe duyệt`, and reference their exact registered R2 URL. Each R2 URL returned 206 for `bytes=0-1023`, `audio/mpeg`, with the expected total object byte count. All three are marked `live`; review remains pending.
+- Local player controls (play, +15s, scripture jump, pause) were tested for all three during upload verification. Browser playback interaction on production was not tested because the Playwright wrapper is blocked by the local package-age guard (`npx` requires `--no-install`); the deployed HTML and R2 range endpoints were checked over HTTP instead. No full-content listening/approval is claimed.
