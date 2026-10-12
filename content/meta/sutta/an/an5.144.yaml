@@ -1,5 +1,5 @@
 uid: an5.144
-status: draft
+status: published
 translationTitle: "Kinh Tại Tikaṇḍakī"
 translators:
   - "Kinh Tạng Pāli Project"
@@ -10,19 +10,25 @@ tags:
 quality:
   scores:
     source_provenance: 10.0
-    semantic_fidelity: 9.4
+    semantic_fidelity: 9.3
     grammar_logic: 9.4
     segment_alignment: 10.0
-    terminology: 9.3
-    triangulation: 9.0
-    vietnamese_clarity: 9.4
-    han_viet_balance: 9.4
-    ambiguity_integrity: 9.2
-    technical_integrity: 10.0
-  final_score: 9.51
-  blocking_errors:
-    - "an5.144: cắt ngắm — 3 khoá có dấu lược `…` mà Pāli tại chính khoá đó không có, tệ nhất 0.7× (Pāli dài hơn bản Việt bấy nhiêu lần). Nội dung Pāli bị mất và thay bằng dấu lược, đây là sai nghĩa trọng yếu nên bài hạ về draft cho tới khi dịch lại. Khoá: an5.144:4.2, an5.144:5.2, an5.144:6.2"
-  assessed_at: "2026-09-13"
+    terminology: 9.4
+    triangulation: 8.0
+    vietnamese_clarity: 9.3
+    han_viet_balance: 9.3
+    ambiguity_integrity: 9.0
+    technical_integrity: 9.6
+  final_score: 9.33
+  blocking_errors: []
+  assessed_at: "2026-10-12"
   assessed_by:
-    - "GLM-5.3 Flash (ZCode)"
-    - "Adversarial review 2026-09-13: per-sutta segment coverage verified against pinned root; Pāli+EN sujato triangulated; TMC consulted via repo formulas; leak-scan for non-Latin chars passed"
+    - "Claude Sonnet 5.5 (Claude Code)"
+  notes: |-
+    Giải quyết draft 2026-10-12: kiểm toán đối kháng toàn bài theo Pāli root, đối chiếu Sujato và các bài song song trong kho (mn152, sn54.8, sn52.1, sn46.54, dn28).
+    Blocker cũ "cắt ngắm" (an5.144:4.2, 5.2, 6.2) đã GỠ: bản dịch hiện hành không còn dấu `…` ở bất kỳ khoá nào (0 khoá có `…`), cả ba khoá đều dịch đủ nội dung Pāli. Dấu `…` mà blocker nêu là của bản Sujato (ở 4.2, 5.2, 6.2; Sujato để trống 4.3, 5.3, 6.3), không phải của bản Việt này.
+    Đã sửa 20/29 khoá (toàn bộ 2.1–7.3; 9 khoá mở đầu, tiêu đề và `Thứ tư` giữ nguyên), trong đó lỗi nghĩa thật: (1) `kālena kālaṁ` = "thỉnh thoảng", không phải "thời thời khắc khắc" (nghĩa ngược: liên tục); tiền lệ dn2, dn10, dn26, dn34 dịch "thỉnh thoảng", dn23 "đúng lúc"; 98 khoá có cụm này (chỉ rà mẫu, không rà đủ). (2) `paṭikūlasaññī` / `appaṭikūlasaññī` dịch "quán tưởng không sạch" là sai thuật ngữ — đó là `asubha`; đúng là "tưởng ghê tởm" / "tưởng không ghê tởm", khớp mn152 và sn54.8 (cùng công thức); đổi toàn bộ. (3) `abhinivajjetvā` = "tránh", không phải "buông bỏ" (tiền lệ mn152:11-15.7, mn152:16.10, mn54). (4) `mā me … udapādi` thêm "nơi tôi" còn thiếu. (5) 7.2: `mohanīyesu dhammesu` "gây si" đổi thành "khơi dậy si" cho đồng nhất với hai pháp tham/sân cùng khoá (mn95:17.3 cũng "khơi dậy si"); `kvacani katthaci kiñcanaṁ` trước bị gộp thành "bất cứ … nào" làm mất phần phó từ, nay dịch "ở bất cứ đâu, bất cứ nơi nào, dù chỉ chút ít" và lặp cho cả ba mệnh đề theo Pāli.
+    Tiêu đề :0.3 "Kinh Tại Tikaṇḍakī" giữ nguyên, khớp translationTitle. Tập khoá = Pāli (29/29), 0 khoá có `…`.
+    Coverage English: Sujato phủ 19/22 khoá Pāli có nội dung (0,864 > 0,80); để trống an5.144:4.3, 5.3, 6.3 (câu kết lặp công thức). Ba khoá này đã đọc từ Pāli: mỗi khoá lặp đúng công thức 3.3 với idaṁ kho … vihareyya, tự đứng vững; không cần gap blocker. Tầng `vietnamese-current` không có cho bài này (giới hạn tham chiếu, không phải lỗi văn bản). `triangulation` đặt 8,0.
+    Bất định còn lại: `kvacani katthaci kiñcanaṁ` (ở bất cứ đâu, bất cứ nơi nào, dù chỉ chút ít) — Sujato gộp thành "in any way at all", bản Việt giữ cả ba thành phần; mức độ "dù chỉ chút ít" cho `kiñcanaṁ` là cách đọc hợp lý chứ chưa phân xử tuyệt đối. `Sādhu … vihareyya` giữ "Tốt đẹp … nên" (ý nguyện cách/nên). Không còn blocker.
+    technical_integrity 9,6: chưa chạy bốn cổng `npm run validate`, `npm test`, `npm run check`, `npm run build`.

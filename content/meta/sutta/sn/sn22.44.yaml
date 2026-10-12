@@ -1,5 +1,5 @@
 uid: sn22.44
-status: draft
+status: published
 translationTitle: "Kinh Thực Hành"
 translators:
   - "OpenCode Space Bunny Free (agent)"
@@ -12,22 +12,26 @@ tags:
 quality:
   scores:
     source_provenance: 9.5
-    semantic_fidelity: 9.3
-    grammar_logic: 9.3
+    semantic_fidelity: 9.4
+    grammar_logic: 9.4
     segment_alignment: 10.0
     terminology: 9.2
-    triangulation: 9.3
-    vietnamese_clarity: 9.3
+    triangulation: 9.2
+    vietnamese_clarity: 9.4
     han_viet_balance: 9.4
-    ambiguity_integrity: 9.2
+    ambiguity_integrity: 9.3
     technical_integrity: 9.6
-  final_score: 9.41
-  blocking_errors:
-    - "sn22.44: cắt ngắm — 1 khoá có dấu lược `…` mà Pāli tại chính khoá đó không có, tệ nhất 0.8× (Pāli dài hơn bản Việt bấy nhiêu lần). Nội dung Pāli bị mất và thay bằng dấu lược, đây là sai nghĩa trọng yếu nên bài hạ về draft cho tới khi dịch lại. Khoá: sn22.44:1.3"
-  assessed_at: "2026-10-04"
+  final_score: 9.44
+  blocking_errors: []
+  assessed_at: "2026-10-12"
   assessed_by:
-    - "OpenCode Space Bunny Free (agent)"
+    - "Claude Sonnet 5.5 (Claude Code)"
 notes: |-
   Dịch từ Pāli root, đối chiếu bản Anh Bhikkhu Sujato và bản Việt Hòa thượng Thích Minh Châu khi có.
   Đầy đủ 10 tiêu chí scorecard; technical_integrity 9.6 vì lệnh validate/test do coordinator chạy.
   terminology fix (gộp tên phẩm, 2026-10-04, coordinator): khối tiêu đề đổi sang cách dịch đa số toàn tầng — `5. Attadīpavagga` → «5. Phẩm Tự Mình Là Hòn Đảo». Đếm bằng cách ghép PāLI↔Việt ở mọi khối `:0.1`–`:0.9` có số thứ tự phẩm; cùng tên PāLI ở hai bộ khác nhau là hai phẩm khác nên không so chéo. Khối tiêu đề, không đổi nghĩa segment nào.
+
+  Giải quyết draft 2026-10-12: blocker duy nhất cũ ("cắt ngắm" ở sn22.44:1.3) là loại (D) và đã GỠ vì không còn căn cứ — khoá 1.3 hiện là «Hãy lắng nghe.» (không có dấu lược `…`), dịch trọn `Taṁ suṇātha` (40/40 khoá cùng Pāli trên sn/an/mn/dn dùng đúng «Hãy lắng nghe.»); Sujato ở khoá này viết «Listen …» (chính Sujato lược), còn bản Việt không lược nên không mất nội dung. Không có blocker loại (A) (Sujato có bài này tại commit đã ghim), (B) hay (C) cần xử lý: Sujato chỉ để trống 1.13, 2.10, 2.11 (câu ngắn dưới ngưỡng 40 ký tự Pāli có nội dung), tầng Việt hiện hành vắng (chỉ có Pháp Cú) nên không có tham khảo Việt truyền thống cho bài này.
+  Đọc đối kháng toàn 27 khoá với Pāli, 0 lỗi nghĩa thật. Sửa 4 khoá (terminology/clarity fix): 1.12 và 2.9 `samanupassanā` «sự quán tưởng» → «cách quán» (cùng gốc `samanupassati` đang dịch «quán» ở 1.6, 1.10, 2.3, 2.7; tránh va với «tưởng» là uẩn `saññā` ở 1.8, 2.5; Sujato: «a way of regarding things»; 6 khoá khác có `samanupassanā` trong sn dùng «sự quán» (5) hoặc «cách quán sát» (1), không có «quán tưởng»); giữ «Do đó» cho `Iti hidaṁ` (Sujato: «that's why»); 1.13 và 2.10 `Ayamevettha attho` «Ý nghĩa ở đây chính là như vậy» → «Đây chính là ý nghĩa ở đây» (`ayaṁ` là đại từ «đây», không phải trạng từ «như vậy»; khớp cách dịch ở tiền lệ còn lại trong tầng).
+  Giữ nguyên có chủ ý: `avinīto`/`suvinīto` «không tu tập»/«khéo tu tập» (8 tệp sn22 dùng cùng cặp, nhất quán với sn22.43); `kovido` «thuần thục»; `sakkāya` «hữu thân»; cặp 1.5 ↔ 2.2 và 1.6 ↔ 2.3 phủ định đối xứng, đủ bốn kiểu quán (là, có, trong, trong) × năm uẩn; dấu lược `…` ở 1.7–1.9 và 2.4–2.6 khớp Pāli từng khoá; nháy đơn/kép khớp Pāli (mở “ ở 1.2, đóng ” ở 2.10).
+  Chấm lại: `triangulation` 9.2 vì ba khoá Sujato trống đều là câu ngắn, còn lại hai bản Anh/Pāli khớp; không có bản Việt hiện hành để đối chiếu. Các lệnh `npm run validate`, `npm test`, `npm run check`, `npm run build` chưa chạy trong lượt này nên `technical_integrity` 9.6.

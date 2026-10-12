@@ -1,5 +1,5 @@
 uid: an3.97
-status: draft
+status: published
 translationTitle: "Kinh Ngựa Thuần Thục Thứ Hai"
 translators:
   - "Kinh Tạng Pāli Project"
@@ -10,19 +10,26 @@ tags:
 quality:
   scores:
     source_provenance: 10.0
-    semantic_fidelity: 9.4
-    grammar_logic: 9.4
+    semantic_fidelity: 9.3
+    grammar_logic: 9.3
     segment_alignment: 10.0
-    terminology: 9.3
+    terminology: 9.4
     triangulation: 9.0
-    vietnamese_clarity: 9.4
+    vietnamese_clarity: 9.3
     han_viet_balance: 9.4
     ambiguity_integrity: 9.2
-    technical_integrity: 10.0
-  final_score: 9.51
-  blocking_errors:
-    - "an3.97: cắt ngắm — 1 khoá có dấu lược `…` mà Pāli tại chính khoá đó không có, tệ nhất 1.3× (Pāli dài hơn bản Việt bấy nhiêu lần). Nội dung Pāli bị mất và thay bằng dấu lược, đây là sai nghĩa trọng yếu nên bài hạ về draft cho tới khi dịch lại. Khoá: an3.97:1.4"
-  assessed_at: "2026-09-13"
+    technical_integrity: 9.6
+  final_score: 9.45
+  blocking_errors: []
+  assessed_at: "2026-10-12"
   assessed_by:
-    - "GLM-5.3 Flash (ZCode)"
-    - "Adversarial review 2026-09-13: per-sutta segment coverage verified against pinned root; Pāli+EN sujato triangulated; TMC via repo formulas; leak-scan passed"
+    - "Claude Sonnet 5.5 (Claude Code)"
+notes: |-
+  Giải quyết draft 2026-10-12: đọc đối kháng 21 khoá với Pāli root; thay thế các mục chấm cũ (2026-09-13).
+  Blocker cũ (an3.97:1.4, "cắt ngắm") thuộc loại lỗi văn bản (D) nhưng đã hết căn cứ: tại khoá 1.4 bản Việt hiện là câu đầy đủ, không còn dấu lược `…`, và Pāli 1.4 không có `…pe…`; các dấu `…` còn lại ở 1.5, 2.2, 4.4 đều ứng với `…pe…` của Pāli. Đã gỡ blocker.
+  Sửa nghĩa (3/21 khoá): 1.1 và 1.4 — `rājāraho hoti rājabhoggo, rañño aṅganteva saṅkhayaṁ gacchati` trước đó dịch "là báu vật của vua, được coi là một phần của vương quyền"; `rājabhoggo` là "dùng cho vua", không phải "báu vật", và `rañño aṅga` là "chi phần của nhà vua". Nay "xứng đáng với vua, dùng cho vua, được kể là một chi phần của nhà vua" (khớp an3.98, cùng công thức). Đo tầng: Pāli có `rañño aṅgant…` ở 32 khoá, đa số "dùng cho vua/…được kể là (một) chi phần". Khoá 1.1 bỏ chữ "này" thừa (Pāli `tīhi aṅgehi` không có chỉ định từ).
+  4.2 — `pañcannaṁ orambhāgiyānaṁ saṁyojanānaṁ parikkhayā opapātiko hoti tattha parinibbāyī anāvattidhammo tasmā lokā` trước đó "năm kết trói buộc hạ giới, là bậc Hóa sinh, diệt tận nơi cõi ấy, không trở lại thế gian này" (làm mất `tasmā lokā` = từ cõi ấy). Nay "do đoạn tận năm hạ phần kiết sử, là vị hóa sinh, nhập Niết-bàn tại đó, không còn trở lại từ thế giới ấy"; công thức này là dạng đa số trong 49 khoá có `anāvattidhammo tasmā lokā` trên tầng.
+  Đã đọc kỹ và giữ: 1.3/1.7/2.3/3.3/4.3 `vaṇṇasampanno`="đầy đủ dung sắc" (3/8 khoá cùng công thức, nghĩa "dung sắc" theo quy ước họ ngựa), 3.2 khối tinh tấn (31 khoá cùng Pāli, dạng "tinh tấn đã được khởi động … vị ấy dũng mãnh" có 4 khoá, khớp an3.96/98), 2.2 và 4.4 (`…pe…` → `…`).
+  Coverage English: Sujato có bản cho bài này, nhưng ở 1.4 chỉ để dấu `…`, và 1.5/4.4 viết đủ chỗ Pāli lược; các khoá ấy tự đứng vững từ Pāli và các câu đủ ở 1.1, 1.3. Tầng `vietnamese-current` không có (chỉ có Pháp Cú); `triangulation` 9,0.
+  Bất định còn lại: không có phân xử nào bị bỏ ngỏ; lựa chọn "chi phần của nhà vua" thay vì "vương quyền" theo `rañño aṅga` (Sujato dùng "factor of kingship"; tầng dùng cả hai).
+  Cổng kỹ thuật: chưa chạy `npm run validate`, `npm test`, `npm run check`, `npm run build` trong lượt này nên `technical_integrity` đặt 9,6.

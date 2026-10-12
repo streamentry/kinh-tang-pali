@@ -1,5 +1,5 @@
 uid: an5.75
-status: draft
+status: published
 translationTitle: "Kinh Các Bậc Chiến Sĩ (1)"
 translators:
   - "Kinh Tạng Pāli Project"
@@ -9,20 +9,40 @@ tags:
   - book-of-the-fives
 quality:
   scores:
-    source_provenance: 10.0
-    semantic_fidelity: 9.4
+    source_provenance: 9.6
+    semantic_fidelity: 9.2
     grammar_logic: 9.4
     segment_alignment: 10.0
-    terminology: 9.3
-    triangulation: 9.0
-    vietnamese_clarity: 9.4
-    han_viet_balance: 9.4
+    terminology: 9.2
+    triangulation: 8.6
+    vietnamese_clarity: 9.2
+    han_viet_balance: 9.3
     ambiguity_integrity: 9.2
-    technical_integrity: 10.0
-  final_score: 9.51
-  blocking_errors:
-    - "an5.75: cắt ngắm — 2 khoá có dấu lược `…` mà Pāli tại chính khoá đó không có, tệ nhất 1.3× (Pāli dài hơn bản Việt bấy nhiêu lần). Nội dung Pāli bị mất và thay bằng dấu lược, đây là sai nghĩa trọng yếu nên bài hạ về draft cho tới khi dịch lại. Khoá: an5.75:16.2, an5.75:16.3"
-  assessed_at: "2026-09-13"
+    technical_integrity: 9.6
+  final_score: 9.33
+  blocking_errors: []
+  assessed_at: "2026-10-12"
   assessed_by:
-    - "GLM-5.3 Flash (ZCode)"
-    - "Adversarial review 2026-09-13: per-sutta segment coverage verified against pinned root; Pāli+EN sujato triangulated; TMC consulted via repo formulas; leak-scan for non-Latin chars passed"
+    - "Claude Sonnet 5.5 (Claude Code)"
+notes: |-
+  Giải quyết draft 2026-10-12: blocker cũ ("cắt ngắm — 2 khoá có dấu lược `…` mà Pāli không có, khoá 16.2, 16.3") đã được kiểm lại và gỡ. Hiện 16.2 và 16.3 dịch trọn bốn chân lý và bốn điều về lậu hoặc, không có `…`; dấu `…` duy nhất của bài nằm ở 15.8, nơi Pāli có `…pe…` (số dấu lược mỗi khoá khớp Pāli, 104/104 khoá). Blocker thuộc loại lỗi văn bản đã được sửa từ trước, không phải thiếu bản Anh hay độ phủ.
+
+  Nguồn tham khảo: bản Anh Sujato có tại commit đã ghim; Sujato phủ 79/84 khoá Pāli có nội dung (≥ 40 ký tự, bỏ khối `:0`) = 0,94, trên ngưỡng 0,80. Năm khoá Sujato để trống (7.2, 9.3, 11.3, 13.2, 17.2) có Pāli giống hệt nhau (`tathūpamāhaṁ, bhikkhave, imaṁ puggalaṁ vadāmi`) và đã có lớp lấp English riêng của dự án; bản Việt ở năm khoá này trùng nhau từng chữ, tự đứng vững từ Pāli. Tầng Việt hiện hành (`vietnamese-current`) chỉ có Pháp Cú nên bài này không có tầng đó; `triangulation` vì vậy giữ 8,6, không cao hơn.
+
+  Đọc đối kháng toàn 104 khoá với Pāli. Các khoá đã sửa (accuracy/terminology fix, đo tiền lệ trên toàn tầng trước khi đổi):
+  - 14.5 (lỗi thật, ba chỗ): `vivittaṁ senāsanaṁ` dịch "chỗ trú vô người" → "chỗ ở xa vắng" (tiền lệ: "chỗ ở/trú xứ xa vắng, vắng vẻ" ở 20/20 khoá cùng công thức); `pabbataṁ` "sườn núi" → "núi"; `vanapatthaṁ` "khu rừng" → "rừng sâu" (tiền lệ "rừng sâu" ở đa số, "rừng rậm" một khoá); "đống rơm rạ" → "đống rơm" cho khớp tầng.
+  - 15.3 (lỗi thật): `sabbapāṇabhūtahitānukampī` dịch "thường nhớ nghĩ lợi ích cho tất cả chúng sinh" — "thường nhớ nghĩ" không có trong Pāli (anukampī là lòng thương xót) → "có lòng thương tưởng vì lợi ích của tất cả sinh vật" (cùng dạng với mn107:9.4, mn112:17.2, mn39:13.3, an10.99:23.2); và vế cuối `byāpādapadosā cittaṁ parisodheti` bị rơi "và ác ý" → "thanh lọc tâm khỏi sân hận và ác ý", khớp vế đầu của chính khoá.
+  - 15.8: Pāli chỉ có `vivicceva kāmehi …pe…`; bản cũ chép thêm "ly các pháp bất thiện" (vế nằm trong phần bị lược, không có ở khoá này) → "hoàn toàn ly dục …" (dạng đã dùng cho khoá Pāli y hệt ở tầng).
+  - 16.1: `āsavānaṁ khayañāṇāya` "trí cạn lậu hoặc" → "trí đoạn tận các lậu hoặc" (công thức chuẩn, 11/14 khoá cùng Pāli ở tầng; "cạn lậu hoặc" chỉ một dạng lệch).
+  - 16.6: `nāparaṁ itthattāyā` "không còn tái sanh nữa" thêm nghĩa so với Pāli (itthattāya = trạng thái hiện hữu này) → "không còn trở lại trạng thái hiện hữu này nữa" (75/197 khoá công thức, dạng đa số cho cụm này); "việc nên làm" → "việc cần làm" (131 so với 66 khoá); "Sanh" → "Sinh" (105 so với 79); "hiểu rõ" → "biết rõ".
+  - 5.2, 14.1, 17.1: `saṅgāmasīsaṁ ajjhāvasati` — "trú ngay trên đỉnh của trận chiến" bịa "đỉnh" (sīsa = đầu, phía trước; an3.12:3.1 dùng "đầu trận") và "như bậc toàn thắng trận mạc" thêm "như"/"toàn" → "Sau khi chiến thắng trận ấy, người đã thắng trận trú ngay nơi đầu trận chiến ấy" (abhivijinitvā là bất biến quá khứ, vijitasaṅgāmo là danh từ).
+  - `dhajagga` "ngọn cờ đầu" → "đỉnh cờ" (sn11.3 và dn17 cùng dùng "đỉnh cờ"; agga = đỉnh), áp dụng ở 2.2, 3.1, 4.1, 5.1, 8.2, 8.4, 8.10, 9.2, 10.1, 11.1, 12.1, 13.1, 14.1, 17.1.
+  - 8.5: `na heva kho suṇāti` (hiện tại) "đã không nghe" → "không nghe".
+  - 13.1, 14.1, 17.1: khôi phục từng lần lặp `sahati` ("chịu nổi … chịu nổi …") mà bản cũ gộp lại.
+  Tổng: 21 khoá đổi chữ trên 104 khoá, trong đó 8 khoá sai nghĩa hoặc thêm nghĩa thật (5.2, 14.1, 14.5, 15.3, 15.8, 16.1, 16.6, 17.1); 13 khoá còn lại là đổi thuật ngữ `đỉnh cờ` (11 khoá), thì của động từ (8.5) và khôi phục lặp `chịu nổi` (13.1).
+
+  Đã đo, giữ nguyên: "hoảng loạn, suy nhược, không vững vàng" cho `saṁsīdati visīdati na santhambhati` (cùng công thức an5.139, 6/6 khoá); "bậc chiến sĩ" (cùng dạng an5.76); "các cú đánh" cho `sampahāra` (Sujato cũng dịch "blows"; tầng có "giao tranh" ở ja547 nhưng không đủ để đổi); "mỉm cười, nói chuyện, cười đùa, trêu ghẹo" (Sujato: smiles, chats, laughs, teases); "tiếng ồn chiến trận" cho `ussāraṇā` (không có tiền lệ trong tầng; giữ, ghi bất định nhẹ: có thể là tiếng hô xưng danh của chiến binh); dấu nháy đơn quanh thuật ngữ ở 6.5, 6.10, 8.4, 8.10, 10.4, 10.8, 12.3, 12.6, 14.2, 16.5, 16.7 là dấu nhấn của bản dịch (Pāli không có), không đổi nghĩa.
+
+  Phép kiểm: tập khoá Việt = tập khoá Pāli (104/104), thứ tự giống Pāli, không khoá rỗng, NFC, không chữ Pāli lọt vào, dấu lược cân bằng từng khoá (104/104). Cặp Pāli trùng nguyên văn trong chính bài: 7 nhóm / 48 cặp, bản Việt trùng ở cả 48 cặp (0 cặp khác). Số: năm hạng chiến sĩ, năm hạng người; thứ tự nhất–nhì–ba–tư–năm đúng ở 1.5, 2.4, 3.4, 4.4, 5.4 và 7.4, 9.5, 11.5, 13.4, 17.4. Chưa chạy được cổng kỹ thuật trong lượt này nên `technical_integrity` đặt 9,6: `npm run validate`, `npm test`, `npm run check`, `npm run build` còn phải chạy.
+
+  Bất định còn lại: `ussāraṇā` như trên; `sampahāra` ("các cú đánh" hay "giao tranh") đều có căn cứ; `ūhasati` ("mỉm cười" so với "cười cợt"). Không bất định nào đủ để đổi nghĩa giáo lý hay làm blocker.

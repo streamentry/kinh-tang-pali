@@ -1,5 +1,5 @@
 uid: an5.163
-status: draft
+status: published
 translationTitle: "Kinh Hỏi Luận"
 translators:
   - "Kinh Tạng Pāli Project"
@@ -18,11 +18,15 @@ quality:
     vietnamese_clarity: 9.4
     han_viet_balance: 9.4
     ambiguity_integrity: 9.2
-    technical_integrity: 10.0
-  final_score: 9.51
-  blocking_errors:
-    - "an5.163: cắt ngắm — 3 khoá có dấu lược `…` mà Pāli tại chính khoá đó không có, tệ nhất 0.9× (Pāli dài hơn bản Việt bấy nhiêu lần). Nội dung Pāli bị mất và thay bằng dấu lược, đây là sai nghĩa trọng yếu nên bài hạ về draft cho tới khi dịch lại. Khoá: an5.163:2.4, an5.163:2.5, an5.163:2.6"
-  assessed_at: "2026-09-13"
+    technical_integrity: 9.6
+  final_score: 9.47
+  blocking_errors: []
+  assessed_at: "2026-10-12"
   assessed_by:
-    - "GLM-5.3 Flash (ZCode)"
-    - "Adversarial review 2026-09-13: per-sutta segment coverage verified against pinned root; Pāli+EN sujato triangulated; TMC consulted via repo formulas; leak-scan for non-Latin chars passed"
+    - "Claude Sonnet 5.5 (Claude Code)"
+notes: |-
+  Giải quyết draft 2026-10-12: blocker cũ "cắt ngắm" (loại D, lỗi văn bản) ghi 3 khoá an5.163:2.4, 2.5, 2.6 có dấu lược `…` mà Pāli không có. Đọc đối kháng 16/16 khoá cặp Pāli-Việt: bản Việt hiện hành KHÔNG chứa `…` ở bất kỳ khoá nào; 2.4, 2.5, 2.6 đã dịch trọn vế (viên mãn định/tuệ/giải thoát + khéo giải đáp câu hỏi nảy sinh khi hỏi luận về sự viên mãn tương ứng), khớp Pāli từng vế, nên blocker đó là tồn dư của bản nháp cũ và đã gỡ. Không có khoá nào phải đổi chữ (0/16 lỗi nghĩa thật). Khoá Việt = khoá Pāli (16/16); không có số Pāli cần tính; không có cặp Pāli trùng nguyên văn trong bài mà Việt khác (2.1 và 2.8 là hai vế mở và kết của cùng công thức, không trùng nguyên văn).
+  Tiền lệ: bài song song an5.65 (cùng công thức, vocative khác) dịch `sākaccho` = "hỏi luận", `alaṁ` = "đủ tư cách", `sampanno` = "viên mãn"; an5.163 giữ đúng cách dịch đó; vocative `āvuso` = "này các hiền giả"/"thưa hiền giả" nhất quán với phần dẫn nhập của Tôn giả Sāriputta.
+  Tầng tham chiếu: Sujato có bài này; ở 2.4, 2.5, 2.6 bản Anh viết gọn bằng dấu lược nên đọc từ Pāli, không coi ô Anh rút gọn là đồng thuận cách dịch. Không có bản Anh của dự án. Tầng `vietnamese-current` ở bài này chỉ là tham chiếu gián tiếp (bản nguyên bài của Hòa thượng Thích Minh Châu viết "Giống như kinh số 65" cho phần thân kinh, và ghi nhận bài song song an5.65); triangulation giữ 9.0, không cao hơn.
+  Tiêu đề `Sākacchasutta` = "Kinh Hỏi Luận" khớp translationTitle và an5.65; phẩm "17. Phẩm Sự Bực Bội" khớp an5.161, an5.162.
+  Còn lại cần chạy trước khi coi cổng kỹ thuật đạt (không chạy trong phiên này nên technical_integrity = 9.6): npm run validate · npm test · npm run check · npm run build.
