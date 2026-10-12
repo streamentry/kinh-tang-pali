@@ -15,21 +15,21 @@ tags:
 quality:
   scores:
     source_provenance: 9.4
-    semantic_fidelity: 9.2
-    grammar_logic: 9.1
+    semantic_fidelity: 8.6
+    grammar_logic: 8.8
     segment_alignment: 10.0
-    terminology: 9.2
-    triangulation: 7.0
-    vietnamese_clarity: 9.3
-    han_viet_balance: 9.3
+    terminology: 8.8
+    triangulation: 6.5
+    vietnamese_clarity: 8.8
+    han_viet_balance: 9.2
     ambiguity_integrity: 9.0
     technical_integrity: 9.6
-  final_score: 9.11
+  final_score: 8.87
   blocking_errors:
     - "Không có tầng tham khảo nào ở commit đã ghim để đối chiếu. Tầng `english-sujato` tại commit này có 4.291 tệp nhưng sub-collection `sutta/kn/` chỉ gồm 9 nhóm — `cp · dhp · iti · ja · kp · snp · thag · thig · ud` — KHÔNG có `vv`, và `sutta/kn/vv/` có 0 tệp; đường dẫn duy nhất chứa `vv` trong cả tầng là tầng TÊN `name/sutta/vv-name`, không phải thân kinh. Vắng là `not-published-upstream`, KHÔNG phải `not-synced`. Tầng `vietnamese-current` ở commit này chỉ có 26 tệp, toàn bộ là Pháp Cú. Lớp lấp `english-project` của dự án cũng không có cho uid này. Ba tầng tham khảo đều vắng ⇒ bài dịch chỉ từ Pāli root, nên `status` bắt buộc là `draft` và `triangulation` bị chặn ở 7.0 (≤ 8.0) chứ không nâng để né blocker. Đây là giới hạn của bản chụp bilara tại commit đã ghim, không phải thiếu sót của repo."
-  assessed_at: "2026-10-06"
+  assessed_at: "2026-10-12"
   assessed_by:
-    - "OpenCode Space Bunny Free (agent)"
+    - "Claude Sonnet 5.5 (Claude Code)"
 notes: |-
   Nguồn: dịch từ Pāli root đã ghim, đọc đúng uid `kn/vv5` (không suy từ tên thư mục),
   53 khoá. Cấu trúc bài: khối tiêu đề `0.1–0.4`; lời người hỏi (Tôn giả Moggallāna)
@@ -188,3 +188,73 @@ notes: |-
   0/53, dấu lược khớp từng khoá (53/53 khớp 0 = 0). Không chạy `git`/`gh`, không sửa
   `content/meta/reference-gaps.yaml`, `source/`, `src/`, `scripts/`, `tests/`, không đụng
   `README.md`.
+
+  GIẢI QUYẾT DRAFT 2026-10-12 (kiểm toán độc lập, đọc đối kháng từng khoá với Pāli; mục này THAY THẾ
+  các mục cũ ở trên nêu rõ bên dưới, còn lại giữ làm lịch sử).
+  PHÂN LOẠI BLOCKER: chỉ có một blocker, thuộc loại (A) — bản chụp Sujato đã ghim không phát hành `vv`,
+  tầng `vietnamese-current` chỉ có Pháp Cú, lớp `english-project` không có cho uid này. Đây là sự thật về
+  upstream nên GIỮ NGUYÊN câu blocker; không có blocker loại (B)/(C)/(D) riêng để gỡ. Mẫu số coverage vẫn
+  bằng 0 (0 khoá Pāli ≥ 40 ký tự; dài nhất 28 ký tự) nên cổng coverage không đo được gì. Điểm
+  `triangulation` hạ từ 7.0 xuống 6.5 vì bản dịch không có đối chiếu độc lập nào và nhiều chỗ khó
+  (xem bất định) chỉ dựa Pāli.
+  KẾT QUẢ ĐỌC ĐỐI KHÁNG: bản cũ SAI NGHĨA THẬT ở khoảng 22/53 khoá (còn khoảng 12 khoá lệch nhẹ về
+  chữ). 43/53 khoá đã viết lại; 10 khoá giữ nguyên (`0.1`–`0.4`, `6.1`, `7.1`, `9.2`, `12.1`, `12.2`,
+  `13.1`). Các họ lỗi đã sửa:
+    · CHỦ THỂ BỊ ĐẢO (lỗi gốc): `1.1–4.4` mô tả CON VOI (`kuñjaro`, `vāraṇo`, đuôi giống đực
+      `-aṅgo`, `-jutindharo`), không phải nàng. Bản cũ gán `2.1–2.4` cho một "tòa ngự làm bằng hoa sen" và
+      "thân nàng", `3.3` cho "tay cầm lắc vòng hoa", `4.1–4.2` cho "mặc áo vàng, viền đẹp đẽ". Nay:
+      `2.1` `Padumi padmapattakkhi` = *có hoa sen, mắt như cánh sen* (tính từ của con voi; `padumī` còn
+      xuất hiện làm danh hiệu của voi ở `cnd23` và `snp1.3`, nên KHÔNG phải hapax như mục cũ ghi);
+      `2.3` *thân mình rải đầy bột hoa sen*; `2.4` *đeo tràng hoa sen vàng*; `3.1–3.2` đường đi rải
+      sen, `3.3–3.4` dáng đi.
+    · `1.1` `varāroho` đọc *tầm vóc tuyệt hảo* (`āroha` = chiều cao/vóc dáng, cùng gốc `ārohapariṇāha`
+      "chiều cao và chu vi" ở `an3.140`), bỏ *chân trắng* (không có căn cứ); `1.2` `kappano` = *được trang
+      hoàng* (không phải "rải đầy"); `1.3` `thāmavā` = *mạnh mẽ* (không phải "hào quang lớn lao"); `1.4`
+      `samīhati` = *di chuyển* (không phải "đứng").
+    · `4.2` `soṇṇakaṁsā ratissarā` = *những chiếc chuông vàng, âm thanh vui tai* (`kaṁsa` = chuông/chiêng
+      đồng, cf. `dhp134` "chuông đã vỡ"); `4.3` `Tesaṁ` = "của chúng" (không phải "của họ"; đo 6/6
+      tệp vv dùng *tiếng của chúng nghe được*); `4.4` `tūriye pañcaṅgike yathā` = *như tiếng nhạc năm
+      phần* (6/6 tệp khác trùng Pāli đã dùng cách này; bản cũ *trống năm mặt* là lệch và mục "dùng lại
+      từ vv38" ở trên nay SAI, vv38 đã đổi).
+    · `5.1–5.4`: `khandhamhi` = *trên vai* con voi; `sucivatthā alaṅkatā` mô tả NÀNG (không phải "vững
+      chắc"); `mahantaṁ accharāsaṅghaṁ` là TÂN NGỮ của `atirocasi` — nàng *tỏa sáng hơn cả* đoàn tiên nữ
+      (`atirocasi` + `vaṇṇena` đã dịch *tỏa sáng vượt trội về dung sắc* ở `vv34:1.4`). Mục cũ nói 4 tiền lệ
+      `accharāsaṅgha` → *đoàn tiên nữ* là SAI: các lượt ấy là `accharāsaṅghāta` = búng ngón tay.
+    · `6.3` `añjalikamma` = *việc chắp tay hành lễ* (không phải "nghiệp cúi chắp tay"); `6.4` bỏ *tôi hỏi*
+      (`pucchitā` là phân từ "khi được hỏi").
+    · `7.2` bỏ *truy hỏi* → *được Tôn giả Moggallāna hỏi* (16/18 tệp); `7.3–7.4` theo công thức đã chốt ở
+      `vv10`, `vv13`, `vv14`: `yassa kammassidaṁ phalaṁ` = *về nghiệp mà đây là quả báo* (30 lượt, so với
+      28 lượt *quả báo của nghiệp này là thế*; chọn mệnh đề quan hệ theo đúng cú pháp).
+    · `8.2` `sataṁ` = *có niệm* (tân ngữ giống đực của `sata`), không phải *bền bỉ*; `8.4` `dussasanthataṁ` =
+      *được trải vải*.
+    · `9.1–9.4` đọc lại: `abbhokirissaṁ` là ĐỘNG TỪ NGÔI MỘT (nàng tự rải), tân ngữ `upaḍḍhaṁ padmamālaṁ`,
+      công cụ `pattehi`; bản cũ đọc thành bị động nên mất chủ thể. `9.4` dùng đúng công thức *với tâm tịnh
+      tín bằng chính đôi tay mình* (đo hơn chục tệp cùng Pāli).
+    · `11.1–11.4`: `santānaṁ` là tính từ bổ nghĩa `sammāvimuttānaṁ`/`brahmacārinaṁ` (*an tịnh*, đúng
+      như `sn1.10:2.2`), KHÔNG phải "dòng người"; `dajjā` và `nande` là thức cầu khiến ngôi ba ("người ấy
+      sẽ hoan hỷ"), không phải mệnh lệnh *hãy hân hoan*.
+    · `12.4` `sarīrantimadhārinaṁ` = *những vị mang thân cuối cùng* — bản cũ có chữ "đã mòn mỏi" không
+      có trong Pāli; đã bỏ.
+    · `10.1–10.4`: chỉnh `kammakusalassa` thành *của nghiệp thiện ấy* (sở hữu cách) và `apacitā` = *được chư
+      thiên cung kính* (nữ thiên là người được kính, không phải người kính).
+  MỤC CŨ BỊ THAY THẾ: BẤT ĐỊNH (1), (2), (3), (4), (5) ở trên (nay đã giải quyết như vừa nêu; (1) không
+  còn là hapax, (2) đọc chủ động, (3) `soṇṇapokkhara` = hoa sen vàng, (4) `pakkamamāna` = đang tiến bước,
+  (5) `santānaṁ` là tính từ); mục `accharāsaṅgha` trong THUẬT NGỮ; mục `nānāratana` (nay chọn *châu báu* vì
+  đa số tầng dùng cách này, 8 so với 1 *ngọc quý*); các dòng DÙNG LẠI NGUYÊN VĂN cho `4.3`, `4.4`, `7.4`;
+  các dòng `9.4`, `11.2`, `12.4` trong danh sách cố ý khác tiền lệ. Phần cấu trúc, tiêu đề, xưng hô
+  `nàng`/`tôi`, nháy, dấu lược và số Pāli ở trên vẫn đúng. Số Pāli nay: `0.4` *5.*, `13.1` *thứ năm*,
+  `pañcaṅgike` = *năm phần*, `upaḍḍha` = *nửa*; `sataṁ` KHÔNG phải số.
+  TIÊU ĐỀ: `0.2` giữ *Chuyện Cung Điện Nữ Hư Không* theo cả bộ (Pāli `Itthivimāna` không có `ākāsa`, nên
+  tên này có thể lệch; sửa riêng một tệp sẽ làm bộ không nhất quán, nên chỉ ghi nhận để sửa cả họ).
+  BẤT ĐỊNH CÒN LẠI (không đưa vào thân kinh):
+    (a) `3.3` `Ṭhitaṁ vaggu manugghātī` — `ṭhitaṁ`, `vaggu` đọc như trạng từ (vững vàng, duyên dáng); `manugghātī`
+      đọc là `an-ugghātī` (không xóc nảy / không chao đảo). Hình thái hiếm, chưa có tiền lệ nào trong tầng; nghĩa
+      của trạng ngữ chỉ ảnh hưởng mô tả dáng đi, không ảnh hưởng giáo nghĩa.
+    (b) `1.1` `varāroho`: *tầm vóc tuyệt hảo* (đọc theo `āroha` = chiều cao) chứ không phải "chỗ cưỡi/ghế
+      cưỡi tuyệt hảo"; cả hai đều khả dĩ, chọn cách ít thêm nghĩa nhất.
+    (c) `4.2` `kaṁsā`: chuông/chiêng đồng gắn trên voi; cách đọc bát đồng ít hợp ngữ cảnh âm thanh.
+    (d) `9.3` `abbhokirissaṁ`: dạng `-issaṁ` có thể là tương lai ngôi một; ngữ cảnh (`adāsiṁ` ở `8.3`, câu
+      kể việc đã làm) chọn quá khứ.
+  TỰ KIỂM SAU SỬA: 53/53 khoá khớp Pāli và đúng thứ tự, nháy kép khớp từng khoá, không có dấu lược nào,
+  không còn Pāli lọt vào bản Việt. `technical_integrity` vẫn 9.6, chưa tuyên bố cổng kỹ thuật pass: các lệnh
+  `npm run validate`, `npm test`, `npm run check`, `npm run build` do CI chạy.

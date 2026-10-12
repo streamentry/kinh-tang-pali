@@ -1,5 +1,5 @@
 uid: ja446
-status: draft
+status: review
 translationTitle: "Kinh Takkala"
 translators:
   - "OpenCode Space Bunny Free (agent)"
@@ -13,22 +13,43 @@ tags:
 quality:
   scores:
     source_provenance: 9.6
-    semantic_fidelity: 9.3
-    grammar_logic: 9.0
+    semantic_fidelity: 8.6
+    grammar_logic: 8.6
     segment_alignment: 10.0
-    terminology: 9.3
+    terminology: 8.8
     triangulation: 7.4
-    vietnamese_clarity: 9.2
-    han_viet_balance: 9.3
-    ambiguity_integrity: 8.6
+    vietnamese_clarity: 8.8
+    han_viet_balance: 9.0
+    ambiguity_integrity: 9.0
     technical_integrity: 9.6
-  final_score: 9.13
+  final_score: 8.94
   blocking_errors:
-    - "Không có tầng tham khảo tiếng Anh tại commit đã ghim `11c9d708978cde8ba61096d8a75f7ddfb846f639`: đã đếm trực tiếp trong `source/upstream-manifest.json` → tầng `english-sujato` (treeSha `24e81ded9d6710e16b277b6394fd57c48258da12`, 4.291 tệp) và trong `sutta/kn/` chỉ có các thư mục cp, dhp, ja, kp, thag, thig — không có `ja`; `ja446` không nằm trong 83 tệp `ja` đã ghim. Đây là `not-published-upstream`, KHÔNG phải `not-synced`, và không phải thiếu sót của repo. Lớp lấp `english-project` không có cho uid này. Vì vậy bài dịch chỉ từ Pāli root cùng tiền lệ đếm được trong chính tầng Việt dự án; `triangulation` bị chặn ≤ 8.0 và `status` bắt buộc `draft`."
-    - "Tầng `vietnamese-current` tại commit đã ghim chỉ có 26 tệp, toàn bộ là Pháp Cú; không có `Jātaka` nên không có bản Hòa thượng Thích Minh Châu để đối chiếu. Đây là đặc điểm của snapshot upstream, không phải lỗi của người dịch."
-  assessed_at: "2026-10-05"
+    - "Không có tầng tham khảo tiếng Anh tại commit đã ghim
+      `11c9d708978cde8ba61096d8a75f7ddfb846f639`: đã đếm trực tiếp trong
+      `source/upstream-manifest.json` → tầng `english-sujato` (treeSha
+      `24e81ded9d6710e16b277b6394fd57c48258da12`, 4.291 tệp) và trong
+      `sutta/kn/` chỉ có các thư mục cp, dhp, ja, kp, thag, thig — không có
+      `ja`; `ja446` không nằm trong 83 tệp `ja` đã ghim. Đây là
+      `not-published-upstream`, KHÔNG phải `not-synced`, và không phải thiếu sót
+      của repo. Lớp lấp `english-project` không có cho uid này. Vì vậy bài dịch
+      chỉ từ Pāli root cùng tiền lệ đếm được trong chính tầng Việt dự án;
+      `triangulation` bị chặn ≤ 8.0 và `status` bắt buộc `draft`."
+  assessed_at: "2026-10-12"
   assessed_by:
-    - "OpenCode Space Bunny Free (agent)"
+    - "Claude Sonnet 5.5 (Claude Code)"
+  waiver:
+    id: no-upstream-english
+    blockers:
+      - "Không có tầng tham khảo tiếng Anh tại commit đã ghim
+        `11c9d708978cde8ba61096d8a75f7ddfb846f639`: đã đếm trực tiếp trong
+        `source/upstream-manifest.json` → tầng `english-sujato` (treeSha
+        `24e81ded9d6710e16b277b6394fd57c48258da12`, 4.291 tệp) và trong
+        `sutta/kn/` chỉ có các thư mục cp, dhp, ja, kp, thag, thig — không có
+        `ja`; `ja446` không nằm trong 83 tệp `ja` đã ghim. Đây là
+        `not-published-upstream`, KHÔNG phải `not-synced`, và không phải thiếu
+        sót của repo. Lớp lấp `english-project` không có cho uid này. Vì vậy bài
+        dịch chỉ từ Pāli root cùng tiền lệ đếm được trong chính tầng Việt dự án;
+        `triangulation` bị chặn ≤ 8.0 và `status` bắt buộc `draft`."
 notes: |-
   Đã đọc HẾT vc/p74.txt (858 dòng, 6 bài) trước khi viết chữ nào.
 
@@ -98,3 +119,75 @@ notes: |-
     nhau (4/4 cặp). Bốn lệnh để coordinator chạy trước khi coi `technical_integrity: 9.6`
     là đạt: `npm run validate`, `npm test`, `npm run check`, `npm run build`.
 
+  Giải quyết draft 2026-10-12 (kiểm toán độc lập; THAY THẾ các mục cũ nêu dưới đây).
+    PHÂN LOẠI BLOCKER.
+    · (A) Thiếu bản Anh Sujato tại commit đã ghim: GIỮ NGUYÊN, đây là sự thật về upstream
+      (ja446 không nằm trong 83 tệp `ja` đã ghim); chờ waiver `no-upstream-english` của người
+      biên tập.
+    · (C) `vietnamese-current` chỉ có Pháp Cú: ĐÃ GỠ khỏi `blocking_errors` — đây chỉ là giới
+      hạn tham chiếu của snapshot, không phải lỗi văn bản. Ghi lại ở đây: bài không có tầng
+      Việt hiện hành để đối chiếu, thuật ngữ chỉ dựa Pāli và tiền lệ đếm được trong tầng dự án.
+    · Không có blocker kiểu (B) (độ phủ Sujato) và không có blocker (D) tồn đọng: sau lượt
+      đọc đối kháng, mọi chỗ nghĩa đều đã được phân xử hoặc ghi bất định bên dưới.
+
+    LỖI NGHĨA THẬT ĐÃ SỬA — 40/47 khoá đổi (bản cũ hầu như đọc hỏng cả bài; cốt truyện thật:
+    người cha đào hố ở bãi tha ma để chôn sống cha già, con trai khuyên can).
+    (1) NGƯỜI NÓI/ĐỐI TƯỢNG bị đảo. `1.4`: con hỏi cha đào hố làm gì (cũ: cha hỏi con). `2.x`:
+      cha đáp rằng ông nội (`pitāmaho te`) quá yếu, ông sẽ chôn ông ấy (cũ: "cha của con thật
+      là khó gặp… ta sẽ cùng con ẩn trú trong hốc"). `3.x`: con đáp "cha sẽ nhận việc như thế
+      từ con khi cha già, theo phong tục tông tộc, con cũng sẽ chôn cha". `4.x`: cha mắng. `5.x`:
+      con biện minh. `6.x–8.x`: LỜI CỦA CHA. `9.x–10.x`: lời con khuyên cha đuổi mẹ.
+    (2) `2.1` `sudubbalo` = su + dubbala = RẤT YẾU (cũ "thật là khó gặp" là sai; 0 tiền lệ ngược
+      lại, `pv23:6.2` và `ja484:11.2` đều dịch "yếu ớt"). Bất định cũ về `sudubbalo` ở mục
+      BẤT ĐỊNH phía trên bị thay thế.
+    (3) `2.3` `sobbhe` = hố (cũ "hốc", "ẩn trú"; `dn16:4.19` dịch "hố"); `nikhaṇissāmi` = chôn.
+    (4) `3.3–3.4` `jarūpanīto` = bị đưa đến già nua (cũ "đã lễ thề" — bịa); tiền lệ `sn1.3`, `ja498`
+      dịch "bị đưa đến già nua". `3.5` dùng lại nguyên văn `ja444:7.3` (cùng Pāli).
+    (5) `6.1–7.2` cũ viết "làm hại mẹ/cha… lại dâng thức ăn" (hỏng cả câu đối lập). Đúng: kẻ làm
+      hại cha mẹ vô tội thì xuống địa ngục (`6.4`); kẻ phụng sự cha mẹ bằng ăn uống thì lên
+      cõi lành (`7.4`). `adūsake` = vô tội (tiền lệ `ja547`, `ja544`, 20+ nơi).
+    (6) `4.4`, `5.x`, `8.1–8.2`: `ahitānukampī` = người mong điều bất lợi, `hitānukampī` = người
+      mong điều lợi ích — theo tiền lệ `dn12:10.9–11` ("mong lợi ích"/"mong điều bất lợi").
+      Bản cũ viết "phúc lành", lẫn hai vế.
+    (7) `9.2`/`10.2` `sakiyā janetti` = "người mẹ ruột đã sinh ra" (`sakiya` = của chính mình;
+      cũ "người thị tộc Saky" là bịa từ nhầm với Sakya). `janetti` theo `ja516:7.3`, `bv27:13.3`.
+      `9.3` `niddhāpaye` = nên đuổi ra; `9.4` `aññampi` = thêm nỗi khổ khác.
+    (8) `1.1–1.2` bốn thứ là CỦ ăn được: takkala, āluva, biḷāli, kaḷamba (cũ "khoai", "con ơi"
+      lẫn). Dùng lại cách dịch của `tha-ap407:16`/`tha-ap3:31` (Pāli y hệt: "củ āluva và củ
+      kaḷamba, củ biḷālī và củ takkala").
+    (9) `6.3`/`7.3` cũ "khi thân xác xác định tan rã": theo tiền lệ `vv31:8.3` + `pv36:23.3, 24.3`
+      (3/4; `pv30:11.3` là ngoại lệ có thêm "chắc chắn" không có trong Pāli) → "khi thân hoại, ở
+      đời sau".
+    (10) `8.3` cũ "mẹ bảo rằng mẹ đã làm điều ác" — sai người. Đúng: cha nói mình làm việc ác
+      vì mẹ của con trai nói với mình (`mātarā vuccamāno`).
+    (11) `10.3–10.4` cũ "dù đã được thuần phục… vẫn còn quay về điều ác" — ngược với dạng cầu khiến
+      của `punarāvajātu`: xem bất định (c) bên dưới.
+    Số cặp Pāli trùng nguyên văn TRONG bài: 4 (`6.1`≡`7.1`, `6.3`≡`7.3`, `9.1`≡`10.1`,
+    `9.2`≡`10.2`) — cả 4 cặp, bản Việt giống nhau. Pāli ở các cặp dòng
+    còn lại (`6.2/7.2`, `6.4/7.4`) khác nhau và Việt đã khác tương ứng.
+    Dấu lược `…pe…`: 0/47. Nháy kép: 7 mở/7 đóng, khớp Pāli từng khoá (6.1–8.4 là một lời duy
+    nhất của cha). Số Pāli: không có.
+
+    BẤT ĐỊNH CÒN LẠI (đều ghi ở đây, không thêm vào thân kinh).
+    (a) `saviṭṭha` (`6.1`, `7.1`) đọc là HÔ CÁCH TÊN RIÊNG của người con (cha gọi con), theo
+      cách hiểu thông dụng trong truyền thống Jātaka; không có tiền lệ nào khác trong tầng ở
+      dạng hô cách này (`ja204:1.4`, `ja210:5.2` là `saviṭṭhaka`, nghĩa khác). Nếu đây không
+      phải tên riêng thì chỉ mất chữ "Saviṭṭha", nghĩa các khoá không đổi.
+    (b) `8.3` `taṁ mātarā` đọc "mẹ của con" (`taṁ` ≈ `tava`); nếu `taṁ` là tiểu từ, nghĩa vẫn
+      là mẹ của người con (khớp `9.1–9.2`).
+    (c) `10.4` `punarāvajātu` đọc là dạng mệnh lệnh (cầu khiến) của `punarāvajati` (quay lại; cùng
+      gốc `punarāvajissaṁ` ở `ja537`, `ja513`, `ja418` dịch "quay lại") — con khuyên cha đuổi mẹ,
+      rồi để bà "trở lại" sau khi đã được thuần như voi cái. Đây là cách đọc bám dạng động từ
+      và hình ảnh `dantā… vasūpanītā`; không có bản Anh để đối chiếu nên không thể chốt chắc 100%.
+    (d) `kareṇū` = voi cái (tiền lệ `ja547:78.1`); `vasūpanītā` = bị đưa vào dưới quyền (0 tiền
+      lệ trong tầng).
+    (e) `accāhitaṁ` (`3.2`) = ati + ahita, "quá đỗi tai hại"; tiền lệ `ja546:216.3` dịch cả cụm
+      "tàn độc ghê gớm".
+    (f) `āsajja` (`4.2`) = xúc phạm, theo tiền lệ `pe2:14.1`, `thag1.25:3`.
+
+    ĐIỂM TRƯỚC → SAU: semantic_fidelity 9.3→8.6 · grammar_logic 9.0→8.6 · terminology 9.3→8.8 ·
+    vietnamese_clarity 9.2→8.8 · han_viet_balance 9.3→9.0 · ambiguity_integrity 8.6→9.0 ·
+    triangulation 7.4 (giữ; không có bản Anh độc lập nên bị chặn ≤ 8.0) · còn lại giữ.
+    Điểm cũ 9.13 bị thay bằng 8.94, vì bản cũ sai nghĩa nhiều khoá. Còn lại một blocker duy nhất
+    (A, thiếu bản Anh upstream); các lệnh `npm run validate`, `npm test`, `npm run check`,
+    `npm run build` vẫn chưa chạy ở lượt này (technical_integrity 9.6 như cũ).

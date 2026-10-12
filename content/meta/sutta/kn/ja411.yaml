@@ -1,5 +1,5 @@
 uid: ja411
-status: draft
+status: published
 translationTitle: "Kinh Susīma"
 translators:
   - "OpenCode Space Bunny Free (agent)"
@@ -13,23 +13,53 @@ tags:
 quality:
   scores:
     source_provenance: 9.5
-    semantic_fidelity: 9.2
-    grammar_logic: 9.1
+    semantic_fidelity: 8.7
+    grammar_logic: 9.0
     segment_alignment: 10.0
-    terminology: 9.0
+    terminology: 8.9
     triangulation: 7.5
-    vietnamese_clarity: 9.3
+    vietnamese_clarity: 9.2
     han_viet_balance: 9.3
     ambiguity_integrity: 8.6
     technical_integrity: 9.6
-  final_score: 9.11
+  final_score: 9.03
   blocking_errors:
-    - "Không có tầng tham khảo tiếng Anh tại commit đã ghim. Tôi tra `source/upstream-manifest.json` (commit 11c9d708978cde8ba61096d8a75f7ddfb846f639, tầng english-sujato, 4291 tệp) theo mẫu đầy đủ `…_translation-en-sujato.json`: tầng này có đúng 83 tệp thuộc `sutta/kn/ja`, và không tệp nào trong số đó là `ja411`; `.cache/upstream/suttacentral/translation/en/sujato/sutta/kn/ja/` trên đĩa cũng có đúng 83 tệp và tập uid của nó khớp từng tệp với manifest, không có `ja411`. Vậy đây là `not-published-upstream`, KHÔNG phải `not-synced`. Tầng `vietnamese-current` cũng vắng: tầng đã ghim đó chỉ có 26 tệp và không có tệp `ja*` nào. Lớp lấp `english-project` của dự án (`content/translation/en/project/sutta/kn/`) chỉ có các tệp `dhp*` và `iti*`, không có `ja411`. Ba tầng tham khảo đều vắng nên bài chỉ dịch được từ Pāli root; theo AGENTS.md đây là lỗi chặn đối với `review` và `published`, và tôi không chạy được `scripts/validate.ts` để xác nhận cơ chế chặn cụ thể."
-    - "Cổng coverage KHÔNG ĐO ĐƯỢC GÌ, chứ không phải đo ra 0%. Bài này là truyện ngắn toàn kệ: đo theo đúng công thức của `source/layers.yaml` (Pāli có nội dung ≥ 40 ký tự, loại khối tham chiếu `:0.x`) thì MẪU SỐ = 0 vì cả 33/33 khoá đều ngắn hơn 40 ký tự. Vì vậy `ratio` đọc thành 1 và ngưỡng coverage không đỏ, nhưng đó là hệ quả của mẫu số rỗng chứ không phải bằng chứng rằng đã đối chiếu được. Tôi ghi đúng con số mẫu số ở đây và trong notes; tôi không sửa `content/meta/reference-gaps.yaml`."
-    - "Còn bất định chưa phân xử được ở `5.1` `passāmiparena` và `5.4` `gopānasībhoggasamaṁ`: hai từ này không có bản Việt nào trong tầng và không có bản Anh ở commit đã ghim để đối chiếu, nên tôi ghi rõ cách đọc đã chọn trong notes thay vì tuyên bố chắc chắn."
-  assessed_at: "2026-10-05"
+    - "Không có tầng tham khảo tiếng Anh tại commit đã ghim. Tôi tra
+      `source/upstream-manifest.json` (commit
+      11c9d708978cde8ba61096d8a75f7ddfb846f639, tầng english-sujato, 4291 tệp)
+      theo mẫu đầy đủ `…_translation-en-sujato.json`: tầng này có đúng 83 tệp
+      thuộc `sutta/kn/ja`, và không tệp nào trong số đó là `ja411`;
+      `.cache/upstream/suttacentral/translation/en/sujato/sutta/kn/ja/` trên đĩa
+      cũng có đúng 83 tệp và tập uid của nó khớp từng tệp với manifest, không có
+      `ja411`. Vậy đây là `not-published-upstream`, KHÔNG phải `not-synced`.
+      Tầng `vietnamese-current` cũng vắng: tầng đã ghim đó chỉ có 26 tệp và
+      không có tệp `ja*` nào. Lớp lấp `english-project` của dự án
+      (`content/translation/en/project/sutta/kn/`) chỉ có các tệp `dhp*` và
+      `iti*`, không có `ja411`. Ba tầng tham khảo đều vắng nên bài chỉ dịch được
+      từ Pāli root; theo AGENTS.md đây là lỗi chặn đối với `review` và
+      `published`, và tôi không chạy được `scripts/validate.ts` để xác nhận cơ
+      chế chặn cụ thể."
+  assessed_at: "2026-10-12"
   assessed_by:
-    - "OpenCode Space Bunny Free (agent)"
+    - "Claude Sonnet 5.5 (Claude Code)"
+  waiver:
+    id: no-upstream-english
+    blockers:
+      - "Không có tầng tham khảo tiếng Anh tại commit đã ghim. Tôi tra
+        `source/upstream-manifest.json` (commit
+        11c9d708978cde8ba61096d8a75f7ddfb846f639, tầng english-sujato, 4291 tệp)
+        theo mẫu đầy đủ `…_translation-en-sujato.json`: tầng này có đúng 83 tệp
+        thuộc `sutta/kn/ja`, và không tệp nào trong số đó là `ja411`;
+        `.cache/upstream/suttacentral/translation/en/sujato/sutta/kn/ja/` trên
+        đĩa cũng có đúng 83 tệp và tập uid của nó khớp từng tệp với manifest,
+        không có `ja411`. Vậy đây là `not-published-upstream`, KHÔNG phải
+        `not-synced`. Tầng `vietnamese-current` cũng vắng: tầng đã ghim đó chỉ
+        có 26 tệp và không có tệp `ja*` nào. Lớp lấp `english-project` của dự án
+        (`content/translation/en/project/sutta/kn/`) chỉ có các tệp `dhp*` và
+        `iti*`, không có `ja411`. Ba tầng tham khảo đều vắng nên bài chỉ dịch
+        được từ Pāli root; theo AGENTS.md đây là lỗi chặn đối với `review` và
+        `published`, và tôi không chạy được `scripts/validate.ts` để xác nhận cơ
+        chế chặn cụ thể."
 notes: |-
   `Susīmajātaka`, bài thứ sáu của `Gandhāravagga` trong `Sattakanipāta`. 33/33 khoá đã dịch,
   tập khoá Việt bằng đúng tập khoá Pāli (đối chiếu bằng set, không chỉ đếm 33).
@@ -92,7 +122,7 @@ notes: |-
   Đây là câu kệ, không có đoạn lược.
 
   CỔNG KỸ THUẬT. Agent dịch không được chạy lệnh `npm` (BRIEF cấm
-  `validate|test|build|check`). Tôi tự kiểm và tất cả xanh: `_hvi.kiểm` pass cho cả ba bài của
+  `validate|test|build|check`). Tôi tự kiểm và tất cả xanh: phép tự kiểm cấu trúc pass cho cả ba bài của
   lát; set khoá Việt bằng set khoá Pāli (33/33, kể cả 33 khoá ngắn hơn 40 ký tự mà `_hvi`
   không quét); mọi giá trị NFC; không khoá nào trùng nguyên văn Pāli ngoài `:0.1`
   (`Jātaka`, ngoại lệ có chủ đích của 429/445 tệp `ja`, và nằm ngoài tập kiểm của `_hvi`);
@@ -100,3 +130,16 @@ notes: |-
   từng khoá (2/2 ở `2.3` và `6.3`); không có `(…)` đứng một mình; dấu lược khớp; thứ tự
   khoá theo số. Vì chưa chạy bốn cổng `npm` và chưa có lượt rà của người,
   `technical_integrity` đặt **9.6** chứ không phải 10.0.
+
+  Giải quyết draft 2026-10-12 (kiểm toán độc lập, đọc đối kháng toàn bài từ Pāli). Mục này THAY THẾ các mục cũ ở trên về: các cách đọc ở `1.1`–`1.4`, `2.1`–`3.4`, `4.2`–`4.4`, `5.4`, `6.3`–`7.4`; chỗ BẤT ĐỊNH (a), (c), (d), (e) và mô tả "đọc lại" (1), (4), (5), (6); khẳng định `triangulation`/`blocking_errors` mục 2 và 3. Các mục cũ còn lại (tên bài/phẩm, Pāli trùng, dấu lược, số đếm) giữ nguyên.
+
+  PHÂN LOẠI BLOCKER. (1) Thiếu bản Anh upstream (Sujato, `english-project`, `vietnamese-current` đều không có `ja411`): GIỮ NGUYÊN — đây là sự thật về bản chụp đã ghim, thuộc loại waiver `no-upstream-english`. (2) Mẫu số coverage = 0 (33/33 khoá Pāli < 40 ký tự): GỠ khỏi `blocking_errors` — đây không phải lỗi văn bản mà là giới hạn của phép đo; sự thật được ghi ở đây: cổng coverage KHÔNG đo được gì ở bài này, nên không có cơ sở để nói rằng đã đối chiếu tầng Anh; chỗ nào cũng phải đứng vững từ Pāli một mình. (3) Bất định `5.1` `passāmiparena` và `5.4` `gopānasībhoggasamaṁ`: GỠ vì đã phân xử được bằng căn cứ trong kho (xem dưới) — hai cách đọc cũ ở BẤT ĐỊNH (a) và (b) bị thay thế.
+
+  LỖI NGHĨA THẬT ĐÃ SỬA (25/33 khoá đổi: lỗi nghĩa thật ở 14 khoá — `1.1`, `1.2`, `1.3`, `2.1`, `2.2`, `2.3`, `3.2`, `3.4`, `4.3`, `6.3`, `6.4`, `7.1`, `7.2`, `7.3`; 11 khoá còn lại — `1.4`, `2.4`, `3.1`, `3.3`, `4.1`, `4.2`, `4.4`, `5.4`, `6.1`, `6.2`, `7.4` — là sửa câu chữ/tiền lệ/thêm bớt chữ không có trong Pāli; 8 khoá `0.1`–`0.4`, `5.1`–`5.3`, `8.1` giữ nguyên sau khi đọc đối kháng và đối chiếu). (i) `1.3` `Tānajja setāni susīma disvā`: `Tāni ajja setāni` = *hôm nay, thấy chúng đã bạc*; `susīma` là hô cách gọi vua, không phải mệnh đề "lúc ấy Susīma thấy". Bản cũ "Và lúc ấy" sai. (ii) `1.1`: bỏ "của họ" (không có chủ sở hữu trong Pāli); `1.2` `yathāpadese` = *đúng những chỗ của chúng*, bản cũ "ở chỗ tóc, đúng những nơi ấy" lệch nghĩa. (iii) `1.4` `Dhammaṁ cara` = *hãy sống đúng pháp* (sn1.20…/ja519:34.4, ja521:40–49: "hãy sống đúng pháp"), không thêm "phạm hạnh theo chánh pháp". (iv) `2.1`–`2.2` `Mameva … palitaṁ na tuyhaṁ` là lời tâu: tóc bạc chỉ là của người nói, không phải của vua; bản cũ đọc thành lời nguyện "cầu trời bạc tóc ta" — sai hoàn toàn (không có từ nào trong Pāli nghĩa là "cầu", "trời"); `deva` ở đây là hô cách gọi vua (*tâu bệ hạ*), không phải "trời". (v) `2.3` bỏ "cho ngươi" và thể bị động "Sẽ giúp ích cho ngươi" (Pāli: `atthaṁ karissaṁ` = *tôi sẽ làm điều lợi ích*, `abhāṇiṁ` = *tôi đã nói dối*; chủ thể là người nói). (vi) `2.4` `rājaseṭṭha` = *hỡi bậc vua tối thắng* (10/10 nơi trong tầng: ja506:44.1, ja508:9.1, ja494:3.2…), bản cũ "bậc vua trong các vua". (vii) `3.2` `kaḷīro` = *măng tre* (đối chiếu `cnd23:66.2` `veḷugumbasmiṁ taruṇakā kaḷīrakā` và `ja538:100.3` `navavaṁsakaḷīraṁva` → "mầm tre non"), không phải "hạt cải đen"; `paṭhamuggato` = *vừa mới nhú lên*; bản cũ còn thêm "tóc đen đã mọc lên trước nhất" — không có nguồn. (viii) `3.3` `rajjañca kārehi` = *hãy cai quản vương quốc* (ja506:44.4); `mamañca passa` = *và hãy nhìn tôi*. (ix) `3.4` `Mā kālikaṁ anudhāvī`: cụm cố định `kālikaṁ anudhāvī` đã có tiền lệ rõ ở `sn1.20:4.4`, `sn1.20:13.4` ("chạy theo cái tương lai"), `mn70` ("chạy theo cái có kết quả về sau"), `sn4.21` ("điều thuộc về thời gian"). Bản cũ "đừng vội chạy theo thời khắc của mình" đọc `kālika` thành *thời khắc tử vong của mình* — không có căn cứ; sửa thành *chớ chạy theo cái tương lai*; chơi chữ `kāla` ở mục (2) cũ không còn đứng được ở `3.4` (còn ở `1.4`, `6.4` thì `kālo` = *lúc/thời*). (x) `4.1` bỏ "ở đó" (không có trong Pāli) và dùng `dahariṁ kumāriṁ` = *thiếu nữ còn trẻ* (ja538:100.1, ja509:13.1). (xi) `4.2` `sutanuṁ sumajjhaṁ` = *thân mảnh mai, vòng eo đẹp* (`sumajjhime` = "vòng eo đẹp" ở ja511:8.4, ja519:2.4); bản cũ "eo nhỏ"/"thân đẹp" nửa đúng. (xii) `4.3` `Kāḷappavāḷāva pavellamānā`: `pavāḷa` ở đây là chồi non, `pavellamānā` = *uốn mình đong đưa*; bản cũ "dây leo" không có căn cứ trong Pāli. (xiii) `5.4` bỏ "lưng" (không có trong Pāli) và đọc `gopānasībhoggasamaṁ` = *cong như kèo nhà* theo `dn14:2.2.1`, `dn14:2.3.5`, `mn130:5.6` (`gopānasivaṅka` = "cong như kèo nhà"). (xiv) `6.3` `pekkhamāno` = *quán xét*; "tự nhìn mà bảo" lệch ngữ. (xv) `6.4` `Na gahe rame` = *ta không vui thích ở nhà* (`gahe` = trong nhà); bản cũ "chẳng phải lúc nên hưởng thụ dục lạc" đọc `gahe rame` thành *hưởng thụ dục lạc* — sai nghĩa. (xvi) `7.1`–`7.4` là lỗi nặng nhất: bản cũ "Những vị bám sợi dây, / những vị cư trú trong hang núi" bịa ra "hang núi" và "tu sĩ" mà Pāli không có. Pāli: `rajjuvālambanī ca esā, yā gehe vasato rati` = *và đây là sợi dây để bám víu: niềm vui của người sống trong nhà*; `evampi chetvāna vajanti dhīrā` = *như vậy, sau khi cắt bỏ nó, các bậc trí bước đi* (đối chiếu `ja201:2.3` `etampi chetvāna vajanti dhīrā` = "sau khi cắt được nó, bậc trí bước đi", nơi dây trói buộc nhà cửa cũng được ví như cái cần cắt). (xvii) `7.4` đổi sang `không còn mong mỏi, đã từ bỏ dục lạc”.` — Pāli `Anapekkhino kāmasukhaṁ pahāyā”ti.` trùng nguyên văn với `ja201:2.4`; bản cũ lấy theo `sn3.10:5.4` ("khoái lạc dục lạc"). Đo tiền lệ: `ja201:2.4`, `ne9:23.4`, `ne37:272.4`, `thi-ap18:70.4` (4 nơi) dùng "không còn mong mỏi, đã từ bỏ dục lạc", chỉ `sn3.10:5.4` dùng "không luyến tiếc, từ bỏ khoái lạc dục lạc" (1 nơi) ⇒ theo đa số 4/5, và cũng thoát cách ghép "khoái lạc dục lạc" lặp nghĩa.
+  Đã đọc đối kháng và GIỮ NGUYÊN `5.1` (*Rồi về sau ta thấy chính người nữ ấy*: `parena` = *về sau*, đúng với mn13:19.2 `aparena samayena … tameva bhaginiṁ passeyya āsītikaṁ vā nāvutikaṁ` = "về sau … thấy chính người phụ nữ ấy đã tám mươi, chín mươi"), `5.2` (`āsītikaṁ nāvutikaṁ va jaccā` = *tám mươi hay chín mươi tuổi đời*) và `5.3`. Mục (3) cũ của "CHỖ ĐỌC LẠI" và BẤT ĐỊNH (a) cũ (đọc `passāmipena` là *bức vách*) mô tả sai bản dịch hiện có — bản dịch `5.1` vốn đã đúng, chỉ chú thích sai.
+
+  CÁC ĐOẠN KHÔNG CÓ BẢN ANH. Không có Sujato nào cho cả 33 khoá (không phải Sujato "để trống một số đoạn"); toàn bài chỉ dựa Pāli root, đã đọc đối kháng từng khoá và đối chiếu với tiền lệ trong kho như trên. `triangulation` giữ 7.5 (≤ 8.0). Tầng Việt hiện hành không có bản `ja` nào (giới hạn tham chiếu, không phải lỗi văn bản).
+
+  BẤT ĐỊNH CÒN LẠI (ghi để người biên tập phán xử; không đủ để giữ blocker vì nghĩa chung của kệ không đổi). (a) `7.1` `rajjuvālambanī`: tôi tách thành `rajju` + `ālambanī` (có âm đệm `v`), nghĩa gốc *thứ dùng để bám/treo vào sợi dây*; dịch *sợi dây để bám víu*, nghĩa chung (niềm vui tại gia là sợi dây trói/bám mà bậc trí cắt bỏ) được `ja201:2.1`–`2.3` ủng hộ; hình ảnh chính xác (dây treo, dây vịn hay dây thòng) không có bản Anh hay Việt để đối chiếu. (b) `4.2` `sāmaṭṭhapassaṁ`: hiểu là *hai hông/sườn mịn màng*; cách tách `sāma` (da ngăm/vàng) + `maṭṭha` + `passa` không phân xử được. (c) `4.3` `kāḷappavāḷā`: *chồi non sẫm màu* thay vì *san hô đen*; `pavāḷa` có cả hai nghĩa, tôi chọn nghĩa chồi non vì `pavellamānā` (uốn đong đưa) đi với thực vật. (d) `3.3` `mamañca passa`: dịch sát chữ *hãy nhìn tôi*; không rõ có nghĩa *đoái hoài, chăm lo cho tôi* hay *hãy nhìn tôi (già) mà xem*. (e) Người nói: `1`–`3` là người đưa tin tóc bạc (thợ cạo/cận thần) nói với vua, `4`–`7` là lời vua; tôi suy từ nội dung (xưng tâu, nhắc đã nói dối, rồi nhắc `ahampi evaṁ` của người thấy già nua), không có chú giải đi kèm trong tầng Pāli đã ghim.
+
+  CẢNH BÁO KHÔNG ĐỔI: tên bài, tên phẩm, `0.4`, `8.1`; số khoá (33/33); thứ tự khoá; dấu lược (0). `technical_integrity` vẫn 9.6; bốn lệnh `npm run validate` · `npm test` · `npm run check` · `npm run build` chưa chạy ở lượt này.

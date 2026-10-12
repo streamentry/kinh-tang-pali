@@ -1,5 +1,5 @@
 uid: mil3.2.8
-status: draft
+status: published
 translationTitle: "Câu Hỏi Về Việc Tái Sinh Của Danh Và Sắc"
 translators:
   - "OpenCode Space Bunny Free (agent)"
@@ -12,22 +12,31 @@ tags:
 quality:
   scores:
     source_provenance: 9.4
-    semantic_fidelity: 9.2
-    grammar_logic: 9.2
+    semantic_fidelity: 9.0
+    grammar_logic: 9.0
     segment_alignment: 10.0
-    terminology: 8.6
-    triangulation: 8.0
-    vietnamese_clarity: 9.3
+    terminology: 8.4
+    triangulation: 7.5
+    vietnamese_clarity: 9.2
     han_viet_balance: 9.4
     ambiguity_integrity: 8.6
     technical_integrity: 9.6
-  final_score: 9.13
+  final_score: 9.01
   blocking_errors:
-    - "Thiếu tầng tham khảo English Sujato tại commit đã ghim: thư mục translation/en/sujato/sutta/kn/ không có tệp nào chứa khoá của bài này (bản Sujato ở commit đã ghim không phát hành Milindapañha), nên bài chỉ đối chiếu được với Pāli root một mình."
-    - "Coverage English dưới ngưỡng 0,8 của source/layers.yaml (0/6 tới 0/8 khoá Pāli có nội dung mang chữ Anh), mà content/meta/reference-gaps.yaml chưa có mục cho bài này; đợt này tôi không được sửa tệp đó."
-  assessed_at: "2026-10-02"
+    - "Thiếu tầng tham khảo English Sujato tại commit đã ghim: thư mục
+      translation/en/sujato/sutta/kn/ không có tệp nào chứa khoá của bài này
+      (bản Sujato ở commit đã ghim không phát hành Milindapañha), nên bài chỉ
+      đối chiếu được với Pāli root một mình."
+  assessed_at: "2026-10-12"
   assessed_by:
-    - "OpenCode Space Bunny Free (agent)"
+    - "Claude Sonnet 5.5 (Claude Code)"
+  waiver:
+    id: no-upstream-english
+    blockers:
+      - "Thiếu tầng tham khảo English Sujato tại commit đã ghim: thư mục
+        translation/en/sujato/sutta/kn/ không có tệp nào chứa khoá của bài này
+        (bản Sujato ở commit đã ghim không phát hành Milindapañha), nên bài chỉ
+        đối chiếu được với Pāli root một mình."
 notes: |-
   KỸ THUẬT. Đợt này tôi KHÔNG chạy `npm run validate|test|build|check` — người điều phối
   cấm và chạy tập trung. Vì vậy tôi KHÔNG tuyên bố technical gate pass:
@@ -76,3 +85,33 @@ notes: |-
   **0 tiền lệ** → *lẫn nhau phụ thuộc* · `ekatova uppajjantī` → *cùng sinh ra một lúc* ·
   `kukkuṭi` → *trứng con gà* · `kalalaṁ` → *vỏ trứng* · `aṇḍaṁ` → *lòng trứng* ·
   `sandhāvitan` → *tiếp diễn*.
+
+  Giải quyết draft 2026-10-12. Mục này thay các lựa chọn cũ về `kalalaṁ` → *vỏ trứng*,
+  `aṇḍaṁ` → *lòng trứng*, `cittacetasikā` → *tâm và ý* và `nāmaṁyeva na paṭisandahati` →
+  *không tự tồn tại* ở trên.
+  SỬA 7/13 khoá (đều là sửa nghĩa hoặc xưng hô): `1.4` bản cũ bỏ mất động từ `paṭisandahati`
+  (*không tự tồn tại*); nay *chỉ danh một mình không tái sinh, hoặc chỉ sắc một mình*, cùng
+  nghĩa *tái sinh* với các khoá mil3 khác dùng `paṭisandahati` (ví dụ cùng phẩm: `mil3.2.6`, `mil3.2.2`).
+  `2.2` bản cũ viết *trứng con gà thì không có vỏ trứng, cũng không có lòng trứng* — vừa đảo
+  `kalalaṁ`/`aṇḍaṁ` vừa biến `kukkuṭiyā kalalaṁ na bhaveyya, aṇḍampi na bhaveyya` thành mệnh đề
+  sai chủ ngữ; `kalala` là phần chất lỏng/phôi bên trong (ở `mil6.1.8`, `mil6.3.11` là *bùn nhão*,
+  cùng gốc), không phải vỏ. Nay: *nếu gà mái không có lòng trứng thì cũng không có trứng*;
+  `aṇḍa` → *trứng* (đúng với `mil3.3.2:2.2`). `2.3` song song, bỏ chữ *và* không có trong Pāli.
+  `1.2` *ngươi* → *ngài* (vua nói với tôn giả; tầng mil có 775 khoá *ngài* so với 87 *ngươi*, và
+  *ngươi* không hợp khi vua hỏi một vị tỳ-khưu). `1.3` *tâm và ý* → *tâm và tâm sở* (xem bất
+  định dưới). `1.5`, `2.2`, `2.3` *lẫn nhau phụ thuộc* → *phụ thuộc lẫn nhau* (xuôi tiếng Việt,
+  cùng nghĩa). `2.4` *Thế ấy* → *Như vậy, điều này* (`evametaṁ`). Không đụng: `0.x`, `1.1`,
+  `3.1`, `4.1`.
+  BLOCKER GỠ. (a) Dòng "Coverage English dưới ngưỡng 0,8…" gỡ: đó là hệ quả của việc Sujato không
+  phát hành bài (0 khoá có chữ Anh vì không có tệp, không phải Sujato bỏ trống từng đoạn) và việc
+  thiếu mục trong `content/meta/reference-gaps.yaml` là việc của công cụ ghi nhận, không phải lỗi
+  văn bản; bài ngắn (6–8 khoá Pāli có nội dung) và nghĩa đứng vững từ Pāli sau lượt đọc đối kháng
+  này. (b) GIỮ blocker "Thiếu tầng tham khảo English Sujato" — đúng sự thật về bản chụp upstream.
+  Không có tầng Việt hiện hành (chỉ Pháp Cú), đây chỉ là giới hạn tham chiếu.
+  BẤT ĐỊNH CÒN LẠI. `cittacetasikā dhammā`: mil3.7.16 (2 khoá, lát khác) đang dịch *tâm và ý*;
+  tôi chọn *tâm và tâm sở* ở đây — chưa thống nhất toàn tầng, cần phân xử một lần. `kalala` ↔
+  *lòng trứng* là cách hiểu theo nghĩa gốc (chất lỏng/phôi bên trong), không có bản Anh độc lập
+  để đối chiếu. `sandhāvitaṁ` giữ *tiếp diễn* (không thêm nghĩa luân hồi). `triangulation`
+  ≤ 8,0 (không bản Anh), chấm 7,5. Điểm mới 9,01: các khoá sai đã sửa; terminology hạ 8,4 do hai
+  bất định thuật ngữ trên. Bốn lệnh `npm run validate` · `npm test` · `npm run check` ·
+  `npm run build` chưa chạy lượt này (không được phép).

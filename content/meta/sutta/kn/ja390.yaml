@@ -13,21 +13,21 @@ tags:
 quality:
   scores:
     source_provenance: 9.3
-    semantic_fidelity: 9.2
-    grammar_logic: 9.1
+    semantic_fidelity: 8.9
+    grammar_logic: 8.8
     segment_alignment: 10.0
-    terminology: 9.1
+    terminology: 8.7
     triangulation: 7.5
-    vietnamese_clarity: 9.2
-    han_viet_balance: 9.3
-    ambiguity_integrity: 9.0
+    vietnamese_clarity: 8.8
+    han_viet_balance: 9.0
+    ambiguity_integrity: 9.3
     technical_integrity: 9.6
-  final_score: 9.13
+  final_score: 8.99
   blocking_errors:
     - "Tầng tham khảo tiếng Anh KHÔNG tồn tại tại commit đã ghim. Đã kiểm ba nơi, không suy đoán: (1) `source/upstream-manifest.json` — edition `translation/en/sujato` tại commit `11c9d708978cde8ba61096d8a75f7ddfb846f639` KHÔNG liệt kê bất kỳ tệp nào cho uid này; (2) `.cache/upstream/suttacentral/translation/en/sujato/sutta/...` — tệp không tồn tại; (3) toàn edition `translation/en/sujato/sutta/kn/ja/` chỉ có 83 tệp: ja1–ja79, ja126, ja159, ja466, ja534 — không có ja203/ja360/ja381/ja390, và trong đó không có uid này. Đây là `not-published-upstream`, KHÔNG phải `not-synced`: chạy `npm run source:sync:used` cũng không tạo ra tệp. Tầng `vietnamese-current` cũng vắng — `translation/vi/phantuananh` tại commit đã ghim chỉ có 26 tệp và toàn bộ là Pháp Cú. Lớp lấp `english-project` của dự án cũng không có cho uid này. Cả ba tầng tham khảo đều vắng nên bài dịch chỉ từ Pāli root; `scripts/validate.ts` coi tệp Anh thiếu là **error** khi status là `review` hoặc `published`, nên bài bắt buộc `draft`. Đây là **giới hạn upstream**, không phải lỗi của người dịch. Vì vậy `triangulation` bị chặn ở 7.5 (≤ 8.0) chứ không nâng để né blocker. Coverage đo được: 0 khoá Pāli đủ 40 ký tự, 0 khoá có prose Anh."
-  assessed_at: "2026-10-04"
+  assessed_at: "2026-10-12"
   assessed_by:
-    - "OpenCode Space Bunny Free (agent)"
+    - "Claude Sonnet 5.5 (Claude Code)"
 notes: |-
   Lát c14. KHÔNG có Sujato tại commit đã ghim cho ja390 ⇒ `draft`, xem
   blocking_errors.
@@ -54,3 +54,12 @@ notes: |-
     nhất với cùng một công thức trong lát.
 
   Bị chặn cổng kỹ thuật (đợt này không được chạy `npm run validate|test|check|build`), nên tiêu chí 10 bị chặn ở **9.6**: tôi chỉ xác minh được JSON hợp lệ, đủ khoá, không orphan, không rỗng, mọi giá trị NFC, dấu lược khớp Pāli từng khoá, `(…)` không đứng một mình, ngoặc kép cân trên cả bài và YAML sạch. Bốn lệnh `npm run validate`, `npm test`, `npm run check`, `npm run build` để coordinator chạy.
+
+
+  Giải quyết draft 2026-10-12 (thay thế các mục cũ nói về `mayhaka`, `dijasaṅgha`, `rakkhato`, `pipphali`, `nevattano…yathodhiṁ` và `Tiền lệ` của lát c14 ở trên khi mâu thuẫn).
+
+  Kiểm toán độc lập đọc đối kháng Pāli↔Việt từng khoá. Bản cũ sai nghĩa thật ở khoảng 18/26 khoá nội dung: `sakuṇo mayhako` là một con chim (không phải “chim sâu”); `dija` là chim (dvija, “sinh hai lần”), `dijasaṅghā` là các đàn chim (không phải “đàn sâu”); `pipphali` là một cây/quả ăn được (có cả `āruyha` “leo lên” lẫn `bhutvāna` “ăn”), không phải “trứng” hay “đẻ trứng”; `girisānudarīcaro` là “đi lại nơi sườn núi và khe núi” (`cara`), không phải “rào quanh”; `idhekacco` không có chữ “tham lam”; `anubhoti` là “hưởng” chứ không phải “có”, và `sakiṁ` (“một lần”) bị bỏ; `mayhaṁ mayhanti rakkhato` là người ấy canh giữ “của tôi, của tôi”, không phải “kẻ canh giữ lũ mayhaka”; `dāyādā ye va appiyā` là “những người thừa kế không ưa” (tiền lệ cnd23:170/mnd7:59: “những người thừa kế không ưa”), không phải “người thân, hay kẻ không thân”; `dhīro` là “bậc trí” (không phải “dũng mãnh”); `saṅgaṇhāti ñātake` là “giúp đỡ bà con” (tiền lệ mil5.5.10: “bao bọc giúp đỡ”), không phải “gom góp/tụ lượm”. Đã sửa 1.1–1.4, 2.1–2.4, 3.1–3.4, 4.1–4.4, 5.1–5.6, 6.1–6.3 (đổi “hắn/vị ấy” gán cho con người/con chim thành “người ấy/nó/con chim ấy”). Giữ nguyên 0.1–0.4, 6.4 (“và sau khi chết hoan lạc trên cõi trời” theo tiền lệ ja532/iti106), 7.1. `yathodhikāni` (cùng gốc `odhi`) đã được dịch “cho tới mức ấy” ở ≥ 6 khoá trong tầng (ja408, ja470, ja509, ja535, snp1.3, cnd23), nên 3.3–3.4 dịch “xử sự cho đúng mức”. Không có số lượng trong bài. Cặp Pāli trùng nội bộ: 5.1 = 2.1 (`Tassevaṁ vilapantassa,`) và 5.6 ≈ 2.4 (chỉ khác `dijo`/`naro`), đều dịch giống nhau trừ chủ thể. Dấu lược: Pāli không có `…`, bản Việt không có.
+
+  Bất định còn lại (đều ghi, không thêm vào thân kinh): (1) `pipphali` — cây/dây hay quả, loại nào; giữ nguyên chữ `pipphali` kèm “cây” (do `āruyha`), không nhận định loài; (2) `nevattano na ñātīnaṁ yathodhiṁ paṭipajjati` (3.3–3.4) — cấu trúc phủ định kép với động từ khẳng định; cách đọc đã chọn là “không vì bản thân, cũng không vì bà con mà xử sự cho đúng mức”, khớp với 4.1–4.4 (người ấy không hưởng gì, không giúp bà con); (3) `mayhaka` giữ như tên chim (tên mô phỏng tiếng kêu `mayhaṁ mayhaṁ` “của tôi”), không dịch.
+
+  Blocker đã xếp loại: blocker còn lại duy nhất là loại (A) — bản chụp đã ghim không phát hành bản Anh cho bài (và tầng Việt hiện hành chỉ có Pháp Cú, không có lớp Anh của dự án); giữ nguyên câu, vì là sự thật về upstream; `triangulation` ở 7.5 (≤ 8.0). Không có blocker loại B/C/D riêng. Tầng tham khảo vắng nên bản dịch tự đứng vững từ Pāli root; điểm ngữ nghĩa/ngữ pháp/thuật ngữ đã hạ vì lỗi cũ nghiêm trọng và vì các bất định trên. Cổng kỹ thuật `npm run validate`, `npm test`, `npm run check`, `npm run build` chưa chạy trong lượt này nên `technical_integrity` giữ 9.6.

@@ -1,5 +1,5 @@
 uid: sn35.16
-status: draft
+status: published
 translationTitle: "Kinh Tìm Cầu Vị Ngọt Ngoại Xứ Thứ Hai"
 translators:
   - "OpenCode Space Bunny Free (agent)"
@@ -15,18 +15,17 @@ quality:
     semantic_fidelity: 9.2
     grammar_logic: 9.2
     segment_alignment: 10.0
-    terminology: 9.0
+    terminology: 9.2
     triangulation: 7.5
     vietnamese_clarity: 9.2
     han_viet_balance: 9.2
     ambiguity_integrity: 9.0
     technical_integrity: 9.6
-  final_score: 9.13
-  blocking_errors:
-    - "Tầng Anh Sujato tại commit ghim gần như vắng toàn bài (chỉ 5/29 khóa có nội dung, 24 khóa trống gồm các công thức nội dung 1.3–1.9, 1.14–1.22 và 2.1), nên chưa đủ cơ sở đối chiếu tam giác; giữ draft cho đến khi coordinator ghi nhận gap hoặc bổ sung tham khảo"
-  assessed_at: "2026-10-04"
+  final_score: 9.15
+  blocking_errors: []
+  assessed_at: "2026-10-12"
   assessed_by:
-    - "OpenCode Space Bunny Free (agent)"
+    - "Claude Sonnet 5.5 (Claude Code)"
 notes: |-
   Dịch trọn 29 khóa từ Pāli root + khung thuật ngữ sn35.14 (vị ngọt/nguy hại/xuất ly,
   thắng tri, tuyên bố, tri kiến) vì Anh Sujato chỉ còn 5/29 khóa (0.1–0.3, 1.1–1.2).
@@ -34,3 +33,9 @@ notes: |-
   0 tiền lệ: tên kinh (pariyesanā→tìm cầu theo cụm tìm cầu dục/hữu); tadajjhagamaṁ→đạt được;
   sudiṭṭha→khéo thấy bằng trí tuệ. Triangulation 7.5 phản ánh đúng tình trạng thiếu tầng Anh.
   validate/test do coordinator chạy: npm run validate; npm test; npm run check; npm run build (vì có bài published).
+
+  Giải quyết draft 2026-10-12: đọc đối kháng toàn bài từ Pāli root, đối chiếu bài song song cùng công thức (sn35.13, sn35.14, sn35.15, sn22.27, sn14.32, an3.104) và lớp lấp English của dự án (đã published 2026-10-06).
+  (1) Lỗi nghĩa thật, 1/29 khoá: `2.1`. Pāli kết `…pe… paccaññāsiṁ.` — chữ cuối là vế khẳng định (`athāhaṁ … paccaññāsiṁ`), còn đoạn bị lược chứa cả mệnh đề phủ định lẫn mệnh đề `yato ca khvāhaṁ … abbhaññāsiṁ`. Bản cũ chép "… thì Ta vẫn chưa tuyên bố chứng ngộ Vô thượng Chánh Đẳng Chánh Giác" tức mở rộng chỗ lược thành mệnh đề phủ định, ngược với chữ cuối của Pāli. Đã sửa thành "… Ta đã tuyên bố." giữ một dấu lược, đồng bộ `sn35.15:2.2` (cùng chữ `paccaññāsiṁ`) và khớp lớp lấp English (kết "I announced it"). Không bịa phần bị lược.
+  (2) Đồng bộ công thức với bốn bài cùng khung (sn35.15, sn22.27, sn14.32, an3.104 — 4/4 dùng "Ta từng đi tìm … Ta đã tìm thấy"; 3/4 dùng "Đến mức … được Ta biết rõ bằng trí tuệ"): `1.1/1.4/1.7/1.10–1.14/1.17/1.20` "đã tìm cầu" → "từng đi tìm" (`acariṁ`); `1.2/1.5/1.8/1.15/1.18/1.21` "đã đạt được" → "đã tìm thấy" (`tadajjhagamaṁ`, tránh hiểu như đạt lấy vị ngọt); `1.3/1.6/1.9/1.16/1.19/1.22` "Phàm … Ta đã khéo thấy bằng trí tuệ" → "Đến mức … được Ta biết rõ bằng trí tuệ" (`yāvatā … sudiṭṭho`, giữ nghĩa mức độ); `1.7–1.9, 1.20–1.22` "xuất ly của" → "xuất ly khỏi" (`nissaraṇa` đi với sở hữu cách nghĩa là thoát khỏi). Đây là sửa chính xác/thuật ngữ nhẹ, không đổi ý. Tên bài giữ nguyên (khuôn `sn35.15`, `Dutiya…` = Thứ Hai).
+  (3) Blocker cũ về coverage tầng Sujato đã GỠ (loại B, do tác giả cũ tự đặt trước khi có lớp lấp): Sujato tại commit ghim chỉ có chữ ở `0.1`–`0.3`, `1.1`, `1.2`; trống ở 13/14 khoá Pāli có nội dung (`1.3, 1.4, 1.6, 1.7, 1.9, 1.14, 1.16, 1.17, 1.19, 1.20, 1.22, 2.1, 2.3`) cùng các khoá ngắn còn lại. Các đoạn ấy là công thức lặp (vị ngọt / nguy hại / xuất ly × sáu ngoại xứ) và đã đọc kỹ từ Pāli: từng khoá tự đứng vững, đối xứng hoàn toàn với `sn35.15` (nội xứ) mà Sujato phủ đầy. Mất mát tầng Sujato được ghi nhận qua `npm run reference:gaps` (tệp do công cụ sinh); lớp `english-project` đã published bù các khoá ấy, nhưng đó là lớp cùng nhóm tác giả nên không tính là đối chiếu độc lập. `triangulation` giữ 7.5 (≤ 8.0). Tầng Việt hiện hành không có cho bài này (chỉ có Pháp Cú): giới hạn của bản chụp upstream.
+  (4) Khoá `1.10–1.13` Pāli chỉ còn `Saddānāhaṁ, bhikkhave …` (v.v.); bản Việt bổ động từ và tân ngữ từ công thức `1.1` theo tiền lệ `sn35.15:1.10`, giữ một `…` cuối khoá. Bất định còn lại: `2.1` "Ta đã tuyên bố" không nêu nội dung tuyên bố vì Pāli lược; `ñāṇañca … dassanaṁ` → "tri kiến" theo `sn35.13`/`sn35.15`. Không còn blocker; `technical_integrity` 9.6 vì cổng kỹ thuật `npm run validate`, `npm test`, `npm run check`, `npm run build` do coordinator chạy.

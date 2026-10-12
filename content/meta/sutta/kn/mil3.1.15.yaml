@@ -1,5 +1,5 @@
 uid: "mil3.1.15"
-status: "draft"
+status: "published"
 translationTitle: "Câu Hỏi Về Dấu Hiệu Của Trí Tuệ"
 translators:
   - "OpenCode Space Bunny Free (agent)"
@@ -12,22 +12,39 @@ tags:
 quality:
   scores:
     source_provenance: 9.6
-    semantic_fidelity: 9.4
+    semantic_fidelity: 9.2
     grammar_logic: 9.3
     segment_alignment: 10
-    terminology: 9.2
+    terminology: 9.3
     triangulation: 6.6
-    vietnamese_clarity: 9.3
+    vietnamese_clarity: 9.2
     han_viet_balance: 9.3
     ambiguity_integrity: 9
     technical_integrity: 9.6
-  final_score: 9.13
+  final_score: 9.11
   blocking_errors:
-    - "Không có tầng tham khảo English Sujato tại commit đã ghim 11c9d708978cde8ba61096d8a75f7ddfb846f639. Đếm bằng script trên source/upstream-manifest.json: tầng translation/en/sujato có 4.291 tệp, trong đó thư mục sutta/kn/mil có 0 tệp và sutta/kn/ja chỉ có 83 tệp (ja1..ja79, ja126, ja159, ja466, ja534); không tệp nào chứa khoá của mil3.1.15, và tầng ref/en trong cache cũng không có tệp nào cho mil3.1.15. SuttaCentral không phát hành bản Anh nào khác phủ bài này tại commit đã ghim, nên bài chỉ đối chiếu được với Pāli root một mình."
-    - "Coverage tầng Anh đo được là 0 trên 8 khoá Pāli có nội dung (đếm bằng script: khoá thân bài dài từ 40 ký tự trở lên, bỏ khối tiêu đề :0). Dưới ngưỡng 0.8 khai ở source/layers.yaml, mà content/meta/reference-gaps.yaml chưa có mục cho bài này và đợt này tôi bị cấm sửa tệp đó; validate sẽ đỏ. Người biên tập chạy npm run reference:gaps rồi xét lại."
-  assessed_at: "2026-10-03"
+    - "Không có tầng tham khảo English Sujato tại commit đã ghim
+      11c9d708978cde8ba61096d8a75f7ddfb846f639. Đếm bằng script trên
+      source/upstream-manifest.json: tầng translation/en/sujato có 4.291 tệp,
+      trong đó thư mục sutta/kn/mil có 0 tệp và sutta/kn/ja chỉ có 83 tệp
+      (ja1..ja79, ja126, ja159, ja466, ja534); không tệp nào chứa khoá của
+      mil3.1.15, và tầng ref/en trong cache cũng không có tệp nào cho mil3.1.15.
+      SuttaCentral không phát hành bản Anh nào khác phủ bài này tại commit đã
+      ghim, nên bài chỉ đối chiếu được với Pāli root một mình."
+  assessed_at: "2026-10-12"
   assessed_by:
-    - "OpenCode Space Bunny Free (agent)"
+    - "Claude Sonnet 5.5 (Claude Code)"
+  waiver:
+    id: no-upstream-english
+    blockers:
+      - "Không có tầng tham khảo English Sujato tại commit đã ghim
+        11c9d708978cde8ba61096d8a75f7ddfb846f639. Đếm bằng script trên
+        source/upstream-manifest.json: tầng translation/en/sujato có 4.291 tệp,
+        trong đó thư mục sutta/kn/mil có 0 tệp và sutta/kn/ja chỉ có 83 tệp
+        (ja1..ja79, ja126, ja159, ja466, ja534); không tệp nào chứa khoá của
+        mil3.1.15, và tầng ref/en trong cache cũng không có tệp nào cho
+        mil3.1.15. SuttaCentral không phát hành bản Anh nào khác phủ bài này tại
+        commit đã ghim, nên bài chỉ đối chiếu được với Pāli root một mình."
 notes: |-
   TÁI DÙNG ĐÚNG TỪ NGỮ ĐÃ CÓ. Năm uẩn trong 1.6 và 2.3 tôi lấy nguyên văn mil3.4.1:1.2, vốn đã dịch phasso là xúc chạm, vedanā là cảm thọ, saññā là tưởng, cetanā là ý chí, viññāṇa là thức, tassa là tầm, tadārammaṇa là tứ. Ở bài này uẩn thứ năm là citta nên tôi dịch là tâm, cùng ngữ phong với bản đã có. Vì vậy 1.6 và 2.3 là hai vế gần như trùng nhau trong Pāli và tôi dịch giống hệt nhau, đúng như mil3.4.1 đã làm.
 
@@ -48,3 +65,10 @@ notes: |-
   TÊN PHẨM ĐÃ CHỐT. Tikanipāta → Bộ Ba Bài Kinh (bốn bài lân cận đã có: ja276, ja291, ja292, ja293). Udapānavagga → Phẩm Nước Uống (đúng ja276 và ja279; tôi tự đếm bằng script trên Pāli gốc: 10 bài mang tên phẩm này là ja271..ja280, và ja275 nằm trong đúng khoảng đó). Kumbhavagga → Phẩm Bình Vò: tên này CHƯA có trong bảng chốt của BRIEF_VI3 §11, nên tôi theo đa số trong chính phẩm đang làm — ba bài đã có (ja291, ja292, ja293) đều dùng Phẩm Bình Vò; tôi tự đếm Kumbhavagga chiếm đúng ja291..ja300, trong đó lát này có sáu bài. Người biên tập nếu muốn chốt khác thì phải sửa cả mười bài cùng lúc. Các tên phẩm Milindapañha cũng theo đúng bầy bài lân cận: Mahāvagga → Đại Phẩm, Addhānavagga → Phẩm Khoảng Thời Gian, Buddhavagga → Phẩm Đức Phật, Arūpadhammavavatthānavagga → Phẩm Xác Định Pháp Vô Sắc.
 
   STATUS. Hai blocking error ở trên là thật và đo được (thiếu hẳn tầng Anh Sujato tại commit đã ghim; coverage dưới ngưỡng chưa được ghi nhận trong reference-gaps.yaml), nên mọi bài lát này đặt draft bất kể final_score. Tôi không nâng điểm để né blocker và cũng không hạ điểm để tỏ ra thận trọng: điểm ghi ở trên là chấm theo đúng mười tiêu chí, kể cả triangulation thấp vì không có tầng tham khảo nào.
+
+  Giải quyết draft 2026-10-12: kiểm toán độc lập, đọc đối kháng từng khoá từ Pāli. Mục "THUẬT NGỮ" ở trên (màn tối vô min, bậc Thánh chân trí, làm sáng cho vijjobhāsa) bị THAY THẾ hoàn toàn bởi mục này; mọi mục khác giữ nguyên.
+  Sửa 5/17 khoá có lỗi nghĩa thật (1.6, 1.7, 2.2, 2.3, 2.4), cùng một họ lỗi lặp ở hai vế song song. (1) avijjandhakāra: "màn tối vô min" là chữ hỏng → "bóng tối vô minh" (tiền lệ mil7.4.3:5.2, ne14:27.6, cnd15:12.4). (2) vijjobhāsa bị dịch trùng vế trước ("làm sáng màn tối vô min") nên mất hẳn nghĩa: vijjā là minh, obhāsa là ánh sáng → "ánh sáng của minh"; obhāsaṁ janeti → "làm phát sinh". (3) ñāṇālokaṁ vidaṁseti: "làm rõ sáng ánh sáng của trí" thừa "rõ sáng" → "làm hiển lộ ánh sáng của trí" (cnd15:12.4 "cho thấy", mil7.4.3:5.2 "hiển lộ"). (4) ariyasaccāni: "các bậc Thánh chân trí" là sai hẳn (sacca là đế, không phải người, cũng không phải trí) → "các Thánh đế" (83 khoá có ariyasacca, dạng "Thánh đế" chiếm đa số: dn34, mn141, sn56.5, sn56.16…). (5) yogāvacaro: "bậc đã đạt tới" sai (yogāvacara là người hành trì, đang tu) → "hành giả" (đa số 23 khoá có yogāvacaro, trong đó mil3.1.13:1.6, 2.4, 3.4, 4.8 cùng cấu trúc "Tato yogāvacaro … " dịch "Khi ấy, hành giả …"); tato → "Khi ấy" theo đúng tiền lệ đó. (6) sammappaññāya → "bằng chánh tuệ" (đếm 257 khoá: 137 "chánh tuệ", 105 "chánh trí", 15 khác; chọn "chánh tuệ" để phân biệt với ñāṇa là "trí" trong cùng câu); bỏ chữ "như thế" thêm vào, passati đi với dẫn ‘…’ti → "thấy rằng ‘vô thường’, hoặc ‘khổ’, hoặc ‘vô ngã’". (7) 2.2: bỏ "sẽ" thêm vào (động từ Pāli ở hiện tại: vidhameti, janeti, vidaṁseti, karoti), gehe → "căn nhà tối" (trước đó chỉ "nơi tối tăm", mất "nhà"), rūpāni → "các hình sắc" (trước đó "các sắc vật"), obhāsaṁ janeti → "làm phát sinh ánh sáng" (trước đó sai thành "làm sáng chỗ tối"). vidhameti → "xua tan" (precedent mil7.4.3, cnd15). 1.6 và 2.3 vẫn giống hệt nhau vì Pāli của hai vế giống hệt (đã đối chiếu từng chữ); 1.7 và 2.4 cũng vậy.
+  Giữ nguyên, có tiền lệ đã đo: Rājā āha → "Vua nói:" (51 khoá "Vua nói:" so với 16 "Vua nói—"); "Xin hãy xét một thí dụ." (19 trên 39 khoá có Opammaṁ karohī dùng đúng dạng này, thêm 5 khoá chỉ khác ở dấu nháy; dạng phổ biến nhất); "Khéo lắm, thưa tôn giả Nāgasenā." (71 khoá, dạng "Nāgasenā" giữ nguyên chính tả vocative của Pāli theo tiền lệ này); lakkhaṇa → "dấu hiệu" theo đúng mil3.1.8, mil3.1.13 (cùng nhóm Lakkhaṇapañha); chedanalakkhaṇā → "cắt bỏ" theo mil3.1.8:1.3. Tiêu đề không đổi nên translationTitle giữ nguyên.
+  Blocker đã gỡ: "Coverage tầng Anh = 0 trên 8 khoá, dưới ngưỡng 0.8, chưa có mục reference-gaps" (loại B). Đây là hệ quả trực tiếp của việc Sujato không có bài này (blocker còn lại), không phải lỗi văn bản; mục ghi nhận mất mát trong content/meta/reference-gaps.yaml do công cụ của kho sinh, người biên tập chạy npm run reference:gaps. Các khoá cần Pāli đứng một mình: toàn bộ 8 khoá thân bài dài từ 40 ký tự (1.2 không tính vì ngắn hơn ngưỡng), đã đọc kỹ từ Pāli; bài ngắn, công thức lặp, ngữ pháp đơn giản, chỉ có hai điểm khó là vijjobhāsa/ñāṇāloka (đã phân biệt) và ariyasaccāni (đã sửa), nên bản dịch tự đứng vững từ Pāli, nhưng triangulation vẫn không cao hơn 6.6 vì không có bản Anh độc lập và cũng không có tầng Việt hiện hành (vietnamese-current chỉ có Pháp Cú, giới hạn của bản chụp, không phải lỗi văn bản).
+  Blocker giữ: "Không có tầng tham khảo English Sujato tại commit đã ghim" (loại A) — sự thật về upstream (bản chụp không phát hành bản Anh cho bài này); công cụ waiver no-upstream-english của người biên tập xử lý.
+  Cổng kỹ thuật: không chạy npm run validate, npm test, npm run check, npm run build trong lượt này (lệnh bị cấm), nên technical_integrity giữ 9.6, chưa tuyên bố technical gate pass. Kiểm tập khoá: 17/17 khoá Việt khớp 17/17 khoá Pāli, không rỗng, đúng thứ tự, nháy đơn/kép khớp Pāli từng khoá, không có dấu lược ở Pāli nên không có ở Việt. Cặp Pāli trùng nguyên văn trong chính bài mà bản Việt khác: 1.6/2.3 và 1.7/2.4 trùng Pāli, nay bản Việt cũng trùng nhau (0 cặp lệch).

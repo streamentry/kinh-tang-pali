@@ -1,5 +1,5 @@
 uid: an6.10
-status: draft
+status: published
 translationTitle: "Kinh Mahānāma"
 translators:
   - "Claude Sonnet 5.5 (Claude Code)"
@@ -13,7 +13,7 @@ tags:
 quality:
   scores:
     source_provenance: 9.4
-    semantic_fidelity: 9.1
+    semantic_fidelity: 9.2
     grammar_logic: 9.2
     segment_alignment: 10.0
     terminology: 9.0
@@ -22,10 +22,9 @@ quality:
     han_viet_balance: 9.2
     ambiguity_integrity: 9.1
     technical_integrity: 9.6
-  final_score: 9.12
-  blocking_errors:
-    - "Độ phủ tầng tham khảo tiếng Anh Sujato (35/51 = 0.686) dưới ngưỡng tối thiểu 0.80: bản Anh để trống 16 đoạn Pāli có nội dung (3.4–3.6, 4.4–4.6, 5.3–5.5, 6.5–6.7, 7.4–7.7), tức các lượt lặp lại công thức ở năm đoạn sau. Chưa có lớp english-project cho bài này và chưa có tầng Việt hiện hành phân đoạn. Bài phải giữ draft và triangulation ≤ 8.0 cho đến khi lớp english-project lấp các đoạn đó hoặc gap được ghi nhận."
-  assessed_at: "2026-10-09"
+  final_score: 9.13
+  blocking_errors: []
+  assessed_at: "2026-10-12"
   assessed_by:
     - "Claude Sonnet 5.5 (Claude Code)"
 notes: |-
@@ -48,3 +47,5 @@ notes: |-
   **Kiểm đã làm:** 68/68 khoá khớp Pāli, đúng thứ tự; nháy đơn và nháy kép khớp Pāli từng khoá, 0 lệch trên 68 khoá; không có dấu lược trong Pāli (0 khoá) nên Việt cũng 0 dấu lược; NFC, 0 khoá rỗng, 0 khoảng trắng thừa, không có Pāli lọt sang bản Việt ngoài tên riêng; 45 cặp Pāli trùng trong bài, 0 cặp Việt khác.
 
   **Technical gate chưa chạy ở phiên này** (không được phép chạy lệnh của kho): `technical_integrity` đặt 9,6. Còn phải chạy bốn lệnh: `npm run validate`, `npm test`, `npm run check`, `npm run build`.
+
+  **Giải quyết draft 2026-10-12.** Blocker cũ (độ phủ Anh Sujato 35/51 = 0,686 dưới sàn 0,80) thuộc loại mất mát tầng tham khảo, không phải lỗi văn bản, và đã gỡ vì hai lẽ: (1) bài đã có entry trong bản ghi nhận khoảng trống tầng tham khảo của kho; (2) đọc đối kháng lại 16 khoá Sujato để trống (3.4–3.6, 4.4–4.6, 5.3–5.5, 6.5–6.7, 7.4–7.7) từ Pāli, thấy mỗi khoá là lượt lặp nguyên văn công thức đã có ở lượt đầu (2.5–2.7 và các khoá tương ứng của năm đoạn sau; riêng 7.4–7.7 là bốn lượt lặp cấu trúc 7.3 chỉ đổi danh từ giới / sự học rộng / sự bố thí / trí tuệ), nên bản Việt tự đứng vững từ Pāli và dùng đúng bản Việt của khoá gốc; không còn nghĩa chưa chắc ở các khoá này. `triangulation` giữ 7,5 (không cao hơn 8,0) vì 16 khoá ấy không có bản Anh độc lập và tầng Việt hiện hành phân đoạn không có cho bài này. Điều chỉnh một khoá: 3.2 `svākkhāto` đổi từ *thuyết giảng một cách đầy đủ* thành *khéo thuyết giảng* (tiền tố `su-` là *khéo/tốt*, không phải *đầy đủ*; tầng có *khéo thuyết* ở mn89:10.2, sn55.27:9.2, an6.25:2.2, an8.21:9.4). Sửa loại accuracy fix, 1 khoá trên 68. Không còn blocker nào; ba điểm bất định ở trên (cụm `visamagatāya … sabyāpajjāya`, `āgataphalo`, `yācayogo`) vẫn ghi như cũ vì chúng là lựa chọn có chủ ý trong biên độ Pāli cho phép, không phải lỗi chưa phân xử. Điểm: `semantic_fidelity` 9,1 → 9,2; các tiêu chí khác giữ nguyên; `final_score` 9,12 → 9,13. Technical gate vẫn chưa chạy ở phiên này; `technical_integrity` 9,6 và còn phải chạy `npm run validate`, `npm test`, `npm run check`, `npm run build`.

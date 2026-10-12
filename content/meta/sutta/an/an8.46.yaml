@@ -1,5 +1,5 @@
 uid: an8.46
-status: draft
+status: published
 translationTitle: "Kinh Anuruddha"
 translators:
   - "Claude Sonnet 5.5 (Claude Code)"
@@ -12,19 +12,18 @@ tags:
 quality:
   scores:
     source_provenance: 9.4
-    semantic_fidelity: 9.2
+    semantic_fidelity: 9.3
     grammar_logic: 9.2
     segment_alignment: 10.0
     terminology: 9.2
     triangulation: 7.0
-    vietnamese_clarity: 9.2
+    vietnamese_clarity: 9.3
     han_viet_balance: 9.3
     ambiguity_integrity: 9.0
     technical_integrity: 9.6
-  final_score: 9.11
-  blocking_errors:
-    - "Độ phủ tầng tham khảo tiếng Anh (34/51 = 0.667) dưới ngưỡng tối thiểu 0.80 do bản Anh Sujato để trống 17 đoạn Pāli có nội dung (6.1-6.7, 6.9, 6.10, 7.2, 7.4, 7.5, 8.1-8.4, 9.1) và chưa có lớp english-project nào lấp. Bài giữ trạng thái draft và triangulation không quá 8.0 cho đến khi lớp english-project phủ các segment này."
-  assessed_at: "2026-10-09"
+  final_score: 9.13
+  blocking_errors: []
+  assessed_at: "2026-10-12"
   assessed_by:
     - "Claude Sonnet 5.5 (Claude Code)"
 notes: |-
@@ -45,3 +44,11 @@ notes: |-
   **Dấu lược.** `3.2` (`…pe…`), `3.3` (`…` trần), `7.2` (`…pe…`), `7.3` (`…pe…`) → mỗi khoá đúng một ` …`; Pāli không có `…` thì Việt không có. Cân bằng Pāli từng khoá 79/79.
 
   **Kiểm kỹ thuật.** Đã tự kiểm: tập khoá Việt = tập khoá Pāli 79/79; nháy đơn ‘’ và kép “” khớp Pāli từng khoá 79/79; dấu lược cân bằng 79/79; NFC; không khoá rỗng; không Pāli lọt sang Việt; đã in cặp Pāli↔Việt từng khoá để đọc đối kháng. Chưa chạy `npm run validate`, `npm test`, `npm run check`, `npm run build` nên `technical_integrity` đặt 9.6 và không tuyên bố technical gate đã pass.
+
+  **Giải quyết draft 2026-10-12.** Đọc đối kháng lại cả 79 khoá với Pāli root đã ghim, đối chiếu `an8.47`, `an8.48`, `an8.49`, `an8.50`, `an5.33`, `dn17`, `mn58`, `sn54.9`. Thay thế mục "Coverage Anh … ⇒ draft" ở trên và dòng "Vì vậy blocker nêu ở `blocking_errors` là đúng cổng": blocker độ phủ Anh đã được gỡ, lý do bên dưới. Điểm cũ 9.11 thay bằng 9.13.
+  (1) **Blocker độ phủ tiếng Anh (loại B) — gỡ.** Sujato để trống 17 khoá Pāli có nội dung (`6.1–6.7, 6.9, 6.10, 7.2, 7.4, 7.5, 8.1–8.4, 9.1`) vì đó là đoạn Anuruddha kể lại với Đức Phật. Đã đọc kỹ từng khoá từ Pāli: `6.1`, `6.2`, `6.8`, `6.9`, `6.10`, `7.1`, `7.2`, `7.4`, `7.5`, `8.1`, `8.4`, `9.1` lặp `1.2–5.2` chỉ đổi ngôi (`maṁ`, `mama cittamaññāya`, `okkhipi`, `khvāhaṁ`); `6.3–6.7` và `8.2–8.3` trùng nguyên văn `1.4–1.8` và `4.2–4.3`; không khoá nào còn nghĩa chưa chắc. Các khoá này tự đứng vững từ Pāli và từ các khoá song song cùng bài đã được đối chiếu với Sujato. Theo quy tắc của kho, mất mát tầng Anh ở đây chỉ cần được ghi nhận ở danh mục khoảng trống tham chiếu, không cần lấp. Giới hạn vẫn còn: 17/51 khoá không có đọc Anh độc lập, nên `triangulation` giữ 7.0 (không nâng).
+  (2) **Tầng `vietnamese-current` (loại C).** Tầng này vắng ở bài này (chỉ có Pháp Cú); chỉ là giới hạn tham chiếu, không phải lỗi văn bản. Bản nguyên bài chỉ để tra cách đọc.
+  (3) **Sửa bản dịch (accuracy/clarity).** `1.5`, `1.6`, `1.7`, `6.4`, `6.5`, `6.6`: bỏ chữ "liền" ở "thì liền có được". `ṭhānaso` đã dịch "ngay tại chỗ" (đúng tiền lệ `mn58:10.8`, `mn58:11.3`, `sn54.9:7.1`), nên "liền" là thêm nghĩa và lặp; Pāli chỉ có `tādisakaṁ … paṭilabhāma … ṭhānaso`. `17.2`: "Vị ấy sống tại gia…" → "Nàng sống tại gia…" vì Pāli `Cāgavatī` nói về người nữ, nhất quán với `Nàng` ở `15.1`, `16.1`; khác `an8.47:3.2` (còn "Vị ấy"), không đổi nghĩa.
+  (4) **Giữ nguyên, đã đo tiền lệ.** Các khoá kệ `19.1–22.4` trùng nguyên văn `an8.47:4.1–7.4` và `an8.48:11.1–14.4` (16/16 khoá, 0 khoá Việt khác): giữ. `20.4` `paṭipūjeti paṇḍitā` là chủ ngữ giống cái ("người nữ trí") nhưng bản kệ chung dịch "bậc trí đều tôn kính", không sai nghĩa, giữ để thống nhất ba bài. `22.3` "Được gọi là Manāpa, chư thiên," giữ như hai bài kia. `4.2` dùng đúng chuỗi `dn17:1.6.11` ("dàn nhạc năm loại được luyện kỹ, đánh nhịp khéo … du dương, hấp dẫn … mê say"), thêm `kamanīyo`→"đáng ưa", `pemanīyo`→"dễ mến". `10.3` (`atthakāmā hitesino` → "mong lợi ích, tìm hạnh phúc") giữ theo `an8.47:2.3`, `an8.48:2.3`.
+  (5) **Bất định còn lại (không phải blocker).** `14.1` `adhuttī athenī asoṇḍī avināsikā` dịch theo cách đọc đã có ở `an8.48`, `an5.33` chứ chưa phân xử độc lập từ nghĩa gốc (`dhutta` kẻ lừa lọc/cờ bạc, `soṇḍī` kẻ nát rượu); `4.3` `alaṅkārānaṁ saddo`; `4.4`/`8.4` `okkhipi`; Pāli thiếu `rajataṁ` ở `14.1` (đã ghi ở trên). Các điểm này không đổi giáo nghĩa, được ghi để người biên tập biết, nên `ambiguity_integrity` giữ 9.0.
+  (6) **Số khoá.** Lỗi nghĩa thật/lệch tiền lệ: 7/79 (6 khoá `liền` + 1 khoá `Vị ấy`); 72 khoá còn lại không đổi. Tập khoá 79/79, thứ tự theo Pāli, nháy đơn/kép và dấu lược khớp Pāli từng khoá. Điểm thay đổi: `semantic_fidelity` 9.2→9.3, `vietnamese_clarity` 9.2→9.3, trung bình thô 9.13. Chưa chạy `npm run validate`, `npm test`, `npm run check`, `npm run build`; `technical_integrity` giữ 9.6, không tuyên bố technical gate đã pass.

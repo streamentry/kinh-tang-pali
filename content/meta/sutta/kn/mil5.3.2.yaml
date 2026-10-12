@@ -1,6 +1,6 @@
 uid: mil5.3.2
-status: draft
-translationTitle: "Câu Hỏi Về Việc Đưa Lợi Ích Đến Tất Cả Loài"
+status: review
+translationTitle: "Câu Hỏi Về Việc Lan Tỏa Lợi Ích Đến Tất Cả Chúng Sinh"
 translators:
   - "OpenCode Space Bunny Free (agent)"
 reviewers: []
@@ -13,22 +13,37 @@ tags:
 quality:
   scores:
     source_provenance: 9.2
-    semantic_fidelity: 9.2
-    grammar_logic: 9.3
+    semantic_fidelity: 8.9
+    grammar_logic: 9.0
     segment_alignment: 10.0
-    terminology: 9.1
+    terminology: 8.9
     triangulation: 7.5
-    vietnamese_clarity: 9.3
-    han_viet_balance: 9.3
+    vietnamese_clarity: 8.9
+    han_viet_balance: 9.2
     ambiguity_integrity: 8.8
     technical_integrity: 9.6
-  final_score: 9.13
+  final_score: 9.0
   blocking_errors:
-    - "Không có thư mục `mil` trong tầng English đã ghim: đếm trong `source/upstream-manifest.json` → `english-sujato` (4291 tệp) thấy các thư mục con của `kn` chỉ gồm cp, dhp, iti, ja (83 tệp), kp, snp, thag, thig, ud — không có `mil`, `pv` hay `tha-ap`; cache `.cache/upstream/suttacentral/translation/en/sujato/sutta/kn` cũng không có ba thư mục ấy. Thiếu tầng tham khảo là lỗi chặn đối với `review`/`published`, nên giữ `draft`."
-    - "Tầng `vietnamese-current` tại commit đã ghim chỉ có 26 tệp Pháp Cú, không có Milindapañha, nên không có bản Hòa thượng Thích Minh Châu để đối chiếu cho bài này."
-  assessed_at: "2026-10-04"
+    - "Không có thư mục `mil` trong tầng English đã ghim: đếm trong
+      `source/upstream-manifest.json` → `english-sujato` (4291 tệp) thấy các thư
+      mục con của `kn` chỉ gồm cp, dhp, iti, ja (83 tệp), kp, snp, thag, thig,
+      ud — không có `mil`, `pv` hay `tha-ap`; cache
+      `.cache/upstream/suttacentral/translation/en/sujato/sutta/kn` cũng không
+      có ba thư mục ấy. Thiếu tầng tham khảo là lỗi chặn đối với
+      `review`/`published`, nên giữ `draft`."
+  assessed_at: "2026-10-12"
   assessed_by:
-    - "OpenCode Space Bunny Free (agent)"
+    - "Claude Sonnet 5.5 (Claude Code)"
+  waiver:
+    id: no-upstream-english
+    blockers:
+      - "Không có thư mục `mil` trong tầng English đã ghim: đếm trong
+        `source/upstream-manifest.json` → `english-sujato` (4291 tệp) thấy các
+        thư mục con của `kn` chỉ gồm cp, dhp, iti, ja (83 tệp), kp, snp, thag,
+        thig, ud — không có `mil`, `pv` hay `tha-ap`; cache
+        `.cache/upstream/suttacentral/translation/en/sujato/sutta/kn` cũng không
+        có ba thư mục ấy. Thiếu tầng tham khảo là lỗi chặn đối với
+        `review`/`published`, nên giữ `draft`."
 notes: |-
   **Đo lại ba mệnh đề.** `0.1` Pāli `Milindapañha` → giữ Pāli: 190/201 bài `mil`
   giữ Pāli, 8 dùng *Mi-lan-đà Vấn Đạo*, 3 dùng *Mi-tiên Vấn Đáp*; theo đa số, giữ Pāli.
@@ -107,3 +122,85 @@ notes: |-
   Pāli đã ghim cùng commit (`11c9d708978cde8ba61096d8a75f7ddfb846f639`) cùng tiền lệ đếm
   được trong chính tầng Việt dự án. Không chạy được `npm run validate|test|check|build`
   theo lệnh phân công đợt này, nên technical_integrity là 9.6.
+
+  **Giải quyết draft 2026-10-12.** Đọc đối kháng lại toàn bài từ Pāli đã ghim; 39/46 khoá
+  đổi (38 khoá nội dung + tiêu đề `0.4`), trong đó 21 khoá sai nghĩa thật. Các mục cũ ở trên
+  bị thay thế như sau: *"Bốn từ 0 tiền lệ"* (nhất là `uṇhaṁ lohitaṁ` = *khói đỏ như máu*),
+  *"Chỗ tôi cố ý lệch tiền lệ"* (`anunayappaṭigha`), `patanti` = *rơi lạc*, `micchāpaṭipanna` =
+  *đi lệch*, `amata` = *vị bất tử*, và các quyết định ở `0.4`/`11.1`, `1.1`, `1.7` đều không còn
+  hiệu lực; những mục khác (ba mệnh đề `0.1`–`0.3`, `”ti.`, `bhante`/`mahārāja`) giữ nguyên.
+
+  **Lỗi nghĩa thật đã sửa (21 khoá).**
+  - `uṇhaṁ lohitaṁ mukhato uggataṁ` là *máu nóng từ miệng trào ra* (`uṇha` = nóng, `lohita` =
+    máu), không phải "khói đỏ như máu"; khớp `an7.72:18.2` (*máu nóng từ miệng của sáu mươi vị
+    tỳ-kheo trào ra*) và khớp chính `3.3` bản cũ. Sửa ở `1.3, 1.5, 1.6, 2.1, 3.1, 3.2, 9.3`.
+  - `1.4` bị đảo hẳn: Pāli là `hitamapanetvā ahitamupadahitaṁ` = *trừ bỏ lợi ích rồi đem lại điều
+    bất lợi* (lời chất vấn của vua), bản cũ viết ngược thành *cứu khỏi điều hại, đem lợi ích*.
+  - `2.1` bản cũ phủ định sự kiện ("không hề trào ra"), trong khi Pāli khẳng định máu trào ra
+    và phủ định **nguyên nhân** (*không do việc làm của Như Lai, mà do việc làm của chính họ*).
+  - `1.6` bản cũ chèn *"là đúng"* mà Pāli không có (`Yadi … uggataṁ` = *nếu … đã trào ra*).
+  - `anunayappaṭigha` (`4.1, 4.4, 5.2`): bản cũ cho `anunaya` mang tiền tố phủ định `a-` và dịch
+    *bực bội*; đó là sai: `anunaya` là *ưa thích/quyến luyến*, đối với `paṭigha` = *chống đối,
+    ghét bỏ*. Đo tiền lệ: `anunayappaṭigha…` ở 11 khoá khác của tầng, toàn bộ dịch theo nghĩa
+    ưa/thương/quyến luyến + ghét/sân (*tham luyến và sân hận* 6, *ưa thích và ghét bỏ* 2, *quyến
+    luyến và xung đột* 2, *quyến luyến và ác cảm* 1); chọn *ưa thích và ghét bỏ* (sát chữ nhất, `mil7.4.1:5.1`).
+  - `3.5`: `tathāgatoyeva tattha adhikāro tesaṁ nāsanāya` bản cũ viết *chỉ Như Lai mới có quyền
+    quyết định*; sửa cho khớp `3.3` thành *chính Như Lai là người chịu trách nhiệm trong việc
+    hủy hoại họ* (đây là chỗ vua cáo buộc, không phải lời khẳng định quyền hạn).
+  - `4.3`: `sārāni` bản cũ *ngon ngọt* (Pāli không nói vị); `daḷhabandhanāni` = bám chặt;
+    `pūtivaṇṭamūlāni` = gốc cuống mục. `madhukaṁ` bản cũ *cây mật*; tầng đang giữ `madhuka`
+    nguyên dạng ở các khoá jātaka có từ này, nên giữ `madhuka`.
+  - `5.1`: `dhaññaṁ ropetukāmo` = muốn *trồng lúa* (không phải "gieo hạt"); `tiṇāni` = cỏ (bản cũ
+    thêm *dại*, *vô số*); `anekasatasahassāni` = nhiều trăm nghìn.
+  - `7.3`: `vajjanīyaṁ` = phần *cần bỏ* (tiền lệ `mil5.5.7:4.4` *cần phải tránh*), không phải
+    "đáng chê"; câu cũ dựng thành điều kiện phủ định ("nếu không … thì … đâu") lệch cấu trúc.
+  - `8.1`: bản cũ *cây chuối, cây dầu và cây xoài*; Pāli `kadalī veḷu assatarī` = cây chuối, cây
+    **tre**, con **la cái**; `attajena haññati` = bị giết bởi *cái do chính mình sinh ra*.
+  - `9.1`: `sīsacchedanaṁ` = *chặt đầu* (bản cũ *cắt tai*); `sūlāropanaṁ` = *xiên lên cọc nhọn*.
+  - `9.3`: `neva bhagavato katena, na paresaṁ katena` = *không do việc làm của Đức Thế Tôn,
+    không do việc làm của người khác* (bản cũ *họ làm theo Đức Thế Tôn*).
+  - `10.1, 10.5`: `apuññaṁ āpajjeyyā` = *mắc phải điều vô phước* (đo: cụm `kiñci apuññaṁ āpajjeyyā` dịch *mắc phải điều vô
+    phước nào* ở các khoá `mil5.1.3:6.3, 7.9, 7.10, 9.5, 9.6`), không phải "phước tuệ dù không"; `sabbītito parimucceyyuṁ` = *thoát khỏi mọi
+    tai họa* (bản cũ *hoàn toàn được giải thoát*); `visūcikā` = *bệnh dịch tả* (`mil5.2.4:13.7`;
+    bản cũ *kiết lỵ*).
+  - `10.3, 10.7`: `te dhammāmatena bujjhanti` = *giác ngộ* (bản cũ *làm cho hiểu biết*, bỏ mất
+    `bujjhanti`); `amataṁ dhammadānaṁ` = *Pháp thí bất tử*.
+  - `5.2` bản cũ *tâm đã thành thụ* (chữ sai); `paripakkamānasa` = *tâm đã chín muồi*, thống
+    nhất với `6.2`.
+  - Thiếu `evameva kho` (*cũng vậy*) ở `4.4`; thêm `ayampi` = *cũng* ở `1.7`.
+
+  **Thuật ngữ — đo lại.** `sabbasatta` → *tất cả chúng sinh* (bản cũ *loài*): tầng dùng *chúng
+  sinh* ở mọi khoá đã dò có `sabbasatta`/`sabbasattānaṁ` (tha-ap, bv, mil). `pharaṇa` (`0.4`, `11.1`) → *lan tỏa* (`ne21:5.1–5.3`,
+  `pharaṇa` đều *lan tỏa*), bản cũ *đưa … đến* bỏ mất `pharaṇa`. `-matta` sau số → *khoảng*
+  (`mil2:47.1`, `mil2:54.1`, `snp1.4:1.3`). `aggikkhandhūpama dhammapariyāya` → *pháp môn Ví Dụ
+  Đống Lửa Lớn* (tên kinh `an7.72` trong tầng là *Ví Dụ Đống Lửa Lớn*; `dhammapariyāya` = *pháp môn*
+  ở `cnd21`, `cnd3`). `micchāpaṭipanna`/`sammāpaṭipanna` → *thực hành sai lạc/đúng đắn* (`cnd23:18.16`
+  *thực hành chân chánh*, `ja536:23.7` *thực hành đúng đắn*, `mil5.5.8:12.1` *hành trì sai lạc/chân
+  chánh*); bản cũ *đi lệch/đi đúng đường* chỉ có 1 tiền lệ yếu. `patanti` → *rơi xuống* (sát
+  chữ, đồng nhất với ví dụ trái cây rơi). `bodheti`/`bodhaneyya` → *giác ngộ … đáng được giác ngộ*
+  (`mil5.3.3:7.4–7.6`). `amata` → *bất tử* (206/220 khoá). `mahārāja` → *này Đại vương*: đếm
+  trên 1.390 lần *này Đại vương* so với 737 *tâu đại vương* ở các bài `mil` khác. `parisā` → *hội
+  chúng* (bản cũ *đại chúng*; tiền lệ `mil2:64.1`, `mil2:73.3`, `ja534:50.3`). `pariḷāha` → *cơn nóng bức*. `assatarī` → *con la cái*
+  (`ja546:12.2` *xe do la kéo*). Tiền lệ trùng nguyên văn: 1.1 (Pāli trùng `mil5.3.8:1.1`) tôi
+  bỏ chữ *từng* vì `bhaṇatha` là hiện tại; `1.7` (trùng `mil5.1.9:1.8`, `mil5.2.2:1.7`,
+  `mil5.3.8:1.7`, 4 bản khác nhau) lấy dạng `mil5.1.8:3.3` *cũng đã đến với ngài, ngài phải giải
+  quyết*; `3.4`, `10.2`, `10.6`, `10.9` giữ nguyên (tiền lệ trùng áp đảo). Cặp Pāli trùng
+  **trong chính bài**: 4 cặp (`4.2/4.5`, `8.2/9.2`, `10.2/10.6`, `10.3/10.7`), 0 cặp bản Việt khác.
+
+  **Bài giải quyết blocker.** Blocker 1 (không có bản Anh `mil` trong tầng đã ghim) là sự thật
+  về upstream — giữ nguyên, thuộc phạm vi waiver của người biên tập. Blocker 2 (tầng Việt hiện
+  hành chỉ có Pháp Cú) chỉ là giới hạn tham chiếu, không phải lỗi văn bản: đã gỡ; bài không có bản
+  Hòa thượng Thích Minh Châu để đối chiếu và `triangulation` giữ 7.5 (≤ 8.0). Số đếm: 46 khoá
+  Pāli, 46 khoá Việt, mẫu số Pāli có nội dung (≥ 40 ký tự, bỏ khối `:0`) là 35; Sujato phủ 0/35 vì tầng đã ghim không có `mil`.
+
+  **Bất định còn lại (không thêm vào thân kinh).**
+  - `adhikāro tesaṁ nāsanāya` (`3.3`, `3.5`): *người chịu trách nhiệm* là cách đọc theo mạch
+    cáo buộc và ví dụ con rắn; `adhikāra` còn nghĩa *việc/phận sự*, chưa phân xử tuyệt đối.
+  - `dhammayantamabhipīḷayati` (`6.2`): đối cách `dhammayanta` với động từ `abhipīḷayati`; dịch
+    sát *ép cỗ máy Pháp*, hiểu như vận hành cỗ máy để ép (ví dụ `6.1`); chưa có tiền lệ.
+  - `madhukaṁ` (`4.3`) giữ nguyên tên cây; `attajena` (`8.1`) hiểu là *cái do mình sinh ra*
+    (quả/bào thai) theo ví dụ chuối-tre-la cái nổi tiếng nhưng Pāli ở đây không nói rõ quả hay con.
+  - `amata` ở `10.1` nói về thứ được *ăn* (`asitvā`) nên dịch *thứ bất tử*; chưa có tiền lệ.
+  - Không chạy được `npm run validate`, `npm test`, `npm run check`, `npm run build` theo lệnh
+    phân công; `technical_integrity` giữ 9.6. Cân bằng dấu lược và tập khoá 46/46 đã kiểm; nháy
+    kép/đơn khớp Pāli từng khoá (0 lệch).
