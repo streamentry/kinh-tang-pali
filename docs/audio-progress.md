@@ -532,3 +532,9 @@ Nhật ký append-only. Registry `content/audio/progress.json` được đối s
 - MN34: 6 chunks, 539.87s, MP3 SHA-256 `02ead8ad9788f6839fb24e59a5e2794eee80cb5b9676a1918547005e006fbc62`, 10,798,560 bytes; scripture starts 152.79s. R2 object verified; local player HTML and exact URL present, public range verified.
 - MN35: 17 chunks, 1,624.08s, MP3 SHA-256 `9f4acace62b89f0bfe8310adf685fc0dd5e31c821efd4738c7cb920265c4f159`, 32,482,560 bytes; scripture starts 174.79s. R2 object verified; local player HTML and exact URL present, public range verified.
 - Combined duration 3,301.89s (~55m02s). All use approved profile `vi-charon-mn1-v1` and remain review-pending. The Playwright launcher was blocked by the local package-age guard; browser button interaction was not claimed. User will check listening and playback controls on the deployed pages.
+
+### Batch mn-024 local release gates
+
+- Rebased on current main `e1613f80042e3f48ccc3301640ca44d7d4dd753c`; audio registry check reports 186 catalog UIDs, 0 errors. `npm test`: 410 passed, 1 skipped, 0 failed. `npm run check`: 0 errors and 0 warnings (5 existing hints). Direct validator passed with 2,241 advisory coverage warnings; quality-history check covered 5,447 entries with 0 errors.
+- Full `npm run build` passed: 6,146 static pages built; Pagefind indexed 6,137 pages and 458,033 words. The generated MN33/MN34/MN35 pages each contain an audio element, pending-review label, and exact registered R2 URL.
+- R2 range checks passed with 206 `audio/mpeg` for all three. The local Player HTML is present. Interactive browser play/seek was not run because the available Playwright launcher is blocked by the local package-age guard; no browser-control success is claimed. Manual listening remains the editor's task.
