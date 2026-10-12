@@ -16,13 +16,13 @@ quality:
     semantic_fidelity: 8.7
     grammar_logic: 9.0
     segment_alignment: 10.0
-    terminology: 9.0
+    terminology: 9.2
     triangulation: 6.6
     vietnamese_clarity: 8.8
     han_viet_balance: 9.3
     ambiguity_integrity: 8.8
     technical_integrity: 9.6
-  final_score: 8.930
+  final_score: 8.950
   blocking_errors:
     - "Thiếu tầng tham khảo English Sujato tại commit đã ghim
       11c9d708978cde8ba61096d8a75f7ddfb846f639: đếm trực tiếp trên
@@ -31,7 +31,7 @@ quality:
       ja534) và không có tệp nào chứa khoá của bài này; SuttaCentral không phát
       hành bản Anh nào khác phủ bài này tại commit đã ghim. Bài chỉ đối chiếu
       được với Pāli root một mình."
-  assessed_at: "2026-10-12"
+  assessed_at: "2026-10-13"
   assessed_by:
     - "Claude Sonnet 5.5 (Claude Code)"
   waiver:
@@ -46,6 +46,20 @@ quality:
         chiếu được với Pāli root một mình."
 notes: |-
   
+  Lượt cải thiện 2026-10-13: đọc đối kháng lại 17 khoá, đo tiền lệ toàn tầng. Đổi 1/17 khoá: 3.1 "được họ
+  phái đi" → "được họ phái đến". Lý do: Pāli Tesāhaṁ pahito dūto trùng nguyên văn ja547:324.1, bản Việt ở
+  đó là "Tôi là sứ giả được họ phái đến" (1 cặp trùng ngoài bài, trước lượt này lệch một chữ; ja515 cũng
+  dùng "sai đến" cho pahito dūto, 5/5 khoá). Điểm đổi: terminology 9.0 → 9.2 (thống nhất tiền lệ); các
+  tiêu chí khác giữ nguyên. final_score 8,930 → 8,950. Đã kiểm lại các lựa chọn còn lại và giữ: "bếp lớn"
+  (mahānase, ja534:36.2 cùng cách dịch), "quý giá" (paccagghaṁ, pv15:16.2 và pv35:5.4), "cung kính"
+  (apacitiṁ karoti, mil5.5.10:9.1), "bởi tám mươi ngàn" ở 1.3 (khác tha-ap397:11.1 "Được tám mươi
+  ngàn" vì chủ ngữ và cú pháp câu khác, đã ghi ở mục trên), tiêu đề 0.2–0.4 và 4.1 theo quy ước ja2xx
+  (Bộ Ba Bài Kinh 21 khoá, Phẩm Bình Vò 9 khoá, Kinh X thứ n). Hai bất định (rañño ở 3.2; chủ sở hữu cái
+  mũi ở 3.4) vẫn chưa phân xử được: không có bản Anh, không có chú giải trong kho, nên semantic_fidelity,
+  ambiguity_integrity và triangulation (6.6, không có bản Anh độc lập) giữ nguyên. Blocker còn lại: chỉ
+  thiếu bản Anh upstream (giữ nguyên). technical_integrity 9.6; chưa chạy npm run validate, npm test,
+  npm run check, npm run build trong lượt này.
+
   GIẢI QUYẾT DRAFT 2026-10-12 (thay thế các mục cũ nói về cách dịch ở trên khi lệch với bản JSON hiện hành).
 
   BLOCKER ĐÃ GỠ. Blocker thứ hai cũ ("coverage tầng Anh 0 trên 0 khoá, dưới ngưỡng 0.8") là tự đặt và

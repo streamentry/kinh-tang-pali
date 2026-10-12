@@ -1,6 +1,6 @@
 uid: ja110
 status: review
-translationTitle: "Kinh Hỏi Han Về Sự Buông Xả"
+translationTitle: "Kinh Câu Hỏi Về Kẻ Gom Hết Tất Cả"
 translators:
   - "OpenCode Space Bunny Free (agent)"
 reviewers: []
@@ -12,16 +12,16 @@ tags:
 quality:
   scores:
     source_provenance: 9.5
-    semantic_fidelity: 8.9
-    grammar_logic: 9.0
+    semantic_fidelity: 8.0
+    grammar_logic: 8.4
     segment_alignment: 10.0
-    terminology: 9.0
+    terminology: 8.8
     triangulation: 6.6
-    vietnamese_clarity: 9.0
+    vietnamese_clarity: 8.6
     han_viet_balance: 9.2
     ambiguity_integrity: 8.5
     technical_integrity: 9.6
-  final_score: 8.93
+  final_score: 8.72
   blocking_errors:
     - "Không có tầng tham khảo English Sujato tại commit đã ghim: đã duyệt
       .cache/upstream/suttacentral/translation/en/sujato/sutta/kn/ và không có
@@ -29,9 +29,9 @@ quality:
       ghim chỉ có Pháp Cú nên Khuddaka Nikāya cũng không có bản Hòa thượng Thích
       Minh Châu; bài dịch chỉ từ Pāli, chưa đối chiếu được tầng tham khảo nào
       nên giữ draft."
-  assessed_at: "2026-10-02"
+  assessed_at: "2026-10-13"
   assessed_by:
-    - "OpenCode Space Bunny Free (agent)"
+    - "Claude Sonnet 5.5 (Claude Code)"
   waiver:
     id: no-upstream-english
     blockers:
@@ -55,3 +55,12 @@ notes: |-
 
   Kiểm thủ công trên TOÀN BỘ 15 khoá (kiểm() rỗng vì không khoá Pāli nào từ 40 ký tự): đủ khoá, đúng ID, không rỗng, NFC, không trùng nguyên văn, dấu lược bằng Pāli (cả hai phía 0), nháy kép cân (mở ở 1.1, đóng ở 1.4), không `(…)` dở. save_vi hai lần, idempotent.
   Không chạy npm run validate|test|check|build (đợt này cấm), nên technical_integrity = 9.6.
+
+
+  Lượt cải thiện 2026-10-13 (đọc đối kháng lại cả 15 khoá; đổi 8 khoá: 0.4, 1.1, 1.2, 1.3, 1.4, 2.1, 4.2, 4.3). Các nhận định ở mục trên về `kaṅgu` là "tay", `pavāyati` là "đi ăn xin", `dhuttī`/`mahallikā` là "kẻ lớn lao" và cách tách tên ở uddāna được thay bằng nhận định dưới đây, vì đã kiểm lại trên Pāli toàn tầng:
+  · 1.2 (accuracy fix): bản cũ "vẫn còn đi khất thực với tay sạch" là sai từ vựng. `kaṅgu` là hạt kê (cnd23:243.3 liệt kê cùng sāli, vīhi, yava; tầng đã dịch "kê"), không phải "tay". `pavāyati` ở toàn tầng Pāli chỉ có nghĩa thổi/lan toả (mùi hương, danh tiếng), không có nghĩa đi khất thực. Nay dịch sát: "hạt kê sạch bị thổi bay". Điểm semantic_fidelity 8.9 → 8.0 vì bản trước đã chấm cao cho một khoá sai, và bản nay chỉ sát chữ chứ chưa phân xử được ý.
+  · 1.1 (accuracy fix): `sabbasaṁhārako natthi` là "không có kẻ gom hết tất cả"; `saṁhāraka` có tiền lệ ở sn15.10:2.2 / iti24:2.1 (dịch "người gom nhặt lại"). Bản cũ "đã buông xả hết" không có căn cứ trong Pāli. Tiêu đề 0.4 và 2.1 (và translationTitle) đổi theo: "Kinh Câu Hỏi Về Kẻ Gom Hết Tất Cả", cùng khuôn với ja111 "Kinh Câu Hỏi Về Con Lừa".
+  · 1.3–1.4 (accuracy fix): bản cũ dịch `Alikaṁ bhāyatiyaṁ dhuttī, saccamāha mahallikā` thành ba danh từ rồi "ta nói thật": sai ở ba chỗ. `bhāyati` là động từ "sợ" (cùng gốc `bhāyasī` ở ja105:1.3 đã dịch "sợ"); `āha` là ngôi thứ ba ("đã nói"), không phải "ta nói"; `mahallikā` là bà lão (mn28:7.3 mahallikāya = lớn/lâu dài; sn3.22 `mahallikā` = già; mil2:49.2 `mahallikā khohaṁ` = "ta đã già"), không phải "kẻ lớn lao". Nay: "Người đàn bà gian xảo này sợ điều dối trá, / bà lão đã nói sự thật." Điểm grammar_logic 9.0 → 8.4, terminology 9.0 → 8.8, vietnamese_clarity 9.0 → 8.6, ambiguity_integrity giữ 8.5 vì bất định dưới đây vẫn còn.
+  · 4.2–4.3 (terminology fix): bỏ chỗ bản cũ đổi hình thức tên: `nāgasirivhayano` thành "Nāgasirivhāyana" (thêm dấu dài không có trong Pāli), và tách `Sukhakañca vata` thành "Sukha, Kaṅca, Vāta" (không có căn cứ; `vāta` không phải `vata`). Cách đọc uddāna đối chiếu với từ khoá kệ đầu của từng bài trong phẩm: Parosata (ja101), tāyitā (ja102:1.4), verī (ja103), cakka (ja104), nāga (ja105), `Sukhaṁ vata` (ja106:1.1), sippaka (ja107:1.1), Bāhiya (ja108), Kuṇḍapūva (ja109), mahallikā (ja110:1.4); nay giữ nguyên dạng Pāli của từng tên và dịch `atha` thành "rồi".
+  Bất định còn lại (không phân xử được vì tầng này không có chú giải kể sự tích, không có bản Anh hay Việt hiện hành): (1) `suddhaṁ kaṅgu pavāyati`: `kaṅgu` thiếu dạng đối cách rõ, `suddhaṁ` có thể là tính từ hay trạng từ, và chủ ngữ của `pavāyati` có thể là hạt kê hoặc một chủ ngữ ngầm; (2) `bhāyatiyaṁ` được tách `bhāyati` + `iyaṁ` (đại từ cái, đi với `dhuttī`), cách tách khác như `bhāyati` + `yaṁ` không loại trừ được; (3) `dhuttī` dịch "gian xảo" nhưng tầng đã dịch `dhuttā` là "ăn chơi"/"cờ bạc" (dn31:12.2, dn17:1.6.13) và `adhuttī` là "không tiêu phá" (an8.46:14.1); nghĩa thật ở đây chưa chốt; (4) câu đố "kẻ gom hết tất cả" có đáp án gì thì kệ không cho thấy. triangulation giữ 6.6, các điểm còn lại giữ nguyên.
+  Không chạy `npm run validate`, `npm test`, `npm run check`, `npm run build` ở lượt này nên technical_integrity giữ 9.6.

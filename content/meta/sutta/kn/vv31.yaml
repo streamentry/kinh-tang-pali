@@ -14,16 +14,16 @@ tags:
 quality:
   scores:
     source_provenance: 9.4
-    semantic_fidelity: 8.7
-    grammar_logic: 8.8
+    semantic_fidelity: 8.8
+    grammar_logic: 9.0
     segment_alignment: 9.6
-    terminology: 8.8
+    terminology: 9.0
     triangulation: 7.5
     vietnamese_clarity: 9.0
     han_viet_balance: 9.2
     ambiguity_integrity: 8.8
     technical_integrity: 9.6
-  final_score: 8.94
+  final_score: 8.99
   blocking_errors:
     - "Không có tầng tham khảo tiếng Anh tại commit đã ghim:
       `source/upstream-manifest.json` (commit 11c9d708, tầng `english-sujato`)
@@ -44,7 +44,7 @@ quality:
       0** khoá Pāli đủ 40 ký tự — khuôn kệ của `vv` là kệ ngắn, mỗi vế dưới 40
       ký tự — nên coverage không đo được, và ngưỡng 0.8 không phải nguyên nhân
       của blocker ở đây; nguyên nhân là tệp Anh không tồn tại."
-  assessed_at: "2026-10-11"
+  assessed_at: "2026-10-13"
   assessed_by:
     - "Claude Sonnet 5.5 (Claude Code)"
   waiver:
@@ -207,3 +207,11 @@ notes: |-
   (dạng sai khiến, *làm cho hoan hỷ*) vẫn giữ *vui chơi* theo `vv11:2.4`. Tầng tham khảo tiếng
   Anh vẫn vắng (`triangulation` 7.5, blocker giữ nguyên). Bản sửa chưa có người thẩm định thứ hai.
   Cổng kỹ thuật vẫn CHƯA chạy: `npm run validate`, `npm test`, `npm run check`, `npm run build`.
+
+  Lượt cải thiện 2026-10-13: đọc đối kháng lại 45 khoá Pāli↔Việt sau kiểm toán 2026-10-11; không còn lỗi sai nghĩa nào, chỉ sửa 4 khoá (3 khoá thuật ngữ/ngữ pháp, 1 khoá dấu câu), mỗi chỗ đo tiền lệ bằng số đếm trên tầng `kn`.
+  · `7.1` `anudhammacārinī` — cũ *sống thuận theo chánh pháp* (thêm "chánh" không có trong Pāli); nay *sống thuận theo pháp*, khớp 2/2 tiền lệ cùng chữ (`thag5.12:4.2`, `ne21:12.4`). Thuật ngữ: terminology 8.8 → 9.0.
+  · `4.3` `manāpacārinī` — cũ *cư xử làm đẹp lòng chồng*; `manāpa` ở tầng `kn` dịch *vừa ý* ở đa số (các dạng `manāpikā`/`manāpā`/`manāpaṁ`/`manāpike` ở tầng `kn` đa số là *vừa ý*, *khả ái*, *dễ chịu*, không phải *đẹp lòng*), còn *làm đẹp lòng* là cách dịch của `manorama` (6+ lần, và ngay `9.1`). Nay *cư xử vừa ý chồng*, để `4.2` (*làm vừa lòng*, `abhirādheti`), `4.3` (`manāpa`) và `9.1` (`manorama`) không còn trùng một cụm. Terminology cùng mục.
+  · `7.4` `kusalaṁ sukhudrayaṁ` — cũ *sau khi thọ trì điều lành đem lại quả an lạc* làm `kusalaṁ` thành đối tượng thứ hai, rời khỏi `7.3` `ariyaṁ … upetaṁ`. Cùng khuôn kệ ở `pv36:77.5-6` và `pv36:82.5-6` (`Imañca ariyaṁ aṭṭhaṅgavarenupetaṁ … kusalaṁ sukhudrayaṁ`) đọc `kusalaṁ sukhudrayaṁ` là đồng vị của điều thánh thiện đã nêu ở dòng trên; `sukhudraya` dịch *đưa đến an lạc về sau* ở 4/4 tiền lệ (`iti22:5.2`, `iti60:3.2`, `pv36:77.6`, `pv36:82.6`; `ps1.7`/`tha-ap450` dùng *dẫn đến an lạc*). Nay *sau khi thọ trì, là điều lành đưa đến an lạc về sau*. grammar_logic 8.8 → 9.0, semantic_fidelity 8.7 → 8.8.
+  · `8.3` — *Khi* → *khi* sau dấu `;` của `8.2` (cùng `ja446:6.3`, `pv30:11.3`, `pv36:23.3`: *khi thân hoại, ở đời sau,*); chỉ là dấu câu, không đổi điểm.
+  Số đo: 45/45 khoá, tập khoá và thứ tự khớp Pāli; nháy `“”` khớp Pāli từng khoá (0 lệch / 45); không `…` ở cả hai phía; 0 cặp Pāli trùng nguyên văn trong bài nên phép đối chiếu nội bộ chạy rỗng; chỉ ba khoá tiêu đề (`0.1`, `0.4`, `10.1`) còn chữ Pāli theo tên riêng. Số Pāli: `6.1` mười bốn / mười lăm, `6.2` thứ tám, `7.1`/`7.3` tám chi phần — khớp `cātuddasiṁ`, `pañcadasiṁ`, `aṭṭhamī`, `aṭṭhaṅga`.
+  Không đổi dù còn nghi: `6.3` `pāṭihāriyapakkha` (*kỳ nửa tháng thần biến*, khớp `vv15`/`vv19`/`vv25` (kỳ nửa tháng) và `vv23`/`vv24` (nửa tháng), còn `vv22`/`vv37`/`vv52` và các bài `ja`/`pv` dùng *tuần lễ*; chưa phân xử được kỳ nào nên bất định giữ nguyên, ambiguity_integrity 8.8 không đổi); `7.5` `kalyāṇī` (*tốt lành*, hai cách đọc còn mở, 0 tiền lệ); `9.3` `sayaṁpabhā` (*tự tỏa sáng* là đúng, còn `vv22:9.6`/`10.4`/`11.4` dịch *một mình* — lệch ngoài phạm vi bài này). Tầng Anh vẫn vắng nên triangulation giữ 7.5 và blocker giữ nguyên. Cổng kỹ thuật vẫn CHƯA chạy (`npm run validate`, `npm test`, `npm run check`, `npm run build`); technical_integrity giữ 9.6.

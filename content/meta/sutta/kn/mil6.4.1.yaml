@@ -15,15 +15,15 @@ quality:
   scores:
     source_provenance: 9.5
     semantic_fidelity: 8.8
-    grammar_logic: 9.0
-    segment_alignment: 10.0
-    terminology: 8.7
+    grammar_logic: 9.1
+    segment_alignment: 9.8
+    terminology: 9.0
     triangulation: 7.0
-    vietnamese_clarity: 8.9
+    vietnamese_clarity: 9.0
     han_viet_balance: 9.2
-    ambiguity_integrity: 8.6
+    ambiguity_integrity: 8.7
     technical_integrity: 9.6
-  final_score: 8.93
+  final_score: 8.97
   blocking_errors:
     - "noEnglishEditionUpstream: Không có tầng tham khảo tiếng Anh ở mức segment
       tại commit đã ghim. Tra `source/upstream-manifest.json` (không suy từ tên
@@ -41,7 +41,7 @@ quality:
       giữ draft. Đây là giới hạn của upstream, không phải lỗi dịch, và
       triangulation được giữ ở 7.0 (không quá 8.0) chứ không nâng để né
       blocker."
-  assessed_at: "2026-10-11"
+  assessed_at: "2026-10-13"
   assessed_by:
     - "Claude Sonnet 5.5 (Claude Code)"
   waiver:
@@ -125,3 +125,21 @@ notes: |-
   18. `94.1` `nibbutosmi` → "tôi đã được dịu mát": 0 tiền lệ; `paramavicittena` → "vô cùng tuyệt diệu".
 
   **technical_integrity = 9,6:** lát này cấm chạy cổng, nên không tuyên bố technical gate pass. Bốn lệnh còn lại do người điều phối chạy tập trung: `npm run validate` · `npm test` · `npm run check` · `npm run build`. `final_score` là trung bình số học thô của đúng 10 tiêu chí.
+
+  **Lượt cải thiện 2026-10-13.** Đọc đối kháng lại cả 347 cặp Pāli↔Việt, đo lại tiền lệ bằng số đếm trên toàn tầng (mọi số dưới đây loại trừ chính bài này). Đổi 35/347 khoá; không đổi tập khoá, thứ tự khoá, nháy (0/188 lệch), dấu lược (`13.8` vẫn một `…`). Phần này thay thế các câu cũ ở trên khi hai bên mâu thuẫn.
+  1. *Ranh khoá (accuracy/alignment fix).* Sáu cặp khoá bản trước để nội dung của khoá này sang khoá kia: `32.3`/`32.4` (`laddhuṁ` ở `32.3`, `vāyametha` ở `32.4`; bản cũ dồn "hãy tinh tấn đạt được" vào `32.3`), `75.1`/`75.2` (`lokanāthassa` / `disvā dhammapuraṁ varaṁ`), `82.1`/`82.2` (`gajarājassa` / `padaṁ disvāna mānusā`), `83.1`/`83.2` (`buddhanāgassa` / `padaṁ disvā vibhāvino`), `88.1`/`88.2` (`paṅkaṁ` / `mahiṁ`), `90.1`/`90.2` (`dhammāmatagataṁ` / `sadevakamimaṁ mahiṁ`). Đã đưa từng thành phần về đúng khoá của Pāli. Riêng `90.1`/`90.2` giữ được thứ tự khoá nhưng phải diễn đạt lại cấu trúc ("thấy sự thấm đẫm bất tử của Pháp, nơi thế gian này cùng chư thiên"), vì tiếng Việt không đặt được phân từ trước danh từ; đây là chỗ còn gượng, nên `segment_alignment` 10,0 → 9,8 (điểm cũ đã chấm quá tay khi sáu cặp trên còn lệch).
+  2. *Phạm vi phủ định (grammar fix).* `5.2` "không có mọi lỗi" (`sabbadosavirahitaṁ`, "lìa mọi lỗi") mơ hồ về phạm vi phủ định → "không có bất cứ lỗi nào". `24.4`, `41.4` `ratanaṁ vo piḷandhathā`: bỏ "ấy" (Pāli không có chỉ định từ; `26.4` `etaṁ` vẫn giữ "ấy").
+  3. *Thuật ngữ lệch tiền lệ đã đo (terminology fix).*
+  - `ariyasāvako` (940 khoá): "Thánh đệ tử" 506, "đệ tử Thánh" 214, "đệ tử bậc Thánh" 75; trong `mil` 7/8 "Thánh đệ tử". `27.2`, `31.2` "vị đệ tử bậc Thánh" → "vị Thánh đệ tử".
+  - `yathābhūtaṁ pajānāti` (364 khoá): "biết rõ như thật" 150, "biết đúng như thật" 72, "như thật biết" 91, "biết như thật" chỉ 6. `27.2` (7 lần) → "biết rõ như thật".
+  - Chuỗi sợ hãi ở `33.3` (khớp chuỗi `an7.57:8`, `an5.34:5`, `ps3.10`, `cnd9:23.7`): `acchambhī` (16 khoá) "không run sợ" 13, "không khiếp sợ" 0; `acchambhito` ở `mil5.1.2:7.5` cũng "không run sợ"; `anutrāsī` (21) "không hoảng sợ" 17, "không hoảng hốt" 3; `abhīru` (3) "không nhút nhát" 2; `amaṅkubhūta` (16) "không e ngại" 9, "không bối rối" 2, "không chán nản" 0; `vigatalomahaṁsa` (23) "sởn tóc gáy" 15, "dựng tóc gáy" 0. Đổi `33.3` thành "không e ngại, không nhút nhát, không run sợ, không hoảng sợ, không còn sởn tóc gáy"; `34.1`, `34.2`, `39.3` "không khiếp sợ" → "không run sợ". Câu ở `33.3` ở trên (mục "Lỗi bản nháp" số 4) nói thống nhất "không khiếp sợ" nay thay bằng "không run sợ".
+  - `khīṇāsavo` (154 khoá): "đã đoạn tận các lậu hoặc" 38, "đã đoạn tận lậu hoặc" 5, "đã diệt lậu hoặc" 1. `29.4` → "bậc đã đoạn tận các lậu hoặc".
+  - `lokanātha` (56 khoá): "bảo hộ thế gian" 31, "lãnh đạo thế gian" 17, "Đạo Sư" 1 (`Đạo Sư` thuộc `satthā`, dễ lẫn). `75.1` "bậc Đạo Sư thế gian" → "bậc Bảo Hộ thế gian".
+  - `pāramiṁ gata*` (42 khoá): "bờ bên kia" 19 (kèm "đến bờ" 6 khoá nữa), dạng `pāramiṁ gato` chỉ một khoá dùng "tận cùng" (`tha-ap403:11.2`, `abhiññāpāramiṁ gato`); `iddhiyā pāramiṁ gatā` 7/7 khoá "đã đạt đến bờ bên kia về thần thông"; `tha-ap3:174.3` `paññāya pāramiṁ pattā` "bờ bên kia về trí tuệ". Đổi sang "đã đạt đến bờ bên kia về …" ở `45.1`, `58.2`, `58.3`, `59.1`, `60.1`, `62.1`, `64.1` và "đã đi đến bờ bên kia về sức mạnh chư Phật" ở `5.3`. Giữ "đã đạt đến chỗ tận cùng" cho dạng `pāramippatta*` (61 khoá: "viên mãn" 29, "cứu cánh" 19, "tận cùng" 10, rất lẫn) ở `5.3` (`guṇapāramippatto`), `72.1`, và `56.1` (`Abhiññāpāramippattā`, 4/4 nguyên văn). Câu ở mục "Thuật ngữ" nói `pāramiṁ gata` → "tận cùng" nay thay bằng cách này; số "tận cùng 12 khoá / bờ bên kia 4 khoá" ở trên là số đo cũ, đo lại cho kết quả khác.
+  - `tagara`: đã có tiền lệ "già la" (`dhp54`, `dhp55`, cùng Pāli với `10.2`, `11.1`, `12.2` của bài này); `29.3` bản cũ giữ "tagara" (ghi "0 tiền lệ") → "già la" cho thống nhất. Ghi chú ở mục bất định số 9 (tên hoa giữ Pāli) vì vậy chỉ còn đúng cho `nāga`, `punnāga`, `sāla`, `salaḷa`, `campaka`, `yūthikā`, `atimuttaka`, `pāṭala`, `tālīsaka`. Cũng sửa một câu cũ: `uppala` → "sen xanh" ở `29.3` KHÔNG theo `dhp55` (`dhp55` và `11.2` dùng "hoa sen"); "sen xanh" là cách dịch phổ biến của `uppala` trên toàn tầng (143 khoá có `uppala`: "sen xanh" 64, "hoa sen" 37), `11.2` giữ "hoa sen" vì dùng lại nguyên văn `dhp55`.
+  - `vikirati vidhamati viddhaṁsati` ở `25.3`, `25.4`, `25.7`: cùng bộ ba Pāli nhưng bản cũ dịch hai cách ("tiêu tan, hủy hoại" và "trôi đi, tan mất"); `mil6.1.5:10.2` (cùng ví dụ nước trên lá sen) dùng "tản mát, tan biến, không đọng lại, không dính vào". Thống nhất cả ba khoá: "tản ra, tan biến, tiêu mất, không đọng lại, không dính vào".
+  - `19.1` `Dhammosadhaṁ pivitvāna`: dùng lại nguyên văn `tha-ap8:55.1` "Sau khi uống thuốc Pháp," (bản cũ "Uống thuốc của Pháp rồi," vốn nằm trong số cặp Pāli trùng mà bản Việt khác nhưng không có lý do ghi lại).
+  4. *Bất định đã giải quyết một phần.* Mục bất định số 2 (`15.6` `aññāpekkhā`): trong toàn Pāli root từ này chỉ còn xuất hiện ở `dn16:5.25.4` (`aññāpekkhova pucchissati, no vihesāpekkho`, Sujato "looking to understand, not to trouble me"), đối lập với `vihesāpekkha`; vậy `añña` là "hiểu biết/trí", không phải "người khác". Cách đọc "chờ đợi người khác" bị loại; `15.6` giữ "mong cầu chánh trí". Phần còn bất định là chỗ `aññā` ở đây hẹp (trí giải thoát) hay rộng (hiểu biết); không phân xử được từ bài này.
+  5. *Bất định mới có thêm manh mối nhưng vẫn không phân xử.* `13.7` `salāṭuka`: ngoài bài này chỉ còn trong `beluvasalāṭuka` (`sn6.10:2.3`, `an10.89:4.3`, `snp3.10:4.3`), nơi bản Việt hiện hành dịch "còn xanh" / "non" ⇒ có thể là quả non, nhưng `dovila`, `kesika` có 0 lần xuất hiện khác trong toàn Pāli root, và danh sách này còn có `āmaṁ` "sống", nên vẫn giữ nguyên chữ Pāli. Các từ ở mục bất định số 3 trong danh sách nghề (`mallakā`, `bhaṭiputtā`, `sajjhukārā`, `vaṭṭakārā`, `veṇukārā`, `vilīvakārā`, `kocchakārā`, `raṅgakārā`, `tantavāyā`, `heraññikā`, `indajālikā`): quét lại toàn Pāli root, 0 lần xuất hiện khác; giữ nguyên.
+  6. *Khác tiền lệ có chủ ý, giữ.* `20.5` `amataṁ te paribhuñjanti ye kāyagatāsatiṁ paribhuñjanti` → "những ai thọ dụng niệm thân thì thọ dụng bất tử" theo cấu trúc `ye … te`; câu cùng Pāli ở `an1.616:1.2` bị dịch ngược vế ("những ai thọ hưởng sự bất tử, họ thọ hưởng niệm thân"), ghi để người biên tập xem lại ở bài đó. `12.4` dùng lại nguyên văn `dhp56:4` ("bay cao tối thượng đến chư thiên"), dù "cao" không có trong Pāli. `49.3` `ratā ekāsane` → "ưa ăn một chỗ ngồi": `ekāsana` trong tầng dịch là "một bữa" 7 khoá, "một chỗ ngồi" 19 khoá; chữ "ăn" là nghĩa ngữ cảnh hạnh đầu-đà, chưa phân xử được có nên giữ trong lời kinh. Hai nhóm khác tiền lệ theo phạm vi gần: `Nhập lưu` (nhánh `kn` rộng: "Dự lưu" 136 so "nhập lưu" 13, nhưng `mil` 4/4 "Nhập lưu") và `iddhipāda` → "thần túc" (nhánh `kn`: "như ý túc" 23 so "thần túc" 14, nhưng nhóm `mnd`, `cnd`, `mil` phần lớn "thần túc"); `ariyo aṭṭhaṅgiko maggo` → "tám chi": nhánh `kn` 103 so "tám ngành" 2 (số "186 so 34" ở trên là toàn tầng gồm cả `dn`, `mn`, `sn`, `an`; đo lại toàn tầng cho "tám ngành" 185, "tám chi" 86). Vẫn cần người biên tập gộp.
+  7. *Điểm thay đổi.* `grammar_logic` 9,0 → 9,1 (phạm vi phủ định ở `5.2`, mệnh đề mục đích bị cắt ở `32.3`); `segment_alignment` 10,0 → 9,8 (xem mục 1); `terminology` 8,7 → 9,0 (mục 3, đo được 7 nhóm thuật ngữ lệch đa số); `vietnamese_clarity` 8,9 → 9,0 (`5.2`, các khoá kệ đã về đúng ranh); `ambiguity_integrity` 8,6 → 8,7 (một bất định đã giải bằng bằng chứng; phần lớn các bất định khác còn nguyên, và nhiều mục "0 tiền lệ" bản cũ hoá ra có tiền lệ nên các lời chắc chắn cũ đã được hiệu đính ở trên). Các tiêu chí còn lại giữ nguyên: `semantic_fidelity` 8,8 (bất định thật còn nhiều), `triangulation` 7,0 (vẫn không có tầng Anh), `source_provenance` 9,5, `han_viet_balance` 9,2, `technical_integrity` 9,6. `final_score` 8,93 → 8,97 (trung bình thô); không blocker mới, blocker `noEnglishEditionUpstream` giữ nguyên.

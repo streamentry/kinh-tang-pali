@@ -14,16 +14,16 @@ tags:
 quality:
   scores:
     source_provenance: 9.5
-    semantic_fidelity: 8.9
-    grammar_logic: 9.0
+    semantic_fidelity: 9.0
+    grammar_logic: 9.1
     segment_alignment: 10.0
-    terminology: 8.7
+    terminology: 8.9
     triangulation: 7.0
-    vietnamese_clarity: 8.9
+    vietnamese_clarity: 9.1
     han_viet_balance: 9.1
     ambiguity_integrity: 8.6
     technical_integrity: 9.6
-  final_score: 8.93
+  final_score: 8.99
   blocking_errors:
     - "noEnglishEditionUpstream: Không có tầng tham khảo tiếng Anh ở mức segment
       tại commit đã ghim. Tra `source/upstream-manifest.json` (không suy từ tên
@@ -42,7 +42,7 @@ quality:
       đủ điều kiện review hay published, giữ draft. Đây là giới hạn của
       upstream, không phải lỗi dịch, và triangulation được giữ ở 7.0 (không quá
       8.0) chứ không nâng để né blocker."
-  assessed_at: "2026-10-11"
+  assessed_at: "2026-10-13"
   assessed_by:
     - "Claude Sonnet 5.5 (Claude Code)"
   waiver:
@@ -126,3 +126,11 @@ notes: |-
   21. `80.1` `Kathitā mayā bahū diṭṭhā` → "Ta đã trò chuyện, đã gặp nhiều người": cấu trúc câu khó, không có tiền lệ; `81.4` `yathā cittaṁ na saṇṭhitaṁ` → "vì tâm ta chẳng yên".
 
   **technical_integrity = 9,6:** lát này cấm chạy cổng, nên không tuyên bố technical gate pass. Bốn lệnh còn lại do người điều phối chạy tập trung: `npm run validate` · `npm test` · `npm run check` · `npm run build`. `final_score` là trung bình số học thô của đúng 10 tiêu chí.
+
+  **Lượt cải thiện 2026-10-13.** Đọc đối kháng lại 337 cặp Pāli↔Việt, đo tiền lệ trên toàn tầng rồi đổi 12 khoá (không đổi tập khoá, không đổi thứ tự; Pāli trùng nguyên văn trong chính bài vẫn 11 cặp, chỉ `44.1` và `58.4` khác nhau vì người nghe khác; nháy `“ ” ‘ ’` khớp Pāli ở cả 337 khoá).
+  - **Sửa độ đúng/chủ thể (accuracy).** `4.2`: bỏ chữ "thông thạo" mà Pāli không có (`paṭibalo` đã là "đủ năng lực"; dạng gốc dịch hai lần cùng một ý), đưa `atītānāgatapaccuppannānaṁ` về đúng chỗ là bổ ngữ của các việc bàn mưu, vận dụng, sắp đặt, hành động. `35.2`: "không trao cho người chưa xuất gia ở chỗ ngài" đổi thành "… nơi vị ấy" (Pāli `attano santike`, và cả câu đang nói về vị xuất gia kia, không phải xưng "ngài"). `22.1`: "thi hành hình phạt" đổi thành "thực hiện hình phạt" vì Tôn giả Rohaṇa là người chịu hình phạt (0 tiền lệ cho `daṇḍakamma` trong tầng, nên chỉ bỏ sắc thái "thi hành lên người khác"). `44.2` và `46.2`: người nói bị mơ hồ vì cùng chữ "ngài" chỉ cả Tôn giả Rohaṇa, Tôn giả Assagutta và Nāgasena; đã ghi rõ "Nāgasena nói" / "Nāgasena đáp" (chủ thể xác định được từ ngữ cảnh, Pāli `āha` / `sādhu, bhante`ti).
+  - **Sửa thuật ngữ theo tiền lệ đã đo.** `60.7` `sāmaññaphalaṁ` → "quả sa-môn" (76 trên 101 khoá có `sāmaññaphal`; trước đó là "quả của đời sa-môn", 0 tiền lệ). `56.3` `sāmaññassa` → "hạnh sa-môn" (14 khoá "hạnh sa-môn" so với 4 khoá "sa-môn hạnh"). `65.1` chuỗi `sakkato garukato mānito pūjito apacito` → "kính trọng, tôn kính, quý trọng, cúng dường, nể trọng" (14 trên 21 khoá của chuỗi này; trước đó "tôn trọng, kính trọng, quý trọng, cúng dường, lễ bái" không trùng khoá nào). `10.2` và `59.3` `ramaṇīyā vata bho dosinā ratti` → "đêm trăng sáng thật đáng yêu" (`dn2:1.5` dịch `ramaṇīyā` là "đáng yêu"; `dosinā ratti` là "đêm trăng sáng" ở 9 trên 13 khoá; trước đó "đêm trăng thanh thật dễ chịu", "dễ chịu" là chữ lệch nghĩa so với `ramaṇīya`). `66.4` `paṭibhāne ca kovido` → "và thiện xảo về biện tài" đúng như khoá cùng Pāli `tha-ap8:100.2`; `68.2` vẫn "rành rẽ" vì khoá cùng Pāli là `sn8.6:3.2`; toàn tầng `kovido`: 12 khoá "khéo", 12 khoá "thiện xảo", 3 khoá "rành rẽ". `46.2` `pariveṇaṁ sammajjitvā` → "quét dọn sân tu viện" đúng như `mnd15:98.2` (cùng cụm `pariveṇaṁ sammajjanto`, 1 tiền lệ); trước đó "trú xứ" (cùng một chữ đang dùng cho `āvāsa` ở `1.2` và `senāsana` ở `31.1`, `36.1`, `44.3`, `44.4`).
+  - **Sửa văn.** `1.7` "vừa khóc vừa vì sợ hãi mà đổ rác" (câu gượng, "vừa … vừa vì … mà") → "vừa khóc vừa đổ rác vì sợ hãi", nghĩa không đổi (`rodanto bhayena kacavaraṁ chaḍḍento`).
+  - **Đã đo, quyết định giữ.** `pītisomanassajāta` "hỷ và lạc": 21 trên 21 khoá của tầng dùng "hỷ lạc"/"hỷ và lạc", giữ. `mama vacanena` "nhân danh": 32 trên 48 khoá, giữ. `ito … divase` ở `20.4`: `ito kappe` được dịch "… kiếp trước" ở tầng (217 khoá có `ito` + thời gian), củng cố cách đọc "bảy ngày trước", giữ. `senāsana` "trú xứ" cho tên chỗ ở `Vattaniya`/`Vijambhavatthu` giữ nguyên: tầng có "chỗ ở" nhiều hơn (khoảng 290 khoá so với khoảng 120 khoá "trú xứ"), nhưng cả hai đều có tiền lệ rộng và "chỗ ở" đang dùng cho danh từ chung `senāsanāni` ở `61.4`, `65.1`; đổi tên chỗ ở sang "chỗ ở Vattaniya" làm câu nặng thêm mà không chính xác thêm. `manta` "thánh chú" (`28.2`, `28.3`, theo `dn4`) so với "thần chú" (`33.4`–`36.3`): giữ phân biệt Vệ-đà với lời "tối thượng" mà Tôn giả Rohaṇa nói; tầng có 40 khoá "thánh chú", 52 khoá "thần chú", không có đa số rõ.
+  - **Điểm đổi.** `semantic_fidelity` 8.9 → 9.0 (bỏ nghĩa thừa ở `4.2`, `35.2`); `grammar_logic` 9.0 → 9.1 (làm rõ người nói ở `44.2`, `46.2`; chủ thể ở `35.2`); `terminology` 8.7 → 8.9 (sáu chuỗi thuật ngữ về theo tiền lệ đã đếm); `vietnamese_clarity` 8.9 → 9.1 (`1.7`, `4.2`, hai câu nói rõ người nói). Không đổi: `source_provenance`, `segment_alignment`, `triangulation` (vẫn 7.0, không có tầng tham khảo nào), `han_viet_balance`, `ambiguity_integrity` (21 bất định ở trên vẫn còn nguyên: không có căn cứ mới để phân xử), `technical_integrity`. `final_score` 8.93 → 8.99.
+  - **Chưa giải được, ghi lại.** `kn/mil3.8:3.8` có Pāli trùng nguyên văn với `42.1` của bài này nhưng bản Việt ở đó viết "nói" (Pāli là `etadahosi`, "nghĩ"); đây là lỗi ở bài khác, chưa sửa trong lượt này. Các bất định số 1–21 và blocker `noEnglishEditionUpstream` giữ nguyên. Bốn lệnh `npm run validate` · `npm test` · `npm run check` · `npm run build` vẫn do người điều phối chạy tập trung.

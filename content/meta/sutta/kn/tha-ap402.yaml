@@ -14,13 +14,13 @@ quality:
     semantic_fidelity: 8.8
     grammar_logic: 8.8
     segment_alignment: 10.0
-    terminology: 9.0
+    terminology: 9.1
     triangulation: 7.0
     vietnamese_clarity: 8.8
     han_viet_balance: 9.2
     ambiguity_integrity: 9.0
     technical_integrity: 9.6
-  final_score: 8.94
+  final_score: 8.95
   blocking_errors:
     - "Không có tầng tham khảo tiếng Anh tại commit đã ghim
       11c9d708978cde8ba61096d8a75f7ddfb846f639:
@@ -40,7 +40,7 @@ quality:
       vắng, bản dịch chỉ dựa trên Pāli root; đây là giới hạn của upstream, không
       phải lỗi của người dịch. Vì vậy `triangulation` bị chặn ở 7.0 (≤ 8.0) và
       không nâng điểm để né blocker."
-  assessed_at: "2026-10-11"
+  assessed_at: "2026-10-13"
   assessed_by:
     - "Claude Sonnet 5.5 (Claude Code)"
   waiver:
@@ -168,6 +168,25 @@ notes: |-
   12. `giri saḷalasavhayo` (`:41.4`) dịch *Giri, vị có tên Saḷala*: theo thứ tự bài trong phẩm `giri` ứng với tha-ap399
       (Girimānanda) và `saḷala…` ứng với tha-ap400 (Saḷalamaṇḍapiya); giữ nguyên tên Pāli rút gọn của kệ tóm lược, không
       mở rộng. Các tên phẩm ở `:44` cũng là dạng rút gọn (`Padumārakkhado` = Paduma + Ārakkhada).
+
+  Lượt cải thiện 2026-10-13: đọc đối kháng lại cả 168 khoá cặp Pāli với Việt, đo lại tiền lệ toàn tầng (5 bộ) và đối chiếu
+  các bài liền kề cùng phẩm (tha-ap401, tha-ap403).
+  - Sửa 1 khoá (terminology fix): `:23.1` `Asseva dīpadānassa` từ *Của chính việc dâng đèn này* thành *Của chính việc dâng ngọn
+    đèn này*, vì `dīpadāna` ở `:19.3`, `:23.4`, `:34.4` của chính bài đã là *việc dâng ngọn đèn*, và đo lại toàn tầng `tha-ap`/`thi-ap`:
+    10 khoá *việc dâng ngọn đèn* so với 1 khoá *việc dâng đèn* (chính khoá này). Điểm `terminology` 9.0 → 9.1; không tiêu chí nào khác đổi.
+  - Đo lại, không đổi: `sāvaka` (`hessati satthu sāvako`) hiện là 14 khoá *đệ tử* so với 13 khoá *môn đồ* (số cũ ở trên đã lệch vì tầng
+    đã lớn thêm), vẫn giữ *đệ tử* để khớp `aggasāvako` `:13.2` và `sissattaṁ` `:30.4`; `sabbadhammāna pāragū` *bậc đã vượt qua mọi
+    pháp* 27/31; `nirūpadhi` *không còn sanh y* nhất quán toàn tầng; `Padumuttaro nāma jino` 48/49 khoá cùng dạng; `lokanāyako`,
+    `vināyako`, công thức `sabbe sannipatuṁ tadā` và `vasīsatasahassehi` đều trùng đa số; số đã tính lại (32, 60.000, 1.000, 36, 700,
+    100.000, 520, 74 + 1.100) vẫn đúng.
+  - Cân nhắc nhưng quyết định KHÔNG đổi: `:2.2` `saddaṁ` *tiếng đồn* (Pāli chỉ nói `sadda`, còn có thể là âm thanh/tiếng nói; không phân
+    xử được bằng tiền lệ nào trong tầng nên giữ và để nguyên bất định 1); `:5.4` `gatiṁ` *nẻo đi* (bài `tha-ap339:3.1` dịch cụm gần
+    như song song `gatiṁ sodhetuṁ` là *cảnh giới tái sinh*, nhưng đó là một khoá duy nhất và thêm chữ *tái sinh* vào lời kinh thì mạnh hơn
+    Pāli, nên giữ bất định 4); `:10.4` thiếu chủ ngữ rõ ở tiếng Việt (chủ ngữ là các khu rừng ở `:10.1`) nhưng Pāli `:10.4` và `:12.4` trùng
+    nguyên văn nên giữ hai khoá giống nhau; `kolambaka`, `madhutela`, `vittimāpajjiṁ` vẫn là từ hiếm hoặc nghĩa chưa phân xử được
+    bằng căn cứ trong kho, giữ bất định 2 và 5 nguyên như trên.
+  - Không có căn cứ mới để nâng `semantic_fidelity`, `ambiguity_integrity` hay `triangulation` (vẫn không có bản Anh độc lập, nên không
+    vượt 8.0). Blocker `noEnglishEditionUpstream` giữ nguyên.
 
   CỔNG KỸ THUẬT: không chạy được trong lát này nên `technical_integrity` đặt 9.6, không tuyên bố đã qua cổng.
   Còn phải chạy trước khi gộp: npm run validate, npm test, npm run check, npm run build.
