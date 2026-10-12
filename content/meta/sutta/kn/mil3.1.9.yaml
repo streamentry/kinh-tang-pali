@@ -12,21 +12,21 @@ tags:
 quality:
   scores:
     source_provenance: 9.4
-    semantic_fidelity: 9.4
-    grammar_logic: 9.3
+    semantic_fidelity: 9.2
+    grammar_logic: 9.2
     segment_alignment: 10.0
-    terminology: 9.3
+    terminology: 9.0
     triangulation: 7.5
-    vietnamese_clarity: 9.3
+    vietnamese_clarity: 9.2
     han_viet_balance: 9.3
     ambiguity_integrity: 9.2
     technical_integrity: 9.6
-  final_score: 9.23
+  final_score: 9.16
   blocking_errors:
     - "Tầng tham khảo tiếng Anh KHÔNG tồn tại tại commit đã ghim. Đã kiểm ba nơi, không suy đoán: (1) `source/upstream-manifest.json` — edition `translation/en/sujato` tại commit `11c9d708978cde8ba61096d8a75f7ddfb846f639` KHÔNG liệt kê bất kỳ tệp nào cho uid này; (2) `.cache/upstream/suttacentral/translation/en/sujato/sutta/...` — tệp không tồn tại; (3) toàn edition `translation/en/sujato/sutta/kn/mil/` chỉ có 0 tệp — Sujato không dịch Milindapañha, và trong đó không có uid này. Đây là `not-published-upstream`, KHÔNG phải `not-synced`: chạy `npm run source:sync:used` cũng không tạo ra tệp. Tầng `vietnamese-current` cũng vắng — `translation/vi/phantuananh` tại commit đã ghim chỉ có 26 tệp và toàn bộ là Pháp Cú. Lớp lấp `english-project` của dự án cũng không có cho uid này. Cả ba tầng tham khảo đều vắng nên bài dịch chỉ từ Pāli root; `scripts/validate.ts` coi tệp Anh thiếu là **error** khi status là `review` hoặc `published`, nên bài bắt buộc `draft`. Đây là **giới hạn upstream**, không phải lỗi của người dịch. Vì vậy `triangulation` bị chặn ở 7.5 (≤ 8.0) chứ không nâng để né blocker. Coverage đo được: 11 khoá Pāli đủ 40 ký tự, 0 khoá có prose Anh."
-  assessed_at: "2026-10-04"
+  assessed_at: "2026-10-12"
   assessed_by:
-    - "OpenCode Space Bunny Free (agent)"
+    - "Claude Sonnet 5.5 (Claude Code)"
 notes: |-
   Lát c14. KHÔNG có Sujato tại commit đã ghim cho mil3.1.9 ⇒ `draft`, xem
   blocking_errors.
@@ -70,3 +70,37 @@ notes: |-
   tinh cần, khéo léo” / và “gỡ mớ rối này” (sn1.23:2.4 “người ấy gỡ được mớ rối này”).
 
   Bị chặn cổng kỹ thuật (đợt này không được chạy `npm run validate|test|check|build`), nên tiêu chí 10 bị chặn ở **9.6**: tôi chỉ xác minh được JSON hợp lệ, đủ khoá, không orphan, không rỗng, mọi giá trị NFC, dấu lược khớp Pāli từng khoá, `(…)` không đứng một mình, ngoặc kép cân trên cả bài và YAML sạch. Bốn lệnh `npm run validate`, `npm test`, `npm run check`, `npm run build` để coordinator chạy.
+
+  Giải quyết draft 2026-10-12: đọc đối kháng lại cả 31 khoá từ Pāli và sửa 11 khoá có lỗi
+  nghĩa thật (1.2, 1.3, 1.5, 2.2, 5.2, 5.4, 6.4, 7.1, 7.3, 7.4 và dấu nháy đóng ở 7.4);
+  thay thế các mục cũ ở trên về `samāpatti` → “sở đạo”, `maggaṅga` → “đạo phần”, `iddhipāda`,
+  “bốn tứ niệm xứ” và bất định “thoái lui”, cùng cách dịch 5.4 và 7.1–7.4.
+  · 5.2 (nặng nhất): `laṅghako sippaṁ dassetukāmo` là người nhào lộn muốn trình diễn tài nghệ;
+    `sakkharakathalaṁ` là sỏi và mảnh sành (đúng như mil3.1.1:4.2). Bản cũ “người vượt sông
+    muốn chỉ đường tắt … tảng đá cứng” hoàn toàn sai, và “chỉ đường tắt” không có trong Pāli.
+  · 6.4: bản cũ “sẽ có những căn ấy sinh khởi để gỡ mớ rối này” là bịa; Pāli `so imaṁ vijaṭaye
+    jaṭaṁ` = “vị ấy có thể gỡ mớ rối này” (khớp sn1.23:2.4). 6.2 bỏ “thì” không có trong Pāli.
+  · 7.1: `dharaṇīva pāṇinaṁ` = “như đất đối với chúng sinh”, không phải “như biển nâng đỡ mặt
+    đất”. 7.3: bỏ “Tôi nói” không có trong Pāli. 7.4: `yo sīlakkhandho varapātimokkhiyo` =
+    “tức là giới uẩn thuộc về giới bổn Pātimokkha tối thắng”, không phải “con đường tối thượng
+    để thoát ly”. Dấu nháy đơn mở ở 6.1 nay đóng ở 7.4 (’”) đúng như Pāli.
+  · 1.2: `katame te kusalā dhammā` = “những pháp lành ấy là gì”, không phải “pháp lành của ngài”;
+    1.3 bỏ “của ngài” thêm vào. 1.5: bỏ các số “bảy / tám / bốn” và “bốn tứ niệm xứ” (Pāli chỉ
+    có hợp từ, không có số); `samāpatti` → “các thể nhập”; bỏ “nhờ vậy” (Pāli không có từ nối
+    nhân quả); `na parihāyanti` → “không bị suy giảm”.
+  · 2.2: thêm lại vế cuối `vuḍḍhiṁ virūḷhiṁ vepullaṁ āpajjanti` bị bỏ sót; `vepulla` = sung
+    mãn, không phải “chín muồi” (sn45.150 và mil3.3.5 vẫn dịch “chín muồi” — ngoài phạm vi
+    tệp này, báo để người điều phối cân nhắc). 5.4: `bhāsitampetaṁ` có “cũng”, và người nói
+    xưng “tâu đại vương” như mọi khoá khác trong bài, thay cho “này Đại vương”.
+  · Giữ nguyên: 2.1 “Xin hãy xét một thí dụ” (`opammaṁ karohi` đúng ra là “hãy nêu một thí
+    dụ”, nhưng đây là quy ước của cả tầng mil, đã có tiền lệ nhiều bài) và 8.1 “Nāgasenā”.
+  Phân loại blocker: câu blocker duy nhất còn lại là loại (A) — Sujato không có bài này tại
+  commit đã ghim; giữ nguyên vì đó là sự thật về upstream (ý về `vietnamese-current` vắng trong
+  cùng câu là giới hạn tham chiếu, không phải lỗi văn bản). Không còn lỗi văn bản chưa phân xử
+  (loại D).
+  Số: Pāli chỉ có “năm căn” (pañcindriyāni) và “thứ chín” (navamo); đều khớp.
+  Tiền lệ: hợp từ `bījagāmabhūtagāma` → “hạt giống và cây cỏ” (dn2, dn1, mn27, mn51 …);
+  `balakaraṇīya` → “công việc cần sức lực” (mn35:10.5); `siṅghāṭaka` → “ngã tư” (mn129, mn87).
+  `triangulation` giữ 7,5 (không có bản Anh độc lập). Cổng kỹ thuật chưa chạy trong đợt này:
+  `technical_integrity` 9,6; còn lại `npm run validate`, `npm test`, `npm run check`,
+  `npm run build`.

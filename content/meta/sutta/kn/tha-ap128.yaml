@@ -1,5 +1,5 @@
 uid: tha-ap128
-status: draft
+status: review
 translationTitle: "Bài Kệ Tuyên Ngôn Về Trưởng Lão Kusumāsaniya"
 translators:
   - "OpenCode Space Bunny Free (agent)"
@@ -11,23 +11,40 @@ tags:
   - "Sereyyavagga"
 quality:
   scores:
-    source_provenance: 9.6
-    semantic_fidelity: 9.2
-    grammar_logic: 9.3
+    source_provenance: 9.4
+    semantic_fidelity: 8.8
+    grammar_logic: 8.9
     segment_alignment: 10.0
-    terminology: 9.3
-    triangulation: 7.8
-    vietnamese_clarity: 9.3
-    han_viet_balance: 9.3
+    terminology: 8.8
+    triangulation: 7.5
+    vietnamese_clarity: 9.0
+    han_viet_balance: 9.0
     ambiguity_integrity: 9.0
     technical_integrity: 9.6
-  final_score: 9.24
+  final_score: 9.0
   blocking_errors:
-    - "Tầng Anh đã ghim không phủ phẩm tha-ap nên published không đứng được: tại commit đã ghim english-sujato có 755 tệp của kn nhưng chỉ 9 sub-collection (cp dhp iti ja kp snp thag thig ud), tệp tha-ap duy nhất trong cả tầng là name/sutta/tha-ap-name_translation-en-sujato.json (tệp *tên*, không phải thân kinh), nên tha-ap128 có 0/1 khoá có nội dung được Sujato phủ; vietnamese-current chỉ có 26 tệp toàn bộ là Pháp Cú, english-project không có entry cho bài này. Có entry trong content/meta/reference-gaps.yaml không cứu được published."
-    - "Không tồn tại tầng tham khảo nào để đối chiếu nghĩa: mẫu số coverage chỉ là 1 khoá (tha-ap128:11.1, 43 khoá kia dài dưới 40 ký tự nên cổng không đo được gì), còn 43/44 khoá phải dựa vào Pāli một mình, nên bài không thể tuyên bố đã đối chiếu English."
-  assessed_at: "2026-10-05"
+    - "Tầng Anh đã ghim không phủ phẩm tha-ap nên published không đứng được: tại
+      commit đã ghim english-sujato có 755 tệp của kn nhưng chỉ 9 sub-collection
+      (cp dhp iti ja kp snp thag thig ud), tệp tha-ap duy nhất trong cả tầng là
+      name/sutta/tha-ap-name_translation-en-sujato.json (tệp *tên*, không phải
+      thân kinh), nên tha-ap128 có 0/1 khoá có nội dung được Sujato phủ;
+      vietnamese-current chỉ có 26 tệp toàn bộ là Pháp Cú, english-project không
+      có entry cho bài này. Có entry trong content/meta/reference-gaps.yaml
+      không cứu được published."
+  assessed_at: "2026-10-12"
   assessed_by:
-    - "OpenCode Space Bunny Free (agent)"
+    - "Claude Sonnet 5.5 (Claude Code)"
+  waiver:
+    id: no-upstream-english
+    blockers:
+      - "Tầng Anh đã ghim không phủ phẩm tha-ap nên published không đứng được:
+        tại commit đã ghim english-sujato có 755 tệp của kn nhưng chỉ 9
+        sub-collection (cp dhp iti ja kp snp thag thig ud), tệp tha-ap duy nhất
+        trong cả tầng là name/sutta/tha-ap-name_translation-en-sujato.json (tệp
+        *tên*, không phải thân kinh), nên tha-ap128 có 0/1 khoá có nội dung được
+        Sujato phủ; vietnamese-current chỉ có 26 tệp toàn bộ là Pháp Cú,
+        english-project không có entry cho bài này. Có entry trong
+        content/meta/reference-gaps.yaml không cứu được published."
 notes: |-
   Bài này trước đây chỉ có 1/44 khoá (:11.1). Lát này viết lại đủ 44 khoá từ Pāli gốc.
 
@@ -123,3 +140,67 @@ notes: |-
   `technical_integrity` để **9,6** và không tuyên bố technical gate pass. Bốn lệnh còn lại
   thuộc cổng của người điều phối: `npm run validate` · `npm test` · `npm run check` ·
   `npm run build`.
+
+  **Giải quyết draft 2026-10-12.** Đọc đối kháng lại cả 44 khoá từ Pāli. Bản 2026-10-05 có
+  **16 khoá sai nghĩa thật** trên 44 (`1.1` `1.2` `2.1` `2.3` `3.2` `3.3` `4.1` `5.3` `6.1` `6.3`
+  `7.2` `7.3` `7.4` `8.4` `9.1` `9.2`) cộng một số khoá lệch nhẹ (`1.3–1.4` `2.2` `2.4` `3.4` `7.1`);
+  các nhận định ở những đoạn ghi chú cũ về `Lakkhaṇa/Itihāsa/Sanighaṇḍusakeṭubha` là tên ba tác phẩm,
+  về `:2.3` *đã học thuộc*, về `:8.4` `ssidaṁ` = *niềm vui*, về `:7.2` *dâng lên thay vì nắm hai tay*
+  và về điểm số 9,24 **được thay thế** bởi mục này. Các khoá đã sửa, vì sao:
+  `1.1` `Nagare dhaññavatiyā` là *trong thành Dhaññavatī* (tên thành; *xứ đầy ắp cá* là bịa — `dhañña` là
+  lúa gạo, và đây là tên riêng, giữ nguyên chữ như `Bandhumatī`, `Haṁsavatī` ở các bài khác);
+  `1.2` `ahosiṁ brāhmaṇo tadā` là ngôi thứ nhất *tôi là một Bà-la-môn* (bản cũ mất chủ thể: *có một vị*);
+  `1.3–1.4` `Lakkhaṇe itihāse ca, sanighaṇḍusakeṭubhe` là bốn ngành học ở vị trí cách (locative) —
+  *tướng pháp*, *truyền thuyết*, *từ vựng*, *nghi lễ* — cùng công thức Bà-la-môn ở `dn3:1.3.1` (*thông
+  thạo ba Veda cùng từ vựng, nghi lễ… và truyền thuyết… hiểu từng chữ, ngữ pháp… các tướng*), không phải tên
+  tác phẩm;
+  `2.1` `Padako veyyākaraṇo` là *hiểu từng chữ, thông ngữ pháp* (bản cũ *tiêu hóa, thấu tri tinh tế* vô nghĩa);
+  `2.3` `Mante ca sisse vācesiṁ` là *tôi đã dạy các bài tụng cho học trò* (`vāceti` là sai khiến, *cho đọc/dạy*;
+  `sisse` là đối cách số nhiều, *học trò*; bản cũ *học thuộc* đảo chiều thầy–trò);
+  `3.2` `piṭṭhiyaṁ` là *trên lưng* (không phải *đùi*); `3.3` `Āhutiṁ yiṭṭhukāmohaṁ` — bản cũ rối chữ; dùng lại
+  dạng đã có ở **2** bài khác (*Tôi muốn dâng lễ hiến cúng*);
+  `4.1` `Vipassī` là **tên** Đức Phật (bản cũ dịch thành *bậc Thấy Biết*, mất tên); `4.4` `narāsabho` → *đấng Nhân
+  Ngưu*, đúng quy ước đã đo (trong nhóm 35 cặp `lokajeṭṭho narāsabho;` có **33** cặp theo *đấng Nhân Ngưu*; bản cũ *bậc tôn quý giữa loài người* là dạng lẻ);
+  `5.3` `Santharitvāna taṁ pupphaṁ` chỉ là *rải hoa ấy* — bản cũ thêm *lối đi*, Pāli không nói nơi rải;
+  `6.1–6.3` `Yaṁ me atthi sake gehe āmisaṁ paccupaṭṭhitaṁ / Tāhaṁ buddhassa pādāsiṁ`: `yaṁ…taṁ` là quan hệ,
+  vật dâng là **vật thực** (`āmisaṁ`), *tôi dâng món ấy*; bản cũ dâng *hoa dưới chân* (sai vật dâng) và `6.1`
+  *Phần thứ…* vô nghĩa;
+  `7.1` `Bhuttāviṁ` là đối cách, *Ngài đã thọ thực xong* (dạng đã có ở **2** bài khác: *Biết thời điểm Ngài đã
+  thọ thực xong*; bản cũ của chính bài này là dạng lẻ); `7.2` `pupphahatthamadāsahaṁ` là *tôi dâng lên một bó hoa*
+  (như `tha-ap105:2.2`) — bản cũ *hai tay cầm đầy hoa* mất động từ `adāsaṁ`; `7.3` `sabbaññū` là *bậc Toàn Tri*
+  (bản cũ *Đẳng Giác* là `sambuddha`) và `anumoditvāna` là *tùy hỷ* (Đức Phật nói lời tùy hỷ, không phải
+  người dâng hoa *hân hoan*); `7.4` `pakkāmi` là **ngôi thứ ba** (`pakkāmiṁ` mới là ngôi thứ nhất), chủ thể
+  là Đức Thế Tôn — bản cũ để *ta* ra đi;
+  `8.4` `pupphadānassidaṁ phalaṁ` = *đây là quả của việc dâng hoa* (`ssa` là sở hữu cách của `dānaṁ`,
+  `idaṁ` là *đây*; bản cũ *niềm vui* thêm chữ không có trong Pāli) — theo dạng *đó là quả báu của việc
+  dâng hoa* — dạng đa số trong **7** cặp Pāli trùng (`pupphadānassidaṁ phalaṁ`): **5** cặp là *đó là quả báu của việc … hoa*;
+  `9.1` `Anantaraṁ ito kappe` là *trong kiếp liền sau đó* (bản cũ *chẳng bao lâu… ngay trong kiếp này* là
+  sai về thời gian); `9.2` `varadassano` là *có dung mạo tuyệt hảo* (bản cũ *đáng được tôn kính* là thêm nghĩa).
+  Đại từ: cả bài giờ dùng **tôi** (bản cũ trộn *ta/tôi*; ba bài song song `tha-ap47`, `tha-ap105`, `tha-ap186` đều dùng *tôi* ở các khoá tương ứng).
+  Chữ đầu khoá `x.3` viết hoa theo Pāli (như `tha-ap47`, `tha-ap186`). *Veda* thay *Vệ Đà*: dạng *Veda* ở **10**/12 cặp Pāli trùng
+  `tiṇṇaṁ vedāna pāragū`, và `dn3:1.3.1` dùng *Veda*. `Bà-la-môn` thay `Brāhmaṇa` (bản cũ để nguyên Pāli): `dn3` và các bài song song dùng *Bà-la-môn*.
+  Giữ nguyên: `8.1` (*Vào chín mươi mốt kiếp trước*: dạng nhiều nhất trong 117 cặp, 39), `8.3` (*không còn biết đến đọa xứ nào*,
+  quy ước đã đo), `9.4` (*đại thần lực*: **71**/125 cặp so với *đại oai lực* **11**), `10.*` `11.1` `12.1`.
+
+  **Blocker đã gỡ và blocker còn giữ.** Giữ blocker thứ nhất, đúng sự thật upstream: tầng Anh đã ghim
+  không phát hành bài này (waiver `no-upstream-english` xử lý). Gỡ blocker thứ hai: nó chỉ ghi giới hạn của tầng
+  tham khảo (mẫu số coverage = 1; 43/44 khoá không có tầng Anh hay Việt hiện hành nào), không phải lỗi văn bản.
+  Sau khi sửa 16 khoá trên, mọi khoá đều đứng được từ Pāli và các bài song song trong chính tầng; không còn
+  khoá nào Pāli–Việt lệch nghĩa chưa phân xử. Điều đó **không** có nghĩa đã đối chiếu English: `triangulation`
+  = **7,5**, thấp hơn trần 8,0, vì cả Sujato lẫn bản Việt hiện hành đều vắng và những chỗ khó chỉ có bài song
+  song cùng tầng để dựa vào, mà tầng này vừa lộ ra là chứa lỗi lan (chính vì vậy không được "dùng lại nguyên văn
+  tiền lệ" khi chưa đối chiếu Pāli từng chữ).
+
+  **Bất định còn lại, ghi ở đây, không thêm vào thân kinh.**
+  `3.2` `piṭṭhiyaṁ ṭhapitāni me`: dịch sát *đặt trên lưng*; Pāli không nói lưng của ai hay của vật gì.
+  `3.4` `pitumātusamāgame`: cụm chỉ gặp một lần trong cả Pāli đã ghim; đọc *khi cha mẹ cùng tề tựu*,
+  không loại trừ nghĩa *hội ngộ/đoàn tụ*.
+  `9.1` `Anantaraṁ ito kappe`: cụm chỉ gặp một lần; đọc *kiếp liền sau đó* (so với kiếp thứ chín mươi mốt đã nêu ở `8.1`).
+  `9.2` `varadassano`: cụm chỉ gặp một lần; đọc là tính từ (*dung mạo tuyệt hảo*), có thể là tên vua — không phân xử được.
+  `1.1` `Dhaññavatī` là tên thành, giữ nguyên chữ.
+  **Ngoài phạm vi, báo không sửa:** `pakkāmi uttarāmukho` (ngôi thứ ba) ở **5** khoá của các bài khác trong
+  tầng `tha-ap` bị dịch như ngôi thứ nhất (*ta/tôi quay về hướng Bắc…*, giống lỗi bản cũ của bài này) — cần soát từng bài.
+  **Điểm** (10 tiêu chí, `final_score` 9,0 là trung bình thô): `source_provenance` 9,6→9,4 · `semantic_fidelity` 9,2→8,8 ·
+  `grammar_logic` 9,3→8,9 · `segment_alignment` 10,0 · `terminology` 9,3→8,8 · `triangulation` 7,8→7,5 ·
+  `vietnamese_clarity` 9,3→9,0 · `han_viet_balance` 9,3→9,0 · `ambiguity_integrity` 9,0 · `technical_integrity` 9,6
+  (cổng kỹ thuật vẫn chưa chạy: `npm run validate` · `npm test` · `npm run check` · `npm run build`).

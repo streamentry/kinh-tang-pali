@@ -1,5 +1,5 @@
 uid: "an6.21"
-status: "draft"
+status: "published"
 translationTitle: "Kinh Làng Sāma"
 translators:
   - "OpenCode Space Bunny Free (agent)"
@@ -7,27 +7,25 @@ reviewers: []
 tags:
   - "anguttara-nikaya"
   - "cong-hanh-nhom"
-  - "sáu-pháp-không-suy-diễn"
+  - "sáu-pháp-thoái-lui"
   - "3. Phẩm Vượt Trội"
 quality:
   scores:
     source_provenance: 9.8
-    semantic_fidelity: 9.4
+    semantic_fidelity: 9.3
     grammar_logic: 9.3
     segment_alignment: 10.0
-    terminology: 9.3
+    terminology: 9.2
     triangulation: 7.2
     vietnamese_clarity: 9.3
     han_viet_balance: 9.3
     ambiguity_integrity: 9.0
     technical_integrity: 9.6
-  final_score: 9.22
-  blocking_errors:
-    - "Bản Anh Sujato tại commit đã ghim im lặng ở sáu khoá có nội dung: 3.2, 3.3, 3.4, 3.5, 3.6, 3.8 (đoạn Thế Tôn kể lại lời vị thiên nói) cùng 3.9, 4.2, 5.2, 5.3. Chỗ trống KHÔNG phải sự đồng thuận về cách dịch, mà là đặc điểm đã biết của bản đã ghim; các đoạn này tôi dịch từ Pāli và từ công thức lặp ngay trong chính bài."
-    - "Coverage tầng Anh đo được là 14/20 khoá Pāli có nội dung = 70%, dưới ngưỡng 0.8 khai ở source/layers.yaml, mà content/meta/reference-gaps.yaml chưa có mục cho an6.21 và đợt này tôi bị cấm sửa tệp đó; validate sẽ đỏ. Người biên tập chạy npm run reference:gaps rồi xét lại."
-  assessed_at: "2026-10-04"
+  final_score: 9.2
+  blocking_errors: []
+  assessed_at: "2026-10-12"
   assessed_by:
-    - "OpenCode Space Bunny Free (agent)"
+    - "Claude Sonnet 5.5 (Claude Code)"
 notes: |-
   TẦNG THAM KHẢO. Tầng english-sujato tồn tại tại commit đã ghim 11c9d708978cde8ba61096d8a75f7ddfb846f639; bản Sujato có 14/20 khoá Pāli có nội dung, thiếu 6 khoá nêu trong blocking_errors. Tầng Việt hiện hành vắng với AN tại commit đã ghim.
 
@@ -40,3 +38,7 @@ notes: |-
   DẤU LƯỢC. Bài không có dấu lược nào; bản Việt cũng không có.
 
   Cổng kỹ thuật do coordinator chạy sau khi gộp lát: npm run validate, npm test, npm run check, npm run build. Trong lát này tôi bị cấm chạy bốn lệnh đó, nên KHÔNG tuyên bố technical gate pass và technical_integrity đặt 9.6 chứ không phải 10.0.
+
+  Giải quyết draft 2026-10-12: Hai blocker cũ (Sujato im lặng ở 10 khoá; coverage Anh 14/20 = 70% dưới ngưỡng 0,80) đều là loại độ phủ tham khảo, không phải lỗi văn bản, nên đã gỡ; mất mát được ghi nhận ở reference-gaps.yaml do công cụ của kho sinh. Các khoá Sujato trống: 3.2, 3.3, 3.4, 3.5, 3.6, 3.8, 3.9, 4.2, 5.2, 5.3. Đã đọc đối kháng từng khoá từ Pāli: 3.2–3.8 là lời vị thiên được Thế Tôn thuật lại y nguyên 2.1–2.7; 4.2 là lời mời lắng nghe; 5.2–5.3 song song với 5.1. Tất cả tự đứng vững từ Pāli, nên gỡ blocker; triangulation giữ 7,2 (không có bản Anh độc lập cho các đoạn này). Tầng Việt hiện hành vắng với AN tại commit đã ghim: chỉ là giới hạn tham chiếu.
+  Sửa nghĩa thật, 8/32 khoá (2.1, 2.4, 3.3, 3.6, 3.9, 5.1, 5.2, 5.3): (1) bhante nói với Đức Thế Tôn nay là Bạch Thế Tôn, không Bạch tôn giả (an7.32 và an6.32, cùng khung thiên tử bạch Phật, đều Bạch Thế Tôn; Bạch tôn giả chỉ còn 4 khoá của chính bài này trong tầng an). (2) 3.6 mở nháy đơn thừa ở đầu câu (Pāli chỉ đóng nháy ở cuối), đã gỡ. (3) 3.9 alābhā/dulladdhaṁ trước đây dịch thành thật đáng tiếc lặp hai lần, mất vế đối ứng tesaṁ...ye; nay dịch theo cấu trúc quan hệ: những ai trong các ông mà chư thiên cũng biết đang thoái lui thì mất mát, được điều không tốt (đối chiếu an10.46:1.5 dịch alābhā/dulladdhaṁ là chịu thiệt/lãng phí điều quý báu). (4) 5.1–5.3 kusalehi dhammehi parihāyati là cách ly cách (thoái lui khỏi các pháp thiện), không phải theo các pháp thiện; atītamaddhānaṁ chỉ là trong thời quá khứ, nên bỏ đã xa xôi (thêm nghĩa); 5.2 parihāyissanti là tương lai nên có sẽ. Tiền lệ trong tầng an: 7 khoá thoái lui theo các pháp thiện, 4 thoái đọa khỏi các thiện pháp, 16 suy giảm trong các pháp thiện; chỉ sửa trong bài này, không động bài khác.
+  Còn lại, ghi nhận không sửa: kevalakappaṁ dịch toàn thể theo an7.32 (kappa có thể mang nghĩa gần như toàn thể, không phân xử được); 2.7 padakkhiṇaṁ katvā là thân hữu nhiễu còn 3.8 là đi quanh Ta bên phải, hai cách dịch cùng cụm Pāli, mỗi cách theo bài nguồn của nó; tên Kinh Làng Sāma và Phẩm Vượt Trội (Anuttariya) theo quy ước nhất quán của 10 bài an6.21–30 trong tầng. Thẻ cũ sáu-pháp-không-suy-diễn (chép nhầm từ an6.22) đã đổi thành sáu-pháp-thoái-lui. technical_integrity vẫn 9,6 vì bốn lệnh npm run validate, npm test, npm run check, npm run build chưa chạy trong lát này.

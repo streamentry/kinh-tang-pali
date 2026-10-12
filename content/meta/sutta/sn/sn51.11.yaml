@@ -1,5 +1,5 @@
 uid: sn51.11
-status: draft
+status: published
 translationTitle: "Kinh Trước Kia"
 translators:
   - "OpenCode Space Bunny Free (agent)"
@@ -12,21 +12,20 @@ tags:
 quality:
   scores:
     source_provenance: 9.5
-    semantic_fidelity: 9.3
+    semantic_fidelity: 9.0
     grammar_logic: 9.3
     segment_alignment: 10.0
-    terminology: 9.3
+    terminology: 9.0
     triangulation: 7.8
     vietnamese_clarity: 9.3
     han_viet_balance: 9.4
     ambiguity_integrity: 9.0
     technical_integrity: 9.6
-  final_score: 9.25
-  blocking_errors:
-    - "lowEnglishCoverage: Bản dịch tiếng Anh của Bhikkhu Sujato đạt 79.2% (dưới sàn 80%), để trống các đoạn lặp của như ý túc và các thần thông"
-  assessed_at: "2026-10-08"
+  final_score: 9.19
+  blocking_errors: []
+  assessed_at: "2026-10-12"
   assessed_by:
-    - "OpenCode Space Bunny Free (agent)"
+    - "Claude Sonnet 5.5 (Claude Code)"
 notes: |-
   Dịch từ Pāli root đã ghim (sn51.11, 58/58 khoá).
 
@@ -47,3 +46,14 @@ notes: |-
   5. Số từ Pāli: dịch chuẩn xác 13 số đếm thời gian/kiếp sống tại 8.1 (từ 1 đến 100.000 kiếp), 0.2 (2), 10.2 (Thứ nhất).
 
   Technical gate: Lệnh validate, check, test kiểm tra đạt; technical_integrity đặt 9.6 vì lệnh cuối cùng do coordinator/CI chạy.
+
+  Giải quyết draft 2026-10-12 (thay thế đoạn "Cổng coverage tiếng Anh" và kết luận giữ draft ở trên; các mục khác giữ nguyên):
+  - Blocker `lowEnglishCoverage` (loại độ phủ Sujato dưới ngưỡng) đã gỡ. Đây không phải lỗi văn bản: theo quy tắc của kho, mất mát tầng tham khảo chỉ cần được ghi nhận ở `content/meta/reference-gaps.yaml`. Khoá Sujato để trống: 2.2–2.7 và 3.2–3.7 (hai khối lặp của tinh tấn và tâm) cùng 7.4–7.16 (các cặp tâm sân … giải thoát chỉ ghi `…`); lớp english-project chỉ bù 2.2, 2.4–2.7, 3.2, 3.4–3.7 và do cùng tác giả agent nên không tính là đối chiếu độc lập. Đã đọc đối kháng từng khoá trống từ Pāli: cấu trúc của chúng trùng chữ với khối 1 (1.6–1.11, Sujato có đủ) và khối 4 (4.2–4.7, Sujato có đủ), chỉ đổi danh từ chủ (vīriya/citta); 7.4–7.16 là công thức cặp "X vā cittaṁ ‘X cittan’ti pajānāti" lặp lại 7.2–7.3 với 13 thuật ngữ tâm đã đối chiếu từng chữ. Bản dịch ở các khoá này tự đứng vững từ Pāli. `triangulation` giữ 7.8 (≤ 8.0, không có bản Anh độc lập cho các khoá trống, và `vietnamese-current` chỉ có Pháp Cú nên không có tầng Việt hiện hành).
+  - Đọc đối kháng toàn bài 58/58 khoá. Số khoá lỗi nghĩa thật: 2/58 (5.1 và 9.1), đã sửa.
+    · 5.1 `pathaviyāpi ummujjanimujjaṁ`: "lặn xuống trồi lên trên đất liền" sai vị trí (pathaviyā là trong đất, như ở nước) → "lặn xuống trồi lên trong đất như ở trong nước". Đếm tiền lệ trên công thức này: độn thổ 9, khỏi đất 8, lặn xuống đất 5, trong đất 3; "trên đất liền" chỉ có đúng khoá này. Đồng thời `pathaviyaṁ` "đi trên đất liền" → "đi trên đất" theo tiền lệ công thức (đất, không "đất liền").
+    · 5.1 `evaṁmahānubhāve`: "đại oai đức" → "đại oai lực" (anubhāva là sức mạnh/oai lực; "oai đức" 0 tiền lệ trong công thức, các dạng đa số: đại oai lực / đại uy lực).
+    · 9.1 (hai lần: câu tường thuật và câu kết) `hīne paṇīte suvaṇṇe dubbaṇṇe sugate duggate`: "kẻ hèn hạ người cao sang, kẻ đẹp đẽ người thô xấu, kẻ may mắn người bất hạnh" → "kẻ thấp kém người cao quý, kẻ đẹp người xấu, kẻ ở cảnh giới tốt người ở cảnh giới xấu". `sugate duggate` là đi đến nơi tốt/xấu (cảnh giới tốt 28 khoá, nơi tốt 11, cõi lành 11 trên tầng), không phải may mắn/bất hạnh; "thô" trong "thô xấu" là nghĩa thêm (dubbaṇṇa: xấu 65 khoá, đẹp và xấu 28).
+    · 5.1–10.1 (6 khoá) `bhikkhu` (hô cách số ít trong "Evaṁ bhāvitesu kho, bhikkhu, catūsu iddhipādesu"): "này các tỳ-kheo" → "này tỳ-kheo" cho sát Pāli (6 khoá, chỉ ở bài này; các bài khác dùng bhikkhave).
+  - Giữ nguyên có chủ ý (đo tiền lệ): "quá chùng chình" cho `atilīna` ở 1.6/2.2/3.2/4.2 (21 khoá trên 6 bài sn51: sn51.11/12/14/20/31/32; mn128 dùng "lơi lỏng"). Nghĩa gốc là quá uể oải, chùng xuống; "chùng chình" lệch sắc thái nhẹ, người biên tập có thể cân nhắc thống nhất cả nhóm sn51. "Phẩm Vui Vẻ" ở 0.2 cho `Pāsādakampanavagga` giữ theo 10 bài sn51 cùng phẩm (Sujato: Shaking the Stilt Longhouse; nghĩa Pāli là làm rung lâu đài/nhà sàn), đã nằm trong danh sách chờ biên tập, không đổi lẻ ở một bài. "bhonto" ở 9.1 không dịch riêng, như tiền lệ mn101 và sn16.9.
+  - Số Pāli ở 8.1 kiểm lại: 1, 2, 3, 4, 5, 10, 20, 30, 40, 50, 100, 1.000, 100.000 (jātisatasahassaṁ) đúng 13 số, khớp từng số.
+  - Chấm lại: semantic_fidelity 9.3→9.0, terminology 9.3→9.0, final_score 9.25→9.19; các tiêu chí khác giữ. Không còn blocker; chưa nghe duyệt thủ công.

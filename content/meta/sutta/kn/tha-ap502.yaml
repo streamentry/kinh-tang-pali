@@ -1,6 +1,6 @@
 uid: tha-ap502
-status: draft
-translationTitle: "Bài Kệ Tuyên Ngợ Về Trưởng Lão Dâng Quả Piyāla"
+status: review
+translationTitle: "Ký Sự Về Trưởng Lão Dâng Quả Piyāla"
 translators:
   - "OpenCode Space Bunny Free (agent)"
 reviewers: []
@@ -13,22 +13,43 @@ tags:
 quality:
   scores:
     source_provenance: 9.6
-    semantic_fidelity: 9.3
-    grammar_logic: 9.3
+    semantic_fidelity: 9.0
+    grammar_logic: 9.0
     segment_alignment: 10.0
-    terminology: 9.3
-    triangulation: 7.8
-    vietnamese_clarity: 9.3
-    han_viet_balance: 9.4
-    ambiguity_integrity: 8.6
+    terminology: 8.8
+    triangulation: 7.0
+    vietnamese_clarity: 9.0
+    han_viet_balance: 9.2
+    ambiguity_integrity: 8.8
     technical_integrity: 9.6
-  final_score: 9.22
+  final_score: 9.0
   blocking_errors:
-    - "Không có tầng tham khảo tiếng Anh tại commit đã ghim `11c9d708978cde8ba61096d8a75f7ddfb846f639`: đã đếm trực tiếp trong `source/upstream-manifest.json` → tầng `english-sujato` (treeSha `24e81ded9d6710e16b277b6394fd57c48258da12`, 4.291 tệp) và trong `sutta/kn/` chỉ có các thư mục cp, dhp, ja, kp, thag, thig — không có `tha-ap`; `tha-ap502` không nằm trong 83 tệp `ja` đã ghim. Đây là `not-published-upstream`, KHÔNG phải `not-synced`, và không phải thiếu sót của repo. Lớp lấp `english-project` không có cho uid này. Vì vậy bài dịch chỉ từ Pāli root cùng tiền lệ đếm được trong chính tầng Việt dự án; `triangulation` bị chặn ≤ 8.0 và `status` bắt buộc `draft`."
-    - "Tầng `vietnamese-current` tại commit đã ghim chỉ có 26 tệp, toàn bộ là Pháp Cú; không có `Therāpadāna` nên không có bản Hòa thượng Thích Minh Châu để đối chiếu. Đây là đặc điểm của snapshot upstream, không phải lỗi của người dịch."
-  assessed_at: "2026-10-05"
+    - "Không có tầng tham khảo tiếng Anh tại commit đã ghim
+      `11c9d708978cde8ba61096d8a75f7ddfb846f639`: đã đếm trực tiếp trong
+      `source/upstream-manifest.json` → tầng `english-sujato` (treeSha
+      `24e81ded9d6710e16b277b6394fd57c48258da12`, 4.291 tệp) và trong
+      `sutta/kn/` chỉ có các thư mục cp, dhp, ja, kp, thag, thig — không có
+      `tha-ap`; `tha-ap502` không nằm trong 83 tệp `ja` đã ghim. Đây là
+      `not-published-upstream`, KHÔNG phải `not-synced`, và không phải thiếu sót
+      của repo. Lớp lấp `english-project` không có cho uid này. Vì vậy bài dịch
+      chỉ từ Pāli root cùng tiền lệ đếm được trong chính tầng Việt dự án;
+      `triangulation` bị chặn ≤ 8.0 và `status` bắt buộc `draft`."
+  assessed_at: "2026-10-12"
   assessed_by:
-    - "OpenCode Space Bunny Free (agent)"
+    - "Claude Sonnet 5.5 (Claude Code)"
+  waiver:
+    id: no-upstream-english
+    blockers:
+      - "Không có tầng tham khảo tiếng Anh tại commit đã ghim
+        `11c9d708978cde8ba61096d8a75f7ddfb846f639`: đã đếm trực tiếp trong
+        `source/upstream-manifest.json` → tầng `english-sujato` (treeSha
+        `24e81ded9d6710e16b277b6394fd57c48258da12`, 4.291 tệp) và trong
+        `sutta/kn/` chỉ có các thư mục cp, dhp, ja, kp, thag, thig — không có
+        `tha-ap`; `tha-ap502` không nằm trong 83 tệp `ja` đã ghim. Đây là
+        `not-published-upstream`, KHÔNG phải `not-synced`, và không phải thiếu
+        sót của repo. Lớp lấp `english-project` không có cho uid này. Vì vậy bài
+        dịch chỉ từ Pāli root cùng tiền lệ đếm được trong chính tầng Việt dự án;
+        `triangulation` bị chặn ≤ 8.0 và `status` bắt buộc `draft`."
 notes: |-
   Đã đọc HẾT vc/p74.txt trước khi viết.
 
@@ -95,3 +116,63 @@ notes: |-
     ngoặc kép cân (1/1 = PĦLI), không PĦLI lọt. Bốn lệnh để coordinator chạy:
     `npm run validate`, `npm test`, `npm run check`, `npm run build`.
 
+  Giải quyết draft 2026-10-12 (Claude Sonnet 5.5, Claude Code) — THAY THẾ các mục cũ
+  về `Migaluddo` ("là tên núi"), `viraja`/`pāragu`, `buddhaseṭṭhassadāsahaṁ`, `11.3–11.4`
+  ("Tám bài kệ, chín bài kệ") và *XUNG ĐỘT NỘI TẠI* ở trên; các mục TIỀN LỆ về công thức
+  `4–6`, `7.1`, `9.1`, `12.1` vẫn còn hiệu lực.
+
+  BLOCKER. (A) Thiếu bản Anh upstream: GIỮ NGUYÊN (sự thật của snapshot, `not-published-upstream`).
+  (C) Tầng `vietnamese-current` chỉ có Pháp Cú: GỠ khỏi `blocking_errors` — đó là giới hạn
+  tham chiếu của snapshot, không phải lỗi văn bản (mọi bài `kn` đã xuất bản đều thiếu tầng này).
+  Bài không có blocker kiểu (B) hay (D) chưa giải.
+
+  ĐỌC ĐỐI KHÁNG TỪ PĀLI — 15/47 khoá sai nghĩa thật hoặc sai chữ, đã sửa:
+    · `1.1–1.2` `Migaluddo pure āsiṁ, vipine vicaraṁ tadā` là *"Thuở xưa tôi là thợ săn thú,
+      khi ấy đang lang thang trong rừng"*: `Migaluddo` là danh từ chung (thợ săn thú), KHÔNG phải
+      tên núi; bản cũ *"Dãy núi Migaluddo … là nơi tôi lang thang"* sai cả chủ thể lẫn nghĩa.
+      Tiền lệ cùng Pāli ở các bài khác: *thợ săn thú* 4 lần, *Migaluddo* giữ Pāli 1 lần (chính bài này).
+    · `1.3` bỏ *"viên mãn"* (không có trong Pāli; `viraja` = không bụi). `1.4` `pāragu` = *đã đến
+      bờ kia của tất cả các pháp*, không phải *"vượt qua"*.
+    · `2.2` `buddhaseṭṭhassa adāsahaṁ` = *tôi đã dâng lên Đức Phật tối thượng*; bỏ *"Đức Thế Tôn"* và
+      *"đứng đầu hàng Sa-môn"* (thêm nghĩa không có trong Pāli).
+    · `2.3` `puññakkhettassa vīrassa` = *bậc ruộng phước, bậc anh hùng* (hai đồng vị cách với Đức Phật);
+      bản cũ *"Người tráng lược ấy là ruộng phước"* tạo câu mới.
+    · `2.4` `pasanno sehi pāṇibhi` = *tịnh tín, bằng chính đôi tay của mình*; bản cũ *"theo những chỗ
+      Ngài dẫn giải, tôi sinh lòng tin kính"* là nghĩa hoàn toàn khác (không có gì tương ứng trong Pāli).
+    · `10.2` `koraṇḍamatha kiṁsukaṁ` = *Koraṇḍa rồi Kiṁsuka*; `matha` = `atha` (rồi), không phải tên.
+    · `11.1–11.2` `Naḷakārī ca navamo` = Naḷakārī là *thứ chín*; bản cũ gộp *"thứ chín là người dâng quả
+      Piyāla"* — nhầm vì Piyāla là vị thứ mười, không phải thứ chín.
+    · `11.3–11.4` `Satamekañca … navakañca taduttari` = *một trăm lẻ một bài kệ, và chín bài nữa trên
+      số ấy* (101 + 9 = 110). Phép đếm độc lập: số khối kệ trước dòng `Itthaṁ sudaṁ` của mười bài
+      tha-ap493…502 là 7, 7, 10, 6, 10, 10, 6, 37, 11, 6 = 110 ⇒ khớp. Bản cũ *"Tám bài kệ"* sai.
+    · `14.1` `Naḷāgāraṁ` giữ đúng chính tả Pāli (`Naḷāgāra`, không phải `Nāḷāgāra`).
+    · `14.3` `Asīti dve ca gāthāyo` = *tám mươi hai bài kệ* (`asīti` = 80; 80 + 2 = 82); bản cũ
+      *"Bốn mươi hai"* sai số.
+    · `15.1` `Metteyyavaggadasakaṁ` = *nhóm mười phẩm Metteyya* (theo `Padumavaggadasakaṁ` → *Nhóm mười
+      phẩm Paduma*); bản cũ *"Phẩm Metteyya là phẩm thứ mười"* sai (đây là mười phẩm, không phải một phẩm).
+    · `16.1` `Pañcamasatakaṁ samattaṁ` = *nhóm một trăm thứ năm đã hoàn tất* (theo `Catutthasatakaṁ`);
+      bản cũ *"Năm trăm, trọn vẹn"* bỏ mất "thứ năm".
+    · `0.3`/`8.1` tên bài thống nhất thành *Ký Sự Về Trưởng Lão Dâng Quả Piyāla* (`apadāna` = ký sự). Bản cũ
+      là *Tuyên Ngợ* (0.3) và *Tuyên Ngôn* (8.1) trong CÙNG một bài, và *Ngợ* không có nghĩa trong Pāli. Đo
+      toàn tầng tha-ap: *Tuyên Ngợ* 228 · *Ký Sự* 160 · *Tuyên Ngôn* 143; cục bộ phẩm Hoa Kiṅkaṇi
+      *Ký Sự* 6/7 (tha-ap494–499; chỉ tha-ap501 khác). Theo đó chọn *Ký Sự*; `translationTitle` khớp `:0.3`.
+      Hệ quả: `8.1` không còn trùng nguyên văn với `tha-ap142:9.1` (cùng trưởng lão, tên *Tuyên Ngôn*) —
+      ngoài phạm vi bài này, báo người điều phối.
+
+  GIỮ NGUYÊN, CÓ CHỦ Ý.
+    · Đại từ: `1–2` *tôi*, `3–6` *ta*, theo khuôn của chính cặp `tha-ap142` và đa số công thức `4–6`;
+      không thống nhất lại vì khuôn đã là quy ước tầng, và đổi riêng bài này sẽ lệch tầng.
+    · `3.3` *"Ta không biết mình rơi vào khổ đau"* (`duggatiṁ nābhijānāmi`): chính xác hơn là *"không biết
+      đến khổ cảnh"*; giữ vì trùng nguyên văn `tha-ap142:5.3` và `tha-ap501:8.3`. BẤT ĐỊNH cấp tầng.
+    · `7.1` *"Tôi nghe như vầy"* cho `Itthaṁ sudaṁ`: quy ước tầng (hơn 60 bài `tha-ap` đã đếm dùng khuôn này);
+      sát Pāli hơn là *"Như vậy, Tôn giả … đã nói …"*. Bất định cấp tầng, không sửa riêng bài này.
+    · `3.1` `Ekatiṁse` = 31 kiếp (`eka` + `tiṁsa`), đã kiểm.
+
+  THAM CHIẾU. Sujato không có `tha-ap502` tại commit đã ghim; không có `english-project`; `vietnamese-current`
+  chỉ có Pháp Cú ⇒ không có tầng độc lập nào; `triangulation` = 7,0 (≤ 8,0). Bài đứng bằng Pāli
+  root + phép đếm nội bộ (110 khối kệ ↔ `11.3–11.4`). Độ phủ English trên Pāli có nội dung: không đo được
+  vì không có tầng English nào.
+
+  KIỂM TRA. Tập khoá Việt = tập khoá Pāli (47/47), thứ tự đúng, `…pe…` → `…` ở `4.2/5.2/6.2`,
+  nháy kép “ ở `1.1` và ” ở `6.3` khớp Pāli; kiểm tra tự động cấp bài kinh: đạt. `technical_integrity` = 9,6;
+  bốn lệnh `npm run validate`, `npm test`, `npm run check`, `npm run build` chưa chạy.

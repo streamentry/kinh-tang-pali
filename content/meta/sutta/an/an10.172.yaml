@@ -1,5 +1,5 @@
 uid: an10.172
-status: draft
+status: published
 translationTitle: "Kinh Pháp (2)"
 translators:
   - "Claude Sonnet 5.5 (Claude Code)"
@@ -22,9 +22,8 @@ quality:
     ambiguity_integrity: 9.0
     technical_integrity: 9.6
   final_score: 9.22
-  blocking_errors:
-    - "Độ phủ tầng tham khảo tiếng Anh (59/77 = 0.766) dưới ngưỡng tối thiểu 0.80 do bản Anh Sujato để trống 18 đoạn Pāli có nội dung (5.1, 5.2, 5.4, 6.1, 6.2, 6.5, 7.2–7.5, 24.1, 25.1, 25.2, 25.5, 26.2–26.5). Bài chưa có lớp english-project và tầng vietnamese-current chỉ có Pháp Cú nên không có tầng nào lấp được các đoạn này. Bài bắt buộc giữ trạng thái draft và triangulation ≤ 8.0 cho đến khi lớp english-project lấp các segment này."
-  assessed_at: "2026-10-09"
+  blocking_errors: []
+  assessed_at: "2026-10-12"
   assessed_by:
     - "Claude Sonnet 5.5 (Claude Code)"
 notes: |-
@@ -51,3 +50,9 @@ notes: |-
   · **`22.5` (`Ākaṅkhamānā ca pana`).** Dịch *Còn các hiền giả, nếu muốn …*; Sujato *If you wish*. `mn138:22.5` dịch *Nếu các Tôn giả muốn* vì Pāli ở đó là `āyasmanto`, ở đây là `āvuso`.
 
   **English tham khảo.** Sujato có bản cho bài này (122 khoá), nhưng để trống nhiều khoá: toàn bộ lần lặp lại lời tóm lược trong lời kể của các tỳ-kheo (`5.1`–`5.4`, `6.1`–`6.5`, `7.1`–`7.5`) và lần kể lại với Đức Phật (`24.1`–`24.3`, `25.1`–`25.5`, `26.1`–`26.5`). Mẫu số coverage = 77 khoá Pāli có nội dung (≥ 40 ký tự, bỏ khối `:0`); Sujato phủ 59/77 = 0.766 (dưới sàn 0.80), 18 khoá Pāli có nội dung Sujato để trống: `5.1`, `5.2`, `5.4`, `6.1`, `6.2`, `6.5`, `7.2`, `7.3`, `7.4`, `7.5`, `24.1`, `25.1`, `25.2`, `25.5`, `26.2`, `26.3`, `26.4`, `26.5`. Lớp `english-project` không có tệp cho bài này, nên 100% phần đã phủ là từ Sujato độc lập, không có phần nào do dự án tự lấp. Tầng `vietnamese-current` chỉ có Pháp Cú tại commit đã ghim, nên vắng với bài này. Một ô Anh rỗng không phải sự đồng thuận về cách dịch: 18 khoá đó dựa vào Pāli một mình, nhưng 13/18 khoá có Pāli trùng nguyên văn hoặc với khoá Sujato đã dịch trong cùng bài (`5.2` = `2.3`, `5.4` = `2.5`, `7.3` và `26.3` = `3.3`/`9.5`) hoặc với bài song song đã có bản Việt công bố (`5.1`, `6.2`, `6.5`, `7.2`, `7.3`, `24.1`, `25.1`, `25.2`, `25.5`, `26.2`, `26.3` ở `mn138`, `mn18`, `mn133`), và 5/18 khoá còn lại (`6.1`, `7.4`, `7.5`, `26.4`, `26.5`) chỉ khác các khoá Sujato đã dịch (`2.1`, `3.4`, `3.5`) ở một tiền tố `paṭi-` hoặc từ xưng hô, nên nghĩa không bất định; vẫn chặn ở cổng vì coverage đo trên khoá, không đo trên nội dung lặp. Đã đối chiếu Sujato ở những chỗ lệch: Sujato dịch `attha` là *results* (kết quả) ở phần giải thích và *meaning* ở các cụm `vitthārena atthaṁ`; Sujato dịch `anabhijjhā` / `abyāpāda` là *contentment* / *good will* trong khi kho dùng *không tham lam* / *không sân hận* (xem trên).
+
+  **Giải quyết draft 2026-10-12** (thay thế mục *Vì sao `draft`* ở trên và blocker độ phủ English đã nêu ở đó). Blocker cũ là loại độ phủ tầng English Sujato dưới ngưỡng 0,80 (59/77 = 0,766), do tác giả cũ tự đặt chứ không phải lỗi văn bản; theo kho, mất mát này được ghi nhận ở bản ghi gap chứ không cần lấp, nên đã gỡ khỏi `blocking_errors`. Căn cứ gỡ: đã đọc đối kháng từ Pāli cả 18 khoá Sujato để trống (`5.1`, `5.2`, `5.4`, `6.1`, `6.2`, `6.5`, `7.2`–`7.5`, `24.1`, `25.1`, `25.2`, `25.5`, `26.2`–`26.5`); tất cả là các lần dẫn lại nguyên câu đã có ở `2.x`, `3.x` hoặc ở `mn138`, chỉ khác tiền tố `paṭi-` hoặc từ xưng hô, và bản Việt từng khoá khớp Pāli, nên tự đứng vững không cần bản Anh. `triangulation` giữ 8.0 (không cao hơn): ba tầng tham khảo đều không cung cấp bản độc lập cho 18 khoá đó, và tầng `vietnamese-current` chỉ có Pháp Cú tại commit đã ghim nên vắng với bài này (giới hạn tham chiếu, không phải lỗi văn bản).
+
+  Sửa văn bản lượt này (11 khoá trên 122): `8.2` bỏ chữ *đang đứng ngay trước bậc Đạo Sư* (Pāli `satthari sammukhībhūte` là khi bậc Đạo Sư hiện diện trước mặt; chữ *đứng* không có trong Pāli và đảo chủ thể) thành *bậc Đạo Sư đang hiện diện trước mặt, lại bỏ qua Đức Phật ấy* (`taṁ bhagavantaṁ` = *Đức Phật ấy*); `12.4`, `13.2`, `14.2`, `15.2`, `16.2`, `17.2`, `18.2`, `19.2`, `20.2`, `21.2` bỏ chữ hoa đầu câu sau dấu chấm phẩy để khớp Pāli (các khoá này nối tiếp vế trước ở `x.1`, và cùng bài `x.3` đã viết thường sau dấu chấm phẩy). Không đổi nghĩa ở mười khoá sau; một khoá `8.2` là lỗi nghĩa thật (thêm chi tiết không có trong Pāli). Đã đọc đối kháng toàn bài: không còn lỗi nghĩa hay lệch ranh khoá khác; số lượng mười nghiệp đạo đếm lại khớp Pāli (10 khối). Điểm số không đổi, trung bình thô 9,22. Ghi nhận ngoài phạm vi để người biên tập xem: cụm *đang đứng ngay trước bậc Đạo Sư* còn ở `mn138:7.2` và `an10.115:8.2` (cùng Pāli `satthari sammukhībhūte`), chưa sửa ở đây.
+
+  Cổng kỹ thuật vẫn chưa chạy: `npm run validate`, `npm test`, `npm run check`, `npm run build` để người điều phối chạy; `technical_integrity` giữ 9.6.
