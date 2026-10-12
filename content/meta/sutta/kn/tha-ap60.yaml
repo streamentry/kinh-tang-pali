@@ -13,16 +13,16 @@ tags:
 quality:
   scores:
     source_provenance: 9.5
-    semantic_fidelity: 8.9
-    grammar_logic: 9.0
+    semantic_fidelity: 8.8
+    grammar_logic: 9.1
     segment_alignment: 10.0
-    terminology: 8.9
+    terminology: 9.0
     triangulation: 7.5
     vietnamese_clarity: 9.1
     han_viet_balance: 9.1
     ambiguity_integrity: 8.3
     technical_integrity: 9.6
-  final_score: 8.99
+  final_score: 9.0
   blocking_errors:
     - "Không có tầng tham khảo tiếng Anh tại commit đã ghim
       (11c9d708978cde8ba61096d8a75f7ddfb846f639): thư mục `kn/tha-ap/` của
@@ -43,9 +43,9 @@ quality:
       và đây là **giới hạn của bản chụp upstream**, không phải lỗi của người
       dịch. Vì vậy `triangulation` bị chặn ở 7.5 (≤ 8.0) chứ không nâng để né
       blocker."
-  assessed_at: "2026-10-04"
+  assessed_at: "2026-10-11"
   assessed_by:
-    - "OpenCode Space Bunny Free (agent)"
+    - "Claude Sonnet 5.5 (Claude Code)"
   waiver:
     id: no-upstream-english
     blockers:
@@ -117,3 +117,91 @@ notes: |-
   trong bộ nhớ tiến trình, KHÔNG sửa `_hvi.py`.
 
   Cổng kỹ thuật chưa chạy — lát này bị cấm `npm run validate|test|check|build`. Tiêu chí 10 bị chặn ở **9.6**; bốn lệnh để coordinator chạy: `npm run validate` · `npm test` · `npm run check` · `npm run build`.
+
+  **Lượt cải thiện 2026-10-11 (thay thế các khẳng định cũ ở những khoá nêu dưới đây).**
+  Đọc đối kháng lại cả 44 khoá từ Pāli, đối chiếu các bài song song trong tầng (cùng công thức
+  `Patitapattāni gaṇhitvā … Antosuddhaṁ bahisuddhaṁ` ở `tha-ap98` và `tha-ap373`; cùng khuôn
+  `Padhānapahitattomhi … Dhāremi antimaṁ dehaṁ` ở `tha-ap490`, `tha-ap62`, `tha-ap20`; cùng
+  `dhajaṁ āropitaṁ` ở `tha-ap345`) và đếm tiền lệ trên tầng `tha-ap`. Bản trước có **nhiều
+  khoá sai nghĩa thật**, không chỉ sai thuật ngữ; 28/44 khoá đã đổi:
+  · **`dhaja` = cờ**, không phải *đất*. `:1.4` *ta đã dâng một mảnh đất lên* → *ta đã dựng lên
+    lá cờ* (đúng `tha-ap345:1.4`, và đúng tên bài Dhajadāyaka = người dâng cờ); `:4.3` *món quà
+    chất đất* → *việc dâng cờ* (`dhajadānena`; `dhajadānassidaṁ` = *việc dâng cờ* ở 10 khoá).
+    Hai khoá này là lỗi nặng nhất của bản cũ; ghi chú cũ về "tung mảnh đất" là sai.
+  · `:3.2` `avandiṁ` = *đã đảnh lễ* (đối chiếu ≥ 14 khoá cùng gốc trên tầng), không phải *tung*;
+    `bodhimuttamaṁ` = *cây Bồ-đề tối thượng* (`tha-ap62:2.4`) → *ta đã đảnh lễ cây Bồ-đề tối thượng*.
+  · `:2.1–2.2` `patitapattāni` = *lá rụng* (không phải *mảnh vỡ*), `bahiddhā chaḍḍayiṁ` = *vứt ra
+    bên ngoài* (không phải *quét … khỏi bên ngoài*).
+  · `:2.3–2.4` giữ nghĩa đen *trong sạch bên trong, trong sạch bên ngoài*; `adhimuttamanāsavaṁ`
+    (= `adhimuttaṁ anāsavaṁ`, ở dạng song song `tha-ap98`/`tha-ap373` là `suvimuttaṁ anāsavaṁ`)
+    → *đã giải thoát, không lậu hoặc* (bản cũ *với tâm tối thượng nhất* là sai, không có căn cứ).
+  · `:3.3–3.4` dùng lại cách dịch đa số: `Padumuttaro lokavidū,` → *Đức Padumuttara, bậc hiểu rõ
+    thế giới,* (33/34 khoá cùng Pāli; bản cũ là khoá lẻ duy nhất); `āhutīnaṁ paṭiggaho.` →
+    *bậc tiếp nhận lễ vật hiến cúng.* (46/47). Bản cũ *đã nhận lễ vật của chúng ta* thêm "chúng ta"
+    và đổi danh xưng thành động từ quá khứ — sai.
+  · `:4.4` `upaṭṭhānena cūbhayaṁ` → *và nhờ sự phụng sự, cả hai.* (`upaṭṭhānassidaṁ` = *sự phụng sự*
+    ở 5/7 khoá; `cūbhayaṁ` = *…, cả hai* ở các khoá tương tự). Bản cũ *sự hộ trì ở cả hai phương
+    diện* thêm "phương diện".
+  · `:5.3–5.4` `devasobhagyaṁ` ≈ `devasobhaggaṁ` → *sự huy hoàng của chư thiên* (2/2 khoá cùng gốc);
+    `anubhossatinappakaṁ` = `anubhossati` + `na appakaṁ` → *vị ấy sẽ hưởng không ít* (`tha-ap44:21.4`).
+    Bản cũ *an lạc không gián đoạn* dựa vào một từ nguyên `an-uppaka` **không có** — gỡ.
+  · `:6.1` `Anekasatakkhattuñca` → *Và hàng trăm lần* (2/4; 1 khoá khác dịch *nhiều trăm lần*).
+    Bản cũ *sau cả trăm lần nữa* sai (thêm "sau … nữa").
+  · `:7.1` `Sampattiṁ anubhotvāna` → *Sau khi thọ hưởng các quả báu* (5/8 khoá cùng gốc);
+    `:7.2` `sukkamūlena codito` → *được khích lệ bởi cội nguồn thiện căn* (36/42 khoá). Ghi chú cũ
+    "0 tiền lệ" cho `sukkamūla` là **sai**, và những lời suy diễn về bát-nhất-mãnh/rồng núi là
+    không có căn cứ — gỡ. Bản cũ *cội rễ trắng* chỉ còn ở 3 khoá.
+  · `:7.3–7.4` `sāsanebhiramissati` = *sẽ hoan hỷ trong giáo pháp* (`tha-ap411:47.4`, `tha-ap409:35.4`),
+    **không** phải *các đệ tử … sẽ nối theo*; `Gotamassa bhagavato,` → *Của Đức Thế Tôn Gotama,*
+    (11/17). Đây là lỗi đảo chủ ngữ và thêm nội dung của bản cũ.
+  · `:8.1`, `:8.3` đồng nhất ngôi *ta* với `:1–3` (bản cũ lẫn *tôi*); `dhāremi` là hiện tại →
+    *Ta đang mang thân xác cuối cùng* (bản cũ *sẽ giữ … đời cuối cùng* thêm "sẽ");
+    `padhānapahitatto` → *dốc chí tinh tấn* (đa số; bản cũ *tự thân phát tâm* sai).
+  · `:1.2` `bodhiyā pādaputtame` → *dưới gốc cây Bồ-đề tối thượng* (bản cũ *ở nơi gốc Đại Bồ-đề ấy*
+    thêm "ấy"); `:1.3` `Haṭṭho haṭṭhena cittena` → *Hân hoan với tâm hoan hỷ* (12/26; bản cũ *cái
+    tâm vui vẻ ấy* là cách dịch lẻ); `:4.1` viết hoa *Đứng* vì `:3.4` Pāli kết bằng dấu chấm.
+  · `:9.1–9.4` **số**: `Ekapaññāsasahasse` = 1+50 = 51, ×1.000 = **51.000** kiếp; `Paññāsasatasahasse`
+    = 50 × 100 × 1.000 = **5.000.000** kiếp (không phải *hai trăm năm mươi nghìn* của bản cũ —
+    con số đó không suy ra được từ Pāli). Căn cứ chéo: `Paññāsasatasahassānaṁ` = *năm triệu* ở
+    3/3 khoá (`bv12:6.3`, `bv14:9.3`, `bv20:6.3`) và `Saṭṭhisatasahassānaṁ` = *sáu triệu* (`bv20:6.1`).
+    `Kappānaṁ satasahassaṁ` = 100.000 (`:5.1`, 15/18 khoá dùng *kiếp*, bỏ *đại kiếp* thêm vào).
+    `:9.2`, `:9.4` bỏ động từ *là* mà Pāli không có (câu không có vị ngữ).
+  · `:0.2` `Bījanivagga` → *Phẩm Cái Quạt*. **Cố ý lệch đa số (trước lượt này, trong 10 khoá cùng Pāli, tính cả bài này: 7 *Phẩm Hạt Giống*, 2 *Phẩm Cái Quạt*, 1 giữ nguyên Pāli)**: `bījanī` là
+    *cái quạt*, không phải `bīja` *hạt giống* — chính tầng đã dịch `bījaniṁ gayha … abījiṁ bodhimuttamaṁ`
+    (`tha-ap476:1.3–1.4`) là *chiếc quạt … quạt mát cội bồ-đề*, và `vālabījanī` là *quạt lông đuôi*
+    (`ja543:194.2`, `ja530:4.3`); `tha-ap55`, `tha-ap59` đã dùng *Phẩm Cái Quạt*. Nên sửa đồng loạt
+    các bài còn mang *Hạt Giống* (vd `tha-ap58`, `tha-ap62`) — việc của người biên tập, không ở phạm vi lát này.
+  · Giữ nguyên các khoá đã đúng và có tiền lệ: `:3.1` (*Như thể đứng trước mặt Đức Chánh Đẳng Giác*,
+    đúng `tha-ap98:3.1`), `:5.2` (*vị ấy không đi vào đọa xứ*, 5/5), `:6.2–6.4`, `:8.2` (*an tịnh,
+    không còn sanh y*, 14/14), `:8.4` (18/18), `:10.x`, `:11.1` (407 tiền lệ), `:12.1` (318 tiền lệ).
+
+  **Điểm đổi (từ → sang), mỗi điểm có cải thiện cụ thể ở trên:** `grammar_logic` 9.0 → 9.1 (sửa
+  chủ ngữ/vị ngữ ở `:7.3–7.4`, vị trí–sở hữu cách ở `:1.1–1.2`, thì của `dhāremi`, danh xưng ở `:3.3–3.4`);
+  `terminology` 8.9 → 9.0 (`dhaja`, `lokavidū`, `sukkamūla`, `upaṭṭhāna`, `bījanī` đã khớp bằng chứng
+  tầng — nhưng `sampatti` → *quả báu* và `adhimutta` → *giải thoát* vẫn là lựa chọn, không phải bằng chứng
+  chắc); `semantic_fidelity` 8.9 → **8.8** (hạ: điểm cũ chấm quá cao cho một bản còn cả chục khoá sai nghĩa;
+  sau khi sửa, nghĩa đã bám Pāli nhưng còn các chỗ chưa phân xử được ở mục dưới).
+  `triangulation` giữ 7.5 (vẫn không có bản Anh hay bản Việt hiện hành; các bài song song trong tầng
+  đối chiếu về **Pāli** được, nhưng bản dịch của chúng không độc lập). `ambiguity_integrity` giữ 8.3
+  (bất định thật vẫn còn). Các điểm khác giữ nguyên. `final_score` 8.99 → 9.00 (trung bình thô,
+  không vượt 9.0 nên không đủ để xuất bản; không đổi `status`).
+
+  **Bất định còn lại (không giấu).**
+  · `:2.3–2.4` hai tính từ đối cách `antosuddhaṁ bahisuddhaṁ, adhimuttamanāsavaṁ` không rõ bổ nghĩa cho ai:
+    ở `tha-ap373` chúng đi cùng *bậc Chánh Đẳng Giác* (`:3.3`), ở `tha-ap98` bản dịch trước lại hiểu là
+    *làm cho (lá/chỗ) sạch*. Bản này không áp chủ thể, chỉ dịch nghĩa đen. Nghĩa `adhimutta` = *giải thoát*
+    là đọc theo khuôn `suvimuttaṁ anāsavaṁ` song song, chưa có tự điển để phân xử; cách đọc khác *quyết tâm
+    hướng về* cũng có (cnd dịch `adhimuttacitta` = *tâm đã quyết định*).
+  · `:4.3–4.4` `ubhayaṁ` = *cả hai* (việc dâng cờ và sự phụng sự) — theo khuôn `… cūbhayaṁ` ở các khoá tương tự;
+    không có bản Anh để xác nhận.
+  · `:9.1–9.4` dạng `Paññāsasatasahasse` (vị trí cách) **chỉ có một lần** trong tầng; con số 5.000.000 theo cấu
+    tạo và theo 3 khoá `…sahassānaṁ` ở `bv`, không có bản độc lập nào xác nhận. Cũng không rõ `Uggata` và `Megha`
+    là chính vị Trưởng lão hay vị khác (Pāli không có động từ).
+  · `:1.4` `āropayiṁ` (nguyên nhân thể): *ta đã dựng lên* hay *ta đã cho dựng lên* — giữ *ta đã dựng lên lá cờ*
+    theo `tha-ap345:1.4`.
+
+  **Không đổi dù nghi ngờ:** `:0.3` (*Ký Sự Về Trưởng Lão Dhajadāyaka*, bằng `translationTitle`, khớp
+  `tha-ap345:0.3`); `:5.2` giữ *không đi vào* (hiện tại, theo tiền lệ) dù ngữ cảnh là lời tiên tri.
+  Quét lại: đủ 44/44 khoá, thứ tự khoá = thứ tự Pāli, nháy `‘ ’ “ ”` khớp Pāli từng khoá (0 lệch), NFC,
+  không Pāli lọt sang Việt ngoài tên riêng, `…pe…` → một `…` (1/1), 0 cặp Pāli trùng nguyên văn trong bài.
+  Cổng kỹ thuật chưa chạy trong lượt này: `npm run validate` · `npm test` · `npm run check` · `npm run build`.

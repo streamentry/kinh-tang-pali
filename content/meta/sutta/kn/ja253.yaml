@@ -1,6 +1,6 @@
 uid: ja253
 status: review
-translationTitle: "Kinh Người Tách Ngọc"
+translationTitle: "Kinh Maṇikaṇṭha"
 translators:
   - "OpenCode Space Bunny Free (agent)"
 reviewers: []
@@ -13,12 +13,12 @@ tags:
 quality:
   scores:
     source_provenance: 9.5
-    semantic_fidelity: 8.8
-    grammar_logic: 8.8
+    semantic_fidelity: 8.7
+    grammar_logic: 8.9
     segment_alignment: 10.0
-    terminology: 9.0
+    terminology: 9.1
     triangulation: 7.8
-    vietnamese_clarity: 8.9
+    vietnamese_clarity: 8.8
     han_viet_balance: 9.2
     ambiguity_integrity: 8.2
     technical_integrity: 9.6
@@ -32,9 +32,9 @@ quality:
       khác phủ bài này tại commit đã ghim, và tôi không được phép sửa
       content/meta/reference-gaps.yaml trong phạm vi lát này. Đây là giới hạn
       của bản chụp upstream, không phải thiếu hàng của kho."
-  assessed_at: "2026-10-02"
+  assessed_at: "2026-10-11"
   assessed_by:
-    - "OpenCode Space Bunny Free (agent)"
+    - "Claude Sonnet 5.5 (Claude Code)"
   waiver:
     id: no-upstream-english
     blockers:
@@ -50,7 +50,7 @@ notes: |-
   **Cổng kỹ thuật của kho CHƯA chạy.** Đợt này lát được cấm chạy `npm run validate|test|check|build`,
   nên tôi **không** thể tuyên bố technical gate pass; `technical_integrity` đặt **9.6** chứ không
   phải 10.0 và bốn lệnh đó để người điều phối chạy. Tự kiểm riêng bằng script trên **MỌI** khoá
-  (không chỉ khoá ≥ 40 ký tự mà `kiểm()` của `_hvi.py` quét): đủ số khoá của cả bài, đúng segment
+  (không chỉ khoá ≥ 40 ký tự mà phép kiểm mặc định quét): đủ số khoá của cả bài, đúng segment
   ID, không rỗng, NFC, không trùng nguyên văn Pāli, dấu lược khớp Pāli từng khoá, ngoặc kép cân
   trên cả bài, không `(…)`, không sót `pe…`, không Pāli lọt. Kết quả: SẠCH, 0 lỗi trên 236 khoá
   của cả lát.
@@ -99,3 +99,52 @@ notes: |-
   · `3.1`–`3.2` `Na taṁ yāce yassa piyaṁ jigīse, / Desso hoti atiyācanāya;`: `na … yasse` là *không xin
     thứ mà…*, tôi dịch *Hắn không xin thứ mà người thương yêu của hắn muốn có, / mà lại đưa cho kẻ đã
     khẩn cầu*. Có thể đọc là *không xin viên ngọc ấy*; hai cách cho cùng một kết luận về hành động.
+
+  **Lượt cải thiện 2026-10-11 (thay thế các khẳng định cũ ở trên về nghĩa của từng câu).** Đọc đối
+  kháng từng cặp Pāli↔Việt cho thấy bản trước sai nghĩa ở hầu hết các khoá kệ, nên các mục "bất
+  định" cũ về `assamamāgamissaṁ`, `Susū`, `nāgo` và `Maṇikaṇṭha` **không còn đúng** và được thay bằng
+  mục này. 14/17 khoá được viết lại (giữ nguyên tập khoá và ID; 0.1–0.3 không đổi).
+
+  **Sửa nghĩa (accuracy fix).**
+  · `1.1`–`1.2`: `Mamannapānaṁ` là *mama + annapānaṁ* (cơm nước của ta), không phải "sinh thọ"; `uppajjati … hetu`
+    là *phát sinh do*. Bản cũ "Sinh thọ của ta vốn rộng lớn" đọc `pāṇa` là *mạng sống*, không có trong chữ.
+  · `1.3`/`2.3`: `na dassaṁ` là **vị lai của `dadāti`** (*ta sẽ không cho*), không phải *dassana* (*cho xem*);
+    `atiyācakosi` = *atiyācako asi* (*ngươi là kẻ xin quá nhiều*). Bản cũ "không trình cho ngươi xem" sai.
+  · `1.4`/`2.4`: `assamamāgamissaṁ` = **`assamaṁ āgamissaṁ`** (sandhi `-ṁ + ā-`, cùng kiểu `assamamāgacchi` ở
+    `ja519:16.1`, bản Việt "trở về am thất"; cũng `Taṁ assamaṁ āgamu` ở `ja535:42.4`) — *ta sẽ không đến am thất
+    của ngươi*. Bất định cũ ở đây **đã giải quyết bằng hình thái và song song trong kho**; "không mang theo nó" bị bỏ.
+  · `2.1`–`2.2`: `Susū` là *thiếu niên* (tầng: `susu` → "thiếu niên" 4/27 khoá, 3/16 bài; `susū kāḷakesā` ở
+    `sn4.21`, `sn35.127` cũng là người trẻ), **không** phải con Cút. `tāsesi` = *ngươi làm ta kinh sợ*, không phải
+    "bảo ta nói ra". `selaṁ` ở đây là chính viên ngọc đang bị xin: tầng đã dịch `selo/selaṁ` chỉ viên ngọc ở `ja543`
+    là **"viên đá ngọc"** (5 khoá), nên dùng đúng thế; `maṇi` giữ **ngọc**.
+  · `3.1`–`3.2`: `yassa piyaṁ jigīse` = *người mà mình muốn được thương mến* (`jigīs-` = muốn giành/được, tầng
+    10/13 khoá "muốn/khao khát/mưu cầu"); `desso hoti atiyācanāya` = *xin quá nhiều thì trở nên đáng ghét*. Bản cũ
+    "mà lại đưa cho kẻ đã khẩn cầu" **ngược** nghĩa (Pāli nói bị ghét, không nói cho).
+  · `3.3`–`3.4`: `brāhmaṇena` → "vị bà-la-môn" (78/78 khoá, 45 bài; bản cũ "đạo sĩ" lệch tiền lệ);
+    `Adassanaṁyeva tadajjhagamā` = *liền đi vào chỗ không còn thấy được* (`adassana`, `ajjhagam-` ở `ja522:43.6`,
+    `ja510:22.2`). Bản cũ "liền đến ngay để cho xem" là **đảo nghĩa hoàn toàn**: con rồng biến mất chứ không hiện ra.
+  · `0.4`, `4.1`: bỏ "Người Tách Ngọc" (bản cũ hiểu `kaṇṭha` là *tách/phân*, sai: `kaṇṭha` là *cổ*, **0 tiền lệ** cho
+    nghĩa đó). Không có căn cứ trong Pāli hay tầng đã ghim để phân xử Maṇikaṇṭha là tên riêng hay một biệt danh, nên
+    **giữ nguyên chữ** như tiền lệ tên Jātaka (`Maṇicora`, `Kiṁpakka`) — `maṇi` = ngọc, `kaṇṭha` = cổ.
+  · Thuật ngữ đã đo: `annapāna` trong Jātaka dịch "cơm nước" 7 + "cơm ăn nước" 4 + "cơm và nước" 1 / 23 khoá nên
+    dùng "cơm nước" (toàn tầng rải đều giữa "đồ ăn thức uống", "thức ăn thức uống", "cơm nước" nên chưa có đa số
+    tuyệt đối); `uḷāra` → "cao quý" 67/255 khoá, 36/119 bài (dạng phổ biến nhất của chữ này); `nāgo` → "con rồng"
+    là tiền lệ của các Jātaka có rồng (`ja506`, `ja546`) chứ **không** là "voi".
+  · Đồng nhất: `1.3`=`2.3` và `1.4`≈`2.4` là hai cặp Pāli trùng nguyên văn trong bài (2/2 cặp Việt giống nhau; `2.4`
+    chỉ thêm `”` đóng theo Pāli). Pāli trùng ở bài khác: 0 khoá.
+
+  **Chấm lại, từ → sang.** `semantic_fidelity` 8.8 → **8.7**, `grammar_logic` 8.8 → **8.9**, `terminology`
+  9.0 → **9.1**, `vietnamese_clarity` 8.9 → **8.8**; các tiêu chí khác giữ nguyên. `final_score` vẫn 8.98: điểm bản cũ
+  vốn quá cao so với một bản dịch đã đảo nghĩa `3.4`; sau lần sửa này phần ngữ pháp và thuật ngữ đã đúng, nhưng còn
+  hai điểm chưa phân xử trọn nên `semantic_fidelity` và `ambiguity_integrity` không được nâng.
+
+  **Bất định còn lại (hiện hành).**
+  · `2.1` `sakkharadhotapāṇī` là **từ chỉ xuất hiện một lần** trong toàn Pāli root đã ghim (hapax). Hình thái rõ
+    (`sakkhara` = sỏi, cát thô; `dhota` = đã rửa/cọ sạch; `pāṇī` = bàn tay) nên bản dịch giữ nghĩa đen *bàn tay
+    rửa bằng sỏi*; có thể là cách nói chỉ một hình ảnh cụ thể (ví dụ vật cầm trong tay đã được mài) nhưng **không có
+    căn cứ trong tầng ghim để phân xử**, nên không đoán, không thêm vào lời kinh. Hình ảnh nói chung (*ngươi làm ta sợ
+    như một thiếu niên…*) chắc; chi tiết bàn tay thì chưa.
+  · `3.1`: đọc `Na taṁ yāce yassa piyaṁ jigīse` là *chớ xin người mà mình muốn được thương mến* (cách đọc được `desso hoti`
+    ở `3.2` ủng hộ). Có thể đọc khác là *chớ xin thứ mà người ấy quý*; hai cách cùng dẫn tới kết luận về `3.3`–`3.4`.
+  · Bài không có bản Anh, không có bản Việt tham khảo; `triangulation` giữ 7.8. Bốn lệnh `npm run validate` ·
+    `npm test` · `npm run check` · `npm run build` **chưa** chạy trong lượt này nên `technical_integrity` giữ 9.6.

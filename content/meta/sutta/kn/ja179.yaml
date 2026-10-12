@@ -12,16 +12,16 @@ tags:
 quality:
   scores:
     source_provenance: 9.5
-    semantic_fidelity: 9.0
-    grammar_logic: 9.1
+    semantic_fidelity: 8.5
+    grammar_logic: 8.8
     segment_alignment: 10.0
-    terminology: 9.1
+    terminology: 9.0
     triangulation: 6.0
-    vietnamese_clarity: 9.2
-    han_viet_balance: 9.2
-    ambiguity_integrity: 9.2
-    technical_integrity: 9.5
-  final_score: 8.98
+    vietnamese_clarity: 8.8
+    han_viet_balance: 9.0
+    ambiguity_integrity: 8.6
+    technical_integrity: 9.6
+  final_score: 8.78
   blocking_errors:
     - "Không có tầng tham khảo English Sujato tại commit đã ghim 11c9d708: không
       có tệp en/sujato cho uid này (đã đếm bằng ls
@@ -29,9 +29,9 @@ quality:
       Việt hiện hành tại commit đã ghim chỉ có Pháp Cú nên cũng không có. Bài
       dịch chỉ từ Pāli root nên chưa đối chiếu được tầng tham khảo nào; thiếu
       tầng tham khảo là lỗi chặn, nên giữ draft và không tự nâng điểm."
-  assessed_at: "2026-10-02"
+  assessed_at: "2026-10-11"
   assessed_by:
-    - "OpenCode Space Bunny Free (agent)"
+    - "Claude Sonnet 5.5 (Claude Code)"
   waiver:
     id: no-upstream-english
     blockers:
@@ -73,3 +73,12 @@ notes: |-
   the Ones"*. Tầng này trước đợt sửa có **17** cách cho `Dukanipāta` và **6** cho
   `Asadisavagga`: đó là lý do các agent đợt trước đi theo đa số cục bộ rồi tự sinh cách
   mới. `terminology` giữ nguyên — đây là chuẩn hoá, không phải lỗi riêng của bài này.
+
+  Lượt cải thiện 2026-10-11: đọc đối kháng từng khoá, bản trước SAI nghĩa ở cả hai bài kệ nên các ghi chú cũ phía trên về ucchiṭṭha, niraṅkatvā, kicchena/no và uggata KHÔNG còn đúng; bản dịch hiện hành thay thế chúng. Đã đổi 7/13 khoá (1.1, 1.2, 1.4, 2.1, 2.2, 2.3, 2.4); các khoá 0.x, 1.3, 3.1 giữ nguyên.
+  (1) ucchiṭṭha: bản trước hiểu là cái đào lên (suy từ ucchavati) và không có căn cứ trong tầng. Đúng là đồ ăn thừa (đồ còn lại sau khi người khác đã ăn): ja547:184.2 dịch đồ ăn thừa, ja539:160.6 dịch đồ thừa, mil6.3.9:4.6 dịch đồ ăn thừa, nghĩa là cả ba nơi dùng ucchiṭṭha trong toàn Pāli đã ghim đều cho nghĩa này, không nơi nào cho nghĩa đào lên. Sửa 1.1 thành thứ vừa ít ỏi vừa là đồ ăn thừa (accuracy fix; semantic_fidelity 9.0 → 8.5 vì lỗi cũ nặng hơn điểm cũ phản ánh, nay còn bất định ở uggata).
+  (2) kicchena no adā: bản trước hiểu no là phủ định nên 1.2 thành chẳng cho dù chỉ một chút, trái với cả mạch kệ. Đọc no là đại từ (cho chúng tôi, dạng thơ ca dùng cho ngôi nhất số ít) và kicchena là một cách khó khăn; adā là đã cho. Sửa 1.2 thành lại còn cho tôi một cách khó khăn (accuracy fix; grammar_logic 9.1 → 8.8).
+  (3) niraṅkatvā ở 2.1: bản trước dịch suy xét, không đúng gốc nir + ākaroti, nghĩa gạt bỏ, ruồng bỏ. Tiền lệ trong tầng: ja529:10.1 và ja534:84.3 ruồng bỏ (pháp), snp2.9:3.2 gạt bỏ, ja413:7.1 bỏ mặc, ja386:6.2 bỏ rơi, pv34:6.3 gạt bỏ (nirākatvā). Chọn ruồng bỏ theo hai nơi cùng đối tượng dhammaṁ niraṅkatvā. Câu cũ đã suy xét pháp như thế này đảo ngược ý kệ (terminology fix; terminology 9.1 → 9.0 vì lỗi cũ này, nay mọi thuật ngữ chính đều có tiền lệ đếm được).
+  (3b) 2.2 adhammena jīvati dịch sống bằng phi pháp (instrumental). 2.3-2.4 bản trước tách Satadhammova khỏi chủ ngữ yo và dịch dù được lãnh về như Satadhamma, sai cú pháp. Nay: yo là chủ ngữ, Satadhammova đọc như Satadhamma (iva) làm vế so sánh, lābhena laddhenapi na nandati là không vui với lợi lộc dù đã có được. lābha dịch lợi lộc theo ja287:1.3 và ja533:28.3, ja533:30.1 (loại bài Jātaka), không dùng lợi dưỡng của glossary vì ở đây không phải vật cúng dường (grammar_logic và terminology chung).
+  (4) uggata ở 1.4: gốc ud + gam là đã đi lên, trào lên; trong tầng chỉ có từ này một lần ở nghĩa ăn uống, các lần khác đều là mọc lên, cao vút (suriya, giri). Chọn đã trào ngược lên vì (i) đi liền đồ ăn thừa, (ii) người nói tự nhận mình dòng bà-la-môn, tức đối lập ô uế, (iii) 2.3-2.4 nói lợi lộc có được mà không vui. Bản trước đọc uggata là dư dà quá mức nên dịch ăn thừa bề: cách đó không có điểm tựa từ vựng nào trong toàn tầng và tạo ra một câu tối nghĩa; bỏ.
+  Bất định còn lại, không giải được: (a) uggata là đã trào ngược lên (ăn xong thì ói) hay nghĩa khác như thức ăn đã được nâng lên, đã dâng lên; không có bản Anh ở tầng đã ghim, không có chú giải trong kho, nên giữ theo ngữ cảnh và nghĩa gốc từ vựng. (b) Satadhammova có thể là Satadhammo + iva (như Satadhamma, đã chọn) hoặc Satadhammo + eva (chính Satadhamma). (c) Không xác định được người nói của kệ 1 và nhân vật Satadhamma từ chính văn kệ, nên không thêm chủ thể vào lời kinh. (d) kicchena là cách khó khăn, không nói rõ là miễn cưỡng hay gian nan; giữ nghĩa trung tính.
+  Điểm đổi: semantic_fidelity 9.0 → 8.5, grammar_logic 9.1 → 8.8, terminology 9.1 → 9.0, vietnamese_clarity 9.2 → 8.8, han_viet_balance 9.2 → 9.0, ambiguity_integrity 9.2 → 8.6 (bản trước tuyên bố chắc chắn hơn mức cho phép), technical_integrity 9.5 → 9.6; source_provenance 9.5, segment_alignment 10.0 và triangulation 6.0 giữ. final_score 8.98 → 8.78. Các điểm hạ vì lỗi chính của bản trước nay mới lộ, không phải vì bản mới kém hơn. Kỹ thuật: 13/13 khoá, thứ tự khớp Pāli, NFC, nháy khớp Pāli từng khoá, 0 cặp Pāli trùng trong bài, không có Pāli lọt sang Việt ngoài tên bài. Chưa chạy npm run validate, npm test, npm run check, npm run build.
