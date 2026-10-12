@@ -12,21 +12,21 @@ tags:
 quality:
   scores:
     source_provenance: 8.0
-    semantic_fidelity: 9.3
+    semantic_fidelity: 9.2
     grammar_logic: 9.3
     segment_alignment: 10.0
-    terminology: 8.9
+    terminology: 8.8
     triangulation: 7.0
-    vietnamese_clarity: 9.4
+    vietnamese_clarity: 9.3
     han_viet_balance: 9.4
-    ambiguity_integrity: 9.2
+    ambiguity_integrity: 8.8
     technical_integrity: 9.6
-  final_score: 9.01
+  final_score: 8.94
   blocking_errors:
     - "Thiếu tầng tham khảo: tại commit đã ghim không có tệp nào cho `mil3.3.13` — thư mục `translation/en/sujato/sutta/kn/` không có mục `mil` (chỉ có một tệp tên `mil-name`), nên không đối chiếu được English nào. `draft` bất kể điểm."
-  assessed_at: "2026-10-02"
+  assessed_at: "2026-10-12"
   assessed_by:
-    - "OpenCode Space Bunny Free (agent)"
+    - "Claude Sonnet 5.5 (Claude Code)"
 notes: |-
   **Blocker thật: không có tầng Anh.** Không có `mil3.3.13` trong bất kỳ tệp Anh nào đã ghim. Tôi dịch từ Pāli một mình và đặt `draft`; không tự nâng điểm để né. Vì vậy `triangulation` chỉ 7.0, và tôi đã tự hạ `source_provenance` xuống 8.0.
 
@@ -39,3 +39,11 @@ notes: |-
   **Bất định đã ghi.** `ap panālakkhaṇa` (đặc trưng là *không có đặc trưng*) nghe nghịch lý nhưng đúng nghĩa; `vicāra` bên cạnh thì có `anumajjanalakkhaṇa` (`mil3.3.14:1.2`), và bản dịch sẵn có của bài đó ghi *mang dấu hiệu của sự chú ý lại* — tức tầm và tầm tức khác nhau ở đúng điểm này, nên câu của tôi đọc được nhưng **không** thêm kiến giải vào thân kinh. `Vicāravagga` → *Phẩm Khảo Sát* (2 tiền lệ `mil3.3.4`, `mil3.3.9`; `mil3.3.14:0.2` lại viết *Phẩm Suy Xét* — **trôi 2:1**, tôi theo đa số và không sửa file của lát khác). `sandhismi` ở `:2.2` là cách ngữ công cụ, tôi dịch *nhờ sức*; bản nháp đầu viết *nhờ sức lớn* — đã bỏ chữ *lớn* vì Pāli không có.**Kiểm kỹ thuật.** Chạy `save_vi` hai lần: idempotent, tệp trên đĩa không đổi. Tôi tự quét lại **mọi** khoá chứ không chỉ khoá ≥ 40 ký tự như `_hvi.py` làm — ở lát này chỉ 3/155 khoá Pāli đủ 40 ký tự, nên chốt tự kiểm 30% và assertion còn lại không tự chạy; phần tôi tự kiểm: 10/n khoá có mặt và không thừa khoá, đúng segment ID, mọi chuỗi NFC, không khoá rỗng, không khoá nội dung nào trùng nguyên văn Pāli, số dấu lược bằng Pāli từng khoá, ngoặc kép cân trên cả bài và không bao giờ âm, không còn `(…)`, không Pāli lọt vào bản Việt. Tôi **không** chạy `npm run validate|test|check|build` (lát này cấm; người điều phối chạy tập trung), nên `technical_integrity` chấm 9.6 chứ không phải 10.0.
 
   **Không có tầng Việt hiện hành để đối chiếu.** Tại commit đã ghim, `translation/vi/` của bilara chỉ chứa Pháp Cú, nên Milindapañha không có bản Hòa thượng Thích Minh Châu. Đây là giới hạn của bản chụp upstream, không phải thiếu sót của kho; `triangulation` vì thế là Pāli + English Sujato.
+
+  **Giải quyết draft 2026-10-12.** Mục này thay thế các đoạn cũ ở trên về `:1.2`, `:2.2`, `:2.3` (bản cũ dịch *không mang đặc trưng riêng nào* và *voi cái … kéo khúc gỗ*) và về bất định `appanālakkhaṇa`; các đoạn khác của notes cũ giữ nguyên.
+
+  *Kiểm toán độc lập — 3/10 khoá có lỗi nghĩa thật, đã sửa.* (1) `:1.2` và `:2.3`: `appanā` bị đọc như `a-panā` (*không … đặc trưng*). Sai: `appanā` là danh từ của `appeti` (gắn, đóng, đặt vào), và chính ví dụ ở `:2.2` dùng đúng động từ đó. (2) `:2.2`: `vaḍḍhakī` là thợ mộc/thợ xây (cũng thấy ở `nagaravaḍḍhakī`, `mil3.1.9`, `mil6.4.1`, đều dịch *thợ xây thành*), không phải *voi cái*; `suparikammakataṁ dāruṁ` là *khúc gỗ đã được gia công khéo*, `sandhismiṁ` là *ở chỗ nối/mộng*, `appeti` là *gắn vào*. Bản cũ làm sai cả ví dụ lẫn câu kết, nên phép so sánh không còn nghĩa. Bản mới: *tầm có đặc trưng là sự gắn vào* — như thợ mộc gắn khúc gỗ đã gia công khéo vào chỗ nối. Hai vế `appanā` ở `:1.2` và `:2.3` giống nhau nguyên văn nên dịch giống nhau; gốc `appeti`/`appanā` được giữ cùng một chữ *gắn* để người đọc thấy mối nối giữa ví dụ và định nghĩa. Các khoá còn lại (`:0.x`, `:1.1`, `:2.1`, `:3.1`, `:4.1`) đọc lại từ Pāli, không đổi.
+
+  *Tiền lệ đo.* `appanā` trong kho còn ở `mn117:14.2` và `pe8:52.12` dịch *an chỉ* (2 khoá, ngữ cảnh thiền định); `appeti` ở `pe7:3.5` (*vicāro vitakke appeti*) dịch *gắn vào* (1 khoá); `sn15.8:2.3` dùng `appeti` nghĩa *đổ vào* (sông đổ vào biển). Tôi không dùng *an chỉ* ở đây vì ví dụ thợ mộc cần nghĩa *gắn/lắp vào* và vì *an chỉ* làm mất mối nối với động từ `appeti`; nếu biên tập muốn thống nhất thuật ngữ thì cân nhắc *sự an chỉ*. Đây là ý kiến, 2:1 theo hai hướng khác nhau, không phải số đo.
+
+  *Phân loại blocker.* Chỉ có một blocker, loại thiếu bản Anh upstream: sự thật về bản chụp đã ghim, **giữ nguyên**. Không có blocker về độ phủ Sujato (mẫu số Pāli có nội dung ≥ 40 ký tự là 3/10 khoá (`:1.1`, `:2.2`, `:2.3`), Sujato vắng cả bài) và không có blocker về tầng Việt hiện hành (chỉ có Pháp Cú, giới hạn tham chiếu của bản chụp). Cổng kho còn các mục khác chưa chạy ở lát này: `npm run validate`, `npm test`, `npm run check`, `npm run build`; vì vậy `technical_integrity` giữ 9.6. `triangulation` 7.0 (Pāli một mình, không có bản Anh độc lập). Điểm hạ nhẹ ở `semantic_fidelity`, `terminology`, `vietnamese_clarity`, `ambiguity_integrity` vì bản cũ đã sai nghĩa ở 3/10 khoá và bất định `appanā` (an chỉ hay gắn vào) vẫn còn.

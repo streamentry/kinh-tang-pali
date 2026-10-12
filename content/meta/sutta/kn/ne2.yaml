@@ -1,6 +1,6 @@
 uid: ne2
-status: draft
-translationTitle: "Phần Tuyên Chúng"
+status: review
+translationTitle: "Phần Liệt Kê"
 translators:
   - "OpenCode Space Bunny Free (agent)"
 reviewers: []
@@ -13,22 +13,43 @@ tags:
 quality:
   scores:
     source_provenance: 9.5
-    semantic_fidelity: 9.1
-    grammar_logic: 9.2
+    semantic_fidelity: 8.8
+    grammar_logic: 8.9
     segment_alignment: 10.0
-    terminology: 9.0
-    triangulation: 7.2
-    vietnamese_clarity: 9.0
-    han_viet_balance: 9.1
-    ambiguity_integrity: 8.4
+    terminology: 8.9
+    triangulation: 7.0
+    vietnamese_clarity: 8.8
+    han_viet_balance: 9.0
+    ambiguity_integrity: 8.6
     technical_integrity: 9.6
-  final_score: 9.01
+  final_score: 8.91
   blocking_errors:
-    - "Không có tầng tham khảo tiếng Anh tại commit đã ghim `11c9d708978cde8ba61096d8a75f7ddfb846f639`: đã đếm trực tiếp trong `source/upstream-manifest.json` → tầng `english-sujato` (treeSha `24e81ded9d6710e16b277b6394fd57c48258da12`, 4.291 tệp) và trong `sutta/kn/` chỉ có các thư mục cp, dhp, ja, kp, thag, thig — không có `ne`; `ne2` không nằm trong 83 tệp `ja` đã ghim. Đây là `not-published-upstream`, KHÔNG phải `not-synced`, và không phải thiếu sót của repo. Lớp lấp `english-project` không có cho uid này. Vì vậy bài dịch chỉ từ Pāli root cùng tiền lệ đếm được trong chính tầng Việt dự án; `triangulation` bị chặn ≤ 8.0 và `status` bắt buộc `draft`."
-    - "Tầng `vietnamese-current` tại commit đã ghim chỉ có 26 tệp, toàn bộ là Pháp Cú; không có `Netti` nên không có bản Hòa thượng Thích Minh Châu để đối chiếu. Đây là đặc điểm của snapshot upstream, không phải lỗi của người dịch."
-  assessed_at: "2026-10-05"
+    - "Không có tầng tham khảo tiếng Anh tại commit đã ghim
+      `11c9d708978cde8ba61096d8a75f7ddfb846f639`: đã đếm trực tiếp trong
+      `source/upstream-manifest.json` → tầng `english-sujato` (treeSha
+      `24e81ded9d6710e16b277b6394fd57c48258da12`, 4.291 tệp) và trong
+      `sutta/kn/` chỉ có các thư mục cp, dhp, ja, kp, thag, thig — không có
+      `ne`; `ne2` không nằm trong 83 tệp `ja` đã ghim. Đây là
+      `not-published-upstream`, KHÔNG phải `not-synced`, và không phải thiếu sót
+      của repo. Lớp lấp `english-project` không có cho uid này. Vì vậy bài dịch
+      chỉ từ Pāli root cùng tiền lệ đếm được trong chính tầng Việt dự án;
+      `triangulation` bị chặn ≤ 8.0 và `status` bắt buộc `draft`."
+  assessed_at: "2026-10-12"
   assessed_by:
-    - "OpenCode Space Bunny Free (agent)"
+    - "Claude Sonnet 5.5 (Claude Code)"
+  waiver:
+    id: no-upstream-english
+    blockers:
+      - "Không có tầng tham khảo tiếng Anh tại commit đã ghim
+        `11c9d708978cde8ba61096d8a75f7ddfb846f639`: đã đếm trực tiếp trong
+        `source/upstream-manifest.json` → tầng `english-sujato` (treeSha
+        `24e81ded9d6710e16b277b6394fd57c48258da12`, 4.291 tệp) và trong
+        `sutta/kn/` chỉ có các thư mục cp, dhp, ja, kp, thag, thig — không có
+        `ne`; `ne2` không nằm trong 83 tệp `ja` đã ghim. Đây là
+        `not-published-upstream`, KHÔNG phải `not-synced`, và không phải thiếu
+        sót của repo. Lớp lấp `english-project` không có cho uid này. Vì vậy bài
+        dịch chỉ từ Pāli root cùng tiền lệ đếm được trong chính tầng Việt dự án;
+        `triangulation` bị chặn ≤ 8.0 và `status` bắt buộc `draft`."
 notes: |-
   Đã đọc HẾT vc/p74.txt trước khi viết. Bài này là cả phần `Uddesavāra` của Netti:
   16 `hārā`, lần lặp của chúng, 5 `nayā`, lần lặp của chúng, rồi 18 `mūlapadāni` và uddāna.
@@ -92,3 +113,56 @@ notes: |-
     ngoặc kép cân (0/0 = PĦLI), không PĦLI lọt. Bốn lệnh để coordinator chạy:
     `npm run validate`, `npm test`, `npm run check`, `npm run build`.
 
+  GIẢI QUYẾT DRAFT 2026-10-12 (thay thế các mục cũ nêu dưới đây; mục cũ giữ lại làm lịch sử).
+    Đã đọc đối kháng toàn bài từ Pāli, đối chiếu tầng `ne` đã có (ne1, ne3, ne4, ne5, ne7, ne10, ne15, ne31, ne36, ne37).
+    35/47 khoá đổi; trong đó 18 khoá là lỗi nghĩa thật, 17 khoá là chỉnh thuật ngữ/khuôn cho khớp tiền lệ.
+
+    LỖI NGHĨA THẬT (18/47):
+      · `1.2`, `3.1`: `vicaya` dịch *tích lũy* là sai (đó là `ācaya`/`upacaya`); `vicaya` = khảo xét/tra xét
+        (ne1:4.1, ne3:3.4, ne5 tiêu đề). `1.2`, `4.1`: `vevacana` dịch *diễn đạt bằng lời* là sai; đó là *ngữ đồng nghĩa*
+        (ne3:11.4, ne13, ne29: 5 tệp / 34 dòng). Mục cũ nói *ngữ đồng nghĩa là `sutamaya`* là sai và bị bỏ.
+      · `5.3–5.4` `Etesañceva bhavati, vitthāratayā nayavibhatti`: bản cũ đọc *chúng cũng là chính những ấy, được chia thành
+        các lối kể* — thiếu `vitthāratayā` (do khai triển rộng) và đọc `nayavibhatti` thành động từ; nay là *sự phân chia các lối*.
+      · Tên năm `naya` (`6.2`, `8.1–8.4`, `9.1`, `9.3`): bản cũ tự đặt *tuyên thuật làm vui lòng / chất đống ba tầng /
+        đánh bóng như sư tử / soi như gương / cây gai đẩy* và ghi "0 tiền lệ" — sai: ne3:18.4–22.4, ne4:27.1, ne36:9.11, 54.4, 63.1
+        đã có *vòng xoay hoan hỷ / ba cánh sen / đùa giỡn của sư tử / nhìn khắp các phương / móc câu*, và khớp từ nguyên
+        (`āvaṭṭa`, `pukkhala`, `vikkīḷita`, `disā-locana`, `aṅkusa`). Đã dùng lại đúng các tên ấy. `8.4` *được trang sức bằng
+        các lối ấy* là sai; `nayalañjaka` đọc là *sự chỉ bày các lối* (xem bất định).
+      · `10.3`, `12.1`: `taṇhā` dịch *tham* là sai; tiền lệ là *tham ái* (ne3, ne4, ne37:2.3). `lobho` là *tham*
+        (ne5:18.2, ne7:1.6, ne10:12.5) nên `10.3`, `12.2` đổi *tham lam* thành *tham*; `moho` là *si* (ne5, ne10), không phải *si mê*.
+      · `11.2`: `asubhasaññā` dịch *tưởng bất thiện* là sai nghĩa; đúng là *tưởng bất tịnh* (ne7:1.16, ne12:5.5).
+      · `14.1–14.2`: *chín nền tảng kia là thiện, chín nền tảng kia hợp với phần bất thiện* — `kia` không có trong Pāli;
+        `navahi padehi` ở cách công cụ (bằng chín nền tảng). Nay: *các thiện có chín nền tảng, và các phần bất thiện được
+        kết hợp bằng chín nền tảng*.
+    CHỈNH THEO TIỀN LỆ (đã đo): `samatha` → *chỉ* (34 dòng so với *định tĩnh* 20; ne3:18.2); `vipassanā` → *quán* (52 so với *tuệ quán* 6);
+      `lakkhaṇa` → *đặc trưng* (8 tệp/64 dòng so với *dấu hiệu* 5 tệp/13 dòng); `vipallāsa` → *đảo lộn* (ne3:20.1, ne19, ne36:10.12);
+      `saṅgahaṁ samosaraṇaṁ gacchati` → *quy tụ, hội nhập* (ne37:319.4, cùng công thức); `Tassānugīti` → *Lời kệ nối theo phần ấy*
+      (ne3:3.2, ne5:54.2 dịch `anugīti` là *lời kệ nối theo*; *Sự lặp lại* chỉ xuất hiện ở chính bài này, 2 khoá);
+      `Tatridaṁ uddānaṁ` → *Tóm tắt ở đây:* (`Tatruddānaṁ` 21 khoá cùng cách); `6.1` bỏ *kể*, *ấy* không có trong Pāli;
+      `5.2` bỏ *rõ*, *lý* không có trong Pāli; cuối `1.2`/`6.2` `iti` → *— như vậy*.
+    TIÊU ĐỀ `0.2`/`14.5`: `Uddesavāra` đổi *Phần Tuyên Chúng* thành *Phần Liệt Kê*. *Tuyên Chúng* không có căn cứ trong Pāli
+      (`uddesa` là phần nêu danh mục, đối với `niddesa`/`paṭiniddesa` = *Chỉ Rõ*/*Giải Thích*); 0 tiền lệ cho cả hai cách.
+      `translationTitle` đã đổi khớp. Người biên tập có thể chọn *Phần Chỉ Định* nếu thích bám tầng `name`.
+
+    MỤC CŨ BỊ THAY THẾ / SỬA SỰ THẬT: (1) "Năm `nayā` … 0 tiền lệ" — sai, xem trên. (2) "`11.3–11.4` `Satamekañca gāthānaṁ…`" và
+      "`14.3–14.4` uddāna của `Therāpadāna`" — Pāli của ne2 không có `11.4` và không có câu ấy; mục này mô tả văn bản khác,
+      bỏ. (3) "ne8 dịch `satipaṭṭhānesu` là *bốn sát phạn*" — sai: ne8:8.2 là *bốn niệm xứ*; thân bài vẫn dùng *niệm xứ*.
+      (4) "`vevacana` → *diễn đạt bằng lời*", "`vicaya` → *tích lũy*" — sai, xem trên. (5) "`14.5` → *Hết phần Tuyên Chúng*" — nay *Hết phần Liệt Kê*.
+      (6) Lời "NHÁY KÉP / DẤU LƯỢC" vẫn đúng: 0 nháy kép, 0 `…pe…`, 0 `(…)`.
+
+    BLOCKER ĐÃ GỠ: câu thứ hai ("`vietnamese-current` chỉ có Pháp Cú, không có Netti") — đây là giới hạn của tầng tham chiếu upstream,
+      không phải lỗi văn bản; ghi lại ở đây, `triangulation` vì thế ≤ 8,0 (nay 7,0).
+    BLOCKER GIỮ: câu thứ nhất (không có bản Anh Sujato cho `ne2` tại commit đã ghim, `not-published-upstream`) — sự thật về upstream,
+      để cổng waiver `no-upstream-english` của người biên tập xử lý. Không có blocker loại (B): không có tầng English để đo coverage.
+
+    BẤT ĐỊNH CÒN LẠI (không có bản Anh độc lập để phán):
+      · `8.4` `nayalañjako`: đọc `lañjaka` là *chỉ bày, làm hiện rõ* (+ `naya`); chưa kiểm được qua nguồn thứ hai ⇒ đây là chỗ yếu nhất.
+      · `14.2` `yujjanti` + `14.1` `navahi ca padehi kusalā`: đọc thiện và bất thiện cùng "chín nền tảng" (đúng với ne37:530 nói hai vùng
+        đất mỗi bên chín mục); nghĩa chính xác của `yujjanti` (kết hợp / đối ứng) chưa phân xử.
+      · `13.2` `Kusalāni ca yāni tīṇi mūlāni`: đọc là ba thiện căn (vô tham, vô sân, vô si) — khớp phép cộng 2 + 3 + 4 = 9 của uddāna.
+      · `quy căn` (`āvaṭṭa`) giữ theo ne3:8.4, ne26 dù từ nguyên gần *xoay vòng*; đây là quy ước của tầng, không phải phán quyết ở bài này.
+      · `hārā` = *phương thức* (ne1, ne20–ne34) còn ne3–ne19 dùng *hướng dẫn* — lệch trong tầng, bài này giữ *phương thức*.
+    LỖI NGOÀI LÁT (chỉ báo): `ne22:0.4` dịch `Yuttihāra…` là *Dấu Hiệu* (đó là `lakkhaṇa`; `yutti` là lý luận); `ne37:531.1–2`
+      dịch *chín nền tảng kia* có `kia` thừa (cùng Pāli với `ne2:14.1–14.2`); `ne2` và `ne37:531` chưa đồng nhất cách dịch.
+    CHẤM LẠI: nguồn 9,5→9,5; nghĩa 9,1→8,8; ngữ pháp 9,2→8,9; thuật ngữ 9,0→8,9; đối chiếu 7,2→7,0; sáng rõ 9,0→8,8; Hán–Việt 9,1→9,0;
+      bất định 8,4→8,6; căn khoá 10,0; kỹ thuật 9,6 (cổng chưa chạy: `npm run validate`, `npm test`, `npm run check`, `npm run build`).

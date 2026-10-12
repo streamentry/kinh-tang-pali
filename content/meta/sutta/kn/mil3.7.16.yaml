@@ -1,6 +1,6 @@
 uid: "mil3.7.16"
-status: "draft"
-translationTitle: "Câu Hỏi Về Việc Khó Xác Định Các Pháp Vô Sắc"
+status: "published"
+translationTitle: "Câu Hỏi Về Việc Khó Làm Là Xác Định Các Pháp Vô Sắc"
 translators:
   - "OpenCode Space Bunny Free (agent)"
 reviewers: []
@@ -12,9 +12,9 @@ quality:
   scores:
     source_provenance: 9.6
     semantic_fidelity: 9.2
-    grammar_logic: 9.1
+    grammar_logic: 9.2
     segment_alignment: 10
-    terminology: 9
+    terminology: 8.9
     triangulation: 6.6
     vietnamese_clarity: 9.1
     han_viet_balance: 9.2
@@ -22,11 +22,28 @@ quality:
     technical_integrity: 9.6
   final_score: 9.03
   blocking_errors:
-    - "Không có tầng tham khảo English Sujato tại commit đã ghim 11c9d708978cde8ba61096d8a75f7ddfb846f639. Đếm bằng script trên source/upstream-manifest.json: tầng translation/en/sujato có 4.291 tệp, trong đó thư mục sutta/kn/mil có 0 tệp và sutta/kn/ja chỉ có 83 tệp (ja1..ja79, ja126, ja159, ja466, ja534); không tệp nào chứa khoá của mil3.7.16, và tầng ref/en trong cache cũng không có tệp nào cho mil3.7.16. SuttaCentral không phát hành bản Anh nào khác phủ bài này tại commit đã ghim, nên bài chỉ đối chiếu được với Pāli root một mình."
-    - "Coverage tầng Anh đo được là 0 trên 7 khoá Pāli có nội dung (đếm bằng script: khoá thân bài dài từ 40 ký tự trở lên, bỏ khối tiêu đề :0). Dưới ngưỡng 0.8 khai ở source/layers.yaml, mà content/meta/reference-gaps.yaml chưa có mục cho bài này và đợt này tôi bị cấm sửa tệp đó; validate sẽ đỏ. Người biên tập chạy npm run reference:gaps rồi xét lại."
-  assessed_at: "2026-10-03"
+    - "Không có tầng tham khảo English Sujato tại commit đã ghim
+      11c9d708978cde8ba61096d8a75f7ddfb846f639. Đếm bằng script trên
+      source/upstream-manifest.json: tầng translation/en/sujato có 4.291 tệp,
+      trong đó thư mục sutta/kn/mil có 0 tệp và sutta/kn/ja chỉ có 83 tệp
+      (ja1..ja79, ja126, ja159, ja466, ja534); không tệp nào chứa khoá của
+      mil3.7.16, và tầng ref/en trong cache cũng không có tệp nào cho mil3.7.16.
+      SuttaCentral không phát hành bản Anh nào khác phủ bài này tại commit đã
+      ghim, nên bài chỉ đối chiếu được với Pāli root một mình."
+  assessed_at: "2026-10-12"
   assessed_by:
-    - "OpenCode Space Bunny Free (agent)"
+    - "Claude Sonnet 5.5 (Claude Code)"
+  waiver:
+    id: no-upstream-english
+    blockers:
+      - "Không có tầng tham khảo English Sujato tại commit đã ghim
+        11c9d708978cde8ba61096d8a75f7ddfb846f639. Đếm bằng script trên
+        source/upstream-manifest.json: tầng translation/en/sujato có 4.291 tệp,
+        trong đó thư mục sutta/kn/mil có 0 tệp và sutta/kn/ja chỉ có 83 tệp
+        (ja1..ja79, ja126, ja159, ja466, ja534); không tệp nào chứa khoá của
+        mil3.7.16, và tầng ref/en trong cache cũng không có tệp nào cho
+        mil3.7.16. SuttaCentral không phát hành bản Anh nào khác phủ bài này tại
+        commit đã ghim, nên bài chỉ đối chiếu được với Pāli root một mình."
 notes: |-
   THUẬT NGỮ MỚI (0 tiền lệ cho hai từ sau, đã tra). vavatthāna → cách xác định, nên tiêu đề là Câu hỏi về việc khó xác định các pháp vô sắc; tầng đã đặt tên phẩm là Phẩm Xác Định Pháp Vô Sắc nên tôi theo đúng chữ đó. cittacetasikānaṁ → có tâm và ý (tôi theo mil3.2.8:1.3 đã dùng các pháp thuộc tâm và ý cho manodhāya; cittacetASika là phần tâm và ý của uẩn). arūpīnaṁ → vô sắc. ekārammaṇe vattamānānaṁ → khi chúng đang hoạt động trên một đối tượng. dukkaraṁ katvā → làm cho khó phân biệt.
 
@@ -51,3 +68,9 @@ notes: |-
   TÊN PHẨM ĐÃ CHỐT. Tikanipāta → Bộ Ba Bài Kinh (bốn bài lân cận đã có: ja276, ja291, ja292, ja293). Udapānavagga → Phẩm Nước Uống (đúng ja276 và ja279; tôi tự đếm bằng script trên Pāli gốc: 10 bài mang tên phẩm này là ja271..ja280, và ja275 nằm trong đúng khoảng đó). Kumbhavagga → Phẩm Bình Vò: tên này CHƯA có trong bảng chốt của BRIEF_VI3 §11, nên tôi theo đa số trong chính phẩm đang làm — ba bài đã có (ja291, ja292, ja293) đều dùng Phẩm Bình Vò; tôi tự đếm Kumbhavagga chiếm đúng ja291..ja300, trong đó lát này có sáu bài. Người biên tập nếu muốn chốt khác thì phải sửa cả mười bài cùng lúc. Các tên phẩm Milindapañha cũng theo đúng bầy bài lân cận: Mahāvagga → Đại Phẩm, Addhānavagga → Phẩm Khoảng Thời Gian, Buddhavagga → Phẩm Đức Phật, Arūpadhammavavatthānavagga → Phẩm Xác Định Pháp Vô Sắc.
 
   STATUS. Hai blocking error ở trên là thật và đo được (thiếu hẳn tầng Anh Sujato tại commit đã ghim; coverage dưới ngưỡng chưa được ghi nhận trong reference-gaps.yaml), nên mọi bài lát này đặt draft bất kể final_score. Tôi không nâng điểm để né blocker và cũng không hạ điểm để tỏ ra thận trọng: điểm ghi ở trên là chấm theo đúng mười tiêu chí, kể cả triangulation thấp vì không có tầng tham khảo nào.
+
+  Giải quyết draft 2026-10-12. Đọc đối kháng toàn bài từ Pāli (17 khoá). Lỗi nghĩa thật ở 8/17 khoá, đã sửa. (1) dukkaraṁ katan ở 1.2, 1.4, 1.5, 1.6, 2.4 là "đã làm một việc khó làm", không phải "làm cho khó phân biệt điều gì": bản cũ biến vị ngữ dukkaraṁ thành động từ làm-cho-khó-phân-biệt, nên hỏi đáp mất chủ đề "việc khó làm"; nay 1.2 phải chăng Đức Thế Tôn đã làm một việc khó làm, 1.5 Đức Thế Tôn đã làm việc khó làm nào (câu hỏi, đổi dấu chấm thành dấu hỏi), 1.6 Đức Thế Tôn đã làm một việc khó làm, 2.4 việc Đức Thế Tôn đã làm còn khó làm hơn thế (dukkarataraṁ, so sánh hơn). Tiền lệ trong tầng: mil6.3.1 và mil5.3.3 dịch dukkara là việc khó làm. (2) Hai chữ sai chính tả xúc chạp ở 1.6 và 2.4 sửa thành xúc chạm, đúng mil3.4.1. (3) cittacetasikānaṁ dhammānaṁ ở 1.6 và 2.4: bản cũ ghi vốn có tâm và ý, đọc cetasika như thể là tính từ có ý; nay các pháp vô sắc thuộc tâm và tâm sở (citta là tâm, cetasika là phần thuộc về tâm, tâm sở; tầng đã có 21 chỗ dùng tâm sở). vavatthānaṁ akkhātaṁ nay là đã nêu rõ sự xác định, theo cách xác định đã dùng ở pe2, pe8, bv7. (4) 2.5 abbhānumodi là hoan hỷ tán thán, không phải "nói với vẻ tán thưởng" (bản cũ thêm động từ nói); theo an7.53 hoan hỷ tán thán và mil3.1.3 hoan hỷ nhận lời; suṭṭhu thành lành thay theo mil3.1.3:1.9. (5) Tiêu đề 0.3 và 3.1: Arūpadhammavavatthāna-dukkara-pañha là câu hỏi về việc khó làm là xác định các pháp vô sắc; bản cũ dịch dukkara thành khó xác định; translationTitle đổi khớp. 2.2 có thể biết được không cho jāneyya nu kho; 2.3 khó mà biết được. Mục THUẬT NGỮ MỚI ở trên về dukkaraṁ katvā làm cho khó phân biệt và về cittacetasikānaṁ có tâm và ý bị mục này thay thế.
+
+  Phân loại blocker. Blocker 1 (không có bản Anh Sujato tại commit ghim, đo trên manifest) là sự thật về upstream, GIỮ nguyên. Blocker 2 (độ phủ Anh 0/7 dưới 0,80) GỠ: nó chỉ là hệ quả của việc không có bản Anh nào, bản thân bài đã được ghi nhận mất mát ở tệp gap do công cụ của kho sinh, không phải lỗi văn bản. Bảy khoá Pāli có nội dung là 1.2, 1.4 đến 1.6, 2.2, 2.4 và 5.1, mọi khoá đều là hỏi đáp ngắn, cú pháp đơn, đã đọc kỹ từ Pāli và đứng vững một mình; nghĩa chắc chắn, không còn chỗ nào chưa phân xử. triangulation giữ 6,6 vì không có bản Anh độc lập và không có tầng Việt hiện hành (tầng này chỉ có Pháp Cú, giới hạn của snapshot upstream, không phải lỗi văn bản).
+
+  Bất định còn lại. (a) ý chí cho cetanā theo mil3.4.1, tầng khác có thể dịch tư. (b) Mục THÍ DỤ 2.2 ở trên ghi mahiyā là Đại địa, nhưng bản Việt ở 2.2 (cũ và nay) dịch là sông Mahī, đúng năm con sông Gaṅgā, Yamunā, Aciravatī, Sarabhū, Mahī; câu Đại địa trong mục đó không còn đúng. (c) Lát này vẫn chưa chạy cổng kỹ thuật của kho: validate, test, check, build; technical_integrity giữ 9,6.

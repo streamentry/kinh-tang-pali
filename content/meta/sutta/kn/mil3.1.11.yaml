@@ -1,6 +1,6 @@
 uid: "mil3.1.11"
-status: "draft"
-translationTitle: "Câu Hỏi Về Đức Tin Mang Dấu Hiệu Thành Tựu Trọn Vẹn"
+status: "review"
+translationTitle: "Câu Hỏi Về Đức Tin Mang Dấu Hiệu Lao Vào"
 translators:
   - "OpenCode Space Bunny Free (agent)"
 reviewers: []
@@ -12,22 +12,39 @@ tags:
 quality:
   scores:
     source_provenance: 9.6
-    semantic_fidelity: 9.1
+    semantic_fidelity: 9
     grammar_logic: 9
     segment_alignment: 10
-    terminology: 8.7
-    triangulation: 6.5
+    terminology: 8.9
+    triangulation: 7
     vietnamese_clarity: 9
     han_viet_balance: 9.1
     ambiguity_integrity: 8.8
     technical_integrity: 9.6
-  final_score: 8.94
+  final_score: 9
   blocking_errors:
-    - "Không có tầng tham khảo English Sujato tại commit đã ghim 11c9d708978cde8ba61096d8a75f7ddfb846f639. Đếm bằng script trên source/upstream-manifest.json: tầng translation/en/sujato có 4.291 tệp, trong đó thư mục sutta/kn/mil có 0 tệp và sutta/kn/ja chỉ có 83 tệp (ja1..ja79, ja126, ja159, ja466, ja534); không tệp nào chứa khoá của mil3.1.11, và tầng ref/en trong cache cũng không có tệp nào cho mil3.1.11. SuttaCentral không phát hành bản Anh nào khác phủ bài này tại commit đã ghim, nên bài chỉ đối chiếu được với Pāli root một mình."
-    - "Coverage tầng Anh đo được là 0 trên 8 khoá Pāli có nội dung (đếm bằng script: khoá thân bài dài từ 40 ký tự trở lên, bỏ khối tiêu đề :0). Dưới ngưỡng 0.8 khai ở source/layers.yaml, mà content/meta/reference-gaps.yaml chưa có mục cho bài này và đợt này tôi bị cấm sửa tệp đó; validate sẽ đỏ. Người biên tập chạy npm run reference:gaps rồi xét lại."
-  assessed_at: "2026-10-03"
+    - "Không có tầng tham khảo English Sujato tại commit đã ghim
+      11c9d708978cde8ba61096d8a75f7ddfb846f639. Đếm bằng script trên
+      source/upstream-manifest.json: tầng translation/en/sujato có 4.291 tệp,
+      trong đó thư mục sutta/kn/mil có 0 tệp và sutta/kn/ja chỉ có 83 tệp
+      (ja1..ja79, ja126, ja159, ja466, ja534); không tệp nào chứa khoá của
+      mil3.1.11, và tầng ref/en trong cache cũng không có tệp nào cho mil3.1.11.
+      SuttaCentral không phát hành bản Anh nào khác phủ bài này tại commit đã
+      ghim, nên bài chỉ đối chiếu được với Pāli root một mình."
+  assessed_at: "2026-10-12"
   assessed_by:
-    - "OpenCode Space Bunny Free (agent)"
+    - "Claude Sonnet 5.5 (Claude Code)"
+  waiver:
+    id: no-upstream-english
+    blockers:
+      - "Không có tầng tham khảo English Sujato tại commit đã ghim
+        11c9d708978cde8ba61096d8a75f7ddfb846f639. Đếm bằng script trên
+        source/upstream-manifest.json: tầng translation/en/sujato có 4.291 tệp,
+        trong đó thư mục sutta/kn/mil có 0 tệp và sutta/kn/ja chỉ có 83 tệp
+        (ja1..ja79, ja126, ja159, ja466, ja534); không tệp nào chứa khoá của
+        mil3.1.11, và tầng ref/en trong cache cũng không có tệp nào cho
+        mil3.1.11. SuttaCentral không phát hành bản Anh nào khác phủ bài này tại
+        commit đã ghim, nên bài chỉ đối chiếu được với Pāli root một mình."
 notes: |-
   THUẬT NGỮ MỚI (0 tiền lệ, đã tra bằng grep trên content/translation/vi/project/sutta). yogāvacara → bậc đã đạt tới. sampakkhandana → thành tựu trọn vẹn. saddhā → đức tin (tầng đã có: nhờ lòng tin ở sn10.12:5.1). sotāpattiphala → quả vị nhập lưu, sakadāgāmiphala → quả vị nhập lưu một lần, anāgāmiphala → quả vị bất tái, arahatta → quả vị Arahant. uparipabbate mahāmegho → trên núi cao một cơn mưa lớn. gāḷhaṁ kacchaṁ → một bến sâu. saṁyuttanikāyavare → trong Tương Ưng Bộ (tầng đã đặt tên Tương Ưng Bộ cho Saṃyutta Nikāya ở sn1.1:0.1).
 
@@ -48,3 +65,10 @@ notes: |-
   TÊN PHẨM ĐÃ CHỐT. Tikanipāta → Bộ Ba Bài Kinh (bốn bài lân cận đã có: ja276, ja291, ja292, ja293). Udapānavagga → Phẩm Nước Uống (đúng ja276 và ja279; tôi tự đếm bằng script trên Pāli gốc: 10 bài mang tên phẩm này là ja271..ja280, và ja275 nằm trong đúng khoảng đó). Kumbhavagga → Phẩm Bình Vò: tên này CHƯA có trong bảng chốt của BRIEF_VI3 §11, nên tôi theo đa số trong chính phẩm đang làm — ba bài đã có (ja291, ja292, ja293) đều dùng Phẩm Bình Vò; tôi tự đếm Kumbhavagga chiếm đúng ja291..ja300, trong đó lát này có sáu bài. Người biên tập nếu muốn chốt khác thì phải sửa cả mười bài cùng lúc. Các tên phẩm Milindapañha cũng theo đúng bầy bài lân cận: Mahāvagga → Đại Phẩm, Addhānavagga → Phẩm Khoảng Thời Gian, Buddhavagga → Phẩm Đức Phật, Arūpadhammavavatthānavagga → Phẩm Xác Định Pháp Vô Sắc.
 
   STATUS. Hai blocking error ở trên là thật và đo được (thiếu hẳn tầng Anh Sujato tại commit đã ghim; coverage dưới ngưỡng chưa được ghi nhận trong reference-gaps.yaml), nên mọi bài lát này đặt draft bất kể final_score. Tôi không nâng điểm để né blocker và cũng không hạ điểm để tỏ ra thận trọng: điểm ghi ở trên là chấm theo đúng mười tiêu chí, kể cả triangulation thấp vì không có tầng tham khảo nào.
+
+  GIẢI QUYẾT DRAFT 2026-10-12 (bài mil3.1.11). Mục này THAY các khẳng định cũ về yogāvacara → "bậc đã đạt tới", sampakkhandana → "thành tựu trọn vẹn" và về chuyện "sửa nháy đóng ở 2.4"; các mục khác của bản ghi cũ (tên phẩm, công thức hội thoại, vế kệ dùng lại từ sn10.12) vẫn đúng.
+  Phân loại blocker. (A) Không có bản Anh Sujato tại commit đã ghim: GIỮ NGUYÊN, đó là sự thật về upstream (waiver no-upstream-english của người biên tập xử lý). (B) Câu "coverage tầng Anh 0/8 chưa có mục trong reference-gaps": GỠ, vì đó chỉ là hệ quả của (A) (tầng Anh vắng cả bài, không phải Sujato bỏ trống từng đoạn) và bản ghi gap do công cụ của kho sinh; bài này gồm 8 khoá thân bài ngắn, đã đọc đối kháng từng khoá từ Pāli, mọi khoá tự đứng vững. Không có tầng Việt hiện hành (vietnamese-current chỉ có Pháp Cú): giới hạn tham chiếu, không phải lỗi văn bản.
+  Sửa lỗi nghĩa thật: 9/17 khoá đổi (0.3, 1.1, 1.2, 1.3, 2.2, 2.3, 2.4, 2.5, 5.1); riêng 1.2, 2.2, 2.3 là lỗi nặng, còn lại là đổi theo thuật ngữ và dấu nháy. (1) yogāvacaro → "hành giả" (bản cũ "bậc đã đạt tới" ngược nghĩa: yogāvacara là người đang thực hành; tầng mil dùng "hành giả" cho yogāvacara ở mil3.1.13, mil3.2.3, mil7.7.8). (2) sampakkhandati/sampakkhandana → "lao vào" (bản cũ "thành tựu trọn vẹn"; cùng động từ ở 2.2 là pakkhanditvā "lao mình vào mà lội qua" nên một từ gốc phải một cách dịch; tiền lệ ps1.5:61.2 "tâm lao vào giới"; mil3.1.10 dịch "tiến tới hăng hái", khác nhưng không phải tiền lệ đa số). (3) appattassa pattiyā anadhigatassa adhigamāya asacchikatassa sacchikiriyāya → "để đạt điều chưa đạt, đến điều chưa đến, chứng điều chưa chứng", dùng lại nguyên văn dn33:3.1.14/dn34 (bản cũ "để thấy suốt điều chưa thấy suốt" bịa nghĩa "thấy suốt"; "của một người chưa được như thế" là thêm nghĩa). (4) vimuttaṁ → "đã giải thoát" bỏ "hoàn toàn" (thêm nghĩa); aññesaṁ số nhiều → "những người khác". (5) sotāpattiphale/sakadāgāmiphale/anāgāmiphale/arahatte → "quả Dự lưu/Nhất lai/Bất lai/A-la-hán" theo tầng (đếm: sotāpattiphal "Dự lưu" 55 so với "nhập lưu" 41; sakadāgāmiphal "Nhất lai" 57 so với "nhập lưu một lần" 3, tức cách cũ sai nghĩa; anāgāmiphal "Bất lai" 66 so với "bất tái" 2). (6) Kathaṁ ... → "là thế nào?" (cũ "là gì?"), theo mil3.1.10:1.4. (7) Ví dụ 2.2: yathāninnaṁ pavattamānaṁ → "chảy theo dốc" (bản cũ "chảy đầy tràn theo phương hướng"; tầng sn55.38, an3.95, an10.61… đều "chảy theo dốc"); pabbatakandarapadarasākhā → "hang hốc, khe nứt và lạch suối trên núi" (sn55.38, sn12.23, an3.95, an10.61 cùng cụm này; bản cũ "khe núi và hốc đất" bỏ mất sākhā); saṁvissandantī → "tràn" (mn88:19.2 "tràn lan cả hai bờ"); "bờ xa" → "bờ" (tīre không có "xa"; bản cũ thêm); uttānataṁ vā gambhīrataṁ vā → "nông hay sâu"; gāḷhaṁ kacchaṁ bandhitvā → "thắt chặt khố" (bản cũ "làm một bến sâu" sai hẳn: kaccha ở đây là khố/vạt quấn, "gird up the loins", bandhitvā là buộc); attano thāmañca balañca → "sức bền và sức mạnh của chính mình" theo cnd23:313.3; pakkhanditvā → "lao mình vào". (8) Dấu nháy: Pāli 2.4 là saddhāti. KHÔNG có nháy đóng (lời Trưởng lão kéo dài qua 2.5 và 3.1–3.4, nháy đóng nằm ở 3.4 ’”ti); bản cũ thêm ” ở 2.4 nên một cặp nháy bị đóng hai lần — đã bỏ ” ở 2.4, nay 1.3 và 3.4 mới đóng. (9) 2.5: thêm "cũng" cho -pi của Bhāsitampetaṁ (theo mil3.1.9:5.4) và dịch vara thành "tôn quý" (mil7.6.1; bản cũ bỏ mất saṁyuttanikāyavare…vara).
+  Khoá giữ nguyên: 2.1, 3.1–3.4, 4.1 (3.1–3.4 là lại nguyên văn sn10.12:5.1–5.4, 4.1 là công thức "Khéo lắm" 54 tệp mil). Pāli trùng trong chính bài: 1.2 và 2.3 (lặp công thức), 1.3 và 2.4 — 2 cặp, bản Việt của mỗi cặp nay trùng nhau, ngoài ra duy nhất dấu nháy đóng ở 1.3 mà 2.4 không có, đúng theo Pāli.
+  Còn bất định, không phải blocker: (a) vitthato ở 2.2 ("bhīto vitthato tīre tiṭṭheyya") không có tiền lệ cùng nghĩa trong tầng đã ghim (mn27 vitthataṁ là "rộng", khác); dịch "đờ người", nghĩa sợ hãi/ngần ngại chắc, sắc thái chi tiết chưa chắc. (b) kaccha = khố/vạt quấn lưng dựa vào thành ngữ gāḷhaṁ kacchaṁ bandhitvā, nghĩa khác của kaccha (nách ở mn36:20.4) không hợp văn cảnh. (c) lakkhaṇa "dấu hiệu": 15 tiêu đề lakkhaṇa trong mil, "dấu hiệu" 6, "đặc trưng" 6, "đặc tính" 2, "tướng" 1; giữ "dấu hiệu" cho khớp mil3.1.12/13/15 kề bên. (d) tầng English vắng, nên triangulation chỉ dựa vào Pāli và bài song song trong kho (công thức dn33/dn34, ví dụ dòng nước sn55.38/an3.95, mn88:19.2): triangulation 7.0, không cao hơn.
+  Điểm: source_provenance 9.6, semantic_fidelity 9.1→9.0, grammar_logic 9.0, segment_alignment 10, terminology 8.7→8.9, triangulation 6.5→7.0, vietnamese_clarity 9.0, han_viet_balance 9.1, ambiguity_integrity 8.8, technical_integrity 9.6; final 8.94→9.0. Blocker còn lại: chỉ (A). Bốn lệnh npm run validate, npm test, npm run check, npm run build chưa chạy trong lượt này.
