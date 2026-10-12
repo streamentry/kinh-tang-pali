@@ -298,3 +298,18 @@ Nhật ký append-only. Registry `content/audio/progress.json` được đối s
 - MN24 (`Kinh Trạm Xe`) source `ebf39859bc3d4d7269589e95dabfe15eac6d557ef010d637b3697840c8b39014`; summary 2,253 characters, 137 scripture segments, 12 planned chunks (2 summary, 10 scripture), maximum 1,394 characters. Profile remains `vi-charon-mn1-v1`.
 - The checkout Python initially lacked `lameenc`, so it failed before sending a request or writing a WAV. Resumed with the documented `uv run --with lameenc`; chunks 0–2 are valid cached WAVs. Chunk index 3 then stalled in `socket.connect` for more than 7 minutes; the connection remained in `CLOSE_WAIT`. The process was interrupted after confirming it had no child process; no WAV/tmp for index 3, no complete MP3, and no R2 upload or audio metadata exist. No second TTS request was sent.
 - Progress remains `generating` with checkpoint `audio/mn24/c16821460dcece30`; preserve these three valid WAVs. The observed connect stall exposed that the current generator retries provider HTTP errors but lets network connection exceptions escape; add bounded network-error retries and fail closed on quota/auth errors before resuming. MN24 is not counted as generated or uploaded.
+
+### Pipeline retry foundation merge — PR #515
+
+- PR [#515](https://github.com/streamentry/kinh-tang-pali/pull/515) fixes the provider path found during MN24: connection/time-out/incomplete-response failures retry at most five times with backoff; HTTP 429 and auth/other 4xx stop immediately; no provider fallback. Deterministic tests cover network retry, 5xx retry, 429 stop and the five-request limit.
+- Final exact head `366d828af7994380e1837419678b8fe3deaa4ee2`; push CI run `38153893816` and pull-request CI run `38153897911` both succeeded. Local gates on the rebased head: validate, 411 tests, Astro check (0 errors), audio check (186 texts/0 errors), and full build/Pagefind passed.
+- Squash merge commit `1bc0d3cdad52d1cf93eb1c99fadf8285fde7df0d` was read back from latest remote `main`. The MN24 branch was rebased onto that merge before resuming its cache.
+
+### MN24 R2/local-player checkpoint — batch mn-017
+
+- MN24 source `ebf39859bc3d4d7269589e95dabfe15eac6d557ef010d637b3697840c8b39014`; summary2.253 chars, 137 canonical scripture segments, 12 chunks (2 summary +10 scripture), maximum1.394 chars. Profile `vi-charon-mn1-v1` unchanged; current source still matches the cached plan.
+- The default Python lacked `lameenc` and stopped before any TTS request. Resumed with documented `uv run --with lameenc`. One request at chunk index3 stalled in `socket.connect` for more than7 minutes and produced no WAV; after PR #515 merged, the network-retry fix was available. Resumed by verifying/reusing cached chunks0–2 and synthesizing chunks3–11 sequentially; all12 WAV hashes, frames and formats pass. No other TTS process ran.
+- MP3 SHA-256 `d0593754aa09776b7769b66f16bf3a7eeb6da0ddd03ba809a0d0563da5104b71`, 21.022.080bytes, 43.796 MPEG frames, 1.051,104s by MP3 frame count; metadata duration1.051,05s; scripture begins153,71s. R2 object `vi/mn/mn24/d0593754aa09776b.mp3` passed full public MIME/hash/bytes readback and range206.
+- Local player preview loaded that exact R2 URL; play, +15s seek, “Kinh văn 2:33” jump to153,71s and pause worked. Progress is `uploaded-verified`, reviewpending; production awaits the MN24 PR and Pages deployment.
+- No full ASR or human listening is claimed. The transcription skill key was absent locally; an async request asked the editor to configure it without sharing the key in chat. Keep `review_status: pending` regardless.
+- MN24 is the first sutta in this per-article PR cadence. The upcoming PR will contain only MN24 metadata/progress/QC and the live evidence from #515; no MP3/WAV/cache is staged.
