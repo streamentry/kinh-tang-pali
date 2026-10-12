@@ -408,3 +408,24 @@ Nhật ký append-only. Registry `content/audio/progress.json` được đối s
 - Three repaired UIDs MN6/MN11/MN13; exact head200a0c85c5c55966391ea7fff685e11a52fe89b8. Push CI38205107588 and PR CI38205125482 both completed success. Local validate,411tests,Astro check,audio-check and full build passed.
 - Squash mergeb2501b60a5f21d7c8f4fb40c39c8e5b68bada242 via https://github.com/streamentry/kinh-tang-pali/pull/544; fetched remote main and verified ancestry. Metadata on main, historical flags/reviewpending retained. Deployment/live still requires verification.
 - Read-only preparation of next held artifacts MN14(13chunks,1238.496s),MN15(20chunks,1903.824s),MN17(11chunks,871.800s): current source/profile,every WAV checkpoint and final MP3 hash all passed. No upload/TTS/ASR during previous release gate. Next branchcodex/audio-mn-batch-020 starts from merged main.
+
+### Remaining held artifacts — read-only audit while batch mn-019 deploys
+
+- MN18(13chunks,1195.776s),MN20(9chunks,885.984s),MN21(16chunks,1619.664s): current canonical source matches cached manifest; approved profile metadata,every WAV checkpoint and MP3 hash verified. No upload/TTS/ASR. Historical speech-content flags still require manual listening and are not disproved by structural integrity.
+
+### Batch mn-019 production verified
+
+- Pages38206845597 at merge commitb2501b60a5f21d7c8f4fb40c39c8e5b68bada242: build114672098988 and deploy114675398299 succeeded. MN6/MN11/MN13 production pages HTTP200 reference exact final R2 objects.
+- Browser representative MN13 played the actual R2 MP3, +15s seek, scripture jump155? Metadata scripture start is exact in content/audio/mn13.json; UI jump showed2:34, then pause. Duration1382.208s,readyState4,media errornull. All three marked live, reviewpending. No full audio-content approval.
+
+### Batch mn-020 ready for PR — MN14/MN15/MN17
+
+- MN14 reused cached MP3, OAuth expired check returned401 before PUT; Wrangler bucket-info refreshed same account OAuth, retry uploaded/verified. MN14 and MN15 and MN17 reused existing artifacts; no TTS/ASR requests.
+- All three R2 hashes/bytes/range and local player play,+15s,scripture jump,pause passed, readyState4/no media errors. Historical review flags preserved; reviewpending.
+- Three repaired UIDs; estimated total duration4014.960s (~66m55s). MN6/11/13 deployment gate is verified in previous checkpoint.
+
+### Batch mn-020 per-sutta QC evidence
+
+- MN14: existing13chunk artifact; browser play,+15s,scripture jump161.07s,pause; readyState4/no error. Historical flag says chunk6 retry still has possible extra continuation; manual listening pending.
+- MN15: existing20chunk artifact; browser play,+15s,scripture jump158.23s,pause; readyState4/no error. Historical flags across chunks2/3/6/13/14/16 remain for listening; no ASR rerun.
+- MN17: existing11chunk artifact; browser play,+15s,scripture jump117.47s,pause; readyState4/no error. Historical repeated-reflection flag retained.
