@@ -380,3 +380,25 @@ Nhật ký append-only. Registry `content/audio/progress.json` được đối s
 - Three repaired UIDs MN2/MN4/MN5; exact headfa576a3ed127a9d9bcc2d9333e9100b23ba45bb8. Push CI38196566260 and PR CI38196625440 both completed success. Local validate,411tests,Astro check,audio-check and full build passed.
 - Squash mergea1ae2cbd0bc1ad330e736a1ccac8faec2d016ebb via https://github.com/streamentry/kinh-tang-pali/pull/537; fetched main and verified ancestry. All player metadata on main. Historical ASR flags retained; manual reviewpending.
 - Pages38203678327 at that merge commit is in progress; no new live claim. Branchcodex/audio-mn-batch-019 starts from merged remote main for durable follow-up evidence. Next held artifacts in numeric order:MN6/MN11/MN13, after current deployment verification.
+
+### Batch mn-019 read-only preparation during previous deploy
+
+- Rechecked current canonical source, approved profile metadata, every cached WAV checkpoint and final MP3 hash/bytes for MN6(8chunks,939.312s),MN11(11chunks,990.408s),MN13(15chunks,1382.208s). All passed; no TTS/ASR request or upload during the deployment gate. Historical QC flags remain pending manual listening.
+
+### Batch mn-018 production verified
+
+- Pages38203678327 at mergea1ae2cbd0bc1ad330e736a1ccac8faec2d016ebb: build114662350412/deploy114665216101 both success. MN2/MN4/MN5 HTTP200 with exact final R2 player URLs.
+- Representative browser MN5 played, +15s seek, scripture158.23s and pause; duration1500.864s,readyState4,no media error. All three marked live; historical QC flags and reviewpending unchanged. No full content listening claimed.
+
+### Batch mn-019 MN6 uploaded/player verified
+
+- Reused cached8chunk MP3 48b016935a0fae6aa438a68c0914bcccd9089968c68b7e98790b23cb6245c197; no TTS/ASR. R2 hash/bytes/range and local play,+15s,scripture,pause pass; readyState4/no error. Historical QC flags retained in manual_review_flags; reviewpending. One successful repaired UID in batch.
+
+### Batch mn-019 MN11 uploaded/player verified
+
+- Reused cached11chunk MP3 a24acf924e1a30e7b8e759930f7a3e23656ac626c995b4da07c437f1dd26b59f; no TTS/ASR. R2 hash/bytes/range and local play,+15s,scripture,pause pass; readyState4/no error. Historical QC flags retained in manual_review_flags; reviewpending. Two successful repaired UIDs in batch.
+
+### Batch mn-019 MN13 uploaded/player verified — ready for release
+
+- Reused cached15chunk MP3 823576f930661e36dca7ef5a8309d65dfbfb55f6f00ed21f843b5648ce4b1b7e; no TTS/ASR. R2 hash/bytes/range and local play,+15s,scripture,pause pass; readyState4/no error. Historical flags retained; reviewpending.
+- MN6/MN11/MN13:three repaired UIDs,total3311.928seconds(55m12s). Stop new uploads at this release gate; run required local checks,PR/CI,merge and deployment verification.
