@@ -331,3 +331,17 @@ Nhật ký append-only. Registry `content/audio/progress.json` được đối s
 - User renewed Wrangler login; upload succeeded using the same generated MP3. Public SHA/bytes/range verified. Prior auth error cleared from current entry; historical failure retained above.
 - Browser verified play, +15s, scripture jump154.91s, pause, duration1676.088s, readyState4/no error. Status uploaded-verified; manual review pending, ASR skipped by editor.
 - MN24 and MN25 are two successful files in the three-file batch. MN26 source preparation passed:27 chunks/363 scripture segments.
+
+### Previously held ASR artifacts — release handling
+
+- Following the editor instruction to upload/publish for manual website listening, prior ASR flags are listening-review information rather than a publication gate. Before registering each held artifact, recheck current canonical source/profile, WAV/MP3 integrity and R2/player. Preserve all historical QC flags; never infer content approval. Source/profile drift and corrupt/incomplete artifacts still block release.
+- Finish active MN26 and deliver MN24–MN26 first, then revisit earlier held MN artifacts in numeric order without duplicate TTS.
+
+- Read-only audit found all twelve held artifacts: MN2/4/5/6 in `/Volumes/SSD/symlinks/james-home/codex/worktrees/mn1-audio-profile/kinh-tang-pali/audio/`, MN11 in `/private/tmp/kinh-tang-pali-audio-live/audio/`, MN13/14/15/17/18/20/21 in the active audio worktree. Every source hash matches current canonical source, profile metadata matches the approved pin, every planned WAV matches its checkpoint, and each MP3 hash matches its manifest. No regeneration or ASR request was made. Upload/player/release checks remain to be performed individually after the active batch.
+
+### MN26 R2/player checkpoint — batch mn-017 ready for release
+
+- Sequential synthesis completed27/27chunks without provider errors. Source6065eec995b2395aad4488ef334d6fe5f983b524c48235b786a4638ec52ed25a; MP3 9c1d5f8627988cffe65326750a479cdbcd9aa3c3aa1a4026fc979833d9b86618,53,260,800bytes,2663.04seconds.
+- Source/plan reconstruction,27 WAV checkpoint checks,MP3 frame/hash/duration and R2 public hash/bytes/range pass. Local browser play,+15s,scripture174.39s,pause pass; readyState4/no media error. ASR skipped by editor; manual reviewpending.
+- MN24–MN26 now provide three uploaded-verified suttas, total5390.232seconds (about89m50s). Stop new synthesis for PR #529 delivery.
+- Local tests rerun after TTS released its lock:411/411pass. Earlier CLI-override test failure came from the active global TTS lock; no test or gate was weakened.
