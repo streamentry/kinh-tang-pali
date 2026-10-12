@@ -42,6 +42,8 @@ Dùng phiên OAuth sau `bunx wrangler login`; script chọn tài khoản khi ch�
 python3 scripts/audio-r2.py audio/mn1/<fingerprint>
 ```
 
+Nếu dùng OAuth đã hết hạn, uploader Python không tự làm mới token. Trong worktree dùng phiên OAuth đúng tài khoản đã ghim, chạy CLI Wrangler đã cài: `wrangler r2 bucket info kinh-tang-pali-audio` để Wrangler làm mới phiên và kiểm quyền bucket, rồi chạy lại uploader với MP3 đã có. Không tạo TTS mới để xử lý lỗi đăng nhập; không in token hoặc đổi tài khoản/bucket. Nếu refresh thất bại mới yêu cầu người biên tập đăng nhập lại.
+
 Script kiểm hash MP3 local, upload với `audio/mpeg`, tải lại từ URL công khai và so SHA-256 trước khi ghi đăng ký. Key chứa hash âm thanh, tránh ghi đè bản đã nghe duyệt và tránh cache cũ.
 
 Sau khi thành công:
