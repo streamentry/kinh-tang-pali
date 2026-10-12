@@ -14,13 +14,13 @@ quality:
     semantic_fidelity: 8.8
     grammar_logic: 8.8
     segment_alignment: 10.0
-    terminology: 8.7
+    terminology: 8.8
     triangulation: 8.0
     vietnamese_clarity: 8.7
     han_viet_balance: 9.2
     ambiguity_integrity: 8.5
     technical_integrity: 9.6
-  final_score: 8.97
+  final_score: 8.98
   blocking_errors:
     - "noEnglishEditionUpstream: không có tầng tham khảo tiếng Anh cho cnd15 tại
       commit đã ghim. Thư mục kn/ của edition translation/en/sujato chỉ có cp,
@@ -81,7 +81,7 @@ notes: |-
 
   **Bất định (không thêm vào thân kinh).**
   1. `4.9` `kāmakāmino rāgarāgino saññāsaññino` → *những người ham muốn dục, những người nhuốm tham theo tham, những người có tưởng theo tưởng*: 0 tiền lệ cho `rāgarāgin` và `saññāsaññin`; dịch theo cấu tạo lặp của từ ghép, chưa chắc đây là nghĩa *đắm theo* hay *nhuốm bởi*.
-  2. `13.1` `chatukkapañño` → *trí tuệ tồi tệ*: 0 tiền lệ, nghĩa của `chatukka` chưa phân xử được; dịch là mục thứ tư của chuỗi bốn tính từ chỉ trí kém (`parittapañño omakapañño lāmakapañño chatukkapañño`).
+  2. `13.1` `chatukkapañño` → *trí tuệ đê tiện*: theo tiền lệ `mnd8:78.14`, `mnd12:18.2`, `mnd12:19.2`, `mnd12:26.2`, `mnd12:85.4` (5/5 khoá, 4 tệp, cùng chuỗi sáu tính từ chỉ trí kém); nghĩa gốc của `chatukka` vẫn chưa phân xử được bằng căn cứ độc lập, nên chỉ nói là chọn theo tiền lệ.
   3. `20.2` `adhimutta` → *nghiêng hẳn về*: theo `cnd14` (kết ở *về*, không có tân ngữ, đúng như Pāli không có tân ngữ); 0 tiền lệ chắc chắn cho nghĩa này trong chuỗi `gahitaṁ parāmaṭṭhaṁ abhiniviṭṭhaṁ ajjhositaṁ adhimuttaṁ`.
   4. `7.11` `apubbaṁ acarimaṁ` dịch *không trước không sau* (đồng thời) và `jinabhāva` dịch *tư cách bậc Chiến Thắng*: không có tiền lệ.
   5. `12.3` đoạn dụ mặt trời bị lược ở `…pe…` giữa hai khoá: `sabbaṁ abhisaṅkhārasamudayaṁ` là tân ngữ của động từ bị lược nên Việt để *toàn bộ sự tập khởi của các hành tạo tác …* không thêm *đối với* hay động từ, rồi `12.4` nối tiếp bằng *bóng tối phiền não, sự tăm tối của vô minh, sau khi xua tan*; cấu trúc này chưa chắc chắn vì phần bị lược không có trong Pāli ghim.
@@ -92,3 +92,9 @@ notes: |-
   10. Lỗi ngoài lát, báo chứ không sửa: `snp5.12:5.1` và `snp5.12:5.2` bị đảo thứ tự dịch so với Pāli (Việt `5.1` = *Đối với người đã ly tham, thưa Bà-la-môn,* dịch `vītagedhassa brāhmaṇa` đứng ở Pāli `5.2`; Việt `5.2` = *đối với toàn bộ danh sắc,* dịch `sabbaso nāmarūpasmiṁ` đứng ở Pāli `5.1`). Cùng ảnh hưởng: `snp5.12:1.3` có *đã đến đích* không có căn cứ trong Pāli (xem `1.3` ở trên).
 
   **Bốn cổng kỹ thuật theo `AGENTS.md`:** `npm run validate`, `npm test`, `npm run check`, `npm run build`. Lát này **không** chạy bốn lệnh đó vì bị cấm trong từng lát ⇒ để CI hoặc người điều phối chạy. `technical_integrity` đặt **9.6**, không 10.0. Các phép tự kiểm đã chạy và đều xanh: tập khoá bản Việt = tập khoá Pāli (186/186, cùng thứ tự); nháy kép `“”`, nháy đơn `‘’` và ngoặc đơn khớp Pāli từng khoá (0/186 lệch; 15 khoá có nháy kép hoặc ngoặc đơn, không khoá nào có nháy đơn); dấu lược `…` khớp Pāli từng khoá (0/186 lệch; 19 khoá có `…pe…`, đều thành đúng một `…`; 0 khoá có `…` trần; không khoá Pāli nào kết `…pe….`); không có `(…)` ở Pāli nên không có ở Việt; 0 khoá rỗng; NFC; không khoảng trắng thừa; Pāli lọt sang Việt chỉ gồm các từ cố ý `Jatukaṇṇi` (tên riêng), `Iccā`, `Bhūri`.
+
+  **Lượt cải thiện 2026-10-11.** Đọc đối kháng lại cả 186 khoá cặp Pāli↔Việt, đo tiền lệ bằng số đếm trên toàn tầng (Pāli trùng nguyên văn ngoài bài: so khớp bỏ dấu câu và chữ hoa/thường; kiểm riêng chuỗi từ hiếm, công thức chú giải và dụ mặt trời). Kết quả: một khoá đổi, các khoá còn lại giữ.
+  - **`13.1` (terminology fix, 1/186 khoá).** Trước: *trí tuệ nhỏ bé, trí tuệ thấp kém, trí tuệ hèn mọn, trí tuệ tồi tệ* cho `parittapañño omakapañño lāmakapañño chatukkapañño`. Sau: *trí tuệ nhỏ bé, trí tuệ hạ liệt, trí tuệ tồi tệ, trí tuệ đê tiện*. Lý do: cùng chuỗi tính từ ở `mnd8:78.14`, `mnd12:18.2`, `mnd12:19.2`, `mnd12:26.2`, `mnd12:85.4` luôn dịch `omaka` → *hạ liệt* (4/4 tệp), `lāmaka` → *tồi tệ* (4/4), `chatukka` → *đê tiện* (4/4); bản trước lệch cả ba chữ và ghi nhầm là 0 tiền lệ cho `chatukka`. `parittapañño` giữ *nhỏ bé* (không theo *nhỏ nhoi* của `mnd`) vì khoá này nhắc lại chính câu kệ `13.5`, `10.3`, `16.3`, `snp5.12:2.3`, `cnd2:66.3` (5 khoá cùng *nhỏ bé*). Điểm đổi: `terminology` 8.7 → 8.8.
+  - **Đã đo và quyết định không đổi.** `12.3` `abhivihacca` giữ *phá tan* dù công thức `sabbaṁ ākāsagataṁ tamagataṁ abhivihacca` ở `mn46:22.1`, `sn2.29:11.1`, `sn22.102:11.1`, `an3.94:1.1` dịch *xua tan* (6 *xua tan*, 1 *phá tan* ở `iti27:4.1`): trong cùng câu `andhakāraṁ vidhamitvā` đã là *xua tan* (7 khoá, trong đó `mil7.4.3:5.2` cùng cụm), nên giữ hai động từ khác nhau thay vì lặp. `4.9` *những người nhuốm tham theo tham, những người có tưởng theo tưởng* trùng nguyên văn với `cnd22:5.8` (có tiền lệ, nhưng nghĩa vẫn là bất định mục 1). `12.1` *thái dương được gọi là mặt trời* trùng `mnd14:6.4`. `5.4` trùng 13 khoá `cnd5`, `cnd6`. `15.1` trùng cấu trúc `cnd14:25.1`, `cnd17:19.3`. `6.4` trùng `cnd17:44.1`. `7.2` trùng `mnd14:11.1`. `7.11` *gốc cây Bồ-đề* theo 12 khoá `mnd`, `cnd5`, `cnd21`. `34.2` trùng nguyên văn 10/15 khoá (4 khoá chỉ khác nháy theo Pāli từng khoá, 1 khoá khác ngôi và dịch giả).
+  - **Bất định bổ sung, giữ nguyên:** `12.2` `jagatī` → *đại địa*: không có tiền lệ (chỉ gặp làm tên riêng ở `tha-ap`); chọn *đại địa* theo nghĩa *đất, thế gian*, chưa phân xử được bằng căn cứ độc lập. `3.4` `tathattā` → *đúng như thật*: theo bản `snp3.6:33.4` (*đúng như thật*), nhưng ngữ pháp là cách ablative *do bản chất như vậy*, nên cách đọc *đúng như thật* chưa chắc.
+  - **Không đổi:** `semantic_fidelity`, `grammar_logic`, `ambiguity_integrity` (bất định mục 1, 3, 4, 5, 6 và hai mục bổ sung ở trên còn nguyên), `triangulation` (vẫn 8.0, không có bản Anh), `technical_integrity` 9.6 (không chạy bốn cổng). Blocker `noEnglishEditionUpstream` giữ nguyên: đó là sự thật của upstream.

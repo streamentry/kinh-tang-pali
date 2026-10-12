@@ -14,7 +14,7 @@ quality:
   scores:
     source_provenance: 9.5
     semantic_fidelity: 8.7
-    grammar_logic: 8.8
+    grammar_logic: 8.9
     segment_alignment: 10.0
     terminology: 8.7
     triangulation: 7.5
@@ -22,7 +22,7 @@ quality:
     han_viet_balance: 9.4
     ambiguity_integrity: 8.6
     technical_integrity: 9.6
-  final_score: 8.98
+  final_score: 8.99
   blocking_errors:
     - "Không có tầng tham khảo tiếng Anh tại commit đã ghim: tệp
       `translation/en/sujato/sutta/kn/vv46/` không tồn tại trong
@@ -74,3 +74,6 @@ notes: |-
   Phân loại 24 khoá: bịa hoặc vô nghĩa 10 (1.1, 1.2, 8.2, 1.4, 8.4, 5.3, 6.1, 7.3, 0.4, 11.1); dịch sai nghĩa từ vựng 8 (1.3, 8.3, 2.3, 9.3, 6.3, 6.4, 8.1, 7.2); đảo vế lệch ranh khoá 2 (2.4, 9.4); bỏ sót từ 3 (6.2, 2.1, 9.1); lệch tiền lệ 1 (7.4).
   Điểm đổi: `semantic_fidelity` 9.2 → 8.7, `grammar_logic` 9.0 → 8.8, `terminology` 9.2 → 8.7, `vietnamese_clarity` 9.2 → 9.0, `ambiguity_integrity` 8.8 → 8.6; các điểm khác giữ nguyên. Điểm hạ phản ánh lỗi nghiêm trọng của bản trước và các chỗ còn bất định; `final_score` 9.14 → 8.98.
   BẤT ĐỊNH CÒN LẠI: (a) `kārente niṭṭhite mahe` (6.2): đọc là định cách tuyệt đối `khi (tôi) đang cho tổ chức, lễ hội đã xong`; chủ ngữ của `kārente` không rõ, chưa có tầng tham khảo để phân xử. (b) `Ambehi chādayitvāna` (6.3): đọc `cho phủ bằng cây xoài`; không loại trừ nghĩa `bao phủ bằng xoài (quả)`. (c) `Itthivimāna` vẫn dịch `Nữ Hư Không` theo tiền lệ bộ vv (48 lần) dù Pāli không có `ākāsa` (tức `Cung Điện Nữ Nhân`): không sửa riêng một tệp, ghi để sửa cả bộ. (d) vv79:0.4 và vv79:13.1 cũng dịch `Ambavimāna` thành `Cung Điện Ambā`; cùng lỗi, ngoài phạm vi tệp này. (e) Ai nói 1.x: người hỏi, không phải nữ thiên; vì vậy `te` ở 1.1 và `me` ở 8.1 chỉ khác người nói, không còn mâu thuẫn như `BẤT ĐỊNH 1` cũ. `technical_integrity` vẫn 9.6 chưa chạy cổng: `npm run validate` · `npm test` · `npm run check` · `npm run build`.
+
+  Lượt cải thiện 2026-10-11 (đọc đối kháng lại từng khoá sau lượt kiểm toán trên; đổi 7/42 khoá — 4.3, 3.3, 10.3, 2.2, 9.2, 1.1, 8.1 — gồm hai cặp trùng Pāli giữ nguyên văn). (1) 4.3 `yassa kammassidaṁ phalaṁ` `quả báo của nghiệp này là thế` → `về nghiệp mà đây là quả báo`: Pāli là mệnh đề quan hệ làm tân ngữ của câu hỏi được đáp (`yassa` = `của nghiệp nào`), bản cũ làm phẳng thành câu khẳng định và mất quan hệ; đo tiền lệ toàn tầng vv 32 vs 25 theo cách mới, và đây là họ lỗi đã biết của bộ vv (accuracy fix). (2) 2.2/9.2 `luôn là ngọn đèn vàng lớn` → `luôn luôn, ngọn đèn vàng lớn`: `niccaṁ` là trạng từ (đa số tiền lệ trong kn dịch `luôn luôn`/`luôn` đứng độc lập), bản cũ `luôn là` gán nó vào vị ngữ `là ngọn đèn vàng`, không có trong Pāli; dấu phẩy để từ ấy trôi giữa `jalati` và `sovaṇṇayo mahā` như ở Pāli (accuracy/clarity fix). (3) 10.3 `sắc tướng tôi … mọi phương”.` → `dung sắc tôi … muôn phương.”`: cùng một từ `vaṇṇo` và `sabbadisā` đã dịch `dung sắc` + `muôn phương` ở 3.1, 3.3 và 10.1, nên trong một bài phải thống nhất; đo tiền lệ khoá `Vaṇṇo ca me sabbadisā pabhāsatī`: `dung sắc` 48 vs `sắc tướng` 13, `muôn phương` 32 vs `mọi phương` 30 (hai dạng gần hoà, chọn theo thống nhất nội bài và dạng `te` 46 vs 19) (terminology fix). (4) 3.3 và 10.3 sửa vị trí dấu đóng nháy theo quy ước đa số cho Pāli kết `”ti.`: `.”` 124, `?”` 75, so với `”.` 52 và `?”.` 20 (style-only). (5) 1.1/8.1 bỏ `thật` trước `khả ái` (Pāli `rammaṁ` không có từ tăng nghĩa; ghi chú: `khả ái` 6, `đẹp` 15, `đáng yêu` 15 cho `ramma` toàn tầng, giữ `khả ái` vì ba khoá `Asokaṁ nandanaṁ rammaṁ` trong vv/pv và một khoá tha-ap đều dịch như vậy; con số 6 tính cả hai khoá của bài này) (accuracy fix nhỏ). Điểm đổi: `grammar_logic` 8.8 → 8.9 (mệnh đề quan hệ 4.3 và trạng từ 2.2/9.2); các điểm khác giữ nguyên vì các bất định thật (6.2, 6.3, 7.3, tiêu đề) vẫn còn, và `triangulation` vẫn 7.5 do không có bản Anh độc lập; `final_score` 8.98 → 8.99. Không phát hiện lỗi nghĩa mới nghiêm trọng; đã đo 8 nhóm Pāli trùng trong bài (1.3/8.3, 1.4/8.4, 1.2/8.2, 2.1/9.1, 2.2/9.2, 2.3/9.3, 2.4/9.4, ba khoá `…pe…`), 0 lệch; nháy `“”` khớp Pāli ở 42/42 khoá; `…` khớp Pāli; 0 Pāli lọt sang Việt (ngoài hai tên tiêu đề giữ Pāli).
+  BẤT ĐỊNH CÒN LẠI sau lượt này (thêm vào mục (a)–(e) ở trên): (f) `taṁ` ở 7.3 (`Niyyādesiṁ taṁ saṅghassa`) có thể chỉ tu viện (5.3), ngọn đèn (7.1) hoặc cả việc cúng dường; bản dịch giữ `nơi ấy` theo cách đọc tu viện vì động từ `niyyādeti` thường đi với nơi ở dâng Tăng, chưa có tầng tham khảo để phân xử. (g) `niccaṁ` ở 2.2 có thể buộc vào `jalati` (luôn cháy) hoặc vào `sovaṇṇayo mahā`; bản dịch để trạng từ trôi giữa hai vế. Hai bất định này không đổi giáo nghĩa. Vẫn không nâng điểm `semantic_fidelity`, `ambiguity_integrity` và `terminology` vì (a)–(d) chưa được phân xử và tiêu đề `Itthivimāna` vẫn mang `Nữ Hư Không` theo tiền lệ bộ.

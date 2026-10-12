@@ -1,5 +1,5 @@
 uid: ja140
-status: review
+status: published
 translationTitle: "Kinh Con Quạ"
 translators:
   - "OpenCode Space Bunny Free (agent)"
@@ -12,16 +12,16 @@ tags:
 quality:
   scores:
     source_provenance: 9.5
-    semantic_fidelity: 8.9
-    grammar_logic: 9.0
+    semantic_fidelity: 9.1
+    grammar_logic: 9.2
     segment_alignment: 10.0
     terminology: 9.1
     triangulation: 6.6
     vietnamese_clarity: 9.1
     han_viet_balance: 9.2
-    ambiguity_integrity: 8.7
+    ambiguity_integrity: 8.8
     technical_integrity: 9.6
-  final_score: 8.97
+  final_score: 9.02
   blocking_errors:
     - "Không có tầng tham khảo English Sujato tại commit đã ghim: đã duyệt
       .cache/upstream/suttacentral/translation/en/sujato/sutta/kn/ và không có
@@ -29,9 +29,9 @@ quality:
       ghim chỉ có Pháp Cú nên Khuddaka Nikāya cũng không có bản Hòa thượng Thích
       Minh Châu; bài dịch chỉ từ Pāli, chưa đối chiếu được tầng tham khảo nào
       nên giữ draft."
-  assessed_at: "2026-10-02"
+  assessed_at: "2026-10-11"
   assessed_by:
-    - "OpenCode Space Bunny Free (agent)"
+    - "Claude Sonnet 5.5 (Claude Code)"
   waiver:
     id: no-upstream-english
     blockers:
@@ -56,3 +56,11 @@ notes: |-
 
   Kiểm thủ công trên TOÀN BỘ 15 khoá (kiểm() rỗng): đủ khoá, đúng ID, không rỗng, NFC, không trùng nguyên văn, dấu lược bằng Pāli (cả hai phía 0), nháy kép cân (mở 1.1, đóng 1.4), không `(…)` dở. save_vi hai lần, idempotent.
   Không chạy npm run validate|test|check|build (đợt này cấm), nên technical_integrity = 9.6.
+
+  Lượt cải thiện 2026-10-11 (đọc đối kháng lại; 5/15 khoá đổi: 1.1, 1.2, 1.3, 1.4, 4.3).
+  · LỖI NGHIÊM TRỌNG ĐÃ SỬA ở 1.1–1.4 (accuracy fix). Bản trước hiểu `ubbiggahadayā` là "gào lên tiếng" và `vasā` là "quyền", nên cả bài kệ thành "không ai trong chúng có quyền trên bọn đồng loại quạ": sai nghĩa. Ghi chú cũ ở trên về `ubbiggaha` (nhấc bổng/tiếng la) KHÔNG còn giá trị. `ubbigga` là "hoảng hốt, nơm nớp lo sợ" (tiền lệ trong tầng: ja394:2.3 cùng một cụm `niccaṁ ubbiggahadayassa` → "Lòng lúc nào cũng nơm nớp lo âu sợ hãi"; ja394:3.1 `niccaṁ ubbegino kākā` nói đúng về loài quạ; pv38, thag16.8, ud2.10, bv2 đều là sợ hãi). `vasā` ở đây là "mỡ" (như trong danh sách mười hai chất lỏng của thân mn28/mn62/mn140: `medo … vasā`), không phải `vasa` = quyền lực. Căn cứ phân xử: lời giải của Chú giải Jātaka cho bài này đọc `nesaṁ vasā natthi` là loài quạ chắc chắn không có mỡ, `nesaṁ` quy về loài quạ, và `kākānamhāka ñātinaṁ` được giải là "loài quạ, thân quyến của chúng ta" (đọc qua bản trực tuyến ancient-buddhist-texts.net; đây là nguồn ngoài các tầng đã ghim, chỉ dùng để hiểu cách đọc, không chép câu chữ). Về ngữ pháp: `nesaṁ` và `kākānaṁ amhāka(ṁ) ñātinaṁ` đều là sở hữu cách số nhiều đồng vị, nên 1.4 đứng cùng chủ ngữ "chúng" của 1.3, không phải "kẻ khác" bị chúng cai trị.
+  · 1.1 → "Lòng luôn nơm nớp lo sợ" (trước: "Chúng cứ luôn gào lên tiếng"); 1.2 → "quấy nhiễu cả thế gian" (trước: "làm phiền khổ tất cả các thế giới"; `viheṭheti/vihesa` → "quấy nhiễu" là tiền lệ đa số trong mn50, mn82, dn5, dn32; `sabbaloka` → "cả thế gian" 15 khoá, "khắp thế gian" 13, "tất cả các thế giới" chỉ 1); 1.3 → "Vì vậy chúng không có mỡ —"; 1.4 → "loài quạ, họ hàng của chúng ta." (trước: "đồng loại"; `ñāti` → thân quyến 13 · bà con 13 · họ hàng 12, còn "đồng loại" chỉ có đúng chỗ này).
+  · 4.3 (terminology fix): `haṁsavaruttamababbujaṭaṁ` tách thành Haṁsavaruttama, Babbu, Jaṭa thay vì "Babbujaṭa" một tên. Căn cứ: uddāna liệt kê đúng mười bài ja131–ja140 theo từ khoá trong kệ của từng bài: Itarītara (ja131:1.1 `asampadānenitarītarassa`), Rakkhasī (ja132:1.3), Khemiyo (ja133:1.1 `khemaṁ`), Ābhassara (ja135:1.4), Haṁsa (ja136:1.3), Babbu (ja137:1.1), Jaṭa (ja138:1.1 `jaṭāhi`), Paṭa/naṭṭha (ja139:1.1 `paṭo naṭṭho`), Kāka (ja140). Đếm được 10 mục, khớp `dasāti`. Ghi chú cũ gán "ja137 Suvaṇṇahaṁsa" là sai: Suvaṇṇahaṁsa là ja136, ja137 là Babbu.
+  · Điểm đổi: semantic_fidelity 8.9 → 9.1 và grammar_logic 9.0 → 9.2 (sửa sai nghĩa ở lõi bài kệ); ambiguity_integrity 8.7 → 8.8 (hết bất định ở `ubbigga`, `vasā`, `kākānamhāka ñātinaṁ`; còn lại bất định nhỏ bên dưới). Các tiêu chí khác giữ nguyên; triangulation giữ 6.6 vì tầng đã ghim vẫn không có bản Anh hay Việt nào, lời giải chú giải là nguồn ngoài.
+  · Bất định còn lại: (1) `sabbalokavihesakā` dịch theo nghĩa chủ động (quạ quấy nhiễu mọi người), theo từ vựng `vihesaka` và lối giải của chú giải; nghĩa bị động (quạ bị cả thế gian quấy nhiễu) không loại trừ hẳn về ngữ pháp, tuy cả hai đều dẫn đến "nên không có mỡ". (2) Trong uddāna, `Parosatapañha` (khoá ứng với ja134, kệ ja134 không chứa từ này) và `Paṭanaṭṭhaka` (có thể là `paṭo naṭṭho` ghép hậu tố) chưa phân xử được chắc chắn nên giữ nguyên tên, không dịch. `Haṁsavaruttama` giữ một tên.
+  · Blocker "không có tầng tham khảo English/Việt" GIỮ NGUYÊN. Không chạy npm run validate, npm test, npm run check, npm run build (không được phép), nên technical_integrity vẫn là 9.6.
