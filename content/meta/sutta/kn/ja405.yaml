@@ -8,23 +8,23 @@ tags:
   - "khuddaka-nikaya"
 quality:
   scores:
-    source_provenance: 9.6
-    semantic_fidelity: 9.5
-    grammar_logic: 9.5
-    segment_alignment: 10
-    terminology: 9.4
-    triangulation: 8
-    vietnamese_clarity: 9.4
+    source_provenance: 9.4
+    semantic_fidelity: 8.8
+    grammar_logic: 8.8
+    segment_alignment: 9.8
+    terminology: 9.2
+    triangulation: 7.5
+    vietnamese_clarity: 9.2
     han_viet_balance: 9.4
-    ambiguity_integrity: 9.2
+    ambiguity_integrity: 9
     technical_integrity: 9.6
-  final_score: 9.36
+  final_score: 9.07
   blocking_errors:
     - "Bài này không có tầng Anh SuttaCentral đã ghim ở commit đã pin (0/44 khoá), nên thiếu tầng tham khảo bắt buộc để xuất bản; đối chiếu chỉ có Pāli ghim cùng commit + tiền lệ trong chính tầng Việt dự án."
     - "`ja405` không nằm trong 83 tệp `ja` của tầng `english-sujato` đã ghim (chỉ có ja1–ja79, ja126, ja159, ja466, ja534), nên không thể đối chiếu một bản Anh độc lập cho bài này."
-  assessed_at: "2026-10-04"
+  assessed_at: "2026-10-12"
   assessed_by:
-    - "OpenCode Space Bunny Free (agent)"
+    - "Claude Sonnet 5.5 (Claude Code)"
 notes: |-
   **Bộ này là gì.** `ja405:0.1` = *Jātaka*, `:0.2` = *Sattakanipāta*, `:0.3` = *Kukkuvagga*,
   `:0.4` = *10. Bakajātaka*. Tôi tự đo lại và dùng đa số đã có trong chính Jātaka:
@@ -69,3 +69,55 @@ notes: |-
   **Không có tầng Anh.** 0/44 khoá có Anh Sujato. Tôi đã kiểm `source/upstream-manifest.json`:
   tầng `english-sujato` chỉ có **83** tệp `ja` (ja1–ja79 cộng ja126, ja159, ja466,
   ja534) — `ja405` không có. `translation/vi/phantuananh/` chỉ có Pháp Cú.
+
+  **Giải quyết draft 2026-10-12.** Mục này thay thế các nhận định cũ ở trên khi mâu thuẫn
+  (chỗ bị thay thế được nêu rõ từng điểm). Đọc đối kháng lại cả 44 khoá với Pāli ghim.
+  **Lỗi nghĩa thật: 10/44 khoá**, cộng 2 khoá chỉnh văn.
+
+  *Blocker.* Cả hai blocker còn lại đều là loại thiếu bản Anh upstream (0/44 khoá,
+  `ja405` không thuộc 83 tệp `ja` của `english-sujato` đã ghim); đó là sự thật về upstream nên
+  giữ nguyên cả hai, không gỡ. Không có blocker kiểu lỗi văn bản nào còn lại sau lượt sửa này.
+  Tầng Việt hiện hành cũng không có (chỉ Pháp Cú): giới hạn tham chiếu, không phải lỗi văn bản.
+  Tham chiếu duy nhất đối chiếu được là bài song song `sn6.4` (cùng 19 câu kệ, Pāli lệch vài chữ)
+  cùng bản Anh Sujato của `sn6.4`; đó không phải bản Anh của `ja405` nên `triangulation` ≤ 8,0 (chấm 7,5).
+
+  *Khoá đã sửa (accuracy fix).*
+  - `:1.3` `Ayamantimā vedagū brahmapatti`: bản cũ biến `vedagū` thành định ngữ sở hữu
+    ("của bậc đã hiểu rõ") và thêm "giới". `vedagū` là hô cách (nói với Gotama), `brahmapatti` là
+    "sự đạt đến Phạm Thiên"; dịch lại *"sự đạt đến Phạm Thiên này là lần cuối cùng, này bậc đạt
+    minh"* (*bậc đạt minh* theo tiền lệ `an8.85`, `cnd8`, `mnd9`).
+  - `:3.1` `bhagavāhamasmi`: bản cũ bỏ mất `bhagavā`. Dịch *bậc tôn quý có tầm nhìn vô biên*
+    (`anantadassī` → *tầm nhìn vô biên* theo `tha-ap44:25.1`, `ne37:142.2`), chữ thường để không
+    bảo người nói là Đức Thế Tôn.
+  - `:6.2` `manussakappā`: bỏ "thịt" (Pāli không nói thịt) → *thèm muốn con người*.
+  - `:7.1` `baddhacaro`: bỏ "trung thành" (không có trong từ; `vatinaṁ` ở dòng sau mới là
+    phần bổn phận) → *người hầu cận tên Kappa*.
+  - `:7.2` `vatinaṁ` → *biết giữ bổn phận* (thay *đáng tin cậy*); `amaññaṁ` → *cho là* (thay *tưởng*).
+  - `:8.4`: bỏ "cả" (Pāli không có; đó là chữ "even" của bản Anh).
+  - `:10.1` `Tassuddānaṁ`: bản cũ dịch *Và tóm lược các phẩm:* (thừa "Và", sai số nhiều) với lý do
+    chỉ có 8 tiền lệ. Đếm lại trong Jātaka, đúng chữ `Tassuddānaṁ`: *Tóm lược:* **44**,
+    *Kệ tóm tắt của phẩm ấy:* 5, *Và tóm lược các phẩm:* chỉ 1. Đổi thành *Tóm lược:*; nhận
+    định cũ "0 tiền lệ đúng chữ" bị thay thế.
+  - `:11.1`–`:11.4` (bài kệ tổng thứ tự): Pāli kết bằng `dasā` (mười) và liệt kê **10** tên
+    ứng với ja396–405. Bản cũ tách `cāpavaro` thành *Cāpa, Varo*, thêm một mục *bậc cao quý*
+    thay cho `veri`, nên thành 11 mục, và chép sai `sarohitamacchavaro` thành *Sarahitamacchavaro*;
+    `:11.4` còn gõ sai *thiêu liêng*. Sửa: `Cāpavara` một tên, `Sarohitamacchavara` đúng chính tả,
+    `veri` là một tên, `sabrahmabakena` = *cùng Phạm Thiên Baka*, *là mười*. Nhận định cũ về
+    "`Sarahitamacchavaro` giữ nguyên một từ" bị thay thế: chính tả đã sai. Nghĩa của
+    `Sarohitamacchavara`, `Veri` vẫn chỉ phiên âm, chưa giải được.
+  - Chỉnh văn: `:6.3` `balasā pasayha` → *dùng sức mạnh mà áp chế* (thay *sức mạnh dữ dội*);
+    `:8.3` giữ *oai lực rực rỡ* đúng tiền lệ `jalitānubhāvo` (55 khoá vv/pv; bản cũ *ánh hào quang*).
+
+  *Sửa nhận định cũ về nháy kép.* Pāli ghim không có dấu mở ở `:4.1`–`:7.3` và chỉ có dấu đóng
+  ở `:7.4`; nháy kép của Pāli vốn lệch. Bản Việt mở `“` ở `:4.1` và đóng ở `:7.4`, cân. Mô tả cũ
+  ("Pāli `:5.1` mở nháy") không đúng với Pāli ghim.
+
+  *Bất định còn lại (ghi chú, không đưa vào thân kinh).* (1) `:3.1` `bhagavā`: có thể là hô cách
+  (nói với Đức Thế Tôn) thay vì vị ngữ của Baka; câu không đổi ý chính. (2) `:1.3` `vedagū` hô cách
+  hay chỉ chủ ngữ ẩn. (3) `:6.2` `manussakappā` lệch `manussakamyā` ở `sn6.4`; dịch theo nghĩa
+  *thèm muốn con người*, chưa chắc nếu `kappa` là "giống như" (rồng hóa người). (4) `:7.2` `amaññaṁ`
+  tận cùng `-aṁ` (có thể là biến thể của `amaññi`); đọc ngôi thứ ba như `sn6.4`. (5) `:5.1`
+  `eṇikūlasmi`: *bờ sông Eṇī* là cách đọc theo `sn6.4`, chưa kiểm được tên sông. (6) `nirabbuda`
+  giữ phiên âm. Các điểm (1), (4), (5) cũng giống ở `sn6.4` (bài khác, ngoài phạm vi tệp này).
+  Cổng kỹ thuật: `technical_integrity` = 9,6; `npm run validate`, `npm test`, `npm run check`,
+  `npm run build` chưa chạy trong lượt này.

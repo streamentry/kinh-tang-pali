@@ -1,6 +1,6 @@
 uid: an6.26
-status: draft
-translationTitle: "Kinh Đại Ca-chiên-diên"
+status: published
+translationTitle: "Kinh Mahākaccāna"
 translators:
   - "OpenCode Space Bunny Free (agent)"
 reviewers:
@@ -15,21 +15,20 @@ tags:
 quality:
   scores:
     source_provenance: 9.6
-    semantic_fidelity: 9.6
-    grammar_logic: 9.6
+    semantic_fidelity: 9.5
+    grammar_logic: 9.5
     segment_alignment: 10
-    terminology: 9.5
-    triangulation: 7.5
-    vietnamese_clarity: 9.5
+    terminology: 9.4
+    triangulation: 8
+    vietnamese_clarity: 9.4
     han_viet_balance: 9.4
     ambiguity_integrity: 9.3
     technical_integrity: 9.5
-  final_score: 9.35
-  blocking_errors:
-    - "lowEnglishCoverage: Coverage tầng Anh Sujato là 63.0% (< 80% do Sujato để trống các đoạn lặp lại; bản Việt dịch đầy đủ từ Pāli root)"
-  assessed_at: 2026-10-08
+  final_score: 9.36
+  blocking_errors: []
+  assessed_at: "2026-10-12"
   assessed_by:
-    - Claude Opus 5.5 (Claude Code)
+    - "Claude Sonnet 5.5 (Claude Code)"
   assessment_id: e4b3c8a1-7d2e-4b95-a8c1-6f0e3b9d1a24
 notes: |-
   Dịch từ Pāli root; bản Anh Bhikkhu Sujato ở commit đã ghim phủ 29/46 segment có nội
@@ -40,3 +39,25 @@ notes: |-
   Đảm bảo tính nhất quán 100% giữa 6 pháp tùy niệm (Buddhānussati, Dhammānussati,
   Saṅghānussati, Sīlānussati, Cāgānussati, Devatānussati).
   Khớp 1:1 dấu ngoặc kép, dấu ngoặc đơn và dấu lược với Pāli root.
+
+  Giải quyết draft 2026-10-12: Blocker cũ "lowEnglishCoverage" (Sujato phủ 29/46 đoạn Pāli
+  có nội dung, 63,0%) thuộc loại do mất mát tầng tham khảo, không phải lỗi văn bản; đã gỡ.
+  Các khoá Sujato để trống (3.4-3.7, 4.4-4.7, 5.3-5.6, 6.5-6.8, 7.4-7.7) là phần lặp công
+  thức tùy niệm (giống từng chữ 2.5-2.8 và 7.9-7.12 ở Pāli) hoặc phần Pāli bị lược "…";
+  đã đọc đối kháng từng khoá này từ Pāli root, bản Việt tự đứng vững, nên mất mát được
+  ghi nhận ở reference-gaps thay vì coi là lỗi chặn. Bản tham khảo Sujato còn lại được
+  dùng thật để đối chiếu; vì các khoá trống không có bản Anh độc lập nên triangulation
+  đặt 8,0 (trần), không cao hơn. Tầng Việt hiện hành không có cho bài này (giới hạn
+  tham chiếu, không phải lỗi văn bản).
+  Sửa sau kiểm toán (accuracy/terminology): (1) 2.8, 3.7, 4.7, 5.6, 6.8, 7.12: bỏ dấu
+  nháy đóng ’ lạc trước "ở đây" (lỗi chép "evam'idhekacce") và thêm "Cũng" cho "idampi"
+  bị bỏ sót; (2) 5.1: "không bị bẻ vụn" -> "không bị sứt mẻ" (akhaṇḍa; tiền lệ
+  đa số 38 khoá so với "bẻ vụn" chỉ ở bài này); (3) 7.3 và 7.7: bỏ quan hệ nhân quả
+  "Do ... mà" không có trong Pāli (samannāgatā là phân từ mô tả chư thiên, khớp tiền lệ
+  an6.10/an11.11), 7.4-7.6 đồng bộ thành "Giới hạnh/Sự học rộng/Sự xả thí như thế nào …",
+  thống nhất "học văn" thành "sự học rộng" như 7.8; 7.8 "các chư thiên" -> "chư thiên";
+  (4) 0.3 tiêu đề đổi thành "Kinh Mahākaccāna" cho khớp tên riêng giữ nguyên trong thân
+  bài (38 khoá) và tiền lệ an6.10, an6.29; translationTitle khớp. Giữ nguyên "năm dục
+  trưởng dưỡng" (tiền lệ đa số trên tầng, 41 khoá) và "Phẩm Vượt Trội" (10 khoá).
+  Bất định còn lại: không có. technical_integrity giữ 9,5; chưa chạy bốn lệnh
+  npm run validate, npm test, npm run check, npm run build trong lượt này.

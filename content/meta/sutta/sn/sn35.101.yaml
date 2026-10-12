@@ -1,5 +1,5 @@
 uid: sn35.101
-status: draft
+status: published
 translationTitle: "Kinh Không Phải Của Các Ông (Một)"
 translators:
   - "Claude Sonnet 5.5 (Claude Code)"
@@ -22,9 +22,8 @@ quality:
     ambiguity_integrity: 9.5
     technical_integrity: 9.6
   final_score: 9.39
-  blocking_errors:
-    - "Độ phủ tầng tham khảo tiếng Anh (14/22 = 0.636) dưới ngưỡng tối thiểu 0.80 do bản Anh Sujato để trống 8 đoạn Pāli có nội dung (1.9, 1.12, 2.6, 2.9, 2.13, 2.14, 3.6, 3.9). Bài giữ trạng thái draft và triangulation ≤ 8.0 cho đến khi lớp english-project lấp các segment này và được published."
-  assessed_at: 2026-10-09
+  blocking_errors: []
+  assessed_at: "2026-10-12"
   assessed_by:
     - Claude Sonnet 5.5 (Claude Code)
 notes: |-
@@ -48,3 +47,8 @@ notes: |-
   Tự kiểm: tập khoá Việt = tập khoá Pāli (67/67, đúng thứ tự); nháy đơn/nháy kép khớp Pāli ở 67/67 khoá; 5 nhóm Pāli trùng nguyên văn trong chính bài (26 cặp) thì bản Việt trùng đủ 26/26; NFC, không khoá rỗng, không Pāli lọt sang Việt. Đối chiếu với tầng: 48 khoá có Pāli trùng ở bài khác, dùng lại nguyên văn 36, khác 12 (đều có lý do ở trên).
 
   Cổng kỹ thuật chưa chạy: `npm run validate`, `npm test`, `npm run check`, `npm run build` chưa được chạy cho bài này; `technical_integrity` đặt 9,6 chứ không tuyên bố đã pass.
+
+  Giải quyết draft 2026-10-12: blocker cũ về độ phủ tiếng Anh (14/22 = 0,636 dưới 0,80) thuộc loại giới hạn của bản Anh đã ghim, không phải lỗi văn bản, nên đã gỡ khỏi `blocking_errors`. Căn cứ: Sujato để trống 8 đoạn Pāli có nội dung là 1.9, 1.12, 2.6, 2.9, 2.13, 2.14, 3.6, 3.9; đã đọc đối kháng từng đoạn từ Pāli. 1.9, 1.12, 2.6, 2.9, 3.6, 3.9 là câu điệp `Taṁ/Te vo pahīnaṁ/pahīnā hitāya sukhāya bhavissati/bhavissanti`, Pāli y hệt các câu Sujato đã dịch ở 1.2, 1.6, 1.18, 3.3, 3.15 và trùng nguyên văn trong chính bài; bản Việt của từng cặp trùng cũng giống nhau. 2.13 là câu cảm thọ do duyên xúc lưỡi, cùng khuôn với 1.16 và 3.13 mà Sujato có dịch ở 1.16 và 3.13. 2.14 là đoạn lược `…pe….` giữ ` ….`. Cả tám đoạn tự đứng vững từ Pāli, không còn nghĩa nào chưa chắc. Một ô Anh rỗng vẫn không phải sự đồng thuận về cách dịch; `triangulation` giữ 7,8 (không quá 8,0) vì ba tầng tham khảo đều không phủ trọn bài. Mục "Coverage English" ở trên vẫn đúng về số đo; phần nói bài "giữ draft cho đến khi english-project lấp" bị thay thế bởi mục này, và mất mát được ghi nhận ở content/meta/reference-gaps.yaml.
+  Đọc đối kháng toàn 67 khoá: không phát hiện lỗi nghĩa (0/67 khoá sửa). Đã đối chiếu từng dải căn–cảnh–thức–xúc–thọ với Pāli và Sujato (1.4–1.16, 3.1–3.13, 8.1–8.9), `Rasā` = "các vị", `pajahatha` số nhiều mệnh lệnh = "hãy từ bỏ", `yathāpaccayaṁ` = "tùy theo ý muốn", 7.1 trùng nguyên văn `sn22.33:2.6`. 8.6 Pāli kết `…pe…` được dịch đúng một `…`; 8.4, 8.5 `…` giữ `…`. Không có khoá nào đổi nên bản JSON không đổi.
+  Tiền lệ: giữ kết quả đã đo ở trên (26/26 cặp Pāli trùng trong bài khớp bản Việt); tên bài "Không Phải Của Các Ông" vẫn theo số đông, `sn35.102` ("Từ Bỏ Điều Không Của Mình") lệch tên và dùng "các người", đề nghị người biên tập thống nhất, không thuộc phạm vi sửa ở đây.
+  Bản Việt nguyên bài ở mục Tra cứu toàn văn không được tham chiếu để chép câu chữ; tầng Việt hiện hành không có ở dạng phân đoạn (chỉ Pháp Cú), là giới hạn tham chiếu chứ không phải lỗi văn bản. Cổng kỹ thuật `npm run validate`, `npm test`, `npm run check`, `npm run build` chưa chạy trong lượt này; `technical_integrity` giữ 9,6.

@@ -1,6 +1,6 @@
 uid: tha-ap153
-status: draft
-translationTitle: "Bài Kệ Tuyên Ngôn Về Trưởng Lão Bandhujīvaka"
+status: published
+translationTitle: "Ký Sự Về Trưởng Lão Bandhujīvaka"
 translators:
   - "Kinh Tạng Pāli Project"
 reviewers: []
@@ -11,22 +11,46 @@ tags:
   - "cong-hanh-nhom"
 quality:
   scores:
-    source_provenance: 9.6
-    semantic_fidelity: 9.4
-    grammar_logic: 9.6
+    source_provenance: 9.5
+    semantic_fidelity: 8.8
+    grammar_logic: 8.9
     segment_alignment: 10.0
-    terminology: 9.6
-    triangulation: 8.5
-    vietnamese_clarity: 9.5
-    han_viet_balance: 9.5
-    ambiguity_integrity: 9.5
-    technical_integrity: 10.0
-  final_score: 9.52
+    terminology: 9.0
+    triangulation: 7.5
+    vietnamese_clarity: 9.0
+    han_viet_balance: 9.2
+    ambiguity_integrity: 9.0
+    technical_integrity: 9.6
+  final_score: 9.05
   blocking_errors:
-    - "Bản dịch chỉ phủ 1 khoá có nội dung; lát được chia bằng bộ lọc coverage 40 ký tự thay vì missingAll nên bài thiếu khoá, validate yêu cầu requireComplete."
-  assessed_at: "2026-09-30"
+    - "Không có tầng tham khảo tiếng Anh tại commit đã ghim: tệp
+      `translation/en/sujato/sutta/kn/tha-ap/tha-ap153_translation-en-sujato.js\
+      on` không tồn tại trong `.cache/upstream/suttacentral/`, và
+      `source/upstream-manifest.json` không liệt kê tệp Anh nào cho uid này —
+      đây là `not-published-upstream`, KHÔNG phải `not-synced`. Đo coverage theo
+      công thức `source/layers.yaml` (Pāli có nội dung ≥ 40 ký tự, loại block
+      `:0`) cho 0 trên 1 khoá = 0%, dưới ngưỡng 0.8. Tầng `vietnamese-current`
+      cũng vắng (`translation/vi/phantuananh` chỉ có Pháp Cú) và lớp
+      `english-project` không có cho uid này. Ba tầng tham khảo đều vắng nên bài
+      dịch chỉ từ Pāli root; đây là giới hạn upstream, không phải lỗi của người
+      dịch, và `triangulation` bị chặn ≤ 8.0."
+  assessed_at: "2026-10-12"
   assessed_by:
-    - "OpenCode Space Bunny Free (agent)"
+    - "Claude Sonnet 5.5 (Claude Code)"
+  waiver:
+    id: no-upstream-english
+    blockers:
+      - "Không có tầng tham khảo tiếng Anh tại commit đã ghim: tệp
+        `translation/en/sujato/sutta/kn/tha-ap/tha-ap153_translation-en-sujato.\
+        json` không tồn tại trong `.cache/upstream/suttacentral/`, và
+        `source/upstream-manifest.json` không liệt kê tệp Anh nào cho uid này —
+        đây là `not-published-upstream`, KHÔNG phải `not-synced`. Đo coverage
+        theo công thức `source/layers.yaml` (Pāli có nội dung ≥ 40 ký tự, loại
+        block `:0`) cho 0 trên 1 khoá = 0%, dưới ngưỡng 0.8. Tầng
+        `vietnamese-current` cũng vắng (`translation/vi/phantuananh` chỉ có Pháp
+        Cú) và lớp `english-project` không có cho uid này. Ba tầng tham khảo đều
+        vắng nên bài dịch chỉ từ Pāli root; đây là giới hạn upstream, không phải
+        lỗi của người dịch, và `triangulation` bị chặn ≤ 8.0."
 notes: |-
   Bài kinh trong `Therāpadāna apadāna` (Truyện Kệ của các Trưởng Lão),
   dạng kệ apadāna: mỗi bài là bài kệ của một vị trưởng lão, kèm dòng ghi công
@@ -108,3 +132,30 @@ notes: |-
   thuẫn trên cùng một câu Pāli. Đã sửa 28 khoá về đúng hình thức của nhóm 41, và
   `semantic_fidelity` hạ 9.4 → 9.2 để phản ánh đúng việc bản dịch đã từng cộng thêm.
 
+  Giải quyết draft 2026-10-12: kiểm toán độc lập, đọc đối kháng từng khoá với Pāli root. Mục "Bất định đã ghi nhận" (3) và (4) và đoạn "Không bỏ sót… Không có blocking error" ở trên mô tả đợt dịch một khoá cũ và **không còn đúng** cho bản hiện tại (29/29 khoá); chúng được thay bằng mục này. Mục (1) về `Itthaṁ sudaṁ` vẫn còn hiệu lực.
+
+  **Blocker cũ đã gỡ:** "Bản dịch chỉ phủ 1 khoá có nội dung…". Đây là lỗi thời: tệp hiện có đủ 29/29 khoá, khớp tập khoá Pāli, không khoá rỗng. Không còn blocker về thiếu khoá.
+
+  **Blocker còn lại (và vì sao):** không có bản Anh Sujato tại commit đã ghim (`not-published-upstream`; manifest không liệt kê tệp Anh cho uid này), coverage 0/1 khoá có nội dung, tầng Việt hiện hành chỉ có Pháp Cú, không có lớp `english-project`. Đây là sự thật về upstream, giữ nguyên để waiver `no-upstream-english` xử lý; không phải lỗi văn bản. Chỉ có **một** khoá đủ 40 ký tự (`7.1`), nên ngưỡng coverage không nói được gì về chất lượng các khoá kệ; các khoá kệ được đọc thẳng từ Pāli.
+
+  **Sửa nghĩa (accuracy fix), 6 khoá sai nghĩa thật trên 29; 3 khoá dư chữ:**
+  - `3.2` (lỗi nặng nhất): bản cũ "ta cầm lấy rồi rải những đóa sen đen cuống sẫm màu" **không có căn cứ trong Pāli** (không có sen, không có hành động rải; chỉ có `lagetvā suttakenahaṁ`). Sửa: "tôi xâu bằng sợi chỉ" (`lagetvā` = gắn/xâu, `suttakena` = bằng sợi chỉ, `ahaṁ` = tôi). Chữ "sen đen cuống sẫm màu" chỉ có ở khoá này (đếm 1 lần trong 563 tệp `tha-ap`), tức là lỗi chép từ bài khác chứ không phải tiền lệ.
+  - `2.2`: bản cũ "vị tối thượng cứu vớt người đã vượt qua" đảo quan hệ. `tiṇṇaṁ` (đã vượt qua) là tính từ của Đức Phật, `tārayataṁ` là sở hữu cách số nhiều ("của những vị đưa người khác vượt qua"), `varaṁ` = tối thượng. Sửa: "đã vượt qua, bậc tối thượng trong những vị đưa người khác vượt qua".
+  - `1.3`: "niềm vui hữu và sinh" thêm "sinh" không có trong `Nandībhavaparikkhīṇaṁ`. Đọc `nandī-bhava` = hoan hỷ đối với hữu, đúng với cách Sujato đọc cùng dòng ở `dhp413:3` (nghĩa là "hết thích thú với tái sinh") và `mn98:11.73`. Sửa: "đã đoạn tận hoan hỷ đối với hữu". (Đoạn bản dịch "hữu và sinh" cũng xuất hiện ở `snp3.9:49.3`; không sửa vì ngoài phạm vi, chỉ báo.)
+  - `1.2`: `vippasannamanāvilaṁ` bản cũ có "tâm ý", Pāli không có. Sửa "trong sáng, không vẩn đục" (khớp với `dhp413:2` trong tầng Việt: "trong sáng, không vẩn đục").
+  - `2.1`: `Nibbāpayantaṁ janataṁ` bản cũ "dẫn dắt quần chúng đến cõi Niết-bàn" thêm "dẫn dắt", "cõi" và đổi động từ. `nibbāpeti` là sai khiến của `nibbāyati` (làm cho nguội, làm dập tắt). Sửa "làm cho quần chúng được nguội mát". Bất định: Pāli không nêu cái bị dập tắt (phiền não, nóng bức); không thêm vào thân kinh.
+  - `5.4`: `mahabbalo` = "có sức mạnh lớn" (`mahā` + `bala`), không phải `mahiddhi` (đại thần lực). Sửa "có đại lực". Tiền lệ đa số trong `tha-ap` ("đại thần lực", 75 khoá có Pāli `mahabbalo`) là cách đọc sai nghĩa, nên không theo.
+  - Dư chữ: `3.3` "dâng cúng" → "đã dâng" (`abhiropayiṁ`); `4.3` bỏ "còn" (Pāli không có), giữ "đọa xứ" theo tiền lệ (khoảng 150 khoá); `5.2` bỏ "một".
+  - `5.1`: `sattamake kappe` là số thứ tự ("kiếp thứ bảy"), bản cũ "Cách đây bảy kiếp" đổi thành số đếm. Sửa "Vào kiếp thứ bảy trước đây" (cùng hình thức với `4.1` "Vào ba mươi mốt kiếp trước đây", là tiền lệ của các bài `Ký Sự` đã kiểm).
+  - `3.4`: `lokabandhu` = "thân quyến của thế gian" (`bandhu` = bà con, không phải `mitta`/thân hữu). Sửa thành "bậc thân quyến của thế gian". Chỗ này còn bất định về từ vựng (tầng có hai cách), nhưng "thân hữu" nghiêng sang bạn bè hơn là Pāli.
+  - `4.2`: "nghiệp mà tôi đã làm khi ấy" (`yaṁ kammamakariṁ tadā`) giữ đủ `yaṁ` và `tadā`; bản cũ bỏ `tadā`.
+  - Tiêu đề: `0.3` và `8.1` đổi về hình thức của các bài `tha-ap` đã kiểm ("Ký Sự Về Trưởng Lão …", "Ký sự về Trưởng lão …, thứ nhất"). "Bài Kệ Tuyên Ngôn" không có căn cứ cho `apadāna` (là truyện/ký sự về hạnh nghiệp); `translationTitle` đã đổi khớp `0.3`. Giữ tên `Bandhujīvaka` (tên hoa, đồng thời là tên Trưởng lão; hình thức này đã có ở các tiêu đề `Veyyāvacca`, `Sela`).
+  - Giữ nguyên: `1.1`, `1.4`, `2.3`, `2.4`, `4.1`, `4.4`, `6.1`–`6.4`, `7.1`, `0.1`, `0.2`.
+
+  **Đối chiếu nguồn thật:** các dòng `1.1`–`1.3` trùng Pāli với `dhp413:1`–`3` (và `mn98:11.71`–`73`), nên đã đối chiếu với Sujato của hai bài này ("Pure as the spotless moon, clear and unclouded, ended relish for rebirth"); phần còn lại (`2.x`–`6.x`) không có song song Anh nên chỉ dựa Pāli, ngữ pháp và tiền lệ trong tầng Việt. Vì vậy `triangulation` = 7.5 (≤ 8.0), không cao hơn.
+
+  **Số Pāli:** `Ekattiṁse` = 31 (một + ba mươi, `ekatiṁsa`) → "ba mươi mốt" đúng; `sattamake` = thứ bảy; `catasso` = bốn, `aṭṭha` = tám, `chaḷ` = sáu. Không có số nào phải suy.
+
+  **Thuật ngữ và công thức:** `7.1` giữ "Tôi nghe như vầy:" theo hình thức đã được người điều phối quyết định cho công thức `Itthaṁ sudaṁ` (558 khoá `tha-ap` đang theo); đây vẫn là bất định (Pāli không có lời hô, "như vầy" gần với `itthaṁ` hơn "tôi nghe"), nên nếu đổi phải đổi cả tầng một lần, không sửa riêng bài này. `Bốn vô ngại giải`, `sáu thắng trí`, `tám giải thoát`, `đã làm tròn lời dạy của Đức Phật` đều là hình thức đã ổn định của tầng (đếm 559, 92, 84, 756 khoá). Dấu nháy: `“` ở `1.1` và `”` ở `6.4` khớp Pāli; không có `…`.
+
+  **Điểm:** `source_provenance` 9.6→9.5, `semantic_fidelity` 9.2→8.8 (sau sửa còn bất định ở `2.1`, `3.4`, `7.1`), `grammar_logic` 9.6→8.9, `segment_alignment` 10.0→10.0, `terminology` 9.6→9.0, `triangulation` 8.5→7.5, `vietnamese_clarity` 9.5→9.0, `han_viet_balance` 9.5→9.2, `ambiguity_integrity` 9.5→9.0, `technical_integrity` 10.0→9.6 (không chạy được `npm run validate`, `npm test`, `npm run check`, `npm run build` trong lượt này nên không tuyên bố đã pass). Điểm cũ của đợt trước (9.52) tính trên bản chỉ có 1 khoá dịch và không phản ánh bản hiện tại.

@@ -1,6 +1,6 @@
 uid: tha-ap130
 status: draft
-translationTitle: "8. Kinh Kệ Của Trưởng Lão Ñāṇasaññika"
+translationTitle: "8. Ký Sự Về Trưởng Lão Ñāṇasaññika"
 translators:
   - "OpenCode Space Bunny Free (agent)"
 reviewers: []
@@ -12,21 +12,21 @@ tags:
 quality:
   scores:
     source_provenance: 9.8
-    semantic_fidelity: 9.3
-    grammar_logic: 9.5
+    semantic_fidelity: 8.6
+    grammar_logic: 8.8
     segment_alignment: 10.0
-    terminology: 9.5
-    triangulation: 8.6
-    vietnamese_clarity: 9.4
-    han_viet_balance: 9.4
-    ambiguity_integrity: 9.2
+    terminology: 8.8
+    triangulation: 6.5
+    vietnamese_clarity: 8.8
+    han_viet_balance: 9.0
+    ambiguity_integrity: 8.6
     technical_integrity: 9.6
-  final_score: 9.43
+  final_score: 8.85
   blocking_errors:
     - "Tầng tham khảo đã ghim không phủ phẩm tha-ap: tại commit đã ghim 11c9d708978cde8ba61096d8a75f7ddfb846f639, tầng english-sujato chỉ có 9 sub-collection của kn (cp 35 · dhp 26 · iti 112 · ja 83 · kp 9 · snp 73 · thag 264 · thig 73 · ud 80 = 755 tệp); tệp tha-ap duy nhất trong cả tầng là name/sutta/tha-ap-name_translation-en-sujato.json, tức tệp tên, không phải thân kinh. Tầng vietnamese-current (26 tệp) toàn bộ là Pháp Cú, không có tha-ap. Với tha-ap130 mẫu số coverage chỉ là 1 khoá Pāli đủ 40 ký tự ngoài khối :0 (tha-ap130:8.1), vì 31/32 khoá là vế kệ chỉ 18–27 ký tự; Sujato phủ 0/1 nên coverage = 0%. content/meta/reference-gaps.yaml đã có entry cho bài này, nhưng có entry không đủ để đứng published. Đây là giới hạn của bản chụp upstream, không phải thiếu sót của bản dịch."
-  assessed_at: "2026-10-05"
+  assessed_at: "2026-10-12"
   assessed_by:
-    - "OpenCode Space Bunny Free (agent)"
+    - "Claude Sonnet 5.5 (Claude Code)"
 notes: |-
   **Nguồn đã đo, không suy đoán.** Pāli root lấy từ `.cache/upstream/suttacentral`
   theo commit đã ghim `11c9d708978cde8ba61096d8a75f7ddfb846f639` (`source/upstream-manifest.json`, tầng `pali`). Ba tầng tham
@@ -163,3 +163,72 @@ notes: |-
   - Vế trước/sau, dấu câu và mọi thứ khác trong câu giữ nguyên y như cũ.
 
   **Cổng còn lại:** bị cấm chạy `git`/`gh` và `npm run validate|test|check|build|audit|reference:gaps` ⇒ `technical_integrity` = **9,6**; bốn lệnh còn lại là `npm run validate` · `npm test` · `npm run check` · `npm run build`. Điểm **không** nâng.
+
+  **Giải quyết draft 2026-10-12 (kiểm toán độc lập, đọc đối kháng từng khoá từ Pāli).**
+
+  *Blocker.* Chỉ có một blocker và nó thuộc loại thiếu bản Anh upstream: tầng `english-sujato`
+  đã ghim không có thân kinh `tha-ap` (chỉ có tệp tên), `vietnamese-current` chỉ có Pháp Cú,
+  `english-project` không có entry. Đó là sự thật về bản chụp upstream, **giữ nguyên** câu
+  blocker; không phải lỗi văn bản. Hệ quả cho điểm: không có bản Anh độc lập để đối chiếu nên
+  `triangulation` chỉ 6,5 (không bao giờ vượt 8,0); mọi khoá đã đọc thẳng từ Pāli, có đối chiếu
+  chéo với tiền lệ trong phẩm và với các bài `dn32`, `thag18.1`, `thag20.1`, `mn106` của Sujato
+  chỉ để hiểu cách đọc từ vựng.
+
+  *Lỗi nghĩa thật đã sửa (14/32 khoá đổi: 11 khoá là lỗi nghĩa — `:1.2`, `:1.3`, `:2.2`, `:3.1`, `:3.4`, `:4.1`, `:4.3`, `:5.3`, `:5.4`, `:6.1`, `:6.2` — và 3 khoá là tiêu đề/cách gọi — `:0.3`, `:1.1`, `:9.1`):*
+
+  - `:3.1` `Namo te purisājañña` — bản cũ *bậc hiểu biết người đời* là **sai** (lỗi lan: 3 trong 10 khoá `purisājañña` của `tha-ap`
+    — `tha-ap114:6.1`, `tha-ap135:3.1` và chính bài này). `purisājañña` = *con người thuần chủng* (cùng chữ với `ājānīya`, tuấn mã);
+    Sujato dịch cùng dòng ở `dn32:4.27` là *thoroughbred*. Nay: *bậc thuần chủng trong loài người*
+    (tiền lệ cùng nghĩa: `tha-ap22` *tuấn mã giữa loài người*, `tha-ap545:9.3` *thuần chủng giữa loài người*).
+    Hai khoá ngoài lát còn giữ *hiểu biết người đời* (`tha-ap114:6.1`, `tha-ap135:3.1`) — xin sửa theo.
+  - `:6.1` `Ito sattatikappamhi` — **số Pāli sai**. Bản cũ *bảy kiếp* (và ghi chú cũ nói `sattati` = bảy)
+    **sai**: `sattati` = **70**. Chính phép tính trong tầng xác nhận: `Sattasattati` = 7 + 70 = 77
+    (*bảy mươi bảy*), `Aṭṭhasattati` = 78, `Pañcasattati` = 75, `Catusattati` = 74. Nay: *Vào bảy mươi kiếp
+    trước đây*, cùng khuôn với các dòng `Ito vīsatikappamhi` (*hai mươi kiếp*) và `Ito navutikappamhi`
+    (*chín mươi kiếp*). **Thay thế** đoạn cũ "`Ito sattatikappamhi` (`:6.1`) = bảy kiếp, không phải bảy mươi ba…"
+    và phần suy ra từ đó; lời trách "bản Anh đọc *seventy-third*" không còn căn cứ trong bài này.
+  - `:1.3` `Pulinaṁ sobhanaṁ` — bản cũ thêm *trắng*; Pāli không có màu. Nay *bãi cát đẹp*.
+  - `:1.2` `vasāmi pabbatantare` — bản cũ *thung lũng núi* thêm hình thái địa lý; `pabbatantara` = *giữa các
+    núi / trong lòng núi*. Nay *tôi sống giữa các ngọn núi*; `:1.1` `Pabbate himavantamhi` (vị trí cách
+    *pabbate*) → *Trên núi Himavanta* để khỏi lặp *giữa*.
+  - `:4.1` `Ñāṇe cittaṁ pasādetvā` — `ñāṇe` là **vị trí cách** (*nơi/đối với tri thức*), bản cũ *nhờ tri thức*
+    đọc thành công cụ cách. Nay *tịnh tín nơi tri thức*. Câu giống hệt ở `tha-ap104:3.1` (cùng tên vị
+    trưởng lão, đời khác) vẫn đang *nhờ* — xin sửa theo, ngoài lát của tôi.
+  - `:4.3` `Avasesesu kappesu` — bỏ *suốt* (Pāli chỉ có vị trí cách, không "suốt").
+  - `:5.3` `Duggatiṁ nābhijānāmi` — `duggati` = ác thú/đọa xứ, không phải *khổ đau*. Đo trong `tha-ap` (441 khoá cùng Pāli): dạng *đọa xứ / khổ xứ / ác thú* 293 khoá, dạng *rơi vào khổ đau* 144 khoá; dạng sau đổi *duggati* (nơi đến
+    xấu) thành *trạng thái khổ*, và `nābhijānāmi` là *không biết đến*, không phải *không biết mình rơi vào*.
+    Nay *Tôi không biết đến đọa xứ,*.
+  - `:5.4` `ñāṇasaññāyidaṁ phalaṁ` — `idaṁ` = *đây*, không phải *đó*; `ñāṇasaññāya` là *niệm tưởng về tri thức*
+    (sở hữu/nguyên nhân), không phải *niệm tưởng bằng tri thức*. Nay *đây là quả báo của niệm tưởng về tri
+    thức.*
+  - `:2.2` `saṅkhāraṁ natthi satthuno` — bản cũ *cũng không có gì ngang hàng bậc Thầy* **thêm nghĩa**:
+    `saṅkhāra` (hành) không có nghĩa *ngang hàng*. Nay *cũng không có hành nào nơi bậc Thầy*, tức bám
+    chữ. **Bất định còn lại:** câu này có thể là biến âm của `saṅkhā` (*sự đếm/ước lượng*, song song với
+    `upanidhā` = *so sánh* ở `:2.1`; cùng khuôn với `tha-ap139:3.1`), khi đó nghĩa gần bản cũ. Không phân xử được
+    bằng tầng đã ghim; chọn cách ít giả định nhất theo `skill/translation.md` §3.3.
+  - `:3.4` `yāvatā ñāṇamuttamaṁ` — bản cũ *dù tri thức tối cao đến mấy* đổi phạm vi thành nhượng bộ;
+    `yāvatā` là *chừng nào / trong phạm vi*. Nay *trong chừng mực có tri thức tối thượng.*
+  - `:6.2` `eko pulinapupphiyo` — bản cũ *tên là* thêm "tên"; Pāli không có `nāma`. Nay *có một vị
+    Pulinapupphiya*. **Bất định còn lại:** chưa rõ đây là tên riêng hay biệt hiệu (*người có hoa cát*); không
+    có `nāma`, tầng đã ghim không có bản nào đối chiếu.
+  - **Tiêu đề (`:0.3`, `:9.1` và `translationTitle`):** đổi *Kinh Kệ Của Trưởng Lão …* thành *Ký Sự Về Trưởng Lão …*
+    — `apadāna` là *ký sự/truyện tích*; *Kinh Kệ* chỉ có 5 khoá trong `tha-ap`, còn *Ký Sự* có 157 khoá
+    (cả phẩm lân cận `tha-ap126`, `tha-ap127`, `tha-ap131`, `tha-ap138` dùng *Ký Sự Về …*). Lời kết `:9.1`
+    theo dạng `Ký sự về Trưởng lão X, thứ tám.` như `tha-ap126:8.1`/`tha-ap131:8.1`. Tiêu đề vẫn theo chính sách
+    số thứ tự (`:0.3` Pāli bắt đầu bằng `8`, nên giữ `8. `). **Thay thế** đoạn cũ về tiền lệ `N. ` dùng
+    hình thức *Kinh Kệ Của*. Dạng *Tuyên Ngợ* (đa số nhưng sai chính tả) không dùng ở bài này.
+
+  *Khoá giữ nguyên sau khi đọc đối kháng* (Pāli và Việt khớp): `:1.4`, `:2.1`, `:2.3`, `:2.4` (*vượt thoát* cho
+  `adhimuccati` là nghĩa hẹp — Sujato đọc cùng động từ ở `mn106:3.11` là *freed* — giữ và ghi bất định
+  như trên), `:3.2`, `:3.3`, `:4.2`, `:4.4`, `:5.1`–`:5.2`, `:6.3`–`:7.3`, `:8.1`. **Số:** `:5.1`
+  `Ekanavutito` = 1 + 90 = **91** (*chín mươi mốt*), đúng; `:6.1` = **70**, vừa sửa. Dấu nháy: Pāli mở “ ở `:1.1`
+  và đóng ” ở `:7.3`, bản Việt khớp từng khoá; không có nháy đơn trong Pāli lẫn Việt. `…pe…` ở `:7.2` → đúng một `…`.
+  Tập khoá Việt = tập khoá Pāli = 32.
+
+  **Giới hạn đã kiểm ở mức câu hỏi bất định, ghi để người sau biết:** (i) `:2.2` như trên; (ii) `:6.2` như trên;
+  (iii) `adhimuccati` (`:2.4`) = *quyết định hướng tâm / giải thoát* chưa chọn nghĩa mạnh hơn; (iv) không có bản Anh nào
+  đối chiếu độc lập cho toàn bài.
+  Lỗi ngoài lát, báo, không sửa: `tha-ap104:3.1` (*nhờ tri thức*), `tha-ap114:6.1` và `tha-ap135:3.1` (*hiểu biết người đời*).
+
+  **Cổng kỹ thuật** vẫn chưa chạy ở lát này (`technical_integrity` 9,6): `npm run validate` · `npm test`
+  · `npm run check` · `npm run build`.

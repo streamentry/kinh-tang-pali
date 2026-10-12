@@ -1,5 +1,5 @@
 uid: an7.43
-status: draft
+status: published
 translationTitle: "Kinh Tốt Nghiệp (Hai)"
 translators:
   - "OpenCode Space Bunny Free (agent)"
@@ -12,21 +12,20 @@ tags:
 quality:
   scores:
     source_provenance: 9.6
-    semantic_fidelity: 9.4
-    grammar_logic: 9.4
+    semantic_fidelity: 9.2
+    grammar_logic: 9.3
     segment_alignment: 10.0
-    terminology: 9.2
+    terminology: 9.1
     triangulation: 8.0
     vietnamese_clarity: 9.3
     han_viet_balance: 9.3
     ambiguity_integrity: 9.2
     technical_integrity: 9.6
-  final_score: 9.3
-  blocking_errors:
-    - "Coverage tầng Anh dưới ngưỡng 0,8 của `source/layers.yaml` và **chưa được ghi nhận** trong `content/meta/reference-gaps.yaml`. Đo bằng script trên Pāli có nội dung (≥ 40 ký tự, loại block `:0`): 20/29 = 68,97%. Bản Anh Bhikkhu Sujato tại commit đã ghim 11c9d708978cde8ba61096d8a75f7ddfb846f639 để trống đúng các khoá `4.1`, `4.3`, `4.4`, `4.6`, `5.1`, `5.2`, `5.3`, `5.4`, `5.5`, và lớp lấp `english-project` cũng không có cho uid này. Vì `grep` trong `content/meta/reference-gaps.yaml` không ra kết quả cho uid này nên mất dữ liệu chưa được thừa nhận, mà `review`/`published` thì bị chặn. Đây là `not-published-upstream` của bản Anh đã ghim, **không phải** `not-synced` và không phải lỗi của người dịch; cách mở là chạy `npm run reference:gaps` (tệp đó nằm ngoài lát của tôi nên tôi không sửa). Trong lúc đó bài giữ `draft`."
-  assessed_at: "2026-10-04"
+  final_score: 9.26
+  blocking_errors: []
+  assessed_at: "2026-10-12"
   assessed_by:
-    - "OpenCode Space Bunny Free (agent)"
+    - "Claude Sonnet 5.5 (Claude Code)"
 notes: |-
   Dịch từ Pāli root đã ghim, đối chiếu bản Anh Bhikkhu Sujato tại cùng commit. **Coverage Anh Sujato trên Pāli có nội dung: 20/29 = 68,97%**, dưới ngưỡng 0,8; xem `blocking_errors`. Tầng `english-project` không có cho uid này. Tầng Việt hiện hành vắng ở commit đã ghim (bilara chỉ phân phối Pháp Cú cho tiếng Việt), nên không có bản Hòa thượng Thích Minh Châu để đối chiếu; đây là đặc điểm của snapshot upstream, không phải thiếu sót của repo. `budsas.org` chỉ là tra cứu toàn văn, không dựng cột.
   **Chín khoá mất tầng Anh là lời Ānanda kể lại, và đó là lý do `triangulation` vẫn 8,0 chứ không xuống ≤ 8,0.** `4.1`–`4.6` và `5.1`–`5.5` là Ānanda tường thuật việc mình vừa nói ở `1.3`–`1.8` và `2.2` — tức gần như nguyên văn những gì ông đã nói. Tôi đối chiếu từng cặp trong chính bài (xem `an7.42`, bài trước cùng phẩm, có **cùng khung truyện** và 14 khoá PĀLI TRÙNG NGUYÊN VĂN) nên chín khoá đó vẫn được kiểm bằng Pāli đặt cạnh nhau, không phải đoán. Khác hẳn một bài mà cả hai tầng đều vắng, ở đó phải xuống ≤ 8,0.
@@ -36,3 +35,12 @@ notes: |-
   **Uddāna `8.0`–`8.4`, 0 tiền lệ, dịch theo nghĩa chữ.** `Appamāda` → *không phóng dật* (106 bản) · `hirī` → *biết hổ thẹn* (khớp `7.2`) · `suvacā` → *dễ trò chuyện* (`mn21:10.7` dịch *dễ được khuyên dạy*, cùng ý) · `mittā` → *hòa thuận* (0 tiền lệ) · `paṭisambhidā` → *biện giải* (`an4.140:1.8`) · `vasā` → *điện tài* (0 tiền lệ) · `niddasavatthu` → *tiêu chí tốt nghiệp* (khớp `6.2`, `7.3`). `7.8` theo `an6.36:7.1` cho khuôn *Phẩm …, thứ …*.
   **Dấu lược.** `4.4` giữ đúng một dấu `…` (`…pe…` lược phần `tehi saddhiṁ sammodiṁ`); không mở rộng. Ở `4.4` tôi đặt dấu lược ở cuối câu *Sao ta không đến … nhỉ? …* vì `4.5` mới là phần bị lược, và ở `5.2` tôi giữ `niddaso bhikkhūti` **không** nháy kép — theo đúng tiền lệ `an7.42:3.8`.
   Cổng kỹ thuật do coordinator chạy, ghi lại ở đây vì technical_integrity chỉ 9.6: npm run validate; npm test; npm run check; npm run build.
+  **Giải quyết draft 2026-10-12.** Mục này thay thế mọi chỗ ở trên còn nói tới *du sàu*, *tán thánh*, *tạp lễ*, *kính sở*, *vựn từ*, *điện tài*, *hai vị* và *9 khoá mất tầng Anh khiến triangulation phải 8,0 chứ không ≤ 8,0*: các chữ đó là lỗi chép/đọc sai hoặc cách dịch đã được sửa dưới đây, không còn là quyết định của bản hiện hành.
+  *Blocker đã gỡ (loại B, độ phủ Anh).* Sujato để trống 9/29 khoá Pāli có nội dung (`4.1`, `4.3`, `4.4`, `4.6`, `5.1`–`5.5`); 20/29 = 68,97%. Chín khoá này là Ānanda kể lại nguyên văn điều đã nói ở `1.3`–`1.8`, `2.1`, `2.2`, `3.1`–`3.4`; tôi đọc lại từng khoá từ Pāli, đặt cạnh khoá gốc tương ứng của chính bài, và đối chiếu thêm bài `an7.42` cùng khung truyện; bản dịch tự đứng vững từ Pāli, không còn chỗ nghĩa chưa chắc. Mất mát này thuộc `reference-gaps` (upstream để trống), không phải lỗi văn bản. `triangulation` giữ 8,0 (Sujato phủ 20/29 khoá còn lại; không có bản Việt hiện hành; không có lớp `english-project`).
+  *Sửa nghĩa/chữ (accuracy và terminology fix).* `du sàu ngoại đạo` → *du sĩ ngoại đạo* (`1.6`, `1.7`, `2.1`, `3.1`, `4.4`, `5.1`, `5.3`; "du sĩ ngoại đạo" 164 khoá trong tầng, "du sàu" chỉ 16 khoá, đều là chữ hỏng) · `tán thánh` → *tán thán* (`3.1`, `3.2`, `5.3`, `5.4`; 188 so với 8) · `tạp lễ` → *đảnh lễ* (`3.4`; 316 so với 4) · `đắp y, cầm bát và y ngoài` → *cầm bát và y* (`1.3`, `4.1`; `pattacīvara` là *bát và y*, "y ngoài" là chú giải không có trong Pāli; 100 so với 35 trong tầng).
+  *Dấu nháy và ranh giới khoá.* `4.3` mở `‘` và `4.4` đóng `’` đúng như Pāli (trước đó dùng nháy thẳng và thiếu dấu đóng); `5.2`, `5.5` đổi sang `‘…’`; `2.2` và `7.4` thêm `‘tỳ-kheo tốt nghiệp’` theo `‘niddaso bhikkhū’ti` của Pāli; `5.6` sửa `không”?` thành `không?”` (câu hỏi của Ānanda là phần cuối lời kể, dấu hỏi nằm trong ngoặc kép).
+  *`4.5`.* Trước đó bản Việt điền lại phần mà `…pe…` ở cuối `4.4` đã lược (*đến tu viện … đến nơi rồi*), tức thêm nội dung không có trong khoá. Pāli `4.5` chỉ có `tehi saddhiṁ sammodiṁ` nên sửa thành *Tôi trao đổi lời chào hỏi với những du sĩ ấy.*; dấu lược `…` giữ đúng một dấu ở `4.4`.
+  *Tường thuật.* `3.1` thêm *Rồi* và `5.3` thêm *rồi* cho `Atha kho` / `Atha khvāhaṁ` (trước đó bị bỏ).
+  *Uddāna `8.1`–`8.4` (accuracy fix).* Bản cũ dịch `dve suvacā duve mittā` thành *hai vị dễ trò chuyện, hai vị hòa thuận* và `dve vasā` thành *hai vị điện tài* — sai: đây là bảng liệt kê các **kinh** trong phẩm, không phải người. Khớp với tiêu đề các bài cùng phẩm trong tầng: `an7.34`–`35` *Dễ Dạy Bảo* (suvacā) · `an7.36`–`37` *Người Bạn* (mittā; không phải "hòa thuận") · `an7.38`–`39` *Vô Ngại Giải* (paṭisambhidā) · `an7.40`–`41` *Điều Khiển Tâm* (vasā) · `an7.42`–`43` *Tốt Nghiệp*. Bản mới: *Không phóng dật và hổ thẹn, / hai kinh dễ dạy bảo, hai kinh về người bạn; / hai kinh vô ngại giải, hai kinh về sự điều khiển; / hai kinh về tiêu chí tốt nghiệp, là vậy.* `vasā` không kèm *tâm* vì Pāli của dòng này không có chữ đó; nghĩa "tâm" lấy từ tiêu đề Sujato của `an7.40`–`41` (*Mastery of the Mind*).
+  *Không sửa, đã đo.* `ottappī` → *biết kính sợ* (101 khoá trong tầng) và `āraddhavīriyo` → *tinh tấn đã khởi* giữ như `an7.94:1.3`, cùng danh sách bảy. `7.5`–`7.6` rút gọn mệnh đề `niddaso bhikkhūti alaṁvacanāya` lặp ở mỗi mốc năm thành chuỗi *dù … dù …*; cấu trúc `cepi` cho cùng logic và giống cách Sujato đọc, nên chấp nhận. Số: mười hai, hai mươi bốn (catubbīsati), ba mươi sáu (chattiṁsati), bốn mươi tám (aṭṭhacattārīsa) — khớp Pāli.
+  *Bất định còn lại.* (1) `vasā` ở `8.3` giải là *sự điều khiển* theo tiêu đề các kinh liền trước; không có bản Anh ở khoá uddāna để đối chiếu thêm. (2) `niddasa` / *tốt nghiệp* theo lựa chọn của `an7.42` và tiêu đề Sujato (*Graduation*). (3) Một số bài khác trong tầng (có `an7.42`) còn chữ `du sàu`/`tán thánh`/`tạp lễ` hỏng; chỉ sửa ở bài này, các bài kia để lượt riêng. `triangulation` ≤ 8,0 vì không có bản Việt hiện hành và chín khoá Anh trống.

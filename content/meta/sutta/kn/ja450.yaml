@@ -1,6 +1,6 @@
 uid: ja450
 status: draft
-translationTitle: "Kinh Bilārakosī"
+translationTitle: "Kinh Bilārakosiya"
 translators:
   - "OpenCode Space Bunny Free (agent)"
 reviewers: []
@@ -13,22 +13,22 @@ tags:
   - "dāna"
 quality:
   scores:
-    source_provenance: 9.6
-    semantic_fidelity: 9.3
-    grammar_logic: 9.4
+    source_provenance: 9.4
+    semantic_fidelity: 9.0
+    grammar_logic: 9.0
     segment_alignment: 10.0
-    terminology: 9.2
-    triangulation: 8.4
-    vietnamese_clarity: 9.4
+    terminology: 9.1
+    triangulation: 7.8
+    vietnamese_clarity: 9.0
     han_viet_balance: 9.3
-    ambiguity_integrity: 9.3
+    ambiguity_integrity: 9.2
     technical_integrity: 9.6
-  final_score: 9.35
+  final_score: 9.14
   blocking_errors:
     - "Coverage tầng Anh = 0/1 khoá có nội dung (0%), dưới ngưỡng 0,8 khai trong source/layers.yaml, mà ja450 chưa có entry trong content/meta/reference-gaps.yaml; AGENTS.md coi đây là lỗi chặn review/published. Bổ sung entry phải chạy npm run reference:gaps, mà lát này bị cấm chạy."
-  assessed_at: "2026-10-05"
+  assessed_at: "2026-10-12"
   assessed_by:
-    - "OpenCode Space Bunny Free (agent)"
+    - "Claude Sonnet 5.5 (Claude Code)"
 notes: |-
   **Bài nay đủ 49/49 khoá.** Lát trước chỉ dịch 1 khoá (`9.3`) vì `kiểm` của `_hvi.py` lọc
   theo Pāli ≥ 40 ký tự; đo lại trên Pāli ghim: đúng **1** khoá (`ja450:9.3`, 43 ký tự) rơi
@@ -155,3 +155,77 @@ notes: |-
   `npm run validate` · `npm test` · `npm run check` · `npm run build`.
   Vì vậy `technical_integrity` đặt **9,6** theo quy ước lát, không phải 10. Năm phép kiếm ở
   trên là tự viết, không thay được bốn cổng đó.
+  **Giải quyết draft 2026-10-12: đọc đối kháng lại toàn bài từ Pāli; các mục cũ bị thay thế được nêu rõ.**
+  *Phân loại blocker.* Blocker duy nhất còn lại thuộc loại “thiếu bản Anh upstream”: tầng
+  `english-sujato` của bản chụp đã ghim không có tệp cho `ja450` (trong `sutta/kn/ja` không có
+  `ja450`), `english-project` và `vietnamese-current` cũng không có. Đó là sự thật về upstream nên
+  **giữ nguyên câu blocker**, không xoá, không sửa tay `status` hay khối waiver. Không có lỗi
+  văn bản nào còn bị treo thành blocker: mọi chỗ sai nghĩa dưới đây đã được sửa.
+  *Lỗi nghĩa thật tìm ra — khoảng 18/49 khoá (1.1–1.4, 2.4, 4.3–4.4, 5.4, 8.1–8.4, 9.1–9.4, 10.5–10.6; thêm tên truyện ở 0.4/11.1).*
+  (1) `1.1–1.4`: bản cũ đọc `apacantā` là “kẻ đi ăn xin” và `pacamāno` là “ngươi đi ăn xin”. Sai:
+  `apacanta` là người **không nấu** (đối lập `pacanto`), như trong `an7.52`, `an8.31`, `dn33`
+  (“ahaṁ pacāmi, ime na pacanti… apacantānaṁ dānaṁ”) và `ja496:13.1` (`Pacanto apacantassa`).
+  `dicchanti` là **muốn cho** (desiderative của `dā`), như `bahuneke na dicchare` ở `7.2` mà
+  Sujato dịch “don’t wish to give” (`sn1.32:8.2`). Nghĩa đúng: ngay cả người không nấu ăn,
+  các bậc hiền thiện, khi nhận được thức ăn cũng muốn cho; huống chi ngươi đang nấu mà không cho
+  thì không đúng lẽ (`samaṁ` = đúng lẽ, thích đáng). Bản cũ đảo ngược nghĩa của cả bài kệ mở đầu.
+  (2) `2.3–2.4`: `deyyaṁ hoti vijānatā` là “nên được cho bởi người hiểu biết”, bản cũ dịch “mới thành
+  là bố thí của người hiểu biết” (sai nghĩa gerundive).
+  (3) `4.3–4.4`: ranh giới bị lệch (“của chúng sanh” ở `4.3`, “trong đời sau” ở `4.4`); `4.3` Pāli là
+  `puññāni paralokasmiṁ`, `4.4` là `patiṭṭhā honti pāṇinaṁ`. Đã đặt lại đúng khoá.
+  (4) `5.4`: `sataṁ dhammo` — `sataṁ` là sở hữu cách số nhiều của `santa` (“của bậc hiền thiện”,
+  đối lập `asanto` ở `5.3`), không phải số “trăm”; bản cũ “đức lành khó chỉ dạy” bỏ mất
+  chữ `dhammo` theo nghĩa pháp của bậc hiền thiện. Nay: “pháp của bậc hiền thiện khó noi theo”.
+  (5) **Số Pāli — lỗi nặng nhất.** Bản cũ giải `sataṁ sahassānaṁ sahassayāginaṁ` là ba số
+  “trăm / nghìn / mười nghìn”, với phép nhân bịa `sahassayāgina = sahassa × 10`. Sai: không có
+  `agina = 10` trong Pāli. `sahassayāgin` là **người tế lễ một ngàn (lễ)**; `sataṁ sahassānaṁ` là
+  **một trăm ngàn** (như Sujato đọc ở `sn1.32:14.1`, “A hundred thousand people making a thousand
+  sacrifices”). Cả cụm: “một trăm ngàn người tế lễ một ngàn lễ hy sinh”; ở `8.3/9.3/10.5`. Đã
+  sửa ba khoá và ba khoá `8.4/9.4/10.6` (`kalampi nāgghanti` = “không đáng giá ngay cả một phần
+  nhỏ”, `kalā` là một phần chia nhỏ). Ghi chú cũ ở mục “Số Pāli — tự tính, in phép” và đoạn
+  “⇒ Vì vậy cụm … là ba số 100 / 1.000 / 10.000” **bị thay thế hoàn toàn** bằng mục này; đoạn
+  nhận xét về bản Việt `sn1.32` “bỏ mất `sahassayāginaṁ`” cũng **sai**: bản đó (`14.3`, `16.3`,
+  `18.1`) dịch đủ “người tế lễ một nghìn lễ hy sinh”.
+  (6) `8.1–8.2`: `samuñchaka` không phải hapax vô nghĩa. Nó thuộc `uñcha` (lượm lặt, nhặt nhạnh
+  từng chút để sống): “sống bằng lượm lặt”, cùng cách Sujato dịch “wandering for gleanings”
+  (`sn1.32:14.3`, dạng `samuñjaka`). Bản cũ “sống một cách keo kiệt/tham tế” sai nghĩa và còn
+  mâu thuẫn với “người sống đúng pháp”. `dārañca posaṁ dadamappakasmiṁ`: “nuôi vợ và cho đi từ chút
+  ít mình có”; bản cũ thêm “con” (không có trong Pāli, `dāra` là vợ) và bỏ động từ `dadaṁ`. `Dhammaṁ care`
+  nay là “sống đúng pháp” thay cho “Chánh pháp” in hoa (không phải tên giáo lý).
+  (7) `9.1–9.4`: câu hỏi bị dịch thành “Bằng lễ tế nào…” (hiểu `kenesa` thành công cụ cho một
+  vế khác). Nay “Vì sao lễ hy sinh ấy, rộng lớn và có giá trị lớn, lại không sánh bằng giá trị vật
+  thí của người sống đúng đắn?” (`vipulo mahagghato` = rộng lớn, giá trị lớn; `samena dinnassa` =
+  “vật thí của người sống đúng đắn”, đối lập `visame` ở `10.1`); `9.3` `Kathaṁ` = “Vì sao”, không
+  phải “Dù là”, và kết bằng dấu hỏi vì đó là câu hỏi (bản Anh `sn1.32:16.3–4` cũng là câu hỏi).
+  (8) Tên truyện: `Bilārakosiya` giữ nguyên dạng Pāli (`Bilārakosiyajātaka` = chuyện của
+  Bilārakosiya); “Bilārakosī” là dạng không có trong Pāli. Đã sửa `0.4`, `11.1`, `translationTitle`.
+  *Chỉnh nhỏ (không đổi nghĩa): `2.2` (“vì thế”), `6.2` (“khác nhau”), `7.2` (“không muốn cho”,
+  `na dicchare`), `7.4` (“được kể là ngang bằng”, `mitā`), `10.2` (“chặt chém, đánh giết, rồi lại
+  làm cho sầu khổ”, `socayitvā` là sai khiến), `10.3` (“vật cúng dường”, cùng từ với `7.3` để bài
+  không tự đổi từ; bỏ chữ “đầy” không có trong `sadaṇḍā`), `10.4` (“không sánh bằng giá trị” cho
+  `na agghameti`, bỏ “không thể nào”), `10.5` (“như vậy” thay “Chính vậy”). Đã thống nhất “ngàn”
+  cho cả bài, thay vì trộn “ngàn” và “nghìn”.*
+  *Kiểm đối kháng lại các khoá còn nguyên:* `3.1–3.6` (nỗi sợ của kẻ bỏn xẻn; đối chiếu
+  `sn1.32:4.x` và Sujato — “the very thing they’re afraid of comes to pass”), `4.1–4.2`, `5.1–5.3`,
+  `6.1–6.4`, `7.1`, `7.3`, `10.1`: đúng với Pāli; `5.1–5.3` giữ cách dịch của `sn1.32:10.x` vì Pāli
+  trùng nguyên văn. Ba khoá `8.3 9.3 10.5` giờ nhất quán với nhau và với `sn1.32`.
+  *Khoá thiếu Sujato (Sujato không có bản cho `ja450`):* toàn bài; mọi khoá đã đọc kỹ từ Pāli,
+  đối chiếu thêm bản Anh Sujato của bài song song `sn1.32` và `sn1.33` (mục `sn1.32:2.x–18.x`
+  tương ứng `ja450:2.x–10.x`), không dịch vòng. `triangulation` đặt **7,8** (≤ 8,0): không có bản Anh
+  độc lập cho đúng bài này, và các song song chỉ phủ phần kệ.
+  *Bản Việt hiện hành (Hòa thượng Thích Minh Châu):* tầng `vietnamese-current` tại commit ghim chỉ
+  có Pháp Cú ⇒ không có đối chiếu cho bài này; đó là giới hạn của tầng tham khảo, không phải lỗi
+  văn bản.
+  *Bất định còn lại, không che:* (a) `1.4` `yaṁ na dajjā na taṁ samaṁ` — `samaṁ` có thể là
+  “đúng lẽ” (chọn) hoặc “ngang bằng”; chọn cách đầu theo ngữ cảnh nhưng không phân xử được tuyệt đối; người nói ở
+  `1.1–4.4` và người đối thoại ở `5.1–10.6` không có trong tầng Pāli ghim (chỉ có kệ), nên xưng
+  hô “ngươi” ở `1.3` theo giọng khiển trách của kệ, không dựa vào lời dẫn truyện. (b) `8.3` cụm
+  `sataṁ sahassānaṁ` đọc “một trăm ngàn” theo Sujato và tiền lệ `sn1.32`; ngữ pháp cũng cho phép
+  đọc “trăm (nhóm) của ngàn người”; chưa có căn cứ độc lập hơn. (c) `8.2` `dārañca posaṁ
+  dadamappakasmiṁ` — `posaṁ` và `dadaṁ` có thể kết nối nhau (“cho vợ”) hoặc rời nhau; bản Việt giữ
+  hai động từ rời nhau để không quyết định thay Pāli. (d) `4.3` `paralokasmiṁ` có thể thuộc `puññāni`
+  hoặc `patiṭṭhā honti`; bản Việt đặt ở cuối `4.3` mà không thêm nghĩa.
+  *Tự kiểm sau sửa:* tập khoá Việt = tập khoá Pāli (49/49, thứ tự theo Pāli); ngoặc kép mở/đóng
+  khớp Pāli từng khoá (nháy đơn không có trong bài); không có dấu lược `…` hay `(…)` ở Pāli và Việt;
+  không Pāli lọt vào Việt ngoài tên riêng `Jātaka`, `Bilārakosiya`. Cổng kỹ thuật (`npm run validate` ·
+  `npm test` · `npm run check` · `npm run build`) chưa chạy ở lượt này nên `technical_integrity` giữ 9,6.

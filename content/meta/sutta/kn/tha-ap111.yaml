@@ -11,22 +11,22 @@ tags:
   - "Bhikkhadāyivagga"
 quality:
   scores:
-    source_provenance: 9.7
-    semantic_fidelity: 9.2
-    grammar_logic: 9.3
+    source_provenance: 9.5
+    semantic_fidelity: 8.8
+    grammar_logic: 9.0
     segment_alignment: 10.0
-    terminology: 9.4
-    triangulation: 8.6
-    vietnamese_clarity: 9.3
-    han_viet_balance: 9.4
-    ambiguity_integrity: 9.2
+    terminology: 8.8
+    triangulation: 7.5
+    vietnamese_clarity: 9.0
+    han_viet_balance: 9.2
+    ambiguity_integrity: 9.3
     technical_integrity: 9.6
-  final_score: 9.37
+  final_score: 9.07
   blocking_errors:
     - "Tầng tham khảo Anh đã ghim không phủ tha-ap111: tại commit đã ghim 11c9d708978cde8ba61096d8a75f7ddfb846f639, tầng english-sujato có 4291 tệp, trong đó kn chỉ có 755 tệp thuộc 9 sub-collection (cp dhp iti ja kp snp thag thig ud); tệp duy nhất trong cả tầng có chuỗi tha-ap là tệp TÊN name/sutta/tha-ap-name_translation-en-sujato.json, không phải thân kinh, nên Sujato phủ 0/1 khoá có nội dung của bài này. Tầng vietnamese-current cũng không phủ tha-ap (26 tệp, toàn bộ Pháp Cú) và không có entry english-project cho bài này. Mẫu số của cổng chỉ có 1 khoá Pāli dài từ 40 ký tự là tha-ap111:10.1, 39/40 khoá còn lại ngắn hơn 40 ký tự nên cổng coverage không đo được gì. content/meta/reference-gaps.yaml đã có entry cho tha-ap111 (substantiveSegments 1, coverage 0) nhưng có entry không cứu được published. Lát này bị cấm sửa tệp đó và bị cấm chạy cổng."
-  assessed_at: "2026-10-05"
+  assessed_at: "2026-10-12"
   assessed_by:
-    - "OpenCode Space Bunny Free (agent)"
+    - "Claude Sonnet 5.5 (Claude Code)"
 notes: |-
   **Phạm vi lát này.** Bài có 40 khoá Pāli; lát được gán 39 khoá, tôi ghi đủ 40 khoá
   (kể cả `:10.1` đã có sẵn từ lát trước và lục kết `:11.1`). Không còn khoá trắng nào.
@@ -138,3 +138,54 @@ notes: |-
   cả hai loại nháy cân trên cả bài, YAML parse sạch. **Bốn lệnh còn lại do người điều phối chạy:
   `npm run validate` · `npm test` · `npm run check` · `npm run build`.** Vì vậy `technical_integrity`
   không cho 10.0.
+
+  **Giải quyết draft 2026-10-12 (kiểm toán độc lập; thay thế các mục cũ nêu ở cuối).**
+  Đọc đối kháng từng khoá Pāli ↔ Việt. **18/40 khoá sai nghĩa thật** (`:1.1` `:1.2` `:1.3` `:1.4`
+  `:2.1` `:2.2` `:2.3` `:2.4` `:4.3` `:4.4` `:5.1` `:5.2` `:5.3` `:7.1` `:7.2` `:7.3` `:8.1` `:8.2`) và
+  **10 khoá lệch nhẹ** (thêm/đổi chữ: `:3.3` `:3.4` `:4.1` `:4.2` `:6.2` `:6.3` `:6.4` `:7.4` `:8.3` `:8.4`,
+  cùng đại từ ngôi), đã sửa. Các khoá còn lại (`:0.x`, `:9.x`, `:10.1`, `:11.1`) giữ nguyên.
+  Các lỗi chính: bản cũ đọc `Himavantassāvidūre` thành *cách xa* (thật là *không xa*: `a-vidūra`, đối chiếu
+  `Assamassāvidūre me` = *không xa am thất của ta*, `tha-ap407:17.1`); `paṇṇasanthare` = *trên thảm lá*
+  (không phải *chòi lá trải cỏ*); `Ghāsesu gedhamāpanno` bị dịch thành *bước vào hang đá*; `biḷālitakkalāni`
+  là *củ* (cùng nhóm `āluva` `kaḷamba` ở `tha-ap407:16.1–2`) chứ không phải *lá*; `Khaṇantālu kalambāni`
+  bị dịch thành *cọng tàu lục, cỏ tàu lục*; `Biḷāliṁ paggahetvāna, pattamhi okiriṁ ahaṁ` bị đảo hẳn thành
+  *rời bỏ củ biḷāli, tôi bơi tới bờ kia* (đúng: *nâng củ biḷāli lên, đổ vào bát*); `Paribhuñji` (*thọ dụng*)
+  bị dịch thành *nhổ sạch*, `tosayanto` (*làm hoan hỷ*) thành *khuyên nhủ*; `Carimaṁ vattate mayhaṁ`
+  `bhavā sabbe samūhatā` bị đọc thành mệnh lệnh *hãy sống / hãy nhổ sạch* trong khi `samūhatā` là phân từ quá
+  khứ (*đã bị nhổ sạch*) — tiền lệ tha-ap19, tha-ap3 (39 khoá dùng *đã được nhổ sạch*); `Catupaññāsito kappe`
+  = 50 + 4 = **54 kiếp trước** (bản cũ ghi *bốn trăm kiếp*); `sumekhaliyasavhayo` = *mang tên Sumekhaliya*
+  (bản cũ dịch thành *nghe tiếng lành giữa đám đông*, không có trong Pāli).
+  **Các mục cũ bị thay thế:** (a) mục "Bốn chỗ tôi cố ý không nhân bản tiền lệ", chỗ 1 (`Himavantassāvidūre`
+  *cách xa*) và chỗ 2 (`kola` = xoài) — cả hai SAI: `a-vidūra` là *không xa*, và `kola` là quả táo (jujube),
+  còn *xoài* là `amba` (`tha-ap284:2.2` `ambajambuvibhītakaṁ`); (b) mục "Bất định khác", dòng
+  `tha-ap111:7.1`–`7.2` "đảo ngôi thật" — không có đảo ngôi: `bhavā` là chủ cách số nhiều của `bhava`,
+  không phải mệnh lệnh ngôi hai; (c) dòng `tha-ap111:4.3`–`4.4` `Biḷāliṁ` (giữ *củ biḷāli* là đúng, nhưng
+  bản cũ vẫn dịch sai câu quanh nó); (d) câu "Tổng lỗi thật: 0" ở mục đầu.
+  **Phân loại blocker.** (A) *Thiếu bản Anh upstream* — GIỮ NGUYÊN, là sự thật về bản chụp đã ghim.
+  Không có blocker loại (B) (Sujato không có tệp cho bài này, không phải để trống từng đoạn), loại (C) (tầng
+  Việt hiện hành chỉ có Pháp Cú — đã ghi trong blocker A, đó là giới hạn tham chiếu), hay loại (D) còn lại:
+  không có hapax nào làm đổi giáo nghĩa chưa phân xử được.
+  **Bất định còn lại (không che).** `:1.4` `seyyasīlo` là hapax trong toàn Pāli ghim (0 nơi khác). Tôi đọc
+  `seyya` = *nằm* (`seyyā`), `-sīla` = *thói quen* (hậu tố bahuvrīhi, như `dānasīlo`), đi cặp với `gedha`
+  (tham đắm món ăn) là hai thói xấu quen thuộc (ăn rồi nằm). Cách đọc khác là `seyya` = *tốt hơn*,
+  `sīla` = *giới* ⇒ *giới hạnh vượt trội*. Không phải điểm giáo nghĩa; chọn cách đọc thứ nhất, không đưa
+  cách đọc thứ hai vào thân kinh. `:2.1` `Khaṇantālu` đọc `khaṇanta` (đào) + `ālu` (củ), cùng nhóm củ với
+  `tha-ap407:16.1`. `:2.3` `kola` = *táo ta* (jujube), khác 6 khoá tier dịch *táo gai*; `bhallātaka` *đào lộn
+  hột* và `billa` *trái ba-la* giữ theo tier (7 khoá), không kiểm được loài chính xác. `:8.2` `Sumekhaliya`
+  giữ nguyên tên Pāli; chủ ngữ của vế `:8.1`–`:8.4` bị lược trong Pāli (không có `ahaṁ`/`asi`) nên bản Việt
+  cũng không thêm chủ ngữ. `:8.4` `mahabbalo` = *đại lực*; tier dịch *đại thần lực* 75 khoá, *đại oai lực /
+  đại uy lực* 22 khoá — chữ *thần* không có trong Pāli nên tôi bỏ. `:10.1` *Tôi nghe như vầy* là quy ước
+  của tier (562 khoá `Itthaṁ sudaṁ`, 0 khoá khác); `Itthaṁ sudaṁ` thật ra là *như vậy…*, không phải
+  `Evaṁ me sutaṁ` — để người biên tập phán một lượt cho cả tier. `:0.3` / `:11.1` giữ dạng *Kinh Kệ Của
+  Trưởng Lão X* đã chọn (apadāna ≠ *kinh kệ*, nhưng đây là chính sách tier; `tha-ap109` `tha-ap110` dùng
+  *Ký Sự*) — người biên tập phán chung.
+  **Đối chiếu.** Đã đối chiếu Pāli từng chữ, và các tiền lệ cùng công thức trong tier (đếm: `Himavantassa
+  avidūre` 1 khoá `tha-ap3:2.1`, `paṇṇasanthare` 9 khoá, 7 khoá dịch *thảm lá*, 2 khoá (gồm bản cũ của bài này) dịch *chòi lá trải cỏ*, `Kolaṁ bhallātakaṁ
+  billaṁ` 6 khoá, `Paribhuñji mahāvīro` `tha-ap36:3.1`, `Dhāremi antimaṁ dehaṁ` 19 khoá, `Sakaṁ cittaṁ
+  pasādetvā` 18 khoá, `duggatiṁ nupapajjahaṁ` 22 khoá dịch *khổ xứ / đọa xứ*). Pāli trùng nguyên văn trong
+  chính bài: 0 cặp. `triangulation` ≤ 8,0 và đặt 7,5 vì không có bản Anh Sujato, không có bản Việt hiện
+  hành, chỉ đối chiếu được Pāli + tiền lệ tier (mà tier này đã được chứng minh có lỗi lan).
+  **Số.** `Catupaññāsito` = 54; `satasahassaṁ` = 100.000; `sattaratana` = 7 — không số nào là cụm chưa phân xử.
+  **Kỹ thuật.** Đã tự kiểm 40/40 khoá, nháy kép `“…”` (`:1.1`→`:9.3`) và nháy đơn `‘…’` (`:6.1`→`:6.4`) khớp
+  Pāli, `…pe…`→`…` đúng một lần (`:9.2`), NFC. Bốn lệnh `npm run validate` · `npm test` · `npm run check` ·
+  `npm run build` chưa chạy ở lượt này nên `technical_integrity` giữ 9,6.

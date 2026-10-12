@@ -11,22 +11,22 @@ tags:
   - "Bhikkhadāyivagga"
 quality:
   scores:
-    source_provenance: 9.8
-    semantic_fidelity: 9.3
-    grammar_logic: 9.5
+    source_provenance: 9.6
+    semantic_fidelity: 9.2
+    grammar_logic: 9.4
     segment_alignment: 10.0
-    terminology: 9.5
-    triangulation: 8.6
-    vietnamese_clarity: 9.4
-    han_viet_balance: 9.4
-    ambiguity_integrity: 9.2
+    terminology: 9.3
+    triangulation: 7.8
+    vietnamese_clarity: 9.3
+    han_viet_balance: 9.3
+    ambiguity_integrity: 9.0
     technical_integrity: 9.6
-  final_score: 9.43
+  final_score: 9.25
   blocking_errors:
     - "Tầng tham khảo đã ghim không phủ phẩm tha-ap: tại commit đã ghim 11c9d708978cde8ba61096d8a75f7ddfb846f639, tầng english-sujato chỉ có 9 sub-collection của kn (cp 35 · dhp 26 · iti 112 · ja 83 · kp 9 · snp 73 · thag 264 · thig 73 · ud 80 = 755 tệp); tệp tha-ap duy nhất trong cả tầng là name/sutta/tha-ap-name_translation-en-sujato.json, tức tệp tên, không phải thân kinh. Tầng vietnamese-current (26 tệp) toàn bộ là Pháp Cú, không có tha-ap. Với tha-ap108 mẫu số coverage chỉ là 1 khoá Pāli đủ 40 ký tự ngoài khối :0 (tha-ap108:8.1), vì 31/32 khoá là vế kệ chỉ 18–27 ký tự; Sujato phủ 0/1 nên coverage = 0%. content/meta/reference-gaps.yaml đã có entry cho bài này, nhưng có entry không đủ để đứng published. Đây là giới hạn của bản chụp upstream, không phải thiếu sót của bản dịch."
-  assessed_at: "2026-10-05"
+  assessed_at: "2026-10-12"
   assessed_by:
-    - "OpenCode Space Bunny Free (agent)"
+    - "Claude Sonnet 5.5 (Claude Code)"
 notes: |-
   **Nguồn đã đo, không suy đoán.** Pāli root lấy từ `.cache/upstream/suttacentral`
   theo commit đã ghim `11c9d708978cde8ba61096d8a75f7ddfb846f639` (`source/upstream-manifest.json`, tầng `pali`). Ba tầng tham
@@ -161,3 +161,54 @@ notes: |-
   `npm run audit:reference` · `npm run verify:store` — bốn lệnh này thuộc cổng của người
   điều phối, tôi bị cấm chạy; số đếm ở trên tôi lấy bằng cách đọc trực tiếp
   `.cache/upstream/suttacentral` và `content/`.
+
+  **Giải quyết draft 2026-10-12 (kiểm toán độc lập, đọc lại từng khoá từ Pāli).**
+  Blocker duy nhất còn lại thuộc loại *thiếu bản Anh upstream* (tầng Anh đã ghim không có
+  thân kinh `tha-ap`): giữ nguyên, vì đó là sự thật về bản chụp upstream, không phải lỗi
+  văn bản. Tầng `vietnamese-current` chỉ có Pháp Cú là giới hạn tham chiếu chung, đã nêu ở trên.
+
+  **Khoá đã sửa: 14/32, trong đó lỗi nghĩa thật 6 khoá (`:1.2` `:1.3` `:1.4` `:6.2` `:6.3` `:4.4`),
+  còn lại là sửa thêm nghĩa/tiếng Việt (`:1.1` `:2.1` `:2.2` `:3.3` `:4.1` `:4.2` `:6.1` `:6.4`).**
+
+  - `:1.2` `Gacchantaṁ anilañjase` = *đang đi trên đường gió*, tức giữa bầu trời. Bản cũ
+    *đi không dính ô nhiễm* là sai nghĩa. Tiền lệ cùng dòng Pāli trong tầng: 12/20 khoá
+    dùng *giữa bầu trời lộng gió*; tôi theo cách đó.
+  - `:1.3` `Ghatāsana` (*ăn bơ lỏng*, tên gọi của lửa tế) `jalitaṁ` = đang cháy sáng; bản cũ
+    *bên bờ sông* không có trong Pāli. `:1.4` `Ādittaṁva hutāsanaṁ` = *như ngọn lửa tế đang
+    bừng cháy*; bản cũ *nơi phế tích* không có trong Pāli. Cùng dòng Pāli này tầng có 4 khoá
+    dịch *ngọn lửa tế bừng bừng cháy*, và các khoá khác lan nghĩa sai (*phế tích*,
+    *đốt phá nhà cửa*, *tro tàn*, *thiêu rụi cả làng*); tôi không nhân các nghĩa sai đó.
+  - `:6.2` `tayo te cakkavattino`: `te` là *những vị ấy*, không phải *bạn/ngươi*; bản cũ
+    *bạn có ba vị* là đọc sai. `:6.1` đổi *Đều mang tên gọi là* thành *Cùng mang tên*.
+  - `:6.3` `Pañcasaṭṭhikappasate` = 65 × 100 kiếp = 6.500 kiếp (cùng kiểu
+    `Aṭṭhārase kappasate` = 18 × 100 = 1.800, được dịch *một ngàn tám trăm* ở đa số khoá).
+    Bản cũ *kiếp thứ sáu mươi lăm trăm* dùng số thứ tự không có trong Pāli (locative, không
+    phải `-tama`). Viết lại *Trong sáu ngàn năm trăm kiếp*. Bất định nhỏ còn lại: một khoá khác
+    trong tầng dịch cùng Pāli này thành *ba mươi ngàn kiếp*, tôi coi là sai và không theo.
+  - `:4.4` `duggatiṁ nupapajjati` = *không rơi vào đọa xứ* (`duggati` là cảnh giới xấu, không
+    phải *khổ đau* nói chung); thêm chủ thể *người ấy* theo tiền lệ (cùng dòng, có khoá viết
+    *người ấy không rơi vào đọa xứ*). `:4.1` `tấn lòng` là chữ vô nghĩa, bỏ; viết *Với việc
+    dâng nước này* (`dakadāna` là dāna nước, đã giải ở trên).
+  - `:1.1` bỏ *rực rỡ* (không có trong Pāli). `:3.3` bỏ *Nhờ* (Pāli `aññāya` là phân từ
+    *sau khi biết*, không mang nghĩa nguyên nhân). `:4.2` `pītiuppādanena` giữ nghĩa *việc làm
+    phát sinh niềm hoan hỷ*. `:2.1–2.2` viết lại cho đúng cú pháp: `Pāṇinā udakaṁ gayha`
+    *cầm nước trong tay* + `ukkhipiṁ` *giơ lên*; bỏ chữ *tự*. `:6.4` thêm `janādhipā` =
+    chúa tể của dân (bản cũ chỉ còn *cai trị*).
+
+  **Phần ghi chú cũ bị thay thế:** đoạn *Hai ẩn dụ lửa* (nói `Ghatāsana` là lửa lễ ở bờ sông
+  và chọn *lửa được nhóm lên*) sai và bị thay bởi mục `:1.3–1.4` ở trên; đoạn nói `Pañcasaṭṭhikappasate`
+  là *sáu mươi lăm trăm* bị thay bởi mục `:6.3`; câu *bản Việt `Nhờ thấu rõ` ở `:3.3`* không còn.
+  Phần còn lại (số kiếp `Kappasatasahassampi` = 100.000, `dakadāna`, chủ thể `Sampaṭicchi`, `ṭhito satthā`)
+  đã đọc lại và đúng.
+
+  **Đọc lại từng khoá (32/32) và các khoá còn nguyên:** `:2.3–2.4` (`Sampaṭicchi mahāvīro`,
+  `buddho kāruṇiko isi`), `:3.1–3.2`, `:5.1–5.4`, `:7.1–7.3` (`kataṁ buddhassa sāsanaṁ` = *đã làm
+  tròn lời dạy của Đức Phật*, 756 khoá cùng dòng, đa số dịch như vậy), `:8.1` (*những bài kệ*,
+  số nhiều), `:9.1`. Tập khoá 32/32 khớp Pāli, thứ tự khớp, nháy `“ ‘ ’ ”` khớp Pāli từng khoá,
+  `…pe…` → đúng một `…`. Cặp Pāli trùng nguyên văn trong chính bài: 0 trên 32 khoá.
+
+  **Điểm sau giải quyết:** nghĩa (9,2) và triangulation (7,8) hạ so với bản trước vì có 6 khoá
+  sai nghĩa thật (5 trong 6 do tác giả trước tự đọc sai Pāli, không do tiền lệ); không có bản
+  Anh hay Việt hiện hành độc lập, nên triangulation không vượt 8,0. Cổng kỹ thuật vẫn chưa
+  chạy trong lượt này; lệnh còn lại của người điều phối: `npm run validate` · `npm test` ·
+  `npm run check` · `npm run build`.

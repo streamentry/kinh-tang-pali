@@ -11,22 +11,22 @@ tags:
   - "Mahāparivāravagga"
 quality:
   scores:
-    source_provenance: 9.6
-    semantic_fidelity: 9.4
-    grammar_logic: 9.4
+    source_provenance: 9.4
+    semantic_fidelity: 9.0
+    grammar_logic: 9.0
     segment_alignment: 10.0
-    terminology: 9.3
-    triangulation: 8.4
-    vietnamese_clarity: 9.4
-    han_viet_balance: 9.4
-    ambiguity_integrity: 9.3
+    terminology: 8.9
+    triangulation: 7.5
+    vietnamese_clarity: 9.0
+    han_viet_balance: 9.0
+    ambiguity_integrity: 9.2
     technical_integrity: 9.6
-  final_score: 9.38
+  final_score: 9.06
   blocking_errors:
     - "Tầng Anh đã ghim không phủ phẩm tha-ap: tại commit 11c9d708978cde8ba61096d8a75f7ddfb846f639, edition english-sujato có 4291 tệp nhưng tệp duy nhất chứa chuỗi tha-ap là name/sutta/tha-ap-name_translation-en-sujato.json, tức tệp tên chứ không phải thân kinh; tệp thân tha-ap116 không tồn tại. Mẫu số coverage = 1 khoá Pāli có nội dung (tha-ap116:10.1), Sujato phủ 0/1, vietnamese-current chỉ có 26 tệp toàn bộ là dhp, english-project không có entry cho tha-ap116. Điểm cao không cứu được blocker này."
-  assessed_at: "2026-10-05"
+  assessed_at: "2026-10-12"
   assessed_by:
-    - "OpenCode Space Bunny Free (agent)"
+    - "Claude Sonnet 5.5 (Claude Code)"
 notes: |-
   **Lát n50, 2 bài · 78 khoá.** Tệp này trước đợt chỉ có **1/40** khoá (`:10.1`) do lát
   trước chỉ dịch được khoá nào ≥40 ký tự. Nay đủ **40/40**, thứ tự số (= thứ tự Pāli gốc).
@@ -143,3 +143,84 @@ notes: |-
   UID và thuộc Pāli gốc, 0 orphan, dấu lược khớp từng khoá, vị trí ngoặc kép khớp Pāli,
   `final_score` bằng **9.38** = trung bình số học thô của đúng 10 điểm (tính bằng script).
   Vì không chạy được cổng, `technical_integrity` không cho 10.0.
+
+  **Giải quyết draft 2026-10-12 (Claude Sonnet 5.5, đọc đối kháng độc lập).** Mục này
+  **thay thế** mọi phân xử dịch thuật cũ ở trên về `:1.4`, `:2.2`–`:2.4`, `:3.1`–`:3.2`,
+  `:4.2`–`:4.4`, `:5.4`, `:6.1`, `:6.4`, `:7.1`, `:8.1`–`:8.2`, `:8.4` (các đoạn "Bốn chỗ
+  không có tiền lệ", "Một cải cách tôi không nhân theo tầng" và bốn "cặp cố ý khác" là
+  **sai** và không còn hiệu lực). Phần còn lại của notes (đo tiền lệ tiêu đề, đo `Paṭisambhidā`,
+  công thức lời kết, các phép đo tập khoá/nháy) vẫn đúng.
+
+  **Phân loại blocker.** Chỉ có **một** blocker và thuộc loại *thiếu bản Anh upstream*
+  (Sujato không có bài `tha-ap116` tại commit đã ghim; `vietnamese-current` chỉ có Pháp Cú):
+  **GIỮ NGUYÊN** — đó là sự thật về upstream, không phải lỗi văn bản. Không có blocker loại
+  lỗi văn bản còn lại sau lượt sửa này.
+
+  **Lỗi nghĩa thật đã sửa: 14/40 khoá nặng + 6 khoá nhẹ.** Bản cũ bịa nội dung ngoài Pāli
+  và sai số:
+  - `:6.1` `Saṭṭhitūriyasahassāni` = `saṭṭhi` **60** + `tūriya` (nhạc cụ) + `sahassāni` (ngàn)
+    = **60.000 nhạc cụ**, chủ ngữ của `parivārenti` ở `:6.2`. Bản cũ "Hai trăm năm năm mươi
+    sáu ngàn lần" (nhân 64×4 rồi ngàn) là bịa. Tiền lệ: `tha-ap24:42.1` "Sáu mươi ngàn nhạc
+    cụ", `tha-ap41:3.1` "sáu mươi ngàn nhạc cụ" (2/3 chỗ khác đúng; `tha-ap102:2.3` "sáu mươi
+    vạn ngàn năm" sai).
+  - `:8.2` `catuttiṁsa` = **34** (không phải 32), `āsu` = đã có (dạng rút của `āsuṁ`):
+    "có ba mươi bốn vị Sát-đế-lợi". Đối chiếu tiền lệ `tha-ap122:8.2` "ba mươi bốn vị".
+    `:8.1` `Subāhū nāma nāmena` là **số nhiều** (`khattiyā` `sampannā` đều chủ cách số nhiều
+    giống đực): ba mươi bốn vị cùng tên Subāhu, không phải "tôi là Subāhū". Bản cũ cho người
+    kể là nữ là suy diễn sai (`-ā` ở `sampannā` là số nhiều giống đực).
+  - `:8.4` `pañcakappasate ito` = "cách đây năm trăm kiếp" (như `tha-ap41:5.1` "Cách đây mười
+    một kiếp về trước"), không phải "người thứ năm trăm".
+  - `:4.3`–`:4.4` `Pallaṅkaṁ ābhujitvāna` = "xếp chân kiết già" (`tha-ap558:2.3`, 3 chỗ);
+    `kālaṅkato` = "mệnh chung" (13 chỗ "ngay tại nơi ấy tôi đã mệnh chung"). Bản cũ "dọn tấm
+    chiếu tựa", "làm thành chỗ ngồi" là bịa; cả bốn "cặp cố ý khác" trong notes cũ là sai,
+    chỉ riêng `:4.3` ở `tha-ap137` (giang chân) và `tha-ap154` (trải tấm phủ) mới khác Pāli.
+    Mạch bài: ngồi kiết già dưới cội Bồ-đề rồi mệnh chung ở đó (`:4.4`), sinh vào cõi
+    Nimmāna (`:5.4`).
+  - `:2.2` `atthadassīnaruttame` = **Đức Atthadassī** (tên Phật) + `naruttame` "bậc tối thượng
+    giữa loài người", cùng ở cách vị trí với `lokanāthamhi`. Tiền lệ cùng nguyên văn
+    `tha-ap38:1.2` "Đức Atthadassī, bậc tối thượng giữa loài người"; Atthadassī là tên Phật ở
+    nhiều chỗ (`tha-ap490`, `tha-ap206`, `tha-ap414`). Bản cũ "bậc chỉ bày ý nghĩa" là sai.
+  - `:2.3`–`:2.4` `Tūriyaṁ sabbamādāya, agamaṁ bodhimuttamaṁ` = "mang theo tất cả nhạc
+    cụ, tôi đã đến cội Bồ-đề tối thượng". `agamaṁ` là ngôi thứ nhất; "Ngài đang đem theo cả
+    bốn câu kệ" (bản cũ) là bịa, đảo cả chủ thể.
+  - `:3.1`–`:3.2` `Vāditena ca naccena, sammatāḷasamāhito` = "với tiếng nhạc và điệu múa, cùng
+    chũm chọe hòa nhịp". `sammatāḷa` có tiền lệ "chũm chọe" (`tha-ap411:3.2`, `tha-ap475:9.4`,
+    `tha-ap492:18.2`). Bản cũ "Tiếng kệ … Đấng Toàn Giác đang đi kinh" là bịa (`caṅkami`
+    không có trong bài này).
+  - `:1.3`–`:1.4` `upaṭṭhahesiṁ` = "đã phụng sự" (không phải "đã đến viếng");
+    `sayoggabalavāhano` (`sa` + `yogga` + `bala` + `vāhana`, chủ cách số ít giống đực chỉ
+    chính vua trời) = "cùng với xe cộ, quân lực và phương tiện chuyên chở"; bản cũ gán
+    "sức bằng trăm đôi bò" cho Đức Phật là bịa và sai chủ thể (xem `tha-ap41:2.2`
+    "cùng binh mã, cỗ xe và đoàn tùy tùng").
+  - `:7.1` `Tividhaggī nibbutā mayhaṁ` = "Ba loại lửa nơi tôi đã được dập tắt"; bản cũ "Trong
+    ba cõi, mọi kiếp sống của tôi" bỏ mất `nibbutā` và nhầm `aggī` (lửa) thành cõi.
+  - `:6.3`–`:6.4` `vattamānaṁ bhavābhave` (`vattamānaṁ` đồng cách với `maṁ`) = "khi tôi luân
+    chuyển từ kiếp sống này sang kiếp sống khác"; bản cũ "mỗi kiếp sống tôi đều ở đó" lệch.
+  Khoá chỉnh nhẹ (đúng nghĩa nhưng đổi cho sát Pāli hay tiền lệ): `:1.1`–`:1.2` (đưa `tadā`
+    về đúng chỗ), `:3.3`, `:3.4`/`:5.2` (bodhi = cội Bồ-đề, đồng nhất với `:4.1`, `:2.4`),
+    `:4.1`–`:4.2` (`dharaṇīruhapādapaṁ` là đồng vị với cội Bồ-đề, không phải "dưới gốc"),
+    `:5.1` (tiền lệ "hài lòng với việc làm của chính mình"), `:5.4` (có tân ngữ Nimmāna),
+    `:7.3` (bỏ "Giờ", Pāli không có).
+
+  **Bất định còn lại.** (1) `nimmānaṁ` ở `:5.4` đọc là cõi trời Nimmānarati (theo
+  `tha-ap51:6.4`, `tha-ap460:2.2` "cõi Nimmāna"); có thể có cách đọc khác nhưng không có
+  căn cứ mạnh hơn; (2) `sammatāḷa` là chũm chọe hay phách vỗ tay — chọn "chũm chọe hòa nhịp"
+  theo 3 tiền lệ; (3) `:10.1` "Tôi nghe như vầy:" là quy ước toàn tầng (556/562 colophon
+  `Itthaṁ sudaṁ …`); Pāli chỉ nói "Như vậy" nên đây là lựa chọn tầng, không phải Pāli —
+  đề nghị người biên tập quyết định một lượt cho cả phẩm; (4) tiêu đề *Tuyên Ngợ* so với
+  *Tuyên Ngôn* là vấn đề biên tập toàn phẩm, không đổi ở bài này; (5) `Mahāparivāravagga`
+  và các từ tên riêng giữ như cũ.
+
+  **Tầng tham khảo.** Không có English Sujato, `english-project` hay Việt hiện hành cho bài
+  này; đối chiếu chỉ qua Pāli root và các bài song song trong chính tầng (`tha-ap38`, `tha-ap41`,
+  `tha-ap24`, `tha-ap95`, `tha-ap118`, `tha-ap122`, `tha-ap558`, v.v.), nên `triangulation`
+  **7,5** (≤ 8,0). Các tiền lệ trong tầng chứa nhiều lỗi (ví dụ `tha-ap102`, `tha-ap137`,
+  `tha-ap154`, `tha-ap228`); đã đối chiếu từng chữ với Pāli, không chép theo đa số.
+
+  **Điểm trước → sau.** `source_provenance` 9.6→9.4 · `semantic_fidelity` 9.4→9.0 ·
+  `grammar_logic` 9.4→9.0 · `segment_alignment` 10.0 · `terminology` 9.3→8.9 ·
+  `triangulation` 8.4→7.5 · `vietnamese_clarity` 9.4→9.0 · `han_viet_balance` 9.4→9.0 ·
+  `ambiguity_integrity` 9.3→9.2 · `technical_integrity` 9.6. `final_score` 9.38→9.06
+  (trung bình thô). Cổng kỹ thuật chưa chạy: `npm run validate` · `npm test` ·
+  `npm run check` · `npm run build` để người điều phối chạy; tệp đã qua kiểm tra khoá,
+  NFC và dấu lược.
