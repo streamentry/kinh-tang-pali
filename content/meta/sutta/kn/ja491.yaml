@@ -17,13 +17,13 @@ quality:
     semantic_fidelity: 8.8
     grammar_logic: 8.8
     segment_alignment: 10.0
-    terminology: 8.9
+    terminology: 9.0
     triangulation: 7.0
     vietnamese_clarity: 9.0
     han_viet_balance: 9.2
     ambiguity_integrity: 9.2
     technical_integrity: 9.6
-  final_score: 8.99
+  final_score: 9.0
   blocking_errors:
     - "Không có tầng tham khảo tiếng Anh tại commit đã ghim:
       `source/upstream-manifest.json` chỉ liệt kê `kn/ja/ja491_root-pli-ms.json`
@@ -35,7 +35,7 @@ quality:
       chỉ từ Pāli root và đối chiếu tiền lệ nội bộ ⇒ bài bắt buộc `draft` và
       `triangulation ≤ 8,0`. Đây là giới hạn upstream, không phải lỗi của người
       dịch. (noEnglishEditionUpstream)"
-  assessed_at: "2026-10-10"
+  assessed_at: "2026-10-11"
   assessed_by:
     - "Claude Sonnet 5.5 (Claude Code)"
   waiver:
@@ -109,5 +109,11 @@ notes: |-
   9. `mokkhañca te pattā sakaṁ niketaṁ` (16.4): `pattā` có thể chi phối cả `mokkhaṁ` lẫn `niketaṁ` (“đạt giải thoát và đến chỗ ở”); dịch “được giải thoát và về đến nơi ở của mình”.
 
   **Coverage English (mục 7):** mẫu số = 0. Đo mọi khoá không phải khối `:0.x` (71 khoá), dài nhất sau khi nén khoảng trắng là 38 ký tự (< 40) nên 0/71 khoá có nội dung theo ngưỡng của `source/layers.yaml`; 4 khoá `:0.x` bị loại trước. Đây là *cổng không đo được gì*, không phải *không cần ghi nhận*. Sujato: 0 tệp cho `ja491`; `english-project`: 0; `vietnamese-current`: 0 (chỉ Pháp Cú). Ba tầng đều vắng ⇒ `triangulation` 7,0 (≤ 8,0) và `status: draft` kèm blocker ở trên. Tôi không đụng `content/meta/reference-gaps.yaml`.
+
+  **Lượt cải thiện 2026-10-11.** Đọc đối kháng lại cả 75 khoá cặp Pāli↔Việt; 4 khoá đổi (`3.3`, `3.4`, `4.3`, `4.4`), 71 khoá giữ nguyên.
+  - `pāsavasūpanītaṁ` (3.3, 4.3): trước dịch “đã bị đưa vào tay cái bẫy”, nay “đã bị đưa vào quyền lực của cái bẫy”. Căn cứ đo được: `pāsavasaṁ gataṁ` ở `ja502:2.2` và `ja534:2.2` dịch “rơi vào quyền lực của bẫy” (2/2 khoá); `vasaṁ gat-`/`vasagat-` ở 49 khoá khác của tầng dịch thì 41 khoá dùng “quyền”/“quyền lực”/“chi phối” (chỉ `ja399:3.4` dịch “ở trong tay”); `vasūpanītā` ở `ja446:10.3` dịch “bị đưa vào dưới quyền”. Sửa thuật ngữ (terminology fix).
+  - Cú pháp 3.3 trước đây “ngươi, với tôi đã bị đưa vào …” khó đọc (“với tôi” dễ bị hiểu là đối tượng của giới từ). `maṁ pāsavasūpanītaṁ` là tân ngữ có định ngữ; nay dịch thành mệnh đề “khi tôi đã bị đưa vào quyền lực của cái bẫy”, nên `3.4` và `4.4` (Pāli trùng nguyên văn “Pamuttave icchasi bandhanasmā”) cùng mang đúng một cụm “lại muốn thả tôi ra khỏi sự trói buộc?” và `muốn` không còn nằm lệch sang khoá `4.3`. “Khi” là chỗ nối do tiếng Việt đòi hỏi chứ Pāli không có từ tương ứng; đây là lý do `vietnamese_clarity` không được nâng.
+  - Điểm đổi: `terminology` 8.9 → 9.0; các tiêu chí khác giữ nguyên; `final_score` 8.99 → 9.0 (đúng 9.0 không đủ cho `published`, status do công cụ quyết định).
+  - Đã dò nhưng không đổi dù nghi ngờ: `cāpadhure` (2.2) và `adhipātayissaṁ` (2.3) vẫn 0 tiền lệ trong toàn Pāli root (`cāpadhura` chỉ xuất hiện ở khoá này), nên bất định 2 và 3 giữ nguyên, không phân xử được. `bādhayāmi`/`bādhetu` (7.6, 17.2): đã đo 15 khoá có dạng `bādh-`, dịch phân tán (“làm khổ”, “bức hại”, “hãm hại”, “hành hạ”, “bắt”, “trói”) không có đa số, nên giữ “làm hại” (nghĩa rộng, không hẹp hơn Pāli). `khurappa` giữ “mũi tên sắc” theo `ja265` và `mn63:5.29`/`dn3` (“mũi tên đầu sắc như dao cạo”). Tiêu chí `triangulation` giữ 7,0 vì ba tầng tham khảo vẫn vắng; `ambiguity_integrity` và `semantic_fidelity` giữ nguyên vì chín bất định ở trên còn nguyên. Kiểm lại: 75/75 khoá, nháy `“”` khớp Pāli từng khoá (0 lệch), nháy đơn 0/0, 5 nhóm Pāli trùng nguyên văn trong bài (3.4=4.4; 5.2=6.2; 7.3=10.3=11.3; 8.1=9.1; 8.2=9.2) đều khớp bản Việt (riêng 11.3 viết hoa đầu câu).
 
   **technical_integrity = 9,6:** lát này cấm chạy cổng, nên không tuyên bố technical gate pass. Bốn lệnh còn lại do người điều phối chạy tập trung: `npm run validate` · `npm test` · `npm run check` · `npm run build`.

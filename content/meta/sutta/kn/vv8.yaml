@@ -1,5 +1,5 @@
 uid: vv8
-status: review
+status: published
 translationTitle: "Chuyện Cung Điện Nāvā Thứ Ba"
 translators:
   - "OpenCode Space Bunny Free (agent)"
@@ -16,15 +16,15 @@ quality:
   scores:
     source_provenance: 9.4
     semantic_fidelity: 8.9
-    grammar_logic: 9.0
+    grammar_logic: 9.1
     segment_alignment: 10.0
-    terminology: 8.6
+    terminology: 8.7
     triangulation: 7.5
     vietnamese_clarity: 9.0
     han_viet_balance: 9.2
     ambiguity_integrity: 8.8
     technical_integrity: 9.6
-  final_score: 9.0
+  final_score: 9.02
   blocking_errors:
     - "Không có tầng tham khảo tiếng Anh tại commit đã ghim. Đo trên
       `source/upstream-manifest.json` (commit 11c9d708, tầng `english-sujato`,
@@ -256,3 +256,34 @@ notes: |-
   giữ nguyên. Đo sau sửa: 55/55 khoá, thứ tự khớp Pāli; nháy `‘’` `“”` khớp từng khoá, 0 lệch; 4 nhóm
   Pāli trùng trong bài, 0 nhóm Việt khác; `…` 0/0; NFC và khoảng trắng 0 lệch.
   Cổng kỹ thuật CHƯA chạy ở lượt này: cần `npm run validate`, `npm test`, `npm run check`, `npm run build`.
+
+  Lượt cải thiện 2026-10-11 (đọc đối kháng lần hai, sau lượt kiểm toán trên): 3/55 khoá đổi.
+  · `12.4` `Vaṇṇo ca me sabbadisā pabhāsati` — *sắc tướng* → *dung sắc*. Lỗi nhất quán thuật ngữ
+    trong chính bài: `vaṇṇo` ở `3.1`, `4.4`, `11.1` đều là *dung sắc*, riêng `12.4` là *sắc tướng*. Đo lại
+    trên tầng `kn` ở các khoá có `Vaṇṇo ca me sabbadisā…`: *dung sắc* 40 khoá, *sắc tướng* 12 khoá (ví
+    dụ vv1, vv3, vv11, vv67). Dòng "55 cặp" trong notes cũ về `12.4` là số đếm sai: tầng `kn` không có
+    khoá nào trùng byte với `12.4`. `sabbadisā` vẫn giữ *mọi phương* ở câu đáp theo quy ước vv6/vv7.
+    `terminology` 8.6 → 8.7.
+  · `12.2` `Manussabhūtā yamakāsi puññaṁ` — *tôi đã tạo phước báu nào* → *phước báu mà tôi đã tạo khi
+    còn làm người*. `yaṁ` là quan hệ (tương ứng `tena` ở `12.3`), không phải nghi vấn như `kiṁ` ở `4.2`;
+    bản cũ dùng *nào* khiến hai khoá `4.2` và `12.2` đọc như cùng một câu hỏi. Có tiền lệ cùng dạng ở
+    `vv13:8.2`; 12 khoá còn lại dùng *…phước báu nào* (lệch có chủ ý, vì lý do ngữ pháp trên).
+    `grammar_logic` 9.0 → 9.1.
+  · `9.4` `Etādisaṁ puññakatā labhanti` — bỏ *đều* (Pāli không có từ nào tương ứng; cùng loại lỗi với `7.2`
+    đã sửa ở lượt trước): *những người đã tạo phước đạt được điều như thế này*. Không đổi điểm
+    `semantic_fidelity` (8.9) vì các bất định (a), (c) bên dưới còn nguyên.
+  Tra thêm cho bất định (c) `12.6` `Atthāya`: `vv56:6.1` và `vv57:6.1` có cùng khuôn `Atthāya vata me
+    buddho/bhikkhu, araññā gāmamāgato` (*thật vì lợi ích cho tôi…*), nên *vì lợi ích* ở đây khả dĩ nhất
+    là lợi ích của chính nữ thiên, nhưng `vv8:12.6` không có `me`, nên vẫn giữ sát chữ, không thêm *của
+    tôi*. Ngoài ra ở `vv56`/`vv57` người nói không phải đang xưng hô với Đức Phật, còn ở `12.1` nữ thiên
+    xưng hô trực tiếp (`te buddha`) rồi `12.6` lại nói về Đức Phật ngôi ba (`buddho`): đây là điểm căng
+    thật của Pāli ghim, giữ nguyên theo Pāli, chưa phân xử được đó là dị bản chép hay thể thơ.
+  Không đổi dù nghi ngờ: `9.1` *mang hình tướng đầy đủ các khoảnh đất* (cùng cụm ở `vv6:8.1`, còn `vv7`,
+  `ja524`, `ja526` dịch *đầy đủ những khoảnh đất tươi đẹp*: ba cách, chưa có căn cứ chọn); `8.2` `nadī` số
+  ít (`8.1` `āpagā` và `7.3` `najjo` số nhiều; `nadī` có thể là số nhiều, chưa phân xử, giữ theo vv6/vv7);
+  `3.2`/`11.2` *thành tựu được ở nơi đây* (tiền lệ 14/21 và 15/16, nghĩa vẫn thiếu tân ngữ); tiêu đề `0.2`
+  *Nữ Hư Không* (47/49, vẫn là lỗi cả bộ, chờ người biên tập). `final_score` 9.02 (trung bình số học thô
+  90.2/10), mức vượt ngưỡng chỉ 0,02 và hoàn toàn đến từ hai lần nâng 0,1 nêu trên. Blocker upstream giữ
+  nguyên. Đo sau sửa: 55/55 khoá, thứ tự khớp Pāli; nháy `‘’` `“”` 220 phép, 0 lệch; 4 nhóm Pāli trùng
+  trong bài, 0 nhóm Việt khác; `…` 0/0; NFC và khoảng trắng 0 lệch. Cổng kỹ thuật chưa chạy ở lượt này:
+  `npm run validate`, `npm test`, `npm run check`, `npm run build`.
