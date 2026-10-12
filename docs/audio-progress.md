@@ -517,3 +517,18 @@ Nhật ký append-only. Registry `content/audio/progress.json` được đối s
 - PR #564 exact head `7257bbf57fd931906e5fff340c20021dd5960cb9` passed push and PR CI; squash merge `a7d99b63060e1a0f5833e483b8a5c77e5c3a5e97`. Pages run for that merge `38277125787` completed successfully.
 - Production MN30/MN31/MN32 pages each returned HTTP 200, contain the reader audio player, show `Chờ nghe duyệt`, and reference their exact registered R2 URL. Each R2 URL returned 206 for `bytes=0-1023`, `audio/mpeg`, with the expected total object byte count. All three are marked `live`; review remains pending.
 - Local player controls (play, +15s, scripture jump, pause) were tested for all three during upload verification. Browser playback interaction on production was not tested because the Playwright wrapper is blocked by the local package-age guard (`npx` requires `--no-install`); the deployed HTML and R2 range endpoints were checked over HTTP instead. No full-content listening/approval is claimed.
+
+### Batch mn-024 MN33 uploaded and player metadata verified
+
+- MN33: 11 chunks, 1,137.94s, MP3 SHA-256 `bb85a9ea3d827e327e495df048b7f1a1328c6c6f85e79a0684950f5633110565`, 22,760,160 bytes; scripture starts 144.95s. R2 full hash/range and local page/player/source URL passed. Bare range request once returned 403; retry with the uploader's configured user-agent returned 206 `audio/mpeg` and expected range. Interactive browser controls were not tested in this environment; manual listening remains pending.
+
+### Batch mn-024 MN34 MP3 uploaded and player metadata checked
+
+- MN34: 6 chunks, 539.87s, MP3 SHA-256 `02ead8ad9788f6839fb24e59a5e2794eee80cb5b9676a1918547005e006fbc62`, 10,798,560 bytes; scripture starts 152.79s. Existing profile unchanged. R2 hash/range and local HTML player/source verified; manual listening remains pending. Browser playback interaction was not run because the local Playwright launcher is blocked by the package-age guard.
+
+### Batch mn-024 — MN33/MN34/MN35 uploaded to R2, player metadata checked
+
+- MN33: 11 chunks, 1,137.94s, MP3 SHA-256 `bb85a9ea3d827e327e495df048b7f1a1328c6c6f85e79a0684950f5633110565`, 22,760,160 bytes; scripture starts 144.95s. R2 object verified; local player HTML and exact URL present, public range verified.
+- MN34: 6 chunks, 539.87s, MP3 SHA-256 `02ead8ad9788f6839fb24e59a5e2794eee80cb5b9676a1918547005e006fbc62`, 10,798,560 bytes; scripture starts 152.79s. R2 object verified; local player HTML and exact URL present, public range verified.
+- MN35: 17 chunks, 1,624.08s, MP3 SHA-256 `9f4acace62b89f0bfe8310adf685fc0dd5e31c821efd4738c7cb920265c4f159`, 32,482,560 bytes; scripture starts 174.79s. R2 object verified; local player HTML and exact URL present, public range verified.
+- Combined duration 3,301.89s (~55m02s). All use approved profile `vi-charon-mn1-v1` and remain review-pending. The Playwright launcher was blocked by the local package-age guard; browser button interaction was not claimed. User will check listening and playback controls on the deployed pages.
