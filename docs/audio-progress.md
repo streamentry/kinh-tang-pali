@@ -461,3 +461,7 @@ Nhật ký append-only. Registry `content/audio/progress.json` được đối s
 - Pages run 690 (`38209696050`) completed successfully for merge commit `364f8c92fbf636d930589bd482b78b6b90f28647`. Canonical production URLs for MN14, MN15, and MN17 each returned the current reader page with one audio element and the exact registered R2 URL; progress is `live` for all three.
 - Một lần đọc MN14 ngay sau deploy trả về HTML cũ không có player; lần đọc lại URL chuẩn sau đó có player. Ghi nhận đây là phản hồi trang cũ tạm thời; không coi lần đọc đầu là xác minh live.
 - Production playback/seek/scripture-jump/pause was verified on MN17 in this batch. Local MN15 was separately verified at its actual sutta page with playback, +15s, scripture jump at 146.47s, and pause. All three retain `review_status: pending` and historical QC flags.
+
+### Batch mn-021 PR opened — #548
+
+- PR https://github.com/streamentry/kinh-tang-pali/pull/548 uses head `c5566d7e13c443eb2a20cf507aa81347c5d42821`. MN18/MN20/MN21 remain `uploaded-verified`, `review_status: pending`; CI is the final hosted build gate after the local temporary volume ran out of space during prerender.
