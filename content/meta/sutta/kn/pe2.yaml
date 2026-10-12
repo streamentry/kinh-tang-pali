@@ -11,20 +11,20 @@ tags:
 quality:
   scores:
     source_provenance: 9.5
-    semantic_fidelity: 7.4
+    semantic_fidelity: 7.5
     grammar_logic: 7.0
     segment_alignment: 10.0
     terminology: 8.5
     triangulation: 7.0
-    vietnamese_clarity: 7.2
+    vietnamese_clarity: 7.3
     han_viet_balance: 9.0
     ambiguity_integrity: 8.3
     technical_integrity: 9.6
-  final_score: 8.35
+  final_score: 8.37
   blocking_errors:
     - "noEnglishEditionUpstream: Thiếu bản dịch tiếng Anh đối chiếu"
-    - "Pāli root đã ghim ở nhiều chỗ cụt, lệch hoặc chưa phân xử được (8.1; 14.1–14.2; 20.3; 33.5; 33.8; 33.11; 33.14; 33.22; 34.1; 36.2–36.3; 36.6; 37.8–37.9; 38.1; 38.3; 38.8; 38.10–38.11; 38.15–38.16; 40.1; 41.2; 41.4; 41.6; 43.1; 44.4; 46.1; 48.6; 48.8–48.10; 49.3; 49.6–49.7; 49.12–49.14; 49.21; 49.31; 49.34; 70.2–70.3; 78.1; 81.1; 90.1–90.4; 92.3; 96.1–96.3; 119.5–119.6; 134.2; 143.3–143.4; 163.3–163.4; 174.2; 187.3; 189.4; 195.4; 201.2; 204.4; 209.4): canonical wording ở các khoá ấy chưa bảo vệ được, cần người biên tập phán xử"
-  assessed_at: "2026-10-11"
+    - "Pāli root đã ghim ở nhiều chỗ cụt, lệch hoặc chưa phân xử được (8.1; 20.3; 33.5; 33.8; 33.11; 33.14; 33.22; 34.1; 36.2–36.3; 36.6; 37.8–37.9; 38.1; 38.3; 38.8; 38.10–38.11; 38.15–38.16; 40.1; 41.2; 41.4; 41.6; 43.1; 44.4; 46.1; 48.6; 48.8–48.10; 49.3; 49.6–49.7; 49.12–49.14; 49.21; 49.31; 49.34; 70.2; 78.1; 81.1; 90.1–90.4; 92.3; 96.1–96.3; 119.5–119.6; 134.2; 143.3–143.4; 163.3–163.4; 174.2; 187.3; 189.4; 195.4; 201.2; 204.4; 209.4): canonical wording ở các khoá ấy chưa bảo vệ được, cần người biên tập phán xử"
+  assessed_at: "2026-10-12"
   assessed_by:
     - "Claude Sonnet 5.5 (Claude Code)"
 notes: |-
@@ -71,3 +71,10 @@ notes: |-
     5. Số Pāli: xem trên.
     NFC đạt, không khoá rỗng, không khoảng trắng thừa; Pāli lọt sang Việt chỉ ở tên riêng `Peṭakopadesa` (0.1, 210.1), `Akaniṭṭha`, `Gaṅgā`, `Himavā`, `Kāpiya`, `Mahānāma`, `Mogharāja`, `Pāricchattaka`, `Rādha`, `Sāriputta`, `Ājīvaka`.
   - Công cụ kiểm của kho chưa chạy ở bước này, nên `technical_integrity` đặt 9.6 và không tuyên bố technical gate pass; còn phải chạy: `npm run validate`, `npm test`, `npm run check`, `npm run build`.
+  - Giải quyết draft 2026-10-12:
+    Phân loại blocker: (A) `noEnglishEditionUpstream` giữ nguyên, là sự thật về upstream. (D) blocker "Pāli root cụt/lệch" được thu hẹp: gỡ `14.1`–`14.2` và `70.3`, giữ phần còn lại. Không có blocker kiểu (B) hay (C) nào ghi riêng; coverage English 0/264 và việc `vietnamese-current` chỉ có Pháp Cú là giới hạn tham chiếu đã nêu ở mục "Tầng tham khảo", không phải lỗi văn bản.
+    Đã gỡ vì có căn cứ: `14.1`–`14.2` là đoạn tóm lược của `an9.11` (Sāriputta bị một tỳ-kheo trách là va chạm rồi bỏ đi không xin lỗi, rồi Đức Phật gọi ngài để nói lên lời sư tử hống); `sāriputtassa byākaraṇaṁ` là sở hữu cách "lời giải đáp của Sāriputta", đã sửa `14.1` từ "cho Sāriputta" thành "của Sāriputta"; `14.2` là mở đầu lời giải đáp ấy (`Yassa nūna … kāyagatā sati`, so `an9.11:3.1`), đọc đúng như đã dịch. `70.3` `yācayogo`: nhiều khoá Pāli trùng (`sn55.37:5.2`, `an8.54:12.2`, `an5.47:5.2`, …) đều là phẩm chất của người cư sĩ, tầng Việt hiện có dịch "sẵn sàng đáp lại lời xin" (`an8.54:12.2`) hay "sẵn sàng bố thí" (`sn55.37:5.2`); bản cũ "chuyên tâm cầu xin" là lỗi nghĩa (ngược chiều người cho và người xin), đã đổi thành "sẵn sàng đáp lại lời xin".
+    Khoá đã sửa (7/736): `14.1` (sở hữu cách, xem trên); `17.3` ("từ bóng tối hướng đến bóng tối" → "ở trong bóng tối, hướng đến bóng tối", cùng cách `17.4`); `24.3` ("do mọi thủ đoạn tận" dễ đọc thành "thủ đoạn" → "do mọi thủ đã đoạn tận", cùng cách `28.4`); `57.1` ("hãy không mong mỏi" → "hãy không còn mong mỏi", theo `ne9:38.4`); `70.3` (xem trên); `88.1` (`yāva` là dấu lược "cho đến đoạn", không phải "cho đến khi": đổi thành "cho đến đoạn: sau khi chinh phục hoàn toàn thì sống tại gia"); `92.2` (bỏ "Quả thật" thừa, vì `kudassu nāma` là "khi nào thì"). Sáu khoá sau chỉ chỉnh câu chữ; một khoá (`70.3`) là lỗi nghĩa thật.
+    Đối kháng: đã đọc lại toàn bộ 736 cặp Pāli–Việt. Các cách dịch trùng bài song song (`an4.191`, `sn35.241`, `ud3.10`, `ne9`, `ne4`) được giữ vì khớp tiền lệ tầng. Số Pāli (16, 9, 10, 27, 50, 86, 60.000…) tính lại, không lệch.
+    Lệch cần ghi thêm: `57.2` Pāli ghi `sadā karaṇīyā kintime avippaṭisāro assā`, trong khi bài song song `ne37:165.1` (và `an11.1`) ghi `na cetanā karaṇīyā` ("không cần khởi ý nghĩ …"); nghĩa hai bản đối nhau. Giữ nguyên Pāli đã ghim (`sadā`), không đổi theo bài song song; có thể là chép sai `na cetanā`. `70.2` `ekarakkhe` có thể là `ekārakkha` (nghĩa "người có tâm do niệm canh giữ", `dn34:2.3.78`), không phân xử được nên giữ trong blocker.
+    Giữ blocker: các khoá còn lại trong blocker (cụt, lệch hoặc không có bài song song để đối chiếu) vẫn chưa phân xử được; không bịa nguồn. Bài vẫn `draft` vì hai blocker còn lại. `triangulation` giữ 7.0 (≤ 8.0, không có bản Anh độc lập). Điểm: `semantic_fidelity` 7.4 → 7.5, `vietnamese_clarity` 7.2 → 7.3, `final_score` 8.35 → 8.37; tám tiêu chí còn lại không đổi.

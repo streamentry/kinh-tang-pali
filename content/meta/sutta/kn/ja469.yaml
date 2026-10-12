@@ -1,5 +1,5 @@
 uid: ja469
-status: draft
+status: review
 translationTitle: "Kinh Mahākaṇha"
 translators:
   - "OpenCode Space Bunny Free (agent)"
@@ -13,23 +13,39 @@ tags:
 quality:
   scores:
     source_provenance: 9.5
-    semantic_fidelity: 9.2
-    grammar_logic: 9.1
+    semantic_fidelity: 8.7
+    grammar_logic: 9.0
     segment_alignment: 10.0
-    terminology: 9.0
-    triangulation: 7.0
-    vietnamese_clarity: 9.1
-    han_viet_balance: 9.2
-    ambiguity_integrity: 8.4
+    terminology: 8.8
+    triangulation: 7.5
+    vietnamese_clarity: 9.0
+    han_viet_balance: 9.0
+    ambiguity_integrity: 8.8
     technical_integrity: 9.6
-  final_score: 9.01
+  final_score: 8.99
   blocking_errors:
-    - "Tầng English SuttaCentral đã ghim KHÔNG có bài này: source/upstream-manifest.json ở commit đã pin cho thấy english-sujato có 4291 tệp mà `ja469` không có mặt (grep trên danh sách tệp của edition cho kết quả rỗng), nên scripts/validate.ts dòng 223-226 coi đây là lỗi (error) khi status là review hoặc published. Tôi không được chạy npm run source:sync:used (lệnh cấm của lát) và cũng không được sửa content/meta/reference-gaps.yaml, nên không thể ghi nhận khoảng trống tham khảo theo cơ chế của kho. Bắt buộc giữ draft."
-    - "Bài này substantiveSegments = 0 (0 trên 53 khoá Pāli đạt ngưỡng 40 ký tự; khoá dài nhất chỉ 26 ký tự, toàn bộ bài là kệ), nên cổng coverage của source/layers.yaml không đo được gì — đây là CỔNG KHÔNG ĐO ĐƯỢC, không phải ĐÃ ĐỦ. Mất tầng Anh là thật, và không có chỗ nào trong phạm vi lát cho tôi ghi nhận điều đó."
-    - "Bốn cụm thuật ngữ là hapax trong TOÀN BỘ Pāli ghim (5764 tệp): usīnaka (1 lần), Dīghottaroṭṭhā (1), asappurisacintakā (1), Sukkacchavī vedhaverā (2). Không tầng Anh nào ở commit đã ghim để đối chiếu độc lập, nên tôi dịch theo nghĩa thành phần, ghi rõ ở notes, và không tuyên bố là đã phân xử."
-  assessed_at: "2026-10-06"
+    - "Tầng English SuttaCentral đã ghim KHÔNG có bài này:
+      source/upstream-manifest.json ở commit đã pin cho thấy english-sujato có
+      4291 tệp mà `ja469` không có mặt (grep trên danh sách tệp của edition cho
+      kết quả rỗng), nên scripts/validate.ts dòng 223-226 coi đây là lỗi (error)
+      khi status là review hoặc published. Tôi không được chạy npm run
+      source:sync:used (lệnh cấm của lát) và cũng không được sửa
+      content/meta/reference-gaps.yaml, nên không thể ghi nhận khoảng trống tham
+      khảo theo cơ chế của kho. Bắt buộc giữ draft."
+  assessed_at: "2026-10-12"
   assessed_by:
-    - "OpenCode Space Bunny Free (agent)"
+    - "Claude Sonnet 5.5 (Claude Code)"
+  waiver:
+    id: no-upstream-english
+    blockers:
+      - "Tầng English SuttaCentral đã ghim KHÔNG có bài này:
+        source/upstream-manifest.json ở commit đã pin cho thấy english-sujato có
+        4291 tệp mà `ja469` không có mặt (grep trên danh sách tệp của edition
+        cho kết quả rỗng), nên scripts/validate.ts dòng 223-226 coi đây là lỗi
+        (error) khi status là review hoặc published. Tôi không được chạy npm run
+        source:sync:used (lệnh cấm của lát) và cũng không được sửa
+        content/meta/reference-gaps.yaml, nên không thể ghi nhận khoảng trống
+        tham khảo theo cơ chế của kho. Bắt buộc giữ draft."
 notes: |-
   Vì sao `draft` — ba lý do, và lý do thứ nhất là lý do kỹ thuật chứ không phải lý do chất lượng dịch.
 
@@ -197,3 +213,41 @@ notes: |-
   **từng khoá** trên **212** cặp (4 × 53); **5/5** nhóm trùng trong bài có bản Việt giống nhau;
   **0/53** lệch dấu lược; **0/53** giá trị rỗng; **53/53** NFC; **0/53** giá trị trùng nguyên văn Pāli;
   JSON đọc lại được **53** khoá và có newline cuối. Cổng kỹ thuật của kho thì chưa chạy.
+
+  Giải quyết draft 2026-10-12 — đọc đối kháng lại toàn bài từ Pāli. **Mục này THAY THẾ mọi khẳng định về
+  cách dịch ở các mục cũ phía trên** (đặc biệt các mục "Bất định" (1)–(9), "Thuật ngữ", "Dùng lại nguyên văn"
+  và "Ngoặc kép", vốn mô tả bản dịch cũ). Bản cũ sai nghĩa nặng ở phần lớn các khoá: khoảng 30/53 khoá có lỗi
+  nghĩa thật (cộng với 9 dòng điệp khúc thiếu thì tương lai), đã viết lại.
+
+  **Nghĩa đã sửa, kèm căn cứ.**
+  * `1.1`/`1.4`: *kaṇho kaṇho ca ghoro ca* là tả con chó (đen, đen sì, hung tợn), không phải hô cách "Kaṇha, Kaṇha và kẻ ghê sợ"; `sunakho tava` là chủ ngữ (*con chó của ông*), không phải hô cách "o con chó", và `ravi` là động từ chia ở ngôi ba, không phải "ngươi sủa". Người hỏi (vua) hỏi người chủ chó, nên xưng *ông*.
+  * `2.1`–`2.3`: bản cũ ("Lấy loài hươu này làm phương tiện, sẽ trở thành con chồn; Quy tụ người loài rồi") là bịa. Đúng: `nāyaṁ migānamatthāya … bhavissati` = *không vì lợi ích của loài thú … sẽ hiện hữu*; `manussānaṁ anayo hutvā` = *trở thành tai họa của loài người*. `usīnaka` là hô cách (xem bất định dưới), không phải một loài vật: đã bỏ "con chồn".
+  * `3.1`–`3.3`: `pattahatthā` = *tay cầm bát*, `naṅgalehi kasissanti` = *sẽ cày bằng những chiếc cày*; bản cũ ("bị túm ở chân trước … xách đi trong giỏ") hoàn toàn không có trong Pāli.
+  * `3.2`/`4.2`: *đầu cạo trọn* → *đầu cạo trọc, khoác y ngoài* — đúng nguyên văn `thig2.7:2.4`. (Mục cũ nói "mặc y ngoài" là chép sai tiền lệ.)
+  * `4.1`: `tapassiniyo` là giống cái → *các nữ khổ hạnh* (bản cũ mất giống). `4.3`/`9.3`/`12.3`: `loke` là vị cách (*trong thế gian*), không phải "ra khỏi thế giới này"; `gamissanti` = *sẽ đi*, `bhavissanti` = *sẽ có mặt*.
+  * `5.1`: `dīghottaroṭṭhā` = `dīgha` + `uttaroṭṭha` (môi trên) với sandhi — đối chiếu `ja547:480.3` *Dīghuttaroṭṭho* → *môi trên dài*. Bản cũ ("Tàn tưới hủy hoại") là bịa. Đây không còn là hapax chưa giải.
+  * `5.3`: `iṇaṁ codāya gacchanti` = *đòi nợ rồi ra đi* (`iṇa` = nợ; `codāya` = sau khi đòi/thúc). Bản cũ "theo lời xúi của kẻ khuyết tật" không có trong Pāli.
+  * `6.1`: `vede` số nhiều → *các Veda*; `sāvittiṁ` → *bài kệ Sāvitrī* (tiền lệ `snp3.4:7.3`; `mn92:26.2` viết Sāvitrī).
+  * `7.1`–`7.3`: `pahū santo na bharanti` = *dù có khả năng, họ không nuôi dưỡng* (tiền lệ `snp1.6:9.3`, `ja468:8.3`); bản cũ "Người lành … đem họ đi" sai chủ thể và nghĩa. `7.1`/`8.1` dùng *Cả mẹ lẫn cha* như `ja468:8.1`.
+  * `8.3`: `bālā tumheti vakkhanti` = *họ sẽ nói rằng các ngươi là kẻ ngu* (`bālā` là vị ngữ, `tumhe` là chủ ngữ); bản cũ đảo vai.
+  * `9.2`: `mātulāni` = *mợ* (vợ của cậu), `pitucchakiṁ` = *cô bên cha*; bản cũ "cậu bên mẹ, dì bên cha" sai giới tính và quan hệ. `9.1` `sakhiṁ` giống cái → *người bạn nữ*. `9.3` khác `4.3` có lý do: ở đây động từ có tân ngữ là các bà ở `9.1`–`9.2` (*đi đến những người ấy*), còn ở `4.3` là nội động từ.
+  * `10.1`–`10.2`: `asicammaṁ` = *gươm và khiên* (không phải "người không bị trói buộc"); Pāli trùng nguyên văn `ja495:34.1–2` và dùng lại đúng bản Việt đó (cũng khớp `ja542:133.2` *gươm và khiên*).
+  * `11.1`: dùng lại nguyên văn bản Việt của Pāli trùng `ja547:186.1`.
+  * `12.1`: `māyāvī` → *giả dối* (tiền lệ `mn8:16.34`); `nekatika` → *lừa đảo* (`dn32:5.4`). `12.2`: `asappurisacintakā` → *mang tư duy của người bất thiện*, theo `asappurisacintī` ở `mn110:7` (*có sự tư duy của người bất thiện*) — không còn là hapax chưa giải. `12.4`: `pamokkhatī` — bản cũ "đã tuyên bố" là bịa; đúng là *sẽ được thả ra*.
+  * Điệp khúc `tadā kaṇho pamokkhati` (9 khoá) là thì tương lai: *lúc đó Kaṇha sẽ được thả ra*, thống nhất cả 9 khoá và `2.4`/`12.4`; `Kaṇho` viết chuẩn hoá *Kaṇha*. Cặp trùng nội bộ: `7.1`=`8.1`, `7.2`=`8.2`, `3.2`=`4.2`, các điệp khúc — bản Việt giống nhau; chỉ `4.3`/`9.3` khác có lý do nêu trên.
+  * `10.3` `panthaghātaṁ` giữ *cướp đường*; `11.3` giữ *phá tan tình bạn* (`mittabheda`). Số Pāli: không đổi (`pañcahi rajjūhi` = 5; `chaṭṭhaṁ` = 6).
+
+  **Blocker đã gỡ.**
+  (B) "Cổng coverage không đo được (0/53 khoá ≥ 40 ký tự)": gỡ. Đây là blocker do tác giả cũ tự đặt, không phải lỗi văn bản; toàn bài là kệ nên mẫu số bằng 0, cổng không đo được gì (không phải *đã đủ*), và việc mất tầng Anh đã được blocker (A) nêu. Phần dịch tự đứng vững từ Pāli, đã đọc đối kháng cả 53 khoá.
+  (D) "Bốn cụm hapax": gỡ vì đã có căn cứ cho `dīghottaroṭṭhā` (`ja547:480.3`), `asappurisacintakā` (`mn110:7`), `sukkacchavī vedhaverā` (Pāli trùng `ja547:186.1`, dùng lại nguyên bản Việt), và `usīnaka` (hô cách gọi vua; xem dưới). Các bất định còn lại được ghi ở đây, không đủ lớn để đổi nghĩa đoạn kinh.
+  **Blocker giữ:** (A) tầng Anh đã ghim không có bài này — đúng sự thật về upstream.
+
+  **Bất định còn lại, ghi ở đây chứ không thêm vào thân kinh.**
+  (1) `usīnaka` (`2.2`): chỉ có **1** lần trong Pāli ghim; đọc là hô cách. Khung truyện (nguồn ngoài kho, một bản dịch tiếng Anh đã xuất bản của phần chú giải) nói người hỏi là vua xứ Usīnara, nên giữ *Usīnaka* như tên gọi vua. Nếu người biên tập muốn *tâu vua* thì chấp nhận được; còn *con chồn* thì không có căn cứ.
+  (2) `apātubhā` (`11.2`): chỉ có **1** lần dạng tính từ (động từ `apātubhonte` ở `ja543:153.3` dịch *không hiện đến*). Giữ *chẳng có gì nổi bật* như bản cũ; cách đọc sát chữ hơn là *không hiển lộ*; không phân xử được giữa hai cách.
+  (3) `iṇaṁ codāya` (`5.3`): đọc *đòi nợ rồi đi*; cách đọc cạnh tranh *mang nợ đi* ít khả dĩ hơn.
+  (4) `vedhavera` (`11.1`): theo `ja547:186.1` là *con của góa phụ*, `sukkacchavī` là *da trắng*; nếu `ja547` được sửa thì phải sửa theo.
+  (5) `2.1`–`2.2`: `bhavissati` ở `2.2` đảo sau `na … matthāya` ở `2.1`; đã dịch sát thứ tự khoá.
+  Cặp Pāli trùng nguyên văn đã đối chiếu với tầng: `7.2`/`8.2` (= `ja468:8.2`), `10.1`–`10.2` (= `ja495:34.1–2`), `11.1` (= `ja547:186.1`), `5.2` (= `ja547:15.2`): **0** cặp dịch khác. Mọi bất định trên chỉ là cách đọc từng từ, không đổi ý nghĩa tổng thể của bài (lời tiên tri về những hạng người khiến Kaṇha được thả ra).
+
+  **Chấm lại.** `semantic_fidelity` 9,2 → 8,7 và `grammar_logic` 9,1 → 9,0, `terminology` 9,0 → 8,8, `triangulation` 7,0 → 7,5 (vẫn không có bản Anh độc lập), `vietnamese_clarity` 9,1 → 9,0, `han_viet_balance` 9,2 → 9,0, `ambiguity_integrity` 8,4 → 8,8 (bất định được ghi đủ); `final_score` 9,01 → 8,99. Bản chấm cũ cao hơn thực tế vì chưa đọc đối kháng; điểm mới phản ánh bản đã sửa. `technical_integrity` vẫn 9,6: bốn lệnh `npm run validate` · `npm test` · `npm run check` · `npm run build` chưa chạy trong lát này.

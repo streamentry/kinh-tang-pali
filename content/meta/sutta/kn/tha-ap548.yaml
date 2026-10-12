@@ -13,21 +13,20 @@ tags:
 quality:
   scores:
     source_provenance: 9.5
-    semantic_fidelity: 8.5
-    grammar_logic: 8.8
+    semantic_fidelity: 8.8
+    grammar_logic: 8.9
     segment_alignment: 9.8
     terminology: 9.0
     triangulation: 7.5
     vietnamese_clarity: 8.8
     han_viet_balance: 9.2
-    ambiguity_integrity: 8.3
+    ambiguity_integrity: 8.6
     technical_integrity: 9.6
-  final_score: 8.9
+  final_score: 8.97
   blocking_errors:
     - "Không có tầng tham khảo tiếng Anh đã ghim cho phẩm tha-ap tại commit 11c9d708978c (noEnglishEditionUpstream): tầng english-sujato trong kn chỉ có 9 tiểu bộ cp, dhp, iti, ja, kp, snp, thag, thig, ud (755 tệp) và 0 tệp thân kinh tha-ap; source/upstream-manifest.json chỉ liệt kê tệp Pāli root cho tha-ap548, không có tệp Anh nào, nên đây là not-published-upstream, không phải not-synced. Mẫu số coverage theo source/layers.yaml (Pāli có nội dung từ 40 ký tự trở lên, bỏ khối :0) là 1 khoá (tha-ap548:31.1, công thức lời kết, 60 ký tự); 121 khoá còn lại dưới ngưỡng hoặc thuộc khối :0. Sujato phủ 0/1, coverage 0,0000, dưới floor 0,8; scripts/validate.ts coi tệp Anh thiếu là lỗi khi status là review hoặc published, nên bài bắt buộc draft."
-    - "Ba tầng tham khảo đều vắng: english-sujato không phủ tha-ap, vietnamese-current chỉ có 26 tệp Pháp Cú (translation/vi/phantuananh) tại commit đã ghim, english-project không có entry cho tha-ap548. Bài dịch chỉ dựa trên Pāli root và tiền lệ trong tầng Việt; không có đối chiếu English độc lập. Điểm cao không cứu được blocker; triangulation bị chặn ở 7.5 (không quá 8.0)."
-    - "Ba chỗ Pāli không phân xử được bằng chứng cứ trong kho, bản dịch mang nghĩa bảo thủ nhất và cần người biên tập phán: 4.2 anantajinasaṁsari (hapax toàn tầng Pāli, hình thái không đọc ra được; bản dịch đọc theo hướng hội chúng đông vô số, tức coi như anantajana cộng saṁsadi, là một phỏng đoán đọc lại chứ không phải nghĩa đã xác lập); 12.4 siñcanto vāmatena maṁ (hapax, vāmatena không đọc ra được; bản dịch chỉ giữ rưới lên tôi và bỏ phần công cụ thay vì bịa); 26.3 tato purāhaṁ gantvāna (purā có thể là trước, đi trước, hoặc từ thành)."
-  assessed_at: "2026-10-10"
+    - "Một chỗ Pāli chưa phân xử được bằng chứng cứ trong kho, bản dịch mang nghĩa bảo thủ nhất và cần người biên tập phán: 4.2 anantajinasaṁsari (hapax toàn tầng Pāli, hình thái không đọc ra được; dạng anantajina có thật trong Pāli nhưng là tên hiệu của Đức Phật (mn26:25.22, mn85:49.23, mil5.1.2:8.2), nên không thể chắc chắn sửa thành anantajana cộng saṁsadi; bản dịch giữ cách đọc hội chúng đông vô số người, theo khuôn Sa kadāci mahāvīro đi với nơi thuyết pháp ở tha-ap532:5.2 và tha-ap534:5.2, nhưng đó là một phỏng đoán đọc lại chứ không phải nghĩa đã xác lập)."
+  assessed_at: "2026-10-12"
   assessed_by:
     - "Claude Sonnet 5.5 (Claude Code)"
 notes: |-
@@ -52,3 +51,13 @@ notes: |-
   SỬA BẢN NHÁP ĐÃ BẮT. Phép dò Pāli trùng nguyên văn trong chính bài bắt được một lỗi: bản nháp đầu 27.3 viết Là bậc tối thắng, lệch với 8.3 cùng Pāli (Kulappasādakānaggaṁ); đã sửa thành Bậc tối thắng trong những vị làm gia đình tịnh tín cho đồng nhất (2/2 khoá cùng Pāli trong bài). Không có lỗi cổng nào được bắt vì không được chạy cổng.
 
   ĐÃ LÀM / CHƯA LÀM CỔNG KỸ THUẬT. Không được chạy các lệnh sau nên technical_integrity đặt 9,6 và KHÔNG tuyên bố technical gate đã pass: npm run validate, npm test, npm run check, npm run build.
+
+  Giải quyết draft 2026-10-12. Phân loại blocker cũ: (1) thiếu bản Anh upstream (noEnglishEditionUpstream): GIỮ nguyên, là sự thật về bản chụp đã ghim, để cơ chế waiver của người biên tập xử lý. (2) Ba tầng tham khảo đều vắng: GỠ. Phần english-sujato trùng với blocker (1); phần vietnamese-current chỉ có Pháp Cú là giới hạn tham chiếu của upstream, không phải lỗi văn bản (mọi bài kn đã published đều thiếu tầng này); english-project không có entry cho bài. Mất tầng được ghi ở đây: triangulation giữ 7,5 (không quá 8,0), mọi đoạn đều dựa vào Pāli root cộng tiền lệ trong tầng Việt. (3) Ba chỗ Pāli chưa phân xử được: gỡ 12.4 và 26.3, GIỮ 4.2 (thu hẹp lại còn một chỗ).
+
+  12.4 siñcanto vāmatena maṁ: ĐÃ GIẢI QUYẾT bằng bài song song thi-ap18:79.4 có đúng nửa dòng siñcanto amatena maṁ (tầng Việt dịch trong lúc rưới bất tử lên ta). vāmatena là va (dạng ngắn của iva, như) cộng amatena theo sandhi, nên đọc như rưới bất tử lên tôi; bản nháp trước bỏ mất công cụ amatena (lỗi thiếu nghĩa). Sửa: 12.4 từ rưới lên tôi thành như rưới bất tử lên tôi (1 khoá). Chữ va đọc là iva dựa vào sandhi và việc vā mà không có va thì vô nghĩa ở vị trí này; đây là cách đọc có căn cứ, không phải hapax chưa giải nữa.
+
+  26.3 tato purāhaṁ gantvāna: GỠ khỏi blocker vì chỉ là ngữ pháp mơ hồ không đổi giáo nghĩa. Bản dịch giữ đi trước (purā là trước); cách đọc khác là pura (thành) cộng ahaṁ, nghĩa tôi đã đi vào thành rồi làm cho đại gia tộc tịnh tín. Cả hai cùng chỉ hành động của Udāyī trước khi dòng họ Sakya tịnh tín, không thay đổi nghĩa 26.4. Ghi lại như một bất định nhỏ.
+
+  4.2 anantajinasaṁsari: GIỮ blocker. Đã tra: dạng này là hapax toàn tầng Pāli (0 khoá khác); không có saṁsad hay anantajana ở bất kỳ đâu trong Pāli; anantajina có thật nhưng là tên hiệu Đức Phật (mn26:25.22, mn85:49.23, mil5.1.2:8.2, 8.9), làm cho giả thuyết jina là chép nhầm của jana kém chắc hơn trước. Hai bài song song cùng khuôn Sa kadāci mahāvīro (tha-ap532:5.1, tha-ap534:5.1) đều dùng dòng sau cho nơi thuyết pháp hoặc phẩm chất, nhưng dòng sau đó khác hẳn từ này nên không đủ căn cứ để quyết. Không đoán thêm, không bịa nguồn; bản dịch giữ giữa hội chúng vô số người.
+
+  ĐỌC ĐỐI KHÁNG LẠI TOÀN BÀI 122 KHOÁ (lượt 2026-10-12). Lỗi nghĩa thật: 1/122 khoá (12.4, thiếu nghĩa: bỏ amatena). Đã đọc lại từng cặp Pāli với Việt cho 1.1 đến 32.1; số Pāli xác nhận lại (satasahassa 100.000; ekūnatiṁsa 29; chabbassa 6; tāvatiṁsa là tên cõi trời); nháy và dấu lược (3 khoá …pe… thành …) không đổi, Pāli không có (…) trần; tập khoá 122/122 không đổi. Hai ghi chú nhỏ không sửa: 27.2 maṁ là tân ngữ (ta được tuyên bố là bậc tối thắng) nhưng bản Việt giữ cấu trúc ngắt dòng đối với tôi ở 27.2 cộng 27.3 và 27.4 bậc Điều Ngự đã tuyên bố, nghĩa tương đương và đứng được; 17.2 cetanāpaṇidhīhi giữ cùng tâm nguyện và chí hướng (48 khoá cùng Pāli trong tầng dịch giống hệt). Điểm: semantic_fidelity 8,5 đến 8,8; grammar_logic 8,8 đến 8,9; ambiguity_integrity 8,3 đến 8,6 (12.4 và 26.3 đã phân xử và ghi rõ); các tiêu chí khác giữ nguyên; triangulation vẫn 7,5 vì không có bản Anh độc lập. final_score là trung bình thô 8,97; blocker còn lại (4.2 và thiếu bản Anh upstream) thắng điểm nên bài vẫn draft cho tới khi 4.2 được phân xử.

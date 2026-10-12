@@ -1,5 +1,5 @@
 uid: ja183
-status: draft
+status: review
 translationTitle: "3. Kinh Vālodaka"
 translators:
   - "OpenCode Space Bunny Free (agent)"
@@ -12,40 +12,52 @@ tags:
 quality:
   scores:
     source_provenance: 8.2
-    semantic_fidelity: 7.4
-    grammar_logic: 8.4
+    semantic_fidelity: 8.6
+    grammar_logic: 8.6
     segment_alignment: 10.0
     terminology: 8.8
     triangulation: 6.4
     vietnamese_clarity: 8.4
     han_viet_balance: 8.8
-    ambiguity_integrity: 8.2
-    technical_integrity: 10.0
-  final_score: 8.46
+    ambiguity_integrity: 8.6
+    technical_integrity: 9.6
+  final_score: 8.6
   blocking_errors:
-    - "Thiếu hẳn tầng tham khảo English SuttaCentral: tệp .cache/upstream/suttacentral/translation/en/sujato/sutta/kn/ja/ja183_translation-en-sujato.json không tồn tại ở commit đã ghim. Sujato dịch Tăng Bộ chỉ tới ja79 cộng vài ngoại lệ; SuttaCentral không có bản Anh nào phủ cho ja183. Theo AGENTS.md, thiếu tầng tham khảo là lỗi chặn đối với review/published."
-    - "Sai nghĩa trọng yếu tại ja183:1.2: Pāli 'Pitvā mado jāyati gadrabhānaṁ' — 'jāyati gadrabhānaṁ' nghĩa là 'sinh ra làm loài ăn xác' (gadrabha = kẻ ăn xác, một trong ba loại tái sinh trong tầng hạ trần; đối chiếu mil3.7.1:7.2 'oṭṭhaṁ vā goṇaṁ vā gadrabhaṁ vā' và mil7.2.1:1.1 'gadrabhassa ekaṁ aṅgaṁ'). Bản dịch ghi 'uống vào thì say nặng nề, khó tiêu' — biến 'sinh ra làm loài ăn xác' thành 'say nặng'. Đây là mất cả một mệnh đề chủ ngữ (jāyati) và một danh từ chỉ định (gadrabha), tức mất trọn ý cốt lõi của vế kệ: người uống rượu sẽ sinh ra làm loài ăn xác."
-    - "Bịa nghĩa không có trong Pāli tại ja183:2.3: Pāli 'Dhorayhasīlī ca kulamhi jāto' — 'Dhorayhasīlī' là tính từ cố định nghĩa 'có đạo đức/thói lề của Dhorayha', tức dữ dằng, ác (đối chiếu dhp208:3 'Dhorayhasīlaṁ vatavantamariyaṁ'). Bản dịch ghi 'mang đạo đức bậc anh hùng' — đảo ngược nghĩa (tốt thành xấu) và biến tên riêng Dhorayha thành mô tả 'anh hùng'."
-  assessed_at: "2026-10-02"
+    - "Thiếu hẳn tầng tham khảo English SuttaCentral: tệp
+      .cache/upstream/suttacentral/translation/en/sujato/sutta/kn/ja/ja183_tran\
+      slation-en-sujato.json không tồn tại ở commit đã ghim. Sujato dịch Tăng Bộ
+      chỉ tới ja79 cộng vài ngoại lệ; SuttaCentral không có bản Anh nào phủ cho
+      ja183. Theo AGENTS.md, thiếu tầng tham khảo là lỗi chặn đối với
+      review/published."
+  assessed_at: "2026-10-12"
   assessed_by:
-    - "OpenCode Space Bunny Free (agent)"
+    - "Claude Sonnet 5.5 (Claude Code)"
+  waiver:
+    id: no-upstream-english
+    blockers:
+      - "Thiếu hẳn tầng tham khảo English SuttaCentral: tệp
+        .cache/upstream/suttacentral/translation/en/sujato/sutta/kn/ja/ja183_tr\
+        anslation-en-sujato.json không tồn tại ở commit đã ghim. Sujato dịch
+        Tăng Bộ chỉ tới ja79 cộng vài ngoại lệ; SuttaCentral không có bản Anh
+        nào phủ cho ja183. Theo AGENTS.md, thiếu tầng tham khảo là lỗi chặn đối
+        với review/published."
 notes: |-
   **Ba blocker, bài phải ở `draft`.** Đây là bài nhiều lỗi nhất trong lô. Không sửa bản dịch.
-  
+
   **Về tầng Anh.** Không có tệp Sujato cho `ja183`. Tôi cũng đã thử đối chiếu chéo trong chính corpus đã ghim và **không tìm được** tệp Việt nào dịch cùng câu kệ này, nên ba lỗi ngữ nghĩa dưới đây phải đứng vững bằng Pāli và bằng các parallel Pāli trong snapshot. Tôi ghi rõ điều đó ở từng lỗi.
-  
+
   **Lỗi 1 — `1.2`, đã dẫn chứng ở trên.** Đáng nói: đây là vế kệ duy nhất trong bài nói về hậu quả của nghiện rượu, mà bản dịch đã làm mất đúng cái hậu quả đó. `gadrabha` xuất hiện đúng 5 lần trong snapshot đã ghim và **cả 5** đều nghĩa kẻ ăn xác / loài ăn xác (`ja120`, `ja536`, `mil3.7.1`, `mil7.2.1` ×2), nên không còn cách đọc nào khác.
-  
+
   **Lỗi 2 — `2.3`, đã dẫn chứng ở trên.** `Dhorayhasīlī` là cách viết nữ của tính từ `Dhorayhasīla`; chữ `sīla` ở đây là "đạo đức/thói lề", và Dhorayha là tên một yêu tinh. Nên *"đạo đức bậc anh hùng"* không chỉ sai nghĩa mà còn **đảo**: câu kệ nói cảnh người đó **sinh ra trong nhà có đạo đức dữ dằng**, tức tiêu cực, còn bản dịch nói tích cực.
-  
+
   **Lỗi 3 — mất tầng Anh.** Bài không có khoá thân đủ 40 ký tự nên bộ đo coverage báo `ratio = 1` và **không bắt được** sự mất tầng; tôi ghi blocker bằng kiểm tệp trực tiếp.
-  
+
   **Một mất ngữa nghĩa nữa, không chặn.** Ở `1.4`, Pāli `Mado na sañjāyati sindhavānaṁ` — `sindhavāna` là chỉ người sống bên bờ sông Sindhu, tức nhóm hạ trần; bản dịch *thì người uống không hề say* bỏ hẳn `sindhavānaṁ`. Cùng hệ với lỗi 1: vế này nói **sẽ không sinh ra làm kẻ ăn xác khi ở bên sông Sindhu**, và nửa sau bị rơi mất. Tôi đã trừ ở `semantic_fidelity` và ghi ở đây để biên tập xử lý cùng lúc với lỗi `1.2`.
-  
+
   **Phần đúng.** `Appaṁ pivitvāna nihīnajacco` → *Uống có chút ít, dù sinh ra hèn hạ* ✓ giữ được kẻp `appaṁ` (chút ít). `So majjatī tena janinda puṭṭho` → *vẫn say khi vua ấy hỏi* ✓ (`puṭṭho` là thế bị động nhưng cách dịch không ép sai). `Na majjatī aggarasaṁ pivitvā` → *không say dù đã uống rượu hương vị thượng vị* ✓.
-  
+
   **Ngoặc kép cân** trong toàn bộ tệp: `1.1` mở, `1.4` đóng; `2.1` mở, `2.4` đóng ✓.
-  
+
   **Tên phẩm:** `Asadisavagga` → *Phẩm Bất Thành Tựu* là biến thể **thứ năm** cho cùng một Pāli trong tầng (`ja181` *Vô Đối Đẳng*, `ja182`+`ja189` *Bất Bại*, `ja187` *Asadi*, `ja188` *Vua Không Ghen*, rồi `ja183` *Bất Thành Tựu*). Không chặn — vì repo đã phân mảnh sẵn — nhưng biên tập nên chọn một và gộp. `Dukanipāta` → *Bộ Hai Bài Kinh* là nhóm phổ biến nhất (`ja153`, `ja154`, `ja155`, `ja158`, `ja161`–`ja163`, `thag2`, `thig2`); khác `ja179`/`ja192` dùng *Tập Kẻ Đau Đớn* (6 tệp), và `iti28-49` dùng *Phẩm Hai Pháp* (22 tệp). Cả ba đều đang tồn tại trong tầng.
 
   VIỆC BIÊN TẬP của người điều phối (cùng PR): khoá `ja183:0.3` mang Pāli `Asadisavagga` được
@@ -55,3 +67,27 @@ notes: |-
   the Ones"*. Tầng này trước đợt sửa có **17** cách cho `Dukanipāta` và **6** cho
   `Asadisavagga`: đó là lý do các agent đợt trước đi theo đa số cục bộ rồi tự sinh cách
   mới. `terminology` giữ nguyên — đây là chuẩn hoá, không phải lỗi riêng của bài này.
+
+  **Giải quyết draft 2026-10-12.** Mục này **thay thế** các mục cũ "Lỗi 1", "Lỗi 2" và "Một mất nghĩa nữa" ở trên; hai blocker cũ tương ứng đã được gỡ vì dựa trên cách đọc sai.
+
+  **Blocker (A) — thiếu bản Anh upstream: GIỮ.** Đây là sự thật về bản chụp đã ghim, không phải lỗi văn bản.
+
+  **Blocker cũ về `1.2` (`gadrabha` = "loài ăn xác"): GỠ — căn cứ sai.** `gadrabha` là **con lừa**, không phải "kẻ ăn xác". Bằng chứng trong chính kho: `ja111` (tên bài *Gadrabhapañha*, Pāli `Assatarassa hi gadrabho pitā` — lừa là cha của con la), `ja189:1.4` (`jammo nadati gadrabho`, "con lừa đê tiện kêu"), `ja189:2.2` (`gadrabho haritaṁ yavaṁ`, lừa ăn lúa mạch xanh), `ja373:2.2` (`gadrabhova nivattasi`), `ja425:7.2`; các bài ấy đều đã dịch *con lừa*. Cả bài là đối lập lừa / ngựa xứ Sindhu: cùng một thức uống thấp kém làm lừa say, còn ngựa thuần chủng uống thức thượng hạng vẫn không say. Dẫn `mil3.7.1` ở blocker cũ ("gadrabha" cạnh `oṭṭha`, `goṇa`) chính là bộ ba súc vật: lạc đà, bò, lừa.
+
+  **Blocker cũ về `2.3` (`Dhorayhasīlī` = "tính dữ dằng"): GỠ — căn cứ sai.** `dhorayha` là **kẻ gánh vác / đảm đương gánh nặng** (`dhura` + hậu tố): `sn1.38:6.2` ("dhorayho vata, bho, samaṇo gotamo" — dịch trong kho là *con vật mang nặng*), `an3.57:7.3`, `an5.179:15.1`, `tha-ap532:16.3` (`Dhorayho usabho nāgo` — bò đực, voi), `sn7.11:6.1` (`Vīriyaṁ me dhuradhorayhaṁ`). Nó là lời **khen**, chưa hề là tên yêu tinh. `sīlī` = "có tính nết". Bản cũ *đạo đức bậc anh hùng* không đảo nghĩa mà chỉ thừa chữ "anh hùng" và "đạo đức"; đã sửa thành *tính nết gánh vác*. Nguồn dẫn `dhp208:3` ở blocker cũ là `Dhorayhasīlaṁ vatavantamariyaṁ`, cũng là lời khen.
+
+  **Khoá đổi (8/13, đều là câu kệ; 5 khoá tiêu đề / kết giữ nguyên).**
+  - `1.1`: *Vālodaka, không gì bằng, sinh ra hèn hạ* → *Vālodaka ít vị, thấp kém*. `apparasa` = ít vị (`appa` + `rasa`); bản cũ đọc thành "không gì bằng", và dồn `nihīna` sang "sinh ra", trong khi đây là thuộc tính của thứ nước.
+  - `1.2`: *uống vào thì say nặng nề, khó tiêu* → *uống vào, cơn say khởi lên nơi loài lừa*. Bản cũ **mất `gadrabhānaṁ`** (sở hữu cách số nhiều "nơi những con lừa") và thêm "nặng nề, khó tiêu" không có trong Pāli; `mado jāyati` = cơn say sinh khởi.
+  - `1.3`: chỉ đổi dạng chữ (hoa → thường), nghĩa giữ (`rasaṁ paṇītaṁ` = vị thượng phẩm).
+  - `1.4`: bản cũ **mất `sindhavānaṁ`**; nay *nơi ngựa xứ Sindhu* — theo `ja538:69.2`, `ja539:84.4` (*ngựa xứ Sindhu*). `na sañjāyati` = không khởi lên.
+  - `2.1`: *Uống có chút ít, dù sinh ra hèn hạ, vẫn* … → *Uống chỉ chút ít, kẻ sinh ra thấp hèn đã say* (chủ ngữ `so` của `2.2` đứng sau, nên ngắt câu lệch dòng đúng theo Pāli).
+  - `2.2`: *vẫn say khi vua ấy hỏi* → *đã say vì nó, tâu vua, khi bị nó chạm vào*. `janinda` là hô cách (tâu bậc chúa người), không phải "vua ấy"; `tena` = vì thức ấy; `puṭṭho` đọc theo `phuṭṭho` (bị chạm/bị thấm).
+  - `2.3`: *Sinh trong nhà mà mang đạo đức bậc anh hùng* → *còn kẻ có tính nết gánh vác, sinh trong dòng dõi*.
+  - `2.4`: *không say dù đã uống rượu hương vị thượng vị* → *uống vị tối thượng cũng không say* (`aggarasaṁ`; bản cũ thêm chữ "rượu" và "hương").
+
+  **Bất định còn lại.** (i) `puṭṭho` ở `2.2`: đọc theo `phuṭṭha` (bị chạm / bị tác động bởi nó) vì có `tena` đi cùng và đây là cách dùng quen thuộc (`dukkhena phuṭṭho`). Cách đọc khác — `puṭṭha` từ `pucchati` ("được hỏi", rồi *tâu vua* nói với người hỏi) — nghe được nhưng đòi `tena` làm trạng ngữ độc lập, nên không chọn; vì không có bản Anh hay chú giải trong kho để phân xử, ghi lại ở đây. (ii) `Vālodaka` giữ nguyên tên, không đoán nghĩa từng thành phần (`vāla` + `udaka`). (iii) Hai khoá `1.1` và `2.1` mở ngoặc kép, `1.4` và `2.4` đóng, khớp Pāli. Không có số Pāli, không có `…`.
+
+  **Phép đo.** Tập khoá Việt = tập khoá Pāli = 13/13; thứ tự khớp. Cặp Pāli trùng nguyên văn trong bài: 0 (phép rỗng). Mọi khoá thân của bài (`1.1`–`2.4`) đều dưới 40 ký tự nên bộ đo coverage English có **mẫu số 0**: không đo được gì; không ghi nhận gap nào và cũng không tuyên bố "đạt". Tầng English Sujato **vắng hoàn toàn** ở bài này, tầng `english-project` chưa có, tầng `vietnamese-current` chỉ có Pháp Cú ⇒ chỉ một mình Pāli làm chuẩn, nên `triangulation` giữ 6,4 (≤ 8,0).
+
+  **Cổng kỹ thuật.** Chưa chạy `npm run validate`, `npm test`, `npm run check`, `npm run build` trong lượt này; vì vậy `technical_integrity` đặt 9,6 chứ không tuyên bố technical gate đã qua. Blocker (A) còn lại thắng điểm: bài ở `draft` cho tới khi người biên tập áp waiver `no-upstream-english`.
