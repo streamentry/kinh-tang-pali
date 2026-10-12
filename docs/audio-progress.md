@@ -543,3 +543,30 @@ Nhật ký append-only. Registry `content/audio/progress.json` được đối s
 
 - PR #567 exact head `b4505d86205c918c0080f20a47b9aa336e655ad6` passed both push and PR CI; squash merge `c529607c00686602282462b858b6f5f2a54f5a4e`. Pages run `38284689919` completed successfully; remote main readback matched the merge SHA.
 - Production MN33/MN34/MN35 pages each returned HTTP 200, contained the player, pending-review label, and exact R2 URL. All three R2 Range requests returned 206 `audio/mpeg` with expected total bytes. Full bytes and SHA were verified at upload. Browser play/seek was not tested because local Playwright CLI is blocked by the package-age guard; no interactive playback claim is made. Their progress remains `generated` pending player-interaction verification; `review_status` remains `pending` for manual listening.
+
+### Batch mn-025 MN36 generated/uploaded, player metadata checked
+
+- MN36: 26 chunks, 2,635.79s, MP3 SHA-256 `a480e27eb3bb1011641540ec1136bf2c0e0cad38d8b85b41bab2de12b201c696`, 52,716,960 bytes; scripture starts 159.91s. Completed MP3 reused from valid chunk checkpoints; R2 hash/range and local page/player URL checked. Initial R2 request got HTTP 403; read-only Wrangler bucket-info refreshed the same account session, then upload/readback passed. Progress remains `generated` because interactive browser controls were not tested; manual listening pending.
+
+### Batch mn-025 MN37 generated/uploaded and player metadata checked
+
+- MN37: 10 chunks, 837.87s, MP3 SHA-256 `56143a9d9b41fe0f8f71e67fb1f6c20bcc812b0d48d69a3b0a4ea6ab767721ce`, 16,758,720 bytes; scripture starts 150.95s. R2 hash/range and local player HTML/source verified; interactive controls were not tested in the restricted browser environment. Progress remains `generated`; manual listening is pending.
+
+### Batch mn-025 — MN36/MN37/MN38 MP3s on R2; player metadata verified
+
+- MN36: 26 chunks, 2,635.79s, MP3 SHA-256 `a480e27eb3bb1011641540ec1136bf2c0e0cad38d8b85b41bab2de12b201c696`, 52,716,960 bytes; scripture starts 159.91s.
+- MN37: 10 chunks, 837.87s, MP3 SHA-256 `56143a9d9b41fe0f8f71e67fb1f6c20bcc812b0d48d69a3b0a4ea6ab767721ce`, 16,758,720 bytes; scripture starts 150.95s.
+- MN38: 26 chunks, 2,544.83s, MP3 SHA-256 `772d3dd7491edab5cf061dec6ff8fc10c811c22a127edb7bb1af529ea8108630`, 50,897,760 bytes; scripture starts 157.47s.
+- All use profile `vi-charon-mn1-v1` SHA-256 `a384c5852585077c32e1348a6ada5cfc70a69c989ad705b8b5129fef3e1c9a71`; combined duration 6,018.49s (~100m18s). R2 full hash/range, local player HTML/source URL and MP3 format were verified. Playwright browser interaction is unavailable due the package-age guard; progress stays `generated` until interactive controls can be checked. `review_status` remains pending; no ASR/full-content approval is claimed.
+
+### MN36/MN37/MN38 local release checks
+
+- Rebased batch head on current main `9495a6dd9c173ce05acaec518894823db52524a6`; audio registry check: 186 UIDs, 0 errors. `npm test`: 410 passed, 1 skipped, 0 failed. Astro check: 0 errors, 0 warnings (5 hints). Direct validator passed with 2,241 advisory coverage warnings; 5,447 quality histories checked with 0 errors.
+- Full `npm run build` passed: 6,146 static pages built; Pagefind indexed 6,137 pages and 458,024 words. Built MN36/MN37/MN38 HTML contains each player marker, pending-review label, exact R2 URL and audio hash.
+- Local HTTP player metadata and R2 206 range were verified for all three; browser button interaction was not tested in this environment. Progress remains `generated` until interactive player verification; review remains pending.
+
+### MN36/MN37/MN38 local release gates
+
+- Rebased batch head on main `9495a6dd9c173ce05acaec518894823db52524a6`; audio registry check: 186 UIDs, 0 errors. `npm test`: 410 passed, 1 skipped, 0 failed. Astro check: 0 errors, 0 warnings (5 hints). Direct validator passed with 2,241 advisory coverage warnings; 5,447 quality histories checked with 0 errors.
+- Full `npm run build` passed: 6,146 static pages built; Pagefind indexed 6,137 pages and 458,023 words. Built MN36/MN37/MN38 HTML contains each player marker, pending-review label, exact R2 URL and audio hash.
+- Local HTTP player metadata and R2 206 range were verified for all three; browser button interaction was not tested in this environment. Progress remains `generated` until interactive player verification; review remains pending.
