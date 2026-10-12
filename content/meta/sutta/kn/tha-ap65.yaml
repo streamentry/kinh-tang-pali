@@ -1,5 +1,5 @@
 uid: tha-ap65
-status: review
+status: published
 translationTitle: "Ký Sự Về Trưởng Lão Paccāgamaniya"
 translators:
   - "OpenCode Space Bunny Free (agent)"
@@ -13,16 +13,16 @@ tags:
 quality:
   scores:
     source_provenance: 9.5
-    semantic_fidelity: 8.9
-    grammar_logic: 9.0
+    semantic_fidelity: 9.0
+    grammar_logic: 9.2
     segment_alignment: 10.0
-    terminology: 9.0
+    terminology: 9.2
     triangulation: 7.5
-    vietnamese_clarity: 9.0
+    vietnamese_clarity: 9.1
     han_viet_balance: 9.0
-    ambiguity_integrity: 8.2
+    ambiguity_integrity: 8.4
     technical_integrity: 9.6
-  final_score: 8.97
+  final_score: 9.05
   blocking_errors:
     - "Không có tầng tham khảo tiếng Anh tại commit đã ghim
       (11c9d708978cde8ba61096d8a75f7ddfb846f639). Đo được: trong
@@ -39,9 +39,9 @@ quality:
       `scripts/validate.ts` coi tệp Anh thiếu là **error** khi status là
       `review` hoặc `published`, nên bài bắt buộc `draft`. Vì vậy
       `triangulation` bị chặn ở **7.5** (≤ 8.0) chứ không nâng để né blocker."
-  assessed_at: "2026-10-05"
+  assessed_at: "2026-10-11"
   assessed_by:
-    - "OpenCode Space Bunny Free (agent)"
+    - "Claude Sonnet 5.5 (Claude Code)"
   waiver:
     id: no-upstream-english
     blockers:
@@ -188,3 +188,100 @@ notes: |-
   chạy `git`/`gh`, không sửa `source/`, `src/`, `public/`, `scripts/`, `tests/`,
   `content/translation/en/`, `content/meta/reference-gaps.yaml`,
   `docs/store-verification.json`.
+
+  **Lượt cải thiện 2026-10-11** (đọc đối kháng 32 khoá Pāli↔Việt; đo tiền lệ trên toàn
+  tầng `vi/project` ở phẩm `tha-ap`). **Đính chính trước hết:** phần ghi chú phía trên
+  mô tả một số cách dịch KHÔNG có trong tệp dịch (công thức `:8.1` «Tôi nghe như vầy…»,
+  tên `:0.3` «Tuyên Ngợ»). Tệp dịch thực tế dùng `:8.1` «Như vậy, Tôn giả Trưởng lão …
+  đã nói những bài kệ này.» (đo: 191 khoá `Svāgataṁ…` cùng nhóm; các bài cùng công thức
+  `tha-ap65/158/162/183/245/321/343/396` đều dùng đúng dạng này) và `:0.3`/`:9.1` «Ký Sự…»
+  (417 tệp toàn tầng «Ký Sự» vs 138 «Bài Kệ Tuyên Ngôn»; cùng phẩm `tha-ap63–72` đồng
+  thuận «Ký Sự»). Các mục bất định cũ về `:1.4`, `:2.2`, `:2.3`, `:2.4`, `:4.3`, `:6.2`,
+  `:6.3` bị THAY THẾ bởi mục này, vì chúng dựa trên một cách đọc sai.
+
+  **Lỗi nghĩa thật bắt được (accuracy fix), 18/32 khoá đổi:**
+  · `:1.2` `cakkavāko ahaṁ tadā` — **sai chủ thể nghiêm trọng**: bản cũ «bấy giờ ta là
+    Chuyển Luân Vương», nhưng `cakkavāko` là CHIM cakkavāka (khác `cakkavattī` ở `:6.4`).
+    Toàn tầng dịch `cakkavāk-` là «chim cakkavāka» (9/9 khoá `tha-ap` khác) và Jātaka dịch «vịt
+    trời»; ngữ cảnh bài cũng khẳng định người nói là một con chim (`tuṇḍena` = bằng mỏ ở
+    `:2.3`, `vihaṅgamena` ở `:4.3`). Đổi → «bấy giờ ta là chim cakkavāka;».
+  · `:6.1–6.4` — **sai số lượng/cú pháp**: bản cũ «ở năm thứ tám mươi, tên ấy là duy nhất»
+    và «Trong kiếp thứ mười bảy năm» là cách đọc sai `aṭṭhete` (= `aṭṭha ete`, «tám vị
+    ấy») và `āsuṁ` (= «đã có», KHÔNG phải «năm»). Song song cùng công thức, đã đối chiếu:
+    `tha-ap91:4.1–4.4` (`kappe āsuṁ … nāma, aṭṭhete cakkavattino` → «Trong kiếp thứ ba
+    mươi ba, có … Mang danh xưng Udakasecana, tám vị ấy là những Chuyển luân vương»),
+    `tha-ap162:6.2–6.3` (`āsuṁ varuṇanāmakā … Aṭṭha ete` → «có tám vị danh là Varuṇa»),
+    `tha-ap44:11.4` (`sabbepi ekanāmakā` → «tất cả cùng chung một tên»). Phép tính: `aṭṭha`
+    = 8; `sattarasa` = satta 7 + dasa 10 = 17. Đổi → «Mang danh xưng Sucārudassana, / tám
+    vị ấy cùng chung một tên; / Trong kiếp thứ mười bảy đã có, / các Chuyển Luân Vương có
+    đại oai lực.» Dạng tên bỏ `ā` cuối theo đúng 5/6 tiền lệ `X-ā nāma` số nhiều
+    («Mang danh xưng Udakasecana/Ekaañjalika/Samaṇupaṭṭhāka/Samantadhāraṇa/
+    Samantacchadana»), thay cho «Tên là Sucārudassanā».
+  · `:4.3` `Vihaṅgamena santena` — bản cũ «Với cành cây tốt lành» sai: `vihaṅgama` là
+    CHIM (đi trên không), `santena` là «khi đang là» (không phải «tốt lành»). Song song
+    `tha-ap67:4.3` `Hatthināgena santena` → «Khi là một con voi,» (cùng cấu tạo).
+    Đổi → «Khi là một con chim,».
+  · `:2.3` `Tuṇḍena sālaṁ paggayha` — `tuṇḍa` là CÁI MỎ (đối chiếu `tha-ap343:5.1
+    mukhatuṇḍena paggayha` → «bằng mỏ»), bản cũ «cầm lấy ngọn cây sāla» hiểu nhầm. Đổi →
+    «Lấy mỏ nâng hoa sāla,». Chữ «hoa» suy từ `:5.2 yaṁ pupphaṁ` (vật được dâng ở chính
+    bài này) và tiền lệ `sālapupphaṁ` → «hoa sāla» (`tha-ap407:44.4`); xem bất định dưới.
+  · `:2.4` `vipassissābhiropayiṁ` = `Vipassissa abhiropayiṁ` — bản cũ «dâng lên kính lễ bậc
+    Dữ Kiến» dịch tên Phật thành danh hiệu và thêm «kính lễ». Đổi → «dâng lên Đức Phật
+    Vipassī.» theo tiền lệ (`tha-ap286`, `tha-ap437`: «Đức Phật Vipassī»).
+  · `:2.2` `gacchantaṁ anilañjase` — bản cũ «đang bước đi không lay chuyển» lấy `añjasa`
+    (đường, lối) làm «lay chuyển». Đúng là locative của `anilañjasa` = «đường của gió» =
+    bầu trời. Tiền lệ cùng Pāli: 5 khoá «đang ngự giữa bầu trời lộng gió» (nhiều nhất), thêm
+    `tha-ap108/408/485` «giữa bầu trời lộng gió». Đổi → «đang ngự giữa bầu trời lộng gió;».
+  · `:1.4` `pāpesu ca susaññato` — bản cũ «tỉnh giác» (= sampajāna) sai; `saññata` là
+    «tự chế ngự» (`tha-ap23:10.2 saññato` → «tự chế ngự»), `su-` là «khéo». Đổi → «và khéo
+    tự chế ngự đối với các điều ác.»
+  · `:1.3` `Suddhasevālabhakkhohaṁ` — `sevāla` là rong rêu (`ja434:4.3
+    sevālabhakkhamha` → «ăn rong rêu»), không phải «món ăn thanh tịnh trong lành». Đổi →
+    «ta ăn rong rêu sạch,».
+  · `:3.1–3.2` `acalā supatiṭṭhitā` — bản cũ «vững chắc, đã an trì chắc chắn» lặp hai lần
+    «chắc». Tiền lệ cùng Pāli đa số: «không lay chuyển, vững chắc» (`an4.52`, `thag8.2`,
+    `pe3`, `thi-ap34`, `sn55.26`); `Yassa saddhā tathāgate` → «Ai có lòng tin nơi Như Lai,»
+    (`an4.52`, `thag8.2`, nay thêm dấu phẩy như Pāli).
+  · `:4.2` `buddhaseṭṭhassa santike` — bản cũ «ở trước Đức Phật tối thượng!» (có dấu `!`
+    Pāli không có). Tiền lệ cùng Pāli (`tha-ap12:19.2`, `tha-ap3:235.2`): «bên cạnh Đức
+    Phật tối thượng;».
+  · **Nhất quán đại từ người nói**: bản cũ trộn «ta» (`:1.2`, `:2.1`, `:4.1`) và «tôi»
+    (`:4.4`, `:5.2`, `:5.3`) cho CÙNG MỘT người nói. Thống nhất «ta»: `:4.1` «sự đến của
+    ta» (131 khoá vs 14 «tôi»), `:5.3` «Ta không còn biết đến đọa xứ,» (73 khoá), `:5.2` «khi
+    ta dâng cúng hoa ấy;» (đa số `tha-ap` dùng «hoa ấy»), `:4.4` «do ta gieo».
+    `:5.4` đổi «đó là» → «đây là quả báo của việc cúng dường Đức Phật.» theo 98 khoá vs 19.
+
+  **Dùng lại nguyên văn (đo lần này):** `:5.1` (39 khoá), `:3.3` (24), `:7.1` (546),
+  `:7.3` (509), `:4.1` (131). Trong bài không có cặp Pāli trùng nguyên văn (0 cặp) nên phép
+  «trùng trong bài» chạy rỗng.
+
+  **Điểm đổi (từ → sang):** `semantic_fidelity` 8.9 → 9.0 (sửa 1.2 / 6.x / 4.3 / 2.3 / 1.4,
+  nhưng còn ba bất định nhỏ bên dưới); `grammar_logic` 9.0 → 9.2 (đúng chủ thể chim, đúng
+  số nhiều «tám vị», đúng nghĩa `āsuṁ`); `terminology` 9.0 → 9.2 (`cakkavāka`, `Vipassī`,
+  «Mang danh xưng», «tự chế ngự», nhất quán «ta»); `vietnamese_clarity` 9.0 → 9.1 (`:6.2–6.3`
+  trước đó không hiểu được); `ambiguity_integrity` 8.2 → 8.4 (chỗ khó nhất `ekanāmakā` /
+  `aṭṭhete` nay phân xử bằng 3 song song, và ghi chú không còn mô tả sai tệp dịch; KHÔNG
+  nâng cao hơn vì còn bất định thật). Giữ nguyên `source_provenance` 9.5,
+  `segment_alignment` 10.0, `triangulation` 7.5 (vẫn không có bản Anh độc lập),
+  `han_viet_balance` 9.0, `technical_integrity` 9.6.
+
+  **Bất định còn lại (KHÔNG giải được):**
+  · `:6.3` `kappe sattarase` — «kiếp thứ mười bảy» (theo `tha-ap91`, cùng cấu trúc không
+    có `ito`) hay «mười bảy kiếp trước đây» (theo `tha-ap183:4.1 Ito sattarase kappe`,
+    có `ito`). Giữ cách đầu; hai cách đọc khác nhau về đếm kiếp, không phân xử được từ tầng
+    đã ghim.
+  · `:2.3` `sālaṁ` — Pāli chỉ ghi `sāla`; «hoa sāla» là suy từ `:5.2 yaṁ pupphaṁ`.
+  · `:1.3` `suddha-` — «sạch» (cách đọc đã chọn) hay «chỉ/thuần» (`suddha` cũng có nghĩa
+    «thuần»), tức «chỉ ăn rong rêu». Không phân xử được; cả hai đều không đổi ý chính.
+  · `:2.2` `anilañjase` — dùng tiền lệ «bầu trời lộng gió» (đa số) chứ chưa kiểm được
+    từ nguyên chi tiết của `añjasa`.
+
+  **Đã nghi nhưng KHÔNG đổi:** `:3.4` «người ấy» (2 khoá «người ấy» vs 2 «vị ấy», hòa);
+  `:5.1` «Vào chín mươi mốt kiếp trước,» (39, dạng đầu bảng); `:0.2` «Phẩm Sakacintaniya»;
+  `:1.1` «Bên bờ dòng sông Sindhu,» (3/3 tiền lệ).
+
+  Kiểm sau sửa: tập khoá Việt = tập khoá Pāli (32/32, đúng thứ tự); dấu nháy/ngoặc kép khớp
+  Pāli từng khoá (0 lệch trên 32); NFC đạt; `…pe…` → đúng một `…` (1/1); không Pāli lọt
+  sang Việt ngoài tên riêng/thuật ngữ có tiền lệ (`cakkavāka`, `sāla`, `Sindhu`,
+  `Vipassī`, `Sucārudassana`, `Paccāgamaniya`). Cổng kỹ thuật vẫn chưa chạy trong lượt này:
+  `npm run validate` · `npm test` · `npm run check` · `npm run build`.

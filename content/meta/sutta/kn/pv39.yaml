@@ -13,16 +13,16 @@ tags:
 quality:
   scores:
     source_provenance: 9.2
-    semantic_fidelity: 9.0
+    semantic_fidelity: 9.1
     grammar_logic: 9.0
     segment_alignment: 10.0
-    terminology: 9.0
+    terminology: 9.1
     triangulation: 7.0
     vietnamese_clarity: 9.1
     han_viet_balance: 9.2
     ambiguity_integrity: 8.6
     technical_integrity: 9.6
-  final_score: 8.97
+  final_score: 8.99
   blocking_errors:
     - "noEnglishEditionUpstream: Thiếu bản dịch tiếng Anh đối chiếu — tầng
       english-sujato tại commit đã ghim không có pv39 (thư mục kn của Sujato chỉ
@@ -31,7 +31,7 @@ quality:
       pv49), và vietnamese-current chỉ có Pháp Cú. Cả ba tầng tham khảo đều vắng
       nên bài bắt buộc ở draft và triangulation không quá 8.0 (đặt 7.0). Đây là
       giới hạn của upstream, không phải thiếu sót của người dịch."
-  assessed_at: "2026-10-10"
+  assessed_at: "2026-10-11"
   assessed_by:
     - "Claude Sonnet 5.5 (Claude Code)"
   waiver:
@@ -79,3 +79,19 @@ notes: |-
   - Dấu lược: bài này không có `…` hay `(…)` ở Pāli, nên bản Việt cũng không có; không phát sinh chính sách dấu lược.
   - Kiểm tra tự động: tập khoá Việt = tập khoá Pāli (102/102, đúng thứ tự); nháy đơn và nháy kép khớp Pāli từng khoá (0/102 lệch); 0 khoá rỗng; chuẩn NFC.
   - technical_integrity đặt 9.6: không chạy được `npm run validate`, `npm test`, `npm run check`, `npm run build` trong lượt này; cần chạy đủ bốn lệnh này (cùng `npm run reference:gaps`) trước khi gộp. Không tuyên bố technical gate đã pass.
+
+  Lượt cải thiện 2026-10-11 (đọc đối kháng lại cả 102 cặp Pāli↔Việt; sửa 5/102 khoá; không khoá nào sai nghĩa nghiêm trọng). Mục này thay các câu cũ về `1.2`, `4.2`, `6.2`, `7.4`, `19.2` ở trên.
+  - Căn cứ mới phát hiện: bài là kệ song song của `vv52` (Chuyện Cung Điện Revatī): 96/99 khoá có nội dung có Pāli trùng nguyên văn một khoá của `vv52`, và lượt đầu đã dùng lại bản Việt của nhau; lượt đầu không nêu quan hệ này. Hai bài cùng một tay dịch của dự án nên không phải cách đọc độc lập, `triangulation` giữ 7.0.
+  - Sửa 5 khoá:
+    + `19.2` (terminology fix): *và làm những lối đi ở chốn gian nan* → *và làm những lối bắc qua nơi hiểm trở*. Lý do: `saṅkamana` là chỗ bắc qua; các khoá `dugge`/`-dugga` ở tầng (không tính bài này) dịch *hiểm trở* 13/17 khoá, *gian nan* chỉ 2 khoá (`pv19`, `sn3.24`); `pv21:26.4`, `pv21:34.4` và `vv52:21.2` đã dùng *lối bắc qua nơi hiểm trở*. Terminology 9.0 → 9.1.
+    + `7.4` (accuracy fix): *tôi không muốn đi thấy địa ngục* → *tôi không muốn thấy địa ngục*. Pāli `na patthaye nirayadassanāya` không có động từ đi; chữ *đi* là thêm và câu gượng; `vv52:9.4` (cùng Pāli, tách từ ghép) đã dịch *tôi không muốn thấy địa ngục*.
+    + `1.2` (accuracy fix): *cửa nhà không đóng mà chẳng có thói quen bố thí* → *cửa không đóng, chẳng có thói quen bố thí*. Pāli chỉ nói `apārutadvāre`, không nói *nhà*, cũng không có từ nối nghịch ý *mà*. Cách hiểu *cửa của chính bà* không phải là cách duy nhất: bản Việt nguyên bài ở mục Tra cứu toàn văn đọc đây là cánh cửa địa ngục không bị đóng, và `mn130:18` dùng `dvāra` cho cửa của địa ngục; ngược lại `dn5:11.13` dùng `apārutagharā` cho nhà không cần khoá. Ngữ pháp cho cả hai cách (hô cách giống `supāpadhamme`, `adānasīle`; hoặc định vị cách chỉ hoàn cảnh). Không phân xử được từ Pāli root nên bỏ phần thêm vào, giữ nguyên độ mở của Pāli.
+    + `4.2`, `6.2` (accuracy fix, cùng một thay đổi): *đứng hai bên* → *ở hai bên*. `ubhato` chỉ vị trí hai bên; tư thế đứng không có trong Pāli.
+    + Semantic fidelity 9.0 → 9.1 vì bốn khoá trên bỏ chi tiết Pāli không có (*nhà*, *đi*, *đứng*, từ nối *mà*). Các điểm khác không đổi vì bất định ở dưới vẫn còn.
+  - Hệ quả với `vv52` (không sửa trong lượt này, ngoài phạm vi): sau lượt sửa, 93/96 khoá trùng Pāli với `vv52` còn dùng cùng bản Việt; ba khoá lệch là `1.2` (vv52:3.2), `4.2` (vv52:6.2), `6.2` (vv52:8.2); khoá `19.2` nay khớp `vv52:21.2`. Nếu giữ cách sửa này thì cần sửa ba khoá của `vv52` cùng một lần.
+  - Chỗ nghi ngờ nhưng cố ý KHÔNG đổi:
+    + `20.3` `pāṭihāriyapakkha` *tuần lễ thần biến*: tầng dịch *tuần lễ thần biến* 12 khoá, *kỳ nửa tháng thần biến* 4 khoá. Bản Anh đã ghim của `sn10.5`, `an3.37` và `thig2.7` dịch là "fortnight of special displays" / "fortnightly special displays", tức `pakkha` là nửa tháng; mà ngay `20.2` `pakkhassa` đã dịch *nửa tháng*. *Tuần lễ* vì vậy có thể là sai đơn vị, nhưng khoảng ngày cụ thể của `pāṭihāriyapakkha` chưa phân xử được và đổi một mình bài này sẽ lệch 12+ khoá khác; cần đổi cả tầng cùng lúc nếu người biên tập quyết định. Bất định giữ nguyên, không nâng điểm.
+    + `8.3`, `17.5` `rosako` *hay cáu giận*: ghi chú cũ nói không có tiền lệ trực tiếp là sai; `ja470:18.2` và `ja535:18.2` (cùng cụm `maccharī rosako pāpadhammo`) dịch *hay nổi giận*, `sn3.21:11.4` dịch *hung ác*. Hai dạng *cáu giận* / *nổi giận* gần nghĩa, `vv52` dùng *cáu giận*; không đổi để khỏi lệch thêm.
+    + `23.2` `paribhāsikā` *hay mắng nhiếc*: tầng có *hay sỉ nhục* (`an7.57`, 8 khoá), *hay lăng mạ* (`sn1.49`), *hay rủa sả* (`an4.53`, `an4.54`), và `dn32:8.8` dịch động từ `paribhāsati` là *mắng nhiếc*; không có đa số rõ nên giữ.
+    + `17.2` `puṭṭho me`: *rồi khi được tôi hỏi* giữ như cũ; chưa rõ người được hỏi nói *như vầy* với ai (người ở cõi người hay chính Revatī), không thêm vào thân kinh.
+  - Số liệu lượt này: tập khoá Việt = tập khoá Pāli 102/102, đúng thứ tự; nháy kép và nháy đơn khớp Pāli từng khoá (0/102 lệch); 9 cặp Pāli trùng nguyên văn trong bài (chưa tính cặp chỉ khác `”ti`, nên là 10 cặp như đã ghi) đều có cùng bản Việt; không có `…` ở Pāli lẫn Việt; NFC, 0 khoá rỗng, không Pāli lọt sang Việt ngoài tên riêng. Số Pāli không đổi so với mục trên. `technical_integrity` vẫn 9.6; bốn lệnh `npm run validate`, `npm test`, `npm run check`, `npm run build` chưa chạy trong lượt này.

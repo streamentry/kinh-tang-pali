@@ -11,26 +11,26 @@ tags:
   - kumārapetavatthu
 quality:
   scores:
-    source_provenance: 9.4
-    semantic_fidelity: 9.0
-    grammar_logic: 9.0
+    source_provenance: 9.2
+    semantic_fidelity: 8.6
+    grammar_logic: 8.8
     segment_alignment: 10.0
-    terminology: 9.0
-    triangulation: 6.8
-    vietnamese_clarity: 9.1
-    han_viet_balance: 9.2
+    terminology: 8.8
+    triangulation: 7.2
+    vietnamese_clarity: 8.8
+    han_viet_balance: 9.0
     ambiguity_integrity: 8.6
     technical_integrity: 9.6
-  final_score: 8.97
+  final_score: 8.86
   blocking_errors:
     - "Không có tầng Anh tham khảo: commit bilara đã ghim không có tệp Anh nào
       cho Petavatthu (ảnh chụp không có thư mục sutta/kn/pv), nên validate sẽ
       báo lỗi khi trạng thái là review hoặc published. Toàn bộ bài dịch từ Pāli
       root một mình; substantive = 0 nên cổng coverage không phát hiện ra khoảng
       trống này."
-  assessed_at: "2026-10-05"
+  assessed_at: "2026-10-11"
   assessed_by:
-    - "OpenCode Space Bunny Free (agent)"
+    - "Claude Sonnet 5.5 (Claude Code)"
   waiver:
     id: no-upstream-english
     blockers:
@@ -81,9 +81,22 @@ notes: |-
 
   Cặp nháy kép: Pāli mở “ ở :6.3, đóng ” ở :6.4; mở ở :7.1, đóng ” ở :7.4; các khối
   :1.1–1.4, :8.1–8.4, :10.1–10.4 và :11.1–11.4 không có nháy nào trong Pāli nên bản Việt
-  cũng không thêm. Bản Việt khớp đúng TỪNG khoá (0/48 lệch theo _c77_quotes.py). Cơ chốt
-  _hvi.py chạy sạch.
+  cũng không thêm. Bản Việt khớp đúng TỪNG khoá (0/48 lệch). Các phép kiểm cấu trúc chạy sạch.
 
   Bốn cổng kỹ thuật theo AGENTS.md KHÔNG chạy trong lát này vì BRIEF_VI3 cấm;
   technical_integrity đặt 9.6. final_score là trung bình số học thô của đúng 10 tiêu
   chí, tính bằng script.
+
+  Lượt cải thiện 2026-10-11. Đọc đối kháng cặp Pāli↔Việt cả 48 khoá, đổi 44/48 khoá (giữ nguyên :0.1, :0.2, :0.3, :12.1). Bản trước có nhiều lỗi nghĩa thật mà điểm cũ không phản ánh; các đoạn ghi chú cũ ở trên bị THAY THẾ ở những điểm sau.
+  (1) :11.4 vāsavassa: bản cũ ghi "Ma vương" kèm số đếm 161 so với 68 Yama — số đếm đó không tái lập được và nghĩa sai. Vāsava là danh hiệu của Sakka (ja522:9.4 Devānamindassa ca vāsavassa); mọi khoá dùng Vāsava như danh hiệu trong tầng đều giữ nguyên "Vāsava" (ja340, ja470, ja541, ja543, sn11.19, dn21, mn50… không khoá nào dịch là Ma vương). Sửa thành "Vāsava"; sahabyataṁ theo tiền lệ "chỗ sống chung với" (pv17, pv21, vv83).
+  (2) :1.3 ussannapuññā: "suy tàn" sai; ussanna là dồi dào (bv12 ussannakusalā "dồi dào", mil5.1.6 ussannakusalamūla "căn lành dồi dào"). Sửa "dồi dào phước"; :1.4 parittapuñña "ít phước" (pv37:35.4, vv84:35.4).
+  (3) :4.1–4.4 Nayimassa rakkhaṁ vidahiṁsu keci: là PHỦ ĐỊNH ("không ai sắp đặt bảo hộ"; không thuốc, không xông hạt cải, không chọn nakkhattayoga, không rải mọi loại ngũ cốc); bản cũ dịch ngược thành "có kẻ đã phá vỡ hộ trì". nakkhattayoga theo tiền lệ ja474 "sự hội hợp của các vì sao".
+  (4) :8.3 Tatrassa cittassahu aññathattaṁ: bản cũ "tâm họ chẳng có chút đổi khác" (đảo nghĩa, sai chủ thể); sửa "tâm của người ấy đã đổi khác". :8.4 pharusaṁ asabbhaṁ: "nói lời thô ác, bất nhã" (bản cũ "không ai chịu nghe" là thêm ý). :9.4 yāguyā: bản cũ bỏ mất "cháo"; nay "dùng cháo phụng sự suốt bảy đêm" (sattarattaṁ = bảy đêm).
+  (5) :7.1–7.4, :10.1–10.4: bản cũ bịa "ngài hãy nhớ", "ngài hãy tự thấy", "đại vương" (không có trong Pāli). paccanubhossati là động từ tương lai (sẽ thọ hưởng), iddhiṁ là sự thịnh vượng (ja528:19.3 iddhiṁ byasanabhāvañca "sự thịnh vượng và cảnh tai họa"). Công thức Kiṁ te vataṁ kiṁ pana brahmacariyaṁ / suciṇṇassa ayaṁ vipāko đối chiếu ja447, ja524, ja546: vata → "hạnh nguyện" (5/6 nơi có vata), suciṇṇa → "việc khéo thực hành" theo cặp ja524:30.2/34.2 (cùng cặp hỏi-đáp, nên :7.2 và :10.2 song song); hai khoá :7.3 và :10.3 trùng Pāli nguyên văn nên dịch giống nhau (1 cặp trùng trong bài, 0 cặp khác nhau).
+  (6) :5.1–5.4: bản cũ "tội ác đã đi tới tận cùng" sai; uttamakicchappattaṁ theo pv36:6.1 "rơi vào cảnh khốn khổ tột cùng như thế"; navanīta "bơ tươi" (mil3.2.1, tha-ap534:20.1); pavedhamāna "run rẩy" (bv2, cp8, ja411...); bản cũ "vò thành bột như cám gạo, bị gió thổi tung" là bịa. :5.4 sasaṁsayaṁ jīvitasāvasesaṁ dịch sát chữ, bỏ câu hỏi tự thêm.
+  (7) :2.3–2.4 và :3.1–3.4: yakkhabhūtā "chúng sinh dạ-xoa" (pv36:35.3), sarīsapā "bò sát" (ud2.1, snp4.16), không phải "long"; viheṭhayeyyuṁ "làm hại"; bản cũ "cào mổ chân" sai — palihiṁsu là liếm quanh chân; "xoay tròn đuôi", "kéo từ tổ đi", "kéo phân đàn ra" đều không có trong Pāli.
+  (8) :1.1 sugatassa → "bậc Thiện Thệ" (196 khoá chứa sugata dùng "Thiện Thệ"; "bậc Thiện" đứng một mình chỉ là biến thể thưa); :1.2 Satthā → "bậc Đạo Sư" (bản cũ "bậc Thế Tôn" là Bhagavā); :6.1 devamanussapūjito theo kp6 "được chư thiên và loài người tôn kính"; :6.4 aggakula theo mn82 "gia tộc đứng đầu"; :11.2 và :11.3 trùng Pāli nguyên văn với ja506/ja524 và ja446/pv36/vv31, dùng lại nguyên văn bản dịch ("đầy đủ mọi dục lạc", "khi thân hoại, ở đời sau"); :11.1 ṭhatvāna "ở lại" (pv37:34.2) thay "đứng"; :2.1 "Đứa bé" thay "Thằng bé".
+  (9) Ghi chú cũ nói "Sujato hiểu là kể cả loài người nữa" tại :2.3–2.4 là KHÔNG kiểm chứng được: tại commit đã ghim không có bản Anh nào cho Petavatthu. Rút lại. Ghi chú cũ về "vũng mỡ… 0 tiền lệ; mỡ nhớp từ mũi" cũng rút lại: aṅguṭṭha là ngón tay cái, không phải mũi.
+  Điểm đổi (trước → sau): source_provenance 9.4 → 9.2 (hai khẳng định nguồn/số đếm cũ không kiểm lại được, đã rút); semantic_fidelity 9.0 → 8.6; grammar_logic 9.0 → 8.8; terminology 9.0 → 8.8; vietnamese_clarity 9.1 → 8.8; han_viet_balance 9.2 → 9.0 (các điểm cũ đã cao hơn mức bản dịch trước xứng đáng, vì nó sai nghĩa ở nhiều khoá; hạ theo đọc đối kháng này); triangulation 6.8 → 7.2 (thêm công thức song song ja447, ja524, ja546, pv36, và đo tiền lệ toàn tầng; vẫn không có bản Anh hay bản Việt hiện hành nên không vượt 8.0); segment_alignment 10.0 giữ (48/48 khoá, đúng thứ tự, nháy khớp Pāli từng khoá: 4/48 khoá có nháy, 0 lệch); ambiguity_integrity 8.6 giữ; technical_integrity 9.6 giữ.
+  BẤT ĐỊNH CÒN LẠI (không phân xử được, các từ chỉ xuất hiện một lần trong toàn lớp Pāli root): (a) :2.2 aṅguṭṭhasneha — sneha có thể là chất nhuận/độ ẩm vật lý ("nhờ chất nhuận nơi ngón tay cái", cách đọc đã chọn: bé mút ngón tay mà sống qua đêm) hoặc "ái luyến" (nghĩa thường gặp của sneha trong tầng: snp1.3, snp2.5); không có tiền lệ trực tiếp. (b) :3.3 gabbhāsayaṁ — nghĩa sát chữ là chỗ thai/tử cung; chim không thể tha tử cung nên đọc theo văn cảnh là phần nhau thai, song đây là suy đọc từ ngữ cảnh (đối xứng với quạ lấy ghèn mắt ở :3.4). (c) :3.2 parivattayanti — dạng sai khiến, có thể là "xoay/lật bé" (ngoại động) hay "đi vòng quanh" (nội động); đã chọn "đi vòng quanh". (d) :1.2 yathā puggalaṁ byākāsi — yathā là "như thế nào" hay "tùy theo từng người"; dịch "như … đã tuyên bố về từng người". (e) :7.1 kissa vataṁ — kissa có thể là "của ai" hoặc "nào"; dịch trung tính "hạnh nguyện nào". (f) :4.3 nakkhattayogampi na aggahesuṁ — aggahesuṁ nắm lấy, dịch "chọn lấy". (g) :8.3 chủ thể của assa/so ở :8–:9 là người trong tiền kiếp của đứa bé, suy từ :10.1 tassa vataṁ; Pāli không nói rõ. (h) :6.3–6.4 aggakuliko bhavissati bhogato ca — "đứng đầu về gia tộc và về tài sản" là cách đọc bhogato ca đi cùng aggakuliko.
+  Các cổng npm run validate · npm test · npm run check · npm run build KHÔNG chạy trong lượt này; technical_integrity giữ 9.6. Blocker "không có tầng Anh tham khảo" giữ nguyên vì đó là sự thật về upstream (Petavatthu không có tệp Anh, cũng không có bản Việt hiện hành ngoài Pháp Cú); không có blocker mới.

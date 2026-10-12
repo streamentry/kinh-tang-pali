@@ -13,16 +13,16 @@ tags:
 quality:
   scores:
     source_provenance: 9.5
-    semantic_fidelity: 8.9
+    semantic_fidelity: 8.8
     grammar_logic: 9.0
     segment_alignment: 10.0
-    terminology: 8.8
+    terminology: 9.0
     triangulation: 7.5
-    vietnamese_clarity: 8.8
+    vietnamese_clarity: 8.9
     han_viet_balance: 9.2
     ambiguity_integrity: 8.4
     technical_integrity: 9.6
-  final_score: 8.97
+  final_score: 8.99
   blocking_errors:
     - "Không có tầng tham khảo tiếng Anh tại commit đã ghim: tệp
       `translation/en/sujato/sutta/kn/.../ja374_translation-en-sujato.json`
@@ -41,9 +41,9 @@ quality:
       Pāli root ⇒ blocker thật, và đây là **giới hạn upstream**, không phải lỗi
       của người dịch. Vì vậy `triangulation` bị chặn ở 7.5 (≤ 8.0) chứ không
       nâng để né blocker."
-  assessed_at: "2026-10-04"
+  assessed_at: "2026-10-11"
   assessed_by:
-    - "OpenCode Space Bunny Free (agent)"
+    - "Claude Sonnet 5.5 (Claude Code)"
   waiver:
     id: no-upstream-english
     blockers:
@@ -77,4 +77,24 @@ notes: |-
 
   NGOẶC KÉP CÓ BỔ SUNG CẦN THIẾT. Ở `4.1` và `6.1` Pāli mở `“` nhưng dấu đóng chỉ về ở `7.4` (`”ti.`); hai chỗ mở `“` về sau (`6.1`–`6.4`) được dùng như **trích dẫn lồng nháy cong** `‘’` để danh sách nháy kép cân trên cả bài. Đây là quyết định hình thức, không thêm nghĩa nào vào thân kinh.
 
-  Bốn cổng kỹ thuật theo `AGENTS.md`: `npm run validate`, `npm test`, `npm run check`, `npm run build`. Lát này **không** chạy bốn lệnh đó — BRIEF cấm `npm run validate|test|build|check` trong từng lát, nên để CI hoặc người điều phối chạy. `technical_integrity` đặt **9.6** vì mọi chốt tự động của `_hvi.kiểm` đã xanh (thiếu khoá, thừa khoá, ngoặc kép cân trên cả bài, NFC, không trùng nguyên văn Pāli, không lọt Pāli, khớp số dấu lược) và 35/35 khoá của chính bài này; chưa đủ 10.0 vì cổng `npm` và lượt rà của người chưa chạy.
+  Bốn cổng kỹ thuật theo `AGENTS.md`: `npm run validate`, `npm test`, `npm run check`, `npm run build`. Lát này **không** chạy bốn lệnh đó — BRIEF cấm `npm run validate|test|build|check` trong từng lát, nên để CI hoặc người điều phối chạy. `technical_integrity` đặt **9.6** vì mọi chốt tự động của lát đã xanh (thiếu khoá, thừa khoá, ngoặc kép cân trên cả bài, NFC, không trùng nguyên văn Pāli, không lọt Pāli, khớp số dấu lược) và 35/35 khoá của chính bài này; chưa đủ 10.0 vì cổng `npm` và lượt rà của người chưa chạy.
+
+  LƯỢT CẢI THIỆN 2026-10-11. Đọc đối kháng từng cặp Pāli↔Việt của cả 35 khoá; ĐỔI 31 khoá, giữ nguyên `0.1`–`0.3` và `5.2`; tập khoá và thứ tự không đổi. Mục này THAY các khẳng định cũ ở trên về nghĩa của kệ `1`–`7` (cụ thể: "`ahuhāsiyaṁ` = gây ra tiếng than vãn", "`dhuvena` không tra được", "`Migova` ở `ja376:7.3`", "kẻ sói", "bạch Sona", và đoạn nói ngoặc kép `4.1`/`6.1` đóng ở `7.4`); các ý đó là lỗi hoặc lẫn từ bài khác của bản trước. Thực tế mỗi kệ `1`–`7` tự mở và tự đóng ngoặc kép; đã kiểm nháy kép/đơn khớp Pāli từng khoá, 0 lệch trên 35 khoá.
+
+  LỖI ĐÃ BẮT VÀ SỬA (đều là accuracy fix, có căn cứ Pāli hoặc tiền lệ đã đo).
+  (1) `0.4` và `8.1`: tên bài viết sai `Cūḷadhanuggha`; Pāli là `Cūḷadhanuggahajātaka`, sửa thành `Cūḷadhanuggaha`.
+  (2) `1.1`–`1.4`: "bạch ông" và "ta cũng nhờ ngài mà được giải thoát" đảo chủ thể và thêm ý "giải thoát" không có; `mampi tārehi dānito` là lời yêu cầu "hãy đưa cả tôi sang (bờ)", nay dịch đúng như vậy.
+  (3) `2.1`–`2.4`: bản cũ ("Ngài không hẹn ta… bữa cơm bé mọn… trăm phần một…") không có căn cứ Pāli. Nay: `nimīni` đọc là "đã đổi", danh từ đối cách là cái nhận về (`asanthutaṁ maṁ`, `addhuvaṁ`, `aññaṁ`), danh từ công cụ cách là cái bỏ đi (`cirasanthutena`, `dhuvena`, `mayā`): "bà đổi người quen lâu năm lấy ta là kẻ lạ; đổi cái vững bền lấy cái không vững bền; ngay cả ta bà cũng có thể đổi lấy người khác". Cách đọc này khớp với `2.3` (`mayāpi … nimineyya aññaṁ`) và với `ja318:4.1`.
+  (4) `3.1`–`3.6`: `kāyaṁ` là `kā ayaṁ` ("ai đây"), không phải "thân"; đối chiếu `ja274:1.1`/`ja275:2.1` (`Kāyaṁ balākā …`, bản Việt đã có "Con cò xinh đẹp này là ai"). `susoṇi` → "hỡi nàng hông đẹp" (`ja442:7.3`); `sobhane` → "hỡi người xinh đẹp" (`ja415:9.2`); `kiṁ nu jagghasi` → "sao nàng lại cười" (`jagghati`: `ja375:3.1`, `ja517:5.4`, `ja547:277.4`); `nayīdha` = `na idha`: "ở đây chẳng có múa hát, cũng chẳng có nhịp phách hòa khéo" (`tāḷa` → "nhịp phách", `ja539:150.1`). Bản cũ ("Thân ngươi là một khối u lạc", "bạch Sona", "ngươi còn tưởng mình thắng được") không có căn cứ.
+  (5) `4.1`–`4.4`: `macchañca pesiñca` là "cá và miếng thịt" (`maṁsapesi` → "miếng thịt": 16 khoá), không phải "hỡi cá, hỡi chim"; `siṅgāla`/`jambuka` → "chó rừng" (`ja335`, `ja490`, các bài `Siṅgālajātaka`); `bāla dummedha` → "kẻ ngu, kẻ kém trí" (đa số đo được: `bālā dummedhino` → "kẻ ngu si, thiếu trí"); `appapañño` → "ít trí tuệ" (`sn9.3:2.2`); `kapaṇo viya jhāyasi` → "ngồi ủ ê như kẻ khốn khổ": `kapaṇa` → "khốn khổ" 25 khoá (+ 10 "đáng thương") so với "nghèo khó" 4 khoá, cả 4 nằm trong một bài `ja220`; `jhāyati` kiểu này → "ủ ê" (`mnd7:40.2`, `ja492:9.4`). "Siêng-đa-la" và "kẻ sói" là phiên âm/diễn sai.
+  (6) `5.1`–`5.4`: `5.1`–`5.2` dùng lại nguyên văn `dhp252:1`–`2` (Pāli trùng); `5.3` "Đã bị thua, đã ngã nhào và tuổi già" sai hoàn toàn: `jīnā patiñca jārañca` là "mất cả chồng lẫn nhân tình" (`jīno`/`jīnā` → "mất": `ja351:1.1`–`1.2`, `4.3`; `jāra` → "nhân tình": `ja327:4.3`); `maññe tvaññeva jhāyasi` → "ta nghĩ chính ngươi mới ngồi ủ ê" (không còn "chỉ nghĩ thế thôi").
+  (7) `6.1`–`6.4`: `bhattu hessaṁ vasānugā` → "sẽ là người thuận theo ý chồng" (`vasānuga` → "thuận theo", `ja508:3.2`, `ja502:18.4`), không phải "làm chủ xứ kia"; `Sā nūnāhaṁ ito gantvā` cho thấy người nói là nữ tự xưng (cùng công thức ở `ja418:4.1`).
+  (8) `7.1`–`7.4`: `thālaṁ` → "đĩa" (`lohathālaka` 8 khoá "đĩa"/2 "chén"); `mattikā` kiểu "bát đất nung" 4 khoá (`thag16.7:21.3`) nên "đất nung"; `kaṁsa` → "đồng thau" (`ja306:1.2`); "Tội lỗi ngươi đã gây ra bằng nó" không có trong Pāli, nay "điều ác ngươi đã làm rồi, ngươi cũng sẽ lại làm như thế".
+  Pāli trùng nguyên văn với bài khác: 5 cặp có nội dung (≥ 12 ký tự chữ) đã dò toàn tầng, trong đó 3 cặp bản Việt khác: `2.1`↔`ja318:4.1` (bản `ja318` có chủ ngữ `Sāmā` trong chính câu), `4.4`↔`ja220:1.4` (`ja220` là `jhāyati` nghĩa thiền định và mang nghĩa "nghèo khó" khác đa số 25/4), `6.3`↔`ja418:4.1` (bản `ja418` đọc sai người nói, không dùng lại được); `5.1`, `5.2` dùng lại nguyên văn. Pāli trùng trong chính bài: 0 cặp, phép này chạy rỗng.
+  Tiền lệ phẩm: `Pañcakanipāta` ở `0.2` trong kho có ba dạng — "Nhóm Năm Bài Kệ" 16, "Bộ Năm Bài Kệ" 5, "Bộ Năm Kệ" 3; giữ "Bộ Năm Bài Kệ" vì khớp 4/5 bài cùng phẩm `Aḍḍha` (`ja371`, `ja372`, `ja374`, `ja375`) và họ "Bộ N Bài Kệ" của các nipāta khác; không đổi.
+
+  ĐIỂM ĐỔI TRONG LƯỢT NÀY. `terminology` 8.8 → 9.0 (thay các từ sai bằng tiền lệ đã đếm; bỏ phiên âm "Siêng-đa-la", "Sona"). `vietnamese_clarity` 8.8 → 8.9 (các câu vô nghĩa ở `3.x`, `4.3`, `5.3`, `7.3` nay đọc được). `semantic_fidelity` 8.9 → 8.8 (HẠ: điểm cũ chấm cho bản có nhiều lỗi nghĩa; bản này đã sửa nhưng còn bốn điểm chưa phân xử bên dưới). Các tiêu chí khác giữ nguyên, kể cả `triangulation` 7.5 (không có bản Anh, không có bản Việt tham khảo) và `ambiguity_integrity` 8.4.
+
+  BẤT ĐỊNH CÒN LẠI, KHÔNG GIẤU. (1) `ahuhāsiyaṁ` (`3.2`) là từ chỉ có ở bài này trong tầng Pāli đã ghim; dịch "tiếng cười a-hu" theo cấu tạo `ahu` + `hāsiya` và theo mạch (`jagghasi` ở `3.6`): nghĩa "cười" chắc, sắc thái tượng thanh "a-hu" chưa kiểm được. (2) `anamhikāle` (`3.5`) cũng chỉ có ở bài này; "không đúng lúc" theo mạch (`3.3`–`3.4` nói không có múa hát, nhạc), chưa tra được từ nguyên. (3) `dānito` (`1.4`) chỉ có ở bài này; "bây giờ" theo mạch. (4) Hướng của `nimināti` (bên bỏ đi/bên nhận về) suy từ ngữ cảnh và từ `2.3`, không có từ điển hay bản Anh đối chứng; nếu đảo ngược thì `2.1`–`2.3` đổi nghĩa. (5) Tầng Pāli ghim chỉ có kệ, không có văn xuôi duyên khởi, nên người nói từng kệ suy từ ngữ pháp (giống cái `jīnā`, `sā nūnāhaṁ`, hô cách `susoṇi`), không từ văn xuôi; người nói của kệ `7` không xác định được, giữ "ngươi". (6) `migarāja` ở `6.1` dùng gọi chó rừng (cùng câu với `jambuka`), dịch theo nghĩa đen "chúa tể loài thú", không thêm sắc thái mỉa mai. (7) `katañceva` ở `7.3` đọc là `kataṁ ca eva`; nếu là `kataṁ ce eva` ("nếu đã làm") thì thành câu điều kiện, chưa phân xử. (8) `eḷagalā` giữ nguyên, không xác định loài cây.
+
+  BLOCKER VÀ KỸ THUẬT. Blocker "không có tầng tham khảo tiếng Anh/Việt tại commit đã ghim" giữ nguyên (giới hạn upstream, đã có waiver; không đổi). Không thêm blocker mới: các điểm bất định trên không đổi giáo nghĩa. `technical_integrity` giữ 9.6; lượt này không chạy `npm run validate`, `npm test`, `npm run check`, `npm run build`, nên chưa tuyên bố cổng kỹ thuật đã pass.

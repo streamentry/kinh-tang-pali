@@ -16,13 +16,13 @@ quality:
     semantic_fidelity: 8.9
     grammar_logic: 8.9
     segment_alignment: 10.0
-    terminology: 9.0
+    terminology: 9.2
     triangulation: 7.5
-    vietnamese_clarity: 9.0
+    vietnamese_clarity: 9.1
     han_viet_balance: 9.2
     ambiguity_integrity: 8.4
     technical_integrity: 9.6
-  final_score: 8.97
+  final_score: 9.0
   blocking_errors:
     - "noEnglishEditionUpstream: không có tầng tham khảo English Sujato cho pv26
       tại commit đã ghim. Tra manifest `source/upstream-manifest.json` thấy
@@ -33,7 +33,7 @@ quality:
       có pv48 và pv49). Tầng `vietnamese-current` tại commit ghim chỉ có 26 tệp
       Pháp Cú nên cũng vắng. Bài chỉ được dịch từ Pāli đã ghim cùng tiền lệ
       trong tầng Việt của dự án, nên giữ draft."
-  assessed_at: "2026-10-10"
+  assessed_at: "2026-10-11"
   assessed_by:
     - "Claude Sonnet 5.5 (Claude Code)"
   waiver:
@@ -85,3 +85,18 @@ notes: |-
   **Lỗi bản nháp đã bắt.** Bản nháp đầu viết `5.5` bằng thức mệnh lệnh *hãy bố thí* trong khi `dajjetha` là thức mong muốn/khuyến nghị; đã đổi thành *nên bố thí*. `2.2` nằm trong dấu nháy của `2.1`–`2.4` đúng theo Pāli (câu *ngạ quỷ ấy nói như vậy* đứng giữa lời trích); đã giữ.
 
   **Technical gate.** Bị cấm chạy cổng ở lát này nên không tuyên bố technical gate pass; `technical_integrity` đặt 9.6. Còn phải chạy `npm run validate`, `npm test`, `npm run check` và `npm run build`. Trạng thái `draft` là do blocker `noEnglishEditionUpstream`, không phải do điểm: điểm trung bình 8.97 một mình sẽ ở mức `review`.
+
+  **Lượt cải thiện 2026-10-11.** Đọc đối kháng 92 cặp Pāli–Việt và đo lại tiền lệ trên toàn tầng Việt hiện có. Đổi 7/92 khoá, giữ nguyên tập khoá và thứ tự; không khoá nào đổi nghĩa lớn.
+  - `3.3` *bột sattu* → *bột rang*: `sattu` là bột ngũ cốc rang; tầng đã dịch `sattu` là *bột rang* (`mnd14:120.2`), nên bỏ chữ Pāli để nguyên trong câu Việt. Terminology.
+  - `4.4` *ngay tại chỗ, nơi ngạ quỷ, điều ấy hiện ra* → *ngay tại chỗ, điều ấy hiện ra với ngạ quỷ*: `petassa` là cách dành cho người nhận (dissati là hiện ra, được thấy), không phải một địa điểm. Clarity.
+  - `7.4` và `8.2` *nằm dài trên mặt đất* → *bị quật xuống đất*: `paṭisumbhitā` là phân từ bị động (bị ném, bị quật xuống), *nằm dài* làm mất thể bị động. Pāli giống hệt `pv45:8.2`, `pv45:9.2`, nay đều là *bị quật xuống đất* (4/4 khoá cùng một cách). Terminology và đúng thể.
+  - `9.1` *những kẻ ác pháp* → *những kẻ có hạnh ác*: `pāpadhamma` ở nhóm `pv`/`vv` được dịch *có hạnh (rất) ác* ở 10/12 khoá khác chứa chữ này (`pv39`, `pv36`, `pv37`, `vv52`), 2 khoá còn lại là *bản tính xấu ác* (`pv11`, `vv84`); *ác pháp* là cách nói thường gặp hơn ở `ja`, `ud`, `iti`, `dhp`, nhưng là nhãn khó hiểu với người đọc hiện đại. Terminology và clarity.
+  - `11.4` *khi họ nhận* → *khi nhận*: Pāli không có đại từ; chữ *họ* ép người đọc hiểu những người cho là người nhận, trong khi mơ hồ ở `11.3`–`11.4` vẫn chưa phân xử được (xem dưới). Bỏ chữ thêm.
+  - `17.2` *trên giường trải len lông dài* → *trên ghế dài trải thảm len lông dài*: `pallaṅka` ở danh từ chỉ đồ dùng trong nhóm `pv`/`vv` là *ghế dài* ở 6 khoá, *giường* ở 3 khoá (hai khoá `pv31` và chính `pv26`); toàn nhóm kệ là 19 so với 3. `gonakatthata` là *trải thảm len lông dài* (`tha-ap45`, `vv81`). Bản cũ cũng thiếu danh từ sau chữ *trải*. Pāli giống `pv33:1.2`, nơi bản Việt hiện là *tấm phủ len lông dài*; không sửa `pv33` vì ngoài lát.
+  - Đã đo mà không đổi: `17.1` *lầu gác* (nhóm `pv`/`vv`: *lầu gác* 15, *lầu* 2, *mái nhọn* 1; trái với `pv33:1.1`, là khoá lạc đàn); `9.4` *hòn đảo* (`pv45:4.4`, `pv45:10.4`, `pv50:3.4`, cùng `pv26`, so với *ngọn đèn* ở `ja314:1.4`: 4/5); `7.3` *đói lả, ngất đi, choáng váng* (nay giống hệt `pv45:8.1`); `8.4` *dưới nắng* (giống `pv7:4.4`, `ja542:59.4`, `ja542:92.4`: 4/4); *rừng Nandana* (nhóm `pv`/`vv`: 14 khoá dùng *rừng*, kể cả hai khoá của bài này; `19.3`–`21.4` giống `vv18`/`vv50`); `mệnh chung` cho `cutā` (nhóm `pv`/`vv`: 12/20).
+  - Đo lại trùng nguyên văn: 27 khoá của bài trùng Pāli ở bài khác (108 cặp, tính cả tiêu đề); sau lượt này 6 khoá còn khác bản Việt kia ngoài dấu câu và chữ hoa: `6.4` (*tản ra*, so *bỏ đi* ở `ja422:12.2`, khác bối cảnh), `9.4` (như trên), `11.1` (*Không thích làm việc* so *Các vị không ưa làm việc*, `thig13.2`, khác chủ thể), `17.1`, `17.2` (như trên), `21.2` (*cần phải* so *nên*, `dhp53:4`; `vv18` và `vv50` giống bài này). Trong chính bài: 2 nhóm trùng (`1.4` với `5.2`; `7.4` với `8.2`), 0 nhóm mà bản Việt khác.
+  - Điểm đổi: `terminology` 9.0 → 9.2 (bốn nhóm khoá, năm khoá, ở trên, theo đa số đo được); `vietnamese_clarity` 9.0 → 9.1 (`3.3`, `4.4`, `9.1`, `17.2`). Các tiêu chí khác không đổi: `semantic_fidelity`, `grammar_logic` và `ambiguity_integrity` giữ nguyên vì còn bốn chỗ bất định thật (dưới); `han_viet_balance` giữ 9.2 vì *hạnh ác* vẫn là Hán–Việt; `triangulation` giữ 7.5 vì không có bản Anh độc lập. `final_score` 8.97 → 9.0 (trung bình thô 9.0, không lớn hơn 9.0), nên status theo cổng vẫn là `review`.
+  - Bất định ghi thêm: `5.3` `ṭhāne ṭhitassa petassa` và `4.4` `ṭhāne`. Ở `an10.177`, `ṭhāne … upakappati` đi với `yattha ṭhitassa taṁ dānaṁ upakappati`, bản Việt dịch `ṭhāna` là *chỗ đúng*; vì vậy `ṭhāne ṭhitassa` ở đây có thể là *ở đúng chỗ*, không chỉ *ngay tại chỗ*; bản này giữ *ngay tại chỗ*, theo `pv5:11.4`. Không phân xử được.
+  - Chỗ các ghi chú cũ ở trên đã lỗi thời vì tầng Việt đã đổi sau khi chúng được viết: `pv45:8.1` nay là *Đói lả, ngất đi, choáng váng* (không còn là *Kiệt sức, bạch ngài*), `pv45:8.2`/`9.2` nay là *bị quật xuống đất*, `pv7:4.4` nay là *dưới nắng*, `pv45:10.4` nay là *hòn đảo*. Phần giải thích vì sao `7.3`, `9.4`, `8.4` được chọn như thế vẫn đúng.
+  - Còn bất định, không phân xử được bằng căn cứ có sẵn: `6.1` `sātunnavasanā` (hapax, 0 tiền lệ trong toàn Pāli đã ghim); `1.3` `pubbaddhapetova`; `11.3`–`11.4` ai cho, ai nhận, ai bị mắng; `13.2` `dubbhikā` (hapax). Các chỗ này vẫn nằm trong câu chữ canonical với mức chắc chắn thấp hơn Pāli cho phép, và đã được ghi ở các mục trên; không thêm blocker riêng vì không đổi giáo nghĩa, nhưng `semantic_fidelity` và `ambiguity_integrity` không được nâng.
+  - Technical gate: lượt này cũng bị cấm chạy cổng; `technical_integrity` giữ 9.6 và vẫn phải chạy `npm run validate`, `npm test`, `npm run check` và `npm run build`.

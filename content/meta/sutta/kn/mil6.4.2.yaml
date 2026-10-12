@@ -15,15 +15,15 @@ quality:
   scores:
     source_provenance: 9.5
     semantic_fidelity: 8.9
-    grammar_logic: 9.1
+    grammar_logic: 9.2
     segment_alignment: 10.0
-    terminology: 8.8
+    terminology: 9.0
     triangulation: 7.0
     vietnamese_clarity: 9.0
     han_viet_balance: 9.2
     ambiguity_integrity: 8.6
     technical_integrity: 9.6
-  final_score: 8.97
+  final_score: 9.0
   blocking_errors:
     - "noEnglishEditionUpstream: Không có tầng tham khảo tiếng Anh ở mức segment
       tại commit đã ghim. Tra `source/upstream-manifest.json` (không suy từ tên
@@ -115,3 +115,11 @@ notes: |-
   Không có cụm `Tiṁsakappasahassa` nào trong bài.
 
   **technical_integrity = 9,6:** lát này cấm chạy cổng, nên không tuyên bố technical gate pass. Bốn lệnh còn lại do người điều phối chạy tập trung: `npm run validate` · `npm test` · `npm run check` · `npm run build`. `final_score` là trung bình số học thô của đúng 10 tiêu chí.
+
+  **Lượt cải thiện 2026-10-11.** Đọc đối kháng lại cả 131 khoá cặp Pāli↔Việt, đo tiền lệ toàn tầng, sửa 15 khoá (đổi chữ ở 22 chỗ), không đổi tập khoá hay thứ tự khoá. Số khoá, nháy `“ ” ‘ ’` khớp Pāli từng khoá (0 lệch / 131), dấu lược (ba khoá `…pe…` vẫn một `…`) và NFC đã kiểm lại sau sửa. Các sửa, theo loại:
+  - *Sửa độ chính xác / bỏ chữ thêm:* `2.4` `siyā` "hẳn là vô quả" → "sẽ là vô quả" (Pāli là cách nói giả định, không khẳng định); `11.2` bỏ chữ "tự" không có trong Pāli ("bệnh tật lắng dịu mà không cần chú thuật và thuốc men"); `6.2` thêm "cho ngài" cho đại từ `te`; `7.2` `anusiṭṭho` "khi được giao việc" → "khi được chỉ dạy" (`anusiṭṭha` "được chỉ dạy" 21/36 khoá trong tầng, "giao việc" 0); `46.1` `khīlanudaṁ` bỏ chữ "gai" không có trong Pāli; `52.1` `aṭṭhattiṁsā ca rājaparisā` bỏ chữ "hạng" ("ba mươi tám hội chúng của vua"); `47.1` bỏ chữ "thân" ở "nâng đỡ" (Pāli `upatthambhavasena` không nêu đối tượng).
+  - *Sửa thuật ngữ theo số đếm tiền lệ:* `suddhājīva` "chánh mạng thanh tịnh" → "nuôi mạng thanh tịnh" (`12.3`; "nuôi mạng thanh tịnh" 5, "chánh mạng" 2 trên 24 khoá); `patirūpa` "tương xứng" → "thích hợp" (`12.3`; 79 so với 11 trên 184 khoá, và cùng bài `49.1`/`50.1`/`51.1` đã dùng "thích hợp" cho `patirūpa`, còn "tương xứng" dành cho `anucchavika`); `arati` "chán nản" → "bất mãn" (`12.3`, `46.1`, `48.2`; "bất mãn" 38, "không vui" 37, "chán nản" 7 trên 110 khoá; `mil6.3.2:17.26` cũng "bất mãn"); `kuvitakka` "tà tư duy" → "ý nghĩ xấu" (`12.3`, `48.2`; theo `tha-ap500:14.3`, tránh trùng với `micchāsaṅkappa`); `attānudiṭṭhi` "kiến chấp ngã" → "ngã kiến" (`13.3`; theo `mil5.2.7:3.7`); `alolo` "không dao động" → "không thèm muốn" (`14.3`; `alolo` 6 khoá "không thèm muốn" ở `snp1.3`, `tha-ap2`, `cnd23`, 1 khoá "không tham lam" ở `ja546`); `laguḷa` "côn" → "gậy" (`11.3`; `mil5.4.1`, `mil6.3.6` dịch "gậy", đồng bộ với `41.1`; `48.1` vẫn "côn" vì có `daṇḍa` "gậy" đi kèm); `khīla` "xua gai cọc" → "xua sự chai cứng" (`46.1`; `khīla` nghĩa bóng ở `sn22.90` "chai cứng", `an5.153` "chai lì"); `saṇha`/`sukhuma`/`nipuṇa` (`48.2`): `sukhuma` trước đây một chỗ "vi diệu", một chỗ "tinh tế" → thống nhất "tinh tế" (`saṇha` "êm dịu", theo `pv37:40.4`); `paṇḍukambalasilā` "phiến đá Paṇḍukambala" → "tảng đá phủ tấm thảm vàng nhạt" (`9.1`; 4/4 khoá ở `mn134`, `mnd16`); `pāsāṇakacetiya` "đền thờ Pāsāṇaka" → "bảo tháp Pāsāṇaka" (`9.1`; cùng tên ở `snp5.19:28.3`, `cnd21:2.5`; mil dịch `cetiya` "tháp" 11/11); `lokavivaraṇapāṭihāriya` "phép lạ mở rộng thế giới" → "phép thần biến mở thế giới" (`9.1`; `pāṭihāriya` trong mil: "thần biến" 4 và "phép lạ" 0 trong bài khác, và cùng bài `8.2` đã "thần biến"; "mở rộng" thêm ý "rộng" so với `vivaraṇa`); `22.1` thêm chữ "mọi" cho `sabba` ("rừng của mọi phiền não"); `60.2` `paṇīta` "thượng hảo" → "thượng hạng" (Hán–Việt hiếm; "món ăn thượng hạng" ở `an6.60`, `tha-ap540`).
+  - *Điểm đổi:* `terminology` 8.8 → 9.0 (13 thuật ngữ được đối chiếu lại bằng số đếm và sửa); `grammar_logic` 9.1 → 9.2 (sửa thể giả định ở `2.4` và phạm vi ở `11.2`). Các điểm khác giữ nguyên: `semantic_fidelity` 8.9 và `ambiguity_integrity` 8.6 giữ vì 17 điểm bất định ở trên vẫn còn nguyên (không có tầng tham khảo nào phân xử thêm); `triangulation` giữ 7.0 (vẫn không có tầng Anh/Việt hiện hành nào); `technical_integrity` giữ 9.6. `final_score` = trung bình thô của 10 điểm = 9.00, đúng ngưỡng, không vượt 9.0, nên chưa đủ để `published`.
+  - *Thêm căn cứ cho bất định, không đổi nghĩa:* mục 11 phía trên (`mānadabbo`) có thêm một chứng cứ song song: `mil7.8.1:1.3` cũng đặt `māno` cạnh `dabbo` ("na tena māno karaṇīyo, na dabbo dassetabbo", "nihatamānena nihatadabbena"), cho thấy `dabba` đi đôi với `māna` và là thứ có thể "bày ra", nên cách đọc "ngạo mạn" hợp lý hơn; vẫn giữ là bất định vì không có từ điển hay bản Anh để xác nhận. Mục 8 phía trên (`7.2`) nay đọc là "khi được chỉ dạy" thay cho "khi được giao việc". Mục 12 (`tirokuṭṭa`, `samacittapariyāya`) và các mục 1, 2, 3, 4, 5, 6, 7, 9, 10, 13, 14, 15, 16, 17 không đổi.
+  - *Đã xét và quyết định không đổi:* `57.1`/`61.1` `Nanu` giữ "Quả vậy" (tầng mil có 14 khoá dịch "Chẳng phải … sao", nhưng ở cả hai chỗ Pāli kết bằng dấu gạch dài hoặc dấu chấm, không có `ti?`, và câu dài làm một câu hỏi tu từ sẽ ngắt mạch kể); `6.4` `sampādake sati` giữ "khi có người làm cho thành tựu" (vẫn 0 tiền lệ, không phân xử được); loạt hai mươi sáu ví dụ so sánh `20.1`–`45.1` được đọc lại từng khoá, không thấy sai nghĩa nên giữ nguyên. Hai danh sách 30 khoản ở `48.1`/`48.2` và danh sách 17 tính từ ở `48.3` được đếm lại từng mục: đủ 30/30 và 17/17.
+  - Lỗi ngoài bài này, chỉ báo: `mil6.1.7:4.1`, `4.3`, `4.4` dịch `daṇḍaleḍḍulaguḷamuggarā` (gậy, hòn đất, côn, chùy) thành "mưa phùn, bùn lầy khó lội" — sai nghĩa rõ ở 3 khoá; `mil7.2.2:7.1` dịch `laguḷa` "cục tròn".

@@ -15,15 +15,15 @@ quality:
   scores:
     source_provenance: 9.4
     semantic_fidelity: 8.9
-    grammar_logic: 8.7
+    grammar_logic: 8.9
     segment_alignment: 10.0
-    terminology: 8.9
+    terminology: 9.0
     triangulation: 7.0
     vietnamese_clarity: 9.0
     han_viet_balance: 9.2
     ambiguity_integrity: 9.0
     technical_integrity: 9.6
-  final_score: 8.97
+  final_score: 9.0
   blocking_errors:
     - "Không có tầng tham khảo tiếng Anh tại commit đã ghim:
       `source/upstream-manifest.json` chỉ liệt kê `kn/ja/ja492_root-pli-ms.json`
@@ -35,7 +35,7 @@ quality:
       chỉ từ Pāli root và đối chiếu tiền lệ nội bộ ⇒ bài bắt buộc `draft` và
       `triangulation ≤ 8,0`. Đây là giới hạn upstream, không phải lỗi của người
       dịch. (noEnglishEditionUpstream)"
-  assessed_at: "2026-10-10"
+  assessed_at: "2026-10-11"
   assessed_by:
     - "Claude Sonnet 5.5 (Claude Code)"
   waiver:
@@ -91,11 +91,20 @@ notes: |-
   4. `Kumbhīlakā sakuṇakā` (15.1): `kumbhīlaka` thường là “cá sấu” nhưng ở đây đi với `uppatanti ḍayanti ca` (bay lên và bay) nên hiểu là một loài chim, giữ phiên âm “chim kumbhīlaka”; tầng có 0 khoá chứa `kumbhīlak…` nên không phân xử được từ tiền lệ.
   5. `Veyyagghiyeva sā gati` (16.4): dịch “số phận ấy chính là số phận của hổ”, hiểu `veyyagghiya` là thuộc về hổ (con hổ lẻ loi bị tách khỏi đàn gặp số phận như chim lẻ bầy bị ưng đánh). Cách đọc khác: số phận ấy “thuộc về hổ” theo nghĩa nó cũng là điều xảy ra với hổ; cùng ý nên không đổi bản dịch.
   6. `na byagghe kurute vase` (14.4): `byagghe` có thể là dạng chủ cách số ít kiểu Māgadhī (“con hổ không khiến họ lệ thuộc”) hoặc đối cách/vị cách số nhiều (“không khiến họ vào quyền của loài hổ”). Bản Việt chọn cách trung tính, “không khiến họ rơi vào quyền của loài hổ”, đúng cho cả hai.
-  7. `luddena` (17.2): `luddha` có thể là “tham lam” hoặc “hung ác”; bản Việt chọn “tham lam” vì `āmisacakkhu` (mắt hướng về miếng thịt/mồi) nói về lòng tham. `āmisa` có thể là thịt hoặc mồi nhử; chọn “miếng thịt”.
+  7. `luddena` (17.2): `luddha` có thể là “tham lam” hoặc “tàn bạo/hung ác”. Lượt cải thiện 2026-10-11 đổi sang “tàn bạo” theo tiền lệ (xem mục Lượt cải thiện); bất định về nghĩa vẫn còn, vì `āmisacakkhu` (mắt hướng về miếng thịt/mồi) cũng gợi lòng tham. `āmisa` có thể là thịt hoặc mồi nhử; chọn “miếng thịt”.
   8. `tasmā nesaṁ na patthaye` (12.4): `patthayati` = mong cầu, ao ước; dịch “không mong cầu chúng” (hổ không ham muốn tấn công chúng). Có thể hiểu hẹp hơn là “không nhắm đến chúng”; cùng hướng nghĩa.
   9. `Ekāyane` (18.4): hiểu là con đường chỉ đủ cho một lối đi (“lối độc đạo”); không có tiền lệ trong tầng (0 khoá). Cách đọc khác: “trong một lần/cùng một chỗ”.
   10. `saṅghapatto` (9.4, 13.3): hiểu là “đã đến giữa bầy/đàn”; ở 9.4 là bầy heo, ở 13.3 là bầy thú nói chung.
 
   **Coverage English (mục 7):** mẫu số = 0. Đo mọi khoá không phải khối `:0` (81 khoá), dài nhất sau khi nén khoảng trắng là 35 ký tự (< 40) nên 0/81 khoá có nội dung theo ngưỡng của `source/layers.yaml`; 4 khoá `:0` bị loại trước. Đây là *cổng không đo được gì*, không phải *không cần ghi nhận*. Sujato: 0 tệp cho `ja492`; `english-project`: 0; `vietnamese-current`: 0 (chỉ Pháp Cú). Ba tầng đều vắng ⇒ `triangulation` 7,0 (≤ 8,0) và `status: draft` kèm blocker ở trên. Tôi không đụng `content/meta/reference-gaps.yaml`.
+
+  **Lượt cải thiện 2026-10-11.** Đọc đối kháng lại 85 khoá cặp Pāli↔Việt, đo lại tiền lệ trên toàn tầng (so mọi khoá Pāli của bài với toàn bộ Pāli đã ghim, kết quả 14 cặp trùng nguyên văn; bản trước chỉ ghi 9 và bỏ sót `2.1`, `2.2` trùng `ja547:552.1–2` đã dịch giống hệt, `19.3` trùng `ja547:558.3` giống hệt, và `17.2` trùng `ja519:12.2` mà bản Việt khác). Đã đổi 3/85 khoá:
+  - `2.3` `Rammā cimā girīnajjo`: “những ngọn núi và dòng sông này thật đẹp” → “những dòng sông núi này thật đẹp”. Sửa chính xác (accuracy fix): `girīnajjo` là hợp từ `giri` + `najjo` (sông núi), và `rammā`, `imā` đều giống cái số nhiều, hợp với `najjo`, không hợp với `giri` giống đực; cách tách “núi và sông” bản trước vô tình đặt núi vào cùng cụm với tính từ giống cái. Cùng cách với `thag4.11:4.3` (`girinadīhi` → “dòng sông núi”); `pabbatāni` ở `1.2` đã nói “núi non” rồi nên không lặp ý. Điểm: `grammar_logic` 8.7 → 8.9.
+  - `17.2` `luddenāmisacakkhunā`: “kẻ tham lam, chỉ để mắt đến miếng thịt” → “bởi kẻ tàn bạo, chỉ để mắt đến miếng thịt”. Hai sửa: (a) `luddena` và `āmisacakkhunā` là cách công cụ, cùng chỉ với `jaṭilena` ở `17.1` (người xúi giục là đạo sĩ), nên thêm “bởi” để câu không bị đọc thành đang mô tả con hổ; (b) Pāli trùng nguyên văn `ja519:12.2` đã dịch “kẻ tàn bạo, chỉ để mắt đến miếng thịt”; trong tầng, `luddha` làm tính từ chỉ người/vật hung dữ được dịch “tàn bạo/hung bạo/tàn nhẫn/hung dữ” ở `ja308:2.2`, `ja405:6.2`, `ja446:3.2`, `ja446:8.4`, `ja547:485.3`, `cp22:13.2` (6 khoá) so với “tham lam” ở `ja206:1.4`, `ja399:7.1` (hai khoá này là `luddaka`, nghĩa thợ săn), và `cp20:4.2` (“dữ dằn, tham lam”). Đây là thống nhất theo tiền lệ, không phải phân xử nghĩa: bất định `luddha` = tham/tàn bạo vẫn còn (xem bất định 7). Điểm: `terminology` 8.9 → 9.0.
+  - `16.3` `Tañca seno nitāḷeti`: “con chim ưng liền đánh nó” → “con chim ưng đánh nó”. Bỏ “liền”, vì Pāli chỉ có `ca` nối câu, không có ý “lập tức”; không thêm sắc thái thời gian (không đổi điểm riêng).
+  - Không đổi, dù đã nghi ngờ: `14.3`–`14.4` (“bà con đã hòa hợp, đã tụ hội, thì không khiến họ rơi vào quyền của loài hổ”): `ñātī` là đối cách, chủ thể phải là Đế Thích / chim ưng / hổ ở `14.1`–`14.2`, và bản Việt đang đặt “bà con” làm đề trước rồi dùng “họ” nhắc lại; câu hơi gượng nhưng không sai nghĩa, và cách viết lại nào cũng phải thêm chủ ngữ mà Pāli không nêu rõ (xem bất định 6), nên giữ. `1.4` (`teme` là “những điều ấy” hay “những người ấy”, tức bà con ở `1.3`): giữ, xem bất định 2.
+  - Thêm bất định mới: `Taccha` / `Tacchaka` có thể không chỉ là tên riêng mà là tên gọi theo nghề (`tacchaka` cũng nghĩa là thợ mộc); bài song song `ja283` mang tiêu đề `Vaḍḍhakīsūkara` (“Lợn Rừng Thợ Mộc”). Tầng không có căn cứ để phân xử, nên giữ phiên âm “Taccha” như tên riêng ở `0.4`, `4.3`, `6.3` và “Tacchaka” (hô cách) ở `8.2`, `20.3`.
+  - Các điểm còn lại không đổi: `triangulation` 7,0 (không có bản Anh độc lập; cải thiện lượt này chỉ đối chiếu với tiền lệ nội bộ nên không nâng), `semantic_fidelity` 8,9, `ambiguity_integrity` 9,0 (bất định 7 vẫn còn, thêm bất định Taccha). `final_score` 8,97 → 9,0 (trung bình số học thô 90,0/10; không lớn hơn 9,0, nên không đủ điều kiện `published`).
+  - Kiểm sau sửa: 85/85 khoá, thứ tự khớp Pāli, nháy kép/đơn khớp Pāli từng khoá (0 lệch), 0 khoá rỗng, NFC đủ, không Pāli lọt sang Việt (trừ tiêu đề `0.1` “Jātaka” và “kumbhīlaka” có chủ ý). Pāli không có dấu lược nên phép kiểm `…` chạy rỗng.
 
   **technical_integrity = 9,6:** lát này cấm chạy cổng, nên không tuyên bố technical gate pass. Bốn lệnh còn lại do người điều phối chạy tập trung: `npm run validate` · `npm test` · `npm run check` · `npm run build`.
