@@ -13,16 +13,16 @@ tags:
 quality:
   scores:
     source_provenance: 9.4
-    semantic_fidelity: 8.8
+    semantic_fidelity: 8.6
     grammar_logic: 8.8
     segment_alignment: 10.0
-    terminology: 8.9
+    terminology: 9.0
     triangulation: 7.2
-    vietnamese_clarity: 9.0
+    vietnamese_clarity: 8.9
     han_viet_balance: 9.3
     ambiguity_integrity: 8.4
     technical_integrity: 9.6
-  final_score: 8.94
+  final_score: 8.92
   blocking_errors:
     - "Không có tầng tham khảo tiếng Anh tại commit đã ghim:
       `source/upstream-manifest.json` (commit
@@ -43,9 +43,9 @@ quality:
       `review` hoặc `published`, nên bài bắt buộc `draft`. Đây là **giới hạn của
       snapshot upstream**, không phải lỗi của người dịch; vì vậy `triangulation`
       bị chặn ở 7.2 (≤ 8.0) chứ không nâng điểm để né blocker."
-  assessed_at: "2026-10-04"
+  assessed_at: "2026-10-13"
   assessed_by:
-    - "OpenCode Space Bunny Free (agent)"
+    - "Claude Sonnet 5.5 (Claude Code)"
   waiver:
     id: no-upstream-english
     blockers:
@@ -85,3 +85,15 @@ notes: |-
   **Dấu lược:** không segment nào có `…pe…`; cả hai phía 0.
 
   `npm run validate|test|check|build` không chạy (BRIEF cấm); `technical_integrity` = 9.6 vì các chốt tự động đã xanh và cổng `npm` chưa chạy.
+
+  **Lượt cải thiện 2026-10-13** (đọc đối kháng từng khoá với Pāli; sửa 36/41 khoá, tức toàn bộ `1.1`–`9.4`; 5 khoá tiêu đề `0.1`–`0.4`, `10.1` được rà lại và giữ nguyên — đo tiền lệ `Kinh <tên>` 513 so với `Kinh <tên>jātaka` 34 trên tầng `ja`). Các đoạn ghi chú ở trên về `Tilodano`, `Suṇisā`, `mato` và `9.3`/`9.4` đã bị thay thế bởi các điểm dưới đây; bản trước có lỗi nghĩa nghiêm trọng mà lượt chấm trước không bắt được.
+
+  - **`Tilodano` không phải tên người** mà là danh từ chung *tila* (mè) + *odana* (cơm) = *cơm mè* (món cúng người chết); câu tự giải thích bằng `Piṭṭhā tilā dhovasi taṇḍulāni` (mè đã nghiền, bà vo gạo). Sửa `1.4`, `2.2` thành *cơm mè*; bản trước dịch `tilā` là "hạt tùng" (sai — *mè*, đã có tiền lệ ở `dn22:5.3`, `mn126:15.1`, `mn119:7.6`) và giữ "Tilodano" như tên riêng vì né cổng Pāli-lọt, nay không còn cần.
+  - **`Suṇisā` là danh từ chung *con dâu*, không phải tên nữ thần** (`mn28:10.5`, `mn37:10.1`, `dn16:5.21.1` đều là *con dâu*). Sửa `5.1`, `7.3`, `8.3`, `9.1`. Kéo theo `nattā` = *cháu trai* (không phải "mẹ") và `putto` = *con trai* của Kaccāni; bản trước ở `7.3`, `8.3` dịch thành "ta là người con, bà Suṇisā là mẹ" — sai người, sai quan hệ.
+  - **Người nói đã sắp lại:** `1` Sakka cải trang Bà-la-môn hỏi; `2`, `4`, `5`, `7` Kaccāni; `3`, `6`, `8` Sakka (`6.2` `Taveva atthāya idhāgatosmi` đối ứng `7.2` `Mameva atthāya idhāgatosi`); `9` lời dẫn kết. `7.1`–`7.2` là lời Kaccāni gọi *devarāja*; bản trước gán lẫn.
+  - **`Dhammo`** đổi từ *Chánh pháp* sang *Pháp*: đo trên toàn tầng `ja`, các khoá Pāli ngắn có `dhammo` thì *pháp/Pháp* chiếm đa số (50 so với 13 *Chánh pháp*); `ja422:1.1` cùng phẩm dịch *pháp*. Câu `mato` = *đã chết* giữ như bản trước (`na miyyatī` ở `3.4` cùng gốc `mī`; hợp mạch: bà tin Pháp đã chết vì kẻ ác nay được sướng, `4.3`–`4.4`).
+  - Sửa chủ ngữ/tân ngữ: `2.1` *việc này không phải để ăn*; `4.1`–`4.2` tách `Daḷhappamāṇaṁ` (bằng chứng vững) khỏi `natthi mamettha kaṅkhā` (không nghi ngờ) — bản trước dịch "đo lường chẳng đúng" ngược nghĩa; `4.3`–`4.4` `Yeyeva ... pāpā` / `Te teva ... sukhitā` = *chính những kẻ nay là ác nhân, chính họ nay được sung sướng* (bản trước "chính chỗ ấy họ mới được an ổn" sai); `5.2` `vadhitvāna` = *đánh* (không phải "nắm tay"); `8.2` `Hatāpi santā` = *dù bị đánh* (không phải "bậc thiện thế … bị giết"); `9.3` `upaṭṭhahiṁsu` = *hầu hạ* (đo: `mn26:24.5`, `tha-ap292:2.3` là *chăm sóc/hầu hạ*) — sửa lại cả cái "đứng dậy" mà notes trước ghi như lỗi đã bắt; `3.3` `Sahassanetto` = *Ngàn Mắt* (`sn11.9:2.3`, `thi-ap35:18.4`), không phải "nghìn tai"; `9.1` `Kātiyānī` giữ đúng Pāli (bản trước đổi thành *Khattiyāni*, không có căn cứ).
+  - **`karomi bhasmaṁ`** `6.4` = *biến thành tro* (đã có `mn56:13.15`).
+  - **Bất định còn lại, không bịa:** (1) `3.3`–`3.4` `Sahassanetto atulānubhāvo … dhammavaro` — có thể hiểu là hai câu (Sakka tự xưng `Sahassanetto`, rồi nói *Pháp tối thượng không chết*, cách hiểu đã chọn) hoặc một chủ ngữ duy nhất (*bậc Ngàn Mắt, uy lực vô song, tối thượng về Pháp, không bao giờ chết*); `6.1` `Jīvāmi vohaṁ na matohamasmi` ủng hộ cách hiểu sau, nhưng không phân xử được vì không có bản Anh ghim. (2) `2.3` `tassa pahuttamajja` — *pahutta* ở đây là *dồi dào/đủ đầy*, đối tượng `tassa` là `Dhammo`; `pahutta` không có tiền lệ trên tầng đã dịch (0 khoá). (3) `1.2` `kumbhimadhissayitvā` hiểu *đặt nồi lên* (bếp); Pāli có thể đọc sát nghĩa hơn là *nằm lên*. (4) `9.4` `adhiggahītā` — gồm tính từ số nhiều cho `putto ca nattā ca` (cách hiểu đã chọn: con trai và cháu trai bị Sakka chế ngự rồi hầu hạ), nhưng ngữ pháp cũng cho phép đọc nó là nữ số ít chỉ `kātiyānī` (bà được Sakka nắm giữ/che chở). `adhigaṇhāti` chỉ có tiền lệ khác nghĩa (`iti27:3.1`, *vượt trội*). (5) `4.1` `brahme` hiểu là *Bà-la-môn* (Sakka cải trang), không phải *Phạm thiên*. (6) `5.1` `vañjhā` dịch *son sẻ* (không có tiền lệ cùng nghĩa; các khoá `vañjha` khác ở dn/mn/sn là *cằn cỗi* cho vật vô tri).
+  - **Điểm đổi:** `semantic_fidelity` 8.8 → 8.6, `terminology` 8.9 → 9.0, `vietnamese_clarity` 9.0 → 8.9; `grammar_logic` 8.8 giữ; các tiêu chí còn lại giữ. `semantic_fidelity` hạ vì bản trước (điểm 8.8) vốn có nhiều lỗi nghĩa mà lượt trước không phát hiện và vì còn các bất định ở trên; nâng `terminology` vì *tila*, *odana*, *suṇisā*, *nattā*, *Dhammo* nay khớp tiền lệ. Tầng tham khảo vẫn vắng nên `triangulation` giữ 7.2: bản dịch tiếng Anh của bài này chỉ được đọc để hiểu cách hiểu bất định ở trên, không được đưa vào bản dịch, và không phải tầng đã ghim.
+  - Phép kiểm: 41/41 khoá, thứ tự khoá theo Pāli, nháy `“”‘’` khớp Pāli từng khoá (41 khoá), NFC, 0 khoá chứa chữ Pāli lạ, 0 cặp Pāli trùng nguyên văn trong chính bài, 0 `…`/`…pe…`. `npm run validate|test|check|build` chưa chạy.

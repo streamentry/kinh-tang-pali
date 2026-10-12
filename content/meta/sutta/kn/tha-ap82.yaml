@@ -13,16 +13,16 @@ tags:
 quality:
   scores:
     source_provenance: 9.2
-    semantic_fidelity: 8.9
-    grammar_logic: 8.9
+    semantic_fidelity: 9.0
+    grammar_logic: 9.0
     segment_alignment: 10.0
-    terminology: 9.0
+    terminology: 9.2
     triangulation: 7.2
-    vietnamese_clarity: 8.9
+    vietnamese_clarity: 9.0
     han_viet_balance: 9.2
     ambiguity_integrity: 8.6
     technical_integrity: 9.6
-  final_score: 8.95
+  final_score: 9.0
   blocking_errors:
     - "Không có tầng tham khảo tiếng Anh tại commit đã ghim: tệp
       `translation/en/sujato/sutta/kn/tha-ap/tha-ap82_translation-en-sujato.jso\
@@ -42,7 +42,7 @@ quality:
       né blocker. Hiện `content/meta/reference-gaps.yaml` chưa có entry cho uid
       này; entry đó không cứu được `published` nhưng nên được thêm khi chạy lại
       `npm run reference:gaps`."
-  assessed_at: "2026-10-10"
+  assessed_at: "2026-10-13"
   assessed_by:
     - "Claude Sonnet 5.5 (Claude Code)"
   waiver:
@@ -105,3 +105,15 @@ notes: |-
   Coverage English: mẫu số 1 khoá (colophon `28.1`), Sujato phủ 0/1; ba tầng tham khảo (english-sujato, english-project, vietnamese-current) đều vắng cho uid này. Phép đo này gần như không đo được gì ở thân kệ, vì 116 trên 117 khoá không phải khối `:0` dưới 40 ký tự.
 
   technical_integrity đặt 9.6 vì chưa chạy các cổng kỹ thuật của kho; bốn lệnh còn lại cần chạy trước khi coi tiêu chí 10 là đạt: `npm run validate` · `npm test` · `npm run check` · `npm run build`.
+
+  LƯỢT CẢI THIỆN 2026-10-13. Đọc đối kháng lại cả 120 cặp Pāli và Việt, đo tiền lệ trên 563 tệp `tha-ap` (đối chiếu từng khoá Pāli nguyên văn), rồi quét toàn bộ Pāli root (284.708 khoá) để tìm song song cho các cụm hiếm. Đổi 6 trên 120 khoá, không đổi tập khoá hay thứ tự.
+  (1) `:22.1` `Sudiṭṭho vata me buddho` từ `Thật tốt đẹp thay, tôi đã được thấy Đức Phật,` thành `Quả thật, Đức Phật đã được tôi thấy rõ,`. Lý do (accuracy fix): `su-` + `diṭṭha` là `khéo thấy / thấy rõ`; bản cũ đổi thành lời khen `tốt đẹp` mà Pāli không nói, và đổi chủ ngữ ngữ pháp (Đức Phật là `buddho`, chủ thể thấy là `me`). Đối chiếu tầng: `sudiṭṭha` (57 khoá toàn tầng) đều dịch theo `khéo thấy / thấy rõ`, không có khoá nào dịch `tốt đẹp`. Điểm: semantic_fidelity 8.9 thành 9.0.
+  (2) `:23.4` `dhārayissati matthake` từ `sẽ mang trên đầu.` thành `sẽ được nâng giữ ở trên đầu.` Lý do (accuracy/clarity fix): bản cũ để `Đóa sen đỏ ... sẽ mang trên đầu` khiến đóa sen thành chủ thể của `mang` mà không có tân ngữ, tức câu Việt vô nghĩa. Tiền lệ trong tầng cho đúng cụm `Matthake dhārayissati.` là `tha-ap397:21.4` `sẽ được nâng giữ ở trên đầu` (và `tha-ap393` `được giữ trên đầu tôi`); dùng lại cách đó. Không thêm chủ thể: ai mang và đầu của ai vẫn để ngỏ như Pāli. Điểm: grammar_logic 8.9 thành 9.0.
+  (3) `:17.1` `Bhittikhīle nāgadante` từ `Trên cọc tường, trên ngà voi,` thành `Trên cọc tường, trên móc ngà voi,`. Lý do (terminology fix): Pāli root có đúng cụm này ở 3 nơi khác (`mnd2:3.6`, `mnd4:39.8`, `cnd16:26.4`: `bhittikhile vā nāgadante vā`, vật bị treo mắc vào đó) và cả 3 khoá đã dịch trong kho đều là `cái cọc trên tường hay ... cái móc ngà voi`. `nāgadanta` là cái móc/chốt có hình ngà voi, không phải chính ngà voi; bản cũ đọc thành hai vật thể khác loại. Tỉ lệ tiền lệ 3 trên 3. Điểm: terminology 9.0 thành 9.2.
+  (4) `:11.4` `suṇātha mama bhāsato` từ `hãy nghe lời ta nói.` thành `hãy nghe lời Ta nói.` Lý do (style/terminology fix): người nói là Đức Phật Padumuttara; khoá liền trước (`:11.3`) đã viết `Ta`; tiền lệ cho đúng Pāli này là `Ta` 23 khoá so với `ta` 13 khoá và `tôi` 2 khoá. Sửa cho nhất quán trong khổ kệ.
+  (5) `:9.4` `pupphānaṁ vāhasā mayaṁ` từ `nhờ những đóa hoa này.` thành `nhờ những đóa hoa.` Lý do (accuracy fix nhỏ): Pāli không có từ chỉ định `này`; bản cũ thêm nghĩa.
+  (6) `:1.4` `nagarā nikkhamī tadā` từ `khi ấy đã rời thành đi ra.` thành `khi ấy đã rời khỏi thành.` Lý do (style fix): `rời thành` và `đi ra` lặp một nghĩa (`nikkhamī` đã gồm `ra khỏi`); tiền lệ cho `nagarā nikkhamiṁ tadā` là `khi ấy tôi đã rời khỏi thành` (2 trên 2). Điểm: vietnamese_clarity 8.9 thành 9.0 (cùng với mục 2).
+  Điểm không đổi và vì sao: source_provenance 9.2 · han_viet_balance 9.2 · segment_alignment 10.0 · technical_integrity 9.6 giữ nguyên. triangulation 7.2 giữ nguyên (không có tầng English, trần 8.0, và không có gì để nâng). ambiguity_integrity 8.6 giữ nguyên: các bất định (a)–(m) bên trên còn nguyên, không có căn cứ phân xử thêm.
+  Căn cứ mới cho bất định cũ (chỉ ghi, không đổi thân kinh): (f) `:7.3` `Dhāriṁsu matthake tattha` — song song cùng công thức `matthake dhārayiṁsu te` ở `tha-ap342:6.4`, nơi câu 5.4 liền trước gọi thẳng Đức Phật (`Yadi buddho tuvaṁ vīra`), và `tha-ap503:7.3–7.4` (`uddhaṁvaṇṭā adhopattā, chāyaṁ kubbanti satthuno`, hoa che bóng cho Bậc Đạo Sư) cho thấy nhiều khả năng đây là đầu của Đức Phật; vì Pāli `:7.3` không nêu chủ sở hữu nên vẫn giữ `trên đầu`, không thêm `Ngài`. `uddhaṁvaṇṭā adhomukhā` có đúng cụm ở `tha-ap323:2.4` (đã dịch `cọng hướng lên trên hoa hướng xuống dưới`) và `uddhaṁvaṇṭā adhopattā` ở `tha-ap503:7.3` (`cuống hướng lên, cánh hướng xuống`); `cuống hướng lên` khớp. (a) `Tiṁsakappasahassāni`: quét toàn Pāli root không thêm chứng cứ; bản Việt nguyên bài ở mục Tra cứu toàn văn dựa trên một bản đọc khác (ấn bản Buddha Jayanthi) và cho con số khác, nên đây là khác biệt bản đọc chứ không phải căn cứ để đổi số trên bản Pāli đã ghim; vẫn giữ `ba mươi ngàn` theo `tiṁsa` = 30 và ghi bất định. (j) `anīti anupaddavo`: tiền lệ trong tầng tự mâu thuẫn (`tha-ap393`: `tai ương, tai họa` cho `anupaddavo anīti ca`; `tha-ap430`: `không tai ương` cho `anītiko`); giữ `anīti` = tai ương theo `tha-ap430`, không đổi.
+  Chỗ nghi ngờ nhưng quyết định không đổi: `:12.2` `vị ấy` (tiền lệ cho đúng Pāli này `người ấy` 16 so với `vị ấy` 4) — giữ `vị ấy` vì `:20.2` và `:21.4` cùng khổ lời tiên tri dùng `vị ấy` và đổi một chỗ sẽ làm lệch trong bài. `:14.2` `tháp lầu` — tiền lệ hoà 3 `tháp lầu` : 3 `ban công` cho `niyyūha`, giữ. `:14.3` `lầu gác` giữ theo `tha-ap1`. `:24.1–24.2` đọc theo sở hữu cách tuyệt đối, giữ.
+  Kiểm tra sau sửa: tập khoá Việt bằng tập khoá Pāli 120 trên 120, đúng thứ tự; nháy `“”‘’` khớp Pāli từng khoá, 120 khoá, 0 lệch; dấu lược `…` chỉ ở `:27.2` và khớp Pāli; NFC, khoảng trắng thừa, khoá rỗng: 0 lỗi; Pāli lọt sang Việt chỉ là tên riêng đã giữ có chủ ý; cặp Pāli trùng nguyên văn trong chính bài: 0 cặp nên phép dò chạy rỗng. Đo tiền lệ nguyên văn: 33 khoá Pāli của bài (không tính khối `:0`) có khoá trùng nguyên văn trong 562 tệp `tha-ap` còn lại; sau sửa, 7 khoá (`:2.2`, `:7.4`, `:12.2`, `:12.3`, `:25.2`, `:25.3`, `:26.1`) khác dạng đa số, mỗi chỗ đã có lý do ghi ở trên hoặc ở phần cũ (`:25.3` giữ hình `Tôi không còn biết đến đọa xứ nào` 101 khoá, so với `Ta không biết mình rơi vào khổ đau` 130 khoá thuộc nhóm ngôi `ta` khác, không phù hợp ngôi `tôi` của bài). technical_integrity vẫn 9.6: chưa chạy `npm run validate` · `npm test` · `npm run check` · `npm run build`.

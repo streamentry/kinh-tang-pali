@@ -14,16 +14,16 @@ tags:
 quality:
   scores:
     source_provenance: 9.4
-    semantic_fidelity: 8.7
-    grammar_logic: 8.7
+    semantic_fidelity: 8.8
+    grammar_logic: 8.8
     segment_alignment: 10.0
-    terminology: 8.8
+    terminology: 9.1
     triangulation: 7.0
     vietnamese_clarity: 9.0
     han_viet_balance: 9.2
     ambiguity_integrity: 9.0
     technical_integrity: 9.6
-  final_score: 8.94
+  final_score: 8.99
   blocking_errors:
     - "Không có tầng tham khảo tiếng Anh tại commit đã ghim:
       `source/upstream-manifest.json` chỉ liệt kê `kn/ja/ja496_root-pli-ms.json`
@@ -35,7 +35,7 @@ quality:
       chỉ từ Pāli root và đối chiếu tiền lệ nội bộ ⇒ bài bắt buộc `draft` và
       `triangulation ≤ 8,0`. Đây là giới hạn upstream, không phải lỗi của người
       dịch. (noEnglishEditionUpstream)"
-  assessed_at: "2026-10-10"
+  assessed_at: "2026-10-13"
   assessed_by:
     - "Claude Sonnet 5.5 (Claude Code)"
   waiver:
@@ -103,3 +103,21 @@ notes: |-
   **Coverage English (mục 7):** mẫu số = 0. Đo mọi khoá không phải khối `:0` (87 khoá), dài nhất sau khi nén khoảng trắng dưới 40 ký tự nên 0/87 khoá có nội dung theo ngưỡng của `source/layers.yaml`; 4 khoá `:0` bị loại trước. Đây là *cổng không đo được gì*, không phải *không cần ghi nhận*. Sujato: 0 tệp cho `ja496`; `english-project`: 0; `vietnamese-current`: 0 (chỉ Pháp Cú). Ba tầng đều vắng ⇒ `triangulation` 7,0 (≤ 8,0) và `status: draft` kèm blocker ở trên. Tôi không đụng `content/meta/reference-gaps.yaml`.
 
   **technical_integrity = 9,6:** lát này cấm chạy cổng, nên không tuyên bố technical gate pass. Bốn lệnh còn lại do người điều phối chạy tập trung: `npm run validate` · `npm test` · `npm run check` · `npm run build`.
+
+  **Lượt cải thiện 2026-10-13** (đọc đối kháng từng khoá, đo lại tiền lệ bằng số đếm; sửa 22/91 khoá; thay thế mọi dòng cũ ở trên nếu mâu thuẫn). Điểm: semantic_fidelity 8,7 → 8,8; grammar_logic 8,7 → 8,8; terminology 8,8 → 9,1; các tiêu chí còn lại giữ nguyên (triangulation 7,0 vì vẫn không có bản Anh độc lập; ambiguity_integrity 9,0 vì bất định thật vẫn còn, xem dưới); final_score 8,94 → 8,99. Blocker `noEnglishEditionUpstream` giữ nguyên.
+  - **Thuật ngữ `isi` → "ẩn sĩ"** (6.2, 8.1, 9.1, 14.3, 17.3, 20.3; terminology 8,8 → 9,1). Bản trước dùng "đạo sĩ" và viện `ja492` (đó là `jaṭila`, từ khác) cùng `pv42:10.4`; đo lại thì các khoá Pāli có `isi/isino/isayo…` trong cả tầng dịch "ẩn sĩ" khoảng 280, "đạo sĩ" chỉ 9 (6 trong chính bài này, 2 ở `ja250`); trong `ja470`–`ja499`: "ẩn sĩ" 24, "đạo sĩ" 6 (cả 6 là bài này). Cùng Pāli `Āraññikassa isino` ở `ja543:51.1` dịch "ẩn sĩ". Dòng cũ "`isi` → đạo sĩ" ở mục thuật ngữ trên không còn đúng.
+  - **11.1–11.2 (semantic_fidelity 8,7 → 8,8):** `khaṇantālukalambāni` bản trước tách `āluka` + `lamba` (bất định 6, "lamba" không có tiền lệ). Bốn nơi cùng công thức củ rễ đều liệt kê cặp *ālu/āluva* + *kalamba/kaḷamba*: `tha-ap111:2.1` (`khaṇantālu kalambāni`, "củ ālu, củ kalamba"), `tha-ap3:31.1` và `tha-ap407:16.1` (`āluvā ca kaḷambā ca`), `ja446:1.2` (`kaḷambāni`). Chuỗi `ālukalamb-` đọc được là `ālu` + `kalamba` (không cần từ `lamba` riêng) ⇒ "Tôi đào củ ālu và củ kalamba"; bất định 6 được giải quyết có căn cứ, không còn là hapax. 11.2 bỏ "cả", dùng đúng "củ bilāli và củ takkala" như `ja547:692.2`. Cùng Pāli ở `ja547:692.1` còn cách đọc cũ ("āluka và lamba") — ngoài phạm vi lượt này, chỉ báo. Mục `bhisa` ở trên ghi "0 khoá" là sai: tầng có 56 khoá dịch `bhisa` ("ngó sen" 30, "củ sen" 26); "ngó sen" giữ vì trùng byte với `ja547:236.1` (cùng Pāli `Sākaṁ bhisaṁ madhuṁ maṁsaṁ`).
+  - **19.4 → "nơi vật bố thí có quả lớn"**: cùng Pāli `yattha dinnaṁ mahapphalaṁ` còn 17 khoá khác trong tầng, 16 khoá dịch đúng "nơi vật bố thí có quả lớn" (gồm 9 khoá ở bài liền trước `ja495`, `iti26:4.4`, `pv21:74.2`, `vv34`, `vv56`, `vv57`), 1 khoá "chỗ nào bố thí được quả lớn" (`sn10.12:12.4`). Bản trước dẫn `iti26:4.4` làm tiền lệ "nơi bố thí…" là chép sai; sửa theo đa số. `dinnaṁ` (cái đã được cho) cũng khớp "vật bố thí".
+  - **12.2 → "táo ta và me rừng;"** dùng lại nguyên văn `tha-ap398:3.2` (cùng Pāli `badarāmalakāni ca`), bỏ "cùng". Đo lại Pāli trùng nguyên văn (bỏ dấu câu, từ 12 ký tự): 13 khoá của bài (không kể tiêu đề `0.2`, `0.3`) có Pāli trùng ở bài khác, không phải 10 như ghi ở trên (danh sách cũ sót 8.2, 9.4, 11.1, 12.1, 12.2; trong đó 8.2, 9.4, 12.1 đã trùng byte sẵn, còn 9.2 đã trùng byte và có trong danh sách cũ). Sau lượt này còn khác ở 1.3 ("từng", có chủ ý, giữ), 8.1 (có chủ ý, xem dưới), 11.1 (khác `ja547:692.1` vì sửa cách tách; trùng `tha-ap111:2.1` trừ dấu phẩy), và 2.4/5.4/14.4/17.4 chỉ khác dấu cuối khoá (chấm thay chấm phẩy, theo Pāli).
+  - **6.3 "ruộng phúc" → "ruộng phước"**: bảng thuật ngữ `puñña` = "phước"; tầng có "phước điền" 80, "ruộng phước" 55, "ruộng công đức" 39, "ruộng phúc" 1 (chính khoá này). `khetta` của bố thí = ruộng phước theo thành ngữ; Pāli ở đây chỉ nói `khettaññū dānassa`, bất định nhỏ giữ ở bất định 11 dưới.
+  - **7.2 "đắm đuối" → "ham đắm"**: cùng cấu trúc `kāmesu gadhito ahaṁ` ở `ja511:31.2` dịch "tôi đã ham đắm các dục"; "đắm đuối" chỉ có 10 khoá toàn tầng.
+  - **10.2 "mạng sống" → "sự sống"**: công thức `nāvakaṅkh…jīvitaṁ` 6/6 khoá (`sn4.23:7.2`, `ja533:9.4`, `ja533:60.4`, `ja533:61.4`, `ja534:78.4`, `ja534:79.4`) dịch "không còn mong cầu sự sống".
+  - **1.2 "quốc độ" → "xứ sở"**, đồng nhất với 20.1 (`raṭṭhesu` → "xứ sở"); đo khoá có `raṭṭh…`: "xứ" 64, "vương quốc" 50, "xứ sở" 47, "quốc độ" 26 (một khoá có thể tính nhiều từ).
+  - **11.3 "lúa nīvāra" → "lúa hoang nīvāra"**: `nīvāra` là "lúa hoang" ở `mn12:45.6`, `mn51:8.6`, `snp2.2:1.1`; `sāmāka` là "kê" ở `mn12`, `mn51`.
+  - **12.4 "của cải sở hữu" → "vật sở hữu"**: Pāli `pariggaho` không nói "của cải".
+  - **8.1 "Còn vị đạo sĩ…" → "Đối với vị ẩn sĩ…"** (grammar_logic 8,7 → 8,8): `Āraññikassa isino … dātumarahāmi bhojanaṁ` là cách sở thuộc/dành cho chỉ người nhận (`isino`, `vuḍḍhassa bhāvitattassa`), `Còn` (đổi chủ đề) không có trong Pāli; cùng Pāli ở `ja543:51.1` dịch "Cho vị ẩn sĩ sống nơi rừng". Không dùng nguyên "Cho" vì ở đây câu chính là "tôi nên dâng thức ăn" (trùng ý, nặng). Ghi chú cũ về 8.1 ("sở hữu cách của chủ từ") đổi thành: sở hữu/dành cho, không phải hô cách (khác `ja271:1.1`, `tha-ap214:1.1`).
+  - **4.2 bỏ "mọi"**: `kiccākiccesu` không có `sabba`; 20.2 và `thag16.10:20.2` dịch "việc nên làm và không nên làm" không có "mọi"; "lo liệu mọi việc" ở `ja517:17.4` dành cho `sabbakiccesu`.
+  - **18.4 "kẻ nào" → "người nào"**: `yo` trung tính, "kẻ" thêm sắc thái miệt thị không có trong Pāli (13.1–13.3 là lời tự nhận của người nói nên giữ "kẻ").
+  - **1.1, 2.1, 3.2, 3.4 "ngươi/ta" → "ông/tôi"**: `tvaṁ`, `te`, `ahaṁ` là ngôi trung tính; bản trước gán thang bậc ngôi ("ngươi" cho người được hỏi đầu tiên, "ta" ở 2.1) mà Pāli không nói, và để cùng một người hỏi xưng "ta" ở 2.1 nhưng "tôi" ở 5.1, 9.1, 14.1, 19.1. Nay người tại gia (người được hỏi ở 1–3 và vị bà-la-môn) dùng "ông", hai vị xuất gia dùng "ngài". 3.4 giờ trùng byte với 6.4; trong nhóm trùng nguyên văn 3.4/6.4/15.4 chỉ còn 15.4 khác ("nơi ngài") vì người được hỏi là tỳ-kheo.
+  - **Bất định bổ sung 11 (17.1–17.2):** `Vāmena bhikkhamādāya, dakkhiṇena kamaṇḍaluṁ` — chủ từ của `ādāya` không nêu; đọc theo mạch `ñatvā` (16.3, chủ từ là vị ẩn sĩ biết người nói) và theo `sn7.9:1.6` (người đi cho: tay trái cầm phần thức ăn, tay phải cầm bình nước), tức vị ẩn sĩ cầm lúc dâng cơm; bản Việt giữ thứ tự Pāli và để chủ từ `vị ẩn sĩ` ở cuối khổ, không thêm chủ từ nào vào đầu 17.1. Cách đọc ngược (người nói, tức tỳ-kheo, cầm bát và bình khi nhận) không loại trừ hẳn. Bất định 1 bổ sung: `idhāgacchi` ở 19.2 vọng lại `āgataṁ` ở 1.2 và `rājā` ở 5.3 là ngôi thứ ba, nên người nói 1–3 rất có thể cũng là người hỏi ở 5, 9, 14 và người kết ở 19–20; vẫn là suy luận từ kệ, danh tính không phân xử được. Bất định 4 (`āmantanīya`): `cnd23:81`–`cnd23:84` dịch `āmantanā` là "gọi hỏi" (nghĩa hỏi ý/thỉnh ý), nên "đáng được thỉnh hỏi" có thêm một điểm tựa nhưng chưa phải nơi dùng cùng từ.
+  - **Quyết định không đổi dù nghi ngờ:** 1.3 giữ "từng đủ đầy" (thêm "từng" theo mạch `raṭṭhā vivanamāgataṁ`, `upeta` và `upāsita` đều là phân từ quá khứ, có chủ ý, ghi nhận); 2.2 "đầy đặn" cho `vaḍḍhamodana` (tầng vẫn 0 khoá, không phân xử được); 4.3 "thỉnh hỏi"; 11.3–11.4 "giũ … gom lại, trải ra" (bất định 7 còn nguyên); 18.3–18.4; 3.4/6.4/15.4 "đây rốt cuộc là lẽ gì" (cùng `ja474:4.4`); 3.2/6.2 "đem cho" (đã đọc, nghĩa "cho đi", chưa thấy lệch); dấu "?" ở 10.4 mà 3.4/6.4/15.4 không có (khác biệt hình thức, không đổi nghĩa). Dấu câu sau lượt sửa: nháy kép, nháy đơn, `…`, ngoặc khớp Pāli 91/91 khoá (lệch 0); tập khoá và thứ tự khoá khớp Pāli 91/91; NFC 91/91; 0 khoá rỗng; nhóm Pāli trùng nguyên văn trong bài: 4 nhóm, 1 nhóm khác (3.4/6.4/15.4, có chủ ý). `technical_integrity` giữ 9,6; bốn lệnh `npm run validate` · `npm test` · `npm run check` · `npm run build` do người điều phối chạy.

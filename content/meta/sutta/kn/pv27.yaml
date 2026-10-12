@@ -13,16 +13,16 @@ tags:
 quality:
   scores:
     source_provenance: 9.2
-    semantic_fidelity: 8.8
+    semantic_fidelity: 9.0
     grammar_logic: 8.8
     segment_alignment: 10.0
-    terminology: 9.0
+    terminology: 9.2
     triangulation: 7.5
     vietnamese_clarity: 9.0
     han_viet_balance: 9.2
     ambiguity_integrity: 8.4
     technical_integrity: 9.6
-  final_score: 8.95
+  final_score: 8.99
   blocking_errors:
     - "noEnglishEditionUpstream: không có tầng tham khảo English Sujato cho pv27
       tại commit đã ghim. Tra manifest `source/upstream-manifest.json` thấy
@@ -34,7 +34,7 @@ quality:
       có pv27 (trong `pv` chỉ có pv48 và pv49). Tầng `vietnamese-current` tại
       commit ghim chỉ có 26 tệp Pháp Cú nên cũng vắng. Bài chỉ được dịch từ Pāli
       đã ghim cùng tiền lệ trong tầng Việt của dự án, nên giữ draft."
-  assessed_at: "2026-10-11"
+  assessed_at: "2026-10-13"
   assessed_by:
     - "Claude Sonnet 5.5 (Claude Code)"
   waiver:
@@ -93,3 +93,14 @@ notes: |-
   **Lỗi bản nháp đã bắt.** Bản nháp đầu viết hoa đầu khoá theo chữ hoa của Pāli làm các khoá giữa câu thành *Cho mẹ…*, *Có trong lãnh thổ…*, *Ở khắp…* (mất chữ liền mạch); đã viết lại theo ranh giới câu của bản Việt.
 
   **Technical gate.** Bị cấm chạy cổng ở lát này nên không tuyên bố technical gate pass; `technical_integrity` đặt 9.6. Còn phải chạy `npm run validate`, `npm test`, `npm run check` và `npm run build`. Trạng thái `draft` là do blocker `noEnglishEditionUpstream`, không phải do điểm: điểm trung bình 8.95 một mình sẽ ở mức `review`.
+
+  **Lượt cải thiện 2026-10-13.** Đọc đối kháng 138 khoá theo cặp Pāli và Việt, rồi đo lại tiền lệ trên toàn tầng Việt (tính theo khoá Pāli). Đổi 5 khoá trên tổng 138 (không đổi tập khoá, thứ tự khoá, dấu nháy hay dấu lược; Pāli trùng nguyên văn trong bài vẫn có bản Việt giống nhau, 15 nhóm, 0 nhóm lệch).
+  - `2.4`, `6.4` (`petalokaṁ ito gatā`): *đã từ đây đi sang thế giới của người đã chết* → *đã từ đây đi đến cõi ngạ quỷ*. Đo lại: dạng *đi đến cõi ngạ quỷ* có 19 khoá ở `pv6`, `pv7`, `pv15`, `pv16`, `pv31`, `pv44`, `pv45`; dạng cũ chỉ có ở `pv13` (2 khoá) và chính bài này (2 khoá). Cùng bài này `5.4` đã dịch `petagato` là *cảnh ngạ quỷ*, nên dạng cũ còn làm hai cách nói khác nhau cho cùng một cõi trong một bài. Terminology 9.0 → 9.2. Hai khoá của `pv13` ngoài phạm vi lát nên không sửa, đề nghị xem lại.
+  - `4.3` (`catukuṇḍiko`): *kẻ bò bằng bốn chi* → *kẻ bò bằng tứ chi*. Ghi chú cũ nói dạng này 0 tiền lệ là sai: Pāli đã ghim có dạng viết `catukkuṇḍika` (hai chữ k) ở `dn24:1.7.3`, `1.7.4`, `1.7.6`, `1.7.11`, `1.7.12` (*bò bằng tứ chi*, 5 khoá), `mn12:49.1` (*bò bằng cả bốn chi*) và `an5.162:5.7`, `5.8` (*cúi xuống bằng bốn chi*, nghĩa gần). Theo dạng chiếm đa số của `dn24`. Nghĩa không đổi; bất định về từ này coi như đã giải quyết bằng tiền lệ.
+  - `12.4` (`anekarasabyañjanaṁ`): *đủ muôn vị và món ăn kèm* → *nhiều vị và món ăn kèm*. `aneka` là *nhiều, không phải một*; `ud3.7:3.6` (cùng từ) dịch *nhiều vị phụ*. Từ *đủ* không có trong Pāli (nghĩa *đủ đầy* đã nằm ở `sampannaṁ`, `12.3`). `pv13:15.4` còn dạng cũ, ngoài phạm vi lát nên báo, không sửa.
+  - `13.4` (`naggāmhase`): *chúng tôi còn trần truồng* → *chúng tôi đang trần truồng*. Động từ ở hiện tại; *còn* thêm sắc thái *vẫn* mà Pāli không nói. Semantic fidelity 8.8 → 9.0 gộp từ ba khoá `12.4`, `13.4`, `2.4`/`6.4` (đều là chỗ Việt thêm hoặc lệch một sắc nghĩa so với Pāli).
+  - Cập nhật dữ liệu đã đo cho `2.2`/`6.2` (`duggatā yamalokikā`): đo lại tại thời điểm này cho 8 khoá *đã rơi vào cảnh khổ, thuộc cõi của Yama* (`pv13`, `pv31`, `pv44` và các khoá khác) so với 3 khoá *khốn khổ, thuộc cõi của Yama* (`pv45`, `pv6`, `pv7`). Con số *8 khoá dạng xa xôi* ở mục *Chỗ cố ý lệch tiền lệ* phía trên đã lạc hậu: bản Việt của bài này nay khớp đa số, không còn là chỗ lệch tiền lệ. `3.1`/`7.1` giữ *khốn khổ* (`te duggatā`, định ngữ đứng riêng cạnh `sūcikaṭṭā`).
+  - Thêm bằng chứng cho hai bất định cũ, không đổi bản dịch. `29.1` `sipāṭikaṁ`: bốn nơi khác trong Pāli đã ghim (`mn45:4.1`, `sn35.245:7.9`, `pv37:33.2`, `vv84:33.2`) dùng `sipāṭikā` cho *quả (vỏ) nứt ra*, không nơi nào là vật đi chân; nghĩa *dép* ở đây chỉ dựa vào ngữ cảnh (chân nứt nẻ ở `27.4`, sỏi và gai ở `28.2`, xin xe cộ ở `28.4`), vì thế bất định `sipāṭikaṁ` vẫn còn. `24.1` `karaṇaṁ`: `dhammakaraṇa` (ống lọc nước, `cnd23:122.1`, `cnd23:215.6`, `mnd16:69.6`) và `dhammakaraka` (bình nước, `mil3.4.7:1.4`) cho thấy gốc `karaṇa`/`karaka` có nghĩa dụng cụ chứa hoặc lọc nước trong Pāli đã ghim, nên *bình* hợp lý hơn trước; từ `karaṇaṁ` trần vẫn là hapax, nên vẫn ghi bất định.
+  - Không đổi dù nghi ngờ: `3.1`/`7.1` `sūcikaṭṭā` (hapax, chỉ có ở bài này, 2 khoá, chưa phân xử được), `3.4`/`7.4`/`8.4` `kurūrino` (chỉ tiền lệ `kurūrakammanta` ở các bài mn, an), `4.1` `vitaritvā`, `4.4`/`16.4` `dassayītumaṁ`, `31.2` `cūbhayaṁ`; `16.3` *ngạ quỷ ấy* giữ vì khớp nguyên văn `pv26:5.1` (cùng Pāli) và duy nhất người anh em đã xuất hiện trước đó; `18.4` *lại còn* giữ vì khớp `pv13:18.2`.
+  - Điểm đổi: `semantic_fidelity` 8.8 → 9.0, `terminology` 9.0 → 9.2; các tiêu chí còn lại giữ nguyên (`ambiguity_integrity` giữ 8.4 vì các hapax chính vẫn còn; `triangulation` giữ 7.5 vì không có tầng English độc lập). `final_score` 8.95 → 8.99. Blocker `noEnglishEditionUpstream` giữ nguyên.
+  - Technical gate chưa chạy ở lượt này; `technical_integrity` giữ 9.6. Còn phải chạy `npm run validate`, `npm test`, `npm run check` và `npm run build`.

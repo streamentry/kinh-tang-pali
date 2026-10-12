@@ -1,5 +1,5 @@
 uid: vv69
-status: review
+status: published
 translationTitle: "Chuyện Về Cảnh Giới Của Kẻ Ban Sự Hộ Trì Lần Thứ Hai"
 translators:
   - "OpenCode Space Bunny Free (agent)"
@@ -12,24 +12,24 @@ tags:
 quality:
   scores:
     source_provenance: 9.5
-    semantic_fidelity: 9.0
-    grammar_logic: 9.1
+    semantic_fidelity: 9.4
+    grammar_logic: 9.4
     segment_alignment: 10.0
-    terminology: 8.8
+    terminology: 9.4
     triangulation: 6.5
-    vietnamese_clarity: 9.0
+    vietnamese_clarity: 9.3
     han_viet_balance: 9.2
-    ambiguity_integrity: 8.8
+    ambiguity_integrity: 9.0
     technical_integrity: 9.6
-  final_score: 8.95
+  final_score: 9.13
   blocking_errors:
     - "Tầng English Sujato vắng mặt tại commit đã ghim (không có tệp upstream
       cho thư mục này) nên chưa đối chiếu được một bản Anh độc lập; validate đòi
       tầng này cho review và published, nên bài giữ draft dù đã dịch đủ mọi khoá
       từ Pāli root."
-  assessed_at: "2026-10-01"
+  assessed_at: "2026-10-13"
   assessed_by:
-    - "OpenCode Space Bunny Free (agent)"
+    - "Claude Sonnet 5.5 (Claude Code)"
   waiver:
     id: no-upstream-english
     blockers:
@@ -56,3 +56,16 @@ notes: |-
   **Không có bản Việt tham khảo** tại commit đã ghim (`translation/vi/` bilara chỉ có 26 tệp Pháp Cú).
 
   **`technical_integrity` 9,6** vì đợt này cấm `npm run validate|test|build`.
+
+  **Lượt cải thiện 2026-10-13** (đọc đối kháng từng khoá Pāli↔Việt, rồi đo tiền lệ trên tầng `kn/vv*`; 8/11 khoá đổi, `0.2`, `1.2`, `3.2` giữ).
+
+  - `3.1` — *accuracy fix*. Cũ: *Do tu pháp ấy, dung sắc dạng ấy,* — *tu pháp* không có trong Pāli (`Tena metādiso vaṇṇo` = *nhờ đó, dung sắc của tôi như thế này*; không có từ nào nói về tu tập). Mới: *Nhờ vậy tôi có được dung sắc như thế này,* — đúng công thức mà tầng dùng ở **57/64** khoá `Tena metādiso vaṇṇo` trong `kn` ngoài bài này (7 chỗ còn lại là biến thể *Do đó/Do nghiệp ấy…*, *ta* thay *tôi*). Tiêu chí đổi: `semantic_fidelity` 9.0 → 9.4.
+  - `1.1` — *accuracy fix*. Cũ: *Mặt trời y như bầu trời khi mây đã tan rã,* — đọc `suriyo yathā … nabhe` thành *mặt trời giống bầu trời*, sai cú pháp (`yathā` mở so sánh, `nabhe` là định vị cách *giữa bầu trời*). Mới: *Như mặt trời giữa bầu trời mây tan sạch,* — khớp đúng khoá song song `vv68:1.1` (*Như mặt trăng giữa bầu trời mây tan sạch,*). `grammar_logic` 9.1 → 9.4.
+  - `2.1` — *accuracy fix* (số). `purimavimānaṁ` là số ít, cũ dịch *những cảnh giới trước* (số nhiều). Mới: *(Phải được trình bày rộng ra giống như cung điện trước.)* — theo đúng khuôn các dòng ngoặc biên tập cùng loại ở `vv33:11.1`, `vv33:46.1`, `vv54:10.1` (*… phải được trình bày rộng ra giống như …*). Vẫn là chú thích biên tập trong ngoặc, không mở rộng nội dung.
+  - `0.4`, `4.1` — *terminology fix*. Cũ dùng *cảnh giới* cho `vimāna` và *kẻ ban sự hộ trì* cho `upassayadāyaka`. Đo trên toàn `kn/vv*`: `vimāna` ở khoá tiêu đề/kết được dịch *cung điện* 253 lần, *thiên cung* 100 lần, *lâu đài* 11 lần, và *cảnh giới* **4 lần — cả 4 đều ở chính bài này** (0 lần ở bài nào khác). `upassaya` được dịch *chỗ trú* ở `vv68:0.4`, `vv68:6.1` và `vv74:9.2` (*bố thí chỗ trú*), *chỗ trú ngụ*/*nơi trú ngụ* ở `ja524`, `ja546`. Bài này là bài song sinh của `vv68` (`Paṭhamaupassayadāyakavimāna` → *Thiên Cung Người Bố Thí Chỗ Trú Thứ Nhất*), nên mới: *5. Chuyện Thiên Cung Người Bố Thí Chỗ Trú Thứ Hai* và *Thiên Cung Người Bố Thí Chỗ Trú Thứ Hai, thứ năm.* — mọi lựa chọn cũ nêu ở phần trên (*cảnh giới thần*, *sự hộ trì*) bị thay vì không còn bám tiền lệ nào. `terminology` 8.8 → 9.4.
+  - `0.1` — *terminology fix*: *Chuyện về cảnh giới thần* → `Vimānavatthu`, đúng tên bộ như **84/84** bài `vv*` khác (các bài còn lại) giữ (tầng để nguyên tên bộ ở khoá `:0.1`). `0.3` — *Phẩm Hộ Trì* → *Phẩm Pāyāsi*: `Pāyāsi` là tên riêng (tên phẩm theo bài mở đầu), 9/9 bài `vv65`–`vv73` khác dùng *Phẩm Pāyāsi*; *Hộ Trì* là nghĩa tôi tự chọn từ từ điển, không có tiền lệ. Hai khoá này đưa bất định *Pāyāsi = hộ trì* trong phần trên về **không còn trong canonical text**; `ambiguity_integrity` 8.8 → 9.0 (nghĩa thật của `Pāyāsi` trong tên phẩm vẫn không phân xử được bằng căn cứ đã có).
+  - `3.3` — *clarity/style fix*: thêm *và* theo `ca` của Pāli (`Vaṇṇo ca me …`), *khắp bốn phương* → *khắp muôn phương* (đa số hẹp: *muôn phương* 31 khoá, *mọi phương* 26 khoá trong 57 khoá `Vaṇṇo ca me sabbadisā…` ngoài bài này; *bốn phương* 0 khoá), bỏ *rực rỡ* vì `pabhāsatī` là *chiếu sáng* và Pāli không có chữ tương ứng với *rực rỡ*. `vietnamese_clarity` 9.0 → 9.3.
+
+  **Điểm không đổi.** `triangulation` giữ 6.5 (vẫn không có bản Anh độc lập tại commit đã ghim; bản lấp English của dự án không tính). `han_viet_balance`, `segment_alignment`, `source_provenance`, `technical_integrity` giữ nguyên vì không có thay đổi tương ứng. Cặp Pāli trùng nguyên văn trong bài: `1.2`/`3.2` (`…pe…`) đều là `…`, 1 cặp, 0 lệch. Các đoạn cũ ở trên về thuật ngữ đặt mới (*cảnh giới thần*, *sự hộ trì*, *Hộ Trì*, *khắp bốn phương*) và lý do `draft` là lịch sử của lượt trước; lượt này đã thay chúng ở các khoá nêu, và **không** còn *cảnh giới* ở khoá nào của bài.
+
+  **Công cụ.** `npm run validate` · `npm test` · `npm run check` · `npm run build` chưa chạy trong lượt này (cấm chạy); `technical_integrity` vẫn 9,6.

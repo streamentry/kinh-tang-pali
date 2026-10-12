@@ -12,24 +12,24 @@ tags:
 quality:
   scores:
     source_provenance: 9.6
-    semantic_fidelity: 8.7
-    grammar_logic: 8.8
-    segment_alignment: 10
-    terminology: 9
-    triangulation: 7
-    vietnamese_clarity: 9
+    semantic_fidelity: 8.5
+    grammar_logic: 8.9
+    segment_alignment: 9.8
+    terminology: 8.8
+    triangulation: 7.5
+    vietnamese_clarity: 8.8
     han_viet_balance: 9.2
     ambiguity_integrity: 8.5
     technical_integrity: 9.6
-  final_score: 8.94
+  final_score: 8.92
   blocking_errors:
     - "Bài này KHÔNG có tầng english-sujato tại commit đã ghim: manifest chỉ
       liệt kê 84 bài ja* có bản Anh (ja1–ja79, ja126, ja159, ja466, ja534),
       không có ja195–ja211. Thiếu tầng tham khảo là lỗi chặn đối với
       review/published theo AGENTS.md, nên đặt draft."
-  assessed_at: "2026-10-01"
+  assessed_at: "2026-10-13"
   assessed_by:
-    - "OpenCode Space Bunny Free (agent)"
+    - "Claude Sonnet 5.5 (Claude Code)"
   waiver:
     id: no-upstream-english
     blockers:
@@ -88,3 +88,77 @@ notes: |-
   the Ones"*. Tầng này trước đợt sửa có **17** cách cho `Dukanipāta` và **6** cho
   `Asadisavagga`: đó là lý do các agent đợt trước đi theo đa số cục bộ rồi tự sinh cách
   mới. `terminology` giữ nguyên — đây là chuẩn hoá, không phải lỗi riêng của bài này.
+
+  Lượt cải thiện 2026-10-13 (đọc đối kháng từng khoá; đối chiếu tiền lệ bằng
+  số đếm trên tầng `kn/ja*`; Pāli root là căn cứ cuối). Đổi **8/13** khoá
+  (`1.1`–`1.4`, `2.1`–`2.4`); năm khoá tiêu đề/kết (`0.1`–`0.4`, `3.1`) giữ.
+  Bản trước có nhiều lỗi mà lượt chấm trước chưa bắt được, nên một số điểm cũ
+  bị hạ cho đúng thực tế, không phải vì bản mới kém đi.
+
+  - `2.1`–`2.2` (lỗi nặng nhất). Bản cũ «Kẻ xin xỏ ơi, ngươi cầu hai điều, nên
+    Somadatta đi tới chỗ không» đọc sai cú pháp: `yācanako` là CHỦ NGỮ của
+    `nigacchati`, còn `tāta` và `somadatta` là hai hô cách. Bài song song
+    `ja323:1.1–1.4` có CÙNG bốn dòng Pāli (chỉ khác hô cách `rāja, brahmadatta`)
+    và được dịch «Kẻ đi cầu xin sẽ gặp hai điều … bởi lẽ thói thường cầu xin là
+    vậy». Sửa thành «Này con, kẻ đi cầu xin gặp hai điều, / hỡi Somadatta;».
+    `nigacchati` = «gặp» theo đa số tiền lệ (`ja528:22.2`, `ja532:83.4`,
+    `ja536:113.3`); `tāta` = «này con» (hàng chục khoá trong `ja348`, `ja371`,
+    `ja377`, `ja381`, `ja477`…). Động từ «gặp» nằm ở `2.1`, hô cách Somadatta
+    đứng riêng ở `2.2` — cùng kiểu `ja323:1.1–1.2` đã dịch; vì thế
+    `segment_alignment` 10 → 9.8.
+  - `2.3`: «dù không được … hay được …» → «hoặc chẳng được gì, hoặc được tài
+    sản». `vā` là «hoặc»; dùng đúng chữ của `ja323:1.3` (Pāli trùng nguyên văn,
+    1/1 cặp trùng ngoài bài, bản cũ khác ở cả hai).
+  - `2.4`: «đó là đạo hạnh của sự cầu xin» → «bởi lẽ thói thường cầu xin là
+    vậy». `dhammā` ở đây là «bản chất/lẽ thường», không phải «đạo hạnh»; chữ
+    của `ja323:1.4`. `evaṁdhammā hi` còn ở `ja543:84.2/85.2` = «bản chất».
+  - `1.2`: bản cũ «ở nơi vắng vẻ Bīraṇathambha» làm MẤT `saṁvaccharaṁ` và bịa
+    nghĩa. Ghi chú cũ về «`saṃvicchara` = nơi vắng vẻ» là SAI: `saṁvaccharaṁ`
+    là «(suốt) một năm» (đối cách chỉ thời gian), cùng chữ với `ja524:27.1`
+    «suốt một năm». Sửa thành «suốt một năm ở Bīraṇathambhaka»; giữ tên riêng
+    nguyên hình có đuôi `-ka` của vị cách `bīraṇathambhakasmiṁ`.
+  - `1.3`: bản cũ «đã cầu, tìm cõi đời, bỏ khỏi đoàn thể» sai cả ba vế.
+    `byākāsi` = «đã đáp/nêu rõ» (`ja478:1.3` «chẳng đáp lời», `ja401` «giải
+    đáp»), không phải «cầu»; `parisaṁ vigayha` = «sau khi bước vào (giữa) hội
+    chúng», cùng mẫu `ja534:51.2` «khi bước vào hội chúng», `ja543:202.3`, chứ
+    không phải «bỏ khỏi đoàn thể». Sửa: «đã nêu rõ sự nhận biết, sau khi bước vào
+    giữa hội chúng».
+  - `1.4`: bản cũ «kẻ ít tuệ thì không được che chở» BỎ MẤT chủ ngữ `niyyamo`.
+    Cùng mẫu `ja497:22.4` «… không che chở được kẻ ít trí tuệ». Sửa: «sự tự chế
+    không che chở được kẻ ít trí tuệ».
+  - `1.1`: «buộc đòn gánh cho chắc, không cẩu thả» → «Đã luyện tập, thường xuyên
+    không phóng dật». `dhuvaṁ appamatto` = «thường xuyên không buông lung»
+    ở `ja307:1.3`; `appamatto` = «không phóng dật» là đa số (8/12 khoá có từ
+    này ngoài bài). «Đòn gánh» không có căn cứ trong từ `yogga`; bản cũ tự ghi «chưa
+    chắc».
+  - Đã bỏ đại từ «ông» ở `1.1`–`1.3`: `akāsi`/`byākāsi` là aorist mà dạng ngôi
+    thứ hai và thứ ba trùng nhau, nên chủ ngữ không phân xử được từ Pāli.
+  - Tầng tên của SuttaCentral (`ja-name:235.ja211`) ghi bài là «The Farmer's Son
+    Somadatta» — Somadatta là con người nông dân; không dùng để thêm vào lời kinh.
+
+  Điểm đổi: semantic_fidelity 8.7 → 8.5 (hạ: bản trước có lỗi nghĩa chưa bị bắt;
+  bản sau còn ba từ chưa phân xử); grammar_logic 8.8 → 8.9; segment_alignment
+  10 → 9.8; terminology 9 → 8.8; triangulation 7 → 7.5 (thêm đối chiếu với kệ
+  trùng nguyên văn `ja323` và các mẫu `ja307`, `ja478`, `ja497`, `ja534`,
+  `ja543`; vẫn không có bản Anh nên không vượt 8.0); vietnamese_clarity 9 → 8.8
+  (kệ cô đọng, `1.1`–`1.3` không có chủ ngữ); ambiguity_integrity 8.5 giữ;
+  technical_integrity 9.6 giữ. final_score 8.94 → 8.92.
+
+  **Bất định còn lại (không phân xử được, không đoán):** (1) `yoggaṁ` ở `1.1`:
+  chọn «luyện tập» (nghĩa «rèn tập, tập luyện» của `yoggaṁ karoti`), nhưng
+  `yogga` cũng có nghĩa «thú kéo xe/ách» (`ja545:29.3`, `ja538:79.1`); nếu bài
+  nói về việc cày kéo thì câu đổi nghĩa. (2) `saññaṁ` ở `1.3`: chọn «sự nhận
+  biết»; còn có thể là «dấu hiệu/ám hiệu». Không có bài song song cho tổ hợp
+  `saññaṁ byākāsi` trong `ja*` (toàn tầng chỉ 1 lần). (3) `niyyamo` ở `1.4`:
+  hiểu là `niyama` (giữ quy củ, tự chế); còn khả năng là `niyyāma` — không có
+  căn cứ phân xử, nên giữ nghĩa rộng. (4) Bīraṇathambhaka là tên làng, địa điểm
+  hay khóm lau: giữ nguyên tên. (5) Người nói và người nghe ở `1.1`–`1.3` không
+  xác định từ Pāli; nguồn tường thuật (văn xuôi chú giải) không nằm trong tầng
+  Pāli đã ghim. Hệ quả: `semantic_fidelity` và `ambiguity_integrity` không nâng.
+
+  **Blocker còn lại:** chỉ blocker «không có tầng english-sujato» (giới hạn
+  upstream); khối waiver giữ nguyên. Ghi nhận hộ: `ja220:0.3` và `ja220:3.2`
+  viết «Bīraṇathamba» (thiếu một `h`) trong khi 9 bài còn lại cùng phẩm viết
+  «Bīraṇathambha» — lỗi ngoài phạm vi bài này, chưa sửa. Cổng kỹ thuật
+  `npm run validate`, `npm test`, `npm run check`, `npm run build` chưa chạy
+  trong lượt này, nên `technical_integrity` giữ 9.6, không tuyên bố đã pass.

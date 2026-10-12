@@ -12,15 +12,15 @@ quality:
   scores:
     source_provenance: 9.4
     semantic_fidelity: 8.8
-    grammar_logic: 8.8
+    grammar_logic: 8.9
     segment_alignment: 10.0
-    terminology: 8.9
+    terminology: 9.0
     triangulation: 7.0
-    vietnamese_clarity: 9.0
+    vietnamese_clarity: 9.1
     han_viet_balance: 9.1
     ambiguity_integrity: 8.8
     technical_integrity: 9.6
-  final_score: 8.94
+  final_score: 8.97
   blocking_errors:
     - "noEnglishEditionUpstream: Không có tầng tham khảo tiếng Anh tại commit đã
       ghim: `source/upstream-manifest.json` chỉ liệt kê
@@ -33,7 +33,7 @@ quality:
       dịch chỉ từ Pāli root và đối chiếu tiền lệ nội bộ, bài bắt buộc `draft` và
       `triangulation` không quá 8,0. Đây là giới hạn upstream, không phải lỗi
       của người dịch."
-  assessed_at: "2026-10-10"
+  assessed_at: "2026-10-13"
   assessed_by:
     - "Claude Sonnet 5.5 (Claude Code)"
   waiver:
@@ -93,3 +93,16 @@ notes: |-
   **Coverage English (mục 7):** mẫu số = 0. 83 khoá không phải `:0.`; dài nhất sau khi nén khoảng trắng là 32 ký tự (< 40) nên 0/83 khoá có nội dung; đây là *cổng không đo được gì*, không phải *không cần ghi nhận*. Sujato: 0 tệp cho `bv28` (`english-sujato` chỉ có chín tiểu bộ cp dhp iti ja kp snp thag thig ud); `english-project`: 0 (không có tệp bv nào trong `content/translation/en/project/sutta/kn/`); `vietnamese-current`: 0 (chỉ Pháp Cú). Ba tầng đều vắng ⇒ `triangulation` 7,0 (≤ 8,0) và `status: draft` kèm blocker ở trên. Không đụng `content/meta/reference-gaps.yaml`.
 
   **technical_integrity = 9,6:** lát này cấm chạy cổng, nên không tuyên bố technical gate pass. Bốn lệnh còn lại do người điều phối chạy tập trung: `npm run validate` · `npm test` · `npm run check` · `npm run build`. `final_score` là trung bình số học thô của đúng 10 tiêu chí, tính bằng script.
+
+  **Lượt cải thiện 2026-10-13.** Đọc đối kháng lại cả 85 khoá cặp Pāli↔Việt, đo lại tiền lệ trên toàn tầng (Pāli trùng chuẩn hoá bỏ dấu câu và chữ hoa, trừ chính bài). Đổi 4 khoá trên 85 (không đổi tập khoá, thứ tự hay dấu nháy):
+  - `4.3`, `6.3`, `9.3` `Tesampi antarā kappā`: “Các kiếp ở giữa hai vị ấy cũng,” → “Các kiếp ở giữa hai vị ấy cũng vậy,”. Lỗi ngữ pháp và dấu câu: phó từ “cũng” bị ngăn khỏi vị ngữ “không thể đếm hết” (ở khoá sau) bằng dấu phẩy, đọc như câu cụt. “cũng vậy” giữ nguyên `pi` (“cũng”), không thêm ý; 3 khoá trùng nguyên văn nhau nên đổi giống nhau. Chỉ có 4 khoá cả tầng Việt kết bằng “cũng,” hoặc “cũng;” — 3 khoá này và `thi-ap17:169.1` (ngoài phạm vi, không sửa). Điểm đổi: `grammar_logic` 8.8 → 8.9, `vietnamese_clarity` 9.0 → 9.1.
+  - `20.4` `nibbutā te sasāvakā`: “cùng hàng đệ tử” → “cùng các đệ tử”. Lệch tiền lệ: Pāli `sasāvak-` dịch “cùng các đệ tử” 25 khoá, “với các đệ tử” 3, “cùng hội chúng đệ tử” 2, “hàng đệ tử” 0 khoá; riêng đúng kiểu kết bài `nibbuto so sasāvako` (`bv18:23.4`, `bv22:26.4`, `bv26:48.4`, `thi-ap27:10.4`) đều viết “cùng các đệ tử đã nhập Niết-bàn”. Điểm đổi: `terminology` 8.9 → 9.0.
+  - Điểm không đổi: `semantic_fidelity` 8.8 và `ambiguity_integrity` 8.8 (bất định thật ở `20.1`–`20.4`, `11.1`, `19.2` vẫn còn, xem trên); `triangulation` 7.0 (ba tầng tham khảo vẫn vắng); `source_provenance` 9.4; `segment_alignment` 10.0; `han_viet_balance` 9.1; `technical_integrity` 9.6 (không có lỗi kỹ thuật mới; bốn lệnh `npm run validate` · `npm test` · `npm run check` · `npm run build` vẫn do người điều phối chạy).
+
+  **Đính chính số đo ở các mục trên (đo lại 2026-10-13, tầng Việt hiện có).**
+  - Trùng nguyên văn trong tầng: 30 khoá của bài có Pāli trùng khoá đã dịch ở bài khác (637 cặp), không phải 14. Trong 30 khoá: 24 khoá dùng đúng dạng đứng đầu; 6 khoá khác dạng đứng đầu có lý do: `1.1`, `10.1` (chiều thời gian, xem dưới), `3.1` (tiền lệ `bv3:14.3` “Của Đức Thế Tôn Dīpaṅkara,” là sở hữu cách đứng một mình trong câu khác; ở đây hai khoá sau mới có chữ “ở giữa”, nên không thêm “Của”), `6.2` (hai tiền lệ ở `tha-ap` đứng sau “Vào lúc ấy Đức Thế Tôn,”; ở đây cùng khung “Sau Sobhita, có …” như `2.2`, `4.2` đã dùng “có”), `9.2` (tiền lệ ở `bv12` là “nơi/của bậc Đạo Sư Padumuttara”, ngữ cảnh khác; ở đây thêm “và” nối với `9.1` như `3.2` có `ca`), `16.2` (4/5 tiền lệ ở `thi-ap`, `tha-ap` đứng trước vị ngữ “đã xuất hiện” ở khoá sau; ở đây khoá sau là `Sopi buddho kāruṇiko` không có động từ nên cần “đã có”).
+  - `2.4`, `8.4` `tāresi janataṁ bahuṁ`: có 34 khoá Pāli trùng (không phải một), 32 khoá đúng nguyên văn “vị ấy đã đưa đông đảo mọi người vượt qua.” — khoá của bài khớp 32/34 đúng dạng đa số; mục lý giải “không lấy tiền lệ `tha-ap343:1.4`” ở trên là lập luận cũ, nay thay bằng số đếm này.
+  - `vināyaka` → “bậc Điều Ngự”: ngoài danh từ ở `thi-ap`, `tha-ap`, `bv`, `thag4.6`, `vv16` còn rất nhiều khoá khác; đếm lại khoảng 40 khoá danh từ `vināyak-` dùng “Điều Ngự” so với cỡ 12 khoá dùng “Hướng Đạo”, “Dẫn Dắt”, “Hướng Dẫn”, “Dẫn Đường”, “Lãnh Đạo”, “Đấng Điều Phục” (chưa tính 8 khoá `mn85` dùng `vināyaka` chỉ Đức Như Lai như vai trò “hướng dẫn”); điều này làm yếu đi nhận định “điểm yếu nhất về thuật ngữ” ở trên: “Điều Ngự” là đa số rõ.
+  - `1.1` `Aparimeyyito kappe`: bản ghi trước không nêu khoá này trong các khoá trùng. Có 9 khoá trùng (`bv2:61.3`, `bv4:11.3`, `bv5:12.3`, `bv6:18.3`, `bv7:12.3`, `bv8:13.3`, `bv9:14.3`, `bv10:13.3`, `bv11:15.3`), cả 9 dịch “Sau vô lượng kiếp nữa,” vì là lời thọ ký hướng về tương lai (“sẽ trở thành Đức Phật”). Ở đây động từ là `āsuṁ` (quá khứ) nên hướng thời gian ngược lại; giữ “Vào vô lượng kiếp trước đây,”, cùng họ với `thi-ap30:44.1`, `thi-ap28:60.1` `Aparimeyye ito kappe` “Vào vô lượng kiếp trước,”. Cùng lý do cho `10.1` `Kappasatasahassamhi`: 25 khoá trùng đều là thọ ký tương lai (“Sau/Vào một trăm ngàn kiếp nữa, sinh ra trong dòng họ Okkāka”), không có khoá nào hướng quá khứ để lấy; đoạn ghi cũ “5 dạng 3/3/2/1/1” ít chính xác, nay không dạng nào dùng được nguyên văn.
+  - `7.4` `tamantakārakā`: vẫn không có tiền lệ cho đúng từ. Căn cứ phụ mới: vế `-antakara`/`-antakāraka` ở `dukkhassantakara` có 84 khoá trong tầng, phần lớn dịch “chấm dứt khổ” (31 khoá “ngay trong hiện tại là người chấm dứt khổ”, 7 “làm chấm dứt khổ”, `mn71:13.1`); `dn16:4.3.9` dịch “làm tận cùng khổ”. Vì vậy “chấm dứt bóng tối” theo cấu tạo `tama` + `antakāraka` có cơ sở hơn trước, nhưng đây vẫn là phép suy từ cấu tạo từ, không phải tiền lệ của chính từ này; không đổi khoá và không hạ bất định.
+  - Không đổi dù nghi ngờ: `11.4`/`13.1` “sau Padumuttara”, “Và sau Sujāta” (đọc `orato` theo thứ tự thời gian, đã nêu ở bất định 4); `19.3` “Cả năm vị Phật này” (“Cả” diễn `etepime` nhấn mạnh); `10.3` có “Đức” (12/13 tiền lệ).
