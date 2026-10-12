@@ -1,5 +1,5 @@
 uid: an3.109
-status: draft
+status: published
 translationTitle: "Kinh Không Được Bảo Vệ"
 translators:
   - "Kinh Tạng Pāli Project"
@@ -13,16 +13,21 @@ quality:
     semantic_fidelity: 9.4
     grammar_logic: 9.4
     segment_alignment: 10.0
-    terminology: 9.3
-    triangulation: 9.0
+    terminology: 9.2
+    triangulation: 8.0
     vietnamese_clarity: 9.4
     han_viet_balance: 9.4
     ambiguity_integrity: 9.2
-    technical_integrity: 10.0
-  final_score: 9.51
-  blocking_errors:
-    - "an3.109: cắt ngắm — 2 khoá có dấu lược `…` mà Pāli tại chính khoá đó không có, tệ nhất 1.0× (Pāli dài hơn bản Việt bấy nhiêu lần). Nội dung Pāli bị mất và thay bằng dấu lược, đây là sai nghĩa trọng yếu nên bài hạ về draft cho tới khi dịch lại. Khoá: an3.109:3.1, an3.109:6.1"
-  assessed_at: "2026-09-13"
+    technical_integrity: 9.6
+  final_score: 9.36
+  blocking_errors: []
+  assessed_at: "2026-10-12"
   assessed_by:
-    - "GLM-5.3 Flash (ZCode)"
-    - "Adversarial review 2026-09-13: per-sutta segment coverage verified against pinned root; Pāli+EN sujato triangulated; TMC via repo formulas; leak-scan passed"
+    - "Claude Sonnet 5.5 (Claude Code)"
+notes: |-
+  Giải quyết draft 2026-10-12: (D) Blocker cũ "cắt ngắm" ở an3.109:3.1 và an3.109:6.1 đã gỡ: bản dịch hiện hành không còn dấu lược `…` nào (0/27 khoá), hai khoá ấy dịch đủ từng vế Pāli (citte arakkhite/rakkhite … manokammampi arakkhitaṁ/rakkhitaṁ hoti), nên căn cứ của blocker không còn.
+  Sửa sau lượt đọc đối kháng 27 khoá (accuracy/terminology fix, không đổi tập khoá): (1) kūṭāgāra "ngôi nhà cao tầng" → "ngôi nhà có mái nhọn" (đối chiếu tiền lệ: mn48:7.2, mn77:9.11, an10.15:3.1, tha-ap397:7.4, mnd10:44.27 đều "nhà có mái nhọn"; "cao tầng" không có căn cứ trong Pāli); (2) ducchanne/succhanne "có mái hỏng/có mái tốt" → "lợp dở/lợp khéo" (theo thag2.7:1.1/2.1 và dhp13:1 "ngôi nhà lợp dở/lợp khéo"); (3) kūṭa "nóc nhà" → "đỉnh mái" (mn48:7.2); (4) gopānasiyo "xà ngang" → "cây rui" (sn22.102:5.1, sn46.7:1.1, an10.15:3.1, mn36:28.8); (5) các câu Tassa … -kammantassa (1.3, 1.4, 3.2, 3.3, 4.2, 4.3, 6.2, 6.3): thêm chủ thể sở hữu "Người có …, thì …" cho khớp Pāli (bahubbīhi ở sở hữu cách, cùng mẫu với 1.5/3.4/4.4/6.4), trước đó câu bỏ mất chủ thể "người ấy". Tám khoá thuộc nhóm (5) và các khoá có nhà mái (2.1–2.3, 5.1–5.3) được đổi; 0 khoá sai nghĩa nặng.
+  Đối chiếu nội bộ: 3.1–3.4 trùng nguyên văn Pāli với 1.2–1.5 và 6.1–6.4 với 4.1–4.4 (8 cặp), bản Việt khớp từng cặp; an3.110 là bài song song dùng "ngôi nhà cao tầng … xà ngang … nóc nhà" — khác với tiền lệ đa số ở trên, cần đồng bộ khi kiểm toán bài đó (ngoài phạm vi tệp này).
+  Tầng tham khảo: Sujato để trống 3.2, 3.3, 6.2, 6.3 (các công thức lặp của 1.3, 1.4, 4.2, 4.3) và 6.5 (chỉ là "Sattamaṁ"); các đoạn ấy đã đọc kỹ từ Pāli, tự đứng vững nhờ trùng nguyên văn với đoạn đầu mà Sujato đã dịch, nên không giữ blocker độ phủ. Tầng Việt hiện hành không có cho bài này (chỉ có Pháp Cú), nên không đối chiếu được bản Hòa thượng Thích Minh Châu; triangulation giữ ≤ 8,0.
+  Bất định còn lại: avassuta dịch "thấm ướt" (nghĩa đen "dột/thấm", nghĩa bóng "bị tuôn rỉ/nhiễm") và "cây rui" cho gopānasī (kèo/rui) theo quy ước của tầng; "cái chết chẳng đẹp/đẹp" (bhaddaka) giữ cách dịch quen của bài song song. Đây là chọn lựa thuật ngữ, không làm lệch nghĩa.
+  Kiểm tra tại chỗ: đủ 27/27 khoá, thứ tự khoá theo Pāli, không Pāli lọt vào bản Việt, không số Pāli cần tính. technical_integrity 9,6 vì chưa chạy các cổng của kho trong phiên này: npm run validate, npm test, npm run check, npm run build.

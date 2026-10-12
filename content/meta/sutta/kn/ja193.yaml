@@ -11,20 +11,20 @@ quality:
   scores:
     source_provenance: 8.0
     semantic_fidelity: 8.6
-    grammar_logic: 8.4
+    grammar_logic: 9.0
     segment_alignment: 10.0
-    terminology: 8.4
+    terminology: 8.8
     triangulation: 7.0
     vietnamese_clarity: 8.8
     han_viet_balance: 9.2
     ambiguity_integrity: 8.6
     technical_integrity: 9.6
-  final_score: 8.66
+  final_score: 8.76
   blocking_errors:
     - "Thiếu tầng tham khảo: tại commit đã ghim không có tệp nào cho `ja193` trong `translation/en/sujato/sutta/kn/ja/`. Không đối chiếu được English nào, nên `draft` bất kể điểm."
-  assessed_at: "2026-10-02"
+  assessed_at: "2026-10-12"
   assessed_by:
-    - "OpenCode Space Bunny Free (agent)"
+    - "Claude Sonnet 5.5 (Claude Code)"
 notes: |-
   **Blocker thật: không có tầng Anh.** Không có `ja193_translation-en-sujato.json` trong `kn/ja/` tại commit đã ghim. Tôi dịch từ Pāli một mình và đặt `draft`; không tự nâng điểm để né. Vì vậy `:1.3`–`:1.4` (câu khó nhất của bài) chỉ đứng được trên Pāli, và tôi hạ `semantic_fidelity`/`ambiguity_integrity` xuống vì lý do đó.
 
@@ -51,3 +51,13 @@ notes: |-
   the Ones"*. Tầng này trước đợt sửa có **17** cách cho `Dukanipāta` và **6** cho
   `Asadisavagga`: đó là lý do các agent đợt trước đi theo đa số cục bộ rồi tự sinh cách
   mới. `terminology` giữ nguyên — đây là chuẩn hoá, không phải lỗi riêng của bài này.
+
+  **Giải quyết draft 2026-10-12.** Đọc đối kháng lại cả 13 khoá từ Pāli; **8/9 khoá kệ có lỗi nghĩa thật** (`:1.1`–`:2.4`) nên đã viết lại. Các mục cũ ở trên về *"Cú pháp `:1.1`–`:1.2`"* (người nói là nữ, "các chị", *bị túm lấy tay*) và *"Bất định đã ghi"* (`komārapatī` = *vợ của kẻ cưới vợ từ thuở nhỏ*, `māman` = *vợ*, *kẻ đáng thương*, *dùi gỗ*, *bị đưa đến cõi lành xấu*) **bị thay thế hoàn toàn** bởi mục này; phần thuật ngữ `Ruhakavagga`/`Dukanipāta` đã được người điều phối chuẩn hoá và không đổi ở đây.
+
+  **Các lỗi đã sửa.** (1) `hatthacchinno` = *bị chặt tay* (hattha + chinna), không phải *bị túm lấy tay*; khớp `mil2:8.7` *"bị chặt tay"* và cụm `hatthampi chindante` trong `mn13`/`an4.121` (*chặt tay*). (2) `komārapatī` là *chồng thuở thiếu thời* và `mamaṁ` là *của tôi* (không phải *vợ*); `yamāha` là mệnh đề quan hệ có chủ ngữ số ít ngôi ba *(nàng ấy) nói* — "các chị" là bịa. (3) Khoá `:1.4` bản cũ **bỏ mất** `vajjhitthiyo` (= `vajjhā itthiyo`, *phụ nữ đáng bị xử tử*) và chêm *"như thế"*; nay dịch đủ hai vế. Độ nghịch của vế này được củng cố bởi `:2.4` `jīvantiyā` *khi nàng còn sống*: người đàn ông bị giết, người nữ thì bị cắt tai mũi nhưng còn sống. (4) `musala` = *chày* (3 tiền lệ đúng nghĩa: `ja286:2.4`, `ja512:25.3`, `ja530:29.3`), không phải *dùi gỗ*; `hantvā` sau `musalena` = *đập chết* (bản cũ chỉ *đánh*). (5) `jammaṁ` = *thấp hèn* (**4/4** tiền lệ đúng khoá gần nhất: `ja474:9.2`, `ja497:3.4`, `ja497:8.4`, `ja533:65.3`), không phải *đáng thương*; `luddaṁ` = *tàn nhẫn* (`ja522:28.2`), `chavaṁ` = *đê tiện*, `paradārūpaseviṁ` = *lui tới với vợ người* (khớp `ja535:62.1`). (6) `imissā ca naṁ pāpapatibbatāya jīvantiyā` là ba từ giống cái sở hữu cách cùng chỉ *người nữ này* (`naṁ` chỉ là tiểu từ), tức *người nữ này, kẻ thủy chung với chồng một cách xấu ác, khi nàng còn sống* — bản cũ hiểu `pāpapatibbatāya` là *bị đưa đến cõi lành xấu*, sai hẳn. (7) `kaṇṇanāsaṁ` = *tai và mũi* (bản cũ đảo *mũi tai*).
+
+  **Ranh khoá và nháy.** Bản cũ cắt `:1.3`/`:1.4` lệch (mở nháy đơn ở `:1.3`, đóng ở `:1.4`) trong khi Pāli mở và đóng `‘…’` trong chính `:1.3`; nay trọn trong `:1.3`. Mọi vế đứng đúng khoá Pāli của nó.
+
+  **Blocker còn lại (loại A) giữ nguyên:** Sujato không có bài này tại commit đã ghim; đó là sự thật về upstream, để waiver của người biên tập xử lý. Không có blocker loại B/C/D: tầng English và Việt hiện hành không có hẳn nên không phát sinh gap từng đoạn; `triangulation` giữ 7,0 (không có bản đối chiếu độc lập nào).
+
+  **Bất định còn lại (không đưa vào thân kinh).** (a) Người nói và bối cảnh không nằm trong lớp Pāli root của bài (chỉ có hai bài kệ và dòng kết); tôi dùng *"tôi"* trung tính cho ngôi một thay vì *"ta"* hay xưng hô của riêng ai. (b) `komārapatī` có thể là *chồng thuở thiếu thời* hoặc *chồng đầu tiên*; tôi giữ *thuở thiếu thời* sát từ gốc `komāra`. (c) `yamāha` có thể là *(người) mà nàng nói là* hoặc *điều nàng nói là*; hai cách đọc cho cùng nghĩa. (d) `pāpapatibbatāya`: *một cách xấu ác* (tính từ ghép của `patibbatā`) là cách đọc tôi chọn; cách hiểu *thủy chung với kẻ xấu* không bị loại hẳn bằng lớp Pāli. `technical_integrity` giữ 9,6: không chạy `npm run validate` · `npm test` · `npm run check` · `npm run build`. Kiểm tra: 13/13 khoá khớp Pāli, thứ tự khoá đúng, nháy đơn và nháy kép khớp từng khoá, không có dấu lược, không Pāli lọt sang bản Việt, không cặp Pāli trùng nội bộ.

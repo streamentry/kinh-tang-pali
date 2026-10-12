@@ -26,7 +26,7 @@ quality:
   blocking_errors:
     - "noEnglishEditionUpstream: Thiếu bản dịch tiếng Anh đối chiếu. Tầng english-sujato tại commit đã ghim không có ja514_translation-en-sujato.json (ja chỉ có 83 tệp; đây là not-published-upstream, không phải not-synced), tầng vietnamese-current chỉ có Pháp Cú và lớp lấp english-project không có tệp cho bài này. Cả ba tầng tham khảo đều vắng nên triangulation bị chặn ở 7.5 (≤ 8.0) và bài giữ draft."
     - "unresolvedTerm: Khoá ja514:40.1 có từ anāvasūraṁ không xác lập được nghĩa (toàn Pāli đã ghim chỉ có một lần, không có tầng đối chiếu nào, không có ngữ cảnh đủ để suy). Bản Việt cố ý không dịch từ này thay vì đoán; cần người biên tập phân xử trước khi publish."
-  assessed_at: "2026-10-11"
+  assessed_at: "2026-10-12"
   assessed_by:
     - "Claude Sonnet 5.5 (Claude Code)"
 notes: |-
@@ -71,3 +71,7 @@ notes: |-
     5. Số Pāli: xem trên.
     NFC đạt, không khoá rỗng, không khoảng trắng thừa; Pāli lọt sang tiếng Việt chỉ là tên riêng (`Jātaka`, `Suvaṇṇapassa`, `Kāsi`, `Subhaddā`, `Devadatta`, `Chaddanta`, `kimpurisa`, `kinnara`). Đã in cặp Pāli↔Việt ra đọc toàn bài (175 cặp).
   - Công cụ kiểm của kho chưa chạy ở bước này, nên `technical_integrity` đặt 9.6 và không tuyên bố technical gate pass; còn phải chạy: `npm run validate`, `npm test`, `npm run check`, `npm run build`.
+  - Giải quyết draft 2026-10-12:
+    Đọc lại đối kháng toàn bài (175 cặp Pāli↔Việt) từ Pāli, không có bản Anh hay Việt đã ghim để đối chiếu. Sửa 3 khoá: `10.2` và `19.2` bỏ chữ "xuống" ("nhìn xuống chân núi" → "nhìn chân núi"), vì `olokaya`/`olokayī` chỉ là "nhìn, quan sát" (tiền lệ tầng: `cnd20:25.5`, `mil2:10.3` không có nghĩa hướng xuống) và `pabbatapādamūlaṁ` là "chân núi", Pāli không nói hướng nhìn; `29.2` bỏ chữ "tên" trước `subhaddā` ("bà … tên Subhaddā" → "bà … rất cát tường"): Pāli ghi `subhaddā` viết thường (tên riêng trong tầng này viết hoa: `Kāsi`, `Suvaṇṇapassa`, `Devadatto`), cùng kiểu với `sabbabhaddaṁ` ở `17.4`/`34.4` vốn đã dịch là tính từ, nên không có căn cứ để khẳng định đây là tên riêng; cách đọc tên riêng (Subhaddā) vẫn có thể đúng, chưa phân xử được từ Pāli đã ghim. Lỗi nghĩa thật: 3/175 khoá (2 khoá thêm hướng nhìn không có trong Pāli, 1 khoá khẳng định tên riêng không có căn cứ trong Pāli).
+    Blocker `noEnglishEditionUpstream`: giữ nguyên (sự thật về upstream, thuộc diện waiver `no-upstream-english` của người biên tập). Blocker `unresolvedTerm` (`40.1` `anāvasūraṁ`): thử giải quyết và KHÔNG giải được, nên GIỮ. Đã quét toàn Pāli đã ghim (mọi bộ): `anāvasūraṁ` chỉ xuất hiện đúng một lần, ở chính khoá này; không có dạng gần (`avasūra`, `āvasūra`) ở bất kỳ nơi nào; không có bài song song, không có mục glossary, tầng Anh không có `ja514`, không có bản Việt nguyên bài cho `ja514` trong kho tra cứu toàn văn. Cũng không phân tích được từ cấu tạo (`an-` + `āvasūra` không có gốc nào xác lập). Vì vậy không đoán nghĩa; khoá `40.1` tiếp tục chỉ dịch phần chắc (`cirarattasaṁsitaṁ`), và `40.2` đọc cùng mạch là hành trạng xưa được tán thuật từ lâu. Ngoài ra `14.2` `uddhañca` chưa giải, vẫn không dịch từ này (xem trên) vì nghĩa không đủ căn cứ; câu vẫn đứng được từ phần chắc và không đổi giáo nghĩa.
+    Điểm giữ nguyên so với lượt 2026-10-11 (không thay đổi nghĩa đáng kể; `triangulation` vẫn ≤ 8.0 do thiếu bản Anh độc lập); bài vẫn `draft` vì còn blocker.

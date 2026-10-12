@@ -1,5 +1,5 @@
 uid: an3.124
-status: draft
+status: published
 translationTitle: "Kinh Tranh Cãi"
 translators:
   - "Kinh Tạng Pāli Project"
@@ -10,19 +10,32 @@ tags:
 quality:
   scores:
     source_provenance: 10.0
-    semantic_fidelity: 9.4
-    grammar_logic: 9.4
+    semantic_fidelity: 9.2
+    grammar_logic: 9.3
     segment_alignment: 10.0
-    terminology: 9.3
-    triangulation: 9.0
-    vietnamese_clarity: 9.4
-    han_viet_balance: 9.4
-    ambiguity_integrity: 9.2
-    technical_integrity: 10.0
-  final_score: 9.51
-  blocking_errors:
-    - "an3.124: cắt ngắm — 2 khoá có dấu lược `…` mà Pāli tại chính khoá đó không có, tệ nhất 0.8× (Pāli dài hơn bản Việt bấy nhiêu lần). Nội dung Pāli bị mất và thay bằng dấu lược, đây là sai nghĩa trọng yếu nên bài hạ về draft cho tới khi dịch lại. Khoá: an3.124:1.8, an3.124:2.8"
-  assessed_at: "2026-09-13"
+    terminology: 9.0
+    triangulation: 8.5
+    vietnamese_clarity: 9.2
+    han_viet_balance: 9.3
+    ambiguity_integrity: 9.0
+    technical_integrity: 9.6
+  final_score: 9.31
+  blocking_errors: []
+  assessed_at: "2026-10-12"
   assessed_by:
-    - "GLM-5.3 Flash (ZCode)"
-    - "Adversarial review 2026-09-13: per-sutta segment coverage verified against pinned root; Pāli+EN sujato triangulated; TMC via repo formulas; leak-scan passed"
+    - "Claude Sonnet 5.5 (Claude Code)"
+notes: |-
+  Giải quyết draft 2026-10-12 (thay thế lượt chấm 2026-09-13 của GLM-5.3 Flash; blocker cũ "cắt ngắm" đã gỡ).
+  Blocker cũ (loại D, nay đã sai thực tế): "cắt ngắm — 2 khoá có dấu lược … mà Pāli không có" ở `an3.124:1.8` và `an3.124:2.8`. Đọc lại hai khoá: bản Việt không có dấu `…` nào; Pāli `1.8`/`2.8` là danh sách ba tầm đầy đủ và bản Việt dịch đủ ba mục. Nội dung không bị cắt; blocker đã gỡ. (Ở bản Sujato, hai khoá này có `…` ở cuối, đó là chuyện của bản Anh, không phải của bản Việt.)
+  Đọc đối kháng toàn bài, sửa các lỗi nghĩa thật (20 khoá đổi nội dung trên 28; lỗi nghĩa thật là đảo vế ở `2.1`/`2.10` và `vivāda` ở `1.1`/`1.10`, còn lại là thuật ngữ/câu chữ):
+  1) accuracy: `2.1`/`2.10` bị đảo vế. Pāli `gantumpi me esā disā phāsu hoti, pageva manasi kātuṁ` = ngay cả ĐI ĐẾN cũng êm ả, huống chi là NGHĨ ĐẾN; bản cũ viết ngược "nghĩ đến … huống chi là đến đó" (bản Anh Sujato cũng ghi "going … let alone thinking"). `1.1`/`1.10` (`manasi kātumpi … pageva gantuṁ`) giữ đúng thứ tự nghĩ đến → đến đó.
+  2) accuracy: `vivādāpannā` bị dịch thành "giẫy già" — trong kho "giẫy già" là chữ của `viggaha` (an10.41: tranh chấp · cãi vã · giẫy già · tranh luận), còn `vivāda` là "tranh luận" (an10.41; dn33; ud6.4). Sửa thành "rơi vào tranh luận"; `bhaṇḍanajātā kalahajātā` → "sinh ra tranh chấp, sinh ra cãi vã" (`jāta` = đã sinh khởi; cùng kiểu dn33:1.6.2).
+  3) accuracy/terminology: `vitakka` đang dịch "tưởng" — lẫn với `saññā` (an6.74, an6.75 giữ hai thuật ngữ khác nhau trong cùng danh sách). Đo tiền lệ trên khoá có `(kāma|nekkhamma|byāpāda|abyāpāda|vihiṁsā|avihiṁsā)vitakka` mà Pāli không có `saññ`: 79 khoá dùng "tầm", 58 dùng "suy nghĩ/tư duy/tư tưởng", chỉ 12 khoá (6 tệp: an10.60, an3.101, an3.124, an3.40, an5.140, sn14.12) dùng "tưởng". Chọn "tầm dục, tầm sân, tầm hại" / "tầm xuất ly, tầm không sân, tầm không hại" — đúng khuôn dn33:1.10.13/15, sn9.11:1.3, sn22.80:8.2. Cũng bỏ "sát hại" cho `vihiṁsā` (nặng hơn Pāli) → "hại".
+  4) accuracy: `mukhasattīhi vitudantā` bản cũ "dùng lời nhọn sắc đâm chỉ trích lẫn nhau" (lủng củng, thêm "chỉ trích") → "đâm chọc lẫn nhau bằng những lời như giáo nhọn" (dn29:1.4, dn33:1.6.2; Sujato "barbed words").
+  5) accuracy: `addhā` "rõ ràng" → "chắc chắn" (an9.33:1.3…, 8 khoá tiền lệ); `bahulamakaṁsu` "tu tập nhiều" → "thực hành nhiều" (nghĩa đen "đã làm nhiều"; "tu tập" mang nghĩa bhāvanā nên không hợp khi đối tượng là tầm dục/sân/hại); `Niṭṭhamettha gacchāmi` "Ta kết luận về họ" → "Trong trường hợp này, Ta đi đến kết luận" (`ettha` chỉ trường hợp này, không có "họ" trong Pāli; "đi đến kết luận" đúng tiền lệ an4.158, an4.180).
+  6) accuracy: bỏ "như vậy" thêm vào sau "an trú" (Pāli không có `evaṁ` ở đây); `viharanti` → "mà sống". `avivadamānā` "không tranh luận" → "không tranh cãi" (mn31:6.1, mn128:11.1, an5.54:9.1…).
+  Khoá lặp giữ đồng nhất với nhau: `1.1`=`1.10`, `1.2`=`1.11`, `2.1`=`2.10`, `2.2`=`2.11`, `1.3`=`2.3` (Pāli trùng nguyên văn; 0 cặp trùng mà Việt khác nhau); `1.5`=`2.8` và `1.8`=`2.5` đối xứng nhau.
+  Giữ nguyên: tiêu đề (bhaṇḍana "tranh cãi" — kho không có tiền lệ khác cho tên kinh này), `phāsu` "êm ả" (an3.26:2.5 cùng mẫu), `khīrodakībhūtā` "hòa tan như sữa với nước", `piyacakkhūhi` "đôi mắt thương mến" (an3.95:4.2), "Thứ hai." (cùng nhóm an3.123/125).
+  Giới hạn tham chiếu: bản Anh Sujato có file nhưng để trống 7 khoá (`1.6`, `1.9`, `1.10`, `2.6`, `2.9`, `2.10`, `2.13`) — đều là câu lặp nguyên văn các khoá đứng trước hoặc dòng kết; đã đọc từ Pāli và đối chiếu với khoá gốc tương ứng trong chính bài. Tầng Việt hiện hành (`vietnamese-current`) chỉ có Pháp Cú nên không có bản đối chiếu Thích Minh Châu trong store. Vì vậy `triangulation` = 8,5.
+  Việc cần làm ngoài tệp này (không sửa ở đây): `an3.123:3.6`, `an3.123:5.6`, `an3.101`, an3.40, an5.140, an10.60 (đo ở khoá có `vitakka`) còn "tưởng" cho `vitakka`; `an3.95:3.2`, `an10.50:1.2/3.1/3.2` dùng "giẫy già" cho `vivāda`, "đâm chỉ trích" cho `mukhasattīhi`.
+  technical_integrity = 9,6: không được chạy cổng; `npm run validate`, `npm test`, `npm run check` và `npm run build` chưa chạy trong lượt này (kiểm khoá/tập khoá/dấu nháy/lược `…` bằng kiểm tra riêng đều đạt, 28/28 khoá khớp Pāli).
