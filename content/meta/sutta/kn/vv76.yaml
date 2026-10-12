@@ -11,16 +11,16 @@ tags:
 quality:
   scores:
     source_provenance: 9.5
-    semantic_fidelity: 9.3
-    grammar_logic: 9.3
+    semantic_fidelity: 8.8
+    grammar_logic: 9.2
     segment_alignment: 10.0
-    terminology: 9.2
+    terminology: 8.8
     triangulation: 7.5
-    vietnamese_clarity: 9.3
-    han_viet_balance: 9.4
-    ambiguity_integrity: 9.2
+    vietnamese_clarity: 9.2
+    han_viet_balance: 9.3
+    ambiguity_integrity: 9.0
     technical_integrity: 9.6
-  final_score: 9.23
+  final_score: 9.09
   blocking_errors:
     - "Không có tầng tham khảo tiếng Anh tại commit đã ghim: tệp
       `translation/en/sujato/sutta/kn/vv/vv76_translation-en-sujato.json` không
@@ -37,9 +37,9 @@ quality:
       Pāli root ⇒ blocker thật, và đây là **giới hạn upstream**, không phải lỗi
       của người dịch. Vì vậy `triangulation` bị chặn ở 7.5 (≤ 8.0) chứ không
       nâng để né blocker."
-  assessed_at: "2026-10-03"
+  assessed_at: "2026-10-11"
   assessed_by:
-    - "OpenCode Space Bunny Free (agent)"
+    - "Claude Sonnet 5.5 (Claude Code)"
   waiver:
     id: no-upstream-english
     blockers:
@@ -63,3 +63,15 @@ notes: |-
   Đối chiếu văn cảnh và chú giải để xác định ngữ nghĩa các từ cổ và cấu trúc đối thoại.
   Bảo toàn niêm luật kệ ngôn / cấu trúc văn xuôi, danh từ riêng giữ nguyên ký tự Pāli có dấu phụ.
   Toàn bộ 25 khoá được kiểm tra cẩn thận về phân đoạn, cân bằng dấu ngoặc kép và chuẩn hóa Unicode NFC.
+
+  Kiểm toán độc lập 2026-10-11 (thay thế điểm tự chấm 2026-10-03 của lượt trước; bốn dòng đầu của notes cũ giữ làm lịch sử): đọc đối kháng 25/25 khoá, 11 khoá sửa nghĩa/văn, 0 khoá sai số lượng hay đảo người nói.
+  - 3.3 "quả báo của nghiệp này là thế" → "về nghiệp mà đây là quả báo": Pāli là mệnh đề quan hệ (yassa kammassidaṁ phalaṁ), bản cũ làm mất quan hệ từ; khớp bài đã kiểm toán vv78, vv79.
+  - 3.1 "Thiên tử ấy hoan hỷ lòng" → "Vị thiên tử ấy hoan hỷ": attamano không có "lòng" như danh từ riêng; chữ "lòng" thừa và gượng.
+  - 1.1 bỏ "rực rỡ" (pabhāsati chỉ là tỏa sáng), đổi "ngự uyển Nandana" → "khu rừng Nandana" vì Pāli là vanaṁ nandanaṁ (vv78:11.6 cũng dịch "rừng Nandana"); 1.2 uyyānaseṭṭhaṁ có hai vế ưu việt/tối thượng, "vườn cây tối thượng" đã bỏ seṭṭha, đổi thành "ngự uyển ưu việt, tối thượng của chư thiên Tam Thập" theo vv65 đã kiểm toán.
+  - 2.2 "phước báu" → "phước đức" theo đa số 9/15 khoá cùng công thức trong vv/pv (puñña không có chữ "báu").
+  - 4.1 bỏ "Khi xưa ... làm thân phận con người" (thêm nghĩa "xưa" và "thân phận"), còn "Khi còn làm người giữa loài người" như vv59, vv61, vv72, vv73, vv74.
+  - 4.2 bản cũ dịch hai lần "nghèo" ("nghèo khổ, bần cùng") và bỏ nghĩa kapaṇo; nay "nghèo khó, không nơi nương tựa, khốn khổ, tôi là kẻ làm công" (kammakaro = người làm công, 4/4 khoá khác).
+  - 4.3 bỏ "yếu" (jiṇṇa chỉ là già); 4.4 bỏ "kính" (piyā = thân thương, không có nghĩa kính), đưa về cấu trúc Pāli: những người có giới hạnh là thân thương đối với tôi; 4.5-4.6 bản cũ dùng "dâng cúng" lẫn "bố thí" cho một động từ adāsiṁ và thêm "dồi dào" thừa, nay theo công thức đã dùng ở vv11, vv61, vv72, vv73, vv74: "Với cơm ăn và nước uống, cùng tâm tịnh tín, tôi đã cung kính bố thí rộng rãi."
+  - Điểm đổi: semantic_fidelity 9.3 → 8.8 và terminology 9.2 → 8.8 (tiêu đề 0.2 "Nam Hư Không" vẫn còn: Pāli Purisavimāna không có ākāsa; giữ nguyên vì đây là tiêu đề dùng chung cho cả bộ vv, sửa riêng một tệp sẽ lệch cả bộ; cần sửa đồng loạt); grammar_logic 9.3 → 9.2, vietnamese_clarity 9.3 → 9.2, han_viet_balance 9.4 → 9.3, ambiguity_integrity 9.2 → 9.0; các điểm khác giữ. Điểm trước (9.23) cao hơn thực chất vì bản cũ có lỗi quan hệ từ, thừa nghĩa và dịch trùng động từ như nêu trên.
+  - Bất định còn lại: 1.4 "lơ lửng" cho tiṭṭhati (nghĩa gốc "đứng") giữ theo vv65, vv74, vv75 đã dùng; antalikkhe dịch "hư không" theo cả bộ; 3.2 và 5.2 là "…" của Pāli (lược), không dịch. vv75 có chung đoạn 4.1–4.6 với bài này nhưng chưa được kiểm toán trong lượt này, nên có thể còn lệch văn giữa hai bài.
+  Kết quả kiểm ở lượt này: 25 khoá Việt khớp 25 khoá Pāli, thứ tự đúng, nháy khớp Pāli từng khoá, không Pāli lọt sang Việt, NFC sạch, một cặp Pāli trùng nội bộ (dấu lược 3.2/5.2) Việt giống nhau. technical_integrity giữ 9.6; bốn lệnh còn lại cần chạy ở cổng chung: npm run validate, npm test, npm run check, npm run build.
