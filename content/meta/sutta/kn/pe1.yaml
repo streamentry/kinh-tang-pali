@@ -12,20 +12,20 @@ tags:
 quality:
   scores:
     source_provenance: 9.5
-    semantic_fidelity: 7.6
-    grammar_logic: 7.3
+    semantic_fidelity: 7.7
+    grammar_logic: 7.4
     segment_alignment: 10.0
-    terminology: 8.4
+    terminology: 8.5
     triangulation: 7.0
     vietnamese_clarity: 7.7
     han_viet_balance: 9.0
     ambiguity_integrity: 8.4
     technical_integrity: 9.6
-  final_score: 8.45
+  final_score: 8.48
   blocking_errors:
     - "noEnglishEditionUpstream: Thiếu bản dịch tiếng Anh đối chiếu"
-    - "Pāli root đã ghim ở nhiều chỗ hỏng hoặc chưa phân xử được (6.1 taṁākāro; 7.3 pacchimesu; 8.6 sakkā không có phủ định; 20.2 nayalañjako; 32.2 yā evaṁ; 33.5 ālokasabhāni; 42.1–42.4; 47.1 và 98.4 udakappana, nadidakappanaṁ; 61.4 nibbattamambujaṁ; 93.2 hi vā; 93.4 sitā vādasatassu; 98.2 tayo devā gilānakā; 116.5 yā saṁyojanā; 119.6 yathesā vīmaṁsā; 124.1–124.4 rūpasaññuttā, ālokasabhāni; 127.2; 133.4 và 148.4 daḷhanemiyānākāro; 133.6–133.7; 136.5–136.8 sosāniyo; 140.6 savekadeso; 140.9; 142.4; 147.3 māhu; 150.1 taṁ jīvatā … samuddanena): canonical wording ở các khoá ấy chưa bảo vệ được, cần người biên tập phán xử"
-  assessed_at: "2026-10-11"
+    - "Pāli root đã ghim ở nhiều chỗ hỏng hoặc chưa phân xử được (6.1 taṁākāro; 7.3 pacchimesu; 8.6 sakkā không có phủ định; 33.5 ālokasabhāni; 42.1–42.4; 47.1 và 98.4 udakappana, nadidakappanaṁ; 61.4 nibbattamambujaṁ; 93.2 hi vā; 93.4 sitā vādasatassu; 98.2 tayo devā gilānakā; 116.5 yā saṁyojanā; 119.6 yathesā vīmaṁsā; 124.1–124.4 rūpasaññuttā, ālokasabhāni; 127.2; 133.4 và 148.4 daḷhanemiyānākāro; 133.6–133.7; 136.5–136.8 sosāniyo; 140.6 savekadeso; 140.9; 142.4; 147.3 māhu; 150.1 taṁ jīvatā … samuddanena): canonical wording ở các khoá ấy chưa bảo vệ được, cần người biên tập phán xử"
+  assessed_at: "2026-10-12"
   assessed_by:
     - "Claude Sonnet 5.5 (Claude Code)"
 notes: |-
@@ -98,3 +98,13 @@ notes: |-
     5. Số Pāli: xem trên (mọi con số đều đếm được trong chính bài).
     NFC đạt, không khoá rỗng, không khoảng trắng thừa; 11 khoá Pāli có thẻ `<b>` (11.1, 16.1, 21.1, 34.1, 80.1, 83.1, 86.1, 89.1, 92.1, 95.1, 108.1), bản Việt bỏ thẻ như `pe6`. Pāli lọt sang Việt chỉ ở tên riêng (`Peṭakopadesa`, `Kaccāyana`, `Mahākaccāyana`, `Bārāṇasī`, `Sañcetaniya`, `Daḷhanemi`) và ba chữ chưa phân giải được (`sosāniya` ở 136.8, `māhu` ở 147.3, `samuddana` ở 150.1). Dấu cuối khoá khớp Pāli, trừ tiêu đề `0.2` (không dấu), sáu khoá `uddānagāthā` (9.1, 13.1, 18.1, 27.1, 96.1, 144.1: kết bằng ":" thay cho không dấu), `6.3` ("?" thay "."), `121.2` ("?" thay ";"), và năm khoá có nháy đóng (36.4, 39.4, 90.4, 121.4, 135.2: nháy đóng đặt sau dấu chấm theo cách viết tiếng Việt).
   - Công cụ kiểm của kho chưa chạy ở bước này, nên `technical_integrity` đặt 9.6 và không tuyên bố technical gate pass; còn phải chạy: `npm run validate`, `npm test`, `npm run check`, `npm run build`.
+
+  - Giải quyết draft 2026-10-12:
+    Phân loại blocker: (A) `noEnglishEditionUpstream` giữ nguyên, là sự thật về upstream (xem Tầng tham khảo ở trên). (D) blocker "Pāli root hỏng hoặc chưa phân xử được" được rà lại từng chỗ; gỡ hai chỗ có căn cứ, giữ phần còn lại. Không có blocker kiểu (B) hay (C) cần gỡ: bài không có tầng English nào để tính độ phủ, và việc thiếu tầng Việt hiện hành đã ghi ở Tầng tham khảo.
+    Đã gỡ khỏi blocker: `20.2` `nayalañjako` (cùng chữ ở `ne2:8.4`, dịch "sự chỉ bày các lối"; ở đây đứng trong dòng "thứ tư" nên đọc như lời chú giải cho lối nhìn khắp các phương; đã đổi `20.2` từ "vật làm dấu của các lối" sang "sự chỉ bày các lối" để cùng một chữ có cùng một cách dịch; mục `20.2` ở phần Chỗ bất định phía trên bị thay bằng mục này). `32.2` (câu cuối có cùng cấu trúc với `95.3` "nghĩa xoay vần theo câu chữ, câu chữ xoay vần theo nghĩa", nên cách đọc đã có căn cứ; chữ `yā` vẫn bỏ, vì không có tiền từ).
+    Khoá đã sửa sau lượt đọc đối kháng (11 khoá trên 526; không khoá nào đổi nghĩa lớn, phần lớn là lệch chữ hoặc lệch tiền lệ): `5.1` "pháp như đã được thuyết" thay "đã được thuyết đúng như vậy" (`yathādesite`); `6.2` đặt `thale` vào khúc gỗ đặt trên đất liền (song song `mn36:19.6` "sukkhaṁ kaṭṭhaṁ … thale nikkhittaṁ"), thay vì người đứng trên đất; `20.2` như trên; `33.1` "Tôi sẽ phủ nhận…" theo `sn35.23:1.8` và `sn35.92:2.2` (2/2), và "không đáp lời được" theo `sn35.23:1.9`; `33.2` "Các chân lý là như vậy" (`evaṁ`, không phải so sánh "cũng như"); `71.4` "nơi các phàm phu bị dính mắc" theo cụm `yattha satto puthujjano` (5/5 khoá có bản Việt: `an6.23`, `an8.56`, `dn19`, `cnd23`, `snp3.11`), thay "chúng sinh phàm phu"; `109.2` và `132.2` "(Này Ajita, Đức Thế Tôn nói,)" theo `cnd2:2.2`, `cnd2:4.2`, `cnd5:8.2`, `cnd5:15.2`, `cnd5:23.2` (cả 5 khoá cùng Pāli), vì bản trước bỏ mất lời xưng hô `ajita`; `143.7` `vipallāsīyati` là dạng bị động, đọc "là đảo lộn ở: tưởng, tâm, kiến" (khớp `143.3` "một sự đảo lộn được chỉ ra thành ba"), thay "làm đảo lộn"; `143.10` `pavaḍḍheti` là ngoại động, đọc "làm tăng trưởng cả bất thiện" (cùng dạng ở `143.11`–`143.13`).
+    Xác nhận qua tiền lệ, không đổi: `65.1` "hai hạng người này" (`an2.22`, `an2.24` "hai loại người"; `an2.23` "hai kẻ"); `109.4` "sự lẩm bẩm" cho `jappā` (6 khoá cùng Pāli: `cnd2`, `cnd5` ×3, `ne5`, `ne16`); `33.1` khớp mẫu `sn35.23`; `52`, `54`–`58`, `64`, `74` chép đúng bản đã có ở `snp4.2`, `mnd7`, `snp4.6`.
+    Blocker giữ lại (không phân xử được bằng bài song song trong kho; đã quét Pāli đã ghim của dn, mn, sn, an, kn): `6.1`, `7.3`, `8.6`, `33.5`, `42.1`–`42.4` (cụm kệ này chỉ xuất hiện ở bài này và ở `98.1`–`98.2`; `thag2.12:1.6` chỉ cho `na hi kammaṁ panassati`), `47.1`/`98.4` (tên kinh `Udakappana` không có chỗ nào khác trong Pāli ghim; bài kệ `Mamāyite passatha` có ở `snp4.2` và `mnd2`, nhưng không nơi nào gọi tên ấy), `61.4` (`Kammārānaṁ yathā ukkā` có ở `ja542` và `ja543` nhưng hai dòng cuối khác chữ), `93.2`, `93.4`, `98.2`, `116.5`, `119.6`, `124.1`–`124.4`, `127.2`, `133.4`/`148.4`, `133.6`–`133.7`, `136.5`–`136.8`, `140.6`, `140.9`, `142.4`, `147.3`, `150.1`. Các chỗ này vẫn dịch sát chữ, không gỡ hộ; việc có chấp nhận cách dịch sát chữ cho văn bản hỏng hay không là phán xử của người biên tập.
+    Chỗ bất định thêm: `34.4` `sañjānanalakkhaṇo samudayo` dịch sát chữ "đặc trưng là sự nhận biết"; có thể là chép sai của `sañjananalakkhaṇo` ("đặc trưng là sự sinh ra"), hợp với `34.3` `paṭisandhinibbattanalakkhaṇo samudayo`, nhưng không có bản nào để đối chiếu nên giữ nguyên chữ. `143.7` bị động `vipallāsīyati` đã nêu ở trên.
+    Số đếm của lượt này: `set(khoá Việt) == set(khoá Pāli)` 526/526, cùng thứ tự; Pāli có nháy kép 17 khoá, 0 lệch; dấu lược `…pe…` 3 khoá, Việt đúng một `…` mỗi khoá; 11 khoá sửa nội dung, không khoá nào thêm Pāli vào bản Việt. `technical_integrity` giữ 9.6, chưa chạy `npm run validate`, `npm test`, `npm run check`, `npm run build`.
+    Điểm trước → sau: source_provenance 9.5 → 9.5; semantic_fidelity 7.6 → 7.7; grammar_logic 7.3 → 7.4; segment_alignment 10.0 → 10.0; terminology 8.4 → 8.5; triangulation 7.0 → 7.0 (không có bản Anh độc lập, ≤ 8.0); vietnamese_clarity 7.7 → 7.7; han_viet_balance 9.0 → 9.0; ambiguity_integrity 8.4 → 8.4; technical_integrity 9.6 → 9.6; trung bình thô 8.45 → 8.48. Blocker còn lại thắng điểm nên bài vẫn `draft`.

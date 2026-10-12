@@ -12,8 +12,8 @@ tags:
 quality:
   scores:
     source_provenance: 9.5
-    semantic_fidelity: 7.3
-    grammar_logic: 7.0
+    semantic_fidelity: 7.4
+    grammar_logic: 7.1
     segment_alignment: 10.0
     terminology: 8.4
     triangulation: 7.0
@@ -21,11 +21,11 @@ quality:
     han_viet_balance: 9.0
     ambiguity_integrity: 8.2
     technical_integrity: 9.6
-  final_score: 8.36
+  final_score: 8.38
   blocking_errors:
     - "noEnglishEditionUpstream: Thiếu bản dịch tiếng Anh đối chiếu"
     - "Pāli root đã ghim ở nhiều chỗ hỏng hoặc chưa phân xử được (3.8 rāgavavaccheda; 3.10 ekantipakatyatthena; 3.11 dasannaṁ piyā; 4.12–4.13 gāvā; 5.2 dhammācariyaṁ mānasañca; 7.10 dasa padāni; 9.2 pāṇasajjesu; 9.17 pavivittaṁ, upanāho; 16.2 asampajjaggāho, apasacchāgamanaṁ; 21.5 cha dvādasakā cattāri; 35.2 satta saṅkhārā; 38.1 satimapaccavekkhato, agatimapaccavekkhato; 40.1 sūrā; 40.2 và 41.2 atītā; 48.2 esohamasmi … parati; 52.4; 52.7 visucito vimuttito paccāgacchantassa; 61.20 alañcanā vilañcanā; 61.25 samanantarāyikā desantarāyikā; 72.2 gatapaṭṭho; 73.2 parividaṭṭho; 74.1 saṁvattisantikā): canonical wording ở các khoá ấy chưa bảo vệ được, cần người biên tập phán xử"
-  assessed_at: "2026-10-11"
+  assessed_at: "2026-10-12"
   assessed_by:
     - "Claude Sonnet 5.5 (Claude Code)"
 notes: |-
@@ -102,3 +102,11 @@ notes: |-
     5. Số Pāli: xem trên.
     NFC đạt, không khoá rỗng, không khoảng trắng thừa; Pāli lọt sang Việt chỉ ở tên riêng `Peṭakopadesa` (0.1). Thẻ `<b>…</b>` của Pāli không đưa vào bản Việt (theo `ps2.10`).
   - Công cụ kiểm của kho chưa chạy ở bước này, nên `technical_integrity` đặt 9.6 và không tuyên bố technical gate pass; còn phải chạy: `npm run validate`, `npm test`, `npm run check`, `npm run build`.
+
+  - Giải quyết draft 2026-10-12:
+    Đọc đối kháng lại toàn bộ 415 khoá theo Pāli root đã ghim, đối chiếu từng chỗ với các bài `pe`, `ne`, `mnd`, `cnd`, `mil` có Pāli song song trong kho.
+    + Phân loại blocker. (A) `noEnglishEditionUpstream`: giữ nguyên, là sự thật về bản chụp đã ghim (không có bản Anh cho pe6). (B) và (C): bài không mang blocker về độ phủ Sujato hay tầng Việt hiện hành (hai giới hạn tham chiếu đã nêu ở mục Tầng tham khảo, không phải lỗi văn bản). (D) blocker "Pāli root hỏng": giữ, vì tra các Pāli song song trong kho không phân xử được thêm khoá nào trong danh sách. Các chuỗi hỏng đều chỉ xuất hiện ở pe6 (`avayavattho`, `vavaccheda`, `suvaṇṇākaro dubbaṇṇākaro … gāvā`, `pāṇasajjesu`, `apasacchāgamanaṁ`, `satimapaccavekkhato`, `gatapaṭṭho`, `parividaṭṭho`, `alañcanā`, `samanantarāyikā`, `saṁvattisantikā`, `rucivimutti`, `esohamasmi … parati`), hoặc là cách dùng riêng của bài này không có đối chiếu (`dasa padāni` ở `7.10`: các bài `pe`, `ne` chỉ có `dvādasa padāni`, `ekādasa padāni`, `dasa padāni` của phần khác, không giải thích thêm cho chỗ này). Không đoán chữ, không bịa nguồn.
+    + Những khoá đã sửa (6/415, đều là lệch nghĩa nhỏ hoặc thêm chữ không có trong Pāli): `3.10` bỏ "ngài" (Pāli `punarāha` không nêu chủ thể; cùng cách với `4.14`); `3.11` `sannipātiko` → "thuộc sự kết hợp" (theo `mil5.1.8:4.15`, `mil5.1.8:6.1`, 2/2 khoá cùng Pāli; bỏ "hoặc" và "của chúng" vốn không có trong Pāli); `6.3` đặt "trong quá khứ, vị lai và hiện tại" ra cuối để bao cả Phật, Độc giác Phật và Thanh văn (Pāli `atītānāgatapaccuppannānaṁ` đứng trước cả chuỗi); `9.19` "của thân" đi với "sự tan rã" đúng thứ tự Pāli (`bhedo kāyassa`), tách khỏi "sự cắt đứt mạng căn" (đã thay thế mục `9.19` cũ trong phần Chỗ bất định); `16.2` "đối với các pháp thiện" bao cả chuỗi che chướng như `30.2` (`anāvaraṇaṁ … kusalānaṁ dhammānaṁ`), thay "khỏi các pháp thiện" gắn riêng vào một từ; `46.8` bỏ "thuộc phẩm", dịch "Thánh đạo tám chi là Bà-la-môn" song song `46.6` ("là Sa-môn").
+    + Dò lại các họ lỗi đã biết ở brief: không có hô cách bị đọc nhầm, không có số lượng sai, không có từ thêm nghĩa nặng; đã đối chiếu mọi chuỗi Pāli lặp trong bài (6 nhóm, 0 cặp Việt khác) và các cặp Pāli trùng với bài `pe`/`ne` khác (không đổi).
+    + Chỗ không chắc thêm ngoài danh sách cũ: `4.11` `ākārattho` có thể là `ākaraṭṭho` ("nghĩa mỏ, nguồn") do ví dụ mỏ vàng ở `4.12`; bản này giữ đúng chữ Pāli đã ghim ("cách thức") và không sửa Pāli; `26.2` `aggāhanā` ("sự không nắm lấy") nằm giữa chuỗi đồng nghĩa nên có thể là `ogāhanā`; `61.13` `pacalikatā pacalāyanā pacalāyanaṁ` đều dịch "gật gù" vì chưa có tiền lệ phân biệt trong tầng (0 khoá cùng Pāli).
+    + Blocker còn lại: (A) thiếu bản Anh upstream, và (D) Pāli root hỏng. Có blocker nên `draft`. `triangulation` giữ 7.0 (≤ 8.0, không có bản Anh độc lập); `semantic_fidelity` 7.3 → 7.4 và `grammar_logic` 7.0 → 7.1 vì sáu chỗ sửa trên; `final_score` 8.36 → 8.38 (trung bình số học thô của mười điểm).

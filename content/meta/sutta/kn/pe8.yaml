@@ -12,19 +12,19 @@ tags:
 quality:
   scores:
     source_provenance: 9.5
-    semantic_fidelity: 6.8
-    grammar_logic: 6.6
+    semantic_fidelity: 7.0
+    grammar_logic: 6.8
     segment_alignment: 10.0
-    terminology: 8.2
+    terminology: 8.3
     triangulation: 7.0
     vietnamese_clarity: 6.5
     han_viet_balance: 8.8
     ambiguity_integrity: 8.0
     technical_integrity: 9.6
-  final_score: 8.1
+  final_score: 8.15
   blocking_errors:
     - "noEnglishEditionUpstream: Thiếu bản dịch tiếng Anh đối chiếu"
-    - "Pāli root đã ghim hỏng hoặc chưa phân xử được ở rất nhiều chỗ, nên canonical wording ở các khoá ấy chưa bảo vệ được, cần người biên tập phán xử (1.7 ajhāniyā jhāyino; 1.11 abhinisābhūmi; 6.5 passavatā; 8.3 parajjato; 10.3; 11.7–11.10; 12.3; 15.4 kiñci vihiṁsati; 25.8 kasathamī; 36.8 assādiyākindriyaṁ; 54.2; 57.4 assa bho kukkurā; 71.8 pañcasatāni; 80.5 te appahīyanti; 87.2 catubbidhā chỉ nêu ba mục; 89.4 minikimatthassamī; 112.3; 113.1 dve pajāni nêu ba điều; 113.10; 114.1–114.3 và 115.1 upakacaṇḍāla; 188.4 catūhi kāraṇehi nêu năm mục; 208.2; 268.4 pañcannaṁ puggalānaṁ nêu bốn hạng; 268.12 na so teneva trái với pe2:32.6; 306.4–306.12 đoạn tự sự xen vào)"
+    - "Pāli root đã ghim hỏng hoặc chưa phân xử được ở rất nhiều chỗ, nên canonical wording ở các khoá ấy chưa bảo vệ được, cần người biên tập phán xử (1.7 ajhāniyā jhāyino; 1.11 abhinisābhūmi; 6.5 passavatā; 8.3 parajjato; 10.3; 11.7–11.10; 12.3; 15.4 kiñci vihiṁsati; 25.8 kasathamī; 36.8 assādiyākindriyaṁ; 54.2; 57.4 assa bho kukkurā; 71.8 pañcasatāni; 80.5 te appahīyanti; 87.2 catubbidhā chỉ nêu ba mục; 89.4 minikimatthassamī; 112.3; 113.1 dve pajāni nêu ba điều; 113.10; 114.1–114.3 và 115.1 upakacaṇḍāla; 208.2; 268.12 na so teneva trái với pe2:32.6 và với công thức song song ở mn52, mn64, an9.36, an11.16; 306.4–306.12 đoạn tự sự xen vào)"
   assessed_at: "2026-10-12"
   assessed_by:
     - "Claude Sonnet 5.5 (Claude Code)"
@@ -80,3 +80,10 @@ notes: |-
     5. Số Pāli: xem mục Số Pāli; quét tự động từ khoá số trong Pāli với chữ số tương ứng trong Việt: 13 khoá hiện ra đều là dương tính giả (`catuttha` là "thứ tư", `pāpañca` chứa `pañca`), 0 lệch thật.
     NFC đạt, không khoá rỗng, không khoảng trắng thừa. Chữ Pāli còn trong Việt ngoài tiêu đề `0.1`: tên riêng (Rājagaha, Mahānāma, Sāriputta, Ānanda, Upaka, Mahākaccāyana, Verambha), `313.7` Peṭakopadesa, và ba từ chưa dịch được ở trên (`abhinisā`, `kasathamī`, `katālikā`) cùng tên thực vật ở `306.12`.
   - Công cụ kiểm của kho chưa chạy ở bước này, nên `technical_integrity` đặt 9.6 và không tuyên bố technical gate pass; còn phải chạy: `npm run validate`, `npm test`, `npm run check`, `npm run build`.
+  - Giải quyết draft 2026-10-12:
+    Đọc đối kháng lại toàn bộ 1.653 khoá Pāli↔Việt. Phân loại blocker: (A) `noEnglishEditionUpstream` giữ nguyên, đúng sự thật về bản chụp đã ghim; (B) và (C) không có câu riêng trong `blocking_errors` (giới hạn tầng Anh và tầng Việt hiện hành đã nêu ở mục Tầng tham khảo, không phải lỗi văn bản); (D) câu "Pāli root hỏng" được thu hẹp, giữ phần thật sự chưa phân xử và gỡ hai mục đã có căn cứ.
+    Khoá đã sửa: `105.3` đặt lại ranh giới "héo đi, hoặc khô đi vì lạnh" cho đúng `so milāyati, sītena vā avasussati` (đối chiếu `105.2` `uṇhena milāyanti, sītena avasussanti`); `78.8`–`78.11` `kāpurisa`/`akāpurisa` từ "kẻ tầm thường" sang "kẻ hạ liệt" theo `dn34:1.6.72` và `thag14.1:5.4` (`akāpurisasevita` → "không được kẻ hạ liệt thực hành"; `an5.27` dùng "kẻ thấp hèn"), 0 tiền lệ nào dịch "kẻ tầm thường"; `306.12` bỏ chữ "so với" không có trong Pāli, các genitive `dvattiṁsacandānaṁ…` dịch trung tính là "của ba mươi hai mặt trăng…"; `188.4` và `188.6` gộp "bằng tiền của hay bằng điều khác" thành một mục (`dhanena vā aññena vā`), để khớp `catūhi kāraṇehi` (bốn: quyền lực; tiền của hay điều khác; cầu xin; nơi nương tựa).
+    Blocker đã gỡ: `188.4` `catūhi` nêu năm mục — đọc nhóm như trên cho đúng số bốn, cách đếm này là cách đọc duy nhất khớp số của chính Pāli, và `188.6` lặp cùng khuôn nên không còn lệch; `268.4` `pañcannaṁ puggalānaṁ` nêu bốn hạng — `268.5` mở hạng thứ năm `mohacarito puggalo`, nên "năm hạng người" khớp (bốn hạng tùy tín hành/tùy pháp hành theo căn yếu/sắc bén, và hạng tính si).
+    Blocker giữ: `268.12` `na so teneva dhammarāgena…` — `pe2:32.6` và 15 khoá song song đã đo (mn52:4.6, mn52:14.6, mn64:9.8, an9.36 sáu khoá, an11.16 năm khoá) đều khẳng định (không có `na`), cả `268.19` và `269.6` cũng khẳng định đạt giác ngộ Độc Giác; bản Việt vẫn giữ đúng chữ phủ định của Pāli đã ghim, nên canonical wording ở đây chưa bảo vệ được. Các khoá còn lại trong danh sách là chỗ Pāli đứt/hỏng không có song song để phân xử (`87.2`, `113.1`, `71.8`, `54.2`, `208.2`, `306.4–306.12`, các hapax); không đoán.
+    Tiền lệ đã đo: `anusotagāmī` "xuôi dòng" 2 so "theo dòng" 5 trên tầng ngoài `pe8` (`ne37:299.3` dùng "xuôi dòng", giữ theo `ne37` vì cùng bộ); `micchatta` "tà tánh" 17 và `sammatta` "chánh tánh" 5, khớp bản; `Aṭṭhakavagga` "Phẩm Tám" 26/26; `hattha` giữ "hattha" ở `bv` 10 khoá và "khuỷu tay" ở `mil2:54.2`, `tha-ap5:5.2` (2), giữ "khuỷu tay" vì đây là văn kể; dò Pāli trùng nguyên văn ngoài bài với `268.12` cho kết quả như trên.
+    Điểm: `semantic_fidelity` 6.8 → 7.0, `grammar_logic` 6.6 → 6.8, `terminology` 8.2 → 8.3; còn lại giữ nguyên (`triangulation` 7.0, không bản Anh độc lập); `final_score` 8.1 → 8.15. Blocker còn lại thắng điểm. `technical_integrity` vẫn 9.6, chưa tuyên bố technical gate pass.

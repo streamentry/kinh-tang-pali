@@ -11,20 +11,20 @@ tags:
 quality:
   scores:
     source_provenance: 9.5
-    semantic_fidelity: 8.0
+    semantic_fidelity: 8.1
     grammar_logic: 7.8
     segment_alignment: 10.0
-    terminology: 8.8
+    terminology: 8.9
     triangulation: 7.0
     vietnamese_clarity: 8.2
     han_viet_balance: 9.0
     ambiguity_integrity: 8.8
     technical_integrity: 9.6
-  final_score: 8.67
+  final_score: 8.69
   blocking_errors:
     - "noEnglishEditionUpstream: Thiếu bản dịch tiếng Anh đối chiếu"
-    - "Pāli root đã ghim ở nhiều chỗ hỏng hoặc chưa phân xử được (2.2 adhisannaṭṭhehi; 3.21 uttilo để nguyên dạng Pāli; 4.2 maṁ không dịch; 5.7 bhāvanāya bhūmi; 6.5 byādhimattaṁ; 7.5 dasabalo; 7.6 uppādito): canonical wording ở các khoá ấy chưa bảo vệ được, cần người biên tập phán xử"
-  assessed_at: "2026-10-10"
+    - "Pāli root đã ghim ở nhiều chỗ hỏng hoặc chưa phân xử được (2.2 adhisannaṭṭhehi; 3.21 uttilo để nguyên dạng Pāli; 4.2 maṁ không dịch; 5.7 bhāvanāya bhūmi; 6.5 byādhimattaṁ; 7.6 puggalaparo parañca, uppādito): canonical wording ở các khoá ấy chưa bảo vệ được, cần người biên tập phán xử"
+  assessed_at: "2026-10-12"
   assessed_by:
     - "Claude Sonnet 5.5 (Claude Code)"
 notes: |-
@@ -91,3 +91,12 @@ notes: |-
     5. Số Pāli: xem trên; không có số lớn.
     NFC đạt, không khoá rỗng, không khoảng trắng thừa; Pāli lọt sang Việt: `Peṭakopadesa` ở `0.1` và tên riêng `Sāriputta`, `Mahākassapa`, `Mahākaccāyana`, cộng `uttila` ở `3.21` (không phân giải được, xem trên).
   - Công cụ kiểm của kho chưa chạy ở bước này, nên `technical_integrity` đặt 9.6 và không tuyên bố technical gate pass; còn phải chạy: `npm run validate`, `npm test`, `npm run check`, `npm run build`.
+
+  - Giải quyết draft 2026-10-12:
+    Đọc đối kháng lại toàn bài (111 khoá) từ Pāli, đối chiếu tiền lệ của `ne2`, `ne3`, `ne6`, `pe1`, `pe3`, `pe5`, `pe8`, `mn12`, `mn97`. Hai blocker cũ xử lý như sau.
+    + Blocker `noEnglishEditionUpstream` (loại thiếu bản Anh upstream): giữ nguyên. Đây là sự thật về bản chụp đã ghim, không phải lỗi văn bản; `triangulation` giữ 7.0 (không bao giờ cao hơn 8.0 khi không có bản Anh độc lập).
+    + Blocker "Pāli root hỏng": thu hẹp, không gỡ hết. Gỡ `7.5 dasabalo`: `dasabalo gocaraṁ deseti` ở danh cách không đứng được làm chủ ngữ (Đức Phật không thể là người thuyết một kinh mà chính Ngài không chấp thuận), còn `7.6` ngay sau đó có `dasabalānaṁ gocaraṁ jānāti` và nói vị đệ tử biết phạm vi ấy chỉ từng phần; vì vậy đọc `dasabalo` như thuộc cách là có căn cứ ngay trong mạch, bản dịch giữ. Ghi nhận thêm cho `7.6`: cụm `sati uttarikaraṇīye` và việc Tôn giả Sāriputta giáo giới vị Bà-la-môn khớp đúng `mn97:36.4`, `37.2`, `38.4` (`sati uttarikaraṇīye hīne brahmaloke patiṭṭhāpetvā`, và Đức Thế Tôn chất vấn ở `38.4`), nên phần "khi còn việc cần làm thêm" và chủ đề của khoá là chắc; còn lại chưa phân xử: `puggalaparo parañca` (có thể là `puggalaparopariyatta`, "sự cao thấp của các hạng người"; bản dịch giữ nghĩa sát chữ "người này và người khác") và `uppādito` (chủ thể và tân ngữ không nêu). Giữ lại vì không có căn cứ ngoài suy đoán: `2.2` (`adhisannaṭṭhehi` không có ở đâu khác trong Pāli đã ghim), `3.21` (`uttilo` chỉ lặp trong `Guttilo` ở `mil5.1.4`, `mil6.3.3`, `ja243`, `vv33`, không liên quan), `4.2` (`maṁ`), `5.7` (`bhāvanāya bhūmi vā`), `6.5` (`byādhimattaṁ`; đọc `ca adhimattaṁ` hợp mạch ba bậc yếu, vừa, mạnh nhưng chỉ là suy đoán).
+    + Lỗi nghĩa/thuật ngữ thật đã sửa: 5 khoá trên 111 (4,5 phần trăm). `5.1`: bản cũ viết "kinh hay lời giải đáp được thuyết là thiện", tức coi chính bài kinh là thiện; Pāli `kusale desite sutte byākaraṇe vā` là pháp thiện được thuyết trong kinh hay trong lời giải đáp, đã sửa. `6.15`: `saṁvaraṇa` của các căn dịch "phòng hộ" (46 khoá của tầng dự án; "hộ trì" 7, "thu thúc" 10, "chế ngự" 3) thay cho "hộ trì". `6.17`: `na hi ekaṁ hi sutte daṭṭhabbo`, mạch `6.16` nói phải tìm ở cả các lời giải đáp khác, nên bản cũ "một điều trong kinh" lệch; đã sửa thành không nên chỉ thấy điều ấy trong một bài kinh. `10.3`: `aññassa suttassa atthaṁ aññamhi sutte` là nghĩa của một bài kinh trong một bài kinh khác, không phải "kinh này"; đã sửa. `10.8`: thêm "nghĩa của" cho đủ khuôn `atthaṁ niddisati` của `10.3`, `10.6`, `10.7`.
+    + Đã kiểm lại và giữ: `3.26` với `4.7` (phủ định `na … kāretvā` bao cả hai vế, không phải mettā đoạn trừ rāga); `5.6` (`diṭṭhi rāgo avijjā` cùng do thấy biết: dịch đúng Pāli, không sửa hộ giáo lý); `6.10`, `6.12` `adhiṭṭhāna` → "an lập" (theo `pe3:75.5`; các hāra `adhiṭṭhāno` ở `ne`, `pe` dịch "áp dụng" nên không đồng nhất, đây là hai nghĩa khác nhau của từ); `mahāpadesa` → "đại y" (theo `ne6`; `pe5:24.13` dịch "đại giáo pháp", tầng chia đôi, không đổi); `otār-` ở `7.5` ("không đi vào cho trọn vẹn") lệch với `ne6`, `pe1` ("kiểm nghiệm vào", "dẫn vào"), giữ vì không có đối tượng của "dẫn vào" trong Pāli, ghi bất định.
+    + Điểm: `semantic_fidelity` 8.0 → 8.1 (5 khoá sai nghĩa đã sửa, bất định ở các khoá hỏng vẫn còn); `terminology` 8.8 → 8.9 (`saṁvaraṇa`); các tiêu chí khác giữ. Còn blocker nên bài vẫn `draft` bất kể điểm.
+    + Phép kiểm: tập khoá Việt = tập khoá Pāli (111/111), thứ tự đúng; nháy và ngoặc khớp Pāli từng khoá; dấu lược `…` chỉ ở `2.2` như Pāli; NFC đạt, không khoá rỗng. Các lệnh của kho còn phải chạy ở bước sau: `npm run validate`, `npm test`, `npm run check`, `npm run build`.

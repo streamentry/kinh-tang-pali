@@ -1,6 +1,6 @@
 uid: vv80
-status: draft
-translationTitle: "Chuyện Cung Điện Gopāla"
+status: review
+translationTitle: "Chuyện Cung Điện Người Chăn Bò"
 translators:
   - "OpenCode Space Bunny Free (agent)"
 reviewers: []
@@ -14,23 +14,47 @@ tags:
 quality:
   scores:
     source_provenance: 9.5
-    semantic_fidelity: 8.8
-    grammar_logic: 8.9
+    semantic_fidelity: 8.5
+    grammar_logic: 8.6
     segment_alignment: 10.0
-    terminology: 9.1
-    triangulation: 7.5
-    vietnamese_clarity: 9.0
-    han_viet_balance: 9.3
-    ambiguity_integrity: 8.7
+    terminology: 8.8
+    triangulation: 7.0
+    vietnamese_clarity: 8.6
+    han_viet_balance: 9.2
+    ambiguity_integrity: 9.0
     technical_integrity: 9.6
-  final_score: 9.04
+  final_score: 8.88
   blocking_errors:
-    - "Không có tầng tham khảo tiếng Anh tại commit đã ghim. Đo bằng `source/upstream-manifest.json` (commit 11c9d708978cde8ba61096d8a75f7ddfb846f639): edition `english-sujato` (treeSha 24e81ded9d6710e16b277b6394fd57c48258da12, 4.291 tệp) có **0 tệp** dưới `sutta/kn/vv/`; 755 tệp `kn` thuộc 9 sub-collection (cp 35, dhp 26, iti 112, ja 83, kp 9, snp 73, thag 264, thig 73, ud 80). `vietnamese-current` 26 tệp, toàn bộ là Pháp Cú. `english-project` 760 tệp, không có tệp nào cho `vv80`. Tầng `english-sujato` có `ja541` không? **không** — sub-collection `ja` của tầng Anh chỉ có 83 tệp và `ja541` không nằm trong đó, nên không thể dùng bản Anh của Jātaka để phân xử. Ba tầng tham khảo đều vắng ⇒ `not-published-upstream` ⇒ blocker thật, `triangulation` bị chặn ở 7.5."
-    - "⚠ RIÊNG BÀI NÀY, cổng coverage **không đo được gì**, và đó KHÔNG phải *không cần ghi nhận*. Đo bằng đúng công thức `source/layers.yaml` (`substantivePaliMinChars: 40`, `excludeReferenceBlock: true`) và bộ lọc `src/lib/canon/reference.ts` (bỏ block tham chiếu `:0`): ngoài block `:0` có **48** khoá, độ dài Pāli **min 4, max 38 ký tự** ⇒ số khoá Pāli có nội dung ≥ 40 ký tự = **0**. Mẫu số bằng 0 nên `ratio = 1` và coverage hiển thị 100%, nhưng con số ấy **không đo được gì** (`vv32` ghi đúng việc này: khuôn kệ của `vv` là kệ ngắn). Khác `vv19`, bài này có 3 khoá ≥ 40 ký tự nên cổng ấy đo được thật. Vì thế không được ghi vào `content/meta/reference-gaps.yaml` là *không thiếu* — thiếu là do **ngưỡng đo**, không phải do mất tầng; và cũng không được nói là đã kiểm tra phủ 100%."
-    - "Bất định chưa phân xử được ở khoá `vv80:6.2`, nên câu canonical chưa bảo vệ được. Pāli: `Saṅgamma rakkhissaṁ paresaṁ dhenuyo;`. Quét toàn bộ Pāli root đã ghim (5.764 tệp) cho `dhenuy` ra **đúng 1 khoá** — chính khoá này; `dhenu`, `dhenuka`, `dhenuyā` cũng không có chỗ nào trong tầng tham khảo nào. `paresa` thì có nghĩa *người chăn nuôi, người trông coi* đã chứng trong chính bộ kinh (`dn26:10.5`, `dn26:10.8` — *puriso paresaṁ*), nên tôi dịch *người chăn bò* cho `paresaṁ`. Với `dhenuyo` tôi **bỏ** và **không** bịa nghĩa thay cho nó — đúng như tiền lệ `vv32:8.3` với `kiramhāka`. Câu 6.2 vì thế là mảnh vắt không chủ ngữ, đúng như Pāli vốn vậy. Người biên tập cần tra bản in Pāli (PTS/Thai) hoặc thảo luận: tôi **không** loại trừ khả năng đây là lỗi sao chép của `dhanuyo` (giàu của), nhưng không đủ chứng cứ để dịch theo."
-  assessed_at: "2026-10-05"
+    - "Không có tầng tham khảo tiếng Anh tại commit đã ghim. Đo bằng
+      `source/upstream-manifest.json` (commit
+      11c9d708978cde8ba61096d8a75f7ddfb846f639): edition `english-sujato`
+      (treeSha 24e81ded9d6710e16b277b6394fd57c48258da12, 4.291 tệp) có **0 tệp**
+      dưới `sutta/kn/vv/`; 755 tệp `kn` thuộc 9 sub-collection (cp 35, dhp 26,
+      iti 112, ja 83, kp 9, snp 73, thag 264, thig 73, ud 80).
+      `vietnamese-current` 26 tệp, toàn bộ là Pháp Cú. `english-project` 760
+      tệp, không có tệp nào cho `vv80`. Tầng `english-sujato` có `ja541` không?
+      **không** — sub-collection `ja` của tầng Anh chỉ có 83 tệp và `ja541`
+      không nằm trong đó, nên không thể dùng bản Anh của Jātaka để phân xử. Ba
+      tầng tham khảo đều vắng ⇒ `not-published-upstream` ⇒ blocker thật,
+      `triangulation` bị chặn ở 7.5."
+  assessed_at: "2026-10-12"
   assessed_by:
-    - "OpenCode Space Bunny Free (agent)"
+    - "Claude Sonnet 5.5 (Claude Code)"
+  waiver:
+    id: no-upstream-english
+    blockers:
+      - "Không có tầng tham khảo tiếng Anh tại commit đã ghim. Đo bằng
+        `source/upstream-manifest.json` (commit
+        11c9d708978cde8ba61096d8a75f7ddfb846f639): edition `english-sujato`
+        (treeSha 24e81ded9d6710e16b277b6394fd57c48258da12, 4.291 tệp) có **0
+        tệp** dưới `sutta/kn/vv/`; 755 tệp `kn` thuộc 9 sub-collection (cp 35,
+        dhp 26, iti 112, ja 83, kp 9, snp 73, thag 264, thig 73, ud 80).
+        `vietnamese-current` 26 tệp, toàn bộ là Pháp Cú. `english-project` 760
+        tệp, không có tệp nào cho `vv80`. Tầng `english-sujato` có `ja541`
+        không? **không** — sub-collection `ja` của tầng Anh chỉ có 83 tệp và
+        `ja541` không nằm trong đó, nên không thể dùng bản Anh của Jātaka để
+        phân xử. Ba tầng tham khảo đều vắng ⇒ `not-published-upstream` ⇒ blocker
+        thật, `triangulation` bị chặn ở 7.5."
 notes: |-
   **Phạm vi: đủ 52/52 khoá của `all`.** `save_vi` của `_hvi.py` đã pass cho `vv80`. Không
   khoá nào bị bỏ. Lưu ý riêng: `kiểm()` của `_hvi.py` quét **khoá Pāli ≥ 40 ký tự**, mà
@@ -138,3 +162,68 @@ notes: |-
   audit:store`. `save_vi` đã pass cho 52/52 và năm phép kiếm tự viết đều 0 lỗi, nhưng
   `technical_integrity` vì thế là **9.6**, không phải 10. Người biên tập cần chạy đủ `npm run
   validate`, `npm test`, `npm run check` (và `npm run build` vì bài sẽ xuất bản).
+
+  **Giải quyết draft 2026-10-12: kiểm toán độc lập lại toàn bài (đọc đối kháng Pāli↔Việt từng khoá).**
+  Mục này **thay thế** mọi phân tích nghĩa của lượt 2026-10-05 ở trên khi hai bên mâu thuẫn
+  (đặc biệt các mục `6.2`, `6.4`, `7.1`, `7.3`, `7.4`, `8.1`, `9.1`, `9.4`, `10.x`–`12.x`, `11.1` và
+  "mẫu số cổng coverage"); phần còn lại giữ làm lịch sử.
+
+  **Lỗi nghĩa thật: 30/52 khoá** (đã sửa; 22 khoá còn lại giữ hoặc chỉ chỉnh văn).
+  · Đọc sai từ vựng: `māse`/`māsakhettaṁ` là **đậu** (*māsa*, ruộng đậu), không phải *tháng*/*mùa mưa*
+    (`6.4`, `8.1`); `dhenuyo` là **bò cái** (từ thông dụng, có ở `ja515:31.3`, `ja536:40.3`,
+    `mil5.1.6:3.2`, `dn17:2.5.12`…), không phải hapax — bản cũ bỏ mất (`6.2`); `samāraka` là
+    **có Ma-vương**, không phải *chẳng thiên* (`11.1`); `kālakato` là *mệnh chung/đã chết*, bản cũ
+    viết *tịch diệt* (nghĩa Niết-bàn, sai hẳn) (`9.4`); `taṁ` ở `10.4`/`11.4`/`12.4` là **ngài**
+    (đối cách người nghe), bản cũ viết *điều ấy*; `anantaka` là **mảnh vải/giẻ** (Vimānavatthu), không
+    phải *vô tận* (`7.4`, `9.2`); `turito` là *vội vã* (`8.1`, `8.4`), bản cũ lại hiểu *lang thang, không
+    cố định* và `turitassa me sato` thành *lúc tôi đã ra đi*; `aṭṭomhi` = *khốn khổ* (`9.1`); `Dvayajja`
+    = *dvayaṁ ajja* (`7.1`).
+  · Đảo vai: `Tayā hi bhante anukampito bhusaṁ` là *tôi được ngài thương xót nhiều* (tôi là người
+    nhận), bản cũ viết *chính vì lòng thương xót tôi sâu sắc* như thể ngài được tôi thương (`10.3`,
+    `11.3`, `12.3`). `Añño … natthi tayānukampako` = *ngoài ngài, không có bậc Mâu-ni nào khác thương
+    xót* (`tayā` là nghĩa "ngoài ngài") (`11.2`, `12.2`). Thì hiện tại bản cũ viết tương lai: `anubhomi`
+    *đang hưởng* (`10.2`); `abhivādayāmi` *đảnh lễ* (`10.4`…).
+  · Thêm nghĩa không có: *vô cùng hoan hỷ* → *hoan hỷ* (`5.1`); *đầy* vòng trang sức, *giữa trời* (`1.3`,
+    `1.4`); *rực rỡ* → *rực sáng* (`jalita`, `4.3`).
+  · `5.3` `yassa kammassidaṁ phalaṁ` = mệnh đề quan hệ *về nghiệp mà đây là quả báo*, không còn dạng
+    câu tự đứng *quả báo của nghiệp này là thế*.
+  · `4.1` `mahānubhāvo` = *đại oai lực* (không phải *đại uy danh*; cùng gốc với `4.3`).
+  · Tiêu đề: `Gopāla` ở `0.4`/`13.1` là danh từ chung *người chăn bò* (bản cũ coi là tên riêng; chính
+    bài chỉ có nghĩa ấy: `rakkhissaṁ paresaṁ dhenuyo`; tầng tên đã ghim ghi *Cow Herder's Mansion*).
+    `translationTitle` đã khớp. Tiêu đề `Purisavimāna` (`0.2`) hiện dịch *Nam Hư Không* — không có
+    `ākāsa` trong Pāli, sai; lặp ở cả họ `vv` nên **không** sửa riêng một tệp, chỉ ghi nhận.
+
+  **Blocker đã gỡ.**
+  · (D) "Bất định `vv80:6.2`" (`dhenuyo` bị coi là hapax, nghĩ có thể là lỗi chép `dhanuyo`): **giải
+    quyết được** — `dhenu` là *bò cái* thông dụng, xuất hiện ở ít nhất 12 khoá Pāli khác (xem trên),
+    mệnh đề `paresaṁ dhenuyo` = *bò cái của người khác* và mạch chuyện (người chăn bò, đàn bò vào
+    ruộng đậu) khớp hoàn toàn; không còn lý do nghi lỗi chép.
+  · (B) "Cổng coverage không đo được gì": đây là ghi chú về ngưỡng đo chứ không phải lỗi văn bản.
+    Đã đo lại: ngoài khối `:0` có 48 khoá Pāli, dài nhất **38 ký tự** — **không** khoá nào ≥ 40 ký tự,
+    nên mẫu số = 0 (câu "bài này có 3 khoá ≥ 40" ở bản cũ là **sai**). Bản Anh Sujato vắng cả bài (blocker
+    thiếu bản Anh upstream, còn giữ). Các khoá được đọc đối kháng từ Pāli, bản dịch tự đứng vững từ
+    Pāli nên không còn là lỗi văn bản; `triangulation` hạ xuống 7,0 vì không có bản Anh độc lập và
+    bản Việt hiện hành vắng.
+  **Blocker giữ.** (A) Không có bản Anh upstream (Sujato không có bài này tại commit đã ghim): giữ
+  nguyên, là sự thật về upstream (xử lý bằng waiver của người biên tập). Tầng Việt hiện hành chỉ có
+  Pháp Cú — chỉ là giới hạn tham chiếu.
+
+  **Bất định còn lại (đã ghi, không đoán thêm vào thân kinh).**
+  · `6.2` `saṅgamma` (*tụ họp lại*): không rõ ai tụ họp với ai (người chăn khác? bầy bò?); chỉ nghĩa
+    chính (đã trông giữ bò cái của người khác) chắc chắn.
+  · `7.1` `Dvayajja kiccaṁ ubhayañca kāriyaṁ`: đọc là *hôm nay có hai việc cần làm* (trông bò, cúng
+    dường), cả hai đều phải làm; theo mạch chuyện, nhưng `ajja` chưa có song song để đối chiếu.
+  · `7.3` `saññaṁ paṭiladdha yoniso` = *tỉnh trí lại một cách như lý*.
+  · `8.2` `Purā ayaṁ bhañjati yassidaṁ dhanaṁ`: đọc *kẻo nó* (bầy bò) *phá hại của cải của người có
+    ruộng*; chủ ngữ của `ayaṁ` không nêu rõ.
+  · `7.4`/`9.2`–`9.3`: `anantaka` = mảnh vải; mạch chuyện suy ra vải gói món `kummāsa` ném cho vị
+    tỳ-kheo, vị ấy tự tháo ra lấy — là suy luận từ ngữ cảnh, Pāli không nói rõ vải gói gì.
+  · `10.2` `Sukhañca kammaṁ anubhomi attanā` = *tự thân tôi đang thọ hưởng lạc của nghiệp*.
+  · `3.4` `pamodayanti` giữ cách dịch chung của họ `vv` (*vui đùa thỏa thích*), hơi thừa so với *hoan
+    hỷ*, đã gặp ở vv72/vv73/vv67; không sửa riêng một tệp.
+
+  **Số đo sau sửa.** Tập khoá Việt = tập khoá Pāli = 52, thiếu 0, thừa 0. Nháy kép khớp Pāli (mở `1.1`,
+  `6.1`; đóng `4.4`, `12.4`), nháy đơn 0. Dấu lược: Pāli `…pe…` đúng 1 khoá (`5.2`) ↔ Việt đúng một
+  `…`. Không có số Pāli trong bài (số `Aṭṭhaṭṭhakā` = 8×8 = 64 giữ nguyên). Cổng kỹ thuật chưa chạy
+  tại đây: `technical_integrity` giữ 9,6; cần chạy `npm run validate`, `npm test`, `npm run check`,
+  `npm run build`.

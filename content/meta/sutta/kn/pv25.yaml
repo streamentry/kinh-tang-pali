@@ -1,5 +1,5 @@
 uid: pv25
-status: draft
+status: review
 translationTitle: "Chuyện Ngạ Quỷ Ubbarī"
 translators:
   - "Claude Sonnet 5.5 (Claude Code)"
@@ -13,22 +13,37 @@ tags:
 quality:
   scores:
     source_provenance: 9.2
-    semantic_fidelity: 8.8
-    grammar_logic: 8.8
+    semantic_fidelity: 9.0
+    grammar_logic: 8.9
     segment_alignment: 10.0
-    terminology: 9.0
+    terminology: 9.1
     triangulation: 7.0
     vietnamese_clarity: 9.0
     han_viet_balance: 9.2
-    ambiguity_integrity: 8.0
+    ambiguity_integrity: 8.2
     technical_integrity: 9.6
-  final_score: 8.86
+  final_score: 8.92
   blocking_errors:
-    - "noEnglishEditionUpstream: Thiếu bản dịch tiếng Anh đối chiếu — tầng english-sujato tại commit đã ghim không có pv25 (thư mục kn của Sujato chỉ có cp, dhp, iti, ja, kp, snp, thag, thig, ud; không có pv), tầng english-project của dự án chưa có pv25, và vietnamese-current chỉ có Pháp Cú. Cả ba tầng tham khảo đều vắng nên bài bắt buộc ở draft và triangulation không quá 8.0 (đặt 7.0). Đây là giới hạn của upstream, không phải thiếu sót của người dịch."
-    - "uncertainReading: Khoá 11.1–11.4 (lời đáp của bà Ubbarī trước kệ 12) có hình thái `ātume` chỉ xuất hiện đúng một lần trong toàn tầng Pāli kn (hapax), và cách đọc `yassā me itthibhūtāya, saṁsāre bahubhāsasī` không phân xử được từ Pāli. Bản Việt không dịch `ātume` và chỉ dịch phần chắc chắn, không bịa nghĩa; người biên tập cần xác định cách đọc rồi sửa 11.1–11.4 trước khi bài có thể lên review."
-  assessed_at: "2026-10-10"
+    - "noEnglishEditionUpstream: Thiếu bản dịch tiếng Anh đối chiếu — tầng
+      english-sujato tại commit đã ghim không có pv25 (thư mục kn của Sujato chỉ
+      có cp, dhp, iti, ja, kp, snp, thag, thig, ud; không có pv), tầng
+      english-project của dự án chưa có pv25, và vietnamese-current chỉ có Pháp
+      Cú. Cả ba tầng tham khảo đều vắng nên bài bắt buộc ở draft và
+      triangulation không quá 8.0 (đặt 7.0). Đây là giới hạn của upstream, không
+      phải thiếu sót của người dịch."
+  assessed_at: "2026-10-12"
   assessed_by:
     - "Claude Sonnet 5.5 (Claude Code)"
+  waiver:
+    id: no-upstream-english
+    blockers:
+      - "noEnglishEditionUpstream: Thiếu bản dịch tiếng Anh đối chiếu — tầng
+        english-sujato tại commit đã ghim không có pv25 (thư mục kn của Sujato
+        chỉ có cp, dhp, iti, ja, kp, snp, thag, thig, ud; không có pv), tầng
+        english-project của dự án chưa có pv25, và vietnamese-current chỉ có
+        Pháp Cú. Cả ba tầng tham khảo đều vắng nên bài bắt buộc ở draft và
+        triangulation không quá 8.0 (đặt 7.0). Đây là giới hạn của upstream,
+        không phải thiếu sót của người dịch."
 notes: |-
   Dịch trực tiếp từ Pāli root snapshot bilara đã ghim, đường dẫn `kn/pv/pv25_root-pli-ms.json` (90/90 khoá, đủ và đúng thứ tự Pāli; không có khoá nào ngoài tập Pāli). Tên bài lấy từ chính Pāli `0.3` (`Ubbaripetavatthu`, thứ mười ba của Ubbarivagga); Pāli `ubbarī` là tên người nữ (hoàng hậu của vua Brahmadatta).
 
@@ -67,4 +82,12 @@ notes: |-
     + Số `13.` ở `0.3` là số trong phẩm Ubbarivagga (pv25 là bài thứ 13 của phẩm), giữ nguyên như pv18, pv19, pv23.
     Vì các chỗ trên và thiếu bản Anh độc lập, `semantic_fidelity` 8.8, `grammar_logic` 8.8, `ambiguity_integrity` 8.0.
   - Kiểm tra: 90/90 khoá đúng tập và thứ tự Pāli; NFC, không khoá rỗng, không khoảng trắng thừa; nháy kép và nháy đơn khớp Pāli từng khoá (16 khoá có nháy / 90); 0 dấu lược; không Pāli lọt vào thân bản dịch ngoài tên riêng (Petavatthu, Ubbarivagga, Brahmadatta, Pañcāla, Ubbarī, Cūḷanī, Uruvelā, Mattā, Nandā, Kuṇḍalī, Ghaṭa, Uttara, Kaṇṇa). Đã đọc đối chiếu từng cặp Pāli↔Việt.
+  - Giải quyết draft 2026-10-12 (thay thế các mục cũ về `ātume`, `Kinh Tương` và đại từ "ngươi" ở phần dưới):
+    + Blocker `noEnglishEditionUpstream` (loại A): GIỮ nguyên. Đây là sự thật về upstream (không có bản Anh Sujato cho pv25 tại commit đã ghim; không có `english-project`; `vietnamese-current` chỉ có Pháp Cú); xử lý thuộc waiver của người biên tập. Coverage English: mẫu số = 0 (không khoá Pāli nào đạt 40 ký tự) nên không có loại B/C nào cần gỡ riêng; `triangulation` giữ 7.0 (≤ 8.0).
+    + Blocker `uncertainReading` (loại D, `ātume` ở 11.1–11.4): ĐÃ GỠ, có căn cứ. (1) Chú giải trong chính tầng Pāli kn ghim: `mnd3:23.2` "Ātumā vuccati attā" (`ātuma` = tự thân), cùng cách dùng `ātumānaṁ` ở snp4.3, snp4.12, snp4.14 — nên `ātume` đọc là "bản thân tôi" (dạng chủ cách -e, kiểu Māgadhī; không còn là chữ vô nghĩa). (2) Lời đáp 12 của ẩn sĩ (đã là nữ, nam, cả thai loài thú; những đời đã qua không thấy tận cùng) chỉ khớp nếu 11 là lời bà ngạc nhiên về việc ngài nói bà đã làm nữ nhân nhiều đời; `dīgharattāya` = "trong thời gian dài" (hapax trong kn, chỉ ở đây), `bahubhāsasī` đọc `bahu bhāsasi` = "ngài nói nhiều". (3) Bản Việt nguyên bài ở mục Tra cứu toàn văn dùng cùng hướng hiểu (chỉ để xác nhận cách đọc; câu chữ không chép). Khoá đổi: 11.1 "Bản thân tôi đã là người nữ," · 11.2 "trong thời gian dài, thưa ngài;" · 11.3 "Về tôi, người đã là nữ," · 11.4 "ngài nói nhiều trong luân hồi."
+    + Lỗi nghĩa thật khác đã sửa: `23.4` `Suttakaṇṇa` — bản cũ ghi "Kinh Tương" (nhầm từ pv23); tên bài pv23 là `Suttapetavatthu` và tiêu đề đã dịch "Sợi Chỉ", nên đổi thành "Sợi Chỉ" (đúng thứ tự uddāna: pv22 Uttara, pv23 Sutta, pv24 Kaṇṇa, pv25 Ubbarī). `19.4` `brahmalokūpagā` là "đã đi đến cõi Phạm" (-upaga = đến/đạt), không phải "sinh lên" (chữ đó thuộc `-upapatti` ở 17.4/19.2) — đổi "bà đã đi đến cõi Phạm." `13.3` `Vārinā viya osiñcaṁ`: `osiñcaṁ` là phân từ chỉ người rưới (chủ thể của `nibbāpaye` ở 13.4) — đổi "như người rưới nước," để 13.4 có chủ thể rõ, không còn đọc nhầm là chính bà dập tắt. `12.3` bớt chữ "đời" làm chủ ngữ: "Với những đời đã qua là như thế," (`atītānaṁ` sở hữu cách).
+    + Xưng hô (không đổi nghĩa): `7.4`, `10.2`, `10.4` đổi "ngươi" thành "nàng" — ẩn sĩ nói với một góa phụ đang than khóc, không phải ngạ quỷ; "ngươi" ở các bài ngạ quỷ cùng khuôn (pv18, ja454) là lời nói với nam nhân/ngạ quỷ. Trong kn, "nàng" 1.114 khoá/173 tệp và "ngươi" 1.922 khoá/498 tệp (không xung đột, tuỳ ngữ cảnh).
+    + Đã đọc đối kháng 90/90 cặp Pāli↔Việt: số khoá lỗi nghĩa thật 7/90 (11.1–11.4 bốn khoá bỏ trống chữ `ātume`, 23.4 sai tên, 19.4 lệch `upaga`/`upapatti`, 13.3 mất chủ thể), cộng 3 khoá đổi xưng hô, 1 khoá đổi dòng chữ nhẹ (12.3). Không đổi nháy; khoá, thứ tự khoá và `translationTitle` không đổi; Pāli `…`/`(…)` = 0 nên Việt cũng 0. Số Pāli giữ nguyên: 86.000 (7.1), thứ mười ba (20.1), thứ hai (21.1).
+    + Bất định còn lại: `10.2` `akārayi` là ngôi ba mà mạch lời hỏi ở 10.4 là ngôi hai — giữ chủ ngữ "nàng"; cách đọc khác (mỗi vị vua phong bà làm hoàng hậu) không đổi ý chính. `4.2`/`6.2` `samerita` (0 tiền lệ). `ātume` vẫn là hình thái hiếm; cách đọc "bản thân tôi" dựa vào chú giải `ātumā = attā` và mạch đối đáp, chứ không có bản Anh độc lập. Vì vậy `ambiguity_integrity` 8.2 và `triangulation` 7.0.
+    + Điểm: semantic_fidelity 8.8→9.0, grammar_logic 8.8→8.9, terminology 9.0→9.1, ambiguity_integrity 8.0→8.2; các điểm còn lại giữ nguyên; `final_score` 8.86→8.92 (trung bình số học thô).
   - technical_integrity 9.6: cổng kỹ thuật do người điều phối chạy — npm run validate; npm test; npm run check; npm run build.

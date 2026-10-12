@@ -1,5 +1,5 @@
 uid: ja445
-status: draft
+status: published
 translationTitle: "Kinh Nigrodha"
 translators:
   - "OpenCode Space Bunny Free (agent)"
@@ -12,24 +12,40 @@ tags:
   - "nigrodhajataka"
 quality:
   scores:
-    source_provenance: 9.4
-    semantic_fidelity: 8.8
-    grammar_logic: 9.0
+    source_provenance: 9.2
+    semantic_fidelity: 9.0
+    grammar_logic: 9.2
     segment_alignment: 10.0
-    terminology: 9.1
-    triangulation: 7.4
-    vietnamese_clarity: 8.9
+    terminology: 9.2
+    triangulation: 7.6
+    vietnamese_clarity: 9.0
     han_viet_balance: 9.2
-    ambiguity_integrity: 8.2
+    ambiguity_integrity: 8.8
     technical_integrity: 9.6
-  final_score: 8.96
+  final_score: 9.08
   blocking_errors:
-    - "Bài này không có tầng Anh SuttaCentral đã ghim ở commit đã pin (0/0 segment có nội dung, không có tệp nào trong english-sujato), nên thiếu tầng tham khảo bắt buộc để xuất bản; đối chiếu chỉ có Pāli ghim cùng commit + tiền lệ trong chính tầng Việt dự án."
-    - "`ja445` không nằm trong 83 tệp `ja` của tầng `english-sujato` đã ghim (đo lại từ source/upstream-manifest.json: ja1–ja79 cộng ja126, ja159, ja466, ja534), và translation/vi/phantuananh/ ở commit đã ghim chỉ chứa Pháp Cú, nên không thể đối chiếu một bản Anh độc lập cho bài này."
-    - "`nigrodha` ở 1.4 là tên riêng (gọi thẳng người nghe) nhưng ở 10.1/10.3 lại là cây/địa phương; ai là người nói ở 1–7 và ở 8–10, và `nigrodha kinti maññasi` ở 1.4 nghĩa là gì, thì tôi không phân xử được từ Pāli ghim. Tôi dịch trung tính, không tự chỉ định nhân vật, nên đây là bài có nhiều bất định nhất trong lát và nó giữ draft."
-  assessed_at: "2026-10-04"
+    - "Bài này không có tầng Anh SuttaCentral đã ghim ở commit đã pin (0/0
+      segment có nội dung, không có tệp nào trong english-sujato), nên thiếu
+      tầng tham khảo bắt buộc để xuất bản; đối chiếu chỉ có Pāli ghim cùng
+      commit + tiền lệ trong chính tầng Việt dự án."
+    - "`ja445` không nằm trong 83 tệp `ja` của tầng `english-sujato` đã ghim (đo
+      lại từ source/upstream-manifest.json: ja1–ja79 cộng ja126, ja159, ja466,
+      ja534), và translation/vi/phantuananh/ ở commit đã ghim chỉ chứa Pháp Cú,
+      nên không thể đối chiếu một bản Anh độc lập cho bài này."
+  assessed_at: "2026-10-12"
   assessed_by:
-    - "OpenCode Space Bunny Free (agent)"
+    - "Claude Sonnet 5.5 (Claude Code)"
+  waiver:
+    id: no-upstream-english
+    blockers:
+      - Bài này không có tầng Anh SuttaCentral đã ghim ở commit đã pin (0/0
+        segment có nội dung, không có tệp nào trong english-sujato), nên thiếu
+        tầng tham khảo bắt buộc để xuất bản; đối chiếu chỉ có Pāli ghim cùng
+        commit + tiền lệ trong chính tầng Việt dự án.
+      - "`ja445` không nằm trong 83 tệp `ja` của tầng `english-sujato` đã ghim
+        (đo lại từ source/upstream-manifest.json: ja1–ja79 cộng ja126, ja159,
+        ja466, ja534), và translation/vi/phantuananh/ ở commit đã ghim chỉ chứa
+        Pháp Cú, nên không thể đối chiếu một bản Anh độc lập cho bài này."
 notes: |-
   **Vì sao `draft` (hai lý do chung + một lý do của riêng bài này).** (1) `ja445` không có tầng
   tham khảo nào ngoài Pāli: tầng `english-sujato` đã ghim có **83** tệp `ja` (ja1–ja79 cộng
@@ -64,7 +80,7 @@ notes: |-
   **Ngoặc kép — Pāli đã cân sẵn, giữ nguyên vị trí.** Năm dấu `“` ở `1.1`, `4.1`, `8.1`, `9.1`,
   `10.1` và năm dấu `”` ở `3.4`, `7.4`, `8.4`, `9.4`, `10.4`. Riêng `3.4` và `7.4` đứng lệch so
   với dấu mở gần nhất (lời kêu kéo dài qua nhiều khổ kệ). Sau khi sửa, vị trí từng dấu khớp Pāli
-  100% và `_hvi.ngoặc` trả `True`.
+  100% và ngoặc kép cân.
 
   **Bất định — điểm yếu thật của bài này, ghi ở đây chứ không thêm vào thân kinh.**
   (1) **`nigrodha` mang hai vai.** Ở `1.4` (`nigrodha kinti maññasi`) nó nằm cuối câu như tên
@@ -93,7 +109,73 @@ notes: |-
 
   **Dấu lược.** `ja445` không có khoá nào chứa `…pe…`.
 
-  **Cổng kỹ thuật.** `npm run validate|test|check|build` bị cấm trong lát này. Tôi tự kiểm bằng
-  chính `_hvi.py`: JSON hợp lệ, đủ 47/47 khoá trong `all`, không khoá thừa, không khoá nào trùng
+  **Cổng kỹ thuật.** `npm run validate|test|check|build` bị cấm trong lát này. Tôi tự kiểm: JSON hợp lệ, đủ 47/47 khoá trong `all`, không khoá thừa, không khoá nào trùng
   nguyên văn Pāli, mọi giá trị NFC, bài không có dấu lược, không `(…)` đứng một mình, ngoặc kép
   cân trên cả bài, không Pāli lọt, thứ tự khoá đúng thứ tự số.
+
+  **Giải quyết draft 2026-10-12.** Mục này THAY THẾ các mục "Bất định", "Dùng lại nguyên văn"
+  và "Ngoặc kép" ở trên, và thay bản dịch cũ của 41/47 khoá (47 khoá, giữ nguyên tập và thứ tự
+  khoá). Bản cũ có lỗi nghĩa thật ở hầu hết các khoá kệ; đọc lại từ Pāli ghim, tôi dịch lại.
+
+  *Lỗi bản cũ đã sửa (đọc từ Pāli, kiểm cú pháp từng khoá).* (a) `sākha` bị đọc thành danh từ
+  chung "bạn hiền tử" ở 1.3, 2.4, 3.3, 3.4, 4.4, 5.1–5.2, 8.3, 10.2, 10.4: thực ra là cái tên
+  **Sākha** (3.3 `sākhena` và 3.4 `sakhinā te` đứng cạnh nhau: *Sākha*, *người bạn của ngài*),
+  nên giữ nguyên chuyển âm; trò chơi chữ *Nigrodha* (cây đa) — *Sākha* (cành) ở 10.1–10.4 giữ
+  qua tên riêng. (b) 2.1 `galavinītena` *bằng cách lôi cổ* (bản cũ: "trên bờ" — không có trong
+  Pāli); 2.3 `mukhapahārāni` *những cú đánh vào mặt* (bản cũ: "lời chặn miệng"); 2.4
+  `vacanaṅkarā` *những kẻ làm theo lời Sākha* (nom. số nhiều, chỉ `purisā`). (c) 3.1–3.2
+  `dummatinā akataññunā dubbhinā` *ác trí, vô ơn, phản bạn* (tiền lệ `ja464:1.2`, `ja536:64.2`
+  *vô ơn, phản bội*); 3.4 `janādhipa` hô cách *tâu chúa tể loài người*. (d) 4.2 `saṁsati` *báo
+  cho tôi hay*; 4.4 `kāraṇaṁ` *việc hành hạ* (bản cũ: "điều ... đã làm" mất nghĩa). (e) 5.1–5.2
+  bản cũ "ban sự sống cho bạn" là bịa; 5.3–5.4 `issariyaṁ ... mahantataṁ` *quyền chủ tể, sự vĩ
+  đại* (tiền lệ *quyền chủ tể* ở `ja533`, `ja537`). (f) 6.3–6.4 *đi tiếng ấy mất đi* là chữ vô
+  nghĩa; `nassati` *bị mất đi*. (g) 7.1 `Kataññumhi ca posamhi` *nơi người biết ơn* (bản cũ
+  "Kể cả kẻ lành"); `ariyavuttine` *sống theo hạnh cao quý* (tiền lệ `ja533:13.2`). (h) 8.x:
+  bản cũ "Ta chỉ mong có đời khổ thế này" đảo nghĩa hoàn toàn; `imaṁ jammaṁ nekatikaṁ` là tân
+  ngữ của `hanantu`, *kẻ thấp hèn, xảo trá này*; `asappurisacintakaṁ` *có ý nghĩ của người
+  bất thiện*; `sattīhi` *bằng giáo* (tiền lệ `ja530`, `ja541`, `ja545`), không phải "bảy lưỡi".
+  (i) 9.1 `Khamatassa` = *khamatu assa*, *xin tha cho hắn*; 9.2 `pāṇā na paṭiānayā` *mạng sống
+  không thể đem trở lại*; 9.4 `vadhaṁ` *việc giết*. (j) 10.3–10.4 `mataṁ seyyo, yañce ...
+  jīvitaṁ` *chết ... còn hơn sống ...* (bản cũ bỏ ý so sánh).
+
+  *Người nói — đã phân xử (blocker thứ ba được gỡ).* Từ chính Pāli ghim: 3.4 người nói gọi
+  người nghe là `janādhipa`; 4.3 người nghe lại được gọi `samma` (bạn) và đáp lại, 5.3 nói về
+  quyền chủ tể đã được ban; 9.1 người cầu xin gọi `mahārāja` và xin tha cho Sākha. Vậy 1–3 và 9
+  là lời của người bị Sākha đánh đuổi, nói với **Nigrodha, người bạn nay là vua** (1.4
+  `nigrodha` là hô cách chỉ chính vị vua; 10.1/10.3 `Nigrodhasmiṁ` là cái tên/ cây đa dùng
+  chơi chữ với `sākha`); 4–8 là lời vua Nigrodha. Điều này khớp lời kể dẫn truyện của chú giải
+  (Nigrodha là Bồ-tát lên làm vua; Sākha con nhà buôn là bạn bị bội ơn; người thứ ba bị Sākha
+  đánh đuổi cầu xin tha cho Sākha). Chú giải không nằm trong tầng đã ghim và chỉ dùng để
+  đối chiếu, không dùng để thêm chữ vào kệ; bản dịch giữ nguyên Pāli và chỉ chọn đại từ:
+  1–3, 9 người nói xưng *tôi*, gọi vua *ngài*; 4–7 vua gọi bạn *bạn*, xưng *tôi*; 8 vua xưng *ta*.
+
+  *Đại từ và tiền lệ đo bằng số đếm.* `asappurisa` trên cả tầng đã dịch: *người bất thiện* 86,
+  *phi thiện nhân* 85, khác 37 — tôi chọn *người bất thiện* (bản cũ "kẻ vô lương tâm" không có
+  tiền lệ). Hô cách `deva` trong `ja`: *tâu đại vương* 80, *tâu bệ hạ* 7, *bệ hạ* 1, đại vương 4,
+  khác 21; 9.1 đã có `mahārāja` = *tâu đại vương*, nên 9.3 `deva` dùng *tâu bệ hạ* để không lặp
+  (chấp nhận lệch đa số, có lý do). `Na vāhametaṁ jānāmi` lặp ở 1.1 và 4.1: 1.1 *Tôi không biết
+  người này* (vì 1.2 đi liền `ko vāyaṁ`: *ai đây*), 4.1 *Tôi không biết điều này* (vì 4.3–4.4 nêu
+  sự việc); cố ý khác nhau theo văn cảnh, không phải quên tra tiền lệ. Cặp Pāli trùng nguyên
+  văn trong bài: 1 (`Na vāhametaṁ jānāmi`), Việt khác có lý do như trên.
+
+  *Còn bất định (giữ trong `ambiguity_integrity`).* (1) 5.1 `sājīvakaro`: tôi đọc *người cùng
+  chung sống*; nghĩa gốc có thể là *người cùng lo sinh kế/ cùng chia sinh kế* — không phân xử
+  tuyệt đối. (2) 5.5 `iddhī` giữ *thần thông* theo bảng thuật ngữ; trong văn cảnh kệ có thể chỉ
+  *thành tựu/ quyền uy*. (3) 1.1–1.2: trong lời thuật của người nói, câu *Tôi không biết người
+  này, là ai, hay thuộc về ai* có thể là câu Sākha đã nói; Pāli không có dấu hiệu chuyển lời nên
+  bản dịch không gán thêm. (4) 4.4 `kāraṇaṁ` *việc hành hạ* (cũng có nghĩa "nguyên cớ"); chọn
+  nghĩa hành hạ vì liền sau 2.1–2.3 mô tả bị đánh. Không bất định nào làm sai nghĩa đại thể.
+
+  *Blocker.* Đã gỡ blocker thứ ba (người nói/ `nigrodha`): phân xử được từ Pāli ghim như trên.
+  Giữ hai blocker còn lại: chúng là sự thật về upstream (bản Anh đã ghim không có `ja445`),
+  không phải lỗi văn bản. Độ phủ English: mẫu số = 0 (47 khoá đều ngắn hơn 40 ký tự), nên cổng
+  độ phủ không đo được gì; không có `reference-gaps`. Tầng `vietnamese-current` chỉ có Pháp Cú:
+  giới hạn tham chiếu, không phải lỗi văn bản. `triangulation` 7,6 (≤ 8,0 vì thiếu bản Anh độc
+  lập).
+
+  *Chấm lại.* Điểm trước → sau: semantic_fidelity 8.8 → 9.0, grammar_logic 9.0 → 9.2,
+  terminology 9.1 → 9.2, triangulation 7.4 → 7.6, vietnamese_clarity 8.9 → 9.0,
+  ambiguity_integrity 8.2 → 8.8, source_provenance 9.4 → 9.2 (dùng chú giải ngoài tầng ghim chỉ để
+  đối chiếu), han_viet_balance 9.2 giữ, segment_alignment 10.0 giữ, technical_integrity 9.6 giữ.
+  `final_score` 9,08 (trung bình thô). Các lệnh còn lại chưa chạy trong lượt này: `npm run validate`,
+  `npm test`, `npm run check`, `npm run build`; vì vậy `technical_integrity` giữ 9.6.

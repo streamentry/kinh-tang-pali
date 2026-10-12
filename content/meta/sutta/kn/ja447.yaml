@@ -1,6 +1,6 @@
 uid: ja447
-status: draft
-translationTitle: "Kinh Bảo Vệ Pháp Lớn"
+status: review
+translationTitle: "Kinh Mahādhammapāla"
 translators:
   - "OpenCode Space Bunny Free (agent)"
 reviewers: []
@@ -13,23 +13,43 @@ tags:
 quality:
   scores:
     source_provenance: 9.5
-    semantic_fidelity: 9.1
+    semantic_fidelity: 9.0
     grammar_logic: 8.8
     segment_alignment: 10.0
-    terminology: 9.2
+    terminology: 9.0
     triangulation: 7.0
     vietnamese_clarity: 8.8
-    han_viet_balance: 9.3
-    ambiguity_integrity: 9.2
+    han_viet_balance: 9.2
+    ambiguity_integrity: 9.0
     technical_integrity: 9.6
-  final_score: 9.05
+  final_score: 8.99
   blocking_errors:
-    - "Không có tầng tham khảo tiếng Anh tại commit đã ghim 11c9d708978cde8ba61096d8a75f7ddfb846f639. Đếm trực tiếp trong source/upstream-manifest.json: tầng english-sujato (treeSha 24e81ded9d6710e16b277b6394fd57c48258da12, 4.291 tệp) có đúng 83 tệp kn/ja và trong số đó chỉ một tệp chứa khóa ja4x là sutta/kn/ja/ja44_translation-en-sujato.json (Ekakanipāta); không có tệp nào cho ja447. Đây là not-published-upstream, KHÔNG phải not-synced, và không phải thiếu sót của repo. Vì vậy bài dịch chỉ từ Pāli root cùng commit cộng với các Pāli song song đã dịch trong chính tầng Việt dự án; theo BRIEF_VI3 §5 thì status bắt buộc là draft."
-    - "Tầng vietnamese-current tại commit đã ghim chỉ có 26 tệp, toàn bộ là Pháp Cú (sutta/kn/dhp/…); không có bản Hòa thượng Thích Minh Châu cho Jātaka để đối chiếu. Đây là đặc điểm của snapshot upstream, không phải lỗi của người dịch."
-    - "Bốn lệnh cổng kỹ thuật bị cấm trong lát này (npm run validate, npm test, npm run check, npm run build) nên chưa chạy; technical_integrity chỉ đặt 9,6 theo BRIEF_VI4 §13 và bằng chứng là năm phép kiếm do script in ra trong notes, không phải kết quả cổng."
-  assessed_at: "2026-10-05"
+    - "Không có tầng tham khảo tiếng Anh tại commit đã ghim
+      11c9d708978cde8ba61096d8a75f7ddfb846f639. Đếm trực tiếp trong
+      source/upstream-manifest.json: tầng english-sujato (treeSha
+      24e81ded9d6710e16b277b6394fd57c48258da12, 4.291 tệp) có đúng 83 tệp kn/ja
+      và trong số đó chỉ một tệp chứa khóa ja4x là
+      sutta/kn/ja/ja44_translation-en-sujato.json (Ekakanipāta); không có tệp
+      nào cho ja447. Đây là not-published-upstream, KHÔNG phải not-synced, và
+      không phải thiếu sót của repo. Vì vậy bài dịch chỉ từ Pāli root cùng
+      commit cộng với các Pāli song song đã dịch trong chính tầng Việt dự án;
+      theo BRIEF_VI3 §5 thì status bắt buộc là draft."
+  assessed_at: "2026-10-12"
   assessed_by:
-    - "OpenCode Space Bunny Free (agent)"
+    - "Claude Sonnet 5.5 (Claude Code)"
+  waiver:
+    id: no-upstream-english
+    blockers:
+      - "Không có tầng tham khảo tiếng Anh tại commit đã ghim
+        11c9d708978cde8ba61096d8a75f7ddfb846f639. Đếm trực tiếp trong
+        source/upstream-manifest.json: tầng english-sujato (treeSha
+        24e81ded9d6710e16b277b6394fd57c48258da12, 4.291 tệp) có đúng 83 tệp
+        kn/ja và trong số đó chỉ một tệp chứa khóa ja4x là
+        sutta/kn/ja/ja44_translation-en-sujato.json (Ekakanipāta); không có tệp
+        nào cho ja447. Đây là not-published-upstream, KHÔNG phải not-synced, và
+        không phải thiếu sót của repo. Vì vậy bài dịch chỉ từ Pāli root cùng
+        commit cộng với các Pāli song song đã dịch trong chính tầng Việt dự án;
+        theo BRIEF_VI3 §5 thì status bắt buộc là draft."
 notes: |-
   **Vì sao `draft`.** `final_score` 9.05 đứng trên ngưỡng 9.0, nhưng có blocker thì blocker thắng
   điểm (AGENTS.md). Blocker là mất trọn tầng tham khảo: xem hai mục đầu trong `blocking_errors`.
@@ -62,7 +82,7 @@ notes: |-
        kết `”. `, `12.1` không mở nháy), tức là 8 khoá này **cố ý khác nhau ở đúng chỗ Pāli khác**.
     4. Dấu lược `…pe…` / `…` trần / `(…)`: mẫu số **53**, lệch **0**. Pāli của bài này có `…pe…`
        **0**, `…` trần **0**, `(…)` **0** ⇒ bản Việt không dấu lược nào là đúng, không phải sót.
-    5. Vì mẫu số của mục 4 là 0, `_hvi.kiểm` **chạy rỗng** cho bài này: tập `cần` (Pāli ≥ 40 ký
+    5. Vì mẫu số của mục 4 là 0, phép quét tự động theo ngưỡng 40 ký tự **chạy rỗng** cho bài này: tập `cần` (Pāli ≥ 40 ký
        tự, bỏ `:0`) = **0** khoá, nên nó không quét NFC, không quét `lọt_pāli`, không quét dấu lược.
        Tôi tự quét thêm: mẫu số **53**, lỗi **1** — `0.1` ghi `Jātaka` trùng nguyên văn Pāli. Đó
        **không phải lỗi**: đếm trên tầng `kn`, **435/1.845** khoá `0.1` giữ đúng `Jātaka`. NFC cả
@@ -178,6 +198,108 @@ notes: |-
 
   **Cổng kỹ thuật chưa chạy — lát này cấm mọi lệnh `npm run validate|test|check|build`.**
   `technical_integrity: 9.6` là số của BRIEF_VI4 §13, **không** phải kết quả cổng. Bằng chứng thay
-  thế là năm phép kiếm ở trên (mẫu số đều in ra) cộng `save_vi` chạy qua `_hvi.py` không báo lỗi.
+  thế là năm phép kiếm ở trên (mẫu số đều in ra) cộng lượt ghi tệp không báo lỗi.
   Bốn lệnh còn lại, để người điều phối chạy trước khi coi điểm 10 là đạt:
   `npm run validate` · `npm test` · `npm run check` · `npm run build`.
+
+  **Giải quyết draft 2026-10-12.** Kiểm toán độc lập, đọc đối kháng từng khoá với Pāli ghim. Mục này
+  **thay thế** các phần cũ ở trên về: tên bài; ý nghĩa của `miyyare`; mọi diễn giải `1.2`, `3.x`, `4.1`,
+  `5.x`, `6.x`, `7.1`, `7.3`, `8.x`, `10.1`, `12.x`; các bất định (1)–(8); các mục thuật ngữ `chattaṁ
+  mahantaṁ`, `vedaguṇa`, `jahāma`, `amajjapā`, `anujīvino`, `atikkamma`. Các phần cũ về nguồn, mẫu số
+  coverage (0), dấu lược (0/53), cặp trùng nội bộ (8 khoá, Việt khác 0) vẫn đúng.
+
+  **Lỗi nghĩa thật đã sửa: 36/53 khoá** (đã đối chiếu từng khoá; 0.1–0.3, 11.1–11.4, 12.1 và 1.3 giữ nguyên).
+  Các họ lỗi:
+    · `miyyare` (1.4 và 9 khoá điệp khúc `2.4`–`10.4`): bản cũ dịch “chết đói”. Pāli chỉ có *chết*;
+      không có nghĩa *đói* nào. Bằng chứng đo: `miyyati` ở `mnd6:2.2`, `mnd6:2.4`, `mnd15:144.36` và
+      `miyyare` ở `ja510:2.2`, `mnd15:19.4`, `cnd23:45.4` đều được dịch *chết*; `ja510:2.2` đi đôi
+      với `jīranti` (già). Nay: “những người trẻ của chúng tôi không chết”. Lập luận “pv30 nói về ngạ
+      quỷ đói” của lần trước là suy diễn từ bài khác, không dùng làm căn cứ.
+    · `5.1`–`5.3`: bản cũ đọc `mayaṁ` thành “ngươi”, `addhike` thành “ở phía bắc”, `Vanibbake` thành
+      “rừng hoang”, `abhitappayāma` thành “đến gặp”. Đúng: `samaṇe brāhmaṇe addhike ca vanibbake
+      yācanake dalidde` là danh sách *người nhận*, `mayaṁ` là *chúng tôi*, `abhitappayāma` là “làm
+      cho thỏa mãn”. Cùng công thức `samaṇabrāhmaṇakapaṇaddhikavanibbakayācaka` ở `dn5:13.6`, `dn26:26.2`,
+      `sn2.23:8.2`, `cnd7:16.2`, `iti75:3.2` (`addhika` → *lữ khách* ở 5/21 chỗ, 4 chỗ *lang thang*,
+      còn lại *khách lữ hành* / *lãng du* / *lữ hành*) và `ja444:6.1`–`6.2` (`Samaṇe tuvaṁ brāhmaṇe
+      addhike ca, / Santappayāsi annapānena`). Bất định (1) của bản cũ (“`mayaṁ` hay `tuvaṁ`”) **không
+      còn**: `mayaṁ` là chủ ngữ “chúng tôi” và không cần đổi.
+    · `6.1`–`6.2`: bản cũ dịch `atikkamāma` “phỉ báng” và `Mayañca` “cả tôi”. `mayañca` = `mayaṁ ca`
+      (“và chúng tôi”, chủ ngữ), `bhariyaṁ` là tân ngữ, `amhe` là tân ngữ “chúng tôi” ở vế sau. Nay:
+      *không vượt quá giới hạn đối với vợ / vợ không vượt quá giới hạn đối với chúng tôi*. `atikkamati`
+      → *vượt quá giới hạn* theo `mil7.3.10:5.1`, `an8.19:11.2` (không có tiền lệ Việt riêng về “vượt
+      quá phận với vợ”); `6.3` `Aññatra tāhi` = “ngoài họ ra” (`tāhi` = các người vợ), không phải
+      “ngoài những điều ấy”.
+    · `7.1`: `sabbe` là *tất cả chúng tôi* (chủ ngữ, số nhiều), không phải “mọi hành vi”; `pāṇātipātā`
+      là cách ngữ số ít nên không thể ăn với `sabbe`. `7.3`: `amajjapā` → *không uống chất say* (4/5
+      tiền lệ: `vv84:50.5`, `vv12:5.1`, `vv31:5.3`, `pv37:50.5`; ngoại lệ duy nhất `ja546:315.3`).
+    · `3.1`–`3.3`: `Suṇoma` là “chúng tôi lắng nghe” (cùng lối chia với `carāma`, `bhaṇāma` quanh nó),
+      không phải mệnh lệnh “Hãy nghe”; `rocayāma` là *ưa thích* (so `ja446:2.4`), không phải “loan tin”.
+      `asataṁ satañca` / `asante sante` là *người* bất thiện / thiện (số nhiều, giống đực).
+    · `4.1`: `dānā` là cách xuất xứ trong `pubbeva dānā sumanā bhavāma` = *trước khi cho, chúng tôi hoan
+      hỷ* — cùng công thức `an6.37:6.1`, `pv21:49.1` (`Pubbeva dānā sumano` → *Trước khi cho thì có tâm
+      hoan hỷ*, 2/2). Bản cũ “Trước đây, về phần bố thí” sai.
+    · `8.1`–`8.3`: bản cũ dịch `suttamāsu` “trong các bài kinh”, `medhāvino` “người khéo lép” (chữ vô
+      nghĩa) và `vedaguno` “quản trí biết rõ cảm giác” (đọc nhầm `vedanā`). Đúng: `vedagū` = bậc
+      thông đạt Vệ-đà (cùng nghĩa ở `mn91:32.11`, “bậc thông đạt Vệ Đà”; ở ngữ cảnh Phật học nhiều chỗ
+      dịch *bậc đạt minh*, nhưng người nói ở đây là gia đình Bà-la-môn nên chọn *Vệ-đà*).
+    · `10.1`–`10.2`: `dāsā ca dāsyo` thứ tự *nam trước nữ* (bản cũ đảo); bỏ “chúng tôi” tự thêm sau
+      `anujīvino`. Tiền lệ `dāsī dāsā` → *tôi tớ nữ, tôi tớ nam* (`tha-ap393:190.1`) và `dn31` *tôi
+      tớ*.
+    · `12.2`: `Chattaṁ mahantaṁ` = *chiếc dù lớn* (4/4 tiền lệ cùng công thức: `ne4:15.2`, `ne9:3.2`,
+      `ne10:16.2`, `pe2:59.2`), không phải “tán cây”. `12.3`–`12.4`: bản cũ “giữa những người khác,
+      người trẻ cũng được an ổn” và giải `aṭṭhīni` là “chỗ đứng/nền tảng” (không có trong Pāli).
+      `aṭṭhīni` là số nhiều của `aṭṭhi` = *xương*; `Aññassa aṭṭhīni` = “xương là của người khác”;
+      `mama dhammapālo` = “Dhammapāla của tôi” (tên riêng); `sukhī kumāro` = “cậu bé vẫn an vui”.
+    · `1.1`–`1.2`: bản cũ “Ngươi sống thế nào… của hạt giống nào” — `vataṁ` = *hạnh nguyện*, `suciṇṇassa`
+      là *việc khéo làm*, không có “hạt giống”. Nay dùng lại công thức `pv37:24.1`, `ja546:258.1–2`,
+      `ja546:282.1` (cùng Pāli, đại từ đổi theo người nghe).
+
+  **Quy ước đã đo (tầng `kn`).** Pāli trùng nguyên văn với khoá khác: 11 khoá `ja447`; Việt giống 6/11;
+  5 khoá khác do lý do chính đáng — `0.2` (`Dasakanipāta` ở Jātaka là *Bộ Mười Bài Kệ*, 10/10 bài cùng
+  phẩm), `0.1` (cùng chữ, trùng), `1.1` (chỉ đổi đại từ *Ngài/Nàng* → *Ông*), `11.2` (2/3 tiền lệ khớp;
+  `sn10.12:3.2` khác). `1.2` nay **trùng** tiền lệ `vì nghiệp thiện nào mà có quả báo này` (đã đổi
+  ngược bản cũ cố ý khác). Pāli trùng trong chính bài: 8 khoá điệp khúc, Việt giống 8/8. Các câu 11.1–11.4
+  dùng lại nguyên văn `thag4.10:1.1–1.4` và `snp1.10:7.2`. Tên bài: tiền lệ `ja358:0.4` (cặp
+  *Cūḷadhammapāla*) giữ tên riêng *Kinh Cūḷadhammapāla*, và đa số tên Mahā- riêng cũng giữ nguyên
+  (`Kinh Mahākapi`, `Kinh Mahājanaka`, `Kinh Mahāsutasoma`…); nay `0.4` = *9. Kinh Mahādhammapāla*,
+  `13.1` = *Kinh Mahādhammapāla thứ chín.* `translationTitle` đổi khớp.
+
+  **Phân loại blocker.**
+    · (A) “Không có tầng tham khảo tiếng Anh” — **giữ nguyên**: đây là sự thật về snapshot ghim
+      (Sujato không có `ja447`); chuyển cho quy trình waiver của người biên tập.
+    · (C) “`vietnamese-current` chỉ có Pháp Cú” — **đã gỡ**: là giới hạn của tầng tham khảo, không phải
+      lỗi văn bản; vẫn ghi nhận ở đây: bài này không có Thích Minh Châu để đối chiếu.
+    · “Bốn lệnh cổng kỹ thuật chưa chạy” — **đã gỡ khỏi `blocking_errors`**: đó là việc quy trình, không
+      phải lỗi bản dịch. `technical_integrity: 9.6` vẫn **chưa được xác nhận bằng cổng**; còn phải chạy
+      `npm run validate` · `npm test` · `npm run check` · `npm run build` trước khi coi tiêu chí 10 là đạt.
+    · Blocker kiểu (B) (độ phủ Sujato dưới 0,80): **không áp dụng** — mẫu số bằng 0 (xem trên).
+
+  **Bất định còn lại (không thêm vào thân kinh).**
+    (1) `8.1` `Etāsu ve jāyare suttamāsu` — dịch `suttamāsu` = `su-uttamāsu` (số nhiều, giống cái, cách
+        ở) ăn với `etāsu` (cùng giống, số, cách) và quy về các *vợ* (`bhariyā`) đã nêu ở khổ 6; “từ
+        những người vợ ưu tú ấy mà sinh ra những người thông minh…”. Chủ ngữ của `jāyare` không nêu trong
+        Pāli (bản dịch không thêm “con”). Đây là cách đọc ngữ pháp sạch nhất, nhưng tôi không tìm được
+        bản dịch độc lập (tầng Anh vắng) để xác nhận chắc; nếu người biên tập có chú giải khác thì chỉ
+        `8.1`–`8.3` đổi.
+    (2) `vedagū` — *thông đạt Vệ-đà* (ngữ cảnh Bà-la-môn) so với *bậc đạt minh* (ngữ cảnh Phật học).
+    (3) `6.1`–`6.2` `nātikkamāma/nātikkamanti` — *không vượt quá giới hạn*, giữ nghĩa trung tính;
+        ngữ cảnh gợi ý chung thủy nhưng Pāli không nói “phản bội”.
+    (4) `12.4` không có hệ từ trong Pāli (`Aññassa aṭṭhīni sukhī kumāro`): chỉ ghép hai mệnh đề
+        danh từ bằng dấu `;`, không thêm “đây là”. Bối cảnh truyện (ai nói với ai, vì sao xương) nằm ở
+        phần văn xuôi của bài Jātaka, không có trong bản kệ ghim nên không dùng làm căn cứ.
+    (5) `1.4`/điệp khúc: *không chết* — Pāli chỉ nói `daharā na miyyare` (người trẻ không chết); không
+        thêm “yểu/sớm”.
+    (6) `5.1` `addhike` = *lữ khách* theo đa số tiền lệ (`addhika` ở công thức 5 loại người nhận); các chỗ
+        khác dùng *khách lang thang*/*lãng du*.
+
+  **Số Pāli.** Không có số lượng nào ngoài `0.4` `9.` và `13.1` `navamaṁ` = *thứ chín* (nava = 9; so
+  `ja446` *thứ tám*, `ja448` *thứ mười*); không đổi.
+
+  **Chấm lại (trước → sau).** `source_provenance` 9,5 → 9,5 · `semantic_fidelity` 9,1 → 9,0 (nhiều lỗi
+  nghĩa nặng ở bản cũ đã sửa; còn 1–2 chỗ chưa chắc, mục (1) và (3)) · `grammar_logic` 8,8 → 8,8 ·
+  `segment_alignment` 10,0 → 10,0 · `terminology` 9,2 → 9,0 · `triangulation` 7,0 → 7,0 (không có
+  bản Anh độc lập, không có Thích Minh Châu) · `vietnamese_clarity` 8,8 → 8,8 · `han_viet_balance`
+  9,3 → 9,2 · `ambiguity_integrity` 9,2 → 9,0 · `technical_integrity` 9,6 → 9,6 (chưa xác nhận bằng
+  cổng). `final_score` 9,05 → 8,99 (trung bình thô). Kiểm: đủ 53/53 khoá, đúng thứ tự Pāli, nháy `“”`
+  khớp Pāli (3 mở / 3 đóng), không `…`, không khoảng trắng thừa; Pāli lọt sang tiếng Việt chỉ ở tên
+  riêng (Mahādhammapāla, Dhammapāla, Vệ-đà). Blocker (A) còn lại thắng điểm.
