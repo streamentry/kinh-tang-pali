@@ -484,3 +484,30 @@ Nhật ký append-only. Registry `content/audio/progress.json` được đối s
 - Rebased batch head on main `8456e034`; `audio:check` reports 186 catalog entries and 0 errors. `npm test`: 410 passed, 1 skipped, 0 failed. `npm run check`: 0 errors and 0 warnings (5 existing hints). Direct validator + quality-history check: validation passed with 2,242 recorded advisory warnings; 5,447 assessment histories and 0 quality errors.
 - Full `npm run build` passed, including its nested validate/quality gates: 6,146 static pages built; Pagefind indexed 6,137 pages and 458,052 words. Built MN27/MN28/MN29 HTML each contains its exact R2 URL and audio hash. The temporary build output was placed on SSD because `/private/tmp` was nearly full, then removed after verification.
 - A standalone `npm run validate` attempt hits sandbox `tsx` IPC named-pipe `EPERM`; the same repository command completed successfully as part of the full production build.
+
+### Batch mn-022 production verified — PR #550
+
+- PR #550 exact head `b45b41b5624d1f568936f23ed4dfa672b3390d84` passed both push and PR CI. Squash merge `87f8615f86700a51480e48743dfb180fb1ac0d45`; remote main later advanced to `e880d4b31acdbbd9da1f87caed93d101526d97b5`, with the audio merge verified as its ancestor.
+- Pages run #691 (`38224047920`) for merge commit `87f8615f86700a51480e48743dfb180fb1ac0d45` succeeded. Production MN27/MN28/MN29 canonical pages each returned HTTP 200, displayed the player in “Chờ nghe duyệt”, and loaded the exact registered R2 URL; all are marked `live`, while listening review stays pending.
+- Production MN28 playback passed: play, +15s, scripture jump at 161.15s (observed 161.289s), pause at 167.423s; duration 1,340.376s, readyState 4, no media error.
+- No ASR or full content approval is claimed.
+
+### Batch mn-023 MN30 uploaded/player verified
+
+- MN30: 13 chunks, 1,267.88s, MP3 SHA-256 `559bc4bfe2458c645fcdd7bbbdcd636ce481f606530d2e92a6c65b78d988ba81`, 25,358,880 bytes; scripture starts 136.67s. Existing approved profile unchanged. R2 hash/range and local player play/+15s/scripture/pause passed; review pending, no ASR.
+
+### Batch mn-023 MN31 uploaded/player verified
+
+- MN31: 13 chunks, 1,171.36s, MP3 SHA-256 `269e74db3af21fcb7511ca98a27b347c987bd5636ca45515c58dbde979814c87`, 23,428,320 bytes; scripture starts 161.07s. Existing verified chunks reused; R2 public hash/range and local player play/+15s/scripture/pause passed. OAuth 403 was resolved by read-only Wrangler bucket-info refresh on the same account; no login/account change and no TTS regeneration. Review pending; no ASR.
+
+### Batch mn-023 — MN30/MN31/MN32 uploaded-verified, ready for PR
+
+- MN30: 13 chunks, 1,267.88s, MP3 SHA-256 `559bc4bfe2458c645fcdd7bbbdcd636ce481f606530d2e92a6c65b78d988ba81`, 25,358,880 bytes; scripture starts 136.67s. R2 and local player verified.
+- MN31: 13 chunks, 1,171.36s, MP3 SHA-256 `269e74db3af21fcb7511ca98a27b347c987bd5636ca45515c58dbde979814c87`, 23,428,320 bytes; scripture starts 161.07s. Existing complete 13-chunk checkpoint reused; after same-account Wrangler auth refresh, R2 and local player verified.
+- MN32: 15 chunks, 1,415.26s, MP3 SHA-256 `17016b8750343f8b1fbb1d48bed3a729569a9b86e1a6c834bd69861c3b5d1ce4`, 28,306,560 bytes; scripture starts 139.31s. R2 and local player verified; source is published.
+- All use profile `vi-charon-mn1-v1`, SHA-256 `a384c5852585077c32e1348a6ada5cfc70a69c989ad705b8b5129fef3e1c9a71`; combined duration 3,854.50s (~64m14.5s). No ASR/full-content listening; review pending. No media/cache is in Git.
+
+### MN30/MN31/MN32 local release gates
+
+- Rebased on current main `b45674b6113d5c82a85b220be29e620417d85b71`; audio registry check: 186 catalog texts, 0 errors. `npm test`: 410 passed, 1 skipped, 0 failed. Astro check: 0 errors, 0 warnings, 5 existing hints. Validator passed with 2,241 recorded advisory warnings; quality histories checked: 5,447, 0 errors.
+- Full `npm run build` passed on this rebased head: 6,146 pages built; Pagefind indexed 6,137 pages and 458,030 words. Built MN30/MN31/MN32 HTML each contains the exact registered R2 URL and audio hash. No MP3/WAV/cache is staged.
