@@ -538,3 +538,8 @@ Nhật ký append-only. Registry `content/audio/progress.json` được đối s
 - Rebased on current main `e1613f80042e3f48ccc3301640ca44d7d4dd753c`; audio registry check reports 186 catalog UIDs, 0 errors. `npm test`: 410 passed, 1 skipped, 0 failed. `npm run check`: 0 errors and 0 warnings (5 existing hints). Direct validator passed with 2,241 advisory coverage warnings; quality-history check covered 5,447 entries with 0 errors.
 - Full `npm run build` passed: 6,146 static pages built; Pagefind indexed 6,137 pages and 458,033 words. The generated MN33/MN34/MN35 pages each contain an audio element, pending-review label, and exact registered R2 URL.
 - R2 range checks passed with 206 `audio/mpeg` for all three. The local Player HTML is present. Interactive browser play/seek was not run because the available Playwright launcher is blocked by the local package-age guard; no browser-control success is claimed. Manual listening remains the editor's task.
+
+### Batch mn-024 production HTML/R2 verified — PR #567
+
+- PR #567 exact head `b4505d86205c918c0080f20a47b9aa336e655ad6` passed both push and PR CI; squash merge `c529607c00686602282462b858b6f5f2a54f5a4e`. Pages run `38284689919` completed successfully; remote main readback matched the merge SHA.
+- Production MN33/MN34/MN35 pages each returned HTTP 200, contained the player, pending-review label, and exact R2 URL. All three R2 Range requests returned 206 `audio/mpeg` with expected total bytes. Full bytes and SHA were verified at upload. Browser play/seek was not tested because local Playwright CLI is blocked by the package-age guard; no interactive playback claim is made. Their progress remains `generated` pending player-interaction verification; `review_status` remains `pending` for manual listening.
