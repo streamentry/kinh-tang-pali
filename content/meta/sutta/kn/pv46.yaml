@@ -1,6 +1,6 @@
 uid: pv46
 status: published
-translationTitle: "11. Chuyện Ngạ Quỷ Đoàn Hộ Đứa Con"
+translationTitle: "11. Chuyện Ngạ Quỷ Pāṭaliputta"
 translators:
   - "OpenCode Space Bunny Free (agent)"
 reviewers: []
@@ -13,16 +13,16 @@ tags:
 quality:
   scores:
     source_provenance: 9.5
-    semantic_fidelity: 9.2
+    semantic_fidelity: 9.0
     grammar_logic: 9.2
     segment_alignment: 10.0
     terminology: 9.2
     triangulation: 7.5
-    vietnamese_clarity: 9.3
+    vietnamese_clarity: 9.2
     han_viet_balance: 9.3
-    ambiguity_integrity: 8.9
+    ambiguity_integrity: 8.8
     technical_integrity: 9.6
-  final_score: 9.17
+  final_score: 9.13
   blocking_errors:
     - "Không có tầng tham khảo tiếng Anh tại commit đã ghim: tệp
       `translation/en/sujato/sutta/kn/pv/pv46_translation-en-sujato.json` không
@@ -37,9 +37,9 @@ quality:
       `translation/vi/phantuananh` tại commit đã ghin chỉ có 26 tệp và toàn bộ
       là Pháp Cú. Lớp lấp `english-project` của dự án cũng không có cho uid này.
       Ba tầng tham khảo đều vắng ⇒ bài dịch chỉ từ Pāli root ⇒ blocker thật."
-  assessed_at: "2026-10-02"
+  assessed_at: "2026-10-11"
   assessed_by:
-    - "OpenCode Space Bunny Free (agent)"
+    - "Claude Sonnet 5.5 (Claude Code)"
   waiver:
     id: no-upstream-english
     blockers:
@@ -90,3 +90,13 @@ notes: |-
     lời ngươi, ngươi là vị thầy của ta*) xác nhận đúng cách đọc này.
 
   Đợt này bị cấm chạy `npm run validate|test|check|build` theo chỉ đạo của người điều phối, nên `technical_integrity` bị chặn ở **9.6**. Tôi đã **tự tái lập bằng script** những kiểm mà `validate` làm cho tầng Việt và ghi kết quả vào đây: đủ 17 khoá với đúng segment ID, không orphan, không thừa, mọi khoá NFC, không rỗng, dấu lược khớp Pāli **từng khoá** (kể cả khoá ngắn hơn 40 ký tự mà `kiểm()` của `_hvi.py` không quét), ngoặc kép `“”` cân trên cả bài, không còn `(…)`, và không có Pāli lọt vào bản Việt. Đây **không** thay thế được `validate`; nó là bằng chứng cho tới khi cổng kỹ thuật được chạy.
+
+  Lượt cải thiện 2026-10-11 (đọc đối kháng từng khoá, thay thế các mục "THUẬT NGỮ MỚI" và "BẤT ĐỊNH CHƯA PHÂN XỬ" ở trên, vốn dựa trên cách đọc sai):
+  Đổi 15/17 khoá (chỉ giữ `0.1`, `0.2`). Bản trước đọc sai nền ngữ pháp của cả bài.
+  · `Pāṭaliputta` là tên THÀNH (đối chiếu `pv37:52.4` `pāṭaliputtamakkhataṁ` = về Pāṭaliputta bình an vô sự, và `bv29:14.1`, `mil2`), không phải "Đoàn Hộ Đứa Con"; tiêu đề `0.3`, `4.1` và `translationTitle` đổi thành *Chuyện ngạ quỷ Pāṭaliputta*. `Nessāmi taṁ pāṭaliputtamakkhataṁ` (`1.4`) = *ta sẽ đưa ngươi đến Pāṭaliputta bình an vô sự* (`nessāmi` = đưa đi, không phải "ban cho"; `akkhata` = không bị tổn hại).
+  · `tiracchānayoni` = cõi súc sinh (bản trước: "cõi địa ngục không cửa", không có trong Pāli; tiền lệ `cnd18`, `cnd5`, `ja525:31.2` đều là súc sinh). `1.1–1.2`: `tayā diṭṭhā` (công cụ cách) = *ngươi đã thấy*, `nirayā`, `tiracchānayoni`, `petā`, `asurā`, `mānusā devā` là các cõi/loài ĐƯỢC THẤY (chủ cách số nhiều), chứ không phải lời gọi người đối thoại; bản trước biến chúng thành "ngươi là ngạ quỷ, yêu quái, người hay chư thần" và thêm "yêu quái" (không có trong Pāli). Điểm bất định `tayā`/`mayā` nêu ở mục cũ vì vậy không còn: cả hai khoá `1.1` và `3.1` đều là *đã thấy*, đúng ngôi (`tayā` = bởi ngươi, `mayā` = bởi tôi).
+  · `1.3`/`3.3` `sayamaddasa(ṁ) kammavipākamattano` = *chính ngươi/tôi đã thấy quả của nghiệp thuộc về mình* (bản trước: "chỉ mới chịu quả báo của việc làm ấy thôi", câu không có trong Pāli).
+  · `3.4` `Kāhāmi` = `karissāmi` *tôi sẽ làm* (đối chiếu `ja378:2.4`, `ja391:5.4`, cùng câu `Kāhāmi puññāni anappakāni`), không phải "ta sẽ kể cho ngươi" (đảo chủ thể và động từ). `anappaka` = không phải là ít (`ja378`, `ja391`, `bv22:10.2`).
+  · Đổi ngôi lời đáp `2.1–2.4`, `3.1–3.4`: người đáp là người được dẫn đi, xưng *tôi* và gọi dạ-xoa là *ngài*; `yakkha`, `devate` là hô cách (*hỡi dạ-xoa*, *hỡi vị thiên*), bản trước dịch "yêu quái"/"chư thần". Dùng lại nguyên văn pv17:19.1–19.4 và pv38:53.1–53.4 (cùng Pāli; đã đối chiếu Pāli trước khi chọn). `1.5` `kusalaṁ kammaṁ` = *nghiệp thiện* (theo pv17).
+  Điểm đổi: semantic_fidelity 9.2 → 9.0 (bản đã chấm có nhiều chỗ sai nghĩa thật; bản sửa còn bất định ở `1.3`/`3.3`, `1.4`), vietnamese_clarity 9.3 → 9.2, ambiguity_integrity 8.9 → 8.8; các tiêu chí khác giữ. `final_score` 9.17 → 9.13. Điểm giảm vì đọc đối kháng thấy bản trước sai sâu hơn mức đã tự chấm; bản mới đúng ngữ pháp nhưng chưa có bản Anh độc lập để đối chiếu nên không nâng `triangulation` (7.5).
+  BẤT ĐỊNH CÒN LẠI (không phân xử được, không đoán): (1) `attano` trong `kammavipākamattano` có thể nối với quả của nghiệp *của chính mình* hay chỉ nhấn mạnh `sayaṁ`; giữ cách dịch sát chữ, không thêm diễn giải; (2) `akkhataṁ` (`1.4`) đứng sau `taṁ` và `pāṭaliputtaṁ` cùng hình thức đối cách, nên "bình an vô sự" có thể nói về người được đưa đi hoặc về thành; câu dịch giữ nguyên chỗ lưng chừng ấy (như `pv37:52.4`); (3) bối cảnh tự sự (ai là dạ-xoa, ai được dẫn đi) không có trong phần kệ của bản Pāli root, nên không đưa vào bản dịch. Khối `waiver` và blocker "không có tầng tham khảo tiếng Anh" giữ nguyên (sự thật về upstream). `technical_integrity` giữ 9.6; bốn lệnh `npm run validate` · `npm test` · `npm run check` · `npm run build` chưa được chạy trong lượt này.

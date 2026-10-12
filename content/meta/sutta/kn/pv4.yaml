@@ -11,16 +11,16 @@ tags:
 quality:
   scores:
     source_provenance: 9.5
-    semantic_fidelity: 9.3
-    grammar_logic: 9.3
+    semantic_fidelity: 9.0
+    grammar_logic: 9.0
     segment_alignment: 10.0
     terminology: 9.2
-    triangulation: 7.5
+    triangulation: 7.8
     vietnamese_clarity: 9.3
     han_viet_balance: 9.4
-    ambiguity_integrity: 9.2
+    ambiguity_integrity: 8.8
     technical_integrity: 9.6
-  final_score: 9.23
+  final_score: 9.16
   blocking_errors:
     - "Không có tầng tham khảo tiếng Anh tại commit đã ghim: tệp
       `translation/en/sujato/sutta/kn/pv/pv4_translation-en-sujato.json` không
@@ -37,9 +37,9 @@ quality:
       Pāli root ⇒ blocker thật, và đây là **giới hạn upstream**, không phải lỗi
       của người dịch. Vì vậy `triangulation` bị chặn ở 7.5 (≤ 8.0) chứ không
       nâng để né blocker."
-  assessed_at: "2026-10-03"
+  assessed_at: "2026-10-11"
   assessed_by:
-    - "OpenCode Space Bunny Free (agent)"
+    - "Claude Sonnet 5.5 (Claude Code)"
   waiver:
     id: no-upstream-english
     blockers:
@@ -61,3 +61,19 @@ quality:
 notes: |-
   Bản dịch chỉ từ Pāli root do commit đã ghim không có bản Anh upstream (giới hạn upstream).
   Đầy đủ 10 tiêu chí scorecard; status bắt buộc draft do blocker tầng tham khảo Anh; technical_integrity 9.6.
+
+  Lượt cải thiện 2026-10-11 (đọc đối kháng từng khoá, đối chiếu Pāli; 11/22 khoá đổi, không đổi tập khoá):
+  · `3.1` "Vì khóc lóc hay sầu muộn" → "Khóc lóc hay sầu muộn". `Na hi ruṇṇaṁ vā soko vā` là chủ ngữ của câu phủ định "đều không ích gì cho người đã khuất"; chữ "Vì" làm câu đọc thành khóc lóc là nguyên nhân/mục đích, sai logic. (grammar_logic 9.3 → 9.0: bản trước mắc lỗi này; nay đã sửa nhưng `3.4` vẫn còn mức đọc diễn giải.)
+  · `3.4` "thân nhân cứ mãi ở trong tình trạng ấy" → "thân nhân vẫn cứ ở như vậy". Bỏ "mãi" và "tình trạng", hai chi tiết `evaṁ tiṭṭhanti ñātayo` không có. Bản Anh Sujato của bài song song `kp7` (cùng bốn kệ) đọc "so long as their relatives stay like this", nên giữ nghĩa "thân nhân cứ ở như vậy" nhưng không thêm sắc thái thời gian.
+  · `1.3` "hoặc hướng về các bậc tiền nhân đã khuất" → "và hướng về tổ tiên đã khuất". `ca` là "và" (`atha vā` ở `1.4` mới là "hay"); `pubbapete` dịch "tổ tiên" theo `an4.61` (`pubbapetabaliṁ` → "cúng dường tổ tiên"); bỏ "bậc" vốn không có trong Pāli.
+  · `1.4` "các vị thiên thần bảo hộ nơi cư ngụ" → "các vị thiên của nền đất ở". `devatā` → "vị thiên" (115 nơi trên tầng so với "thiên thần" 2 nơi); "bảo hộ" là lời giải thích thêm.
+  · `2.1` "Và cúng dường bốn vị Đại Vương" → "và bốn vị Đại thiên vương". Pāli không có động từ "cúng dường" ở đây (`mahārāje` nối với `ārabbha` ở `1.3`); `Cattāro ca mahārājā` ở `sn11.18:2.3` và `sn11.18:3.3` đã dịch "bốn vị Đại thiên vương".
+  · `2.2` "những bậc Hộ thế có đại uy danh" → "những vị hộ thế có danh tiếng". `yasassin` → "có danh tiếng" là cách thường gặp (`sn3.1`, `sn22.78`); "đại uy" là chữ thêm; "hộ thế" viết thường theo `thi-ap17:167.1`.
+  · `2.3`–`2.4` bỏ chữ "vua" trước tên (Pāli chỉ nêu tên bốn vị; danh xưng đã nằm ở `mahārāje`).
+  · `2.5`–`2.6` "những vị ấy cũng được tôn kính cúng dường, và những người bố thí chẳng phải không có kết quả" → "những vị ấy được tôn kính, và những người bố thí cũng không phải không có quả". `te ca … dāyakā ca` là cặp "cả … lẫn", chữ "cũng" thuộc vế người bố thí; `pūjitā` không cần kép "tôn kính cúng dường"; `anipphala` theo `an10.177` ("không phải không có quả").
+  · `4.3` "cho họ" → "cho người ấy". `hitāyassa` = `hitāya assa`, số ít, chỉ người đã khuất `petassa` ở `3.3` (ở `kp7` mới là số nhiều `petānaṁ`).
+  Triangulation 7.5 → 7.8: bài này vẫn không có bản Anh hay Việt hiện hành riêng, nhưng bốn kệ cuối (`3.1`–`4.4`, 8/22 khoá) trùng nguyên văn với `kp7:11–12`, mà `kp7` có bản Anh Sujato đã ghim; đã dùng để kiểm cách đọc, không chép chữ. Không nâng quá 8.0.
+  semantic_fidelity 9.3 → 9.0 và ambiguity_integrity 9.2 → 8.8: điểm cũ bỏ qua các chỗ thêm nghĩa nêu trên và không ghi bất định nào; sau sửa vẫn còn bất định thật (dưới đây).
+  Bất định còn lại, giữ nguyên bản dịch và không đoán: (1) `1.1` `ārammaṇaṁ`: "đối tượng … làm chỗ nương" gộp hai cách hiểu (đối tượng / cơ sở, chỗ dựa), không có tầng tham khảo phân xử; (2) `4.4` `ṭhānaso upakappati`: giữ "ngay tại chỗ" theo 65 nơi dùng `ṭhānaso` trên tầng và theo Sujato ở `kp7` ("right away", nghĩa tức thì); có thể bị đọc theo nghĩa không gian; (3) tiêu đề `0.3`/`5.1` `Piṭṭhadhītalika` dịch theo nghĩa chữ "búp bê bột" (`piṭṭha` bột + `dhītalikā` búp bê); không có tầng tham khảo nào xác nhận đây là tên riêng hay tên gọi theo hình dáng, nên giữ; (4) `peta` ở `3.3` là "người đã khuất" (lời kệ về người chết nói chung, như `kp7`), khác "ngạ quỷ" ở tiêu đề.
+  Ngoài phạm vi, chưa sửa: `pv5:10.1`, `pv5:10.4`, `pv5:11.3` và `kp7:11.1`, `kp7:11.4`, `kp7:12.3` còn nguyên ba lỗi "Vì khóc lóc", "cứ mãi ở trong tình trạng ấy", "cho họ" (cùng Pāli với `3.1`, `3.4`, `4.3` đã sửa ở đây).
+  technical_integrity giữ 9.6; bốn lệnh `npm run validate`, `npm test`, `npm run check`, `npm run build` để người điều phối chạy.

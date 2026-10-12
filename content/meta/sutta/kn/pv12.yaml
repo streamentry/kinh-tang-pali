@@ -1,5 +1,5 @@
 uid: pv12
-status: published
+status: review
 translationTitle: "12. Chuyện Ngạ Quỷ Con Rắn"
 translators:
   - "OpenCode Space Bunny Free (agent)"
@@ -14,16 +14,16 @@ tags:
 quality:
   scores:
     source_provenance: 9.5
-    semantic_fidelity: 9.3
-    grammar_logic: 9.2
+    semantic_fidelity: 8.8
+    grammar_logic: 9.0
     segment_alignment: 10.0
-    terminology: 9.2
+    terminology: 8.8
     triangulation: 7.5
-    vietnamese_clarity: 9.2
+    vietnamese_clarity: 8.8
     han_viet_balance: 9.3
-    ambiguity_integrity: 8.9
+    ambiguity_integrity: 8.6
     technical_integrity: 9.6
-  final_score: 9.17
+  final_score: 8.99
   blocking_errors:
     - "Không có tầng tham khảo tiếng Anh tại commit đã ghim
       (11c9d708978cde8ba61096d8a75f7ddfb846f639). Đo bằng script trên
@@ -39,9 +39,9 @@ quality:
       từ Pāli root. `scripts/validate.ts` coi tệp Anh đã ghim vắng là **error**
       khi status là `review` hoặc `published`, nên bài bắt buộc `draft`, và
       `triangulation` bị chặn ở 7.5 (≤ 8.0) chứ không nâng điểm để né blocker."
-  assessed_at: "2026-10-05"
+  assessed_at: "2026-10-11"
   assessed_by:
-    - "OpenCode Space Bunny Free (agent)"
+    - "Claude Sonnet 5.5 (Claude Code)"
   waiver:
     id: no-upstream-english
     blockers:
@@ -136,3 +136,16 @@ notes: |-
   chờ pv1, pv5, pv10, pv11 có bản Việt trước; hiện chưa thể mà không bịa.
 
   CỔNG KỸ THUẬT CHƯA CHẠY — agent dịch không được phép chạy `npm run validate|test|build|check`. `technical_integrity` 9.6, KHÔNG tuyên bố technical gate pass. Bốn lệnh coordinator cần chạy trước khi coi tiêu chí 10 là đạt: `npm run validate`, `npm test`, `npm run check`, `npm run build`.
+
+  Lượt cải thiện 2026-10-11 (kiểm toán độc lập; THAY THẾ các khẳng định trước đây về nghĩa của 1.2–1.4, 3.1–3.2, 5.1–5.4, 7.1–7.2, 9.1–9.2, 10.4, 14.2, 14.4, 14.6, về "27/29 câu dùng lại nguyên văn với ja354", về "tiền lệ giữ `ti` 56/bỏ 8" và về bất định (1), (2), (3), (4) ở trên). Đọc đối kháng từng cặp Pāli↔Việt cho thấy bản trước chép nguyên cụm dịch của ja354 mà ja354 cũng sai, nên nhiều khoá nói điều không có trong Pāli. Đổi 41/52 khoá:
+  • 5.1–5.4: "Dẫu lá gan và túi mật của tôi có khô / … sự chán ghét của tôi lại càng lớn" → "Nếu tôi khóc, tôi sẽ gầy mòn; / ở đó tôi được ích lợi gì? / Họ hàng, bạn bè và thân hữu của chúng ta / sẽ càng thêm bất mãn." Pāli `sace rode kisā assaṁ` = "nếu tôi khóc, tôi sẽ gầy"; không có gan/mật. `arati` → "bất mãn" theo đa số tầng (sn4.25, mnd15, bv2, thig3.7…).
+  • 7.1–7.2: "đứa trẻ cầm miếng bánh, đi đâu cũng bám lấy mẹ" → "đứa trẻ khóc theo mặt trăng đang đi" (`dārako candaṁ gacchantamanurodati`; không có bánh, không có mẹ). Song song `candaṁ viya dārako rudaṁ` (pv17, vv83, ja449) đã dịch "khóc đòi mặt trăng".
+  • 3.1–3.2: "không ai biết từ nơi này" → "không ai cho phép" (`nānuññāto` = na + anuññāto, anuññāta = được cho phép; mn82, an3.22); `anabbhito` đọc là "không ai mời", song song `anavhito` ở ja354.
+  • 9.1: bỏ "bằng đất nung" (bản trước tự đọc `brahme` là tính từ, không có căn cứ) → hô cách "Này Bà-la-môn" như ja402, ja456, ja478, ja520, ja547 (`brahme` luôn là hô cách trong tầng Pāli). 9.2: "vỡ ra thì" → "đã vỡ thì" (`bhinno` là phân từ của bình).
+  • 1.2–1.4: "vẫn đi tiếp với thân mình" → "lìa bỏ thân mình mà đi" (`hitvā … saṁ tanuṁ`: `hitvā` là phân từ bỏ lại, `tanuṁ` là tân ngữ); "khi thân xác rơi rã" → "không còn hưởng thụ gì" (`nibbhoge`, cùng gốc `nibbhogo` an8.11 dịch "không hưởng thụ"); "khi cái chết đã đến với một người" → "khi người đã khuất đã chết" (`pete kālaṅkate`; ở đây `peta` là người đã mất, không phải ngạ quỷ).
+  • 2.1–2.4 (lặp ở 4, 6, 8, 10): "Đang cháy" → "Đang bị thiêu" (`ḍayhamāno`, thể bị động); "họ hàng đang khóc than" → "sự than khóc của họ hàng" (`ñātīnaṁ paridevitaṁ` là danh từ, sở hữu cách); "khóc thương điều này" → "khóc cho người này" (`etaṁ` chỉ người đã mất, theo mạch `so` ở 2.4); bỏ "chính" ở "số phận của chính vị ấy" (không có trong Pāli). 3.4: "khóc than là vì sao" → "có gì để than khóc".
+  • 7.3–7.4, 9.3–9.4: "Cũng vậy, ai khóc than / người đã từ khuất" → "Việc này cũng chỉ như thế, / đối với người sầu thương kẻ đã khuất" (`evaṁsampadamevetaṁ yo petamanusocati`; `anusocati` là sầu thương, khác `paridevati` là than khóc).
+  • 10.4: bỏ "ti" Pāli lọt sang Việt (`”.ti.` → `”.`). Đo lại toàn bộ tầng pv: chỉ pv12 mang `.ti.`; mọi khoá pv khác có Pāli kết `”ti` đều dịch kết `”.`. Khẳng định "giữ `ti` 56/bỏ 8" ở trên là sai.
+  • 14.2: "Tirokuṭṭa" → "Ngoài Bức Tường" (đồng nhất tiêu đề pv5, nay đã có bản Việt). 14.4: "Chăn Trâu" → "Bò" (`goṇa` = bò đực, pv8 "Con Bò"); "Nữ Thợ Dệt" → "Thợ Dệt" (`pesakāraka` giống đực). 14.6: "Phẩm Rắn mười hai bài vậy" → "và thứ mười hai là Con Rắn" (`dvādasaṁ uragañcevāti`; không có từ "phẩm" và "bài").
+  Điểm đổi: semantic_fidelity 9.3 → 8.8, grammar_logic 9.2 → 9.0, terminology 9.2 → 8.8, vietnamese_clarity 9.2 → 8.8, ambiguity_integrity 8.9 → 8.6 (đều là HẠ điểm vì phát hiện bản trước sai nghĩa ở nhiều khoá; không tiêu chí nào được nâng); final_score 9.17 → 8.99. blocking_errors giữ nguyên (tầng tham khảo tiếng Anh vắng ở upstream).
+  Bất định còn lại: (a) `etaṁ` ở 2.3 là "người này" hay "việc này"; (b) `ñātimittasuhajjānaṁ … no` ở 5.3–5.4: đọc "họ hàng, bạn bè… của chúng ta" hay "đối với họ hàng…, chúng ta" đều khả dĩ, đã chọn cách thứ nhất theo mạch; (c) `evaṁsampadamevetaṁ` dịch "Việc này cũng chỉ như thế", chưa có bản Anh độc lập; (d) `anabbhito` ("không ai mời") dựa vào song song `anavhito` của ja354, chưa có bản chú giải để đối chiếu; (e) tiêu đề "Chuyện Ngạ Quỷ Con Rắn" giữ theo quy ước tên pv đồng nhất (27/27 tệp), dù trong lời kệ `peta` là người đã mất. Ngoài lát, ja354 (cùng kệ) mang chính các lỗi nghĩa nói trên ở 1.2–1.3, 3.2, 5.1–5.4, 7.1–7.2, 9.1; cần kiểm toán riêng.

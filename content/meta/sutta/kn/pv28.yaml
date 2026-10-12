@@ -1,6 +1,6 @@
 uid: pv28
-status: published
-translationTitle: "Chuyện Ngạ Quỷ Người Kéo Xe"
+status: review
+translationTitle: "Chuyện Ngạ Quỷ Nữ Thợ Làm Xe"
 translators:
   - "OpenCode Space Bunny Free (agent)"
 reviewers: []
@@ -9,20 +9,20 @@ tags:
   - "khuddaka-nikaya"
   - "petavatthu"
   - "culavagga"
-  - "nga-quy-nguoi-keo-xe"
+  - "nga-quy-nu-tho-lam-xe"
 quality:
   scores:
     source_provenance: 9.5
-    semantic_fidelity: 9.2
-    grammar_logic: 9.2
+    semantic_fidelity: 8.5
+    grammar_logic: 8.7
     segment_alignment: 10.0
-    terminology: 9.3
+    terminology: 8.7
     triangulation: 8.0
-    vietnamese_clarity: 9.3
-    han_viet_balance: 9.4
-    ambiguity_integrity: 9.4
+    vietnamese_clarity: 8.8
+    han_viet_balance: 9.3
+    ambiguity_integrity: 8.8
     technical_integrity: 9.6
-  final_score: 9.29
+  final_score: 8.99
   blocking_errors:
     - "Không có tầng tham khảo tiếng Anh tại commit đã ghim:
       `source/upstream-manifest.json` (commit
@@ -37,9 +37,9 @@ quality:
       `review` hoặc `published`, nên bài bắt buộc `draft`. Đây là giới hạn của
       snapshot upstream, không phải lỗi của người dịch; vì vậy `triangulation`
       bị chặn ≤ 8.0 chứ không nâng điểm để né blocker."
-  assessed_at: "2026-10-04"
+  assessed_at: "2026-10-11"
   assessed_by:
-    - "OpenCode Space Bunny Free (agent)"
+    - "Claude Sonnet 5.5 (Claude Code)"
   waiver:
     id: no-upstream-english
     blockers:
@@ -66,3 +66,11 @@ notes: |-
   Không khoá nào trong 8 bài này có `…pe…` ở Pāli (đã kiểm 296/296 khoá), nên không có dấu lược nào để giữ, và không có chỗ nào bịa dấu lược che chỗ thiếu.
   Đo lại trên đĩa, hai con số coordinator nêu ở mục (4) của prompt KHÔNG khớp: `bhante` trong tầng `mil` dùng **“thưa tôn giả” 149 lần / 71 tệp**, “bạch ngài” chỉ 37 lần / 23 tệp, “bạch thầy” = 0 (giữ nguyên phần đúng của bạn); `mahārāja` dùng **“này Đại vương” 395 lần / 101 tệp**, còn “tâu đại vương” chỉ 169 + “tâu Đại vương” 79 = 248 lần / 32 tệp. Cả 9 bài lân cận mil3.1.12/.14 và mil7.3.1/.9 đều dùng “này Đại vương”, nên lát này theo đo được, không theo con số bạn đưa.
   Cổng kỹ thuật CHƯA chạy vì agent dịch không được chạy lệnh npm. Tôi chỉ xác minh được: JSON hợp lệ, đủ 37/37 khoá trong `all`, không orphan, mọi giá trị NFC, dấu lược khớp Pāli từng khoá, không có `(…)` đứng một mình, ngoặc kép cân trên cả bài, không Pāli lọt, không trùng nguyên văn Pāli, và YAML parse sạch. Bốn lệnh để coordinator chạy trước khi coi `technical_integrity: 9.6` là đạt: `npm run validate`, `npm test`, `npm run check`, `npm run build`.
+
+  Lượt cải thiện 2026-10-11 (đọc đối kháng từng khoá, đối chiếu Pāli; thay thế các mục cũ nêu bên dưới):
+  Bản trước có nhiều lỗi nghĩa thật, nên các mục sau của notes cũ bị THAY THẾ: nhận định về `:1.2` (“ngươi bước vào”), cách dịch tên `0.3`/`9.1` (“Người Kéo Xe”), lập luận `pokkharaṇī` = “tấm sàn trải hoa”, các mục “Bất định” về `:4.3`, `:5.1`, `:7.4`, và câu “trùng nguyên văn 5 khoá” (đo lại: Pāli của `:1.1`–`:1.3` trùng `vv12:1.1`–`1.3`; `:3.2` trùng `pv37:14.2`, bản pv37 hiện còn chép “hoa nhài” nên không dùng làm tiền lệ; không có cặp trùng nào trong chính bài). Đã đổi 35/37 khoá (chỉ giữ `0.1`, `0.2`); tập khoá và thứ tự khoá không đổi.
+  Phân vai đọc lại theo Pāli: `1`–`6` là lời người đàn ông (chàng thanh niên, `māṇava` ở `8.4`) khen ngợi và ngỏ lời với nữ thiên, gọi “nàng” (không “ngươi”) và xưng “tôi”; `7` là lời nữ thiên đáp, gọi “chàng”, xưng “tôi”; `8`–`9` là lời kể. Hô cách `devi mahānubhāve`, `nāri anomadassane`, `Āḷārapamhe hasite piyaṁvade`, `Sabbaṅgakalyāṇi` là lời gọi nữ thiên, không phải tân ngữ.
+  Lỗi nghĩa đã sửa (accuracy fix): `:2.2` `bhusa dassaneyyo` “nhìn từ xa đã thấy” → “rất đáng nhìn” (`bhusa` = rất; cùng nghĩa ở `:5.4`, `bhusaṁ virocasi` → “tỏa sáng hết sức”); `:2.4` `Ekā tuvaṁ natthi ca tuyha sāmiko` “người duy nhất trong đời, không ai chủ” → “nàng chỉ có một mình, và nàng không có chồng” (`sāmika` của người nữ = chồng, như `pv7:7.1`, `pv24:14.2`); `:3.1`–`:3.4` `pokkharaṇī` “tấm sàn” → “hồ sen”, `pahūtamalyā` “gần như phủ kín bởi hoa nhài” → “nhiều hoa”, `paṅko paṇako` “bùn, đất sét” → “bùn, rêu”; `:4.2` `udakasmimanupariyanti` “nổi lên tới mặt nước” → “bơi lượn trong nước”; `:4.4` “trống đồng” (không có `đồng` trong Pāli) → “các trống”; `:5.1` “Daddalla ngân lên” (nhầm `daddallamānā` là tên trống) → “chói lòa với danh tiếng”; `:5.3` `Āḷārapamhe` “trong hang rắn Āḷāra” (nhầm tên hang) → “hàng mi cong” (`āḷārapamha` = mi cong, như `vv64:11.2`, `ja527:7.1`); `:6.2` “mặt trời đã mọc, làm thỏa mắt chư thiên” (không có trong Pāli) → “có khu vườn, làm tăng trưởng niềm thích thú và hoan hỷ”; `:6.3` “hỡi người đàn bà làm thoả ý muốn của ta, có dáng đẹp lạ” → “này nàng, người có dung mạo vô song, tôi muốn” (`anomadassane`, như `vv17:4.1`); `:7.1`/`7.3`/`8.2`/`8.3` `vedanīyaṁ` “việc dễ chịu” → “nghiệp phải thọ lãnh” (như `pv36:62.5`, `thag1.81:1.3`); `:7.4` bản cũ đảo người nói (“ngươi sẽ được ta, kẻ đang mong cầu”) → “chàng sẽ có được tôi, người ham muốn dục lạc” (`kāmakāminiṁ` đứng làm định ngữ của `mamaṁ`, nữ tính); `:8.4` `sahabyataṁ` “cùng phẩm hạnh” → “chỗ sống chung” (như `pv17:12.4`, `pv21:23.4`); `:1.4` “trăng non trên bầu trời” (`pannarase` = ngày mười lăm; `ākāsa` không có trong Pāli) → “vầng trăng ngày rằm trên đường đi”; `0.3`/`9.1` `rathakāra` = thợ làm xe (không phải người kéo xe), `petī` = ngạ quỷ nữ, `9.2` `Bhāṇavāraṁ` → “Phần tụng đọc thứ hai”. Cũng đổi `translationTitle` và thẻ tags cho khớp.
+  `:1.1`–`:1.3` theo bản vv12 đã kiểm toán (Pāli trùng nguyên văn). Điểm đổi: semantic_fidelity 9.2 → 8.5; grammar_logic 9.2 → 8.7; terminology 9.3 → 8.7; vietnamese_clarity 9.3 → 8.8; han_viet_balance 9.4 → 9.3; ambiguity_integrity 9.4 → 8.8; các tiêu chí còn lại giữ (source_provenance 9.5, segment_alignment 10.0, triangulation 8.0 — chặn vì không có bản Anh độc lập, technical_integrity 9.6). Các điểm cũ cao hơn khi bản dịch còn mang những lỗi nghĩa nêu trên nên bị hạ, không phải nâng; điểm mới phản ánh bản đã sửa còn bất định ở một số từ hiếm. `final_score` 9.29 → 8.99 (trung bình số học thô của 10 điểm).
+  Bất định còn lại (không phân xử được từ Pāli đã ghim và các bài song song; giữ ở notes, không đưa vào thân kinh): `:1.4` `Pathaddhani` dịch “trên đường đi” (cùng gốc `Pathaddhuno` ở `ja497:14.2`, `ja522:3.2`), không thêm “bầu trời”; `:2.2` `uttattarūpo` dịch “hình sắc như vàng luyện” theo nghĩa `uttatta` “đã luyện” đi với `kanaka` ở `:2.1` (chỗ này hơi suy từ ngữ cảnh); `:3.4` `paṇako` dịch “rêu” (còn có thể là váng nước, rong); `:4.3` `samayya` dịch “tụ lại” (không có bài song song); `:4.4` `bindussarā` dịch “giọng trong trẻo” theo `ja526:40.1`, `snp2.12:9.3`; `:5.2` `avalamba` dịch “đứng tựa vào chiếc thuyền”; `:6.4` `nandane` dịch “vườn Nandana” (tiền lệ có cả “vườn” và “rừng” Nandana, đa số trong các bài đã kiểm toán là “vườn”); `:7.4` `kāmakāminiṁ` có thể hiểu “ham muốn dục lạc” hoặc “tùy ý hưởng dục”, chọn nghĩa sát chữ; `:7`/`:8` `idha`/`tahiṁ` (“ở đây”/“ở nơi ấy”): Pāli ghim không nói rõ “đây”, “nơi ấy” là cõi nào; không thêm. Tiêu đề nói `petī` nhưng các kệ không nêu ngạ quỷ nữ nào; mối liên hệ này không có trong Pāli ghim nên không thêm vào thân kinh; `Nữ` ở `0.3` và `9.1` dựa trên dạng nữ `petī` và uddāna `pv35:14.2` (`rathakārī`).
+  Đã kiểm lại: 37/37 khoá khớp tập khoá và thứ tự Pāli, nháy kép và dấu lược khớp Pāli từng khoá (0 lệch), NFC, không Pāli lọt sang bản Việt (chỉ giữ tên `Petavatthu`, `Cūḷavagga`, `Nandana`), `0.2` `Cūḷavagga` như tiền lệ. Cổng kỹ thuật CHƯA chạy ở lượt này: `technical_integrity` giữ 9.6; bốn lệnh còn lại: `npm run validate`, `npm test`, `npm run check`, `npm run build`.

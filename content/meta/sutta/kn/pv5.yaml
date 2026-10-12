@@ -13,16 +13,16 @@ tags:
 quality:
   scores:
     source_provenance: 9.6
-    semantic_fidelity: 9.5
-    grammar_logic: 9.5
+    semantic_fidelity: 9.6
+    grammar_logic: 9.6
     segment_alignment: 10.0
-    terminology: 9.4
+    terminology: 9.5
     triangulation: 7.5
-    vietnamese_clarity: 9.5
+    vietnamese_clarity: 9.6
     han_viet_balance: 9.5
     ambiguity_integrity: 9.3
     technical_integrity: 9.6
-  final_score: 9.34
+  final_score: 9.38
   blocking_errors:
     - "Không có tầng tham khảo tiếng Anh tại commit đã ghim — `english-sujato`
       không liệt kê tệp nào cho uid (thuộc kỳ `not-published-upstream`, không
@@ -33,9 +33,9 @@ quality:
       8.0`. Tầng `vietnamese-current` chỉ có Pháp Cú tại commit đã ghim; lớp
       `english-project` chưa có cho uid này. Đây là giới hạn upstream, không
       phải lỗi của người dịch."
-  assessed_at: "2026-10-07"
+  assessed_at: "2026-10-11"
   assessed_by:
-    - "Codebuff (agent)"
+    - "Claude Sonnet 5.5 (Claude Code)"
   waiver:
     id: no-upstream-english
     blockers:
@@ -59,3 +59,47 @@ notes: |-
   lệch ngoặc 0, NFC, thứ tự khớp Pāli. Cổng kỹ thuật CHƯA chạy — cần đủ bốn lệnh
   trước khi coi `technical_integrity: 9.6` là đạt:
   `npm run validate`, `npm test`, `npm run check`, `npm run build`.
+
+  Lượt cải thiện 2026-10-11 (đọc đối kháng từng khoá Pāli↔Việt; 14/56 khoá đổi,
+  tập khoá và thứ tự giữ nguyên, 0 lệch nháy so với Pāli, NFC). Điểm tiêu chí đổi:
+  semantic_fidelity 9.5→9.6, grammar_logic 9.5→9.6, terminology 9.4→9.5,
+  vietnamese_clarity 9.5→9.6; final_score 9.34→9.38. Các tiêu chí khác giữ nguyên:
+  triangulation vẫn 7.5 (không có bản Anh độc lập), ambiguity_integrity vẫn 9.3
+  (bất định bên dưới chưa phân xử được).
+  Khoá đổi và lý do:
+  `:1.4` bỏ "xưa" (sakaṁ gharaṁ = "nhà mình", khớp ud2.8, tha-ap57, tha-ap332);
+  `:2.2` "nhiều món ăn" → "đồ ăn cứng và mềm" (khajjabhojja; dn30 dịch "đồ ăn cứng,
+  mềm"; "nhiều" lặp pahūta ở `:2.1`); `:2.4` bỏ "chính" (không có trong Pāli);
+  `:3.1` "họ" → "người ta" (chủ ngữ là những người sống có lòng thương tưởng, không
+  phải các thân nhân đã khuất vừa là chủ ngữ ở `:1.x`; "họ" gây hiểu sai đảo chủ thể);
+  `:4.3` "Trước" → "Khi" (Pāli `Pahūte annapānamhi` trùng nguyên văn `:2.1`, nay hai
+  bản Việt giống nhau); `:4.4` "thành tâm" → "cung kính" (sakkaccaṁ: cung kính 8,
+  cẩn thận 9, thành tâm 2 trong 37 khoá toàn tầng; "thành tâm" dành cho cittīkatvā);
+  `:5.4` "cũng không mất quả" → "không phải không có quả" (anipphalā; khớp an10.177
+  và pv4; bỏ "cũng" vì Pāli chỉ có `ca` nối câu); `:6.4` "bằng tiền vàng" →
+  "bằng vàng" (hiraññaṁ: vàng/vàng bạc 31 so với "tiền vàng" 4 khoá; "tiền vàng"
+  trong bài cúng người đã khuất dễ gợi vàng mã); `:6.6` thêm dấu phẩy để "ở nơi ấy"
+  (tahiṁ) không dính vào việc qua đời; `:9.3` "hãy bố thí dành cho" → "nên dâng vật
+  cúng dường cho" (dajjā là optative; dakkhiṇaṁ dịch "vật cúng dường" như `:11.1`);
+  `:10.1` bỏ "Vì" (na hi … na taṁ … là một mệnh đề phủ định, không phải mệnh đề lý
+  do); `:10.4` "cứ mãi ở trong tình trạng ấy" → "vẫn cứ ở như vậy" (bỏ "mãi" và
+  "tình trạng" không có trong Pāli); `:12.2` "tôn kính người đã khuất đã được thực
+  hiện cao quý" → "tôn kính cao quý dành cho người đã khuất đã được thực hiện"
+  (uḷārā bổ nghĩa pūjā, không phải trạng từ của katā); `:12.4` "các bạn" → "các vị"
+  (tumhehi, lời nói trang trọng) và "công đức" → "phước báu" (puñña trong pv: phước/
+  phước báu 18, công đức 1 khoá, chính là khoá này; vv: phước báu 51, phước đức 7,
+  công đức 2).
+  Quyết định không đổi dù nghi ngờ: peta/petā giữ "người đã khuất/đã chết" (pv1, pv4,
+  pv12, pv17, an10.177 song song dùng cách này khi petā là người thân đã chết; "ngạ quỷ"
+  dùng khi petā là chúng sinh trong cõi ấy làm nhân vật kể chuyện); `:1.2` "giao lộ và
+  ngã tư" (sandhi và siṅghāṭaka gần nghĩa nhau, chưa có căn cứ để tách); `:6.2` "chăn
+  nuôi gia súc" (gorakkhā: dn5, mn13 dùng "chăn nuôi", mn98 "chăn bò").
+  Bất định còn lại: (1) `vo` ở `:3.5` có thể đọc ngôi hai "của các vị" hoặc "của chúng
+  tôi"; giữ "của chúng tôi" như truyền thống. (2) `ṭhānaso` ở `:11.4` có thể là thời gian
+  ("ngay tức thì") hoặc nơi chốn/đúng chỗ (an10.177 có `ṭhāne upakappati`); giữ "ngay tại
+  chỗ" như mn58 và pv4. (3) `ñātayo` ở `:10.4` là thân nhân đang khóc hay thân nhân đã
+  khuất; giữ nghĩa không xác định. (4) `tumhehi` ở `:12.4` không biết rõ người được xưng
+  hô. Kp7 và pv4 chứa cùng các dòng kệ và vẫn mang cách dịch cũ của những khoá trên;
+  chưa đồng bộ vì ngoài phạm vi lượt này.
+  Cổng kỹ thuật vẫn CHƯA chạy trong lượt này: `npm run validate`, `npm test`,
+  `npm run check`, `npm run build`.
