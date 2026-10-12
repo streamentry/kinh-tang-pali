@@ -1,6 +1,6 @@
 uid: pv41
-status: published
-translationTitle: "6. Chuyện Ngạ Quỷ Đứa Con"
+status: review
+translationTitle: "6. Chuyện Ngạ Quỷ Trẻ Nhỏ"
 translators:
   - "OpenCode Space Bunny Free (agent)"
 reviewers: []
@@ -13,16 +13,16 @@ tags:
 quality:
   scores:
     source_provenance: 9.5
-    semantic_fidelity: 9.0
-    grammar_logic: 9.1
+    semantic_fidelity: 8.8
+    grammar_logic: 8.8
     segment_alignment: 10.0
-    terminology: 9.0
-    triangulation: 7.5
-    vietnamese_clarity: 9.2
-    han_viet_balance: 9.3
-    ambiguity_integrity: 8.5
+    terminology: 8.8
+    triangulation: 7.0
+    vietnamese_clarity: 8.8
+    han_viet_balance: 9.2
+    ambiguity_integrity: 8.0
     technical_integrity: 9.6
-  final_score: 9.07
+  final_score: 8.85
   blocking_errors:
     - "Không có tầng tham khảo tiếng Anh tại commit đã ghim:
       `translation/en/sujato/sutta/kn/{d}/{u}_translation-en-sujato.json` không
@@ -39,9 +39,9 @@ quality:
       `vietnamese-current` cũng vắng (`translation/vi/phantuananh` tại commit đã
       ghim chỉ có 26 tệp, toàn bộ là Pháp Cú) và lớp lấp `english-project` cũng
       không có uid này ⇒ blocker thật."
-  assessed_at: "2026-10-04"
+  assessed_at: "2026-10-11"
   assessed_by:
-    - "OpenCode Space Bunny Free (agent)"
+    - "Claude Sonnet 5.5 (Claude Code)"
   waiver:
     id: no-upstream-english
     blockers:
@@ -107,3 +107,44 @@ notes: |-
   10.0 vì không ai rà lại bằng con người.
 
   Bốn lệnh cổng kỹ thuật đã chạy và đều xanh: `npm run validate`, `npm test`, `npm run check`, `npm run build`.
+
+  LƯỢT CẢI THIỆN 2026-10-11 (kiểm toán độc lập). Thay thế các mục cũ "ĐẦU 0.2…" ở phần tên
+  `:0.3`/`:8.1` và toàn bộ mục "BẤT ĐỊNH ĐÃ GHI" ở trên; các mục còn lại giữ làm lịch sử. Đọc
+  đối kháng từng khoá với Pāli cho thấy bản trước có nhiều lỗi nghĩa thật, nên điểm cũ (9.07) bị
+  hạ.
+  Lỗi nghĩa đã sửa (30/34 khoá đổi):
+  - `sāmino … asāmino` (6.1–6.2): `sāmin` là "chủ", không phải "sa-môn". Bản cũ dịch "làm sa-môn …
+    không phải sa-môn". Nay: "Đã từng là chủ ở nơi đây, họ thành kẻ không còn là chủ ở nơi kia".
+  - `issaramada` (7.2, 7.3): là "sự say sưa quyền lực" (theo pv42:12 cùng công thức), không phải
+    "lười biếng, thiếu nỗ lực". Bản cũ tự bịa nghĩa này ở cả hai vế.
+  - `kāmassādābhinandino` (2.2): `assāda` là vị ngọt/sự hưởng thụ của dục, không phải "vị của thức ăn
+    ngon". `sammattā rajanīyesu` (2.1): "mê say những điều khơi gợi tham ái", không phải "từ nhỏ …
+    bám víu vào những thứ dễ chịu" (cả "từ nhỏ" lẫn "các ngài" đều không có trong Pāli).
+  - `Sāvatthi nāma nagaraṁ` (1.1): "thành xô" là chữ vô nghĩa; nay "thành phố".
+  - `Te idha ghosenti adissantā, pubbe dukkaṭamattano` (3.3–3.4): bản cũ bỏ `adissantā` ("không hiện
+    hình"), dịch `ghosenti` thành "than thở và khóc lóc", và thêm lời dẫn ‘Trước kia, tất cả là do lỗi
+    của chúng ta’ cùng cặp nháy trong không có ở Pāli. Nay: "cất tiếng, không hiện hình, nói về điều
+    ác mình đã làm trước kia", không còn nháy trong (Pāli chỉ có một cặp nháy bao cả bài).
+  - `Te cutā ca manussattā` (3.1): "Khi các ngài đã mất, làm người" lệch cú pháp; nay "đã mất đi khỏi
+    kiếp người".
+  - `Kiṁ tato pāpakaṁ assa` (5.1): "tato" là so sánh ("tệ hơn thế"); bản cũ dịch "có điều ác gì do bởi
+    đó" và chêm "này". 5.3–5.4 theo tiền lệ pv14 ("sinh vào cõi ngạ quỷ", "bị đói khát bủa vây").
+  - `manussā unnatonatā` (6.4): bản cũ coi `unnata`/`onata` là "khổ đau, bị giày vò", không có căn cứ.
+    Cả kho dịch cặp này là "cao/nâng lên" và "thấp/hạ xuống" (an8.54, an8.55, mil5.2.3, ja516).
+    Nay: "những con người đã lên cao rồi hạ thấp".
+  - Tiêu đề (0.3, 8.1): `Kumārapetavatthu` theo tiền lệ pv30 (cùng tên Pāli) là "Chuyện Ngạ Quỷ Trẻ
+    Nhỏ"; "Đứa Con" lệch vì `kumāra` là bé trai, không phải "con" (`putta`). `translationTitle` đã đổi
+    cho khớp.
+  Sửa nhỏ để sát Pāli: 4.1–4.4 bỏ "đức hạnh của việc bố thí" (`deyyadhamma` = vật đáng bố thí, tiền lệ
+  pv15/pv19/pv26/pv31) và bỏ "chia sẻ", thêm `attānaṁ` ("cho mình") đã bị bỏ sót; 1.2 giữ "bên sườn núi";
+  7.1–7.6 dịch đúng thứ tự mệnh đề.
+  Điểm đổi (trước → sau): semantic_fidelity 9.0 → 8.8; grammar_logic 9.1 → 8.8; terminology 9.0 →
+  8.8; triangulation 7.5 → 7.0 (đối chiếu duy nhất là pv42/pv14 vì không có bản Anh, và lần trước đã
+  không phát hiện các lỗi trên); vietnamese_clarity 9.2 → 8.8; han_viet_balance 9.3 → 9.2;
+  ambiguity_integrity 8.5 → 8.0. Các tiêu chí khác giữ nguyên.
+  Bất định còn lại, KHÔNG phân xử được: (a) `parittaṁ` (4.4) vừa có thể là "chút ít" vừa là "sự che chở";
+  giữ "chút ít điều đem lại an lạc" như bản trước. (b) `bahūsu` (4.1) không có danh từ đi kèm, bổ nghĩa
+  cho `deyyadhamme`; dịch "nhiều" để trống danh từ. (c) `unnatonatā` có thể là "kẻ cao người thấp" nói
+  chung thay vì chuỗi lên-rồi-xuống; giữ cách đọc theo mạch 6.1–6.2. (d) `bhave saggagato naro` (7.4)
+  là cách đọc "sẽ đi đến cõi trời" (khả năng). (e) 1.2 `passato`: "bên sườn" chưa chắc là nghĩa đen.
+  Blocker "không có tầng tham khảo tiếng Anh" giữ nguyên.

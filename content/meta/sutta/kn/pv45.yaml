@@ -14,16 +14,16 @@ tags:
 quality:
   scores:
     source_provenance: 9.5
-    semantic_fidelity: 9.2
+    semantic_fidelity: 9.0
     grammar_logic: 9.0
     segment_alignment: 10.0
-    terminology: 9.1
+    terminology: 9.0
     triangulation: 7.5
-    vietnamese_clarity: 9.1
+    vietnamese_clarity: 8.8
     han_viet_balance: 9.3
     ambiguity_integrity: 8.7
     technical_integrity: 9.6
-  final_score: 9.1
+  final_score: 9.04
   blocking_errors:
     - "Không có tầng tham khảo tiếng Anh tại commit đã ghim
       (11c9d708978cde8ba61096d8a75f7ddfb846f639): đếm trực tiếp trên đĩa
@@ -36,9 +36,9 @@ quality:
       khảo đều vắng ⇒ bài dịch chỉ từ Pāli root ⇒ blocker thật, và đây là **giới
       hạn của snapshot upstream**, không phải lỗi của người dịch. Vì vậy
       `triangulation` bị chặn ở 7.5 (≤ 8.0) chứ không nâng điểm để né blocker."
-  assessed_at: "2026-10-05"
+  assessed_at: "2026-10-11"
   assessed_by:
-    - "OpenCode Space Bunny Free (agent)"
+    - "Claude Sonnet 5.5 (Claude Code)"
   waiver:
     id: no-upstream-english
     blockers:
@@ -113,3 +113,50 @@ notes: |-
   orphan, không rỗng, NFC, dấu lược khớp từng khoá, không `(…)` đứng một mình, nháy kép cân trên cả bài và
   không đóng trước khi mở, không Pāli lọt vào bản Việt. Script ghi tệp hai lần: sha256 không đổi một byte.
   Bốn lệnh để coordinator chạy: `npm run validate`, `npm test`, `npm run check`, `npm run build`.
+
+  LƯỢT CẢI THIỆN 2026-10-11 (kiểm toán độc lập; đọc đối kháng từng khoá Pāli↔Việt; THAY THẾ các mục cũ nêu dưới đây).
+  Mục cũ bị thay thế: "PĀLI TRÙNG NGUYÊN VĂN" (chín khoá "dùng lại nguyên văn" từ pv6/pv44/pv43/pv22 mang theo chính lỗi của các bài đó:
+  `duggatā yamalokikā` không phải "sinh về cõi khổ xa xôi", `petalokaṁ` là "cõi ngạ quỷ" chứ không phải "thế giới của người đã chết");
+  BẤT ĐỊNH (2) về `vicinimha` = "chó hoang" (SAI: `vicinimha` là động từ aorist ngôi 1 số nhiều của `vicināti`, "chúng tôi đã đi tìm",
+  `addhamāsaka` là "nửa đồng māsaka"; bản dịch cũ trong JSON thực ra đã không theo cách đọc "chó hoang" nên ghi chú cũ tự mâu thuẫn);
+  BẤT ĐỊNH (3) "te không làm chủ ngữ" (xem lại bên dưới); đoạn "MỘT CỤM PĀLI LẶP … ĐƯỢC DỊCH KHÁC" (nay 2.4 và 3.4 dịch GIỐNG nhau, chỉ khác dấu cuối câu).
+  Điểm cũ 9.1 là quá cao: bản trước sai nghĩa ở khoảng 30/48 khoá.
+
+  Số khoá đổi: 38/48 (gồm vài khoá chỉ đổi chữ hoa/dấu cho khớp câu). Lỗi nghĩa thật, theo loại:
+  (a) bịa nội dung không có trong Pāli: 1.2 "mùi thối khinh khỉnh" (Pāli `dhamanisanthatā` = gân nổi chằng chịt), 1.3 "mụn mủ phủ kín" (Pāli
+      `upphāsulikā` = sườn nhô ra), 11.3 "dù bị chê bai" (Pāli `vadaññū` = hào phóng), 9.3 "bôi đầu" (Pāli `ghaṭṭema` = đập), 10.1/6.3 "chúng tôi
+      đã tới nơi này" (Pāli `arahāma` = đáng phải chịu), 7.2 "mệt mỏi, kiệt sức vì đi lại" (Pāli `chātā āhāragedhino` = đói, thèm khát thức ăn),
+      5.1/5.3 "mong có chỗ lội qua sông/bóng mát" (Pāli `upema` = đến, `tasitā` = khát nước) và 5.2/5.4 "quay lưng" (Pāli: sông trở nên trống cạn,
+      ánh nắng xoay chuyển; đối chiếu bài song song pv31:5);
+  (b) bỏ sót từ: 1.1 bỏ `naggā` (trần truồng);
+  (c) đọc sai chủ thể/ngữ pháp: 1.4 "sao các ngươi còn đứng ở đây, hỡi những người đàn ông" (Pāli `ke nu tumhettha mārisā` = các vị là ai ở đây,
+      hỡi các bạn hiền; `mārisā` là hô cách, không phải "người đàn ông"), 8.1 `bhantā` (giữa `chātā pamucchitā bhantā` = đói lả, ngất đi, choáng váng)
+      bị đọc thành hô cách `bhante` "bạch ngài" (Pāli không có "bhante" ở khoá này), 9.1 "Những vị kia cũng nằm bừa" → "Và những kẻ ấy ngã ngay tại đó",
+      11.x bỏ hẳn `vadaññū` và bịa "dù bị chê bai", 6.2 "cứ thổi vào ta" (đổi ngôi sang "ta" trong lời của nhóm "chúng tôi");
+  (d) từ vựng sai: 2.2 "sinh về cõi khổ xa xôi" (Pāli `duggatā` = khốn khổ), 2.4/3.4 "thế giới của người đã chết" (Pāli `petalokaṁ` = cõi ngạ quỷ), 7.1 "biết bao"
+      thêm nghĩa;
+  (e) bất nhất đại từ người nói: nhóm ngạ quỷ nói với ngài, đã mở bằng "Chúng tôi" ở 2.1 nhưng chuyển sang "chúng ta" ở 4.2, 4.4, 7.3, 10.4 → thống nhất
+      "chúng tôi" (lời nói với vị ngài, không bao gồm người nghe);
+  (f) bất nhất trong cùng bài: Pāli 4.3–4.4 y hệt 10.3–10.4 nhưng 4.4 dịch "hòn đảo che chở" còn 10.4 dịch "ngọn đèn"; nay cả hai là "hòn đảo", không thêm
+      "che chở". Tương tự 2.4/3.4 nay giống nhau (không còn bám đại từ "chúng tôi"/"các ngươi").
+  Điểm tiêu chí đổi: semantic_fidelity 9.2 → 9.0, terminology 9.1 → 9.0, vietnamese_clarity 9.1 → 8.8; các tiêu chí khác giữ (source_provenance 9.5,
+  grammar_logic 9.0, segment_alignment 10.0, triangulation 7.5 vì không có tầng Anh độc lập, han_viet_balance 9.3, ambiguity_integrity 8.7, technical_integrity
+  9.6). Đây là điểm cho bản đã sửa, trừ đi bất định còn lại, không phải điểm "tăng" so với bản trước.
+  Tiền lệ đo bằng số đếm: `dīpaṁ nākamha attano` có hai cách dịch trong tầng, "hòn đảo" ở pv15, pv19, pv26, pv31 (4 bài, cùng cấu trúc "tạo cho mình hòn đảo") và
+  "ngọn đèn" ở pv50, ja314 (2 bài); chọn "hòn đảo" (đa số, và ngữ cảnh bến nước/dòng sông ở 4.1 và 5.1 khớp nghĩa nơi nương tựa); pv50/ja314 không thuộc lát này. `vadaññū` =
+  "hào phóng" (pv39, vv52). `dhamanisanthatā` = "gân nổi chằng chịt", `upphāsulike` = "sườn nhô ra" (pv13, pv19). `viciniṁ aḍḍhamāsakaṁ` ở bài song song pv31:4.2 =
+  "đã đi tìm nửa đồng māsaka" (đối chiếu để đọc `vicinimha` thành động từ). Bài song song pv31:5–6 xác nhận cách đọc 5.x–6.x. `kisikā` đổi "ốm yếu" → "gầy mòn" vì `kisa`
+  là gầy chứ không phải yếu (pv13, pv19 dùng "ốm yếu": không đổi, ngoài lát).
+  BẤT ĐỊNH CÒN LẠI (không phân xử được, không giải thích trong thân kinh):
+  (1) `paṭikirāma` (8.3) xuất hiện đúng một lần trong toàn bộ Pāli đã ghim, không có bài song song; dịch "vương vãi" theo nghĩa gốc `paṭikirati` (rải ra), có thể là "nằm vật vã". `paṭisumbhitā`
+      (8.2/9.2) dịch "bị quật xuống đất" (pp. của `paṭisumbhati`, "bị ném xuống"); pv26:7.4/8.2 có `bhūmiyaṁ paṭisumbhitā` dịch "nằm dài trên mặt đất" — ngoài lát, không đổi.
+  (2) `te` ở 9.1 và 11.1 là đại từ ngôi 3 nhưng động từ chính (`ghaṭṭema`, `kāhāma`) và các phân từ đi cùng ở ngôi 1 số nhiều; Pāli đang dùng `te` như đồng vị với "chúng tôi" ("những kẻ
+      như thế"). Bản Việt giữ "những kẻ ấy" nguyên như Pāli (không tự biến thành "chúng tôi" trong khoá chứa `te`), nên có chỗ đọc hơi chuyển ngôi; người biên tập có thể chọn nới.
+  (3) `dīpa` có thể là "hòn đảo" (nơi nương tựa, như Dhp 25) hoặc "ngọn đèn" (pv50/ja314 chọn); xem đo ở trên.
+  (4) `Gaṇapetavatthu` → "Chuyện Ngạ Quỷ Tụ Họp": `gaṇa` là nhóm/đoàn; giữ tiêu đề cũ (không đổi `translationTitle`) vì không có tiền lệ khác, nhưng "Nhóm Ngạ Quỷ" sát hơn.
+  (5) Lỗi ngoài lát, báo không sửa: pv6:2.2 và pv31:2.2/2.4/3.4/7.4/7.6/11.2/11.4/12.4/12.6 mang "sinh về cõi khổ xa xôi" và "thế giới của người đã chết"; pv31:2.1 dịch `petī` là "ma"
+      (nên là ngạ quỷ nữ); pv44 và pv43 có cùng công thức nên cần kiểm tra; pv50:3.4/4.3 ("ngọn đèn", "tự mình quở trách" cho `vadaññū`).
+  Blocker còn lại: không có tầng tham khảo tiếng Anh (giữ nguyên, là sự thật về upstream); `triangulation` 7.5.
+  Kiểm tra đã chạy trên 48 khoá: đủ/đúng tập khoá và thứ tự Pāli (48/48), nháy kép khớp Pāli từng khoá (0 lệch), NFC, không khoá rỗng, không dấu lược nào ở Pāli và Việt (0/0),
+  7 cặp Pāli trùng nguyên văn trong bài đều có bản Việt giống nhau (chỉ khác dấu cuối câu/chữ hoa đầu câu), không Pāli lọt sang Việt ngoài `māsaka`, `Yama`, `Petavatthu`.
+  Cổng kỹ thuật (`npm run validate`, `npm test`, `npm run check`, `npm run build`) chưa chạy trong lượt này nên `technical_integrity` giữ 9.6.
