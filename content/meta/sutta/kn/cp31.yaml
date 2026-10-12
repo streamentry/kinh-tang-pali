@@ -13,21 +13,21 @@ tags:
 quality:
   scores:
     source_provenance: 9.5
-    semantic_fidelity: 9.3
-    grammar_logic: 9.3
+    semantic_fidelity: 9.2
+    grammar_logic: 9.2
     segment_alignment: 10.0
-    terminology: 9.2
+    terminology: 9.1
     triangulation: 7.5
-    vietnamese_clarity: 9.3
+    vietnamese_clarity: 9.2
     han_viet_balance: 9.3
-    ambiguity_integrity: 9.0
+    ambiguity_integrity: 8.8
     technical_integrity: 9.6
-  final_score: 9.20
+  final_score: 9.14
   blocking_errors:
     - "noEnglishEditionUpstream: Thiếu bản dịch tiếng Anh đối chiếu"
-  assessed_at: "2026-10-08"
+  assessed_at: "2026-10-12"
   assessed_by:
-    - "OpenCode Space Bunny Free (agent)"
+    - "Claude Sonnet 5.5 (Claude Code)"
 notes: |-
   Dịch trực tiếp từ Pāli root snapshot bilara đã ghim `11c9d708978cde8ba61096d8a75f7ddfb846f639`, đường dẫn `kn/cp/cp31_root-pli-ms.json` (58/58 khoá).
 
@@ -42,3 +42,14 @@ notes: |-
     5. Số đếm và tên riêng được kiểm tra chính xác: Paropaññāsavassāni / Vassāni paññāsasamādhikāni = hơn năm mươi năm (1.3, 11.4); Sattāhaṁ = bảy ngày (11.1); Tayo janā = ba người (5.3); ekādasamaṁ = thứ mười một (14.1); Paṭhamaṁ = trước tiên (10.3); Kaṇhadīpāyana (ẩn sĩ Kaṇhadīpāyana), Maṇḍabya (bạn đồng tu Maṇḍabya), Yaññadatta (đứa trẻ Yaññadatta).
   - Thuật ngữ mấu chốt: anabhirato (1.4) / anabhiratimanaṁ (2.2) / arati (2.4) dịch là "lòng chẳng hề hoan hỷ" / "tâm trạng không hoan hỷ" / "nỗi chán nản", phản ánh trung thực tâm trạng không tìm thấy niềm vui thích trong đời sống xuất gia phạm hạnh suốt hơn 50 năm nhưng vẫn giữ nghiêm giới luật không hề dối trá, làm nên sức mạnh chân thật tối thượng (saccabala) để cứu sống đứa trẻ. sūlamāropanaṁ (3.4) dịch "nạn đâm trên cọc nhọn"; āsīvisa (6.4, 7.3, 9.1) dịch "con rắn độc"; uttamaṅga (7.4) dịch "ngay trên đầu".
   - Kỹ thuật: JSON hợp lệ, tất cả chuỗi chuẩn hóa NFC, không có ký tự ngoài hệ Latin, hoàn tất technical check.
+
+  - Giải quyết draft 2026-10-12 (thay thế các mục cũ "Thuật ngữ mấu chốt" về anabhirato/uttamaṅga và lời khẳng định đã tự kiểm 5/5 ở trên):
+    1. Phân loại blocker: chỉ có một blocker, thuộc loại thiếu bản Anh upstream (Sujato không phát hành bài này tại commit đã ghim); giữ nguyên vì là sự thật về upstream, không có blocker về độ phủ Sujato hay lỗi văn bản. Giới hạn tham chiếu: tầng Việt hiện hành chỉ có Pháp Cú nên không có đối chiếu Việt truyền thống cho bài này. Tầng tham khảo còn lại là Pāli của chính bài và các câu kệ gần như trùng ở Jātaka 444 (`ja444:1.1–1.7`, đã công bố). `triangulation` giữ 7,5 (≤ 8,0).
+    2. Đọc đối kháng 58 khoá: 1 lỗi nghĩa thật và 31 khoá sửa vì thêm nghĩa hoặc sai sắc thái, tổng 32 khoá đổi (cp31:1.3, 1.4, 2.3, 2.4, 3.3, 4.1, 5.4, 6.3, 7.1–7.4, 8.2, 8.4, 9.1–9.4, 10.1–10.4, 11.1–11.4, 12.1–12.3, 13.2–13.4).
+    3. Lỗi nghĩa thật (12.1): `Akāmako vāhi ahaṁ carāmi` bị dịch "ta sống mà lòng chẳng có ước muốn gì". `akāmako` là "không muốn, miễn cưỡng" (chủ thể sống phạm hạnh trái ý), đúng với mạch bất mãn ở 1.4/2.2/2.4 và với câu song song `ja444:1.5` (`Akāmakovāpi ahaṁ carāmi` = "dù không muốn, ta vẫn sống như vậy"). Sửa thành "dù không muốn, ta vẫn sống như vậy". Dạng `vāhi` được đọc như `vāpi` của `ja444` (biến thể chính tả; ghi ở mục bất định).
+    4. Khoá 11.1–12.3 trùng gần nguyên văn Pāli với `ja444:1.1–1.7` (khác `acariṁ`/`ācariṁ`, cách tách `paññāsa samādhikāni`, `vāhi`/`vāpi`): dùng lại cách dịch đã công bố của `ja444` (7 khoá đối chiếu, 0 chỗ lệch nghĩa sau sửa). Qua đó bỏ các thêm nghĩa: "đầu" ở 11.1 (Pāli chỉ nói `Sattāhameva`, thứ tự do `Athāparaṁ` ở 11.3), "hoan hỷ" cho `pasanna` (nay "tịnh tín", đúng tiền lệ toàn tầng: 137/150 khoá có `pasannacitto` dùng "tịnh tín"), "sống lại" cho `jīvatu` (nay "sống").
+    5. Các thêm nghĩa/đổi sắc thái khác đã gỡ: "hề" (1.4), "chỉ" (2.4), "tận tình" (4.1), "am thất" thêm vào `pāhunāgataṁ` (5.4; cùng chữ `pāhuna` = khách ở `an5.228`), "lăn"/"mải miết" (6.3, 7.1–7.2), "ngay" và "chạm phải" (7.3–7.4; Pāli `parāmasi` chỉ là chạm), "hung tàn" (8.2), "chớp mắt" cho `khaṇe` (8.4), "cắn trúng"/"gục" (9.1–9.2), "vô cùng" (9.3), "hai người" cho `te` (10.1; Pāli chỉ nói số nhiều), "cơn phát"/"bừng"/"hoàn toàn" (13.2–13.4).
+    6. `kiriyaṁ` (10.3) đổi từ "lời thề chân thật" sang "lời tuyên thệ" theo tiền lệ cùng bộ (cp29–cp30: 7 khoá dùng "tuyên thệ", 1 khoá cũ của bài này dùng "lời thề"); `saccaṁ` ở 10.4 dịch "sự thật" nên không lặp "chân thật". `mānase` (2.4) dịch "trong tâm" thay "trong dạ". Tiền lệ `anabhirati`: "không hoan hỷ" (`dhp186`, `dn34`) và "bất mãn" (`sn8`, `an10.66`) cùng tồn tại; giữ "không hoan hỷ" cho nhất quán với toàn bài.
+    7. Số: `Paropaññāsavassāni` (1.3) = "hơn năm mươi năm"; `Vassāni paññāsasamādhikāni` (11.4) = "năm mươi năm và hơn thế" (cách `ja444`); `Sattāhameva` = bảy ngày; `Tayo janā` = ba người (cha, mẹ, con); `ekādasamaṁ` = thứ mười một. Pāli `…` và `(…)`: 0/0. Nháy ‘ ’ “ ” khớp Pāli từng khoá (“ 1.1, ‘ 11.1, ’ 12.3, ” 13.6). Cặp Pāli trùng nguyên văn trong chính bài: 0; cặp trùng với bài khác bản Việt khác nhau: 0 (13.5–13.6 khớp `cp30:9.5–9.6`).
+    8. Bất định còn lại (không thêm vào thân kinh): (a) `vaṭṭa` (6.3, 7.1) hiểu là vật tròn dùng để chơi, dịch "quả bóng"; bài không nêu rõ chủng loại. (b) `mama vāhasi taṁ dukkhaṁ` (9.4) đọc `vā` như "như thể" (≈ `iva`), bản chép `vāhasi` khó phân xử; nghĩa chính "nỗi đau ấy như là của ta". (c) `Abujjhitvāna` (13.3) đọc như `pabujjhitvāna` ("tỉnh lại"), cùng kiểu với `cp26:4.2` và `ja523:33.2`; không đọc `a-` là phủ định vì mạch câu ("rồi đứng dậy"). (d) `vāhi`/`vāpi` (12.1) như mục 3. (e) `kiriyaṁ` = hành vi tuyên bố sự thật (saccakiriya).
+    9. Kỹ thuật: `technical_integrity` 9,6; bốn lệnh `npm run validate` · `npm test` · `npm run check` · `npm run build` do công cụ kho chạy sau khi ghi. Tự kiểm: tập khoá Việt = Pāli (58/58), thứ tự khoá theo Pāli, NFC, không khoá rỗng.

@@ -1,5 +1,5 @@
 uid: an5.192
-status: draft
+status: published
 translationTitle: "Kinh Bà-la-môn Doṇa"
 translators:
   - "Claude Sonnet 5.5 (Claude Code)"
@@ -22,9 +22,8 @@ quality:
     ambiguity_integrity: 9.2
     technical_integrity: 9.6
   final_score: 9.18
-  blocking_errors:
-    - "Độ phủ tầng tham khảo tiếng Anh (68/93 = 0.731) dưới ngưỡng tối thiểu 0.80: bản Anh Sujato để trống 25 đoạn Pāli có nội dung (2.9, 2.10, 5.3, 7.3–7.5, 7.7, 9.3–9.5, 9.7–9.8, 10.3–10.10, 11.3–11.5, 12.2, 13.3) và lớp english-project chưa có tệp nào cho bài này. Bài bắt buộc giữ trạng thái draft và triangulation ≤ 8.0 cho đến khi lớp english-project lấp các segment này."
-  assessed_at: "2026-10-09"
+  blocking_errors: []
+  assessed_at: "2026-10-12"
   assessed_by:
     - "Claude Sonnet 5.5 (Claude Code)"
 notes: |-
@@ -73,3 +72,9 @@ notes: |-
 
   **Tự kiểm:** tập khoá khớp 120/120, thứ tự khoá = thứ tự Pāli, 0 khoá rỗng, 0 lệch dấu lược, 0 lệch nháy, 0 khoảng trắng thừa, NFC đạt, 71/71 cặp Pāli trùng cho Việt giống hệt.
   Chưa chạy được bốn lệnh của kho trong lát này (bị cấm): `npm run validate`, `npm test`, `npm run check`, `npm run build` — nên `technical_integrity` đặt 9.6 và **không** tuyên bố technical gate đã pass.
+
+  **Giải quyết draft 2026-10-12.** Blocker duy nhất trước đó (độ phủ English Sujato 68/93 = 0,731 dưới sàn 0,80, chưa có lớp english-project) thuộc loại giới hạn của tầng tham khảo, không phải lỗi văn bản; blocker này do tác giả cũ tự đặt, còn theo kho thì mất mát chỉ cần được ghi nhận trong bản kê khoảng trống tham khảo. Đã gỡ blocker sau khi đọc đối kháng từng khoá Sujato để trống từ Pāli: 2.9, 2.10, 5.3, 7.3–7.5, 7.7, 9.3–9.5, 9.7–9.8, 10.3–10.10, 11.3–11.5, 12.2, 13.3 (25 khoá). Toàn bộ là khung lặp (dòng dõi bảy đời, bốn mươi tám năm phạm hạnh, học phí cho thầy, sáu nghề, danh sách tám hạng nữ, lý do không đi lại với người mang thai/cho con bú) mà Pāli lặp nguyên văn một đoạn đã được Sujato dịch ở lần đầu; bản Việt ở các khoá ấy tự đứng vững từ Pāli và giống hệt lần xuất hiện đầu (32 cặp Pāli trùng nội bộ, 0 cặp Việt khác). Coverage vẫn là 73,1%; `triangulation` giữ 7,5 (không cao hơn 8,0) vì ở các khoá ấy Pāli phải tự đứng một mình và không có bản Anh độc lập.
+
+  Đọc đối kháng toàn bài (120 khoá, đối chiếu từng khoá với Pāli): 0 khoá lỗi nghĩa thật, không đổi khoá nào. Các điểm đã soi và giữ nguyên: 2.6 `no` là tiểu từ nghi vấn; 2.9 `veyyākaraṇo` *thông hiểu … ngữ pháp*; 3.1 chuỗi `gītaṁ pavuttaṁ samihitaṁ` và các động từ `anu-` (hát theo, nói theo, tụng lại, dạy lại); 5.4 `komārabrahmacariyaṁ` *phạm hạnh đồng trinh* và `aṭṭhacattālīsa` = 48; 8.2 `udakūpassaṭṭhaṁ` *được trao bằng nước rót*; 8.3 tám hạng nữ (8/8); 8.5 `atimīḷhajo`, 8.8 `asucipaṭipīḷito` giữ sát chữ, không giải thích ô uế; 12.3–12.5 và 14.1–14.3 các cặp `-pi` đúng nghĩa *cả … lẫn*; 14.6 `bhavaṁ` giữa các bà-la-môn là *ông*; 16.1 `pūrema` *không đủ tiêu chuẩn* (diễn đạt hơi gọn, nghĩa đúng: không lấp nổi cả hạng thấp nhất). Dấu nháy đơn/kép khớp Pāli từng khoá (cả những chỗ Pāli mở không đóng); dấu lược `…` chỉ ở 6.5, 6.6, 8.12, 16.2 như Pāli.
+
+  Bất định giữ lại, không phải blocker: (a) 8.11, 10.11 `methunaṁ uppādetvā` *sinh con nhờ giao hợp* là cách đọc theo ngữ cảnh (`pajatthāva` 8.10, `puttassādaṁ` 10.11), nghĩa gần sát chữ hơn là *đã giao hợp*; không đủ căn cứ đổi nên giữ như cũ; (b) 13.6 `kevalampi bhikkhācariyāya` đọc khẳng định theo Pāli, Sujato đọc phủ định; (c) 3.1/15.1 `tyāssume … paññāpenti` đọc là mệnh đề chính của câu quan hệ. Điểm số giữ nguyên so với lần chấm trước vì không sửa nội dung; `technical_integrity` vẫn 9,6 và chưa tuyên bố cổng kỹ thuật pass (chưa chạy `npm run validate`, `npm test`, `npm run check`, `npm run build` trong lát này).

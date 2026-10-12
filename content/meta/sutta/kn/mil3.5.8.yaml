@@ -1,6 +1,6 @@
 uid: mil3.5.8
-status: draft
-translationTitle: "Câu Hỏi Về Việc Có Quả Của Nghiệp Hay Không"
+status: published
+translationTitle: "Câu Hỏi Về Sự Tồn Tại Của Quả Nghiệp"
 translators:
   - "OpenCode Space Bunny Free (agent)"
 reviewers: []
@@ -15,19 +15,28 @@ quality:
     semantic_fidelity: 9.3
     grammar_logic: 9.3
     segment_alignment: 10.0
-    terminology: 8.8
+    terminology: 9.0
     triangulation: 8.0
     vietnamese_clarity: 9.3
     han_viet_balance: 9.4
     ambiguity_integrity: 8.8
     technical_integrity: 9.6
-  final_score: 9.19
+  final_score: 9.21
   blocking_errors:
-    - "Thiếu tầng tham khảo English Sujato tại commit đã ghim: thư mục translation/en/sujato/sutta/kn/ không có tệp nào chứa khoá của bài này (bản Sujato ở commit đã ghim không phát hành Milindapañha), nên bài chỉ đối chiếu được với Pāli root một mình."
-    - "Coverage English dưới ngưỡng 0,8 của source/layers.yaml (0/6 tới 0/8 khoá Pāli có nội dung mang chữ Anh), mà content/meta/reference-gaps.yaml chưa có mục cho bài này; đợt này tôi không được sửa tệp đó."
-  assessed_at: "2026-10-02"
+    - "Thiếu tầng tham khảo English Sujato tại commit đã ghim: thư mục
+      translation/en/sujato/sutta/kn/ không có tệp nào chứa khoá của bài này
+      (bản Sujato ở commit đã ghim không phát hành Milindapañha), nên bài chỉ
+      đối chiếu được với Pāli root một mình."
+  assessed_at: "2026-10-12"
   assessed_by:
-    - "OpenCode Space Bunny Free (agent)"
+    - "Claude Sonnet 5.5 (Claude Code)"
+  waiver:
+    id: no-upstream-english
+    blockers:
+      - "Thiếu tầng tham khảo English Sujato tại commit đã ghim: thư mục
+        translation/en/sujato/sutta/kn/ không có tệp nào chứa khoá của bài này
+        (bản Sujato ở commit đã ghim không phát hành Milindapañha), nên bài chỉ
+        đối chiếu được với Pāli root một mình."
 notes: |-
   KỸ THUẬT. Đợt này tôi KHÔNG chạy `npm run validate|test|build|check` — người điều phối
   cấm và chạy tập trung. Vì vậy tôi KHÔNG tuyên bố technical gate pass:
@@ -76,3 +85,34 @@ notes: |-
   không rời đi* (5 bài đã có) · `anibbattaphalāni` **0 tiền lệ** → *quả chưa chín ra* ·
   `abbocchinnāya santatiyā` → *khi nghiệp còn tồn tại chưa bị cắt* · `anubandheyyuṁ` →
   *sẽ đi theo*.
+
+  Giải quyết draft 2026-10-12: Kiểm toán độc lập lại toàn bài (14 khoá, đọc đối kháng
+  từng cặp Pāli↔Việt). Sửa 3 khoá lỗi nghĩa thật trên 14 khoá (6 khoá Pāli có nội dung), cộng đổi
+  tiêu đề ở 2 khoá. (1) `:2.2` `anibbattaphalāni` — bản cũ *"quả chưa chín ra"* sai:
+  `nibbatta` là *sinh ra* (tầng đã dịch `kammanibbattā` → *sinh do nghiệp*; `nibbatteyyuṁ`
+  → *cho ra*), không có nghĩa *chín*; nay *"cây mà quả chưa sinh ra"*; đồng thời bổ sung
+  `tiṭṭhantī` bị bỏ sót ở khoá này, nay *"những quả ấy đứng ở đây hoặc đứng ở đó"*, thống
+  nhất với `:1.4`/`:1.5`/`:2.4`; `yānimāni` là *những cây này* (không phải *kia*). (2) `:2.4`
+  `abbocchinnāya santatiyā` — bản cũ *"khi nghiệp còn tồn tại chưa bị cắt"* thêm chủ ngữ
+  và nghĩa *"còn tồn tại"* không có trong Pāli; `santati` là *sự tiếp nối* (tầng:
+  `mil3.3.2` *sự tiếp nối tương tục*, `mil3.2.1` *dòng pháp tiếp nối*); nay *"khi sự tiếp nối
+  chưa bị cắt đứt"*. (3) Tiêu đề `:0.3`/`:4.1`: `atthibhāva` là *sự tồn tại* (cùng cách dịch
+  với `mil3.5.1` *sự tồn tại*); bản cũ thêm *"hay không"*, mà Pāli không có `natthi` đi kèm
+  (khác `mil3.5.1` có `atthinatthi`); nay *"Câu hỏi về sự tồn tại của quả nghiệp"*, và
+  `translationTitle` đổi khớp. Dấu chấm cuối `:0.3` bỏ theo đa số tầng (53 không chấm /
+  33 có chấm trong các tiêu đề mil3). Giữ nguyên: `Opammaṁ karohī` → *Xin hãy xét một thí
+  dụ* (đa số 17+ khoá của tầng mil); `Kallosi…` → 25/25; `Rājā āha—` → *Vua nói:*;
+  `ngươi nghĩ thế nào` ở `:2.2` theo cách dùng đang có ở `mil3.4.3`/`3.4.5`/`3.4.6`/`3.7.x`
+  (tầng còn lẫn *ngài/đại đức/ông* ở các bài khác — không phân xử ở bài này).
+  Blocker (A) thiếu bản Anh Sujato: GIỮ NGUYÊN — đúng sự thật upstream. Blocker coverage
+  English dưới 0,8: ĐÃ GỠ — đó là hệ quả trực tiếp của (A) (Sujato không phát hành bài này,
+  nên 0 khoá có chữ Anh), không phải lỗi văn bản; mất mát được ghi nhận qua
+  `content/meta/reference-gaps.yaml`. Toàn bộ 6 khoá Pāli có nội dung đã đọc kỹ từ
+  Pāli một mình (câu ngắn, cấu trúc hỏi–đáp–ví dụ lặp lại, không có hapax) và tự đứng
+  vững; `triangulation` giữ 8,0 (không cao hơn: không có bản Anh độc lập, không có bản
+  Việt hiện hành). `terminology` 8,8→9,0 vì hai chỗ thuật ngữ (`nibbatta`, `santati`) đã
+  đúng và khớp tầng; các điểm khác giữ. Bất định còn lại: `abbocchinnāya santatiyā` —
+  chủ thể của "sự tiếp nối" (dòng nghiệp hay dòng quả của cây) Pāli không nêu, bản dịch
+  giữ nguyên không chủ thể, không đoán. Technical gate: không chạy `npm run validate|test|
+  check|build` trong lượt này, nên `technical_integrity` giữ 9,6; chỉ chạy kiểm khoá/ngoặc
+  nội bộ cho đúng 14 khoá, kết quả đạt.

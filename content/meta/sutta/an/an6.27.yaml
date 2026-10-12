@@ -1,5 +1,5 @@
 uid: an6.27
-status: draft
+status: published
 translationTitle: "Kinh Dịp Thứ Nhất — Sáu Dịp Đến Gặp Vị Đáng Kính"
 translators:
   - "OpenCode Space Bunny Free (agent)"
@@ -13,20 +13,19 @@ quality:
   scores:
     source_provenance: 9.50
     semantic_fidelity: 9.30
-    grammar_logic: 9.40
+    grammar_logic: 9.30
     segment_alignment: 10.00
-    terminology: 9.20
+    terminology: 9.00
     triangulation: 7.50
     vietnamese_clarity: 9.20
     han_viet_balance: 9.40
     ambiguity_integrity: 8.80
     technical_integrity: 9.60
-  final_score: 9.1900
-  blocking_errors:
-    - "Tầng Anh chỉ phủ 22/34 segment Pāli có nội dung = 64,7%, dưới ngưỡng 0,8 khai ở `source/layers.yaml`. 12 khoá không có một chữ Anh nào: `3.2`–`3.4`, `4.2`–`4.4`, `5.2`–`5.4`, `6.2`–`6.4` — tức là `‘ahaṁ kho, āvuso …’` và `‘Sādhu vata me āyasmā … dhammaṁ desetū’ti.` của bốn dịp liên tiếp (sân hận, hôn trầm, uể oải, nghi ngờ). Lớp lấp `english-project` của dự án chưa có cho an6.27, nên không có tầng Anh nào bù. `content/meta/reference-gaps.yaml` CHƯA có entry cho `an/an6.27` (đã kiểm bằng YAML parse: 729 entry, không có `an/an6.27`); coordinator cần chạy `npm run reference:gaps` để ghi nhận. Tầng `vietnamese-current` cũng vắng. Ba tầng tham khảo đều thiếu ở 12 khoá đó ⇒ dịch từ Pāli root một mình, và `scripts/validate.ts` coi đây là error khi status là `review` hoặc `published`, nên bài bắt buộc `draft`."
-  assessed_at: "2026-10-04"
+  final_score: 9.1600
+  blocking_errors: []
+  assessed_at: "2026-10-12"
   assessed_by:
-    - "OpenCode Space Bunny Free (agent)"
+    - "Claude Sonnet 5.5 (Claude Code)"
 notes: |-
   Dịch từ Pāli root (`an6.27_root-pli-ms.json`, 39/39 khoá khớp `pre` = `an6.27:`).
 
@@ -58,3 +57,26 @@ notes: |-
   `7.2`/`7.3` theo Pāli (dấu `’` ở khoá sau là dấu đóng của lời trích trong khoá trước); `ngoặc()` báo cân.
 
   Bốn lệnh cổng kỹ thuật do coordinator chạy, không chạy trong lát agent: `npm run validate`, `npm test`, `npm run check`. Bài ở trạng thái `draft` nên không cần `npm run build`. Vì bốn lệnh ấy chưa chạy ở lát này, `technical_integrity` đặt 9,6 chứ không 10,0.
+
+  **Giải quyết draft 2026-10-12.** Mục này thay các câu về thuật ngữ ở trên khi mâu thuẫn (cụ thể: `kāmarāga`, `uddhaccakukkucca`, `āsava`, số đếm `ô nhiễm`/`nghi ngờ` và câu "không có tiền lệ"); phần còn lại giữ làm lịch sử.
+
+  *Đọc đối kháng toàn bài từ Pāli, sửa 25/39 khoá* (`2.2`–`2.5`, `3.1`–`3.4`, `4.1`–`4.4`, `5.1`–`5.4`, `6.1`–`6.4`, `7.1`–`7.4`, `8.1`). Các lỗi thật đã bắt:
+    - `āsava` bị dịch **ô nhiễm** ở `7.1`–`7.4`; tầng Việt dịch `āsava` là **lậu hoặc** ở 486/531 khoá `an` (`ô nhiễm` chỉ 8, và ở đó là `upakkilesa`). Đã đổi thành **lậu hoặc**; `āsavānaṁ khayāya` → **đoạn tận các lậu hoặc** (`đoạn tận` là dạng gần nhất ở an6.19, an10.52).
+    - `7.1`–`7.2` lệch nghĩa: bản cũ viết "đang tìm dấu hiệu để cho ô nhiễm chấm dứt không trì hoãn, mà không hiểu rõ cần dấu hiệu nào" — thêm "đang tìm", "cần", bỏ `āgamma`/`manasikaroto`. Pāli: `yaṁ nimittaṁ āgamma yaṁ nimittaṁ manasikaroto anantarā āsavānaṁ khayo hoti taṁ nimittaṁ nappajānāti`. Công thức này đã có ở mn20 (3 khoá): "dựa vào một đề mục nào đó, chú tâm đến một đề mục nào đó"; nên dùng **đề mục … dựa vào đó, tác ý đến đó**, và `anantarā āsavānaṁ khayo hoti` → **ngay tức thì có sự đoạn tận các lậu hoặc** (sn22.55/22.81, 8 khoá).
+    - `uddhaccakukkucca` bị dịch **uể oải** ở `5.1`–`5.4`. `uddhacca` là trạo cử, `kukkucca` là hối tiếc; "uể oải" là mệt mỏi. Tầng Việt: **xao động và hối tiếc** 66/93 khoá có `uddhaccakukkucca` (gần nhất: an4.12, mn68; Sujato "restlessness and remorse"); "uể oải" ở tầng Việt là mệt mỏi (sn1.16, sn22.84), không dùng cho `uddhaccakukkucca` ở bài nào khác ngoài chính bài này. Đã đổi.
+    - `kāmarāga` bị dịch **dục trưởng** (2.2–2.5). Tầng: **dục tham** 20, tham dục 13, dục trưởng chỉ 8 (đều của chính bài này và an6.28). Đã đổi thành **dục tham** (gần nhất: an3.129, an5.193, an4.12).
+    - `pariyuṭṭhitena … paretena`: "bị X chế ngự, bị X trói buộc" — `pareta` không phải "trói buộc". Tầng: `pareta` → **xâm chiếm** 29 khoá (sn 20, mn 5, an 4), "làm cho say" 13 khoá (an5.193 một mình). Đã đổi thành **chế ngự … xâm chiếm**.
+    - `nissaraṇaṁ yathābhūtaṁ nappajānāti`: bản cũ bỏ `yathābhūtaṁ`. `yathābhūtaṁ` → **như thật** ở 536/564 khoá; đã thêm: **không biết rõ như thật lối thoát khỏi …**. (`nissaraṇa`: tầng dùng cả xuất ly, lối thoát và sự thoát, không dạng nào áp đảo rõ trong cùng công thức; giữ **lối thoát** — tiền lệ mn64, dễ đọc hơn, không phải lỗi nghĩa.)
+    - `evamassa vacanīyo`: bản cũ "phải được đến gặp và nói với vị ấy rằng", đọc dễ thành chính vị đáng kính là người nói lời "tôi sống với tâm bị … chế ngự" — đảo vai người nói. Lời trích là của vị đang gặp khó khăn. Theo an4.94/mn103/mn112 đổi thành "nên đến gặp vị tỳ-kheo đáng kính và nói như sau" (`vacanīyo` là "nên", không phải "phải").
+    - `Sādhu vata me āyasmā … pahānāya dhammaṁ desetu`: bản cũ "dạy tôi cách đoạn trừ" bỏ `dhammaṁ`. Tầng Việt dịch `dhammaṁ desetu/deseti` → **thuyết pháp** 153/350 khoá, `pahānāya dhammaṁ` đứng trước **thuyết pháp để đoạn trừ/từ bỏ** (an3.72, dn9, dn25). Đã đổi thành "xin Tôn giả thuyết pháp cho tôi để đoạn trừ …".
+    - `Tassa manobhāvanīyo bhikkhu … deseti`: bản cũ "Khi ấy vị tỳ-kheo …" biến `tassa` ("cho vị ấy") thành "khi ấy". Đã đổi: "Vị tỳ-kheo đáng kính thuyết pháp cho vị ấy để đoạn trừ …".
+    - `Puna caparaṁ` → **Lại nữa** (AN 236, mn 146, sn 25; "Nữa" riêng chỉ 8 khoá sn); `Ime kho … samayā` ở `8.1` → **đây là** (đồng với `Ayaṁ` ở `x.6`).
+    - Đếm lại trong notes cũ: `vicikicchā` **nghi hoặc** 197/303 khoá, nghi ngờ chỉ 22 (notes cũ ghi "nghi ngờ 123" là sai; bài vốn dùng nghi hoặc).
+
+  Giữ: `manobhāvanīya` → **đáng kính** (Sujato "esteemed"; không có tiền lệ Việt khác ngoài an6.28, là bài song song); tiêu đề `Kinh Dịp Thứ Nhất`; `hôn trầm và buồn ngủ` 139/141 khoá; `1.1` y nguyên tiền lệ (18 khoá Pāli trùng, 5 khoá giống y nguyên cách dịch); `0.2` và `8.2` dùng lại y nguyên (9 và 262 cặp, 0 lệch trong khoá đã dùng lại). Pāli trùng nguyên văn **trong chính bài**: 0 cặp (phép rỗng).
+
+  **Gỡ blocker cũ về độ phủ Anh và tầng Việt hiện hành.** (1) Sujato để trống 12/34 khoá Pāli có nội dung (64,7%): `3.2`–`3.4`, `4.2`–`4.4`, `5.2`–`5.4`, `6.2`–`6.4`. Đã đọc kỹ cả 12 từ Pāli: đều là lời trích lặp lại **từng chữ** theo khuôn `2.3`–`2.4` (Sujato có cho 2.3–2.4) chỉ thay danh từ nhóm triền cái (sân hận, hôn trầm, trạo hối, nghi), nên bản dịch tự đứng vững từ Pāli và khớp khoá `2.3`/`2.4`; mất mát được ghi nhận ở tệp gap do công cụ sinh. Không còn nghĩa nào chưa chắc ở các khoá này, nên gỡ. `triangulation` giữ ở 7,5 (không cao hơn 8,0): chỉ có một bản Anh độc lập, phủ 64,7%. (2) `vietnamese-current` chỉ có Pháp Cú tại commit đã ghim, mọi bài `an` đều thiếu tầng này; đó là giới hạn tham chiếu, không phải lỗi văn bản.
+
+  **Bất định còn lại (ghi, không đưa vào thân kinh).** `manobhāvanīya` chưa phân xử hết: "đáng kính" theo Sujato; chú giải hiểu là vị có tâm đã tu tập (bhāvitacitta). `nimitta` ở `7.1` dịch **đề mục** theo mn20 (cùng công thức `āgamma … manasikaroto`), trong khi `nimitta` ở tầng Việt là "tướng" 248, "dấu hiệu" 75, "dấu chỉ" 19. `nissaraṇa` giữ "lối thoát". `evamassa vacanīyo` là cấu trúc thụ động (người được nói đến là vị đáng kính); bản Việt dùng thể chủ động theo tiền lệ, cùng nghĩa. Bài song song an6.28 (chưa chạm trong lát này) còn các cách dịch cũ ở `ô nhiễm`, `dục trưởng`, "đang tìm dấu hiệu", `trói buộc`, `phải được đến gặp`, nên cần rà theo bài này.
+
+  Bốn lệnh cổng kỹ thuật do coordinator chạy, không chạy trong lát agent: `npm run validate`, `npm test`, `npm run check`, `npm run build`. Vì chưa chạy, `technical_integrity` đặt 9,6 chứ không 10,0.

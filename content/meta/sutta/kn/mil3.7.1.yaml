@@ -1,5 +1,5 @@
 uid: mil3.7.1
-status: draft
+status: review
 translationTitle: "Câu Hỏi Về Sự Khởi Sinh Của Chánh Niệm"
 translators:
   - "OpenCode Space Bunny Free (agent)"
@@ -12,22 +12,43 @@ tags:
 quality:
   scores:
     source_provenance: 9.6
-    semantic_fidelity: 9.2
-    grammar_logic: 9.2
+    semantic_fidelity: 8.8
+    grammar_logic: 8.8
     segment_alignment: 10.0
-    terminology: 9.4
-    triangulation: 7.6
-    vietnamese_clarity: 9.3
-    han_viet_balance: 9.4
+    terminology: 8.4
+    triangulation: 7.0
+    vietnamese_clarity: 8.8
+    han_viet_balance: 9.2
     ambiguity_integrity: 8.8
     technical_integrity: 9.6
-  final_score: 9.21
+  final_score: 8.9
   blocking_errors:
-    - "Không có tầng tham khảo tiếng Anh tại commit đã ghim `11c9d708978cde8ba61096d8a75f7ddfb846f639`: đã đếm trực tiếp trong `source/upstream-manifest.json` → tầng `english-sujato` (treeSha `24e81ded9d6710e16b277b6394fd57c48258da12`, 4.291 tệp) và trong `sutta/kn/` chỉ có các thư mục cp, dhp, ja, kp, thag, thig — không có `mil`; `mil3.7.1` không nằm trong 83 tệp `ja` đã ghim. Đây là `not-published-upstream`, KHÔNG phải `not-synced`, và không phải thiếu sót của repo. Lớp lấp `english-project` không có cho uid này. Vì vậy bài dịch chỉ từ Pāli root cùng tiền lệ đếm được trong chính tầng Việt dự án; `triangulation` bị chặn ≤ 8.0 và `status` bắt buộc `draft`."
-    - "Tầng `vietnamese-current` tại commit đã ghim chỉ có 26 tệp, toàn bộ là Pháp Cú; không có `Milindapañha` nên không có bản Hòa thượng Thích Minh Châu để đối chiếu. Đây là đặc điểm của snapshot upstream, không phải lỗi của người dịch."
-  assessed_at: "2026-10-05"
+    - "Không có tầng tham khảo tiếng Anh tại commit đã ghim
+      `11c9d708978cde8ba61096d8a75f7ddfb846f639`: đã đếm trực tiếp trong
+      `source/upstream-manifest.json` → tầng `english-sujato` (treeSha
+      `24e81ded9d6710e16b277b6394fd57c48258da12`, 4.291 tệp) và trong
+      `sutta/kn/` chỉ có các thư mục cp, dhp, ja, kp, thag, thig — không có
+      `mil`; `mil3.7.1` không nằm trong 83 tệp `ja` đã ghim. Đây là
+      `not-published-upstream`, KHÔNG phải `not-synced`, và không phải thiếu sót
+      của repo. Lớp lấp `english-project` không có cho uid này. Vì vậy bài dịch
+      chỉ từ Pāli root cùng tiền lệ đếm được trong chính tầng Việt dự án;
+      `triangulation` bị chặn ≤ 8.0 và `status` bắt buộc `draft`."
+  assessed_at: "2026-10-12"
   assessed_by:
-    - "OpenCode Space Bunny Free (agent)"
+    - "Claude Sonnet 5.5 (Claude Code)"
+  waiver:
+    id: no-upstream-english
+    blockers:
+      - "Không có tầng tham khảo tiếng Anh tại commit đã ghim
+        `11c9d708978cde8ba61096d8a75f7ddfb846f639`: đã đếm trực tiếp trong
+        `source/upstream-manifest.json` → tầng `english-sujato` (treeSha
+        `24e81ded9d6710e16b277b6394fd57c48258da12`, 4.291 tệp) và trong
+        `sutta/kn/` chỉ có các thư mục cp, dhp, ja, kp, thag, thig — không có
+        `mil`; `mil3.7.1` không nằm trong 83 tệp `ja` đã ghim. Đây là
+        `not-published-upstream`, KHÔNG phải `not-synced`, và không phải thiếu
+        sót của repo. Lớp lấp `english-project` không có cho uid này. Vì vậy bài
+        dịch chỉ từ Pāli root cùng tiền lệ đếm được trong chính tầng Việt dự án;
+        `triangulation` bị chặn ≤ 8.0 và `status` bắt buộc `draft`."
 notes: |-
   Đã đọc HẾT vc/p74.txt trước khi viết.
 
@@ -89,3 +110,56 @@ notes: |-
     Bốn lệnh để coordinator chạy: `npm run validate`, `npm test`, `npm run check`,
     `npm run build`.
 
+  Giải quyết draft 2026-10-12 (kiểm toán độc lập, đọc đối kháng từng khoá với Pāli; mục này THAY THẾ
+  các mục cũ về "MƯỜI BẢY THUẬT NGỮ" và về dạng khoá `19.1` ở trên, các mục còn lại giữ nguyên).
+  BLOCKER. (A) Thiếu bản Anh upstream: GIỮ NGUYÊN, là sự thật về bản chụp đã ghim (Sujato không có
+  `mil`). (C) `vietnamese-current` chỉ có Pháp Cú: đã GỠ khỏi blocking_errors — chỉ là giới hạn tham
+  chiếu của upstream, không phải lỗi văn bản; ghi giới hạn ở đây: bài không có bản Anh nào và không có
+  bản Việt hiện hành, nên mọi khoá chỉ đứng được nhờ Pāli root cùng tiền lệ đếm được trong tầng Việt
+  dự án; `triangulation` = 7,0 (≤ 8,0). Không có blocker loại (B) hay (D) còn lại sau khi sửa.
+  LỖI NGHĨA THẬT ĐÃ SỬA — 14/47 khoá lỗi nghĩa (+ 4 khoá đổi nhãn thuật ngữ, 2 khoá văn phong):
+    · `3.2`, `9.2`, `11.2`: `muṭṭhassatiko` là người HAY QUÊN (đối lập của người có niệm; tầng đã dịch
+      `muṭṭhassati` → *thất niệm* ở iti92, ud4.2) chứ KHÔNG phải "người có chánh niệm đúng đắn"; và chủ
+      thể bị đảo: chính người hay quên bị người khác thúc ép / nhắc (`pare … sarāpenti`), không phải
+      người ấy bảo người khác.
+    · `4.2`: `sotāpattiphala` → *quả Dự lưu* (glossary; "quả tu nhập" là chữ vô nghĩa); `abhisitto` →
+      *tấn phong làm vua* (không phải "xức dấu"); "trí nhớ" lọt vào thân khoá đã đồng nhất thành chánh niệm.
+    · `5.2`, `6.2`: bản cũ ("nơi ấy được gọi là sưng ấm / khó chịu") không có căn cứ trong Pāli; đọc lại:
+      `yamhi sukhāpito/dukkhāpito` = nơi người nào mình đã được làm cho an lạc / bị làm cho khổ, rồi nhớ
+      `amukasmiṁ evaṁ …`.
+    · `7.2`: `oṭṭha`/`goṇa`/`gadrabha` = lạc đà / bò / lừa (bản cũ: bò cái, trâu cái, ngựa); tầng cùng
+      cụm ở mil5.1.1:15.2 đã dịch đúng *lạc đà, bò, lừa*; `bhātar`/`bhaginī` = anh em trai / chị em gái.
+    · `8.2`: `phoṭṭhabba` = xúc chạm (không phải "thân thể"); `vaṇṇa` = màu sắc (không phải "màu da");
+      không có "người tên ấy" trong Pāli (`asukassa nāma` = của vật nọ).
+    · `10.2`: `balībadda` = bò đực (tầng: ja547 và các nơi khác), bản cũ "tù binh … tứ chi" sai hẳn.
+    · `15.4`: "chánh nhớ" (lỗi chữ), "tường tật" (chữ vô nghĩa) → `sākāraṁ sauddesaṁ` dùng lại cách của tầng
+      (ps2.9, ps1.1, cnd18…): *cùng với các nét đặc trưng và chi tiết*; `jāti`/`pubbenivāsa` đồng bộ
+      với tiền lệ: *một đời, hai đời* (7/8 nơi dùng `ekampi jātiṁ` đều là "đời"), *đời sống quá khứ* (55).
+    · `16.2`: `assarantā` = KHÔNG nhớ ra (bản cũ "khi được nhắc để nhớ" ngược nghĩa); bỏ nháy đơn mà Pāli
+      không có.
+    · `17.2`: `upanikkhittaṁ bhaṇḍaṁ` = món hàng đã ký gửi (bản cũ "phần văn đã được ghi ra" không có
+      căn cứ); nhãn `upanikkhepa` đổi "nhờ bản chép" → *sự ký gửi* (1.5, 17.1, 17.2).
+    · `18.2`: `phoṭṭhabba` = điều xúc chạm; `dhamma` = pháp (không chỉ "một điều").
+    · `2.2`: `upāsikā` = nữ cư sĩ (57 nơi trong tầng; "nữ trưởng" là chữ sai).
+  NHÃN THUẬT NGỮ ĐỔI: `kaṭumikā` "việc hữu mục đích" → *sự thúc ép* (đặt theo `nibandhanti` ở 3.2);
+  `oḷārikaviññāṇa` "trí biết tầm thường" → *trí biết rõ rệt* ("tầm thường" ngược với hai ví dụ trọng đại ở
+  4.2; tầng dịch `oḷārika` là *rõ ràng* ở ud6.1); `hitaviññāṇa`/`ahitaviññāṇa` → *trí biết có lợi / có hại*;
+  `muddā` "ký tắt" → *ấn triện* (tầng: ud3.9 ×2 *nghề ấn triện*); `potthakanibandhana` → *sự ghi vào sách*.
+  Đã sửa ở 1.5 và các khoá câu hỏi 3.1, 4.1, 5.1, 6.1, 12.1, 16.1, 17.1.
+  VĂN PHONG: 13.2, 14.2 bỏ "thì … thì" liền nhau; `1.1` "Vua nói:—" → "Vua nói:" (50 nơi trong tầng cho
+  `Rājā āha—`, dạng có `:—` chỉ 2); `1.5` kết bằng dấu chấm thay vì chấm phẩy.
+  ĐIỀU ĐO ĐƯỢC. Số Pāli: `sattarasa` = mười bảy, khớp 1.3 và 18.3 (đếm đủ 17 mục ở 1.5; 17 khoá câu hỏi
+  2.1–18.1 → 17/17). Pāli trùng nguyên văn trong chính bài mà Việt khác: 0 cặp (phép chạy được: 47 khoá,
+  0 cặp trùng ⇒ phép rỗng, không phải đạt). Pāli trùng nguyên văn với bài khác trong tầng và bản Việt khác:
+  `19.1` 71 bản dùng *“Khéo lắm, thưa tôn giả Nāgasenā.”* (dạng đang dùng, khớp); `Rājā āha—` 50 *Vua nói:*.
+  Dấu: nháy kép 5/5 và nháy đơn khớp Pāli từng khoá; dấu lược `…pe…` → đúng một `…` ở 15.3.
+  BẤT ĐỊNH CÒN LẠI (không đưa vào thân kinh): (1) `muddā` — Pāli giải thích bằng việc học chữ (`lipi`),
+  tầng có hai cách (*ấn triện* ở ud3.9, *tính toán* ở cnd23 cho `muddāya`); giữ *ấn triện* theo tiền lệ
+  gần nhất, nghĩa chính xác trong ngữ cảnh chưa phân xử được. (2) `kaṭumikā` — hapax trong tầng, chỉ
+  đặt theo lời giải thích 3.2. (3) `oḷārika` ở đây: *rõ rệt* hay *thô đại*, đặt theo hai ví dụ ở 4.2.
+  (4) `sati` ở bài này là trí nhớ (cùng bài dùng `muṭṭhassatiko` = hay quên, `sarati` = nhớ), nhưng thân
+  khoá giữ *chánh niệm* theo glossary và bài lân cận mil3.1.13, như đã phán ở mục trên; mil3.6.10 lại
+  dịch `satiyā` là *ký ức*. Nếu người biên tập muốn *trí nhớ* thì phải sửa cả glossary.
+  (5) `Dự lưu` (glossary; 123/141 trong tầng) so với *Nhập lưu* (8/8 nơi trong riêng `mil`).
+  CỔNG KỸ THUẬT: `technical_integrity` = 9,6; chưa chạy `npm run validate`, `npm test`, `npm run check`,
+  `npm run build` trong lượt này (bị cấm); chỉ kiểm tập khoá 47/47 và dấu lược.

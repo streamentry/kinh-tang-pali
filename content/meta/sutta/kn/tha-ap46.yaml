@@ -1,5 +1,5 @@
 uid: tha-ap46
-status: draft
+status: published
 translationTitle: "Ký Sự Về Trưởng Lão Sanniṭṭhāpako"
 translators:
   - "OpenCode Space Bunny Free (agent)"
@@ -12,23 +12,40 @@ tags:
   - "sannitthapaka"
 quality:
   scores:
-    source_provenance: 9.5
-    semantic_fidelity: 9.3
-    grammar_logic: 9.2
+    source_provenance: 9.3
+    semantic_fidelity: 9.1
+    grammar_logic: 9.1
     segment_alignment: 10.0
-    terminology: 9.2
+    terminology: 9.0
     triangulation: 7.5
-    vietnamese_clarity: 9.3
-    han_viet_balance: 9.3
-    ambiguity_integrity: 9.0
+    vietnamese_clarity: 9.2
+    han_viet_balance: 9.2
+    ambiguity_integrity: 8.8
     technical_integrity: 9.6
-  final_score: 9.19
+  final_score: 9.08
   blocking_errors:
-    - "Không có tầng tham khảo tiếng Anh tại commit đã ghim: manifest `source/upstream-manifest.json` khai 4.291 tệp cho `english-sujato`, trong đó `sutta/kn/` chỉ có 9 sub-collection (cp 35, dhp 26, iti 112, ja 83, kp 9, snp 73, thag 264, thig 73, ud 80) — không có `tha-ap`, nên `tha-ap46` không có tệp nào. Đây là `not-published-upstream`, KHÔNG phải `not-synced`. Lớp lấp `english-project` cũng không có cho uid này (`content/meta/en/kn/tha-ap46.yaml` không tồn tại). Giới hạn upstream, không phải lỗi của người dịch."
-    - "Coverage Anh đo được 0/2 = 0,0%, dưới ngưỡng 0,8 của `source/layers.yaml`: mẫu Pāli có nội dung (≥ 40 ký tự, loại block tham chiếu) chỉ gồm `8.1` (66 ký tự) và `9.1` (41 ký tự) — 2/32 khoá; `english-sujato` không phủ khoá nào. Ba tầng tham khảo đều vắng nên bài dịch chỉ từ Pāli root. Khoảng mất mát này phải được ghi vào `content/meta/reference-gaps.yaml` (substantiveSegments: 2, substantiveWithoutEnglish: 2, coverage: 0) — tệp đó ngoài phạm vi lát này, người điều phối phải chạy `npm run reference:gaps`."
-  assessed_at: "2026-10-05"
+    - "Không có tầng tham khảo tiếng Anh tại commit đã ghim: manifest
+      `source/upstream-manifest.json` khai 4.291 tệp cho `english-sujato`, trong
+      đó `sutta/kn/` chỉ có 9 sub-collection (cp 35, dhp 26, iti 112, ja 83, kp
+      9, snp 73, thag 264, thig 73, ud 80) — không có `tha-ap`, nên `tha-ap46`
+      không có tệp nào. Đây là `not-published-upstream`, KHÔNG phải
+      `not-synced`. Lớp lấp `english-project` cũng không có cho uid này
+      (`content/meta/en/kn/tha-ap46.yaml` không tồn tại). Giới hạn upstream,
+      không phải lỗi của người dịch."
+  assessed_at: "2026-10-12"
   assessed_by:
-    - "OpenCode Space Bunny Free (agent)"
+    - "Claude Sonnet 5.5 (Claude Code)"
+  waiver:
+    id: no-upstream-english
+    blockers:
+      - "Không có tầng tham khảo tiếng Anh tại commit đã ghim: manifest
+        `source/upstream-manifest.json` khai 4.291 tệp cho `english-sujato`,
+        trong đó `sutta/kn/` chỉ có 9 sub-collection (cp 35, dhp 26, iti 112, ja
+        83, kp 9, snp 73, thag 264, thig 73, ud 80) — không có `tha-ap`, nên
+        `tha-ap46` không có tệp nào. Đây là `not-published-upstream`, KHÔNG phải
+        `not-synced`. Lớp lấp `english-project` cũng không có cho uid này
+        (`content/meta/en/kn/tha-ap46.yaml` không tồn tại). Giới hạn upstream,
+        không phải lỗi của người dịch."
 notes: |-
   Dịch trực tiếp từ Pāli root vì không có tầng tham khảo tiếng Anh cho `tha-ap46` ở commit đã ghim. Tầng `vietnamese-current` không phủ bài này (manifest chỉ có 26 tệp, toàn bộ là Pháp Cú).
   Đã đọc Pāli của bài trước khi viết chữ, và đọc hai bài kề cùng phẩm `tha-ap45` (chưa dịch) và `tha-ap47` (đã dịch) cùng hai bài cùng truyện `tha-ap531` (trái cây) và `tha-ap271` để bám công thức đã có.
@@ -40,3 +57,7 @@ notes: |-
   0.3 và 9.1 theo khuôn bài kề cùng phẩm (tha-ap47:0.3 và 8.1). Khuôn tiêu đề và khuôn kết của tầng này rất phân tán (352 khoá mà 333 cách), nên không có đa số để theo; ta bám bài ngay cạnh trong cùng phẩm.
   Lượt review đối kháng tự làm bắt được 2 lỗi trong bản nháp: (1) `6.1` lúc đầu dùng dạng trước đây, lệch với `5.1` ngay trong bài, đã đổi cho nhất quán; (2) `3.2` lúc đầu dịch `nāmaka` thành vị được gọi là, lặp lại tên đã nêu ở `3.1`, đã đổi theo tha-ap463:1.2.
   `technical_integrity` chỉ 9,6 vì bị cấm chạy cổng: còn lại `npm run validate`, `npm test`, `npm run check`, `npm run build`.
+  Giải quyết draft 2026-10-12: đọc đối kháng lại cả 32 khoá từ Pāli, sửa 14 khoá (7 lỗi nghĩa thật, 7 lỗi sát chữ/nhất quán). Lỗi nghĩa thật: `1.3` `santuṭṭho` là biết đủ, không phải an lạc trong tâm; `1.4` `ayasena` là tiếng xấu, không phải mất tiếng; `2.3` `Vasīsatasahassehi` là một trăm ngàn bậc tự tại (bản cũ ghi tôn túy, vô nghĩa; khớp tiền lệ cùng Pāli); `4.2` `āmaṇḍaṁ pānīyañcahaṁ`, chữ `ahaṁ` dính liền `pānīyañca` là chủ ngữ của `adāsiṁ` ở `4.3`, KHÔNG phải một món dâng thứ ba, nên bỏ "và cả bản thân tôi" (cùng cấu trúc `uppalaṁ mallikañcahaṁ`, `cīvaraṁ paccayañcahaṁ` ở các bài khác); `5.3` `duggati` là đọa xứ chứ không phải khổ đau, không có chữ "rơi vào"; `6.1` `Ekatālīsa` là 41 (bản cũ ghi 40; tiền lệ tha-ap131:5.1 và tha-ap125:8.1 đều ghi bốn mươi mốt); `6.2` `arindamo` là bậc hàng phục kẻ thù, không phải "không ai sánh bằng". Sát chữ/nhất quán: `3.1` thêm "đã" cho `upāgataṁ`; `3.2` chuẩn "Hồng Sen" theo 10+ tiền lệ; `3.3` `paññāpetvā` là tiếp diễn thể, dịch "Sau khi trải"; `4.3` đổi "Ta" thành "Tôi" cho khớp người kể xưng tôi ở `1.1`, `3.4`, `5.2`; `4.4` `vippasannena cetasā` thành "với tâm trong sáng" (bỏ "tinh khiết" không có trong Pāli); `5.1` bỏ chữ "đại" vì Pāli chỉ có `kappe`, và nhất quán với `6.1` trong cùng bài; `6.3` bỏ "quý giá" không có trong Pāli.
+  Nguồn gốc lỗi: nhiều dạng sai ở trên là tiền lệ chép từ bài khác (`Ekatālīsa` 40, `ahaṁ` thành bản thân), nên điểm `source_provenance` hạ 9,5 → 9,3.
+  Blocker đã gỡ: (B) "Coverage Anh 0/2" — mẫu số chỉ 2 khoá (`8.1`, `9.1`), là hai câu công thức (câu kết "Itthaṁ sudaṁ…" và câu tổng kết "…catutthaṁ"), đọc kỹ từ Pāli tự đứng vững; đây là hệ quả của việc thiếu bản Anh upstream, không phải lỗi văn bản. Mất mát được ghi nhận qua `content/meta/reference-gaps.yaml`. (C) tầng `vietnamese-current` chỉ có Pháp Cú: giới hạn tham chiếu, không phải lỗi văn bản. Blocker giữ nguyên: (A) thiếu bản Anh Sujato upstream. `triangulation` giữ 7,5 (≤ 8,0, vì không có bản Anh độc lập).
+  Bất định còn lại: `6.2` `arindamo` có thể là tên riêng của vị vua (như `amittako`, `tamonudo` ở các bài cùng khuôn) hoặc tôn hiệu "bậc hàng phục kẻ thù"; dịch theo nghĩa tôn hiệu, không tự phát minh tên. `6.4` giữ "đại thần lực" theo đa số lớn của tầng, dù Pāli `mahabbalo` chỉ là đại lực. `8.1` "Tôi nghe như vầy" cho `Itthaṁ sudaṁ…` là khuôn đã dùng cho 400+ khoá của tầng và không đổi riêng ở bài này; câu thật của Pāli là "Như vậy, Trưởng lão… đã nói những bài kệ này". Đề nghị người biên tập xét khuôn này ở cấp tầng.

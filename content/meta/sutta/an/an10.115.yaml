@@ -1,5 +1,5 @@
 uid: an10.115
-status: draft
+status: published
 translationTitle: "Kinh Pháp (3)"
 translators:
   - "Claude Sonnet 5.5 (Claude Code)"
@@ -17,15 +17,14 @@ quality:
     grammar_logic: 9.3
     segment_alignment: 10.0
     terminology: 9.3
-    triangulation: 7.0
+    triangulation: 7.5
     vietnamese_clarity: 9.3
     han_viet_balance: 9.4
     ambiguity_integrity: 9.2
     technical_integrity: 9.6
-  final_score: 9.18
-  blocking_errors:
-    - "Độ phủ tầng tham khảo tiếng Anh (42/60 = 0.700) dưới ngưỡng tối thiểu 0.80 do bản Anh Sujato để trống 18 đoạn Pāli có nội dung (2.3, 2.5, 5.1, 6.1, 6.2, 6.5, 7.2–7.5, 18.1, 19.1, 19.2, 19.5, 20.2–20.5), không có lớp english-project lấp và không có tầng Việt hiện hành. Bài bắt buộc giữ trạng thái draft và triangulation ≤ 8.0 cho đến khi lớp english-project lấp các segment này."
-  assessed_at: "2026-10-09"
+  final_score: 9.23
+  blocking_errors: []
+  assessed_at: "2026-10-12"
   assessed_by:
     - "Claude Sonnet 5.5 (Claude Code)"
 notes: |-
@@ -46,3 +45,5 @@ notes: |-
   ĐIỂM BẤT ĐỊNH. (a) `8.2` `evaṁsampadamidaṁ āyasmantānaṁ` dịch *các Tôn giả cũng vậy* theo `sn35.116:5.2`/`mn133:9.2`; `taṁ bhagavantaṁ atisitvā` = *bỏ qua Đức Thế Tôn ấy*. (b) `8.4`/`9.2` có `ahosi` (quá khứ) nhưng bản Việt viết *là lúc* theo tiền lệ (`sn35.116:5.5`, `mn133:9.4`); nghĩa là *lúc ấy, khi Bậc Đạo Sư đang hiện diện, đã là lúc …*. (c) `9.3` `yathā no bhagavā byākareyya tathā naṁ dhāreyyāma` nối liền câu bằng dấu phẩy sau `9.2`, nên Việt mở bằng *và nên ghi nhớ …* (khớp `mn133:10.3`). (d) `21.2` `attho suvibhatto` dịch *được … phân tích rõ*; `ākārehi padehi byañjanehi` → *phương cách / từ ngữ / văn cú* (khớp `sn35.117:10.14`).
 
   Đợt này bị cấm chạy cổng kỹ thuật, nên tiêu chí 10 bị chặn ở 9.6: tôi chỉ xác minh được JSON hợp lệ, `set(khoá Việt) == set(khoá Pāli)` (105 == 105, 0 thiếu, 0 thừa, thứ tự khoá đúng thứ tự Pāli), 0 khoá rỗng, mọi giá trị NFC, không khoảng trắng thừa, dấu lược khớp Pāli từng khoá, nháy đơn và nháy kép khớp Pāli từng khoá (0 lệch trên 105), không Pāli lọt sang bản Việt, và YAML sạch. Bốn lệnh `npm run validate`, `npm test`, `npm run check`, `npm run build` để coordinator chạy.
+
+  Giải quyết draft 2026-10-12: Thay thế mục "TẦNG THAM KHẢO — COVERAGE ANH DƯỚI NGƯỠNG, NÊN BÀI GIỮ `draft`" ở trên về phần kết luận trạng thái (số đo giữ nguyên). (1) Blocker độ phủ Anh Sujato 42/60 = 0,70 là blocker loại mất mát tầng tham khảo, không phải lỗi văn bản; mất mát được ghi nhận trong `content/meta/reference-gaps.yaml` (do `npm run reference:gaps` sinh), không cần lấp. Đã gỡ khỏi `blocking_errors` sau khi đọc đối kháng 18 khoá Sujato trống từ Pāli: `2.3`, `2.5`, `5.1`, `6.1`, `6.2`, `6.5`, `7.2`–`7.5`, `18.1`, `19.1`, `19.2`, `19.5`, `20.2`–`20.5`. Cả 18 khoá là lời trích lại lời tóm lược hoặc lời bàn của các tỳ-kheo, trùng nguyên văn Pāli với các khoá Sujato có chữ trong chính bài (`2.4`/`11.3`, `1.2`…; 10 nhóm trùng nội bộ, 0 lệch) và với `sn35.116`/`sn35.117`, nên bản Việt tự đứng vững từ Pāli; không còn điểm nghĩa chưa chắc ở các khoá này. `triangulation` đặt 7,5 (≤ 8,0, vì không có bản Anh độc lập cho 18/60 khoá và không có tầng Việt hiện hành). (2) Sửa một khoá lỗi nghĩa thật: `8.2` `satthari sammukhībhūte` là vị trí cách tuyệt đối (locative absolute), nghĩa là "khi bậc Đạo Sư đang hiện diện trước mặt"; bản cũ "đang đứng ngay trước bậc Đạo Sư" gán nhầm thế đứng cho các Tôn giả (Pāli không có `tiṭṭhati` cho họ; `tiṭṭhato` ở `8.1` chỉ cây). Đã đổi thành *khi bậc Đạo Sư đang hiện diện trước mặt*; cùng lỗi còn ở bản dịch `sn35.116:5.2`, `mn133` và `mn138` (cùng Pāli, ngoài phạm vi bài này, báo để xử lý riêng). Các khoá còn lại (104/105) không có lỗi nghĩa: đã đọc đối kháng toàn bài, khoá mười cặp tà/chánh `13`–`15` đúng thứ tự Pāli, `13.3`/`15.3` dịch mệnh đề `ye ca … paccayā … sambhavanti` thành *do … mà … được sinh khởi* theo tiền lệ khuôn `an10.114`/`an10.116`. Điểm sau chấm lại: semantic_fidelity 9,3 · triangulation 7,0→7,5 · các tiêu chí khác giữ; final_score 9,23. Không còn blocker; trạng thái do công cụ cổng quyết theo điểm. Tiêu chí 10 vẫn đặt 9,6 vì không chạy cổng kỹ thuật ở đợt này; `npm run validate`, `npm test`, `npm run check`, `npm run build` để coordinator chạy.

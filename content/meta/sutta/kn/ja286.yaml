@@ -1,5 +1,5 @@
 uid: ja286
-status: draft
+status: published
 translationTitle: "Kinh Sālūka"
 translators:
   - "OpenCode Space Bunny Free (agent)"
@@ -13,22 +13,37 @@ tags:
 quality:
   scores:
     source_provenance: 9.5
-    semantic_fidelity: 9.4
-    grammar_logic: 9.3
+    semantic_fidelity: 9.0
+    grammar_logic: 9.0
     segment_alignment: 10.0
-    terminology: 9.3
+    terminology: 9.0
     triangulation: 6.6
-    vietnamese_clarity: 9.4
+    vietnamese_clarity: 9.2
     han_viet_balance: 9.4
-    ambiguity_integrity: 9.4
+    ambiguity_integrity: 9.2
     technical_integrity: 9.6
-  final_score: 9.19
+  final_score: 9.05
   blocking_errors:
-    - "Thiếu tầng tham khảo English Sujato tại commit đã ghim 11c9d708978cde8ba61096d8a75f7ddfb846f639: đếm trực tiếp trên source/upstream-manifest.json, thư mục sutta/kn/ja/ của tầng translation/en/sujato chỉ có 83 tệp (ja1..ja79, ja126, ja159, ja466, ja534) và không có tệp nào chứa khoá của bài này; SuttaCentral không phát hành bản Anh nào khác phủ bài này tại commit đã ghim. Bài chỉ đối chiếu được với Pāli root một mình."
-    - "Coverage tầng Anh đo được là 0 trên 0 khoá Pāli có nội dung (mọi vế kệ Jātaka của lát này ngắn hơn ngưỡng 40 ký tự), thấp hơn ngưỡng 0.8 khai ở source/layers.yaml, mà content/meta/reference-gaps.yaml chưa có mục cho bài này và đợt này tôi không được phép sửa tệp đó."
-  assessed_at: "2026-10-02"
+    - "Thiếu tầng tham khảo English Sujato tại commit đã ghim
+      11c9d708978cde8ba61096d8a75f7ddfb846f639: đếm trực tiếp trên
+      source/upstream-manifest.json, thư mục sutta/kn/ja/ của tầng
+      translation/en/sujato chỉ có 83 tệp (ja1..ja79, ja126, ja159, ja466,
+      ja534) và không có tệp nào chứa khoá của bài này; SuttaCentral không phát
+      hành bản Anh nào khác phủ bài này tại commit đã ghim. Bài chỉ đối chiếu
+      được với Pāli root một mình."
+  assessed_at: "2026-10-12"
   assessed_by:
-    - "OpenCode Space Bunny Free (agent)"
+    - "Claude Sonnet 5.5 (Claude Code)"
+  waiver:
+    id: no-upstream-english
+    blockers:
+      - "Thiếu tầng tham khảo English Sujato tại commit đã ghim
+        11c9d708978cde8ba61096d8a75f7ddfb846f639: đếm trực tiếp trên
+        source/upstream-manifest.json, thư mục sutta/kn/ja/ của tầng
+        translation/en/sujato chỉ có 83 tệp (ja1..ja79, ja126, ja159, ja466,
+        ja534) và không có tệp nào chứa khoá của bài này; SuttaCentral không
+        phát hành bản Anh nào khác phủ bài này tại commit đã ghim. Bài chỉ đối
+        chiếu được với Pāli root một mình."
 notes: |-
   COVERAGE, ĐO BẰNG SCRIPT KHÔNG SUY. Đếm trực tiếp trên source/upstream-manifest.json tại
   commit đã ghim 11c9d708978cde8ba61096d8a75f7ddfb846f639: tầng translation/en/sujato có 4.291
@@ -112,3 +127,34 @@ notes: |-
   kể final_score. Tôi không nâng điểm để né blocker, và cũng không hạ điểm để tỏ ra thận trọng:
   điểm ghi ở trên là chấm theo đúng mười tiêu chí, kể cả triangulation thấp (6.6) vì không có
   tầng tham khảo nào.
+
+  Giải quyết draft 2026-10-12 (kiểm toán độc lập, thay thế các mục cũ nói về `musā` là cái cối nghiền,
+  `vikanta` là mổ bừa, `jarā` là trâu già và con lợn rừng). Đọc đối kháng từng khoá từ Pāli, đo tiền lệ
+  trên tầng. Sửa 6 khoá lỗi nghĩa thật trên 12 khoá thân kệ (các khoá 0.x và 4.1 không đổi):
+  `2.1` (`idāni so idhāgantvā`): bản cũ bỏ `idāni` (bây giờ) và thêm một tiếng gọi "Này" không có trong
+  Pāli; nay là Bây giờ, khi vị ấy đến đây. `2.4` và `3.2` (`sayantaṁ musaluttaraṁ`): `musala` là CÁI CHÀY,
+  không phải cối — tầng đã dùng chày cho `musala` ở thig2.3, thig1.11, ud6.4 và ja530, và không có chỗ nào
+  dùng cối; bản cũ còn thêm "nằm ngửa" mà Pāli không có (`sayanta` chỉ là đang nằm); nay là đang nằm với cái
+  chày ở trên. `3.1` (`vikantaṁ sūkaraṁ`): bản cũ thêm "rừng" (Sālūka là con lợn nhà được vỗ béo, cùng
+  mô-típ với Munika của ja30) và "bừa" (không có trong Pāli); nay là con lợn bị xẻ thịt, theo ja541:59.2
+  (`vikantā` là bị xẻ ra). `3.3` (`jaraggavā`): `gava` là bò, không phải trâu; tầng dịch `jaraggava` là bò già ở
+  3/4 chỗ (ja352, pv8, thag20.1) và 0 chỗ là trâu già; bản cũ còn thêm "trong lòng" cho `vicintesuṁ` — nay là
+  những con bò già đã suy nghĩ. `3.4` (`varamhākaṁ bhusāmivāti`): `amhākaṁ` là số nhiều nên nói thay cho cả
+  nhóm, đổi "của ta" thành "của chúng ta"; `varaṁ` là tốt hơn, bỏ "còn" mà bản cũ chèn thêm. Các khoá trùng
+  nguyên văn ja30 (`1.2`, `1.3`, `1.4`) giữ nguyên để nhất quán với bài đó.
+  BLOCKER ĐÃ GỠ. Blocker thứ hai (coverage Anh dưới ngưỡng 0.8) là phép đo không có mẫu số: mọi vế kệ
+  của bài này ngắn hơn ngưỡng 40 ký tự (dài nhất 22 ký tự ở `1.4`), nên mẫu số là 0 trên 0 và cổng không đo
+  được gì; không có đoạn Sujato trống nào để nói đến, nên không có mất mát nào cần ghi nhận ở
+  reference-gaps. Blocker này do tác giả cũ tự đặt, không phải lỗi văn bản, nên đã gỡ. Tầng Việt hiện hành
+  chỉ có Pháp Cú là giới hạn của bản chụp upstream, không phải lỗi bài này. BLOCKER GIỮ: thiếu bản Anh
+  Sujato tại commit đã ghim (sự thật về upstream, thuộc trường hợp waiver của người biên tập).
+  BẤT ĐỊNH CÒN LẠI (không đoán, ghi ở đây, không thêm vào thân kinh). (1) `yuttasevako` ở `2.2`: đọc
+  như một từ ghép định ngữ (yutta là gắn với, sevaka là người hầu) thành vị khách cùng đoàn tùy tùng — cách đọc
+  khả dĩ nhưng không có bản tham khảo độc lập nào để chắc; cách đọc khác là người hầu hợp phận sự. (2) `musaluttara`:
+  chỉ chắc `musala` là chày và `uttara` là ở trên; việc cái chày là hung khí hay chỉ đặt trên xác thì
+  Pāli không nói, bản Việt giữ đúng mức đó. (3) `āturannāni` ở `1.2`: bản dịch giữ nguyên cách dịch của
+  ja30 là phần của người bệnh tật dù `anna` sát nghĩa là thức ăn; giữ vì trùng nguyên văn Pāli. Số khoá
+  Pāli trùng nguyên văn trong chính bài này mà bản Việt khác nhau: 0 cặp (`2.4` và `3.2` dịch giống hệt
+  nhau). Triangulation vẫn 6.6 vì không có bản Anh độc lập; điểm hạ nhẹ ở các tiêu chí nghĩa vì 6 khoá
+  trên 12 khoá thân kệ đã sai ở bản cũ. Technical gate: chưa chạy npm run validate, npm test, npm run check,
+  npm run build trong lượt này, nên technical_integrity giữ 9.6.

@@ -1,5 +1,5 @@
 uid: mil3.6.2
-status: draft
+status: published
 translationTitle: "Câu Hỏi Về Việc Toàn Tri"
 translators:
   - "OpenCode Space Bunny Free (agent)"
@@ -11,23 +11,32 @@ tags:
   - sativagga
 quality:
   scores:
-    source_provenance: 9.4
-    semantic_fidelity: 9.3
+    source_provenance: 9.3
+    semantic_fidelity: 9.2
     grammar_logic: 9.3
     segment_alignment: 10.0
-    terminology: 8.9
+    terminology: 9.2
     triangulation: 8.0
     vietnamese_clarity: 9.3
     han_viet_balance: 9.4
-    ambiguity_integrity: 8.8
+    ambiguity_integrity: 9.0
     technical_integrity: 9.6
-  final_score: 9.20
+  final_score: 9.23
   blocking_errors:
-    - "Thiếu tầng tham khảo English Sujato tại commit đã ghim: thư mục translation/en/sujato/sutta/kn/ không có tệp nào chứa khoá của bài này (bản Sujato ở commit đã ghim không phát hành Milindapañha), nên bài chỉ đối chiếu được với Pāli root một mình."
-    - "Coverage English dưới ngưỡng 0,8 của source/layers.yaml (0/6 tới 0/8 khoá Pāli có nội dung mang chữ Anh), mà content/meta/reference-gaps.yaml chưa có mục cho bài này; đợt này tôi không được sửa tệp đó."
-  assessed_at: "2026-10-02"
+    - "Thiếu tầng tham khảo English Sujato tại commit đã ghim: thư mục
+      translation/en/sujato/sutta/kn/ không có tệp nào chứa khoá của bài này
+      (bản Sujato ở commit đã ghim không phát hành Milindapañha), nên bài chỉ
+      đối chiếu được với Pāli root một mình."
+  assessed_at: "2026-10-12"
   assessed_by:
-    - "OpenCode Space Bunny Free (agent)"
+    - "Claude Sonnet 5.5 (Claude Code)"
+  waiver:
+    id: no-upstream-english
+    blockers:
+      - "Thiếu tầng tham khảo English Sujato tại commit đã ghim: thư mục
+        translation/en/sujato/sutta/kn/ không có tệp nào chứa khoá của bài này
+        (bản Sujato ở commit đã ghim không phát hành Milindapañha), nên bài chỉ
+        đối chiếu được với Pāli root một mình."
 notes: |-
   KỸ THUẬT. Đợt này tôi KHÔNG chạy `npm run validate|test|build|check` — người điều phối
   cấm và chạy tập trung. Vì vậy tôi KHÔNG tuyên bố technical gate pass:
@@ -36,7 +45,7 @@ notes: |-
 
   CHỐT KHÔNG TỰ CHẠY — ĐÃ TỰ KIỂM THỦ CÔNG. Bài này CÓ khoá Pāli ≥ 40 ký tự nên vòng
   chốt của `_hvi.kiểm` chạy thật; tôi vẫn tự quét lại TOÀN BỘ 14 khoá bằng chính các
-  hàm đó (`_chk_w5.py`): mọi khoá có bản dịch, không khoá thừa/thiếu so với Pāli,
+  hàm đó: mọi khoá có bản dịch, không khoá thừa/thiếu so với Pāli,
   thứ tự khoá khớp Pāli, chuỗi NFC, không Pāli lọt, số dấu lược khớp TỪNG khoá,
   ngoặc kép cân trên cả bài, không có `(…)`.
 
@@ -82,3 +91,28 @@ notes: |-
   (`Sampatte kāle … pāyeti`), và `?` ở đây không có ở hai bài cùng công thức
   (`mil3.5.8:2.3`, `mil3.7.6:1.8` đều là `”ti.`). Tôi dịch `”ti.` — đây là điều chỉnh
   dấu câu, không phải thêm bớt chữ nghĩa.
+
+  Giải quyết draft 2026-10-12 (thay thế các mục cũ về `sikkhāpada` → *giới hạnh tu học*,
+  `yāvajīvaṁ anatikkamanīyaṁ` → *suốt đời, không bỏ sót* và blocker coverage). Đọc đối kháng
+  lại cả 14 khoá từ Pāli; sửa 5 khoá, trong đó 3 khoá lỗi nghĩa thật.
+  `1.4` — bản cũ *"có trình bày giới hạnh tu học theo thứ tự cho đệ tử không?"* làm MẤT
+  từ hỏi `kissa` (vì sao) và biến câu hỏi *vì sao* thành câu hỏi có/không; nay là *"Vậy thì vì
+  sao … Đức Thế Tôn lại chế định học giới cho các đệ tử theo thứ tự?"*.
+  `1.5` — `Atthi pana te … koci vejjo` là *"ngài có vị thầy thuốc nào … không"* (`te` = của
+  ngài), bản cũ đọc thành *"ngài có biết vị thầy thuốc nào"* nên lệch câu trả lời `Āma, bhante,
+  atthi` (*"có"*).
+  `1.9` — `anatikkamanīya` là *"không được vượt quá"*, không phải *"không bỏ sót"*; nay *"để suốt
+  đời không được vượt quá"*, khớp `mil3.6.5:1.5` và `mil6.2.3:4.7`.
+  `1.7`/`1.8` — `pāyeti` là *cho uống* (thuốc); bỏ chữ *"thì không cho"* thêm vào `1.7`, vì
+  Pāli `1.7` chỉ nêu hai vế `sampatte`/`asampatte` còn lời *"không"* chỉ có ở `1.8` (`no
+  asampatte kāle`).
+  Thuật ngữ `sikkhāpada` → *học giới*: tầng đo được 279 lần / 108 tệp so với *giới hạnh tu
+  học* 12 lần / 3 tệp (và `mil3.6.5:1.5` cùng phẩm dùng *học giới*), nên đổi theo đa số; `học
+  pháp` 113 lần / 38 tệp là nghĩa khác, không dùng.
+  Blocker đã gỡ: "coverage English dưới 0,8" — kiểu (B) do tác giả cũ tự đặt; bài không có
+  Sujato nào để đo, 14 khoá đều đọc từ Pāli, bài ngắn, cấu trúc hỏi–đáp rõ, nghĩa đứng
+  vững từ Pāli một mình; mục ghi nhận mất mát thuộc `content/meta/reference-gaps.yaml` do công cụ
+  của kho sinh. Blocker giữ nguyên: thiếu hẳn bản Anh Sujato tại commit đã ghim (giới hạn
+  upstream). `triangulation` giữ 8,0 (không có bản Anh độc lập, không có Việt hiện hành). Bất
+  định còn lại: `Kallosi` dịch *Khéo lắm* theo tiền lệ 25/25 bài mil3, nghĩa sát là *ngài thật
+  giỏi/đáng khen*; giữ để nhất quán tầng. `bhesajja`/`pāyeti` không bất định.

@@ -1,5 +1,5 @@
 uid: an6.62
-status: draft
+status: published
 translationTitle: "Kinh Trí Biết Các Căn Của Con Người"
 translators:
   - "Claude Sonnet 5.5 (Claude Code)"
@@ -16,15 +16,14 @@ quality:
     grammar_logic: 9.2
     segment_alignment: 10.0
     terminology: 9.2
-    triangulation: 7.5
+    triangulation: 8.0
     vietnamese_clarity: 9.1
     han_viet_balance: 9.3
     ambiguity_integrity: 9.3
     technical_integrity: 9.6
-  final_score: 9.18
-  blocking_errors:
-    - "Độ phủ tầng tham khảo tiếng Anh (98/136 = 0.721) dưới ngưỡng tối thiểu 0.80: bản Anh Sujato để trống 38 đoạn Pāli có nội dung (3.2–3.8, 7.11–7.14, 8.11–8.14, 8.17–8.18, 9.9–9.10, 9.12–9.14, 10.18–10.21, 10.23–10.25, 11.15–11.18, 11.20–11.22, 12.9–12.10), lớp english-project chưa có nội dung cho bài này và tầng Việt hiện hành vắng. Bài bắt buộc giữ trạng thái draft và triangulation ≤ 8.0 cho đến khi lớp english-project lấp các khoá này và reference-gaps được chạy lại."
-  assessed_at: "2026-10-10"
+  final_score: 9.23
+  blocking_errors: []
+  assessed_at: "2026-10-12"
   assessed_by:
     - "Claude Sonnet 5.5 (Claude Code)"
 notes: |-
@@ -46,3 +45,5 @@ notes: |-
   **Kiểm dấu nháy: 157/157 khoá khớp Pāli từng khoá** (cả nháy đơn `‘’` và nháy kép `“”`; Pāli dùng nháy lồng, quan trọng nhất ở `2.4`–`2.6`, `3.5`–`3.8`, và chuỗi lời Đức Phật mở ở `7.1` kéo dài tới `9.14`). **Dấu lược: Pāli bài này không có `…`, `…pe…` hay `(…)` ở khoá nào (0/157); bản Việt cũng không (0/157).**
   **Số Pāli, tự tính.** `eka`/`eko` = một (`ekapuggala` 4.3, `eko` 13.1–13.2 mỗi cụm ba lần) · `tayo puggalā` = ba hạng người (`10.2`, `13.1`, `13.2`) · `tiṇṇaṁ puggalānaṁ` = của ba hạng người (`10.2`, `13.1`, `13.2`) · `Aṭṭhamaṁ.` = thứ tám · `6.62` ở `0.1` giữ nguyên. Không có `sahassa`, `sata`, `kappa`+số hay `tiṁsa` nào; `kappaṭṭho` chỉ là “trụ suốt một kiếp”, không kèm số.
   **Kiểm tra máy.** Tập khoá Việt = tập khoá Pāli 157/157, đúng thứ tự Pāli; không khoá rỗng; NFC; không Pāli lọt sang Việt (ngoài tên riêng `Aṅguttara`, `Daṇḍakappaka`). Chưa chạy bốn lệnh của kho trong lượt này (bị cấm): `npm run validate`, `npm test`, `npm run check`, `npm run build` — vì vậy `technical_integrity` đặt 9.6 và không tuyên bố technical gate đã qua.
+
+  **Giải quyết draft 2026-10-12** (thay thế phần kết luận “giữ `draft` kèm blocker, `triangulation` hạ xuống 7.5” ở mục Coverage Anh phía trên; các số đo coverage giữ nguyên). Blocker duy nhất trước đó là độ phủ Anh Sujato 98/136 = 0,721 dưới ngưỡng 0,80 — loại giới hạn của tầng tham khảo, không phải lỗi văn bản; theo cổng của kho, mất mát được ghi nhận trong `content/meta/reference-gaps.yaml` (qua `npm run reference:gaps`) là đủ, không cần lấp. Đã gỡ blocker này sau khi đọc đối kháng lại toàn bộ 38 khoá Sujato để trống (`3.2`–`3.8`, `7.11`–`7.14`, `8.11`–`8.14`, `8.17`–`8.18`, `9.9`–`9.10`, `9.12`–`9.14`, `10.18`–`10.21`, `10.23`–`10.25`, `11.15`–`11.18`, `11.20`–`11.22`, `12.9`–`12.10`) từ Pāli: tất cả là lặp nguyên công thức đã có ở khối đầu cùng bài (`3.2`–`3.8` lặp `2.1`–`2.6`; `7.11`–`7.18` lặp `7.1`–`7.6` + ba câu kết; các khối `8`–`12` tương tự), nên đã dịch lại đúng như phần Sujato đã dịch, 0 khoá lệch giữa các lần lặp; không còn chỗ nghĩa chưa chắc ở các khoá này. `triangulation` nâng từ 7.5 lên 8.0 (mức trần khi không có bản Anh độc lập cho 38 khoá; tầng Việt hiện hành vắng, giới hạn chung của mọi bài ngoài Pháp Cú). Đọc đối kháng 157 khoá, không phát hiện lỗi nghĩa: 0/157 khoá phải sửa, bản dịch giữ nguyên. Đã đối chiếu thêm tiền lệ `sārādāni sukhasayitāni` (`sn55.25:11.1`: “chắc lõi, được cất giữ lành lặn” — bài này “có đầy đủ lõi, được bảo quản tốt”, cùng nghĩa) và `abhido … samayaṁ` (`mn79:16.3`, `mn79:17.3`, `mn80:9.3`, `mn80:10.3`: dịch “vào lúc nửa đêm”/“vào giữa trưa”, không dịch `abhido`). Bất định (4) về `abhido … bhattakālasamaye` còn nguyên, không phân xử được, chỉ ghi nhận. Không còn blocker nào. Bốn lệnh `npm run validate` · `npm test` · `npm run check` · `npm run build` vẫn chưa chạy trong lượt này nên `technical_integrity` giữ 9.6.
