@@ -16,13 +16,13 @@ quality:
     semantic_fidelity: 8.9
     grammar_logic: 9.0
     segment_alignment: 10.0
-    terminology: 9.0
+    terminology: 9.1
     triangulation: 7.0
     vietnamese_clarity: 9.0
     han_viet_balance: 9.2
     ambiguity_integrity: 8.8
     technical_integrity: 9.6
-  final_score: 8.99
+  final_score: 9.0
   blocking_errors:
     - "Không có tầng tham khảo tiếng Anh tại commit đã ghim: tầng english-sujato
       (4.291 tệp) trong sutta/kn chỉ có cp, dhp, iti, ja, kp, snp, thag, thig,
@@ -34,7 +34,7 @@ quality:
       Sujato phủ 0/1. Bài chỉ dịch từ Pāli, chưa đối chiếu được tầng tham khảo
       nào nên không đủ điều kiện review hay published; giữ draft. Điểm cao không
       cứu được blocker."
-  assessed_at: "2026-10-10"
+  assessed_at: "2026-10-11"
   assessed_by:
     - "Claude Sonnet 5.5 (Claude Code)"
   waiver:
@@ -173,3 +173,34 @@ notes: |-
 
   `technical_integrity` đặt 9,6 vì chưa chạy cổng kỹ thuật của kho. Bốn lệnh còn lại cần chạy
   trước khi chốt: `npm run validate` · `npm test` · `npm run check` · `npm run build`.
+
+  LƯỢT CẢI THIỆN 2026-10-11. Đọc đối kháng lại cả 83 cặp Pāli-Việt và đo lại tiền lệ trên tầng Việt dự án hiện tại
+  (đếm theo tệp chứ không theo khoá, để một bài dài không lấn át). Đổi 4/83 khoá, không đổi tập khoá hay thứ tự khoá.
+  (1) `:11.3` `Bhikkhusaṅghe nisīditvā`: `Ngồi xuống giữa hội chúng các tỳ-kheo,` → `Ngồi giữa Tăng đoàn tỳ-kheo,`.
+  Đo lại: dạng mới có ở 22 tệp (kể cả tha-ap20 cùng phẩm), dạng cũ chỉ 5 tệp; con số "5 khoá so với 3" ở mục THUẬT NGỮ
+  phía trên đã cũ so với tầng hiện tại. Đổi còn giúp `Tăng đoàn` nhất quán với `:12.1` trong chính bài. Loại: terminology fix.
+  (2) `:8.1`–`:8.3` (`Yaṁ me atthi sake gehe` / `āmisaṁ paccupaṭṭhitaṁ` / `Tāhaṁ buddhassa pādāsiṁ`): dùng lại đúng
+  bản của tha-ap128:6.1–6.3, cùng ba dòng Pāli và cùng bối cảnh dâng thức ăn: `Vật thực nào có trong nhà riêng của tôi,` /
+  `đã được dọn sẵn;` / `Món ấy tôi đã dâng lên Đức Phật,`. Bản cũ (`Vật gì … là vật thực …`) đọc gượng vì `yaṁ` và `āmisaṁ`
+  cùng một mệnh đề quan hệ. Mục TIỀN LỆ phía trên mô tả tha-ap128 là bài dâng hoa với câu `Phần thứ có trong nhà ta`: mô tả
+  đó KHÔNG còn đúng với tệp hiện hành (tha-ap128:6.1–6.3 là đúng ba câu về vật thực nêu trên), nên lý do "không thể dùng lại"
+  của `:8.1` và `:8.3` không còn đứng được. Lưu ý: danh từ `vật thực` (Pāli `āmisaṁ`, ở `:8.2`) nay đứng trong `:8.1`, đúng như
+  tiền lệ; đây là mệnh đề quan hệ vắt qua hai dòng kệ liền nhau, không đổi nghĩa. Loại: terminology + clarity fix.
+  Điểm đổi: `terminology` 9,0 → 9,1 (bốn khoá lệch đa số/tiền lệ đã về đúng tiền lệ). Các tiêu chí khác GIỮ NGUYÊN và `final_score`
+  8,99 → 9,00; đúng 9,00 thì không vượt ngưỡng `> 9.0`, nên bài không lên `published` bằng điểm.
+  KHÔNG ĐỔI DÙ NGHI NGỜ, KÈM LÝ DO. `:12.4` `hãy nghe lời ta nói`: tầng chia `Ta` (23 tệp) và `ta` (15 tệp), không có đa số
+  rõ trong phạm vi gần; giữ `ta` đúng ngôi bài. `:5.3` `hàng nghìn` và `:16.1` `một ngàn tám trăm`: cùng một bài nhưng mỗi chỗ đều theo
+  đa số riêng của Pāli ấy (`khīṇāsavasahassehi`: `nghìn` 7/8 tệp; `aṭṭhārase kappasate`: `ngàn` 31 khoá), nên không ép nhất
+  thể hoá; người biên tập nên phán một lượt cho cả cuốn. `:14.4` `cõi đất này`: `này` không có trong `vasudhaṁ`, nhưng 6/9 tệp
+  cùng Pāli giữ đúng dạng này (2 tệp `mặt đất`, 1 tệp `quần đất này`), giữ theo đa số. `:2.4` `bậc Tự Tại` cho `sayambhū`
+  là quy ước của tầng (hàng chục khoá `bậc Tự Tại`, cả ở tha-ap4, tha-ap10, tha-ap19, tha-ap20).
+  BẤT ĐỊNH CÒN NGUYÊN. `:10.1`–`:10.2` (`Aṭṭhannaṁ payirūpāsataṁ`, `bhuñjaṁ khīṇāsavā bahū`) vẫn là hapax: quét toàn Pāli
+  gốc không có dòng nào khác với `Aṭṭhannaṁ payirūpāsataṁ` hay `Tuyheveso ānubhāvo`; `payirupāsati` có nhiều nơi (là hầu cận,
+  kề cận phụng sự) nên động từ chắc, nhưng không có căn cứ nào cho biết tám vị là ai. `:6.4` `nisīdataṁ`: dạng này cũng hapax;
+  chỉ thêm được một điểm tựa là `nisīdatha`/`nisīdatu` (mệnh lệnh mời ngồi) có nhiều nơi trong Pāli, phù hợp cách đọc
+  `xin Ngài ngồi`, nhưng đó chưa phải chứng cứ độc lập cho chính dạng `nisīdataṁ`. Vì vậy `semantic_fidelity` và
+  `ambiguity_integrity` giữ nguyên.
+  KIỂM LẠI SAU SỬA. Tập khoá Việt = tập khoá Pāli (83 = 83), thứ tự khoá đúng Pāli; nháy `“”‘’` khớp Pāli ở 83/83 khoá; Pāli
+  trùng nguyên văn trong chính bài: 1 nhóm (`:6.3` = `:7.3`), bản Việt giống nhau, 0 nhóm lệch; dấu lược Pāli 0, Việt 0; NFC,
+  không khoá rỗng, không khoảng trắng thừa. Cổng kỹ thuật của kho vẫn chưa chạy: `npm run validate` · `npm test` ·
+  `npm run check` · `npm run build`.

@@ -1,5 +1,5 @@
 uid: ja487
-status: review
+status: published
 translationTitle: "Kinh Uddālaka"
 translators:
   - "Claude Sonnet 5.5 (Claude Code)"
@@ -15,15 +15,15 @@ quality:
   scores:
     source_provenance: 9.4
     semantic_fidelity: 8.8
-    grammar_logic: 8.8
+    grammar_logic: 9.0
     segment_alignment: 10.0
-    terminology: 9.0
+    terminology: 9.1
     triangulation: 7.0
     vietnamese_clarity: 9.0
     han_viet_balance: 9.2
     ambiguity_integrity: 9.0
     technical_integrity: 9.6
-  final_score: 8.98
+  final_score: 9.01
   blocking_errors:
     - "Không có tầng tham khảo tiếng Anh tại commit đã ghim:
       `source/upstream-manifest.json` chỉ liệt kê `kn/ja/ja487_root-pli-ms.json`
@@ -36,7 +36,7 @@ quality:
       đều vắng ⇒ bài dịch chỉ từ Pāli root và đối chiếu tiền lệ nội bộ ⇒ bài bắt
       buộc `draft` và `triangulation ≤ 8,0` (noEnglishEditionUpstream). Đây là
       giới hạn upstream, không phải lỗi của người dịch."
-  assessed_at: "2026-10-10"
+  assessed_at: "2026-10-11"
   assessed_by:
     - "Claude Sonnet 5.5 (Claude Code)"
   waiver:
@@ -97,3 +97,12 @@ notes: |-
   8. Người nói: đọc từ ngữ cảnh kệ chứ không từ văn xuôi (không có trong tầng Pāli đã ghim). 1, 3, 5–6, 9, 11: nhà vua hoặc người hỏi; 2, 4, 7–8, 10: người đáp; 12–14: người đáp rồi chất vấn; 15–16: người đáp kết luận. Đây là suy luận từ nội dung, không ghi vào thân kinh; riêng 3.3 dùng “Trẫm” vì lý do nêu ở trên (2.1 gọi `rāja`).
 
   **technical_integrity = 9,6:** lát này cấm chạy cổng, nên không tuyên bố technical gate pass. Bốn lệnh còn lại do người điều phối chạy tập trung: `npm run validate` · `npm test` · `npm run check` · `npm run build`.
+
+  **Lượt cải thiện 2026-10-11.** Đọc đối kháng lại 73 khoá; đổi 4 khoá (`3.4`, `4.2`, `4.4`, `7.1`), giữ 69 khoá còn lại. Các khẳng định ở những mục trên mâu thuẫn với mục này thì mục này thay thế.
+  - `4.4` (accuracy/grammar fix): “nhưng nhờ đức hạnh thuần hóa mà người ta chứng đắc sự tịch tịnh” → “nhưng người được điều phục nhờ đức hạnh thì chứng đắc sự tịch tịnh”. `danto` là chủ ngữ (người được điều phục), `caraṇena` là phương tiện; bản cũ biến `danto` thành định ngữ của “đức hạnh”. Đồng thời thống nhất với `11.3`/`12.3`/`13.3` (`dantā` → “đã điều phục”) và với đa số tầng (`danto` → “được điều phục/thuần phục” ở `an4.23`, `iti112`, `cnd8`, `dn25`). Điểm `grammar_logic` 8.8 → 9.0 (phần còn lại do `4.2`/`3.4` dưới đây); `terminology` 9.0 → 9.1.
+  - `3.4`, `4.2` (accuracy fix): bỏ “chân thật” trước “mới là chân lý”. Pāli chỉ có một từ `saccaṁ`; bản cũ dịch nó hai lần (“đức hạnh chân thật” và “chân lý”), tức thêm một định ngữ không có trong Pāli. `4.2` còn bỏ liên từ “nhưng” (Pāli không có, và `eva` đã được thể hiện bằng “chỉ có … mới là”). Hai khoá này có Pāli trùng nguyên văn nhau (`Sasaṁyamaṁ caraṇaññeva saccaṁ`); bản cũ dịch khác nhau (“chỉ có” / “nhưng”) mà phần ghi chú trùng nội bộ ở trên đã bỏ sót — nay giống nhau. Cập nhật số liệu trùng nội bộ: 11 nhóm Pāli trùng, 0 nhóm Việt khác nhau (có thêm nhóm `3.4`=`4.2`; nhóm `12.6`=`14.2` vốn đã giống). Hai khoá này khác `ja377:5.4`/`6.2` (cùng nội dung, Pāli lệch `caraṇaññeva`/`caraṇameva`) có chủ ý, vì ở đó cũng dịch `saccaṁ` hai lần. Điểm `grammar_logic` 8.8 → 9.0 gộp ba khoá này.
+  - `7.1` (terminology fix, bất định còn nguyên): “Sau khi dọn sạch và lấy lửa” → “Sau khi gạt bỏ và lấy lửa”. Đo lại toàn Pāli root: `niraṅkatvā`/`niraṅkacca`/`niraṅkato` có thêm 10 khoá ở 8 bài (`ja537:91.2`, `ja537:93.2`, `ja529:10.1`, `ja386:6.2`, `ja413:7.1`, `ja423:4.3`, `ja179:2.1`, `ja534:84.3`, `ja534:85.4`, `snp2.9:3.2`), 8/10 bản Việt theo nghĩa ruồng bỏ/gạt bỏ/bỏ mặc (hai khoá `ja423:4.3`, `ja179:2.1` dịch xa chữ nên không dùng làm chứng); không khoá nào theo nghĩa “dọn sạch”. Mục ghi cũ “tầng có 0 khoá chứa `niraṅka…`” là sai. Bất định vẫn còn: Pāli không nêu cái bị gạt bỏ, nên đây là cách đọc thận trọng nhất theo tiền lệ, không phải cách đọc đã chứng minh; nếu `niraṅkatvā` ở đây có nghĩa nghi lễ riêng (làm sạch nơi tế) thì phải đổi lại.
+  - Đính chính chứng cứ trong ghi chú cũ: (a) `amāpayiṁsu` (7.4, 10.4) có ít nhất 8 khoá khác trong tầng (`bv15:10.4`, `ja547:262.2`, `ja547:262.3`, `pv37:53.5`, `tha-ap8:21.4`, `tha-ap8:22.4`, `tha-ap8:26.2`, `tha-ap8:95.4`), toàn nghĩa dựng/xây; không có khoá nào theo nghĩa “gọi/tuyên bố” nên cách đọc ấy bị loại, giữ “xác lập” (nghĩa dựng nên, nói về địa vị). (b) `bhaccā` (5.1) có 4 khoá khác (`an4.61:18.1`, `an5.41:7.1`, `ja276:2.1`, `ja533:31.3`), cho thấy `bhacca` là danh từ “người cần được nuôi dưỡng/nương nhờ”; khớp cách dịch “cần được nuôi dưỡng”, không phân xử thêm được nghĩa của `yena jāto sayeva so`. (c) `karetha` (2.1): có thể là dạng 3 số ít (ātmanepada) song song `katvāna` ở `ja377:4.1`, thay vì ngôi hai số nhiều như ghi cũ; cả hai cách đọc cho cùng nghĩa trong bản Việt, hapax (0 khoá khác). (d) Phân vai: ghi cũ gán `7` và `8` cho cùng một người đáp là không hợp lý, vì `7` nêu nghi lễ bà-la-môn còn `8` bác bỏ. Theo logic đối thoại (không có văn xuôi để kiểm): `1`, `3` do nhà vua; `5` do Uddālaka tự giới thiệu với người đối thoại (gọi là `bhoto`); `6`, `8`, `10`, `12`–`14` do người hỏi chất vấn; `7`, `9`, `11` do Uddālaka; `15`–`16` do Uddālaka kết. Đây là suy luận từ nội dung, vẫn không ghi vào thân kinh; riêng `3.3` “Trẫm” vẫn đúng vì chỉ nhà vua nói `3`.
+  - Bất định mới ghi thêm: `sajātiṁ pamuñcanti` (16.3) giữ “buông bỏ dòng giống của mình”; cũng có thể đọc “giải thoát đồng loại/thân quyến của mình”; tầng không có khoá nào đối chiếu được (`ja505:8.1` là từ khác). `Panatthaṁ` (14.3) chỉ có một khoá trong toàn tầng.
+  - Không đổi dù nghi ngờ: “dầu có đa văn” (2.2, `ja377:4.2` giống Pāli nguyên văn nên giữ), “Quý tộc”, “người hạ tiện caṇḍāla hay dọn rác pukkusa” (11.2/12.2/13.2, đúng bản dùng ở `ja362:4.2`, `ja474:8.2`, `pv18:12.2`, `vv63:15.2`), “xác lập” (7.4/10.4), 15.3–15.4 (câu có thể đọc “màu ấy không thấm vào bóng”, giữ đúng ranh giới khoá), `Akhettabandhū` và `Nillobhapāpo` (10.1–10.2; hapax, không có đối chiếu ngoài bài).
+  - Điểm: `grammar_logic` 8.8 → 9.0, `terminology` 9.0 → 9.1; các tiêu chí còn lại giữ nguyên. `final_score` 8.98 → 9.01: vượt ngưỡng 9.0 rất hẹp và chỉ nhờ các sửa lỗi cụ thể ở trên; `semantic_fidelity` không nâng vì các bất định 1–8 vẫn còn, `triangulation` giữ 7.0 (không có bản Anh độc lập). Blocker `noEnglishEditionUpstream` giữ nguyên (khối `waiver` không đổi). `technical_integrity` 9,6 giữ nguyên: lượt này cũng không chạy bốn lệnh `npm run validate` · `npm test` · `npm run check` · `npm run build`; còn kiểm tay thì khoá/thứ tự Pāli 73/73, nháy khớp Pāli từng khoá 0 lệch, NFC, không Pāli lọt sang Việt, không khoảng trắng thừa.

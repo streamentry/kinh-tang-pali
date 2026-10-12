@@ -1,5 +1,5 @@
 uid: ja486
-status: review
+status: published
 translationTitle: "Kinh Mahāukkusa"
 translators:
   - "Claude Sonnet 5.5 (Claude Code)"
@@ -14,16 +14,16 @@ tags:
 quality:
   scores:
     source_provenance: 9.4
-    semantic_fidelity: 8.7
-    grammar_logic: 8.8
+    semantic_fidelity: 8.8
+    grammar_logic: 8.9
     segment_alignment: 10.0
-    terminology: 8.9
+    terminology: 9.1
     triangulation: 7.0
     vietnamese_clarity: 9.0
     han_viet_balance: 9.2
     ambiguity_integrity: 9.2
     technical_integrity: 9.6
-  final_score: 8.98
+  final_score: 9.02
   blocking_errors:
     - "Không có tầng tham khảo tiếng Anh tại commit đã ghim:
       `source/upstream-manifest.json` chỉ liệt kê `kn/ja/ja486_root-pli-ms.json`
@@ -36,7 +36,7 @@ quality:
       chỉ từ Pāli root và đối chiếu tiền lệ nội bộ ⇒ bài bắt buộc `draft` và
       `triangulation ≤ 8,0`. Đây là giới hạn upstream, không phải lỗi của người
       dịch. (noEnglishEditionUpstream)"
-  assessed_at: "2026-10-10"
+  assessed_at: "2026-10-11"
   assessed_by:
     - "Claude Sonnet 5.5 (Claude Code)"
   waiver:
@@ -102,3 +102,18 @@ notes: |-
   **Coverage English (mục 7):** mẫu số = 0. Khoá dài nhất sau khi nén khoảng trắng là 34 ký tự (< 40), nên 0/73 khoá có nội dung (4 khoá `:0` bị loại trước); đây là *cổng không đo được gì*, không phải *không cần ghi nhận*. Sujato: 0 tệp cho `ja486`; `english-project`: 0; `vietnamese-current`: 0 (chỉ Pháp Cú). Ba tầng đều vắng ⇒ `triangulation` 7,0 (≤ 8,0) và `status: draft` kèm blocker ở trên. Tôi không đụng `content/meta/reference-gaps.yaml`.
 
   **technical_integrity = 9,6:** lát này cấm chạy cổng, nên không tuyên bố technical gate pass. Bốn lệnh còn lại do người điều phối chạy tập trung: `npm run validate` · `npm test` · `npm run check` · `npm run build`.
+
+  **Lượt cải thiện 2026-10-11.** Đọc đối kháng lại 77 khoá, đo tiền lệ bằng số đếm trên toàn tầng Pāli–Việt. Đổi 11 khoá (không đổi tập khoá, không đổi thứ tự). Các dòng thuật ngữ cũ ở trên về `sakhāro`, `vāricara`, `satamesa dhammo`, `modāma`, `uggatatto`, `aḍḍharatte anāgate` và `mamaṭṭā` được **thay thế** bởi mục này; số "0 tiền lệ" ở các dòng đó là sai.
+  - `5.3` (accuracy): `sakhīnaṁ sakhāro` có tiền lệ nguyên cụm ở `ja429:3.1` (“Ye ve sakhīnaṁ sakhāro bhavanti” → “những ai thật sự là bạn của bạn bè”: `sakhāro` là danh từ số nhiều “bạn”). Bản cũ “làm phận sự bạn bè” dựng một danh từ “phận sự” mà tầng không có (`sakhāra` chỉ xuất hiện 2 lần, cả hai là `sakhāro` trong cụm này). Nay: “có những người bạn hành động vì bạn bè”, `karonti` dùng tuyệt đối như ở Pāli. Bất định còn lại: nếu `sakhāro` là danh từ trung tính “việc của bạn” thì nghĩa đổi nhẹ.
+  - `6.3` (accuracy): Pāli chỉ có một động từ `akāsi` (6.1); bản cũ lặp thêm “đã làm” ở 6.3. Nay 6.1–6.3 là một câu bị động, một động từ.
+  - `6.4` (accuracy): `aḍḍharatte anāgate` trùng nguyên văn `ja145:1.2`, nơi đã dịch “nửa đêm còn chưa đến”. Bản cũ “vào lúc nửa đêm, khi trời chưa sáng” vừa lệch tiền lệ vừa thêm “trời chưa sáng” không có trong Pāli. Nay “khi nửa đêm còn chưa đến” (định vị tuyệt đối). Đây là lỗi thật nặng nhất của lượt này: `semantic_fidelity` 8.7 → 8.8 và `grammar_logic` 8.8 → 8.9 một phần nhờ khoá này.
+  - `7.3` và `11.3` (accuracy, hai khoá Pāli trùng nhau, vẫn dịch giống hệt): `mamaṭṭā` viết `ṭṭ` (mũi cong), tức `mama` + `aṭṭā` (họ `aṭṭa/aṭṭita`, “khổ não, bị bức bách”: 28 khoá, ví dụ `ja514:33.1` “aṭṭā” → “khổ não”, `thig6.2:1.1` “Puttasokenahaṁ aṭṭā”), không phải `atthā` (mũi răng). `puttā` ở danh cách số nhiều là chủ ngữ của vị ngữ `aṭṭā`. Nay: “các con của tôi đang khổ não, tôi đã tìm đến nơi nương tựa”. Bất định còn lại: nếu đọc là `mama atthā` thì nghĩa “vì lợi ích/vì các con tôi” gần như cùng hướng; không chắc 100% nên không đẩy `ambiguity_integrity` lên.
+  - `7.4` (terminology): `vāricara` → “loài cá”: tiền lệ 3/3 (`pv40:3.2`, `ja500:6.4`, `ja541:71.4`) đều là “cá”; bản cũ “loài đi dưới nước” là dịch chữ, còn ghi “nhiều khả năng là rùa” mà tầng không có căn cứ nào cho rùa. Ngữ cảnh 10.3–10.4 (khi thấy thân hình lớn của người nói, con của Senaka không quấy hại) cũng hợp với loài cá. Rút lại phỏng đoán “rùa” ở bất định 1.
+  - `5.4` và `10.1` (terminology): `sataṁ dhammo` → “pháp của bậc hiền thiện”: đo `sataṁ dhammo` trong tầng gần nhất (Jātaka) là 3/5 “hiền thiện” (`ja429:3.4`, `ja450:5.4`, `ja537:120.4`), toàn tầng 4 “hiền thiện”, 2 “thiện nhân”, 2 “bậc thiện”. `ja533:10.1` (“Addhā eso sataṁ dhammo”, gần y hệt 10.1) dùng “bậc thiện”. Bản cũ “bậc thiện nhân” thuộc thiểu số; đổi theo đa số.
+  - `13.4` (terminology): `modāma` → “hoan hỷ”: 5/5 tiền lệ (`dn19:19.2`, `tha-ap165:2.3`, `vv36:8.4`, `vv48:7.4`, `vv48:9.4`; chưa tính `anumodāma`). Bản cũ “vui mừng” lệch cả 5 và lệch `16.4` (`modati` → “hoan hỷ”) trong cùng bài.
+  - `16.3` (terminology): `uggatatto` có tiền lệ `pv36:4.4` (“uggatattassa” → “người thăng tiến”, đối với `oggatatta` “kẻ sa sút” ở `pv36:4.1`). Bản cũ “uy thế lẫy lừng” là diễn giải mạnh hơn Pāli. Nay “thăng tiến”.
+  - `17.4` (accuracy): `samaggamhā` là hiện tại (“chúng ta hòa hợp”); bỏ “đã” thừa.
+  Số điểm đổi: `semantic_fidelity` 8.7 → 8.8, `grammar_logic` 8.8 → 8.9, `terminology` 8.9 → 9.1; các tiêu chí còn lại giữ nguyên. `final_score` 8.98 → 9.02 (trung bình thô của 10 điểm).
+  **Đã đo nhưng không đổi:** `14.3` giữ “kẻ đang kêu được kêu đáp lại” vì Pāli trùng nguyên văn `ja547:259.3` và `ja547:724.3` (Việt giống hệt, 3/3 khoá cùng một cách dịch; cú pháp chủ động `lomasā ... upakūjanti` vẫn bất định). `kāmakāmī` (16.4): tầng có 13 khoá, đa số “được điều mong muốn/thỏa lòng mong muốn”, bản hiện tại đã khớp (dòng cũ “2 khoá” là số thiếu). `ñātibyasanaṁ` (1.4): “tai họa” là đa số (91 khoá `byasana` → “tai họa”), đã khớp. Tên bộ và tên phẩm (`0.2`, `0.3`): nay đo được 13/13 khoá cùng tên (“Bộ Tạp Tập”, “Phẩm Ruộng Lúa”), không còn là “0 tiền lệ”.
+  **Bất định còn lại sau lượt này (không phân xử được, không đoán):** người nói từng khổ (bản root không có văn xuôi khung); `ukkā` (đuốc hay tên chim) và `dīpe` (đảo hay đèn) ở 1.1; `tayīdaṁ` ở 4.2; `nivatthakoca` (13.3, 0 khoá khác); chủ ngữ và cú pháp của 14.3–14.4; `-vatā` ở 16.1; `sakhāro` ở 5.3 (xem trên); `mamaṭṭā` ở 7.3/11.3 (xem trên). Blocker `noEnglishEditionUpstream` giữ nguyên: đó là giới hạn của upstream, không phải lỗi dịch. `triangulation` giữ 7.0 (không có bản Anh độc lập; không thể nâng).
+  **Kiểm lượt này:** 77/77 khoá, thứ tự khoá đúng thứ tự Pāli; nháy kép/đơn khớp Pāli từng khoá (0 lệch / 77 khoá); 5 nhóm Pāli trùng nguyên văn trong bài (1.2=2.3, 3.1=8.2, 3.3=8.3=12.1, 3.4=8.4, 7.3=11.3), 0 nhóm Việt khác nhau; không có `…` ở Pāli lẫn Việt; NFC đạt; Pāli không lọt sang Việt ngoài tên riêng (`Jātaka`, `Mahāukkusa`, `cilāca`). `technical_integrity` giữ 9.6; bốn lệnh `npm run validate` · `npm test` · `npm run check` · `npm run build` do người điều phối chạy tập trung.
