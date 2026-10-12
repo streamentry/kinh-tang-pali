@@ -345,3 +345,9 @@ Nhật ký append-only. Registry `content/audio/progress.json` được đối s
 - Source/plan reconstruction,27 WAV checkpoint checks,MP3 frame/hash/duration and R2 public hash/bytes/range pass. Local browser play,+15s,scripture174.39s,pause pass; readyState4/no media error. ASR skipped by editor; manual reviewpending.
 - MN24–MN26 now provide three uploaded-verified suttas, total5390.232seconds (about89m50s). Stop new synthesis for PR #529 delivery.
 - Local tests rerun after TTS released its lock:411/411pass. Earlier CLI-override test failure came from the active global TTS lock; no test or gate was weakened.
+
+### Batch mn-017 merged — PR #529
+
+- MN24–MN26: three newly uploaded-verified suttas, review pending, ASR skipped by editor. Exact head `a318406665ef65e70e94147f2800ecbfd60c98f7`; push CI38193237780 and PR CI38193240034 both completed success. Local validate/tests411/check/audio-check/build passed.
+- Squash merge `8fe38ddfa6864e44f40f716f7e0e1286bd79049d` from PR https://github.com/streamentry/kinh-tang-pali/pull/529; fetched remote main and verified merge ancestry. Metadata for all three is on main.
+- Pages workflow38194672655 was pending when checked; do not infer production-live from merge. Main CI38194672616 is separate. New isolated worktree branch `codex/audio-mn-batch-018` starts at the merged main.
