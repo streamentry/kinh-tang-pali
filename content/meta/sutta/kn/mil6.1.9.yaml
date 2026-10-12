@@ -1,6 +1,6 @@
 uid: mil6.1.9
-status: draft
-translationTitle: "Câu Hỏi Về Loài Sống Dưới Nước"
+status: review
+translationTitle: "Câu Hỏi Về Chúng Sinh Và Sinh Mạng Trong Nước"
 translators:
   - "OpenCode Space Bunny Free (agent)"
 reviewers: []
@@ -14,22 +14,43 @@ tags:
 quality:
   scores:
     source_provenance: 9.5
-    semantic_fidelity: 9.3
-    grammar_logic: 9.3
+    semantic_fidelity: 9.0
+    grammar_logic: 9.0
     segment_alignment: 10.0
-    terminology: 9.2
+    terminology: 8.8
     triangulation: 7.0
-    vietnamese_clarity: 9.3
-    han_viet_balance: 9.4
-    ambiguity_integrity: 9.0
+    vietnamese_clarity: 9.0
+    han_viet_balance: 9.2
+    ambiguity_integrity: 8.8
     technical_integrity: 9.6
-  final_score: 9.16
+  final_score: 8.99
   blocking_errors:
-    - "Không có tầng tham khảo tiếng Anh tại commit đã ghim: trong source/upstream-manifest.json, cây english-sujato (4291 tệp) liệt kê 0 tệp dưới kn/mil, trong khi cây pali (5764 tệp) liệt kê 248 tệp kn/mil; .cache/upstream/suttacentral/translation/en/sujato/sutta/kn/ chỉ có cp, dhp, iti, ja, kp, snp, thag, thig, ud — không có mil. Tệp mil6.1.9_translation-en-sujato.json không tồn tại trong cache, nên đây là not-published-upstream, KHÔNG phải not-synced. Đo coverage theo đúng công thức src/lib/canon/reference.ts (prose >= 40 ký tự sau khi gộp khoảng trắng, loại block tham chiếu :0) cho mẫu số 42/53 khoá, Sujato phủ 0 ⇒ 0.0%, dưới ngưỡng 0.8 khai trong source/layers.yaml."
-    - "Tầng vietnamese-current cũng vắng: manifest ghi cây này chỉ có 26 tệp và toàn bộ là Pháp Cú (kn/dhp); kn/mil có 0 tệp, và .cache/.../vi/phantuananh/sutta/kn/ chỉ có dhp — cũng là not-published-upstream, không phải not-synced. Lớp lấp english-project của dự án cũng không có cho uid này (content/translation/en/project/sutta/kn/mil6.1.9_translation-en-project.json không tồn tại, content/meta/en/kn/ có 24 tệp mil nhưng không có mil6.1.9) ⇒ not-started. Ba tầng tham khảo đều vắng nên bài dịch chỉ từ Pāli root; đây là giới hạn của ảnh chụp upstream, không phải lỗi của người dịch. Vì vậy triangulation bị chặn ở 7.0 và không nâng để né blocker."
-  assessed_at: "2026-10-06"
+    - "Không có tầng tham khảo tiếng Anh tại commit đã ghim: trong
+      source/upstream-manifest.json, cây english-sujato (4291 tệp) liệt kê 0 tệp
+      dưới kn/mil, trong khi cây pali (5764 tệp) liệt kê 248 tệp kn/mil;
+      .cache/upstream/suttacentral/translation/en/sujato/sutta/kn/ chỉ có cp,
+      dhp, iti, ja, kp, snp, thag, thig, ud — không có mil. Tệp
+      mil6.1.9_translation-en-sujato.json không tồn tại trong cache, nên đây là
+      not-published-upstream, KHÔNG phải not-synced. Đo coverage theo đúng công
+      thức src/lib/canon/reference.ts (prose >= 40 ký tự sau khi gộp khoảng
+      trắng, loại block tham chiếu :0) cho mẫu số 42/53 khoá, Sujato phủ 0 ⇒
+      0.0%, dưới ngưỡng 0.8 khai trong source/layers.yaml."
+  assessed_at: "2026-10-12"
   assessed_by:
-    - "OpenCode Space Bunny Free (agent)"
+    - "Claude Sonnet 5.5 (Claude Code)"
+  waiver:
+    id: no-upstream-english
+    blockers:
+      - "Không có tầng tham khảo tiếng Anh tại commit đã ghim: trong
+        source/upstream-manifest.json, cây english-sujato (4291 tệp) liệt kê 0
+        tệp dưới kn/mil, trong khi cây pali (5764 tệp) liệt kê 248 tệp kn/mil;
+        .cache/upstream/suttacentral/translation/en/sujato/sutta/kn/ chỉ có cp,
+        dhp, iti, ja, kp, snp, thag, thig, ud — không có mil. Tệp
+        mil6.1.9_translation-en-sujato.json không tồn tại trong cache, nên đây
+        là not-published-upstream, KHÔNG phải not-synced. Đo coverage theo đúng
+        công thức src/lib/canon/reference.ts (prose >= 40 ký tự sau khi gộp
+        khoảng trắng, loại block tham chiếu :0) cho mẫu số 42/53 khoá, Sujato
+        phủ 0 ⇒ 0.0%, dưới ngưỡng 0.8 khai trong source/layers.yaml."
 notes: |-
   Dịch trực tiếp từ Pāli root tại commit bilara đã ghim (11c9d708978cde8ba61096d8a75f7ddfb846f639), 53/53 khoá trong `all` của lát, thứ tự y như Pāli. Không sửa khoá nào ngoài 2 tệp nêu trong giao việc.
   Văn xưng đo trên 222 tệp mil đã có trong tầng, khớp trên giá trị Pāli tuyệt đối chứ không đếm theo chuỗi Việt: `bhante nāgasena` → thưa tôn giả Nāgasena (136 lần) vs Thưa Đại đức Nāgasena (11), nên giữ thưa tôn giả xuyên suốt bài; `bhante` đứng riêng → thưa tôn giả (204) vs bạch tôn giả (34); `mahārāja` → này Đại vương (575 + 224 = 799) vs tâu (276 + 209 = 485) vs thưa (178 + 70 = 248) vs trần (122), nên lấy nhóm đa số nhất của tầng.
@@ -42,3 +63,12 @@ notes: |-
   Coverage tầng tham khảo: mẫu số 42/53 khoá (đúng công thức `prose >= 40` sau khi gộp khoảng trắng, loại 4 khoá block `:0` và 7 khoá prose < 40) — Sujato 0/42 = 0.0%, Việt hiện hành 0/42, english-project 0/42. Không sửa `content/meta/reference-gaps.yaml` vì giao việc cấm chạm tệp đó; người điều phối chạy `npm run reference:gaps` để ghi nhận.
   `technical_integrity` = 9,6 vì lát này bị cấm chạy cổng (cấm mọi lệnh `git`/`gh` và `npm run validate|test|build|check|audit|reference:gaps`). Bốn lệnh còn lại do người điều phối chạy trước khi publish: `npm run validate`, `npm test`, `npm run check`, `npm run build`.
   `status` = draft vì có blocker thật ở trên, không phải vì điểm: final_score = 9.16.
+  Giải quyết draft 2026-10-12: kiểm toán độc lập, đọc đối kháng từng khoá với Pāli root đã ghim; đây là bản dịch lại gần như toàn bài. Mục này thay thế các mục cũ ở trên khi mâu thuẫn: cách đọc `hatthasatikā`, `gandhika`, `kīḷamāna`, `dvayaṁ`, `santasanta`, `uddhane aṭhapitaṁ`, `titthiyā`, phép đếm `yojana`, và dòng cuối "status = draft vì blocker" (điểm số nay là 8,99).
+  Phân loại blocker: (A) blocker thứ nhất (Sujato không có bài này tại commit đã ghim; 0/42 khoá có nội dung) là sự thật về upstream, giữ nguyên chữ, thuộc phạm vi waiver `no-upstream-english` của người biên tập. (C) blocker thứ hai (tầng Việt hiện hành chỉ có Pháp Cú, lớp english-project chưa có cho bài này) chỉ là giới hạn tham chiếu, không phải lỗi văn bản: đã gỡ. Bài vẫn không có bản Anh độc lập và không có bản Việt hiện hành phân đoạn để đối chiếu, nên `triangulation` giữ 7,0; bản dịch chỉ dựa Pāli, ngữ cảnh trong bài và các đoạn Milindapañha song song trong kho.
+  Lỗi nghĩa thật đã sửa (khoảng 25/53 khoá có lỗi nghĩa hoặc đảo nghĩa, ngoài ra gần như mọi khoá được viết lại cho đúng thuật ngữ): `4.2` `uddhane aṭhapitaṁ` = chưa đặt lên bếp (bản cũ viết "đặt trên lửa", làm câu trả lời `4.3` mâu thuẫn với `4.4`); `8.5` `na hi … udakaṁ dvayaṁ hoti` = nước không có hai loại (bản cũ viết "nước có hai trạng thái", đảo ngược phủ định); `8.2` `na hi … sabbehipi … saddāyati` = không phải trong tất cả (bản cũ "đều không vang", đổi phạm vi phủ định); `2.1` `titthiyā` = ngoại đạo (bản cũ "đạo sĩ nữ"), động từ `viheṭhenti` = làm hại bị bỏ sót, đối tượng của `vinodehi apanehi nicchārehī` là lời chê trách chứ không phải "họ"; `3.1` danh sách hố, ao, sông, đầm, hồ, khe, hẻm, giếng, chỗ trũng, hồ sen với `vātātapavega` = sức gió và nắng (bản cũ bịa "chỗ đánh bóng gợn sóng, chân đồng lên men xanh, mặt phẳng như gương"); `1.1` `kīḷamānaṁ` = đang vui đùa, `aññena paṭipīḷitaṁ` = bị vật khác ép bức; `4.3`–`5.5` `santasantaṁ` = hoàn toàn lặng lẽ (bản cũ "dần nguội đi", sai gốc từ), và `5.4` là câu hỏi `api nu` chứ không phải câu kể; `7.1` `bheripokkhara … onandhanti` = người ta bọc thân trống bằng da bò (bản cũ "gói da trống, bị gõ vào"); `7.6`–`7.7` `tajjena vāyāmena` = nỗ lực thích đáng (bản cũ "sự vận động của nó"); `8.3` `sakasamaya` = chủ thuyết của mình, không phải "lãnh thổ"; `8.6` `pabhinna` = đang động dục, `soṇḍāya ussiñcitvā` = dùng vòi múc nước (bản cũ "vòi đã gãy, thân hàng rũ"); `8.7` `hatthasatikā mahānāvā` = thuyền lớn dài một trăm sải tay (hậu tố -ika chỉ kích thước, khớp `hatthasata` ở `6.2`), `anekasatasahassabhāra` = hàng trăm nghìn gánh hàng; `8.8` `ācamanti dhamanti` = uống vào và phun ra, `nivāsaṭṭhānatāya` = vì là nơi cư trú (bản cũ "nuốt chửng và giữ lấy"); `9.1`–`9.2` `muttika`, `dussika`, `gandhika` là người buôn ngọc trai, người buôn vải, người buôn hương (không phải ngọc, thứ khó tìm hay gỗ thơm), `muttāratana`/`dussaratana` là ngọc trai và vải quý, cấu trúc `yathā nāma … evameva` được giữ; `0.4` và `10.1` tiêu đề `Udakasattajīvapañha` = chúng sinh và sinh mạng trong nước (bản cũ "loài sống dưới nước", nghĩa khác).
+  Thuật ngữ đo lại bằng chỉ mục Pāli→Việt toàn tầng (282.402 cặp): `Na hi, bhante` đứng riêng 66/92 là "Không phải vậy, thưa tôn giả" nên dùng cho `3.2` và `7.4`; `yojana` là "do-tuần" ở 134 khoá, chỉ 6 khoá giữ `yojana` nên sửa `8.8` thành do-tuần (mục cũ ghi "giữ nguyên yojana" đã sai chiều); `Āma, bhante` → "Vâng, thưa tôn giả" (đa số, khoá `5.3`, `7.2`); `lohitacandana` → chiên-đàn đỏ (mil6.1.5); `paccāgatosi mama visayaṁ` → trở lại phạm vi của tôi (mil5.1.6:4.10); `pheṇamālā uttarati` → chuỗi bọt dâng lên (mil5.1.4:12.1); `timi timiṅgala` giữ tên Pāli (mil7.3.5:3.1); `sobbha … pokkharaṇī` theo danh sách ở mil6.3.4:8.2. `hattha` có ba cách dịch ở tầng, mỗi cách một khoá (sải tay mil7.3.4, bàn tay mil7.3.6, hà-tay tha-ap50): giữ "sải tay" như `6.2` đã có. Cụm mới không tiền lệ: `cicciṭāyati ciṭiciṭāyati saddāyati` (tượng thanh, hapax trong toàn Pāli root, dịch "kêu xèo xèo, lách tách, phát ra đủ loại âm thanh"); `jīvo vā satto vā` → sinh mạng hay chúng sinh (0 tiền lệ); `ekindriyaṁ` → một căn (0 tiền lệ); `aggisantāpavega mahantatā` → sức nóng của lửa quá mạnh.
+  Pāli trùng nguyên văn trong chính bài: 1 nhóm (`3.2` = `7.4`, `Na hi, bhante`), cả hai đều "Không phải vậy, thưa tôn giả", 0 cặp Việt khác; các công thức lặp (`1.2`/`2.2`, `3.3`/`4.8`/`7.9`, `4.5`/`4.6`/`5.4`, `6.6`/`7.8`) được dịch đồng nhất. Với các khoá trùng Pāli ở bài khác (`0.1`, `0.2`, `0.3`, `5.3`, `12.1`) vẫn dùng lại nguyên văn bản dịch có sẵn.
+  Số Pāli đã tính lại: `6.2` hatthasata = 100, dve hatthasatāni = 2 × 100 = 200 sải tay; `8.7` hatthasatikā = dài 100 sải tay, anekasatasahassa = nhiều × 100 × 1 000 → hàng trăm nghìn (gánh); `8.8` anekasatayojanika = nhiều × 100 do-tuần; `8.5` dvayaṁ = hai loại (phủ định `na`); `2.1` ekindriyaṁ = một căn; `10.1` navamo = thứ chín; `12.1` nava = chín. Không gặp `Tiṁsakappasahassa`.
+  Các Sujato-trống/đoạn không có bản Anh: do bài không có bản Anh nào tại commit đã ghim, toàn bộ 42 khoá có nội dung (mẫu số 42/53) là Pāli đứng một mình; tôi đã đọc từng khoá từ Pāli và ngữ cảnh bài, không dựa vào tầng tham khảo nào. `triangulation` = 7,0 (không cao hơn 8,0).
+  Bất định còn lại, không đổi nghĩa lập luận của bài: (1) `2.1 vekatikavekatikaṁ` là hapax (dạng `vekaṭika` ở dn8/dn25/mnd15 chỉ là một hạnh khổ hạnh về ăn uống, không chắc liên quan); tôi dịch trung tính "dùng theo những lối riêng", không chốt nghĩa "uống nước ấm" như bản cũ. (2) `9.1`/`9.2 dosāgato pañho` hiểu là "câu hỏi nảy sinh từ điều bị cho là lỗi" (lời chê trách của ngoại đạo ở `2.1`); cách hiểu khác là "câu hỏi nêu ra đúng chỗ" (`ṭhānāgata`), chưa có căn cứ độc lập để phân xử, nghĩa lập luận của bài không phụ thuộc vào đây. (3) `hattha` = sải tay hay cubit/khuỷu tay chưa thống nhất ở tầng (6.2, 8.7). (4) `7.1 bheripokkhara` hiểu là thân trống; có thể là mặt trống. (5) `4.5` các động từ `patarati`, `uttarati` dịch "tràn ra", "trồi lên", sắc thái xấp xỉ.
+  `technical_integrity` = 9,6 vì lượt này không chạy các lệnh cổng; bốn lệnh còn lại do người điều phối chạy: `npm run validate`, `npm test`, `npm run check`, `npm run build`. Điểm trước → sau: source_provenance 9,5 → 9,5; semantic_fidelity 9,3 → 9,0; grammar_logic 9,3 → 9,0; segment_alignment 10,0 → 10,0; terminology 9,2 → 8,8; triangulation 7,0 → 7,0; vietnamese_clarity 9,3 → 9,0; han_viet_balance 9,4 → 9,2; ambiguity_integrity 9,0 → 8,8; technical_integrity 9,6 → 9,6; final_score 9,16 → 8,99.

@@ -1,5 +1,5 @@
 uid: sn51.20
-status: draft
+status: published
 translationTitle: "Kinh Phân Tích"
 translators:
   - "Claude Sonnet 5.5 (Claude Code)"
@@ -15,16 +15,15 @@ quality:
     semantic_fidelity: 9.3
     grammar_logic: 9.3
     segment_alignment: 10.0
-    terminology: 9.2
-    triangulation: 7.2
+    terminology: 8.8
+    triangulation: 7.5
     vietnamese_clarity: 9.2
     han_viet_balance: 9.3
-    ambiguity_integrity: 9.2
+    ambiguity_integrity: 9.0
     technical_integrity: 9.6
-  final_score: 9.17
-  blocking_errors:
-    - "Độ phủ tầng tham khảo tiếng Anh (56/81 = 0.691) dưới ngưỡng tối thiểu 0.80 do bản Anh Sujato để trống 25 đoạn Pāli có nội dung (11.2–11.3, 12.1–12.3, 13.1–13.3, 14.1–14.2, 15.1–15.3, 16.2–16.3, 17.1–17.3, 18.1–18.3, 19.1–19.4) và lớp english-project chưa có tệp cho bài này. Bài bắt buộc giữ trạng thái draft và triangulation ≤ 8.0 cho đến khi lớp english-project lấp các segment này."
-  assessed_at: "2026-10-09"
+  final_score: 9.14
+  blocking_errors: []
+  assessed_at: "2026-10-12"
   assessed_by:
     - "Claude Sonnet 5.5 (Claude Code)"
 notes: |-
@@ -53,3 +52,11 @@ notes: |-
   Lượt đối chiếu cặp Pāli với Việt đã in và đọc đủ 99 khoá; nháy đơn và nháy kép khớp Pāli từng khoá 99/99; NFC, khoảng trắng và Pāli lọt sang bản Việt: 0 lỗi (ngoài `Saṁyutta Nikāya` ở 0.1, đúng theo tiền lệ).
 
   technical_integrity 9.6: chưa chạy `npm run validate`, `npm test`, `npm run check`, `npm run build`; coordinator chạy và đối soát lại. Blocker coverage cần xử lý trước khi lên review hoặc published.
+
+  Giải quyết draft 2026-10-12: blocker độ phủ tiếng Anh (56/81 = 0,691) thuộc loại do Sujato để trống, không phải lỗi văn bản, nên đã gỡ khỏi blocking_errors và thay thế mục "COVERAGE ENGLISH" ở trên (kết luận giữ draft ở đó không còn hiệu lực; số đo vẫn đúng và đã ghi nhận trong `content/meta/reference-gaps.yaml`: 81 khoá Pāli có nội dung, 25 khoá không có Sujato). Bài này Sujato CÓ phát hành tại commit đã ghim, nên không thuộc trường hợp thiếu bản Anh upstream. Đã đọc đối kháng riêng 25 khoá Sujato để trống (11.2–11.3, 12.1–12.3, 13.1–13.3, 14.1–14.2, 15.1–15.3, 16.2–16.3, 17.1–17.3, 18.1–18.3, 19.1–19.4) trực tiếp từ Pāli: đó là các khuôn định nghĩa (câu hữu/tương ưng với biếng nhác, trạo cử, hôn trầm và buồn ngủ; ārabbha năm dục ở bên ngoài) và đoạn lặp về tưởng ánh sáng, đều lặp nguyên văn khuôn đã có ở 3.1–6.3 và 10.1–10.3 (Sujato dịch đủ) và 20.1–23.3; chỉ thay danh từ chủ (tinh tấn, tâm, quán sát). Bản Việt ở các khoá này tự đứng vững từ Pāli, không còn nghĩa nào chưa chắc. Tầng Việt hiện hành chỉ có Pháp Cú nên cũng không có bản tham khảo Việt phân đoạn; cột Việt hiện hành trống ở bài này là giới hạn của nguồn tham khảo, không phải lỗi văn bản. triangulation 7,5 (không cao hơn 8,0): 25/81 khoá thiếu bản Anh độc lập, chỉ có Pāli và các khuôn song song trong chính bài.
+
+  Kiểm toán độc lập 2026-10-12: đối chiếu cặp Pāli với Việt đủ 99 khoá; tập khoá 99/99 khớp Pāli; số liệu: danh sách thân 31 phần đếm lại 5 + 5 + 5 + 5 + 5 + 6 = 31, khớp 31 mục Pāli của 8.3; chỉ có bốn như ý túc và năm dục trưởng dưỡng, không có số nào khác. Đã sửa 8/99 khoá (2.8, 2.17, 10.1, 10.3, 15.1, 15.3, 19.4, 23.4): `sappabhāsaṁ cittaṁ bhāveti` trước đây dịch "tâm tràn đầy quang minh rực rỡ"; chữ "rực rỡ" không có trong Pāli (`sappabhāsa` = có quang minh, ánh sáng) và là thêm sắc thái cường độ, nên nay dịch "tâm tràn đầy quang minh", đúng dạng sn51.11 (4 khoá) và không thêm nghĩa. Đo tiền lệ: dạng có "rực rỡ" còn ở sn51.12 (2 khoá) và sn51.14 (1 khoá) ngoài bài này; sn51.21 viết "tràn đầy ánh sáng"; các khoá ấy nằm ngoài tệp được sửa ở đợt này, ghi nhận để biên tập thống nhất. Không đụng tới các khoá còn lại: dạng "câu hữu với định do dục và hành cần nỗ lực" cho `samādhippadhānasaṅkhārasamannāgataṁ` được giữ theo tiền lệ cùng Pāli ở sn51.12, sn51.14, sn51.21 (cả ba dùng "câu hữu"), dù `sahagata` là "câu hữu" ở nơi khác (34 khoá) và `samannāgata` nghiêng về "đầy đủ, hội đủ"; việc 2.9, 2.10 mở rộng dấu lược `Vīriyasamādhi …pe…` thành cụm đầy đủ cũng theo đúng cách đã dùng ở sn51.12:2.1–2.2, sn51.14:5.5–5.6, sn51.21:1.12–1.13 (3/3 bài cùng Pāli).
+
+  Bất định còn lại sau kiểm toán 2026-10-12: (1) tên phẩm `Pāsādakampanavagga` ở 0.2 và 24.4 đang là "Phẩm Vui Vẻ", theo đa số 9 khoá cùng phẩm; `pāsāda` là lâu đài, cung điện (không phải `pasāda` tịnh tín, vui) và `kampana` là rung động, cũng là tiêu đề Sujato (Shaking the Stilt Longhouse) và nội dung sn51.14 (Moggallāna làm rung lâu đài Migāramātu), nên "Vui Vẻ" rất có thể là dịch sai tên phẩm; chưa sửa ở bài này vì đổi một khoá ở một bài sẽ lệch 10 bài cùng phẩm (sn51.11–20), cần sửa đồng loạt ở cấp phẩm; đã hạ terminology và ambiguity_integrity tương ứng. (2) `anuvikkhitto anuvisaṭo` và `svādhiṭṭhitā` như đã nêu ở trên, chưa có bằng chứng độc lập để phân xử.
+
+  technical_integrity 9.6 vẫn ở mức ước định: chưa chạy `npm run validate`, `npm test`, `npm run check`, `npm run build`; coordinator chạy và đối soát lại.

@@ -1,5 +1,5 @@
 uid: ja453
-status: draft
+status: review
 translationTitle: "Kinh Đại Điềm Lành"
 translators:
   - "OpenCode Space Bunny Free (agent)"
@@ -8,54 +8,125 @@ tags:
   - "khuddaka-nikaya"
 quality:
   scores:
-    source_provenance: 9.6
-    semantic_fidelity: 9
-    grammar_logic: 9.1
+    source_provenance: 9.4
+    semantic_fidelity: 8.8
+    grammar_logic: 8.8
     segment_alignment: 10
-    terminology: 9.2
-    triangulation: 7.6
-    vietnamese_clarity: 9.2
+    terminology: 8.9
+    triangulation: 7.2
+    vietnamese_clarity: 9
     han_viet_balance: 9.2
-    ambiguity_integrity: 8.9
+    ambiguity_integrity: 8.6
     technical_integrity: 9.6
-  final_score: 9.14
+  final_score: 8.95
   blocking_errors:
-    - "Bài này không có tầng Anh SuttaCentral đã ghim ở commit đã pin (`source/upstream-manifest.json` → `english-sujato`, 4291 tệp, chỉ 83 tệp `ja`: ja1–ja79, ja126, ja159, ja466, ja534 — không có uid nào của lát này), nên thiếu tầng tham khảo bắt buộc để xuất bản; đối chiếu chỉ có Pāli đã ghim cùng commit + tiền lệ đếm được trong chính tầng Việt dự án."
-    - "Tầng `vietnamese-current` ở commit đã pin chỉ có 26 tệp Pháp Cú, không có Jātaka, nên không có bản Hòa thượng Thích Minh Châu để đối chiếu cho bài này."
-  assessed_at: "2026-10-04"
+    - "Bài này không có tầng Anh SuttaCentral đã ghim ở commit đã pin
+      (`source/upstream-manifest.json` → `english-sujato`, 4291 tệp, chỉ 83 tệp
+      `ja`: ja1–ja79, ja126, ja159, ja466, ja534 — không có uid nào của lát
+      này), nên thiếu tầng tham khảo bắt buộc để xuất bản; đối chiếu chỉ có Pāli
+      đã ghim cùng commit + tiền lệ đếm được trong chính tầng Việt dự án."
+  assessed_at: "2026-10-12"
   assessed_by:
-    - "OpenCode Space Bunny Free (agent)"
+    - "Claude Sonnet 5.5 (Claude Code)"
+  waiver:
+    id: no-upstream-english
+    blockers:
+      - "Bài này không có tầng Anh SuttaCentral đã ghim ở commit đã pin
+        (`source/upstream-manifest.json` → `english-sujato`, 4291 tệp, chỉ 83
+        tệp `ja`: ja1–ja79, ja126, ja159, ja466, ja534 — không có uid nào của
+        lát này), nên thiếu tầng tham khảo bắt buộc để xuất bản; đối chiếu chỉ
+        có Pāli đã ghim cùng commit + tiền lệ đếm được trong chính tầng Việt dự
+        án."
 notes: |-
-  **Đo lại ba mệnh đề của lát.** `0.1` → **Jātaka** (400/416). `0.2`
-  `Dasakanipāta` → *Bộ Mười Bài Kệ* (0 tiền lệ thật — xem `notes` của `ja439`). `0.3`
-  `Catudvāravagga` → *Phẩm Bốn Cửa* (0 tiền lệ thật).
-  Kinh tên: `maṅgala` có tiền lệ trong tầng là *điềm lành* (`Yassa maṅgalā samūhatāse`
-  → *Với người mà điềm lành đã bị xoá sạch*), còn `Sumaṅgalajātaka` giữ tên Pāli. Tôi
-  chọn *Kinh Đại Điềm Lành* vì `Mahā-` + `maṅgala` đọc tự nhiên với người Việt và khớp
-  nghĩa *điềm lành* đã có. `11.1` theo 383 cặp đã có; `pannarasamaṁ` → *thứ mười sáu*
-  nối theo `ekādasamaṁ` → *thứ mười một*.
+  **Giải quyết draft 2026-10-12 (thay thế toàn bộ phần ghi chú cũ ngày 2026-10-04).**
+  Bản dịch cũ đọc sai nhiều chỗ nên được dịch lại gần như toàn bộ từ Pāli, mọi khoá
+  `1.1`–`10.4` và `11.1` đều đổi (45/45 khoá giữ nguyên tập khoá; `0.1`–`0.4` giữ).
 
-  **Không có khoá trùng nguyên văn nào với tệp ngoài lát** — đây là bài duy nhất trong 7
-  bài mà tôi không dùng lại được câu nào. Có ba cụm lặp **nội bộ** và tôi giữ nguyên văn
-  cho cả ba: `…sotthānaṁ tadāhu` ở `2.4`, `3.4`, `4.4`, `5.4`, `6.4`, `7.4`, `8.4`,
-  `9.4`; `thì bảo đấy là điều lành` dùng chung một cách; và `9.1`–`9.4` chỉ khác `2.4`
-  ở chữ *đời sống* thay cho *các loài*.
+  **Lỗi nghĩa thật đã sửa (khoảng 40/45 khoá có thay đổi về nghĩa).**
+  - `1.1`–`1.4`: câu hỏi của bài kệ. `jappaṁ adhicca kāle` = *sau khi học, tụng niệm
+    [điều gì] đúng lúc*; `vijjaṁ … sutānaṁ` = *môn học … trong những điều đã nghe*;
+    `asmiñca paramhi loke` = *ở đời này và ở đời sau* (bản cũ hiểu `asmi` thành một
+    danh từ, dịch ra *kẻ bị làm thí tế, bậc cao nhất trong cõi* — hoàn toàn sai);
+    `sotthānena gutto` = *được che chở bằng điều an lành*. Bản cũ còn thêm *tấm vải rách*,
+    *kinh Vệ-đà*, *hỡi kẻ được gìn giữ* — đều không có trong Pāli.
+  - `2.1`–`2.4`: `sarīsapā` = *các loài bò sát* (bản cũ: *con ruồi nhỏ*, sai); `mettāya
+    … apacitāni` = *được kính trọng bằng lòng từ* (bản cũ: *thân thương … toàn tâm*);
+    `devā` bản cũ là *thần linh*, nay *chư thiên*.
+  - `3.1`–`3.4`: `nivātavutti` = *cư xử khiêm nhường* (tiền lệ `an6.60` *nivātanivāto* →
+    *rất khiêm nhường*; bản cũ đọc ngược thành *bị cả thế giới tránh xa*); `itthīpumānaṁ
+    sahadārakānaṁ` = *đàn bà, đàn ông cùng trẻ nhỏ*; `khantā duruttānam
+    appaṭikūlavādī` = *nhẫn nại trước những lời thô ác, không đáp lại bằng lời đối
+    nghịch* (bản cũ thêm *chẳng nịnh bợ ai*); `adhivāsanaṁ sotthānaṁ` = *sự nhẫn chịu ấy
+    là điều an lành* (bản cũ: *đời sống lành*).
+  - `4.1`–`4.4`: đảo chủ đề cũ (*dòng dõi quý tộc cao sang, của cải đầy đủ* thành thuộc
+    tính của bạn) nay là các căn cứ mà người ấy *không dùng để khinh thường* bạn;
+    `rucipañño atthakāle matīmā` = *có trí tuệ sáng suốt, khôn ngoan vào lúc có việc
+    cần* (bản cũ thêm *khốn khó*).
+  - `5.1`–`5.4`: `saṁvissatthā avisaṁvādakassa` = *tin cậy nơi người không lừa dối*
+    (bản cũ: *che chở … không giao du với kẻ ác*, sai); `mittadubbhī` = *phản bạn* (tiền
+    lệ `an5.229`, `an5.230`); `saṁvibhāgī dhanena` = *biết chia sẻ của cải*.
+  - `6.1`–`6.4`: `koliniyā sīlavatī patibbatā` = *xuất thân dòng dõi tốt, có giới hạnh,
+    một lòng với chồng* (đúng tiền lệ `an7.63:10.3` *Koleyyakā sīlavatī patibbatā*);
+    `pajātā` = *đã sinh con*; bản cũ *được nuôi dạy đầy đủ, rành mạnh, chu toàn* là
+    thêm/bịa. `dāresu` = *về phương diện vợ* (bản cũ: *hôn nhân*).
+  - `7.1`–`7.4`: `bhūtapati` = *chủ của muôn loài* (tiền lệ `ja391`, `ja488`, `ja500`),
+    nay chủ ngữ là vị vua biết người ấy (bản cũ: *vua chúa và bào dân đều được khen
+    ngợi*, *thanh lọc*, *vây khốn* — sai); `soceyyaṁ parakkamañca` = *sự trong sạch và sự
+    nỗ lực*.
+  - `8.1`–`8.4`: `saddho` = *người có đức tin* (bản cũ: *rộn ràng*); `vilepana` = *thuốc
+    xức* (tiền lệ `an10.177`); `pasannacitto anumodamāno` = *tâm tịnh tín, tùy hỷ* (bản
+    cũ: *an hài lòng*); `saggesu` = *ở các cõi trời*.
+  - `9.1`–`9.4`: `punanti` = *làm cho thanh tịnh*; `ārādhitā samacariyāya` = *được hài lòng
+    nhờ hạnh sống chân chánh*; `isayo` = *ẩn sĩ* (bản cũ: *bậc tiên tri*, *đã học đạo,
+    siêng sống đúng phạm hạnh* — thêm); `arahantamajjhe` = *ở giữa các bậc A-la-hán*.
+  - `10.1`–`10.4`: `sukhudrayāni` = *đem lại an vui*; `viññuppasatthāni` = *được người trí
+    khen ngợi*; `na hi maṅgale kiñcanamatthi saccaṁ` = *trong các điềm lành chẳng có
+    chút gì là chân thật* (bản cũ: *vì chẳng có điều lành nào là thật* — lẫn `maṅgala`
+    với `sotthāna`; nay `sotthāna` = *điều an lành*, `maṅgala` = *điềm lành*, theo
+    tiền lệ `ja87` *Kinh Điềm Lành*).
+  - `11.1`: `pannarasamaṁ` = **thứ mười lăm** (tiền lệ `an1.96`, `an1.112`, `cp35`; bản cũ
+    ghi *thứ mười sáu*, sai và còn lệch với `0.4` là *15.*). Dạng cuối theo `ja87:2.1`:
+    *Kinh Điềm Lành, thứ bảy*.
+  - Dấu ngoặc: `3.1` không còn ngoặc mở thừa (Pāli `3.1` không có); `2.4` giữ ngoặc đóng,
+    `10.4` ngoặc đóng khớp Pāli `”ti`.
 
-  **Câu tôi phải tự quyết — và đây là chỗ yếu nhất của lát, nên `ambiguity_integrity`
-  hạ xuống 8.9.**
-  - `1.3` `So macco asmiñca paramhi loke`: `macca` = *kẻ bị làm thí tế* (tiền lệ trong
-    tầng: `macco` → *chết*, `rājāmacco` → *bị hành quyết*), nhưng `asmi` tôi **không xác
-    định được** — có thể là *viên đá lăn* trong nghi lễ Vrat. Tôi dịch lỏng là *là bậc cao
-    nhất trong cõi*, tức **bỏ** `asmi` thay vì bịa một nghĩa. Đây là chỗ mất nghĩa có
-    chủ đích; người biên tập nên tra chú giải rồi sửa nếu có cách đúng hơn.
-  - `3.1` `nivātavutti`: tôi dịch *bị cả thế giới tránh xa*. Cách đọc còn lại (*kẻ sống
-    chống lại cả thế giới*) cho một bài kệ **khen** người tốt thì hợp hơn về mặt logic,
-    nhưng `nivāta` nghĩa là *bị đuổi*, và `sabbalokassa nivātavutti` là danh từ, nên tôi
-    giữ cách đọc theo nghĩa từ.
-  - `7.3` `Advejjhatā suhadayaṁ mamanti`: tôi dịch *dù không bị vây khốn, vẫn lấy lòng
-    tin của mọi người*; `mamanti` = *coi như*, nên nghĩa là *vẫn lấy lòng tin mà coi
-    người ấy…*. Chủ ngữ thật của mệnh đề là người vua/bào dân, tôi giữ đó.
+  **Số khoá lỗi nghĩa thật / tổng: khoảng 40/45** (chỉ `0.1`–`0.4` và một vài dòng ngắn
+  không đổi nghĩa).
+
+  **Phân loại blocker cũ.** (A) thiếu tầng Anh Sujato: giữ nguyên, đó là sự thật về
+  bản chụp đã ghim; xử lý bằng waiver `no-upstream-english`. (C) tầng `vietnamese-current`
+  chỉ có Pháp Cú: đã gỡ khỏi `blocking_errors` — đó chỉ là giới hạn tham chiếu của
+  bản chụp, không phải lỗi văn bản (mọi bài `kn` ngoài Pháp Cú đều thiếu tầng này).
+  Không có blocker loại (B) (Sujato không phủ bài, không có độ phủ để đo) và không có
+  lỗi văn bản loại (D) còn treo.
+
+  **Bất định còn lại — ghi ở đây, không đưa vào thân kinh.**
+  - `4.2` `kulyāhi`: dạng hiếm, 0 tiền lệ trong tầng; hiểu là *dòng tộc* theo ngữ cảnh
+    `sippena … dhanena jaccā`. `4.3` `rucipañño` (1 lần trong tầng, chính bài này): hiểu
+    là *trí tuệ sáng suốt*; cách đọc *ưa chuộng trí tuệ* cũng có thể.
+  - `6.3` `koliniyā`: hiểu cùng nghĩa `koleyyakā` (dòng dõi tốt) theo `an7.63:10.3`.
+  - `7.3` `Advejjhatā suhadayaṁ mamanti`: cú pháp không hoàn toàn chắc; hiểu là vị vua,
+    vì người ấy *không hai lòng*, nghĩ người ấy *có lòng tốt với ta* (`mamanti` =
+    `mamaṁ` + `iti`). Cách chia chủ ngữ khác vẫn có thể.
+  - `9.1`–`9.4`: `arahantamajjhe` đọc là *ở giữa các bậc A-la-hán*, `ārādhitā` chỉ các bậc
+    hiền thiện ở `9.1`–`9.3`; cấu trúc quan hệ `Yaṁ … punanti` giữ nguyên.
+  - Dấu nháy ở `3.1`–`10.4`: Pāli đóng ngoặc ở `2.4` rồi lại đóng ở `10.4` mà không mở
+    lại; giữ đúng từng khoá theo Pāli, không tự cân.
+
+  **Đo tiền lệ.** `pannarasamaṁ`: 12 nơi trong tầng, tất cả *thứ mười lăm*. `bhūtapati`:
+  8 nơi, 3 nơi ở Jātaka đều *chủ của muôn loài*. `koleyyakā … patibbatā`: 1 cặp trùng
+  (`an7.63:10.3`) và bản này khớp. `mittadubbhī`: 22 nơi, tất cả theo hướng *phản bạn/phản
+  trắc bạn bè*. Không có Pāli trùng nguyên văn với bài ngoài trong 45 khoá (chỉ có câu
+  lặp nội bộ `…sotthānaṁ tadāhu` ở `2.4`–`9.4`, đều dịch cùng một khuôn *người ta nói đó
+  là điều an lành …*).
 
   **Dấu lược:** 0/45 khoá có `…pe…`.
 
-  **Không có tầng Anh.** 0/45; `ja453` không nằm trong 83 tệp `ja` đã ghim.
+  **Không có tầng tham khảo ngoài Pāli.** Tầng Anh Sujato: 0/45 (`ja453` không nằm trong 83
+  tệp `ja` đã ghim); `english-project`: không có; `vietnamese-current`: không có (chỉ Pháp
+  Cú). Mẫu số coverage = số segment Pāli có nội dung, nhưng không có tầng Anh để đo; bài
+  dựa vào Pāli và tiền lệ đếm được trong tầng Việt dự án, nên `triangulation` ≤ 8,0
+  (đặt 7,2).
+
+  **`technical_integrity` = 9,6:** chưa chạy cổng kỹ thuật; còn phải chạy `npm run
+  validate`, `npm test`, `npm run check`, `npm run build`.

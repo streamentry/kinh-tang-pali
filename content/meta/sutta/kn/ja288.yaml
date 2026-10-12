@@ -1,5 +1,5 @@
 uid: ja288
-status: draft
+status: review
 translationTitle: "Kinh Chuỗi Cá"
 translators:
   - "OpenCode Space Bunny Free (agent)"
@@ -12,23 +12,38 @@ tags:
   - "kinh-chuoi-ca"
 quality:
   scores:
-    source_provenance: 9.5
-    semantic_fidelity: 9.3
-    grammar_logic: 9.3
+    source_provenance: 9.0
+    semantic_fidelity: 8.8
+    grammar_logic: 8.8
     segment_alignment: 10.0
-    terminology: 9.2
-    triangulation: 6.6
-    vietnamese_clarity: 9.3
-    han_viet_balance: 9.4
-    ambiguity_integrity: 9.3
+    terminology: 8.8
+    triangulation: 6.0
+    vietnamese_clarity: 9.0
+    han_viet_balance: 9.2
+    ambiguity_integrity: 8.6
     technical_integrity: 9.6
-  final_score: 9.15
+  final_score: 8.78
   blocking_errors:
-    - "Thiếu tầng tham khảo English Sujato tại commit đã ghim 11c9d708978cde8ba61096d8a75f7ddfb846f639: đếm trực tiếp trên source/upstream-manifest.json, thư mục sutta/kn/ja/ của tầng translation/en/sujato chỉ có 83 tệp (ja1..ja79, ja126, ja159, ja466, ja534) và không có tệp nào chứa khoá của bài này; SuttaCentral không phát hành bản Anh nào khác phủ bài này tại commit đã ghim. Bài chỉ đối chiếu được với Pāli root một mình."
-    - "Coverage tầng Anh đo được là 0 trên 0 khoá Pāli có nội dung (mọi vế kệ Jātaka của lát này ngắn hơn ngưỡng 40 ký tự), thấp hơn ngưỡng 0.8 khai ở source/layers.yaml, mà content/meta/reference-gaps.yaml chưa có mục cho bài này và đợt này tôi không được phép sửa tệp đó."
-  assessed_at: "2026-10-02"
+    - "Thiếu tầng tham khảo English Sujato tại commit đã ghim
+      11c9d708978cde8ba61096d8a75f7ddfb846f639: đếm trực tiếp trên
+      source/upstream-manifest.json, thư mục sutta/kn/ja/ của tầng
+      translation/en/sujato chỉ có 83 tệp (ja1..ja79, ja126, ja159, ja466,
+      ja534) và không có tệp nào chứa khoá của bài này; SuttaCentral không phát
+      hành bản Anh nào khác phủ bài này tại commit đã ghim. Bài chỉ đối chiếu
+      được với Pāli root một mình."
+  assessed_at: "2026-10-12"
   assessed_by:
-    - "OpenCode Space Bunny Free (agent)"
+    - "Claude Sonnet 5.5 (Claude Code)"
+  waiver:
+    id: no-upstream-english
+    blockers:
+      - "Thiếu tầng tham khảo English Sujato tại commit đã ghim
+        11c9d708978cde8ba61096d8a75f7ddfb846f639: đếm trực tiếp trên
+        source/upstream-manifest.json, thư mục sutta/kn/ja/ của tầng
+        translation/en/sujato chỉ có 83 tệp (ja1..ja79, ja126, ja159, ja466,
+        ja534) và không có tệp nào chứa khoá của bài này; SuttaCentral không
+        phát hành bản Anh nào khác phủ bài này tại commit đã ghim. Bài chỉ đối
+        chiếu được với Pāli root một mình."
 notes: |-
   COVERAGE, ĐO BẰNG SCRIPT KHÔNG SUY. Đếm trực tiếp trên source/upstream-manifest.json tại
   commit đã ghim 11c9d708978cde8ba61096d8a75f7ddfb846f639: tầng translation/en/sujato có 4.291
@@ -105,3 +120,46 @@ notes: |-
   kể final_score. Tôi không nâng điểm để né blocker, và cũng không hạ điểm để tỏ ra thận trọng:
   điểm ghi ở trên là chấm theo đúng mười tiêu chí, kể cả triangulation thấp (6.6) vì không có
   tầng tham khảo nào.
+
+  GIẢI QUYẾT DRAFT 2026-10-12. Mục này thay thế các nhận định cũ ở trên về nội dung bản dịch
+  (các đoạn "NGHIÊN CỨU TAM GIÁC", "CHỐT LƯỢC" và điểm chấm 2026-10-02, vốn dựa vào chú giải
+  mà kho không có để kiểm lại). Đọc đối kháng lại cả 17 khoá từ Pāli root; không có bản Anh,
+  không có bản Việt hiện hành, không có chú giải trong kho, nên mọi chỗ dưới đây chỉ dựa vào
+  ngữ pháp Pāli và tiền lệ trong kho.
+  Khoá đổi (lỗi nghĩa thật 7 trên 14 khoá thân kệ, thêm 4 khoá sửa nhẹ):
+  - 1.1 "Cá ngợi giá hơn một nghìn" có chữ vô nghĩa "ngợi giá"; Pāli agghanti = đáng giá
+    (tiền lệ "đáng giá hơn trăm nghìn"): sửa thành "Cá đáng giá hơn một nghìn".
+  - 1.3/1.4 `assu` và `kiṇeyyaṁ` đều là thức cầu nguyện/điều kiện: "nếu ở đây tôi có bảy
+    đồng tiền thì tôi cũng sẽ mua chuỗi cá ấy". Bản cũ viết thẳng thì ("chỉ có", "mua được
+    cả"), thêm "chỉ" và "cả" không có trong Pāli và lẫn "tôi" với "ta" trong cùng một lời.
+  - 1.2 bỏ "ở đời" (Pāli chỉ nói không có ai tin điều này).
+  - 2.2 `ādisi` = hồi hướng phần cúng dường (cùng cụm với pv13:14.4, bản Việt đã có là "hồi hướng
+    phần cúng dường").
+  - 2.3/2.4 `sarantiyā` là dạng nữ sở thuộc về người đang nhớ, tức người nói (ta), không phải
+    "ngươi" như bản cũ; `kataṁ apacitiṁ tayā` = lòng tôn kính do ngươi thể hiện. Bản cũ đảo
+    chủ thể (ngươi nhớ, ngươi lập) và dùng "lễ bái" cho apaciti.
+  - 3.1 `paduṭṭhacitta` theo tiền lệ trong kho là "tâm ác ý"; `phāti` dịch "hưng thịnh" (kho
+    dùng "tăng trưởng" cho cụm phātiṁ karoti, không khớp với phāti hoti).
+  - 3.2 bỏ "các" thừa trước "chư thiên"; `pūjayanti` dịch "lễ kính".
+  - 3.3/3.4 lỗi nặng nhất: bản cũ "cướp mất phần của cha, của mẹ" thêm "mẹ" không có trong
+    Pāli và làm mất `bhātaraṁ` (anh em). Pāli: yo bhātaraṁ pettikaṁ sāpateyyaṁ avañcayī
+    dukkaṭakammakārī = kẻ nào lừa gạt anh em mình về tài sản của cha, là kẻ làm điều ác. Sửa
+    theo đó, giữ động từ avañcayī ở 3.4.
+  Blocker đã gỡ: "Coverage tầng Anh 0 trên 0" (loại B). Mẫu số là 0 nên cổng không đo được gì,
+  chứ không phải coverage thấp; mọi vế kệ ngắn hơn 40 ký tự và ở đây không có đoạn Sujato
+  để trống theo nghĩa phải lấp. Cả 14 khoá thân kệ đã được đọc kỹ từ Pāli và tự đứng vững,
+  nên không cần mục trong reference-gaps. Blocker giữ: thiếu hẳn bản Anh Sujato tại commit
+  đã ghim (loại A, sự thật về upstream). Tầng Việt hiện hành không có (loại C): giới hạn tham
+  chiếu của bản chụp upstream, không phải lỗi văn bản.
+  Bất định còn lại (ghi ở đây, không đưa vào thân kinh): (a) người nói ở khổ 1 không rõ là ai
+  nên đại từ "tôi" là lựa chọn dè dặt, không thêm sắc thái; (b) `māsā` đọc là đồng tiền nhỏ
+  (māsa) vì đi với kiṇeyyaṁ; không đọc là "tháng"; (c) 2.3/2.4: `sarantiyā` có thể là
+  thuộc cách/trao cách, và tayā chỉ rõ chủ thể thể hiện lòng tôn kính là "ngươi", nhưng
+  người nhận sự tôn kính không nêu trong Pāli nên bản Việt cũng không nêu; (d) `bhātaraṁ`
+  không phân biệt anh hay em. triangulation đặt 6.0 vì chỉ có Pāli đứng một mình.
+  Dùng lại nguyên văn: cụm "mama dakkhiṇamādisi" ở pv13 đã có bản Việt, dùng cùng thuật
+  ngữ "hồi hướng phần cúng dường" (1 cặp trùng, bản Việt cùng thuật ngữ). Trùng nguyên văn
+  trong chính bài: 0 cặp. Không có …pe… trong bài. Số: "bảy" (satta) và "hơn một nghìn"
+  (adhikaṁ sahassaṁ) đã tự tính lại, khớp.
+  Cổng kỹ thuật chưa chạy trong lượt này: npm run validate, npm test, npm run check, npm run
+  build cần chạy sau khi gộp; technical_integrity giữ 9.6.

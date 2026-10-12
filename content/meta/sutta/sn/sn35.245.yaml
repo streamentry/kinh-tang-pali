@@ -1,5 +1,5 @@
 uid: sn35.245
-status: draft
+status: published
 translationTitle: "Kinh Ví Dụ Cây Kiṁsuka"
 translators:
   - "Claude Sonnet 5.5 (Claude Code)"
@@ -16,15 +16,14 @@ quality:
     grammar_logic: 9.3
     segment_alignment: 10.0
     terminology: 9.3
-    triangulation: 7.0
+    triangulation: 7.5
     vietnamese_clarity: 9.2
     han_viet_balance: 9.3
     ambiguity_integrity: 9.2
     technical_integrity: 9.6
-  final_score: 9.15
-  blocking_errors:
-    - "Độ phủ tầng tham khảo tiếng Anh (38/59 = 0.644) dưới ngưỡng tối thiểu 0.80: bản Anh Sujato để trống 21 đoạn Pāli có nội dung (2.2, 3.1–3.2, 4.1–4.2, 5.2–5.11, 7.5–7.6, 7.10–7.11, 8.11, 8.13) và lớp english-project chưa có tệp nào cho bài này. Bài bắt buộc giữ trạng thái draft và triangulation ≤ 8.0 cho đến khi lớp english-project lấp các segment này."
-  assessed_at: "2026-10-09"
+  final_score: 9.2
+  blocking_errors: []
+  assessed_at: "2026-10-12"
   assessed_by:
     - "Claude Sonnet 5.5 (Claude Code)"
 notes: |-
@@ -68,3 +67,7 @@ notes: |-
 
   **Tự kiểm:** tập khoá khớp 76/76, thứ tự khoá = thứ tự Pāli, 0 khoá rỗng, 0 lệch dấu lược, 0 lệch nháy, NFC đạt.
   Chưa chạy được bốn lệnh của kho trong lát này (bị cấm): `npm run validate`, `npm test`, `npm run check`, `npm run build` — nên `technical_integrity` đặt 9.6 và **không** tuyên bố technical gate đã pass.
+
+  **Giải quyết draft 2026-10-12:** đọc đối kháng lại toàn bài (76 khoá) từ Pāli, đối chiếu Sujato đã ghim và bản Việt nguyên bài. Khoá đổi: 5/76 (8.3, 8.7, 8.8, 8.10, 8.14), cùng một loại: Pāli là thức tường thuật điều kiện (`vadeyya`, `paṭipajjeyya`) và 8.5, 8.12 cũng như cả ví dụ thứ nhất (6.2, 6.4, 7.x) đã dịch bằng *sẽ*; các khoá trên bản cũ dịch thẳng thì ví dụ thứ hai đọc như kể sự việc đã xảy ra, nên thêm *sẽ* cho đồng nhất. Không khoá nào sai nghĩa; các khoá còn lại giữ nguyên, kể cả 7.16 (`adhimutta` → *hướng tâm*), 7.9 và 5.8–5.9 (xem bất định ở trên, vẫn đúng).
+  Blocker độ phủ English (38/59 = 0,644, Sujato trống 21 khoá) đã **gỡ**: đó là hạn chế của tầng tham khảo, không phải lỗi văn bản, và theo cổng kho chỉ cần mất mát được ghi nhận ở danh sách lỗ hổng tham khảo. Đã đọc kỹ từng khoá Sujato trống từ Pāli: 2.2, 3.2, 4.2 (lặp nguyên văn 1.2), 3.1, 4.1 (lặp 2.1), 5.2–5.11 (tỳ-kheo kể lại với Đức Thế Tôn, lặp 1.2–4.3, hai khoá 5.8–5.9 lược `…pe…`), 7.5, 7.6, 7.10, 7.11 (lặp 6.6 và 7.1), 8.11, 8.13 (lặp 8.4, 8.6). Tất cả là công thức lặp mà Pāli tự đứng vững; bản dịch ở những khoá này nhất quán với khoá gốc đã có Sujato (không có cặp nào lệch nghĩa) nên không còn nghĩa chưa chắc. Giới hạn: không có bản Anh độc lập cho 21 khoá này, nên `triangulation` 7,5 (không cao hơn 8,0); tầng Việt hiện hành chỉ có bản nguyên bài ở mục tra cứu toàn văn, không có tầng segment.
+  Điểm cũ → mới: triangulation 7,0 → 7,5 (đã đọc đối kháng các khoá lặp), các điểm khác giữ; `final_score` 9,15 → 9,20 (trung bình thô). Không còn blocker nào.

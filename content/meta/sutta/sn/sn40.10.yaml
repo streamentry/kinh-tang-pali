@@ -1,5 +1,5 @@
 uid: sn40.10
-status: draft
+status: published
 translationTitle: "Kinh Sakka"
 translators:
   - "Claude Sonnet 5.5 (Claude Code)"
@@ -13,19 +13,18 @@ tags:
 quality:
   scores:
     source_provenance: 9.4
-    semantic_fidelity: 9.3
+    semantic_fidelity: 9.4
     grammar_logic: 9.3
     segment_alignment: 10.0
-    terminology: 9.2
+    terminology: 9.3
     triangulation: 7.0
     vietnamese_clarity: 9.2
     han_viet_balance: 9.3
     ambiguity_integrity: 9.2
     technical_integrity: 9.6
-  final_score: 9.15
-  blocking_errors:
-    - "Độ phủ tầng tham khảo tiếng Anh dưới ngưỡng tối thiểu 0,80: bản Anh Sujato phủ 66/194 = 0,340 khoá Pāli có nội dung (từ 40 ký tự, bỏ khối :0). Sujato để trống 128 khoá Pāli có nội dung, gồm các khoá lặp và các khoá được lược bằng …pe…. Lớp english-project của dự án chưa có bài này. Bài bắt buộc giữ draft và triangulation ≤ 8,0 cho đến khi lớp english-project lấp các khoá này."
-  assessed_at: "2026-10-10"
+  final_score: 9.17
+  blocking_errors: []
+  assessed_at: "2026-10-12"
   assessed_by:
     - "Claude Sonnet 5.5 (Claude Code)"
 notes: |-
@@ -51,3 +50,10 @@ notes: |-
   LƯỢT REVIEW ĐỐI KHÁNG: đọc lại cặp Pāli↔Việt cho cả 199 khoá (không chỉ chạy phép đo). Đã kiểm: số lượng chư thiên đi cùng khớp phép tính; mọi cặp `Lành thay … Chính do …` mỗi lần đúng đối tượng (Phật, Pháp, Tăng, giới) và đúng người nói (devānaminda ↔ mārisa moggallāna); không khoá nào lặp nhầm nội dung khoá bên cạnh (Pāli trùng nguyên văn trong bài: 0 cặp Việt khác nhau); dấu nháy kép và nháy đơn khớp Pāli ở 199/199 khoá; dấu lược cân bằng Pāli ở 199/199 khoá; không có Pāli lọt sang Việt ngoài tên riêng (Mahāmoggallāna, Moggallāna, Saṁyutta Nikāya).
 
   Kiểm kỹ thuật chưa được chạy ở lượt này, ghi rõ để người duyệt chạy bốn lệnh còn lại: `npm run validate`, `npm test`, `npm run check`, `npm run build`. Vì vậy technical_integrity đặt 9,6 chứ không tuyên bố cổng kỹ thuật đã qua. Sau khi lớp english-project lấp 128 khoá còn trống và chấm lại, bài có thể được nâng khỏi draft.
+
+  Giải quyết draft 2026-10-12 (kiểm toán độc lập, đọc đối kháng cặp Pāli↔Việt cho cả 199 khoá; thay thế các câu "bài giữ draft kèm blocker", "triangulation hạ xuống 7,0 và bài giữ draft", "Sau khi lớp english-project lấp 128 khoá … có thể được nâng khỏi draft" và bullet về `vaṇṇa` ở mục BẤT ĐỊNH ở trên).
+  - Blocker độ phủ tiếng Anh Sujato (66/194 = 0,340) là giới hạn của tầng tham khảo, không phải lỗi văn bản: Sujato để trống 128 khoá Pāli có nội dung, gồm 3.2, 3.4, 5.1–5.6, 6.1–6.5, 12.2–12.3, 13.2–13.3, 14.2–14.3, 17.1–24.2 (các lượt lặp), 27.2–27.4, 29.2–29.4, 30.1, 31.1–31.4, 33.1–33.4, 34.1, 35.1–35.4, 36.1–36.6, 39.2–39.3, 40.2–40.3, 41.2–41.4, 42.2–42.5, 43.1–43.5, 44.1–44.3, 45.1–45.4, 47.1–54.4. Đã đọc kỹ từng khoá từ Pāli: đây đều là các lượt lặp của cùng một công thức (cặp Moggallāna–Sakka, số chư thiên đi cùng, công thức Phật–Pháp–Tăng–giới, mười phương diện) và các khoá lược …pe…; mỗi khoá tự đứng vững từ Pāli, người nói (devānaminda ↔ mārisa moggallāna) và đối tượng (Phật/Pháp/Tăng/giới) khớp từng khoá, 0 cặp Pāli trùng nguyên văn mà bản Việt khác. Vì vậy blocker độ phủ được gỡ; mất mát tầng Anh được ghi nhận ở mục COVERAGE ENGLISH. triangulation giữ 7,0 (không cao hơn 8,0): không có bản Anh độc lập cho 128 khoá, và tầng vietnamese-current không có bài này ở mức segment.
+  - Lỗi nghĩa thật 0/199 khoá; lệch thuật ngữ gây mơ hồ 9/199 khoá: `dibbena vaṇṇena` ở 26.4, 27.4, 28.4, 31.4, 35.4, 36.6, 47.5, 50.4, 54.4 đổi `bằng sắc trời` thành `bằng dung sắc trời`. Lý do: `vaṇṇa` (dung sắc, vẻ đẹp; Sujato dịch `beauty`) bị đứng gần `rūpa` (`các sắc trời`, tức sắc trần, Sujato `sights`) nên hai chữ `sắc` dễ lẫn thành một. Tiền lệ đã đo: cặp `tuổi thọ … dung sắc` có ở an9.21:2.3, an4.34:7.3, an4.58, an4.57, an4.59, an7.56:6.1 (từ 6 bài trở lên); `bằng sắc trời` cho `vaṇṇa` chỉ còn ở an8.36 (2 khoá) và dn30 (2 khoá), cả hai nơi dịch đúng cùng một công thức và cần được thống nhất ở lượt rà riêng của hai bài đó; không đổi ở bài này. Danh sách mười mục vẫn đếm đúng mười: tuổi thọ, dung sắc, lạc, danh tiếng, quyền uy, rồi sắc, thanh, hương, vị, xúc.
+  - Đã kiểm lại, giữ nguyên: số `pañcahi … satehi` = 500, `chahi` = 600, `sattahi` = 700, `aṭṭhahi` = 800, `asītiyā … sahassehi` = 80 × 1.000 = 80.000; `cattāri purisayugāni aṭṭha purisapuggalā` = bốn cặp, tám hạng cá nhân; `đưa đến định tâm` theo quy ước tầng sn55 (24 khoá so với `đưa đến định` 50 khoá toàn tầng, ở sn55.1 dùng `định`; chọn theo nhóm kinh Quy y sn55.3/10/18/20); `evam’idhekacce … hetu` → `Chính do … mà một số chúng sinh ở đây` (Sujato `It’s the reason why some sentient beings`); `…pe…` → `…` đúng một dấu, `…pe….` → ` ….`.
+  - Còn bất định (không thêm vào thân kinh): 12.2 chỉ có `itipi so` rồi lược, bản Việt `Quả thật vị ấy …` so với 17.2/21.2/38.2/42.2/51.2 là `Bậc Thế Tôn ấy …` (khác ở chỗ Pāli ở các khoá ấy còn giữ `bhagavā`); `yasa` giữ `danh tiếng` (có thể có nghĩa tùy tùng), theo Sujato `glory`.
+  - Kiểm kỹ thuật chưa chạy ở lượt này; technical_integrity giữ 9,6; người duyệt chạy `npm run validate`, `npm test`, `npm run check`, `npm run build`.

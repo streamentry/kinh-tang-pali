@@ -1,5 +1,5 @@
 uid: ja282
-status: draft
+status: published
 translationTitle: "Kinh Tốt Đẹp Nhất"
 translators:
   - "OpenCode Space Bunny Free (agent)"
@@ -12,100 +12,108 @@ tags:
   - "kinh-tot-dep-nhat"
 quality:
   scores:
-    source_provenance: 9.5
-    semantic_fidelity: 9.3
-    grammar_logic: 9.3
+    source_provenance: 9.4
+    semantic_fidelity: 9.0
+    grammar_logic: 9.2
     segment_alignment: 10.0
-    terminology: 9.2
-    triangulation: 6.6
-    vietnamese_clarity: 9.3
-    han_viet_balance: 9.4
+    terminology: 9.0
+    triangulation: 7.0
+    vietnamese_clarity: 9.1
+    han_viet_balance: 9.3
     ambiguity_integrity: 9.3
     technical_integrity: 9.6
-  final_score: 9.15
+  final_score: 9.09
   blocking_errors:
-    - "Thiếu tầng tham khảo English Sujato tại commit đã ghim 11c9d708978cde8ba61096d8a75f7ddfb846f639: đếm trực tiếp trên source/upstream-manifest.json, thư mục sutta/kn/ja/ của tầng translation/en/sujato chỉ có 83 tệp (ja1..ja79, ja126, ja159, ja466, ja534) và không có tệp nào chứa khoá của bài này; SuttaCentral không phát hành bản Anh nào khác phủ bài này tại commit đã ghim. Bài chỉ đối chiếu được với Pāli root một mình."
-    - "Coverage tầng Anh đo được là 0 trên 0 khoá Pāli có nội dung (mọi vế kệ Jātaka của lát này ngắn hơn ngưỡng 40 ký tự), thấp hơn ngưỡng 0.8 khai ở source/layers.yaml, mà content/meta/reference-gaps.yaml chưa có mục cho bài này và đợt này tôi không được phép sửa tệp đó."
-  assessed_at: "2026-10-02"
+    - "Thiếu tầng tham khảo English Sujato tại commit đã ghim
+      11c9d708978cde8ba61096d8a75f7ddfb846f639: đếm trực tiếp trên
+      source/upstream-manifest.json, thư mục sutta/kn/ja/ của tầng
+      translation/en/sujato chỉ có 83 tệp (ja1..ja79, ja126, ja159, ja466,
+      ja534) và không có tệp nào chứa khoá của bài này; SuttaCentral không phát
+      hành bản Anh nào khác phủ bài này tại commit đã ghim. Bài chỉ đối chiếu
+      được với Pāli root một mình."
+  assessed_at: "2026-10-12"
   assessed_by:
-    - "OpenCode Space Bunny Free (agent)"
+    - "Claude Sonnet 5.5 (Claude Code)"
+  waiver:
+    id: no-upstream-english
+    blockers:
+      - "Thiếu tầng tham khảo English Sujato tại commit đã ghim
+        11c9d708978cde8ba61096d8a75f7ddfb846f639: đếm trực tiếp trên
+        source/upstream-manifest.json, thư mục sutta/kn/ja/ của tầng
+        translation/en/sujato chỉ có 83 tệp (ja1..ja79, ja126, ja159, ja466,
+        ja534) và không có tệp nào chứa khoá của bài này; SuttaCentral không
+        phát hành bản Anh nào khác phủ bài này tại commit đã ghim. Bài chỉ đối
+        chiếu được với Pāli root một mình."
 notes: |-
-  COVERAGE, ĐO BẰNG SCRIPT KHÔNG SUY. Đếm trực tiếp trên source/upstream-manifest.json tại
-  commit đã ghim 11c9d708978cde8ba61096d8a75f7ddfb846f639: tầng translation/en/sujato có 4.291
-  tệp, trong đó kn có 755 tệp và thư mục kn/ja chỉ có 83 tệp (ja1..ja79, ja126, ja159, ja466,
-  ja534) — không tệp nào chứa khoá của lát này. Tầng translation/vi/phantuananh có đúng 26 tệp
-  và chỉ là Pháp Cú, nên không có bản Hòa thượng Thích Minh Châu cho bất kỳ bài nào ở đây. Cả
-  hai đều là đặc điểm của bản chụp upstream, không phải thiếu sót của kho.
+  COVERAGE. Đếm trên source/upstream-manifest.json tại commit đã ghim
+  11c9d708978cde8ba61096d8a75f7ddfb846f639: tầng translation/en/sujato có thư mục kn/ja chỉ 83
+  tệp (ja1..ja79, ja126, ja159, ja466, ja534), không tệp nào chứa khoá của bài này. Tầng
+  translation/vi/phantuananh chỉ là Pháp Cú nên không có tầng Việt hiện hành cho bài này. Cả
+  hai là giới hạn của bản chụp upstream, không phải thiếu sót của kho.
 
-  CHỐT KHÔNG TỰ CHẠY — ĐÃ TỰ QUÉT MỌI KHOÁ TỪ ĐĨA. Vòng chốt của _hvi.kiểm() chỉ quét khoá Pāli
-  từ 40 ký tự trở lên; ở Jātaka mọi vế kệ đều ngắn hơn ngưỡng đó (khoá dài nhất trong lát này
-  dài 39 ký tự) nên assertion đó về bản chất KHÔNG chạy. Tôi tự quét lại toàn bộ khoá từ tệp
-  đã ghi trên đĩa bằng chính các hàm của _hvi.py: đủ khoá và không thừa so với Pāli, không rỗng,
-  chuỗi NFC, số dấu lược khớp TỪNG KHOÁ, vị trí ngoặc kép mở và đóng khớp TỪNG KHOÁ (không chỉ
-  tổng số trên cả bài), ngoặc kép cân trên cả bài, không có (…), không trùng nguyên văn Pāli ở
-  khoá thân kinh. Kết quả: 0 lỗi trên 238 khoá / 14 bài.
+  DẤU LƯỢC. Pāli của bài không có …pe… hay (…); bản Việt cũng không có dấu lược nào.
 
-  DẤU LƯỢC §10. Không khoá nào trong 238 khoá của lát này chứa …pe… — đã kiểm bằng script trên
-  từng khoá, không phải bằng mắt. Vì vậy cả 238 bản Việt đều có 0 dấu lược, khớp Pāli. Không
-  mở rộng, không nén, không có (…) đứng một mình.
+  Giải quyết draft 2026-10-12 (thay thế các mục cũ của bài này về thuật ngữ, cặp Pāli trùng
+  và blocker coverage; các mục cũ nói về cả lát nhiều bài, không còn áp dụng nguyên văn).
 
-  NGHIÊN CỨU TAM GIÁC. Không có tầng Anh nào để đối chiếu (xem trên), nên tôi đọc chú giải
-  Jātaka từng vế để phân xử những chỗ Pāli khó, rồi vẫn tự viết lại bản Việt. Chú giải được
-  dùng như TỪ ĐIỂN và để cân nhắc bối cảnh, không sao chép câu Anh nào vào thân kinh.
+  KHOÁ ĐỔI (12/17 khoá thân kinh được sửa; 0 khoá tiêu đề đổi).
+  (1) 1.1–1.2: bản cũ đảo vế qua ranh giới khoá (1.1 dịch mệnh đề quan hệ `yo seyyamupasevati`
+  còn 1.2 dịch vế chính `seyyaṁso seyyaso hoti`) và thêm chữ "phước" không có trong Pāli;
+  nay 1.1 = `seyyaṁso seyyaso hoti`, 1.2 = `yo seyyamupasevati`. `seyyaso` là dạng so sánh
+  ("tốt hơn nữa"), không còn bị bỏ mất. "Tiếp thân" (không nghĩa) đổi thành "thân cận"
+  (`upasevati`).
+  (2) 1.3–1.4: `ekena sandhiṁ katvāna` dịch sát: hòa giải với một người (bản cũ: "lấy một bên mà
+  hòa giải", câu cú lệch); `sataṁ vajjhe amocayiṁ` = "ta đã giải thoát một trăm người đáng bị
+  giết" (`vajjhe` là những người đáng bị xử tử; `amocayiṁ` ngôi thứ nhất, người nói là vua nên
+  xưng "ta", không xưng "tôi").
+  (3) 2.1–2.2: bản cũ "làm cho hòa hợp thành một" thêm nghĩa gây khiến; `katvāna` chỉ là "sau
+  khi hòa giải", `ekato` là "cùng nhau". "Thế giới" đổi thành "thế gian" theo tiền lệ (10 chỗ
+  "cả/toàn thế gian" so với 2 chỗ "cả/toàn thế giới" trong các bài Jātaka đã dịch).
+  (4) 2.3: `nigaccheyya` là thức nguyện/khả năng, bản cũ dịch như thì tương lai chắc chắn; nay
+  "có thể đi đến cõi trời". 2.4: thêm "hỡi" cho cách hô `kāsiyā` (người Kāsi, số nhiều).
+  (5) 3.1–3.2: bản cũ lệch ranh khoá, kéo tên Kaṃsa lên 3.1 trong khi Pāli để `Kaṁso` ở 3.2.
+  Nay 3.1 = "vị đại vương" và 3.2 = "Kaṁsa, người nắm giữ Bārāṇasī". 3.2 dùng lại đúng
+  cách dịch đã có của cùng Pāli ở ja521:3.2 (bản cũ "kẻ đã chiếm Varanasi" là chọn dạng
+  khác và nặng nghĩa "chiếm"; Pāli `gaha` chỉ nói "nắm giữ/chiếm giữ", và tiền lệ Jātaka đo lại:
+  `Bārāṇasī` 7 bài, `Varanasi` 3 bài gồm ja5, ja282 cũ và ja292 — nên dạng Bārāṇasī là đa số).
+  (6) 3.3: `kaṇḍa` là mũi tên (ja13 dịch "mũi tên"), không phải tủ/ống tên; bản cũ "tủ tên" sai.
+  Nay "đặt cung và tên xuống".
+  (7) 3.4: `saṁyamaṁ ajjhupāgamī` — bản cũ dùng lại "bước đến nơi tự chế" của ja181:2.4 và
+  ja541:172.4, nhưng "nơi" là nghĩa thêm: `saṁyama` là sự thu thúc, tự chế (đã dịch "sự tự chế"
+  ở vv53, ja518, pe2, ja250), không phải chỗ chốn. Nay "đi đến sự tự chế". BÁO LỆCH: ja181:2.4 và
+  ja541:172.4 cùng Pāli vẫn mang "bước đến nơi tự chế"; cần xem lại ở hai bài đó (không sửa
+  ngoài phạm vi). Đếm: 3 cặp Pāli trùng ở thân kệ đã dò (3.1 với ja509:20.1, 3.2 với
+  ja521:3.2, 3.4 với ja181:2.4 và ja541:172.4); 3.1 giữ đúng bản đã có ở ja509 ("Nói xong điều
+  ấy, vị đại vương,"), 3.2 giữ đúng ja521, 3.4 là chỗ duy nhất cố ý khác tiền lệ.
 
-  HAI CẶP PĢI TRÙNG — ĐÃ DÙNG LẠI NGUYÊN VĂN. `saṁyamaṁ ajjhupāgamīti` ở `3.4` trùng
-  `ja181:2.4` và `ja541:3.4`; bản Việt đã có là bước đến nơi tự chế, tôi dùng lại đúng câu đó
-  (chứ không phải bước vào việc tự chế như bản nháp của tôi). `kaṁso bārāṇasiggaho` ở `3.2`
-  trùng `ja521:3.2` nhưng ja521 trên đĩa mới chỉ có một khoá 1.1 được dịch, không có khoá 3.2
-  nên không có nguyên văn để dùng lại và tôi đặt mới. `Idaṁ vatvā mahārājā` ở `3.1` trùng
-  `ja509` — cũng chưa có bản Việt, đặt mới. Ba cặp này nêu ra để lát sau tra công thức chung.
+  Số khoá lỗi nghĩa thật: 10/17 khoá (1.1, 1.2, 1.3, 1.4, 2.2, 2.3, 3.1 ranh giới, 3.2, 3.3,
+  3.4); 2.1 và 2.4 chỉ sửa thuật ngữ/hô cách.
 
-  THUẬT NGỮ ĐẶT MỚI, ĐÃ TRA. `sagga` → cõi trời (337 cặp Pāli/Việt đã có trong tầng, thống
-  nhất cõi trời). `seyyā` → điều tốt đẹp nhất (chú giải: phần tốt nhất, tức điều thiện thượng
-  thượng mà người ta nương vào; tôi không dịch là thiện để tránh gộp với thiện như Hán–Việt).
-  `sandhi` → hòa giải, hòa hợp. `bārāṇasī` → Varanasi, theo đúng tiền lệ Jātaka đã có trong
-  kho (ja5 dịch Bārāṇasiṁ thành Varanasi); 5 bài Tăng Bộ khác giữ dạng Bārāṇasī, nhưng đó là
-  tác phẩm khác và tôi theo đa số trong Jātaka. `kaṇḍa` → tủ tên. `Kaṃsa` giữ dấu Pāli chuẩn
-  (nguồn in là Kaṁso, một số bản dùng Kaṁsa) — đây là lần dùng đầu tiên của tên này trong tầng.
+  GIẢI QUYẾT BLOCKER.
+  - GIỮ: thiếu bản Anh Sujato tại commit đã ghim (sự thật về upstream).
+  - GỠ: blocker "coverage tầng Anh đo được là 0 trên 0 khoá có nội dung". Mẫu số bằng 0 nghĩa
+    là cổng coverage không đo được gì ở bài này (mọi vế kệ ngắn hơn ngưỡng 40 ký tự), nên
+    không phải mất mát do Sujato bỏ trống đoạn có nội dung; đây là blocker do tác giả cũ tự
+    đặt, không phải lỗi văn bản. Triangulation vì vậy chỉ ≤ 8,0 (nay 7,0), không phải blocker.
 
-  TÊN BÀI. `Seyyajātaka` → Kinh Tốt Đẹp Nhất, theo chú giải: câu chuyện nói về việc hoà giải
-  bằng tâm thương yệt nên người có phần tốt đẹp nhất.
+  BẤT ĐỊNH CÒN LẠI (không đoán). (a) `seyyaṁso seyyaso hoti`: `seyyaṁsa` là "có phần hơn/tốt
+  hơn" (MN96 và ja480 dịch "tốt hơn"; chú giải đọc là "có phần tốt nhất"), `seyyaso` là "tốt
+  hơn nữa"; bản Việt chọn "phần tốt đẹp nhất … càng tốt đẹp hơn" theo chú giải và tên bài. Cả
+  `seyya` ở 1.2 vốn là dạng so sánh nhưng chú giải hiểu là điều thiện tối thượng; giữ "tốt đẹp
+  nhất" cho nhất quán với tên bài. (b) `ekena` ("một người") theo chú giải là vị vua cướp bóc
+  được hòa giải bằng tâm từ; Pāli chỉ nói "một", không nêu danh. (c) `Bārāṇasiggaho` giữ "người
+  nắm giữ Bārāṇasī" theo ja521; Pāli không nói rõ chiếm bằng chiến tranh hay làm vua.
 
-  PĀLI TRÙNG Ở BÀI KHÁC, ĐẾM ĐƯỢC. Quét toàn tầng Pāli gốc 5.764 file (bỏ thư mục
-  *.apfs-orphan) theo nguyên văn từng khoá, rồi lặp lại ở dạng không phân biệt hoa thường:
-  toàn lát này có **61 cặp**, gồm 57 cặp trùng byte-for-byte và 4 cặp trùng sau khi chuẩn hoá
-  dấu câu, nháy kép và hoa thường; trong đó 19 cặp là thân kệ (phần còn lại là khối tiêu đề
-  Jātaka, Tikanipāta và tên phẩm, vốn phải giống nhau theo quy định bộ). 48 cặp trỏ tới bài đã
-  có bản Việt và 13 cặp trỏ tới bài chưa có, nên tôi đặt mới cho 13 cặp đó. Riêng bài này:
-  3 (3.1, 3.2, 3.4) cặp trùng ở thân kệ.
+  TÊN BÀI. `Seyyajātaka` → Kinh Tốt Đẹp Nhất (giữ nguyên; khớp :0.4 và translationTitle).
 
-  REVIEW ĐỐI KHÁNG RIÊNG, CHẠY TRƯỚC KHI CHẤM. Tôi in lại từng cặp Pāli và Việt ra đọc lại,
-  và đây là những lỗi tôi tự bắt được và đã sửa trước khi ghi lần cuối:
-  (1) Vị trí ngoặc kép: lần viết đầu tiên tôi đặt ngoặc kép theo cảm giác của câu kệ, và quét
-  từng khoá đã bắt được năm chỗ lệch với Pāli — đóng ngoặc sớm ở 2.4 của ja277, mở ngoặc thừa
-  ở 2.1 của ja281, đóng ngoặc thừa ở 3.1 của ja282 và 3.4 của ja286, và mở ngoặc thừa ở 1.4
-  và 3.1 của ja292. Pāli phân đoạn lời thoại khác nhau ở mỗi bài, nên phải so **từng khoá**
-  chứ không được so tổng số. (2) ja278 vế 2.4: bản nháp dịch mà không ai ngăn được họ; quét
-  Pāli trùng mới thấy câu này đã có sẵn trong kho ở sn11.4 và sn11.5, nên đã sửa thành nguyên
-  văn đã có. (3) ja282 vế 3.4: bản nháp dịch bước vào việc tự chế; cùng quét đó cho thấy đã
-  có sẵn bước đến nơi tự chế, nên đã sửa. (4) ja283 vế 2.1 và 2.2: bản nháp dịch cả hai là
-  sợ hãi, lặp từ và mất sắc thái phân biệt của chú giải; đã sửa 2.1 thành hoảng sợ và bỏ sợ
-  hãi ở 2.2. (5) ja277 vế 3.4: bản nháp xưng ngài trong khi cả bài xưng ngươi, đã sửa cho nhất
-  quán. (6) ja292 vế 3.4: bản nháp dùng trừng trừng kẻ đã làm rách mũi, đọc thành mệnh lệnh;
-  đã sửa thành nơn xin ngài trừng phạt kẻ đã làm rách mũi ngài cho đúng vai sứ giả. (7) ja276 vế
-  1.3: bản nháp lặp đem đổi ở cả 1.3 và 1.4, đã sửa 1.3 thành Vàng quy ra con voi màu son
-  chàm. (8) ja284 vế 1.4: bản nháp ngươi hãy nhận ra, đều hưởng được của cải ấy có hai mệnh đề
-  lệch; đã sửa thành ai nhận ra thì đều hưởng được của cải ấy. (9) ja281 vế 1.4: bản nháp thừa
-  một chữ một; đã bỏ. (10) ja293 vế 3.3: bản nháp đặt ở nơi ấy trước buông lung làm câu khó
-  đọc; đã dời.
+  TAM GIÁC. Không có tầng Anh/Việt để đối chiếu; chú giải Jātaka và các bài song song trong
+  kho (MN96, Dhp43, ja480, ja13, ja521) dùng như từ điển và để đo tiền lệ, không chép câu
+  chữ nào vào thân kinh.
 
-  ĐỢT NÀY KHÔNG CHẠY CỔNG KỸ THUẬT CỦA KHO. Người điều phòng cấm npm run validate,
-  test, check và build trong lát này, nên tôi KHÔNG tuyên bố technical gate pass và
-  technical_integrity đặt **9.6** chứ không phải 10.0. Bốn lệnh đó cần người điều phòng chạy
-  lại sau khi gộp lát.
+  KỸ THUẬT. Đã tự kiểm: đủ 17/17 khoá và không thừa so với Pāli, thứ tự khoá theo Pāli,
+  ngoặc kép mở ở 1.1 và đóng ở 2.4 khớp Pāli. Đợt này không chạy cổng kỹ thuật của kho nên
+  technical_integrity đặt 9.6; cần chạy `npm run validate`, `npm test`, `npm run check`,
+  `npm run build` khi gộp.
 
-  STATUS. Có hai blocking error thật ở trên (thiếu hẳn tầng Anh Sujato tại commit đã ghim, và
-  coverage dưới ngưỡng chưa được ghi nhận trong reference-gaps.yaml), nên bài đặt **draft** bất
-  kể final_score. Tôi không nâng điểm để né blocker, và cũng không hạ điểm để tỏ ra thận trọng:
-  điểm ghi ở trên là chấm theo đúng mười tiêu chí, kể cả triangulation thấp (6.6) vì không có
-  tầng tham khảo nào.
+  STATUS. Còn một blocker thật (thiếu bản Anh upstream); bài do công cụ quality:waive xử lý
+  theo waiver `no-upstream-english`, ngưỡng `> 9.0` vẫn áp dụng (9,09).

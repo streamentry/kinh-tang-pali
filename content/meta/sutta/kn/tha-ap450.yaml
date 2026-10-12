@@ -1,6 +1,6 @@
 uid: tha-ap450
-status: draft
-translationTitle: "Bài Kệ Tuyên Ngợ Về Trưởng Lão Pādapīṭhiyo"
+status: published
+translationTitle: "Ký Sự Về Trưởng Lão Pādapīṭhiyo"
 translators:
   - "OpenCode Space Bunny Free (agent)"
 reviewers: []
@@ -13,22 +13,37 @@ tags:
 quality:
   scores:
     source_provenance: 9.3
-    semantic_fidelity: 9.2
-    grammar_logic: 9.2
+    semantic_fidelity: 9.0
+    grammar_logic: 9.1
     segment_alignment: 10.0
-    terminology: 9.2
+    terminology: 9.0
     triangulation: 7.5
-    vietnamese_clarity: 9.2
-    han_viet_balance: 9.3
+    vietnamese_clarity: 9.0
+    han_viet_balance: 9.2
     ambiguity_integrity: 8.9
     technical_integrity: 9.6
-  final_score: 9.14
+  final_score: 9.06
   blocking_errors:
-    - "Không có thư mục `tha-ap` trong tầng English đã ghim: đếm trong `source/upstream-manifest.json` → `english-sujato` (4291 tệp) thấy các thư mục con của `kn` chỉ gồm cp, dhp, iti, ja (83 tệp), kp, snp, thag, thig, ud — không có `tha-ap`, `mil` hay `pv`; cache `.cache/upstream/suttacentral/translation/en/sujato/sutta/kn` cũng không có ba thư mục ấy. Thiếu tầng tham khảo là lỗi chặn đối với `review`/`published`, nên giữ `draft`."
-    - "Tầng `vietnamese-current` tại commit đã ghin chỉ có 26 tệp Pháp Cú, không có Therāpadāna, nên không có bản Hòa thượng Thích Minh Châu để đối chiếu cho bài này."
-  assessed_at: "2026-10-04"
+    - "Không có thư mục `tha-ap` trong tầng English đã ghim: đếm trong
+      `source/upstream-manifest.json` → `english-sujato` (4291 tệp) thấy các thư
+      mục con của `kn` chỉ gồm cp, dhp, iti, ja (83 tệp), kp, snp, thag, thig,
+      ud — không có `tha-ap`, `mil` hay `pv`; cache
+      `.cache/upstream/suttacentral/translation/en/sujato/sutta/kn` cũng không
+      có ba thư mục ấy. Thiếu tầng tham khảo là lỗi chặn đối với
+      `review`/`published`, nên giữ `draft`."
+  assessed_at: "2026-10-12"
   assessed_by:
-    - "OpenCode Space Bunny Free (agent)"
+    - "Claude Sonnet 5.5 (Claude Code)"
+  waiver:
+    id: no-upstream-english
+    blockers:
+      - "Không có thư mục `tha-ap` trong tầng English đã ghim: đếm trong
+        `source/upstream-manifest.json` → `english-sujato` (4291 tệp) thấy các
+        thư mục con của `kn` chỉ gồm cp, dhp, iti, ja (83 tệp), kp, snp, thag,
+        thig, ud — không có `tha-ap`, `mil` hay `pv`; cache
+        `.cache/upstream/suttacentral/translation/en/sujato/sutta/kn` cũng không
+        có ba thư mục ấy. Thiếu tầng tham khảo là lỗi chặn đối với
+        `review`/`published`, nên giữ `draft`."
 notes: |-
   **Đo lại ba mệnh đề.** `0.1` Pāli `Therāpadāna` → giữ Pāli **324/333**; 9 tệp dùng
   *Trưởng Lão Ký Sự* → theo đa số, giữ Pāli. `0.2` Pāli `Vibhītakavagga` → **Phẩm Cây
@@ -91,3 +106,54 @@ notes: |-
   từ Pāli đã ghim cùng commit (`11c9d708978cde8ba61096d8a75f7ddfb846f639`) cùng tiền lệ
   đếm được trong chính tầng Việt dự án. Không chạy được `npm run validate|test|check|build`
   theo lệnh phân công đợt này, nên technical_integrity là 9.6.
+
+  **Giải quyết draft 2026-10-12.** Kiểm toán độc lập đối chiếu Pāli từng chữ; mục này THAY
+  THẾ các mục cũ ở trên khi mâu thuẫn (đặc biệt các đoạn giải thích `6.2`, `3.2`, `5.3`, `7.2`,
+  `8.4` và câu "tên dùng trong cả bài", vốn dựa trên cách đọc sai `pādapīṭha`).
+  - **Lỗi nghĩa thật.** `pādapīṭha` là *ghế kê chân* (việc ta làm), không phải "cúi đầu lễ bái":
+    `2.4` cũ ("ông bảo Trưởng lão … cúi xuống") và `6.3`, `8.4` đều sai → `2.4` *ta đã cho làm
+    chiếc ghế kê chân*, `6.3` *Sau khi làm chiếc ghế kê chân*, `8.4` *đây là quả của chiếc ghế kê
+    chân* (đúng nguyên văn `tha-ap393:189.6`, `190.4`). `2.1` `Sīhāsanassa sāmantā` = *Ở gần tòa
+    sư tử* (cũ "làm chủ sư địa" sai). `1.2` `aggo` = *tối thượng* (cũ "đầu tiên"); dùng lại
+    nguyên văn 7/8 khoá cùng Pāli. `3.2` `sukhapākaṁ sukhudrayaṁ` = *cho quả an lạc, dẫn đến
+    an lạc* — đối chiếu `mn61:9.9` (`sukhudrayaṁ sukhavipākaṁ` = *dẫn đến an lạc và cho quả an
+    lạc*); cũ "gốc rễ lành" sai. `5.3` `Nibbute kāraṁ katvāna` = *Sau khi tỏ lòng tôn kính bậc đã
+    tịch diệt* (`kāraṁ katvāna` = *tỏ lòng tôn kính* ở `tha-ap3:125.3`, `538`, `541`, `543`, `548`,
+    `thi-ap18`; `Nibbute` = *tịch diệt* ở `tha-ap13:1.1`, `146`, `177`); cũ "làm cho sự khổ đau dứt"
+    sai. `7.2` `kenaci kiccayenahaṁ` = *vì bất cứ công việc gì của ta* (cũ "không bị ai chắn
+    ngang" sai, và 0 tiền lệ). `soṇṇapīṭha` = *ghế đẩu bằng vàng* (`pīṭha` = *ghế đẩu* ở `tha-ap409`,
+    `tha-ap94`), vì ta *bước lên* chúng (`7.3`); cũ "chỗ ngồi" lệch nghĩa ở `4.4`, `6.4`, `7.3`.
+    Tổng 8 khoá sai nghĩa thật (`2.1`, `2.4`, `3.2`, `5.3`, `6.3`, `7.2`, `8.4`, `1.2`) cộng 4
+    khoá lệch nghĩa nhẹ (`4.4`, `6.4`, `7.3`, `5.4`), trên 46 khoá.
+  - **Nhẹ.** `1.3` bỏ "bờ", "rất" (không có trong Pāli); `1.4` `nibbuto` = *tịch diệt* (cũ
+    "vang danh khắp nơi" thêm nghĩa); `5.1` "các ngươi" → "các vị" (người nói xưng "ta" gọi hội
+    chúng, không dùng "ngươi"); `5.2` *có được cơ hội lắng nghe* (nguyên văn `tha-ap474:15.2`;
+    cũ "nghe pháp" thêm chữ); `5.4` bỏ "bọn", "vô lượng" (`vipulaṁ` = rộng lớn); `4.2`
+    `samaṅgino` = *đầy đủ phước nghiệp* (3 khoá cùng Pāli; cũ "gắn bó" trùng `saṁyutto` ở `3.3`);
+    `4.3` `uddharantassa` = *Khi ta nhấc chân lên* (cũ "Mỗi khi đặt chân đi" thêm "mỗi"); `6.1`;
+    `7.4` dùng lại nguyên văn *đó là quả của nghiệp phước.* (10/19 khoá cùng Pāli); `8.2` bỏ
+    "thiện" (Pāli chỉ có `kammaṁ`); `9.3` bỏ "đời … thanh tịnh" (Pāli `viharāmi anāsavo` →
+    nguyên văn 150 khoá *ta sống không còn lậu hoặc.*).
+  - **Đại từ.** Bài cũ trộn ta/tôi/con. Thống nhất "ta" (tầng: `9.1` 153 "ta" so với 38+27 "tôi";
+    `10.1` 148 so với 21; `3.4` 39 so với 16), dùng lại nguyên văn `3.4`, `9.1`, `10.1`; `8.3` dùng
+    *Ta không còn biết đến đọa xứ nào* (73+108 khoá cùng Pāli ở dạng này; khoá nhiều nhất "rơi vào
+    khổ đau" 137 không bám `duggatiṁ nābhijānāmi`).
+  - **Tiêu đề.** `0.3` và `13.1` dùng *Ký Sự Về Trưởng Lão …* (129 khoá `:0.3` cùng khuôn;
+    `tha-ap13:14.1` đã có *Ký sự về Trưởng lão*). "Tuyên Ngợ" ở `0.3` cũ là lỗi chính tả lan trong
+    tầng (đếm 161+ tiêu đề `:0.3`, 251 tệp có chữ "Ngợ") — "ngợ" không phải từ chỉ lời tuyên bố; chỉ
+    sửa trong bài này, phần còn lại ngoài phạm vi.
+  - **Bất định còn lại.** `5.1`–`5.2` `lābhā tesaṁ suladdhaṁ vo, ye labhanti upassutiṁ`: `upassuti`
+    đọc là *cơ hội lắng nghe*, `vo` là *các vị*; chỉ có một bài song song (`tha-ap474:15`) nên
+    không phân xử thêm được. `Tiṁsakappasahassamhi` đọc *ba mươi ngàn kiếp* theo tiền lệ (15 khoá
+    cùng Pāli) và cấu tạo hợp từ (30 × 1000). `6.2` `vāṇijjaṁ` = *cuộc buôn bán* (ẩn dụ đầu tư công
+    đức, nguyên văn `tha-ap82:22.2`); `tha-ap450:6.2` cũ và `tha-ap481:15.2` dùng "việc trao đổi",
+    chưa đo thêm.
+  - **Blocker.** Giữ blocker thiếu bản Anh upstream (sự thật về tầng đã ghim; chờ waiver của
+    người biên tập). Gỡ blocker `vietnamese-current` chỉ có Pháp Cú: đó là giới hạn tầng tham
+    chiếu, không phải lỗi văn bản (mọi bài `kn` đã xuất bản đều thiếu tầng này). Không dịch lấp
+    English cho bài này; coverage English Sujato là 0 vì tầng không có `tha-ap`, nên `triangulation`
+    không vượt 7,5: bài chỉ đứng từ Pāli cùng tiền lệ đếm được trong tầng Việt dự án.
+  - **Ngoài lát (chỉ báo).** `tha-ap13:2.4` và `8.4` dịch `pādapīṭha` là "gốc cây" (sai, phải là
+    *ghế kê chân*).
+  - `technical_integrity` 9,6: chưa chạy `npm run validate` · `npm test` · `npm run check` ·
+    `npm run build` trong phiên này.

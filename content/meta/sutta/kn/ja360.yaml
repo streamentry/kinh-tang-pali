@@ -12,22 +12,22 @@ tags:
   - suyonandījātaka
 quality:
   scores:
-    source_provenance: 9.3
-    semantic_fidelity: 9.2
-    grammar_logic: 9.1
+    source_provenance: 9.0
+    semantic_fidelity: 8.6
+    grammar_logic: 8.9
     segment_alignment: 10.0
-    terminology: 9.1
-    triangulation: 7.5
-    vietnamese_clarity: 9.2
-    han_viet_balance: 9.3
-    ambiguity_integrity: 9.1
+    terminology: 8.7
+    triangulation: 7.0
+    vietnamese_clarity: 8.9
+    han_viet_balance: 9.2
+    ambiguity_integrity: 8.5
     technical_integrity: 9.6
-  final_score: 9.14
+  final_score: 8.84
   blocking_errors:
     - "Tầng tham khảo tiếng Anh KHÔNG tồn tại tại commit đã ghim. Đã kiểm ba nơi, không suy đoán: (1) `source/upstream-manifest.json` — edition `translation/en/sujato` tại commit `11c9d708978cde8ba61096d8a75f7ddfb846f639` KHÔNG liệt kê bất kỳ tệp nào cho uid này; (2) `.cache/upstream/suttacentral/translation/en/sujato/sutta/...` — tệp không tồn tại; (3) toàn edition `translation/en/sujato/sutta/kn/ja/` chỉ có 83 tệp: ja1–ja79, ja126, ja159, ja466, ja534 — không có ja203/ja360/ja381/ja390, và trong đó không có uid này. Đây là `not-published-upstream`, KHÔNG phải `not-synced`: chạy `npm run source:sync:used` cũng không tạo ra tệp. Tầng `vietnamese-current` cũng vắng — `translation/vi/phantuananh` tại commit đã ghim chỉ có 26 tệp và toàn bộ là Pháp Cú. Lớp lấp `english-project` của dự án cũng không có cho uid này. Cả ba tầng tham khảo đều vắng nên bài dịch chỉ từ Pāli root; `scripts/validate.ts` coi tệp Anh thiếu là **error** khi status là `review` hoặc `published`, nên bài bắt buộc `draft`. Đây là **giới hạn upstream**, không phải lỗi của người dịch. Vì vậy `triangulation` bị chặn ở 7.5 (≤ 8.0) chứ không nâng để né blocker. Coverage đo được: 0 khoá Pāli đủ 40 ký tự, 0 khoá có prose Anh."
-  assessed_at: "2026-10-04"
+  assessed_at: "2026-10-12"
   assessed_by:
-    - "OpenCode Space Bunny Free (agent)"
+    - "Claude Sonnet 5.5 (Claude Code)"
 notes: |-
   Lát c14. KHÔNG có Sujato tại commit đã ghim cho ja360 ⇒ `draft`, xem mục
   blocking_errors. Đây là bài tôi thấy khó nhất trong lát: văn xưng và hành động của các
@@ -56,3 +56,15 @@ notes: |-
   sông; “bè cá gỗ” là cách tôi chọn vì `makara` cũng là loài cá biển.
 
   Bị chặn cổng kỹ thuật (đợt này không được chạy `npm run validate|test|check|build`), nên tiêu chí 10 bị chặn ở **9.6**: tôi chỉ xác minh được JSON hợp lệ, đủ khoá, không orphan, không rỗng, mọi giá trị NFC, dấu lược khớp Pāli từng khoá, `(…)` không đứng một mình, ngoặc kép cân trên cả bài và YAML sạch. Bốn lệnh `npm run validate`, `npm test`, `npm run check`, `npm run build` để coordinator chạy.
+
+  **Giải quyết draft 2026-10-12.** Mục này THAY THẾ các nhận định cũ về `1.2`/`1.4`, `2.1`–`2.4`, `3.1`–`3.4`, `4.4`, `5.3`–`5.4`, uddāna `8.1`–`8.3` và các ghi chú "bè cá gỗ", "cái trống", "Mandakkhī là tên", "Kurukacchā là tên thành giàu có" ở trên; những chỗ đó là đọc sai Pāli, không phải bất định.
+
+  *Phân loại blocker.* Blocker duy nhất còn trong `blocking_errors` là loại (A): bản chụp đã ghim không phát hành bản Anh cho bài này — sự thật về upstream, GIỮ NGUYÊN. Phần câu đó nói thêm tầng `vietnamese-current` vắng (loại C): chỉ là giới hạn tham chiếu (tầng đó chỉ có Pháp Cú), không phải lỗi văn bản; câu blocker được giữ nguyên chữ vì chỉ là một chuỗi. Coverage Anh: mẫu số 0 (không có khoá Pāli ≥ 40 ký tự), nên cổng không đo được gì; ba tầng tham khảo đều vắng ⇒ `triangulation` 7,0.
+
+  *Khung truyện.* Pāli root chỉ có bốn lời kệ đối đáp, nên người nói phải suy từ cấu trúc: `1.x` và `3.x`–`5.x` cùng một người nói ("ahaṁ" ở 3.4, "maṁ" ở 1.4/4.1/5.1), gọi `tamba` ở 1.4 và 5.4 (cùng một đối tượng, một danh xưng số ít hô cách; `vijānahī` là mệnh lệnh ngôi hai); `2.x` là người khác hỏi lại ("tuyhañca" ở 2.3 = "và của ông"), nên đổi "ta" thành "ông". Để hiểu khung truyện (không chép câu chữ) tôi đối chiếu thứ cấp với các bản Anh phạm vi công cộng của Cowell và Francis–Neil, đọc qua tóm lược: Tamba là vua Bārāṇasī, Suyonandī là hoàng hậu bị một Garuḷa đem đi, người hát rong thuật lại bằng kệ chuyện thuyền đắm ở Kurukaccha (các bản Anh ghi Bharukaccha) và chuyện được nàng cứu. Đây chỉ là tham chiếu hiểu nghĩa, không phải tầng đã ghim và không thay Pāli; mọi tên ở trên chỉ dựa vào dạng hô cách/cấu trúc câu Pāli, không thêm thông tin từ truyện vào bản dịch.
+
+  *Khoá đã sửa (accuracy fix).* 1.1 `gandho … vāti` đã mất chữ "hương": "Gió xua tan bóng tối" → "Hương của các cây timira thoảng bay" (`timirānaṁ` sở hữu cách số nhiều; hai bản Anh đều hiểu là rừng/cây timira; dạng Pāli giữ nguyên vì chưa có tên Việt chắc chắn); 1.2 bỏ "ao hồi" → "biển cả vang tiếng ầm ào"; 1.3 `dūre ito` = "xa nơi này"; 1.4 `tamba` là hô cách "này Tamba" (không phải cái trống), `kāmā tudanti maṁ` = "những ham muốn đang dằn vặt ta"; 2.1–2.4 đổi người nói thành ngôi hai (`atari`, `addakkhi` ngôi 2/3 aorist; `tuyhañca` ngôi hai) và `ahu saggasamāgamo` = "đã có cuộc hội ngộ cõi trời", câu cuối "làm sao ta có được của cải ấy" là bịa; 3.1–3.2 dùng lại nguyên văn tiền lệ `ja463:2.1`/`2.2` (cùng công thức `Kurukacchā payātānaṁ vāṇijānaṁ dhanesinaṁ`, 1 cặp trùng Pāli ngoài bài, bản Việt giữ nguyên) thay cho "Có thành nọ tên là Kurukaccha, giàu có các thị trấn…" (sai ngữ pháp: `payātānaṁ` là phân từ "những người đã ra đi"); 3.3 `makarehi abhidā nāvā` = "thuyền … bị các thủy quái makara đập vỡ" (không phải "bè cá gỗ"); 3.4 `phalakenāhamaplaviṁ` = "ta trôi nổi nhờ một tấm ván" (không phải "qua được mặt nước"); 4.4 `mātā puttaṁva orasaṁ` dùng lại "như mẹ thương đứa con ruột", tiền lệ 3 lần (dn31:26.8, dn16:1.31.11, ud8.6:24.2); "bế … trên lòng" là thêm nghĩa; 5.3 `mandakkhī` là tính từ ("e thẹn", tương ứng Skt. `mandākṣa` chỉ sự e thẹn), không phải tên riêng; 5.4 `evaṁ tamba vijānahī` = "này Tamba, hãy biết như vậy"; 8.1–8.3 sửa "bậc thắng trí" (`jinavaro` = bậc Chiến Thắng tối thượng, không phải `abhiññā`) và chính tả `Bhiṇṇaplava` → `Bhinnaplava`, `Bhūnahata` → `Bhūnahatā`. Tổng số khoá lỗi nghĩa thật: 15/31 (1.1, 1.2, 1.3, 1.4, 2.1–2.4, 3.1–3.4, 4.4, 5.3, 5.4) cộng 3 khoá uddāna sửa chính tả/chức danh; các khoá còn lại giữ nguyên.
+
+  *Bất định còn lại, không thêm vào thân kinh.* (1) `timirānaṁ` — nghĩa "cây/rừng timira" dựa trên cách hiểu của các bản Anh cũ, chưa kiểm được bằng tầng đã ghim; (2) `kusamuddo` (1.2) — thành tố đầu `ku-`/`kusa-` chưa phân giải được, tôi chỉ dịch phần chắc chắn là "biển … vang tiếng" (`ghosavā`); (3) `sedumaṁ` (2.2) — hapax toàn corpus Pāli đã ghim, được hiểu là tên đảo của Garuḷa (các bản Anh ghi Seruma, có thể là dị bản d/r); tôi viết hoa "Seduma" như tên riêng và giữ dạng Pāli; (4) `saggasamāgamo` (2.4) — "cuộc hội ngộ cõi trời" hay "cuộc hội ngộ của Sagga" (tên người hát rong trong truyện); chọn cách đọc bám cấu trúc Pāli; (5) `mandakkhī` (5.3) — "e thẹn" là cách đọc có căn cứ ngữ nguyên nhưng không có tiền lệ trong tầng; (6) khoá uddāna `8.x` là chữ gợi nhớ; việc tách `Migamuttamasaggavarena` thành "Miga, Uttama, Saggavara" không phân xử được. Các điểm này chỉ ảnh hưởng sắc thái, không đổi mạch lời kệ; không đủ để giữ thêm blocker.
+
+  *Phép kiểm.* 31/31 khoá, thứ tự khoá khớp Pāli, nháy kép khớp Pāli từng khoá (không có nháy đơn), không có dấu lược `…`/`(…)` trong Pāli nên Việt cũng không có; không có số Pāli trong bài; 1 cặp Pāli trùng ngoài bài đã dùng lại (ja463:2.1/2.2), 0 cặp trùng nội bộ. Tiêu chí 10 vẫn 9,6 vì chưa chạy bốn lệnh `npm run validate`, `npm test`, `npm run check`, `npm run build`.

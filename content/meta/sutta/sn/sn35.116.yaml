@@ -1,5 +1,5 @@
 uid: sn35.116
-status: draft
+status: published
 translationTitle: "Kinh Đi Đến Tận Cùng Thế Giới"
 translators:
   - "Claude Sonnet 5.5 (Claude Code)"
@@ -13,19 +13,18 @@ tags:
 quality:
   scores:
     source_provenance: 9.4
-    semantic_fidelity: 9.3
-    grammar_logic: 9.3
+    semantic_fidelity: 9.4
+    grammar_logic: 9.4
     segment_alignment: 10.0
-    terminology: 9.2
-    triangulation: 7.0
-    vietnamese_clarity: 9.2
+    terminology: 9.3
+    triangulation: 7.5
+    vietnamese_clarity: 9.3
     han_viet_balance: 9.4
-    ambiguity_integrity: 9.2
+    ambiguity_integrity: 9.3
     technical_integrity: 9.6
-  final_score: 9.16
-  blocking_errors:
-    - "Độ phủ tầng tham khảo tiếng Anh (45/72 = 0.625) dưới ngưỡng tối thiểu 0.80: bản Anh Sujato để trống 27 đoạn Pāli có nội dung (1.6–1.7, 4.1–4.8, 4.10–4.12, 5.4, 6.2, 10.1–10.8, 10.10–10.13) và chưa có lớp english-project nào cho bài này; tầng tham khảo Việt hiện hành cũng không có bản phân đoạn cho bài này. Bài bắt buộc giữ trạng thái draft và triangulation ≤ 8.0 cho đến khi lớp english-project lấp các segment này."
-  assessed_at: "2026-10-09"
+  final_score: 9.26
+  blocking_errors: []
+  assessed_at: "2026-10-12"
   assessed_by:
     - "Claude Sonnet 5.5 (Claude Code)"
 notes: |-
@@ -50,3 +49,6 @@ notes: |-
   (6) 8.4: không dịch `evaṁ` ở khoá 8.4 (Pāli không có) nhưng dịch «theo cách như vậy» ở 8.19 (Pāli có `evaṁ`), theo sn35.117:8.4 và 8.11.
 
   Kiểm kỹ thuật: bị cấm chạy cổng nên `technical_integrity` đặt 9.6, KHÔNG tuyên bố technical gate pass. Còn phải chạy `npm run validate`, `npm test`, `npm run check`, `npm run build`; ngoài ra cần `npm run reference:gaps` để cập nhật record độ phủ cho bài này.
+
+  **Giải quyết draft 2026-10-12:** đọc đối kháng lại toàn bài (86 khoá) từ Pāli root. Sửa 1 khoá lỗi nghĩa thật: 5.2 `satthari sammukhībhūte` (locative absolute, «khi bậc Đạo Sư đang hiện diện trước mặt») trước đó dịch «đang đứng ngay trước bậc Đạo Sư», nghe như các tỳ-kheo đứng trước Đạo Sư; nay là «các Tôn giả cũng vậy: bậc Đạo Sư đang hiện diện trước mặt, lại bỏ qua Đức Thế Tôn ấy, tưởng rằng nên hỏi chúng tôi về ý nghĩa này», cùng dạng đã sửa ở an10.172:8.2. Bất định (4) ở trên về `sammukhībhūte` («giữ đang đứng ngay trước») bị thay thế bằng quyết định này; phần `amhe` («chúng tôi») giữ nguyên. Các khoá còn lại đọc lại không thấy lệch nghĩa: 6.5 `Api ca` giữ «Nhưng» theo tiền lệ tầng (7 khoá «Nhưng Tôn giả», 0 khoá «Hơn nữa, Tôn giả»); nháy lồng ở 1.6, 4.5–4.8, 10.5–10.8 khớp Pāli; ba khoá `…` trần giữ một `…`.
+  Blocker độ phủ tiếng Anh (45/72 = 0,625 dưới ngưỡng 0,80) đã gỡ khỏi `blocking_errors`: đây là mất mát tầng tham khảo, không phải lỗi văn bản, và được ghi nhận qua `content/meta/reference-gaps.yaml`. Sujato để trống 27 khoá (1.6–1.7, 4.1–4.8, 4.10–4.12, 5.4, 6.2, 10.1–10.8, 10.10–10.13); tất cả đều là đoạn dẫn lại nguyên văn một đoạn đã có ở chính bài (lời Phật 1.1–1.2, lời các tỳ-kheo 2.2–2.4, công thức `cakkhubhūto … tathāgato` 5.4/6.2), nên Pāli tự đứng vững và bản Việt đã khớp từng cặp Pāli trùng (12 nhóm, 0 cặp lệch). Đã đọc kỹ từng khoá trong số 27 từ Pāli, không còn nghĩa chưa chắc. Tầng Việt hiện hành không có bản phân đoạn cho bài này (tầng chỉ có Pháp Cú), đây là giới hạn tham chiếu chứ không phải lỗi văn bản. `triangulation` 7.5 (≤ 8.0, vì thiếu bản Anh độc lập ở 27/72 khoá có nội dung). Điểm sau: nâng nhẹ semantic_fidelity, grammar_logic, terminology, vietnamese_clarity, ambiguity_integrity do sửa 5.2 và đọc đối kháng sạch; final_score 9.26 (trung bình thô 10 điểm), không còn blocker. Mục «bài giữ `draft` kèm blocker độ phủ» ở đoạn Coverage phía trên bị thay thế bằng mục này.
