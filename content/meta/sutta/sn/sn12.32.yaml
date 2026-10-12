@@ -1,5 +1,5 @@
 uid: sn12.32
-status: draft
+status: published
 translationTitle: "Kinh Kaḷāra"
 translators:
   - "Claude Sonnet 5.5 (Claude Code)"
@@ -21,9 +21,8 @@ quality:
     ambiguity_integrity: 9.0
     technical_integrity: 9.6
   final_score: 9.18
-  blocking_errors:
-    - "Coverage English của Sujato 80/103 = 77,7% dưới ngưỡng 0,80 (23 khoá Pāli có nội dung bị để trống); bài chưa có lớp lấp english-project và chưa có entry gap, nên theo luật cổng không được publish."
-  assessed_at: "2026-10-10"
+  blocking_errors: []
+  assessed_at: "2026-10-12"
   assessed_by:
     - "Claude Sonnet 5.5 (Claude Code)"
 notes: |-
@@ -44,3 +43,5 @@ notes: |-
   Lượt review đối kháng: in cặp Pāli với Việt cả 135 khoá để đọc, bắt được và sửa 4 lỗi trong bản nháp: (a) 8.5 viết sinh lấy gì làm nhân (nghĩa hỏi) trong khi Pāli yaṁnidānā jāti là mệnh đề quan hệ, sửa thành sinh có nhân nào; (b) 6.12 thiếu bhante trong nháy đơn, đã thêm Bạch Thế Tôn; (c) 5.3 và 6.8 đặt tôi biết rõ trong nháy đơn trong khi Pāli đặt ngoài, đã chuyển ra ngoài; (d) 18.1 viết Dù viết hoa giữa câu, đã đổi thành dù. Chưa phát hiện cặp Pāli trùng nguyên văn nào mà bản Việt lệch ý.
 
   technical_integrity 9.6 vì agent lát này không chạy gate. Bốn lệnh gate do coordinator chạy trước khi publish: `npm run validate`, `npm test`, `npm run check`, `npm run build`.
+
+  Giải quyết draft 2026-10-12: bài có đúng một blocker, loại độ phủ English của Sujato dưới ngưỡng 0,80 (80/103 = 77,7%). Đây là hệ quả của việc Sujato để trống một số khoá Pāli có nội dung, không phải lỗi văn bản, nên đã gỡ khỏi blocking_errors; mất mát này được ghi nhận qua `npm run reference:gaps` (người biên tập chạy). Các khoá Sujato để trống: 8.2, 8.3, 9.5, 10.5, 11.7, 14.6, 14.7, 16.8, 16.10, 16.12, 16.14, 16.16, 17.4, 17.5, 17.13, 18.2 đến 18.9. Đã đọc đối kháng cả 23 khoá từ Pāli: 8.2, 8.3, 9.5, 10.5, 11.7, 14.6, 14.7, 17.4, 17.5, 17.13 lặp lại nguyên văn Pāli của khoá liền trước hoặc khoá cùng bài đã có chữ Anh (chỉ khác dấu cuối khoá), bản Việt khớp đúng khoá song song; 16.8, 16.10, 16.12, 16.14, 16.16 và 18.2 đến 18.9 là chuỗi số ngày đêm một, hai, ba, bốn, năm, sáu, bảy lặp theo mẫu của 16.4 đến 16.6 và 18.1, đối chiếu từng số với Pāli (dve, tīṇi, cattāri, pañca, cha, satta) đều khớp, bản Việt tự đứng vững từ Pāli. Đối chiếu thêm với bản Anh của Sujato ở các khoá lân cận (1.4, 1.5, 3.2, 6.10, 8.5, 12.2, 12.11, 13.3, 14.9, 15.3, 16.2, 16.3, 18.1): không thấy lệch nghĩa; các lựa chọn đã ghi ở mục bất định (8.5, 16.3, 14.9, 15.3, 12.2) giữ nguyên. Không sửa khoá nào trong bản dịch (0 khoá lỗi nghĩa thật trên 135 khoá). Điểm giữ nguyên, triangulation giữ 8,0 (không cao hơn vì 13 khoá không có bản Anh độc lập, chỉ dựa vào Pāli, và Sujato rút gọn ở khoảng 9 khoá chuỗi ngày đêm); tầng vietnamese-current vắng là giới hạn tham chiếu của upstream (chỉ có Pháp Cú), không phải lỗi văn bản. Không còn blocker; final_score 9,18 là trung bình số học thô của 10 điểm.

@@ -1,6 +1,6 @@
 uid: ja222
 status: draft
-translationTitle: "Kinh Cūḷanandiyā"
+translationTitle: "Kinh Cūḷanandiya"
 translators:
   - "OpenCode Space Bunny Free (agent)"
 reviewers: []
@@ -10,8 +10,8 @@ tags:
   - dukanipata
 quality:
   scores:
-    source_provenance: 9.3
-    semantic_fidelity: 9.3
+    source_provenance: 9.0
+    semantic_fidelity: 9.2
     grammar_logic: 9.2
     segment_alignment: 10.0
     terminology: 9.0
@@ -20,12 +20,12 @@ quality:
     han_viet_balance: 9.3
     ambiguity_integrity: 9.2
     technical_integrity: 9.6
-  final_score: 9.17
+  final_score: 9.13
   blocking_errors:
     - "Tại commit đã ghim không có tệp translation/en/sujato/sutta/kn/ja/ja222_translation-en-sujato.json; bài nằm trong 990 bài không được SuttaCentral phát bản Anh. Đây là giới hạn của bản chụp upstream, không phải thiếu sót của kho, nhưng thiếu tầng tham khảu là blocking error nên bài phải giữ draft."
-  assessed_at: "2026-10-02"
+  assessed_at: "2026-10-12"
   assessed_by:
-    - "OpenCode Space Bunny Free (agent)"
+    - "Claude Sonnet 5.5 (Claude Code)"
 notes: |-
   TẦNG THAM KHẢO ĐÃ ĐO, KHÔNG ĐOÁN. 14 bài của lát w10/w8, toàn bộ là Jātaka ngắn của
   pli/ms. Đếm trực tiếp trên đĩa: `.cache/upstream/suttacentral/translation/en/sujato/sutta/kn/ja/`
@@ -169,3 +169,35 @@ notes: |-
   the Ones"*. Tầng này trước đợt sửa có **17** cách cho `Dukanipāta` và **6** cho
   `Asadisavagga`: đó là lý do các agent đợt trước đi theo đa số cục bộ rồi tự sinh cách
   mới. `terminology` giữ nguyên — đây là chuẩn hoá, không phải lỗi riêng của bài này.
+
+  Giải quyết draft 2026-10-12: kiểm toán độc lập, đọc đối kháng 15 khoá với Pāli. Lỗi nghĩa
+  thật: **4/15 khoá** (`1.1`–`1.4`); thêm 2 khoá lỗi chính tả tên riêng (`0.4`, `3.1`); tổng 6/15
+  khoá được sửa. Chi tiết:
+  - `1.1`–`1.2` `Idaṁ tadācariyavaco, pārāsariyo yadabravi` — bản cũ *“Người chở đò ngày xưa từng
+    nói để vượt sang bờ bên kia* là **sai**: `Pārāsariya` là tên riêng người nói (cùng gốc với
+    `Pārāsara`; xem `thag16.2`, `thag16.10` giữ tên `Pārāpariya`), không phải “người chở đò”; `pāra`
+    (bờ bên kia) bị đọc nhầm vào đây. `ācariyavaco` = “lời của vị thầy”, `yadabravi` = “mà (ngài) đã
+    nói”. Đã sửa: *“Đây là lời của vị thầy, / lời mà Pārāsariya đã nói:*.
+  - `1.3` `Māsu tvaṁ akari pāpaṁ` — bản cũ *Ngươi chưa từng làm điều ác nào* sai ngữ pháp và đảo
+    nghĩa: `mā` + aorist `akari` là **lời cấm** (*chớ làm*), không phải lời kể quá khứ phủ định;
+    `su` chỉ nhấn. Đã sửa: *Ngươi chớ làm điều ác,*. (Cùng lỗi đọc ở `ja353:3.3`, trong đó `Ngươi chớ
+    từng làm điều ác` cũng chưa đúng; lỗi ngoài tệp của bài này, chỉ báo.)
+  - `1.4` `yaṁ tvaṁ pacchā kataṁ tape` — bản cũ *mà sau này ngươi sẽ phải chịu* bỏ mất `kataṁ`
+    (đã làm) và `tape` (`tapati` = bị thiêu đốt, dày vò; ở đây là hối hận). Đã sửa: *điều mà về sau, khi
+    đã làm rồi, ngươi sẽ phải hối hận.* `hối hận`/`hối tiếc` theo tiền lệ `ja546:13.4`, `ja71:1.4`,
+    `dhp67:2`, `sn2.22:3.2` (đối ứng `pacchā … anutappati`; `sn2.8:4.2` dùng *dày vò về sau*).
+  - `0.4`, `3.1` — `Cūḷanandiyā` → `Cūḷanandiya`: Pāli là `Cūḷanandiya` + `jātaka` (gốc `-a`, nối
+    âm), không có `-ā`; đối chiếu tiền lệ `ja385` (`Nandiyamigarāja` → Nandiya). `translationTitle`
+    đã đổi theo.
+  - Các khoá `2.1`–`2.6` đối chiếu từng chữ, giữ nguyên: `Yāni karoti puriso, tāni attani passati`
+    = *Người làm điều gì thì tự thấy điều ấy trong mình*; bốn vế sau là nguyên văn `sn11.10:5.1–5.4`
+    (**4/4 cặp Pāli trùng, 0 cặp Việt khác**), kể cả `gặt`.
+  Blocker đã xử lý: (A) thiếu bản Anh upstream — **giữ nguyên** (sự thật về bản chụp upstream; công cụ
+  waiver sẽ xử lý). Blocker khác trong `blocking_errors`: không có. Tầng `vietnamese-current` chỉ
+  có Pháp Cú tại commit đã ghim, nên không có bản Việt hiện hành để đối chiếu — giới hạn tham chiếu, không
+  phải lỗi văn bản. `triangulation` giữ 7,6 (≤ 8,0): chỉ có Pāli và vài khoá song song nội bộ, không có bản
+  Anh độc lập. Bất định còn lại: `Pārāsariya` — Pāli ghim không nói rõ đây là chính vị thầy hay người
+  được thầy ấy trích; bản dịch giữ đúng cấu trúc Pāli (*lời của vị thầy, lời mà Pārāsariya đã nói*),
+  không giải thích thêm. Số đo: 0 số Pāli cần kiểm; 15/15 khoá Việt = 15/15 khoá Pāli; ngoặc kép
+  khớp Pāli (mở ở `1.1`, đóng ở `2.6`). Technical gate chưa chạy ở lát này: `npm run validate`,
+  `npm test`, `npm run check`, `npm run build` để người điều phối chạy; `technical_integrity` giữ 9,6.

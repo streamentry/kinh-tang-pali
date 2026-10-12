@@ -11,21 +11,21 @@ tags:
 quality:
   scores:
     source_provenance: 9.3
-    semantic_fidelity: 9.3
-    grammar_logic: 9.2
+    semantic_fidelity: 9.0
+    grammar_logic: 9.0
     segment_alignment: 10.0
-    terminology: 9.0
-    triangulation: 7.6
-    vietnamese_clarity: 9.2
-    han_viet_balance: 9.3
-    ambiguity_integrity: 9.2
+    terminology: 8.8
+    triangulation: 7.0
+    vietnamese_clarity: 9.0
+    han_viet_balance: 9.2
+    ambiguity_integrity: 9.0
     technical_integrity: 9.6
-  final_score: 9.17
+  final_score: 8.99
   blocking_errors:
     - "Tại commit đã ghim không có tệp translation/en/sujato/sutta/kn/ja/ja186_translation-en-sujato.json; bài nằm trong 990 bài không được SuttaCentral phát bản Anh. Đây là giới hạn của bản chụp upstream, không phải thiếu sót của kho, nhưng thiếu tầng tham khảu là blocking error nên bài phải giữ draft."
-  assessed_at: "2026-10-02"
+  assessed_at: "2026-10-12"
   assessed_by:
-    - "OpenCode Space Bunny Free (agent)"
+    - "Claude Sonnet 5.5 (Claude Code)"
 notes: |-
   TẦNG THAM KHẢO ĐÃ ĐO, KHÔNG ĐOÁN. 14 bài của lát w10/w8, toàn bộ là Jātaka ngắn của
   pli/ms. Đếm trực tiếp trên đĩa: `.cache/upstream/suttacentral/translation/en/sujato/sutta/kn/ja/`
@@ -177,3 +177,46 @@ notes: |-
   the Ones"*. Tầng này trước đợt sửa có **17** cách cho `Dukanipāta` và **6** cho
   `Asadisavagga`: đó là lý do các agent đợt trước đi theo đa số cục bộ rồi tự sinh cách
   mới. `terminology` giữ nguyên — đây là chuẩn hoá, không phải lỗi riêng của bài này.
+
+  Giải quyết draft 2026-10-12 (ja186; mục này THAY THẾ mọi nhận định cũ về ja186 ở trên:
+  `kaṭukapphala` → "hạt đắng", `pucimanda` → "xoài thối", `Asātasannivāsa` → "chỗ cư trú thối rữa",
+  và bất định về `nisevare` đọc là `nis-varati` "đổ xuống").
+  Blocker còn lại: (A) không có bản Anh Sujato tại commit đã ghim — sự thật về upstream, giữ nguyên.
+  Không có blocker loại (B), (C), (D) nào cần gỡ: tầng Việt hiện hành cũng không có cho bài này
+  (chỉ Pháp Cú có), nên bài chỉ dựa vào Pāli, tiền lệ trong kho và từ điển; `triangulation` hạ 7,6 → 7,0.
+  Đọc đối kháng 10 khoá thân kệ từ Pāli: 7/10 khoá có lỗi nghĩa thật (`1.1`, `1.4`, `2.1`, `2.2`, `2.4`, `2.5`, `2.6`), 2 khoá thêm chữ hoặc chỉnh câu (`1.2`, `2.3`), 1 khoá sửa vì liền mạch (`1.3`); đã viết lại cả 10:
+  - `1.1` bỏ sót `rasa` (vị): `vaṇṇagandharasūpeto` là sắc–hương–vị, bản cũ chỉ có "sắc lẫn hương";
+    `upeto` là vị ngữ của câu (xoài này trước kia đã đủ cả ba), không phải định ngữ của "cây xoài".
+  - `1.2` `amboyaṁ ahuvā pure` = ayaṁ ambo ahuvā pure, "xoài này trước kia đã như thế"; bản cũ thêm "quả thật".
+  - `1.4` `kena` là từ để hỏi (do đâu, vì sao): cả hai kệ là một vấn–đáp (nhà vua hỏi, người đáp ở kệ sau).
+    Bản cũ biến câu hỏi thành câu khẳng định "thành ra...". Đã đổi thành câu hỏi.
+  - `1.4`, `2.6` `phala` là quả, không phải hạt: đổi "hạt đắng" → "quả đắng" (cũng khớp `sn2.22:2.4`,
+    `ne37:44.4`, `dhp66` cùng cụm `kaṭukapphalaṁ` = quả/báo đắng).
+  - `2.1`–`2.2` `Pucimandaparivāro ambo te Dadhivāhana`: `pucimanda` là một loài cây (sầu đâu/neem),
+    KHÔNG phải "xoài thối"; `Dadhivāhana` ở đây là hô cách gọi người nghe (`te` = của ngài), KHÔNG phải tên
+    của cây xoài (bản cũ "hỡ xoài Dadhivāhana" đảo chủ thể). Căn cứ tiền lệ trong kho: `an8.11`/`an8.19`
+    `naḷerupucimandamūle` là gốc cây pucimanda; `ja311` có cả tên phẩm lẫn thân kệ `pucimandassa` →
+    "cây sầu đâu"; `ps1.2:32.7` `nimbabījaṁ` → neem. Đếm trên toàn tầng bản Việt: "sầu đâu" 10 lần
+    (7 thường + 3 hoa), "neem" 5 lần (3 + 2) → chọn "sầu đâu".
+  - `2.4` `nisevare` là `nisevati` (thân cận, kề cận, sống nương nhau), KHÔNG phải `nis-varati` "đổ xuống";
+    `sākhā sākhā nisevare` = cành kề cận cành. Đối chiếu `thag16.10:15.4` `nisevare` (động từ cùng gốc, nghĩa
+    thân cận/thực hành). Hình ảnh "đổ xuống" của bản cũ là bịa.
+  - `2.5` `Asātasannivāsena`: `asāta` = khó chịu, không dễ chịu; `sannivāsa` = chung sống. Tầng Việt dịch
+    `asāta` là "khó chịu" ở `dn22:18.19`, `mn44:23.4`, `ps1.2:32.7`, `ps1.1:186.2` (đa số). Bản cũ "chỗ cư trú
+    thối rữa" thêm nghĩa "thối rữa" không có trong Pāli. Chú giải đọc là "chung sống với (cây) đắng", nhưng
+    Pāli chỉ nói "điều khó chịu" nên canonical giữ nghĩa trần, không thêm "đắng".
+  - `2.6` `tenambo` = tena ambo: bản cũ "nên ngươi thành xoài" biến chủ ngữ thành "ngươi" (đại từ không có
+    trong Pāli). Đã sửa thành "nên xoài mới có quả đắng".
+  - `2.3` `saṁsaṭṭha` (lẫn vào, đan xen) → "đan xen"; bản cũ "gắn vào" nhẹ hơn nhưng đúng nghĩa, chỉ chỉnh câu.
+  - Giữ nguyên: `0.1`–`0.4`, `3.1` (đã có chuẩn hoá `0.2`/`0.3` của người điều phối: `Dukanipāta` → "Bộ Hai
+    Bài Kinh", `Asadisavagga` → "Phẩm Bất Đối Đẳng"; tiêu đề "Kinh Dadhivāhana" không đổi nên `translationTitle`
+    giữ nguyên).
+  Tổng: 7/15 khoá lỗi nghĩa thật (5 khoá còn lại là tiêu đề và dòng kết, giữ nguyên).
+  Bất định còn lại (không thêm vào thân kinh):
+  - Hai kệ không có lời dẫn người nói; việc hiểu kệ 1 là lời của nhà vua và kệ 2 là lời của người đáp dựa vào
+    cấu trúc hỏi–đáp (`kena` và `te Dadhivāhana`) và tên bài, không có dấu hiệu nói trực tiếp trong Pāli.
+  - `pūjā` ở `1.3` dịch "cúng dường" theo tiền lệ; đối tượng là cây, nên nghĩa gần "sự tôn kính, chăm sóc".
+  - `asāta` ở `2.5` có thể được hiểu là "đắng" qua chú giải; canonical giữ "khó chịu".
+  - Tầng Anh và tầng Việt hiện hành đều vắng: không thể xác minh độc lập, đã đọc lại hai kệ trực tiếp từ Pāli.
+  TECHNICAL GATE: chưa chạy `npm run validate`, `npm test`, `npm run check`, `npm run build` ở lượt này;
+  giữ `technical_integrity` 9,6; chỉ kiểm tập khoá/NFC/dấu ngoặc của tệp JSON (15/15 khoá, ✓).

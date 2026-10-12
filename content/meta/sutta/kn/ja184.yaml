@@ -10,22 +10,22 @@ tags:
   - dukanipata
 quality:
   scores:
-    source_provenance: 9.3
-    semantic_fidelity: 9.3
-    grammar_logic: 9.2
+    source_provenance: 9.0
+    semantic_fidelity: 8.8
+    grammar_logic: 9.0
     segment_alignment: 10.0
     terminology: 9.0
-    triangulation: 7.6
-    vietnamese_clarity: 9.2
-    han_viet_balance: 9.3
+    triangulation: 7.0
+    vietnamese_clarity: 9.0
+    han_viet_balance: 9.2
     ambiguity_integrity: 9.2
     technical_integrity: 9.6
-  final_score: 9.17
+  final_score: 8.98
   blocking_errors:
     - "Tại commit đã ghim không có tệp translation/en/sujato/sutta/kn/ja/ja184_translation-en-sujato.json; bài nằm trong 990 bài không được SuttaCentral phát bản Anh. Đây là giới hạn của bản chụp upstream, không phải thiếu sót của kho, nhưng thiếu tầng tham khảu là blocking error nên bài phải giữ draft."
-  assessed_at: "2026-10-02"
+  assessed_at: "2026-10-12"
   assessed_by:
-    - "OpenCode Space Bunny Free (agent)"
+    - "Claude Sonnet 5.5 (Claude Code)"
 notes: |-
   TẦNG THAM KHẢO ĐÃ ĐO, KHÔNG ĐOÁN. 14 bài của lát w10/w8, toàn bộ là Jātaka ngắn của
   pli/ms. Đếm trực tiếp trên đĩa: `.cache/upstream/suttacentral/translation/en/sujato/sutta/kn/ja/`
@@ -178,3 +178,46 @@ notes: |-
   the Ones"*. Tầng này trước đợt sửa có **17** cách cho `Dukanipāta` và **6** cho
   `Asadisavagga`: đó là lý do các agent đợt trước đi theo đa số cục bộ rồi tự sinh cách
   mới. `terminology` giữ nguyên — đây là chuẩn hoá, không phải lỗi riêng của bài này.
+
+  Giải quyết draft 2026-10-12: kiểm toán độc lập, thay thế các mục cũ về `ja184:1.4`, `2.2`,
+  `2.6` ở trên và toàn bộ nội dung thân kệ cũ.
+  BLOCKER: chỉ có một (loại thiếu bản Anh upstream), giữ nguyên vì đó là sự thật về bản chụp
+  đã ghim; không có blocker nào về độ phủ English hay tầng Việt hiện hành.
+  LỖI NGHĨA THẬT: bản cũ sai trên 10/10 khoá thân kệ (`1.1–1.4`, `2.1–2.6`), không chỉ sai chi tiết.
+  Bản cũ đọc `dūsito giridattena` là “Giridatta bị đánh bại bởi vua”, `hayo sāmassa paṇḍavo` là “đoàn
+  tùy tùng”, và `tanujo poso` / `sikharākārakappito` thành “con trai nhà vua là bậc hiền tri đủ tài đệ
+  nhất”, rồi đọc vòng kệ 2 thành cảnh vua bắt người trong trận đánh. Không có căn cứ Pāli nào
+  cho chuyện “vua”, “trận đánh”, “hiền tri”. Đã dịch lại cả hai kệ; 5 khoá tiêu đề (`0.1–0.4`, `3.1`)
+  giữ nguyên.
+  Cách đọc (từ Pāli): `dūsito giridattena` = bị Giridatta làm hư (instrumental + quá phân từ bị
+  động); `hayo sāmassa paṇḍavo` = con ngựa Paṇḍava của Sāma (`hayo`, `paṇḍavo` cùng chủ cách; `sāmassa`
+  sở hữu cách); `porāṇaṁ pakatiṁ hitvā` = bỏ bản tính cũ; `tassa eva anuvidhiyyati` = chỉ noi theo
+  người ấy. Đại từ `tassa` ở kệ 1 quy về Giridatta (danh từ duy nhất ở nghĩa người trong kệ), nên điểm
+  bất định cũ “không nói cái ấy là gì” được giải: không cần giữ “đó” lửng lơ. Ở kệ 2, `ānane naṁ
+  gahetvāna` = nắm lấy nó (ngựa) ở miệng; `maṇḍale parivattaye` = cho (nó) quay vòng trong vòng
+  tròn; `khippameva pahantvāna` = mau chóng gạt bỏ (đi), cùng chủ ngữ với `anuvidhiyyati`
+  (con ngựa), và `tassa` ở đây quy về `poso`. Hai kệ cùng công thức, nên 1.4 và 2.6 dịch
+  giống nhau (“chỉ noi theo người ấy”).
+  Căn cứ ngoài Pāli root, chỉ dùng để hiểu bối cảnh, không chép câu chữ: chú giải Jātaka của bài này
+  và bản dịch PTS (Rouse/Cowell). Chú giải kể: vua Sāma (Brahmadatta) ở Bārāṇasī có ngựa Paṇḍava, người
+  chăn ngựa Giridatta bị què, ngựa bắt chước mà đi khập khiễng; Bồ-tát khuyên thay người chăn tử tế. Kệ
+  1 là câu của Bồ-tát về chuyện ấy; kệ 2 nói người khác thay vào thì ngựa theo người ấy. Những chi tiết
+  ngoài kệ (què, vua, Bồ-tát) KHÔNG đưa vào thân kinh.
+  BẤT ĐỊNH CÒN LẠI (ghi ở đây, không đưa vào thân kinh):
+  - `2.1` `tanujo poso`: nghĩa đen “người sinh từ thân”, tức ruột thịt/cùng huyết thống; chú giải
+    gỡ `tassa anujo` (em/thân tộc của người ấy). Dịch “người ruột thịt”, giữ nghĩa chung, không khẳng
+    định là em của Giridatta.
+  - `2.2` `sikharākārakappito`: chú giải đọc “dáng vẻ đẹp đẽ, râu tóc cắt tỉa”. Dịch “dáng vẻ được chải
+    chuốt tươm tất”; nghĩa đen `sikhara` (đỉnh, nhọn) + `ākāra` (dáng vẻ) + `kappita` (sắp đặt) còn mờ.
+  - `2.5` `pahantvāna`: Pāli không nêu đối tượng; chú giải bổ sung “bỏ cái tật què”. Dịch “gạt bỏ”
+    không nêu đối tượng.
+  - `1.2` `sāma` đọc là tên (vua Sāma, theo chú giải), `paṇḍava` đọc là tên ngựa; có thể là tính từ
+    (màu sắc), nhưng cả hai cách đều cho cùng nghĩa câu nên giữ nguyên chữ.
+  KẾT QUẢ ĐO: 15/15 khoá Việt khớp 15/15 khoá Pāli; 2 khoá Pāli trùng công thức (`1.4` và `2.6`) dịch giống
+  nhau; dấu nháy kép khớp Pāli (mở ở `1.1`, đóng ở `2.6`); không Pāli lọt; không `…`.
+  ĐỘ PHỦ ENGLISH / THAM KHẢO: Pāli có nội dung ≥ 40 ký tự trong bài này: 0/15 khoá (khoá dài nhất 27 ký
+  tự), nên cổng độ phủ không đo được gì; Sujato không có bài này; tầng Việt hiện hành không có. Ba
+  tầng tham khảo vắng hết nên `triangulation` = 7,0 (≤ 8,0). Bài kệ ngắn, ngữ cảnh duy nhất từ chú giải.
+  TECHNICAL GATE: chưa chạy `npm run validate`, `npm test`, `npm run check`, `npm run build`
+  (bị cấm trong lượt này); `technical_integrity` giữ 9,6 và xin người điều phối chạy sau.
+  Điểm: semantic_fidelity hạ vì ba chỗ ngữ nghĩa kể trên vẫn mờ; ambiguity_integrity 9,2 vì đã ghi đủ.

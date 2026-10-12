@@ -1,6 +1,6 @@
 uid: ja238
 status: draft
-translationTitle: "Kinh Ekapada"
+translationTitle: "8. Kinh Một Câu"
 translators:
   - "OpenCode Space Bunny Free (agent)"
 reviewers: []
@@ -11,21 +11,21 @@ tags:
 quality:
   scores:
     source_provenance: 9.3
-    semantic_fidelity: 9.3
-    grammar_logic: 9.2
+    semantic_fidelity: 8.8
+    grammar_logic: 9.0
     segment_alignment: 10.0
-    terminology: 9.0
+    terminology: 8.8
     triangulation: 7.6
-    vietnamese_clarity: 9.2
-    han_viet_balance: 9.3
-    ambiguity_integrity: 9.2
+    vietnamese_clarity: 9.0
+    han_viet_balance: 9.2
+    ambiguity_integrity: 8.6
     technical_integrity: 9.6
-  final_score: 9.17
+  final_score: 8.99
   blocking_errors:
     - "Tại commit đã ghim không có tệp translation/en/sujato/sutta/kn/ja/ja238_translation-en-sujato.json; bài nằm trong 990 bài không được SuttaCentral phát bản Anh. Đây là giới hạn của bản chụp upstream, không phải thiếu sót của kho, nhưng thiếu tầng tham khảu là blocking error nên bài phải giữ draft."
-  assessed_at: "2026-10-02"
+  assessed_at: "2026-10-12"
   assessed_by:
-    - "OpenCode Space Bunny Free (agent)"
+    - "Claude Sonnet 5.5 (Claude Code)"
 notes: |-
   TẦNG THAM KHẢO ĐÃ ĐO, KHÔNG ĐOÁN. 14 bài của lát w10/w8, toàn bộ là Jātaka ngắn của
   pli/ms. Đếm trực tiếp trên đĩa: `.cache/upstream/suttacentral/translation/en/sujato/sutta/kn/ja/`
@@ -168,3 +168,45 @@ notes: |-
   the Ones"*. Tầng này trước đợt sửa có **17** cách cho `Dukanipāta` và **6** cho
   `Asadisavagga`: đó là lý do các agent đợt trước đi theo đa số cục bộ rồi tự sinh cách
   mới. `terminology` giữ nguyên — đây là chuẩn hoá, không phải lỗi riêng của bài này.
+
+  Giải quyết draft 2026-10-12: kiểm toán độc lập, đọc đối kháng từng khoá từ Pāli.
+  Mục cũ bị thay thế: đoạn "`ekapada` ở tiêu đề là tên bài nên giữ chữ; trong kệ `1.1`
+  và `2.1` nó là “kẻ chỉ một chân”" là SAI và không còn hiệu lực. `ekapada` ở cả tiêu đề
+  lẫn kệ là danh từ chung "một câu (nói)", cùng nghĩa với `ko ekapadaṁ dvipadaṁ jānāti`
+  ở `an6.63:42.3` (tầng đã dịch "một câu hay hai câu"); không phải "kẻ chỉ một chân"
+  và không phải tên riêng. Tiêu đề đổi thành `8. Kinh Một Câu` (`0.4`, `3.1`;
+  `translationTitle` khớp `0.4`).
+  Khoá đổi: 12/15 (`0.4`, `1.1`–`1.4`, `2.1`–`2.6`, `3.1`), 3 khoá còn lại (`0.1`–`0.3`)
+  giữ nguyên. Lỗi nghĩa thật: 10/10 khoá thân kệ (`1.1`–`2.6`) cộng tiêu đề (`0.4`, `3.1`), gồm:
+  (1) `ekapadaṁ` bị đọc thành "kẻ chỉ một chân" và "người ta thấy ngươi có nhiều chân"
+  ở `1.1`–`1.2`, `2.1`–`2.2`, trong khi `anekatthapadassitaṁ` là "chỉ rõ nhiều lợi ích";
+  (2) `2.1` `Dakkheyyekapadaṁ` là `dakkheyyaṁ ekapadaṁ` = "sự khéo léo là một câu nói",
+  không phải "ngươi có vẻ là kẻ chỉ một chân"; (3) `2.3`–`2.4` chủ ngữ là câu nói ấy
+  (`tañca`), "gắn với giới hạnh, thành tựu nhờ nhẫn nại", không phải "cái chân";
+  (4) `2.5`–`2.6` bị dịch thành "Đủ rồi, bạn ơi, hãy dừng lại, và là khổ cho kẻ không có
+  bạn", trong khi đúng là `alaṁ mitte sukhāpetuṁ amittānaṁ dukhāya ca` = đủ để làm
+  bạn hữu được an lạc và làm kẻ thù khổ đau; (5) `1.3` `saṅgāhikaṁ` dịch "đáng để tin" là
+  sai, đúng là "thu nhiếp" (cùng tiền lệ `mn48:7.1`, "thu nhiếp và kết nối"); (6) `1.4`
+  `atthe sādhayemase` = "chúng ta thành tựu các mục đích".
+  Blocker đã gỡ: không có. Blocker còn lại duy nhất (A) là sự thật về upstream, tức
+  Sujato không phát hành bản Anh cho bài này tại commit đã ghim; giữ nguyên để
+  quality:waive xử lý. Tầng `vietnamese-current` cũng không có bài này (giới hạn tham
+  chiếu của bản chụp, không phải lỗi văn bản); `english-project` chưa có. Mẫu số coverage
+  Anh: 0 khoá Sujato trên Pāli có nội dung (các khoá Pāli ngắn dưới 40 ký tự), nên cổng
+  không đo được gì ở mức này; `triangulation` giữ ở 7,6 (≤ 8,0).
+  Điểm: semantic_fidelity 9,3 → 8,8, grammar_logic 9,2 → 9,0, terminology 9,0 → 8,8,
+  vietnamese_clarity 9,2 → 9,0, han_viet_balance 9,3 → 9,2, ambiguity_integrity 9,2 →
+  8,6; final_score 9,17 → 8,99 (trung bình số học thô của 10 điểm).
+  Pāli trùng nguyên văn trong chính bài: `1.2` = `2.2` (`anekatthapadassitaṁ;`), dịch
+  trùng nhau ("chỉ rõ được nhiều lợi ích;"); 1 cặp trùng, 0 cặp khác nhau.
+  Bất định còn lại (ghi ở đây, không đưa vào thân kinh): (a) `tāta` ở `1.1`, `2.1`
+  Pāli không cho biết quan hệ người nói (cha/con/bạn); tầng dịch `tāta` lúc "con", lúc
+  "cha", lúc "bạn", nên dùng "hỡi người thân mến" cho trung tính; (b) `dakkheyya` dịch
+  danh từ "sự khéo léo" (tiền lệ: `ja423:7.3` hiện dịch khác, ngoài phạm vi bài này);
+  cách đọc động từ tùy chọn ("hãy khéo léo") có thể có nhưng cùng nghĩa;
+  (c) `attha` ở `1.2`, `2.2`, `1.4` có thể là "lợi ích/mục đích" hoặc "nghĩa"; chọn
+  "lợi ích" ở `1.2`, `2.2` và "mục đích" ở `1.4` theo ngữ cảnh "thành tựu"; (d) `saṅgāhikaṁ`
+  chọn "thu nhiếp" theo tiền lệ `mn48`/`an5.12`, ý "giúp tập hợp, kết nối" không có
+  tân ngữ trong Pāli nên không thêm. Chưa chạy `npm run validate`, `npm test`,
+  `npm run check`, `npm run build` (bị cấm trong lát này), nên `technical_integrity`
+  giữ 9,6.

@@ -11,21 +11,21 @@ tags:
 quality:
   scores:
     source_provenance: 9.3
-    semantic_fidelity: 9.3
+    semantic_fidelity: 9.2
     grammar_logic: 9.2
     segment_alignment: 10.0
     terminology: 9.0
-    triangulation: 7.6
-    vietnamese_clarity: 9.2
+    triangulation: 7.4
+    vietnamese_clarity: 9.0
     han_viet_balance: 9.3
-    ambiguity_integrity: 9.2
+    ambiguity_integrity: 9.0
     technical_integrity: 9.6
-  final_score: 9.17
+  final_score: 9.1
   blocking_errors:
     - "Tại commit đã ghim không có tệp translation/en/sujato/sutta/kn/ja/ja205_translation-en-sujato.json; bài nằm trong 990 bài không được SuttaCentral phát bản Anh. Đây là giới hạn của bản chụp upstream, không phải thiếu sót của kho, nhưng thiếu tầng tham khảu là blocking error nên bài phải giữ draft."
-  assessed_at: "2026-10-02"
+  assessed_at: "2026-10-12"
   assessed_by:
-    - "OpenCode Space Bunny Free (agent)"
+    - "Claude Sonnet 5.5 (Claude Code)"
 notes: |-
   TẦNG THAM KHẢO ĐÃ ĐO, KHÔNG ĐOÁN. 14 bài của lát w10/w8, toàn bộ là Jātaka ngắn của
   pli/ms. Đếm trực tiếp trên đĩa: `.cache/upstream/suttacentral/translation/en/sujato/sutta/kn/ja/`
@@ -168,3 +168,44 @@ notes: |-
   the Ones"*. Tầng này trước đợt sửa có **17** cách cho `Dukanipāta` và **6** cho
   `Asadisavagga`: đó là lý do các agent đợt trước đi theo đa số cục bộ rồi tự sinh cách
   mới. `terminology` giữ nguyên — đây là chuẩn hoá, không phải lỗi riêng của bài này.
+
+  Giải quyết draft 2026-10-12 (ja205, Gaṅgeyyajātaka). Đọc đối kháng từng khoá từ Pāli; bản cũ
+  của chính khoá này có 5/15 khoá sai nghĩa thật và 3 khoá thêm sắc độ không có trong Pāli.
+  Các mục phía trên (tầng tham khảo, chốt kiểm, thuật ngữ, bất định) mô tả cả lát 14 bài, không
+  riêng bài này; các khoá của ja205 dưới đây THAY THẾ mọi chi tiết cũ về nội dung bài này.
+  - `1.4` `nigrodhaparimaṇḍalo` (sai nghĩa): bản cũ "được vòm cây nigrodha bao quanh" đọc compound
+    thành bị bao quanh. Đúng là tính từ của `puriso`: `parimaṇḍala` = tròn đều, `nigrodha` = cây
+    đa; thành "tròn trịa như cây đa". Tiền lệ đo được: 4/4 khoá có `nigrodhaparimaṇḍalo` (dn14, dn30
+    ×2, mn91) đều dịch "như cây đa"; ở đó dịch "cân đối" vì đi cùng sải tay bằng thân, còn ở bài
+    này không có vế đó nên giữ nghĩa "tròn".
+  - `1.5` `īsakāyatagīvo` (bịa nghĩa): bản cũ "sống bằng đồ ăn mua ở chợ" hoàn toàn không có trong Pāli.
+    `īsaka` = chút ít, `āyata` = dài ra, `gīva` = cổ → "cổ dài ra đôi chút".
+  - `1.6` `sabbeva atirocati`: bỏ "cũng rực rỡ" (thêm "cũng", thêm sắc độ); chủ thể là `puriso`
+    của `1.3`, thành "người ấy vượt trội hơn tất cả". Tiền lệ `atirocati` → "vượt trội" (dn18, dn19, sn8.11).
+  - `1.1`, `1.2` `sobhati`: "rực rỡ" → "đẹp" (tiền lệ `sobhati` → đẹp/đẹp đẽ ở dn32, mn37); `1.2` thêm
+    "và" cho `atho`.
+  - `1.3` `catuppadoyaṁ puriso` = `catuppado ayaṁ puriso`: "người này bốn chân", giữ `puriso` là "người".
+  - `2.1`, `2.2` `akkhāsi` / `pucchito` là ngôi thứ ba, không có đại từ "ngươi" (lời nói về người
+    khác, không phải gọi người ấy): "Điều được hỏi, người ấy không nói, / được hỏi, lại nói điều khác".
+    Khoá `2.1` thiếu nháy mở “ so với Pāli, đã bổ sung.
+  - `2.3` `attappasaṁsako poso` (sai nghĩa): "Bậc hiền tri tự khen mình" đảo giá trị (tự khen mình
+    không phải tư cách bậc hiền tri) và không có trong Pāli; thành "người tự khen mình".
+  - `2.4` `nāyaṁ asmāka ruccati`: `asmāka` là sở hữu cách số nhiều ("của chúng tôi"), bản cũ "ta" là
+    số ít; `ayaṁ` là "người này": "người này chúng tôi không ưa". Dấu đóng `”ti.` → `”.`.
+  - Dấu câu `1.4`–`1.5`, `2.2`–`2.3` khớp Pāli từng khoá; nháy kép khớp Pāli ở cả 15 khoá.
+  - Khoá `0.1`–`0.4`, `3.1` giữ nguyên (không đổi tiêu đề; `0.3` "Phẩm Bó Lúa" khớp 9/9 bài cùng phẩm).
+  - Pāli trùng nguyên văn trong chính bài: 0 cặp; ngoài bài, 15 khoá của ja205 chỉ trùng ở `0.1`,
+    `0.2`, `0.3` (đã khớp tiền lệ 546 / 180 / 9 cặp), 12 khoá còn lại 0 cặp.
+
+  Blocker gỡ/giữ: chỉ có MỘT blocker, loại (A) thiếu bản Anh upstream (Sujato không có bài này
+  tại commit đã ghim) — GIỮ NGUYÊN câu blocker, đó là sự thật về upstream, để waiver của người
+  biên tập xử lý. Không có blocker kiểu độ phủ Sujato (không có bản Anh để đo) hay tầng Việt hiện
+  hành cần gỡ riêng; tầng Việt hiện hành cũng không có cho bài này (chỉ Pháp Cú). Không có hapax chưa giải.
+
+  Giới hạn nói thẳng: không có bản Anh độc lập nào cho bài này nên `triangulation` ≤ 8,0 (đặt 7,4),
+  hiểu từ Pāli + tiền lệ nội bộ. BẤT ĐỊNH CHƯA PHÂN XỬ (không đưa vào thân kinh): Pāli của lớp
+  này chỉ có kệ, không nói ai nói kệ `1` và kệ `2`; bản dịch giữ "người này"/"người ấy"/"chúng tôi"
+  trung tính, không chỉ định danh tính (cá hay rùa). `puriso` cho một sinh vật bốn chân được giữ
+  nghĩa đen "người". `sobhati` có thể là "đẹp" hoặc "tỏa sáng"; chọn "đẹp" theo tiền lệ.
+  Technical gate: CHƯA chạy (`npm run validate` · `npm test` · `npm run check` · `npm run build`),
+  nên `technical_integrity` giữ 9,6.

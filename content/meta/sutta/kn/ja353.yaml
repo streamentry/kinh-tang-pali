@@ -11,22 +11,22 @@ tags:
   - "kinh"
 quality:
   scores:
-    source_provenance: 9.7
-    semantic_fidelity: 9.2
-    grammar_logic: 9.1
+    source_provenance: 9.6
+    semantic_fidelity: 9.1
+    grammar_logic: 9.2
     segment_alignment: 10.0
-    terminology: 9.3
+    terminology: 9.2
     triangulation: 7.5
-    vietnamese_clarity: 9.3
+    vietnamese_clarity: 9.2
     han_viet_balance: 9.3
-    ambiguity_integrity: 8.7
+    ambiguity_integrity: 9.0
     technical_integrity: 9.6
   final_score: 9.17
   blocking_errors:
     - "Tầng tham khảo tiếng Anh đã ghim không tồn tại cho bài này nên không thể lên review hoặc published. Đo trực tiếp trên source/upstream-manifest.json (git tree của commit 11c9d708978cde8ba61096d8a75f7ddfb846f639): tệp Anh Sujato của ja353 = 0. Bản Anh tại commit này có thư mục sutta/kn/ja/ nhưng chỉ 83 tệp và không có ja353; đây là not-published-upstream, KHÔNG phải not-synced. scripts/validate.ts dòng 223-226 đẩy thông điệp này vào errors khi status là review hoặc published, tức validation failure. Mẫu số coverage = 1 khoá Pāli có nội dung (ja353:1.1, 40 ký tự), Sujato phủ 0/1 = 0% dưới ngưỡng 0,8. Gap đã có trong content/meta/reference-gaps.yaml (dòng 74, substantiveSegments 1, coverage 0) nên phần ghi nhận đã xong. Tầng vietnamese-current vắng (26 tệp, toàn bộ Pháp Cú) và english-project không có tệp cho ja353: ba tầng tham khảo đều vắng, bài dịch chỉ từ Pāli root. Đây là giới hạn của bản chụp upstream, không phải lỗi của người dịch; vì vậy triangulation bị chặn ở 7,5 chứ không nâng điểm để né blocker."
-  assessed_at: "2026-10-05"
+  assessed_at: "2026-10-12"
   assessed_by:
-    - "OpenCode Space Bunny Free (agent)"
+    - "Claude Sonnet 5.5 (Claude Code)"
 notes: |-
   **Bài này.** `ja353` · `Pañcakanipāta` · phẩm `Maṇikuṇḍalavagga` ·
   `3. Venasākhajātaka` · **27 khoá Pāli, 27 khoá đã dịch, đủ và không thừa**. Tệp cũ
@@ -125,3 +125,88 @@ notes: |-
   `npm run build`. Phần tôi tự kiểm được: JSON hợp lệ, mọi chuỗi NFC, khoá trùng
   đúng UID và thuộc Pāli gốc, thứ tự khoá khớp Pāli, 0 orphan, ngoặc kép và nháy
   đơn khớp Pāli từng khoá, dấu lược khớp từng khoá.
+
+  **Giải quyết draft 2026-10-12.** Kiểm toán độc lập, đọc đối kháng cặp Pāli↔Việt
+  cả 27 khoá. Mục này **thay thế** các đoạn cũ ở trên nói về cách hiểu `5.3`
+  (`kālaṁ karissāmi` = "sẽ còn lâu mới", `ubbariṁ` = "áo"), về "cây đắt", về "bốn khoá
+  cố ý không dùng lại" và lời tự chấm `ambiguity_integrity` 8.7 — tất cả dựa trên
+  bản dịch cũ đã bị sửa; các đoạn còn lại (phép đếm khoá, nháy, tiêu đề, trùng Pāli
+  với `ja222`/`sn11.10`) vẫn đúng.
+
+  **Khoá đổi: 16/27** (`1.1–1.4`, `3.1–3.4`, `4.1–4.4`, `5.1–5.4`); khoá sai nghĩa
+  thật khoảng **12** (liệt kê dưới), còn lại là sửa ngữ pháp/ranh giới.
+  - `1.1` `Nayidaṁ niccaṁ bhavitabbaṁ` = `na` + `idaṁ niccaṁ bhavitabbaṁ`, *điều
+    này không thể mãi mãi như vậy*; bản cũ đọc thành *"chính việc này phải luôn
+    làm"* (hiểu `nayidaṁ` thành `ayameva`, đảo hẳn nghĩa). `bhavitabbaṁ` ở `mn69`
+    (89 khoá toàn tầng) dịch *nên/phải là*; với `na` đi trước tôi chọn *không thể*
+    — nghĩa "không thể mãi mãi như thế", cũng không loại được *"không nên kéo dài"*.
+  - `1.2` `subhikkhaṁ` = lương thực dồi dào (tiền lệ: `dn16`, `dn26` *lương thực
+    dồi dào*; `mn105` `subhikkhatañca` *no đủ*), không phải *"không bị chê trách"*.
+  - `1.3` `atthaccaye` = *khi tổn thất/suy bại xảy đến* (bản cũ *"hiểm nguy tới"*);
+    `mā ahu sampamūḷho` = *chớ để mình hoàn toàn mê muội* (`sampamūḷha` 7 khoá, đều
+    *mê muội*).
+  - `1.4` `bhinnaplavo` là hợp từ chỉ **người** có thuyền/bè bị vỡ (so sánh `sāgarasseva
+    majjhe`), không phải *"chiếc tàu vỡ"* làm chủ ngữ. (Ở `ja360:8.2` `Bhinnaplava`
+    là tên chuyện, không liên quan.)
+  - `3.1–3.2` `pārāsariyo` chỉ xuất hiện ở `ja222` và `ja353` (2 khoá trong toàn bộ
+    Pāli đã ghim), không có nghĩa "người chở đò vượt bờ bên kia": bản cũ chắc đã
+    tách `pāra-` và bịa nghĩa. Tôi giữ nó là **tên riêng** (Pārāsariya), cùng lối
+    đọc `tadācariyavaco` = *lời của vị thầy thuở ấy*. Đây là chỗ bất định về
+    nhân vật, không phải về ngữ pháp.
+  - `3.3–3.4` `Mā su tvaṁ akari pāpaṁ` là **cấm** (`mā` + aorist): *ngươi chớ làm
+    điều ác*; `yaṁ … pacchā kataṁ tape` = *điều mà về sau, khi đã làm rồi, ngươi sẽ
+    phải ăn năn* (`tappati` ở `dhp314` *pacchā tappati dukkaṭaṁ*). Bản cũ *"mà sau
+    này ngươi sẽ phải chịu"* mất cả `kataṁ` lẫn nghĩa hối tiếc.
+  - `4.1` `piṅgiya` là **hô cách** (không có `-o` của tính từ): *này Piṅgiya*. Bản
+    cũ tạo ra *"con chim gõ màu nâu tên piṅgiya venasākha"*; Pāli không có chữ
+    nào nghĩa *chim*, *gõ*, *nâu*. `venasākho` giữ nguyên làm tên (xem bất định).
+  - `4.2` `ghātayiṁ` là nguyên nhân thể, ngôi thứ nhất: *ta đã cho giết*; bản cũ
+    *"đã bị giết"* mất người chủ động — chính điều làm cả bài là lời tự thú.
+  - `4.3` `Alaṅkate candanasārānulitte` là hai tính từ chỉ những vị Sát-đế-lợi bị
+    giết (*được trang sức, thoa tinh chất đàn hương*); bản cũ bỏ `alaṅkate` và để
+    *"xức dầu"* treo lửng. Dùng *thoa tinh chất đàn hương* theo đa số `candanasāralitta`
+    (7 khoá: `pv39`×2, `vv52`×2, `ja527`, `ja531`×2) so với *lõi chiên-đàn* 3
+    (`pv36`, `ja506`, `mil6.1.5`); không dùng *thơm ngát* (thêm nghĩa) của `ja358:6.1`.
+  - `4.4` `paccāgataṁ` = *quay trở lại* (`dn10`, `dn11`: *trở về*), bản cũ *"đã đến"*.
+  - `5.1` `Sāmā` là **tên/định ngữ số ít** (nom. sg. nữ), không phải *"những người
+    phụ nữ ấy"*; precedent *nàng Sāmā* (`ja318`, `ja534`, `ja147`).
+  - `5.2` `laṭṭhīva … uggatā` = *như thân non … vươn lên*; `sobhañjana` giữ nguyên
+    như `ja547`, `ja535`, `tha-ap314` (3/3 khoá không dịch; ghi chú: đối chiếu từ điển
+    là cây chùm ngây, không đưa vào thân kinh).
+  - `5.3` **lỗi nặng nhất của bản này.** `kālaṁ karoti` là cụm "chết" chuẩn (158
+    khoá toàn tầng, *mạng chung/qua đời/chết*), nên `Adisvā kālaṁ karissāmi` =
+    *không được thấy …, ta sẽ chết*. Bản cũ trong **tệp** là *"chết mà không được thấy
+    các nàng cung nữ"* (bịa số nhiều), còn ghi chú cũ đọc là *"sẽ còn lâu mới mặc áo"*
+    — cả hai đều sai. `Ubbariṁ` là tên riêng ở đối cách (Ubbarī; thấy ở `ja517`
+    và 6 chương `pv` thuộc `Ubbarivagga`), nên giữ dạng tên: *Ubbarī*.
+  - `5.4` đổi *đau đớn* thành *khổ* để cùng một từ với `dukkhaṁ` ở `4.4`.
+
+  **Blocker đã phân loại.** Blocker trong `blocking_errors` là loại **(A)**: bản Anh
+  Sujato không có tại commit đã ghim — giữ nguyên câu, vì đó là sự thật về upstream.
+  Phần (B) và (C) nằm ngay trong câu đó (mẫu số 1 khoá, Sujato phủ 0/1; tầng Việt hiện
+  hành chỉ có Pháp Cú) chỉ là giới hạn tầng tham khảo và đã có ghi nhận gap — không
+  phải lỗi văn bản, không cần lấp. Không có blocker loại (D) còn lại sau khi sửa
+  trên, nhưng các bất định bên dưới được giữ nguyên là bất định.
+
+  **Bất định còn lại (không đưa vào thân kinh).**
+  1. `venasākho` — không đủ căn cứ trong kho để quyết là địa điểm, vật hay người; giữ
+     tên Pāli. (Tên chuyện đọc `Veṇa-sākha` có thể là *cành tre*, nhưng `yamhi` ở
+     `4.2` không cho biết đó là cành/nơi/người.)
+  2. `5.1`–`5.3`: `Sāmā` là một người riêng hay là định ngữ (*nàng da sẫm/vàng*) của
+     `Ubbarī`; hai câu đầu không có động từ. Bản dịch để nguyên hai khả năng.
+  3. `pārāsariyo` — tên một vị thầy (chỉ 2 khoá trong cả tầng), giữ làm tên riêng.
+  4. `atthaccaye` — *tổn thất/suy bại* là cách đọc theo ngữ cảnh; không có tiền lệ
+     trong tầng (1 khoá).
+  5. `1.1` `na … bhavitabbaṁ`: *không thể* so với *không nên*.
+  6. **`ja222:1.1–1.4`** (bài `Cūḷanandiyā`) mang đúng hai lỗi `pārāsariyo` = *người
+     chở đò* và `Māsu tvaṁ akari pāpaṁ` = *chưa từng làm* như bản cũ của bài này. Đó
+     là bài khác nên tôi **không sửa**; báo để lượt kiểm toán `ja222` xử lý, và sau
+     đó hai bài nên được đồng bộ lại.
+
+  **Phép kiểm sau sửa.** 27/27 khoá, thứ tự bằng Pāli, 0 thừa, 0 thiếu; ngoặc kép
+  `“”` Pāli 4 / Việt 4, khớp từng khoá; nháy đơn 0/0; không còn Pāli lọt thân kinh
+  ngoài tên riêng (`Brahmadatta`, `Pārāsariya`, `Piṅgiya`, `Venasākha`, `Sāmā`, `Ubbarī`,
+  `sobhañjana`). `ambiguity_integrity` 9.0 (bất định được nêu rõ, một phần còn không
+  phân xử được), `triangulation` 7.5 (không có tầng Anh/Việt độc lập). Cổng kỹ thuật
+  chưa chạy trong lượt này: `npm run validate` · `npm test` · `npm run check` ·
+  `npm run build`.

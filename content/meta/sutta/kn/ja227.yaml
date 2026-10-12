@@ -10,22 +10,22 @@ tags:
   - dukanipata
 quality:
   scores:
-    source_provenance: 9.3
-    semantic_fidelity: 9.3
-    grammar_logic: 9.2
+    source_provenance: 9.2
+    semantic_fidelity: 9.0
+    grammar_logic: 9.0
     segment_alignment: 10.0
-    terminology: 9.0
-    triangulation: 7.6
-    vietnamese_clarity: 9.2
-    han_viet_balance: 9.3
-    ambiguity_integrity: 9.2
+    terminology: 8.8
+    triangulation: 7.0
+    vietnamese_clarity: 9.0
+    han_viet_balance: 9.2
+    ambiguity_integrity: 9.0
     technical_integrity: 9.6
-  final_score: 9.17
+  final_score: 8.98
   blocking_errors:
     - "Tại commit đã ghim không có tệp translation/en/sujato/sutta/kn/ja/ja227_translation-en-sujato.json; bài nằm trong 990 bài không được SuttaCentral phát bản Anh. Đây là giới hạn của bản chụp upstream, không phải thiếu sót của kho, nhưng thiếu tầng tham khảu là blocking error nên bài phải giữ draft."
-  assessed_at: "2026-10-02"
+  assessed_at: "2026-10-12"
   assessed_by:
-    - "OpenCode Space Bunny Free (agent)"
+    - "Claude Sonnet 5.5 (Claude Code)"
 notes: |-
   TẦNG THAM KHẢO ĐÃ ĐO, KHÔNG ĐOÁN. 14 bài của lát w10/w8, toàn bộ là Jātaka ngắn của
   pli/ms. Đếm trực tiếp trên đĩa: `.cache/upstream/suttacentral/translation/en/sujato/sutta/kn/ja/`
@@ -169,3 +169,37 @@ notes: |-
   the Ones"*. Tầng này trước đợt sửa có **17** cách cho `Dukanipāta` và **6** cho
   `Asadisavagga`: đó là lý do các agent đợt trước đi theo đa số cục bộ rồi tự sinh cách
   mới. `terminology` giữ nguyên — đây là chuẩn hoá, không phải lỗi riêng của bài này.
+
+  Giải quyết draft 2026-10-12: kiểm toán độc lập, đọc đối kháng 15 khoá Pāli↔Việt. Mục cũ bị
+  thay thế: mọi chỗ ở trên nói `nāga` ở `ja227:1.3` là *rắn*, và đoạn "`2.1–2.4` đổi chủ thể
+  ba lần… `pūti` là tự xưng", cùng điểm cũ.
+  LỖI NGHĨA THẬT: 7/15 khoá (1.2, 1.3, 1.5, 1.6, 2.2, 2.3, 2.4), sửa hết.
+  - `1.2` `vikkantena pahārinā` là cách công cụ cách đồng vị với `sūrena` ("dũng sĩ… kẻ dũng
+    mãnh, kẻ ra đòn"), bản cũ "đã đuổi kẻ chạy trốn đi" là thêm nghĩa không có trong Pāli.
+  - `1.3` `nāga` → *voi*, không phải rắn: ba "vũ khí" kế tiếp ở `2.1–2.2` là chân (`pādā`), ngà
+    (`dantehi`), vòi (`soṇḍiyā`), tức bộ phận của voi; cách đọc *nāga* = voi cũng có tiền lệ
+    trong tầng (`ja514:7.4` `hatthināgo`, `ja542:135.2` `nāgaṁ… kuñjaraṁ`, `ja547:672.3`).
+  - `1.5–1.6` bản cũ ("xem thân ngươi dựng lên") bỏ mất `aṅgamagadhā` (người Aṅga và Magadha,
+    chủ ngữ của `passantu`) và dịch `vikkamaṁ` thành "thân dựng lên"; nay: *Hãy để người Aṅga
+    và Magadha thấy dũng lực của ta và của ngươi*.
+  - `2.2` bản cũ "răng, móng vuốt" sai: `dantehi` = ngà, `soṇḍiyā` = vòi.
+  - `2.3` `mīḷhena` = *bằng phân* (không phải "lừa dối"): `mīḷha` là phân/chất thải; tiền lệ trong
+    tầng: `ja435:7.2` `mīḷhalittaṁ` "vấy đầy phân", `ja541:64.4` `mīḷhamadanti` "ăn phân"; tên bài
+    `Gūthapāṇa` cũng thuộc trường nghĩa phân. `2.4` `pūti haññatu pūtinā` là mệnh lệnh/cầu khiến
+    ("hãy bị giết"), `pūti` = hôi thối, không phải tự xưng; hai danh từ cùng gốc nhấn "kẻ hôi
+    thối bị kẻ hôi thối giết".
+  - `pādā`, `dantehi`, `soṇḍiyā`, `mīḷhena` là cách công cụ chỉ phương tiện giết (không phải tân
+    ngữ như ghi chú cũ), nên bản Việt dùng "bằng".
+  - `1.4` chỉ chỉnh câu cho sát `bhīto palāyasi` ("sợ hãi mà bỏ chạy").
+  BLOCKER: chỉ có một, thuộc loại (A) thiếu bản Anh upstream: GIỮ NGUYÊN câu blocker vì là sự
+  thật về bản chụp upstream; không có tầng Việt hiện hành cho bài này (tầng đó chỉ có Pháp
+  Cú) nên đây là giới hạn tham chiếu. Độ phủ Sujato: không có tệp nên mẫu số có nội dung = 0
+  ở tầng Anh tham khảo; `triangulation` hạ còn 7,0 vì chỉ dựa Pāli, bài song song trong tầng và
+  tiền lệ nội bộ.
+  BẤT ĐỊNH CÒN LẠI: Pāli ở tệp này không nêu ai là người nói (phần văn xuôi của Jātaka không
+  nằm trong tệp); nghĩa `Gūthapāṇa` ("sinh vật sống trong/ăn phân") chỉ dùng làm tên riêng.
+  `vikkantena pahārinā` đọc là hai tính từ đồng vị với `sūrena`; một cách đọc khác có thể ghép
+  thành "kẻ ra đòn hùng dũng", cùng nghĩa. `pūti` giữ nghĩa "hôi thối" chung, không khẳng định
+  chỉ phân hay thân xác.
+  technical gate: chưa chạy `npm run validate`, `npm test`, `npm run check`, `npm run build`
+  trong lượt này; `technical_integrity` giữ 9,6.

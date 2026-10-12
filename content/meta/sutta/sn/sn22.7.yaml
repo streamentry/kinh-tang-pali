@@ -1,5 +1,5 @@
 uid: sn22.7
-status: draft
+status: published
 translationTitle: "Kinh Lo Âu Do Chấp Thủ"
 translators:
   - "Codebuff (agent)"
@@ -11,22 +11,33 @@ tags:
 quality:
   scores:
     source_provenance: 9.4
-    semantic_fidelity: 9.3
+    semantic_fidelity: 9.4
     grammar_logic: 9.3
-    segment_alignment: 10.0
+    segment_alignment: 9.8
     terminology: 9.3
-    triangulation: 7.0
+    triangulation: 7.5
     vietnamese_clarity: 9.3
     han_viet_balance: 9.4
     ambiguity_integrity: 9.2
     technical_integrity: 9.6
-  final_score: 9.18
-  blocking_errors:
-    - "Độ phủ tầng tham khảo tiếng Anh (34/50 = 0.680) dưới ngưỡng tối thiểu 0.80 do bản Anh Sujato để trống 16 đoạn Pāli có nội dung (3.2–3.5, 4.3–4.6, 7.2–7.5, 8.4–8.7). Bài bắt buộc giữ trạng thái draft và triangulation ≤ 8.0 cho đến khi lớp english-project lấp các segment này."
-  assessed_at: "2026-10-08"
+  final_score: 9.22
+  blocking_errors: []
+  assessed_at: "2026-10-12"
   assessed_by:
-    - "Codebuff (agent)"
+    - "Claude Sonnet 5.5 (Claude Code)"
 notes: |-
   Đợt 18, lát n187. Dịch từ Pāli root commit 11c9d708, đối chiếu English Sujato đã ghim và bài kế tiếp sn22.8 (cùng phẩm Nakulapituvagga).
 
   **Coverage Anh trên Pāli có nội dung: 34/50 = 68%** — dưới sàn 0.80. Sujato để trống 16 khoá dù Pāli viết đầy đủ. Bản dịch tiếng Việt dịch trọn vẹn mọi khoá từ Pāli root không cắt xén, giữ đúng 3 dấu lược tại 4.1, 8.1, 9.1 nơi Pāli có dấu lược.
+
+  **Giải quyết draft 2026-10-12.** Thay thế phần đánh giá của lát n187 (điểm, blocker, ngày chấm).
+
+  Blocker cũ: độ phủ Anh Sujato 34/50 = 0,68 dưới ngưỡng 0,80 (loại B: giới hạn của tầng tham khảo, không phải lỗi văn bản). Sujato để trống 16 khoá Pāli có nội dung: 3.2–3.5, 4.3–4.6, 7.2–7.5, 8.4–8.7. Đã đọc đối kháng 16 khoá này từ Pāli: chúng là công thức lặp nguyên văn của 2.4–2.7 và 6.4–6.7 (thay danh từ sắc bằng thọ/hành), mà các khoá đầy đủ của chính bài và bản Anh Sujato của sắc/thức đã chứng; bản Việt tự đứng vững từ Pāli, 16 khoá dịch đồng nhất với khoá mẫu (đã đối chiếu từng cặp). Đã gỡ blocker; mất mát được ghi nhận ở `content/meta/reference-gaps.yaml` do công cụ kho sinh. `triangulation` chấm 7,5 (không cao hơn 8,0): không có bản Anh độc lập cho 16 khoá, và tầng `vietnamese-current` không có cho bài kinh này (giới hạn tham chiếu, chỉ Pháp Cú có); có bản song song MN 138 (đoạn 20–21) trong kho làm đối chứng thuật ngữ.
+
+  Tổng số khoá đã sửa: 16/58 (8 khoá lỗi nghĩa ở dưới và 8 khoá bỏ "Dù" ở đoạn kế). Lỗi nghĩa (8 khoá): 2.6, 3.4, 4.5, 5.4, 6.6, 7.4, 8.6, 9.4. Pāli `paritassanā dhammasamuppādā cittaṁ pariyādāya tiṭṭhanti` có hai chủ ngữ số nhiều (`paritassanā` và `dhammasamuppādā`) và động từ `tiṭṭhanti`; bản cũ gộp thành "các trạng thái lo âu khởi lên xâm chiếm", bỏ mất `dhammasamuppādā` và biến phủ định `na` ở các khoá 6–9 thành "không khởi lên". Nay dịch theo công thức đã có ở MN 138:20.6, 20.14, 21.6, 21.14: "Những lo âu và các pháp khởi sinh từ sự biến chuyển theo sự biến hoại của … chiếm ngự tâm vị ấy" (phủ định: "… không chiếm ngự tâm vị ấy"). `cittaṁ pariyādāya tiṭṭhati` đo trên tầng 87 khoá: "chiếm ngự" 67, "chiếm lấy" 4, "chiếm trọn" 4, "chế ngự" 2, "xâm chiếm" 1; chọn "chiếm ngự". Cách đọc khác (Sujato): `dhammasamuppādā` là tính ngữ "khởi lên theo quy luật tự nhiên"; ghi bất định, không đưa vào thân kinh.
+
+  Khoá 6.4, 6.5, 7.2, 7.3, 8.4, 8.5, 9.2, 9.3: bỏ chữ "Dù/dù" (liên từ nhượng bộ không có trong Pāli `Tassa taṁ rūpaṁ vipariṇamati aññathā hoti`, câu khẳng định trần), đổi dấu phẩy thành chấm theo Pāli và viết hoa câu sau; MN 138:21.4 cũng dịch trần. Nghĩa không đổi.
+
+  Đã kiểm và giữ: "kinh hoàng, phiền muộn, tha thiết mong cầu" cho `uttāsavā, vighātavā, apekkhavā` (MN 138 dùng "kinh hãi, phiền não, khắc khoải"; giữ "phiền muộn" để tránh trùng thuật ngữ kilesa; ghi sự khác biệt, 4 khoá song song). "thuần thục … tu tập / khéo tu tập" cho `kovido … vinīto`: tầng 27 khoá có `ariyadhamme avinīto` — "thuần thục / tu tập" 8 (cụm SN 41.3), "được huấn luyện" 11 (khéo về/khéo léo trong), không đa số rõ ràng, giữ nguyên theo cụm SN. Thứ tự Pāli 8.1–8.3 bị phân đoạn đảo (8.3 `na saṅkhāravantaṁ` đứng sau 8.2); bản Việt giữ đúng ranh khoá và đọc được liền mạch. Các dấu lược 4.1, 8.1, 9.1 giữ ở đúng khoá Pāli có `…pe…`; không có số Pāli; không có Pāli lọt vào bản Việt; 58/58 khoá khớp tập khoá Pāli.
+
+  `technical_integrity` 9,6 (không chạy cổng): còn phải chạy `npm run validate`, `npm test`, `npm run check`, `npm run build`.

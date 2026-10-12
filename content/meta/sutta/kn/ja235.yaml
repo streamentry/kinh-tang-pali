@@ -11,21 +11,21 @@ tags:
 quality:
   scores:
     source_provenance: 9.3
-    semantic_fidelity: 9.3
+    semantic_fidelity: 9.1
     grammar_logic: 9.2
     segment_alignment: 10.0
     terminology: 9.0
     triangulation: 7.6
-    vietnamese_clarity: 9.2
+    vietnamese_clarity: 9.1
     han_viet_balance: 9.3
     ambiguity_integrity: 9.2
     technical_integrity: 9.6
-  final_score: 9.17
+  final_score: 9.14
   blocking_errors:
     - "Tại commit đã ghim không có tệp translation/en/sujato/sutta/kn/ja/ja235_translation-en-sujato.json; bài nằm trong 990 bài không được SuttaCentral phát bản Anh. Đây là giới hạn của bản chụp upstream, không phải thiếu sót của kho, nhưng thiếu tầng tham khảu là blocking error nên bài phải giữ draft."
-  assessed_at: "2026-10-02"
+  assessed_at: "2026-10-12"
   assessed_by:
-    - "OpenCode Space Bunny Free (agent)"
+    - "Claude Sonnet 5.5 (Claude Code)"
 notes: |-
   TẦNG THAM KHẢO ĐÃ ĐO, KHÔNG ĐOÁN. 14 bài của lát w10/w8, toàn bộ là Jātaka ngắn của
   pli/ms. Đếm trực tiếp trên đĩa: `.cache/upstream/suttacentral/translation/en/sujato/sutta/kn/ja/`
@@ -169,3 +169,41 @@ notes: |-
   the Ones"*. Tầng này trước đợt sửa có **17** cách cho `Dukanipāta` và **6** cho
   `Asadisavagga`: đó là lý do các agent đợt trước đi theo đa số cục bộ rồi tự sinh cách
   mới. `terminology` giữ nguyên — đây là chuẩn hoá, không phải lỗi riêng của bài này.
+
+  Giải quyết draft 2026-10-12: kiểm toán đối kháng toàn bài (15 khoá, đọc Pāli từng khoá).
+  BLOCKER: chỉ có một, loại "thiếu bản Anh upstream" (Sujato không có bài này tại commit
+  đã ghim). Đó là sự thật về bản chụp upstream nên được GIỮ NGUYÊN câu blocker; bài không có
+  tầng Anh và cũng không có tầng Việt hiện hành (chỉ Pháp Cú có), nên Pāli đứng một mình.
+  `triangulation` giữ ≤ 8,0 (7,6). Không có blocker nào khác để gỡ.
+  KHOÁ SỬA (lỗi nghĩa thật 3/15; chỉnh chữ theo tiền lệ 5/15):
+  - `1.2` `sahiraññā sabhojanā`: bản cũ *«có cơm nấu, có món ăn đầy đủ»* bỏ mất `hirañña`
+    (vàng) và thêm *"cơm nấu"*, *"đầy đủ"* không có trong Pāli → *«có vàng, có thức ăn»*.
+    Tiền lệ cùng công thức: `snp1.6:13.2`, `tha-ap411:39.2` dùng *có vàng*.
+  - `1.3` `bhutvā pivitvā ca`: bản cũ *«ăn no rồi uống say»* thêm *"no"*, *"say"*; `pivitvā`
+    chỉ là "đã uống" → *«ăn rồi uống»*.
+  - `2.5` `Evaṁ chiddaṁ durabhisambhavaṁ`: bản cũ *«gia đình đầy kẽ hở, khó gánh vác như
+    thế»* tự đặt chủ ngữ *"gia đình"* và *"đầy"*, và dùng *"gánh vác"* cho `durabhisambhava`.
+    Pāli chỉ có `evaṁ chiddaṁ durabhisambhavaṁ`. Tiền lệ `durabhisambhava` = *khó kham nổi*
+    (`mn4`, `an10.99`) → *«như vậy là có khuyết điểm, khó kham nổi»*; `chidda` = khuyết điểm/
+    sơ hở (`mn39`, `an4.192`).
+  - `1.4` `sayeyyātha anussuko`: bỏ đại từ *"ngươi"* (Pāli là ngôi hai kính xưng số nhiều, không
+    đại từ, và bài chỉ có kệ, không nêu người nói) và `anussuka` → *không lo lắng* (tiền lệ
+    `ja511:25.4`) thay *"an nhàn"*.
+  - `2.3` `nādinnadaṇḍassa`: `daṇḍa` → *gậy* thay *"roi"* (đo trên tầng: *gậy* 66 khoá, *roi* 7).
+  - `1.1`, `2.1`–`2.3`: `gharā` thống nhất *nhà cửa* cả bài (bản cũ lúc *gia đình*, lúc
+    *nhà*); `gharā nānīhamānassa` vv. = `na` + `anīhamānassa` ("không dành cho kẻ không
+    X", vì `nā-` là sandhi `na` + `a-`), nên đổi *«chẳng có nhà cho»* thành *«nhà cửa chẳng
+    dành cho»* để khỏi đọc thành "người ấy sẽ không có nhà".
+  KHÔNG ĐỔI: tiêu đề `0.1`–`0.4`, `3.1` (đã khớp tiền lệ cả phẩm Upāhana ja231–240); `2.4`
+  *«không lừa gạt người khác»*; `2.6` *«ai lại bước vào đời sống gia đình»* (thành ngữ cho
+  `gharaṁ paṭipajjati`, gần `gharāvāsa`).
+  BẤT ĐỊNH CÒN LẠI (không đưa vào thân kinh):
+  - `2.4` `paresaṁ anikubbato`: `nikubbati` chỉ xuất hiện đúng một lần trong tầng Pāli đã
+    ghim, không có tiền lệ để đối chiếu. Giữ cách đọc "không lừa gạt/không hành xử xấu với
+    người khác"; có thể là "không làm hại". Không khẳng định hơn.
+  - Người nói và người nghe của hai đoạn kệ không được nêu trong bản Pāli có trong kho
+    (bài chỉ có phần kệ), nên không gán danh xưng cụ thể.
+  - Pāli trùng nguyên văn trong chính bài: 0 cặp (các câu `gharā …` chỉ giống nhau về công
+    thức, khác nhau ở từ sau). Không có khoá nào trùng với bài khác ngoài tiêu đề phẩm.
+  TECHNICAL GATE vẫn chưa chạy ở lượt này (bị cấm): `technical_integrity` giữ 9,6; cần chạy
+  `npm run validate`, `npm test`, `npm run check`, `npm run build` khi gộp.

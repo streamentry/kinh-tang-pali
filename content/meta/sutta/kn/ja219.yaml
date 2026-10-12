@@ -10,22 +10,22 @@ tags:
   - dukanipata
 quality:
   scores:
-    source_provenance: 9.3
-    semantic_fidelity: 9.3
+    source_provenance: 9.2
+    semantic_fidelity: 9.2
     grammar_logic: 9.2
     segment_alignment: 10.0
     terminology: 9.0
     triangulation: 7.6
-    vietnamese_clarity: 9.2
+    vietnamese_clarity: 9.0
     han_viet_balance: 9.3
     ambiguity_integrity: 9.2
     technical_integrity: 9.6
-  final_score: 9.17
+  final_score: 9.13
   blocking_errors:
     - "Tại commit đã ghim không có tệp translation/en/sujato/sutta/kn/ja/ja219_translation-en-sujato.json; bài nằm trong 990 bài không được SuttaCentral phát bản Anh. Đây là giới hạn của bản chụp upstream, không phải thiếu sót của kho, nhưng thiếu tầng tham khảu là blocking error nên bài phải giữ draft."
-  assessed_at: "2026-10-02"
+  assessed_at: "2026-10-12"
   assessed_by:
-    - "OpenCode Space Bunny Free (agent)"
+    - "Claude Sonnet 5.5 (Claude Code)"
 notes: |-
   TẦNG THAM KHẢO ĐÃ ĐO, KHÔNG ĐOÁN. 14 bài của lát w10/w8, toàn bộ là Jātaka ngắn của
   pli/ms. Đếm trực tiếp trên đĩa: `.cache/upstream/suttacentral/translation/en/sujato/sutta/kn/ja/`
@@ -168,3 +168,54 @@ notes: |-
   the Ones"*. Tầng này trước đợt sửa có **17** cách cho `Dukanipāta` và **6** cho
   `Asadisavagga`: đó là lý do các agent đợt trước đi theo đa số cục bộ rồi tự sinh cách
   mới. `terminology` giữ nguyên — đây là chuẩn hoá, không phải lỗi riêng của bài này.
+
+  GIẢI QUYẾT DRAFT 2026-10-12 (kiểm toán độc lập, đọc đối kháng từng khoá từ Pāli).
+  KẾT QUẢ: bản cũ sai nghĩa ở 9/15 khoá thật sự (đều là khoá kệ; 0.1–0.4 và 3.1 đúng). Đã dịch lại
+  toàn bộ 10 khoá kệ `1.1–1.4`, `2.1–2.6`; các khoá tiêu đề giữ nguyên. Mục lỗi nghĩa cũ:
+  - `2.6` `so taṁ vitudate janaṁ` bị đọc thành *"bán lẻ từng chút cho dân chúng"*: không có từ nào trong
+    Pāli là "bán". `vitudati` = đâm chọc, châm chích (tầng có tiền lệ: an6.54 *đâm chọc* 5×, snp3.10 *đâm
+    chích*); nay: *"kẻ ấy đâm chọc người ấy."*
+  - `2.3` `lambatthano veṇikato` bị đọc *"thoi dài buộc chỉ"*: `lambatthana` = có vú (ngực) thõng; `veṇikata` =
+    tóc đã bện (bím). Nay: *"vú thõng, tóc bện,"*.
+  - `2.4` `aṅkitakaṇṇako` bị đọc *"kẻ chỉ còn một mắt"*: Pāli nói **tai** (`kaṇṇa`), không có chữ mắt; `aṅkita` =
+    có dấu/được đánh dấu, đọc là tai xỏ lỗ (các bản Anh của bộ Jātaka đều là "pierced ears"). Nay: *"lại có
+    đôi tai xỏ lỗ;"*.
+  - `2.2` `amassuko` = không có râu; bản cũ *"không hề lười"* không có căn cứ. Nay: *"trong đó một người
+    không có râu;"*.
+  - `2.1` `dve dve gahapatayo gehe` bị đọc *"hai gia trưởng cùng giật lấy đi"* (thêm hành động "giật lấy" không
+    có trong Pāli); `dve dve` là phân phối (mỗi nhà hai người). Nay: *"Trong mỗi nhà có hai gia chủ,"*.
+    `gahapati` → *gia chủ*: đo trên tầng 836 khoá có *gia chủ* so với 1 khoá *gia trưởng* (chính bản cũ này) và
+    26 *cư sĩ*.
+  - `2.5` `kīto dhanena bahunā` = được mua bằng nhiều của cải; bản cũ thêm tân ngữ "nó" và hành động "bỏ ra".
+  - `1.2` `esā rattiṁ divā kathā` bị đọc *"lời bàn ban ngày của đêm tối"* (đảo nghĩa); nay *"đó là lời bàn đêm
+    ngày"*.
+  - `1.4` `ariyadhammaṁ apassataṁ` bị đọc *"bạch pháp lành lành"* (chữ vô nghĩa, và thiếu động từ "thấy"); nay
+    *"không thấy Thánh pháp."* — `ariyadhamma` → *Thánh pháp* là cách dịch của tầng (24 khoá có chữ này trong
+    135 khoá chứa `ariyadhamm…`, số còn lại là hợp từ như `ariyadhammassavana`; *bạch pháp* chỉ có ở chính bản
+    cũ này, 1/135).
+  - `1.1` `hiraññaṁ me suvaṇṇaṁ me` bản cũ lặp *"vàng… vàng cũng"* làm mất cặp `hirañña`/`suvaṇṇa`; nay
+    *"Tiền vàng của ta, vàng ròng của ta,"* theo tiền lệ `ja534:53.1` và `thig13.5:11.1` (*tiền vàng / vàng
+    ròng*); `ja547:50.3` và `:56.1` dùng *vàng thỏi / vàng ròng* (2 : 2, ghi cả hai).
+  - `1.3` `dummedhānaṁ manussānaṁ` → *những người thiếu trí* (`dummedha`: *thiếu trí* 13 khoá, *ngu dốt* 9).
+  Các mục THUẬT NGỮ/BẤT ĐỊNH CŨ của `ja219` bị thay thế bởi mục này: `veṇikā` → *thoi buộc chỉ*;
+  `aṅkitakaṇṇako` → *kẻ chỉ còn một mắt*; `gahapati` → *gia trưởng*; `ariyadhamma` → *bạch pháp*;
+  `dummedhāna` → *ngu dốt*; `hirañña`/`suvaṇṇa` → *vàng*/*vàng*; và dòng bất định `ja219:2.3` (đã giải: không phải
+  "thoi chỉ" mà là vú thõng, tóc bện). Dòng "dùng nhất quán `gia trưởng` với `ja199:2.1`" không còn áp dụng.
+  Các mục của 13 bài anh em trong lát cũ không thuộc bài này và không bị đụng tới.
+  KIỂM TRA: 15/15 khoá, tập khoá trùng Pāli; không có Pāli trùng nguyên văn trong chính bài (0 cặp trùng nội
+  bộ — phép này chạy rỗng); nháy kép mở ở `1.1`, đóng ở `2.6` đúng như Pāli (chạy qua ranh giới khoá); không có
+  `…`/`(…)`; không có số Pāli cần tính; không Pāli lọt vào bản dịch.
+  ĐỐI CHIẾU NGOÀI TẦNG (chỉ để kiểm cách đọc, không chép câu chữ): các bản tóm lược tiếng Anh công khai của
+  Garahitajātaka cùng nêu "một trong hai chủ nhà không râu, vú dài, tóc bện, tai xỏ lỗ", khớp cách đọc
+  `2.2–2.4`. Đây không phải tầng được ghim nên không nâng `triangulation`.
+  BLOCKER ĐÃ PHÂN LOẠI: chỉ còn một blocker, loại *thiếu bản Anh upstream* (Sujato không có bài này tại commit
+  đã ghim) — GIỮ NGUYÊN, đó là sự thật về upstream, để quy trình waiver của người biên tập xử lý. Không có
+  blocker về độ phủ English (mẫu số = 0: khoá Pāli dài nhất 38 ký tự, không khoá nào ≥ 40, nên cổng không đo được gì) và tầng Việt
+  hiện hành chỉ có Pháp Cú — giới hạn tham chiếu, không phải lỗi văn bản. `triangulation` 7,6 (≤ 8,0 vì không
+  có bản Anh độc lập).
+  BẤT ĐỊNH CÒN LẠI (không đưa vào thân kinh): (1) `aṅkitakaṇṇako` đọc "tai xỏ lỗ" theo truyền thống chú giải
+  Anh ngữ; nghĩa đen Pāli là "tai có dấu". (2) `taṁ janaṁ` ở `2.6` có thể là một người (người còn lại trong
+  nhà) hoặc tập thể (người ta); giữ nghĩa đen *"người ấy"*. (3) Pāli không nói người không râu là ai (nghĩa
+  "vợ" thuộc chú giải, không đưa vào thân kinh). `hirañña` chia 2 : 2 giữa *tiền vàng* và *vàng thỏi*.
+  Technical gate vẫn chưa chạy: `npm run validate` · `npm test` · `npm run check` · `npm run build`;
+  `technical_integrity` giữ 9,6.

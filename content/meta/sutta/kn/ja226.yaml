@@ -10,22 +10,22 @@ tags:
   - dukanipata
 quality:
   scores:
-    source_provenance: 9.3
-    semantic_fidelity: 9.3
-    grammar_logic: 9.2
+    source_provenance: 9.2
+    semantic_fidelity: 8.8
+    grammar_logic: 8.8
     segment_alignment: 10.0
     terminology: 9.0
-    triangulation: 7.6
-    vietnamese_clarity: 9.2
-    han_viet_balance: 9.3
-    ambiguity_integrity: 9.2
+    triangulation: 7.0
+    vietnamese_clarity: 9.0
+    han_viet_balance: 9.2
+    ambiguity_integrity: 9.0
     technical_integrity: 9.6
-  final_score: 9.17
+  final_score: 8.96
   blocking_errors:
     - "Tại commit đã ghim không có tệp translation/en/sujato/sutta/kn/ja/ja226_translation-en-sujato.json; bài nằm trong 990 bài không được SuttaCentral phát bản Anh. Đây là giới hạn của bản chụp upstream, không phải thiếu sót của kho, nhưng thiếu tầng tham khảu là blocking error nên bài phải giữ draft."
-  assessed_at: "2026-10-02"
+  assessed_at: "2026-10-12"
   assessed_by:
-    - "OpenCode Space Bunny Free (agent)"
+    - "Claude Sonnet 5.5 (Claude Code)"
 notes: |-
   TẦNG THAM KHẢO ĐÃ ĐO, KHÔNG ĐOÁN. 14 bài của lát w10/w8, toàn bộ là Jātaka ngắn của
   pli/ms. Đếm trực tiếp trên đĩa: `.cache/upstream/suttacentral/translation/en/sujato/sutta/kn/ja/`
@@ -169,3 +169,46 @@ notes: |-
   the Ones"*. Tầng này trước đợt sửa có **17** cách cho `Dukanipāta` và **6** cho
   `Asadisavagga`: đó là lý do các agent đợt trước đi theo đa số cục bộ rồi tự sinh cách
   mới. `terminology` giữ nguyên — đây là chuẩn hoá, không phải lỗi riêng của bài này.
+
+  Giải quyết draft 2026-10-12 (ja226, 15 khoá, kiểm toán độc lập đọc đối kháng từng khoá).
+  Mục *thay thế* các dòng cũ ở trên về `kosiya` → *tên tắm* (mục "THUẬT NGỮ ĐẶT MỚI", dòng
+  `kosiya` → *tên tắm*) và đoạn cuối "`kosiya` được dịch hai nghĩa trong đúng một bài": các
+  dòng đó SAI và không còn hiệu lực. `kosiya` ở thân kệ là CON CÚ (`kosiya` = cú; chứng cứ
+  trong kho: `ja270:1.2` `kosiyo issaro kato` được dịch *con cú*, cùng bài có `ulūka`; `ja145:1.4`
+  `kosiyāyane` = tổ chim cú; `ja425:8.1` `kākā ulūkā` / `ja547:186.4` `ulūkaññeva vāyasā`
+  cho cặp quạ–cú). Không có nghĩa "tên tắm" nào trong Pāli của bài; bản cũ đã bịa ra một
+  vật (mũi tên) và hai lần đọc sai.
+  - KHOÁ ĐỔI (9 khoá sửa/15; trong đó lỗi nghĩa thật 5/15: `1.4`, `1.6`, `2.1`, `2.2`, `2.4`; 4 khoá còn lại `1.1`, `1.2`, `1.3`, `1.5` chỉ sửa nhẹ; 6 khoá giữ — `0.1`–`0.4`, `2.3`, `3.1`):
+    `1.1`–`1.2` (*lành* → *tốt*, bỏ "mà…thì" thêm vào; cùng nghĩa, sửa nhẹ); `1.3` thêm *quả vậy*
+    cho `hi`; `1.4` bản cũ *"dù chỉ một mũi tên cũng làm hại nhiều"* là bịa (không có từ nào
+    nghĩa "mũi tên", "làm hại"); Pāli `ekakampi bahujjano` = *dù chỉ [đối với] một kẻ đơn độc,
+    đám đông* (`ekakaṁ` dùng như tân ngữ "một mình nó": `ja492:7.4` `vasaṁ kāhāma ekakaṁ` =
+    *đưa riêng một mình nó*, `thi-ap20:28.2`, `ja538:87.2` `ekakampi` = *dù chỉ một mình*);
+    `1.5` giữ nguyên nghĩa *chẳng đạt được điều gì* (`na kiñci atthaṁ joteti`); `1.6` bản cũ
+    *"như tên tắm giữa đàn quạ"* sai: `dhaṅkasenāva kosiyaṁ` = *như đạo quân quạ [đối với]
+    con cú* (`dhaṅka` = quạ, `senā` = quân/đội, `kosiya` = cú, tân ngữ); `2.1` bản cũ *"hiểu
+    từng điều luật"* sai: `vidhividhānaññū` = *biết phép tắc và cách sắp đặt*; `2.2` bản cũ
+    *"lần theo kẻ khác mà bung tên"* sai, không có "bung tên": `paresaṁ vivarānugū` = *lần theo
+    kẽ hở của kẻ khác* (`vivara` = kẽ hở/chỗ sơ hở); `2.4` bản cũ *"thong dong như tên tắm"*
+    sai cả vật so sánh lẫn `sukhī siyā`: = *sẽ được an lạc như con cú* (`sukhī siyā` theo
+    `dhp206:4` *được an lạc*). `2.3` giữ: dùng lại nguyên văn `snp3.7:26.3` (Pāli trùng, 1/1 cặp trùng
+    đã dò trong tầng, Việt không khác).
+  - BLOCKER GIỮ: (A) thiếu bản Anh upstream — là sự thật về bản chụp upstream, giữ nguyên.
+    Bài chỉ có một blocker này; không có blocker độ phủ Sujato (B) hay tầng Việt hiện hành (C)
+    do tác giả cũ ghi (bài không có tầng Anh nào để đo coverage; tầng `vietnamese-current` chỉ
+    có Pháp Cú — giới hạn tham chiếu, không phải lỗi văn bản). Không có blocker lỗi văn bản (D).
+  - `triangulation` 7,0: không có bản Anh nào, không có Việt hiện hành; chỉ có Pāli + tiền lệ
+    nội tầng (Jātaka cùng cặp quạ–cú). Giảm 7,6 → 7,0 vì lần đọc lại cho thấy bản cũ đã lệch
+    chính ở chỗ không có tầng nào để bắt lỗi.
+  - BẤT ĐỊNH CÒN LẠI (không đưa vào thân kinh): (1) `bahujjano` làm chủ ngữ của `joteti`
+    (đám đông — chính là đạo quân quạ); `ekakampi` là tân ngữ "một kẻ đơn độc" (chính là
+    con cú); chủ thể "ra đi sai thời" là đám đông quạ, đi vào ban đêm. Cách đọc ngược lại
+    (con cú ra đi sai thời giữa ban ngày) không khớp ngữ pháp `nikkhamma` — gerund chung chủ ngữ
+    với `joteti` — nên không chọn, nhưng câu kệ cô đọng, không có chú giải đối chiếu trong
+    tầng để phân xử tuyệt đối. (2) `-va` ở `dhaṅkasenāva`/`kosiyova`: đọc là `iva` ("như"),
+    cùng cấu trúc ở hai chỗ; đọc `eva` ở `2.4` ("chính con cú mới…") cũng khả dĩ nhưng ít tự
+    nhiên. (3) `joteti` (sáng tỏ/thành tựu): dịch *đạt được* theo nghĩa "đạt được kết quả";
+    không thêm nghĩa. (4) tiêu đề `Kosiya` (`0.4`, `3.1`) giữ như tên bài theo công thức tầng,
+    dù ở thân kệ là con cú — khác nghĩa có chủ ý, theo cách tầng đã giữ `Kosiya` ở `ja470`.
+  - TECHNICAL GATE: CHƯA CHẠY trong lượt này (bị cấm chạy lệnh của kho); `technical_integrity`
+    giữ 9,6. Cần chạy `npm run validate`, `npm test`, `npm run check`, `npm run build` sau khi gộp.
