@@ -4,6 +4,7 @@
  *   npm run quality:waive              # write
  *   npm run quality:waive -- --dry-run # report only
  *
+ * A text with no blocker at all has its status recomputed from the scorecard (a stale waiver is dropped).
  * For every text whose scorecard carries a blocker a waiver covers, and whose waiver
  * condition holds at the pinned commit, record `quality.waiver` and recompute `status` with
  * the same gate function `validate` uses. Scores, notes and blockers are never touched: the
@@ -33,7 +34,30 @@ for (const collection of COLLECTIONS) {
     const document = YAML.parseDocument(original);
     const meta = document.toJSON() as EditorialMeta;
     const quality = meta.quality;
-    if (!quality || !Array.isArray(quality.blocking_errors) || quality.blocking_errors.length === 0) continue;
+    if (!quality) continue;
+    if (!Array.isArray(quality.blocking_errors) || quality.blocking_errors.length === 0) {
+      // No blocker left (an audit resolved them all): the recorded status must still follow the
+      // scorecard, and a waiver with nothing to waive is stale. Scores and notes are never touched.
+      if (!quality.scores) continue;
+      const cleanMean = arithmeticMean(Object.values(quality.scores) as number[]);
+      const cleanStatus = expectedStatusForQuality(cleanMean, quality.blocking_errors ?? [], []);
+      if (cleanStatus === meta.status && !quality.waiver) continue;
+      const { waiver: _stale, ...cleanQuality } = quality;
+      const cleanNext = { ...meta, quality: cleanQuality, status: cleanStatus };
+      const cleanErrors = validateQualityAssessment(cleanNext, collection);
+      if (cleanErrors.length) { bump('refused'); console.error(`${collection}/${uid}: ${cleanErrors.join('; ')}`); continue; }
+      bump(`no-blocker ${meta.status}->${cleanStatus}`);
+      if (dryRun) continue;
+      if (quality.waiver) document.deleteIn(['quality', 'waiver']);
+      document.set('status', cleanStatus);
+      const cleanTemporary = `${file}.${randomUUID()}.tmp`;
+      try {
+        writeFileSync(cleanTemporary, document.toString(), { flag: 'wx' });
+        if (readFileSync(file, 'utf8') !== original) throw new Error(`${uid}: metadata changed during apply; kept the concurrent edit`);
+        renameSync(cleanTemporary, file);
+      } finally { if (existsSync(cleanTemporary)) unlinkSync(cleanTemporary); }
+      continue;
+    }
     const waiver = eligibleWaiver(collection, uid, quality.blocking_errors);
     if (!waiver) { bump('not-eligible'); continue; }
     const mean = arithmeticMean(Object.values(quality.scores) as number[]);

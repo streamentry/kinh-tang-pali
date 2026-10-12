@@ -142,6 +142,9 @@ Bài mang waiver có `quality.waiver: { id, blockers }`, ghi bằng `npm run qua
 (`-- --dry-run` để xem trước), **không sửa tay**. `validate` kiểm lại điều kiện mỗi lần chạy: nếu
 upstream từng phát hành bản Anh cho bài thì waiver mất hiệu lực và `status` phải hạ.
 
+Cùng lệnh đó cũng đồng bộ `status` cho bài **không còn blocker nào** (kiểm toán đã giải quyết hết): `status`
+theo đúng điểm (`> 9.0` → `published`, `8.0–9.0` → `review`), và waiver cũ không còn gì để miễn thì bị bỏ.
+
 `published` không có nghĩa "không bao giờ sửa". Phát hiện blocker sau khi publish → sửa ngay hoặc
 hạ về `draft` bằng một lượt `full` mới.
 
