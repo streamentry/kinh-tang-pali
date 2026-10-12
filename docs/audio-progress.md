@@ -374,3 +374,9 @@ Nhật ký append-only. Registry `content/audio/progress.json` được đối s
 - Reused final cached MP3 `fdd25b26457f6630a5babe01dfeeda069b66afbc288f7eeaa2b0b3d22470297c`,30017280bytes; no TTS/ASR. Source/profile/WAV/MP3 and R2 hash/bytes/range verified.
 - Local browser play,+15s,scripture jump158.23s,pause pass; readyState4,no media error. Historical flags retained; reviewpending.
 - Batch MN2/MN4/MN5 contains three repaired UIDs, total4058.232seconds (67m38s). MN2 re-registers the same public artifact; MN4 and MN5 gain player metadata. Stop at this three-file release gate for checks, PR/merge and live verification.
+
+### Batch mn-018 merged — PR #537
+
+- Three repaired UIDs MN2/MN4/MN5; exact headfa576a3ed127a9d9bcc2d9333e9100b23ba45bb8. Push CI38196566260 and PR CI38196625440 both completed success. Local validate,411tests,Astro check,audio-check and full build passed.
+- Squash mergea1ae2cbd0bc1ad330e736a1ccac8faec2d016ebb via https://github.com/streamentry/kinh-tang-pali/pull/537; fetched main and verified ancestry. All player metadata on main. Historical ASR flags retained; manual reviewpending.
+- Pages38203678327 at that merge commit is in progress; no new live claim. Branchcodex/audio-mn-batch-019 starts from merged remote main for durable follow-up evidence. Next held artifacts in numeric order:MN6/MN11/MN13, after current deployment verification.
