@@ -14,15 +14,15 @@ quality:
   scores:
     source_provenance: 9.5
     semantic_fidelity: 8.9
-    grammar_logic: 8.9
+    grammar_logic: 9.0
     segment_alignment: 10.0
-    terminology: 8.9
+    terminology: 9.0
     triangulation: 7.0
-    vietnamese_clarity: 8.8
+    vietnamese_clarity: 8.9
     han_viet_balance: 9.1
     ambiguity_integrity: 8.8
     technical_integrity: 9.6
-  final_score: 8.95
+  final_score: 8.98
   blocking_errors:
     - "noEnglishEditionUpstream: không có tầng tham khảo tiếng Anh nào tại
       commit đã ghim. Tầng `english-sujato` (treeSha
@@ -35,7 +35,7 @@ quality:
       ghim chỉ có Pháp Cú. Cả ba tầng tham khảo đều vắng nên bài bắt buộc
       `draft` và `triangulation` ≤ 8,0 (đặt 7,0). Đây là giới hạn của upstream,
       không phải lỗi của người dịch."
-  assessed_at: "2026-10-11"
+  assessed_at: "2026-10-13"
   assessed_by:
     - "Claude Sonnet 5.5 (Claude Code)"
   waiver:
@@ -68,3 +68,10 @@ notes: |-
   **Dấu lược.** Pāli có 7 dấu lược: `37.1` có 1 `…pe…`, `42.2` có 1 `…pe…` và 5 `…` trần; Việt giữ đúng 7, khoá nào Pāli không có thì Việt không có, và không có `(…)`.
 
   Kiểm kỹ thuật: tập khoá Việt = tập khoá Pāli = 168, đúng thứ tự Pāli; nháy kép khớp Pāli từng khoá (27 mở, 27 đóng; 0 nháy đơn); không khoá rỗng, đều NFC; chữ có dấu Pāli duy nhất còn lại là tên riêng (`Gijjhakūṭa`, `Rādha`, `Māra`, `Mahākaccāyana`). Cổng kỹ thuật CHƯA chạy — cần chạy đủ bốn lệnh trước khi coi `technical_integrity: 9.6` là đạt: `npm run validate`, `npm test`, `npm run check`, `npm run build`.
+
+  **Lượt cải thiện 2026-10-13.** Đọc đối kháng lại cả 168 khoá cặp Pāli↔Việt và đo lại tiền lệ; đổi 11 khoá (1.3, 1.6, 6.2, 31.2, 32.3, 33.5, 35.3, 44.9, 44.10, 44.11, 44.12), không đổi tập khoá hay thứ tự khoá. Căn cứ mới là các bài song song trong tầng: `pe5:35.2` (cùng chuỗi `atthakusalo … itthādhivacanakusalo …`), `ne36:61`–`62` (cùng danh sách ô nhiễm/trong sạch với `44.2`–`44.14`), `ne21:24.3` và `ne37:314.3` (`chattiṁsa … jāliniyā`), `mn139` (`janapadaniruttiyā`), `mnd14:80`/`mnd16:101` (`Andhantamaṁ tadā hoti`).
+  Sửa chính xác/rõ nghĩa: `6.2` đổi cấu trúc từ "Đối với những nghiệp … người ấy sẽ lãnh chịu quả" sang "Người ấy sẽ lãnh chịu quả dị thục … của những nghiệp …", vì Pāli là sở hữu cách `kammānaṁ` bổ nghĩa cho `vipākaṁ` chứ không phải đối cách (grammar_logic 8,9 → 9,0; vietnamese_clarity 8,8 → 8,9). `31.2` `Sā` → "Dục ái ấy" (đại từ giống cái chỉ `kāmataṇhā` ở `31.1`, không phải "điều ấy" chung chung).
+  Sửa thuật ngữ, kèm số đếm: `1.6` "từ chỉ trung tính" → "từ chỉ giống trung tính" (khớp `pe5:35.2` và `pe5:35.5`, cùng bài vừa có "giống cái", "giống đực"), và `janapadaniruttiyo` → "ngôn từ địa phương" (`mn139`, 6/6 khoá); `32.3` dùng lại nguyên văn "bấy giờ là bóng tối mù mịt" (Pāli trùng nguyên văn ở `mnd14:80/82/84`, `mnd16:101/103/105`: 6/6 cặp giống nhau); `35.3` "như tấm lưới" → "như lưới" (`ne21:24.3`, `ne37:314.3`: 2/2); `33.5` `vasena` → "do sức mạnh của" (nhóm `ne`/`pe` có 28 khoá chứa `vasena`: 22 khoá dùng "sức mạnh/thế lực", chỉ `ne15:20.1` dùng "phương diện"; chữ "phương diện" đã dành cho `ākāra` ở `41.1`); `44.9` "khó dạy/dễ dạy" → "khó khuyên dạy/dễ khuyên dạy" (`ne36:61`–`62`; toàn tầng `sovacassa` 10 khoá "dễ khuyên dạy" so với 7 "dễ dạy", `dovacassa` 4/4); `44.10` "niềm tin" → "đức tin" (`ne36:62`, `pe9:44.1`; toàn tầng không có đa số rõ: `assaddh*` 34 "không có đức tin", 12 "không có niềm tin"); `44.11` "thu thúc" → "phòng hộ" (`ne36:61`–`62`; nhóm `ne` 10 "phòng hộ" so với 3 "thu thúc"; `asaṁvar*` toàn tầng 94 so với 52); `44.12` "tham lam" → "tham muốn" (`ne36:61`–`62`; nhóm `ne`: 16 "tham muốn" so với 2 "tham lam"; toàn tầng ngược lại, 404 "tham lam" so với 175 "tham muốn" — chọn phạm vi gần nhất vì đây là cùng một danh sách Netti). Điểm: terminology 8,9 → 9,0. Chữ "Và" thừa ở `1.3` (dấu phẩy trước "và") được bỏ.
+  Đã xét và KHÔNG đổi dù nghi ngờ: `yujjati` → "khớp" ở `31.2`, `36.4`, `37.3`, `38.5` (toàn tầng 46 trong 51 khoá dịch "hợp lý", nhưng cấu trúc `yujjati` + cách công cụ ở đây có song song `pe9:50.3`/`pe9:57.1` dịch "được kết hợp", nên giữ nghĩa "ăn khớp"); `pariyuṭṭhāna` → "sự hiển hiện" (nhóm `ne`+`pe` 31 khoá so với 3 khoá "ám ảnh"); "Chánh pháp" ở `3.1`–`3.4`, `4.2` (dùng lại nguyên văn `ja447:12`, `ja510:23`; `dhammacāri` toàn tầng "Chánh pháp" 7) và "Chánh Pháp" ở `44.11` (`saddhamma` toàn tầng 342 so với 101 "chánh pháp" viết thường); `34.2` đã trùng chữ với `ud7.7:3.2`.
+  Bất định còn nguyên, không có căn cứ phân xử thêm: `1.4` `niruttipadasaṁhitā` (không có tiền lệ nào trong tầng), `1.6` `kātabbāni` (đối tượng "cần được thực hiện"), `10.2` `aṭṭiyitukāmā` (0 tiền lệ cho dạng này; "muốn thấy bất an" nghe nghịch nhưng bám chữ), `25.2` `dehanissitaṁ` (0 tiền lệ), `36.1` `pariyuṭṭhānasaṅkhārā` (hợp từ đẳng lập hay danh từ ghép), `44.8` `ayoniyā` (0 tiền lệ), `44.13` `saṁyojaniyehi` ("các pháp thuộc kiết sử" so với "các pháp gây trói buộc" ở `sn41.1`). Chủ ngữ "người ấy" ở `6.2` do bản dịch thêm cho động từ ngôi ba không có chủ ngữ ở Pāli.
+  Điểm không đổi: semantic_fidelity 8,9, triangulation 7,0 (vẫn không có bản Anh độc lập; các bài song song trên chỉ là đối chiếu nội bộ tầng Việt), ambiguity_integrity 8,8, han_viet_balance 9,1, source_provenance 9,5, technical_integrity 9,6. Blocker `noEnglishEditionUpstream` giữ nguyên. final_score 8,95 → 8,98 (trung bình thô của 10 điểm). Cổng kỹ thuật CHƯA chạy lại: `npm run validate`, `npm test`, `npm run check`, `npm run build`.

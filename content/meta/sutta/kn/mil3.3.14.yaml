@@ -1,6 +1,6 @@
 uid: mil3.3.14
 status: review
-translationTitle: "14. Câu Hỏi Về Dấu Hiệu Của Sự Suy Xét."
+translationTitle: "14. Câu hỏi về đặc trưng của tứ"
 translators:
   - "OpenCode Space Bunny Free (agent)"
 reviewers: []
@@ -13,23 +13,23 @@ quality:
   scores:
     source_provenance: 9.5
     semantic_fidelity: 9.0
-    grammar_logic: 9.0
+    grammar_logic: 9.2
     segment_alignment: 10.0
-    terminology: 8.8
+    terminology: 9.0
     triangulation: 6.5
     vietnamese_clarity: 9.1
     han_viet_balance: 9.2
     ambiguity_integrity: 8.8
     technical_integrity: 9.6
-  final_score: 8.95
+  final_score: 8.99
   blocking_errors:
     - "Tầng English Sujato vắng mặt tại commit đã ghim (không có tệp upstream
       cho thư mục này) nên chưa đối chiếu được một bản Anh độc lập; validate đòi
       tầng này cho review và published, nên bài giữ draft dù đã dịch đủ mọi khoá
       từ Pāli root."
-  assessed_at: "2026-10-01"
+  assessed_at: "2026-10-13"
   assessed_by:
-    - "OpenCode Space Bunny Free (agent)"
+    - "Claude Sonnet 5.5 (Claude Code)"
   waiver:
     id: no-upstream-english
     blockers:
@@ -52,3 +52,15 @@ notes: |-
   **Không có bản Việt tham khảo** tại commit đã ghim (`translation/vi/` bilara chỉ có 26 tệp Pháp Cú), nên `triangulation` chỉ 6,5.
 
   **`technical_integrity` 9,6** vì đợt này cấm `npm run validate|test|build`.
+
+  **Lượt cải thiện 2026-10-13.** Đọc đối kháng từng khoá thấy bản trước có một lỗi thật ở ví dụ `2.2`–`2.3` và ba chỗ lệch tiền lệ; 9/12 khoá đã đổi.
+
+  *Accuracy fix, `mil3.3.14:2.2`–`2.3`.* Bản cũ dịch `kaṁsathālaṁ ākoṭitaṁ pacchā anuravati anusandahati` thành *tấm đúc đồng đã đổ đầy, lật úp xuống thì phần đã đổ vào chảy ngược và tụ lại bên trong*, và `ākoṭanā` thành *cái khuôn đúc*, `anuravanā` thành *sự chảy ngược*. Pāli không có đổ, lật úp, khuôn hay chất lỏng; đó là cách đọc bịa thêm. Gốc từ là `ākoṭeti` (gõ), `anuravati` (ngân vang theo), nên ví dụ là vật đồng bị gõ rồi còn ngân vang về sau: `ākoṭanā` (việc gõ) là điều đem ra so với tầm, `anuravanā` (tiếng ngân vang) so với tứ. Đối chiếu trong kho: `ākoṭ-` dịch *gõ* ở `mil6.3.6:22.1`, `mil6.3.6:23.1` và `ps1.3:95.6` (*chuông đồng bị gõ*); `kaṁsathāla` dịch *chậu đồng* ở 6 chỗ (`dn2:76.1`, `dn10:2.14.1`, `mn39:15.4`, `mn77:25.4`, `mn119:18.3`, `an5.28:2.4`) so với *bát đồng* ở 1 chỗ (`ja374:7.2`), nên theo đa số 6:1. `grammar_logic` 9.0 → 9.2 vì đã sửa phép phân tích câu so sánh (hai vế *như việc gõ → tầm*, *như tiếng ngân vang → tứ* thay cho vế bị đảo trước đây).
+
+  *Terminology fix, theo tiền lệ đã đo.* `vitakka` → *tầm*: 12 khoá trong `mil` dịch *tầm* so với 5 dịch *suy nghĩ*, và bài liền trước cùng phẩm `mil3.3.13` và `mil3.4.1:1.2` dịch *tầm* (cặp *tầm – tứ*); bản cũ viết *sự suy nghĩ* nên làm vế đối của cặp bị lệch. `vicāra` → *tứ*: 47 khoá toàn tầng dịch *tứ* so với 10 khoá dịch *suy xét* (gồm các khoá của chính bài này); bản cũ chọn *suy xét* vì tưởng không có tiền lệ, nhưng tiền lệ có và là đa số. `lakkhaṇa` → *đặc trưng*: sáu bài liền trước cùng phẩm (`mil3.3.8`–`mil3.3.13`) dùng *đặc trưng*, trong khi *dấu hiệu* thuộc phẩm khác (`mil3.1.8`, `mil3.1.11`–`mil3.1.13`); đồng bộ theo phạm vi gần nhất. `Vicāravagga` → *Phẩm Khảo Sát*: 12/13 khoá `0.2` cùng phẩm đã dùng dạng này, `mil3.3.14:0.2` và `5.1` trước đó là cái duy nhất viết *Phẩm Suy Xét*. `Opammaṁ karohī` → *Hãy xét một thí dụ*: 34/40 chỗ trong `mil` dùng *xét một thí dụ*, bản cũ *Hãy đưa một ví dụ* là một trong 4 dạng thiểu số; tiêu đề `0.3` bỏ dấu chấm cuối như 11/14 tiêu đề cùng phẩm. Điểm `terminology` 8.8 → 9.0.
+
+  *Đổi `anumajjana`.* Bản cũ dịch `anumajjanalakkhaṇo` thành *mang dấu hiệu của sự cân nhắc*. Căn `majj-` mang nghĩa lau, xoa, lướt qua; không có nghĩa cân nhắc, nên đó là thêm nghĩa. Đổi thành *sự lần theo*, bám nghĩa *đi qua lại trên cùng một đối tượng* và có tiền lệ cùng căn `mil4.1:3.1` (*Navaṅgaṁ anumajjanto* → *lần theo chín phần*).
+
+  **Bất định còn lại, không giải được.** (1) `anumajjana`: tầng Pāli đã ghim không có bài song song nào định nghĩa nó đúng ở nghĩa này, nên *lần theo* là lựa chọn bám sát gốc từ nhất chứ không phải nghĩa đã được chứng minh; các nghĩa khả dĩ khác (*xoa đi xoa lại*, *lướt theo*) không loại trừ được. (2) `anusandahati` dịch *nối tiếp* (cùng căn `an7.49:3.1`, nơi tầng dịch *chạy theo*); nghĩa *kéo dài ra* cũng hợp ngữ cảnh. (3) `kaṁsathāla` ở đây là vật bị gõ cho ngân vang nên có thể là chiêng hay mâm đồng; *chậu đồng* theo đa số tiền lệ nhưng không phải bằng chứng về hình dạng. Vì ba điểm trên `semantic_fidelity` giữ 9.0 và `ambiguity_integrity` giữ 8.8. `triangulation` giữ 6.5, `technical_integrity` giữ 9.6, `vietnamese_clarity` giữ 9.1 vì *sự lần theo* vẫn hơi trừu tượng. `final_score` 8.95 → 8.99.
+
+  **Kiểm.** Đủ 12/12 khoá, đúng thứ tự Pāli, NFC; nháy và ngoặc kép khớp Pāli từng khoá (`2.2` mở, `2.3` đóng); không dấu lược trong bài (Pāli cũng không có); không Pāli lọt sang; Pāli trùng nguyên văn trong bài: 0 cặp. Chưa chạy `npm run validate`, `npm test`, `npm run check`, `npm run build`.

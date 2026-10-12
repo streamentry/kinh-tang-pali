@@ -12,25 +12,25 @@ tags:
 quality:
   scores:
     source_provenance: 9.5
-    semantic_fidelity: 8.8
-    grammar_logic: 8.7
+    semantic_fidelity: 9.3
+    grammar_logic: 9.2
     segment_alignment: 10.0
-    terminology: 8.5
+    terminology: 8.0
     triangulation: 7.0
     vietnamese_clarity: 9.2
     han_viet_balance: 9.2
     ambiguity_integrity: 8.6
-    technical_integrity: 10.0
-  final_score: 8.95
+    technical_integrity: 9.6
+  final_score: 8.96
   blocking_errors:
     - "Thiếu tầng tham khảo English SuttaCentral: source/upstream-manifest.json
       (editions[english-sujato]) không có tệp nào cho bài này, và tại commit đã
       ghim không có bản Anh nào khác phủ được. AGENTS.md xem thiếu tầng tham
       khảo là lỗi chặn với review và published, nên bài phải ở draft cho tới khi
       tầng tham khảo có mặt."
-  assessed_at: "2026-10-01"
+  assessed_at: "2026-10-13"
   assessed_by:
-    - "OpenCode Space Bunny Free (agent)"
+    - "Claude Sonnet 5.5 (Claude Code)"
   waiver:
     id: no-upstream-english
     blockers:
@@ -64,3 +64,29 @@ notes: |-
   đúng là cho cả hai vế thay vì dịch 1.1 thành cũng (như vậy là tự dự trước tvampi của 1.2).
   Hạ triangulation 7.0 vì không có tầng Anh nào và cũng không có bản Việt tham khảo
   (vietnamese-current tại commit đã ghim chỉ có Pháp Cú).
+  Lượt cải thiện 2026-10-13 (đọc đối kháng từng khoá, đối chiếu Pāli; các câu ở lượt trước nói
+  khác đi về `samma`, người nói và tiền lệ `daḷha` được thay bằng phần dưới).
+  SỬA LỖI THẬT: `samma` ở 1.1, 1.2, 1.3, 2.4 là hô cách "này bạn" (lời gọi người đối thoại),
+  không phải trạng từ "đúng/đàng hoàng/thật sự". Đo tầng: 107 khoá có `samma`, đa số đọc là "này
+  bạn" (ja386, ja400, ja451, ja465, ja495, ja542...). Khoá đổi và vì sao: 1.1 bỏ "đúng là" thêm
+  "Này bạn"; 1.2 tương tự (`tvampi` = "ngươi cũng"); 1.3 "hãy quay trở lại cho đàng hoàng"
+  thành "hãy đến, này bạn, hãy quay lại" (`ehi` = hãy đến, `nivattassu` = hãy quay lại);
+  1.4 `kiṁ nu` = "vì sao", bỏ cấu trúc "điều gì khiến ngươi"; 2.2 `duggandho vāsi` "ngươi bốc mùi
+  hôi hám" (tiền lệ "tỏa mùi hôi hám" trong tầng); 2.3 bỏ "cứ ham" (Pāli chỉ có `yujjhitukāmo`
+  = muốn giao chiến, không có "cứ"); 2.4 bỏ "thật sự ban", dịch "này bạn, ta cho ngươi chiến
+  thắng" (cùng cấu trúc với ja294:2.4 và ja465:12.4). 7/13 khoá đổi; 0.1-0.4, 2.1, 3.1 giữ vì
+  khớp tiền lệ (3.1 khớp ja151, ja152, ja154, ja155).
+  Điểm đổi: semantic_fidelity 8.8 sang 9.3 và grammar_logic 8.7 sang 9.2 (hết lỗi phân tích
+  `samma`, hết nghĩa thêm); terminology 8.5 sang 8.0 (xem dưới); technical_integrity 10.0 sang
+  9.6 vì chưa chạy lại bốn lệnh: npm run validate, npm test, npm run check, npm run build.
+  ĐÍNH CHÍNH GHI CHÚ CŨ: (a) câu "Người nói là con rắn" là sai; Pāli không nêu con rắn (đó là
+  bài ja154 kế bên). (b) Tiền lệ "daḷha = tàn tật" không kiểm lại được: 338 khoá chứa `daḷha`
+  trong tầng đều dịch theo nghĩa chắc, vững, kiên cố, mạnh; không khoá nào là tàn tật. Tên
+  `Daḷhavagga` dịch "Phẩm Tàn Tật" đang dùng ở 9 trong 10 bài của phẩm (ja151-ja160, riêng ja159
+  là "Phẩm Người Yêu") nên giữ nguyên ở 0.3 để phẩm không bị tách nhãn, nhưng đây là bất định
+  thuật ngữ thật và cần một lượt sửa chung cả phẩm; vì vậy hạ terminology.
+  Bất định còn lại: Pāli không ghi người nói. Chỉ suy ra từ hô cách `sūkara` ở 2.2: lời ở khổ 2
+  nói với con heo, nên khổ 1 là lời của bên kia (lời gọi quay lại hỏi vì sao bỏ chạy). Phần suy
+  này không thêm vào thân kinh. Nghĩa của `jayaṁ dadāmi te` (nhường hay thách) vẫn để ngỏ.
+  triangulation giữ 7.0: không có tầng Anh độc lập nào và không có bản Việt tham khảo.
+  Blocker thiếu tầng English giữ nguyên vì là sự thật về upstream.

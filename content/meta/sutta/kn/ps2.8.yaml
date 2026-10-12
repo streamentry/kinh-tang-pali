@@ -16,19 +16,19 @@ quality:
     semantic_fidelity: 9.0
     grammar_logic: 9.0
     segment_alignment: 10.0
-    terminology: 8.8
+    terminology: 9.2
     triangulation: 7.0
     vietnamese_clarity: 9.2
     han_viet_balance: 9.3
     ambiguity_integrity: 8.2
     technical_integrity: 9.6
-  final_score: 8.95
+  final_score: 8.99
   blocking_errors:
     - "noEnglishEditionUpstream: Thiếu bản dịch tiếng Anh đối chiếu — tầng
       english-sujato không có ps2.8 tại commit đã ghim, lớp english-project và
       vietnamese-current cũng vắng; bài chỉ dịch từ Pāli root nên chưa đủ điều
       kiện published."
-  assessed_at: "2026-10-10"
+  assessed_at: "2026-10-13"
   assessed_by:
     - "Claude Sonnet 5.5 (Claude Code)"
   waiver:
@@ -54,3 +54,12 @@ notes: |-
   Phép kiểm đã chạy: tập khoá Việt = tập khoá Pāli (74 = 74), thứ tự giống Pāli; nháy đơn, nháy kép và dấu lược … khớp Pāli từng khoá (0 lệch, không khoá nào có dấu nháy hay dấu lược); NFC đạt; 0 khoá rỗng; 0 cặp Pāli trùng nguyên văn trong chính bài nên phép đối chiếu nội bộ chạy rỗng, không phải đạt; không Pāli lọt sang Việt ngoài tên riêng Paṭisambhidāmagga ở khoá tiêu đề. Đã in và đọc đủ 74 cặp Pāli với Việt.
 
   Chưa chạy cổng kỹ thuật nên technical_integrity đặt 9,6: còn phải chạy npm run validate, npm test, npm run check, npm run build.
+
+  Lượt cải thiện 2026-10-13: đọc đối kháng lại đủ 74 cặp Pāli với Việt, đo tiền lệ trên toàn tầng, sửa 14/74 khoá; tập khoá, thứ tự khoá, nháy và dấu lược không đổi (0 khoá có nháy hay dấu lược). Các câu về tiền lệ ở phần Thuật ngữ và Bất định phía trên được thay thế bởi những số đo sau.
+  (a) Cặp visineti/ussineti và vidhūpeti/sandhūpeti (2.63 đến 2.66) có song song nguyên văn đúng thứ tự trong sn22.79 (12.3, 12.4, 14.1), kèm mnd1:81, mnd16:61, cnd8:106; bản Việt của cả bốn bài đều dịch tháo gỡ / chất chồng / làm tiêu tán / hun đốt, bản Anh sn22.79 dịch unmesh / enmesh / dissipate / get clouded. Trước đó 2.64 là không siết chặt, 2.65 là dập tắt, 2.66 là không nhen lên, và ghi nhầm rằng không có tiền lệ. Đã đổi 2.64 sang không chất chồng, 2.65 sang làm tiêu tán, 2.66 sang không hun đốt; 2.63 giữ tháo gỡ. Bất định (1) và (2) ở trên coi như đã giải quyết bằng song song; cách đọc theo gốc sineha chỉ còn là ghi chú lịch sử. Đổi nghĩa thật sự ở ba khoá, thuộc accuracy fix.
+  (b) sāmaññaphala: danh sách bốn quả này có tiền lệ cùng khuôn là bốn quả sa-môn (dn33, dn34, mnd10, cnd22, pe6: 5 nơi) so với sa-môn quả (cnd23: 1 nơi); toàn tầng 96 khoá, quả sa-môn 74 so với sa-môn quả 14. Câu cũ ghi 2 tiền lệ là sai. Đã đổi 1.2 sang bốn quả sa-môn (terminology fix).
+  (c) visaññutta (2.30 đến 2.35): tách lìa 10 khoá (dn33, dn34 cùng cách dùng khoá visaṁyuttaṁ với ablative) so với tách rời 3 khoá trên 202 khoá có visaṁyutta/visaññutta; đổi sang tách lìa ở sáu khoá (terminology fix).
+  (d) asādhāraṇa (2.58): không chung với 34 trên 49 khoá (vd an4.124:1.6 không chung với phàm phu); đổi không phải thứ chung với thế gian thành không chung với thế gian (clarity fix).
+  (e) 2.52 và 2.54: thêm chủ ngữ chúng như mọi khoá khác (Vì chúng ở trạng thái đã …), để câu không thiếu chủ thể trong Việt; không đổi cách đọc ablative của danh từ trừu tượng. 2.67: thêm dấu phẩy trước nên để tách vế đã vượt quá và chế ngự khỏi vế an trụ (clarity fix).
+  Đã đo và giữ nguyên: lokuttara là xuất thế gian 46 so với siêu thế 53 trên 107 khoá toàn tầng, nên giữ xuất thế gian vì cả bài là chuỗi giải nghĩa loka và uttara, còn siêu thế sẽ làm mất chữ thế gian lặp lại; ở phẩm ps cả hai cách đều có. Khuôn câu hỏi 2.1 là Xuất thế gian nghĩa là gì—do ý nghĩa nào mà là xuất thế gian giữ theo họ ps (15 so với 3 khuôn khác trong ps), dù ngoài ps khuôn hai chấm có 18 khoá trong mnd và cnd; đó là phần thêm nhỏ nghĩa là gì so với Pāli. samatikkamati là hoàn toàn vượt quá dù toàn tầng dịch vượt qua 388 trên 511, vì tarati đã chiếm vượt qua và bài cần phân biệt ba động từ tarati, atikkamati, samatikkamati. Bộ ba na sajjati, na gayhati, na bajjhati có tiền lệ sn16.3 là không bị dính, không bị nắm giữ, không bị vướng; giữ không dính mắc, không bị nắm giữ, không bị trói buộc (bajjhati bị trói 7, trói buộc 2). samucchindati là đoạn tuyệt 28 so với đoạn trừ 98 và cắt đứt 56 toàn tầng; giữ đoạn tuyệt vì ps1.1 dùng đoạn tuyệt cho samuccheda. vamati và paccāvamati vẫn không có đa số: sn45.153 dịch chảy ra và chảy trở lại, ja69 dịch nuốt lại; giữ nhả bỏ và không nuốt lại.
+  Điểm đổi: terminology 8.8 thành 9.2, vì năm nhóm thuật ngữ đã đưa về đa số hoặc song song và một câu tiền lệ sai đã được thay. Các tiêu chí khác giữ nguyên: semantic_fidelity và ambiguity_integrity không nâng vì bất định thật còn lại (vivaṭṭanti dịch quay đi vì chỉ có tiền lệ gần là ps1.1:324.6 và ps1.4:71.26; hai khoá -ttā ở 2.52 và 2.54; ba khoá instrumental dịch đối với; vamanti), triangulation không nâng vì vẫn không có bản Anh hay Việt hiện hành độc lập cho cả bài và sn22.79 chỉ đối chiếu được sáu khoá. final_score 8,95 thành 8,99. Blocker noEnglishEditionUpstream giữ nguyên, đó là sự thật về upstream; 0 cặp Pāli trùng nguyên văn trong chính bài nên phép đối chiếu nội bộ chạy rỗng. technical_integrity vẫn 9,6 vì chưa chạy npm run validate, npm test, npm run check, npm run build.

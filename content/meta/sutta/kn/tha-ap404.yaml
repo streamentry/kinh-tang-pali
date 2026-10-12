@@ -11,16 +11,16 @@ tags:
 quality:
   scores:
     source_provenance: 9.2
-    semantic_fidelity: 9.0
+    semantic_fidelity: 9.1
     grammar_logic: 9.1
     segment_alignment: 10.0
-    terminology: 9.0
+    terminology: 9.3
     triangulation: 6.5
     vietnamese_clarity: 9.0
     han_viet_balance: 9.2
     ambiguity_integrity: 9.0
     technical_integrity: 9.6
-  final_score: 8.96
+  final_score: 9.0
   blocking_errors:
     - "Không có tầng tham khảo tiếng Anh tại commit đã ghim
       11c9d708978cde8ba61096d8a75f7ddfb846f639:
@@ -38,7 +38,7 @@ quality:
       uid này. Cả ba tầng tham khảo đều vắng, bản dịch chỉ dựa trên Pāli root;
       đây là giới hạn của upstream, không phải lỗi của người dịch. Vì vậy
       `triangulation` bị chặn ở 6.5 (≤ 8.0) và không nâng điểm để né blocker."
-  assessed_at: "2026-10-10"
+  assessed_at: "2026-10-13"
   assessed_by:
     - "Claude Sonnet 5.5 (Claude Code)"
   waiver:
@@ -119,3 +119,12 @@ notes: |-
 
   CỔNG KỸ THUẬT: không chạy được trong lát này nên `technical_integrity` đặt 9.6, không tuyên bố đã qua
   cổng. Còn phải chạy trước khi gộp: npm run validate, npm test, npm run check, npm run build.
+
+  Lượt cải thiện 2026-10-13 (đọc đối kháng 66/66 khoá, đo tiền lệ trên tầng `tha-ap` và đối chiếu bài anh em tha-ap409, tha-ap408, tha-ap414 cùng phẩm). Đổi 5 khoá, giữ nguyên tập khoá:
+  - `:11.1` *Đây là lần cuối cùng của ta* → *Đây là đời cuối cùng của ta* và `:11.2` *đời cuối cùng này đang diễn ra* → *kiếp sống tối hậu đang diễn ra* (terminology fix). Cặp `Idaṁ pacchimakaṁ mayhaṁ` / `carimo vattate bhavo` có 8 và 14 khoá ở tầng: dạng *đời cuối cùng của ta* chiếm 6/8 ở vế đầu, dạng *kiếp sống tối hậu đang diễn ra* chiếm 9/14 ở vế sau, và tha-ap409:38 dùng đúng cặp này. Bản cũ lặp *cuối cùng* ở hai vế liền nhau nên làm mờ khác biệt `pacchimaka` / `carima`.
+  - `:12.3` *sau khi liễu tri mọi lậu hoặc* → *đã hiểu rõ toàn bộ lậu hoặc* (terminology fix): `Sabbāsave pariññāya` có 54 khoá ở tầng, 49 khoá dùng *hiểu rõ toàn bộ lậu hoặc*, bản cũ là 1 khoá lệch.
+  - `:3.2` *gấu, sói và linh cẩu* → *gấu, chó sói, linh cẩu* (terminology fix): `acchakokataracchakā` ở tầng `tha-ap` có 5 khoá *gấu, chó sói, linh cẩu* (tha-ap407, tha-ap414), bản cũ thêm *và* và rút gọn `koka`.
+  - `:10.4` *ta đều làm tròn ý nguyện* → *ta đều làm tròn ý định* (accuracy fix nhỏ): `saṅkappa` ở tầng đa số là *ý định* (34 khoá, ví dụ `Mama saṅkappamaññāya`); *ý nguyện* hàm ý lời nguyện mà Pāli không nói.
+  Điểm tiêu chí đổi: `terminology` 9.0 → 9.3 (bốn khoá đưa về đa số tầng), `semantic_fidelity` 9.0 → 9.1 (bỏ sắc thái *nguyện* ở `:10.4`). Các tiêu chí còn lại giữ nguyên. `final_score` 8.96 → 9.0 (trung bình thô 90.0/10); vẫn không vượt 9.0 nên không đủ `published`, và blocker `noEnglishEditionUpstream` vẫn còn.
+  Đã xem và quyết định KHÔNG đổi: `:13.2` *khi ta làm việc ấy* (tầng có 16 khoá *thiện nghiệp ấy* và 13 khoá khác, nhưng `kamma` ở đây liền với `tanukicca` ở `:13.4`; thêm *thiện* là thêm nghĩa nên giữ *việc*); `:13.3` *ta không hề biết đến đọa xứ* (dạng đa số của tầng là *rơi vào khổ đau* 132 khoá, nhưng đó là thêm nghĩa nên giữ cách đã chọn); `:7.4` *đã đặt tên* và `:11.4` *được hiển lộ* (không có tiền lệ nội bộ, giữ sát Pāli).
+  BẤT ĐỊNH BỔ SUNG, không phân xử được: `tanukiccassidaṁ phalaṁ` (`:13.4`) còn một cách đọc khác là `tanu` = *thân* (nghĩa này có ở tầng, ví dụ `hitvā gacchati saṁ tanuṁ`, `tanuṁ sabrahmacārino`), tức *việc lo cho thân thể*; mạch kệ vừa kể việc thiêu và rưới nước thơm lên thân Đức Phật (`:6`–`:7`) nên cách đọc này đáng cân nhắc. Hapax của tầng, không có bài song song hay bản Anh nào để phân xử, nên giữ *việc nhỏ* và để người biên tập phán. Kiểm sau lượt sửa: 66/66 khoá, tập khoá khớp Pāli theo thứ tự, nháy đơn và nháy kép khớp Pāli từng khoá (0 lệch), 3 cặp Pāli trùng nguyên văn trong bài đều có bản Việt giống nhau (0 lệch).

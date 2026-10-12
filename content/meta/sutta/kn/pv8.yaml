@@ -14,15 +14,15 @@ quality:
   scores:
     source_provenance: 9.3
     semantic_fidelity: 8.8
-    grammar_logic: 8.8
+    grammar_logic: 8.9
     segment_alignment: 10.0
-    terminology: 8.8
+    terminology: 8.9
     triangulation: 7.8
-    vietnamese_clarity: 8.8
+    vietnamese_clarity: 8.9
     han_viet_balance: 9.2
     ambiguity_integrity: 8.5
     technical_integrity: 9.6
-  final_score: 8.96
+  final_score: 8.99
   blocking_errors:
     - "Không có tầng tham khảo tiếng Anh tại commit đã ghim
       (11c9d708978cde8ba61096d8a75f7ddfb846f639): thư mục `kn/` của edition
@@ -38,7 +38,7 @@ quality:
       Đây là trường hợp số đo không bắt được nhưng thực tế vẫn mất tầng tham
       khảo. Tầng `vietnamese-current` cũng vắng (chỉ 26 tệp Pháp Cú) và lớp lấp
       `english-project` cũng không có uid này ⇒ blocker thật."
-  assessed_at: "2026-10-11"
+  assessed_at: "2026-10-13"
   assessed_by:
     - "Claude Sonnet 5.5 (Claude Code)"
   waiver:
@@ -109,3 +109,8 @@ notes: |-
   BẤT ĐỊNH CÒN LẠI (không giấu): (1) 2.4 `yathā taññova dummatī` — thành ngữ `yathā taṃ dummatī` (so ja352:2.4 `yathā taṃ dummatī tathā`); “đúng như một kẻ kém trí” là cách đọc trung tính, chưa phân xử được liệu `taṃ` chỉ con bò hay chỉ thành ngữ. (2) 5.3–5.4 chủ ngữ của `osiñcaṃ … nibbāpaye` không nêu trong Pāli; giữ câu không chủ ngữ như tiền lệ (pv18, pv25, ja454), dù theo 6.1 người làm việc ấy là người con. (3) 8.1 “thường hành xử” (giữ theo tiền lệ pv18:19.1; Pāli chỉ nói hiện tại `karonti`). (4) 4.3 `rudaṃ` là phân từ “đang khóc”: dịch “khóc bên đống đất” nối vào 4.4 `tvaññeva` (chủ thể là người cha), đúng cú pháp nhưng câu Việt rời. (5) Xưng hô cha–con (“ngươi”/“tôi”) là lựa chọn biên tập: Pāli chỉ có `tvaṃ`/`tava`; quan hệ cha–con suy ra từ 8.4.
   Chấm lại (từ → sang): source_provenance 9.5→9.3 (ghi chú cũ chứa các khẳng định sai về nghĩa từ Pāli, nay đính chính); semantic_fidelity 8.9→8.8 và grammar_logic 8.9→8.8 (bản cũ đáng lẽ thấp hơn rất nhiều vì 17/32 khoá kệ và cả tiêu đề sai nghĩa; sau sửa còn bất định (1)–(3)); terminology 8.9→8.8; triangulation 7.5→7.8 (đối chiếu thêm bài song song ja352 và bốn bài chung công thức; vẫn không có bản Anh độc lập nên không nâng quá 8.0); vietnamese_clarity 9.0→8.8 (1.3 không nháy, 4.3 rời); han_viet_balance 9.3→9.2; ambiguity_integrity giữ 8.5 (bất định thật còn lại); technical_integrity giữ 9.6 (cổng kỹ thuật chưa chạy trong lượt này; `npm run validate`, `npm test`, `npm run check`, `npm run build` để người điều phối chạy). final_score 9.01→8.96 (trung bình thô; dưới 9.0 nên theo bảng điểm là `review`, nhưng blocker “không có tầng tham khảo tiếng Anh” vẫn giữ nguyên danh sách và khối waiver không sửa).
   Phép kiểm tự thực hiện: 36/36 khoá khớp tập và thứ tự Pāli; nháy kép và dấu lược khớp Pāli từng khoá (0 lệch trên 36); NFC, không khoảng trắng thừa, không khoá rỗng, không Pāli lọt sang Việt (ngoài tên riêng Sujāta, Petavatthu); 0 cặp Pāli trùng nguyên văn trong chính bài (phép chạy rỗng); bài không có `…pe…` và không có số Pāli cần dịch.
+
+  LƯỢT CẢI THIỆN 2026-10-13. Đọc đối kháng lại 36 khoá Pāli↔Việt sau lượt 2026-10-11, đo tiền lệ bằng số đếm trên các dòng Pāli trùng nguyên văn ở bài song song (pv17, pv18, pv25, ja449, ja454, kp7, pv5). Đã đổi 7/36 khoá: (a) PHẠM VI PHỦ ĐỊNH — 2.1–2.2 `Na hi annena pānena, mato goṇo samuṭṭhahe`: bản cũ “không phải nhờ thức ăn thức uống mà con bò đã chết có thể đứng dậy” đọc như câu chẻ, hàm ý con bò chết vẫn có thể đứng dậy bằng cách khác; Pāli phủ định chính động từ (`na … samuṭṭhahe`). Sửa thành “nhờ thức ăn thức uống, con bò đã chết không thể đứng dậy” (grammar_logic 8.8→8.9). (b) ĐẠI TỪ / CHỦ THỂ — 6.1 và 6.3–6.4: “người” đứng một mình dễ bị đọc là đại từ ngôi hai kính xưng, trong khi `abbahī`, `yo` là ngôi ba; đổi theo đúng cấu trúc đã dùng cho cùng dòng Pāli ở pv18:17.1–17.4 và ja454:13.1–13.4 (“người ấy đã nhổ mũi tên của tôi”; “Người ấy, khi tôi bị sầu muộn chế ngự, đã xua đi nỗi sầu vì cha”), giữ vế “yo” thành mệnh đề quan hệ (vietnamese_clarity 8.8→8.9). (c) TIỀN LỆ — 8.2 `ye honti anukampakā`: bỏ “là” để khớp 4/6 nơi cùng Pāli (kp7:3.2, pv5:3.2, pv18:19.2, ja454:15.2); 2/6 nơi còn “là” là ja352:8.2 và chính khoá này (terminology 8.8→8.9, cùng 2.3). (d) THUẬT NGỮ — 2.3 `dummedho`: “đần độn” nằm ngoài tiền lệ (toàn tầng: ngu muội/ngu si/ngu dốt/thiếu trí; “Những kẻ ngu, thiếu trí tuệ” 2 nơi), đổi thành “thiếu trí tuệ” để tách `medhā` (trí tuệ) khỏi `dummatī` “kẻ kém trí” ở 2.4/4.4.
+  Quyết định KHÔNG đổi dù đã cân nhắc: 8.3 “Họ khiến người khác quay khỏi nỗi sầu” (chữ hoa sau dấu chấm phẩy là quy ước đã có ở pv18:19.3 và ja454:15.3); 7.1 “rút mũi tên” (đa số 4/7 nơi cùng công thức, không tính pv8: “rút” ở ja372, ja454, pv18, pv25; “nhổ” ở ja449, pv17, vv83); 7.4 “này thanh niên” (chỉ 1 tiền lệ khác là “hỡi thanh niên” ở ja454:14.4, 1 đối 1, không đủ để ép); 4.4 kết `?”.` (321 khoá cùng kiểu khi Pāli kết `”ti.`); 3.1 “Những chân này” (đúng số nhiều `pādā`).
+  Chấm lại (từ → sang): grammar_logic 8.8→8.9; terminology 8.8→8.9; vietnamese_clarity 8.8→8.9; các tiêu chí còn lại giữ nguyên (semantic_fidelity giữ 8.8 và ambiguity_integrity giữ 8.5 vì bất định (1)–(5) ở trên vẫn còn nguyên; triangulation giữ 7.8 vì không có bản Anh độc lập và đối chiếu bài song song là cùng loại bằng chứng đã tính ở lượt trước; technical_integrity giữ 9.6, bốn lệnh `npm run validate`, `npm test`, `npm run check`, `npm run build` vẫn để người điều phối chạy). final_score 8.96→8.99 (trung bình thô, vẫn dưới 9.0 nên là `review` theo bảng điểm; blocker “không có tầng tham khảo tiếng Anh” giữ nguyên trong danh sách và khối waiver không sửa).
+  Phép kiểm sau sửa: 36/36 khoá khớp tập và thứ tự Pāli; nháy kép, nháy đơn và dấu lược khớp Pāli từng khoá (0 lệch trên 36 khoá); NFC, không khoảng trắng thừa, không khoá rỗng; chữ Pāli duy nhất còn trong bản Việt là tên riêng Sujāta (8.4) và Petavatthu (0.1); 0 cặp Pāli trùng nguyên văn trong chính bài (phép chạy rỗng).

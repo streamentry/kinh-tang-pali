@@ -12,16 +12,16 @@ tags:
 quality:
   scores:
     source_provenance: 9.2
-    semantic_fidelity: 8.8
+    semantic_fidelity: 8.9
     grammar_logic: 9.0
     segment_alignment: 10.0
-    terminology: 8.8
+    terminology: 9.0
     triangulation: 7.5
     vietnamese_clarity: 9.0
     han_viet_balance: 9.3
     ambiguity_integrity: 8.4
     technical_integrity: 9.6
-  final_score: 8.96
+  final_score: 8.99
   blocking_errors:
     - "Không có tầng tham khảo tiếng Anh tại commit đã ghim: tệp
       `translation/en/sujato/sutta/kn/vv/vv55_translation-en-sujato.json` không
@@ -38,7 +38,7 @@ quality:
       Pāli root ⇒ blocker thật, và đây là **giới hạn upstream**, không phải lỗi
       của người dịch. Vì vậy `triangulation` bị chặn ở 7.5 (≤ 8.0) chứ không
       nâng để né blocker."
-  assessed_at: "2026-10-11"
+  assessed_at: "2026-10-13"
   assessed_by:
     - "Claude Sonnet 5.5 (Claude Code)"
   waiver:
@@ -71,3 +71,7 @@ notes: |-
   Bất định còn lại, không phân xử được: `5.2` `Vācābhigītaṁ manasā pavattitaṁ` là hapax trong toàn tầng Pāli đã ghim, không có đối chiếu; không rõ tính từ này bổ nghĩa cho `āyu` ("tuổi thọ được xướng bằng lời, khởi vận bằng tâm") hay chỉ việc làm phước đã nêu, nên chỉ dịch sát chữ. `1.4` `rucakatthatā` dịch "trải thảm vàng": cả "thảm" lẫn "vàng" đều là suy diễn (`rucaka` có thể là vàng hay đồ trang sức), giữ nguyên vì không phân xử được. `5.3` `puññakammo` là ngôi thứ ba trong lời thiên tử tự thuật; hiểu là tự chỉ mình, giữ "Người làm phước". `5.1` `dibbaṁ ... vassasahassam`: "cõi trời" có thể thuộc "ngàn năm" hoặc "tuổi thọ", bản dịch giữ nguyên tính mơ hồ của Pāli.
   Chưa sửa, lệch cả họ: `0.2` `Purisavimāna` dịch "Nam Hư Không" (Pāli không có `ākāsa`) và `0.3` "Phẩm Cỗ Xe Lớn"; không sửa riêng một tệp vì sẽ lệch cả bộ.
   Kiểm tra tay: 27/27 khoá đúng tập khoá và thứ tự Pāli; nháy kép khớp Pāli từng khoá (0 lệch); `3.2` và `6.2` cùng Pāli `…pe…` đều là "…" (1 cặp trùng, 0 lệch); NFC sạch, không Pāli lọt sang Việt. Chưa chạy `npm run validate`, `npm test`, `npm run check`, `npm run build`.
+
+  Lượt cải thiện 2026-10-13: đọc đối kháng lại 27/27 khoá, đo tiền lệ trong 84 bài cùng họ Vimānavatthu (Pāli trùng nguyên văn), sửa 6/27 khoá (1.4, 2.2, 2.4, 3.3, 4.2, 6.3); 21 khoá còn lại giữ nguyên.
+  `1.4` "cột lưu ly trải thảm vàng rực rỡ tuyệt đẹp" thành "cột bằng ngọc lưu ly, trải thảm rực rỡ tươi đẹp" (accuracy/terminology fix): chữ "vàng" là suy diễn về `rucaka` (hapax, chỉ có trong chính họ này, không có đối chiếu) và lại chồng với "rực rỡ" cho cùng một từ; 8/10 khoá cùng Pāli đọc đúng dạng mới. `2.2` "tiếng đàn trời tấu lên dịu dàng êm ái" thành "đàn hạc cõi trời tấu lên êm dịu" (terminology fix): `vīṇā` là "đàn hạc" ở 8 khoá toàn tầng, "cõi trời" cho `dibba` ở 9/9 khoá cùng Pāli và ở 2.3, 5.1, 5.4 trong chính bài (trước đó 2.2 là "trời"); "dịu dàng êm ái" là hai chữ cho một từ `vaggu`. `2.4` "trang điểm bằng vàng" thành "phủ vàng" (accuracy fix): `channa` là "được phủ/che", "trang điểm" thêm nghĩa làm đẹp không có trong Pāli; "phủ vàng" có tiền lệ ở 5 khoá toàn tầng. `4.2` "hỏi thăm" thành "hỏi" (accuracy fix): `pucchito` là "được hỏi", còn "hỏi thăm" trong tiếng Việt hiện đại thường là hỏi sức khỏe, lệch ngữ cảnh gạn hỏi về nghiệp. `3.3` và `6.3`: "mọi phương" thành "muôn phương" (terminology, theo đa số 41/59 và 26/54 khoá cùng Pāli) và dấu kết `?”.` thành `?”`, `”.` thành `.”` (style-only; đo toàn tầng ở khoá Pāli kết `”ti.`: `.”` 1.989 so với `”.` 497, `?”` 212 so với `?”.` 34).
+  Điểm đổi: semantic_fidelity 8.8 thành 8.9 (bỏ ba chỗ thêm nghĩa ở 1.4, 2.4, 4.2; vẫn còn hapax `5.2` và `rucakatthatā` chưa phân xử nên không nâng nhiều); terminology 8.8 thành 9.0 (đồng nhất `dibba`, `vīṇā`, `sabbadisā` theo tiền lệ). Không đổi: vietnamese_clarity 9.0, grammar_logic 9.0, ambiguity_integrity 8.4 (bất định vẫn như trên, nay `1.4` chỉ còn một suy diễn "thảm"), triangulation 7.5 (không có bản Anh độc lập), technical_integrity 9.6. final_score 8.96 thành 8.99, mean thô của 10 điểm. Số Pāli: `dvādasa` 12, `sattasatā` 7 × 100 = 700, `vassasahassa` 1.000, đúng với bản dịch (0 lệch). Kiểm tay sau sửa: 27/27 khoá đúng tập khoá và thứ tự Pāli; nháy khớp Pāli từng khoá (0 lệch); 1 cặp Pāli trùng nguyên văn trong bài (`…pe…` ở 3.2/6.2), 0 lệch; NFC sạch. Chưa chạy `npm run validate`, `npm test`, `npm run check`, `npm run build`.
