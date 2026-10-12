@@ -392,6 +392,28 @@ Khi bài đạt `published`, lưu translation/comment/glossary/metadata liên qu
 - không biến kinh thành văn self-help;
 - không thêm cảm xúc/rhetoric ngoài source.
 
+### Xưng hô
+
+Xưng hô theo **người nói và người nghe trong chính đoạn đó**, không theo cả bài:
+
+- **Đức Phật tự xưng "Ta"**, với tỳ-kheo cũng như với cư sĩ, ngoại đạo, vua chúa. Không dùng "tôi".
+- **Người thưa với Đức Phật xưng "con"** ("chúng con" khi nhiều người), dù là tỳ-kheo hay cư sĩ.
+  Đây là chuẩn của kho: khi đo, "con" chiếm hơn 1.500 đoạn, còn "tôi" chỉ có 81 đoạn và đều là chỗ lệch.
+- **Lời quy y: người quy y xưng "đệ tử"** ("chúng đệ tử" khi nhiều người). Áp dụng cho bài Tam Quy
+  (`kp1`: "Đệ tử quy y Phật…") và công thức `esāhaṁ … saraṇaṁ gacchāmi` / `upāsakaṁ maṁ … dhāretu`
+  khi thưa với Đức Phật hay một vị tỳ-kheo. Câu nói tiếp ngay sau lời quy y trong cùng một lời thoại
+  (xin xuất gia, thỉnh thọ trai, sám hối…) cũng giữ "đệ tử" cho nhất quán.
+- **Ngoại lệ:** lời quy y nói với người ngang hàng thì giữ cách xưng của cuộc thoại đó. Ví dụ
+  `mn85:61.15–16`, nơi Vương tử Bodhi kể với bạn là Sañjikāputta, và các bài kệ Vv/Pv nơi người hay
+  ngạ quỷ quy y khi đang nói với một vị trời.
+- Lời trích bên trong (`‘…’`) giữ cách xưng của người được trích. Thuật ngữ `ahaṅkāra` ("chấp tôi,
+  chấp của tôi") là khái niệm, không phải xưng hô.
+- Đọc `bhante` theo người được gọi. `bhante` gửi tới Tôn giả Ānanda hay tới thầy ngoại đạo **không**
+  được dịch là "Bạch Thế Tôn".
+
+`tests/unit/refuge-address.test.ts` chặn lời quy y xưng "tôi"/"con", và chặn Đức Phật xưng "tôi"
+ở những đoạn đã sửa.
+
 ### Repetition
 
 Kinh Pāli có repetition phục vụ ghi nhớ, cấu trúc và nhấn mạnh.
