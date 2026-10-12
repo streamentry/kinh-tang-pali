@@ -576,3 +576,29 @@ Nhật ký append-only. Registry `content/audio/progress.json` được đối s
 - PR #577 exact head `4766b8b7b42668adafdaf5ad793e3be56797b782` passed push and PR CI; squash merge `3e90dc241356e0f96e25aefbb03a25998796914b`. Pages run #721 (`38316860554`) succeeded for that merge.
 - Production MN36/MN37/MN38 pages each returned HTTP 200 and include a player, the pending-review label and the exact registered R2 URL. R2 Range requests returned 206 `audio/mpeg` with expected object sizes.
 - Interactive browser playback controls could not be exercised because Playwright CLI is blocked by the local package-age guard. Progress remains `generated` rather than claiming `uploaded-verified`; review stays pending for manual listening.
+
+### Batch mn-026 MN39 uploaded and player metadata checked
+
+- MN39: 17 chunks, 1,615.80s, MP3 SHA-256 `15dc7d53b3c7520d81e6745c142b5886a691d2ecf714c25486913a442c2001ed`, 32,316,960 bytes; scripture starts 161.23s. The first uploader attempt got 403; after same-account Wrangler bucket-info refresh, the unchanged object uploaded and passed full hash/range verification. Local player HTML has the exact R2 URL and pending-review label; browser controls were not tested.
+
+### Batch mn-026 MN40 uploaded and player metadata checked
+
+- MN40: 9 chunks, 808.40s, MP3 SHA-256 `ab896770df07b7783973f2e7b6cfdbc18810193826df8b28cc8a796fb6547958`, 16,169,280 bytes; scripture starts 168.99s. R2 hash/range and local player URL metadata verified; interactive controls and full listening remain unchecked.
+
+### Batch mn-026 — MN39/MN40/MN41 MP3s on R2; player metadata checked
+
+- MN39: 17 chunks, 1,615.80s, MP3 SHA-256 `15dc7d53b3c7520d81e6745c142b5886a691d2ecf714c25486913a442c2001ed`, 32,316,960 bytes; scripture starts 161.23s.
+- MN40: 9 chunks, 808.40s, MP3 SHA-256 `ab896770df07b7783973f2e7b6cfdbc18810193826df8b28cc8a796fb6547958`, 16,169,280 bytes; scripture starts 168.99s.
+- MN41: 12 chunks, 1,095.05s, MP3 SHA-256 `be008a22b2655dac57067678af3c410ea43a59c11a0a062b4d2c39dccd6395cf`, 21,902,400 bytes; scripture starts 164.07s.
+- Combined duration 3,519.25s (~58m39s). All use pinned `vi-charon-mn1-v1`. R2 hash/range and local player HTML/URL metadata verified; browser controls not tested due the local package-age guard. Progress stays generated; `review_status` remains pending.
+
+### MN39/MN40/MN41 local release gates
+
+- Rebased on current main `3e90dc241356e0f96e25aefbb03a25998796914b`; audio registry check: 186 UIDs, 0 errors. `npm test`: 410 passed, 1 skipped, 0 failed. Astro check: 0 errors, 0 warnings (5 hints). Direct validator passed with 2,241 advisory coverage warnings; quality-history check covered 5,447 entries with 0 errors.
+- Full `npm run build` passed: 6,146 static pages built; Pagefind indexed 6,137 pages and 458,018 words. Built MN39/MN40/MN41 HTML includes each player, pending-review label, exact R2 URL and audio hash.
+
+### MN39/MN40/MN41 local release gates
+
+- Rebased on current main `3e90dc241356e0f96e25aefbb03a25998796914b`; audio registry check: 186 UIDs, 0 errors. `npm test`: 410 passed, 1 skipped, 0 failed. Astro check: 0 errors, 0 warnings (5 hints). Direct validator passed with 2,241 advisory coverage warnings; quality-history check covered 5,447 entries with 0 errors.
+- Full `npm run build` passed: 6,146 static pages built; Pagefind indexed 6,137 pages and 458,018 words. Built MN39/MN40/MN41 HTML includes each player, pending-review label, exact R2 URL and audio hash.
+- Local HTTP player metadata and R2 206 range were verified for all three; browser button interaction was not tested in this environment. Progress remains `generated` until interactive player verification; review remains pending.
