@@ -1,5 +1,5 @@
 uid: ja416
-status: draft
+status: review
 translationTitle: "Kinh Parantapa"
 translators:
   - "OpenCode Space Bunny Free (agent)"
@@ -13,23 +13,37 @@ tags:
 quality:
   scores:
     source_provenance: 9.4
-    semantic_fidelity: 9.1
-    grammar_logic: 9.1
+    semantic_fidelity: 8.8
+    grammar_logic: 8.8
     segment_alignment: 10.0
-    terminology: 9.1
+    terminology: 9.0
     triangulation: 7.4
-    vietnamese_clarity: 9.1
+    vietnamese_clarity: 8.8
     han_viet_balance: 9.3
-    ambiguity_integrity: 8.5
+    ambiguity_integrity: 8.2
     technical_integrity: 9.6
-  final_score: 9.06
+  final_score: 8.93
   blocking_errors:
-    - "Bài này không có tầng Anh SuttaCentral đã ghim ở commit đã pin (0/45 khoá), nên thiếu tầng tham khảo bắt buộc để xuất bản; đối chiếu chỉ có Pāli ghim cùng commit + tiền lệ trong chính tầng Việt dự án."
-    - "`ja416` không nằm trong 83 tệp `ja` của tầng `english-sujato` đã ghim (chỉ có ja1–ja79, ja126, ja159, ja466, ja534), nên không thể đối chiếu một bản Anh độc lập cho bài này; `translation/vi/phantuananh/` ở commit đã ghim chỉ chứa Pháp Cú."
-    - "`sākhā` ở `2.4`/`3.4`/`4.4` chưa phân xử được là tên riêng hay ẩn dụ (xem `notes`); bài này không có bản Anh nào ở commit đã ghim để quyết định, nên tôi giữ `draft` thay vì tuyên bố đã đối chiếu."
-  assessed_at: "2026-10-04"
+    - "Bài này không có tầng Anh SuttaCentral đã ghim ở commit đã pin (0/45
+      khoá), nên thiếu tầng tham khảo bắt buộc để xuất bản; đối chiếu chỉ có
+      Pāli ghim cùng commit + tiền lệ trong chính tầng Việt dự án."
+    - "`ja416` không nằm trong 83 tệp `ja` của tầng `english-sujato` đã ghim
+      (chỉ có ja1–ja79, ja126, ja159, ja466, ja534), nên không thể đối chiếu một
+      bản Anh độc lập cho bài này; `translation/vi/phantuananh/` ở commit đã
+      ghim chỉ chứa Pháp Cú."
+  assessed_at: "2026-10-12"
   assessed_by:
-    - "OpenCode Space Bunny Free (agent)"
+    - "Claude Sonnet 5.5 (Claude Code)"
+  waiver:
+    id: no-upstream-english
+    blockers:
+      - Bài này không có tầng Anh SuttaCentral đã ghim ở commit đã pin (0/45
+        khoá), nên thiếu tầng tham khảo bắt buộc để xuất bản; đối chiếu chỉ có
+        Pāli ghim cùng commit + tiền lệ trong chính tầng Việt dự án.
+      - "`ja416` không nằm trong 83 tệp `ja` của tầng `english-sujato` đã ghim
+        (chỉ có ja1–ja79, ja126, ja159, ja466, ja534), nên không thể đối chiếu
+        một bản Anh độc lập cho bài này; `translation/vi/phantuananh/` ở commit
+        đã ghim chỉ chứa Pháp Cú."
 notes: |-
   **Vì sao `draft` (ba lý do, và lý do thứ ba là của riêng bài này).** (1) `ja416` không có tầng
   tham khảo nào ngoài Pāli: tầng `english-sujato` đã ghim có **83** tệp `ja` (ja1–ja79 cộng
@@ -87,3 +101,17 @@ notes: |-
   khoá trong `all`, không orphan, mọi giá trị NFC, dấu lược khớp (bài không có lược), không
   `(…)` đứng một mình, ngoặc kép cân trên cả bài (đã cân tay: +1 −1 +1 −1 +1 −1), không Pāli lọt,
   không khoá nào trùng nguyên văn Pāli, thứ tự khoá đúng thứ tự số.
+
+  **Giải quyết draft 2026-10-12.** Mục này thay thế mọi chỗ ở trên nói về `sākhā` là chưa phân xử được và về cách xử lý ngoặc kép (Pāli ghim có 4 dấu `“` và 4 dấu `”` — `1.1`, `2.1`, `5.1`, `7.1` mở; `1.4`, `4.4`, `6.4`, `7.4` đóng — nên cân sẵn; bản Việt nay khớp từng khoá, không bỏ dấu nào).
+
+  *Phân loại blocker.* (A) Hai blocker đầu — bài không có bản Anh Sujato ở commit đã ghim — là sự thật về upstream, giữ nguyên. (B) Không áp dụng: 45 khoá đều ngắn hơn ngưỡng nội dung nên không có mẫu số coverage. (C) `vietnamese-current` chỉ có Pháp Cú: giới hạn tham chiếu, không phải lỗi văn bản. (D) Blocker thứ ba (`sākhā`) đã gỡ vì giải được, xem dưới.
+
+  *Căn cứ giải `sākhā`.* Đọc kinh văn Pāli ghim thì không phân xử được, nên tôi đối chiếu bản kể chuyện đi kèm trong Chú giải Jātaka (qua bản Anh Francis & Neil, Jātaka tập III, số 416 — chỉ đọc để biết ai nói với ai và Parantapa là ai, không chép câu chữ, ngoài tầng đã ghim). Kết quả: Parantapa là **tên một người** — thị tòng của vua Bārāṇasī, kẻ giết vua bên bờ sông rồi giấu xác; vị tư tế (purohita) thấy từ trên cây, lúc tụt xuống làm cành rung. `sākhā` là **cành cây** ở mọi chỗ, không có nhân vật tên Sākha. Vì vậy `parantapaṁ` ở `2.4`/`3.4`/`4.4` là tên người (không phải nghĩa đen "kẻ phá giáp địch" như bản cũ), và `sāva sākhā parantapaṁ` là so sánh: *như chính cành cây ấy đã làm Parantapa* (gầy, xanh xao). Người nói theo Chú giải: `1` Parantapa nói với hoàng hậu; `2`–`4` vị tư tế nói (than nhớ vợ, thực ra là ám chỉ); `5`–`6` Parantapa van xin hoàng tử; `7` hoàng tử.
+
+  *Khoá đổi, và vì sao (accuracy fix, trừ ghi chú).* Bản cũ hỏng nặng nên viết lại 34 khoá trên tổng 45 (`1.1`–`7.4`, `10.3`, `10.4`, `12.1`–`12.4`); 11 khoá còn lại (`0.1`–`0.4`, `8.1`, `8.2`, `9.1`, `10.1`, `10.2`, `11.1`, `13.1`) không đổi. `1.1`–`1.4`: `āgamissati` là **tương lai** (*sẽ đến*, bản cũ *đang đến*); `calitā` là *rung* (bản cũ *rơi xuống*, sai); `migena` *thú* (bản cũ *nai*, hẹp hơn Pāli). `2.1`–`2.4`: `bhīruyā … avidūre vasantiyā` là người nữ nhút nhát sống không xa, và `kāmo` là *lòng ham muốn* đối với người ấy (không phải *khoải ham nhút nhát quá*); `kisaṁ paṇḍuṁ` *gầy và xanh xao* (bản cũ có chữ hỏng *gầy yế/o*, và tách một từ qua hai khoá). `3.1`–`3.2`: `socayissati` là dạng sai khiến (*sẽ làm sầu muộn*), chủ ngữ là `kantā`, người yêu dấu đang ở trong làng (bản cũ: *thiêu đốt bằng tình yêu*, sai). `4.1`–`4.4`: `asitāpaṅgi` hô cách *khoé mắt đen*, `sitāni bhaṇitāni` *nụ cười và lời nói* là chủ ngữ số nhiều của `karissanti` (bản cũ: *lời nói cháy bỏng, lạnh lùi*, sai và có chữ hỏng). `5.1`–`5.4`: `agamā`, `asaṁsi`, `akkhātaṁ` đều **quá khứ** (*đã đến, đã báo, đã được nói ra*); `asaṁsi` là *báo cho biết*, **không** phải *bụi*; `tava` là *ngài* (người nói là Parantapa); `yo taṁ sākhamakampayi` *người đã làm rung cành cây* (bản cũ: *kẻ cố lấy lòng cành cây*, sai). `6.1`–`6.4`: `bālassa` *kẻ ngu*, `cintitaṁ` *điều đã nghĩ*; bản cũ lẫn `6.2` với `tính toán`. `7.1`–`7.4`: `avañci` *lừa dối* (bản cũ không dịch), `hantvā sākhāhi chādento` *giết rồi, lấy cành cây che phủ* (bản cũ *bỏ ta lại bằng những cành cây*, sai hẳn nghĩa). `10.3`: `puna` *lại nữa* theo tiền lệ `ja405:11.3`. `10.4`: bỏ *thế là đủ* — `cāti` chỉ là `ca` + `ti` (*và Parantapa*, hết danh sách), không có nghĩa thêm. `12.1`–`12.4`: bỏ *này* và *kể tên từng*, thêm *chỉ* cho `dveva` (hai phẩm duy nhất), `Kukku` là tên phẩm theo `ja396`–`ja405` (*Phẩm Kukku*, không phải *Kukkuvagga* chép nguyên) và `mahesi` *bậc đại ẩn sĩ* theo tiền lệ của tầng (15 khoá).
+
+  *Số đếm tiền lệ.* Trong 30.965 khoá `ja` của tầng, `pāpaṁ` 84 khoá, đa số *điều ác*; ở `1.1` tôi giữ *điều xấu* vì đây là tai họa sắp đến chứ không phải việc ác, nên không áp đa số máy móc. `migo/migena` 18 khoá, dịch *nai* hoặc *thú* tùy chỗ (`ja416` là *thú* vì Pāli nói chung chung, không chỉ loài nai). Pāli trùng nguyên văn trong chính bài: `1.3` = `6.3` và `1.4` = `6.4` và `2.3`=`3.3`=`4.3`, `2.4`=`3.4` — tổng 5 cặp/nhóm trùng nội bộ, bản Việt đều giống nhau (khác nhau chỉ ở ngoặc kép khớp Pāli từng khoá).
+
+  *Bất định còn lại — ghi ở đây, không thêm vào thân kinh.* (1) `7.1` `avedesi` — hiếm, không có dạng giống ở nơi nào khác trong 30.965 khoá `ja`. Tôi đọc là *nói ra / báo*, chung với `tatheva` (*y như vậy*), vì bản kể của Chú giải không cho nghĩa chắc cho riêng chữ này; nếu đọc khác (ví dụ *đã giết*) thì `7.1`–`7.2` đổi. (2) `7.4` `āgamissati me bhayan”ti` y hệt `1.2`: tôi dịch *tôi* (không *ta*) và giữ nó trong ngoặc kép lời hoàng tử của `7.1`–`7.4`, vì `me` ở đây rất có thể là lời của chính Parantapa mà hoàng tử nhắc lại, chứ không phải nỗi sợ của hoàng tử; Pāli không nói rõ. (3) `6.1` `idaṁ kho taṁ samāgamma` — `samāgamma` không có tân ngữ rõ; tôi dịch *nay đã gặp lại*. (4) `4.1` `tayā` là công cụ cách *vì nàng*; nếu là dạng cách khác của `tvaṁ` thì chủ ngữ của `4.2` đổi từ *những nụ cười và lời nói* sang *của nàng*. (5) `10.3` `Jāgaratā` vẫn là chuyển âm; Pāli là `jāgarataṁ` (dạng biến cách), tôi không dựa vào đó để ánh xạ với bài `ja414`.
+
+  *Điểm sau giải quyết.* `semantic_fidelity` và `grammar_logic` tăng lên so với bản gốc hỏng nhưng bị chặn dưới 9 vì ba chỗ bất định ở `7.1`, `7.4`, `6.1`. `triangulation` giữ 7,4 (không có bản Anh độc lập; bản kể của Chú giải chỉ dùng để hiểu người nói, không phải đối chiếu câu chữ). `ambiguity_integrity` 8,2. Lệnh còn lại để kiểm cổng, chưa chạy ở đây: `npm run validate` · `npm test` · `npm run check` · `npm run build`; vì vậy `technical_integrity` vẫn 9,6.

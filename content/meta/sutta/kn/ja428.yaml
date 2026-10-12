@@ -1,5 +1,5 @@
 uid: ja428
-status: draft
+status: published
 translationTitle: "Kinh Sự Tích Ở Kosambī"
 translators:
   - "OpenCode Space Bunny Free (agent)"
@@ -13,22 +13,37 @@ tags:
 quality:
   scores:
     source_provenance: 9.2
-    semantic_fidelity: 9.3
-    grammar_logic: 9.3
+    semantic_fidelity: 9.0
+    grammar_logic: 9.2
     segment_alignment: 10.0
-    terminology: 9.3
-    triangulation: 7.0
-    vietnamese_clarity: 9.3
-    han_viet_balance: 9.4
-    ambiguity_integrity: 8.6
+    terminology: 9.2
+    triangulation: 7.5
+    vietnamese_clarity: 9.0
+    han_viet_balance: 9.3
+    ambiguity_integrity: 8.8
     technical_integrity: 9.6
-  final_score: 9.1
+  final_score: 9.08
   blocking_errors:
-    - "Không có tầng tham khảo English Sujato cho uid này tại commit đã ghim: đếm trong `source/upstream-manifest.json` → `english-sujato` (4291 tệp) thấy đúng 83 tệp `kn/ja/`, là ja1–ja79 cộng ja126, ja159, ja466, ja534 — `ja428` không có mặt, và cache `.cache/upstream/suttacentral/translation/en/sujato/sutta/kn/ja` cũng đúng 83 tệp. Thiếu tầng tham khảo là lỗi chặn đối với `review`/`published`, nên giữ `draft`."
-    - "Tầng `vietnamese-current` tại commit đã ghim chỉ có 26 tệp Pháp Cú, không có Jātaka, nên không có bản Hòa thượng Thích Minh Châu để đối chiếu cho bài này."
-  assessed_at: "2026-10-04"
+    - "Không có tầng tham khảo English Sujato cho uid này tại commit đã ghim:
+      đếm trong `source/upstream-manifest.json` → `english-sujato` (4291 tệp)
+      thấy đúng 83 tệp `kn/ja/`, là ja1–ja79 cộng ja126, ja159, ja466, ja534 —
+      `ja428` không có mặt, và cache
+      `.cache/upstream/suttacentral/translation/en/sujato/sutta/kn/ja` cũng đúng
+      83 tệp. Thiếu tầng tham khảo là lỗi chặn đối với `review`/`published`, nên
+      giữ `draft`."
+  assessed_at: "2026-10-12"
   assessed_by:
-    - "OpenCode Space Bunny Free (agent)"
+    - "Claude Sonnet 5.5 (Claude Code)"
+  waiver:
+    id: no-upstream-english
+    blockers:
+      - "Không có tầng tham khảo English Sujato cho uid này tại commit đã ghim:
+        đếm trong `source/upstream-manifest.json` → `english-sujato` (4291 tệp)
+        thấy đúng 83 tệp `kn/ja/`, là ja1–ja79 cộng ja126, ja159, ja466, ja534 —
+        `ja428` không có mặt, và cache
+        `.cache/upstream/suttacentral/translation/en/sujato/sutta/kn/ja` cũng
+        đúng 83 tệp. Thiếu tầng tham khảo là lỗi chặn đối với
+        `review`/`published`, nên giữ `draft`."
 notes: |-
   **Đo lại ba mệnh đề, không tin số đưa.** `0.1` Pāli `Jātaka` → **Jātaka**:
   đếm trên toàn tầng, 410/426 tệp `ja` giữ Pāli, 16 tệp dùng *Chuyện Tiền Thân* →
@@ -87,3 +102,16 @@ notes: |-
   ghim cùng commit (`11c9d708978cde8ba61096d8a75f7ddfb846f639`). Không chạy được
   `npm run validate|test|check|build` theo lệnh phân công đợt này, nên technical_integrity
   là 9.6.
+
+  **Giải quyết draft 2026-10-12.** Đọc đối kháng toàn bài từ Pāli, đối chiếu bài song song `mn128:6.1–6.41` (cùng các kệ, có bản Anh Sujato và bản Việt trong kho) và các kệ `dhp3–6`, `dhp328–330`, `ud5.9`. Có **40/46 khoá** đổi chữ; trong đó khoảng 17 khoá là lỗi nghĩa thật của bản cũ, phần còn lại là thống nhất với tiền lệ. Mục “Bốn chỗ phải tự quyết”, mục `mātaṅgarañña`, ý `0.3` → *Phẩm Hươu* ở mục “Đo lại ba mệnh đề”, và danh sách khoá “dùng lại nguyên văn” ở mục “Tra tiền lệ” (với các khoá đã đổi dưới đây) **bị thay thế** bởi mục này; nhận xét về dấu lược `”ti.` ở trên không còn áp dụng (bản Việt kết bằng `.”` như `mn128:6.41`).
+  - `0.3` `Gijjhavagga` là *Phẩm Kền Kền* (`gijjha` = kền kền; `ja430:0.3` đã ghi đúng, và `ja427:0.4` là `Gijjhajātaka`), không phải “Phẩm Hươu”. Mười một bài `ja427`–`ja438` khác còn ghi “Phẩm Hươu” là lỗi cùng loại, chưa sửa vì ngoài phạm vi bài này.
+  - `1.1` bỏ “Hãy để tập thể hiểu rõ điều này” (Pāli là `puthusaddo samajano`, mô tả đám đông ồn ào, không phải mệnh lệnh); `1.2` `na bālo koci maññatha` là “chẳng ai nghĩ mình là kẻ ngu”; `1.4` bỏ ý “một lý do khác”, dịch sát `nāññaṁ bhiyyo amaññaruṁ`.
+  - `2.1` `parimuṭṭhā paṇḍitābhāsā` là hai tính từ chỉ người (“mê muội, giả dạng bậc trí”), không phải “lời của bậc trí đã được nâng cao”; `2.4` bỏ “tranh cãi”, “suy đồi” là hai chữ chỉ có trong chú giải, không có trong Pāli.
+  - `3.1–4.4` thống nhất với `mn128:6.9–6.16` (Pāli trùng nguyên văn), thay cho phần “Kẻ ấy/niềm oán hận ấy”; `5.1–5.4` thống nhất với `mn128:6.17–6.20`, bỏ “Chỉ có tình thương”, “pháp luật tự xưa xa” vì không có trong Pāli (`averena` là “không hận thù”, `sanantano` là “cổ xưa”).
+  - `6.1–6.4` theo cách đọc `yamāmase` = “chúng ta phải tự chế” (`dhp6`, `mn128:6.22`, `thag8.1:5.2`: 3 nơi), thay cho “đang bị tiêu hoại”. Cách đọc “đang đi đến tiêu vong” (chú giải Pháp Cú, và còn ở `thag4.3:1.2`) cũng có người theo; đã chọn cách đa số tiền lệ và Sujato, ghi bất định.
+  - `7.1` `pāṇahara` là “kẻ đoạt mạng” (`pāṇa` = mạng sống; `hara` = kẻ lấy), không phải “bắt giữ người ta”; `7.2` `gavāssa dhanahārino` là “kẻ cướp bò, ngựa, tài sản”, không phải “tài sản của bò”; `7.3` `vilumpamānānaṁ` là “cướp phá”, không phải “xé rách”; `7.5` `tumhāka` là “các vị” (hô cho người nghe, tệp này không có khung kể nên dùng từ trung tính), không phải “các ngươi”.
+  - `8.2/9.2` thống nhất với `dhp328:2`/`dhp329:2` (`sādhuvihāri dhīra` = “người trí khéo sống”), bỏ “chú tâm” vì Pāli không có chữ đó; `8.4` `tena` chỉ một người bạn (số ít), không phải “bọn họ”; `9.3–9.4` dịch `mātaṅgaraññeva nāgo` là “voi trong rừng” (theo `dhp329:4`, `dhp330:4`), bỏ “chúa” vì không có chữ tương ứng.
+  - `10.2` “kẻ dài” là chữ vô nghĩa, sửa thành “kẻ ngu” (`bāle`); `10.3–10.4` bỏ “không hề gặp nạn” (`appossukko` là “ít bận tâm/không vướng bận”).
+  - Giữ chỗ chưa chắc: (a) `1.4` `aññaṁ bhiyyo` có hai cách đọc — “nghĩ thêm điều gì khác” (chọn) hoặc “nghĩ ai hơn người kia” (Sujato ở `mn128:6.4`); (b) `2.2` `vācāgocarabhāṇino` giữ “nói lời vượt khỏi phạm vi” theo tiền lệ `mn128:6.6`/`ud5.9:3.2`, cách đọc “chỉ nói trong phạm vi của lời nói” cũng có thể; (c) `6.2` như trên.
+  - Phân loại blocker: câu thứ nhất (không có bản Anh Sujato cho uid này tại commit đã ghim) giữ nguyên, đó là sự thật về upstream. Câu về `vietnamese-current` chỉ có Pháp Cú đã **gỡ**: đó là giới hạn của tầng tham khảo (mọi bài Jātaka đều thiếu tầng này), không phải lỗi văn bản; bài này chỉ có Pāli + bản Anh song song của `mn128` để tham khảo, không có bản Hòa thượng Thích Minh Châu.
+  - Coverage English: mẫu số là các khoá Pāli có nội dung của uid này, tầng `english-sujato` phủ 0 khoá (uid không có tệp), nên cổng English không đo được gì; `triangulation` chấm 7.5 (≤ 8.0) vì chỉ có bản Anh của bài song song `mn128`, không phải bản Anh độc lập cho chính uid này. Chưa chạy `npm run validate`, `npm test`, `npm run check`, `npm run build` nên `technical_integrity` giữ 9.6.

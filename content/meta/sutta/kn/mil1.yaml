@@ -11,21 +11,21 @@ tags:
 quality:
   scores:
     source_provenance: 9.4
-    semantic_fidelity: 9.1
+    semantic_fidelity: 8.8
     grammar_logic: 9.0
     segment_alignment: 10.0
-    terminology: 8.9
+    terminology: 8.8
     triangulation: 7.5
     vietnamese_clarity: 9.0
     han_viet_balance: 9.1
-    ambiguity_integrity: 8.9
+    ambiguity_integrity: 9.0
     technical_integrity: 9.6
-  final_score: 9.05
+  final_score: 9.02
   blocking_errors:
     - "Tầng tham khảo tiếng Anh KHÔNG tồn tại tại commit đã ghim. Đã kiểm ba nơi, không suy đoán: (1) `source/upstream-manifest.json` — edition `translation/en/sujato` tại commit `11c9d708978cde8ba61096d8a75f7ddfb846f639` KHÔNG liệt kê bất kỳ tệp nào cho uid này; (2) `.cache/upstream/suttacentral/translation/en/sujato/sutta/...` — tệp không tồn tại; (3) toàn edition `translation/en/sujato/sutta/kn/mil/` chỉ có 0 tệp — Sujato không dịch Milindapañha, và trong đó không có uid này. Đây là `not-published-upstream`, KHÔNG phải `not-synced`: chạy `npm run source:sync:used` cũng không tạo ra tệp. Tầng `vietnamese-current` cũng vắng — `translation/vi/phantuananh` tại commit đã ghim chỉ có 26 tệp và toàn bộ là Pháp Cú. Lớp lấp `english-project` của dự án cũng không có cho uid này. Cả ba tầng tham khảo đều vắng nên bài dịch chỉ từ Pāli root; `scripts/validate.ts` coi tệp Anh thiếu là **error** khi status là `review` hoặc `published`, nên bài bắt buộc `draft`. Đây là **giới hạn upstream**, không phải lỗi của người dịch. Vì vậy `triangulation` bị chặn ở 7.5 (≤ 8.0) chứ không nâng để né blocker. Coverage đo được: 7 khoá Pāli đủ 40 ký tự, 0 khoá có prose Anh."
-  assessed_at: "2026-10-04"
+  assessed_at: "2026-10-12"
   assessed_by:
-    - "OpenCode Space Bunny Free (agent)"
+    - "Claude Sonnet 5.5 (Claude Code)"
 notes: |-
   Lát c14. KHÔNG có Sujato tại commit đã ghim cho mil1 ⇒ `draft`, xem
   blocking_errors.
@@ -59,3 +59,52 @@ notes: |-
   không phải “trước đây”; tôi đã sửa từ “Trước đây” thành “Trên phương diện trước”.
 
   Bị chặn cổng kỹ thuật (đợt này không được chạy `npm run validate|test|check|build`), nên tiêu chí 10 bị chặn ở **9.6**: tôi chỉ xác minh được JSON hợp lệ, đủ khoá, không orphan, không rỗng, mọi giá trị NFC, dấu lược khớp Pāli từng khoá, `(…)` không đứng một mình, ngoặc kép cân trên cả bài và YAML sạch. Bốn lệnh `npm run validate`, `npm test`, `npm run check`, `npm run build` để coordinator chạy.
+
+  Giải quyết draft 2026-10-12: thay thế phần ghi chú cũ ở trên về 6.4, 8.3 và các từ ghép
+  của 7.2–7.3 (các nhận định cũ đó sai nghĩa và đã bị gỡ). Đọc đối kháng lại cả 31 khoá từ
+  Pāli; 29/31 khoá được viết lại hoặc sửa lỗi nghĩa thật, chỉ `mil1:0.1` và `mil1:0.2` giữ nguyên.
+  Lỗi nghĩa thật đã sửa: (1) `mil1:1.1` `Bhagavato` là “Thế Tôn”, không phải “Đức Phật”; đối chiếu
+  cùng công thức `Namo tassa bhagavato…` ở nơi khác: “Đức Phật” 14 khoá (loạt bv/cp), “Thế Tôn” 14
+  khoá (mn, an, sn, dn, kp), nên đổi theo đúng từ Pāli và khớp `kp1:1.1`. (2) 3.1–3.4: `āsajja`
+  là “đến gần”, `citrakathiṁ` / `ukkādhāraṁ` / `tamonudaṁ` là ba danh hiệu của vị được tìm đến;
+  bản cũ “ngồi yên một chút, hẹn một cuộc trò chuyện” là bịa; `ṭhānāṭṭhānagate` là “thuộc về điều
+  có thể và điều không thể” (tiền lệ `ne21:19.1`). (3) 4.1–4.4: `abbhutā lomahaṁsanā` là
+  “đáng kinh ngạc, rợn da gà” (13 khoá cùng cặp từ), bản cũ “kinh ngạc nhờ, thấm sâu, chấn động”
+  vô nghĩa. (4) 5.1–5.4: `ogāḷha` là “thấm sâu / đắm vào”, không phải “hố sâu”; `opammehi nayehi`
+  là “các thí dụ và các phương cách”. (5) 6.2 `hāsayitvāna mānasaṁ` là “làm cho tâm hoan hỷ”,
+  không phải “lắng định”; 6.4 `kaṅkhā` là NGHI HOẶC (không phải “khao khát”), `vidālane` là tính
+  từ bổ nghĩa `pañhe` (đối cách số nhiều), nên là “câu hỏi … xé toang những chỗ nghi hoặc”, không
+  phải một danh xưng; ghi chú cũ cho rằng đây là tên riêng là sai. (6) 7.2: bản cũ bịa “có bốn cửa
+  ngõ, chia thành bốn phần”, “đống gạch vữa”, “chỗ lưu trú”, “đã dựng thành xây tường”; đã viết
+  lại sát từng thành tố ghép: `yonakānaṁ nānāpuṭabhedanaṁ` = “của người Yonaka, nơi mở các kiện
+  hàng đủ loại”; `sutavantanimmitaṁ` = “do những bậc có học tạo dựng”; `daḷhamaṭṭālakoṭṭhaka` = tháp
+  canh và cổng lầu kiên cố; `gopuratoraṇa` = cổng thành và vòm cổng; `antepura` = nội thành. (7)
+  7.3: thêm `ādi` (“và các loại khác”) cho vải Kāsī/Koṭumbara; `paripūritantarāpaṇaṁ` là các dãy
+  chợ giữa phố; `kosakoṭṭhāgāra` là kho báu và kho lúa; `siṅgāravāṇija` giữ “thương nhân buôn đồ
+  trang sức”. (8) 8.1: `chadhā` là “thành SÁU phần” (bản cũ bỏ mất số lượng); `pubbakammaṁ` là
+  “nghiệp quá khứ” (mil2:1.1 đã đồng nhất `pubbayoga` với nghiệp quá khứ), không phải “công việc”.
+  (9) 8.3: Pāli liệt kê SÁU mục (việc làm từ trước, Milindapañha, câu hỏi về đặc trưng,
+  Meṇḍakapañha, câu hỏi suy luận, câu hỏi bằng chuyện ví dụ); bản cũ bỏ mục đầu và dịch sai
+  `meṇḍaka` thành “trưởng giả”: Meṇḍaka là tên một phần, giữ nguyên như ở `mil5.*:0.2` (43 tiêu
+  đề). (10) 9.1: `milindapañho … duvidho` là “Milindapañha có hai loại”, hai loại là câu hỏi về
+  đặc trưng và câu hỏi cắt đứt nghi ngờ (`vimaticchedana`, tiền lệ “cắt đứt hoài nghi” ở 3 nơi);
+  9.2: `yogikathāpañha` là “câu hỏi về chuyện của các hành giả”, `mahāvagga` là “Đại Phẩm” (như
+  `mil3.1.1:0.2`). (11) 2.3 bỏ “Tôn giả” vì Pāli chỉ có `nāgasenaṁ` (kho dùng “Tôn giả” khi Pāli
+  có `āyasmā`).
+
+  Blocker đã GIỮ nguyên (loại giới hạn upstream, đúng sự thật): bản Anh Sujato không có cho
+  uid này tại commit đã ghim, `vietnamese-current` vắng, lớp `english-project` không có; đây không
+  phải lỗi văn bản. Phép đo độ phủ: mẫu số 7 khoá Pāli có nội dung (≥ 40 ký tự, bỏ khối `:0`), Anh
+  phủ 0/7, nên cổng độ phủ không có gì để đối chiếu và Pāli phải tự đứng vững ở cả 31 khoá.
+  `triangulation` giữ 7,5 (≤ 8,0). Không có blocker loại độ phủ riêng hay lỗi văn bản chưa xử lý.
+
+  Bất định còn lại (ghi tại đây, không thêm vào thân kinh): `puṭabhedana` “nơi mở các kiện hàng”
+  (hiểu là trung tâm buôn bán, dịch sát chữ); `sabhājana` trong 7.3 (hiểu là sự cung kính tiếp
+  đón, không chắc là danh từ chỉ cuộc hội họp); `samattitā` ở 5.2 (“phủ khắp”, một dạng đọc
+  khác là `samatthitā`); `siṅgāra` (đồ trang sức hay hàng xa xỉ); `patthara` (đá, không hiểu là đá
+  quý); `caccara` (quảng trường). `Ārambhakathā` giữ “Phần Dẫn Nhập”, chưa có tiền lệ khác trong
+  kho. Tên các phần giữ Pāli (Milindapañha, Meṇḍakapañha) theo tiền lệ tiêu đề `mil5.*`; ba mục
+  còn lại ở 8.3 dịch nghĩa. Cổng kỹ thuật: bốn lệnh `npm run validate`, `npm test`,
+  `npm run check`, `npm run build` chưa chạy trong lượt này nên `technical_integrity` giữ 9,6.
+  Điểm mới: ngữ nghĩa 8,8 (còn mấy từ ghép dài chưa có đối chiếu độc lập), thuật ngữ 8,8, toàn
+  vẹn về bất định 9,0 (đã ghi đủ ở trên), còn lại như cũ; trung bình thô 9,02 nhưng blocker thắng nên bài vẫn `draft`.

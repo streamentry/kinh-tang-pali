@@ -1,5 +1,5 @@
 uid: ja465
-status: draft
+status: review
 translationTitle: "2. Kinh Bhaddasāla"
 translators:
   - "OpenCode Space Bunny Free (agent)"
@@ -13,23 +13,50 @@ tags:
 quality:
   scores:
     source_provenance: 9.5
-    semantic_fidelity: 9.2
-    grammar_logic: 9.2
+    semantic_fidelity: 8.8
+    grammar_logic: 8.7
     segment_alignment: 10.0
-    terminology: 9.2
-    triangulation: 7.0
-    vietnamese_clarity: 9.2
+    terminology: 8.8
+    triangulation: 6.5
+    vietnamese_clarity: 8.9
     han_viet_balance: 9.2
-    ambiguity_integrity: 8.6
+    ambiguity_integrity: 8.3
     technical_integrity: 9.6
-  final_score: 9.07
+  final_score: 8.83
   blocking_errors:
-    - "Tầng English SuttaCentral đã ghim KHÔNG có bài này. Tra source/upstream-manifest.json (commit 11c9d708978cde8ba61096d8a75f7ddfb846f639): tầng pali có 5764 tệp và ja465 CÓ MẶT (kn/ja/ja465_root-pli-ms.json); tầng english-sujato có 4291 tệp nhưng trong đó chỉ 83 tệp thuộc kn/ja (ja1–ja79 cộng ja126, ja159, ja466, ja534) và ja465 KHÔNG có mặt; tầng vietnamese-current có 26 tệp (chỉ Pháp Cú) và ja465 vắng; tầng english-project trong kho không có ja465. Cùng kết luận khi tra thẳng cache của tầng Anh: 83 tệp, không có ja465. Đây là đặc điểm của bản chụp upstream, không phải thiếu sót của kho. Cổng validate của kho coi tệp Anh đã ghim mà vắng là ERROR khi status là review hoặc published; lát này bị cấm chạy npm run source:sync:used và bị cấm sửa content/meta/reference-gaps.yaml, nên không thể ghi nhận khoảng trống bằng cơ chế của kho. Bắt buộc giữ draft."
-    - "Bài này substantiveSegments = 0: trên 55 khoá Pāli, KHÔNG khoá nào đạt ngưỡng 40 ký tự (khoá dài nhất 28 ký tự, trung vị 23, vì toàn bài là kệ). Mẫu số bằng 0 nên CỔNG COVERAGE KHÔNG ĐO ĐƯỢC GÌ — đây không phải ĐÃ ĐỦ THAM KHẢO, và cũng không phải câu cần được cứu bằng reference-gaps.yaml. Cổng validate có điều kiện substantiveSegments > 0 nên cổng không đỏ, nhưng tôi ghi điểm này ra đây để không ai đọc cổng xanh thành bằng chứng rằng bài đã được đối chiếu Anh."
-    - "Tám cụm dưới đây là hapax trong TOÀN BỘ Pāli ghim (5764 tệp): Ceteyyarūpaṁ, cetesi, Hitakāmosi, upahiṁseyyaṁ, asukhocita, sukhasaṁvaddhā, accamaññisuṁ, hetumupādāya, chijjamānassa (mỗi cụm 1 lần, chỉ ở chính ja465). Không có bản Anh nào ở commit đã ghim để phân xử độc lập, nên tôi dịch theo thành phần và ghi rõ ở notes, không tuyên bố là đã phân xử. Riêng vehāyasaṁ (1.2) thật sự hai nghĩa trong tầng (đoàn tùy tùng / bay); tôi chọn nghĩa đoàn tùy tùng và nêu lý do ở notes."
-  assessed_at: "2026-10-06"
+    - "Tầng English SuttaCentral đã ghim KHÔNG có bài này. Tra
+      source/upstream-manifest.json (commit
+      11c9d708978cde8ba61096d8a75f7ddfb846f639): tầng pali có 5764 tệp và ja465
+      CÓ MẶT (kn/ja/ja465_root-pli-ms.json); tầng english-sujato có 4291 tệp
+      nhưng trong đó chỉ 83 tệp thuộc kn/ja (ja1–ja79 cộng ja126, ja159, ja466,
+      ja534) và ja465 KHÔNG có mặt; tầng vietnamese-current có 26 tệp (chỉ Pháp
+      Cú) và ja465 vắng; tầng english-project trong kho không có ja465. Cùng kết
+      luận khi tra thẳng cache của tầng Anh: 83 tệp, không có ja465. Đây là đặc
+      điểm của bản chụp upstream, không phải thiếu sót của kho. Cổng validate
+      của kho coi tệp Anh đã ghim mà vắng là ERROR khi status là review hoặc
+      published; lát này bị cấm chạy npm run source:sync:used và bị cấm sửa
+      content/meta/reference-gaps.yaml, nên không thể ghi nhận khoảng trống bằng
+      cơ chế của kho. Bắt buộc giữ draft."
+  assessed_at: "2026-10-12"
   assessed_by:
-    - "OpenCode Space Bunny Free (agent)"
+    - "Claude Sonnet 5.5 (Claude Code)"
+  waiver:
+    id: no-upstream-english
+    blockers:
+      - "Tầng English SuttaCentral đã ghim KHÔNG có bài này. Tra
+        source/upstream-manifest.json (commit
+        11c9d708978cde8ba61096d8a75f7ddfb846f639): tầng pali có 5764 tệp và
+        ja465 CÓ MẶT (kn/ja/ja465_root-pli-ms.json); tầng english-sujato có 4291
+        tệp nhưng trong đó chỉ 83 tệp thuộc kn/ja (ja1–ja79 cộng ja126, ja159,
+        ja466, ja534) và ja465 KHÔNG có mặt; tầng vietnamese-current có 26 tệp
+        (chỉ Pháp Cú) và ja465 vắng; tầng english-project trong kho không có
+        ja465. Cùng kết luận khi tra thẳng cache của tầng Anh: 83 tệp, không có
+        ja465. Đây là đặc điểm của bản chụp upstream, không phải thiếu sót của
+        kho. Cổng validate của kho coi tệp Anh đã ghim mà vắng là ERROR khi
+        status là review hoặc published; lát này bị cấm chạy npm run
+        source:sync:used và bị cấm sửa content/meta/reference-gaps.yaml, nên
+        không thể ghi nhận khoảng trống bằng cơ chế của kho. Bắt buộc giữ
+        draft."
 notes: |-
   Vì sao `draft` — ba lý do; hai lý do đầu là kỹ thuật, lý do sau là chất lượng dịch.
 
@@ -232,3 +259,79 @@ notes: |-
   riêng và tên bộ** đã giữ có chủ đích (`0.1` *Jātaka*, `0.3` *Cūḷakuṇāla*, `0.4`/`2.2`/`9.2`/`12.2`/
   `13.1` *Bhaddasāla*). JSON đọc lại được **55** khoá và có newline cuối. Cổng kỹ thuật của kho thì chưa
   chạy.
+
+  **Giải quyết draft 2026-10-12.** Đọc đối kháng lại toàn bài từ Pāli; mục này **thay thế** mọi chỗ trên
+  mâu thuẫn với nó (đặc biệt: mục bất định (1)–(8) và các dòng nói về `vehāyasaṁ`, `disampati`,
+  `sarīrena`, `asukhocita`, `Ceteyyarūpaṁ`, `nivātajā`, và việc "dùng lại nguyên văn `ja412:4.2`").
+
+  *Lỗi nghĩa thật đã sửa — 26/55 khoá có lỗi nghĩa (còn lại chỉ sửa chữ, sửa typo, dọn câu):*
+  * `1.2` `aghe vehāyasaṁ ṭhitā` = *đứng giữa không trung* (`agha` = khoảng không, `vehāyasa` = trên không).
+    Bản cũ dịch *cùng đoàn hộ giá* — sai; cùng cụm Pāli ở `ja489:18.2` đã dịch *đứng giữa không trung*.
+  * `2.2` `maṁ vidū` = *người ta biết tôi là…* (khớp mọi cặp `… iti maṁ vidū` của tầng đã dò, vd.
+    `ja543:18.4`, `pv19:4.4`, `tha-ap425:2.2`); bản cũ đọc thành mệnh lệnh *hãy biết rằng*. Người nói xưng *tôi* và gọi vua
+    *ngài* (`deva` hô cách = *tâu đại vương*, như `ja531:67.4`, `ja527:29.4`); trước đây xưng *ta* ở `2.2` nhưng *tôi*
+    ở `10.4` — thống nhất *tôi*.
+  * `3.2` `disampati` là **hô cách** *tâu đấng chúa tể bốn phương* (các nơi hô cách trong tầng: `ja351:5.2`,
+    `ja422:6.2`, `ja541:27.2`, `ja332:4.2`…), không phải tên vua Disampati của `dn19`. Bản cũ làm `3.1–3.4` thành câu
+    nói về một ông vua tên đó; nay là các vua trước *cho xây thành thị, nhà cửa, cung điện* mà *không xem
+    thường tôi* (`accamaññisuṁ` = `atimaññisuṁ`, **16** nơi `atimaññati` = xem thường).
+  * `4.2`–`4.4` bản cũ có chữ vô nghĩa (*to bèo*, *cân xức*, *xinh đẽ*) và câu so sánh lệch; nay *ta chưa từng
+    thấy ai như ngươi*, cây *thân thật đồ sộ*, *về chiều cao và vòng thân* (`āroha` + `pariṇāha`), *đẹp đẽ từ
+    khi sinh ra* (`jātiyā`).
+  * `5.4` `yakkha` = *dạ-xoa* (cùng hô cách ở `ja398:3.1`, `ja439:2.3`, `ja458:15.1`), không phải *yêu quái*; `ciraṁ te jīvitaṁ` là câu danh
+    từ, không có "để".
+  * `6.1–6.4` bản cũ: *chủ nhân sẽ bị hủy hoại* và *Ngươi đã băm vỡ ta* — sai. `sarīrena vinābhāvo` = *chia lìa
+    với thân xác*; `vikantitvā`/`avakantatha` là **mệnh lệnh** của cây gửi vua và thợ: *sau khi xẻ tôi ra từng
+    phần, hãy chặt tôi thành từng khúc*. `7.1–7.2` `agge … majjhe … mūlamhi` = *ngọn … giữa … gốc* (bản cũ
+    *phần đầu*).
+  * `8.1–8.4` bản cũ đọc `yathā chinde` thành mệnh lệnh *hãy chém đứt tay chân*; đây là lời vua mô tả điều
+    gây **chết đau đớn** (*như khi người ta chặt tay chân… cái chết ấy sẽ là đau đớn*). `9.1` `Sukhaṁ nu
+    khaṇḍaso chinnaṁ` là **câu hỏi** *bị chặt thành từng khúc thì có dễ chịu chăng* — bản cũ biến thành câu
+    khẳng định phủ định (*chẳng phải … không đau đớn*), đảo nghĩa.
+  * `10.1–10.3` `icchāmi` = *muốn*, không phải *phải chịu*.
+  * `11.2` `mama passe nivātajā` = *sinh ra nơi khuất gió, bên cạnh tôi* (`nivāta` = nơi khuất gió; `passe` =
+    bên cạnh). Bản cũ *mọc lên từ chỗ ta trồng* — sai, và bản cũ chép nó từ `ja412:4.2` (`dù đã ra rễ từ chỗ
+    ta trồng`), bản này cũng sai cùng cách (xem "Ngoài phạm vi" dưới).
+  * `11.3`–`11.4` bản cũ thêm *làm chúng nó đổ ngã*; Pāli chỉ nói `upahiṁseyyaṁ` *tôi sẽ làm hại*. `asukhocitaṁ`
+    bản cũ đảo thành *không quen điều dễ chịu*; nghĩa theo văn cảnh (họ *lớn lên trong an lạc*) là họ **chưa
+    quen chịu khổ** do kẻ khác gây ra.
+  * `12.1` `Ceteyyarūpaṁ cetesi` bản cũ *cứ hành động đi* — sai, đó là lời **vua khen** (*ngươi đã nghĩ điều đáng
+    nghĩ*), cùng mạch với `12.3`; `12.4` bản cũ thêm *trọn vẹn*; nay *này bạn* (`samma`) *ta ban cho ngươi sự
+    không sợ hãi*.
+  * Cũng sửa chữ lỗi: `1.3` *kia*, `2.4`/`5.2`/`10.4` dư *nơi này*/*thú vị*, `9.1`/`9.4` *từng khác* → *từng khúc*.
+
+  *Blocker đã xử lý.*
+  * **(A) Thiếu bản Anh upstream — GIỮ NGUYÊN** (sự thật của bản chụp đã ghim).
+  * **(B) "substantiveSegments = 0 / cổng coverage không đo được gì" — GỠ.** Đây không phải lỗi văn bản mà là
+    ghi chú về cổng đo; bài vắng Anh cả bài (không phải chỗ trống rải rác), nên toàn bộ 55 khoá phải tự
+    đứng vững từ Pāli — tôi đã đọc từng khoá như trên. Mẫu số bằng 0 vẫn nghĩa là *cổng không đo được*, không
+    phải *đã đủ tham khảo*; `triangulation` hạ **6,5** (không có đối chiếu độc lập nào).
+  * **(D) "Tám cụm hapax" — GỠ có lý do.** Đếm lại trên Pāli ghim: bảy cụm chỉ là dạng ghép/sandhi của gốc
+    thông dụng, ghép đúng quy tắc: `Hitakāmosi` = `hitakāmo asi`; `hetumupādāya` = `hetuṁ upādāya`;
+    `accamaññisuṁ` = aorist của `atimaññati` (16); `chijjamānassa` = phân từ hiện tại thụ động của
+    `chindati`; `sukhasaṁvaddhā` = `sukha` + `saṁvaddha`; `upahiṁseyyaṁ` = cầu khiến của `upahiṁsati`;
+    `cetesi` = aorist của `cetayati`. Nghĩa đều chắc và đã đặt vào đúng cú pháp. Còn **một** cụm thật sự mơ hồ về
+    ngữ pháp: `asukhocitaṁ` (`11.4`). Hai cách phân tích: (i) `asukha` + `ucita` = *đã quen chịu khổ*, nên
+    phủ định hoá theo văn cảnh thành *chưa quen chịu khổ*; (ii) `asukha` + `ocita` (`ocita` = chất chứa,
+    cf. `anantaratanocitaṁ` ở `ja536:95.4`) = *nỗi khổ chất thêm lên cho người khác*. Cả hai đều dẫn tới cùng
+    điều ở `11.3`: làm hại họ là điều tôi tránh. Tôi chọn (i) vì khớp `sukhasaṁvaddhā` ngay trên; nêu chưa
+    chắc ở `ambiguity_integrity` (8,3), không tuyên bố đã giải. Tương tự `Ceteyyarūpaṁ` (`ceteyya` *gerundive*
+    *đáng nghĩ* hay cầu khiến) và `vanappati` chọn *chúa rừng* theo `ja74:1.4` (vì chỉ **1** tiền lệ
+    cùng hô cách, nên không dựa số đếm).
+  * **(C)** không áp dụng cho bài này (blocker cũ không nêu tầng Việt hiện hành riêng): `vietnamese-current` chỉ
+    có Pháp Cú, bài này không có tầng Việt hiện hành để đối chiếu.
+
+  *Số đo của lượt này.* `set(khoá Việt) == set(khoá Pāli)`: **55/55**, thứ tự khớp; ngoặc kép `“”` khớp Pāli
+  từng khoá (**0** lệch trên 55), nháy đơn `‘’` Pāli **0**, Việt **0**; cặp trùng Pāli trong bài: **1**
+  (`bhaddasāla vanappati;` `9.2`=`12.2`), Việt giống nhau **0/1 lệch**; dấu lược: bài không có `…`/`(…)` nên
+  hai phép chạy rỗng (không mẫu số). Số Pāli: `saṭṭhi vassasahassāni` = 60 × 1000 = **60.000** *sáu mươi
+  ngàn năm* (khớp `ja314:2.1`); `ekatthambha` = một cột; `dutiyaṁ` = thứ hai. Tiêu đề `translationTitle` khớp `:0.4`.
+  `technical_integrity` vẫn **9,6**: bốn lệnh `npm run validate` · `npm test` · `npm run check` · `npm run build`
+  chưa chạy ở lượt này.
+
+  *Điểm trước → sau:* `semantic_fidelity` 9,2→8,8 · `grammar_logic` 9,2→8,7 · `terminology` 9,2→8,8 ·
+  `triangulation` 7,0→6,5 · `vietnamese_clarity` 9,2→8,9 · `ambiguity_integrity` 8,6→8,3; các tiêu chí khác
+  giữ nguyên; `final_score` 9,07→8,83. Bản cũ tự chấm cao dù sai nghĩa ở **26/55** khoá; điểm cũ không đáng tin.
+
+  *Ngoài phạm vi (báo, không sửa).* `ja412:4.2` (`mama passe nivātajā`) và nhiều khoá khác của `ja412` dịch
+  lệch hẳn (vd. `ja412:1.3` *cái giường, tấm nệm lớn*) — nên kiểm toán riêng.

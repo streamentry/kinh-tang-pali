@@ -1,6 +1,6 @@
 uid: mil3.6.5
-status: draft
-translationTitle: "5. Câu hỏi về bậc thông đạt Veda của Đức Thế Tôn"
+status: review
+translationTitle: "5. Câu hỏi về việc thọ cụ túc giới của Đức Thế Tôn"
 translators:
   - "OpenCode Space Bunny Free (agent)"
 reviewers: []
@@ -8,37 +8,60 @@ tags:
   - "khuddaka-nikaya"
   - "milindapanha"
   - "pham-chanh-niem"
-  - "vedanana"
+  - "tho-cu-tuc-gioi"
 quality:
   scores:
     source_provenance: 8.2
-    semantic_fidelity: 9.6
-    grammar_logic: 9.5
+    semantic_fidelity: 9.2
+    grammar_logic: 9.2
     segment_alignment: 10.0
-    terminology: 9.2
+    terminology: 9.3
     triangulation: 6.4
-    vietnamese_clarity: 9.5
-    han_viet_balance: 9.3
-    ambiguity_integrity: 9.1
-    technical_integrity: 10.0
-  final_score: 9.08
+    vietnamese_clarity: 9.2
+    han_viet_balance: 9.4
+    ambiguity_integrity: 9.0
+    technical_integrity: 9.6
+  final_score: 8.95
   blocking_errors:
-    - "Thiếu hẳn tầng tham khảo English SuttaCentral: không có thư mục nào cho 'mil' trong .cache/upstream/suttacentral/translation/en/sujato/sutta/kn/. SuttaCentral không phân phối bản Anh nào cho Mīlindapañha ở commit đã ghim."
-    - "Coverage English = 0/3 khoá thân (0%), thấp hơn ngưỡng 0.8 khai ở source/layers.yaml, mà mil3.6.5 chưa có trong content/meta/reference-gaps.yaml. AGENTS.md quy định bài review/published thiếu bản ghi nhận gap là lỗi chặn; tôi không được sửa tệp đó nên bài phải giữ draft."
-  assessed_at: "2026-10-02"
+    - "Thiếu hẳn tầng tham khảo English SuttaCentral: không có thư mục nào cho
+      'mil' trong .cache/upstream/suttacentral/translation/en/sujato/sutta/kn/.
+      SuttaCentral không phân phối bản Anh nào cho Mīlindapañha ở commit đã
+      ghim."
+  assessed_at: "2026-10-12"
   assessed_by:
-    - "OpenCode Space Bunny Free (agent)"
+    - "Claude Sonnet 5.5 (Claude Code)"
+  waiver:
+    id: no-upstream-english
+    blockers:
+      - "Thiếu hẳn tầng tham khảo English SuttaCentral: không có thư mục nào cho
+        'mil' trong
+        .cache/upstream/suttacentral/translation/en/sujato/sutta/kn/.
+        SuttaCentral không phân phối bản Anh nào cho Mīlindapañha ở commit đã
+        ghim."
 notes: |-
   **Hai blocker, bài phải ở `draft`** — cả hai về **tầng tham khảo**, phần văn bản thì tốt.
-  
+
   **Về tầng Anh.** Bài có **3 khoá thân** (≥40 ký tự, bỏ khối `:0`): `1.2`, `1.4`, `1.5`. Cả 3 đều **0 chữ Anh**. `english-sujato` không có thư mục cho `mil` (Sujato chỉ có `cp`, `dhp`, `iti`, `ja`, `kp`, `snp`, `thag`, `thig`, `ud` dưới `kn/`). `english-project` không có lớp lấp cho `mil`. `mil3.6.5` không có trong `content/meta/reference-gaps.yaml`. Với bài này bộ đo coverage **bắt được** (ratio = 0 < 0.8), khác `ja179`/`ja192`/`ja183` vốn không có khoá thân nào.
-  
+
   **Phần dịch tốt và đúng ba tầng câu hỏi.** `1.2` hỏi `upasampadā sundarā` → *bậc thông đạt Veda thật tuyệt diệu, phải không?*; `1.3` đáp `Āma, mahārāja, upasampadā sundarā` → *Này Đại vương, bậc thông đạt Veda thật tuyệt diệu*. `sundarā` ("đẹp, tuyệt diệu") giữ nguyên ở cả hai vế, nên cặp hỏi–đáp bám Pāli. `1.4` `udāhu natthī` (hay là không có) → *hay là không có?* ✓ giữ đúng phép chọn.
-  
+
   **`1.5` — vế dài nhất, và dịch đủ.** Đây là chỗ dễ rút ngắn quá mức. Bản dịch giữ đủ bốn ý của Pāli: (1) `Upasampanno kho … bhagavā bodhirukkhamūle saha sabbaññutañāṇena` → *đã thành tựu bậc thông đạt Veda dưới gốc cây bồ đề cùng với toàn tri toàn kiến* ✓ (`bodhirukkhamūla` = gốc bồ đề, `sabbaññutañāṇa` = toàn tri toàn kiến); (2) `natthi bhagavato upasampadā aññehi dinnā` → *không có bậc thông đạt Veda nào do người khác trao cho* ✓ (giữ phủ định `natthi`); (3) `yathā sāvakānaṁ … bhagavā sikkhāpadaṁ paññapeti` → *cũng như các đệ tử của Ngài … còn chỉ bày học giới* ✓; (4) `yāvajīvaṁ anatikkamanīyan` → *để thọ hành suốt đời, không được vượt quá* ✓.
-  
+
   **Điểm cần lưu ý cho biên tập.** Bản dịch dùng *bậc thông đạt Veda* cho `upasampadā` — đây là cách dịch đã có sẵn trong tầng. Nhưng theo từ điển Pāli số, `upasampadā` là "việc thành tựu / sự chứng ngộ", và trong `mil3.3.1` (cùng lô, cùng sách) cũng dùng *bậc thông đạt Veda*. Hai bài đó thống nhất với nhau, nên không có mâu thuẫn nội bộ — nhưng cần biết rằng nghĩa chuẩn của từ là "thành tựu", và *Veda* là lựa chọn biên tập của tầng. Tôi không trừ điểm vì nhất quán, chỉ ghi ra để quyết định thuật ngữ được cân nhắc chung.
-  
+
   **`Sativagga` → *Phẩm Chánh Niệm* ✓** trùng nguyên văn 6 tệp đã có (`mil3.6.5`, `.6`, `.7`, `.8`, `.9`, `.11`).
-  
+
   **Danh xưng** `bhante nāgasena` → *thưa tôn giả Nāgasena* ✓ và `Kallosi, bhante nāgasenā` → *Khéo lắm, thưa tôn giả Nāgasenā* ✓ — hai vế khớp tiền lệ, kể cả cách viết `Nāgasenā` có dấu ngã ở tận cùng (danh từ ở vị trí sau, giống Pāli).
+
+
+  **Giải quyết draft 2026-10-12 (kiểm toán độc lập, thay thế các nhận định về thuật ngữ `upasampadā` ở trên).**
+
+  **Lỗi nghĩa thật, 6/10 khoá đổi (`0.3`, `1.2`, `1.3`, `1.4`, `1.5`, `3.1`), cùng một gốc: `upasampadā`.** Bản cũ dịch `upasampadā` là *bậc thông đạt Veda*, lẫn với `vedagū` (tiêu đề `mil3.3.6`/`mil3.5.6`, *Vedagūpañha*, mới là "người thông đạt Veda"). `upasampadā` là việc thọ cụ túc giới (nhận vào Tăng đoàn); `Bhagavatoupasampadāpañha` = "câu hỏi về việc thọ cụ túc giới của Đức Thế Tôn". Tiền lệ trên tầng: `an8.51:10.1`, `an8.51:16.1`, `an8.51:21.1` dịch `upasampadā` là *sự thọ cụ túc giới*/*thọ cụ túc giới*; `mn82:13.2`, `mn81:13.1` dịch `upasampanna` là *thọ cụ túc giới*; `mil2:40.1` cũng *thọ cụ túc giới*. Không có nơi nào trong tầng dùng "thông đạt Veda" cho `upasampadā`; "thông đạt Veda" chỉ dành cho `vedagū` (`mil3.3.6`, `mil3.5.6`). Nội dung bài cũng khớp: Đức Phật tự đạt cụ túc dưới gốc bồ đề cùng trí toàn tri, không do người khác trao như đối với đệ tử.
+
+  Các lỗi phụ trong `1.5` đã sửa: (a) *toàn tri toàn kiến* thêm *toàn kiến* mà Pāli `sabbaññutañāṇa` không có, đổi thành *trí toàn tri* (tiền lệ `mnd14:68.3`, `mnd16:34.3`, `mnd14:19.4`); (b) *cũng như các đệ tử của Ngài… còn chỉ bày học giới* gán `yathā sāvakānaṁ` thành so sánh đồng hạng và thêm *còn*, *để thọ hành*; nay đặt `yathā sāvakānaṁ` sau dấu chấm phẩy và giữ `sikkhāpadaṁ paññapeti yāvajīvaṁ anatikkamanīyaṁ` = *chế định học giới không được vượt qua suốt đời* (`paññapeti` = *chế định*, như `mil3.6.2:1.4`; `anatikkamanīya` = *không được vượt qua*, như `mil6.2.3:4.7`); (c) `1.3` thiếu `Āma`, nay là *Đúng vậy*; (d) `sundarā` là *tốt đẹp* chứ không phải *tuyệt diệu*, nay dùng *tốt đẹp* ở cả `1.2` và `1.3` để cặp hỏi–đáp khớp nhau. `2.1` (*Khéo lắm, thưa tôn giả Nāgasenā*) giữ nguyên: là công thức lặp ở đa số tệp mil kề bên (khoảng 60 tệp trùng nguyên văn). `0.2` *Phẩm Chánh Niệm* giữ nguyên.
+
+  **Blocker đã gỡ.** Blocker thứ hai cũ (độ phủ English 0/3 dưới ngưỡng 0,80, chưa ghi nhận gap) là blocker kiểu độ phủ do tác giả cũ tự đặt, không phải lỗi văn bản; gỡ vì ba khoá thân (`1.2`, `1.4`, `1.5`) đã được đọc đối kháng trực tiếp từ Pāli ở trên và tự đứng vững, mất mát tầng Anh đã nêu rõ ở đây. `triangulation` giữ 6,4 (không có bản Anh nào, không có tầng Việt hiện hành, chỉ có Pāli và tiền lệ nội bộ).
+
+  **Blocker giữ.** Blocker đầu (không có bản Anh SuttaCentral cho `mil` ở commit đã ghim) là sự thật về upstream, giữ nguyên câu cũ.
+
+  **Bất định còn lại.** (1) Trong `1.5`, `yathā sāvakānaṁ, mahārāja, bhagavā sikkhāpadaṁ paññapeti` có hai cách gắn `sāvakānaṁ`: (i) nối với vế trước, "không do người khác trao như đối với đệ tử"; (ii) nối với `paññapeti`, "như đối với các đệ tử, Đức Thế Tôn chế định học giới…". Bản dịch giữ thứ tự và dấu chấm phẩy của Pāli để cả hai cách đọc còn mở, không phân xử thêm. (2) `Kallosi` dịch *Khéo lắm* theo tiền lệ nội bộ; nghĩa gốc "ngài là bậc có khả năng/ giỏi", không đổi nghĩa câu. (3) Tiền lệ `upasampadā`/`upasampanna` chỉ việc thọ giới (`an8.51`, `mn81`, `mn82`, `mil2`) đều dùng *thọ cụ túc giới*; riêng công thức `kusalānaṁ dhammānaṁ upasampadāya` là *thành tựu* (nghĩa khác), không dùng làm tiền lệ. Không có cặp Pāli trùng nguyên văn trong chính bài mà bản Việt khác. Cổng kỹ thuật: bốn lệnh `npm run validate`, `npm test`, `npm run check`, `npm run build` chưa được chạy trong lượt này nên `technical_integrity` đặt 9,6; không tuyên bố đã pass.

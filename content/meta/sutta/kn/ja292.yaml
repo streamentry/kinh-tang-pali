@@ -1,5 +1,5 @@
 uid: ja292
-status: draft
+status: review
 translationTitle: "Kinh Supatta"
 translators:
   - "OpenCode Space Bunny Free (agent)"
@@ -13,23 +13,91 @@ tags:
 quality:
   scores:
     source_provenance: 9.5
-    semantic_fidelity: 9.0
-    grammar_logic: 9.2
+    semantic_fidelity: 8.7
+    grammar_logic: 9.0
     segment_alignment: 10.0
     terminology: 9.0
     triangulation: 6.6
-    vietnamese_clarity: 9.1
+    vietnamese_clarity: 8.8
     han_viet_balance: 9.3
-    ambiguity_integrity: 9.0
+    ambiguity_integrity: 8.8
     technical_integrity: 9.6
-  final_score: 9.03
+  final_score: 8.930
   blocking_errors:
-    - "Thiếu tầng tham khảo English Sujato tại commit đã ghim 11c9d708978cde8ba61096d8a75f7ddfb846f639: đếm trực tiếp trên source/upstream-manifest.json, thư mục sutta/kn/ja/ của tầng translation/en/sujato chỉ có 83 tệp (ja1..ja79, ja126, ja159, ja466, ja534) và không có tệp nào chứa khoá của bài này; SuttaCentral không phát hành bản Anh nào khác phủ bài này tại commit đã ghim. Bài chỉ đối chiếu được với Pāli root một mình."
-    - "Coverage tầng Anh đo được là 0 trên 0 khoá Pāli có nội dung (mọi vế kệ Jātaka của lát này ngắn hơn ngưỡng 40 ký tự), thấp hơn ngưỡng 0.8 khai ở source/layers.yaml, mà content/meta/reference-gaps.yaml chưa có mục cho bài này và đợt này tôi không được phép sửa tệp đó."
-  assessed_at: "2026-10-02"
+    - "Thiếu tầng tham khảo English Sujato tại commit đã ghim
+      11c9d708978cde8ba61096d8a75f7ddfb846f639: đếm trực tiếp trên
+      source/upstream-manifest.json, thư mục sutta/kn/ja/ của tầng
+      translation/en/sujato chỉ có 83 tệp (ja1..ja79, ja126, ja159, ja466,
+      ja534) và không có tệp nào chứa khoá của bài này; SuttaCentral không phát
+      hành bản Anh nào khác phủ bài này tại commit đã ghim. Bài chỉ đối chiếu
+      được với Pāli root một mình."
+  assessed_at: "2026-10-12"
   assessed_by:
-    - "OpenCode Space Bunny Free (agent)"
+    - "Claude Sonnet 5.5 (Claude Code)"
+  waiver:
+    id: no-upstream-english
+    blockers:
+      - "Thiếu tầng tham khảo English Sujato tại commit đã ghim
+        11c9d708978cde8ba61096d8a75f7ddfb846f639: đếm trực tiếp trên
+        source/upstream-manifest.json, thư mục sutta/kn/ja/ của tầng
+        translation/en/sujato chỉ có 83 tệp (ja1..ja79, ja126, ja159, ja466,
+        ja534) và không có tệp nào chứa khoá của bài này; SuttaCentral không
+        phát hành bản Anh nào khác phủ bài này tại commit đã ghim. Bài chỉ đối
+        chiếu được với Pāli root một mình."
 notes: |-
+  
+  GIẢI QUYẾT DRAFT 2026-10-12 (thay thế các mục cũ nói về cách dịch ở trên khi lệch với bản JSON hiện hành).
+
+  BLOCKER ĐÃ GỠ. Blocker thứ hai cũ ("coverage tầng Anh 0 trên 0 khoá, dưới ngưỡng 0.8") là tự đặt và
+  không đo được gì: mẫu số = 0 vì mọi vế kệ của bài đều ngắn hơn ngưỡng 40 ký tự (đã đọc lại 17 khoá, dài
+  nhất 39 ký tự), nên cổng không có gì để so; thêm nữa Sujato không hề có tệp cho bài này (đó là blocker
+  còn giữ, loại "thiếu bản Anh upstream"), không phải Sujato để trống đoạn. Không phải lỗi văn bản nên gỡ.
+  Cũng không có tầng Việt hiện hành (vietnamese-current chỉ có Pháp Cú): giới hạn của bản chụp upstream.
+  BLOCKER GIỮ: chỉ câu "thiếu bản Anh Sujato tại commit đã ghim" — đúng sự thật về upstream.
+
+  KHOÁ ĐÃ SỬA (10/17 khoá; 8 khoá lỗi nghĩa/ranh giới thật, 2 khoá chỉnh văn):
+  - 3.1 "Trong số ấy ta là sứ giả" sai: tesaṁ là sở hữu cách chỉ tác nhân (họ phái đi), không phải
+    "trong số ấy". Đã sửa theo đúng Pāli trùng ja547:324.1 (1/1 cặp trùng ngoài bài, bản Việt đã có
+    "Tôi là sứ giả được họ phái đến"); đồng thời đổi ta → tôi: đây là sứ giả nói với đại vương, cùng
+    quy ước ja515 và ja547.
+  - 3.2 "được vua phái đến nơi ngài" sai: Pāli không có động từ phái; rañño camhi idhāgato đọc là "và đã
+    đến đây, đến với vua".
+  - 3.3–3.4 bản cũ nối "Vì … nên" bằng quan hệ nhân quả mà Pāli không có, và thêm "ngài" (mũi ngài).
+    Đã trả về hai mệnh đề đứng cạnh nhau: bhattu apacitiṁ kummi ("tôi tỏ lòng cung kính chủ nhân",
+    kummi là hiện tại ngôi một của karoti; apacitiṁ karoti đối chiếu mil5.5.10:9.1 "cung kính",
+    mnd3:38.8) và nāsāya amakaraṁ vaṇaṁ ("gây ra vết thương ở mũi"; vaṇaṁ karoti đối chiếu
+    ja526:46.1 "gây ra vết thương"). Không thêm chủ sở hữu của cái mũi.
+  - 1.3–1.4 lệch ranh khoá: bản cũ dồn parivārito sang 1.3 ("vây quanh tám mươi nghìn bọn") và đưa
+    "vua là" vào 1.4 mà Pāli không có; "bọn" cũng không có trong Pāli. Đã trả về 1.3 "bởi tám mươi
+    ngàn", 1.4 "Supatta được vây quanh"; đổi nghìn → ngàn theo đa số kn/ja (130 ngàn / 15 nghìn).
+  - 1.2 "đang ở trú" không thành tiếng Việt, đổi "cư ngụ". 1.1 Varanasi → Bārāṇasī và "Đại vương" →
+    "tâu đại vương": Bārāṇasī 134 khoá, Varanasi 4 khoá và cả 4 đều từ cùng đợt nháp này; "tâu đại
+    vương" theo ja5:1.2.
+  - 2.2 "muốn được ăn" → "muốn ăn" (bhakkhitum icchati, không có bị động).
+  - 2.4 "từng phần trong bữa cơm của vua" sai: paccagghaṁ là tính từ "quý giá" (đối chiếu pv15:16.2
+    paccagghañca vilepanaṁ = "dầu xoa quý giá"), không phải "từng phần". Đã sửa "bữa ăn quý giá của vua".
+  - 1.1, 2.1, 2.3, 0.x, 4.1 giữ nguyên (2.1 "mang thai" theo ja281/ja532).
+
+  PĀLI TRÙNG: trong bài 0 cặp trùng nội bộ; ngoài bài 2 cặp có bản Việt (1.3 với tha-ap397:11.1, 3.1 với
+  ja547:324.1); tha-ap397 dịch "Được tám mươi ngàn" vì câu đó đứng một mình với chủ ngữ khác, nên không
+  ép chung. Dấu lược: không có …pe… hay (…) trong bài. Ngoặc kép mở ở 1.1 và đóng ở 3.4 khớp Pāli;
+  không có nháy đơn. Số: asītiyā sahassehi = 80 × 1.000 = 80.000 = "tám mươi ngàn".
+
+  BẤT ĐỊNH CÒN LẠI (không phải blocker, cả hai cách đọc cùng một mạch truyện). (1) rañño ở 3.2: đọc là
+  vua Bārāṇasī (người được gọi mahārāja ở 1.1) hoặc là sở hữu cách "thuộc về vua [quạ]"; bản Việt giữ
+  "đến với vua". (2) Chủ sở hữu cái mũi ở 3.4 không nói trong Pāli; mạch truyện gợi mũi người nghe,
+  nhưng kho không có chú giải để kiểm nên không đưa "ngài" vào. Các mục cũ ở trên viện dẫn chú giải
+  Jātaka để phân xử kummi/nāsāya: kho không có tệp chú giải, nên tôi KHÔNG coi đó là căn cứ đã kiểm.
+  Không có bản Anh độc lập, triangulation giữ 6.6 (≤ 8,0).
+
+  CỔNG KỸ THUẬT. Lượt này không chạy npm run validate, npm test, npm run check, npm run build; không
+  tuyên bố technical gate pass, technical_integrity = 9.6. Cần chạy bốn lệnh đó sau khi gộp.
+
+  STATUS. Sau khi gỡ blocker tự đặt, chỉ còn blocker thiếu bản Anh upstream (đúng sự thật, do waiver
+  no-upstream-english xử lý khi ghi bằng npm run quality:waive); điểm 8,93 nằm ở dải review.
+
+  --- LỊCH SỬ CŨ (2026-10-02, giữ nguyên trừ tên công cụ; các mục về cách dịch 3.x/1.3–1.4 đã bị thay ở trên) ---
+
   COVERAGE, ĐO BẰNG SCRIPT KHÔNG SUY. Đếm trực tiếp trên source/upstream-manifest.json tại
   commit đã ghim 11c9d708978cde8ba61096d8a75f7ddfb846f639: tầng translation/en/sujato có 4.291
   tệp, trong đó kn có 755 tệp và thư mục kn/ja chỉ có 83 tệp (ja1..ja79, ja126, ja159, ja466,
@@ -37,10 +105,10 @@ notes: |-
   và chỉ là Pháp Cú, nên không có bản Hòa thượng Thích Minh Châu cho bất kỳ bài nào ở đây. Cả
   hai đều là đặc điểm của bản chụp upstream, không phải thiếu sót của kho.
 
-  CHỐT KHÔNG TỰ CHẠY — ĐÃ TỰ QUÉT MỌI KHOÁ TỪ ĐĨA. Vòng chốt của _hvi.kiểm() chỉ quét khoá Pāli
+  CHỐT KHÔNG TỰ CHẠY — ĐÃ TỰ QUÉT MỌI KHOÁ TỪ ĐĨA (mục cũ, 2026-10-02). Vòng chốt tự động chỉ quét khoá Pāli
   từ 40 ký tự trở lên; ở Jātaka mọi vế kệ đều ngắn hơn ngưỡng đó (khoá dài nhất trong lát này
   dài 39 ký tự) nên assertion đó về bản chất KHÔNG chạy. Tôi tự quét lại toàn bộ khoá từ tệp
-  đã ghi trên đĩa bằng chính các hàm của _hvi.py: đủ khoá và không thừa so với Pāli, không rỗng,
+  đã ghi trên đĩa bằng phép đo riêng: đủ khoá và không thừa so với Pāli, không rỗng,
   chuỗi NFC, số dấu lược khớp TỪNG KHOÁ, vị trí ngoặc kép mở và đóng khớp TỪNG KHOÁ (không chỉ
   tổng số trên cả bài), ngoặc kép cân trên cả bài, không có (…), không trùng nguyên văn Pāli ở
   khoá thân kinh. Kết quả: 0 lỗi trên 238 khoá / 14 bài.

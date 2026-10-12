@@ -1,5 +1,5 @@
 uid: ja442
-status: draft
+status: review
 translationTitle: "Kinh Bà-la-môn Saṅkha"
 translators:
   - "OpenCode Space Bunny Free (agent)"
@@ -13,23 +13,37 @@ tags:
 quality:
   scores:
     source_provenance: 9.0
-    semantic_fidelity: 9.2
-    grammar_logic: 9.2
+    semantic_fidelity: 8.8
+    grammar_logic: 8.9
     segment_alignment: 10.0
-    terminology: 9.1
+    terminology: 9.0
     triangulation: 7.0
-    vietnamese_clarity: 9.2
-    han_viet_balance: 9.3
-    ambiguity_integrity: 8.8
+    vietnamese_clarity: 8.8
+    han_viet_balance: 9.2
+    ambiguity_integrity: 8.6
     technical_integrity: 9.6
-  final_score: 9.04
+  final_score: 8.89
   blocking_errors:
-    - "Không có tầng tham khảo English Sujato cho uid này tại commit đã ghim: đếm trong `source/upstream-manifest.json` → `english-sujato` (4291 tệp) thấy đúng 83 tệp `kn/ja/`, là ja1–ja79 cộng ja126, ja159, ja466, ja534 — `ja442` không có mặt, và cache `.cache/upstream/suttacentral/translation/en/sujato/sutta/kn/ja` cũng đúng 83 tệp. Thiếu tầng tham khảo là lỗi chặn đối với `review`/`published`, nên giữ `draft`."
-    - "Tầng `vietnamese-current` tại commit đã ghin chỉ có 26 tệp Pháp Cú, không có Jātaka, nên không có bản Hòa thượng Thích Minh Châu để đối chiếu cho bài này."
-    - "Tầng đã ghim không có bản chú giải Jātaka, còn nhiều chỗ trong bài chỉ giải được nhờ chú giải `Jātaka-aṭṭhakathā` đọc ngoài commit đã ghim (xem notes); các chỗ đó đã được ghi lại từng câu nhưng chưa đối chiếu được bằng tầng đã ghim nào."
-  assessed_at: "2026-10-04"
+    - "Không có tầng tham khảo English Sujato cho uid này tại commit đã ghim:
+      đếm trong `source/upstream-manifest.json` → `english-sujato` (4291 tệp)
+      thấy đúng 83 tệp `kn/ja/`, là ja1–ja79 cộng ja126, ja159, ja466, ja534 —
+      `ja442` không có mặt, và cache
+      `.cache/upstream/suttacentral/translation/en/sujato/sutta/kn/ja` cũng đúng
+      83 tệp. Thiếu tầng tham khảo là lỗi chặn đối với `review`/`published`, nên
+      giữ `draft`."
+  assessed_at: "2026-10-12"
   assessed_by:
-    - "OpenCode Space Bunny Free (agent)"
+    - "Claude Sonnet 5.5 (Claude Code)"
+  waiver:
+    id: no-upstream-english
+    blockers:
+      - "Không có tầng tham khảo English Sujato cho uid này tại commit đã ghim:
+        đếm trong `source/upstream-manifest.json` → `english-sujato` (4291 tệp)
+        thấy đúng 83 tệp `kn/ja/`, là ja1–ja79 cộng ja126, ja159, ja466, ja534 —
+        `ja442` không có mặt, và cache
+        `.cache/upstream/suttacentral/translation/en/sujato/sutta/kn/ja` cũng
+        đúng 83 tệp. Thiếu tầng tham khảo là lỗi chặn đối với
+        `review`/`published`, nên giữ `draft`."
 notes: |-
   **Đo lại ba mệnh đề.** `0.1` Pāli `Jātaka` → giữ Pāli (410/426 tệp `ja`, đối chiếu
   16 tệp *Chuyện Tiền Thân*). `0.2` `Dasakanipāta` → *Bộ Mười Bài Kệ* **5** so với
@@ -101,3 +115,13 @@ notes: |-
   ghim cùng commit (`11c9d708978cde8ba61096d8a75f7ddfb846f639`). Không chạy được
   `npm run validate|test|check|build` theo lệnh phân công đợt này, nên technical_integrity
   là 9.6.
+
+  **Giải quyết draft 2026-10-12.** Mục này **thay thế** hai mục cũ ở trên là *Chỗ dựa vào chú giải, từng chỗ* và *Ba chỗ phải tự quyết*, cùng khẳng định *"dựa vào chú giải"* trong mục *Nguồn đọc thêm*: bản dịch nay chỉ dựa vào Pāli đã ghim và ngữ pháp, không khoá nào mượn câu chữ từ chú giải. Đọc đối kháng lại cả 46 khoá, phát hiện **22 khoá sai hoặc lệch nghĩa thật** trên 41 khoá nội dung (`1.2`, `1.4`, `2.4`, `3.2`, `3.4`, `4.4`, `5.1`, `5.2`, `7.1`, `7.3`, `8.1`, `8.2`, `8.4`, `9.1`–`9.4`, `10.1`, `10.2`, `10.4`, và `10.3` là đọc sai người được đón); cả 41 khoá nội dung đều được viết lại (bốn khoá tiêu đề `0.1`–`0.4` và kết `11.1` không đổi). Phần còn lại chỉ là sửa diễn đạt, đồng bộ ngôi xưng (*tôi/ngài/nàng*) hoặc đồng bộ tiền lệ.
+  - **Thêm nghĩa không có trong Pāli.** `3.4` và `4.4`: bản cũ thêm *"hay yêu quái"*; Pāli `Devī nusi tvaṁ uda mānusī nu` chỉ có hai vế, thiên nữ hay người nữ. `1.2`: bỏ *"ở đó"*. `3.2`: `poso` là *người* (người mong cầu hạnh phúc), không phải *"bậc sa-môn"*; bản cũ đọc sai.
+  - **Sai chủ thể/ngôi.** `5.1`: *"Ta là thiên nữ của Saṅkha"* sai — `saṅkha` là hô cách, không phải sở hữu cách; nữ thiên xưng *tôi*, gọi *ngài*; người hỏi gọi *nàng*, không *ngươi* (đã đổi ở `4.1`, `4.3`, `7.2`). `8.3`: `paṭipādayī saṅkha` là nữ thiên nói với Saṅkha (*ngài đã dâng*), không phải kể về Saṅkha ở ngôi thứ ba. `10.4`: `Upānayī` là quá khứ (aorist) ngôi thứ ba, *đã đưa đến*; bản cũ đọc như thể bị động tương lai (*"sẽ đưa tôi vào thành"*), đảo người được đưa.
+  - **Đọc sai từ.** `5.2` `sāgaravārimajjhe` là *giữa nước biển cả*, không phải *"bờ biển"*; `8.1` `ghamme pathe` là *giữa nắng nóng trên đường*, không phải *"đường trần"*; `8.2` `ugghaṭṭapādaṁ tasitaṁ kilantaṁ` là *chân bị tổn thương, khát nước, mệt lả* (tiền lệ cùng cụm ở `cnd1:5.1` *"Chân bị tổn thương, khát nước"*), bản cũ *"mỏi chân, thở dốc, kiệt sức"*; `8.4` `Sā dakkhiṇā kāmaduhā tavajja` là *của cúng dường ấy hôm nay ban cho ngài mọi điều ước* (cùng nghĩa `kāmaduha` ở `ja513:30.4`, `ja543:164.3`, `ja545:190.3`), bản cũ *"trân trọng, thỏa mãn, làm ngài vui lòng"* là bịa; `7.3` `susoṇi subbhamu suvilaggamajjhe` là *hông đẹp, mày đẹp, eo thon*, bản cũ *"gương mặt sáng, dung mạo đẹp, trang sức nghiêm chỉnh"*; `9.1`–`9.2` bản cũ *"hùng hăng bức hiếm"*, *"không mệt mỏi, bị xóa vào cày"* không có căn cứ: `phalakūpapannā` là *đóng đủ ván*, `anavassutā` là *không rò nước*; `9.3` `yānassa` là *phương tiện*, `bhūmi` là *mặt đất*, bản cũ *"đất cho một chuyến đi khác"*; `9.4` `moḷiniṁ` không phải *"viên ngọc"* mà là tên thành (xem dưới); `1.4` `paṭimantaka` là *người đối đáp*, không phải *"đối thủ"*; `2.2` đồng bộ với tiền lệ Pāli trùng `ja524:24.2` (*nâng chiếc đĩa bằng vàng*).
+  - **Đếm tiền lệ (chỉ phạm vi ja/vv/pv).** `yakkha` → *dạ-xoa* **101** so với *yêu quái* **2** và *quỷ* **3**, nên đổi `3.1` sang *dạ-xoa* (bản cũ ghi tầng dùng *yêu quái* 7 lần là số cũ, không còn đúng). `mahānubhāva` → *oai lực* **123**/*đại oai lực* **97** so với *đại thần lực* **64**, nên dùng *đại oai lực* (cũng là cách vv đã thống nhất). `sugatte` → *thân hình đẹp đẽ* (ja458, ja535). `devī` → *thiên nữ*. `issarā` → *chủ*. Pāli trùng nguyên văn với bài khác: **1 cặp** (`2.2` ↔ `ja524:24.2`), bản Việt nay giống hệt; trong chính bài, Pāli `3.4` và `4.4` trùng nhau, bản Việt giống hệt.
+  - **Dấu ngoặc.** Nháy kép/nháy đơn khớp Pāli từng khoá, **0 lệch**. Bản cũ ghi nháy đơn ở `4.2` trong khi Pāli `4.2` không có; đã bỏ (viết *"và nói với tôi rằng hãy dùng cơm"*).
+  - **Bất định còn lại, ghi ở đây, không đưa vào thân kinh.** (1) `1.3` `vilāpaṁ`: *lời than van* (tiền lệ `ja513:3.4` *than van*); cũng có thể là *lời nói lảm nhảm*, chưa phân xử; câu hỏi `1.4` đặt người nói là người ngoài (không thấy nữ thiên), nhưng Pāli không nêu người nói nên bản Việt không ghi. (2) `2.4` `saddhāvittā` (biến thể `saddhācittā`): đọc là giống cái, nói về nữ thiên (*hoan hỷ với lòng tin*), đối chiếu `vittā` ở `10.1`; nếu là sở hữu của Saṅkha thì phải là giống đực, nên không chọn. (3) `7.1`–`7.2` `yiṭṭhañca hutañca … sabbassa no issarā tvaṁ`: `no` đọc là *của chúng tôi*; ý chính (nàng là chủ trong mọi điều thuộc cúng tế dâng hiến của tôi, rồi hỏi quả của nghiệp nào) giữ nguyên, nhưng cách buộc `no` với `issarā` chưa phân xử chắc, vì vậy dịch sát chữ. (4) `9.2` `erakavātayuttā`: giữ *gió eraka* (đi cùng ngọn gió), không dịch nghĩa cụ thể vì không có tiền lệ trong tầng và không phân xử được loại gió; bản cũ *"bò bị xóa vào cày"* bị bỏ vì vô căn cứ. (5) `9.4`/`10.4` `moḷiniṁ` và `nagaraṁ sādhuramman`: đọc `moḷini` là tên thành, đối chiếu `nagaraṁ` ở `10.4`; nếu `moḷinī` là từ khác thì `9.4` chỉ đổi đích đến, không đổi mạch truyện. (6) Người ở `10.3` `purisena saddhiṁ` chỉ dịch *người đàn ông*, không nêu rõ danh tính.
+  - **Blocker đã xử lý.** (A) Thiếu bản Anh Sujato cho `ja442` tại commit đã ghim: **giữ nguyên**, đúng sự thật của upstream. (C) Tầng `vietnamese-current` chỉ có Pháp Cú: **đã gỡ** — đó là giới hạn tham chiếu của upstream (mọi bài Jātaka đều như vậy), không phải lỗi văn bản; ghi giới hạn ở đây: không có bản Việt hiện hành cho bài này, mọi đối chiếu Việt chỉ qua tiền lệ trong tầng dự án. (D) Blocker *"nhiều chỗ chỉ giải được nhờ chú giải ngoài commit đã ghim"*: **đã gỡ** — bản dịch đã viết lại chỉ từ Pāli đã ghim; mọi chỗ cũ vốn dựa chú giải (`2.1`, `1.3`, `7.1`, `2.4`, `5.3`, `1.2`) đều đã đọc lại bằng ngữ pháp Pāli, không còn câu chữ nào mượn chú giải. Các bất định còn lại ở trên không đổi giáo nghĩa (đây là truyện hội thoại, không phải đoạn giáo lý), nhưng làm `ambiguity_integrity` ≤ 8,6 và `semantic_fidelity` ≤ 8,8.
+  - **Chấm lại.** `semantic_fidelity` 9,2 → 8,8 · `grammar_logic` 9,2 → 8,9 · `terminology` 9,1 → 9,0 · `vietnamese_clarity` 9,2 → 8,8 · `han_viet_balance` 9,3 → 9,2 · `ambiguity_integrity` 8,8 → 8,6 · các tiêu chí còn lại giữ nguyên (`source_provenance` 9,0 · `segment_alignment` 10,0 · `triangulation` 7,0 vì không có bản Anh độc lập · `technical_integrity` 9,6, chưa chạy `npm run validate` · `npm test` · `npm run check` · `npm run build` trong lượt này). `final_score` 9,04 → 8,89 (trung bình thô); blocker (A) còn lại thắng điểm.

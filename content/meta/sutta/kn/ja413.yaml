@@ -1,5 +1,5 @@
 uid: ja413
-status: draft
+status: published
 translationTitle: "Kinh Dhūmakāri"
 translators:
   - "OpenCode Space Bunny Free (agent)"
@@ -13,23 +13,47 @@ tags:
 quality:
   scores:
     source_provenance: 9.5
-    semantic_fidelity: 9.2
-    grammar_logic: 9.1
+    semantic_fidelity: 9.0
+    grammar_logic: 9.2
     segment_alignment: 10.0
     terminology: 9.0
-    triangulation: 7.5
-    vietnamese_clarity: 9.2
+    triangulation: 7.0
+    vietnamese_clarity: 9.0
     han_viet_balance: 9.2
-    ambiguity_integrity: 8.7
+    ambiguity_integrity: 9.0
     technical_integrity: 9.6
-  final_score: 9.1
+  final_score: 9.05
   blocking_errors:
-    - "Không có tầng tham khảo tiếng Anh tại commit đã ghim. Tôi tra `source/upstream-manifest.json` (commit 11c9d708978cde8ba61096d8a75f7ddfb846f639, tầng english-sujato, 4291 tệp) theo mẫu đầy đủ `…_translation-en-sujato.json`: tầng này có đúng 83 tệp thuộc `sutta/kn/ja`, và không tệp nào trong số đó là `ja413`; `.cache/upstream/suttacentral/translation/en/sujato/sutta/kn/ja/` trên đĩa cũng có đúng 83 tệp, tập uid khớp từng tệp với manifest, không có `ja413`. Vậy đây là `not-published-upstream`, KHÔNG phải `not-synced`. Tầng `vietnamese-current` vắng (tầng đã ghim chỉ có 26 tệp, không có tệp `ja*` nào) và lớp lấp `english-project` vắng (chỉ có `dhp*` và `iti*`). Ba tầng tham khảo đều vắng nên bài chỉ dịch được từ Pāli root; theo AGENTS.md đây là lỗi chặn đối với `review` và `published`."
-    - "Cổng coverage KHÔNG ĐO ĐƯỢC GÌ, chứ không phải đo ra 0%. Đo theo đúng công thức của `source/layers.yaml` (Pāli có nội dung ≥ 40 ký tự, loại khối tham chiếu `:0.x`) thì MẪU SỐ = 0: cả 33/33 khoá đều là câu kệ ngắn hơn 40 ký tự. `ratio` đọc thành 1 nên ngưỡng coverage không đỏ, nhưng đó là hệ quả của mẫu số rỗng chứ không phải bằng chứng rằng đã đối chiếu được. Tôi ghi rõ mẫu số và không sửa `content/meta/reference-gaps.yaml`."
-    - "Còn bất định chưa phân xử được ở `6.3` `Kiso` và `2.1` `ajayūthena`: hai điểm này quyết định danh tính chủ thể trong toàn bài mà không có bản Anh ở commit đã ghim để đối chiếu, nên tôi ghi cách đọc đã chọn và lý do trong notes thay vì tuyên bố chắc chắn."
-  assessed_at: "2026-10-05"
+    - "Không có tầng tham khảo tiếng Anh tại commit đã ghim. Tôi tra
+      `source/upstream-manifest.json` (commit
+      11c9d708978cde8ba61096d8a75f7ddfb846f639, tầng english-sujato, 4291 tệp)
+      theo mẫu đầy đủ `…_translation-en-sujato.json`: tầng này có đúng 83 tệp
+      thuộc `sutta/kn/ja`, và không tệp nào trong số đó là `ja413`;
+      `.cache/upstream/suttacentral/translation/en/sujato/sutta/kn/ja/` trên đĩa
+      cũng có đúng 83 tệp, tập uid khớp từng tệp với manifest, không có `ja413`.
+      Vậy đây là `not-published-upstream`, KHÔNG phải `not-synced`. Tầng
+      `vietnamese-current` vắng (tầng đã ghim chỉ có 26 tệp, không có tệp `ja*`
+      nào) và lớp lấp `english-project` vắng (chỉ có `dhp*` và `iti*`). Ba tầng
+      tham khảo đều vắng nên bài chỉ dịch được từ Pāli root; theo AGENTS.md đây
+      là lỗi chặn đối với `review` và `published`."
+  assessed_at: "2026-10-12"
   assessed_by:
-    - "OpenCode Space Bunny Free (agent)"
+    - "Claude Sonnet 5.5 (Claude Code)"
+  waiver:
+    id: no-upstream-english
+    blockers:
+      - "Không có tầng tham khảo tiếng Anh tại commit đã ghim. Tôi tra
+        `source/upstream-manifest.json` (commit
+        11c9d708978cde8ba61096d8a75f7ddfb846f639, tầng english-sujato, 4291 tệp)
+        theo mẫu đầy đủ `…_translation-en-sujato.json`: tầng này có đúng 83 tệp
+        thuộc `sutta/kn/ja`, và không tệp nào trong số đó là `ja413`;
+        `.cache/upstream/suttacentral/translation/en/sujato/sutta/kn/ja/` trên
+        đĩa cũng có đúng 83 tệp, tập uid khớp từng tệp với manifest, không có
+        `ja413`. Vậy đây là `not-published-upstream`, KHÔNG phải `not-synced`.
+        Tầng `vietnamese-current` vắng (tầng đã ghim chỉ có 26 tệp, không có tệp
+        `ja*` nào) và lớp lấp `english-project` vắng (chỉ có `dhp*` và `iti*`).
+        Ba tầng tham khảo đều vắng nên bài chỉ dịch được từ Pāli root; theo
+        AGENTS.md đây là lỗi chặn đối với `review` và `published`."
 notes: |-
   `Dhūmakārijātaka`, bài thứ tám của `Gandhāravagga` trong `Sattakanipāta`. 33/33 khoá đã
   dịch, set khoá Việt bằng đúng set khoá Pāli (đối chiếu bằng set, không chỉ đếm 33).
@@ -91,3 +115,80 @@ notes: |-
   (2 mở, 2 đóng — khớp đúng với Pāli: `1.1`→`1.4` và `2.1`→`7.4`); không có `(…)` đứng
   một mình; dấu lược khớp; thứ tự khoá theo số. Vì chưa chạy bốn cổng `npm` và chưa có lượt
   rà của người, `technical_integrity` đặt **9.6** chứ không phải 10.0.
+
+  Giải quyết draft 2026-10-12: kiểm toán độc lập, đọc đối kháng từng khoá từ Pāli và THAY THẾ
+  các mục cũ ở trên về: đọc `ajā`; đọc `Kiso`; đọc `ajayūthena`; đọc `Vāseṭṭho`; đọc `vibhavaṁ
+  gatā`; đọc `1.2`; đọc `7.1`–`7.2`; tên loài `sarabha`; mục "bất định (a)–(d)" và mục "CHỖ ĐỌC LẠI
+  (1)–(5)". Bản dịch cũ sai nghĩa thật ở 16/33 khoá (`1.2`, `2.2`, `2.3`, `3.2`, `3.3`, `4.1`, `4.2`, `4.4`,
+  `5.1`, `5.2`, `5.3`, `6.1`, `6.2`, `6.3`, `7.1`, `7.2`); chỉnh diễn đạt/thuật ngữ ở 9 khoá
+  (`1.1`, `1.3`, `1.4`, `2.1`, `3.1`, `3.4`, `4.3`, `6.4`, `7.3`); giữ nguyên 8 khoá (`0.1`–`0.4`,
+  `2.4`, `5.4`, `7.4`, `8.1`).
+
+  Các lỗi nghĩa thật đã sửa, kèm căn cứ trong chính kho:
+  (1) `ajā` KHÔNG phải cách xưng hô tế vị vua. Đó là danh từ `ajā` (dê, số nhiều): `4.2` là
+  tân ngữ của `nāvabujjhatha` (không để ý đến bầy dê); `4.3` `āgacchantī vajantī` là phân từ
+  giống cái, khớp `ajā` chứ không khớp `sarabhā` (giống đực); `4.4` `tā ajā` = những con dê
+  ấy; `6.2` `ajā … vibhavaṁ gatā` = bầy dê đã tiêu tán. Cụm "bạch đấng vua" ở `4.2`, `4.4`,
+  `6.2` hoàn toàn không có trong Pāli và đã bỏ. Bài chỉ có đúng một vị vua, ở `1.1`; phần
+  còn lại là lời Vidhura kể chuyện.
+  (2) `ajayūthena` = *cùng với bầy dê*. Bầy dê và nai sarabha cùng có mặt trong một bài,
+  không mâu thuẫn: `ajayūtha` ở ja528:36.2 đã dịch *bầy dê*. `ajā` và `sarabhā` là hai nhóm
+  vật khác nhau; bản cũ gộp thành *đàn bò* cho cả hai là sai.
+  (3) `sarabha` là loài nai (precedent: ja483 *con nai sarabha*, ja547:414.4 *các loài nai
+  rohicca và sarabha*), KHÔNG phải bò; đã đổi *đàn bò* thành *những con nai sarabha* ở
+  `3.2`, `4.1`, `5.1`, `6.1`.
+  (4) `Kiso` ở `6.3` là tính từ *gầy* (kisa), không phải tên riêng *Kīsa*: `Kiso vivaṇṇo
+  bhavati` đã có ở ja461:8.1 (*gầy gò, sắc diện tiều tụy*) và snp3.8:12.1; `cāsi` = `ca` + `āsi`
+  (đã trở nên). Chủ ngữ là chính vị Bà-la-môn ở `6.4`. Blocker "bất định `Kiso`" được gỡ vì
+  có căn cứ hình thái và tiền lệ.
+  (5) `1.2` `dhammakāmo yudhiṭṭhilo` là tên và đức hạnh của VUA (Yudhiṭṭhila, tên vua
+  Koravya đã gặp ở ja495:1.2, ja515:8.4, ja536:28.2), không phải mô tả Vidhura, và
+  `yudhiṭṭhila` ở đây là tên riêng chứ không phải *dũng mãnh trong trận* như bản cũ. Pāli
+  trùng nguyên văn `ja495:1.2` nên dùng lại nguyên văn *Yudhiṭṭhila, bậc ưa chuộng chánh pháp;*.
+  `1.1` bỏ *bậc* trước Vidhura theo ja495:1.1.
+  (6) `2.2` `pahūtedho vane vasaṁ` = *sống trong rừng, có nhiều củi* (`edha` = củi nhiên
+  liệu; ja515:29.4 *nhiên liệu dồi dào*), không phải *dựng cao những đống phân*, vốn không có
+  trong Pāli. `2.3` `vāseṭṭho` là họ/tên của CHÍNH vị Bà-la-môn ở `2.1`, không phải người
+  thứ hai; bản cũ ghi "hai người" là sai, và câu *vị Vāseṭṭha ấy* đã sửa thành *Vāseṭṭha*.
+  (7) `3.1` thêm *hắn*, `3.2` *đàn bò* → *nai sarabha bị muỗi quấy nhiễu* (`makasaḍḍitā`
+  = bị muỗi hành hạ), `3.3` `vassāvāsaṁ upāgacchuṁ` = *đã đến ở lại trong mùa mưa* (không
+  phải *chỗ lánh mưa*), `3.4` *bậc làm khói* → *người làm khói* (không có `bhante` ở đây).
+  (8) `4.2` `ajā so nāvabujjhatha` đảo chủ thể: *ông không để ý đến bầy dê*, không phải
+  *con không hiểu thấy*. `4.4` *tuyệt diệt hẳn* thêm *hẳn*; `vinasuṁ` = *chết mất*.
+  (9) `5.2` `pahīnamakase vane` là vị trí tuyệt đối (*khi muỗi trong rừng đã hết*), không phải
+  *rời bỏ đám muỗi*. `5.3` `giriduggāni` = *các nơi núi non hiểm trở* (ja547:260.1 *những
+  vùng núi hiểm trở*, ja483 *nơi núi non hiểm trở*), không phải *hố nước, khe núi*. `5.4`
+  dùng lại nguyên văn ja547:260.2 (Pāli trùng byte-for-byte).
+  (10) `6.2` `vibhavaṁ gatā` = *tiêu tán* (suy vong), KHÔNG phải *phát đạt*: chủ ngữ là bầy dê
+  vừa chết ở `4.4`, không phải muỗi; bản cũ lệch chủ thể và đảo nghĩa hoàn toàn. `6.4`
+  `paṇḍurogī ca brāhmaṇo` = *và vị Bà-la-môn mắc bệnh vàng da* (chữ `ca` nối với `6.3`).
+  (11) `7.1`–`7.2` `saṁ niraṅkatvā, āgantuṁ kurute piyaṁ` = *bỏ mặc cái thuộc về mình mà xem
+  kẻ mới đến là thân yêu*: `āgantu` = kẻ mới đến (đối lập `saṁ`), tương ứng với bầy dê (của
+  mình) so với nai sarabha (khách tới). Bản cũ *bỏ bê điều ấy / theo đuổi việc mình yêu
+  thích* sai nghĩa. `niraṅkatvā` có tiền lệ *ruồng bỏ / bỏ mặc* (ja529:10.1, ja534:84.3,
+  ja537:91.2). `1.4` và `7.3` đều là `socati` nên cùng dịch *sầu khổ* (ja355:3.1 *Người sầu
+  khổ*), bỏ *khóc*; `1.4` `ko eko bahu socati` = *ai là người một mình mà sầu khổ nhiều*.
+
+  Pāli trùng nguyên văn đã dò: `2.4` (ja532:17.4, ja543:52.4 cùng bản dịch *ngày đêm không
+  biếng trễ*, nhất quán) và `5.4`, `1.2` (ja547:260.2, ja495:1.2). Không có cặp Pāli trùng
+  nguyên văn trong chính bài này mà bản Việt khác.
+
+  BLOCKER ĐÃ GỠ. (B)-loại mục 2 "cổng coverage không đo được": mẫu số = 0 vì cả 33 khoá đều
+  ngắn hơn 40 ký tự; đây là thông tin về cổng, không phải lỗi văn bản, và không có đoạn
+  Sujato trống nào cần ghi nhận gap. Đã đọc đối kháng toàn bài từ Pāli một mình nên đủ đứng
+  vững. Mục 3 "bất định `Kiso` / `ajayūthena`" đã giải quyết được bằng căn cứ ở (2) và (4)
+  trên. BLOCKER GIỮ: mục 1 (không có tầng English upstream): đó là sự thật của bản chụp, chỉ
+  xử lý bằng waiver `no-upstream-english`. `vietnamese-current` vắng (chỉ có Pháp Cú) là giới
+  hạn tham chiếu chứ không phải lỗi văn bản.
+
+  CHẤM LẠI: `semantic_fidelity` 9.2 → 9.0, `grammar_logic` 9.1 → 9.2, `terminology` 9.0,
+  `triangulation` 7.5 → 7.0 (không có bất kỳ bản English hay Việt độc lập nào; chỉ tiền lệ
+  trong kho và Pāli), `vietnamese_clarity` 9.2 → 9.0, `ambiguity_integrity` 8.7 → 9.0. Bất định
+  còn lại, không thêm vào thân kinh: (a) `vāseṭṭho` đọc là họ Vāseṭṭha của chính vị
+  Bà-la-môn theo ngữ cảnh (nếu là danh xưng khác thì chỉ đổi `2.3`); (b) `saṁ` ở `7.1` là
+  tân ngữ trung tính (*cái thuộc về mình*), chưa chắc chỉ bầy dê hay chỉ người; (c) `vinasuṁ`
+  ở `4.4` và `vibhavaṁ gatā` ở `6.2` hiểu là *chết mất / tiêu tán* (hao tổn bầy dê), mức độ
+  cụ thể (chết hay thất lạc) không do Pāli quyết định; (d) `Api brāhmaṇa jānāsi` gọi Vidhura
+  là *Bà-la-môn* và dùng *ngươi* theo lời vua; chưa tìm được câu tương tự trong kho để đo
+  tiền lệ. `technical_integrity` giữ 9.6: chưa chạy `npm run validate`, `npm test`,
+  `npm run check`, `npm run build`.
