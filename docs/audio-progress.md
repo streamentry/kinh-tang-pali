@@ -736,3 +736,23 @@ Nhật ký append-only. Registry `content/audio/progress.json` được đối s
 - On main `64a99ccd5c1ee4e4324b278f4aa691dc4375d8e7`, `npm run validate` passed (2,258 advisory warnings; quality history 5,447 entries / 0 errors), `npm test` passed (417 passed, 1 skipped, 0 failed), `npm run check` passed (0 errors, 0 warnings, 5 hints), `npm run audio:check` passed (186 UIDs / 0 errors), and `git diff --check` passed.
 - `npm run build` passed: Astro built 6,146 pages and Pagefind indexed 6,137 pages. MN60/MN61/MN62/MN63/MN64 detail pages each include the player, exact R2 URL, and pending-review label. The MN index has one playlist with 64 current-source-valid tracks.
 - Interactive browser playback and full human listening were not tested. Editor review remains pending.
+
+### Batch mn-033 merge and production readback — PR #608
+
+- Exact PR head `b4e6698ac77f258ead2df320c3ec2f7823dcfbc6`; both PR CI checks passed. Squash merge `6027372c2b98405c43df23db4d309c1c059fce8e` at `2026-10-13T15:37:31Z`. Post-merge main CI `38423670079` and Pages deployment `38423669887` succeeded.
+- Production MN60–MN64 pages each returned HTTP 200 with the player, exact R2 URL and pending-review label. Every R2 range request returned 206 `audio/mpeg`, 1,024 bytes, with total object bytes matching metadata. The MN index returned HTTP 200 with one playlist and 64 current-source-valid track buttons.
+- Interactive Play/seek and full human listening were not tested; progress remains `generated`, and all five reviews remain `pending` for editor listening on the live website.
+
+
+### Batch mn-034 — MN65–MN69 generated and uploaded to R2
+
+| UID | Source SHA-256 | MP3 SHA-256 | Bytes | Duration | Scripture starts | Chunks | Audio |
+|---|---|---|---:|---:|---:|---:|---|
+| MN65 | `f8d5970f017fc1d3ae96e27befd5e1501403f4803b4fde552a92597bd3c52ee6` | `cf84d3659df5504083312dd6533bb8972bdf7e228f356393bda1f44d94d9ce0d` | 35,430,240 | 1771.46 s | 160.79 s | 19 (2 summary) | [R2 MP3](https://pub-8fa53f5182904685bd0c13d6c894a0e9.r2.dev/vi/mn/mn65/cf84d3659df55040.mp3) |
+| MN66 | `0dee8adccc7fbe2f540e78c4cdda654cc3340fb663c27cff57baaf943c5bb6b7` | `43ffeda803160191f54a6bef5be1fd6f9abd72428894e31dbc1fe137cdb17f64` | 35,096,640 | 1754.77 s | 155.79 s | 16 (2 summary) | [R2 MP3](https://pub-8fa53f5182904685bd0c13d6c894a0e9.r2.dev/vi/mn/mn66/43ffeda803160191.mp3) |
+| MN67 | `45b10a35d5eaf08cc0ef19a72fdd8ec4f778af3e7b1e5daa619c27e56d612ebd` | `ee1db177308fae37d3f49379aac93ad0860e4d018a840b9f1ab1a7985c86788f` | 20,328,480 | 1016.37 s | 154.15 s | 12 (2 summary) | [R2 MP3](https://pub-8fa53f5182904685bd0c13d6c894a0e9.r2.dev/vi/mn/mn67/ee1db177308fae37.mp3) |
+| MN68 | `d87b3fa6668e8ab7914e9c530e0af5262b9ed8f81fe852c1a129877cdc2feb1d` | `ea9492650e1483d6e48baef6fbb98b4db0357b05c97093693ceb4faa1537917e` | 25,961,760 | 1298.03 s | 163.19 s | 14 (2 summary) | [R2 MP3](https://pub-8fa53f5182904685bd0c13d6c894a0e9.r2.dev/vi/mn/mn68/ea9492650e1483d6.mp3) |
+| MN69 | `dc020f299df5e79f31d0be4bcb270fe2f7c0d0813374eaaddd0af881e0341095` | `5a139b50336321e5621d1fabaf3e4951a9d70ab3310d52db2f8998257c6d2b86` | 16,011,360 | 800.52 s | 131.99 s | 9 (2 summary) | [R2 MP3](https://pub-8fa53f5182904685bd0c13d6c894a0e9.r2.dev/vi/mn/mn69/5a139b50336321e5.mp3) |
+
+- Total audio duration: 6641.15 seconds. Each file uses the pinned `vi-charon-mn1-v1` profile (Gemini `gemini-3.8-flash-tts`, Charon); source/profile and MP3 frame/hash/byte checks passed. Full-object public readback and HTTP range verification passed for all five uploads; upload metadata and batch progress agree.
+- Each narration is summary first, then canonical Vietnamese 2026. ASR was skipped by editor decision; human listening and interactive browser playback remain unverified. All five review states remain `pending`. MP3/WAV/cache files are excluded from Git.
