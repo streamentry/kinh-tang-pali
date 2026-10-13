@@ -1,0 +1,48 @@
+uid: mn21
+status: published
+translationTitle: "English fill (18 segment)"
+englishTitle: "The Simile of the Saw — the monk’s report and the five ways of speaking, repeated"
+translators:
+  - "Claude Opus 5.5 (Claude Code)"
+reviewedAt: 2026-10-13
+tags:
+  - english-fill
+  - store
+  - majjhimanikaya
+quality:
+  scores:
+    source_provenance: 9.6
+    semantic_fidelity: 9.4
+    grammar_logic: 9.3
+    segment_alignment: 9.8
+    terminology: 9.5
+    triangulation: 8.0
+    vietnamese_clarity: 9.3
+    han_viet_balance: 9.4
+    ambiguity_integrity: 9.3
+    technical_integrity: 9.6
+  final_score: 9.32
+  blocking_errors: []
+  assessed_at: "2026-10-13"
+  assessed_by:
+    - "Claude Opus 5.5 (Claude Code)"
+notes: |-
+  **Phân loại 18 khoá (đo bằng máy): A = 2 · B = 15 · C = 1 · D = 0.** Đã ghi 18/18 khoá `fillableSegments`.
+
+  **A (2):** `3.4` ← `2.3`, `3.5` ← `2.4` (Pāli trùng nguyên văn; giữ thì quá khứ của Sujato để không lệch lời đã ghim).
+
+  **B nhóm 1 — lời tỳ-kheo trình Đức Phật (`3.2`, `3.3`, `3.6`), dựng từ `2.1` (0,82), `2.2` (0,95), `2.5`/`2.2` (0,93):** chỉ chèn `bhante` (“Sir”) mà Pāli thêm và chuyển sang thì hiện tại của lời trình; `3.6` giữ “That’s how close … with those nuns” của `2.5` và thêm “Venerable” cho `āyasmā` (Sujato bỏ ở `2.5`).
+
+  **B nhóm 2 — 12 khoá `X vā, bhikkhave, pare vadamānā vadeyyuṁ Y vā` (`11.8`–`11.11`, `13.8`–`13.11`, `19.8`–`19.11`), nguồn `11.7` (0,76–0,87).** Tầng ghim gộp cả năm vế vào một câu tóm ở `11.7`/`13.7`/`19.7` (“When others criticize you, they may do so in any of these ways.”) rồi để trống bốn khoá sau. Lớp lấp dựng mỗi khoá từ “When others criticize you” của `11.7` + cặp từ Sujato đã dùng ở `11.3`–`11.6` (“true or false”, “gentle or harsh”, “beneficial or harmful”, “from a heart of love or from secret hate”), thêm `bhikkhave` = “mendicants”. Ba khối lặp lấp **giống nhau từng chữ** (`13.8` Pāli thiếu một dấu phẩy, không đổi nghĩa). Hệ quả đọc: câu tóm của `11.7` đi trước bốn khoá liệt kê lại — đó là lời đã ghim, lớp lấp không sửa.
+
+  **C (1):** `21.8` colophon `Kakacūpamasuttaṁ niṭṭhitaṁ paṭhamaṁ.` ⇒ “The Simile of the Saw is finished—the first.” (tên bài theo `0.2` của Sujato; khuôn “… is finished—the Nth.” như các colophon lớp lấp MN đã có). Khoá này 37 ký tự, dưới ngưỡng 40 nên không vào coverage.
+
+  **Ngoặc và dấu lược:** 18/18 khoá khớp Pāli; không khoá nào có `…pe…`.
+
+  Triangulation 8.0: scorecard Việt của `mn21` (`content/meta/sutta/mn/mn21.yaml`) ghi `quality.assessed_by` thuộc **cùng họ công cụ hỗ trợ** với lớp lấp này (đối chiếu `source/tooling.yaml`). Vì vậy bản lấp **không phải** cách đọc English độc lập, và scorecard Việt của bài **không** được tuyên bố là đã đối chiếu English nhờ lớp lấp. Đối chiếu thật sự có: Pāli root đã ghim + Sujato đã ghim (mọi khoá có lời) + bản Việt canonical (chỉ để đối chiếu nghĩa, không dịch vòng, không chép câu).
+
+  technical_integrity 9.6: lát này không được chạy `npm run validate`, `npm test`, `npm run check`, `npm run build`; bốn lệnh đó còn nợ, nên không tuyên bố technical gate pass. Không đặt blocker vì chưa chạy không phải validation failure. Đã tự kiểm bằng máy: JSON parse, mọi khoá ⊆ `fillableSegments` của bài, 0 khoá shadow, NFC, 0 khoá rỗng, thứ tự khoá theo Pāli, Pāli trùng nguyên văn ⇒ English trùng (trừ các chỗ ghi ở trên), dấu lược và nháy so với Pāli từng khoá (dấu `’` có chữ thường đứng ngay sau tính là dấu nhạt lượu).
+
+  Hai cơ chế khoá trống của tầng đã ghim (đo rồi báo, không sửa — sửa là shadow): **cắt cụt dãy** (dãy ≥ 4 khoá trống liên tiếp) = 4 dãy / 17 khoá / 1297 ký tự Pāli; **bỏ dòng song song** (chỉ xét khoá trống, thân từ = 6 chữ đầu của từ ≥ 4 chữ, khoá mở nhóm gom mọi khoá trống chưa vào nhóm có tỉ lệ chung ≥ 0,70, mỗi khoá thuộc đúng một nhóm) = 17/18 khoá. Khoá đã ghim có chữ nhưng ngắn dưới 25% Pāli (Pāli ≥ 40 ký tự): 2 (`2.2`, `5.2`) — `2.2` “So much so that” là dấu hiệu cắt cụt điển hình, lời khoá kế (`2.3`) gánh phần còn lại.
+
+  Hệ quả với `content/meta/reference-gaps.yaml`: `mn/mn21` **không** có record trong tệp đó. nên không có record nào thành thừa vì lát này. Coverage đo trên Pāli có nội dung (≥ 40 ký tự, bỏ khối `:0`): trước 139/156 = 0.8910; sau khi lớp lấp `published`: 156/156 = 1.0000 (17 khoá có nội dung được lấp, còn 0 khoá có nội dung thiếu English). Độ nhạy: phải mất thêm 32 khoá có nội dung nữa thì bài mới rớt dưới ngưỡng 0,8.
