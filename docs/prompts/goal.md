@@ -23,75 +23,31 @@ còn lại là chấm lại / sửa, không phải dịch.
 
 ---
 
-## TRẠNG THÁI HIỆN TẠI (đo 2026-10-11 tại `21446453`, `main`, sau wave 97 / PR #447)
+## TRẠNG THÁI HIỆN TẠI (đo 2026-10-13 tại `ac0ff226`, `main`, sau PR #598/#599)
 
-HEAD của `main` = `21446453` — "dịch(vi): đợt 19 wave 97 — 5 bài / 765 khoá (#447)". Từ wave 22 đến 97 mỗi lane 5 bài (từ wave 47 gộp 2 lane / PR); sn+an đã dịch hết (còn lại **chỉ kn**), bài kn không có Sujato giữ `draft` + blocker `noEnglishEditionUpstream`.
+**Cả hai tầng đã phủ 100% khoá có nội dung.** Đo bằng `vimeas` và `_mkfill.py --root <worktree sạch trên main>` (phép đo `engq`):
 
-PR đã merge gần nhất (đợt 19, wave 6 → 21): #365 (wave 21) · #364 (wave 20) · #361 (wave 19) · #360 (wave 18) · #359 (wave 17) · #358 (wave 16) · #357 (wave 15) · #356 (wave 14) · #355 (wave 13) · #354 (wave 12) · #353 (wave 11) · #352 (wave 10) · #351 (wave 9) · #350 (wave 8) · #349 (wave 7) · #348 (wave 6) · #345 (wave 5)...
+| phép đo | giá trị |
+|---|---|
+| catalogue | 6.137 bài |
+| tầng Việt: bài đủ mọi khoá / thiếu | **6.137 / 0** (0 khoá thiếu, 0 bài không đo được) |
+| lớp lấp English: khoá có nội dung còn thiếu | **0** (trước đợt này: 5.107 khoá / 174 bài) |
+| lớp lấp English: bài dưới sàn coverage 0,8 | **0** (trước: 92) |
+| `noEnglishEditionUpstream` | 1.596 bài, thuộc tính của snapshot đã ghim, không phải thiếu sót của repo |
 
-Bài đủ mọi khoá: **5.975**; còn thiếu **162** bài / **75.553** khoá (toàn kn; đủ 2.189).
-Bất biến đo được: `đủ 5.975 + thiếu 162 = 6.137 = catalogue`, **0 bài không đo được**.
-Record `reference-gaps` **776**.
+Trạng thái chất lượng (đếm `status` trong `content/meta`): tầng Việt **5.699 published · 400 review · 38 draft**; lớp lấp English **994 published · 1 draft**.
+38 bài Việt `draft` là bài kn mà blocker không chỉ là "thiếu bản Anh upstream" (còn blocker khác, hoặc điểm chưa vượt 9,0 để dùng waiver `no-upstream-english`): `pe1–pe9` (Pāli root hỏng), `ja193/203/254/353/360/381/390/425/514/515/534`, `mil1/3.1.9/3.3.13`, `cp31`, `ne1`, `pv1`, `vv5`, `tha-ap3/13/104/114/123/159/174/178/197/213/345/548`.
 
-⚠️ **Đính chính số đo:** các số ghi trước đây ở đợt 19 wave 4–5 (`5.537/600`, `5.542/595`) **không tái lập được** — `vimeas` trên `main` sạch ở `2a385124` ra **5.515 đủ / 622 thiếu / 119.365 khoá**. Chênh lệch 27 bài / ~10.000 khoá; delta từng wave vẫn khớp. Mọi số bên dưới đo lại trên worktree sạch.
+Việc đã làm trong ngày 2026-10-13 (đều qua PR + CI):
+- Các wave cải thiện (lane 301–557) và hai vòng "sửa lan" (lane 536–546), kèm kiểm toán lại 11 bài `published` có lỗi nặng bị điểm cũ bỏ sót (lane 558–568; 4 bài hạ về `review`).
+- Sửa cơ học **136 khoá** `duggatiṁ nābhijānāmi` dịch đảo nghĩa ("không biết mình rơi vào khổ đau" → "không còn biết đến đọa xứ"), PR #596.
+- Lớp lấp English cho toàn bộ 174 bài còn thiếu (lane 600–621, ≤ 11 agent song song): #598 (80 bài / 3.710 khoá) và #599 (94 bài / 3.730 khoá). Tệp ghi `assessed_by` = alias Claude Code đã khai ở `source/tooling.yaml`; `tests/unit/tooling.test.ts` và `reference-source.test.ts` đã được chỉnh cho khớp (#595, #597).
+- Quy tắc song song: **tối đa 11 sub-agent cùng lúc** (yêu cầu của người biên tập 2026-10-13, thay mức 20 cũ).
 
-### Đo 2026-10-09 tại `46335942` (sau đợt 19 wave 21, PR #365)
-
-| phép đo | giá trị | công cụ |
-|---|---|---|
-| catalogue | 6.137 | `vimeas` |
-| bài đủ mọi khoá | **5.770** | `vimeas` |
-| bài còn thiếu | **367** (dn+mn+sn+an đủ 100%, chỉ còn kn) | `vimeas` |
-| khoá còn thiếu | **97.797** | `vimeas` + `_queue` (hai phép khớp nhau) |
-| text dưới sàn coverage ghi nhận (`reference-gaps`) | 776 | `npm run reference:gaps` |
-| `noEnglishEditionUpstream` | 1.596 / 1.596 đã ghi nhận, `agreesWithStoreVerification true` | store verification |
-
-### Tiến độ wave 6 → 21 (mỗi wave 5 bài, mỗi bài một sub-agent; kiểm độc lập `_checkwave.ts` + 13 cổng trên worktree sạch)
-
-| wave | PR | bài / khoá | trước → sau (khoá thiếu) |
-|---|---|---|---|
-| 6 | #348 | 5 / 299 | 119.365 → 119.066 |
-| 7 | #349 | 5 / 315 | → 118.751 |
-| 8 | #350 | 5 / 318 | → 118.433 |
-| 9 | #351 | 5 / 324 | → 118.109 |
-| 10 | #352 | 5 / 332 | → 117.777 |
-| 11 | #353 | 5 / 335 | → 117.442 |
-| 12 | #354 | 5 / 339 | → 117.103 |
-| 13 | #355 | 5 / 345 | → 116.758 |
-| 14 | #356 | 5 / 349 | → 116.409 |
-| 15 | #357 | 5 / 351 | → 116.058 |
-| 16 | #358 | 5 / 358 | → 115.700 |
-| 17 | #359 | 5 / 365 | → 115.335 |
-| 18 | #360 | 5 / 370 | → 114.965 |
-| 19 | #361 | 5 / 375 | → 114.590 |
-| 20 | #364 | 5 / 380 | → 114.210 |
-| 21 | #365 | 5 / 387 | → 113.823 |
-
-### Quy tắc vận hành đã chốt trong các wave 6–21
-
-- **Cổng coverage Anh quyết status:** Sujato (khoá Pāli ≥ 40 ký tự) phủ < 0,80 → `draft` + blocker (như `sn22.7`), dù lớp lấp `english-project` đã published làm cổng máy thấy ≥ 0,80 (lớp lấp cùng tác giả, không độc lập). Agent từng đặt `published` ở `sn35.101` (14/22 = 0,636) — coordinator hạ về `draft`. Mỗi wave có 1–3 bài `draft` kiểu này (đa số `sn`/`an` có khoá Sujato bỏ trống).
-- **Mỗi wave phải rebase lên `main` mới nhất rồi SINH LẠI `reference-gaps.yaml` + `docs/store-verification.json`** (số tuyệt đối đổi theo thứ tự merge) và chạy lại validate · reference:gaps:check · verify:store:partial · audit:store; chạy riêng từng lane tuần tự để hai tệp sinh tự động không xung đột.
-- **Mỗi agent dùng thư mục tạm riêng** (`/Volumes/SSD/opencode-work/w19/scratch_<uid>/`): lane 8 từng bị ghi đè `w.py` chung.
-- **Lỗi tồn đọng lộ ra khi bài Việt mới xuất hiện:** `validate` chỉ kiểm lớp lấp EN của một uid khi uid đó đã có bài Việt — `content/meta/en/sn/sn47.10.yaml` có `final_score` 9.44 ≠ trung bình thô 9.43 (từ #253), chỉ bị bắt ở wave 20; đã sửa.
-- **Giới hạn API:** agent có thể bị ngắt bởi lỗi 429 (đã gặp 3 lần, reset theo giờ); không để lại tệp dở dang trừ trường hợp `sn12.2` (đủ khoá, giữ nguyên, ghi meta). Giao lại từ đầu là đủ.
-- **Cây chính `/Volumes/SSD/kinh-tang-pali` đang có việc SEO chưa commit của session khác** — không checkout/reset ở đó; dùng worktree riêng cho mọi lane và tài liệu.
-
-### Đợt 15 — hai wave agent, 15 bài / 848 khoá (#305 + #306, cả hai CI xanh)
-
-Quy trình đã tái lập được: `_queue.ts` (hàng đợi tăng dần theo khoá thiếu) → `_mkslice.ts` (lát
-f200–f203 kèm dump Pāli theo `segmentMapForUid`) → **2 agent nền / wave** (mỗi agent 3–4 bài,
-168–228 khoá; đọc `skill/translation.md` trước) → coordinator kiểm độc lập `_checkwave.ts` +
-đếm `lược(vi) == lược(pāli)` theo `_hvi.py` (848/848 khoá pass) → 13 cổng trên worktree sạch →
-PR → squash merge → CI main xanh.
-
-Kết quả kiểm độc lập bắt được thứ lời báo agent không nói: (1) lần đầu tôi viết phép đếm lược
-đếm thô ký tự `…` — **sai với quy ước `_hvi.py`** (`…pe…` = MỘT lược; một khoá Pāli có
-`(…)` + `…pe…` thì Việt phải có 2) — 29 khoá "báo đỏ" đều là lỗi phép đo của tôi, không phải
-lỗi bản dịch; sửa phép đo rồi đo lại mới là số thật; (2) `an10.86` coverage Anh ≥99% nhờ tầng
-lấp `english-project` có sẵn — agent đếm 68,3% vì chỉ nhìn Sujato; (3) agent báo thêm **5 lỗi
-tệp đã có**: `sn14.8:3.1` bung `…pe…` · `an10.84:15.2` hạt `ti` thừa · `an8.48:6.1` lặp "Tiền
-của của" · `an8.75:4.3` "chân điến" · căng tên "Sự Viên Mãn" (an5.92/an8.75/an8.76) — **chờ
-biên tập**, không tự sửa trong lát (sửa sẽ lệch `content_sha256` của assessment).
+Việc còn lại (danh sách đầy đủ ở người điều phối; chọn lọc):
+- Quyết định thuật ngữ cấp tầng cho người biên tập: `vipatti` "thất nghiệp" (64 khoá, nghĩa hiện đại là mất việc), "Tuyên Ngôn" vs "Ký Sự" (apadāna), `vipallāsa` "đảo lộn", tên phẩm Ruhaka/Apāyimha/Nataṁdaḷha, `paṭibhāna`, Netti `hāra`.
+- Số kiếp sai trong tha-ap (tha-ap135/136/143/145/166/188/192/56, thêm tha-ap117/208/251/266/320), hướng `pācīnamukho` (tha-ap86, tha-ap160), tên phẩm sn55.33–50, "Bạch ngài" → "Bạch Thế Tôn" ở cnd5–cnd18.
+- mn91/mn92/mn133/mn138 giữ nguyên bản cũ vì đã có audio phát hành (đổi nguồn làm lệch hash audio).
 
 ### Đo 2026-10-06 tại `65f74c9f` (ngay sau PR #303) — lưu ở đây để so trend
 
