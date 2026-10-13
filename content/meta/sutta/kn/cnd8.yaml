@@ -11,16 +11,16 @@ tags:
 quality:
   scores:
     source_provenance: 9.4
-    semantic_fidelity: 8.5
-    grammar_logic: 8.6
+    semantic_fidelity: 8.6
+    grammar_logic: 8.7
     segment_alignment: 10.0
-    terminology: 8.5
+    terminology: 8.6
     triangulation: 8.0
     vietnamese_clarity: 8.6
     han_viet_balance: 9.0
     ambiguity_integrity: 8.6
     technical_integrity: 9.6
-  final_score: 8.88
+  final_score: 8.91
   blocking_errors:
     - "noEnglishEditionUpstream: không có tầng tham khảo tiếng Anh cho cnd8 tại
       commit đã ghim. Thư mục kn/ của edition translation/en/sujato chỉ có cp,
@@ -30,7 +30,7 @@ quality:
       có cnd8. Tầng vietnamese-current chỉ có Pháp Cú. Đây là
       not-published-upstream, giới hạn của bản chụp upstream chứ không phải lỗi
       người dịch, nên triangulation bị chặn ở 8.0 và không nâng để né blocker."
-  assessed_at: "2026-10-11"
+  assessed_at: "2026-10-13"
   assessed_by:
     - "Claude Sonnet 5.5 (Claude Code)"
   waiver:
@@ -73,7 +73,7 @@ notes: |-
   1. `34.3` `dukkhamanaṭṭhena`: hợp từ không có tiền lệ và không phân tích được chắc chắn từ Pāli root; giữ nguyên `dukkhamana` trong Việt (*theo nghĩa dukkhamana*) thay vì đoán nghĩa.
   2. `22`–`24` `dantaṁ nayanti samitiṁ …`: Pāli chỉ nói `danta` (*vật/ người đã được điều phục*), không có danh từ; `dhp321`–`dhp323` (và Sujato) thêm *voi/ beast*. Dùng lại bản dhp để bài khớp `dhp321`–`dhp323`, ghi bất định này.
   3. `16.3`, `16.9` `alīnamanaso` → *ý không uể oải* (không có tiền lệ nguyên văn; `sn46.6:3.4` dịch `adīnamānaso` là *ý không buồn phiền*, `ja55:1.2` *có ý không bị vướng*); `maṅku` → *ủ rũ* (`mil2:64.1`, còn `sn46.6` *chán nản*).
-  4. `54.5`, `54.8` `diṭṭhapadā` → *đã thấy cảnh giới* theo `tha-ap500:26.3`; `kp6:12.4` dịch *đã thấy Niết-bàn*, `an7.66:10.2` *đã thấy chân lý*; chưa phân xử được.
+  4. `54.5`, `54.8` `diṭṭhapadā` → *đã thấy chân lý*, theo đúng danh sách sáu bậc Mâu-ni trùng nguyên văn ở `mnd2:121`, `mnd13:151` và `an7.66:10.2` (lượt cải thiện 2026-10-13, trước đó là *đã thấy cảnh giới* theo `tha-ap500:26.3`); `kp6:12.4` dịch *đã thấy Niết-bàn*, `snp2.1:12.4` *đã thấy đạo*, `ud4.9:3.3` *đã thấy pháp*, `pe8:153.4` *đã thấy dấu chân*; nghĩa của `pada` trong cụm này (chân lý, Niết-bàn, đạo hay dấu chân) vẫn chưa phân xử được từ Pāli root.
   5. `87.2` `nirodhavacanaṁ` → *lời nói chấm dứt*: `mnd1:9.2` đọc `niyogavacanaṁ` (*lời nói quyết định*); đây là dị bản của tầng Pāli đã ghim, dịch đúng từ có trong `cnd8`.
   6. `106.19` `Kathaṁ samādāya ṭhito?` → *An trú sau khi đã thọ trì như thế nào?*: `mnd1:81.15` có dạng `kaṭaṁ samādāya ṭhito` (*sau khi đã nắm lấy ván thắng*); cnd8 đọc `kathaṁ`, nên câu hỏi mở ra `106.20`, `106.21`; `106.20` `vimuttipaṭisevanatāya` → *thường nương theo sự giải thoát* theo `mnd1:81.16`.
   7. `64.7` `visamāti visattikā` → *vì bất chính* (không có trong chuỗi ở `mnd1:29`; `visama` dịch theo `visamalobho` *tham bất chính*, `visamaparihāra` *không giữ gìn đúng cách*).
@@ -83,3 +83,5 @@ notes: |-
   11. `62.8` kết *thiết thực hiện tại: thiết thực hiện tại* vì Pāli lặp lại lemma sau `kathayissāmīti`.
 
   **Bốn cổng kỹ thuật theo `AGENTS.md`:** `npm run validate`, `npm test`, `npm run check`, `npm run build`. Lát này **không** chạy bốn lệnh đó vì bị cấm trong từng lát ⇒ để CI hoặc người điều phối chạy. `technical_integrity` đặt **9.6**, không 10.0. Các phép tự kiểm đã chạy và đều xanh: tập khoá bản Việt = tập khoá Pāli (787/787, cùng thứ tự); nháy kép khớp Pāli từng khoá (0/49 khoá lệch; Pāli không có nháy đơn nên Việt cũng không có); dấu lược `…` khớp Pāli từng khoá (0/787 lệch; 62 khoá `…pe…` thành đúng một `…`, 37 khoá `…` trần giữ đủ số dấu); Pāli không có `(…)` nên Việt cũng không có; ngoặc đơn `( )` khớp từng khoá (12/12); 0 khoá rỗng; NFC; không khoảng trắng thừa; 0 thẻ in đậm lọt vào bản Việt; Pāli lọt sang Việt chỉ gồm lemma `Iccā` (`10.1`) và tên riêng, loại hình, thuật ngữ giữ nguyên (`Mettagū`, `Sabhiya`, `Nāga`/`nāga`, `Supaṇṇa`, `Inda`, `jāgu`, `indagu`, `dukkhamana`); đã in và đọc đối chiếu đủ 787 cặp Pāli↔Việt.
+
+  **Lượt cải thiện 2026-10-13.** Đọc đối kháng lại đủ 787 cặp Pāli↔Việt, đối chiếu từng cụm với chỉ mục Pāli→Việt toàn tầng (so Pāli trùng nguyên văn ở bài khác); đổi **7/787** khoá, không đổi tập khoá hay thứ tự. (1) `115.8` *evameva te saṅge vosajjetvā vā visajja*: bản cũ dịch `te` thành *họ* (*cũng vậy, họ hoặc sau khi buông bỏ …*), trong khi `te` là chỉ định từ đứng với `saṅge` (*những sự trói buộc ấy*) và câu không có chủ ngữ người; sửa thành *cũng vậy, hoặc sau khi buông bỏ các sự trói buộc ấy mà tháo gỡ* — lỗi ngữ pháp và thừa chủ thể, `grammar_logic` 8.6 → 8.7. (2) `31.3`, `36.3`, `33.1`, `33.6` *taṁ te pavakkhāmi yathā pajānaṁ*: bản cũ bỏ `taṁ` (*Ta sẽ nói cho ngươi như Ta liễu tri*), trong khi lời giải `33.2`–`33.3` giải riêng `taṁ` là *điều ấy*; thêm *điều ấy* ở cả bốn khoá để Pāli trùng nhau trong bài cùng một cách dịch, khớp 4 khoá `mnd16:149.5`, `mnd16:155.1`, `mnd16:155.5`, `mnd16:157.5` (đa số 4/6; hai khoá còn lại `snp5.5:2.3`, `cnd2:19.3` bỏ `taṁ`) — lỗi sót từ, `semantic_fidelity` 8.5 → 8.6. (3) `54.5`, `54.8` `diṭṭhapadā`: bản cũ *đã thấy cảnh giới* lệch bốn khoá `mnd2:121.4`, `mnd2:121.7`, `mnd13:151.4`, `mnd13:151.7` là đúng danh sách sáu bậc Mâu-ni trùng nguyên văn; đổi *đã thấy chân lý*, `terminology` 8.5 → 8.6 (chỉ về tính nhất quán tiền lệ, nghĩa của `pada` vẫn là bất định mục 4). Các tiêu chí khác giữ nguyên điểm vì chưa có cải thiện cụ thể tương ứng: `triangulation` vẫn 8.0 (không có bản Anh độc lập), `ambiguity_integrity` vẫn 8.6 (các bất định mục 1–11 còn nguyên), `technical_integrity` vẫn 9.6 (không chạy `npm run validate`, `npm test`, `npm run check`, `npm run build`). Đã xét và **giữ nguyên** vì khớp tiền lệ tầng dù đọc lên không đẹp: công thức *suy tư biểu kiến* cho `ākāraparivitakka` (`mnd14:71.2`, `mnd14:223.2`, `mnd16:155.4`, `cnd9:45.9`, `cnd22:33.1`, `cnd12:5.1`), cặp *sau khi làm cho biết, đã cân nhắc …* ở `63.1`, `63.3`, `69.1`, `69.4` (cùng dạng ở `cnd9:46`, `cnd12:12`), *du hành* cho `caraṁ` ở `79.2`, `81.1` (cùng `snp5.5:8.2`, `cnd2:25.2`), *dòng lũ của sinh, già, sầu và bi thương* ở `43.4`, `46.1` (cùng `snp5.5:4.4`, `cnd2:21.4`), *Bạch ngài* ở `118.2` (cùng 8 bài cnd), *không uế* ở `102.3` (cùng `snp3.6:19.3`, `mnd4:18.3`), *bà-la-môn* cho `brahmā` ở `102.5` (cùng 10 khoá ở `mnd4`, `mnd5`, `mnd9`, `mnd13`, `mnd15`, `cnd9`, `cnd18`, `snp3.6`). Lỗi chung của tầng cần xử lý ngoài lát này, không sửa riêng ở đây: dạng *sau khi … , đã …* trong công thức `viditaṁ katvā tulayitvā tīrayitvā vibhāvayitvā vibhūtaṁ katvā` (12 khoá ở `cnd8`, `cnd9`, `cnd12`).

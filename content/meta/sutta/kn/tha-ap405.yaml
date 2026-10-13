@@ -11,16 +11,16 @@ tags:
 quality:
   scores:
     source_provenance: 9.2
-    semantic_fidelity: 8.8
-    grammar_logic: 8.9
+    semantic_fidelity: 8.9
+    grammar_logic: 9.0
     segment_alignment: 10.0
-    terminology: 9.0
-    triangulation: 6.5
+    terminology: 9.1
+    triangulation: 6.8
     vietnamese_clarity: 8.8
     han_viet_balance: 9.2
     ambiguity_integrity: 9.0
     technical_integrity: 9.6
-  final_score: 8.9
+  final_score: 8.96
   blocking_errors:
     - "Không có tầng tham khảo tiếng Anh tại commit đã ghim
       11c9d708978cde8ba61096d8a75f7ddfb846f639:
@@ -38,7 +38,7 @@ quality:
       uid này. Cả ba tầng tham khảo đều vắng, bản dịch chỉ dựa trên Pāli root;
       đây là giới hạn của upstream, không phải lỗi của người dịch. Vì vậy
       `triangulation` bị chặn ở 6.5 (≤ 8.0) và không nâng điểm để né blocker."
-  assessed_at: "2026-10-10"
+  assessed_at: "2026-10-13"
   assessed_by:
     - "Claude Sonnet 5.5 (Claude Code)"
   waiver:
@@ -143,3 +143,32 @@ notes: |-
 
   CỔNG KỸ THUẬT: không chạy được trong lát này nên `technical_integrity` đặt 9.6, không tuyên bố đã qua
   cổng. Còn phải chạy trước khi gộp: npm run validate, npm test, npm run check, npm run build.
+
+  Lượt cải thiện 2026-10-13: đọc đối kháng lại cả 110 khoá, đối chiếu với chỉ mục Pāli→Việt của phẩm `tha-ap` (15.911 dòng Pāli khác
+  nhau đã có Việt, trừ chính bài này). Đổi 5 khoá (4 giá trị khác nhau), không đổi tập khoá hay thứ tự:
+  - `:10.3` *trong một ngàn tám trăm kiếp nữa* → *trong một ngàn tám trăm kiếp*. Công thức `Aṭṭhārase kappasate, devaloke ramissati`
+    ở tha-ap401, 413, 490, 553 đều dịch *Trong một ngàn tám trăm kiếp,* (4/4, không có *nữa*); chữ *nữa* chỉ dùng cho lời thọ ký
+    một vị sẽ xuất hiện (tha-ap409, 414, 492: *Sau … nữa*), nên ở đây nó thêm nghĩa "từ nay trở đi" mà định vị cách của Pāli không nêu.
+    (accuracy fix; `grammar_logic` 8.9 → 9.0, `semantic_fidelity` 8.8 → 8.9.)
+  - `:22.4` *cũng không sánh được* → *cũng sẽ không sánh được*: `upanidhiṁ na hessati` là tương lai, cùng khuôn `:20.4`
+    (*sẽ không bằng một phần nhỏ*); bản trước làm mất thì. (accuracy fix; tính vào `grammar_logic`.)
+  - `:23.4`, `:24.4` *đó là quả báo* → *đây là quả báo của việc dâng bơ lỏng*: Pāli `idaṁ` là "này/đây". Đo trên toàn các câu kết
+    `…idaṁ phalaṁ` của phẩm: *đây* 331 / *đó* 292; ở cửa sổ gần nhất (tha-ap380–440) *đây* 78 / *đó* 34, nên theo đa số gần nhất.
+    Hai khoá có Pāli trùng nguyên văn trong bài (`:23.4` = `:24.4`) vẫn có bản Việt giống nhau. (terminology fix.)
+  - `:24.2` *lấy định và thiền làm nơi sinh hoạt* → *lấy định và thiền làm cảnh giới*: cùng khuôn `X-gocaro` ở ne10:25.2
+    (*lấy chánh tư duy làm cảnh giới*) và ne25 (12 khoá *…là cảnh giới*); *nơi sinh hoạt* là cách nói hiện đại hẹp hơn `gocara`.
+    (terminology fix; `terminology` 9.0 → 9.1.)
+  Bất định đã được thu hẹp nhờ đối chiếu Pāli trong kho (không dùng nguồn ngoài):
+  - Bất định 1 (`Tiṁsakappasahassamhi`, `:17.1`): bv13:13.3 (Sumedhabuddhavaṁsa, lời thọ ký của chính Đức Sumedha)
+    dùng đúng cụm này cho khoảng cách từ thời Ngài đến lúc Bodhisatta thành Phật, và bản Việt của bv13 đã là *ba mươi ngàn kiếp*;
+    tha-ap17, 109, 115 cũng *ba mươi ngàn*; chỉ tha-ap151 (1 khoá) là *ba nghìn*. Giữ *ba mươi ngàn kiếp*; hướng đọc `tiṁsa` = 3
+    không có căn cứ trong tầng Pāli. Vẫn là suy luận từ song song nội bộ, chưa có bản Anh độc lập, nên chưa coi là phân xử dứt khoát.
+  - Bất định 5 (`Tamandhakāraṁ vidhamaṁ`, `:15.3`): tha-ap412:28.3–4 (`Tamandhakāraṁ vidhamaṁ, uppajji tāvade jino`) cho thấy
+    chủ ngữ của `vidhamaṁ` và `uppajji` là Đức Phật; điều này xác nhận *Ngài xua tan … Ngài đã xuất hiện* ở `:15.3–4`. Đã phân xử.
+  Điểm còn giữ nguyên: `triangulation` 6.5 → 6.8 chỉ phản ánh hai song song Pāli nội bộ vừa dò; vẫn không có bản Anh độc lập nên
+  không thể cao hơn. `ambiguity_integrity` giữ 9.0 vì `nerupassato` (hapax), `viññāpitaṁ`, `chaḷaṅgaṁ nāma lakkhaṇaṁ`, `:18` và các
+  bất định 6–11 ở trên vẫn chưa phân xử được. Các dòng cũ ở trên về `:10.3` (*… kiếp nữa*) và `:23.4`/`:24.4` (*đó là quả báo*) là
+  lịch sử đã được dòng này thay thế.
+  Cổng kỹ thuật vẫn chưa chạy trong lượt này nên `technical_integrity` giữ 9.6: npm run validate, npm test, npm run check, npm run build.
+  Lỗi ngoài bài (chỉ báo, không sửa): tha-ap436:3.1 dịch `Tamandhakāraṁ` là *bóng tối của cây ta-mà-rạch* (sai: `tama` + `andhakāra`
+  = bóng tối mù mịt, như tha-ap412:28.3 và tha-ap409:34.3).

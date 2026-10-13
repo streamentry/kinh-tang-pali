@@ -13,16 +13,16 @@ tags:
 quality:
   scores:
     source_provenance: 9.5
-    semantic_fidelity: 8.7
-    grammar_logic: 8.8
+    semantic_fidelity: 8.8
+    grammar_logic: 8.9
     segment_alignment: 10.0
-    terminology: 8.8
+    terminology: 9.0
     triangulation: 7.0
     vietnamese_clarity: 8.8
     han_viet_balance: 9.0
     ambiguity_integrity: 8.6
     technical_integrity: 9.6
-  final_score: 8.88
+  final_score: 8.92
   blocking_errors:
     - "noEnglishEditionUpstream: không có tầng tham khảo tiếng Anh nào tại
       commit đã ghim. Tầng `english-sujato` chỉ có chín nhóm con của Tiểu Bộ
@@ -34,7 +34,7 @@ quality:
       `vietnamese-current` tại commit đã ghim chỉ có Pháp Cú. Cả ba tầng tham
       khảo đều vắng nên bài bắt buộc `draft` và `triangulation` ≤ 8,0 (đặt 7,0).
       Đây là giới hạn của upstream, không phải lỗi của người dịch."
-  assessed_at: "2026-10-10"
+  assessed_at: "2026-10-13"
   assessed_by:
     - "Claude Sonnet 5.5 (Claude Code)"
   waiver:
@@ -77,3 +77,12 @@ notes: |-
   **Phép kiểm đã chạy, kèm mẫu số.** Tập khoá Việt = tập khoá Pāli, 102 = 102, đúng thứ tự Pāli. Nháy kép `“”` và nháy đơn `‘’` khớp Pāli từng khoá: 0 khoá lệch trên 102 khoá; Pāli của bài không có nháy đơn, không có `"` hay `'` thẳng ở bản Việt. Dấu lược `…` và `(…)`: Pāli của bài không có dấu lược nào (0 khoá), bản Việt không có `…` nào: phép này chạy rỗng, nói thẳng. Pāli lọt sang Việt: 1 từ, `Mahākaccāyana` ở `17.2`, là tên riêng, chủ ý. NFC đạt; 0 khoá rỗng; 0 khoảng trắng thừa.
 
   Cổng kỹ thuật CHƯA chạy ở lát này. Cần chạy đủ bốn lệnh trước khi coi `technical_integrity: 9.6` là đạt: `npm run validate`, `npm test`, `npm run check`, `npm run build`.
+
+  **Lượt cải thiện 2026-10-13.** Đọc đối kháng lại 102 khoá cặp Pāli–Việt, đo tiền lệ trên toàn tầng; đổi 5 khoá (1.2, 7.10, 9.1, 9.3, 17.2), 97 khoá giữ nguyên.
+  - `1.2` và `17.2`: hai khoá này trích dòng kệ gốc `Sabbesaṁ hārānaṁ / yā bhūmi yo ca gocaro tesaṁ`. Cùng dòng ấy ở `ne3:4.1`–`4.2` và `pe5:21.1`–`21.2` đã dịch "các hướng dẫn" và "đất nền nào và cảnh giới nào thuộc về chúng"; chuỗi trích `ne5:1.2` cũng theo cách đó. Bản trước dịch "các phương thức" và "nền tảng … của chúng", lệch bản kệ mà chính bài này trích. Đã đổi theo `ne3`: `1.2` thành "Của tất cả các hướng dẫn", `17.2` thành "của tất cả các hướng dẫn, đất nền nào và cảnh giới nào thuộc về chúng". `13.6` và `17.1` (`vicayena hārena`, `yuttihārena`) vẫn là "phương thức khảo xét"/"phương thức lý luận" theo `ne11:4.5`, vì đó là lời của bài chứ không phải câu trích kệ. Ảnh hưởng: `terminology` 8,8 → 9,0.
+  - `9.3` `sineho`: bản trước dịch "sự luyến ái", trùng với `avigatapema` → "luyến ái" ở `11.3` (khuôn `sn22.84:3.10`, `sn44.5`, 6 khoá), tức hai chữ Pāli khác nhau cho cùng một chữ Việt trong một bài. Chọn "sự yêu mến", theo cách tầng đã dịch `sineha`/`sneha` ở `cnd23` (`taṇhāsneho` là "yêu mến thuộc tham ái"), `tha-ap2`. `maññanā` đổi từ "sự nghĩ tưởng" thành "sự tưởng nghĩ" theo `mnd6:42.5`. Ảnh hưởng: `terminology`.
+  - `9.1`: Pāli `bāhirānaṁ vatthūnaṁ ārammaṇavasena` là một cụm ("tùy theo đối tượng của các sự vật bên ngoài"); bản trước tách thành hai đoạn đồng vị ("tùy theo đối tượng, là các sự vật bên ngoài"), làm sai quan hệ phụ thuộc. Đã sửa thành một cụm. Ảnh hưởng: `semantic_fidelity` 8,7 → 8,8, `grammar_logic` 8,8 → 8,9.
+  - `7.10`: bỏ chữ "còn" thêm vào ("sẽ không còn là" thành "sẽ không phải là"), sát `na ca siyā taṇhā dukkhassa samudayo`; ghi chú cũ vốn đã nói Pāli không có chữ "còn" nhưng bản dịch vẫn có. Ảnh hưởng: `grammar_logic`.
+  - Đã đo và quyết định KHÔNG đổi: (a) `nibbidā` ở `12.1` giữ "chán ngại" (khuôn của `ne7`, 91 khoá toàn tầng, so với "nhàm chán" 270 khoá, đa số ở bộ khác); (b) `parikkhāra` ở `12.1` giữ "trợ duyên" (khuôn `ne18`/`ne34`, 45 khoá, so với "vật dụng" 212 khoá, nhưng nghĩa vật dụng không hợp ở đây); (c) `14.6` giữ "Cái ý niệm ta là … ta là cái này", vì `dn33:2.2.106` và `dn34:1.7.63` dịch cùng câu có dấu nháy, còn Pāli của bài này không có nháy nên không thêm được; (d) `16.9` `khamati` giữ "chịu nổi" (`pe8:91.6` dịch `nakkhamati` là "không chịu đựng").
+  - Bất định thêm vào, chưa phân xử được: (1) `vinaye sandassayitabbāni` ở `1.5`, `2.3` là đúng công thức mahāpadesa mà `dn16:4.8`–`4.11` và `an4.180` dịch "giới luật" (18 khoá), còn bài này, nhờ `2.4` (`rāgavinaya` v.v.), dịch "điều phục" cùng với `sn46`, `sn48`, `mn150`. Giữ "điều phục" để định nghĩa `2.4` khớp `1.5`/`2.3`/`17.1`, nhưng người đọc đối chiếu với `dn16` sẽ thấy lệch; đề nghị người biên tập phán xử chung. (2) `16.9` nghĩa của `khamati` với `abhinīhāraṁ` ("chịu nổi" hay "chấp nhận việc hướng tâm") chưa kiểm được ngoài `pe8:91.6`. `ambiguity_integrity` giữ 8,6; `triangulation` giữ 7,0 (không có bản Anh độc lập).
+  - Phép kiểm sau sửa: 102/102 khoá, đúng thứ tự Pāli; nháy `“”` khớp Pāli từng khoá (0 lệch trên 102); Pāli của bài không có `…` nên bản Việt không có; 1 cặp Pāli trùng nội bộ (`7.12` = `12.2`), bản Việt giống hệt; NFC đạt, 0 khoá rỗng, 0 khoảng trắng thừa; Pāli lọt sang Việt chỉ `Mahākaccāyana` (tên riêng). Cổng kỹ thuật vẫn CHƯA chạy ở lượt này; `technical_integrity: 9.6` giữ nguyên, còn nợ `npm run validate`, `npm test`, `npm run check`, `npm run build`.

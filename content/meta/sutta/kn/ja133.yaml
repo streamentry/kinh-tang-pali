@@ -11,23 +11,23 @@ tags:
 quality:
   scores:
     source_provenance: 9.5
-    semantic_fidelity: 8.7
+    semantic_fidelity: 8.8
     grammar_logic: 8.7
     segment_alignment: 10.0
-    terminology: 8.5
+    terminology: 9.0
     triangulation: 7.0
     vietnamese_clarity: 9.0
     han_viet_balance: 9.0
     ambiguity_integrity: 8.5
-    technical_integrity: 10.0
-  final_score: 8.89
+    technical_integrity: 9.6
+  final_score: 8.91
   blocking_errors:
     - "Thiếu tầng tham khảo English SuttaCentral tại commit đã ghim: 0/9 khoá có
       bản Anh nên bài chưa đủ điều kiện review hay published vì thiếu tầng tham
       khảo là lỗi chặn."
-  assessed_at: "2026-09-30"
+  assessed_at: "2026-10-13"
   assessed_by:
-    - "OpenCode Space Bunny Free (agent)"
+    - "Claude Sonnet 5.5 (Claude Code)"
   waiver:
     id: no-upstream-english
     blockers:
@@ -44,3 +44,23 @@ notes: |-
   chính nơi nương tựa chứ không phải không còn nơi nương tựa; review đối kháng đã
   sửa một bản nháp ghi sai phủ định ở đây. semantic và ambiguity hạ điểm accordingly.
   Thiếu tầng Anh nên triangulation chỉ 7.0 và bài ở draft.
+
+  Lượt cải thiện 2026-10-13: đọc đối kháng 9 cặp Pāli↔Việt, đổi 3/9 khoá (1.1,
+  1.3, 1.4), 6 khoá còn lại giữ. 1.4 `disā bhajavho`: "hãy chạy về các phương"
+  → "hãy tản đi các phương", theo đúng cụm Pāli `Disā bhajatha` ở ja36:1.3 và
+  ja432:7.3 (2/2 khoá cùng cụm, cùng bản Việt "tản đi các phương"); bhaj không
+  có nghĩa chạy, và chủ thể là đàn chim tản ra bốn phía. 1.3 `na ajja vāso`:
+  "không còn chỗ trú" → "không có chỗ trú", bỏ chữ "còn" Pāli không có; "chỗ
+  trú" giữ vì đa số vāso trong tầng dịch là chỗ trú (dhp237:3, snp3.1:10.4) so
+  với nơi ở (pv26, mil7.4.5:8.1, tha-ap23:7.1 và vài khoá khác). 1.1
+  `khemaṁ yahiṁ`: "Nơi nào từng yên ổn" → "Nơi nào là chốn yên ổn", bỏ
+  "từng" vì Pāli không có thì quá khứ. Điểm đổi: terminology 8.5 → 9.0 (hai
+  tiền lệ đo được); semantic_fidelity 8.7 → 8.8 (gỡ hai chỗ thêm nghĩa nhỏ);
+  technical_integrity 10.0 → 9.6 (bốn lệnh `npm run validate`, `npm test`,
+  `npm run check`, `npm run build` chưa chạy trong lượt này); các điểm khác giữ.
+  Bất định còn nguyên: 1.2 `dakassa` là hapax trong toàn Pāli root (khuôn
+  duy nhất ja133:1.2); `daka` đứng riêng nghĩa là nước, nhưng "giữa nước" không
+  hợp lửa cháy; "khu rừng" là cách đọc theo văn cảnh và tên bài, không có căn
+  cứ phân xử được trong kho (không có bản Anh, không có chú giải ghim), nên
+  ambiguity_integrity giữ 8.5 và triangulation giữ 7.0. Cân nháy “ ” khớp Pāli
+  ở 1.1 và 1.4; không Pāli lọt sang Việt; NFC đạt.

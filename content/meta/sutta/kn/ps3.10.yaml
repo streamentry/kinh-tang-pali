@@ -12,16 +12,16 @@ tags:
 quality:
   scores:
     source_provenance: 9.4
-    semantic_fidelity: 8.9
-    grammar_logic: 8.9
+    semantic_fidelity: 9.0
+    grammar_logic: 9.0
     segment_alignment: 10.0
-    terminology: 8.6
+    terminology: 8.9
     triangulation: 7.0
-    vietnamese_clarity: 8.8
+    vietnamese_clarity: 8.9
     han_viet_balance: 9.2
     ambiguity_integrity: 8.6
     technical_integrity: 9.6
-  final_score: 8.9
+  final_score: 8.96
   blocking_errors:
     - "Không có tầng tham khảo tiếng Anh tại commit đã ghim:
       `source/upstream-manifest.json` chỉ liệt kê
@@ -35,7 +35,7 @@ quality:
       và đối chiếu tiền lệ nội bộ ⇒ bắt buộc `draft` và `triangulation ≤ 8,0`.
       Đây là giới hạn upstream, không phải lỗi của người dịch.
       (noEnglishEditionUpstream)"
-  assessed_at: "2026-10-11"
+  assessed_at: "2026-10-13"
   assessed_by:
     - "Claude Sonnet 5.5 (Claude Code)"
   waiver:
@@ -93,3 +93,14 @@ notes: |-
   **Coverage English (mục 7):** mẫu số = 59 khoá Pāli có nội dung (độ dài ≥ 40 ký tự theo `source/layers.yaml`, bỏ khối `:0`) trên tổng 161. Sujato: 0 tệp ⇒ 0/59; `english-project`: 0 tệp ⇒ 0/59; `vietnamese-current`: 0 ⇒ 0/59. Giới hạn của upstream, không phải thiếu sót của repo.
 
   **technical_integrity = 9,6:** lát này cấm chạy cổng, nên không tuyên bố technical gate pass. Bốn lệnh còn lại do người điều phối chạy tập trung: `npm run validate` · `npm test` · `npm run check` · `npm run build`.
+
+  **Lượt cải thiện 2026-10-13.** Đọc đối kháng lại cả 161 khoá bằng cách đặt cạnh các đoạn Pāli trùng hoặc gần trùng trong chính Paṭisambhidāmagga (`ps1.1:498`, `ps1.1:500`, `ps1.5:53`, `ps2.9:18`, `ps2.10:13`), rồi đếm lại tiền lệ ở phạm vi `ps` và toàn tầng. Đã đổi 21/161 khoá; 140 khoá còn lại giữ nguyên sau khi đọc lại. Sau lượt này bản dịch vẫn có 38 cặp Pāli trùng nguyên văn trong bài và cả 38 cặp đều có bản Việt giống hệt nhau; Pāli của bài không có nháy hay ngoặc nên không có nháy nào để cân.
+  1. *Sửa ngữ pháp (15.10, 15.31).* `Jhāpentīti kilese`: `kilese` là đối cách số nhiều, là vật bị thiêu, không phải chủ thể. Bản cũ “Chúng thiêu đốt — đó là các phiền não” đồng nhất kẻ thiêu với phiền não, mâu thuẫn với 15.3, 15.14, 15.22 (phiền não là tân ngữ của `jhāpeti`) và với 15.11 (“những gì bị thiêu đốt”). Nay: “Chúng thiêu đốt — các phiền não.”, và 15.31 chỉ còn “các phiền não.”; bỏ chữ “đó là” để không khẳng định sự đồng nhất mà cách của danh từ không cho phép. 15.9 và 15.29 (`dhammā`, chủ cách) giữ “đó là các pháp”, trùng nguyên văn `ps1.5:53.6/13/32`. Lưu ý ngoài lát: `ps1.5:53.7/14/33` (`Jhāpetīti—kilese`) đang dịch “Thiêu đốt — đó là các phiền não” và có cùng vấn đề; cần đồng bộ khi rà lại bài đó.
+  2. *Sửa tiền lệ `cittaṁ adhiṭṭhāti` (16.3, 17.17).* Bất định số 7 ở trên ghi “không tìm thấy tiền lệ”: ghi nhận đó sai. Có 5 khoá cùng công thức `… pajahanto …vasena cittaṁ adhiṭṭhātīti` ở `ps1.1:498.2/4/6/8` và `ps2.9:18.2–5` (và `ps2.9:40.17`), đều dịch “quyết định tâm theo hướng …”. Nay 16.3: “Quyết định tâm theo hướng xuất ly —”, 17.17: “Quyết định tâm theo hướng A-la-hán đạo —” (bản cũ “Quyết tâm cho tâm theo …” là calque khó đọc và không `vasena` → “theo hướng”). Bất định số 7 thay bằng: động từ này có tiền lệ, vẫn không có bản English để đối chiếu.
+  3. *Sửa thuật ngữ `adhiṭṭhāna` → “quyết định” (1.1, 16.1, 16.4, 16.5, 16.9, 16.13, 17.18, 17.19, 17.23, 17.27).* Đo lại ở phạm vi `ps`: “quyết định” 32 khoá, “kiên định” 18 (`ps1.4`, `ps1.5`: `adhiṭṭhānaṭṭha` ở nghĩa chức năng của căn), “quyết tâm” 10 khoá và cả 10 đều nằm trong chính bài này; `ps1.1:468`, `ps1.1:498`, `ps2.9:18`, `ps2.10:29`, `ps3.2:14` đều “quyết định”. Số “quyết tâm 4 · quyết định 1” ở mục thuật ngữ trên là phép đo hẹp và sai về hướng đa số. `ājīva` “lối sống” và `bhāvanā` “tu tập” không đổi.
+  4. *Sửa thuật ngữ `ālokasaññā` → “tưởng ánh sáng” (10.5, 15.16, 17.3).* Đo lại: toàn tầng “tưởng ánh sáng” 81 · “nhận biết ánh sáng” 15; ở phạm vi `ps` 70 · 7; cùng công thức ở `ps1.1:498.6`, `ps2.9:18.4`, `ps1.5:53.16`, `ps2.10:13.4` đều “tưởng ánh sáng”. Mục thuật ngữ cũ (12 · 15) đã đo sai.
+  5. *Sửa thuật ngữ `arati` → “sự không vui” (17.11).* Phạm vi `ps`: “không vui” 23 khoá, “bất mãn” chỉ có ở chính bài này (17.11, trước lượt sửa); `ps1.5:53.25`, `ps2.10:13.8` cùng cặp `arati`/`pāmojja` đều “sự không vui”. Số “bất mãn 42” ở trên là đo toàn tầng, lấy từ bốn bài Nikāya khác bối cảnh.
+  6. *Sửa rõ nghĩa (8.1–8.3).* `diṭṭhattā dassanaṁ`: “sự thấy vì đã được thấy” (vòng tròn, lại khác thể với 7.1 “do ý nghĩa đã biết”) thành “sự thấy vì đã thấy”, trung tính chủ/bị động giống “đã biết”.
+  Hai chỗ đã đo và **không đổi**: (a) 13.3 và 13.5 trùng Pāli nguyên văn với `ps1.1:500.4` và `500.12` (“xả bỏ”), nhưng `vosajjati`/`vosagga` ở phạm vi `ps` dịch “buông bỏ” 61 khoá, “xả bỏ” chỉ 18 khoá và chúng nằm ở ba bài (`ps1.0`, `ps1.1`, `ps1.3`); giữ “buông bỏ” cho khớp 1.1 và 13.1, 13.2, 13.6; (b) `mokkho vimokkho` “thoát, giải thoát”: vẫn không có tiền lệ cho cặp đứng đôi nên giữ như bất định số 2.
+  Điểm đổi: `semantic_fidelity` 8.9 → 9.0 (sửa 15.10 và 15.31 ở khoá chủ/tân ngữ); `grammar_logic` 8.9 → 9.0 (cùng sửa chủ/tân ngữ, và `cittaṁ adhiṭṭhāti`); `terminology` 8.6 → 8.9 (bốn thuật ngữ đưa về đa số `ps` đã đếm lại, mục 3–5 ở trên); `vietnamese_clarity` 8.8 → 8.9 (16.3, 17.17, 8.1–8.3). `final_score` 8.9 → 8.96, trung bình số học thô của mười điểm. Không đổi: `source_provenance` 9.4, `segment_alignment` 10.0, `triangulation` 7.0 (vẫn không có bản English độc lập), `han_viet_balance` 9.2, `ambiguity_integrity` 8.6 (các bất định 1, 2, 3, 5 vẫn còn thật), `technical_integrity` 9.6. Blocker `noEnglishEditionUpstream` giữ nguyên, vì đó là sự thật về upstream. Mọi mục thuật ngữ cũ ở trên về `adhiṭṭhāna`, `ālokasaññā`, `arati` và bất định số 7 được thay bằng mục này.
+  Bốn lệnh của kho vẫn do người điều phối chạy tập trung: `npm run validate` · `npm test` · `npm run check` · `npm run build`; lượt này không chạy cổng nào.

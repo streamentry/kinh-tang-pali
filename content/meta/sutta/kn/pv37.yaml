@@ -13,16 +13,16 @@ tags:
 quality:
   scores:
     source_provenance: 9.2
-    semantic_fidelity: 8.8
-    grammar_logic: 8.8
+    semantic_fidelity: 9.0
+    grammar_logic: 8.9
     segment_alignment: 10.0
-    terminology: 8.9
+    terminology: 9.1
     triangulation: 7.0
-    vietnamese_clarity: 9.0
+    vietnamese_clarity: 9.1
     han_viet_balance: 9.2
-    ambiguity_integrity: 8.3
+    ambiguity_integrity: 8.5
     technical_integrity: 9.6
-  final_score: 8.88
+  final_score: 8.96
   blocking_errors:
     - "noEnglishEditionUpstream: Thiếu bản dịch tiếng Anh đối chiếu — tầng
       english-sujato tại commit đã ghim không có pv37 (thư mục kn của Sujato chỉ
@@ -31,7 +31,7 @@ quality:
       pv49), và vietnamese-current chỉ có Pháp Cú. Cả ba tầng tham khảo đều vắng
       nên bài bắt buộc ở draft và triangulation không quá 8.0 (đặt 7.0). Đây là
       giới hạn của upstream, không phải thiếu sót của người dịch."
-  assessed_at: "2026-10-11"
+  assessed_at: "2026-10-13"
   assessed_by:
     - "Claude Sonnet 5.5 (Claude Code)"
   waiver:
@@ -69,7 +69,7 @@ notes: |-
     + `15.2` `silāpavāḷassa ca āyataṁsā`: `āyataṁsā` (“góc/cạnh dài”) chỉ có ở pv37 và vv84:15.2 trong toàn Pāli root; `silāpavāḷa` → “đá san hô” (ja454:4.3 và pv18:4.3 “đá và san hô”). `15.4` `jotirasāmayāse`: `jotirasa` là tên một loại ngọc (mil5.1.4) nên dịch “ngọc jotirasa”; vv9:7.3 dịch “rực rỡ ánh lửa”.
     + `16.4` `tapanīya` → “vàng ròng”: tầng không có tiền lệ cho nghĩa “vàng” (32 khoá `tapanīya` còn lại là nghĩa “đốt nóng/giằng vặt”).
     + `17.2` `phala` trong `pāsādasopānaphalūpapanno` → “ván sàn”: `phala` ở đây có thể là “ván/tấm lát”; chưa có tiền lệ.
-    + `19.1` `nārigaṇappabodhano`: chỉ có ở pv37 và vv84:19.1 trong toàn Pāli root; có thể là “người làm đoàn nữ nhân tỉnh thức” (tác nhân, như dịch) hoặc “được đoàn nữ nhân đánh thức”; Pāli không phân xử.
+    + `19.1` `nārigaṇappabodhano`: đã phân xử ở lượt cải thiện 2026-10-13 (xem mục cuối): dịch “được đoàn nữ nhân đánh thức”.
     + `21.2` `gutto`: dịch “canh giữ” (sát `abhipālayāmi` ở `21.3`); nghĩa “được bảo hộ” cũng hợp ngữ pháp.
     + `26.2` `uḷāro` → “là bậc cao quý” (tầng “cao quý” 24, “lớn lao” 13).
     + `31.2` `kalalīkata` → “khuấy đục” (sn46.55:12.1, an5.193:6.2 `kalalībhūta` “bùn lầy/đục”) và `31.4` `appaccayo` → “nỗi phiền muộn”: dn1:1.5.1 dịch `appaccaya` là “bất mãn”; ở đây người kể nói về nỗi buồn nên dịch “phiền muộn”; ai phiền muộn (thương nhân hay dạ-xoa) cũng do ngữ cảnh.
@@ -84,3 +84,17 @@ notes: |-
   - Dấu lược: bài này không có `…` hay `(…)` ở Pāli (0/229 khoá), nên bản Việt cũng không có; không phát sinh chính sách dấu lược.
   - Kiểm tra tự động: tập khoá Việt = tập khoá Pāli (229/229, đúng thứ tự); nháy đơn và nháy kép khớp Pāli từng khoá (48 dấu, 0 khoá lệch); 0 khoá rỗng; chuẩn NFC; không có Pāli lọt sang thân Việt ngoài tên riêng và các thuật ngữ đã giữ nguyên ở trên.
   - technical_integrity đặt 9.6: không chạy được `npm run validate`, `npm test`, `npm run check`, `npm run build` trong lượt này; cần chạy đủ bốn lệnh này (cùng `npm run reference:gaps`) trước khi gộp. Không tuyên bố technical gate đã pass.
+  - Lượt cải thiện 2026-10-13: đọc đối kháng lại 229 khoá, sửa 13 khoá; không đổi tập khoá, không đổi khoá nào khác.
+    + `18.3` `Murajaālambaratūriya`: tách đúng là muraja + ālambara + tūriya; bản trước tách nhầm thành “trống ālamba”. Tên nhạc cụ `ālambara` đã có ở ja535:15.2 (“trống murajā và ālambara”) và cnd23:87.2. Sửa thành “trống ālambara”. Tiêu chí terminology 8.9 → 9.1 (cùng các sửa thuật ngữ dưới đây).
+    + `19.1` `nārigaṇappabodhano` (bất định cũ, nay phân xử): đối chiếu hợp chất `-ppabodhana` ở toàn tầng, thấy dạng “được X đánh thức” (bị động, X là phương tiện): thag16.9:2.2 và 20.4 “được chũm chọe đánh thức”, ja547:107.2 “được đánh thức bằng múa hát”, ja547:11.2 “được đánh thức bằng rượu và thịt”, ja542:2.4 “được đánh thức bằng trống và tù và”, vv64:22.1 “được đoàn nhạc đánh thức”; chỉ 1 khoá nghiêng về nghĩa chủ động (tha-ap393:131.2). Hình ảnh vua được đoàn nhạc hay đoàn nữ nhân đánh thức cũng hợp ngữ cảnh cung điện. Đổi “là người làm đoàn nữ nhân tỉnh thức” → “được đoàn nữ nhân đánh thức” (cách đọc cũ còn gây hiểu nhầm là tỉnh thức tâm linh). Còn một khoá chủ động ở tầng nên đây là phân xử có căn cứ chứ không tuyệt đối. ambiguity_integrity 8.3 → 8.5 (các bất định khác ở trên vẫn còn nguyên).
+    + `13.1` “còn kỳ diệu hơn cả điều này, chúng tôi chưa từng nghe, cũng chưa từng thấy” dễ bị đọc là họ đã thấy điều kỳ diệu hơn; Pāli `itopi accherataraṁ … na no sutaṁ vā atha vāpi diṭṭhaṁ` nghĩa là chưa từng nghe hay thấy điều nào kỳ diệu hơn điều này. Sửa 13.1 thành “điều nào kỳ diệu hơn điều này”.
+    + `8.3` `Etena vegena`: “vì thế … đã đi nhanh như vậy” thêm quan hệ nhân quả Pāli không nêu; đổi thành “với tốc độ ấy, tất cả chúng tôi đã đến”. `8.2` `samekkhamānā`: “cân nhắc đến lòng thương” → “cân nhắc việc thương xót” (đỡ gượng, sát `anukampā`).
+    + `4.4` `tatāhi uṇhāhi ca dāruṇāhi`: ba tính từ giống cái hợp với `paṁsūhi`/`vālukāhi` (4.3), bản trước viết như một nhóm “những thứ” đứng riêng; đổi thành “vốn bị nung nóng, nóng rực và khắc nghiệt” để nối đúng với bụi đất và cát.
+    + `7.1` `Magadhesu aṅgesu ca satthavāhā` là định vị cách (ở Magadha và Aṅga); bản trước dịch “Từ các xứ” như nguồn gốc xuất phát; đổi thành “ở các xứ”.
+    + `16.1` `Sahassathambhaṁ`: bản trước chèn thêm chữ “cung điện” ngay trước 16.2 vốn đã có `vimānaṁ`, nên lặp; đổi thành “Có ngàn cột” (khớp cách dịch cùng khoá ở bản song song vv84:16.1).
+    + `17.4` `manuñño` “đẹp lòng” → “đẹp ý” để thống nhất với 22.4 và 23.4 (`manuññaṁ` “đẹp ý”) trong bài. `19.2` `manorame` “dễ chịu hết sức” → “làm đẹp lòng”: tầng có `manorama` “đẹp lòng” 22 khoá và “làm đẹp lòng” 13 khoá so với “dễ chịu” 9 khoá.
+    + `41.1` `sagāravo sappatisso`: “cung kính” → “kính cẩn” cho `sappatisso` theo an6.33:2.4 và an7.33:3.2 (“kính cẩn, kính trọng”) và dn33:2.2.23 (“tôn trọng, kính cẩn”).
+    + `12.4` `tātā`: “các bạn thân mến” → “hỡi các bạn” để cùng cách gọi với 32.1, 34.2, 36.3 trong bài (cùng Pāli `tātā`, bài vẫn dùng một dạng trung tính). `48.4` `kadariyā`: bỏ chữ “cả” vốn không có trong Pāli.
+    + Điểm đổi: semantic_fidelity 8.8 → 9.0 (13.1, 18.3, 8.3); grammar_logic 8.8 → 8.9 (4.4, 7.1); terminology 8.9 → 9.1; vietnamese_clarity 9.0 → 9.1 (13.1, 19.1, 8.2); ambiguity_integrity 8.3 → 8.5. Không đổi: source_provenance, segment_alignment, triangulation (vẫn 7.0, không có bản Anh độc lập), han_viet_balance, technical_integrity (9.6).
+    + Bất định còn lại sau lượt này, không phân xử được nên giữ nguyên bản dịch và ghi chú ở trên: `38.1` (chớ làm lễ hội hay chớ chỉ làm lễ hội; lưu ý `ceva` thường đi cặp với `ca`, ở đây `ca` nằm ở 38.2, và 53.4 họ vẫn làm lễ hội), `44.5`, `5.2`, `4.2`, `15.2`, `21.2`, `46.2`, `33.2`.
+    + `12.4`/`36.3` và các khoá khác của bài song song vv84 không được đồng bộ trong lượt này (hai bài dịch độc lập; vv84 có cách dịch khác ở nhiều khoá như 4.2 “củi lửa”, 5.2 “vô ích”); cần thống nhất khi gộp hai bài.

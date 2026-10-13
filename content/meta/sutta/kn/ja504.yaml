@@ -14,16 +14,16 @@ tags:
 quality:
   scores:
     source_provenance: 9.4
-    semantic_fidelity: 8.5
+    semantic_fidelity: 8.6
     grammar_logic: 8.5
     segment_alignment: 10.0
-    terminology: 8.8
+    terminology: 8.9
     triangulation: 7.0
-    vietnamese_clarity: 8.9
+    vietnamese_clarity: 9.0
     han_viet_balance: 9.2
     ambiguity_integrity: 9.0
     technical_integrity: 9.6
-  final_score: 8.89
+  final_score: 8.92
   blocking_errors:
     - "Không có tầng tham khảo tiếng Anh tại commit đã ghim:
       `source/upstream-manifest.json` chỉ liệt kê `kn/ja/ja504_root-pli-ms.json`
@@ -35,7 +35,7 @@ quality:
       chỉ từ Pāli root và đối chiếu tiền lệ nội bộ ⇒ bài bắt buộc `draft` và
       `triangulation ≤ 8,0`. Đây là giới hạn upstream, không phải lỗi của người
       dịch. (noEnglishEditionUpstream)"
-  assessed_at: "2026-10-10"
+  assessed_at: "2026-10-13"
   assessed_by:
     - "Claude Sonnet 5.5 (Claude Code)"
   waiver:
@@ -102,3 +102,14 @@ notes: |-
   **Coverage English (mục 7):** mẫu số = 0. Đo mọi khoá không phải khối `:0` (101 khoá), dài nhất sau khi nén khoảng trắng là 36 ký tự (< 40) nên 0/101 khoá có nội dung theo ngưỡng của `source/layers.yaml`; 4 khoá `:0` bị loại trước. Đây là *cổng không đo được gì*, không phải *không cần ghi nhận*. Sujato: 0 tệp cho `ja504`; `english-project`: 0; `vietnamese-current`: 0 (chỉ Pháp Cú). Ba tầng đều vắng ⇒ `triangulation` 7,0 (≤ 8,0) và `status: draft` kèm blocker ở trên. Tôi không đụng `content/meta/reference-gaps.yaml`.
 
   **technical_integrity = 9,6:** lát này cấm chạy cổng, nên không tuyên bố technical gate pass. Bốn lệnh còn lại do người điều phối chạy tập trung: `npm run validate` · `npm test` · `npm run check` · `npm run build`.
+
+  **Lượt cải thiện 2026-10-13.** Đọc đối kháng lại cả 105 khoá, đo tiền lệ trên toàn tầng Pāli đã ghim và toàn tầng Việt; đổi 4 khoá (4/105), giữ nguyên tập khoá và thứ tự.
+  - `10.2` “hai bờ toàn đá” → “bờ toàn đá” (accuracy fix): `selakūlaṁ` là danh từ số ít, không có số “hai” trong Pāli. `semantic_fidelity` 8,5 → 8,6.
+  - `16.4` “quá khó để tôi vượt qua” → “rất khó để tôi vượt qua” (terminology fix): `suduttarā` là “rất khó vượt”, không phải “quá” (mức độ vượt giới hạn); tiền lệ đo được: 16 khoá chứa `suduttar…`, các khoá có bản Việt đều dùng “khó vượt qua” hoặc “rất khó vượt qua” (`thag19.1:41.4`, `thag21.1:70.4`), không khoá nào dùng “quá”. `terminology` 8,8 → 8,9.
+  - `11.1`, `12.1` “Còn tôi, tôi hái …” → “Còn tôi hái …” (clarity fix): bỏ đại từ lặp, không đổi nghĩa. `vietnamese_clarity` 8,9 → 9,0.
+  - Điểm các tiêu chí còn lại giữ nguyên, kể cả `ambiguity_integrity` 9,0 và `triangulation` 7,0.
+  - Đã đo và quyết định KHÔNG đổi: `8.2` “chẳng muốn thế, mà vẫn nhớ nhau” (`akāmakā`: tầng có 26 khoá chứa `akāmak…`, cách dịch “không muốn mà vẫn phải …” ở `mn82` là đa số ⇒ giữ). `11.3`/`12.3`/`13.3` “tràng hoa” (đo trên toàn tầng cho `mālā`: “vòng hoa” 79 · “tràng hoa” 95; trong Jātaka “vòng hoa” 23 · “tràng hoa” 17; hai dạng cùng tồn tại, không có đa số rõ ⇒ giữ theo `vv83:1.2` đã ghi). `13.1`/`14.1` “nở hoa rực rỡ” cho `supupphita` (21/38 khoá chứa `supupphit…` dùng “rực rỡ”) ⇒ giữ; `1.4` “nở rộ” cũng có tiền lệ (6 khoá) nên không ép đồng nhất.
+  - Căn cứ mới cho bất định 1 (người nói): bài song song `mil7.6.9:3.4`–`4.4` dẫn đúng khổ `Mayekarattaṁ vippavasimha ludda…` kèm câu giới thiệu “trong bài kinh Bhallāṭiyajātaka, về hai vị kinnara” (`dvinnaṁ kinnarānaṁ`) ⇒ xác nhận khổ 8 là lời của hai kinnara, khớp cách đọc ở bất định 1; các khoá khác vẫn chỉ suy từ nội dung.
+  - Quét lại toàn Pāli root đã ghim cho các từ hiếm: `sāḷūra` (2.1), `rositaṅga` (15.3), `vassekimaṁ` (19.3), `pamattarūpā` (15.2), `selakūla` (10.2), `nibhāsavaṇṇa` (4.3) đều chỉ có đúng 1 khoá (hapax, chính bài này); `catukka` (18.2) có 113 khoá nhưng không khoá nào đi với `nadiṁ`. Không có căn cứ mới để phân xử bất định 2, 3 và 4 ⇒ giữ nguyên, không đoán.
+  - Kiểm lại sau sửa: 105/105 khoá, tập khoá và thứ tự khớp Pāli; nháy `“”‘’"` và `…` khớp Pāli từng khoá (0 lệch); NFC, 0 khoá rỗng, 0 khoảng trắng thừa; 18 cặp Pāli trùng nguyên văn trong chính bài (10 nhóm), 0 cặp bản Việt khác chữ. Blocker về tầng tham khảo tiếng Anh vắng mặt (noEnglishEditionUpstream) giữ nguyên vì là sự thật về upstream.
+

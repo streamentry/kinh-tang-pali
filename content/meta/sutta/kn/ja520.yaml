@@ -13,16 +13,16 @@ tags:
 quality:
   scores:
     source_provenance: 9.5
-    semantic_fidelity: 8.2
-    grammar_logic: 8.2
+    semantic_fidelity: 8.4
+    grammar_logic: 8.5
     segment_alignment: 10.0
-    terminology: 8.8
+    terminology: 9.0
     triangulation: 7.5
     vietnamese_clarity: 8.8
     han_viet_balance: 9.2
     ambiguity_integrity: 9.0
     technical_integrity: 9.6
-  final_score: 8.88
+  final_score: 8.95
   blocking_errors:
     - "noEnglishEditionUpstream: Thiếu bản dịch tiếng Anh đối chiếu. Tầng
       english-sujato tại commit đã ghim không có
@@ -31,7 +31,7 @@ quality:
       vietnamese-current chỉ có Pháp Cú và lớp lấp english-project không có tệp
       cho bài này. Cả ba tầng tham khảo đều vắng nên triangulation bị chặn ở 7.5
       (≤ 8.0) và bài giữ draft."
-  assessed_at: "2026-10-11"
+  assessed_at: "2026-10-13"
   assessed_by:
     - "Claude Sonnet 5.5 (Claude Code)"
   waiver:
@@ -92,3 +92,10 @@ notes: |-
     5. Số Pāli: xem trên.
     NFC đạt, không khoá rỗng, không khoảng trắng thừa; Pāli lọt sang tiếng Việt chỉ là tên riêng (`Jātaka`, `Gandhatinduka`, `Pañcāla`, `Brahmadatta`, `Bharata`, `Kiṁchanda`, `Kumbha`, `Jayaddisa`, `Chaddanta`, `Paṇḍita`, `Sambhava`, `Sirakapi`, `Dakarakkhasa`, `Paṇḍara`, `Sambulā`, `Tinduka`, `Pāḷi`). Đã in cặp Pāli↔Việt ra đọc toàn bài (168 cặp).
   - Công cụ kiểm của kho chưa chạy ở bước này, nên `technical_integrity` đặt 9.6 và không tuyên bố technical gate pass; còn phải chạy: `npm run validate`, `npm test`, `npm run check`, `npm run build`.
+  - Lượt cải thiện 2026-10-13 (đọc đối kháng lại 168 cặp Pāli↔Việt; đổi 12/168 khoá; các mục này thay thế những mục cũ tương ứng ở trên):
+    + Bỏ nghĩa không có trong Pāli (sửa độ chính xác): `15.2`, `20.2`, `24.2`, `29.2`, `34.2` `tuṇḍiyā` từ "bọn quan lại há mồm ăn" thành "bọn há mồm ăn" (Pāli chỉ có `tuṇḍiyā`, hapax toàn Pāli đã ghim; "quan lại" chỉ là suy từ mạch nên không được để trong lời kinh; nghĩa "quan lại" vẫn là một cách đọc khả dĩ, không phân xử được); `25.1` bỏ "chậm" ("lại nấu chín chậm" thành "lại nấu chín"; Pāli `puna` không nói "chậm", ý "sai giờ" đã có ở `25.2` `vikāle`). Điểm: `semantic_fidelity` 8.2 → 8.4.
+    + Sửa cú pháp/thức: `36.3`–`36.4` viết lại cho rõ quan hệ `Nettāvatā rājā adhammacārī, yaṁ tādisaṁ jīvamadeyyu dhaṅkā` ("vua không phải là kẻ sống phi pháp chỉ vì chừng ấy: việc bầy quạ ăn sống một kẻ như thế"; bản cũ "mà ... là việc" tối nghĩa); `38.4` "đã không ăn sống" thành "sẽ không ăn sống" (`sace … siyā … na … adeyyuṁ` là câu điều kiện không có thật, thức optative). Điểm: `grammar_logic` 8.2 → 8.5.
+    + Thuật ngữ theo tiền lệ đo được: `8.1` `anikaṭṭhā` "quân hộ vệ" thành "tướng lĩnh" (cùng từ `anīkaṭṭhā` ở `dn26:9.7`, `dn26:9.9`, `dn26:10.1` là "tướng lĩnh", ở `dn30` 7 khoá là "tướng lãnh đạo quân"; không khoá nào dịch "hộ vệ"; bản Anh Sujato ở `dn26`/`dn30` là "military officers"; chỗ bất định về nghĩa ở `8.1` trong mục cũ nay được giải); `1.4` `Ye pamattā yathā matā` "những ai phóng dật thì như đã chết" thành "kẻ phóng dật như đã chết" (Pāli trùng nguyên văn `dhp21:4`, dùng lại nguyên văn); `36.2` `vidhenti rakkhaṁ` "không đặt sự bảo vệ" thành "không sắp đặt sự che chở" (nhất quán với `arakkhitā` "không được che chở" ở `14.3` và `saṁvihita` "sắp đặt" ở `9.1`, `10.1`). Dò lại Pāli của 168 khoá với toàn bộ Pāli đã ghim: 22 cặp trùng nguyên văn với khoá ở bài khác, 15 cặp Việt khác nhau trước khi sửa; sau sửa còn khác ở `ja542:112.1`, `ja540:63.1`, `ja500:17.1`, `ja500:17.4` (chỉ khác dấu nháy mở đoạn thoại hoặc dấu câu cuối dòng theo Pāli), `41.1` "Tóm lược:" so với `dn23:35.0`, `dn13:83.0`, `dn34:2.4.0`, `mn20:9.0` (tiêu đề, giữ), `28.2`, `32.4`, `33.2` so với `ne37:148.4` (Pāli giống nhau nhưng vị ngữ chung quanh khác, giữ), `26.3` (đã giải thích ở trên), `4.2` so với `ja547:242.2` (giống `ja521:6.2`; giữ để khỏi lệch với khoá cùng Pāli ở bài kế). Điểm: `terminology` 8.8 → 9.0.
+    + Không đổi và lý do: `vietnamese_clarity` 8.8 (`36.3`–`36.4` rõ hơn nhưng "bọn há mồm" nghe lạ hơn "bọn quan lại"); `ambiguity_integrity` 9.0 (nay ghi thêm các bất định bên dưới nhưng bất định thật vẫn còn, nên không nâng); `triangulation` 7.5 (không có bản Anh độc lập nào).
+    + Bất định bổ sung (không thêm vào thân kinh): `37.4` `paramappamādaṁ` đọc là `parama` + `pamādaṁ` ("phóng dật tột bậc", hợp lời trách của con ếch); cách đọc khác `parama` + `appamādaṁ` ("không phóng dật tột bậc", châm biếm) về hình thái cũng khả dĩ, không có chỗ nào khác trong Pāli đã ghim để phân xử (0 trùng); `15.2` `tuṇḍiyā` cũng có thể là công cụ cách số ít ("bằng miệng", tức công khai); `3.3`–`3.4` `agārino anagārā` vẫn chưa xác định, không tìm được cụm này ở nơi khác trong Pāli đã ghim (0 trùng); `36.3` `Nettāvatā` đọc `na ettāvatā` như trên.
+    + Kiểm sau sửa: 168/168 khoá, đúng thứ tự Pāli; nháy `‘’ “”` và `…` khớp Pāli từng khoá, 0 lệch trên 168; NFC đạt, không khoá rỗng, không khoảng trắng thừa. Blocker `noEnglishEditionUpstream` giữ nguyên (đúng sự thật về upstream); `technical_integrity` giữ 9.6, vẫn chưa chạy `npm run validate`, `npm test`, `npm run check`, `npm run build`.

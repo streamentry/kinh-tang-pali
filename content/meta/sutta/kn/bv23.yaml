@@ -11,8 +11,8 @@ tags:
 quality:
   scores:
     source_provenance: 9.4
-    semantic_fidelity: 8.7
-    grammar_logic: 8.6
+    semantic_fidelity: 8.8
+    grammar_logic: 8.8
     segment_alignment: 10.0
     terminology: 8.8
     triangulation: 7.0
@@ -20,7 +20,7 @@ quality:
     han_viet_balance: 9.1
     ambiguity_integrity: 8.8
     technical_integrity: 9.6
-  final_score: 8.89
+  final_score: 8.92
   blocking_errors:
     - "noEnglishEditionUpstream: Không có tầng tham khảo tiếng Anh tại commit đã
       ghim: `source/upstream-manifest.json` chỉ liệt kê
@@ -33,7 +33,7 @@ quality:
       dịch chỉ từ Pāli root và đối chiếu tiền lệ nội bộ, bài bắt buộc `draft` và
       `triangulation` không quá 8,0. Đây là giới hạn upstream, không phải lỗi
       của người dịch."
-  assessed_at: "2026-10-10"
+  assessed_at: "2026-10-13"
   assessed_by:
     - "Claude Sonnet 5.5 (Claude Code)"
   waiver:
@@ -96,3 +96,9 @@ notes: |-
   **Các phép kiểm khác.** Nháy kép và nháy đơn khớp Pāli từng khoá: 124/124 khoá, 0 lệch (4 khoá có nháy: `1.1` mở “, `15.3` mở ‘, `16.3` đóng ’, `30.4` đóng ”). Dấu lược: Pāli có `…pe…` một khoá (`16.2`) ⇒ Việt đúng một `…`; Pāli không có `(…)` ở khoá nào ⇒ Việt không có; 0 khoá lệch. Dấu cuối từng khoá khớp Pāli (`,` `;` `.`), ngoại lệ có chủ ý: `29.4` Pāli kết `.` nhưng câu hỏi tu từ `nanu …` nên Việt kết `?` (cùng `bv22:27.4`); `30.4` kết `.”`. NFC: 0 lỗi; 0 khoá rỗng; 0 khoảng trắng thừa; Pāli lọt sang Việt chỉ là tên riêng, `koṭi`, `ratana`.
 
   **technical_integrity = 9,6:** lát này cấm chạy cổng, nên không tuyên bố technical gate pass. Bốn lệnh còn lại do người điều phối chạy tập trung: `npm run validate` · `npm test` · `npm run check` · `npm run build`. `final_score` là trung bình số học thô của đúng 10 tiêu chí.
+
+  **Lượt cải thiện 2026-10-13.** Đọc đối kháng lại cả 124 cặp Pāli↔Việt và đo lại tiền lệ toàn tầng `kn`. Đổi 2/124 khoá, giữ nguyên tập khoá và thứ tự khoá.
+  - `10.6` `sasaṅghaṁ jinapūjayiṁ`: trước “cùng Tăng đoàn, ta đã cúng dường bậc Chiến Thắng.”, sau “ta đã cúng dường bậc Chiến Thắng cùng Tăng đoàn.” Lý do (accuracy fix, đối tượng của động từ): `sasaṅghaṁ` là tính từ đối cách đi với `jinaṁ` (bậc Chiến Thắng cùng Tăng đoàn), không phải “ta cùng Tăng đoàn”; câu cũ đứng đầu mệnh đề nên dễ đọc thành người cúng dường đi cùng Tăng đoàn. Cùng cách đặt với `tha-ap553:9.2`, `tha-ap401:9.2` (“đã thỉnh mời Ngài cùng Tăng đoàn”). Điểm đổi: `grammar_logic` 8,6 sang 8,8.
+  - `18.3` `mātā yasavatī nāma`: trước “Người mẹ sinh ra tên là Yasavatī,”, sau “Người mẹ tên là Yasavatī,”. Lý do (accuracy fix, thêm nghĩa không có trong Pāli): “sinh ra” chỉ có căn cứ khi Pāli là `janikā` (`bv22:15.3`, `bv24:14.3`); khoá này là `mātā`, và các khoá `mātā … nāma` khác dùng “Người mẹ tên là” hoặc “Mẹ tên là” (`bv14:20.3`, `bv9:17.3`, `bv21:24.3`, `tha-ap533:21.3`, `tha-ap539:23.1`: 5/5). Điểm đổi: `semantic_fidelity` 8,7 sang 8,8.
+  - Đã dò và quyết định KHÔNG đổi: `7.4` “tâm an tịnh, bất động như vậy.” (Pāli `santacittāna tādinaṁ` trùng 15/15 khoá bv/tha-ap, giữ đúng tiền lệ); `14.4` (9 khoá cp/bv/ja dùng “chỉ vì một mục đích duy nhất là giác ngộ”, so với 3 khoá “duy chỉ vì mục đích giác ngộ mà thôi”; giữ đa số); `16.1` (6/6 tiền lệ “Đã có nơi xinh đẹp mang tên Kapila”); `20.4` “người con ruột” (7/7 tiền lệ `atrajo`); `28.3` “để lại” (không có tiền lệ `dhammanāvaṁ ṭhapetvāna` trong tầng; `ṭhapetvāna` mang nghĩa “đặt, thiết lập” ở nhiều khoá, nên bất định 11 vẫn mở). Với `2.1` `ādittaṁ vata rāgaggi`, tầng chỉ có `ādittaṁ vata maṁ santaṁ` (“Quả thật … đang bốc cháy”, 9 khoá) là cùng mẫu `ādittaṁ vata`; cụm `rāgaggi` ở dạng gốc không có tiền lệ cùng cấu trúc, nên bất định 1 vẫn còn nguyên và không nâng điểm bất định.
+  - Các tiêu chí khác giữ nguyên vì không có cải thiện tương ứng: `triangulation` vẫn 7,0 (không có tầng Anh độc lập); `ambiguity_integrity` 8,8 (mười hai bất định ở trên chưa phân xử được); `technical_integrity` 9,6 (các lệnh `npm run validate` · `npm test` · `npm run check` · `npm run build` do người điều phối chạy). `final_score` 8,89 sang 8,92, trung bình số học thô của 10 điểm. Phép kiểm sau sửa: 124/124 khoá khớp Pāli theo tập và thứ tự, nháy khớp Pāli từng khoá (0 lệch), `…` chỉ ở `16.2` (khớp `…pe…`), NFC 0 lỗi.

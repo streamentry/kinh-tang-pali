@@ -11,16 +11,16 @@ tags:
 quality:
   scores:
     source_provenance: 9.4
-    semantic_fidelity: 8.7
+    semantic_fidelity: 8.8
     grammar_logic: 8.6
     segment_alignment: 10.0
-    terminology: 8.7
+    terminology: 8.8
     triangulation: 7.0
-    vietnamese_clarity: 8.9
+    vietnamese_clarity: 9.0
     han_viet_balance: 9.1
     ambiguity_integrity: 8.8
     technical_integrity: 9.6
-  final_score: 8.88
+  final_score: 8.91
   blocking_errors:
     - "noEnglishEditionUpstream: Không có tầng tham khảo tiếng Anh tại commit đã
       ghim: `source/upstream-manifest.json` chỉ liệt kê
@@ -33,7 +33,7 @@ quality:
       dịch chỉ từ Pāli root và đối chiếu tiền lệ nội bộ, bài bắt buộc `draft` và
       `triangulation` không quá 8,0. Đây là giới hạn upstream, không phải lỗi
       của người dịch."
-  assessed_at: "2026-10-10"
+  assessed_at: "2026-10-13"
   assessed_by:
     - "Claude Sonnet 5.5 (Claude Code)"
   waiver:
@@ -93,3 +93,11 @@ notes: |-
   **Coverage English (mục 7):** mẫu số theo công thức (≥ 40 ký tự sau khi nén khoảng trắng, bỏ khối `:0`) = 1: chính khoá `28.1` (colophon, 42 ký tự); 107 khoá còn lại ngắn hơn 40. Đây là cạm bẫy colophon đã nêu ở các lát trước: cổng gần như *không đo được gì*, không phải *không cần ghi nhận*. Sujato: 0 tệp cho `bv24` (`english-sujato` chỉ có chín tiểu bộ cp dhp iti ja kp snp thag thig ud); `english-project`: 0 (không có tệp bv nào trong `content/translation/en/project/sutta/kn/`, không có `content/meta/en/kn/bv24.yaml`); `vietnamese-current`: 0 tầng segment (chỉ Pháp Cú); bản nguyên bài của tầng tra cứu toàn văn (HTML) chỉ dùng để hiểu mạch bài, không cấp text, và ở các điểm bất định 1, 4, 5, 7, 9 bản ấy khác tôi, nên được ghi rõ ở trên thay vì lấy làm chuẩn. Ba tầng đều vắng ⇒ `triangulation` 7,0 (≤ 8,0) và `status: draft` kèm blocker ở trên. Không đụng `content/meta/reference-gaps.yaml`.
 
   **technical_integrity = 9,6:** lát này cấm chạy cổng, nên không tuyên bố technical gate pass. Bốn lệnh còn lại do người điều phối chạy tập trung: `npm run validate` · `npm test` · `npm run check` · `npm run build`. `final_score` là trung bình số học thô của đúng 10 tiêu chí.
+
+  **Lượt cải thiện 2026-10-13.** Đọc đối kháng lại 110/110 khoá (cặp Pāli với Việt) và đo lại tiền lệ trên toàn tầng `kn` (các phẩm `bv21`–`bv26` đã dịch sau lần đầu). Đổi 3 khoá, giữ nguyên tập khoá và thứ tự; các phép đo lại: tập khoá 110/110, thứ tự đúng, nháy đơn và nháy kép khớp Pāli ở 110/110 khoá, NFC sạch, dấu lược `…` chỉ ở `11.2` như Pāli, 2 nhóm Pāli trùng trong bài (4 khoá) đều có bản Việt giống hệt.
+  - `2.1` (terminology): “Sau khi phá tung toàn bộ hiện hữu” → “Sau khi phá bỏ toàn bộ cõi hữu”. Lý do: `bhava` ở 116 khoá của tầng `kn` dịch “cõi hữu”, ở 10 khoá dịch “hiện hữu” (gồm `bv2:58.2`, `bv9:2.2` “ba cõi hiện hữu”); cụm sát nhất `Bhavaṁ ugghāṭayiṁ sabbaṁ` (`tha-ap8:60.3`) dịch “toàn bộ cõi hữu”, còn `bhavā ugghāṭitā` ở `tha-ap337:10.1`, `tha-ap3:216.2`, `tha-ap420:16.2` dịch “phá bỏ” (3/3). “Phá tung” không có tiền lệ nào. Điểm `terminology` 8.7 → 8.8.
+  - `14.1` (semantic_fidelity): “Bà-la-môn Aggidatta” → “Và Bà-la-môn Aggidatta”. Lý do: Pāli có `ca` ở cuối dòng mà bản trước bỏ sót; hai khoá cùng khuôn `Brāhmaṇo … ca/va` trong tầng (`bv25:17.1`, `bv26:33.1`) đều dịch “Và Bà-la-môn …” (2/2). Điểm `semantic_fidelity` 8.7 → 8.8.
+  - `8.3` (vietnamese_clarity): “Nơi Như Lai và những người con của bậc Chiến Thắng” → “Cho Như Lai và các con của bậc Chiến Thắng”. Lý do: `Tathāgate jinaputte` là vị trí cách chỉ người nhận cúng dường của `dānaṁ datvā`; “Nơi …, sau khi dâng cúng” là calque gượng, còn `bv25:15.2` (`dānaṁ datvā naruttame`) dịch “cho bậc tối thượng trong loài người”; `jinaputta` dịch “các con của bậc Chiến Thắng” ở `bv11:12.3`, `bv2:76.1` (2/2). Điểm `vietnamese_clarity` 8.9 → 9.0.
+  - Đã đo và quyết định KHÔNG đổi: `1.2`, `6.3`, `8.1`, `10.4`, `11.3`, `12.2`, `13.4`, `17.2`, `18.4`, `21.3`, `24.4`, `27.3` đều trùng nguyên văn đa số tiền lệ (so Pāli sau khi bỏ dấu câu; từng khoá khớp từ 5/6 đến 33/38 cặp, phần lệch chỉ là dấu cuối dòng hoặc chữ hoa theo Pāli từng khoá). `5.4` giữ “đếm theo số lượng thì không thể kể xiết” vì trùng nguyên văn `bv27:8.4` (Pāli y hệt, 1/1); dạng `asaṅkhiyā` ở `bv3`, `bv26`, `bv28` dịch “không thể đếm hết”, khác ở chỗ Pāli đổi giống nên không ép. `11.1` “Đã có nơi xinh đẹp mang tên Kapila” giữ nguyên: sáu khoá cùng Pāli (`bv2`, `bv21`, `bv22`, `bv23`, `bv25`, `bv26`) nay đã dịch và đều trùng chữ với khoá này, nên bất định 3 ở trên chỉ còn lại ở thì của `ahu`, không còn ở sự nhất quán. Tên cây `Sirīsa` (21.4) giữ viết hoa: tên cây ở `bv16`–`bv25` viết hoa 8/12, còn `assattha`, `pāṭali`, `nigrodha` đi kèm “cây” 4/12.
+  - Bất định không đổi: các bất định 1–15 ở trên vẫn còn nguyên (đặc biệt `5.1`, `9.2`, `15.1`, `15.3`–`15.4`, `16.3`, `26.2`); không có căn cứ mới để phân xử. `triangulation` giữ 7,0 vì vẫn không có tầng Anh độc lập; `ambiguity_integrity` giữ 8,8 và `grammar_logic` giữ 8,6 vì lượt này không giải quyết được bất định nào. Blocker `noEnglishEditionUpstream` giữ nguyên.
+  - Điểm các tiêu chí còn lại giữ nguyên: `source_provenance` 9,4; `segment_alignment` 10,0; `han_viet_balance` 9,1; `technical_integrity` 9,6 (lượt này cũng không chạy cổng: `npm run validate` · `npm test` · `npm run check` · `npm run build` do người điều phối chạy). `final_score` 8,88 → 8,91 (trung bình số học thô của 10 điểm).
