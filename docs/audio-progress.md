@@ -709,3 +709,9 @@ Nhật ký append-only. Registry `content/audio/progress.json` được đối s
 - On current main `d75b57dc938791db0f4b08d29f630b4e95a4a5ff`, `npm run validate` passed (2,258 advisory warnings; 5,447 quality histories / 0 errors), `npm test` passed (417 passed, 1 skipped, 0 failed), `npm run check` passed (0 errors, 0 warnings, 5 hints), `npm run audio:check` passed (186 UIDs / 0 errors), and `git diff --check` passed.
 - `npm run build` passed: Astro built 6,146 pages; Pagefind indexed 6,137 pages and 458,092 words. MN55/MN56/MN57/MN58/MN59 detail HTML each contains its player, exact R2 URL, and pending-review label. The MN directory has one playlist and 59 source-valid track buttons.
 - Interactive browser playback controls and full listening were not exercised; editor review remains pending.
+
+### Batch mn-032 local release gates
+
+- On current main `e0d4ec68ca3356426ca37a65d73d577fa955bcd5`, `npm run validate` passed (2,258 advisory warnings; 5,447 quality histories / 0 errors), `npm test` passed (417 passed, 1 skipped, 0 failed), `npm run check` passed (0 errors, 0 warnings, 5 hints), `npm run audio:check` passed (186 UIDs / 0 errors), and `git diff --check` passed.
+- `npm run build` passed: Astro built 6,146 pages; Pagefind indexed 6,137 pages and 458,181 words. MN55/MN56/MN57/MN58/MN59 detail pages each contain the player, exact R2 URL and pending-review label. The MN catalog contains one playlist with 59 current-source-valid track buttons.
+- Interactive browser Play/seek and full human listening remain unverified; editor review remains pending.
