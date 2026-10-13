@@ -70,6 +70,26 @@ test('the peer-refuge exception is still where it is documented', () => {
   assert.match(mn85['mn85:61.16'], /ghi nhận tôi/);
 });
 
+test('lay people and devas addressing a monk say "con", not "tôi", in passages fixed with this rule', () => {
+  const cases: Record<string, string[]> = {
+    'an8.21': ['an8.21:3.3', 'an8.21:5.1', 'an8.21:10.1'],
+    'an9.41': ['an9.41:3.1', 'an9.41:3.3'],
+    'sn55.27': ['sn55.27:3.3', 'sn55.27:12.1'],
+    'mn146': ['mn146:5.5'],
+    'vv30': ['vv30:4.2', 'vv30:4.3', 'vv30:11.1'],
+    'pv6': ['pv6:2.1'],
+  };
+  for (const [uid, ids] of Object.entries(cases)) {
+    const text = translation(uid);
+    for (const id of ids) {
+      assert.match(text[id], /(?<!\p{L})[Cc]on(?!\p{L})/u, id);
+      assert.doesNotMatch(text[id].replace(/‘[^’]*’/gu, ''), /(?<!\p{L})tôi(?!\p{L})/iu, id);
+    }
+  }
+  // Quoted words of someone else keep their own pronoun.
+  assert.match(translation('an8.21')['an8.21:9.6'], /đến gặp tôi/);
+});
+
 test('the Buddha refers to himself as "Ta", not "tôi", in passages fixed with this rule', () => {
   const cases: Record<string, string[]> = {
     'sn17.23': ['sn17.23:1.5', 'sn17.23:1.8'],

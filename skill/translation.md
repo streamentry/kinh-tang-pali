@@ -399,6 +399,11 @@ Xưng hô theo **người nói và người nghe trong chính đoạn đó**, kh
 - **Đức Phật tự xưng "Ta"**, với tỳ-kheo cũng như với cư sĩ, ngoại đạo, vua chúa. Không dùng "tôi".
 - **Người thưa với Đức Phật xưng "con"** ("chúng con" khi nhiều người), dù là tỳ-kheo hay cư sĩ.
   Đây là chuẩn của kho: khi đo, "con" chiếm hơn 1.500 đoạn, còn "tôi" chỉ có 81 đoạn và đều là chỗ lệch.
+- **Hạn chế "tôi".** Cư sĩ, chư thiên hay ngạ quỷ thưa với một vị tỳ-kheo/tỳ-kheo-ni (`bhante`,
+  `bhadante`, `ayye`) cũng xưng "con"/"chúng con" (Ugga, Tapussa, Anāthapiṇḍika; các vị trời trong Vv
+  thưa Tôn giả Moggallāna). Giữ "tôi" chỉ khi người nghe không phải bậc được tôn kính trong Pháp này
+  hoặc là người ngang hàng: thầy ngoại đạo (`mn56`, `an8.12`, `sn41.8`), vua và người thường, tỳ-kheo nói
+  với tỳ-kheo hoặc với Tăng, Jātaka, cuộc vấn đáp Milinda.
 - **Lời quy y: người quy y xưng "đệ tử"** ("chúng đệ tử" khi nhiều người). Áp dụng cho bài Tam Quy
   (`kp1`: "Đệ tử quy y Phật…") và công thức `esāhaṁ … saraṇaṁ gacchāmi` / `upāsakaṁ maṁ … dhāretu`
   khi thưa với Đức Phật hay một vị tỳ-kheo. Câu nói tiếp ngay sau lời quy y trong cùng một lời thoại
