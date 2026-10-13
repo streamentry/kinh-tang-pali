@@ -20,12 +20,12 @@ quality:
     vietnamese_clarity: 9.3
     han_viet_balance: 9.3
     ambiguity_integrity: 9.4
-    technical_integrity: 10.0
-  final_score: 9.47
+    technical_integrity: 9.6
+  final_score: 9.43
   blocking_errors: []
-  assessed_at: "2026-09-29"
+  assessed_at: "2026-10-13"
   assessed_by:
-    - "OpenCode Space Bunny Free (agent)"
+    - "Claude Opus 5.5 (Claude Code)"
 notes:
   - >-
     **Không đối chiếu được tầng Việt hiện hành.** Bilara tại commit đã ghim chỉ
@@ -130,3 +130,26 @@ notes:
   - >-
     **34 khoá** — bài dài nhất lát (văn xuôi + 5 khổ kệ Dhp 85–88, nguyên văn
     lát 18).
+  - >-
+    **Lượt cải thiện 2026-10-13 (kiểm toán mẫu, đọc đối kháng 34/34 khoá).**
+    Tám khoá đổi, không đổi ranh giới khoá. (1) `an10.118:6.3–6.4` — *accuracy
+    fix*: `paṇḍito` là chủ ngữ số ít (cùng cách dịch với `5.2` *bậc trí hãy tu
+    tập*), nhưng bản cũ dịch thành lời gọi *này bậc trí*, biến câu về người trí
+    thành lời kêu gọi người nghe. Nay *Bậc trí hãy làm thanh tịnh chính mình, /
+    khỏi các nhiễm ô của tâm.* (`semantic_fidelity`/`grammar_logic` giữ nguyên
+    điểm: lỗi này đã tồn tại mà lượt chấm trước không bắt được, nên việc sửa chỉ
+    khôi phục, không nâng). (2) `7.6` — *accuracy fix*: `te loke parinibbutā`,
+    `loke` không có chỉ định từ; *trong đời này* dễ đọc thành *ngay trong kiếp
+    này*, nay *ở đời* (cùng cách dịch `dhp89:6`). (3) `1.1`/`1.2` — *Ta* viết
+    hoa khi Đức Phật tự xưng, theo `skill/translation.md` §9. (4) `1.3` —
+    *Dạ vâng, bạch Thế Tôn,* theo đa số tầng (28 khoá, trong đó 15 ở `an`;
+    *Thưa vâng* chỉ 14) và dấu phẩy nằm trong ngoặc. (5) `2.4` — *Này* viết hoa
+    đầu câu (Pāli `Idaṁ kho, bhikkhave` bắt đầu câu). (6) `0.1` — *Kinh Tăng Chi
+    Bộ 10.118* theo đa số an10 (168 so với 25 chép nguyên *Aṅguttara Nikāya*).
+    Điểm: `technical_integrity` 10.0 → 9.6 (không chạy được cổng `npm run
+    validate` · `npm test` · `npm run check` · `npm run build` trong lượt này);
+    các tiêu chí còn lại giữ nguyên. `final_score` 9.47 → 9.43. Còn lại không
+    phân xử: cách dịch `cittaklesehi` (*nhiễm ô* 5 so với *phiền não* 11 toàn
+    tầng) giữ nguyên; kệ này trùng nguyên văn ở `an10.117`, `an10.169`,
+    `an10.170`, `sn45.34` với `6.3–6.4` và `7.6` theo bản cũ — bốn nơi đó chưa
+    được sửa cùng.

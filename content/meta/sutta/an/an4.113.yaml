@@ -9,19 +9,36 @@ tags:
   - book-of-the-fours
 quality:
   scores:
-    source_provenance: 10.0
-    semantic_fidelity: 9.4
+    source_provenance: 9.6
+    semantic_fidelity: 9.0
     grammar_logic: 9.4
-    segment_alignment: 10.0
-    terminology: 9.3
+    segment_alignment: 9.6
+    terminology: 9.2
     triangulation: 9.0
     vietnamese_clarity: 9.4
     han_viet_balance: 9.4
-    ambiguity_integrity: 9.2
-    technical_integrity: 10.0
-  final_score: 9.51
+    ambiguity_integrity: 9.0
+    technical_integrity: 9.6
+  final_score: 9.32
   blocking_errors: []
-  assessed_at: "2026-09-13"
+  assessed_at: "2026-10-13"
   assessed_by:
-    - "GLM-5.3 Flash (ZCode)"
-    - "Adversarial review 2026-09-13: per-sutta segment coverage verified against pinned root; Pāli+EN sujato triangulated; TMC consulted via repo formulas; leak-scan for non-Latin chars passed"
+    - "Claude Opus 5.5 (Claude Code)"
+notes: |-
+  **Lượt cải thiện 2026-10-13.** Lượt chấm cũ (2026-09-13) không có ghi chú nào và khẳng định đã tham khảo Thích Minh Châu qua công thức của kho, điều không kiểm chứng được (tầng Việt hiện hành chỉ có Pháp Cú) nên `source_provenance` hạ từ 10,0 xuống 9,6; các điểm 10,0 của `segment_alignment` và `technical_integrity` cũng không có căn cứ. Đọc đối kháng 62/62 khoá với Pāli và Sujato (phủ 48/48 khoá Pāli có nội dung từ 40 ký tự, bỏ khối `:0` và khối tiêu đề `0.x`), đo tiền lệ trên toàn tầng trước khi đổi. Đã đổi 57/62 khoá, giữ nguyên tập khoá và thứ tự (62 = 62).
+  Sửa chính xác (accuracy fix):
+  - 8.2: bản cũ chép "các cảm thụ thuộc thân hành hóa" (`hành hóa` vô nghĩa, không có trong Pāli), bỏ `kaṭukāhi` (7 tính từ Pāli, bản cũ chỉ có 6) và bỏ `phuṭṭho` (bị chạm đến) → "bị các cảm thọ thuộc thân chạm đến — khổ, gay gắt, dữ dội, xót xa, không dễ chịu, không vừa ý, đe dọa mạng sống" (đủ 7 vế, khớp mn125:30.1, mn119:35.1; "cảm thọ" ở 1.791 khoá của tầng, "cảm thụ" ở 34 khoá, đều trong khối an4).
+  - 2.1, 3.1, 4.1, 6.1, 7.1, 8.1: mất `puna caparaṁ` ("Lại nữa, này các tỳ-kheo" ở 434 khoá của tầng, bản cũ thay bằng "một … khác") → khôi phục "Lại nữa, này các tỳ-kheo, có … nào đó" (khớp an8.14:7.1).
+  - 5.8–5.9, 6.6–6.7, 7.6–7.7, 8.6–8.7: ranh giới khoá lệch theo bản Sujato; Pāli để cả vế ví dụ (`seyyathāpi so … saṁvijjati saṁvegaṁ āpajjati`) ở khoá .8/.6 và `tathūpamāhaṁ … imaṁ … vadāmi` ở khoá .9/.7. Bản cũ đặt "cá nhân ấy" (đối tượng của `vadāmi`) vào khoá ví dụ, để khoá `tathūpamāhaṁ` chỉ còn nửa câu ví dụ ("run sợ khi nhìn thấy bóng …"), mất `vadāmi` → viết lại theo Pāli, `tathūpamāhaṁ … vadāmi` = "Ta nói … này cũng tương tự như vậy, này các tỳ-kheo" (71 khoá cùng công thức, xem an8.14, an5.75).
+  - 1.3, 2.1, 3.1, 4.1, 5.5, 5.8, 6.3, 6.6, 7.3, 7.6, 8.3, 8.6 và các khoá `saṁviggo` 5.6, 6.4, 7.4, 8.4: `saṁvijjati saṁvegaṁ āpajjati` "run sợ, kinh hoàng" → "khởi lên cảm giác cấp thiết", `saṁviggo` "Kinh hoàng" → "Cảm thấy cấp thiết". Nguồn: cùng thành ngữ ở mn28:10.2, 10.5, 10.6, 25.2, 25.5, 25.7 (6/6 khoá "cảm giác cấp thiết"); Sujato "moved to act"; lời độc thoại của con ngựa ở 1.4 là sẵn sàng làm việc chứ không phải sợ hãi.
+  Sửa thuật ngữ (terminology fix):
+  - `bhadro assājānīyo` "ngựa chánh" → "ngựa thuần chủng tốt" (19 khoá của tầng: "ngựa thuần chủng" 8 và "ngựa thuần chủng tốt" 11 ở an6.5–7, an10.87, mn65, mn107, mn129, an11.9; "ngựa chánh" 8 khoá, chỉ ở an4.112, an4.259, an4.260; "ngựa thuần thục tốt" ở an3.142, an9.22). `bhadro purisājānīyo` "người chánh kiệt xuất" (không có ở đâu khác) → "bậc người thuần chủng tốt" (an3.142 và an9.22: "bậc người thuần thục tốt"; chọn "thuần chủng" để vế người khớp vế ngựa của chính bài).
+  - `patoda` "câu sắt" → "roi thúc" (tầng: "roi thúc" 14 khoá, "roi" 7, "roi nhọn" 4, "câu sắt" 0 ngoài tiêu đề dồn kệ an4.120:2.1); gồm tiêu đề 0.3 "Kinh Roi Thúc" và 1.3, 2.1, 3.1, 4.1, 5.8.
+  - 1.4, 2.2, 3.2, 4.2: `assadammasārathi` "người thuần ngựa" → "người huấn luyện ngựa" (mn21, mn119, sn35.239, an5.28, an11.9; "người thuần ngựa" chỉ dùng làm danh hiệu của Kesi ở an4.111) và dùng đúng bản dịch của Pāli trùng nguyên văn ở an11.9:2.7 và 3.5 ("bắt ta làm nhiệm vụ gì? Ta phải đáp ứng thế nào?").
+  - `yoniso padahati` "nỗ lực hợp lý" → "nỗ lực như lý" ("như lý" 176 khoá chứa `yoniso`, "đúng cách" 41, "hợp lý" 19).
+  - `pahitatto … paramasaccaṁ sacchikaroti, paññāya ca ativijjha passati` "Với chí quyết định" → "Với tâm kiên quyết", "thấy nó với tuệ thấu suốt" → "dùng tuệ thấu suốt chân lý ấy mà thấy" (mn70:23.2 "khi đã kiên quyết … thấu suốt chân lý ấy bằng trí tuệ mà thấy"; mn95:20.2).
+  - 5.4, 6.2, 7.2, 8.2: `gāme vā nigame vā` "làng hay chợ" → "làng hay thị trấn" (10 khoá "làng hay thị trấn", 3 khoá "làng hay chợ"). 7.2, 8.2: `ñāti vā sālohito vā` "người thân hay họ hàng" → "người bà con hay quyến thuộc" ("bà con quyến thuộc" ở 32 khoá cùng gốc `ñātisālohita`, "họ hàng" 4, "người thân" 3).
+  Điểm: `source_provenance` 10,0 → 9,6; `semantic_fidelity` 9,4 → 9,0 (sau khi sửa 8.2 và `puna caparaṁ`; bản cũ mất `kaṭukāhi`, `phuṭṭho` và `puna caparaṁ` ở 7 khoá); `segment_alignment` 10,0 → 9,6 (bản cũ lệch ranh giới 4 cặp khoá, nay đã sửa); `terminology` 9,3 → 9,2 (bản cũ lệch tiền lệ ở 6 thuật ngữ, nay đã khớp, nhưng "thuần chủng"/"thuần thục" ở an3.142, an9.22 vẫn tách đôi); `ambiguity_integrity` 9,2 → 9,0 (bất định bên dưới); `technical_integrity` 10,0 → 9,6; các tiêu chí còn lại giữ nguyên. `final_score` 9,51 → 9,32.
+  Phép kiểm: tập khoá Việt = Pāli (62/62), thứ tự giống Pāli; nháy đơn và nháy kép khớp Pāli từng khoá (62/62); NFC, không khoảng trắng thừa, không chữ Pāli lọt sang Việt; cặp Pāli trùng nguyên văn trong chính bài 9 nhóm, bản Việt khác 0; không có dấu `…` và Pāli cũng không có. Số: bốn hạng ngựa, bốn hạng người; thứ tự nhất–nhì–ba–tư đúng ở 1.6, 2.4, 3.4, 4.4 và 5.11, 6.9, 7.9, 8.9.
+  Bất định còn lại: (1) `saṁvijjati saṁvegaṁ āpajjati` ("cảm giác cấp thiết" theo mn28; dn33:1.9.33 `saṁviggassa` dịch "khiếp kinh", dn2, dn3 `bhīto saṁviggo` thành "sợ hãi, rúng động", nên sắc thái sợ không hẳn bị loại); (2) `dukkhito` "bị đau khổ" (tầng chia "đau khổ" 19, "khổ" 75, "bệnh" 69; Sujato "suffering"); (3) ghép `tibbā`/`kharā` với "gay gắt"/"dữ dội" không nhất quán ở tầng (mn100, mn85: "khổ, gay gắt, dữ dội, xót xa"; mn36: "đau đớn, dữ dội, gay gắt, cay đắng"), giữ theo mn125; (4) `lomavedhaviddho` "lông nó bị đâm" (chỉ có ở bài này). Không bất định nào làm đổi nghĩa giáo lý.
+  Chưa chạy được cổng kỹ thuật trong lượt này nên `technical_integrity` đặt 9,6: `npm run validate`, `npm test`, `npm run check`, `npm run build` còn phải chạy.

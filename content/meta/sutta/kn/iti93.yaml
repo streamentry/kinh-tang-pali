@@ -11,17 +11,25 @@ tags:
 quality:
   scores:
     source_provenance: 9.8
-    semantic_fidelity: 9.4
+    semantic_fidelity: 9.3
     grammar_logic: 9.5
     segment_alignment: 10.0
     terminology: 9.4
     triangulation: 9.4
     vietnamese_clarity: 9.4
     han_viet_balance: 9.4
-    ambiguity_integrity: 9.5
-    technical_integrity: 10.0
-  final_score: 9.58
+    ambiguity_integrity: 9.3
+    technical_integrity: 9.6
+  final_score: 9.51
   blocking_errors: []
-  assessed_at: "2026-09-13"
+  assessed_at: "2026-10-13"
   assessed_by:
-    - "deepseek-v4.1-flash"
+    - "Claude Opus 5.5 (Claude Code)"
+notes: |-
+  Lượt cải thiện 2026-10-13 (kiểm toán đối kháng, đối chiếu Pāli, English SuttaCentral và tiền lệ toàn tầng). Bài trước đó chưa có ghi chú. Đã đổi 9 khoá trên 41.
+  Accuracy: 3.3 bỏ sót byāpanne ("kẻ có ác ý") nên mất một đơn vị nghĩa; nay "lửa sân đốt cháy kẻ ác ý". 3.4 đổi "kẻ" thành "người" để khớp nare.
+  Terminology: 4.4 sakkāyābhiratā dịch "thân kiến" (là sakkāyadiṭṭhi, 141 khoá toàn tầng) nay "ưa thích hữu thân", theo thag16.3:19.4 cùng Pāli và an6.14, an6.15 (3/4 khoá dùng "hữu thân"). 9.1 vedaguno dịch "thắng tri pháp" trùng với abhiññāya ở 9.3 là "thắng tri" (hai từ Pāli khác nhau); nay "bậc đạt minh", theo snp3.12:17.1 cùng cấu trúc, sn6.3, sn6.4 (đa số ngoài Itivuttaka/Udāna). 6.4 asubhasaññino dịch "quán" (vipassanā) nay "có tưởng bất tịnh", khớp 53 khoá saññā = "tưởng". 5.2 "bàng sinh" nay "súc sinh" (108+26 khoá súc sinh/sanh so với 16 bàng sinh; iti93 là bài Itivuttaka duy nhất dùng "bàng sinh"). 5.3 "ngạ quỷ" nay "cõi ngạ quỷ" (pettivisaya, 138 khoá so với 23). 3.2 "mê muội" cho mucchita trùng với sammūḷha ở 4.1 (mohaggi); nay "tham nhiễm, mê say" theo dn25 (mucchito = mê say). 8.1 "các lửa" nay "các ngọn lửa" cho thống nhất với 4.3.
+  Điểm: semantic_fidelity 9.4 -> 9.3 và ambiguity_integrity 9.5 -> 9.3 (lượt chấm trước không ghi nhận các lỗi trên; sau khi sửa vẫn còn bất định ở 3.3). technical_integrity 10.0 -> 9.6 vì lượt này không chạy được bốn lệnh cổng: npm run validate, npm test, npm run check, npm run build; chưa tuyên bố technical gate pass.
+  Bất định còn lại: (1) 3.3-3.4, byāpanne nare pāṇātipātino: đọc là hai vị ngữ của một chủ thể ("kẻ ác ý, người sát hại"); bản Anh SuttaCentral đọc byāpanne như "sa vào lửa sân" và pāṇātipātino là mệnh đề riêng. Giữ cách đọc theo Pāli ít giả định hơn. (2) 9.3 "do thắng tri" thêm quan hệ nhân quả cho absolutive abhiññāya; giữ vì khớp iti95:6.3 (cùng Pāli). (3) Công thức 9.1 vedaguno nay khác iti95:6.1, iti63:5.4, iti109:12.5, ud2.6:8.2, ud8.7:5.2 vẫn là "thắng tri pháp"; cần xử lý đồng bộ.
+  Phép đo: 41/41 khoá Pāli và Việt trùng tập khoá và thứ tự; nháy kép/đơn khớp Pāli từng khoá 0 lệch; dấu lược … 0 lệch; không có cặp Pāli trùng nguyên văn trong bài (phép này chạy rỗng); NFC đạt; không Pāli lọt sang Việt.
+  Coverage English: Sujato phủ toàn bài tại commit đã ghim; không có bản Việt hiện hành tại snapshot (chỉ Pháp Cú), nên triangulation không vượt 9.4.

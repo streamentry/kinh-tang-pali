@@ -11,21 +11,21 @@ tags:
   - "danaparami"
 quality:
   scores:
-    source_provenance: 9.5
-    semantic_fidelity: 9.3
-    grammar_logic: 9.2
+    source_provenance: 9.3
+    semantic_fidelity: 9.0
+    grammar_logic: 9.0
     segment_alignment: 10.0
     terminology: 9.1
-    triangulation: 9.2
-    vietnamese_clarity: 9.3
+    triangulation: 9.0
+    vietnamese_clarity: 9.2
     han_viet_balance: 9.3
-    ambiguity_integrity: 9.0
+    ambiguity_integrity: 8.8
     technical_integrity: 9.6
-  final_score: 9.35
+  final_score: 9.23
   blocking_errors: []
-  assessed_at: "2026-10-04"
+  assessed_at: "2026-10-13"
   assessed_by:
-    - "OpenCode Space Bunny Free (agent)"
+    - "Claude Opus 5.5 (Claude Code)"
 notes: |-
   **Bài thứ ba của phẩm `Akittivagga`, `Dānapāramī 3`, trong `Cariyāpiṭaka`.** `0.2` *Phẩm Akitti* không lệch trong `cp5`/`cp6`/`cp7`; `0.3` lấy *Bố Thí Ba-la-mật Thứ Ba* theo `cp5` (*Thứ Năm*) và `cp7` (*Thứ Bảy*), **không** theo `cp6` (*Bố Thí Ba-la-mật 6* — chỗ lệch, xem `notes` của `cp18`; tôi không sửa tệp ngoài lát). 37 khoá, tất cả đã dịch. Cốt truyện: vua Dhanañjaya ban con voi cho Bà-la-môn dù đang đói, vì *toàn tri* là điều quý hơn.
 
@@ -48,3 +48,15 @@ notes: |-
   **TẦNG THAM KHẢO — đo, không đoán.** Pāli root: `root/pli/ms/sutta/kn/cp/cp3_root-pli-ms.json`, 37 khoá. Bản Anh Sujato **có** tại commit đã ghim: `translation/en/sujato/sutta/kn/cp/cp3_translation-en-sujato.json` (36/37; Sujato im lặng đúng ở dòng kết `9.1` — **một ô Anh rỗng không phải sự đồng thuận về cách dịch**). Tầng `vietnamese-current` vắng: thư mục `translation/` không tồn tại trong checkout này. **Lưu ý về công thức coverage:** mọi khoá thân đều **dưới 40 ký tự** (kệ ngắn), nên theo đúng `source/layers.yaml` bài có 0 khoá có nội dung ⇒ coverage 0/0; phép đo đó không phản ánh chất lượng tham khảo, và cả 12 bài `cp` đã `published` cũng vậy.
 
   **Bốn cổng kỹ thuật theo `AGENTS.md`:** `npm run validate`, `npm test`, `npm run check`, `npm run build`. Lát này **không** chạy bốn lệnh đó vì BRIEF cấm trong từng lát ⇒ để CI hoặc người điều phối chạy. `technical_integrity` đặt **9.6**, không 10.0: mọi chốt tự động của `_hvi.kiểm` đã xanh và 37/37 khoá của chính bài này, nhưng cổng `npm` chưa chạy.
+
+  **Lượt cải thiện 2026-10-13.** Đọc đối kháng từng khoá với Pāli, bản Anh Sujato (36/37) và bài song song `cp9` (cùng công thức Pāli ở `cp9:16–20`). Đổi 9/37 khoá; các đoạn ghi ở trên về `3.4`, `5.2` và `7.4` bị đính chính bởi mục này.
+  - **`8.1`–`8.2` (sai chủ thể, nặng).** Bản cũ viết *"Cả vương quốc này, nếu Ngài trao hết cho con, cả thân xác con nữa"*, tức đảo người nói thành người nhận, lẫn *Ngài/con* với *ta* của `8.3`–`8.4`. Pāli `rajjampi me dade sabbaṁ, sarīraṁ dajjamattano` là Bồ-tát tự nói: *tôi sẽ trao* (`dade`, `dajjaṁ` ngôi thứ nhất, `me` sở hữu, `attano` = của mình). Nay: *Cả vương quốc của ta, ta cũng sẽ trao hết; thân mình, ta cũng sẽ trao;* — khớp bản Anh và ngôi *ta* của cả bài. `semantic_fidelity` và `grammar_logic` bản cũ chấm 9.3 / 9.2 chưa tính lỗi này.
+  - **`3.4` (thêm nghĩa không có trong Pāli, nặng vừa).** Bản cũ: *màu xanh chàm, như màu nước đọng*, kèm lời quả quyết trong notes rằng `añjanasavhayaṁ` *không* nói tên con voi. Sai: `-savhaya` là *có tên là* (`bv29:4.2` `doṇasavhayo` = vị Bà-la-môn tên Doṇa; `thag1.120:2.2` `vanasavhayo`; `sn22.102:14.2` `therasavhayaṁ`; `thi-ap19:10.2` `uppalasavhayā`), nên `nīlaṁ añjanasavhayaṁ` = *màu xanh chàm, tên là Añjana*, đúng như Sujato (*of midnight hue named Añjana*). *Nước đọng* không có căn cứ ở Pāli và bị bỏ. Nay: *màu xanh chàm, tên là Añjana’.*
+  - **`2.3`, `2.4`, `7.1` (thuật ngữ, vừa).** *lành đẽo* chỉ có ở đúng bài này (0 tiền lệ ở phần còn lại của tầng) và không có nghĩa; *con voi đầu* cũng vậy. Công thức Pāli `hatthināgaṁ`/`dhaññaṁ maṅgalasammataṁ` trùng nguyên văn với `cp9:16.3–4`, vốn dịch *con voi chúa* / *con voi may mắn, được xem là điềm lành*. Nay `2.3`, `2.4` dùng lại đúng như vậy; `7.1` (`dhaññaṁ maṅgalasampannaṁ`) → *Con voi may mắn, đầy đủ điềm lành,*.
+  - **`7.4` (câu hỏng, vừa).** *thì Ngài còn làm trị vương thế nào* không thành câu. Nay: *thì Ngài còn trị vì vương quốc thế nào?* theo cách đọc của Sujato (*how shall you govern the realm*). Xem bất định bên dưới.
+  - **`3.3` (nhẹ).** Bỏ *ta* trong *xin hãy ban ta* (Pāli `dadāhi pavaraṁ nāgaṁ` không có đại từ; người nói là Bà-la-môn, mà *ta* trong bài là vua), khớp `cp9:17.3`.
+  - **`4.4` (nhẹ).** *lớn vượt bậc* → *to lớn*; `vipulaṁ gajaṁ` không có nghĩa *vượt bậc*, và công thức trùng `cp9:19.4` dịch *to lớn*.
+  - **Đính chính notes cũ về `5.2`.** Notes cũ ghi *bát nghiệc bằng vàng*; bản dịch thực tế là *cùng chiếc bình nạm châu báu* (khớp `cp9:20.2`), và `ratanāmaye` là *làm bằng châu báu*, không phải *vàng*.
+  - **Điểm đổi.** `source_provenance` 9.5→9.3 (notes cũ khẳng định sai về `-savhaya` và `5.2`); `semantic_fidelity` 9.3→9.0; `grammar_logic` 9.2→9.0 (chủ thể ở `8.1`–`8.2`, câu hỏng ở `7.4`, cùng bất định `7.4`); `triangulation` 9.2→9.0 (bản cũ lệch cả bản Anh lẫn bài song song); `vietnamese_clarity` 9.3→9.2; `ambiguity_integrity` 9.0→8.8 (khẳng định sai trong notes cũ, bất định còn mở); các điểm khác giữ nguyên. Không có bản Việt tham khảo cho bài này (tầng `vietnamese-current` chỉ có Pháp Cú).
+  - **Bất định còn lại.** (1) `7.4` `kiṁ te rajjaṁ karissati`: `karissati` là ngôi thứ ba, còn `te` là *của ngươi*; ngữ pháp cũng cho phép đọc *vương quốc của Ngài sẽ làm được gì cho Ngài* (tức *còn có ích gì*). Giữ cách đọc của Sujato nhưng chưa phân xử được, không có tiền lệ nào khác trong tầng Pāli. (2) `5.2` `bhiṅgāre` ở cách vị trí; *cùng chiếc bình* theo bản Anh và `cp9:20.2` chưa chắc là cách tách đúng (có thể là *từ chiếc bình … rải nước lên tay*). (3) `8.3` công thức *Mà vì … quý báu nhất* (8 bài) dùng dạng đối lập *không phải X mà vì Y*; ở bài này không có vế *không phải X* và Pāli `piyaṁ` không có *nhất*, nhưng giữ nguyên để đồng bộ tầng.
+  - **Kiểm.** 37/37 khoá, tập khoá bằng Pāli, nháy khớp Pāli từng khoá (0 lệch), NFC, không khoảng trắng thừa; 4 lệnh `npm run validate`, `npm test`, `npm run check`, `npm run build` vẫn chưa chạy trong lượt này nên `technical_integrity` giữ 9.6.
