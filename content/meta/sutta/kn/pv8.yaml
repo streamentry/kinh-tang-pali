@@ -16,13 +16,13 @@ quality:
     semantic_fidelity: 8.8
     grammar_logic: 8.9
     segment_alignment: 10.0
-    terminology: 8.9
+    terminology: 9.0
     triangulation: 7.8
     vietnamese_clarity: 8.9
     han_viet_balance: 9.2
     ambiguity_integrity: 8.5
     technical_integrity: 9.6
-  final_score: 8.99
+  final_score: 9.0
   blocking_errors:
     - "Không có tầng tham khảo tiếng Anh tại commit đã ghim
       (11c9d708978cde8ba61096d8a75f7ddfb846f639): thư mục `kn/` của edition
@@ -38,9 +38,9 @@ quality:
       Đây là trường hợp số đo không bắt được nhưng thực tế vẫn mất tầng tham
       khảo. Tầng `vietnamese-current` cũng vắng (chỉ 26 tệp Pháp Cú) và lớp lấp
       `english-project` cũng không có uid này ⇒ blocker thật."
-  assessed_at: "2026-10-13"
+  assessed_at: "2026-10-14"
   assessed_by:
-    - "Claude Sonnet 5.5 (Claude Code)"
+    - "Claude Opus 5.5 (Claude Code)"
   waiver:
     id: no-upstream-english
     blockers:
@@ -114,3 +114,8 @@ notes: |-
   Quyết định KHÔNG đổi dù đã cân nhắc: 8.3 “Họ khiến người khác quay khỏi nỗi sầu” (chữ hoa sau dấu chấm phẩy là quy ước đã có ở pv18:19.3 và ja454:15.3); 7.1 “rút mũi tên” (đa số 4/7 nơi cùng công thức, không tính pv8: “rút” ở ja372, ja454, pv18, pv25; “nhổ” ở ja449, pv17, vv83); 7.4 “này thanh niên” (chỉ 1 tiền lệ khác là “hỡi thanh niên” ở ja454:14.4, 1 đối 1, không đủ để ép); 4.4 kết `?”.` (321 khoá cùng kiểu khi Pāli kết `”ti.`); 3.1 “Những chân này” (đúng số nhiều `pādā`).
   Chấm lại (từ → sang): grammar_logic 8.8→8.9; terminology 8.8→8.9; vietnamese_clarity 8.8→8.9; các tiêu chí còn lại giữ nguyên (semantic_fidelity giữ 8.8 và ambiguity_integrity giữ 8.5 vì bất định (1)–(5) ở trên vẫn còn nguyên; triangulation giữ 7.8 vì không có bản Anh độc lập và đối chiếu bài song song là cùng loại bằng chứng đã tính ở lượt trước; technical_integrity giữ 9.6, bốn lệnh `npm run validate`, `npm test`, `npm run check`, `npm run build` vẫn để người điều phối chạy). final_score 8.96→8.99 (trung bình thô, vẫn dưới 9.0 nên là `review` theo bảng điểm; blocker “không có tầng tham khảo tiếng Anh” giữ nguyên trong danh sách và khối waiver không sửa).
   Phép kiểm sau sửa: 36/36 khoá khớp tập và thứ tự Pāli; nháy kép, nháy đơn và dấu lược khớp Pāli từng khoá (0 lệch trên 36 khoá); NFC, không khoảng trắng thừa, không khoá rỗng; chữ Pāli duy nhất còn trong bản Việt là tên riêng Sujāta (8.4) và Petavatthu (0.1); 0 cặp Pāli trùng nguyên văn trong chính bài (phép chạy rỗng).
+
+  LƯỢT CẢI THIỆN 2026-10-14. Đọc đối kháng lại 36 khoá Pāli↔Việt sau hai lượt trước và dựng chỉ mục Pāli→Việt toàn tầng (164.716 dòng Pāli khác nhau) để so từng dòng của bài với các dòng Pāli trùng nguyên văn ở bài khác. Không phát hiện lỗi nghĩa mới; đã đổi 2/36 khoá, cả hai là sửa tiền lệ chứ không đổi nghĩa. (a) 5.3 `Vārinā viya osiñcaṁ`: bản cũ “như rưới nước lên” là cách duy nhất trong 9 nơi cùng dòng Pāli không có chủ thể; 7/9 nơi là “như người rưới nước lên” (pv18:16.3, ja352:5.3, vv83:8.3, ja372:5.3, ja449:8.3, ja410:7.3 và pv17 theo cùng công thức), 1 nơi “như người rưới nước” (pv25:13.3), 1 nơi “người ấy như rưới nước lên” (ja454:12.3); `osiñcaṁ` là phân từ hiện tại giống đực nên Pāli có một người đang rưới, vì vậy thêm “người” là bám Pāli chứ không thêm nghĩa. Sửa thành “như người rưới nước lên,” (terminology 8.9→9.0). (b) 6.3 `Yo me sokaparetassa`: cùng dòng Pāli có 8 nơi trong tầng, 6 nơi dịch “khi tôi bị sầu muộn vây phủ” (vv83:9.3, ja372:6.3, ja449:9.3, ja410:8.3, ja352:6.3, pv17:9.3) và 2 nơi “chế ngự” (pv18:17.3, ja454:13.3). Lượt trước chọn theo hai bài gần nhất; nay đổi theo đa số 6/8 thành “khi tôi bị sầu muộn vây phủ,”, vẫn giữ “Người ấy” ngôi ba theo `yo … apānudi` (không đổi điểm riêng; chỉ gộp vào terminology). Hai bài còn lại dùng “chế ngự” (pv18:17.3, ja454:13.3) chưa đồng bộ, đã báo ngoài phạm vi.
+  Đã kiểm lại và KHÔNG đổi: 2.4 `yathā taññova dummatī` — so với ja352:2.4 `yathā taṁ dummatī tathā` thì thành ngữ `yathā taṁ …` (“đúng như một kẻ …”) và nghĩa “như kẻ kém trí” ổn định ở cả hai bài; phần còn bất định chỉ là hình thái `taññova` (sandhi của `taṁ` với tiểu từ) mà tầng đã ghim không có bản Anh để phân xử, nên giữ bất định (1). 6.1 “người ấy” ngôi ba (khác ja352:6.1 “cậu”): giữ vì `abbahī` + mệnh đề quan hệ `yo …` là ngôi ba, còn 7.4 `tava` mới là hô ngữ; 7.1 “rút mũi tên” (4 nơi “rút”: ja372, ja454, pv18, pv25; “nhổ”: ja449, pv17, vv83); 3.1 “Những chân này” (4 nơi “những chân”, 0 nơi “những cái chân” trong tầng); 4.4 kết `?”.`; xưng hô “ngươi” hai chiều cha–con (5) vẫn là lựa chọn biên tập, cùng với ja352:4.4. BẤT ĐỊNH MỚI GHI (6): nội dung bài không có ngạ quỷ nào; tên bài `Goṇapetavatthu` giữ công thức tiêu đề “Chuyện Ngạ Quỷ …” như pv1–pv11, pv18 mà không kiểm chứng được `peta` ở đây có là “ngạ quỷ” hay chỉ là nhãn thể loại của bộ.
+  Chấm lại (từ → sang): terminology 8.9→9.0 (hai chỗ lệch tiền lệ nói trên); các tiêu chí khác giữ nguyên: semantic_fidelity 8.8 và ambiguity_integrity 8.5 vì bất định (1)–(6) vẫn còn; triangulation 7.8 vì không có bản Anh độc lập; technical_integrity 9.6, bốn lệnh `npm run validate`, `npm test`, `npm run check`, `npm run build` vẫn để người điều phối chạy. final_score 8.99→9.00 (trung bình thô). Đúng 9.0 không đủ để `published` (phải lớn hơn 9.0), và blocker “không có tầng tham khảo tiếng Anh” giữ nguyên, khối waiver không sửa: trạng thái do công cụ chốt.
+  Phép kiểm sau sửa: 36/36 khoá khớp tập và thứ tự Pāli; nháy kép, nháy đơn và dấu lược khớp Pāli từng khoá (0 lệch trên 36 khoá); NFC, không khoảng trắng thừa, không khoá rỗng; chữ Pāli còn lại trong bản Việt chỉ là tên riêng Sujāta (8.4) và Petavatthu (0.1); 0 cặp Pāli trùng nguyên văn trong chính bài (phép chạy rỗng); bài không có `…pe…`, không có số Pāli cần dịch.
