@@ -23,9 +23,9 @@ quality:
     technical_integrity: 9.6
   final_score: 9.54
   blocking_errors: []
-  assessed_at: "2026-10-04"
+  assessed_at: "2026-10-14"
   assessed_by:
-    - "OpenCode Space Bunny Free (agent)"
+    - "Claude Opus 5.5 (Claude Code)"
 notes: |-
   Dịch từ Pāli root tại commit đã ghim. COVERAGE ĐO LẠI bằng chính hàm của kho (`englishCoverageFor`, ngưỡng 0.8 trong `source/layers.yaml`): `english-sujato` phủ 14/14 khoá Pāli có nội dung = 1.000, không cần tệp lấp `english-project`. Tầng `vietnamese-current` không có — tại commit đã ghim bilara chỉ phân phối Pháp Cú cho tiếng Việt, nên không có bản Hòa thượng Thích Minh Châu để đối chiếu.
 
@@ -49,3 +49,9 @@ notes: |-
     (4) `0.3` trùng tiêu đề với `an10.117:0.3` — cả hai đều là `Saṅgāravasutta` và đều dịch `Kinh Saṅgārava`, vì PāLI giống nhau.
 
   Cổng kỹ thuật: `technical_integrity` đặt 9.6 thay vì 10.0 vì lát này bị cấm chạy `npm run validate`, `npm test`, `npm run check` và `npm run build` (bốn lệnh này là cổng thật do CI chạy). Đã tự kiểm bằng node: JSON hợp lệ, 40/40 khoá khớp Pāli, 0 khoá thừa/thiếu/rỗng, NFC sạch, dấu lược khớp từng khoá, ngoặc kép cân. Coverage tầng Anh đo lại bằng hàm của kho nên không có blocker loại 1. Không sửa `content/meta/reference-gaps.yaml`, không sửa `source/`, không sửa `scripts/` hay `src/`.
+
+  Lượt cải thiện 2026-10-14 (đọc đối kháng lại cả 40 khoá; ĐÍNH CHÍNH nhận định "không có lỗi" ở lượt trước): đổi 3/40 khoá, các khoá còn lại giữ nguyên.
+    · `6.3`-`6.4` (`Pariyodapeyya attānaṁ, cittaklesehi paṇḍito`): trước là "Hãy làm thanh tịnh chính mình, / này bậc trí, khỏi nhiễm ô của tâm." — hiểu `paṇḍito` là hô cách, trong khi Pāli là danh cách số ít, chủ ngữ của `pariyodapeyya` (cùng cấu trúc với `5.2` `sukkaṁ bhāvetha paṇḍito`, đã dịch "bậc trí hãy tu tập pháp trắng"). Nay: "Bậc trí hãy làm thanh tịnh chính mình, / khỏi các nhiễm ô của tâm." (`cittaklesehi` số nhiều -> "các nhiễm ô"). Sai nghĩa mức vừa (sai chức năng ngữ pháp của một từ, ranh khoá không đổi).
+    · `7.6` (`te loke parinibbutā”ti`): "họ tịch diệt trong đời này" -> "họ tịch diệt ở đời" — `loke` không có `imasmiṁ`/"này"; bỏ chữ "này" thêm vào. Sai nhẹ.
+    · Không điểm tiêu chí nào được nâng; điểm giữ nguyên vì lỗi vừa được sửa chứ không có cải thiện vượt mức đã chấm. Các câu kệ đồng bộ với các bài kệ trùng nguyên văn trong cùng nhóm (an10.117, an10.118, an10.170) cần cùng sửa `6.3`-`6.4`/`7.6` tương ứng (báo cho người biên tập).
+    · Bất định còn lại: không có thêm. Blocker: không. Cổng kỹ thuật vẫn đặt 9.6 vì chưa chạy `npm run validate` · `npm test` · `npm run check` · `npm run build`.

@@ -12,8 +12,8 @@ tags:
 quality:
   scores:
     source_provenance: 9.7
-    semantic_fidelity: 9.5
-    grammar_logic: 9.5
+    semantic_fidelity: 9.6
+    grammar_logic: 9.6
     segment_alignment: 10.0
     terminology: 9.5
     triangulation: 9.4
@@ -21,11 +21,11 @@ quality:
     han_viet_balance: 9.4
     ambiguity_integrity: 9.3
     technical_integrity: 9.6
-  final_score: 9.53
+  final_score: 9.55
   blocking_errors: []
-  assessed_at: "2026-10-04"
+  assessed_at: "2026-10-14"
   assessed_by:
-    - "OpenCode Space Bunny Free (agent)"
+    - "Claude Opus 5.5 (Claude Code)"
 notes: |-
   Dịch từ Pāli root tại commit đã ghim. COVERAGE ĐO LẠI bằng chính hàm của kho (`englishCoverageFor`, ngưỡng 0.8 trong `source/layers.yaml`): `english-sujato` phủ 13/13 khoá Pāli có nội dung = 1.000, không cần tệp lấp `english-project`. Tầng `vietnamese-current` không có — tại commit đã ghim bilara chỉ phân phối Pháp Cú cho tiếng Việt, nên không có bản Hòa thượng Thích Minh Châu để đối chiếu.
 
@@ -47,3 +47,11 @@ notes: |-
     (3) `1.14` PāLI không có `kho, brāhmaṇa` nên không thêm xưng gọi nào; lời nói của Đức Phật mở ở `1.1` và chưa đóng tới `6.6`, nên `1.14` không có dấu đóng ngoặc kép — đúng như bản PāLI.
 
   Cổng kỹ thuật: `technical_integrity` đặt 9.6 thay vì 10.0 vì lát này bị cấm chạy `npm run validate`, `npm test`, `npm run check` và `npm run build` (bốn lệnh này là cổng thật do CI chạy). Đã tự kiểm bằng node: JSON hợp lệ, 40/40 khoá khớp Pāli, 0 khoá thừa/thiếu/rỗng, NFC sạch, dấu lược khớp từng khoá, ngoặc kép cân. Coverage tầng Anh đo lại bằng hàm của kho nên không có blocker loại 1. Không sửa `content/meta/reference-gaps.yaml`, không sửa `source/`, không sửa `scripts/` hay `src/`.
+
+  Lượt cải thiện 2026-10-14 (đọc đối kháng lại cả 40 khoá; 5 khoá đổi / 40):
+    · `5.3`-`5.4` (`pariyodapeyya attānaṁ, cittaklesehi paṇḍito`): bản cũ đặt `paṇḍito` thành lời xưng hô «này bậc trí» ở cuối 5.4. Trong Pāli `paṇḍito` là chủ ngữ số ít (cùng `paṇḍito` ở 4.2 đã dịch «bậc trí hãy tu tập»), không phải hô cách. Đổi `Hãy làm thanh tịnh chính mình,` → `Bậc trí hãy làm thanh tịnh chính mình,` và `này bậc trí, khỏi nhiễm ô của tâm.` → `khỏi các nhiễm ô của tâm.` (`cittaklesehi` là số nhiều). Tiêu chí đổi: semantic_fidelity 9.5 → 9.6, grammar_logic 9.5 → 9.6.
+    · `6.6` (`te loke parinibbutā`): `trong đời này` → `ở đời`. `loke` chỉ là «ở đời/trong thế gian», Pāli không có «này». Cùng chỉnh với `an10.118` (khoá tương ứng 6.3-6.4 và 7.6) để hai bài trùng Pāli giữ cùng một cách dịch. Tiêu chí: gộp vào semantic_fidelity ở trên.
+    · `1.14`: `này các tỳ-kheo, …` viết thường đầu câu → `Này các tỳ-kheo, …` (đây là câu đầu một khoá, khoá trước kết bằng dấu chấm). Cùng chỉnh ở `an10.118:2.4`.
+    · `1.1`: `ta sẽ giảng` → `Ta sẽ giảng`. Đo tiền lệ trong tầng `an`: câu «này các tỳ-kheo, … sẽ …» do Đức Thế Tôn tự xưng có `Ta` viết hoa 69 khoá, `ta` viết thường 9 khoá; theo đa số.
+  Đã đo và cố ý KHÔNG đổi: (a) `1.2` `Taṁ suṇātha …pe…` giữ `Hãy lắng nghe …`. Đo 43 khoá Pāli y hệt trong tầng `an`: 41 khoá dịch `Hãy lắng nghe và chú tâm kỹ …` (mở rộng phần bị lược `sādhukaṁ manasi karotha` vào chữ Việt), 2 khoá dịch như bài này (kể cả an10.118 trước khi sửa). Bài này chỉ dịch phần Pāli hiện có, nên giữ; đây là chỗ lệch đa số, ghi lại để người biên tập quyết định thống nhất toàn tầng. (b) `0.1` giữ `Kinh Tăng Chi Bộ 10.170`: đo toàn `an10` được 174 khoá `Kinh Tăng Chi Bộ` so với 25 khoá `Aṅguttara Nikāya`. (c) `6.3`-`6.4` `ādānapaṭinissagge … anupādāya ye ratā` giữ `từ bỏ nắm giữ, vui thích không chấp thủ`: `ratā` (vui thích) chi phối cả hai vế, bản Việt chỉ đặt `vui thích` ở vế sau; nghĩa không sai, trùng 5/5 bài có cùng kệ, nên không sửa riêng một bài.
+  Cải chính ghi chú cũ: khoá `6.6` trong tệp là `…ở đời.”` (kết bằng `.”` như đa số), không còn là dạng `”ti.` như mục (2) ở trên; mục (2) chỉ còn là mô tả lịch sử. Điểm khác giữ nguyên, kể cả technical_integrity 9.6 (bốn lệnh `npm run validate`, `npm test`, `npm run check`, `npm run build` vẫn do CI chạy). Bài không có blocker; final_score 9.53 → 9.55.
