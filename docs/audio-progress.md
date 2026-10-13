@@ -703,3 +703,9 @@ Nhật ký append-only. Registry `content/audio/progress.json` được đối s
 - MN58: source SHA-256 `1670ffa7693f3ed05cc32f44ef63966430ef42414fb1002f7a75e0b9f01f2020`; MP3 SHA-256 `59db6d88cfbb4c759e51a57dc2fd6422dd98bc8fb9e1ce833b35b65f59c52abc`; 13,809,600 bytes; 690.41s; scripture starts 137.51s; 8 chunks; [R2 MP3](https://pub-8fa53f5182904685bd0c13d6c894a0e9.r2.dev/vi/mn/mn58/59db6d88cfbb4c75.mp3).
 - MN59: source SHA-256 `c05e64e77061ceaa137bd3283cadbd74007e547cb79f982bf6c4b7ecabcfa9b2`; MP3 SHA-256 `7b8ea0ea928253f594fb06623bfeadca4f10d7f15a82fcd6c17ce9df9bc809aa`; 13,900,800 bytes; 694.99s; scripture starts 156.27s; 12 chunks; [R2 MP3](https://pub-8fa53f5182904685bd0c13d6c894a0e9.r2.dev/vi/mn/mn59/7b8ea0ea928253f5.mp3).
 - All five use pinned profile `vi-charon-mn1-v1`, SHA-256 `a384c5852585077c32e1348a6ada5cfc70a69c989ad705b8b5129fef3e1c9a71`. MP3 frame/hash/byte checks and R2 public full-object/range verification passed. ASR skipped per editor decision; reviews remain pending. Interactive browser controls and human listening have not been verified.
+
+### Batch mn-032 local release gates
+
+- On current main `d75b57dc938791db0f4b08d29f630b4e95a4a5ff`, `npm run validate` passed (2,258 advisory warnings; 5,447 quality histories / 0 errors), `npm test` passed (417 passed, 1 skipped, 0 failed), `npm run check` passed (0 errors, 0 warnings, 5 hints), `npm run audio:check` passed (186 UIDs / 0 errors), and `git diff --check` passed.
+- `npm run build` passed: Astro built 6,146 pages; Pagefind indexed 6,137 pages and 458,092 words. MN55/MN56/MN57/MN58/MN59 detail HTML each contains its player, exact R2 URL, and pending-review label. The MN directory has one playlist and 59 source-valid track buttons.
+- Interactive browser playback controls and full listening were not exercised; editor review remains pending.
