@@ -1,5 +1,5 @@
 uid: ja389
-status: published
+status: review
 translationTitle: "Kinh Suvaṇṇakakkaṭa"
 translators:
   - "OpenCode Space Bunny Free (agent)"
@@ -12,17 +12,17 @@ tags:
   - "suvannakakkata"
 quality:
   scores:
-    source_provenance: 9.5
-    semantic_fidelity: 9.3
-    grammar_logic: 9.2
+    source_provenance: 9.3
+    semantic_fidelity: 8.9
+    grammar_logic: 8.9
     segment_alignment: 10.0
-    terminology: 9.1
+    terminology: 9.0
     triangulation: 7.5
-    vietnamese_clarity: 9.3
-    han_viet_balance: 9.3
-    ambiguity_integrity: 8.8
+    vietnamese_clarity: 8.9
+    han_viet_balance: 9.2
+    ambiguity_integrity: 8.6
     technical_integrity: 9.6
-  final_score: 9.16
+  final_score: 8.99
   blocking_errors:
     - "Không có tầng tham khảo tiếng Anh tại commit đã ghim: tệp
       translation/en/sujato/sutta/kn/ja/ja389_translation-en-sujato.json không
@@ -34,9 +34,9 @@ quality:
       checkout. Ba tầng tham khảo đều vắng nên bài chỉ dịch từ Pāli root, đây là
       giới hạn upstream chứ không phải lỗi người dịch. Vì vậy triangulation bị
       chặn ở 7.5, không nâng để né blocker."
-  assessed_at: "2026-10-04"
+  assessed_at: "2026-10-13"
   assessed_by:
-    - "OpenCode Space Bunny Free (agent)"
+    - "Claude Opus 5.5 (Claude Code)"
   waiver:
     id: no-upstream-english
     blockers:
@@ -76,3 +76,15 @@ notes: |-
   **Bốn cổng kỹ thuật theo `AGENTS.md`:** `npm run validate`, `npm test`, `npm run check`, `npm run build`. Lát này **không** chạy bốn lệnh đó vì BRIEF cấm trong từng lát ⇒ để CI hoặc người điều phối chạy. `technical_integrity` đặt **9.6**, không 10.0: mọi chốt tự động của `_hvi.kiểm` đã xanh và 37/37 khoá của chính bài này, nhưng cổng `npm` chưa chạy.
 
   **Sửa lan 2026-10-13 (accuracy fix).** `kakkaṭa`/`kakkaṭaka` là **cua**, không phải rùa; `vāyasa` là **quạ**, không phải đàn ông. Các chỗ nhắc "rùa" trong notes bên trên đã đổi thành "cua"; những chỗ nhắc "cáo", "bọ cánh", "thỏ" không có căn cứ trong Pāli của bài (chỉ có quạ, rắn đen, cua, người). Khoá đã đổi (trước → sau): `ja389:1.1` "Con cua có đôi càng dài như sừng," → "Con thú có sừng, mắt dài," · `1.2` "đứng bằng đầu, thân ngập nước đầy;" → "da bằng xương, ở dưới nước, không lông;" (`aṭṭhittaco vārisayo alomo`) · `1.3` "Sợ hãi điều ấy, con rùa kêu lên," → "Bị nó khuất phục, ta khóc thảm thiết," (`tenābhibhūto kapaṇaṁ rudāmi`) · `1.4` "bỏ tôi" → "bỏ ta" (cùng người nói với 1.1–1.3) · `2.2` "con rắn đã lao tới tấn công con rùa;" → "con rắn đã lọt vào giữa con cua;" (`kakkaṭamajjhapatto`) · `2.4` "con rùa đã nắm lấy con rắn." → "con cua đã nắm lấy con rắn." · `3.1` "Chẳng phải đàn ông, cũng không phải con rắn đen," → "Chẳng phải quạ, cũng chẳng phải rắn đen," · `3.2` "con rùa là thứ không nên buông;" → "con cua đi tìm mồi sẽ không bắt;" (`ghāsatthiko kakkaṭako adeyya`: cua tìm mồi, `adeyya` cầu khiến "sẽ bắt") · `3.3` "Tôi hỏi con rùa thong dong," → "Hỡi kẻ mắt dài, tôi hỏi ngươi," (`āyatacakkhunetta` là hô ngữ gọi con cua, không có "thong dong") · `8.3` "còn con rùa là Ānandabhadda," → "còn con cua là Ānandabhadda,". Căn cứ: `1.1`–`1.3` có Pāli trùng nguyên văn với `ja267:1.1`–`1.3` nên dùng đúng bản Việt hiện hành của ja267 (3/3 khoá trùng, bản cũ của bài này khác cả 3). Tiền lệ `kakkaṭa` → cua: `ja267:0.4` "Kinh Con Cua", `ja267:3.1` "Những con cua nào…". Chưa sửa, còn nghi vấn cần rà tiếp ở các khoá ngoài phạm vi sửa lan: `2.1` (`phaṇa` là cái mang/mào của rắn hổ, không phải hàm; `passasanto` là phì phò), `2.3`, `5.1`–`5.3` (`sādu` ngon, `thūla` béo/to, `mudu` mềm — không phải thịt dê/chim ưng; nhận định "mudū không tra được" ở trên không đúng), `6.x`, `7.2` (`paṭibandhako`) — bài nên được rà lại toàn bộ trước khi tin điểm hiện tại.
+
+  **Lượt cải thiện 2026-10-13 (kiểm toán lại sau sửa lan).** Đọc đối kháng đủ 37/37 khoá Pāli↔Việt. Kết luận: điểm `published` cũ bị thổi phồng — trước lượt sửa lan, gần như mọi khoá kệ 1–8 đều sai nghĩa, và sau sửa lan vẫn còn sai ở 2.x, 3.x, 4.2, 5.x, 6.x, 7.x, 8.4. **29/37 khoá đổi** (accuracy fix, trừ 1.4/8.1 là chỉnh xưng hô/tên riêng). Mạch truyện theo đúng Pāli: quạ (1.x) kêu bạn rắn khi bị cua kẹp; kệ 2 là lời kể: rắn lao tới cứu bạn và cũng bị cua bắt; kệ 3 hỏi vì sao cua bắt cả hai trong khi cua không ăn quạ hay rắn; kệ 4–5 cua đáp: người này đã mang nó tới chỗ nước, người ấy chết thì cua cũng mất mạng vì thân to, thịt ngon; kệ 6 rắn (`mamañca kākañca`) xin được hút nọc ra; kệ 7 cua thả rắn trước, giữ quạ làm con tin; kệ 8 nhận diện tiền thân.
+
+  Khoá tiêu biểu (trước → sau): `2.1` "Hắn thấy bằng chiếc hàm khổng lồ," → "Nó phì phò, xòe chiếc mang lớn," (`passasanto` là thở phì phò, không phải "thấy"; `phaṇa` là mang rắn, tiền lệ `ud2.1` "xòe chiếc mang lớn", `ja472:10.1` "xòe mang") · `2.2` "con rắn đã lọt vào giữa con cua;" → "con rắn lao tới con cua;" (`kakkaṭam ajjhapatto`; tiền lệ `sn47.6:1.1` `ajjhappattā` "lao xuống", `ja523:28.4` "đến gần") · `2.3` "vây quanh bạn bè và đồng hành," → "bạn muốn che chở cho bạn mình," (`paritāyamāno` là che chở; nhận định cũ về "trải ra, vươn ra" và "gọi bạn bè" không có căn cứ) · `3.1`–`3.2` → "Quạ, và cả rắn đen nữa, / con cua đi tìm mồi sẽ chẳng ăn;" (`na … adeyya`: cua không ăn hai con này) · `3.4`, `6.1` "cả hai ta" → "cả hai chúng tôi" (`hetumha`, ngôi thứ nhất loại trừ người nghe) · `4.2` thêm "tới chỗ có nước" (`dakāya`, bản cũ bỏ sót) · `5.1` "thân tôi đang chạy trốn" → "thấy tôi thân hình to lớn" (`pavaddhakāyaṁ`, tiền lệ `ja524:4.3` "thân đồ sộ") · `5.3` "cả thịt dê, thịt chim ưng, và cả thịt nữa" → "thịt thì ngon, lại béo và mềm" (`sādu` ngon, `thūla` béo, `mudu` mềm — ba tính từ của `maṁsaṁ`; "dê", "chim ưng" là bịa) · `5.4` "đã đem chết tôi" → "cũng sẽ quấy hại tôi" (`viheṭhayeyyuṁ`, cầu khiến) · `6.2` "xin ngài đứng dậy, cho tôi thấy rõ tai hại" → "thì hãy để người ấy đứng dậy, tôi sẽ hút nọc độc ra" (`poso` là "người ấy" ở cách chủ, ngôi ba; `visam āvamāmi` "tôi hút/nhả nọc ra"; nhận định cũ rằng `poso` là cách xưng tôn kính và "cáo gọi con cua" là bịa) · `6.4` → "trước khi nọc độc ngấm sâu vào người ấy" (`pure … gāḷham upeti maccaṁ`; đoạn ghi chú cũ "LỖI NGHĨA ĐÃ BẮT VÀ SỬA" đọc `visaṁ` là "kẻ hung dữ" — cũng sai) · `7.2` "cho đến khi con quạ nào bám vào thì mới thả" → "trong khi chờ, con quạ sẽ làm con tin" · `8.1` `Devadatto` → *Devadatta* (theo `ja514:39.4`) · `8.3` *Ānandabhadda* → *Ānanda hiền thiện* (theo `tha-ap1:3.2`, `tha-ap2:3.2`, 2/2) · `8.4` "còn ta lúc đó là Bà-la-môn Đạo sư" → "còn ta, bậc Đạo Sư, khi ấy là người bà-la-môn" (`satthā` đồng vị với `ahaṁ`, không phải tước hiệu của bà-la-môn; *bậc Đạo Sư* là dạng đa số của tầng, 624 lần). Giữ nguyên `1.1`–`1.3` (trùng nguyên văn `ja267:1.1`–`1.3`, 3/3 khớp) và các khoá tiêu đề.
+
+  Mọi nhận định ngữ văn của các mục notes bên trên mâu thuẫn với mục này (về `phaṇa`, `paritāyamāno`, `poso`, `visaṁ`, `mudū`, "cáo") **không còn giá trị**; giữ lại chỉ như lịch sử.
+
+  **Bất định còn lại (không chặn):** `7.2` `paṭibandhako` — chỉ xuất hiện một lần trong toàn bộ Pāli root đã ghim, không có bản Anh hay chú giải trong kho để phân xử; "làm con tin" là cách đọc theo ngữ cảnh (con quạ bị giữ lại cho tới khi người kia khỏi, `7.3`–`7.4`), nghĩa truyện không đổi nếu đọc là "bị giữ lại". `6.2` `visamāvamāmi` (dạng này chỉ có một lần trong Pāli root) đọc là `visaṁ āvamāmi` "tôi hút/nhả nọc ra", theo gốc `vamati` (tuôn ra, `sn45.153:1.1`) và theo mạch `6.4`. Người nói của kệ `3` không được Pāli nêu tên (rắn hoặc quạ); bản dịch không gán tên.
+
+  **Phép kiểm:** tập khoá 37/37 khớp Pāli và đúng thứ tự; nháy đơn/kép khớp Pāli từng khoá 37/37; 0 cặp Pāli trùng nguyên văn trong chính bài (phép rỗng); 0 dấu lược ở cả Pāli và Việt; NFC sạch, 0 khoá rỗng. Không có số Pāli nào trong kệ.
+
+  **Điểm (trước → sau):** `source_provenance` 9.5 → 9.3 (notes cũ chứa các khẳng định ngữ văn bịa) · `semantic_fidelity` 9.3 → 8.9 (đã sửa các lỗi nghĩa, còn hai từ hiếm đọc theo ngữ cảnh) · `grammar_logic` 9.2 → 8.9 · `terminology` 9.1 → 9.0 · `triangulation` giữ 7.5 (không có bản Anh, không có Việt hiện hành, chỉ có Pāli và tiền lệ nội tầng) · `vietnamese_clarity` 9.3 → 8.9 · `han_viet_balance` 9.3 → 9.2 · `ambiguity_integrity` 8.8 → 8.6 (lịch sử notes có nghĩa bịa; bất định còn lại đã ghi) · `segment_alignment` 10.0, `technical_integrity` 9.6 giữ. `final_score` 9.16 → 8.99. Không chạy `npm run validate` · `npm test` · `npm run check` · `npm run build` trong lượt này — để CI chạy.

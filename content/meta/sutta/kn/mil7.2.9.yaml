@@ -14,16 +14,16 @@ tags:
 quality:
   scores:
     source_provenance: 9.5
-    semantic_fidelity: 9.4
-    grammar_logic: 9.3
+    semantic_fidelity: 9.0
+    grammar_logic: 9.0
     segment_alignment: 10.0
-    terminology: 9.3
+    terminology: 9.0
     triangulation: 7.5
-    vietnamese_clarity: 9.3
-    han_viet_balance: 9.3
-    ambiguity_integrity: 9.1
+    vietnamese_clarity: 9.1
+    han_viet_balance: 9.1
+    ambiguity_integrity: 8.8
     technical_integrity: 9.6
-  final_score: 9.23
+  final_score: 9.06
   blocking_errors:
     - "Không có tầng tham khảo tiếng Anh tại commit đã ghim: tệp
       `translation/en/sujato/sutta/kn/mil/mil7.2.9_translation-en-sujato.json`
@@ -38,9 +38,9 @@ quality:
       `translation/vi/phantuananh` tại commit đã ghin chỉ có 26 tệp và toàn bộ
       là Pháp Cú. Lớp lấp `english-project` của dự án cũng không có cho uid này.
       Ba tầng tham khảo đều vắng ⇒ bài dịch chỉ từ Pāli root ⇒ blocker thật."
-  assessed_at: "2026-10-02"
+  assessed_at: "2026-10-13"
   assessed_by:
-    - "OpenCode Space Bunny Free (agent)"
+    - "Claude Sonnet 5.5 (Claude Code)"
   waiver:
     id: no-upstream-english
     blockers:
@@ -94,3 +94,14 @@ notes: |-
   **terminology fix (2026-10-04, coordinator).** `Gadrabhavagga` bị dịch "Phẩm Con Lừa" ở khối `:0.3` — lẫn với `Kumbhavagga` (con lừa). `gadra` là **con sóc**, và hai tệp cùng phẩm (mil7.2.1, mil7.2.6) đã dùng đúng "Phẩm Con Sóc". Đếm toàn tầng trước khi sửa: 6 tệp lừa / 2 tệp sóc / 1 tệp giữ PĦLI. Đã đồng nhất sang sóc.
 
   Sửa lan 2026-10-13 (accuracy fix, thay cho đoạn "ĐA NGHĨA ĐÃ PHÂN XỬ" ở trên): `vāyasa` là *quạ*, không phải *thuyền*. Căn cứ: (a) `vāyasa` là quạ ở những nơi khác trong tầng, không có nơi nào dịch *thuyền* (`sn4.24:10.2` `vāyasetto` → *con quạ ấy*, `snp3.2:24.2` `Vāyasetto` → *Con quạ*); (b) cùng câu hỏi ở `mil7.1:11.1` đã dịch *phải nắm lấy hai phần của con quạ*; (c) bài kế `mil7.2.10:7.4` (tóm lược phẩm) viết *chim quạ và loài khỉ*; (d) hai bộ phận ở bài này (*dè chừng, đề phòng* và *chia thức ăn cho thân quyến rồi mới ăn*) là tập tính của quạ. Đã đổi (trước → sau): `0.4`, `4.1` *… phần của chiếc thuyền* → *… phần của con quạ*; `1.1` *‘chiếc thuyền thì phải nắm lấy hai phần’* → *‘phải nắm lấy hai phần của con quạ’*; `1.2` *chiếc thuyền ấy đi đến nơi dự định, với thủy thủ đã tập hợp quanh và chân chèo đã xếp vào chỗ* → *như con quạ đi lại luôn nghi ngại, dè chừng, hết lòng nỗ lực* (`āsaṅkitaparisaṅkito yattappayatto carati`; tiền lệ `an5.102:1.1` `ussaṅkitaparisaṅkito` → *nghi ngờ, nghi kị*, `mil7.3.8:1.2` `yattappayatto` → *hết lòng nỗ lực*); `1.3` *phải đi tới nơi dự định đã vạch sẵn, với tâm đã thu tóm lại và thu tóm lại* → *phải đi lại luôn nghi ngại, dè chừng, hết lòng nỗ lực*; `1.4`, `2.3` *của chiếc thuyền* → *của con quạ*; `2.1` *chiếc thuyền … chia cho những người cùng thân* → *con quạ … chia cho người thân* (`ñātīhi` → *người thân* 4 khoá, đa số). Tiêu đề meta và nhãn `tags` đổi theo `0.4`. BẤT ĐỊNH: `āsaṅkitaparisaṅkito` (*nghi ngại, dè chừng*) chỉ có tiền lệ gần (`an5.102`), không có tiền lệ đúng dạng. Chưa đổi (ngoài mô tả): `2.2` *ít nhất là đã tới mức thành tựu* cho `pattapariyāpannamattampi` (nghĩa gần là *dù chỉ vừa trong bình bát*) — cần rà lại.
+
+  Lượt cải thiện 2026-10-13 (kiểm toán lại sau sửa lan). Đọc đối kháng đủ 17/17 khoá Pāli↔Việt. Kết luận: điểm cũ 9.23 bị thổi phồng — bản đã published mang lỗi `vāyasa` → *thuyền* (sửa lan đã chữa), và còn các lỗi dưới đây mà điểm cũ không bắt được. Đã đổi 8/17 khoá:
+  · `2.2` (accuracy fix, lỗi nặng nhất còn sót): trước *với những lợi ích ấy được pháp và đã đạt được đúng pháp, ít nhất là đã tới mức thành tựu, thì phải là người hưởng phần được chia sẻ cùng những vị có giới hạnh và những người cùng tu hành theo đời sống thanh tịnh* → sau *đối với những lợi dưỡng hợp pháp, có được một cách hợp pháp, dù chỉ là phần thức ăn trong bình bát, phải là người chia sẻ mà thọ dụng cùng các vị đồng phạm hạnh có giới*. Ba lỗi trong một khoá: (a) `pattapariyāpannamattampi` là *dù chỉ là phần (thức ăn) trong bình bát*, không phải *mức thành tựu*; (b) vai bị đảo — người hành trì là người **chia**, không phải người *hưởng phần được chia* (đối ứng với con quạ `saṁvibhajitvā bhuñjati` ở `2.1`); (c) `sīlavantehi sabrahmacārīhi` là **một** nhóm (các vị đồng phạm hạnh có giới), bản cũ tách thành hai nhóm. Căn cứ: đây là công thức pháp hòa kính có trong 7 khoá của tầng Pāli (dn16:1.11.7, dn33:2.2.44, dn34:1.7.8, mn48:6.10, mn104:21.9, an6.11:4.1, an6.12:4.1); Sujato dịch thống nhất *even the food placed in the alms-bowl* … *ethical spiritual companions*; bản Việt dự án dn33/dn34 dùng đúng *lợi dưỡng hợp pháp, có được một cách hợp pháp, dù chỉ là phần thức ăn trong bình bát* (dùng lại nguyên văn), *đồng phạm hạnh có giới* có 4 nơi. BẤT ĐỊNH: công thức kinh ghi `appaṭivibhattabhogī … sādhāraṇabhogī` (không dùng riêng, dùng chung), còn Pāli đã ghim của Milinda ghi `paṭivibhattabhoginā bhavitabbaṁ` (không có `a-`, không có `sādhāraṇabhogī`). Hai cách đều quy về *chia sẻ*; tôi dịch theo chữ đã ghim và theo đối ứng với con quạ, không chép phần `sādhāraṇabhogī` vào.
+  · `0.3` (accuracy fix): *Phẩm Con Sóc* → *Phẩm Con Lừa*. `gadrabha` là **con lừa**: chính tóm lược phẩm `mil7.2.10:7.1` `Gadrabho ceva kukkuṭo` đã dịch *Con lừa, con gà trống*, `mil7.2.10:5.1` ghi *Phẩm Con Lừa, thứ nhất*, và con sóc là `kalanda`/`kalandaka` (`mil7.2.3:0.4` `Kalandakaṅgapañha`). Mục "terminology fix (2026-10-04)" ở trên (`gadra là con sóc`) là sai và được thay bằng mục này. Đếm khoá `:0.3` trong phẩm: 8 tệp *Phẩm Con Sóc* (mil7.2.1, .3, .4, .5, .6, .7, .8, .10) / 1 tệp *Phẩm Con Lừa* (mil7.2.2) — sửa theo nghĩa Pāli, không theo đa số sai; các tệp kia nằm ngoài phạm vi lượt này.
+  · `3.4` (kỹ thuật): thiếu nháy đơn đóng `’` so với Pāli `bhojanan’”ti` (nháy `‘` mở ở `3.1` không được đóng). Đã thêm; đồng thời *rồi mới ăn vật phẩm ăn uống ấy* → *rồi mới thọ thực*.
+  · `3.2`, `3.3` (accuracy/clarity): *những gì vị tìm đạo đã tìm được, y như đã tìm cầu* → *những gì người tu khổ hạnh có được* (bỏ vế *y như đã tìm cầu* lặp ý không có trong Pāli; `tapassī` → *tu khổ hạnh* theo 6 tiền lệ Jātaka); *Ta sẽ chia hết cho tất cả* → *Ta chia cho tất cả* (Pāli là danh động từ + hiện tại, không có *sẽ*, không có *hết*). BẤT ĐỊNH: `tapassino` có thể là sở hữu cách số ít đồng vị với `me` (*cho ta, người tu khổ hạnh*) hoặc chủ cách số nhiều (*các vị tu khổ hạnh đem dâng*); câu Việt để ngỏ cả hai. Không tìm thấy bài kệ này ở nơi khác trong tầng Pāli.
+  · `1.3` (terminology): *các căn đã hộ trì và đã thu nhiếp* → *các căn được thu thúc* — một chữ `saṁvutehi`, bản cũ dịch thành hai; glossary `saṁvuta` = *được thu thúc*.
+  · `2.1` (terminology/clarity): *Tiếp nữa* → *Lại nữa* (`Puna caparaṁ`, như mil7.2.2, mil7.2.6, mil7.2.10); *vật phẩm ăn uống* → *thức ăn*; *người thân* → *bà con* (glossary `ñāti` = *bà con*; tự nhiên hơn cho loài quạ).
+  · `2.4` (accuracy): *Trưởng lão Sāriputta, Tướng quân Pháp, đã nói:—* → *Này Đại vương, điều này cũng đã được Trưởng lão Sāriputta, Tướng quân Chánh pháp, nói:—*. Cùng Pāli này có 15 khoá trong Milinda với 6 cách dịch; dạng cũ chiếm 6/15 nhưng bỏ mất `mahārāja` và `pi`; *Tướng quân Chánh pháp* chiếm 9/15. Không phải quy ước nhất trí nên sửa theo Pāli.
+  Không đổi dù cân nhắc: `yoginā yogāvacarena` vẫn là *người hành trì* (gộp cặp đồng nghĩa; trong phẩm 4 tệp dùng dạng này, 2 tệp dùng *người hành trì, người thực hành*); `aṅga` vẫn là *phần* theo các tệp cùng phẩm dù glossary ưu tiên *chi phần*; `āsaṅkitaparisaṅkito` (*nghi ngại, dè chừng*) vẫn chỉ có tiền lệ gần. 0 cặp Pāli trùng nguyên văn trong chính bài (phép rỗng). Dấu nháy khớp Pāli 17/17 khoá; 0 dấu lược ở cả hai bên; NFC; không Pāli lọt.
+  Điểm (trước → sau): semantic_fidelity 9.4 → 9.0, grammar_logic 9.3 → 9.0, terminology 9.3 → 9.0, vietnamese_clarity 9.3 → 9.1, han_viet_balance 9.3 → 9.1, ambiguity_integrity 9.1 → 8.8 (notes cũ từng tuyên bố đã phân xử hai chỗ mà thực ra sai; hai bất định thật còn lại ở `2.2` và `3.1–3.2`). Giữ: source_provenance 9.5, segment_alignment 10.0, triangulation 7.5 (không có bản Anh hay Việt hiện hành cho bài; chỉ đối chiếu được công thức song song ở `2.2`), technical_integrity 9.6. final_score 9.23 → 9.06. Lượt này không chạy `npm run validate` · `npm test` · `npm run check` · `npm run build`; technical gate chưa được xác nhận.
