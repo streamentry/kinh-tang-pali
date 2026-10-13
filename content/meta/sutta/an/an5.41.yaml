@@ -10,18 +10,26 @@ tags:
 quality:
   scores:
     source_provenance: 10.0
-    semantic_fidelity: 9.4
-    grammar_logic: 9.4
-    segment_alignment: 10.0
-    terminology: 9.3
+    semantic_fidelity: 9.0
+    grammar_logic: 9.2
+    segment_alignment: 9.8
+    terminology: 9.2
     triangulation: 9.0
-    vietnamese_clarity: 9.4
-    han_viet_balance: 9.4
-    ambiguity_integrity: 9.2
-    technical_integrity: 10.0
-  final_score: 9.51
+    vietnamese_clarity: 9.2
+    han_viet_balance: 9.3
+    ambiguity_integrity: 8.8
+    technical_integrity: 9.6
+  final_score: 9.31
   blocking_errors: []
-  assessed_at: "2026-09-13"
+  assessed_at: "2026-10-13"
   assessed_by:
-    - "GLM-5.3 Flash (ZCode)"
-    - "Adversarial review 2026-09-13: per-sutta segment coverage verified against pinned root; Pāli+EN sujato triangulated; TMC consulted via repo formulas; leak-scan for non-Latin chars passed"
+    - "Claude Opus 5.5 (Claude Code)"
+notes: |-
+  Lượt cải thiện 2026-10-13 (kiểm toán lại sau sửa lan): đọc đối kháng đủ 44 khoá, sửa 23 khoá, giữ nguyên tập khoá và thứ tự khoá. Lượt chấm 2026-09-13 (9.51) ghi segment_alignment 10.0 nhưng bài kệ còn hai chỗ lệch khoá theo trật tự câu English, nên các điểm cũ đã bị hạ ở dưới.
+  Lệch khoá (accuracy fix): `7.5` Upaṭṭhitā sīlavanto đang mang *đã kiềm chế* của `7.6`, còn `7.6` mang *đã được phụng sự* của `7.5`; nay `7.5` = *các bậc có giới đã được phụng sự*, `7.6` = *các bậc tự chế, sống phạm hạnh* (saññata: *tự chế* 62 khoá, *kiềm chế* 1 khoá toàn tầng). `8.1` Yadatthaṁ bhogaṁ iccheyya đang mang *bậc trí sống tại gia* của `8.2`, còn `8.2` mang *mong cầu của cải* của `8.1`, và `8.3` mất *so attho* (mục đích ấy); nay `8.1` = *Vì mục đích nào mà mong cầu của cải*, `8.2` = *bậc trí sống tại gia*, `8.3` = *mục đích ấy tôi đã đạt được*. Bài song song an4.61:18–19 có cùng kiểu lệch ở `19.1`–`19.2`, ngoài phạm vi lượt này.
+  Sai nghĩa hoặc thêm nghĩa (accuracy fix): `7.4` atho pañcabalīkatā thiếu động từ *kata*, nay *đã được thực hiện*; `3.2` rājato vốn là *vua*, bản cũ ghi *vua cướp bóc* (thêm *cướp bóc* không có trong Pāli; an5.148:6.2 cũng ghi như vậy, ngoài phạm vi); `9.3` Idheva naṁ pasaṁsanti không có chủ ngữ *bậc trí*, nay *ngay trong đời này, người ta tán thán người ấy* (pasaṁsa *tán thán* 40/66 khoá); `6.1` và `6.4` ādiyato là phân từ của đệ tử Thánh, không phải của tài sản, bản cũ ghi *của cải của đệ tử Thánh thâu dụng* gây hiểu sai chủ thể, nay *đệ tử Thánh ấy thực hành năm lý do hưởng dụng của cải này mà của cải bị hao hụt/được tăng trưởng*; `6.2` và `6.5` ye vata bhogānaṁ ādiyā te cāhaṁ ādiyāmi, bản cũ bỏ cấu trúc quan hệ, nay *Quả thật, những lý do hưởng dụng của cải nào, tôi đều đang thực hành, và của cải của tôi đang hao hụt/tăng trưởng*; `3.3` thêm lại tathārūpāsu āpadāsu (*trước những tai họa như vậy*); `5.1` thêm lại tathārūpesu samaṇabrāhmaṇesu và cấu trúc ye te … tathārūpesu, bỏ câu *quả là hạnh phúc* (dễ đọc thành *quả thật là*) thành *có quả hạnh phúc*; `1.7` dāra là *vợ*, không phải *vợ chồng*, nay *vợ con* như an5.58 và an4.61 (15 khoá dùng *vợ con*).
+  Thuật ngữ theo tiền lệ đã đếm: công thức *khiến … được an lạc, được thỏa mãn, giữ gìn đúng đắn sự an lạc* (sammā sukhaṁ pariharati) theo an4.61:13 và an5.227:2 (7 khoá), thay *giữ mình đúng trong hạnh phúc* (pariharati có tân ngữ sukhaṁ, không có *mình*, và với cha mẹ, con cái, bạn bè thì sai chủ thể) và *sung mãn* (pīṇeti: *thỏa mãn* 54 khoá, *sung mãn* 4 khoá); công thức tài sản `1.5`, `2.1`, `3.1`, `4.1`, `5.1` theo *do sức mạnh đôi tay mà tích lũy, do mồ hôi đổ ra mà có, hợp pháp, có được đúng pháp* (an4.62, an7.64, an8.55, an8.76; dhammaladdha là *có được đúng pháp*, không phải *thuộc pháp*; dhammika *hợp pháp* 82/462 khoá), thay *chính đáng, thuộc pháp*. Công thức này ở an5.58 (5 khoá) còn dạng cũ, ngoài phạm vi. `2.1` mittāmacce *bạn bè thân hữu* (22 khoá; *quyến thuộc* là ñāti, 55 khoá, nên *bạn bè quyến thuộc* làm lẫn hai nhóm). `4.2` pubbapeta *tổ tiên đã khuất* như an5.58:13.3 (*tổ tiên tiền nhân* lặp nghĩa). `5.1` samenti/parinibbāpenti *tự làm lắng dịu mình, tự đưa mình đến tịch diệt* như dn26:5.5 và an7.47:15.2, thay *tự an tịnh mình, tự diệt độ mình* (*diệt độ* chỉ có ở bài này). `1.1` công thức mở đầu theo dạng đa số (22/48 khoá toàn tầng, 16/30 trong Tăng Chi): *Một thời, Đức Phật ở Sāvatthī, tại rừng Jeta, trong tu viện của ông Anāthapiṇḍika*; dạng cũ *vườn Jeta, tinh xá* chỉ có 7 khoá.
+  Phép đo: 44/44 khoá Việt khớp tập khoá và thứ tự khoá Pāli; 0 cặp Pāli trùng nguyên văn trong chính bài (phép rỗng); không có dấu lược `…` ở Pāli lẫn Việt; NFC đạt; 0 từ Pāli lọt vào thân bản Việt ngoài tên riêng; nháy đơn và nháy kép khớp Pāli ở mọi khoá trừ `7.1` và `8.4`, xem bất định thứ hai.
+  Bất định còn lại, không phân xử được bằng Pāli: (1) ādiya trong bhogānaṁ ādiyā: bản Anh đã ghim dịch *reasons to get rich*, bản Việt nguyên bài dịch *gầy dựng tài sản*; bản này chọn *lý do hưởng dụng của cải* vì ngữ cảnh trong bài (`6.1`, `6.4`: ādiyato mà của cải hao hụt, và năm việc đều là cách dùng của cải) khớp với nghĩa *dùng, hưởng dụng* hơn nghĩa *thu về*, nhưng nghĩa chính xác của ādiya chưa được kiểm bằng từ điển ngoài kho. (2) Bài kệ `7.1`–`8.4` là lời nghĩ của đệ tử Thánh (có me hai lần, `9.1` quay về lời Đức Phật), nhưng Pāli không có iti đóng; nháy đơn ở `7.1` và `8.4` là cách đánh dấu của bản Anh đã ghim và của an4.61:18–19, không có ở Pāli. Giữ vì bỏ đi thì kệ đọc thành Đức Phật tự xưng *tôi*. (3) pariyodhāya vattati (`3.3`) dịch *sống nhờ của cải che chắn*, nghĩa gốc của pariyodhāya chưa kiểm ngoài kho. (4) uddhagga *cao thượng* (an4.61, an5.227, bài này: 3 bài) so với *hướng thượng* (dn2, dn26, sn3.19: 3 bài): hai dạng đều có tiền lệ ngang nhau nên không đổi; vitiṇṇā (`7.2`) giữ *đã được vượt qua*, như Sujato (*overcome*) và an4.61:18.2.
+  Mẫu số coverage English: Sujato phủ bài này gần đủ; `3.2` do Sujato để trống và đã có lớp lấp của dự án. Bản Việt nguyên bài ở mục Tra cứu toàn văn chỉ dùng để hiểu cách đọc, không chép câu chữ.
+  technical_integrity 9.6: lượt này chưa chạy npm run validate, npm test, npm run check, npm run build; cần chạy đủ bốn lệnh trước khi chốt.

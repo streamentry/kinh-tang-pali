@@ -15,13 +15,13 @@ quality:
     semantic_fidelity: 9.3
     grammar_logic: 9.3
     segment_alignment: 10.0
-    terminology: 9.3
+    terminology: 9.1
     triangulation: 7.0
-    vietnamese_clarity: 9.4
+    vietnamese_clarity: 9.2
     han_viet_balance: 9.3
-    ambiguity_integrity: 9.1
+    ambiguity_integrity: 9.0
     technical_integrity: 9.6
-  final_score: 9.17
+  final_score: 9.12
   blocking_errors:
     - "Không có tầng tham khảo English Sujato tại commit đã ghim: đếm bằng
       script trên cache đã ghim
@@ -31,9 +31,9 @@ quality:
       trong bản chụp upstream. Bài này vì vậy chỉ dịch từ Pāli, chưa đối chiếu
       được tầng tham khảo nào nên không đủ điều kiện review hoặc published; giữ
       draft cho tới khi người điều phối bổ sung tầng tham khảo."
-  assessed_at: "2026-10-03"
+  assessed_at: "2026-10-13"
   assessed_by:
-    - "OpenCode Space Bunny Free (agent)"
+    - "Claude Opus 5.5 (Claude Code)"
   waiver:
     id: no-upstream-english
     blockers:
@@ -99,3 +99,5 @@ notes: |-
   nguyên văn thag17.2:5.1–5.4; nháy mở `'` thẳng đổi thành `‘` và thêm `’` đóng cho khớp Pāli.
   Bất định còn lại: `siṅghāṭake` → “ngã ba” (xem trên); `saṅkārakūṭe`, `catukke`, `gāmadvāre`,
   `thusarāsimhi` đã có nghĩa chắc. Điểm không đổi.
+
+  Lượt cải thiện 2026-10-13 (kiểm toán lại sau sửa lan): đọc đối kháng đủ 15/15 khoá, so với Pāli, tiền lệ toàn tầng và bản Sujato của thag17.2 và sn20.8. Đổi 3 khoá: (1) 1.5 `devātidevena` “đấng Thiên Nhân” → “bậc Thiên Trung Thiên” (accuracy fix: `devātideva` là “vị trời vượt trên chư thiên”, không phải “thiên nhân”; tiền lệ cnd9:16.14, cnd22:27.4, mil5.4.7:24.2 và chính mil7.2.2:3.4, 7.2.2:7.4 đều là “Thiên Trung Thiên”), mở đầu đổi sang “Này Đại vương, điều này cũng đã được Đức Thế Tôn … nói:” theo mil7.2.2 vì Pāli có `-pi`; `etarahi` “từ nay trở đi” → “hiện nay” (sai thời; sn20.8:3.1 dùng “hiện nay”); `padhānasmin` “sự cần cố” → “sự tinh cần” (dn33:1.9.34, sn20.8). (2) 1.3 `sayitabbaṁ` là bổn phận nhưng bản cũ viết “cũng trải tấm da ra mà nằm”, mất “cần phải” → “cũng cần phải trải mảnh da ra mà nằm”; `cammakhaṇḍaṁ` “tấm da” → “mảnh da” (mnd16:206.1, ps1.3:61.6, mil6.4.1:49.2 đều “mảnh da”; khaṇḍa là mảnh). (3) 1.2 bỏ “được” trong “nằm được” vì `sayati` chỉ là nằm, không nói khả năng. Điểm đổi: terminology 9.3 → 9.1 (còn `siṅghāṭaka` → “ngã ba” lệch đa số: “ngã tư” ở 7 bài (dn2, dn10, dn26, mn87, mn129…), chỉ dn23 dùng “ngã ba”; giữ có chủ ý để phân biệt với `catukka` “ngã tư” nhưng căn cứ yếu; và tiêu đề `Opammakathāpañha` “cách dùng dẫn với ví dụ” theo đa số 9/16 dù câu tiếng Việt gượng); vietnamese_clarity 9.4 → 9.2 (cùng lý do cụm “dùng dẫn”, giữ vì đồng nhất với tầng); ambiguity_integrity 9.1 → 9.0 (bất định `siṅghāṭaka` chưa phân xử được). Các điểm khác giữ nguyên, triangulation giữ 7.0 vì không có bản Anh độc lập cho bài này (bản Sujato của sn20.8 và thag17.2 chỉ làm tham chiếu cho hai đoạn trích). Đã kiểm lại: đủ 15/15 khoá, thứ tự khoá y hệt Pāli, nháy kép và nháy đơn khớp Pāli từng khoá, NFC, không Pāli lọt sang Việt (trừ tên riêng), 0 cặp Pāli trùng nguyên văn trong bài. Các lệnh npm run validate, npm test, npm run check, npm run build chưa chạy ở lượt này; technical_integrity giữ 9.6. Bất định còn lại: `siṅghāṭaka` (ngã ba hay ngã tư), `kaliṅga` “khúc gỗ” (theo sn20.8 và bản Sujato “wood blocks”, không phân xử thêm được).

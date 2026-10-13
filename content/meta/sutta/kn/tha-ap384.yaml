@@ -13,16 +13,16 @@ tags:
 quality:
   scores:
     source_provenance: 9.5
-    semantic_fidelity: 9.2
-    grammar_logic: 9.1
+    semantic_fidelity: 9.0
+    grammar_logic: 9.0
     segment_alignment: 10.0
-    terminology: 9.2
+    terminology: 9.0
     triangulation: 7.5
-    vietnamese_clarity: 9.2
+    vietnamese_clarity: 9.1
     han_viet_balance: 9.3
     ambiguity_integrity: 9.0
     technical_integrity: 9.6
-  final_score: 9.16
+  final_score: 9.1
   blocking_errors:
     - "Không có tầng tham khảo tiếng Anh tại commit đã ghim: tệp
       `.cache/upstream/suttacentral/translation/en/sujato/sutta/kn/tha-ap/tha-a\
@@ -41,9 +41,9 @@ quality:
       Ba tầng tham khảo đều vắng ⇒ bài dịch chỉ từ Pāli root ⇒ blocker thật, và
       đây là **giới hạn upstream**, không phải lỗi của người dịch. Vì vậy
       `triangulation` bị chặn ở 7.5 (≤ 8.0) chứ không nâng để né blocker."
-  assessed_at: "2026-10-04"
+  assessed_at: "2026-10-13"
   assessed_by:
-    - "OpenCode Space Bunny Free (agent)"
+    - "Claude Opus 5.5 (Claude Code)"
   waiver:
     id: no-upstream-english
     blockers:
@@ -80,3 +80,13 @@ notes: |-
   xứ nào) → “Ta không còn biết đến đọa xứ,”; giữ nguyên xưng hô của bài. Cùng công thức đã dịch đúng ở
   đa số khoá trong tầng.
   Sửa lan 2026-10-13: khoá `tha-ap384:3.1` `Vittisañjananaṁ mayhaṁ` *đã liếm sạch vết thương của ta* → *làm sinh khởi niềm hoan hỷ nơi ta*, và `3.2` `diṭṭhadhammasukhāvahaṁ` *mang theo sự an lạc của điều đã thấy biết* → *đem lại an lạc ngay trong hiện tại*. Căn cứ: `vitti` là *hoan hỷ* (không có nghĩa *vết thương*), `sañjanana` là *làm sinh khởi*; `diṭṭhadhamma` là *đời này, ngay trong hiện tại*; cả hai là tính từ chỉ quả `phalaṁ` ở `3.3`, không phải động từ quá khứ. Tiền lệ: `tha-ap469:3.1`–`3.2` (dạng gần: `Vittisañjanano mayhaṁ, diṭṭhadhammasukhāvaho`) và `tha-ap512:3.1`–`3.2` (*sinh khởi niềm hoan hỷ cho ta* / *mang đến an lạc ngay trong hiện tại*); `tha-ap129:4.3`–`4.4` cùng cách dịch. Ghi chú bất định ở trên về `3.1` (*Đức Phật liếm vết thương*) và `3.2` (*điều đã thấy biết*) được thay bằng mục này. Chưa sửa vì ngoài phạm vi lan: `4.3`–`4.4` `Uppajjateva ratanaṁ, nibbattassa tahiṁ tahiṁ` (cùng một bản dịch ở `tha-ap469` và `tha-ap512`; `tha-ap540:11.4` dịch `nibbattassa tahiṁ tahiṁ` là *ở mỗi nơi con sinh ra*) và `2.4` `mahāyaso` *bậc cao lớn*.
+
+  Lượt cải thiện 2026-10-13 (kiểm toán lại sau sửa lan): đọc đối kháng đủ 34 khoá, đo tiền lệ trên toàn tầng `kn`, sửa 5 khoá.
+  (1) `1.2` `āsiṁ ārāmiko tadā` trước *lúc ấy ta là dân làng ở đó* → *lúc ấy ta là người giữ vườn*: `ārāmika` là người trông coi vườn/tịnh xá, không có nghĩa *dân làng*, và `ở đó` không có trong Pāli (accuracy fix; cùng lỗi còn ở `tha-ap469:1.2` và `tha-ap512:1.2`, chưa sửa vì ngoài phạm vi). `tha-ap182:1.2` dịch `ahosārāmiko ahaṁ` là *người phục vụ vườn tu viện*; không phân xử được `ārāma` ở đây là vườn hay tịnh xá (xem bất định bên dưới).
+  (2) `2.1` *Cầm trái cây labuja trên tay* → *Cầm lấy trái cây labuja*: `gayha` chỉ có nghĩa cầm lấy, `trên tay` là thêm nghĩa; theo dạng `Cầm lấy trái cây vallikāra` (`tha-ap480:1.3`), `Cầm lấy quả thanh yên` (`tha-ap508:2.1`).
+  (2b) `2.4` `paṭigaṇhi mahāyaso` *bậc cao lớn đã nhận lấy* → *bậc có danh tiếng lớn đã nhận lấy*: `yasa` là danh tiếng; `mahāyaso` ở đa số các khoá của tầng được dịch là *danh tiếng lớn* (47 khoá), *bậc cao lớn* làm mất vế `yaso` (terminology fix).
+  (3) `4.3`–`4.4` `Uppajjateva ratanaṁ, nibbattassa tahiṁ tahiṁ` *Quý báu ấy đơn thuần là hiện khởi thôi / mỗi bước lại thêm một chút* → *Món báu quả thật khởi lên, / ở mỗi nơi ta sinh ra*: `uppajjati + eva` là *khởi lên, quả thật*; `nibbattassa tahiṁ tahiṁ` là *(với ta) sinh ra ở mỗi nơi*, đúng như `tha-ap540:11.4` (*ở mỗi nơi con sinh ra*) và `tha-ap225:3.2` `ratanaṁ nibbattate mama` (*một món báu quý đã sinh khởi cho tôi*). Bản cũ biến `tahiṁ tahiṁ` (nơi này nơi kia) thành *mỗi bước* và đưa vào ý *thêm một chút* không có trong Pāli (accuracy fix). Cùng lỗi còn ở `tha-ap469:4.3`–`4.4` và `tha-ap512:4.3`–`4.4`, chưa sửa vì ngoài phạm vi.
+  Điểm đổi: `semantic_fidelity` 9.2 → 9.0, `grammar_logic` 9.1 → 9.0, `terminology` 9.2 → 9.0, `vietnamese_clarity` 9.2 → 9.1; `final_score` 9.16 → 9.10. Điểm giảm vì kiểm toán lộ ra các lỗi (1), (2), (2b), (3) mà điểm cũ chưa tính; bản dịch sau sửa đã đúng hơn nhưng không được nâng lại vì còn bất định thật, ghi dưới đây. Các tiêu chí khác giữ nguyên, không có cải thiện cụ thể nào đứng sau việc nâng.
+  Bất định còn lại (không giải quyết được bằng căn cứ trong kho): `ārāmiko` (1.2) — *người giữ vườn* hay *người phục vụ tịnh xá*, không có tầng Anh để phân xử; `vipulañca sukhuttamaṁ` (4.2) — chữ `vipula` có thể đi với `pīti` (4.1) hoặc cùng `sukhuttamaṁ`, bản dịch giữ cách `rộng lớn` cho hoan hỷ và `tối thượng` cho an lạc như `tha-ap512:4.2`; `3.1`–`3.2` là hai tính từ chỉ `phalaṁ` ở `3.3` nên đứng trước danh từ mà không có chủ ngữ, câu Việt giữ nguyên thứ tự Pāli; `vitti` (3.1) và `pīti` (4.2) cùng dịch *niềm hoan hỷ* nên hai từ Pāli khác nhau không phân biệt được trên chữ Việt.
+  Không đổi dù nghi ngờ: `1.4` `gacchantaṁ anilañjase` *đang ngự giữa bầu trời lộng gió* (`ngự` lệch nhẹ so với `gacchantaṁ` là đang đi, nhưng 5/5 khoá cùng Pāli trong tầng dùng đúng cụm này và `ngự` là động từ kính ngữ cho Đức Phật đi); `3.4` `vippasannena cetasā` *với tâm thanh tịnh tinh khiết* (hai tính từ chồng nghĩa; trong phẩm `tha-ap` với kết cú `.` đây là cách đa số, 5 khoá; trên toàn tầng `kn` thì *với tâm trong sáng* nhiều hơn, 10 khoá, nên đây là chỗ lệch tiền lệ toàn tầng chưa sửa vì hai cách đều chấp nhận được). Chữ hoa đầu `3.1` giữ thường như `tha-ap469:3.1`, vì câu tiếp mạch với `3.3`.
+  Đo tiền lệ trên tầng `kn`: 34 khoá, 26 khoá có dạng Pāli trùng ở bài khác; 22/26 dùng đúng cách dịch đa số; 4 khoá lệch: `1.3` (chỉ khác ngôi *ta*/*tôi*, giữ *ta* theo cụm tiền lệ của bài), `3.4` (xem trên), và `4.3`–`4.4` (cách dịch cũ là đa số 2 khoá nhưng sai nghĩa, đã sửa). Các khoá `1.2`, `2.1`, `2.4` nay là bản dịch duy nhất trong tầng. Trong chính bài: một nhóm Pāli trùng nguyên văn (`…pe…` × 3 ở `6.2`, `7.2`, `8.2`) và cả ba bản Việt giống nhau (`…`). Số Pāli: `ekanavutito` = 91 (`eka` 1 + `navuti` 90) khớp *chín mươi mốt*. Cổng kỹ thuật (`npm run validate`, `npm test`, `npm run check`, `npm run build`) chưa chạy trong lượt này; `technical_integrity` giữ 9.6.

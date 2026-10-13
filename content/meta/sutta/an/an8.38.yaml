@@ -12,20 +12,20 @@ tags:
 quality:
   scores:
     source_provenance: 9.6
-    semantic_fidelity: 9.4
+    semantic_fidelity: 9.2
     grammar_logic: 9.3
     segment_alignment: 10.0
-    terminology: 9.2
+    terminology: 9.4
     triangulation: 9.2
-    vietnamese_clarity: 9.3
+    vietnamese_clarity: 9.4
     han_viet_balance: 9.3
-    ambiguity_integrity: 9.4
-    technical_integrity: 10.0
-  final_score: 9.47
+    ambiguity_integrity: 9.0
+    technical_integrity: 9.6
+  final_score: 9.4
   blocking_errors: []
-  assessed_at: "2026-09-29"
+  assessed_at: "2026-10-13"
   assessed_by:
-    - "OpenCode Space Bunny Free (agent)"
+    - "Claude Opus 5.5 (Claude Code)"
 notes:
   - >-
     **Không đối chiếu được tầng Việt hiện hành.** Bilara tại commit đã ghim chỉ
@@ -146,6 +146,52 @@ notes:
     không có ở đây, nhưng `sn49`-kiểu `1.8` nối tiếp không chủ ngữ được giữ
     đúng. (d) **Tiền lệ sai thì không theo** — *Cầu Vàng* / *tức địa* (lát 18).
     (e) **Pāli không hoa sau ngoặc thì Việt vẫn hoa** — `sn17.1:2.3` (PĀ_LỖI 5).
+  - >-
+    **Lượt cải thiện 2026-10-13 (kiểm toán lại sau sửa lan).** Đọc đối kháng đủ
+    25 khoá, từng cặp Pāli↔Việt. **Không có khoá nào lệch ranh:** tập khoá và
+    thứ tự khớp Pāli 25/25; dòng kệ `3.1`–`6.4` đều khớp từng câu Pāli (bản Anh
+    Sujato mới là bản đảo trật tự — `4.3` Anh = `5.1`+`5.2` Pāli — còn Việt bám
+    Pāli); nháy/ngoặc kép khớp Pāli 25/25; 0 cặp Pāli trùng nguyên văn trong
+    bài (phép đó chạy rỗng). **Đổi 11/25 khoá.** (1) `1.1`, `2.1`, `2.2`: *thì
+    vì* → *là vì* (`hoti` là vị ngữ, không phải mệnh đề điều kiện; khớp
+    `an5.42:1.1`) — sửa rõ ràng. (2) `1.2`/`2.3`: `dāsakammakaraporisassa` có
+    **ba** thành tố nhưng bản cũ chỉ ghi hai (*tôi tớ và người làm công*) →
+    *nô lệ, người làm và người hầu* (`an5.42:1.4`, `an5.41:1.7`, `an5.58:7.2`,
+    3/3 cùng công thức); `pubbapetānaṁ` *người thân đã mất* (thêm chữ *thân*
+    không có trong Pāli) → *tổ tiên đã khuất* (AN: `an4.61:15.2`, `an5.41:4.2`,
+    `an5.58:13.3` đều *tổ tiên*; `mn97` *người quá cố*). (3) `3.1` thiếu `vata`
+    → *Thật vậy, vì lợi ích cho nhiều người* (đúng `vv47:13.1`, `vv50:31.1`;
+    4/4 dòng `Bahūnaṁ vata atthāya` đều dịch `vata`). (4) `3.4` *không biếng
+    trễ* → *không mệt mỏi* (`sn2.15:2.2`, `an4.37:7.2`, 2/2 `atandito`). (5)
+    `4.4` *các vị khất sĩ phạm hạnh* → *các vị sống phạm hạnh*: *khất sĩ* không
+    có trong Pāli (chỉ đến từ chữ *mendicant* của Sujato) và không dòng nào khác
+    của toàn bộ AN đã dịch dùng *khất sĩ*; `brahmacārayo` → *sống phạm hạnh* theo `dn16`, `an6.37`,
+    `ud8.6`, `vv34`. (6) `5.1` `niviṭṭhasaddho` *có niềm tin an trú* → *có niềm
+    tin đã an lập* (`an6.30`, 6/6). (7) `5.2` `pesalo` *khéo léo* → *hiền thiện*
+    (`sn6.9`, `sn6.10`, `an6.45` *hiền thiện*, `dn16` *hiền lành*). (8) `6.4`
+    `sa lokaṁ bhajate sivaṁ` *đến thế giới an lành* → *hưởng thế giới an lành*
+    (cùng dòng Pāli ở `an3.45:3.4`, `snp1.6:26.4`, 2/2 dùng *hưởng*). Điểm đổi:
+    `semantic_fidelity` 9.4→9.2 (bản cũ thiếu một thành tố, thêm một chữ và
+    dịch sai `pesalo`; còn `apace` chưa phân xử); `terminology` 9.2→9.4 (8 chỗ
+    đưa về tiền lệ đếm được); `vietnamese_clarity` 9.3→9.4 (bỏ *thì vì* và *an
+    trú cúng dường* lạc nghĩa); `ambiguity_integrity` 9.4→9.0 (bất định thật
+    còn lại ghi dưới đây, bản cũ chỉ ghi lướt); `technical_integrity` 10.0→9.6
+    (không chạy được `npm run validate` · `npm test` · `npm run check` · `npm
+    run build` trong lượt này); các điểm khác giữ nguyên. `final_score` 9.47→9.4.
+  - >-
+    **Bất định còn lại của bài (đã nghĩ kỹ, không đủ căn cứ phân xử, KHÔNG
+    thêm vào thân kinh):** (a) `apace` (`4.4`) chỉ xuất hiện thêm một lần trong
+    toàn Pāli root ghim (`thi-ap27:40.2`, nơi kho dịch *sự tôn kính*); có thể là
+    động từ *kính lễ* (bản Việt truyền thống đọc vậy) hoặc không; bản dịch **chưa
+    dịch riêng** chữ này, nghĩa kính lễ đã có ở `pūjeti` (`5.1`) — vì thế câu
+    kệ vẫn thành nghĩa nhưng một thành tố từ vựng không được tách riêng. (b)
+    `pubbe` (`3.3`) hiểu *tổ tiên* theo Sujato và bản Việt truyền thống, nhưng
+    có thể là phó từ *trước (hết)/ngày trước*. (c) `pubbekatam` (`4.2`) giữ
+    *việc xưa đã làm* trung tính, không nói ai làm (Sujato *what they have
+    done*). (d) `pūjeti` (`4.1`, `5.1`) giữ *cúng dường* theo `mn35:26.3`; với
+    cha mẹ *tôn kính* có thể sát hơn. (e) `ñatvā dhamme ca pesalo` (`5.2`): `dhamme`
+    đọc là *pháp* (tân ngữ của `ñatvā`) — Sujato đọc khác (*phẩm hạnh tốt của
+    họ*). Người biên tập nên kiểm (a) và (e) với bản chú giải nếu có.
   - >-
     **25 khoá** (văn xuôi + 4 khổ kệ); bậc thiện nhân như mây mưa. Kệ 4.3–5.2
     theo Sujato (chủ ngữ gộp). ⚠ `2.3` không ngoặc đóng theo Pāli.

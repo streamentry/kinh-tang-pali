@@ -1,5 +1,5 @@
 uid: mil7.2.4
-status: published
+status: review
 translationTitle: "Câu Hỏi Về Phần Của Con Báo Cái"
 translators:
   - "OpenCode Space Bunny Free (agent)"
@@ -13,16 +13,16 @@ tags:
 quality:
   scores:
     source_provenance: 9.5
-    semantic_fidelity: 9.3
-    grammar_logic: 9.2
+    semantic_fidelity: 8.8
+    grammar_logic: 9.0
     segment_alignment: 10.0
-    terminology: 9.2
+    terminology: 8.8
     triangulation: 7.5
-    vietnamese_clarity: 9.2
-    han_viet_balance: 9.3
-    ambiguity_integrity: 9.1
+    vietnamese_clarity: 9.0
+    han_viet_balance: 9.2
+    ambiguity_integrity: 8.6
     technical_integrity: 9.6
-  final_score: 9.19
+  final_score: 9.0
   blocking_errors:
     - "Không có tầng tham khảo tiếng Anh tại commit đã ghim: 0/14 bài của lát w6
       có tệp `*_translation-en-sujato.json`. Đã đếm ở nguồn sự thật là
@@ -33,9 +33,9 @@ quality:
       tệp, toàn bộ là Pháp Cú. Lớp lấp English của chính dự án cũng không có cho
       14 uid này. Bài dịch chỉ từ Pāli root nên chưa đối chiếu được tầng tham
       khảo đã ghim; giữ draft."
-  assessed_at: "2026-10-02"
+  assessed_at: "2026-10-13"
   assessed_by:
-    - "OpenCode Space Bunny Free (agent)"
+    - "Claude Opus 5.5 (Claude Code)"
   waiver:
     id: no-upstream-english
     blockers:
@@ -131,3 +131,13 @@ notes: |-
   **terminology fix (2026-10-04, coordinator).** `Gadrabhavagga` bị dịch "Phẩm Con Lừa" ở khối `:0.3` — lẫn với `Kumbhavagga` (con lừa). `gadra` là **con sóc**, và hai tệp cùng phẩm (mil7.2.1, mil7.2.6) đã dùng đúng "Phẩm Con Sóc". Đếm toàn tầng trước khi sửa: 6 tệp lừa / 2 tệp sóc / 1 tệp giữ PĦLI. Đã đồng nhất sang sóc.
 
   Sửa lan 2026-10-13: khoá `mil7.2.4:0.3`, *Phẩm Con Sóc* → *Phẩm Con Lừa* (accuracy fix). Căn cứ: Pāli `Gadrabhavagga`, `gadrabha` là con lừa; con sóc là `kalandaka` (xem `mil7.2.3:0.4` `Kalandakaṅgapañha`). Theo `mil7.2.2` và `mil7.2.9` của cùng phẩm đã ghi *Phẩm Con Lừa*. Ngoài lane, còn *Phẩm Con Sóc* ở `mil7.2.1`, `mil7.2.3`, `mil7.2.5`–`mil7.2.8`, `mil7.2.10`; tiêu đề `mil7.2.1:0.4` (`Gadrabhaṅgapañha`) cũng viết *con sóc* thay vì *con lừa*. Giữ nguyên `mil7.2.4:0.4` (`Dīpiniyaṅgapañha`, *con báo cái*) và `translationTitle`.
+
+  Lượt cải thiện 2026-10-13 (kiểm toán lại sau sửa lan). Đọc đối kháng đủ 14 khoá, đo tiền lệ bằng số đếm trên toàn tầng; đổi 5 khoá (1.1–1.5), 9 khoá còn lại giữ nguyên. Các ghi chú cũ phía trên về `āyati` = "sự đến" và về 12 vế là LỖI PHÂN TÍCH của lượt đầu, nay thay bằng các điều sau.
+  · 1.3 (accuracy + terminology fix): `āyatiṁ` là trạng từ "trong tương lai" (ở `kn`, 111/116 khoá có `āyatiṁ` dịch "trong tương lai"; còn lại là `anāyatiṁ`/`-māyatiṁ` hoặc cách diễn đạt khác; không khoá nào dịch là "sự đến" như một vế danh sách), không phải một vế danh sách; bỏ "sự đến", thêm "trong tương lai" và đổi cấu trúc thành "sau khi thấy … thì phải tác ý như lý" cho đúng `disvā … karaṇīyo` (bản cũ để "phải" rơi vào "thấy rõ"). `yoniso manasikāro` → "tác ý như lý" (glossary + tầng), bỏ "chuyên tâm suy nghĩ đúng đắn" vốn thêm nghĩa. `paṭisandhi` "sự thọ sanh" → "sự tái sinh" (tầng: tái sinh 77, kết sinh 56, tái tục 8, thọ sinh 5, thọ sanh 1). `gabbhaseyya` "sự thai nghén" → "sự nằm trong thai" (ja418, kp9, snp1.2, snp1.8, vv53 đều "nằm (trong) thai"; snp3.6 "vào thai tạng"). `cuti` "sự sụp đổ" → "sự chết" (ud8.1 "chết", cnd19 "sự chết đi"). `duggati` "thân phận khổ đau" → "cõi dữ" (46 khoá, đa số; "thân phận" chỉ có cho `gati`, không phải `duggati`). `visama` "sự khó nhọc" → "sự gập ghềnh" (ja435, ja472, ja477). `sampīḷita` "sự chồng chất" → "sự bức bách" (pe6, tha-ap8, ne7 đều bức bách/chèn ép). Lời tự nhủ "Tôi sẽ không sinh trở lại nữa" → "Tôi sẽ không tái sinh vào đời sống tiếp nối" để giữ `punabbhave` (sn5.6 "đời sống tiếp nối"). `saṁsārabhaya`: "sự sợ hãi" → "nỗi sợ hãi" (văn phong, cnd "nỗi sợ").
+  · 1.2 (accuracy fix): `sakiṁyeva gabbhaṁ gaṇhāti` — `sakiṁ` là "một lần", bản cũ "chỉ nhận lấy một thai" đọc thành "một thai"; nay "chỉ thụ thai một lần mà thôi" (`gabbhaṁ gaṇhāti` → thụ thai; gần nhất mil5.1.6:12.4 dịch `gabbhāvakkanti` là "sự thụ thai"). Thêm "ví như" cho `yathā` (mil7.2.2 và mil7.2.5 cùng phẩm đều giữ). "không nhiều lần nào lại đến bên bố con" (gượng, "bố con" tối nghĩa) → "không đến với con đực hết lần này đến lần khác"; `purisa` = con đực vẫn là cách đọc ít giả định nhất, xem bất định.
+  · 1.4 (accuracy fix): thêm "một" cho `ekaṁ aṅgaṁ` (số lượng). Lưu ý: các bài anh em cùng phẩm (7.2.1, 7.2.3, 7.2.7, 7.2.8) đang bỏ chữ này; không sửa vì ngoài lane.
+  · 1.5 (accuracy + terminology fix): `devātideva` bị dịch "đấng Thiên Nhân" — sai, vì Thiên Nhân là `devamanussa` (trời và người); đo toàn tầng: "Thiên Trung Thiên" 6 khoá (cnd, ne, vv, mil5.4.7, mil7.4.4, mil7.7.10), "Trời giữa chư thiên" 3, "Thiên Nhân" chỉ ở các bài mil7.x. Nay "bậc Thiên Trung Thiên". Khôi phục `mahārāja` và `-pi` ("cũng") của `Bhāsitampetaṁ, mahārāja`; theo mẫu "Điều này, này Đại vương, … đã nói" của mil3.x. Bài anh em mil7.3.7:1.5, mil7.7.2:1.5, mil7.7.7:3.4, mil7.8.1:1.5 còn "đấng Thiên Nhân" và bỏ `mahārāja` — ngoài lane, cần sửa riêng.
+  · 1.1 (clarity fix): dấu hỏi chuyển vào trong nháy, `?”`, như mil7.2.1 và mil7.2.9 (bản cũ `”?` khớp thứ tự dấu của Pāli nhưng sai văn phạm Việt). Số nháy đơn/kép khớp Pāli từng khoá (14/14).
+  · Giữ nguyên: `0.2` "Câu hỏi về cách dùng dẫn với ví dụ" (42/69 khoá ở mil7.x; cụm gượng nhưng đã là quy ước tầng, không đổi một bài); `0.3` Phẩm Con Lừa (đã sửa lan); bốn dòng kệ 2.1–2.4 (2.1–2.3 trùng nguyên văn `snp1.2:12.1/12.3/12.4`, 2.4 khác ở `devā’”ti`, vẫn giữ cách dịch của snp1.2:12.5 trừ dấu).
+  · BẤT ĐỊNH CÒN LẠI: (1) phạm vi của `āyatiṁ` — trạng từ cho cả danh sách, hay chỉ cho `paṭisandhi`; chọn cách bao trùm, không phân xử được bằng căn cứ trong kho. (2) `purisa` = con đực hay "người" nói chung. (3) `visama`, `khaya`, `vināsa` chỉ có tiền lệ yếu (khoá đơn lẻ, ngữ cảnh khác); chưa có tầng tham khảo nào để phân xử. (4) `sakiṁ` "một lần" là một lần trong đời hay một lần mỗi mùa — Pāli không nói.
+  · Chấm lại: semantic_fidelity 9.3 → 8.8 (phát hiện `āyati`, `sakiṁ`, `devātideva` đọc sai ở bản cũ; đã sửa nhưng bất định còn); terminology 9.2 → 8.8 (6 thuật ngữ lệch tiền lệ trước khi sửa, 3 còn tiền lệ yếu); grammar_logic 9.2 → 9.0 (câu cũ đặt "phải" sai chỗ, nay đã sửa); vietnamese_clarity 9.2 → 9.0 ("bố con", "không nhiều lần nào" gượng, đã sửa); han_viet_balance 9.3 → 9.2; ambiguity_integrity 9.1 → 8.6 (bản cũ không ghi bất định nào của danh sách 1.3, nay ghi bốn điều); các tiêu chí khác giữ. final_score 9.19 → 9.0. technical_integrity giữ 9.6: chưa chạy `npm run validate`, `npm test`, `npm run check`, `npm run build`.
