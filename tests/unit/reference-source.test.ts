@@ -220,6 +220,24 @@ test('every in-scope text resolves to a synced, segment-aligned English referenc
   assert.ok(unpublishedUpstream.includes('kn/ja101'), 'kn/ja101 has no pinned English and must be checked as such');
 });
 
+/**
+ * What the PINNED English edition alone leaves blank, measured straight from the two
+ * upstream files. The store-level `englishCoverageFor` also counts the project's own
+ * `english-project` fill, so it stops describing the pinned edition the moment a fill is
+ * published — a specimen pinned to it then fails exactly when the project succeeds.
+ * Measuring the pinned files directly keeps these properties true whether or not a fill
+ * exists, and the store metric is checked only against that floor.
+ */
+function pinnedHole(paliRel: string, englishRel: string, uid: string) {
+  const pali = segmentMapForUid(readJson<Record<string, string>>(upstreamFile(paliRel)), uid);
+  const english = segmentMapForUid(readJson<Record<string, string>>(upstreamFile(englishRel)), uid);
+  const substantive = Object.keys(pali).filter(
+    (id) => !id.slice(id.indexOf(':') + 1).startsWith('0.') && pali[id].trim().length >= SUBSTANTIVE_PALI_MIN_CHARS,
+  );
+  const blank = substantive.filter((id) => !(english[id] ?? '').trim());
+  return { pali, english, substantive, blank, ratio: (substantive.length - blank.length) / substantive.length };
+}
+
 test('coverage measures substantive Pāli, not raw segment count', { skip: !existsSync(upstreamFile('translation/en/sujato/sutta/an/an2/an2.1-10_translation-en-sujato.json')) ? 'run npm run source:sync:all' : false }, () => {
   // an1.1 is the argument for the substantive denominator. Half its segments are
   // blank in English — every `Paṭhamaṁ.`, `Dutiyaṁ.`, `Tatiyaṁ.` marker and the
@@ -267,23 +285,29 @@ test('coverage measures substantive Pāli, not raw segment count', { skip: !exis
   );
   assert.equal(sn2437.ratio, 1, 'so sn24.37 is fully covered at store level');
 
-  // mn58 is the live counter-example that keeps this test meaningful. Twenty-one
-  // of its seventy-six substantive segments are blank in the pinned edition and
-  // the fill layer has not covered them, so it sits under the floor. The shape
-  // matters: nine of those twenty-one are Pāli repeated *verbatim* elsewhere in
-  // the same text (:3.18 and the six :6.1x–:6.2x replies), so much of the
-  // meaning is recoverable from the keys around them. That is exactly why the
-  // metric counts missing segments rather than declaring the text unreadable.
-  // It is the smallest text left with a genuinely thin pinned edition — every
-  // other sub-floor text is one the pin does not cover at all.
-  const mn58 = englishCoverageFor('mn', 'mn58')!;
-  assert.equal(mn58.substantiveSegments, 76);
-  assert.equal(mn58.substantiveWithoutEnglish, 21);
-  assert.ok(mn58.ratio < MIN_ENGLISH_COVERAGE, 'which does drop it below the floor');
+  // mn58 is the counter-example that keeps this test meaningful. Twenty-one of its
+  // seventy-six substantive segments are blank in the PINNED edition — measured here
+  // from the upstream files, so it stays true after the project's own fill covers them.
+  // The shape matters: nine of those twenty-one are Pāli repeated *verbatim* elsewhere
+  // in the same text (:3.18 and the six :6.1x–:6.2x replies), so much of the meaning is
+  // recoverable from the keys around them. That is exactly why the metric counts missing
+  // segments rather than declaring the text unreadable.
+  const mn58Hole = pinnedHole(
+    'root/pli/ms/sutta/mn/mn58_root-pli-ms.json',
+    'translation/en/sujato/sutta/mn/mn58_translation-en-sujato.json',
+    'mn58',
+  );
+  assert.equal(mn58Hole.substantive.length, 76);
+  assert.equal(mn58Hole.blank.length, 21);
+  assert.ok(mn58Hole.ratio < MIN_ENGLISH_COVERAGE, 'which does drop the pinned edition below the floor');
   assert.ok(
-    Math.abs(mn58.ratio - 0.7237) < 1e-4,
+    Math.abs(mn58Hole.ratio - 0.7237) < 1e-4,
     'and the hole is 21 of 76 substantive segments, not a rounded impression',
   );
+  const mn58 = englishCoverageFor('mn', 'mn58')!;
+  assert.equal(mn58.substantiveSegments, 76);
+  assert.ok(mn58.substantiveWithoutEnglish <= 21, 'the store never sees more holes than the pinned edition has');
+  assert.ok(mn58.ratio >= mn58Hole.ratio - 1e-9, 'a fill can only raise coverage above the pinned edition');
   const english = segmentMapForUid(
     readJson<Record<string, string>>(upstreamFile('translation/en/sujato/sutta/an/an2/an2.1-10_translation-en-sujato.json')),
     'an2.3',
@@ -313,22 +337,28 @@ test('coverage measures substantive Pāli, not raw segment count', { skip: !exis
 // after the first line of the villager's answer. Keep this note — if the specimen
 // ever moves again, the previous one was *filled*, not merely deleted.
 test('a text with no English prose at all falls below the coverage floor', { skip: !existsSync(upstreamFile('translation/en/sujato/sutta/sn/sn42/sn42.5_translation-en-sujato.json')) ? 'run npm run source:sync:all' : false }, () => {
-  // sn42.5 keeps its join keys but has no English for the rest of the gāmaṇi's
-  // answer, including "yo so assāroho saṅgāme ussahati vāyamati…".
-  const coverage = englishCoverageFor('sn', 'sn42.5')!;
-  assert.equal(coverage.englishSegments, coverage.paliSegments, 'join is exact');
-  assert.equal(coverage.substantiveSegments, 18);
-  assert.equal(coverage.substantiveWithoutEnglish, 17);
-  assert.ok(coverage.ratio < MIN_ENGLISH_COVERAGE, `expected below floor, got ${coverage.ratio}`);
-  // Pinned exactly: if the pinned commit ever changes, this must be revisited on
-  // purpose rather than drifting unnoticed.
-  assert.equal(coverage.ratio, 1 / 18);
-  assert.equal(coverage.worstMissingSegment, 'sn42.5:3.8', 'the tool points at a concrete hole');
-  const pali = segmentMapForUid(
-    readJson<Record<string, string>>(upstreamFile('root/pli/ms/sutta/sn/sn42/sn42.5_root-pli-ms.json')),
+  // sn42.5 keeps its join keys but the pinned edition has no English for the rest of the
+  // gāmaṇi's answer, including "yo so assāroho saṅgāme ussahati vāyamati…". This is
+  // measured on the pinned files so it survives the project's own fill covering the text;
+  // an4.46 and mn58 were earlier specimens that a fill (or a layer change) outgrew.
+  const hole = pinnedHole(
+    'root/pli/ms/sutta/sn/sn42/sn42.5_root-pli-ms.json',
+    'translation/en/sujato/sutta/sn/sn42/sn42.5_translation-en-sujato.json',
     'sn42.5',
   );
-  assert.ok(pali['sn42.5:3.8'].length > 40, 'and that hole is real prose');
+  assert.equal(Object.keys(hole.english).length, Object.keys(hole.pali).length, 'join is exact');
+  assert.equal(hole.substantive.length, 18);
+  assert.equal(hole.blank.length, 17);
+  assert.ok(hole.ratio < MIN_ENGLISH_COVERAGE, `expected the pinned edition below floor, got ${hole.ratio}`);
+  // Pinned exactly: if the pinned commit ever changes, this must be revisited on
+  // purpose rather than drifting unnoticed.
+  assert.equal(hole.ratio, 1 / 18);
+  assert.ok(hole.blank.includes('sn42.5:3.8'), 'a concrete hole the tool can point at');
+  assert.ok(hole.pali['sn42.5:3.8'].length > 40, 'and that hole is real prose');
+  const coverage = englishCoverageFor('sn', 'sn42.5')!;
+  assert.equal(coverage.englishSegments, coverage.paliSegments, 'join is exact at store level too');
+  assert.equal(coverage.substantiveSegments, 18);
+  assert.ok(coverage.ratio >= hole.ratio, 'a fill can only raise coverage above the pinned edition');
 });
 
 test('every text below the coverage floor is recorded, and nothing else is', { skip: !existsSync(upstreamFile('translation/en/sujato/sutta/mn/mn118_translation-en-sujato.json')) ? 'run npm run source:sync:all' : false }, () => {
