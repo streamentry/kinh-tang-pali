@@ -13,19 +13,28 @@ tags:
 quality:
   scores:
     source_provenance: 9.9
-    semantic_fidelity: 9.4
-    grammar_logic: 9.4
+    semantic_fidelity: 9.0
+    grammar_logic: 9.2
     segment_alignment: 10.0
-    terminology: 9.3
-    triangulation: 9.5
-    vietnamese_clarity: 9.4
-    han_viet_balance: 9.4
-    ambiguity_integrity: 9.3
-    technical_integrity: 10.0
-  final_score: 9.56
+    terminology: 9.0
+    triangulation: 9.0
+    vietnamese_clarity: 9.2
+    han_viet_balance: 9.3
+    ambiguity_integrity: 9.0
+    technical_integrity: 9.6
+  final_score: 9.32
   blocking_errors: []
-  assessed_at: "2026-09-14"
+  assessed_at: "2026-10-13"
   assessed_by:
-    - "Muse Spark"
+    - "Claude Opus 5.5 (Claude Code)"
 notes: |-
   Coordinator (gộp thuật ngữ tên bộ, 2026-10-04): khối `:0.1` đổi "Tương Ưng Bộ" → "Saṁyutta Nikāya". Đếm lại trên toàn tầng: 1.211 tệp giữ PĀLI / 326 tệp dịch — 78,8% giữ PĀLI. Hai agent cùng đếm gần giống nhau rồi kết luận ngược nhau (1.187 vs 315 và 1.074 vs 316), nên đã đếm lại từ đầu thay vì theo lời báo. Đây là tên bộ ở khối tiêu đề, không đổi nghĩa segment nào. Phạm vi: cả tầng sn, gồm cả tệp đã merge trước đợt này.
+
+  Lượt cải thiện 2026-10-13 (kiểm toán mẫu): đọc đối kháng đủ 24 khoá với Pāli, bản Anh đã ghim, bản Việt nguyên bài ở mục Tra cứu toàn văn (chỉ để hiểu cách đọc) và tiền lệ trên toàn tầng. Sửa 10/24 khoá; lỗi nghĩa thật ở 5 khoá (nặng: 5.2, 5.3; vừa: 5.4, 3.1, 3.3), nhẹ ở 3 khoá (1.3, 1.4–1.5 thuật ngữ, 2.1). Điểm cũ 9.56 là quá cao: bản trước bỏ lọt các lỗi ở khổ kệ 5.
+  (1) `5.3` `natthāvahaṁ` = na + atthāvahaṁ ("không đem lại lợi ích"), không phải anatthāvahaṁ ("đem lại tổn hại"); bản cũ "chỉ đem lại tổn hại" thêm chữ "chỉ" và nghĩa "tổn hại" không có trong Pāli, lại lệch hình ảnh ở `5.4`. Sửa thành "không đem lại lợi ích". Accuracy fix. semantic_fidelity 9.4 → 9.0, grammar_logic 9.4 → 9.2.
+  (2) `5.2` `yaṁ kiñci amaraṁ tapaṁ`: `amaraṁ` là tính từ khẳng định bổ nghĩa `tapaṁ`, không có phủ định; bản cũ "không dẫn đến bất tử" tự thêm một điều kiện (hàm ý có thứ khổ hạnh dẫn đến bất tử thì không vô ích). Sửa thành "khổ hạnh vô tận", theo `thag3.1:1.4` (đã phân xử ở đó: `amara` = vô tận) và bản Anh đã ghim (cả hai nơi đều "endless"). Accuracy fix.
+  (3) `5.4` `phiyārittaṁva dhammani` = "như mái chèo và bánh lái trên đất khô": bản cũ bỏ mất "bánh lái" (`aritta`), "bơi chèo trên đất liền" đổi hình ảnh; tiền lệ `phiyāritta` = "mái chèo và bánh lái" (an4.196). Accuracy fix.
+  (4) `3.1`, `3.3`: Ác Ma xưng hô "ngươi" với Đức Phật (tiền lệ cùng chương: sn4.4, sn4.5, sn4.24); `maññasi` là ngôi hai. Bản cũ "Người đã rời bỏ…" và "người ô uế…" làm mất ngôi hai, câu đọc thành lời nói chung chung và chủ ngữ của "đã đi lệch" mơ hồ. Sửa thành "Ngươi…". Accuracy/clarity fix.
+  (5) `1.3`: `rahogatassa paṭisallīnassa` = "ở riêng, độc cư" (18 khoá cùng công thức dùng đúng cụm này, 30 dùng "độc cư"); "tĩnh tọa" thêm ý ngồi mà Pāli không có (4 khoá). `1.4`–`1.5`: `dukkarakārikāya` = "khổ hạnh khắc nghiệt" (10/29; "khổ hạnh gian khổ" lặp nghĩa, 0 nơi khác dùng). `1.5`–`1.6`: "ta" → "Ta" theo quy tắc xưng hô của Đức Phật. `2.1`: thêm `cetasā` ("bằng tâm mình"), có ở 16/42 khoá cùng công thức. Terminology/clarity fix.
+  Điểm đổi: semantic_fidelity 9.4 → 9.0; grammar_logic 9.4 → 9.2; terminology 9.3 → 9.0 (cụm khổ hạnh trước lệch tiền lệ); triangulation 9.5 → 9.0 (bản cũ không đối chiếu được ba chỗ trên với bản Anh và tiền lệ); vietnamese_clarity 9.4 → 9.2; han_viet_balance 9.4 → 9.3; ambiguity_integrity 9.3 → 9.0; technical_integrity 10.0 → 9.6 (không chạy được cổng máy trong lượt này: còn phải chạy `npm run validate`, `npm test`, `npm run check`, `npm run build`); source_provenance 9.9 và segment_alignment 10.0 giữ.
+  Bất định còn lại: (a) `amaraṁ tapaṁ` (`5.2`): "vô tận" theo bản Anh và tiền lệ `thag3.1`; bản Việt nguyên bài đọc là khổ hạnh "được xem là bất tử", tức khổ hạnh cầu bất tử — chưa phân xử được bằng căn cứ trong kho; cả hai cách đọc đều giữ nguyên kết luận "vô ích". (b) `natthāvahaṁ` (`5.3`): đọc na + atthāvahaṁ; nếu là anatthāvahaṁ thì nghĩa là "mang lại tổn hại", nhưng mặt chữ đã ghim không có `a-` đầu và hình ảnh `5.4` cùng bản Anh đều chỉ sự vô dụng. Không có lỗi nào trong số này đủ chặn xuất bản.

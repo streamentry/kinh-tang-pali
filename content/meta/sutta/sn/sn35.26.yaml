@@ -16,17 +16,17 @@ quality:
     semantic_fidelity: 9.4
     grammar_logic: 9.5
     segment_alignment: 10.0
-    terminology: 9.3
+    terminology: 9.2
     triangulation: 8.4
     vietnamese_clarity: 9.3
     han_viet_balance: 9.4
     ambiguity_integrity: 9.0
     technical_integrity: 9.6
-  final_score: 9.29
+  final_score: 9.28
   blocking_errors: []
-  assessed_at: "2026-10-04"
+  assessed_at: "2026-10-13"
   assessed_by:
-    - "OpenCode Space Bunny Free (agent)"
+    - "Claude Opus 5.5 (Claude Code)"
 notes: |-
   Dịch từ Pāli root đã ghim (manifest liệt kê sutta/sn/sn35/sn35.26_root-pli-ms.json và sutta/sn/sn35/sn35.26_translation-en-sujato.json). Tầng Anh CÓ nhưng thiếu chữ ở nhiều khoá.
     Coverage đo được: 18/24 Pāli có nội dung có chữ Anh Sujato = 0.7500, thấp hơn ngưỡng 0.8 trong source/layers.yaml. 6 khoá không có chữ ở lớp được tính nào: 1.12, 2.4, 2.5, 2.6, 2.7, 2.12. Cả 6 đều là Pāli viết đủ, không có dấu lược.
@@ -54,3 +54,14 @@ notes: |-
     ghi sai lịch sử biên tập, nên gỡ hẳn và ghi lý do ở đây. `final_score` **9,29** giữ nguyên:
     bằng chứng không đổi, `triangulation` vẫn 8,4, và theo `validate` một gap đã được ghi
     nhận thì chỉ còn là warning chứ không chặn.
+  Lượt cải thiện 2026-10-13 (kiểm toán mẫu, đọc đối kháng đủ 42 khoá):
+    Kết quả: 29/42 khoá đổi. Trong đó 24 khoá lỗi nghĩa thật (nặng) và 5 khoá nhẹ (thuật ngữ, văn phong). Điểm số cũ chấm trên bản có lỗi nên đã quá tay; bản hiện tại là bản đã sửa.
+    Lỗi nặng 1, 24 khoá (1.1–1.8, 1.12, 1.14, 1.18, 1.19 và đối xứng 2.x): avirājayaṁ và virājayaṁ trước đây dịch là không làm cho sáng ra và làm cho sáng ra. Đó là nghĩa sai: virājeti đi với rāga, nghĩa là làm cho hết nhiễm, ly tham. Tầng này dịch cùng gốc từ là ly tham ở 48 khoá (iti7 đến iti13, mn28, mn62, mn140, an4.177, an6.54, các kệ…), còn làm cho sáng ra chỉ có 44 khoá, đều nằm trong 5 bài (sn22.24, sn35.26, sn35.27, sn35.111, sn35.112). Bản Anh Sujato dịch là dispassion. Lời giải thích cũ ghi virājati là trở nên sáng, trong là suy diễn từ gốc khác và không có căn cứ; không dùng nữa. Đổi thành không ly tham và ly tham. Ngay trong bài các khoá 1.1 đến 1.19 và 2.1 đến 2.19 đã nhất quán.
+    Lỗi nặng 2, 6 khoá (1.7, 1.12, 1.18, 2.7, 2.12, 2.18): adukkhamasukhaṁ trước đây dịch là vừa khổ vừa không khổ, nghĩa là cả khổ lẫn không khổ, làm vỡ công thức ba thọ (lạc, khổ, không khổ không lạc). Ghi chú cũ nói chưa có tiền lệ là sai: tầng có 269 khoá dịch là không khổ không lạc và 44 khoá không lạc không khổ. Với đúng công thức sukhaṁ vā dukkhaṁ vā adukkhamasukhaṁ vā trong sn35, bản gần nhất dùng lạc, khổ hay không lạc không khổ (ví dụ sn35.99, sn35.100, sn35.43); theo đó.
+    Các khoá cùng sửa: lấy xúc chạm làm điều kiện mà sinh khởi (chỉ 6 khoá, đều ở bài này) đổi thành do duyên xúc chạm khởi lên (93 khoá trong sn35); thêm đối với cảm thọ ấy cũng để giữ tampi (pi nghĩa là cũng); câu có tân ngữ đứng đầu (Mắt, không biết, không thấy rõ…) dễ bị đọc là mắt không biết, nên chuyển thành Đối với mắt, không thắng tri… để chủ thể ngầm (người tu) và tân ngữ phân minh.
+    Thuật ngữ, 24 khoá công thức: anabhijānaṁ, abhijānaṁ đổi từ không biết, biết thành không thắng tri, thắng tri; aparijānaṁ, parijānaṁ đổi từ không thấy rõ, thấy rõ thành không liễu tri, liễu tri. Lý do: thấy rõ dịch chữ passati chứ không phải jānāti, và hai chặng abhi và pari bị dồn thành một. Tầng này dịch abhijān là thắng tri ở phần lớn các khoá có gốc abhijān hoặc abhiññ (1262 trên 2224) và pariññā là liễu tri (360, so với hiểu rõ 220); cùng phẩm, sn35.25 cũng dùng thắng tri, liễu tri. Giữ chấm dứt khổ cho dukkhakkhayāya (85 khoá, so với đoạn tận khổ 46).
+    Khoá 1.2: Pāli là Kiñca, không có sabbaṁ; bản trước thêm tất cả theo bản Anh. Đã đổi thành Và đối với điều gì để bám Pāli. Khoá 2.2 giữ tất cả vì Pāli có sabbaṁ.
+    Nhẹ, 5 khoá: Thức của lưỡi đổi thành Thức lưỡi (1.10, 2.10) cho khớp Thức mắt trong cùng bài (sn35: thức lưỡi 23, thức của lưỡi 12); Tâm thức đổi thành Thức tâm (1.16, 2.16) cho cùng mô hình thức mắt, thức lưỡi, thức tâm; Thứ bốn đổi thành Thứ tư (2.20; toàn tầng thứ tư 188, thứ bốn 91).
+    Điểm đổi: terminology 9.3 xuống 9.2, vì 1.1 và 2.2 nay khác bản dịch cũ của cùng Pāli ở sn35.27 (vẫn còn nguyên văn lỗi virājayaṁ, cần sửa đồng thời, kèm sn22.24, sn35.111, sn35.112), và tên bài còn là Không Biết Trọn Vẹn trong khi thân bài dùng liễu tri; tâm và ý cho manaṁ còn phân đôi trong tầng (sn35: tâm 19, ý 9). Các điểm còn lại giữ nguyên và áp dụng cho bản đã sửa; semantic_fidelity, grammar_logic, ambiguity_integrity giữ không nâng vì còn các bài song song chưa sửa.
+    Bất định còn lại: ly tham chưa thể hiện được dạng sai khiến của virājayaṁ (làm cho người tu hết nhiễm); giữ theo đa số tầng. Tên bài chưa đổi.
+    Tầng Anh Sujato được đối chiếu lại ở các khoá có chữ (coverage nêu ở trên không đổi). Tầng vietnamese-current vắng ở commit đã ghim nên không có bản Thích Minh Châu để đối chiếu. Technical_integrity giữ 9.6; bốn lệnh npm run validate, npm test, npm run check, npm run build chưa chạy ở lượt này.
