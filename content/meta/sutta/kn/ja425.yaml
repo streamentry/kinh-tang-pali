@@ -12,22 +12,22 @@ tags:
 quality:
   scores:
     source_provenance: 9.4
-    semantic_fidelity: 8.3
+    semantic_fidelity: 8.4
     grammar_logic: 8.4
     segment_alignment: 10.0
-    terminology: 8.3
+    terminology: 8.4
     triangulation: 7.4
-    vietnamese_clarity: 8.2
+    vietnamese_clarity: 8.3
     han_viet_balance: 8.8
     ambiguity_integrity: 8.4
     technical_integrity: 9.6
-  final_score: 8.68
+  final_score: 8.71
   blocking_errors:
-    - "Tầng Anh chưa được ghim cho ja425: tại commit 11c9d708978cde8ba61096d8a75f7ddfb846f639, tầng english-sujato chỉ có 83 tệp trong thư mục kn/ja và ja425 không có trong số đó (đã kiểm cả trên đĩa: không có tệp ja425_translation-en-sujato.json). Vì vậy không có một lần đọc Anh nào để đối chiếu, và validate sẽ chặn nếu đặt review hoặc published."
-    - "unresolvedTerm: `savaṭākara` (ja425:11.2) là hapax chưa phân xử được; bản dịch chỉ ở mức bao quát."
-  assessed_at: "2026-10-12"
+    - "noEnglishEditionUpstream: Sujato không phát hành bản Anh cho ja425 tại commit đã ghim (thư mục kn/ja chỉ có 83 tệp, không có ja425_translation-en-sujato.json; not-published-upstream); tầng Việt hiện hành cũng vắng cho Khuddaka Nikāya và chưa có lớp english-project."
+    - "unresolvedTerm: `savaṭākara` (ja425:11.2) là hapax toàn kho Pāli đã ghim, không có tiền lệ, bản Anh hay mục glossary để phân xử; bản dịch chỉ ở mức bao quát."
+  assessed_at: "2026-10-13"
   assessed_by:
-    - "Claude Sonnet 5.5 (Claude Code)"
+    - "Claude Opus 5.5 (Claude Code)"
 notes:
   - >-
     **BLOCKER 1: không có tầng Anh nào để đối chiếu.** Đếm trên đĩa: tầng `english-sujato` chỉ có **83** tệp trong `translation/en/sujato/sutta/kn/ja/`, và trong số đó **không có** `ja425` (tìm cả toàn cây cache: `find .cache/upstream -name '*ja425*'` chỉ trả về đúng một tệp, tệp Pāli root). Không có tầng Việt hiện hành cho Khuddaka Nikāya. Nghĩa là **toàn bộ 49 khoá dịch từ Pāli một mình**, và `triangulation` chỉ 7,6.
@@ -57,3 +57,11 @@ notes:
     **Phân loại và xử lý blocker.** (A) Thiếu bản Anh upstream: GIỮ nguyên, vì đúng sự thật (ja425 không có trong tầng `english-sujato` tại commit đã ghim, không có `english-project`, không có `vietnamese-current` cho Khuddaka Nikāya; đo coverage có mẫu số 0 vì cả 49 khoá Pāli ngắn hơn 40 ký tự nên cổng coverage không đo được gì). (D) Blocker “mười từ hapax chưa phân xử”: GỠ vì căn cứ của nó sai (riêng `savaṭākara` được giữ lại thành một blocker hẹp theo chỉ đạo của điều phối viên, xem blocking_errors). Mười trong mười một từ đó (`kumudinī`, `saṅkhavaṇṇā`, `kacchapalomāna`, `makasapādāna`, `avikampī`, `sasavisāṇa`, `nisseṇī`, `bimboṭṭha`, `surāghaṭa`, `gaṇacārinī`) là hợp từ trong suốt, đọc được từ hình thái và tiền lệ nêu trên, và nghĩa thật của chúng khác hẳn bản cũ; chỉ còn `savaṭākara` chưa giải được, đã ghi ở mục bất định (1); theo chỉ đạo, cụm này được giữ làm blocker hẹp riêng thay vì coi là hết trọng yếu. Không có blocker loại (B) hay (C) trên bài này.
   - >-
     **Chấm lại.** Trước→sau: source_provenance 9.4→9.4; semantic_fidelity 8.6→8.3; grammar_logic 8.5→8.4; segment_alignment 10.0→10.0; terminology 8.4→8.3; triangulation 7.6→7.4 (không có bản Anh nào, `triangulation` ≤ 8,0); vietnamese_clarity 8.4→8.2; han_viet_balance 8.8→8.8; ambiguity_integrity 8.2→8.4; technical_integrity 9.6→9.6; final_score 8.75→8.68. Điểm bản cũ vốn quá cao so với một bản sai nghĩa gần hết; điểm mới là điểm của bản viết lại, vẫn mang bất định từ vựng nêu trên. Kiểm cơ học: đủ 49 khoá và đúng thứ tự Pāli, NFC, nháy kép mở ở `:1.1` đóng ở `:11.4` khớp Pāli, không có `…`, không có Pāli lọt vào thân bài trừ tên riêng (Rāhu, Gandhamādana, jambu, bimba, kulaka) và tiêu đề. `technical_integrity` vẫn 9,6 vì bốn lệnh `npm run validate`, `npm test`, `npm run check`, `npm run build` chưa chạy trong lượt này.
+  - >-
+    **Giải quyết draft 2026-10-13 (vòng 2): đọc đối kháng lại toàn bài từ Pāli, sau bản viết lại của vòng 1 (mục “Giải quyết draft 2026-10-12”, vẫn là mô tả hiện hành của cách đọc từng cụm).** Kết quả: 3/49 khoá đổi, không có lỗi nghĩa nặng. `:8.2` *lui về nơi kín* → *đến nơi kín đáo* (`rahogatā` là “đã đến chỗ riêng tư”, không có ý lui về; tiền lệ `rahogata` trong kho là *ở riêng*, 113 khoá đã dò, không khoá nào có nghĩa lui lại). `:11.1` *chiếc thuyền biển* → *chiếc thuyền đi biển* (cụm `sāmuddikāya nāvāya` ở sn22.101, sn45.158, an7.71 đều là *thuyền đi biển*; chỉ ja529 dùng *thuyền biển*; cách chọn mới theo đa số 3/4). `:11.3` bỏ *bị* (`ceṭo ādāya gaccheyya` là câu chủ động: người hầu lấy mà đi; *bị* thêm sắc thái bất hạnh không có trong Pāli). 46 khoá còn lại giữ nguyên: đã đọc lại từng cặp Pāli↔Việt, không thấy lệch nghĩa, không thấy đảo vế hay lệch ranh khoá. Pāli trùng nguyên văn trong bài: 11 cặp `atha nūna tadā siyā`, 0 cặp bản Việt khác nhau (`:11.4` chỉ khác dấu đóng nháy theo Pāli); đối chiếu bài ngoài: ja262:1.4 có cùng câu điệp nhưng bản Việt hiện có ở ja262 không dùng được làm tiền lệ (đọc khác hẳn và chưa đáng tin), nên không ép dùng lại.
+  - >-
+    **Phân loại blocker (vòng 2).** (A) Blocker thiếu bản Anh: ĐÚNG sự thật (đã kiểm lại trên đĩa: thư mục `translation/en/sujato/sutta/kn/ja` có 83 tệp, không có tệp của ja425; tìm toàn cây cache chỉ ra duy nhất tệp Pāli root; không có tệp `english-project` cho ja425; không có `reference-gaps` cho ja425). Đã viết lại thành một blocker duy nhất, ngắn, mở bằng `noEnglishEditionUpstream:`, tách hẳn khỏi lời về bất định văn bản. Đo coverage có mẫu số 0 (cả 49 khoá Pāli đều dưới 40 ký tự), nên cổng coverage không đo được gì; đây không phải bằng chứng đối chiếu. (D) Blocker `savaṭākara`: GIỮ, đúng sự thật. Đã tìm lại trên toàn kho Pāli ghim (chỉ một lần, ở ja425:11.2), glossary không có mục, không có bài song song (câu điệp `atha nūna tadā siyā` chỉ thêm ở ja262, không có từ này), không có bản Anh. `sa-` (cùng với) và `yanta` (máy móc, cơ cấu) rõ, còn `vaṭākara` không giải được bằng hình thái hay tiền lệ; không đoán. Không có blocker loại (B) hay (C) ở bài này.
+  - >-
+    **Bất định còn lại (không đưa vào thân kinh).** Ngoài `savaṭākara` (blocker), vẫn là: `kulaka` (tên chim không xác định, giữ *chim kulaka*); `tividho` ở `:2.2` (*ba lớp*, hoặc *ba loại*); `paripāteyyuṁ` ở `:5.3` (*săn đuổi*, hoặc *làm cho rơi xuống*); `pihayeyyuṁ` ở `:8.3` (*mến mộ nhau*, hoặc *ao ước nhau*); `muḷāla pattānaṁ` ở `:9.1` (*cuống và lá sen*); câu điệp `atha nūna tadā siyā` đọc là *thì hẳn lúc ấy sẽ có*, chủ ngữ của `siyā` bị tỉnh lược trong văn kệ ghim nên không thêm; tên tiêu đề *Kinh Aṭṭhānajātaka* giữ theo khuôn bài anh em trong Bộ Tám Bài Kệ.
+  - >-
+    **Chấm lại vòng 2.** Trước→sau: source_provenance 9.4→9.4; semantic_fidelity 8.3→8.4; grammar_logic 8.4→8.4; segment_alignment 10.0→10.0; terminology 8.3→8.4; triangulation 7.4→7.4 (không có bản Anh độc lập, ≤ 8,0); vietnamese_clarity 8.2→8.3; han_viet_balance 8.8→8.8; ambiguity_integrity 8.4→8.4; technical_integrity 9.6→9.6; final_score 8.68→8.71 (trung bình số học thô). Blocker còn lại thắng điểm. Kiểm cơ học: đủ 49 khoá và đúng thứ tự Pāli, NFC, nháy kép mở ở `:1.1` đóng ở `:11.4` khớp Pāli, không có `…` (Pāli cũng không có), không Pāli lọt vào thân bài trừ tên riêng và tên loài/cây. `technical_integrity` giữ 9,6 vì bốn lệnh `npm run validate`, `npm test`, `npm run check`, `npm run build` chưa chạy trong lượt này.

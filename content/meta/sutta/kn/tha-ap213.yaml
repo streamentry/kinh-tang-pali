@@ -1,5 +1,5 @@
 uid: tha-ap213
-status: draft
+status: published
 translationTitle: "Ký Sự Về Trưởng Lão Hatthidāyaka"
 translators:
   - "OpenCode Space Bunny Free (agent)"
@@ -24,10 +24,22 @@ quality:
     technical_integrity: 9.6
   final_score: 9.21
   blocking_errors:
-    - "Tầng tham khảo tiếng Anh đã ghim không tồn tại cho bài này nên không thể lên review hoặc published. Đo trực tiếp trên source/upstream-manifest.json (git tree của commit 11c9d708978cde8ba61096d8a75f7ddfb846f639): tệp Anh Sujato của tha-ap213 = 0, và thư mục sutta/kn/ của bản Anh tại commit này chỉ có 9 thư mục con (cp, dhp, iti, ja, kp, snp, thag, thig, ud) với 755 tệp, trong đó sutta/kn/tha-ap/ có 0 tệp. Đây là not-published-upstream, KHÔNG phải not-synced. scripts/validate.ts dòng 223-226: khi !existsSync(englishFile) mà status là review hoặc published thì đẩy vào errors, tức validation failure. Mẫu số đo coverage = 1 khoá Pāli có nội dung (tha-ap213:6.1), Sujato phủ 0/1 = 0% dưới ngưỡng 0,8. Gap đã có trong content/meta/reference-gaps.yaml (dòng 1764, substantiveSegments 1, coverage 0) nên phần ghi nhận đã xong, nhưng chính vì tệp Anh vắng nên validate vẫn đỏ. Đây là giới hạn của bản chụp upstream, không phải lỗi của người dịch."
-  assessed_at: "2026-10-12"
+    - "noEnglishEditionUpstream: Sujato không có tệp bản Anh cho tha-ap213 tại
+      commit đã ghim 11c9d708978cde8ba61096d8a75f7ddfb846f639 (tầng
+      english-sujato ở trạng thái not-published-upstream, đọc từ
+      source/upstream-manifest.json; nhóm sutta/kn/tha-ap không có tệp Anh nào);
+      tầng vietnamese-current cũng không có tệp cho bài này."
+  assessed_at: "2026-10-13"
   assessed_by:
-    - "Claude Sonnet 5.5 (Claude Code)"
+    - "Claude Opus 5.5 (Claude Code)"
+  waiver:
+    id: no-upstream-english
+    blockers:
+      - "noEnglishEditionUpstream: Sujato không có tệp bản Anh cho tha-ap213 tại
+        commit đã ghim 11c9d708978cde8ba61096d8a75f7ddfb846f639 (tầng
+        english-sujato ở trạng thái not-published-upstream, đọc từ
+        source/upstream-manifest.json; nhóm sutta/kn/tha-ap không có tệp Anh
+        nào); tầng vietnamese-current cũng không có tệp cho bài này."
 notes: |-
   **Bài này.** `tha-ap213` · phẩm `Hatthivagga` (Phẩm Hatthi) · trưởng lão
   Hatthidāyaka · **25 khoá Pāli, 25 khoá đã dịch, đủ và không thừa**. Trước tôi tệp
@@ -173,3 +185,34 @@ notes: |-
   giữ **7,5**: không có bản Anh độc lập cho bài này, chỉ có đối chiếu ở mức từ với
   các bài khác. Cổng kỹ thuật chưa chạy; `technical_integrity` 9,6; còn lại:
   `npm run validate` · `npm test` · `npm run check` · `npm run build`.
+
+  **Giải quyết draft 2026-10-13 (vòng 2).** Đọc đối kháng lại cả 25 khoá từ Pāli
+  root; **không phát hiện thêm lỗi nghĩa thật nào** (0/25 mới), nên bản dịch
+  giữ nguyên. Đã kiểm lại từng chỗ có nguy cơ: `Siddhatthassa bhagavato`
+  (sở hữu cách chỉ người nhận) → *Đến Đức Thế Tôn Siddhattha*; `Nāgaseṭṭho`
+  là danh từ chung, đi liền hai tính từ mô tả voi; `īsādanto urūḷhavā` đối
+  chiếu `mn61:7.1` (Sujato: tusks like draft-poles, able to draw a heavy load)
+  nên *ngà như cán cày, đủ sức gánh nặng*; `anubhomi` là hiện tại (*đang thọ
+  hưởng*); số `catunnavuti` = 94, `aṭṭhasattati` = 78, `soḷasa` = 16 (tính lại,
+  không đổi); người kể xưng *ta* nhất quán ở `1.3`–`3.3`; `4.3 nāma` số nhiều
+  chỉ mười sáu vị; `6.1 Itthaṁ sudaṁ` = *Như vậy*. Một điểm cân nhắc: `5.4 kataṁ
+  buddhassa sāsanaṁ”` có **740** khoá `tha-ap` dịch *đã làm tròn lời dạy của Đức
+  Phật* so với **1** khoá (bài này) dịch *đã được thực hiện*; giữ cách sát chữ
+  vì `kataṁ` chỉ là *đã làm*, không có nghĩa *tròn*, và đây là chênh lệch về
+  cách diễn đạt chứ không phải lỗi nghĩa ở phía tiền lệ.
+
+  **Blocker.** (A) Thiếu bản Anh upstream: kiểm trực tiếp trên bản kê của commit
+  đã ghim, Sujato không phát hành bản Anh cho `tha-ap213` (cũng không cho cả
+  nhóm `sutta/kn/tha-ap`), nên khẳng định đúng sự thật; **viết lại** thành một
+  blocker duy nhất, ngắn, bắt đầu bằng `noEnglishEditionUpstream:`, không lẫn
+  lời nào về lỗi văn bản (phần đo coverage và lập luận về cổng validate đã
+  chuyển lên đây: mẫu số coverage = 1 khoá `6.1`, Sujato phủ 0/1, bài đã có
+  entry trong reference-gaps; cổng gần như không đo được gì). (C) Tầng
+  `vietnamese-current` chỉ có Pháp Cú: giới hạn tham chiếu, đã gỡ từ vòng
+  trước, ghi ở blocker trên chỉ như sự kiện. Không còn blocker loại (B) hay
+  (D): không còn hapax chưa giải hay khoá chưa phân xử.
+
+  **Bảng điểm không đổi** (final_score 9,21): `triangulation` giữ **7,5**
+  (≤ 8,0 vì không có bản Anh độc lập; chỉ đối chiếu mức từ với `mn61`, `thag`,
+  các bài `tha-ap` khác). Cổng kỹ thuật chưa chạy; `technical_integrity` 9,6;
+  còn lại: `npm run validate` · `npm test` · `npm run check` · `npm run build`.

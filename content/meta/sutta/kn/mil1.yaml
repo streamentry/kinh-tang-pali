@@ -1,5 +1,5 @@
 uid: mil1
-status: draft
+status: published
 translationTitle: "Phần Dẫn Nhập"
 translators:
   - "OpenCode Space Bunny Free (agent)"
@@ -22,10 +22,20 @@ quality:
     technical_integrity: 9.6
   final_score: 9.02
   blocking_errors:
-    - "Tầng tham khảo tiếng Anh KHÔNG tồn tại tại commit đã ghim. Đã kiểm ba nơi, không suy đoán: (1) `source/upstream-manifest.json` — edition `translation/en/sujato` tại commit `11c9d708978cde8ba61096d8a75f7ddfb846f639` KHÔNG liệt kê bất kỳ tệp nào cho uid này; (2) `.cache/upstream/suttacentral/translation/en/sujato/sutta/...` — tệp không tồn tại; (3) toàn edition `translation/en/sujato/sutta/kn/mil/` chỉ có 0 tệp — Sujato không dịch Milindapañha, và trong đó không có uid này. Đây là `not-published-upstream`, KHÔNG phải `not-synced`: chạy `npm run source:sync:used` cũng không tạo ra tệp. Tầng `vietnamese-current` cũng vắng — `translation/vi/phantuananh` tại commit đã ghim chỉ có 26 tệp và toàn bộ là Pháp Cú. Lớp lấp `english-project` của dự án cũng không có cho uid này. Cả ba tầng tham khảo đều vắng nên bài dịch chỉ từ Pāli root; `scripts/validate.ts` coi tệp Anh thiếu là **error** khi status là `review` hoặc `published`, nên bài bắt buộc `draft`. Đây là **giới hạn upstream**, không phải lỗi của người dịch. Vì vậy `triangulation` bị chặn ở 7.5 (≤ 8.0) chứ không nâng để né blocker. Coverage đo được: 7 khoá Pāli đủ 40 ký tự, 0 khoá có prose Anh."
-  assessed_at: "2026-10-12"
+    - "noEnglishEditionUpstream: Sujato không có bản Anh cho kn/mil1 tại commit
+      đã ghim (edition `translation/en/sujato` không liệt kê tệp nào cho uid
+      này; not-published-upstream); tầng `vietnamese-current` cũng vắng, lớp
+      `english-project` không có."
+  assessed_at: "2026-10-13"
   assessed_by:
-    - "Claude Sonnet 5.5 (Claude Code)"
+    - "Claude Opus 5.5 (Claude Code)"
+  waiver:
+    id: no-upstream-english
+    blockers:
+      - "noEnglishEditionUpstream: Sujato không có bản Anh cho kn/mil1 tại
+        commit đã ghim (edition `translation/en/sujato` không liệt kê tệp nào
+        cho uid này; not-published-upstream); tầng `vietnamese-current` cũng
+        vắng, lớp `english-project` không có."
 notes: |-
   Lát c14. KHÔNG có Sujato tại commit đã ghim cho mil1 ⇒ `draft`, xem
   blocking_errors.
@@ -108,3 +118,6 @@ notes: |-
   `npm run check`, `npm run build` chưa chạy trong lượt này nên `technical_integrity` giữ 9,6.
   Điểm mới: ngữ nghĩa 8,8 (còn mấy từ ghép dài chưa có đối chiếu độc lập), thuật ngữ 8,8, toàn
   vẹn về bất định 9,0 (đã ghi đủ ở trên), còn lại như cũ; trung bình thô 9,02 nhưng blocker thắng nên bài vẫn `draft`.
+
+  Giải quyết draft 2026-10-13 (vòng 2): đọc đối kháng lại cả 31 khoá từ Pāli, đối chiếu tiền lệ trong kho. Lỗi nghĩa thật: 0/31. Ba chỗ thêm chữ không có trong Pāli đã gỡ: `mil1:7.3` bỏ “ngõ” (Pāli chỉ có bốn mục `vīthi`, `caccara`, `catukka`, `siṅghāṭaka`; bản trước có năm mục); `mil1:4.3` “đi vào tận tim” thành “đi vào tim” (`hadayaṅgama`, các nơi khác dịch “thấm vào tim”, “đi vào lòng người”); `mil1:5.3` bỏ “thật” (`citrā` chỉ là “muôn vẻ”). Các khoá còn lại giữ nguyên. Các số liệu trong mục 2026-10-12 vẫn đúng: 8.3 liệt kê đủ sáu mục khớp Pāli; 8.1 “nghiệp quá khứ” khớp `mil2:1.1`.
+  Phân loại blocker: loại (A), thiếu bản Anh upstream, kiểm lại trên cache Sujato (không có tệp `mil1_translation-en-sujato.json`) và trên danh mục tệp của commit ghim (0 mục `kn/mil`); chuỗi blocker cũ lẫn nhiều ý nên đã viết lại thành một khẳng định thuần túy về upstream, bắt đầu bằng `noEnglishEditionUpstream:`; không còn lời nào về lỗi văn bản vì không có lỗi văn bản chưa giải quyết. Phần độ phủ (0/7 khoá Pāli có nội dung) là hệ quả trực tiếp của việc không có bản Anh, không phải blocker riêng. Không có blocker loại (B), (C) hay (D) nào cần giữ; phần bất định ở trên (`puṭabhedana`, `sabhājana`, `samattitā`/`samatthitā`, `siṅgāra`, `patthara`, `caccara`) là cách hiểu từ vựng đã ghi, không chặn bài. Điểm giữ nguyên (trung bình thô 9,02), `triangulation` 7,5 vì không có bản Anh độc lập; bốn lệnh `npm run validate`, `npm test`, `npm run check`, `npm run build` chưa chạy nên `technical_integrity` giữ 9,6.

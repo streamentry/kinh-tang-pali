@@ -1,5 +1,5 @@
 uid: ja390
-status: draft
+status: review
 translationTitle: "Kinh Mayhaka"
 translators:
   - "OpenCode Space Bunny Free (agent)"
@@ -13,21 +13,33 @@ tags:
 quality:
   scores:
     source_provenance: 9.3
-    semantic_fidelity: 8.9
-    grammar_logic: 8.8
+    semantic_fidelity: 9.0
+    grammar_logic: 8.9
     segment_alignment: 10.0
     terminology: 8.7
     triangulation: 7.5
-    vietnamese_clarity: 8.8
+    vietnamese_clarity: 8.9
     han_viet_balance: 9.0
-    ambiguity_integrity: 9.3
+    ambiguity_integrity: 9.0
     technical_integrity: 9.6
   final_score: 8.99
   blocking_errors:
-    - "Tầng tham khảo tiếng Anh KHÔNG tồn tại tại commit đã ghim. Đã kiểm ba nơi, không suy đoán: (1) `source/upstream-manifest.json` — edition `translation/en/sujato` tại commit `11c9d708978cde8ba61096d8a75f7ddfb846f639` KHÔNG liệt kê bất kỳ tệp nào cho uid này; (2) `.cache/upstream/suttacentral/translation/en/sujato/sutta/...` — tệp không tồn tại; (3) toàn edition `translation/en/sujato/sutta/kn/ja/` chỉ có 83 tệp: ja1–ja79, ja126, ja159, ja466, ja534 — không có ja203/ja360/ja381/ja390, và trong đó không có uid này. Đây là `not-published-upstream`, KHÔNG phải `not-synced`: chạy `npm run source:sync:used` cũng không tạo ra tệp. Tầng `vietnamese-current` cũng vắng — `translation/vi/phantuananh` tại commit đã ghim chỉ có 26 tệp và toàn bộ là Pháp Cú. Lớp lấp `english-project` của dự án cũng không có cho uid này. Cả ba tầng tham khảo đều vắng nên bài dịch chỉ từ Pāli root; `scripts/validate.ts` coi tệp Anh thiếu là **error** khi status là `review` hoặc `published`, nên bài bắt buộc `draft`. Đây là **giới hạn upstream**, không phải lỗi của người dịch. Vì vậy `triangulation` bị chặn ở 7.5 (≤ 8.0) chứ không nâng để né blocker. Coverage đo được: 0 khoá Pāli đủ 40 ký tự, 0 khoá có prose Anh."
-  assessed_at: "2026-10-12"
+    - "noEnglishEditionUpstream: Sujato không phát hành bản Anh cho ja390 tại
+      commit đã ghim (`translation/en/sujato/sutta/kn/ja/` không có tệp cho uid
+      này; `source/upstream-manifest.json` chỉ liệt kê tệp Pāli) —
+      `not-published-upstream`; tầng `vietnamese-current` cũng vắng (chỉ có Pháp
+      Cú) và dự án không có lớp `english-project` cho bài này."
+  assessed_at: "2026-10-13"
   assessed_by:
-    - "Claude Sonnet 5.5 (Claude Code)"
+    - "Claude Opus 5.5 (Claude Code)"
+  waiver:
+    id: no-upstream-english
+    blockers:
+      - "noEnglishEditionUpstream: Sujato không phát hành bản Anh cho ja390 tại
+        commit đã ghim (`translation/en/sujato/sutta/kn/ja/` không có tệp cho
+        uid này; `source/upstream-manifest.json` chỉ liệt kê tệp Pāli) —
+        `not-published-upstream`; tầng `vietnamese-current` cũng vắng (chỉ có
+        Pháp Cú) và dự án không có lớp `english-project` cho bài này."
 notes: |-
   Lát c14. KHÔNG có Sujato tại commit đã ghim cho ja390 ⇒ `draft`, xem
   blocking_errors.
@@ -63,3 +75,9 @@ notes: |-
   Bất định còn lại (đều ghi, không thêm vào thân kinh): (1) `pipphali` — cây/dây hay quả, loại nào; giữ nguyên chữ `pipphali` kèm “cây” (do `āruyha`), không nhận định loài; (2) `nevattano na ñātīnaṁ yathodhiṁ paṭipajjati` (3.3–3.4) — cấu trúc phủ định kép với động từ khẳng định; cách đọc đã chọn là “không vì bản thân, cũng không vì bà con mà xử sự cho đúng mức”, khớp với 4.1–4.4 (người ấy không hưởng gì, không giúp bà con); (3) `mayhaka` giữ như tên chim (tên mô phỏng tiếng kêu `mayhaṁ mayhaṁ` “của tôi”), không dịch.
 
   Blocker đã xếp loại: blocker còn lại duy nhất là loại (A) — bản chụp đã ghim không phát hành bản Anh cho bài (và tầng Việt hiện hành chỉ có Pháp Cú, không có lớp Anh của dự án); giữ nguyên câu, vì là sự thật về upstream; `triangulation` ở 7.5 (≤ 8.0). Không có blocker loại B/C/D riêng. Tầng tham khảo vắng nên bản dịch tự đứng vững từ Pāli root; điểm ngữ nghĩa/ngữ pháp/thuật ngữ đã hạ vì lỗi cũ nghiêm trọng và vì các bất định trên. Cổng kỹ thuật `npm run validate`, `npm test`, `npm run check`, `npm run build` chưa chạy trong lượt này nên `technical_integrity` giữ 9.6.
+
+  Giải quyết draft 2026-10-13 (vòng 2): kiểm toán đọc đối kháng lại toàn bài 31 khoá (24 khoá kệ + 7 khoá đầu/cuối), đối chiếu Pāli từng khoá với bản Việt hiện tại. Kết quả: không còn lỗi nghĩa thật; các sửa của vòng 2026-10-12 (chim, pipphali, anubhoti, dāyādā, dhīro…) đứng vững. Sửa 5 khoá về ngữ pháp/sắc thái: (1) `vilapatveva` ở 2.4 và 5.6 là `vilapatu eva`, mệnh lệnh ngôi ba (“cứ để/mặc cho than thở”) nên dịch “cứ việc than thở” thay cho “vẫn cứ than thở”; (2) 2.1 và 5.1 bỏ chữ “cứ” không có trong `vilapantassa` (phân từ hiện tại “đang than thở”); (3) 6.1 `adhigamma` là phân từ liên kết nên dùng “sau khi có được” thay cho “khi đã có được”, để câu nối `ca` với `saṅgaṇhāti` không lẫn hai thể. Giữ 6.4 “và sau khi chết hoan lạc trên cõi trời” (mười khoá `pecca sagge` trong tầng: cách này ba lần, không cách nào khác quá hai lần; chữ “và” là nối mệnh đề theo nhịp 6.3–6.4, giống 6 trong 10 bản trong tầng). Tiêu đề 0.4 “5. Kinh Mayhaka” và 7.1 khớp tiền lệ cùng phẩm (ja381, ja384, ja385, ja387, ja388, ja393–ja395: “Kinh …, thứ …”); `translationTitle` không đổi.
+
+  Số lượng: bài không có số Pāli (mẫu số 0). Cặp Pāli trùng nội bộ đã dò: 2 (5.1 = 2.1; 5.6 gần 2.4 chỉ khác `dijo`/`naro`), cả hai dịch nhất quán, chỉ khác chủ thể. Dấu lược: Pāli không có `…`, bản Việt không có.
+
+  Phân loại blocker: blocker duy nhất còn lại thuộc loại (A) thuần — Sujato không có tệp cho ja390 (manifest chỉ có `root/pli/ms` của uid này; toàn thư mục Sujato `kn/ja` có 83 tệp, không có ja390). Đã viết lại thành một câu ngắn bắt đầu bằng `noEnglishEditionUpstream:` và tách khỏi mọi lời về văn bản, vì không còn bất định văn bản nào lẫn trong đó. Không có blocker B (độ phủ: mẫu số 0 vì không khoá Pāli nào đủ 40 ký tự — cổng không đo được gì, không phải đạt), C hay D riêng. Bất định còn lại (không thêm vào thân kinh): `pipphali` là cây hay quả chưa phân định; 3.3–3.4 `nevattano na ñātīnaṁ yathodhiṁ paṭipajjati` đọc “không vì bản thân, cũng không vì bà con mà xử sự cho đúng mức” — cách đọc khớp 4.1–4.4 nhưng cú pháp Pāli có thể đọc “đối với bản thân… đối với bà con”; hạ `ambiguity_integrity` xuống 9,0 vì hai bất định này. `triangulation` giữ 7,5 (≤ 8,0; không có bản Anh độc lập). `technical_integrity` giữ 9,6; `npm run validate`, `npm test`, `npm run check`, `npm run build` chưa chạy trong lượt này.

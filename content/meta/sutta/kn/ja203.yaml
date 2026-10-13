@@ -1,5 +1,5 @@
 uid: ja203
-status: draft
+status: published
 translationTitle: "Kinh Khaṇḍajātaka"
 translators:
   - "OpenCode Space Bunny Free (agent)"
@@ -13,7 +13,7 @@ tags:
 quality:
   scores:
     source_provenance: 9.3
-    semantic_fidelity: 9.3
+    semantic_fidelity: 9.4
     grammar_logic: 9.4
     segment_alignment: 10.0
     terminology: 9.2
@@ -22,12 +22,24 @@ quality:
     han_viet_balance: 9.4
     ambiguity_integrity: 9.2
     technical_integrity: 9.6
-  final_score: 9.28
+  final_score: 9.29
   blocking_errors:
-    - "Tầng tham khảo tiếng Anh KHÔNG tồn tại tại commit đã ghim. Đã kiểm ba nơi, không suy đoán: (1) `source/upstream-manifest.json` — edition `translation/en/sujato` tại commit `11c9d708978cde8ba61096d8a75f7ddfb846f639` KHÔNG liệt kê bất kỳ tệp nào cho uid này; (2) `.cache/upstream/suttacentral/translation/en/sujato/sutta/...` — tệp không tồn tại; (3) toàn edition `translation/en/sujato/sutta/kn/ja/` chỉ có 83 tệp: ja1–ja79, ja126, ja159, ja466, ja534 — không có ja203/ja360/ja381/ja390, và trong đó không có uid này. Đây là `not-published-upstream`, KHÔNG phải `not-synced`: chạy `npm run source:sync:used` cũng không tạo ra tệp. Tầng `vietnamese-current` cũng vắng — `translation/vi/phantuananh` tại commit đã ghim chỉ có 26 tệp và toàn bộ là Pháp Cú. Lớp lấp `english-project` của dự án cũng không có cho uid này. Cả ba tầng tham khảo đều vắng nên bài dịch chỉ từ Pāli root; `scripts/validate.ts` coi tệp Anh thiếu là **error** khi status là `review` hoặc `published`, nên bài bắt buộc `draft`. Đây là **giới hạn upstream**, không phải lỗi của người dịch. Vì vậy `triangulation` bị chặn ở 7.5 (≤ 8.0) chứ không nâng để né blocker. Coverage đo được: 0 khoá Pāli đủ 40 ký tự, 0 khoá có prose Anh."
-  assessed_at: "2026-10-12"
+    - "noEnglishEditionUpstream: không có tầng tham khảo tiếng Anh tại commit đã
+      ghim 11c9d708978cde8ba61096d8a75f7ddfb846f639; edition
+      translation/en/sujato không có tệp cho ja203 (not-published-upstream,
+      không phải not-synced) và tầng vietnamese-current cũng vắng; bài chỉ dựa
+      trên Pāli root."
+  assessed_at: "2026-10-13"
   assessed_by:
-    - "Claude Sonnet 5.5 (Claude Code)"
+    - "Claude Opus 5.5 (Claude Code)"
+  waiver:
+    id: no-upstream-english
+    blockers:
+      - "noEnglishEditionUpstream: không có tầng tham khảo tiếng Anh tại commit
+        đã ghim 11c9d708978cde8ba61096d8a75f7ddfb846f639; edition
+        translation/en/sujato không có tệp cho ja203 (not-published-upstream,
+        không phải not-synced) và tầng vietnamese-current cũng vắng; bài chỉ dựa
+        trên Pāli root."
 notes: |-
   Lát c14. 25/31 khoá trùng nguyên văn — mức cao nhất của 4 bài Jātaka — vì 24
   vế kệ của bài này trùng Y HỆT với AN 4.67 (Mettā Sutta, “Kinh Từ Bi”). Đã dùng lại đúng
@@ -60,3 +72,9 @@ notes: |-
   Tham khảo gián tiếp: bản Anh Sujato của an4.67 (cùng Pāli kệ 5.1–10.6) khớp các sửa trên (“sentient beings, living things”; “reptiles”; “I revere”), nên `triangulation` nâng từ 7.5 lên 8.0 (trần cho bài không có bản Anh riêng); không cao hơn.
   Đã đọc và giữ: `4.3` “chỉ thấy những điều lành” (Pāli không có `eva`, nhưng Sujato cũng dịch “only” và câu kế `4.4` đối lập; giữ theo tiền lệ an4.67:8.3); `6.1` “phép hộ niệm … phép bảo hộ” (`rakkhā`, `parittā`, giữ theo an4.67:10.3); dấu “!” rồi chữ thường ở `3.1`–`3.4` (kiểu câu giữ theo an4.67:7.x, không đổi nghĩa). Số: `satapadī` = rít trăm chân; `sattannaṁ` = bảy.
   Bất định còn lại: `ja203:0.3` “Phẩm Bó Lúa” (9/9 khoá `:0.3` của ja201–ja210 trong tầng) không thấy căn cứ từ `Nataṁdaḷhavagga` — tên phẩm lấy từ lời đầu của kệ ja201 (“na taṁ daḷhaṁ …”); chưa sửa vì đổi một tệp sẽ làm lệch cả phẩm, nên báo để xử lý đồng bộ. Tiêu đề `0.4` giữ dạng Pāli “Khaṇḍajātaka”, như ja202, ja204.
+
+  Giải quyết draft 2026-10-13 (vòng 2): thay thế mục "Giải quyết draft 2026-10-12" ở các điểm sau, phần còn lại của mục đó vẫn đúng. Đọc đối kháng lại 31 khoá từ Pāli; 4 khoá đổi, 3 là lỗi nghĩa/thuật ngữ thật, 1 là bỏ chữ thêm: (1) `ja203:4.2` — `bhūtā` bị dịch “các loài” (chỉ còn là “mọi loài” lặp `kevalā`); tiền lệ của tầng dịch `sabbe bhūtā` là “sinh vật” (mn60:21.7, mn60:22.8, mn60:23.6, mn60:26.6, mn76:13.7, mn76:14.5, ps2.4:3.4: 7 khoá; dn2:20.6 “sinh loại”, sn24.7:1.8 “loài vật” là lệch cách khác); đổi thành “tất cả sinh vật, không sót loài nào” (`kevalā` = trọn vẹn, không sót); (2) `ja203:6.2` — `bhūtāni` đổi “các loài” thành “các sinh vật” cho cùng một từ Pāli một cách dịch với `4.2`; (3) `ja203:6.1` — `rakkhā` bị dịch “phép hộ niệm”: “hộ niệm” trong tiếng Việt Phật học là việc trợ niệm cho người lâm chung, Pāli không có nghĩa đó; `parittā` mới là phép hộ trì (cách gọi quen của `paritta`); đổi thành “sự bảo hộ” / “phép hộ trì”, tách rõ hai từ (tầng có đúng 2 khoá `katā me rakkhā katā me parittā`: an4.67:10.3 và ja203:6.1, cả hai từng dùng cách dịch cũ); (4) `ja203:4.3` — bỏ “chỉ” trong “chỉ thấy những điều lành”: Pāli `sabbe bhadrāni passantu` không có `eva` hay `ca`, bản mới đọc “cầu mong họ thấy những điều lành”, phần đối lập đã nằm sẵn ở `4.4`. Mục 2026-10-12 nói giữ “chỉ” theo an4.67:8.3; nay đổi vì Pāli đứng trước tiền lệ, và việc đối lập đã có ở `4.4`.
+  Blocker: loại thiếu bản Anh upstream, đã kiểm lại từ edition đã ghim: tệp ja203 không có trong `translation/en/sujato` (83 tệp trong ja, không có ja203), `vietnamese-current` cũng vắng. Chuỗi blocker cũ lẫn nhiều câu giải thích; đã viết lại thành một blocker ngắn đúng sự thật, bắt đầu bằng `noEnglishEditionUpstream:`. Không có bất định hay lỗi văn bản nào từng nằm trong chuỗi đó; không có blocker thứ hai. Mẫu số coverage = 0 (không bản Anh nên cổng độ phủ không đo được gì, không phải “đạt”).
+  Điểm: `semantic_fidelity` 9.3 → 9.4 vì đã gỡ 3 điểm thuật ngữ/nghĩa; `triangulation` giữ 8.0 (không có bản Anh độc lập riêng, chỉ có bản Anh Sujato của an4.67 cho cùng kệ); các tiêu chí khác giữ nguyên; trung bình thô 9.29. Technical gate: `npm run validate` · `npm test` · `npm run check` · `npm run build` chưa được chạy ở lượt này, nên `technical_integrity` giữ 9.6.
+  Các khoá Pāli trùng nguyên văn với an4.67 (24 vế kệ) nay có 7 khoá lệch giữa hai bài: `4.1` (“sanh/sinh”), `4.2`, `4.3`, `5.4`, `6.1`, `6.2`, `6.3` (và an4.67:10.5 còn “cúng dường đảnh lễ”); báo để sửa an4.67:8.1, 8.2, 8.3, 9.4, 10.3, 10.4, 10.5 đồng bộ, ngoài phạm vi tệp này.
+  Đã đọc và giữ: `3.1`–`3.4` (dấu “!” rồi chữ thường, kiểu câu giữ theo an4.67:7.x, không đổi nghĩa); `5.4` “nhưng” (Pāli không có từ đối lập, nhưng cấu trúc `appamāṇo … pamāṇavantāni` tự đối lập; Sujato cũng thêm “but”); `0.3` “Phẩm Bó Lúa” vẫn chưa có căn cứ từ `Nataṁdaḷhavagga` (xem mục trước, báo để xử lý đồng bộ cả phẩm). Bất định thật còn lại: `parittā` trong `6.1` không có tiền lệ thứ hai trong tầng; chọn “phép hộ trì” theo cách gọi quen của paritta, không đoán thêm.

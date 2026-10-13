@@ -1,5 +1,5 @@
 uid: tha-ap178
-status: draft
+status: review
 translationTitle: "Bài Kệ Tuyên Ngôn Về Trưởng Lão Maggadattika"
 translators:
   - "OpenCode Space Bunny Free (agent)"
@@ -24,10 +24,22 @@ quality:
     technical_integrity: 9.6
   final_score: 8.98
   blocking_errors:
-    - "Tại commit đã ghim không có tệp Anh Sujato cho bài này: `translation/en/sujato/sutta/kn/…_translation-en-sujato.json` không tồn tại và `source/upstream-manifest.json` không liệt kê nó, nên `npm run validate` sẽ báo pinned English reference missing — lỗi chặn với review và published. Lát này bị cấm chạy cổng nên không thể xác nhận ngược lại; đặt draft và chờ người điều phối."
-  assessed_at: "2026-10-12"
+    - "noEnglishEditionUpstream: tại commit đã ghim, Sujato không phát hành bản
+      Anh cho bài này (`translation/en/sujato/sutta/kn/` chỉ có `thag`, không có
+      tệp `tha-ap178`; `source/upstream-manifest.json` không liệt kê; trạng thái
+      `not-published-upstream`); tầng Việt hiện hành cũng vắng (chỉ có Pháp
+      Cú)."
+  assessed_at: "2026-10-13"
   assessed_by:
-    - "Claude Sonnet 5.5 (Claude Code)"
+    - "Claude Opus 5.5 (Claude Code)"
+  waiver:
+    id: no-upstream-english
+    blockers:
+      - "noEnglishEditionUpstream: tại commit đã ghim, Sujato không phát hành
+        bản Anh cho bài này (`translation/en/sujato/sutta/kn/` chỉ có `thag`,
+        không có tệp `tha-ap178`; `source/upstream-manifest.json` không liệt kê;
+        trạng thái `not-published-upstream`); tầng Việt hiện hành cũng vắng (chỉ
+        có Pháp Cú)."
 notes: |-
   **Bài.** `tha-ap178` — `Therāpadāna apadāna`, phẩm `Kumudavagga`, thứ sáu
   (`6.1` tự xác nhận). Bài có 20 khoá Pā li; bản dịch phủ **20/20**.
@@ -145,3 +157,25 @@ notes: |-
   ngữ pháp.
   **Coverage English** không đổi: mẫu số 1 khoá (`5.1`), Sujato **0/1**; `english-project` 0;
   `vietnamese-current` 0 (tầng này chỉ có Pháp Cú).
+
+  **Giải quyết draft 2026-10-13 (vòng 2).** Mục này bổ sung và, khi mâu thuẫn, thay thế các mục cũ ở trên.
+  Phân loại blocker: (A) thiếu bản Anh upstream — viết lại thành **một** blocker ngắn, đúng sự thật
+  (`noEnglishEditionUpstream:`), bỏ lời về cổng kỹ thuật vì đó không phải lỗi văn bản; không còn blocker
+  nào khác (không có hapax chưa giải hay khoá thiếu: bất định ở `2.1–2.2` được ghi bên dưới và không đổi
+  nghĩa giáo lý). Đọc đối kháng lại cả 20 khoá từ Pāli: **0/20** khoá lệch nghĩa, không sửa khoá nào.
+  Đối chiếu bản Việt nguyên bài ở mục Tra cứu toàn văn (chỉ để hiểu cách đọc, không chép câu chữ):
+  `1.1–1.4` Đức Phật kinh hành ngoài trời vì sự thoải mái trong hiện tại; `2.3–2.4` đảnh lễ rồi rải hoa;
+  `3.1–3.4` hai mươi ngàn kiếp trước (`vīsa` 20 × `sahassa` 1.000 = **20.000**), năm vị cùng tên là Chuyển Luân
+  Vương; `2.1–2.2` hoa ở nơi bàn chân được nhấc lên và ở trên đầu — khớp cách đọc định vị cách nơi chốn
+  đã chọn. Tiền lệ trong `tha-ap` đo lại: `abbhokāsamhi caṅkami` *kinh hành ngoài trời* **3**/3 ở các bài khác (`tha-ap350`,
+  `tha-ap459`, `tha-ap523`); `Anomadassī bhagavā` *Đức Thế Tôn Anomadassī* **9**/9 khoá; `dvipadindo narāsabho`
+  *bậc chúa tể loài hai chân, đấng Nhân Ngưu* **4**/4; `Itthaṁ sudaṁ …` *Như vậy, Tôn giả Trưởng lão … đã nói
+  những bài kệ này.* là dạng đa số trên đĩa. Đính chính mục cũ: dòng "`5.1` *Tôi nghe như vầy:*" ở phần
+  trên là ghi chú cũ sai so với tệp hiện hành; khoá `5.1` là *Như vậy, Tôn giả Trưởng lão Maggadattika đã nói
+  những bài kệ này.* và đúng với Pāli. Dạng `…pe…` → `…` 1/1, 0 cặp trùng nội bộ, ngoặc kép khớp Pāli 1/1.
+  **Bất định còn lại.** (1) `sobhaṁ` ở `2.2` hiếm và `muddhani` đi với `tiṭṭhare`: dịch *toả sáng, lưu lại
+  trên đầu*; (2) `2.1–2.2` là ngữ pháp elip (hoa ở chân và ở đầu, một vế bị lược), không đặt chủ sở hữu
+  của "đầu". `triangulation` giữ **7,5** (không có bản Anh độc lập; chỉ Pāli, bài song song và ngữ pháp).
+  **Coverage English:** mẫu số 1 khoá (`5.1`), Sujato 0/1; `english-project` 0; `vietnamese-current` 0.
+  Cổng kỹ thuật vẫn thuộc người điều phối: `npm run validate` · `npm test` · `npm run check` ·
+  `npm run build`; `technical_integrity` giữ **9,6**.

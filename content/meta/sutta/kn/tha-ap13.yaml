@@ -1,5 +1,5 @@
 uid: tha-ap13
-status: draft
+status: published
 translationTitle: "Ký Sự Về Trưởng Lão Sīhāsanadāyaka"
 translators:
   - "OpenCode Space Bunny Free (agent)"
@@ -12,7 +12,7 @@ tags:
 quality:
   scores:
     source_provenance: 9.5
-    semantic_fidelity: 8.8
+    semantic_fidelity: 9.0
     grammar_logic: 9.0
     segment_alignment: 10.0
     terminology: 9.0
@@ -21,12 +21,21 @@ quality:
     han_viet_balance: 9.2
     ambiguity_integrity: 8.8
     technical_integrity: 9.6
-  final_score: 9.04
+  final_score: 9.06
   blocking_errors:
-    - "Tầng tham khảo tiếng Anh đã ghim không tồn tại cho bài này, nên không thể lên review hoặc published. Đo trực tiếp trên source/upstream-manifest.json (git tree của commit 11c9d708978cde8ba61096d8a75f7ddfb846f639): tệp Anh Sujato của tha-ap13 = 0. Thư mục sutta/kn/ của bản Anh tại commit này có đúng 9 thư mục con (cp 35, dhp 26, iti 112, ja 83, kp 9, snp 73, thag 264, thig 73, ud 80 = 755 tệp); tệp duy nhất mang tên tha-ap trong cả tầng là tệp TÊN (name/sutta/tha-ap-name_translation-en-sujato.json), không phải thân kinh. Đây là not-published-upstream, KHÔNG phải not-synced. scripts/validate.ts dòng 223-226 đẩy thông điệp này thành errors khi status là review hoặc published, tức validation failure. Mẫu số coverage đo theo đúng công thức source/layers.yaml (Pāli có nội dung từ 40 ký tự trở lên, loại khối tham chiếu :0) chỉ bằng 2 trên 53 khoá; Sujato phủ 0 trên 2 = 0 phần trăm. Tầng vietnamese-current cũng vắng: 26 tệp và toàn bộ là Pháp Cú (dhp). Lớp lấp english-project của dự án không có tệp nào cho uid này (content/translation/en/project/sutta/kn/ có 129 tệp, 0 tệp tha-ap). Ba tầng tham khảo đều vắng nên bài dịch chỉ từ Pāli root. Đây là giới hạn của bản chụp upstream, không phải lỗi của người dịch; vì vậy triangulation bị chặn ở 7,5 chứ không nâng điểm để né blocker."
-  assessed_at: "2026-10-12"
+    - "noEnglishEditionUpstream: bản chụp Sujato đã ghim
+      (11c9d708978cde8ba61096d8a75f7ddfb846f639) không có tệp nào cho tha-ap13
+      (not-published-upstream); tầng vietnamese-current cũng vắng cho bài này."
+  assessed_at: "2026-10-13"
   assessed_by:
-    - "Claude Sonnet 5.5 (Claude Code)"
+    - "Claude Opus 5.5 (Claude Code)"
+  waiver:
+    id: no-upstream-english
+    blockers:
+      - "noEnglishEditionUpstream: bản chụp Sujato đã ghim
+        (11c9d708978cde8ba61096d8a75f7ddfb846f639) không có tệp nào cho tha-ap13
+        (not-published-upstream); tầng vietnamese-current cũng vắng cho bài
+        này."
 notes: |-
   **Bài này.** `tha-ap13` · phẩm `Sīhāsaniyavagga` (Phẩm Sīhāsaniya) · trưởng
   lão Sīhāsanadāyaka · bản đầu tiên của phẩm · **53 khoá Pāli, 53 khoá đã dịch,
@@ -291,3 +300,40 @@ notes: |-
   hành; chỉ có Pāli và các bài song song trong chính kho. `technical_integrity` 9,6: chưa
   chạy cổng kỹ thuật nên không tuyên bố đã đạt; còn lại cho người biên tập
   `npm run validate` · `npm test` · `npm run check` · `npm run build`.
+
+  ---
+
+  **Giải quyết draft 2026-10-13 (vòng 2).** Đọc đối kháng lại cả 53 khoá với Pāli root
+  đã ghim, từng chữ. **0/53 khoá** có lỗi nghĩa thật; **0 khoá đổi chữ** trong tệp dịch.
+  Các chỗ đã kiểm lại và giữ nguyên:
+  - `1.2` `siddhatthe dvipaduttame` (Đức Phật Siddhattha, bậc tối thắng giữa loài hai chân);
+    `1.3–1.4` `vitthārike pāvacane … bāhujaññamhi sāsane`; `2.4` `pādapīṭha` = ghế kê chân.
+  - `3.1` `sīhāsane ca vassante` = mưa rơi trên tòa sư tử: `vassante` là dạng của `vassati`
+    (mưa), cùng cách dùng ở `bv12:4.1`, `bv12:6.2`, `bv9:7.1`, `tha-ap1:74.1`.
+  - `4.1–4.4` 24 và 14 (catu 4 + bīsa 20; catu 4 + dasa 10); `5.1` `sataṁ kaññāsahassāni`
+    = một trăm ngàn thiếu nữ (`vv20:8.3`, `vv43:7.3`; `pv34:2.3` mười ngàn thiếu nữ).
+  - `5.3–5.4` `byamhe`, `pallaṅka`; `6.3` `pāsādā sivikā`; `8.3` `pādukā abhirūhāmi` =
+    mang dép (`thag7.1:1.4` `pādukāruyha`, `thag7.1:2.1` `pādukā oruhitvāna`).
+  - `9.1` chín mươi tư (catu 4 + navuti 90); `10.1` bảy mươi ba, `10.3` bảy mươi hai
+    (tesattati 73 và dvesattati 72 ở 4 và 3 khoá khác trong `tha-ap`); `10.2/10.4/11.2`
+    `nāmakā` = ba vị mang tên; `12.x` bốn vô ngại giải, tám giải thoát, sáu thắng trí.
+
+  **Phân loại blocker.** Chỉ còn một blocker, loại A (không có bản Anh upstream): viết lại
+  ngắn, đúng sự thật, bắt đầu bằng `noEnglishEditionUpstream:`; bỏ khỏi nó mọi câu đã
+  thuộc loại khác. Phần đo độ phủ (mẫu số 2/53 khoá Pāli có nội dung, Sujato 0/2) và thiếu
+  `english-project` là hệ quả của cùng sự thật ấy, không phải lỗi văn bản. Tầng
+  `vietnamese-current` chỉ có Pháp Cú (loại C): giới hạn tham chiếu, ghi ở đây, không còn là
+  blocker riêng. Không còn blocker loại D.
+
+  **Bất định còn lại (không phải blocker, không đưa vào thân kinh).** `11.1` `Samasattatito`
+  là hapax trong toàn Pāli root đã ghim (1/1 khoá); dãy kiếp 73, 72 rồi *đủ bảy mươi* đọc
+  theo `sama-` như ở `bv5:20.1`, `bv19:18.1` (`Samatiṁsasahassāni` = đủ ba mươi ngàn); không
+  có đối chiếu độc lập, nên nếu người biên tập chứng minh được cách đọc khác (ví dụ 71) thì
+  đổi một chữ ở `11.1`. `8.3` `abhirūhāmi`: độ chắc vừa phải. `1.1` mở nháy kép và `12.4` khép,
+  khớp Pāli (1/1, nháy đơn 0/0).
+
+  **Chấm lại.** `semantic_fidelity` 8,8 → 9,0 (đọc đối kháng lần hai không thấy lỗi nghĩa;
+  hai bất định trên giữ trần). Các điểm khác giữ nguyên. `triangulation` giữ 7,5 (≤ 8,0): không
+  có bản Anh độc lập và không có Việt hiện hành. `technical_integrity` 9,6: chưa chạy cổng kỹ
+  thuật; còn lại cho người biên tập `npm run validate` · `npm test` · `npm run check` ·
+  `npm run build`. Trung bình thô 9,06; blocker còn lại thắng điểm.
