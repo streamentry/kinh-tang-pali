@@ -715,3 +715,18 @@ Nhật ký append-only. Registry `content/audio/progress.json` được đối s
 - On current main `e0d4ec68ca3356426ca37a65d73d577fa955bcd5`, `npm run validate` passed (2,258 advisory warnings; 5,447 quality histories / 0 errors), `npm test` passed (417 passed, 1 skipped, 0 failed), `npm run check` passed (0 errors, 0 warnings, 5 hints), `npm run audio:check` passed (186 UIDs / 0 errors), and `git diff --check` passed.
 - `npm run build` passed: Astro built 6,146 pages; Pagefind indexed 6,137 pages and 458,181 words. MN55/MN56/MN57/MN58/MN59 detail pages each contain the player, exact R2 URL and pending-review label. The MN catalog contains one playlist with 59 current-source-valid track buttons.
 - Interactive browser Play/seek and full human listening remain unverified; editor review remains pending.
+
+### Batch mn-031 merge and production readback — PR #601
+
+- Exact PR head `87510cfedb474b90d7ce89789592e51073c30cbd`; both PR CI workflows passed. Squash merge `b4006084007578a65cf4452b05865556e7365b46` at `2026-10-13T13:12:41Z`. Post-merge main CI `38403147178` and Pages deployment `38403147010` both succeeded.
+- Production MN55/MN56/MN57/MN58/MN59 pages each returned HTTP 200 with the player, exact registered R2 URL, and pending-review label. Each public R2 range read returned 206 `audio/mpeg`, 1,024 bytes, and total size matching the manifest. The MN index returned HTTP 200 with one playlist and 59 source-valid track buttons.
+- Interactive browser Play/seek and human listening were not tested; progress remains `generated`, with all five reviews `pending` for editor listening on production.
+
+### Batch mn-033 — MN60–MN64 generated and uploaded to R2
+
+- MN60: source SHA-256 `5ea4b7ecadcd01911f3e30d4b6fcd88a1fdcae2021f40a6b99df85e8e08930cd`; MP3 SHA-256 `a62b3855f39598f84c1ba2c15d3539ad0de8f4d45dd112862a7bf3dbd283de95`; 46,761,120 bytes; 2,338.00s; scripture starts 153.19s; 24 chunks; [R2 MP3](https://pub-8fa53f5182904685bd0c13d6c894a0e9.r2.dev/vi/mn/mn60/a62b3855f39598f8.mp3).
+- MN61: source SHA-256 `37527255c7f313f15952768d4be1b92c52b2f37cc88211b9b6ef294ad731c2b4`; MP3 SHA-256 `d28b466b2282400e1348011708edb0be873cdc13bc17b94cd760a34aaac3e632`; 19,725,600 bytes; 986.22s; scripture starts 148.51s; 11 chunks; [R2 MP3](https://pub-8fa53f5182904685bd0c13d6c894a0e9.r2.dev/vi/mn/mn61/d28b466b2282400e.mp3).
+- MN62: source SHA-256 `d907f445bfc58d3e986bb5a7098336645efe5fa10eaba5bed6261549d4ddc30d`; MP3 SHA-256 `ed1cd05633889c715eef454c567eddbeebcbb6aa14a9b434a8f4cc4ffa1ec7dd`; 21,768,000 bytes; 1,088.34s; scripture starts 179.43s; 11 chunks; [R2 MP3](https://pub-8fa53f5182904685bd0c13d6c894a0e9.r2.dev/vi/mn/mn62/ed1cd05633889c71.mp3).
+- MN63: source SHA-256 `310d9555d04e84477aed24c29cb4d690663cda7d92f2463f345d5c0584ce2d58`; MP3 SHA-256 `0cece0c25687074fbe98d240eaae720b493b534439a2b42ad4f952b32fa2dfca`; 22,700,160 bytes; 1,134.95s; scripture starts 150.19s; 14 chunks; [R2 MP3](https://pub-8fa53f5182904685bd0c13d6c894a0e9.r2.dev/vi/mn/mn63/0cece0c25687074f.mp3).
+- MN64: source SHA-256 `0c6c27c2f61dfc68b87ab079ee9a2e1725ed47e092bd347bdc7eaa76706d99e9`; MP3 SHA-256 `dc1b61e3ebc8580068569542d922ab10a24dac21c70a83efdf0504c26b277fb3`; 18,922,080 bytes; 946.04s; scripture starts 169.59s; 13 chunks; [R2 MP3](https://pub-8fa53f5182904685bd0c13d6c894a0e9.r2.dev/vi/mn/mn64/dc1b61e3ebc85800.mp3).
+- All use pinned profile `vi-charon-mn1-v1`, SHA-256 `a384c5852585077c32e1348a6ada5cfc70a69c989ad705b8b5129fef3e1c9a71`. MP3 frame/hash/byte checks and public R2 full-object/range verification passed. ASR skipped per editor decision; all reviews remain pending. Interactive playback controls and human listening remain unverified.
