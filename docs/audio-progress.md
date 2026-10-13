@@ -602,3 +602,40 @@ Nhật ký append-only. Registry `content/audio/progress.json` được đối s
 - Rebased on current main `3e90dc241356e0f96e25aefbb03a25998796914b`; audio registry check: 186 UIDs, 0 errors. `npm test`: 410 passed, 1 skipped, 0 failed. Astro check: 0 errors, 0 warnings (5 hints). Direct validator passed with 2,241 advisory coverage warnings; quality-history check covered 5,447 entries with 0 errors.
 - Full `npm run build` passed: 6,146 static pages built; Pagefind indexed 6,137 pages and 458,018 words. Built MN39/MN40/MN41 HTML includes each player, pending-review label, exact R2 URL and audio hash.
 - Local HTTP player metadata and R2 206 range were verified for all three; browser button interaction was not tested in this environment. Progress remains `generated` until interactive player verification; review remains pending.
+
+### Production checkpoints — MN39–MN44 (2026-10-13)
+- mn-026: PR [#581](https://github.com/streamentry/kinh-tang-pali/pull/581), tested head `21d60457c44076242365037e0fed37353e68ccea`, squash merge `0b9461993ba24b93d73430f4be4bd54e440cdb39`, successful Pages run `38324120514`. Push and pull-request CI passed; PR #581 merge state was re-read from GitHub.
+- Production HTTP/player URL and public R2 Range checks refreshed for all three UIDs. Each page returned 200; each MP3 returned 206 audio/mpeg, 1,024 range bytes and the registered object size. Full MP3 hashes were verified by the uploader. Browser controls and human listening remain untested; status stays generated, review pending.
+- mn-027: PR [#582](https://github.com/streamentry/kinh-tang-pali/pull/582), tested head `a4a339ec7b6cc7f9290ff5cd24f267e0ce91b2fe`, squash merge `defe9e9e5afba0b4d9ab847d761d7a9e1bce913b`, successful Pages run `38332307045`. Push and pull-request CI passed; PR #582 merge state was re-read from GitHub.
+- Production HTTP/player URL and public R2 Range checks refreshed for all three UIDs. Each page returned 200; each MP3 returned 206 audio/mpeg, 1,024 range bytes and the registered object size. Full MP3 hashes were verified by the uploader. Browser controls and human listening remain untested; status stays generated, review pending.
+
+### Collection playlist release — PR #583
+
+- Exact head `e626480802d217b65f448bf0408ee821af541055`; squash merge `be422ec813a11598dbbb71e131933c7a54128d1e`. Push/PR CI passed; Pages run `38336011299` succeeded and post-merge CI `38336011353` completed successfully.
+- Production MN directory returned HTTP 200 with one audio element, 44 playlist tracks (MN1–MN44), 44 row Play/Stop controls and 44 native MP3 fallbacks. Previous/next and persisted auto-next markup is present. Browser clicks/responsive visual inspection were not completed: Playwright launcher references a removed Python installation; Safari automation was unavailable. No system setting was enabled.
+
+### Batch mn-028 — MN45/MN46/MN47 uploaded for manual review
+
+- MN45: source SHA-256 `b7e6399a7ca48577825df8bed28490fb7620a5c910dd6eef160767ff594baee0`; MP3 SHA-256 `86c4102b84e7d750de19e413d2169d67b6e96410ec4a77bb7f2a3300076344f3`; 16,031,520 bytes; 801.52s; scripture begins 163.87s; 9 chunks; [R2 MP3](https://pub-8fa53f5182904685bd0c13d6c894a0e9.r2.dev/vi/mn/mn45/86c4102b84e7d750.mp3).
+- MN46: source SHA-256 `59412a430e0b04fb260444580b747ae90b0e055d9af0823f395c6e6f847d7b4c`; MP3 SHA-256 `5b6962a36d1bce5ead0c4172451edd55ab7dd467f84f17b727091ca153c181cc`; 29,234,400 bytes; 1461.66s; scripture begins 170.03s; 15 chunks; [R2 MP3](https://pub-8fa53f5182904685bd0c13d6c894a0e9.r2.dev/vi/mn/mn46/5b6962a36d1bce5e.mp3).
+- MN47: source SHA-256 `38922a266af2fc439d1f471da9f5cbfc9cfbab3b35fb4b942efeac2c18643015`; MP3 SHA-256 `82a97c9d0a1b82cb7970886a147a0d1b6509176b85d642177344415aeaa9c391`; 12,416,160 bytes; 620.74s; scripture begins 137.91s; 7 chunks; [R2 MP3](https://pub-8fa53f5182904685bd0c13d6c894a0e9.r2.dev/vi/mn/mn47/82a97c9d0a1b82cb.mp3).
+- Approved profile vi-charon-mn1-v1 / SHA-256 `a384c5852585077c32e1348a6ada5cfc70a69c989ad705b8b5129fef3e1c9a71` retained. Source/profile and full MP3 structure/hash/bytes plus public hash/range readback passed at upload. No ASR, no claim of listening or browser controls; review pending. MN45 upload authentication was refreshed using read-only same-account Wrangler bucket-info; the existing MP3 was reused.
+- Rebased onto main `7358051c1aa57070732dbc16016e6440a8433793`; intervening changes did not touch MN45–MN47. Local validate passed (2,240 existing advisory warnings, 5,447 histories/0 errors); tests 412 passed/1 skipped/0 failed; Astro check 0 errors/0 warnings/5 hints; design and audio registry checks passed. Production build is being rerun with a durable log; its result will be recorded separately.
+
+### Batch mn-028 real-browser checks and playlist corrections
+
+- Browser verification at 2026-10-13T03:26:01.227534+00:00: MN45/MN46/MN47 detail pages each played the exact R2 MP3 with readyState 4, no media error, and paused successfully. Scripture chapter selection followed by +15s seek yielded 179.236s / 185.030s / 152.910s and phase Kinh văn. Progress is uploaded-verified; full listening remains pending.
+- Collection player: row Play, Next/Back, row Stop/reset, keyboard seeking and real end-of-track auto-next (MN45 → MN46) verified. Turning auto-next off survived reload; the default-on choice was restored. Rapid navigation revealed a stale play() rejection that falsely displayed an error; obsolete playback requests are now ignored and successful play clears obsolete notices. Paused track label now says Bài đang chọn.
+- Responsive browser checks at actual CSS widths 1440, 1024, 390, 320 found no document horizontal overflow. At 320, mobile controls initially overlapped; grid constraints were corrected, then fit and non-overlap confirmed within the 215px control container. Buttons measured 44px minimum height. Desktop/phone screenshots were inspected in the browser tool. No claim of full listening or voice-comparison listening was made.
+
+### Batch mn-028 final local build
+
+- Final npm run build completed with exit 0 after the playlist request guard, paused-state label, and 320px control fix. Validation passed with 2,240 advisory warnings; 5,447 quality histories/0 errors. Astro built 6,146 pages; Pagefind indexed 6,137 pages and 458,019 words. SEO output check passed. Built MN45/MN46/MN47 HTML each has the exact player URL and pending-review label; the collection playlist contains 47 valid tracks.
+
+### Concurrent source update — PR #578
+
+- Main changed pronunciation text by editorial pronoun correction after the historical production checks. MN4/MN7/MN27/MN30/MN41/MN42 old audio is source-stale and remains blocked, with the existing errors preserved. MN45–MN47 source hashes are unchanged. MN41/MN42 earlier production readback is retained as historical evidence only; regeneration is still required. The playlist can therefore contain fewer valid tracks than registered MP3 files.
+
+### Batch mn-028 rebase after pronoun correction
+
+- Rebased onto main `8bfa8ec028bb1cf2777d99eabed90f797634630d`. Progress conflict was merged per UID from current main, retaining all blockers/source hashes/errors; verified MN45–MN47 records and prior merge/deploy history were preserved. Source hashes for MN45–MN47 still match their audio manifests. Current loadAudio composition accepts 41 MN players after adding these three, and rejects all six stale registrations (MN4/MN7/MN27/MN30/MN41/MN42). The earlier 47-track build observation refers to the pre-correction source snapshot.

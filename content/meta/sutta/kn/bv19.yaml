@@ -14,13 +14,13 @@ quality:
     semantic_fidelity: 8.6
     grammar_logic: 8.5
     segment_alignment: 10.0
-    terminology: 8.7
+    terminology: 8.8
     triangulation: 7.0
-    vietnamese_clarity: 8.8
+    vietnamese_clarity: 8.9
     han_viet_balance: 9.1
     ambiguity_integrity: 8.8
     technical_integrity: 9.6
-  final_score: 8.85
+  final_score: 8.87
   blocking_errors:
     - "noEnglishEditionUpstream: Không có tầng tham khảo tiếng Anh tại commit đã
       ghim: `source/upstream-manifest.json` chỉ liệt kê
@@ -33,7 +33,7 @@ quality:
       dịch chỉ từ Pāli root và đối chiếu tiền lệ nội bộ, bài bắt buộc `draft` và
       `triangulation` không quá 8,0. Đây là giới hạn upstream, không phải lỗi
       của người dịch."
-  assessed_at: "2026-10-10"
+  assessed_at: "2026-10-13"
   assessed_by:
     - "Claude Sonnet 5.5 (Claude Code)"
   waiver:
@@ -98,3 +98,12 @@ notes: |-
   **Coverage English (mục 7):** mẫu số = 0. 112 khoá không phải `:0.`; dài nhất sau khi nén khoảng trắng là 37 ký tự (< 40) nên 0/112 khoá có nội dung; đây là *cổng không đo được gì*, không phải *không cần ghi nhận*. Sujato: 0 tệp cho `bv19` (`english-sujato` chỉ có chín tiểu bộ cp dhp iti ja kp snp thag thig ud; chỉ có tệp tên phẩm `bv-name`); `english-project`: 0 (không có tệp bv nào trong `content/translation/en/project/sutta/kn/`, không có `content/meta/en/kn/bv19.yaml`); `vietnamese-current`: 0 tầng segment (chỉ Pháp Cú); bản nguyên bài của tầng tra cứu toàn văn (HTML) không cấp text. Ba tầng đều vắng ⇒ `triangulation` 7,0 (≤ 8,0) và `status: draft` kèm blocker ở trên. Không đụng `content/meta/reference-gaps.yaml`.
 
   **technical_integrity = 9,6:** lát này cấm chạy cổng, nên không tuyên bố technical gate pass. Bốn lệnh còn lại do người điều phối chạy tập trung: `npm run validate` · `npm test` · `npm run check` · `npm run build`. `final_score` là trung bình số học thô của đúng 10 tiêu chí.
+
+  **Lượt cải thiện 2026-10-13.** Đọc đối kháng lại cả 114 cặp Pāli↔Việt, đo tiền lệ trên tầng Kinh Tiểu Bộ (99.099 dạng Pāli đã chuẩn hoá; cặp trùng nguyên văn thì so bản Việt), sửa 2 khoá. 112 khoá còn lại giữ nguyên.
+  - `2.1` (sửa thuật ngữ): “Sau khi xua tan bóng tối ấy,” → “Sau khi xua tan bóng tối mù mịt ấy,”. Pāli `tamandhakāraṁ vidhamitvā` trùng nguyên văn với `bv17:1.3`, `tha-ap8:95.3`, `tha-ap409:34.3`; cả 3/3 đều viết “bóng tối mù mịt ấy”, còn bản trước bỏ “mù mịt” dù ghi ở mục trên là dùng đúng tiền lệ. Nay khớp tiền lệ như đã ghi. Điểm: `terminology` 8,7 → 8,8.
+  - `11.4` (sửa độ rõ): “vừa lay động hoa, ta đã đến gần,” → “trong khi lay động hoa, ta đã đến gần,”. `dhunamāno` là phân từ hiện tại (đang lay động) đi cùng `upāgamiṁ`; “vừa …, ta đã …” trong tiếng Việt thường đọc là “ngay khi … thì …”, lệch sang quan hệ nối tiếp thay vì đồng thời. Không đổi chủ thể, tân ngữ hay thì; không có tiền lệ cùng chữ. Điểm: `vietnamese_clarity` 8,8 → 8,9.
+  - `final_score` 8,85 → 8,87 (88,7 / 10). Không đổi `semantic_fidelity`, `grammar_logic`, `ambiguity_integrity`, `triangulation`: các bất định số 1 và số 2 ở trên vẫn chưa phân xử được, và vẫn không có bản Anh độc lập.
+  - Thêm một căn cứ nội bộ cho bất định số 1 (`18.1`), chưa đủ để kết luận: cùng vị trí đếm người nữ có ba dạng đọc “đủ ba mươi” là `anūnatiṁsasahassāni` (`bv23:20.1`), `samattiṁsasahassāni` (`bv24:17.1`) và `samatiṁsasahassāni` (`bv5:20.1`, `bv19:18.1`; hai khoá sau cùng dịch “Đủ ba mươi ngàn”), trong khi 33 ngàn luôn viết bằng `tettiṁsa-`/`tettiṁsañca` (`bv15:17.1`, `bv16:16.1`, `bv7:18.1`, `bv10:18.1`). Đọc `samatiṁsa` là “ba mươi tròn” hợp với dạng đồng chức năng ở các phẩm khác; vẫn không loại được khả năng một dạng chép khác, nên giữ bất định.
+  - Đã đọc và quyết định **không đổi** dù nghi ngờ: `25.1` “Với cả vị ấy, bậc có uy lực không thể cân lường,” (Pāli `tassāpi atulatejassa`, sở hữu cách; “Với cả” hơi gượng) giữ vì cùng nguyên văn với 5 khoá ở `bv10:3.1`, `bv15:3.1`, `bv17:2.1`, `bv17:23.1`, `bv18:3.1`; muốn sửa phải sửa cả sáu nơi, ngoài phạm vi một bài. `24.1`–`24.2` (“chiều cao của bậc Chiến Thắng”; `jino` là chủ cách, không phải sở hữu cách) giữ vì mọi cách tách lại đều kém rõ hơn hoặc phải đổi ranh khoá. `27.1`–`27.3` giữ “bởi” theo nguyên tắc không thêm động từ. `5.3` giữ “giải thoát khỏi trói buộc” (nguyên văn `pamocesi` là sai khiến; tân ngữ đứng ở `5.4`). `7.1`, `7.3`, `8.1` (100.000 / 9.000.000 / 8.000.000): vẫn theo cấu tạo Pāli, bất định số 2 còn nguyên.
+  - Phép đo lượt này: tập khoá 114/114 và đúng thứ tự Pāli; nháy `“”‘’` khớp Pāli từng khoá 114/114; 4 nhóm Pāli trùng trong bài (mỗi nhóm 2 khoá), 3 nhóm giống hệt, 1 nhóm khác chỉ ở dấu cuối theo Pāli từng khoá; `…pe…` → đúng một `…` (1/1); NFC, khoá rỗng, khoảng trắng thừa: 0 lỗi. Chữ Pāli còn trong bản Việt chỉ là `koṭi`, `ratana` và tên riêng.
+  - `technical_integrity` giữ 9,6; lượt này cũng không chạy bốn lệnh còn lại: `npm run validate` · `npm test` · `npm run check` · `npm run build`.

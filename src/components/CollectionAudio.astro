@@ -30,7 +30,7 @@ const timestamp = (seconds: number) => `${Math.floor(seconds / 60)}:${Math.floor
       <div class="listening-custom" hidden>
         <div class="collection-audio-current" aria-live="polite">
           <div>
-            <p class="eyebrow">Đang phát</p>
+            <p class="eyebrow" data-playback-state>Bài đang chọn</p>
             <h3 data-current-title>{first.title}</h3>
           </div>
           <div class="collection-audio-current-meta">
@@ -117,6 +117,7 @@ const timestamp = (seconds: number) => `${Math.floor(seconds / 60)}:${Math.floor
       const notice = this.querySelector<HTMLElement>('[data-notice]')!;
       const format = (value: number) => `${Math.floor(value / 60)}:${Math.floor(value % 60).toString().padStart(2, '0')}`;
       let activeIndex = 0;
+      let playbackRequest = 0;
       let enabled = true;
       try { enabled = readAutoNext(localStorage); } catch { /* Storage itself may be denied. */ }
       autoNext.checked = enabled;
@@ -142,6 +143,7 @@ const timestamp = (seconds: number) => `${Math.floor(seconds / 60)}:${Math.floor
         seek.setAttribute('aria-valuetext', `${format(currentTime)} / ${format(duration())}`);
         progress.style.width = `${Math.max(0, Math.min(100, currentTime / duration() * 100))}%`;
         const playing = !audio.paused && !audio.ended;
+        this.querySelector('[data-playback-state]')!.textContent = playing ? 'Đang phát' : 'Bài đang chọn';
         play.setAttribute('aria-pressed', String(playing));
         play.setAttribute('aria-label', `${playing ? 'Tạm dừng' : 'Phát'} ${track.uid.toUpperCase()}`);
         this.querySelector('[data-play-label]')!.textContent = playing ? 'Tạm dừng' : 'Phát';
@@ -163,6 +165,7 @@ const timestamp = (seconds: number) => `${Math.floor(seconds / 60)}:${Math.floor
       const selectTrack = async (index: number, autoplay = true) => {
         const track = tracks[index];
         if (!track) return;
+        const request = ++playbackRequest;
         error.hidden = true;
         notice.hidden = true;
         if (index !== activeIndex || audio.dataset.trackUid !== track.uid) {
@@ -177,6 +180,7 @@ const timestamp = (seconds: number) => `${Math.floor(seconds / 60)}:${Math.floor
         update();
         if (autoplay) {
           try { await audio.play(); } catch {
+            if (request !== playbackRequest) return;
             error.hidden = false;
             say('Trình duyệt chưa cho phép phát tự động. Bấm Phát để nghe tiếp.');
             update();
@@ -198,12 +202,13 @@ const timestamp = (seconds: number) => `${Math.floor(seconds / 60)}:${Math.floor
       this.cleanup = () => window.removeEventListener('storage', onStorage);
 
       play.addEventListener('click', async () => {
+        const request = ++playbackRequest;
         error.hidden = true;
         notice.hidden = true;
         if (!audio.paused) audio.pause();
         else {
           if (audio.ended) audio.currentTime = 0;
-          try { await audio.play(); } catch { error.hidden = false; }
+          try { await audio.play(); } catch { if (request === playbackRequest) error.hidden = false; }
         }
         update();
       });
@@ -225,6 +230,9 @@ const timestamp = (seconds: number) => `${Math.floor(seconds / 60)}:${Math.floor
           const index = tracks.findIndex(track => track.uid === button.dataset.playTrack);
           if (index < 0) return;
           if (index === activeIndex && !audio.paused && !audio.ended) {
+            playbackRequest++;
+            error.hidden = true;
+            notice.hidden = true;
             audio.pause();
             audio.currentTime = 0;
             update();
@@ -236,7 +244,7 @@ const timestamp = (seconds: number) => `${Math.floor(seconds / 60)}:${Math.floor
       audio.addEventListener('loadedmetadata', update);
       audio.addEventListener('durationchange', update);
       audio.addEventListener('timeupdate', update);
-      audio.addEventListener('play', update);
+      audio.addEventListener('play', () => { error.hidden = true; notice.hidden = true; update(); });
       audio.addEventListener('pause', update);
       audio.addEventListener('ended', () => {
         update();

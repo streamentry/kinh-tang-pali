@@ -13,18 +13,18 @@ quality:
   scores:
     source_provenance: 9.5
     semantic_fidelity: 8.5
-    grammar_logic: 8.5
+    grammar_logic: 8.7
     segment_alignment: 10.0
-    terminology: 9.0
+    terminology: 9.2
     triangulation: 7.0
-    vietnamese_clarity: 8.8
+    vietnamese_clarity: 9.0
     han_viet_balance: 9.2
     ambiguity_integrity: 8.5
     technical_integrity: 9.6
-  final_score: 8.86
+  final_score: 8.92
   blocking_errors:
     - "noEnglishEditionUpstream: Thiếu bản dịch tiếng Anh đối chiếu"
-  assessed_at: "2026-10-10"
+  assessed_at: "2026-10-13"
   assessed_by:
     - "Claude Sonnet 5.5 (Claude Code)"
   waiver:
@@ -81,3 +81,10 @@ notes: |-
     5. Số Pāli: 10 cụm, xem trên; đúng với Pāli, không có số lớn.
     NFC đạt, không khoá rỗng, không khoảng trắng thừa, không Pāli lọt sang Việt ngoài tiêu đề `0.1` giữ nguyên "Peṭakopadesa". Dấu cuối khoá khớp Pāli (`.`, `;`, `—`), trừ tiêu đề `0.2` (không dấu).
   - Công cụ kiểm của kho chưa chạy ở bước này, nên `technical_integrity` đặt 9.6 và không tuyên bố technical gate pass; còn phải chạy: `npm run validate`, `npm test`, `npm run check`, `npm run build`.
+  - Lượt cải thiện 2026-10-13 (đọc đối kháng lại 78 khoá; 16 khoá đổi, 62 khoá giữ):
+    + Thuật ngữ, theo số đếm lại trên tầng (thay các dòng "Thuật ngữ" ở trên khi khác): `ādīnava` → "nguy hại" thay "hiểm họa" ở `9.2`, `9.3` (nguy hại 548, nguy hiểm 121, tai họa 107, hiểm họa 34 khoá; trong Tiểu Bộ: nguy hại 215 so hiểm họa 22; dòng cũ "hiểm họa 137 so nguy hiểm 126" không tái lập được). `paṭisambhidā` (bốn vô ngại: `atthapaṭisambhidā`…) → "vô ngại giải" thay "vô ngại trí" ở `3.13` (nhóm công thức bốn vô ngại ngoài `ps`: giải 13, trí 4; `ps`: giải 115); `pe2:38` và `an5.86`/`an5.95` còn dùng "vô ngại trí", là việc của bài khác. `thinamiddha` → "hôn trầm và buồn ngủ" (dạng chiếm đa số, ≥ 97 khoá so 11 khoá "hôn trầm buồn ngủ"), `1.8` viết "Sân, cùng hôn trầm và buồn ngủ, thuộc phe sân" để không lặp "và". `puggalamūla` → "gốc của hạng người" (cùng `mūla` → "gốc" với `akusalamūla`) thay "căn bản" ở `1.6`. `vitakketi` → "tư duy" ở cả `2.1`–`2.3` lẫn `3.6`, `3.7` (trước đó "suy tầm" ở `3.6`–`3.7` lệch với "tư duy" ở `2.x`). `adhiṭṭhāna` ở `10.5`: kiểm lại 6 "ý lập" (`mn140`, `pe8`, `pe9`) so 6 "quyết định" (`dn33`, `ne36`), giữ "ý lập" theo `mn140` — hòa, không có đa số.
+    + Cú pháp: `1.7` đặt "do gốc bất thiện là tham" làm vế chung cho cả ba (tham lam, trạo cử, sự bồng bềnh), không chỉ cho sự bồng bềnh; scope này theo cấu trúc song song với `1.8` (grammar_logic). `3.4` `vitakkayanto` là phân từ hiện tại, nên "vừa khởi tầm về những điều ấy, vừa xét kỹ thêm" thay cho "khởi tầm rồi xét"; "người có giới hạnh hay người ác giới" cho cân đối hai vế. `5.1` bỏ dấu gạch ngang và "như vậy" (là chữ `iti` đóng lời xét): "người ấy xét điều ấy rằng tâm hỷ là chấp thủ, và chỉ tác ý đến xả". `5.3` khôi phục `yathā` quan hệ: "Và lạc nào do hỷ đem đến, người ấy cảm nhận lạc ấy…". `7.1`–`7.3` `tassa X` dịch "người ấy có X", đồng với cách dịch `tassa` ở `9.1`.
+    + Tiếng Việt: `3.3` `vicaraṇaṁ` "sự lưu chuyển" → "sự dạo khắp" (không gợi luân chuyển, và trùng `vicarati` "dạo khắp" ở `3.6`); `3.5` `anuvattati` "theo sát" → "theo sau" (theo tiền lệ "theo sau" của `ja532`; "anu" là sau, không có ý "sát").
+    + Điểm đổi: `grammar_logic` 8.5 → 8.7 (1.7, 3.4, 5.1, 5.3, 7.x); `terminology` 9.0 → 9.2 (ādīnava, paṭisambhidā, thinamiddha, puggalamūla, vitakketi); `vietnamese_clarity` 8.8 → 9.0 (3.3, 5.1, 7.x, 1.7). `semantic_fidelity`, `ambiguity_integrity`, `triangulation`, `segment_alignment`, `han_viet_balance`, `source_provenance` giữ nguyên vì không có cải thiện tương ứng. `final_score` 8.86 → 8.92.
+    + Bất định còn nguyên, không phân xử được bằng căn cứ trong kho (đã tra: `uppilavataṁ`, `paliko`, `daraṇitabba`, `ojahi`, `jallasahagata`, `tappoṇa…`, `jeṭṭhānaṁ` chỉ có ở bài này hoặc bài khác không soi sáng thêm; `uppilava` ở `mil3.7.2`/`mil7.2.6`/`snp3.10` xác nhận nghĩa "nổi lên/trôi nổi" nên giữ "bồng bềnh"): `1.6` `yena`, `yathā asamattho`; `1.7` `uppilavataṁ`; `3.9` `jeṭṭhānaṁ saṁvāraṇā`; `3.10` `paliko` ("người già" vẫn là phỏng đoán); `4.7`–`4.8`; `4.14`; `6.1`–`6.2` (sơ đồ lệch với thứ tự quen thuộc), `6.4`; `9.2`–`9.3` `ādīnavaṁ dassitā` (có thể là "thấy hiểm họa" hay `adassitā`); `10.7`–`10.10` (`sukhāya paṭipadāya` lặp bốn lần); `10.7` `anuvattanakāni` ("tùy thuận", hapax). Vì những chỗ ấy còn mở, không nâng `semantic_fidelity` và `ambiguity_integrity`.
+    + Blocker `noEnglishEditionUpstream` giữ nguyên (sự thật về upstream); `technical_integrity` giữ 9.6, bốn lệnh `npm run validate`, `npm test`, `npm run check`, `npm run build` vẫn chưa chạy ở bước này. Phép kiểm sau chỉnh sửa: tập khoá Việt = Pāli 78/78, cùng thứ tự; nháy đơn/kép, ngoặc, `…` khớp Pāli từng khoá 0/78 lệch; Pāli trùng nguyên văn trong bài 0 cặp (phép rỗng); NFC đạt, không khoá rỗng, không Pāli lọt sang Việt ngoài `0.1`.

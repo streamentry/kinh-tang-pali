@@ -16,16 +16,16 @@ quality:
     semantic_fidelity: 8.3
     grammar_logic: 8.4
     segment_alignment: 10.0
-    terminology: 8.8
+    terminology: 9.0
     triangulation: 7.0
-    vietnamese_clarity: 8.5
+    vietnamese_clarity: 8.6
     han_viet_balance: 9.2
     ambiguity_integrity: 9.3
     technical_integrity: 9.6
-  final_score: 8.86
+  final_score: 8.89
   blocking_errors:
     - "noEnglishEditionUpstream: Thiếu bản dịch tiếng Anh đối chiếu"
-  assessed_at: "2026-10-11"
+  assessed_at: "2026-10-13"
   assessed_by:
     - "Claude Sonnet 5.5 (Claude Code)"
   waiver:
@@ -77,3 +77,11 @@ notes: |-
     5. Số Pāli: xem trên.
     NFC đạt, không khoá rỗng, không khoảng trắng thừa, không ngoặc vuông, không Pāli lọt sang Việt ngoài tên riêng (`Jātaka`, `Paṇḍaraka`, `Karampiya`, `Āsittasatta`, `Saṁvara`, `Kāsi`).
   - Công cụ kiểm của kho chưa chạy ở bước này, nên `technical_integrity` đặt 9.6 và không tuyên bố technical gate pass; còn phải chạy: `npm run validate`, `npm test`, `npm run check`, `npm run build`.
+  - Lượt cải thiện 2026-10-13:
+    Đọc đối kháng lại 163 khoá theo cặp Pāli↔Việt, đo tiền lệ bằng số đếm trên toàn tầng Việt đã có. Đổi 3 khoá (3/163), không đổi tập khoá hay ranh khoá; không phát hiện lỗi mới về người nói, phủ định, số lượng hay đảo vế.
+    + `24.1` `Hiriyā` — "Đầy đủ tàm quý" → "Đầy đủ hổ thẹn" (terminology fix): Pāli chỉ có `hiri`, không có `ottappa`, nên "tàm quý" (cặp hai pháp) là rộng hơn Pāli; tiền lệ của tầng cho `hiri`/`hirī`/`hiriyā` đứng riêng là "hổ thẹn" (khoảng 40 khoá, kể cả `ja363:1.1` `Hiriṁ tarantaṁ`, `ja535:91.4` `Hiriyā nivārenti`, `sn7.11:4.3`, `sn45.4:8.3`, `an5.6:2`), còn "tàm quý" cho `hiri` đứng riêng chỉ còn ở 3 khoá khác (`snp2.3:1.1`, `snp2.14:31.1`, `sn1.20:29.5`; ngoài lát, không sửa). Điểm `terminology` 8.8 → 9.0.
+    + `4.2` `Samaṇo ayaṁ` — "người sa-môn này" → "vị sa-môn này" (clarity/terminology fix): "người sa-môn" chỉ có đúng ở khoá này trong toàn tầng, còn "vị sa-môn" có 181 khoá; đồng thời để `4.1` "vị lõa thể" và `4.2` không bị đọc thành hai người. `terminology` góp chung vào mức 9.0 ở trên.
+    + `34.4` `piyamhā` — "chẳng phải là điều thân mến" → "chẳng phải là người thân mến" (clarity fix): `piya` ở đây chỉ người (chúng tôi là người thân mến trong tâm ông), khớp "người thân mến" ở `35.1`; "điều" làm câu đọc như nói về vật. `vietnamese_clarity` 8.5 → 8.6.
+    Giữ nguyên sau khi đo, không đổi dù có nghi ngờ: `rāgaratta` ở `6.3` và `35.3` "nhiễm tham" (trong tầng cho `rāgaratta`: "đắm say"/"say đắm" 4–5 khoá, "đắm nhiễm" 2, "chìm trong tham" 2, "nhiễm tham" chỉ ở bài này; không có đa số rõ ràng và "nhiễm tham" bám sát `rāga`+`ratta`, nên giữ); `37.1` "dáng vẻ cao quý" khớp tiền lệ gần nhất `ja546:216.1` (`Ariyāvakāsosi anariyarūpo`: "dáng vẻ cao quý"); `26.3` "con được cho" khớp `cnd23:4.4`, `cnd23:65.4`, `mnd10:122.5`; `pisuṇa`/`pesuṇiya` "hai lưỡi" (125 khoá, đa số so với "chia rẽ" 65 và "ly gián" 40); `acela` "lõa thể" (đa số); `kapaṇaṁ rudāmi` "khóc thảm thiết" khớp `ja267:1.3`; `kāsikacandana` "đàn hương Kāsi" (tầng chia đều: "trầm hương" 5, "đàn hương"/"gỗ đàn hương" 9, "chiên-đàn" 5; không đa số).
+    Bất định bổ sung vào danh sách trên (không thêm vào thân kinh): `8.4` `pāṇūpagatāva tyamhā` — `pāṇūpagata` chỉ xuất hiện một lần trong toàn Pāli ghim và `tyamhā` chỉ ở bài này (`tyamhi` ở `31.1` cũng chỉ ở đây); câu Việt "chúng tôi như đã đem mạng sống đến với ngài" là cách đọc sát chữ nhất ("đã đến với ngài mang theo mạng sống"), chưa phân xử được với cách đọc `tyamhā` là "từ người ấy" (tức vị lõa thể). `7.2` `mudīreti` cũng hapax, đọc "thốt ra" theo gốc `īr`, chưa tra được tiền lệ. `33.2` `sujayā` dịch "thắng lợi tốt đẹp" vẫn gượng khi nói về hai người; có thể là "sinh tốt/cao quý", chưa phân xử được. `3.3`–`3.4` vẫn chưa giải. Vì vậy `semantic_fidelity`, `grammar_logic` và `ambiguity_integrity` không nâng; `triangulation` giữ 7.0 (không có bản Anh độc lập, ba tầng tham khảo vắng).
+    Kiểm sau sửa: tập khoá 163/163 đúng thứ tự Pāli; nháy kép/đơn khớp Pāli từng khoá, 0/163 lệch; Pāli trùng nguyên văn trong bài 6 nhóm, bản Việt khác nội dung 0; NFC đạt, không khoá rỗng. `technical_integrity` giữ 9,6; vẫn còn chạy: `npm run validate`, `npm test`, `npm run check`, `npm run build`.
