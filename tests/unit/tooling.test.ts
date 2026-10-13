@@ -227,19 +227,23 @@ test('the sutta metadata that predates this tooling is left as history', () => {
   }
 });
 
-test('the English fill metadata names the declared tool that wrote it', () => {
+test('the English fill metadata names a declared tool that wrote it', () => {
   // The fill layer is new work, so its attribution must be current and traceable — a
   // free-text agent name nobody can match to a declared tool is exactly what the other
-  // direction of this test exists to catch.
-  const bunny = toolById('opencode-space-bunny');
-  const alias = bunny.aliasInMetadata ?? bunny.name;
+  // direction of this test exists to catch. The older fills were written by the OpenCode
+  // agent; later fills are written and assessed by Claude Code. Each fill must name the
+  // alias of exactly the tool that did it, and that alias must be a declared one.
+  const aliases = supportTools()
+    .map((tool) => tool.aliasInMetadata)
+    .filter((alias): alias is string => Boolean(alias));
+  assert.ok(aliases.length > 0, 'there are declared metadata aliases to match against');
   const fills = meta.filter(({ file }) => file.includes('content/meta/en/'));
   assert.ok(fills.length > 0, 'there is English fill metadata to check');
   for (const { file, text } of fills) {
     assert.match(text, /assessed_by:/, `${file}: records who assessed it`);
     assert.ok(
-      text.includes(alias),
-      `${file}: the fill was written by "${alias}", which is the declared tooling`,
+      aliases.some((alias) => text.includes(alias)),
+      `${file}: the fill must name a declared tool alias (${aliases.join(' | ')})`,
     );
   }
 });
