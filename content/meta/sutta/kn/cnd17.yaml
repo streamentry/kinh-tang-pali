@@ -11,16 +11,16 @@ tags:
 quality:
   scores:
     source_provenance: 9.4
-    semantic_fidelity: 8.7
+    semantic_fidelity: 8.8
     grammar_logic: 8.8
     segment_alignment: 10.0
-    terminology: 8.5
+    terminology: 8.7
     triangulation: 8.0
     vietnamese_clarity: 8.6
     han_viet_balance: 9.2
     ambiguity_integrity: 8.4
     technical_integrity: 9.6
-  final_score: 8.92
+  final_score: 8.95
   blocking_errors:
     - "noEnglishEditionUpstream: không có tầng tham khảo tiếng Anh cho cnd17 tại
       commit đã ghim. Thư mục kn/ của edition translation/en/sujato chỉ có cp,
@@ -30,7 +30,7 @@ quality:
       có cnd17. Tầng vietnamese-current chỉ có Pháp Cú. Đây là
       not-published-upstream, giới hạn của bản chụp upstream chứ không phải lỗi
       người dịch, nên triangulation bị chặn ở 8.0 và không nâng để né blocker."
-  assessed_at: "2026-10-11"
+  assessed_at: "2026-10-13"
   assessed_by:
     - "Claude Sonnet 5.5 (Claude Code)"
   waiver:
@@ -106,3 +106,16 @@ notes: |-
     19. Lỗi ngoài lát, báo chứ không sửa: `snp5.14:1.1` (*không còn cầu mong*, bỏ `virajaṁ`/`āsīnaṁ`); `snp5.14:2.2` bỏ hô ngữ `udayā` (cùng kiểu `snp5.12:3.2`, `snp5.13:3.2`); `snp5.14:2.3` (*cả hai loại ưu não*); `snp5.14:4.2`, `5.2` (*dao động* cho `vicāraṇaṁ`); `snp5.14:7.1`–`7.2` đảo thứ tự hai dòng so với Pāli.
 
   **Bốn cổng kỹ thuật theo `AGENTS.md`:** `npm run validate`, `npm test`, `npm run check`, `npm run build`. Lát này **không** chạy bốn lệnh đó vì bị cấm trong từng lát ⇒ để CI hoặc người điều phối chạy. `technical_integrity` đặt **9.6**, không 10.0. Các phép tự kiểm đã chạy và đều xanh: tập khoá bản Việt = tập khoá Pāli (263/263, cùng thứ tự); nháy kép `“”`, nháy đơn `‘’` và ngoặc đơn khớp Pāli từng khoá (0/263 lệch; 35 khoá có nháy kép, 4 khoá có ngoặc đơn, không khoá nào có nháy đơn); dấu lược `…` khớp Pāli từng khoá (0/263 lệch; 34 khoá có `…pe…`, 4 khoá có `…` trần, 1 khoá kết `….`); 0 khoá rỗng; NFC; không khoảng trắng thừa; Pāli lọt sang Việt chỉ gồm các từ cố ý `Iccā` và tên riêng `Pāsāṇaka`.
+
+  **Lượt cải thiện 2026-10-13.** Đọc đối kháng lại đủ 263/263 cặp Pāli↔Việt, đo tiền lệ bằng đếm trên toàn tầng bản Việt của dự án (so với từng khoá Pāli chứ không chỉ tìm chuỗi Việt). Đổi **4/263 khoá** (`7.2`, `20.2`, `21.2`, `50.2`); tập khoá và thứ tự khoá giữ nguyên; dấu nháy, ngoặc và dấu lược vẫn khớp Pāli từng khoá.
+    - `7.2` `muniṁ dukkhassa pāraguṁ`: *bậc ẩn sĩ đã đến bờ kia của khổ đau* → *bậc Mâu-ni đã đến bờ kia của khổ đau*. Lý do (terminology fix): trong 411 khoá Pāli có `muni`, bản Việt dùng *mâu-ni* ở 313 khoá và *ẩn sĩ* ở 45 khoá; viết *bậc Mâu-ni* hoa 460 khoá, *bậc mâu-ni* thường 9 khoá; cùng câu kệ ở `cnd22:50.2` đã là *bậc Mâu-ni đã đến bờ kia của khổ đau*. Bản trước theo `sn8.10:5.2` (*bậc ẩn sĩ*) là cách ít gặp.
+    - `50.2` `sallato`: *là mũi nhọn* → *là mũi tên*. Lý do (accuracy/terminology fix): trong cùng dãy `rogato gaṇḍato sallato aghato`, *mũi tên* có 15 khoá (`an4.124`, `an9.36`, `cnd11:64.2`, `ps3.9:11.2` …) so với *mũi nhọn* 4 khoá (`mn64`, `mn74`, `mn75`); `sallaṁ` là mũi tên/phi tiêu. Giữ *khốn khổ* (`aghato`) và *tai họa* (`ābādhato`) như cũ vì các bài khác chia ba cách (*tai họa* / *tật ách* / *khổ bệnh* cho `ābādhato`), không phân xử được.
+    - `20.2` `cetosamphassajaṁ asātaṁ dukkhaṁ vedayitaṁ`: *cảm thọ không thích ý, khổ do xúc của tâm sinh ra* → *cảm thọ không thích ý, khổ, do xúc của tâm sinh ra* (và vế sau tương tự). Lý do (accuracy/clarity fix): câu cũ có thể đọc là chỉ *khổ* do xúc sinh ra; Pāli là `cetosamphassajaṁ` bổ nghĩa cho cả `asātaṁ dukkhaṁ`.
+    - `21.2` `akalyatā akammaññatā`: *sự không sẵn sàng của tâm, sự không dễ sử dụng* → *sự không khỏe khoắn của tâm, sự không dễ dùng*. Lý do (terminology fix, căn chỉnh theo bài chị em): `mnd15:95.2` và `mnd15:95.4` (cùng cặp Pāli) dịch *sự không khỏe khoắn của thân/tâm, sự không dễ dùng của thân/tâm*. Chỉ có 2 khoá làm tiền lệ, nên đây là căn chỉnh chứ không phải đa số; nghĩa `kalya` (khỏe mạnh hay sẵn sàng) vẫn chưa phân xử, bất định 9 còn nguyên. Các từ còn lại của chuỗi (`olīyanā … thiyitattaṁ`) giữ nguyên, vì `mnd15` dịch cả chuỗi khác (`thīna` ở đó là *dã dượi*, còn ở đây `thina` là *hôn trầm* thống nhất cả bài).
+    - Điểm: `terminology` 8.5 → 8.7 (ba khoá sửa theo số đếm và theo bài chị em; kèm lượt kiểm chứng ở dưới), `semantic_fidelity` 8.7 → 8.8 (hai khoá `20.2`, `50.2`); các tiêu chí khác giữ nguyên. `final_score` 8.92 → 8.95; vẫn có blocker `noEnglishEditionUpstream` nên trạng thái không đổi theo điểm.
+
+  **Đính chính các khẳng định "0 tiền lệ" ở trên** (đo lại ở lượt này; bản Việt của các khoá liên quan không đổi vì đã khớp tiền lệ): `27.2` (`upekkhā … majjhattatā cittassa`) giống hệt `mnd16:245.2`, và `27.3` (`upekkhaṁ ārabbha`) có `mnd16:245.5` (*Nương vào xả trong thiền thứ tư*), nên bất định 13 về hai khoá này đã có tiền lệ, không còn là 0 khoá; `2.3` (`jhānarato ekattamanuyutto sadatthagaruko`) có `cnd23:267.1`, `cnd23:316.1`, `mnd14:126.2`, `mnd14:129.2`, `mnd16:242.2`, đều dịch *chuyên (tâm) vào sự nhất tâm* (cách dịch nhất quán, còn ý nghĩa `ekatta` là nhất tâm hay độc cư vẫn chưa phân xử, bất định 4 còn); `22.5`, `22.9`–`22.21` khớp `mnd10:22.3`, `mnd10:23.3`–`23.17`, `mnd14:131.4`, `mnd14:131.7`, `mnd16:247.2` (khung `kato/akatā me` không còn là 0 tiền lệ); `14.3` giống hệt `cnd7:11.5` và `mnd16:73.6` (bất định 7 vẫn còn ở nghĩa của `pañhāgama`, nhưng cách dịch nhất quán giữa ba bài); `19.2` khớp `mnd11:25.2`, `mnd1:5.4`, `mnd2:102.3`; `27.4` (`mudubhūtā kammaniyā ṭhitā āneñjappattā` → *mềm dẻo, đắc dụng, an trú, đạt đến bất động*) khớp 25 khoá cùng chuỗi; `7.4` (`tevijjā maccuhāyino`) giống hệt `sn8.10:3.4`, `sn8.7:8.4`, `thag21.1:28.4`, `thag21.1:41.4`, `cnd22:50.4` (6 khoá). Bất định 1 (`virajamāsīnaṁ`): `cnd2:74.1` cùng kệ đã dịch *không bụi, đang ngồi*, và lời giải `2.5`–`2.7`, `6.2` của chính bài buộc cách đọc này; cách đọc của `snp5.14:1.1` là một bản khác, không đổi bản dịch ở đây.
+
+  **Nghi ngờ nhưng quyết định không đổi** (không có căn cứ phân xử): (a) `vitakka` hai cách (*suy nghĩ* ở các dòng kệ `36.2`, `40.2` và lemma `38.1`, `38.7`; *tầm* ở `38.2`–`38.6`): đổi cả bài sang *tầm* sẽ lệch `sn1.64`, `sn1.65`, `snp5.14`; đổi sang *suy nghĩ* sẽ lệch dãy chín tầm ở `cnd12:6.1`, `cnd22:34.1`; bất định 3 còn. (b) `aññā`/`aññāvimokkha` → *thắng trí*: trong 246 khoá Pāli có `aññā`, bản Việt có *chánh trí* 21 khoá (`dn22`, `mn10`, `mn124`, `sn12.32`, `sn16.11`) và *thắng trí/thắng tri* 28 khoá, tức chia đôi; `an3.33:5.3` dịch *giải thoát nhờ tri ngộ*; không phân xử được, bất định 8 còn (`aññā` và `abhiññā` vẫn cùng một từ Việt). (c) `7.2` giữ *khổ đau* (tầng có *của khổ đau* 4 khoá, *của khổ* 5 khoá, gần ngang nhau). (d) `50.2` đứng không có *thấy* vì Pāli cũng bỏ `passanto` (nối với `50.1`, `50.3`) và có `…`; không thêm động từ. (e) `44.1` đặt *Đức Phật, Đức Thế Tôn* sau chuỗi động từ, `1.1` thêm *Đối với* cho đối cách `jhāyiṁ …`: cả hai đã theo `snp5.14` hoặc cú pháp Việt, không có lỗi nghĩa tìm được.
+
+  **Tự kiểm ở lượt này:** tập khoá Việt = tập khoá Pāli (263/263, cùng thứ tự); nháy kép, nháy đơn và ngoặc đơn khớp Pāli từng khoá (0/263 lệch); dấu lược `…` khớp Pāli từng khoá (0/263 lệch); NFC, không khoá rỗng, không khoảng trắng thừa; Pāli lọt sang Việt chỉ còn `Iccā` và `Pāsāṇaka`; ba nhóm Pāli trùng nguyên văn mà bản Việt khác (`32.4`/`36.4`, `35.4`/`40.4`, `43.2`/`47.4`/`52.2`) vẫn là khác biệt có chủ ý đã nêu ở trên. Bốn lệnh `validate`, `test`, `check`, `build` không chạy ở lượt này (bị cấm trong lát), để CI chạy. `technical_integrity` giữ 9.6.

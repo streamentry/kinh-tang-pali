@@ -13,16 +13,16 @@ tags:
 quality:
   scores:
     source_provenance: 9.5
-    semantic_fidelity: 8.6
+    semantic_fidelity: 8.8
     grammar_logic: 8.8
     segment_alignment: 10.0
-    terminology: 8.3
+    terminology: 8.6
     triangulation: 7.5
-    vietnamese_clarity: 9.2
+    vietnamese_clarity: 9.3
     han_viet_balance: 9.3
     ambiguity_integrity: 8.5
     technical_integrity: 9.6
-  final_score: 8.93
+  final_score: 8.99
   blocking_errors:
     - "Không có tầng tham khảo tiếng Anh tại commit đã ghim
       11c9d708978cde8ba61096d8a75f7ddfb846f639: manifest không liệt kê tệp Anh
@@ -36,7 +36,7 @@ quality:
       `vietnamese-current` vắng (chỉ có Pháp Cú), lớp lấp `english-project`
       không có. Dịch chỉ từ Pāli root; giới hạn upstream, nên `triangulation`
       chặn ở 7.5."
-  assessed_at: "2026-10-11"
+  assessed_at: "2026-10-13"
   assessed_by:
     - "Claude Sonnet 5.5 (Claude Code)"
   waiver:
@@ -91,3 +91,7 @@ notes: |-
   Điểm: semantic_fidelity 9.3 → 8.6, grammar_logic 9.3 → 8.8, terminology 9.1 → 8.3, vietnamese_clarity 9.3 → 9.2, ambiguity_integrity 9.0 → 8.5; final_score 9.19 → 8.93. Hạ điểm vì bản cũ có 6/30 khoá sai nghĩa thật mà lượt chấm 2026-10-04 bỏ sót; sau sửa, điểm phản ánh các bất định còn lại ở trên. Các tiêu chí còn lại giữ nguyên.
   Không có thay đổi về `status` trong lượt này; blocker upstream giữ nguyên.
   technical_integrity 9.6 vì lát này không chạy gate (BRIEF cấm). Bốn lệnh gate do coordinator chạy trước khi xuất bản: `npm run validate`, `npm test`, `npm run check`, `npm run build`.
+  Lượt cải thiện 2026-10-13: đọc đối kháng lại 30 khoá với Pāli, đo tiền lệ trong họ Vimānavatthu (kn/vv, 85 bài). Đổi 4 khoá, đều là bỏ phần thêm nghĩa hoặc khôi phục chữ Pāli bị bỏ; không đổi khoá/ID.
+  (1) 2.1 `acchasi pivasi khādasi` 'ăn uống thỏa thích' → 'uống và ăn': 'thỏa thích' không có trong Pāli, và Pāli xếp uống trước ăn; tiền lệ 4/10 khoá cùng Pāli đã dùng 'uống và ăn', 4/10 dùng 'ăn uống thỏa thích'. Accuracy fix nhẹ. (2) 2.3 `kāmaguṇettha` (= kāmaguṇā ettha): bản cũ bỏ `ettha`; thêm 'ở nơi đây' (4/9 khoá cùng Pāli ở họ vv có dịch `ettha`, 5/9 bỏ; đây là lựa chọn bám Pāli hơn là theo số đông, đã ghi để không lệch lặng lẽ). (3) 3.1 `Kena tetādiso vaṇṇo` 'sắc diện dung nhan' → 'dung sắc': `vaṇṇo` chỉ là một từ, bản cũ ghép hai từ đồng nghĩa; nay thống nhất với 3.3 và 7.1 trong chính bài; 'Do đâu ngài có được dung sắc như thế' có 6/44 khoá cùng Pāli ở dạng 'ngài' (33/44 là dạng 'nàng', không hợp người nghe ở đây). (4) 4.1 `attamano` 'vô cùng hoan hỷ' → 'hoan hỷ': 'vô cùng' là cường độ không có trong Pāli; 'Vị thiên tử ấy hoan hỷ' và 'Thiên tử ấy hoan hỷ' chiếm 13/27 khoá cùng Pāli so với 10/27 có 'vô cùng'. Bản 4 khoá này nay lệch vv57 (cùng Pāli, chưa sửa cùng lúc) ở các khoá 2.1, 2.3, 3.1, 4.1; vv57 và các bài cùng họ cần được sửa đồng loạt nếu giữ nhất quán.
+  Điểm đổi: semantic_fidelity 8.6 → 8.8 (bỏ 3 chỗ thêm nghĩa, khôi phục `ettha`); terminology 8.3 → 8.6 (3.1 nay đồng nhất 'dung sắc' cho `vaṇṇo` ở cả ba khoá; và 0.2 'Nam Hư Không' mà lượt trước ghi chưa sửa nay đã thành 'Thiên Cung Của Nam Giới' trong bản hiện hành, nên ghi chú 'chưa sửa 0.2' ở trên đã lỗi thời); vietnamese_clarity 9.2 → 9.3 (bỏ cặp từ đồng nghĩa 'sắc diện dung nhan'). Các tiêu chí khác giữ nguyên, kể cả triangulation 7.5 (không có bản Anh độc lập) và ambiguity_integrity 8.5.
+  Bất định còn lại, đã cân nhắc và KHÔNG đổi: 1.4 `rucakatthatā` (hapax: toàn tầng Pāli chỉ có đúng 11 lần dạng này, không có dạng rucaka đứng riêng nên không đối chiếu được; 'trải thảm rực rỡ' 8/11 khoá cùng Pāli là cách đọc theo họ, nghĩa chính xác của `rucaka` chưa phân xử được); 2.4 `nāriyo` 'tiên nữ' (Pāli chỉ là 'phụ nữ', 2/9 khoá cùng Pāli dùng 'nữ nhân', 'tiên nữ' theo họ), `suvaṇṇachannā` 'khoác trang sức vàng ròng' (Pāli là 'phủ/che bằng vàng'; 'ròng' là thêm nhẹ, giữ theo họ) và `naccanti` 'khiêu vũ' (so với 'múa' ở 3/9); 1.1 `vimānaṁ` dịch 'tòa lâu đài' (7/12) nhưng nhan đề dùng 'Cung Điện' (theo quy ước đặt tên họ vv); 5.2 `vijānatā` 'có hiểu biết' còn hơi nặng nề. Không có lỗi kỹ thuật mới; technical_integrity giữ 9.6; bốn lệnh `npm run validate`, `npm test`, `npm run check`, `npm run build` do coordinator chạy.

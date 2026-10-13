@@ -16,20 +16,20 @@ quality:
     semantic_fidelity: 9.0
     grammar_logic: 9.0
     segment_alignment: 10.0
-    terminology: 8.8
+    terminology: 8.9
     triangulation: 7.0
-    vietnamese_clarity: 8.9
+    vietnamese_clarity: 9.0
     han_viet_balance: 9.2
     ambiguity_integrity: 8.3
     technical_integrity: 9.6
-  final_score: 8.92
+  final_score: 8.94
   blocking_errors:
     - "noEnglishEditionUpstream: Thiếu bản dịch tiếng Anh đối chiếu — tầng
       english-sujato không có ps3.3 tại commit đã ghim (sutta/kn đã ghim chỉ có
       cp dhp iti ja kp snp thag thig ud, manifest chỉ liệt kê tệp Pāli root cho
       uid này), lớp english-project cũng vắng, vietnamese-current chỉ có Pháp
       Cú; bài chỉ dịch từ Pāli root nên chưa đủ điều kiện published."
-  assessed_at: "2026-10-10"
+  assessed_at: "2026-10-13"
   assessed_by:
     - "Claude Sonnet 5.5 (Claude Code)"
   waiver:
@@ -58,3 +58,9 @@ notes: |-
   Phép kiểm đã chạy: tập khoá Việt = tập khoá Pāli (89 = 89), thứ tự giống Pāli; nháy đơn, nháy kép: Pāli không có nháy ở khoá nào (0/89) nên bản Việt không có và phép so nháy chạy với mẫu số 0 khoá có nháy; dấu lược … khớp Pāli từng khoá (12 khoá có dấu lược, 0 lệch, không (…) trần); NFC, khoá rỗng, khoảng trắng thừa, Pāli lọt sang Việt: 0 lỗi trên 89 khoá.
 
   Chưa chạy cổng kỹ thuật nên technical_integrity đặt 9,6: còn phải chạy npm run validate, npm test, npm run check, npm run build.
+
+  Lượt cải thiện 2026-10-13: đọc đối kháng lại cả 89 khoá cạnh Pāli và đo lại tiền lệ trên toàn tầng Việt. Sửa 4 khoá, không đổi tập khoá hay thứ tự. (a) 3.1 clarity fix: acittena ca ñāṇena ca acittako abhisameti, "bằng không tâm và bằng trí" (gượng, đọc như một danh từ ghép) thành "bằng cái không phải tâm và bằng trí"; nghĩa không đổi. (b) 7.1 và 7.2 terminology fix: kammassakatacitta, "tâm về sự chủ nhân của nghiệp" thành "tâm về tính chủ nhân của nghiệp". Đo lại: kammassakatā ở an5.161:1.11 đã dịch đúng là "tính chủ nhân của nghiệp" (mục (4) phần Bất định ở trên chép nhầm thành "sự chủ nhân"), còn kammassaka là "chủ nhân của nghiệp" (an5.57, an10.48, an5.161:1.12). (c) 12.2 clarity fix: thêm dấu phẩy quanh hai vế "có sự sinh khởi làm chủ" và "có sự thấy làm chủ" để người đọc không hiểu nhầm "làm chủ là nhân"; không đổi từ, không đổi chủ ngữ, bất định (1) vẫn nguyên. Điểm đổi: terminology 8.8 thành 8.9 (đồng bộ với tiền lệ an5.161 và kiểm chuỗi 8 loại người ở 17.9: cặp Pāli ratto … thāmagato đã có 12 khoá tiền lệ giống từng chữ ở cnd10, mnd2, mnd3, mnd4, mnd5, mnd13, với "người đã ngấm sâu" chiếm đa số; "người đã ngấm sâu" là lựa chọn đã bảo vệ được, không đổi); vietnamese_clarity 8.9 thành 9.0 (hai sửa clarity ở 3.1 và 12.2). Các điểm còn lại giữ nguyên vì không có cải thiện tương ứng.
+
+  Đính chính ghi chú cũ sau khi đo lại: saccānulomika có 1 tiền lệ chứ không phải 0: mnd9:32.8 dịch saccānulomikañāṇaṁ là "trí thuận theo chân lý", khớp 8.1 và 8.2. āyūhanā có 53 trên 55 khoá dịch là "tích lũy" (ps1.1 và các bài khác), không phải 0 tiền lệ; 18.13 và 18.14 khớp đa số. pavatta → vận hành khớp ps1.1 (chuỗi sự sinh khởi, sự vận hành, tướng, sự tích lũy). pakkhandati với citta → "tâm hướng đến" khớp dn33:2.1.102 và các khoá cùng khuôn. ādīnavaṁ disvā → "thấy sự nguy hại": 40 trên 44. sampayutta → tương ưng 80 trên 84. gocara → phạm vi 71 trên 190 (đối tượng 17, hành xứ 7; phạm vi vẫn là dạng thường nhất). Pāli trùng nguyên văn trong chính bài: đo lại 6 nhóm trùng, 0 nhóm mà bản Việt khác. Dấu lược … khớp Pāli từng khoá, 0 lệch; không có nháy ở cả Pāli lẫn Việt (phép so nháy mẫu số 0).
+
+  Bất định bổ sung (không đổi bản dịch, không thêm vào thân kinh): (9) 17.1 Yvāyaṁ kilese pajahati ghép đại từ quan hệ với chỉ định; dịch "Người này từ bỏ phiền não:" như một đề, còn 17.1–17.2 (chuỗi quá khứ, vị lai, hiện tại rồi lại quá khứ kết bằng ti) có thể là câu hỏi lựa chọn hoặc các mệnh đề lần lượt đem ra xét; bản Việt giữ nguyên chuỗi và không thêm dấu hỏi, vì Pāli không có. (10) 18.7 Tamenaṁ puriso mūlaṁ chindeyya là cách nói giả định (-eyya); giữ dạng kể sau "Ví như" theo thông lệ tầng (ps1.2 và sn35.231 cũng dịch tương tự). (11) 18.2 "không vị lai …" giữ đúng chỗ lược của Pāli, không bung ra. Vì vậy ambiguity_integrity giữ 8.3, semantic_fidelity giữ 9.0, triangulation giữ 7.0 (không có tầng Anh độc lập và bản Việt nguyên bài chỉ để đọc cách hiểu); blocker noEnglishEditionUpstream giữ nguyên vì đó là sự thật về upstream.

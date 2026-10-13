@@ -33,7 +33,7 @@ quality:
       dịch chỉ từ Pāli root và đối chiếu tiền lệ nội bộ, bài bắt buộc `draft` và
       `triangulation` không quá 8,0. Đây là giới hạn upstream, không phải lỗi
       của người dịch."
-  assessed_at: "2026-10-10"
+  assessed_at: "2026-10-13"
   assessed_by:
     - "Claude Sonnet 5.5 (Claude Code)"
   waiver:
@@ -92,3 +92,17 @@ notes: |-
   **Coverage English (mục 7):** mẫu số = 0. Dài nhất sau khi nén khoảng trắng là 27 ký tự (< 40) nên 0/72 khoá có nội dung (bỏ 2 khoá `:0.`); đây là *cổng không đo được gì*, không phải *không cần ghi nhận*. Sujato: 0 tệp cho `bv29` (`english-sujato` chỉ có chín tiểu bộ cp dhp iti ja kp snp thag thig ud); `english-project`: 0; `vietnamese-current`: 0 (chỉ Pháp Cú). Ba tầng đều vắng ⇒ `triangulation` 7,0 (≤ 8,0) và `status: draft` kèm blocker ở trên. Không đụng `content/meta/reference-gaps.yaml`.
 
   **technical_integrity = 9,6:** lát này cấm chạy cổng, nên không tuyên bố technical gate pass. Bốn lệnh còn lại do người điều phối chạy tập trung: `npm run validate` · `npm test` · `npm run check` · `npm run build`. `final_score` là trung bình số học thô của đúng 10 tiêu chí, tính bằng script.
+
+  **Lượt cải thiện 2026-10-13: đọc đối kháng lại cả 74 khoá, 0 khoá bản dịch đổi, điểm giữ nguyên.** Đã in cặp Pāli↔Việt từng khoá và kiểm lại người nói/chủ thể, phủ định, số lượng (7 = 1 + 4 + 2 ở 6.1–6.3; 8 + 2 tháp ở 5.1–5.3; 5 + 5 + 6 nāḷi ở 9.1–9.3), ranh giới khoá và tập khoá (74/74, thứ tự đúng Pāli). Không tìm thấy lỗi nghĩa nào cần sửa. Hai ứng viên nghi lệch tiền lệ đã đo rồi quyết định giữ:
+  - `4.1`–`4.4` câu bị động “được dựng lên bởi …”: trên tầng Việt, “được … bởi” có 341 khoá, “được … do” 106 khoá; dạng đang dùng là dạng đa số và cũng khớp `kāresi`/`kāresuṁ` (sai khiến làm), nên giữ.
+  - `6.2` “cũng là xá lợi” cho `ca dhātuyo`: tổng bảy ở 6.3 chỉ đúng khi `dhātuyo` là vị ngữ chứ không thêm một mục thứ tám vào danh sách, cách đọc hiện tại đã đúng, giữ.
+  Các khoá còn lại là cách dịch từng được chọn có chủ ý (xem các mục trên); không đổi chỉ vì muốn khác.
+
+  **Quét từ hiếm trên toàn lớp Pāli root (đã đo ở lượt này, bổ sung cho các bất định ở trên).** Ngoài `bv29`: `kumbhacetiya`, `bhinnataṇḍula`, `kulaghare`, `uṇṇaloma`, `udakasāṭiyaṁ` (dạng ghép sandhi `Campāyudakasāṭiyaṁ`) đều 0 lần; `akkhakā` chỉ có ở bài này (các khoá khác chỉ là chuỗi con của từ khác); `parisāvana` 1 lần (`mnd10:44.7`), `sūcighara` 1 lần (`sn17.9:1.10`, cùng nhóm vật dụng với `cīvaraṁ`, `pattaṁ`, `nisīdanaṁ`, khớp “ống đựng kim”); `porāṇikaṁ` (18.4) chỉ 1 lần, tức hapax. Hai chỗ có căn cứ phụ:
+  - `makulavaṇṇā` (8.3): `makula` có trong `thig13.1:9.1` `Pattalīmakulavaṇṇasādisā`, tầng Việt dịch “có màu như nụ hoa pattalī”. Điều này ủng hộ “nụ hoa” cho `makula`; loài hoa vẫn không được nêu trong 8.3 nên không thêm.
+  - `uṇṇalomañca` (14.4): `uṇṇā bhamukantare jātā odātā mudutūlasannibhā` (`dn14:1.32.37`, `dn30:1.2.34`) là sợi lông trắng giữa hai lông mày của Đại Nhân, tầng Việt dịch “sợi lông trắng”; một sợi lông ở thân Đức Phật hợp với danh sách di vật hơn là len của xứ Kosala, nên giữ “sợi lông trắng”, nhưng đây là suy từ nghĩa của `uṇṇā` chứ 14.4 không nói rõ.
+  - Bổ sung cho bất định số 2: `uṇhīsa` đứng riêng có 4 khoá ngoài bài này (`mn89:8.2`, `ja530:4.3`, `ja538:72.1`, `mil6.4.1:3.3`), cả 4 tầng Việt dịch “khăn vấn/đội đầu” (vật đội của vua), và “nhục kế” có 0 khoá trên tầng. Ở 6.1/10.1 `uṇhīsa` nằm trong danh sách `dhātuyo` (bảy thứ không vỡ) nên không thể là khăn; giữ “nhục kế” như một lựa chọn chưa có tiền lệ.
+
+  **Bất định thêm.** 12. `porāṇikaṁ` (18.4) hapax: đọc là “việc xưa”, nên `ahu porāṇikaṁ tadāti` thành “việc xưa ấy đã xảy ra vào lúc đó”; cách đọc khác là “(đó là) điều cổ xưa”, tức lời tổng kết của người ghi chép, không phải lời dẫn việc. Pāli root `kulaghare` (13.3), `karaṇaṁ` (14.2) và `akaṁsu` (17.4) vẫn như đã ghi ở các mục 6 và 8; bản Việt nguyên bài ở mục Tra cứu toàn văn dựa theo một bản đọc Pāli khác ở các câu này (vật dụng và địa danh không trùng hẳn root đã ghim), nên không dùng để phân xử, chỉ dùng để hiểu rằng đây là chỗ các truyền bản khác nhau.
+
+  **Điểm lượt này.** Không cải thiện cụ thể nào ở bản dịch nên không tiêu chí nào được nâng; không tìm thấy lỗi mới nên không hạ. `final_score` 8,92 (trung bình thô của đúng 10 điểm). Các bất định thật ở mục 2, 6, 7 và 8 vẫn còn nên `semantic_fidelity`, `ambiguity_integrity` giữ nguyên; `triangulation` vẫn 7,0 vì không có bản Anh độc lập. Blocker `noEnglishEditionUpstream` giữ nguyên.

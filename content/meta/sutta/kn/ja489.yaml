@@ -14,16 +14,16 @@ tags:
 quality:
   scores:
     source_provenance: 9.4
-    semantic_fidelity: 8.6
-    grammar_logic: 8.6
+    semantic_fidelity: 8.7
+    grammar_logic: 8.8
     segment_alignment: 10.0
-    terminology: 8.8
+    terminology: 8.9
     triangulation: 7.0
-    vietnamese_clarity: 9.0
+    vietnamese_clarity: 9.2
     han_viet_balance: 9.2
     ambiguity_integrity: 9.0
     technical_integrity: 9.6
-  final_score: 8.92
+  final_score: 8.98
   blocking_errors:
     - "noEnglishEditionUpstream: Không có tầng tham khảo tiếng Anh tại commit đã
       ghim: `source/upstream-manifest.json` chỉ liệt kê
@@ -36,7 +36,7 @@ quality:
       đều vắng ⇒ bài dịch chỉ từ Pāli root và đối chiếu tiền lệ nội bộ ⇒ bài bắt
       buộc `draft` và `triangulation ≤ 8,0`. Đây là giới hạn upstream, không
       phải lỗi của người dịch."
-  assessed_at: "2026-10-10"
+  assessed_at: "2026-10-13"
   assessed_by:
     - "Claude Sonnet 5.5 (Claude Code)"
   waiver:
@@ -132,3 +132,17 @@ notes: |-
     16. `amānusā` (22.4): đọc đồng vị với `devā` (22.3), “những bậc không phải người”; một cách đọc khác là thuộc `mānusiyā` (“người nữ loài người, ... phi nhân”), nhưng không hợp văn.
 
     **technical_integrity = 9,6:** lát này cấm chạy cổng, nên không tuyên bố technical gate pass. Bốn lệnh còn lại do người điều phối chạy tập trung: `npm run validate` · `npm test` · `npm run check` · `npm run build`.
+
+  **Lượt cải thiện 2026-10-13.** Đọc đối kháng lại cả 109 khoá cặp Pāli↔Việt; đổi 8 khoá (accuracy/clarity/terminology), giữ nguyên tập khoá và thứ tự khoá. Chỗ nào mục này mâu thuẫn với phần trên thì mục này thay thế phần trên.
+  - `22.4` (accuracy/clarity): “người nữ loài người ấy, những bậc không phải người.” → “người nữ loài người ấy, họ là những bậc không phải người.” Bản cũ để cụm đồng vị `amānusā` (đồng vị với `devā`, 22.3) đứng ngay sau “người nữ loài người”, nên đọc lướt dễ hiểu nhầm là bổ nghĩa cho người nữ. Đã đọc lại: `amānusā` nom. số nhiều nam, hợp với `devā`; `mānusiyā` sở hữu/tặng cách nữ, hợp với người nữ. Bất định 16 cũ (cách đọc `amānusā` thuộc `mānusiyā`) bị loại: dạng ngữ pháp không cho phép.
+  - `17.4` (clarity): “người con trai sẽ sinh ra cho nàng.” → “sẽ sinh ra làm con trai của nàng.” Ba cụm danh từ ở `17.1`–`17.3` (`khattiyo`, `abhijāto`, `dhammarājā`) đồng vị với `putto` (17.4); câu mới nối chúng thành một chủ ngữ rõ ràng thay vì để ba cụm lơ lửng trước vế cuối. Không thêm ý.
+  - `2.3` và `2.5` (clarity): “tôi không nhớ mình đã, bằng thân,” / “khinh thường Suruci,” → “tôi không nhớ, bằng thân,” / “mình đã khinh thường Suruci,”. Bản cũ cắt câu ngay sau “đã” (đuôi động từ bị bỏ lại ở `2.3` còn động từ nằm ở `2.5`); nay “mình đã” đi cùng động từ `atimaññittha` (2.5), đúng ranh khoá hơn và khớp mẫu `nābhijānāmi … aticaritā` (`an4.55:2.1`, `an7.53:10.3`: “tôi không nhớ mình đã/từng …”). Cách đọc ngôi thứ nhất của `atimaññittha` (bất định 4) không đổi.
+  - `19.1` (clarity): “Ngài là vị thiên từ cõi trời,” → “Có phải ngài là vị thiên từ cõi trời,”. `devatā nu asi`: tiểu từ `nu` hỏi; bản cũ để câu hỏi chỉ lộ ở `19.2` (dấu hỏi), nên 19.1 đọc như khẳng định. Nay vế hỏi hiện ngay từ 19.1; `19.2` “hay là ẩn sĩ có đại thần lực?” giữ nguyên.
+  - `20.1` (terminology): “các chúng chư thiên” → “các hội chúng chư thiên”. Đo toàn tầng: 20 khoá chứa `devasaṅgh…`, trong đó 10 khoá dịch “hội chúng chư thiên” (`bv1:19.1`, `bv1:27.1`, `thag12.2:11.2`, `tha-ap353:1.4`, `tha-ap413:9.3`, `vv64:24.4`, `vv74:1.2`, `thig13.5:29.1` và 2 khoá khác), 4 khoá “hội chư thiên”, phần còn lại “chúng thiên”/“chúng Trời”; không khoá nào khác dùng “các chúng chư thiên” cho `devasaṅgha`. Đây là cách phổ biến nhất chứ không phải đa số tuyệt đối. Dấu nháy mở của `20.1` được giữ như Pāli.
+  - `25.1` (terminology): “Hỡi người có trí tuệ” → “Hỡi người rất thông tuệ”. `sumedhe` (25.1) và `sumedhāya` (22.1) cùng gốc `su-medhā`, bản cũ dịch hai cách (“có trí tuệ” so với “rất thông tuệ”); `medhāvinī` (21.3) giữ “có trí tuệ”. Nay 22.1 và 25.1 cùng “rất thông tuệ”, còn `medhāvinī` khác biệt như Pāli. Bất định 14 (có thể là tên `Sumedhā`) vẫn còn: thân kinh chỉ có kệ nên không phân xử được; tầng có `Sumedhā` làm tên người ở `thi-ap10`, `thig16.1` nhưng đó là người khác.
+  - `8.4` (clarity): “luôn luôn, tất cả những người vợ chung chồng.” → “luôn luôn, đối với tất cả những người vợ chung chồng.”. `sabbā sapattiyo` là tân ngữ của `anukampāmi` (8.3) nhưng bị đẩy xuống sau trạng từ; “đối với” chỉ gắn lại quan hệ, giống cấu trúc “đối với họ” ở `7.3`. Không thêm ý.
+  Điểm đổi: `semantic_fidelity` 8.6 → 8.7 (sửa cách đọc `amānusā`, nay đúng ngữ pháp); `grammar_logic` 8.6 → 8.8 (đồng vị 17.1–17.4 và 22.3–22.4 đã rõ, câu hỏi `nu` ở 19.1 đã hiện); `terminology` 8.8 → 8.9 (`devasaṅgha`, `sumedha` nhất quán); `vietnamese_clarity` 9.0 → 9.2 (2.3–2.5, 8.4, 17.4, 19.1, 22.4 đọc trôi hơn). Không đổi: `source_provenance`, `segment_alignment`, `triangulation` (vẫn 7,0: ba tầng tham khảo vắng), `han_viet_balance`, `ambiguity_integrity` (bất định thật còn nguyên, xem dưới), `technical_integrity` 9,6. `final_score` 8,92 → 8,98 (trung bình thô); không có blocker mới; blocker `noEnglishEditionUpstream` giữ nguyên.
+  Đã dò và quyết định **không đổi** dù nghi ngờ: `10.1` “người sai việc” (`pesse`; cùng Pāli và cùng bản Việt với `ja546:171.1`, chỉ 1 khoá khác trong tầng; “người sai vặt” có thể rõ hơn nhưng sẽ lệch tiền lệ duy nhất này mà tôi không sửa được), `4.1` “tức” (nối hai vế đồng vị `sassu mātā`), `1.3`–`1.4` (hai cách đọc `yaṁ maṁ surucimānayi`: `-m-` là âm nối hay `Suruciṁ` đối cách; nghĩa vẫn là Suruci đưa tôi về, đã nêu ở bất định 3), `14.3` “tuần lễ thần biến” (13 khoá đa số, nhưng `pāṭihāriyapakkha` chỉ là cách đọc truyền thống: `vv23` viết “nửa tháng thần biến”, `an3.37` viết “kỳ phép nhiệm màu”), `8.3` “thương xót” (`anukamp…`: 34 khoá, 11 “thương xót”, 15 “thương tưởng”, phần còn lại “thương cảm/thương mến”, không đa số tuyệt đối).
+  Sửa một chỗ sai trong ghi chú cũ: bất định 6 ghi `kāmasā` là hapax; đo lại, `kāmasā` còn ở 3 khoá khác (`ja533:74.3` “tùy ý”, `ja543:53.4` “do tự ý”, `ja543:55.4`), đều là trạng từ “theo ý mình/tự ý”, nên cách đọc “tự nguyện” có chỗ dựa và cách đọc “vì dục” kém khả năng hơn; `ahiṁsāratinī` vẫn chưa có đối chiếu. Cũng đã đo lại `dummī` (18.1): tầng có thêm `ja543:102.1` “Kharājino jaṭī dummī” dịch “dáng tiều tụy” (nay đã có bản Việt, khác ghi chú cũ “chưa dịch”); cùng dịch như bài này nhưng vẫn không xác lập được nghĩa gốc nên bất định 9 còn nguyên.
+  Bất định còn lại sau lượt này: 1, 2, 3, 4, 5, 7, 8, 9, 10, 11, 12, 13, 14, 15 (bất định 16 đã loại, 6 thu hẹp). Chưa có gì chứng minh người nói được nêu trong thân kinh vì bản root chỉ có kệ.
+  Kiểm sau sửa: 109/109 khoá, tập khoá và thứ tự khoá khớp Pāli; nháy kép khớp Pāli từng khoá (0/109 lệch, không có nháy đơn); 4 nhóm Pāli trùng trong bài (6 khổ lặp) vẫn giống hệt nhau; không có `…`; NFC; không khoá rỗng. `technical_integrity` giữ 9,6: lượt này cũng cấm chạy cổng; `npm run validate` · `npm test` · `npm run check` · `npm run build` do người điều phối chạy.

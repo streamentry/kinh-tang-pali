@@ -16,11 +16,11 @@ quality:
     segment_alignment: 10.0
     terminology: 8.6
     triangulation: 8.0
-    vietnamese_clarity: 8.6
+    vietnamese_clarity: 8.7
     han_viet_balance: 9.0
     ambiguity_integrity: 8.7
     technical_integrity: 9.6
-  final_score: 8.92
+  final_score: 8.93
   blocking_errors:
     - "noEnglishEditionUpstream: không có tầng tham khảo tiếng Anh cho cnd7 tại
       commit đã ghim. Thư mục kn/ của edition translation/en/sujato chỉ có cp,
@@ -30,7 +30,7 @@ quality:
       có cnd7. Tầng vietnamese-current chỉ có Pháp Cú. Đây là
       not-published-upstream, giới hạn của bản chụp upstream chứ không phải lỗi
       người dịch, nên triangulation bị chặn ở 8.0 và không nâng để né blocker."
-  assessed_at: "2026-10-11"
+  assessed_at: "2026-10-13"
   assessed_by:
     - "Claude Sonnet 5.5 (Claude Code)"
   waiver:
@@ -85,3 +85,11 @@ notes: |-
   10. `62.2` Pāli không có nháy, nên các câu `anatthaṁ me acari` được viết thành *giận dữ sinh khởi khi nghĩ rằng người ấy đã làm điều bất lợi cho tôi*; chủ ngữ *người ấy* là chủ ngữ ngầm của động từ, không có từ riêng trong Pāli.
 
   **Bốn cổng kỹ thuật theo `AGENTS.md`:** `npm run validate`, `npm test`, `npm run check`, `npm run build`. Lát này **không** chạy bốn lệnh đó vì bị cấm trong từng lát ⇒ để CI hoặc người điều phối chạy. `technical_integrity` đặt **9.6**, không 10.0. Các phép tự kiểm đã chạy và đều xanh: tập khoá bản Việt = tập khoá Pāli (413/413, cùng thứ tự); nháy kép `“”` khớp Pāli từng khoá (0/413 lệch; 25 khoá có nháy kép, Pāli không có nháy đơn nên Việt cũng không có); dấu lược `…` khớp Pāli từng khoá (0/413 lệch; 41 khoá `…pe…` đều thành đúng một `…`, 2 khoá có `…` trần đều giữ đủ số dấu); Pāli không có `(…)` nên Việt cũng không có; ngoặc đơn `( )` khớp từng khoá (12/12); 0 khoá rỗng; NFC; không khoảng trắng thừa; Pāli lọt sang Việt chỉ gồm lemma `Iccā` (2 khoá: `10.1`, `52.2`) và tên riêng/loại hình (`Puṇṇaka`, `Ājīvaka`, `Nigaṇṭha`, `Supaṇṇa`, `Aviruddhaka`, `Vāsudeva`, `Baladeva`, `Puṇṇabhadda`, `Maṇibhadda`, `Yāma`, `Tusita`, `Veda`, `Nāga`, `Inda`, `Māra`); đã in và đọc đối chiếu đủ 413 cặp Pāli↔Việt.
+
+  **Lượt cải thiện 2026-10-13** (đọc đối kháng lại đủ 413 cặp Pāli↔Việt, rồi dò lại tiền lệ bằng chỉ mục Pāli→Việt toàn tầng). Đổi **4/413 khoá**, đều là sửa rõ ràng (*clarity fix*) ở chỗ tiếng Việt gượng hoặc mơ hồ, không đổi nghĩa Pāli, không chạm tập khoá. (1) `14.8`, `15.1`, `16.1` (`Kathaṁ yaññā vā ete puthū?` và hai câu song song): *Thế nào là những lễ tế này thì nhiều?* → *Những lễ tế này nhiều như thế nào?*, tương tự *Những người cúng tế này nhiều như thế nào?* và *Những bậc đáng được cúng dường này nhiều như thế nào?*; câu cũ ghép *Thế nào là …* (khuôn của `Katamā`) với *thì nhiều* nên đọc không thành câu hỏi; `Kathaṁ` hỏi *bằng cách nào, ra sao*; 0 tiền lệ nguyên văn ở các bài khác (đã dò), và các câu đáp `14.9`–`14.10`, `15.2`–`15.3`, `16.2`–`16.3` giữ nguyên. (2) `63.15` (`Yassa so hoti kodho pahīno …`): *Vị nào có giận dữ ấy đã được đoạn trừ* → *Ở vị nào giận dữ ấy đã được đoạn trừ*; câu cũ có thể đọc ngược thành "vị nào còn giận dữ thì giận dữ ấy đã đoạn trừ"; cách mới theo `mnd10:18.15` (cùng đoạn Pāli, chỉ thiếu `hoti`) và theo cách nói của chính bài ở `65.2`, `66.3` (*ở vị nào*). Điểm đổi: `vietnamese_clarity` 8.6 → 8.7 (chỉ nâng 0,1 vì chỉ sửa bốn khoá); `final_score` 8.92 → 8.93. Các tiêu chí khác **giữ nguyên**, vì đọc lại không tìm thấy lỗi nghĩa, phủ định, chủ thể, số lượng hay ranh khoá nào cần sửa, và bất định thật vẫn còn nguyên (không nâng `semantic_fidelity`, `ambiguity_integrity`; `triangulation` vẫn 8.0 vì không có bản Anh độc lập).
+
+  Dò tiền lệ trong lượt này: 207 khoá của cnd7 có Pāli (đã bỏ chữ hoa/dấu câu) trùng với khoá đã dịch ở bài khác (đủ 12 ký tự trở lên); bản Việt hiện tại giống ít nhất một bản tiền lệ ở **202/207**, khác ở **5** khoá (`4.4`, `47.7`, `51.3`, `57.4`, `67.4`), đều đã giải thích ở trên và đều có lý do cục bộ. Các mẫu công thức nặng (`62.3` 26 mục như `mnd10:17.15`, `mnd11:36.2`, `cnd23:297.10`; thang `63.2`–`63.14` như `mnd10:18.2`–`18.14`; `24.1`, `24.4`, `11.1`–`11.6`, `44.2`, `16.2`) khớp tiền lệ từng chữ; không sửa các chỗ ấy.
+
+  **Chỗ nghi ngờ nhưng quyết định KHÔNG đổi (ghi để người sau biết, vì tiền lệ tầng một chiều).** (a) `34.5`, `36.1`, `36.21`, `39.5` `kaccisu … appamattā` dịch *nếu họ không phóng dật …*: `kacci(ssu)` là tiểu từ nghi vấn (lời giải `36.2`, `36.4` của chính bài ghi là *câu hỏi*, *liệu có*), nên *nếu* có thể đọc thành điều kiện chứ không phải câu hỏi; nhưng cả 12/12 nơi `kaccisu`/`kaccissu` đi với *te bhagavā* trong tầng (`snp5.4:3.5`, `snp5.8:3.6`, `cnd2:14.5`, `cnd2:48.6`, `cnd11:17.1`, `cnd11:22.1`, `cnd11:22.11`, `cnd11:26.1` và bốn khoá của cnd7) đều dùng *nếu … liệu*; đổi riêng bài này sẽ lệch các bài đã có, nên giữ và ghi bất định; các khoá `kacci` không có `-su` ở nơi khác (ví dụ `dn3:2.14.2`, `dn2:10.4`) được dịch thành câu hỏi *… chứ?* / *… có … không?*. (b) `yājayogā` dịch hai cách trong cùng bài: *bị mê đắm trong sự tế lễ* (`40.4`, `47.1`, `47.3`, `47.4`, `47.7`, `48.1`, `48.4`, `49.4`) và *những người chuyên tế lễ* (`50.1`, `51.1`, `51.3`, `56.1`); cả hai đúng theo `snp5.4:4.4` / `5.1` và `cnd2:15.4` / `16.1` (4/4 tầng); lời giải `47.3` chỉ nói *gắn bó, gắn chặt, chuyên chú*, không nói *mê đắm*, nên *mê đắm* có thể hơi nặng hơn Pāli `yoga` và trùng nghĩa với *say đắm* của `bhavarāgarattā`; không đổi vì sẽ lệch hai bài đã có. (c) `48.2`, `51.2` (*bị sinh đeo bám, bị già lan tràn, bị bệnh chế ngự, bị chết đánh gục*): tầng có ba cách dịch chuỗi `jātiyā anugatā … maraṇena abbhāhatā` (*đeo bám/lan tràn/chế ngự/đánh gục* ở `cnd11:33.1`, `cnd11:41.4`; *theo kịp/tràn khắp/áp đảo/giáng xuống* ở `mnd15:41.2`, `cnd5:14.4`, `cnd8:28.6`; *sinh bám theo/già lan khắp/bệnh áp đảo/chết đánh gục* ở `cnd14:9.2`, `cnd14:18.1`), không có đa số rõ; bài này theo `cnd11` (cùng khuôn lời giải). Không có bất định mới nào làm đổi nghĩa trọng yếu, nên không thêm blocker; blocker `noEnglishEditionUpstream` giữ nguyên.
+
+  Tự kiểm sau sửa: tập khoá bản Việt = tập khoá Pāli (413/413, cùng thứ tự); nháy kép `“”` và nháy đơn `‘’` khớp Pāli từng khoá (0/413 lệch; Pāli không có nháy đơn); ngoặc đơn khớp từng khoá (0 lệch); dấu lược `…` khớp từng khoá (0 lệch, không còn `…pe…`); 58 nhóm Pāli trùng nguyên văn trong bài, Việt khác ở đúng hai nhóm đã nêu ở trên (`40.4`/`47.7`/`49.4` và `50.1`/`51.3`/`56.1`, khác nhau chỉ ở việc có hay không có *họ* / *không vượt qua* tùy khoá liền kề); NFC; 0 khoá rỗng; không khoảng trắng thừa. Lượt này cũng **không** chạy `npm run validate`, `npm test`, `npm run check`, `npm run build`; `technical_integrity` giữ 9.6.

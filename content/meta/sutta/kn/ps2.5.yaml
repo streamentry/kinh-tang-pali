@@ -16,20 +16,20 @@ quality:
     semantic_fidelity: 9.0
     grammar_logic: 9.0
     segment_alignment: 10.0
-    terminology: 8.8
+    terminology: 8.9
     triangulation: 7.0
-    vietnamese_clarity: 8.9
+    vietnamese_clarity: 9.0
     han_viet_balance: 9.2
     ambiguity_integrity: 8.3
     technical_integrity: 9.6
-  final_score: 8.92
+  final_score: 8.94
   blocking_errors:
     - "noEnglishEditionUpstream: Thiếu bản dịch tiếng Anh đối chiếu — tầng
       english-sujato không có ps2.5 tại commit đã ghim (sutta/kn đã ghim chỉ có
       cp dhp iti ja kp snp thag thig ud; manifest chỉ liệt kê tệp Pāli root cho
       uid này), lớp english-project cũng vắng, vietnamese-current chỉ có Pháp
       Cú; bài chỉ dịch từ Pāli root nên chưa đủ điều kiện published."
-  assessed_at: "2026-10-11"
+  assessed_at: "2026-10-13"
   assessed_by:
     - "Claude Sonnet 5.5 (Claude Code)"
   waiver:
@@ -62,3 +62,7 @@ notes: |-
   Phép kiểm đã chạy: tập khoá Việt = tập khoá Pāli (148 = 148), thứ tự giống Pāli; nháy kép và nháy đơn: Pāli không khoá nào có dấu nháy (0/148), bản Việt cũng 0, nên 2 phép đếm nháy chạy với mẫu số khoá-có-nháy = 0 (không đo được gì về nháy ngoài việc hai bên đều trống); dấu lược khớp từng khoá (12 khoá có …, 0 lệch); NFC, khoá rỗng, khoảng trắng thừa: 0 lỗi trên 148 khoá; Pāli lọt sang Việt: chỉ tên Paṭisambhidāmagga ở khoá 0.1. Đã in và đọc đủ 148 cặp Pāli với Việt.
 
   Chưa chạy cổng kỹ thuật nên technical_integrity đặt 9,6: còn phải chạy npm run validate, npm test, npm run check và npm run build.
+
+  Lượt cải thiện 2026-10-13 (chấm lại sau một lượt đọc đối kháng đủ 148 cặp Pāli với Việt): (1) Khuôn "X-ti dve X" ở 9 khoá (2.1, 4.1, 6.1, 9.1 "Ly tham …"; 12.3, 13.2, 14.2, 15.3, 17.3 "Giải thoát …") đổi từ "Ly tham có hai ly tham—" và "Giải thoát có hai giải thoát—" sang "Ly tham nghĩa là có hai ly tham—" và "Giải thoát nghĩa là có hai giải thoát—". Lý do: bản cũ đọc như một mệnh đề đồng nghĩa lặp, không lộ ra rằng "ti" đang nêu từ được giải nghĩa; cả 5 khoá cùng khuôn trong cùng tác phẩm (ps1.1:461.1, ps1.3:52.17, 86.2, 103.2, 135.2) đều dùng "X nghĩa là có hai/bốn X —", còn khuôn "X: có hai X—" chiếm đa số ở Cnd và Mnd (khoảng 90 khoá trên 109 khoá có "ti dve" toàn tầng) nhưng không phải phạm vi gần nhất; chọn theo phạm vi gần nhất, dấu gạch dài giữ không có khoảng trắng như đa số tầng. Đây là terminology fix và clarity fix, không đổi nghĩa. Điểm đổi: terminology 8,8 sang 8,9; vietnamese_clarity 8,9 sang 9,0. (2) Sửa một khẳng định sai ở mục Bất định (2) phía trên: cụm tadanuvattakakilesehi ca khandhehi ca không phải "0 tiền lệ"; đo lại có 31 khoá Pāli có cụm này ở các bài khác trong tầng (ps1.1, ps1.5 …), đều dịch "các phiền não đi theo điều ấy và các uẩn" (26 khoá "xuất khỏi …" và 5 khoá "đã thoát ly khỏi …"), 0 khoá khác; bản này khớp 31/31. Việc này chỉ sửa tính chính xác của ghi chép, không đổi chữ nào của bản dịch và không đổi điểm. Câu hỏi "điều ấy" có lan sang "các uẩn" hay không vẫn là bất định cú pháp, chưa phân xử được.
+
+  Các điểm đã soi lại và giữ nguyên, không đổi điểm: (a) "dục ái kiết sử thô thiển, sân kiết sử, …" (5.2) và "… vi tế, sân kiết sử, …" (7.2): cách đọc oḷārika/anusahagata chỉ gắn với dục ái khớp 6 khoá của ps1.1 và ps1.5 (6/6 cùng cách dịch); cách đọc gắn cả vào sân kiết sử và sân tùy miên cũng khả dĩ về giáo lý nhưng không có căn cứ phân xử trong tầng đã ghim (không bản Anh, không bài song song có bản Anh), nên bất định (4) vẫn còn và semantic_fidelity cùng ambiguity_integrity không nâng. (b) "biến mãn" cho pharaṇa (10.12): tầng ps có hai quy ước, "lan tỏa" 19 khoá (ps1.1, ps1.3: khuôn "do ý nghĩa …") và "biến mãn" 6 khoá (ps1.9, ps1.10, ps3.3: khuôn "X-maggo" và danh sách tinh chất); bài này là khuôn gần ps1.9 nên giữ "biến mãn"; tương tự upasama "an tịnh" (5) so với "lắng dịu" (7). (c) "quán chiếu" (ps1.9, ps1.10, ps2.7, ps3.3: 5 khoá, trong khi "quán sát" 15 khoá ở ps1.1 và ps2.1 thuộc khuôn khác), "xả ly" cho pariccāga (13 khoá so với "xả bỏ" 10 và "từ bỏ" 8), "như thật", "nhất vị", "thông suốt": đo lại, khớp đa số trong khuôn danh sách giống bài này. (d) 6.6 và 9.6 vẫn là câu dở dang do cách chia khoá của Pāli, kết bằng dấu chấm như Pāli. Không phát hiện sai số lượng, sai phủ định, sai chủ thể, đảo vế hay Pāli lọt sang Việt. Kiểm lại: tập khoá 148 bằng 148 và cùng thứ tự; nháy kép và nháy đơn 0 trên 0 khoá có nháy ở Pāli (phép chạy rỗng); dấu lược 12 khoá khớp Pāli từng khoá, 0 lệch; 13 nhóm Pāli trùng nguyên văn trong bài (34 cặp), 0 nhóm mà bản Việt khác; NFC, khoảng trắng thừa, khoá rỗng: 0 lỗi. technical_integrity giữ 9,6; vẫn chưa chạy npm run validate, npm test, npm run check và npm run build.

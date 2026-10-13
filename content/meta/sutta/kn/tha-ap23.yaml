@@ -12,16 +12,16 @@ tags:
 quality:
   scores:
     source_provenance: 9.4
-    semantic_fidelity: 8.7
-    grammar_logic: 8.8
+    semantic_fidelity: 8.8
+    grammar_logic: 9.0
     segment_alignment: 10.0
-    terminology: 9.0
+    terminology: 9.1
     triangulation: 7.0
-    vietnamese_clarity: 8.9
+    vietnamese_clarity: 9.0
     han_viet_balance: 9.2
     ambiguity_integrity: 8.6
     technical_integrity: 9.6
-  final_score: 8.92
+  final_score: 8.97
   blocking_errors:
     - "Không có tầng tham khảo tiếng Anh tại commit đã ghim: tầng english-sujato
       trong sutta/kn chỉ có cp, dhp, iti, ja, kp, snp, thag, thig, ud; tệp
@@ -33,7 +33,7 @@ quality:
       Sujato phủ 0/1. Bài chỉ dịch từ Pāli, chưa đối chiếu được tầng tham khảo
       nào nên không đủ điều kiện review hay published; giữ draft. Điểm cao không
       cứu được blocker."
-  assessed_at: "2026-10-11"
+  assessed_at: "2026-10-13"
   assessed_by:
     - "Claude Sonnet 5.5 (Claude Code)"
   waiver:
@@ -121,7 +121,7 @@ notes: |-
   khó khớp với văn mạch `:6`–`:20` nên tôi không thêm chủ thể. (3) `sādhu te taṁ na ruccati` (`:20.4`): `sādhu` đọc là `tốt` (điều đó
   tốt, nhưng ngươi không ưa); cũng có thể là tiểu từ `thôi/được`. (4) `Api mantapadaṁ atthi` (`:30.3`): hapax; `mantapada` đọc là `câu chú`, `api`
   = `tuy nhiên`; `ayaṁ satthā bhavissati` (`:30.4`) đọc thành phỏng đoán `hẳn là bậc Thầy` (Pāli tương lai `bhavissati`). (5) `Lāsito`
-  (`:26.3`): hapax, đọc là `vui đùa`. `Timbarūsaka` (`:24.1`), `Siṅgīnikkha` (`:27.1`), `jotiraso` (`:27.3`), `Kelāsa` (`:28.1`): tên cây/ vàng/ ngọn ngọc/
+  (`:26.3`): hapax, đọc là `vui đùa`. `Timbarūsaka` (`:24.1`), `jotiraso` (`:27.3`), `Kelāsa` (`:28.1`): tên cây/ ngọn ngọc/
   ngọn núi, giữ nguyên Pāli không thêm giải thích; `jotirasa` đã giữ nguyên ở `tha-ap425:10.2`. (6) `Ubhato muttako ajja` (`:10.3`): `muttaka` ở đây là lìa khỏi cả hai
   phía (không còn là tại gia, cũng không là người chế ngự), không phải `được giải thoát`. (7) `jhāyati`/`jhāyissasi` (`:18.2`, `:18.4`): `tỏa sáng`;
   Pāli cùng gốc với `jhāna` nên có thể chơi chữ với thiền, không đưa vào thân kinh. (8) `Tathāraṇavihāre` (`:43.3`) là `tathā + araṇavihāre`
@@ -142,8 +142,35 @@ notes: |-
 
   KIỂM TRA ĐÃ LÀM. Tập khoá Việt bằng tập khoá Pāli (213 = 213), thứ tự khoá đúng Pāli, NFC, không khoảng trắng thừa, không khoá rỗng,
   không Pāli lọt vào thân (chỉ còn tên riêng: Subhūti, Kosiya, Nisabha, Himavanta, Padumuttara, Gotama, Okkāka, Sakya, Kelāsa, `koṭi` và tên
-  loài/ vật `timbarūsaka`, `siṅgī-nikkha`, `jotirasa` ở thân kệ, và `Therāpadāna` ở tiêu đề), mọi số Pāli đã tính lại ở trên,
+  loài/ vật `timbarūsaka`, `siṅgī`, `jotirasa` ở thân kệ, và `Therāpadāna` ở tiêu đề), mọi số Pāli đã tính lại ở trên,
   dấu lược 0/0. Dấu cuối dòng mỗi khoá khớp Pāli (`,` `;` `.`) trừ các chỗ ở mục BẤT ĐỊNH (9). Đã đọc đối chiếu cặp Pāli-Việt từng khoá.
 
   `technical_integrity` đặt 9,6 vì chưa chạy cổng kỹ thuật của kho. Bốn lệnh còn lại cần chạy trước khi chốt: `npm run validate` · `npm test` ·
   `npm run check` · `npm run build`.
+
+  LƯỢT CẢI THIỆN 2026-10-13. Đọc đối kháng lại 213 cặp Pāli-Việt; đổi 7 khoá (213 khoá, tập khoá và thứ tự không đổi), đo tiền lệ trên toàn tầng `kn`.
+  (a) `:9.3` (accuracy fix): `Neva gāme araññe vā` trước là `Không ở trong làng, cũng không ở trong rừng,` đọc thành khúc củi không nằm ở làng hay rừng.
+  Pāli tỉnh lược `kaṭṭhatthaṁ pharati` của câu so sánh cùng hình ảnh ở `sn22.80:7.3` và `an4.95:2.1` (`neva gāme kaṭṭhatthaṁ pharati, nāraññe …`,
+  đã dịch `không dùng được … ở làng … ở rừng`), nên `:9.2` `không làm nên việc gì ở đâu cả` được cụ thể hoá bằng làng và rừng. Nay `Ở làng cũng không, ở rừng
+  cũng không,`, giữ tỉnh lược như Pāli, không thêm từ. Điểm đổi: `semantic_fidelity` 8.7 → 8.8, `grammar_logic` 8.8 → 9.0 (cùng với `:43`).
+  (b) `:43.2`/`:43.4` (grammar fix): chủ ngữ của `nisīditvā` (`:43.1`) và `ṭhapessati` (`:43.4`) là Đức Gotama; bản trước đặt `vị ấy` (đối cách `taṁ`,
+  tức Subhūti) ngay sau `Ngồi giữa Tăng đoàn tỳ-kheo,` nên người đọc có thể hiểu Subhūti là người ngồi. Nay `taṁ` chuyển thành tân ngữ của `Ngài sẽ đặt vị ấy lên hàng đầu
+  trong hai điều` ở `:43.4`; ba khoá `:43.1`–`:43.3` không còn gây hiểu nhầm. Hai khoá `:43.2`, `:43.4` không có Pāli trùng ở nơi khác. Câu trúc lại không thêm ý ngoài Pāli.
+  (c) `:14.3` (accuracy fix, bỏ chữ thêm): `Balī nāgo` trước là `Con voi đực khỏe mạnh`; `đực` không có trong Pāli (`nāga` chỉ là voi, `balī` là khỏe/ mạnh) nên bỏ:
+  `Con voi khỏe mạnh đến gần,`. Điểm đổi: `semantic_fidelity` đã tính ở (a).
+  (d) `:27.1` (terminology fix): `Siṅgīnikkhasavaṇṇābho` trước giữ nguyên `siṅgī-nikkha`. Cùng từ gốc ở nơi khác trong tầng được dịch: `khối vàng siṅgī` (`thi-ap35:19.3`,
+  `tha-ap541:10.2`, 2 khoá), `thỏi vàng siṅgī` (`sn17.13-20:1.5`, `:1.6`, 2 khoá). Dạng gạch nối chỉ có ở bài này (1 khoá), nên đổi theo đa số `khối vàng siṅgī`:
+  `Có sắc sáng như khối vàng siṅgī,`. Điểm đổi: `terminology` 9.0 → 9.1.
+  (e) `:42.3`, `:43.3` (style-only fix): Pāli viết hoa đầu khoá sau dấu `;` (`Subhūti nāma nāmena`, `Tathāraṇavihāre ca`) như mọi khoá cùng vị trí trong bài; hai khoá này là hai khoá
+  trong số 4 khoá viết thường sau dấu `;` (`:40.3`, `:42.3`, `:43.3`, `:46.3`) không có tiền lệ cùng Pāli để giữ. Đổi sang `Mang tên Subhūti,` và `Và cả về hạnh sống không tranh chấp,`.
+  `:40.3` (39 thường · 18 hoa) và `:46.3` (57 thường · 6 hoa) giữ nguyên theo tiền lệ cùng Pāli. Điểm đổi: `vietnamese_clarity` 8.9 → 9.0 (cùng với (a), (b)).
+  Không nâng: `triangulation` 7.0 (vẫn không có tầng tham khảo nào), `ambiguity_integrity` 8.6 (các bất định ở mục BẤT ĐỊNH còn nguyên), `source_provenance`, `han_viet_balance`, `technical_integrity` 9.6.
+
+  CĂN CỨ MỚI CHO BẤT ĐỊNH (chưa đủ để nâng điểm). `mantapada` (`:30.3`): ở `dn3:2.8.1`, `mn95:12.11`, `an5.192:3.1` đi với `porāṇaṁ mantapadaṁ gītaṁ pavuttaṁ samihitaṁ` (bài tụng/ thánh chú cổ của Bà-la-môn);
+  cách đọc `câu chú` có chỗ dựa, còn `api` = `tuy nhiên` vẫn là cách đọc, không phân xử được bằng Pāli. `pavatta` (`:3.3`): `pavattaphalamādiyiṁ` ở `bv2` được dịch `trái cây tự rụng`, hỗ trợ cách đọc
+  `tự rụng`. `:11` (`me`, `kosajjabahulāya`) giữ nguyên bất định, không dòng cùng Pāli. `:37.4` `devarajjaṁ karissasi` (`ngươi sẽ làm vua cõi trời`, 3 khoá cùng Pāli) và `:47.2`
+  `devarajjamakārayiṁ` (`tôi đã làm ra vương quyền nơi chư thiên`, 16 trên 21 khoá cùng Pāli) là hai cách nói khác nhau cho cùng cụm; giữ theo tiền lệ từng nhóm, chưa thống nhất,
+  vì đổi một nhóm là đi ngược tiền lệ của cả một nhóm; cần người biên tập phán một lượt cho cả cuốn.
+
+  KIỂM SAU CẢI THIỆN. Tập khoá và thứ tự khoá Việt = Pāli (213 = 213), nháy `“”‘’` khớp Pāli từng khoá (0 lệch), NFC, không khoảng trắng thừa, không khoá rỗng, dấu lược 0/0, 7 nhóm Pāli trùng nguyên văn
+  trong bài (cộng cặp `:13.4`/`:19.2` khác dấu cuối) bản Việt khớp nhau (0 nhóm lệch). Bốn lệnh cần chạy trước khi chốt: `npm run validate` · `npm test` · `npm run check` · `npm run build`.

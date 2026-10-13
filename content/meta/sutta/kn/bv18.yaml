@@ -12,7 +12,7 @@ quality:
   scores:
     source_provenance: 9.4
     semantic_fidelity: 8.8
-    grammar_logic: 8.7
+    grammar_logic: 8.8
     segment_alignment: 10.0
     terminology: 8.8
     triangulation: 7.0
@@ -20,7 +20,7 @@ quality:
     han_viet_balance: 9.1
     ambiguity_integrity: 8.8
     technical_integrity: 9.6
-  final_score: 8.92
+  final_score: 8.93
   blocking_errors:
     - "noEnglishEditionUpstream: Không có tầng tham khảo tiếng Anh tại commit đã
       ghim: `source/upstream-manifest.json` chỉ liệt kê
@@ -33,7 +33,7 @@ quality:
       dịch chỉ từ Pāli root và đối chiếu tiền lệ nội bộ, bài bắt buộc `draft` và
       `triangulation` không quá 8,0. Đây là giới hạn upstream, không phải lỗi
       của người dịch."
-  assessed_at: "2026-10-10"
+  assessed_at: "2026-10-13"
   assessed_by:
     - "Claude Sonnet 5.5 (Claude Code)"
   waiver:
@@ -102,3 +102,10 @@ notes: |-
   **Coverage English (mục 7):** mẫu số = 0. 96 khoá không phải `:0.`; dài nhất sau khi nén khoảng trắng là 39 ký tự (`25.1`; < 40) nên 0/96 khoá có nội dung; đây là *cổng không đo được gì*, không phải *không cần ghi nhận*. Sujato: 0 tệp cho `bv18` (`english-sujato` chỉ có chín tiểu bộ cp dhp iti ja kp snp thag thig ud); `english-project`: 0 (không có tệp bv nào trong `content/translation/en/project/sutta/kn/`, không có `content/meta/en/kn/bv18.yaml`); `vietnamese-current`: 0 tầng segment (chỉ Pháp Cú); bản nguyên bài của tầng tra cứu toàn văn (HTML) chỉ dùng để hiểu mạch bài, không cấp text. Ba tầng đều vắng ⇒ `triangulation` 7,0 (≤ 8,0) và `status: draft` kèm blocker ở trên. Không đụng `content/meta/reference-gaps.yaml`.
 
   **technical_integrity = 9,6:** lát này cấm chạy cổng, nên không tuyên bố technical gate pass. Bốn lệnh còn lại do người điều phối chạy tập trung: `npm run validate` · `npm test` · `npm run check` · `npm run build`. `final_score` là trung bình số học thô của đúng 10 tiêu chí.
+
+  **Lượt cải thiện 2026-10-13.** Đọc đối kháng lại cả 98 khoá cặp Pāli↔Việt, rồi đo lại tiền lệ trên toàn tầng Việt (chỉ mục Pāli chuẩn hoá bỏ dấu câu và chữ hoa; 60 khoá của bài có Pāli trùng nguyên văn với bài khác; trước lượt này 9 khoá lệch tiền lệ: bốn khoá đã sửa dưới đây, năm khoá còn lệch là lựa chọn có lý do ghi ở trên — `9.2`, `10.3`, `13.2`, `13.4`, `18.4`). Đổi 4/98 khoá; không đụng tập khoá hay thứ tự khoá.
+  - `7.3` “Đây là ba trường hợp,” → “Đó đã là ba trường hợp,”: `āsuṁ` là thì quá khứ (cùng `āsuṁ` ở `6.1` đã dịch “Đã có”), “Đây là” làm sai thì; `ete` giữ nghĩa chỉ định bằng “Đó”. Đây là sửa ngữ pháp (accuracy fix). `grammar_logic` 8,7 → 8,8. Khoá hapax trong Buddhavaṃsa (0 tiền lệ), nên không có số đếm; cách đọc `ṭhāna` vẫn là bất định số 8.
+  - `8.1` “Vào lúc ấy, ta” → “Vào lúc ấy, ta,”; `19.3` “…của Đức Thế Tôn ấy” → “…ấy,”; `24.3` “…tối thượng của Ngài” → “…của Ngài,”: Pāli ba khoá đều kết bằng dấu phẩy; tiền lệ cùng Pāli ghi dấu phẩy ở 22/25 (`8.1`, 3 khoá còn lại ghi “tôi”/“thời ấy”), 23/23 (`19.3`) và 6/6 (`24.3`). Chỉ sửa dấu câu (style-only fix); `segment_alignment` đã 10,0, không đổi.
+  - Không đổi dù nghi ngờ: `10.3` (đếm tiến, lệch 115/115 tiền lệ đã giải thích ở trên, và khớp `bv19:13.3`); `9.2` “ta” thay “tôi” (2/2 tiền lệ là “tôi”, giữ “ta” vì người kể là Đức Phật Gotama như `bv28`); `21.3` “Rực rỡ” (10/10 tiền lệ cùng chữ, dù Pāli `saṅkāso` chỉ nói “giống như”); `2.4` “dịu mát” (2 tiền lệ `tha-ap168:1.4`, `tha-ap215:1.4`); `4.1` giữ nguyên chữ `bhīmarathe`.
+  - Bất định còn lại: giữ nguyên toàn bộ mười bốn mục ở trên (không có căn cứ mới để phân xử `bhīmarathe`, `ṭhāna`, `puruttame`, `aggupaṭṭhaka`, `abhiññābalasamāhito`). Vì vậy `semantic_fidelity`, `terminology`, `ambiguity_integrity` giữ 8,8; `triangulation` giữ 7,0 (không có bản Anh độc lập); `technical_integrity` giữ 9,6 (chưa chạy bốn cổng `npm run validate`, `npm test`, `npm run check`, `npm run build` trong lượt này). Blocker `noEnglishEditionUpstream` giữ nguyên.
+  - `final_score` mới là trung bình số học thô của 10 điểm: 89,3 / 10 = 8,93 (trước 8,92); vẫn trong khoảng 8,0–9,0.
