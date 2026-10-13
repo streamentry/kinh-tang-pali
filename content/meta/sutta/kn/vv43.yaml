@@ -13,16 +13,16 @@ tags:
 quality:
   scores:
     source_provenance: 9.5
-    semantic_fidelity: 8.8
-    grammar_logic: 8.9
+    semantic_fidelity: 8.9
+    grammar_logic: 9.1
     segment_alignment: 10.0
-    terminology: 8.8
+    terminology: 9.0
     triangulation: 7.5
     vietnamese_clarity: 9.0
     han_viet_balance: 9.0
     ambiguity_integrity: 8.0
     technical_integrity: 9.6
-  final_score: 8.91
+  final_score: 8.96
   blocking_errors:
     - "Không có tầng tham khảo tiếng Anh tại commit đã ghim
       (11c9d708978cde8ba61096d8a75f7ddfb846f639): thư mục `kn/vv/` của edition
@@ -43,9 +43,9 @@ quality:
       và đây là **giới hạn của bản chụp upstream**, không phải lỗi của người
       dịch. Vì vậy `triangulation` bị chặn ở 7.5 (≤ 8.0) chứ không nâng để né
       blocker."
-  assessed_at: "2026-10-04"
+  assessed_at: "2026-10-13"
   assessed_by:
-    - "OpenCode Space Bunny Free (agent)"
+    - "Claude Sonnet 5.5 (Claude Code)"
   waiver:
     id: no-upstream-english
     blockers:
@@ -128,3 +128,18 @@ notes: |-
   `lāmañjaka`, `Andhakavinda` — khai trong bộ nhớ tiến trình, KHÔNG sửa `_hvi.py`.
 
   Cổng kỹ thuật chưa chạy — lát này bị cấm `npm run validate|test|check|build`. Tiêu chí 10 bị chặn ở **9.6**; bốn lệnh để coordinator chạy: `npm run validate` · `npm test` · `npm run check` · `npm run build`.
+
+  **Lượt cải thiện 2026-10-13.** Đọc đối kháng lại cả 44 khoá, đối chiếu với bài song song gần nhất trong kho có cùng nhóm kệ Pāli (`vv20`, kệ 7–10, trùng nguyên văn Pāli ở 11 khoá) và với `vv42` (cùng phẩm, cùng khuôn mở đầu). **Đổi 32/44 khoá**; 12 khoá còn lại giữ nguyên (`:0.1`–`:0.4`, `:1.2`, `:2.2`, `:3.2`, `:3.1`, `:4.2`, `:5.4`, `:7.3`, `:10.1`) vì đã khớp Pāli và tiền lệ. **Mục ghi chú cũ ở trên được thay thế ở những điểm sau, vì đã bị đo lại và thấy sai:**
+  · **Lỗi nghĩa (accuracy fix).** `:6.1` `mahesittaṁ kāreyya` là *giữ ngôi chánh hậu* (tiền lệ `vv20:7.1`, `thi-ap` nhiều bài «giữ ngôi hoàng hậu»), KHÔNG phải «đống cao lớn / núi lớn» như bản trước viết — bản cũ dịch «Người nào làm nên ngọn núi lớn ấy» là sai hẳn nghĩa, đã sửa. `:6.2` «vua Chuyển Luân» (`vv20:7.2`). `:6.4` `anomadassikā` → «dung nhan không chút kém cỏi trong mắt chồng» (`vv20:7.4`).
+  · `:7.1–7.2` `nikkhā` là đơn vị tiền vàng (`ja478:10.3` giữ «nikkha»), `assatarīrathā` là *xe do la kéo* (`ja546:12.2`, `vv20:8.2`, `pv11`); bản cũ nhầm thành «trăm con ngựa, trăm cỗi xe / cỗi xe lắp đủ bánh» và bỏ sót `nikkhā`. Sửa theo `vv20:8.1–8.2`. `:7.4` `āmuttamaṇikuṇḍalā` → «đeo hoa tai ngọc» (`vv20:8.4`), bản cũ «đẹp nhất trong những người đeo vòng tai» thêm so sánh không có trong Pāli.
+  · `:8.1–8.4` dùng lại nguyên văn `vv20:9.1–9.4` (Pāli giống hệt): «voi vùng Hy Mã Lạp», «ngà như cán cày, thân hình to khỏe» (cũng `ja547`, `tha-ap12`), «đai bằng vàng» (`ja529`, `ja539`, `tha-ap409`), «khoác trang cụ bằng vàng» (`ja529`, `tha-ap409`). Bản cũ «Đeo dây vàng quanh ngực / mặc áo dệt bằng vàng» và «hemakappana = dệt» là đoán không có tiền lệ.
+  · `:9.1–9.2` `issaraṁ yodha kāraye` — `yodha` ở đây là *yo + idha* («ai ở đây»), không phải «chiến sĩ»: sửa thành «ai ở đây có thể làm chúa tể» theo `vv20:10.2`. Bản cũ «cầm quân đánh trận» sai (chép từ `tha-ap93:3.2`, nơi lỗi này cũng còn — ngoài lát, báo lại).
+  · `:6.6`, `:7.6`, `:8.6`, `:9.4` `kalaṁ nāgghati/nāgghanti soḷasiṁ`: `na + agghati` = *không đáng giá*; bản cũ «không đạt được» sai sắc nghĩa. Đo toàn tầng: «không đáng giá/không đáng … một phần mười sáu» chiếm đa số (`vv20` 4/4, `sn10.8` 3/3, `iti27`, `ud2.2`, `ne37`), «không đạt được» chỉ ở `tha-ap93`, `thag20.1`. Sửa theo đa số. `:6.5`, `:7.5`, `:8.5`, `:9.3` `ekassa kañjikadānassa` = *của một lần bố thí cháo chua*; bản cũ «một kẻ dâng món cháo đậu này» biến `dāna` (sự bố thí) thành người và thêm «này».
+  · **Ngôi xưng và người được hỏi.** Bản cũ chuyển sang «ngài» ở `:2.1`, `:2.3` — sai tiền lệ nhóm Itthivimāna: đo trên `vv1`–`vv49`, `Kena tetādiso vaṇṇo` → «Do đâu nàng có được dung sắc như thế» **30 / 31 khoá** (chỉ `vv43` là «ngài»). «ngài» chỉ thuộc nhóm Purisavimāna. Cũng đo `sabbadisā` trong cùng phạm vi: «muôn phương» **62** / «mọi phương» **23**; bản cũ dùng «mọi phương» với lý do đo phạm vi `vv` hẹp hơn — nay theo đa số trong nhóm. `:4.3`, `:5.3` bản cũ xưng «Ta» giữa lời kể «tôi» (`:4.1`): sửa theo tiền lệ lời kể của nữ thiên là «tôi»; bỏ đại từ ở động từ `adāsiṁ` như `vv42:4.3`.
+  · **Khoá bản cũ khai là «dùng lại nguyên văn» nhưng thực ra KHÔNG trùng:** `:1.1` (bản cũ «Với sắc tướng tuyệt vời», khai là `vv51:1.3`, thực tế `vv51:1.3` là «Với dung sắc rạng rỡ thù thắng»), `:2.3` (khai là `vv58:3.3`, thực tế `vv58:3.3` là «dung sắc ngài … muôn phương»), `:3.3` (khai là `vv58:4.3`). Đã sửa thật: `:1.1` = `vv42:1.1`, `:3.3` «về nghiệp mà đây là quả báo» (đo trên toàn tầng 70 khoá có `yassa kammassidaṁ phalaṁ`: «về nghiệp mà đây là quả báo» **47**, «quả báo của nghiệp này là thế» 12), `:1.3` «tựa như sao mai» (`pv15:29.4`, `pv16:13.4`, `vv61:1.6`; thêm «rực rỡ» ở `pv13`, `pv14`, `vv42` là chữ không có trong Pāli).
+  · **Đồ ăn (`:4.3–5.2`).** Bản cũ «kola trộn đường» (`kola` = đường mía) và «cháo đậu thắm mỡ» (`kañjikā` = cháo đậu nành) là **không có căn cứ**: `kola` trong kho là quả táo (`ja306:3.4`, `mnd14:120.6` «nước táo kola», `ja547:692.3`); `kañjika` là *cháo chua* (gạo lên men), không phải đậu nành; `tela` là *dầu*, không phải mỡ; «đường» không có trong Pāli. Nay: «đã dâng món nấu cùng táo kola, / cháo chua tẩm dầu»; «Với tiêu dài và tỏi» (`tha-ap393:15.2` «tiêu dài»); «và trộn với lāmañjaka» — bỏ chữ «lá» bản cũ tự thêm.
+  · `:5.3` `ujubhūtasmiṁ` là *vị ngay thẳng* (người, `pv10:10.3`, `ja541`, `tha-ap304` — «dâng cho bậc ngay thẳng»), không phải «nơi thanh tịnh»: bản cũ sai danh từ. `:4.1` bỏ «Khi … ở tại» (thêm quan hệ thời gian không có trong Pāli, `-mhi` chỉ nơi chốn), theo khuôn `vv42:4.1`.
+  · **Điểm tiêu chí:** `semantic_fidelity` 8.8 → 8.9; `grammar_logic` 8.9 → 9.1; `terminology` 8.8 → 9.0 (thống nhất với `vv20`, `vv42`, nhóm Itthivimāna). Các tiêu chí khác giữ nguyên: `triangulation` vẫn 7.5 (không có tầng Anh, chỉ có bài song song nội bộ `vv20`, `sn10.8`); `ambiguity_integrity` vẫn 8.0 vì bất định thật còn nguyên. Điểm bản cũ vốn đã quá hào phóng so với số lỗi nghĩa vừa tìm ra; mức tăng nhỏ phản ánh đúng việc đã sửa chứ không bù cho blocker.
+  · **Bất định còn lại (giữ, không đoán).** (1) `kolasampāka` (`:4.3`): chỉ dịch được là «món nấu cùng táo kola» theo nghĩa đen *kola + sampāka*; toàn Pāli chỉ gặp ở bài này (0 tiền lệ), không phân xử được đây là món nấu với táo hay quả táo đã chín nấu. (2) `lāmañjaka` (`:5.2`): hapax toàn Pāli (1 lần), giữ nguyên Pāli, không đoán nghĩa. (3) `teladhūpita` (`:4.4`): «tẩm dầu» là nghĩa đen *dầu + xông/ướp*; không có tiền lệ kho. (4) `kañjika`: «cháo chua» theo nghĩa từ điển thông thường, không có tiền lệ trong kho (`vv33` giữ nguyên `ambakañjika`). (5) `nikkha`: giữ Pāli theo `vv20`, `ja478`. Bản dịch không đưa giải thích nào vào lời kinh.
+  · **Tiêu đề phẩm.** `:0.2` «Thiên Cung Của Nữ Giới» đã khớp 20/20 bài cùng nhóm (lỗi «Nữ Hư Không» đã được sửa riêng); ghi chú cũ về «Nữ Hư Không» ở trên không còn đúng.
+  · **Phép kiểm sau sửa:** tập khoá 44/44 khớp Pāli; nháy đơn/kép từng khoá khớp Pāli 44/44; Pāli trùng nguyên văn trong bài: 3 nhóm (`:1.2/2.2/3.2` đều `…`; `:6.5/7.5/8.5/9.3`; `:7.6/8.6`) bản Việt đều giống nhau; `…pe…` → đúng một `…` ở 3/3 khoá; NFC; không có chữ Pāli ngoài tên riêng/tên cây (`Vimānavatthu`, `Mañjiṭṭhaka`, `Kañjikadāyikā`, `lāmañjaka`). Số: «trăm nghìn thiếu nữ» = `sataṁ` × `sahassāni` = 100 × 1.000 = 100.000; «trăm nikkha / trăm con ngựa / trăm cỗ xe / trăm con voi» = 100 mỗi loại; «bốn châu lục» = `catunnaṁ dīpānaṁ` = 4; «một phần mười sáu» = `soḷasiṁ` = 1/16; «một lần bố thí» = `ekassa … dānassa`. Cổng kỹ thuật vẫn chưa chạy trong lượt này: `npm run validate` · `npm test` · `npm run check` · `npm run build`; tiêu chí 10 giữ 9.6.

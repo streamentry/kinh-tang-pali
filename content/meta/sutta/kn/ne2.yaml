@@ -13,16 +13,16 @@ tags:
 quality:
   scores:
     source_provenance: 9.5
-    semantic_fidelity: 8.8
-    grammar_logic: 8.9
+    semantic_fidelity: 8.9
+    grammar_logic: 9.0
     segment_alignment: 10.0
-    terminology: 8.9
+    terminology: 9.1
     triangulation: 7.0
-    vietnamese_clarity: 8.8
+    vietnamese_clarity: 8.9
     han_viet_balance: 9.0
     ambiguity_integrity: 8.6
     technical_integrity: 9.6
-  final_score: 8.91
+  final_score: 8.96
   blocking_errors:
     - "Không có tầng tham khảo tiếng Anh tại commit đã ghim
       `11c9d708978cde8ba61096d8a75f7ddfb846f639`: đã đếm trực tiếp trong
@@ -34,7 +34,7 @@ quality:
       của repo. Lớp lấp `english-project` không có cho uid này. Vì vậy bài dịch
       chỉ từ Pāli root cùng tiền lệ đếm được trong chính tầng Việt dự án;
       `triangulation` bị chặn ≤ 8.0 và `status` bắt buộc `draft`."
-  assessed_at: "2026-10-12"
+  assessed_at: "2026-10-13"
   assessed_by:
     - "Claude Sonnet 5.5 (Claude Code)"
   waiver:
@@ -166,3 +166,27 @@ notes: |-
       dịch *chín nền tảng kia* có `kia` thừa (cùng Pāli với `ne2:14.1–14.2`); `ne2` và `ne37:531` chưa đồng nhất cách dịch.
     CHẤM LẠI: nguồn 9,5→9,5; nghĩa 9,1→8,8; ngữ pháp 9,2→8,9; thuật ngữ 9,0→8,9; đối chiếu 7,2→7,0; sáng rõ 9,0→8,8; Hán–Việt 9,1→9,0;
       bất định 8,4→8,6; căn khoá 10,0; kỹ thuật 9,6 (cổng chưa chạy: `npm run validate`, `npm test`, `npm run check`, `npm run build`).
+
+  Lượt cải thiện 2026-10-13: đọc đối kháng lại 47/47 khoá từ Pāli, đo tiền lệ bằng số đếm; đổi 9/47 khoá, 38 khoá giữ nguyên.
+    Căn cứ: Pāli của nhiều khoá trùng nguyên văn với tệp `pe1` và `pe9` (cùng bộ ba bài kệ mười sáu phương thức, năm lối, mười tám nền tảng).
+    · `8.3` → *có tên là đùa giỡn của sư tử* (trùng Pāli `pe1:19.3`); `9.3` → *thứ năm có tên là móc câu* (trùng Pāli `pe1:20.3`);
+      `9.1` → *Người ta gọi là nhìn khắp các phương* (trùng Pāli `pe1:20.1`; `ne3:19.4`, `ne3:21.4` cũng dịch `āhu` là *người ta gọi*). Bản cũ *gọi là* / *Họ gọi* lệch.
+    · `12.2` → *tham, sân, và si nữa* (trùng Pāli `pe9:55.2`, `pe1:28.2` cùng cách); `12.4` → *là vùng đất của phiền não, chín nền tảng* và
+      `13.4` → *là vùng đất của các căn, chín nền tảng* (trùng Pāli `pe9:55.4`, `pe9:56.4`; `pe1:28.4`, `pe1:29.4` cùng khuôn). Bỏ dấu gạch ngang tự đặt.
+    · `14.3` → *đây là những nền tảng gốc*: bỏ *quả thật* cho `kho`. Đo `kho` trong tầng `ne`+`pe`: 143/148 khoá không dịch riêng; *quả thật* chỉ ở 5 khoá. Cũng khớp
+      `ne37:531.3` (cùng Pāli, ghi *Đây là những nền tảng gốc*).
+    · `14.1`, `14.2`: bản cũ *Các thiện có chín nền tảng* thêm động từ *có* không nằm trong Pāli. `navahi padehi` là cách công cụ, và `yujjanti` ở `14.2` gánh cả hai vế
+      (cùng ý với `pe1:30.1`–`30.2`, `pe9:57.1`–`57.2` *được kết hợp bằng chín nền tảng*). Nay *Các thiện được kết hợp bằng chín nền tảng* / *và các phần bất thiện cũng được
+      kết hợp bằng chín nền tảng*.
+    Giữ nguyên dù có nghi ngờ (đã đo): *Ở đây, … là gì?* cho `Tattha katame` — tầng `ne` 127/127 dùng *Ở đây*, tầng `pe` 350/350 dùng *Trong đó*, bài này theo `ne`;
+      *tham ái* cho `taṇhā` — `ne` 31 so với *ái* 5, toàn `kn` 204 so với 104; `tưởng tịnh` cho `subhasaññā` — `pe` 4 khoá, `ne7:1.7` dịch *tưởng sắc đẹp* (lệch, ngoài lát);
+      `nayalañjako` → *sự chỉ bày các lối* — cùng Pāli, cùng cách dịch ở `pe1:20.2`, nhưng đó là tầng dự án, không phải nguồn độc lập nên bất định không giảm.
+    Số cặp Pāli trùng nguyên văn đã dò: 21 khoá của bài trùng với tệp khác trong `ne`/`pe`/`mil`/`cnd`/`mnd`/`ps`; 11 khoá trong đó bản Việt từng khác, nay còn 4 khoá khác có lý do:
+      `6.1`, `10.1` theo *Ở đây* của `ne`; `12.1` giữ *Tham ái và cả vô minh* theo `ne` (`pe9:55.1` ghi *Ái và vô minh*); `14.2` khác vì `ne37:531.2` chép thừa *kia*.
+      Trùng trong chính bài: 1 cặp (`2.1`, `7.1`), bản Việt giống nhau.
+    Bất định còn lại: `8.4` `nayalañjako`; `5.3`–`5.4` `Etesañceva bhavati, vitthāratayā nayavibhatti` (đọc `etesaṁ` là sở hữu, `bhavati` là *có*; không có nguồn thứ hai để phán);
+      `13.2` `Kusalāni ca yāni tīṇi mūlāni` đọc là ba thiện căn theo phép cộng 2 + 3 + 4 = 9; `14.1`–`14.2` động từ ở `14.1` được bổ sung từ `yujjanti` và từ bài song song.
+    Số Pāli: có `soḷasa`, `pañca`, `aṭṭhārasa`, `nava`, `caturo`; mười sáu mục ở `1.2` và `3.1`–`4.4` đếm đủ 16 (4 + 4 + 4 + 4), năm lối đủ 5, chín + chín = mười tám.
+    Điểm tiêu chí đổi: nghĩa 8,8→8,9 (bỏ chữ *có* thêm vào); ngữ pháp 8,9→9,0 (vế tỉnh lược ở `14.1` giải bằng bài song song); thuật ngữ 8,9→9,1 (8 khoá về đúng tiền lệ);
+      sáng rõ 8,8→8,9; các tiêu chí khác giữ. Tổng 8,91→8,96, vẫn `review` (không vượt 9,0). Blocker không có tầng tham khảo tiếng Anh giữ nguyên.
+    Cổng kỹ thuật chưa chạy: `npm run validate`, `npm test`, `npm run check`, `npm run build`.

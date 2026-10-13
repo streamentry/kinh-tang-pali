@@ -14,15 +14,15 @@ quality:
   scores:
     source_provenance: 9.5
     semantic_fidelity: 8.7
-    grammar_logic: 8.8
+    grammar_logic: 8.9
     segment_alignment: 10.0
-    terminology: 8.9
+    terminology: 9.0
     triangulation: 7.0
     vietnamese_clarity: 8.6
     han_viet_balance: 9.1
     ambiguity_integrity: 8.8
     technical_integrity: 9.6
-  final_score: 8.9
+  final_score: 8.92
   blocking_errors:
     - "noEnglishEditionUpstream: không có tầng tham khảo tiếng Anh nào tại
       commit đã ghim. Tầng `english-sujato` chỉ có chín nhóm con của Tiểu Bộ
@@ -35,7 +35,7 @@ quality:
       ne34); tầng `vietnamese-current` tại commit đã ghim chỉ có Pháp Cú. Cả ba
       tầng tham khảo đều vắng nên bài bắt buộc `draft` và `triangulation` ≤ 8,0
       (đặt 7,0). Đây là giới hạn của upstream, không phải lỗi của người dịch."
-  assessed_at: "2026-10-11"
+  assessed_at: "2026-10-13"
   assessed_by:
     - "Claude Sonnet 5.5 (Claude Code)"
   waiver:
@@ -69,3 +69,7 @@ notes: |-
   **Dấu lược và nháy.** Pāli có 2 `…pe…` (ở `:21.4`, `:24.1`), không có `…` trần và không có `(…)`; Việt giữ đúng 2 dấu `…`, mỗi dấu cuối khoá. Dấu nháy khớp Pāli từng khoá: 0/169 khoá lệch (đo cả bốn loại “ ” ‘ ’); nháy kép mở không đóng ở `:18.1`, `:19.1`, `:21.1`, `:21.4`, `:23.1`, `:24.1` và nháy kép đóng không mở ở `:18.2`, `:20.2`, `:21.2`, `:23.5`, `:24.2` đúng như Pāli (lời thôn trưởng và lời Đức Thế Tôn kéo qua nhiều khoá); nháy đơn ở `:20.1`, `:21.1`, `:21.5`, `:22.1`, `:23.4`, `:23.5`, `:24.2`. Các khoá dạng `Xti` không nháy ở Pāli (`:15.3` `Sacittapariyodāpananti`, `:26.11` `brahmacariyanti`) nên Việt cũng không thêm nháy.
 
   Kiểm kỹ thuật: tập khoá Việt = tập khoá Pāli = 169, đúng thứ tự Pāli; không khoá rỗng; đều NFC; chữ có dấu Pāli duy nhất còn lại là tên riêng (`Mahākaccāyana`, `Nāḷandā`). Đã đọc đối kháng từng cặp Pāli–Việt. Cổng kỹ thuật CHƯA chạy — cần chạy đủ bốn lệnh trước khi coi `technical_integrity: 9.6` là đạt: `npm run validate`, `npm test`, `npm run check`, `npm run build`.
+
+  **Lượt cải thiện 2026-10-13.** Đọc đối kháng lại 169 cặp Pāli–Việt, đo lại tiền lệ trên toàn tầng; đổi 3 khoá, giữ nguyên tập khoá và thứ tự khoá. (a) `:19.1` "tôi sẽ hỏi lại anh" → "Ta sẽ hỏi lại anh": Đức Phật tự xưng "Ta" theo chuẩn xưng hô của kho; hai bài song song `sn42.6:3.1`, `sn42.7:1.6` dùng "tôi" là chỗ lệch chuẩn đã có sẵn, không phải tiền lệ để theo, còn `sn42.13:2.8` dùng "Ta" cho đúng công thức này. Cách gọi người nghe giữ "anh" như `sn42.6`, `sn42.8` (công thức `Taṁ kiṁ maññasi, gāmaṇi`: "anh" 19, "ngươi" 11); cặp "Ta ... anh" hiếm (2 khoá toàn tầng, trong khi "Ta ... ông" 442 và "Ta ... ngươi" 215) nên là điểm còn nghi ngờ, không đổi để khỏi lệch bài song song. Điểm tiêu chí `terminology`: 8.9 → 9.0. (b) `:21.6` và `:24.3` "vẫn sinh vào ..." → "vẫn sẽ sinh vào ...": Pāli là `upapajjeyya` (cách nguyện, cùng một câu điều kiện nhượng bộ `kiñcāpi ... āyāceyya` ở `:21.5`, `:24.2`), nên là điều sẽ xảy ra trong giả định, không phải kể một sự kiện đã xảy ra; "vẫn sinh" bỏ mất giá trị khả năng đó. Điểm tiêu chí `grammar_logic`: 8.8 → 8.9. Các khoá còn lại không đổi. Mục (10) ở phần Bất định bên trên về xưng hô "tôi/anh" của `:19.1` nay chỉ còn đúng với "anh"; chữ "tôi" đã được thay bằng "Ta".
+
+  Những chỗ nghi ngờ đã đo lại và quyết định giữ: `:13.10` `pahānaṁ abbhatthaṁ gacchati` giữ "đi đến chỗ được đoạn trừ" vì đây là thành ngữ của chính bộ `ne` (`ne6:14.1`–`14.5`, `14.7`, `ne8:8.1`: "đi đến chỗ được từ bỏ", 7 khoá), còn `abbhatthaṁ gacchati` đứng riêng ở các bài khác dịch "chấm dứt"/"tiêu tan"/"biến mất"/"lắng xuống" là một cách dùng khác. `:2.1`, `:3.1`, `:3.3` `nikkamatha` giữ "hãy ra khỏi" theo 5 khoá tiền lệ (`sn6.14:6.1`, `sn6.14:9.1`, `thag3.13:2.1`, `pe3:62.1`, `pe3:83.3`); đo thêm: danh từ `nikkama` ở nơi khác dịch "xuất lực", "xuất phát", "tinh cần", "tiến tới", nên ngữ cảnh tinh tấn (`:3.1`) vẫn hỗ trợ nghĩa nỗ lực, nhưng chưa có căn cứ độc lập để đổi riêng dạng mệnh lệnh ở bài này; vẫn là bất định (2). `:14.1`, `:15.1` `micchatta`/`sammatta` giữ "tà tánh"/"chánh tánh": tầng còn dịch "tà"/"chánh" rút gọn (`dn33:3.1.4`, `dn34:2.1.39`, `an10.132:1.1`) và "đi sai"/"đi đúng" (`sn45.21`), không có đa số rõ nên không đổi. `:20.1`–`:24.2` "đám đông đông đảo": 11/11 khoá của `mahā janakāyo` toàn tầng dịch như vậy. `:22.1` `paṭivirato` → "từ bỏ" (90/134 khoá có `pāṇātipātā paṭivirato`, "kiêng" 17). `:27.1` "quả Dự lưu" (37 khoá, "quả Nhập lưu" 12). `:7.7` giữ "Như vậy là toàn bộ khối khổ này đoạn diệt" (7/17 khoá của công thức `Evametassa kevalassa dukkhakkhandhassa nirodho hoti` kể cả bài này, là dạng nhiều nhất; "sự đoạn diệt của toàn bộ uẩn khổ này" 4 khoá). `:13.1`–`:13.4` "sân hận" cho `dosā` ở `agati` ("sân hận" và "sân" xấp xỉ nhau ở các khoá `agatiṁ gacchati` toàn tầng), không đổi. Đã dò lại 169 khoá về Pāli trùng với khoá ngoài bài và 17 cặp trùng trong bài: bản Việt khớp ở mọi cặp trong bài (0 cặp khác); ngoài bài chỉ còn `:1.1` (bản Việt ngắn gọn "hướng dẫn quy căn" của `pe8` khác khuôn tên nhóm của `ne`), `:8.1`–`:8.3` (`dhp338` đảo thứ tự dòng) và `:25.6` (đã nêu ở trên) khác, đều có lý do. Không phát hiện lỗi sai số, sai phủ định, đảo vế hay lệch ranh khoá nào khác. Điểm không đổi: `source_provenance` 9.5, `semantic_fidelity` 8.7 (còn bất định (1), (7), (11), (14)), `segment_alignment` 10.0, `triangulation` 7.0 (vẫn không có bản Anh độc lập), `vietnamese_clarity` 8.6, `han_viet_balance` 9.1, `ambiguity_integrity` 8.8, `technical_integrity` 9.6 (bốn lệnh `npm run validate`, `npm test`, `npm run check`, `npm run build` vẫn chưa chạy trong lượt này). `final_score` 8.9 → 8.92 (trung bình thô của mười điểm = 89.2/10).

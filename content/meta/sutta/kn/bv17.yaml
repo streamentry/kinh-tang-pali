@@ -14,13 +14,13 @@ quality:
     semantic_fidelity: 8.8
     grammar_logic: 8.7
     segment_alignment: 10.0
-    terminology: 8.7
+    terminology: 8.9
     triangulation: 7.0
     vietnamese_clarity: 8.9
     han_viet_balance: 9.1
     ambiguity_integrity: 8.8
     technical_integrity: 9.6
-  final_score: 8.9
+  final_score: 8.92
   blocking_errors:
     - "noEnglishEditionUpstream: Không có tầng tham khảo tiếng Anh tại commit đã
       ghim: `source/upstream-manifest.json` chỉ liệt kê
@@ -33,7 +33,7 @@ quality:
       dịch chỉ từ Pāli root và đối chiếu tiền lệ nội bộ, bài bắt buộc `draft` và
       `triangulation` không quá 8,0. Đây là giới hạn upstream, không phải lỗi
       của người dịch."
-  assessed_at: "2026-10-10"
+  assessed_at: "2026-10-13"
   assessed_by:
     - "Claude Sonnet 5.5 (Claude Code)"
   waiver:
@@ -110,3 +110,10 @@ notes: |-
   **Coverage English (mục 7):** mẫu số = 1. 100 khoá không phải `:0.`; chỉ `26.1` (colophon, 43 ký tự sau khi nén khoảng trắng) đạt ngưỡng 40 ký tự, các khoá còn lại dài nhất 25 ký tự, nên cổng chỉ đo một colophon chứ không đo nội dung kệ, tức cổng gần như không đo được gì về nội dung bài. Sujato: 0 tệp cho `bv17` (`english-sujato` chỉ có chín tiểu bộ cp dhp iti ja kp snp thag thig ud); `english-project`: 0 (không có tệp bv nào trong `content/translation/en/project/sutta/kn/`, không có `content/meta/en/kn/bv17.yaml`); `vietnamese-current`: 0 tầng segment (chỉ Pháp Cú); bản nguyên bài của tầng tra cứu toàn văn (HTML, Bhikkhu Indacanda) chỉ dùng để hiểu mạch bài, không cấp text, điều khoản `NOASSERTION`. Ba tầng đều vắng ⇒ `triangulation` 7,0 (≤ 8,0) và `status: draft` kèm blocker ở trên. Không đụng `content/meta/reference-gaps.yaml`.
 
   **technical_integrity = 9,6:** lát này cấm chạy cổng, nên không tuyên bố technical gate pass. Bốn lệnh còn lại do người điều phối chạy tập trung: `npm run validate` · `npm test` · `npm run check` · `npm run build`. `final_score` là trung bình số học thô của đúng 10 tiêu chí.
+
+  **Lượt cải thiện 2026-10-13.** Đọc đối kháng lại cả 102 cặp Pāli↔Việt, kiểm số (mọi số Pāli ở mục trên tính lại đều đúng: 100.000 koṭi, 90, 80, 100, 8.000 năm, 43.000, 10.000, 100.000 năm, 80 hattha, 3 do-tuần), dấu nháy khớp Pāli từng khoá (0 lệch trên 102 khoá), đúng một `…` ở khoá `11.2`, NFC sạch, không Pāli lọt sang Việt; 5 nhóm Pāli trùng trong bài vẫn có Việt giống nhau (0 lệch). Dò lại tiền lệ trên toàn tầng Việt hiện có (nay đã có đủ phẩm bv1–bv29): 58 khoá của bài có Pāli trùng nguyên văn với khoá ở bài khác, 19 khoá trong đó có Việt khác bản này; xét từng khoá, chỉ sửa hai khoá mà tiền lệ đa số rõ ràng, các khoá còn lại (ví dụ `10.3`, nơi lệch có chủ ý) giữ nguyên.
+  - `1.3` (terminology fix): “Sau khi xua tan bóng tối ấy,” → “Sau khi xua tan bóng tối mù mịt ấy,”. Dạng Pāli `Tamandhakāraṁ` ở toàn tầng: 11 khoá dịch có “mù mịt” (trong đó 2 khoá cùng Pāli `Tamandhakāraṁ vidhamitvā` ở `tha-ap8:95.3`, `tha-ap409:34.3` đúng nguyên văn “Sau khi xua tan bóng tối mù mịt ấy,”), 3 khoá không có (kể cả `1.3` cũ). Hợp chất `tama` + `andhakāra` còn xuất hiện ở `vv9:6.3` `Tamandhakāramhi timīsikāyaṁ` (định vị cách, không thể đọc là `taṁ` “ấy” + `andhakāraṁ`), nên cách đọc hợp chất là có căn cứ trong tầng Pāli; bản cũ bỏ mất nét “mù mịt” của `andhakāra`. Chữ “ấy” giữ như các tiền lệ trên. Điểm `terminology` 8,7 → 8,9 (cùng với khoá `5.1` và việc đo lại `byākāsi`, xem dưới).
+  - `5.1` (terminology fix): “Cũng nơi vị ấy, bậc Thiên Trung Thiên,” → “Cũng của vị ấy, bậc Thiên Trung Thiên,”. Cùng Pāli `Tassāpi devadevassa` có 3 khoá ở bài khác, cả 3 dịch “Cũng của vị ấy, bậc Thiên Trung Thiên,”, bản cũ là cách duy nhất khác (1/4). `tassa` ở đây là sở hữu cách của “ba kỳ hội chúng” (`5.2`), nên “của” đúng cú pháp hơn “nơi”. Ở `2.1`/`23.1` (`Tassāpi atulatejassa`, “Với cả vị ấy”) giữ nguyên: 6 khoá cùng Pāli đều dịch thế (và 33 khoá của bài này dùng nguyên văn bài `bv18`), không đổi để khỏi làm lệch tiền lệ.
+  - Đo lại `byākāsi` → “thọ ký” (điểm yếu nhất về thuật ngữ mà lượt trước tự nêu; số “0 khoá” ở mục thuật ngữ nay đã cũ vì tầng đã có thêm bài): nay 37 khoá / 31 tệp trong tầng dùng “thọ ký”, trong đó 20 khoá có `byākāsi` (17 khoá cùng dòng `Sopi maṁ buddho byākāsi,` ở các phẩm bv) và có cả một tiền lệ ngoài Buddhavaṃsa cùng nghĩa lời tiên báo của Đức Phật về tương lai của người nói (`tha-ap538:4.1` `Tato maṁ byākari buddho,` → “Rồi Đức Phật đã thọ ký cho ta:”). Các khoá dịch “trả lời”/“giải đáp”/“tuyên bố” đều là câu hỏi–đáp (`dn2`, `snp5.18`, `cnd`, `thi-ap18`), không phải thọ ký, nên không mâu thuẫn. Chữ chọn được giữ; đây là nhất quán nội tầng, không phải bằng chứng độc lập về nghĩa Pāli.
+  - Không đổi, dù đã cân nhắc: `7.2` “từ cõi trời đi đến cõi người” (0 tiền lệ Pāli trùng; `ja545:142.1` dịch `devato` “từ cõi trời”, nên “cõi” cho `devato` có một tiền lệ gần, còn “cõi” cho `mānusaṁ` vẫn là bổ nghĩa thuận tiếng Việt, bất định 6 ở trên còn nguyên); `16.2` “ra đi bằng lâu đài” (4/4 tiền lệ cùng Pāli, bất định 12); `24.3` “khuất bóng” (một mình trong tầng; `cavi` ở `mn50:21.5` dịch “chết khỏi”, không hợp cho Đức Phật nên giữ cách ẩn dụ, bất định 22); `21.2` “hattha” giữ nguyên chữ (3/3 tiền lệ cùng Pāli, bất định 16); `3.1` dấu phẩy giữa chủ ngữ và vị ngữ là theo ngắt dòng của Pāli.
+  - Điểm đổi: chỉ `terminology` 8,7 → 8,9; `final_score` 8,90 → 8,92. Các tiêu chí còn lại không nâng vì không có cải thiện cụ thể tương ứng: bất định thật còn lại (`1.1` Maṇḍa, `6.3` số koṭi, `24.3`, `16.2`, `23.2`…) chưa phân xử được bằng căn cứ; `triangulation` giữ 7,0 vì vẫn không có tầng Anh độc lập hay tầng Việt hiện hành cho bv; `technical_integrity` giữ 9,6, bốn lệnh `npm run validate` · `npm test` · `npm run check` · `npm run build` do người điều phối chạy tập trung. Blocker `noEnglishEditionUpstream` giữ nguyên vì là sự thật về upstream.

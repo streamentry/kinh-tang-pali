@@ -13,16 +13,16 @@ tags:
 quality:
   scores:
     source_provenance: 9.50
-    semantic_fidelity: 8.60
+    semantic_fidelity: 8.80
     grammar_logic: 9.00
-    segment_alignment: 9.80
-    terminology: 8.60
+    segment_alignment: 9.90
+    terminology: 9.00
     triangulation: 7.50
-    vietnamese_clarity: 8.80
+    vietnamese_clarity: 8.90
     han_viet_balance: 9.20
     ambiguity_integrity: 8.60
     technical_integrity: 9.60
-  final_score: 8.9200
+  final_score: 9.0000
   blocking_errors:
     - "Không có tầng tham khảo tiếng Anh tại commit đã ghim: bản Anh đã ghim của
       Bhikkhu Sujato không phát hành bất kỳ tệp nào cho thư mục `sutta/kn/vv/` —
@@ -40,7 +40,7 @@ quality:
       lớp lấp `english-project` không có cho uid này ⇒ ba tầng tham khảo đều
       vắng ⇒ dịch chỉ từ Pāli root. Đây là giới hạn upstream, không phải lỗi của
       người dịch."
-  assessed_at: "2026-10-11"
+  assessed_at: "2026-10-13"
   assessed_by:
     - "Claude Sonnet 5.5 (Claude Code)"
   waiver:
@@ -136,3 +136,34 @@ notes: |-
   hiện là *Nam Hư Không* ở 26 tệp vv (không có `ākāsa` trong Pāli): không sửa riêng tệp này để khỏi lệch bộ,
   ghi nhận để sửa cả bộ. Cổng kỹ thuật `npm run validate`, `npm test`, `npm run check`, `npm run build`
   chưa chạy ở lượt này; `technical_integrity` giữ 9,6.
+
+  **Lượt cải thiện 2026-10-13.** Đọc đối kháng lại 38 khoá cặp Pāli↔Việt và đo tiền lệ trên 34 bài `vv` còn lại (số
+  dưới đây là số đếm trên toàn bộ `kn/vv`). Đổi 7/38 khoá và sắp lại thứ tự khoá; không đổi tập khoá hay segment ID.
+    - 6.1 (accuracy fix, dấu câu): Pāli mở nháy kép ở `“Satisamuppādakaro`, bản Việt thiếu dấu mở nên 2 mở / 2 đóng của
+      Pāli chỉ còn 1 mở ở Việt; đã thêm `“`. Đồng thời `khởi sanh` → `khởi sinh` (toàn `vv` chỉ chỗ này viết `sanh`; toàn
+      tầng 163 `khởi sinh` so với 50 `khởi sanh`).
+    - 3.1, 3.2 (terminology fix): `Do nhân gì` → `Do đâu`. `kena` là một từ ở 3.1, 3.2 và 4.3 mà bản cũ dịch hai kiểu
+      trong cùng bài (4.3 đã là `Do đâu`); `nhân` còn thêm nghĩa *nguyên nhân* mà `kena` (cách công cụ) không có. Tiền lệ
+      cho đúng dòng Pāli: `Do đâu ngài có được dung sắc như thế` 6 bài, `Do đâu nàng …` 30 bài, `Do nhân gì ngài …` chỉ 4 bài
+      và đều kèm `sắc diện dung nhan`.
+    - 2.3 (accuracy fix): `kāmaguṇettha` = `kāmaguṇā ettha`, `ettha` (*ở nơi đây*) bị bỏ sót; thêm `ở nơi đây`. Dòng Pāli này
+      có ở 8 bài `vv` khác: 4 bài đã dịch `ettha` (vv55, vv58, vv77, vv85; vv85 cùng dạng `ở nơi đây`), 4 bài bỏ sót
+      (vv56, vv57, vv59, vv79). Bản này theo nhóm đầy đủ; 4 bài bỏ sót ghi nhận ở đây, không sửa tệp ngoài bài.
+    - 4.4 (style, theo tiền lệ): `?”.` → `?”`. Dòng Pāli này ở 65 bài hỏi: `?”` 50, `?”.` 15.
+    - 8.4 (terminology fix): `sắc tướng … mọi phương”.` → `dung sắc … muôn phương.”`. `vaṇṇo` ở 3.1, 4.4, 7.1 đều là
+      `dung sắc`, riêng 8.4 bản cũ đổi sang `sắc tướng` trong cùng bài; tiền lệ cho đúng dòng 8.4: `dung sắc tôi … muôn
+      phương` 28 bài so với `sắc tướng … mọi phương` 7. Đặt dấu theo đa số toàn tầng cho dòng kết `”ti.`: `.”` 124 so với `”.` 50.
+    - 6.4 (clarity + orthography): `toả` → `tỏa` (`tỏa sáng` 27 chỗ trong `vv`, `toả sáng` 1 chỗ — chính chỗ này); `mười chân.` đứng
+      trơ → `con mười chân.` vì `dasapādako` là danh từ chủ ngữ của `sobhati` (không phải tính từ treo), và `con` chỉ là loại
+      từ của con cua đã nêu ở 6.2, không thêm ý.
+    - Thứ tự khoá: bản cũ để `10.1` ngay sau `1.4`; đã xếp lại đúng thứ tự Pāli (0.1…9.1, 10.1) như mọi tệp `vv` khác.
+  Điểm đổi: semantic_fidelity 8,6→8,8 (khôi phục `ettha`, bỏ `nhân` thừa); segment_alignment 9,8→9,9 (nháy mở của 6.1,
+  thứ tự khoá); terminology 8,6→9,0 (`kena` và `vaṇṇo` nhất quán trong bài và theo tiền lệ, một chính tả); vietnamese_clarity
+  8,8→8,9 (6.4, 6.1). Giữ nguyên: ambiguity_integrity 8,6 vì bất định thật vẫn còn (`rucaka`, `sati`, `rasa`, xem trên);
+  triangulation 7,5 vì không có tầng tham khảo nào. `final_score` 8,92→9,00 là trung bình thô, không `> 9,0` nên không
+  đủ lên `published`; blocker `không có tầng tham khảo tiếng Anh` giữ nguyên (sự thật về upstream).
+  Cập nhật ghi chú cũ: tiêu đề phẩm `Purisavimāna` nay là *Thiên Cung Của Nam Giới* ở 34/34 tệp `vv` đối chiếu, nên chú ý
+  `Nam Hư Không` ở trên hết hiệu lực. Đã giải quyết thêm 0 bất định mới: `rucakatthatā` (formula 11 bài `vv` kể cả vv54: 9 bài
+  `trải thảm rực rỡ`, 1 bài `được trang hoàng`, 1 bài giữ nguyên `rucaka`) vẫn là cách đọc biên tập; `satisamuppādakaro`
+  và `kakkaṭakarasa` là hapax toàn Pāli đã ghim (chỉ `vv54`) nên không có bản song song để phân xử. Cổng kỹ thuật
+  `npm run validate`, `npm test`, `npm run check`, `npm run build` chưa chạy ở lượt này; `technical_integrity` giữ 9,6.

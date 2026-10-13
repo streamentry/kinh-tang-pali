@@ -14,16 +14,16 @@ tags:
 quality:
   scores:
     source_provenance: 9.4
-    semantic_fidelity: 8.6
+    semantic_fidelity: 8.8
     grammar_logic: 8.6
     segment_alignment: 10.0
-    terminology: 8.7
+    terminology: 9.0
     triangulation: 7.0
-    vietnamese_clarity: 8.9
+    vietnamese_clarity: 9.0
     han_viet_balance: 9.2
     ambiguity_integrity: 9.0
     technical_integrity: 9.6
-  final_score: 8.9
+  final_score: 8.96
   blocking_errors:
     - "Không có tầng tham khảo tiếng Anh tại commit đã ghim:
       `source/upstream-manifest.json` chỉ liệt kê `kn/ja/ja495_root-pli-ms.json`
@@ -35,7 +35,7 @@ quality:
       đều vắng ⇒ bài dịch chỉ từ Pāli root và đối chiếu tiền lệ nội bộ ⇒ bài bắt
       buộc `draft` và `triangulation ≤ 8,0`. Đây là giới hạn upstream, không
       phải lỗi của người dịch. (noEnglishEditionUpstream)"
-  assessed_at: "2026-10-11"
+  assessed_at: "2026-10-13"
   assessed_by:
     - "Claude Sonnet 5.5 (Claude Code)"
   waiver:
@@ -105,3 +105,18 @@ notes: |-
   **Coverage English (mục 7):** mẫu số = 0. Đo mọi khoá không phải khối `:0` (207 khoá), khoá dài nhất (`49.1`) sau khi nén khoảng trắng là 31 ký tự (< 40) nên 0/207 khoá có nội dung theo ngưỡng của `source/layers.yaml`; 4 khoá `:0` (`0.1`–`0.4`) bị loại trước. Mẫu số = 0 ⇒ cổng không đo được gì, không phải “không cần ghi nhận”. Sujato: 0 tệp cho `ja495` (không có trong `source/upstream-manifest.json`; tầng Sujato của `kn/ja` chỉ có 83 tệp); `english-project`: 0 (không có tệp `ja495` dưới `content/translation/en/project/sutta/kn/`); `vietnamese-current`: 0 (chỉ Pháp Cú). Ba tầng đều vắng ⇒ `triangulation` 7,0 (≤ 8,0) và `status: draft` kèm blocker ở trên. Tôi không đụng `content/meta/reference-gaps.yaml`.
 
   **technical_integrity = 9,6:** lát này cấm chạy cổng, nên không tuyên bố technical gate pass. Bốn lệnh còn lại do người điều phối chạy tập trung: `npm run validate` · `npm test` · `npm run check` · `npm run build`.
+
+  **Lượt cải thiện 2026-10-13.** Đọc đối kháng lại 211 cặp Pāli↔Việt và đo lại tiền lệ trên tầng hiện tại (tầng đã có thêm bài so với lượt trước, nên một số số đo ở trên đã cũ). Đổi 43/211 khoá; tập khoá và thứ tự khoá giữ nguyên; không đổi khoá tiêu đề, không đổi khoá nào ngoài danh sách dưới đây. Khi mục này mâu thuẫn với phần ghi trước, mục này thay thế.
+  1. `sīlavante bahussute` (11 khoá: `1.4`, `7.5`, `11.5`, `15.5`, `19.5`, `24.5`, `28.5`, `32.5`, `36.5`, `40.5`, `44.5`) “giữ giới, đa văn” → “những bậc có giới hạnh, đa văn”; `sīlavanto bahussutā` (3 khoá: `3.2`, `46.2`, `48.2`) → “có giới hạnh, đa văn”. Lý do: Pāli `sīlavante bahussute` nguyên văn nay có 8 khoá ở bài khác đã có bản Việt (`ja546` 5, `ja547` 2, `ja468` 1), cả 8 đều dịch “có giới hạnh, đa văn” (“những bậc” 6, “các bậc” 1, “kẻ” 1), không khoá nào dịch “giữ giới”; trên 571 khoá chứa `sīlavant…`/`sīlavā…` đã dịch, “có giới hạnh” 117 khoá, “giữ giới” 66 khoá (một khoá có thể thuộc nhiều dạng). Phần “Thuật ngữ” ở trên chọn “giữ giới” khi tầng chỉ có một tiền lệ là `ja468:10.2`; số đo đó đã cũ. Terminology 8,7 → 9,0.
+  2. `bhojanaṁ` (13 khoá: `2.2`, `3.4`, `8.2`, `12.2`, `16.2`, `20.2`, `25.2`, `29.2`, `33.2`, `37.2`, `41.2`, `45.2`, `46.4`) “bữa ăn” → “thức ăn”: đo 159 khoá chứa `bhojanaṁ` đã dịch, “thức ăn” 92 khoá, “bữa ăn” 27, “món ăn” 16, “vật thực” 14, “đồ ăn” 8. `ekañca bhattaṁ` (`47.1`) giữ “một bữa” vì là `bhatta`.
+  3. `dakkhiṇaṁ … dassāma` (11 khoá: `2.3`, `8.3`, `12.3`, `16.3`, `20.3`, `25.3`, `29.3`, `33.3`, `37.3`, `41.3`, `45.3`) “dâng cúng dường” → “dâng vật cúng dường”: “cúng dường” là hành vi, `dakkhiṇā` là vật được dâng nên cụm cũ thiếu tân ngữ; theo `pv5:9.3` (`Petānaṁ dakkhiṇaṁ dajjā` → “dâng vật cúng dường”). Vietnamese clarity 8,9 → 9,0.
+  4. `3.1` `Dullabhā` “thật hiếm” → “khó tìm”: bỏ chữ “thật” không có trong Pāli; đo 171 khoá chứa `dullabh…`, “khó tìm” 54, “hiếm” 45, “khó gặp” 23, “khó được” 9 (một khoá có thể thuộc nhiều dạng); “khó tìm” cũng ăn với `pariyesa` “hãy tìm” ở khoá đầu bài.
+  5. `22.3` `uccāvacāni paṇiyāni` “đủ loại hàng hóa cao thấp khác nhau” → “các thứ hàng hóa cao thấp khác nhau”: cũ dịch một từ hai lần (“đủ loại” và “cao thấp khác nhau”); đo 66 khoá chứa `uccāvac…`, “cao thấp” 31, “đủ loại” 11.
+  6. `35.1` `gopanisādehi` “bọn chăn bò và bọn cướp rừng” → “người chăn bò và người nisāda”: bỏ “cướp”, vì Pāli không có từ nào nghĩa là cướp và nó mâu thuẫn với cách dịch “dẫn đoàn buôn đi” ở `34.4` (hộ tống chứ không phải cướp); “bọn” cũng là sắc thái miệt thị Pāli không nói. Tầng không có khoá nào chứa `nisāda` riêng; dạng gần `nesāda` (35 khoá đã dịch) dịch “thợ săn” 28 khoá, nhưng `ja495:39.1` đã dùng “thợ săn” cho `luddaka` ở hạng khác, nên giữ phiên âm `nisāda`, chưa phân xử.
+  7. `42.2` `pasakkitā` “đã chui nấp dưới giường” → “đã chui vào dưới giường”: bỏ “nấp” (ý che giấu không có trong phân từ `pasakkita`).
+  8. `48.3` `Ete vidhura pariyesa` bỏ chữ “chính” (nhấn mạnh Pāli không có): “hãy tìm những vị này”.
+  Semantic fidelity 8,6 → 8,8: bỏ bốn chỗ thêm nghĩa nhỏ (“cướp”, “nấp”, “chính”, “thật”) và một mâu thuẫn nội bộ (`34.4` vs `35.1`). Không nâng thêm vì ba bất định thật vẫn còn (`30.3`–`30.4`, `34.4`–`35.1`, `18.1`).
+  Cập nhật các số đo cũ: (a) `1.2` `Dhammakāmo yudhiṭṭhilo`: mục “khác có chủ ý” ở trên ghi `ja413:1.2` dịch khác; nay `ja413:1.2` có cùng chữ “Yudhiṭṭhila, bậc ưa chuộng chánh pháp;”, tức `1.2` khớp tiền lệ nguyên văn. “chánh pháp” cho `dhamma` lệch dạng đa số “yêu thích pháp” của `dhammakāmo` ở nơi khác; giữ nguyên vì Pāli trùng nguyên văn ở `ja413` có cùng bản Việt và khoá đó ngoài phạm vi lượt này. (b) Pāli trùng ở bài khác đã có bản Việt: 34 khoá (so sau khi bỏ dấu câu, hạ chữ hoa, từ 12 ký tự); sau lượt này 9/34 khớp chữ tuyệt đối (so sau khi bỏ dấu câu), 25/34 khác, trong đó 11 khoá `sīlavante bahussute` chỉ khác ở “những/các/kẻ” và dấu cuối câu so với tiền lệ, 11 khoá `Yattha dinnaṁ mahapphalaṁ` khác ở dấu nháy đóng và dấu cuối câu so với tiền lệ không có nháy, `38.1` khác vì ngôi (`tha-ap46:1.1` ngôi thứ nhất), `21.1` và `17.2` chỉ khác một tiền lệ lẻ trong nhiều tiền lệ giống. Trong chính bài vẫn 15 nhóm / 134 khoá Pāli trùng, 0 nhóm bản Việt khác nhau.
+  Giải quyết một phần bất định: (c) `rājāyatana` (`22.1`, trước ghi là bất định 12): `ja541:120.1` `Rājāyatanā kapitthā ca` nằm trong một danh sách cây (xoài, sāla, jambu, tinduka, piyāla) và được dịch “Cây rājāyatana”, nên `rājāyatana` là tên cây/quả trong danh sách; cách đọc “nơi ở của vua” kém khả dĩ hơn. Cách giữ phiên âm vẫn đúng vì tầng không cho tên Việt của loại cây này. (d) `labuja` (`21.3`): số đo cũ thiếu 6 khoá `dn2` (cặp `amba`/`labuja`) và `ja511:14.1` đều dịch “mít”; nhưng `tha-ap407:11.3` `Labujā panasā` liệt kê `labuja` cạnh `panasa` (mít) như hai thứ khác nhau, và các bài `tha-ap` (384, 392, 469, 472), `ja536`, `ja547`, `vv35` giữ phiên âm; giữ “labuja”.
+  Bất định còn lại, bổ sung: `satthaṁ abbāhayantipi` (`34.4`): ngoài cách đọc `sattha` = đoàn buôn (“dẫn đoàn buôn đi”), `satthaṁ` còn có thể là `sattha` = vũ khí (cách dùng `abbāhati` “rút ra” như `mn77:30.5` rút kiếm khỏi bao), tức “cũng rút vũ khí ra”; cả hai đều ăn khớp với `34.1`–`34.2` “cầm gươm và khiên”. Không phân xử được bằng tầng đã ghim, giữ “dẫn đoàn buôn đi” như đã chọn.
+  Điểm lượt này: source_provenance 9,4; semantic_fidelity 8,6 → 8,8; grammar_logic 8,6 (không đổi); segment_alignment 10,0; terminology 8,7 → 9,0; triangulation 7,0 (không đổi, vẫn không có bản Anh độc lập); vietnamese_clarity 8,9 → 9,0; han_viet_balance 9,2; ambiguity_integrity 9,0 (không đổi: một bất định được giải quyết một phần, một cách đọc bị bỏ sót nay đã ghi, bất định thật còn); technical_integrity 9,6. final_score 8,9 → 8,96 (trung bình thô của 10 điểm). Bốn lệnh `npm run validate` · `npm test` · `npm run check` · `npm run build` vẫn do người điều phối chạy tập trung.

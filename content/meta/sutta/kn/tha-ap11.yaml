@@ -16,13 +16,13 @@ quality:
     semantic_fidelity: 8.7
     grammar_logic: 8.7
     segment_alignment: 10.0
-    terminology: 8.8
+    terminology: 8.9
     triangulation: 7.0
-    vietnamese_clarity: 8.9
+    vietnamese_clarity: 9.0
     han_viet_balance: 9.2
     ambiguity_integrity: 8.8
     technical_integrity: 9.6
-  final_score: 8.91
+  final_score: 8.93
   blocking_errors:
     - "noEnglishEditionUpstream: tầng english-sujato đã ghim chỉ phủ 9
       sub-collection của kn (cp, dhp, iti, ja, kp, snp, thag, thig, ud = 755
@@ -34,7 +34,7 @@ quality:
       ngắn dưới 40 ký tự nên cổng coverage hầu như không đo được gì. Ba tầng
       tham khảo đều vắng nên bài dịch chỉ dựa vào Pāli root; triangulation bị
       chặn ở 7.0 chứ không nâng để né blocker, và status giữ draft."
-  assessed_at: "2026-10-10"
+  assessed_at: "2026-10-13"
   assessed_by:
     - "Claude Sonnet 5.5 (Claude Code)"
   waiver:
@@ -139,3 +139,11 @@ notes: |-
   Mọi số Pāli đã tính lại ở trên.
 
   `technical_integrity` đặt 9,6 vì chưa chạy cổng kỹ thuật của kho. Bốn lệnh còn lại cần chạy trước khi chốt: `npm run validate` · `npm test` · `npm run check` · `npm run build`.
+
+  Lượt cải thiện 2026-10-13: đọc đối kháng lại cả 69 cặp Pāli và Việt, rồi dựng lại chỉ mục tiền lệ trên 562 tệp `tha-ap` hiện có (đã đổi nhiều so với lượt đo ngày 2026-10-10). Đổi 3 khoá, giữ nguyên tập khoá và thứ tự khoá.
+  (1) `:9.1` `Vào một trăm ngàn kiếp nữa,` thành `Sau một trăm ngàn kiếp nữa,` (sửa thuật ngữ và rõ nghĩa): Pāli `Kappasatasahassamhi` có 25 khoá toàn tầng `tha-ap`; `Sau … nữa` 14, `Sau … kiếp` 4, `Vào … nữa` 3, các dạng khác 4; tha-ap8, tha-ap9, tha-ap10, tha-ap20 (cùng khuôn lời thọ ký Gotama) đều dùng `Sau … nữa`. Lượt trước ghi nhầm khoá này là dùng lại nguyên văn.
+  (2) `:12.4` `sẽ vô lậu mà đi vào Niết-bàn’.` thành `sẽ nhập Niết-bàn, không còn lậu hoặc’.` (sửa thuật ngữ và rõ nghĩa): Pāli `nibbāyissatināsavo` có 29 khoá ở các bài khác; `nhập Niết-bàn, không còn lậu hoặc` 21 (kể cả tha-ap4, tha-ap10, tha-ap12, tha-ap20), `vô lậu mà đi vào Niết-bàn` 7. Ghi chú (8) bên trên nói tha-ap20 dùng dạng `vô lậu mà…` là SAI: tha-ap20 dùng dạng `nhập Niết-bàn, không còn lậu hoặc’.`. Chữ `mà` gượng bị bỏ; dấu `’.` đóng nháy vẫn đúng Pāli.
+  (3) `:1.3` `ở một bến sông xấu` thành `ở bến sông xấu` (độ trung thành): Pāli `kutitthe` là định cách, không có mạo từ số lượng; chữ `một` là phần thêm.
+  Hiệu chỉnh ghi chú cũ cho đúng số đo hiện tại: `:10.2` nay có 6 khoá cùng Pāli dịch giống hệt (`sẽ đạt tới thân phận làm người;`) cộng 3 khoá có `vị ấy`; `:14.3` nay 7 khoá giống hệt cộng 1 khoá chữ thường, chỉ còn tha-ap350:6.3 viết `Tuy đã thoát kiếp, vẫn rùng rình,` (tha-ap523 đã sửa); khoá ngoài bài, báo để người biên tập xử lý. `:14.1` `Satasahasse kataṁ kammaṁ`: 7/7 khoá cùng Pāli ở tha-ap24, tha-ap393, tha-ap535, tha-ap544, tha-ap546, tha-ap547, tha-ap562 đều dịch `cách đây một trăm ngàn kiếp`, nên `kiếp` là công thức của tầng chứ không chỉ suy từ `:9.1`; bất định (5) thu hẹp nhưng không xoá vì Pāli khoá này không có chữ `kappa`.
+  Giữ nguyên dù đã cân nhắc: `:8.1` `Vào kiếp thứ năm mươi bảy` (6 khoá cùng Pāli dùng `Vào năm mươi bảy kiếp trước đây`, nhưng đó đều là kể quá khứ có động từ `āsiṁ`; ở đây động từ tương lai và thứ tự 58 rồi 57 chưa phân xử được hướng đếm, nên không áp `trước đây`; tha-ap95:4.1 có tiền lệ `Vào kiếp thứ …`); `:15.2`–`:15.4` (tha-ap534:34.3–4 cùng khuôn `Aggaṁ …, paññapesi mahāmati` dịch `bậc đại trí đã tuyên bố`); `:1.4` và `:3.2` (bất định thật, xem (1) và (3) ở trên, không có căn cứ mới để phân xử); `:0.3` `Tuyên Ngôn` (vẫn chờ người biên tập phán chung).
+  Điểm đổi: terminology 8.8 thành 8.9 (hai khoá `:9.1`, `:12.4` nay theo đa số tầng, 17/24 và 21/29, thay vì dạng thiểu số); vietnamese_clarity 8.9 thành 9.0 (bỏ `mà` gượng ở `:12.4`, bỏ `Vào … nữa` lai ở `:9.1`). Không đổi các tiêu chí còn lại: semantic_fidelity và ambiguity_integrity giữ vì bất định thật ở `:1.4`, `:3.2`, `:7.1`–`:8.1`, `:14.3` vẫn còn; triangulation giữ 7,0 vì vẫn không có bản Anh độc lập; technical_integrity giữ 9,6. `final_score` 8,91 thành 8,93 (trung bình thô 89,3 chia 10). Blocker `noEnglishEditionUpstream` giữ nguyên (sự thật về upstream). Kiểm sau sửa: 69/69 khoá, thứ tự đúng Pāli, nháy đơn và kép khớp Pāli từng khoá (0 lệch), NFC, không khoá rỗng, không chữ số, không dấu lược lệch, 0 nhóm Pāli trùng trong bài. Chưa chạy `npm run validate` · `npm test` · `npm run check` · `npm run build`.

@@ -13,16 +13,16 @@ tags:
 quality:
   scores:
     source_provenance: 9.6
-    semantic_fidelity: 8.8
+    semantic_fidelity: 8.9
     grammar_logic: 8.8
     segment_alignment: 10.0
-    terminology: 8.4
-    triangulation: 7.5
-    vietnamese_clarity: 8.4
+    terminology: 8.6
+    triangulation: 7.7
+    vietnamese_clarity: 8.5
     han_viet_balance: 9.0
     ambiguity_integrity: 9.0
     technical_integrity: 9.6
-  final_score: 8.91
+  final_score: 8.97
   blocking_errors:
     - "noEnglishEditionUpstream: Không có tầng tham khảo tiếng Anh tại commit đã
       ghim. Đo trực tiếp `source/upstream-manifest.json`: tầng `english-sujato`
@@ -36,7 +36,7 @@ quality:
       đều vắng nên bài dịch chỉ dựa trên Pāli root và tiền lệ nội bộ của tầng;
       vì vậy `triangulation` bị chặn ở 7,5 (≤ 8,0) và bài giữ `draft`. Đây là
       giới hạn upstream, không phải lỗi của người dịch."
-  assessed_at: "2026-10-11"
+  assessed_at: "2026-10-13"
   assessed_by:
     - "Claude Sonnet 5.5 (Claude Code)"
   waiver:
@@ -90,3 +90,13 @@ notes: |-
   **Coverage English (mục 7):** mẫu số = 60 khoá Pāli có nội dung theo công thức của kho (gộp khoảng trắng rồi cắt, ≥ 40 ký tự, loại khối tham chiếu `:0`); đếm thô `len ≥ 40` cho 63 vì khoảng trắng cuối khoá. 0/60 khoá có chữ Anh = 0%, dưới ngưỡng 0,8. Sujato: 0 tệp chứa `ne15`; `english-project`: 0; `vietnamese-current`: 0 (chỉ Pháp Cú). Ba tầng vắng hết ⇒ `triangulation` 7,5 (≤ 8,0) và `status: draft` kèm blocker. `content/meta/reference-gaps.yaml` chưa có entry cho `ne15`; tôi không đụng tệp đó (entry có cũng không cứu được `published`).
 
   **technical_integrity = 9,6:** lát này cấm chạy cổng, nên không tuyên bố technical gate pass. Bốn lệnh còn lại do người điều phối chạy tập trung: `npm run validate` · `npm test` · `npm run check` · `npm run build`.
+
+  **Lượt cải thiện 2026-10-13.** Đọc đối kháng lại 169 cặp Pāli–Việt, đo tiền lệ trên toàn tầng (khoảng 281.000 khoá Pāli–Việt đã dịch), sửa 7 khoá (không đổi tập khoá, thứ tự, ranh giới khoá). Thay đổi theo loại:
+  – Sửa chính xác (accuracy): `20.1` — Pāli `samathavasena vā … vipassanāvasena vā …` có hai `vā`, bản cũ rơi mất `vā` thứ nhất; nay mở bằng `hoặc theo phương diện định tĩnh … hoặc theo phương diện quán …`. `56.1` — `Ettāvatā` không có nghĩa `chỉ`; bản cũ `Chỉ chừng ấy` thêm chữ `chỉ`; nay `Đến chừng ấy` (dạng đa số của `Ettāvatā` mở câu: `Đến chừng ấy/mức này/mức ấy` 8 + 15 + 12 khoá, ví dụ `dn15:22.5`, `mn125:12.5`; `Chỉ bấy nhiêu đó` 8 khoá là dạng khác, không phải `Chỉ chừng ấy`). `26.10` — `attānaṁ na passati`, bỏ chữ `có` thêm vào: `không thấy tự ngã`.
+  – Sửa thuật ngữ (terminology): `5.2` — `sīlakkhandha/samādhikkhandha/paññākkhandha` bản cũ viết `uẩn giới, uẩn định, uẩn tuệ` trong khi chính bài này viết `tuệ uẩn` (10.1, 21.1, 52.1), `định uẩn` (37.1), `thọ uẩn` (29.5); đo toàn tầng: `giới uẩn` 97 lần/39 tệp, `tuệ uẩn` 69/31, `định uẩn` 68/29, còn `uẩn giới` 6/5, `uẩn tuệ` 2/2, `uẩn định` 3/3 (hầu hết ở `ne37`, `ne31`); nay `giới uẩn, định uẩn, tuệ uẩn` (đã có ở `dn33:1.11.146`, `ne19:5.8`). Lý do cũ trong notes (`cho khớp bốn khoá Đây là … uẩn`) là không đủ: thay bằng quy tắc `X uẩn` dùng nhất quán. `8.1` — `sakkāyadiṭṭhiyā samugghāto`: trong 100 khoá toàn tầng có `samugghāta`: `nhổ tận gốc` 51 khoá, các dạng `nhổ` khác 15 khoá, `đoạn trừ` 9 khoá, `cắt đứt` 9 khoá (`dn33:2.2.111` `asmimānasamugghāto` → `sự nhổ tận gốc mạn`); trong `ne` chỉ có `ne18:5.3` dùng `cắt đứt` cho `asamugghāto` (một chỗ), nên đổi `sự cắt đứt thân kiến` → `sự nhổ tận gốc thân kiến`.
+  – Sửa sáng rõ (clarity): `5.1` — `saṅgahitāni` bản cũ `được gom gọn trong ba uẩn` thêm `gọn` mà Pāli không nói, lại lệch với `được gom vào giới pháp` (6.1) cùng gốc `saṅgaha-`; nay `được gom vào ba uẩn` (`ne31:4.1` còn `gom gọn`, đây là khoá của bài khác, không sửa). `15.4` — `Cetanā pana saṅkhārā`: `Mà tư chính là các hành` gượng và thêm `chính`; nay `Còn tư là các hành` (`pana`).
+  Đã thử và hoàn tác: `4.2` — thử đổi sang `Như vậy là sự đoạn diệt của toàn bộ khối khổ này` (như `ne37:335.2`), nhưng đo lại 14 cặp Pāli trùng nguyên văn: dạng đang dùng `Như vậy là toàn bộ khối khổ này đoạn diệt` có 5 khoá giống (`mn38:20.12`, `22.15`, `40.6`, `41.10`, và `ne10:7.7` — trong chính nhóm `ne`), nhiều hơn mọi dạng khác (4 khoá `uẩn khổ`, 3 khoá `khối khổ đau`, 1 khoá `ne37`, 1 khoá `an3.61`); giữ nguyên. Số cũ `4 giống/12 cặp` trong phần trên là thiếu `ne10:7.7`: đúng là 5 giống/14 cặp.
+  Bằng chứng mới cho các bất định cũ (không đủ phân xử, chỉ nghiêng thêm): (a) `otaraṇa` → `dẫn đưa` có thêm tiền lệ trong Peṭakopadesa (`pe`, bộ song song với Netti): `dẫn đưa` 20 khoá (`pe8:33.1` `Trong đó, dẫn đưa là gì?`, `pe8:158.1`, `pe5:52.1` `hướng dẫn dẫn đưa`, `pe8:19.2` và `pe8:109.2` `sự dẫn đưa vào các căn/uẩn/giới`) so với `vượt bậc` 7 khoá (đều là `ne31`); tổng cộng toàn tầng `dẫn đưa` chiếm 22/31 khoá có `otaraṇ-` (ngoài `ne` và `pe` còn các khoá không liên quan thuật ngữ này), nhưng trong chính nhóm `ne` vẫn chưa thống nhất (bất định 1 giữ nguyên, chỉ nghiêng thêm về `dẫn đưa`). (b) `bhavaṅga` → `hữu phần`: `pe5:52.9` `bhavaṅgotaraṇaṁ` → `sự dẫn đưa vào hữu phần` là tiền lệ thứ hai ngoài `ne7:3.20`; `ne21:9.2` dịch `chi phần của hữu`; nghĩa chi tiết vẫn chưa phân xử (bất định 2 giữ nguyên). (c) `pariyāpanna` → `nằm trong`: bản cũ ghi 0 tiền lệ; nay có `ne21:21.1`–`21.2` (`sakkāyapariyāpannā` → `nằm trong hữu thân`), còn `ne31:5.1`–`6.1` viết `đầy đủ`; bất định 3 về nghĩa của `saṅkhāra` ở `saṅkhārapariyāpanna` vẫn giữ.
+  Bất định mới ghi nhận, chưa phân xử: `rūpasaṅkhaye vimutto` (25.5, 26.4). `mn72:20.2` (cùng công thức `Rūpasaṅkhayavimutto … tathāgato gambhīro appameyyo`) trong tầng đọc `saṅkhaya` là `sự định danh` (`giải thoát khỏi sự định danh theo sắc`), còn `mn66:17.2`, `mn105:28.2`, `sn4.25` đọc `-saṅkhaye vimutto` là sự diệt tận/hoại diệt (`giải thoát do sự diệt tận sanh y`). Bài này dùng `cạn tận` (4 khoá toàn tầng: `sn55.38:1.3`, `thag1.92:1.1`, và hai khoá của bài này), vì cùng khoá đã có `khayā` → `đoạn tận` và `nirodhā` → `diệt tận`. Hai cách đọc (`cạn tận` và `định danh`) không loại trừ được; giữ nguyên và ghi vào bất định 4.
+  Không đổi dù còn nghi: `26.3` `Yehi saṅkhārehi` (số nhiều) → `Bất cứ hành nào` (khớp `mn72:20.13`, cùng cách, 1 khoá); `40.4` `vì người phàm đã đạt…` (`vì` theo `ne4:3.4`, `snp4.1:1.4`); `41.1` `tassa ce` mất `ce` (khớp tiền lệ `ne4`/`snp4.1`, nghĩa điều kiện giữ nhờ `khi`); `56.1` `paṭicca` → `duyên khởi` (không có tiền lệ khác để đo).
+  Điểm: `semantic_fidelity` 8,8 → 8,9 (ba sửa chính xác: 20.1, 56.1, 26.10; còn bất định 1–5 nên không nâng thêm); `terminology` 8,4 → 8,6 (5.2 và 8.1; thuật ngữ `otaraṇa`/`bhavaṅga`/`pariyāpanna` có thêm bằng chứng nhưng vẫn không có đa số trong `ne`); `triangulation` 7,5 → 7,7 (đối chiếu thêm bài song song `pe5`/`pe8`, `ne21`, `mn72`/`mn105`; vẫn không có bản Anh độc lập nên giữ dưới 8,0); `vietnamese_clarity` 8,4 → 8,5 (5.1, 15.4). `grammar_logic` 8,8, `han_viet_balance` 9,0, `ambiguity_integrity` 9,0 (bất định thật vẫn còn), `segment_alignment` 10,0, `source_provenance` 9,6, `technical_integrity` 9,6 giữ nguyên. `final_score` = trung bình số học thô của 10 điểm = 8,97. Phép đo sau sửa: khoá Việt = khoá Pāli 169 = 169 cùng thứ tự; nháy `“”` và `‘’` khớp Pāli từng khoá (169 khoá quét, 0 lệch); `…pe…` 2 khoá, mỗi khoá đúng một `…`; NFC, khoá rỗng, khoảng trắng thừa: 0 lỗi; Pāli lọt sang Việt: chỉ `Mahākaccāyana` (56.3); Pāli trùng nguyên văn trong chính bài: 15 nhóm, 0 cặp lệch; Pāli trùng với bài khác trong tầng: 46 khoá của bài, 185 cặp, trong đó 46 cặp khác ở 21 khoá (phần lớn là Jātaka/Pe/Mnd/Sn có cách dịch khác đã nêu ở trên; số `97 giống/30 khác` ở phần cũ không còn đúng do cách đếm khác, dùng số mới này). Bốn lệnh còn lại của technical gate (`npm run validate` · `npm test` · `npm run check` · `npm run build`) do người điều phối chạy tập trung, nên `technical_integrity` vẫn 9,6.

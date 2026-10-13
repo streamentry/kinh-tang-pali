@@ -14,16 +14,16 @@ tags:
 quality:
   scores:
     source_provenance: 9.5
-    semantic_fidelity: 8.6
+    semantic_fidelity: 8.7
     grammar_logic: 8.8
     segment_alignment: 10.0
-    terminology: 8.4
+    terminology: 8.7
     triangulation: 7.5
     vietnamese_clarity: 8.9
     han_viet_balance: 9.2
     ambiguity_integrity: 8.6
     technical_integrity: 9.6
-  final_score: 8.91
+  final_score: 8.95
   blocking_errors:
     - "Không có tầng tham khảo tiếng Anh tại commit đã ghim: tệp Anh của bài này
       không có trong source/upstream-manifest.json (đo được 0/4291 tệp trong thư
@@ -37,7 +37,7 @@ quality:
       khảo đều vắng và bài dịch chỉ từ Pāli root. Vì đây là giới hạn upstream
       chứ không phải lỗi người dịch, triangulation bị chặn ở 7.5 (không quá 8.0)
       chứ không nâng để né blocker."
-  assessed_at: "2026-10-11"
+  assessed_at: "2026-10-13"
   assessed_by:
     - "Claude Sonnet 5.5 (Claude Code)"
   waiver:
@@ -66,3 +66,4 @@ notes: |-
   Ghi chú trên đây thay thế các nhận định cũ không còn đúng: "pūva là phần ăn" và "13 tiền lệ cho phần ăn" là sai (pūva là bánh); số liệu "25 dùng lại nguyên văn" của lượt trước nay không còn đúng nhiều khoá vì bản Việt của vv4 (và vv1:5.4) chứa chính các lỗi nêu trên; đại từ ở 6.6 vẫn giữ "tôi". Lỗi lan: các lỗi trên có mặt ở vv2 đến vv4, vv6, vv9, vv10, vv14, vv18, vv19, vv85 và nhiều tệp vv khác có cùng Pāli, chưa sửa ở lượt này.
   Bất định còn lại: Bhāgaḍḍhabhāgaṁ chọn nửa phần chia (cùng gốc với pv11:5.4, nơi tệp đó dịch khác); mối quan hệ giữa chiếc bánh ở 6.3 và nửa phần chia ở 6.5 không phân xử được từ Pāli một mình, nên giữ hai mệnh đề riêng. 2.4 và 7.4 (ye keci manaso piyā) giữ "dễ chịu với tâm" theo họ tệp, piya là thân thương, vừa ý, nên sắc thái hơi yếu. 0.2 Itthivimāna dịch "Nữ Hư Không" là sai (Pāli không có ākāsa), lặp ở khoảng 51 tệp vv; không sửa riêng một tệp để khỏi lệch cả bộ, cần sửa đồng loạt. 0.4 và 9.1 "Nữ Dâu" giữ theo họ tệp (vv14, vv17:10.3) dù tiếng Việt gượng. Điểm hạ: semantic_fidelity 9.2 xuống 8.6, grammar_logic 9.2 xuống 8.8, terminology 9.0 xuống 8.4, vietnamese_clarity 9.3 xuống 8.9, han_viet_balance 9.4 xuống 9.2, ambiguity_integrity 9.1 xuống 8.6; final_score 9.18 xuống 8.91, tức chưa vượt 9.0.
   Kiểm tra sau sửa: 37/37 khoá khớp Pāli, đúng thứ tự; nháy kép khớp từng khoá, 0 lệch; 1 cặp Pāli trùng nội bộ (2.4 và 7.4), Việt giống nhau; không có Pāli lọt sang Việt, NFC sạch. Cổng kỹ thuật: npm run validate, npm test, npm run check, npm run build chưa chạy trong lượt này, technical_integrity giữ 9.6.
+  Lượt cải thiện 2026-10-13: đọc đối kháng lại cả 37 khoá, đo tiền lệ trên toàn tầng vv, đổi 3 khoá. (1) 6.6: bỏ "được" (modāmi là động từ chủ động; 21 khoá modāmi trong tầng KN dịch "hoan hỷ" trần, chỉ vv13 và vv14 thêm "được") và "khu vườn" thành "vườn" (16 so với 5 trong tầng vv; vv71:4.4 cũng "vườn Nandana"): "nay tôi hoan hỷ trong vườn Nandana". Sửa nghĩa nhẹ và thuật ngữ; semantic_fidelity 8.6 lên 8.7. (2) 8.4: "khắp mọi phương" thành "khắp muôn phương" cho khớp 3.4 (Pāli sabbadisā pabhāsatī trùng nguyên văn trong cùng bài) và đa số tiền lệ (28 so với 11 cho "mọi phương"); thêm dấu đóng ngoặc kép theo dạng đa số. (3) 4.3: "Được hỏi câu ấy" thành "Được hỏi câu hỏi" (pañhaṁ là câu hỏi, "ấy" không có trong Pāli; 10 so với 3 trong tầng KN). Điểm terminology 8.4 lên 8.7: nhất quán nội bài ở 3.4 và 8.4, thuật ngữ vườn Nandana theo đa số, và tiêu đề 0.2 "Thiên Cung Của Nữ Giới" nay đã được sửa đồng loạt ở 49 tệp vv (nhận định "Nữ Hư Không" ở trên không còn đúng). Không đổi: 0.4 và 9.1 "Nữ Dâu" (chỉ vv13 và vv14 dùng, gượng nhưng nhất quán đôi này; sửa phải làm cả hai tệp); 2.4 và 7.4 "dễ chịu với tâm" (36 khoá trong tầng, piya mạnh hơn "dễ chịu"); 1.4 "rực rỡ" (không có trong Pāli nhưng 19 so với 3 tiền lệ); 8.2 (phước báu mà tôi đã tạo, đúng quan hệ yaṁ). 6.5 Bhāgaḍḍhabhāgaṁ dịch "nửa phần chia" nay trùng pv11:5.4 (nhận định "tệp đó dịch khác" ở trên không còn đúng). Bất định còn lại: chủ ngữ của mijjhati ở 2.2 và 7.2; quan hệ giữa chiếc bánh 6.3 và nửa phần chia 6.5. triangulation giữ 7.5 vì vẫn không có tầng tham khảo nào. Sau sửa: 37/37 khoá khớp Pāli, đúng thứ tự; nháy khớp Pāli từng khoá; 1 cặp Pāli trùng nội bộ (2.4 và 7.4) Việt giống nhau, và 3.4 với 8.4 nay dùng cùng cụm "khắp muôn phương". Cổng kỹ thuật npm run validate, npm test, npm run check, npm run build chưa chạy trong lượt này; technical_integrity giữ 9.6.

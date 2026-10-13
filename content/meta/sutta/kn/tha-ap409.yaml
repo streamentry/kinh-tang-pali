@@ -11,16 +11,16 @@ tags:
 quality:
   scores:
     source_provenance: 9.2
-    semantic_fidelity: 8.7
+    semantic_fidelity: 8.8
     grammar_logic: 9.0
     segment_alignment: 10.0
-    terminology: 9.0
+    terminology: 9.1
     triangulation: 6.5
     vietnamese_clarity: 8.9
     han_viet_balance: 9.2
     ambiguity_integrity: 9.0
     technical_integrity: 9.6
-  final_score: 8.91
+  final_score: 8.93
   blocking_errors:
     - "noEnglishEditionUpstream: không có bản tham khảo tiếng Anh đã ghim cho
       phẩm tha-ap tại commit đã ghim 11c9d708978cde8ba61096d8a75f7ddfb846f639.
@@ -38,7 +38,7 @@ quality:
       chặn ở 6.5 (không quá 8.0). Validate coi tệp Anh thiếu là lỗi khi status
       là review hoặc published, nên bài phải giữ draft; điểm cao không cứu được
       blocker."
-  assessed_at: "2026-10-11"
+  assessed_at: "2026-10-13"
   assessed_by:
     - "Claude Sonnet 5.5 (Claude Code)"
   waiver:
@@ -96,3 +96,14 @@ notes: |-
   Coverage English: mẫu số 1 (chỉ 42.1), Sujato phủ 0 trên 1; ba tầng tham khảo (english-sujato, english-project, vietnamese-current) đều vắng cho bài này. Bản HTML nguyên bài tra cứu toàn văn của kho cũng không dùng để dịch.
 
   CỔNG KỸ THUẬT: không chạy được trong lát này nên technical_integrity đặt 9.6, không tuyên bố đã qua cổng. Còn phải chạy trước khi gộp: npm run validate, npm test, npm run check, npm run build.
+
+  Lượt cải thiện 2026-10-13 (đọc đối kháng lại từng khoá Pāli với bản Việt; 5 khoá đổi trên 167, giữ nguyên tập khoá và thứ tự khoá; đo lại tiền lệ bằng số đếm trên toàn tầng kn):
+  - 3.3 và 8.3 (Paṭṭho bhūmantalikkhamhi): Lừng danh về đất và bầu trời đổi thành Thạo về đất và bầu trời (accuracy fix). Căn cứ: cùng công thức xuất hiện ở ja517:22.1 (Paṭṭho bhūmantalikkhasmiṁ, bản Việt của kho: Thạo về điềm trên đất và trên trời) nằm giữa kusalo, yutto, kovido ở ja517:21 đến 22, và bv26:11.3 Bhūmantalikkhakusalo (Thiện xảo về đất và bầu trời); cả hai nằm trong danh sách kỹ năng của vị đạo sĩ, nên cách đọc lừng danh không còn căn cứ. Giữ bhūmantalikkha là đất và bầu trời, không thêm chữ điềm của ja517 vào thân kinh. Từ nguyên của paṭṭha vẫn không được tra chứng, chỉ dựa vào chức năng trong danh sách kỹ năng. Điểm: semantic_fidelity 8.7 thành 8.8. Mục bất định 1 ở trên được thay bằng ghi chú này.
+  - 6.1 (Bodhaneyyaṁ janaṁ disvā): Thấy người có thể được giác ngộ đổi thành Sau khi thấy người đáng được giác ngộ (terminology fix). Căn cứ: bv3:7.1 cùng Pāli dịch Sau khi thấy người đáng được giác ngộ; chữ bodhaneyya dịch đáng được giác ngộ ở mil5.3.2 và mil5.3.3 (nhiều khoá). Đồng thời thêm Sau khi cho khớp cách dịch thể bất biến quá khứ trong chính bài (9.1, 13.1, 13.3). Điểm: terminology 9.0 thành 9.1.
+  - 8.2 (lakkhaṇā suppakāsitā): bỏ chữ đều (không có trong Pāli) và đổi được làm sáng tỏ rõ ràng thành khéo được làm sáng tỏ theo tha-ap397:15.2 và tha-ap521:19.2 (suppakāsitaṁ, 2 khoá). Cùng khoản terminology 9.1; không tính điểm riêng.
+  - 9.4 (sarāmi niccakālikaṁ): bỏ chữ luôn vì trùng với vào mọi lúc (niccakālikaṁ dịch vào mọi lúc ở tha-ap393:182.4). Style-only fix, không đổi điểm.
+  Số đã kiểm lại sau khi sửa: tập khoá Việt bằng tập khoá Pāli (167 và 167), thứ tự khoá như Pāli; nháy đơn và nháy kép khớp Pāli từng khoá 0 lệch trên 167; 7 nhóm Pāli trùng nguyên văn trong bài (25 cặp), 24 cặp bản Việt giống nhau, 1 cặp khác (30.3 với 33.3, Chúng với Họ, vì chủ ngữ khác); ba khoá …pe… đều là một dấu …; NFC; không khoá rỗng; không chữ số Ả Rập; không Pāli ngoài tên riêng.
+  Đo lại số đếm ghi trong lượt dịch đầu (thay cho các số cũ ở các đoạn trên): (a) mận cho jambu: 9 khoá dịch mận, 34 khoá giữ nguyên jambu (phần lớn là tên cây), 3 khoá dịch quả roi; riêng công thức ambajambuvibhītakaṁ trong tha-ap có 5 khoá dịch mận, kể cả tha-ap407 và tha-ap412 cùng phẩm, nên 16.3 trái mận có tiền lệ mạnh hơn số 2 khoá đã ghi. (b) pallaṅka (chỗ ngồi, không kể ābhujati và kiết già): trong 65 khoá, ghế dài 24, ghế 13, ghế bành 4 (cả 4 ở tha-ap393), khác 24; āsandī dịch ghế dài ở tha-ap422:3.1, dn1 và dn2. Giữ pallaṅka là ghế bành ở 14.1, 22.2, 23.3 vì (i) 14.1 liệt kê pīṭha, pallaṅka, āsandī đồng thời nên ba chữ phải khác nhau và āsandī đã chiếm ghế dài; (ii) ghế bành có tiền lệ cùng bộ ap. Đề nghị người biên tập phán một lượt cho cả cuốn nếu muốn thống nhất pallaṅka là ghế dài.
+  Căn cứ mới cho các bất định còn lại (không đủ để phân xử, nên không nâng ambiguity_integrity): (1) 4.1 nirārambho: toàn Pāli root chỉ còn thêm ba nơi dùng chữ này, đều nói về tế lễ (sn3.9:6.1, an4.39 và an4.40, nirārambhaṁ yaññaṁ); bản Anh Sujato đã ghim dịch non-violent và bản Việt đã dịch không sát sinh hoặc không có sự gây tổn thương. Vậy cách đọc không gây hại có căn cứ trong canon nhưng chỉ ở bối cảnh tế lễ, còn cách đọc không bận rộn việc làm (đang giữ ở 4.1) chỉ dựa vào nghĩa gốc của ārambha là khởi sự. Chưa phân xử, giữ nguyên bản dịch và giữ bất định 2 ở trên. (2) 31.2 dohaññā puṅgavūsabhe: ja529:52.1 đến 52.2 có cùng cặp từ (Saṭṭhi dhenusahassāni, rohaññā puṅgavūsabhā) dạng danh cách, liệt kê bò cái cùng bò đực đầu đàn, nên cách đọc cùng các bò đực đầu đàn có thêm một tiền lệ liệt kê; nhưng ở đây puṅgavūsabhe là dạng đối cách nên cũng có thể làm tân ngữ của janayissanti (sinh ra bò đực đầu đàn và bê). Chưa phân xử, giữ bất định 4. (3) 9.1 Sohaṁ buddhassa sutvāna: các khoá cùng cấu trúc (buddhassa sutvā) trong tầng chỉ có thi-ap34:3.3 Dhammaṁ buddhassa sutvāna dịch nghe Pháp của Đức Phật; không phân xử được giữa nghe về hay nghe từ Đức Phật nên giữ Sau khi nghe Đức Phật như cũ. (4) 1.1 Pabbhārakūṭaṁ: pabbhāra dịch hang đá ở tha-ap19:1.3 và tha-ap21:1.1; ở đây giữ mỏm đá nhô ra vì là vế đầu của hợp từ với kūṭa; chưa có tiền lệ cho hợp từ.
+  Phần giữ nguyên dù có nghi ngờ: 34.1 Sau một ngàn tám trăm kiếp nữa (khác nhóm Vào một ngàn tám trăm kiếp trước ở 15 khoá, nhưng 15 khoá ấy đều là kể quá khứ, còn thọ ký tương lai ở tha-ap414:40.1 và tha-ap492:20.1 dùng Sau ... nữa); 38.3 đoạn tận (ở tha-ap395 đến tha-ap414 trong 7 trên 8 khoá cùng Pāli dùng đoạn tận, còn cạn kiệt tập trung ở thi-ap); 0.3 Ký Sự (giữ như lượt đầu). Ba chữ pīṭha, pallaṅka, āsandī giữ ghế đẩu, ghế bành, ghế dài như lượt đầu (xem đo lại ở trên).
+  Blocker noEnglishEditionUpstream giữ nguyên (sự thật về upstream); triangulation giữ 6.5; technical_integrity giữ 9.6 và vẫn chưa chạy được npm run validate, npm test, npm run check, npm run build trong lượt này.
