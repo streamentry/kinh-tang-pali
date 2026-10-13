@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { adjacentTexts, readAutoNext, saveAutoNext, rememberContinuation, consumeContinuation, AUTO_NEXT_KEY, CONTINUE_KEY } from '../../src/lib/audio/navigation';
+import { adjacentTexts, orderedAudioItems, stepAudioIndex, readAutoNext, saveAutoNext, rememberContinuation, consumeContinuation, AUTO_NEXT_KEY, CONTINUE_KEY } from '../../src/lib/audio/navigation';
 const storage = () => { const values = new Map<string,string>(); return { getItem: (k:string) => values.get(k) ?? null, setItem: (k:string,v:string) => { values.set(k,v); }, removeItem: (k:string) => { values.delete(k); } }; };
 test('catalog order determines next/back including collection boundaries', () => {
   const texts = [{uid:'mn10',order:10},{uid:'mn2',order:2},{uid:'mn1',order:1}];
@@ -9,6 +9,22 @@ test('catalog order determines next/back including collection boundaries', () =>
   assert.equal(adjacentTexts(texts,'mn2').previous?.uid,'mn1');
   assert.equal(adjacentTexts(texts,'mn10').next, undefined);
   assert.deepEqual(adjacentTexts(texts,'unknown'),{previous:undefined,next:undefined});
+});
+test('collection audio queue skips unregistered items and follows catalog order', () => {
+  const rows = [
+    { uid: 'mn3', order: 3, audio: { url: '/mn3.mp3' } },
+    { uid: 'mn2', order: 2, audio: null },
+    { uid: 'mn1', order: 1, audio: { url: '/mn1.mp3' } },
+  ];
+  assert.deepEqual(orderedAudioItems(rows).map(row => row.uid), ['mn1', 'mn3']);
+  assert.deepEqual(rows.map(row => row.uid), ['mn3', 'mn2', 'mn1']);
+});
+test('audio queue previous and next stop at boundaries without wrapping', () => {
+  assert.equal(stepAudioIndex(0, 3, -1), null);
+  assert.equal(stepAudioIndex(0, 3, 1), 1);
+  assert.equal(stepAudioIndex(2, 3, 1), null);
+  assert.equal(stepAudioIndex(2, 3, -1), 1);
+  assert.equal(stepAudioIndex(0, 0, 1), null);
 });
 test('auto next defaults on and persists off/on, surviving denied storage', () => {
   const s=storage(); assert.equal(readAutoNext(s),true);

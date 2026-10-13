@@ -13,6 +13,11 @@ export function narrationSource(document: CanonDocument) {
 export function narrationHash(document: CanonDocument) {
   return createHash('sha256').update(JSON.stringify(narrationSource(document))).digest('hex');
 }
+
+export function hasAudioRegistration(uid: string) {
+  return fs.existsSync(path.join(process.cwd(), 'content/audio', `${uid}.json`));
+}
+
 export interface SuttaAudio {
   uid: string;
   url: string;

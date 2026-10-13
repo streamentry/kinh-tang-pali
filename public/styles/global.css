@@ -102,7 +102,7 @@ mark { color: var(--ink); background: var(--accent-soft); }
 .stats { display: flex; gap: var(--space-6); flex-wrap: wrap; margin-top: var(--space-6); color: var(--muted); font-size: .875rem; font-variant-numeric: tabular-nums; }
 .stats strong { color: var(--ink); font-size: 1.125rem; }
 .sutta-list { list-style: none; padding: 0; margin: 0; border-top: 1px solid var(--line); }
-.sutta-list li { border-bottom: 1px solid var(--line); }
+.sutta-list li { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: var(--space-2); align-items: center; border-bottom: 1px solid var(--line); }
 .sutta-list a { display: grid; grid-template-columns: 6rem minmax(0, 1fr) auto; gap: var(--space-5); align-items: center; padding: var(--space-4) var(--space-2); color: var(--ink); text-decoration: none; border-radius: var(--radius-sm); }
 .sutta-list a:hover { background: var(--surface-soft); }
 .sutta-list.has-covers a { grid-template-columns: 4.5rem 5rem minmax(0, 1fr) auto; }
@@ -113,6 +113,24 @@ mark { color: var(--ink); background: var(--accent-soft); }
 .status.published { color: var(--accent); border-color: var(--line); background: var(--accent-soft); }
 .status.review { color: var(--warning); background: var(--warning-soft); }
 .status.not-started { color: var(--muted); }
+.sutta-row-audio { display: flex; align-items: center; justify-content: center; padding-inline: var(--space-2); }
+.sutta-row-play { display: inline-flex; justify-content: center; align-items: center; min-width: 3.5rem; min-height: var(--control-height); padding: var(--space-2); border: 1px solid var(--control-border); border-radius: var(--radius-sm); background: var(--surface); color: var(--accent); font: 600 .75rem/1.5 var(--font-ui); cursor: pointer; }
+.sutta-row-play:hover, .sutta-row-play[data-playing="true"] { background: var(--accent); border-color: var(--accent); color: var(--on-accent); }
+.sutta-row-fallback { display: inline-flex; align-items: center; min-height: var(--control-height); padding-inline: var(--space-2); color: var(--accent); font-size: .75rem; }
+.sutta-list li[data-current-audio="true"] > a .sutta-title { color: var(--accent); }
+.collection-listening { margin-block: 0 var(--space-7); }
+.collection-audio-current { display: flex; justify-content: space-between; align-items: flex-end; gap: var(--space-4); margin-top: var(--space-5); }
+.collection-audio-current .eyebrow { margin: 0 0 var(--space-1); }
+.collection-audio-current h3 { margin: 0; font: 400 1.125rem/1.5 var(--font-reading); color: var(--ink); }
+.collection-audio-current-meta { display: flex; align-items: center; gap: var(--space-3); flex-wrap: wrap; justify-content: flex-end; }
+.collection-audio-console { margin-top: var(--space-4); }
+.collection-control-short { display: none; }
+.collection-audio-options .listen-auto { margin-left: 0; }
+.collection-audio-options .listen-auto input { min-height: 1.25rem; }
+.collection-audio .listen-neighbour { border: 1px solid var(--control-border); background: var(--surface); }
+.collection-audio .listen-neighbour:hover:not(:disabled) { border-color: var(--accent); background: var(--accent-soft); }
+.collection-audio .listen-neighbour:disabled { color: var(--muted); border-color: var(--line); }
+.collection-audio .listening-footer { justify-content: space-between; }
 .editorial-banner, .layer-absent, .legacy-range-note { border: 1px solid var(--warning-line); background: var(--warning-soft); color: var(--warning); border-radius: var(--radius-sm); padding: var(--space-3) var(--space-4); font-size: .8125rem; }
 .editorial-banner { margin-block: var(--space-5); }
 .provenance-line { color: var(--muted); font-size: .75rem; }
@@ -479,6 +497,10 @@ thead th { color: var(--muted); }
   .collection-grid, .credits-grid, .tool-list { grid-template-columns: 1fr; }
   .collection-card.priority { grid-column: auto; padding: var(--space-5); }
   .sutta-list a { grid-template-columns: 4.5rem minmax(0, 1fr); gap: var(--space-2) var(--space-3); }
+  .sutta-list li { gap: 0; }
+  .sutta-row-audio { padding-inline: .125rem; }
+  .sutta-row-play { min-width: 3rem; padding-inline: var(--space-1); }
+  .sutta-row-fallback { padding-inline: var(--space-1); font-size: .6875rem; }
   .sutta-list .status { grid-column: 2; justify-self: start; }
   .sutta-list.has-covers a { grid-template-columns: 4.5rem minmax(0, 1fr); }
   .sutta-list.has-covers .list-thumb { grid-row: 1 / 4; }
@@ -490,6 +512,14 @@ thead th { color: var(--muted); }
   .segment-id, .cell, .comment { grid-column: 1 !important; }
   .reader-shell[data-reader-mode="vi"] .cell-vi { font-size: calc(1.125rem * var(--reader-scale, 1)); }
   .sutta-summary, .listening { padding: var(--space-5); }
+  .collection-audio-current { align-items: flex-start; flex-direction: column; gap: var(--space-2); }
+  .collection-audio-current-meta { justify-content: flex-start; }
+  .collection-audio-console .listening-transport { display: grid; grid-template-columns: auto minmax(5rem, 1fr) auto; width: 100%; }
+  .collection-audio-console .listen-neighbour { justify-content: center; padding-inline: var(--space-2); }
+  .collection-audio-console .listen-neighbour:last-child { justify-content: center; }
+  .collection-audio-console .collection-control-long { display: none; }
+  .collection-audio-console .collection-control-short { display: inline; }
+  .collection-audio-options { justify-content: space-between; }
   .credits-section { margin-top: var(--space-7); }
 }
 @media (prefers-reduced-motion: reduce) {
@@ -497,7 +527,7 @@ thead th { color: var(--muted); }
   :where(button, a.button):active { transform: none; }
 }
 @media (forced-colors: active) {
-  .button, .column-tab, .mode-switch button.active, .listening .listen-play { border: 1px solid ButtonText; }
+  .button, .column-tab, .mode-switch button.active, .listening .listen-play, .sutta-row-play, .collection-audio .listen-neighbour { border: 1px solid ButtonText; }
   .listen-rail, .listen-progress { background: ButtonText; }
   .listen-auto input:checked { background: Highlight; }
   .listen-auto input::before { background: ButtonText; }

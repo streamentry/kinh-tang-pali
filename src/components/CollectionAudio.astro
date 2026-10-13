@@ -1,0 +1,260 @@
+---
+import type { SuttaAudio } from '../lib/canon/audio';
+
+interface PlaylistTrack extends SuttaAudio {
+  title: string;
+  order: number;
+}
+
+interface Props {
+  collectionTitle: string;
+  totalSuttas: number;
+  tracks: PlaylistTrack[];
+}
+
+const { collectionTitle, totalSuttas, tracks } = Astro.props;
+const first = tracks[0];
+const timestamp = (seconds: number) => `${Math.floor(seconds / 60)}:${Math.floor(seconds % 60).toString().padStart(2, '0')}`;
+---
+<sutta-playlist class="collection-audio" data-collection-title={collectionTitle} data-tracks={JSON.stringify(tracks)}>
+  {first && (
+    <section class="listening collection-listening" data-pagefind-ignore aria-label={`Trình phát ${collectionTitle}`}>
+      <div class="listening-heading">
+        <div>
+          <p class="listening-label">Nghe các bài đã có audio</p>
+          <h2>{collectionTitle}</h2>
+        </div>
+        <span class="listening-length">{tracks.length} / {totalSuttas} bài có audio</span>
+      </div>
+      <audio controls preload="metadata" src={first.url} data-track-uid={first.uid} aria-label={`Nghe ${collectionTitle}`}></audio>
+      <div class="listening-custom" hidden>
+        <div class="collection-audio-current" aria-live="polite">
+          <div>
+            <p class="eyebrow">Đang phát</p>
+            <h3 data-current-title>{first.title}</h3>
+          </div>
+          <div class="collection-audio-current-meta">
+            <span class="uid" data-current-uid>{first.uid.toUpperCase()}</span>
+            <span class="listening-review" data-current-review hidden>Chờ nghe duyệt</span>
+            <span class="listening-length" data-position>1 / {tracks.length}</span>
+          </div>
+        </div>
+        <div class="listening-console collection-audio-console">
+          <div class="listening-transport" role="group" aria-label="Điều khiển danh sách audio">
+            <button class="listen-neighbour" type="button" data-previous disabled aria-label="Bài audio trước">
+              <span aria-hidden="true">←</span><span class="collection-control-long">Bài trước</span><span class="collection-control-short">Trước</span>
+            </button>
+            <button class="listen-play" type="button" data-master-play aria-label={`Phát ${first.uid.toUpperCase()}`} aria-pressed="false">
+              <span aria-hidden="true">▶</span><span data-play-label>Phát</span>
+            </button>
+            <button class="listen-neighbour" type="button" data-next aria-label="Bài audio tiếp theo">
+              <span class="collection-control-long">Bài tiếp</span><span class="collection-control-short">Tiếp</span><span aria-hidden="true">→</span>
+            </button>
+          </div>
+          <div class="listening-timeline">
+            <div class="listen-track">
+              <span class="listen-rail" aria-hidden="true"><span class="listen-progress"></span></span>
+              <input class="listen-seek" type="range" min="0" max={first.duration_seconds} step="1" value="0" aria-label="Vị trí phát" />
+            </div>
+            <div class="listen-clock">
+              <span><span data-current>0:00</span><span class="listen-phase" data-phase>Tóm tắt</span></span>
+              <span data-duration>{timestamp(first.duration_seconds)}</span>
+            </div>
+          </div>
+        </div>
+        <div class="listening-options collection-audio-options">
+          <label class="listen-auto"><input type="checkbox" role="switch" checked data-auto-next /><span>Tự chuyển bài</span></label>
+          <label class="listen-speed">Tốc độ <select aria-label="Tốc độ phát"><option value="0.85">0.85×</option><option value="1" selected>1×</option><option value="1.15">1.15×</option><option value="1.25">1.25×</option><option value="1.5">1.5×</option></select></label>
+        </div>
+        <p class="listen-notice" data-notice role="status" aria-live="polite" hidden></p>
+        <p class="listen-error" data-error role="status" aria-live="polite" hidden>Không tải được âm thanh. Hãy thử lại hoặc mở MP3 trực tiếp.</p>
+        <div class="listening-footer">
+          <a class="listen-file" data-open-track href={first.url} target="_blank" rel="noopener">Mở MP3 <span aria-hidden="true">↗</span></a>
+        </div>
+      </div>
+    </section>
+  )}
+  <slot />
+</sutta-playlist>
+
+<script>
+  import { AUTO_NEXT_KEY, readAutoNext, saveAutoNext, stepAudioIndex } from '../lib/audio/navigation';
+
+  interface PlaylistTrack {
+    uid: string;
+    title: string;
+    url: string;
+    duration_seconds: number;
+    scripture_start_seconds: number;
+    review_status: 'pending' | 'approved';
+  }
+
+  class SuttaPlaylistElement extends HTMLElement {
+    private cleanup?: () => void;
+
+    disconnectedCallback() {
+      this.cleanup?.();
+      delete this.dataset.ready;
+    }
+
+    connectedCallback() {
+      if (this.dataset.ready) return;
+      let tracks: PlaylistTrack[];
+      try { tracks = JSON.parse(this.dataset.tracks ?? '[]') as PlaylistTrack[]; } catch { return; }
+      if (!tracks.length) return;
+      this.dataset.ready = 'true';
+
+      const audio = this.querySelector('audio')!;
+      const custom = this.querySelector<HTMLElement>('.listening-custom')!;
+      const play = this.querySelector<HTMLButtonElement>('[data-master-play]')!;
+      const previous = this.querySelector<HTMLButtonElement>('[data-previous]')!;
+      const next = this.querySelector<HTMLButtonElement>('[data-next]')!;
+      const seek = this.querySelector<HTMLInputElement>('.listen-seek')!;
+      const progress = this.querySelector<HTMLElement>('.listen-progress')!;
+      const autoNext = this.querySelector<HTMLInputElement>('[data-auto-next]')!;
+      const speed = this.querySelector<HTMLSelectElement>('.listen-speed select')!;
+      const error = this.querySelector<HTMLElement>('[data-error]')!;
+      const notice = this.querySelector<HTMLElement>('[data-notice]')!;
+      const format = (value: number) => `${Math.floor(value / 60)}:${Math.floor(value % 60).toString().padStart(2, '0')}`;
+      let activeIndex = 0;
+      let enabled = true;
+      try { enabled = readAutoNext(localStorage); } catch { /* Storage itself may be denied. */ }
+      autoNext.checked = enabled;
+
+      const activeTrack = () => tracks[activeIndex];
+      const duration = () => Number.isFinite(audio.duration) && audio.duration > 0
+        ? audio.duration
+        : activeTrack().duration_seconds;
+      const say = (message: string) => { notice.textContent = message; notice.hidden = false; };
+      const update = () => {
+        const track = activeTrack();
+        const currentTime = Number.isFinite(audio.currentTime) ? audio.currentTime : 0;
+        this.querySelector('[data-current-title]')!.textContent = track.title;
+        this.querySelector('[data-current-uid]')!.textContent = track.uid.toUpperCase();
+        this.querySelector('[data-position]')!.textContent = `${activeIndex + 1} / ${tracks.length}`;
+        const review = this.querySelector<HTMLElement>('[data-current-review]')!;
+        review.hidden = track.review_status !== 'pending';
+        this.querySelector('[data-current]')!.textContent = format(currentTime);
+        this.querySelector('[data-duration]')!.textContent = format(duration());
+        this.querySelector('[data-phase]')!.textContent = currentTime >= track.scripture_start_seconds ? 'Kinh văn' : 'Tóm tắt';
+        seek.max = String(duration());
+        seek.value = String(currentTime);
+        seek.setAttribute('aria-valuetext', `${format(currentTime)} / ${format(duration())}`);
+        progress.style.width = `${Math.max(0, Math.min(100, currentTime / duration() * 100))}%`;
+        const playing = !audio.paused && !audio.ended;
+        play.setAttribute('aria-pressed', String(playing));
+        play.setAttribute('aria-label', `${playing ? 'Tạm dừng' : 'Phát'} ${track.uid.toUpperCase()}`);
+        this.querySelector('[data-play-label]')!.textContent = playing ? 'Tạm dừng' : 'Phát';
+        previous.disabled = stepAudioIndex(activeIndex, tracks.length, -1) === null;
+        next.disabled = stepAudioIndex(activeIndex, tracks.length, 1) === null;
+        this.querySelector<HTMLAnchorElement>('[data-open-track]')!.href = track.url;
+        this.querySelector<HTMLAnchorElement>('[data-open-track]')!.setAttribute('aria-label', `Mở MP3 ${track.uid.toUpperCase()}`);
+        this.querySelectorAll<HTMLButtonElement>('[data-play-track]').forEach((button) => {
+          const isPlaying = button.dataset.playTrack === track.uid && playing;
+          button.dataset.playing = String(isPlaying);
+          button.setAttribute('aria-pressed', String(isPlaying));
+          button.setAttribute('aria-label', `${isPlaying ? 'Dừng' : 'Phát'} ${button.dataset.playTrack!.toUpperCase()} · ${button.dataset.trackTitle}`);
+          button.querySelector('[data-row-label]')!.textContent = isPlaying ? 'Dừng' : 'Phát';
+          const row = button.closest<HTMLElement>('[data-audio-row]');
+          if (row) row.dataset.currentAudio = String(button.dataset.playTrack === track.uid);
+        });
+      };
+
+      const selectTrack = async (index: number, autoplay = true) => {
+        const track = tracks[index];
+        if (!track) return;
+        error.hidden = true;
+        notice.hidden = true;
+        if (index !== activeIndex || audio.dataset.trackUid !== track.uid) {
+          audio.pause();
+          audio.src = track.url;
+          audio.dataset.trackUid = track.uid;
+          audio.load();
+        } else if (audio.ended) {
+          audio.currentTime = 0;
+        }
+        activeIndex = index;
+        update();
+        if (autoplay) {
+          try { await audio.play(); } catch {
+            error.hidden = false;
+            say('Trình duyệt chưa cho phép phát tự động. Bấm Phát để nghe tiếp.');
+            update();
+          }
+        }
+      };
+
+      autoNext.addEventListener('change', () => {
+        enabled = autoNext.checked;
+        saveAutoNext(localStorage, enabled);
+      });
+      const onStorage = (event: StorageEvent) => {
+        if (event.key === AUTO_NEXT_KEY || event.key === null) {
+          enabled = readAutoNext(localStorage);
+          autoNext.checked = enabled;
+        }
+      };
+      window.addEventListener('storage', onStorage);
+      this.cleanup = () => window.removeEventListener('storage', onStorage);
+
+      play.addEventListener('click', async () => {
+        error.hidden = true;
+        notice.hidden = true;
+        if (!audio.paused) audio.pause();
+        else {
+          if (audio.ended) audio.currentTime = 0;
+          try { await audio.play(); } catch { error.hidden = false; }
+        }
+        update();
+      });
+      previous.addEventListener('click', () => {
+        const index = stepAudioIndex(activeIndex, tracks.length, -1);
+        if (index !== null) void selectTrack(index);
+      });
+      next.addEventListener('click', () => {
+        const index = stepAudioIndex(activeIndex, tracks.length, 1);
+        if (index !== null) void selectTrack(index);
+      });
+      seek.addEventListener('input', () => { audio.currentTime = Number(seek.value); update(); });
+      speed.addEventListener('change', () => { audio.playbackRate = Number(speed.value); });
+      this.querySelectorAll<HTMLButtonElement>('[data-play-track]').forEach((button) => {
+        button.hidden = false;
+        const fallback = button.closest('.sutta-row-audio')?.querySelector<HTMLElement>('[data-audio-fallback]');
+        if (fallback) fallback.hidden = true;
+        button.addEventListener('click', async () => {
+          const index = tracks.findIndex(track => track.uid === button.dataset.playTrack);
+          if (index < 0) return;
+          if (index === activeIndex && !audio.paused && !audio.ended) {
+            audio.pause();
+            audio.currentTime = 0;
+            update();
+          } else {
+            await selectTrack(index);
+          }
+        });
+      });
+      audio.addEventListener('loadedmetadata', update);
+      audio.addEventListener('durationchange', update);
+      audio.addEventListener('timeupdate', update);
+      audio.addEventListener('play', update);
+      audio.addEventListener('pause', update);
+      audio.addEventListener('ended', () => {
+        update();
+        if (!enabled) { say('Bài đã phát hết. Tự chuyển bài đang tắt.'); return; }
+        const index = stepAudioIndex(activeIndex, tracks.length, 1);
+        if (index === null) {
+          say(`Đã nghe hết các bài có audio trong ${this.dataset.collectionTitle}.`);
+          return;
+        }
+        void selectTrack(index);
+      });
+      audio.addEventListener('error', () => { error.hidden = false; update(); });
+      audio.controls = false;
+      audio.hidden = true;
+      custom.hidden = false;
+      update();
+    }
+  }
+
+  if (!customElements.get('sutta-playlist')) customElements.define('sutta-playlist', SuttaPlaylistElement);
+</script>

@@ -24,3 +24,16 @@ export function adjacentTexts<T extends { uid: string; order: number }>(texts: r
   const index = ordered.findIndex(text => text.uid === uid);
   return { previous: index > 0 ? ordered[index - 1] : undefined, next: index >= 0 ? ordered[index + 1] : undefined };
 }
+
+export function orderedAudioItems<T extends { order: number; audio: unknown }>(items: readonly T[]) {
+  return items
+    .filter(item => item.audio !== null && item.audio !== undefined)
+    .slice()
+    .sort((a, b) => a.order - b.order);
+}
+
+export function stepAudioIndex(index: number, count: number, direction: -1 | 1): number | null {
+  if (!Number.isInteger(index) || !Number.isInteger(count) || count <= 0 || index < 0 || index >= count) return null;
+  const next = index + direction;
+  return next >= 0 && next < count ? next : null;
+}

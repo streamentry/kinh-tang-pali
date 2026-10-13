@@ -2,7 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import { composeDocument } from '../../src/lib/canon/document';
-import { narrationSource, narrationHash, loadAudio } from '../../src/lib/canon/audio';
+import { narrationSource, narrationHash, loadAudio, hasAudioRegistration } from '../../src/lib/canon/audio';
 
 test('MN1 narration includes summary and canonical prose, never comments or heading IDs', () => {
   const doc = composeDocument('mn', 'mn1');
@@ -19,6 +19,7 @@ test('MN1 narration includes summary and canonical prose, never comments or head
 
 test('unregistered texts have no player', () => {
   assert.equal(loadAudio({ ...composeDocument('mn', 'mn1'), uid: 'test-no-audio-registration' }), null);
+  assert.equal(hasAudioRegistration('test-no-audio-registration'), false);
 });
 
 test('registered MN1 audio matches the current source and disappears after text changes', {

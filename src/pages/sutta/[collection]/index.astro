@@ -6,6 +6,10 @@ import { withBase } from '../../../lib/url';
 import { Image } from 'astro:assets';
 import { coverCollections, coverFor } from '../../../lib/canon/covers';
 import { STATUS_LABEL } from '../../../lib/canon/status-label';
+import CollectionAudio from '../../../components/CollectionAudio.astro';
+import { hasAudioRegistration, loadAudio } from '../../../lib/canon/audio';
+import { composeDocument } from '../../../lib/canon/document';
+import { orderedAudioItems } from '../../../lib/audio/navigation';
 
 export function getStaticPaths() {
   return COLLECTIONS.map((collection) => ({
@@ -16,7 +20,16 @@ export function getStaticPaths() {
 
 const { collection } = Astro.props;
 const code = collection.code as CollectionCode;
-const items = listCollection(code);
+const items = listCollection(code).map((item) => ({
+  ...item,
+  audio: hasAudioRegistration(item.uid) ? loadAudio(composeDocument(code, item.uid)) : null,
+}));
+const tracks = orderedAudioItems(items).flatMap((item) => item.audio ? [{
+  ...item.audio,
+  uid: item.uid,
+  title: item.title,
+  order: item.order,
+}] : []);
 const progress = collectionProgress(code);
 const withCovers = coverCollections.includes(code);
 ---
@@ -38,23 +51,33 @@ const withCovers = coverCollections.includes(code);
     </header>
 
     {items.length > 0 ? (
-      <ol class:list={['sutta-list', withCovers && 'has-covers']}>
-        {items.map((item) => {
-          const cover = withCovers ? coverFor(item.uid) : undefined;
-          return (
-          <li>
-            <a href={withBase(`sutta/${code}/${item.uid}/`)}>
-              {withCovers && (cover
-                ? <Image class="list-thumb" src={cover.image} alt="" width={144} widths={[96, 144]} sizes="4.5rem" format="webp" quality={65} loading="lazy" style={cover.focus ? `object-position: ${cover.focus}` : undefined} />
-                : <span class="list-thumb" aria-hidden="true"></span>)}
-              <span class="uid">{item.uid.toUpperCase()}</span>
-              <span class="sutta-title">{item.title}</span>
-              <span class:list={['status', item.status]} title={`Trạng thái: ${item.status}`}>{STATUS_LABEL[item.status] ?? item.status}</span>
-            </a>
-          </li>
-          );
-        })}
-      </ol>
+      <CollectionAudio collectionTitle={collection.titleVi} totalSuttas={items.length} tracks={tracks}>
+        <ol class:list={['sutta-list', withCovers && 'has-covers']}>
+          {items.map((item) => {
+            const cover = withCovers ? coverFor(item.uid) : undefined;
+            return (
+            <li data-audio-row={item.audio ? item.uid : undefined}>
+              <a href={withBase(`sutta/${code}/${item.uid}/`)}>
+                {withCovers && (cover
+                  ? <Image class="list-thumb" src={cover.image} alt="" width={144} widths={[96, 144]} sizes="4.5rem" format="webp" quality={65} loading="lazy" style={cover.focus ? `object-position: ${cover.focus}` : undefined} />
+                  : <span class="list-thumb" aria-hidden="true"></span>)}
+                <span class="uid">{item.uid.toUpperCase()}</span>
+                <span class="sutta-title">{item.title}</span>
+                <span class:list={['status', item.status]} title={`Trạng thái: ${item.status}`}>{STATUS_LABEL[item.status] ?? item.status}</span>
+              </a>
+              {item.audio && (
+                <div class="sutta-row-audio" data-pagefind-ignore>
+                  <button class="sutta-row-play" type="button" data-play-track={item.uid} data-track-title={item.title} aria-label={`Phát ${item.uid.toUpperCase()} · ${item.title}`} aria-pressed="false" hidden>
+                    <span data-row-label>Phát</span>
+                  </button>
+                  <a class="sutta-row-fallback" data-audio-fallback href={item.audio.url} target="_blank" rel="noopener">Nghe MP3</a>
+                </div>
+              )}
+            </li>
+            );
+          })}
+        </ol>
+      </CollectionAudio>
     ) : (
       <section class="empty-state">
         <h2>Khung đã sẵn, corpus chưa được nhập.</h2>
