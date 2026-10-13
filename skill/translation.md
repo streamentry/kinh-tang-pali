@@ -404,6 +404,10 @@ Xưng hô theo **người nói và người nghe trong chính đoạn đó**, kh
   thưa Tôn giả Moggallāna). Giữ "tôi" chỉ khi người nghe không phải bậc được tôn kính trong Pháp này
   hoặc là người ngang hàng: thầy ngoại đạo (`mn56`, `an8.12`, `sn41.8`), vua và người thường, tỳ-kheo nói
   với tỳ-kheo hoặc với Tăng, Jātaka, cuộc vấn đáp Milinda.
+- **Kệ thưa với Đức Phật** (có hô ngữ `mahāvīra`, `mahāmune`, `cakkhuma`, `nāyaka`… trong Pāli) cũng
+  xưng "con"/"chúng con" cho trọn lời thoại `“…”`: các tỳ-kheo-ni từ biệt Đức Phật (`thi-ap17`, `thi-ap28`–`32`),
+  `thag10.1`, `thag21.1`, `mn91:29`. Nhưng một Trưởng lão **kể** tiền kiếp cho thính chúng (phần lớn `tha-ap`)
+  thì giữ "tôi", và lời trích của người khác bên trong (`‘…’`) giữ cách xưng của người ấy.
 - **Lời quy y: người quy y xưng "đệ tử"** ("chúng đệ tử" khi nhiều người). Áp dụng cho bài Tam Quy
   (`kp1`: "Đệ tử quy y Phật…") và công thức `esāhaṁ … saraṇaṁ gacchāmi` / `upāsakaṁ maṁ … dhāretu`
   khi thưa với Đức Phật hay một vị tỳ-kheo. Câu nói tiếp ngay sau lời quy y trong cùng một lời thoại

@@ -78,6 +78,10 @@ test('lay people and devas addressing a monk say "con", not "tôi", in passages 
     'mn146': ['mn146:5.5'],
     'vv30': ['vv30:4.2', 'vv30:4.3', 'vv30:11.1'],
     'pv6': ['pv6:2.1'],
+    // Verse addressed to the Buddha (vocative mahāvīra/mahāmune in the Pāli).
+    'thi-ap28': ['thi-ap28:8.1', 'thi-ap28:13.4', 'thi-ap28:27.1'],
+    'thi-ap32': ['thi-ap32:15.1', 'thi-ap32:38.2'],
+    'mn91': ['mn91:29.9'],
   };
   for (const [uid, ids] of Object.entries(cases)) {
     const text = translation(uid);
