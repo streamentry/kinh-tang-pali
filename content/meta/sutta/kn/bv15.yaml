@@ -16,11 +16,11 @@ quality:
     segment_alignment: 10.0
     terminology: 8.7
     triangulation: 7.0
-    vietnamese_clarity: 8.9
+    vietnamese_clarity: 9.0
     han_viet_balance: 9.1
     ambiguity_integrity: 8.6
     technical_integrity: 9.6
-  final_score: 8.86
+  final_score: 8.87
   blocking_errors:
     - "noEnglishEditionUpstream: Không có tầng tham khảo tiếng Anh tại commit đã
       ghim: `source/upstream-manifest.json` chỉ liệt kê
@@ -33,7 +33,7 @@ quality:
       dịch chỉ từ Pāli root và đối chiếu tiền lệ nội bộ, bài bắt buộc `draft` và
       `triangulation` không quá 8,0. Đây là giới hạn upstream, không phải lỗi
       của người dịch."
-  assessed_at: "2026-10-10"
+  assessed_at: "2026-10-13"
   assessed_by:
     - "Claude Sonnet 5.5 (Claude Code)"
   waiver:
@@ -98,3 +98,18 @@ notes: |-
   **Coverage English (mục 7):** mẫu số = **0**: trong 108 khoá không phải `:0.` không khoá nào đạt 40 ký tự (dài nhất 38, đó là khoá kết `28.1`, colophon), nên cổng coverage **không đo được gì** về thân kinh; Sujato phủ 0/0. Sujato: 0 tệp cho `bv15` (`source/upstream-manifest.json` chỉ có `kn/bv/bv15_root-pli-ms.json`; `english-sujato` chỉ có chín tiểu bộ cp, dhp, iti, ja, kp, snp, thag, thig, ud); `english-project`: 0 (không có tệp bv nào trong `content/translation/en/project/sutta/kn/`, không có `content/meta/en/kn/bv15.yaml`); `vietnamese-current`: 0 tầng segment (chỉ Pháp Cú). Ba tầng đều vắng ⇒ `triangulation` 7,0 (≤ 8,0) và `status: draft` kèm blocker ở trên. Không đụng `content/meta/reference-gaps.yaml` (hiện không có entry `bv15`; entry nếu có chỉ thừa nhận mất tầng, không cứu được `published`).
 
   **technical_integrity = 9,6:** lát này cấm chạy cổng, nên không tuyên bố technical gate pass. Bốn lệnh còn lại do người điều phối chạy tập trung: `npm run validate` · `npm test` · `npm run check` · `npm run build`. `final_score` là trung bình số học thô của đúng 10 tiêu chí.
+
+  **Lượt cải thiện 2026-10-13.** Đọc đối kháng lại đủ 110 cặp Pāli↔Việt, đo lại tiền lệ toàn tầng (170.689 Pāli khác nhau, 284.708 khoá), quét hapax toàn Pāli root. Kết quả: sửa 1/110 khoá (`6.2`), giữ nguyên 109 khoá còn lại có chủ ý; không có sai nghĩa, sai số, sai chủ thể, sai phủ định hay lệch ranh khoá mới.
+  - `6.2` `vinesi narasārathi`: “bậc Điều Ngự Trượng Phu đã điều phục;” → “đã được bậc Điều Ngự Trượng Phu điều phục;”. Lý do (clarity fix): `6.1` kết ở “con voi Doṇamukha,” nên câu cũ dễ bị đọc là “con voi Doṇamukha, bậc Điều Ngự Trượng Phu” (đồng vị), tức gán danh xưng của Đức Phật cho con voi. Chủ thể (`narasārathi` = Đức Phật) và đối tượng (`doṇamukhaṁ hatthiṁ` = con voi) không đổi, thứ tự khoá không đổi, không thêm ý. Tiền lệ dạng chủ động cùng Pāli: 1 cặp (`tha-ap540:39.4`, có “ta” làm tân ngữ nên không so được). Điểm `vietnamese_clarity` 8,9 → 9,0.
+  - `23.3` `Asītihatthamubbedho`: đã xét chữ hoa đầu khoá (“cao” so với “Cao” ở hai tiền lệ cùng Pāli `bv21:32.1`, `bv3:27.1`) và GIỮ “cao tám mươi hattha,”: hai tiền lệ đó đứng đầu câu, còn ở đây khoá này nối tiếp câu dở từ `23.1`–`23.2` (cùng chủ ngữ “Vị Phật ấy”), nên viết thường cùng khuôn với `bv16:22.2` “cao tám mươi hattha;” và `1.3`. Không đổi gì.
+  - Bất định số 1 (`4.2` `micchādiṭṭhimarocayi`) đã có căn cứ thêm: Pāli `pabbajjamarocayittha` (`ja509:21.1`–`ja509:23.1`) và `pabbajjamarocayiṁsu` (`thag16.1:20.4`) cùng dạng `a-` + `rocayi` với nghĩa “ưa thích” (19 khoá chứa `arocay-` trong toàn Pāli root, kể cả `samarocayiṁ` và `abhirocayiṁ` cùng gốc), nên cách đọc “đã ưa thích tà kiến” chắc hơn; cách đọc `a-` phủ định vẫn bị loại bởi `4.3`. Không đổi câu Việt, không đổi điểm.
+  - Bất định mới ghi thêm, ở `5.2` `mahāsannipatī`: là hapax (1 khoá trên toàn Pāli root; không có `mahāsannipāto` nơi nào khác). Cách đọc đang dùng là danh từ “đại hội chúng”. Cách đọc khác: `mahā` + `sannipatī` là động từ aorist “đã tụ hội” (cùng gốc `sannipatiṁsu` ở `dn27:13.7`, `bv14:8.4`, `pv27:9.3`), nghĩa là “khi ấy một cuộc tụ hội lớn đã diễn ra”. Hai cách đọc cho cùng ý (một cuộc đại hội lúc ấy), nên không đổi nghĩa trọng yếu, không thành blocker; không phân xử được bằng căn cứ trong kho.
+  - Bất định số 2 (`6.1` `doṇamukhaṁ hatthiṁ`) quét lại: `doṇamukha` là hapax (1 khoá), tên con voi theo ngữ pháp `hatthiṁ`; không có căn cứ phân xử thêm, vẫn mở như đã ghi.
+  - Bất định số 11 (`26.2` `Yugānipi tāni atuliyāni`) quét lại: `Yugāni` chỉ có ở `bv9:28.2` và bài này (hai khoá); `bv14:35.2` viết `Guṇāni`. Cùng khuôn một bài tiền lệ (`bv9:28.2`, “những cặp ấy không thể cân lường”), nên giữ. Ngữ cảnh bài này liệt kê bốn cặp (`20.1`–`22.4`: hai đệ tử thượng thủ, hai nữ đệ tử thượng thủ, hai thị giả, hai nữ thị giả) nên “cặp” có thể chỉ các cặp ấy, nhưng đó là suy từ ngữ cảnh, không phải bằng chứng; vẫn là chỗ bất định lớn nhất của bài.
+  - Đính chính số đếm trong các mục cũ (số cũ do đo thiếu; thuật ngữ trong bản dịch không đổi):
+    - `manorama` (19.4): đo lại 67 khoá Pāli chứa `manorama-` ngoài bài: “đẹp lòng” (gồm “làm đẹp lòng”) 30, “khả ái” 12, “dễ chịu” 10, “dễ ưa” 4, khác 11 (không phải “2 trên 7”). Giữ “khả ái” vì đây là tên chỉ nơi chốn: hai tiền lệ nơi chốn dùng “khả ái” (`tha-ap535:29.4` “bờ sông khả ái”) và “thích thú” (`cp16:2.4`), còn “làm đẹp lòng” ở nơi chốn là `ja547` “khoảnh đất làm đẹp lòng người”, nghe nặng hơn khi đi sau tên vườn.
+    - `tiṇṇaṁ vedāna pāragū` (9.4): 18 cặp ngoài bài: “Vệ Đà” 5 (trong đó 3 ở `bv2`, `bv5`, `bv26`, cùng bộ), “Vệ-đà” 2, “Veda” 10, “thọ” 1 (không phải “Veda 3, Vệ-đà 1”). Toàn tầng, các chuỗi: “Veda” 115, “Vệ-đà” 35, “Vệ Đà” 22, trong đó mọi chỗ ở Buddhavaṃsa (4 khoá) là “Vệ Đà”. Giữ “Vệ Đà” để đồng nhất trong bộ; đây là chỗ lệch với đa số toàn tầng, ghi để người biên tập quyết một lần cho cả tầng.
+    - `ajjhāyako mantadharo` (9.3): 13 cặp ngoài bài, dạng đang dùng 8 cặp, dạng có dấu nháy mở đầu 4, “thuộc lòng thần chú” 1, “vị thầy” 1.
+    - `saraṇe` (11.3): có tiền lệ cùng dạng số nhiều `tīṇi saraṇe` → “ba nơi quy y” (`tha-ap25:5.1`, `tha-ap25:24.1`), nhưng ở đây không có `tīṇi` nên “Quy y” (không thêm “ba”, không thêm “nơi”) vẫn giữ; `daḷhaṁ katvā samādiya` → “làm cho vững chắc rồi thọ trì” (10 khoá `bv2`) là cùng nghĩa với “sau khi làm cho vững chắc, ta đã thọ trì”.
+  - Thuật ngữ còn lệch có chủ ý, không sửa trong lượt này: `22.2`/`22.4` `aggupaṭṭhakā`/`aggupaṭṭhikā` → “thị giả hàng đầu”/“nữ thị giả hàng đầu” (23/23 và 22/22 tiền lệ) trùng chữ “thị giả” với `upaṭṭhāko` ở `20.3` dù hai vai khác nhau (người hầu cận riêng và người hộ trì); đây là quy ước cả bộ, sửa một bài sẽ phá nhất quán; `4.3` “quan điểm” cho `diṭṭhiṁ` (tiền lệ `bv23:5.1` cùng động từ; toàn tầng với `diṭṭhiṁ` ở khoá ngắn: “kiến” 22, “quan điểm” 8) tuy `4.2` dùng “tà kiến”, vẫn giữ vì thêm “tà” là thêm nghĩa còn “kiến” trần khó hiểu hơn; `3.1` “Với cả vị ấy” (5/5 tiền lệ) đọc gượng nhưng nhất quán cả bộ.
+  - Điểm đổi: `vietnamese_clarity` 8,9 → 9,0. Các điểm khác giữ nguyên: `semantic_fidelity`, `grammar_logic`, `ambiguity_integrity` không nâng vì các bất định thật (`5.2`, `6.1`, `26.2`) vẫn còn; `triangulation` giữ 7,0 vì không có bản Anh độc lập; `terminology` không nâng vì các lệch tầng ở trên chưa được quyết; `technical_integrity` giữ 9,6. `final_score` 8,86 → 8,87 (tổng 88,7 trên 10 điểm). Blocker `noEnglishEditionUpstream` giữ nguyên; không có blocker khác.

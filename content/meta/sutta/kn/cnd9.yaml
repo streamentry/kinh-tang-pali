@@ -11,16 +11,16 @@ tags:
 quality:
   scores:
     source_provenance: 9.4
-    semantic_fidelity: 8.5
-    grammar_logic: 8.6
+    semantic_fidelity: 8.7
+    grammar_logic: 8.7
     segment_alignment: 10.0
-    terminology: 8.5
+    terminology: 8.6
     triangulation: 8.0
     vietnamese_clarity: 8.6
     han_viet_balance: 9.2
-    ambiguity_integrity: 8.3
+    ambiguity_integrity: 8.5
     technical_integrity: 9.6
-  final_score: 8.87
+  final_score: 8.93
   blocking_errors:
     - "noEnglishEditionUpstream: không có tầng tham khảo tiếng Anh cho cnd9 tại
       commit đã ghim. Thư mục kn/ của edition translation/en/sujato chỉ có cp,
@@ -31,7 +31,7 @@ quality:
       chỉ có Pháp Cú. Đây là not-published-upstream, giới hạn của bản chụp
       upstream chứ không phải lỗi người dịch, nên triangulation bị chặn ở 8.0 và
       không nâng để né blocker."
-  assessed_at: "2026-10-11"
+  assessed_at: "2026-10-13"
   assessed_by:
     - "Claude Sonnet 5.5 (Claude Code)"
   waiver:
@@ -86,3 +86,16 @@ notes: |-
   **Lỗi ngoài lát, báo chứ không sửa.** `snp5.6:2.2`, `6.2`, `8.2` bỏ hô ngữ `dhotakā` (cùng kiểu `snp5.13:3.2`, `snp5.12:3.2`, `snp5.15:3.2` đã báo ở `cnd15`, `cnd16`, `cnd18`); `snp5.6:5.3`–`5.4` đảo vị trí vế (dòng 3 và dòng 4 so với Pāli); `snp5.6:5.1` `brahme` *bậc Phạm hạnh* khác bốn chỗ `brahme` *Bà-la-môn* ở `cnd1`, `cnd4`, `snp5.1`, `snp5.19`; `snp5.6:7.1`/`snp5.5:6.1` `taṁ` *pháp ấy* (so với lời giải `50.2` của chính cnd9).
 
   **Bốn cổng kỹ thuật theo `AGENTS.md`:** `npm run validate`, `npm test`, `npm run check`, `npm run build`. Lát này **không** chạy bốn lệnh đó vì bị cấm trong từng lát ⇒ để CI hoặc người điều phối chạy. `technical_integrity` đặt **9.6**, không 10.0. Các phép tự kiểm đã chạy và đều xanh: tập khoá bản Việt = tập khoá Pāli (364/364, cùng thứ tự); nháy kép `“”`, nháy đơn `‘’` và ngoặc đơn khớp Pāli từng khoá (0/364 lệch; 30 khoá Pāli có nháy, 9 khoá có ngoặc đơn, bản Việt có cùng số lượng); dấu lược `…` khớp Pāli từng khoá (0/364 lệch; 41 khoá có `…`); 0 khoá rỗng; NFC; không khoảng trắng thừa; không nháy thẳng; Pāli lọt sang Việt chỉ gồm `Iccā` (cố ý) và tên riêng `Dhotaka`, `Sabhiya`, `Cunda`, `Sakya`. Đã in và đọc lại cả 364 cặp Pāli↔Việt; lượt đọc đối kháng bắt được 5 khoá lệch dấu cuối so với Pāli (`15.3`, `24.3`, `18.4`, `25.1`, `35.1`, đã sửa) và đưa đến việc dịch lại `36.3`–`36.4`, `41.3`–`41.4` theo thứ tự Pāli thay vì chép `snp5.6`.
+
+  **Lượt cải thiện 2026-10-13.** Đọc đối kháng lại cả 364 cặp Pāli↔Việt, rồi đo tiền lệ bằng đếm trên toàn tầng. Đổi 5 khoá (`2.3`, `6.10`, `13.6`, `40.2`, `59.4`), không đổi tập khoá hay thứ tự khoá; 359 khoá còn lại giữ nguyên vì đã khớp tiền lệ hoặc không có căn cứ để đổi. Phép tự kiểm sau sửa: tập khoá 364/364 cùng thứ tự Pāli; nháy kép, nháy đơn và ngoặc đơn khớp Pāli từng khoá (0/364 lệch); dấu lược `…` khớp từng khoá (0/364 lệch, không còn `…pe…`); NFC; 0 khoá rỗng; Pāli lọt sang Việt chỉ còn `Iccā` (cố ý) và tên riêng; 59 nhóm Pāli trùng nguyên văn trong bài (116 cặp), 9 cặp bản Việt khác nhau, đều là các cặp đã giải thích ở trên (ngôi `sikkhe`, lặp lemma so với dòng kệ, `49.2`/`51.8`).
+  - `59.4` (accuracy fix, sửa lỗi phân tích cú pháp): bản cũ gom các từ ở dạng đối cách-chỉ định thành từng cặp có "và" và "của" (*để nghiệp hữu và tái hữu của dục hữu, để nghiệp hữu của dục hữu và tái hữu của sắc hữu…*), và bỏ mất mục đầu `bhavābhavāya`. Pāli chỉ liệt kê các danh từ ở cách `-āya` nối tiếp nhau (`bhavābhavāya kammabhavāya punabbhavāya kāmabhavāya, kammabhavāya kāmabhavāya punabbhavāya rūpabhavāya, …`), không nói nghiệp hữu *của* cõi nào. Đối chiếu `mnd5:36.1` (cùng Pāli, cùng đoạn liệt kê) dịch đúng dạng liệt kê *vì nghiệp hữu, vì tái hữu, vì dục hữu; vì nghiệp hữu, vì dục hữu, vì tái hữu, vì sắc hữu; …*; đã dịch lại theo dạng ấy, thêm mục đầu *vì hữu này hữu khác*, và giữ *sự phát sinh của tự thân* (`attabhāva`: *tự thân* 42 lần so với *hiện hữu cá thể* 8 lần trên tầng; `mnd10:111.6`, `mnd2:90.8`, `mnd3:53.5`, `cnd8:115.2`). Điểm đổi: `semantic_fidelity` 8.5 → 8.7, `grammar_logic` 8.6 → 8.7. Bất định 4 ở trên không còn: câu này là danh sách, không có cách ghép từng cặp cần phân xử.
+  - `2.3` (terminology fix): `vimaticchedanā pucchā` đổi *cắt đứt sự phân vân* → *cắt đứt hoài nghi* theo `cnd8:2.3`, `mnd14:3.3`, `mnd14:3.6`, `mnd14:3.12` (đúng công thức ba loại câu hỏi, 9 chỗ dùng *cắt đứt hoài nghi*, 1 chỗ *cắt đứt nghi hoặc*, 0 chỗ *phân vân*). Điểm đổi: `terminology` 8.5 → 8.6.
+  - `6.10`, `13.6` (accuracy fix nhỏ): bỏ chủ ngữ *vị ấy* trước *cũng nên học giới tăng thượng…*; Pāli `sikkheyya` không có chủ ngữ (đang giải `sikkhe` ngôi nhất của Dhotaka theo nghĩa chung *nên học*), và `mnd15:85.6` cũng dịch *nên học* không chủ ngữ. Không đổi điểm riêng.
+  - `40.2` (clarity fix): `idheva santo samāno` (`santo` là hiện tại phân từ của `atthi`, *đang có*) đổi *khi đang hiện hữu ngay tại đây* → *khi đang có mặt ngay tại đây*, để *hiện hữu* khỏi lẫn với *hữu* (`bhava`) và *không còn hiện hữu* (`anabhāva`) ở các khoá khác. Khoá `40.3`, `40.5` (`santo` là *an tịnh*) giữ nguyên, nên cách chơi chữ ở bất định 5 vẫn rõ. Không đổi điểm riêng.
+  - Bất định 1 (`2.3`–`2.5`, ba loại câu hỏi) **đã giải quyết**: ghi chú cũ nói 0 tiền lệ là sai. Ba loại câu hỏi là công thức đầy đủ ở `mnd14:3.3`–`3.13` và `cnd8:2.3`–`2.7`; `2.5` `nibbānapucchā` không phải loại thứ tư mà là mục cuối của bộ ba cuối `maggapucchā, phalapucchā, nibbānapucchā` (`cnd8:8.12` ghi *câu hỏi về Niết-bàn ….*, `cnd7:23.20`, `mnd14:5.20`); `…pe…` ở `2.4` lược các bộ ba ở giữa. Bản Việt `2.5` đã đúng nên không đổi.
+  - Bất định 12 (`4.4`, `51.4`, `kahaṁ narāsabhoti mahesī`) **đã giải quyết phần nghĩa**: `mnd14:12.7` còn nguyên câu (*được các chúng sinh có uy lực lớn tìm cầu … Đấng Nhân Ngưu ở đâu, nên là bậc đại ẩn sĩ*), `cnd21:14.5`, `cnd19:21.27`: đây là lời của những người đi tìm Đức Phật. Hai dạng dịch cùng có trên tầng (*như vậy là*: `cnd8:85.5`, `cnd11:59.5`; *nên là*: `mnd14:12.7`, `cnd8:68.32`, `cnd19:21.27`); giữ *như vậy là* vì đây đúng công thức lặp lemma kết `…ti mahesīti—` của `cnd8:85.5`, `cnd11:59.5`.
+  - Bất định 2 (`23.10`): ghi chú cũ nói 0 tiền lệ cho cả chuỗi là sai, `mnd15:65.3` có đúng chuỗi này với cùng cách dịch. Nhưng sắc thái `āsappanā`, `parisappanā` **vẫn chưa phân xử**: `pe6:51.5` dịch hai từ này thành *do dự*, *lúng túng* (trong một chuỗi khác), còn `mnd15:65.3` và bài này là *dò dẫm*, *lần mò quanh co*. Giữ như cũ, không đoán.
+  - Đã đo và quyết định KHÔNG đổi dù có thể trông như lỗi: (a) `23.2` *dòng Sakya* cạnh *bậc Thích-ca* (`sakyakulā`: *dòng Sakya* 26, *dòng Thích-ca* 1; khớp `cnd10:2.4`); (b) `17.4` *nghi hoặc* cho `vicikicchā` trong bộ bảy pháp (16 chỗ, khớp `mnd4:17.4`, `cnd8:101.3`) dù ở `23.8`, `23.10`, `32.1` bài này dùng *nghi hoặc* cho `kathaṅkathā` và *hoài nghi* cho `vicikicchā`: là sự căng giữa hai quy ước của tầng, không phải lỗi riêng của bài; (c) `6.10` *an hòa, an tịnh, lắng dịu…* khớp `cnd15:27.2`, trong khi `mnd15:85.6` (ngoài lát) dùng cách khác cho cùng Pāli; (d) `6.15` `cittaṁ padahanto`: các danh sách song song (`mnd7:37.3`, `mnd16:208.9`, `ps2.1:10.2`) ở chỗ này có `cittaṁ adhiṭṭhahanto` (*quyết định tâm*), còn Pāli của bài này là `padahanto`; bản Việt bám Pāli của bài (`padahati` là *cố gắng* ở `dn22:21.20`), có thể là dị bản, không phân xử được; (e) `26.3` `dhammadesanāya` và `26.6` `moceyyuṁ` (bất định 13 và 3): không có đoạn song song nào trên tầng, giữ nguyên bất định; (f) `diṭṭhasutamutaviññātabbe dhamme` *nên thấy, nên nghe, nên cảm nhận, nên biết* khớp `sn35.95:10.1`, `an4.24:7.5`.
+  - Ngoài lát (báo, không sửa): `mnd15:85.6` dịch `samāya upasamāya vūpasamāya … paṭipassaddhiyā` khác `cnd15:27.2` và bài này (ba mục đầu đều là *lắng dịu*, mục cuối *làm an tịnh*).
+  - Không thay đổi điểm: `source_provenance` 9.4, `segment_alignment` 10.0, `triangulation` 8.0 (vẫn không có bản Anh độc lập), `vietnamese_clarity` 8.6, `han_viet_balance` 9.2, `technical_integrity` 9.6 (bốn lệnh `npm run validate`, `npm test`, `npm run check`, `npm run build` vẫn chưa chạy trong lượt này).
+  - Điểm `ambiguity_integrity` 8.3 → 8.5: đã giải quyết bất định 1, 4 và phần nghĩa của 12, sửa hai khẳng định sai trong ghi chú cũ (bất định 1 và 2 nói 0 tiền lệ); các bất định 2, 3, 5, 6, 7, 8, 9, 10, 11, 13 và dị bản `6.15` vẫn còn.

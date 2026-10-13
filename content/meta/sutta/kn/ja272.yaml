@@ -14,15 +14,15 @@ quality:
   scores:
     source_provenance: 9.4
     semantic_fidelity: 8.7
-    grammar_logic: 8.8
+    grammar_logic: 9.0
     segment_alignment: 10.0
-    terminology: 8.8
-    triangulation: 6.8
+    terminology: 9.0
+    triangulation: 7.2
     vietnamese_clarity: 9.0
     han_viet_balance: 9.1
     ambiguity_integrity: 8.5
     technical_integrity: 9.6
-  final_score: 8.87
+  final_score: 8.95
   blocking_errors:
     - "Thiếu hẳn tầng tham khảo English Sujato tại commit đã ghim
       11c9d708978cde8ba61096d8a75f7ddfb846f639: đếm trực tiếp trên
@@ -36,9 +36,9 @@ quality:
       của kho, nhưng theo AGENTS.md thì thiếu tầng tham khảo là lỗi chặn đối với
       review và published, và tests/unit/reference-source.test.ts kiểm đúng điều
       đó. Bài đặt draft và không nâng điểm để né."
-  assessed_at: "2026-10-03"
+  assessed_at: "2026-10-13"
   assessed_by:
-    - "OpenCode Space Bunny Free (agent)"
+    - "Claude Sonnet 5.5 (Claude Code)"
   waiver:
     id: no-upstream-english
     blockers:
@@ -129,3 +129,15 @@ notes: |-
   chết thảm; māhē là trâu, nhưng bò rùa cũng phải vì trâu bị thú dữ ăn thì gọi là trâu bò rùa.
   (5) yogakkhemo vihiyyati và yogakkhemo pavaḍḍhati: Pāli dùng hai động từ khác nhau cho cùng một
   điều, tôi giữ khác nhau là đánh mất và sập đổ, để người đọc không tưởng là cùng một câu.
+
+
+  LƯỢT CẢI THIỆN 2026-10-13. Đọc đối kháng từng khoá cho thấy bản trước SAI NẶNG ở nhiều khoá; các ghi chú "CHỖ CHƯA CHẮC" (2), (3), (4), (5) ở trên bị thay thế bởi mục này (không xoá để giữ lịch sử). Đã đổi 12/17 khoá (các khoá 0.x và 4.1 giữ nguyên).
+  - 2.2 pavaḍḍhati: bản trước "sự an ổn bị sập đổ" — nghĩa NGƯỢC (pavaḍḍhati là tăng trưởng, cùng cặp đối với vihiyyati ở 1.2; lệch cả tiền lệ "tăng trưởng": 74 khoá có pavaḍḍhati, tầng dịch tăng trưởng/phát triển). Nay "mà sự an ổn tăng trưởng". 1.2 vihiyyati: "bị đánh mất" → "bị suy giảm" (tiền lệ vihāyati/vihiyyati ở tầng: suy thoái, suy tàn; chọn "suy giảm" để giữ đối xứng với "tăng trưởng"). Điểm đổi: grammar_logic 8.8→9.0, terminology 8.8→9.0.
+  - 1.1 và 2.1: bản trước "Người mà ta kết giao với" dịch ngược cấu trúc (yena mittena saṁsaggā là tách rời do giao du với người bạn nào, không phải ta kết giao với ai); thêm "ta" không có trong Pāli. Nay "Do giao du với người bạn nào" (saṁsagga → giao du: tiền lệ sn14.16 "Giao du sinh ra bụi rậm"; yogakkhema → an ổn: tiền lệ "an ổn khỏi các ách" ở DN, đây là ngữ cảnh đời thường nên chỉ giữ "an ổn"). 1.1 và 2.1 Pāli trùng nguyên văn, Việt đã giống nhau (khác nhau duy nhất là dấu mở nháy).
+  - 3.2 paccupetha mahāvanaṁ: "hãy vào rừng rậm" → "hãy trở về khu rừng lớn" (mahāvana → rừng lớn, tiền lệ mn86; paccupeti là quay đến lại). 3.1 thêm "Hãy đến" cho etha bị bỏ sót (tiền lệ Jātaka: "Hãy đến đây … hãy quay lại").
+  - 3.3 và 3.4: bản trước "Đừng chém rừng bằng lửa" và "sẽ chết thảm giữa bò rùa" là HALLUCINATION. Không có từ nào chỉ lửa, bò hay rùa trong Pāli. Nay: mā vanaṁ chindi nibbyagghaṁ = chớ để khu rừng vắng hổ bị đốn; byagghā māhesu nibbanā = hỡi các hổ, chớ để mình không còn rừng (māhesu = mā ahesuṁ; nibbanā = nir + vana, không có rừng; một trò chơi chữ với byagghā/nibbyagghaṁ). "chớ" là đa số cho mā trong Jātaka: 143 chớ, 98 đừng, 27 khác.
+  - 1.3 và 1.4: bản trước "kẻ ấy lại rơi vào chỗ nguy hiểm" và "người trí thì như cây thụ" là hallucination do đọc rukkhe ở nghĩa gốc cây. Nay đề phòng sự lấn át của người bạn ấy ngay từ đầu, như giữ gìn đôi mắt (tassa = của người ấy; ajjhābhavaṁ = sự lấn át, lấn lướt; akkhīva = như đôi mắt). Điểm đổi: semantic_fidelity giữ 8.7 (lỗi lớn đã sửa, nhưng bất định bên dưới vẫn còn).
+  - 2.3 và 2.4: "Hãy lấy hành xử của chính mình làm chuẩn" → "hãy cư xử như với chính mình"; "người trí trong mọi khó khăn" → "bậc trí trong mọi việc cần làm" (kicca là việc phải làm, không phải khó khăn; paṇḍito → bậc trí, đa số trong Jātaka). Dấu cuối 2.4 sửa thành ”. đúng thông lệ (1.965 khoá Pāli kết ”. thì Việt kết ”.). Khoá 3.1 hổ: byagghā → hổ, 79 khoá có byaggha/vyaggha dịch hổ, 9 cọp, 57 khác.
+  BẤT ĐỊNH CÒN LẠI, GIỮ NGUYÊN, KHÔNG ĐOÁN. (a) Đọc rukkhe hay rakkhe ở 1.4: Pāli đã ghim đọc rukkhe akkhīva; rukkhe (ở cây) không ghép nổi với phần còn lại của vế nên khả năng cao là biến thể của rakkhe (nên giữ gìn), và các ấn bản khác cùng lời chú giải đọc rakkhe, glossed như người trí giữ mình như giữ đôi mắt của chính mình. Bản dịch theo rakkhe vì rukkhe không hiểu được; đây là chỗ bản dịch lệch khỏi chữ đã ghim, và nếu người biên tập muốn theo sát chữ ghim thì khoá 1.4 cần quyết định lại. Khó khăn: không có bản Anh đã ghim để đối chiếu, nên chỉ có bằng chứng ngoài tầng ghim. (b) ajjhābhavaṁ (hapax trong toàn Pāli root đã ghim, chỉ xuất hiện ở ja272): chú giải đọc như sự lấn át cần được người bạn ấy bị chế ngự (abhibhavitabbaṁ); tôi dịch lấn át và để rakkhe chi phối thành đề phòng, nhưng cú pháp (đề phòng sự lấn át, hay lấn át để giữ mình) có thể hiểu hơi khác. (c) 2.3 attasamaṁ vuttiṁ: chú giải gloss attasama là người như chính mình hoặc bạn rất thân, nên bản dịch hiểu cư xử với người bạn ấy như với chính mình; người nhận (người bạn) lấy từ ngữ cảnh 2.1–2.2, không có trong Pāli của khoá. (d) 3.3 chindi: không rõ chủ thể (impersonal), dịch bằng bị động chớ để … bị đốn.
+  BẢNG ĐIỂM TRƯỚC → SAU: source_provenance 9.4→9.4; semantic_fidelity 8.7→8.7; grammar_logic 8.8→9.0; segment_alignment 10.0→10.0; terminology 8.8→9.0; triangulation 6.8→7.2 (đã thêm đối chiếu với ấn bản Pāli kèm chú giải và một bản dịch Anh của tập Jātaka đọc dạng tóm lược trên mạng; KHÔNG thuộc tầng ghim, không sao chép câu chữ, và vẫn dưới trần 8.0); vietnamese_clarity 9.0→9.0; han_viet_balance 9.1→9.1; ambiguity_integrity 8.5→8.5; technical_integrity 9.6→9.6. final_score 8.87→8.95. Blocker còn lại: chỉ blocker không có bản Anh upstream, giữ nguyên.
+  Cổng kỹ thuật vẫn CHƯA chạy trong lượt này: npm run validate, npm test, npm run check, npm run build.

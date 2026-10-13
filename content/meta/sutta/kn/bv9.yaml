@@ -12,15 +12,15 @@ quality:
   scores:
     source_provenance: 9.4
     semantic_fidelity: 8.7
-    grammar_logic: 8.6
+    grammar_logic: 8.7
     segment_alignment: 10.0
     terminology: 8.7
     triangulation: 7.0
-    vietnamese_clarity: 8.9
+    vietnamese_clarity: 9.0
     han_viet_balance: 9.1
     ambiguity_integrity: 8.7
     technical_integrity: 9.6
-  final_score: 8.87
+  final_score: 8.89
   blocking_errors:
     - "noEnglishEditionUpstream: Không có tầng tham khảo tiếng Anh tại commit đã
       ghim: `source/upstream-manifest.json` chỉ liệt kê
@@ -33,7 +33,7 @@ quality:
       dịch chỉ từ Pāli root và đối chiếu tiền lệ nội bộ, bài bắt buộc `draft` và
       `triangulation` không quá 8,0. Đây là giới hạn upstream, không phải lỗi
       của người dịch."
-  assessed_at: "2026-10-10"
+  assessed_at: "2026-10-13"
   assessed_by:
     - "Claude Sonnet 5.5 (Claude Code)"
   waiver:
@@ -106,3 +106,12 @@ notes: |-
     **Coverage English (mục 7):** mẫu số = 0. 118 khoá; sau khi bỏ khối `0.`, không khoá nào dài ≥ 40 ký tự (tính sau khi nén khoảng trắng): đều là các dòng kệ ngắn; đây là *cổng không đo được gì*, không phải *không cần ghi nhận*. Sujato: 0 tệp cho `bv9` (`source/upstream-manifest.json` chỉ có `kn/bv/bv9_root-pli-ms.json`; `english-sujato` chỉ có chín tiểu bộ cp dhp iti ja kp snp thag thig ud); `english-project`: 0 (không có tệp bv nào trong `content/translation/en/project/sutta/kn/`, không có `content/meta/en/kn/bv9.yaml`); `vietnamese-current`: 0 tầng segment (chỉ Pháp Cú); bản nguyên bài của tầng tra cứu toàn văn (HTML) chỉ dùng để hiểu mạch bài, không cấp text. Ba tầng đều vắng ⇒ `triangulation` 7,0 (≤ 8,0) và `status: draft` kèm blocker ở trên. Không đụng `content/meta/reference-gaps.yaml`.
 
     **technical_integrity = 9,6:** lát này cấm chạy cổng, nên không tuyên bố technical gate pass. Bốn lệnh còn lại do người điều phối chạy tập trung: `npm run validate` · `npm test` · `npm run check` · `npm run build`. `final_score` là trung bình số học thô của đúng 10 tiêu chí.
+
+    **Lượt cải thiện 2026-10-13.** Đọc đối kháng lại cả 118 cặp Pāli↔Việt, dò lại tiền lệ trên toàn tầng Việt hiện có (bv1–bv29, tha-ap, thi-ap, snp, ja, mil…). Đổi 2/118 khoá, không đổi tập khoá hay thứ tự; không có lỗi sai nghĩa mới.
+    - `4.1` “Ngay cả nhờ được thấy vị Phật ấy,” → “Chỉ nhờ được thấy vị Phật ấy,” (clarity fix). Cách cũ lặp “ngay cả … cũng” với `4.2` “các chúng sinh cũng được hài lòng;” nên đọc gượng; `api` trong `dassanenapi` gắn với `dassanena` (“chỉ riêng việc thấy”), nên “chỉ nhờ … cũng” giữ đúng nghĩa mà tự nhiên hơn. Khoá `4.1` không có tiền lệ nguyên văn trong tầng (Pāli chỉ gặp ở bài này), nên không lệch ai. `vietnamese_clarity` 8,9 → 9,0.
+    - `21.4` “Ngài ở vườn Sudassana.” → “ở vườn Sudassana, Ngài.” (accuracy/clarity fix). `uyyāne … sudassane` là định cách (nơi chốn của việc chuyển bánh xe ở `21.3`); cách cũ đọc như một câu khẳng định riêng (Ngài cư trú ở vườn) mà Pāli không nói. Đa số tiền lệ cho khuôn này dùng “ở <nơi>” gắn sau động từ chuyển bánh xe: `bv14:24.4` “ở Sumaṅgaluyyāna tối thượng”, `bv15:19.4`, `bv16:18.4`, và “ở vườn nai” ở 8/8 khoá `migadāye naruttamo` (bv17, bv18, bv20–22, bv24–26). `grammar_logic` 8,6 → 8,7, `vietnamese_clarity` đã tính ở mục trên.
+    - Các tiêu chí khác giữ nguyên: không có cải thiện cụ thể tương ứng. `triangulation` vẫn 7,0 (vắng ba tầng tham khảo). `semantic_fidelity` và `ambiguity_integrity` giữ 8,7 vì bất định thật ở `2.2`, `5.3`, `6.1`, `12.4`, `21.4` (tên vườn hay tính từ), `28.2`, `29.4` vẫn chưa phân xử được. `final_score` 8,87 → 8,89, vẫn trong khoảng `review`.
+    - Đã dò lại số tiền lệ của các khoá không đổi: `0.1` 28/28 khoá Pāli trùng cùng bản Việt; `1.2` 6 khoá “có bậc Chánh Đẳng Giác …” trên 3 khoá bỏ chữ “có”; `7.4`, `8.1`, `9.4`, `14.4`, `15.1`, `16.1`, `16.3`, `16.4`, `18.2`, `18.4`, `20.1`, `21.1`, `21.3`, `22.2`, `23.2`, `24.2`, `24.4`, `26.3`, `28.3`, `28.4` đều trùng nguyên văn với 14–25 khoá khác (một vài khoá lệch chỉ ở dấu câu cuối), không khoá lệch nào có lý do để đổi theo. Trong chính bài vẫn 2 nhóm Pāli trùng (`8.3`/`11.3`, `17.4`/`22.4`) với bản Việt giống hệt.
+    - **Cải chính ghi chú cũ.** (a) Mục thuật ngữ nói chưa có tiền lệ Việt cho đúng cụm `tayo bhave`: thực ra có `bv2:58.2` “sau khi phá hủy ba cõi hiện hữu,” trùng nguyên văn với `2.2`, và `pe6:9.13` định nghĩa `tayo bhavā` là “ba hữu: dục hữu, sắc hữu, vô sắc hữu”. Vẫn giữ “ba cõi hiện hữu” cho nhất quán với `bv2:58.2`; chữ “cõi” là phần thêm so với Pāli (xem bất định 2). (b) Bất định 7 ghi `bv13:22.4` chưa dịch: thực ra đã dịch “ở Sudassanuyyāna tối thượng”, tức bản dịch trong tầng coi Sudassana là tên một khu vườn ở một Đức Phật khác; vì vậy cách đọc “vườn Sudassana” ở `21.4` có một tiền lệ cùng chiều, nhưng ở `bv9` Pāli tách hai chữ (`uyyāne so sudassane`) nên cách đọc tính từ “đẹp mắt” vẫn không loại được. (c) Mọi con số đếm trùng nguyên văn ghi ở các mục trên là số đo tại thời điểm viết (2026-10-10); tầng Việt đã tăng thêm khoá từ đó nên các tỉ lệ nay có mẫu số lớn hơn (ví dụ `12.1` “Vào lúc ấy, ta,” 21 trên 25 khoá; `16.2` “ta hoan hỷ, tâm xúc động;” 6 trên 7), cùng đa số như cũ.
+    - **Bất định mới ghi thêm.** 15. `5.3` `Koṭisatāni abhisamiṁsu`: dịch “Hàng trăm koṭi” (số nhiều, đúng dạng `satāni`, cùng bản Việt với `bv19:4.3`); cách đọc khác là “một trăm koṭi” (`koṭisata` làm danh từ trung tính nhưng đi với động từ số nhiều, như `bv3:8.2` `koṭisatamabodhayi` “một trăm koṭi”, `bv3:11.4` `satakoṭiyo`). Dãy 100 → 80 → 78 koṭi ở `5.3`, `6.3`, `7.3` giảm dần cũng hợp với cách đọc “một trăm”, nhưng chưa đủ để loại cách đọc “hàng trăm”; không đoán, giữ như cũ. 16. `22.3` `upaṭṭhāko` và `24.2` `aggupaṭṭhakā` đều dịch “thị giả”, mặc dù Pāli là hai từ khác nhau (thị giả riêng của Đức Phật; các thí chủ/người hộ trì hàng đầu). Cách dịch này trùng 23/23 khoá `ahesuṁ aggupaṭṭhakā` trong tầng Buddhavaṃsa; đổi riêng ở bài này sẽ lệch tiền lệ, nên để phần phân biệt cho lượt rà soát toàn tầng.
+    - `technical_integrity` giữ 9,6; vẫn chưa chạy `npm run validate` · `npm test` · `npm run check` · `npm run build` trong lượt này.
