@@ -1,5 +1,5 @@
 uid: vv5
-status: draft
+status: review
 translationTitle: "Chuyện Cung Điện Con Voi"
 translators:
   - "OpenCode Space Bunny Free (agent)"
@@ -15,21 +15,33 @@ tags:
 quality:
   scores:
     source_provenance: 9.4
-    semantic_fidelity: 8.6
-    grammar_logic: 8.9
+    semantic_fidelity: 8.8
+    grammar_logic: 9.0
     segment_alignment: 10.0
     terminology: 9.0
-    triangulation: 6.5
+    triangulation: 7.0
     vietnamese_clarity: 8.9
     han_viet_balance: 9.2
     ambiguity_integrity: 9.0
     technical_integrity: 9.6
-  final_score: 8.91
+  final_score: 8.99
   blocking_errors:
-    - "Không có tầng tham khảo nào ở commit đã ghim để đối chiếu. Tầng `english-sujato` tại commit này có 4.291 tệp nhưng sub-collection `sutta/kn/` chỉ gồm 9 nhóm — `cp · dhp · iti · ja · kp · snp · thag · thig · ud` — KHÔNG có `vv`, và `sutta/kn/vv/` có 0 tệp; đường dẫn duy nhất chứa `vv` trong cả tầng là tầng TÊN `name/sutta/vv-name`, không phải thân kinh. Vắng là `not-published-upstream`, KHÔNG phải `not-synced`. Tầng `vietnamese-current` ở commit này chỉ có 26 tệp, toàn bộ là Pháp Cú. Lớp lấp `english-project` của dự án cũng không có cho uid này. Ba tầng tham khảo đều vắng ⇒ bài dịch chỉ từ Pāli root, nên `status` bắt buộc là `draft` và `triangulation` bị chặn ở 7.0 (≤ 8.0) chứ không nâng để né blocker. Đây là giới hạn của bản chụp bilara tại commit đã ghim, không phải thiếu sót của repo."
+    - "noEnglishEditionUpstream: Không có tệp translation/en/sujato cho vv5 tại
+      commit đã ghim (`sutta/kn/` chỉ gồm cp, dhp, iti, ja, kp, snp, thag, thig,
+      ud, không có `vv`); trạng thái `not-published-upstream`. Tầng
+      `vietnamese-current` cũng vắng (chỉ có Pháp Cú) và lớp `english-project`
+      không có cho uid này."
   assessed_at: "2026-10-13"
   assessed_by:
-    - "Claude Sonnet 5.5 (Claude Code)"
+    - "Claude Opus 5.5 (Claude Code)"
+  waiver:
+    id: no-upstream-english
+    blockers:
+      - "noEnglishEditionUpstream: Không có tệp translation/en/sujato cho vv5
+        tại commit đã ghim (`sutta/kn/` chỉ gồm cp, dhp, iti, ja, kp, snp, thag,
+        thig, ud, không có `vv`); trạng thái `not-published-upstream`. Tầng
+        `vietnamese-current` cũng vắng (chỉ có Pháp Cú) và lớp `english-project`
+        không có cho uid này."
 notes: |-
   Nguồn: dịch từ Pāli root đã ghim, đọc đúng uid `kn/vv5` (không suy từ tên thư mục),
   53 khoá. Cấu trúc bài: khối tiêu đề `0.1–0.4`; lời người hỏi (Tôn giả Moggallāna)
@@ -283,3 +295,26 @@ notes: |-
   *vượt trội* vì ý đó đã ở `5.3` (*hơn cả*). Mục TIÊU ĐỀ ở trên đã lỗi thời: `0.2` nay là *Thiên Cung Của Nữ Giới* (49/49 lượt trùng).
   Tự kiểm sau sửa: 53/53 khoá khớp Pāli và đúng thứ tự, nháy kép/đơn khớp Pāli từng khoá (0/53 lệch), dấu lược 0 = 0, NFC sạch,
   0 cặp Pāli trùng nguyên văn trong bài, 0 khoá rỗng hay thừa khoảng trắng, không có Pāli lọt vào bản Việt.
+
+  Giải quyết draft 2026-10-13 (vòng 2): đọc đối kháng lại cả 53 khoá với Pāli và đối chiếu các chỗ khó với đoạn song song trong
+  kho; KHÔNG đổi khoá nào (0/53 khoá lỗi nghĩa thật; 53/53 giữ nguyên).
+  PHÂN LOẠI BLOCKER: một blocker duy nhất, loại (A). Kiểm lại: thư mục `translation/en/sujato/sutta/kn/` ở bản chụp đã ghim chỉ có
+  cp, dhp, iti, ja, kp, snp, thag, thig, ud; không có `vv`, và không có tệp nào cho `vv5` trong `source/upstream-manifest.json`;
+  `content/translation/en/` cũng không có lớp lấp cho `vv5`. Đây là sự thật thuần về upstream nên câu blocker được VIẾT LẠI ngắn,
+  bắt đầu bằng `noEnglishEditionUpstream:` và chỉ nêu việc thiếu tầng tham khảo (bỏ phần suy diễn về `status`/`triangulation` vốn
+  thuộc cổng, không thuộc câu khẳng định). Không còn lỗi văn bản hay bất định trọng yếu nào bị nhập chung trong blocker; các bất định
+  nhỏ còn lại nằm ở mục BẤT ĐỊNH CÒN LẠI (a)–(d) phía trên, và không đổi nghĩa giáo lý. Giới hạn tầng Việt hiện hành (chỉ có Pháp
+  Cú) là giới hạn tham chiếu, ghi ở đây, không phải lỗi văn bản.
+  KẾT QUẢ ĐỌC ĐỐI KHÁNG: chủ thể được phân đúng (`1.1–4.4` mô tả con voi: `kuñjaro`, `vāraṇo`, đuôi giống đực `-aṅgo`, `-dharo`; `5.1–5.4`
+  mô tả nàng: `sucivatthā alaṅkatā`, `atirocasi` có tân ngữ `accharāsaṅghaṁ`); `8.1–9.4` là lời nàng kể việc mình đã làm (`adāsiṁ`,
+  `abbhokirissaṁ` là thì quá khứ ngôi một theo dạng `-issaṁ`); `11.1–12.4` đúng thức cầu khiến ngôi ba (`dajjā`, `nande`) và thể
+  nghĩa vụ (`dātabbaṁ hoti`); không còn chữ nào ngoài Pāli. Xưng hô: người hỏi (Tôn giả Moggallāna) gọi nữ thiên là *nàng*, nữ thiên tự
+  xưng *tôi*, đúng họ hô cách/xưng hô của họ vv. Pāli không có `ākāsa` ở tiêu đề phẩm nhưng `1.4` có `ākāsamhi` (trên hư không) nên cụm
+  *trên hư không* ở `1.4` có căn cứ. Đã đo thêm: `Padumī` không phải hapax (có ở `cnd23`, `snp1.3`); `manugghātī` có song song `ja545:185.1`
+  (*Akkodhana-manugghātī* — không giận dữ, không va chạm), nên cách đọc *không xóc nảy* ở `3.3` nhất quán; `apacitā` ở `10.4` cùng
+  nghĩa *được kính trọng* với `ja453:2.3`, `ja534:84.1`, `ja534:85.1` (nghĩa bị động); `pañcaṅgike` = *năm phần/năm loại* (23 dòng).
+  ĐIỂM (trước → sau): `semantic_fidelity` 8.6 → 8.8 (không còn lỗi nghĩa nào đo được; còn hai chỗ đọc chưa chắc là `varāroho` ở `1.1`
+  và `kaṁsā` ở `4.2`); `grammar_logic` 8.9 → 9.0 (đã kiểm từng chủ ngữ/tân ngữ, không phát hiện lệch); `triangulation` 6.5 → 7.0 (vẫn không
+  có bản Anh độc lập nào nên giữ ≤ 8.0, chỉ nâng vì đã đối chiếu Pāli song song trong kho cho các cụm hiếm); các mục khác giữ nguyên.
+  `final_score` 8.99. Mẫu số coverage vẫn bằng 0 (0 khoá Pāli ≥ 40 ký tự) nên cổng coverage không đo được gì, và `triangulation` không thể
+  nâng lên bằng cách đó. `technical_integrity` vẫn 9.6: các lệnh `npm run validate`, `npm test`, `npm run check`, `npm run build` do CI chạy.

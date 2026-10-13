@@ -1,5 +1,5 @@
 uid: tha-ap104
-status: draft
+status: published
 translationTitle: "2. Ký Sự Về Trưởng Lão Ñāṇasaññika"
 translators:
   - "OpenCode Space Bunny Free (agent)"
@@ -23,10 +23,20 @@ quality:
     technical_integrity: 9.6
   final_score: 9.06
   blocking_errors:
-    - "Tầng tham khảo tiếng Anh đã ghim không tồn tại cho bài này nên không thể lên review hoặc published. Đo trực tiếp trên source/upstream-manifest.json (git tree của commit 11c9d708978cde8ba61096d8a75f7ddfb846f639): tệp Anh Sujato của tha-ap104 = 0; thư mục sutta/kn/ của bản Anh tại commit này có 9 thư mục con (cp, dhp, iti, ja, kp, snp, thag, thig, ud) và 755 tệp, trong đó sutta/kn/tha-ap/ có 0 tệp. Đây là not-published-upstream, KHÔNG phải not-synced. scripts/validate.ts dòng 223-226 đẩy thông điệp này vào errors khi status là review hoặc published, tức validation failure. Đây là giới hạn của bản chụp upstream, không phải lỗi của người dịch."
-  assessed_at: "2026-10-12"
+    - "noEnglishEditionUpstream: Sujato không có tệp bản Anh cho tha-ap104 tại
+      commit đã ghim (sutta/kn/ của bản Anh chỉ có cp, dhp, iti, ja, kp, snp,
+      thag, thig, ud; thư mục tha-ap vắng), tức not-published-upstream; tầng
+      Việt hiện hành cũng vắng."
+  assessed_at: "2026-10-13"
   assessed_by:
-    - "Claude Sonnet 5.5 (Claude Code)"
+    - "Claude Opus 5.5 (Claude Code)"
+  waiver:
+    id: no-upstream-english
+    blockers:
+      - "noEnglishEditionUpstream: Sujato không có tệp bản Anh cho tha-ap104 tại
+        commit đã ghim (sutta/kn/ của bản Anh chỉ có cp, dhp, iti, ja, kp, snp,
+        thag, thig, ud; thư mục tha-ap vắng), tức not-published-upstream; tầng
+        Việt hiện hành cũng vắng."
 notes: |-
   **Bài này.** `tha-ap104` · phẩm `Bhikkhadāyivagga` (Phẩm Bhikkhadāyi) · trưởng
   lão Ñāṇasaññika · **28 khoá Pāli, 28 khoá đã dịch, đủ và không thừa**. Tệp cũ
@@ -174,4 +184,28 @@ notes: |-
     … nào"* và `5.4` *"đại oai lực"* cũng theo tiền lệ. `triangulation` 7,5 vì ba
     tầng tham khảo đều vắng; các đoạn ở đây chỉ dựa Pāli root và tiền lệ tầng.
   - Cổng kỹ thuật chưa chạy (`technical_integrity` 9,6): `npm run validate` ·
+    `npm test` · `npm run check` · `npm run build`.
+
+  **Giải quyết draft 2026-10-13 (vòng 2)** — đọc đối kháng lại cả 28 khoá từ Pāli
+  root, đối chiếu từng cặp; **không đổi khoá nào** (0/28 lỗi nghĩa thật còn sót).
+  Các điểm đã kiểm lại: `1.1`–`1.4` là chuỗi vế so sánh cùng chỉ Đức Phật
+  (`suvaṇṇavaṇṇaṁ sambuddhaṁ` đối cách, tân ngữ của `apassahaṁ` = `apassiṁ ahaṁ` ở
+  `2.4`); `nisabha-ājāniya` = bò mộng thuần chủng; `tidhāpabhinna mātaṅga` = voi chảy
+  dịch ở ba nơi; `mahesinaṁ` đồng vị với `sambuddhaṁ`; `uḷurāja` = mặt trăng;
+  `catunnavuti` = 94 và `tesattati` = 73 (`ti`=3 + `sattati`=70); `soḷasa` = 16;
+  `4.2` giữ *khi tôi đã làm nghiệp ấy* (công thức `kappe, yaṁ kammamakariṁ tadā`;
+  đo toàn tầng ra dạng *khi tôi/ta làm … ấy* chiếm đa số, 62 khoá Pāli trùng).
+  Ngoặc kép khớp Pāli (mở `1.1`, khép `6.3`); `…pe…` ở `6.2` → một `…`.
+  - **Blocker (A) giữ, nhưng viết lại đúng sự thật và ngắn gọn**: chuỗi cũ lẫn lời
+    về cơ chế validate; nay chỉ còn một khẳng định thuần về upstream (Sujato không
+    có tệp cho bài này, `not-published-upstream`; tầng Việt hiện hành cũng vắng).
+    Đã kiểm lại trên thư mục bản Anh Sujato đã ghim: không có tệp `tha-ap104`
+    (cả thư mục `tha-ap` vắng). Không còn bất định văn bản nào nằm trong blocker
+    này; các bất định thật (xem mục 2026-10-12) vẫn nằm ở notes, không phải blocker.
+  - **Blocker (B) và (C) đã gỡ từ vòng trước, giữ nguyên**: mẫu số coverage = 1 (`7.1`),
+    Sujato phủ 0/1 vì không có tệp; entry gap đã có; `vietnamese-current` chỉ có Pháp
+    Cú là giới hạn tham chiếu. `triangulation` giữ 7,5 (≤ 8,0): ba tầng tham khảo
+    đều vắng, các khoá chỉ dựa Pāli root và tiền lệ tầng.
+  - Điểm giữ nguyên vì bản dịch không đổi; `final_score` 9,06 là trung bình thô.
+    Cổng kỹ thuật chưa chạy (`technical_integrity` 9,6): `npm run validate` ·
     `npm test` · `npm run check` · `npm run build`.

@@ -1,5 +1,5 @@
 uid: tha-ap197
-status: draft
+status: published
 translationTitle: "Ký Sự Về Trưởng Lão Aṅkolaka"
 translators:
   - "OpenCode Space Bunny Free (agent)"
@@ -13,22 +13,31 @@ tags:
 quality:
   scores:
     source_provenance: 9.6
-    semantic_fidelity: 8.8
+    semantic_fidelity: 9.0
     grammar_logic: 9.0
     segment_alignment: 10.0
     terminology: 8.8
     triangulation: 7.5
     vietnamese_clarity: 8.8
     han_viet_balance: 9.2
-    ambiguity_integrity: 8.5
+    ambiguity_integrity: 9.0
     technical_integrity: 9.6
-  final_score: 8.98
+  final_score: 9.05
   blocking_errors:
-    - "Tầng tham khảo tiếng Anh đã ghim không tồn tại cho bài này nên không thể lên review hoặc published. Đo trực tiếp trên source/upstream-manifest.json (git tree của commit 11c9d708978cde8ba61096d8a75f7ddfb846f639): tệp Anh Sujato của tha-ap197 = 0; sutta/kn/ của bản Anh tại commit này chỉ có 9 thư mục con (cp, dhp, iti, ja, kp, snp, thag, thig, ud), trong đó sutta/kn/tha-ap/ có 0 tệp. Đây là not-published-upstream, KHÔNG phải not-synced. Đây là giới hạn của bản chụp upstream, không phải lỗi của người dịch."
-    - "unresolvedTerm: `devagajjito` (tha-ap197:4.2) là hapax chưa kiểm chứng được (1/284.708 khoá Pāli ghim, không có từ điển hay bản song song để tra); bản dịch đọc là tên riêng \"Āseka Devagajjita\", chưa phân xử."
-  assessed_at: "2026-10-12"
+    - "noEnglishEditionUpstream: bản Anh Sujato không có tệp cho tha-ap197 tại
+      commit đã ghim (sutta/kn/ của bản Anh chỉ có cp, dhp, iti, ja, kp, snp,
+      thag, thig, ud; sutta/kn/tha-ap/ không có tệp nào):
+      not-published-upstream, tầng Việt hiện hành cũng vắng."
+  assessed_at: "2026-10-13"
   assessed_by:
-    - "Claude Sonnet 5.5 (Claude Code)"
+    - "Claude Opus 5.5 (Claude Code)"
+  waiver:
+    id: no-upstream-english
+    blockers:
+      - "noEnglishEditionUpstream: bản Anh Sujato không có tệp cho tha-ap197 tại
+        commit đã ghim (sutta/kn/ của bản Anh chỉ có cp, dhp, iti, ja, kp, snp,
+        thag, thig, ud; sutta/kn/tha-ap/ không có tệp nào):
+        not-published-upstream, tầng Việt hiện hành cũng vắng."
 notes: |-
   BÀI NÀY thuộc lát n37 (4 bài `tha-ap`, 92 khoá được giao). Lần ghi này bổ sung
   TOÀN BỘ 24 khoá của bài — tệp bản dịch trước chỉ có đúng 1 khoá `:6.1` — nên hai
@@ -286,3 +295,11 @@ notes: |-
     kỹ thuật pass: `npm run validate` · `npm test` · `npm run check` · `npm run build`.
   - **Số Pāli:** `catunnavuti` = 4 + 90 = **94**; `chattiṁsa` = **36**; `sattaratana` =
     **7**; `catasso` (paṭisambhidā) = **4**; Pāli trùng nguyên văn trong chính bài: 0 cặp.
+
+  **Giải quyết draft 2026-10-13 (vòng 2).** Đọc đối kháng lại toàn bài từ Pāli root, đối chiếu từng khoá; **thay thế** mục "Bất định còn lại" (1) và đoạn "Blocker đã gỡ ... giữ/đặt lại" của vòng 2026-10-12 ở trên.
+  - **Khoá đổi: 1/24** — `4.2` `āseko devagajjito`: *có vị Āseka Devagajjita* → *có một vị tên Devagajjita*. Sai nghĩa thật: 1 khoá (`āseko` bị đọc thành một phần của tên). Các khoá còn lại (23/24) đọc lại từ Pāli, không thấy lỗi nghĩa; đối chiếu `2.3`–`2.4` (chủ thể `paṭimānetvā` là người kể, động từ chính `okiriṁ`), `3.1`–`3.2` (`catunnavutito` = 94), `4.1` (`chattiṁsa` = 36), `4.3`–`4.4` đều đúng.
+  - **Blocker (D) `devagajjito` — ĐÃ GỠ vì có căn cứ.** Từ điển tên riêng Pāli (Dictionary of Pali Proper Names, mục Devagajjita, dẫn Ap. i. 199) ghi Devagajjita là một vị vua Chuyển luân sống 36 kiếp trước, tiền thân của Trưởng lão Aṅkolaka — khớp đúng `chattiṁsamhi ito kappe` (36), `sattaratanasampanno` và `cakkavattī mahabbalo` ở `4.3`–`4.4`. Vậy `devagajjito` là **tên riêng** (hapax trong tầng Pāli ghim vì là tên một nhân vật, không phải từ vựng), và `āseko` không nằm trong tên: mục từ điển chỉ nêu *Devagajjita*, và `āseko` đọc là `āsi` + `eko` (hợp âm `i + e → e`), cùng khuôn công thức `eko āsiṁ …` ở `tha-ap161:4.2` và `tha-ap210:4.2` (tầng dịch *tôi là một vị vua tên …*). Bản cũ *Āseka* gán chữ `āseko` vào tên là sai. Đo trên 563 tệp `tha-ap` ghim: 1 khoá chứa `devagajjito`, 0 khoá chứa `āseka` làm tên riêng ở nơi khác; `āsi eko` ở dạng này không có tiền lệ trùng nên dịch theo khuôn *có một vị …* (`tha-ap107:4.2` *từng có … vị vua cùng mang tên …*).
+  - **Bất định còn lại (không thêm vào thân kinh).** (1) `4.2` có hai cách đọc ngữ pháp cùng nghĩa trọng yếu: `āsi eko` (ngôi ba, *có một vị tên Devagajjita*) hoặc `āsiṁ eko` (ngôi nhất, *tôi là một vị tên Devagajjita*); từ điển tên riêng ghi người kể và Devagajjita là một (tiền thân), nên cả hai khớp giáo nghĩa; giữ ngôi ba, bám nguyên văn `āseko`. (2) `1.2` `mālāvaraṁ sakosakaṁ`: không tiền lệ nào khác cho `mālāvara` (đọc *loại tuyệt hảo để làm tràng hoa*); `sakosaka` = *cùng đài hoa* theo tiền lệ `tha-ap351:2.2`. (3) `2.3` `paṭimānetvā` = *chờ đợi*.
+  - **Giới hạn tham chiếu (C), không phải lỗi văn bản:** `vietnamese-current` chỉ có Pháp Cú, nên không có tầng Việt truyền thống cho bài này; `english-project` 0 tệp; Sujato 0/1 khoá nội dung (entry gap đã có trong `reference-gaps.yaml`). Vì vậy `triangulation` giữ 7,5 (≤ 8,0), bài dựa vào Pāli root + tiền lệ tầng + từ điển tên riêng.
+  - **Blocker (A):** viết lại thành một khẳng định thuần về upstream (không còn lẫn câu khác); đo trên bản chụp ghim: Sujato 0 tệp cho `tha-ap197`. Không còn blocker nào về lỗi văn bản. Điểm: `semantic_fidelity` 8,8 → 9,0, `ambiguity_integrity` 8,5 → 9,0 (hapax đã phân xử); `technical_integrity` 9,6 vì chưa tuyên bố cổng kỹ thuật pass: `npm run validate` · `npm test` · `npm run check` · `npm run build`.
+  - **Số Pāli:** `catunnavuti` = 4 + 90 = **94**; `chattiṁsa` = **36**; `sattaratana` = **7**; `catasso` = **4**; Pāli trùng nguyên văn trong chính bài: 0 cặp.

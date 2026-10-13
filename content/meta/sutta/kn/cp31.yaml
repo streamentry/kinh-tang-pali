@@ -1,5 +1,5 @@
 uid: cp31
-status: draft
+status: published
 translationTitle: "Hạnh Của Ẩn Sĩ Kaṇhadīpāyana"
 translators:
   - "OpenCode Space Bunny Free (agent)"
@@ -13,21 +13,20 @@ tags:
 quality:
   scores:
     source_provenance: 9.5
-    semantic_fidelity: 9.2
-    grammar_logic: 9.2
+    semantic_fidelity: 9.3
+    grammar_logic: 9.3
     segment_alignment: 10.0
-    terminology: 9.1
-    triangulation: 7.5
+    terminology: 9.2
+    triangulation: 9.0
     vietnamese_clarity: 9.2
     han_viet_balance: 9.3
-    ambiguity_integrity: 8.8
+    ambiguity_integrity: 9.0
     technical_integrity: 9.6
-  final_score: 9.14
-  blocking_errors:
-    - "noEnglishEditionUpstream: Thiếu bản dịch tiếng Anh đối chiếu"
-  assessed_at: "2026-10-12"
+  final_score: 9.34
+  blocking_errors: []
+  assessed_at: "2026-10-13"
   assessed_by:
-    - "Claude Sonnet 5.5 (Claude Code)"
+    - "Claude Opus 5.5 (Claude Code)"
 notes: |-
   Dịch trực tiếp từ Pāli root snapshot bilara đã ghim `11c9d708978cde8ba61096d8a75f7ddfb846f639`, đường dẫn `kn/cp/cp31_root-pli-ms.json` (58/58 khoá).
 
@@ -53,3 +52,12 @@ notes: |-
     7. Số: `Paropaññāsavassāni` (1.3) = "hơn năm mươi năm"; `Vassāni paññāsasamādhikāni` (11.4) = "năm mươi năm và hơn thế" (cách `ja444`); `Sattāhameva` = bảy ngày; `Tayo janā` = ba người (cha, mẹ, con); `ekādasamaṁ` = thứ mười một. Pāli `…` và `(…)`: 0/0. Nháy ‘ ’ “ ” khớp Pāli từng khoá (“ 1.1, ‘ 11.1, ’ 12.3, ” 13.6). Cặp Pāli trùng nguyên văn trong chính bài: 0; cặp trùng với bài khác bản Việt khác nhau: 0 (13.5–13.6 khớp `cp30:9.5–9.6`).
     8. Bất định còn lại (không thêm vào thân kinh): (a) `vaṭṭa` (6.3, 7.1) hiểu là vật tròn dùng để chơi, dịch "quả bóng"; bài không nêu rõ chủng loại. (b) `mama vāhasi taṁ dukkhaṁ` (9.4) đọc `vā` như "như thể" (≈ `iva`), bản chép `vāhasi` khó phân xử; nghĩa chính "nỗi đau ấy như là của ta". (c) `Abujjhitvāna` (13.3) đọc như `pabujjhitvāna` ("tỉnh lại"), cùng kiểu với `cp26:4.2` và `ja523:33.2`; không đọc `a-` là phủ định vì mạch câu ("rồi đứng dậy"). (d) `vāhi`/`vāpi` (12.1) như mục 3. (e) `kiriyaṁ` = hành vi tuyên bố sự thật (saccakiriya).
     9. Kỹ thuật: `technical_integrity` 9,6; bốn lệnh `npm run validate` · `npm test` · `npm run check` · `npm run build` do công cụ kho chạy sau khi ghi. Tự kiểm: tập khoá Việt = Pāli (58/58), thứ tự khoá theo Pāli, NFC, không khoá rỗng.
+
+  - Giải quyết draft 2026-10-13 (vòng 2; thay thế các câu cũ nói không có tầng tiếng Anh và `triangulation` 7,5):
+    1. Phân loại blocker: loại (A') — blocker cũ `noEnglishEditionUpstream` khẳng định thiếu bản Anh là SAI. Bản Anh của Bhikkhu Sujato CÓ phát hành cho bài này tại commit đã ghim (`sutta/kn/cp/cp31_translation-en-sujato.json`, có trong `source/upstream-manifest.json`), đủ 58 khoá; chỉ `cp31:14.1` để trống (câu kết ngắn, dưới ngưỡng 40 ký tự). Độ phủ trên Pāli có nội dung = 100%, nên không có blocker độ phủ và không cần ghi nhận gap. Đã xoá blocker (mảng rỗng). Tầng Việt hiện hành vẫn chỉ có Pháp Cú: đây là giới hạn tham chiếu, không phải lỗi văn bản.
+    2. Đối chiếu từng khoá với bản Anh Sujato và Pāli root: đồng thuận ở mọi chỗ then chốt (hơn năm mươi năm bất mãn; Maṇḍabya bị xiên cọc do nghiệp quá khứ; đứa trẻ chọc rắn rồi bị cắn; lời nói thật 11.1–12.3; "dù không muốn" ở 12.1 khớp "unwillingly"). Không còn khoá nào sai nghĩa; các khoá Sujato diễn giải thêm (9.2 "fainted" cho `papati bhūmiyaṁ`; 12.2 thêm chủ ngữ "he") không bị bản Việt theo, vì Pāli không có.
+    3. Bốn khoá đổi (không phải lỗi nghĩa, là chỉnh sắc thái/tiền lệ; lỗi nghĩa thật 0/58): `cp31:2.4` "nỗi chán nản quẩn quanh trong tâm ta" thành "nỗi bất mãn vận hành trong tâm ta" (`arati` = "bất mãn" theo tiền lệ `ja525:26.2`, `mnd8:67.2`; "chán nản" là `ukkaṇṭhitā` ở `mnd15:53.4`; bỏ "quẩn quanh" vì `carati` chỉ nói vận hành); `cp31:5.2` "con thơ" thành "con trai nhỏ" (`puttaka` là con trai, dạng chỉ nhỏ; ở 6–13 cậu bé được gọi là `dārako`, `kumārako`, `māṇavo`); `cp31:5.4` bỏ "ghé thăm" thêm vào `pāhunāgataṁ` (chỉ nói đến như khách); `cp31:12.1` bỏ "như vậy", đổi "sống" thành "thực hành" cho trùng nguyên văn `ja444:1.5` (cùng `carāmi`, và gọi lại `caritaṁ` ở 11.3 là "sự thực hành").
+    4. Dùng lại cách dịch đã công bố của `ja444:1.1–1.7` cho 11.1–12.3: 7 khoá đối chiếu, nay 0 chỗ lệch nghĩa (khác dạng chữ chỉ ở `acariṁ`/`ācariṁ`, `vāhi`/`vāpi`; "đã sống" ở 11.2 ja444 và "sống" ở đây là khác thì quá khứ, không đổi nghĩa). Các câu mở "Lại nữa, vào thời thuở nọ," giữ theo đa số tiền lệ cp (20/25 khoá mở đầu "Lại nữa, vào thời thuở nọ", phần còn lại là "khi ta là/còn là" hoặc "thuở xưa").
+    5. Số: `Paropaññāsavassāni` = "hơn năm mươi năm"; `paññāsasamādhikāni` = "năm mươi năm và hơn thế" (Sujato: "fifty years or more"); `Sattāhaṁ` = bảy ngày; `Tayo janā` = ba người (khớp "all three"); thứ mười một. Pāli `…`/`(…)` 0/0; nháy “ ‘ ’ ” khớp Pāli từng khoá; cặp Pāli trùng trong chính bài 0; 13.5–13.6 trùng `cp27:4.3`, `cp29:11.5`, `cp30:9.5`, `cp32:6.5` (4/4 bản Việt giống nhau).
+    6. `triangulation` nâng từ 7,5 lên 9,0 vì nay có một bản Anh độc lập đã xuất bản đối chiếu từng khoá; không lên cao hơn vì không có tầng Việt hiện hành. `ambiguity_integrity` 9,0, bất định còn lại giữ ở mục 8 của đợt 2026-10-12 (`vaṭṭa`, `mama vāhasi taṁ dukkhaṁ`, `abujjhitvāna`, `vāhi`, `kiriyaṁ`); Sujato đồng ý "ball", "as if mine", "awoke", "unwillingly" và "act/declaration of truth" cho các điểm đó nên không còn chỗ nào dựa vào đoán đơn độc.
+    7. Kỹ thuật: `technical_integrity` 9,6; bốn lệnh `npm run validate` · `npm test` · `npm run check` · `npm run build` do công cụ kho chạy sau khi ghi. Tập khoá Việt = Pāli (58/58), thứ tự theo Pāli, NFC, không khoá rỗng.

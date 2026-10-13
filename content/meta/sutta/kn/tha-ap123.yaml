@@ -23,11 +23,11 @@ quality:
     technical_integrity: 9.6
   final_score: 9.02
   blocking_errors:
-    - "Tầng tham khảo chưa được ghi nhận: tại commit đã ghim, translation/en/sujato chỉ có đúng MỘT tệp có chữ tha-ap là name/sutta/tha-ap-name, đó là tệp tên chứ không phải thân kinh, nên mẫu số coverage của tha-ap123 bằng 0 và Sujato phủ 0/0; tầng vietnamese-current chỉ có 26 tệp toàn bộ là Pháp Cú, english-project không có entry cho bài này. Với review và published thì validate coi đây là lỗi chặn; có entry trong reference-gaps.yaml không cứu được published."
-    - "unresolvedTerm: `Vītamalā` (tha-ap123:8.3) là hapax chưa phân xử được: tên chung của 25 vị hay tính từ 'không cấu uế'; bản dịch đọc là tên chung."
-  assessed_at: "2026-10-12"
+    - "noEnglishEditionUpstream: tại commit đã ghim, translation/en/sujato không có tệp thân kinh cho tha-ap123 (chỉ có tệp tên name/sutta/tha-ap-name), tức not-published-upstream; tầng vietnamese-current cũng vắng (chỉ có Pháp Cú) và english-project không có entry."
+    - "unresolvedTerm: `Vītamalā` (tha-ap123:8.3) chưa phân xử được: tên chung của 25 vị Chuyển Luân Vương hay tính từ 'không cấu uế'; bản dịch đọc là tên chung."
+  assessed_at: "2026-10-13"
   assessed_by:
-    - "Claude Sonnet 5.5 (Claude Code)"
+    - "Claude Opus 5.5 (Claude Code)"
 notes: |-
   **Phạm vi lát.** Lát này gồm hai bài `tha-ap123` và `tha-ap133`, mỗi bài 40 khoá
   trong `keys`, 41 khoá trong `all`. Tệp dịch trên đĩa trước khi lát chạy chỉ có
@@ -249,3 +249,39 @@ notes: |-
      không có bản Anh độc lập. Điểm sau sửa: `semantic_fidelity` 8,8, `grammar_logic` 8,9, `terminology`
      8,9, `vietnamese_clarity` 9,0 (đã trừ vì còn một hapax chưa phân xử và một tên hoa chưa quy ra từ
      Việt); `final_score` 9,02 là trung bình số học thô của 10 điểm.
+
+  **Giải quyết draft 2026-10-13 (vòng 2).** Mục này bổ sung, không thay các mục trên trừ chỗ nêu rõ.
+  1. **Phân loại blocker.** Blocker thứ nhất là loại (A): tại commit đã ghim `translation/en/sujato`
+     không có tệp thân kinh cho `tha-ap123` (0 tệp `tha-ap*` ngoài tệp tên `tha-ap-name`; bản chụp không
+     phát hành), tầng Việt hiện hành vắng, `english-project` không có entry; mẫu số coverage = 0. Câu cũ
+     dài và lẫn lời về `validate`/`reference-gaps`; đã viết lại thành một blocker ngắn, bắt đầu bằng
+     `noEnglishEditionUpstream:`, chỉ nêu đúng sự thật thiếu bản Anh. Bất định của `Vītamalā` đã nằm ở blocker
+     riêng, không gộp chung. Blocker thứ hai (loại D) GIỮ vì không phân xử được (mục 3).
+  2. **Đọc đối kháng lại cả 41 khoá từ Pāli, đối chiếu tiền lệ bằng số đếm.** Không có lỗi nghĩa thật mới:
+     0/41 khoá sai nghĩa; 1 khoá sửa về văn phong. `4.4` `okiriṁsu narāsabhaṁ`: "rải xuống đấng Nhân Ngưu" đổi
+     thành "rải lên đấng Nhân Ngưu" (`okirati` + đối cách = rải phủ lên người ấy; "xuống" kèm tân ngữ trực tiếp
+     là Việt lủng củng; không đổi nghĩa). Các điểm đã kiểm lại và giữ: `1.1–1.2` công thức `Ajjhāyako mantadharo,
+     tiṇṇaṁ vedāna pāragū` cùng cách hiểu (`ajjhāyako` = người tụng đọc, `veda` = Veda) với 10 khoá khác trong tầng (`tha-ap3:137`,
+     `tha-ap8:2`, `tha-ap129:1`, `tha-ap403:23`, `tha-ap410:46`, `tha-ap484:1`, `bv2:5`, `bv5:10`, `bv15:9`, `bv26:10`;
+     chỉ `tha-ap7:1` lệch, "ba thọ", và đó là lỗi); `2.3` `Tidhāpabhinnamātaṅgaṁ` khớp 3/3 tiền lệ; `narāsabhaṁ` "đấng Nhân Ngưu" là
+     cách dịch ổn định (nhiều khoá cùng dạng); `parivārenti` là ngôi thứ ba số nhiều (động từ không phải ngôi
+     thứ nhất), chủ thể là các bông hoa vừa được tung lên; `3.1` `Sereyyaka` là tên loài hoa
+     và cũng là tên vị trưởng lão (`tha-ap132:14.1` liệt kê tên ấy trong bài tóm tắt phẩm).
+  3. **`Vītamalā` (`8.3`) không giải quyết được; giữ blocker.** Căn cứ thu thập: (a) cấu trúc song song `[số kiếp]
+     + [số vị] + [tên]-sanāmā + cakkavattī mahabbalā` ở `tha-ap187:5` (`Isimuggasanāmā`), `tha-ap174:3` (`nāma
+     rājāno`), `tha-ap177:4` (`Siluccayasanāmā`) ủng hộ đọc là tên; (b) nhưng ở bài này chỗ đó là `Vītamalā samānā ca`,
+     không có `-nāma`/`-sanāmā`, và trong toàn kho Pāli kn `vītamala` còn ở 3 khoá khác (`thi-ap28:87.1` và `bv3:11.3` đi với `khīṇāsavā`
+     rõ là tính từ "không cấu uế"; `ja542:131.1` đi với `vellālino`); khoá gần nhất `tha-ap210:4.2` `eko vītamalo ahuṁ` cũng mơ hồ như
+     vậy. Hai cách đọc đều cho cùng đối tượng (25 vị Chuyển Luân Vương) nhưng khác nhau ở chỗ có hay không một tên riêng
+     trong lời kinh, nên không thể xem là đã phân xử. Bản dịch vẫn đọc là tên chung ("cùng mang tên"), theo tiền lệ
+     `tha-ap177:4.3`, nhưng đây là lựa chọn, không phải kết luận.
+  4. **Số Pāli đã tính lại.** `Pannarasasahassamhi` = 15 × 1.000 = 15.000 kiếp; `kappānaṁ pañcavīsati` = 25 (số vị,
+     theo `tha-ap187:5.1–5.2` "bốn mươi ngàn kiếp / ba mươi tám vị" và `tha-ap174:3.1–3.2`); `satasahassaṁ` = 100.000;
+     `catasso` = 4, `aṭṭha` = 8, `chaḷ` = 6. Khớp bản dịch.
+  5. **Tầng tham khảo.** Không có bản Anh Sujato cho bài này, nên không có đối chiếu Anh độc lập; `triangulation`
+     giữ 7,6 (≤ 8,0), chỉ dựa trên Pāli và các khoá Pāli trùng/song song trong tầng. Tầng Việt hiện hành chỉ có Pháp Cú.
+  6. **Tự kiểm.** Tập khoá Việt = Pāli (41/41), thứ tự theo Pāli; dấu nháy kép `“”` khớp Pāli (1 mở, 1 đóng), nháy đơn
+     0/0; không `…`; NFC; không khoá rỗng; Pāli không lọt sang Việt ngoài tên riêng. Cổng kỹ thuật (`npm run validate` ·
+     `npm test` · `npm run check` · `npm run build`) do công cụ kho/CI chạy; `technical_integrity` giữ 9,6.
+  7. **Điểm.** Không đổi: `final_score` 9,02 là trung bình số học thô của 10 điểm; blocker `unresolvedTerm` còn lại thắng
+     điểm nên bài vẫn là `draft`.

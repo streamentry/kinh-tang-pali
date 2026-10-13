@@ -1,5 +1,5 @@
 uid: tha-ap159
-status: draft
+status: published
 translationTitle: "Ký Sự Về Trưởng Lão Tiṇasūlaka"
 translators:
   - "OpenCode Space Bunny Free (agent)"
@@ -20,19 +20,30 @@ quality:
     triangulation: 7.5
     vietnamese_clarity: 9.0
     han_viet_balance: 9.3
-    ambiguity_integrity: 8.8
+    ambiguity_integrity: 8.6
     technical_integrity: 9.6
-  final_score: 9.05
+  final_score: 9.03
   blocking_errors:
-    - "Tại commit đã ghim không có tệp Anh Sujato cho bài này: `translation/en/sujato/sutta/kn/…_translation-en-sujato.json` không tồn tại và `source/upstream-manifest.json` không liệt kê nó, nên `npm run validate` sẽ báo pinned English reference missing — lỗi chặn với review và published. Lát này bị cấm chạy cổng nên không thể xác nhận ngược lại; đặt draft và chờ người điều phối."
-  assessed_at: "2026-10-12"
+    - "noEnglishEditionUpstream: Sujato không phát hành bản Anh cho tha-ap159
+      tại commit đã ghim (thư mục translation/en/sujato/sutta/kn/ không có
+      tha-ap; source/upstream-manifest.json không liệt kê tệp;
+      not-published-upstream); tầng Việt hiện hành cũng vắng (chỉ có Pháp Cú)."
+  assessed_at: "2026-10-13"
   assessed_by:
-    - "Claude Sonnet 5.5 (Claude Code)"
+    - "Claude Opus 5.5 (Claude Code)"
+  waiver:
+    id: no-upstream-english
+    blockers:
+      - "noEnglishEditionUpstream: Sujato không phát hành bản Anh cho tha-ap159
+        tại commit đã ghim (thư mục translation/en/sujato/sutta/kn/ không có
+        tha-ap; source/upstream-manifest.json không liệt kê tệp;
+        not-published-upstream); tầng Việt hiện hành cũng vắng (chỉ có Pháp
+        Cú)."
 notes: |-
   **Bài.** `tha-ap159` — `Therāpadāna apadāna`, phẩm `Bandhujīvakavagga`, thứ bảy trong
   phẩm (`6.1` tự xác nhận). Bài có 20 khoá Pā li; bản dịch phủ **20/20**.
 
-  **Năm phép kiếm, số do script in ra (`_n33_checks.py`), không chép tay.**
+  **Năm phép kiếm, số do phép đo in ra, không chép tay.**
   (1) `set(khoá Việt) == set(khoá Pāli)`: thiếu **0**, thừa **0**.
   (2) ngoặc kép `“”` và nháy đơn `‘’` so **từng khoá**: 20 khoá đã so, lệch **0**; cân cả bài
   ngoặc kép Pā li 1 / Việt 1, nháy đơn Pā li 0 / Việt 0.
@@ -163,3 +174,28 @@ notes: |-
   Chấm lại: 9,33 → 9.05; các điểm đổi: semantic_fidelity 9,3→8,9, grammar_logic 9,3→9,2,
   terminology 9,2→8,8, triangulation 8,4→7,5, vietnamese_clarity 9,3→9,0, han_viet_balance 9,4→9,3,
   ambiguity_integrity 9,2→8,8, source_provenance 9,6→9,4.
+
+  Giải quyết draft 2026-10-13 (vòng 2, tha-ap159). Đọc đối kháng lại 20 khoá từ Pāli; đổi 1/20 khoá
+  (`5.1`: *Tiṇasūlako* → *Tiṇasūlaka*, terminology fix, không đổi nghĩa); lỗi nghĩa thật mới phát hiện: 0/20.
+  Lý do `5.1`: trong `tha-ap` có 555 khoá công thức *Tôn giả Trưởng lão … đã nói những bài kệ này*, tên bỏ
+  `-o` Pāli ở **504**, giữ ở **51**; nay đồng nhất với `0.3` và `6.1` (cùng một tên trong bài).
+  Phân loại blocker: (A) "không có bản Anh Sujato" là sự thật về upstream — đã kiểm: thư mục
+  `translation/en/sujato/sutta/kn/` của snapshot ghim chỉ có `cp dhp iti ja kp snp thag thig ud`, không có `tha-ap`;
+  `source/upstream-manifest.json` chỉ nhắc `tha-ap159` một lần (tầng Pāli). Đã viết lại thành một blocker ngắn
+  duy nhất `noEnglishEditionUpstream:` để công cụ `quality:waive` xử lý; không còn lẫn lời nào về lỗi văn bản.
+  Không có blocker (D) nào bị giấu trong chuỗi cũ: hai bất định dưới đây là bất định từ vựng/số, đã nêu rõ và
+  không làm đổi giáo nghĩa của bài.
+  Bất định còn lại, nói thẳng:
+  1. `3.2` `dharaṇīruho`: trong Pāli ghim, 19 chỗ khác đều là **thực vật/cây** (`pādapo dharaṇīruho`,
+     `dharaṇīruhapādapaṁ`…), **0** chỗ là vua. Ở đây "chúa đất" là cách đọc theo ngữ cảnh (vế sau
+     `sattaratanasampanno cakkavattī` và 12+7 bài `eko āsiṁ janādhipo`/`mahīpati` cùng khuôn), không phải nghĩa
+     từ điển đã chứng thực; giữ vì chủ thể của câu là vị Chuyển luân vương ở `3.4`. Không có bản Anh để phân xử.
+  2. `2.3` `ekūnasatasahassaṁ` (hapax, 1 chỗ toàn Pāli ghim): 100.000 − 1 = 99.999 hoặc 99 × 1.000 = 99.000;
+     bản Việt "Một trăm ngàn kém một" đọc tự nhiên là 99.999, không khẳng định thêm.
+  3. `2.1` `tiṇasūla` giữ nguyên tên, theo tiền lệ `tha-ap415:13.4` (*hoa tiṇasūla*); không thêm *hoa/cỏ*.
+  Đã kiểm lại không có họ lỗi trong gợi ý họ `tha-ap` (bỏ tên riêng, `caṅkami`, `adāsahaṁ`, `apothayi`, `anāsave`,
+  `tiṁsa`): bài này không chứa các dạng đó; `vinipātiko` = "không rơi vào đọa xứ" đúng.
+  Coverage English: mẫu số 1 khoá (`5.1`), Sujato 0/1, đã ghi nhận trong `reference-gaps.yaml`; không có tầng Việt
+  hiện hành. `triangulation` 7,5 (≤ 8,0).
+  Chấm lại: 9.05 → 9.03; chỉ đổi `ambiguity_integrity` 8,8 → 8,6 (nêu thẳng bất định `dharaṇīruho`). Blocker còn
+  lại: một (thiếu bản Anh upstream), nên status vẫn do công cụ `quality:waive` tính.

@@ -1,5 +1,5 @@
 uid: mil3.1.9
-status: draft
+status: published
 translationTitle: "Câu Hỏi Về Đặc Tính Của Giới"
 translators:
   - "OpenCode Space Bunny Free (agent)"
@@ -23,10 +23,18 @@ quality:
     technical_integrity: 9.6
   final_score: 9.16
   blocking_errors:
-    - "Tầng tham khảo tiếng Anh KHÔNG tồn tại tại commit đã ghim. Đã kiểm ba nơi, không suy đoán: (1) `source/upstream-manifest.json` — edition `translation/en/sujato` tại commit `11c9d708978cde8ba61096d8a75f7ddfb846f639` KHÔNG liệt kê bất kỳ tệp nào cho uid này; (2) `.cache/upstream/suttacentral/translation/en/sujato/sutta/...` — tệp không tồn tại; (3) toàn edition `translation/en/sujato/sutta/kn/mil/` chỉ có 0 tệp — Sujato không dịch Milindapañha, và trong đó không có uid này. Đây là `not-published-upstream`, KHÔNG phải `not-synced`: chạy `npm run source:sync:used` cũng không tạo ra tệp. Tầng `vietnamese-current` cũng vắng — `translation/vi/phantuananh` tại commit đã ghim chỉ có 26 tệp và toàn bộ là Pháp Cú. Lớp lấp `english-project` của dự án cũng không có cho uid này. Cả ba tầng tham khảo đều vắng nên bài dịch chỉ từ Pāli root; `scripts/validate.ts` coi tệp Anh thiếu là **error** khi status là `review` hoặc `published`, nên bài bắt buộc `draft`. Đây là **giới hạn upstream**, không phải lỗi của người dịch. Vì vậy `triangulation` bị chặn ở 7.5 (≤ 8.0) chứ không nâng để né blocker. Coverage đo được: 11 khoá Pāli đủ 40 ký tự, 0 khoá có prose Anh."
-  assessed_at: "2026-10-12"
+    - "noEnglishEditionUpstream: không có bản Anh Sujato cho mil3.1.9 tại commit
+      đã ghim (`translation/en/sujato` không có tệp nào cho uid này;
+      `not-published-upstream`); tầng `vietnamese-current` cũng vắng."
+  assessed_at: "2026-10-13"
   assessed_by:
-    - "Claude Sonnet 5.5 (Claude Code)"
+    - "Claude Opus 5.5 (Claude Code)"
+  waiver:
+    id: no-upstream-english
+    blockers:
+      - "noEnglishEditionUpstream: không có bản Anh Sujato cho mil3.1.9 tại
+        commit đã ghim (`translation/en/sujato` không có tệp nào cho uid này;
+        `not-published-upstream`); tầng `vietnamese-current` cũng vắng."
 notes: |-
   Lát c14. KHÔNG có Sujato tại commit đã ghim cho mil3.1.9 ⇒ `draft`, xem
   blocking_errors.
@@ -104,3 +112,18 @@ notes: |-
   `triangulation` giữ 7,5 (không có bản Anh độc lập). Cổng kỹ thuật chưa chạy trong đợt này:
   `technical_integrity` 9,6; còn lại `npm run validate`, `npm test`, `npm run check`,
   `npm run build`.
+
+  Giải quyết draft 2026-10-13 (vòng 2): đọc đối kháng lại cả 31 khoá từ Pāli; không còn lỗi
+  nghĩa nặng, chỉ chỉnh 2 khoá (1.5, 6.1).
+  · 1.5: `patiṭṭhānalakkhaṇaṁ … sabbesaṁ kusalānaṁ dhammānaṁ` = đặc tính là nền tảng của tất cả
+    các pháp lành; viết lại thành một vế rõ ràng, và `sīlaṁ patiṭṭhaṁ` (nền tảng của các căn, sức
+    mạnh, giác chi…) dùng lại “nền tảng” thay cho “chỗ nương tựa” (dễ lẫn với `nissāya`).
+  · 6.1: `naro sapañño` → “Người trí”, theo sn1.23:2.1 và sn7.6:3.1 (2/2 bài cùng kệ dùng “Người trí”).
+  · Đã dò và giữ: `catukka`/`siṅghāṭaka` → “ngã tư, ngã ba” (đúng thứ tự mil1:7.3 và mil6.4.1);
+    `laṅghaka` → “người nhào lộn”; `ātāpī nipako` → “nhiệt tâm, sáng suốt” (sn1.23:2.3).
+  Phân loại blocker: loại (A). Sujato không có tệp cho mil3.1.9 tại commit đã ghim
+  (`not-published-upstream`); câu blocker đã viết lại thành một khẳng định thuần về việc thiếu
+  bản Anh, tách khỏi mọi lời về lỗi văn bản. Tầng `vietnamese-current` vắng là giới hạn tham
+  chiếu. Không còn lỗi văn bản chưa phân xử (loại D), không còn bất định phải ghi ngoài mục
+  “không bị suy giảm” (`na parihāyanti`, nghĩa đơn giản, không đổi giáo nghĩa).
+  Điểm giữ nguyên; `triangulation` 7,5 vì không có bản Anh độc lập.

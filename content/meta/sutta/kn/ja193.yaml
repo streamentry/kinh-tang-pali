@@ -1,5 +1,5 @@
 uid: ja193
-status: draft
+status: review
 translationTitle: "Kinh Hoa Sen Nhỏ"
 translators:
   - "OpenCode Space Bunny Free (agent)"
@@ -21,10 +21,21 @@ quality:
     technical_integrity: 9.6
   final_score: 8.76
   blocking_errors:
-    - "Thiếu tầng tham khảo: tại commit đã ghim không có tệp nào cho `ja193` trong `translation/en/sujato/sutta/kn/ja/`. Không đối chiếu được English nào, nên `draft` bất kể điểm."
+    - "noEnglishEditionUpstream: không có tệp `ja193_translation-en-sujato.json`
+      trong `translation/en/sujato/sutta/kn/ja/` tại commit đã ghim
+      (`not-published-upstream`); tầng Việt hiện hành cũng vắng, nên không có
+      bản tham khảo độc lập nào."
   assessed_at: "2026-10-13"
   assessed_by:
-    - "Claude Sonnet 5.5 (Claude Code)"
+    - "Claude Opus 5.5 (Claude Code)"
+  waiver:
+    id: no-upstream-english
+    blockers:
+      - "noEnglishEditionUpstream: không có tệp
+        `ja193_translation-en-sujato.json` trong
+        `translation/en/sujato/sutta/kn/ja/` tại commit đã ghim
+        (`not-published-upstream`); tầng Việt hiện hành cũng vắng, nên không có
+        bản tham khảo độc lập nào."
 notes: |-
   **Blocker thật: không có tầng Anh.** Không có `ja193_translation-en-sujato.json` trong `kn/ja/` tại commit đã ghim. Tôi dịch từ Pāli một mình và đặt `draft`; không tự nâng điểm để né. Vì vậy `:1.3`–`:1.4` (câu khó nhất của bài) chỉ đứng được trên Pāli, và tôi hạ `semantic_fidelity`/`ambiguity_integrity` xuống vì lý do đó.
 
@@ -63,3 +74,9 @@ notes: |-
   **Bất định còn lại (không đưa vào thân kinh).** (a) Người nói và bối cảnh không nằm trong lớp Pāli root của bài (chỉ có hai bài kệ và dòng kết); tôi dùng *"tôi"* trung tính cho ngôi một thay vì *"ta"* hay xưng hô của riêng ai. (b) `komārapatī` có thể là *chồng thuở thiếu thời* hoặc *chồng đầu tiên*; tôi giữ *thuở thiếu thời* sát từ gốc `komāra`. (c) `yamāha` có thể là *(người) mà nàng nói là* hoặc *điều nàng nói là*; hai cách đọc cho cùng nghĩa. (d) `pāpapatibbatāya`: *một cách xấu ác* (tính từ ghép của `patibbatā`) là cách đọc tôi chọn; cách hiểu *thủy chung với kẻ xấu* không bị loại hẳn bằng lớp Pāli. `technical_integrity` giữ 9,6: không chạy `npm run validate` · `npm test` · `npm run check` · `npm run build`. Kiểm tra: 13/13 khoá khớp Pāli, thứ tự khoá đúng, nháy đơn và nháy kép khớp từng khoá, không có dấu lược, không Pāli lọt sang bản Việt, không cặp Pāli trùng nội bộ.
 
   Sửa lan 2026-10-13: khoá `ja193:0.3` (`Ruhakavagga`): *Phẩm Dây Leo* → *Phẩm Ruhaka*. Căn cứ: bài đầu của phẩm là `ja191` `Ruhakajātaka`, tên bài đã dịch *Kinh Ruhaka* (tên riêng) và `ja191:1.1` đọc `ruhaka` là hô ngữ *Này Ruhaka*; còn `jiyā` ở `ja191:1.2` là *dây cung*, không phải cây leo, nên nghĩa *dây leo* cho `ruhaka` không có căn cứ trong Pāli. Tiền lệ: phẩm Jātaka đặt theo tên riêng của bài đầu phẩm giữ nguyên Pāli (*Phẩm Cūḷakuṇāla*, *Phẩm Gandhāra*, *Phẩm Soṇaka*, *Phẩm Kāliṅga*…). BẤT ĐỊNH: nghĩa của `ruhaka` không phân xử được từ tầng Pāli đã ghim (không có bản Anh), nên chọn phiên âm để không khẳng định nghĩa. Ngoài lát này, `ja191`, `ja199`, `ja200` vẫn *Phẩm Dây Leo* (và `ja200:3.2` ghi *Phẩm Thằn Lằn*) — cần thống nhất.
+
+  **Giải quyết draft 2026-10-13 (vòng 2).** Đọc đối kháng lại cả 13 khoá từ Pāli (9 khoá kệ `:1.1`–`:2.4`, bốn khoá tiêu đề, một dòng kết); **0/13 khoá lỗi nghĩa thật** nên bản dịch không đổi. Đã kiểm lại từng điểm: `ayameva sā … so anañño` (hai vị ngữ chỉ người, phủ định `anañño` giữ cả hai lần); `hatthacchinno` = *bị chặt tay*; `yamāha ‘komārapatī maman’ti` trọn trong `:1.3`, nháy đơn mở và đóng đúng khoá Pāli; `vajjhitthiyo` đủ hai vế *đáng bị xử tử* và `natthi itthīsu saccaṁ`; `musalena hantvā` = *dùng chày đập chết*; `jammaṁ`/`luddaṁ`/`chavaṁ`/`paradārūpaseviṁ` khớp các tiền lệ đã nêu ở mục 2026-10-12; `jīvantiyā` = *khi nàng còn sống*; `kaṇṇanāsaṁ` = *tai và mũi*. Tiêu đề: `:0.2` *Bộ Hai Bài Kinh* và `:0.3` *Phẩm Ruhaka* là chuẩn hoá của người điều phối/sửa lan đã ghi ở trên, `:0.4` khớp `translationTitle`.
+
+  **Phân loại blocker: (A) thiếu bản Anh upstream; không có blocker loại B/C/D.** Đã kiểm thực tế: không có `ja193_translation-en-sujato.json` ở thư mục Sujato `kn/ja/` của bản chụp đã ghim và `source/upstream-manifest.json` không liệt kê tệp Sujato nào cho `ja193`, nên đây là sự thật về upstream (`not-published-upstream`), không phải blocker sai. Blocker được viết lại thành đúng một khẳng định về việc thiếu bản Anh (bắt đầu bằng `noEnglishEditionUpstream:`), không còn lẫn lời về lỗi văn bản. Không có blocker thứ hai: mọi bất định văn bản còn lại (mục *Bất định còn lại* ở trên, nhất là `pāpapatibbatāya`) là điểm đọc có cân nhắc, không phải chỗ chưa phân xử được làm thay đổi giáo nghĩa; chúng được ghi ở notes và phản ánh ở `ambiguity_integrity`. Tầng Việt hiện hành vắng là giới hạn tham chiếu của bản chụp (chỉ có Pháp Cú), không phải lỗi văn bản.
+
+  **Chấm lại.** Điểm giữ nguyên (final_score 8,76 = trung bình thô 10 tiêu chí): bản đã đúng Pāli sau lượt sửa 2026-10-12, nhưng `triangulation` vẫn 7,0 vì không có bản đối chiếu độc lập nào, và `semantic_fidelity`/`ambiguity_integrity` bị giữ thấp vì cú pháp `pāpapatibbatāya` (*thủy chung với chồng một cách xấu ác* hay *thủy chung với kẻ chồng xấu ác*) chỉ đứng được trên Pāli một mình. Pāli `ja193` không có dấu lược nên không có `…`/`(…)`; không có số đếm Pāli. `technical_integrity` giữ 9,6: không chạy `npm run validate` · `npm test` · `npm run check` · `npm run build`.

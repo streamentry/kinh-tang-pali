@@ -13,7 +13,7 @@ tags:
 quality:
   scores:
     source_provenance: 9.5
-    semantic_fidelity: 8.3
+    semantic_fidelity: 8.4
     grammar_logic: 8.3
     segment_alignment: 10.0
     terminology: 8.8
@@ -22,13 +22,13 @@ quality:
     han_viet_balance: 9.2
     ambiguity_integrity: 9.0
     technical_integrity: 9.6
-  final_score: 8.9
+  final_score: 8.91
   blocking_errors:
-    - "noEnglishEditionUpstream: Thiếu bản dịch tiếng Anh đối chiếu. Tầng english-sujato tại commit đã ghim không có ja514_translation-en-sujato.json (ja chỉ có 83 tệp; đây là not-published-upstream, không phải not-synced), tầng vietnamese-current chỉ có Pháp Cú và lớp lấp english-project không có tệp cho bài này. Cả ba tầng tham khảo đều vắng nên triangulation bị chặn ở 7.5 (≤ 8.0) và bài giữ draft."
-    - "unresolvedTerm: Khoá ja514:40.1 có từ anāvasūraṁ không xác lập được nghĩa (toàn Pāli đã ghim chỉ có một lần, không có tầng đối chiếu nào, không có ngữ cảnh đủ để suy). Bản Việt cố ý không dịch từ này thay vì đoán; cần người biên tập phân xử trước khi publish."
-  assessed_at: "2026-10-12"
+    - "noEnglishEditionUpstream: tầng english-sujato tại commit đã ghim không có tệp cho ja514 (thư mục ja chỉ có 83 tệp; not-published-upstream, không phải not-synced); tầng vietnamese-current cũng vắng và lớp english-project không có tệp cho bài này."
+    - "unresolvedTerm: Khoá ja514:40.1 có từ anāvasūraṁ không xác lập được nghĩa (một lần duy nhất trong toàn Pāli đã ghim, không bài song song, không tầng đối chiếu); bản Việt không dịch từ này thay vì đoán. Khoá ja514:14.2 từ uddhañca cũng chưa đủ căn cứ nên không dịch. Cần người biên tập phân xử trước khi publish."
+  assessed_at: "2026-10-13"
   assessed_by:
-    - "Claude Sonnet 5.5 (Claude Code)"
+    - "Claude Opus 5.5 (Claude Code)"
 notes: |-
   Dịch trực tiếp từ Pāli root snapshot bilara đã ghim, đường dẫn `kn/ja/ja514_root-pli-ms.json` (175/175 khoá, đúng thứ tự Pāli, không khoá thừa). Bài toàn kệ; phần văn xuôi của Jātaka không nằm trong tầng Pāli đã ghim nên bối cảnh câu chuyện chỉ được suy từ chính các bài kệ.
 
@@ -75,3 +75,7 @@ notes: |-
     Đọc lại đối kháng toàn bài (175 cặp Pāli↔Việt) từ Pāli, không có bản Anh hay Việt đã ghim để đối chiếu. Sửa 3 khoá: `10.2` và `19.2` bỏ chữ "xuống" ("nhìn xuống chân núi" → "nhìn chân núi"), vì `olokaya`/`olokayī` chỉ là "nhìn, quan sát" (tiền lệ tầng: `cnd20:25.5`, `mil2:10.3` không có nghĩa hướng xuống) và `pabbatapādamūlaṁ` là "chân núi", Pāli không nói hướng nhìn; `29.2` bỏ chữ "tên" trước `subhaddā` ("bà … tên Subhaddā" → "bà … rất cát tường"): Pāli ghi `subhaddā` viết thường (tên riêng trong tầng này viết hoa: `Kāsi`, `Suvaṇṇapassa`, `Devadatto`), cùng kiểu với `sabbabhaddaṁ` ở `17.4`/`34.4` vốn đã dịch là tính từ, nên không có căn cứ để khẳng định đây là tên riêng; cách đọc tên riêng (Subhaddā) vẫn có thể đúng, chưa phân xử được từ Pāli đã ghim. Lỗi nghĩa thật: 3/175 khoá (2 khoá thêm hướng nhìn không có trong Pāli, 1 khoá khẳng định tên riêng không có căn cứ trong Pāli).
     Blocker `noEnglishEditionUpstream`: giữ nguyên (sự thật về upstream, thuộc diện waiver `no-upstream-english` của người biên tập). Blocker `unresolvedTerm` (`40.1` `anāvasūraṁ`): thử giải quyết và KHÔNG giải được, nên GIỮ. Đã quét toàn Pāli đã ghim (mọi bộ): `anāvasūraṁ` chỉ xuất hiện đúng một lần, ở chính khoá này; không có dạng gần (`avasūra`, `āvasūra`) ở bất kỳ nơi nào; không có bài song song, không có mục glossary, tầng Anh không có `ja514`, không có bản Việt nguyên bài cho `ja514` trong kho tra cứu toàn văn. Cũng không phân tích được từ cấu tạo (`an-` + `āvasūra` không có gốc nào xác lập). Vì vậy không đoán nghĩa; khoá `40.1` tiếp tục chỉ dịch phần chắc (`cirarattasaṁsitaṁ`), và `40.2` đọc cùng mạch là hành trạng xưa được tán thuật từ lâu. Ngoài ra `14.2` `uddhañca` chưa giải, vẫn không dịch từ này (xem trên) vì nghĩa không đủ căn cứ; câu vẫn đứng được từ phần chắc và không đổi giáo nghĩa.
     Điểm giữ nguyên so với lượt 2026-10-11 (không thay đổi nghĩa đáng kể; `triangulation` vẫn ≤ 8.0 do thiếu bản Anh độc lập); bài vẫn `draft` vì còn blocker.
+  - Giải quyết draft 2026-10-13 (vòng 2):
+    Đọc lại đối kháng toàn bài (175 cặp Pāli↔Việt) từ Pāli đã ghim; không có bản Anh hay Việt đã ghim để đối chiếu. Sửa 2 khoá: `8.4` đổi "mà nàng đã thấy" thành "mà bà đã thấy": đây là lời các thợ săn (đáp lại `7.3`–`7.4`, nơi họ gọi bà là công chúa) hỏi hoàng hậu, nên "nàng" là xưng hô của vua với hoàng hậu, không hợp người nói; Pāli không có đại từ nên đây là sửa xưng hô, không đổi nghĩa; `40.1` đổi "Câu chuyện xưa đã được tán thuật từ lâu" thành "Đã được tán thuật từ lâu": `40.1` chỉ có hai từ tính từ (`anāvasūraṁ`, `cirarattasaṁsitaṁ`) bổ nghĩa cho `caritaṁ purāṇaṁ` ở `40.2`; danh từ "câu chuyện" (và chữ "xưa") ở `40.1` là phần thêm vào, trùng với "hành trạng xưa" của `40.2`. Lỗi nghĩa thật: 1/175 khoá (`40.1`, thêm danh từ không có trong Pāli của khoá ấy), cộng 1/175 khoá sửa xưng hô (`8.4`).
+    Phân loại blocker: `noEnglishEditionUpstream` thuộc loại (A): đã kiểm lại, thư mục Sujato `translation/en/sujato/sutta/kn/ja` tại commit đã ghim có 83 tệp, không có `ja514_translation-en-sujato.json` (các uid ja gần nhất có tệp là `ja466`, `ja534`), nên đây là `not-published-upstream`; blocker được viết lại ngắn, chỉ nêu sự thật về upstream, bỏ phần bàn về điểm số và trạng thái. `unresolvedTerm` thuộc loại (D): vẫn GIỮ. Quét lại Pāli đã ghim: `anāvasūraṁ` chỉ xuất hiện đúng một lần (chính `ja514:40.1`); các dạng gần như `avasūra`, `āvasūra` không có; chuỗi `sūr` duy nhất ngoài khoá này là `yāvasūriyuggamanā` ở `sn20.8` (nghĩa "cho đến khi mặt trời mọc", không liên quan). Không có bài song song, không có mục glossary, không có tầng Anh/Việt đối chiếu, không phân tích được từ cấu tạo (`an-` + `āvasūra` không có gốc xác lập; `saṁsita` còn có nghĩa "đếm, tính" ở `sn15.5`–`sn15.6`, nên `cirarattasaṁsitaṁ` giữ cách đọc "được tán thuật từ lâu" là đọc có thể chứ không chắc). Vì vậy không đoán nghĩa. `14.2` `uddhañca` (không tìm được dạng song song nào trong Pāli đã ghim) cũng không dịch, nay được ghi vào blocker `unresolvedTerm` cho trung thực.
+    Chấm lại: `semantic_fidelity` 8.3 → 8.4 (hai khoá nêu trên đã sửa; vẫn còn hai từ không dịch và nhiều chỗ đọc chưa chắc: `1.1`, `3.2`, `23.3`, `24.3`, `31.1`, `35.3`); các điểm khác giữ; `triangulation` vẫn 7.5 (≤ 8.0) vì không có bản Anh độc lập. `final_score` 8.91 (trung bình thô). Còn blocker nên bài vẫn `draft`.

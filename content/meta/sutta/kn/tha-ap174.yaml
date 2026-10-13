@@ -1,5 +1,5 @@
 uid: tha-ap174
-status: draft
+status: published
 translationTitle: "2. Ký Sự Về Trưởng Lão Nisseṇidāyaka"
 translators:
   - "OpenCode Space Bunny Free (agent)"
@@ -24,10 +24,20 @@ quality:
     technical_integrity: 9.6
   final_score: 9.22
   blocking_errors:
-    - "Tại commit đã ghim không có tệp Anh Sujato cho bài này: `translation/en/sujato/sutta/kn/…_translation-en-sujato.json` không tồn tại và `source/upstream-manifest.json` không liệt kê nó, nên `npm run validate` sẽ báo pinned English reference missing — lỗi chặn với review và published. Lát này bị cấm chạy cổng nên không thể xác nhận ngược lại; đặt draft và chờ người điều phối."
-  assessed_at: "2026-10-12"
+    - "noEnglishEditionUpstream: tại commit đã ghim, Sujato không phát hành bản
+      Anh cho bài này (`translation/en/sujato/sutta/kn/` không có tệp tha-ap174
+      và `source/upstream-manifest.json` không liệt kê;
+      `not-published-upstream`); tầng Việt hiện hành cũng vắng."
+  assessed_at: "2026-10-13"
   assessed_by:
-    - "Claude Sonnet 5.5 (Claude Code)"
+    - "Claude Opus 5.5 (Claude Code)"
+  waiver:
+    id: no-upstream-english
+    blockers:
+      - "noEnglishEditionUpstream: tại commit đã ghim, Sujato không phát hành
+        bản Anh cho bài này (`translation/en/sujato/sutta/kn/` không có tệp
+        tha-ap174 và `source/upstream-manifest.json` không liệt kê;
+        `not-published-upstream`); tầng Việt hiện hành cũng vắng."
 notes: |-
   **Bài.** `tha-ap174` — `Therāpadāna apadāna`, phẩm `Kumudavagga`, thứ hai
   (`6.1` tự xác nhận). Bài có 20 khoá Pā li; bản dịch phủ **20/20**.
@@ -131,3 +141,21 @@ notes: |-
   - Phép kiểm sau sửa: tập khoá 20/20, `…` đúng một ở `4.2`, ngoặc `“”` khớp Pāli từng khoá, 0 cặp Pāli
     trùng trong bài. Điểm: provenance 9,6→9,4; semantic 9,3→9,2; clarity 9,3→9,2; Hán–Việt 9,4→9,3;
     ambiguity 9,2→9,0; triangulation 8,4→8,0; `final_score` 9,33→9,22.
+
+  **Giải quyết draft 2026-10-13 (vòng 2).** Đọc đối kháng lại cả 20 khoá từ Pāli; **0/20** khoá lỗi nghĩa thật;
+  **1** khoá tinh chỉnh độ sát chữ.
+  - `3.4` `cakkavattī mahabbalā`: `mahā + bala` là *đại lực*; *oai* là nghĩa thêm so với Pāli. Đo trên 80 khoá
+    cùng Pāli trong `tha-ap`: *đại oai lực* ~29, *đại uy lực* ~17, *đại thần lực* ~18, *đại lực* 8 (gồm cả
+    `tha-ap173:7.4`, `tha-ap178:3.4` cùng phẩm); tầng chưa có quy ước thống nhất, nên chọn dạng sát chữ nhất:
+    *là các Chuyển Luân Vương có đại lực.* Cần người điều phối quy một dạng cho cả họ.
+  - Giữ nguyên các khoá còn lại sau khi đối chiếu từng chữ: `1.3`–`1.4` (`ārohatthāya pāsādaṁ` = để đi lên lầu
+    đài; `nisseṇī kāritā mayā` = bậc thang do tôi cho làm), `2.2` (`anubhotvāna` bất biến, chủ ngữ `ahaṁ` ở `2.3`),
+    `3.1`–`3.3` (31 nghìn kiếp theo khuôn `tha-ap57:9.1` / `tha-ap177:4.1`; `tayo` = ba vị; `Sambahulā` là tên,
+    hapax), `4.1`–`4.3`, `5.1`, `6.1`, `0.3`. Các họ lỗi lan của họ này (`caṅkami`, `apothayi`, `anāsave`,
+    `tiṁsa`…) không có mặt trong bài.
+  - Blocker (A): chuỗi cũ pha lời về việc không chạy được cổng; viết lại thành một khẳng định thuần về upstream
+    (`noEnglishEditionUpstream:`): không có tệp Sujato cho bài này tại commit ghim (cache chỉ có 9 tệp `kn` của Sujato,
+    không tệp nào thuộc `tha-ap`), tầng Việt hiện hành chỉ có Pháp Cú — giới hạn tham chiếu, không phải lỗi văn bản.
+    Không còn bất định văn bản nào bị gộp trong blocker; hai bất định về `pāsāda`/`nisseṇī` và `Sambahulā` nằm ở
+    mục Bất định, không chặn.
+  - Điểm: giữ nguyên 10 tiêu chí (triangulation 8,0 vì không có bản Anh độc lập); `final_score` 9,22.
