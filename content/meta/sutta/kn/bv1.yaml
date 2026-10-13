@@ -11,16 +11,16 @@ tags:
 quality:
   scores:
     source_provenance: 9.4
-    semantic_fidelity: 8.7
-    grammar_logic: 8.6
+    semantic_fidelity: 8.8
+    grammar_logic: 8.7
     segment_alignment: 10.0
-    terminology: 8.7
+    terminology: 8.8
     triangulation: 7.0
-    vietnamese_clarity: 8.8
+    vietnamese_clarity: 8.9
     han_viet_balance: 9.1
     ambiguity_integrity: 8.6
     technical_integrity: 9.6
-  final_score: 8.85
+  final_score: 8.89
   blocking_errors:
     - "noEnglishEditionUpstream: Không có tầng tham khảo tiếng Anh tại commit đã
       ghim: `source/upstream-manifest.json` chỉ liệt kê
@@ -33,7 +33,7 @@ quality:
       dịch chỉ từ Pāli root và đối chiếu tiền lệ nội bộ, bài bắt buộc `draft` và
       `triangulation` không quá 8,0. Đây là giới hạn upstream, không phải lỗi
       của người dịch."
-  assessed_at: "2026-10-11"
+  assessed_at: "2026-10-13"
   assessed_by:
     - "Claude Sonnet 5.5 (Claude Code)"
   waiver:
@@ -86,7 +86,7 @@ notes: |-
   - Nháy: nháy kép mở 2.3 đóng 2.4; 4.1–6.4; 23.4–24.4; 28.1–28.4; 34.1–34.4; 38.1–49.4 (một lời bao cả dòng tường thuật 44–47, giữ nguyên theo Pāli từng khoá); 65.1–72.6, trong đó nháy đơn 68.1–68.4 lồng; 76.1–78.4; 81.1–82.4. Đã kiểm khớp Pāli từng khoá: 0 lệch trên 334 khoá (20 khoá có dấu nháy).
 
   **Bất định (ghi ở đây, không thêm vào thân kinh).**
-  1. `15.1` `Tulāsaṅghāṭānuvaggā`: 0 tiền lệ trong tầng. Dịch sát chữ “có xà ngang và khung nối nối tiếp nhau” (`tulā` xà ngang, `saṅghāṭa` khung nối, `anuvagga` nối tiếp). Cách đọc khác: `tulā` = “cân xứng”, `saṅghāṭa` = “đôi”, tức hai con đường cân xứng thành đôi.
+  1. `15.1` `Tulāsaṅghāṭānuvaggā`: 0 tiền lệ trong tầng. Dịch sát chữ “có xà ngang và khung nối kế tiếp nhau” (`tulā` xà ngang, `saṅghāṭa` khung nối, `anuvagga` nối tiếp). Cách đọc khác: `tulā` = “cân xứng”, `saṅghāṭa` = “đôi”, tức hai con đường cân xứng thành đôi.
   2. `14.3`–`14.4` `sabbasoṇṇamayā passe, caṅkame ratanāmaye`: Pāli không nêu danh từ cho `sabbasoṇṇamayā`; đọc là một đường kinh hành toàn bằng vàng đặt bên cạnh đường châu báu (14.2 là `caṅkamaṁ`). Cách đọc khác: `passe` “ở hai bên”.
   3. `13.3` `Thambheva dassesi paṭipāṭiyā`: “như những cột trụ” bổ nghĩa cho các đường kinh hành, `paṭipāṭiyā` “lần lượt”. Cách đọc khác: “lần lượt từng cái như cột trụ”.
   4. `7.1`–`7.3`: `Bhummā` hiểu là chư thiên trên mặt đất (`dn20:7.2` “địa thần”; `sn56.11:12.1` “Địa Cư Thiên”), `nimmitā` (7.2) hiểu là Hóa Lạc (khớp `20.3` `Nimmānaratino`), `Paranimmitā` (7.3) là Tha Hóa Tự Tại (khớp `20.4`). `nimmita` thường là “được hóa hiện”; không có chữ nào ở 7.2 nói đó là Hóa Lạc ngoài thứ tự các cõi.
@@ -125,3 +125,13 @@ notes: |-
   **Coverage English (mục 7):** mẫu số = 1. Trong 332 khoá không phải `:0.`, chỉ `1.1` (câu kính lễ, 47 ký tự) đạt ngưỡng 40 ký tự; khoá dài nhất còn lại 36 ký tự. Nên cổng chỉ đo một câu kính lễ chứ không đo nội dung kệ, tức cổng gần như không đo được gì về nội dung bài. Sujato: 0 tệp cho `bv1` (`english-sujato` chỉ có chín tiểu bộ cp dhp iti ja kp snp thag thig ud); `english-project`: 0 (không có tệp bv nào trong `content/translation/en/project/sutta/kn/`, không có `content/meta/en/kn/bv1.yaml`); `vietnamese-current`: 0 tầng segment (chỉ Pháp Cú). Ba tầng đều vắng ⇒ `triangulation` 7,0 (≤ 8,0) và `status: draft` kèm blocker ở trên. Không đụng `content/meta/reference-gaps.yaml`.
 
   **technical_integrity = 9,6:** lát này cấm chạy cổng, nên không tuyên bố technical gate pass. Bốn lệnh còn lại do người điều phối chạy tập trung: `npm run validate` · `npm test` · `npm run check` · `npm run build`. `final_score` là trung bình số học thô của đúng 10 tiêu chí (88,5 / 10 = 8,85).
+
+  **Lượt cải thiện 2026-10-13.** Đọc đối kháng lại cả 334 cặp Pāli↔Việt, đo tiền lệ bằng số đếm trên toàn tầng Việt hiện có. Đổi 6 khoá (6/334), giữ nguyên tập khoá và thứ tự khoá; nháy, dấu câu và số Pāli kiểm lại, 0 lệch. Không có khoá nào thuộc loại sai số lượng hay sai chủ thể.
+  - `28.3` `Na medisaṁ bhūtapubbaṁ`: bản cũ bỏ `me` (= `na me edisaṁ`, “đối với ta”). Sửa thành “Với ta, điều như thế này chưa từng có trước đây,” (accuracy fix, khôi phục một đơn vị nghĩa). Cách dùng `me` + `samo natthi` → “ta” đã có ở `cp10:26.3`, `cp26:19.3`, `cp34:5.5`. Không có tiền lệ nguyên văn cho cả dòng này. Bất định còn lại: chư thiên nói chung một lời nhưng `me` là số ít; giữ “ta” theo lối nói của kệ, không đổi thành “chúng ta” vì Pāli không có `no` ở đây (khác `34.1`).
+  - `41.4` `Mahāmuniṁ kāruṇikaṁ, lokanāthaṁ namassatha`: ba cụm danh từ ở `41.1`–`41.3` đều là tân ngữ của `namassatha`, nhưng bản cũ để “hãy lễ bái bậc Lãnh Đạo thế gian!” làm người đọc tưởng các cụm trước là hô ngữ. Sửa thành “hãy lễ bái Ngài, bậc Lãnh Đạo thế gian!” để đại từ “Ngài” nhắc lại các tân ngữ đã đưa lên đầu (clarity fix, không thêm nghĩa; Pāli không có đại từ riêng).
+  - `15.1`: “khung nối nối tiếp nhau” lặp chữ “nối”; sửa thành “khung nối kế tiếp nhau” (clarity fix, cùng nghĩa).
+  - `22.2`: “quảng Quả” sửa thành “Quảng Quả”, theo dạng tầng (16/16 khoá khác viết “Quảng Quả”, ví dụ `mn1:13.1`, `an4.123:4.4`); lỗi chính tả hoa/thường (terminology fix).
+  - `70.2` `sampajānova nikkhamiṁ`: “ra đi” dễ bị hiểu là rời nhà/xuất gia (cùng nghĩa với `nikkhamiṁ` ở `tha-ap410:17.6`, `tha-ap397:23.2`); ở đây là lúc ra khỏi bụng mẹ (`70.1` `mātukucchito`), sửa thành “bước ra” (accuracy/clarity fix).
+  - `75.3` `Paññāya pāramippatto`: bản cũ dịch “đạt ba-la-mật về trí tuệ”, dễ lẫn với mười ba-la-mật ở `78.1` (`dasa pāramī`, từ khác về chức năng). Đo tiền lệ của `pāramippatta`: `cnd17:13.3`–`13.6`, `mnd1:80.4`, `an5.11:1.1`, `ps2.7:5.11`, `ps2.7:26.11` dùng “hoàn mãn” (8 khoá), `ps3.1:48.2`, `48.3`, `49.2` dùng “viên mãn” (3 khoá), `tha-ap8:79.1` “bờ bên kia”; chọn “hoàn mãn” theo đa số: “Đã đạt đến sự hoàn mãn về trí tuệ,” (terminology fix).
+  - Giữ nguyên dù có nghi ngờ (đã đo): `7.1`/`20.1` “Tam Thập Tam” (toàn tầng 47 khoá so với “Ba Mươi Ba” 185 khoá, nhưng 20.1 trùng nguyên văn `sn5.7:2.1`, `thig8.1:2.1`; hai số khác nhau giữa phạm vi tầng và phạm vi gần nhất); `Yāma`/`Tusita` giữ Pāli trong danh sách chư thiên cùng “Hóa Lạc”, “Tha Hóa Tự Tại” (đúng khuôn danh sách Pāli giống hệt ở `an11.11:8.2`, `an6.10:7.2`; “Yāma” 20 khoá so với “Dạ-ma” 16, “Tusita” 47 so với “Đâu-suất” 51); `bốn hattha` ở `74.4` (cùng `bv16:22.2`); `pāricchattaka` ở `18.2` (4/4 khoá trong bv); `36.1` `hiṅkārā` “tiếng reo hò” (tầng có một khoá giữ Pāli `ja547:339.2`; chưa đủ căn cứ để đổi); `14.3`–`14.4` giữ cách đọc đã ghi ở mục bất định 2, vì không có bài song song nào trong tầng cho cụm `sabbasoṇṇamayā passe` (6 khoá `sabbasoṇṇamayā` khác đều là câu khác).
+  - Điểm đổi: `semantic_fidelity` 8.7 → 8.8 (khôi phục `me` ở `28.3`, sửa nghĩa `70.2`); `grammar_logic` 8.6 → 8.7 (cấu trúc tân ngữ ở `41`); `terminology` 8.7 → 8.8 (`22.2`, `75.3`); `vietnamese_clarity` 8.8 → 8.9 (`15.1`, `41.4`, `70.2`). Các tiêu chí còn lại giữ nguyên: `triangulation` vẫn 7,0 vì không có bản Anh độc lập, `ambiguity_integrity` vẫn 8,6 vì 35 điểm bất định ở trên chưa phân xử được, `technical_integrity` vẫn 9,6. `final_score` 8,85 → 8,89 (88,9 / 10); status do công cụ chốt, vẫn trong khoảng `review`.

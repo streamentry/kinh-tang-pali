@@ -12,15 +12,15 @@ quality:
   scores:
     source_provenance: 9.4
     semantic_fidelity: 8.6
-    grammar_logic: 8.6
+    grammar_logic: 8.7
     segment_alignment: 10.0
-    terminology: 8.7
+    terminology: 8.8
     triangulation: 7.0
     vietnamese_clarity: 8.9
     han_viet_balance: 9.1
     ambiguity_integrity: 8.6
     technical_integrity: 9.6
-  final_score: 8.85
+  final_score: 8.87
   blocking_errors:
     - "noEnglishEditionUpstream: Không có tầng tham khảo tiếng Anh tại commit đã
       ghim: `source/upstream-manifest.json` chỉ liệt kê
@@ -33,7 +33,7 @@ quality:
       dịch chỉ từ Pāli root và đối chiếu tiền lệ nội bộ, bài bắt buộc `draft` và
       `triangulation` không quá 8,0. Đây là giới hạn upstream, không phải lỗi
       của người dịch."
-  assessed_at: "2026-10-10"
+  assessed_at: "2026-10-13"
   assessed_by:
     - "Claude Sonnet 5.5 (Claude Code)"
   waiver:
@@ -99,3 +99,11 @@ notes: |-
   **Coverage English (mục 7):** mẫu số theo công thức (≥ 40 ký tự sau khi nén khoảng trắng, bỏ khối `:0`) = 1: chính khoá `30.1` (colophon, 41 ký tự); 116 khoá còn lại ngắn hơn 40. Đây là cạm bẫy colophon đã nêu ở các lát trước: cổng gần như *không đo được gì*, không phải *không cần ghi nhận*. Sujato: 0 tệp cho `bv25` (`english-sujato` chỉ có chín tiểu bộ cp dhp iti ja kp snp thag thig ud); `english-project`: 0 (không có tệp bv nào trong `content/translation/en/project/sutta/kn/`, không có `content/meta/en/kn/bv25.yaml`); `vietnamese-current`: 0 tầng segment (chỉ Pháp Cú); bản nguyên bài của tầng tra cứu toàn văn (HTML) chỉ dùng để hiểu mạch bài, không cấp text, và ở các điểm bất định 2, 4, 5, 6, 8, 9 bản ấy khác tôi hoặc dựa vào chú giải, nên được ghi rõ ở trên thay vì lấy làm chuẩn. Ba tầng đều vắng ⇒ `triangulation` 7,0 (≤ 8,0) và `status: draft` kèm blocker ở trên. Không đụng `content/meta/reference-gaps.yaml`.
 
   **technical_integrity = 9,6:** lát này cấm chạy cổng, nên không tuyên bố technical gate pass. Bốn lệnh còn lại do người điều phối chạy tập trung: `npm run validate` · `npm test` · `npm run check` · `npm run build`. `final_score` là trung bình số học thô của đúng 10 tiêu chí.
+
+  **Lượt cải thiện 2026-10-13.** Đọc đối kháng lại cả 118 cặp Pāli↔Việt, rồi dò tiền lệ toàn tầng Việt đã dịch (so Pāli sau khi bỏ dấu câu và chữ hoa; 57 khoá của bài có Pāli trùng khoá ở bài khác, chỉ 4 khoá có Việt khác tiền lệ). Đổi 3 khoá trên 118.
+  - `16.3`–`16.4` (accuracy/clarity fix). Trước: “Cư ngụ tại thành phố ấy, / là đại gia tộc của bậc Chánh Đẳng Giác.” Sau: “Tại thành phố ấy cư ngụ, / đại gia tộc của bậc Chánh Đẳng Giác.” Lý do: `vasate` là động từ ngôi ba số ít, chủ ngữ là `mahākulaṁ` (đại gia tộc), nên câu là “tại thành ấy cư ngụ đại gia tộc của bậc Chánh Đẳng Giác”; bản cũ đọc thành một mệnh đề không chủ ngữ rồi nối bằng “là”, nghe như Đức Phật “là đại gia tộc”. Ranh giới khoá giữ nguyên, thứ tự từ theo Pāli. Cùng lỗi cú pháp còn ở `bv24:15.1`–`15.2` và `bv26:32.3`–`32.4` (hai khoá `bv26` có Pāli trùng nguyên văn bài này); không sửa vì ngoài phạm vi lượt này, cần sửa đồng bộ. Điểm `grammar_logic` 8,6 → 8,7.
+  - `25.1` (terminology fix). Trước: “Về chiều cao, Đức Phật ấy,” Sau: “Về chiều cao, vị Phật ấy,”. Lý do: Pāli `Uccattanena so buddho,` trùng nguyên văn ở 4 khoá khác (`bv6:29.1`, `bv7:24.1`, `bv22:23.1`, `bv26:41.1`), cả 4 đều dịch “vị Phật ấy”; đây là khoá duy nhất của bài lệch tiền lệ mà không có lý do. Điểm `terminology` 8,7 → 8,8.
+  - Đính chính ghi chú cũ về `pattuṇṇa` (“0 tiền lệ”): `tha-ap1:19.2` (Pāli `pattuṇṇā paṇḍupāvurā`) đã dịch “vải Pattuṇṇa”, và cùng khoá có `cīnā` → “vải Trung Hoa”; cách giữ chữ Pāli ở `11.1` vì vậy khớp 1/1 tiền lệ, không còn là lựa chọn lẻ loi. Chữ `cīnapaṭṭa` thì vẫn không có tiền lệ nào khác trong toàn Pāli ghim (hapax), nên “lụa Trung Hoa” giữ nguyên ở mức đọc theo thành tố (`cīna` + `paṭṭa`).
+  - Bất định 14 (`18.3` ba tên lâu đài) có thêm căn cứ đếm: ở 24 trên 25 khoá `tayo pāsādamuttamā` trong tầng Buddhavaṁsa đã dịch (bv3–bv27), khoá liền trước là ba tên riêng (bv24 cũng là một hợp chất ba tên); riêng `bv7:17.6` khác khuôn. Cách đọc “ba tên riêng” vì thế có chứng cứ khuôn từ tầng chứ không chỉ theo số “ba”. Bất định này coi như đã nghiêng hẳn về một phía, nhưng chưa có nguồn ngoài tầng để xác nhận từng tên nên không nâng `ambiguity_integrity`.
+  - Không đổi, dù đã nghi ngờ và đo: `7.4` “bất động như vậy” cho `tādinaṁ` (21 trên 22 khoá chứa `tādin` trong tầng Buddhavaṁsa dịch “bất động như vậy”, gồm 17 khoá trùng nguyên văn Pāli và 4 khoá khác chữ như `bv1:47.2`, `bv26:9.4`; khoá còn lại `bv1:3.1` là hô cách “bậc Bất Động”; đọc lẻ thì hơi gượng nhưng đổi riêng khoá này sẽ phá nhất quán); `14.2` “bội phần” (17/17 tiền lệ trùng); `19.2` “người nữ” cho `nāriyo` số nhiều (25/25 tiền lệ); `8.3`–`8.4` `bhijjitānañca maccuyā`: cả hai chữ `bhijjitānaṁ` (dạng này) và `maccuyā` (dạng nữ tính) đều là hapax trong toàn Pāli ghim, không có nơi nào khác để phân xử giữa “đã phá tan tử thần” và “bị cái chết phá vỡ”; giữ cách đọc theo ngữ cảnh `Khīṇāsavānaṁ`/`Oghānamatikkantānaṁ` như bất định 2 và không nâng `semantic_fidelity` hay `ambiguity_integrity`.
+  - Số Pāli đã tính lại độc lập lượt này (không chép từ ghi chú cũ): `tiṁsakoṭisahassa` 30 × 1.000 koṭi; `vīsatikoṭisahassa` 20 × 1.000; `dasakoṭisahassa` 10 × 1.000; `tiṁsabhikkhusahassa` 30.000; `tīṇi vassasahassa` 3.000; `soḷasasahassa` 16.000; `chamāsa` 6 tháng; `tiṁsahattha` 30; `tiṁsavassasahassa` 30.000; `tayo` 3 và `caturo` 4; `eko` 1; `dasa` 10. Không có số nào lệch. Các điểm khác (`source_provenance`, `segment_alignment`, `triangulation` 7,0 vì ba tầng tham khảo đều vắng, `vietnamese_clarity`, `han_viet_balance`, `technical_integrity` 9,6) giữ nguyên vì không có cải thiện tương ứng. `final_score` 8,85 → 8,87 (trung bình số học thô của 10 điểm).
