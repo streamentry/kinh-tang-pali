@@ -635,3 +635,7 @@ Nhật ký append-only. Registry `content/audio/progress.json` được đối s
 ### Concurrent source update — PR #578
 
 - Main changed pronunciation text by editorial pronoun correction after the historical production checks. MN4/MN7/MN27/MN30/MN41/MN42 old audio is source-stale and remains blocked, with the existing errors preserved. MN45–MN47 source hashes are unchanged. MN41/MN42 earlier production readback is retained as historical evidence only; regeneration is still required. The playlist can therefore contain fewer valid tracks than registered MP3 files.
+
+### Batch mn-028 rebase after pronoun correction
+
+- Rebased onto main `8bfa8ec028bb1cf2777d99eabed90f797634630d`. Progress conflict was merged per UID from current main, retaining all blockers/source hashes/errors; verified MN45–MN47 records and prior merge/deploy history were preserved. Source hashes for MN45–MN47 still match their audio manifests. Current loadAudio composition accepts 41 MN players after adding these three, and rejects all six stale registrations (MN4/MN7/MN27/MN30/MN41/MN42). The earlier 47-track build observation refers to the pre-correction source snapshot.
