@@ -23,7 +23,7 @@ còn lại là chấm lại / sửa, không phải dịch.
 
 ---
 
-## TRẠNG THÁI HIỆN TẠI (đo 2026-10-13 tại `ac0ff226`, `main`, sau PR #598/#599)
+## TRẠNG THÁI HIỆN TẠI (đo 2026-10-14, `main`, sau PR #618)
 
 **Cả hai tầng đã phủ 100% khoá có nội dung.** Đo bằng `vimeas` và `_mkfill.py --root <worktree sạch trên main>` (phép đo `engq`):
 
@@ -35,8 +35,14 @@ còn lại là chấm lại / sửa, không phải dịch.
 | lớp lấp English: bài dưới sàn coverage 0,8 | **0** (trước: 92) |
 | `noEnglishEditionUpstream` | 1.596 bài, thuộc tính của snapshot đã ghim, không phải thiếu sót của repo |
 
-Trạng thái chất lượng (đếm `status` trong `content/meta`): tầng Việt **5.699 published · 400 review · 38 draft**; lớp lấp English **994 published · 1 draft**.
+Trạng thái chất lượng (đếm `status` trong `content/meta`): tầng Việt **5.707 published · 414 review · 16 draft**; lớp lấp English **994 published · 1 draft**.
 38 bài Việt `draft` là bài kn mà blocker không chỉ là "thiếu bản Anh upstream" (còn blocker khác, hoặc điểm chưa vượt 9,0 để dùng waiver `no-upstream-english`): `pe1–pe9` (Pāli root hỏng), `ja193/203/254/353/360/381/390/425/514/515/534`, `mil1/3.1.9/3.3.13`, `cp31`, `ne1`, `pv1`, `vv5`, `tha-ap3/13/104/114/123/159/174/178/197/213/345/548`.
+
+Việc đã làm trong ngày 2026-10-14 (PR #606–#618, đều qua CI):
+- **Kiểm toán mẫu ngẫu nhiên + sửa lan** (lane 950–1034): mẫu sn/an/kn điểm ≥ 9,25 gần như bài nào cũng có lỗi nghĩa thật mà điểm cũ bỏ sót (mn: ít; sn/an/kn: nhiều). Đã đọc đối kháng và sửa ~170 bài, hạ điểm trung thực khi có lỗi mới.
+- **Sửa cơ học toàn tầng** (script đọc Pāli root, đếm bằng số): `nāparaṁ itthattāyā` 102 bài, `etamatthaṁ viditvā` 78 bài, số thứ tự "thứ bốn" → "thứ tư", `vedanā` "cảm thụ" → "cảm thọ", `avippaṭisāra` "sợ hãi" → "hối tiếc", `nigrodha` "Cây Bàng" → "Cây Đa", tên xứ vô biên, `mātugāma` "thân người" → "người nữ", chính tả "Tỷ-kheo"; 9 bài Itivuttaka còn chép nguyên Pāli vào bản Việt (đã dịch); 4 tiêu đề kn còn nguyên Pāli.
+- **Rà nhất quán theo Pāli trùng** (lane 1035–1067; 307 + 600 bài, ~1.500 khoá có cùng Pāli mà bản Việt lệch đa số): mỗi khoá quyết định bằng Pāli, giữ nguyên khi bản modal kém.
+- Cổng CI mới trong `combo`: `audio:check` (bài mn/dn chưa có audio mà đổi nội dung phải ghi lại `source_sha256` trong `content/audio/progress.json`) và `quality:check` (chép lại lịch sử chấm khi sửa sau `carry_assessment`).
 
 Việc đã làm trong ngày 2026-10-13 (đều qua PR + CI):
 - Các wave cải thiện (lane 301–557) và hai vòng "sửa lan" (lane 536–546), kèm kiểm toán lại 11 bài `published` có lỗi nặng bị điểm cũ bỏ sót (lane 558–568; 4 bài hạ về `review`).
@@ -45,6 +51,8 @@ Việc đã làm trong ngày 2026-10-13 (đều qua PR + CI):
 - Quy tắc song song: **tối đa 11 sub-agent cùng lúc** (yêu cầu của người biên tập 2026-10-13, thay mức 20 cũ).
 
 Việc còn lại (danh sách đầy đủ ở người điều phối; chọn lọc):
+- **Điểm `published` ≥ 9,25 không còn là bằng chứng đã sạch.** Chưa có kiểm toán độc lập cho phần lớn ~5.700 bài `published` (mới chạm ≈ 1/6). Ưu tiên tiếp: quét nhất quán Pāli trùng với ngưỡng nhóm ≥2; kiểm toán mẫu phân tầng theo bộ (sn/an/kn); `iti*`, `sn37.*` (mātugāma), `sn51.*` (`chandasamādhippadhānasaṅkhāra` bị tách sai), `sn23.*` ("thương lão", đảo người nói), `an10.1–4`.
+- Ghi chú còn nợ từ rà nhất quán: `sn35.157:1.6–1.10` lệch một ô (căn/cảnh), `an10.14` ("tham ở các du sở"), `dn16`/`mn79`/`mn35`/`ps1.1`/`ud7.9` có khoá `(…)` trần hoặc dấu lược lệch Pāli (có sẵn từ trước; `_checkwave` đỏ, CI xanh).
 - Quyết định thuật ngữ cấp tầng cho người biên tập: `vipatti` "thất nghiệp" (64 khoá, nghĩa hiện đại là mất việc), "Tuyên Ngôn" vs "Ký Sự" (apadāna), `vipallāsa` "đảo lộn", tên phẩm Ruhaka/Apāyimha/Nataṁdaḷha, `paṭibhāna`, Netti `hāra`.
 - Số kiếp sai trong tha-ap (tha-ap135/136/143/145/166/188/192/56, thêm tha-ap117/208/251/266/320), hướng `pācīnamukho` (tha-ap86, tha-ap160), tên phẩm sn55.33–50, "Bạch ngài" → "Bạch Thế Tôn" ở cnd5–cnd18.
 - mn91/mn92/mn133/mn138 giữ nguyên bản cũ vì đã có audio phát hành (đổi nguồn làm lệch hash audio).
