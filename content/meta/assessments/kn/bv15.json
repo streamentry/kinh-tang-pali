@@ -1,0 +1,62 @@
+{
+  "schemaVersion": 1,
+  "uid": "bv15",
+  "assessments": [
+    {
+      "target": "translation",
+      "scope": "full",
+      "scores": {
+        "source_provenance": 9.4,
+        "semantic_fidelity": 8.7,
+        "grammar_logic": 8.6,
+        "segment_alignment": 10,
+        "terminology": 8.7,
+        "triangulation": 8.5,
+        "vietnamese_clarity": 9,
+        "han_viet_balance": 9.1,
+        "ambiguity_integrity": 8.6,
+        "technical_integrity": 9.6
+      },
+      "blocking_errors": [
+        "noEnglishEditionUpstream: Không có tầng tham khảo tiếng Anh tại commit đã ghim: `source/upstream-manifest.json` chỉ liệt kê `kn/bv/bv15_root-pli-ms.json` (tầng Pāli) cho uid này, và `english-sujato` chỉ có chín tiểu bộ cp, dhp, iti, ja, kp, snp, thag, thig, ud, không có bv; `content/translation/en/project/sutta/kn/` không có tệp bv nào và `content/meta/en/kn/` không có `bv15.yaml`. Đây là `not-published-upstream`, không phải `not-synced`. Tầng `vietnamese-current` chỉ có Pháp Cú. Ba tầng tham khảo đều vắng nên bài dịch chỉ từ Pāli root và đối chiếu tiền lệ nội bộ, bài bắt buộc `draft` và `triangulation` không quá 8,0. Đây là giới hạn upstream, không phải lỗi của người dịch."
+      ],
+      "assessed_at": "2026-10-14",
+      "assessed_by": [
+        "Claude Sonnet 5.5 (Claude Code)"
+      ],
+      "notes": "Đối chiếu độc lập 2026-10-14: với bản Việt nguyên bài của Bhikkhu Indacanda. 4 khoá bất đồng nghĩa → sửa 0, giữ 3, bất định 1. Giữ `15.3` (Pāli `Candā`, bản nguyên bài *Sucandā*), `16.3` (Pāli `Giriguhā`, bản nguyên bài *Giribrahā*): bản nguyên bài theo dạng khác, dự án theo Pāli ghim. Giữ `25.2` (`āyu tāvatakaṁ ahu`: dự án *tuổi thọ đã chừng ấy*, bản nguyên bài hiểu là dài bằng tuổi thọ chư thiên): `tāvatakaṁ` là *chừng ấy* và trỏ tới `25.3` (chín mươi ngàn năm), không có chữ nào chỉ chư thiên. Bất định `26.2` (`yugānipi tāni atuliyāni`: dự án *những cặp ấy*, bản nguyên bài *các đức hạnh*): `yuga` là cặp, có thể là các cặp đệ tử ở 20–22 nhưng Pāli không nói rõ và đây là hapax trong tầng, nên giữ nghĩa đen. Các số khớp: 1.800 kiếp (`aṭṭhārase kappasate`), 100.000, 90.000, 80.000 koṭi, 33.000 người nữ, chín ngàn năm, 80 hattha, 90.000 năm, ba do-tuần. Không sửa khoá nào. Bản nguyên bài không phân đoạn nên đối chiếu ở mức đoạn, không phải mức khoá; không có bản Anh. Điểm triangulation 8,5 (Pāli cùng một bản Việt độc lập đã đối chiếu, không có bản Anh, trần 8,8). technical_integrity 9,6: chưa chạy cổng kỹ thuật (npm run validate, npm test, npm run check, npm run build). Blocker thiếu tầng tham khảo tiếng Anh giữ nguyên vì upstream vẫn không có bản Anh; không có blocker khác. Đây là review của AI, không phải chứng nhận của chuyên gia Pāli.",
+      "id": "c13af747-30b3-4d7a-be2c-e1c3afb799c0",
+      "content_sha256": "df4598c1193c0d29acead2eb7ca92a2d4a0c47df508798cd6b9382b4f83d89fc",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
+      "final_score": 9.02
+    }
+  ],
+  "legacy_quality": {
+    "scores": {
+      "source_provenance": 9.4,
+      "semantic_fidelity": 8.7,
+      "grammar_logic": 8.6,
+      "segment_alignment": 10,
+      "terminology": 8.7,
+      "triangulation": 7,
+      "vietnamese_clarity": 9,
+      "han_viet_balance": 9.1,
+      "ambiguity_integrity": 8.6,
+      "technical_integrity": 9.6
+    },
+    "final_score": 8.87,
+    "blocking_errors": [
+      "noEnglishEditionUpstream: Không có tầng tham khảo tiếng Anh tại commit đã ghim: `source/upstream-manifest.json` chỉ liệt kê `kn/bv/bv15_root-pli-ms.json` (tầng Pāli) cho uid này, và `english-sujato` chỉ có chín tiểu bộ cp, dhp, iti, ja, kp, snp, thag, thig, ud, không có bv; `content/translation/en/project/sutta/kn/` không có tệp bv nào và `content/meta/en/kn/` không có `bv15.yaml`. Đây là `not-published-upstream`, không phải `not-synced`. Tầng `vietnamese-current` chỉ có Pháp Cú. Ba tầng tham khảo đều vắng nên bài dịch chỉ từ Pāli root và đối chiếu tiền lệ nội bộ, bài bắt buộc `draft` và `triangulation` không quá 8,0. Đây là giới hạn upstream, không phải lỗi của người dịch."
+    ],
+    "assessed_at": "2026-10-13",
+    "assessed_by": [
+      "Claude Sonnet 5.5 (Claude Code)"
+    ],
+    "waiver": {
+      "id": "no-upstream-english",
+      "blockers": [
+        "noEnglishEditionUpstream: Không có tầng tham khảo tiếng Anh tại commit đã ghim: `source/upstream-manifest.json` chỉ liệt kê `kn/bv/bv15_root-pli-ms.json` (tầng Pāli) cho uid này, và `english-sujato` chỉ có chín tiểu bộ cp, dhp, iti, ja, kp, snp, thag, thig, ud, không có bv; `content/translation/en/project/sutta/kn/` không có tệp bv nào và `content/meta/en/kn/` không có `bv15.yaml`. Đây là `not-published-upstream`, không phải `not-synced`. Tầng `vietnamese-current` chỉ có Pháp Cú. Ba tầng tham khảo đều vắng nên bài dịch chỉ từ Pāli root và đối chiếu tiền lệ nội bộ, bài bắt buộc `draft` và `triangulation` không quá 8,0. Đây là giới hạn upstream, không phải lỗi của người dịch."
+      ]
+    }
+  }
+}

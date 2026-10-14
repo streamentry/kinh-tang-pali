@@ -1,0 +1,62 @@
+{
+  "schemaVersion": 1,
+  "uid": "mil2",
+  "assessments": [
+    {
+      "target": "translation",
+      "scope": "full",
+      "scores": {
+        "source_provenance": 9.5,
+        "semantic_fidelity": 9,
+        "grammar_logic": 9,
+        "segment_alignment": 10,
+        "terminology": 8.9,
+        "triangulation": 8.4,
+        "vietnamese_clarity": 9.1,
+        "han_viet_balance": 9.1,
+        "ambiguity_integrity": 8.5,
+        "technical_integrity": 9.6
+      },
+      "blocking_errors": [
+        "noEnglishEditionUpstream: Không có tầng tham khảo tiếng Anh ở mức segment tại commit đã ghim. Tra `source/upstream-manifest.json` (không suy từ tên thư mục): edition `english-sujato` có 4.291 tệp, trong đó `sutta/kn/` chỉ có chín sub-collection cp, dhp, iti, ja, kp, snp, thag, thig, ud, không có `mil`; manifest chỉ liệt kê `kn/mil/mil2_root-pli-ms.json` (tầng Pāli) cho uid này và 0 tệp segment Sujato nào thuộc `kn/mil`. Duy nhất tệp tên `name/sutta/mil-name_translation-en-sujato.json` có hai dòng tiêu đề liên quan (`mil-name:3.mil-bahirakatha` và `mil-name:4.mil2`, cùng là Introductory Narrative) nhưng đó là tầng tên, không phải tầng segment nên không tính vào coverage. Tầng `vietnamese-current` cũng vắng: `translation/vi/phantuananh` tại commit đã ghim chỉ có 26 tệp, toàn Pháp Cú. Lớp lấp `english-project` không có tệp cho uid này (24 tệp `mil*` hiện có đều thuộc uid khác). Ba tầng tham khảo đều vắng nên bài chỉ được dịch từ Pāli root, chưa đối chiếu được tầng tham khảo nào ở mức segment; không đủ điều kiện review hay published, giữ draft. Đây là giới hạn của upstream, không phải lỗi dịch, và triangulation được giữ ở 7.0 (không quá 8.0) chứ không nâng để né blocker."
+      ],
+      "assessed_at": "2026-10-14",
+      "assessed_by": [
+        "Claude Sonnet 5.5 (Claude Code)"
+      ],
+      "notes": "Đối chiếu độc lập với bản Việt nguyên bài của Bhikkhu Indacanda, đọc cả 337 khoá Pāli–Việt cạnh bản nguyên bài ở mức đoạn: 9 khoá bất đồng nghĩa → sửa 1 (2.2, người hỏi `iminā` bị bỏ và thêm cụm không có trong Pāli), giữ 5 (4.4, 36.4, 51.4, 60.7, 75.1; bản nguyên bài lệch Pāli hoặc bỏ vế), bất định 3 (17.3, 17.6, 30.1). Số lượng đối chiếu khớp. Danh mục chướng ngại 32.4 là 15 mục dù Pāli nêu mười sáu, giữ đúng Pāli. Đối chiếu ở mức đoạn, không phải mức khoá; không có bản Anh nên triangulation đặt 8,4 (dưới trần 8,8) vì một bản độc lập duy nhất, nhiều chỗ diễn giải rộng. Cổng kỹ thuật chưa chạy, technical_integrity 9,6. Đây là review của AI, không phải chứng nhận của chuyên gia Pāli.",
+      "id": "86b2e50f-1280-44f7-b419-bc2a1935340c",
+      "content_sha256": "93cb64de4a0625a23ecf074c5cab90b98a29fe78e9ce2096f6b158531e8380e4",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
+      "final_score": 9.11
+    }
+  ],
+  "legacy_quality": {
+    "scores": {
+      "source_provenance": 9.5,
+      "semantic_fidelity": 9,
+      "grammar_logic": 9.1,
+      "segment_alignment": 10,
+      "terminology": 8.9,
+      "triangulation": 7,
+      "vietnamese_clarity": 9.1,
+      "han_viet_balance": 9.1,
+      "ambiguity_integrity": 8.6,
+      "technical_integrity": 9.6
+    },
+    "final_score": 8.99,
+    "blocking_errors": [
+      "noEnglishEditionUpstream: Không có tầng tham khảo tiếng Anh ở mức segment tại commit đã ghim. Tra `source/upstream-manifest.json` (không suy từ tên thư mục): edition `english-sujato` có 4.291 tệp, trong đó `sutta/kn/` chỉ có chín sub-collection cp, dhp, iti, ja, kp, snp, thag, thig, ud, không có `mil`; manifest chỉ liệt kê `kn/mil/mil2_root-pli-ms.json` (tầng Pāli) cho uid này và 0 tệp segment Sujato nào thuộc `kn/mil`. Duy nhất tệp tên `name/sutta/mil-name_translation-en-sujato.json` có hai dòng tiêu đề liên quan (`mil-name:3.mil-bahirakatha` và `mil-name:4.mil2`, cùng là Introductory Narrative) nhưng đó là tầng tên, không phải tầng segment nên không tính vào coverage. Tầng `vietnamese-current` cũng vắng: `translation/vi/phantuananh` tại commit đã ghim chỉ có 26 tệp, toàn Pháp Cú. Lớp lấp `english-project` không có tệp cho uid này (24 tệp `mil*` hiện có đều thuộc uid khác). Ba tầng tham khảo đều vắng nên bài chỉ được dịch từ Pāli root, chưa đối chiếu được tầng tham khảo nào ở mức segment; không đủ điều kiện review hay published, giữ draft. Đây là giới hạn của upstream, không phải lỗi dịch, và triangulation được giữ ở 7.0 (không quá 8.0) chứ không nâng để né blocker."
+    ],
+    "assessed_at": "2026-10-13",
+    "assessed_by": [
+      "Claude Sonnet 5.5 (Claude Code)"
+    ],
+    "waiver": {
+      "id": "no-upstream-english",
+      "blockers": [
+        "noEnglishEditionUpstream: Không có tầng tham khảo tiếng Anh ở mức segment tại commit đã ghim. Tra `source/upstream-manifest.json` (không suy từ tên thư mục): edition `english-sujato` có 4.291 tệp, trong đó `sutta/kn/` chỉ có chín sub-collection cp, dhp, iti, ja, kp, snp, thag, thig, ud, không có `mil`; manifest chỉ liệt kê `kn/mil/mil2_root-pli-ms.json` (tầng Pāli) cho uid này và 0 tệp segment Sujato nào thuộc `kn/mil`. Duy nhất tệp tên `name/sutta/mil-name_translation-en-sujato.json` có hai dòng tiêu đề liên quan (`mil-name:3.mil-bahirakatha` và `mil-name:4.mil2`, cùng là Introductory Narrative) nhưng đó là tầng tên, không phải tầng segment nên không tính vào coverage. Tầng `vietnamese-current` cũng vắng: `translation/vi/phantuananh` tại commit đã ghim chỉ có 26 tệp, toàn Pháp Cú. Lớp lấp `english-project` không có tệp cho uid này (24 tệp `mil*` hiện có đều thuộc uid khác). Ba tầng tham khảo đều vắng nên bài chỉ được dịch từ Pāli root, chưa đối chiếu được tầng tham khảo nào ở mức segment; không đủ điều kiện review hay published, giữ draft. Đây là giới hạn của upstream, không phải lỗi dịch, và triangulation được giữ ở 7.0 (không quá 8.0) chứ không nâng để né blocker."
+      ]
+    }
+  }
+}

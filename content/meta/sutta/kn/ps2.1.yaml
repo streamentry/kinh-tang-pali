@@ -3,7 +3,8 @@ status: review
 translationTitle: "Luận Bàn Về Song Hành"
 translators:
   - "Claude Sonnet 5.5 (Claude Code)"
-reviewers: []
+reviewers:
+  - Claude Sonnet 5.5 (Claude Code)
 tags:
   - "kn"
   - "khuddaka-nikaya"
@@ -13,16 +14,16 @@ tags:
 quality:
   scores:
     source_provenance: 9.4
-    semantic_fidelity: 8.8
+    semantic_fidelity: 8.9
     grammar_logic: 8.8
-    segment_alignment: 10.0
+    segment_alignment: 10
     terminology: 8.6
-    triangulation: 7.0
+    triangulation: 8.3
     vietnamese_clarity: 8.4
-    han_viet_balance: 9.0
-    ambiguity_integrity: 8.0
+    han_viet_balance: 9
+    ambiguity_integrity: 8.1
     technical_integrity: 9.6
-  final_score: 8.76
+  final_score: 8.91
   blocking_errors:
     - "noEnglishEditionUpstream: Thiếu bản dịch tiếng Anh đối chiếu — tầng
       english-sujato không có ps2.1 tại commit đã ghim (thư mục sutta/kn của
@@ -31,9 +32,10 @@ quality:
       trên Pāli có nội dung = 0/169 khoá. Đây là not-published-upstream, không
       phải not-synced. Bài chỉ dịch từ Pāli root và đối chiếu tiền lệ nội bộ nên
       triangulation bị chặn ở 7,0 và chưa đủ điều kiện published."
-  assessed_at: "2026-10-11"
+  assessed_at: 2026-10-14
   assessed_by:
-    - "Claude Sonnet 5.5 (Claude Code)"
+    - Claude Sonnet 5.5 (Claude Code)
+  assessment_id: 4e15f7df-7737-478a-9329-6122e0482539
   waiver:
     id: no-upstream-english
     blockers:
@@ -86,3 +88,5 @@ notes: |-
   Phép kiểm đã chạy: tập khoá Việt = tập khoá Pāli (301 = 301), thứ tự giống Pāli; nháy đơn và nháy kép khớp Pāli từng khoá (0 lệch; 34 khoá có dấu nháy trong Pāli, nháy kép “ ”, 0 khoá có nháy đơn); dấu lược … khớp Pāli từng khoá (0 lệch; 38 khoá có dấu lược, kể cả …pe… và … trần); không khoá nào là (…) trần và Pāli không có (…); không khoá nào Pāli kết ….; NFC đạt; 0 khoá rỗng; không Pāli lọt sang Việt ngoài tên riêng Paṭisambhidāmagga ở khoá tiêu đề, Kosambī ở 1.2 và Ānanda. Pāli trùng nguyên văn trong chính bài: 41 nhóm, 137 khoá, bản Việt giống hệt nhau (0 lệch). Pāli trùng nguyên văn với tầng ngoài bài: 55 khoá, 1.346 cặp đã dò, 46 khoá có bản Việt khác (chủ yếu do an4.170 dịch thi định, con đường, bạn; Evaṁ me sutaṁ có 28 chỗ viết Tôi được nghe; Tena vuccati ở ps3.2 viết có khoảng trắng trước dấu gạch; các khoá thọ, tưởng, hành, thức ở mn/sn dịch trong cấu trúc khác như xem, nơi); không sửa phía tầng. Đã in và đọc đủ 301 cặp Pāli với Việt.
 
   Chưa chạy cổng kỹ thuật nên technical_integrity đặt 9,6: còn phải chạy npm run validate, npm test, npm run check, npm run build.
+
+  Đối chiếu độc lập 2026-10-14: với bản Việt nguyên bài của Bhikkhu Indacanda. 4 điểm bất đồng nghĩa trên 301 khoá → sửa 1 (2 khoá), giữ 0, bất định 3. Sửa (`:2.1`, `:7.1` `sabbaso catūhi maggehi etesaṁ vā aññatarena`: `thì hoàn toàn nhờ bốn con đường …` → `thì tất cả đều nhờ bốn con đường …`): công thức song song ở `an4.170:2.1` viết `sabbo so catūhi maggehi, etesaṁ vā aññatarena` và đã dịch *tất cả đều nhờ*; bản nguyên bài đọc cũng là *tất cả đều do*; `sabbaso` ở đây là cách viết nối của `sabbo so` (hoặc nghĩa *trong mọi trường hợp*), không phải *hoàn toàn* (một người tuyên bố A-la-hán không tuyên bố *hoàn toàn nhờ* một con đường); đồng thời gỡ bất định (9) cũ trong notes về `sabbaso`. Bất định (`:13.6`–`:13.12`, `:17.6`–`:17.12`): bản nguyên bài hiểu `oḷārikaṁ`/`anusahagataṁ` bổ nghĩa cả hai kiết sử (dục ái *và* sân đều thô thiển/vi tế), còn bản dự án (cùng `ps1.1:369`–`370`, `mnd4:66.5`–`66.7`) để tính từ chỉ đi với dục ái, nên sân kiết sử hiện hai lần (ở Nhất lai đạo và Bất lai đạo); hình thái Pāli (tính từ số ít đặt trước hai danh từ cùng giống) cho phép cả hai cách đọc, giữ bản dự án cho khớp tầng và ghi bất định, người biên tập nên chốt một lần cho cả nhóm khoá. Bất định (`:18.3`, `:19.2`, `:20.8` `vosaggārammaṇatā`): bản nguyên bài hiểu *do xả ly là đối tượng của các pháp sinh khởi ở đó, sự nhất tâm … là định*, tức sự nhất tâm lấy buông bỏ làm đối tượng — đúng cách hiểu *sát hơn* đã nêu ở mục (1); bản dự án vẫn bám chữ và giữ ngắt khoá như Pāli. Bất định (`:41.3`–`:41.4`): bản nguyên bài gộp `upekkhāya ca nikantiyā` thành một mục (*ao ước về xả*) nên đủ mười, bản dự án giữ ba mục (hướng tâm đến xả, xả, ưa thích) bám Pāli và vẫn lệch với số mười ở `:42.1` như mục (4). Các điểm còn lại khớp nghĩa: `soḷasa` (16) với danh sách 17 mục ở `:21.3` (cả hai bản đều giữ 16 như Pāli), các số 3/2/5/3 kiết sử và tùy miên, bốn con đường, bốn sự tu tập, mười lăm cách ở `:10.2`, hai dòng `Vikkhipati na kilissati` lặp (cả hai bản đều dịch đúng chữ). Lượt review đối kháng đọc lại cả 301 khoá không thấy lỗi mới. Bản nguyên bài không phân đoạn nên đối chiếu ở mức đoạn, không phải mức khoá; không có bản Anh.

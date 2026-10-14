@@ -111,6 +111,34 @@
       "notes": "Kiểm tra tự động 32 segment với Pāli trong cache: đủ ID, giá trị, NFC và hệ chữ Latin. Chưa đọc đối chiếu nghĩa, ngữ pháp hoặc văn phong; chưa chấm lại 10 tiêu chí. Đây không phải chứng nhận hash upstream hoặc giấy phép, không xác nhận trạng thái xuất bản.",
       "content_sha256": "4103145f659829d83fa74ce6eb86c7fdaacae4624e55754354a0ef64c8fe2460",
       "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639"
+    },
+    {
+      "target": "translation",
+      "scope": "full",
+      "scores": {
+        "source_provenance": 9.5,
+        "semantic_fidelity": 8.8,
+        "grammar_logic": 8.8,
+        "segment_alignment": 10,
+        "terminology": 8.8,
+        "triangulation": 8.4,
+        "vietnamese_clarity": 8.8,
+        "han_viet_balance": 9,
+        "ambiguity_integrity": 8.7,
+        "technical_integrity": 9.6
+      },
+      "blocking_errors": [
+        "Tầng tham khảo đã ghim không phủ phẩm tha-ap: tại commit đã ghim 11c9d708978cde8ba61096d8a75f7ddfb846f639, tầng english-sujato chỉ có 9 sub-collection của kn (cp 35 · dhp 26 · iti 112 · ja 83 · kp 9 · snp 73 · thag 264 · thig 73 · ud 80 = 755 tệp); tệp tha-ap duy nhất trong cả tầng là name/sutta/tha-ap-name_translation-en-sujato.json, tức tệp tên, không phải thân kinh. Tầng vietnamese-current (26 tệp) toàn bộ là Pháp Cú, không có tha-ap. Với tha-ap130 mẫu số coverage chỉ là 1 khoá Pāli đủ 40 ký tự ngoài khối :0 (tha-ap130:8.1), vì 31/32 khoá là vế kệ chỉ 18–27 ký tự; Sujato phủ 0/1 nên coverage = 0%. content/meta/reference-gaps.yaml đã có entry cho bài này, nhưng có entry không đủ để đứng published. Đây là giới hạn của bản chụp upstream, không phải thiếu sót của bản dịch."
+      ],
+      "assessed_at": "2026-10-14",
+      "assessed_by": [
+        "Claude Sonnet 5.5 (Claude Code)"
+      ],
+      "notes": "Đối chiếu độc lập ngày 2026-10-14 giữa Pāli đã ghim và bản Việt nguyên bài của Bhikkhu Indacanda (không phân đoạn, đối chiếu ở mức đoạn, không phải mức khoá; không có bản Anh nên không tuyên bố đã đối chiếu English), trên toàn bộ 32 khoá của tha-ap130. 3 khoá bất đồng nghĩa: sửa 0, giữ 2 (`:6.1` bản nguyên bài ghi bảy mươi ba kiếp, Pāli ghim `sattati` = 70, bảy mươi ba là `tesattati`; `:3.4` `yāvatā`), bất định 1 (`:2.2` `saṅkhāraṁ natthi satthuno`: bản nguyên bài và khuôn song song với `:2.1` nghiêng về sự so sánh, nhưng chữ Pāli ghim là `saṅkhāraṁ` nên giữ bám chữ). Review đối kháng riêng không bắt thêm lỗi nào; số `Ekanavutito` = 91 kiểm lại đúng. Không có blocker nào bị bỏ: blocker duy nhất là noEnglishEditionUpstream, vẫn đúng. triangulation 8,4 vì có Pāli và một bản Việt độc lập, đã đối chiếu mọi khoá nhưng còn một khoá chưa phân xử và không có bản Anh; semantic_fidelity 8,8 và ambiguity_integrity 8,7 vì khoá `:2.2` có khả năng đáng kể phải đổi nghĩa. technical_integrity 9,6 vì không chạy `npm run validate`, `npm test`, `npm run check`, `npm run build` trong lượt này. Đây là review của AI, không phải chứng nhận của chuyên gia Pāli.",
+      "id": "a2834946-b1f2-46fb-9160-0e6c1fcebb2f",
+      "content_sha256": "f4b89a5c849b042429c640632241f06ac31d10b1fec70b9ab4e5e5047039e906",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
+      "final_score": 9.040000000000001
     }
   ],
   "legacy_quality": {

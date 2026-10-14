@@ -53,6 +53,34 @@
       "notes": "Kiểm tra tự động 22 segment với Pāli trong cache: đủ ID, giá trị, NFC và hệ chữ Latin. Chưa đọc đối chiếu nghĩa, ngữ pháp hoặc văn phong; chưa chấm lại 10 tiêu chí. Đây không phải chứng nhận hash upstream hoặc giấy phép, không xác nhận trạng thái xuất bản.",
       "content_sha256": "09fc6d6a4e9adfa96265cbb9a68e8b32357fba3e49121cc4f79b1abb5ae1fa91",
       "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639"
+    },
+    {
+      "target": "translation",
+      "scope": "full",
+      "scores": {
+        "source_provenance": 9.4,
+        "semantic_fidelity": 8.6,
+        "grammar_logic": 8.8,
+        "segment_alignment": 9.5,
+        "terminology": 8.7,
+        "triangulation": 8.3,
+        "vietnamese_clarity": 9.2,
+        "han_viet_balance": 9.2,
+        "ambiguity_integrity": 9,
+        "technical_integrity": 9.6
+      },
+      "blocking_errors": [
+        "Không có tầng tham khảo tiếng Anh tại commit đã ghim: tệp `translation/en/sujato/sutta/kn/mil/mil5.4.4_translation-en-sujato.json` không tồn tại trong `.cache/upstream/suttacentral/`, và `source/upstream-manifest.json` không liệt kê bất kỳ tệp nào cho uid này — đây là `not-published-upstream`, KHÔNG phải `not-synced`. Đo coverage theo đúng công thức `source/layers.yaml` (Pāli có nội dung ≥ 40 ký tự, loại block tham chiếu `:0`) cho 0 trên 22 khoá = 0%, dưới ngưỡng 0.8. `scripts/validate.ts` coi tệp Anh thiếu là **error** khi status là `review` hoặc `published`, nên bài bắt buộc `draft`. Tầng `vietnamese-current` cũng vắng: `translation/vi/phantuananh` tại commit đã ghim chỉ có 26 tệp và toàn bộ là Pháp Cú. Lớp lấp `english-project` của dự án cũng không có cho uid này. Ba tầng tham khảo đều vắng ⇒ bài dịch chỉ từ Pāli root ⇒ blocker thật, và đây là **giới hạn upstream**, không phải lỗi của người dịch. Vì vậy `triangulation` bị chặn ở 7.5 (≤ 8.0) chứ không nâng để né blocker."
+      ],
+      "assessed_at": "2026-10-14",
+      "assessed_by": [
+        "Claude Sonnet 5.5 (Claude Code)"
+      ],
+      "notes": "Đối chiếu độc lập 2026-10-14 với bản Việt nguyên bài của Bhikkhu Indacanda, ở mức đoạn (bản đó không phân đoạn); không có bản Anh nên không tuyên bố đã đối chiếu English. Kiểm cả 22 khoá với Pāli và bản nguyên bài: 11 điểm bất đồng nghĩa, sửa 7 (bodhi = cội bồ-đề; tusite kāye; mahāvilokanāni; tám trường hợp thay vì tám hạng người; tittha; upasaṅkamitabbo; uttarasetu; anāgataṁ kālaṁ), giữ 2, bất định 2 (māsaṁ; anāgataṁ kālaṁ của tỳ-kheo). Bảy lỗi thật trong 22 khoá cho thấy bản trước chưa từng được đối chiếu độc lập, nên điểm giữ ở mức thận trọng. Blocker noEnglishEditionUpstream giữ nguyên vì upstream vẫn không có bản Anh. technical_integrity 9.6: chưa chạy npm run validate, npm test, npm run check, npm run build. Đây là review của AI, không phải chứng nhận của chuyên gia Pāli.",
+      "id": "78327eaa-d32b-48e9-a8aa-782d73bf528f",
+      "content_sha256": "a739434253448289c016f779d444f23cadde5facf80058cb36275030d51607c3",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
+      "final_score": 9.03
     }
   ],
   "legacy_quality": {

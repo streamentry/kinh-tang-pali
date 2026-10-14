@@ -53,6 +53,34 @@
       "notes": "Kiểm tra tự động 10 segment với Pāli trong cache: đủ ID, giá trị, NFC và hệ chữ Latin. Chưa đọc đối chiếu nghĩa, ngữ pháp hoặc văn phong; chưa chấm lại 10 tiêu chí. Đây không phải chứng nhận hash upstream hoặc giấy phép, không xác nhận trạng thái xuất bản.",
       "content_sha256": "3753855634c6992b3be9126cf053d5919711241d89c7fecd77e7c90452510502",
       "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639"
+    },
+    {
+      "target": "translation",
+      "scope": "full",
+      "scores": {
+        "source_provenance": 9.2,
+        "semantic_fidelity": 9.2,
+        "grammar_logic": 9.3,
+        "segment_alignment": 10,
+        "terminology": 8.8,
+        "triangulation": 8.5,
+        "vietnamese_clarity": 9.3,
+        "han_viet_balance": 9.4,
+        "ambiguity_integrity": 8.9,
+        "technical_integrity": 9.6
+      },
+      "blocking_errors": [
+        "noEnglishEditionUpstream: Bản Sujato không có tệp cho `mil3.3.13` tại commit đã ghim (thư mục `kn/` của edition chỉ có cp, dhp, iti, ja, kp, snp, thag, thig, ud; manifest không liệt kê tệp `translation-en` cho uid này): `not-published-upstream`, không phải `not-synced`. Tầng `vietnamese-current` cũng vắng."
+      ],
+      "assessed_at": "2026-10-14",
+      "assessed_by": [
+        "Claude Sonnet 5.5 (Claude Code)"
+      ],
+      "notes": "Đối chiếu độc lập với bản Việt nguyên bài của Bhikkhu Indacanda ở mức đoạn: 0 khoá bất đồng nghĩa trên 10 khoá, không sửa khoá nào, không còn bất định mới; nỗi bất định cũ về `appanā` (gắn vào hay an chỉ) được bản nguyên bài ủng hộ cách đọc gắn/áp vào. Không đối chiếu được English (upstream không có bản Anh nên blocker `noEnglishEditionUpstream` giữ nguyên, không gỡ blocker nào). triangulation 8,5: có Pāli + một bản Việt độc lập đã đối chiếu thật nhưng chỉ ở mức đoạn, không có bản Anh. technical_integrity 9,6: chưa chạy `npm run validate`, `npm test`, `npm run check`, `npm run build`. Đây là review của AI, không phải chứng nhận của chuyên gia Pāli.",
+      "id": "832f38cb-8aa2-490a-ae8e-094869c7033f",
+      "content_sha256": "dd6be4a14dc3544b92c283fc0e3e20a972534247c764ccb3f71ca92c8ee015f6",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
+      "final_score": 9.22
     }
   ],
   "legacy_quality": {

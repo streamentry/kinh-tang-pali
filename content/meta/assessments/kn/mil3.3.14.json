@@ -53,6 +53,34 @@
       "notes": "Kiểm tra tự động 12 segment với Pāli trong cache: đủ ID, giá trị, NFC và hệ chữ Latin. Chưa đọc đối chiếu nghĩa, ngữ pháp hoặc văn phong; chưa chấm lại 10 tiêu chí. Đây không phải chứng nhận hash upstream hoặc giấy phép, không xác nhận trạng thái xuất bản.",
       "content_sha256": "a534dd75a0d33c947554c56181fc4d374bbe81efd3b5424039ce351262f6f9cf",
       "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639"
+    },
+    {
+      "target": "translation",
+      "scope": "full",
+      "scores": {
+        "source_provenance": 9.5,
+        "semantic_fidelity": 8.9,
+        "grammar_logic": 9.2,
+        "segment_alignment": 10,
+        "terminology": 9,
+        "triangulation": 8.4,
+        "vietnamese_clarity": 9.1,
+        "han_viet_balance": 9.2,
+        "ambiguity_integrity": 8.7,
+        "technical_integrity": 9.6
+      },
+      "blocking_errors": [
+        "Tầng English Sujato vắng mặt tại commit đã ghim (không có tệp upstream cho thư mục này) nên chưa đối chiếu được một bản Anh độc lập; validate đòi tầng này cho review và published, nên bài giữ draft dù đã dịch đủ mọi khoá từ Pāli root."
+      ],
+      "assessed_at": "2026-10-14",
+      "assessed_by": [
+        "Claude Sonnet 5.5 (Claude Code)"
+      ],
+      "notes": "Đối chiếu độc lập ngày 2026-10-14 cả 12 khoá của mil3.3.14 giữa Pāli đã ghim và bản Việt nguyên bài của Bhikkhu Indacanda (không phân đoạn, đối chiếu ở mức đoạn; không có bản Anh). Không khoá nào bất đồng về số đếm, chủ thể, phủ định hay cấu trúc so sánh; 4 khoá bất đồng ở mức thuật ngữ (1.2 `anumajjana`, 2.2 `kaṁsathāla`, tên phẩm ở 0.2 và 5.1) đều không phân xử được bằng Pāli ghim nên giữ bản dự án và ghi bất định vào notes, không sửa khoá nào. Review đối kháng riêng không thấy lỗi mới. `triangulation` 8,4: có một bản Việt độc lập đã đối chiếu thật nhưng không có bản Anh và còn 4 khoá bất định, nên dưới trần 8,8. Giữ nguyên blocker `noEnglishEditionUpstream` vì upstream vẫn không có bản Anh. `technical_integrity` 9,6 vì chưa chạy `npm run validate`, `npm test`, `npm run check`, `npm run build` trong lượt này. Đây là review của AI, không phải chứng nhận của chuyên gia Pāli.",
+      "id": "e4899281-c991-495c-9dd5-a001ec455823",
+      "content_sha256": "3197392a5ca26c1f8ab0d3ccb914581e892c3b00e32b71dafeaf29b406e2d33f",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
+      "final_score": 9.16
     }
   ],
   "legacy_quality": {

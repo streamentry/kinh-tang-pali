@@ -53,6 +53,34 @@
       "notes": "Kiểm tra tự động 38 segment với Pāli trong cache: đủ ID, giá trị, NFC và hệ chữ Latin. Chưa đọc đối chiếu nghĩa, ngữ pháp hoặc văn phong; chưa chấm lại 10 tiêu chí. Đây không phải chứng nhận hash upstream hoặc giấy phép, không xác nhận trạng thái xuất bản.",
       "content_sha256": "2ddf8cae54317abadfca972cdb67faa41f4f2975d6886db0f8cb219f19bd9c7a",
       "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639"
+    },
+    {
+      "target": "translation",
+      "scope": "full",
+      "scores": {
+        "source_provenance": 9.5,
+        "semantic_fidelity": 8.8,
+        "grammar_logic": 9,
+        "segment_alignment": 9.9,
+        "terminology": 9,
+        "triangulation": 8.3,
+        "vietnamese_clarity": 8.9,
+        "han_viet_balance": 9.2,
+        "ambiguity_integrity": 8.6,
+        "technical_integrity": 9.6
+      },
+      "blocking_errors": [
+        "Không có tầng tham khảo tiếng Anh tại commit đã ghim: bản Anh đã ghim của Bhikkhu Sujato không phát hành bất kỳ tệp nào cho thư mục `sutta/kn/vv/` — đo trên `source/upstream-manifest.json` cho 755 tệp `kn` nằm ở cp, dhp, iti, ja, kp, snp, thag, thig, ud và 0 tệp ở `vv`. Đây là `not-published-upstream`, KHÔNG phải `not-synced`. `scripts/validate.ts` coi tệp Anh thiếu là error khi status là `review` hoặc `published`, nên bài bắt buộc `draft`. Đo coverage theo đúng công thức `source/layers.yaml` (Pāli có nội dung ≥ 40 ký tự, loại block tham chiếu `:0`): vv54 chỉ có 1 segment có nội dung là `10.1` (79 ký tự); 37 khoá còn lại đều là kệ ngắn hoặc tiêu đề. 1 đó không có Anh ⇒ 0/1 = 0%, dưới ngưỡng 0,8. `content/meta/reference-gaps.yaml` CHƯA có entry cho `kn/vv54` (đã kiểm bằng YAML parse: 729 entry, không có `kn/vv54`); coordinator cần chạy `npm run reference:gaps` để ghi nhận. Tầng `vietnamese-current` cũng vắng, và lớp lấp `english-project` không có cho uid này ⇒ ba tầng tham khảo đều vắng ⇒ dịch chỉ từ Pāli root. Đây là giới hạn upstream, không phải lỗi của người dịch."
+      ],
+      "assessed_at": "2026-10-14",
+      "assessed_by": [
+        "Claude Sonnet 5.5 (Claude Code)"
+      ],
+      "notes": "Đối chiếu độc lập 2026-10-14: với bản Việt nguyên bài của Bhikkhu Indacanda. 2 khoá bất đồng nghĩa → sửa 0, giữ 0, bất định 2 (`1.4`, `6.1`). `1.4` (`rucakatthatā`): bản nguyên bài hiểu `rucaka` là vàng (trải lót bằng vàng), bản dự án giữ *trải thảm rực rỡ* theo công thức chung của các bài `vv`; Pāli đã ghim không đủ để phân xử hai cách đọc, nên ghi bất định và không đổi riêng một bài. `6.1` (`satisamuppādakaro`): bản nguyên bài đọc là danh từ chỉ vật gợi lại ký ức, bản dự án đọc là tính từ của con cua (*làm khởi sinh niệm*); cả hai hợp ngữ pháp, `sati` có thể là niệm hay ký ức và từ này là hapax trong Pāli đã ghim nên không có song song để phân xử. Các khoá còn lại cùng nghĩa: `kakkaṭaka` là con cua, `dasapādako` là mười chân, `rasa` trong tiêu đề là nước/vị cua, `pañcavimānaṁ` là năm cung điện, hô cách ở 4.1 và 8.1, và người nói ở 8.1–8.4. Không sửa khoá nào. Bản nguyên bài không phân đoạn nên đối chiếu ở mức đoạn, không phải mức khoá; không có bản Anh. Điểm triangulation 8,3 (Pāli cùng một bản Việt độc lập đã đối chiếu, không có bản Anh, trần 8,8). technical_integrity 9,6: chưa chạy cổng kỹ thuật (npm run validate, npm test, npm run check, npm run build). Blocker thiếu tầng tham khảo tiếng Anh giữ nguyên vì upstream vẫn không có bản Anh; không có blocker khác. Đây là review của AI, không phải chứng nhận của chuyên gia Pāli.",
+      "id": "e1e4d900-2e61-414a-bdd3-9978a7afa70a",
+      "content_sha256": "6676b7977433a8cb167896889fd6827e8e1a7e7360833354b64209ed3a389aaf",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
+      "final_score": 9.079999999999998
     }
   ],
   "legacy_quality": {

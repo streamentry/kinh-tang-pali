@@ -721,6 +721,34 @@
       "notes": "Kiểm tra tự động 334 segment với Pāli trong cache: đủ ID, giá trị, NFC và hệ chữ Latin. Chưa đọc đối chiếu nghĩa, ngữ pháp hoặc văn phong; chưa chấm lại 10 tiêu chí. Đây không phải chứng nhận hash upstream hoặc giấy phép, không xác nhận trạng thái xuất bản.",
       "content_sha256": "d832e50a6f8dee4f723ab19c40e85b8540f441f272f8047631eeacc8c1d4c680",
       "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639"
+    },
+    {
+      "target": "translation",
+      "scope": "full",
+      "scores": {
+        "source_provenance": 9.4,
+        "semantic_fidelity": 8.8,
+        "grammar_logic": 8.7,
+        "segment_alignment": 10,
+        "terminology": 8.8,
+        "triangulation": 8.4,
+        "vietnamese_clarity": 8.9,
+        "han_viet_balance": 9.1,
+        "ambiguity_integrity": 8.6,
+        "technical_integrity": 9.6
+      },
+      "blocking_errors": [
+        "noEnglishEditionUpstream: Không có tầng tham khảo tiếng Anh tại commit đã ghim: `source/upstream-manifest.json` chỉ liệt kê `kn/bv/bv1_root-pli-ms.json` (tầng Pāli) cho uid này, và `english-sujato` chỉ có chín tiểu bộ cp, dhp, iti, ja, kp, snp, thag, thig, ud, không có bv; `content/translation/en/project/sutta/kn/` không có tệp bv nào và `content/meta/en/kn/` không có `bv1.yaml`. Đây là `not-published-upstream`, không phải `not-synced`. Tầng `vietnamese-current` chỉ có Pháp Cú. Ba tầng tham khảo đều vắng nên bài dịch chỉ từ Pāli root và đối chiếu tiền lệ nội bộ, bài bắt buộc `draft` và `triangulation` không quá 8,0. Đây là giới hạn upstream, không phải lỗi của người dịch."
+      ],
+      "assessed_at": "2026-10-14",
+      "assessed_by": [
+        "Claude Sonnet 5.5 (Claude Code)"
+      ],
+      "notes": "Đối chiếu độc lập với bản Việt nguyên bài của Bhikkhu Indacanda, ở mức đoạn (bản đó không phân đoạn), đọc đủ 334 khoá: 6 chỗ bất đồng, sửa 0, giữ 3 (12.1 ādesanā, 22.2 akaniṭṭhā, 48.1 Lokappasādana; bản nguyên bài theo dị bản hoặc diễn giải khác Pāli ghim), bất định 3 (13.2-13.3 Sineru, 15.1 tulāsaṅghāṭa, 35.1 tesaṁ). Bản dự án không sai ở chỗ nào so với Pāli; mọi bất đồng đều đã được phân xử bằng Pāli ghim hoặc giữ làm bất định. Các số (500, 32, 10, 10.000, 4, 3, 6, 100) đã tính lại. Giữ ambiguity_integrity 8,6 vì bài còn khoảng ba mươi lăm điểm bất định từ vựng/cú pháp đã ghi, ba trong số đó nay có thêm một cách đọc đối chứng nhưng vẫn chưa phân xử được. Triangulation 8,4: Pāli + một bản Việt độc lập đã đối chiếu từng đoạn, dưới trần 8,8 vì bài rất dài, đối chiếu chỉ ở mức đoạn và còn ba chỗ chưa phân xử; không có bản Anh. Blocker thiếu bản Anh upstream giữ nguyên. Cổng kỹ thuật chưa chạy (technical_integrity 9,6 là điểm tạm). Đây là review của AI, không phải chứng nhận của chuyên gia Pāli.",
+      "id": "f3454294-ef4e-4358-bdb9-73fb92ae4026",
+      "content_sha256": "7ce298a7c0122ae93ca2a97a2689a81b20f393b1a61eab40a2fdf49d4a21126c",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
+      "final_score": 9.029999999999998
     }
   ],
   "legacy_quality": {

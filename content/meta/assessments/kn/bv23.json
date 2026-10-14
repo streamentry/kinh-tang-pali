@@ -301,6 +301,34 @@
       "notes": "Kiểm tra tự động 124 segment với Pāli trong cache: đủ ID, giá trị, NFC và hệ chữ Latin. Chưa đọc đối chiếu nghĩa, ngữ pháp hoặc văn phong; chưa chấm lại 10 tiêu chí. Đây không phải chứng nhận hash upstream hoặc giấy phép, không xác nhận trạng thái xuất bản.",
       "content_sha256": "117e87b2160d722c400a8260d59c728efd974a0e345afa0cfe1aae5528ed8268",
       "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639"
+    },
+    {
+      "target": "translation",
+      "scope": "full",
+      "scores": {
+        "source_provenance": 9.4,
+        "semantic_fidelity": 8.6,
+        "grammar_logic": 8.7,
+        "segment_alignment": 10,
+        "terminology": 8.8,
+        "triangulation": 8.3,
+        "vietnamese_clarity": 8.9,
+        "han_viet_balance": 9.1,
+        "ambiguity_integrity": 8.7,
+        "technical_integrity": 9.6
+      },
+      "blocking_errors": [
+        "noEnglishEditionUpstream: Không có tầng tham khảo tiếng Anh tại commit đã ghim: `source/upstream-manifest.json` chỉ liệt kê `kn/bv/bv23_root-pli-ms.json` (tầng Pāli) cho uid này, và `english-sujato` chỉ có chín tiểu bộ cp, dhp, iti, ja, kp, snp, thag, thig, ud, không có bv; `content/translation/en/project/sutta/kn/` không có tệp bv nào và `content/meta/en/kn/` không có `bv23.yaml`. Đây là `not-published-upstream`, không phải `not-synced`. Tầng `vietnamese-current` chỉ có Pháp Cú. Ba tầng tham khảo đều vắng nên bài dịch chỉ từ Pāli root và đối chiếu tiền lệ nội bộ, bài bắt buộc `draft` và `triangulation` không quá 8,0. Đây là giới hạn upstream, không phải lỗi của người dịch."
+      ],
+      "assessed_at": "2026-10-14",
+      "assessed_by": [
+        "Claude Sonnet 5.5 (Claude Code)"
+      ],
+      "notes": "Đối chiếu độc lập với bản Việt nguyên bài của Bhikkhu Indacanda: 12 khoá bất đồng nghĩa → sửa 2 (2.1–2.2: `taṇhānaṁ vijitaṁ` không phải «các ái bị chinh phục», cách đọc thay thế còn mở), giữ 9 (8.1 thêm koṭi, 9.3 `bhīta` đọc ngược, 16.2 khai triển `…pe…`, 17.3, 18.1, 22.4, 24.1, 24.4, 25.1 theo Pāli đã ghim), bất định 1 (29.1). Lượt trước chưa bắt được lỗi ở khổ 2, nên semantic_fidelity và grammar_logic hạ nhẹ; còn khoảng mười bốn bất định chưa phân xử trong 124 khoá. Đối chiếu ở mức đoạn, không phải mức khoá; không có bản Anh nên triangulation 8,3. Cổng kỹ thuật chưa chạy, technical_integrity 9,6. Đây là review của AI, không phải chứng nhận của chuyên gia Pāli.",
+      "id": "afb521ad-f78b-4d2d-8b31-572fa26f4d8b",
+      "content_sha256": "c7ea36d6f813cb633ba8b23a52b666622bcbd01ea8054fa7135550cf24e79206",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
+      "final_score": 9.01
     }
   ],
   "legacy_quality": {

@@ -1,9 +1,10 @@
 uid: "mil8"
-status: "review"
+status: "published"
 translationTitle: "Phần Kết Của Milindapañha"
 translators:
   - "OpenCode Space Bunny Free (agent)"
-reviewers: []
+reviewers:
+  - Claude Sonnet 5.5 (Claude Code)
 tags:
   - "milindapañha"
   - "phần-kết"
@@ -11,16 +12,16 @@ tags:
 quality:
   scores:
     source_provenance: 9.6
-    semantic_fidelity: 9.0
-    grammar_logic: 9.0
-    segment_alignment: 10.0
-    terminology: 9.0
-    triangulation: 6.5
-    vietnamese_clarity: 9.0
+    semantic_fidelity: 8.8
+    grammar_logic: 9
+    segment_alignment: 10
+    terminology: 9
+    triangulation: 8.2
+    vietnamese_clarity: 9
     han_viet_balance: 9.1
-    ambiguity_integrity: 8.8
+    ambiguity_integrity: 8.6
     technical_integrity: 9.6
-  final_score: 8.96
+  final_score: 9.089999999999998
   blocking_errors:
     - "Không có tầng tham khảo English Sujato tại commit đã ghim. Đếm bằng
       script trên source/upstream-manifest.json: tầng english-sujato có 4.291
@@ -34,9 +35,10 @@ quality:
       nào khác phủ bài này, nên bài chỉ đối chiếu được với Pāli root một mình.
       Tầng Việt hiện hành (Hòa thượng Thích Minh Châu) tại commit đã ghim chỉ có
       26 chương Pháp Cú, nên cũng không có bản đối chiếu cho bài này."
-  assessed_at: "2026-10-12"
+  assessed_at: 2026-10-14
   assessed_by:
-    - "Claude Sonnet 5.5 (Claude Code)"
+    - Claude Sonnet 5.5 (Claude Code)
+  assessment_id: 19611713-1f6e-4f9e-b5bf-1acee7410b8e
   waiver:
     id: no-upstream-english
     blockers:
@@ -85,3 +87,5 @@ notes: |-
   BẤT ĐỊNH CÒN LẠI (không phân xử được, ghi ở đây chứ không đưa vào thân kinh). (a) 6.2 sati tattha anūnakā: đọc sati là "niệm" (danh từ nữ, hợp với anūnakā); không loại hẳn cách đọc khác. (b) 6.3-6.4 pūjā visesassādhāro, aggo seṭṭho anuttaro: giống của aggo/seṭṭho/anuttaro (nam) hợp với ādhāro nên dịch "chỗ nương của sự thù thắng", nhưng chủ ngữ của vế sau có thể bị hiểu khác. (c) 2.1 caturāsītisatasahassayojanabahalā: dịch đúng nghĩa đen "tám mươi bốn trăm nghìn do-tuần"; không có tầng Anh đã ghim để đối chiếu và không dám đổi thành 84.000 chỉ vì quen thuộc. (d) 7.1-7.2 Doṇinagara và Doṇināmena: hiểu Doṇi vừa là tên thành vừa là tên vị Đại Trưởng lão theo cú pháp; không thể xác nhận thêm. (e) 7.3-7.4: suṭṭhapitaṁ dịch "ghi lập chu đáo"; chủ thể của động từ này (chính bản viết hay nội dung hỏi đáp) mơ hồ, bản dịch giữ nguyên độ mơ hồ ấy.
 
   Kiểm: 32/32 khoá khớp tập khoá Pāli, thứ tự khớp, không Pāli lọt vào bản Việt, không có dấu lược nào. technical_integrity vẫn 9.6; npm run validate, npm test, npm run check, npm run build do bên điều phối chạy, nên không tuyên bố technical gate pass ở đây.
+
+  Đối chiếu độc lập 2026-10-14: với bản Việt nguyên bài của Bhikkhu Indacanda. 7 khoá bất đồng nghĩa → sửa 1 (`4.1`: “cùng hàng trăm koṭi tỳ-kheo” → “cùng một trăm koṭi tỳ-kheo”, vì `koṭisatehi bhikkhūhi` là một trăm koṭi, và cùng công thức `koṭisatā arahanto` ở mil2:12.1, 13.1, 14.1, 38.1, 40.1, 57.1, 58.1 đều dịch “một trăm koṭi”; “hàng trăm” làm số thành nhiều trăm koṭi), giữ 3 (`5.2`: bản nguyên bài hiểu `katā` thành việc thuyết giảng, khác `katā` của Pāli ghim; `7.7`: bản nguyên bài hiểu `hi` là “bởi vì”, bản dự án để `hi` nhấn mạnh, cả hai đều hợp Pāli; `6.4`: bản nguyên bài gán “bậc tối cao, vô thượng” cho người có trí tuệ, còn Pāli ghim `Pūjā visesassādhāro` viết tách `pūjā`, nên giữ cách tách từ của Pāli), bất định 3 (`6.1` `khandhe`: bản nguyên bài hiểu là “vai”, bản dự án là “uẩn”, Pāli ghim không phân xử được; `6.3` `pūjā visesassādhāro`: sự tôn kính là chỗ nương của sự thù thắng, hay người ấy là chỗ nhận phần cúng dường đặc biệt; `8.2` `gacchāmi`: Pāli là hiện tại, bản nguyên bài đọc như lời nguyện). Số 262 + 42 = 304 và 84 × 100.000 khớp cả hai bản. Bản nguyên bài không phân đoạn nên đối chiếu ở mức đoạn, không phải mức khoá; không có bản Anh. Ngoài phạm vi: bv9:5.3 và bv19:4.3 (`Koṭisatāni abhisamiṁsu`) đang dịch “Hàng trăm koṭi”, cần xem lại với cùng tiền lệ “một trăm koṭi”. Review đối kháng đủ 32 khoá: không tìm thêm lỗi cần sửa.

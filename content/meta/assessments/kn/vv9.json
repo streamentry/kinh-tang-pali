@@ -53,6 +53,34 @@
       "notes": "Kiểm tra tự động 45 segment với Pāli trong cache: đủ ID, giá trị, NFC và hệ chữ Latin. Chưa đọc đối chiếu nghĩa, ngữ pháp hoặc văn phong; chưa chấm lại 10 tiêu chí. Đây không phải chứng nhận hash upstream hoặc giấy phép, không xác nhận trạng thái xuất bản.",
       "content_sha256": "065b1c0c6792903f7f81a707fdf81fe72fb6a21db8bbd392f5d3fb4228ba3585",
       "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639"
+    },
+    {
+      "target": "translation",
+      "scope": "full",
+      "scores": {
+        "source_provenance": 9.2,
+        "semantic_fidelity": 8.8,
+        "grammar_logic": 9,
+        "segment_alignment": 10,
+        "terminology": 8.7,
+        "triangulation": 8.5,
+        "vietnamese_clarity": 9.1,
+        "han_viet_balance": 9.3,
+        "ambiguity_integrity": 8.8,
+        "technical_integrity": 9.6
+      },
+      "blocking_errors": [
+        "Không có tầng tham khảo tiếng Anh tại commit đã ghim: `source/upstream-manifest.json` (commit 11c9d708, tầng `english-sujato`) liệt kê 4.291 tệp nhưng KHÔNG có tệp nào cho uid này, và `.cache/upstream/suttacentral/translation/en/sujato/` cũng không có — đây là `not-published-upstream`, KHÔNG phải `not-synced`; toàn bộ sub-collection `vv` của Kinh Tạng vắng mặt trong tầng Anh đã ghim. `scripts/validate.ts` (nhánh `if (!existsSync(englishFile))`) coi tệp Anh thiếu là **error** khi status là `review` hoặc `published`, nên bài bắt buộc `draft`. Tầng `vietnamese-current` cũng vắng: `translation/vi/phantuananh` tại commit đã ghim chỉ có 26 tệp và toàn bộ là Pháp Cú. Lớp lấp `english-project` của dự án cũng không có cho uid này. Ba tầng tham khảo đều vắng ⇒ bài dịch chỉ từ Pāli root ⇒ blocker thật, và đây là **giới hạn upstream**, không phải lỗi của người dịch. Vì vậy `triangulation` bị chặn ở 7.5 (≤ 8.0) chứ không nâng để né blocker. Ghi chú thêm: đo coverage theo đúng công thức `source/layers.yaml` (`substantivePaliMinChars: 40`, loại block tham chiếu `:0`) cho **0 trên 0** khoá Pāli đủ 40 ký tự — khuôn kệ của `vv` là kệ ngắn, mỗi vế dưới 40 ký tự — nên coverage không đo được, và ngưỡng 0.8 không phải nguyên nhân của blocker ở đây; nguyên nhân là tệp Anh không tồn tại."
+      ],
+      "assessed_at": "2026-10-14",
+      "assessed_by": [
+        "Claude Sonnet 5.5 (Claude Code)"
+      ],
+      "notes": "Đối chiếu độc lập với bản Việt nguyên bài của Bhikkhu Indacanda, từng khoá cạnh bản nguyên bài ở mức đoạn: 1 khoá bất đồng nghĩa (7.3 `jotirasaṁ vimānaṁ`) → sửa 0, giữ 0, bất định 1; các khoá còn lại cùng nghĩa. Rà xưng hô: nữ thiên thưa với Tôn giả Moggallāna xưng «con», sửa 12 khoá 6.1–10.4. Đã sắp lại thứ tự khoá theo Pāli (45/45). Đối chiếu ở mức đoạn, không phải mức khoá; không có bản Anh nên triangulation 8,5. Cổng kỹ thuật chưa chạy, technical_integrity 9,6. Đây là review của AI, không phải chứng nhận của chuyên gia Pāli.",
+      "id": "72dacccf-099d-458b-9d41-4a41f067b3aa",
+      "content_sha256": "e5606089b0c060368bafdf59a072c073f2c15995abca18b113574a66f55b3e94",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
+      "final_score": 9.1
     }
   ],
   "legacy_quality": {

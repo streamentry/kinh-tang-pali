@@ -3,7 +3,9 @@ status: review
 translationTitle: "Chuyện Cung Điện Nữ Tỳ"
 translators:
   - "Claude Sonnet 5.5 (Claude Code)"
-reviewers: []
+reviewers:
+  - Claude Opus 5.5 (Claude Code)
+  - Claude Sonnet 5.5 (Claude Code)
 tags:
   - "kn"
   - "khuddaka-nikaya"
@@ -14,16 +16,16 @@ tags:
 quality:
   scores:
     source_provenance: 9.6
-    semantic_fidelity: 8.9
-    grammar_logic: 8.9
-    segment_alignment: 10.0
-    terminology: 8.9
-    triangulation: 7.5
+    semantic_fidelity: 8.7
+    grammar_logic: 8.8
+    segment_alignment: 10
+    terminology: 8.7
+    triangulation: 8
     vietnamese_clarity: 9.1
     han_viet_balance: 9.2
-    ambiguity_integrity: 8.2
+    ambiguity_integrity: 8.3
     technical_integrity: 9.6
-  final_score: 8.99
+  final_score: 8.999999999999998
   blocking_errors:
     - "Không có tầng tham khảo tiếng Anh tại commit đã ghim. Đo bằng
       `source/upstream-manifest.json` (commit
@@ -44,9 +46,10 @@ quality:
       `scripts/validate.ts` coi tệp Anh thiếu là error khi status là
       `review`/`published`, nên bài bắt buộc `draft`. `triangulation` bị chặn ở
       7.5 (≤ 8.0), không nâng để né blocker."
-  assessed_at: "2026-10-14"
+  assessed_at: 2026-10-14
   assessed_by:
-    - "Claude Opus 5.5 (Claude Code)"
+    - Claude Sonnet 5.5 (Claude Code)
+  assessment_id: f99c50f8-80dd-4091-ae75-e10185150e41
   waiver:
     id: no-upstream-english
     blockers:
@@ -179,3 +182,5 @@ notes: |-
   Sửa lan 2026-10-13: vv18:4.2 `moggallānena pucchitā` «bị Tôn giả Moggallāna truy hỏi» → «được Tôn giả Moggallāna hỏi» (`pucchitā` chỉ là được hỏi, không có «bị» hay «truy»; 21/24 khoá có cùng Pāli dịch «được Tôn giả Moggallāna hỏi», vd vv1:5.2, vv13:4.2); vv18:6.1 `upāsikā cakkhumato` «Là đệ tử cư sĩ của Đấng Có Mắt Tuệ» → «Là nữ cư sĩ của Đấng Có Mắt Tuệ» (`upāsikā` là dạng nữ; 9/11 khoá có Pāli này dịch «nữ cư sĩ», vd vv23:10.3, vv15:9.3). Điểm và status giữ nguyên.
 
   Lượt cải thiện 2026-10-14: đọc đối kháng 69/69 khoá, đổi 4 khoá, vẫn đủ 69 khoá, thứ tự và nháy khớp Pāli (0 lệch). (1) `4.3` `Pañhaṁ puṭṭhā viyākāsi` «Được hỏi, nàng đã giải thích rằng» → «Được hỏi câu hỏi, nàng đã giải đáp» (bản trước bỏ `pañhaṁ`; dạng mới là dạng đa số 11/19 khoá cùng Pāli, dạng cũ 5/19). (2) `4.4` `yassa kammassidaṁ phalaṁ` «quả báo của nghiệp này là thế.» → «về nghiệp mà đây là quả báo.»: Pāli là mệnh đề quan hệ (`yassa kammassa idaṁ phalaṁ`, *nghiệp mà đây là quả*), bản trước đổi thành câu khẳng định về «nghiệp này», lệch cả ngữ pháp lẫn nghĩa; dạng mới là đa số 47/68 khoá cùng Pāli (dạng cũ 11/68). (3) `5.2` «làm kẻ sai bảo của người khác» → «làm người hầu của người khác»: `pessiyā` dịch *người hầu* ở toàn tầng, còn *kẻ sai bảo* dễ đọc ngược thành người ra lệnh. (4) `6.4` «trong giáo pháp của vị bất động như vậy» → «trong giáo pháp của bậc vững vàng ấy» (bản trước bỏ `tassa`; 2/2 tiền lệ cho đúng dòng này). Điểm đổi: semantic_fidelity 8.8 → 8.9 và grammar_logic 8.8 → 8.9 (hai lỗi nghĩa/ngữ pháp ở `4.3`–`4.4` đã sửa), terminology 8.8 → 8.9 (`pessiyā`, `tādino` theo tiền lệ), vietnamese_clarity 9.0 → 9.1 (hết chỗ đọc ngược ở `5.2`); `ambiguity_integrity` giữ 8.2 và `triangulation` giữ 7.5 vì các bất định ở trên (nhất là `10.1`–`10.4`, `9.1`, `12.3`) vẫn chưa phân xử được và vẫn không có bản Anh. Đã xét nhưng không đổi: `1.6` *rực rỡ* (không có trong Pāli nhưng là dạng đa số 21/30 của tầng), `2.4` *dễ chịu với tâm* (40/43), `6.1` *Đấng Có Mắt Tuệ* (6/8, chữ *Tuệ* là quy ước của tầng, Pāli chỉ có `cakkhumato`). `final_score` mới 8.99 (trung bình thô), vẫn không vượt 9.0 nên `review`; vẫn chưa chạy bốn lệnh `npm run validate`, `npm test`, `npm run check`, `npm run build`.
+
+  Đối chiếu độc lập 2026-10-14: với bản Việt nguyên bài của Bhikkhu Indacanda. 7 khoá bất đồng nghĩa → sửa 0, giữ 2 (9.4 và 12.4: `paṭibodhaṁ karonti` / `pabodhikā`, bản nguyên bài hiểu là việc giải trí, nhưng `paṭibodha` có nghĩa thức tỉnh và đó là nghĩa đã dùng, giữ *đánh thức*), bất định 5 (7.2: `neva atthettha saṇṭhanaṁ`, bản dự án *nơi đây cũng chẳng có gì trụ vững*, bản nguyên bài hiểu là không có sự lơi lỏng; ngữ cảnh nỗ lực ở 6.3 và 8.3 gợi cách đọc thứ hai nhưng nghĩa *lơi lỏng* của `saṇṭhana` không có tiền lệ trong tầng, và `cp13:6.1` cùng `thag4.12:2.1` chỉ lặp nửa câu trước; 9.1: `āmantanikā`, bản dự án *người được vua triệu thỉnh* theo chữ, bản nguyên bài hiểu là ái hậu; 10.4: `viṇāmokkhā`, bản dự án một tên, bản nguyên bài tách *Vīṇā* và *Mokkhā*; 11.4: `puṇḍarīkāti dāruṇī`, bản dự án hai tên, bản nguyên bài coi `dāruṇī` là tính từ của Puṇḍarīkā, và `iti` làm cả hai cách đều khả dĩ; 12.3: `seyyāse`, bản dự án *nơi giường nằm*, bản nguyên bài hiểu là các vị hơn hết). Review đối kháng riêng sửa 1 khoá: 13.3 `Handa naccāma gāyāma` từ *chúng ta* (gồm cả người nghe) thành *chúng tôi sẽ múa, sẽ hát*, vì 13.4 `taṁ ramayāmase` cho thấy người nói là các thiên nữ còn người được làm vui là vị thiên nữ đang được hỏi chuyện. Bản nguyên bài không phân đoạn nên đối chiếu ở mức đoạn, không phải mức khoá; không có bản Anh.

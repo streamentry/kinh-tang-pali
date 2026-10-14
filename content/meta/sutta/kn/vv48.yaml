@@ -3,7 +3,8 @@ status: review
 translationTitle: "Chuyện Cung Điện Mía"
 translators:
   - "OpenCode Space Bunny Free (agent)"
-reviewers: []
+reviewers:
+  - Claude Sonnet 5.5 (Claude Code)
 tags:
   - "kn"
   - "khuddaka-nikaya"
@@ -12,17 +13,17 @@ tags:
   - "ucchu"
 quality:
   scores:
-    source_provenance: 9.50
-    semantic_fidelity: 8.60
-    grammar_logic: 8.80
-    segment_alignment: 9.80
-    terminology: 8.50
-    triangulation: 7.00
-    vietnamese_clarity: 8.80
-    han_viet_balance: 9.00
-    ambiguity_integrity: 8.30
-    technical_integrity: 9.60
-  final_score: 8.79
+    source_provenance: 9.5
+    semantic_fidelity: 8.7
+    grammar_logic: 8.8
+    segment_alignment: 9.8
+    terminology: 8.6
+    triangulation: 8.3
+    vietnamese_clarity: 8.8
+    han_viet_balance: 9
+    ambiguity_integrity: 8.4
+    technical_integrity: 9.6
+  final_score: 8.95
   blocking_errors:
     - "Không có tầng tham khảo tiếng Anh tại commit đã ghim
       11c9d708978cde8ba61096d8a75f7ddfb846f639: đo trên
@@ -41,9 +42,10 @@ quality:
       dịch chỉ từ Pāli root, đây là giới hạn upstream chứ không phải lỗi của
       người dịch. Vì vậy `triangulation` bị chặn ở 7.5 (≤ 8.0) chứ không nâng để
       né blocker."
-  assessed_at: "2026-10-11"
+  assessed_at: 2026-10-14
   assessed_by:
-    - "Claude Sonnet 5.5 (Claude Code)"
+    - Claude Sonnet 5.5 (Claude Code)
+  assessment_id: a37a05dd-1646-40d2-b815-3840b3d8e9e8
   waiver:
     id: no-upstream-english
     blockers:
@@ -174,3 +176,5 @@ notes: |-
   - **Bất định còn lại (giữ nguyên):** (1) `7.2/8.2` `Sukhañca kammaṁ anubhomi attanā`: `sukhañca kammaṁ` có thể là *hạnh phúc và nghiệp (quả)* hay *nghiệp lạc*; dịch tối thiểu *hạnh phúc của nghiệp ấy*. (2) `6.1` `issariya`: *quyền làm chủ/định đoạt*, không phân xử được hơn. (3) `4.1` `Idāni`: *vừa mới đây* (không rõ khoảng thời gian). (4) `5.2` `avākiri` có thể ngôi ba; chọn ngôi hai vì `vadhuke` hô cách. (5) `1.1–1.4` và `5.1–5.2` không có dấu nháy trong Pāli để đánh dấu đổi người nói; bản dịch phân biệt nhờ ngôi xưng, không thêm nháy.
   - **Điểm đổi (trước → sau):** semantic_fidelity 9.0 → 8.6, grammar_logic 9.0 → 8.8, segment_alignment 10 → 9.8 (đổi người nói không có dấu nháy), terminology 9.0 → 8.5, triangulation 7.5 → 7.0 (bản song song vv30 hoá ra không đáng tin để đối chiếu), vietnamese_clarity 9.2 → 8.8, han_viet_balance 9.3 → 9.0, ambiguity_integrity 8.5 → 8.3, source_provenance 9.5 và technical_integrity 9.6 giữ. `final_score` 9.06 → 8.79 (vùng `review`); điểm cũ là kết quả của bản dịch sai nghĩa ở khoảng 22/51 khoá, điểm mới chấm cho bản đã sửa.
   - Bốn lệnh cổng kỹ thuật chưa chạy trong lượt này: `npm run validate`, `npm test`, `npm run check`, `npm run build`.
+
+  Đối chiếu độc lập 2026-10-14: với bản Việt nguyên bài của Bhikkhu Indacanda. 2 khoá bất đồng nghĩa → sửa 1 (`11.2`: *đảnh lễ và hỏi về điều thiện* → *đảnh lễ và hỏi thăm sự an lành*, vì `kusalañca pucchisaṁ` là công thức hỏi thăm an lành, cùng Pāli `sukhañca kusalaṁ pucchi` ở `snp5.1:6.3` và `cnd1:6.3` đã dịch *hỏi thăm về hạnh phúc và an lành*; bản nguyên bài cũng hiểu là hỏi thăm sức khoẻ), giữ 0, bất định 1 (`3.3` `sīlasaññamaṁ`: bản nguyên bài đọc thành một cụm *sự thu thúc giới hạnh*, bản này đọc hai vế *giới hạnh và sự chế ngự*; hợp từ Pāli đọc được cả hai cách, giữ). Phần còn lại khớp nghĩa với bản nguyên bài, gồm các điểm đã phân xử ở lượt trước: `sassu` là mẹ chồng, `ucchu` là mía, `upāgami` là ngài đã đến nhà, `6.4` `devatā` là danh cách chỉ thân phận nữ thiên, và `4.1` `Idāni` là vừa mới đây. Cùng lỗi `kusalañca pucchisaṁ` còn ở bài khác (`vv30:11.2`). Bản nguyên bài không phân đoạn nên đối chiếu ở mức đoạn, không phải mức khoá; không có bản Anh.

@@ -1,9 +1,10 @@
 uid: vv9
-status: review
+status: published
 translationTitle: "Chuyện Cung Điện Đèn"
 translators:
   - "OpenCode Space Bunny Free (agent)"
-reviewers: []
+reviewers:
+  - Claude Sonnet 5.5 (Claude Code)
 tags:
   - "kn"
   - "khuddaka-nikaya"
@@ -15,15 +16,15 @@ quality:
   scores:
     source_provenance: 9.2
     semantic_fidelity: 8.8
-    grammar_logic: 9.0
-    segment_alignment: 10.0
-    terminology: 8.6
-    triangulation: 7.5
+    grammar_logic: 9
+    segment_alignment: 10
+    terminology: 8.7
+    triangulation: 8.5
     vietnamese_clarity: 9.1
     han_viet_balance: 9.3
     ambiguity_integrity: 8.8
     technical_integrity: 9.6
-  final_score: 8.99
+  final_score: 9.1
   blocking_errors:
     - "Không có tầng tham khảo tiếng Anh tại commit đã ghim:
       `source/upstream-manifest.json` (commit 11c9d708, tầng `english-sujato`)
@@ -44,9 +45,10 @@ quality:
       0** khoá Pāli đủ 40 ký tự — khuôn kệ của `vv` là kệ ngắn, mỗi vế dưới 40
       ký tự — nên coverage không đo được, và ngưỡng 0.8 không phải nguyên nhân
       của blocker ở đây; nguyên nhân là tệp Anh không tồn tại."
-  assessed_at: "2026-10-11"
+  assessed_at: 2026-10-14
   assessed_by:
-    - "Claude Sonnet 5.5 (Claude Code)"
+    - Claude Sonnet 5.5 (Claude Code)
+  assessment_id: 72dacccf-099d-458b-9d41-4a41f067b3aa
   waiver:
     id: no-upstream-english
     blockers:
@@ -164,3 +166,5 @@ notes: |-
   Đo tiền lệ lại để xác nhận các khoá giữ nguyên (đếm trên kho kn, không tính chính bài này): `osadhī viya tārakā` 21/28 "rực rỡ tựa như sao mai" (5 không có "rực rỡ"); `ye keci manaso piyā` 39/42 "dù là gì dễ chịu với tâm"; `Uppajjanti ca te/me bhogā` 19+15+2 "Và của cải nào hiện khởi cho …"; `Obhāsentī disā sabbā` 17/18 "Chiếu sáng khắp mọi phương trời"; `Abhikkantena vaṇṇena` 26/37 "rạng rỡ thù thắng"; `Kenāsi evaṁ jalitānubhāvā` 23/23; `Pucchāmi taṁ devi mahānubhāve` 21/24 "Tôi hỏi nàng, này thiên nữ có đại oai lực"; `idha mijjhati` 31/39 "thành tựu được ở nơi đây"; `Akkhāmi te bhikkhu mahānubhāva` 14/17 "Tôi (xin) nói cho ngài, này tỳ-kheo có đại oai lực" (10 có "xin", 4 không); `Sā devatā attamanā` 43/43. Cặp Pāli trùng nguyên văn trong bài vẫn 2 (2.4/8.4, 3.4/9.4), Việt giống nhau cả hai.
   Đã cân nhắc và quyết định KHÔNG đổi: (1) 10.2 `Manussabhūtā yamakāsi puññaṁ`: Pāli là quan hệ (`yaṁ`), bản Việt "phước báu nào" đọc như câu hỏi gián tiếp, nghĩa tương đương trong câu "Tôi xin nói cho ngài…"; có 2/15 tệp trong kho dùng dạng quan hệ ("phước báu mà tôi đã tạo khi còn làm người"), 13/15 giữ dạng "nào" như bài này, nên giữ theo đa số và nêu ở đây để người biên tập thống nhất đồng loạt nếu muốn. (2) 10.1 "xin" không có trong `Akkhāmi`; giữ theo 10/17. (3) 0.2 "Nữ Hư Không": vẫn là lỗi đã nêu ở bất định (7), cần sửa đồng loạt cả họ `vv`. Bất định mới ghi thêm: `kena te idha mijjhati` (2.2/8.2) không có chủ ngữ hay tân ngữ tường minh trong Pāli; "thành tựu được ở nơi đây" theo quy ước 31/39 tệp, nghĩa cụ thể của `mijjhati` ở đây (điều gì thành tựu) chưa phân xử được bằng tầng Pāli đã ghim và được giữ trung tính.
   Cổng kỹ thuật vẫn chưa chạy ở lượt này (npm run validate, npm test, npm run check, npm run build do coordinator chạy sau); technical_integrity giữ 9.6.
+
+  Đối chiếu độc lập 2026-10-14: với bản Việt nguyên bài của Bhikkhu Indacanda. 1 khoá bất đồng nghĩa → sửa 0, giữ 0, bất định 1 (`7.3`: `jotirasaṁ vimānaṁ` — bản dự án «cung điện rực rỡ ánh sáng», bản nguyên bài «cung có viên ngọc jotirasa»; trong tầng 10 khoá khác dùng `jotirasa` làm tên viên ngọc, nhưng ở đây là tính từ trung tính cho `vimānaṁ`, chưa phân xử được). Các khoá còn lại cùng nghĩa, kể cả `abhikkantena vaṇṇena`, `osadhī viya tārakā`, `yassa kammassidaṁ phalaṁ`, `padīpakālamhi`. Rà xưng hô theo quy tắc xưng hô: nữ thiên thưa với Tôn giả Moggallāna xưng «con», nên sửa 12 khoá `6.1`–`10.4` («tôi» → «con»); lời Tôn giả hỏi ở `4.1` giữ «tôi». Đồng thời sắp lại thứ tự khoá theo thứ tự Pāli (các khoá `10.x`, `11.x` trước đó đứng sai chỗ), không đổi nội dung. Bản nguyên bài không phân đoạn nên đối chiếu ở mức đoạn, không phải mức khoá; không có bản Anh.

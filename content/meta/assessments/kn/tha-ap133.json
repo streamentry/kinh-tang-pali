@@ -120,6 +120,34 @@
       "notes": "Kiểm tra tự động 41 segment với Pāli trong cache: đủ ID, giá trị, NFC và hệ chữ Latin. Chưa đọc đối chiếu nghĩa, ngữ pháp hoặc văn phong; chưa chấm lại 10 tiêu chí. Đây không phải chứng nhận hash upstream hoặc giấy phép, không xác nhận trạng thái xuất bản.",
       "content_sha256": "8dd24af9a80c66dea90598d1d236501c835e48d898d1470765937c3a2034f363",
       "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639"
+    },
+    {
+      "target": "translation",
+      "scope": "full",
+      "scores": {
+        "source_provenance": 9,
+        "semantic_fidelity": 8.8,
+        "grammar_logic": 9,
+        "segment_alignment": 10,
+        "terminology": 9,
+        "triangulation": 8.5,
+        "vietnamese_clarity": 8.8,
+        "han_viet_balance": 9.2,
+        "ambiguity_integrity": 8.8,
+        "technical_integrity": 9.6
+      },
+      "blocking_errors": [
+        "Tại commit đã ghim không có tệp thân kinh translation/en/sujato cho tha-ap133 (tệp tha-ap duy nhất của tầng là tệp tên name/sutta/tha-ap-name, không phải thân kinh); bài nằm trong số bài không được SuttaCentral phát bản Anh, nên mẫu số coverage bằng 0. Tầng vietnamese-current chỉ có 26 tệp Pháp Cú và english-project không có entry cho bài này. Đây là giới hạn của bản chụp upstream, không phải thiếu sót của kho, nhưng thiếu tầng tham khảo là blocking error nên bài phải giữ draft."
+      ],
+      "assessed_at": "2026-10-14",
+      "assessed_by": [
+        "Claude Sonnet 5.5 (Claude Code)"
+      ],
+      "notes": "Đối chiếu độc lập với bản Việt nguyên bài của Bhikkhu Indacanda, ở mức đoạn: 3 khoá bất đồng (2.2, 2.4, 7.2), sửa 0, giữ 2 (2.2, 2.4), bất định 1 (7.2, yasuggatā). Rà đối kháng 41/41 khoá: không lỗi mới. Technical gate (npm run validate, npm test, npm run check, npm run build) chưa chạy trong lượt này nên technical_integrity đặt 9,6, không tuyên bố đã pass. Blocker noEnglishEditionUpstream giữ nguyên (upstream vẫn không có bản Anh), không có blocker nào khác để gỡ. Triangulation có Pāli và một bản Việt độc lập đã đối chiếu, không có bản Anh nên không tuyên bố đã đối chiếu English. Đây là review của AI, không phải chứng nhận của chuyên gia Pāli.",
+      "id": "61ff88cd-c438-4da6-b261-2cb5f6f63988",
+      "content_sha256": "9c373e8849f2b83c60a54aa53a67a82a32e65e6e586cbe5a3b7c9d5f640d8ee3",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
+      "final_score": 9.069999999999999
     }
   ],
   "legacy_quality": {

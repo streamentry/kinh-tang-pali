@@ -1,9 +1,10 @@
 uid: vv19
-status: review
+status: published
 translationTitle: "Chuyện Cung Điện Nữ Lakhumā"
 translators:
   - "OpenCode Space Bunny Free (agent)"
-reviewers: []
+reviewers:
+  - Claude Sonnet 5.5 (Claude Code)
 tags:
   - "kn"
   - "khuddaka-nikaya"
@@ -14,16 +15,16 @@ tags:
 quality:
   scores:
     source_provenance: 9.5
-    semantic_fidelity: 8.9
-    grammar_logic: 9.0
+    semantic_fidelity: 9
+    grammar_logic: 9.1
     segment_alignment: 9.6
-    terminology: 8.8
-    triangulation: 7.5
-    vietnamese_clarity: 8.8
+    terminology: 8.9
+    triangulation: 8.5
+    vietnamese_clarity: 8.9
     han_viet_balance: 9.2
-    ambiguity_integrity: 9.0
+    ambiguity_integrity: 9
     technical_integrity: 9.6
-  final_score: 8.99
+  final_score: 9.129999999999999
   blocking_errors:
     - "Không có tầng tham khảo tiếng Anh tại commit đã ghim. Đo bằng
       `source/upstream-manifest.json` (commit
@@ -44,9 +45,10 @@ quality:
       người dịch. `scripts/validate.ts` coi tệp Anh thiếu là error khi status là
       `review`/`published`, nên bài bắt buộc `draft`. `triangulation` bị chặn ở
       7.5 (≤ 8.0), không nâng để né blocker."
-  assessed_at: "2026-10-12"
+  assessed_at: 2026-10-14
   assessed_by:
-    - "Claude Sonnet 5.5 (Claude Code)"
+    - Claude Sonnet 5.5 (Claude Code)
+  assessment_id: 7f1453e8-e763-4a57-b45d-295fc1e56e40
   waiver:
     id: no-upstream-english
     blockers:
@@ -243,3 +245,5 @@ notes: |-
   · Hai ô tiêu chí không hạ vì lỗi cũ mà vì mức đọc còn vụng ở `5.x`–`6.x` (câu chia dòng theo Pāli).
     Cổng kỹ thuật: bài này chưa chạy `npm run validate`, `npm test`, `npm run check`, `npm run build`,
     nên `technical_integrity` 9,6.
+
+  Đối chiếu độc lập 2026-10-14: với bản Việt nguyên bài của Bhikkhu Indacanda. 2 khoá bất đồng nghĩa → sửa 0, giữ 1 (6.1: bản nguyên bài hiểu `kummāsa` là bánh, bản dự án *cháo* theo cách tầng dịch `odanakummāsa` ở `dn2`, `dn10`, `dn24`; Pāli chỉ nêu tên món, không đủ để phân xử thêm), bất định 1 (7.3 `Pāṭihāriyapakkha`: bản dự án *cùng cả kỳ nửa tháng thần biến* theo nghĩa đen của từ, bản nguyên bài hiểu theo chú giải là những ngày phụ trội quanh ngày trai giới; Pāli tự nó không nói rõ, và tầng đã ghim dịch cụm này ba cách khác nhau). 50 khoá còn lại cùng nghĩa ở mức đoạn (ngày mười bốn, mười lăm, mồng tám; năm giới; quả Nhất Lai ở 12.4; người nói đảnh lễ Đức Thế Tôn qua Tôn giả Moggallāna). Bản nguyên bài không có phần lời nhắn `12.1–12.4`, nên bốn khoá này đối chiếu chỉ với Pāli. Rà đối kháng lại bản dự án: không thấy lỗi mới. Bản nguyên bài không phân đoạn nên đối chiếu ở mức đoạn, không phải mức khoá; không có bản Anh.

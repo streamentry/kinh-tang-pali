@@ -3,7 +3,8 @@ status: review
 translationTitle: "Luận Bàn Về Lực"
 translators:
   - "Claude Sonnet 5.5 (Claude Code)"
-reviewers: []
+reviewers:
+  - Claude Sonnet 5.5 (Claude Code)
 tags:
   - "kn"
   - "khuddaka-nikaya"
@@ -13,16 +14,16 @@ tags:
 quality:
   scores:
     source_provenance: 9.4
-    semantic_fidelity: 8.8
-    grammar_logic: 9.0
-    segment_alignment: 10.0
+    semantic_fidelity: 8.6
+    grammar_logic: 9
+    segment_alignment: 10
     terminology: 8.5
-    triangulation: 7.0
+    triangulation: 8.2
     vietnamese_clarity: 8.8
     han_viet_balance: 9.2
-    ambiguity_integrity: 7.8
+    ambiguity_integrity: 8.2
     technical_integrity: 9.6
-  final_score: 8.81
+  final_score: 8.95
   blocking_errors:
     - "noEnglishEditionUpstream: Thiếu bản dịch tiếng Anh đối chiếu — tầng
       english-sujato không có ps2.9 tại commit đã ghim (thư mục sutta/kn của
@@ -31,9 +32,10 @@ quality:
       Pāli có nội dung = 0/153 khoá. Đây là not-published-upstream, không phải
       not-synced. Bài chỉ dịch từ Pāli root và đối chiếu tiền lệ nội bộ nên
       triangulation bị chặn ở 7,0 và chưa đủ điều kiện published."
-  assessed_at: "2026-10-11"
+  assessed_at: 2026-10-14
   assessed_by:
-    - "Claude Sonnet 5.5 (Claude Code)"
+    - Claude Sonnet 5.5 (Claude Code)
+  assessment_id: 30c6d387-cd1c-43cb-8e6b-d6371cddafd6
   waiver:
     id: no-upstream-english
     blockers:
@@ -81,3 +83,5 @@ notes: |-
   Phép kiểm đã chạy: tập khoá Việt = tập khoá Pāli (265 = 265), thứ tự giống Pāli; nháy đơn và nháy kép khớp Pāli từng khoá (0 lệch; 7 khoá có dấu nháy kép trong Pāli, 0 khoá có nháy đơn); dấu lược … khớp Pāli từng khoá (0 lệch; 46 khoá có dấu lược, kể cả …pe… và … trần); không khoá nào là (…) trần; 6 khoá Pāli kết …pe…. (32.2, 33.2, 34.2, 35.2, 36.7, 37.3) đều kết Việt bằng khoảng trắng rồi ….; NFC đạt; 0 khoá rỗng; không Pāli lọt sang Việt ngoài tên riêng Paṭisambhidāmagga ở khoá tiêu đề và Sāvatthī ở 1.1. Pāli trùng nguyên văn trong chính bài: 4 nhóm (22.5 = 22.15 = 40.21; 22.6 = 22.16 = 40.22; 36.2 = 36.6; 36.7 = 37.3), 10 khoá, bản Việt giống hệt nhau (0 lệch). Pāli trùng nguyên văn với tầng ngoài bài: 14 khoá, 664 cặp đã dò, 116 cặp bản Việt khác; khác chủ yếu vì tầng an dịch bala là sức mạnh (an5.13 đến an5.16, an10.90), vì 21.5 và 21.6 dịch nơi tưởng, nơi các hành thay vì với tưởng, trong các hành (sn22.111, sn22.147), vì Seyyathidaṁ dịch theo đa số mil (như sau đây), và vì 27.6 dịch Thánh đạo tám chi (22 khoá) thay vì tám ngành; không sửa phía tầng. Đã in và đọc đủ 265 cặp Pāli với Việt.
 
   Chưa chạy cổng kỹ thuật nên technical_integrity đặt 9,6: còn phải chạy npm run validate, npm test, npm run check, npm run build.
+
+  **Đối chiếu độc lập 2026-10-14** với bản Việt nguyên bài của Bhikkhu Indacanda (bản dịch 2007, theo ấn bản Buddha Jayanthi). Đã so từng khoá, theo từng nhóm công thức, trong 265 khoá. 18 khoá bất đồng nghĩa → sửa 2, giữ 1, bất định 15. Sửa `:3.3` và `:4.3` (`paṭivedhādivisodhanaṭṭhena`): trước *do ý nghĩa làm thanh tịnh sự thông suốt và các điều tiếp theo* → sau *do ý nghĩa làm thanh tịnh phần đầu của sự thông suốt*. Bản nguyên bài hiểu `ādi` là phần đầu; Pāli ủng hộ cách đó vì cùng bài `ps1.4:66.8` và `ps1.4:70.1` dùng `ādivisodhana` như một thuật ngữ riêng (*làm thanh tịnh từ đầu*), và mục kế `uttaripaṭivedha` (thông suốt cao hơn) đứng đối xứng với phần đầu của sự thông suốt; Cách đọc `ādi` = *vân vân* không có thuật ngữ song song nào trong tầng. Cách cũ theo tiền lệ `ps1.9` (8 khoá cùng công thức `paṭivedhādivisodhanāya` còn dịch *… và các điều tiếp theo*, ngoài lát, xin sửa theo). Giữ `:21.14` (`attasaññāya kampatīti`): Pāli đã ghim thiếu `na`; cả bản này lẫn bản nguyên bài đều đọc là *không dao động* (bản nguyên bài là ấn bản khác nên xác nhận độc lập cách đọc có `na`), vì sáu khoá song song và `:40.5` đều là bất động; Pāli đã ghim không đổi, bất định cũ ở mục (1) vì vậy được xác nhận (người biên tập vẫn có thể ghi chú chữ Pāli thiếu `na`). Bất định `:15.1`–`:15.7` và `:40.14` (`paññāpeti`, `paññatti`; 8 khoá): bản này *chế định tâm / lực chế định*, bản nguyên bài *chuẩn bị tâm / lực của sự chuẩn bị*; `paññāpeti` có cả nghĩa thiết lập, trình bày lẫn chuẩn bị (xếp đặt), không phân xử được từ Pāli. Bất định `:16.1`–`:16.6` và `:40.15` (`nijjhāpeti`, `nijjhatti`; 7 khoá): bản này *làm cho tâm thấu hiểu / lực thấu hiểu*, bản nguyên bài *khiến tâm được thuyết phục / lực của sự thuyết phục*; `nijjhāpeti` là dạng sai khiến, có thể là làm cho (ai) hiểu ra hoặc thuyết phục; hai cách dịch đều trong nghĩa từ, chưa chọn được. Không tính là bất đồng nghĩa mà chỉ khác thuật ngữ đã có tiền lệ: `ottappa` *kính sợ* (bản nguyên bài: ghê sợ), `anavajja` *không đáng chê trách* (không sai trái), `saṅgaṇhāti` *thu nhiếp* (củng cố), `vasaṁ vatteti` *làm chủ* (thống lãnh), `vijjāmayā iddhi` *do minh tạo thành* (do sự hiểu biết); đã đo ở lượt trước, giữ. Bản nguyên bài không phân đoạn nên đối chiếu ở mức đoạn, không phải mức khoá; không có bản Anh. Đây là review của AI, không phải chứng nhận của chuyên gia Pāli.

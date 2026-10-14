@@ -1,0 +1,62 @@
+{
+  "schemaVersion": 1,
+  "uid": "tha-ap404",
+  "assessments": [
+    {
+      "target": "translation",
+      "scope": "full",
+      "scores": {
+        "source_provenance": 9.2,
+        "semantic_fidelity": 9.1,
+        "grammar_logic": 9.1,
+        "segment_alignment": 10,
+        "terminology": 9.3,
+        "triangulation": 8.5,
+        "vietnamese_clarity": 9,
+        "han_viet_balance": 9.2,
+        "ambiguity_integrity": 9,
+        "technical_integrity": 9.6
+      },
+      "blocking_errors": [
+        "Không có tầng tham khảo tiếng Anh tại commit đã ghim 11c9d708978cde8ba61096d8a75f7ddfb846f639: `translation/en/sujato/sutta/kn/` chỉ có 9 sub-collection (cp, dhp, iti, ja, kp, snp, thag, thig, ud) và không có `tha-ap`, nên tệp `tha-ap404_translation-en-sujato.json` không tồn tại — đây là `not-published-upstream`, không phải `not-synced`. Mẫu số coverage theo `source/layers.yaml` (Pāli có nội dung ≥ 40 ký tự, loại khối tham chiếu `:0`) chỉ là 1 khoá, và đó là dòng lời kết `:17.1`; Sujato phủ 0/1 = 0%, dưới ngưỡng 0.8, nên cổng không đo được gì có ý nghĩa về đối chiếu English. `scripts/validate.ts` coi tệp Anh thiếu là lỗi khi status là `review` hoặc `published`, nên bài bắt buộc `draft`. Tầng `vietnamese-current` cũng vắng (`translation/vi/phantuananh` tại commit đã ghim chỉ có 26 tệp Pháp Cú) và lớp `english-project` không có entry cho uid này. Cả ba tầng tham khảo đều vắng, bản dịch chỉ dựa trên Pāli root; đây là giới hạn của upstream, không phải lỗi của người dịch. Vì vậy `triangulation` bị chặn ở 6.5 (≤ 8.0) và không nâng điểm để né blocker."
+      ],
+      "assessed_at": "2026-10-14",
+      "assessed_by": [
+        "Claude Sonnet 5.5 (Claude Code)"
+      ],
+      "notes": "Đối chiếu độc lập 2026-10-14: với bản Việt nguyên bài của Bhikkhu Indacanda. 1 khoá bất đồng nghĩa → sửa 0, giữ 0, bất định 1 (`13.4`). `tanukiccassidaṁ phalaṁ`: bản nguyên bài hiểu `tanu` là thân thể (quả của việc hỏa táng thi thể), bản dự án hiểu là nhỏ (*quả của một việc nhỏ*); `tanu` có cả hai nghĩa, `tanukicca` là hapax trong Pāli đã ghim, không có song song để phân xử; ngữ cảnh (việc chính là thiêu thân Đức Phật) ủng hộ cách đọc thứ nhất nhưng chưa đủ để đổi nghĩa canonical. Các khoá còn lại cùng nghĩa: `ekanavutito kappe` là chín mươi mốt kiếp, `paṭisambhidā catasso`, các danh xưng Puṇṇaka, `sayambhū` (dự án *Tự Tại*, nhất quán 35 khoá `tha-ap`), người nói là dạ-xoa ở 7.3–8.4. Không sửa khoá nào. Bản nguyên bài không phân đoạn nên đối chiếu ở mức đoạn, không phải mức khoá; không có bản Anh. Điểm triangulation 8,5 (Pāli cùng một bản Việt độc lập đã đối chiếu, không có bản Anh, trần 8,8). technical_integrity 9,6: chưa chạy cổng kỹ thuật (npm run validate, npm test, npm run check, npm run build). Blocker thiếu tầng tham khảo tiếng Anh giữ nguyên vì upstream vẫn không có bản Anh; không có blocker khác. Đây là review của AI, không phải chứng nhận của chuyên gia Pāli.",
+      "id": "dcc09bfd-ba46-42b0-b254-3a418c8d2dc8",
+      "content_sha256": "13869b78ac8529b3ea1e72d9e0899c9c7b886b034b2a0e6723eb9d10982b4d18",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
+      "final_score": 9.2
+    }
+  ],
+  "legacy_quality": {
+    "scores": {
+      "source_provenance": 9.2,
+      "semantic_fidelity": 9.1,
+      "grammar_logic": 9.1,
+      "segment_alignment": 10,
+      "terminology": 9.3,
+      "triangulation": 6.5,
+      "vietnamese_clarity": 9,
+      "han_viet_balance": 9.2,
+      "ambiguity_integrity": 9,
+      "technical_integrity": 9.6
+    },
+    "final_score": 9,
+    "blocking_errors": [
+      "Không có tầng tham khảo tiếng Anh tại commit đã ghim 11c9d708978cde8ba61096d8a75f7ddfb846f639: `translation/en/sujato/sutta/kn/` chỉ có 9 sub-collection (cp, dhp, iti, ja, kp, snp, thag, thig, ud) và không có `tha-ap`, nên tệp `tha-ap404_translation-en-sujato.json` không tồn tại — đây là `not-published-upstream`, không phải `not-synced`. Mẫu số coverage theo `source/layers.yaml` (Pāli có nội dung ≥ 40 ký tự, loại khối tham chiếu `:0`) chỉ là 1 khoá, và đó là dòng lời kết `:17.1`; Sujato phủ 0/1 = 0%, dưới ngưỡng 0.8, nên cổng không đo được gì có ý nghĩa về đối chiếu English. `scripts/validate.ts` coi tệp Anh thiếu là lỗi khi status là `review` hoặc `published`, nên bài bắt buộc `draft`. Tầng `vietnamese-current` cũng vắng (`translation/vi/phantuananh` tại commit đã ghim chỉ có 26 tệp Pháp Cú) và lớp `english-project` không có entry cho uid này. Cả ba tầng tham khảo đều vắng, bản dịch chỉ dựa trên Pāli root; đây là giới hạn của upstream, không phải lỗi của người dịch. Vì vậy `triangulation` bị chặn ở 6.5 (≤ 8.0) và không nâng điểm để né blocker."
+    ],
+    "assessed_at": "2026-10-13",
+    "assessed_by": [
+      "Claude Sonnet 5.5 (Claude Code)"
+    ],
+    "waiver": {
+      "id": "no-upstream-english",
+      "blockers": [
+        "Không có tầng tham khảo tiếng Anh tại commit đã ghim 11c9d708978cde8ba61096d8a75f7ddfb846f639: `translation/en/sujato/sutta/kn/` chỉ có 9 sub-collection (cp, dhp, iti, ja, kp, snp, thag, thig, ud) và không có `tha-ap`, nên tệp `tha-ap404_translation-en-sujato.json` không tồn tại — đây là `not-published-upstream`, không phải `not-synced`. Mẫu số coverage theo `source/layers.yaml` (Pāli có nội dung ≥ 40 ký tự, loại khối tham chiếu `:0`) chỉ là 1 khoá, và đó là dòng lời kết `:17.1`; Sujato phủ 0/1 = 0%, dưới ngưỡng 0.8, nên cổng không đo được gì có ý nghĩa về đối chiếu English. `scripts/validate.ts` coi tệp Anh thiếu là lỗi khi status là `review` hoặc `published`, nên bài bắt buộc `draft`. Tầng `vietnamese-current` cũng vắng (`translation/vi/phantuananh` tại commit đã ghim chỉ có 26 tệp Pháp Cú) và lớp `english-project` không có entry cho uid này. Cả ba tầng tham khảo đều vắng, bản dịch chỉ dựa trên Pāli root; đây là giới hạn của upstream, không phải lỗi của người dịch. Vì vậy `triangulation` bị chặn ở 6.5 (≤ 8.0) và không nâng điểm để né blocker."
+      ]
+    }
+  }
+}

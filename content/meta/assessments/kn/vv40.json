@@ -53,6 +53,34 @@
       "notes": "Kiểm tra tự động 36 segment với Pāli trong cache: đủ ID, giá trị, NFC và hệ chữ Latin. Chưa đọc đối chiếu nghĩa, ngữ pháp hoặc văn phong; chưa chấm lại 10 tiêu chí. Đây không phải chứng nhận hash upstream hoặc giấy phép, không xác nhận trạng thái xuất bản.",
       "content_sha256": "b901fa44039521cc716ae3e3ae3d0da5e4729cf61a2cb32d1f46996bdc71a58d",
       "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639"
+    },
+    {
+      "target": "translation",
+      "scope": "full",
+      "scores": {
+        "source_provenance": 9.5,
+        "semantic_fidelity": 8.8,
+        "grammar_logic": 8.9,
+        "segment_alignment": 10,
+        "terminology": 8.8,
+        "triangulation": 8.5,
+        "vietnamese_clarity": 8.8,
+        "han_viet_balance": 9.2,
+        "ambiguity_integrity": 8.5,
+        "technical_integrity": 9.6
+      },
+      "blocking_errors": [
+        "Không có tầng tham khảo tiếng Anh tại commit đã ghim: tệp Anh của uid này KHÔNG có trong `source/upstream-manifest.json` (git tree của commit 11c9d708978cde8ba61096d8a75f7ddfb846f639) và cũng không có trong `.cache/upstream/suttacentral/`. Đo trực tiếp trên manifest: thư mục `sutta/kn/` của bản Anh Sujato tại commit đã ghim chỉ có **9** thư mục con — cp, dhp, iti, ja, kp, snp, thag, thig, ud — trong đó `sutta/kn/tha-ap/` và `sutta/kn/vv/` có **0** tệp. Đây là `not-published-upstream`, KHÔNG phải `not-synced`. Coverage English = 0 trên toàn bộ khoá Pāli có nội dung, dưới ngưỡng 0,8 khai ở `source/layers.yaml`. Tầng `vietnamese-current` cũng vắng: `translation/vi/phantuananh` tại commit đã ghim chỉ có 26 tệp và toàn bộ là Pháp Cú. Lớp lấp `english-project` của dự án không có cho uid này. Ba tầng tham khảo đều vắng ⇒ bài dịch chỉ từ Pāli root ⇒ blocker thật, và đây là **giới hạn upstream**, không phải lỗi của người dịch. Vì vậy `triangulation` bị chặn ở 7,5 (≤ 8,0) chứ không nâng để né blocker."
+      ],
+      "assessed_at": "2026-10-14",
+      "assessed_by": [
+        "Claude Sonnet 5.5 (Claude Code)"
+      ],
+      "notes": "Đối chiếu độc lập với bản Việt nguyên bài của Bhikkhu Indacanda, từng khoá cạnh bản nguyên bài ở mức đoạn: 1 khoá bất đồng sắc thái (6.1 `bhaddante`, đã ghi từ trước) → sửa 0, giữ 0, bất định 1; các khoá còn lại cùng nghĩa, và bản nguyên bài xác nhận các chỗ đã sửa ở lượt trước (4.2, 5.1, 6.2, 6.3, 7.3, 8.1–8.2) nên semantic_fidelity và grammar_logic nhích lên 8,8 và 8,9. Không đổi khoá nào. Đối chiếu ở mức đoạn, không phải mức khoá; không có bản Anh nên triangulation 8,5. Cổng kỹ thuật chưa chạy, technical_integrity 9,6. Đây là review của AI, không phải chứng nhận của chuyên gia Pāli.",
+      "id": "093b2230-d271-4959-b070-548cd98265d2",
+      "content_sha256": "c2d34d01fca20b2ffa7321411b9a9e1a6d184fc1c2b0b81b19ca73ec7f9f9594",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
+      "final_score": 9.059999999999999
     }
   ],
   "legacy_quality": {

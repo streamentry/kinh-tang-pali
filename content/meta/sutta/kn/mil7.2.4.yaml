@@ -1,9 +1,11 @@
 uid: mil7.2.4
-status: review
+status: published
 translationTitle: "Câu Hỏi Về Phần Của Con Báo Cái"
 translators:
   - "OpenCode Space Bunny Free (agent)"
-reviewers: []
+reviewers:
+  - Claude Opus 5.5 (Claude Code)
+  - Claude Sonnet 5.5 (Claude Code)
 tags:
   - khuddaka-nikaya
   - milindapanha
@@ -14,15 +16,15 @@ quality:
   scores:
     source_provenance: 9.5
     semantic_fidelity: 8.8
-    grammar_logic: 9.0
-    segment_alignment: 10.0
+    grammar_logic: 9
+    segment_alignment: 10
     terminology: 8.8
-    triangulation: 7.5
-    vietnamese_clarity: 9.0
+    triangulation: 8.5
+    vietnamese_clarity: 9
     han_viet_balance: 9.2
     ambiguity_integrity: 8.6
     technical_integrity: 9.6
-  final_score: 9.0
+  final_score: 9.099999999999998
   blocking_errors:
     - "Không có tầng tham khảo tiếng Anh tại commit đã ghim: 0/14 bài của lát w6
       có tệp `*_translation-en-sujato.json`. Đã đếm ở nguồn sự thật là
@@ -33,9 +35,10 @@ quality:
       tệp, toàn bộ là Pháp Cú. Lớp lấp English của chính dự án cũng không có cho
       14 uid này. Bài dịch chỉ từ Pāli root nên chưa đối chiếu được tầng tham
       khảo đã ghim; giữ draft."
-  assessed_at: "2026-10-13"
+  assessed_at: 2026-10-14
   assessed_by:
-    - "Claude Opus 5.5 (Claude Code)"
+    - Claude Sonnet 5.5 (Claude Code)
+  assessment_id: e5b84bf4-f31a-4c95-b10b-4f947355e8ed
   waiver:
     id: no-upstream-english
     blockers:
@@ -141,3 +144,5 @@ notes: |-
   · Giữ nguyên: `0.2` "Câu hỏi về cách dùng dẫn với ví dụ" (42/69 khoá ở mil7.x; cụm gượng nhưng đã là quy ước tầng, không đổi một bài); `0.3` Phẩm Con Lừa (đã sửa lan); bốn dòng kệ 2.1–2.4 (2.1–2.3 trùng nguyên văn `snp1.2:12.1/12.3/12.4`, 2.4 khác ở `devā’”ti`, vẫn giữ cách dịch của snp1.2:12.5 trừ dấu).
   · BẤT ĐỊNH CÒN LẠI: (1) phạm vi của `āyatiṁ` — trạng từ cho cả danh sách, hay chỉ cho `paṭisandhi`; chọn cách bao trùm, không phân xử được bằng căn cứ trong kho. (2) `purisa` = con đực hay "người" nói chung. (3) `visama`, `khaya`, `vināsa` chỉ có tiền lệ yếu (khoá đơn lẻ, ngữ cảnh khác); chưa có tầng tham khảo nào để phân xử. (4) `sakiṁ` "một lần" là một lần trong đời hay một lần mỗi mùa — Pāli không nói.
   · Chấm lại: semantic_fidelity 9.3 → 8.8 (phát hiện `āyati`, `sakiṁ`, `devātideva` đọc sai ở bản cũ; đã sửa nhưng bất định còn); terminology 9.2 → 8.8 (6 thuật ngữ lệch tiền lệ trước khi sửa, 3 còn tiền lệ yếu); grammar_logic 9.2 → 9.0 (câu cũ đặt "phải" sai chỗ, nay đã sửa); vietnamese_clarity 9.2 → 9.0 ("bố con", "không nhiều lần nào" gượng, đã sửa); han_viet_balance 9.3 → 9.2; ambiguity_integrity 9.1 → 8.6 (bản cũ không ghi bất định nào của danh sách 1.3, nay ghi bốn điều); các tiêu chí khác giữ. final_score 9.19 → 9.0. technical_integrity giữ 9.6: chưa chạy `npm run validate`, `npm test`, `npm run check`, `npm run build`.
+
+  Đối chiếu độc lập 2026-10-14: với bản Việt nguyên bài của Bhikkhu Indacanda. 1 khoá bất đồng nghĩa → sửa 0, giữ 0, bất định 1 (`1.3`: bản nguyên bài ghép `āyatiṁ paṭisandhiṁ` thành một cụm *sự tiếp nối trong tương lai* và đọc `uppatti` là *sự tái sanh*; bản này đọc `āyatiṁ` bao trùm cả danh sách, `paṭisandhi` là *sự tái sinh*, `uppatti` là *sự sinh khởi*; Pāli không có dấu phân tách để phân xử nên giữ, đúng như bất định (1) đã ghi). Các khoá còn lại cùng nghĩa: `1.2` chỉ thụ thai một lần và không đến với con đực nhiều lần; `1.4` một phần; `1.5` Kinh Tập, bài kinh Dhaniya; `2.1`–`2.4` bốn vế kệ. Hai bản chỉ khác ở cách xưng của lời tự nhủ ở `1.3` (bản nguyên bài xưng *Ta*), không đổi nghĩa. Bản nguyên bài không phân đoạn nên đối chiếu ở mức đoạn, không phải mức khoá; không có bản Anh.

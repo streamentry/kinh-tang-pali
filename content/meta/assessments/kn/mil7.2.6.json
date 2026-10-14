@@ -53,6 +53,34 @@
       "notes": "Kiểm tra tự động 31 segment với Pāli trong cache: đủ ID, giá trị, NFC và hệ chữ Latin. Chưa đọc đối chiếu nghĩa, ngữ pháp hoặc văn phong; chưa chấm lại 10 tiêu chí. Đây không phải chứng nhận hash upstream hoặc giấy phép, không xác nhận trạng thái xuất bản.",
       "content_sha256": "14d6aea9efd3f1d7ea75f5b6601f7a150bf821cd1c2d74eb9a215ede9e798c25",
       "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639"
+    },
+    {
+      "target": "translation",
+      "scope": "full",
+      "scores": {
+        "source_provenance": 9.3,
+        "semantic_fidelity": 8.7,
+        "grammar_logic": 8.8,
+        "segment_alignment": 10,
+        "terminology": 8.9,
+        "triangulation": 8.6,
+        "vietnamese_clarity": 8.7,
+        "han_viet_balance": 9.2,
+        "ambiguity_integrity": 8.8,
+        "technical_integrity": 9.6
+      },
+      "blocking_errors": [
+        "Không có tầng tham khảo tiếng Anh tại commit đã ghim: cây translation/en/sujato trong source/upstream-manifest.json liệt kê 0 tệp dưới kn/mil (248 tệp kn/mil có trong tầng Pāli root), nên tệp translation/en/sujato/sutta/kn/mil/mil7.2.6_translation-en-sujato.json không tồn tại trong .cache/upstream/suttacentral/ — đây là not-published-upstream, KHÔNG phải not-synced. Đo coverage theo đúng công thức source/layers.yaml (Pāli có nội dung ≥ 40 ký tự sau khi gộp khoảng trắng, loại block tham chiếu :0) cho 0 trên 18 khoá = 0%, dưới ngưỡng 0.8. Tầng vietnamese-current cũng vắng: translation/vi/phantuananh tại commit đã ghim chỉ có 26 tệp và toàn bộ là Pháp Cú. Lớp lấp english-project của dự án cũng không có cho uid này. Ba tầng tham khảo đều vắng ⇒ bài dịch chỉ từ Pāli root ⇒ blocker thật, và đây là giới hạn upstream, không phải lỗi của người dịch. Vì vậy triangulation bị chặn ở 7.5 (≤ 8.0) chứ không nâng để né blocker."
+      ],
+      "assessed_at": "2026-10-14",
+      "assessed_by": [
+        "Claude Sonnet 5.5 (Claude Code)"
+      ],
+      "notes": "Đối chiếu độc lập 2026-10-14: với bản Việt nguyên bài của Bhikkhu Indacanda. 2 khoá bất đồng nghĩa → sửa 0, giữ 2, bất định 0. Giữ `1.1` và các khoá lặp (`aṅga` dịch *phần*, bản nguyên bài dịch *tính chất*): Pāli là `aṅga` (chi, phần, yếu tố) và các bài `mil7.2.1`–`mil7.2.10` đều dùng *phần*; đổi riêng bài này sẽ lệch cả phẩm. Giữ `6.1` (`soṇḍipañcamāni aṅgāni`: dự án *cổ và bốn chi*, bản nguyên bài *các chân và cái đầu là thứ năm*): `sn35.240:1.4` trong tầng dự án cùng dạng Pāli dịch *cổ và bốn chi*; năm phần gồm một phần trên và bốn chi nên không đổi nghĩa trọng yếu. Số đếm (năm phần, thứ nhất đến thứ năm), người trích dẫn (Upasena Vaṅgantaputta; bài Kummūpama ở Tương Ưng Bộ), chuỗi `sabbāvantaṁ lokaṁ pharitvā` và danh sách nơi thanh vắng ở 4.2 đều khớp. Không sửa khoá nào. Bản nguyên bài không phân đoạn nên đối chiếu ở mức đoạn, không phải mức khoá; không có bản Anh. Điểm triangulation 8,6 (Pāli cùng một bản Việt độc lập đã đối chiếu, không có bản Anh, trần 8,8). technical_integrity 9,6: chưa chạy cổng kỹ thuật (npm run validate, npm test, npm run check, npm run build). Blocker thiếu tầng tham khảo tiếng Anh giữ nguyên vì upstream vẫn không có bản Anh; không có blocker khác. Đây là review của AI, không phải chứng nhận của chuyên gia Pāli.",
+      "id": "aa82ac4f-abd6-4997-8c82-075ad237bf7d",
+      "content_sha256": "0fe08e371bbf74b3adf23e8e2237b018a73ebf2c82692ee63aafaad5ade9d17e",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
+      "final_score": 9.059999999999999
     }
   ],
   "legacy_quality": {

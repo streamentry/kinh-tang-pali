@@ -249,6 +249,34 @@
       "notes": "Kiểm tra tự động 98 segment với Pāli trong cache: đủ ID, giá trị, NFC và hệ chữ Latin. Chưa đọc đối chiếu nghĩa, ngữ pháp hoặc văn phong; chưa chấm lại 10 tiêu chí. Đây không phải chứng nhận hash upstream hoặc giấy phép, không xác nhận trạng thái xuất bản.",
       "content_sha256": "278298a98f089a77d28f06f34fb158e30ece2e378510e397f6113179880580b6",
       "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639"
+    },
+    {
+      "target": "translation",
+      "scope": "full",
+      "scores": {
+        "source_provenance": 9.4,
+        "semantic_fidelity": 9,
+        "grammar_logic": 9,
+        "segment_alignment": 10,
+        "terminology": 8.9,
+        "triangulation": 8.4,
+        "vietnamese_clarity": 9,
+        "han_viet_balance": 9.1,
+        "ambiguity_integrity": 9,
+        "technical_integrity": 9.6
+      },
+      "blocking_errors": [
+        "noEnglishEditionUpstream: Không có tầng tham khảo tiếng Anh tại commit đã ghim: `source/upstream-manifest.json` chỉ liệt kê `kn/bv/bv18_root-pli-ms.json` (tầng Pāli) cho uid này, và `english-sujato` chỉ có chín tiểu bộ cp, dhp, iti, ja, kp, snp, thag, thig, ud, không có bv; `content/translation/en/project/sutta/kn/` không có tệp bv nào và `content/meta/en/kn/` không có `bv18.yaml`. Đây là `not-published-upstream`, không phải `not-synced`. Tầng `vietnamese-current` chỉ có Pháp Cú. Ba tầng tham khảo đều vắng nên bài dịch chỉ từ Pāli root và đối chiếu tiền lệ nội bộ, bài bắt buộc `draft` và `triangulation` không quá 8,0. Đây là giới hạn upstream, không phải lỗi của người dịch."
+      ],
+      "assessed_at": "2026-10-14",
+      "assessed_by": [
+        "Claude Sonnet 5.5 (Claude Code)"
+      ],
+      "notes": "Đối chiếu độc lập 2026-10-14 với bản Việt nguyên bài của Bhikkhu Indacanda ở mức đoạn (mỗi đoạn tương ứng một khổ kệ); không có bản Anh nên không tuyên bố đã đối chiếu English. Kiểm cả 98 khoá: 5 điểm bất đồng nghĩa, sửa 0 (đọc từng khổ kệ với Pāli; các số 94, 60, 10.000, 48.000, 100.000, 4 đã tính lại và khớp), giữ 4, bất định 1 (aggupaṭṭhaka dịch trùng thuật ngữ với upaṭṭhāka, theo quy ước 47 khoá của phẩm). Blocker noEnglishEditionUpstream giữ nguyên vì upstream vẫn không có bản Anh. technical_integrity 9.6: chưa chạy npm run validate, npm test, npm run check, npm run build. Đây là review của AI, không phải chứng nhận của chuyên gia Pāli.",
+      "id": "d92a7c35-4c49-49a0-aa6e-5a6e6515bcda",
+      "content_sha256": "64f1bcc9bcc7f897d435fcf49c7f938d77d7a09309b43fdeabdb2da94b8fe4ef",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
+      "final_score": 9.139999999999999
     }
   ],
   "legacy_quality": {

@@ -1,9 +1,10 @@
 uid: mil3.3.14
-status: review
+status: published
 translationTitle: "14. Câu hỏi về đặc trưng của tứ"
 translators:
   - "OpenCode Space Bunny Free (agent)"
-reviewers: []
+reviewers:
+  - Claude Sonnet 5.5 (Claude Code)
 tags:
   - khuddaka-nikaya
   - milindapanha
@@ -12,24 +13,25 @@ tags:
 quality:
   scores:
     source_provenance: 9.5
-    semantic_fidelity: 9.0
+    semantic_fidelity: 8.9
     grammar_logic: 9.2
-    segment_alignment: 10.0
-    terminology: 9.0
-    triangulation: 6.5
+    segment_alignment: 10
+    terminology: 9
+    triangulation: 8.4
     vietnamese_clarity: 9.1
     han_viet_balance: 9.2
-    ambiguity_integrity: 8.8
+    ambiguity_integrity: 8.7
     technical_integrity: 9.6
-  final_score: 8.99
+  final_score: 9.16
   blocking_errors:
-    - "Tầng English Sujato vắng mặt tại commit đã ghim (không có tệp upstream
-      cho thư mục này) nên chưa đối chiếu được một bản Anh độc lập; validate đòi
+    - Tầng English Sujato vắng mặt tại commit đã ghim (không có tệp upstream cho
+      thư mục này) nên chưa đối chiếu được một bản Anh độc lập; validate đòi
       tầng này cho review và published, nên bài giữ draft dù đã dịch đủ mọi khoá
-      từ Pāli root."
-  assessed_at: "2026-10-13"
+      từ Pāli root.
+  assessed_at: 2026-10-14
   assessed_by:
-    - "Claude Sonnet 5.5 (Claude Code)"
+    - Claude Sonnet 5.5 (Claude Code)
+  assessment_id: e4899281-c991-495c-9dd5-a001ec455823
   waiver:
     id: no-upstream-english
     blockers:
@@ -64,3 +66,5 @@ notes: |-
   **Bất định còn lại, không giải được.** (1) `anumajjana`: tầng Pāli đã ghim không có bài song song nào định nghĩa nó đúng ở nghĩa này, nên *lần theo* là lựa chọn bám sát gốc từ nhất chứ không phải nghĩa đã được chứng minh; các nghĩa khả dĩ khác (*xoa đi xoa lại*, *lướt theo*) không loại trừ được. (2) `anusandahati` dịch *nối tiếp* (cùng căn `an7.49:3.1`, nơi tầng dịch *chạy theo*); nghĩa *kéo dài ra* cũng hợp ngữ cảnh. (3) `kaṁsathāla` ở đây là vật bị gõ cho ngân vang nên có thể là chiêng hay mâm đồng; *chậu đồng* theo đa số tiền lệ nhưng không phải bằng chứng về hình dạng. Vì ba điểm trên `semantic_fidelity` giữ 9.0 và `ambiguity_integrity` giữ 8.8. `triangulation` giữ 6.5, `technical_integrity` giữ 9.6, `vietnamese_clarity` giữ 9.1 vì *sự lần theo* vẫn hơi trừu tượng. `final_score` 8.95 → 8.99.
 
   **Kiểm.** Đủ 12/12 khoá, đúng thứ tự Pāli, NFC; nháy và ngoặc kép khớp Pāli từng khoá (`2.2` mở, `2.3` đóng); không dấu lược trong bài (Pāli cũng không có); không Pāli lọt sang; Pāli trùng nguyên văn trong bài: 0 cặp. Chưa chạy `npm run validate`, `npm test`, `npm run check`, `npm run build`.
+
+  Đối chiếu độc lập 2026-10-14: với bản Việt nguyên bài của Bhikkhu Indacanda. 4 khoá bất đồng nghĩa ở mức thuật ngữ → sửa 0, giữ 0, bất định 4 (1.2: `anumajjanalakkhaṇo`, bản nguyên bài hiểu theo hướng sát lại gần, bản dự án dịch *lần theo*; căn `majj-` chỉ xoa, lướt qua nên cả hai đều là cách đọc khả dĩ và tầng Pāli đã ghim không có bài song song để phân xử; 2.2: `kaṁsathāla`, bản nguyên bài hiểu là cái cồng, bản dự án giữ *chậu đồng* theo đa số tiền lệ nhưng vật bị gõ cho ngân vang thì chiêng hay mâm đồng cũng hợp; 0.2 và 5.1: tên phẩm `Vicāravagga`, bản nguyên bài đọc theo mặt chữ *tứ*, bản dự án giữ *Phẩm Khảo Sát* theo 12/13 bài cùng phẩm). Các khoá 1.1, 2.1, 2.3, 3.1, 4.1, 6.1 cùng nghĩa, và phép so ở 2.2–2.3 (việc gõ ứng với tầm, tiếng ngân ứng với tứ) hai bản khớp nhau; không đổi khoá nào. Bản nguyên bài không phân đoạn nên đối chiếu ở mức đoạn, không phải mức khoá; không có bản Anh.

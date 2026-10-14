@@ -53,6 +53,34 @@
       "notes": "Kiểm tra tự động 10 segment với Pāli trong cache: đủ ID, giá trị, NFC và hệ chữ Latin. Chưa đọc đối chiếu nghĩa, ngữ pháp hoặc văn phong; chưa chấm lại 10 tiêu chí. Đây không phải chứng nhận hash upstream hoặc giấy phép, không xác nhận trạng thái xuất bản.",
       "content_sha256": "8d958f510602951bd94b9fa7881b68e72dccd2bbff1b4314074b74baa9316112",
       "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639"
+    },
+    {
+      "target": "translation",
+      "scope": "full",
+      "scores": {
+        "source_provenance": 8.2,
+        "semantic_fidelity": 9.2,
+        "grammar_logic": 9.2,
+        "segment_alignment": 10,
+        "terminology": 9.3,
+        "triangulation": 8.5,
+        "vietnamese_clarity": 9.2,
+        "han_viet_balance": 9.4,
+        "ambiguity_integrity": 9,
+        "technical_integrity": 9.6
+      },
+      "blocking_errors": [
+        "Thiếu hẳn tầng tham khảo English SuttaCentral: không có thư mục nào cho 'mil' trong .cache/upstream/suttacentral/translation/en/sujato/sutta/kn/. SuttaCentral không phân phối bản Anh nào cho Mīlindapañha ở commit đã ghim."
+      ],
+      "assessed_at": "2026-10-14",
+      "assessed_by": [
+        "Claude Sonnet 5.5 (Claude Code)"
+      ],
+      "notes": "Đối chiếu độc lập với bản Việt nguyên bài của Bhikkhu Indacanda, ở mức đoạn: 1 khoá bất đồng (1.5, phạm vi của yathā sāvakānaṁ), sửa 0, giữ 0, bất định 1; chín khoá còn lại cùng nghĩa. Rà đối kháng 10/10 khoá: không lỗi mới. Technical gate (npm run validate, npm test, npm run check, npm run build) chưa chạy trong lượt này nên technical_integrity đặt 9,6, không tuyên bố đã pass. Blocker noEnglishEditionUpstream giữ nguyên (upstream vẫn không có bản Anh), không có blocker nào khác để gỡ. Triangulation có Pāli và một bản Việt độc lập đã đối chiếu, không có bản Anh nên không tuyên bố đã đối chiếu English. Đây là review của AI, không phải chứng nhận của chuyên gia Pāli.",
+      "id": "c5b998a7-bdf8-4f58-b97b-23e604aea772",
+      "content_sha256": "99fda422971fb9e19db1feecde9211e2d22816fc565a43f9b3c179de11ccf328",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
+      "final_score": 9.16
     }
   ],
   "legacy_quality": {

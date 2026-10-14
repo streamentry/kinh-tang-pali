@@ -53,6 +53,34 @@
       "notes": "Kiểm tra tự động 35 segment với Pāli trong cache: đủ ID, giá trị, NFC và hệ chữ Latin. Chưa đọc đối chiếu nghĩa, ngữ pháp hoặc văn phong; chưa chấm lại 10 tiêu chí. Đây không phải chứng nhận hash upstream hoặc giấy phép, không xác nhận trạng thái xuất bản.",
       "content_sha256": "10a9d25b3b4c2bb896fda06b9c6276e3976d47dce9899e2c8a9c6771c3d8153c",
       "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639"
+    },
+    {
+      "target": "translation",
+      "scope": "full",
+      "scores": {
+        "source_provenance": 9.4,
+        "semantic_fidelity": 8.8,
+        "grammar_logic": 9,
+        "segment_alignment": 10,
+        "terminology": 8.7,
+        "triangulation": 8.5,
+        "vietnamese_clarity": 9,
+        "han_viet_balance": 9.2,
+        "ambiguity_integrity": 8.7,
+        "technical_integrity": 9.6
+      },
+      "blocking_errors": [
+        "Không có tầng tham khảo tiếng Anh tại commit đã ghim: tệp `translation/en/sujato/sutta/kn/vv/vv12_translation-en-sujato.json` không tồn tại trong `.cache/upstream/suttacentral/` và `source/upstream-manifest.json` không liệt kê tệp nào cho uid này — đây là `not-published-upstream`, KHÔNG phải `not-synced`. `scripts/validate.ts` xếp tệp Anh thiếu là **error** khi status là `review` hoặc `published`, nên bài bắt buộc `draft`. Tầng `vietnamese-current` cũng vắng (commit đã ghim chỉ có 26 tệp Pháp Cú) và lớp lấp `english-project` không có cho vv12 ⇒ ba tầng tham khảo đều vắng, bài dịch chỉ từ Pāli root. Vì đây là **giới hạn upstream** chứ không phải lỗi người dịch, `triangulation` bị chặn ở 7.5 (≤ 8.0) chứ không nâng để né blocker."
+      ],
+      "assessed_at": "2026-10-14",
+      "assessed_by": [
+        "Claude Sonnet 5.5 (Claude Code)"
+      ],
+      "notes": "Đối chiếu độc lập ngày 2026-10-14 giữa Pāli đã ghim và bản Việt nguyên bài của Bhikkhu Indacanda (không phân đoạn, đối chiếu ở mức đoạn, không phải mức khoá; không có bản Anh nên không tuyên bố đã đối chiếu English), trên toàn bộ 35 khoá của vv12. 2 khoá bất đồng nghĩa: sửa 2 (`:0.4` và `:8.1`, *Nữ Gả Chồng* → *Người Vợ Chung Thủy*, vì `patibbatā` là người vợ một lòng với chồng, khớp `vv11` và `vv32:9.2`), giữ 0, bất định 0. 33 khoá còn lại cùng nghĩa, kể cả các chỗ đã sửa ở lượt trước (chủ thể ở `:7.2`–`:7.3`, giới ở `:4.3`, `:5.1`, chồng ở `:5.2`). Cần đồng bộ `translationTitle` trong metadata với `:0.4` mới. Không có blocker nào bị bỏ (chỉ có noEnglishEditionUpstream). triangulation 8,5 vì không có khoá nào còn bất đồng chưa phân xử nhưng không có bản Anh. technical_integrity 9,6 vì không chạy `npm run validate`, `npm test`, `npm run check`, `npm run build` trong lượt này. Đây là review của AI, không phải chứng nhận của chuyên gia Pāli.",
+      "id": "3615a734-f412-4892-9535-cd6b7e3d0dc0",
+      "content_sha256": "463d1d8e793438734acd3a523be459504ce1f19179d9eb7b84bc066889edf78b",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
+      "final_score": 9.09
     }
   ],
   "legacy_quality": {

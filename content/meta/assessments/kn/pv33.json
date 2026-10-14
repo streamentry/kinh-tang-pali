@@ -53,6 +53,34 @@
       "notes": "Kiểm tra tự động 50 segment với Pāli trong cache: đủ ID, giá trị, NFC và hệ chữ Latin. Chưa đọc đối chiếu nghĩa, ngữ pháp hoặc văn phong; chưa chấm lại 10 tiêu chí. Đây không phải chứng nhận hash upstream hoặc giấy phép, không xác nhận trạng thái xuất bản.",
       "content_sha256": "9c5bba8693b61710e0952c2499d18d7f93b260322d7252058f60c4cde02e2b6e",
       "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639"
+    },
+    {
+      "target": "translation",
+      "scope": "full",
+      "scores": {
+        "source_provenance": 9.5,
+        "semantic_fidelity": 8.8,
+        "grammar_logic": 9,
+        "segment_alignment": 9.6,
+        "terminology": 9,
+        "triangulation": 8.5,
+        "vietnamese_clarity": 8.6,
+        "han_viet_balance": 9.2,
+        "ambiguity_integrity": 8.6,
+        "technical_integrity": 9.6
+      },
+      "blocking_errors": [
+        "Không có tầng tham khảo tiếng Anh tại commit đã ghim: đã kiểm source/upstream-manifest.json, tầng english-sujato (4.291 tệp) trong thư mục con kn/ của sutta/ chỉ gồm cp, dhp, iti, ja, kp, snp, thag, thig, ud — KHÔNG có mil, ps, pv hay tha-ap, nên tệp .../kn/pv/pv33_translation-en-sujato.json không tồn tại ⇒ not-published-upstream, không phải not-synced. Đối chiếu trực tiếp trên manifest cho uid này: 0 tệp. Tầng vietnamese-current cũng vắng (translation/vi/phantuananh tại commit đã ghim chỉ có 26 tệp, toàn bộ là Pháp Cú) và lớp lấp english-project không có uid này ⇒ bài dịch chỉ từ Pāli, chưa đối chiếu được tầng tham khảo nào, không đủ điều kiện review/published, bắt buộc giữ draft."
+      ],
+      "assessed_at": "2026-10-14",
+      "assessed_by": [
+        "Claude Sonnet 5.5 (Claude Code)"
+      ],
+      "notes": "Đối chiếu độc lập ngày 2026-10-14 cả 50 khoá của pv33 giữa Pāli đã ghim và bản Việt nguyên bài của Bhikkhu Indacanda (không phân đoạn, đối chiếu ở mức đoạn; không có bản Anh). 3 khoá bất đồng thuật ngữ/sắc thái, không khoá nào đổi nghĩa lớn: 6.2 giữ; 10.3 và 11.3 bất định (ghi vào notes). Không sửa khoá nào. Review đối kháng riêng không thấy lỗi mới về ngoặc đơn/kép, dấu lược. `triangulation` 8,5: một bản Việt độc lập đã đối chiếu, không có bản Anh. Giữ nguyên blocker `noEnglishEditionUpstream`. `technical_integrity` 9,6 vì chưa chạy `npm run validate`, `npm test`, `npm run check`, `npm run build`. Đây là review của AI, không phải chứng nhận của chuyên gia Pāli.",
+      "id": "5ba10090-be81-41c7-bbd6-40f98fcf8d08",
+      "content_sha256": "a2d58975984bd1b0186b2e91f4bcb540946976f277eef6f1927085782736d17a",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
+      "final_score": 9.04
     }
   ],
   "legacy_quality": {

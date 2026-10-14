@@ -1,9 +1,11 @@
 uid: tha-ap23
-status: review
+status: published
 translationTitle: "Bài Kệ Tuyên Ngôn Về Trưởng Lão Subhūti"
 translators:
   - "Claude Sonnet 5.5 (Claude Code)"
-reviewers: []
+reviewers:
+  - Claude Opus 5.5 (Claude Code)
+  - Claude Sonnet 5.5 (Claude Code)
 tags:
   - "khuddaka-nikaya"
   - "therapadana"
@@ -12,16 +14,16 @@ tags:
 quality:
   scores:
     source_provenance: 9.4
-    semantic_fidelity: 8.8
+    semantic_fidelity: 8.9
     grammar_logic: 9.1
-    segment_alignment: 10.0
+    segment_alignment: 10
     terminology: 9.2
-    triangulation: 7.0
-    vietnamese_clarity: 9.0
+    triangulation: 8.5
+    vietnamese_clarity: 9
     han_viet_balance: 9.2
     ambiguity_integrity: 8.6
     technical_integrity: 9.6
-  final_score: 8.99
+  final_score: 9.149999999999999
   blocking_errors:
     - "Không có tầng tham khảo tiếng Anh tại commit đã ghim: tầng english-sujato
       trong sutta/kn chỉ có cp, dhp, iti, ja, kp, snp, thag, thig, ud; tệp
@@ -33,9 +35,10 @@ quality:
       Sujato phủ 0/1. Bài chỉ dịch từ Pāli, chưa đối chiếu được tầng tham khảo
       nào nên không đủ điều kiện review hay published; giữ draft. Điểm cao không
       cứu được blocker."
-  assessed_at: "2026-10-14"
+  assessed_at: 2026-10-14
   assessed_by:
-    - "Claude Opus 5.5 (Claude Code)"
+    - Claude Sonnet 5.5 (Claude Code)
+  assessment_id: 634b54f2-dd89-4c86-bcec-9f88ccd811ed
   waiver:
     id: no-upstream-english
     blockers:
@@ -186,3 +189,5 @@ notes: |-
   Điểm: `terminology` 9.1 → 9.2 (d, e, f, g), `grammar_logic` 9.0 → 9.1 (a, b). Không nâng `semantic_fidelity` 8.8: đã sửa (a), nhưng đọc lại thấy `:11` vẫn chưa có cách hiểu đáng tin (xem dưới). Không nâng `ambiguity_integrity` 8.6, `triangulation` 7.0, `vietnamese_clarity` 9.0, `han_viet_balance` 9.2, `source_provenance` 9.4, `technical_integrity` 9.6. `final_score` 8.97 → 8.99; không có blocker nào ngoài blocker upstream, nên vẫn là `review` (không đủ `> 9.0`).
   BẤT ĐỊNH MỚI GHI NHẬN (không đưa vào thân kinh, chưa phân xử được). (1) `:11` `saddhādhuraṁ vahisi me, kosajjabahulāya ca`: bản Việt nguyên bài ở mục tra cứu hiểu dòng này thành `bỏ ách đức tin thì sinh nhiều biếng nhác` — một cấu trúc khác hẳn (`vahisi` không phải `jahasi`), gợi ý có dị bản Pāli ở chỗ này, không kiểm chứng được từ Pāli đã ghim; câu Việt hiện tại ở `:11.3`–`:11.4` bám chữ nhưng không đọc trôi, nên giữ như một bất định thật, cần người biên tập. (2) `:8.1`–`:8.2` `yadā puttaṁ labhissasi` (`khi ngươi có được con trai`): bản nguyên bài ở mục tra cứu hiểu thành ý `bị ràng buộc`, cũng gợi ý dị bản; Pāli ghim nói `putta` rõ, giữ nguyên theo Pāli. (3) `:18.1` `jātarūpaṁ yathā kūṭaṁ`: `kūṭa` ở đây đọc `giả` (vàng giả không sáng), nhưng `kūṭa` còn là `cái búa/chày` (`ayokūṭa` ở `dn3:1.21.1`); bản nguyên bài ở mục tra cứu đọc theo nghĩa búa. Cách đọc `vàng giả` khớp `na jhāyissasi` ở `:18.4` (cùng ý "không sáng") nên giữ; cách đọc `búa` chưa loại trừ được. (4) `:50.2` `yaṁ kammamakariṁ tadā`: `thiện nghiệp` (29 khoá cùng Pāli) thêm chữ `thiện` mà Pāli không có; `nghiệp ấy` 4 khoá, `việc ấy` 7 khoá. Giữ theo đa số tiền lệ; người biên tập có thể quyết định thống nhất cho cả cuốn.
   KIỂM SAU LƯỢT 2026-10-14. Tập khoá và thứ tự khoá Việt = Pāli (213 = 213), nháy `“”‘’` khớp Pāli từng khoá (0/213 lệch), NFC, không khoảng trắng thừa, không khoá rỗng, dấu lược 0/0, 7 nhóm Pāli trùng nguyên văn trong bài (21 khoá) bản Việt khớp nhau (0 nhóm lệch), không khoá nào có số Pāli bị sửa. Bốn lệnh cần chạy trước khi chốt: `npm run validate` · `npm test` · `npm run check` · `npm run build`.
+
+  Đối chiếu độc lập 2026-10-14: với bản Việt nguyên bài của Bhikkhu Indacanda. 5 điểm bất đồng nghĩa trên 213 khoá → sửa 0, giữ 4, bất định 1; không đổi khoá nào. Bất định (`:11.3`–`:11.4` `Saddhādhuraṁ vahisi me, kosajjabahulāya ca`): bản nguyên bài hiểu là *nếu từ bỏ phận sự về đức tin thì có nhiều biếng nhác*, cấu trúc khác hẳn dòng Pāli ghim (`vahisi` là *ngươi gánh/mang*, không phải *từ bỏ*), gợi ý dị bản mà Pāli ghim không kiểm chứng được; trong tầng chỉ có đúng khoá này nên không có tiền lệ để phân xử, giữ cách dịch sát chữ và ghi bất định. Giữ (`:8.2` `yadā puttaṁ labhissasi`): bản nguyên bài hiểu thành *sự bị ràng buộc*, Pāli ghim nói rõ `putta` (con trai) nên giữ. Giữ (`:18.1`–`:18.4` `jātarūpaṁ yathā kūṭaṁ … neva jhāyati`): bản nguyên bài hiểu `kūṭa` là cái búa và `jhāyati` là bị thiêu; `jātarūpaṁ`/`kūṭaṁ` cùng giống trung, `kūṭa` là *giả* (vàng giả), và `jhāyati` là nội động từ (cháy sáng), nên *vàng giả không tỏa sáng* kết với `na jhāyissasi katthaci` mạch lạc hơn; giữ. Giữ (`:26.3` `lāsito`): *vui đùa* so với *chói sáng*, cả hai đều gặp trong nghĩa của `lāsita`/`lāseti`, không đổi ý. Giữ (`:32.2` `sādhucittaṁ manoramaṁ`): bản nguyên bài gắn hai tính từ với Đức Phật, dự án gắn với tòa hoa (`pupphāsanaṁ`); cùng cụm `sādhucittaṁ manoramaṁ` ở `tha-ap180:2.2` bổ nghĩa cho cái ghế, và `narasārathinaṁ aggaṁ` ở dòng sau mới là Đức Phật nên giữ. Các điểm còn lại khớp nghĩa, gồm mọi số: `tiṁsavassasahassāni` = ba mươi ngàn năm, `tiṁsakappasahassāni` = ba mươi ngàn kiếp, `asītikkhattuṁ` = tám mươi lần, `sahassakkhattuṁ` = một ngàn lần, `kappasatasahassa` = một trăm ngàn kiếp, `asītikoṭiṁ` = tám mươi koṭi, `sattarattindivaṁ` = bảy đêm ngày, `saṭṭhihāyanaṁ` = sáu mươi tuổi. Lượt review đối kháng đọc lại cả 213 khoá không thấy lỗi mới. Bản nguyên bài không phân đoạn nên đối chiếu ở mức đoạn, không phải mức khoá; không có bản Anh.

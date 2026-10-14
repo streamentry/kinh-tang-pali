@@ -1,0 +1,62 @@
+{
+  "schemaVersion": 1,
+  "uid": "tha-ap410",
+  "assessments": [
+    {
+      "target": "translation",
+      "scope": "full",
+      "scores": {
+        "source_provenance": 9.2,
+        "semantic_fidelity": 8.5,
+        "grammar_logic": 8.6,
+        "segment_alignment": 10,
+        "terminology": 8.8,
+        "triangulation": 8.2,
+        "vietnamese_clarity": 8.8,
+        "han_viet_balance": 9.2,
+        "ambiguity_integrity": 8.8,
+        "technical_integrity": 9.6
+      },
+      "blocking_errors": [
+        "noEnglishEditionUpstream: không có bản tham khảo tiếng Anh đã ghim cho phẩm tha-ap tại commit đã ghim 11c9d708978cde8ba61096d8a75f7ddfb846f639. Tầng english-sujato chỉ có 9 nhóm con của kn (cp, dhp, iti, ja, kp, snp, thag, thig, ud) và không có tệp thân kinh nào cho tha-ap410; tệp tha-ap duy nhất trong cả tầng là tệp tên, nên đây là not-published-upstream chứ không phải not-synced. Coverage English theo công thức của source/layers.yaml (Pāli có nội dung từ 40 ký tự, bỏ khối :0): mẫu số 1 (chỉ khoá 53.1, dòng lời kết, 59 ký tự), Sujato phủ 0 trên 1, tức 0%, dưới ngưỡng 0.8; mẫu số nhỏ như vậy nên cổng gần như không đo được gì về đối chiếu English. Tầng vietnamese-current cũng vắng (translation/vi/phantuananh chỉ có 26 tệp Pháp Cú) và lớp english-project không có entry cho uid này. Cả ba tầng tham khảo đều vắng, bản dịch chỉ dựa vào Pāli root và tiền lệ trong tầng Việt của dự án; triangulation bị chặn ở 6.5 (không quá 8.0). Validate coi tệp Anh thiếu là lỗi khi status là review hoặc published, nên bài phải giữ draft; điểm cao không cứu được blocker."
+      ],
+      "assessed_at": "2026-10-14",
+      "assessed_by": [
+        "Claude Sonnet 5.5 (Claude Code)"
+      ],
+      "notes": "Đối chiếu độc lập 2026-10-14: với bản Việt nguyên bài của Bhikkhu Indacanda. 9 khoá bất đồng nghĩa → sửa 0, giữ 3, bất định 6; ngoài ra sửa 2 khoá về xưng hô. Giữ `5.1` (`āḷārikā`: dự án *thợ làm bánh*, bản nguyên bài *đầu bếp*; trong tầng dự án `āḷārikā` và `sūda` là hai nghề riêng), `6.3` (`luddā`: *thợ săn*, bản nguyên bài *võ sĩ*), `33.1` và các khoá lặp (`candana`: *chiên-đàn*, bản nguyên bài *trầm hương*). Bất định: `2.3` (`otārā tuṇḍikā`: bản nguyên bài dịch nghĩa khác hẳn, dự án giữ `tuṇḍika` nguyên tên vì chưa xác định được); `9.2` (`utujasaddakaṁ`: dự án *tiếng do thời tiết sinh ra* theo chữ, bản nguyên bài hiểu là một loại trống; hapax); `10.1` (`kontimantehi`: dự án *thương*, bản nguyên bài đọc `manta` là bùa chú); `11.1` (`kimevātinisāmetvā`: dự án *xem xét kỹ việc gì đó*, bản nguyên bài hiểu ngược là không nghe bên thua; Pāli không đủ để quyết nghĩa phủ định hay khẳng định); `17.3` (`saṅgāmāvacare ṭhāne`: *chốn trận mạc* hay *địa vị*, bản nguyên bài chọn *địa vị*); `42.2` (`brahmā`: dự án *là Phạm thiên*, bản nguyên bài *cao quý*, hai cách đọc đều hợp mạch). Sửa xưng hô: `38.2` và `38.3` là lời thưa của người tu khổ hạnh với Đức Phật trong nháy đơn, đổi *ta* thành *con* theo quy ước xưng hô của dự án (người thưa với Đức Phật xưng *con*); các khoá kể của trưởng lão vẫn giữ *ta*. Mọi số đều khớp: 60.000 (voi, ngựa, xe, bò cái, phụ nữ, làng, người bị xiên), voi sáu mươi tuổi, 25 kiếp, 2.600 kiếp, 1.000 lần làm vua, 33 lần làm chúa chư thiên. Bản nguyên bài khác Pāli ở nhiều chỗ (cắt khác ở 10.1, thêm chữ ở 11.1) nên không dùng làm căn cứ sửa. Bản nguyên bài không phân đoạn nên đối chiếu ở mức đoạn, không phải mức khoá; không có bản Anh. Điểm triangulation 8,2 (Pāli cùng một bản Việt độc lập đã đối chiếu, không có bản Anh, trần 8,8). technical_integrity 9,6: chưa chạy cổng kỹ thuật (npm run validate, npm test, npm run check, npm run build). Blocker thiếu tầng tham khảo tiếng Anh giữ nguyên vì upstream vẫn không có bản Anh; không có blocker khác. Đây là review của AI, không phải chứng nhận của chuyên gia Pāli.",
+      "id": "b0b6e411-aa7c-4b24-a87f-312366809d44",
+      "content_sha256": "bd4bdad3e0b852242b4477d4af638d3bb805737b1e054081684d970dd067f843",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
+      "final_score": 8.969999999999999
+    }
+  ],
+  "legacy_quality": {
+    "scores": {
+      "source_provenance": 9.2,
+      "semantic_fidelity": 8.5,
+      "grammar_logic": 8.6,
+      "segment_alignment": 10,
+      "terminology": 8.8,
+      "triangulation": 6.5,
+      "vietnamese_clarity": 8.8,
+      "han_viet_balance": 9.2,
+      "ambiguity_integrity": 9,
+      "technical_integrity": 9.6
+    },
+    "final_score": 8.82,
+    "blocking_errors": [
+      "noEnglishEditionUpstream: không có bản tham khảo tiếng Anh đã ghim cho phẩm tha-ap tại commit đã ghim 11c9d708978cde8ba61096d8a75f7ddfb846f639. Tầng english-sujato chỉ có 9 nhóm con của kn (cp, dhp, iti, ja, kp, snp, thag, thig, ud) và không có tệp thân kinh nào cho tha-ap410; tệp tha-ap duy nhất trong cả tầng là tệp tên, nên đây là not-published-upstream chứ không phải not-synced. Coverage English theo công thức của source/layers.yaml (Pāli có nội dung từ 40 ký tự, bỏ khối :0): mẫu số 1 (chỉ khoá 53.1, dòng lời kết, 59 ký tự), Sujato phủ 0 trên 1, tức 0%, dưới ngưỡng 0.8; mẫu số nhỏ như vậy nên cổng gần như không đo được gì về đối chiếu English. Tầng vietnamese-current cũng vắng (translation/vi/phantuananh chỉ có 26 tệp Pháp Cú) và lớp english-project không có entry cho uid này. Cả ba tầng tham khảo đều vắng, bản dịch chỉ dựa vào Pāli root và tiền lệ trong tầng Việt của dự án; triangulation bị chặn ở 6.5 (không quá 8.0). Validate coi tệp Anh thiếu là lỗi khi status là review hoặc published, nên bài phải giữ draft; điểm cao không cứu được blocker."
+    ],
+    "assessed_at": "2026-10-11",
+    "assessed_by": [
+      "Claude Sonnet 5.5 (Claude Code)"
+    ],
+    "waiver": {
+      "id": "no-upstream-english",
+      "blockers": [
+        "noEnglishEditionUpstream: không có bản tham khảo tiếng Anh đã ghim cho phẩm tha-ap tại commit đã ghim 11c9d708978cde8ba61096d8a75f7ddfb846f639. Tầng english-sujato chỉ có 9 nhóm con của kn (cp, dhp, iti, ja, kp, snp, thag, thig, ud) và không có tệp thân kinh nào cho tha-ap410; tệp tha-ap duy nhất trong cả tầng là tệp tên, nên đây là not-published-upstream chứ không phải not-synced. Coverage English theo công thức của source/layers.yaml (Pāli có nội dung từ 40 ký tự, bỏ khối :0): mẫu số 1 (chỉ khoá 53.1, dòng lời kết, 59 ký tự), Sujato phủ 0 trên 1, tức 0%, dưới ngưỡng 0.8; mẫu số nhỏ như vậy nên cổng gần như không đo được gì về đối chiếu English. Tầng vietnamese-current cũng vắng (translation/vi/phantuananh chỉ có 26 tệp Pháp Cú) và lớp english-project không có entry cho uid này. Cả ba tầng tham khảo đều vắng, bản dịch chỉ dựa vào Pāli root và tiền lệ trong tầng Việt của dự án; triangulation bị chặn ở 6.5 (không quá 8.0). Validate coi tệp Anh thiếu là lỗi khi status là review hoặc published, nên bài phải giữ draft; điểm cao không cứu được blocker."
+      ]
+    }
+  }
+}

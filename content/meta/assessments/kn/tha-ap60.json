@@ -53,6 +53,34 @@
       "notes": "Kiểm tra tự động 44 segment với Pāli trong cache: đủ ID, giá trị, NFC và hệ chữ Latin. Chưa đọc đối chiếu nghĩa, ngữ pháp hoặc văn phong; chưa chấm lại 10 tiêu chí. Đây không phải chứng nhận hash upstream hoặc giấy phép, không xác nhận trạng thái xuất bản.",
       "content_sha256": "a377eaa03b679b00ad24b93776b597451fec83a09491b83e6bf6ed30079f9418",
       "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639"
+    },
+    {
+      "target": "translation",
+      "scope": "full",
+      "scores": {
+        "source_provenance": 9.5,
+        "semantic_fidelity": 8.9,
+        "grammar_logic": 9.2,
+        "segment_alignment": 10,
+        "terminology": 9,
+        "triangulation": 8.4,
+        "vietnamese_clarity": 9.1,
+        "han_viet_balance": 9.1,
+        "ambiguity_integrity": 8.4,
+        "technical_integrity": 9.6
+      },
+      "blocking_errors": [
+        "Không có tầng tham khảo tiếng Anh tại commit đã ghim (11c9d708978cde8ba61096d8a75f7ddfb846f639): thư mục `kn/tha-ap/` của edition `translation/en/sujato` **không tồn tại** trong `.cache/upstream/suttacentral/` (đếm được: trong `sutta/kn/` chỉ có thag/ja/thig/cp/dhp/iti/kp/ud/snp, **0 tệp** cho toàn bộ 563 bài `tha-ap` và **0 tệp** cho 85 bài `vv`), và `source/upstream-manifest.json` không liệt kê bất kỳ tệp nào cho `tha-ap60` — đây là `not-published-upstream`, KHÔNG phải `not-synced`. Đo coverage theo đúng công thức `source/layers.yaml` (`englishCoverage.floor: 0.8`, đo trên Pāli có nội dung ≥ 40 ký tự, loại block tham chiếu `:0`) cho **0 trên 44 khoá = 0%**, dưới ngưỡng. `scripts/validate.ts` coi tệp Anh thiếu là **error** khi status là `review` hoặc `published`, nên bài bắt buộc `draft`. Tầng `vietnamese-current` cũng vắng: `translation/vi/phantuananh` tại commit đã ghim chỉ có 26 tệp và toàn bộ là Pháp Cú. Lớp lấp `english-project` của dự án (`content/translation/en/project/sutta/kn/`) cũng không có cho uid này. Ba tầng tham khảo đều vắng ⇒ bài dịch chỉ từ Pāli root ⇒ **blocker thật**, và đây là **giới hạn của bản chụp upstream**, không phải lỗi của người dịch. Vì vậy `triangulation` bị chặn ở 7.5 (≤ 8.0) chứ không nâng để né blocker."
+      ],
+      "assessed_at": "2026-10-14",
+      "assessed_by": [
+        "Claude Sonnet 5.5 (Claude Code)"
+      ],
+      "notes": "Đối chiếu độc lập ngày 2026-10-14 trên toàn bộ 44 khoá của tha-ap60 giữa Pāli và bản Việt nguyên bài của Bhikkhu Indacanda (không phân đoạn, đối chiếu ở mức đoạn; không có bản Anh). 4 khoá bất đồng nghĩa: sửa 2 (2.3 và 2.4, các tính từ đối cách `antosuddhaṁ bahisuddhaṁ adhimuttamanāsavaṁ` bổ nghĩa `sambuddhaṁ` ở 3.1, bản trước để lửng không chủ thể), giữ 1 (9.3, 5.000.000 kiếp theo `Paññāsasatasahasse`, bản nguyên bài bỏ mất `sata`), bất định 1 (1.2 `pādaputtame`, dưới gốc hay chóp cây). Mục bất định cũ về 2.3 và 2.4 được gỡ. `grammar_logic` và `semantic_fidelity` nhích 0,1 vì sửa lỗi ngữ pháp; `ambiguity_integrity` 8.4; `triangulation` 8.4 (trần 8.8 vì không có bản Anh, còn một chỗ chưa phân xử). Blocker `noEnglishEditionUpstream` giữ nguyên vì upstream vẫn không có bản Anh. technical_integrity 9,6 vì không chạy `npm run validate`, `npm test`, `npm run check`, `npm run build`. Đây là review của AI, không phải chứng nhận của chuyên gia Pāli.",
+      "id": "1605d960-93ae-49d8-a0a5-ceb6865ef79e",
+      "content_sha256": "f1be45903ad729d262d42aa9e2cbf7bce9264e077134c4d471dd10800f711031",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
+      "final_score": 9.12
     }
   ],
   "legacy_quality": {

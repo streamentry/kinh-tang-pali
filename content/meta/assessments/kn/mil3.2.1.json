@@ -53,6 +53,34 @@
       "notes": "Kiểm tra tự động 32 segment với Pāli trong cache: đủ ID, giá trị, NFC và hệ chữ Latin. Chưa đọc đối chiếu nghĩa, ngữ pháp hoặc văn phong; chưa chấm lại 10 tiêu chí. Đây không phải chứng nhận hash upstream hoặc giấy phép, không xác nhận trạng thái xuất bản.",
       "content_sha256": "d696092ac3c12b669cba92b9b8ba9ed6f52fd4416954c2bfe7d0bdb52214c745",
       "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639"
+    },
+    {
+      "target": "translation",
+      "scope": "full",
+      "scores": {
+        "source_provenance": 9.6,
+        "semantic_fidelity": 8.8,
+        "grammar_logic": 9,
+        "segment_alignment": 10,
+        "terminology": 8.8,
+        "triangulation": 8.5,
+        "vietnamese_clarity": 9,
+        "han_viet_balance": 9.1,
+        "ambiguity_integrity": 8.8,
+        "technical_integrity": 9.6
+      },
+      "blocking_errors": [
+        "Không có tầng tham khảo English Sujato tại commit đã ghim. Đếm bằng script trên source/upstream-manifest.json: tầng english-sujato có 4.291 tệp, trong đó thư mục sutta/kn chỉ có 9 thư mục con (cp, dhp, iti, ja, kp, snp, thag, thig, ud) và KHÔNG có thư mục mil hay ne; duyệt cả danh sách 4.291 tệp cũng không tệp nào chứa khoá của bài này. Tệp trong cache .cache/upstream/suttacentral/translation/en/sujato/sutta/kn/ cũng chỉ có đúng 9 thư mục con ấy. Đây là not-published-upstream chứ không phải not-synced: tệp vắng mặt khỏi cây git của chính tầng đã ghim, nên không tải lại cũng không có. Tại commit này SuttaCentral không phát hành bản Anh nào khác phủ bài này, nên bài chỉ đối chiếu được với Pāli root một mình. Tầng Việt hiện hành (Hòa thượng Thích Minh Châu) tại commit đã ghim chỉ có 26 chương Pháp Cú, nên cũng không có bản đối chiếu cho bài này."
+      ],
+      "assessed_at": "2026-10-14",
+      "assessed_by": [
+        "Claude Sonnet 5.5 (Claude Code)"
+      ],
+      "notes": "Đối chiếu độc lập với bản Việt nguyên bài của Bhikkhu Indacanda, từng khoá cạnh bản nguyên bài ở mức đoạn: 4 khoá bất đồng nghĩa → sửa 0, giữ 4 (1.2; 3.10 và 4.4 hướng `purimaviññāṇe pacchimaviññāṇaṁ saṅgahaṁ gacchati`, Pāli đúng bản dự án; 4.2 tên sản phẩm sữa theo tiền lệ dn9:52.1 và sn34.2:1.9). Không đổi khoá nào. Cụm `opammaṁ karohī` giữ theo 76 khoá toàn tầng (ghi là việc ngoài bài). Đối chiếu ở mức đoạn, không phải mức khoá; không có bản Anh nên triangulation 8,5. Cổng kỹ thuật chưa chạy, technical_integrity 9,6. Đây là review của AI, không phải chứng nhận của chuyên gia Pāli.",
+      "id": "120b7cc3-f003-4282-9f4e-13c02cab04b2",
+      "content_sha256": "d6e722a5823518c1140609df27f29d1288177223bf6e8e1a39e43938f9f96a54",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
+      "final_score": 9.12
     }
   ],
   "legacy_quality": {

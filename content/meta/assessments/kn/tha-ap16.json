@@ -1,0 +1,65 @@
+{
+  "schemaVersion": 1,
+  "uid": "tha-ap16",
+  "assessments": [
+    {
+      "target": "translation",
+      "scope": "full",
+      "scores": {
+        "source_provenance": 9.4,
+        "semantic_fidelity": 8.8,
+        "grammar_logic": 9,
+        "segment_alignment": 10,
+        "terminology": 8.8,
+        "triangulation": 8.3,
+        "vietnamese_clarity": 9,
+        "han_viet_balance": 9.3,
+        "ambiguity_integrity": 8.7,
+        "technical_integrity": 9.6
+      },
+      "blocking_errors": [
+        "Không có tầng tham khảo tiếng Anh đã ghim cho phẩm tha-ap tại commit 11c9d708978c (noEnglishEditionUpstream): tầng english-sujato có 4.291 tệp, trong kn chỉ 9 tiểu bộ cp, dhp, iti, ja, kp, snp, thag, thig, ud (755 tệp) và 0 tệp thân kinh tha-ap, nên tệp tha-ap16_translation-en-sujato.json không tồn tại (not-published-upstream, không phải not-synced). Mẫu số coverage là 1 khoá Pāli có nội dung (tha-ap16:21.1, 64 ký tự; 84 khoá còn lại dưới ngưỡng 40 ký tự hoặc thuộc khối :0), Sujato phủ 0/1, coverage 0,0000, dưới floor 0,8. scripts/validate.ts coi tệp Anh thiếu là lỗi khi status là review hoặc published, nên bài bắt buộc draft.",
+        "Ba tầng tham khảo đều vắng: vietnamese-current chỉ có 26 tệp Pháp Cú tại commit đã ghim (translation/vi/phantuananh), english-project không có entry cho tha-ap16, và english-sujato không phủ tha-ap. Bài dịch chỉ dựa trên Pāli root, đối chiếu cú pháp các vế trùng Pāli bằng bài song hành thag10.4; chưa có đối chiếu English độc lập cho toàn bài. Việc content/meta/reference-gaps.yaml (chưa có entry cho uid này) hay có entry đều không cứu được published; lát này bị cấm sửa tệp đó."
+      ],
+      "assessed_at": "2026-10-14",
+      "assessed_by": [
+        "Claude Sonnet 5.5 (Claude Code)"
+      ],
+      "notes": "Đối chiếu độc lập ngày 2026-10-14 giữa Pāli đã ghim và bản Việt nguyên bài của Bhikkhu Indacanda (không phân đoạn, đối chiếu ở mức đoạn, không phải mức khoá; không có bản Anh nên không tuyên bố đã đối chiếu English), trên toàn bộ 85 khoá của tha-ap16. 7 khoá bất đồng nghĩa: sửa 1 (`:14.1` `gatī`, *bước đi* → *sự tiến bộ*, vì nói về việc học chậm của Cūḷapanthaka), giữ 4 (`:17.3`–`:17.4` `ekamanta`; `:0.3` và `:22.1` tiêu đề *Tuyên Ngôn* thiểu số 138 so với *Ký Sự* 422 trong `tha-ap` nhưng không đổi riêng vì `translationTitle` phải bằng `:0.3` và đổi cả phẩm là việc của người biên tập), bất định 2 (`:9.3`–`:9.4` `padumaṁ dhārayissati`, ai nâng ai). Không có blocker nào bị bỏ: hai blocker (thiếu tầng Anh và ba tầng tham khảo đều vắng) vẫn đúng, giữ nguyên. semantic_fidelity 8,8 thay vì 9,0 trước đây vì lượt này bắt được một lỗi nghĩa ở `:14.1`. technical_integrity 9,6 vì không chạy `npm run validate`, `npm test`, `npm run check`, `npm run build` trong lượt này. Đây là review của AI, không phải chứng nhận của chuyên gia Pāli.",
+      "id": "07bb8376-9fab-4134-8090-8d975a251808",
+      "content_sha256": "48319327f3fb007c79c8eaf1fe800cfc16373f3cbadaefca34687a0c58a1b8fb",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
+      "final_score": 9.09
+    }
+  ],
+  "legacy_quality": {
+    "scores": {
+      "source_provenance": 9.4,
+      "semantic_fidelity": 9,
+      "grammar_logic": 9.1,
+      "segment_alignment": 10,
+      "terminology": 9.1,
+      "triangulation": 7,
+      "vietnamese_clarity": 9.1,
+      "han_viet_balance": 9.3,
+      "ambiguity_integrity": 8.4,
+      "technical_integrity": 9.6
+    },
+    "final_score": 9,
+    "blocking_errors": [
+      "Không có tầng tham khảo tiếng Anh đã ghim cho phẩm tha-ap tại commit 11c9d708978c (noEnglishEditionUpstream): tầng english-sujato có 4.291 tệp, trong kn chỉ 9 tiểu bộ cp, dhp, iti, ja, kp, snp, thag, thig, ud (755 tệp) và 0 tệp thân kinh tha-ap, nên tệp tha-ap16_translation-en-sujato.json không tồn tại (not-published-upstream, không phải not-synced). Mẫu số coverage là 1 khoá Pāli có nội dung (tha-ap16:21.1, 64 ký tự; 84 khoá còn lại dưới ngưỡng 40 ký tự hoặc thuộc khối :0), Sujato phủ 0/1, coverage 0,0000, dưới floor 0,8. scripts/validate.ts coi tệp Anh thiếu là lỗi khi status là review hoặc published, nên bài bắt buộc draft.",
+      "Ba tầng tham khảo đều vắng: vietnamese-current chỉ có 26 tệp Pháp Cú tại commit đã ghim (translation/vi/phantuananh), english-project không có entry cho tha-ap16, và english-sujato không phủ tha-ap. Bài dịch chỉ dựa trên Pāli root, đối chiếu cú pháp các vế trùng Pāli bằng bài song hành thag10.4; chưa có đối chiếu English độc lập cho toàn bài. Việc content/meta/reference-gaps.yaml (chưa có entry cho uid này) hay có entry đều không cứu được published; lát này bị cấm sửa tệp đó."
+    ],
+    "assessed_at": "2026-10-11",
+    "assessed_by": [
+      "Claude Sonnet 5.5 (Claude Code)"
+    ],
+    "waiver": {
+      "id": "no-upstream-english",
+      "blockers": [
+        "Không có tầng tham khảo tiếng Anh đã ghim cho phẩm tha-ap tại commit 11c9d708978c (noEnglishEditionUpstream): tầng english-sujato có 4.291 tệp, trong kn chỉ 9 tiểu bộ cp, dhp, iti, ja, kp, snp, thag, thig, ud (755 tệp) và 0 tệp thân kinh tha-ap, nên tệp tha-ap16_translation-en-sujato.json không tồn tại (not-published-upstream, không phải not-synced). Mẫu số coverage là 1 khoá Pāli có nội dung (tha-ap16:21.1, 64 ký tự; 84 khoá còn lại dưới ngưỡng 40 ký tự hoặc thuộc khối :0), Sujato phủ 0/1, coverage 0,0000, dưới floor 0,8. scripts/validate.ts coi tệp Anh thiếu là lỗi khi status là review hoặc published, nên bài bắt buộc draft.",
+        "Ba tầng tham khảo đều vắng: vietnamese-current chỉ có 26 tệp Pháp Cú tại commit đã ghim (translation/vi/phantuananh), english-project không có entry cho tha-ap16, và english-sujato không phủ tha-ap. Bài dịch chỉ dựa trên Pāli root, đối chiếu cú pháp các vế trùng Pāli bằng bài song hành thag10.4; chưa có đối chiếu English độc lập cho toàn bài. Việc content/meta/reference-gaps.yaml (chưa có entry cho uid này) hay có entry đều không cứu được published; lát này bị cấm sửa tệp đó."
+      ]
+    }
+  }
+}

@@ -257,6 +257,34 @@
       "notes": "Kiểm tra tự động 102 segment với Pāli trong cache: đủ ID, giá trị, NFC và hệ chữ Latin. Chưa đọc đối chiếu nghĩa, ngữ pháp hoặc văn phong; chưa chấm lại 10 tiêu chí. Đây không phải chứng nhận hash upstream hoặc giấy phép, không xác nhận trạng thái xuất bản.",
       "content_sha256": "aebc7e88930cf3d89a16b6ea9fc431e5e128abb1e6325d19c3f63bbcf32304c7",
       "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639"
+    },
+    {
+      "target": "translation",
+      "scope": "full",
+      "scores": {
+        "source_provenance": 9.4,
+        "semantic_fidelity": 8.8,
+        "grammar_logic": 8.7,
+        "segment_alignment": 10,
+        "terminology": 8.9,
+        "triangulation": 8.4,
+        "vietnamese_clarity": 8.9,
+        "han_viet_balance": 9.1,
+        "ambiguity_integrity": 8.8,
+        "technical_integrity": 9.6
+      },
+      "blocking_errors": [
+        "noEnglishEditionUpstream: Không có tầng tham khảo tiếng Anh tại commit đã ghim: `source/upstream-manifest.json` chỉ liệt kê `kn/bv/bv17_root-pli-ms.json` (tầng Pāli) cho uid này, và `english-sujato` chỉ có chín tiểu bộ cp, dhp, iti, ja, kp, snp, thag, thig, ud, không có bv; `content/translation/en/project/sutta/kn/` không có tệp bv nào và `content/meta/en/kn/` không có `bv17.yaml`. Đây là `not-published-upstream`, không phải `not-synced`. Tầng `vietnamese-current` chỉ có Pháp Cú. Ba tầng tham khảo đều vắng nên bài dịch chỉ từ Pāli root và đối chiếu tiền lệ nội bộ, bài bắt buộc `draft` và `triangulation` không quá 8,0. Đây là giới hạn upstream, không phải lỗi của người dịch."
+      ],
+      "assessed_at": "2026-10-14",
+      "assessed_by": [
+        "Claude Sonnet 5.5 (Claude Code)"
+      ],
+      "notes": "Đối chiếu độc lập với bản Việt nguyên bài của Bhikkhu Indacanda, ở mức đoạn (bản đó không phân đoạn), đọc đủ 102 khoá: 4 chỗ bất đồng, sửa 0, giữ 4 (6.3 số koṭi, 15.3 Vicikoḷi, 20.3 Sāḷiyā/Kaḷiyā, 25.2 Sālārāma; đều là dị bản của bản nguyên bài khác Pāli ghim), bất định 0. Việc đối chiếu cũng cho căn cứ phân xử chỗ bất định số koṭi ở 6.3 mà lượt trước ghi chưa giải được (theo Pāli ghim). Các số 100.000 koṭi, 90, 80, 100, 1.800 kiếp, 8.000, 43.000, 7 ngày, 80 hattha, 100.000 năm, 3 do-tuần đã tính lại. Không tìm thấy lỗi nghĩa cần sửa. Triangulation 8,4: Pāli + một bản Việt độc lập đã đối chiếu từng đoạn, nhưng bản đó dùng các dị bản khác nên chỉ phân xử được bằng Pāli, và không có bản Anh. Blocker thiếu bản Anh upstream giữ nguyên. Cổng kỹ thuật chưa chạy (technical_integrity 9,6 là điểm tạm). Đây là review của AI, không phải chứng nhận của chuyên gia Pāli.",
+      "id": "6c612cd1-f0cd-4dcb-89b5-efa18504988c",
+      "content_sha256": "974e53aed273a257cb5e0cd08a8aad199510526536106e24e9eb7ebc9cc7d526",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
+      "final_score": 9.059999999999999
     }
   ],
   "legacy_quality": {

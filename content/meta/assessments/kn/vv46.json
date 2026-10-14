@@ -53,6 +53,34 @@
       "notes": "Kiểm tra tự động 42 segment với Pāli trong cache: đủ ID, giá trị, NFC và hệ chữ Latin. Chưa đọc đối chiếu nghĩa, ngữ pháp hoặc văn phong; chưa chấm lại 10 tiêu chí. Đây không phải chứng nhận hash upstream hoặc giấy phép, không xác nhận trạng thái xuất bản.",
       "content_sha256": "6e5223b377170863f3602d928c5aaf054786f0e57601659ece22c72242694227",
       "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639"
+    },
+    {
+      "target": "translation",
+      "scope": "full",
+      "scores": {
+        "source_provenance": 9.5,
+        "semantic_fidelity": 8.8,
+        "grammar_logic": 8.9,
+        "segment_alignment": 10,
+        "terminology": 8.7,
+        "triangulation": 8.3,
+        "vietnamese_clarity": 9,
+        "han_viet_balance": 9.4,
+        "ambiguity_integrity": 8.8,
+        "technical_integrity": 9.6
+      },
+      "blocking_errors": [
+        "Không có tầng tham khảo tiếng Anh tại commit đã ghim: tệp `translation/en/sujato/sutta/kn/vv46/` không tồn tại trong `.cache/upstream/suttacentral/`, và `source/upstream-manifest.json` (edition `english-sujato`, treeSha 24e81ded9d6710e16b277b6394fd57c48258da12, 4.291 tệp) chỉ có đúng hai tệp liên quan — `name/sutta/tha-ap-name…` và `name/sutta/vv-name…` — tức là KHÔNG có tệp thân bài nào cho `tha-ap` hay `vv`. Đây là `not-published-upstream`, KHÔNG phải `not-synced`. `scripts/validate.ts` xếp tệp Anh thiếu là error khi status là `review` hoặc `published`, nên bài bắt buộc `draft`. Tầng `vietnamese-current` cũng vắng: `translation/vi/phantuananh` tại commit đã ghim chỉ có 26 tệp và toàn bộ là Pháp Cú. Lớp lấp `english-project` của dự án cũng không có cho uid này. Ba tầng tham khảo đều vắng ⇒ bài dịch chỉ từ Pāli root. Vì đây là giới hạn của upstream chứ không phải lỗi của người dịch, `triangulation` bị chặn ở 7.5 (≤ 8.0) chứ không nâng để né blocker."
+      ],
+      "assessed_at": "2026-10-14",
+      "assessed_by": [
+        "Claude Sonnet 5.5 (Claude Code)"
+      ],
+      "notes": "Đối chiếu độc lập với bản Việt nguyên bài của Bhikkhu Indacanda ở mức đoạn: 2 khoá bất đồng nghĩa trên 42 khoá (`:6.3` giữ, `:6.2` bất định), sửa 0 khoá. Bản nguyên bài ủng hộ hai cách đọc đã được bản dự án chọn (`mahallaka` là tính từ của `pāsāda`, `taṁ` ở `:7.3` là tu viện), nên bất định (f) trong notes được gỡ; bất định (a) `kārente niṭṭhite mahe` vẫn chưa phân xử được bằng Pāli, và (c) `Itthivimāna` → `Nữ Hư Không` theo tiền lệ bộ vv vẫn còn nên không nâng terminology. Không đối chiếu được English (upstream không có bản Anh), blocker `noEnglishEditionUpstream` giữ nguyên, không gỡ blocker nào. triangulation 8,3: Pāli + một bản Việt độc lập, mức đoạn, một chỗ bất định chưa phân xử. technical_integrity 9,6: chưa chạy `npm run validate`, `npm test`, `npm run check`, `npm run build`. Đây là review của AI, không phải chứng nhận của chuyên gia Pāli.",
+      "id": "b12b299a-e3ad-4d82-8f4c-ac8e9e1d7ea2",
+      "content_sha256": "ee8e4fe4dbb883238e0c75389143ed0d2039d1e85e273172d70296e520a5d8bc",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
+      "final_score": 9.1
     }
   ],
   "legacy_quality": {

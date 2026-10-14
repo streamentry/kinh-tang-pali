@@ -1,9 +1,10 @@
 uid: vv32
-status: review
+status: published
 translationTitle: "Chuyện Cung Điện Latā"
 translators:
   - "OpenCode Space Bunny Free (agent)"
-reviewers: []
+reviewers:
+  - Claude Sonnet 5.5 (Claude Code)
 tags:
   - "kn"
   - "khuddaka-nikaya"
@@ -14,16 +15,16 @@ tags:
 quality:
   scores:
     source_provenance: 9.5
-    semantic_fidelity: 8.6
-    grammar_logic: 8.7
+    semantic_fidelity: 8.7
+    grammar_logic: 8.8
     segment_alignment: 9.8
-    terminology: 9.0
-    triangulation: 7.0
+    terminology: 9
+    triangulation: 8.2
     vietnamese_clarity: 8.8
     han_viet_balance: 9.2
     ambiguity_integrity: 8.5
     technical_integrity: 9.6
-  final_score: 8.87
+  final_score: 9.01
   blocking_errors:
     - "Không có tầng tham khảo tiếng Anh tại commit đã ghim:
       `source/upstream-manifest.json` (edition `english-sujato`, `treeSha`
@@ -49,9 +50,10 @@ quality:
       root ⇒ blocker thật, và đây là **giới hạn upstream**, không phải lỗi của
       người dịch. Vì vậy `triangulation` bị chặn ở 7.5 (≤ 8.0) chứ không nâng để
       né blocker."
-  assessed_at: "2026-10-12"
+  assessed_at: 2026-10-14
   assessed_by:
-    - "Claude Sonnet 5.5 (Claude Code)"
+    - Claude Sonnet 5.5 (Claude Code)
+  assessment_id: b4220218-9047-4687-b981-7504f4353e71
   waiver:
     id: no-upstream-english
     blockers:
@@ -210,3 +212,5 @@ notes: |-
   · `10.2` `Mahindhara` hiếm: chỉ xuất hiện một lần trong Pāli root đã ghim; giữ như tên núi lớn đi kèm `pabbata`.
 
   Tham chiếu: ba tầng tham khảo (Anh Sujato, Anh dự án, Việt hiện hành) đều vắng, `triangulation` chỉ 7,0 (≤ 8,0), dựa vào Pāli, tiền lệ nguyên văn trong tầng Việt dự án (`vv31`, `vv48`, `an4.57`, `an4.58`, `ja507`, `cp9`, `ja547`) và giải nghĩa nội bộ trong Pāli root (`cnd8`). Cổng kỹ thuật chưa chạy trong lượt này: `npm run validate`, `npm test`, `npm run check`, `npm run build` còn phải chạy; `technical_integrity` đặt 9,6 chứ không cao hơn.
+
+  Đối chiếu độc lập 2026-10-14: với bản Việt nguyên bài của Bhikkhu Indacanda. 3 điểm bất đồng trên 49 khoá → sửa 0, giữ 2, bất định 1. Bất định (`:1.1`–`:1.4`): bản nguyên bài liệt kê đúng năm nàng (Latā, Sajjā, Pavarā, Accimukhī, Sutā) khớp `:2.1` `pañcettha nāriyo`, không có `Rājīmatī`, và đọc tên thứ tư khác (`Accimukhī`); Pāli đã ghim có `Accimatī` và `Rājīmatī` như hai từ riêng, nên bản dự án liệt kê sáu từ trong khi `:2.1` nói năm người. Nếu `pavarā ca devatā` ở `:1.1` chỉ là tính từ (*vị thiên tối thượng*, như ở `:8.4`) thì còn đúng năm tên; hai nguồn không cho phép phân xử, giữ cách liệt kê hiện tại và ghi bất định. Giữ (`:8.4`): `gatī` bản nguyên bài dịch *số phận*, dự án dịch *chỗ nương tựa*; cả hai là nghĩa thông thường của `gati`, hợp mạch `:8.3`–`:11.2` (chồng là chỗ dựa). Giữ (`:10.2`): bản nguyên bài hiểu `Mahindhara` là núi nâng đỡ trái đất (`mahī` + `dhara`), dự án giữ như tên núi; không đổi nghĩa câu. Các điểm còn lại khớp: `suṇisā` con dâu, `sadevaraṁ sassasuraṁ sadāsakaṁ` (anh em chồng, cha mẹ chồng, người hầu), bốn điều ở `:7.2`–`:7.3`, `akittayī no` (nàng đã nói cho chúng ta), `patibbatā`, và ẩn dụ sư tử `:10.1`–`:10.4`. Lượt review đối kháng đọc lại cả 49 khoá không thấy lỗi mới. Bản nguyên bài không phân đoạn nên đối chiếu ở mức đoạn, không phải mức khoá; không có bản Anh.

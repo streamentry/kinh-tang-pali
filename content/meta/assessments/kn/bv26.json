@@ -483,6 +483,34 @@
       "notes": "Kiểm tra tự động 215 segment với Pāli trong cache: đủ ID, giá trị, NFC và hệ chữ Latin. Chưa đọc đối chiếu nghĩa, ngữ pháp hoặc văn phong; chưa chấm lại 10 tiêu chí. Đây không phải chứng nhận hash upstream hoặc giấy phép, không xác nhận trạng thái xuất bản.",
       "content_sha256": "64c93598a44b9dc08f5154cc0dca82044339f23bbd5fd44701081eeeef33f616",
       "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639"
+    },
+    {
+      "target": "translation",
+      "scope": "full",
+      "scores": {
+        "source_provenance": 9.4,
+        "semantic_fidelity": 8.5,
+        "grammar_logic": 8.5,
+        "segment_alignment": 10,
+        "terminology": 8.6,
+        "triangulation": 8.2,
+        "vietnamese_clarity": 8.8,
+        "han_viet_balance": 9,
+        "ambiguity_integrity": 8.5,
+        "technical_integrity": 9.6
+      },
+      "blocking_errors": [
+        "noEnglishEditionUpstream: Không có tầng tham khảo tiếng Anh tại commit đã ghim: `source/upstream-manifest.json` chỉ liệt kê `kn/bv/bv26_root-pli-ms.json` (tầng Pāli) cho uid này, và `english-sujato` chỉ có chín tiểu bộ cp, dhp, iti, ja, kp, snp, thag, thig, ud, không có bv; `content/translation/en/project/sutta/kn/` không có tệp bv nào và `content/meta/en/kn/` không có `bv26.yaml`. Đây là `not-published-upstream`, không phải `not-synced`. Tầng `vietnamese-current` chỉ có Pháp Cú. Ba tầng tham khảo đều vắng nên bài dịch chỉ từ Pāli root và đối chiếu tiền lệ nội bộ, bài bắt buộc `draft` và `triangulation` không quá 8,0. Đây là giới hạn upstream, không phải lỗi của người dịch."
+      ],
+      "assessed_at": "2026-10-14",
+      "assessed_by": [
+        "Claude Sonnet 5.5 (Claude Code)"
+      ],
+      "notes": "Đối chiếu độc lập với bản Việt nguyên bài của Bhikkhu Indacanda, ở mức đoạn: 8 khoá bất đồng nghĩa, sửa 0, giữ 5 (7.1, 9.3, 11.2, 40.3, 41.4), bất định 3 (2.1 kulamūlaṁ, 17.1, 46.4 sīlasaṁsaggamaddanaṁ, trong đó 46.4 sát nghĩa compound nhưng khó hiểu về giáo lý nên giữ điểm không cao). Mọi số lượng khớp. Rà đối kháng 215 khoá: không lỗi mới. Technical gate (npm run validate, npm test, npm run check, npm run build) chưa chạy trong lượt này nên technical_integrity đặt 9,6, không tuyên bố đã pass. Blocker noEnglishEditionUpstream giữ nguyên (upstream vẫn không có bản Anh), không có blocker nào khác để gỡ. Triangulation có Pāli và một bản Việt độc lập đã đối chiếu, không có bản Anh nên không tuyên bố đã đối chiếu English. Đây là review của AI, không phải chứng nhận của chuyên gia Pāli.",
+      "id": "5e9cf4f2-3624-4053-aece-5e5e3be93ff8",
+      "content_sha256": "32b923414c68861ad422666e1d7fbebd996dc2c32375f6405bc03f32ef03e7db",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
+      "final_score": 8.91
     }
   ],
   "legacy_quality": {

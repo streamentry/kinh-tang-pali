@@ -97,6 +97,34 @@
       "notes": "Kiểm tra tự động 44 segment với Pāli trong cache: đủ ID, giá trị, NFC và hệ chữ Latin. Chưa đọc đối chiếu nghĩa, ngữ pháp hoặc văn phong; chưa chấm lại 10 tiêu chí. Đây không phải chứng nhận hash upstream hoặc giấy phép, không xác nhận trạng thái xuất bản.",
       "content_sha256": "69addd26a4dad236a2cd5c78e97042fe99dc13fe9c36e673a49b557f8d2af893",
       "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639"
+    },
+    {
+      "target": "translation",
+      "scope": "full",
+      "scores": {
+        "source_provenance": 9.4,
+        "semantic_fidelity": 8.8,
+        "grammar_logic": 8.9,
+        "segment_alignment": 10,
+        "terminology": 8.8,
+        "triangulation": 8.4,
+        "vietnamese_clarity": 9,
+        "han_viet_balance": 9,
+        "ambiguity_integrity": 9,
+        "technical_integrity": 9.6
+      },
+      "blocking_errors": [
+        "Tầng Anh đã ghim không phủ phẩm tha-ap nên published không đứng được: tại commit đã ghim english-sujato có 755 tệp của kn nhưng chỉ 9 sub-collection (cp dhp iti ja kp snp thag thig ud), tệp tha-ap duy nhất trong cả tầng là name/sutta/tha-ap-name_translation-en-sujato.json (tệp *tên*, không phải thân kinh), nên tha-ap128 có 0/1 khoá có nội dung được Sujato phủ; vietnamese-current chỉ có 26 tệp toàn bộ là Pháp Cú, english-project không có entry cho bài này. Có entry trong content/meta/reference-gaps.yaml không cứu được published."
+      ],
+      "assessed_at": "2026-10-14",
+      "assessed_by": [
+        "Claude Sonnet 5.5 (Claude Code)"
+      ],
+      "notes": "Đối chiếu 44/44 khoá với Pāli và bản Việt nguyên bài của Bhikkhu Indacanda ở mức đoạn. 3 khoá bất đồng nghĩa → sửa 0, giữ 0, bất định 3 (3.2 piṭṭhiyaṁ, 9.1 Anantaraṁ ito kappe, 9.2 varadassano); cả ba đã được ghi ở notes, bản nguyên bài chỉ thêm một cách đọc độc lập. Bản nguyên bài khớp độc lập hầu hết 16 khoá đã sửa ở lượt 2026-10-12. Không có bản Anh nên triangulation chỉ gồm Pāli + một bản Việt, chấm 8,4 do còn ba điểm chưa phân xử. Blocker thứ nhất giữ nguyên; blocker thứ hai (giới hạn tầng tham khảo) đã được gỡ ở lượt 2026-10-12 và không có trong meta hiện tại. technical_integrity 9,6: chưa tuyên bố đã chạy npm run validate, npm test, npm run check, npm run build. Đây là review của AI, không phải chứng nhận của chuyên gia Pāli.",
+      "id": "8cfe3190-1bbc-432b-b7a1-d7090fa6b8e4",
+      "content_sha256": "5534f36597c49913be6c133d4452e41d746e785c8cbe9993c3df81685fd12d2b",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
+      "final_score": 9.09
     }
   ],
   "legacy_quality": {

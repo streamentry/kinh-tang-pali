@@ -53,6 +53,34 @@
       "notes": "Kiểm tra tự động 37 segment với Pāli trong cache: đủ ID, giá trị, NFC và hệ chữ Latin. Chưa đọc đối chiếu nghĩa, ngữ pháp hoặc văn phong; chưa chấm lại 10 tiêu chí. Đây không phải chứng nhận hash upstream hoặc giấy phép, không xác nhận trạng thái xuất bản.",
       "content_sha256": "b498ad2b175bfc9efe3bbebe20de3fb5101c4349eea457a1a387b4afc464e105",
       "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639"
+    },
+    {
+      "target": "translation",
+      "scope": "full",
+      "scores": {
+        "source_provenance": 9.5,
+        "semantic_fidelity": 8.9,
+        "grammar_logic": 9.1,
+        "segment_alignment": 9.6,
+        "terminology": 8.6,
+        "triangulation": 8.5,
+        "vietnamese_clarity": 9,
+        "han_viet_balance": 9.3,
+        "ambiguity_integrity": 8.9,
+        "technical_integrity": 9.6
+      },
+      "blocking_errors": [
+        "Không có tầng tham khảo tiếng Anh tại commit đã ghim: tệp Anh của bài này không có trong source/upstream-manifest.json (đo được 0/4291 tệp trong thư mục sutta/kn/tha-ap và 0/4291 trong sutta/kn/vv của tầng translation/en/sujato) và cache cũng không có thư mục translation/en/sujato/sutta/kn/tha-ap hay sutta/kn/vv — đây là not-published-upstream, KHÔNG phải not-synced. scripts/validate.ts xếp tệp Anh thiếu là error khi status là review hoặc published, nên bài bắt buộc draft. Tầng vietnamese-current cũng vắng (commit đã ghim chỉ có 26 tệp Pháp Cú) và lớp lấp english-project không có cho bài này, nên ba tầng tham khảo đều vắng và bài dịch chỉ từ Pāli root. Vì đây là giới hạn upstream chứ không phải lỗi người dịch, triangulation bị chặn ở 7.5 (không quá 8.0) chứ không nâng để né blocker."
+      ],
+      "assessed_at": "2026-10-14",
+      "assessed_by": [
+        "Claude Sonnet 5.5 (Claude Code)"
+      ],
+      "notes": "Đối chiếu độc lập ngày 2026-10-14 trên toàn bộ 37 khoá của vv14 giữa Pāli và bản Việt nguyên bài của Bhikkhu Indacanda (không phân đoạn, đối chiếu ở mức đoạn; không có bản Anh). Một khoá bất đồng nghĩa: 6.5 `kummāsapiṇḍaṁ` (bản nguyên bài: miếng bánh kem; bản này: nắm cháo thô), bất định, giữ theo tiền lệ đa số; sửa 0, giữ 0. Review đối kháng đọc lại 37 cặp Pāli-Việt, không tìm thêm lỗi. `triangulation` 8.5: có Pāli và một bản Việt độc lập đã đối chiếu thật, không có bản Anh (trần 8.8), còn một chỗ chưa phân xử. Các điểm khác giữ nguyên. Blocker `noEnglishEditionUpstream` giữ nguyên vì upstream vẫn không có bản Anh. technical_integrity 9,6 vì không chạy `npm run validate`, `npm test`, `npm run check`, `npm run build` trong lượt này. Đây là review của AI, không phải chứng nhận của chuyên gia Pāli.",
+      "id": "bf0b005a-c025-476f-9b9e-22cf8f91599d",
+      "content_sha256": "2d5fb79166fcd83c2f0442134aab447167fd1c5b0f9c718f87bab4625c4a9ce4",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
+      "final_score": 9.1
     }
   ],
   "legacy_quality": {

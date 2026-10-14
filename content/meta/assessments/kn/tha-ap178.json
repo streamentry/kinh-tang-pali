@@ -99,6 +99,34 @@
       "notes": "Kiểm tra tự động 20 segment với Pāli trong cache: đủ ID, giá trị, NFC và hệ chữ Latin. Chưa đọc đối chiếu nghĩa, ngữ pháp hoặc văn phong; chưa chấm lại 10 tiêu chí. Đây không phải chứng nhận hash upstream hoặc giấy phép, không xác nhận trạng thái xuất bản.",
       "content_sha256": "d10f667153ed82077fbe2753f39002800b9240f9dbd5c77a9f0e64cab897b9d3",
       "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639"
+    },
+    {
+      "target": "translation",
+      "scope": "full",
+      "scores": {
+        "source_provenance": 9.5,
+        "semantic_fidelity": 9,
+        "grammar_logic": 9,
+        "segment_alignment": 10,
+        "terminology": 9,
+        "triangulation": 8.6,
+        "vietnamese_clarity": 9,
+        "han_viet_balance": 9.2,
+        "ambiguity_integrity": 9,
+        "technical_integrity": 9.6
+      },
+      "blocking_errors": [
+        "noEnglishEditionUpstream: tại commit đã ghim, Sujato không phát hành bản Anh cho bài này (`translation/en/sujato/sutta/kn/` chỉ có `thag`, không có tệp `tha-ap178`; `source/upstream-manifest.json` không liệt kê; trạng thái `not-published-upstream`); tầng Việt hiện hành cũng vắng (chỉ có Pháp Cú)."
+      ],
+      "assessed_at": "2026-10-14",
+      "assessed_by": [
+        "Claude Sonnet 5.5 (Claude Code)"
+      ],
+      "notes": "Đối chiếu độc lập với bản Việt nguyên bài của Bhikkhu Indacanda, ở mức đoạn (bản đó không phân đoạn): 20/20 khoá cùng nghĩa, 0 bất đồng, 0 sửa, 0 giữ-do-khác-Pāli, 0 bất định mới. Bài ngắn nên đối chiếu được gần như từng câu; các điểm dễ sai (kinh hành ngoài trời, 20.000 kiếp = 20 × 1.000, năm người cùng tên Chuyển Luân Vương, hoa ở chân và đầu) đều khớp. Bất định còn lại ở 2.1–2.2 (`sobhaṁ`, định vị cách) không đổi. Không có bản Anh nên triangulation chỉ gồm Pāli và một bản Việt độc lập. Blocker `noEnglishEditionUpstream` giữ nguyên. Cổng kỹ thuật chưa chạy: npm run validate, npm test, npm run check, npm run build. Đây là review của AI, không phải chứng nhận của chuyên gia Pāli.",
+      "id": "3c9264ad-7895-4443-bc6b-8f9683880b85",
+      "content_sha256": "fe8e970fcba9a75f29503083700dec499463b94ab001a5f703981d641cda75a6",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
+      "final_score": 9.19
     }
   ],
   "legacy_quality": {

@@ -53,6 +53,34 @@
       "notes": "Kiểm tra tự động 49 segment với Pāli trong cache: đủ ID, giá trị, NFC và hệ chữ Latin. Chưa đọc đối chiếu nghĩa, ngữ pháp hoặc văn phong; chưa chấm lại 10 tiêu chí. Đây không phải chứng nhận hash upstream hoặc giấy phép, không xác nhận trạng thái xuất bản.",
       "content_sha256": "5a7270555cf5865ce4995ba6052de35c416be162a91a572f7579e7dc44ceaf33",
       "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639"
+    },
+    {
+      "target": "translation",
+      "scope": "full",
+      "scores": {
+        "source_provenance": 9,
+        "semantic_fidelity": 8.7,
+        "grammar_logic": 8.7,
+        "segment_alignment": 9.8,
+        "terminology": 8.6,
+        "triangulation": 8.4,
+        "vietnamese_clarity": 8.8,
+        "han_viet_balance": 9,
+        "ambiguity_integrity": 8.3,
+        "technical_integrity": 9.6
+      },
+      "blocking_errors": [
+        "Không có tầng tham khảo tiếng Anh tại commit đã ghim: `source/upstream-manifest.json` (edition `english-sujato`, `treeSha` 24e81ded9d6710e16b277b6394fd57c48258da12, 4.291 tệp) KHÔNG có tệp thân bài nào cho uid `vv21` — tầng Anh đã ghim chỉ có `name/sutta/vv-name…`, tức là **toàn bộ sub-collection `vv` của Kinh Tạng vắng mặt** trong tầng Anh (đếm: `kn` trong tầng Anh có `cp`, `dhp`, `iti`, `ja`, `kp`, `snp`, `thag`, `thig`, `ud` — không có `vv`). Tệp `translation/en/sujato/sutta/kn/vv/vv21_translation-en-sujato.json` không tồn tại trong `.cache/upstream/suttacentral/`. Đây là `not-published-upstream`, KHÔNG phải `not-synced`. Đo coverage bằng đúng công thức `src/lib/canon/reference.ts` + `source/layers.yaml` (`substantivePaliMinChars: 40`, `excludeReferenceBlock: true`) cho **0 trên 0** khoá Pāli có nội dung — khuôn kệ của `vv` là kệ ngắn, độ dài Pāli **min 11, max 38 ký tự**, không khoá nào đạt 40 — nên `ratio = 1` và coverage hiển thị **100%**; con số ấy **không đo được gì** (mẫu số bằng 0) và không phải lý do cho blocker. `scripts/validate.ts` (nhánh `if (!existsSync(englishFile))`) coi tệp Anh thiếu là **error** khi status là `review` hoặc `published`, nên bài bắt buộc `draft`. Tầng `vietnamese-current` cũng vắng: `translation/vi/phantuananh` tại commit đã ghim chỉ có 26 tệp và toàn bộ là Pháp Cú. Lớp lấp `english-project` của dự án (696 tệp `published`) cũng không có cho uid này. Ba tầng tham khảo đều vắng ⇒ bài dịch chỉ từ Pāli root ⇒ blocker thật, và đây là **giới hạn upstream**, không phải lỗi của người dịch. Vì vậy `triangulation` bị chặn ở 7.5 (≤ 8.0) chứ không nâng để né blocker."
+      ],
+      "assessed_at": "2026-10-14",
+      "assessed_by": [
+        "Claude Sonnet 5.5 (Claude Code)"
+      ],
+      "notes": "Đối chiếu độc lập với bản Việt nguyên bài của Bhikkhu Indacanda, ở mức đoạn: 2 khoá bất đồng (7.2 pesitā; Caṇḍālī), sửa 0, giữ 1, bất định 1 (Caṇḍālī là tên riêng hay danh xưng dòng caṇḍāla). Rà đối kháng 49/49 khoá: không lỗi mới. Technical gate (npm run validate, npm test, npm run check, npm run build) chưa chạy trong lượt này nên technical_integrity đặt 9,6, không tuyên bố đã pass. Blocker noEnglishEditionUpstream giữ nguyên (upstream vẫn không có bản Anh), không có blocker nào khác để gỡ. Triangulation có Pāli và một bản Việt độc lập đã đối chiếu, không có bản Anh nên không tuyên bố đã đối chiếu English. Đây là review của AI, không phải chứng nhận của chuyên gia Pāli.",
+      "id": "d024ff73-f028-48ba-80ec-5b6839750d43",
+      "content_sha256": "5ee0a961c83df3b74fb62ce4fb8e0cba8b2fd90a05599172f2459ffa9d4644d2",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
+      "final_score": 8.889999999999999
     }
   ],
   "legacy_quality": {

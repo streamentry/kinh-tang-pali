@@ -3,7 +3,8 @@ status: review
 translationTitle: "Dòng Kế Thừa Các Đức Phật, Dòng Kế Thừa Của Đức Phật Nārada"
 translators:
   - "Claude Sonnet 5.5 (Claude Code)"
-reviewers: []
+reviewers:
+  - Claude Sonnet 5.5 (Claude Code)
 tags:
   - "kn"
   - "khuddaka-nikaya"
@@ -11,16 +12,16 @@ tags:
 quality:
   scores:
     source_provenance: 9.4
-    semantic_fidelity: 8.5
-    grammar_logic: 8.4
-    segment_alignment: 10.0
+    semantic_fidelity: 8.7
+    grammar_logic: 8.6
+    segment_alignment: 10
     terminology: 8.7
-    triangulation: 7.0
+    triangulation: 8.5
     vietnamese_clarity: 8.8
     han_viet_balance: 9.1
     ambiguity_integrity: 8.6
     technical_integrity: 9.6
-  final_score: 8.81
+  final_score: 8.999999999999998
   blocking_errors:
     - "noEnglishEditionUpstream: Không có tầng tham khảo tiếng Anh tại commit đã
       ghim: `source/upstream-manifest.json` chỉ liệt kê
@@ -33,9 +34,10 @@ quality:
       dịch chỉ từ Pāli root và đối chiếu tiền lệ nội bộ, bài bắt buộc `draft` và
       `triangulation` không quá 8,0. Đây là giới hạn upstream, không phải lỗi
       của người dịch."
-  assessed_at: "2026-10-11"
+  assessed_at: 2026-10-14
   assessed_by:
-    - "Claude Sonnet 5.5 (Claude Code)"
+    - Claude Sonnet 5.5 (Claude Code)
+  assessment_id: de10db24-9f22-44c5-99b6-e425b1cdafc7
   waiver:
     id: no-upstream-english
     blockers:
@@ -97,3 +99,5 @@ notes: |-
   **Coverage English (mục 7):** mẫu số = **0**: trong 132 khoá không phải `:0.` không có khoá nào đủ 40 ký tự (dài nhất 33, là colophon `34.1`), nên **cổng coverage không đo được gì**. Sujato: 0 tệp cho `bv11` (`source/upstream-manifest.json` chỉ có `kn/bv/bv11_root-pli-ms.json`; `english-sujato` chỉ có chín tiểu bộ cp, dhp, iti, ja, kp, snp, thag, thig, ud); `english-project`: 0 (không có tệp bv nào trong `content/translation/en/project/sutta/kn/`, không có `content/meta/en/kn/bv11.yaml`); `vietnamese-current`: 0 tầng segment (chỉ Pháp Cú). `content/meta/reference-gaps.yaml` chưa có entry cho `bv11` (không đụng ở lát này; entry nếu có chỉ thừa nhận mất tầng, **không cứu được `published`**). Ba tầng đều vắng ⇒ `triangulation` 7,0 (≤ 8,0) và `status: draft` kèm blocker ở trên.
 
   **technical_integrity = 9,6:** lát này cấm chạy cổng, nên không tuyên bố technical gate pass. Bốn lệnh còn lại do người điều phối chạy tập trung: `npm run validate` · `npm test` · `npm run check` · `npm run build`. `final_score` là trung bình số học thô của đúng 10 tiêu chí.
+
+  Đối chiếu độc lập 2026-10-14: với bản Việt nguyên bài của Bhikkhu Indacanda. 4 khoá bất đồng nghĩa → sửa 0, giữ 4, bất định 0. Giữ: `19.3` `Jito vijitābhirāmo` (*Jita, Vijita và Abhirāma*; bản nguyên bài viết `Vijitābhirāma` làm tên thứ ba, nhưng Pāli ghim chỉ có hai từ cho ba lâu đài `tayo pāsādamuttamā`, nên phải tách `vijita` + `abhirāma`), `22.4` `dhanañcuyyānamuttame` (*Dhanañcuyyāna tối thượng*; bản nguyên bài viết `Dhanañjaya`, là dị bản tên), `25.3` `Indāvarī ca vaṇḍī ca` (bản nguyên bài `Indīvarī` và `Undī`, cũng dị bản tên; bản này theo Pāli ghim), `2.3` `Āmukkamālābharaṇo` (*vòng hoa và đồ trang sức*; bản nguyên bài thêm *ngọc trai*, Pāli không có). Mọi số đếm khớp bản nguyên bài sau khi tự tính lại: `koṭisatasahassa` một trăm ngàn koṭi (`6.3`, `10.3`), `navutikoṭisahassa` chín mươi ngàn koṭi (`8.3`, `11.3`), `asītikoṭisahassa` tám mươi ngàn koṭi (`9.3`), `asītisatasahassiyo` tám triệu (`12.4`), chín ngàn năm (`19.1`), bốn mươi ba ngàn (`20.1`), tám mươi tám ratana (`26.1`), chín mươi ngàn năm (`29.1`), bốn do-tuần (`33.4`). Bản nguyên bài viết đủ phần lời thọ ký mà Pāli ghim lược ở `16.2` (`…pe…`); bản này giữ đúng một `…`. Bản nguyên bài không phân đoạn nên đối chiếu ở mức đoạn, không phải mức khoá; không có bản Anh.

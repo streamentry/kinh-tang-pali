@@ -53,6 +53,34 @@
       "notes": "Kiểm tra tự động 37 segment với Pāli trong cache: đủ ID, giá trị, NFC và hệ chữ Latin. Chưa đọc đối chiếu nghĩa, ngữ pháp hoặc văn phong; chưa chấm lại 10 tiêu chí. Đây không phải chứng nhận hash upstream hoặc giấy phép, không xác nhận trạng thái xuất bản.",
       "content_sha256": "1ffe38aaf7e806dc17b30885014f7f8313806a1617f7c4c73be94fa4fd8af3ce",
       "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639"
+    },
+    {
+      "target": "translation",
+      "scope": "full",
+      "scores": {
+        "source_provenance": 9.4,
+        "semantic_fidelity": 9,
+        "grammar_logic": 9,
+        "segment_alignment": 9.8,
+        "terminology": 8.8,
+        "triangulation": 8.5,
+        "vietnamese_clarity": 9,
+        "han_viet_balance": 9.2,
+        "ambiguity_integrity": 8.8,
+        "technical_integrity": 9.6
+      },
+      "blocking_errors": [
+        "Không có tầng tham khảo tiếng Anh tại commit đã ghim 11c9d708978cde8ba61096d8a75f7ddfb846f639: tệp `translation/en/sujato/sutta/kn/vv/vv39_translation-en-sujato.json` không tồn tại trong `.cache/upstream/suttacentral/`, và cây `english-sujato` của `source/upstream-manifest.json` không liệt kê bất kỳ tệp nào cho `kn/vv` — đây là `not-published-upstream`, KHÔNG phải `not-synced`. `scripts/validate.ts` xếp tệp Anh đã ghim bị thiếu là **error** khi status là `review` hoặc `published`, nên bài bắt buộc `draft`. Tầng `vietnamese-current` cũng vắng: `translation/vi/phantuananh` tại commit đã ghim chỉ có 26 tệp và toàn bộ là Pháp Cú; lớp lấp `english-project` cũng không có cho uid này. Ba tầng tham khảo đều vắng ⇒ bài dịch chỉ từ Pāli root. Vì đây là **giới hạn upstream** chứ không phải lỗi người dịch, `triangulation` bị chặn ở 7.5 (≤ 8.0) chứ không nâng để né blocker."
+      ],
+      "assessed_at": "2026-10-14",
+      "assessed_by": [
+        "Claude Sonnet 5.5 (Claude Code)"
+      ],
+      "notes": "Đối chiếu độc lập 2026-10-14 với bản Việt nguyên bài của Bhikkhu Indacanda, ở mức đoạn (mỗi đoạn tương ứng một khổ kệ nên khớp được từng khổ); không có bản Anh nên không tuyên bố đã đối chiếu English. Kiểm cả 37 khoá: 3 điểm bất đồng nghĩa, sửa 1 (5.1–5.2: ngôi hai chủ động bị dịch thành bị động), giữ 2 (ayirakule; tên riêng Mañjiṭṭhaka), bất định 0. Blocker noEnglishEditionUpstream giữ nguyên vì upstream vẫn không có bản Anh. technical_integrity 9.6: chưa chạy npm run validate, npm test, npm run check, npm run build. Đây là review của AI, không phải chứng nhận của chuyên gia Pāli.",
+      "id": "96541b30-9053-4bc9-9fda-c9b14cad442f",
+      "content_sha256": "1e474b87a50ead2ed660fb800cbdf487bd0ddfcea487f18c95b48940fc633948",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
+      "final_score": 9.11
     }
   ],
   "legacy_quality": {
