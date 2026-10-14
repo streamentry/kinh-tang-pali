@@ -40,7 +40,7 @@ quality:
       thật (`noEnglishEditionUpstream`), là giới hạn upstream chứ không phải lỗi
       của người dịch. Vì vậy `triangulation` bị chặn ở 7.5 (≤ 8.0), không nâng
       để né blocker."
-  assessed_at: "2026-10-11"
+  assessed_at: "2026-10-13"
   assessed_by:
     - "Claude Sonnet 5.5 (Claude Code)"
   waiver:
@@ -92,3 +92,5 @@ notes: |-
   Bốn cổng kỹ thuật theo `AGENTS.md`: `npm run validate`, `npm test`, `npm run check`, `npm run build`. Lát này **không** chạy bốn lệnh đó — brief cấm chạy trong từng lát, nên để CI hoặc người điều phối chạy. `technical_integrity` đặt **9.6** vì các phép kiểm tự động của lát đã xanh: tập khoá Việt khớp Pāli 62/62 và đúng thứ tự, nháy đơn và nháy kép khớp Pāli ở 62/62 khoá, NFC, không khoá rỗng, không Pāli lọt sang bản Việt ngoài danh xưng, 0 cặp Pāli trùng nội bộ; chưa đủ 10.0 vì cổng `npm` và lượt rà của người chưa chạy.
 
   Lượt cải thiện 2026-10-11 (kiểm toán đối kháng độc lập, đọc lại cả 62 cặp Pāli↔Việt): không tìm thấy lỗi nghĩa nào ở các loại sai người nói/chủ thể, phủ định, số lượng, đảo vế hay lệch ranh khoá. Đã kiểm riêng: bộ sáu món đồ chơi ở `4.6` (sáu món, khớp sáu từ Pāli), cụm bốn vật dụng ở `12.2` (cách tách *thuốc men* / *vật dụng cho người bệnh* khớp đa số tầng: `an3.140`, `an3.99`, `an4.157`…), chủ thể của `3.4`/`15.1`/`15.2`, ranh giới lời dẫn nháy đơn–nháy kép (62/62 khoá khớp Pāli), và 0 cặp Pāli trùng nội bộ. Hai sửa văn phong, không đổi nghĩa: `3.6` bỏ chữ *là* thừa (*đều là thọ dụng* → *đều thọ dụng*, Pāli `paribhuñjanti` là động từ thường); `3.4` đổi *Nếu Ngài* → *Nếu Đức Thế Tôn* để không lẫn với *ngài* (Nāgasena) ở các khoá `3.2`–`3.3` và `3.7` (clarity fix; chủ thể `bhagavā` ngầm trong Pāli và xác định được theo `3.3`). Điểm không đổi: bản dịch đã sát Pāli và các bất định ở mục BẤT ĐỊNH phía trên vẫn nguyên, nên `ambiguity_integrity`/`semantic_fidelity` không nâng; `triangulation` giữ 7.5 vì không có tầng tham khảo độc lập. Đo lại tiền lệ: 97 cặp Pāli trùng với bài khác trong tầng, 79 cặp Việt khác nhau, hầu hết là câu mở thưa gửi của vua Milinda (*Bạch ngài* / *Thưa ngài* / *Thưa Đại đức*… vốn đã chia tầng); cặp khác có nội dung duy nhất là kệ `11.2`–`11.3` so với `ja403:6.2`–`6.3` (đã ghi ở BẤT ĐỊNH 3). Lưu ý: đoạn TẦNG THAM KHẢO ở trên là lịch sử, nói `status` là `draft` kèm blocker; trạng thái hiện hành do khối `quality.waiver` và công cụ chấm quyết định, nên không sửa tay. Tỷ lệ lỗi nghĩa thật: 0/62 khoá; lỗi văn phong nhẹ: 2/62 khoá (`3.4`, `3.6`).
+
+  Rà nhất quán theo Pāli trùng 2026-10-14: khoá mil5.5.9:10.4 — «điều này đã được Đức Thế Tôn, bậc Thiên Trung Thiên, dạy» → «điều này cũng đã được Đức Thế Tôn, bậc Thiên Trung Thiên, dạy» (Pāli `bhāsitampetaṁ` có tiểu từ `pi`, khớp mil6.4.1:9.6 và mil7.2.2:3.4). Không theo cách dịch đa số ở các bài mil7.x («bậc Thiên Nhân, đã nói trong tập kinh») vì `devātideva` là «Thiên Trung Thiên», không phải «Thiên Nhân», và cách ấy bỏ mất hô ngữ `mahārāja` lại thêm «trong tập kinh» mà Pāli không có.
