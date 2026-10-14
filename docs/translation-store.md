@@ -150,22 +150,22 @@ chứa nhiều UID). Tổng segment Pāli: **284.574**.
 | | số |
 | --- | --- |
 | text | 6.137 |
-| text có dữ liệu biên tập (`content/meta/sutta`) | **5.432** |
+| text có dữ liệu biên tập (`content/meta/sutta`) | **6.137** |
 | text Pāli không resolve được segment | 1 (`sn12.93-213`, defect upstream — xem `docs/prompts/goal.md`) |
 | text không có bản English nào ở upstream | 1.596 (toàn bộ là `kn`) |
-| segment English **có key nhưng rỗng** | 19.762 (trong đó **30.529** là Pāli ≥ 40 ký tự) |
-| text dưới ngưỡng 80% — toàn catalogue | **216** (143 trong scope `--used`, đều đã ghi nhận; 73 còn lại chưa có bản dịch Việt) |
+| segment English **có key nhưng rỗng** | 19.794 (trong đó **23.889** là Pāli ≥ 40 ký tự) |
+| text dưới ngưỡng 80% — toàn catalogue | **0** (`audit:reference`: 0/4.541 text dưới sàn) |
 
-### Tầng dự án — đo ở `186e0c74`
+### Tầng dự án — đo ở `f985ba28` (2026-10-14)
 
 Hai tầng do dự án tự sinh. Số ở đây **đo** trên worktree sạch, không suy từ catalogue:
 
 | tầng | tệp | nội dung |
 | --- | --- | --- |
-| `vietnamese-project` | **5.432** | bài **đủ mọi khoá Pāli**: **5.386** · còn thiếu **750** bài / **126.490** khoá |
-| `english-project` (lớp lấp) | **770** | còn thiếu **225** text / **5.713** segment |
+| `vietnamese-project` | **6.137** | bài **đủ mọi khoá Pāli**: **6.137** · còn thiếu **0** bài / **0** khoá · không đo được **0** |
+| `english-project` (lớp lấp) | **995** | còn thiếu **0** text / **0** segment có nội dung; dưới sàn coverage **0** |
 
-⚠️ `text dưới ngưỡng 80% = 216` và `engq` **dưới sàn = 143** là **hai phép khác mẫu** — đừng đem trừ.
+⚠️ Trước đây `text dưới ngưỡng 80%` (toàn catalogue) và `engq` **dưới sàn** là **hai phép khác mẫu** — đừng đem trừ; hiện cả hai đều bằng 0.
 
 ⚠️ Cột `bài đủ mọi khoá` **không** đạt `6.136` (= 6.137 − 1 vì `sn12.93-213` không đo được). Vì vậy tiêu
 chí *"bài còn thiếu = 0"* của dự án **chưa đủ**: phải kiểm thêm `đủ + thiếu + không đo được = catalogue`.
