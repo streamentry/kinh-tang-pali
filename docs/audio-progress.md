@@ -829,3 +829,23 @@ Nhật ký append-only. Registry `content/audio/progress.json` được đối s
 ### MN77 source-change correction — batch mn-036
 
 The preceding batch overview line saying “MN73 was regenerated after main PR #625” refers to **MN77**. MN77 source SHA-256 changed from `69d7e15802e9d6e2655ddad89f0e8731defecd694273e11f31ada43d9b7af6e8` to `ace7ffbf4b970d315a44a1aca88f4334fe22c4d81e71814184083cf44859586a`; the current MP3 SHA-256 is `0115d87d1e10061ddf9980577be50da27b87a014f4c7e2ac73f8d2e07eb93f51` (69,374,400 bytes, 3,468.66 s), at [the replacement R2 URL](https://pub-8fa53f5182904685bd0c13d6c894a0e9.r2.dev/vi/mn/mn77/0115d87d1e10061d.mp3). The superseded MP3/progress record stays in `historical_audio_versions`; it is not the current player target. Current batch duration and byte totals already include this replacement.
+
+
+### Batch mn-036 merge and production readback — PR #632
+
+- Exact PR head `fd2623a39dd0902ea12fe832b465915935599efc`; PR push CI `38544889647` and PR-event CI `38544946507` passed. Squash merge `81aebec23b0d6d8b7a8e6eb9495bfb998c94f3b3` at `2026-10-14T10:10:13Z`.
+- Main CI `38547675108` and Pages deployment `38547675081` both succeeded on the merge commit. Production MN75–MN79 pages returned HTTP 200 with player, exact current R2 URL, and “Chờ nghe duyệt”. Each R2 range response was 206 `audio/mpeg`, 1,024 bytes, with total object size matching metadata; MN index contained all five current URLs.
+- MN77’s old-source audio remains in `historical_audio_versions`; current player URL is the regenerated MP3 for source hash `ace7ff…`. Browser playback/human listening were not tested; reviews remain `pending`.
+
+
+### Batch mn-037 — MN80–MN84 generated and uploaded to R2
+
+| UID | Source SHA-256 | MP3 SHA-256 | Bytes | Duration | Scripture starts | Chunks | Audio |
+|---|---|---|---:|---:|---:|---:|---|
+| MN80 | `94be4badb53bcc25b96a31e160f6bcd582394f1ca2a70c5b3c4f407265e90236` | `268d10de92039a016c4a278ea7cfd817c9d6c0e4442100ccbde78a6dcce0220c` | 16,029,120 | 801.40 s | 156.55 s | 9 (2 summary) | [R2 MP3](https://pub-8fa53f5182904685bd0c13d6c894a0e9.r2.dev/vi/mn/mn80/268d10de92039a01.mp3) |
+| MN81 | `37d1e726044e205ff03d5179a479c272f8722bc335a9cb242540e5a23a6e33e5` | `817e5a56ef86ed6f90b06e65dcd37201ebfd741d4b32965c92f0c0b23b020297` | 29,205,600 | 1460.22 s | 157.23 s | 15 (2 summary) | [R2 MP3](https://pub-8fa53f5182904685bd0c13d6c894a0e9.r2.dev/vi/mn/mn81/817e5a56ef86ed6f.mp3) |
+| MN82 | `b37c27ccf0ca78d7f6d7abea89edb624ddaa3bc5ec571f35e7cb7e642e7ca40e` | `fe8877dce494dfaa1c057d4218a7aa47471d91e79c8c120a7ebafb9608a8eff8` | 56,432,160 | 2821.56 s | 160.99 s | 29 (2 summary) | [R2 MP3](https://pub-8fa53f5182904685bd0c13d6c894a0e9.r2.dev/vi/mn/mn82/fe8877dce494dfaa.mp3) |
+| MN83 | `5fb68282ea5dc61b498c3c51f92997e913f1f38c62b3d8eb09de107f53d45293` | `fb10d90636a57e7d796a3e5a6f82d9c80dc9aca76a42b58f31d0ba925decbd86` | 30,153,600 | 1507.61 s | 166.63 s | 16 (2 summary) | [R2 MP3](https://pub-8fa53f5182904685bd0c13d6c894a0e9.r2.dev/vi/mn/mn83/fb10d90636a57e7d.mp3) |
+| MN84 | `6b4e464e0382306aebf273bfe34b1a584a27fdec42e1af9d19f3465f1534389e` | `5763137bb774b40318757739a69b4cc78f6e037cda68a023f14d7326df909595` | 28,139,520 | 1406.92 s | 159.95 s | 13 (2 summary) | [R2 MP3](https://pub-8fa53f5182904685bd0c13d6c894a0e9.r2.dev/vi/mn/mn84/5763137bb774b403.mp3) |
+
+- Total audio duration: 7997.71 seconds / 159,960,000 bytes. All five use the pinned `vi-charon-mn1-v1` profile, summary first, then canonical Vietnamese 2026. Source/profile pins, transcript order/content, chunk WAVs, MP3 frames/hash/bytes, and public R2 full-object/range readback passed. ASR was skipped per editor decision; browser playback and human listening remain unverified and all reviews remain `pending`. MP3/WAV/cache files are excluded from Git.
