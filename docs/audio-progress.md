@@ -792,3 +792,40 @@ Nhật ký append-only. Registry `content/audio/progress.json` được đối s
 - Exact PR head `0ec2c6d3aa4147af0b5969d79bcf0d161c95442a`; PR CI run `38491807798` passed. The push-triggered main CI run `38493720641` was canceled when a higher-priority main push arrived; the latest descendant main commit `f985ba28a383d67a44eda6181adb9ca5b4ff06bd` passed main CI `38497903450` and Pages deployment `38497903434`. Squash merge: `649f4cf5d0aff2e57cc2044d6be749119caf76aa` at `2026-10-14T01:04:34Z`.
 - Production MN70–MN74 pages each returned HTTP 200 with the player, exact current R2 URL and “Chờ nghe duyệt” label. Every R2 range request returned 206 `audio/mpeg`, 1,024 bytes, with total object bytes matching current metadata. The MN index contains all five playlist URLs.
 - MN73 source changed on main before PR; its superseded MP3/hash remains archived in the progress registry, and the deployed player points to the regenerated source-current object. All reviews remain `pending`; browser playback and human listening were not performed by this release check.
+
+
+### Batch mn-035 production readback on current main — PR #619
+
+- Main merge commit `649f4cf5d0aff2e57cc2044d6be749119caf76aa` remains in the ancestry of current main `18aa6a91f51c0f37b334ce9b8cf849de256bfff4`. The initial main CI run was cancelled by a higher-priority main push; current descendant main CI `38538682887` and Pages deployment `38538682964` both succeeded.
+- On that deployment, MN70–MN74 production pages returned HTTP 200 with player, exact current R2 URL and “Chờ nghe duyệt” label; all five public R2 range reads returned 206 `audio/mpeg`, 1,024 bytes, and total size matching metadata. The MN catalogue contains all five current URLs.
+- Current-source total after MN73 replacement: 5675.74 seconds / 113,520,960 bytes. Browser interaction and human listening remain unverified; all reviews remain `pending`.
+
+
+### Batch mn-036 — MN75–MN79 generated and uploaded to R2
+
+| UID | Source SHA-256 | MP3 SHA-256 | Bytes | Duration | Scripture starts | Chunks | Audio |
+|---|---|---|---:|---:|---:|---:|---|
+| MN75 | `ef099245b6d25a331d9cb8f31de497b40a5ccd02ad598f54e9b6ba809e2f14eb` | `24fd0cce9f2b4ac54a8e1e0930858b08ef5b912a172fb20c00aee7c1dfbb0b4c` | 39,656,160 | 1982.75 s | 173.39 s | 21 (2 summary) | [R2 MP3](https://pub-8fa53f5182904685bd0c13d6c894a0e9.r2.dev/vi/mn/mn75/24fd0cce9f2b4ac5.mp3) |
+| MN76 | `a4c011e642f28dca2f4965a8274da710f1109247241bb089905b6ad0bcf92b3e` | `b92ee9ead3c5cee96206fe6e1d4127ee444123147cc9788ae66adfadeec77d87` | 49,247,040 | 2462.30 s | 159.27 s | 27 (2 summary) | [R2 MP3](https://pub-8fa53f5182904685bd0c13d6c894a0e9.r2.dev/vi/mn/mn76/b92ee9ead3c5cee9.mp3) |
+| MN77 | `ace7ffbf4b970d315a44a1aca88f4334fe22c4d81e71814184083cf44859586a` | `0115d87d1e10061ddf9980577be50da27b87a014f4c7e2ac73f8d2e07eb93f51` | 69,374,400 | 3468.66 s | 156.47 s | 35 (2 summary) | [R2 MP3](https://pub-8fa53f5182904685bd0c13d6c894a0e9.r2.dev/vi/mn/mn77/0115d87d1e10061d.mp3) |
+| MN78 | `52af857cae9bb171703d6894f7b28997bf298e94577e8604ad747a965aed3f03` | `a25b84f6c11f3c5d09586f384d4d2f857c715d4780e95d672a23f74d69a2be26` | 25,588,320 | 1279.36 s | 166.15 s | 13 (2 summary) | [R2 MP3](https://pub-8fa53f5182904685bd0c13d6c894a0e9.r2.dev/vi/mn/mn78/a25b84f6c11f3c5d.mp3) |
+| MN79 | `39f35f1f54754c1a085cf0ff1e53a6564c62b40c37251e6d3431708c940a6b34` | `eeb4f13ba72c4235c9f4e888652cfe4bdf1309305beafb9363051dbfe320920c` | 31,051,680 | 1552.52 s | 156.23 s | 17 (2 summary) | [R2 MP3](https://pub-8fa53f5182904685bd0c13d6c894a0e9.r2.dev/vi/mn/mn79/eeb4f13ba72c4235.mp3) |
+
+- Current total: 10745.59 seconds / 214,917,600 bytes. All use pinned profile `vi-charon-mn1-v1`, summary first, then canonical Vietnamese 2026. MN73 was regenerated after main PR #625 changed source; old immutable object/hash/progress remain in `historical_audio_versions` and are not the current player target.
+- All five local MP3 frame/hash/byte checks and public R2 full-object/range verification passed. ASR was skipped per editor decision; all reviews remain `pending`. No media/cache files are tracked.
+
+
+### MN77 source correction and replacement — batch mn-036
+
+- Main PR #625 changed MN77 source SHA-256 from `69d7e15802e9d6e2655ddad89f0e8731defecd694273e11f31ada43d9b7af6e8` to `ace7ffbf4b970d315a44a1aca88f4334fe22c4d81e71814184083cf44859586a` after the first batch36 audio was generated. The old MP3 `113b8e09dfc1b7997640ae75ab423df4fcc6c53e3004a35e68036aa30c4401bc` (68,694,240 bytes; 3434.66s) remains in `historical_audio_versions` and its immutable R2 object is no longer the current player target.
+- Regenerated MN77 with the unchanged pinned profile: 35 chunks (2 summary), 3468.66s; current MP3 SHA-256 `0115d87d1e10061ddf9980577be50da27b87a014f4c7e2ac73f8d2e07eb93f51`, 69,374,400 bytes, [R2 MP3](https://pub-8fa53f5182904685bd0c13d6c894a0e9.r2.dev/vi/mn/mn77/0115d87d1e10061d.mp3). Source/profile, MPEG frame/hash/byte, full-object and range checks passed; review remains `pending`.
+- Current batch mn-036 total after replacement: 10,745.59 seconds / 214,917,600 bytes.
+
+### Batch mn-035 latest production readback — PR #619
+
+- Read back against latest main `18aa6a91f51c0f37b334ce9b8cf849de256bfff4`, after successful CI `38538682887` and Pages deployment `38538682964`. MN70–MN74 pages returned HTTP 200 with player, exact URL, and “Chờ nghe duyệt”; each R2 range returned 206 `audio/mpeg`, 1,024 bytes, with total bytes matching current metadata. MN index has all five URLs.
+- Human listening and interactive browser playback remain unverified; all reviews remain `pending`.
+
+### MN77 source-change correction — batch mn-036
+
+The preceding batch overview line saying “MN73 was regenerated after main PR #625” refers to **MN77**. MN77 source SHA-256 changed from `69d7e15802e9d6e2655ddad89f0e8731defecd694273e11f31ada43d9b7af6e8` to `ace7ffbf4b970d315a44a1aca88f4334fe22c4d81e71814184083cf44859586a`; the current MP3 SHA-256 is `0115d87d1e10061ddf9980577be50da27b87a014f4c7e2ac73f8d2e07eb93f51` (69,374,400 bytes, 3,468.66 s), at [the replacement R2 URL](https://pub-8fa53f5182904685bd0c13d6c894a0e9.r2.dev/vi/mn/mn77/0115d87d1e10061d.mp3). The superseded MP3/progress record stays in `historical_audio_versions`; it is not the current player target. Current batch duration and byte totals already include this replacement.
