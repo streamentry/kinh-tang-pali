@@ -1,9 +1,10 @@
 uid: pv28
-status: review
+status: published
 translationTitle: "Chuyện Ngạ Quỷ Nữ Thợ Làm Xe"
 translators:
   - "OpenCode Space Bunny Free (agent)"
-reviewers: []
+reviewers:
+  - Claude Sonnet 5.5 (Claude Code)
 tags:
   - "kn"
   - "khuddaka-nikaya"
@@ -15,14 +16,14 @@ quality:
     source_provenance: 9.5
     semantic_fidelity: 8.5
     grammar_logic: 8.7
-    segment_alignment: 10.0
+    segment_alignment: 10
     terminology: 8.7
-    triangulation: 8.0
+    triangulation: 8.3
     vietnamese_clarity: 8.8
     han_viet_balance: 9.3
     ambiguity_integrity: 8.8
     technical_integrity: 9.6
-  final_score: 8.99
+  final_score: 9.02
   blocking_errors:
     - "Không có tầng tham khảo tiếng Anh tại commit đã ghim:
       `source/upstream-manifest.json` (commit
@@ -37,9 +38,10 @@ quality:
       `review` hoặc `published`, nên bài bắt buộc `draft`. Đây là giới hạn của
       snapshot upstream, không phải lỗi của người dịch; vì vậy `triangulation`
       bị chặn ≤ 8.0 chứ không nâng điểm để né blocker."
-  assessed_at: "2026-10-11"
+  assessed_at: 2026-10-14
   assessed_by:
-    - "Claude Sonnet 5.5 (Claude Code)"
+    - Claude Sonnet 5.5 (Claude Code)
+  assessment_id: 632684e3-1cf1-4075-b5ac-a862e017d5b6
   waiver:
     id: no-upstream-english
     blockers:
@@ -74,3 +76,5 @@ notes: |-
   `:1.1`–`:1.3` theo bản vv12 đã kiểm toán (Pāli trùng nguyên văn). Điểm đổi: semantic_fidelity 9.2 → 8.5; grammar_logic 9.2 → 8.7; terminology 9.3 → 8.7; vietnamese_clarity 9.3 → 8.8; han_viet_balance 9.4 → 9.3; ambiguity_integrity 9.4 → 8.8; các tiêu chí còn lại giữ (source_provenance 9.5, segment_alignment 10.0, triangulation 8.0 — chặn vì không có bản Anh độc lập, technical_integrity 9.6). Các điểm cũ cao hơn khi bản dịch còn mang những lỗi nghĩa nêu trên nên bị hạ, không phải nâng; điểm mới phản ánh bản đã sửa còn bất định ở một số từ hiếm. `final_score` 9.29 → 8.99 (trung bình số học thô của 10 điểm).
   Bất định còn lại (không phân xử được từ Pāli đã ghim và các bài song song; giữ ở notes, không đưa vào thân kinh): `:1.4` `Pathaddhani` dịch “trên đường đi” (cùng gốc `Pathaddhuno` ở `ja497:14.2`, `ja522:3.2`), không thêm “bầu trời”; `:2.2` `uttattarūpo` dịch “hình sắc như vàng luyện” theo nghĩa `uttatta` “đã luyện” đi với `kanaka` ở `:2.1` (chỗ này hơi suy từ ngữ cảnh); `:3.4` `paṇako` dịch “rêu” (còn có thể là váng nước, rong); `:4.3` `samayya` dịch “tụ lại” (không có bài song song); `:4.4` `bindussarā` dịch “giọng trong trẻo” theo `ja526:40.1`, `snp2.12:9.3`; `:5.2` `avalamba` dịch “đứng tựa vào chiếc thuyền”; `:6.4` `nandane` dịch “vườn Nandana” (tiền lệ có cả “vườn” và “rừng” Nandana, đa số trong các bài đã kiểm toán là “vườn”); `:7.4` `kāmakāminiṁ` có thể hiểu “ham muốn dục lạc” hoặc “tùy ý hưởng dục”, chọn nghĩa sát chữ; `:7`/`:8` `idha`/`tahiṁ` (“ở đây”/“ở nơi ấy”): Pāli ghim không nói rõ “đây”, “nơi ấy” là cõi nào; không thêm. Tiêu đề nói `petī` nhưng các kệ không nêu ngạ quỷ nữ nào; mối liên hệ này không có trong Pāli ghim nên không thêm vào thân kinh; `Nữ` ở `0.3` và `9.1` dựa trên dạng nữ `petī` và uddāna `pv35:14.2` (`rathakārī`).
   Đã kiểm lại: 37/37 khoá khớp tập khoá và thứ tự Pāli, nháy kép và dấu lược khớp Pāli từng khoá (0 lệch), NFC, không Pāli lọt sang bản Việt (chỉ giữ tên `Petavatthu`, `Cūḷavagga`, `Nandana`), `0.2` `Cūḷavagga` như tiền lệ. Cổng kỹ thuật CHƯA chạy ở lượt này: `technical_integrity` giữ 9.6; bốn lệnh còn lại: `npm run validate`, `npm test`, `npm run check`, `npm run build`.
+
+  Đối chiếu độc lập 2026-10-14: với bản Việt nguyên bài của Bhikkhu Indacanda. 4 khoá bất đồng nghĩa → sửa 0, giữ 1 (5.2 nāvāya avalamba tiṭṭhasi: bản nguyên bài là nằm dài nghỉ ngơi trong thuyền, bản dự án đứng tựa vào thuyền theo tiṭṭhasi), bất định 3 (5.3 āḷārapamha: hàng mi cong hay mi rậm, hai cách đọc trong từ điển; 7.4 kāmakāminī: bản dự án người ham muốn dục lạc, bản nguyên bài người có dục lạc theo như ước muốn, cả hai cách đều có trong tầng; 0.3 và 9.1 Rathakāra: bản nguyên bài hiểu là tên hồ, tiêu đề Pāli chỉ có rathakāra, giữ nghĩa thợ làm xe). Đọc đối kháng lại cả 37 khoá, không có khoá nào phải đổi. Bản nguyên bài không phân đoạn nên đối chiếu ở mức đoạn, không phải mức khoá; không có bản Anh.

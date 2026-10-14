@@ -53,6 +53,34 @@
       "notes": "Kiểm tra tự động 30 segment với Pāli trong cache: đủ ID, giá trị, NFC và hệ chữ Latin. Chưa đọc đối chiếu nghĩa, ngữ pháp hoặc văn phong; chưa chấm lại 10 tiêu chí. Đây không phải chứng nhận hash upstream hoặc giấy phép, không xác nhận trạng thái xuất bản.",
       "content_sha256": "717132cc1a48c8df72f02b3eea8c4f292e42d7d3e062ba41d41d8118b2237e4e",
       "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639"
+    },
+    {
+      "target": "translation",
+      "scope": "full",
+      "scores": {
+        "source_provenance": 9.5,
+        "semantic_fidelity": 8.8,
+        "grammar_logic": 8.8,
+        "segment_alignment": 10,
+        "terminology": 8.7,
+        "triangulation": 8.4,
+        "vietnamese_clarity": 9.3,
+        "han_viet_balance": 9.3,
+        "ambiguity_integrity": 8.5,
+        "technical_integrity": 9.6
+      },
+      "blocking_errors": [
+        "Không có tầng tham khảo tiếng Anh tại commit đã ghim 11c9d708978cde8ba61096d8a75f7ddfb846f639: manifest không liệt kê tệp Anh nào cho `kn/vv` (0 tệp) và cache cũng không có — `not-published-upstream`, KHÔNG phải `not-synced`. Lưu ý công bằng: bài này KHÔNG có khoá Pāli có nội dung (≥ 40 ký tự) nào — toàn bộ là các khoa bệ ngắn và ba dấu lược — nên `englishCoverageFor` trả ratio = 1 theo quy tắc substantiveSegments === 0. Con số 1.000 đó KHÔNG phải bằng chứng có tầng tham khảo; tệp Anh bị ghim vắng mặt, và `scripts/validate.ts` coi tệp Anh thiếu là error khi status là `review` hoặc `published`, nên bài bắt buộc `draft`. Tầng `vietnamese-current` vắng (chỉ có Pháp Cú), lớp lấp `english-project` không có. Dịch chỉ từ Pāli root; giới hạn upstream, nên `triangulation` chặn ở 7.5."
+      ],
+      "assessed_at": "2026-10-14",
+      "assessed_by": [
+        "Claude Sonnet 5.5 (Claude Code)"
+      ],
+      "notes": "Đối chiếu độc lập 2026-10-14 với bản Việt nguyên bài của Bhikkhu Indacanda ở mức đoạn: 3 khoá bất đồng nghĩa, sửa 1 (2.4 nāriyo: tiên nữ → nữ nhân, theo Pāli và tiền lệ của tầng), giữ 1, bất định 1 (1.4 rucakatthatā, hapax). Cả 30 khoá được đọc đối kháng với Pāli, không có lỗi nào khác. triangulation 7.5 → 8.4 (có Pāli và một bản Việt độc lập đã đối chiếu thật, vẫn không có bản Anh); terminology 8.6 → 8.7; các tiêu chí còn lại giữ nguyên. Blocker noEnglishEditionUpstream giữ vì upstream vẫn không có bản Anh; không có blocker nào khác. Cổng kỹ thuật chưa chạy ở lượt này (npm run validate, npm test, npm run check, npm run build). Đây là review của AI, không phải chứng nhận của chuyên gia Pāli.",
+      "id": "5d8b6522-2fe4-4ce8-a718-3858e16c9522",
+      "content_sha256": "1f0b56eec252b5ae70f98e67340380d22b12f8824762f4431547cd6f5c299e1f",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
+      "final_score": 9.09
     }
   ],
   "legacy_quality": {

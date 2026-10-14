@@ -53,6 +53,34 @@
       "notes": "Kiểm tra tự động 37 segment với Pāli trong cache: đủ ID, giá trị, NFC và hệ chữ Latin. Chưa đọc đối chiếu nghĩa, ngữ pháp hoặc văn phong; chưa chấm lại 10 tiêu chí. Đây không phải chứng nhận hash upstream hoặc giấy phép, không xác nhận trạng thái xuất bản.",
       "content_sha256": "f0b4cc9d43dd336186b7516aecddaa9d5029e1e1a5b8d4fd79649b4c8099d7ba",
       "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639"
+    },
+    {
+      "target": "translation",
+      "scope": "full",
+      "scores": {
+        "source_provenance": 9.5,
+        "semantic_fidelity": 8.5,
+        "grammar_logic": 8.7,
+        "segment_alignment": 10,
+        "terminology": 8.7,
+        "triangulation": 8.3,
+        "vietnamese_clarity": 8.8,
+        "han_viet_balance": 9.3,
+        "ambiguity_integrity": 8.8,
+        "technical_integrity": 9.6
+      },
+      "blocking_errors": [
+        "Không có tầng tham khảo tiếng Anh tại commit đã ghim: `source/upstream-manifest.json` (commit `11c9d708978cde8ba61096d8a75f7ddfb846f639`, tầng `english-sujato` 4.291 tệp) không có thư mục `sutta/kn/{mil,pv,tha-ap}/` — trong `sutta/kn/` chỉ có cp, dhp, iti, ja, kp, snp, thag, thig, ud. Đây là `not-published-upstream`, KHÔNG phải `not-synced`. Tầng `vietnamese-current` cũng vắng: `translation/vi/phantuananh` tại commit đã ghim chỉ có 26 tệp và toàn bộ là Pháp Cú. Lớp lấp `english-project` không có cho uid này. Ba tầng tham khảo đều vắng nên bài dịch chỉ từ Pāli root; `scripts/validate.ts` coi tệp Anh ghim thiếu là **error** khi status là `review` hoặc `published`, nên bài bắt buộc `draft`. Đây là giới hạn của snapshot upstream, không phải lỗi của người dịch; vì vậy `triangulation` bị chặn ≤ 8.0 chứ không nâng điểm để né blocker."
+      ],
+      "assessed_at": "2026-10-14",
+      "assessed_by": [
+        "Claude Sonnet 5.5 (Claude Code)"
+      ],
+      "notes": "Đối chiếu độc lập 2026-10-14 với bản Việt nguyên bài của Bhikkhu Indacanda ở mức đoạn: 4 khoá bất đồng nghĩa, sửa 0, giữ 1 (5.2), bất định 3 (5.3 āḷārapamha, 7.4 kāmakāminī, 0.3 và 9.1 Rathakāra). Cả 37 khoá được đọc đối kháng với Pāli, không phải đổi khoá nào; ba bất định còn lại nên triangulation chỉ lên 8.3 (từ 8.0). Các tiêu chí còn lại giữ nguyên. Blocker noEnglishEditionUpstream giữ vì upstream vẫn không có bản Anh. Cổng kỹ thuật chưa chạy ở lượt này (npm run validate, npm test, npm run check, npm run build). Đây là review của AI, không phải chứng nhận của chuyên gia Pāli.",
+      "id": "632684e3-1cf1-4075-b5ac-a862e017d5b6",
+      "content_sha256": "e7cc5d16aa932aec2fb7ad9326984fee2fa6fcd4295cc848072e713410f62f93",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
+      "final_score": 9.02
     }
   ],
   "legacy_quality": {

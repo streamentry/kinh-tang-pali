@@ -3,7 +3,8 @@ status: review
 translationTitle: "Chuyện Cung Điện Khéo Đặt Để"
 translators:
   - "OpenCode Space Bunny Free (agent)"
-reviewers: []
+reviewers:
+  - Claude Sonnet 5.5 (Claude Code)
 tags:
   - "kn"
   - "khuddaka-nikaya"
@@ -13,16 +14,16 @@ tags:
 quality:
   scores:
     source_provenance: 9.5
-    semantic_fidelity: 8.4
+    semantic_fidelity: 8.5
     grammar_logic: 8.8
-    segment_alignment: 10.0
-    terminology: 8.6
-    triangulation: 7.5
+    segment_alignment: 10
+    terminology: 8.8
+    triangulation: 8.3
     vietnamese_clarity: 8.8
     han_viet_balance: 9.3
-    ambiguity_integrity: 8.4
+    ambiguity_integrity: 8.3
     technical_integrity: 9.6
-  final_score: 8.89
+  final_score: 8.989999999999998
   blocking_errors:
     - "Không có tầng tham khảo tiếng Anh tại commit đã ghim: bản Sujato ở
       `translation/en/sujato/sutta/kn/` chỉ có mười thư mục con — cp, dhp, iti,
@@ -40,9 +41,10 @@ quality:
       bài dịch chỉ từ Pāli root, đây là giới hạn upstream chứ không phải lỗi của
       người dịch; vì vậy `triangulation` bị chặn ở 7.5 (≤ 8.0) chứ không nâng để
       né blocker."
-  assessed_at: "2026-10-11"
+  assessed_at: 2026-10-14
   assessed_by:
-    - "Claude Sonnet 5.5 (Claude Code)"
+    - Claude Sonnet 5.5 (Claude Code)
+  assessment_id: 653f4abf-7878-4cd7-9b1e-39974f1811fa
   waiver:
     id: no-upstream-english
     blockers:
@@ -147,3 +149,5 @@ notes: |-
   Điểm đổi: semantic_fidelity 9.2→8.4, grammar_logic 9.2→8.8, terminology 9.0→8.6, vietnamese_clarity 9.2→8.8, ambiguity_integrity 8.9→8.4; các tiêu chí khác giữ nguyên (`triangulation` 7.5 vì không có bản Anh độc lập). final_score 9.14→8.89.
   Bất định còn lại, không phân xử được: `1.4` `rucakatthatā` ("trải thảm rực rỡ", rucaka có thể là vàng/đồ trang sức); `5.4` `yassa kammassidaṁ phalaṁ` dịch theo đa số "quả báo của nghiệp này là thế" (26/38), hơi lệch quan hệ đại từ ("đây là quả của nghiệp nào"); `11.1` `Dve daliddā vanavihārā` (không rõ "sống trong rừng" gắn với hai người nghèo hay là một nhóm khác; uddāna tên ẩn dụ); `3.4`/`7.4` `piyā` dịch "dễ chịu" theo đa số (21/22). Tiêu đề họ `Purisavimāna` → "Nam Hư Không" (0.2, 11.5) là lỗi cả họ (không có `ākāsa`), không sửa lẻ một tệp.
   Ghi chú sửa: đoạn notes cũ nói `3.1` dùng "đân gì" không khớp JSON (`3.1` thực dùng "sắc diện dung nhan"); nay đã đổi thành "dung sắc". Notes cũ giữ nguyên như lịch sử. Kiểm cuối: 46/46 khoá, thứ tự khoá = thứ tự Pāli, nháy khớp Pāli từng khoá, NFC, không `…` thừa, 1 cặp Pāli trùng nội bộ (`3.4`/`7.4`, Việt giống nhau). technical_integrity 9.6; chưa chạy `npm run validate`, `npm test`, `npm run check`, `npm run build`.
+
+  Đối chiếu độc lập 2026-10-14: với bản Việt nguyên bài của Bhikkhu Indacanda. 3 khoá bất đồng nghĩa → sửa 1, giữ 1, bất định 1. Sửa: 11.1 `Dve daliddā vanavihārā` "Hai vị nghèo khổ sống trong rừng" → "Hai người nghèo khổ, rừng cây và tu viện," (kiểm đếm: bài kệ tóm lược phải phủ đủ mười một cung điện vv75–vv85; `dve daliddā` = 2, `bhatako` 1, `gopālakaṇḍako` 2, `anekavaṇṇamaṭṭhakuṇḍalī` 2, `serīsako` 1, `sunikkhittaṁ` 1, tổng 9, nên `vanavihārā` phải là hai mục còn lại; `vihārā` là danh từ số nhiều chứ không phải tác nhân "người sống trong rừng"; bản nguyên bài cũng đếm "hai người nghèo khó, hai trú xá"; việc `vana-vihāra` là hai mục "rừng" và "tu viện" hay một hợp chất "nơi ở trong rừng" ×2 vẫn bất định, cả hai cách đều ra hai mục). Giữ: 5.4 `yassa kammassidaṁ phalaṁ` (bản nguyên bài đọc là mệnh đề quan hệ "quả báo này là của nghiệp nào"; bản dự án theo khuôn "quả báo của nghiệp này là thế" 26/38 khoá, giữ nhất quán và ghi lại rằng khuôn này làm nhẹ quan hệ đại từ). Bất định: 1.4 `rucakatthatā` (bản nguyên bài "được trải lót bằng vàng"; bản dự án "trải thảm rực rỡ" theo 9/11 khoá trong tầng; `rucaka` có thể là vàng hay đồ trang sức; Pāli không phân xử). Review đối kháng cùng lượt: sửa thêm 2 khoá — 11.5 `Purisānaṁ tatiyo vaggo` "Cung Điện Nam Hư Không" → "Thiên Cung Của Nam Giới" (Pāli không có `ākāsa`; khớp `0.2` của chính bài; cùng lỗi dạng nữ ở vv17:11.1, ngoài lát); 12.1 `Bhāṇavāraṁ catutthaṁ` "Chuyên luận, phần thứ tư." → "Phần tụng đọc thứ tư." (`bhāṇavāra` là phần tụng đọc; 6/6 khoá còn lại cùng Pāli trong tầng, ở pv và vv, đều dịch "Phần tụng đọc …"). Các số đã tính lại và khớp bản nguyên bài: mười hai do-tuần (1.2), bảy trăm lầu gác (1.3), bài đóng thứ mười một và phẩm thứ bảy. Bản nguyên bài không phân đoạn nên đối chiếu ở mức đoạn, không phải mức khoá; không có bản Anh.

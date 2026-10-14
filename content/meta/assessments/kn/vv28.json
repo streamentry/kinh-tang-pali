@@ -53,6 +53,34 @@
       "notes": "Kiểm tra tự động 34 segment với Pāli trong cache: đủ ID, giá trị, NFC và hệ chữ Latin. Chưa đọc đối chiếu nghĩa, ngữ pháp hoặc văn phong; chưa chấm lại 10 tiêu chí. Đây không phải chứng nhận hash upstream hoặc giấy phép, không xác nhận trạng thái xuất bản.",
       "content_sha256": "a41ab31976605ec26ae99dab224f84ce2c4181dcedf68a00733162747fedb7d5",
       "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639"
+    },
+    {
+      "target": "translation",
+      "scope": "full",
+      "scores": {
+        "source_provenance": 9.5,
+        "semantic_fidelity": 8.5,
+        "grammar_logic": 8.8,
+        "segment_alignment": 10,
+        "terminology": 8.2,
+        "triangulation": 8.5,
+        "vietnamese_clarity": 8.8,
+        "han_viet_balance": 9.3,
+        "ambiguity_integrity": 8.5,
+        "technical_integrity": 9.6
+      },
+      "blocking_errors": [
+        "Không có tầng tham khảo tiếng Anh tại commit đã ghim: tệp `.cache/upstream/suttacentral/translation/en/sujato/sutta/kn/vv/vv28_translation-en-sujato.json` không tồn tại trong `.cache/upstream/suttacentral/`, và `source/upstream-manifest.json` (commit 11c9d70, tầng `english-sujato`) không liệt kê bất kỳ tệp nào cho uid này — đây là `not-published-upstream`, KHÔNG phải `not-synced`; toàn bộ ba sub-collection `tha-ap`, `thi-ap`, `vv` của Kinh Tạng đều vắng mặt trong tầng Anh đã ghim. Đo coverage theo đúng công thức `source/layers.yaml` (Pāli có nội dung ≥ 40 ký tự, loại block tham chiếu `:0`) cho 0 trên 0 khoá (không khoá nào đủ 40 ký tự), dưới ngưỡng 0.8. `scripts/validate.ts` coi tệp Anh thiếu là **error** khi status là `review` hoặc `published`, nên bài bắt buộc `draft`. Tầng `vietnamese-current` cũng vắng: `translation/vi/phantuananh` tại commit đã ghim chỉ có 26 tệp và toàn bộ là Pháp Cú. Lớp lấp `english-project` của dự án cũng không có cho uid này. Ba tầng tham khảo đều vắng ⇒ bài dịch chỉ từ Pāli root ⇒ blocker thật, và đây là **giới hạn upstream**, không phải lỗi của người dịch. Vì vậy `triangulation` bị chặn ở 7.5 (≤ 8.0) chứ không nâng để né blocker."
+      ],
+      "assessed_at": "2026-10-14",
+      "assessed_by": [
+        "Claude Sonnet 5.5 (Claude Code)"
+      ],
+      "notes": "Đối chiếu độc lập với bản Việt nguyên bài của Bhikkhu Indacanda, ở mức đoạn (bản đó không phân đoạn), đọc đủ 34 khoá: 2 khoá bất đồng nghĩa, sửa 0, giữ 2 (9.5 dị bản tên `Nandā`/`Sunandā`; 3.3 khuôn quan hệ đại từ giữ theo tầng), bất định 0. Review đối kháng cùng lượt sửa 1 khoá (10.1 `Itthivimāne`: bỏ \"Nữ Hư Không\", theo `0.2` và theo nghĩa Pāli). Sau sửa: semantic_fidelity 8.5, terminology 8.2 (còn `Dāsī` giữ Pāli và `Cây Hoa` ở 0.3 theo tầng), triangulation 8.5 (Pāli + một bản Việt độc lập đã đối chiếu cả bài, bài rất ngắn; không có bản Anh nên không tuyên bố đã đối chiếu English). Blocker thiếu bản Anh upstream giữ nguyên. Cổng kỹ thuật chưa chạy (technical_integrity 9,6 là điểm tạm). Đây là review của AI, không phải chứng nhận của chuyên gia Pāli.",
+      "id": "62d1eccb-be33-462d-a59c-e0ff909424d6",
+      "content_sha256": "2e26af6eee4275bc2de1d71ce7aa04978c5fecb7be418f4f3e75bd5d7bac7b58",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
+      "final_score": 8.969999999999999
     }
   ],
   "legacy_quality": {

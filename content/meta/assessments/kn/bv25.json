@@ -289,6 +289,34 @@
       "notes": "Kiểm tra tự động 118 segment với Pāli trong cache: đủ ID, giá trị, NFC và hệ chữ Latin. Chưa đọc đối chiếu nghĩa, ngữ pháp hoặc văn phong; chưa chấm lại 10 tiêu chí. Đây không phải chứng nhận hash upstream hoặc giấy phép, không xác nhận trạng thái xuất bản.",
       "content_sha256": "185f6888b222b425c8f60b65f37c62ef78c5b1f4df63b5d6cc0257088db70c50",
       "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639"
+    },
+    {
+      "target": "translation",
+      "scope": "full",
+      "scores": {
+        "source_provenance": 9.4,
+        "semantic_fidelity": 8.6,
+        "grammar_logic": 8.7,
+        "segment_alignment": 10,
+        "terminology": 8.8,
+        "triangulation": 8.3,
+        "vietnamese_clarity": 8.9,
+        "han_viet_balance": 9.1,
+        "ambiguity_integrity": 8.6,
+        "technical_integrity": 9.6
+      },
+      "blocking_errors": [
+        "noEnglishEditionUpstream: Không có tầng tham khảo tiếng Anh tại commit đã ghim: `source/upstream-manifest.json` chỉ liệt kê `kn/bv/bv25_root-pli-ms.json` (tầng Pāli) cho uid này, và `english-sujato` chỉ có chín tiểu bộ cp, dhp, iti, ja, kp, snp, thag, thig, ud, không có bv; `content/translation/en/project/sutta/kn/` không có tệp bv nào và `content/meta/en/kn/` không có `bv25.yaml`. Đây là `not-published-upstream`, không phải `not-synced`. Tầng `vietnamese-current` chỉ có Pháp Cú. Ba tầng tham khảo đều vắng nên bài dịch chỉ từ Pāli root và đối chiếu tiền lệ nội bộ, bài bắt buộc `draft` và `triangulation` không quá 8,0. Đây là giới hạn upstream, không phải lỗi của người dịch."
+      ],
+      "assessed_at": "2026-10-14",
+      "assessed_by": [
+        "Claude Sonnet 5.5 (Claude Code)"
+      ],
+      "notes": "Đối chiếu độc lập 2026-10-14 với bản Việt nguyên bài của Bhikkhu Indacanda ở mức đoạn: 3 khoá bất đồng nghĩa, sửa 0, giữ 2 (11.2, 11.4), bất định 1 (13.1 ahu kapilavhayā rammā, chung cho 7 bài bv). Mọi số đều khớp độc lập (ba mươi, hai mươi và mười ngàn koṭi, ba ngàn năm, mười sáu ngàn, ba mươi hattha, ba mươi ngàn năm). Cả 118 khoá được đọc đối kháng với Pāli, không phải đổi khoá nào. triangulation 7.0 → 8.3; các tiêu chí còn lại giữ nguyên. Blocker noEnglishEditionUpstream giữ vì upstream vẫn không có bản Anh. Cổng kỹ thuật chưa chạy ở lượt này (npm run validate, npm test, npm run check, npm run build). Đây là review của AI, không phải chứng nhận của chuyên gia Pāli.",
+      "id": "8a3d88ad-6604-404d-bbaa-8c22eaab1740",
+      "content_sha256": "3ecf72ce3e40f61b8fdfdc30aae25d3545f8b519c2de3e921a1893037a5f489f",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
+      "final_score": 8.999999999999998
     }
   ],
   "legacy_quality": {

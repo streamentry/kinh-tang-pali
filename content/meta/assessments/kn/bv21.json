@@ -369,6 +369,34 @@
       "notes": "Kiểm tra tự động 158 segment với Pāli trong cache: đủ ID, giá trị, NFC và hệ chữ Latin. Chưa đọc đối chiếu nghĩa, ngữ pháp hoặc văn phong; chưa chấm lại 10 tiêu chí. Đây không phải chứng nhận hash upstream hoặc giấy phép, không xác nhận trạng thái xuất bản.",
       "content_sha256": "f259f33724ada80f1496bb97b1189b8b21a3936840b7c4ecbc5879f95e70a78d",
       "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639"
+    },
+    {
+      "target": "translation",
+      "scope": "full",
+      "scores": {
+        "source_provenance": 9.4,
+        "semantic_fidelity": 8.6,
+        "grammar_logic": 8.5,
+        "segment_alignment": 10,
+        "terminology": 8.7,
+        "triangulation": 8.3,
+        "vietnamese_clarity": 8.8,
+        "han_viet_balance": 9.1,
+        "ambiguity_integrity": 8.8,
+        "technical_integrity": 9.6
+      },
+      "blocking_errors": [
+        "noEnglishEditionUpstream: Không có tầng tham khảo tiếng Anh tại commit đã ghim: `source/upstream-manifest.json` chỉ liệt kê `kn/bv/bv21_root-pli-ms.json` (tầng Pāli) cho uid này, và `english-sujato` chỉ có chín tiểu bộ cp, dhp, iti, ja, kp, snp, thag, thig, ud, không có bv; `content/translation/en/project/sutta/kn/` không có tệp bv nào và `content/meta/en/kn/` không có `bv21.yaml`. Đây là `not-published-upstream`, không phải `not-synced`. Tầng `vietnamese-current` chỉ có Pháp Cú. Ba tầng tham khảo đều vắng nên bài dịch chỉ từ Pāli root và đối chiếu tiền lệ nội bộ, bài bắt buộc `draft` và `triangulation` không quá 8,0. Đây là giới hạn upstream, không phải lỗi của người dịch."
+      ],
+      "assessed_at": "2026-10-14",
+      "assessed_by": [
+        "Claude Sonnet 5.5 (Claude Code)"
+      ],
+      "notes": "Đối chiếu độc lập với bản Việt nguyên bài của Bhikkhu Indacanda, ở mức đoạn (bản đó không phân đoạn), đọc đủ 158 khoá: 9 khoá bất đồng nghĩa, sửa 0, giữ 6 (5.3, 6.2, 13.3, 26.3, 12.3–12.4), bất định 3 (11.1–11.2 chủ thể của `parivāretvānahaṁ`; 14.1 `ahu kapilavhayā rammā`). Mọi số (84.000; 6.800.000; 100.000; 80.000; 91; 8.000; 43.000; 8; 80; 7; 19) đã tính lại và khớp. Review đối kháng không tìm thấy lỗi nghĩa cần sửa; hai dòng 12.3–12.4 chưa tường minh danh từ được bổ nghĩa nên giữ vietnamese_clarity 8.8. triangulation 8.3 (Pāli + một bản Việt độc lập đã đối chiếu cả bài, còn ba chỗ chưa phân xử; không có bản Anh). Blocker thiếu bản Anh upstream giữ nguyên. Cổng kỹ thuật chưa chạy (technical_integrity 9,6 là điểm tạm). Đây là review của AI, không phải chứng nhận của chuyên gia Pāli.",
+      "id": "ca431482-b4d1-4071-a23e-824686df42e9",
+      "content_sha256": "40583ad31d57b5fc9fb482cc155b66b4f6ba725955cc0a5afe87504f5c9ea08b",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
+      "final_score": 8.979999999999999
     }
   ],
   "legacy_quality": {

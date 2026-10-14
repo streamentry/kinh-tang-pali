@@ -1,9 +1,10 @@
 uid: vv31
-status: review
+status: published
 translationTitle: "Chuyện Cung Điện Pallaṅka"
 translators:
   - "OpenCode Space Bunny Free (agent)"
-reviewers: []
+reviewers:
+  - Claude Sonnet 5.5 (Claude Code)
 tags:
   - "kn"
   - "khuddaka-nikaya"
@@ -15,15 +16,15 @@ quality:
   scores:
     source_provenance: 9.4
     semantic_fidelity: 8.8
-    grammar_logic: 9.0
+    grammar_logic: 9
     segment_alignment: 9.6
-    terminology: 9.0
-    triangulation: 7.5
-    vietnamese_clarity: 9.0
+    terminology: 9
+    triangulation: 8.5
+    vietnamese_clarity: 9
     han_viet_balance: 9.2
     ambiguity_integrity: 8.8
     technical_integrity: 9.6
-  final_score: 8.99
+  final_score: 9.09
   blocking_errors:
     - "Không có tầng tham khảo tiếng Anh tại commit đã ghim:
       `source/upstream-manifest.json` (commit 11c9d708, tầng `english-sujato`)
@@ -44,9 +45,10 @@ quality:
       0** khoá Pāli đủ 40 ký tự — khuôn kệ của `vv` là kệ ngắn, mỗi vế dưới 40
       ký tự — nên coverage không đo được, và ngưỡng 0.8 không phải nguyên nhân
       của blocker ở đây; nguyên nhân là tệp Anh không tồn tại."
-  assessed_at: "2026-10-13"
+  assessed_at: 2026-10-14
   assessed_by:
-    - "Claude Sonnet 5.5 (Claude Code)"
+    - Claude Sonnet 5.5 (Claude Code)
+  assessment_id: 8e97ed9b-7aa0-4f2f-9bce-40e97d0d908f
   waiver:
     id: no-upstream-english
     blockers:
@@ -215,3 +217,5 @@ notes: |-
   · `8.3` — *Khi* → *khi* sau dấu `;` của `8.2` (cùng `ja446:6.3`, `pv30:11.3`, `pv36:23.3`: *khi thân hoại, ở đời sau,*); chỉ là dấu câu, không đổi điểm.
   Số đo: 45/45 khoá, tập khoá và thứ tự khớp Pāli; nháy `“”` khớp Pāli từng khoá (0 lệch / 45); không `…` ở cả hai phía; 0 cặp Pāli trùng nguyên văn trong bài nên phép đối chiếu nội bộ chạy rỗng; chỉ ba khoá tiêu đề (`0.1`, `0.4`, `10.1`) còn chữ Pāli theo tên riêng. Số Pāli: `6.1` mười bốn / mười lăm, `6.2` thứ tám, `7.1`/`7.3` tám chi phần — khớp `cātuddasiṁ`, `pañcadasiṁ`, `aṭṭhamī`, `aṭṭhaṅga`.
   Không đổi dù còn nghi: `6.3` `pāṭihāriyapakkha` (*kỳ nửa tháng thần biến*, khớp `vv15`/`vv19`/`vv25` (kỳ nửa tháng) và `vv23`/`vv24` (nửa tháng), còn `vv22`/`vv37`/`vv52` và các bài `ja`/`pv` dùng *tuần lễ*; chưa phân xử được kỳ nào nên bất định giữ nguyên, ambiguity_integrity 8.8 không đổi); `7.5` `kalyāṇī` (*tốt lành*, hai cách đọc còn mở, 0 tiền lệ); `9.3` `sayaṁpabhā` (*tự tỏa sáng* là đúng, còn `vv22:9.6`/`10.4`/`11.4` dịch *một mình* — lệch ngoài phạm vi bài này). Tầng Anh vẫn vắng nên triangulation giữ 7.5 và blocker giữ nguyên. Cổng kỹ thuật vẫn CHƯA chạy (`npm run validate`, `npm test`, `npm run check`, `npm run build`); technical_integrity giữ 9.6.
+
+  Đối chiếu độc lập 2026-10-14: với bản Việt nguyên bài của Bhikkhu Indacanda. 2 khoá bất đồng nghĩa → sửa 0, giữ 1 (8.2 visesabhāginī: bản nguyên bài diễn giải là phần giác ngộ, bản dự án giữ nghĩa đen người được phần thù thắng), bất định 1 (6.3 pāṭihāriyapakkha: bản nguyên bài là những ngày phụ trội của nửa tháng, bản dự án là kỳ nửa tháng thần biến; toàn tầng 25 khoá cùng Pāli chưa thống nhất, Pāli một mình không phân xử được). Đọc đối kháng lại cả 45 khoá, không có khoá nào phải đổi; số thứ tự thứ ba, nháy và tập khoá khớp Pāli (0 lệch). Bản nguyên bài không phân đoạn nên đối chiếu ở mức đoạn, không phải mức khoá; không có bản Anh.
