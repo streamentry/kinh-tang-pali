@@ -869,3 +869,25 @@ The preceding batch overview line saying “MN73 was regenerated after main PR #
 | MN89 | `08f5cfcab039d17e6343f9b470cbda9322441fc5112c634a82bcc057e5165fa0` | `24ace6709b3b2667198dc00c77f847b8d96dddf34070ebeb2863e22a5c00126b` | 23,271,360 | 1163.52 s | 172.39 s | 13 (2 summary) | [R2 MP3](https://pub-8fa53f5182904685bd0c13d6c894a0e9.r2.dev/vi/mn/mn89/24ace6709b3b2667.mp3) |
 
 - Total audio duration: 7776.68 seconds / 155,539,200 bytes. All five use the pinned `vi-charon-mn1-v1` profile, summary first, then canonical Vietnamese 2026. Source/profile pins, transcript order/content, chunk WAVs, MP3 frames/hash/bytes, and public R2 full-object/range readback passed. ASR was skipped per editor decision; browser playback and human listening remain unverified and all reviews remain `pending`. MP3/WAV/cache files are excluded from Git.
+
+
+### Batch mn-038 merge and production readback — PR #634
+
+- Exact PR head `7eb5d71dd04f9b80881f716214fa9a8854c93958`; push CI `38592618695` and PR CI `38592690983` passed. Squash merge `c15f00f7c234ab80ecc14c4457b6763694a373a7` at `2026-10-14T16:11:34Z`.
+- The first main CI run `38595964632` was canceled by a higher-priority main request; replacement main CI `38596254449` passed. Pages deployment `38595964643` and GitHub deployment `7071056265` succeeded on the merge SHA at `2026-10-14T16:34:44Z`.
+- Production MN85–MN89 pages each returned HTTP 200 with player, current R2 URL, and “Chờ nghe duyệt”. Each R2 range returned 206 `audio/mpeg`, 1,024 bytes, with total object size matching metadata; the MN catalogue includes all five URLs.
+- Technical browser test: each player loaded its audio, playback advanced, the 15-second seek advanced the timeline, and pause worked with no media error. MN85’s “Kinh văn” control jumped to 159.90 s. The previous/next links navigated MN89 → MN88 → MN89. This is a technical smoke test only; no full human listening was done. Reviews remain `pending` for the editor.
+
+
+### Batch mn-039 — MN90–MN94 generated, uploaded, and player-smoke-tested
+
+| UID | Source SHA-256 | MP3 SHA-256 | Bytes | Duration | Scripture starts | Chunks | Audio |
+|---|---|---|---:|---:|---:|---:|---|
+| MN90 | `f869b0b3d6c814840b4e6510eb39dedb3f170f75465b5f36f79243131a7e52d1` | `84eef8a62b13e11c8bc12eabbc61e8b89c76cdd3d53d57a8288974d5c4f9b3cf` | 22,446,720 | 1122.28 s | 159.39 s | 13 (2 summary) | [R2 MP3](https://pub-8fa53f5182904685bd0c13d6c894a0e9.r2.dev/vi/mn/mn90/84eef8a62b13e11c.mp3) |
+| MN91 | `d48bbe2bea46a1773c884b1ce6f3f97d43eba26f2e29a20425a78ac1e712a117` | `cbc1c219ae8128726f91d2d40d808cdac76ceafdad8b163f00e65a57e5aafa41` | 38,534,400 | 1926.65 s | 174.35 s | 20 (2 summary) | [R2 MP3](https://pub-8fa53f5182904685bd0c13d6c894a0e9.r2.dev/vi/mn/mn91/cbc1c219ae812872.mp3) |
+| MN92 | `8a6d6948e368a17903966bd6651e021709214bf2794346d547120f6019640b5f` | `9351e9c2615382e0d10613d6dc71ff6437c51645cb35bb08dc82ea70425568ec` | 22,375,200 | 1118.69 s | 169.79 s | 12 (2 summary) | [R2 MP3](https://pub-8fa53f5182904685bd0c13d6c894a0e9.r2.dev/vi/mn/mn92/9351e9c2615382e0.mp3) |
+| MN93 | `c5f7e590c129808b70715550acb64f8e5c8b51edb1dfe0f5650720bc9f6ffd79` | `9ad95fb83d57b6fcff2cd904f10b4ecca12d067b6d5d53b5c0395c1fbbf837a6` | 31,797,600 | 1589.82 s | 168.47 s | 18 (2 summary) | [R2 MP3](https://pub-8fa53f5182904685bd0c13d6c894a0e9.r2.dev/vi/mn/mn93/9ad95fb83d57b6fc.mp3) |
+| MN94 | `cd0bc1a01da660cafcb66be18d876158f84cc60357de4fdb00ad75695ce233d3` | `99fe12048f07cd353e68c50cb2741834e9d10c178cabed273cb08bd64649731f` | 38,316,000 | 1915.73 s | 177.75 s | 20 (2 summary) | [R2 MP3](https://pub-8fa53f5182904685bd0c13d6c894a0e9.r2.dev/vi/mn/mn94/99fe12048f07cd35.mp3) |
+
+- Total audio duration: 7673.17 seconds / 153,469,920 bytes. All five use the pinned `vi-charon-mn1-v1` profile, summary first, then canonical Vietnamese 2026. Source/profile pins, transcript accounting, chunk WAVs, MP3 frame/hash/bytes, and public R2 full-object/range readback passed. Production player smoke tests for all five confirmed audio load, playback progress, +15 s seek, and pause; MN85 jumped to the scripture boundary. Navigation MN89 → MN88 → MN89 worked.
+- These were technical player checks, not content review. ASR was skipped per editor decision. `review_status` remains `pending` for the editor's full manual listening. MP3/WAV/cache files are excluded from Git.
