@@ -1,0 +1,41 @@
+uid: cnd4
+status: published
+translationTitle: "English fill (1 segment)"
+englishTitle: "Cūḷaniddesa — Piṅgiya’s verses preserving the Way to the Far Shore"
+translators:
+  - "Claude Opus 5.5 (Claude Code)"
+reviewedAt: 2026-10-14
+tags:
+  - english-fill
+  - store
+  - khuddakanikaya
+  - culaniddesa
+quality:
+  scores:
+    source_provenance: 9.5
+    semantic_fidelity: 9.3
+    grammar_logic: 9.4
+    segment_alignment: 10.0
+    terminology: 9.3
+    triangulation: 7.5
+    vietnamese_clarity: 9.2
+    han_viet_balance: 9.2
+    ambiguity_integrity: 9.3
+    technical_integrity: 9.6
+  final_score: 9.23
+  blocking_errors: []
+  assessed_at: "2026-10-14"
+  assessed_by:
+    - "Claude Opus 5.5 (Claude Code)"
+notes: |-
+  **Phân loại 1 khoá (đo bằng máy): A = 0 · B = 0 · C (tự dịch từ Pāli) = 1 · D = 0.** Khoá duy nhất là `cnd4:16.4` (dòng kệ cuối của Bhagavā cho Piṅgiya). Bài này không có bản Anh upstream ở snapshot đã ghim (`noEnglishEditionUpstream`; thư mục `kn` của tầng Sujato không có `cnd`); bản lấp là bản dịch độc lập của dự án. Mẫu số coverage = 1 khoá (Pāli ≥ 40 ký tự, bỏ `:0`); 82 khoá còn lại là dòng kệ ngắn dưới 40 ký tự cùng 3 khoá `:0`, nên không lấp.
+
+  **Bản lấp này KHÔNG phải cách đọc English độc lập và KHÔNG được tuyên bố là đã đối chiếu bản Anh.** Pāli của dòng này trùng với `snp5.19:16.4` (Sujato *You will go, Piṅgiya, beyond the domain of death*), nhưng bản đó chỉ được đọc làm tiền lệ thuật ngữ; câu chữ được viết lại theo Pāli và theo cách đã dùng ở `cnd22:112.4`, `115.4`, `116.4` (*to the far shore of Death’s domain*), cố ý khác Sujato để giữ `pāraṁ` và `maccudheyya` tách bạch. Bản Việt của `cnd4` do cùng nhóm công cụ với lớp lấp làm (so `quality.assessed_by` và `translators` với `source/tooling.yaml`), nên `triangulation` đặt 7.5.
+
+  **Nháy kép.** Pāli của khoá có một nháy đóng `”` ở cuối (`pāraṁ”.`) và không có nháy mở (nháy mở nằm ở khoá `16.1`, không thuộc lát); bản Anh có đúng một `”` ở cuối, khớp Pāli. Không có nháy đơn, không có dấu lược.
+
+  **Bất định.** `maccudheyya` dịch *Death’s domain* (Death là Thần chết nhân cách hóa); `pāraṁ` là *far shore*. Không có bất định nghĩa quan trọng.
+
+  **Hệ quả với `content/meta/reference-gaps.yaml`.** `cnd4` hiện có record (1 khoá có nội dung, 1 không có English, coverage 0). Khi `published`, coverage là 1/1 = 1.0 (trước: 0/1). Độ nhạy: ngưỡng sàn 0.8 cần cả khoá này. Record trở thành thừa sau khi publish; để người điều phối sinh lại.
+
+  **technical_integrity 9.6.** Không được chạy cổng kỹ thuật trong lát này, nên không tuyên bố technical gate pass. Bốn lệnh còn nợ: `npm run validate`, `npm test`, `npm run check`, `npm run build`. Tự kiểm đã chạy và xanh: JSON parse, tập khoá bằng đúng 1 khoá `keys`, NFC, không khoá rỗng, nháy đóng khớp Pāli, YAML parse, `final_score` bằng trung bình thô.

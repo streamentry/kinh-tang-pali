@@ -111,11 +111,22 @@ test('a version the snapshot does not publish says so, rather than rendering bla
   // Milindapañha has no English on SuttaCentral and no Thích Minh Châu text. Both
   // must be reported as a limit of the snapshot, not as a local sync problem — that
   // distinction is the whole reason the manifest is read by the site.
-  const document = composeDocument('kn', 'mil1');
+  //
+  // The English half needs a text the project has not filled either: once the project's
+  // own fill supplies the English panel (`mil1` has one since 2026-10-14) it truthfully
+  // reports `none`. So the subject is the first no-English-edition text with no fill; if
+  // the fill has reached all of them the premise is gone and only the Vietnamese half is
+  // asserted, on `mil1`.
+  const current0 = composeDocument('kn', 'mil1').layers.find((layer) => layer.id === 'viCurrent')!;
+  assert.equal(current0.reason, 'not-published-upstream');
+  const unfilled = loadCatalog('kn').texts.filter(({ uid }) =>
+    /^(mil|ps|cnd|mnd|ne|pe|bv|vv|pv|tha-ap|thi-ap)\d/.test(uid)
+    && !existsSync(`content/translation/en/project/sutta/kn/${uid}_translation-en-project.json`));
+  const document = unfilled.slice(0, 40).map(({ uid }) => composeDocument('kn', uid))
+    .find((candidate) => candidate.layers.find((layer) => layer.id === 'english')!.reason === 'not-published-upstream');
+  if (!document) return;
   const english = document.layers.find((layer) => layer.id === 'english')!;
-  const current = document.layers.find((layer) => layer.id === 'viCurrent')!;
   assert.equal(english.reason, 'not-published-upstream');
-  assert.equal(current.reason, 'not-published-upstream');
   assert.equal(english.withText, 0);
   assert.equal(english.sourceLayers.length, 0, 'nothing contributed, and it does not pretend otherwise');
 

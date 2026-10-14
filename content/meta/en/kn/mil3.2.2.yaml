@@ -1,0 +1,52 @@
+uid: mil3.2.2
+status: published
+translationTitle: "English fill (7 segment)"
+englishTitle: "The Question on Being Reborn"
+translators:
+  - "Claude Opus 5.5 (Claude Code)"
+reviewedAt: 2026-10-14
+tags:
+  - english-fill
+  - store
+  - khuddakanikaya
+  - milindapanha
+  - no-upstream-english
+quality:
+  scores:
+    source_provenance: 9.4
+    semantic_fidelity: 9.2
+    grammar_logic: 9.3
+    segment_alignment: 10.0
+    terminology: 9.3
+    triangulation: 7.5
+    vietnamese_clarity: 9.3
+    han_viet_balance: 9.3
+    ambiguity_integrity: 9.2
+    technical_integrity: 9.6
+  final_score: 9.21
+  blocking_errors: []
+  assessed_at: "2026-10-14"
+  assessed_by:
+    - "Claude Opus 5.5 (Claude Code)"
+notes: |-
+  **Bài này không có bản Anh upstream ở snapshot đã ghim** (`noEnglishEditionUpstream`: tầng `english-sujato` không phát hành tệp nào cho `mil`, xem `source/upstream-manifest.json`). Vì vậy cả 7 khoá Pāli có nội dung (≥ 40 ký tự, bỏ khối `:0`) đều nằm trong `fillableSegments`, và bản lấp này là **bản dịch độc lập của dự án**, viết từ Pāli root; bản Việt canonical chỉ dùng để kiểm nghĩa, không dịch vòng qua nó. Không có bản Anh để đối chiếu, nên bản lấp **không** phải cách đọc English độc lập và **không** được tuyên bố là đã đối chiếu bản Anh.
+
+  **Phân loại 7 khoá (đo bằng máy): A = 0 · B = 0 · C = 7 · D = 0.** B (dựng lại từ lời đã ghim) bằng 0 vì không có lời đã ghim nào để dựng lại. A = 0: không có cặp Pāli trùng nguyên văn trong các khoá đã lấp.
+
+  **Khoá trống còn lại: 7 (trên tổng 14 khoá không tính `:0`).** Tất cả đều dưới ngưỡng 40 ký tự (dài nhất 29): tiêu đề, câu nối, lời đáp ngắn, colophon — không vào coverage nên không lấp; đã đo: không còn khoá nào ≥ 40 ký tự chưa lấp.
+
+  **Thuật ngữ và bất định.**
+
+  - `paṭisandahati` → “is reborn”; `hetu` / `paccaya` → “cause” / “condition”; `uparamā` → “ending”. Cả bài là một mạch so sánh (nông dân đầy kho thóc), không có chỗ bất định nghĩa nào đáng kể.
+
+  **Thuật ngữ chung của loạt Milindapañha** (nhất quán với các bản lấp `mil` đã có): `mahārāja` → “Great King” (tiền lệ Sujato: 198 lượt, ở `kn` 6), `bhante` đứng riêng → “venerable sir”, `bhante nāgasena` → “Venerable Nāgasena”. Điểm này **cố ý lệch** các bản lấp `mil` đã có (dùng “Sir Nagasena” / “venerable Nagasena” không dấu): quy ước của loạt này là tên riêng giữ dạng Pāli có dấu và “Venerable” theo Sujato. `Kallosi` ở cuối bài là khoá ngắn nên không lấp ở đây.
+
+  **Nháy và dấu lược (đo từng khoá):** số nháy kép mở/đóng và nháy đơn mở/đóng của 7/7 khoá khớp Pāli (dấu `’` có chữ thường đứng ngay sau được loại ra như dấu nhạt lược), không có ngoại lệ lệch. Dấu lược `…`: Pāli 0 (tính `…pe…` là một), bản lấp 0. Không thêm khoá ngoài danh sách; không khoá rỗng; NFC.
+
+  **Triangulation 7.5 (trần của lớp lấp).** Tầng Anh đã ghim không có bài này và bản Việt canonical của bài do cùng nhóm công cụ hỗ trợ của dự án làm ra (xem `source/tooling.yaml`), nên không có cách đọc English hay tiếng Việt độc lập nào để đối chiếu cú pháp và sắc thái. Bản Việt chỉ giúp phát hiện chỗ hiểu sai, và đã được dùng như vậy (những chỗ bản lấp lệch bản Việt, nếu có, đã nêu ở mục thuật ngữ và bất định). Đây là giới hạn của bản lấp, không phải thiếu sót riêng của bài.
+
+  **Coverage (đo theo `src/lib/canon/reference.ts`, mẫu số là khoá Pāli ≥ 40 ký tự bỏ `:0` = 7).** Trước: 0/7 = 0,0000 (Sujato không phát hành, chưa có lớp lấp). Sau, khi `published`: 7/7 = 1,0000. Độ nhạy: ngưỡng 0,8 đòi tối thiểu 6/7 khoá có lời; bài chịu được mất tối đa 1 khoá mà vẫn qua ngưỡng; nếu `status` không phải `published` thì lớp lấp tồn tại mà coverage vẫn 0.
+
+  **Hệ quả với `content/meta/reference-gaps.yaml`:** bài có record (`kn/mil3.2.2`, 7/7 khoá không có English, coverage 0). Sau khi lớp lấp `published` record ấy thành thừa; tôi không chạm tệp đó, người điều phối chạy lại `npm run reference:gaps`.
+
+  **technical_integrity 9.6** là điểm chưa qua cổng: trong lát này không được chạy `npm run validate`, `npm test`, `npm run check`, `npm run build`, nên không tuyên bố technical gate pass; bốn lệnh đó còn nợ người điều phối. Không đặt blocker vì lý do đó.

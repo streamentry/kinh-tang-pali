@@ -1,0 +1,47 @@
+uid: cnd2
+status: published
+translationTitle: "English fill (3 segment)"
+englishTitle: "The Questions"
+translators:
+  - "Claude Opus 5.5 (Claude Code)"
+reviewedAt: 2026-10-14
+tags:
+  - english-fill
+  - store
+  - khuddakanikaya
+  - culaniddesa
+quality:
+  scores:
+    source_provenance: 9.4
+    semantic_fidelity: 9.2
+    grammar_logic: 9.3
+    segment_alignment: 10.0
+    terminology: 9.3
+    triangulation: 7.5
+    vietnamese_clarity: 9.2
+    han_viet_balance: 9.2
+    ambiguity_integrity: 9.0
+    technical_integrity: 9.6
+  final_score: 9.17
+  blocking_errors: []
+  assessed_at: "2026-10-14"
+  assessed_by:
+    - "Claude Opus 5.5 (Claude Code)"
+notes: |-
+  **Bài này không có bản Anh upstream ở snapshot đã ghim (`noEnglishEditionUpstream`).** Thư mục `kn/` của tầng `english-sujato` chỉ có cp, dhp, iti, ja, kp, snp, thag, thig, ud, không có `cnd`; mọi khoá Pāli của `cnd2` vì thế đều "để trống" ở tầng Anh. Bản lấp này là **bản dịch độc lập của dự án**, viết từ Pāli root, không phải bản lấp quanh một bản Anh đã ghim.
+
+  **Phạm vi: 3 khoá / 3 khoá có nội dung** (`14.5`, `15.1`, `48.6`; Pāli ≥ 40 ký tự, bỏ khối `0.x`). 492 khoá còn lại đều ngắn hơn 40 ký tự (dài nhất 38: dòng kệ, tiêu đề câu hỏi, dòng kết) nên không vào coverage và không lấp.
+
+  **Phân loại A/B/C/D: A = 0 · B = 0 · C = 3 · D = 0.** Ba Pāli này không trùng nguyên văn với khoá nào khác trong bài; B không dùng vì không có bản Anh nào của chính bài để dựng lại. Cả ba là dòng kệ trùng (sau khi bỏ dấu câu và chữ hoa) với kệ gốc ở `snp5.4:3.5`, `snp5.4:4.1`, `snp5.8:3.6`; bản Sujato của `snp5.4` và `snp5.8` được dùng làm **tiền lệ thuật ngữ**, không chép câu. Đó là bản của bài khác, nên không tính là tầng Anh của `cnd2`.
+
+  **Chỗ cố ý khác tiền lệ, kèm lý do.** (1) `14.5` `yaññapathe` → *on the path of sacrifice*; Sujato ở `snp5.4:3.5` dịch *technique of sacrifice*; chọn sát nghĩa từ `patha` (đường). (2) `15.1` `thomayanti` → *praising* (Sujato: *invoking*), `juhanti` → *making offerings* (Sujato: *worshiping*); `thoma` là khen ngợi, `juhati` là dâng lễ vật vào lửa tế. (3) `14.5`, `48.6` giữ hô ngữ *Blessed One* vì Pāli có `bhagavā` ở chính khoá này (bản Sujato ở `snp5.4:3.5` và `snp5.8:3.6` bỏ hô ngữ này).
+
+  **Dấu lược và nháy.** Pāli ba khoá không có `…`, bản lấp 0 dấu lược. Nháy: `15.1` mở `“` và không đóng (nháy đóng ở khoá kế), `14.5` và `48.6` không có nháy; khớp Pāli từng khoá, 0 lệch.
+
+  **Bất định.** `Kaccisu te bhagavā … appamattā` (`14.5`) và `Kaccissu te bhagavā tattha yatā carantā` (`48.6`): `kacci` là tiểu từ hỏi, nhưng câu hỏi hoàn chỉnh (`atāruṁ jātiñca jarañca mārisa`) nằm ở khoá kế (`14.6`, `48.7`, đều dưới 40 ký tự nên để trống), vì vậy hai khoá này là mệnh đề treo kết bằng dấu phẩy. Không có từ hiếm nào khác.
+
+  **Triangulation 7.5 và giới hạn.** Bản lấp này **không phải cách đọc English độc lập** và **không được tuyên bố là đã đối chiếu bản Anh**: không có bản Anh nào của `cnd2` để đối chiếu, và bản Việt canonical của bài do cùng nhóm công cụ hỗ trợ khai ở `source/tooling.yaml` thực hiện (được dùng để kiểm nghĩa, không dịch vòng).
+
+  **Hệ quả với `content/meta/reference-gaps.yaml`.** Bài có record (3 khoá có nội dung, 3 chưa có English, coverage 0). Sau khi `published`: 3/3 = 100% (trước: 0/3). Độ nhạy: ngưỡng 0,8 trên mẫu số 3 đòi đủ cả 3 khoá (2/3 ≈ 0,67 vẫn dưới ngưỡng). Record sẽ thành thừa; sinh lại thuộc bước gom, không sửa tay.
+
+  **Bốn lệnh còn nợ** (không chạy ở lượt này): `npm run validate`, `npm test`, `npm run check`, `npm run build`. `technical_integrity` đặt 9.6, không 10.0.

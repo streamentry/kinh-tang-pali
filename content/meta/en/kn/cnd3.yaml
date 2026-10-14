@@ -1,0 +1,43 @@
+uid: cnd3
+status: published
+translationTitle: "English fill (3 segment)"
+englishTitle: "Cūḷaniddesa — Verses of praise for the Way to the Far Shore"
+translators:
+  - "Claude Opus 5.5 (Claude Code)"
+reviewedAt: 2026-10-14
+tags:
+  - english-fill
+  - store
+  - khuddakanikaya
+  - culaniddesa
+quality:
+  scores:
+    source_provenance: 9.6
+    semantic_fidelity: 9.3
+    grammar_logic: 9.4
+    segment_alignment: 10.0
+    terminology: 9.3
+    triangulation: 8.0
+    vietnamese_clarity: 9.2
+    han_viet_balance: 9.2
+    ambiguity_integrity: 9.3
+    technical_integrity: 9.6
+  final_score: 9.29
+  blocking_errors: []
+  assessed_at: "2026-10-14"
+  assessed_by:
+    - "Claude Opus 5.5 (Claude Code)"
+notes: |-
+  **Phân loại 3 khoá (đo bằng máy): A = 0 · B = 0 · C (tự dịch từ Pāli) = 3 · D = 0.** Cả ba khoá có Pāli không trùng nguyên văn khoá nào khác trong cùng bài. Bài này không có bản Anh upstream ở snapshot đã ghim (`noEnglishEditionUpstream`; thư mục `kn` của tầng Sujato không có `cnd`); bản lấp là bản dịch độc lập của dự án. Mẫu số coverage = 3 khoá (Pāli ≥ 40 ký tự, bỏ `:0`); 34 khoá còn lại là dòng kệ và dòng liệt kê tên dưới 40 ký tự, cộng 3 khoá `:0`, nên không lấp.
+
+  **Bối cảnh.** `cnd3` là bản rút gọn lời kết của Pārāyanavagga, trùng gần với `snp5.18`, nơi Sujato có bản Anh. Ranh giới khoá khác `snp5.18`: `cnd3:1.1` gộp hai câu của `snp5.18:1.1` và `1.2`; `cnd3:1.2` có Pāli trùng nguyên văn `snp5.18:1.3`; `cnd3:1.3` (ngoài lát, vì ngắn) và `cnd3:1.4` là hai nửa của `snp5.18:1.4`. Bản `snp5.18` chỉ được đọc làm tiền lệ thuật ngữ (*Pāsāṇaka Shrine*, *the far shore of old age and death*, *the Way to the Far Shore*, *practice in line with the teaching*), câu chữ viết lại theo Pāli của từng khoá, và chỗ cố ý khác: `paricāraka` dịch *attendants* (Sujato `snp5.18:1.2` *devotees*) và `puṭṭho puṭṭho pañhaṁ byākāsi` dịch *asked each question in turn, he answered the question*.
+
+  **Dịch từ Pāli, kiểm nghĩa bằng bản Việt canonical.** Bản Việt của `cnd3` do một công cụ khác với lớp lấp làm (so `quality.assessed_by` và `translators` với `source/tooling.yaml`), nên `triangulation` có cơ sở hơn `7.5`, nhưng bản lấp vẫn không phải cách đọc English độc lập và không được tuyên bố là đã đối chiếu bản Anh của chính bài này: đặt `triangulation` 8.0.
+
+  **Bất định.** (1) `1.2` `ekamekassa cepi pañhassa`: đọc là *mỗi câu hỏi, từng câu một*, nên bản Anh dịch *each single question*; có thể đọc là *dù chỉ một câu hỏi*. (2) `1.4` `pārāyananteva`: Pāli không có nháy nhưng `n’ti` là lời gọi tên; bản Anh không thêm nháy vì Pāli không có. (3) `paricārakasoḷasānaṁ` dịch *sixteen … attendants*, không đoán thêm nghĩa *du sĩ* (bản Việt có thêm một chữ).
+
+  **Nháy và dấu lược.** Pāli của ba khoá không có nháy kép, nháy đơn hay dấu lược; bản Anh cũng không có.
+
+  **Hệ quả với `content/meta/reference-gaps.yaml`.** `cnd3` hiện có record (3 khoá có nội dung, 3 không có English, coverage 0). Khi `published`, coverage là 3/3 = 1.0 (trước: 0/3). Độ nhạy: ngưỡng sàn 0.8 cần cả 3 khoá (2/3 = 0.667 < 0.8). Record trở thành thừa sau khi publish; để người điều phối sinh lại.
+
+  **technical_integrity 9.6.** Không được chạy cổng kỹ thuật trong lát này, nên không tuyên bố technical gate pass. Bốn lệnh còn nợ: `npm run validate`, `npm test`, `npm run check`, `npm run build`. Tự kiểm đã chạy và xanh: JSON parse, tập khoá bằng đúng 3 khoá `keys`, đúng thứ tự Pāli, NFC, không khoá rỗng, không nháy hay dấu lược lệch, YAML parse, `final_score` bằng trung bình thô.
