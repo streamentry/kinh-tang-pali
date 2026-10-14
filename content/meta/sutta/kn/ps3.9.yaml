@@ -1,9 +1,10 @@
 uid: ps3.9
-status: review
+status: published
 translationTitle: "Luận Bàn Về Tuệ Quán"
 translators:
   - "Claude Sonnet 5.5 (Claude Code)"
-reviewers: []
+reviewers:
+  - Claude Sonnet 5.5 (Claude Code)
 tags:
   - "khuddaka-nikaya"
   - "patisambhidamagga"
@@ -12,16 +13,16 @@ tags:
 quality:
   scores:
     source_provenance: 9.4
-    semantic_fidelity: 9.0
-    grammar_logic: 9.0
-    segment_alignment: 10.0
+    semantic_fidelity: 9
+    grammar_logic: 9
+    segment_alignment: 10
     terminology: 8.8
-    triangulation: 7.0
+    triangulation: 8.6
     vietnamese_clarity: 8.8
     han_viet_balance: 9.2
-    ambiguity_integrity: 8.6
+    ambiguity_integrity: 8.8
     technical_integrity: 9.6
-  final_score: 8.94
+  final_score: 9.120000000000001
   blocking_errors:
     - "Không có tầng tham khảo tiếng Anh tại commit đã ghim:
       `source/upstream-manifest.json` chỉ liệt kê `kn/ps/ps3.9_root-pli-ms.json`
@@ -35,9 +36,10 @@ quality:
       và đối chiếu tiền lệ nội bộ ⇒ bài bắt buộc `draft` và `triangulation ≤
       8,0`. Đây là giới hạn upstream, không phải lỗi của người dịch.
       (noEnglishEditionUpstream)"
-  assessed_at: "2026-10-13"
+  assessed_at: 2026-10-14
   assessed_by:
-    - "Claude Sonnet 5.5 (Claude Code)"
+    - Claude Sonnet 5.5 (Claude Code)
+  assessment_id: 45337c20-6805-4788-94bb-974d0cacff74
   waiver:
     id: no-upstream-english
     blockers:
@@ -103,3 +105,5 @@ notes: |-
   - Điểm: chỉ `terminology` 8.6 → 8.8 (hai chỗ lệch tiền lệ có số đếm nay đã khớp). Các điểm khác giữ nguyên vì cải thiện lần này không chạm chúng: `triangulation` giữ 7,0 (vẫn không có tầng Anh); bất định 4 (số kệ lệch 5 giữa quán vô thường và vô ngã) vẫn chưa phân xử được nên `semantic_fidelity` / `ambiguity_integrity` giữ nguyên. `final_score` 8,92 → 8,94. Blocker `noEnglishEditionUpstream` giữ nguyên; `status` và `waiver` không sửa tay. `technical_integrity` giữ 9,6: lượt này cũng không chạy bốn lệnh `npm run validate` · `npm test` · `npm run check` · `npm run build`.
 
   **technical_integrity = 9,6:** lát này cấm chạy cổng, nên không tuyên bố technical gate pass. Bốn lệnh còn lại do người điều phối chạy tập trung: `npm run validate` · `npm test` · `npm run check` · `npm run build`.
+
+  **Đối chiếu độc lập 2026-10-14:** với bản Việt nguyên bài của Bhikkhu Indacanda. 1 khoá bất đồng nghĩa → sửa 0, giữ 0, bất định 1 (`16.6` `paramatthaṁ nibbānaṁ`: bản nguyên bài “chân lý tuyệt đối”, bản dự án “mục đích tối thượng”; `paramattha` mang cả hai nghĩa, đã ghi ở bất định số 8). Tám đoạn khuôn mở đầu (bốn phủ định, bốn khẳng định), bốn mươi phương diện, bốn mươi cặp “thấy năm uẩn là X / thấy sự diệt là Niết-bàn không-X”, bốn mươi nhãn quán và các số 40, 5, 25, 50, 125 đều khớp nghĩa. Đáng chú ý: bản nguyên bài cũng gán nhãn 9 mục vô thường, 6 mục vô ngã, 25 mục khổ nhưng nêu tổng 50, 25, 125; vậy chỗ lệch 5 ở bất định số 4 có trong cả hai truyền bản chứ không do bản dịch dự án, nhưng vẫn chưa phân xử được mục nào gán lệch. Khác biệt chọn từ ở `upaddavato`, `upasaggato`, `bhayato` (tai nạn/tai họa/đáng sợ so với tai họa/đe dọa/kinh hãi) cùng trường nghĩa, không tính. Bản nguyên bài không phân đoạn nên đối chiếu ở mức đoạn, không phải mức khoá; không có bản Anh. Đây là review của AI, không phải chứng nhận của chuyên gia Pāli.

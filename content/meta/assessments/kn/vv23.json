@@ -53,6 +53,34 @@
       "notes": "Kiểm tra tự động 48 segment với Pāli trong cache: đủ ID, giá trị, NFC và hệ chữ Latin. Chưa đọc đối chiếu nghĩa, ngữ pháp hoặc văn phong; chưa chấm lại 10 tiêu chí. Đây không phải chứng nhận hash upstream hoặc giấy phép, không xác nhận trạng thái xuất bản.",
       "content_sha256": "f7721508f6baded495b747e2e0f089ad116d7e050d0cb69b1f476bca400a3c2b",
       "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639"
+    },
+    {
+      "target": "translation",
+      "scope": "full",
+      "scores": {
+        "source_provenance": 8.5,
+        "semantic_fidelity": 8.8,
+        "grammar_logic": 8.8,
+        "segment_alignment": 10,
+        "terminology": 8.8,
+        "triangulation": 8.4,
+        "vietnamese_clarity": 8.8,
+        "han_viet_balance": 9,
+        "ambiguity_integrity": 8,
+        "technical_integrity": 9.6
+      },
+      "blocking_errors": [
+        "Không có tầng tham khảo tiếng Anh tại commit đã ghim (11c9d708978cde8ba61096d8a75f7ddfb846f639). `source/upstream-manifest.json` (edition `english-sujato`, 4.291 tệp) **không liệt kê** `sutta/kn/vv/vv23_translation-en-sujato.json`, và trong `sutta/kn/` của edition này không tồn tại thư mục `vv/` (chỉ có `cp dhp iti ja kp snp thag thig ud`) — đây là `not-published-upstream`, KHÔNG phải `not-synced`. Cùng tệp đó chỉ liệt kê tệp Pāli `kn/vv/vv23_root-pli-ms.json`. Về coverage: theo đúng công thức `src/lib/canon/reference.ts` (`prose() >= 40` và loại block tham chiếu theo `/^0(\\.|$)/`), `vv23` có **0** Pāli có nội dung — khoá dài nhất là `vv23:3.4` và `vv23:11.3`, mỗi khoá **35** ký tự — nên tỷ lệ được coi là 1 và cổng coverage không đo được gì cho bài này. Nhưng `scripts/validate.ts` kiểm tra **tệp** Anh trước (dòng 222–225): `needsEnglish = status === 'review' || 'published'`, thiếu tệp ⇒ `errors.push(...)`. ⇒ bài **bắt buộc `draft`**. Tầng `vietnamese-current` cũng vắng (`translation/vi/phantuananh` tại commit đã ghim chỉ có 26 tệp, toàn bộ là Pháp Cú); lớp lấp `english-project` cũng không có cho uid này. Ba tầng tham khảo đều vắng ⇒ bài dịch chỉ từ Pāli root ⇒ **blocker thật**, thuộc giới hạn của bản chụp upstream. `triangulation` bị chặn ở **7,5** (≤ 8,0) chứ không nâng lên để né blocker."
+      ],
+      "assessed_at": "2026-10-14",
+      "assessed_by": [
+        "Claude Sonnet 5.5 (Claude Code)"
+      ],
+      "notes": "Đối chiếu độc lập với bản Việt nguyên bài của Bhikkhu Indacanda (không có bản Anh): 48 khoá, 2 khoá bất đồng nghĩa, sửa 1 (4.4: yassa kammassa là 'của nghiệp nào', không phải 'nghiệp này'), giữ 1 (7.3 pāṭihāriyapakkha). Bản nguyên bài có thêm hai khổ kệ không có trong Pāli ghim, không tính. Điểm source_provenance và ambiguity_integrity giữ nguyên ở mức thấp của lượt kiểm toán 2026-10-11 vì lượt này không kiểm lại các khẳng định từ vựng đó ngoài việc xác nhận từng khoá với bản nguyên bài. Triangulation 8,4. Blocker upstream giữ nguyên. Cổng kỹ thuật chưa chạy (validate, test, check, build do người điều phối chạy). Đây là review của AI, không phải chứng nhận của chuyên gia Pāli.",
+      "id": "06ba8ff3-1dbc-43c3-9470-185024f0588c",
+      "content_sha256": "9344cacb88f734aa08f84b415d114c8d69488ce7c363cb6e7fd3b92f139e2f5e",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
+      "final_score": 8.870000000000001
     }
   ],
   "legacy_quality": {

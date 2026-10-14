@@ -53,6 +53,34 @@
       "notes": "Kiểm tra tự động 36 segment với Pāli trong cache: đủ ID, giá trị, NFC và hệ chữ Latin. Chưa đọc đối chiếu nghĩa, ngữ pháp hoặc văn phong; chưa chấm lại 10 tiêu chí. Đây không phải chứng nhận hash upstream hoặc giấy phép, không xác nhận trạng thái xuất bản.",
       "content_sha256": "35bf1f8206a6256abdb8ca1081a39914a179c25939b030ba888454d5261ac918",
       "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639"
+    },
+    {
+      "target": "translation",
+      "scope": "full",
+      "scores": {
+        "source_provenance": 9.3,
+        "semantic_fidelity": 8.8,
+        "grammar_logic": 8.9,
+        "segment_alignment": 10,
+        "terminology": 9,
+        "triangulation": 8.4,
+        "vietnamese_clarity": 8.9,
+        "han_viet_balance": 9.2,
+        "ambiguity_integrity": 8.5,
+        "technical_integrity": 9.6
+      },
+      "blocking_errors": [
+        "Không có tầng tham khảo tiếng Anh tại commit đã ghim (11c9d708978cde8ba61096d8a75f7ddfb846f639): thư mục `kn/` của edition `translation/en/sujato` tại commit ấy chỉ có cp, dhp, iti, ja, kp, snp, thag, thig, ud — **không có mil, pv hay tha-ap**; `source/upstream-manifest.json` không liệt kê bất kỳ tệp nào cho uid này. Đây là `not-published-upstream`, KHÔNG phải `not-synced`. Bài này **không có segment Pāli có nội dung** (mọi câu kệ đều ngắn hơn 40 ký tự sau khi chuẩn hoá — đo được 0 trên 36 khoá), nên `src/lib/canon/reference.ts` quy định `ratio = 1` khi mẫu số bằng 0 và cổng coverage **không** chặn. Nhưng tệp Anh thật sự không tồn tại, và `scripts/validate.ts` coi đó là **error** khi status là `review` hoặc `published` ⇒ bài bắt buộc `draft`. Đây là trường hợp số đo không bắt được nhưng thực tế vẫn mất tầng tham khảo. Tầng `vietnamese-current` cũng vắng (chỉ 26 tệp Pháp Cú) và lớp lấp `english-project` cũng không có uid này ⇒ blocker thật."
+      ],
+      "assessed_at": "2026-10-14",
+      "assessed_by": [
+        "Claude Sonnet 5.5 (Claude Code)"
+      ],
+      "notes": "Đối chiếu độc lập 2026-10-14: với bản Việt nguyên bài của Bhikkhu Indacanda. 3 khoá bất đồng nghĩa → sửa 0, giữ 2 (6.1–6.4: bản nguyên bài đọc người nhổ mũi tên ở ngôi hai, bản dự án ở ngôi ba “người ấy” theo `yo … apānudi` và tiền lệ pv18:17, cùng chỉ một người; 0.3/9.1: bản nguyên bài dịch `goṇa` là bò đực, bản dự án giữ “con bò” vì toàn tầng dịch `goṇa` là bò), bất định 1 (5.3–5.4: bản nguyên bài cho người cha là chủ thể của việc rưới nước, Pāli `osiñcaṃ … nibbāpaye` không nêu chủ ngữ nên câu Việt giữ không chủ ngữ). Bản nguyên bài không phân đoạn nên đối chiếu ở mức đoạn, không phải mức khoá; không có bản Anh. Lượt review đối kháng cùng lần không tìm thêm lỗi nghĩa, nháy hay dấu lược ở 36/36 khoá. Chấm lại: triangulation 7.8 → 8.4 (có Pāli cùng một bản Việt độc lập đã đối chiếu thật, không có bản Anh nên không vượt 8.8); các tiêu chí khác giữ nguyên. Bốn lệnh `npm run validate`, `npm test`, `npm run check`, `npm run build` vẫn để người điều phối chạy. Đây là review của AI, không phải chứng nhận của chuyên gia Pāli.",
+      "id": "8f47f6ba-8c7a-474a-a82d-62da9fd8b2d0",
+      "content_sha256": "0a319533fa8df3b69f09c43fbfc4cd5b21506e7fed45905237ec541e733bf031",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
+      "final_score": 9.059999999999999
     }
   ],
   "legacy_quality": {

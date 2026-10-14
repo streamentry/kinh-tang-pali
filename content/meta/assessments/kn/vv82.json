@@ -53,6 +53,34 @@
       "notes": "Kiểm tra tự động 38 segment với Pāli trong cache: đủ ID, giá trị, NFC và hệ chữ Latin. Chưa đọc đối chiếu nghĩa, ngữ pháp hoặc văn phong; chưa chấm lại 10 tiêu chí. Đây không phải chứng nhận hash upstream hoặc giấy phép, không xác nhận trạng thái xuất bản.",
       "content_sha256": "b9e202758186dfde011e5624e17983197e4249b36d55ae71e6dbd1cc877a7dc5",
       "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639"
+    },
+    {
+      "target": "translation",
+      "scope": "full",
+      "scores": {
+        "source_provenance": 9.5,
+        "semantic_fidelity": 8.7,
+        "grammar_logic": 8.8,
+        "segment_alignment": 10,
+        "terminology": 8.9,
+        "triangulation": 8.2,
+        "vietnamese_clarity": 8.6,
+        "han_viet_balance": 9.2,
+        "ambiguity_integrity": 8.6,
+        "technical_integrity": 9.6
+      },
+      "blocking_errors": [
+        "Không có tầng tham khảo tiếng Anh tại commit đã ghim: bản Anh đã ghim của Bhikkhu Sujato không phát hành bất kỳ tệp nào cho thư mục `sutta/kn/vv/` — đo trên `source/upstream-manifest.json` cho 755 tệp `kn` nằm ở cp, dhp, iti, ja, kp, snp, thag, thig, ud và 0 tệp ở `vv`. Đây là `not-published-upstream`, KHÔNG phải `not-synced`. `scripts/validate.ts` coi tệp Anh thiếu là error khi status là `review` hoặc `published`, nên bài bắt buộc `draft`. Coverage của bài này **không phải** lý do chặn: đo theo đúng công thức `source/layers.yaml` (Pāli ≥ 40 ký tự, loại block tham chiếu `:0`) thì vv82 có **0** segment có nội dung — khoá dài nhất là `8.4` với 39 ký tự — nên `ratio` ra 1,0000 và dưới ngưỡng không hề bị vượt. Chặn là do tệp Anh thiếu, nhưng người đọc phải biết hai sự thật này khác nhau. Tầng `vietnamese-current` vắng, và lớp lấp `english-project` không có cho uid này."
+      ],
+      "assessed_at": "2026-10-14",
+      "assessed_by": [
+        "Claude Sonnet 5.5 (Claude Code)"
+      ],
+      "notes": "Đối chiếu độc lập ngày 2026-10-14 với bản Việt nguyên bài của Bhikkhu Indacanda (không phân đoạn, đối chiếu ở mức đoạn), trên toàn bộ 38 khoá của vv82. Ba chỗ bất đồng nghĩa với bản nguyên bài, phân xử bằng Pāli: giữ 1 (6.1–6.4, cách đọc sở hữu cách thuộc tính), bất định 2 (1.4 `Sunimmito`, 7.4 `kira`); không khoá nào phải sửa vì bất đồng. Lượt review đối kháng riêng sửa 2 khoá: 3.1 \"đại uy danh\" → \"đại oai lực\" (`mahānubhāva` là uy lực, không phải danh tiếng; theo 3.3 và đa số tầng vv), 4.1 bỏ \"vô cùng\" (`attamano` không có mức độ). 36 khoá còn lại cùng nghĩa với bản nguyên bài hoặc bản nguyên bài chỉ diễn giải thêm. Không có bản Anh: `triangulation` chỉ dựa Pāli + một bản Việt độc lập nên trần 8,8 và đặt 8,2 vì còn hai bất định chưa phân xử được bằng bằng chứng nào ngoài Pāli. Blocker `noEnglishEditionUpstream` giữ nguyên (upstream vẫn không có bản Anh). technical_integrity 9,6 vì không chạy cổng `npm run validate`, `npm test`, `npm run check`, `npm run build` trong lượt này. Đây là review của AI, không phải chứng nhận của chuyên gia Pāli.",
+      "id": "a81f1dc7-24dd-4421-9035-a37776f723a8",
+      "content_sha256": "0c8aa781f1478e3b21a9dce528fe67ffefda3b07cd0c9f1d6875acb9c9c3d969",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
+      "final_score": 9.009999999999998
     }
   ],
   "legacy_quality": {

@@ -1,0 +1,62 @@
+{
+  "schemaVersion": 1,
+  "uid": "tha-ap402",
+  "assessments": [
+    {
+      "target": "translation",
+      "scope": "full",
+      "scores": {
+        "source_provenance": 9.3,
+        "semantic_fidelity": 8.9,
+        "grammar_logic": 8.9,
+        "segment_alignment": 10,
+        "terminology": 9.1,
+        "triangulation": 8.5,
+        "vietnamese_clarity": 8.8,
+        "han_viet_balance": 9.2,
+        "ambiguity_integrity": 8.9,
+        "technical_integrity": 9.6
+      },
+      "blocking_errors": [
+        "Không có tầng tham khảo tiếng Anh tại commit đã ghim 11c9d708978cde8ba61096d8a75f7ddfb846f639: `translation/en/sujato/sutta/kn/` chỉ có 9 sub-collection (cp, dhp, iti, ja, kp, snp, thag, thig, ud) và không có `tha-ap`; tệp `tha-ap` duy nhất trong tầng english-sujato là tệp tên `name/sutta/tha-ap-name_translation-en-sujato.json`, không phải thân kinh, nên `tha-ap402_translation-en-sujato.json` không tồn tại — đây là `not-published-upstream`, không phải `not-synced`. Mẫu số coverage theo `source/layers.yaml` (Pāli có nội dung ≥ 40 ký tự, loại khối tham chiếu `:0`) chỉ là 1 khoá, đó là dòng lời kết `:38.1`; Sujato phủ 0/1 = 0%, dưới ngưỡng 0.8, nên cổng không đo được gì có ý nghĩa về đối chiếu English. `scripts/validate.ts` coi tệp Anh thiếu là lỗi khi status là `review` hoặc `published`, nên bài bắt buộc `draft`. Tầng `vietnamese-current` cũng vắng (`translation/vi/phantuananh` tại commit đã ghim chỉ có 26 tệp Pháp Cú) và lớp `english-project` không có entry cho uid này. Cả ba tầng tham khảo đều vắng, bản dịch chỉ dựa trên Pāli root; đây là giới hạn của upstream, không phải lỗi của người dịch. Vì vậy `triangulation` bị chặn ở 7.0 (≤ 8.0) và không nâng điểm để né blocker."
+      ],
+      "assessed_at": "2026-10-14",
+      "assessed_by": [
+        "Claude Sonnet 5.5 (Claude Code)"
+      ],
+      "notes": "Đối chiếu độc lập 168/168 khoá với Pāli root và bản Việt nguyên bài của Bhikkhu Indacanda (mức đoạn, không phân đoạn); không có bản Anh nên không tuyên bố đã đối chiếu English. 4 khoá bất đồng nghĩa (3.3 vitti, 10.2 Gandhamādana, 23.2 aṭṭhadīpaphala, 39.2 thứ phẩm): sửa 0, giữ 2 theo Pāli, bất định 2 (đã ghi từ lượt trước, nay có thêm cách đọc của bản độc lập). Đã tự tính lại mọi số (32, 100.000, 60.000, 1.000, 36, 700, 520, 1.174). Đọc đối kháng 168 cặp, kiểm riêng nháy kép 1.1–37.3, nháy đơn 15.1–26.4, ba khoá …pe… (35.2, 36.2, 37.2) và các cặp Pāli trùng trong bài: không phát hiện lỗi thật cần sửa. triangulation 8,5 vì chỉ có một bản Việt độc lập ở mức đoạn, trần 8,8 khi không có bản Anh; ambiguity_integrity 8,9 vì còn nhiều chỗ bất định đã ghi nhưng chưa phân xử. Blocker noEnglishEditionUpstream giữ nguyên. technical_integrity 9,6: cổng chưa chạy (npm run validate, npm test, npm run check, npm run build do người điều phối chạy). Đây là review của AI, không phải chứng nhận của chuyên gia Pāli.",
+      "id": "51cdcde3-146c-4756-8c46-317788dfd7f4",
+      "content_sha256": "7d5591e89a6e04c6090da4204febd7b17aadf869d9f68812a06f1e003086466e",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
+      "final_score": 9.120000000000001
+    }
+  ],
+  "legacy_quality": {
+    "scores": {
+      "source_provenance": 9.2,
+      "semantic_fidelity": 8.8,
+      "grammar_logic": 8.8,
+      "segment_alignment": 10,
+      "terminology": 9.1,
+      "triangulation": 7,
+      "vietnamese_clarity": 8.8,
+      "han_viet_balance": 9.2,
+      "ambiguity_integrity": 9,
+      "technical_integrity": 9.6
+    },
+    "final_score": 8.95,
+    "blocking_errors": [
+      "Không có tầng tham khảo tiếng Anh tại commit đã ghim 11c9d708978cde8ba61096d8a75f7ddfb846f639: `translation/en/sujato/sutta/kn/` chỉ có 9 sub-collection (cp, dhp, iti, ja, kp, snp, thag, thig, ud) và không có `tha-ap`; tệp `tha-ap` duy nhất trong tầng english-sujato là tệp tên `name/sutta/tha-ap-name_translation-en-sujato.json`, không phải thân kinh, nên `tha-ap402_translation-en-sujato.json` không tồn tại — đây là `not-published-upstream`, không phải `not-synced`. Mẫu số coverage theo `source/layers.yaml` (Pāli có nội dung ≥ 40 ký tự, loại khối tham chiếu `:0`) chỉ là 1 khoá, đó là dòng lời kết `:38.1`; Sujato phủ 0/1 = 0%, dưới ngưỡng 0.8, nên cổng không đo được gì có ý nghĩa về đối chiếu English. `scripts/validate.ts` coi tệp Anh thiếu là lỗi khi status là `review` hoặc `published`, nên bài bắt buộc `draft`. Tầng `vietnamese-current` cũng vắng (`translation/vi/phantuananh` tại commit đã ghim chỉ có 26 tệp Pháp Cú) và lớp `english-project` không có entry cho uid này. Cả ba tầng tham khảo đều vắng, bản dịch chỉ dựa trên Pāli root; đây là giới hạn của upstream, không phải lỗi của người dịch. Vì vậy `triangulation` bị chặn ở 7.0 (≤ 8.0) và không nâng điểm để né blocker."
+    ],
+    "assessed_at": "2026-10-13",
+    "assessed_by": [
+      "Claude Sonnet 5.5 (Claude Code)"
+    ],
+    "waiver": {
+      "id": "no-upstream-english",
+      "blockers": [
+        "Không có tầng tham khảo tiếng Anh tại commit đã ghim 11c9d708978cde8ba61096d8a75f7ddfb846f639: `translation/en/sujato/sutta/kn/` chỉ có 9 sub-collection (cp, dhp, iti, ja, kp, snp, thag, thig, ud) và không có `tha-ap`; tệp `tha-ap` duy nhất trong tầng english-sujato là tệp tên `name/sutta/tha-ap-name_translation-en-sujato.json`, không phải thân kinh, nên `tha-ap402_translation-en-sujato.json` không tồn tại — đây là `not-published-upstream`, không phải `not-synced`. Mẫu số coverage theo `source/layers.yaml` (Pāli có nội dung ≥ 40 ký tự, loại khối tham chiếu `:0`) chỉ là 1 khoá, đó là dòng lời kết `:38.1`; Sujato phủ 0/1 = 0%, dưới ngưỡng 0.8, nên cổng không đo được gì có ý nghĩa về đối chiếu English. `scripts/validate.ts` coi tệp Anh thiếu là lỗi khi status là `review` hoặc `published`, nên bài bắt buộc `draft`. Tầng `vietnamese-current` cũng vắng (`translation/vi/phantuananh` tại commit đã ghim chỉ có 26 tệp Pháp Cú) và lớp `english-project` không có entry cho uid này. Cả ba tầng tham khảo đều vắng, bản dịch chỉ dựa trên Pāli root; đây là giới hạn của upstream, không phải lỗi của người dịch. Vì vậy `triangulation` bị chặn ở 7.0 (≤ 8.0) và không nâng điểm để né blocker."
+      ]
+    }
+  }
+}

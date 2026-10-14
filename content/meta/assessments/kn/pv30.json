@@ -53,6 +53,34 @@
       "notes": "Kiểm tra tự động 48 segment với Pāli trong cache: đủ ID, giá trị, NFC và hệ chữ Latin. Chưa đọc đối chiếu nghĩa, ngữ pháp hoặc văn phong; chưa chấm lại 10 tiêu chí. Đây không phải chứng nhận hash upstream hoặc giấy phép, không xác nhận trạng thái xuất bản.",
       "content_sha256": "219e6269d417ff68e0c00a9344a44ba53d0f2143c3d6bf227d6bd70204b062c2",
       "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639"
+    },
+    {
+      "target": "translation",
+      "scope": "full",
+      "scores": {
+        "source_provenance": 9.2,
+        "semantic_fidelity": 8.9,
+        "grammar_logic": 8.9,
+        "segment_alignment": 10,
+        "terminology": 8.8,
+        "triangulation": 8.6,
+        "vietnamese_clarity": 8.8,
+        "han_viet_balance": 9,
+        "ambiguity_integrity": 8.7,
+        "technical_integrity": 9.6
+      },
+      "blocking_errors": [
+        "Không có tầng Anh tham khảo: commit bilara đã ghim không có tệp Anh nào cho Petavatthu (ảnh chụp không có thư mục sutta/kn/pv), nên validate sẽ báo lỗi khi trạng thái là review hoặc published. Toàn bộ bài dịch từ Pāli root một mình; substantive = 0 nên cổng coverage không phát hiện ra khoảng trống này."
+      ],
+      "assessed_at": "2026-10-14",
+      "assessed_by": [
+        "Claude Sonnet 5.5 (Claude Code)"
+      ],
+      "notes": "Đối chiếu độc lập ngày 2026-10-14 với bản Việt nguyên bài (không phân đoạn) của Bhikkhu Indacanda, ở mức đoạn, theo đúng thứ tự các khổ kệ, cho cả 48 khoá. Có 5 khoá bất đồng nghĩa: sửa 0, giữ 5 (1.3 và 1.4 vì bản nguyên bài thêm chữ đối nghịch không có trong Pāli; 2.3 yakkhabhūtā là một từ ghép; 6.4 bhogato ca; 9.4 sattarattaṁ là bảy đêm), bất định 0. Năm bất định đã ghi từ lượt trước (aṅguṭṭhasneha, gabbhāsaya, parivattayanti, yathā puggalaṁ, kissa vataṁ) đều được bản nguyên bài đọc cùng hướng với bản này; điều đó là chứng cứ độc lập về cách hiểu truyền thống, không phải bằng chứng từ vựng. Không sửa khoá nào, không gỡ blocker nào: blocker về tầng Anh vắng vẫn đúng và là blocker duy nhất. Triangulation 8,6: Pāli cộng một bản Việt độc lập đã đối chiếu thật từng khổ, không có bản Anh nên không vượt trần 8,8; không tuyên bố đã đối chiếu English. technical_integrity đặt 9,6 vì chưa chạy cổng kỹ thuật (npm run validate, npm test, npm run check, npm run build do người điều phối chạy). Đây là review của AI, không phải chứng nhận của chuyên gia Pāli.",
+      "id": "3aab9541-9c3a-4dee-b8d3-afad72593475",
+      "content_sha256": "83e553199edfb0af09b454ea974bc626090acdba57c832145a3f51bd8db02919",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
+      "final_score": 9.05
     }
   ],
   "legacy_quality": {

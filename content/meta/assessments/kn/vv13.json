@@ -53,6 +53,34 @@
       "notes": "Kiểm tra tự động 37 segment với Pāli trong cache: đủ ID, giá trị, NFC và hệ chữ Latin. Chưa đọc đối chiếu nghĩa, ngữ pháp hoặc văn phong; chưa chấm lại 10 tiêu chí. Đây không phải chứng nhận hash upstream hoặc giấy phép, không xác nhận trạng thái xuất bản.",
       "content_sha256": "fa97aff7b7dee2b50724c374e3d871b6fc6330726eeaa71406fbd5e0cd4ce2f8",
       "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639"
+    },
+    {
+      "target": "translation",
+      "scope": "full",
+      "scores": {
+        "source_provenance": 9.5,
+        "semantic_fidelity": 8.9,
+        "grammar_logic": 9,
+        "segment_alignment": 10,
+        "terminology": 8.7,
+        "triangulation": 8.4,
+        "vietnamese_clarity": 8.9,
+        "han_viet_balance": 9.2,
+        "ambiguity_integrity": 8.7,
+        "technical_integrity": 9.6
+      },
+      "blocking_errors": [
+        "Không có tầng tham khảo tiếng Anh tại commit đã ghim: tệp Anh của bài này không có trong source/upstream-manifest.json (đo được 0/4291 tệp trong thư mục sutta/kn/tha-ap và 0/4291 trong sutta/kn/vv của tầng translation/en/sujato) và cache cũng không có thư mục translation/en/sujato/sutta/kn/tha-ap hay sutta/kn/vv — đây là not-published-upstream, KHÔNG phải not-synced. scripts/validate.ts xếp tệp Anh thiếu là error khi status là review hoặc published, nên bài bắt buộc draft. Tầng vietnamese-current cũng vắng (commit đã ghim chỉ có 26 tệp Pháp Cú) và lớp lấp english-project không có cho bài này, nên ba tầng tham khảo đều vắng và bài dịch chỉ từ Pāli root. Vì đây là giới hạn upstream chứ không phải lỗi người dịch, triangulation bị chặn ở 7.5 (không quá 8.0) chứ không nâng để né blocker."
+      ],
+      "assessed_at": "2026-10-14",
+      "assessed_by": [
+        "Claude Sonnet 5.5 (Claude Code)"
+      ],
+      "notes": "Đối chiếu độc lập 2026-10-14 với bản Việt nguyên bài của Bhikkhu Indacanda ở mức đoạn (không phân đoạn nên không đối chiếu được ở mức khoá): 37/37 khoá được xem, 0 khoá bất đồng nghĩa, không sửa khoá nào; kể cả các khoá từng sai nghĩa ở lượt kiểm trước nay đều trùng nghĩa với bản nguyên bài. Không có bản Anh nên triangulation chỉ gồm Pāli và một bản Việt độc lập (trần 8.8), đặt 8.4. Bất định đã ghi trong notes còn nguyên (chủ ngữ mijjhati, quan hệ chiếc bánh với nửa phần chia, Nữ Dâu). Blocker noEnglishEditionUpstream giữ nguyên. Đây là review của AI, không phải chứng nhận của chuyên gia Pāli. Cổng kỹ thuật npm run validate, npm test, npm run check, npm run build chưa chạy trong lượt này nên technical_integrity giữ 9.6.",
+      "id": "471804fb-e3bb-441b-8c36-f7e460d40e98",
+      "content_sha256": "de2fee9900cbe54238a831da170623b0e56a3d5f3171808786fd59d7799a9086",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
+      "final_score": 9.09
     }
   ],
   "legacy_quality": {

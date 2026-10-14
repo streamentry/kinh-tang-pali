@@ -53,6 +53,34 @@
       "notes": "Kiểm tra tự động 29 segment với Pāli trong cache: đủ ID, giá trị, NFC và hệ chữ Latin. Chưa đọc đối chiếu nghĩa, ngữ pháp hoặc văn phong; chưa chấm lại 10 tiêu chí. Đây không phải chứng nhận hash upstream hoặc giấy phép, không xác nhận trạng thái xuất bản.",
       "content_sha256": "9d969e2fb4a89b70fe546faae6a277cf6462ffabd4c041dbdaa46fdca99384a1",
       "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639"
+    },
+    {
+      "target": "translation",
+      "scope": "full",
+      "scores": {
+        "source_provenance": 9.5,
+        "semantic_fidelity": 8.7,
+        "grammar_logic": 8.9,
+        "segment_alignment": 10,
+        "terminology": 8.8,
+        "triangulation": 8.2,
+        "vietnamese_clarity": 9,
+        "han_viet_balance": 9,
+        "ambiguity_integrity": 8.6,
+        "technical_integrity": 9.6
+      },
+      "blocking_errors": [
+        "Không có tầng tham khảo tiếng Anh tại commit đã ghim: manifest `source/upstream-manifest.json` không liệt kê tệp Anh nào cho uid này, và `.cache/upstream/suttacentral/` cũng không có — đây là `not-published-upstream`, KHÔNG phải `not-synced`. Tầng `vietnamese-current` cũng vắng vì commit đã ghim chỉ có Pháp Cú. Bài dịch chỉ từ Pāli root nên bắt buộc `draft`."
+      ],
+      "assessed_at": "2026-10-14",
+      "assessed_by": [
+        "Claude Sonnet 5.5 (Claude Code)"
+      ],
+      "notes": "Đối chiếu độc lập ngày 2026-10-14 với bản Việt nguyên bài của Bhikkhu Indacanda (không phân đoạn, đối chiếu ở mức đoạn), trên toàn bộ 29 khoá của vv41. Hai chỗ bất đồng với bản nguyên bài, phân xử bằng Pāli: giữ 1 (6.3 `pajāpati`, không có \"chánh\" trong Pāli), bất định 1 (2.3 `pabhijjare`, \"vang lừng\" hay \"được phân hạng\"). Chỗ quan trọng nhất của bài, việc `maṇikañcanācitaṁ`, `sovaṇṇajālacitaṁ` bổ nghĩa cho con voi chứ không phải cho nàng, được bản nguyên bài xác nhận độc lập. Lượt review đối kháng riêng sửa 10 khoá (9 khoá xưng hô đổi \"ta\" thành \"tôi\" theo tiền lệ tầng vv đã đo, và 1 dấu câu thừa ở 3.4). Chỗ còn bất định từ trước (5.2 `samudayadukkhaniccataṁ` đọc thành vô thường, 5.3 từ ghép `dukkhanirodhasassataṁ`) vẫn không có bằng chứng ngoài Pāli ghim, dù bản nguyên bài cùng cách đọc nên mức bất định thấp hơn. Không có bản Anh: `triangulation` trần 8,8, đặt 8,2. Blocker `noEnglishEditionUpstream` giữ nguyên. technical_integrity 9,6 vì không chạy `npm run validate`, `npm test`, `npm run check`, `npm run build` trong lượt này. Đây là review của AI, không phải chứng nhận của chuyên gia Pāli.",
+      "id": "0c2689df-e1f1-4925-806c-9113218bb448",
+      "content_sha256": "3bb44273d77ea5b0de5481f0bb0ea0c401a5406d351f322c4b05167b3118edf0",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
+      "final_score": 9.03
     }
   ],
   "legacy_quality": {

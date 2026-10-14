@@ -120,6 +120,34 @@
       "notes": "Kiểm tra tự động 41 segment với Pāli trong cache: đủ ID, giá trị, NFC và hệ chữ Latin. Chưa đọc đối chiếu nghĩa, ngữ pháp hoặc văn phong; chưa chấm lại 10 tiêu chí. Đây không phải chứng nhận hash upstream hoặc giấy phép, không xác nhận trạng thái xuất bản.",
       "content_sha256": "9274ad4a564dad7351af8daad6fd620bf59ef00bc3af835a7550a7b3c31bcbf2",
       "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639"
+    },
+    {
+      "target": "translation",
+      "scope": "full",
+      "scores": {
+        "source_provenance": 9.4,
+        "semantic_fidelity": 9,
+        "grammar_logic": 9,
+        "segment_alignment": 10,
+        "terminology": 9,
+        "triangulation": 8.4,
+        "vietnamese_clarity": 9,
+        "han_viet_balance": 9.3,
+        "ambiguity_integrity": 9,
+        "technical_integrity": 9.6
+      },
+      "blocking_errors": [
+        "noEnglishEditionUpstream: tại commit đã ghim, translation/en/sujato không có tệp thân kinh cho tha-ap123 (chỉ có tệp tên name/sutta/tha-ap-name), tức not-published-upstream; tầng vietnamese-current cũng vắng (chỉ có Pháp Cú) và english-project không có entry."
+      ],
+      "assessed_at": "2026-10-14",
+      "assessed_by": [
+        "Claude Sonnet 5.5 (Claude Code)"
+      ],
+      "notes": "Đối chiếu độc lập 41/41 khoá với Pāli root và bản Việt nguyên bài của Bhikkhu Indacanda (mức đoạn, không phân đoạn); không có bản Anh nên không tuyên bố đã đối chiếu English. 1 khoá bất đồng nghĩa (8.3, tên chung hai mươi lăm vị Chuyển Luân Vương): bản nguyên bài Cittamālā, Pāli ghim Vītamalā — dị bản giữa hai ấn bản, giữ Pāli ghim. Gỡ blocker `unresolvedTerm` (Vītamalā) vì đã giải được: bản nguyên bài đặt một tên riêng ở đúng vị trí đó, và trong tầng, 22/76 khoá `cakkavattī mahabbalā` của tha-ap có dòng liền trước nêu tên chung (không có khoá nào dùng tính từ đơn thuần), nên \"cùng mang tên Vītamalā\" đúng cú pháp công thức. Giữ blocker noEnglishEditionUpstream. Số: 15.000 kiếp (pannarasasahassa), 25 vị, 100.000 kiếp (satasahassa) đã tự kiểm. Không có lỗi thật cần sửa. technical_integrity 9,6: cổng chưa chạy (npm run validate, npm test, npm run check, npm run build do người điều phối chạy). Đây là review của AI, không phải chứng nhận của chuyên gia Pāli.",
+      "id": "1073260b-f627-4658-8984-85f882f3763c",
+      "content_sha256": "29fc5d634662a98ee1e6f25b70844dc51275c5fc8ea92691594e27392a4e218d",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
+      "final_score": 9.169999999999998
     }
   ],
   "legacy_quality": {

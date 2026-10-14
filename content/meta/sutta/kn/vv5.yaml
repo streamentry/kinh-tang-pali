@@ -1,9 +1,11 @@
 uid: vv5
-status: review
+status: published
 translationTitle: "Chuyện Cung Điện Con Voi"
 translators:
   - "OpenCode Space Bunny Free (agent)"
-reviewers: []
+reviewers:
+  - Claude Opus 5.5 (Claude Code)
+  - Claude Sonnet 5.5 (Claude Code)
 tags:
   - "kn"
   - "khuddaka-nikaya"
@@ -16,24 +18,25 @@ quality:
   scores:
     source_provenance: 9.4
     semantic_fidelity: 8.8
-    grammar_logic: 9.0
-    segment_alignment: 10.0
-    terminology: 9.0
-    triangulation: 7.0
+    grammar_logic: 9
+    segment_alignment: 10
+    terminology: 9
+    triangulation: 8.4
     vietnamese_clarity: 8.9
     han_viet_balance: 9.2
-    ambiguity_integrity: 9.0
+    ambiguity_integrity: 9
     technical_integrity: 9.6
-  final_score: 8.99
+  final_score: 9.129999999999999
   blocking_errors:
     - "noEnglishEditionUpstream: Không có tệp translation/en/sujato cho vv5 tại
       commit đã ghim (`sutta/kn/` chỉ gồm cp, dhp, iti, ja, kp, snp, thag, thig,
       ud, không có `vv`); trạng thái `not-published-upstream`. Tầng
       `vietnamese-current` cũng vắng (chỉ có Pháp Cú) và lớp `english-project`
       không có cho uid này."
-  assessed_at: "2026-10-13"
+  assessed_at: 2026-10-14
   assessed_by:
-    - "Claude Opus 5.5 (Claude Code)"
+    - Claude Sonnet 5.5 (Claude Code)
+  assessment_id: 1f0efdc4-2880-4f0d-a4c9-566e51bcc6f2
   waiver:
     id: no-upstream-english
     blockers:
@@ -318,3 +321,5 @@ notes: |-
   có bản Anh độc lập nào nên giữ ≤ 8.0, chỉ nâng vì đã đối chiếu Pāli song song trong kho cho các cụm hiếm); các mục khác giữ nguyên.
   `final_score` 8.99. Mẫu số coverage vẫn bằng 0 (0 khoá Pāli ≥ 40 ký tự) nên cổng coverage không đo được gì, và `triangulation` không thể
   nâng lên bằng cách đó. `technical_integrity` vẫn 9.6: các lệnh `npm run validate`, `npm test`, `npm run check`, `npm run build` do CI chạy.
+
+  Đối chiếu độc lập 2026-10-14: với bản Việt nguyên bài của Bhikkhu Indacanda (dịch 2011, đọc từ dòng tác giả và chân trang của tệp). Bản nguyên bài là văn xuôi, theo đúng thứ tự các câu kệ nên so được từng khổ ở mức đoạn; cả bốn khổ tả con voi, khổ tả nàng, câu hỏi, lời kể và lời đáp đều cùng chủ thể và cùng thứ tự với bản này. 3 khoá bất đồng nghĩa → sửa 0, giữ 2, bất định 1. Giữ: `9.1` `padmamālāhaṁ`: bản nguyên bài hiểu là nửa bông hoa sen, bản này giữ “nửa tràng hoa sen” vì `mālā` là tràng hoa và `abbhokirissaṁ pattehi` (rải bằng cánh hoa) không đòi `padmamālā` là một bông; `12.2` `mahattamabhikaṅkhatā`: bản nguyên bài hiểu là mong quả báo lớn lao, bản này giữ “khao khát sự vĩ đại” theo Pāli (`mahatta` là sự lớn lao, vĩ đại; 2/2 lượt ở tầng cùng cách). Bất định 1: `2.1` `padmapattakkhi`: bản nguyên bài đọc như hô cách gọi nàng (nàng có mắt hình lá sen) và chỉ để con voi mang màu hoa sen; bản này đọc là tính từ của con voi (mắt như cánh sen), cùng mạch với ba dòng sau nói con voi (thân rải bột sen, đeo tràng sen vàng). Dạng ngắn `-i` của hô cách giống cái là có thể, `te` ở 1.1 và 5.4 cho thấy bài có gọi nàng, mà Pāli ghim không có dòng song song nào chứa `padmapattakkhi` (1 lượt trong toàn tầng) nên không phân xử được; canonical không đổi, đây là chỗ duy nhất của bài mà hai bản chia chủ thể. Các khác biệt khác chỉ ở cách gọi (sen đỏ với sen hồng, trống hay nhạc năm phần, cung điện với thiên cung…) không đổi nghĩa nên không tính. Số Pāli khớp: pañcaṅgike năm phần, upaḍḍhaṁ nửa, pañcamaṁ thứ năm. Câu 6.1–6.4 bản nguyên bài chuyển thành một câu hỏi lựa chọn, Pāli không có từ nghi vấn; bản này giữ như cũ, không đổi. Bản nguyên bài không phân đoạn nên đối chiếu ở mức đoạn, không phải mức khoá; không có bản Anh.

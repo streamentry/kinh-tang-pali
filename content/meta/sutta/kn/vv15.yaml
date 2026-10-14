@@ -1,9 +1,10 @@
 uid: vv15
-status: review
+status: published
 translationTitle: "Chuyện Cung Điện Nữ Uttarā"
 translators:
   - "OpenCode Space Bunny Free (agent)"
-reviewers: []
+reviewers:
+  - Claude Sonnet 5.5 (Claude Code)
 tags:
   - "kn"
   - "khuddaka-nikaya"
@@ -13,18 +14,18 @@ tags:
 quality:
   scores:
     source_provenance: 9.5
-    semantic_fidelity: 8.7
-    grammar_logic: 8.9
-    segment_alignment: 10.0
-    terminology: 8.6
-    triangulation: 7.5
-    vietnamese_clarity: 9.0
+    semantic_fidelity: 8.9
+    grammar_logic: 9
+    segment_alignment: 10
+    terminology: 8.8
+    triangulation: 8.4
+    vietnamese_clarity: 9
     han_viet_balance: 9.3
-    ambiguity_integrity: 8.7
+    ambiguity_integrity: 8.8
     technical_integrity: 9.6
-  final_score: 8.98
+  final_score: 9.129999999999999
   blocking_errors:
-    - "Không có tầng tham khảo tiếng Anh tại commit đã ghim — toàn bộ
+    - Không có tầng tham khảo tiếng Anh tại commit đã ghim — toàn bộ
       sub-collection này vắng mặt trong tầng Anh đã ghim
       (`source/upstream-manifest.json`, commit 11c9d70, không liệt kê tệp nào
       cho uid; thuộc kỳ `not-published-upstream`, KHÔNG phải `not-synced`). Đo
@@ -33,10 +34,11 @@ quality:
       `vietnamese-current` chỉ có 26 tệp tại commit đã ghim, toàn bộ là Pháp Cú
       — cũng không hỗ trợ. Lớp lấp `english-project` của dự án không có cho uid
       này. Ba tầng tham khảo đều vắng ⇒ dịch chỉ từ Pāli root. Đây là giới hạn
-      upstream, không phải lỗi của người dịch."
-  assessed_at: "2026-10-11"
+      upstream, không phải lỗi của người dịch.
+  assessed_at: 2026-10-14
   assessed_by:
-    - "Claude Sonnet 5.5 (Claude Code)"
+    - Claude Sonnet 5.5 (Claude Code)
+  assessment_id: 5d758235-7580-4011-9817-7e983b262f73
   waiver:
     id: no-upstream-english
     blockers:
@@ -109,3 +111,5 @@ notes: |-
     ứng), cùng `pv13`–`pv16`, `vv18` (hô cách `mahānubhāve`).
   Cổng kỹ thuật chưa chạy trong lượt này: `npm run validate`, `npm test`, `npm run check`,
   `npm run build` — `technical_integrity` giữ 9.6.
+
+  Đối chiếu độc lập 2026-10-14: với bản Việt nguyên bài của Bhikkhu Indacanda. 2 khoá bất đồng nghĩa → sửa 0, giữ 1, bất định 1. Giữ: 5.1 `paḷāso` (bản nguyên bài «hằn học», bản dự án «khinh miệt» — đa số 29/38 khoá `paḷāsa` trong tầng, 1 khoá «hằn học»). Bất định: 6.3 `Pāṭihāriyapakkhañca` (bản nguyên bài hiểu theo hướng «những ngày phụ trội của nửa tháng», bản dự án «cùng cả kỳ nửa tháng thần biến»; tầng có 25 khoá cùng công thức với nhiều cách dịch — «tuần lễ thần biến/thần thông» 14 khoá, «kỳ/nửa tháng thần biến» 7 khoá (gồm bài này), «kỳ phép nhiệm màu» 4 khoá; Pāli không tự giải nghĩa `pāṭihāriya` trong bài này nên không phân xử được; giữ cách đã có ở `vv19:7.3`, `vv25:6.3`, ghi bất định). Các khoá còn lại cùng nghĩa: `osadhī viya tārakā` (sao mai), các ngày 14/15/8 của nửa tháng, tám chi phần, năm giới, Thánh đế, Nhất Lai. Bản nguyên bài chỉ đến 12.4 (không có lời nhắn gửi Đức Thế Tôn ở 13.1–13.3), nên ba khoá đó không đối chiếu được. Lượt review đối kháng riêng bản dự án không tìm thêm lỗi nghĩa. Bản nguyên bài không phân đoạn nên đối chiếu ở mức đoạn, không phải mức khoá; không có bản Anh. `npm run validate`, `npm test`, `npm run check`, `npm run build` chưa chạy trong lượt này.

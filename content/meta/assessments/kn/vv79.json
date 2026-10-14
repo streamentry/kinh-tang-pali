@@ -53,6 +53,34 @@
       "notes": "Kiểm tra tự động 51 segment với Pāli trong cache: đủ ID, giá trị, NFC và hệ chữ Latin. Chưa đọc đối chiếu nghĩa, ngữ pháp hoặc văn phong; chưa chấm lại 10 tiêu chí. Đây không phải chứng nhận hash upstream hoặc giấy phép, không xác nhận trạng thái xuất bản.",
       "content_sha256": "3f632d71de0c03c645353189cb9221dadb902a99663bb38ce8484a0018da3ade",
       "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639"
+    },
+    {
+      "target": "translation",
+      "scope": "full",
+      "scores": {
+        "source_provenance": 9.3,
+        "semantic_fidelity": 8.8,
+        "grammar_logic": 8.9,
+        "segment_alignment": 10,
+        "terminology": 8.6,
+        "triangulation": 8.3,
+        "vietnamese_clarity": 8.9,
+        "han_viet_balance": 9.2,
+        "ambiguity_integrity": 8.6,
+        "technical_integrity": 9.6
+      },
+      "blocking_errors": [
+        "Không có tầng tham khảo tiếng Anh tại commit đã ghim 11c9d708978cde8ba61096d8a75f7ddfb846f639: đo trên `source/upstream-manifest.json` cho 755 tệp `kn` của `translation/en/sujato` nằm ở cp 35, dhp 26, iti 112, ja 83, kp 9, snp 73, thag 264, thig 73, ud 80 và **0 tệp** ở `vv`; thư mục cache `.cache/upstream/suttacentral/translation/en/sujato/sutta/kn/` cũng chỉ có đúng 9 thư mục con ấy. Đây là `not-published-upstream`, KHÔNG phải `not-synced`. `scripts/validate.ts` coi tệp Anh thiếu là error khi status là `review` hoặc `published`, nên bài bắt buộc `draft`. Tầng `vietnamese-current` cũng vắng: `translation/vi/phantuananh` tại commit đã ghim có 26 tệp và tất cả đều là Pháp Cú. Lớp lấp `english-project` của dự án không có tệp nào cho vv79 (thư mục `content/translation/en/project/sutta/kn/` có 129 tệp, trong đó chỉ một tệp `vv` là vv69, không phải bài này). Ba tầng tham khảo đều vắng ⇒ bài dịch chỉ từ Pāli root, đây là giới hạn upstream chứ không phải lỗi của người dịch. Vì vậy `triangulation` bị chặn ở 7.5 (≤ 8.0) chứ không nâng để né blocker."
+      ],
+      "assessed_at": "2026-10-14",
+      "assessed_by": [
+        "Claude Sonnet 5.5 (Claude Code)"
+      ],
+      "notes": "Đối chiếu độc lập với bản Việt nguyên bài của Bhikkhu Indacanda ở mức đoạn: 1 khoá bất đồng nghĩa (1.4 rucakatthatā, bất định, công thức dùng chung 9/11 bài vv), sửa 0; các khoá còn lại cùng nghĩa, kể cả số (12 do-tuần, 700 lầu gác) và các chỗ hapax mà bản hiện hành đã đọc theo hướng trùng với bản nguyên bài (5.2 mặt trời đang chói chang; 6.3–6.4 thân mệt nhưng tâm không mệt). Còn bất định chưa giải được: 1.4 rucaka; 10.3–10.4 `attano` (không xác định người). Không có bản Anh. Cổng kỹ thuật chưa chạy: `npm run validate`, `npm test`, `npm run check`, `npm run build`. Đây là review của AI, không phải chứng nhận của chuyên gia Pāli.",
+      "id": "d7e432c3-0573-4d77-8b5c-f7beb379d7f2",
+      "content_sha256": "d73c28c7b594a5a6bf5dffc37dbe84bb5eb21262af9fdf1cefd6d0c6ae77cb8b",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
+      "final_score": 9.02
     }
   ],
   "legacy_quality": {

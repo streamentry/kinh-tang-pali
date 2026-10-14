@@ -53,6 +53,34 @@
       "notes": "Kiểm tra tự động 37 segment với Pāli trong cache: đủ ID, giá trị, NFC và hệ chữ Latin. Chưa đọc đối chiếu nghĩa, ngữ pháp hoặc văn phong; chưa chấm lại 10 tiêu chí. Đây không phải chứng nhận hash upstream hoặc giấy phép, không xác nhận trạng thái xuất bản.",
       "content_sha256": "11aa3b59bea56e1267d3c66bbec34aae6a4fbf1306af4b9c95f067394facbd4f",
       "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639"
+    },
+    {
+      "target": "translation",
+      "scope": "full",
+      "scores": {
+        "source_provenance": 9.5,
+        "semantic_fidelity": 8.8,
+        "grammar_logic": 9,
+        "segment_alignment": 10,
+        "terminology": 8.6,
+        "triangulation": 8.6,
+        "vietnamese_clarity": 9,
+        "han_viet_balance": 9.4,
+        "ambiguity_integrity": 8.5,
+        "technical_integrity": 9.6
+      },
+      "blocking_errors": [
+        "Không có tầng tham khảo tiếng Anh tại commit đã ghim: tệp Anh của bài này không có trong source/upstream-manifest.json (đo được 0/4291 tệp trong thư mục sutta/kn/tha-ap và 0/4291 trong sutta/kn/vv của tầng translation/en/sujato) và cache cũng không có thư mục translation/en/sujato/sutta/kn/tha-ap hay sutta/kn/vv — đây là not-published-upstream, KHÔNG phải not-synced. scripts/validate.ts xếp tệp Anh thiếu là error khi status là review hoặc published, nên bài bắt buộc draft. Tầng vietnamese-current cũng vắng (commit đã ghim chỉ có 26 tệp Pháp Cú) và lớp lấp english-project không có cho bài này, nên ba tầng tham khảo đều vắng và bài dịch chỉ từ Pāli root. Vì đây là giới hạn upstream chứ không phải lỗi người dịch, triangulation bị chặn ở 7.5 (không quá 8.0) chứ không nâng để né blocker."
+      ],
+      "assessed_at": "2026-10-14",
+      "assessed_by": [
+        "Claude Sonnet 5.5 (Claude Code)"
+      ],
+      "notes": "Đối chiếu độc lập 2026-10-14 với bản Việt nguyên bài của Bhikkhu Indacanda ở mức đoạn: 1 khoá bất đồng nhẹ (6.4 `akāmā`), giữ theo tiền lệ tầng; sửa 0, bất định 0; phần còn lại khớp nghĩa. Không có bản Anh nên triangulation chỉ gồm Pāli và một bản Việt, 8,6. Các tiêu chí khác giữ như lượt chấm trước. technical_integrity 9,6: chưa chạy npm run validate, npm test, npm run check, npm run build. Đây là review của AI, không phải chứng nhận của chuyên gia Pāli.",
+      "id": "67aab9a8-3e71-4233-8447-ae462614b7af",
+      "content_sha256": "5cde488cc68d82763d17a0a00f2d03bed2efe8b11fbe1826984e989db1ce325b",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
+      "final_score": 9.1
     }
   ],
   "legacy_quality": {

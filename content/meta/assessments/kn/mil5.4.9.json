@@ -53,6 +53,34 @@
       "notes": "Kiểm tra tự động 32 segment với Pāli trong cache: đủ ID, giá trị, NFC và hệ chữ Latin. Chưa đọc đối chiếu nghĩa, ngữ pháp hoặc văn phong; chưa chấm lại 10 tiêu chí. Đây không phải chứng nhận hash upstream hoặc giấy phép, không xác nhận trạng thái xuất bản.",
       "content_sha256": "30023fb85227a43a6b7c72d3fa5348574c37108a59abc13da4ff74c1300d846d",
       "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639"
+    },
+    {
+      "target": "translation",
+      "scope": "full",
+      "scores": {
+        "source_provenance": 9.6,
+        "semantic_fidelity": 8.6,
+        "grammar_logic": 8.8,
+        "segment_alignment": 10,
+        "terminology": 8.8,
+        "triangulation": 8.6,
+        "vietnamese_clarity": 8.9,
+        "han_viet_balance": 9,
+        "ambiguity_integrity": 8.8,
+        "technical_integrity": 9.6
+      },
+      "blocking_errors": [
+        "Không có tầng tham khảo English Sujato tại commit đã ghim. Đếm bằng script trên source/upstream-manifest.json: tầng english-sujato có 4.291 tệp, trong đó thư mục sutta/kn chỉ có 9 thư mục con (cp, dhp, iti, ja, kp, snp, thag, thig, ud) và KHÔNG có thư mục mil hay ne; duyệt cả danh sách 4.291 tệp cũng không tệp nào chứa khoá của bài này. Tệp trong cache .cache/upstream/suttacentral/translation/en/sujato/sutta/kn/ cũng chỉ có đúng 9 thư mục con ấy. Đây là not-published-upstream chứ không phải not-synced: tệp vắng mặt khỏi cây git của chính tầng đã ghim, nên không tải lại cũng không có. Tại commit này SuttaCentral không phát hành bản Anh nào khác phủ bài này, nên bài chỉ đối chiếu được với Pāli root một mình. Tầng Việt hiện hành (Hòa thượng Thích Minh Châu) tại commit đã ghim chỉ có 26 chương Pháp Cú, nên cũng không có bản đối chiếu cho bài này."
+      ],
+      "assessed_at": "2026-10-14",
+      "assessed_by": [
+        "Claude Sonnet 5.5 (Claude Code)"
+      ],
+      "notes": "Đối chiếu độc lập 2026-10-14: với bản Việt nguyên bài của Bhikkhu Indacanda. 2 khoá bất đồng nghĩa → sửa 0, giữ 2 (4.1 `chindante`: bản nguyên bài dịch là nứt nẻ, bản dự án giữ “bị chặt” vì `chindati` là cắt, chặt; 5.1 `sattihatthā`: bản nguyên bài là tay cầm gươm, bản dự án giữ “tay cầm giáo” vì `satti` là giáo, ngọn lao), bất định 0. Ngoài ra bản nguyên bài bỏ qua phương án giữa của 1.4 (`paññāyissati sakena kammena`), thiếu chứ không bất đồng nên không tính; số năm trăm, một trăm ngàn thế giới khớp hai bản. Bản nguyên bài không phân đoạn nên đối chiếu ở mức đoạn, không phải mức khoá; không có bản Anh. Review đối kháng cùng lần không tìm thêm lỗi nghĩa ở 32/32 khoá; nháy đơn, nháy kép và dấu lược khớp Pāli từng khoá. Chấm lại: triangulation 6.5 → 8.6 (đối chiếu gần như từng đoạn vì hai bản cùng chia theo lượt hỏi đáp); các tiêu chí khác giữ nguyên. Bốn lệnh `npm run validate`, `npm test`, `npm run check`, `npm run build` vẫn để người điều phối chạy. Đây là review của AI, không phải chứng nhận của chuyên gia Pāli.",
+      "id": "c92fc941-23cf-4598-a8ad-a386a955f90c",
+      "content_sha256": "b3a7d72df829ff3e07301faed10dceb98f14db4c26562b35ba34094392856a30",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
+      "final_score": 9.069999999999999
     }
   ],
   "legacy_quality": {

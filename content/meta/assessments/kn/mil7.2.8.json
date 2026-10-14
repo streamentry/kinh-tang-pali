@@ -53,6 +53,34 @@
       "notes": "Kiểm tra tự động 14 segment với Pāli trong cache: đủ ID, giá trị, NFC và hệ chữ Latin. Chưa đọc đối chiếu nghĩa, ngữ pháp hoặc văn phong; chưa chấm lại 10 tiêu chí. Đây không phải chứng nhận hash upstream hoặc giấy phép, không xác nhận trạng thái xuất bản.",
       "content_sha256": "f068c92f0b154882d829b486ae49371408296e65952b6adb67d89be538895264",
       "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639"
+    },
+    {
+      "target": "translation",
+      "scope": "full",
+      "scores": {
+        "source_provenance": 9.4,
+        "semantic_fidelity": 8.9,
+        "grammar_logic": 8.9,
+        "segment_alignment": 10,
+        "terminology": 8.8,
+        "triangulation": 8.3,
+        "vietnamese_clarity": 9,
+        "han_viet_balance": 9.2,
+        "ambiguity_integrity": 8.8,
+        "technical_integrity": 9.6
+      },
+      "blocking_errors": [
+        "Không có tầng tham khảo tiếng Anh tại commit đã ghim: 0/14 bài của lát w6 có tệp `*_translation-en-sujato.json`. Đã đếm ở nguồn sự thật là `source/upstream-manifest.json` (edition `translation/en/sujato`: 4291 tệp, trong đó 755 tệp `kn/`, và KHÔNG có tệp `mil*` nào ngoài `name/sutta/mil-name`), rồi đếm lại trong cache đã ghin. Cũng không có bản Việt hiện hành: `translation/vi/phantuananh` tại commit đã ghim chỉ có 26 tệp, toàn bộ là Pháp Cú. Lớp lấp English của chính dự án cũng không có cho 14 uid này. Bài dịch chỉ từ Pāli root nên chưa đối chiếu được tầng tham khảo đã ghim; giữ draft."
+      ],
+      "assessed_at": "2026-10-14",
+      "assessed_by": [
+        "Claude Sonnet 5.5 (Claude Code)"
+      ],
+      "notes": "Đối chiếu độc lập với bản Việt nguyên bài của Bhikkhu Indacanda ở mức đoạn: 2 khoá bất đồng nghĩa (2.1 `ūnudara`: bản nguyên bài «uốn cong», bản dự án «bụng thon», giữ vì `ja546:154.1–4` đặt cạnh `appāsī`; 1.3 `samaka`: bản nguyên bài và bản dự án chia nhóm khác nhau, giữ bốn hạng và ghi bất định), sửa 0. Các khoá còn lại cùng nghĩa. Bài 14 khoá, không bản Anh. Hai điểm bất định (`ūnudara`, `samaka`) vẫn mở nên ambiguity_integrity không cao hơn. Cổng kỹ thuật chưa chạy: `npm run validate`, `npm test`, `npm run check`, `npm run build`. Đây là review của AI, không phải chứng nhận của chuyên gia Pāli.",
+      "id": "bbfe2645-19a3-4231-9131-19546035971c",
+      "content_sha256": "c13681c67a97f33395ed70ae530eb7681c7df72c88c786dd076274a51b3391a8",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
+      "final_score": 9.09
     }
   ],
   "legacy_quality": {

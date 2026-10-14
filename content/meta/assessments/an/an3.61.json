@@ -53,6 +53,32 @@
       "notes": "Kiểm tra tự động 117 segment với Pāli trong cache: đủ ID, giá trị, NFC và hệ chữ Latin. Chưa đọc đối chiếu nghĩa, ngữ pháp hoặc văn phong; chưa chấm lại 10 tiêu chí. Đây không phải chứng nhận hash upstream hoặc giấy phép, không xác nhận trạng thái xuất bản.",
       "content_sha256": "852fdc5b0cac135579a02925015edbe6ec0e4fe83a232c26b8ac45d9a168ce90",
       "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639"
+    },
+    {
+      "target": "translation",
+      "scope": "full",
+      "scores": {
+        "source_provenance": 9.8,
+        "semantic_fidelity": 8.7,
+        "grammar_logic": 9,
+        "segment_alignment": 9.8,
+        "terminology": 9,
+        "triangulation": 9.2,
+        "vietnamese_clarity": 9,
+        "han_viet_balance": 9.4,
+        "ambiguity_integrity": 9.2,
+        "technical_integrity": 9.6
+      },
+      "blocking_errors": [],
+      "assessed_at": "2026-10-14",
+      "assessed_by": [
+        "Claude Sonnet 5.5 (Claude Code)"
+      ],
+      "notes": "Đối chiếu độc lập ngày 2026-10-14 trên toàn bộ 117 khoá của an3.61, giữa Pāli, bản English Sujato đã ghim (bài này có bản Anh, nên khác các bài không có bản Anh trong lane) và bản Việt nguyên bài của Hòa thượng Thích Minh Châu (không phân đoạn, đối chiếu ở mức đoạn). Sáu nhóm khoá bất đồng nghĩa với bản nguyên bài, phân xử bằng Pāli: sửa 5 nhóm (`issaranimmāna` bỏ \"toàn năng\" không có trong Pāli; `bhavissanti` ở 2.7, 4.7, 6.7 từ \"có thể\" thành \"sẽ là\", sát tương lai Pāli và logic tất yếu của lập luận; `sārato paccāgacchataṁ` và `chando`; `niggaho` đồng nhất với `aniggahito`; `manopavicārā` và `somanassaṭṭhāniyaṁ` theo mn137, mn140), giữ 3, bất định 1 (3.2/5.2/7.2 `samaṇavādo`). Review đối kháng riêng sửa thêm dấu lược 14.2 và một chữ giọng điệu ở 13.6. Điểm `segment_alignment` 4,5 của lượt chấm 2026-10-04 là điểm giữ lại từ lúc còn lỗi cắt/lược; hiện đã đọc cả 117 cặp Pāli↔Việt: đủ khoá, đúng thứ tự, `…pe…` ở 6.7 đã là một dấu `…`, 22 cặp Pāli trùng trong bài dịch giống hệt nhau, chỉ còn khác biệt dấu nháy ở 9.3–13.1 và 6.7 (xem ghi chú), nên đặt 9,8; `semantic_fidelity` 7,0 cũng nâng lên 8,7 vì các lỗi nghĩa tìm thấy lần này đã sửa nhưng còn phần sát chữ nặng nề ở `samaṇavādo`. `triangulation` 9,2 vì có cả bản Anh và bản Việt độc lập, đối chiếu ở mức đoạn với bản Việt. Không có blocker nào trong hồ sơ, và không có blocker nào bị bỏ. technical_integrity 9,6 vì không chạy `npm run validate`, `npm test`, `npm run check`, `npm run build` trong lượt này. Đây là review của AI, không phải chứng nhận của chuyên gia Pāli.",
+      "id": "acd2e948-b4df-4448-b8c2-23ff63a4e331",
+      "content_sha256": "9cb9ece4f0eb296dbe44e2f8c3cfee97b05ef2f517392071976b4f82e9bf429d",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
+      "final_score": 9.27
     }
   ],
   "legacy_quality": {

@@ -1,9 +1,10 @@
 uid: vv41
-status: review
+status: published
 translationTitle: "3. Chuyện Cung Điện Con Voi"
 translators:
   - "OpenCode Space Bunny Free (agent)"
-reviewers: []
+reviewers:
+  - Claude Sonnet 5.5 (Claude Code)
 tags:
   - "kn"
   - "khuddaka-nikaya"
@@ -11,16 +12,16 @@ tags:
 quality:
   scores:
     source_provenance: 9.5
-    semantic_fidelity: 8.6
+    semantic_fidelity: 8.7
     grammar_logic: 8.9
-    segment_alignment: 10.0
-    terminology: 8.7
-    triangulation: 7.5
-    vietnamese_clarity: 9.0
-    han_viet_balance: 9.0
+    segment_alignment: 10
+    terminology: 8.8
+    triangulation: 8.2
+    vietnamese_clarity: 9
+    han_viet_balance: 9
     ambiguity_integrity: 8.6
     technical_integrity: 9.6
-  final_score: 8.94
+  final_score: 9.03
   blocking_errors:
     - "Không có tầng tham khảo tiếng Anh tại commit đã ghim: manifest
       `source/upstream-manifest.json` không liệt kê tệp Anh nào cho uid này, và
@@ -28,9 +29,10 @@ quality:
       `not-published-upstream`, KHÔNG phải `not-synced`. Tầng
       `vietnamese-current` cũng vắng vì commit đã ghim chỉ có Pháp Cú. Bài dịch
       chỉ từ Pāli root nên bắt buộc `draft`."
-  assessed_at: "2026-10-11"
+  assessed_at: 2026-10-14
   assessed_by:
-    - "Claude Sonnet 5.5 (Claude Code)"
+    - Claude Sonnet 5.5 (Claude Code)
+  assessment_id: 0c2689df-e1f1-4925-806c-9113218bb448
   waiver:
     id: no-upstream-english
     blockers:
@@ -57,3 +59,5 @@ notes: |-
   - Bất định còn lại, KHÔNG phân xử được và giữ nguyên bản dịch: (a) 5.2 `samudayadukkhaniccataṁ`: văn bản ghim ghi `-niccataṁ` (a ngắn), tức `niccatā` (tính thường); đọc thành "(a)niccataṁ" (vô thường) là theo giáo lý và bố cục 5.2–5.4 (khổ/tập đối với diệt/vô vi) và đã dùng cho cả vv16:7.2, nhưng không có bài song song hay bản Anh ghim để chứng minh; toàn bộ Pāli root chỉ có đúng hai nơi (vv16, vv41) dùng dạng này, không có hapax tương tự để đối chiếu. (b) 5.3 `dukkhanirodhasassataṁ` là một từ ghép; bản dịch (đồng với vv16:7.3) tách thành "sự diệt tận khổ đau, pháp thường hằng", cách đọc "sự diệt khổ thường hằng" cũng khả dĩ. (c) 2.3 `pabhijjare` ("vang lừng"): động từ gốc nghĩa là tách ra/vỡ ra; vv60:2.3 đọc `pavajjare` (vang). (d) đại từ ngôi nhất của nữ thiên là "ta" trong bài này nhưng "tôi" ở vv1, vv2, vv42, "con" ở vv49: không đổi vì chưa có quy ước chung.
   - Tiêu đề 0.2 `Itthivimāna` vẫn dịch "Chuyện Cung Điện Nữ Hư Không" (sai: Pāli không có `ākāsa`, nghĩa đúng là cung điện của các nữ nhân); lỗi lặp ở cả phẩm nên không sửa riêng một tệp, cần sửa đồng loạt; đã tính vào semantic_fidelity và terminology.
   technical_integrity vẫn 9.6 vì không chạy cổng trong lượt này; cần `npm run validate`, `npm test`, `npm run check`, `npm run build` trước khi chốt.
+
+  Đối chiếu độc lập 2026-10-14: với bản Việt nguyên bài của Bhikkhu Indacanda. 2 chỗ bất đồng nghĩa → sửa 0, giữ 1 (6.3 `pajāpati`: bản nguyên bài thêm "chánh" vào "người vợ"; Pāli chỉ có `aññatarā pajāpati`, "một người vợ", nên giữ), bất định 1 (2.3 `pabhijjare`: bản nguyên bài đọc "các nhóm nhạc cụ được phân hạng ở những đóa sen", bản dự án đọc "vang lừng" theo vv60:2.3 `pavajjare`; động từ gốc nghĩa là tách ra/vỡ ra nên không phân xử được bằng Pāli ghim, giữ nguyên). Các khoá còn lại cùng nghĩa, kể cả cách gán "ngọc ma-ni và vàng, lưới vàng" cho con voi ở 1.1–1.3, `Bārāṇasiyaṁ` ở xử cách (4.1), các vế giáo lý 5.2–5.3 và `vijānisaṁ` chủ động (5.4). Lượt review đối kháng riêng, đo trên tầng vv, sửa 10 khoá: xưng hô nữ thiên nhân ở 4.1–4.4, 5.2, 5.4, 6.1–6.3 đổi "ta" → "tôi" (vv1–vv50: "tôi" là cách xưng chủ đạo của chư thiên nữ trong lời đáp ở khoảng 38 bài, còn "ta" ở khoảng 14 bài chỉ lẻ tẻ 1–5 lần; "ta" là cách Đức Phật tự xưng nên dễ gây hiểu nhầm, và bản dự án trước đó là bài duy nhất trong tầng dùng "ta" cho tám khoá liền; ghi chú (d) cũ về xưng hô vì thế không còn đúng), và 3.4 bỏ dấu chấm thừa sau `?”`. Bản nguyên bài không phân đoạn nên đối chiếu ở mức đoạn, không phải mức khoá; không có bản Anh.

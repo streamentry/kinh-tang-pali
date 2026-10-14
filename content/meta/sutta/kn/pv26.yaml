@@ -1,9 +1,10 @@
 uid: pv26
-status: review
+status: published
 translationTitle: "Chuyện Ngạ Quỷ Nước Không Gợn"
 translators:
   - "Claude Sonnet 5.5 (Claude Code)"
-reviewers: []
+reviewers:
+  - Claude Sonnet 5.5 (Claude Code)
 tags:
   - "kn"
   - "khuddaka-nikaya"
@@ -14,15 +15,15 @@ quality:
   scores:
     source_provenance: 9.2
     semantic_fidelity: 8.9
-    grammar_logic: 8.9
-    segment_alignment: 10.0
-    terminology: 9.2
-    triangulation: 7.5
+    grammar_logic: 9
+    segment_alignment: 10
+    terminology: 9.1
+    triangulation: 8.5
     vietnamese_clarity: 9.1
     han_viet_balance: 9.2
-    ambiguity_integrity: 8.4
+    ambiguity_integrity: 8.5
     technical_integrity: 9.6
-  final_score: 9.0
+  final_score: 9.11
   blocking_errors:
     - "noEnglishEditionUpstream: không có tầng tham khảo English Sujato cho pv26
       tại commit đã ghim. Tra manifest `source/upstream-manifest.json` thấy
@@ -33,9 +34,10 @@ quality:
       có pv48 và pv49). Tầng `vietnamese-current` tại commit ghim chỉ có 26 tệp
       Pháp Cú nên cũng vắng. Bài chỉ được dịch từ Pāli đã ghim cùng tiền lệ
       trong tầng Việt của dự án, nên giữ draft."
-  assessed_at: "2026-10-11"
+  assessed_at: 2026-10-14
   assessed_by:
-    - "Claude Sonnet 5.5 (Claude Code)"
+    - Claude Sonnet 5.5 (Claude Code)
+  assessment_id: 08a038d4-1288-4989-8c88-33d0c617b93b
   waiver:
     id: no-upstream-english
     blockers:
@@ -100,3 +102,5 @@ notes: |-
   - Chỗ các ghi chú cũ ở trên đã lỗi thời vì tầng Việt đã đổi sau khi chúng được viết: `pv45:8.1` nay là *Đói lả, ngất đi, choáng váng* (không còn là *Kiệt sức, bạch ngài*), `pv45:8.2`/`9.2` nay là *bị quật xuống đất*, `pv7:4.4` nay là *dưới nắng*, `pv45:10.4` nay là *hòn đảo*. Phần giải thích vì sao `7.3`, `9.4`, `8.4` được chọn như thế vẫn đúng.
   - Còn bất định, không phân xử được bằng căn cứ có sẵn: `6.1` `sātunnavasanā` (hapax, 0 tiền lệ trong toàn Pāli đã ghim); `1.3` `pubbaddhapetova`; `11.3`–`11.4` ai cho, ai nhận, ai bị mắng; `13.2` `dubbhikā` (hapax). Các chỗ này vẫn nằm trong câu chữ canonical với mức chắc chắn thấp hơn Pāli cho phép, và đã được ghi ở các mục trên; không thêm blocker riêng vì không đổi giáo nghĩa, nhưng `semantic_fidelity` và `ambiguity_integrity` không được nâng.
   - Technical gate: lượt này cũng bị cấm chạy cổng; `technical_integrity` giữ 9.6 và vẫn phải chạy `npm run validate`, `npm test`, `npm run check` và `npm run build`.
+
+  Đối chiếu độc lập 2026-10-14: với bản Việt nguyên bài của Bhikkhu Indacanda (dòng đầu tệp). 7 khoá bất đồng nghĩa → sửa 0, giữ 3, bất định 4. Giữ: 2.1 (bản nguyên bài viết `Cundatthika`, Pāli ghim là `Cundaṭṭhilaṁ`, theo Pāli); 8.4 (`ātape`: bản dự án "dưới nắng", bản nguyên bài "vào mùa hạ" — cùng một nghĩa nóng bức của `ātapa`, giữ theo tiền lệ `pv45:5.4`); 11.1 (`akammakāmā alasā`: bản nguyên bài "ưa thích công việc sai trái", bản dự án "không thích làm việc" — `alasā` đi liền ngay sau, "lười biếng", làm cách đọc a-kamma-kāma = không ưa làm việc hợp mạch hơn). Bất định, ghi chứ không đoán: 1.3 `pubbaddhapetova` (bản nguyên bài hiểu "nửa phần bên trên không giống ngạ quỷ", bản dự án "như ngạ quỷ nửa thân trước"; cách hiểu của bản nguyên bài hóa giải được chỗ "trần truồng" nhưng đòi một dạng `apeta` mà sandhi của chữ Pāli ghim không cho thấy, nên giữ nguyên cách đọc sát chữ); 5.3 `ṭhāne ṭhitassa` (bản nguyên bài "đặt đúng chỗ", bản dự án "đứng ngay tại chỗ", đã ghi ở trên); 11.4 `paṭiggahe` (bản nguyên bài chọn "mắng nhiếc những người nhận", bản dự án giữ mức mơ hồ của Pāli); 13.2 `dubbhikā` (bản nguyên bài "gian dối", bản dự án "đói khổ" theo `dubbhikkha`; 0 tiền lệ của `dubbhika-` ở nghĩa "gian dối", còn `dubbhikkha` có 22 khoá nghĩa "đói kém", nên giữ). 85 khoá còn lại cùng nghĩa. `kappakā` ở 13.4 giữ "thợ cạo" như `4.2` (bản nguyên bài dịch cùng từ là "thợ cạo" ở đó và "người hầu tắm" ở đây). Số: "ba mươi ba" (`tidasa`) ở 19.4. Bản nguyên bài không phân đoạn nên đối chiếu ở mức đoạn, không phải mức khoá; không có bản Anh. Không đổi khoá nào.

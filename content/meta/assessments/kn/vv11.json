@@ -53,6 +53,34 @@
       "notes": "Kiểm tra tự động 37 segment với Pāli trong cache: đủ ID, giá trị, NFC và hệ chữ Latin. Chưa đọc đối chiếu nghĩa, ngữ pháp hoặc văn phong; chưa chấm lại 10 tiêu chí. Đây không phải chứng nhận hash upstream hoặc giấy phép, không xác nhận trạng thái xuất bản.",
       "content_sha256": "c7420e5e3398c70d91700aa55a9eb2cd2cce2189d565fe9eaa99af1f5ab57dc0",
       "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639"
+    },
+    {
+      "target": "translation",
+      "scope": "full",
+      "scores": {
+        "source_provenance": 9,
+        "semantic_fidelity": 8.7,
+        "grammar_logic": 8.8,
+        "segment_alignment": 10,
+        "terminology": 8.5,
+        "triangulation": 8.3,
+        "vietnamese_clarity": 8.8,
+        "han_viet_balance": 9.3,
+        "ambiguity_integrity": 8.5,
+        "technical_integrity": 9.6
+      },
+      "blocking_errors": [
+        "Không có tầng tham khảo tiếng Anh tại commit đã ghim: tệp Anh của bài này không có trong source/upstream-manifest.json (đo được 0/4291 tệp trong thư mục sutta/kn/tha-ap và 0/4291 trong sutta/kn/vv của tầng translation/en/sujato) và cache cũng không có thư mục translation/en/sujato/sutta/kn/tha-ap hay sutta/kn/vv — đây là not-published-upstream, KHÔNG phải not-synced. scripts/validate.ts xếp tệp Anh thiếu là error khi status là review hoặc published, nên bài bắt buộc draft. Tầng vietnamese-current cũng vắng (commit đã ghim chỉ có 26 tệp Pháp Cú) và lớp lấp english-project không có cho bài này, nên ba tầng tham khảo đều vắng và bài dịch chỉ từ Pāli root. Vì đây là giới hạn upstream chứ không phải lỗi người dịch, triangulation bị chặn ở 7.5 (không quá 8.0) chứ không nâng để né blocker."
+      ],
+      "assessed_at": "2026-10-14",
+      "assessed_by": [
+        "Claude Sonnet 5.5 (Claude Code)"
+      ],
+      "notes": "Đối chiếu độc lập 2026-10-14 với bản Việt nguyên bài của Bhikkhu Indacanda, theo đoạn. 1 khoá bất đồng: bất định 1 (6.2 `saṅgahitattabhāvā`), giữ bản dự án, sửa 0; thêm hai chỗ chênh cách đọc không đổi nghĩa (2.2, 5.3). Không có bản Anh nên triangulation 8,3. technical_integrity 9,6: chưa chạy cổng kỹ thuật. Đây là review của AI, không phải chứng nhận của chuyên gia Pāli.",
+      "id": "25abc792-25d8-408c-9027-bfbe51177117",
+      "content_sha256": "f879764c5d28d3eb44ad34b3c1a61cadc713e0a9f251c76fc4bc1463980c3f76",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
+      "final_score": 8.95
     }
   ],
   "legacy_quality": {

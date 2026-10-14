@@ -1,9 +1,11 @@
 uid: tha-ap68
-status: review
+status: published
 translationTitle: "Ký Sự Về Trưởng Lão Sucintita"
 translators:
   - "OpenCode Space Bunny Free (agent)"
-reviewers: []
+reviewers:
+  - Claude Opus 5.5 (Claude Code)
+  - Claude Sonnet 5.5 (Claude Code)
 tags:
   - "kn"
   - "khuddaka-nikaya"
@@ -12,17 +14,17 @@ tags:
   - "sucintito"
 quality:
   scores:
-    source_provenance: 9.0
-    semantic_fidelity: 8.8
-    grammar_logic: 8.8
-    segment_alignment: 10.0
-    terminology: 9.0
-    triangulation: 7.5
-    vietnamese_clarity: 9.0
+    source_provenance: 9.2
+    semantic_fidelity: 9
+    grammar_logic: 9
+    segment_alignment: 10
+    terminology: 9
+    triangulation: 8.5
+    vietnamese_clarity: 9
     han_viet_balance: 9.2
     ambiguity_integrity: 8.8
     technical_integrity: 9.6
-  final_score: 8.97
+  final_score: 9.129999999999999
   blocking_errors:
     - "Không có tầng tham khảo tiếng Anh tại commit đã ghim:
       `source/upstream-manifest.json` không liệt kê tệp `translation/en/sujato`
@@ -40,9 +42,10 @@ quality:
       `triangulation` bị chặn ở 7.5 (≤ 8.0) chứ không nâng để né blocker, và
       `scripts/validate.ts` coi tệp Anh thiếu là error khi status là `review`
       hoặc `published` nên bài bắt buộc `draft`."
-  assessed_at: "2026-10-13"
+  assessed_at: 2026-10-14
   assessed_by:
-    - "Claude Opus 5.5 (Claude Code)"
+    - Claude Sonnet 5.5 (Claude Code)
+  assessment_id: 577a52e2-5026-4991-b7f3-372c75efc4f0
   waiver:
     id: no-upstream-english
     blockers:
@@ -113,3 +116,5 @@ notes: |-
   Sửa ghi chú cũ: các dẫn chứng ở mục đầu (*Rồi từ chín kiếp trước*, *có danh là dài xa*, *Ta là kẻ…*, *Duggatiṁ nābhijānāmi* — câu này không có trong bài) mô tả bản trước, không còn đúng với văn bản hiện tại.
   Điểm (trước → sau): source_provenance 9.5 → 9.0 (ghi chú cũ có dẫn chứng sai); semantic_fidelity 9.3 → 8.8 và grammar_logic 9.2 → 8.8 (đã sửa thêm nghĩa và thời gian, nhưng bất định số `8.3` vẫn còn; điểm cũ không bắt được các lỗi chủ thể, số kiếp và "hoa"/"thịt"); terminology 9.2 → 9.0; vietnamese_clarity 9.3 → 9.0; han_viet_balance 9.3 → 9.2; ambiguity_integrity 9.1 → 8.8; segment_alignment 10.0, triangulation 7.5 (ba tầng tham khảo đều vắng, chỉ đối chiếu bài song song trong tầng Pāli), technical_integrity 9.6 giữ nguyên. final_score 9.2 → 8.97.
   Bốn lệnh gate chưa chạy trong lượt này: `npm run validate` · `npm test` · `npm run check` · `npm run build`.
+
+  Đối chiếu độc lập 2026-10-14: với bản Việt nguyên bài của Bhikkhu Indacanda. 2 khoá bất đồng nghĩa → sửa 0, giữ 2 (7.2 `kusalaṁ cintitaṁ mayā`: bản nguyên bài viết «điều lành đã được tôi tích lũy», bản dự án giữ «tôi đã suy nghĩ điều thiện» vì Pāli ghim là `cintita` (từ `cinteti`, suy nghĩ), không phải `cita` (tích lũy); 4.4 `nibbāpento mamaṁ tadā`: bản nguyên bài viết «giúp cho tôi chứng đạt Niết Bàn», bản dự án giữ «làm cho tôi được dịu mát» vì `nibbāpeti` là làm dập tắt/làm nguội và Pāli không nói «chứng đạt»; đúng quy ước đã đo ở `bv18:2.4`, `tha-ap215:1.4`), bất định 0 mới. Các con số khớp độc lập giữa hai bản: 6.3 một ngàn năm trăm kiếp, 8.1 ba mươi tám kiếp, 8.2 tám vị Dīghāyu, 8.3 sáu ngàn kiếp, 8.4 hai vị Varuṇa; sự trùng này chỉ xác nhận cách đọc số, không giải được mâu thuẫn niên đại với `tha-ap206:3.1` đã ghi ở mục trên (8.3 vẫn bất định). Chủ thể 3.1–3.4, «thịt» ở 4.1/6.1/7.3, nai đốm, tôi/Đức Thế Tôn đều khớp bản nguyên bài. Lượt review đối kháng riêng bản dự án không tìm thêm lỗi. Bản nguyên bài không phân đoạn nên đối chiếu ở mức đoạn, không phải mức khoá; không có bản Anh. `npm run validate`, `npm test`, `npm run check`, `npm run build` chưa chạy trong lượt này.

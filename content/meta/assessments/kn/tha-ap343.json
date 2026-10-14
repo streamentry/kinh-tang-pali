@@ -53,6 +53,34 @@
       "notes": "Kiểm tra tự động 45 segment với Pāli trong cache: đủ ID, giá trị, NFC và hệ chữ Latin. Chưa đọc đối chiếu nghĩa, ngữ pháp hoặc văn phong; chưa chấm lại 10 tiêu chí. Đây không phải chứng nhận hash upstream hoặc giấy phép, không xác nhận trạng thái xuất bản.",
       "content_sha256": "43cbd49e24565828cff7eec24baae1fa92862cc821e67605149fb25abdf16327",
       "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639"
+    },
+    {
+      "target": "translation",
+      "scope": "full",
+      "scores": {
+        "source_provenance": 9.2,
+        "semantic_fidelity": 8.8,
+        "grammar_logic": 8.9,
+        "segment_alignment": 10,
+        "terminology": 8.6,
+        "triangulation": 8.4,
+        "vietnamese_clarity": 8.9,
+        "han_viet_balance": 9.2,
+        "ambiguity_integrity": 8.5,
+        "technical_integrity": 9.6
+      },
+      "blocking_errors": [
+        "Không có tầng tham khảo English Sujato tại commit đã ghim: đã đối chiếu `source/upstream-manifest.json` (commit 11c9d708978cde8ba61096d8a75f7ddfb846f639, tầng `english-sujato` treeSha 24e81ded9d6710e16b277b6394fd57c48258da12, 4.291 tệp) — thư mục con của `kn/` trong tầng đó chỉ có `thag` (264 tệp), KHÔNG có `mil` hay `tha-ap`; tệp `sutta/kn/tha-ap/tha-ap343_translation-en-sujato.json` không tồn tại và cache đã ghin `.cache/upstream/suttacentral/translation/en/sujato/sutta/kn/tha-ap/` cũng không có ⇒ `not-published-upstream`, không phải `not-synced`. Tầng `vietnamese-current` tại commit đã ghim chỉ có 26 tệp, toàn bộ là Pháp Cú, không có Khuddaka Nikāya; lớp lấp `english-project` không có uid này. Bài dịch chỉ từ Pāli root, chưa đối chiếu được tầng tham khảo nào nên bắt buộc giữ `draft`."
+      ],
+      "assessed_at": "2026-10-14",
+      "assessed_by": [
+        "Claude Sonnet 5.5 (Claude Code)"
+      ],
+      "notes": "Đối chiếu độc lập 2026-10-14 với bản Việt nguyên bài của Bhikkhu Indacanda, theo đoạn. 2 khoá bất đồng: giữ 1 (8.2), bất định 1 (1.3 `bhavābhave vibhāvento`), sửa 0. Chủ thể 4.1–5.4 và số khớp. Không có bản Anh nên triangulation 8,4. technical_integrity 9,6: chưa chạy cổng kỹ thuật. Đây là review của AI, không phải chứng nhận của chuyên gia Pāli.",
+      "id": "7a937c71-f3cc-47f5-b333-654d202787af",
+      "content_sha256": "6796cbd9d45f1792c40ee6b9a91c86f5ff4b376a624846fad83e4ea8269f63dd",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
+      "final_score": 9.01
     }
   ],
   "legacy_quality": {

@@ -53,6 +53,34 @@
       "notes": "Kiểm tra tự động 42 segment với Pāli trong cache: đủ ID, giá trị, NFC và hệ chữ Latin. Chưa đọc đối chiếu nghĩa, ngữ pháp hoặc văn phong; chưa chấm lại 10 tiêu chí. Đây không phải chứng nhận hash upstream hoặc giấy phép, không xác nhận trạng thái xuất bản.",
       "content_sha256": "23aea9fb286df49b7809072e19b61df41e220d6902d9d8815b9fa330788f6c14",
       "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639"
+    },
+    {
+      "target": "translation",
+      "scope": "full",
+      "scores": {
+        "source_provenance": 9.5,
+        "semantic_fidelity": 8.7,
+        "grammar_logic": 8.8,
+        "segment_alignment": 10,
+        "terminology": 8.6,
+        "triangulation": 8.2,
+        "vietnamese_clarity": 8.8,
+        "han_viet_balance": 9.2,
+        "ambiguity_integrity": 8.5,
+        "technical_integrity": 9.6
+      },
+      "blocking_errors": [
+        "Không có tầng tham khảo tiếng Anh tại commit đã ghim: tệp `translation/en/sujato/sutta/kn/vv17/` không tồn tại trong `.cache/upstream/suttacentral/`, và `source/upstream-manifest.json` (edition `english-sujato`, treeSha 24e81ded9d6710e16b277b6394fd57c48258da12, 4.291 tệp) chỉ có đúng hai tệp liên quan — `name/sutta/tha-ap-name…` và `name/sutta/vv-name…` — tức là KHÔNG có tệp thân bài nào cho `tha-ap` hay `vv`. Đây là `not-published-upstream`, KHÔNG phải `not-synced`. `scripts/validate.ts` xếp tệp Anh thiếu là error khi status là `review` hoặc `published`, nên bài bắt buộc `draft`. Tầng `vietnamese-current` cũng vắng: `translation/vi/phantuananh` tại commit đã ghim chỉ có 26 tệp và toàn bộ là Pháp Cú. Lớp lấp `english-project` của dự án cũng không có cho uid này. Ba tầng tham khảo đều vắng ⇒ bài dịch chỉ từ Pāli root. Vì đây là giới hạn của upstream chứ không phải lỗi của người dịch, `triangulation` bị chặn ở 7.5 (≤ 8.0) chứ không nâng để né blocker."
+      ],
+      "assessed_at": "2026-10-14",
+      "assessed_by": [
+        "Claude Sonnet 5.5 (Claude Code)"
+      ],
+      "notes": "Đối chiếu độc lập ngày 2026-10-14 với bản Việt nguyên bài của Bhikkhu Indacanda (không phân đoạn, đối chiếu ở mức đoạn), trên toàn bộ 42 khoá của vv17. Sáu chỗ bất đồng nghĩa với bản nguyên bài, phân xử bằng Pāli và tiền lệ tầng: giữ 4 (2.2, 4.3–4.4, 6.2/7.4, 10.3), bất định 2 (2.3, 7.1), sửa 0. Review đối kháng riêng không tìm thêm lỗi thật nào cần sửa văn bản. Các lỗi nghĩa mà lượt 2026-10-11 đã sửa (`sasī` ở 3.1, `anomadassane` ở 4.1, so sánh Phạm thiên ở 4.3–4.4, `Bārāṇasī` ở 5.3) đều được bản nguyên bài xác nhận độc lập, nên bớt nghi ngờ. Điều còn lại là bất định chứ không phải lỗi: `pubbadevatā` (2.4), `kesakārikā` (5.4), 2.3 và 7.1 như nêu trong ghi chú. Các tiêu đề lặp sai ở cả phẩm (Nữ Hư Không, Phẩm Pīṭha) vẫn nằm ngoài lane. Không có bản Anh: `triangulation` trần 8,8, đặt 8,2 vì đối chiếu chỉ ở mức đoạn và hai bất định chưa phân xử được. Blocker `noEnglishEditionUpstream` giữ nguyên. technical_integrity 9,6 vì không chạy `npm run validate`, `npm test`, `npm run check`, `npm run build` trong lượt này. Đây là review của AI, không phải chứng nhận của chuyên gia Pāli.",
+      "id": "64201d69-c628-4413-beab-44c4d889a054",
+      "content_sha256": "ff54687630545801b83e72a6f2077c6985c3583b23d9f755ec445a113e5d33ce",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
+      "final_score": 8.989999999999998
     }
   ],
   "legacy_quality": {

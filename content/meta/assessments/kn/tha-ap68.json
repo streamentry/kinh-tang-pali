@@ -53,6 +53,34 @@
       "notes": "Kiểm tra tự động 40 segment với Pāli trong cache: đủ ID, giá trị, NFC và hệ chữ Latin. Chưa đọc đối chiếu nghĩa, ngữ pháp hoặc văn phong; chưa chấm lại 10 tiêu chí. Đây không phải chứng nhận hash upstream hoặc giấy phép, không xác nhận trạng thái xuất bản.",
       "content_sha256": "1d490143a2992c005e9f09e2a43bbacafb84c66d133a5c55015e91d0c58f834c",
       "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639"
+    },
+    {
+      "target": "translation",
+      "scope": "full",
+      "scores": {
+        "source_provenance": 9.2,
+        "semantic_fidelity": 9,
+        "grammar_logic": 9,
+        "segment_alignment": 10,
+        "terminology": 9,
+        "triangulation": 8.5,
+        "vietnamese_clarity": 9,
+        "han_viet_balance": 9.2,
+        "ambiguity_integrity": 8.8,
+        "technical_integrity": 9.6
+      },
+      "blocking_errors": [
+        "Không có tầng tham khảo tiếng Anh tại commit đã ghim: `source/upstream-manifest.json` không liệt kê tệp `translation/en/sujato` nào cho uid này (edition Sujato có 4.291 tệp, đều thuộc cp/dhp/iti/ja/kp/snp/thag/thig/ud; thư mục `kn/tha-ap` và `kn/thi-ap` vắng mặt), và `.cache/upstream/suttacentral/translation/en/sujato/sutta/kn/tha-ap/` không tồn tại — đây là `not-published-upstream`, KHÔNG phải `not-synced`. Coverage đo theo công thức `source/layers.yaml` (Pāli có nội dung ≥ 40 ký tự, loại block tham chiếu `:0`): 0/1 khoá = 0%, dưới ngưỡng 0.8. Tầng `vietnamese-current` cũng vắng (commit đã ghim chỉ có 26 tệp, toàn bộ là Pháp Cú), và lớp lấp `english-project` của dự án không có cho uid này. Ba tầng tham khảo đều vắng ⇒ bài dịch chỉ từ Pāli root ⇒ blocker thật, đây là giới hạn upstream chứ không phải lỗi của người dịch. Vì vậy `triangulation` bị chặn ở 7.5 (≤ 8.0) chứ không nâng để né blocker, và `scripts/validate.ts` coi tệp Anh thiếu là error khi status là `review` hoặc `published` nên bài bắt buộc `draft`."
+      ],
+      "assessed_at": "2026-10-14",
+      "assessed_by": [
+        "Claude Sonnet 5.5 (Claude Code)"
+      ],
+      "notes": "Đối chiếu độc lập với bản Việt nguyên bài của Bhikkhu Indacanda ở mức đoạn (bài 40 khoá, kệ ngắn nên đối chiếu được gần như từng cặp): 2 khoá bất đồng nghĩa (7.2 cintita vs «tích lũy»; 4.4 nibbāpento vs «chứng đạt Niết Bàn»), cả hai giữ bản dự án theo Pāli và quy ước đã đo; sửa 0. Mọi số kiếp (1.500, 38, 8, 6.000, 2) khớp độc lập. Bất định còn lại: 8.3 (mâu thuẫn niên đại với tha-ap206:3.1) chưa phân xử được, nên ambiguity_integrity 8.8. Không có bản Anh. Cổng kỹ thuật chưa chạy: `npm run validate`, `npm test`, `npm run check`, `npm run build`. Đây là review của AI, không phải chứng nhận của chuyên gia Pāli.",
+      "id": "577a52e2-5026-4991-b7f3-372c75efc4f0",
+      "content_sha256": "57ba44ea939e01bd341a08df6b95024c68ba6a3518b1dd55d52cad704641aa69",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
+      "final_score": 9.129999999999999
     }
   ],
   "legacy_quality": {

@@ -3,7 +3,8 @@ status: review
 translationTitle: "Chuyện Cung Điện Soṇadinnā"
 translators:
   - "OpenCode Space Bunny Free (agent)"
-reviewers: []
+reviewers:
+  - Claude Sonnet 5.5 (Claude Code)
 tags:
   - "kn"
   - "khuddaka-nikaya"
@@ -14,16 +15,16 @@ tags:
 quality:
   scores:
     source_provenance: 8.5
-    semantic_fidelity: 8.7
+    semantic_fidelity: 8.8
     grammar_logic: 8.8
-    segment_alignment: 10.0
+    segment_alignment: 10
     terminology: 8.8
-    triangulation: 7.0
+    triangulation: 8.4
     vietnamese_clarity: 8.8
-    han_viet_balance: 9.0
-    ambiguity_integrity: 8.0
+    han_viet_balance: 9
+    ambiguity_integrity: 8
     technical_integrity: 9.6
-  final_score: 8.72
+  final_score: 8.870000000000001
   blocking_errors:
     - "Không có tầng tham khảo tiếng Anh tại commit đã ghim
       (11c9d708978cde8ba61096d8a75f7ddfb846f639).
@@ -45,9 +46,10 @@ quality:
       tham khảo đều vắng ⇒ bài dịch chỉ từ Pāli root ⇒ **blocker thật**, thuộc
       giới hạn của bản chụp upstream. `triangulation` bị chặn ở **7,5** (≤ 8,0)
       chứ không nâng lên để né blocker."
-  assessed_at: "2026-10-11"
+  assessed_at: 2026-10-14
   assessed_by:
-    - "Claude Sonnet 5.5 (Claude Code)"
+    - Claude Sonnet 5.5 (Claude Code)
+  assessment_id: 06ba8ff3-1dbc-43c3-9470-185024f0588c
   waiver:
     id: no-upstream-english
     blockers:
@@ -169,3 +171,5 @@ notes: |-
   *Điểm hạ và lý do:* `source_provenance` 9,5→8,5 (khẳng định nguồn từ vựng trong ghi chú cũ không kiểm lại được/sai); `semantic_fidelity` 9,0→8,7; `grammar_logic` 9,0→8,8 (hô cách, thì động từ, ablative đã sửa nhưng công thức `:4.4` vẫn rút gọn); `terminology` 9,2→8,8; `triangulation` 7,5→7,0 (không có bản Anh; đối chiếu chỉ bằng tiền lệ Pāli trong tầng, không có từ điển); `vietnamese_clarity` 9,2→8,8; `han_viet_balance` 9,2→9,0; `ambiguity_integrity` 8,8→8,0 (bản cũ nói chắc nghĩa bịa). `segment_alignment` 10,0 và `technical_integrity` 9,6 giữ. `final_score` 9,10→8,72 (mean thô).
   *Cố ý KHÔNG đổi dù nghi ngờ:* `:6.3` `ujubhūtesu` *những vị chân thành* (`ujubhūta` sát nghĩa là *ngay thẳng*; giữ vì 8 khoá `vv`/`pv` cùng dùng *chân thành*, đổi một bài sẽ lệch tiền lệ — gợi ý người biên tập thống nhất cả họ); `:10.3` *Đấng Có Mắt Tuệ* (`cakkhumā` = "bậc có mắt"; *Tuệ* là thêm nhẹ nhưng 12/12 khoá cùng dùng); `:4.4` `yassa kammassidaṁ phalaṁ` — *quả báo của nghiệp này là thế* bỏ mệnh đề quan hệ "của nghiệp nào" (công thức chung toàn tầng); `:1.4` `osadhī … tārakā` = *sao mai* theo tiền lệ; tiêu đề `Itthivimāna` = *Nữ Hư Không* (không có `ākāsa` trong Pāli; lặp ~51 tệp `vv`, không sửa riêng một tệp).
   *Blocker còn lại:* chỉ blocker upstream (không có tầng tham khảo tiếng Anh). Các lỗi nghĩa nêu trên đã sửa trong lượt này nên không ghi thêm blocker. Cổng kỹ thuật vẫn chưa chạy (`npm run validate` · `npm test` · `npm run check` · `npm run build`); do `final_score` 8,72 ≤ 9,0, trạng thái theo cổng là `review`, chờ công cụ chấm cập nhật.
+
+  **Đối chiếu độc lập 2026-10-14:** với bản Việt nguyên bài của Bhikkhu Indacanda. 2 khoá bất đồng nghĩa → sửa 1 (`4.4` `yassa kammassidaṁ phalaṁ`: trước “quả báo của nghiệp này là thế” → sau “đây là quả báo của nghiệp nào”, vì `yassa kammassa` là đại từ quan hệ-nghi vấn “của nghiệp nào”, không phải chỉ định “này”; bản nguyên bài cũng hiểu “nghiệp nào”; khớp `vv4:4.4`, `vv12:3.4`, `vv55:4.4`; đây đảo quyết định giữ nguyên theo công thức tầng ở lượt 2026-10-11), giữ 1 (`7.3` `pāṭihāriyapakkha`: bản nguyên bài viết “những ngày phụ trội của nửa tháng”, bản dự án giữ nghĩa đen “nửa tháng thần biến”, theo `pakkha` = nửa tháng). Bản nguyên bài (theo bản đọc khác) có thêm một khổ hỏi ở giữa và một khổ kết mà Pāli ghim không có; đó là phần thừa của bản nguyên bài, không tính bất đồng. Số: 14, 15, thứ tám (7.1–7.2), năm giới (10.1), thứ sáu (12.1) đều khớp. Bản nguyên bài không phân đoạn nên đối chiếu ở mức đoạn, không phải mức khoá; không có bản Anh. Đây là review của AI, không phải chứng nhận của chuyên gia Pāli.

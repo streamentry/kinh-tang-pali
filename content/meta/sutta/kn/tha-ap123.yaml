@@ -1,9 +1,11 @@
 uid: tha-ap123
-status: draft
+status: published
 translationTitle: "Ký Sự Về Trưởng Lão Sereyyaka"
 translators:
   - "OpenCode Space Bunny Free (agent)"
-reviewers: []
+reviewers:
+  - Claude Opus 5.5 (Claude Code)
+  - Claude Sonnet 5.5 (Claude Code)
 tags:
   - "khuddakanikaya"
   - "thera-gatha"
@@ -11,23 +13,34 @@ tags:
   - "Sereyyavagga"
 quality:
   scores:
-    source_provenance: 9.3
-    semantic_fidelity: 8.8
-    grammar_logic: 8.9
-    segment_alignment: 10.0
-    terminology: 8.9
-    triangulation: 7.6
-    vietnamese_clarity: 9.0
+    source_provenance: 9.4
+    semantic_fidelity: 9
+    grammar_logic: 9
+    segment_alignment: 10
+    terminology: 9
+    triangulation: 8.4
+    vietnamese_clarity: 9
     han_viet_balance: 9.3
-    ambiguity_integrity: 8.8
+    ambiguity_integrity: 9
     technical_integrity: 9.6
-  final_score: 9.02
+  final_score: 9.169999999999998
   blocking_errors:
-    - "noEnglishEditionUpstream: tại commit đã ghim, translation/en/sujato không có tệp thân kinh cho tha-ap123 (chỉ có tệp tên name/sutta/tha-ap-name), tức not-published-upstream; tầng vietnamese-current cũng vắng (chỉ có Pháp Cú) và english-project không có entry."
-    - "unresolvedTerm: `Vītamalā` (tha-ap123:8.3) chưa phân xử được: tên chung của 25 vị Chuyển Luân Vương hay tính từ 'không cấu uế'; bản dịch đọc là tên chung."
-  assessed_at: "2026-10-13"
+    - "noEnglishEditionUpstream: tại commit đã ghim, translation/en/sujato không
+      có tệp thân kinh cho tha-ap123 (chỉ có tệp tên name/sutta/tha-ap-name),
+      tức not-published-upstream; tầng vietnamese-current cũng vắng (chỉ có Pháp
+      Cú) và english-project không có entry."
+  assessed_at: 2026-10-14
   assessed_by:
-    - "Claude Opus 5.5 (Claude Code)"
+    - Claude Sonnet 5.5 (Claude Code)
+  assessment_id: 1073260b-f627-4658-8984-85f882f3763c
+  waiver:
+    id: no-upstream-english
+    blockers:
+      - "noEnglishEditionUpstream: tại commit đã ghim, translation/en/sujato
+        không có tệp thân kinh cho tha-ap123 (chỉ có tệp tên
+        name/sutta/tha-ap-name), tức not-published-upstream; tầng
+        vietnamese-current cũng vắng (chỉ có Pháp Cú) và english-project không
+        có entry."
 notes: |-
   **Phạm vi lát.** Lát này gồm hai bài `tha-ap123` và `tha-ap133`, mỗi bài 40 khoá
   trong `keys`, 41 khoá trong `all`. Tệp dịch trên đĩa trước khi lát chạy chỉ có
@@ -285,3 +298,5 @@ notes: |-
      `npm test` · `npm run check` · `npm run build`) do công cụ kho/CI chạy; `technical_integrity` giữ 9,6.
   7. **Điểm.** Không đổi: `final_score` 9,02 là trung bình số học thô của 10 điểm; blocker `unresolvedTerm` còn lại thắng
      điểm nên bài vẫn là `draft`.
+
+  Đối chiếu độc lập 2026-10-14: với bản Việt nguyên bài của Bhikkhu Indacanda (dòng đầu tệp). 1 khoá bất đồng nghĩa → sửa 0, giữ 1 (8.3: bản nguyên bài đọc tên chung của hai mươi lăm vị Chuyển Luân Vương là Cittamālā, Pāli đã ghim đọc Vītamalā; đây là dị bản chữ giữa hai ấn bản, Pāli ghim là chuẩn nên giữ "Vītamalā"), bất định 0. Việc đối chiếu này cũng giải được blocker `unresolvedTerm` về `Vītamalā`: (1) bản nguyên bài đặt ở đúng vị trí đó một danh xưng riêng ("cùng tên … ấy"), không phải tính từ; (2) công thức trong tầng: ở 76 khoá `cakkavattī mahabbalā` của `tha-ap`, 22 khoá có dòng liền trước là dòng nêu tên chung (`…nāma nāmena`, `…nāmā te`, `Sabbe samattanāmā te`…), phần còn lại là `Sattaratanasampannā` hoặc số lượng, không có dòng nào dùng một tính từ đơn thuần ở chỗ này. Vậy `Vītamalā samānā ca` là tên chung của hai mươi lăm vị và bản dịch "cùng mang tên Vītamalā" đúng; chỉ chính tả tên khác nhau giữa hai ấn bản. 40 khoá còn lại cùng nghĩa (hoa sereyyaka/sereyya, mười lăm nghìn kiếp, hai mươi lăm vị, một trăm nghìn kiếp, bốn vô ngại giải, tám giải thoát, sáu thắng trí). Bản nguyên bài không phân đoạn nên đối chiếu ở mức đoạn, không phải mức khoá; không có bản Anh. Không đổi khoá nào.

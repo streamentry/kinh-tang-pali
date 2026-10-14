@@ -27,6 +27,34 @@
       "notes": "Kiểm tra tự động 53 segment với Pāli trong cache: đủ ID, giá trị, NFC và hệ chữ Latin. Chưa đọc đối chiếu nghĩa, ngữ pháp hoặc văn phong; chưa chấm lại 10 tiêu chí. Đây không phải chứng nhận hash upstream hoặc giấy phép, không xác nhận trạng thái xuất bản.",
       "content_sha256": "aee320fd9f814ae61116e97cd3788fd102a07146e18ed8401f3f3837bd8c3caf",
       "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639"
+    },
+    {
+      "target": "translation",
+      "scope": "full",
+      "scores": {
+        "source_provenance": 9.5,
+        "semantic_fidelity": 9,
+        "grammar_logic": 9,
+        "segment_alignment": 10,
+        "terminology": 8.8,
+        "triangulation": 8.4,
+        "vietnamese_clarity": 9,
+        "han_viet_balance": 9.2,
+        "ambiguity_integrity": 8.8,
+        "technical_integrity": 9.6
+      },
+      "blocking_errors": [
+        "Không có tầng tham khảo tiếng Anh tại commit đã ghim: trong source/upstream-manifest.json, cây english-sujato (4291 tệp) liệt kê 0 tệp dưới kn/mil, trong khi cây pali (5764 tệp) liệt kê 248 tệp kn/mil; .cache/upstream/suttacentral/translation/en/sujato/sutta/kn/ chỉ có cp, dhp, iti, ja, kp, snp, thag, thig, ud — không có mil. Tệp mil6.1.9_translation-en-sujato.json không tồn tại trong cache, nên đây là not-published-upstream, KHÔNG phải not-synced. Đo coverage theo đúng công thức src/lib/canon/reference.ts (prose >= 40 ký tự sau khi gộp khoảng trắng, loại block tham chiếu :0) cho mẫu số 42/53 khoá, Sujato phủ 0 ⇒ 0.0%, dưới ngưỡng 0.8 khai trong source/layers.yaml."
+      ],
+      "assessed_at": "2026-10-14",
+      "assessed_by": [
+        "Claude Sonnet 5.5 (Claude Code)"
+      ],
+      "notes": "Đối chiếu độc lập 2026-10-14 với bản Việt nguyên bài của Bhikkhu Indacanda ở mức đoạn: 6 khoá bất đồng (5 chỗ), sửa 0, giữ 4 (trong đó 8.9 giữ phủ định `na saddāyati` theo Pāli, bản nguyên bài khẳng định), bất định 1 (2.1 `vekatikavekatikaṁ`, hapax). Không có bản Anh nên triangulation chỉ gồm Pāli và một bản Việt, 8,4. Các tiêu chí khác giữ như lượt chấm trước. technical_integrity 9,6: chưa chạy npm run validate, npm test, npm run check, npm run build. Đây là review của AI, không phải chứng nhận của chuyên gia Pāli.",
+      "id": "2171550a-b205-44e7-bb52-9ba71c42033b",
+      "content_sha256": "38eddd514b830b5175b9a5244518986ed6b8815772278d12db3650ca4978949c",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
+      "final_score": 9.129999999999999
     }
   ],
   "legacy_quality": {

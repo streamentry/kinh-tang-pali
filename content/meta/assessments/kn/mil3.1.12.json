@@ -53,6 +53,34 @@
       "notes": "Kiểm tra tự động 18 segment với Pāli trong cache: đủ ID, giá trị, NFC và hệ chữ Latin. Chưa đọc đối chiếu nghĩa, ngữ pháp hoặc văn phong; chưa chấm lại 10 tiêu chí. Đây không phải chứng nhận hash upstream hoặc giấy phép, không xác nhận trạng thái xuất bản.",
       "content_sha256": "62fdd0921b1a5dde620e4b4a85a3320d9a97bec66596615db1941f6cc5e6822e",
       "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639"
+    },
+    {
+      "target": "translation",
+      "scope": "full",
+      "scores": {
+        "source_provenance": 9.4,
+        "semantic_fidelity": 8.8,
+        "grammar_logic": 8.8,
+        "segment_alignment": 10,
+        "terminology": 8.7,
+        "triangulation": 8,
+        "vietnamese_clarity": 8.9,
+        "han_viet_balance": 9,
+        "ambiguity_integrity": 8.8,
+        "technical_integrity": 9.6
+      },
+      "blocking_errors": [
+        "Không có tầng tham khảo English tại commit đã ghim: `source/upstream-manifest.json` không liệt kê `translation/en/sujato/sutta/kn/mil/mil3.1.12_translation-en-sujato.json` (đã đếm bằng script trên cả bốn tệp `mil3.1.12`, `mil3.4.2`, `mil3.5.1`, `mil3.5.5` — cả bốn đều vắng). Đo bằng chính `englishCoverageFor` của repo: 0 / 7 segment Pāli có nội dung (≥ 40 ký tự) mang chữ Anh = 0%. Dưới ngưỡng 80%, mà đợt này tôi bị cấm sửa `content/meta/reference-gaps.yaml` nên gap chưa được ghi nhận; `validate` sẽ đỏ. Bài bị ép `draft` dù điểm không đến mức đó. Người biên tập chạy `npm run reference:gaps` rồi xét lại."
+      ],
+      "assessed_at": "2026-10-14",
+      "assessed_by": [
+        "Claude Sonnet 5.5 (Claude Code)"
+      ],
+      "notes": "Đối chiếu độc lập với bản Việt nguyên bài của Bhikkhu Indacanda ở mức đoạn: 5 khoá bất đồng nghĩa, cả 5 là lỗi của bản dự án và đã sửa (2.2 ngôi nhà đang sập bị dịch thành rơi xuống hố; 1.3, 2.3, 3.3 mất `upatthambhana` «chống đỡ»; 3.2 đảo chủ ngữ và tân ngữ của hai đạo quân và đặt nhầm nghĩa «xem xét, thẩm định»). Các khoá còn lại hai bản cùng nghĩa. Bất định còn lại: hai động từ hapax `anussāreyya anupeseyya` ở 3.2. Bài ngắn (18 khoá), không bản Anh, không bản Việt phân đoạn; triangulation chỉ gồm Pāli + một bản Việt độc lập nguyên bài nên giữ dưới trần 8,8 vì bản nguyên bài diễn giải rộng. Cổng kỹ thuật chưa chạy: `npm run validate`, `npm test`, `npm run check`, `npm run build`. Đây là review của AI, không phải chứng nhận của chuyên gia Pāli.",
+      "id": "56fb2616-2d8e-4c95-8166-d5a8b75a2f0a",
+      "content_sha256": "7730797ee6fd82006a945d564b0edd1f495490550f950da0391ee07196e86e6e",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
+      "final_score": 8.999999999999998
     }
   ],
   "legacy_quality": {

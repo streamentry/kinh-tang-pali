@@ -1,9 +1,11 @@
 uid: mil7.2.8
-status: review
+status: published
 translationTitle: "Câu Hỏi Về Phần Của Cây Cung"
 translators:
   - "OpenCode Space Bunny Free (agent)"
-reviewers: []
+reviewers:
+  - Claude Opus 5.5 (Claude Code)
+  - Claude Sonnet 5.5 (Claude Code)
 tags:
   - khuddaka-nikaya
   - milindapanha
@@ -12,17 +14,17 @@ tags:
   - cau-hoi-ve-phan-cua-cay-cung
 quality:
   scores:
-    source_provenance: 9.5
-    semantic_fidelity: 8.8
+    source_provenance: 9.4
+    semantic_fidelity: 8.9
     grammar_logic: 8.9
-    segment_alignment: 10.0
+    segment_alignment: 10
     terminology: 8.8
-    triangulation: 7.5
-    vietnamese_clarity: 9.0
-    han_viet_balance: 9.3
-    ambiguity_integrity: 8.6
+    triangulation: 8.3
+    vietnamese_clarity: 9
+    han_viet_balance: 9.2
+    ambiguity_integrity: 8.8
     technical_integrity: 9.6
-  final_score: 9.0
+  final_score: 9.09
   blocking_errors:
     - "Không có tầng tham khảo tiếng Anh tại commit đã ghim: 0/14 bài của lát w6
       có tệp `*_translation-en-sujato.json`. Đã đếm ở nguồn sự thật là
@@ -33,9 +35,10 @@ quality:
       tệp, toàn bộ là Pháp Cú. Lớp lấp English của chính dự án cũng không có cho
       14 uid này. Bài dịch chỉ từ Pāli root nên chưa đối chiếu được tầng tham
       khảo đã ghim; giữ draft."
-  assessed_at: "2026-10-13"
+  assessed_at: 2026-10-14
   assessed_by:
-    - "Claude Opus 5.5 (Claude Code)"
+    - Claude Sonnet 5.5 (Claude Code)
+  assessment_id: bbfe2645-19a3-4231-9131-19546035971c
   waiver:
     id: no-upstream-english
     blockers:
@@ -137,3 +140,5 @@ notes: |-
   BẤT ĐỊNH CÒN LẠI (chưa phân xử được, giữ nguyên): (1) `ūnudara` — dịch «bụng thon» theo ja546:153.1 (`ūna` + `udara`, nghĩa đen «bụng thiếu/hóp»); trong ngữ cảnh Milinda (cây cung biết cong theo) có thể mang sắc thái «biết cúi mình» chứ không chỉ «gầy», nhưng không tra được chú giải nào trong kho để quyết; vế 154 ngay sau đó (`appāsī` «ăn ít») cho thấy ja546 hiểu theo nghĩa thân hình gọn. (2) `sutacchito namito` — `namito` vừa có thể là «đã cong/được uốn thành hình» vừa là «khi bị uốn» như dịch; giữ «khi bị uốn». (3) `yāvaggamūlaṁ` — «từ ngọn đến gốc» là cách đọc compound (`yāva` + `agga` + `mūla`), không có bản đối chiếu độc lập. (4) `pakampaye` — «biết uốn mình» theo ja546; nghĩa đen là «rung, lay». Điều này, cùng việc vẫn không có tầng Anh/Việt hiện hành độc lập, giữ triangulation 7.5 và hạ ambiguity_integrity 9.0 → 8.6.
   KHÔNG đổi dù nghi ngờ: 0.2 «Câu hỏi về cách dùng dẫn với ví dụ» (gượng, nhưng là quy ước chung của phần lớn các bài trong phẩm cùng tên; đổi lẻ một bài sẽ phá nhất quán); `tôn giả`/`bhante` (quy ước của các bài lân cận). Ngoài lát, báo: mil7.2.1, mil7.2.3–7.2.7, mil7.2.10 còn «Phẩm Con Sóc» ở `:0.3` (xem mục sửa lan ở trên); mil7.2.1, mil7.2.4, mil7.3.5, mil7.3.7, mil7.6.4, mil7.6.5, mil7.6.9, mil7.7.2, mil7.7.3, mil7.7.7, mil7.8.1 (11 tệp) còn dịch `devātideva` là «đấng Thiên Nhân», và mil7.3.10 dịch «bậc Thiên Nhân».
   technical_integrity giữ 9.6; chưa chạy `npm run validate`, `npm test`, `npm run check`, `npm run build` trong lượt này. Kiểm thủ công: 14/14 khoá, tập khoá và thứ tự khoá khớp Pāli, nháy `‘’` và `“”` khớp Pāli từng khoá, NFC, không khoảng trắng thừa, không Pāli lọt sang (chỉ tên riêng Nāgasena, Puṇṇaka, Vidhura), không `…`.
+
+  Đối chiếu độc lập 2026-10-14: với bản Việt nguyên bài của Bhikkhu Indacanda. 2 khoá bất đồng nghĩa → sửa 0, giữ 1 (2.1: bản nguyên bài hiểu `cāpovūnudaro` là «uốn cong như cây cung»; bản dự án giữ «bụng thon như cây cung» vì chính Pāli ghim ở `ja546:154.1–4` đặt `cāpovūnudaro assa` cạnh `appāsī` (ăn ít) và `macchovassa ajivhavā`, nên `ūna` + `udara` là thân hình gọn; chưa có chú giải trong tầng ghim để quyết hẳn), bất định 1 (1.3: `theranavamajjhimasamakesu` — bản nguyên bài hiểu `samaka` là «tương tự như nhau» cho cả ba hạng trưởng lão, mới tu, trung niên; bản dự án đếm bốn hạng, `samaka` là «các vị ngang hàng»; compound này không có chỗ thứ hai trong Pāli ghim, nên giữ cách đọc bốn hạng và ghi bất định). Các khoá còn lại hai bản cùng nghĩa (cấu trúc cây cung đẽo khéo, uốn cong đều, không cứng lại chống cự; Vidhura/Puṇṇaka; kệ). Lượt review đối kháng riêng bản dự án không tìm thêm lỗi nghĩa, nháy `‘’` `“”` khớp Pāli từng khoá, không có `…`. Bản nguyên bài không phân đoạn nên đối chiếu ở mức đoạn, không phải mức khoá; không có bản Anh. `npm run validate`, `npm test`, `npm run check`, `npm run build` chưa chạy trong lượt này.

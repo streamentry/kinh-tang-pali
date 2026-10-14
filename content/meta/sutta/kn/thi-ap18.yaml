@@ -1,9 +1,10 @@
 uid: thi-ap18
-status: review
+status: published
 translationTitle: "Ký Sự Về Trưởng Lão Ni Khemā"
 translators:
   - "Claude Sonnet 5.5 (Claude Code)"
-reviewers: []
+reviewers:
+  - Claude Sonnet 5.5 (Claude Code)
 tags:
   - "kn"
   - "khuddaka-nikaya"
@@ -12,17 +13,17 @@ tags:
   - "khemā"
 quality:
   scores:
-    source_provenance: 9.5
-    semantic_fidelity: 8.4
-    grammar_logic: 8.4
-    segment_alignment: 10.0
-    terminology: 8.6
-    triangulation: 7.5
-    vietnamese_clarity: 8.4
+    source_provenance: 9.4
+    semantic_fidelity: 8.7
+    grammar_logic: 8.7
+    segment_alignment: 10
+    terminology: 9
+    triangulation: 8.4
+    vietnamese_clarity: 8.6
     han_viet_balance: 9.2
-    ambiguity_integrity: 8.5
+    ambiguity_integrity: 8.6
     technical_integrity: 9.6
-  final_score: 8.81
+  final_score: 9.02
   blocking_errors:
     - "Không có tầng tham khảo tiếng Anh tại commit đã ghim
       11c9d708978cde8ba61096d8a75f7ddfb846f639: `source/upstream-manifest.json`
@@ -41,9 +42,10 @@ quality:
       English độc lập. `scripts/validate.ts` coi thiếu tệp Anh là lỗi khi status
       là `review` hoặc `published`, nên bài giữ `draft`; `triangulation` chặn ở
       7.5 (không quá 8.0)."
-  assessed_at: "2026-10-11"
+  assessed_at: 2026-10-14
   assessed_by:
-    - "Claude Sonnet 5.5 (Claude Code)"
+    - Claude Sonnet 5.5 (Claude Code)
+  assessment_id: ded43f6a-9d74-4041-9ced-78f477f3a3ef
   waiver:
     id: no-upstream-english
     blockers:
@@ -146,3 +148,5 @@ notes: |-
   KIỂM TRA ĐÃ CHẠY — phép tự viết, quét mọi khoá: tập khoá Việt = tập khoá Pāli (383 = 383, cùng thứ tự); nháy đơn ‘ ’ và nháy kép “ ” khớp Pāli từng khoá (0 lệch trên 383 khoá; 0 nháy thẳng); …pe… → đúng một … (3/3 khoá 94.2, 95.2, 96.2; Pāli không có … ở khoá nào khác thì Việt không có); không khoá rỗng, không (…) trần (Pāli bài này không có (…)); NFC; không Pāli lọt sang thân bản dịch ngoài tên riêng và thuật ngữ giữ nguyên; 9 nhóm Pāli trùng trong chính bài có bản Việt giống nhau (0 lệch); 144 khoá Pāli trùng với tầng đã dịch (137 dùng lại, 7 khác có lý do). Đã in cặp Pāli với Việt từng khoá để đọc.
 
   CỔNG KỸ THUẬT — technical_integrity đặt 9.6 vì chưa chạy được bốn lệnh của kho trong phiên này: npm run validate, npm test, npm run check, npm run build. Phải chạy cả bốn trước khi coi tiêu chí 10 là đạt.
+
+  Đối chiếu độc lập 2026-10-14: với bản Việt nguyên bài của Bhikkhu Indacanda (dòng đầu tệp), đọc từng khoá cả 383 khoá thay vì chỉ ở các chữ hiếm như lượt trước. 13 khoá bất đồng nghĩa → sửa 2, giữ 4, bất định 7. Sửa (đều theo Pāli và theo cách bản nguyên bài tách vế): 4.2–4.3 `Mātaraṁ pitarañcāhaṁ āyācitvā vināyakaṁ / Nimantayitvā sattāhaṁ` (trước: "thỉnh cầu cha và mẹ, và bậc Điều Ngự; sau khi thỉnh mời suốt bảy ngày" — `nimantayitvā` không có tân ngữ, `vināyakaṁ` bị gắn nhầm vào `āyācitvā` → sau: "thỉnh cầu cha và mẹ, bậc Điều Ngự; sau khi thỉnh mời Ngài suốt bảy ngày", bậc Điều Ngự là người được mời; đóng bất định 1 ở trên theo cách đọc này); 5.2–5.3 `mahāpaññānamuttamaṁ / Bhikkhuniṁ etadaggamhi` (trước: "bậc tối thượng trong những vị đại trí tuệ; một vị tỳ-kheo-ni…" — "bậc" khiến người đọc hiểu là Đức Phật, trong khi `uttamaṁ` đứng cùng cách với `bhikkhuniṁ` và Đức Phật là chủ ngữ `narasārathi` ở 5.4; so `thi-ap22:4.2–4.3`, nơi tân ngữ của `etadaggamhi ṭhapento` là chính vị tỳ-kheo-ni được tả ở dòng trước → sau: "vị tối thượng trong những vị đại trí tuệ; vị tỳ-kheo-ni, vào vị trí tối thắng"). Giữ theo Pāli: 39.4 (`na upesiṁ mahādayaṁ`: bản nguyên bài hiểu "không tỏ ra rộng lượng", bản dự án "không đến gần bậc có lòng bi mẫn lớn"; `upeti` đi với tân cách và 78.3 `Nopesiṁ` cùng cấu trúc, `mahādaya` là danh xưng của Đức Phật như `mahāhita` ở 78.1); 43.4 (`na tappanti suvimhitā`: bản nguyên bài "không còn tiếc nuối", bản dự án "không thấy thỏa lòng" — cùng gốc với `atappaneyya` ở 59.3 "nhìn không đủ"; bất định 10 ở trên giữ); 46.4 (`samussukaṁ` ở tân cách đi với `maṁ`, tức ta háo hức, bản nguyên bài gán cho nhà vua); 91.1 (`toraṇavatthusmiṁ` là địa danh Toraṇavatthu, bản nguyên bài hiểu "vấn đề vật thực"). Bất định, đã có trong các mục BẤT ĐỊNH trên, nay có thêm cách đọc của bản độc lập: 54.4 `subhaddako` (bản nguyên bài hiểu là người thanh niên, bản dự án hiểu là pháp "rất tốt đẹp"); 55.1 `Suññakan'ti` (bản nguyên bài là tên hương thất, bản dự án "Trống vắng"); 56.4 `lūkho` ("không khắc khổ" so "không quê kệch"); 58.1 `Hemadolābhasavanā`; 59.1 `Rattaṁsakupasambyānā`; 77.2 `araṇaṁ araṇantaguṁ`; 81.4 `diṭṭho nibbānato muni` (bản nguyên bài "vị ban phát Niết-bàn", bản dự án "như là Niết-bàn"; `mnd13:13.4` dùng `nibbānato passanto` cho nghĩa "thấy là Niết-bàn"). Số đã tự tính lại, khớp cả hai bản: 100.000 kiếp, 91 kiếp, 10.000 năm, 20.000 năm, bảy ngày, bảy con gái, ba người. Bản nguyên bài không phân đoạn nên đối chiếu ở mức đoạn, không phải mức khoá; không có bản Anh. Ngoài lát: công thức `cetanāpaṇidhīhi ca` ở 10.2 và 35.2 dùng "tâm nguyện và chí hướng" (77/81 khoá cùng dạng trong tầng) còn `paṇidhī` ở 7.2 là "tâm nguyện"; công thức đã thành quy ước tầng nên không sửa riêng ở đây.
