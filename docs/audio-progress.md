@@ -785,3 +785,10 @@ Nhật ký append-only. Registry `content/audio/progress.json` được đối s
 - Regenerated with the same pinned `vi-charon-mn1-v1` profile: 16 chunks (2 summary), 1383.77s, scripture starts at 174.71s; new MP3 SHA-256 `4998d21d2df5a24a85cedb740bef75d7a174c21649d41229487c1664f1a8fadd`, 27,676,800 bytes. Public R2 object and range verification passed at upload. Review remains `pending`.
 
 - After the MN73 source update and replacement, the current MN70–MN74 batch totals 5675.74 seconds. The earlier table’s MN73 row describes the superseded source version retained in progress history.
+
+
+### Batch mn-035 merge and production readback — PR #619
+
+- Exact PR head `0ec2c6d3aa4147af0b5969d79bcf0d161c95442a`; PR CI run `38491807798` passed. The push-triggered main CI run `38493720641` was canceled when a higher-priority main push arrived; the latest descendant main commit `f985ba28a383d67a44eda6181adb9ca5b4ff06bd` passed main CI `38497903450` and Pages deployment `38497903434`. Squash merge: `649f4cf5d0aff2e57cc2044d6be749119caf76aa` at `2026-10-14T01:04:34Z`.
+- Production MN70–MN74 pages each returned HTTP 200 with the player, exact current R2 URL and “Chờ nghe duyệt” label. Every R2 range request returned 206 `audio/mpeg`, 1,024 bytes, with total object bytes matching current metadata. The MN index contains all five playlist URLs.
+- MN73 source changed on main before PR; its superseded MP3/hash remains archived in the progress registry, and the deployed player points to the regenerated source-current object. All reviews remain `pending`; browser playback and human listening were not performed by this release check.
