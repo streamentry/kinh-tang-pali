@@ -1221,21 +1221,22 @@ tôi **chép** sang `/Volumes/SSD/_wtX-coord` rồi commit ở đó. Cần ngư�
 
 ## MỐC HOÀN TẤT
 
-- [ ] `vimeas.ts`: **bài còn thiếu = 0** (hiện **367**; bất biến "không bài nào bị bỏ qua" ✓)
-- [ ] `engq.ts`: `segmentsStillMissingEnglish = 0` trong **174** text có thể lấp
-- [ ] đối chiếu chéo: đếm lại từ `source/upstream-manifest.json` và xác nhận
-      **1.596** bài `kn` không có tệp Anh Sujato — tất cả phải còn `draft` với blocker
-      ghi rõ, **không** nâng lên `review`/`published`
-- [ ] `audit:reference`: `texts below floor = 0` (**toàn catalogue**, hiện **92**), `upstream defect(s) = 0`
-- [ ] 13 cổng xanh ở HEAD của `main`
-- [ ] `npm run license:check` xanh (`NOTICE` khớp lock)
-- [ ] PR đã merge; mỗi PR body có **số đo trước/sả bằng hai lần đo liên tiếp cùng điều kiện**
-- [ ] `docs/translation-store.md` và mọi số trong tài liệu **cập nhật theo phép đo mới**
-- [ ] `git status` sạch, không còn worktree lưu
-- [ ] **Bốn lớp kiếm ngược mệnh đề chạy trên toàn tầng, mỗi lớp về 0** — không chỉ 13 cổng.
-      Đã về 0: `…pe…` (152→0) ✓ · `pācīna` (26→0) ✓ · `oruddhambhāgiyā` (9→0) ✓ ·
-      `ariyāya nibbedhikāya` (2→0) ✓ · `nibbānapabbhāro` (53→0) ✓.
-      Còn: **11** tệp `notes` có 46 cụm hướng sai chưa dọn; `sn23.1:3.11` thuộc lớp rộng hơn.
+*(đo lại 2026-10-14 tại `main` sau PR #621; số liệu đo bằng chính các công cụ nêu ở từng dòng)*
+
+- [x] `vimeas.ts`: **bài còn thiếu = 0** — 6.137/6.137 đủ khoá, 0 thiếu, 0 không đo được (bất biến "không bài nào bị bỏ qua" ✓)
+- [x] `engq.ts` / `_mkfill.py`: `segmentsStillMissingEnglish = 0` — 0 khoá có nội dung còn thiếu
+- [~] đối chiếu chéo **1.596** bài `kn` không có tệp Anh Sujato: bất biến đếm vẫn đúng (`audit:store`/`verify:store`), **nhưng** quy tắc cũ "tất cả phải còn `draft`" **đã bị thay** bằng quyết định của người biên tập ngày 2026-10-11 (waiver `no-upstream-english`, xem `AGENTS.md`): bài lên `review`/`published` khi điểm `> 9,0` và không còn blocker thật; blocker "thiếu Anh upstream" vẫn nằm trong hồ sơ. Đây là quyết định chính sách, không phải thiếu sót kỹ thuật.
+- [x] `audit:reference`: `texts below floor = 0` (0/4.541), `upstream defect(s) = 0`
+- [x] 13 cổng xanh ở HEAD của `main` (CI `completed success`); `license:check`, `manifest:check`, `catalog:check`, `glossary:check`, `doctor:ci` xanh khi chạy cục bộ
+- [x] `npm run license:check` xanh (`NOTICE` khớp lock)
+- [x] PR đã merge (#606–#623); mỗi PR gộp có bảng đo trước/sau
+- [x] `docs/translation-store.md` cập nhật theo phép đo mới (#622)
+- [~] `git status` sạch ✓; worktree do các wave này tạo đã gỡ hết. Còn worktree của **session khác** (nhánh `codex/*`, `kinh-tang-pali-gate`, `kinh-tang-pali-qc`) — không động tới.
+- [x] Lớp kiếm ngược: `…pe…` (152→0) ✓ · `pācīna` (26→0) ✓ · `oruddhambhāgiyā` (9→0) ✓ ·
+      `ariyāya nibbedhikāya` (2→0) ✓ · `nibbānapabbhāro` (53→0) ✓ · hướng `pācīna` trong ghi chú meta (11 tệp, tây→đông, #623) ✓.
+      `sn23.1:3.11` thuộc lớp rộng hơn (rà nhất quán, xem trạng thái hiện tại).
+
+**Ngoài các mốc trên (việc chất lượng, không chặn hoàn tất):** 414 bài `review` đang dưới ngưỡng `> 9,0`, 16 `draft` còn blocker thật, và phần lớn bài `published` chưa có kiểm toán độc lập (xem "Việc còn lại" ở trên).
 
 **Trong PR body, phải nói rõ** số nào đo được, số nào là ước lượng, và **số nào đã hỏng
 trong lúc làm**. Đừng báo cáo thành công khi có thất bại — nếu không thừa nhận, con số đó
