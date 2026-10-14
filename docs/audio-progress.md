@@ -756,3 +756,32 @@ Nhật ký append-only. Registry `content/audio/progress.json` được đối s
 
 - Total audio duration: 6641.15 seconds. Each file uses the pinned `vi-charon-mn1-v1` profile (Gemini `gemini-3.8-flash-tts`, Charon); source/profile and MP3 frame/hash/byte checks passed. Full-object public readback and HTTP range verification passed for all five uploads; upload metadata and batch progress agree.
 - Each narration is summary first, then canonical Vietnamese 2026. ASR was skipped by editor decision; human listening and interactive browser playback remain unverified. All five review states remain `pending`. MP3/WAV/cache files are excluded from Git.
+
+
+### Batch mn-034 merge and production readback — PR #610
+
+- Exact PR head `fa712c2e73e3a28c92ab9eb7406a79c8d3e66776`; push CI run `38436618228` and pull-request CI run `38436673335` both passed. Squash merge `0976396d80e368d0c76aca8ce3e22e5e0ef98f72` at `2026-10-13T17:33:31Z`.
+- Latest main at readback was `40be5723484c1bb4da5f6afa7e304728c752be92`; main CI `38483965555` and Pages deployment `38483965500` succeeded. MN65–MN69 production pages returned HTTP 200 with the player, exact R2 URL and “Chờ nghe duyệt” label. Each public R2 range read returned 206 `audio/mpeg`, 1,024 bytes, and total bytes matching metadata. The MN catalogue contains all five playlist URLs.
+- Interactive browser playback and human listening were not tested. Audio review remains `pending` for the editor’s manual listening.
+
+
+### Batch mn-035 — MN70–MN74 generated and uploaded to R2
+
+| UID | Source SHA-256 | MP3 SHA-256 | Bytes | Duration | Scripture starts | Chunks | Audio |
+|---|---|---|---:|---:|---:|---:|---|
+| MN70 | `22d7c3b195e1769f7db053b8723d216c24ed32286a2873b2abc6b1d9b892cf12` | `ebbc0854268c5640bb3a4c739764919567377908f6c99937f9e931199161aeb6` | 35,720,160 | 1785.94 s | 169.03 s | 19 (2 summary) | [R2 MP3](https://pub-8fa53f5182904685bd0c13d6c894a0e9.r2.dev/vi/mn/mn70/ebbc0854268c5640.mp3) |
+| MN71 | `94b279bb9a1248799813baba2a059622990a90fc5d4d64ca9878eb147bddcb5f` | `e261e57b59685831f6c4cf83fbc3edba1575d6668e2537aaad62173eedddd947` | 9,535,200 | 476.71 s | 136.75 s | 6 (2 summary) | [R2 MP3](https://pub-8fa53f5182904685bd0c13d6c894a0e9.r2.dev/vi/mn/mn71/e261e57b59685831.mp3) |
+| MN72 | `037eb367783f8adcb57b2147b0222a931a951b4f3db5d18ae31b5991efcc47d4` | `8259db912fc2d3fc5546d1dfdffeb326f2b91944b56d4e4d6b1d3532815a7ffc` | 24,168,480 | 1208.36 s | 167.43 s | 13 (2 summary) | [R2 MP3](https://pub-8fa53f5182904685bd0c13d6c894a0e9.r2.dev/vi/mn/mn72/8259db912fc2d3fc.mp3) |
+| MN73 | `ade9f951523e6ad71a461a718c9ee7fa6af688eac096a72b29424b9a42f0b81b` | `1e516ec537894291a1905ed52532894f9f21f38a914f2a8d3b139feb85b594be` | 25,764,480 | 1288.17 s | 171.67 s | 16 (2 summary) | [R2 MP3](https://pub-8fa53f5182904685bd0c13d6c894a0e9.r2.dev/vi/mn/mn73/1e516ec537894291.mp3) |
+| MN74 | `c1934525769d92644e052eb3286bf68a1723817b23b9bce1a5427950c26af438` | `5c7f9330a810b22975201c67f030cd8fa6a1d3f5323331526368ca324ebd4cd5` | 16,420,320 | 820.96 s | 173.59 s | 9 (2 summary) | [R2 MP3](https://pub-8fa53f5182904685bd0c13d6c894a0e9.r2.dev/vi/mn/mn74/5c7f9330a810b229.mp3) |
+
+- Total audio duration: 5580.14 seconds. All five use the pinned `vi-charon-mn1-v1` profile, summary first, then canonical Vietnamese 2026. MP3 frame/hash/byte checks, public full-object readback, and range verification passed.
+- ASR was skipped per editor decision. Interactive browser playback and human listening remain unverified; all five review states remain `pending`. No MP3/WAV/cache files are tracked.
+
+
+### MN73 regeneration — batch mn-035
+
+- Main commit `5607a541` changed MN73’s canonical Vietnamese source from `ade9f951523e6ad71a461a718c9ee7fa6af688eac096a72b29424b9a42f0b81b` to `79657275831ee8b8e03d909bfbf0efccc5be8771729404d3b82c784f91469bdf` before this batch PR. The previous MP3 `1e516ec537894291a1905ed52532894f9f21f38a914f2a8d3b139feb85b594be` and its progress record remain in `historical_audio_versions`; its immutable R2 object is no longer the current player target.
+- Regenerated with the same pinned `vi-charon-mn1-v1` profile: 16 chunks (2 summary), 1383.77s, scripture starts at 174.71s; new MP3 SHA-256 `4998d21d2df5a24a85cedb740bef75d7a174c21649d41229487c1664f1a8fadd`, 27,676,800 bytes. Public R2 object and range verification passed at upload. Review remains `pending`.
+
+- After the MN73 source update and replacement, the current MN70–MN74 batch totals 5675.74 seconds. The earlier table’s MN73 row describes the superseded source version retained in progress history.
