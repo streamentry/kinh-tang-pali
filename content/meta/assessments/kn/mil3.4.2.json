@@ -53,6 +53,34 @@
       "notes": "Kiểm tra tự động 18 segment với Pāli trong cache: đủ ID, giá trị, NFC và hệ chữ Latin. Chưa đọc đối chiếu nghĩa, ngữ pháp hoặc văn phong; chưa chấm lại 10 tiêu chí. Đây không phải chứng nhận hash upstream hoặc giấy phép, không xác nhận trạng thái xuất bản.",
       "content_sha256": "8f0f1fb024dfb5ec60680700455a395f267ba3c7147dcf4e43cd353dbd6bd8af",
       "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639"
+    },
+    {
+      "target": "translation",
+      "scope": "full",
+      "scores": {
+        "source_provenance": 9.4,
+        "semantic_fidelity": 8.8,
+        "grammar_logic": 8.8,
+        "segment_alignment": 10,
+        "terminology": 8.7,
+        "triangulation": 8.3,
+        "vietnamese_clarity": 9,
+        "han_viet_balance": 9.1,
+        "ambiguity_integrity": 8.7,
+        "technical_integrity": 9.6
+      },
+      "blocking_errors": [
+        "Không có tầng tham khảo English tại commit đã ghim: `source/upstream-manifest.json` không liệt kê `translation/en/sujato/sutta/kn/mil/mil3.4.2_translation-en-sujato.json` (đã đếm bằng script trên cả bốn tệp `mil3.1.12`, `mil3.4.2`, `mil3.5.1`, `mil3.5.5` — cả bốn đều vắng). Đo bằng chính `englishCoverageFor` của repo: 0 / 6 segment Pāli có nội dung (≥ 40 ký tự) mang chữ Anh = 0%. Dưới ngưỡng 80%, mà đợt này tôi bị cấm sửa `content/meta/reference-gaps.yaml` nên gap chưa được ghi nhận; `validate` sẽ đỏ. Bài bị ép `draft` dù điểm không đến mức đó. Người biên tập chạy `npm run reference:gaps` rồi xét lại."
+      ],
+      "assessed_at": "2026-10-14",
+      "assessed_by": [
+        "Claude Sonnet 5.5 (Claude Code)"
+      ],
+      "notes": "Đối chiếu độc lập 2026-10-14 với bản Việt nguyên bài của Bhikkhu Indacanda, ở mức đoạn (bản nguyên bài không phân đoạn). 8 khoá bất đồng nghĩa (1.2, 1.3, 1.4, 1.5, 1.6, 2.1, 2.2, 2.5) đã phân xử bằng Pāli và đều sửa trong bản dự án (-viññeyya là 'có thể được … nhận biết'; jānāhi là mệnh lệnh; sakaṭehi balībaddā āharanti là 'bò đực chở bằng xe'; gocaranānatta là 'khác nhau về phạm vi'; garubhāvo tulāya tuliyati không bị dịch ngược); không khoá nào phải giữ bản dự án vì bản nguyên bài khác Pāli; 2 chỗ bất định về cách đọc jānāhi và dạng câu ở 1.2 đã ghi trong notes. Review đối kháng của bản dự án còn bỏ chủ ngữ thêm ở 1.7/1.8 và đổi 'vị mặn' thành 'muối'. Không có bản Anh nên triangulation chỉ gồm Pāli và một bản Việt độc lập (trần 8,8, chấm 8,3 vì còn hai điểm bất định). technical_integrity 9,6: chưa chạy npm run validate, npm test, npm run check, npm run build. Blocker noEnglishEditionUpstream giữ nguyên. Đây là review của AI, không phải chứng nhận của chuyên gia Pāli.",
+      "id": "e17d81bc-c744-4cee-a57f-433e9b3c543e",
+      "content_sha256": "3b4ddf7d4556e05113defcefbecd51eaf4ba41b0be7e080f6103599be2d337fc",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
+      "final_score": 9.04
     }
   ],
   "legacy_quality": {

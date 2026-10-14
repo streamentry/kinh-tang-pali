@@ -53,6 +53,34 @@
       "notes": "Kiểm tra tự động 34 segment với Pāli trong cache: đủ ID, giá trị, NFC và hệ chữ Latin. Chưa đọc đối chiếu nghĩa, ngữ pháp hoặc văn phong; chưa chấm lại 10 tiêu chí. Đây không phải chứng nhận hash upstream hoặc giấy phép, không xác nhận trạng thái xuất bản.",
       "content_sha256": "fe91507c3107c3ef800482130936cb1a724f4a5d0a90848224de4f1020738057",
       "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639"
+    },
+    {
+      "target": "translation",
+      "scope": "full",
+      "scores": {
+        "source_provenance": 9.5,
+        "semantic_fidelity": 8.9,
+        "grammar_logic": 8.9,
+        "segment_alignment": 10,
+        "terminology": 8.9,
+        "triangulation": 8.4,
+        "vietnamese_clarity": 8.9,
+        "han_viet_balance": 9.2,
+        "ambiguity_integrity": 8.4,
+        "technical_integrity": 9.6
+      },
+      "blocking_errors": [
+        "Không có tầng tham khảo tiếng Anh tại commit đã ghim: `translation/en/sujato/sutta/kn/{d}/{u}_translation-en-sujato.json` không tồn tại trong `.cache/upstream/suttacentral/`, và thư mục `kn/` của edition đã ghim chỉ có cp, dhp, iti, ja, kp, snp, thag, thig, ud — **không có mil, pv hay tha-ap**. Đếm lại trực tiếp trên đĩa bằng `find` cho 0 tệp ⇒ đây là `not-published-upstream`, KHÔNG phải `not-synced`. Bài này **không có segment Pāli có nội dung** (mọi câu kệ đều ngắn hơn 40 ký tự sau khi chuẩn hoá), nên `src/lib/canon/reference.ts` quy định `ratio = 1` khi mẫu số bằng 0 và cổng coverage **không** chặn. Nhưng tệp Anh thật sự không tồn tại, và `scripts/validate.ts` coi đó là **error** khi status là `review` hoặc `published` ⇒ bài bắt buộc `draft`. Đây là trường hợp số đo không bắt được nhưng thực tế vẫn mất tầng tham khảo. Tầng `vietnamese-current` cũng vắng (`translation/vi/phantuananh` tại commit đã ghim chỉ có 26 tệp, toàn bộ là Pháp Cú) và lớp lấp `english-project` cũng không có uid này ⇒ blocker thật."
+      ],
+      "assessed_at": "2026-10-14",
+      "assessed_by": [
+        "Claude Sonnet 5.5 (Claude Code)"
+      ],
+      "notes": "Đối chiếu độc lập 2026-10-14 với bản Việt nguyên bài của Bhikkhu Indacanda, ở mức đoạn (bản nguyên bài không phân đoạn). So đủ 34 khoá: 1 khoá bất đồng (4.1, `bahūsu santesu` là người hay vật), giữ bản dự án vì Pāli không nói rõ, ghi bất định; 0 khoá sửa. Review đối kháng không tìm thêm lỗi nghĩa; các bất định cũ về parittaṁ, unnatonatā, bhave saggagato naro vẫn còn. Không có bản Anh nên triangulation chỉ gồm Pāli và một bản Việt độc lập (trần 8,8, chấm 8,4). technical_integrity 9,6: chưa chạy npm run validate, npm test, npm run check, npm run build. Blocker noEnglishEditionUpstream giữ nguyên. Đây là review của AI, không phải chứng nhận của chuyên gia Pāli.",
+      "id": "d9c94372-6681-44f6-b166-c3291f0a41f4",
+      "content_sha256": "5455c613a4a2d18a37e1c62ad687a4f9f758a0d6eac9f64a8ad0d07b7e3dc1b6",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
+      "final_score": 9.069999999999999
     }
   ],
   "legacy_quality": {

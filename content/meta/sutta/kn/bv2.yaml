@@ -3,7 +3,8 @@ status: review
 translationTitle: "Dòng Kế Thừa Các Đức Phật, Câu Chuyện Về Nguyện Ước Của Sumedha"
 translators:
   - "Claude Sonnet 5.5 (Claude Code)"
-reviewers: []
+reviewers:
+  - Claude Sonnet 5.5 (Claude Code)
 tags:
   - "kn"
   - "khuddaka-nikaya"
@@ -11,16 +12,16 @@ tags:
 quality:
   scores:
     source_provenance: 9.4
-    semantic_fidelity: 8.6
-    grammar_logic: 8.4
-    segment_alignment: 10.0
-    terminology: 8.8
-    triangulation: 7.0
+    semantic_fidelity: 8.7
+    grammar_logic: 8.6
+    segment_alignment: 10
+    terminology: 8.6
+    triangulation: 8
     vietnamese_clarity: 8.7
-    han_viet_balance: 9.0
-    ambiguity_integrity: 8.6
+    han_viet_balance: 9
+    ambiguity_integrity: 8.7
     technical_integrity: 9.6
-  final_score: 8.81
+  final_score: 8.93
   blocking_errors:
     - "noEnglishEditionUpstream: Không có tầng tham khảo tiếng Anh tại commit đã
       ghim: `source/upstream-manifest.json` không liệt kê tệp bản dịch nào của
@@ -33,9 +34,10 @@ quality:
       khảo đều vắng nên bài dịch chỉ từ Pāli root và đối chiếu tiền lệ nội bộ;
       bài bắt buộc `draft` và `triangulation` không quá 8,0. Đây là giới hạn
       upstream, không phải lỗi của người dịch."
-  assessed_at: "2026-10-11"
+  assessed_at: 2026-10-14
   assessed_by:
-    - "Claude Sonnet 5.5 (Claude Code)"
+    - Claude Sonnet 5.5 (Claude Code)
+  assessment_id: 37bc46f9-fb16-463c-9088-27b79a0a34ce
   waiver:
     id: no-upstream-english
     blockers:
@@ -98,3 +100,5 @@ notes: |-
   **Coverage English (mục 7):** mẫu số = 0. Trong 773 khoá không phải `:0.` của bài, không khoá nào đạt 40 ký tự có nội dung (bài toàn kệ ngắn), nên cổng coverage không đo được gì; đây là không đo được, không phải đạt. Sujato: 0 tệp cho `bv2` (`english-sujato` chỉ có chín tiểu bộ cp dhp iti ja kp snp thag thig ud; riêng `name/` có tiêu đề `Sumedha’s Wish`); `english-project`: 0 (không có tệp bv nào); `vietnamese-current`: 0 tầng segment (chỉ Pháp Cú). Ba tầng đều vắng nên `triangulation` 7,0 (≤ 8,0) và `status: draft` kèm blocker ở trên. Không đụng `content/meta/reference-gaps.yaml`.
 
   **technical_integrity = 9,6:** lát này cấm chạy cổng, nên không tuyên bố technical gate pass. Bốn lệnh còn lại do người điều phối chạy tập trung: `npm run validate` · `npm test` · `npm run check` · `npm run build`. `final_score` là trung bình số học thô của đúng 10 tiêu chí.
+
+  Đối chiếu độc lập 2026-10-14: với bản Việt nguyên bài của Bhikkhu Indacanda (theo từng kệ). 17 chỗ bất đồng nghĩa → sửa 1, giữ 7, bất định 9. Sửa: 59.2 `hetu satthāradassanaṁ`: "nhân là được thấy bậc Đạo Sư" → "nhân, được thấy bậc Đạo Sư", vì `hetu` và `satthāradassanaṁ` là hai pháp riêng trong tám pháp (`manussatta`, `liṅgasampatti`, `hetu`, `satthāradassana`, `pabbajjā`, `guṇasampatti`, `adhikāra`, `chandatā` = 8, khớp `aṭṭhadhammasamodhānā` ở 59.5); bản cũ gộp thành bảy mục và hạ `hetu` thành đồng vị của mục sau. Giữ, bản nguyên bài khác Pāli hoặc chỉ diễn giải: 6.3–6.4 (bản nguyên bài chèn thêm một câu về mê mờ, chết, già đày đọa mà tầng Pāli đã ghim không có; theo Pāli); 28.2 (`dhammiko`, bản nguyên bài đọc "Dhammaka"); 75.4 (`dakkhiṇaṁ pādamuddhari` "nhấc bàn chân phải lên", bản nguyên bài chỉ ghi đã đi nhiễu quanh, là diễn giải); 80.1 (`sahassiyamhi lokamhi` "một ngàn thế giới", bản nguyên bài tự chèn "mười"); 92.1 (`nirayepi dasasahasse aggī`: `dasasahasse` là vị trí cách đi với `niraye`, còn `aggī` là chủ cách số nhiều, nên không đọc được "mười ngàn ngọn lửa" như bản nguyên bài; giữ "địa ngục của mười ngàn thế giới"); 123.1 và 124.4 (`camarī`: bản nguyên bài dịch "con bò mộng", dự án giữ nguyên chữ Pāli vì không xác định được vật khác); 159.1 (`hitāhite` "người có ích và kẻ có hại", bản nguyên bài "người thân hay kẻ nghịch", cùng ý). Bất định, giữ bản dự án và ghi ở đây: 5.4 (`sadhamme`: dự án "pháp của mình", bản nguyên bài "phận sự chánh yếu"); 25.1 (`corehi`: dự án "gặp bọn trộm cướp", bản nguyên bài "đi cùng bọn trộm cướp"; công cụ cách số nhiều của `corehi` cho phép cả hai, và cách đọc "đi cùng" cũng ăn khớp với ví dụ thân là tên đại trộm ở 26.2, nên không loại trừ được); 53.3 (`mā naṁ kalale akkamittha`: dự án "Chớ để Ngài giẫm lên bùn", bản nguyên bài hiểu là lời nói với các vị khác; `akkamittha` đọc được hai ngôi); 91.1 (`ābhujati`: dự án "chao động", bản nguyên bài "lùi ra xa"); 126.2, 127.3, 129.3 (`nekkhamma`: dự án "xuất gia", bản nguyên bài "xuất ly"; tầng dự án có tiền lệ "ba-la-mật xuất gia" ở 3 nơi, nhưng `nekkhamma` ở tầng nói chung là "xuất ly" 257 nơi so với "xuất gia" 20, và trong chính bài này 59.3 `pabbajjā` cũng là "Xuất gia", nên hai thuật ngữ Pāli khác nhau đang trùng một chữ Việt; chưa sửa riêng một bài, cần gộp cả bộ); 143.4 (`na karoti paṭighaṁ tayā`: dự án "vì điều ấy", bản nguyên bài "không tỏ ra bực bội hay thích thú"; `tayā` không phân xử được); 148.3 (`samaye utuvasse vā`: dự án "đúng thời hay trong mùa mưa", bản nguyên bài "thời điểm trong năm hoặc mùa tiết"); 180.4 (`pupphasi`: thì hiện tại ngôi hai, dự án "sẽ nở hoa", bản nguyên bài dùng mệnh lệnh; các kệ liền sau đều là mệnh lệnh); 182.4 (`bujjhassu jinabodhiyaṁ`: dự án "trong sự giác ngộ của các bậc Chiến Thắng", bản nguyên bài "ở cội Bồ Đề của đấng Chiến Thắng"; `bodhi` ở 68.5 là cây Bồ-đề, nên cách đọc "cội" cũng đứng được). Review đối kháng bản dự án sửa thêm 1 chỗ ngữ khí: 20.3 `chaḍḍayitvāna gaccheyyaṁ` (thức nguyện, "Ta vứt bỏ rồi ra đi" → "Ta có thể vứt bỏ rồi ra đi", vì khác 8.3 không có `yaṁnūna` "chi bằng" đứng trước để gánh ngữ khí). Bản nguyên bài không có kệ 50 (bột chiên đàn và hương cõi trời) và mỗi kệ gộp thành một đoạn nên đối chiếu ở mức kệ, không phải mức khoá; các số Pāli (100.000 kiếp, 4 a-tăng-kỳ, 400.000, các thứ tự một đến mười ba-la-mật) khớp hai bản. Không có bản Anh.

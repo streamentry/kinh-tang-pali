@@ -1,0 +1,62 @@
+{
+  "schemaVersion": 1,
+  "uid": "vv78",
+  "assessments": [
+    {
+      "target": "translation",
+      "scope": "full",
+      "scores": {
+        "source_provenance": 9.2,
+        "semantic_fidelity": 8.9,
+        "grammar_logic": 8.8,
+        "segment_alignment": 10,
+        "terminology": 8.6,
+        "triangulation": 8.5,
+        "vietnamese_clarity": 8.8,
+        "han_viet_balance": 9,
+        "ambiguity_integrity": 8.5,
+        "technical_integrity": 9.6
+      },
+      "blocking_errors": [
+        "Không có tầng tham khảo tiếng Anh tại commit đã ghim. Đo trên `source/upstream-manifest.json`: tầng `en-sujato` có tệp cho 9 sub-collection của `kn` (cp, dhp, iti, ja, kp, snp, thag, thig, ud) và **0 tệp** cho `vv`, nên đây là `not-published-upstream`, KHÔNG phải `not-synced`. Cổng coverage của bài này còn **không đo được gì** vì lý do riêng (mẫu số bằng 0, xem `notes`), nên không có cách nào chứng minh tầng Anh phủ được bao nhiêu. Tầng `vietnamese-current` cũng vắng: bản Việt đã ghim ở commit đã ghim chỉ có Pháp Cú, không có Nikāya. Lớp lấp `english-project` của dự án không có tệp nào cho bài này (trong thư mục `kn` của lớp lấp chỉ có một tệp `vv`, và không phải vv78). Ba tầng tham khảo đều vắng ⇒ bài dịch chỉ từ Pāli root. `scripts/validate.ts` coi tệp Anh thiếu là error khi status là `review` hoặc `published`, nên bài bắt buộc `draft`; đây là giới hạn upstream chứ không phải lỗi của người dịch. Vì vậy `triangulation` bị chặn ở 7.5 (≤ 8.0) chứ không nâng để né blocker."
+      ],
+      "assessed_at": "2026-10-14",
+      "assessed_by": [
+        "Claude Sonnet 5.5 (Claude Code)"
+      ],
+      "notes": "Đối chiếu độc lập với bản Việt nguyên bài của Bhikkhu Indacanda ở mức đoạn (54 khoá, 13 khổ). 4 khoá bất đồng nghĩa (3.3, 10.1, 11.2, 11.3): sửa 2 (10.1 vị trí Andhakavinda, 11.3 cấu trúc câu dâng cúng), giữ 1 (11.2, bản nguyên bài theo dị bản paccagghañca), bất định 1 (3.3 masāragalla, tên loại ngọc). Không tìm thấy lỗi nghĩa nào khác ở những phần khớp được. Blocker noEnglishEditionUpstream giữ nguyên vì upstream vẫn không có bản Anh cho vv; triangulation chỉ có Pāli và một bản Việt độc lập nên không vượt 8,8. Không tuyên bố đã đối chiếu English. technical_integrity 9,6: chưa chạy npm run validate, npm test, npm run check, npm run build. Đây là review của AI, không phải chứng nhận của chuyên gia Pāli.",
+      "id": "ba70aa32-3413-49fb-a1d6-9d93b7d5ec83",
+      "content_sha256": "15e384675509517f7dd1cefe6c471702126627a830e05c1086a89488fd4e2568",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
+      "final_score": 8.99
+    }
+  ],
+  "legacy_quality": {
+    "scores": {
+      "source_provenance": 9,
+      "semantic_fidelity": 8.5,
+      "grammar_logic": 8.6,
+      "segment_alignment": 10,
+      "terminology": 8.4,
+      "triangulation": 7.5,
+      "vietnamese_clarity": 8.8,
+      "han_viet_balance": 9,
+      "ambiguity_integrity": 8,
+      "technical_integrity": 9.6
+    },
+    "final_score": 8.74,
+    "blocking_errors": [
+      "Không có tầng tham khảo tiếng Anh tại commit đã ghim. Đo trên `source/upstream-manifest.json`: tầng `en-sujato` có tệp cho 9 sub-collection của `kn` (cp, dhp, iti, ja, kp, snp, thag, thig, ud) và **0 tệp** cho `vv`, nên đây là `not-published-upstream`, KHÔNG phải `not-synced`. Cổng coverage của bài này còn **không đo được gì** vì lý do riêng (mẫu số bằng 0, xem `notes`), nên không có cách nào chứng minh tầng Anh phủ được bao nhiêu. Tầng `vietnamese-current` cũng vắng: bản Việt đã ghim ở commit đã ghim chỉ có Pháp Cú, không có Nikāya. Lớp lấp `english-project` của dự án không có tệp nào cho bài này (trong thư mục `kn` của lớp lấp chỉ có một tệp `vv`, và không phải vv78). Ba tầng tham khảo đều vắng ⇒ bài dịch chỉ từ Pāli root. `scripts/validate.ts` coi tệp Anh thiếu là error khi status là `review` hoặc `published`, nên bài bắt buộc `draft`; đây là giới hạn upstream chứ không phải lỗi của người dịch. Vì vậy `triangulation` bị chặn ở 7.5 (≤ 8.0) chứ không nâng để né blocker."
+    ],
+    "assessed_at": "2026-10-11",
+    "assessed_by": [
+      "Claude Sonnet 5.5 (Claude Code)"
+    ],
+    "waiver": {
+      "id": "no-upstream-english",
+      "blockers": [
+        "Không có tầng tham khảo tiếng Anh tại commit đã ghim. Đo trên `source/upstream-manifest.json`: tầng `en-sujato` có tệp cho 9 sub-collection của `kn` (cp, dhp, iti, ja, kp, snp, thag, thig, ud) và **0 tệp** cho `vv`, nên đây là `not-published-upstream`, KHÔNG phải `not-synced`. Cổng coverage của bài này còn **không đo được gì** vì lý do riêng (mẫu số bằng 0, xem `notes`), nên không có cách nào chứng minh tầng Anh phủ được bao nhiêu. Tầng `vietnamese-current` cũng vắng: bản Việt đã ghim ở commit đã ghim chỉ có Pháp Cú, không có Nikāya. Lớp lấp `english-project` của dự án không có tệp nào cho bài này (trong thư mục `kn` của lớp lấp chỉ có một tệp `vv`, và không phải vv78). Ba tầng tham khảo đều vắng ⇒ bài dịch chỉ từ Pāli root. `scripts/validate.ts` coi tệp Anh thiếu là error khi status là `review` hoặc `published`, nên bài bắt buộc `draft`; đây là giới hạn upstream chứ không phải lỗi của người dịch. Vì vậy `triangulation` bị chặn ở 7.5 (≤ 8.0) chứ không nâng để né blocker."
+      ]
+    }
+  }
+}

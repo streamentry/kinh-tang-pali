@@ -53,6 +53,34 @@
       "notes": "Kiểm tra tự động 14 segment với Pāli trong cache: đủ ID, giá trị, NFC và hệ chữ Latin. Chưa đọc đối chiếu nghĩa, ngữ pháp hoặc văn phong; chưa chấm lại 10 tiêu chí. Đây không phải chứng nhận hash upstream hoặc giấy phép, không xác nhận trạng thái xuất bản.",
       "content_sha256": "b85c1043beecf54f3bcb23404632ea6342bfc99dee7e3c4a93d3a02f1e9c431c",
       "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639"
+    },
+    {
+      "target": "translation",
+      "scope": "full",
+      "scores": {
+        "source_provenance": 9.4,
+        "semantic_fidelity": 9.1,
+        "grammar_logic": 9.1,
+        "segment_alignment": 10,
+        "terminology": 8.9,
+        "triangulation": 8.5,
+        "vietnamese_clarity": 9.1,
+        "han_viet_balance": 9.2,
+        "ambiguity_integrity": 8.9,
+        "technical_integrity": 9.6
+      },
+      "blocking_errors": [
+        "Không có tầng tham khảo tiếng Anh tại commit đã ghim: 0/14 bài của lát w6 có tệp `*_translation-en-sujato.json`. Đã đếm ở nguồn sự thật là `source/upstream-manifest.json` (edition `translation/en/sujato`: 4291 tệp, trong đó 755 tệp `kn/`, và KHÔNG có tệp `mil*` nào ngoài `name/sutta/mil-name`), rồi đếm lại trong cache đã ghin. Cũng không có bản Việt hiện hành: `translation/vi/phantuananh` tại commit đã ghim chỉ có 26 tệp, toàn bộ là Pháp Cú. Lớp lấp English của chính dự án cũng không có cho 14 uid này. Bài dịch chỉ từ Pāli root nên chưa đối chiếu được tầng tham khảo đã ghim; giữ draft."
+      ],
+      "assessed_at": "2026-10-14",
+      "assessed_by": [
+        "Claude Sonnet 5.5 (Claude Code)"
+      ],
+      "notes": "Đối chiếu độc lập 2026-10-14 với bản Việt nguyên bài của Bhikkhu Indacanda, ở mức đoạn (bản nguyên bài không phân đoạn). So đủ 14 khoá: 0 khoá bất đồng nghĩa; khác biệt chỉ là diễn đạt (bản nguyên bài thêm ngoặc giải thích, dịch aṅga là 'tính chất', vaṁsa là 'cây tre'; bản dự án giữ 'phần' và 'cây trúc'). Bản nguyên bài còn xác nhận samuttariṁ là động từ ngôi thứ nhất như bản dự án đã đọc, nên bất định (1) về samuttariṁ giảm nhưng chưa hết vì vẫn không có bản Anh. Review đối kháng không tìm thêm lỗi. Không có bản Anh nên triangulation chỉ gồm Pāli và một bản Việt độc lập (trần 8,8, chấm 8,5). technical_integrity 9,6: chưa chạy npm run validate, npm test, npm run check, npm run build. Blocker noEnglishEditionUpstream giữ nguyên. Đây là review của AI, không phải chứng nhận của chuyên gia Pāli.",
+      "id": "09e33664-398a-4beb-b0a0-7026610a30dc",
+      "content_sha256": "d64f5f7aa121df760299319b91f9d5b09c32358df99698a7963ef3bd0c937663",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
+      "final_score": 9.18
     }
   ],
   "legacy_quality": {

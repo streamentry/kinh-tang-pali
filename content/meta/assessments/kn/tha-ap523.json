@@ -1,0 +1,62 @@
+{
+  "schemaVersion": 1,
+  "uid": "tha-ap523",
+  "assessments": [
+    {
+      "target": "translation",
+      "scope": "full",
+      "scores": {
+        "source_provenance": 9.3,
+        "semantic_fidelity": 8.6,
+        "grammar_logic": 8.9,
+        "segment_alignment": 9.6,
+        "terminology": 8.6,
+        "triangulation": 8.3,
+        "vietnamese_clarity": 8.8,
+        "han_viet_balance": 9.2,
+        "ambiguity_integrity": 8.5,
+        "technical_integrity": 9.6
+      },
+      "blocking_errors": [
+        "Không có tầng tham khảo tiếng Anh tại commit đã ghim (11c9d708978cde8ba61096d8a75f7ddfb846f639): thư mục `kn/tha-ap/` của edition `translation/en/sujato` không tồn tại trong `.cache/upstream/suttacentral/`, và `source/upstream-manifest.json` (4.291 tệp của edition này) chỉ liệt kê MỘT tệp có chuỗi `tha-ap` — đó là tệp *tên* `name/sutta/tha-ap-name_translation-en-sujato.json`, không phải thân kinh; 9 sub-collection được phủ của `kn` là cp·dhp·iti·ja·kp·snp·thag·thig·ud (755 tệp), không có `tha-ap`. Đây là `not-published-upstream`, KHÔNG phải `not-synced`. Đo coverage theo đúng công thức `source/layers.yaml` (Pāli có nội dung ≥ 40 ký tự, loại block tham chiếu `:0`) cho MẪU SỐ = 2 khoá (`:13.1` 68 ký tự và `:14.1` 42 ký tự) và Sujato phủ 0 ⇒ 0 trên 2 = 0%, dưới ngưỡng 0.8. `scripts/validate.ts` coi tệp Anh thiếu là **error** khi status là `review` hoặc `published`, nên bài bất buộc `draft`. Tầng `vietnamese-current` cũng vắng: `translation/vi/phantuananh` tại commit đã ghim chỉ có 26 tệp, toàn bộ là Pháp Cú. Lớp lấp `english-project` (`content/translation/en/project/sutta/kn/`) không có cho uid này và `content/meta/en/` không có bản chấm cho nó. Ba tầng tham khảo đều vắng ⇒ bài dịch chỉ từ Pāli root ⇒ **blocker thật**, và đây là **giới hạn của bản chụp upstream**, không phải lỗi của người dịch. Vì vậy `triangulation` bị chặn ở 7.5 (≤ 8.0) chứ không nâng để né blocker."
+      ],
+      "assessed_at": "2026-10-14",
+      "assessed_by": [
+        "Claude Sonnet 5.5 (Claude Code)"
+      ],
+      "notes": "Đối chiếu độc lập với bản Việt nguyên bài của Bhikkhu Indacanda, ở mức đoạn (bản đó không phân đoạn), đủ 53 khoá: 3 khoá bất đồng nghĩa (1.3, 6.1, 6.3), sửa 1 (6.3 `satabheṇḍu`: \"trăm ngọn tháp\" → \"trăm quả cầu\", theo `bheṇḍu` song hành với `satageṇḍu` ở thag2.22 và cùng Pāli ở tha-ap312), giữ 3 (1.3 `tisso` giữ \"Tissa\", 6.1 `yūpo` giữ \"cột trụ\", 6.3 `kaṇḍa` giữ \"tấm vách\"), bất định 0 mới; số `catunnavutito` = 94 khớp hai bản. Vẫn còn bất định cũ chưa phân xử được (nghĩa `kaṇḍa`, `yūpo`, `haritāmayo`, `dhajālu`) đã ghi ở notes, nên semantic_fidelity và ambiguity_integrity không nâng nhiều. Không có bản Anh nên triangulation chỉ gồm Pāli và một bản Việt độc lập, trần 8,8; chọn 8,3 vì còn các chỗ nghĩa từ vựng chưa khép. Blocker thiếu bản Anh upstream giữ nguyên. Cổng kỹ thuật chưa chạy (technical_integrity 9,6 là điểm tạm). Đây là review của AI, không phải chứng nhận của chuyên gia Pāli.",
+      "id": "388231fe-1067-4939-b2c0-1d2eaf9669ce",
+      "content_sha256": "cee82867311f60b0f91604075e91076222013997343ed692a773f8ed865a74a2",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
+      "final_score": 8.94
+    }
+  ],
+  "legacy_quality": {
+    "scores": {
+      "source_provenance": 9.2,
+      "semantic_fidelity": 8.4,
+      "grammar_logic": 8.8,
+      "segment_alignment": 9.6,
+      "terminology": 8.6,
+      "triangulation": 7.5,
+      "vietnamese_clarity": 8.8,
+      "han_viet_balance": 9.2,
+      "ambiguity_integrity": 8.4,
+      "technical_integrity": 9.6
+    },
+    "final_score": 8.81,
+    "blocking_errors": [
+      "Không có tầng tham khảo tiếng Anh tại commit đã ghim (11c9d708978cde8ba61096d8a75f7ddfb846f639): thư mục `kn/tha-ap/` của edition `translation/en/sujato` không tồn tại trong `.cache/upstream/suttacentral/`, và `source/upstream-manifest.json` (4.291 tệp của edition này) chỉ liệt kê MỘT tệp có chuỗi `tha-ap` — đó là tệp *tên* `name/sutta/tha-ap-name_translation-en-sujato.json`, không phải thân kinh; 9 sub-collection được phủ của `kn` là cp·dhp·iti·ja·kp·snp·thag·thig·ud (755 tệp), không có `tha-ap`. Đây là `not-published-upstream`, KHÔNG phải `not-synced`. Đo coverage theo đúng công thức `source/layers.yaml` (Pāli có nội dung ≥ 40 ký tự, loại block tham chiếu `:0`) cho MẪU SỐ = 2 khoá (`:13.1` 68 ký tự và `:14.1` 42 ký tự) và Sujato phủ 0 ⇒ 0 trên 2 = 0%, dưới ngưỡng 0.8. `scripts/validate.ts` coi tệp Anh thiếu là **error** khi status là `review` hoặc `published`, nên bài bất buộc `draft`. Tầng `vietnamese-current` cũng vắng: `translation/vi/phantuananh` tại commit đã ghim chỉ có 26 tệp, toàn bộ là Pháp Cú. Lớp lấp `english-project` (`content/translation/en/project/sutta/kn/`) không có cho uid này và `content/meta/en/` không có bản chấm cho nó. Ba tầng tham khảo đều vắng ⇒ bài dịch chỉ từ Pāli root ⇒ **blocker thật**, và đây là **giới hạn của bản chụp upstream**, không phải lỗi của người dịch. Vì vậy `triangulation` bị chặn ở 7.5 (≤ 8.0) chứ không nâng để né blocker."
+    ],
+    "assessed_at": "2026-10-13",
+    "assessed_by": [
+      "Claude Sonnet 5.5 (Claude Code)"
+    ],
+    "waiver": {
+      "id": "no-upstream-english",
+      "blockers": [
+        "Không có tầng tham khảo tiếng Anh tại commit đã ghim (11c9d708978cde8ba61096d8a75f7ddfb846f639): thư mục `kn/tha-ap/` của edition `translation/en/sujato` không tồn tại trong `.cache/upstream/suttacentral/`, và `source/upstream-manifest.json` (4.291 tệp của edition này) chỉ liệt kê MỘT tệp có chuỗi `tha-ap` — đó là tệp *tên* `name/sutta/tha-ap-name_translation-en-sujato.json`, không phải thân kinh; 9 sub-collection được phủ của `kn` là cp·dhp·iti·ja·kp·snp·thag·thig·ud (755 tệp), không có `tha-ap`. Đây là `not-published-upstream`, KHÔNG phải `not-synced`. Đo coverage theo đúng công thức `source/layers.yaml` (Pāli có nội dung ≥ 40 ký tự, loại block tham chiếu `:0`) cho MẪU SỐ = 2 khoá (`:13.1` 68 ký tự và `:14.1` 42 ký tự) và Sujato phủ 0 ⇒ 0 trên 2 = 0%, dưới ngưỡng 0.8. `scripts/validate.ts` coi tệp Anh thiếu là **error** khi status là `review` hoặc `published`, nên bài bất buộc `draft`. Tầng `vietnamese-current` cũng vắng: `translation/vi/phantuananh` tại commit đã ghim chỉ có 26 tệp, toàn bộ là Pháp Cú. Lớp lấp `english-project` (`content/translation/en/project/sutta/kn/`) không có cho uid này và `content/meta/en/` không có bản chấm cho nó. Ba tầng tham khảo đều vắng ⇒ bài dịch chỉ từ Pāli root ⇒ **blocker thật**, và đây là **giới hạn của bản chụp upstream**, không phải lỗi của người dịch. Vì vậy `triangulation` bị chặn ở 7.5 (≤ 8.0) chứ không nâng để né blocker."
+      ]
+    }
+  }
+}

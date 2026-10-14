@@ -53,6 +53,34 @@
       "notes": "Kiểm tra tự động 52 segment với Pāli trong cache: đủ ID, giá trị, NFC và hệ chữ Latin. Chưa đọc đối chiếu nghĩa, ngữ pháp hoặc văn phong; chưa chấm lại 10 tiêu chí. Đây không phải chứng nhận hash upstream hoặc giấy phép, không xác nhận trạng thái xuất bản.",
       "content_sha256": "2f07933d5477bbfb43b954ee9c90c0e86f4fdbf1e9e90a2b29fee49ba15a9039",
       "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639"
+    },
+    {
+      "target": "translation",
+      "scope": "full",
+      "scores": {
+        "source_provenance": 9.5,
+        "semantic_fidelity": 8.7,
+        "grammar_logic": 8.8,
+        "segment_alignment": 10,
+        "terminology": 8.8,
+        "triangulation": 8.4,
+        "vietnamese_clarity": 8.7,
+        "han_viet_balance": 9.2,
+        "ambiguity_integrity": 8.8,
+        "technical_integrity": 9.6
+      },
+      "blocking_errors": [
+        "Không có tầng tham khảo tiếng Anh tại commit đã ghim. Đo bằng `source/upstream-manifest.json` (commit 11c9d708978cde8ba61096d8a75f7ddfb846f639): edition `english-sujato` (treeSha 24e81ded9d6710e16b277b6394fd57c48258da12, 4.291 tệp) có **0 tệp** dưới `sutta/kn/vv/`; 755 tệp `kn` thuộc 9 sub-collection (cp 35, dhp 26, iti 112, ja 83, kp 9, snp 73, thag 264, thig 73, ud 80). `vietnamese-current` 26 tệp, toàn bộ là Pháp Cú. `english-project` 760 tệp, không có tệp nào cho `vv80`. Tầng `english-sujato` có `ja541` không? **không** — sub-collection `ja` của tầng Anh chỉ có 83 tệp và `ja541` không nằm trong đó, nên không thể dùng bản Anh của Jātaka để phân xử. Ba tầng tham khảo đều vắng ⇒ `not-published-upstream` ⇒ blocker thật, `triangulation` bị chặn ở 7.5."
+      ],
+      "assessed_at": "2026-10-14",
+      "assessed_by": [
+        "Claude Sonnet 5.5 (Claude Code)"
+      ],
+      "notes": "Đối chiếu độc lập 2026-10-14 với bản Việt nguyên bài của Bhikkhu Indacanda, ở mức đoạn (bản nguyên bài không phân đoạn). So đủ 52 khoá: 4 khoá bất đồng (6.2, 7.3, 11.2, 12.2), đã phân xử bằng Pāli và tiền lệ tầng, giữ bản dự án cả bốn; 2 chỗ (11.2/12.2 so sánh hay loại trừ) ghi bất định. Các chỗ từng sai nghĩa nặng ở lượt trước (đậu, bò cái, samāraka, mảnh vải, đảo vai ở 10.3) nay trùng nghĩa với bản nguyên bài. Số: aṭṭhaṭṭhakā = 64. Review đối kháng không tìm thêm lỗi nghĩa; bất định cũ ở 7.1, 8.2, 3.4 vẫn còn. Không có bản Anh nên triangulation chỉ gồm Pāli và một bản Việt độc lập (trần 8,8, chấm 8,4). technical_integrity 9,6: chưa chạy npm run validate, npm test, npm run check, npm run build. Blocker noEnglishEditionUpstream giữ nguyên. Đây là review của AI, không phải chứng nhận của chuyên gia Pāli.",
+      "id": "8c772a02-3bc1-4081-9334-a5a091b02881",
+      "content_sha256": "6dbe3db834c8b608fa68ab7eaa6f8b80de5f173bdac25b4911823a07a8518210",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
+      "final_score": 9.049999999999999
     }
   ],
   "legacy_quality": {

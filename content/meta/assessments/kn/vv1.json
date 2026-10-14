@@ -53,6 +53,34 @@
       "notes": "Kiểm tra tự động 34 segment với Pāli trong cache: đủ ID, giá trị, NFC và hệ chữ Latin. Chưa đọc đối chiếu nghĩa, ngữ pháp hoặc văn phong; chưa chấm lại 10 tiêu chí. Đây không phải chứng nhận hash upstream hoặc giấy phép, không xác nhận trạng thái xuất bản.",
       "content_sha256": "07bd9b09612221d71813f12fd0f3132ea040f59f19203bc4ddbae2f6411732fa",
       "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639"
+    },
+    {
+      "target": "translation",
+      "scope": "full",
+      "scores": {
+        "source_provenance": 9.2,
+        "semantic_fidelity": 9,
+        "grammar_logic": 8.9,
+        "segment_alignment": 10,
+        "terminology": 8.6,
+        "triangulation": 8.3,
+        "vietnamese_clarity": 8.8,
+        "han_viet_balance": 9,
+        "ambiguity_integrity": 8.9,
+        "technical_integrity": 9.6
+      },
+      "blocking_errors": [
+        "Không có tầng tham khảo tiếng Anh tại commit đã ghim: tệp `.cache/upstream/suttacentral/translation/en/sujato/sutta/kn/vv/vv1_translation-en-sujato.json` không tồn tại trong `.cache/upstream/suttacentral/`, và `source/upstream-manifest.json` (commit 11c9d70, tầng `english-sujato`) không liệt kê bất kỳ tệp nào cho uid này — đây là `not-published-upstream`, KHÔNG phải `not-synced`; toàn bộ ba sub-collection `tha-ap`, `thi-ap`, `vv` của Kinh Tạng đều vắng mặt trong tầng Anh đã ghim. Đo coverage theo đúng công thức `source/layers.yaml` (Pāli có nội dung ≥ 40 ký tự, loại block tham chiếu `:0`) cho 0 trên 1 khoá = 0%, dưới ngưỡng 0.8. `scripts/validate.ts` coi tệp Anh thiếu là **error** khi status là `review` hoặc `published`, nên bài bắt buộc `draft`. Tầng `vietnamese-current` cũng vắng: `translation/vi/phantuananh` tại commit đã ghim chỉ có 26 tệp và toàn bộ là Pháp Cú. Lớp lấp `english-project` của dự án cũng không có cho uid này. Ba tầng tham khảo đều vắng ⇒ bài dịch chỉ từ Pāli root ⇒ blocker thật, và đây là **giới hạn upstream**, không phải lỗi của người dịch. Vì vậy `triangulation` bị chặn ở 7.5 (≤ 8.0) chứ không nâng để né blocker."
+      ],
+      "assessed_at": "2026-10-14",
+      "assessed_by": [
+        "Claude Sonnet 5.5 (Claude Code)"
+      ],
+      "notes": "Đối chiếu độc lập với bản Việt nguyên bài của Bhikkhu Indacanda, ở mức đoạn (bản đó không phân đoạn), đủ 34 khoá: 3 khoá bất đồng nghĩa (3.3, 7.3 `bhogā`; 6.2 `āsanakaṁ`), sửa 0, giữ 3, bất định 0; thêm 1 sửa nhất quán thuật ngữ do review đối kháng (8.4 \"sắc tướng\" → \"dung sắc\", đồng bộ với 3.1/4.4/7.1 và đa số tầng). Không có bản Anh nên triangulation chỉ gồm Pāli và một bản Việt độc lập, trần 8,8; chọn 8,3 vì còn bất định cũ về `pīṭha`, `mijjhati` và `ye keci manaso piyā` (đã ghi ở notes của bài). Blocker thiếu bản Anh upstream giữ nguyên. Cổng kỹ thuật chưa chạy (technical_integrity 9,6 là điểm tạm). Đây là review của AI, không phải chứng nhận của chuyên gia Pāli.",
+      "id": "72d2b862-5ae5-4285-a5ae-d2ac2303e661",
+      "content_sha256": "76201a81ab2eb6676ff0d97a2e078afd6362672f9127c968fb3d412fe6814512",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
+      "final_score": 9.03
     }
   ],
   "legacy_quality": {

@@ -1,9 +1,11 @@
 uid: mil7.2.7
-status: review
+status: published
 translationTitle: "Câu Hỏi Về Phần Của Cây Trúc"
 translators:
   - "OpenCode Space Bunny Free (agent)"
-reviewers: []
+reviewers:
+  - Claude Opus 5.5 (Claude Code)
+  - Claude Sonnet 5.5 (Claude Code)
 tags:
   - khuddaka-nikaya
   - milindapanha
@@ -12,17 +14,17 @@ tags:
   - cau-hoi-ve-phan-cua-cay-truc
 quality:
   scores:
-    source_provenance: 9.3
-    semantic_fidelity: 8.9
-    grammar_logic: 9.0
-    segment_alignment: 9.8
+    source_provenance: 9.4
+    semantic_fidelity: 9.1
+    grammar_logic: 9.1
+    segment_alignment: 10
     terminology: 8.9
-    triangulation: 7.5
+    triangulation: 8.5
     vietnamese_clarity: 9.1
-    han_viet_balance: 9.1
-    ambiguity_integrity: 8.6
+    han_viet_balance: 9.2
+    ambiguity_integrity: 8.9
     technical_integrity: 9.6
-  final_score: 8.98
+  final_score: 9.18
   blocking_errors:
     - "Không có tầng tham khảo tiếng Anh tại commit đã ghim: 0/14 bài của lát w6
       có tệp `*_translation-en-sujato.json`. Đã đếm ở nguồn sự thật là
@@ -33,9 +35,10 @@ quality:
       tệp, toàn bộ là Pháp Cú. Lớp lấp English của chính dự án cũng không có cho
       14 uid này. Bài dịch chỉ từ Pāli root nên chưa đối chiếu được tầng tham
       khảo đã ghim; giữ draft."
-  assessed_at: "2026-10-13"
+  assessed_at: 2026-10-14
   assessed_by:
-    - "Claude Opus 5.5 (Claude Code)"
+    - Claude Sonnet 5.5 (Claude Code)
+  assessment_id: 09e33664-398a-4beb-b0a0-7026610a30dc
   waiver:
     id: no-upstream-english
     blockers:
@@ -138,3 +141,5 @@ notes: |-
   Giữ nguyên, có chủ ý: 0.2 "Câu hỏi về cách dùng dẫn với ví dụ" (42 khoá `:0.2` trong mil dùng cùng dạng dù câu chữ gượng; sửa riêng một bài sẽ lệch đa số, nên để người điều phối quyết định cho cả loạt); 0.3 "Phẩm Con Lừa" (đúng với `gadrabha`; 6/6 bài cùng phẩm đã đọc là mil7.2.1, 2.2, 2.3, 2.6, 2.8, 2.9 đều dùng cùng dạng); 1.1 dùng khuôn "tôn giả" như mil7.2.1/2.3/2.4/2.8/2.9.
   Điểm đổi: source_provenance 9.5→9.3 (khẳng định sai về PTS ở notes cũ); semantic_fidelity 9.3→8.9 (lỗi `sabbadā` và `apāya` nay đã sửa nhưng là lỗi nghĩa thật, và `samuttariṁ` vẫn là hình thái chỉ gặp một lần); grammar_logic 9.3→9.0 (phân tích kệ cũ sai; nay đúng nhưng hapax); segment_alignment 10.0→9.8 (thiếu nháy đóng ở 2.4); terminology 9.2→8.9; vietnamese_clarity 9.3→9.1; han_viet_balance 9.3→9.1; ambiguity_integrity 9.0→8.6 (khẳng định nguồn không kiểm chứng ở notes cũ; hapax còn đó); triangulation 7.5 và technical_integrity 9.6 giữ nguyên. final_score 9.2→8.98.
   BẤT ĐỊNH CÒN LẠI: (1) `samuttariṁ` đọc là aorist ngôi 1 từ hình thái và quét Pāli, không có bản Anh/Việt pin để đối chiếu; cách đọc khác (danh từ chỉ người làm hành động vượt qua) sẽ đổi "đã vượt qua" thành mô tả chung; chủ thể của kệ (Rāhula tự nói hay nêu chung) để ngầm. (2) `navaṅga` không được liệt kê chín phần trong bài. Chưa chạy `npm run validate` · `npm test` · `npm run check` · `npm run build` trong lượt này nên `technical_integrity` giữ 9.6.
+
+  Đối chiếu độc lập 2026-10-14: với bản Việt nguyên bài của Bhikkhu Indacanda. 0 khoá bất đồng nghĩa → sửa 0, giữ 0, bất định 0. Đã so từng khoá 1.1–3.1: câu hỏi của đức vua, hình ảnh cây tre ngả theo gió không chạy theo hướng khác, "chín phần lời dạy của bậc Thầy" (`navaṅgaṁ satthusāsanaṁ`), việc đứng vững trong điều thích hợp và không đáng chê trách, chỉ tìm cầu sa-môn pháp, và kệ của Trưởng lão Rāhula với `samuttariṁ` là động từ ngôi thứ nhất ("đã vượt qua đọa xứ") đều cùng nghĩa với bản nguyên bài. Khác biệt còn lại chỉ là cách diễn đạt: bản nguyên bài thêm ngoặc giải thích, dịch `aṅga` là "tính chất" và `vaṁsa` là "cây tre", còn bản dự án giữ "phần" (đúng nghĩa `aṅga` là thành phần) và "cây trúc" (đúng tiền lệ thag1.72:1.1). Lượt review đối kháng của bản dự án không tìm thêm lỗi. Bản nguyên bài không phân đoạn nên đối chiếu ở mức đoạn, không phải mức khoá; không có bản Anh.
