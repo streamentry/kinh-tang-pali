@@ -53,6 +53,34 @@
       "notes": "Kiểm tra tự động 17 segment với Pāli trong cache: đủ ID, giá trị, NFC và hệ chữ Latin. Chưa đọc đối chiếu nghĩa, ngữ pháp hoặc văn phong; chưa chấm lại 10 tiêu chí. Đây không phải chứng nhận hash upstream hoặc giấy phép, không xác nhận trạng thái xuất bản.",
       "content_sha256": "2c02eb7f25bed95ab13641b9733349d948fadc78fcec6a99e2566fd3fbe5d839",
       "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639"
+    },
+    {
+      "target": "translation",
+      "scope": "full",
+      "scores": {
+        "source_provenance": 9.2,
+        "semantic_fidelity": 8.9,
+        "grammar_logic": 8.7,
+        "segment_alignment": 10,
+        "terminology": 9,
+        "triangulation": 7.5,
+        "vietnamese_clarity": 9.1,
+        "han_viet_balance": 9.1,
+        "ambiguity_integrity": 8.7,
+        "technical_integrity": 9.6
+      },
+      "blocking_errors": [
+        "Thiếu hẳn tầng tham khảo English Sujato tại commit đã ghim 11c9d708978cde8ba61096d8a75f7ddfb846f639: đếm trực tiếp trên source/upstream-manifest.json (cùng commit) cho thấy tầng translation/en/sujato có 4.291 tệp, trong đó thư mục sutta/kn/ja/ chỉ có 83 tệp, không có tệp nào chứa khoá của bài này; hàm upstreamPublishes của kho trả về false cho đường dẫn này, nghĩa là SuttaCentral không phát hành bản Anh nào phủ bài này tại commit đã ghim. Tầng vietnamese-current cũng không có (đúng 26 tệp, chỉ Pháp Cú), nên bài chỉ đối chiếu được với Pāli root một mình. Đây là giới hạn của bản chụp upstream, không phải thiếu sót của kho, nhưng theo AGENTS.md thì thiếu tầng tham khảo là lỗi chặn đối với review và published, và tests/unit/reference-source.test.ts kiểm đúng điều đó. Bài đặt draft và không nâng điểm để né."
+      ],
+      "assessed_at": "2026-10-14",
+      "assessed_by": [
+        "Claude Sonnet 5.5 (Claude Code)"
+      ],
+      "notes": "Đối chiếu với một bản dịch mù độc lập (cùng họ công cụ) trên toàn bộ 2 khoá chênh lệch của bài 17 khoá: không phải sửa; bất định 1 (1.4, jaheyya ngôi thứ ba được dịch thành lời thỉnh cầu trực tiếp, nghĩa không đổi, không thêm chủ ngữ). Bài rất ngắn nên mức đối chiếu hẹp: Pāli, tiền lệ nội bộ và một bản dịch lại độc lập cùng họ công cụ; không có bản Anh hay bản Việt hiện hành. Không tuyên bố đã đối chiếu English hay bản Việt khác. blocking_errors sao nguyên văn từ hồ sơ hiện có. technical_integrity 9,6: chưa chạy npm run validate, npm test, npm run check, npm run build. Đây là review của AI, không phải chứng nhận của chuyên gia Pāli.",
+      "id": "73f74dd6-11d2-438d-a1b4-c652805e4cd0",
+      "content_sha256": "d90e434c6b880187cf545d46b646591d22470ca09b9ec30a671b19de4d7351bb",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
+      "final_score": 8.98
     }
   ],
   "legacy_quality": {

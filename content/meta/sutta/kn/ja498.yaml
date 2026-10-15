@@ -3,7 +3,8 @@ status: review
 translationTitle: "Kinh Cittasambhūta"
 translators:
   - "Claude Sonnet 5.5 (Claude Code)"
-reviewers: []
+reviewers:
+  - Claude Sonnet 5.5 (Claude Code)
 tags:
   - "kn"
   - "khuddaka-nikaya"
@@ -16,14 +17,14 @@ quality:
     source_provenance: 9.4
     semantic_fidelity: 8.6
     grammar_logic: 8.6
-    segment_alignment: 10.0
-    terminology: 9.0
-    triangulation: 7.4
+    segment_alignment: 10
+    terminology: 9
+    triangulation: 7.5
     vietnamese_clarity: 8.8
     han_viet_balance: 9.2
     ambiguity_integrity: 9.2
     technical_integrity: 9.6
-  final_score: 8.98
+  final_score: 8.99
   blocking_errors:
     - "Không có tầng tham khảo tiếng Anh tại commit đã ghim:
       `source/upstream-manifest.json` chỉ liệt kê `kn/ja/ja498_root-pli-ms.json`
@@ -36,9 +37,10 @@ quality:
       đều vắng ⇒ bài dịch chỉ từ Pāli root và đối chiếu tiền lệ nội bộ ⇒ bài bắt
       buộc `draft` và `triangulation ≤ 8,0`. Đây là giới hạn upstream, không
       phải lỗi của người dịch."
-  assessed_at: "2026-10-13"
+  assessed_at: 2026-10-14
   assessed_by:
-    - "Claude Sonnet 5.5 (Claude Code)"
+    - Claude Sonnet 5.5 (Claude Code)
+  assessment_id: 7b8ad688-6f61-487c-87a0-cfbf1e40e7fb
   waiver:
     id: no-upstream-english
     blockers:
@@ -120,3 +122,11 @@ notes: |-
   - Bất định 11 (`vajantyā`, 28.2) thêm một điểm: `vajantī` ở `ja413:4.3` đi với `ajā` (dê cái), nên chữ này chỉ là phân từ giống cái “đang đi”, không tự nó nói đó là người nữ hay vật cái. Bản Việt “một người nữ đang đi qua” vẫn là cách đọc phỏng đoán theo ngữ cảnh, chưa phân xử được; không đổi vì không có căn cứ chọn cách khác.
   - Các bất định còn lại (1–7, 9, 10, 12, 13) giữ nguyên như đã ghi. Blocker “không có tầng tham khảo tiếng Anh” giữ nguyên: đó là sự thật về upstream (đo lại: không có bản Anh Sujato, không có bản Anh dự án, tầng Việt hiện hành chỉ có Pháp Cú cho `ja498`). `triangulation` vẫn ≤ 8,0.
   - Cổng kỹ thuật: `technical_integrity` giữ 9,6; lượt này không chạy cổng. Bốn lệnh còn lại do người điều phối chạy: `npm run validate` · `npm test` · `npm run check` · `npm run build`.
+
+  Đối chiếu bản dịch mù độc lập 2026-10-14: một dịch giả khác (cùng họ công cụ) dịch lại bài từ Pāli không xem
+  bản dự án; so 25 khoá chênh lệch lớn nhất → khác nghĩa 3: sửa 0, giữ 1 (6.2 `cittasibbane`: bản mù 'trang
+  hoàng đẹp đẽ', bản dự án giữ 'mui xe sáng đẹp' theo tiền lệ snp2.7:18.2 và 22.4), bất định 2 (19.4
+  `rajassirāni`; 28.2 `vajantyā`: bản mù đọc 'người ấy đang đi', bản dự án 'một người nữ đang đi qua cho bú
+  sữa', Pāli chỉ có phân từ giống cái, chưa rõ người hay vật cái). 22 khoá còn lại (trong đó 0.2, 7.1, 9.4,
+  14.2, 14.3, 17.1–20.1, 21.3, 24.3, 27.1) chỉ khác diễn đạt hoặc xưng hô. Không có bản Anh hay bản Việt độc lập
+  khác.

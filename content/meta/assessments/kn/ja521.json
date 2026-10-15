@@ -459,6 +459,34 @@
       "notes": "Kiểm tra tự động 203 segment với Pāli trong cache: đủ ID, giá trị, NFC và hệ chữ Latin. Chưa đọc đối chiếu nghĩa, ngữ pháp hoặc văn phong; chưa chấm lại 10 tiêu chí. Đây không phải chứng nhận hash upstream hoặc giấy phép, không xác nhận trạng thái xuất bản.",
       "content_sha256": "d33ff423b9d0cbabd661c12794ba4b71e2b759e9457231615db1de2e68e42ad1",
       "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639"
+    },
+    {
+      "target": "translation",
+      "scope": "full",
+      "scores": {
+        "source_provenance": 9.5,
+        "semantic_fidelity": 8,
+        "grammar_logic": 8,
+        "segment_alignment": 9.8,
+        "terminology": 8.8,
+        "triangulation": 7.8,
+        "vietnamese_clarity": 8.6,
+        "han_viet_balance": 9.2,
+        "ambiguity_integrity": 9,
+        "technical_integrity": 9.6
+      },
+      "blocking_errors": [
+        "noEnglishEditionUpstream: Thiếu bản dịch tiếng Anh đối chiếu. Tầng english-sujato tại commit đã ghim không có ja521_translation-en-sujato.json (ja chỉ có 83 tệp: ja1–79, ja126, ja159, ja466, ja534; đây là not-published-upstream, không phải not-synced), tầng vietnamese-current chỉ có Pháp Cú và lớp lấp english-project không có tệp cho bài này. Cả ba tầng tham khảo đều vắng nên triangulation bị chặn ở 7.5 (≤ 8.0) và bài giữ draft."
+      ],
+      "assessed_at": "2026-10-14",
+      "assessed_by": [
+        "Claude Sonnet 5.5 (Claude Code)"
+      ],
+      "notes": "Đối chiếu bản dịch mù độc lập 2026-10-14 trên cả 203 khoá của ja521: 55 khoá chênh, 5 khác nghĩa; ở 3 khoá bản mù sai so với Pāli (37.3–37.4 mất phủ định; 35.1 hiểu sai vai trò `asussūsaṁ`; 30.4), bản dự án được giữ; 23.1 và 24.2 chưa phân xử được; không sửa khoá nào. Review đối kháng riêng đọc lại 203 cặp: đủ khoá, thứ tự đúng, nháy kép khớp Pāli từng khoá, `…pe…` ở 44.3, 45.3, 46.3 đúng một dấu `…`, số `Dveva` (hai), `Pañca … balaṁ` và các số thứ tự đúng. Điểm triangulation 7,5 → 7,8: một lần dịch lại độc lập cùng họ công cụ, không tài liệu ngoài (trần 8,0), bất đồng chính đã phân xử bằng Pāli và công thức song song; các điểm khác giữ nguyên. Không có bản Anh hay bản Việt độc lập khác. technical_integrity 9,6 vì không chạy `npm run validate`, `npm test`, `npm run check`, `npm run build` trong lượt này. Đây là review của AI, không phải chứng nhận của chuyên gia Pāli.",
+      "id": "7e671f0a-6e51-4654-80b4-bcccd702231e",
+      "content_sha256": "d49bf2a36885bb8276811d1bd16627107e818f5125c4e432eb748d8ff9cb467b",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
+      "final_score": 8.829999999999998
     }
   ],
   "legacy_quality": {

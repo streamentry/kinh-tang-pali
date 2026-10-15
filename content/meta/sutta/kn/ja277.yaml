@@ -3,7 +3,8 @@ status: review
 translationTitle: "Kinh Romaka"
 translators:
   - "OpenCode Space Bunny Free (agent)"
-reviewers: []
+reviewers:
+  - Claude Sonnet 5.5 (Claude Code)
 tags:
   - "jataka"
   - "khuddaka-nikaya"
@@ -15,14 +16,14 @@ quality:
     source_provenance: 9.4
     semantic_fidelity: 8.8
     grammar_logic: 8.9
-    segment_alignment: 10.0
+    segment_alignment: 10
     terminology: 8.9
-    triangulation: 6.6
+    triangulation: 7.2
     vietnamese_clarity: 8.9
     han_viet_balance: 9.1
     ambiguity_integrity: 8.3
     technical_integrity: 9.6
-  final_score: 8.85
+  final_score: 8.91
   blocking_errors:
     - "Thiếu tầng tham khảo English Sujato tại commit đã ghim
       11c9d708978cde8ba61096d8a75f7ddfb846f639: đếm trực tiếp trên
@@ -31,9 +32,10 @@ quality:
       ja534) và không có tệp nào chứa khoá của bài này; SuttaCentral không phát
       hành bản Anh nào khác phủ bài này tại commit đã ghim. Bài chỉ đối chiếu
       được với Pāli root một mình."
-  assessed_at: "2026-10-12"
+  assessed_at: 2026-10-14
   assessed_by:
-    - "Claude Sonnet 5.5 (Claude Code)"
+    - Claude Sonnet 5.5 (Claude Code)
+  assessment_id: ecf25ef5-d586-4f04-9035-aadc6bd91de2
   waiver:
     id: no-upstream-english
     blockers:
@@ -138,3 +140,11 @@ notes: |-
   BLOCKER ĐÃ GỠ: blocker thứ hai ("coverage 0/0 dưới ngưỡng 0.8, chưa có mục trong reference-gaps") do tác giả cũ tự đặt. Mẫu số = 0 (mọi vế kệ ngắn hơn 40 ký tự, khoá dài nhất là 34), nên cổng không đo được gì; thiếu bản Anh đã nằm trọn trong blocker đầu tiên (không có tệp Sujato nào cho uid này tại commit đã ghim), nên xoá blocker thứ hai không làm mất thông tin. BLOCKER GIỮ NGUYÊN: blocker đầu tiên (thiếu bản Anh upstream), là sự thật về bản chụp. Tầng `vietnamese-current` chỉ có Pháp Cú, nên không có bản Việt hiện hành để đối chiếu; đó chỉ là giới hạn tham chiếu.
   BẤT ĐỊNH CÒN LẠI (không phân xử được hoàn toàn, ghi ở đây, không đưa vào thân kinh): (a) `ājīvikā` đọc là "vì kế sinh nhai" gắn với vế 3.3 và 3.4; Pāli không nói rõ của ai, đọc theo cốt truyện là kế sinh nhai của người ẩn sĩ muốn ăn thịt chim; (b) `Vasimha` "chúng ta" gồm ẩn sĩ và bầy chim theo cách đọc ngôi 1 số nhiều; (c) `ussukā` dịch "nóng lòng", chưa tìm được dạng song song trong tầng để đo; (d) `tamuttasāma` đọc là `taṁ` + `uttasāma` ("chúng tôi kinh sợ ông"). Không có bản Anh độc lập nào, nên `triangulation` giữ 6,6 (không nâng); `ambiguity_integrity` 8,3 vì các điểm (a)–(d) vẫn là suy luận từ Pāli, không có nguồn thứ hai.
   Điểm trước → sau: semantic_fidelity 8,4 → 8,8; grammar_logic 8,6 → 8,9; terminology 8,7 → 8,9; ambiguity_integrity 7,9 → 8,3; các tiêu chí còn lại giữ; final_score 8,72 → 8,85. Còn blocker thiếu bản Anh upstream nên bài vẫn `draft` cho đến khi công cụ áp waiver.
+
+  Đối chiếu bản dịch mù độc lập 2026-10-14: một dịch giả khác (cùng họ công cụ) dịch lại bài từ Pāli không xem
+  bản dự án; so 4 khoá chênh lệch lớn nhất (2.1, 2.3, 3.3, 3.4) → khác nghĩa 2: sửa 0, giữ 0, bất định 2 (2.1
+  `vakkaṅga`: bản mù coi là tên riêng và ghi chưa chắc, bản dự án giữ 'kẻ thân cong' theo tiền lệ ja429, ja430,
+  ja533, ja534, chưa phân xử được ai được gọi; 3.4 `ājīvikā … tamuttasāmā`: bản mù đọc `ājīvikā` là chủ ngữ
+  'những kẻ nương sống', bản dự án đọc 'vì kế sinh nhai' gắn với tâm xấu ác ở 3.3; hai cách đều cho nghĩa 'chúng
+  tôi kinh sợ ông' nhưng khác chủ thể của 'kế sinh nhai'); 2.3 và 3.3 chỉ khác diễn đạt nên giữ. Không có bản
+  Anh hay bản Việt độc lập khác.

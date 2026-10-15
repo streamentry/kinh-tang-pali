@@ -53,6 +53,34 @@
       "notes": "Kiểm tra tự động 17 segment với Pāli trong cache: đủ ID, giá trị, NFC và hệ chữ Latin. Chưa đọc đối chiếu nghĩa, ngữ pháp hoặc văn phong; chưa chấm lại 10 tiêu chí. Đây không phải chứng nhận hash upstream hoặc giấy phép, không xác nhận trạng thái xuất bản.",
       "content_sha256": "252664a1f702e18328a28629d10609b5c602d5dc8010f3b2d110f434782c55f2",
       "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639"
+    },
+    {
+      "target": "translation",
+      "scope": "full",
+      "scores": {
+        "source_provenance": 9.4,
+        "semantic_fidelity": 8.8,
+        "grammar_logic": 8.9,
+        "segment_alignment": 10,
+        "terminology": 8.9,
+        "triangulation": 7.2,
+        "vietnamese_clarity": 8.9,
+        "han_viet_balance": 9.1,
+        "ambiguity_integrity": 8.3,
+        "technical_integrity": 9.6
+      },
+      "blocking_errors": [
+        "Thiếu tầng tham khảo English Sujato tại commit đã ghim 11c9d708978cde8ba61096d8a75f7ddfb846f639: đếm trực tiếp trên source/upstream-manifest.json, thư mục sutta/kn/ja/ của tầng translation/en/sujato chỉ có 83 tệp (ja1..ja79, ja126, ja159, ja466, ja534) và không có tệp nào chứa khoá của bài này; SuttaCentral không phát hành bản Anh nào khác phủ bài này tại commit đã ghim. Bài chỉ đối chiếu được với Pāli root một mình."
+      ],
+      "assessed_at": "2026-10-14",
+      "assessed_by": [
+        "Claude Sonnet 5.5 (Claude Code)"
+      ],
+      "notes": "Đối chiếu bản dịch mù độc lập 2026-10-14 trên cả 17 khoá của ja277: 4 khoá chênh (2.1, 2.3, 3.3, 3.4); hai khoá khác diễn đạt, hai khoá (2.1 `vakkaṅga`, 3.4 `ājīvikā`) là chỗ Pāli khó mà cả hai bản đều ghi chưa chắc, chưa phân xử được nên ghi bất định và không sửa. Review đối kháng riêng đọc lại 17 cặp: đủ khoá, thứ tự đúng, nháy kép khớp Pāli từng khoá, không dấu lược. Điểm triangulation 6,6 → 7,2: có một lần dịch lại độc lập nhưng cùng họ công cụ (trần 8,0) và còn hai chỗ chưa phân xử; các điểm khác giữ. Không có bản Anh hay bản Việt độc lập khác. technical_integrity 9,6 vì không chạy `npm run validate`, `npm test`, `npm run check`, `npm run build` trong lượt này. Đây là review của AI, không phải chứng nhận của chuyên gia Pāli.",
+      "id": "ecf25ef5-d586-4f04-9035-aadc6bd91de2",
+      "content_sha256": "d20dff60d84456a1d8edfdb2e4ea6fc702525a0b7b64ad3bba07d6ad18fa9364",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
+      "final_score": 8.91
     }
   ],
   "legacy_quality": {

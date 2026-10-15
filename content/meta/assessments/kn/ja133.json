@@ -53,6 +53,34 @@
       "notes": "Kiểm tra tự động 9 segment với Pāli trong cache: đủ ID, giá trị, NFC và hệ chữ Latin. Chưa đọc đối chiếu nghĩa, ngữ pháp hoặc văn phong; chưa chấm lại 10 tiêu chí. Đây không phải chứng nhận hash upstream hoặc giấy phép, không xác nhận trạng thái xuất bản.",
       "content_sha256": "00e426b69f47d6edf34a8a0f3058f5c7665930429a77016bdb1d625e506879c2",
       "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639"
+    },
+    {
+      "target": "translation",
+      "scope": "full",
+      "scores": {
+        "source_provenance": 9.5,
+        "semantic_fidelity": 8.8,
+        "grammar_logic": 8.7,
+        "segment_alignment": 10,
+        "terminology": 9,
+        "triangulation": 7.4,
+        "vietnamese_clarity": 9,
+        "han_viet_balance": 9,
+        "ambiguity_integrity": 8.5,
+        "technical_integrity": 9.6
+      },
+      "blocking_errors": [
+        "Thiếu tầng tham khảo English SuttaCentral tại commit đã ghim: 0/9 khoá có bản Anh nên bài chưa đủ điều kiện review hay published vì thiếu tầng tham khảo là lỗi chặn."
+      ],
+      "assessed_at": "2026-10-14",
+      "assessed_by": [
+        "Claude Sonnet 5.5 (Claude Code)"
+      ],
+      "notes": "Đối chiếu bản dịch mù độc lập 2026-10-14 trên cả 9 khoá của ja133: chỉ 3 khoá chênh (0.4, 1.1, 2.1), cả 3 khác diễn đạt hoặc cách phiên tên bài, không khoá nào khác nghĩa theo Pāli; không sửa khoá nào. Review đối kháng riêng đọc lại 9 cặp Pāli↔Việt: đủ khoá, thứ tự đúng, nháy kép khớp Pāli từng khoá, không dấu lược. Bất định còn lại: 1.2 `dakassa` (hapax, đọc 'giữa khu rừng' theo văn cảnh). Điểm triangulation 7,0 → 7,4: có một lần dịch lại độc lập nhưng cùng họ công cụ, không có tài liệu ngoài, nên không quá 8,0, và 1.2 vẫn chưa phân xử; các điểm khác giữ. Không có bản Anh hay bản Việt độc lập khác. technical_integrity 9,6 vì không chạy `npm run validate`, `npm test`, `npm run check`, `npm run build` trong lượt này. Đây là review của AI, không phải chứng nhận của chuyên gia Pāli.",
+      "id": "eaf77238-c8fc-4d1c-a52c-654cb28d063e",
+      "content_sha256": "abc1296baa8329b3753b80862c623b003c95b7f9e90d2ca0340498132750ca69",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
+      "final_score": 8.95
     }
   ],
   "legacy_quality": {

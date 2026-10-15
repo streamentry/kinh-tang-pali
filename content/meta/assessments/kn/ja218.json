@@ -53,6 +53,34 @@
       "notes": "Kiểm tra tự động 13 segment với Pāli trong cache: đủ ID, giá trị, NFC và hệ chữ Latin. Chưa đọc đối chiếu nghĩa, ngữ pháp hoặc văn phong; chưa chấm lại 10 tiêu chí. Đây không phải chứng nhận hash upstream hoặc giấy phép, không xác nhận trạng thái xuất bản.",
       "content_sha256": "cb4c3d76f215be40eed4f97f90ba2805c99c2b9574e5eb607ebd51846d362f92",
       "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639"
+    },
+    {
+      "target": "translation",
+      "scope": "full",
+      "scores": {
+        "source_provenance": 9.4,
+        "semantic_fidelity": 8.7,
+        "grammar_logic": 8.8,
+        "segment_alignment": 10,
+        "terminology": 8.8,
+        "triangulation": 7.6,
+        "vietnamese_clarity": 8.9,
+        "han_viet_balance": 9.1,
+        "ambiguity_integrity": 8.7,
+        "technical_integrity": 9.6
+      },
+      "blocking_errors": [
+        "Tầng English Sujato vắng mặt tại commit đã ghim (không có tệp upstream cho thư mục này) nên chưa đối chiếu được một bản Anh độc lập; validate đòi tầng này cho review và published, nên bài giữ draft dù đã dịch đủ mọi khoá từ Pāli root."
+      ],
+      "assessed_at": "2026-10-14",
+      "assessed_by": [
+        "Claude Sonnet 5.5 (Claude Code)"
+      ],
+      "notes": "Đối chiếu bản dịch mù độc lập 2026-10-14 trên toàn bộ 13 khoá của ja218 (một dịch giả cùng họ công cụ dịch lại từ Pāli, không xem bản dự án; không có bản Anh hay bản Việt độc lập). So 10 khoá chênh lệch lớn nhất: khác nghĩa 8, sửa 8 (toàn bộ thân kệ `1.1`–`2.4`): bản cũ sai nặng (`phāla` bị dịch *hạt đậu* thay vì *lưỡi cày*, `kulalā` *kẻ bán* thay vì *diều hâu*, `Saṭha` bị coi là tên riêng, `mā te puttamahāsi` bị đọc thành `putta-moha`), phân xử bằng ngữ pháp Pāli; bất định còn lại 2 (`1.2` `paccoḍḍita`, `2.2` `nikatino nikatyā`). Các điểm `semantic_fidelity`, `grammar_logic`, `terminology`, `vietnamese_clarity`, `ambiguity_integrity` chấm theo bản đã sửa; `source_provenance` 9,4 vì ghi chú cũ nói sai về nghĩa và đã được thay thế trong notes; `triangulation` 7,6 vì có một lần dịch lại độc lập cùng họ công cụ (trần 8,0) và đây là bài mà bản mù bắt được lỗi nặng, còn hai chỗ bất định. Blocker giữ nguyên nguyên văn như trong hồ sơ (không gỡ). Đây là review của AI, không phải chứng nhận của chuyên gia Pāli.",
+      "id": "d65e0b9c-e56e-4a11-a227-0cf135b0c2c5",
+      "content_sha256": "b0c234600621066895bee528a21b892998607a7c47a72203e9d01319e1359937",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
+      "final_score": 8.959999999999999
     }
   ],
   "legacy_quality": {

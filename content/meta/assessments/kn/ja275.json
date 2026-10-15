@@ -53,6 +53,34 @@
       "notes": "Kiểm tra tự động 17 segment với Pāli trong cache: đủ ID, giá trị, NFC và hệ chữ Latin. Chưa đọc đối chiếu nghĩa, ngữ pháp hoặc văn phong; chưa chấm lại 10 tiêu chí. Đây không phải chứng nhận hash upstream hoặc giấy phép, không xác nhận trạng thái xuất bản.",
       "content_sha256": "ef10138e90c3eaf36c483f72dfb2ae0cd5db1f11e505f22ae6fd52b7bdc4a680",
       "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639"
+    },
+    {
+      "target": "translation",
+      "scope": "full",
+      "scores": {
+        "source_provenance": 9.5,
+        "semantic_fidelity": 8.8,
+        "grammar_logic": 8.8,
+        "segment_alignment": 10,
+        "terminology": 8.7,
+        "triangulation": 7.6,
+        "vietnamese_clarity": 9,
+        "han_viet_balance": 9.2,
+        "ambiguity_integrity": 8.8,
+        "technical_integrity": 9.6
+      },
+      "blocking_errors": [
+        "Không có tầng tham khảo English Sujato tại commit đã ghim 11c9d708978cde8ba61096d8a75f7ddfb846f639. Đếm bằng script trên source/upstream-manifest.json: tầng translation/en/sujato có 4.291 tệp, trong đó thư mục sutta/kn/mil có 0 tệp và sutta/kn/ja chỉ có 83 tệp (ja1..ja79, ja126, ja159, ja466, ja534); không tệp nào chứa khoá của ja275, và tầng ref/en trong cache cũng không có tệp nào cho ja275. SuttaCentral không phát hành bản Anh nào khác phủ bài này tại commit đã ghim, nên bài chỉ đối chiếu được với Pāli root một mình."
+      ],
+      "assessed_at": "2026-10-14",
+      "assessed_by": [
+        "Claude Sonnet 5.5 (Claude Code)"
+      ],
+      "notes": "Đối chiếu bản dịch mù độc lập 2026-10-14: so 4 khoá chênh lệch lớn nhất, khác nghĩa 1 (`2.4` `lūnosmi`: *bị cắt xén* so với *bị vặt lông*), giữ theo cách đọc đã phân xử ở lượt 2026-10-12; 3 khoá còn lại chỉ khác quy ước đặt tên. Các khoá thân kệ còn lại hai bản gần như trùng nghĩa, nên các cách đọc đã sửa ở lượt trước được một lần dịch lại độc lập cùng họ công cụ xác nhận. Không sửa khoá nào; chỉ `triangulation` nâng từ 6,5 lên 7,6 (một lần dịch lại độc lập cùng họ công cụ, trần 8,0, không có bản Anh hay bản Việt khác); các tiêu chí còn lại giữ nguyên vì không có thay đổi nào để chấm lại. Blocker giữ nguyên. Đây là review của AI, không phải chứng nhận của chuyên gia Pāli.",
+      "id": "0ca06418-a45d-49d4-b04e-ae67fd1f12b9",
+      "content_sha256": "04581f86d00c79b73ecf6c46ab08d7bc5b2399e9d8cd6585d5bcd8aedea96738",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
+      "final_score": 8.999999999999998
     }
   ],
   "legacy_quality": {

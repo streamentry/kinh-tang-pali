@@ -27,6 +27,34 @@
       "notes": "Kiểm tra tự động 53 segment với Pāli trong cache: đủ ID, giá trị, NFC và hệ chữ Latin. Chưa đọc đối chiếu nghĩa, ngữ pháp hoặc văn phong; chưa chấm lại 10 tiêu chí. Đây không phải chứng nhận hash upstream hoặc giấy phép, không xác nhận trạng thái xuất bản.",
       "content_sha256": "23355cae52d8fb67f4df2b352ccd89b8ebfead44ed929a9fb2ca90884c258a42",
       "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639"
+    },
+    {
+      "target": "translation",
+      "scope": "full",
+      "scores": {
+        "source_provenance": 9.5,
+        "semantic_fidelity": 8.7,
+        "grammar_logic": 9,
+        "segment_alignment": 10,
+        "terminology": 8.8,
+        "triangulation": 7.5,
+        "vietnamese_clarity": 9,
+        "han_viet_balance": 9,
+        "ambiguity_integrity": 8.8,
+        "technical_integrity": 9.6
+      },
+      "blocking_errors": [
+        "Tầng English SuttaCentral đã ghim KHÔNG có bài này: source/upstream-manifest.json ở commit đã pin cho thấy english-sujato có 4291 tệp mà `ja469` không có mặt (grep trên danh sách tệp của edition cho kết quả rỗng), nên scripts/validate.ts dòng 223-226 coi đây là lỗi (error) khi status là review hoặc published. Tôi không được chạy npm run source:sync:used (lệnh cấm của lát) và cũng không được sửa content/meta/reference-gaps.yaml, nên không thể ghi nhận khoảng trống tham khảo theo cơ chế của kho. Bắt buộc giữ draft."
+      ],
+      "assessed_at": "2026-10-14",
+      "assessed_by": [
+        "Claude Sonnet 5.5 (Claude Code)"
+      ],
+      "notes": "Đối chiếu bản dịch mù độc lập 2026-10-14: so 27 khoá chênh lệch lớn nhất, khác nghĩa 4: sửa 0, giữ 1 (`9.3` so với `4.3`), bất định 3 (`11.1` `sukkacchavī vedhaverā`, `11.2` `apātubhā`, `2.1`–`2.2` phạm vi phủ định `na … bhavissati`); 23 khoá còn lại chỉ khác diễn đạt, gồm 9 khoá điệp khúc `tadā kaṇho pamokkhati` cùng nghĩa. Không sửa khoá nào vì không có chỗ nào mà Pāli buộc phải đổi bản dự án; điểm giữ nguyên, `triangulation` giữ 7,5 (một lần dịch lại độc lập cùng họ công cụ, còn ba chỗ hapax chưa phân xử, không có bản Anh hay bản Việt khác). Blocker giữ nguyên. Đây là review của AI, không phải chứng nhận của chuyên gia Pāli.",
+      "id": "862c1a13-4ac3-4355-b2bd-41aca2507ca6",
+      "content_sha256": "f18a84b0bd8aacabe752ed29aded617a40785538ee0d6a9c5f7d0c699ce0ec3a",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
+      "final_score": 8.989999999999998
     }
   ],
   "legacy_quality": {

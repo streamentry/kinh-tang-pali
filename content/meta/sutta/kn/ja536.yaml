@@ -3,7 +3,8 @@ status: review
 translationTitle: "Kinh Kuṇāla"
 translators:
   - "Claude Sonnet 5.5 (Claude Code)"
-reviewers: []
+reviewers:
+  - Claude Sonnet 5.5 (Claude Code)
 tags:
   - "khuddaka-nikaya"
   - "jataka"
@@ -15,14 +16,14 @@ quality:
     source_provenance: 9.4
     semantic_fidelity: 7.8
     grammar_logic: 7.6
-    segment_alignment: 10.0
+    segment_alignment: 10
     terminology: 8.2
-    triangulation: 7.5
+    triangulation: 7.6
     vietnamese_clarity: 8.2
     han_viet_balance: 9.2
     ambiguity_integrity: 8.8
     technical_integrity: 9.6
-  final_score: 8.63
+  final_score: 8.639999999999999
   blocking_errors:
     - "noEnglishEditionUpstream: Thiếu bản dịch tiếng Anh đối chiếu. Tầng
       english-sujato tại commit đã ghim không có
@@ -31,9 +32,10 @@ quality:
       vietnamese-current chỉ có Pháp Cú và lớp english-project không có tệp cho
       bài này. Cả ba tầng tham khảo đều vắng nên triangulation bị chặn ở 7.5 (≤
       8.0) và bài giữ draft."
-  assessed_at: "2026-10-11"
+  assessed_at: 2026-10-14
   assessed_by:
-    - "Claude Sonnet 5.5 (Claude Code)"
+    - Claude Sonnet 5.5 (Claude Code)
+  assessment_id: 6dec98b1-a287-43a8-8e9c-7baefd448057
   waiver:
     id: no-upstream-english
     blockers:
@@ -118,3 +120,20 @@ notes: |-
     5. Số Pāli: xem trên; các danh sách đã nêu số (`40`, `42`–`43`, `44`, `46`, `49`, `50`, `75`) đều đếm khớp.
     NFC đạt, không khoá rỗng, không khoảng trắng thừa; Pāli lọt sang tiếng Việt là tên riêng và tên cây, thú, chim giữ phiên âm có ghi chú ở trên. Đã in cặp Pāli↔Việt ra đọc (446 cặp).
   - Công cụ kiểm của kho chưa chạy ở bước này, nên `technical_integrity` đặt 9.6 và không tuyên bố technical gate pass; còn phải chạy: `npm run validate`, `npm test`, `npm run check`, `npm run build`.
+
+  Đối chiếu bản dịch mù độc lập 2026-10-14: một dịch giả khác (cùng họ công cụ) dịch lại bài từ Pāli không xem
+  bản dự án; so 115 khoá chênh lệch lớn nhất → khác nghĩa 14: sửa 4 (80.4 `dasanna mātaraṁ`: 'mẹ của Dasanna' →
+  'mẹ của mười người', vì `dasanna` là dạng rút của `dasannaṁ` 'của mười' như an10.176:23.1, không có căn cứ coi
+  là tên riêng; 92.4 `dijampati`: giữ phiên âm → 'hỡi chúa loài chim', vì `cattārome` ở 92.1 đã đủ bốn với biển,
+  bà-la-môn, vua, người đàn bà, nên chữ này là hô cách gọi Ānanda vua kền kền theo 91.1, cùng dạng 'chúa loài
+  chim' ở ja518:25.3; 116.3 `devatāhi nirayaṁ nimissati`: 'sẽ bị chư thiên đổi lấy địa ngục' → 'sẽ đem chư thiên
+  đổi lấy địa ngục', vì `nimeti` có cách công cụ chỉ vật đem đổi và đối cách chỉ vật nhận, như `pāṇena te
+  pāṇamahaṁ nimissaṁ` ở ja513:14.1, và chủ ngữ là người bỏ thiện hạnh, không phải chư thiên; 31.1 `lomasuddarī`:
+  'người đẹp tóc dày' → 'người đẹp có bộ lông', vì `loma` là lông chứ không phải tóc, `kesa` mới là tóc), giữ 4
+  (61.1: bản mù đọc 'người như kinnara Kaṇḍarī', trong ja341 `kaṇḍarīkinnarānaṁ` là vua Kaṇḍarī và Kinnarā; 63.4
+  `taṁ vāpi sā nājjhagā`: bản mù 'không đạt được người ấy', cùng ý với bản dự án dùng lại từ ja341:4.4; 102.3
+  `jātavedova saṇṭhānaṁ`: theo ja507:28.3; 62.3 và 63.3 `paṭṭhavasānuga`: theo ja341), bất định 6 (29.1
+  `catutthabhattaṁ pariṇāmayamānā`; 58.4 và 59.2 `nivātaka`: 'người nhún nhường' hay 'nơi kín đáo'; 60.3
+  `nāpītikarā`: giống cái nên cũng có thể là 'dẫu nàng không làm điều gì khiến ta phật ý'; 64.3 `nādevasatta`
+  vẫn giữ phiên âm; 80.1 `sākhapurāṇasanthataṁ`; 108.4 `rāgadosavadhiyo`). Các khoá còn lại chỉ khác diễn đạt
+  hoặc tên loài, tên cây. Không có bản Anh hay bản Việt độc lập khác.

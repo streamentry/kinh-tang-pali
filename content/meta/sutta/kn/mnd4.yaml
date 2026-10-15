@@ -3,7 +3,8 @@ status: review
 translationTitle: "Đại Tập Kể Lược, Kể Lược Phẩm Tám Kệ – Kinh Tám Kệ Về Thanh Tịnh"
 translators:
   - "Claude Sonnet 5.5 (Claude Code)"
-reviewers: []
+reviewers:
+  - Claude Sonnet 5.5 (Claude Code)
 tags:
   - "khuddaka-nikaya"
   - "mahaniddesa"
@@ -11,16 +12,16 @@ tags:
 quality:
   scores:
     source_provenance: 9.4
-    semantic_fidelity: 8.4
+    semantic_fidelity: 8.5
     grammar_logic: 8.5
-    segment_alignment: 10.0
-    terminology: 8.5
-    triangulation: 8.0
+    segment_alignment: 10
+    terminology: 8.6
+    triangulation: 7.9
     vietnamese_clarity: 8.3
     han_viet_balance: 9.1
     ambiguity_integrity: 8.3
     technical_integrity: 9.6
-  final_score: 8.81
+  final_score: 8.819999999999999
   blocking_errors:
     - "noEnglishEditionUpstream: không có tầng tham khảo tiếng Anh cho mnd4 tại
       commit đã ghim. Thư mục kn/ của edition translation/en/sujato chỉ có cp,
@@ -30,9 +31,10 @@ quality:
       cũng không có mnd4. Tầng vietnamese-current chỉ có Pháp Cú. Đây là
       not-published-upstream, giới hạn của bản chụp upstream chứ không phải lỗi
       người dịch, nên triangulation bị chặn ở 8.0 và không nâng để né blocker."
-  assessed_at: "2026-10-11"
+  assessed_at: 2026-10-14
   assessed_by:
-    - "Claude Sonnet 5.5 (Claude Code)"
+    - Claude Sonnet 5.5 (Claude Code)
+  assessment_id: 7d70673c-f857-4844-b180-fdbf33ba0702
   waiver:
     id: no-upstream-english
     blockers:
@@ -82,3 +84,5 @@ notes: |-
   15. Lỗi ngoài lát, báo chứ không sửa: `snp4.4:2.4`, `6.1`, `6.3` (bất định 1–2), `snp4.4:8.1` *không còn giới hạn* (bất định 11), `snp3.6:31.5` thêm nháy đơn quanh *bậc minh triết* và `snp3.6:19.5` thêm nháy đơn quanh *bà-la-môn* trong khi Pāli không có nháy.
 
   **Bốn cổng kỹ thuật theo `AGENTS.md`:** `npm run validate`, `npm test`, `npm run check`, `npm run build`. Lát này **không** chạy bốn lệnh đó vì bị cấm trong từng lát ⇒ để CI hoặc người điều phối chạy. `technical_integrity` đặt **9.6**, không 10.0. Các phép tự kiểm đã chạy và đều xanh: tập khoá bản Việt = tập khoá Pāli (408/408, cùng thứ tự); nháy kép `“”`, nháy đơn `‘’` và ngoặc đơn khớp Pāli từng khoá (0/408 lệch); dấu lược `…` khớp Pāli từng khoá (0/408 lệch; 52 khoá có `…`: 13 khoá có `…pe…`, 39 khoá có `…` trần; không khoá Pāli nào có `(…)` hay kết `….`); dấu gạch dài cuối khoá khớp Pāli (0 lệch); 0 khoá rỗng; NFC; không khoảng trắng thừa; không nháy thẳng; Pāli lọt sang Việt: không còn từ có dấu Pāli ngoài các tên riêng và tên loài (*Bhūri, Namucī, Vāsudeva, Baladeva, Puṇṇabhadda, Maṇibhadda, Samaṇamuṇḍikāputta, cātaka*).
+
+  Đối chiếu bản dịch mù độc lập 2026-10-14: một dịch giả khác (cùng họ công cụ) dịch lại bài từ Pāli không xem bản dự án; so 129 khoá chênh lệch lớn nhất → khác nghĩa 5: sửa 2 (`65.1`–`65.2`, `66.1`, `67.3`, `67.5`, `71.1`–`71.2` `Sīmātigo brāhmaṇo tassa natthi, ñatvā va disvā va samuggahītaṁ`: trước "Bà-la-môn ấy đã vượt qua ranh giới, không còn giới hạn, sau khi biết và sau khi thấy, vị ấy không nắm giữ gì" → sau "Bà-la-môn đã vượt qua ranh giới, nơi vị ấy không có điều gì được nắm giữ, dù do biết hay do thấy", vì `natthi` đi với `samuggahītaṁ` (chú giải ở `67.4` nói thẳng `gahitaṁ … natthi`) còn "không còn giới hạn" không có căn cứ trong Pāli; `50.4` `makkho thambho`: "Khinh mạn và cứng đầu" → "Gièm pha và bướng bỉnh", theo hai tiền lệ trùng nguyên văn `snp3.2:13.4` và `cnd11:12.4`), giữ 2 (`18.5`, `66.14` `sa brahmā`: bản mù dịch "Phạm thiên", sai trong mạch giải thích `brāhmaṇo`; `59.9`–`59.16` `purekkhāra`: bản mù "đặt lên hàng đầu", bản này giữ "đề cao" theo quy ước đã dùng ở `mnd3`, `mnd5`, `mnd10`, `snp4.4`, và `59.15` đã nói rõ nghĩa "đặt … lên hàng đầu"), bất định 1 (`61.23` `vayhaṁ … sandamānikaṁ`: tên bốn loại xe, bản mù cũng ghi chưa chắc). Rà đối kháng nội bộ cả bài, sửa thêm: `9.4`, `13.1`, `13.2`, `13.15`, `15.4` `diṭṭhī` từng dịch "tri kiến", trùng với `ñāṇa` ở `9.2` cũng là "tri kiến", nay là "cái kiến" (như `13.2`, `39.4`); `49.4` `taṇhā` "ái dục" → "tham ái" theo `snp3.2:12.4`, `cnd11:11.4` và thuật ngữ cả bài. Ngoài phạm vi, chưa sửa: `snp4.4:2.4` dịch `diṭṭhī` cũng là "tri kiến", `snp4.4:8.1`–`8.2` còn cách dịch `Sīmātigo…` như trước. Không có bản Anh hay bản Việt độc lập khác; phần lớn chênh lệch còn lại chỉ là cách diễn đạt.

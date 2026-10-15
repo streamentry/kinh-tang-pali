@@ -27,6 +27,34 @@
       "notes": "Kiểm tra tự động 53 segment với Pāli trong cache: đủ ID, giá trị, NFC và hệ chữ Latin. Chưa đọc đối chiếu nghĩa, ngữ pháp hoặc văn phong; chưa chấm lại 10 tiêu chí. Đây không phải chứng nhận hash upstream hoặc giấy phép, không xác nhận trạng thái xuất bản.",
       "content_sha256": "450d19e5cc2d1f0d6ecd80a4086a76301a5eafbc0e43faa757f233ee68ab4bf6",
       "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639"
+    },
+    {
+      "target": "translation",
+      "scope": "full",
+      "scores": {
+        "source_provenance": 9.5,
+        "semantic_fidelity": 9,
+        "grammar_logic": 8.8,
+        "segment_alignment": 10,
+        "terminology": 9,
+        "triangulation": 7.6,
+        "vietnamese_clarity": 8.8,
+        "han_viet_balance": 9.2,
+        "ambiguity_integrity": 9,
+        "technical_integrity": 9.6
+      },
+      "blocking_errors": [
+        "Không có tầng tham khảo tiếng Anh tại commit đã ghim 11c9d708978cde8ba61096d8a75f7ddfb846f639. Đếm trực tiếp trong source/upstream-manifest.json: tầng english-sujato (treeSha 24e81ded9d6710e16b277b6394fd57c48258da12, 4.291 tệp) có đúng 83 tệp kn/ja và trong số đó chỉ một tệp chứa khóa ja4x là sutta/kn/ja/ja44_translation-en-sujato.json (Ekakanipāta); không có tệp nào cho ja447. Đây là not-published-upstream, KHÔNG phải not-synced, và không phải thiếu sót của repo. Vì vậy bài dịch chỉ từ Pāli root cùng commit cộng với các Pāli song song đã dịch trong chính tầng Việt dự án; theo BRIEF_VI3 §5 thì status bắt buộc là draft."
+      ],
+      "assessed_at": "2026-10-14",
+      "assessed_by": [
+        "Claude Sonnet 5.5 (Claude Code)"
+      ],
+      "notes": "Đối chiếu bản dịch mù độc lập 2026-10-14 trên toàn bài (53 khoá; 13 khoá chênh lệch lớn nhất được xét từng khoá với Pāli). Khác nghĩa 3: sửa 0, giữ 2 (`te` số ít \"Ông\"; `dhammacārī`), bất định 1 (`suciṇṇassa` ở 1.2, \"nghiệp thiện\" so \"việc khéo làm\", tiền lệ tầng chia đôi). Các bất định đã ghi từ trước (8.1 `suttamāsu`, 6.1 `nātikkamāma`) không bị bản mù phản bác, nhưng cũng chỉ là một lần dịch lại cùng họ công cụ nên không coi là bằng chứng độc lập. Rà đối kháng cả bài (nháy, điệp khúc `miyyare`, đại từ) không tìm thêm lỗi. Mức đối chiếu: Pāli, tiền lệ trong tầng Việt dự án và một lần dịch lại độc lập cùng họ công cụ; không có bản Anh hay bản Việt độc lập khác nên `triangulation` 7,6 (trước 7,0). Các điểm khác giữ nguyên. `technical_integrity` 9,6 là mức quy ước, cổng do người điều phối chạy: `npm run validate`, `npm test`, `npm run check`, `npm run build`. Đây là review của AI, không phải chứng nhận của chuyên gia Pāli.",
+      "id": "49cccc1f-8f3a-4375-897f-ff2d6d814fc9",
+      "content_sha256": "e18a115989e573bae6d9d186429375b6cb1377005bf0d126c16980693e432f06",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
+      "final_score": 9.05
     }
   ],
   "legacy_quality": {

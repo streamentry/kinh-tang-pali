@@ -53,6 +53,34 @@
       "notes": "Kiểm tra tự động 10 segment với Pāli trong cache: đủ ID, giá trị, NFC và hệ chữ Latin. Chưa đọc đối chiếu nghĩa, ngữ pháp hoặc văn phong; chưa chấm lại 10 tiêu chí. Đây không phải chứng nhận hash upstream hoặc giấy phép, không xác nhận trạng thái xuất bản.",
       "content_sha256": "eb31bb14b13945252e2ae7072cfdb09e7c11d680947a5561dc32f0b1c57da1d7",
       "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639"
+    },
+    {
+      "target": "translation",
+      "scope": "full",
+      "scores": {
+        "source_provenance": 9.5,
+        "semantic_fidelity": 8.8,
+        "grammar_logic": 9,
+        "segment_alignment": 10,
+        "terminology": 8.5,
+        "triangulation": 7.7,
+        "vietnamese_clarity": 9.1,
+        "han_viet_balance": 9.2,
+        "ambiguity_integrity": 8.2,
+        "technical_integrity": 9.6
+      },
+      "blocking_errors": [
+        "Không có tầng tham khảo English Sujato tại commit đã ghim cho bài này (không có tệp trong .cache/upstream/suttacentral/translation/en/sujato/sutta/kn/ ở commit đã ghin) và cũng không có bản Việt hiện hành cho Khuddaka Nikāya; bài này dịch chỉ từ Pāli, chưa đối chiếu được tầng tham khảo nào nên chưa đủ điều kiện published, giữ draft."
+      ],
+      "assessed_at": "2026-10-14",
+      "assessed_by": [
+        "Claude Sonnet 5.5 (Claude Code)"
+      ],
+      "notes": "Đối chiếu bản dịch mù độc lập 2026-10-14 trên toàn bài (10 khoá; 3 khoá chênh lệch lớn nhất được xét từng khoá với Pāli). Khác nghĩa 1: sửa 0, giữ 1 (`hārasampāta` dịch \"Nhóm Phương Thức\" theo quy ước các bài `ne27`–`ne34`, bản mù \"sự hội tụ của phương thức\"); khác tên khí cụ ở 2.4 (`paññāsatthaṁ` \"gươm\" so \"dao\") chỉ là diễn đạt. Rà đối kháng cả bài: ba lượt sửa ngày 2026-10-13 ở 2.2, 2.3, 2.4 vẫn khớp Pāli, không thêm lỗi. Mức đối chiếu: Pāli, tiền lệ trong tầng Việt dự án và một lần dịch lại độc lập cùng họ công cụ, trên bài chỉ bốn câu giải thích; không có bản Anh hay bản Việt độc lập khác nên `triangulation` 7,7 (trước 7,4). Các điểm khác giữ nguyên. `technical_integrity` 9,6 là mức quy ước, cổng do người điều phối chạy: `npm run validate`, `npm test`, `npm run check`, `npm run build`. Đây là review của AI, không phải chứng nhận của chuyên gia Pāli.",
+      "id": "87ee4bc8-8670-4d0f-824c-dbba9279ce89",
+      "content_sha256": "b3eabe77dfcc7bfbeaad0f5920e29985685ffec9be6d31b1fcbc2ce3257fa07f",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
+      "final_score": 8.959999999999999
     }
   ],
   "legacy_quality": {

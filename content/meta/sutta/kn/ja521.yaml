@@ -3,7 +3,8 @@ status: review
 translationTitle: "Kinh Tesakuṇa"
 translators:
   - "Claude Sonnet 5.5 (Claude Code)"
-reviewers: []
+reviewers:
+  - Claude Sonnet 5.5 (Claude Code)
 tags:
   - "khuddaka-nikaya"
   - "jataka"
@@ -13,16 +14,16 @@ tags:
 quality:
   scores:
     source_provenance: 9.5
-    semantic_fidelity: 8.0
-    grammar_logic: 8.0
+    semantic_fidelity: 8
+    grammar_logic: 8
     segment_alignment: 9.8
     terminology: 8.8
-    triangulation: 7.5
+    triangulation: 7.8
     vietnamese_clarity: 8.6
     han_viet_balance: 9.2
-    ambiguity_integrity: 9.0
+    ambiguity_integrity: 9
     technical_integrity: 9.6
-  final_score: 8.8
+  final_score: 8.829999999999998
   blocking_errors:
     - "noEnglishEditionUpstream: Thiếu bản dịch tiếng Anh đối chiếu. Tầng
       english-sujato tại commit đã ghim không có
@@ -31,9 +32,10 @@ quality:
       vietnamese-current chỉ có Pháp Cú và lớp lấp english-project không có tệp
       cho bài này. Cả ba tầng tham khảo đều vắng nên triangulation bị chặn ở 7.5
       (≤ 8.0) và bài giữ draft."
-  assessed_at: "2026-10-11"
+  assessed_at: 2026-10-14
   assessed_by:
-    - "Claude Sonnet 5.5 (Claude Code)"
+    - Claude Sonnet 5.5 (Claude Code)
+  assessment_id: 7e671f0a-6e51-4654-80b4-bcccd702231e
   waiver:
     id: no-upstream-english
     blockers:
@@ -102,3 +104,14 @@ notes: |-
     5. Số Pāli: xem trên.
     NFC đạt, không khoá rỗng, không khoảng trắng thừa; Pāli lọt sang tiếng Việt chỉ là tên riêng (`Jātaka`, `Tesakuṇa`, `Vessantara`, `Kaṁsa`, `Bārāṇasī`, `Sirī`, `Alakkhī`, `Lakkhī`, `Kāḷakaṇṇī`, `Kāsi`, `Kosiyagotta`, `Kuṇḍalinī`, `Jambuka`, `Sakka`, `Inda`). Đã in cặp Pāli↔Việt ra đọc toàn bài (203 cặp).
   - Công cụ kiểm của kho chưa chạy ở bước này, nên `technical_integrity` đặt 9.6 và không tuyên bố technical gate pass; còn phải chạy: `npm run validate`, `npm test`, `npm run check`, `npm run build`.
+
+  Đối chiếu bản dịch mù độc lập 2026-10-14: một dịch giả khác (cùng họ công cụ) dịch lại bài từ Pāli không xem
+  bản dự án; so 55 khoá chênh lệch lớn nhất → khác nghĩa 5: sửa 0, giữ 3 (37.3–37.4 `na nibbindiyakārissa …
+  sammadattho vipaccati`: bản mù không đọc phủ định, ra 'mục đích chân chánh chín muồi' cho người không kiên
+  trì, trái với 38.3–38.4 `anibbindiyakārissa`; Pāli `na` phủ định `vipaccati`, nên giữ 'kẻ làm việc nản chí,
+  lợi ích đúng đắn không chín muồi'; 35.1–35.2: bản mù đọc `asussūsaṁ` như người không muốn nghe làm chủ ngữ,
+  Pāli dùng nó như trạng ngữ 'nếu không chịu lắng nghe'; 30.4 `adhigaṇhāti paṇḍito`: bản mù 'chế ngự', bản dự án
+  'đạt được', theo an5.43:10.4 và iti23:3.4 cùng công thức), bất định 2 (23.1 `adhisare muñca …
+  subāḷhamadhikopitaṁ`: tân ngữ của `muñca` không rõ, bản mù cũng ghi chưa chắc; 24.2 `anatthāya patārayi`: 'dẫn
+  đến điều bất lợi' hay 'lừa vào điều bất lợi'). 50 khoá còn lại chỉ khác diễn đạt. Không có bản Anh hay bản
+  Việt độc lập khác.

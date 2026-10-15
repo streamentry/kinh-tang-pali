@@ -3,7 +3,8 @@ status: review
 translationTitle: "Kinh Mahākaṇha"
 translators:
   - "OpenCode Space Bunny Free (agent)"
-reviewers: []
+reviewers:
+  - Claude Sonnet 5.5 (Claude Code)
 tags:
   - "khuddaka-nikaya"
   - "jataka"
@@ -14,15 +15,15 @@ quality:
   scores:
     source_provenance: 9.5
     semantic_fidelity: 8.7
-    grammar_logic: 9.0
-    segment_alignment: 10.0
+    grammar_logic: 9
+    segment_alignment: 10
     terminology: 8.8
     triangulation: 7.5
-    vietnamese_clarity: 9.0
-    han_viet_balance: 9.0
+    vietnamese_clarity: 9
+    han_viet_balance: 9
     ambiguity_integrity: 8.8
     technical_integrity: 9.6
-  final_score: 8.99
+  final_score: 8.989999999999998
   blocking_errors:
     - "Tầng English SuttaCentral đã ghim KHÔNG có bài này:
       source/upstream-manifest.json ở commit đã pin cho thấy english-sujato có
@@ -32,9 +33,10 @@ quality:
       source:sync:used (lệnh cấm của lát) và cũng không được sửa
       content/meta/reference-gaps.yaml, nên không thể ghi nhận khoảng trống tham
       khảo theo cơ chế của kho. Bắt buộc giữ draft."
-  assessed_at: "2026-10-12"
+  assessed_at: 2026-10-14
   assessed_by:
-    - "Claude Sonnet 5.5 (Claude Code)"
+    - Claude Sonnet 5.5 (Claude Code)
+  assessment_id: 862c1a13-4ac3-4355-b2bd-41aca2507ca6
   waiver:
     id: no-upstream-english
     blockers:
@@ -251,3 +253,5 @@ notes: |-
   Cặp Pāli trùng nguyên văn đã đối chiếu với tầng: `7.2`/`8.2` (= `ja468:8.2`), `10.1`–`10.2` (= `ja495:34.1–2`), `11.1` (= `ja547:186.1`), `5.2` (= `ja547:15.2`): **0** cặp dịch khác. Mọi bất định trên chỉ là cách đọc từng từ, không đổi ý nghĩa tổng thể của bài (lời tiên tri về những hạng người khiến Kaṇha được thả ra).
 
   **Chấm lại.** `semantic_fidelity` 9,2 → 8,7 và `grammar_logic` 9,1 → 9,0, `terminology` 9,0 → 8,8, `triangulation` 7,0 → 7,5 (vẫn không có bản Anh độc lập), `vietnamese_clarity` 9,1 → 9,0, `han_viet_balance` 9,2 → 9,0, `ambiguity_integrity` 8,4 → 8,8 (bất định được ghi đủ); `final_score` 9,01 → 8,99. Bản chấm cũ cao hơn thực tế vì chưa đọc đối kháng; điểm mới phản ánh bản đã sửa. `technical_integrity` vẫn 9,6: bốn lệnh `npm run validate` · `npm test` · `npm run check` · `npm run build` chưa chạy trong lát này.
+
+  Đối chiếu bản dịch mù độc lập 2026-10-14: một dịch giả khác (cùng họ công cụ) dịch lại bài từ Pāli không xem bản dự án; so 27 khoá chênh lệch lớn nhất → khác nghĩa 4: sửa 0, giữ 1 (`9.3` so với `4.3`: Pāli trùng `Yadā loke gamissanti`, bản mù cũng dịch hai khoá khác nhau theo tân ngữ (`9.3` *đến với những người ấy*, `4.3` *đi lại*), cùng cách đọc với bản dự án), bất định 3 (`11.1` `sukkacchavī vedhaverā`: bản mù *da khô … vedhavera*, bản dự án *da trắng, con của góa phụ*; `11.2` `apātubhā`: bản mù giữ nguyên từ Pāli, bản dự án *chẳng có gì nổi bật*; `2.1`–`2.2` `nāyaṁ migānamatthāya … bhavissati`: bản dự án *không vì lợi ích của loài thú … sẽ hiện hữu* giữ thứ tự khoá, nhưng phủ định `na` thuộc về `bhavissati` nên sát nhất là *sẽ không hiện hữu vì lợi ích của loài thú*; bản mù đọc `usīnaka` thành chủ ngữ *Usīnaka sẽ có*, không theo vì `usīnaka` là lời gọi). Hai mươi ba khoá còn lại khác diễn đạt: điệp khúc `tadā kaṇho pamokkhati` (9 khoá), `mātulāniṁ pitucchakiṁ`, `Adhicca vede sāvittiṁ` (bản mù viết *Sāvittī*, bản dự án giữ *Sāvitrī* theo tiền lệ), `muṇḍā saṅghāṭipārutā`, `paṅkadantā rajassirā`, `asappurisacintakā`, tên bộ `Dvādasakanipāta`; cả hai bản cùng nghĩa. Không có bản Anh hay bản Việt độc lập khác.
