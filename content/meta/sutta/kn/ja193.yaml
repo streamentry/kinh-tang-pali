@@ -1,5 +1,5 @@
 uid: ja193
-status: review
+status: draft
 translationTitle: "Kinh Hoa Sen Nhỏ"
 translators:
   - "OpenCode Space Bunny Free (agent)"
@@ -27,18 +27,10 @@ quality:
       trong `translation/en/sujato/sutta/kn/ja/` tại commit đã ghim
       (`not-published-upstream`); tầng Việt hiện hành cũng vắng, nên không có
       bản tham khảo độc lập nào."
-  assessed_at: 2026-10-14
+  assessed_at: 2026-10-15
   assessed_by:
-    - Claude Sonnet 5.5 (Claude Code)
-  assessment_id: f21a817f-10dc-439e-905f-9eacfce92116
-  waiver:
-    id: no-upstream-english
-    blockers:
-      - "noEnglishEditionUpstream: không có tệp
-        `ja193_translation-en-sujato.json` trong
-        `translation/en/sujato/sutta/kn/ja/` tại commit đã ghim
-        (`not-published-upstream`); tầng Việt hiện hành cũng vắng, nên không có
-        bản tham khảo độc lập nào."
+    - Claude Opus 5.5 (Claude Code)
+  assessment_id: a91b122e-a686-4ec1-b429-3d4df93a7f7b
 notes: |-
   **Blocker thật: không có tầng Anh.** Không có `ja193_translation-en-sujato.json` trong `kn/ja/` tại commit đã ghim. Tôi dịch từ Pāli một mình và đặt `draft`; không tự nâng điểm để né. Vì vậy `:1.3`–`:1.4` (câu khó nhất của bài) chỉ đứng được trên Pāli, và tôi hạ `semantic_fidelity`/`ambiguity_integrity` xuống vì lý do đó.
 
@@ -85,3 +77,5 @@ notes: |-
   **Chấm lại.** Điểm giữ nguyên (final_score 8,76 = trung bình thô 10 tiêu chí): bản đã đúng Pāli sau lượt sửa 2026-10-12, nhưng `triangulation` vẫn 7,0 vì không có bản đối chiếu độc lập nào, và `semantic_fidelity`/`ambiguity_integrity` bị giữ thấp vì cú pháp `pāpapatibbatāya` (*thủy chung với chồng một cách xấu ác* hay *thủy chung với kẻ chồng xấu ác*) chỉ đứng được trên Pāli một mình. Pāli `ja193` không có dấu lược nên không có `…`/`(…)`; không có số đếm Pāli. `technical_integrity` giữ 9,6: không chạy `npm run validate` · `npm test` · `npm run check` · `npm run build`.
 
   Đối chiếu bản dịch mù độc lập 2026-10-14: một dịch giả khác (cùng họ công cụ) dịch lại bài từ Pāli không xem bản dự án; so 5 khoá chênh lệch lớn nhất (toàn bộ khoá khác nhau của bài) → khác nghĩa 1: sửa 0, giữ 4 (`0.4` và `3.1`: chỉ khác cách đặt tên bài, *Kinh Hoa Sen Nhỏ* so với *Chuyện Tiền thân Cūḷapaduma*, tên bài đã chuẩn hoá theo tiền lệ của phẩm; `1.4` và `2.4`: cùng nghĩa với bản dự án, chỉ khác chữ — `vajjhitthiyo` đọc là `vajjhā itthiyo` *phụ nữ đáng bị giết*, hai vế *đáng bị xử tử* và *chẳng có sự thật* khớp bản mù; `jīvantiyā` *khi còn sống* chỉ khác vị trí trong câu), bất định 1 (`2.3` `imissā ca naṁ pāpapatibbatāya`: bản dự án đọc ba từ giống cái `imissā`, `pāpapatibbatāya`, `jīvantiyā` cùng chỉ người nữ bị trừng phạt (*người nữ này, kẻ thủy chung với chồng một cách xấu ác*); bản mù đọc `pāpapatibbatāya` là nguyên cớ (*vì thứ tiết hạnh xấu xa của ả này*). Pāli không có văn xuôi dẫn nên không phân xử dứt khoát giữa *xấu ác trong lòng thủy chung* và *thủy chung với kẻ xấu ác* và giữa tính từ với nguyên cớ; giữ bản dự án, ghi bất định). Bản mù ghi chưa chắc ở `1.4` và `2.4`: ở hai khoá này đã đọc lại cú pháp từ Pāli, cách đọc của bản dự án đứng được, còn bất định nhỏ ở `1.4` (`vajjhitthiyo` có thể tách khác) không đổi nghĩa chung của câu. Review đối kháng riêng toàn bài (13 khoá): nháy đơn ‘…’ ở `1.3` và nháy kép đúng từng khoá Pāli, xưng hô *tôi/bạn* nhất quán, không có dấu lược, không có số đếm; không sửa khoá nào. Không có bản Anh hay bản Việt độc lập khác; chỉ có một lần dịch lại cùng họ công cụ nên `triangulation` không vượt 8,0.
+
+  Lượt rà soát 2026-10-15 (Claude Opus 5.5, đọc đối kháng Pāli↔Việt; không có bản Anh, bản Việt nguyên bài hay đoạn song song): sửa 0 khoá. Rà 13/13 khoá: `hantvā` là tuyệt đối cách đứng trước mệnh lệnh `chindatha` (2.1→2.4), các thuộc ngữ `imissā … pāpapatibbatāya … jīvantiyā` cùng giống cái số ít sở hữu cách đi với `kaṇṇanāsaṁ`, nháy đơn lồng ở 1.3 đúng khoá Pāli. Bất định `pāpapatibbatāya` (2.3) giữ như ghi trước; câu Việt ở khoá này còn nặng nên không nâng `vietnamese_clarity`. Không có bằng chứng mới nên giữ điểm.

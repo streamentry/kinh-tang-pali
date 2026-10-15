@@ -1,10 +1,11 @@
 uid: ja183
-status: review
+status: draft
 translationTitle: "3. Kinh Vālodaka"
 translators:
   - "OpenCode Space Bunny Free (agent)"
 reviewers:
   - Claude Sonnet 5.5 (Claude Code)
+  - Claude Opus 5.5 (Claude Code)
 tags:
   - "khuddaka-nikaya"
   - "jataka"
@@ -13,16 +14,16 @@ tags:
 quality:
   scores:
     source_provenance: 8.2
-    semantic_fidelity: 8.6
-    grammar_logic: 8.6
+    semantic_fidelity: 8.8
+    grammar_logic: 8.8
     segment_alignment: 10
     terminology: 8.8
     triangulation: 7.6
-    vietnamese_clarity: 8.4
+    vietnamese_clarity: 8.6
     han_viet_balance: 8.8
     ambiguity_integrity: 8.6
     technical_integrity: 9.6
-  final_score: 8.719999999999999
+  final_score: 8.779999999999998
   blocking_errors:
     - "Thiếu hẳn tầng tham khảo English SuttaCentral: tệp
       .cache/upstream/suttacentral/translation/en/sujato/sutta/kn/ja/ja183_tran\
@@ -30,19 +31,10 @@ quality:
       chỉ tới ja79 cộng vài ngoại lệ; SuttaCentral không có bản Anh nào phủ cho
       ja183. Theo AGENTS.md, thiếu tầng tham khảo là lỗi chặn đối với
       review/published."
-  assessed_at: 2026-10-14
+  assessed_at: 2026-10-15
   assessed_by:
-    - Claude Sonnet 5.5 (Claude Code)
-  assessment_id: 2911637c-c1f7-4952-aa46-961086d9fe5d
-  waiver:
-    id: no-upstream-english
-    blockers:
-      - "Thiếu hẳn tầng tham khảo English SuttaCentral: tệp
-        .cache/upstream/suttacentral/translation/en/sujato/sutta/kn/ja/ja183_tr\
-        anslation-en-sujato.json không tồn tại ở commit đã ghim. Sujato dịch
-        Tăng Bộ chỉ tới ja79 cộng vài ngoại lệ; SuttaCentral không có bản Anh
-        nào phủ cho ja183. Theo AGENTS.md, thiếu tầng tham khảo là lỗi chặn đối
-        với review/published."
+    - Claude Opus 5.5 (Claude Code)
+  assessment_id: 60fa9e03-5fe0-4cd1-826a-22dff90c7b8e
 notes: |-
   **Ba blocker, bài phải ở `draft`.** Đây là bài nhiều lỗi nhất trong lô. Không sửa bản dịch.
 
@@ -95,3 +87,5 @@ notes: |-
   **Cổng kỹ thuật.** Chưa chạy `npm run validate`, `npm test`, `npm run check`, `npm run build` trong lượt này; vì vậy `technical_integrity` đặt 9,6 chứ không tuyên bố technical gate đã qua. Blocker (A) còn lại thắng điểm: bài ở `draft` cho tới khi người biên tập áp waiver `no-upstream-english`.
 
   Đối chiếu bản dịch mù độc lập 2026-10-14: một dịch giả khác (cùng họ công cụ) dịch lại bài từ Pāli không xem bản dự án; so 6 khoá chênh lệch lớn nhất → khác nghĩa 1: sửa 0, giữ 1, bất định 0. Giữ `1.1` `vālodakaṁ apparasaṁ nihīnaṁ`: bản mù thêm chữ *nước* (*Nước vālodaka*, ghi không chắc); bản dự án giữ nguyên tên `Vālodaka` và không đoán thành phần (`vāla` + `udaka`), như đã ghi ở bất định (ii). `2.2` `puṭṭho`: bản mù độc lập cũng đọc *bị điều ấy tác động*, trùng với cách đọc `phuṭṭha` của bản dự án (bất định (i) còn lại là cách đọc `pucchati`, không được cả hai bản chọn). Các khoá còn lại (`0.3`, `0.4`, `1.2`, `1.4`) khác diễn đạt. Đọc đối kháng lại toàn bài 13 khoá: nháy, số (không có), không dấu lược. Không thêm lỗi nào. Không có bản Anh hay bản Việt độc lập khác. Đây là review của AI, không phải chứng nhận của chuyên gia Pāli.
+
+  Lượt rà soát 2026-10-15 (Claude Opus 5.5, đọc đối kháng Pāli↔Việt; không có bản Anh, bản Việt nguyên bài hay đoạn song song): sửa 1 khoá — `2.2` `So majjatī tena janinda puṭṭho`: bản cũ *"đã say vì nó, tâu vua, khi bị nó chạm vào"* dịch `tena` hai lần (*vì nó* và *bị nó*) trong khi Pāli chỉ có một `tena` đi với `puṭṭho`, và đặt quá khứ cho `majjati` (hiện tại, chân lý chung, song song `jāyati` ở 1.2 và `na majjati` ở 2.4). Nay *"liền say khi bị nó tác động, tâu vua;"* (giữ cách đọc `phuṭṭha`; *tác động* như bản mù đã đọc). Giữ 12 khoá; `3.1` giữ dấu phẩy (đếm lại dòng niết toàn tầng Jātaka: có phẩy 313, không phẩy 233 — khuôn chưa thống nhất, việc chung của người biên tập). Bất định (i) `puṭṭho` = `pucchati`, (ii) `Vālodaka` giữ tên, như ghi trước.
