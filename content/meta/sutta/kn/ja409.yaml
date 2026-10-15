@@ -1,9 +1,11 @@
 uid: ja409
-status: published
+status: draft
 translationTitle: "Kinh Daḷhadhamma"
 translators:
   - "OpenCode Space Bunny Free (agent)"
-reviewers: []
+reviewers:
+  - OpenCode Space Bunny Free (agent)
+  - Claude Sonnet 5.5 (Claude Code)
 tags:
   - "khuddaka-nikaya"
   - "jataka"
@@ -13,16 +15,16 @@ tags:
 quality:
   scores:
     source_provenance: 9.6
-    semantic_fidelity: 9.2
-    grammar_logic: 9.2
-    segment_alignment: 10.0
+    semantic_fidelity: 8.8
+    grammar_logic: 8.9
+    segment_alignment: 10
     terminology: 9.3
     triangulation: 7.5
     vietnamese_clarity: 9.3
     han_viet_balance: 9.4
     ambiguity_integrity: 9.2
     technical_integrity: 9.6
-  final_score: 9.23
+  final_score: 9.16
   blocking_errors:
     - "Không có tầng tham khảo tiếng Anh tại commit đã ghim: tệp
       `translation/en/sujato/sutta/kn/ja/ja409_translation-en-sujato.json` không
@@ -38,27 +40,10 @@ quality:
       `review` hoặc `published`, nên bài bắt buộc `draft`. Đây là giới hạn của
       snapshot upstream, không phải lỗi của người dịch; vì vậy `triangulation`
       bị chặn ở 7.5 (≤ 8.0) chứ không nâng điểm để né blocker."
-  assessed_at: "2026-10-04"
+  assessed_at: 2026-10-15
   assessed_by:
-    - "OpenCode Space Bunny Free (agent)"
-  waiver:
-    id: no-upstream-english
-    blockers:
-      - "Không có tầng tham khảo tiếng Anh tại commit đã ghim: tệp
-        `translation/en/sujato/sutta/kn/ja/ja409_translation-en-sujato.json`
-        không có trong git tree của commit
-        `11c9d708978cde8ba61096d8a75f7ddfb846f639` theo
-        `source/upstream-manifest.json` (tầng `english-sujato` có 4291 tệp,
-        trong đó chỉ 83 tệp thuộc `sutta/kn/ja`), và cũng không có trong
-        `.cache/upstream/suttacentral/` — đây là `not-published-upstream`, KHÔNG
-        phải `not-synced`. Tầng `vietnamese-current` cũng vắng:
-        `translation/vi/phantuananh` tại commit đã ghim chỉ có 26 tệp và toàn bộ
-        là Pháp Cú. Lớp lấp `english-project` của dự án cũng không có cho uid
-        này. Ba tầng tham khảo đều vắng nên bài dịch chỉ từ Pāli root;
-        `scripts/validate.ts` coi tệp Anh ghim thiếu là **error** khi status là
-        `review` hoặc `published`, nên bài bắt buộc `draft`. Đây là giới hạn của
-        snapshot upstream, không phải lỗi của người dịch; vì vậy `triangulation`
-        bị chặn ở 7.5 (≤ 8.0) chứ không nâng điểm để né blocker."
+    - Claude Sonnet 5.5 (Claude Code)
+  assessment_id: db45b4b9-44fa-4013-82f5-5fe4eaa4f451
 notes: |-
   Dịch trực tiếp từ Pāli root; không có tầng `english-sujato` cho ja409 tại commit đã ghim, `vietnamese-current` tại commit đã ghim vắng với Jātaka.
   Pāli trùng nguyên văn: 4 khoá, dùng lại nguyên văn cả 4 — `:5.1` và `:6.1` theo ja302:4.1 (Kẻ trước kia đã làm điều lành), `:5.2` theo ja90:1.2 (không hiểu được ý nghĩa của việc ấy), `:7.2` theo thag6.5:4.2 (những ai đã tập hợp ở đây).
@@ -66,3 +51,5 @@ notes: |-
   Bất định ghi rõ: `Ahañce daḷhadhammassa, vahantī nābhirādhayiṁ` ở `:1.1` là câu mong ước nên dịch bằng Nếu; `Dharantī urasi sallaṁ` ở `:1.3` dịch là kẻ mang tên trên ngực, giữ nghĩa của salla; `chakaṇahārikā` ở `:3.4` dịch là đồ chơi được trao tay; `pavīṇati` ở `:4.2` dịch là có tiếng loan truyền ra.
   Thuật ngữ theo tiền lệ đếm được: `sagga` → cõi trời (đã dùng 102 lần trong tầng kn và rất nhiều lần ở tầng an), `kataññu` → biết ơn (7 tiền lệ), `kumbhakāra` → kẻ làm gốm, `hinto` không có. Tên phẩm Sattakanipāta → Bộ Bảy Bài Kệ, Gandhāravagga → Phẩm Gandhāra. Tên vua Daḷhadhamma giữ nguyên dấu Pāli theo 0.4 và được khai vào bộ nhớ tiến trình của `_hvi.py`.
   Cổng kỹ thuật chưa chạy vì agent dịch không được chạy lệnh npm. Coordinator chạy bốn lệnh: `npm run validate`, `npm test`, `npm run check`, `npm run build`.
+
+  Lượt rà soát 2026-10-15 (Claude Sonnet 5.5 (Claude Code), kiểm lại từng khoá bằng Pāli đã ghim, PED, `dhp337` và các bài `ja90`, `pv21`): sửa 27 khoá. Lỗi nghĩa thật: `:1.1–1.4` là con voi cái chở Daḷhadhamma, mang mũi tên trong ngực, xông pha chiến trận (bản cũ dịch người lái xe); `:2.2` là sức mạnh và dũng lực của ta (`vikkamaporisaṁ`), không phải kẻ phản bội; `:2.3–2.4` là việc làm tốt nơi chiến trận và việc được sai đi như sứ giả; `:3.x` là không bà con, không nơi nương tựa, bị trao cho thợ gốm làm kẻ chở phân bò (`chakaṇahārikā`); `āsīsati` ở `:4.1` là hy vọng, `pavīṇati` ở `:4.2` là tôn kính (PED: pavīnati, J iii.387), `atthāpāye` ở `:4.3` là khi lợi ích mất; `:5.x–6.x` đọc `katakalyāṇo katattho nāvabujjhati` như `ja90:1.1–1.2` (người đã được làm điều lành, đã đạt mục đích, mà không nhận biết); `bhaddante` ở `:7.1` là chúc an lành (cùng công thức `dhp337`), `hotha` ở `:7.3` là mệnh lệnh biết ơn, `ṭhassatha` ở `:7.4` là thì tương lai. Bất định: `oṭṭhibyādhiṁva` ở `:4.4` là hapax trong kho đã ghim, PED không có mục, nên giữ phiên âm thay vì đoán nghĩa; `ce` ở `:1.1` giữ là điều kiện như chữ Pāli; `katakalyāṇo` có thể là người làm ơn (như `ja302:4.1`) nhưng cặp với `katattho nāvabujjhati` thì theo `ja90`. Điểm: semantic_fidelity và grammar_logic hạ về mức bản đã sửa vì bản cũ sai ở khoảng bốn phần năm số khoá.

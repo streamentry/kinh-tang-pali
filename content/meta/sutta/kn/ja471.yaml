@@ -1,9 +1,11 @@
 uid: ja471
-status: published
+status: draft
 translationTitle: "Kinh Câu Hỏi Của Meṇḍa"
 translators:
   - "OpenCode Space Bunny Free (agent)"
-reviewers: []
+reviewers:
+  - OpenCode Space Bunny Free (agent)
+  - Claude Sonnet 5.5 (Claude Code)
 tags:
   - "khuddaka-nikaya"
   - "jataka"
@@ -13,16 +15,16 @@ tags:
 quality:
   scores:
     source_provenance: 9.5
-    semantic_fidelity: 9.2
-    grammar_logic: 9.0
-    segment_alignment: 10.0
-    terminology: 9.0
-    triangulation: 7.0
+    semantic_fidelity: 8.7
+    grammar_logic: 8.7
+    segment_alignment: 10
+    terminology: 9
+    triangulation: 7
     vietnamese_clarity: 9.2
     han_viet_balance: 9.3
-    ambiguity_integrity: 9.0
+    ambiguity_integrity: 9
     technical_integrity: 9.6
-  final_score: 9.08
+  final_score: 8.999999999999998
   blocking_errors:
     - "Không có tầng tham khảo tiếng Anh tại commit đã ghim:
       `source/upstream-manifest.json` cho thấy tầng `english-sujato` có 4291
@@ -43,31 +45,10 @@ quality:
       tham khảo đều vắng ⇒ bài dịch chỉ từ Pāli root ⇒ blocker thật, và đây là
       **giới hạn upstream**, không phải lỗi của người dịch. Vì vậy
       `triangulation` bị chặn ở 7.0 (≤ 8.0) chứ không nâng để né blocker."
-  assessed_at: "2026-10-06"
+  assessed_at: 2026-10-15
   assessed_by:
-    - "OpenCode Space Bunny Free (agent)"
-  waiver:
-    id: no-upstream-english
-    blockers:
-      - "Không có tầng tham khảo tiếng Anh tại commit đã ghim:
-        `source/upstream-manifest.json` cho thấy tầng `english-sujato` có 4291
-        tệp, trong đó 755 tệp thuộc `kn/` và chỉ 83 tệp thuộc `kn/ja/`; KHÔNG có
-        tệp nào chứa `ja471`, và
-        `.cache/upstream/suttacentral/translation/en/sujato/sutta/kn/ja/` cũng
-        không có `ja471*`. Đây là `not-published-upstream`, KHÔNG phải
-        `not-synced` — tôi đã thử tra bilara-data tại nhánh `published` và
-        `ja471_translation-en-sujato.json` trả 404, trong khi `ja10` (có trong
-        tầng đã ghim) tải được, nên URL đúng và sự vắng mặt là thật.
-        `scripts/validate.ts` đẩy thông điệp này vào `errors` khi status là
-        `review` hoặc `published`, nên bài bắt buộc `draft`. Tầng
-        `vietnamese-current` cũng vắng: `translation/vi/phantuananh` tại commit
-        đã ghim có 26 tệp, toàn bộ là Pháp Cú (`dhp1-20` … `dhp234`), không có
-        tệp `ja` nào. Lớp lấp `english-project` của dự án cũng không có:
-        `content/translation/en/project/sutta/kn/` có 129 tệp nhưng không tệp
-        nào cho uid này, và `content/meta/en/kn/ja471.yaml` không tồn tại. Ba
-        tầng tham khảo đều vắng ⇒ bài dịch chỉ từ Pāli root ⇒ blocker thật, và
-        đây là **giới hạn upstream**, không phải lỗi của người dịch. Vì vậy
-        `triangulation` bị chặn ở 7.0 (≤ 8.0) chứ không nâng để né blocker."
+    - Claude Sonnet 5.5 (Claude Code)
+  assessment_id: c9efb5f1-eb48-4f02-9638-a15494582f0d
 notes: |-
   Dịch trực tiếp từ Pāli root; không có tầng tham khảo tiếng Anh nào ở commit đã ghim cho ja471.
   Bản làm việc `vc/n65.json` khai 53 khoá `keys` = 53 khoá `all`, và `pal('kn','ja471')` trả về đúng 53 khoá; tôi ghi đủ 53 khoá, thứ tự số khớp Pāli. Khoá dài nhất của bài sau khi nén khoảng trắng là 37 ký tự (`ja471:11.3`), thấp hơn ngưỡng `substantivePaliMinChars = 40`, nên **mẫu số của cổng coverage = 0 khoá Pāli có nội dung** (4 khoá thuộc khối tham chiếu `:0` bị loại trước). Đây là *"cổng không đo được gì"*, KHÔNG phải *"không cần ghi nhận"*; ngưỡng 0,80 không phải thứ chặn, thứ chặn là thông điệp `pinned English reference missing`. Tôi KHÔNG đụng `content/meta/reference-gaps.yaml`.
@@ -82,3 +63,5 @@ notes: |-
   Người nói: dấu nháy kép Pāli chia lời thành 9 mảng (1 / 2 / 3–4 / 5 / 6 / 7 / 8 / 9–10 / 11–12). Câu hỏi ở 1 thuộc về vị meṇḍa; 2 đến 8 đều kết bằng `Atha meṇḍassa suṇena sakhyamassa` nên là lời nhà vua; 9–10 là lời vị meṇḍa (`Addakkhi kira sakkhikaṁ janindo` hỏi nhà vua); 11–12 là lời cuối của nhà vua. Tôi không ghi chú người nói vào thân kinh vì Pāli thơ không ghi.
   CHỐT `_hvi.py` **KHÔNG KIỂM ĐƯỢC GÌ**: `cần` = khoá Pāli ≥ 40 ký tự, mà bài này dài nhất 37 ⇒ `cần` RỖNG, nên các assertion NFC / trùng nguyên văn Pāli / Pāli lọt / số dấu lược trong `kiểm` đều **không chạy**. `save_vi` chạy sạch và in `✓ kn/ja471  53 khoá`, nhưng đó **không phải** bằng chứng pass. Tôi tự quét lại bằng chính các tiêu chí đó trên **mọi** khoá và in số ở trên.
   `technical_integrity` = 9,6 chứ không phải 10,0 vì lát này **cấm chạy cổng**: `npm run validate` · `npm test` · `npm run check` · `npm run build` — bốn lệnh này còn lại, người điều phối chạy tập trung. Tôi không tuyên bố technical gate pass.
+
+  Rà soát 2026-10-15 (Claude Sonnet 5.5 (Claude Code)), đối chiếu từng khoá với Pāli ghim: sửa 34 khoá sai nghĩa thật — `1.1–1.4` (`paṭisandhāya` là "liên kết", không phải tái sinh; hai kẻ thù sinh ra thành bạn), `2.1` (`pātarāsakāle` là giờ bữa sáng), `2.4`, `4.3–4.4` (`janinda` là lời gọi vua), `5.1–5.4` (`urabbha` là cừu, `adenti` là "ăn"), `6.1–6.4` (`cammaṁ eḷakassa` là da cừu, `attharanti` là trải), `7.1–7.2` (`āvellitasiṅgiko` sừng cong, `visāṇa` sừng), `8.2–8.3` (chó không ăn cỏ; `sasaṁ biḷāraṁ` thỏ, mèo), `9.3–9.4` (`chādiya` là rơm cỏ, PED J vi.354), `10.1–10.4`, `11.3–11.4`, `12.1–12.2` (`assatarī` la, `gāmavara` làng), `12.4`. Mạch bài (các câu 5–8 liệt kê điều khác nhau giữa cừu và chó, kết bằng "thế mà có tình bạn"; 9–10 cho thấy chúng trao đồ ăn cho nhau) nhất quán với bản sửa. Còn bất định, giữ: `9.1–9.2` (`aṭṭhaḍḍhapado`, `aṭṭhanakho`, `adissamāno`), `10.4` (`bubhukka`, `puṇṇamukha`), `6.1` (`vihananti`), người nói từng đoạn.

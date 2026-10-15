@@ -53,6 +53,34 @@
       "notes": "Kiểm tra tự động 34 segment với Pāli trong cache: đủ ID, giá trị, NFC và hệ chữ Latin. Chưa đọc đối chiếu nghĩa, ngữ pháp hoặc văn phong; chưa chấm lại 10 tiêu chí. Đây không phải chứng nhận hash upstream hoặc giấy phép, không xác nhận trạng thái xuất bản.",
       "content_sha256": "66d2a4aa57905bbd1a4b13f4f67fd09707fa118bf5bff724f610c84378a43f70",
       "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639"
+    },
+    {
+      "target": "translation",
+      "scope": "full",
+      "assessed_at": "2026-10-15",
+      "assessed_by": [
+        "Claude Sonnet 5.5 (Claude Code)"
+      ],
+      "scores": {
+        "source_provenance": 9.5,
+        "semantic_fidelity": 8.9,
+        "grammar_logic": 9,
+        "segment_alignment": 10,
+        "terminology": 9.2,
+        "triangulation": 7.5,
+        "vietnamese_clarity": 9.2,
+        "han_viet_balance": 9.3,
+        "ambiguity_integrity": 8.8,
+        "technical_integrity": 9.6
+      },
+      "blocking_errors": [
+        "Không có tầng tham khảo tiếng Anh tại commit đã ghim: `translation/en/sujato/sutta/kn/{d}/{u}_translation-en-sujato.json` không tồn tại trong `.cache/upstream/suttacentral/`, và thư mục `kn/` của edition đã ghim chỉ có cp, dhp, iti, ja, kp, snp, thag, thig, ud — **không có mil, pv hay tha-ap**. Đếm lại trực tiếp trên đĩa bằng `find` cho 0 tệp ⇒ đây là `not-published-upstream`, KHÔNG phải `not-synced`. Bài này **không có segment Pāli có nội dung** (mọi câu kệ đều ngắn hơn 40 ký tự sau khi chuẩn hoá), nên `src/lib/canon/reference.ts` quy định `ratio = 1` khi mẫu số bằng 0 và cổng coverage **không** chặn. Nhưng tệp Anh thật sự không tồn tại, và `scripts/validate.ts` coi đó là **error** khi status là `review` hoặc `published` ⇒ bài bắt buộc `draft`. Đây là trường hợp số đo không bắt được nhưng thực tế vẫn mất tầng tham khảo. Tầng `vietnamese-current` cũng vắng (`translation/vi/phantuananh` tại commit đã ghim chỉ có 26 tệp, toàn bộ là Pháp Cú) và lớp lấp `english-project` cũng không có uid này ⇒ blocker thật."
+      ],
+      "notes": "Sửa 10 khoá: rāja là hô cách, kaṁ là ai, parisumbhati là đánh, aññadatthuharā; hơn nửa số khoá kệ sai trước khi sửa nên đặt semantic_fidelity 8,9 và grammar_logic 9,0 theo bản đã sửa, còn bất định ở abhisāraye.",
+      "id": "6af3269e-a30b-4ccf-a3b7-30ca7d8983a0",
+      "content_sha256": "fb5c279e7590bb59c2ee18cfabc0a146eb698c1823c9f611c7c9fd9e6f7863c8",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
+      "final_score": 9.099999999999998
     }
   ],
   "legacy_quality": {

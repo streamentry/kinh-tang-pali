@@ -1,9 +1,11 @@
 uid: ja431
-status: published
+status: draft
 translationTitle: "Kinh Haritacajātaka"
 translators:
   - "OpenCode Space Bunny Free (agent)"
-reviewers: []
+reviewers:
+  - OpenCode Space Bunny Free (agent)
+  - Claude Sonnet 5.5 (Claude Code)
 tags:
   - "khuddaka-nikaya"
   - "jataka"
@@ -13,16 +15,16 @@ tags:
 quality:
   scores:
     source_provenance: 9.6
-    semantic_fidelity: 8.7
+    semantic_fidelity: 8.8
     grammar_logic: 8.9
-    segment_alignment: 10.0
+    segment_alignment: 10
     terminology: 9.2
     triangulation: 7.6
     vietnamese_clarity: 9.2
     han_viet_balance: 9.3
     ambiguity_integrity: 9.1
     technical_integrity: 9.6
-  final_score: 9.12
+  final_score: 9.129999999999999
   blocking_errors:
     - "Không có tầng tham khảo tiếng Anh tại commit đã ghim
       (`11c9d708978cde8ba61096d8a75f7ddfb846f639`): đo trực tiếp trong
@@ -38,27 +40,10 @@ quality:
       `scripts/validate.ts` coi tệp Anh ghim thiếu là **error** khi status là
       `review` hoặc `published`, nên bài bắt buộc `draft`; vì vậy
       `triangulation` bị chặn ≤ 8.0 chứ không nâng để né blocker."
-  assessed_at: "2026-10-04"
+  assessed_at: 2026-10-15
   assessed_by:
-    - "OpenCode Space Bunny Free (agent)"
-  waiver:
-    id: no-upstream-english
-    blockers:
-      - "Không có tầng tham khảo tiếng Anh tại commit đã ghim
-        (`11c9d708978cde8ba61096d8a75f7ddfb846f639`): đo trực tiếp trong
-        `source/upstream-manifest.json`, tầng `english-sujato` có đúng **83 tệp
-        `kn/ja`** và **0 tệp `kn/mil`**; 83 tệp `ja` ấy là `ja1`–`ja79` cộng
-        `ja126`, `ja159`, `ja466`, `ja534`, nên ja431 không có mặt, và cũng
-        không có trong `.cache/upstream/suttacentral/`. Đây là
-        `not-published-upstream`, KHÔNG phải `not-synced`. Tầng
-        `vietnamese-current` tại commit đã ghim có đúng 26 tệp và **tất cả đều
-        là `dhp*`** (Pháp Cú) nên vắng với Jātaka. Lớp lấp `english-project`
-        cũng không có uid nào của lát này. Ba tầng tham khảo đều vắng ⇒ bài chỉ
-        dịch được từ Pāli root ⇒ blocker thật, và đây là **giới hạn của snapshot
-        upstream**, không phải lõi của người dịch. `scripts/validate.ts` coi tệp
-        Anh ghim thiếu là **error** khi status là `review` hoặc `published`, nên
-        bài bắt buộc `draft`; vì vậy `triangulation` bị chặn ≤ 8.0 chứ không
-        nâng để né blocker."
+    - Claude Sonnet 5.5 (Claude Code)
+  assessment_id: 728038b1-1a6c-41b0-a78b-c056d8e8ef9c
 notes: |-
   TẦNG THAM KHẢO — đo, không đoán. `english-sujato` tại commit đã ghim có 83 tệp `kn/ja` và 0 tệp `kn/mil`; 83 tệp `ja` ấy đúng là `ja1`–`ja79` cộng `ja126`, `ja159`, `ja466`, `ja534`, nên **không uid nào trong lát này có mặt**. `vietnamese-current` có 26 tệp, tất cả là `dhp*`. `english-project` không có uid nào của lát. Ba tầng vắng ⇒ chỉ dịch được từ Pāli root, đây là giới hạn upstream nên `triangulation` bị chặn ≤ 8.0 và `status` là `draft` (xem `blocking_errors`).
   Coverage theo đúng công thức `source/layers.yaml` (`substantivePaliMinChars: 40`, `excludeReferenceBlock: true`): **0/0** — mọi segment kệ của bài này ngắn hơn 40 ký tự, nên mẫu số bằng 0, dưới ngưỡng 0.8. Đã tự quét MỌI khoá từ đĩa.
@@ -72,3 +57,5 @@ notes: |-
   Thuật ngữ theo tiền lệ đếm được: `muni` → bậc tu sĩ (khớp `khaṇa` ở `mil5.4.8`; có 21 nơi dùng *tu sĩ* trong tầng), `brāhmaṇa`/`brahme` → bà-la-môn (`ja402:1.4`, `ja356:4.3`, `ja268:2.1`), `rāga/dosa/mada/moha` → tham/sân/mạn/mê (chuỗi này đã có ở `mn7.11`), `brahmaloka` → cõi trời Phạm thiên (chuỗi *Phạm thiên* có 0 nơi nên tôi ghép từ *cõi trời Phạm thiên*, giữ đúng `brahmaloka` chứ không rút thành “thiên đàng”).
   Lỗi bắt được ở lượt review đối kháng, đã sửa: (1) `:9.4` bản nháp dịch `brahmalokūpago` là *trở thành bậc đạt tới* — “bậc đạt tới” rối và lệch nghĩa, đã sửa thành *trở thành người đạt tới*; (2) `:1.1` bản nháp viết *bậc bà-la-môn lớn* thừa chữ *bậc*, đã sửa thành *hỡi bà-la-môn lớn*.
   Sửa lan 2026-10-13: (1) `ja431:8.3` `Tesaṁ mūlaṁ gavesissaṁ` *Hãy tìm gốc rễ của chúng* → *Tôi sẽ tìm gốc rễ của chúng*, và `8.4` `Checchaṁ rāgaṁ sabandhanaṁ` *cắt bỏ…* → *sẽ cắt bỏ tham dục cùng mọi ràng buộc*: `gavesissaṁ` và `checchaṁ` đều là vị lai ngôi thứ nhất số ít, không phải mệnh lệnh; Pāli `8.4` trùng nguyên văn `ja433:8.4` (*sẽ cắt bỏ tham dục cùng mọi ràng buộc*). Xưng *Tôi* thay vì *Ta* của `ja433:8.3` vì người nói là Hārita thưa với vua, cùng người nói, cùng người nghe với `2.3` *Tôi đã đi vào ngõ cụt* trong chính bài. (2) `hārito` ở `1.2`, `5.2`, `9.1` *bậc xanh* → *Hārita* (tên riêng, như tên bài *Haritaca*; tiền lệ `thag1.29`, `thag3.15`, `thag3.16:5.4`, `thag1.30:2.6` đều giữ *Hārita*; không có căn cứ trong Pāli để dịch thành *bậc xanh*), và `1.2` `kāme bhuñjati` *ăn tham dục* → *hưởng dục lạc* (`kāma` là dục lạc, không phải `rāga` *tham dục*; tiền lệ `ja507:12.3`, `ja507:15.3`, `mn14:3.3`). Mục `5.1` ở trên về `hārito` = *bậc xanh* được thay bằng mục này. Chưa sửa vì ngoài phạm vi lan: `2.3` *ngõ cụt* cho `kummagga` và `1.4` `kacci suddho iriyyasi`.
+
+  Kiểm toán Pāli 2026-10-15 (Claude Sonnet 5.5 (Claude Code)), thay thế các mục cũ về `kummagga`, `1.4`, `3.3`, `5.x`, `6.x`, `8.x`. Đọc đủ khoá; sửa 15 khoá khi Pāli xác nhận: `1.4` `kacci suddho iriyyasi` = *phải chăng ngài sống thanh tịnh* (bản cũ *hay có phần nào là thật* không có trong Pāli); `2.3` `kummaggaṁ paṭipanno` = *đi theo đường sai* và `2.4` `mohaneyyesu mucchito` = *mê muội trong những điều làm mê* (cùng công thức `iti110:11.1–11.2`, đã dịch *đi theo đường sai* / *mê muội trong các pháp làm mê*); `3.3–3.4` `yāya uppatitaṁ rāgaṁ` là *nhờ đó* (trí tuệ), không phải *do đâu mà sinh ra*; `5.1` `arahā` = *bậc xứng đáng* (bản cũ *vô nhiễm* thêm nghĩa); `5.3–5.4` `iti no sammato bhavaṁ` = *ngài được chúng tôi kính trọng* (bản cũ *điều chúng ta đã được nghe*); `6.1` `hiṁsanti` = *làm hại* (không phải *chê*) và `6.4` `subhā rāgūpasaṁhitā` = *đẹp đẽ, gắn liền với tham dục* (bản cũ *được coi là lành*); `8.1–8.2` `andhakārake`/`mahāvise` = *gây tối tăm* / *độc hại lớn*; `4.4` `gādhati` = *đứng vững*; `3.2`, `7.1` chỉnh nhẹ. Còn bất định: `mahābrahme` ở `1.1` (giữ *bà-la-môn lớn*), `5.1` chọn *bậc xứng đáng* cho `arahā`. Không có bản Anh nên triangulation giữ nguyên.

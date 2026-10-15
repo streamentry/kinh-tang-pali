@@ -1,9 +1,11 @@
 uid: ja398
-status: published
+status: draft
 translationTitle: "Kinh Sutanu"
 translators:
   - "OpenCode Space Bunny Free (agent)"
-reviewers: []
+reviewers:
+  - OpenCode Space Bunny Free (agent)
+  - Claude Sonnet 5.5 (Claude Code)
 tags:
   - "khuddaka-nikaya"
   - "jataka"
@@ -13,16 +15,16 @@ tags:
 quality:
   scores:
     source_provenance: 9.6
-    semantic_fidelity: 9.2
-    grammar_logic: 9.3
-    segment_alignment: 10.0
+    semantic_fidelity: 8.9
+    grammar_logic: 8.9
+    segment_alignment: 10
     terminology: 9.3
     triangulation: 7.5
     vietnamese_clarity: 9.3
     han_viet_balance: 9.4
     ambiguity_integrity: 9.2
     technical_integrity: 9.6
-  final_score: 9.24
+  final_score: 9.17
   blocking_errors:
     - "Không có tầng tham khảo tiếng Anh tại commit đã ghim: tệp
       `translation/en/sujato/sutta/kn/ja/ja398_translation-en-sujato.json` không
@@ -38,30 +40,27 @@ quality:
       `review` hoặc `published`, nên bài bắt buộc `draft`. Đây là giới hạn của
       snapshot upstream, không phải lỗi của người dịch; vì vậy `triangulation`
       bị chặn ở 7.5 (≤ 8.0) chứ không nâng điểm để né blocker."
-  assessed_at: "2026-10-04"
+  assessed_at: 2026-10-15
   assessed_by:
-    - "OpenCode Space Bunny Free (agent)"
-  waiver:
-    id: no-upstream-english
-    blockers:
-      - "Không có tầng tham khảo tiếng Anh tại commit đã ghim: tệp
-        `translation/en/sujato/sutta/kn/ja/ja398_translation-en-sujato.json`
-        không có trong git tree của commit
-        `11c9d708978cde8ba61096d8a75f7ddfb846f639` theo
-        `source/upstream-manifest.json` (tầng `english-sujato` có 4291 tệp,
-        trong đó chỉ 83 tệp thuộc `sutta/kn/ja`), và cũng không có trong
-        `.cache/upstream/suttacentral/` — đây là `not-published-upstream`, KHÔNG
-        phải `not-synced`. Tầng `vietnamese-current` cũng vắng:
-        `translation/vi/phantuananh` tại commit đã ghim chỉ có 26 tệp và toàn bộ
-        là Pháp Cú. Lớp lấp `english-project` của dự án cũng không có cho uid
-        này. Ba tầng tham khảo đều vắng nên bài dịch chỉ từ Pāli root;
-        `scripts/validate.ts` coi tệp Anh ghim thiếu là **error** khi status là
-        `review` hoặc `published`, nên bài bắt buộc `draft`. Đây là giới hạn của
-        snapshot upstream, không phải lỗi của người dịch; vì vậy `triangulation`
-        bị chặn ở 7.5 (≤ 8.0) chứ không nâng điểm để né blocker."
+    - Claude Sonnet 5.5 (Claude Code)
+  assessment_id: ff6e630e-7ee5-4b3a-a873-d26a70cee615
 notes: |-
   Dịch trực tiếp từ Pāli root; không có tầng `english-sujato` cho ja398 tại commit đã ghim, `vietnamese-current` tại commit đã ghim vắng với Jātaka.
   Dùng lại nguyên văn 2 khoá theo Pāli trùng nguyên văn: `:4.2` theo an4.57:3.2 (tinh khiết, ngon lành, đầy đủ hương vị) và `:7.2` theo ja359:5.2 (cùng với toàn thể quyến thuộc bà con). Ngoài ra hai chỗ Pāli chỉ khác ở dấu chấm câu nên vẫn dùng lại nguyên văn: `:1.2` theo ja309:2.2 (được rưới nước canh thịt tinh khiết).
   Bất định: `Sudullabho hehiti bhakkhite mayi` ở `:4.4` dịch là lúc ta ăn thì khó lấy được lắm — đây là cách đọc theo nghĩa vế `bhakkhite mayi`, không thêm vế nào nữa. `rañño ca vacanaṁ katan` ở `:7.4` là lời nhà vua, theo genitive của từ chỉ vua.
   Thuật ngữ theo tiền lệ đếm được: `yakkha` → dạ-xoa (68 tiền lệ trong tầng kn), `māṇava` → hỡi người (theo ja163:2.3), `bhikkhā` → các bậc nữ, `saññino` → nghĩ đến, `sagga` không có ở đây nhưng cùng dòng với `cõi trời` đã dùng ở tầng an. Tên phẩm Sattakanipāta → Bộ Bảy Bài Kệ, Kukkuvagga → Phẩm Kukku, xem ghi chú chung của lát ở ja396.
   Cổng kỹ thuật chưa chạy vì agent dịch không được chạy lệnh npm. Coordinator chạy bốn lệnh: `npm run validate`, `npm test`, `npm run check`, `npm run build`.
+
+  Lượt rà soát 2026-10-15 (Claude Sonnet 5.5, Claude Code), đọc lại đủ 33 khoá Pāli↔Việt; chỉ có Pāli
+  đã ghim và PED. Bản cũ sai gần toàn bài (khoảng 24/29 khoá có nội dung). Lỗi chính: `1.3`
+  `Maghadevasmiṁ adhivatthe` là `Maghadeva` đang ngụ ở đây (PED `adhivattha` = ở trong, c. loc.;
+  `Maghadeva` là tên chứ không phải nước Ma-ga-tha, vì tại `3.1` người nói gọi người ăn là `yakkha`);
+  `2.1`–`2.4` (`orena` = về phía này; `bhikkhamādāya sūpitaṁ` = mang phần ăn đã nêm canh; `ubho
+  bhakkhā bhavissatha` = cả hai đều sẽ là thức ăn, bản cũ nói “lau cho sạch”, “các bậc nữ”);
+  `3.1`–`3.4` (`appakena … thullamatthaṁ jahissasi` = vì chút ít mà đánh mất lợi lớn; `janā
+  maraṇasaññino`); `4.1`–`4.4` (`āhariyo naro … sudullabho hehiti bhakkhite mayi` = người mang phần ăn
+  đến sẽ rất khó có khi ta đã bị ăn); `5.1`–`5.4` (`sutano` là hô cách tên `Sutana`, không phải `suta`
+  nghe; `mameva … attho` = chính là lợi ích của ta; `sotthiṁ passāhi mātaraṁ` = bình an mà gặp mẹ);
+  `6.1`–`6.4` (`khaggaṁ chattañca pātiñca` = gươm, lọng, bát; bản cũ dịch “gậy, roi, que”). Giữ
+  `7.1`–`7.4`. Bất định: `4.1` `laddhāya` đọc là phân từ hoàn thành (đã có phần ăn thường nhật); `5.1`
+  đọc `sutano` là tên riêng theo tên bài, không thêm gì ngoài Pāli.

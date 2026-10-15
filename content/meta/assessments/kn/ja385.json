@@ -53,6 +53,34 @@
       "notes": "Kiểm tra tự động 37 segment với Pāli trong cache: đủ ID, giá trị, NFC và hệ chữ Latin. Chưa đọc đối chiếu nghĩa, ngữ pháp hoặc văn phong; chưa chấm lại 10 tiêu chí. Đây không phải chứng nhận hash upstream hoặc giấy phép, không xác nhận trạng thái xuất bản.",
       "content_sha256": "3b3592c346ed15358b09a82091a55d9ddb59afd4cffbb9ce2528fa15e28d90e9",
       "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639"
+    },
+    {
+      "target": "translation",
+      "scope": "full",
+      "assessed_at": "2026-10-15",
+      "assessed_by": [
+        "Claude Sonnet 5.5 (Claude Code)"
+      ],
+      "scores": {
+        "source_provenance": 9.5,
+        "semantic_fidelity": 8.8,
+        "grammar_logic": 8.8,
+        "segment_alignment": 10,
+        "terminology": 9,
+        "triangulation": 7.5,
+        "vietnamese_clarity": 9.3,
+        "han_viet_balance": 9.3,
+        "ambiguity_integrity": 8.7,
+        "technical_integrity": 9.6
+      },
+      "blocking_errors": [
+        "Không có tầng tham khảo tiếng Anh tại commit đã ghim: tệp translation/en/sujato/sutta/kn/ja/ja385_translation-en-sujato.json không tồn tại. Thư mục kn/ja/ của edition đã ghim chỉ có 83 tệp, phủ ja1–ja79 cộng ja126, ja159, ja466, ja534 — ja385 không nằm trong đó. Đếm trực tiếp trên đĩa bằng find cho 0 tệp, và content/translation/en/project cũng không có uid này, nên đây là not-published-upstream chứ không phải not-synced. Tầng vietnamese-current cũng vắng vì thư mục translation/ không có trong checkout. Ba tầng tham khảo đều vắng nên bài chỉ dịch từ Pāli root, đây là giới hạn upstream chứ không phải lỗi người dịch. Vì vậy triangulation bị chặn ở 7.5, không nâng để né blocker."
+      ],
+      "notes": "Khoảng 15/31 khoá có nội dung sai nghĩa thật (vajjāsi bị đọc là Vajjā, khurappa bị dịch lưỡi cày, odahiṁ passaṁ, đảo chủ thể 5.1-5.4, hô ngữ 1.5); đã sửa theo Pāli, điểm phản ánh bản đã sửa, còn bất định ở avabhottuṁ (2.3), advejjhaṁ (5.3), niketane (4.2).",
+      "id": "d78030a0-129c-4ddd-acf7-3550384b691d",
+      "content_sha256": "6fe24229b92071c7b750e8efcf902de2cb7930ab66d9ce8b99a416a3734c2b51",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
+      "final_score": 9.05
     }
   ],
   "legacy_quality": {

@@ -1,9 +1,11 @@
 uid: ja396
-status: published
+status: draft
 translationTitle: "Kinh Kukku"
 translators:
   - "OpenCode Space Bunny Free (agent)"
-reviewers: []
+reviewers:
+  - OpenCode Space Bunny Free (agent)
+  - Claude Sonnet 5.5 (Claude Code)
 tags:
   - "khuddaka-nikaya"
   - "jataka"
@@ -13,16 +15,16 @@ tags:
 quality:
   scores:
     source_provenance: 9.6
-    semantic_fidelity: 9.1
-    grammar_logic: 9.1
-    segment_alignment: 10.0
+    semantic_fidelity: 8.8
+    grammar_logic: 8.8
+    segment_alignment: 10
     terminology: 9.1
     triangulation: 7.5
     vietnamese_clarity: 9.2
     han_viet_balance: 9.4
-    ambiguity_integrity: 9.0
+    ambiguity_integrity: 9
     technical_integrity: 9.6
-  final_score: 9.16
+  final_score: 9.1
   blocking_errors:
     - "Không có tầng tham khảo tiếng Anh tại commit đã ghim: tệp
       `translation/en/sujato/sutta/kn/ja/ja396_translation-en-sujato.json` không
@@ -38,27 +40,10 @@ quality:
       `review` hoặc `published`, nên bài bắt buộc `draft`. Đây là giới hạn của
       snapshot upstream, không phải lỗi của người dịch; vì vậy `triangulation`
       bị chặn ở 7.5 (≤ 8.0) chứ không nâng điểm để né blocker."
-  assessed_at: "2026-10-04"
+  assessed_at: 2026-10-15
   assessed_by:
-    - "OpenCode Space Bunny Free (agent)"
-  waiver:
-    id: no-upstream-english
-    blockers:
-      - "Không có tầng tham khảo tiếng Anh tại commit đã ghim: tệp
-        `translation/en/sujato/sutta/kn/ja/ja396_translation-en-sujato.json`
-        không có trong git tree của commit
-        `11c9d708978cde8ba61096d8a75f7ddfb846f639` theo
-        `source/upstream-manifest.json` (tầng `english-sujato` có 4291 tệp,
-        trong đó chỉ 83 tệp thuộc `sutta/kn/ja`), và cũng không có trong
-        `.cache/upstream/suttacentral/` — đây là `not-published-upstream`, KHÔNG
-        phải `not-synced`. Tầng `vietnamese-current` cũng vắng:
-        `translation/vi/phantuananh` tại commit đã ghim chỉ có 26 tệp và toàn bộ
-        là Pháp Cú. Lớp lấp `english-project` của dự án cũng không có cho uid
-        này. Ba tầng tham khảo đều vắng nên bài dịch chỉ từ Pāli root;
-        `scripts/validate.ts` coi tệp Anh ghim thiếu là **error** khi status là
-        `review` hoặc `published`, nên bài bắt buộc `draft`. Đây là giới hạn của
-        snapshot upstream, không phải lỗi của người dịch; vì vậy `triangulation`
-        bị chặn ở 7.5 (≤ 8.0) chứ không nâng điểm để né blocker."
+    - Claude Sonnet 5.5 (Claude Code)
+  assessment_id: 4c32c831-cb86-41b1-b6ee-a8c9c6b5b1db
 notes: |-
   Dịch trực tiếp từ Pāli root; không có tầng `english-sujato` cho ja396 tại commit đã ghim, và `vietnamese-current` tại commit đã ghim chỉ có Pháp Cú nên vắng với Jātaka.
   Không có khoá nào trùng nguyên văn Pāli với bài đã dịch (0/29 khoá có nội dung khớp chuỗi), nên không có gì để dùng lại nguyên văn. Tra tiền lệ bằng grep trên tầng Việt: `yakkha` không có ở đây; `kilesa` → tạp ô; `dhamma` → Pháp; `ambuja`, `puṇḍarīka` → hoa sen, sen trắng; `dhāti` không có tiền lệ nào ở Jātaka.
@@ -70,3 +55,19 @@ notes: |-
   thiết (beer/wine, machete, teck, bael, myrobalan, kshatriya, yaksha, “Nanda’s mother”); đã thay bằng
   từ Việt hoặc dạng đã dùng ở toàn tầng (rượu men / rượu nấu / các chất say; rựa; gỗ tếch; beluva;
   āmalaka; Sát-đế-lợi; dạ-xoa; Nandamātā). Giữ nguyên phần còn lại của khoá.
+
+  Lượt rà soát 2026-10-15 (Claude Sonnet 5.5, Claude Code), đọc lại đủ 33 khoá Pāli↔Việt; chỉ có Pāli
+  đã ghim và PED, không có bản Anh hay Việt khác. Bản cũ đoán nghĩa từ tên bài `kukku` (gà), nên sai
+  gần cả bài: `1.1`–`1.4`, `2.1`–`2.4`, `3.2`–`3.4`, `5.2`–`5.4`, `6.1`, `6.3`, `6.4` (khoảng 20/29
+  khoá có nội dung). Pāli nói về chóp mái (`kaṇṇikā`) cao một `kukku` rưỡi (`kukku` là một đơn vị đo
+  chiều dài, PED), chu vi tám `vidatthi` (gang tay), bằng gỗ `siṁsapā` lõi cứng không giác
+  (`apheggukā`), được ba mươi cái kèo cong (`gopānasī`, PED: dầm đỡ khung mái hình chữ Λ) vây quanh và
+  ép giữ. `5.4` `phāti kayirā` là làm cho hưng thịnh (PED `phāti`, `phāti-karoti` = tăng thêm), không
+  phải “đến bờ bên kia”. `6.3` `agginikāsiphālimaṁ`: PED `phālima` = nở ra, đang nở (J iii. 320, đúng
+  câu này; chú giải `phālita vikasita`), `agginikāsi` = có dáng như lửa. Ghi chú cũ ở trên về
+  `agginikāsiphālimaṁ` (sương sen), `tanubandhamuddharaṁ`, `siṁsapā` (gò mối) và `gopānasī` (vôi trên
+  chân cột) không còn đúng; chữ hiện hành là chuẩn. Bất định, giữ nghĩa đen: `4.1`–`4.4` (quả `bella`
+  vỏ sần, `anāmasantopi`, `samāharaṁ`, `tanubandhamuddharaṁ` “nhổ bỏ mối ràng mỏng”: nghĩa chuyên môn
+  của việc xử lý trái không phân xử được từ Pāli); `3.4` `gopānasī bhāravahāva kaṇṇikā` đọc là chóp
+  mái nhờ các kèo gánh vác; `6.3` thêm chữ “đã nở rộ” theo PED/chú giải. Không sửa `7.4`, `5.1`, tên
+  phẩm và tên bộ.

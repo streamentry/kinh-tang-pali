@@ -1,9 +1,11 @@
 uid: ja424
-status: published
+status: draft
 translationTitle: "Kinh Ādittajātaka"
 translators:
   - "OpenCode Space Bunny Free (agent)"
-reviewers: []
+reviewers:
+  - OpenCode Space Bunny Free (agent)
+  - Claude Sonnet 5.5 (Claude Code)
 tags:
   - "khuddaka-nikaya"
   - "jataka"
@@ -15,7 +17,7 @@ quality:
     source_provenance: 9.7
     semantic_fidelity: 9.5
     grammar_logic: 9.4
-    segment_alignment: 10.0
+    segment_alignment: 10
     terminology: 9.5
     triangulation: 7.8
     vietnamese_clarity: 9.5
@@ -37,26 +39,10 @@ quality:
       `review` hoặc `published`, nên bài bắt buộc `draft`. Đây là giới hạn của
       snapshot upstream, không phải lỗi của người dịch; vì vậy `triangulation`
       bị chặn ≤ 8.0 chứ không nâng điểm để né blocker."
-  assessed_at: "2026-10-04"
+  assessed_at: 2026-10-15
   assessed_by:
-    - "OpenCode Space Bunny Free (agent)"
-  waiver:
-    id: no-upstream-english
-    blockers:
-      - "Không có tầng tham khảo tiếng Anh tại commit đã ghim:
-        `source/upstream-manifest.json` (commit
-        `11c9d708978cde8ba61096d8a75f7ddfb846f639`, tầng `english-sujato` 4.291
-        tệp) có thư mục `sutta/kn/ja/` nhưng chỉ 83 tệp; tệp cho uid này không
-        có trong git tree nên cũng không có trong
-        `.cache/upstream/suttacentral/`. Đây là `not-published-upstream`, KHÔNG
-        phải `not-synced`. Tầng `vietnamese-current` vắng
-        (`translation/vi/phantuananh` tại commit đã ghim chỉ có 26 tệp, toàn bộ
-        là Pháp Cú); lớp lấp `english-project` không có cho uid này. Ba tầng
-        tham khảo đều vắng nên bài dịch chỉ từ Pāli root; `scripts/validate.ts`
-        coi tệp Anh ghim thiếu là **error** khi status là `review` hoặc
-        `published`, nên bài bắt buộc `draft`. Đây là giới hạn của snapshot
-        upstream, không phải lỗi của người dịch; vì vậy `triangulation` bị chặn
-        ≤ 8.0 chứ không nâng điểm để né blocker."
+    - Claude Sonnet 5.5 (Claude Code)
+  assessment_id: 793d2604-b3c4-48ab-84ca-a2a28a04a2ee
 notes: |-
   Dịch trực tiếp từ Pāli root; `english-sujato` tại commit đã ghim không có bài này, `vietnamese-current` vắng với Jātaka.
   **Ba** bản Việt trong tầng đã chứa đúng câu kệ của bài này, và tôi dùng lại nguyên văn: `sn1.33` (các câu kệ chư thiên nói về bố thí), `sn1.41` (câu kệ thiêu đốt) và `an3.52` (hai vị bà-la-môn già nua). Pāli trùng nguyên văn: 15 khoá, dù lại nguyên văn 11 khoá.
@@ -68,3 +54,7 @@ notes: |-
   Không khoá nào trong 8 bài này có `…pe…` ở Pāli (đã kiểm 296/296 khoá), nên không có dấu lược nào để giữ, và không có chỗ nào bịa dấu lược che chỗ thiếu. Ngoặc kép: Pāli mở ở `:1.1`, đóng ở `:2.4`, mở lại ở `:3.1`, đóng ở `:8.4`; bản Việt giữ đúng hai cặp đó (nên `:5.1` và `:6.1` không mở ngoặc kép mới dù chúng là đầu một câu kệ).
   Đo lại trên đĩa, hai con số coordinator nêu ở mục (4) của prompt KHÔNG khớp: `bhante` trong tầng `mil` dùng **“thưa tôn giả” 149 lần / 71 tệp**, “bạch ngài” chỉ 37 lần / 23 tệp, “bạch thầy” = 0 (giữ nguyên phần đúng của bạn); `mahārāja` dùng **“này Đại vương” 395 lần / 101 tệp**, còn “tâu đại vương” chỉ 169 + “tâu Đại vương” 79 = 248 lần / 32 tệp. Cả 9 bài lân cận mil3.1.12/.14 và mil7.3.1/.9 đều dùng “này Đại vương”, nên lát này theo đo được, không theo con số bạn đưa.
   Cổng kỹ thuật CHƯA chạy vì agent dịch không được chạy lệnh npm. Tôi chỉ xác minh được: JSON hợp lệ, đủ 37/37 khoá trong `all`, không orphan, mọi giá trị NFC, dấu lược khớp Pāli từng khoá, không có `(…)` đứng một mình, ngoặc kép cân trên cả bài, không Pāli lọt, không trùng nguyên văn Pāli, và YAML parse sạch. Bốn lệnh để coordinator chạy trước khi coi `technical_integrity: 9.6` là đạt: `npm run validate`, `npm test`, `npm run check`, `npm run build`.
+
+  Kiểm toán lại 2026-10-15 (Claude Sonnet 5.5 (Claude Code)): sửa 6 khoá. `:7.2` `khattiye upapajjati` là *sinh vào hàng Sát-đế-lợi*,
+  không phải *vua đế-chủ*; `:7.3` bản cũ bỏ sót `devattaṁ` (*thân phận chư thiên*); `:8.1` `addhā` là *quả thật*, không phải *xa xa*;
+  `:5.1` `sugata` đổi *Thiện Thế* thành *Thiện Thệ* cho khớp `sn1.33:13.1`; `:7.1`, `:7.4` chỉnh câu theo ba bậc phạm hạnh. Các khoá còn lại đối chiếu Pāli và `sn1.33` (có bản Anh Sujato), giữ nguyên.

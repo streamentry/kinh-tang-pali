@@ -1,9 +1,11 @@
 uid: ja80
-status: published
+status: draft
 translationTitle: "Kinh Bhīmasenajātaka"
 translators:
   - "OpenCode Space Bunny Free (agent)"
-reviewers: []
+reviewers:
+  - OpenCode Space Bunny Free (agent)
+  - Claude Sonnet 5.5 (Claude Code)
 tags:
   - khuddaka-nikaya
   - jataka
@@ -11,16 +13,16 @@ tags:
 quality:
   scores:
     source_provenance: 9.2
-    semantic_fidelity: 9.2
-    grammar_logic: 9.1
-    segment_alignment: 10.0
+    semantic_fidelity: 9
+    grammar_logic: 9
+    segment_alignment: 10
     terminology: 9.1
     triangulation: 7.6
     vietnamese_clarity: 9.2
     han_viet_balance: 9.3
     ambiguity_integrity: 9.1
     technical_integrity: 9.6
-  final_score: 9.14
+  final_score: 9.11
   blocking_errors:
     - "Không có bản Anh Sujato cho kn/ja80 tại commit đã ghim
       (11c9d708978cde8ba61096d8a75f7ddfb846f639): mục
@@ -31,21 +33,10 @@ quality:
       chỉ có 26 tệp Pháp Cú, không có tệp ja80). Đã đếm bằng script, không phải
       suy đoán. Vì mất cả hai tầng tham khảo nên triangulation bị chặn ở 7.6 và
       bài phải ở trạng thái draft."
-  assessed_at: "2026-10-03"
+  assessed_at: 2026-10-15
   assessed_by:
-    - "OpenCode Space Bunny Free (agent)"
-  waiver:
-    id: no-upstream-english
-    blockers:
-      - "Không có bản Anh Sujato cho kn/ja80 tại commit đã ghim
-        (11c9d708978cde8ba61096d8a75f7ddfb846f639): mục
-        editions[layerId=english-sujato] trong source/upstream-manifest.json
-        không có mục sutta/kn/ja/ja80_translation-en-sujato.json, và
-        .cache/upstream/suttacentral/translation/en/sujato/sutta/kn/ja/ cũng
-        không có tệp này. Không có tầng Việt hiện hành cho kn/ja80
-        (vietnamese-current chỉ có 26 tệp Pháp Cú, không có tệp ja80). Đã đếm
-        bằng script, không phải suy đoán. Vì mất cả hai tầng tham khảo nên
-        triangulation bị chặn ở 7.6 và bài phải ở trạng thái draft."
+    - Claude Sonnet 5.5 (Claude Code)
+  assessment_id: acf6bfab-c199-4296-9583-0ba542f9adb0
 notes: |-
   BLOCKER, GHI RÕ LÝ DO ĐÃ ĐẾM. Bài này **không** có bản Anh Sujato tại commit đã
   ghim. Đo bằng script trên `source/upstream-manifest.json` (commit
@@ -106,3 +97,5 @@ notes: |-
 
   `technical_integrity` 9.6 vì đợt này cấm chạy cổng: `npm run validate`, `npm test`,
   `npm run check`, `npm run build` để coordinator chạy.
+
+  Kiểm toán 2026-10-15 (kiểm toán Jātaka chỉ có Pāli), Claude Sonnet 5.5 (Claude Code): Cả bốn khoá kệ 1.1–1.4 dịch sai nghĩa (bản cũ: pavikatthita là "tiếc nuối", pūtisarā là "con của kẻ cờ bạc", pavī là "công chúa" — không có căn cứ; vihaññaṁ là "học"). Đọc lại: pavikatthitaṁ = điều đã khoe khoang (vikatthati); pūtisarā = dòng hôi thối (pūti + sara, đi với sajanti = thả ra, tuôn ra); na sameti = không hợp nhau; yuddhakathā = lời nói chuyện chiến trận; vihaññaṁ gốc vi-√han (khổ sở, kiệt sức). Chú giải Jātaka (bản Anh trên ancient-buddhist-texts.net) xác nhận cảnh Bhīmasena run sợ rồi làm bẩn lưng voi. Không có bản Anh Sujato; triangulation giữ nguyên. Ghi chú cũ ở trên về pavikatthita/pūtisa/công chúa không còn đúng và bị thay thế bởi mục này.

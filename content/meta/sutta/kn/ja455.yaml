@@ -1,9 +1,11 @@
 uid: ja455
-status: published
+status: draft
 translationTitle: "Kinh Mātuposaka"
 translators:
   - "OpenCode Space Bunny Free (agent)"
-reviewers: []
+reviewers:
+  - OpenCode Space Bunny Free (agent)
+  - Claude Sonnet 5.5 (Claude Code)
 tags:
   - "khuddaka-nikaya"
   - "jataka"
@@ -13,16 +15,16 @@ tags:
 quality:
   scores:
     source_provenance: 9.5
-    semantic_fidelity: 9.2
-    grammar_logic: 9.2
-    segment_alignment: 10.0
+    semantic_fidelity: 8.8
+    grammar_logic: 8.8
+    segment_alignment: 10
     terminology: 9.1
-    triangulation: 7.0
+    triangulation: 7
     vietnamese_clarity: 9.1
     han_viet_balance: 9.3
-    ambiguity_integrity: 9.0
+    ambiguity_integrity: 9
     technical_integrity: 9.6
-  final_score: 9.1
+  final_score: 9.02
   blocking_errors:
     - "Không có tầng tham khảo tiếng Anh tại commit đã ghim: tệp
       `sutta/kn/ja/ja455_translation-en-sujato.json` KHÔNG có trong
@@ -42,30 +44,10 @@ quality:
       8.0) chứ không nâng để né blocker. Thêm nữa, mẫu số coverage bằng 0 (xem
       notes) nên cổng `reference-gaps.yaml` không đo được gì cho bài này, mà tôi
       không được phép sửa tệp đó."
-  assessed_at: "2026-10-05"
+  assessed_at: 2026-10-15
   assessed_by:
-    - "OpenCode Space Bunny Free (agent)"
-  waiver:
-    id: no-upstream-english
-    blockers:
-      - "Không có tầng tham khảo tiếng Anh tại commit đã ghim: tệp
-        `sutta/kn/ja/ja455_translation-en-sujato.json` KHÔNG có trong
-        `source/upstream-manifest.json` (tầng `english-sujato` 4291 tệp; riêng
-        `sutta/kn/` có 755 tệp với cp 35 · dhp 26 · iti 112 · ja 83 · kp 9 · snp
-        73 · thag 264 · thig 73 · ud 80, trong đó `kn/ja` chỉ 83 tệp và không có
-        tệp nào là ja455). Đây là `not-published-upstream`, KHÔNG phải
-        `not-synced` (đã kiểm cả cache:
-        `.cache/upstream/suttacentral/translation/en/sujato/sutta/kn/ja/` có
-        đúng 83 tệp, không có ja455). Tầng `vietnamese-current` cũng vắng:
-        `translation/vi/phantuananh` tại commit đã ghim chỉ có 26 tệp và toàn bộ
-        là Pháp Cú. Lớp lấp `english-project` của dự án không có cho uid này
-        (`find content/meta/en -name ja455*` rỗng, `find content/translation/en
-        -name ja455*` rỗng). Cả ba tầng tham khảo đều vắng nên bài chỉ dịch được
-        từ Pāli root — blocker thật, đây là giới hạn upstream chứ không phải lỗi
-        của người dịch; bài bắt buộc `draft`, và `triangulation` bị chặn ở 7.0
-        (≤ 8.0) chứ không nâng để né blocker. Thêm nữa, mẫu số coverage bằng 0
-        (xem notes) nên cổng `reference-gaps.yaml` không đo được gì cho bài này,
-        mà tôi không được phép sửa tệp đó."
+    - Claude Sonnet 5.5 (Claude Code)
+  assessment_id: 8268e4ae-bda9-4511-a004-58e9ed29255f
 notes: |-
   BÀI MỚI, dịch từ Pāli root trong bối cảnh. Bản root `pli/ms` của Jātaka chỉ có THƠ
   (tiêu đề + 12 câu kệ + colophon), KHÔNG có văn xuôi, nên khung truyện không đối chiếu
@@ -177,3 +159,5 @@ notes: |-
   reference:gaps`, nên `technical_integrity` = 9,6 và không tuyên bố technical gate pass.
   Bốn lệnh còn lại cho người biên tập chạy: `npm run validate` · `npm test` · `npm run check`
   · `npm run build`.
+
+  Rà soát lại 2026-10-15 (Claude Sonnet 5.5 (Claude Code), đối chiếu Pāli đã ghim, kiểm thêm bản Rouse/Chalmers chỉ để hiểu bối cảnh): sửa 36 khoá có lỗi nghĩa thật. Điểm chính: `kabaḷaṁ` là nắm thức ăn và `kisako` là gầy mòn (3.1–3.2, không phải bó lúa/chó lang thang); `apariṇāyikā` là không người dẫn dắt; `khāṇuṁ ghaṭṭeti` là vấp chân vào gốc cây cụt; `giriṁ caṇḍoraṇaṁ pati` là hướng về núi Caṇḍoraṇa (`pati` = hậu trí từ); 5.1 `Kā nu te sā` là câu hỏi của vua về người mẹ; `soṇḍāyūdakamāhatvā` là lấy nước bằng vòi; `atrajo` là con ruột (không phải kẻ địch); `muttomhi` là «con được thả»; `vuddhāpacāyikaṁ` bổ nghĩa cho `puttaṁ` (người con kính trọng bậc trưởng thượng); `nivāte` là nơi khuất gió; `bharanti piṇḍena` là nuôi bằng nắm thức ăn. Còn bất định, giữ nguyên chữ ghim: `muttamādāya` (8.2, dịch «đã đón nhận tự do»), `abhihessati` (2.4), `vedehena` (11.4, để «Vedeha»). Điểm semantic_fidelity và grammar_logic chấm lại theo bản đã sửa.

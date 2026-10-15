@@ -53,6 +53,34 @@
       "notes": "Kiểm tra tự động 41 segment với Pāli trong cache: đủ ID, giá trị, NFC và hệ chữ Latin. Chưa đọc đối chiếu nghĩa, ngữ pháp hoặc văn phong; chưa chấm lại 10 tiêu chí. Đây không phải chứng nhận hash upstream hoặc giấy phép, không xác nhận trạng thái xuất bản.",
       "content_sha256": "33a2abdee6e00ff4b21291bb686b4305019f682116bf1ff3a7d4ff53ebe07739",
       "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639"
+    },
+    {
+      "target": "translation",
+      "scope": "full",
+      "assessed_at": "2026-10-15",
+      "assessed_by": [
+        "Claude Sonnet 5.5 (Claude Code)"
+      ],
+      "scores": {
+        "source_provenance": 9.6,
+        "semantic_fidelity": 8.8,
+        "grammar_logic": 8.9,
+        "segment_alignment": 10,
+        "terminology": 9.2,
+        "triangulation": 7.6,
+        "vietnamese_clarity": 9.2,
+        "han_viet_balance": 9.3,
+        "ambiguity_integrity": 9.1,
+        "technical_integrity": 9.6
+      },
+      "blocking_errors": [
+        "Không có tầng tham khảo tiếng Anh tại commit đã ghim (`11c9d708978cde8ba61096d8a75f7ddfb846f639`): đo trực tiếp trong `source/upstream-manifest.json`, tầng `english-sujato` có đúng **83 tệp `kn/ja`** và **0 tệp `kn/mil`**; 83 tệp `ja` ấy là `ja1`–`ja79` cộng `ja126`, `ja159`, `ja466`, `ja534`, nên ja431 không có mặt, và cũng không có trong `.cache/upstream/suttacentral/`. Đây là `not-published-upstream`, KHÔNG phải `not-synced`. Tầng `vietnamese-current` tại commit đã ghim có đúng 26 tệp và **tất cả đều là `dhp*`** (Pháp Cú) nên vắng với Jātaka. Lớp lấp `english-project` cũng không có uid nào của lát này. Ba tầng tham khảo đều vắng ⇒ bài chỉ dịch được từ Pāli root ⇒ blocker thật, và đây là **giới hạn của snapshot upstream**, không phải lõi của người dịch. `scripts/validate.ts` coi tệp Anh ghim thiếu là **error** khi status là `review` hoặc `published`, nên bài bắt buộc `draft`; vì vậy `triangulation` bị chặn ≤ 8.0 chứ không nâng để né blocker."
+      ],
+      "notes": "Sửa 15/36 khoá lỗi nghĩa thật (kummagga, yāya, arahā, hiṁsanti, sammato...); điểm phản ánh bản đã sửa, còn chỗ bất định (mahābrahme, arahā).",
+      "id": "728038b1-1a6c-41b0-a78b-c056d8e8ef9c",
+      "content_sha256": "64eaee8c2f17f2c574e7de49033b63fd5ab4dacc9e31067259805b580c9e20b6",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
+      "final_score": 9.129999999999999
     }
   ],
   "legacy_quality": {

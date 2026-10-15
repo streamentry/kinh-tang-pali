@@ -1,9 +1,11 @@
 uid: ja407
-status: published
+status: draft
 translationTitle: "Kinh Mahākapi"
 translators:
   - "OpenCode Space Bunny Free (agent)"
-reviewers: []
+reviewers:
+  - OpenCode Space Bunny Free (agent)
+  - Claude Sonnet 5.5 (Claude Code)
 tags:
   - "khuddaka-nikaya"
   - "jataka"
@@ -13,16 +15,16 @@ tags:
 quality:
   scores:
     source_provenance: 9.5
-    semantic_fidelity: 9.2
-    grammar_logic: 9.1
-    segment_alignment: 10.0
-    terminology: 9.0
+    semantic_fidelity: 8.8
+    grammar_logic: 8.9
+    segment_alignment: 10
+    terminology: 9
     triangulation: 7.5
     vietnamese_clarity: 9.2
     han_viet_balance: 9.3
     ambiguity_integrity: 8.8
     technical_integrity: 9.6
-  final_score: 9.12
+  final_score: 9.059999999999999
   blocking_errors:
     - "Không có tầng tham khảo tiếng Anh tại commit đã ghim: tệp
       `translation/en/sujato/sutta/kn/.../ja407_translation-en-sujato.json`
@@ -41,29 +43,10 @@ quality:
       Pāli root ⇒ blocker thật, và đây là **giới hạn upstream**, không phải lỗi
       của người dịch. Vì vậy `triangulation` bị chặn ở 7.5 (≤ 8.0) chứ không
       nâng để né blocker."
-  assessed_at: "2026-10-04"
+  assessed_at: 2026-10-15
   assessed_by:
-    - "OpenCode Space Bunny Free (agent)"
-  waiver:
-    id: no-upstream-english
-    blockers:
-      - "Không có tầng tham khảo tiếng Anh tại commit đã ghim: tệp
-        `translation/en/sujato/sutta/kn/.../ja407_translation-en-sujato.json`
-        không tồn tại trong `.cache/upstream/suttacentral/`, và thư mục `kn/`
-        của edition đã ghim chỉ có `cp, dhp, iti, ja, kp, snp, thag, thig, ud` —
-        **không có `mil`**, còn `ja374/376/407/412` không nằm trong 83 tệp `ja`
-        ấy. Đếm lại trực tiếp trên đĩa bằng `find` cho 0 tệp ⇒ đây là
-        `not-published-upstream`, KHÔNG phải `not-synced`. Đo coverage theo đúng
-        công thức `source/layers.yaml` (Pāli có nội dung ≥ 40 ký tự sau khi
-        chuẩn hoá, loại khối tham chiếu `:0.x`) cho 0 trên 0 khoá = 0%, dưới
-        ngưỡng 0.8. `scripts/validate.ts` coi tệp Anh thiếu là **error** khi
-        status là `review` hoặc `published`, nên bài bắt buộc `draft`. Tầng
-        `vietnamese-current` cũng vắng: `translation/vi/phantuananh` tại commit
-        đã ghim có đúng 26 tệp và toàn bộ là `dhp*`. Lớp lấp `english-project`
-        của dự án cũng không có uid này. Ba tầng tham khảo đều vắng ⇒ bài dịch
-        chỉ từ Pāli root ⇒ blocker thật, và đây là **giới hạn upstream**, không
-        phải lỗi của người dịch. Vì vậy `triangulation` bị chặn ở 7.5 (≤ 8.0)
-        chứ không nâng để né blocker."
+    - Claude Sonnet 5.5 (Claude Code)
+  assessment_id: e09e3ba1-0958-49eb-905e-fbbd6773ca40
 notes: |-
   `Mahākapijātaka`, bài thứ hai của `Gandhāravagga` trong `Sattakanipāta`. 35 khoá, tất cả đã dịch. TẦNG THAM KHẢO — đo, không đoán. 0/7 bài `kn` của lát này có bản Anh Sujato tại commit đã ghim: thư mục `kn/` của edition `translation/en/sujato` chỉ có `cp, dhp, iti, ja, kp, snp, thag, thig, ud` (đếm trực tiếp trên đĩa: cp 35, dhp 26, iti 11, ja 83, kp 9, snp 5, thag 264, thig 73, ud 8 tệp) — **không có `mil`**, và `ja374/376/407/412` không nằm trong 83 tệp `ja` ấy. Đây là `not-published-upstream`, KHÔNG phải `not-synced`. Tầng `vietnamese-current` cũng vắng: `translation/vi/phantuananh` tại commit đã ghim có đúng 26 tệp và tất cả đều là `dhp*` (Pháp Cú). Lớp lấp `english-project` của dự án không có uid nào trong lát. Ba tầng tham khảo đều vắng ⇒ bài dịch chỉ từ Pāli root ⇒ blocker thật, và đây là **giới hạn upstream**, không phải lỗi của người dịch. Vì vậy `triangulation` bị chặn ở 7.5 (≤ 8.0) chứ không nâng để né blocker, và `status` là `draft` vì `scripts/validate.ts` coi tệp Anh thiếu là **error** khi status là `review` hoặc `published`.
 
@@ -82,3 +65,5 @@ notes: |-
   Kshatriya, Brahmana); đã thay bằng từ Việt hoặc dạng đã dùng ở toàn tầng (rượu men / rượu nấu / các
   chất say; rựa; gỗ tếch; beluva; āmalaka; Sát-đế-lợi; dạ-xoa; Nandamātā; Trúc Lâm; Sát-đế-lợi; Bà-la-
   môn). Giữ nguyên phần còn lại của khoá.
+
+  Lượt rà soát 2026-10-15 (Claude Sonnet 5.5 (Claude Code), kiểm lại từng khoá bằng Pāli đã ghim): sửa 28 khoá, hầu hết kệ bản cũ không đúng Pāli. Lỗi nghĩa thật: `:1.1–1.4` là vua hỏi đại khỉ đã biến thân thành cầu đưa họ qua bình an thì họ là gì đối với ngài (bản cũ dịch `mahākapi` thành voi lớn); `:3.1–3.4` là nhảy vọt lên một trăm tầm bắn, dây leo buộc chặt nơi chân sau; `:4.1–4.4` là như đám mây bị gió xé (`chinnabbha`), bị đẩy đến cây, nắm cành bằng tay; `sākhāmigā` ở `:5.4` là bầy khỉ (không phải giữa cành cây), chúng bước qua và đến nơi an toàn; `:6.1–6.4` là lời Bồ-tát (không có trích dẫn lồng), bị trói hay chết cũng không làm khổ, vì hạnh phúc đã đến với những kẻ mình làm vua; `:7.x` là hạnh phúc của quốc độ, xe ngựa, quân đội và thị trấn phải được vị vua sáng suốt mưu cầu. Bất định, giữ cách đọc thận trọng: `te` ở `:2.4` (dịch như lời xưng hô), `vissaṭṭhadhanuno sataṁ` ở `:3.2` (một trăm tầm bắn của người đã buông cung), `appabhavaṁ` ở `:4.3` (thiếu sức), `yoggassa` ở `:7.3` (xe ngựa). Điểm: semantic_fidelity và grammar_logic hạ về mức bản đã sửa vì bản cũ sai ở khoảng bốn phần năm số khoá.

@@ -1,5 +1,5 @@
 uid: ja400
-status: published
+status: draft
 translationTitle: "Kinh Dabbhapuppha"
 translators:
   - "OpenCode Space Bunny Free (agent)"
@@ -14,7 +14,7 @@ tags:
 quality:
   scores:
     source_provenance: 9.4
-    semantic_fidelity: 8.8
+    semantic_fidelity: 8.9
     grammar_logic: 8.9
     segment_alignment: 10
     terminology: 9.2
@@ -23,7 +23,7 @@ quality:
     han_viet_balance: 9.2
     ambiguity_integrity: 8.3
     technical_integrity: 9.6
-  final_score: 9.01
+  final_score: 9.02
   blocking_errors:
     - Bài này không có tầng Anh SuttaCentral đã ghim ở commit đã pin (0/0
       segment có nội dung, không có tệp nào trong english-sujato), nên thiếu
@@ -33,21 +33,10 @@ quality:
       lại từ source/upstream-manifest.json: ja1–ja79 cộng ja126, ja159, ja466,
       ja534), và translation/vi/phantuananh/ ở commit đã ghim chỉ chứa Pháp Cú,
       nên không thể đối chiếu một bản Anh độc lập cho bài này."
-  assessed_at: 2026-10-14
+  assessed_at: 2026-10-15
   assessed_by:
     - Claude Sonnet 5.5 (Claude Code)
-  assessment_id: 15886cc4-2979-412d-91ce-3d1e455c3097
-  waiver:
-    id: no-upstream-english
-    blockers:
-      - Bài này không có tầng Anh SuttaCentral đã ghim ở commit đã pin (0/0
-        segment có nội dung, không có tệp nào trong english-sujato), nên thiếu
-        tầng tham khảo bắt buộc để xuất bản; đối chiếu chỉ có Pāli ghim cùng
-        commit + tiền lệ trong chính tầng Việt dự án.
-      - "`ja400` không nằm trong 83 tệp `ja` của tầng `english-sujato` đã ghim
-        (đo lại từ source/upstream-manifest.json: ja1–ja79 cộng ja126, ja159,
-        ja466, ja534), và translation/vi/phantuananh/ ở commit đã ghim chỉ chứa
-        Pháp Cú, nên không thể đối chiếu một bản Anh độc lập cho bài này."
+  assessment_id: 933579f4-1e16-45de-86c4-37a757a8be20
 notes: |-
   **Vì sao `draft` (ba lý do, và lý do thứ ba là của riêng bài này).** (1) `ja400` không có tầng
   tham khảo nào ngoài Pāli: tầng `english-sujato` đã ghim có **83** tệp `ja` (ja1–ja79 cộng
@@ -215,3 +204,10 @@ notes: |-
   khoá, thứ tự khoá, ngoặc 4 loại, NFC, không dấu lược, không Pāli lọt (ngoài tên riêng `Dabbhapuppha`, `Jātaka`).
 
   **Đối chiếu bản dịch mù độc lập 2026-10-14.** Một dịch giả khác (cùng họ công cụ) dịch lại bài từ Pāli không xem bản dự án; so 8 khoá chênh lệch lớn nhất (trên 47 khoá) → khác nghĩa 2: sửa 0, giữ 1, bất định 1. Giữ 1: `7.1`–`7.2` `rājā … rajjaṁ laddhāna khattiyo` (bản mù đưa “sát-đế-lợi” lên vế vua và bỏ `khattiyo` ở `7.2`; bản dự án giữ cả hai chữ đúng vị trí Pāli). Các khoá còn lại (`1.2`, `1.3`, `1.4`, `2.3`, `8.2`, `0.2`) chỉ khác diễn đạt. Bất định 1: `7.4` `puṇṇamukhaṁ` (“gương mặt đầy đặn” hay “miệng đầy”, đã ghi ở bất định 6 phía trên). Ghi chú ngược: đoạn “Dùng lại nguyên văn” phía trên (`3.3`, `3.4`, `4.3`, `4.4`, `9.4`) mô tả bản dịch cũ và không còn đúng với chữ hiện hành (`3.3` *này bạn, hãy dàn xếp cuộc tranh chấp*, `3.4` *để cuộc tranh cãi được lắng xuống*, `9.4` *hỡi kẻ gian dối*); chữ hiện hành là chuẩn. Không có bản Anh hay bản Việt độc lập khác nên `triangulation` chỉ 7,6.
+
+  Lượt rà soát 2026-10-15 (Claude Sonnet 5.5, Claude Code), đọc lại đủ 47 khoá Pāli↔Việt; chỉ có Pāli
+  đã ghim và PED. Sửa một khoá: `7.4` `puṇṇamukhaṁ patiṁ` đọc là người chồng có miệng đầy (cá ngậm
+  trong miệng), thay cho “gương mặt đầy đặn”; cả đoạn này chỉ có người chồng ngậm miếng cá về nên
+  “miệng đầy” là cách đọc theo ngữ cảnh bài, và bất định cũ ở phần trên được giải quyết theo hướng đó.
+  Giữ các khoá còn lại (`bhaddante` là cách chào “thưa ngài, chúc may mắn”, không phải tên;
+  `dhammaṭṭha` = người xử án; `Māyāvī` ở `9.4` đọc là hô cách, giữ nghĩa “kẻ gian dối”).

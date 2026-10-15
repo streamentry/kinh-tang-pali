@@ -1,5 +1,5 @@
 uid: ja391
-status: published
+status: draft
 translationTitle: "Kinh Vijjādhara"
 translators:
   - "OpenCode Space Bunny Free (agent)"
@@ -15,8 +15,8 @@ tags:
 quality:
   scores:
     source_provenance: 9.5
-    semantic_fidelity: 9.4
-    grammar_logic: 9.2
+    semantic_fidelity: 9
+    grammar_logic: 9
     segment_alignment: 10
     terminology: 9.2
     triangulation: 7.5
@@ -24,7 +24,7 @@ quality:
     han_viet_balance: 9.4
     ambiguity_integrity: 9.1
     technical_integrity: 9.6
-  final_score: 9.209999999999999
+  final_score: 9.15
   blocking_errors:
     - "Không có tầng tham khảo tiếng Anh tại commit đã ghim:
       `source/upstream-manifest.json` cho thấy tầng `english-sujato` chỉ có
@@ -45,26 +45,7 @@ quality:
   assessed_at: 2026-10-15
   assessed_by:
     - Claude Sonnet 5.5 (Claude Code)
-  assessment_id: 30de7cb1-9149-488d-8621-145908506518
-  waiver:
-    id: no-upstream-english
-    blockers:
-      - "Không có tầng tham khảo tiếng Anh tại commit đã ghim:
-        `source/upstream-manifest.json` cho thấy tầng `english-sujato` chỉ có
-        **83** tệp dưới `.../kn/ja/` (ja1–ja79, cộng 126, 159, 466, 534), trong
-        đó **không có** ja372/ja383/ja391 ⇒ `not-published-upstream`, KHÔNG phải
-        `not-synced`. Cổng coverage của kho đo trên Pāli có nội dung (≥ 40 ký
-        tự): ja391 có **mẫu số = 0** (33 khoá, khoá dài nhất 35 ký tự), nên cổng
-        **không đo được gì** — đây là `0/0`, không phải `0%` đã kiểm rồi không
-        đạt, và cũng không phải cơ sở để bỏ qua việc ghi nhận.
-        `scripts/validate.ts` coi tệp Anh thiếu là **error** khi status là
-        `review` hoặc `published`, nên bài bắt buộc `draft`. Tầng
-        `vietnamese-current` cũng vắng: `translation/vi/phantuananh` tại commit
-        đã ghim chỉ có 26 tệp, toàn bộ là Pháp Cú. Lớp lấp `english-project`
-        cũng không có cho uid này. Ba tầng tham khảo đều vắng ⇒ bài dịch chỉ từ
-        Pāli root ⇒ blocker thật, đây là **giới hạn upstream**, không phải lỗi
-        của người dịch. Vì vậy `triangulation` bị chặn ở 7.5 (≤ 8.0) chứ không
-        nâng để né blocker."
+  assessment_id: 36462da2-f61b-498b-9359-1e832d1fa030
 
 notes: |-
   Bản dịch dựng từ Pāli root (content/catalog/sutta/kn.json → .cache/upstream, 33/33 khoá), không có tầng Anh đã ghim để đối chiếu — xem blocking_errors. Cổng coverage đo được là **0/0**, tức mẫu số bằng 0: bài truyện ngắn, khoá dài nhất 35 ký tự, không khoá nào đạt ngưỡng 40 ký tự của `source/layers.yaml`.
@@ -84,3 +65,5 @@ notes: |-
   trong Pāli. Nay: "Thật vậy, nên gần gũi những bậc có trí tuệ, những bậc đa văn, suy xét nhiều điều".
   Không có bản Anh Sujato cho ja391 tại commit ghim; đối chiếu bằng Pāli và ngữ cảnh. Các khoá khác
   của bài (ví dụ `5.2`, `7.2`) còn lủng củng nhưng nằm ngoài lô này, chưa động.
+
+  Lượt kiểm 2026-10-15 (lô L14, Claude Sonnet 5.5 (Claude Code)): đọc đủ 33 khoá; ngoài `6.1-6.2` đã sửa ở lô G1, sửa thêm các lỗi nghĩa thật: `1.1-1.3` ("dung sắc xấu xí / cao quý", "đặt lên trước", "hơn hay ngang bằng"; bản cũ có "quân phong" và "ở bên ngực" vô nghĩa), `2.1-2.2` (chư thiên không nêu tên và dòng họ của bậc đi đúng đường), `3.1`/`4.1` `caraṇūpapannaṁ` là đầy đủ hạnh (không phải "đến bến bờ"), `3.3` `devarāja` là hô ngữ, `4.3` "được khen ngợi" (như ja491:6.3), `5.2` như ja488:21.2, `7.2` `yācayogo` là rộng rãi với người cầu xin (như ja547:7.2), `7.4` thêm hô ngữ `devinda`. Hai khoá `5.2`, `7.2` mà ghi chú lô G1 để lại nay đã xử lý.

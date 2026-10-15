@@ -1,9 +1,11 @@
 uid: ja443
-status: published
+status: draft
 translationTitle: "Kinh Cūḷabodhi"
 translators:
   - "Codebuff (agent)"
-reviewers: []
+reviewers:
+  - Codebuff (agent)
+  - Claude Sonnet 5.5 (Claude Code)
 tags:
   - "kn"
   - "khuddaka-nikaya"
@@ -14,18 +16,18 @@ tags:
 quality:
   scores:
     source_provenance: 9.3
-    semantic_fidelity: 9.2
-    grammar_logic: 9.2
-    segment_alignment: 10.0
+    semantic_fidelity: 9
+    grammar_logic: 9
+    segment_alignment: 10
     terminology: 9.3
-    triangulation: 7.0
+    triangulation: 7
     vietnamese_clarity: 9.2
     han_viet_balance: 9.3
-    ambiguity_integrity: 9.0
+    ambiguity_integrity: 9
     technical_integrity: 9.6
-  final_score: 9.11
+  final_score: 9.069999999999999
   blocking_errors:
-    - "Không có tầng tham khảo tiếng Anh tại commit đã ghim — `english-sujato`
+    - Không có tầng tham khảo tiếng Anh tại commit đã ghim — `english-sujato`
       không liệt kê tệp nào cho uid (thuộc kỳ `not-published-upstream`, không
       phải `not-synced`). Toàn bộ bài là kệ ngắn, không segment nào đạt ngưỡng
       Pāli có nội dung ≥ 40 ký tự (0/57, loại block `:0`) nên coverage **không
@@ -33,24 +35,11 @@ quality:
       ratio ≥ 0.8 theo công thức ⇒ bài bắt buộc `draft` và `triangulation ≤
       8.0`. Tầng `vietnamese-current` chỉ có Pháp Cú tại commit đã ghim; lớp
       `english-project` chưa có cho uid này. Ba tầng tham khảo đều vắng ⇒ dịch
-      chỉ từ Pāli root. Đây là giới hạn upstream, không phải lỗi của người
-      dịch."
-  assessed_at: "2026-10-07"
+      chỉ từ Pāli root. Đây là giới hạn upstream, không phải lỗi của người dịch.
+  assessed_at: 2026-10-15
   assessed_by:
-    - "Codebuff (agent)"
-  waiver:
-    id: no-upstream-english
-    blockers:
-      - Không có tầng tham khảo tiếng Anh tại commit đã ghim — `english-sujato`
-        không liệt kê tệp nào cho uid (thuộc kỳ `not-published-upstream`, không
-        phải `not-synced`). Toàn bộ bài là kệ ngắn, không segment nào đạt ngưỡng
-        Pāli có nội dung ≥ 40 ký tự (0/57, loại block `:0`) nên coverage **không
-        đo được gì** — không có khoá nào để tầng Anh phủ, và cũng không thể đạt
-        ratio ≥ 0.8 theo công thức ⇒ bài bắt buộc `draft` và `triangulation ≤
-        8.0`. Tầng `vietnamese-current` chỉ có Pháp Cú tại commit đã ghim; lớp
-        `english-project` chưa có cho uid này. Ba tầng tham khảo đều vắng ⇒ dịch
-        chỉ từ Pāli root. Đây là giới hạn upstream, không phải lỗi của người
-        dịch.
+    - Claude Sonnet 5.5 (Claude Code)
+  assessment_id: 3036900d-062c-4922-8f45-c7957a73cf2d
 notes: |-
   Đợt 17, lát n176. Dịch từ Pāli root commit 11c9d708 — không có tầng Anh, không có tầng Việt hiện
   hành, không có chú giải trong commit đã ghim; chỉ đọc từ Pāli.
@@ -83,3 +72,5 @@ notes: |-
 
   technical_integrity 9.6: cổng kỹ thuật do coordinator chạy — npm run validate; npm test;
   npm run check; npm run build.
+
+  Rà soát đợt 7, 2026-10-15 (Claude Sonnet 5.5 (Claude Code), đọc đủ 57 khoá Pāli↔Việt): sửa 13 khoá. Lỗi nghĩa thật: 2.1, 2.2, 4.1 (`uppajje/uppajji me na mucceyya/muccittha` có chủ ngữ là sân hận; bản cũ đọc "ước chi" và đảo chủ ngữ thành "ta chẳng thoát khỏi nó"), 3.1 (`vikatthittho` là khoác lác, không phải gào thét), 3.2 (`balamhiva apassito` là nương tựa vào sức mạnh, không phải "chẳng thấy sức mình"), 10.4 (bỏ "hỡi lửa", Pāli `yasmā so jāyate gini` không có hô cách), 13.1 (`dhūmaketu` là ngọn lửa, không phải "cột khói"), 9.3–9.4 (`bhīmaseno` là tính từ đồng vị với `kodho`, "có đạo quân đáng sợ", không phải tên riêng). Từ vựng: 6.4, 7.4, 8.4 `gocaro` dịch "nơi lui tới" thay "bạn đồng hành". Chưa phân xử: `muccati` + `me` có thể là "thoát khỏi ta" hoặc "buông ta" (giữ cách dịch trung tính); 9.2 `parakkare` là chữ hiếm không có tiền lệ trong kho (giữ nguyên bản dịch cũ, chưa chắc); 6.1–6.2 và 11.3 `sārambhā` giữ. Không có bản Anh hay Việt độc lập.

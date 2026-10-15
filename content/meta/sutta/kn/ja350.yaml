@@ -1,9 +1,11 @@
 uid: ja350
-status: published
+status: draft
 translationTitle: "10. Kinh Devatāpañha"
 translators:
   - "OpenCode Space Bunny Free (agent)"
-reviewers: []
+reviewers:
+  - OpenCode Space Bunny Free (agent)
+  - Claude Sonnet 5.5 (Claude Code)
 tags:
   - "khuddaka-nikāya"
   - "jātaka"
@@ -12,16 +14,16 @@ tags:
 quality:
   scores:
     source_provenance: 9.5
-    semantic_fidelity: 9.1
-    grammar_logic: 9.2
-    segment_alignment: 10.0
+    semantic_fidelity: 8.9
+    grammar_logic: 9
+    segment_alignment: 10
     terminology: 9.2
     triangulation: 7.5
     vietnamese_clarity: 9.2
     han_viet_balance: 9.3
     ambiguity_integrity: 8.8
     technical_integrity: 9.6
-  final_score: 9.14
+  final_score: 9.099999999999998
   blocking_errors:
     - "Không có tầng tham khảo tiếng Anh tại commit đã ghim:
       `translation/en/sujato/sutta/kn/{d}/{u}_translation-en-sujato.json` không
@@ -38,27 +40,10 @@ quality:
       `vietnamese-current` cũng vắng (`translation/vi/phantuananh` tại commit đã
       ghim chỉ có 26 tệp, toàn bộ là Pháp Cú) và lớp lấp `english-project` cũng
       không có uid này ⇒ blocker thật."
-  assessed_at: "2026-10-04"
+  assessed_at: 2026-10-15
   assessed_by:
-    - "OpenCode Space Bunny Free (agent)"
-  waiver:
-    id: no-upstream-english
-    blockers:
-      - "Không có tầng tham khảo tiếng Anh tại commit đã ghim:
-        `translation/en/sujato/sutta/kn/{d}/{u}_translation-en-sujato.json`
-        không tồn tại trong `.cache/upstream/suttacentral/`, và thư mục `kn/`
-        của edition đã ghim chỉ có cp, dhp, iti, ja, kp, snp, thag, thig, ud —
-        **không có mil, pv hay tha-ap**. Đếm lại trực tiếp trên đĩa bằng `find`
-        cho 0 tệp ⇒ đây là `not-published-upstream`, KHÔNG phải `not-synced`.
-        Bài này **không có segment Pāli có nội dung** (mọi câu kệ đều ngắn hơn
-        40 ký tự sau khi chuẩn hoá), nên `src/lib/canon/reference.ts` quy định
-        `ratio = 1` khi mẫu số bằng 0 và cổng coverage **không** chặn. Nhưng tệp
-        Anh thật sự không tồn tại, và `scripts/validate.ts` coi đó là **error**
-        khi status là `review` hoặc `published` ⇒ bài bắt buộc `draft`. Đây là
-        trường hợp số đo không bắt được nhưng thực tế vẫn mất tầng tham khảo.
-        Tầng `vietnamese-current` cũng vắng (`translation/vi/phantuananh` tại
-        commit đã ghim chỉ có 26 tệp, toàn bộ là Pháp Cú) và lớp lấp
-        `english-project` cũng không có uid này ⇒ blocker thật."
+    - Claude Sonnet 5.5 (Claude Code)
+  assessment_id: 6af3269e-a30b-4ccf-a3b7-30ca7d8983a0
 notes: |-
   Jaṭaka 350, `Devatāpañhajātaka`, bài thứ 10 — cũng là bài cuối — của
   `Cūḷakuṇālavagga` trong `Catukkanipāta`. 34 khoá, tất cả đã dịch.
@@ -118,3 +103,12 @@ notes: |-
   10.0 vì không ai rà lại bằng con người.
 
   Bốn lệnh cổng kỹ thuật đã chạy và đều xanh: `npm run validate`, `npm test`, `npm run check`, `npm run build`.
+
+  Lượt rà soát 2026-10-15 (lô L10, kiểm toán Jātaka chỉ có Pāli), Claude Sonnet 5.5 (Claude Code): đọc
+  đủ mọi khoá Pāli↔Việt, đối chiếu PED. Sửa lớn ở cả bốn câu đố: `sa ve rāja piyo hoti, kaṁ tena
+  tvābhipassasi` có `rāja` là hô cách (tâu đại vương), `sa` là kẻ ấy, `kaṁ` là ai, `tvā` là ngài; bản
+  cũ đọc rāja là chủ thể "nhà vua yêu thích" và kaṁ là "điều nào" (1.3–1.4, 2.3–2.4, 3.3–3.4,
+  4.4–4.5); 1.2: `mukhañca parisumbhati` là đánh vào mặt (PED: parisumbhati là đánh, J iii.347), không
+  phải "bịt kín miệng"; 4.3 `aññadatthuharā` là kẻ chuyên lấy hết mọi thứ. Hơn nửa số khoá kệ sai
+  nghĩa trước khi sửa nên semantic_fidelity và grammar_logic được đặt lại theo chất lượng bản đã sửa,
+  còn chỗ chưa chắc (`abhisāraye` ở 3.2). technical_integrity giữ nguyên.

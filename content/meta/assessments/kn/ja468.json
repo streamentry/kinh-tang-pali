@@ -27,6 +27,34 @@
       "notes": "Kiểm tra tự động 53 segment với Pāli trong cache: đủ ID, giá trị, NFC và hệ chữ Latin. Chưa đọc đối chiếu nghĩa, ngữ pháp hoặc văn phong; chưa chấm lại 10 tiêu chí. Đây không phải chứng nhận hash upstream hoặc giấy phép, không xác nhận trạng thái xuất bản.",
       "content_sha256": "2b32018167a6c4d6ad8913249367fedee5c99512997967a1e64498dea52f1337",
       "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639"
+    },
+    {
+      "target": "translation",
+      "scope": "full",
+      "assessed_at": "2026-10-15",
+      "assessed_by": [
+        "Claude Sonnet 5.5 (Claude Code)"
+      ],
+      "scores": {
+        "source_provenance": 9.5,
+        "semantic_fidelity": 8.9,
+        "grammar_logic": 9,
+        "segment_alignment": 10,
+        "terminology": 9,
+        "triangulation": 7,
+        "vietnamese_clarity": 9.2,
+        "han_viet_balance": 9.2,
+        "ambiguity_integrity": 9,
+        "technical_integrity": 9.6
+      },
+      "blocking_errors": [
+        "Không có tầng tham khảo tiếng Anh tại commit 11c9d708978cde8ba61096d8a75f7ddfb846f639: tệp sutta/kn/ja/ja468_translation-en-sujato.json không có trong source/upstream-manifest.json (thư mục kn/ của edition english-sujato chỉ có cp 35, dhp 26, iti 112, ja 83, kp 9, snp 73, thag 264, thig 73, ud 80; 83 tệp kn/ja/ không có ja468) và cũng không có trên đĩa trong .cache/upstream/suttacentral ⇒ not-published-upstream, KHÔNG phải not-synced. Lớp lấp english-project của dự án không có ja468: thiếu cả content/translation/en/project/sutta/kn/ja468_translation-en-project.json lẫn content/meta/en/kn/ja468.yaml. Tầng vietnamese-current cũng vắng: edition đã ghim chỉ có 26 tệp và toàn bộ là sutta/kn/dhp/. Ba tầng tham khảo đều vắng ⇒ bài này dịch CHỈ từ Pāli root, và scripts/validate.ts đẩy thông điệp pinned English reference missing vào errors khi status là review hoặc published ⇒ bài bắt buộc draft. Thêm nữa, MẪU SỐ COVERAGE BẰNG 0: số segment Pāli có nội dung của ja468 là 0/53 theo ngưỡng substantivePaliMinChars = 40 khai ở source/layers.yaml, nên cổng coverage KHÔNG đo được gì (ratio = 1 theo src/lib/canon/reference.ts) — đây là cổng không đo được, KHÔNG phải đã ghi nhận đủ. Đây là giới hạn upstream, không phải lỗi của người dịch; vì vậy triangulation bị chặn ở 7.0 chứ không nâng để né blocker."
+      ],
+      "notes": "Sửa khoảng 36/53 khoá, nhất là điệp khúc pacchānutappati bị dịch ngược; điểm phản ánh bản đã sửa, còn bất định kūṭavedī, anāpādā.",
+      "id": "002fcce3-c930-40b5-9c91-1837bd8463b9",
+      "content_sha256": "d28852db7748dc9eeda2d67201d6ff3fe1fc30de3cb3806489234e68bb091b13",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
+      "final_score": 9.04
     }
   ],
   "legacy_quality": {

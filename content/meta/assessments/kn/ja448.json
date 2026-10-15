@@ -53,6 +53,34 @@
       "notes": "Kiểm tra tự động 49 segment với Pāli trong cache: đủ ID, giá trị, NFC và hệ chữ Latin. Chưa đọc đối chiếu nghĩa, ngữ pháp hoặc văn phong; chưa chấm lại 10 tiêu chí. Đây không phải chứng nhận hash upstream hoặc giấy phép, không xác nhận trạng thái xuất bản.",
       "content_sha256": "e71b5243bf58dbb1981536e90269f1d9368626cf25185f3966d309a41378a52f",
       "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639"
+    },
+    {
+      "target": "translation",
+      "scope": "full",
+      "assessed_at": "2026-10-15",
+      "assessed_by": [
+        "Claude Sonnet 5.5 (Claude Code)"
+      ],
+      "scores": {
+        "source_provenance": 9.5,
+        "semantic_fidelity": 8.8,
+        "grammar_logic": 8.9,
+        "segment_alignment": 10,
+        "terminology": 9,
+        "triangulation": 7,
+        "vietnamese_clarity": 9.2,
+        "han_viet_balance": 9.3,
+        "ambiguity_integrity": 9,
+        "technical_integrity": 9.8
+      },
+      "blocking_errors": [
+        "Không có tầng tham khảo tiếng Anh tại commit đã ghim: tệp `translation/en/sujato/sutta/kn/ja/ja448_translation-en-sujato.json` không tồn tại trong `.cache/upstream/suttacentral/` và `source/upstream-manifest.json` (tầng english-sujato chỉ có 755 (cp 35, dhp 26, iti 112, ja 83, kp 9, snp 73, thag 264, thig 73, ud 80) tệp trong `kn/`, trong đó `ja` chỉ có 83 và `mil`/`pv` không có tệp `kn/` nào; riêng tầng `name/` có `ja-name`, `mil-name`, `pv-name` nhưng đó là tên sách, không phải bản dịch thân kinh) — đây là `not-published-upstream`, KHÔNG phải `not-synced`. `scripts/validate.ts` đẩy thông điệp này vào `errors` khi status là `review` hoặc `published`, nên bài bắt buộc `draft`. Tầng `vietnamese-current` cũng vắng: `translation/vi/phantuananh` tại commit đã ghim chỉ có 26 tệp và toàn bộ là Pháp Cú. Lớp lấp `english-project` của dự án không có cho uid này. Ba tầng tham khảo đều vắng ⇒ bài dịch chỉ từ Pāli root ⇒ blocker thật, và đây là **giới hạn upstream**, không phải lỗi của người dịch. Vì vậy `triangulation` bị chặn ở 7.0 (≤ 8.0) chứ không nâng để né blocker. Như pv20, công thức coverage cho tỉ lệ 1,00 trên 0 khoá có nội dung vì mọi khoá Pāli của ja448 đều ngắn hơn 40 ký tự sau khi nén (dài nhất 35); ngưỡng 0,80 không phải thứ chặn, thứ chặn là thông điệp `pinned English reference missing`."
+      ],
+      "notes": "Rà soát lại bằng Pāli: sửa 36/41 khoá kệ (nāsmase = không nên tin, senaka = diều hâu, đảo nghĩa 9–10, bẫy giăng giữa rừng); còn bất định ở gopipāsika/ghasanti (2.x), sukkhañjali (3.1), aññaññacitta (4.1).",
+      "id": "ba6d2212-a389-4b1d-93e8-97c505653574",
+      "content_sha256": "605bd6fa61d992ff5a780bd0cdced2879343b914c055bfb24ec916796d318481",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
+      "final_score": 9.05
     }
   ],
   "legacy_quality": {

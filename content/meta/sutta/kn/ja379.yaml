@@ -1,9 +1,11 @@
 uid: ja379
-status: published
+status: draft
 translationTitle: "Kinh Neru"
 translators:
   - "OpenCode Space Bunny Free (agent)"
-reviewers: []
+reviewers:
+  - OpenCode Space Bunny Free (agent)
+  - Claude Sonnet 5.5 (Claude Code)
 tags:
   - "khuddaka-nikaya"
   - "jataka"
@@ -15,7 +17,7 @@ quality:
     source_provenance: 9.5
     semantic_fidelity: 9.3
     grammar_logic: 9.3
-    segment_alignment: 10.0
+    segment_alignment: 10
     terminology: 9.2
     triangulation: 7.5
     vietnamese_clarity: 9.3
@@ -39,27 +41,10 @@ quality:
       Pāli root ⇒ blocker thật, và đây là **giới hạn upstream**, không phải lỗi
       của người dịch. Vì vậy `triangulation` bị chặn ở 7.5 (≤ 8.0) chứ không
       nâng để né blocker."
-  assessed_at: "2026-10-04"
+  assessed_at: 2026-10-15
   assessed_by:
-    - "OpenCode Space Bunny Free (agent)"
-  waiver:
-    id: no-upstream-english
-    blockers:
-      - "Không có tầng tham khảo tiếng Anh tại commit đã ghim: tệp
-        `translation/en/sujato/sutta/kn/ja/ja379_translation-en-sujato.json`
-        không tồn tại trong `.cache/upstream/suttacentral/`, và
-        `source/upstream-manifest.json` không liệt kê bất kỳ tệp nào cho uid này
-        — đây là `not-published-upstream`, KHÔNG phải `not-synced`. Đo coverage
-        theo đúng công thức `source/layers.yaml` (Pāli có nội dung ≥ 40 ký tự,
-        loại block tham chiếu `:0`) cho 0 trên 29 khoá = 0%, dưới ngưỡng 0.8.
-        `scripts/validate.ts` coi tệp Anh thiếu là **error** khi status là
-        `review` hoặc `published`, nên bài bắt buộc `draft`. Tầng
-        `vietnamese-current` cũng vắng: `translation/vi/phantuananh` tại commit
-        đã ghim chỉ có 26 tệp và toàn bộ là Pháp Cú. Lớp lấp `english-project`
-        của dự án cũng không có cho uid này. Ba tầng tham khảo đều vắng ⇒ bài
-        dịch chỉ từ Pāli root ⇒ blocker thật, và đây là **giới hạn upstream**,
-        không phải lỗi của người dịch. Vì vậy `triangulation` bị chặn ở 7.5 (≤
-        8.0) chứ không nâng để né blocker."
+    - Claude Sonnet 5.5 (Claude Code)
+  assessment_id: ed21d081-530d-44e1-9306-95f2fab3369b
 notes: |-
   Dịch trực tiếp từ Pāli root vì không có tầng tham khảo tiếng Anh của Sujato tại commit đã ghim cho ja379.
   Đối chiếu văn cảnh và chú giải để xác định ngữ nghĩa các thuật ngữ cổ và đối thoại.
@@ -71,3 +56,10 @@ notes: |-
 
   Sửa lan 2026-10-14 (cơ học, toàn tầng): ja379:7.1 — `catuttha` dịch số thứ tự “thứ bốn” → “thứ tư”
   (dạng chuẩn của số thứ tự tiếng Việt). Giữ nguyên phần còn lại của từng khoá.
+
+  Lượt rà soát 2026-10-15 (kiểm toán lại từng khoá bằng Pāli, Claude Sonnet 5.5 (Claude Code)). Không
+  có khoá nào sai nghĩa thật. Chỉnh 3 khoá: 3.3 `vaṇṇena sampannā` bỏ «sắc vàng rực rỡ» (Pāli chỉ nói
+  đầy đủ sắc, «vàng» đến từ truyện dẫn) thành «trọn vẹn về sắc diện»; 4.1 và 4.3 bỏ chữ lặp «kính
+  kính» và «tôn kính suy tôn». Giữ: `siṅgālā` dịch «chó đồng» (chó rừng), `hīnaukkaṭṭhamajjhime` đúng
+  thứ tự. Bất định: `vaṇṇa` ở 3.3 có thể là màu sắc hay vẻ đẹp. Điểm giữ nguyên; technical_integrity
+  giữ nguyên.

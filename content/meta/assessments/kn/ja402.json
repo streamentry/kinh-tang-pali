@@ -53,6 +53,34 @@
       "notes": "Kiểm tra tự động 37 segment với Pāli trong cache: đủ ID, giá trị, NFC và hệ chữ Latin. Chưa đọc đối chiếu nghĩa, ngữ pháp hoặc văn phong; chưa chấm lại 10 tiêu chí. Đây không phải chứng nhận hash upstream hoặc giấy phép, không xác nhận trạng thái xuất bản.",
       "content_sha256": "3d8d50f53ddc33b390825ca6f8dca8615494a05909bd7ab4b911822476036681",
       "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639"
+    },
+    {
+      "target": "translation",
+      "scope": "full",
+      "assessed_at": "2026-10-15",
+      "assessed_by": [
+        "Claude Sonnet 5.5 (Claude Code)"
+      ],
+      "scores": {
+        "source_provenance": 9.6,
+        "semantic_fidelity": 8.9,
+        "grammar_logic": 8.9,
+        "segment_alignment": 10,
+        "terminology": 9.2,
+        "triangulation": 7.5,
+        "vietnamese_clarity": 9.1,
+        "han_viet_balance": 9.3,
+        "ambiguity_integrity": 9.3,
+        "technical_integrity": 9.6
+      },
+      "blocking_errors": [
+        "Không có tầng tham khảo tiếng Anh tại commit đã ghim: `source/upstream-manifest.json` (commit `11c9d708978cde8ba61096d8a75f7ddfb846f639`, tầng `english-sujato` 4.291 tệp) có thư mục `sutta/kn/ja/` nhưng chỉ 83 tệp; tệp cho uid này không có trong git tree nên cũng không có trong `.cache/upstream/suttacentral/`. Đây là `not-published-upstream`, KHÔNG phải `not-synced`. Tầng `vietnamese-current` vắng (`translation/vi/phantuananh` tại commit đã ghim chỉ có 26 tệp, toàn bộ là Pháp Cú); lớp lấp `english-project` không có cho uid này. Ba tầng tham khảo đều vắng nên bài dịch chỉ từ Pāli root; `scripts/validate.ts` coi tệp Anh ghim thiếu là **error** khi status là `review` hoặc `published`, nên bài bắt buộc `draft`. Đây là giới hạn của snapshot upstream, không phải lỗi của người dịch; vì vậy `triangulation` bị chặn ≤ 8.0 chứ không nâng điểm để né blocker."
+      ],
+      "notes": "Khoảng 22/33 khoá sai nghĩa (sattubhasta là túi bột, 2.x, 4.x, 5.x, 8.x); đã dịch lại từ Pāli và PED, còn bất định ở eḷamūgaṁ và 8.3.",
+      "id": "ae932a57-d139-4cdd-b410-06fab4f27781",
+      "content_sha256": "6dd9dd248fda4c10a0382c61237ea9ff0169a9248e72bd8999247dc4000bd471",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
+      "final_score": 9.139999999999999
     }
   ],
   "legacy_quality": {

@@ -53,6 +53,34 @@
       "notes": "Kiểm tra tự động 37 segment với Pāli trong cache: đủ ID, giá trị, NFC và hệ chữ Latin. Chưa đọc đối chiếu nghĩa, ngữ pháp hoặc văn phong; chưa chấm lại 10 tiêu chí. Đây không phải chứng nhận hash upstream hoặc giấy phép, không xác nhận trạng thái xuất bản.",
       "content_sha256": "694ba16a6baa6d65800153c27a7b5b06ed433929e7ef404b207d5c3362c0ae12",
       "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639"
+    },
+    {
+      "target": "translation",
+      "scope": "full",
+      "assessed_at": "2026-10-15",
+      "assessed_by": [
+        "Claude Sonnet 5.5 (Claude Code)"
+      ],
+      "scores": {
+        "source_provenance": 9.7,
+        "semantic_fidelity": 9.5,
+        "grammar_logic": 9.4,
+        "segment_alignment": 10,
+        "terminology": 9.5,
+        "triangulation": 7.8,
+        "vietnamese_clarity": 9.5,
+        "han_viet_balance": 9.4,
+        "ambiguity_integrity": 9.5,
+        "technical_integrity": 9.6
+      },
+      "blocking_errors": [
+        "Không có tầng tham khảo tiếng Anh tại commit đã ghim: `source/upstream-manifest.json` (commit `11c9d708978cde8ba61096d8a75f7ddfb846f639`, tầng `english-sujato` 4.291 tệp) có thư mục `sutta/kn/ja/` nhưng chỉ 83 tệp; tệp cho uid này không có trong git tree nên cũng không có trong `.cache/upstream/suttacentral/`. Đây là `not-published-upstream`, KHÔNG phải `not-synced`. Tầng `vietnamese-current` vắng (`translation/vi/phantuananh` tại commit đã ghim chỉ có 26 tệp, toàn bộ là Pháp Cú); lớp lấp `english-project` không có cho uid này. Ba tầng tham khảo đều vắng nên bài dịch chỉ từ Pāli root; `scripts/validate.ts` coi tệp Anh ghim thiếu là **error** khi status là `review` hoặc `published`, nên bài bắt buộc `draft`. Đây là giới hạn của snapshot upstream, không phải lỗi của người dịch; vì vậy `triangulation` bị chặn ≤ 8.0 chứ không nâng điểm để né blocker."
+      ],
+      "notes": "Sửa 6 khoá (Sát-đế-lợi, thiếu devattaṁ, addhā, Thiện Thệ); đối chiếu thêm sn1.33 và bản Anh Sujato; giữ điểm cũ.",
+      "id": "793d2604-b3c4-48ab-84ca-a2a28a04a2ee",
+      "content_sha256": "53286c443b4cf496fbc378c2f40568919971b432d16e60fb42f0f4551c32fd5d",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
+      "final_score": 9.39
     }
   ],
   "legacy_quality": {

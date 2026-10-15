@@ -1,9 +1,11 @@
 uid: ja399
-status: published
+status: draft
 translationTitle: "Kinh Kền Kền Nuôi Mẹ"
 translators:
   - "OpenCode Space Bunny Free (agent)"
-reviewers: []
+reviewers:
+  - OpenCode Space Bunny Free (agent)
+  - Claude Sonnet 5.5 (Claude Code)
 tags:
   - "khuddaka-nikaya"
   - "jataka"
@@ -13,16 +15,16 @@ tags:
 quality:
   scores:
     source_provenance: 9.6
-    semantic_fidelity: 9.3
-    grammar_logic: 9.2
-    segment_alignment: 10.0
+    semantic_fidelity: 9
+    grammar_logic: 9
+    segment_alignment: 10
     terminology: 9.3
     triangulation: 7.5
     vietnamese_clarity: 9.3
     han_viet_balance: 9.4
     ambiguity_integrity: 9.2
     technical_integrity: 9.6
-  final_score: 9.24
+  final_score: 9.190000000000001
   blocking_errors:
     - "Không có tầng tham khảo tiếng Anh tại commit đã ghim: tệp
       `translation/en/sujato/sutta/kn/ja/ja399_translation-en-sujato.json` không
@@ -38,27 +40,10 @@ quality:
       `review` hoặc `published`, nên bài bắt buộc `draft`. Đây là giới hạn của
       snapshot upstream, không phải lỗi của người dịch; vì vậy `triangulation`
       bị chặn ở 7.5 (≤ 8.0) chứ không nâng điểm để né blocker."
-  assessed_at: "2026-10-04"
+  assessed_at: 2026-10-15
   assessed_by:
-    - "OpenCode Space Bunny Free (agent)"
-  waiver:
-    id: no-upstream-english
-    blockers:
-      - "Không có tầng tham khảo tiếng Anh tại commit đã ghim: tệp
-        `translation/en/sujato/sutta/kn/ja/ja399_translation-en-sujato.json`
-        không có trong git tree của commit
-        `11c9d708978cde8ba61096d8a75f7ddfb846f639` theo
-        `source/upstream-manifest.json` (tầng `english-sujato` có 4291 tệp,
-        trong đó chỉ 83 tệp thuộc `sutta/kn/ja`), và cũng không có trong
-        `.cache/upstream/suttacentral/` — đây là `not-published-upstream`, KHÔNG
-        phải `not-synced`. Tầng `vietnamese-current` cũng vắng:
-        `translation/vi/phantuananh` tại commit đã ghim chỉ có 26 tệp và toàn bộ
-        là Pháp Cú. Lớp lấp `english-project` của dự án cũng không có cho uid
-        này. Ba tầng tham khảo đều vắng nên bài dịch chỉ từ Pāli root;
-        `scripts/validate.ts` coi tệp Anh ghim thiếu là **error** khi status là
-        `review` hoặc `published`, nên bài bắt buộc `draft`. Đây là giới hạn của
-        snapshot upstream, không phải lỗi của người dịch; vì vậy `triangulation`
-        bị chặn ở 7.5 (≤ 8.0) chứ không nâng điểm để né blocker."
+    - Claude Sonnet 5.5 (Claude Code)
+  assessment_id: b914e7e5-b065-422a-a5b0-b7f1743c9d26
 notes: |-
   Dịch trực tiếp từ Pāli root; không có tầng `english-sujato` cho ja399 tại commit đã ghim, `vietnamese-current` tại commit đã ghim vắng với Jātaka.
   Pāli trùng nguyên văn nhiều nhất lát này: 9 khoá trùng chuỗi Pāli với bài đã dịch. Dùng lại nguyên văn 8 khoá: `:4.1`–`:4.4` và `:5.1`–`:5.3` theo ja164 (Gijjhajātaka, cùng công thức bài kệ), `:7.2` theo ja359:5.2. Cố ý lệch 1 khoá: `:7.1` `Evaṁ luddaka nandassu` — ja359 dịch là bác thợ săn, đúng cho bối cảnh bài đó, còn ở đây người bị nói là kẻ kền kền tham lam nên dịch là ngươi tham lam.
@@ -66,3 +51,16 @@ notes: |-
   Bất định: `Te kathaṁ nu karissanti` ở `:1.1` và `:3.3` có thể là họ nhắc tới cha mẹ hoặc là trạng ngữ thời gian; chọn cách đọc họ và giữ nguyên ở cả hai chỗ. `nilīyassa vasaṁ gato` ở `:1.4` và `ahaṁ vasaṁ gato tava` ở `:3.4` dịch gần nhau nhưng không giống hệt, vì một chỗ nói về sợ dây bẫy, một chỗ nói về người nghe.
   Thuật ngữ theo tiền lệ đếm được: `gijjha` → kền kền (theo ja164:0.4 và :1.1), `vuddhā giridarīsā` → già yếu, chỗi già ốm, `pāsa` → bẻn dây. Tiêu đề Kinh Kền Kền Nuôi Mẹ ghép từ `mātuposaka` và tiền lệ Kinh Kền Kền của ja164. Tên phẩm Sattakanipāta → Bộ Bảy Bài Kệ, Kukkuvagga → Phẩm Kukku, xem ghi chú chung của lát ở ja396.
   Cổng kỹ thuật chưa chạy vì agent dịch không được chạy lệnh npm. Coordinator chạy bốn lệnh: `npm run validate`, `npm test`, `npm run check`, `npm run build`.
+
+  Lượt rà soát 2026-10-15 (Claude Sonnet 5.5, Claude Code), đọc lại đủ 33 khoá Pāli↔Việt; chỉ có Pāli
+  đã ghim và PED. Sửa: `2.3`–`2.4` (`na me suto vā diṭṭho vā bhāsanto mānusiṁ dijo` = chưa từng nghe
+  hay thấy một loài chim nói tiếng người; bản cũ đổi thành “người ta nói như lời ngươi”), `3.1`,
+  `3.2`, `7.3`, `7.4` (`bharāmi`, `bharissaṁ` = ta nuôi dưỡng, ta sẽ nuôi dưỡng, bản cũ là “sẽ hầu
+  hạ”, “hãy để bà con hầu hạ”; “chỗi già ốm” không có trong Pāli), `5.1`–`5.4` (`jīvitasaṅkhaye` = lúc
+  mạng sống tàn; `āsajjāpi na bujjhati` = dù đã đến sát cũng không nhận ra; bản cũ nói “tự bỏ mạng”,
+  “tận tâm cũng không tìm thấy”), `6.4` (`ñātake` = thân quyến, không phải con cái), `7.1` (`luddaka`
+  = người thợ săn, không phải “tham lam”), `4.3`–`4.4` (`āsajja` = đến sát, không phải “chạm vào
+  ngươi”), `2.1`, `1.1`, `1.3`, `1.4`. Khoảng 14/29 khoá có nội dung sai nghĩa trước khi sửa. Bất
+  định, giữ: `1.4`, `1.3` của `nilīyassa vasaṁ gato`: `nilīya` (gen. `nilīyassa`) có thể là tên của
+  người thợ săn hoặc “kẻ ẩn nấp” (PED `nilīyati` = ẩn nấp, rình), dịch “kẻ ẩn rình” theo nghĩa từng
+  chữ, không dùng làm tên riêng.

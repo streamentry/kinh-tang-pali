@@ -1,5 +1,5 @@
 uid: ja220
-status: published
+status: draft
 translationTitle: "Chuyện Ngọn Cờ Pháp Dhammadhaja"
 translators:
   - "OpenCode Space Bunny Free (agent)"
@@ -13,8 +13,8 @@ tags:
 quality:
   scores:
     source_provenance: 9.5
-    semantic_fidelity: 9.4
-    grammar_logic: 9.3
+    semantic_fidelity: 9.1
+    grammar_logic: 9.2
     segment_alignment: 10
     terminology: 9.2
     triangulation: 7.5
@@ -22,7 +22,7 @@ quality:
     han_viet_balance: 9.4
     ambiguity_integrity: 9.2
     technical_integrity: 9.6
-  final_score: 9.24
+  final_score: 9.2
   blocking_errors:
     - "Không có tầng tham khảo tiếng Anh tại commit đã ghim: tệp
       `translation/en/sujato/sutta/kn/ja/ja220_translation-en-sujato.json` không
@@ -42,25 +42,7 @@ quality:
   assessed_at: 2026-10-15
   assessed_by:
     - Claude Sonnet 5.5 (Claude Code)
-  assessment_id: 72ff89a4-64f1-4a51-a3b5-f0e6a0593f10
-  waiver:
-    id: no-upstream-english
-    blockers:
-      - "Không có tầng tham khảo tiếng Anh tại commit đã ghim: tệp
-        `translation/en/sujato/sutta/kn/ja/ja220_translation-en-sujato.json`
-        không tồn tại trong `.cache/upstream/suttacentral/`, và
-        `source/upstream-manifest.json` không liệt kê bất kỳ tệp nào cho uid này
-        — đây là `not-published-upstream`, KHÔNG phải `not-synced`. Đo coverage
-        theo đúng công thức `source/layers.yaml` (Pāli có nội dung ≥ 40 ký tự,
-        loại block tham chiếu `:0`) cho 0 trên 20 khoá = 0%, dưới ngưỡng 0.8.
-        `scripts/validate.ts` coi tệp Anh thiếu là **error** khi status là
-        `review` hoặc `published`, nên bài bắt buộc `draft`. Tầng
-        `vietnamese-current` cũng vắng: `translation/vi/phantuananh` tại commit
-        đã ghim chỉ có 26 tệp và toàn bộ là Pháp Cú. Lớp lấp `english-project`
-        của dự án cũng không có cho uid này. Ba tầng tham khảo đều vắng ⇒ bài
-        dịch chỉ từ Pāli root ⇒ blocker thật, và đây là **giới hạn upstream**,
-        không phải lỗi của người dịch. Vì vậy `triangulation` bị chặn ở 7.5 (≤
-        8.0) chứ không nâng để né blocker."
+  assessment_id: 6284d82d-a9b2-46df-83a1-afd7f070b9a8
 notes: |-
   Tên phẩm Dukanipāta = Bộ Hai Bài Kinh theo BRIEF_VI3.md §11. Bài kệ nói về an lạc độc cư thiền định trong rừng vắng, tưởng niệm chánh pháp của bậc chân nhân. Uddāna số 10: 'Dhammadhajajātakaṁ dasamaṁ' = thứ mười; 'Bīraṇathambhavaggo sattamo' = phẩm thứ bảy.
 
@@ -77,3 +59,9 @@ notes: |-
   `jhāyasi`/`jhāyāmi` ở bối cảnh `kapaṇo viya` dịch "ngồi trầm tư" theo ja283, ja429, ja477 (không
   phải thiền định). Điểm giữ nguyên, trừ semantic_fidelity +0,1 do sửa lỗi nghĩa; technical_integrity
   giữ nguyên.
+
+  Lượt kiểm toán Jātaka chỉ có Pāli (đợt 7) 2026-10-15, Claude Sonnet 5.5 (Claude Code): đọc đủ mọi
+  khoá Pāli↔Việt, tham chiếu PED. 1.1–1.2, 2.1–2.2 sửa theo Pāli: `sukhaṁ jīvitarūposi/-smi` là "trông
+  như người sống sung sướng" (`-rūpa`), `raṭṭhā` là quốc độ, `vivanaṁ` là chốn rừng hoang; 5.3–5.4
+  uddāna: `aggi, pavane` (lửa, trong rừng) và `Lambatthana` là tên bài kệ ở `ja219`, không phải con
+  khỉ.

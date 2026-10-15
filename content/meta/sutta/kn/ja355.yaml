@@ -1,5 +1,5 @@
 uid: ja355
-status: published
+status: draft
 translationTitle: "Chuyện Tiền Thân Ghaṭa"
 translators:
   - "OpenCode Space Bunny Free (agent)"
@@ -14,8 +14,8 @@ tags:
 quality:
   scores:
     source_provenance: 9.5
-    semantic_fidelity: 9.4
-    grammar_logic: 9.3
+    semantic_fidelity: 9.5
+    grammar_logic: 9.4
     segment_alignment: 10
     terminology: 9.2
     triangulation: 7.5
@@ -23,7 +23,7 @@ quality:
     han_viet_balance: 9.4
     ambiguity_integrity: 9.2
     technical_integrity: 9.6
-  final_score: 9.24
+  final_score: 9.26
   blocking_errors:
     - "Không có tầng tham khảo tiếng Anh tại commit đã ghim: tệp
       `translation/en/sujato/sutta/kn/ja/ja355_translation-en-sujato.json` không
@@ -43,25 +43,7 @@ quality:
   assessed_at: 2026-10-15
   assessed_by:
     - Claude Sonnet 5.5 (Claude Code)
-  assessment_id: f3d0cdad-0b69-491e-be03-cde18f5368e3
-  waiver:
-    id: no-upstream-english
-    blockers:
-      - "Không có tầng tham khảo tiếng Anh tại commit đã ghim: tệp
-        `translation/en/sujato/sutta/kn/ja/ja355_translation-en-sujato.json`
-        không tồn tại trong `.cache/upstream/suttacentral/`, và
-        `source/upstream-manifest.json` không liệt kê bất kỳ tệp nào cho uid này
-        — đây là `not-published-upstream`, KHÔNG phải `not-synced`. Đo coverage
-        theo đúng công thức `source/layers.yaml` (Pāli có nội dung ≥ 40 ký tự,
-        loại block tham chiếu `:0`) cho 0 trên 25 khoá = 0%, dưới ngưỡng 0.8.
-        `scripts/validate.ts` coi tệp Anh thiếu là **error** khi status là
-        `review` hoặc `published`, nên bài bắt buộc `draft`. Tầng
-        `vietnamese-current` cũng vắng: `translation/vi/phantuananh` tại commit
-        đã ghim chỉ có 26 tệp và toàn bộ là Pháp Cú. Lớp lấp `english-project`
-        của dự án cũng không có cho uid này. Ba tầng tham khảo đều vắng ⇒ bài
-        dịch chỉ từ Pāli root ⇒ blocker thật, và đây là **giới hạn upstream**,
-        không phải lỗi của người dịch. Vì vậy `triangulation` bị chặn ở 7.5 (≤
-        8.0) chứ không nâng để né blocker."
+  assessment_id: efe0df0f-7fb0-4152-96ba-80c5e9e65f89
 notes: |-
   Dịch trực tiếp từ Pāli root vì không có tầng tham khảo tiếng Anh của Sujato tại commit đã ghim cho ja355.
   Đối chiếu văn cảnh tích truyện Jātaka và chú giải Atthakathā để xác định ngữ nghĩa các từ cổ và cấu trúc đối thoại.
@@ -71,3 +53,5 @@ notes: |-
   Lô G7 2026-10-15: kiểm lại lỗi lặp bằng Pāli đã ghim, Claude Sonnet 5.5 (Claude Code). 5.2
   `sabbakāmarasāharo`: "thâu góp" đổi "mang đến" theo ja536:96.4, ja547:44.4 (`-āhara` là mang đến).
   Điểm giữ nguyên, trừ semantic_fidelity +0,1 do sửa lỗi nghĩa; technical_integrity giữ nguyên.
+
+  Đợt kiểm toán Jātaka chỉ có Pāli 2026-10-15, Claude Sonnet 5.5 (Claude Code): sửa 2.3 (`dhaṅka` là hô ngữ, giữ nguyên chữ, bỏ 'kẻ ngu dốt') và 4.3–4.4 (`nāgamissati` là phủ định: sẽ chẳng đến; bỏ chủ ngữ 'cái chết' tự thêm). Bất định: 5.1–5.2 `nālamekova`, `sabbakāmarasāharo`; 1.1 vai người hỏi.
