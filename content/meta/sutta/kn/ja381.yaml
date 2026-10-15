@@ -3,7 +3,9 @@ status: review
 translationTitle: "Kinh Migālopa"
 translators:
   - "OpenCode Space Bunny Free (agent)"
-reviewers: []
+reviewers:
+  - Claude Opus 5.5 (Claude Code)
+  - Claude Sonnet 5.5 (Claude Code)
 tags:
   - khuddaka-nikaya
   - jataka
@@ -14,15 +16,15 @@ quality:
   scores:
     source_provenance: 9.3
     semantic_fidelity: 8.8
-    grammar_logic: 9.0
-    segment_alignment: 10.0
+    grammar_logic: 8.9
+    segment_alignment: 10
     terminology: 8.8
-    triangulation: 7.5
+    triangulation: 7.7
     vietnamese_clarity: 8.8
-    han_viet_balance: 9.0
-    ambiguity_integrity: 9.0
+    han_viet_balance: 9
+    ambiguity_integrity: 9
     technical_integrity: 9.6
-  final_score: 8.98
+  final_score: 8.989999999999998
   blocking_errors:
     - "noEnglishEditionUpstream: bản chụp đã ghim không phát hành bản Anh Sujato
       cho ja381 (`source/upstream-manifest.json` chỉ có
@@ -30,9 +32,10 @@ quality:
       `translation/en/sujato/sutta/kn/ja/ja381_translation-en-sujato.json`;
       trạng thái `not-published-upstream`); tầng `vietnamese-current` cũng
       vắng."
-  assessed_at: "2026-10-13"
+  assessed_at: 2026-10-14
   assessed_by:
-    - "Claude Opus 5.5 (Claude Code)"
+    - Claude Sonnet 5.5 (Claude Code)
+  assessment_id: 602ee9f2-7710-44af-a7bc-adbea6eb9f46
   waiver:
     id: no-upstream-english
     blockers:
@@ -77,3 +80,5 @@ notes: |-
   Giải quyết draft 2026-10-13 (vòng 2): đọc đối kháng lại cả 31 khoá từ Pāli, đối chiếu cách xử lý của các khoá song song trong kho; không có khoá nào sai nghĩa thật (0/31). Hai chỉnh sửa rõ ràng (clarity fix, không đổi nghĩa): 2.2 `yadā te pathavī siyā` thành “khi mặt đất đối với con như thế” (bản trước đảo trật tự khó đọc); 3.1 `Santi aññepi sakuṇā` thành “Cũng có những loài chim khác” (bỏ “Còn … nữa” dư so với `aññepi`). Các khoá còn lại giữ nguyên sau khi kiểm từng câu: người cha già nói “Ta … con” ở 1.1-2.4; `atuccaṁ … abhūmiṁ` (1.3-1.4), `catukkaṇṇaṁ kedāraṁ` (2.1), `etto paraṁ` (2.4), `akkhittā vātavegena` (3.3), `apanandassa pitu vuddhassa sāsanaṁ` (4.1-4.2), `verambhānaṁ vasaṁ agā` (4.4), `anovādakare dije` (5.4) và `atisīmacaro ditto gijjhovātītasāsano` (6.3-6.4) đều đã đúng theo hình thái và cú pháp. Căn cứ thêm cho `Apananda` là tên người: kệ tóm tắt cuối phẩm Avāriya (ja385:9.3) liệt kê `Apananda` trong dãy tên chuyện của phẩm, tức là chuyện này được gọi theo tên ấy. Khoá 5.1-5.4 trùng Pāli nguyên văn với ja427:8.1-8.4; bản Việt của ja427 hiện còn lệch nghĩa ở đoạn này (ví dụ 8.4), nên không dùng làm tiền lệ và ghi ở đây để báo ngoài phạm vi tệp.
   Phân loại blocker vòng này: blocker cũ gộp hai sự thật; đã viết lại thành một blocker duy nhất, ngắn, đúng sự thật loại (A): Sujato không có tệp cho ja381 tại commit đã ghim (`not-published-upstream`), kèm việc tầng Việt hiện hành cũng vắng (loại C, chỉ là giới hạn tham chiếu). Không còn blocker loại (D): các điểm khó (`kālavāte` là tên gió hay tính từ; `akkhittā` đọc “bị quăng đi”; `sassatīsamā` là thời lượng “suốt những năm vĩnh hằng”; `abhūmiṁ` nghĩa đen “chốn chẳng phải đất”; `ditto` đọc “kiêu căng”; người nói ở 3.1-6.6) đều được ghi là bất định không đổi giáo nghĩa và giữ nghĩa sát nhất với Pāli, không đưa nghĩa phụ vào thân kinh. Giới hạn tham chiếu: Sujato không phát hành bản Anh cho bài; không có tầng `english-project`; mẫu số độ phủ (khoá Pāli có nội dung ≥ 40 ký tự) bằng 0 theo cách đo của kho, nên cổng độ phủ không đo được gì; mọi đối chiếu ngoài Pāli chỉ qua các bài song song ja427 và sn17.9.
   Điểm vòng 2: giữ nguyên toàn bộ 10 điểm (không có lỗi nghĩa mới, không có lý do nâng); `triangulation` 7,5 (≤ 8,0 vì không có bản Anh độc lập); `final_score` 8,98. `technical_integrity` giữ 9,6; bốn lệnh `npm run validate`, `npm test`, `npm run check`, `npm run build` để coordinator chạy.
+
+  Đối chiếu bản dịch mù độc lập 2026-10-14: một dịch giả khác (cùng họ công cụ) dịch lại bài từ Pāli không xem bản dự án; so 9 khoá chênh lệch lớn nhất → khác nghĩa 0: sửa 0, giữ 8 (2.1/2.2 bản mù đảo thứ tự hai dòng của phép so sánh, cùng nghĩa; 1.4, 2.3, 3.4, 4.3, 6.2, 0.4: chỉ khác diễn đạt; 4.3 `Kālavāte` cùng đọc là gió Kāla), bất định 1 (4.2 `apanandassa`: bản dự án và bản mù cùng đọc là tên người cha già, nhưng Pāli chỉ có một chữ ở cách sở hữu và tầng đã ghim không có truyện khung nên không phân xử được tên riêng hay tính từ). Review đối kháng toàn bài (31 khoá): nháy, số, dấu lược, xưng hô không có lỗi; không đổi khoá nào. Không có bản Anh hay bản Việt độc lập khác.

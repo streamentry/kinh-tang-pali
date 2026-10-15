@@ -3,7 +3,8 @@ status: review
 translationTitle: "Kinh Candakinnarī"
 translators:
   - "Claude Sonnet 5.5 (Claude Code)"
-reviewers: []
+reviewers:
+  - Claude Sonnet 5.5 (Claude Code)
 tags:
   - "kn"
   - "khuddaka-nikaya"
@@ -16,14 +17,14 @@ quality:
     source_provenance: 9.4
     semantic_fidelity: 8.6
     grammar_logic: 8.9
-    segment_alignment: 10.0
+    segment_alignment: 10
     terminology: 8.9
-    triangulation: 7.0
+    triangulation: 7.2
     vietnamese_clarity: 9.1
     han_viet_balance: 9.2
-    ambiguity_integrity: 9.0
+    ambiguity_integrity: 9
     technical_integrity: 9.6
-  final_score: 8.97
+  final_score: 8.989999999999998
   blocking_errors:
     - "Không có tầng tham khảo tiếng Anh tại commit đã ghim:
       `source/upstream-manifest.json` chỉ liệt kê `kn/ja/ja485_root-pli-ms.json`
@@ -36,9 +37,10 @@ quality:
       chỉ từ Pāli root và đối chiếu tiền lệ nội bộ ⇒ bài bắt buộc `draft` và
       `triangulation ≤ 8,0`. Đây là giới hạn upstream, không phải lỗi của người
       dịch. (noEnglishEditionUpstream)"
-  assessed_at: "2026-10-13"
+  assessed_at: 2026-10-14
   assessed_by:
-    - "Claude Sonnet 5.5 (Claude Code)"
+    - Claude Sonnet 5.5 (Claude Code)
+  assessment_id: e0301027-fc39-4ae3-a21e-832a5a77b5d5
   waiver:
     id: no-upstream-english
     blockers:
@@ -106,3 +108,5 @@ notes: |-
   - `5.2` (`varākiyā`): “kẻ khốn khổ này” → “người khốn khổ này”. Lý do: cùng dòng đã dùng “kẻ đã bắn” cho hoàng tử, nên “kẻ khốn khổ này” có thể bị đọc nhầm là chính hoàng tử; `varākiyā` là đồng vị của `me` (người nói). Chỉ là clarity fix.
   - `25.2`: “đối với người chồng tôi yêu quý, vì tôi khốn khổ này” → “đối với người chồng yêu quý của tôi, người khốn khổ này”. Lý do: bản cũ thêm “vì” (nghĩa lợi ích) mà Pāli không có; `varākiyā` đồng vị với `me` giống ở `5.2`, nên hai khoá dùng cùng cách dịch cho `me … varākiyā`.
   - Không đổi dù nghi ngờ: `6.2`/`7.2` “xin mẹ/vợ của ngươi mang lấy” (giọng “xin” hơi lạ cho một lời nguyền, nhưng `ja544:108.2`–`111.2` cùng công thức đều dịch “xin … mang lấy”, 4/4, nên giữ cho khớp tiền lệ; ngoài lát, ghi lại để người điều phối cân nhắc đổi cả hai bài một lần). Các bất định 1–7 và 10 ở trên (`upanīyati`, `lohitamaddane`, `sare pāde`, `nitammāmi`, `tālīsa`, `vanatimiramattakkhi`, `ayirabrahme`, `api nūna`) tôi không tìm thêm được căn cứ trong tầng Pāli đã ghim hay trong các bài song song đã dịch, nên giữ nguyên bất định, không nâng semantic_fidelity (8,6) hay ambiguity_integrity (9,0). `triangulation` giữ 7,0 vì vẫn không có bản Anh độc lập. `technical_integrity` giữ 9,6; bốn lệnh `npm run validate` · `npm test` · `npm run check` · `npm run build` vẫn do người điều phối chạy tập trung.
+
+  **Đối chiếu bản dịch mù độc lập 2026-10-14.** Một dịch giả khác (cùng họ công cụ) dịch lại bài từ Pāli không xem bản dự án; so 30 khoá chênh lệch lớn nhất (trên 109 khoá) → khác nghĩa 7: sửa 0, giữ 3, bất định 4. Giữ 3: `25.2` (bản mù hiểu “đấng đã ban cho con người chồng”; nhưng `patiṁ` là đối cách, tân ngữ của `abhisiñci` ở `25.3`, nên “rưới … người chồng” như bản dự án); `8.3`, `9.3`, `11.3` `yo kimpurisaṁ avadhi` (bản mù thành “vì ngài đã giết”, thêm “vì” mà Pāli không có; `yo` là chủ ngữ của hoàng tử, như đã chốt ở lượt 2026-10-13); `26.3` `nānādumavasanāyo` (khác diễn đạt). Bất định 4, bản mù cũng đánh dấu không chắc ở ba chỗ đầu: `1.2` `lohitamaddane`; `4.1` `sare pāde`; `10.2` `vanatimiramattakkhi`; và `25.1` `ayirabrahme` (“bà-la-môn cao quý” hay “bậc cao quý như Phạm thiên”). Các chỗ này trùng với bất định 2, 3, 6, 7 đã ghi ở trên, nên đối chiếu thêm không phân xử được; vì vậy `triangulation` chỉ 7,2. Không có bản Anh hay bản Việt độc lập khác.

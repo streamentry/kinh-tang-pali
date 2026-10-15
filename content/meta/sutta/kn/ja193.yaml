@@ -3,31 +3,34 @@ status: review
 translationTitle: "Kinh Hoa Sen Nhỏ"
 translators:
   - "OpenCode Space Bunny Free (agent)"
-reviewers: []
+reviewers:
+  - Claude Opus 5.5 (Claude Code)
+  - Claude Sonnet 5.5 (Claude Code)
 tags:
   - khuddaka-nikaya
   - jataka
 quality:
   scores:
-    source_provenance: 8.0
+    source_provenance: 9
     semantic_fidelity: 8.6
-    grammar_logic: 9.0
-    segment_alignment: 10.0
+    grammar_logic: 8.8
+    segment_alignment: 10
     terminology: 8.8
-    triangulation: 7.0
+    triangulation: 7.6
     vietnamese_clarity: 8.8
     han_viet_balance: 9.2
     ambiguity_integrity: 8.6
     technical_integrity: 9.6
-  final_score: 8.76
+  final_score: 8.9
   blocking_errors:
     - "noEnglishEditionUpstream: không có tệp `ja193_translation-en-sujato.json`
       trong `translation/en/sujato/sutta/kn/ja/` tại commit đã ghim
       (`not-published-upstream`); tầng Việt hiện hành cũng vắng, nên không có
       bản tham khảo độc lập nào."
-  assessed_at: "2026-10-13"
+  assessed_at: 2026-10-14
   assessed_by:
-    - "Claude Opus 5.5 (Claude Code)"
+    - Claude Sonnet 5.5 (Claude Code)
+  assessment_id: f21a817f-10dc-439e-905f-9eacfce92116
   waiver:
     id: no-upstream-english
     blockers:
@@ -80,3 +83,5 @@ notes: |-
   **Phân loại blocker: (A) thiếu bản Anh upstream; không có blocker loại B/C/D.** Đã kiểm thực tế: không có `ja193_translation-en-sujato.json` ở thư mục Sujato `kn/ja/` của bản chụp đã ghim và `source/upstream-manifest.json` không liệt kê tệp Sujato nào cho `ja193`, nên đây là sự thật về upstream (`not-published-upstream`), không phải blocker sai. Blocker được viết lại thành đúng một khẳng định về việc thiếu bản Anh (bắt đầu bằng `noEnglishEditionUpstream:`), không còn lẫn lời về lỗi văn bản. Không có blocker thứ hai: mọi bất định văn bản còn lại (mục *Bất định còn lại* ở trên, nhất là `pāpapatibbatāya`) là điểm đọc có cân nhắc, không phải chỗ chưa phân xử được làm thay đổi giáo nghĩa; chúng được ghi ở notes và phản ánh ở `ambiguity_integrity`. Tầng Việt hiện hành vắng là giới hạn tham chiếu của bản chụp (chỉ có Pháp Cú), không phải lỗi văn bản.
 
   **Chấm lại.** Điểm giữ nguyên (final_score 8,76 = trung bình thô 10 tiêu chí): bản đã đúng Pāli sau lượt sửa 2026-10-12, nhưng `triangulation` vẫn 7,0 vì không có bản đối chiếu độc lập nào, và `semantic_fidelity`/`ambiguity_integrity` bị giữ thấp vì cú pháp `pāpapatibbatāya` (*thủy chung với chồng một cách xấu ác* hay *thủy chung với kẻ chồng xấu ác*) chỉ đứng được trên Pāli một mình. Pāli `ja193` không có dấu lược nên không có `…`/`(…)`; không có số đếm Pāli. `technical_integrity` giữ 9,6: không chạy `npm run validate` · `npm test` · `npm run check` · `npm run build`.
+
+  Đối chiếu bản dịch mù độc lập 2026-10-14: một dịch giả khác (cùng họ công cụ) dịch lại bài từ Pāli không xem bản dự án; so 5 khoá chênh lệch lớn nhất (toàn bộ khoá khác nhau của bài) → khác nghĩa 1: sửa 0, giữ 4 (`0.4` và `3.1`: chỉ khác cách đặt tên bài, *Kinh Hoa Sen Nhỏ* so với *Chuyện Tiền thân Cūḷapaduma*, tên bài đã chuẩn hoá theo tiền lệ của phẩm; `1.4` và `2.4`: cùng nghĩa với bản dự án, chỉ khác chữ — `vajjhitthiyo` đọc là `vajjhā itthiyo` *phụ nữ đáng bị giết*, hai vế *đáng bị xử tử* và *chẳng có sự thật* khớp bản mù; `jīvantiyā` *khi còn sống* chỉ khác vị trí trong câu), bất định 1 (`2.3` `imissā ca naṁ pāpapatibbatāya`: bản dự án đọc ba từ giống cái `imissā`, `pāpapatibbatāya`, `jīvantiyā` cùng chỉ người nữ bị trừng phạt (*người nữ này, kẻ thủy chung với chồng một cách xấu ác*); bản mù đọc `pāpapatibbatāya` là nguyên cớ (*vì thứ tiết hạnh xấu xa của ả này*). Pāli không có văn xuôi dẫn nên không phân xử dứt khoát giữa *xấu ác trong lòng thủy chung* và *thủy chung với kẻ xấu ác* và giữa tính từ với nguyên cớ; giữ bản dự án, ghi bất định). Bản mù ghi chưa chắc ở `1.4` và `2.4`: ở hai khoá này đã đọc lại cú pháp từ Pāli, cách đọc của bản dự án đứng được, còn bất định nhỏ ở `1.4` (`vajjhitthiyo` có thể tách khác) không đổi nghĩa chung của câu. Review đối kháng riêng toàn bài (13 khoá): nháy đơn ‘…’ ở `1.3` và nháy kép đúng từng khoá Pāli, xưng hô *tôi/bạn* nhất quán, không có dấu lược, không có số đếm; không sửa khoá nào. Không có bản Anh hay bản Việt độc lập khác; chỉ có một lần dịch lại cùng họ công cụ nên `triangulation` không vượt 8,0.

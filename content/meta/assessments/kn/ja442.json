@@ -53,6 +53,34 @@
       "notes": "Kiểm tra tự động 46 segment với Pāli trong cache: đủ ID, giá trị, NFC và hệ chữ Latin. Chưa đọc đối chiếu nghĩa, ngữ pháp hoặc văn phong; chưa chấm lại 10 tiêu chí. Đây không phải chứng nhận hash upstream hoặc giấy phép, không xác nhận trạng thái xuất bản.",
       "content_sha256": "dc0e1910fa0d9d3d538e84990b3b70d731c88829fcca1c7dc2022f8178a9274d",
       "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639"
+    },
+    {
+      "target": "translation",
+      "scope": "full",
+      "scores": {
+        "source_provenance": 9,
+        "semantic_fidelity": 8.7,
+        "grammar_logic": 8.8,
+        "segment_alignment": 10,
+        "terminology": 8.9,
+        "triangulation": 7.6,
+        "vietnamese_clarity": 8.8,
+        "han_viet_balance": 9.2,
+        "ambiguity_integrity": 8.6,
+        "technical_integrity": 9.6
+      },
+      "blocking_errors": [
+        "Không có tầng tham khảo English Sujato cho uid này tại commit đã ghim: đếm trong `source/upstream-manifest.json` → `english-sujato` (4291 tệp) thấy đúng 83 tệp `kn/ja/`, là ja1–ja79 cộng ja126, ja159, ja466, ja534 — `ja442` không có mặt, và cache `.cache/upstream/suttacentral/translation/en/sujato/sutta/kn/ja` cũng đúng 83 tệp. Thiếu tầng tham khảo là lỗi chặn đối với `review`/`published`, nên giữ `draft`."
+      ],
+      "assessed_at": "2026-10-14",
+      "assessed_by": [
+        "Claude Sonnet 5.5 (Claude Code)"
+      ],
+      "notes": "Đối chiếu bản dịch mù độc lập 2026-10-14 (cùng họ công cụ, không có bản Anh hay bản Việt độc lập khác): so 13 khoá chênh lệch lớn nhất, khác nghĩa 4, sửa 0, giữ 2 (2.1, 7.2), bất định 2 (1.3 athakkhaṇe, 9.2 erakavātayuttā). Rà đối kháng toàn bài (46 khoá, nháy, số, xưng hô, thuật ngữ): không có lỗi mới. Triangulation 7,6 (trần 8,0; còn hai bất đồng chưa phân xử). Blocker duy nhất là thiếu bản Anh upstream, giữ nguyên. Đây là review của AI, không phải chứng nhận của chuyên gia Pāli. Cổng kỹ thuật (npm run validate · npm test · npm run check · npm run build) chưa chạy trong lượt này, do người điều phối chạy; technical_integrity giữ 9,6.",
+      "id": "9142a270-fe77-436a-a883-3e7b766ec86d",
+      "content_sha256": "6893136bad0cc2f72090bfdeaa2b88bcbd49df89256faaf2e5baa1612022b356",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
+      "final_score": 8.919999999999998
     }
   ],
   "legacy_quality": {

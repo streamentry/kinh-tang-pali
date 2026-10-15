@@ -53,6 +53,34 @@
       "notes": "Kiểm tra tự động 31 segment với Pāli trong cache: đủ ID, giá trị, NFC và hệ chữ Latin. Chưa đọc đối chiếu nghĩa, ngữ pháp hoặc văn phong; chưa chấm lại 10 tiêu chí. Đây không phải chứng nhận hash upstream hoặc giấy phép, không xác nhận trạng thái xuất bản.",
       "content_sha256": "adc313a8951878352dd531eea88d0b8377739668530e5ba782a075e288d55603",
       "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639"
+    },
+    {
+      "target": "translation",
+      "scope": "full",
+      "scores": {
+        "source_provenance": 9.3,
+        "semantic_fidelity": 8.8,
+        "grammar_logic": 8.9,
+        "segment_alignment": 10,
+        "terminology": 8.8,
+        "triangulation": 7.7,
+        "vietnamese_clarity": 8.8,
+        "han_viet_balance": 9,
+        "ambiguity_integrity": 9,
+        "technical_integrity": 9.6
+      },
+      "blocking_errors": [
+        "noEnglishEditionUpstream: bản chụp đã ghim không phát hành bản Anh Sujato cho ja381 (`source/upstream-manifest.json` chỉ có `root/pli/ms/sutta/kn/ja/ja381_root-pli-ms.json`, không có tệp `translation/en/sujato/sutta/kn/ja/ja381_translation-en-sujato.json`; trạng thái `not-published-upstream`); tầng `vietnamese-current` cũng vắng."
+      ],
+      "assessed_at": "2026-10-14",
+      "assessed_by": [
+        "Claude Sonnet 5.5 (Claude Code)"
+      ],
+      "notes": "Đối chiếu độc lập ngày 2026-10-14 trên toàn bộ 31 khoá của ja381 với một bản dịch mù cùng họ công cụ (không có bản Anh hay bản Việt khác). 9 khoá chênh lệch lớn nhất đều chỉ khác diễn đạt hoặc đảo thứ tự dòng của phép so sánh; không khác nghĩa, không sửa khoá nào; một bất định (`apanandassa` tên riêng hay tính từ) không phân xử được. triangulation 7,7: một lần dịch lại độc lập cùng họ công cụ, mọi bất đồng đã phân xử, trần 8,0 của loại đối chiếu này. Không có blocker mới; blocker hiện có được sao nguyên. technical_integrity 9,6 vì không chạy `npm run validate`, `npm test`, `npm run check`, `npm run build` trong lượt này. Đây là review của AI, không phải chứng nhận của chuyên gia Pāli.",
+      "id": "602ee9f2-7710-44af-a7bc-adbea6eb9f46",
+      "content_sha256": "b0f9209d7b7fb1f91c18915708a7447542d70911c776c7f251b0caef70e55b2b",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
+      "final_score": 8.989999999999998
     }
   ],
   "legacy_quality": {

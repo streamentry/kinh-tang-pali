@@ -3,7 +3,8 @@ status: review
 translationTitle: "Tiểu Tập Kể Lược, Kể Lược Phẩm Bờ Kia – Câu Hỏi Của Thanh Niên Mogharāja"
 translators:
   - "Claude Sonnet 5.5 (Claude Code)"
-reviewers: []
+reviewers:
+  - Claude Sonnet 5.5 (Claude Code)
 tags:
   - "khuddaka-nikaya"
   - "culaniddesa"
@@ -13,14 +14,14 @@ quality:
     source_provenance: 9.4
     semantic_fidelity: 8.5
     grammar_logic: 8.7
-    segment_alignment: 10.0
+    segment_alignment: 9.8
     terminology: 8.7
-    triangulation: 8.0
+    triangulation: 7.6
     vietnamese_clarity: 8.6
     han_viet_balance: 9.2
-    ambiguity_integrity: 8.3
+    ambiguity_integrity: 8.2
     technical_integrity: 9.6
-  final_score: 8.9
+  final_score: 8.83
   blocking_errors:
     - "noEnglishEditionUpstream: không có tầng tham khảo tiếng Anh cho cnd19 tại
       commit đã ghim. Thư mục kn/ của edition translation/en/sujato chỉ có cp,
@@ -30,9 +31,10 @@ quality:
       có Pháp Cú. Đây là not-published-upstream, giới hạn của bản chụp upstream
       chứ không phải lỗi người dịch, nên triangulation bị chặn ở 8.0 và không
       nâng để né blocker."
-  assessed_at: "2026-10-13"
+  assessed_at: 2026-10-14
   assessed_by:
-    - "Claude Sonnet 5.5 (Claude Code)"
+    - Claude Sonnet 5.5 (Claude Code)
+  assessment_id: ee024f5f-54cc-4f21-ac38-6b3a0a056498
   waiver:
     id: no-upstream-english
     blockers:
@@ -99,3 +101,5 @@ notes: |-
     Tự kiểm sau sửa: 448/448 khoá, cùng thứ tự Pāli; nháy kép và nháy đơn khớp Pāli từng khoá (0/448 lệch); dấu lược `…` cân bằng Pāli từng khoá (0/448 lệch); 0 khoá rỗng; NFC; không khoảng trắng thừa; Pāli lọt sang Việt chỉ còn các từ cố ý nêu ở trên. `technical_integrity` giữ 9.6; bốn lệnh `npm run validate`, `npm test`, `npm run check`, `npm run build` vẫn chưa chạy ở lượt này.
 
   **Bốn cổng kỹ thuật theo `AGENTS.md`:** `npm run validate`, `npm test`, `npm run check`, `npm run build`. Lát này **không** chạy bốn lệnh đó vì bị cấm trong từng lát ⇒ để CI hoặc người điều phối chạy. `technical_integrity` đặt **9.6**, không 10.0. Các phép tự kiểm đã chạy và đều xanh: tập khoá bản Việt = tập khoá Pāli (448/448, cùng thứ tự); nháy kép `“”` (25 cặp), nháy đơn `‘’` (17 cặp) và ngoặc đơn (3 cặp) khớp Pāli từng khoá (0/448 lệch); dấu lược `…` khớp Pāli từng khoá (0/448 lệch; 97 dấu); 0 khoá rỗng; 0 khoá chỉ là `(…)`; NFC; không khoảng trắng thừa; không nháy thẳng; Pāli lọt sang Việt chỉ gồm các từ cố ý nêu ở trên, cộng tên riêng `Ānanda`, `Jeta`. In cặp Pāli và Việt ra đọc đối kháng toàn bộ 448 khoá, sửa các chỗ: *rỗng không* → *hư rỗng* cho `tuccha` (3 khoá), *sau khi thân hoại, chết đi* → *sau khi thân hoại mạng chung* (2 khoá), *Hướng đến* → *Đối với* ở `29.1`, `34.1`.
+
+  Đối chiếu bản dịch mù độc lập 2026-10-14: một dịch giả khác (cùng họ công cụ) dịch lại bài từ Pāli không xem bản dự án; so 58 khoá chênh lệch lớn nhất trên 448 khoá → khác nghĩa 6 nhóm: sửa 0, giữ 3 (`1.4`–`1.5`, `22.4`–`22.5`, `20.1`, `21.28` `yāvatatiyañca devīsi byākarotīti me sutaṁ`: bản mù đặt `me sutaṁ` đúng khoá Pāli, bản dự án theo văn cú tiếng Việt và giống hệt `snp5.16:1.4`–`1.5`, `cnd2:85.4`–`85.5`, cùng nghĩa; `54.3`–`54.6` `yāvatā … gati`: giữ *tận cùng phạm vi của …* theo `sn35.246:4.24`, `mnd15:182`, bản mù *chỗ … đi đến* sát chữ hơn nhưng khác tầng; `29.2`, `34.2` `atthi pañhena āgamaṁ`: *con đã đến với một câu hỏi* với *con đến vì cần câu trả lời*, cùng nghĩa), bất định 3 (`13.3` `upakkhittakā`: *được thu nhận* với *bị gạt sang một bên*, bản mù ghi không chắc, đã là bất định 1; `14.12` `attano ñāṇacaritassa`, bản mù cũng ghi không chắc; `50.23` Pāli có `suññaṁ` thừa, cả hai bản dịch sát chữ). Tự rà thêm: `8.4` `attho` vẫn là bất định (a) đã nêu ở lượt trước, không có tiền lệ đa số để đổi *lợi ích*. Điểm đổi: `segment_alignment` 10.0 → 9.8 vì ở `1.4`–`1.5`, `22.4`–`22.5` (và `15.3`–`15.4`) bản Việt chuyển chữ sang khoá kề để câu kệ thành câu tiếng Việt tự nhiên (`me sutaṁ` nằm ở `1.4` thay vì `1.5`); `triangulation` 8.0 → 7.6 vì còn ba chỗ chưa phân xử và một lần dịch lại cùng họ công cụ không thay được bản độc lập. Rà đối kháng cả 448 khoá: đủ khoá, đúng thứ tự Pāli, nháy kép và nháy đơn khớp Pāli từng khoá, dấu lược `…` khớp Pāli (`…pe…` → một `…`), 49 nhóm Pāli trùng nội bộ bản Việt khác nhau 2 nhóm đúng như đã ghi (`maccurājā na passati`, vế câu hỏi và câu khẳng định); không sửa khoá nào. Không có bản Anh hay bản Việt độc lập khác. Đây là review của AI, không phải chứng nhận của chuyên gia Pāli.

@@ -3,33 +3,35 @@ status: review
 translationTitle: "Kinh Giridatta"
 translators:
   - "OpenCode Space Bunny Free (agent)"
-reviewers: []
+reviewers:
+  - Claude Sonnet 5.5 (Claude Code)
 tags:
   - khuddaka-nikaya
   - jataka
   - dukanipata
 quality:
   scores:
-    source_provenance: 9.0
-    semantic_fidelity: 8.8
-    grammar_logic: 9.0
-    segment_alignment: 10.0
-    terminology: 9.0
-    triangulation: 7.0
-    vietnamese_clarity: 9.0
+    source_provenance: 9
+    semantic_fidelity: 8.6
+    grammar_logic: 8.6
+    segment_alignment: 10
+    terminology: 9
+    triangulation: 7.4
+    vietnamese_clarity: 8.8
     han_viet_balance: 9.2
-    ambiguity_integrity: 9.2
+    ambiguity_integrity: 9
     technical_integrity: 9.6
-  final_score: 8.98
+  final_score: 8.92
   blocking_errors:
-    - "Tại commit đã ghim không có tệp
+    - Tại commit đã ghim không có tệp
       translation/en/sujato/sutta/kn/ja/ja184_translation-en-sujato.json; bài
       nằm trong 990 bài không được SuttaCentral phát bản Anh. Đây là giới hạn
       của bản chụp upstream, không phải thiếu sót của kho, nhưng thiếu tầng tham
-      khảu là blocking error nên bài phải giữ draft."
-  assessed_at: "2026-10-12"
+      khảu là blocking error nên bài phải giữ draft.
+  assessed_at: 2026-10-14
   assessed_by:
-    - "Claude Sonnet 5.5 (Claude Code)"
+    - Claude Sonnet 5.5 (Claude Code)
+  assessment_id: 3886193b-5539-43be-9029-891cd2132521
   waiver:
     id: no-upstream-english
     blockers:
@@ -233,3 +235,8 @@ notes: |-
   TECHNICAL GATE: chưa chạy `npm run validate`, `npm test`, `npm run check`, `npm run build`
   (bị cấm trong lượt này); `technical_integrity` giữ 9,6 và xin người điều phối chạy sau.
   Điểm: semantic_fidelity hạ vì ba chỗ ngữ nghĩa kể trên vẫn mờ; ambiguity_integrity 9,2 vì đã ghi đủ.
+
+  **Đối chiếu bản dịch mù độc lập 2026-10-14.** Một dịch giả khác (cùng họ công cụ) dịch lại bài từ Pāli, không xem bản dự án; so 7 khoá chênh lệch lớn nhất → khác nghĩa 3: sửa 0, giữ 1, bất định 2. Không có bản Anh hay bản Việt độc lập khác.
+  - Giữ: `2.1` `tanujo poso`. Bản mù đọc "người thân hình thon gầy" (`tanu` = mảnh); nhưng `tanuja` là "sinh từ thân", dạng quen thuộc chỉ ruột thịt, nên giữ "người ruột thịt".
+  - Bất định: `2.2` `sikharākārakappito` (nghĩa đen "sắp xếp thành hình chóp/đỉnh", bản mù đọc theo nghĩa đen, bản dự án đọc "dáng vẻ chải chuốt"; chưa phân xử); `2.5` `khippameva pahantvāna` (bản mù "đánh nó", bản dự án "gạt bỏ"; Pāli không nêu rõ tân ngữ và chủ ngữ của động danh từ so với `parivattaye`; giữ nguyên, ghi bất định).
+  - Bốn khoá còn lại (`0.3`, `0.4`, `1.2`, `2.3`) chỉ khác diễn đạt hoặc phiên âm tiêu đề. Rà đối kháng toàn bài (nháy, số, xưng hô, thuật ngữ): không có lỗi mới.

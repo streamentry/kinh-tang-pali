@@ -3,7 +3,8 @@ status: review
 translationTitle: "Kinh Takkala"
 translators:
   - "OpenCode Space Bunny Free (agent)"
-reviewers: []
+reviewers:
+  - Claude Sonnet 5.5 (Claude Code)
 tags:
   - khuddaka-nikaya
   - jataka
@@ -15,14 +16,14 @@ quality:
     source_provenance: 9.6
     semantic_fidelity: 8.6
     grammar_logic: 8.6
-    segment_alignment: 10.0
+    segment_alignment: 10
     terminology: 8.8
-    triangulation: 7.4
+    triangulation: 7.8
     vietnamese_clarity: 8.8
-    han_viet_balance: 9.0
-    ambiguity_integrity: 9.0
+    han_viet_balance: 9
+    ambiguity_integrity: 9
     technical_integrity: 9.6
-  final_score: 8.94
+  final_score: 8.979999999999999
   blocking_errors:
     - "Không có tầng tham khảo tiếng Anh tại commit đã ghim
       `11c9d708978cde8ba61096d8a75f7ddfb846f639`: đã đếm trực tiếp trong
@@ -34,9 +35,10 @@ quality:
       của repo. Lớp lấp `english-project` không có cho uid này. Vì vậy bài dịch
       chỉ từ Pāli root cùng tiền lệ đếm được trong chính tầng Việt dự án;
       `triangulation` bị chặn ≤ 8.0 và `status` bắt buộc `draft`."
-  assessed_at: "2026-10-12"
+  assessed_at: 2026-10-14
   assessed_by:
-    - "Claude Sonnet 5.5 (Claude Code)"
+    - Claude Sonnet 5.5 (Claude Code)
+  assessment_id: a1ecde13-d265-438e-a1e5-a4e831b5daa8
   waiver:
     id: no-upstream-english
     blockers:
@@ -191,3 +193,16 @@ notes: |-
     Điểm cũ 9.13 bị thay bằng 8.94, vì bản cũ sai nghĩa nhiều khoá. Còn lại một blocker duy nhất
     (A, thiếu bản Anh upstream); các lệnh `npm run validate`, `npm test`, `npm run check`,
     `npm run build` vẫn chưa chạy ở lượt này (technical_integrity 9.6 như cũ).
+
+  Đối chiếu bản dịch mù độc lập 2026-10-14: một dịch giả khác (cùng họ công cụ) dịch lại bài từ Pāli
+  không xem bản dự án; so 10 khoá chênh lệch lớn nhất → khác nghĩa 0: sửa 0, giữ 8 (0.2, 0.4, 1.4,
+  3.5, 4.1, 6.2, 9.1, 10.1: chỉ khác diễn đạt hoặc tên bài; anariyarūpā "hạ tiện" theo tiền lệ
+  ja542:13.1, ja542:66.1, ja518:37.3), bất định 2 (4.4 ahitānukampī: dự án dịch "mong điều bất lợi",
+  bản mù dịch sát chữ "thương xót điều bất lợi" và ghi không chắc; 10.4 punarāvajātu: "xin cho người
+  đàn bà có ác pháp ấy trở lại", bản mù cũng không chắc về động từ, câu Pāli chưa phân xử được).
+  Không có bản Anh hay bản Việt độc lập khác. Rà đối kháng toàn bài: sửa 1 (ja446:8.4 karomi là hiện
+  tại, "đã làm việc tàn nhẫn như thế" → "làm việc tàn nhẫn như thế", vì ở 2.3 người cha còn đang đào
+  hố và nói "hôm nay ta sẽ chôn"). Giữ "củ takkala", "củ biḷāli", "củ kaḷamba" theo ja496:11.2 và
+  ja547:692.2. Nháy kép khớp Pāli từng khoá. triangulation không vượt 8,0 vì chỉ có một lần dịch lại
+  cùng họ công cụ; technical_integrity vẫn 9,6, chưa chạy lại: npm run validate, npm test, npm run
+  check, npm run build.

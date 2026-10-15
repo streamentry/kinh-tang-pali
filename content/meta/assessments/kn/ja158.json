@@ -53,6 +53,34 @@
       "notes": "Kiểm tra tự động 13 segment với Pāli trong cache: đủ ID, giá trị, NFC và hệ chữ Latin. Chưa đọc đối chiếu nghĩa, ngữ pháp hoặc văn phong; chưa chấm lại 10 tiêu chí. Đây không phải chứng nhận hash upstream hoặc giấy phép, không xác nhận trạng thái xuất bản.",
       "content_sha256": "8a4d1efb57fb5c035c09c9ec1a0654a5cf85d2a1f7d7e9f95cc72d5efdda2313",
       "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639"
+    },
+    {
+      "target": "translation",
+      "scope": "full",
+      "scores": {
+        "source_provenance": 9.4,
+        "semantic_fidelity": 8,
+        "grammar_logic": 8,
+        "segment_alignment": 10,
+        "terminology": 8.4,
+        "triangulation": 7.2,
+        "vietnamese_clarity": 8.4,
+        "han_viet_balance": 9,
+        "ambiguity_integrity": 8.6,
+        "technical_integrity": 9.6
+      },
+      "blocking_errors": [
+        "Thiếu tầng tham khảo English SuttaCentral: source/upstream-manifest.json (editions[english-sujato]) không có tệp nào cho bài này, và tại commit đã ghim không có bản Anh nào khác phủ được. AGENTS.md xem thiếu tầng tham khảo là lỗi chặn với review và published, nên bài phải ở draft cho tới khi tầng tham khảo có mặt."
+      ],
+      "assessed_at": "2026-10-14",
+      "assessed_by": [
+        "Claude Sonnet 5.5 (Claude Code)"
+      ],
+      "notes": "Đối chiếu độc lập ngày 2026-10-14 trên toàn bộ 13 khoá của ja158 với một bản dịch mù cùng họ công cụ (không có bản Anh hay bản Việt khác). Cả 8 khoá chênh lệch được phân xử bằng Pāli: sửa 5 nhóm (`soṇa` là chó chứ không phải tên một loài rắn như ghi chú cũ; `visamasīla` bỏ \"khác tính khác nết\"; bỏ \"kết bạn\"; `pagabbha` bỏ \"ngu ngốc\"; `sandāna` \"dây buộc\" bị bản cũ làm mất; `asat` bất chính). Hai bất định còn lại về cú pháp của 1.1–1.2 và danh tính Suhanu/Soṇa vì tầng đã ghim không có truyện khung. Điểm semantic_fidelity, grammar_logic, terminology được chấm lại theo trạng thái sau sửa (bản cũ chấm cao hơn thực tế, vì mang một sai nghĩa kiểu bịa tên loài). triangulation 7,2: chỉ có một lần dịch lại độc lập cùng họ công cụ, bất đồng chính đã phân xử nhưng cú pháp 1.1–1.2 còn mở; không tuyên bố đã đối chiếu English hay bản Việt khác. technical_integrity 9,6 vì không chạy `npm run validate`, `npm test`, `npm run check`, `npm run build` trong lượt này. Đây là review của AI, không phải chứng nhận của chuyên gia Pāli.",
+      "id": "4f35690f-b830-4f83-802c-71e667a4c622",
+      "content_sha256": "fcaffe585545b1d4394bd897fe2a6bad16238394f3c27b76be50905f20359f3e",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
+      "final_score": 8.66
     }
   ],
   "legacy_quality": {

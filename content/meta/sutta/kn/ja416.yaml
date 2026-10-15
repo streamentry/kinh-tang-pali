@@ -3,7 +3,8 @@ status: review
 translationTitle: "Kinh Parantapa"
 translators:
   - "OpenCode Space Bunny Free (agent)"
-reviewers: []
+reviewers:
+  - Claude Sonnet 5.5 (Claude Code)
 tags:
   - "khuddaka-nikaya"
   - "jataka"
@@ -13,27 +14,28 @@ tags:
 quality:
   scores:
     source_provenance: 9.4
-    semantic_fidelity: 8.8
-    grammar_logic: 8.8
-    segment_alignment: 10.0
-    terminology: 9.0
-    triangulation: 7.4
+    semantic_fidelity: 8.7
+    grammar_logic: 8.7
+    segment_alignment: 10
+    terminology: 8.9
+    triangulation: 7.8
     vietnamese_clarity: 8.8
     han_viet_balance: 9.3
-    ambiguity_integrity: 8.2
+    ambiguity_integrity: 8.4
     technical_integrity: 9.6
-  final_score: 8.93
+  final_score: 8.959999999999999
   blocking_errors:
-    - "Bài này không có tầng Anh SuttaCentral đã ghim ở commit đã pin (0/45
+    - Bài này không có tầng Anh SuttaCentral đã ghim ở commit đã pin (0/45
       khoá), nên thiếu tầng tham khảo bắt buộc để xuất bản; đối chiếu chỉ có
-      Pāli ghim cùng commit + tiền lệ trong chính tầng Việt dự án."
+      Pāli ghim cùng commit + tiền lệ trong chính tầng Việt dự án.
     - "`ja416` không nằm trong 83 tệp `ja` của tầng `english-sujato` đã ghim
       (chỉ có ja1–ja79, ja126, ja159, ja466, ja534), nên không thể đối chiếu một
       bản Anh độc lập cho bài này; `translation/vi/phantuananh/` ở commit đã
       ghim chỉ chứa Pháp Cú."
-  assessed_at: "2026-10-12"
+  assessed_at: 2026-10-14
   assessed_by:
-    - "Claude Sonnet 5.5 (Claude Code)"
+    - Claude Sonnet 5.5 (Claude Code)
+  assessment_id: af25d872-0318-4f28-99c3-0422f1738018
   waiver:
     id: no-upstream-english
     blockers:
@@ -115,3 +117,5 @@ notes: |-
   *Bất định còn lại — ghi ở đây, không thêm vào thân kinh.* (1) `7.1` `avedesi` — hiếm, không có dạng giống ở nơi nào khác trong 30.965 khoá `ja`. Tôi đọc là *nói ra / báo*, chung với `tatheva` (*y như vậy*), vì bản kể của Chú giải không cho nghĩa chắc cho riêng chữ này; nếu đọc khác (ví dụ *đã giết*) thì `7.1`–`7.2` đổi. (2) `7.4` `āgamissati me bhayan”ti` y hệt `1.2`: tôi dịch *tôi* (không *ta*) và giữ nó trong ngoặc kép lời hoàng tử của `7.1`–`7.4`, vì `me` ở đây rất có thể là lời của chính Parantapa mà hoàng tử nhắc lại, chứ không phải nỗi sợ của hoàng tử; Pāli không nói rõ. (3) `6.1` `idaṁ kho taṁ samāgamma` — `samāgamma` không có tân ngữ rõ; tôi dịch *nay đã gặp lại*. (4) `4.1` `tayā` là công cụ cách *vì nàng*; nếu là dạng cách khác của `tvaṁ` thì chủ ngữ của `4.2` đổi từ *những nụ cười và lời nói* sang *của nàng*. (5) `10.3` `Jāgaratā` vẫn là chuyển âm; Pāli là `jāgarataṁ` (dạng biến cách), tôi không dựa vào đó để ánh xạ với bài `ja414`.
 
   *Điểm sau giải quyết.* `semantic_fidelity` và `grammar_logic` tăng lên so với bản gốc hỏng nhưng bị chặn dưới 9 vì ba chỗ bất định ở `7.1`, `7.4`, `6.1`. `triangulation` giữ 7,4 (không có bản Anh độc lập; bản kể của Chú giải chỉ dùng để hiểu người nói, không phải đối chiếu câu chữ). `ambiguity_integrity` 8,2. Lệnh còn lại để kiểm cổng, chưa chạy ở đây: `npm run validate` · `npm test` · `npm run check` · `npm run build`; vì vậy `technical_integrity` vẫn 9,6.
+
+  Đối chiếu bản dịch mù độc lập 2026-10-14: một dịch giả khác (cùng họ công cụ) dịch lại bài từ Pāli, không xem bản dự án; so 15 khoá chênh lệch lớn nhất. Khác nghĩa 3: sửa 0, giữ 3, bất định 5 (6.1 `samāgamma` không tân ngữ rõ và 7.1 `avedesi` hiếm, cả hai bản đều không chắc, đã ghi từ đợt trước; cùng 2.4/3.4/4.4 `sāva sākhā parantapaṁ`: bản mù đọc `parantapa` là tính từ 'kẻ hành hạ' ⟦?⟧, bản dự án đọc là tên Parantapa theo bản kể chuyện đã tra ở đợt trước; bản kể chuyện không được kiểm lại độc lập ở đợt này và Pāli ghim một mình không loại trừ cách đọc kia, nên ghi bất định). Sửa 1 khoá ngoài nhóm khác nghĩa: 10.3 `Jāgaratā` → `Jāgarataṁ` (đúng dạng Pāli `jāgarataṁ`; dạng -ā không có trong Pāli). Giữ 11 khoá chỉ khác diễn đạt hoặc tên bộ/phẩm theo tiền lệ tầng: 1.4 và 6.4 `migena` ('thú' rộng hơn 'nai' của bản mù), 5.3, 7.2, 7.3 (`sākhāhi` là 'cành cây', bản mù 'cành lá' cũng khớp), 0.2, 0.4, 12.1, 13.1. Rà đối kháng toàn bài: nháy, dấu lược, số đều khớp Pāli; không lỗi mới. Không có bản Anh hay bản Việt độc lập khác; mọi phân xử dựa vào Pāli và tiền lệ nội bộ tầng.

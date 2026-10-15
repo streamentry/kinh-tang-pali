@@ -53,6 +53,35 @@
       "notes": "Kiểm tra tự động 45 segment với Pāli trong cache: đủ ID, giá trị, NFC và hệ chữ Latin. Chưa đọc đối chiếu nghĩa, ngữ pháp hoặc văn phong; chưa chấm lại 10 tiêu chí. Đây không phải chứng nhận hash upstream hoặc giấy phép, không xác nhận trạng thái xuất bản.",
       "content_sha256": "2afb2f441c968a56060cb6a7cd77ed351ebf1f27f3a8b3b8a205b0ae377d16ae",
       "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639"
+    },
+    {
+      "target": "translation",
+      "scope": "full",
+      "scores": {
+        "source_provenance": 9.4,
+        "semantic_fidelity": 8.7,
+        "grammar_logic": 8.7,
+        "segment_alignment": 10,
+        "terminology": 8.9,
+        "triangulation": 7.8,
+        "vietnamese_clarity": 8.8,
+        "han_viet_balance": 9.3,
+        "ambiguity_integrity": 8.4,
+        "technical_integrity": 9.6
+      },
+      "blocking_errors": [
+        "Bài này không có tầng Anh SuttaCentral đã ghim ở commit đã pin (0/45 khoá), nên thiếu tầng tham khảo bắt buộc để xuất bản; đối chiếu chỉ có Pāli ghim cùng commit + tiền lệ trong chính tầng Việt dự án.",
+        "`ja416` không nằm trong 83 tệp `ja` của tầng `english-sujato` đã ghim (chỉ có ja1–ja79, ja126, ja159, ja466, ja534), nên không thể đối chiếu một bản Anh độc lập cho bài này; `translation/vi/phantuananh/` ở commit đã ghim chỉ chứa Pháp Cú."
+      ],
+      "assessed_at": "2026-10-14",
+      "assessed_by": [
+        "Claude Sonnet 5.5 (Claude Code)"
+      ],
+      "notes": "Đối chiếu bản dịch mù độc lập 2026-10-14: một dịch giả khác (cùng họ công cụ) dịch lại bài từ Pāli, không xem bản dự án; so 15 khoá chênh lệch lớn nhất. Khác nghĩa 3: sửa 0, giữ 3, bất định 5 (6.1 `samāgamma` không tân ngữ rõ và 7.1 `avedesi` hiếm, cả hai bản đều không chắc, đã ghi từ đợt trước; cùng 2.4/3.4/4.4 `sāva sākhā parantapaṁ`: bản mù đọc `parantapa` là tính từ 'kẻ hành hạ' ⟦?⟧, bản dự án đọc là tên Parantapa theo bản kể chuyện đã tra ở đợt trước; bản kể chuyện không được kiểm lại độc lập ở đợt này và Pāli ghim một mình không loại trừ cách đọc kia, nên ghi bất định). Sửa 1 khoá ngoài nhóm khác nghĩa: 10.3 `Jāgaratā` → `Jāgarataṁ` (đúng dạng Pāli `jāgarataṁ`; dạng -ā không có trong Pāli). Giữ 11 khoá chỉ khác diễn đạt hoặc tên bộ/phẩm theo tiền lệ tầng: 1.4 và 6.4 `migena` ('thú' rộng hơn 'nai' của bản mù), 5.3, 7.2, 7.3 (`sākhāhi` là 'cành cây', bản mù 'cành lá' cũng khớp), 0.2, 0.4, 12.1, 13.1. Rà đối kháng toàn bài: nháy, dấu lược, số đều khớp Pāli; không lỗi mới. Không có bản Anh hay bản Việt độc lập khác; mọi phân xử dựa vào Pāli và tiền lệ nội bộ tầng. Cổng kỹ thuật `npm run validate` · `npm test` · `npm run check` · `npm run build` chưa chạy trong lượt này (do người điều phối chạy), nên `technical_integrity` 9.6. Đây là review của AI, không phải chứng nhận của chuyên gia Pāli.",
+      "id": "af25d872-0318-4f28-99c3-0422f1738018",
+      "content_sha256": "2919ecc00898db5c2946c8f42bbd933c77146c7ee2527b794643b5bd659c4c3f",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
+      "final_score": 8.959999999999999
     }
   ],
   "legacy_quality": {

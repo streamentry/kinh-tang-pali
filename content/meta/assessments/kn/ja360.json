@@ -53,6 +53,34 @@
       "notes": "Kiểm tra tự động 31 segment với Pāli trong cache: đủ ID, giá trị, NFC và hệ chữ Latin. Chưa đọc đối chiếu nghĩa, ngữ pháp hoặc văn phong; chưa chấm lại 10 tiêu chí. Đây không phải chứng nhận hash upstream hoặc giấy phép, không xác nhận trạng thái xuất bản.",
       "content_sha256": "285aba03dbe687cad0ad4d9d2eea5c23d699bf5b1ebc82cb95ec325625b3d390",
       "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639"
+    },
+    {
+      "target": "translation",
+      "scope": "full",
+      "scores": {
+        "source_provenance": 9,
+        "semantic_fidelity": 8.6,
+        "grammar_logic": 8.9,
+        "segment_alignment": 10,
+        "terminology": 8.6,
+        "triangulation": 7.2,
+        "vietnamese_clarity": 8.9,
+        "han_viet_balance": 9.2,
+        "ambiguity_integrity": 8.4,
+        "technical_integrity": 9.6
+      },
+      "blocking_errors": [
+        "noEnglishEditionUpstream: bản chụp Sujato đã ghim (translation/en/sujato tại commit 11c9d708978cde8ba61096d8a75f7ddfb846f639) không có tệp nào cho ja360 — not-published-upstream, không phải not-synced; đã kiểm upstream-manifest, thư mục sutta/kn/ja/ của cache (83 tệp, không có ja360) và không có lớp english-project cho bài này."
+      ],
+      "assessed_at": "2026-10-14",
+      "assessed_by": [
+        "Claude Sonnet 5.5 (Claude Code)"
+      ],
+      "notes": "Đối chiếu một bản dịch mù độc lập (dịch lại từ Pāli, cùng họ công cụ, không xem bản dự án) ngày 2026-10-14; đã xét 17/31 khoá chênh lệch lớn nhất rồi phân xử bằng Pāli, kèm đọc đối kháng lại toàn bài sau khi sửa. Không sửa khoá nào. Tám bất định (1.1, 1.2, 2.2, 5.3, 8.1–8.4) vẫn mở, trùng với chỗ bản mù tự đánh dấu không chắc. `triangulation` 7.2: chỉ có một lần dịch lại độc lập cùng họ công cụ, không có bản Anh hay bản Việt độc lập khác, nên bị chặn ≤ 8,0 và hạ thêm vì còn bất định chưa phân xử được bằng Pāli. Blocker `noEnglishEditionUpstream` giữ nguyên chữ: là sự thật về bản chụp upstream, không giải được bằng Pāli. Điểm `technical_integrity` 9,6: bốn lệnh `npm run validate`, `npm test`, `npm run check`, `npm run build` do người điều phối chạy, chưa tuyên bố đã pass. Đây là review của AI, không phải chứng nhận của chuyên gia Pāli.",
+      "id": "f174e70d-6b24-4233-af6b-8a6acc3007cc",
+      "content_sha256": "c471c760f6f533a4813229dafe5fbf3d14ea9da3ed11571b53add2e7b9e924e3",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
+      "final_score": 8.84
     }
   ],
   "legacy_quality": {

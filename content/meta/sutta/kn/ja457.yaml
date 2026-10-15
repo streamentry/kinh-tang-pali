@@ -1,9 +1,10 @@
 uid: ja457
-status: review
+status: published
 translationTitle: "Kinh Dhammadevaputta"
 translators:
   - "OpenCode Space Bunny Free (agent)"
-reviewers: []
+reviewers:
+  - Claude Sonnet 5.5 (Claude Code)
 tags:
   - "khuddaka-nikaya"
   - "jataka"
@@ -15,14 +16,14 @@ quality:
     source_provenance: 9.5
     semantic_fidelity: 8.8
     grammar_logic: 8.9
-    segment_alignment: 10.0
-    terminology: 9.0
-    triangulation: 7.0
-    vietnamese_clarity: 9.0
+    segment_alignment: 10
+    terminology: 9
+    triangulation: 7.6
+    vietnamese_clarity: 9
     han_viet_balance: 9.2
     ambiguity_integrity: 8.8
     technical_integrity: 9.6
-  final_score: 8.98
+  final_score: 9.04
   blocking_errors:
     - "Không có tầng tham khảo tiếng Anh tại commit đã ghim: khoá
       `sutta/kn/ja/ja457_translation-en-sujato.json` KHÔNG có trong
@@ -44,9 +45,10 @@ quality:
       `src/lib/canon/reference.ts` trả `substantive === 0 ? 1 : …`. Ngưỡng 0,80
       không phải thứ chặn; thứ chặn là chính việc thiếu tầng tham khảo Anh nêu
       trên."
-  assessed_at: "2026-10-11"
+  assessed_at: 2026-10-14
   assessed_by:
-    - "Claude Sonnet 5.5 (Claude Code)"
+    - Claude Sonnet 5.5 (Claude Code)
+  assessment_id: 43814d4d-e766-43ae-9b92-eaa479f4fd2a
   waiver:
     id: no-upstream-english
     blockers:
@@ -94,3 +96,5 @@ notes: |-
   4. **Người nói.** Đọc lại: `1`, `3`, `5`–`7` là Dhamma; `2`, `4` là Adhamma; `8`–`11` là lời kể. Cách đọc này khớp `cp18` (Dhamma tự nhường đường; Adhamma bị mặt đất nuốt). Không ghi tên người nói vào thân kinh.
   5. **Điểm.** `semantic_fidelity` 9.0 → 8.8 (bản cũ chấm 9.0 trên một bản có ≥ 25 lỗi nghĩa nêu trên; bản sau khi sửa vẫn còn các bất định dưới đây nên không nâng); `terminology` 8.8 → 9.0 (theo mục 2); `technical_integrity` 9.8 → 9.6 vì lượt này không chạy được cổng — chưa chạy `npm run validate` · `npm test` · `npm run check` · `npm run build` sau khi sửa; `grammar_logic` 8.9, `vietnamese_clarity` 9.0, `ambiguity_integrity` 8.8, `triangulation` 7.0 (không có tầng Anh/Việt độc lập), `han_viet_balance` 9.2, `segment_alignment` 10.0 và `source_provenance` 9.5 giữ nguyên. Kiểm bằng tay: 51/51 khoá, 0 khoá thừa/thiếu, thứ tự khoá = thứ tự Pāli, nháy `“”‘’` và `…` khớp Pāli từng khoá (0 lệch / 51), NFC, 0 khoá rỗng, 0 chữ số. 2 cặp Pāli trùng nguyên văn trong bài (`10.1`/`11.1`, `10.3`/`11.3`), 0 cặp mà Việt khác.
   **Bất định CÒN LẠI sau lượt này (không phân xử được, không đoán):** (a) `Yasokaro` là hapax trong snapshot đã ghim; đọc là tính từ (*người tạo danh tiếng*) vì `1.4` đã có `Dhammo ahaṁ`, nhưng không loại hẳn khả năng là tên riêng. (b) `vitto` ở 9.3: đọc là *hoan hỷ* (`vitta` nghĩa *vui mừng*); không có tiền lệ trong tầng (0 khoá `vitto` độc lập), chưa loại khả năng khác. (c) `piyāppiyena` ở 7.3: *dù ưa hay ghét* — chủ thể ưa/ghét không rõ; không có bản song song để phân xử. (d) `arahatā` ở 4.2 đọc là *sự xứng đáng* (đối ứng `maggāraho` ở 1.3), không phải *bậc A-la-hán*. (e) `Adhammayānaṁ` ở 2.1 có thể là danh từ riêng *xe của Adhamma* hoặc tính từ *cỗ xe phi pháp*; đã dịch *cỗ xe phi pháp*. (f) `7.3` `dammi` là hiện tại *ta … nhường đường*, mệnh lệnh nhượng bộ; cách đọc khác là tương lai. (g) `8.3` là lời của ai (Adhamma tự nghĩ) — Pāli không nói; chỉ giữ nháy đơn. (h) `6.4` `dassaneyyaṁ`: *đáng nhìn* theo `cnd19:5.4`, `dn30:1.18.8`; ý *sắt sẽ được ưa chuộng như vàng* là lập luận phản chứng, đọc đúng nhưng không có song song để kiểm.
+
+  Đối chiếu bản dịch mù độc lập 2026-10-14: một dịch giả khác (cùng họ công cụ) dịch lại bài từ Pāli không xem bản dự án; so 6 khoá chênh lệch lớn nhất (0.3, 0.4, 3.2, 5.2, 9.1, 9.4) → khác nghĩa 0: sửa 0, giữ 6 (chỉ khác diễn đạt: tên phẩm và tên bài, `Adhamma` giữ nguyên chữ, "đại lực", `Khantībalo`, `maggeneva`), bất định mới 0 (bản mù không khác bản dự án ở khoá nào thuộc các bất định (a)–(h) đã ghi ở trên; các bất định đó vẫn còn nguyên, chỉ được cùng đọc theo một hướng). Review đối kháng toàn bài (51 khoá): nháy, số, dấu lược, xưng hô, thuật ngữ nhất quán trong bài không có lỗi mới; không đổi khoá nào. Không có bản Anh hay bản Việt độc lập khác.

@@ -53,6 +53,34 @@
       "notes": "Kiểm tra tự động 17 segment với Pāli trong cache: đủ ID, giá trị, NFC và hệ chữ Latin. Chưa đọc đối chiếu nghĩa, ngữ pháp hoặc văn phong; chưa chấm lại 10 tiêu chí. Đây không phải chứng nhận hash upstream hoặc giấy phép, không xác nhận trạng thái xuất bản.",
       "content_sha256": "d8751aa9209880766340dfcf1bfca25e5be11451bd0ddde5d92c6ab2dbb80349",
       "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639"
+    },
+    {
+      "target": "translation",
+      "scope": "full",
+      "scores": {
+        "source_provenance": 9.4,
+        "semantic_fidelity": 8.4,
+        "grammar_logic": 8.5,
+        "segment_alignment": 10,
+        "terminology": 8.5,
+        "triangulation": 7.6,
+        "vietnamese_clarity": 8.6,
+        "han_viet_balance": 9,
+        "ambiguity_integrity": 8.8,
+        "technical_integrity": 9.6
+      },
+      "blocking_errors": [
+        "Thiếu hẳn tầng tham khảo English Sujato tại commit đã ghim 11c9d708978cde8ba61096d8a75f7ddfb846f639: đếm trực tiếp trên source/upstream-manifest.json (cùng commit) cho thấy tầng translation/en/sujato có 4.291 tệp, trong đó thư mục sutta/kn/ja/ chỉ có 83 tệp, không có tệp nào chứa khoá của bài này; hàm upstreamPublishes của kho trả về false cho đường dẫn này, nghĩa là SuttaCentral không phát hành bản Anh nào phủ bài này tại commit đã ghim. Tầng vietnamese-current cũng không có (đúng 26 tệp, chỉ Pháp Cú), nên bài chỉ đối chiếu được với Pāli root một mình. Đây là giới hạn của bản chụp upstream, không phải thiếu sót của kho, nhưng theo AGENTS.md thì thiếu tầng tham khảo là lỗi chặn đối với review và published, và tests/unit/reference-source.test.ts kiểm đúng điều đó. Bài đặt draft và không nâng điểm để né."
+      ],
+      "assessed_at": "2026-10-14",
+      "assessed_by": [
+        "Claude Sonnet 5.5 (Claude Code)"
+      ],
+      "notes": "Đối chiếu bản dịch mù độc lập 2026-10-14 (cùng họ công cụ, không có bản Anh hay bản Việt độc lập khác): so 11 khoá chênh lệch lớn nhất, khác nghĩa 9, sửa cả 9 và viết lại toàn bộ 12 khoá thân kệ (1.1–3.4). Bản cũ sai nhiều chỗ trọng yếu (tủ tên thay cho gươm cầm lên; ta/ngươi lẫn lộn; 'biết điều chân thật' thay cho 'đạt hoan hỷ'; câu kết mất phủ định). Bản mới đồng thuận với bản mù ở các khoá chính; còn bất định ở viyūḷhe, khurappa, uḷāra. Điểm phản ánh trạng thái sau sửa; triangulation 7,6 (trần 8,0, mọi bất đồng đã phân xử). Blocker duy nhất là thiếu bản Anh upstream, giữ nguyên. Đây là review của AI, không phải chứng nhận của chuyên gia Pāli. Cổng kỹ thuật (npm run validate · npm test · npm run check · npm run build) chưa chạy trong lượt này, do người điều phối chạy; technical_integrity giữ 9,6.",
+      "id": "0452eb06-109c-49c2-9bfc-140c5255ba36",
+      "content_sha256": "2371d805b848a2a1bcd23de56e4d3c2c62f7edc66f3e28981bc7cd6135c5ebac",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
+      "final_score": 8.84
     }
   ],
   "legacy_quality": {

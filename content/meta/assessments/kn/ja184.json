@@ -53,6 +53,34 @@
       "notes": "Kiểm tra tự động 15 segment với Pāli trong cache: đủ ID, giá trị, NFC và hệ chữ Latin. Chưa đọc đối chiếu nghĩa, ngữ pháp hoặc văn phong; chưa chấm lại 10 tiêu chí. Đây không phải chứng nhận hash upstream hoặc giấy phép, không xác nhận trạng thái xuất bản.",
       "content_sha256": "3e172eafc4e74fd0fcc04f99f81f97944e6eb5d6528aa67f4ef995e84bc4e065",
       "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639"
+    },
+    {
+      "target": "translation",
+      "scope": "full",
+      "scores": {
+        "source_provenance": 9,
+        "semantic_fidelity": 8.6,
+        "grammar_logic": 8.6,
+        "segment_alignment": 10,
+        "terminology": 9,
+        "triangulation": 7.4,
+        "vietnamese_clarity": 8.8,
+        "han_viet_balance": 9.2,
+        "ambiguity_integrity": 9,
+        "technical_integrity": 9.6
+      },
+      "blocking_errors": [
+        "Tại commit đã ghim không có tệp translation/en/sujato/sutta/kn/ja/ja184_translation-en-sujato.json; bài nằm trong 990 bài không được SuttaCentral phát bản Anh. Đây là giới hạn của bản chụp upstream, không phải thiếu sót của kho, nhưng thiếu tầng tham khảu là blocking error nên bài phải giữ draft."
+      ],
+      "assessed_at": "2026-10-14",
+      "assessed_by": [
+        "Claude Sonnet 5.5 (Claude Code)"
+      ],
+      "notes": "Đối chiếu bản dịch mù độc lập 2026-10-14 (cùng họ công cụ, không có bản Anh hay bản Việt độc lập khác): so 7 khoá chênh lệch lớn nhất, khác nghĩa 3, sửa 0, giữ 1 (2.1), bất định 2 (2.2 sikharākārakappito, 2.5 pahantvāna). Bài chỉ 15 khoá, đã đọc đối kháng toàn bộ; không có lỗi mới nhưng hai chỗ ở kệ 2 chưa phân xử được nên semantic_fidelity và grammar_logic giữ 8,6; triangulation 7,4 (trần 8,0: một lần dịch lại cùng họ công cụ, còn hai bất đồng chưa phân xử). Blocker duy nhất là thiếu bản Anh upstream, giữ nguyên. Đây là review của AI, không phải chứng nhận của chuyên gia Pāli. Cổng kỹ thuật (npm run validate · npm test · npm run check · npm run build) chưa chạy trong lượt này, do người điều phối chạy; technical_integrity giữ 9,6.",
+      "id": "3886193b-5539-43be-9029-891cd2132521",
+      "content_sha256": "e49d35377b0a05b9c9374cebbb55cbecd401c7e0361b2f9b96b4fc6518043432",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
+      "final_score": 8.92
     }
   ],
   "legacy_quality": {

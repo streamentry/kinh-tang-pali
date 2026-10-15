@@ -3,7 +3,8 @@ status: review
 translationTitle: "Kinh Sāma Vàng"
 translators:
   - "Claude Sonnet 5.5 (Claude Code)"
-reviewers: []
+reviewers:
+  - Claude Sonnet 5.5 (Claude Code)
 tags:
   - "khuddaka-nikaya"
   - "jataka"
@@ -13,16 +14,16 @@ tags:
 quality:
   scores:
     source_provenance: 9.4
-    semantic_fidelity: 8.0
+    semantic_fidelity: 8
     grammar_logic: 7.8
-    segment_alignment: 10.0
+    segment_alignment: 10
     terminology: 8.4
-    triangulation: 7.5
+    triangulation: 7.6
     vietnamese_clarity: 8.2
     han_viet_balance: 9.2
     ambiguity_integrity: 8.6
     technical_integrity: 9.6
-  final_score: 8.67
+  final_score: 8.68
   blocking_errors:
     - "noEnglishEditionUpstream: Thiếu bản dịch tiếng Anh đối chiếu. Tầng
       english-sujato tại commit đã ghim không có
@@ -31,9 +32,10 @@ quality:
       vietnamese-current chỉ có Pháp Cú và lớp english-project không có tệp cho
       bài này. Cả ba tầng tham khảo đều vắng nên triangulation bị chặn ở 7.5 (≤
       8.0) và bài giữ draft."
-  assessed_at: "2026-10-11"
+  assessed_at: 2026-10-14
   assessed_by:
-    - "Claude Sonnet 5.5 (Claude Code)"
+    - Claude Sonnet 5.5 (Claude Code)
+  assessment_id: b5360e7e-23fa-4e60-b101-541f66973fa4
   waiver:
     id: no-upstream-english
     blockers:
@@ -112,3 +114,5 @@ notes: |-
     5. Số Pāli: xem trên; không có cụm chưa phân xử được trừ `niyutāni` (giữ phiên âm).
     NFC đạt, không khoá rỗng, không khoảng trắng thừa; Pāli lọt sang tiếng Việt chỉ là tên riêng và tên cây giữ phiên âm có ghi chú (`Jātaka`, `Mūgapakkha`, `Pīḷiyakkha`, `Dukūla`, `Pārikā`, `Gandhamādana`, `Kāsi`, `kimpurisa`, `tinduka`, `piyāla`, `madhuka`, `kāsumārī`, `assattha`, `niyuta`, `kosa`). Đã in cặp Pāli↔Việt ra đọc toàn bài (511 cặp) và sửa sau lượt đọc: `Ta sẽ làm người giúp việc` → "người làm công" (theo đếm trên tầng), "vị nữ thần" → "vị thiên" (53/108 và 0 cho "nữ thần"), `mātāpettibharo` → "phụng dưỡng" (8 so với 4), viết thường chữ đầu sau dấu phẩy.
   - Công cụ kiểm của kho chưa chạy ở bước này, nên `technical_integrity` đặt 9.6 và không tuyên bố technical gate pass; còn phải chạy: `npm run validate`, `npm test`, `npm run check`, `npm run build`.
+
+  Đối chiếu bản dịch mù độc lập 2026-10-14: một dịch giả khác (cùng họ công cụ) dịch lại bài từ Pāli không xem bản dự án; so 94 khoá chênh lệch lớn nhất (trên 511 khoá) → khác nghĩa hoặc lệch dòng 26 khoá: sửa 0, giữ 13, bất định 13; 68 khoá còn lại chỉ khác diễn đạt (kể cả lệnh `Dhammaṁ cara mahārāja` ở `116`–`125`). Giữ: `5.3`–`5.4`/`46.3`–`46.4`, `6.3`–`6.4`, `8.3`, `37.1`–`37.2`, `38.1`–`38.2` (bản mù cắt hoặc đảo nửa dòng khác Pāli; bài theo đúng ranh giới khoá), `103.1` `Pabbatyāhaṁ` (bản mù “Ta sống ở núi” bỏ mất `pabbatyā`; bài “vị thiên của núi”), `50.3` `sammā` (âm ā dài, đọc trạng từ “quả thật”; bản mù đọc hô ngữ “bạn ơi”, khác `samma` ngắn ở `3.3`). Bất định: `9.1` `paṭivāmagataṁ`, `13.1` `nidhiṁ parihariṁ`, `51.4`/`54.2` `sūnaggavellitā`, `66.1`–`66.3` `samajjantā`, `bhujadassanaṁ`, `saṁsumbhamānā`, `67.2`/`68.2`/`69.2`/`70.2` `ākāsantaṁva`, `111.3` `upanītamanasaṅkappaṁ`, `112.3` `nirodhagataṁ` (bản mù ghi không chắc ở hầu hết các khoá này, bài giữ cách đọc sát chữ). Rà đối kháng toàn bài 511 khoá: nháy khớp Pāli từng khoá, không dấu lược, xưng hô (Sāma, vua, cha mẹ, vị thiên) nhất quán, số `aḍḍhakosa` = nửa kosa, `tayo` = ba, `niyuta` giữ phiên âm; không phát hiện thêm lỗi. Ghi thêm: `40.3` `pitāputtā` dịch “Cha mẹ và con” (đủ `tayo` ba người), khác `ja515:19.3` “cha và các con trai”; giữ vì ngữ cảnh hai bài khác nhau, chưa phân xử được tiền lệ. Không có bản Anh hay bản Việt độc lập khác.

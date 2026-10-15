@@ -1,9 +1,10 @@
 uid: ja153
-status: review
+status: published
 translationTitle: "Kinh Heo"
 translators:
   - "OpenCode Space Bunny Free (agent)"
-reviewers: []
+reviewers:
+  - Claude Sonnet 5.5 (Claude Code)
 tags:
   - jataka
   - bo-hai-bai
@@ -12,25 +13,26 @@ tags:
 quality:
   scores:
     source_provenance: 9.5
-    semantic_fidelity: 9.3
+    semantic_fidelity: 9.2
     grammar_logic: 9.2
-    segment_alignment: 10.0
-    terminology: 8.0
-    triangulation: 7.0
+    segment_alignment: 10
+    terminology: 8.8
+    triangulation: 7.4
     vietnamese_clarity: 9.2
     han_viet_balance: 9.2
-    ambiguity_integrity: 8.6
+    ambiguity_integrity: 8.8
     technical_integrity: 9.6
-  final_score: 8.96
+  final_score: 9.09
   blocking_errors:
     - "Thiếu tầng tham khảo English SuttaCentral: source/upstream-manifest.json
       (editions[english-sujato]) không có tệp nào cho bài này, và tại commit đã
       ghim không có bản Anh nào khác phủ được. AGENTS.md xem thiếu tầng tham
       khảo là lỗi chặn với review và published, nên bài phải ở draft cho tới khi
       tầng tham khảo có mặt."
-  assessed_at: "2026-10-13"
+  assessed_at: 2026-10-14
   assessed_by:
-    - "Claude Sonnet 5.5 (Claude Code)"
+    - Claude Sonnet 5.5 (Claude Code)
+  assessment_id: a356b8fa-57f6-4958-8e45-20f33ffb140e
   waiver:
     id: no-upstream-english
     blockers:
@@ -90,3 +92,16 @@ notes: |-
   này không thêm vào thân kinh. Nghĩa của `jayaṁ dadāmi te` (nhường hay thách) vẫn để ngỏ.
   triangulation giữ 7.0: không có tầng Anh độc lập nào và không có bản Việt tham khảo.
   Blocker thiếu tầng English giữ nguyên vì là sự thật về upstream.
+
+  Đối chiếu bản dịch mù độc lập 2026-10-14: một dịch giả khác (cùng họ công cụ) dịch lại bài từ Pāli
+  không xem bản dự án; so 2 khoá chênh lệch lớn nhất (0.4, 3.1, cả hai là tên bài) → khác nghĩa 0:
+  sửa 0, giữ 2 (0.4, 3.1: bản mù viết "Chuyện Tiền thân Con Heo", chỉ khác cách đặt tên bài; dự án
+  giữ "Kinh Heo" theo dạng "Kinh X" của các bài cùng phẩm), bất định 0. Không có bản Anh hay bản
+  Việt độc lập khác. Rà đối kháng toàn bài ngoài danh sách chênh lệch: sửa 1 (ja153:0.3: "Phẩm Tàn
+  Tật" → "Phẩm Kiên Cố", vì daḷha trong Pāli là vững chắc, kiên cố, không có nghĩa tàn tật; tám bài
+  khác của Daḷhavagga trong tầng dự án đã dùng "Phẩm Kiên Cố"; việc này giải quyết bất định thuật
+  ngữ đã ghi ở lượt trước). Ngoài phạm vi bài này, ja155:0.3 và ja160:3.2 vẫn còn "Phẩm Tàn Tật".
+  Người nói ở khổ 1 và khổ 2 vẫn chỉ suy từ hô cách sūkara, Pāli không ghi; nghĩa của jayaṁ dadāmi
+  te (nhường hay thách) vẫn để ngỏ. Nháy kép khớp Pāli từng khoá. triangulation chỉ có một lần dịch
+  lại độc lập cùng họ công cụ nên không vượt 8,0; technical_integrity vẫn 9,6 vì chưa chạy lại bốn
+  lệnh: npm run validate, npm test, npm run check, npm run build.

@@ -3,7 +3,8 @@ status: review
 translationTitle: "Kinh Bà-la-môn Saṅkha"
 translators:
   - "OpenCode Space Bunny Free (agent)"
-reviewers: []
+reviewers:
+  - Claude Sonnet 5.5 (Claude Code)
 tags:
   - "kn"
   - "khuddaka-nikaya"
@@ -12,17 +13,17 @@ tags:
   - "sankhajataka"
 quality:
   scores:
-    source_provenance: 9.0
-    semantic_fidelity: 8.8
-    grammar_logic: 8.9
-    segment_alignment: 10.0
-    terminology: 9.0
-    triangulation: 7.0
+    source_provenance: 9
+    semantic_fidelity: 8.7
+    grammar_logic: 8.8
+    segment_alignment: 10
+    terminology: 8.9
+    triangulation: 7.6
     vietnamese_clarity: 8.8
     han_viet_balance: 9.2
     ambiguity_integrity: 8.6
     technical_integrity: 9.6
-  final_score: 8.89
+  final_score: 8.919999999999998
   blocking_errors:
     - "Không có tầng tham khảo English Sujato cho uid này tại commit đã ghim:
       đếm trong `source/upstream-manifest.json` → `english-sujato` (4291 tệp)
@@ -31,9 +32,10 @@ quality:
       `.cache/upstream/suttacentral/translation/en/sujato/sutta/kn/ja` cũng đúng
       83 tệp. Thiếu tầng tham khảo là lỗi chặn đối với `review`/`published`, nên
       giữ `draft`."
-  assessed_at: "2026-10-12"
+  assessed_at: 2026-10-14
   assessed_by:
-    - "Claude Sonnet 5.5 (Claude Code)"
+    - Claude Sonnet 5.5 (Claude Code)
+  assessment_id: 9142a270-fe77-436a-a883-3e7b766ec86d
   waiver:
     id: no-upstream-english
     blockers:
@@ -125,3 +127,8 @@ notes: |-
   - **Bất định còn lại, ghi ở đây, không đưa vào thân kinh.** (1) `1.3` `vilāpaṁ`: *lời than van* (tiền lệ `ja513:3.4` *than van*); cũng có thể là *lời nói lảm nhảm*, chưa phân xử; câu hỏi `1.4` đặt người nói là người ngoài (không thấy nữ thiên), nhưng Pāli không nêu người nói nên bản Việt không ghi. (2) `2.4` `saddhāvittā` (biến thể `saddhācittā`): đọc là giống cái, nói về nữ thiên (*hoan hỷ với lòng tin*), đối chiếu `vittā` ở `10.1`; nếu là sở hữu của Saṅkha thì phải là giống đực, nên không chọn. (3) `7.1`–`7.2` `yiṭṭhañca hutañca … sabbassa no issarā tvaṁ`: `no` đọc là *của chúng tôi*; ý chính (nàng là chủ trong mọi điều thuộc cúng tế dâng hiến của tôi, rồi hỏi quả của nghiệp nào) giữ nguyên, nhưng cách buộc `no` với `issarā` chưa phân xử chắc, vì vậy dịch sát chữ. (4) `9.2` `erakavātayuttā`: giữ *gió eraka* (đi cùng ngọn gió), không dịch nghĩa cụ thể vì không có tiền lệ trong tầng và không phân xử được loại gió; bản cũ *"bò bị xóa vào cày"* bị bỏ vì vô căn cứ. (5) `9.4`/`10.4` `moḷiniṁ` và `nagaraṁ sādhuramman`: đọc `moḷini` là tên thành, đối chiếu `nagaraṁ` ở `10.4`; nếu `moḷinī` là từ khác thì `9.4` chỉ đổi đích đến, không đổi mạch truyện. (6) Người ở `10.3` `purisena saddhiṁ` chỉ dịch *người đàn ông*, không nêu rõ danh tính.
   - **Blocker đã xử lý.** (A) Thiếu bản Anh Sujato cho `ja442` tại commit đã ghim: **giữ nguyên**, đúng sự thật của upstream. (C) Tầng `vietnamese-current` chỉ có Pháp Cú: **đã gỡ** — đó là giới hạn tham chiếu của upstream (mọi bài Jātaka đều như vậy), không phải lỗi văn bản; ghi giới hạn ở đây: không có bản Việt hiện hành cho bài này, mọi đối chiếu Việt chỉ qua tiền lệ trong tầng dự án. (D) Blocker *"nhiều chỗ chỉ giải được nhờ chú giải ngoài commit đã ghim"*: **đã gỡ** — bản dịch đã viết lại chỉ từ Pāli đã ghim; mọi chỗ cũ vốn dựa chú giải (`2.1`, `1.3`, `7.1`, `2.4`, `5.3`, `1.2`) đều đã đọc lại bằng ngữ pháp Pāli, không còn câu chữ nào mượn chú giải. Các bất định còn lại ở trên không đổi giáo nghĩa (đây là truyện hội thoại, không phải đoạn giáo lý), nhưng làm `ambiguity_integrity` ≤ 8,6 và `semantic_fidelity` ≤ 8,8.
   - **Chấm lại.** `semantic_fidelity` 9,2 → 8,8 · `grammar_logic` 9,2 → 8,9 · `terminology` 9,1 → 9,0 · `vietnamese_clarity` 9,2 → 8,8 · `han_viet_balance` 9,3 → 9,2 · `ambiguity_integrity` 8,8 → 8,6 · các tiêu chí còn lại giữ nguyên (`source_provenance` 9,0 · `segment_alignment` 10,0 · `triangulation` 7,0 vì không có bản Anh độc lập · `technical_integrity` 9,6, chưa chạy `npm run validate` · `npm test` · `npm run check` · `npm run build` trong lượt này). `final_score` 9,04 → 8,89 (trung bình thô); blocker (A) còn lại thắng điểm.
+
+  **Đối chiếu bản dịch mù độc lập 2026-10-14.** Một dịch giả khác (cùng họ công cụ) dịch lại bài từ Pāli, không xem bản dự án; so 13 khoá chênh lệch lớn nhất → khác nghĩa 4: sửa 0, giữ 2, bất định 2. Không có bản Anh hay bản Việt độc lập khác.
+  - Giữ: `2.1` `suppaṭimukkakambu` (bản mù giữ chữ `kambu`; bản dự án "vòng vàng" theo tiền lệ `kambukāyūradharā` ở `pv24:6.3`, `ja506:31.1`); `7.2` `sabbassa no issarā tvaṁ sugatte` (bản mù bỏ `no`, bản dự án giữ "đối với chúng tôi").
+  - Bất định: `1.3` `athakkhaṇe` (đọc `atha khaṇe` "ngay lúc này" hay `atha akkhaṇe` "vào lúc không phải thời"; Pāli chưa phân xử, bản dự án giữ "ngay lúc này"); `9.2` `erakavātayuttā` (loại gió `eraka` chưa rõ, giữ chữ Pāli).
+  - Chín khoá còn lại (`0.2`, `0.4`, `2.2`, `6.2`, `6.3`, `9.1`, `10.2`, `10.4`, `11.1`) chỉ khác diễn đạt. Rà đối kháng toàn bài (nháy, số, xưng hô tôi/ngài/nàng, thuật ngữ): không có lỗi mới.

@@ -53,6 +53,34 @@
       "notes": "Kiểm tra tự động 13 segment với Pāli trong cache: đủ ID, giá trị, NFC và hệ chữ Latin. Chưa đọc đối chiếu nghĩa, ngữ pháp hoặc văn phong; chưa chấm lại 10 tiêu chí. Đây không phải chứng nhận hash upstream hoặc giấy phép, không xác nhận trạng thái xuất bản.",
       "content_sha256": "94de0213876bcdf615f330f593276ccc89e1540e9a8df5af68fd01154d7f583d",
       "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639"
+    },
+    {
+      "target": "translation",
+      "scope": "full",
+      "scores": {
+        "source_provenance": 9.5,
+        "semantic_fidelity": 8.6,
+        "grammar_logic": 8.8,
+        "segment_alignment": 10,
+        "terminology": 9,
+        "triangulation": 7,
+        "vietnamese_clarity": 8.8,
+        "han_viet_balance": 9,
+        "ambiguity_integrity": 8.6,
+        "technical_integrity": 9.6
+      },
+      "blocking_errors": [
+        "Không có tầng tham khảo English Sujato tại commit đã ghim 11c9d708: không có tệp en/sujato cho uid này (đã đếm bằng ls .cache/upstream/suttacentral/translation/en/sujato/sutta/kn/…), và bản Việt hiện hành tại commit đã ghim chỉ có Pháp Cú nên cũng không có. Bài dịch chỉ từ Pāli root nên chưa đối chiếu được tầng tham khảo nào; thiếu tầng tham khảo là lỗi chặn, nên giữ draft và không tự nâng điểm."
+      ],
+      "assessed_at": "2026-10-14",
+      "assessed_by": [
+        "Claude Sonnet 5.5 (Claude Code)"
+      ],
+      "notes": "Đối chiếu bản dịch mù độc lập ngày 2026-10-14 (một dịch giả cùng họ công cụ dịch lại từ Pāli, không xem bản dự án) trên 6 khoá chênh lệch lớn nhất của 13 khoá: 0 khác nghĩa, 0 sửa, 1 bất định (`1.4` `uggata`: bản mù cũng đọc là nôn ra, cùng hướng với bản dự án nhưng cùng họ công cụ nên không phải xác nhận độc lập; `Satadhammova` là `iva` hay `eva` còn mở). Không sửa khoá nào. Điểm đổi so với lượt 2026-10-11: triangulation 6.0 → 7.0, semantic_fidelity 8.5 → 8.6; còn lại giữ. Mức đối chiếu: chỉ một lần dịch lại độc lập cùng họ công cụ, không có bản Anh hay bản Việt độc lập khác (trần triangulation 8.0). Blocker `noEnglishEditionUpstream` giữ nguyên, không giải được bằng Pāli. technical_integrity 9.6: bốn lệnh `npm run validate` · `npm test` · `npm run check` · `npm run build` do người điều phối chạy. Đây là review của AI, không phải chứng nhận của chuyên gia Pāli.",
+      "id": "733a28ca-8d2f-4d5f-9847-e4e0685244d5",
+      "content_sha256": "eb2d651bdfd692a21ecd9df9a5e84ad49398ad78bb26bf1febf435dfce9da05e",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
+      "final_score": 8.889999999999999
     }
   ],
   "legacy_quality": {

@@ -3,7 +3,8 @@ status: review
 translationTitle: "Đại Tập Kể Lược, Kể Lược Phẩm Tám Kệ – Kinh Tissa Metteyya"
 translators:
   - "Claude Sonnet 5.5 (Claude Code)"
-reviewers: []
+reviewers:
+  - Claude Sonnet 5.5 (Claude Code)
 tags:
   - "khuddaka-nikaya"
   - "mahaniddesa"
@@ -12,15 +13,15 @@ quality:
   scores:
     source_provenance: 9.4
     semantic_fidelity: 8.4
-    grammar_logic: 8.5
-    segment_alignment: 10.0
+    grammar_logic: 8.6
+    segment_alignment: 10
     terminology: 8.4
-    triangulation: 8.0
+    triangulation: 7.8
     vietnamese_clarity: 8.3
-    han_viet_balance: 9.0
+    han_viet_balance: 9
     ambiguity_integrity: 8.4
     technical_integrity: 9.6
-  final_score: 8.8
+  final_score: 8.79
   blocking_errors:
     - "noEnglishEditionUpstream: không có tầng tham khảo tiếng Anh cho mnd7 tại
       commit đã ghim. Thư mục kn/ của edition translation/en/sujato chỉ có cp,
@@ -30,9 +31,10 @@ quality:
       cũng không có mnd7. Tầng vietnamese-current chỉ có Pháp Cú. Đây là
       not-published-upstream, giới hạn của bản chụp upstream chứ không phải lỗi
       người dịch, nên triangulation bị chặn ở 8.0 và không nâng để né blocker."
-  assessed_at: "2026-10-11"
+  assessed_at: 2026-10-14
   assessed_by:
-    - "Claude Sonnet 5.5 (Claude Code)"
+    - Claude Sonnet 5.5 (Claude Code)
+  assessment_id: 8a119251-f30e-410c-985b-1660ee196a76
   waiver:
     id: no-upstream-english
     blockers:
@@ -84,3 +86,5 @@ notes: |-
     12. Lỗi ngoài lát, báo chứ không sửa: `snp4.7:10.1`–`10.4` Việt lệch dòng và dịch `pihayanti` là *ganh tị* (xem trên; 1 bài, 4 khoá); `snp4.7:7.4` thêm *dục vọng*; `snp4.7:8.2` đọc `pubbāpare` khác `mnd7` (bất định 1).
 
   **Bốn cổng kỹ thuật theo `AGENTS.md`:** `npm run validate`, `npm test`, `npm run check`, `npm run build`. Lát này **không** chạy bốn lệnh đó vì bị cấm trong từng lát ⇒ để CI hoặc người điều phối chạy. `technical_integrity` đặt **9.6**, không 10.0. Các phép tự kiểm đã chạy và đều xanh: tập khoá bản Việt = tập khoá Pāli (491/491, cùng thứ tự); nháy kép `“”`, nháy đơn `‘’` và ngoặc đơn khớp Pāli từng khoá (0/491 lệch); dấu lược `…` khớp Pāli từng khoá (0/491 lệch; 52 khoá có `…`); 0 khoá rỗng; NFC; không khoảng trắng thừa; không nháy thẳng; không thẻ HTML; Pāli lọt sang Việt: chỉ còn tên riêng và lemma nói trên.
+
+  Đối chiếu bản dịch mù độc lập 2026-10-14: một dịch giả khác (cùng họ công cụ) dịch lại bài từ Pāli không xem bản dự án; so 121 khoá chênh lệch lớn nhất → khác nghĩa 2 nhóm: sửa 1, bất định 1; giữ 115 khoá (còn lại chỉ khác diễn đạt: `Vighāta` "tai họa" so "tổn hại", `satthāni` "lưỡi dao" so "vũ khí", `anāriya` "phi thánh" so "không cao thượng", `maṅku`, `jhāyati`, `Bhagavā`…). Sửa: 13.2 và 22.2 `(metteyyāti bhagavā)`: bản dự án dịch "(Đức Thế Tôn đáp lời Metteyya,)" làm mất hô cách `Metteyyā`, trong khi lời giải `16.1` giải đúng chữ ấy là "Đức Thế Tôn gọi vị trưởng lão ấy bằng dòng họ" và `16.23` dịch "Này Metteyya, Đức Thế Tôn nói" → "(Này Metteyya, Đức Thế Tôn nói,)" theo `cnd6:10.2` (`snp4.7:2.2` còn câu cũ; ngoài lát). Bất định: 45.3, 47.1, 47.3, 51.3 `mahāgedho`: giữ "cái bẫy lớn" theo `snp4.7:6.3`, bản mù đọc "mối đắm say lớn"; `gedha` là "tham đắm" ở mọi chỗ khác trong tầng (hơn 40 khoá) còn lời giải `47.2` liệt kê rừng, bụi rậm, bùn lầy, trói buộc, không phân xử được. Giữ có chủ ý: 32.5 và mọi chỗ `kitti` "uy tín" (bản mù "danh tiếng") theo `snp4.7:4.1`; đo thấy tầng có cả "danh tiếng" và "tiếng tăm" cho `kitti`, nên chưa buộc đổi. Review đối kháng riêng trên toàn bài (491 khoá) sửa thêm hai chỗ mà bản mù không báo: (i) 9.11, 9.12: `oḷārikā` / `anusahagatā` đồng cách với cả `kāmarāgasaṁyojanā` lẫn `paṭighasaṁyojanā` (và cả hai `-anusayā`), nhưng bản dịch chỉ gắn "thô thiển" / "vi tế" cho dục ái, khiến sân kiết sử và sân tùy miên đọc như bị đoạn hết ở bậc Nhất lai; sửa thành "dục ái kiết sử và sân kiết sử thô thiển, dục ái tùy miên và sân tùy miên thô thiển" (và tương tự với "vi tế" ở bậc Bất lai), theo `ps1.5:9.4`, `mnd16:276.12` (cùng công thức còn lệch ở `mnd2:12.11`–`12.12`, `mnd14:9.11`–`9.12`; ngoài lát); (ii) 42.3 `tassa te, āvuso, alābhā, tassa te dulladdhaṁ`: "ông đã lãng phí điều quý báu" thêm "quý báu" không có trong Pāli → "thật là bất lợi cho ông, thật là không may cho ông" theo `dn29:5.4`. Bốn khoá này không đổi số khoá hay ranh dòng. Không có bản Anh hay bản Việt độc lập khác.

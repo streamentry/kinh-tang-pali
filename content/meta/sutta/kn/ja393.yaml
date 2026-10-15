@@ -1,9 +1,10 @@
 uid: ja393
-status: review
+status: published
 translationTitle: "Kinh Người Ăn Đồ Thừa"
 translators:
   - "OpenCode Space Bunny Free (agent)"
-reviewers: []
+reviewers:
+  - Claude Sonnet 5.5 (Claude Code)
 tags:
   - "jataka"
   - "bo-sanh"
@@ -11,22 +12,23 @@ tags:
 quality:
   scores:
     source_provenance: 9.4
-    semantic_fidelity: 9.2
-    grammar_logic: 9.0
-    segment_alignment: 10.0
-    terminology: 8.8
-    triangulation: 6.5
-    vietnamese_clarity: 9.0
+    semantic_fidelity: 9
+    grammar_logic: 8.8
+    segment_alignment: 10
+    terminology: 8.7
+    triangulation: 7.8
+    vietnamese_clarity: 9
     han_viet_balance: 9.2
     ambiguity_integrity: 8.8
     technical_integrity: 9.6
-  final_score: 8.95
+  final_score: 9.03
   blocking_errors:
-    - "Thiếu tầng tham khảo English ở commit đã ghim (kn không có bản Anh
-      Sujato), triangulation chỉ dựa vào Pāli, bài giữ draft theo BRIEF_VI3 §5."
-  assessed_at: "2026-10-13"
+    - Thiếu tầng tham khảo English ở commit đã ghim (kn không có bản Anh
+      Sujato), triangulation chỉ dựa vào Pāli, bài giữ draft theo BRIEF_VI3 §5.
+  assessed_at: 2026-10-14
   assessed_by:
-    - "Claude Sonnet 5.5 (Claude Code)"
+    - Claude Sonnet 5.5 (Claude Code)
+  assessment_id: 87349575-cdaf-4760-9e36-bed92601863e
   waiver:
     id: no-upstream-english
     blockers:
@@ -50,3 +52,17 @@ notes: |-
   Bất định còn lại: mejjhāraññe (Mejjha là tên riêng hay "khu rừng thanh tịnh", không phân xử được: không có bài song song);
   na nisāmetha ở 2.2 vẫn là mệnh lệnh phủ định gọi các bậc trí, giữ cách đọc cũ.
   Triangulation giữ 6.5 (không có tầng Anh độc lập), technical_integrity giữ 9.6; chưa chạy bốn cổng validate/test/check/build.
+
+  Đối chiếu bản dịch mù độc lập 2026-10-14: một dịch giả khác (cùng họ công cụ) dịch lại bài từ Pāli
+  không xem bản dự án; so 10 khoá chênh lệch lớn nhất → khác nghĩa 2: sửa 2 (5.4 và 6.1, cùng một sự
+  cố với 5.1 ngoài danh sách chênh lệch: lời của Suka ở Pāli là một lời liền từ 5.1 đến 6.4, nháy mở
+  ở 5.1 và nháy đóng ở 6.4; bản trước đóng nháy ở 5.4 rồi mở lại ở 6.1, tách thành hai lời thoại và
+  thiếu nháy mở ở 5.1; nay mở ở 5.1, bỏ nháy ở 5.4 và 6.1, đóng ở 6.4), giữ 7 (0.2, 0.3, 0.4, 1.2,
+  3.4, 4.3, 7.1: bản mù đặt tên bài và tên nipāta khác hoặc chỉ khác diễn đạt, bản mù thêm chủ ngữ
+  "chúng tôi" ở 4.3 mà Pāli chỉ có yāpentā), bất định 1 (4.2 sikhaṇḍino: "những con công" theo nghĩa
+  sikhaṇḍī = công, nhưng cũng có thể là "có mào/có chỏm"; bản mù cũng không chắc). Không có bản Anh
+  hay bản Việt độc lập khác. Rà đối kháng toàn bài: sửa thêm 1 (2.4 amhevāyaṁ: thêm "chính" cho eva,
+  "vị này đang khen chính chúng ta"). Giữ "Suka", "kuṇapāda ăn xác chết", "đồ ăn thừa" cho ucchiṭṭha
+  và "đồ thừa" cho vighāsa như trước. Nháy đơn, nháy kép khớp Pāli từng khoá sau khi sửa.
+  triangulation không vượt 8,0 vì chỉ có một lần dịch lại cùng họ công cụ; technical_integrity vẫn
+  9,6, chưa chạy lại: npm run validate, npm test, npm run check, npm run build.

@@ -53,6 +53,34 @@
       "notes": "Kiểm tra tự động 51 segment với Pāli trong cache: đủ ID, giá trị, NFC và hệ chữ Latin. Chưa đọc đối chiếu nghĩa, ngữ pháp hoặc văn phong; chưa chấm lại 10 tiêu chí. Đây không phải chứng nhận hash upstream hoặc giấy phép, không xác nhận trạng thái xuất bản.",
       "content_sha256": "54f7ef847fc746e4c66c0716d318f92472733642f325a51604cc6350247b6cf9",
       "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639"
+    },
+    {
+      "target": "translation",
+      "scope": "full",
+      "scores": {
+        "source_provenance": 9.5,
+        "semantic_fidelity": 8.8,
+        "grammar_logic": 8.9,
+        "segment_alignment": 10,
+        "terminology": 9,
+        "triangulation": 7.6,
+        "vietnamese_clarity": 9,
+        "han_viet_balance": 9.2,
+        "ambiguity_integrity": 8.8,
+        "technical_integrity": 9.6
+      },
+      "blocking_errors": [
+        "Không có tầng tham khảo tiếng Anh tại commit đã ghim: khoá `sutta/kn/ja/ja457_translation-en-sujato.json` KHÔNG có trong `source/upstream-manifest.json` (tầng `english-sujato`, commit `11c9d708978cde8ba61096d8a75f7ddfb846f639`, 4291 tệp; trong `sutta/kn/` chỉ có 755 tệp: cp 35, dhp 26, iti 112, ja 83, kp 9, snp 73, thag 264, thig 73, ud 80 — `ja` chỉ có 83 tệp và `mil`/`pv` không có tệp `kn/` nào; tầng `name/` có `ja-name` và `mil-name` nhưng đó là tên sách, không phải bản dịch thân kinh). Đây là `not-published-upstream`, KHÔNG phải `not-synced`. Tầng `vietnamese-current` cũng vắng: `translation/vi/phantuananh` tại commit đã ghim chỉ có 26 tệp và toàn bộ là Pháp Cú. Lớp lấp `english-project` của dự án không có cho uid này. Ba tầng tham khảo đều vắng nên bài chỉ dịch được từ Pāli root — blocker thật, và đây là **giới hạn upstream**, không phải lỗi của người dịch. Bài bắt buộc `draft`. `triangulation` bị chặn ở 7.0 (≤ 8.0) chứ không nâng để né blocker. Lưu ý thêm: công thức coverage trả **1,0000** cho bài này nhưng KHÔNG đo được gì — mọi khoá Pāli của ja457 đều là nửa câu thơ ngắn hơn 40 ký tự sau khi nén (dài nhất 37), nên `substantiveSegments = 0` và `src/lib/canon/reference.ts` trả `substantive === 0 ? 1 : …`. Ngưỡng 0,80 không phải thứ chặn; thứ chặn là chính việc thiếu tầng tham khảo Anh nêu trên."
+      ],
+      "assessed_at": "2026-10-14",
+      "assessed_by": [
+        "Claude Sonnet 5.5 (Claude Code)"
+      ],
+      "notes": "Đối chiếu độc lập ngày 2026-10-14 trên toàn bộ 51 khoá của ja457 với một bản dịch mù cùng họ công cụ (không có bản Anh hay bản Việt khác). Chỉ 6 khoá bị báo chênh lệch, đều chỉ khác diễn đạt; bản mù đọc cùng hướng ở các chỗ khó đã ghi (`Yasokaro`, `vitto`, `piyāppiyena`…), nhưng cùng họ công cụ nên các bất định (a)–(h) vẫn được giữ nguyên và không được xem là đã giải. Không sửa khoá nào. triangulation 7,6: một lần dịch lại độc lập cùng họ công cụ, bất đồng đã phân xử hết, trần 8,0; các điểm còn lại giữ như lượt chấm trước vì không có phát hiện mới. technical_integrity 9,6 vì không chạy `npm run validate`, `npm test`, `npm run check`, `npm run build` trong lượt này. Đây là review của AI, không phải chứng nhận của chuyên gia Pāli.",
+      "id": "43814d4d-e766-43ae-9b92-eaa479f4fd2a",
+      "content_sha256": "011d1dd02d5ccc9bd80669c8a438750f3f819923804f856ddb779c6631819c86",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
+      "final_score": 9.04
     }
   ],
   "legacy_quality": {

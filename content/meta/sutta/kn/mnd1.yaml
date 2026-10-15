@@ -3,7 +3,8 @@ status: review
 translationTitle: "Đại Tập Kể Lược, Kể Lược Phẩm Tám Kệ – Kinh Dục"
 translators:
   - "Claude Sonnet 5.5 (Claude Code)"
-reviewers: []
+reviewers:
+  - Claude Sonnet 5.5 (Claude Code)
 tags:
   - "khuddaka-nikaya"
   - "mahaniddesa"
@@ -11,16 +12,16 @@ tags:
 quality:
   scores:
     source_provenance: 9.4
-    semantic_fidelity: 8.3
-    grammar_logic: 8.4
-    segment_alignment: 10.0
+    semantic_fidelity: 8.4
+    grammar_logic: 8.5
+    segment_alignment: 10
     terminology: 8.4
-    triangulation: 8.0
+    triangulation: 7.8
     vietnamese_clarity: 8.3
     han_viet_balance: 9.1
     ambiguity_integrity: 8.3
     technical_integrity: 9.6
-  final_score: 8.78
+  final_score: 8.779999999999998
   blocking_errors:
     - "noEnglishEditionUpstream: không có tầng tham khảo tiếng Anh cho mnd1 tại
       commit đã ghim. Thư mục kn/ của edition translation/en/sujato chỉ có cp,
@@ -30,9 +31,10 @@ quality:
       cũng không có mnd1. Tầng vietnamese-current chỉ có Pháp Cú. Đây là
       not-published-upstream, giới hạn của bản chụp upstream chứ không phải lỗi
       người dịch, nên triangulation bị chặn ở 8.0 và không nâng để né blocker."
-  assessed_at: "2026-10-11"
+  assessed_at: 2026-10-14
   assessed_by:
-    - "Claude Sonnet 5.5 (Claude Code)"
+    - Claude Sonnet 5.5 (Claude Code)
+  assessment_id: 2f1a2054-e914-4229-bf7d-affa94081bd0
   waiver:
     id: no-upstream-english
     blockers:
@@ -76,3 +78,5 @@ notes: |-
   15. Lỗi ngoài lát, báo chứ không sửa: `snp4.1:3.3`–`3.4`, `snp4.1:5.2`, `ne4:11.2`, `thag6.14:5.3`–`5.4` (bất định 2 và 3).
 
   **Bốn cổng kỹ thuật theo `AGENTS.md`:** `npm run validate`, `npm test`, `npm run check`, `npm run build`. Lát này **không** chạy bốn lệnh đó vì bị cấm trong từng lát ⇒ để CI hoặc người điều phối chạy. `technical_integrity` đặt **9.6**, không 10.0. Các phép tự kiểm đã chạy và đều xanh: tập khoá bản Việt = tập khoá Pāli (516/516, cùng thứ tự); nháy kép `“”`, nháy đơn `‘’` và ngoặc đơn khớp Pāli từng khoá (0/516 lệch); dấu lược `…` khớp Pāli từng khoá (0/516 lệch; 65 khoá có `…`: 14 khoá có `…pe…`, 50 khoá có `…` trần, 1 khoá có `(…)`; không khoá Pāli nào kết `….`); dấu gạch dài cuối khoá khớp Pāli (0 lệch); 0 khoá rỗng; NFC; không khoảng trắng thừa; không nháy thẳng; Pāli lọt sang Việt: không còn từ có dấu Pāli ngoài các tên riêng và từ nguyên giữ dạng Pāli (*jāgu, indagu, sāli, vīhi, kahāpaṇa* và các tên rắn nêu ở bất định 4).
+
+  **Đối chiếu bản dịch mù độc lập 2026-10-14.** Một dịch giả khác (cùng họ công cụ) dịch lại bài từ Pāli không xem bản dự án; so 144 khoá chênh lệch lớn nhất (trên 516 khoá) → khác nghĩa 11: sửa 1 nhóm, giữ 5, bất định 5. Sửa (accuracy fix, 6 khoá `13.1`, `13.3`, `14.1`, `14.7`, `21.1`, `21.3`, cùng một kệ `tassa ce kāmayānassa … te kāmā parihāyanti`): “Nhưng với kẻ đang khao khát ấy … khi những dục lạc ấy tiêu giảm” → “Nhưng nếu, đối với kẻ đang khao khát ấy … những dục lạc ấy tiêu giảm”, vì `ce` là “nếu” (điều kiện) chứ không phải “khi”; khớp `2.2`/`8.6` (*nếu điều ấy thành tựu*) và lời giải `14.2` (*Nếu của người ấy*), và `16.1` đã dịch `te kāmā parihāyanti` không có “khi”. Giữ 5: `13.1`/`14.1` `kāmayānassa` (bản mù đọc *kāma-yāna* “đi theo dục”; lời giải `14.3`–`14.4` đã nêu cả hai cách đọc, nên giữ “đang khao khát”); `81.2` `apacinitvā` (“làm giảm bớt” hay “phá bỏ” chỉ khác diễn đạt); `81.5` `vidhūpeti`/`sandhūpeti` (khác diễn đạt); `81.15` `kaṭaṁ` (“ván thắng”; bản mù không chắc); `65.3`–`65.4` `hiṁsanti`, `samphala` (cùng nghĩa, khác diễn đạt). Bất định 5, ghi lại không sửa: `71.2` `dakamesiṁ` (chủ thể “tìm” là chiếc thuyền hay nước); `33.2` `sattattā`; `29.6` `visakkati` (“bám dính” hay “chạy ngược xuôi”); `81.22` `atammayatā` (“không bị tác thành” hay “không tự đồng hóa”); `28.4` `pariyuṭṭhānaṁ` dịch “hiển hiện” theo quy ước của hàng chục khoá Niddesa/Netti/Peṭakopadesa, trong khi các Nikāya dịch “ám ảnh”/“chi phối” (bản mù: “triền phược”). Không có bản Anh hay bản Việt độc lập khác nên `triangulation` chỉ 7,8. Ngoài lát, báo chứ không sửa: `snp4.1:2.1`, `ne4:5.1`, `ne15:41.1`, `pe1:69.3` còn “Nhưng với kẻ đang khao khát ấy … khi …” cho cùng kệ.

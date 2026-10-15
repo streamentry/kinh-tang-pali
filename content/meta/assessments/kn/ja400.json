@@ -53,6 +53,35 @@
       "notes": "Kiểm tra tự động 47 segment với Pāli trong cache: đủ ID, giá trị, NFC và hệ chữ Latin. Chưa đọc đối chiếu nghĩa, ngữ pháp hoặc văn phong; chưa chấm lại 10 tiêu chí. Đây không phải chứng nhận hash upstream hoặc giấy phép, không xác nhận trạng thái xuất bản.",
       "content_sha256": "b6c9396ff35f90ed810dbd3bebf9017509f464aeab7aa55306db37fbb2810c41",
       "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639"
+    },
+    {
+      "target": "translation",
+      "scope": "full",
+      "scores": {
+        "source_provenance": 9.4,
+        "semantic_fidelity": 8.8,
+        "grammar_logic": 8.9,
+        "segment_alignment": 10,
+        "terminology": 9.2,
+        "triangulation": 7.6,
+        "vietnamese_clarity": 9.1,
+        "han_viet_balance": 9.2,
+        "ambiguity_integrity": 8.3,
+        "technical_integrity": 9.6
+      },
+      "blocking_errors": [
+        "Bài này không có tầng Anh SuttaCentral đã ghim ở commit đã pin (0/0 segment có nội dung, không có tệp nào trong english-sujato), nên thiếu tầng tham khảo bắt buộc để xuất bản; đối chiếu chỉ có Pāli ghim cùng commit + tiền lệ trong chính tầng Việt dự án.",
+        "`ja400` không nằm trong 83 tệp `ja` của tầng `english-sujato` đã ghim (đo lại từ source/upstream-manifest.json: ja1–ja79 cộng ja126, ja159, ja466, ja534), và translation/vi/phantuananh/ ở commit đã ghim chỉ chứa Pháp Cú, nên không thể đối chiếu một bản Anh độc lập cho bài này."
+      ],
+      "assessed_at": "2026-10-14",
+      "assessed_by": [
+        "Claude Sonnet 5.5 (Claude Code)"
+      ],
+      "notes": "Đối chiếu bản dịch mù độc lập ngày 2026-10-14 trên 8 khoá chênh lệch lớn nhất (trên 47 khoá) của ja400; một dịch giả khác cùng họ công cụ dịch lại bài từ Pāli không xem bản dự án, không có bản Anh hay bản Việt độc lập nào khác. Khác nghĩa 2: sửa 0, giữ 1 (7.1–7.2 khattiyo), bất định 1 (7.4 puṇṇamukhaṁ). Review đối kháng toàn bài không tìm thấy lỗi thật cần sửa; ghi nhận thêm rằng đoạn Dùng lại nguyên văn trong notes cũ không còn khớp chữ hiện hành (đã ghi vào notes), nên ambiguity_integrity 8,3. Điểm triangulation 7,6: một lần dịch lại cùng họ công cụ, bất đồng đã phân xử trừ một chỗ từ vựng. Hai blocker nêu cùng một giới hạn upstream (thiếu bản Anh) và không thể gỡ bằng Pāli. Đây là review của AI, không phải chứng nhận của chuyên gia Pāli.",
+      "id": "15886cc4-2979-412d-91ce-3d1e455c3097",
+      "content_sha256": "310560201958b2f8220e3f13fa10a01cbe218aa28647b9a4d8fa83aa77d031a0",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
+      "final_score": 9.01
     }
   ],
   "legacy_quality": {

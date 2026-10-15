@@ -1,0 +1,62 @@
+{
+  "schemaVersion": 1,
+  "uid": "ne10",
+  "assessments": [
+    {
+      "target": "translation",
+      "scope": "full",
+      "scores": {
+        "source_provenance": 9.4,
+        "semantic_fidelity": 8.8,
+        "grammar_logic": 8.9,
+        "segment_alignment": 10,
+        "terminology": 9,
+        "triangulation": 7.6,
+        "vietnamese_clarity": 8.6,
+        "han_viet_balance": 9.1,
+        "ambiguity_integrity": 8.8,
+        "technical_integrity": 9.6
+      },
+      "blocking_errors": [
+        "noEnglishEditionUpstream: không có tầng tham khảo tiếng Anh nào tại commit đã ghim. Tầng `english-sujato` chỉ có chín nhóm con của Tiểu Bộ (cp, dhp, iti, ja, kp, snp, thag, thig, ud) và `source/upstream-manifest.json` không liệt kê tệp nào của `kn/ne`, nên đây là `not-published-upstream`, không phải `not-synced`. Coverage đo đúng công thức của `source/layers.yaml`: mẫu số 94 khoá Pāli có nội dung (≥ 40 ký tự, bỏ bốn khối tiêu đề `:0.x`), Sujato phủ 0/94 = 0, dưới ngưỡng 0,80. Lớp `english-project` chưa có bài này (chỉ có ne24, ne27–ne30, ne32, ne34); tầng `vietnamese-current` tại commit đã ghim chỉ có Pháp Cú. Cả ba tầng tham khảo đều vắng nên bài bắt buộc `draft` và `triangulation` ≤ 8,0 (đặt 7,0). Đây là giới hạn của upstream, không phải lỗi của người dịch."
+      ],
+      "assessed_at": "2026-10-14",
+      "assessed_by": [
+        "Claude Sonnet 5.5 (Claude Code)"
+      ],
+      "notes": "Đối chiếu bản dịch mù độc lập 2026-10-14 trên 33 khoá chênh lệch lớn nhất (bài 169 khoá): khác nghĩa 2 (`6.1`, `27.4`, cùng bộ yếu tố, khác cách gán, bất định), sửa 0, 31 khoá chỉ khác diễn đạt. Review đối kháng riêng toàn bài đếm lại các danh sách (10 nghiệp đạo bất thiện, 7+3 điều thuộc tư và tâm sở, 4 thiên vị, 8 tà tánh, 4 chấp thủ) và 11 khoá Pāli trùng ở bài khác; không có lỗi nghĩa cần sửa. Điểm giữ ở mức đó vì chỉ còn hai bất định không đổi giáo nghĩa; `vietnamese_clarity` 8,6 vì `padaṭṭhāna` *nền tảng ứng với* là thuật ngữ theo nhóm ne4–ne19, còn nặng nề; `triangulation` 7,6 vì chỉ có một lần dịch lại cùng họ công cụ, không có bản Anh hay Việt khác; `segment_alignment` 10; `technical_integrity` 9,6 vì không chạy `npm run validate`, `npm test`, `npm run check`, `npm run build` trong lượt này. Blocker (noEnglishEditionUpstream) sao nguyên văn, không gỡ. Đây là review của AI, không phải chứng nhận của chuyên gia Pāli.",
+      "id": "7c0116da-cf4d-4d77-9fdf-e52129b64963",
+      "content_sha256": "20ee1630d94096f025b5eb3e5d7963f2453465d7ee4789248dc25a8f545a2a05",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
+      "final_score": 8.98
+    }
+  ],
+  "legacy_quality": {
+    "scores": {
+      "source_provenance": 9.5,
+      "semantic_fidelity": 8.7,
+      "grammar_logic": 8.9,
+      "segment_alignment": 10,
+      "terminology": 9,
+      "triangulation": 7,
+      "vietnamese_clarity": 8.6,
+      "han_viet_balance": 9.1,
+      "ambiguity_integrity": 8.8,
+      "technical_integrity": 9.6
+    },
+    "final_score": 8.92,
+    "blocking_errors": [
+      "noEnglishEditionUpstream: không có tầng tham khảo tiếng Anh nào tại commit đã ghim. Tầng `english-sujato` chỉ có chín nhóm con của Tiểu Bộ (cp, dhp, iti, ja, kp, snp, thag, thig, ud) và `source/upstream-manifest.json` không liệt kê tệp nào của `kn/ne`, nên đây là `not-published-upstream`, không phải `not-synced`. Coverage đo đúng công thức của `source/layers.yaml`: mẫu số 94 khoá Pāli có nội dung (≥ 40 ký tự, bỏ bốn khối tiêu đề `:0.x`), Sujato phủ 0/94 = 0, dưới ngưỡng 0,80. Lớp `english-project` chưa có bài này (chỉ có ne24, ne27–ne30, ne32, ne34); tầng `vietnamese-current` tại commit đã ghim chỉ có Pháp Cú. Cả ba tầng tham khảo đều vắng nên bài bắt buộc `draft` và `triangulation` ≤ 8,0 (đặt 7,0). Đây là giới hạn của upstream, không phải lỗi của người dịch."
+    ],
+    "assessed_at": "2026-10-13",
+    "assessed_by": [
+      "Claude Sonnet 5.5 (Claude Code)"
+    ],
+    "waiver": {
+      "id": "no-upstream-english",
+      "blockers": [
+        "noEnglishEditionUpstream: không có tầng tham khảo tiếng Anh nào tại commit đã ghim. Tầng `english-sujato` chỉ có chín nhóm con của Tiểu Bộ (cp, dhp, iti, ja, kp, snp, thag, thig, ud) và `source/upstream-manifest.json` không liệt kê tệp nào của `kn/ne`, nên đây là `not-published-upstream`, không phải `not-synced`. Coverage đo đúng công thức của `source/layers.yaml`: mẫu số 94 khoá Pāli có nội dung (≥ 40 ký tự, bỏ bốn khối tiêu đề `:0.x`), Sujato phủ 0/94 = 0, dưới ngưỡng 0,80. Lớp `english-project` chưa có bài này (chỉ có ne24, ne27–ne30, ne32, ne34); tầng `vietnamese-current` tại commit đã ghim chỉ có Pháp Cú. Cả ba tầng tham khảo đều vắng nên bài bắt buộc `draft` và `triangulation` ≤ 8,0 (đặt 7,0). Đây là giới hạn của upstream, không phải lỗi của người dịch."
+      ]
+    }
+  }
+}

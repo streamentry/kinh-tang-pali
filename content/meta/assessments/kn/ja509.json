@@ -1,0 +1,62 @@
+{
+  "schemaVersion": 1,
+  "uid": "ja509",
+  "assessments": [
+    {
+      "target": "translation",
+      "scope": "full",
+      "scores": {
+        "source_provenance": 9.3,
+        "semantic_fidelity": 8.5,
+        "grammar_logic": 8.7,
+        "segment_alignment": 10,
+        "terminology": 9,
+        "triangulation": 7.3,
+        "vietnamese_clarity": 8.8,
+        "han_viet_balance": 9.2,
+        "ambiguity_integrity": 9,
+        "technical_integrity": 9.6
+      },
+      "blocking_errors": [
+        "noEnglishEditionUpstream: không có tầng tham khảo tiếng Anh tại commit đã ghim. `source/upstream-manifest.json` chỉ liệt kê `kn/ja/ja509_root-pli-ms.json` (tầng Pāli) cho uid này; không có tệp `english-sujato` nào cho `ja509` (tầng Sujato chỉ có 83 bài Jātaka, không có bài này); `content/translation/en/project/sutta/kn/` không có tệp cho uid và `content/meta/en/kn/` không có `ja509.yaml`. Đây là `not-published-upstream`, không phải `not-synced`. Tầng `vietnamese-current` chỉ có Pháp Cú. Ba tầng tham khảo đều vắng, nên bài dịch chỉ dựa vào Pāli root, đối chiếu tiền lệ nội bộ và các dòng Pāli song hành trong tầng Sujato (xem notes); bài bắt buộc `draft` và `triangulation ≤ 8,0`. Đây là giới hạn upstream, không phải lỗi của người dịch."
+      ],
+      "assessed_at": "2026-10-14",
+      "assessed_by": [
+        "Claude Sonnet 5.5 (Claude Code)"
+      ],
+      "notes": "Đối chiếu bản dịch mù độc lập 2026-10-14 (cùng họ công cụ, dịch lại từ Pāli không xem bản dự án): 31 khoá chênh lệch lớn nhất → khác nghĩa 7 khoá: sửa 0 trong danh sách, giữ 4, bất định 3; 24 khoá còn lại chỉ khác diễn đạt. Giữ: `19.1`–`19.2` (bản mù đảo hai nửa câu `Paṅke ca posaṁ palipe byasannaṁ` và `Balī yathā dubbalamuddhareyya`; bài giữ đúng thứ tự Pāli), `23.4`/`25.4` `yathodhikāni` (bản mù “theo từng mức độ”, tự ghi không chắc; bài “cho tới mức ấy” theo 6 khoá cùng Pāli ở `ja408:6.4`, `ja470:21.4`, `ja535:21.4`, `snp1.3:26.3`, `tha-ap2:35.3`, `cnd23:245.3`). Bất định: `12.1`–`12.2` (`Hiyyoti hiyyati poso`, `Pareti parihāyati`: cả hai bản đều chưa chắc), `13.2` `mattūpamaṁ` (cả hai bản đều chưa chắc). Rà đối kháng toàn bài (ngoài danh sách chênh lệch, lần dịch lại không phát hiện) tìm thêm một lỗi: `7.4` “họ có thể thấy ngài sống trăm năm không bệnh” → “họ có thể thấy người ấy sống trăm năm không bệnh”. Theo Pāli, ở `6.4` `taṁ` là đối cách của `tvaṁ` (“thấy ngài”), còn ở `7.4` `taṁ` là đại từ tương liên với `yassa`/`yo` ở `7.1`–`7.3` (kẻ làm bạn với cái chết, hoặc kẻ biết mình không bao giờ chết), và người nói ở `7` gọi người đối thoại là `rāja`; để “ngài” thì lời đáp thành “cha mẹ sẽ thấy nhà vua sống trăm năm”, đảo mất ý phản bác. Mục này thay cho BẤT ĐỊNH 19 và cho dòng “không đổi `6.4`/`7.4`” ở trên đối với riêng `7.4`; vì vậy hai khoá Pāli trùng nguyên văn `6.4`/`7.4` nay có bản Việt khác nhau có chủ đích (nhóm trùng trong bài: 1 nhóm Việt khác, có lý do). Bất định mới: người nói của `17`–`18`; nếu `17` là lời vua thì “tôi” ở `17.4` nên là “ta” như ở `10` và `19`, nhưng ranh giới nháy của Pāli (`17.1` mở, `18.4` đóng) không cho phân xử. Nháy khớp Pāli từng khoá; số `vassasataṁ` = 100 và `terasamaṁ` = 13 không đổi. Mức đối chiếu: Pāli root + một lần dịch lại độc lập cùng họ công cụ; không có bản Anh hay bản Việt độc lập khác, nên `triangulation` bị trần 8,0. Một lỗi thật (`7.4`, đại từ `taṁ`) bắt được nhờ đọc toàn bài chứ không nhờ danh sách chênh lệch, nên bản mù chỉ là nguồn phát hiện hạn chế; còn ba bất định cũ/mới chưa phân xử được. `semantic_fidelity` 8,4 → 8,5, `grammar_logic` 8,6 → 8,7, `triangulation` 7,0 → 7,3. Sửa `7.4`. Blocker `noEnglishEditionUpstream` giữ nguyên, không gỡ. `technical_integrity` 9,6: chưa chạy `npm run validate`, `npm test`, `npm run check`, `npm run build`. Đây là review của AI, không phải chứng nhận của chuyên gia Pāli.",
+      "id": "ffaf2156-3b09-4e12-ac29-c0f896b673be",
+      "content_sha256": "fe32ad2dce4a8f7ecdef6b731e78b5b2b8373ec6f08fd1a300b3db837b4291a7",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
+      "final_score": 8.94
+    }
+  ],
+  "legacy_quality": {
+    "scores": {
+      "source_provenance": 9.3,
+      "semantic_fidelity": 8.4,
+      "grammar_logic": 8.6,
+      "segment_alignment": 10,
+      "terminology": 9,
+      "triangulation": 7,
+      "vietnamese_clarity": 8.8,
+      "han_viet_balance": 9.2,
+      "ambiguity_integrity": 9,
+      "technical_integrity": 9.6
+    },
+    "final_score": 8.89,
+    "blocking_errors": [
+      "noEnglishEditionUpstream: không có tầng tham khảo tiếng Anh tại commit đã ghim. `source/upstream-manifest.json` chỉ liệt kê `kn/ja/ja509_root-pli-ms.json` (tầng Pāli) cho uid này; không có tệp `english-sujato` nào cho `ja509` (tầng Sujato chỉ có 83 bài Jātaka, không có bài này); `content/translation/en/project/sutta/kn/` không có tệp cho uid và `content/meta/en/kn/` không có `ja509.yaml`. Đây là `not-published-upstream`, không phải `not-synced`. Tầng `vietnamese-current` chỉ có Pháp Cú. Ba tầng tham khảo đều vắng, nên bài dịch chỉ dựa vào Pāli root, đối chiếu tiền lệ nội bộ và các dòng Pāli song hành trong tầng Sujato (xem notes); bài bắt buộc `draft` và `triangulation ≤ 8,0`. Đây là giới hạn upstream, không phải lỗi của người dịch."
+    ],
+    "assessed_at": "2026-10-13",
+    "assessed_by": [
+      "Claude Sonnet 5.5 (Claude Code)"
+    ],
+    "waiver": {
+      "id": "no-upstream-english",
+      "blockers": [
+        "noEnglishEditionUpstream: không có tầng tham khảo tiếng Anh tại commit đã ghim. `source/upstream-manifest.json` chỉ liệt kê `kn/ja/ja509_root-pli-ms.json` (tầng Pāli) cho uid này; không có tệp `english-sujato` nào cho `ja509` (tầng Sujato chỉ có 83 bài Jātaka, không có bài này); `content/translation/en/project/sutta/kn/` không có tệp cho uid và `content/meta/en/kn/` không có `ja509.yaml`. Đây là `not-published-upstream`, không phải `not-synced`. Tầng `vietnamese-current` chỉ có Pháp Cú. Ba tầng tham khảo đều vắng, nên bài dịch chỉ dựa vào Pāli root, đối chiếu tiền lệ nội bộ và các dòng Pāli song hành trong tầng Sujato (xem notes); bài bắt buộc `draft` và `triangulation ≤ 8,0`. Đây là giới hạn upstream, không phải lỗi của người dịch."
+      ]
+    }
+  }
+}

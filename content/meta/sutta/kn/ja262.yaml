@@ -1,9 +1,11 @@
 uid: ja262
 status: review
-translationTitle: "Kinh Con Cua Móng Cụt"
+translationTitle: "Kinh Bàn Tay Mềm"
 translators:
   - "OpenCode Space Bunny Free (agent)"
-reviewers: []
+reviewers:
+  - OpenCode Space Bunny Free (agent)
+  - Claude Sonnet 5.5 (Claude Code)
 tags:
   - "jataka"
   - "khuddaka-nikaya"
@@ -13,16 +15,16 @@ tags:
 quality:
   scores:
     source_provenance: 9.4
-    semantic_fidelity: 8.7
-    grammar_logic: 8.7
-    segment_alignment: 10.0
-    terminology: 8.7
-    triangulation: 6.8
-    vietnamese_clarity: 9.0
-    han_viet_balance: 9.1
-    ambiguity_integrity: 8.5
+    semantic_fidelity: 8
+    grammar_logic: 8.3
+    segment_alignment: 10
+    terminology: 8.4
+    triangulation: 7.6
+    vietnamese_clarity: 8.5
+    han_viet_balance: 9
+    ambiguity_integrity: 8.4
     technical_integrity: 9.6
-  final_score: 8.85
+  final_score: 8.72
   blocking_errors:
     - "Thiếu hẳn tầng tham khảo English Sujato tại commit đã ghim
       11c9d708978cde8ba61096d8a75f7ddfb846f639: đếm trực tiếp trên
@@ -36,9 +38,10 @@ quality:
       của kho, nhưng theo AGENTS.md thì thiếu tầng tham khảo là lỗi chặn đối với
       review và published, và tests/unit/reference-source.test.ts kiểm đúng điều
       đó. Bài đặt draft và không nâng điểm để né."
-  assessed_at: "2026-10-03"
+  assessed_at: 2026-10-14
   assessed_by:
-    - "OpenCode Space Bunny Free (agent)"
+    - Claude Sonnet 5.5 (Claude Code)
+  assessment_id: dc21618f-73a0-4282-a713-eed77926ec8e
   waiver:
     id: no-upstream-english
     blockers:
@@ -127,3 +130,5 @@ notes: |-
   nghĩa là chìm xuống, thì câu sẽ thành chúng chìm mất khi biết điều ấy — cả hai đều dẫn tới lời can
   ở 2.4. (4) 3.3 Jātavedova saṁ ṭhānaṁ: tôi dịch là chắc chắn nơi ấy, lửa Jātavedas, giữ tên
   thần lửa theo chữ Pāli thay vì dịch thành lửa thiêu.
+
+  Đối chiếu bản dịch mù độc lập 2026-10-14: một dịch giả khác (cùng họ công cụ) dịch lại bài từ Pāli, không xem bản dự án; so 14 khoá chênh lệch lớn nhất. Khác nghĩa 12: sửa 12, giữ 0, bất định 3 (1.2, 1.3, 1.4, còn trong số đã sửa). Bản cũ sai nặng nên viết lại 13 khoá (0.4, 1.1–1.4, 2.1–2.4, 3.1, 3.3, 3.4, 4.1; riêng 2.4 chỉ đổi dấu câu cho khớp Pāli). Các lỗi chính: 1.1 `pāṇi muduko` 'càng của hắn cùn' → 'bàn tay mềm mại' (pāṇi là tay, mudu là mềm; Pāli không có chữ nào là cua/càng) và theo đó tiêu đề 0.4, 4.1 'Con Cua Móng Cụt' → 'Bàn Tay Mềm' (tên bài `Mudupāṇi`); 1.2 `nāgo cassa sukārito` 'phần thưởng … đã được tuyên rõ ràng' → 'và con voi được làm cho khéo' (nāga là voi, không có nghĩa phần thưởng; sukārita là làm khéo); 1.3–1.4 `andhakāro ca vasseyya, atha nūna tadā siyā` 'thì chắc chắn hắn sẽ phải chịu bóng tối ấy' → 'và bóng tối đổ mưa, thì hẳn lúc ấy sẽ có' (vasseyya là mưa; câu kết giữ như ja425, 11/11 khoá); 2.1–2.3 `analā mudusambhāsā … sīdanti` 'không phải lời lẽ trong lành … họ xấu hổ' → 'không biết đủ, lời nói dịu ngọt … người ta chìm xuống' (sīdati là chìm); 3.1 `yaṁ etā upasevanti` 'kẻ nào đến gần chúng' → 'người nào những nàng ấy thân cận' (etā là chủ ngữ, yaṁ là tân ngữ; bản cũ đảo chủ–tân); 3.3–3.4 `Jātavedova saṁ ṭhānaṁ … anudahanti naṁ` 'chắc chắn nơi ấy, lửa Jātavedas … làm cho chúng tan tành' → 'như lửa thiêu chính nơi nó trú … họ nhanh chóng thiêu đốt kẻ ấy' (so sánh với lửa; naṁ là số ít). Các khoá 2.1–3.4 nay trùng nguyên văn cách dịch đã có ở ja507:26–28 và ja536:100–102 (cùng Pāli). Bất định còn lại ở câu 1.1–1.4: Pāli ghim không kèm truyện nên không biết ai nói gì; `sukārito` (làm khéo, có thể là huấn luyện/chuẩn bị) và `andhakāro … vasseyya` (bóng tối đổ mưa, hay đêm tối mưa) đọc sát chữ nhất có thể; `tadā siyā` không có tân ngữ. Tiêu đề 0.4/4.1 đã đổi nhưng `translationTitle` trong metadata vẫn là tên cũ, cần đồng bộ. Ngoài lát: ja263:2.3, 3.1, 3.3, 3.4 trùng nguyên Pāli với ja262 và còn nguyên lỗi cũ (cùng 'họ xấu hổ', 'kẻ nào đến gần chúng', 'lửa Jātavedas … chúng tan tành'). Không có bản Anh hay bản Việt độc lập khác; mọi phân xử dựa vào Pāli và tiền lệ nội bộ tầng.

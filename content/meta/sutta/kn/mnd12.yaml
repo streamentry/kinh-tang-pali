@@ -3,7 +3,8 @@ status: review
 translationTitle: "Đại Tập Kể Lược, Kể Lược Phẩm Tám Kệ – Kinh Tiểu Bố"
 translators:
   - "Claude Sonnet 5.5 (Claude Code)"
-reviewers: []
+reviewers:
+  - Claude Sonnet 5.5 (Claude Code)
 tags:
   - "khuddaka-nikaya"
   - "mahaniddesa"
@@ -11,16 +12,16 @@ tags:
 quality:
   scores:
     source_provenance: 9.4
-    semantic_fidelity: 8.3
+    semantic_fidelity: 8.4
     grammar_logic: 8.4
-    segment_alignment: 10.0
-    terminology: 8.5
-    triangulation: 8.0
+    segment_alignment: 10
+    terminology: 8.6
+    triangulation: 7.7
     vietnamese_clarity: 8.3
     han_viet_balance: 9.1
     ambiguity_integrity: 8.2
     technical_integrity: 9.6
-  final_score: 8.78
+  final_score: 8.77
   blocking_errors:
     - "noEnglishEditionUpstream: không có tầng tham khảo tiếng Anh cho mnd12 tại
       commit đã ghim. Thư mục kn/ của edition translation/en/sujato chỉ có cp,
@@ -30,9 +31,10 @@ quality:
       không có mnd12. Tầng vietnamese-current chỉ có Pháp Cú. Đây là
       not-published-upstream, giới hạn của bản chụp upstream chứ không phải lỗi
       người dịch, nên triangulation bị chặn ở 8.0 và không nâng để né blocker."
-  assessed_at: "2026-10-11"
+  assessed_at: 2026-10-14
   assessed_by:
-    - "Claude Sonnet 5.5 (Claude Code)"
+    - Claude Sonnet 5.5 (Claude Code)
+  assessment_id: 9bfa0068-d6e3-4132-861b-37d3eb81878b
   waiver:
     id: no-upstream-english
     blockers:
@@ -87,3 +89,5 @@ notes: |-
   17. Lỗi ngoài lát, báo chứ không sửa: `snp4.12:1.2`, `2.1`, `6.3` dịch *viggayha* → *tranh chấp* (xem trên); `snp4.12:4.1` (bất định 1); `snp4.12:11.4` *pāva* → *ác* (bất định 9); `snp4.12:13.2` (bất định 2); `snp4.12:17.2` *uddhaṁsa*; `snp4.12:15.4`, `16.1` *sakāyane* → *trú xứ riêng* (nghĩa đen là *đường đi/lối đi riêng*, chưa phân xử); `snp4.12:10.1`–`10.2` tách *diṭṭhe sute sīlavate mute vā* thành *Nương tựa điều đã thấy, … giới cấm, điều đã tưởng* trong khi `snp4.5:2.2`, `snp4.4:3.2`, `mnd5:9.2`, `mnd4:16.2` dịch khác (6 nơi so với 1).
 
   **Bốn cổng kỹ thuật theo `AGENTS.md`:** `npm run validate`, `npm test`, `npm run check`, `npm run build`. Lát này **không** chạy bốn lệnh đó vì bị cấm trong từng lát ⇒ để CI hoặc người điều phối chạy. `technical_integrity` đặt **9.6**, không 10.0. Các phép tự kiểm đã chạy và đều xanh: tập khoá bản Việt = tập khoá Pāli (435/435, cùng thứ tự); nháy kép `“”` khớp Pāli từng khoá (0/435 lệch; 0 nháy đơn, 0 ngoặc đơn, 0 nháy thẳng, 0 thẻ HTML); dấu lược `…` khớp Pāli từng khoá (0/435 lệch; 14 khoá có `…`); 0 khoá rỗng; NFC; không khoảng trắng thừa; Pāli lọt sang Việt: chỉ có hai chữ *jāgu*, *indagu* ở `113.5` (giữ nguyên như `cnd16:20.2`, không có từ Việt tương đương).
+
+  Đối chiếu bản dịch mù độc lập 2026-10-14: một dịch giả khác (cùng họ công cụ) dịch lại bài từ Pāli không xem bản dịch của dự án; so 198 khoá chênh lệch lớn nhất (138 dòng Pāli khác nhau; đa số là các khổ kệ và lời giải lặp) → khác nghĩa 8 khoá (một lỗi): sửa 13 (8 khoá khác nghĩa, 5 khoá thuật ngữ), giữ các khoá còn lại, bất định 5. Sửa: `tathā samattā` ở 23.4, 27.1, 27.3, 29.4 (“vì kiến của họ cũng như vậy” → “vì kiến của họ cũng trọn vẹn như vậy”) và 77.4, 81.1, 81.3, 83.4 (“vì kiến của vị ấy là như vậy” → “vì kiến ấy của vị ấy trọn vẹn như vậy”): bản cũ bỏ mất `samattā`, trong khi lời giải 27.2 và 81.2 giải chính chữ ấy bằng “đã trọn vẹn, đã được thọ trì, …” (bản mù có “được thọ trì đầy đủ”). Cùng đợt rà nội bộ (không do bản mù phát hiện): `samatto` ở 77.1, 78.1, 78.8, 78.10, 83.1 “toàn vẹn” → “trọn vẹn”, vì ở 78.9 chính lời giải dịch `samatto` là “trọn vẹn”, và ở 2.4, 6.2, 91.2 “toàn vẹn” là `akevalī` còn “trọn vẹn” là `asamatto/samatta`. Giữ vì bản mù khác diễn đạt hoặc sai: 12.1 (`sacco nu vādo`), 25.7 (`mutīmā`, “có suy xét”), 46.3 (`pajā`, “dân chúng”), 53.2, 66.5, 77.3 (`abhisitto`, “làm lễ quán đảnh”), 92.2 (`tittha`), 113.1. Cả hai bản cùng đọc phủ định `navīvadātā` ở 23.1, 24.2 (theo lời giải; bản mù cũng ghi không chắc) và cùng dịch `iddhimanto` là “có thần lực/thần thông”. Bất định (c), vẫn còn: `sakāyane` (bản dự án “trú xứ riêng”, bản mù “con đường riêng”; lời giải 100.2 `Dhammo sakāyanaṁ, diṭṭhi sakāyanaṁ, paṭipadā sakāyanaṁ, maggo sakāyanaṁ` không phân xử được giữa “lối đi” và “chốn nương”), `pavādiyāse` (bản dự án “thuyết giảng”, bản mù “tranh biện”; lời giải 53.2 `vippavadantītipi` nghiêng về “tranh biện”, giữ theo `snp4.12:8.2` đã publish, người biên tập quyết), `tumo sahā` (84.2, 85.3–85.5, 89.2: chủ thể “chính mình” chưa phân xử), `aññatra saññāya niccāni` (58.2, 60.1) và `uddhaṁsa` (109.2, 111.1–111.8). Lỗi ngoài lát, báo chứ không sửa: `snp4.12:4.4` và `snp4.12:12.4` cũng bỏ `samattā`; `snp4.12:12.1` dịch `samatto` là “toàn vẹn”. Không có bản Anh hay bản Việt độc lập khác.

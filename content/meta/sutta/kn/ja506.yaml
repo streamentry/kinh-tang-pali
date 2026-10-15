@@ -3,7 +3,8 @@ status: review
 translationTitle: "Kinh Campeyya"
 translators:
   - "Claude Sonnet 5.5 (Claude Code)"
-reviewers: []
+reviewers:
+  - Claude Sonnet 5.5 (Claude Code)
 tags:
   - "kn"
   - "khuddaka-nikaya"
@@ -16,14 +17,14 @@ quality:
     source_provenance: 9.4
     semantic_fidelity: 8.3
     grammar_logic: 8.3
-    segment_alignment: 10.0
+    segment_alignment: 10
     terminology: 8.5
-    triangulation: 7.0
+    triangulation: 7.2
     vietnamese_clarity: 8.6
     han_viet_balance: 9.2
-    ambiguity_integrity: 9.0
+    ambiguity_integrity: 9
     technical_integrity: 9.6
-  final_score: 8.79
+  final_score: 8.809999999999999
   blocking_errors:
     - "noEnglishEditionUpstream: không có tầng tham khảo tiếng Anh tại commit đã
       ghim. `source/upstream-manifest.json` chỉ liệt kê
@@ -37,9 +38,10 @@ quality:
       trong tầng Việt đã dịch (xem notes); bài bắt buộc `draft` và
       `triangulation ≤ 8,0`. Đây là giới hạn upstream, không phải lỗi của người
       dịch."
-  assessed_at: "2026-10-11"
+  assessed_at: 2026-10-14
   assessed_by:
-    - "Claude Sonnet 5.5 (Claude Code)"
+    - Claude Sonnet 5.5 (Claude Code)
+  assessment_id: 10f7362b-252a-46b6-ad95-382ca6a4e384
   waiver:
     id: no-upstream-english
     blockers:
@@ -117,3 +119,5 @@ notes: |-
   **Coverage English (mục 7):** mẫu số = 0. Sau khi nén khoảng trắng, khoá Pāli dài nhất ngoài khối `:0` chỉ 35 ký tự (< 40, theo `source/layers.yaml`), nên không khoá nào có nội dung; 4 khoá `:0` bị loại trước. Đây là *cổng không đo được gì*, không phải *không cần ghi nhận*. Sujato: 0 tệp cho `ja506`; `english-project`: 0 tệp; `vietnamese-current`: 0 (chỉ Pháp Cú). Ba tầng đều vắng, nên `triangulation` 7,0 (≤ 8,0) và `status: draft` kèm blocker ở trên. Không đụng `content/meta/reference-gaps.yaml`.
 
   **technical_integrity = 9,6:** lát này cấm chạy cổng, nên không tuyên bố technical gate pass. Bốn lệnh còn lại do người điều phối chạy tập trung: `npm run validate` · `npm test` · `npm run check` · `npm run build`.
+
+  Đối chiếu bản dịch mù độc lập 2026-10-14: một dịch giả khác (cùng họ công cụ) dịch lại bài từ Pāli không xem bản dự án; so 27 khoá chênh lệch lớn nhất → khác nghĩa 5 khoá (`11.3`, `20.4`, `26.4`, `32.1`, `32.2`): sửa 0, giữ 0, bất định 5; 22 khoá còn lại chỉ khác diễn đạt, giữ. Bất định: `11.3` `catussadañca pallaṅkaṁ` (bài giữ phiên âm `catussada`, bản mù “đủ bốn phần” và ghi không chắc); `20.4` `yo tādisaṁ kammakataṁ na jāne` (bài đọc `kammakataṁ` là người đã làm việc ấy, bản mù đọc là việc đã làm, “không biết ơn việc làm như thế”; hai cách đều hợp ngữ pháp, và `katāni` ở `19.4` ủng hộ thêm cách đọc việc đã làm); `26.4` `kaṁsavijju` (bài “chớp đồng”, bản mù “đồng thau và tia chớp”, ghi không chắc); `32.1`–`32.2` `temā`, `āṭā` (bài giữ phiên âm `āṭā`; bản mù ghi không chắc). Bất định bổ sung khi rà toàn bài (ngoài danh sách): `42.3`–`42.4` (`karassu` đi với “nhà vàng” hay với “tường thành bạc”, bài ghép cả hai), `44.1`–`44.3` (`āvasa` có đối cách `Bārāṇasiṁ nagaraṁ`: ở trong thành Bārāṇasī hay trong cung điện vừa tả). Rà đối kháng toàn bài 186 khoá: nháy khớp Pāli từng khoá, không dấu lược; số `soḷasa` + `sahassa` = 16.000, `cātuddasī` = 14, `pañcadasī` = 15, `vāhasahassāni pañca` = 5.000 xe, `nikkhasataṁ` = 100 nikkha giữ nguyên; “rồng” cho `nāga`, “con rắn” cho `uraga`, “voi” cho `nāge` ở `23.3` nhất quán trong bài; không phát hiện thêm lỗi. Không có bản Anh hay bản Việt độc lập khác.

@@ -3,7 +3,8 @@ status: review
 translationTitle: "Kinh Thiên Nga Nhỏ"
 translators:
   - "Claude Sonnet 5.5 (Claude Code)"
-reviewers: []
+reviewers:
+  - Claude Sonnet 5.5 (Claude Code)
 tags:
   - "kn"
   - "khuddaka-nikaya"
@@ -14,16 +15,16 @@ tags:
 quality:
   scores:
     source_provenance: 9.4
-    semantic_fidelity: 8.2
-    grammar_logic: 8.3
-    segment_alignment: 10.0
+    semantic_fidelity: 8.3
+    grammar_logic: 8.5
+    segment_alignment: 10
     terminology: 8.6
-    triangulation: 7.0
+    triangulation: 7.4
     vietnamese_clarity: 8.6
     han_viet_balance: 9.2
-    ambiguity_integrity: 9.0
+    ambiguity_integrity: 9
     technical_integrity: 9.6
-  final_score: 8.79
+  final_score: 8.86
   blocking_errors:
     - "Không có tầng tham khảo tiếng Anh tại commit đã ghim:
       `source/upstream-manifest.json` chỉ liệt kê `kn/ja/ja502_root-pli-ms.json`
@@ -35,9 +36,10 @@ quality:
       chỉ từ Pāli root và đối chiếu tiền lệ nội bộ ⇒ bài bắt buộc `draft` và
       `triangulation ≤ 8,0`. Đây là giới hạn upstream, không phải lỗi của người
       dịch. (noEnglishEditionUpstream)"
-  assessed_at: "2026-10-10"
+  assessed_at: 2026-10-14
   assessed_by:
-    - "Claude Sonnet 5.5 (Claude Code)"
+    - Claude Sonnet 5.5 (Claude Code)
+  assessment_id: 8adedd3e-d0ad-453b-8a24-7d87ae8f2a80
   waiver:
     id: no-upstream-english
     blockers:
@@ -103,3 +105,5 @@ notes: |-
   **Coverage English (mục 7):** mẫu số = 0. Đo mọi khoá không phải khối `:0` (105 khoá), dài nhất sau khi nén khoảng trắng là 27 ký tự (< 40) nên 0/105 khoá có nội dung theo ngưỡng của `source/layers.yaml`; 4 khoá `:0` bị loại trước. Đây là *cổng không đo được gì*, không phải *không cần ghi nhận*. Sujato: 0 tệp cho `ja502`; `english-project`: 0 (không có tệp nào cho uid); `vietnamese-current`: 0 (chỉ Pháp Cú). Ba tầng đều vắng ⇒ `triangulation` 7,0 (≤ 8,0) và `status: draft` kèm blocker ở trên. Tôi không đụng `content/meta/reference-gaps.yaml`.
 
   **technical_integrity = 9,6:** lát này cấm chạy cổng, nên không tuyên bố technical gate pass. Bốn lệnh còn lại do người điều phối chạy tập trung: `npm run validate` · `npm test` · `npm run check` · `npm run build`.
+
+  Đối chiếu bản dịch mù độc lập 2026-10-14: một dịch giả khác (cùng họ công cụ) dịch lại bài từ Pāli không xem bản dự án; so 31 khoá chênh lệch lớn nhất → khác nghĩa 1: sửa 1, giữ 24, bất định 6 khoá (3 nhóm). Sửa: 4.1 `Nāhaṁ ‘dukkhapareto’ti`: bản mù đọc chủ thể của `dukkhapareto` là Dhataraṭṭha ("ngài đang bị khổ đau vây hãm"); `dukkhapareto` là cách chủ cách đồng cách với `ahaṁ` của `Nāhaṁ … jahe`, và khoá song song `ja534:4.1` (`Nāhaṁ dukkhaparetopi … tuvaṁ jahe`) nói về chính người nói, nên chủ thể là Sumukha; bản cũ để trống chủ thể trong lời trích → "nghĩ rằng ‘mình đang bị khổ đau chế ngự’". Bất định 4 ở trên (chủ thể của `dukkhapareto`) nhờ vậy đã phân xử. Giữ: 11.3, 25.2 và các khoá còn lại (bản mù đổi ngôi hoặc chỉ khác diễn đạt; 22.2 `jātiyā vinayena vā` giữ "giới hạnh" theo `ja254:2.2`, `ja304:3.2`). Bất định mới: (a) 1.2, 8.2, 9.3 `vakkaṅgā` là tính từ "thân cong" hay tên loài thiên nga (bản mù giữ nguyên chữ Pāli kèm dấu hỏi; tầng ghim dùng "kẻ thân cong" ở 12 khoá, giữ); (b) 6.1 `apadena padaṁ yāti`: câu đố về "không chân" và "chân", không phân xử được ai là chủ thể; (c) 24.1–24.2 `Asāre sārayogaññū`: "biết cách gắn với cốt lõi trong chỗ vô cốt lõi" giữ sát chữ, bản mù cũng đánh dấu chưa chắc. Review đối kháng toàn bài (109 khoá) không thấy lỗi nháy, số, xưng hô; `22.2` ("giới hạnh") và `25.3` ("giới hạnh") trùng chữ cho `vinaya` và `sīla` nhưng theo tiền lệ công thức. Không có bản Anh hay bản Việt độc lập khác.

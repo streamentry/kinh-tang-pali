@@ -53,6 +53,34 @@
       "notes": "Kiểm tra tự động 13 segment với Pāli trong cache: đủ ID, giá trị, NFC và hệ chữ Latin. Chưa đọc đối chiếu nghĩa, ngữ pháp hoặc văn phong; chưa chấm lại 10 tiêu chí. Đây không phải chứng nhận hash upstream hoặc giấy phép, không xác nhận trạng thái xuất bản.",
       "content_sha256": "0ad614300b876d03d997cd7ec1ba8f50f1337e9dd60f82a60592d4b6b168ea42",
       "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639"
+    },
+    {
+      "target": "translation",
+      "scope": "full",
+      "scores": {
+        "source_provenance": 9.4,
+        "semantic_fidelity": 8.3,
+        "grammar_logic": 8.5,
+        "segment_alignment": 10,
+        "terminology": 8.3,
+        "triangulation": 7.4,
+        "vietnamese_clarity": 8.8,
+        "han_viet_balance": 9.1,
+        "ambiguity_integrity": 8.4,
+        "technical_integrity": 9.6
+      },
+      "blocking_errors": [
+        "Thiếu tầng tham khảo English SuttaCentral: source/upstream-manifest.json (editions[english-sujato]) không có tệp nào cho bài này, và tại commit đã ghim không có bản Anh nào khác phủ được. AGENTS.md xem thiếu tầng tham khảo là lỗi chặn với review và published, nên bài phải ở draft cho tới khi tầng tham khảo có mặt."
+      ],
+      "assessed_at": "2026-10-14",
+      "assessed_by": [
+        "Claude Sonnet 5.5 (Claude Code)"
+      ],
+      "notes": "Đối chiếu một dịch lại độc lập (cùng họ công cụ) từ Pāli: 10/13 khoá chênh lệch, 8 khoá sửa vì sai nghĩa thật (bubhukkhito là đói, apacāyamāno là kính trọng, chủ ngữ ngôi ba của paviṭṭho), còn bất định ở selassa vaṇṇena, brahmavaṇṇa, brahmagutto. Triangulation trần 8,0 vì chỉ có một lần dịch lại cùng họ công cụ, không bản Anh hay bản Việt độc lập; còn ba chỗ chưa phân xử nên 7,4. technical_integrity 9,6: bốn lệnh npm run validate, npm test, npm run check, npm run build do người điều phối chạy sau. Đây là review của AI, không phải chứng nhận của chuyên gia Pāli.",
+      "id": "ef37ac5b-669b-434e-ae69-97e5acf1db95",
+      "content_sha256": "62984689166aba74edb1ffb9516c797fa6684981465117ef2da6140c6a987783",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
+      "final_score": 8.78
     }
   ],
   "legacy_quality": {

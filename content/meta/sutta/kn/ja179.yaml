@@ -3,7 +3,8 @@ status: review
 translationTitle: "Kinh Satadhammajātaka"
 translators:
   - "OpenCode Space Bunny Free (agent)"
-reviewers: []
+reviewers:
+  - Claude Sonnet 5.5 (Claude Code)
 tags:
   - khuddaka-nikaya
   - jataka
@@ -12,16 +13,16 @@ tags:
 quality:
   scores:
     source_provenance: 9.5
-    semantic_fidelity: 8.5
+    semantic_fidelity: 8.6
     grammar_logic: 8.8
-    segment_alignment: 10.0
-    terminology: 9.0
-    triangulation: 6.0
+    segment_alignment: 10
+    terminology: 9
+    triangulation: 7
     vietnamese_clarity: 8.8
-    han_viet_balance: 9.0
+    han_viet_balance: 9
     ambiguity_integrity: 8.6
     technical_integrity: 9.6
-  final_score: 8.78
+  final_score: 8.889999999999999
   blocking_errors:
     - "Không có tầng tham khảo English Sujato tại commit đã ghim 11c9d708: không
       có tệp en/sujato cho uid này (đã đếm bằng ls
@@ -29,9 +30,10 @@ quality:
       Việt hiện hành tại commit đã ghim chỉ có Pháp Cú nên cũng không có. Bài
       dịch chỉ từ Pāli root nên chưa đối chiếu được tầng tham khảo nào; thiếu
       tầng tham khảo là lỗi chặn, nên giữ draft và không tự nâng điểm."
-  assessed_at: "2026-10-11"
+  assessed_at: 2026-10-14
   assessed_by:
-    - "Claude Sonnet 5.5 (Claude Code)"
+    - Claude Sonnet 5.5 (Claude Code)
+  assessment_id: 733a28ca-8d2f-4d5f-9847-e4e0685244d5
   waiver:
     id: no-upstream-english
     blockers:
@@ -82,3 +84,5 @@ notes: |-
   (4) uggata ở 1.4: gốc ud + gam là đã đi lên, trào lên; trong tầng chỉ có từ này một lần ở nghĩa ăn uống, các lần khác đều là mọc lên, cao vút (suriya, giri). Chọn đã trào ngược lên vì (i) đi liền đồ ăn thừa, (ii) người nói tự nhận mình dòng bà-la-môn, tức đối lập ô uế, (iii) 2.3-2.4 nói lợi lộc có được mà không vui. Bản trước đọc uggata là dư dà quá mức nên dịch ăn thừa bề: cách đó không có điểm tựa từ vựng nào trong toàn tầng và tạo ra một câu tối nghĩa; bỏ.
   Bất định còn lại, không giải được: (a) uggata là đã trào ngược lên (ăn xong thì ói) hay nghĩa khác như thức ăn đã được nâng lên, đã dâng lên; không có bản Anh ở tầng đã ghim, không có chú giải trong kho, nên giữ theo ngữ cảnh và nghĩa gốc từ vựng. (b) Satadhammova có thể là Satadhammo + iva (như Satadhamma, đã chọn) hoặc Satadhammo + eva (chính Satadhamma). (c) Không xác định được người nói của kệ 1 và nhân vật Satadhamma từ chính văn kệ, nên không thêm chủ thể vào lời kinh. (d) kicchena là cách khó khăn, không nói rõ là miễn cưỡng hay gian nan; giữ nghĩa trung tính.
   Điểm đổi: semantic_fidelity 9.0 → 8.5, grammar_logic 9.1 → 8.8, terminology 9.1 → 9.0, vietnamese_clarity 9.2 → 8.8, han_viet_balance 9.2 → 9.0, ambiguity_integrity 9.2 → 8.6 (bản trước tuyên bố chắc chắn hơn mức cho phép), technical_integrity 9.5 → 9.6; source_provenance 9.5, segment_alignment 10.0 và triangulation 6.0 giữ. final_score 8.98 → 8.78. Các điểm hạ vì lỗi chính của bản trước nay mới lộ, không phải vì bản mới kém hơn. Kỹ thuật: 13/13 khoá, thứ tự khớp Pāli, NFC, nháy khớp Pāli từng khoá, 0 cặp Pāli trùng trong bài, không có Pāli lọt sang Việt ngoài tên bài. Chưa chạy npm run validate, npm test, npm run check, npm run build.
+
+  Đối chiếu bản dịch mù độc lập 2026-10-14: một dịch giả khác (cùng họ công cụ) dịch lại bài từ Pāli không xem bản dự án; so 6 khoá chênh lệch lớn nhất (`0.3`, `0.4`, `1.3`, `1.4`, `2.1`, `3.1`, trên 13 khoá) → khác nghĩa 0: sửa 0, giữ 0, bất định 1 (`1.4` `uggata`). `0.3`, `0.4`, `3.1` chỉ là cách đặt tên phẩm và tên bài (bản dự án theo khuôn *Phẩm …* và *Kinh <tên>*); `1.3` (*người thuộc dòng bà-la-môn* với *sinh ra là bà-la-môn*) và `2.1` (*ruồng bỏ* với *gạt bỏ*) cùng nghĩa. Ở `1.4` dịch giả mù, độc lập, cũng đọc `uggata` là nôn ra (*ói ra*), cùng hướng với *đã trào ngược lên* của bản dự án; vì cùng họ công cụ nên không coi là xác nhận. Bất định còn nguyên: `uggata` có thể mang nghĩa khác (thức ăn đã được nâng lên), và `Satadhammova` có thể là `Satadhammo` + `iva` (*như Satadhamma*, đã chọn) hoặc + `eva`. Rà đối kháng cả 13 khoá: đủ khoá, đúng thứ tự Pāli, nháy kép khớp Pāli từng khoá, không có dấu lược ở hai phía, không có cặp Pāli trùng trong bài; không sửa khoá nào. Không có bản Anh hay bản Việt độc lập khác nên `triangulation` chỉ nâng lên 7.0 (trần 8.0); `semantic_fidelity` 8.5 → 8.6 vì cách đọc khó nhất (`1.4`) trùng với một lần dịch lại độc lập; các điểm khác giữ nguyên. Đây là review của AI, không phải chứng nhận của chuyên gia Pāli.
