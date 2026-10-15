@@ -1,10 +1,11 @@
 uid: thi-ap21
-status: review
+status: draft
 translationTitle: "1. Ký Sự Về Trưởng Lão Ni Kuṇḍalakesā"
 translators:
   - "Claude Sonnet 5.5 (Claude Code)"
 reviewers:
   - Claude Sonnet 5.5 (Claude Code)
+  - Claude Opus 5.5 (Claude Code)
 tags:
   - "kn"
   - "khuddaka-nikaya"
@@ -44,33 +45,10 @@ quality:
       status là `review` hoặc `published`, nên bài bắt buộc `draft`.
       `triangulation` bị chặn ở 7.5 (không quá 8.0), không nâng điểm để né
       blocker."
-  assessed_at: 2026-10-14
+  assessed_at: 2026-10-15
   assessed_by:
-    - Claude Sonnet 5.5 (Claude Code)
-  assessment_id: d97d6d61-f404-4f74-ac3c-ffea6f151c8a
-  waiver:
-    id: no-upstream-english
-    blockers:
-      - "Không có tầng tham khảo tiếng Anh tại commit đã ghim
-        11c9d708978cde8ba61096d8a75f7ddfb846f639 (noEnglishEditionUpstream):
-        `source/upstream-manifest.json` không liệt kê tệp
-        `translation/en/sujato` nào cho `sutta/kn/thi-ap/`; tệp duy nhất liên
-        quan đến nhóm này là tệp tên
-        `name/sutta/thi-ap-name_translation-en-sujato.json`, không phải bản dịch
-        từng khoá, và tầng Sujato của `kn` chỉ có chín nhóm cp, dhp, iti, ja,
-        kp, snp, thag, thig, ud. Đây là `not-published-upstream`, KHÔNG phải
-        `not-synced`; cache cũng không có tệp thân kinh. Coverage đo theo công
-        thức `source/layers.yaml` (`substantivePaliMinChars: 40`, bỏ khối `:0`):
-        mẫu số 1 khoá Pāli có nội dung (`:55.1`, câu kết 66 ký tự; 220 khoá còn
-        lại đều ngắn hơn 40 ký tự hoặc là khối `:0`), Sujato phủ 0/1 = 0%, dưới
-        ngưỡng 0.8; ở phần kệ cổng không đo được gì. Lớp lấp `english-project`
-        không có tệp cho uid này, và `vietnamese-current` vắng vì tại commit đã
-        ghim tầng ấy chỉ có 26 tệp Pháp Cú. Cả ba tầng tham khảo đều vắng nên
-        bài chỉ dịch từ Pāli root; đây là giới hạn của snapshot upstream, không
-        phải lỗi người dịch, nhưng `scripts/validate.ts` coi tệp Anh thiếu là
-        lỗi khi status là `review` hoặc `published`, nên bài bắt buộc `draft`.
-        `triangulation` bị chặn ở 7.5 (không quá 8.0), không nâng điểm để né
-        blocker."
+    - Claude Opus 5.5 (Claude Code)
+  assessment_id: 8103550e-8493-444d-abcb-675a59fb0d22
 notes: |-
   Dịch trực tiếp từ Pāli root, đủ 221/221 khoá, thứ tự khoá như Pāli; commit đã ghim không có bản Anh cho toàn bộ `thi-ap` (xem blocking_errors). Bản Việt nguyên bài của Bhikkhu Indacanda ở mục Tra cứu toàn văn (không phân đoạn, không phải tầng store, giấy phép NOASSERTION) chỉ được đọc để kiểm nghĩa ở những chỗ khó, không sao chép; mọi câu Việt đều viết lại từ Pāli. Bài chỉ có một lượt đọc đối kháng cặp Pāli với Việt do chính người dịch làm, chưa có review độc lập.
   Tiền lệ: thi-ap20 (cùng công thức Padumuttara, vua Kikī, bảy công chúa), thi-ap22, thi-ap23, thi-ap24, thi-ap26 (cùng Phẩm Kuṇḍalakesī, cùng công thức), thi-ap1 (chuỗi cõi trời Dạ-ma đến Tha Hóa Tự Tại) và các bài tha-ap có chung công thức. Pāli trùng nguyên văn với các bài `*-ap` đã dịch (cả hai cây làm việc): 117/221 khoá; trong đó 110 khoá dùng đúng một dạng bản Việt đã có, 7 khoá khác có chủ ý: 3.4, 10.1, 10.2, 42.1 chỉ đổi ngôi tôi hoặc con thành ta theo phạm vi gần nhất; 29.2 đổi ta thành thiếp vì là lời người vợ nói với chồng; 43.1 thêm ta vì Pāli có `ahaṁ` (`suṇitvāhaṁ`) và đặt đầu câu như thi-ap22:29.1; 51.4 `buddhaseṭṭhassa sāsane` dịch trong lời dạy của Đức Phật tối thượng, vì tiền lệ duy nhất (2 khoá, tha-ap254) thêm bậc điện tôn mà Pāli không có.
@@ -84,3 +62,5 @@ notes: |-
   Tự kiểm: tập khoá Việt bằng tập khoá Pāli (221/221, cùng thứ tự); NFC, 0 khoá rỗng, 0 khoảng trắng thừa; 0 chữ số lọt vào thân kinh; 0 chữ Pāli lọt sang thân kinh ngoài tên riêng. `content/meta/reference-gaps.yaml` chưa có entry cho thi-ap21 (đã có thi-ap2, thi-ap26, thi-ap29); mẫu số coverage chỉ là 1 khoá. technical_integrity 9.6 vì lát này không chạy gate (brief cấm). Bốn lệnh gate do coordinator chạy trước khi xuất bản: `npm run validate`, `npm test`, `npm run check`, `npm run build`.
 
   Đối chiếu độc lập 2026-10-14: với bản Việt nguyên bài của Bhikkhu Indacanda (dòng đầu tệp ghi tác giả; dịch 2008). 8 khoá bất đồng nghĩa → sửa 0, giữ 5 (1.2 `sabbadhammāna pāragū`: bản nguyên bài dịch bậc Hữu Nhãn về tất cả các pháp, không ứng với `pāragū` của Pāli ghim, bản này giữ theo 27 trong 30 khoá cùng Pāli; 4.4 `subhaṁ`: bản nguyên bài đọc là tên Subhā, bản này tính từ cạnh `bhikkhuniṁ`, như đã ghi ở trên; 16.2 và 19.2 `bhikkhudāyī`, `bhikkhudāyikā`: bản nguyên bài ghi Bhikkhudāsī, Bhikkhudāsikā, dạng khác với `dāyī`, `dāyikā` của Pāli ghim; 41.1 `pucchissaṁ`: bản nguyên bài hiểu là tương lai, bản này quá khứ vì có `upetvā` và 41.3 nối tiếp), bất định 3 (25.2 `balimajjhāsayo`: hapax, hai bản cùng đoán ý định xấu; 28.1 `oropayassu`: bản nguyên bài dịch nàng phải chết, bản này hãy gỡ xuống đi, tân ngữ không nêu; 33.3 `migaṁ uṇṇā yathā evaṁ`: hình ảnh so sánh lạ ở cả hai bản; Pāli song song `ja419:7.3` ghi `migaṁ puṇṇāyateneva`, gợi ý `uṇṇā` là dạng biến của `puṇṇāyata` (hình ảnh kéo căng cung), chưa đủ để sửa). Các số (một trăm ngàn kiếp, hai mươi ngàn năm, bảy người con gái, thứ bảy) hai bản cùng. Lượt review đối kháng riêng đọc lại 221 cặp: không đổi khoá nào. Bản nguyên bài không phân đoạn nên đối chiếu ở mức đoạn, không phải mức khoá; không có bản Anh. Điểm triangulation 7.5 → 8.2, các tiêu chí khác giữ nguyên.
+
+  Lượt rà soát 2026-10-15 (Claude Opus 5.5, đọc đối kháng Pāli↔Việt cả 221 khoá, đối chiếu bản nguyên bài Bhikkhu Indacanda; không có đoạn song song): sửa 0 khoá. Giữ: 28.1 oropayassu 'hãy gỡ xuống đi' (bản nguyên bài hiểu 'nàng phải chết', không khớp dạng sai khiến của oropeti); 33.1 lahuñca 'nhẹ nhàng' khác 32.4 lahuṁ 'nhanh chóng' (cả hai nghĩa hợp lệ, ja419:6.4 và ja466:6.4 cũng dùng 'nhẹ'; không có căn cứ chọn một nghĩa, ghi để người biên tập cân nhắc thống nhất); 1.2 pāragū giữ theo tiền lệ. Bất định mở (không đổi): 25.2 balimajjhāsayo (hapax, blocker-hạng bất định đã ghi), 33.3 uṇṇā. Không sửa cụm chờ người biên tập: tiêu đề Ký Sự/số '1.', xưng hô ta/thiếp. Không có bằng chứng mới nên giữ nguyên điểm cũ; blocker tầng Anh giữ nguyên.
