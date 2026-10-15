@@ -3,7 +3,9 @@ status: published
 translationTitle: "Kinh Tội Lỗi"
 translators:
   - "OpenCode Space Bunny Free (agent)"
-reviewers: []
+reviewers:
+  - OpenCode Space Bunny Free (agent)
+  - Claude Sonnet 5.5 (Claude Code)
 tags:
   - "anguttara-nikaya"
   - "cong-hanh-nhom"
@@ -12,20 +14,21 @@ tags:
 quality:
   scores:
     source_provenance: 9.5
-    semantic_fidelity: 9.3
+    semantic_fidelity: 9.4
     grammar_logic: 9.3
-    segment_alignment: 10.0
+    segment_alignment: 10
     terminology: 9.2
-    triangulation: 8.0
+    triangulation: 8
     vietnamese_clarity: 9.2
     han_viet_balance: 9.3
     ambiguity_integrity: 8.8
     technical_integrity: 9.6
-  final_score: 9.22
+  final_score: 9.23
   blocking_errors: []
-  assessed_at: "2026-10-04"
+  assessed_at: 2026-10-15
   assessed_by:
-    - "OpenCode Space Bunny Free (agent)"
+    - Claude Sonnet 5.5 (Claude Code)
+  assessment_id: 5d2c4d3d-33b2-4d84-a04c-abf0d759ed03
 notes: |-
   `Vajjasutta`, bài đầu của `Kammakaraṇavagga`. 35 khoá, tất cả đã dịch. Bài này **có** tầng Anh Sujato tại commit đã ghim (`translation/en/sujato/sutta/an/an2/an2.1-10_translation-en-sujato.json`, 125 khoá), nên nó không cùng cảnh với 7 bài `kn` của lát.
 
@@ -44,3 +47,7 @@ notes: |-
   BẤT ĐỊNH ĐÃ GHI, KHÔNG GIẤU. `candavatiyā` ở `5.1` không có mục từ điển nào trong kho; dịch *lòng yêu cuồng nhiệt* như một cách đọc, và chỗ này **không** nâng `ambiguity_integrity`. `rāhu` trong *miệng Rāhu* giữ nguyên vì `an4.121` đã dùng tên này cho cùng hình phạt.
 
   Bốn cổng kỹ thuật theo `AGENTS.md`: `npm run validate`, `npm test`, `npm run check`, `npm run build`. Lát này **không** chạy bốn lệnh đó — BRIEF cấm `npm run validate|test|build|check` trong từng lát, nên để CI hoặc người điều phối chạy. `technical_integrity` đặt **9.6** vì mọi chốt tự động của `_hvi.kiểm` đã xanh (thiếu khoá, thừa khoá, ngoặc kép cân trên cả bài, NFC, không trùng nguyên văn Pāli, không lọt Pāli, khớp số dấu lược) và 35/35 khoá của chính bài này; chưa đủ 10.0 vì cổng `npm` và lượt rà của người chưa chạy.
+
+  Lô I1 2026-10-15 (Claude Sonnet 5.5 (Claude Code)): kiểm lại bằng Pāli và PED. `khārāpatacchikampi
+  karoti` là hình phạt cạo da bằng chất kiềm (PED p.236), không phải "nước muối xoáy"; đã sửa `hình
+  ‘nước muối xoáy’` thành `hình ‘cạo bằng chất kiềm’` theo cùng chuẩn với mn129, mn130, cnd20.

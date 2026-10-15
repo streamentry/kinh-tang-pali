@@ -3,7 +3,9 @@ status: published
 translationTitle: "Kinh Kệ Của Trưởng Lão Mahācunda"
 translators:
   - "OpenCode Space Bunny Free (agent)"
-reviewers: []
+reviewers:
+  - OpenCode Space Bunny Free (agent)
+  - Claude Sonnet 5.5 (Claude Code)
 tags:
   - "khuddaka-nikaya"
   - "thera-gatha"
@@ -12,20 +14,21 @@ tags:
 quality:
   scores:
     source_provenance: 9.6
-    semantic_fidelity: 9.5
+    semantic_fidelity: 9.6
     grammar_logic: 9.5
-    segment_alignment: 10.0
+    segment_alignment: 10
     terminology: 9.6
     triangulation: 9.4
     vietnamese_clarity: 9.5
     han_viet_balance: 9.5
     ambiguity_integrity: 9.5
     technical_integrity: 9.6
-  final_score: 9.57
+  final_score: 9.58
   blocking_errors: []
-  assessed_at: "2026-10-02"
+  assessed_at: 2026-10-15
   assessed_by:
-    - "OpenCode Space Bunny Free (agent)"
+    - Claude Sonnet 5.5 (Claude Code)
+  assessment_id: 56ab40e1-959c-4a63-980f-d7111639a336
 notes: |-
   CHỐT KHÔNG TỰ CHẠY — ĐÃ TỰ KIỂM THỦ CÔNG. `_hvi.kiểm` chỉ quét `cần` = khoá Pāli ≥ 40 ký tự. Ở CẢ 14 bài này khoá Pāli dài nhất chỉ **24–35 ký tự**, nên `cần` rỗng và vòng chốt NFC / trùng nguyên văn Pāli / Pāli lọt / số dấu lược **KHÔNG chạy lần này**. Tôi tự quét lại **182/182 khoá** bằng chính các hàm đó (`_chk_w3.py`, đọc `pal`, `lược`, `lọt_pāli`, `ngoặc`, `_TỪ`): **0 lỗi** — không khoá rỗng, không khoá thừa so với Pāli, không thiếu khoá, mọi chuỗi NFC, không trùng nguyên văn Pāli (trừ `0.1` = tên bộ Kinh, xem dưới), số dấu lược khớp Pāli **từng khoá**, ngoặc kép cân trên cả bài, đúng **một** cặp `“`…`”ti.` mỗi bài, không còn `(…)`, không sót `…pe…`, toàn bộ chữ cái đều là script Latin (đúng kiểm của `validate`). `save_vi` chạy sạch 14/14.
 
@@ -57,3 +60,4 @@ notes: |-
 
   KỸ THUẬT. Tôi KHÔNG chạy `npm run validate|test|check|build` — đợt này người điều phối cấm và chạy tập trung. Vì vậy `technical_integrity` chấm **9.6 chứ không phải 10.0** cho cả 14 bài; đó là hạn chế thật của lượt đánh giá này, không phải lời khen. Những gì chạy được thì đã chạy: JSON hợp lệ, NFC, khóa đúng UID, đủ khoá, dấu lược khớp từng khoá, ngoặc kép cân. Tệp YAML này parse lại bằng thư viện `yaml` của kho sau khi ghi.
   RIÊNG BÀI NÀY: `2.2` `Careyya` là **ngôi thứ hai số ít** (`Sevetha` và `vase` xung quanh đều là mệnh lệnh số ít), nên tôi dịch *hãy thực hành* chứ không *hãy ở tại*. `sukhāvaho` = *đem về an lạc* giữ động từ *đem*, không dịch thành *mang lại hạnh phúc*.
+  2026-10-15 kiểm mẫu ngẫu nhiên (Claude Sonnet 5.5, Claude Code): sửa 1.1–1.2 — `sussūsā sutavaddhanī` là sự mong muốn lắng nghe làm tăng trưởng sự học (suta), không phải mệnh lệnh 'cố gắng'; 1.2 `sutaṁ paññāya vaddhanaṁ` sự học làm trí tuệ tăng trưởng.

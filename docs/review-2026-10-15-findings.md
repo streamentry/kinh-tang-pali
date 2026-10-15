@@ -92,3 +92,19 @@ Mỗi mục: `[lô]` + nội dung. Số khoá dạng `uid:khoá`.
 - [wave2 G1/G2] mil7.6.9 sappa=RẮN (không phải chó rừng già) đã sửa 9 khoá + vài lỗi khác — notes cũ "accuracy fix 2026-10-04" gộp nhầm; snp4.12:4.1 na vīvadātā bất định; snp4.12:17.2 uddhaṁsa còn bất định; thi-ap17:191.2 "của lửa Jātaveda"; snp4.3:3.x, snp4.4:2.4 pāva chưa kiểm; "kiểu muối chua" còn mn130, mnd7, cnd20, mil6.3.3, mil6.4.2; sn20.1:1.4 "gò nhà"/tiêu đề "Kinh Gò Nhà" (kūṭāgāra=nhà có nóc nhọn; gopānasiyo=kèo); cnd7:6.2 avijjāsamugghātā; dn31:34.31 "tồn tại" giữ (có thể "có").
 - [wave2 G6] "đại kiếp" vs "kiếp" cần chuẩn chung (76 khoá đã bỏ "đại" khi Pāli không có `mahā`); `sampatti` còn dịch "quả báu"; "phong hàn" còn ở thag5.8:1.1 và thag6.11:1.1; nghĩa `bheṇḍu` (tha-ap350/523/339/503/558 đã đổi "quả cầu", còn bất định) và `kaṇḍa`; tha-ap83:6.1 cùng Pāli `Aciraṁ gatamattaṁ maṁ` như tha-ap350:5.1 nhưng giữ vì notes bài đó.
 - [wave2 G7] ja427 khổ 1–7 còn nhiều chỗ lệch nghĩa (1.3 "cha mẹ tôi", 3.4 "đáy giếng", 4.1 "trượt chân", 7.1 "Bậc khôn ngoan") chưa rà; ja369:3.1–3.4 chưa rà; `kapaṇo viya jhāyasi` ja374:4.4 và ja492:9.4 "ủ ê" chưa thống nhất với "ngồi trầm tư" (ja220); ja358:4–5 `ye na vadanti` bản Việt bỏ `na` và thêm "có thể" — bất định.
+
+## Kiểm mẫu ngẫu nhiên các bài đã published (đo độ tin cậy của điểm)
+
+Đọc đủ mọi khoá Pāli↔Việt của 40 bài đã `published` điểm ≥ 9,0, bốc ngẫu nhiên (hạt giống cố định) hoặc được chọn vì nghi vấn. Đếm khoá có lỗi nghĩa thật (sai phủ định, chủ thể, số lượng, quan hệ, từ vựng so với Pāli; không tính khác diễn đạt). Chỉ sửa khi Pāli xác nhận.
+
+| Nhóm (bài đã published) | Bài có lỗi nghĩa thật | Nhận xét |
+| --- | --- | --- |
+| Itivuttaka, Udāna, Suttanipāta, Khuddakapāṭha (có bản Anh Sujato) | 5/12 | Lỗi nhẹ, 1–2 khoá; ngoại lệ ud6.1 có một thuật ngữ lặp 8 lần ("tà thuyết" cho `parappavāda`). |
+| Vimānavatthu, Petavatthu, Buddhavaṁsa, Apadāna (chỉ Pāli) | 1/8 | Sạch hơn dự kiến: vv2, pv13, bv20, tha-ap33, ja485, thi-ap37, tha-ap164, tha-ap303 không có lỗi nghĩa. |
+| Theragāthā (có bản Anh Sujato) | 6/9 | Điểm cũ của nhóm này cao hơn mức hợp lý khoảng 0,3–0,5; thag2.47 (3/13 khoá), thag1.118 (3/5), thag7.4 (4/28), thag11.1 (9/55). |
+| Jātaka (hầu hết chỉ Pāli) | 10/13 | Nghiêm trọng nhất: ja383 sai 27/33 khoá (đảo vai mèo/gà), ja257 13/17, ja174 7/13, ja1 6/10, ja239 5/13 (tên bài "Chim Bồ Câu Xanh" cho `haritamaṇḍūka` = ếch xanh). |
+| Milindapañha, Cariyāpiṭaka | 2/3 | mil3.7.2 sai 5/13 (kể cả tiêu đề); mil5.3.7 rút gọn danh mục dài; cp23 3/45. |
+
+Các bài đã sửa và chấm lại, điểm chỉ tăng +0,1 mỗi tiêu chí khi sửa lỗi nghĩa thật.
+
+**Kết luận.** Điểm `final_score` > 9,0 của các bài này **không** đảm bảo bản dịch đúng nghĩa. Rủi ro tập trung ở (1) Jātaka chỉ có Pāli, (2) Theragāthā, (3) các bài do lượt chấm ngày 2026-10-02 của OpenCode. Chưa có mẫu đủ lớn cho các nhóm còn lại (SN, AN, DN, MN ngoài mn1–mn104). Một lượt kiểm toán toàn bộ Jātaka đã published (khoảng 460 bài không có bản Anh) là việc có giá trị nhất để làm tiếp.
