@@ -1,10 +1,11 @@
 uid: ja544
-status: review
+status: draft
 translationTitle: "Kinh Candakumāra"
 translators:
   - "Claude Sonnet 5.5 (Claude Code)"
 reviewers:
   - Claude Sonnet 5.5 (Claude Code)
+  - Claude Opus 5.5 (Claude Code)
 tags:
   - "khuddaka-nikaya"
   - "jataka"
@@ -14,16 +15,16 @@ tags:
 quality:
   scores:
     source_provenance: 9.4
-    semantic_fidelity: 8.2
-    grammar_logic: 8
+    semantic_fidelity: 8.7
+    grammar_logic: 8.7
     segment_alignment: 10
-    terminology: 8.3
-    triangulation: 7.6
-    vietnamese_clarity: 8.3
+    terminology: 8.4
+    triangulation: 8
+    vietnamese_clarity: 8.6
     han_viet_balance: 9.2
-    ambiguity_integrity: 8.4
+    ambiguity_integrity: 8.6
     technical_integrity: 9.6
-  final_score: 8.700000000000001
+  final_score: 8.919999999999998
   blocking_errors:
     - "noEnglishEditionUpstream: Thiếu bản dịch tiếng Anh đối chiếu. Tầng
       english-sujato tại commit đã ghim không có
@@ -32,20 +33,10 @@ quality:
       vietnamese-current chỉ có Pháp Cú và lớp english-project không có tệp cho
       bài này. Cả ba tầng tham khảo đều vắng nên triangulation bị chặn ở 7.5 (≤
       8.0) và bài giữ draft."
-  assessed_at: 2026-10-14
+  assessed_at: 2026-10-15
   assessed_by:
-    - Claude Sonnet 5.5 (Claude Code)
-  assessment_id: 6ec65562-1807-4763-8187-23d63e5e1182
-  waiver:
-    id: no-upstream-english
-    blockers:
-      - "noEnglishEditionUpstream: Thiếu bản dịch tiếng Anh đối chiếu. Tầng
-        english-sujato tại commit đã ghim không có
-        ja544_translation-en-sujato.json (ja chỉ có 83 tệp: ja1–79, ja126,
-        ja159, ja466, ja534; đây là not-published-upstream, không phải
-        not-synced), tầng vietnamese-current chỉ có Pháp Cú và lớp
-        english-project không có tệp cho bài này. Cả ba tầng tham khảo đều vắng
-        nên triangulation bị chặn ở 7.5 (≤ 8.0) và bài giữ draft."
+    - Claude Opus 5.5 (Claude Code)
+  assessment_id: ea9bf879-6d37-436d-a32c-63071c98ae53
 notes: |-
   Dịch trực tiếp từ Pāli root snapshot bilara đã ghim, đường dẫn `kn/ja/ja544_root-pli-ms.json` (700/700 khoá, đúng thứ tự Pāli, không khoá thừa). Bài toàn kệ: bốn dòng tiêu đề `0.1`–`0.4`, 171 bài kệ (`1`–`171`; phần lớn bốn dòng, riêng `31`, `46`, `119` có năm dòng và `65`, `96`, `99`, `107` có sáu dòng) và dòng kết bài `172.1`; phần văn xuôi khung truyện không nằm trong tầng Pāli đã ghim, nên người nói được suy từ xưng hô, nháy và mạch của chính các bài kệ. Bản một khoá cũ của bài (chỉ có `14.2`) do một lát dở trước để lại đã được thay hoàn toàn; `14.2` được dịch lại cho khớp phần còn lại. Nội dung chính (suy từ kệ): vua Ekarāja ở Pupphavatī hỏi chính sư Khaṇḍahāla đường lên cõi trời và được khuyên tế lễ bằng con trai, hoàng hậu, dân thành thị, bò đực, ngựa, voi, mỗi thứ bốn (`1`–`5`); vua truyền triệu tập hoàng tử, công chúa, hoàng hậu, gia chủ và các con vật báu, hẹn tế lễ lúc mặt trời mọc (`6`–`16`); mẹ rồi cha của vua can ngăn nhưng vua theo lời các thầy (`17`–`27`); các hoàng tử xin làm nô lệ thay vì bị giết, vua chùn lại, Khaṇḍahāla thúc ép (`28`–`49`); Canda phản biện (`35`–`60`); phụ nữ, Selā và Vasula van xin, vua lại chùn, Khaṇḍahāla thúc ép (`61`–`68`); đoàn vợ con theo sau, dân than khóc (`69`–`104`), rồi các phụ nữ than và nguyền Khaṇḍahāla (`105`–`115`); các hoàng tử xin lần nữa và từ biệt mẹ (`116`–`127`); lời trang sức cuối, Candā xin chết thay chồng (`128`–`143`); lời than khi các hoàng tử sắp bị chém (`144`–`152`); Candā đọc lời chân thật, một phi nhân quát vua (`153`–`159`); các hoàng tử được thả, Khaṇḍahāla bị đám đông ném đất, Canda được tôn lên ngôi (`160`–`171`).
   - Tầng tham khảo:
@@ -109,3 +100,6 @@ notes: |-
     Công cụ kiểm của kho chưa chạy ở bước này, nên `technical_integrity` đặt 9.6 và không tuyên bố technical gate pass; còn phải chạy: `npm run validate`, `npm test`, `npm run check`, `npm run build`.
 
   Đối chiếu bản dịch mù độc lập 2026-10-14: một dịch giả khác (cùng họ công cụ) dịch lại bài từ Pāli không xem bản dự án; so 117 khoá chênh lệch lớn nhất (trên 700 khoá) → khác nghĩa 14 nhóm: sửa 0, giữ 9, bất định 5. Giữ: 64.1 `āvatti parivatti ca, vasulo` (bản mù đọc thành tên "Āvatti và Parivatti"; bản dự án đọc hai động từ quá khứ "lăn lộn, lật qua lật lại" với chủ ngữ Vasula, vì `āvatti` là thể aorist như `paccudāvatti` ở dn20:21.15 và cấu trúc "vị ngữ đi trước, chủ ngữ ở cuối" giống 63.1 `kapaṇā vilapati selā`; thêm nữa `no pitaraṁ` ở 64.3 là lời chung của các con); 57.3–57.4 (bản mù đọc lệch người nói, thành lời vua về dân quê, không khớp `amhi` ở 57.1); 31.3, 46.3, 119.3 `yassa honti tava kāmā` ("cho người nào ngài ưng ý" so với "tùy theo ý muốn của bệ hạ", cùng ý); 41.3–41.4 (bản mù bỏ `aggapiṇḍikā`); 105.4 và 106.4 `pāṇā me deva rujjhanti`; 60.3 `pukkusakulesu vā vessesu vā` (khớp mn129:25.2); 11.3 `sikhino`; 1.3 `brahmabandhu`; 157.2 `ayokūṭa` (búa sắt so với chùy sắt). Bất định: 138.3 và 139.3 `ye na vadanti rājānaṁ` (giữ "những người có thể can ngăn nhà vua" theo mạch và khuôn đã dùng ở ja358:4.3, 5.3, nghĩa là phủ định `na` của `vadanti` không dịch riêng; bản mù dịch sát chữ "những người không nói với nhà vua"; Pāli gốc không giải được hai cách, đã thử đối chiếu cấu trúc `na hi nūnimassa` ở sn7.10 mà vẫn không dứt); 40.2 `na maṁ khaṇḍahālo ghāteyya` ("sẽ không chỉ giết con" so với câu hỏi tu từ của bản mù; cách đọc dự án dựa vào 40.3–40.4); 107.1 `kinnumā na ramāpeyyuṁ` (`mā` có thể là "maṁ" nên đọc "làm ta vui" như bản mù, thay vì "làm cho nhau vui"; không phân xử được); 120.3 `paṭibhānāni` ("tài khéo" so với "vật bảo chứng"; nghĩa chưa xác định trong ngữ cảnh người nghèo cầu con); 12.2 và 14.1 (`varuṇadantaṁ`, `anojaṁ`: tên hay tính từ chưa phân xử). Các chênh còn lại (tiêu đề, nhóm kệ lặp 71–80, 89–99, 100–103, 144–152, 163–170; đại từ "con/thiếp/chúng thần" theo người nói; "bệ hạ" so với "đại vương") chỉ là diễn đạt. Review đối kháng toàn bài: đủ 700/700 khoá và thứ tự; nháy kép và nháy đơn khớp Pāli từng khoá (44 kép mở, 44 kép đóng, 4 đơn mở, 4 đơn đóng); dấu lược 0 và 0 (phép chạy rỗng); số Pāli đọc lại (bốn của `catūhi` ở 5.3, 17.4, 22.4, 81–88; 700 của `sattasatā` ở 69.1; trăm và bảy phần ở 141–142) đều khớp; xưng hô theo người nói nhất quán. Không đổi khoá nào. Không có bản Anh hay bản Việt độc lập khác. Đây là review của AI, không phải chứng nhận của chuyên gia Pāli.
+
+  Lượt rà soát 2026-10-15 (Claude Opus 5.5, đọc đối kháng Pāli↔Việt đủ 700 khoá; không có bản Việt nguyên bài trong sc-data cho bài này; đoạn song song ja358:4–5, ja543:162): sửa 11 khoá. Sai quan hệ logic: `54.1`–`54.3` `sace hi so sujjhati yo hanāti, hatopi so saggamupeti ṭhānaṁ; bhovādi bhovādina mārayeyyuṁ` — bản cũ biến `54.2` thành mệnh đề kết quả ("thì chính người bị giết cũng đạt đến cõi trời"), trong khi `hatopi` (-pi = cũng) là vế điều kiện thứ hai và kết luận ở `54.3` (optative `mārayeyyuṁ`); nay "Nếu… được thanh tịnh, và người bị giết cũng đạt đến cõi trời, thì những người xưng hô bằng tiếng bho hãy giết lẫn nhau". Cùng công thức ở `ja543:162.1`–`162.3` (ngoài lô) còn lỗi này. Thiếu ý: `135.1` `handayya` bỏ hô ngữ `ayya` → thêm "thưa ngài". Sai xưng hô: `135.4` `ubhopi` = Candā và Canda (`135.2`), "cả hai chúng thiếp" sai người → "cả hai vợ chồng thiếp". Rõ nghĩa: `6.2` thêm "rằng" để lộ nội dung điều được nghe (`haññantu`); `19.2`, `24.2` `mā taṁ saddahesi, sugati kira hoti puttayaññena`: nội dung của `taṁ`, `kira` = "như người ta nói" (bản cũ đọc như lời khẳng định của người mẹ); `16.4` `ajja … ratti` → "đêm nay"; `155.3` `veyyāvaṭika` → "giúp sức" thay "phục vụ" (`ja506:22.4` dùng "phục vụ" cho lời hứa của người hầu, khác ngữ cảnh lời khẩn cầu); `161.4` `esa vadho khaṇḍahālassa` → "Khaṇḍahāla đã bị giết như thế" thay cụm danh hoá "sự giết chết Khaṇḍahāla".
+  Giữ: `138.3`, `139.3` viết hoa "Những" sau dấu chấm phẩy theo nguyên văn `ja358:4.3`, `5.3` đã dùng lại; `171.3` `nandiṁ pavesi nagaraṁ` đọc `nagaraṁ` là chủ ngữ trung tính ("thành phố đi vào niềm vui"), hợp ngữ pháp. Bất định giữ như các mục trên (`57.3`–`57.4`, `107.1`, `120.3`, `159`, `162.1`); `112.3` `ghātesi` dịch "đã giết" dù các hoàng tử chưa bị giết (aorist dùng trong lời nguyền), chưa đổi.
