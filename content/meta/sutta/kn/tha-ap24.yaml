@@ -1,10 +1,11 @@
 uid: tha-ap24
-status: review
+status: draft
 translationTitle: "2. Bài Kệ Tuyên Ngôn Về Trưởng Lão Upavāna"
 translators:
   - "Claude Sonnet 5.5 (Claude Code)"
 reviewers:
   - Claude Sonnet 5.5 (Claude Code)
+  - Claude Opus 5.5 (Claude Code)
 tags:
   - "khuddaka-nikaya"
   - "therapadana"
@@ -16,13 +17,13 @@ quality:
     semantic_fidelity: 8.6
     grammar_logic: 8.5
     segment_alignment: 10
-    terminology: 8.8
+    terminology: 8.9
     triangulation: 8.5
     vietnamese_clarity: 8.7
     han_viet_balance: 9.2
     ambiguity_integrity: 8.7
     technical_integrity: 9.6
-  final_score: 9
+  final_score: 9.01
   blocking_errors:
     - "noEnglishEditionUpstream: tầng english-sujato đã ghim chỉ phủ 9
       sub-collection của kn (cp, dhp, iti, ja, kp, snp, thag, thig, ud = 755
@@ -37,26 +38,10 @@ quality:
       bài dịch chỉ dựa vào Pāli root và tiền lệ nội tầng tha-ap; triangulation
       bị chặn ở 7.0 chứ không nâng để né blocker, và status giữ draft. Điểm cao
       không cứu được blocker."
-  assessed_at: 2026-10-14
+  assessed_at: 2026-10-15
   assessed_by:
-    - Claude Sonnet 5.5 (Claude Code)
-  assessment_id: e13db899-a0a1-42f8-86d6-e98c12dbcd45
-  waiver:
-    id: no-upstream-english
-    blockers:
-      - "noEnglishEditionUpstream: tầng english-sujato đã ghim chỉ phủ 9
-        sub-collection của kn (cp, dhp, iti, ja, kp, snp, thag, thig, ud = 755
-        tệp) và không có tệp thân kinh nào cho tha-ap (tệp tha-ap duy nhất trong
-        tầng là tệp tên name/sutta/tha-ap-name, không phải thân kinh; đây là
-        giới hạn của bản chụp upstream, không phải tệp chưa tải); tầng
-        vietnamese-current chỉ có 26 tệp Pháp Cú và tầng english-project không
-        có entry cho tha-ap24. Mẫu số coverage theo ngưỡng 40 ký tự là 1 khoá
-        (tha-ap24:55.1, lời kết, 59 ký tự), Sujato phủ 0/1; 224 khoá còn lại là
-        tiêu đề và các vế kệ ngắn dưới 40 ký tự (dài nhất 59, mọi vế kệ dưới 40)
-        nên cổng coverage hầu như không đo được gì. Ba tầng tham khảo đều vắng,
-        bài dịch chỉ dựa vào Pāli root và tiền lệ nội tầng tha-ap; triangulation
-        bị chặn ở 7.0 chứ không nâng để né blocker, và status giữ draft. Điểm
-        cao không cứu được blocker."
+    - Claude Opus 5.5 (Claude Code)
+  assessment_id: ef9ce3a3-3ecb-46a9-a79f-9527ce43f174
 notes: |-
   Bài này. `tha-ap24` · phẩm `Subhūtivagga` (`Phẩm Subhūti`) · bài thứ hai của phẩm · Trưởng lão Upavāna · 225 khoá Pāli:
   tiêu đề `:0.1`–`:0.3`, 54 kệ `:1.1`–`:54.4` (riêng `:18` có sáu dòng, `:19` có sáu dòng), câu kết `:55.1`, câu chốt `:56.1`. Tệp dịch có đủ 225/225
@@ -133,3 +118,14 @@ notes: |-
   `technical_integrity` đặt 9,6 vì chưa chạy cổng kỹ thuật của kho. Bốn lệnh còn lại cần chạy trước khi chốt: `npm run validate` · `npm test` · `npm run check` · `npm run build`.
 
   Đối chiếu độc lập 2026-10-14: với bản Việt nguyên bài của Bhikkhu Indacanda, đọc đủ 225 khoá. 5 khoá bất đồng nghĩa → sửa 0, giữ 5 (5.1: `pañcamiyā bhūmi` bản nguyên bài là “viền mép của tầng thứ năm”, bản dự án “tầng thứ năm”; 6.2: `vedikā` “lan can” so với “bục nền”; 25.4: `kumbhayakkhakā` bản nguyên bài bỏ dạ-xoa khỏi danh sách; 33.1: `viruddhā` “chống đối” so với “không có niềm tin”; 40.1: `ānanda` bản dự án hiểu là “hoan hỷ” (song song `tha-ap562:41.1` là `ānandī`), bản nguyên bài hiểu là danh từ “niềm vui”), bất định 0. Các số 86.000 (`chaḷāsīti`), 60.000 nhạc cụ, ba mươi ngàn kiếp (`tiṁsa` 30 × `sahassa`), tám mươi lần, một ngàn lần, một trăm ngàn kiếp, tám mươi koṭi, chiều cao 1–7 do-tuần của bảo tháp qua các hội chúng, một trăm do-tuần ánh sáng đã tính lại, khớp bản nguyên bài. Bản nguyên bài không phân đoạn nên đối chiếu ở mức đoạn, không phải mức khoá; không có bản Anh.
+
+  Lượt rà soát 2026-10-15 (Claude Opus 5.5, đọc đối kháng Pāli↔Việt toàn bộ 225 khoá, đối chiếu bản
+  nguyên bài Bhikkhu Indacanda, đoạn song song tha-ap562 cho 32.1, 41.3–44.3): sửa 5 khoá: 41.4, 42.4,
+  44.4, 53.4 quả báu đổi thành quả báo, vì phalaṁ là kết quả, báu nghĩa là quý và làm lệch nghĩa; đa
+  số tiền lệ cùng Pāli dhajadānassidaṁ phalaṁ (5/6) dùng quả báo, nhất quán với 39.4 và 40.3; 34.1
+  thành xứ Haṁsavatī đổi thành thành Haṁsavatī, vì Pāli nagare là thành, khớp 3/3 tiền lệ. Giữ các chỗ
+  khác bản nguyên bài như đã ghi 2026-10-14 (5.1, 6.2, 25.4, 33.1, 40.1); không sửa Pāli, không có chữ
+  ghim hỏng cần phân xử. Báo, không sửa ngoài bài: tha-ap155 còn một khoá cùng Pāli dịch quả báu; 48.4
+  brahmabandhu dịch người dòng Bà-la-môn trong khi tha-ap3:135.2 dịch thân quyến của Phạm thiên (hai
+  cách đều có trong tầng, cần người biên tập phán chung). Bất định giữ nguyên như đã ghi (29.1–29.4,
+  35.2, 40.1–40.2).
