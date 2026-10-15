@@ -81,6 +81,34 @@
       "content_sha256": "5b93b18882e615ae1d1b63fd9d3db9c241e59f7ab9004a90a98fc43403db5d82",
       "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
       "final_score": 8.73
+    },
+    {
+      "target": "translation",
+      "scope": "full",
+      "assessed_at": "2026-10-15",
+      "assessed_by": [
+        "Claude Opus 5.5 (Claude Code)"
+      ],
+      "scores": {
+        "source_provenance": 9.4,
+        "semantic_fidelity": 8.4,
+        "grammar_logic": 8.4,
+        "segment_alignment": 10,
+        "terminology": 8.6,
+        "triangulation": 7.2,
+        "vietnamese_clarity": 8.7,
+        "han_viet_balance": 9,
+        "ambiguity_integrity": 8.5,
+        "technical_integrity": 9.6
+      },
+      "blocking_errors": [
+        "Thiếu hẳn tầng tham khảo English Sujato tại commit đã ghim 11c9d708978cde8ba61096d8a75f7ddfb846f639: đếm trực tiếp trên source/upstream-manifest.json (cùng commit) cho thấy tầng translation/en/sujato có 4.291 tệp, trong đó thư mục sutta/kn/ja/ chỉ có 83 tệp, không có tệp nào chứa khoá của bài này; hàm upstreamPublishes của kho trả về false cho đường dẫn này, nghĩa là SuttaCentral không phát hành bản Anh nào phủ bài này tại commit đã ghim. Tầng vietnamese-current cũng không có (đúng 26 tệp, chỉ Pháp Cú), nên bài chỉ đối chiếu được với Pāli root một mình. Đây là giới hạn của bản chụp upstream, không phải thiếu sót của kho, nhưng theo AGENTS.md thì thiếu tầng tham khảo là lỗi chặn đối với review và published, và tests/unit/reference-source.test.ts kiểm đúng điều đó. Bài đặt draft và không nâng điểm để né."
+      ],
+      "notes": "Sửa 3 khoá: aggapiṇḍa (sai nghĩa, theo tiền lệ mn5/mn99), bỏ quan hệ nhượng bộ thêm vào ở 2.4, số nhiều cho tāta ở 3.3. Bất định 2.2, 3.2 còn nên không chấm cao hơn.",
+      "id": "8f7559f9-f70f-4d0e-ab7c-e652c87a13a5",
+      "content_sha256": "60e9e9cf826c9905c1050dff8c31214ca56cffa6f8e358d6bc1a629250db170a",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
+      "final_score": 8.78
     }
   ],
   "legacy_quality": {

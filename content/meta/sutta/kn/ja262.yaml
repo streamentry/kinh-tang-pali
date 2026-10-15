@@ -1,11 +1,12 @@
 uid: ja262
-status: review
+status: draft
 translationTitle: "Kinh Bàn Tay Mềm"
 translators:
   - "OpenCode Space Bunny Free (agent)"
 reviewers:
   - OpenCode Space Bunny Free (agent)
   - Claude Sonnet 5.5 (Claude Code)
+  - Claude Opus 5.5 (Claude Code)
 tags:
   - "jataka"
   - "khuddaka-nikaya"
@@ -15,16 +16,16 @@ tags:
 quality:
   scores:
     source_provenance: 9.4
-    semantic_fidelity: 8
+    semantic_fidelity: 8.2
     grammar_logic: 8.3
     segment_alignment: 10
-    terminology: 8.4
+    terminology: 8.5
     triangulation: 7.6
-    vietnamese_clarity: 8.5
+    vietnamese_clarity: 8.7
     han_viet_balance: 9
     ambiguity_integrity: 8.4
     technical_integrity: 9.6
-  final_score: 8.72
+  final_score: 8.77
   blocking_errors:
     - "Thiếu hẳn tầng tham khảo English Sujato tại commit đã ghim
       11c9d708978cde8ba61096d8a75f7ddfb846f639: đếm trực tiếp trên
@@ -38,25 +39,10 @@ quality:
       của kho, nhưng theo AGENTS.md thì thiếu tầng tham khảo là lỗi chặn đối với
       review và published, và tests/unit/reference-source.test.ts kiểm đúng điều
       đó. Bài đặt draft và không nâng điểm để né."
-  assessed_at: 2026-10-14
+  assessed_at: 2026-10-15
   assessed_by:
-    - Claude Sonnet 5.5 (Claude Code)
-  assessment_id: dc21618f-73a0-4282-a713-eed77926ec8e
-  waiver:
-    id: no-upstream-english
-    blockers:
-      - "Thiếu hẳn tầng tham khảo English Sujato tại commit đã ghim
-        11c9d708978cde8ba61096d8a75f7ddfb846f639: đếm trực tiếp trên
-        source/upstream-manifest.json (cùng commit) cho thấy tầng
-        translation/en/sujato có 4.291 tệp, trong đó thư mục sutta/kn/ja/ chỉ có
-        83 tệp, không có tệp nào chứa khoá của bài này; hàm upstreamPublishes
-        của kho trả về false cho đường dẫn này, nghĩa là SuttaCentral không phát
-        hành bản Anh nào phủ bài này tại commit đã ghim. Tầng vietnamese-current
-        cũng không có (đúng 26 tệp, chỉ Pháp Cú), nên bài chỉ đối chiếu được với
-        Pāli root một mình. Đây là giới hạn của bản chụp upstream, không phải
-        thiếu sót của kho, nhưng theo AGENTS.md thì thiếu tầng tham khảo là lỗi
-        chặn đối với review và published, và tests/unit/reference-source.test.ts
-        kiểm đúng điều đó. Bài đặt draft và không nâng điểm để né."
+    - Claude Opus 5.5 (Claude Code)
+  assessment_id: 29598be0-56b9-41dd-abec-41fa871190ec
 notes: |-
   LÁT NÀY KHÔNG CÓ TẦNG THAM KHẢO NÀO, ĐÃ ĐẾM KHÔNG SUY. Với mười ba bài Jātaka này:
   source/upstream-manifest.json tại commit đã ghim 11c9d708978cde8ba61096d8a75f7ddfb846f639 ghi tầng translation/en/sujato có 4.291
@@ -132,3 +118,11 @@ notes: |-
   thần lửa theo chữ Pāli thay vì dịch thành lửa thiêu.
 
   Đối chiếu bản dịch mù độc lập 2026-10-14: một dịch giả khác (cùng họ công cụ) dịch lại bài từ Pāli, không xem bản dự án; so 14 khoá chênh lệch lớn nhất. Khác nghĩa 12: sửa 12, giữ 0, bất định 3 (1.2, 1.3, 1.4, còn trong số đã sửa). Bản cũ sai nặng nên viết lại 13 khoá (0.4, 1.1–1.4, 2.1–2.4, 3.1, 3.3, 3.4, 4.1; riêng 2.4 chỉ đổi dấu câu cho khớp Pāli). Các lỗi chính: 1.1 `pāṇi muduko` 'càng của hắn cùn' → 'bàn tay mềm mại' (pāṇi là tay, mudu là mềm; Pāli không có chữ nào là cua/càng) và theo đó tiêu đề 0.4, 4.1 'Con Cua Móng Cụt' → 'Bàn Tay Mềm' (tên bài `Mudupāṇi`); 1.2 `nāgo cassa sukārito` 'phần thưởng … đã được tuyên rõ ràng' → 'và con voi được làm cho khéo' (nāga là voi, không có nghĩa phần thưởng; sukārita là làm khéo); 1.3–1.4 `andhakāro ca vasseyya, atha nūna tadā siyā` 'thì chắc chắn hắn sẽ phải chịu bóng tối ấy' → 'và bóng tối đổ mưa, thì hẳn lúc ấy sẽ có' (vasseyya là mưa; câu kết giữ như ja425, 11/11 khoá); 2.1–2.3 `analā mudusambhāsā … sīdanti` 'không phải lời lẽ trong lành … họ xấu hổ' → 'không biết đủ, lời nói dịu ngọt … người ta chìm xuống' (sīdati là chìm); 3.1 `yaṁ etā upasevanti` 'kẻ nào đến gần chúng' → 'người nào những nàng ấy thân cận' (etā là chủ ngữ, yaṁ là tân ngữ; bản cũ đảo chủ–tân); 3.3–3.4 `Jātavedova saṁ ṭhānaṁ … anudahanti naṁ` 'chắc chắn nơi ấy, lửa Jātavedas … làm cho chúng tan tành' → 'như lửa thiêu chính nơi nó trú … họ nhanh chóng thiêu đốt kẻ ấy' (so sánh với lửa; naṁ là số ít). Các khoá 2.1–3.4 nay trùng nguyên văn cách dịch đã có ở ja507:26–28 và ja536:100–102 (cùng Pāli). Bất định còn lại ở câu 1.1–1.4: Pāli ghim không kèm truyện nên không biết ai nói gì; `sukārito` (làm khéo, có thể là huấn luyện/chuẩn bị) và `andhakāro … vasseyya` (bóng tối đổ mưa, hay đêm tối mưa) đọc sát chữ nhất có thể; `tadā siyā` không có tân ngữ. Tiêu đề 0.4/4.1 đã đổi nhưng `translationTitle` trong metadata vẫn là tên cũ, cần đồng bộ. Ngoài lát: ja263:2.3, 3.1, 3.3, 3.4 trùng nguyên Pāli với ja262 và còn nguyên lỗi cũ (cùng 'họ xấu hổ', 'kẻ nào đến gần chúng', 'lửa Jātavedas … chúng tan tành'). Không có bản Anh hay bản Việt độc lập khác; mọi phân xử dựa vào Pāli và tiền lệ nội bộ tầng.
+
+  Lượt rà soát 2026-10-15 (Claude Opus 5.5, đọc đối kháng Pāli↔Việt; đoạn song song ja263, ja507,
+  ja536 cùng Pāli 2.3–3.4): sửa 4 khoá: 1.2 sukārito "được làm cho khéo" (calque) → "được luyện kỹ";
+  1.3 "bóng tối đổ mưa" → "trời tối đổ mưa" (andhakāro … vasseyya, rõ hơn, không đổi nghĩa); 3.2 bỏ
+  "dù" và "mong" mà Pāli chandasā vā dhanena vā không có → "hoặc vì ham muốn, hoặc vì của cải" (thống
+  nhất với ja263:3.2); 3.4 "kẻ ấy" → "người ấy" thống nhất với ja263:3.4 (cùng Pāli). Bất định 1.1–1.4
+  (không có khung truyện, tadā siyā không tân ngữ) giữ nguyên. Ghi cho người biên tập: ja507:28.2 và
+  ja536:102.2/102.4 (ngoài lô) còn "dù vì ham muốn hay vì mong của cải" / "kẻ ấy".

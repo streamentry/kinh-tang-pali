@@ -1,10 +1,11 @@
 uid: ja229
-status: review
-translationTitle: "9. Kinh Kẻ Đào Tẩu"
+status: draft
+translationTitle: "Kinh Kẻ Bỏ Chạy"
 translators:
   - "OpenCode Space Bunny Free (agent)"
 reviewers:
   - Claude Sonnet 5.5 (Claude Code)
+  - Claude Opus 5.5 (Claude Code)
 tags:
   - "jataka"
   - "dukanipata"
@@ -19,9 +20,9 @@ quality:
     triangulation: 7.8
     vietnamese_clarity: 8.6
     han_viet_balance: 9.2
-    ambiguity_integrity: 8.2
+    ambiguity_integrity: 8.3
     technical_integrity: 9.6
-  final_score: 8.86
+  final_score: 8.87
   blocking_errors:
     - "Tầng Anh Sujato không có ở commit đã ghim
       11c9d708978cde8ba61096d8a75f7ddfb846f639:
@@ -32,22 +33,10 @@ quality:
       phép sửa content/meta/reference-gaps.yaml trong phạm vi lát này. Đây là
       giới hạn của bản chụp upstream, không phải thiếu sót của kho, nhưng vẫn là
       lý do giữ bài ở draft."
-  assessed_at: 2026-10-14
+  assessed_at: 2026-10-15
   assessed_by:
-    - Claude Sonnet 5.5 (Claude Code)
-  assessment_id: 726d5ce6-057e-4151-b924-785d56883909
-  waiver:
-    id: no-upstream-english
-    blockers:
-      - "Tầng Anh Sujato không có ở commit đã ghim
-        11c9d708978cde8ba61096d8a75f7ddfb846f639:
-        .cache/upstream/suttacentral/translation/en/sujato/sutta/kn/ja/ chỉ có
-        83 file (ja1-79, ja126, ja159, ja466, ja534), trong đó không có bài này;
-        tức coverage Anh = 0/0 khoá Pāli có nội dung = 0,0%. SuttaCentral không
-        phát hành bản Anh nào khác phủ bài này tại commit đã ghim, và tôi không
-        được phép sửa content/meta/reference-gaps.yaml trong phạm vi lát này.
-        Đây là giới hạn của bản chụp upstream, không phải thiếu sót của kho,
-        nhưng vẫn là lý do giữ bài ở draft."
+    - Claude Opus 5.5 (Claude Code)
+  assessment_id: 8c02f725-6691-4a3d-b415-32ff068b024c
 notes: |-
   Đây là bài khó nhất lát, và tôi hạ điểm vì thật: 1.1-1.3 là một danh sách ghép tên riêng với đám đông, không có tầng Anh nào để đối chiếu. Ghi từng chỗ đã phân xử và chỗ chưa.
 
@@ -97,6 +86,14 @@ notes: |-
   Phép đo của lượt này: 13/13 khoá, tập khoá bằng Pāli; nháy kép mở ở 1.1 đóng ở 2.4 khớp Pāli; Pāli không có khoá nào trùng nguyên văn trong bài (phép dò trùng nội bộ chạy rỗng); không có dấu lược; không có số Pāli. Bốn lệnh của kho (npm run validate, npm test, npm run check, npm run build) chưa chạy trong lượt này, nên technical_integrity giữ 9.6.
 
   Đối chiếu bản dịch mù độc lập 2026-10-14: một dịch giả khác (cùng họ công cụ) dịch lại bài từ Pāli không xem bản dự án; so 5 khoá chênh lệch lớn nhất (0.4, 1.3, 3.1, 2.2, 1.1) → khác nghĩa 0: sửa 0, giữ 3 (0.4 và 3.1: bản mù chép nguyên chữ Palāyita, còn bản dự án dịch Kinh Kẻ Bỏ Chạy cho đúng cặp với ja230 Dutiyapalāyitajātaka; 2.2: «những kẻ đang la hét» và «những kẻ đang hô» cùng nghĩa vadantibhi), bất định 2 (1.1 hayaggamālibhi: bản mù cũng không chắc «tràng hoa» hay «vòng», và gajagga/hayagga «đi đầu» hay «đầu đàn»; 1.3 tharuggahāvaṭṭadaḷhappahāribhi: bản mù cũng ghi không chắc, đọc āvaṭṭa là «xoáy» chứ không phải «xoay vòng» như bản dự án — hai cách đọc đều hợp cú pháp, đã ghi ở bất định (a) ở trên và giữ nguyên). Đọc lại toàn bài (13 khoá): nháy kép mở ở 1.1 đóng ở 2.4 khớp Pāli, thuật ngữ nhất quán, không có số Pāli. Không có bản Anh hay bản Việt độc lập khác.
+
+  Lượt rà soát 2026-10-15 (Claude Opus 5.5, đọc đối kháng Pāli↔Việt; không có bản nguyên bài, không có
+  đoạn song song): sửa 0 khoá trong thân bài; đồng bộ translationTitle trong meta "9. Kinh Kẻ Đào Tẩu"
+  → "Kinh Kẻ Bỏ Chạy" cho khớp 0.4/3.1 (đã đổi từ lượt trước nhưng meta còn tên cũ). Bất định mới (e)
+  2.2 vadantibhi: đuôi -ibhi là cách công cụ số nhiều của danh từ gốc -in (cùng khuôn mantibhi trong
+  tầng), nên có thể tách va dantibhi ("như bởi những con voi ngà", dantin), thay vì phân từ vadant
+  ("những kẻ đang la hét", vốn cho -ehi/-ebhi); không có chú giải hay bản Anh để phân xử, giữ bản hiện
+  hành. Các bất định (a)–(d) giữ nguyên.
 
 # final_score = trung bình số học thô của 10 tiêu chí = 8.8600.
 # Có blocking_error (không có bản Anh ở commit đã ghim) được waiver no-upstream-english miễn; status do công cụ quality:waive quyết định.

@@ -1,10 +1,11 @@
 uid: ja273
-status: review
+status: draft
 translationTitle: "Kinh Rùa"
 translators:
   - "OpenCode Space Bunny Free (agent)"
 reviewers:
   - Claude Sonnet 5.5 (Claude Code)
+  - Claude Opus 5.5 (Claude Code)
 tags:
   - "jataka"
   - "khuddaka-nikaya"
@@ -19,11 +20,11 @@ quality:
     segment_alignment: 10
     terminology: 9
     triangulation: 7.2
-    vietnamese_clarity: 9.1
+    vietnamese_clarity: 9.2
     han_viet_balance: 9.1
     ambiguity_integrity: 8.5
     technical_integrity: 9.6
-  final_score: 8.95
+  final_score: 8.959999999999999
   blocking_errors:
     - "Thiếu hẳn tầng tham khảo English Sujato tại commit đã ghim
       11c9d708978cde8ba61096d8a75f7ddfb846f639: đếm trực tiếp trên
@@ -37,25 +38,10 @@ quality:
       của kho, nhưng theo AGENTS.md thì thiếu tầng tham khảo là lỗi chặn đối với
       review và published, và tests/unit/reference-source.test.ts kiểm đúng điều
       đó. Bài đặt draft và không nâng điểm để né."
-  assessed_at: 2026-10-14
+  assessed_at: 2026-10-15
   assessed_by:
-    - Claude Sonnet 5.5 (Claude Code)
-  assessment_id: 5f0e9ab8-5469-4928-a0a2-60cf61cf63af
-  waiver:
-    id: no-upstream-english
-    blockers:
-      - "Thiếu hẳn tầng tham khảo English Sujato tại commit đã ghim
-        11c9d708978cde8ba61096d8a75f7ddfb846f639: đếm trực tiếp trên
-        source/upstream-manifest.json (cùng commit) cho thấy tầng
-        translation/en/sujato có 4.291 tệp, trong đó thư mục sutta/kn/ja/ chỉ có
-        83 tệp, không có tệp nào chứa khoá của bài này; hàm upstreamPublishes
-        của kho trả về false cho đường dẫn này, nghĩa là SuttaCentral không phát
-        hành bản Anh nào phủ bài này tại commit đã ghim. Tầng vietnamese-current
-        cũng không có (đúng 26 tệp, chỉ Pháp Cú), nên bài chỉ đối chiếu được với
-        Pāli root một mình. Đây là giới hạn của bản chụp upstream, không phải
-        thiếu sót của kho, nhưng theo AGENTS.md thì thiếu tầng tham khảo là lỗi
-        chặn đối với review và published, và tests/unit/reference-source.test.ts
-        kiểm đúng điều đó. Bài đặt draft và không nâng điểm để né."
+    - Claude Opus 5.5 (Claude Code)
+  assessment_id: 222cb393-9a25-4685-8635-94040120cec7
 notes: |-
   LÁT NÀY KHÔNG CÓ TẦNG THAM KHẢO NÀO, ĐÃ ĐẾM KHÔNG SUY. Với mười ba bài Jātaka này:
   source/upstream-manifest.json tại commit đã ghim 11c9d708978cde8ba61096d8a75f7ddfb846f639 ghi tầng translation/en/sujato có 4.291
@@ -144,3 +130,8 @@ notes: |-
   Bất định còn lại: (1) uddhitabhatta là hapax, "múc cơm cho" là cách đọc suy luận. (2) methunaka ở 3.4: "một đôi/cặp" có căn cứ ở mnd nhưng nghĩa chính xác của việc "kết đôi" giữa rùa và khỉ (theo gotra Kassapa/Koṇḍañña hay nghĩa khác) không phân xử được từ phần kệ, vì không có bản Anh hay văn xuôi nguồn. (3) Người nói từng vế và người nghe của 2.3 ("Ngài") chỉ có kệ, không có văn xuôi nên không xác định được; để nguyên đại từ trung tính. (4) 2.4 gaccheyya có thể là ngôi thứ nhất (đọc theo "mutto" = ta) hoặc ngôi thứ ba như ja481:10.6; cả hai cho cùng nghĩa trong ngữ cảnh. Blocker còn lại: chỉ thiếu tầng tham khảo English (giới hạn của bản chụp upstream), đã có waiver no-upstream-english do người biên tập quyết định; giữ nguyên. Tôi không chạy npm run validate, npm test, npm run check, npm run build trong lượt này, nên technical_integrity vẫn 9.6.
 
   Đối chiếu bản dịch mù độc lập 2026-10-14: một dịch giả khác (cùng họ công cụ) dịch lại bài từ Pāli không xem bản dự án; so 6 khoá chênh lệch lớn nhất → khác nghĩa 2: sửa 0, giữ 0, bất định 2 (1.1 uddhitabhatta: «múc cơm cho» hay «dọn cơm ra», cả hai bản đều đánh dấu không chắc, từ này chỉ có một nơi dùng; 3.4 methunaka: «một đôi» có tiền lệ ở mnd7, mnd14, ja547 nhưng bản mù đọc «thông gia» có thể khớp lập luận gotra Kassapa/Koṇḍañña, Pāli một mình không phân xử được). Bốn khoá còn lại (tiêu đề, 2.4) chỉ khác diễn đạt. Không có bản Anh hay bản Việt độc lập khác.
+
+  Lượt rà soát 2026-10-15 (Claude Opus 5.5, đọc đối kháng Pāli↔Việt; không có bản nguyên bài, không có
+  đoạn song song): sửa 3 khoá: 2.1, 2.3, 2.4 con khỉ gọi người nghe "ngài" nhưng tự xưng "ta" → "tôi"
+  (lệch cặp xưng hô trong cùng lời thoại). Không đổi nghĩa. Bất định người được hỏi ở 2.3 (ẩn sĩ hay
+  con rùa) giữ nguyên.

@@ -81,6 +81,34 @@
       "content_sha256": "ab8957ef54e6d26fea8bf67be8dd7214629f16f6dce61dfb6b337897c26cd0d8",
       "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
       "final_score": 8.72
+    },
+    {
+      "target": "translation",
+      "scope": "full",
+      "assessed_at": "2026-10-15",
+      "assessed_by": [
+        "Claude Opus 5.5 (Claude Code)"
+      ],
+      "scores": {
+        "source_provenance": 9.4,
+        "semantic_fidelity": 8.2,
+        "grammar_logic": 8.3,
+        "segment_alignment": 10,
+        "terminology": 8.5,
+        "triangulation": 7.6,
+        "vietnamese_clarity": 8.7,
+        "han_viet_balance": 9,
+        "ambiguity_integrity": 8.4,
+        "technical_integrity": 9.6
+      },
+      "blocking_errors": [
+        "Thiếu hẳn tầng tham khảo English Sujato tại commit đã ghim 11c9d708978cde8ba61096d8a75f7ddfb846f639: đếm trực tiếp trên source/upstream-manifest.json (cùng commit) cho thấy tầng translation/en/sujato có 4.291 tệp, trong đó thư mục sutta/kn/ja/ chỉ có 83 tệp, không có tệp nào chứa khoá của bài này; hàm upstreamPublishes của kho trả về false cho đường dẫn này, nghĩa là SuttaCentral không phát hành bản Anh nào phủ bài này tại commit đã ghim. Tầng vietnamese-current cũng không có (đúng 26 tệp, chỉ Pháp Cú), nên bài chỉ đối chiếu được với Pāli root một mình. Đây là giới hạn của bản chụp upstream, không phải thiếu sót của kho, nhưng theo AGENTS.md thì thiếu tầng tham khảo là lỗi chặn đối với review và published, và tests/unit/reference-source.test.ts kiểm đúng điều đó. Bài đặt draft và không nâng điểm để né."
+      ],
+      "notes": "Sửa 4 khoá: bỏ chữ thêm \"mong\" ở 3.2, calque ở 1.2–1.3, thống nhất 3.4 với ja263. Bất định khung truyện 1.1–1.4 còn.",
+      "id": "29598be0-56b9-41dd-abec-41fa871190ec",
+      "content_sha256": "59ff1c889015418d618b9741006a93408aec09769eec4d72fd459b4d72140ae4",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
+      "final_score": 8.77
     }
   ],
   "legacy_quality": {

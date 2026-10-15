@@ -1,11 +1,12 @@
 uid: ja274
-status: review
+status: draft
 translationTitle: "Kinh Kẻ Tham Lam"
 translators:
   - "OpenCode Space Bunny Free (agent)"
 reviewers:
   - OpenCode Space Bunny Free (agent)
   - Claude Sonnet 5.5 (Claude Code)
+  - Claude Opus 5.5 (Claude Code)
 tags:
   - "jataka"
   - "khuddaka-nikaya"
@@ -16,15 +17,15 @@ quality:
   scores:
     source_provenance: 9.4
     semantic_fidelity: 8.8
-    grammar_logic: 8.8
+    grammar_logic: 8.9
     segment_alignment: 10
     terminology: 8.8
     triangulation: 7.4
-    vietnamese_clarity: 9.1
+    vietnamese_clarity: 9.2
     han_viet_balance: 9.1
     ambiguity_integrity: 8.5
     technical_integrity: 9.6
-  final_score: 8.95
+  final_score: 8.969999999999999
   blocking_errors:
     - "Thiếu hẳn tầng tham khảo English Sujato tại commit đã ghim
       11c9d708978cde8ba61096d8a75f7ddfb846f639: đếm trực tiếp trên
@@ -38,25 +39,10 @@ quality:
       của kho, nhưng theo AGENTS.md thì thiếu tầng tham khảo là lỗi chặn đối với
       review và published, và tests/unit/reference-source.test.ts kiểm đúng điều
       đó. Bài đặt draft và không nâng điểm để né."
-  assessed_at: 2026-10-14
+  assessed_at: 2026-10-15
   assessed_by:
-    - Claude Sonnet 5.5 (Claude Code)
-  assessment_id: ce5797eb-28d6-45aa-b708-66ce37482c4a
-  waiver:
-    id: no-upstream-english
-    blockers:
-      - "Thiếu hẳn tầng tham khảo English Sujato tại commit đã ghim
-        11c9d708978cde8ba61096d8a75f7ddfb846f639: đếm trực tiếp trên
-        source/upstream-manifest.json (cùng commit) cho thấy tầng
-        translation/en/sujato có 4.291 tệp, trong đó thư mục sutta/kn/ja/ chỉ có
-        83 tệp, không có tệp nào chứa khoá của bài này; hàm upstreamPublishes
-        của kho trả về false cho đường dẫn này, nghĩa là SuttaCentral không phát
-        hành bản Anh nào phủ bài này tại commit đã ghim. Tầng vietnamese-current
-        cũng không có (đúng 26 tệp, chỉ Pháp Cú), nên bài chỉ đối chiếu được với
-        Pāli root một mình. Đây là giới hạn của bản chụp upstream, không phải
-        thiếu sót của kho, nhưng theo AGENTS.md thì thiếu tầng tham khảo là lỗi
-        chặn đối với review và published, và tests/unit/reference-source.test.ts
-        kiểm đúng điều đó. Bài đặt draft và không nâng điểm để né."
+    - Claude Opus 5.5 (Claude Code)
+  assessment_id: d7a503d7-8061-4e3f-9147-39c6d7cdbc55
 notes: |-
   LÁT NÀY KHÔNG CÓ TẦNG THAM KHẢO NÀO, ĐÃ ĐẾM KHÔNG SUY. Với mười ba bài Jātaka này:
   source/upstream-manifest.json tại commit đã ghim 11c9d708978cde8ba61096d8a75f7ddfb846f639 ghi tầng translation/en/sujato có 4.291
@@ -141,3 +127,8 @@ notes: |-
   `laṅghipitāmahā`: bản mù đọc 'bà nội của các kẻ nhảy chồm', bản dự án giữ 'ông nội vọt cao'; không phân xử
   được giới tính và quan hệ sở hữu của hợp từ; Pāli khoá này trùng với ja375, nên nếu sửa phải sửa cả hai). Các
   khoá 0.4, 3.2, 4.1 chỉ khác diễn đạt. Không có bản Anh hay bản Việt độc lập khác.
+
+  Lượt rà soát 2026-10-15 (Claude Opus 5.5, đọc đối kháng Pāli↔Việt; đoạn song song ja275 cùng Pāli
+  2.3–3.4, ja375:6.4): sửa 1 khoá: 1.2 laṅghipitāmahā "ông nội vọt cao" → "có ông nội là kẻ nhảy vọt"
+  (đây là hợp từ sở hữu, bahubbīhi giống cái: "kẻ có ông nội là laṅghī"; bản cũ đọc thành đồng vị, câu
+  không có nghĩa). Nghĩa của laṅghī (kẻ nhảy/vọt) vẫn bất định như đã ghi.

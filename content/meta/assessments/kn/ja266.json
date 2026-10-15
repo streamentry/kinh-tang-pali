@@ -81,6 +81,34 @@
       "content_sha256": "c5b932a1fd971e9b6133771a1b9896fdb984fd45cd564099842ff4d2023466ae",
       "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
       "final_score": 8.559999999999999
+    },
+    {
+      "target": "translation",
+      "scope": "full",
+      "assessed_at": "2026-10-15",
+      "assessed_by": [
+        "Claude Opus 5.5 (Claude Code)"
+      ],
+      "scores": {
+        "source_provenance": 9.4,
+        "semantic_fidelity": 8,
+        "grammar_logic": 7.9,
+        "segment_alignment": 10,
+        "terminology": 8.3,
+        "triangulation": 7.2,
+        "vietnamese_clarity": 8.4,
+        "han_viet_balance": 9,
+        "ambiguity_integrity": 8.3,
+        "technical_integrity": 9.6
+      },
+      "blocking_errors": [
+        "Thiếu hẳn tầng tham khảo English Sujato tại commit đã ghim 11c9d708978cde8ba61096d8a75f7ddfb846f639: đếm trực tiếp trên source/upstream-manifest.json (cùng commit) cho thấy tầng translation/en/sujato có 4.291 tệp, trong đó thư mục sutta/kn/ja/ chỉ có 83 tệp, không có tệp nào chứa khoá của bài này; hàm upstreamPublishes của kho trả về false cho đường dẫn này, nghĩa là SuttaCentral không phát hành bản Anh nào phủ bài này tại commit đã ghim. Tầng vietnamese-current cũng không có (đúng 26 tệp, chỉ Pháp Cú), nên bài chỉ đối chiếu được với Pāli root một mình. Đây là giới hạn của bản chụp upstream, không phải thiếu sót của kho, nhưng theo AGENTS.md thì thiếu tầng tham khảo là lỗi chặn đối với review và published, và tests/unit/reference-source.test.ts kiểm đúng điều đó. Bài đặt draft và không nâng điểm để né."
+      ],
+      "notes": "Sửa tiêu đề không căn cứ \"Ngựa Bến Qua\" thành \"Ngựa Sindhu Vātagga\" (0.4, 4.1, translationTitle), khớp 3.4 và ja254. Còn lệch xưng hô ta/cha ạ ở 2.4 chưa phân xử được nên không nâng thêm.",
+      "id": "ce54f669-bdb0-4ba3-8018-89d1c7142b65",
+      "content_sha256": "e08e85f9c27deeceaab5a5248e1825ada88ee5a60511e67e79ad6ef6f951d305",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
+      "final_score": 8.609999999999998
     }
   ],
   "legacy_quality": {
