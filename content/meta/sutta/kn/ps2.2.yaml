@@ -1,10 +1,11 @@
 uid: ps2.2
-status: review
+status: draft
 translationTitle: "Luận Bàn Về Chân Lý"
 translators:
   - "Claude Sonnet 5.5 (Claude Code)"
 reviewers:
   - Claude Sonnet 5.5 (Claude Code)
+  - Claude Opus 5.5 (Claude Code)
 tags:
   - "kn"
   - "khuddaka-nikaya"
@@ -32,21 +33,10 @@ quality:
       Pāli có nội dung = 0/158 khoá. Đây là not-published-upstream, không phải
       not-synced. Bài chỉ dịch từ Pāli root và đối chiếu tiền lệ nội bộ nên
       triangulation bị chặn ở 7,0 và chưa đủ điều kiện published."
-  assessed_at: 2026-10-14
+  assessed_at: 2026-10-15
   assessed_by:
-    - Claude Sonnet 5.5 (Claude Code)
-  assessment_id: 7e3ab778-a749-4d75-8f00-4a0373ececcb
-  waiver:
-    id: no-upstream-english
-    blockers:
-      - "noEnglishEditionUpstream: Thiếu bản dịch tiếng Anh đối chiếu — tầng
-        english-sujato không có ps2.2 tại commit đã ghim (thư mục sutta/kn của
-        Sujato chỉ có cp dhp iti ja kp snp thag thig ud), lớp english-project
-        chưa có tệp cho ps và vietnamese-current chỉ có Pháp Cú; coverage
-        English trên Pāli có nội dung = 0/158 khoá. Đây là
-        not-published-upstream, không phải not-synced. Bài chỉ dịch từ Pāli root
-        và đối chiếu tiền lệ nội bộ nên triangulation bị chặn ở 7,0 và chưa đủ
-        điều kiện published."
+    - Claude Opus 5.5 (Claude Code)
+  assessment_id: d1eb7626-9227-4b00-8695-3269965d625e
 notes: |-
   Dịch trực tiếp từ Pāli root snapshot bilara đã ghim (kn/ps/ps2.2_root-pli-ms.json), đủ 292/292 khoá; thứ tự khoá = thứ tự Pāli, không khoá thừa, không khoá rỗng.
 
@@ -89,3 +79,14 @@ notes: |-
   Chưa chạy cổng kỹ thuật nên technical_integrity đặt 9,6: còn phải chạy npm run validate, npm test, npm run check, npm run build.
 
   Đối chiếu độc lập 2026-10-14: với bản Việt nguyên bài của Bhikkhu Indacanda. 2 khoá bất đồng nghĩa → sửa 0, giữ 2, bất định 0. Giữ `39.1` (`jarāmaraṇaṁ siyā dukkhasaccaṁ, siyā samudayasaccaṁ`: Pāli nói già chết có thể là khổ, có thể là tập khởi; bản nguyên bài để già chết là khổ rồi gán `siyā` cho sinh, khác Pāli ghim; bản dự án theo Pāli). Giữ `22.2` (`vatthuvasena pariyāyena`: dự án *theo cách dựa vào sự việc*, bản nguyên bài *về phương diện nền tảng theo thứ lớp*; `pariyāya` là cách, phương thức). Khác biệt thuật ngữ không đổi nghĩa không tính là bất đồng: `tathaṭṭha` (như thật / thực thể), `lakkhaṇa` (dấu hiệu / tướng trạng), `ākāra` (phương diện / biểu hiện), `pariggaha` (thâu nhiếp / nắm giữ). Các con số cấu trúc đều khớp: 4, 9, 12, 16 phương diện; 2, 6, 12 dấu hiệu; bốn ý nghĩa mỗi chân lý (`pīḷana`, `saṅkhata`, `santāpa`, `vipariṇāma`; `āyūhana`, `nidāna`, `saṁyoga`, `palibodha`; `nissaraṇa`, `viveka`, `asaṅkhata`, `amata`; `niyyāna`, `hetu`, `dassana`, `ādhipateyya`), mười một mắt xích từ già chết đến các hành. Không sửa khoá nào. Bản nguyên bài không phân đoạn nên đối chiếu ở mức đoạn, không phải mức khoá; không có bản Anh. Đây là review của AI, không phải chứng nhận của chuyên gia Pāli.
+
+  Lượt rà soát 2026-10-15 (Claude Opus 5.5, đọc đối kháng Pāli↔Việt cả 292 khoá, đối chiếu bản nguyên
+  bài Bhikkhu Indacanda, đoạn song song sn56.20, sn22.26, sn12.65, sn22.57): sửa 0 khoá; không thấy
+  lỗi sai nghĩa. Đã đếm lại theo Pāli các số 4/9/12/16 phương diện, 2/6/12 dấu hiệu, 3 nhóm ở 22, 11
+  mắt xích ở 27–38; cấu trúc 39.1 (siyā gán cho già chết, sinh, hữu) khớp Pāli. Giữ: 24.1 chữ "như
+  vậy" sau "như thật" (evaṁ của Pāli đứng trước assādañca assādato; sn22.26:2.1 lược chữ này, nghĩa
+  không đổi, chỉ nặng nề); bản nguyên bài dịch assāda/ādīnava "khoái lạc/tai hại" và 22.2 "phương diện
+  nền tảng theo thứ lớp" (khác thuật ngữ, vatthuvasena pariyāyena vẫn bất định như mục (2)). Ghi cho
+  người biên tập: pariññā ở bài này là "hiểu rõ tột cùng" còn ps2.1:10.2 dịch parijānanto/pariññeyya
+  là "liễu tri" (cùng Paṭisambhidāmagga); nissaraṇa là "thoát ly" ở đây nhưng sn22.26 dịch "xuất ly"
+  (cụm chéo chờ quyết định chung). Bất định giữ nguyên (1)–(11).
