@@ -1,10 +1,11 @@
 uid: ja493
-status: review
+status: draft
 translationTitle: "Kinh Thương Nhân Lớn"
 translators:
   - "Claude Sonnet 5.5 (Claude Code)"
 reviewers:
   - Claude Sonnet 5.5 (Claude Code)
+  - Claude Opus 5.5 (Claude Code)
 tags:
   - "kn"
   - "khuddaka-nikaya"
@@ -15,7 +16,7 @@ tags:
 quality:
   scores:
     source_provenance: 9.4
-    semantic_fidelity: 8.6
+    semantic_fidelity: 8.8
     grammar_logic: 8.6
     segment_alignment: 10
     terminology: 8.8
@@ -24,7 +25,7 @@ quality:
     han_viet_balance: 9.2
     ambiguity_integrity: 9
     technical_integrity: 9.6
-  final_score: 8.95
+  final_score: 8.97
   blocking_errors:
     - "Không có tầng tham khảo tiếng Anh tại commit đã ghim:
       `source/upstream-manifest.json` chỉ liệt kê `kn/ja/ja493_root-pli-ms.json`
@@ -36,23 +37,10 @@ quality:
       chỉ từ Pāli root và đối chiếu tiền lệ nội bộ ⇒ bài bắt buộc `draft` và
       `triangulation ≤ 8,0`. Đây là giới hạn upstream, không phải lỗi của người
       dịch. (noEnglishEditionUpstream)"
-  assessed_at: 2026-10-14
+  assessed_at: 2026-10-15
   assessed_by:
-    - Claude Sonnet 5.5 (Claude Code)
-  assessment_id: 796910f1-0ade-44ec-8308-9c5f5ec1380b
-  waiver:
-    id: no-upstream-english
-    blockers:
-      - "Không có tầng tham khảo tiếng Anh tại commit đã ghim:
-        `source/upstream-manifest.json` chỉ liệt kê
-        `kn/ja/ja493_root-pli-ms.json` (tầng Pāli) cho uid này, không có tệp
-        `english-sujato` nào cho `ja493` (tầng Sujato của `kn/ja` chỉ có 83 tệp,
-        không gồm uid này); `content/translation/en/project/sutta/kn/` không có
-        tệp nào cho uid. Đây là `not-published-upstream`, không phải
-        `not-synced`. Tầng `vietnamese-current` chỉ có Pháp Cú. Ba tầng tham
-        khảo đều vắng ⇒ bài dịch chỉ từ Pāli root và đối chiếu tiền lệ nội bộ ⇒
-        bài bắt buộc `draft` và `triangulation ≤ 8,0`. Đây là giới hạn upstream,
-        không phải lỗi của người dịch. (noEnglishEditionUpstream)"
+    - Claude Opus 5.5 (Claude Code)
+  assessment_id: d2091633-ec58-46ef-832c-bb8f278a8352
 notes: |-
   Đợt 19, làn 71. Dịch từ Pāli root commit đã ghim, đủ 99/99 khoá, thứ tự khoá đúng thứ tự Pāli, không có khoá ngoài tập Pāli. Không có tầng Anh cho uid (xem blocker); tầng Việt hiện hành chỉ có Pháp Cú. Bản root `pli/ms` của Jātaka chỉ có phần kệ, không có văn xuôi khung truyện; vì vậy người nói của một số khổ kệ không được ghi vào thân kinh mà chỉ suy ra từ nội dung (xem bất định 1).
 
@@ -126,3 +114,6 @@ notes: |-
   - Chạy lại các phép kiểm trên 99 khoá: tập khoá Pāli = tập khoá Việt (99 = 99, cùng thứ tự); nháy kép/đơn khớp Pāli từng khoá (99/99, 0 lệch); 31 cặp Pāli trùng trong chính bài, 0 cặp Việt khác; `…` và `(…)`: Pāli 0, Việt 0 (phép chạy rỗng); NFC 99/99; 0 khoá rỗng; không có Pāli lọt sang Việt ngoài các phiên âm đã khai (`kummāsa`, `siṅgi`, `kuttiya`, `paṭiya`, `uddiya`, `Kāsi`, `Jātaka`).
 
   Đối chiếu bản dịch mù độc lập 2026-10-14: một dịch giả khác (cùng họ công cụ) dịch lại bài từ Pāli không xem bản dự án; so 20 khoá chênh lệch lớn nhất → khác nghĩa 0: sửa 0, giữ 13 (chênh lệch ở diễn đạt; số 25, 300, 6.000 ở `19.2`–`19.4` hai bản đều khớp; bản mù đọc `20.2` "đừng tha mạng cho chúng", cùng hướng nghĩa với "chớ để chúng thoát mạng"), bất định 7 (`7.3` `appodavaṇṇa`, `7.4` `siṅgi`, `10.1` `ekā`, `12.4` `kuttiyo paṭiyāni`, `13.2` `uddiyāni`, `19.1` `nāgā` "voi" so với "Nāga", `21.4` `ārisaka` "loại tâm ấy" so với "tâm như kẻ thù"; bản mù cũng ghi không chắc ở sáu khoá trong số đó; tất cả là từ hiếm chỉ xuất hiện một lần trong Pāli ghim và đã ghi ở mục bất định trên). Đọc đối kháng lại cả 99 cặp: thứ tự năm lần chặt cành đông, nam, tây, bắc, gốc khớp `purima`…`uttara`; 31 cặp Pāli trùng trong bài giống hệt; nháy 0 lệch; không đổi khoá nào. Không có bản Anh hay bản Việt độc lập khác.
+
+  Lượt rà soát 2026-10-15 (Claude Opus 5.5, đọc đối kháng Pāli↔Việt; không có bản nguyên bài; đoạn song song pv21:3.3, iti15:4.4): sửa 1 khoá — 19.1 `Tato nāgā nikkhamiṁsu` "những con voi tiến ra" → "các con rồng tiến ra". Phân xử bằng ngữ cảnh trong chính bài: `tato` = từ đó, tức từ cây đa bị chặt gốc ở 18.4; bốn cành trước đều "tuôn ra" vật từ thân cây (5.1, 7.1, 9.1, 12.1); kẻ ra lệnh ở 20.1–20.4 tha riêng người dẫn đoàn đã bênh cây (15–17) — tức chủ của cây. Voi từ gốc cây đi ra không hợp; `nāga` ở đây là loài rồng ở cây/dưới đất. Dùng "rồng" theo đa số tầng `ja` ("loài rồng" 19, "Long vương" 15, "Nāga" 1). Còn là suy từ ngữ cảnh, không có chú giải hay bản Anh để xác nhận.
+  Đọc lại 99/99 khoá: thứ tự đông/nam/tây/bắc/gốc, số 25/300/6.000 khớp. Bất định còn lại như mục trước: 7.3 `appodavaṇṇa`, 7.4 `siṅgi`, 10.1 `ekā`, 12.4 `kuttiyo paṭiyāni`, 13.2 `uddiyāni`, 21.4 `ārisaka`.

@@ -1,10 +1,11 @@
 uid: ja492
-status: review
+status: draft
 translationTitle: "Kinh Heo Taccha"
 translators:
   - "Claude Sonnet 5.5 (Claude Code)"
 reviewers:
   - Claude Sonnet 5.5 (Claude Code)
+  - Claude Opus 5.5 (Claude Code)
 tags:
   - "kn"
   - "khuddaka-nikaya"
@@ -15,16 +16,16 @@ tags:
 quality:
   scores:
     source_provenance: 9.4
-    semantic_fidelity: 8.8
-    grammar_logic: 8.6
+    semantic_fidelity: 8.9
+    grammar_logic: 8.8
     segment_alignment: 10
     terminology: 9
     triangulation: 7.6
-    vietnamese_clarity: 8.9
+    vietnamese_clarity: 9
     han_viet_balance: 9.2
     ambiguity_integrity: 8.9
     technical_integrity: 9.6
-  final_score: 9
+  final_score: 9.040000000000001
   blocking_errors:
     - "Không có tầng tham khảo tiếng Anh tại commit đã ghim:
       `source/upstream-manifest.json` chỉ liệt kê `kn/ja/ja492_root-pli-ms.json`
@@ -36,23 +37,10 @@ quality:
       chỉ từ Pāli root và đối chiếu tiền lệ nội bộ ⇒ bài bắt buộc `draft` và
       `triangulation ≤ 8,0`. Đây là giới hạn upstream, không phải lỗi của người
       dịch. (noEnglishEditionUpstream)"
-  assessed_at: 2026-10-14
+  assessed_at: 2026-10-15
   assessed_by:
-    - Claude Sonnet 5.5 (Claude Code)
-  assessment_id: 309ff974-4312-4b9a-9858-49838895587f
-  waiver:
-    id: no-upstream-english
-    blockers:
-      - "Không có tầng tham khảo tiếng Anh tại commit đã ghim:
-        `source/upstream-manifest.json` chỉ liệt kê
-        `kn/ja/ja492_root-pli-ms.json` (tầng Pāli) cho uid này, không có tệp
-        `english-sujato` nào cho `ja492` (tầng Sujato của `kn/ja` chỉ có 83 tệp,
-        không gồm uid này); `content/translation/en/project/sutta/kn/` không có
-        tệp nào cho uid. Đây là `not-published-upstream`, không phải
-        `not-synced`. Tầng `vietnamese-current` chỉ có Pháp Cú. Ba tầng tham
-        khảo đều vắng ⇒ bài dịch chỉ từ Pāli root và đối chiếu tiền lệ nội bộ ⇒
-        bài bắt buộc `draft` và `triangulation ≤ 8,0`. Đây là giới hạn upstream,
-        không phải lỗi của người dịch. (noEnglishEditionUpstream)"
+    - Claude Opus 5.5 (Claude Code)
+  assessment_id: f8e51543-f8eb-45e1-a33f-fbbd660f35e8
 notes: |-
   Đợt 19, làn 63. Dịch từ Pāli root commit đã ghim, đủ 85/85 khoá, thứ tự khoá đúng thứ tự Pāli, không có khoá ngoài tập Pāli. Không có tầng Anh cho uid (xem blocker); tầng Việt hiện hành chỉ có Pháp Cú. Bản root `pli/ms` của Jātaka chỉ có phần kệ, không có văn xuôi khung truyện; vì vậy người nói của từng khổ không được ghi vào thân kinh mà chỉ suy ra từ nội dung kệ (xem bất định 1).
 
@@ -112,3 +100,6 @@ notes: |-
   **technical_integrity = 9,6:** lát này cấm chạy cổng, nên không tuyên bố technical gate pass. Bốn lệnh còn lại do người điều phối chạy tập trung: `npm run validate` · `npm test` · `npm run check` · `npm run build`.
 
   Đối chiếu bản dịch mù độc lập 2026-10-14: một dịch giả khác (cùng họ công cụ) dịch lại bài từ Pāli không xem bản dự án; so 30 khoá chênh lệch lớn nhất → khác nghĩa 5: sửa 1 (`11.1`: "Trước kia chúng chạy mỗi nơi một ngả" → "Trước kia, vì ta, chúng chạy mỗi nơi một ngả", vì `imassudaṁ` = `imassa` (sở hữu cách "của người này", tức người đang nói ở `10.1`–`10.4`) + tiểu từ `udaṁ`, bản cũ bỏ mất `imassa`), giữ 1 (`7.4`: bản mù "kẻ độc thân" sai, `ekakaṁ` ở đây là "một mình"), bất định 3 (`1.4` `teme adhigatā`: `te` và `adhigatā` đều giống đực số nhiều, nên "những điều ấy" có thể là chính bà con ở `1.3`; `14.3`–`14.4` `byagghe kurute vase`: chủ ngữ của `kurute` không nêu, có thể là một trong ba chủ thể ở `14.1`–`14.2`; `6.1` `uddhaggarājī`: "hàng vằn dựng cao" là cách đọc sát chữ, bản mù cũng không chắc). 25 khoá còn lại chỉ khác diễn đạt. Review đối kháng toàn bài (85 cặp): nháy, số, xưng hô, thuật ngữ và 3 cặp Pāli trùng trong bài đều nhất quán, không có lỗi khác. Không có bản Anh hay bản Việt độc lập khác.
+
+  Lượt rà soát 2026-10-15 (Claude Opus 5.5, đọc đối kháng Pāli↔Việt; không có bản nguyên bài; đoạn song song ja491:4.2, ja283:2.3): sửa 3 khoá — 1.4 `teme adhigatā mayā` "những điều ấy ta đã tìm được" → "chính bà con này ta đã tìm được" (phân xử bất định cũ bằng hợp cách: `te ime … adhigatā` giống đực số nhiều, khớp `ñātī` ở 1.3, không thể chỉ `yad` trung tính ở 1.1); 16.4 `veyyagghiyeva sā gati` "số phận ấy chính là số phận của hổ" → "lối ấy chính là lối của loài hổ" (vị đạo sĩ đang xúi hổ: chim ưng vồ con tách đàn, hổ cũng làm như thế; bản cũ đọc thành hổ sẽ chịu số phận ấy, ngược ý lời xúi); 12.4 `na patthaye` "ta không mong cầu chúng" → "ta không nhắm đến chúng" (không nhắm tấn công, không phải không ham muốn).
+  Giữ 4.4/6.4/13.4 "hết con tốt nhất lại đến con tốt nhất" (`varaṁ varaṁ`, nhất quán ba khoá). Bất định còn lại như mục trước: 6.1 `uddhaggarājī`, 14.3–14.4 chủ ngữ `kurute`, tên Taccha/Tacchaka.

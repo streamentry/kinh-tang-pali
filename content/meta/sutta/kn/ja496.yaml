@@ -1,10 +1,11 @@
 uid: ja496
-status: review
+status: draft
 translationTitle: "Kinh Phần Ăn Khất Thực Chuyền Tay"
 translators:
   - "Claude Sonnet 5.5 (Claude Code)"
 reviewers:
   - Claude Sonnet 5.5 (Claude Code)
+  - Claude Opus 5.5 (Claude Code)
 tags:
   - "kn"
   - "khuddaka-nikaya"
@@ -16,15 +17,15 @@ quality:
   scores:
     source_provenance: 9.4
     semantic_fidelity: 8.7
-    grammar_logic: 8.8
+    grammar_logic: 8.9
     segment_alignment: 10
     terminology: 9.1
     triangulation: 7.4
-    vietnamese_clarity: 9
+    vietnamese_clarity: 9.2
     han_viet_balance: 9.2
     ambiguity_integrity: 8.7
     technical_integrity: 9.6
-  final_score: 8.99
+  final_score: 9.02
   blocking_errors:
     - "Không có tầng tham khảo tiếng Anh tại commit đã ghim:
       `source/upstream-manifest.json` chỉ liệt kê `kn/ja/ja496_root-pli-ms.json`
@@ -36,24 +37,10 @@ quality:
       chỉ từ Pāli root và đối chiếu tiền lệ nội bộ ⇒ bài bắt buộc `draft` và
       `triangulation ≤ 8,0`. Đây là giới hạn upstream, không phải lỗi của người
       dịch. (noEnglishEditionUpstream)"
-  assessed_at: 2026-10-14
+  assessed_at: 2026-10-15
   assessed_by:
-    - Claude Sonnet 5.5 (Claude Code)
-  assessment_id: dacb6280-f74b-4f4c-afcc-1d8dfe870533
-  waiver:
-    id: no-upstream-english
-    blockers:
-      - "Không có tầng tham khảo tiếng Anh tại commit đã ghim:
-        `source/upstream-manifest.json` chỉ liệt kê
-        `kn/ja/ja496_root-pli-ms.json` (tầng Pāli) cho uid này, không có tệp
-        `english-sujato` nào cho `ja496`;
-        `content/translation/en/project/sutta/kn/` không có tệp nào cho uid và
-        `content/meta/en/kn/` không có `ja496.yaml`. Đây là
-        `not-published-upstream`, không phải `not-synced`. Tầng
-        `vietnamese-current` chỉ có Pháp Cú. Ba tầng tham khảo đều vắng ⇒ bài
-        dịch chỉ từ Pāli root và đối chiếu tiền lệ nội bộ ⇒ bài bắt buộc `draft`
-        và `triangulation ≤ 8,0`. Đây là giới hạn upstream, không phải lỗi của
-        người dịch. (noEnglishEditionUpstream)"
+    - Claude Opus 5.5 (Claude Code)
+  assessment_id: 431c0ff1-3ee7-4c41-83d4-41ce5bdbb2fb
 notes: |-
   Đợt 19, làn 68. Dịch từ Pāli root commit đã ghim, đủ 91/91 khoá, thứ tự khoá đúng thứ tự Pāli, không có khoá ngoài tập Pāli. Không có tầng Anh cho uid (xem blocker); tầng Việt hiện hành chỉ có Pháp Cú. Bản root `pli/ms` của Jātaka chỉ có phần kệ, không có văn xuôi khung truyện; vì vậy người nói của từng khổ không được ghi vào thân kinh mà chỉ suy ra từ nội dung kệ (xem bất định 1).
 
@@ -125,3 +112,6 @@ notes: |-
   - **Quyết định không đổi dù nghi ngờ:** 1.3 giữ "từng đủ đầy" (thêm "từng" theo mạch `raṭṭhā vivanamāgataṁ`, `upeta` và `upāsita` đều là phân từ quá khứ, có chủ ý, ghi nhận); 2.2 "đầy đặn" cho `vaḍḍhamodana` (tầng vẫn 0 khoá, không phân xử được); 4.3 "thỉnh hỏi"; 11.3–11.4 "giũ … gom lại, trải ra" (bất định 7 còn nguyên); 18.3–18.4; 3.4/6.4/15.4 "đây rốt cuộc là lẽ gì" (cùng `ja474:4.4`); 3.2/6.2 "đem cho" (đã đọc, nghĩa "cho đi", chưa thấy lệch); dấu "?" ở 10.4 mà 3.4/6.4/15.4 không có (khác biệt hình thức, không đổi nghĩa). Dấu câu sau lượt sửa: nháy kép, nháy đơn, `…`, ngoặc khớp Pāli 91/91 khoá (lệch 0); tập khoá và thứ tự khoá khớp Pāli 91/91; NFC 91/91; 0 khoá rỗng; nhóm Pāli trùng nguyên văn trong bài: 4 nhóm, 1 nhóm khác (3.4/6.4/15.4, có chủ ý). `technical_integrity` giữ 9,6; bốn lệnh `npm run validate` · `npm test` · `npm run check` · `npm run build` do người điều phối chạy.
 
   Đối chiếu bản dịch mù độc lập 2026-10-14: một dịch giả khác (cùng họ công cụ) dịch lại bài từ Pāli không xem bản dự án; so 25 khoá chênh lệch lớn nhất trên 91 khoá → khác nghĩa 3 nhóm: sửa 1 (`3.4`, `6.4`, `15.4` `koyaṁ dhammo namatthu te`: trước *vậy đây rốt cuộc là lẽ gì nơi ông/ngài* → sau *vậy đây rốt cuộc là lẽ gì, xin kính lễ ông/ngài*, vì `namatthu` = `namo atthu` *xin kính lễ* và bản trước bỏ sót đơn vị nghĩa này; cùng cách dịch `namatthu te` ở `ja519:2.6`, `ja519:3.6`, `ja540:32.2`, `ja513:33.4`), giữ 1 (`2.4`, `5.4`, `14.4`, `17.4` `suciṁ maṁsūpasecanaṁ`: giữ *được rưới nước canh thịt tinh khiết* theo 8/10 khoá cùng Pāli ở tầng; bản mù *cơm tinh sạch, chan thịt* cho thấy `suciṁ` có thể bổ nghĩa cho cơm thay vì nước canh, cú pháp không loại trừ), bất định 1 (`11.3`–`11.4` `dhunaṁ`, `saṅghāriyaṁ pasāriyaṁ`: hiểu là động từ *giũ … gom lại, trải ra* hay là tên vật; bản mù chọn tên vật và cũng ghi không chắc). Chênh lệch còn lại cùng nghĩa hoặc chỉ khác khuôn đặt tên: `24.1`–`24.4` (bản mù dịch nghĩa tên trong kệ tóm lược, bản dự án giữ phiên âm theo tiền lệ), `0.2`, `0.4`, `21.1`, `22.1`, `2.2` (`vaḍḍhamodanaṁ`, đã nêu ở bất định 2), `12.2`, `14.2`, `13.3`. Dòng cũ ở mục thuật ngữ về `namatthu te` (*cùng cách đọc với `ja474:4.4`*) không còn đúng: `ja474:4.4` là Pāli khác (`ko nāma tavajja dhammo`, không có `namatthu`). Rà đối kháng cả 91 khoá sau sửa: đủ khoá, đúng thứ tự Pāli, nháy kép và nháy đơn khớp Pāli từng khoá (0/91 lệch), 4 nhóm Pāli trùng nội bộ, nhóm `3.4`/`6.4`/`15.4` khác nhau đúng một chữ *ông*/*ngài* theo người được hỏi. Không có bản Anh hay bản Việt độc lập khác. Đây là review của AI, không phải chứng nhận của chuyên gia Pāli.
+
+  Lượt rà soát 2026-10-15 (Claude Opus 5.5, đọc đối kháng Pāli↔Việt; không có bản nguyên bài; đoạn song song vv34:19.4–21.4): sửa 3 khoá — 13.1–13.3 `pacanto apacantassa, amamassa sakiñcano, anādānassa sādāno`: "Là kẻ nấu nướng trước vị không nấu nướng…" → "Tôi nấu nướng, còn vị ấy không nấu nướng; tôi còn sở hữu, còn vị ấy không xem gì là của mình; tôi còn chấp thủ, còn vị ấy không chấp thủ," ("trước" là calque tối nghĩa cho sở hữu/tặng cách; ba cặp đối lập người cho ↔ người nhận nay lộ rõ, "vị ấy" là tỳ-kheo ở 10.3; 13.4 giữ nguyên như 4.4/8.4 cùng Pāli).
+  Giữ 2.4/5.4/14.4/17.4 `suciṁ maṁsūpasecanaṁ` như cũ: theo ngữ pháp `suciṁ` hợp với `bhattaṁ` (xem notes ja451 cùng ngày), câu Việt vẫn cho đọc như thế, và giữ nhất quán với ja309, ja451, ja547. Giữ 19.2 "bậc chiến xa đệ nhất" (`rathesabha`, 20+ khoá trong kho). Bất định còn lại như mục trước: 2.2 `vaḍḍhamodana`, 11.3–11.4 `dhunaṁ … saṅghāriyaṁ pasāriyaṁ`.

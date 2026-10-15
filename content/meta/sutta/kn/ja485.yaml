@@ -1,10 +1,11 @@
 uid: ja485
-status: review
+status: draft
 translationTitle: "Kinh Candakinnarī"
 translators:
   - "Claude Sonnet 5.5 (Claude Code)"
 reviewers:
   - Claude Sonnet 5.5 (Claude Code)
+  - Claude Opus 5.5 (Claude Code)
 tags:
   - "kn"
   - "khuddaka-nikaya"
@@ -18,13 +19,13 @@ quality:
     semantic_fidelity: 8.6
     grammar_logic: 8.9
     segment_alignment: 10
-    terminology: 8.9
+    terminology: 9
     triangulation: 7.2
-    vietnamese_clarity: 9.1
+    vietnamese_clarity: 9.2
     han_viet_balance: 9.2
     ambiguity_integrity: 9
     technical_integrity: 9.6
-  final_score: 8.989999999999998
+  final_score: 9.01
   blocking_errors:
     - "Không có tầng tham khảo tiếng Anh tại commit đã ghim:
       `source/upstream-manifest.json` chỉ liệt kê `kn/ja/ja485_root-pli-ms.json`
@@ -37,24 +38,10 @@ quality:
       chỉ từ Pāli root và đối chiếu tiền lệ nội bộ ⇒ bài bắt buộc `draft` và
       `triangulation ≤ 8,0`. Đây là giới hạn upstream, không phải lỗi của người
       dịch. (noEnglishEditionUpstream)"
-  assessed_at: 2026-10-14
+  assessed_at: 2026-10-15
   assessed_by:
-    - Claude Sonnet 5.5 (Claude Code)
-  assessment_id: e0301027-fc39-4ae3-a21e-832a5a77b5d5
-  waiver:
-    id: no-upstream-english
-    blockers:
-      - "Không có tầng tham khảo tiếng Anh tại commit đã ghim:
-        `source/upstream-manifest.json` chỉ liệt kê
-        `kn/ja/ja485_root-pli-ms.json` (tầng Pāli) cho uid này, không có tệp
-        `english-sujato` nào cho `ja485` (tầng Sujato của `kn/ja` chỉ có 83 tệp,
-        không gồm uid này); `content/translation/en/project/sutta/kn/` không có
-        tệp nào cho uid và `content/meta/en/kn/` không có `ja485.yaml`. Đây là
-        `not-published-upstream`, không phải `not-synced`. Tầng
-        `vietnamese-current` chỉ có Pháp Cú. Ba tầng tham khảo đều vắng ⇒ bài
-        dịch chỉ từ Pāli root và đối chiếu tiền lệ nội bộ ⇒ bài bắt buộc `draft`
-        và `triangulation ≤ 8,0`. Đây là giới hạn upstream, không phải lỗi của
-        người dịch. (noEnglishEditionUpstream)"
+    - Claude Opus 5.5 (Claude Code)
+  assessment_id: 7511e5a3-3bc5-4c57-8f78-218dfd445848
 notes: |-
   Đợt 19, làn 78. Dịch từ Pāli root commit đã ghim, đủ 109/109 khoá (4 khoá tiêu đề `:0` + 26 khổ kệ + dòng kết), thứ tự khoá đúng thứ tự Pāli, không có khoá ngoài tập Pāli. Không có tầng Anh cho uid (xem blocker); tầng Việt hiện hành chỉ có Pháp Cú. Bản root `pli/ms` của Jātaka chỉ có phần kệ, không có văn xuôi khung truyện; vì vậy người nói của từng khổ không được ghi vào thân kinh mà chỉ suy ra từ nội dung kệ (xem bất định 8).
 
@@ -110,3 +97,6 @@ notes: |-
   - Không đổi dù nghi ngờ: `6.2`/`7.2` “xin mẹ/vợ của ngươi mang lấy” (giọng “xin” hơi lạ cho một lời nguyền, nhưng `ja544:108.2`–`111.2` cùng công thức đều dịch “xin … mang lấy”, 4/4, nên giữ cho khớp tiền lệ; ngoài lát, ghi lại để người điều phối cân nhắc đổi cả hai bài một lần). Các bất định 1–7 và 10 ở trên (`upanīyati`, `lohitamaddane`, `sare pāde`, `nitammāmi`, `tālīsa`, `vanatimiramattakkhi`, `ayirabrahme`, `api nūna`) tôi không tìm thêm được căn cứ trong tầng Pāli đã ghim hay trong các bài song song đã dịch, nên giữ nguyên bất định, không nâng semantic_fidelity (8,6) hay ambiguity_integrity (9,0). `triangulation` giữ 7,0 vì vẫn không có bản Anh độc lập. `technical_integrity` giữ 9,6; bốn lệnh `npm run validate` · `npm test` · `npm run check` · `npm run build` vẫn do người điều phối chạy tập trung.
 
   **Đối chiếu bản dịch mù độc lập 2026-10-14.** Một dịch giả khác (cùng họ công cụ) dịch lại bài từ Pāli không xem bản dự án; so 30 khoá chênh lệch lớn nhất (trên 109 khoá) → khác nghĩa 7: sửa 0, giữ 3, bất định 4. Giữ 3: `25.2` (bản mù hiểu “đấng đã ban cho con người chồng”; nhưng `patiṁ` là đối cách, tân ngữ của `abhisiñci` ở `25.3`, nên “rưới … người chồng” như bản dự án); `8.3`, `9.3`, `11.3` `yo kimpurisaṁ avadhi` (bản mù thành “vì ngài đã giết”, thêm “vì” mà Pāli không có; `yo` là chủ ngữ của hoàng tử, như đã chốt ở lượt 2026-10-13); `26.3` `nānādumavasanāyo` (khác diễn đạt). Bất định 4, bản mù cũng đánh dấu không chắc ở ba chỗ đầu: `1.2` `lohitamaddane`; `4.1` `sare pāde`; `10.2` `vanatimiramattakkhi`; và `25.1` `ayirabrahme` (“bà-la-môn cao quý” hay “bậc cao quý như Phạm thiên”). Các chỗ này trùng với bất định 2, 3, 6, 7 đã ghi ở trên, nên đối chiếu thêm không phân xử được; vì vậy `triangulation` chỉ 7,2. Không có bản Anh hay bản Việt độc lập khác.
+
+  Lượt rà soát 2026-10-15 (Claude Opus 5.5, đọc đối kháng Pāli↔Việt; không có bản nguyên bài; tiền lệ sn22.1:5.2–6.8 `amatena abhisitto` "rưới nước bất tử"): sửa 2 khoá — 25.3 `amatena abhisiñci` "đã rưới bằng thứ bất tử" → "nước bất tử" (theo tiền lệ sn22.1; "thứ bất tử" tối nghĩa); 25.2 "ngài, đối với người chồng…" → "ngài đã rưới lên người chồng yêu quý của tôi, người khốn khổ này," (`patiṁ` là tân ngữ của `abhisiñci`, như mục trước đã chốt; "đối với" làm câu rời rạc). Động từ chuyển từ 25.3 lên 25.2, nghĩa không đổi.
+  Đọc lại 109/109 khoá: không thấy lỗi nghĩa mới; điệp khúc 13–24 nhất quán. Giữ 6.2/7.2 "xin … mang lấy" theo ja544:108–111. Bất định còn lại như mục trước: 1.2 `lohitamaddane`, 2.2 `nitammāmi`, 4.1 `sare pāde`, 10.2 `vanatimiramattakkhi`, 12.3 `tālīsa`, 25.1 `ayirabrahme`, 11.1 `api nūna`.

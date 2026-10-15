@@ -1,10 +1,11 @@
 uid: ja483
-status: review
+status: draft
 translationTitle: "Kinh Sarabhamiga"
 translators:
   - "Claude Sonnet 5.5 (Claude Code)"
 reviewers:
   - Claude Sonnet 5.5 (Claude Code)
+  - Claude Opus 5.5 (Claude Code)
 tags:
   - "kn"
   - "khuddaka-nikaya"
@@ -16,15 +17,15 @@ quality:
   scores:
     source_provenance: 9.4
     semantic_fidelity: 8.8
-    grammar_logic: 8.8
+    grammar_logic: 8.9
     segment_alignment: 10
-    terminology: 8.9
+    terminology: 9
     triangulation: 7.6
     vietnamese_clarity: 8.8
     han_viet_balance: 9.1
     ambiguity_integrity: 8.9
     technical_integrity: 9.6
-  final_score: 8.989999999999998
+  final_score: 9.01
   blocking_errors:
     - "noEnglishEditionUpstream: Không có tầng tham khảo tiếng Anh tại commit đã
       ghim. `source/upstream-manifest.json` chỉ liệt kê
@@ -37,24 +38,10 @@ quality:
       chỉ dịch từ Pāli root và đối chiếu tiền lệ nội bộ ⇒ bắt buộc `draft` và
       `triangulation ≤ 8,0`. Đây là giới hạn của upstream, không phải lỗi của
       người dịch."
-  assessed_at: 2026-10-14
+  assessed_at: 2026-10-15
   assessed_by:
-    - Claude Sonnet 5.5 (Claude Code)
-  assessment_id: e84e5bfb-04f2-4b06-a086-078e9c8b1dce
-  waiver:
-    id: no-upstream-english
-    blockers:
-      - "noEnglishEditionUpstream: Không có tầng tham khảo tiếng Anh tại commit
-        đã ghim. `source/upstream-manifest.json` chỉ liệt kê
-        `kn/ja/ja483_root-pli-ms.json` (tầng Pāli) cho uid này, không có tệp
-        `english-sujato` nào cho `ja483` (tầng Sujato của `kn/ja` chỉ có 83 bài,
-        không gồm uid này). `content/translation/en/project/sutta/kn/` không có
-        tệp nào cho uid và `content/meta/en/kn/` không có `ja483.yaml`. Đây là
-        `not-published-upstream`, không phải `not-synced`. Tầng
-        `vietnamese-current` chỉ có Pháp Cú. Ba tầng tham khảo đều vắng nên bài
-        chỉ dịch từ Pāli root và đối chiếu tiền lệ nội bộ ⇒ bắt buộc `draft` và
-        `triangulation ≤ 8,0`. Đây là giới hạn của upstream, không phải lỗi của
-        người dịch."
+    - Claude Opus 5.5 (Claude Code)
+  assessment_id: b6486d30-32a3-4514-8ddd-22240fc3135e
 notes: |-
   Đợt 19, làn 61. Dịch từ Pāli root commit đã ghim, đủ 83/83 khoá, thứ tự khoá đúng thứ tự Pāli, không có khoá ngoài tập Pāli. Bản root `pli/ms` của Jātaka chỉ có tiêu đề, 18 nhóm kệ, dòng kết bài, dòng kết bộ và kệ tóm lược; không có văn xuôi khung truyện, nên người nói của từng khổ không được ghi vào thân kinh mà chỉ đọc từ ngữ cảnh (xem bất định 1).
 
@@ -133,3 +120,6 @@ notes: |-
   **technical_integrity = 9,6:** bài này không chạy các cổng kỹ thuật, nên không tuyên bố technical gate pass. Bốn lệnh còn lại cần chạy trước khi đổi trạng thái: `npm run validate` · `npm test` · `npm run check` · `npm run build`.
 
   Đối chiếu bản dịch mù độc lập 2026-10-14: một dịch giả khác (cùng họ công cụ) dịch lại bài từ Pāli, không xem bản dự án; so 30 khoá chênh lệch lớn nhất → khác nghĩa 0: sửa 0, giữ 30, bất định 3 (`8.2`, `11.1`, `13.4`). Giữ `7.3`–`7.4` (bản mù tách `alīnacittassa`/`vikkantamanujīvasi` sang dòng khác, cùng nghĩa *ngài sống nhờ dũng lực của bậc có tâm không nản*); `16.2` `ekassa kattā` (bản mù *chỉ một mình đã làm* đọc `ekassa` thành của người làm, nhưng `ekassa` là sở hữu cách đi với `mayhaṁ` ở `16.1`, nên bản dự án đúng); `6.4`, `3.1`/`4.1`, `1.2`/`2.2`/`3.2`/`4.2`, `1.4`/`3.4`, `10.1`–`10.2`, `15.1`, `18.3`, `0.2`/`0.4`/`20.1`: khác diễn đạt, cùng nghĩa. Bất định `8.2` `silāya yoggaṁ … karitvā`: bản mù *làm phương tiện* ⟦?⟧; giữ *thử sức* theo `ja516:21.1`–`21.3` (cùng công thức, ngay trước đó con khỉ cầm tảng đá nặng), nhưng Pāli không nói rõ. Bất định `11.1` `pattiṁ`: bản dự án *vật có lông cánh*, bản mù *mũi tên* ⟦?⟧; hai cách đọc cùng chỉ vật có lông vũ, `11.2` `saraṁ` đã nêu mũi tên. Bất định nhỏ `13.4` `amarādhipo`: bản dự án *chúa tể của chư thiên bất tử*, bản mù *chúa của chư bất tử*; `ja543:116.2` cùng từ dịch *chúa tể của những bậc bất tử* (không thêm *chư thiên*), cần người biên tập chọn một cách cho cả hai bài. Review đối kháng toàn bài 83 khoá: nháy kép khớp Pāli từng khoá, không dấu lược, không số, xưng hô nhất quán; không phát hiện lỗi mới. Không có bản Anh hay bản Việt độc lập khác; `triangulation` chỉ dựa trên một lần dịch lại cùng họ công cụ nên bị giữ dưới 8,0. Lượt này không chạy `npm run validate` · `npm test` · `npm run check` · `npm run build`; không tuyên bố technical gate pass.
+
+  Lượt rà soát 2026-10-15 (Claude Opus 5.5, đọc đối kháng Pāli↔Việt; không có bản nguyên bài; đoạn song song ja51, ja52, ja539:14–19, ja402:6.4, sn1.41:5.5, ja512:31.4): sửa 4 khoá — 13.2 `disampati` "chúa tể một phương" → "hỡi chúa tể các phương" (`disā-pati` là chúa các phương; "một phương" là thêm số lượng sai, và là cách dịch lẻ duy nhất trong kho, đa số dùng "chúa tể các phương"); 15.4 `na tveva hañño` "nhất định không bị giết" → "nhất định không được giết" (`hañño` là phân từ cần phải, "không đáng/không được giết", không phải dự đoán); 9.4, 16.4 bỏ dấu chấm thừa sau "?”".
+  Giữ 1.1–4.1 "Chỉ nên mang hy vọng / Chỉ nên cố gắng, người đàn ông", 5.2 "hy vọng về sự đến của hạnh phúc", 1.4/2.4: Pāli trùng nguyên văn ja51, ja52 (published) và ja539. Khuôn này có vấn đề thật: `eva` ở `āsīsetheva`/`vāyametheva` là nhấn mạnh ("hãy cứ hy vọng / hãy cứ cố gắng"), không phải giới hạn "chỉ nên"; "người đàn ông" đứng như hô ngữ trong khi `puriso` là chủ ngữ (sn11.8, ja124 đã dịch "Con người phải nỗ lực", "Người hãy cố gắng"). Cần người biên tập sửa đồng loạt ja51/ja52/ja483/ja539, không sửa lẻ một bài. Bất định còn lại như mục trước: 8.2, 11.1, 13.4 `amarādhipo`; 9.4 `bhiṁsarūpaṁ` "đáng kinh sợ" (có thể là "phi thường, đáng nể") cũng lệch ja402:6.4.
