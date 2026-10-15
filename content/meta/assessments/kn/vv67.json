@@ -81,6 +81,34 @@
       "content_sha256": "fa6abaf216a12dd137d9fa8692adaebea026ea8e52d1636e24c2727beb3b14d0",
       "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
       "final_score": 8.989999999999998
+    },
+    {
+      "target": "translation",
+      "scope": "full",
+      "assessed_at": "2026-10-15",
+      "assessed_by": [
+        "Claude Opus 5.5 (Claude Code)"
+      ],
+      "scores": {
+        "source_provenance": 9.5,
+        "semantic_fidelity": 8.8,
+        "grammar_logic": 8.8,
+        "segment_alignment": 10,
+        "terminology": 8.6,
+        "triangulation": 8.4,
+        "vietnamese_clarity": 8.8,
+        "han_viet_balance": 9.2,
+        "ambiguity_integrity": 8.3,
+        "technical_integrity": 9.6
+      },
+      "blocking_errors": [
+        "Không có tầng tham khảo tiếng Anh tại commit đã ghim: tệp `.cache/upstream/suttacentral/translation/en/sujato/sutta/kn/vv/vv67_translation-en-sujato.json` không tồn tại trong `.cache/upstream/suttacentral/`, và `source/upstream-manifest.json` (commit 11c9d70, tầng `english-sujato`) không liệt kê bất kỳ tệp nào cho uid này — đây là `not-published-upstream`, KHÔNG phải `not-synced`; toàn bộ ba sub-collection `tha-ap`, `thi-ap`, `vv` của Kinh Tạng đều vắng mặt trong tầng Anh đã ghim. Đo coverage theo đúng công thức `source/layers.yaml` (Pāli có nội dung ≥ 40 ký tự, loại block tham chiếu `:0`) cho 0 trên 0 khoá (không khoá nào đủ 40 ký tự), dưới ngưỡng 0.8. `scripts/validate.ts` coi tệp Anh thiếu là **error** khi status là `review` hoặc `published`, nên bài bắt buộc `draft`. Tầng `vietnamese-current` cũng vắng: `translation/vi/phantuananh` tại commit đã ghim chỉ có 26 tệp và toàn bộ là Pháp Cú. Lớp lấp `english-project` của dự án cũng không có cho uid này. Ba tầng tham khảo đều vắng ⇒ bài dịch chỉ từ Pāli root ⇒ blocker thật, và đây là **giới hạn upstream**, không phải lỗi của người dịch. Vì vậy `triangulation` bị chặn ở 7.5 (≤ 8.0) chứ không nâng để né blocker."
+      ],
+      "notes": "Sửa 3 khoá (2.1 và 2.5 thêm nghĩa \"thỏa thích\", pamodayanti là sai khiến; 3.4 dấu câu). Rà đủ 34 khoá, đối chiếu Indacanda và song song; bất định rucakatthatā, mahāmuni giữ. Không bản Anh.",
+      "id": "12800cce-ce1c-4145-95e9-052f7bd93ff0",
+      "content_sha256": "5691118816bbea8e86139d5e58c731125ffedec28deddfa504bc45ea3801f04b",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
+      "final_score": 9
     }
   ],
   "legacy_quality": {

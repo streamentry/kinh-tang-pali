@@ -81,6 +81,34 @@
       "content_sha256": "89dcdcbe73c9daa7b5f8ce0397cfcd9fffdd56039a107874d75f6aa67f3201d4",
       "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
       "final_score": 8.8
+    },
+    {
+      "target": "translation",
+      "scope": "full",
+      "assessed_at": "2026-10-15",
+      "assessed_by": [
+        "Claude Opus 5.5 (Claude Code)"
+      ],
+      "scores": {
+        "source_provenance": 9,
+        "semantic_fidelity": 8.2,
+        "grammar_logic": 8.5,
+        "segment_alignment": 10,
+        "terminology": 8.5,
+        "triangulation": 8.5,
+        "vietnamese_clarity": 8.8,
+        "han_viet_balance": 9,
+        "ambiguity_integrity": 8,
+        "technical_integrity": 9.6
+      },
+      "blocking_errors": [
+        "Không có tầng tham khảo tiếng Anh tại commit đã ghim (11c9d708978cde8ba61096d8a75f7ddfb846f639). `source/upstream-manifest.json` (edition `english-sujato`, 4.291 tệp) **không liệt kê** `sutta/kn/vv/vv38_translation-en-sujato.json`, và trong `sutta/kn/` của edition này không tồn tại thư mục `vv/` (chỉ có `cp dhp iti ja kp snp thag thig ud`) — đây là `not-published-upstream`, KHÔNG phải `not-synced`. Cùng tệp đó chỉ liệt kê tệp Pāli `kn/vv/vv38_root-pli-ms.json`. Về coverage: theo đúng công thức `src/lib/canon/reference.ts` (`prose() >= 40` và loại block tham chiếu theo `/^0(\\.|$)/`), `vv38` có **0** Pāli có nội dung — khoá dài nhất là `vv38:10.1` và `vv38:0.4`, mỗi khoá **29** ký tự — nên tỷ lệ được coi là 1 và cổng coverage không đo được gì cho bài này. Nhưng `scripts/validate.ts` kiểm tra **tệp** Anh trước (dòng 222–225): `needsEnglish = status === 'review' || 'published'`, thiếu tệp ⇒ `errors.push(...)`. ⇒ bài **bắt buộc `draft`**. Tầng `vietnamese-current` cũng vắng (`translation/vi/phantuananh` tại commit đã ghim chỉ có 26 tệp, toàn bộ là Pháp Cú); lớp lấp `english-project` cũng không có cho uid này. Ba tầng tham khảo đều vắng ⇒ bài dịch chỉ từ Pāli root ⇒ **blocker thật**, thuộc giới hạn của bản chụp upstream. `triangulation` bị chặn ở **7,5** (≤ 8,0) chứ không nâng lên để né blocker."
+      ],
+      "notes": "Sửa 3 khoá nhất quán thuật ngữ/khuôn (7.3, 7.4, 10.1); rà đủ 48 khoá, đối chiếu Indacanda và song song, không thấy lỗi nghĩa mới; bất định koviḷāre, veṇīsu giữ nguyên. Không bản Anh.",
+      "id": "98771822-c9ed-4fbf-b9bd-87ff847a08ae",
+      "content_sha256": "ef1dbefad5b8b5204c7d6c015c356f3b20715e9bc8f83fb400e4bd75285c5619",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
+      "final_score": 8.809999999999999
     }
   ],
   "legacy_quality": {

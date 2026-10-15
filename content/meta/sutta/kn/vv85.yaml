@@ -1,10 +1,11 @@
 uid: vv85
-status: review
+status: draft
 translationTitle: "Chuyện Cung Điện Khéo Đặt Để"
 translators:
   - "OpenCode Space Bunny Free (agent)"
 reviewers:
   - Claude Sonnet 5.5 (Claude Code)
+  - Claude Opus 5.5 (Claude Code)
 tags:
   - "kn"
   - "khuddaka-nikaya"
@@ -14,16 +15,16 @@ tags:
 quality:
   scores:
     source_provenance: 9.5
-    semantic_fidelity: 8.5
-    grammar_logic: 8.8
+    semantic_fidelity: 8.7
+    grammar_logic: 8.9
     segment_alignment: 10
     terminology: 8.8
     triangulation: 8.3
     vietnamese_clarity: 8.8
     han_viet_balance: 9.3
-    ambiguity_integrity: 8.3
+    ambiguity_integrity: 8.4
     technical_integrity: 9.6
-  final_score: 8.989999999999998
+  final_score: 9.03
   blocking_errors:
     - "Không có tầng tham khảo tiếng Anh tại commit đã ghim: bản Sujato ở
       `translation/en/sujato/sutta/kn/` chỉ có mười thư mục con — cp, dhp, iti,
@@ -41,29 +42,10 @@ quality:
       bài dịch chỉ từ Pāli root, đây là giới hạn upstream chứ không phải lỗi của
       người dịch; vì vậy `triangulation` bị chặn ở 7.5 (≤ 8.0) chứ không nâng để
       né blocker."
-  assessed_at: 2026-10-14
+  assessed_at: 2026-10-15
   assessed_by:
-    - Claude Sonnet 5.5 (Claude Code)
-  assessment_id: 653f4abf-7878-4cd7-9b1e-39974f1811fa
-  waiver:
-    id: no-upstream-english
-    blockers:
-      - "Không có tầng tham khảo tiếng Anh tại commit đã ghim: bản Sujato ở
-        `translation/en/sujato/sutta/kn/` chỉ có mười thư mục con — cp, dhp,
-        iti, ja, kp, snp, thag, thig, ud — KHÔNG có `tha-ap`, `thi-ap` hay `vv`;
-        và `source/upstream-manifest.json` chỉ liệt kê tệp dịch Anh cho những
-        uid ấy, không tệp nào cho lát này. Đây là `not-published-upstream`,
-        KHÔNG phải `not-synced`. Đo coverage theo đúng công thức
-        `source/layers.yaml` (`englishCoverage.substantivePaliMinChars: 40`,
-        `excludeReferenceBlock: true`) cho 0 trên toàn bộ khoá Pāli có nội dung
-        của bài = 0%, dưới ngưỡng 0.8. `scripts/validate.ts` coi tệp Anh thiếu
-        là error khi status là `review` hoặc `published`, nên bài bắt buộc
-        `draft`. Lớp lấp `english-project` của dự án cũng không có cho uid này.
-        Tầng `vietnamese-current` cũng vắng: `translation/vi/phantuananh` tại
-        commit đã ghim chỉ có 26 tệp và toàn bộ là Pháp Cú. Ba tầng tham khảo
-        đều vắng nên bài dịch chỉ từ Pāli root, đây là giới hạn upstream chứ
-        không phải lỗi của người dịch; vì vậy `triangulation` bị chặn ở 7.5 (≤
-        8.0) chứ không nâng để né blocker."
+    - Claude Opus 5.5 (Claude Code)
+  assessment_id: 52d1cdd9-8252-4d3c-aebd-e799238e1285
 notes: |-
   
   Bản dịch tiếng Việt mới cho bài kinh vv85 — Chuyện Cung Điện Khéo Đặt Để, bài thứ mười
@@ -151,3 +133,11 @@ notes: |-
   Ghi chú sửa: đoạn notes cũ nói `3.1` dùng "đân gì" không khớp JSON (`3.1` thực dùng "sắc diện dung nhan"); nay đã đổi thành "dung sắc". Notes cũ giữ nguyên như lịch sử. Kiểm cuối: 46/46 khoá, thứ tự khoá = thứ tự Pāli, nháy khớp Pāli từng khoá, NFC, không `…` thừa, 1 cặp Pāli trùng nội bộ (`3.4`/`7.4`, Việt giống nhau). technical_integrity 9.6; chưa chạy `npm run validate`, `npm test`, `npm run check`, `npm run build`.
 
   Đối chiếu độc lập 2026-10-14: với bản Việt nguyên bài của Bhikkhu Indacanda. 3 khoá bất đồng nghĩa → sửa 1, giữ 1, bất định 1. Sửa: 11.1 `Dve daliddā vanavihārā` "Hai vị nghèo khổ sống trong rừng" → "Hai người nghèo khổ, rừng cây và tu viện," (kiểm đếm: bài kệ tóm lược phải phủ đủ mười một cung điện vv75–vv85; `dve daliddā` = 2, `bhatako` 1, `gopālakaṇḍako` 2, `anekavaṇṇamaṭṭhakuṇḍalī` 2, `serīsako` 1, `sunikkhittaṁ` 1, tổng 9, nên `vanavihārā` phải là hai mục còn lại; `vihārā` là danh từ số nhiều chứ không phải tác nhân "người sống trong rừng"; bản nguyên bài cũng đếm "hai người nghèo khó, hai trú xá"; việc `vana-vihāra` là hai mục "rừng" và "tu viện" hay một hợp chất "nơi ở trong rừng" ×2 vẫn bất định, cả hai cách đều ra hai mục). Giữ: 5.4 `yassa kammassidaṁ phalaṁ` (bản nguyên bài đọc là mệnh đề quan hệ "quả báo này là của nghiệp nào"; bản dự án theo khuôn "quả báo của nghiệp này là thế" 26/38 khoá, giữ nhất quán và ghi lại rằng khuôn này làm nhẹ quan hệ đại từ). Bất định: 1.4 `rucakatthatā` (bản nguyên bài "được trải lót bằng vàng"; bản dự án "trải thảm rực rỡ" theo 9/11 khoá trong tầng; `rucaka` có thể là vàng hay đồ trang sức; Pāli không phân xử). Review đối kháng cùng lượt: sửa thêm 2 khoá — 11.5 `Purisānaṁ tatiyo vaggo` "Cung Điện Nam Hư Không" → "Thiên Cung Của Nam Giới" (Pāli không có `ākāsa`; khớp `0.2` của chính bài; cùng lỗi dạng nữ ở vv17:11.1, ngoài lát); 12.1 `Bhāṇavāraṁ catutthaṁ` "Chuyên luận, phần thứ tư." → "Phần tụng đọc thứ tư." (`bhāṇavāra` là phần tụng đọc; 6/6 khoá còn lại cùng Pāli trong tầng, ở pv và vv, đều dịch "Phần tụng đọc …"). Các số đã tính lại và khớp bản nguyên bài: mười hai do-tuần (1.2), bảy trăm lầu gác (1.3), bài đóng thứ mười một và phẩm thứ bảy. Bản nguyên bài không phân đoạn nên đối chiếu ở mức đoạn, không phải mức khoá; không có bản Anh.
+
+  Lượt rà soát 2026-10-15 (Claude Opus 5.5, đọc đối kháng Pāli↔Việt từng khoá, đối chiếu bản nguyên bài Bhikkhu Indacanda, đoạn song song vv77, vv55, vv58, vv54, vv33, vv12, vv4, vv78): sửa 5 khoá:
+    - `5.4` "quả báo của nghiệp này là thế" → "về nghiệp mà đây là quả báo": `yassa kammassidaṁ phalaṁ` là mệnh đề quan hệ làm tân ngữ của `viyākāsi` (nghiệp mà đây là quả), không phải câu khẳng định; khớp `vv78:9.3`, `vv67:4.3`. Lượt trước đã ghi chỗ này "hơi lệch quan hệ đại từ" và giữ theo đa số khuôn; nay sửa theo ngữ pháp. `5.3` bỏ "liền" (không có trong Pāli) → "Được hỏi câu hỏi, vị ấy đã giải đáp," để nối với `5.4`.
+    - `6.4` "thọ hưởng trọn vẹn mọi dục lạc cõi trời" → "đầy đủ các dục lạc cõi trời": `samaṅgibhūto` là "đầy đủ/được trang bị", không có "mọi" hay "thọ hưởng" (`vv55:5.4`; `dn21:1.12.34`).
+    - `2.4` "các tiên nữ khoác trang sức vàng ròng đang khiêu vũ" → "các nữ nhân phủ vàng đang khiêu vũ": `nāriyo` là "nữ nhân" (không phải `accharā`; cùng quyết định `vv29:1.3`), `suvaṇṇachannā` là "phủ vàng", "trang sức" thêm nghĩa; khớp `vv77:2.4`.
+    - `4.4` bỏ dấu chấm thừa sau `?”`.
+    Giữ các chỗ khác với bản nguyên bài như đã ghi 2026-10-14 (`1.4` `rucakatthatā`, `11.1`). Bất định giữ nguyên: `11.1` `vanavihārā`, `3.4`/`7.4` `piyā` ("dễ chịu" theo đa số).
+    Lỗi ngoài bài (chỉ báo): `vv58:2.4` "khoác trang sức vàng ròng" cho `suvaṇṇachannā`; `vv55:2.4` "tiên nữ" cho `nāriyo`. Lỗi chéo chờ người biên tập: `0.2` Purisavimāna.

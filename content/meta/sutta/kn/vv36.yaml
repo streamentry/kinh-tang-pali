@@ -1,10 +1,11 @@
 uid: vv36
-status: review
+status: draft
 translationTitle: "Chuyện Cung Điện Nữ Mallikā"
 translators:
   - "OpenCode Space Bunny Free (agent)"
 reviewers:
   - Claude Sonnet 5.5 (Claude Code)
+  - Claude Opus 5.5 (Claude Code)
 tags:
   - kn
   - khuddaka-nikaya
@@ -15,8 +16,8 @@ tags:
 quality:
   scores:
     source_provenance: 9
-    semantic_fidelity: 8
-    grammar_logic: 8.5
+    semantic_fidelity: 8.3
+    grammar_logic: 8.6
     segment_alignment: 10
     terminology: 8
     triangulation: 8.3
@@ -24,7 +25,7 @@ quality:
     han_viet_balance: 9.2
     ambiguity_integrity: 8.2
     technical_integrity: 9.6
-  final_score: 8.76
+  final_score: 8.8
   blocking_errors:
     - "Không có tầng tham khảo tiếng Anh tại commit đã ghim: tệp Anh của bài này
       không có trong source/upstream-manifest.json (đo được 0/4291 tệp trong thư
@@ -38,25 +39,10 @@ quality:
       khảo đều vắng và bài dịch chỉ từ Pāli root. Vì đây là giới hạn upstream
       chứ không phải lỗi người dịch, triangulation bị chặn ở 7.5 (không quá 8.0)
       chứ không nâng để né blocker."
-  assessed_at: 2026-10-14
+  assessed_at: 2026-10-15
   assessed_by:
-    - Claude Sonnet 5.5 (Claude Code)
-  assessment_id: 70cdd172-b87a-4301-825c-d2d4ff832a9a
-  waiver:
-    id: no-upstream-english
-    blockers:
-      - "Không có tầng tham khảo tiếng Anh tại commit đã ghim: tệp Anh của bài
-        này không có trong source/upstream-manifest.json (đo được 0/4291 tệp
-        trong thư mục sutta/kn/tha-ap và 0/4291 trong sutta/kn/vv của tầng
-        translation/en/sujato) và cache cũng không có thư mục
-        translation/en/sujato/sutta/kn/tha-ap hay sutta/kn/vv — đây là
-        not-published-upstream, KHÔNG phải not-synced. scripts/validate.ts xếp
-        tệp Anh thiếu là error khi status là review hoặc published, nên bài bắt
-        buộc draft. Tầng vietnamese-current cũng vắng (commit đã ghim chỉ có 26
-        tệp Pháp Cú) và lớp lấp english-project không có cho bài này, nên ba
-        tầng tham khảo đều vắng và bài dịch chỉ từ Pāli root. Vì đây là giới hạn
-        upstream chứ không phải lỗi người dịch, triangulation bị chặn ở 7.5
-        (không quá 8.0) chứ không nâng để né blocker."
+    - Claude Opus 5.5 (Claude Code)
+  assessment_id: 9d3b3827-ca40-4882-b5ea-d945bd0c3afe
 notes: |-
   Dịch TRỰC TIẾP từ Pāli root — không có tầng Anh đã ghim cho vv36, xem blocking_errors. Đây là bài nhiều chữ lạ nhất trong lát: chỉ 8 khoá có Pāli trùng nguyên văn ở bài khác (2 khoá dùng lại nguyên văn), 29 khoá không có tiền lệ nào, và Sujato cũng không có bản Anh cho cả bộ Pāricchattakavagga. Vì vậy terminology và ambiguity_integrity bị hạ.
   0.1 Vimānavatthu và 0.2 Itthivimāna theo đa số vv. 0.3 Pāricchattakavagga: tầng name/ cho vv-name:32.vv-paricchattakavagga bằng The Chapter With the Coral Tree, nhưng cả tầng Việt có 0 lần chữ Pāricchattaka, nên dùng Phẩm Cây San Hô — đúng dạng Phẩm cộng dịch đã có trong vv (vv75 là Phẩm Khéo Đặt Để, vv26 là Phẩm Cây Hoa Cittalatā). GHI RÕ: nếu muốn thống nhất với Phẩm Pīṭha và Phẩm Mañjiṭṭhaka (giữ tên riêng Pāli) thì phải có tên cho cả phẩm này.
@@ -71,3 +57,8 @@ notes: |-
   Cổng kỹ thuật vẫn do coordinator chạy: npm run validate, npm test, npm run check, npm run build; technical_integrity 9.6 chưa đổi vì không tự chạy các lệnh này. Với điểm mới final_score 8.68 và blocker upstream-english còn nguyên, bài không còn đủ điều kiện published theo bảng gate; status chờ công cụ quality:waive tính lại.
 
   Đối chiếu độc lập 2026-10-14: với bản Việt nguyên bài của Bhikkhu Indacanda. 4 khoá bất đồng nghĩa → sửa 0, giữ 2 (1.4: bản nguyên bài đọc là nàng chói sáng dù không trang điểm, bản dự án đọc như đã được trang sức; giữ vì 1.2 đã nói nàng được trang hoàng và chữ api- có tiền lệ trong apiḷandhana ở vv64:10.1 và ja517:5.2 mang nghĩa đồ trang sức; 6.1: bản nguyên bài gắn màu vàng kim vào dáng của nàng, nhưng kañcanabimbavaṇṇe ở vị trí cách đứng cùng giống với rathe nên bản dự án gắn với cỗ xe), bất định 2 (1.3 pītantarāhi: bản nguyên bài hiểu là tấm choàng, bản dự án giữ nghĩa hẹp hơn là các lớp bên trong vì danh từ không hiện; 4.1–4.2: bản nguyên bài tách thành ba loài tiếng công, thiên nga, karavīka, còn bản dự án ghép vua thiên nga với karavīka vì cấu trúc koci koci chỉ có một koci). Các khoá khác (vòng xuyến, vòng hoa, mắt mèo, ngọc ma-ni mắt bồ câu, xe, lưới vàng dâng khi Đức Gotama viên tịch, 8.1–8.4) hai bản cùng nghĩa. Đọc đối kháng toàn bài thêm một lượt: không thấy lỗi nghĩa mới. Bản nguyên bài không phân đoạn nên đối chiếu ở mức đoạn, không phải mức khoá; không có bản Anh.
+
+  Lượt rà soát 2026-10-15 (Claude Opus 5.5, đọc đối kháng Pāli↔Việt từng khoá, đối chiếu bản nguyên bài Bhikkhu Indacanda, đoạn song song vv64, vv84, vv37, vv44, vv34, vv38, vv39, ne37): sửa 1 khoá:
+    - `8.1` "Làm việc ấy rồi," → "Sau khi tôi làm việc ấy,": `Tāhaṁ` = `tā ahaṁ`, chủ ngữ `ahaṁ` bị bỏ; cùng Pāli ở `vv38:9.1` và `ne37:153.1` đã dịch "Sau khi tôi làm việc ấy". Không đổi nghĩa lớn (accuracy nhỏ + nhất quán).
+    Giữ các chỗ khác với bản nguyên bài (đã ghi 2026-10-14): `1.4`, `6.1`. Bất định giữ nguyên văn: `1.3` `pītantarāhi`, `1.4` `apiḷandhāva` (đọc "như đã được trang sức" hay "dù không trang sức"), `4.1`–`4.2` ranh giới `koci koci`/`haṁsassa rañño`, `3.1`–`3.4` chủ ngữ không nêu. Đề xuất: người biên tập tra PED/chú giải cho `apiḷandha`; không sửa theo đoán chữ.
+    Lỗi chéo chờ người biên tập: `0.2` Itthivimāna; xưng hô trong lời hỏi `6.2`–`6.3`.

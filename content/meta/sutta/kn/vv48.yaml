@@ -1,10 +1,11 @@
 uid: vv48
-status: review
+status: draft
 translationTitle: "Chuyện Cung Điện Mía"
 translators:
   - "OpenCode Space Bunny Free (agent)"
 reviewers:
   - Claude Sonnet 5.5 (Claude Code)
+  - Claude Opus 5.5 (Claude Code)
 tags:
   - "kn"
   - "khuddaka-nikaya"
@@ -42,30 +43,10 @@ quality:
       dịch chỉ từ Pāli root, đây là giới hạn upstream chứ không phải lỗi của
       người dịch. Vì vậy `triangulation` bị chặn ở 7.5 (≤ 8.0) chứ không nâng để
       né blocker."
-  assessed_at: 2026-10-14
+  assessed_at: 2026-10-15
   assessed_by:
-    - Claude Sonnet 5.5 (Claude Code)
-  assessment_id: a37a05dd-1646-40d2-b815-3840b3d8e9e8
-  waiver:
-    id: no-upstream-english
-    blockers:
-      - "Không có tầng tham khảo tiếng Anh tại commit đã ghim
-        11c9d708978cde8ba61096d8a75f7ddfb846f639: đo trên
-        `source/upstream-manifest.json` cho 755 tệp `kn` của
-        `translation/en/sujato` nằm ở cp 35, dhp 26, iti 112, ja 83, kp 9, snp
-        73, thag 264, thig 73, ud 80 và **0 tệp** ở `vv`; thư mục cache
-        `.cache/upstream/suttacentral/translation/en/sujato/sutta/kn/` cũng chỉ
-        có đúng 9 thư mục con ấy. Đây là `not-published-upstream`, KHÔNG phải
-        `not-synced`. `scripts/validate.ts` coi tệp Anh thiếu là error khi
-        status là `review` hoặc `published`, nên bài bắt buộc `draft`. Tầng
-        `vietnamese-current` cũng vắng: `translation/vi/phantuananh` tại commit
-        đã ghim có 26 tệp và tất cả đều là Pháp Cú. Lớp lấp `english-project`
-        của dự án không có tệp nào cho vv48 (thư mục
-        `content/translation/en/project/sutta/kn/` có 129 tệp, trong đó chỉ một
-        tệp `vv` là vv69, không phải bài này). Ba tầng tham khảo đều vắng ⇒ bài
-        dịch chỉ từ Pāli root, đây là giới hạn upstream chứ không phải lỗi của
-        người dịch. Vì vậy `triangulation` bị chặn ở 7.5 (≤ 8.0) chứ không nâng
-        để né blocker."
+    - Claude Opus 5.5 (Claude Code)
+  assessment_id: be6d0e2d-2878-445b-b059-7c137eb20a3f
 notes: |-
   Dịch từ Pāli root (`vv48_root-pli-ms.json`), 51/51 khoá khớp `pre` = `vv48:`; bài viết
   trong `content/catalog/sutta/kn.json` với `sourcePath` có thật, không phải phải dò cache.
@@ -178,3 +159,9 @@ notes: |-
   - Bốn lệnh cổng kỹ thuật chưa chạy trong lượt này: `npm run validate`, `npm test`, `npm run check`, `npm run build`.
 
   Đối chiếu độc lập 2026-10-14: với bản Việt nguyên bài của Bhikkhu Indacanda. 2 khoá bất đồng nghĩa → sửa 1 (`11.2`: *đảnh lễ và hỏi về điều thiện* → *đảnh lễ và hỏi thăm sự an lành*, vì `kusalañca pucchisaṁ` là công thức hỏi thăm an lành, cùng Pāli `sukhañca kusalaṁ pucchi` ở `snp5.1:6.3` và `cnd1:6.3` đã dịch *hỏi thăm về hạnh phúc và an lành*; bản nguyên bài cũng hiểu là hỏi thăm sức khoẻ), giữ 0, bất định 1 (`3.3` `sīlasaññamaṁ`: bản nguyên bài đọc thành một cụm *sự thu thúc giới hạnh*, bản này đọc hai vế *giới hạnh và sự chế ngự*; hợp từ Pāli đọc được cả hai cách, giữ). Phần còn lại khớp nghĩa với bản nguyên bài, gồm các điểm đã phân xử ở lượt trước: `sassu` là mẹ chồng, `ucchu` là mía, `upāgami` là ngài đã đến nhà, `6.4` `devatā` là danh cách chỉ thân phận nữ thiên, và `4.1` `Idāni` là vừa mới đây. Cùng lỗi `kusalañca pucchisaṁ` còn ở bài khác (`vv30:11.2`). Bản nguyên bài không phân đoạn nên đối chiếu ở mức đoạn, không phải mức khoá; không có bản Anh.
+
+  Lượt rà soát 2026-10-15 (Claude Opus 5.5, đọc đối kháng Pāli↔Việt từng khoá, đối chiếu bản nguyên bài Bhikkhu Indacanda, đoạn song song vv30, vv37, vv44, vv34, vv36, vv29): sửa 2 khoá, đều nhất quán khuôn, không đổi nghĩa:
+    - `3.5` "hãy nói rõ" → "xin hãy cho biết" (`pucchitā ācikkha`; khuôn đa số đã dùng ở vv29, vv36 cho lời tôn giả hỏi nữ thiên).
+    - `3.6` "quả báo này là quả của nghiệp nào." → "đây là quả báo của nghiệp nào." (`kissa kammassidaṁ phalaṁ`; Pāli trùng `vv37:3.6`, `vv44:7.4`, `vv34:7.4`, `vv36:6.4` đều dịch thế).
+    Rà đủ 51 khoá về người nói (`1.1`–`3.6` tôn giả; `4.1`–`11.4` nữ thiên, `5.2`/`6.1` mẹ chồng), `sassu` = mẹ chồng, `ucchu` = mía, `leḍḍu` = cục đất (vv30:6.3 "ghế" là sai, không dùng làm tiền lệ): không thấy lỗi nghĩa mới. Giữ các chỗ khác với bản nguyên bài như đã ghi 2026-10-14 (`3.3`).
+    Bất định giữ nguyên: `5.2` `avākiri` (ngôi hai hay ba), `7.2`/`8.2` `sukhañca kammaṁ`, `6.1` `issariya`. Lỗi ngoài bài (chỉ báo): `vv30:6.3` ("ghế" cho `Pīṭhaṁ`: cần kiểm riêng), `vv30:11.2`. Lỗi chéo chờ người biên tập: `0.2` Itthivimāna.

@@ -1,10 +1,11 @@
 uid: vv35
-status: review
+status: draft
 translationTitle: "Chuyện Cung Điện Nữ Pesavatī"
 translators:
   - "OpenCode Space Bunny Free (agent)"
 reviewers:
   - Claude Sonnet 5.5 (Claude Code)
+  - Claude Opus 5.5 (Claude Code)
 tags:
   - kn
   - khuddaka-nikaya
@@ -39,26 +40,10 @@ quality:
       published, bài bắt buộc `draft`. Đây là giới hạn của ảnh chụp upstream chứ
       không phải lỗi của người dịch, nên `triangulation` bị chặn ở 7.5 (không
       quá 8.0) chứ không nâng để né blocker."
-  assessed_at: 2026-10-14
+  assessed_at: 2026-10-15
   assessed_by:
-    - Claude Sonnet 5.5 (Claude Code)
-  assessment_id: 55883ca0-55bc-4eb5-ade9-bde83f1de487
-  waiver:
-    id: no-upstream-english
-    blockers:
-      - "Không có tầng tham khảo tiếng Anh tại commit đã ghim. Đo trực tiếp
-        `source/upstream-manifest.json`: tầng `english-sujato` có 4.291 tệp,
-        trong đó `kn` chỉ gồm 9 sub-collection — cp 35, dhp 26, iti 112, ja 83,
-        kp 9, snp 73, thag 264, thig 73, ud 80 (755 tệp) — và KHÔNG có `vv` (đếm
-        0 tệp nào chứa `vv35`). Tầng Anh đã ghim chỉ có `name/sutta/vv-name…`,
-        tức là toàn bộ thân bài `vv` vắng mặt. Đây là `not-published-upstream`,
-        KHÔNG phải `not-synced`. Tầng `vietnamese-current` cũng vắng (26 tệp,
-        toàn bộ là Pháp Cú) và lớp lấp `english-project` không có tệp nào cho
-        `vv35` (đếm 0/…). Ba tầng tham khảo đều vắng ⇒ bài chỉ dịch được từ Pāli
-        root. Vì `scripts/validate.ts` xếp tệp Anh thiếu là lỗi khi status là
-        review hoặc published, bài bắt buộc `draft`. Đây là giới hạn của ảnh
-        chụp upstream chứ không phải lỗi của người dịch, nên `triangulation` bị
-        chặn ở 7.5 (không quá 8.0) chứ không nâng để né blocker."
+    - Claude Opus 5.5 (Claude Code)
+  assessment_id: e947da94-3dac-4bf7-b16b-55b64e8a0ce0
 notes: |-
   **Phạm vi: đủ 53/53 khoá của `all`**, không có khoá nào ngoài lát. Thứ tự khoá trong tệp
   dịch bằng đúng thứ tự Pāli. Năm phép tự viết đều chạy trên 53/53: (1) tập khoá Việt bằng tập
@@ -278,3 +263,7 @@ notes: |-
   `npm test`, `npm run check`, `npm run build`); `technical_integrity` giữ 9,6.
 
   Đối chiếu độc lập 2026-10-14: với bản Việt nguyên bài của Bhikkhu Indacanda. 6 khoá bất đồng nghĩa → sửa 1, giữ 2, bất định 3. SỬA 5.3 (trước: “huy hoàng, tựa tấm lưới ngọc,” → sau: “tựa tấm lưới ngọc, hỡi nàng danh tiếng,”): `yasassinī` là nữ cách hô gọi nữ thiên chứ không phải tính từ của hồ sen — cùng khuôn hô cách ở vv22:3.2, vv34:6.4; trong 23 khoá vv/pv khác có `yasassinī` đều chỉ người, không khoá nào chỉ vật; bản nguyên bài cũng đọc như hô cách (độ chắc: khá, không tuyệt đối). GIỮ 10.4 (`Pesavatī`; bản nguyên bài viết Sesavatī, khác dị bản, Pāli đã ghim là Pesavatī) và 6.3 (`mānusakā amānussakā ca dibbā`: bản nguyên bài viết “không thuộc về phi nhân”, Pāli là ba loài hoa người, phi nhân, cõi trời). BẤT ĐỊNH 1.4 (`rucaka`: bản nguyên bài hiểu là cát vàng, giữ nguyên Pāli), 4.4 (`dumagga`: ngọn cây hay cây tuyệt hảo; bản nguyên bài chọn nghĩa sau, bản dự án chọn ngọn), 9.1 (`santānaka`: bản nguyên bài hiểu là tàng cây, bản dự án giữ tên Pāli). Đồng nhất thuật ngữ (không tính là bất đồng nghĩa): 8.3 `haṁsarāja` “ngỗng chúa” → “vua thiên nga”, theo vv36:4.2 và đa số tầng (thiên nga 71 khoá, ngỗng 13 khoá có `haṁsa`). Các điểm bản nguyên bài xác nhận bản dự án: `puratthimena` là phía đông, `Tidasa` là cõi Tam Thập Tam, `aḷārapamha` hô cách chỉ người, `Upatissa` là người được rải hoa. Bản nguyên bài không phân đoạn nên đối chiếu ở mức đoạn, không phải mức khoá; không có bản Anh.
+
+  Lượt rà soát 2026-10-15 (Claude Opus 5.5, đọc đối kháng Pāli↔Việt từng khoá, đối chiếu bản nguyên bài Bhikkhu Indacanda): sửa 0 khoá; rà lại đủ 53 khoá về chủ thể, hô cách, phủ định và thuật ngữ, không thấy lỗi nghĩa mới.
+    Giữ các chỗ khác với bản nguyên bài (ghi ở mục đối chiếu 2026-10-14): `10.4` Pesavatī, `6.3`, `1.4`/`4.4`/`9.1` giữ như đã ghi.
+    Bất định giữ nguyên văn, không đoán lại chữ Pāli: `1.4` `rucaka`, `4.2`/`5.1` `anojaka`/`bhujaka` (hapax), `9.1` `santānaka`, `10.1` `Magadhavara`, `3.1` `sateratā`; đề xuất người biên tập tra PED/chú giải. Lỗi chéo chờ người biên tập: `0.2` Itthivimāna.

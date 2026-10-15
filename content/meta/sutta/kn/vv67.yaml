@@ -1,10 +1,11 @@
 uid: vv67
-status: review
+status: draft
 translationTitle: "Chuyện Cung Điện Người Ban Trái Cây"
 translators:
   - "OpenCode Space Bunny Free (agent)"
 reviewers:
   - Claude Sonnet 5.5 (Claude Code)
+  - Claude Opus 5.5 (Claude Code)
 tags:
   - "kn"
   - "khuddaka-nikaya"
@@ -14,7 +15,7 @@ tags:
 quality:
   scores:
     source_provenance: 9.5
-    semantic_fidelity: 8.7
+    semantic_fidelity: 8.8
     grammar_logic: 8.8
     segment_alignment: 10
     terminology: 8.6
@@ -23,7 +24,7 @@ quality:
     han_viet_balance: 9.2
     ambiguity_integrity: 8.3
     technical_integrity: 9.6
-  final_score: 8.989999999999998
+  final_score: 9
   blocking_errors:
     - "Không có tầng tham khảo tiếng Anh tại commit đã ghim: tệp
       `.cache/upstream/suttacentral/translation/en/sujato/sutta/kn/vv/vv67_tran\
@@ -43,31 +44,10 @@ quality:
       Pāli root ⇒ blocker thật, và đây là **giới hạn upstream**, không phải lỗi
       của người dịch. Vì vậy `triangulation` bị chặn ở 7.5 (≤ 8.0) chứ không
       nâng để né blocker."
-  assessed_at: 2026-10-14
+  assessed_at: 2026-10-15
   assessed_by:
-    - Claude Sonnet 5.5 (Claude Code)
-  assessment_id: f5ba0b5d-ed2c-47b3-88e9-af309174b1e5
-  waiver:
-    id: no-upstream-english
-    blockers:
-      - "Không có tầng tham khảo tiếng Anh tại commit đã ghim: tệp
-        `.cache/upstream/suttacentral/translation/en/sujato/sutta/kn/vv/vv67_tr\
-        anslation-en-sujato.json` không tồn tại trong
-        `.cache/upstream/suttacentral/`, và `source/upstream-manifest.json`
-        (commit 11c9d70, tầng `english-sujato`) không liệt kê bất kỳ tệp nào cho
-        uid này — đây là `not-published-upstream`, KHÔNG phải `not-synced`; toàn
-        bộ ba sub-collection `tha-ap`, `thi-ap`, `vv` của Kinh Tạng đều vắng mặt
-        trong tầng Anh đã ghim. Đo coverage theo đúng công thức
-        `source/layers.yaml` (Pāli có nội dung ≥ 40 ký tự, loại block tham chiếu
-        `:0`) cho 0 trên 0 khoá (không khoá nào đủ 40 ký tự), dưới ngưỡng 0.8.
-        `scripts/validate.ts` coi tệp Anh thiếu là **error** khi status là
-        `review` hoặc `published`, nên bài bắt buộc `draft`. Tầng
-        `vietnamese-current` cũng vắng: `translation/vi/phantuananh` tại commit
-        đã ghim chỉ có 26 tệp và toàn bộ là Pháp Cú. Lớp lấp `english-project`
-        của dự án cũng không có cho uid này. Ba tầng tham khảo đều vắng ⇒ bài
-        dịch chỉ từ Pāli root ⇒ blocker thật, và đây là **giới hạn upstream**,
-        không phải lỗi của người dịch. Vì vậy `triangulation` bị chặn ở 7.5 (≤
-        8.0) chứ không nâng để né blocker."
+    - Claude Opus 5.5 (Claude Code)
+  assessment_id: 12800cce-ce1c-4145-95e9-052f7bd93ff0
 notes: |-
   Dịch từ Pāli root: commit đã ghim không có bản Anh Sujato cho `vv`.
   Khối mô tả cung điện (1.1–2.5) dùng lại nguyên văn bài vv56/vv57 cho 8 khoá có Pāli trùng: `“Tòa lâu đài cao vút với những cột trụ bằng ngọc châu này,` / `Có bảy trăm lầu gác nguy nga tráng lệ,` / `cột bằng ngọc lưu ly, trải thảm rực rỡ tươi đẹp.` / `Nơi ấy ngài an tọa, ăn uống thỏa thích,` / `đàn hạc cõi trời tấu lên khúc nhạc êm dịu;` / `múa hát, vui đùa thỏa thích.`; `Samantato soḷasa yojanāni` dịch theo mẫu 4× `rộng … do-tuần khắp bốn phía xung quanh` của vv56/vv57/vv59. `Phẩm Pāyāsi` (7×), `Chuyện Cung Điện Nam Hư Không` (11×), `Vị thiên tử ấy vô cùng hoan hỷ,` (9×), `Nhờ vậy tôi có được dung sắc như thế này,` (10×) cũng dùng lại.
@@ -82,3 +62,10 @@ notes: |-
   Cổng kỹ thuật CHƯA chạy lại: cần `npm run validate`, `npm test`, `npm run check`, `npm run build`.
 
   Đối chiếu độc lập 2026-10-14: với bản Việt nguyên bài của Bhikkhu Indacanda. 5 chỗ bất đồng nghĩa → sửa 0, giữ 3, bất định 2. Giữ: 6.1–6.2 Tavevāhaṁ: Pāli đã ghim là tava (đến ngài), bản nguyên bài đọc theo dạng tương tự như thế, nên giữ cách hiểu dâng bốn quả cho người nghe chuyện; 7.1 alameva dātuṁ giữ quả thật nên dâng (alaṁ với động từ nguyên mẫu là thích hợp, nên), bản nguyên bài đọc là quá đủ để; 7.4 manussasobhaggatam giữ vận may tốt đẹp của cõi người, bản nguyên bài đọc là trạng thái giàu sang. Bất định: 1.4 rucakatthatā giữ trải thảm rực rỡ theo họ vv, bản nguyên bài đọc là trải lót bằng vàng, cùng hướng với vv55, chưa phân xử được; 7.2 niccaṁ đang gắn với người luôn mong cầu an lạc, bản nguyên bài gắn với việc dâng thường xuyên, Pāli không buộc được cách nào. Bản nguyên bài xác nhận độc lập các chỗ đã sửa ở lượt 2026-10-11: 2.3 sáu mươi bốn thiên nữ (tám nhóm tám), 2.4 thiên nữ cõi Tam Thập Tam, 5.2 bố thí cho những bậc ngay thẳng, 5.4 thọ hưởng, 6.1–6.2 người nói là thiên tử dâng bốn quả, 7.2–7.4 ba tác nhân. Bản nguyên bài không phân đoạn nên đối chiếu ở mức đoạn (chín đoạn ứng với chín khổ), không phải mức khoá; không có bản Anh. Không có câu chữ nào của bản nguyên bài được đưa vào bản dịch; lượt này không đổi chữ nào của 34 khoá. Cổng kỹ thuật chưa chạy: npm run validate, npm test, npm run check, npm run build.
+
+  Lượt rà soát 2026-10-15 (Claude Opus 5.5, đọc đối kháng Pāli↔Việt từng khoá, đối chiếu bản nguyên bài Bhikkhu Indacanda, đoạn song song vv55, vv77, vv58, vv73, vv75, vv82): sửa 3 khoá:
+    - `2.1` "ăn uống thỏa thích" → "uống và ăn": `pivasi khādasi ca` không có nghĩa "thỏa thích" (thêm nghĩa); theo bản đã published của cùng Pāli `vv55:2.1`, `vv77:2.1`.
+    - `2.5` "múa hát, vui đùa thỏa thích" → "múa, hát và làm cho hoan hỷ": `pamodayanti` là thể sai khiến (làm cho hoan hỷ; cùng dạng với `modenti` ở vv29:2.1); "thỏa thích" không có trong Pāli; theo `vv82:2.6`. Không thêm tân ngữ vì Pāli không nêu.
+    - `3.4` bỏ dấu chấm thừa sau `?”` (lỗi dấu câu; khớp `vv77:3.3`).
+    Giữ các chỗ khác với bản nguyên bài như đã ghi 2026-10-14 (`6.1`–`6.2`, `7.1`, `7.4`). Bất định giữ nguyên văn: `1.4` `rucakatthatā`, `7.2` `niccaṁ` gắn với ai, `6.1` `mahāmuni` chỉ ai.
+    Lỗi ngoài bài (chỉ báo): `vv80:3.4` còn "vui đùa thỏa thích" cho `pamodayanti`. Lỗi chéo chờ người biên tập: `0.2` Purisavimāna (không phải `Nam Hư Không`), xưng hô ngài/ngươi với nam thiên tử.

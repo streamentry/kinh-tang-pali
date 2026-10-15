@@ -29,6 +29,34 @@
       "content_sha256": "15e384675509517f7dd1cefe6c471702126627a830e05c1086a89488fd4e2568",
       "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
       "final_score": 8.99
+    },
+    {
+      "target": "translation",
+      "scope": "full",
+      "assessed_at": "2026-10-15",
+      "assessed_by": [
+        "Claude Opus 5.5 (Claude Code)"
+      ],
+      "scores": {
+        "source_provenance": 9.2,
+        "semantic_fidelity": 8.9,
+        "grammar_logic": 8.8,
+        "segment_alignment": 10,
+        "terminology": 8.6,
+        "triangulation": 8.5,
+        "vietnamese_clarity": 8.8,
+        "han_viet_balance": 9,
+        "ambiguity_integrity": 8.5,
+        "technical_integrity": 9.6
+      },
+      "blocking_errors": [
+        "Không có tầng tham khảo tiếng Anh tại commit đã ghim. Đo trên `source/upstream-manifest.json`: tầng `en-sujato` có tệp cho 9 sub-collection của `kn` (cp, dhp, iti, ja, kp, snp, thag, thig, ud) và **0 tệp** cho `vv`, nên đây là `not-published-upstream`, KHÔNG phải `not-synced`. Cổng coverage của bài này còn **không đo được gì** vì lý do riêng (mẫu số bằng 0, xem `notes`), nên không có cách nào chứng minh tầng Anh phủ được bao nhiêu. Tầng `vietnamese-current` cũng vắng: bản Việt đã ghim ở commit đã ghim chỉ có Pháp Cú, không có Nikāya. Lớp lấp `english-project` của dự án không có tệp nào cho bài này (trong thư mục `kn` của lớp lấp chỉ có một tệp `vv`, và không phải vv78). Ba tầng tham khảo đều vắng ⇒ bài dịch chỉ từ Pāli root. `scripts/validate.ts` coi tệp Anh thiếu là error khi status là `review` hoặc `published`, nên bài bắt buộc `draft`; đây là giới hạn upstream chứ không phải lỗi của người dịch. Vì vậy `triangulation` bị chặn ở 7.5 (≤ 8.0) chứ không nâng để né blocker."
+      ],
+      "notes": "Sửa 3 khoá nhỏ (8.3 bỏ \"cúi\" thêm nghĩa, 8.2 và 7.3 văn phong/chính tả); rà đủ 54 khoá, đối chiếu Indacanda và vv5/vv81; giữ điểm cũ, bất định giữ nguyên văn, không bản Anh.",
+      "id": "4cc1fbc2-a5cd-41c5-8403-eb1fc4e23dd2",
+      "content_sha256": "d608574948da337ee88019ffedc16f166d8ef7c44af4566d12eb96c3916ff90a",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
+      "final_score": 8.99
     }
   ],
   "legacy_quality": {

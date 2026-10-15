@@ -1,10 +1,11 @@
 uid: vv29
-status: review
+status: draft
 translationTitle: "Chuyện Cung Điện Uḷāra"
 translators:
   - "OpenCode Space Bunny Free (agent)"
 reviewers:
   - Claude Sonnet 5.5 (Claude Code)
+  - Claude Opus 5.5 (Claude Code)
 tags:
   - "kn"
   - "khuddaka-nikaya"
@@ -17,13 +18,13 @@ quality:
     semantic_fidelity: 8.7
     grammar_logic: 8.8
     segment_alignment: 10
-    terminology: 8.9
+    terminology: 9
     triangulation: 8.2
     vietnamese_clarity: 8.9
     han_viet_balance: 9
     ambiguity_integrity: 8.2
     technical_integrity: 9.6
-  final_score: 8.879999999999999
+  final_score: 8.889999999999999
   blocking_errors:
     - "Không có tầng tham khảo tiếng Anh tại commit đã ghim: bản Sujato ở
       `translation/en/sujato/sutta/kn/` chỉ có mười thư mục con — cp, dhp, iti,
@@ -41,29 +42,10 @@ quality:
       bài dịch chỉ từ Pāli root, đây là giới hạn upstream chứ không phải lỗi của
       người dịch; vì vậy `triangulation` bị chặn ở 7.5 (≤ 8.0) chứ không nâng để
       né blocker."
-  assessed_at: 2026-10-14
+  assessed_at: 2026-10-15
   assessed_by:
-    - Claude Sonnet 5.5 (Claude Code)
-  assessment_id: 90c7eda2-2764-4830-972e-2b27a3d085bf
-  waiver:
-    id: no-upstream-english
-    blockers:
-      - "Không có tầng tham khảo tiếng Anh tại commit đã ghim: bản Sujato ở
-        `translation/en/sujato/sutta/kn/` chỉ có mười thư mục con — cp, dhp,
-        iti, ja, kp, snp, thag, thig, ud — KHÔNG có `tha-ap`, `thi-ap` hay `vv`;
-        và `source/upstream-manifest.json` chỉ liệt kê tệp dịch Anh cho những
-        uid ấy, không tệp nào cho lát này. Đây là `not-published-upstream`,
-        KHÔNG phải `not-synced`. Đo coverage theo đúng công thức
-        `source/layers.yaml` (`englishCoverage.substantivePaliMinChars: 40`,
-        `excludeReferenceBlock: true`) cho 0 trên toàn bộ khoá Pāli có nội dung
-        của bài = 0%, dưới ngưỡng 0.8. `scripts/validate.ts` coi tệp Anh thiếu
-        là error khi status là `review` hoặc `published`, nên bài bắt buộc
-        `draft`. Lớp lấp `english-project` của dự án cũng không có cho uid này.
-        Tầng `vietnamese-current` cũng vắng: `translation/vi/phantuananh` tại
-        commit đã ghim chỉ có 26 tệp và toàn bộ là Pháp Cú. Ba tầng tham khảo
-        đều vắng nên bài dịch chỉ từ Pāli root, đây là giới hạn upstream chứ
-        không phải lỗi của người dịch; vì vậy `triangulation` bị chặn ở 7.5 (≤
-        8.0) chứ không nâng để né blocker."
+    - Claude Opus 5.5 (Claude Code)
+  assessment_id: 4339447b-d479-4870-a3fa-083101559371
 notes: |-
   
   Bản dịch tiếng Việt mới cho bài kinh vv29 — Chuyện Cung Điện Nữ Hư Không, bài thứ nhất
@@ -228,3 +210,9 @@ notes: |-
   chưa chạy `npm run validate`, `npm test`, `npm run check`, `npm run build`.
 
   Đối chiếu độc lập 2026-10-14: với bản Việt nguyên bài của Bhikkhu Indacanda. 3 khoá lệch cách hiểu so với bản nguyên bài → sửa 1 (`3.3` `Abhijātā mahantāsi`: “nàng thuộc bậc cao sinh, vĩ đại” → “nàng xuất thân cao quý, vĩ đại”; “cao sinh” chỉ có ở khoá này, còn `abhijāta` được dịch “xuất thân cao quý” ở hơn tám khoá khác (cp9:31.1, cp26:3.2, ja479:6.2, ja489:17.2, ja532:13.4, 23.2, 48.4, ja543:6.4); nghĩa không đổi so với bản nguyên bài, chỉ là cách viết), giữ 0, bất định 2 (`8.3` `Kūṭaṅgacchi avadhi maṁ`: bản nguyên bài hiểu “làm gãy xương bả vai, làm bị thương”, bản dự án là “làm gãy xương vai, làm trọng thương”; hợp từ `kūṭaṅgacchi` không tách được bằng Pāli ghim và `avadhi` có thể là “đánh” hoặc “giết” (dhp3:1, dhp4:1, ja371, ja428 đều dịch “đánh”); `9.2` `vippamuttā`: bản nguyên bài “đã được giải thoát”, bản dự án “đã rời bỏ” theo vv34:4.2, nghĩa gốc “được thoát khỏi” chưa phân xử được). Các chỗ còn lại (dung sắc/màu da, `7.4` phạm vi lời trích, bánh/bánh bột chiên, `3.5`–`3.6`, `10.2` dấu lược) cùng nghĩa hoặc chỉ khác diễn giải. Bản nguyên bài không phân đoạn nên đối chiếu ở mức đoạn, không phải mức khoá; không có bản Anh. Review đối kháng đủ 46 khoá: không tìm thêm lỗi cần sửa.
+
+  Lượt rà soát 2026-10-15 (Claude Opus 5.5, đọc đối kháng Pāli↔Việt, đối chiếu bản nguyên bài Bhikkhu Indacanda, đoạn song song vv31, vv34, vv37, vv44, vv49, vv75, vv77): sửa 1 khoá:
+    - `10.3` "sắc tướng tôi" → "dung sắc tôi": `vaṇṇo` ở `1.1` và `10.1` cùng bài đã dịch "dung sắc"; đa số áp đảo toàn bộ vv (hơn 100 khoá "dung sắc" so với 11 khoá "sắc tướng").
+    Giữ các chỗ khác với bản nguyên bài (màu da/dung sắc, bánh/bánh bột chiên, `7.3`–`7.4` phạm vi lời trích): chỉ khác diễn đạt.
+    Bất định giữ nguyên: `8.3` `Kūṭaṅgacchi` (hapax trong kho Pāli ghim; chưa có căn cứ ngữ pháp, không sửa theo đoán chữ; đề xuất người biên tập tra chú giải); `9.2` `vippamuttā`; `2.1` `modenti`.
+    Lỗi chéo chờ người biên tập, không sửa lẻ: `0.2` Itthivimāna; "sắc tướng" còn ở vv khác (cần thống nhất "dung sắc").
