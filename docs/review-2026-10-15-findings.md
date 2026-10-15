@@ -126,3 +126,16 @@ Còn tồn đọng cho người biên tập / lượt sau:
 - Nhóm Cūḷakuṇālavagga (ja341–351, ja465–466, ja470–471) nên được kiểm lại vì cùng kiểu lỗi.
 - Bất định ghi ở notes từng bài: ja476:2.4, ja479:2.2, ja478:8.1, ja497:9.3, ja513:17.1 (`daṇḍakirañño`), ja518:11.4/14.1, ja228:2.4.
 - Quyết định chung: tiêu đề "Kinh X" vs "Chuyện Tiền Thân X", phiên âm "Jātaka", xưng hô ta/tôi trong kệ.
+
+### Bổ sung sau PR kiểm toán Jātaka (rà tiếp 97 bài Jātaka còn `review`)
+
+Quét 13 mẫu lỗi lặp (`kujjh`, `anusās`, `senak`, `pamadā`, `gocar`, `-ketu`, `soṇḍ`, `atraj`, `sambādh`, `khurapp`, `diso`, `pacchānutapp`) trên 97 bài Jātaka chưa published, rồi rà đối kháng ja521, ja536, ja539, ja541, ja542, ja543. Chỉ 2 bài cần sửa: ja536 (3 khoá, đồng bộ với ja464: 73.4 `omasanti`, 71.4 `bādhaye`, 71.2) và ja542 (136.2 `khurappa`). Các bài còn lại không có lỗi nghĩa có căn cứ; điểm thấp vì thiếu nguồn đối chiếu độc lập (triangulation trung bình 7,79 trên 199 bài chưa published), không vì còn lỗi dễ sửa.
+
+Đã đóng: `Makkha` và `Thiện Thế` không còn trong bản dịch Jātaka; ja341:1.3 và ja536:60.3 (`nāpītikarā`) đã cùng một bản dịch; ja323:4.3 "sao nỡ chối từ" là cách diễn đạt gần nghĩa, không sai nghĩa.
+
+Bất định mới, chờ người biên tập:
+- ja539:81.2, 127.2 `satarājikaṁ`: "một trăm đồng vàng" (theo thag1.97) hay "chén có trăm đường vân" (theo ja547:198.2). Cần đồng bộ với thag1.97, thag16.7.
+- ja543:6.3–6.4 (`Khattiyo ca videhānaṁ, abhijātā samuddajā`, chủ ngữ giống đực mà dịch như nữ), 116.5–116.6 (`dāsampi ohārituṁ`), 127.1 (`anittarā ittarasampayuttā`).
+- ja518:11.4 (`alabbham(a)byāharati`), 14.1 (`Bhariyā ce purisaṁ vajjā`, vợ là chủ thể hay đối tượng).
+- ja513:17.1 `daṇḍakirañño`: "vua Daṇḍaki" hay "rừng Daṇḍaka".
+- ja476:2.4 `pīyasi`, ja479:2.2, ja478:8.1, ja497:9.3 `padahasi` ("nuốt lửa" chưa có căn cứ PED).
