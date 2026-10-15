@@ -1,10 +1,11 @@
 uid: mnd7
-status: review
+status: draft
 translationTitle: "Đại Tập Kể Lược, Kể Lược Phẩm Tám Kệ – Kinh Tissa Metteyya"
 translators:
   - "Claude Sonnet 5.5 (Claude Code)"
 reviewers:
   - Claude Sonnet 5.5 (Claude Code)
+  - Claude Opus 5.5 (Claude Code)
 tags:
   - "khuddaka-nikaya"
   - "mahaniddesa"
@@ -12,16 +13,16 @@ tags:
 quality:
   scores:
     source_provenance: 9.4
-    semantic_fidelity: 8.4
-    grammar_logic: 8.6
+    semantic_fidelity: 8.8
+    grammar_logic: 8.9
     segment_alignment: 10
     terminology: 8.4
-    triangulation: 7.8
-    vietnamese_clarity: 8.3
+    triangulation: 8
+    vietnamese_clarity: 8.4
     han_viet_balance: 9
-    ambiguity_integrity: 8.4
+    ambiguity_integrity: 8.7
     technical_integrity: 9.6
-  final_score: 8.79
+  final_score: 8.92
   blocking_errors:
     - "noEnglishEditionUpstream: không có tầng tham khảo tiếng Anh cho mnd7 tại
       commit đã ghim. Thư mục kn/ của edition translation/en/sujato chỉ có cp,
@@ -31,22 +32,10 @@ quality:
       cũng không có mnd7. Tầng vietnamese-current chỉ có Pháp Cú. Đây là
       not-published-upstream, giới hạn của bản chụp upstream chứ không phải lỗi
       người dịch, nên triangulation bị chặn ở 8.0 và không nâng để né blocker."
-  assessed_at: 2026-10-14
+  assessed_at: 2026-10-15
   assessed_by:
-    - Claude Sonnet 5.5 (Claude Code)
-  assessment_id: 8a119251-f30e-410c-985b-1660ee196a76
-  waiver:
-    id: no-upstream-english
-    blockers:
-      - "noEnglishEditionUpstream: không có tầng tham khảo tiếng Anh cho mnd7
-        tại commit đã ghim. Thư mục kn/ của edition translation/en/sujato chỉ có
-        cp, dhp, iti, ja, kp, snp, thag, thig, ud; manifest chỉ liệt kê tệp
-        root-pli-ms cho kn/mnd (cùng tệp tên mnd-name, chỉ có tiêu đề các bài);
-        tệp mnd7_translation-en-sujato.json không tồn tại. Lớp english-project
-        cũng không có mnd7. Tầng vietnamese-current chỉ có Pháp Cú. Đây là
-        not-published-upstream, giới hạn của bản chụp upstream chứ không phải
-        lỗi người dịch, nên triangulation bị chặn ở 8.0 và không nâng để né
-        blocker."
+    - Claude Opus 5.5 (Claude Code)
+  assessment_id: b7e17610-eefe-45af-9c7a-a61298bb706e
 notes: |-
   **Phạm vi: đủ 491/491 khoá của mnd7, không khoá nào ngoài tập khoá Pāli, cùng thứ tự Pāli.** Bài là phần Mahāniddesa chú giải kinh `snp4.7` (Tissametteyyasutta, Kinh Tissa Metteyya), thuộc phẩm Aṭṭhakavagga. Cấu trúc giống `mnd4`, `mnd5`, `mnd8` và các bài Cūḷaniddesa (`cnd6`, `cnd9`, `cnd10`, `cnd12`, `cnd13`, `cnd16`, `cnd20`, `cnd21`): dẫn từng đoạn kệ, giải từng cụm, nhắc lại cả đoạn kệ trong ngoặc kép. Mười đoạn kệ: kệ của Tissa Metteyya (`2`, nhắc lại `12`) và chín kệ của Đức Thế Tôn (`13`, `23`, `31`, `40`, `45`, `52`, `62`, `69`, `76`), mỗi kệ nhắc lại ở `22`, `30`, `39`, `44`, `51`, `61`, `68`, `75`, `81`, mở đầu bằng *Vì thế, Đức Thế Tôn đã nói—* (9 lần) và *Vì thế, trưởng lão Tissa Metteyya đã nói—* (1 lần, `11.1`). Pāli có 126 khoá mang thẻ in đậm, bản Việt không mang thẻ. Dấu lược: Pāli có 52 khoá chứa `…`: 17 khoá có `…pe…` (`26.2`, `27.4`, `35.2`, `36.6`, `53.3`, `54.5`, `54.8`, `55.2`, `63.7`, `66.2`, `70.4`, `70.10`, `77.3`, `77.29`, `78.3`, `78.4`, `79.5`, đều thành đúng một `…`) và 35 khoá có `…` trần (`35.3`–`35.4`, `46.12`–`46.18`, `49.13`–`49.15`, `77.4`–`77.26`, mỗi khoá giữ đúng một dấu); 0 khoá có `(…)`, 0 khoá kết `….`. Các khoá có ngoặc đơn của Pāli là `2.2`, `12.2`, `13.2`, `22.2` (lời dẫn nhân vật), bản Việt giữ cặp ngoặc đơn.
 
@@ -88,3 +77,5 @@ notes: |-
   **Bốn cổng kỹ thuật theo `AGENTS.md`:** `npm run validate`, `npm test`, `npm run check`, `npm run build`. Lát này **không** chạy bốn lệnh đó vì bị cấm trong từng lát ⇒ để CI hoặc người điều phối chạy. `technical_integrity` đặt **9.6**, không 10.0. Các phép tự kiểm đã chạy và đều xanh: tập khoá bản Việt = tập khoá Pāli (491/491, cùng thứ tự); nháy kép `“”`, nháy đơn `‘’` và ngoặc đơn khớp Pāli từng khoá (0/491 lệch); dấu lược `…` khớp Pāli từng khoá (0/491 lệch; 52 khoá có `…`); 0 khoá rỗng; NFC; không khoảng trắng thừa; không nháy thẳng; không thẻ HTML; Pāli lọt sang Việt: chỉ còn tên riêng và lemma nói trên.
 
   Đối chiếu bản dịch mù độc lập 2026-10-14: một dịch giả khác (cùng họ công cụ) dịch lại bài từ Pāli không xem bản dự án; so 121 khoá chênh lệch lớn nhất → khác nghĩa 2 nhóm: sửa 1, bất định 1; giữ 115 khoá (còn lại chỉ khác diễn đạt: `Vighāta` "tai họa" so "tổn hại", `satthāni` "lưỡi dao" so "vũ khí", `anāriya` "phi thánh" so "không cao thượng", `maṅku`, `jhāyati`, `Bhagavā`…). Sửa: 13.2 và 22.2 `(metteyyāti bhagavā)`: bản dự án dịch "(Đức Thế Tôn đáp lời Metteyya,)" làm mất hô cách `Metteyyā`, trong khi lời giải `16.1` giải đúng chữ ấy là "Đức Thế Tôn gọi vị trưởng lão ấy bằng dòng họ" và `16.23` dịch "Này Metteyya, Đức Thế Tôn nói" → "(Này Metteyya, Đức Thế Tôn nói,)" theo `cnd6:10.2` (`snp4.7:2.2` còn câu cũ; ngoài lát). Bất định: 45.3, 47.1, 47.3, 51.3 `mahāgedho`: giữ "cái bẫy lớn" theo `snp4.7:6.3`, bản mù đọc "mối đắm say lớn"; `gedha` là "tham đắm" ở mọi chỗ khác trong tầng (hơn 40 khoá) còn lời giải `47.2` liệt kê rừng, bụi rậm, bùn lầy, trói buộc, không phân xử được. Giữ có chủ ý: 32.5 và mọi chỗ `kitti` "uy tín" (bản mù "danh tiếng") theo `snp4.7:4.1`; đo thấy tầng có cả "danh tiếng" và "tiếng tăm" cho `kitti`, nên chưa buộc đổi. Review đối kháng riêng trên toàn bài (491 khoá) sửa thêm hai chỗ mà bản mù không báo: (i) 9.11, 9.12: `oḷārikā` / `anusahagatā` đồng cách với cả `kāmarāgasaṁyojanā` lẫn `paṭighasaṁyojanā` (và cả hai `-anusayā`), nhưng bản dịch chỉ gắn "thô thiển" / "vi tế" cho dục ái, khiến sân kiết sử và sân tùy miên đọc như bị đoạn hết ở bậc Nhất lai; sửa thành "dục ái kiết sử và sân kiết sử thô thiển, dục ái tùy miên và sân tùy miên thô thiển" (và tương tự với "vi tế" ở bậc Bất lai), theo `ps1.5:9.4`, `mnd16:276.12` (cùng công thức còn lệch ở `mnd2:12.11`–`12.12`, `mnd14:9.11`–`9.12`; ngoài lát); (ii) 42.3 `tassa te, āvuso, alābhā, tassa te dulladdhaṁ`: "ông đã lãng phí điều quý báu" thêm "quý báu" không có trong Pāli → "thật là bất lợi cho ông, thật là không may cho ông" theo `dn29:5.4`. Bốn khoá này không đổi số khoá hay ranh dòng. Không có bản Anh hay bản Việt độc lập khác.
+
+  Lượt rà soát 2026-10-15 (Claude Opus 5.5, đọc đối kháng Pāli↔Việt toàn bài, đoạn song song `snp4.7`, `dhp372`, `mnd10:127.2`, `mnd15:66.2`, `ud2.4`; không có bản Việt nguyên bài): sửa 10 khoá. (i) Sai thức (modality): `69.3`, `72.1`, `72.3`, `75.3` `na tena seṭṭho maññetha` là cầu khiến (optative `maññetha` có `na`), lời giải `72.2` cũng giải bằng *na kareyya* → *không nên*, nhưng bản cũ đọc thành câu điều kiện *Người không vì đó mà nghĩ … thì …*; sửa *Không nên vì đó mà nghĩ mình là tối thắng*. (ii) `69.4`, `73.1`, `73.3`, `75.4` `sa ve nibbānasantike`: bỏ *thì … đã đến* (Pāli không có động từ hoàn thành; lời giải `73.2` chỉ nói *ở gần*), dùng lại nguyên văn `dhp372:4` *vị ấy thật gần Niết-bàn*. (iii) `34.5` `etampi disvā` *thấy vậy* → *thấy điều ấy* cho khớp lemma `31.3`/`34.1`. (iv) `42.5` `maṅku hoti` thêm *hổ thẹn* cho cùng cách dịch với `40.4`, `42.1`, `42.8`. Ngoài lát, không sửa: `snp4.7:9.3`–`9.4` còn cách đọc điều kiện cũ. Giữ: `32.3` (*y, vật thực, sàng tọa, thuốc men trị bệnh*, theo `ud2.4:1.3`, `ud1.10:1.3`, khác `16.14` vì `16.14` là danh xưng *bhāgī*). Bất định thêm: `28.3` `puthu satthārānaṁ mukhullokikā` có thể đọc *ngước nhìn mặt nhiều vị đạo sư* (`puthu` bổ cho `satthārānaṁ`); giữ *nhiều người …* theo `mnd10:127.2` để hai bài khớp. `41.2` `samohito samannāgato` → *bị tụ họp, bị gắn đầy* vẫn vụng; `mnd15:66.2` dùng chuỗi khác, chưa thống nhất.
