@@ -1,10 +1,11 @@
 uid: mnd1
-status: review
+status: draft
 translationTitle: "Đại Tập Kể Lược, Kể Lược Phẩm Tám Kệ – Kinh Dục"
 translators:
   - "Claude Sonnet 5.5 (Claude Code)"
 reviewers:
   - Claude Sonnet 5.5 (Claude Code)
+  - Claude Opus 5.5 (Claude Code)
 tags:
   - "khuddaka-nikaya"
   - "mahaniddesa"
@@ -31,22 +32,10 @@ quality:
       cũng không có mnd1. Tầng vietnamese-current chỉ có Pháp Cú. Đây là
       not-published-upstream, giới hạn của bản chụp upstream chứ không phải lỗi
       người dịch, nên triangulation bị chặn ở 8.0 và không nâng để né blocker."
-  assessed_at: 2026-10-14
+  assessed_at: 2026-10-15
   assessed_by:
-    - Claude Sonnet 5.5 (Claude Code)
-  assessment_id: 2f1a2054-e914-4229-bf7d-affa94081bd0
-  waiver:
-    id: no-upstream-english
-    blockers:
-      - "noEnglishEditionUpstream: không có tầng tham khảo tiếng Anh cho mnd1
-        tại commit đã ghim. Thư mục kn/ của edition translation/en/sujato chỉ có
-        cp, dhp, iti, ja, kp, snp, thag, thig, ud; manifest chỉ liệt kê tệp
-        root-pli-ms cho kn/mnd (cùng tệp tên mnd-name, chỉ có tiêu đề các bài);
-        tệp mnd1_translation-en-sujato.json không tồn tại. Lớp english-project
-        cũng không có mnd1. Tầng vietnamese-current chỉ có Pháp Cú. Đây là
-        not-published-upstream, giới hạn của bản chụp upstream chứ không phải
-        lỗi người dịch, nên triangulation bị chặn ở 8.0 và không nâng để né
-        blocker."
+    - Claude Opus 5.5 (Claude Code)
+  assessment_id: 74fc25ca-d92e-4c08-8371-f27ef35e4817
 notes: |-
   **Phạm vi: đủ 516/516 khoá của mnd1, không khoá nào ngoài tập khoá Pāli, cùng thứ tự Pāli.** Bài là phần Mahāniddesa chú giải kinh `snp4.1` (Kāmasutta, Kinh Dục), mở đầu phẩm Aṭṭhakavagga. Cấu trúc giống `mnd4`, `mnd5` và các bài Cūḷaniddesa: dẫn từng đoạn kệ, giải từng cụm, nhắc lại cả đoạn kệ. Sáu đoạn kệ của `snp4.1` được dẫn in đậm ở `2`, `13`, `22`, `37`, `46`, `74` và nhắc lại trong ngoặc kép ở `12`, `21`, `36`, `45`, `73`, `84`, mỗi lần mở đầu bằng *Vì thế, Đức Thế Tôn đã nói—*. Các đoạn dẫn phụ: kệ dục `6`; kệ bố thí `17`–`18`; kệ về nô lệ `40`; lời Phật về vị tỳ-kheo có đệ tử ở nhà `53`–`54`; ba cấu uế bên trong `56`–`62`; ba pháp sinh khởi nội tâm `64`–`65`; kệ tham sân `68`; lời Phật về Bà-la-môn đã vượt bờ `80`–`82`. Pāli có 102 khoá mang thẻ in đậm, bản Việt không mang thẻ. Pāli có 65 khoá chứa dấu lược `…`: 14 khoá có `…pe…` (`23.5`, `23.6`, `24.2`, `25.1`, `42.6`, `56.5`, `64.5`, `71.8`, `75.11`, `76.3`, `76.4`, `76.11`, `76.13`, `77.4`, đều thành đúng một `…`), 50 khoá có `…` trần (`24.3`–`24.9`, `25.2`–`25.7`, `30.4`, `30.5`, `70.2`–`70.8`, `70.11`–`70.23`, `71.4`, `71.5`, `75.8`, `75.9`, `77.5`, `77.6`, `78.4`–`78.7`, `81.7`–`81.9`, `81.18`, `81.19`, mỗi khoá giữ đúng một dấu), 1 khoá có `(…)` là `47.2` (giữ nguyên `(…)` đúng vị trí, giữa chuỗi tính từ), 0 khoá kết `….`. Pāli có 40 khoá mang nháy kép `“”` và không khoá nào mang nháy đơn `‘’` hay ngoặc đơn khác; bản Việt khớp từng khoá. Dấu gạch dài cuối khoá khớp Pāli (68 khoá, 0 lệch).
 
@@ -80,3 +69,10 @@ notes: |-
   **Bốn cổng kỹ thuật theo `AGENTS.md`:** `npm run validate`, `npm test`, `npm run check`, `npm run build`. Lát này **không** chạy bốn lệnh đó vì bị cấm trong từng lát ⇒ để CI hoặc người điều phối chạy. `technical_integrity` đặt **9.6**, không 10.0. Các phép tự kiểm đã chạy và đều xanh: tập khoá bản Việt = tập khoá Pāli (516/516, cùng thứ tự); nháy kép `“”`, nháy đơn `‘’` và ngoặc đơn khớp Pāli từng khoá (0/516 lệch); dấu lược `…` khớp Pāli từng khoá (0/516 lệch; 65 khoá có `…`: 14 khoá có `…pe…`, 50 khoá có `…` trần, 1 khoá có `(…)`; không khoá Pāli nào kết `….`); dấu gạch dài cuối khoá khớp Pāli (0 lệch); 0 khoá rỗng; NFC; không khoảng trắng thừa; không nháy thẳng; Pāli lọt sang Việt: không còn từ có dấu Pāli ngoài các tên riêng và từ nguyên giữ dạng Pāli (*jāgu, indagu, sāli, vīhi, kahāpaṇa* và các tên rắn nêu ở bất định 4).
 
   **Đối chiếu bản dịch mù độc lập 2026-10-14.** Một dịch giả khác (cùng họ công cụ) dịch lại bài từ Pāli không xem bản dự án; so 144 khoá chênh lệch lớn nhất (trên 516 khoá) → khác nghĩa 11: sửa 1 nhóm, giữ 5, bất định 5. Sửa (accuracy fix, 6 khoá `13.1`, `13.3`, `14.1`, `14.7`, `21.1`, `21.3`, cùng một kệ `tassa ce kāmayānassa … te kāmā parihāyanti`): “Nhưng với kẻ đang khao khát ấy … khi những dục lạc ấy tiêu giảm” → “Nhưng nếu, đối với kẻ đang khao khát ấy … những dục lạc ấy tiêu giảm”, vì `ce` là “nếu” (điều kiện) chứ không phải “khi”; khớp `2.2`/`8.6` (*nếu điều ấy thành tựu*) và lời giải `14.2` (*Nếu của người ấy*), và `16.1` đã dịch `te kāmā parihāyanti` không có “khi”. Giữ 5: `13.1`/`14.1` `kāmayānassa` (bản mù đọc *kāma-yāna* “đi theo dục”; lời giải `14.3`–`14.4` đã nêu cả hai cách đọc, nên giữ “đang khao khát”); `81.2` `apacinitvā` (“làm giảm bớt” hay “phá bỏ” chỉ khác diễn đạt); `81.5` `vidhūpeti`/`sandhūpeti` (khác diễn đạt); `81.15` `kaṭaṁ` (“ván thắng”; bản mù không chắc); `65.3`–`65.4` `hiṁsanti`, `samphala` (cùng nghĩa, khác diễn đạt). Bất định 5, ghi lại không sửa: `71.2` `dakamesiṁ` (chủ thể “tìm” là chiếc thuyền hay nước); `33.2` `sattattā`; `29.6` `visakkati` (“bám dính” hay “chạy ngược xuôi”); `81.22` `atammayatā` (“không bị tác thành” hay “không tự đồng hóa”); `28.4` `pariyuṭṭhānaṁ` dịch “hiển hiện” theo quy ước của hàng chục khoá Niddesa/Netti/Peṭakopadesa, trong khi các Nikāya dịch “ám ảnh”/“chi phối” (bản mù: “triền phược”). Không có bản Anh hay bản Việt độc lập khác nên `triangulation` chỉ 7,8. Ngoài lát, báo chứ không sửa: `snp4.1:2.1`, `ne4:5.1`, `ne15:41.1`, `pe1:69.3` còn “Nhưng với kẻ đang khao khát ấy … khi …” cho cùng kệ.
+
+  Lượt rà soát 2026-10-15 (Claude Opus 5.5, đọc đối kháng đủ 516 khoá Pāli↔Việt, đoạn song song cnd5:13.2, cnd6:11/13, cnd12:13/22, cnd23:97–98, mnd16:83–90, iti88, sn35.151, sn3.2:2, snp4.1:1–4, snp2.5:6, sn10.3): sửa 0 khoá.
+  Không có bản Việt nguyên bài độc lập cho mnd1, không có bản Anh; chỉ Pāli và đoạn song song.
+  Kiểm lại có hệ thống: chủ thể/phủ định/điều kiện (`ce` = nếu), số đếm (2/4/10/8/11/9 mục khớp), 17.x, 23.x, 26.x, 47.x–51.x, 53–54, 56–68, 70–71, 77–82. Các đoạn dài (28.4, 48.7, 49.2, 75.5, 78.10) trùng nguyên văn tiền lệ đã published cnd5/cnd6/cnd23/mnd16, không lệch Pāli.
+  Giữ: «vì người phàm đã đạt được…» (2.4, 10.1, 10.4, 12.4) theo snp4.1:1.4 đã published; «thanh niên du đãng» (48.6) và «sanh y» (78.10) theo tiền lệ cnd; `pariyuṭṭhāna` = «hiển hiện» (28.4) theo quy ước Niddesa/Netti.
+  Không sửa (chéo, chờ người biên tập): `somaṁ visattikaṁ`/`tare loke visattikaṁ` (22.3–22.4, 28.1, 34, 36); `oḷārike`/`anusahagate` ở 26.3–26.4 («thô thiển», «vi tế»).
+  Bất định: như đã ghi (9.2, 29.x, 33.2, 71.2, 81.x); không có bằng chứng mới nên giữ nguyên điểm.

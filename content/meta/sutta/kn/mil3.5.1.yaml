@@ -1,11 +1,12 @@
 uid: mil3.5.1
-status: review
-translationTitle: "Câu Hỏi Về Sự Tồn Tại Và Chân Tính Của Đức Phật"
+status: draft
+translationTitle: "Câu Hỏi Về Việc Đức Phật Có Hay Không"
 translators:
   - "OpenCode Space Bunny Free (agent)"
 reviewers:
   - OpenCode Space Bunny Free (agent)
   - Claude Sonnet 5.5 (Claude Code)
+  - Claude Opus 5.5 (Claude Code)
 tags:
   - milindapañha
   - cong-hanh-nhom
@@ -14,16 +15,16 @@ tags:
 quality:
   scores:
     source_provenance: 9.6
-    semantic_fidelity: 8.6
-    grammar_logic: 8.8
+    semantic_fidelity: 9.2
+    grammar_logic: 9
     segment_alignment: 10
-    terminology: 8.5
+    terminology: 9.1
     triangulation: 8.6
-    vietnamese_clarity: 8.8
-    han_viet_balance: 8.9
-    ambiguity_integrity: 8.5
+    vietnamese_clarity: 9.2
+    han_viet_balance: 9
+    ambiguity_integrity: 9.1
     technical_integrity: 9.6
-  final_score: 8.99
+  final_score: 9.239999999999998
   blocking_errors:
     - "Không có tầng tham khảo English tại commit đã ghim:
       `source/upstream-manifest.json` không liệt kê
@@ -35,23 +36,10 @@ quality:
       nên gap chưa được ghi nhận; `validate` sẽ đỏ. Bài bị ép `draft` dù điểm
       không đến mức đó. Người biên tập chạy `npm run reference:gaps` rồi xét
       lại."
-  assessed_at: 2026-10-14
+  assessed_at: 2026-10-15
   assessed_by:
-    - Claude Sonnet 5.5 (Claude Code)
-  assessment_id: 9f151b9c-a273-42ba-8e7c-a3ec70884926
-  waiver:
-    id: no-upstream-english
-    blockers:
-      - "Không có tầng tham khảo English tại commit đã ghim:
-        `source/upstream-manifest.json` không liệt kê
-        `translation/en/sujato/sutta/kn/mil/mil3.5.1_translation-en-sujato.json`
-        (đã đếm bằng script trên cả bốn tệp `mil3.1.12`, `mil3.4.2`, `mil3.5.1`,
-        `mil3.5.5` — cả bốn đều vắng). Đo bằng chính `englishCoverageFor` của
-        repo: 0 / 6 segment Pāli có nội dung (≥ 40 ký tự) mang chữ Anh = 0%.
-        Dưới ngưỡng 80%, mà đợt này tôi bị cấm sửa
-        `content/meta/reference-gaps.yaml` nên gap chưa được ghi nhận;
-        `validate` sẽ đỏ. Bài bị ép `draft` dù điểm không đến mức đó. Người biên
-        tập chạy `npm run reference:gaps` rồi xét lại."
+    - Claude Opus 5.5 (Claude Code)
+  assessment_id: e3dc0628-92db-44af-af17-4e0c4a466aad
 notes:
   - |-
     **Không có tầng Việt hiện hành để đối chiếu.** Tại commit đã ghim (`11c9d708978cde8ba61096d8a75f7ddfb846f639`), bilara chỉ phân phối 26 chương Pháp Cú cho tiếng Việt, nên không tồn tại bản Hòa thượng Thích Minh Châu cho bài này; đó là đặc điểm của snapshot upstream, không phải thiếu sót của repo. Ba tầng còn lại là Pāli root, bản Anh Sujato đã ghim và bản Việt dự án.
@@ -69,3 +57,12 @@ notes:
     **Tiêu đề phẩm và thứ tự đã tra.** `Buddhavagga` → *Phẩm Đức Phật* theo 8 bài `kn/mil3.5.*` đã có. Số thứ tự `paṭhamo` → *thứ nhất*, khớp bài thứ nhất của phẩm. `Tena hi, bhante nāgasena, natthi buddho` là hỏi lại nhưng dạng mệnh đề, tôi dịch *“Vậy thì, thưa tôn giả Nāgasena, không có Đức Phật”ti.* — dấu hỏi là dấu hỏi của lời vua chứ không phải của Nāgasena, vì `“…”ti?` trong Pāli là câu hỏi của vua.
   - |-
     Đối chiếu độc lập 2026-10-14: với bản Việt nguyên bài của Bhikkhu Indacanda. 2 khoá bất đồng nghĩa → sửa 2 (`1.9`: *cha mẹ ông* → *cha của ngài*; `1.12`: *cha mẹ tôi* → *cha tôi*, vì Pāli `pitarā` / `pitarāpi me` là cách công cụ số ít của `pitar` (cha), không phải `pitaro` (cha mẹ); ở `1.9` còn đổi *ông* thành *ngài* vì người hỏi là Nāgasena nói với vua, cùng cách xưng với `1.7`), giữ 0, bất định 0. Các câu chữ *cha mẹ ông* / *cha mẹ tôi* trong ghi chú cũ phía trên là lỗi đã sửa ở thân bài. Còn một điểm bất định chưa sửa được trong lượt này vì chạm tiêu đề ở metadata: *sự tồn tại và chân tính* (`0.3`, `3.1`, `translationTitle`) — `atthinatthibhāva` nghĩa là việc có hoặc không có, chữ *chân tính* cho `bhāva` thiếu căn cứ; cần người biên tập đổi đồng bộ cả ba chỗ. Bản nguyên bài gọi vua xưng *trẫm* ở `1.12`; giữ *tôi* theo quy ước xưng hô của dự án cho cuộc vấn đáp Milinda. Bản nguyên bài không phân đoạn nên đối chiếu ở mức đoạn, không phải mức khoá; không có bản Anh.
+  - |-
+    Lượt rà soát 2026-10-15 (Claude Opus 5.5, đọc đối kháng Pāli↔Việt, đối chiếu bản nguyên bài Bhikkhu Indacanda): sửa 10 khoá + `translationTitle`.
+    0.3, 3.1, translationTitle: «sự tồn tại và chân tính» sai nghĩa — `atthinatthibhāva` là việc có hay không có (`atthi`/`natthi` + `bhāva` danh hoá), không có ý «chân tính»; đổi thành «việc Đức Phật có hay không», giải quyết điểm bất định đã ghi ngày 2026-10-14.
+    1.2, 1.4: vua gọi Nāgasena «ông» → «ngài» (22/23 lần trong kn/mil dùng «tôn giả Nāgasena, ngài»).
+    1.3, 1.5, 1.8, 1.10: `Na hi` đáp câu hỏi «đã từng thấy … chưa?» — «Không có»/«Không phải vậy» lệch với câu hỏi và lệch nhau giữa hai cặp; thống nhất «Chưa».
+    1.7: «núi Hi-mã-lạt» (chính tả lạc, 0 tiền lệ) → «Tuyết Sơn» theo `mil1`, `mil5.4.5`, `mil6.1.2`.
+    1.1: «Vua nói—» → «Vua nói:» theo đa số kn/mil.
+    Giữ: 1.12 «tôi» (bản nguyên bài «trẫm»), theo quy ước xưng hô Milinda. 2.1 «Nāgasenā» (độ dài do sandhi trước `ti`) là lệch chính tả lan khắp kn/mil, giữ để nhất quán, cần người biên tập quyết chung.
+    Bất định: `ūhā nadī` không có ở chỗ nào khác trong Pāli ghim; giữ tên riêng.

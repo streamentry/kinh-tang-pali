@@ -1,11 +1,12 @@
 uid: mil3.1.12
-status: review
+status: draft
 translationTitle: "Câu Hỏi Về Dấu Hiệu Của Tinh Tấn"
 translators:
   - "OpenCode Space Bunny Free (agent)"
 reviewers:
   - OpenCode Space Bunny Free (agent)
   - Claude Sonnet 5.5 (Claude Code)
+  - Claude Opus 5.5 (Claude Code)
 tags:
   - milindapañha
   - cong-hanh-nhom
@@ -14,16 +15,16 @@ tags:
 quality:
   scores:
     source_provenance: 9.4
-    semantic_fidelity: 8.8
-    grammar_logic: 8.8
+    semantic_fidelity: 9.1
+    grammar_logic: 9.1
     segment_alignment: 10
-    terminology: 8.7
-    triangulation: 8
-    vietnamese_clarity: 8.9
+    terminology: 9.2
+    triangulation: 8.6
+    vietnamese_clarity: 9.1
     han_viet_balance: 9
-    ambiguity_integrity: 8.8
+    ambiguity_integrity: 9
     technical_integrity: 9.6
-  final_score: 8.999999999999998
+  final_score: 9.209999999999999
   blocking_errors:
     - "Không có tầng tham khảo English tại commit đã ghim:
       `source/upstream-manifest.json` không liệt kê
@@ -35,23 +36,10 @@ quality:
       nên gap chưa được ghi nhận; `validate` sẽ đỏ. Bài bị ép `draft` dù điểm
       không đến mức đó. Người biên tập chạy `npm run reference:gaps` rồi xét
       lại."
-  assessed_at: 2026-10-14
+  assessed_at: 2026-10-15
   assessed_by:
-    - Claude Sonnet 5.5 (Claude Code)
-  assessment_id: 56fb2616-2d8e-4c95-8166-d5a8b75a2f0a
-  waiver:
-    id: no-upstream-english
-    blockers:
-      - "Không có tầng tham khảo English tại commit đã ghim:
-        `source/upstream-manifest.json` không liệt kê
-        `translation/en/sujato/sutta/kn/mil/mil3.1.12_translation-en-sujato.jso\
-        n` (đã đếm bằng script trên cả bốn tệp `mil3.1.12`, `mil3.4.2`,
-        `mil3.5.1`, `mil3.5.5` — cả bốn đều vắng). Đo bằng chính
-        `englishCoverageFor` của repo: 0 / 7 segment Pāli có nội dung (≥ 40 ký
-        tự) mang chữ Anh = 0%. Dưới ngưỡng 80%, mà đợt này tôi bị cấm sửa
-        `content/meta/reference-gaps.yaml` nên gap chưa được ghi nhận;
-        `validate` sẽ đỏ. Bài bị ép `draft` dù điểm không đến mức đó. Người biên
-        tập chạy `npm run reference:gaps` rồi xét lại."
+    - Claude Opus 5.5 (Claude Code)
+  assessment_id: 16c24cc6-0db4-4bc7-9292-9d3dda75f3e9
 notes:
   - |-
     **Không có tầng Việt hiện hành để đối chiếu.** Tại commit đã ghim (`11c9d708978cde8ba61096d8a75f7ddfb846f639`), bilara chỉ phân phối 26 chương Pháp Cú cho tiếng Việt, nên không tồn tại bản Hòa thượng Thích Minh Châu cho bài này; đó là đặc điểm của snapshot upstream, không phải thiếu sót của repo. Ba tầng còn lại là Pāli root, bản Anh Sujato đã ghim và bản Việt dự án.
@@ -74,3 +62,10 @@ notes:
     **Tiêu đề theo khuôn của các bài `mil3.1` đã có**: `mil3.1.8:0.3` *8. Câu hỏi về dấu hiệu của việc khéo tác ý*, `mil3.1.16:0.3` *16. Câu hỏi về việc nhiều pháp khác nhau cùng thành tựu một việc*. `Vīriyalakkhaṇapañha` → *12. Câu hỏi về dấu hiệu của tinh tấn*; `lakkhaṇa` → *dấu hiệu* theo chính `mil3.1.8`. Số thứ tự `dvādasamo` → *thứ mười hai*, khớp số 12 của bài.
   - |-
     Đối chiếu độc lập 2026-10-14: với bản Việt nguyên bài của Bhikkhu Indacanda. 5 khoá bất đồng nghĩa → sửa 5, giữ 0, bất định 0 (riêng 3.2 còn một chỗ bất định về hai động từ, nêu bên dưới). Sửa: 2.2 (trước: «có người khi đang rơi xuống hố thì người khác ra sức ghì lại … không bị rơi xuống cái hố ấy» → sau: «khi ngôi nhà đang sập, có người dùng một thanh gỗ khác để chống đỡ; được chống đỡ như vậy thì ngôi nhà ấy không sập»; Pāli `gehe patante aññena dārunā upatthambheyya` — `geha` là ngôi nhà, `dāru` là thanh gỗ, không có cái hố nào; lỗi nặng, đổi hẳn hình ảnh ví dụ); 1.3, 2.3, 3.3 (trước: «dấu hiệu của tinh tấn là: được tinh tấn thúc đẩy thì…» → sau: «tinh tấn có sự chống đỡ làm dấu hiệu; được tinh tấn chống đỡ thì…»; Pāli `upatthambhanalakkhaṇaṁ vīriyaṁ, vīriyūpatthambhitā`: nội dung của dấu hiệu chính là `upatthambhana` (chống đỡ), bản cũ để mất từ này và đổi «chống đỡ» thành «thúc đẩy»; ví dụ ngôi nhà ở 2.2 đòi cùng một từ; tầng đã dùng «nâng đỡ» cho `upatthambha` ở `mil6.1.4:5.1`, `mil6.4.2:47.1`, `mil7.8.3:2.2` và «chống đỡ» ở `pe6:6.12`; chọn «chống đỡ» vì ví dụ là vật chống nhà); 3.2 (trước: «một đạo quân nhỏ tiếp phản một đạo quân lớn, thì vua phải tự mình xem xét, thẩm định … rồi cùng với nó mà đánh» → sau: đạo quân lớn có thể đánh tan đạo quân nhỏ, vua cho nhắc nhở lẫn nhau, phái thêm quân đến, ban thêm sức mạnh liền theo cho đạo quân nhỏ của mình, nhờ đó đạo quân nhỏ ấy đánh tan đạo quân lớn; Pāli `parittakaṁ senaṁ mahatī senā bhañjeyya` — chủ ngữ là đạo quân lớn, tân ngữ là đạo quân nhỏ, bản cũ đảo; `anussāreyya anupeseyya` không có nghĩa «xem xét, thẩm định» và `tāya saddhiṁ` là «cùng với sức mạnh ấy», không phải vua ra trận). Bất định ở 3.2: `aññamaññaṁ anussāreyya anupeseyya` là hapax trong Pāli ghim (không có chỗ thứ hai để đối chiếu); bản nguyên bài hiểu «có người báo cho vua, vua cho đội binh khác tiếp ứng», bản dự án đọc `aññamaññaṁ` là «lẫn nhau» và không bịa thêm chủ thể; hướng chung (vua tiếp viện cho quân yếu) hai bản trùng. Lượt review đối kháng thấy thêm: `Bhāsitampetaṁ` (3.4) mất sắc thái «cũng» (-pi), theo quy ước đã đo ở `mil3.4.4:2.5` nên giữ. Bản nguyên bài không phân đoạn nên đối chiếu ở mức đoạn, không phải mức khoá; không có bản Anh.
+  - |-
+    Lượt rà soát 2026-10-15 (Claude Opus 5.5, đọc đối kháng Pāli↔Việt, đối chiếu bản nguyên bài Bhikkhu Indacanda, đoạn song song an7.67:14–18, mil3.1.9:5.4): sửa 5 khoá.
+    3.2: «nhà vua cho nhắc nhở lẫn nhau» sai chủ thể/quan hệ — chủ ngữ là `rājā` (số ít), `aññamaññaṁ anussāreyya anupeseyya` là vua nghĩ đến lực lượng này lực lượng khác rồi phái đi tiếp (anu-peseti), không phải các bên «nhắc nhở lẫn nhau»; `tāya saddhiṁ` (giống cái, chỉ lực lượng/quân phái đến) → «cùng với lực lượng ấy», không phải «nhờ đó».
+    3.4: thêm «cũng» cho `-pi` của `Bhāsitampetaṁ` (theo `mil3.1.9:5.4`).
+    3.5–3.7: câu trích là công thức của an7.67:18.4–18.6 (`vīriyārakkho`); dùng lại cách dịch đã published ở đó: «phát triển điều thiện», «từ bỏ điều có tội, phát triển điều không có tội», «và tự giữ mình trong sạch» (bỏ «thực hành», «tự chăm sóc mình trong thanh tịnh»).
+    Giữ: 3.2 vế đầu (Indacanda «có người báo cho đức vua» thêm chủ thể Pāli không có). 4.1 «Nāgasenā» (độ dài do sandhi trước `ti`) là lệch chính tả lan khắp kn/mil, giữ theo tiền lệ để nhất quán, cần người biên tập quyết chung.
+    Bất định: `anussāreyya` có thể là «nhớ đến/gọi đến» hoặc «điều động»; hapax trong Pāli ghim, đã chọn nghĩa đen «nghĩ đến».
