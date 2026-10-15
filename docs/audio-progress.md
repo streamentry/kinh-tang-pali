@@ -935,4 +935,23 @@ Fresh production readback on `2026-10-15T00:53:42Z` confirms MN90–MN94 pages r
 
 - Total audio duration: 9392.33 seconds / 187,852,800 bytes. All five use the pinned `vi-charon-mn1-v1` profile (`a384c5852585077c32e1348a6ada5cfc70a69c989ad705b8b5129fef3e1c9a71`), summary first, then canonical Vietnamese 2026. Source/profile hashes, chunk order, MP3 frames/hash/bytes, and public R2 object/range verification passed. ASR was skipped; no browser interaction or full human listening is claimed. All five remain `generated` and `review_status: pending`. MP3/WAV/cache files are gitignored.
 
-- Batch PR, merge, CI and production readback evidence will be appended after release workflows complete.
+### Batch mn-041 merge and production readback — PR #653
+
+- Exact PR head `c53ebd356308a2e8c10f1987fb8a7d2e0d680afd`; push CI `38700045146` and PR CI `38700067157` passed. Squash merge `0a8be4cd4a1f9401b8732168a61ae75a41993b1e` at `2026-10-15T08:03:31Z`.
+- CI and Pages runs started directly on the merge commit (`38702974094`, `38702974116`) were canceled by higher-priority pushes. A later descendant main run `38703466325` passed, and Pages deployment `38703466697` succeeded on `ba70727b5cd6e43fad7fbfd375d5f8d2bc71560f`, which contains the merge.
+- Production readback at `2026-10-15T08:59:39Z`: each MN100–MN104 page returned HTTP 200 with exactly one `<sutta-audio>` and matching native `<audio src>`, plus the “Chờ nghe duyệt” label. Each R2 range returned 206 `audio/mpeg`, 1,024 bytes, and its total matched metadata.
+- No interactive browser playback or full listening is claimed. ASR was skipped. Each entry remains `generated`; `review_status` remains `pending` for the editor.
+
+### Batch mn-042 — MN105–MN109 generated and uploaded to R2
+
+| UID | Source SHA-256 | MP3 SHA-256 | Bytes | Duration | Scripture starts | Chunks | Audio |
+|---|---|---|---:|---:|---:|---:|---|
+| MN105 | `afb0dfc9c0b9e1d7668bbb4b3e984a125caeac2e9ab6fd7be706a8d629c446c3` | `21e4de662b3127af21a7253ec52cbd24207f019c667c396825ff6e59fbd5c959` | 29,136,000 | 1456.73 s | 151.95 s | 16 (2 summary) | [R2 MP3](https://pub-8fa53f5182904685bd0c13d6c894a0e9.r2.dev/vi/mn/mn105/21e4de662b3127af.mp3) |
+| MN106 | `d9fabb170d1156e37bbe18b6f36aa381d7ed9468974970cb568ee0743375d1ce` | `0c0ec4ea235521a50fc00c51bbe26eb4b9fdc32e906bb029c980dff10c727cbc` | 18,984,000 | 949.15 s | 147.11 s | 10 (2 summary) | [R2 MP3](https://pub-8fa53f5182904685bd0c13d6c894a0e9.r2.dev/vi/mn/mn106/0c0ec4ea235521a5.mp3) |
+| MN107 | `3e0869e95353bb76145dd689574ae723657a818beb5b671e12ded414681e72f0` | `db7661b1075445a7e09e6419db50a748a7a72e1eb213c123a90dd7310d741e0c` | 19,807,200 | 990.29 s | 147.51 s | 12 (2 summary) | [R2 MP3](https://pub-8fa53f5182904685bd0c13d6c894a0e9.r2.dev/vi/mn/mn107/db7661b1075445a7.mp3) |
+| MN108 | `990ec670e00f8e3afa50a0ad530da4602cb916e7f9448ad1c48c2ee39494838d` | `eebf2bb1888a4e0bed4506404d370d64668fbeb1a2e3d51259b5ff2b73a25122` | 26,645,280 | 1332.21 s | 160.83 s | 16 (2 summary) | [R2 MP3](https://pub-8fa53f5182904685bd0c13d6c894a0e9.r2.dev/vi/mn/mn108/eebf2bb1888a4e0b.mp3) |
+| MN109 | `4d9790f46596414a354e85c0b786fca8db7faff1fa64cca4d3969698b696c089` | `388c118a3d72a68ab56f2be4a06e8331f37be1e1d5c0666f55f8abee37ab882b` | 18,870,720 | 943.47 s | 169.23 s | 10 (2 summary) | [R2 MP3](https://pub-8fa53f5182904685bd0c13d6c894a0e9.r2.dev/vi/mn/mn109/388c118a3d72a68a.mp3) |
+
+- Total audio duration: 5671.85 seconds / 113,443,200 bytes. All five use the pinned `vi-charon-mn1-v1` profile (`a384c5852585077c32e1348a6ada5cfc70a69c989ad705b8b5129fef3e1c9a71`), summary first, then canonical Vietnamese 2026. Source/profile hashes, chunk order, MP3 frames/hash/bytes, and public R2 object/range checks passed. ASR was skipped. No interactive browser playback or full human listening is claimed; all entries remain `generated` with `review_status: pending`. MP3/WAV/cache files are gitignored.
+
+- MN108 resumed from its saved fingerprinted chunk checkpoint after the original terminal handle ended; seven validated chunks were reused and not regenerated.
