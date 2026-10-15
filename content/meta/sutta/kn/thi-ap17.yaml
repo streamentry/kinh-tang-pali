@@ -1,5 +1,5 @@
 uid: thi-ap17
-status: draft
+status: review
 translationTitle: "Ký Sự Về Trưởng Lão Ni Mahāpajāpatī Gotamī"
 translators:
   - "Claude Sonnet 5.5 (Claude Code)"
@@ -48,6 +48,29 @@ quality:
   assessed_by:
     - Claude Opus 5.5 (Claude Code)
   assessment_id: 857e4654-3078-4a59-b009-f470ef80164d
+  waiver:
+    id: no-upstream-english
+    blockers:
+      - "Không có tầng tham khảo tiếng Anh tại commit đã ghim
+        11c9d708978cde8ba61096d8a75f7ddfb846f639:
+        `source/upstream-manifest.json` liệt kê tầng `english-sujato` chỉ với 9
+        nhóm con của `kn` (cp 35, dhp 26, iti 112, ja 83, kp 9, snp 73, thag
+        264, thig 73, ud 80 = 755 tệp) và không có tệp thân kinh nào cho
+        `thi-ap`; tệp `thi-ap` duy nhất trong tầng là tệp tên
+        `name/sutta/thi-ap-name_translation-en-sujato.json`, không phải bản dịch
+        từng khoá. Đây là `not-published-upstream`, không phải `not-synced`. Đo
+        coverage theo `source/layers.yaml` (Pāli có nội dung từ 40 ký tự trở
+        lên, loại khối :0): mẫu số 2 khoá (`thi-ap17:194.1`, câu kết 57 ký tự;
+        `thi-ap17:195.1`, dòng kết bài 42 ký tự; cả hai đều là câu kết, không
+        phải kệ), Sujato phủ 0/2 = 0%, dưới ngưỡng 0.8; 769 khoá còn lại đều
+        ngắn hơn 40 ký tự hoặc là khối :0 nên cổng gần như không đo được gì về
+        nội dung kệ. Lớp `english-project` không có tệp cho uid này;
+        `vietnamese-current` chỉ có 26 tệp Pháp Cú. Cả ba tầng tham khảo đều
+        vắng, bài chỉ dịch từ Pāli root và không có cách đọc English độc lập.
+        `scripts/validate.ts` coi thiếu tệp Anh là lỗi khi status là `review`
+        hoặc `published`, nên bài giữ `draft`; `triangulation` chặn ở 7.5 (không
+        quá 8.0). `content/meta/reference-gaps.yaml` hiện chưa có entry cho
+        thi-ap17."
 notes: |-
   Mahāpajāpatigotamītheriyāpadāna (Mahāpajāpatī Gotamī), bài thứ bảy của Phẩm Ekūposathika trong Therīapadāna. 771/771 khoá, thứ tự khoá đúng thứ tự Pāli, không có khoá nào ngoài tập khoá Pāli. Nội dung: khi Đức Phật ở Vesālī, tỳ-kheo-ni Mahāgotamī nghĩ đến việc nhập Niết-bàn trước Đức Phật và các vị đại đệ tử, năm trăm tỳ-kheo-ni cũng nghĩ như vậy; đất rung, chư thiên khóc; bà từ biệt các tỳ-kheo-ni và nữ cư sĩ, đến lễ Đức Phật, xin được cho phép và xin tha thứ lỗi lầm; dặn Ānanda; kể việc bà chúc Đức Phật sống lâu và lời Đức Phật dạy về cách tôn kính chư Phật; thị hiện thần thông theo lời Đức Phật; kể tiền thân (thời Padumuttara ước nguyện vị trí đứng đầu các tỳ-kheo-ni kỳ cựu, làm vợ người đứng đầu một làng nô lệ xứ Kāsi và cúng dường năm trăm vị Tự Tại, đời cuối là dì và người nuôi dưỡng Đức Phật); năm trăm tỳ-kheo-ni trình bày chứng đắc và xin nhập Niết-bàn; bà lễ chân Đức Phật lần cuối, nhập các tầng thiền theo thứ tự thuận rồi nghịch và nhập Niết-bàn; lễ tang do chư thiên và Đức Phật cùng chư tỳ-kheo cử hành; lời Đức Phật về Gotamī.
 

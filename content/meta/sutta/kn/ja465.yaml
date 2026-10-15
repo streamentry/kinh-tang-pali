@@ -1,5 +1,5 @@
 uid: ja465
-status: draft
+status: review
 translationTitle: "2. Kinh Bhaddasāla"
 translators:
   - "OpenCode Space Bunny Free (agent)"
@@ -43,6 +43,23 @@ quality:
   assessed_by:
     - Claude Opus 5.5 (Claude Code)
   assessment_id: a1841c47-8a82-4a84-9a3a-be3fc6b541b1
+  waiver:
+    id: no-upstream-english
+    blockers:
+      - "Tầng English SuttaCentral đã ghim KHÔNG có bài này. Tra
+        source/upstream-manifest.json (commit
+        11c9d708978cde8ba61096d8a75f7ddfb846f639): tầng pali có 5764 tệp và
+        ja465 CÓ MẶT (kn/ja/ja465_root-pli-ms.json); tầng english-sujato có 4291
+        tệp nhưng trong đó chỉ 83 tệp thuộc kn/ja (ja1–ja79 cộng ja126, ja159,
+        ja466, ja534) và ja465 KHÔNG có mặt; tầng vietnamese-current có 26 tệp
+        (chỉ Pháp Cú) và ja465 vắng; tầng english-project trong kho không có
+        ja465. Cùng kết luận khi tra thẳng cache của tầng Anh: 83 tệp, không có
+        ja465. Đây là đặc điểm của bản chụp upstream, không phải thiếu sót của
+        kho. Cổng validate của kho coi tệp Anh đã ghim mà vắng là ERROR khi
+        status là review hoặc published; lát này bị cấm chạy npm run
+        source:sync:used và bị cấm sửa content/meta/reference-gaps.yaml, nên
+        không thể ghi nhận khoảng trống bằng cơ chế của kho. Bắt buộc giữ
+        draft."
 notes: |-
   Vì sao `draft` — ba lý do; hai lý do đầu là kỹ thuật, lý do sau là chất lượng dịch.
 

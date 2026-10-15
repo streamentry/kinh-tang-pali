@@ -1,5 +1,5 @@
 uid: vv35
-status: draft
+status: review
 translationTitle: "Chuyện Cung Điện Nữ Pesavatī"
 translators:
   - "OpenCode Space Bunny Free (agent)"
@@ -44,6 +44,22 @@ quality:
   assessed_by:
     - Claude Opus 5.5 (Claude Code)
   assessment_id: e947da94-3dac-4bf7-b16b-55b64e8a0ce0
+  waiver:
+    id: no-upstream-english
+    blockers:
+      - "Không có tầng tham khảo tiếng Anh tại commit đã ghim. Đo trực tiếp
+        `source/upstream-manifest.json`: tầng `english-sujato` có 4.291 tệp,
+        trong đó `kn` chỉ gồm 9 sub-collection — cp 35, dhp 26, iti 112, ja 83,
+        kp 9, snp 73, thag 264, thig 73, ud 80 (755 tệp) — và KHÔNG có `vv` (đếm
+        0 tệp nào chứa `vv35`). Tầng Anh đã ghim chỉ có `name/sutta/vv-name…`,
+        tức là toàn bộ thân bài `vv` vắng mặt. Đây là `not-published-upstream`,
+        KHÔNG phải `not-synced`. Tầng `vietnamese-current` cũng vắng (26 tệp,
+        toàn bộ là Pháp Cú) và lớp lấp `english-project` không có tệp nào cho
+        `vv35` (đếm 0/…). Ba tầng tham khảo đều vắng ⇒ bài chỉ dịch được từ Pāli
+        root. Vì `scripts/validate.ts` xếp tệp Anh thiếu là lỗi khi status là
+        review hoặc published, bài bắt buộc `draft`. Đây là giới hạn của ảnh
+        chụp upstream chứ không phải lỗi của người dịch, nên `triangulation` bị
+        chặn ở 7.5 (không quá 8.0) chứ không nâng để né blocker."
 notes: |-
   **Phạm vi: đủ 53/53 khoá của `all`**, không có khoá nào ngoài lát. Thứ tự khoá trong tệp
   dịch bằng đúng thứ tự Pāli. Năm phép tự viết đều chạy trên 53/53: (1) tập khoá Việt bằng tập

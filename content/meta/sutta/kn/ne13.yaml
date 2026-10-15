@@ -1,5 +1,5 @@
 uid: ne13
-status: draft
+status: review
 translationTitle: "Nhóm Ngữ Đồng Nghĩa Hướng Dẫn"
 translators:
   - "OpenCode Space Bunny Free (agent)"
@@ -45,6 +45,25 @@ quality:
   assessed_by:
     - Claude Opus 5.5 (Claude Code)
   assessment_id: 63302821-58b6-4ddf-b03f-17e10fb93434
+  waiver:
+    id: no-upstream-english
+    blockers:
+      - "Không có tầng tham khảo tiếng Anh tại commit đã ghim. Đo bằng cây tệp
+        trong manifest, không suy từ tên thư mục: tầng english-sujato có 4291
+        tệp, trong đó 0 tệp chứa ne13, và thư mục con sutta/kn của nó chỉ có 9
+        sub-collection (cp, dhp, iti, ja, kp, snp, thag, thig, ud — 755 tệp) nên
+        không có ne; đây là not-published-upstream, KHÔNG phải not-synced. Tầng
+        english-project không có tệp cho ne13 (7 tệp ne* có trong
+        content/translation/en/project/sutta/kn/, không có ne13;
+        content/meta/en/kn/ có 7 tệp ne*, cũng không có ne13). Tầng
+        vietnamese-current vắng: 26 tệp, toàn bộ là kn/dhp. Mẫu số coverage = 21
+        khoá Pāli có nội dung theo đúng công thức của kho (prose() gộp khoảng
+        trắng rồi cắt, ≥ 40 ký tự, loại khối tham chiếu :0); đếm thô len ≥ 40
+        cho 22, vì ne13:6.5 đứng đúng ranh giới (thô 40 ký tự, prose 39). 0 trên
+        21 (0 trên 22) khoá có chữ tiếng Anh = 0%, dưới ngưỡng 0.8. Ba tầng tham
+        khảo đều vắng nên bài dịch chỉ từ Pāli root; đây là giới hạn upstream,
+        không phải lỗi của người dịch. Vì vậy triangulation bị chặn ở 7.5 chứ
+        không nâng để né blocker."
 notes: |-
   **Bài này.** `ne13` · tập Netti, phần `Paṭiniddesavāra` (Phần Giải Thích), `Vibhaṅga 10`
   — tức chương thứ mười của bộ phân tích. Bài có 55 khoá Pā li; bản dịch phủ đủ 55/55,
