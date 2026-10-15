@@ -1,10 +1,11 @@
 uid: tha-ap59
-status: review
+status: draft
 translationTitle: "Ký Sự Về Trưởng Lão Pañcadīpaka"
 translators:
   - "OpenCode Space Bunny Free (agent)"
 reviewers:
   - Claude Sonnet 5.5 (Claude Code)
+  - Claude Opus 5.5 (Claude Code)
 tags:
   - "kn"
   - "khuddaka-nikaya"
@@ -40,28 +41,10 @@ quality:
       `scripts/validate.ts` coi tệp Anh thiếu là **error** khi status là
       `review` hoặc `published`, nên bài bắt buộc `draft`. Vì vậy
       `triangulation` bị chặn ở **7.5** (≤ 8.0) chứ không nâng để né blocker."
-  assessed_at: 2026-10-14
+  assessed_at: 2026-10-15
   assessed_by:
-    - Claude Sonnet 5.5 (Claude Code)
-  assessment_id: e59793eb-9bbc-48fc-91d9-d69cd1047cef
-  waiver:
-    id: no-upstream-english
-    blockers:
-      - "Không có tầng tham khảo tiếng Anh tại commit đã ghim
-        (11c9d708978cde8ba61096d8a75f7ddfb846f639). Đo được: trong
-        `.cache/upstream/suttacentral/translation/en/sujato/sutta/kn/` chỉ có
-        **9** sub-collection (cp 35 · dhp 26 · iti 112 · ja 83 · kp 9 · snp 73 ·
-        thag 264 · thig 73 · ud 80 tệp) và **0** tệp có tên chứa `tha-ap`;
-        `source/upstream-manifest.json` **không liệt kê** `tha-ap59` (đếm chuỗi:
-        0 khớp). Đây là `not-published-upstream`, KHÔNG phải `not-synced`. Tầng
-        `vietnamese-current` cũng vắng: `translation/vi/phantuananh/sutta/` ở
-        commit đã ghim chỉ có `kn/dhp` (Pháp Cú). Lớp lấp `english-project`
-        (`content/translation/en/project/sutta/kn/`) có **0** tệp cho `tha-ap`.
-        Ba tầng tham khảo đều vắng ⇒ bài dịch chỉ từ Pāli root ⇒ **blocker
-        thật**, và đây là giới hạn của bản chụp upstream chứ không phải lỗi của
-        người dịch; `scripts/validate.ts` coi tệp Anh thiếu là **error** khi
-        status là `review` hoặc `published`, nên bài bắt buộc `draft`. Vì vậy
-        `triangulation` bị chặn ở **7.5** (≤ 8.0) chứ không nâng để né blocker."
+    - Claude Opus 5.5 (Claude Code)
+  assessment_id: 83a9ba77-0b65-4953-93bf-cc4a644b9ad9
 notes: |-
   **ĐỌC TOÀN BỘ PĀLI 32 KHOÁ TRƯỚC KHI VIẾT**, rồi in lại từng cặp Pāli↔Việt để review.
 
@@ -174,3 +157,11 @@ notes: |-
   Cổng kỹ thuật **chưa chạy** — lượt này bị cấm các lệnh cổng; bốn lệnh để coordinator chạy: `npm run validate` · `npm test` · `npm run check` · `npm run build`.
 
   **Đối chiếu độc lập 2026-10-14:** với bản Việt nguyên bài của Bhikkhu Indacanda. 1 khoá bất đồng nghĩa → sửa 0, giữ 1 (`1.3` `saddahitvāna`: bản nguyên bài viết “khéo an trú trong Chánh Pháp”, Pāli ghim là `saddahitvāna saddhamme` = sau khi tin chánh pháp, nên giữ “sau khi tin tưởng chánh pháp”), bất định 0. Cả 32 khoá được so từng khổ kệ (7 khổ kệ, câu kết và dòng chốt) và khớp nghĩa: người nói, đối tượng, chủ thể của `dhārenti` (3.3), “vượt qua ngọn núi” (4.2), phần nghiệp còn lại (5.1), số kiếp `catuttiṁse kappasate` = 34 trăm = 3.400 kiếp (khớp “ba ngàn bốn trăm kiếp” của bản nguyên bài). Khổ kệ `…pe…` ở 7.2 được bản nguyên bài bung thành tám giải thoát và sáu thắng trí; Pāli ghim chỉ để một dấu lược nên không tính là bất đồng. Bản nguyên bài không phân đoạn nên đối chiếu ở mức đoạn, không phải mức khoá; không có bản Anh. Đây là review của AI, không phải chứng nhận của chuyên gia Pāli.
+
+  Lượt rà soát 2026-10-15 (Claude Opus 5.5, đọc đối kháng Pāli↔Việt 32 khoá, đối chiếu bản nguyên bài
+  Bhikkhu Indacanda; không có đoạn song song published): sửa 0 khoá, không tìm thấy lỗi nghĩa mới. Đã
+  kiểm lại chủ thể và ngôi từng khổ (1.4 `ahosahaṁ`, 2.1 đến 2.4 dâng đèn rồi làm đèn, 3.3 `dhārenti`
+  ngôi thứ ba số nhiều nên giữ "họ", 4.4 `anubhomahaṁ` hiện tại, 5.1 đến 5.4, 6.1 đến 6.4 số kiếp và
+  tên Satacakkhu). Bất định giữ nguyên: 6.1 `catuttiṁse kappasate` (34 trăm kiếp, khớp bản nguyên bài
+  "ba ngàn bốn trăm kiếp"), 3.3 ai cầm đuốc, 2.2 `bodhiyaṁ` chỉ cây Bồ-đề. Tiêu đề "Ký Sự"/"Tuyên
+  Ngợ", xưng hô ta/tôi thuộc quyết định chung của người biên tập, không sửa lẻ. Không đổi điểm.

@@ -1,10 +1,11 @@
 uid: tha-ap340
-status: review
+status: draft
 translationTitle: "Bài Kệ Tuyên Ngôn Về Trưởng Lão Uttareyyadāyaka"
 translators:
   - "Claude Sonnet 5.5 (Claude Code)"
 reviewers:
   - Claude Sonnet 5.5 (Claude Code)
+  - Claude Opus 5.5 (Claude Code)
 tags:
   - "kn"
   - "khuddaka-nikaya"
@@ -15,13 +16,13 @@ quality:
     semantic_fidelity: 8.6
     grammar_logic: 8.8
     segment_alignment: 10
-    terminology: 8.7
+    terminology: 8.8
     triangulation: 8.2
     vietnamese_clarity: 8.8
     han_viet_balance: 9.2
     ambiguity_integrity: 8.5
     technical_integrity: 9.6
-  final_score: 8.959999999999999
+  final_score: 8.969999999999999
   blocking_errors:
     - "Không có tầng tham khảo tiếng Anh tại commit đã ghim
       (noEnglishEditionUpstream): tệp
@@ -41,31 +42,10 @@ quality:
       dựa trên Pāli root và tiền lệ tầng Việt của dự án; đây là giới hạn
       upstream, triangulation bị chặn ở 7.2 (không quá 8.0) chứ không nâng để né
       blocker."
-  assessed_at: 2026-10-14
+  assessed_at: 2026-10-15
   assessed_by:
-    - Claude Sonnet 5.5 (Claude Code)
-  assessment_id: 28d64959-3dcc-4f86-a25e-889b3ad9c455
-  waiver:
-    id: no-upstream-english
-    blockers:
-      - "Không có tầng tham khảo tiếng Anh tại commit đã ghim
-        (noEnglishEditionUpstream): tệp
-        `translation/en/sujato/sutta/kn/tha-ap/tha-ap340_translation-en-sujato.\
-        json` không tồn tại, và tầng english-sujato chỉ phủ 9 sub-collection của
-        `kn` (cp, dhp, iti, ja, kp, snp, thag, thig, ud) — đây là
-        `not-published-upstream`, không phải `not-synced`;
-        `source/upstream-manifest.json` chỉ liệt kê tệp Pāli root cho uid này.
-        Mẫu số coverage theo `source/layers.yaml` (Pāli có nội dung từ 40 ký tự,
-        bỏ khối `:0`) là 2 trên 88 khoá, và cả hai khoá ấy chỉ là lời kết và tên
-        kết (22.1, 23.1) — Sujato phủ 0/2 = 0%, dưới ngưỡng 0.8; 86 khoá còn lại
-        (đầu đề và toàn bộ kệ) nằm dưới ngưỡng 40 ký tự nên cổng không đo được
-        gì ở phần kệ. `scripts/validate.ts` coi tệp Anh thiếu là lỗi khi status
-        là `review` hoặc `published`, nên bài bắt buộc `draft`. Tầng
-        vietnamese-current cũng vắng (26 tệp, toàn Pháp Cú) và lớp
-        english-project không có entry cho uid này. Cả ba tầng tham khảo đều
-        vắng nên bản dịch chỉ dựa trên Pāli root và tiền lệ tầng Việt của dự án;
-        đây là giới hạn upstream, triangulation bị chặn ở 7.2 (không quá 8.0)
-        chứ không nâng để né blocker."
+    - Claude Opus 5.5 (Claude Code)
+  assessment_id: 2cedbf8c-153e-4faf-a345-44aea2a59a39
 notes: |-
   Bản dịch chỉ từ Pāli root, 88/88 khoá, đúng thứ tự Pāli, đối chiếu tiền lệ tầng Việt của chính dự án (tha-ap), vì commit đã ghim không có bản Anh upstream (giới hạn upstream, không phải lỗi người dịch). Bài kể vị Bà-la-môn ở Haṁsavatī, trên đường đi tắm gội, thấy Đức Phật Padumuttara cùng chư A-la-hán vào thành, tung chiếc áo choàng ngoài lên che cả hội chúng, được Đức Phật thọ ký, về sau xuất gia dưới Đức Phật Gotama và đạt A-la-hán.
     Số Pāli, phép tính: Tiṁsakappasahassāni = tiṁsa 30 + kappa-sahassa (nghìn kiếp) = ba mươi ngàn kiếp; Paññāsakkhattuṁ = 50 lần; Chattiṁsakkhattuṁ = cha 6 + tiṁsa 30 = ba mươi sáu lần; yojanasataṁ = một trăm do-tuần; Satasahassito kappe = một trăm ngàn kiếp trước (sata 100 × sahassa 1.000 = 100.000); catasso = bốn; byāmato = một sải tay; Ekāhaṁ = một ngày. Giá trị tiṁsa = 30 xác lập từ chính tầng: Chattiṁsa-khattuṁ ở tha-ap421 dịch ba mươi sáu lần, Tiṁsatikkhattuṁ dịch ba mươi lần, Tiṁsa kappāni dịch ba mươi kiếp, Satañca aṭṭhatiṁsa ca là một trăm ba mươi tám.
@@ -84,3 +64,16 @@ notes: |-
   vùng). Giữ nguyên phần còn lại của từng khoá.
 
   Đối chiếu độc lập 2026-10-14: với bản Việt nguyên bài của Bhikkhu Indacanda. 6 chỗ bất đồng nghĩa → sửa 1, giữ 3, bất định 2. Sửa 1 — 8.1 `Gharato nikkhamantassa`: "Khi rời khỏi nhà," → "Khi tôi rời khỏi nhà,". Bản nguyên bài cho người kể (vị Bà-la-môn) là người từ nhà bước ra, còn Đức Phật đã đứng sẵn trên đường. Pāli ủng hộ cách đọc đó: `nikkhamantassa` là sở hữu cách tuyệt đối nên không thể cùng chủ thể với các danh cách `sayambhū aggapuggalo … ṭhito satthā` ở 8.2–8.3, và 8.4 `akā me anumodanaṁ` đặt người kể (`me`) ở vị trí người nhận; tha-ap332:12.1 `Vimānā nikkhamantassa` cũng dịch "Khi tôi từ cung điện đi ra". Cách đọc cũ trong ghi chú (Đức Phật rời nhà, "đồng chủ ngữ với 8.2") là lỗi ngữ pháp và không còn giá trị. Giữ 3: 3.2 `pāragū` (bản nguyên bài "thông suốt"; "vượt qua mọi pháp" là cách dịch cố định của tầng, 16/18 bài tha-ap và 27/31 toàn tầng); 3.3 `Khīṇāsavasahassehi` (bản nguyên bài "một ngàn"; Pāli là số nhiều cách công cụ nên giữ "hàng nghìn" như 5 bài tha-ap cùng cụm); 19.1–19.2 (bản nguyên bài cho `aviññattaṁ` bổ nghĩa cả y lẫn vật dụng, bản dự án để nó đi với `nivāsemi`; hai cách đều giữ đủ nội dung nên không đổi). Bất định 2: 4.1–4.2 `āneñjakāritaṁ viya` (bản nguyên bài "tạo nên bởi sự không còn dục vọng", bản dự án "làm cho bất động"; `āneñja` và `kārita` đều cho phép cả hai, Pāli ghim không có chỗ khác để phân xử); 17.3 `Ekāhaṁ` (bản nguyên bài không dịch riêng; bản dự án giữ "trong một ngày" theo nghĩa `eka + ahaṁ` của tầng, nhưng bối cảnh bài không nói việc dâng kéo dài một ngày). Lượt review đối kháng riêng sửa thêm 1.1 "thành xứ Haṁsavatī" → "thành Haṁsavatī" (3/4 tệp cùng câu dùng "thành"). Số Pāli đã kiểm lại cùng bản nguyên bài và khớp: ba mươi ngàn kiếp, năm mươi lần, ba mươi sáu lần, một trăm do-tuần, một trăm ngàn kiếp, bốn vô ngại giải, một sải tay. Bản nguyên bài không phân đoạn nên đối chiếu ở mức đoạn, không phải mức khoá; không có bản Anh. Bất định về số ở `Tiṁsakappasahassāni` (10.1) vẫn như đã nêu, bản nguyên bài cũng đọc ba mươi ngàn nhưng không phải bằng chứng độc lập về Pāli.
+
+  Lượt rà soát 2026-10-15 (Claude Opus 5.5, đọc đối kháng Pāli↔Việt 88 khoá, đối chiếu bản nguyên bài
+  Bhikkhu Indacanda; không có đoạn song song published): sửa 1 khoá: 20.1 `Satasahassito kappe` "Vào
+  một trăm ngàn đại kiếp trước" thành "Vào một trăm ngàn kiếp trước", vì `kappa` ở 10.1 đã dịch "kiếp"
+  và Pāli không có `mahā`, nên bài tự lệch cách dịch (tầng có cả hai dạng, 30 "đại kiếp" · 14 "kiếp
+  trước" · 12 "kiếp trước đây", đây là chuyện chung cho người biên tập). Kiểm lại các khoá đã sửa
+  2026-10-14 (1.1, 8.1, 12.3) và thấy đứng vững; 8.1 `nikkhamantassa` là sở hữu cách tuyệt đối của
+  người kể. Giữ: 16.3 "Của Đức Thế Tôn Gotama," là mảnh sở hữu cách đúng Pāli (`Gotamassa bhagavato
+  dhammaṁ`), không thêm chữ "Pháp" sang khoá khác. Bất định giữ nguyên: 4.1 đến 4.2 `āneñjakāritaṁ
+  viya`, 17.3 `Ekāhaṁ` ("một ngày" hay "một tấm"; tầng dịch "trong một ngày" ở các khoá cùng chữ),
+  19.1 đến 19.2 `aviññattaṁ nivāsemi, cīvaraṁ paccayañcahaṁ` (động từ `nivāsemi` đi với cả y và vật
+  dụng, cách dịch hiện tại là zeugma tự nhiên, không đổi). Tiêu đề "Bài Kệ Tuyên Ngôn" và xưng hô
+  tôi/ta thuộc quyết định chung chờ người biên tập, không sửa lẻ.

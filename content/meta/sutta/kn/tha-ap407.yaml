@@ -1,10 +1,11 @@
 uid: tha-ap407
-status: review
+status: draft
 translationTitle: "5. Ký Sự Về Trưởng Lão Upasiva"
 translators:
   - "Claude Sonnet 5.5 (Claude Code)"
 reviewers:
   - Claude Sonnet 5.5 (Claude Code)
+  - Claude Opus 5.5 (Claude Code)
 tags:
   - "khuddaka-nikaya"
   - "therapadana"
@@ -39,29 +40,10 @@ quality:
       Việt của dự án; triangulation bị chặn dưới 8.0. Validate coi tệp Anh thiếu
       là lỗi khi status là review hoặc published, nên bài phải giữ draft; điểm
       cao không cứu được blocker."
-  assessed_at: 2026-10-14
+  assessed_at: 2026-10-15
   assessed_by:
-    - Claude Sonnet 5.5 (Claude Code)
-  assessment_id: 9fd8da49-4311-4c75-aa71-18a488e859bf
-  waiver:
-    id: no-upstream-english
-    blockers:
-      - "noEnglishEditionUpstream: không có bản tham khảo tiếng Anh đã ghim cho
-        phẩm tha-ap tại commit đã ghim 11c9d708978cde8ba61096d8a75f7ddfb846f639.
-        Tầng english-sujato chỉ có 9 nhóm con của kn (cp, dhp, iti, ja, kp, snp,
-        thag, thig, ud) và manifest chỉ liệt kê đúng một tệp cho tha-ap407, là
-        tệp Pāli root, nên đây là not-published-upstream chứ không phải
-        not-synced. Coverage English theo công thức của source/layers.yaml (Pāli
-        có nội dung từ 40 ký tự, bỏ khối :0): mẫu số 1 (chỉ khoá 62.1, dòng lời
-        kết, 59 ký tự), Sujato phủ 0 trên 1, tức 0%, dưới ngưỡng 0.8; mẫu số nhỏ
-        như vậy nên cổng gần như không đo được gì về đối chiếu English. Tầng
-        vietnamese-current cũng vắng (translation/vi/phantuananh chỉ có 26 tệp
-        Pháp Cú), lớp english-project không có entry cho uid này và
-        content/meta/reference-gaps.yaml cũng chưa có entry cho tha-ap407. Cả ba
-        tầng tham khảo đều vắng, bản dịch dựa vào Pāli root và tiền lệ trong
-        tầng Việt của dự án; triangulation bị chặn dưới 8.0. Validate coi tệp
-        Anh thiếu là lỗi khi status là review hoặc published, nên bài phải giữ
-        draft; điểm cao không cứu được blocker."
+    - Claude Opus 5.5 (Claude Code)
+  assessment_id: d6754456-cb6f-40d6-b2be-acd5c2f95c77
 notes: |-
   Dịch từ Pāli root của tha-ap407 (251 khoá, thứ tự khoá như Pāli, không có khoá ngoài Pāli). Không có bản Anh Sujato, không có bản Việt hiện hành ở tầng store, không có lớp lấp english-project. Trang Việt không phân đoạn của kho sc-data (mục Tra cứu toàn văn, Bhikkhu Indacanda, giấy phép NOASSERTION) chỉ được đọc để kiểm cách hiểu một số từ khó; đó không phải tầng store, không căn lề theo khoá, và không có câu nào được chép từ đó. Status bắt buộc draft do blocker noEnglishEditionUpstream.
 
@@ -102,3 +84,15 @@ notes: |-
   CỔNG KỸ THUẬT: không chạy được trong lát này nên technical_integrity đặt 9.6, không tuyên bố đã qua cổng. Còn phải chạy trước khi gộp: npm run validate, npm test, npm run check, npm run build.
 
   Đối chiếu độc lập 2026-10-14: với bản Việt nguyên bài của Bhikkhu Indacanda, đọc đủ 251 khoá. 8 khoá bất đồng nghĩa → sửa 0, giữ 6 (4.3: `punnāgā` “mù u” so với “nguyệt quế”; 5.2: `tiṇasūlavanāni` giữ tên Pāli so với “rừng hoa nhài”; 8.1: `Mātaggārā` so với `mātaṅgava`; 24.2: `papaṭakāhi` giữ tên Pāli so với “rái cá”; 35.3: `upasampannā` “tự thân đều đầy đủ” so với “đạt được”; 36.1: `lohadoṇiṁ` “máng sắt” so với “bằng kim loại”), bất định 2 (10.3: `bhallātakā`, `billā` bản dự án Việt hoá thành “đào lộn hột”, “ba-la” còn bản nguyên bài giữ tên Pāli — tên thực vật chưa có chứng cứ độc lập nên ghi bất định (cùng Pāli ở 4 khoá của tầng, gồm khoá này); 44.2: `jalajuttamanāyakaṁ` bản dự án “tựa hồng sen”, bản nguyên bài đọc như tên Padumuttara). Các số ba mươi ngàn kiếp, một ngàn lần, bảy mươi mốt lần (`ekasattati` = 1 + 70), một trăm ngàn kiếp, nửa do-tuần đã tính lại, khớp. Ba khoá 39.3–41.4 (lời thưa với Đức Phật) bản dự án xưng “ta”, bản nguyên bài xưng “con”; Pāli không đặt dấu ngoặc nên giữ, ghi để biên tập đồng nhất cách xưng của cả bài với tầng. Bản nguyên bài không phân đoạn nên đối chiếu ở mức đoạn, không phải mức khoá; không có bản Anh.
+
+  Lượt rà soát 2026-10-15 (Claude Opus 5.5, đọc đối kháng Pāli↔Việt 251 khoá, đối chiếu bản nguyên bài
+  Bhikkhu Indacanda; không có đoạn song song published): sửa 0 khoá, không tìm thấy lỗi nghĩa mới. Đã
+  kiểm lại các chỗ dễ sai chủ thể và quan hệ: 4.4 `sampavanti` (hương lan khắp am), 13.3 `avaṭā
+  pakkabharitā` (giữ cách đọc tính từ đã ghi), 19.1 đến 19.4 (nụ, tua nhụy, cánh rũ, gương sen), 20.1
+  đến 20.2 `bhisa`/`mulāḷī` (ngó sen, rễ sen, hai chữ gần nghĩa, giữ), 24.4 `kukutthā ca nadīcarā`
+  (bản nguyên bài tách hai nhóm, bản dự án gắn "sống ở sông" vào kukuttha; cả hai đọc được, giữ), 33.1
+  `yugamattaṁ` (một tầm cày), 38.3 đến 38.4 sở hữu cách tuyệt đối, 54.1 `ekasattati` (71), 56.3 `(…)`
+  giữ nguyên. Giữ 50.1 và 58.1 "rừng sâu" theo đa số tầng dù Pāli chỉ `araññe` (đã ghi trước, chuyện
+  chung). Chờ người biên tập: 39.3 đến 41.4 là lời thưa với Đức Phật (`mahāvīra`) nhưng đang xưng "ta"
+  như cả bài; ta/tôi/con trong tha-ap là quyết định chung, không sửa lẻ. Bất định giữ nguyên như danh
+  mục 1 đến 18 ở trên; tên thực vật và chim thú hiếm giữ dạng Pāli.

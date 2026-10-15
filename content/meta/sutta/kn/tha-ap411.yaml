@@ -1,10 +1,11 @@
 uid: tha-ap411
-status: review
+status: draft
 translationTitle: "Ký Sự Về Trưởng Lão Jatukaṇṇi"
 translators:
   - "Claude Sonnet 5.5 (Claude Code)"
 reviewers:
   - Claude Sonnet 5.5 (Claude Code)
+  - Claude Opus 5.5 (Claude Code)
 tags:
   - "khuddaka-nikaya"
   - "therapadana"
@@ -15,13 +16,13 @@ quality:
     semantic_fidelity: 8.5
     grammar_logic: 8.8
     segment_alignment: 10
-    terminology: 8.3
+    terminology: 8.4
     triangulation: 8.3
     vietnamese_clarity: 8.3
     han_viet_balance: 9.1
     ambiguity_integrity: 8.9
     technical_integrity: 9.6
-  final_score: 8.91
+  final_score: 8.919999999999998
   blocking_errors:
     - "noEnglishEditionUpstream: không có bản tham khảo tiếng Anh đã ghim cho
       phẩm tha-ap tại commit đã ghim 11c9d708978cde8ba61096d8a75f7ddfb846f639.
@@ -39,29 +40,10 @@ quality:
       chặn ở 7.5 (không quá 8.0). Validate coi tệp Anh thiếu là lỗi khi status
       là review hoặc published, nên bài phải giữ draft; điểm cao không cứu được
       blocker."
-  assessed_at: 2026-10-14
+  assessed_at: 2026-10-15
   assessed_by:
-    - Claude Sonnet 5.5 (Claude Code)
-  assessment_id: 819af59b-917c-46d7-a8d1-acdfdd1dddd5
-  waiver:
-    id: no-upstream-english
-    blockers:
-      - "noEnglishEditionUpstream: không có bản tham khảo tiếng Anh đã ghim cho
-        phẩm tha-ap tại commit đã ghim 11c9d708978cde8ba61096d8a75f7ddfb846f639.
-        Tầng english-sujato chỉ có 9 nhóm con của kn (cp, dhp, iti, ja, kp, snp,
-        thag, thig, ud) và không có tệp thân kinh nào cho tha-ap411 (tệp tha-ap
-        duy nhất của tầng là tệp tên), nên đây là not-published-upstream chứ
-        không phải not-synced. Coverage English theo công thức của
-        source/layers.yaml (Pāli có nội dung từ 40 ký tự, bỏ khối :0): mẫu số 1
-        (chỉ khoá 55.1, dòng lời kết, 61 ký tự; 217 trên 218 khoá Pāli ngắn hơn
-        40 ký tự), Sujato phủ 0 trên 1, tức 0%, dưới ngưỡng 0.8; mẫu số nhỏ như
-        vậy nên cổng gần như không đo được gì về đối chiếu English. Tầng
-        vietnamese-current cũng vắng (translation/vi/phantuananh chỉ có 26 tệp
-        Pháp Cú) và lớp english-project không có entry cho uid này. Cả ba tầng
-        tham khảo đều vắng, bản dịch chỉ dựa vào Pāli root và tiền lệ trong tầng
-        Việt của dự án; triangulation bị chặn ở 7.5 (không quá 8.0). Validate
-        coi tệp Anh thiếu là lỗi khi status là review hoặc published, nên bài
-        phải giữ draft; điểm cao không cứu được blocker."
+    - Claude Opus 5.5 (Claude Code)
+  assessment_id: 3eee1019-f0b5-409b-b333-ab4e7d0947b5
 notes: |-
   Dịch từ Pāli root của tha-ap411 (218 khoá, đủ khoá và đúng thứ tự khoá như Pāli); không có bản Anh Sujato, không có bản Việt hiện hành phân đoạn, không có lớp lấp english-project. Mọi lựa chọn dựa vào Pāli, ngữ cảnh bài và tiền lệ đếm được trong tầng Việt của dự án (tha-ap). Status bắt buộc draft do blocker noEnglishEditionUpstream.
 
@@ -98,3 +80,15 @@ notes: |-
   HẠN CHẾ KỸ THUẬT: đợt này bị cấm chạy npm run validate, npm test, npm run check, npm run build, nên tiêu chí 10 bị chặn ở 9.6. Chỉ xác minh được: JSON hợp lệ, đủ 218/218 khoá đúng exact ID và đúng thứ tự Pāli, mọi giá trị NFC, không khoá rỗng, không khoảng trắng thừa, không chữ số Ả Rập, nháy đơn và nháy kép khớp Pāli từng khoá (0 lệch trên 218 khoá), dấu lược khớp Pāli từng khoá (3 khoá …pe…, 0 lệch), 0 cặp Pāli trùng trong bài mà bản Việt khác. Người biên tập phải chạy lại bốn lệnh trên trước khi đổi trạng thái.
 
   Đối chiếu độc lập 2026-10-14: với bản Việt nguyên bài của Bhikkhu Indacanda. 23 khoá bất đồng nghĩa → sửa 1 (tha-ap411:25.1, 25.2: “Của đại vương Ānanda, vì lợi ích của ta, ta đã cho” → “Cho đại vương Ānanda, vì lợi ích của ta, ta đã dâng”, vì `Ānandassa mahārañño` ở sở hữu cách thay tặng cách đi với `adāsahaṁ` (người nhận), bản nguyên bài cũng hiểu đại vương là người được dâng; bản cũ để “Của” treo; thay thế khoản bất định số 1 ở trên về chủ thể nhận), giữ 12 (dị bản danh sách bản nguyên bài khác Pāli ghim: 2.1–2.2, 12.1–12.2, 14.2, 15.2, 16.2, 17.2, 19.1–19.3, 41.1–41.3, nơi bản nguyên bài theo bản in khác; giữ theo Pāli ghim), bất định 10 (4.1, 4.3, 6.2, 6.3, 8.2, 10.1, 11.1, 14.3, 24.2, 25.2: tên nhóm người hoặc từ hiếm mà bản nguyên bài đọc là nghề hay hạng người, còn bản này giữ chữ Pāli; không phân xử được từ Pāli đã ghim, ghi sẵn ở bất định 3, 4, 7; riêng 25.2 `mamatthassa` bản nguyên bài đọc khác hẳn, bất định còn nguyên). Các số khớp: ba mươi ngàn kiếp, sáu mươi bốn lần, một trăm ngàn kiếp, một trăm ngàn bậc tự tại. Bản nguyên bài không phân đoạn nên đối chiếu ở mức đoạn, không phải mức khoá; không có bản Anh.
+
+  Lượt rà soát 2026-10-15 (Claude Opus 5.5, đọc đối kháng Pāli↔Việt 218 khoá, đối chiếu bản nguyên bài
+  Bhikkhu Indacanda, đoạn song song tha-ap18:6.1 cho 42.3): sửa 1 khoá: 1.1 `Nagare haṁsavatiyā` "Ở
+  thành xứ Haṁsavatī" thành "Ở thành Haṁsavatī", vì Pāli chỉ có `nagare` (trong thành), "xứ" là chữ
+  thêm; dạng "Ở thành Haṁsavatī" chiếm đa số (8 khoá có nháy mở, 4 khoá không nháy, so với 5 khoá
+  "thành xứ"), và 1.1 của tha-ap340 đã sửa như vậy. Cùng chữ thừa còn ở tha-ap424:1.1 và tha-ap430:1.1
+  (ngoài lô này, cần sửa theo). Kiểm lại: 25.1 đến 25.4 (đã sửa 2026-10-14, `mamatthassa` vẫn bất
+  định, không sửa chính tả), 34.4 nháy, 36.1 đến 36.4 sở hữu cách `buddhaseṭṭhassa tādino`, 45.1 đến
+  45.4, 49.4 `sakyaputtassa`. Giữ nguyên các tên nhóm người bằng chữ Pāli như danh mục bất định cũ.
+  Lưu ý chéo bài: `anīkaṭṭhā` ở 24.1 dịch "người trong hàng quân" còn tha-ap410:4.1 dịch "quân hộ vệ",
+  cần một quyết định chung. Tiêu đề "Ký Sự" và xưng hô ta/tôi thuộc quyết định chung chờ người biên
+  tập, không sửa lẻ.
