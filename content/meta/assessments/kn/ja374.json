@@ -53,6 +53,34 @@
       "notes": "Kiểm tra tự động 35 segment với Pāli trong cache: đủ ID, giá trị, NFC và hệ chữ Latin. Chưa đọc đối chiếu nghĩa, ngữ pháp hoặc văn phong; chưa chấm lại 10 tiêu chí. Đây không phải chứng nhận hash upstream hoặc giấy phép, không xác nhận trạng thái xuất bản.",
       "content_sha256": "4b4066188a3584f35084e7e20b0200a05284ae1c5872bd08731be7e3fb4a77e3",
       "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639"
+    },
+    {
+      "target": "translation",
+      "scope": "full",
+      "scores": {
+        "source_provenance": 9.5,
+        "semantic_fidelity": 8.8,
+        "grammar_logic": 9,
+        "segment_alignment": 10,
+        "terminology": 9,
+        "triangulation": 7.6,
+        "vietnamese_clarity": 8.9,
+        "han_viet_balance": 9.2,
+        "ambiguity_integrity": 8.4,
+        "technical_integrity": 9.6
+      },
+      "blocking_errors": [
+        "Không có tầng tham khảo tiếng Anh tại commit đã ghim: tệp `translation/en/sujato/sutta/kn/.../ja374_translation-en-sujato.json` không tồn tại trong `.cache/upstream/suttacentral/`, và thư mục `kn/` của edition đã ghim chỉ có `cp, dhp, iti, ja, kp, snp, thag, thig, ud` — **không có `mil`**, còn `ja374/376/407/412` không nằm trong 83 tệp `ja` ấy. Đếm lại trực tiếp trên đĩa bằng `find` cho 0 tệp ⇒ đây là `not-published-upstream`, KHÔNG phải `not-synced`. Đo coverage theo đúng công thức `source/layers.yaml` (Pāli có nội dung ≥ 40 ký tự sau khi chuẩn hoá, loại khối tham chiếu `:0.x`) cho 0 trên 0 khoá = 0%, dưới ngưỡng 0.8. `scripts/validate.ts` coi tệp Anh thiếu là **error** khi status là `review` hoặc `published`, nên bài bắt buộc `draft`. Tầng `vietnamese-current` cũng vắng: `translation/vi/phantuananh` tại commit đã ghim có đúng 26 tệp và toàn bộ là `dhp*`. Lớp lấp `english-project` của dự án cũng không có uid này. Ba tầng tham khảo đều vắng ⇒ bài dịch chỉ từ Pāli root ⇒ blocker thật, và đây là **giới hạn upstream**, không phải lỗi của người dịch. Vì vậy `triangulation` bị chặn ở 7.5 (≤ 8.0) chứ không nâng để né blocker."
+      ],
+      "assessed_at": "2026-10-14",
+      "assessed_by": [
+        "Claude Sonnet 5.5 (Claude Code)"
+      ],
+      "notes": "Đối chiếu bản dịch mù độc lập (một dịch giả khác cùng họ công cụ), 9 khoá chênh lệch lớn nhất trong 35 khoá; 26 khoá còn lại gần như trùng ý. Không khoá nào cần sửa. Hai chỗ khác nghĩa thật đều do bản mù đọc sai theo Pāli: 3.1 kāyaṁ (kā ayaṁ 'ai đây', không phải 'thân') và 2.2 nimīni addhuvaṁ dhuvena (đảo vai nhận/bỏ). Bất định còn lại: ahuhāsiyaṁ, anamhikāle (bản mù cũng không chắc). triangulation 7.5->7.6 (một bản dịch lại cùng họ công cụ, tin cậy hạn chế vì chính bản mù sai ở 2 chỗ; không có bản Anh hay bản Việt độc lập). Điểm khác giữ nguyên; final_score đúng 9.00 nên không vượt ngưỡng 9.0, status review. technical_integrity 9.6: chưa chạy npm run validate, npm test, npm run check, npm run build. Đây là review của AI, không phải chứng nhận của chuyên gia Pāli.",
+      "id": "177b6d78-78f3-4a2d-a2a6-ca74a63c8916",
+      "content_sha256": "907b8abda5989c339dcbf534f114384bf76d57ac7b357fcb6d5787240b81ecc5",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
+      "final_score": 9
     }
   ],
   "legacy_quality": {

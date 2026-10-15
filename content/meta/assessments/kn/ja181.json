@@ -53,6 +53,34 @@
       "notes": "Kiểm tra tự động 13 segment với Pāli trong cache: đủ ID, giá trị, NFC và hệ chữ Latin. Chưa đọc đối chiếu nghĩa, ngữ pháp hoặc văn phong; chưa chấm lại 10 tiêu chí. Đây không phải chứng nhận hash upstream hoặc giấy phép, không xác nhận trạng thái xuất bản.",
       "content_sha256": "a11993c8fa6ef0587a8f5edb70a6c5135e64d85848c21f3ae0e6b0479eb326a5",
       "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639"
+    },
+    {
+      "target": "translation",
+      "scope": "full",
+      "scores": {
+        "source_provenance": 8,
+        "semantic_fidelity": 8.7,
+        "grammar_logic": 8.7,
+        "segment_alignment": 10,
+        "terminology": 8.8,
+        "triangulation": 7.2,
+        "vietnamese_clarity": 9,
+        "han_viet_balance": 9.3,
+        "ambiguity_integrity": 8.8,
+        "technical_integrity": 9.6
+      },
+      "blocking_errors": [
+        "Thiếu tầng tham khảo: tại commit đã ghim không có tệp nào cho `ja181` trong `translation/en/sujato/sutta/kn/ja/` (thư mục chỉ có ja1–ja79, ja126, ja159, ja466, ja534). Không đối chiếu được English nào, nên `draft` bất kể điểm."
+      ],
+      "assessed_at": "2026-10-14",
+      "assessed_by": [
+        "Claude Sonnet 5.5 (Claude Code)"
+      ],
+      "notes": "Xét 7 khoá chênh lệch: sửa 2 (1.1 chủ ngữ «tay nghề»; 2.3 «Dù đã» nhượng bộ không có trong Pāli); bất định 1 (akkhaṇavedhī ở 1.3). Đọc đối kháng thêm phát hiện lỗi ở 2.1/2.2 (raṇaṁ katvā bị đọc là «coi là kẻ thù»), đã sửa. Ba lỗi này lọt qua các lượt chấm trước nên semantic_fidelity 9.0 → 8.7, grammar_logic 8.6 → 8.7 (sau sửa), triangulation 7.0 → 7.2 (bản mù chỉ giúp phát hiện 2 trong 3 lỗi). source_provenance 8.0 giữ nguyên. Lưu ý: 0.3 «Phẩm Bất Đối Đẳng» khác 0.4/3.1 «Vô Đối Đẳng», chưa thống nhất. Phép kiểm sau sửa: 13/13 khoá khớp, thứ tự đúng, 0 nháy lệch. Blocker về tầng tham khảo tiếng Anh giữ nguyên. Mức đối chiếu: Pāli root + một lần dịch lại độc lập từ Pāli của một dịch giả cùng họ công cụ (không phải thẩm quyền, chỉ dùng để phát hiện chỗ cần xem lại); không có bản Anh hay bản Việt độc lập khác, nên triangulation bị chặn dưới 8,0. Technical gate (npm run validate, npm test, npm run check, npm run build) do người điều phối chạy tập trung; technical_integrity đặt 9,6. Đây là review của AI, không phải chứng nhận của chuyên gia Pāli.",
+      "id": "01e52e0d-8621-486b-8da8-fe68124dd43d",
+      "content_sha256": "4138470f55963798d310f64d4b01a70eb97cb23abd0789225495de3457f7974e",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
+      "final_score": 8.809999999999999
     }
   ],
   "legacy_quality": {

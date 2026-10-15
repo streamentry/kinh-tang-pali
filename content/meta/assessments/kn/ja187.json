@@ -53,6 +53,34 @@
       "notes": "Kiểm tra tự động 13 segment với Pāli trong cache: đủ ID, giá trị, NFC và hệ chữ Latin. Chưa đọc đối chiếu nghĩa, ngữ pháp hoặc văn phong; chưa chấm lại 10 tiêu chí. Đây không phải chứng nhận hash upstream hoặc giấy phép, không xác nhận trạng thái xuất bản.",
       "content_sha256": "35336afa2163b4e38abdbab97112569273312c3548210d82cd9c879a1266e128",
       "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639"
+    },
+    {
+      "target": "translation",
+      "scope": "full",
+      "scores": {
+        "source_provenance": 9.3,
+        "semantic_fidelity": 8,
+        "grammar_logic": 8,
+        "segment_alignment": 10,
+        "terminology": 8.2,
+        "triangulation": 7,
+        "vietnamese_clarity": 8.2,
+        "han_viet_balance": 9,
+        "ambiguity_integrity": 8.8,
+        "technical_integrity": 9.6
+      },
+      "blocking_errors": [
+        "Không có tầng tham khảo English Sujato cho bài này tại commit đã ghim: không có tệp nào trong source/upstream-manifest.json khớp uid này, và thư mục cache .cache/upstream/suttacentral/translation/en/sujato/ không có mục nào chứa uid. Bài dịch chỉ từ Pāli một mình nên chưa đủ điều kiện review/published; giữ draft cho tới khi người biên tập phán xử."
+      ],
+      "assessed_at": "2026-10-14",
+      "assessed_by": [
+        "Claude Sonnet 5.5 (Claude Code)"
+      ],
+      "notes": "Đối chiếu bản dịch mù độc lập 2026-10-14 (một dịch giả khác cùng họ công cụ, dịch lại từ Pāli không xem bản dự án): so 11 khoá chênh lệch lớn nhất, đọc đối chiếu toàn bài 13/13 khoá; khác nghĩa 10, sửa 10 (1.1-1.4, 2.1-2.4, 0.4, 3.1), giữ 1; bản trước có lỗi thật về ngữ pháp và từ vựng (āruyha/oruyha là tiền khứ phân từ, mantaye là bàn bạc, bilaṁ pavisa là chui vào hang, jambukā là hô cách chó rừng) đã sửa. Vẫn bất định nặng ở 2.1 (suvaṇṇo), 2.3 (catumaṭṭha), người nói và ngôi mantayavho; chuỗi đối chiếu độc lập chỉ một lần dịch lại cùng họ công cụ nên triangulation 7.0. Không có bản Anh hay bản Việt độc lập khác. Chưa chạy npm run validate, npm test, npm run check, npm run build nên technical_integrity 9.6. Blocker thiếu tầng tham khảo Anh giữ nguyên. Đây là review của AI, không phải chứng nhận của chuyên gia Pāli.",
+      "id": "f752b207-94b7-4989-8e4c-e8aa298df7cb",
+      "content_sha256": "08fa959355dbbe7218ed9b1f650a99c42eadb2c463d3d051576bd60f3ad700b8",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
+      "final_score": 8.61
     }
   ],
   "legacy_quality": {

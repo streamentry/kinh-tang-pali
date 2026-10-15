@@ -3,7 +3,8 @@ status: review
 translationTitle: "Đại Tập Kể Lược, Kể Lược Phẩm Tám Kệ – Kinh Tranh Chấp Và Cãi Vã"
 translators:
   - "Claude Sonnet 5.5 (Claude Code)"
-reviewers: []
+reviewers:
+  - Claude Sonnet 5.5 (Claude Code)
 tags:
   - "khuddaka-nikaya"
   - "mahaniddesa"
@@ -11,16 +12,16 @@ tags:
 quality:
   scores:
     source_provenance: 9.4
-    semantic_fidelity: 8.2
-    grammar_logic: 8.3
-    segment_alignment: 10.0
-    terminology: 8.3
-    triangulation: 8.0
+    semantic_fidelity: 8.3
+    grammar_logic: 8.4
+    segment_alignment: 10
+    terminology: 8.6
+    triangulation: 7.8
     vietnamese_clarity: 8.2
-    han_viet_balance: 9.0
-    ambiguity_integrity: 8.1
+    han_viet_balance: 9
+    ambiguity_integrity: 8.3
     technical_integrity: 9.6
-  final_score: 8.71
+  final_score: 8.76
   blocking_errors:
     - "noEnglishEditionUpstream: không có tầng tham khảo tiếng Anh cho mnd11 tại
       commit đã ghim. Thư mục kn/ của edition translation/en/sujato chỉ có cp,
@@ -30,9 +31,10 @@ quality:
       không có mnd11. Tầng vietnamese-current chỉ có Pháp Cú. Đây là
       not-published-upstream, giới hạn của bản chụp upstream chứ không phải lỗi
       người dịch, nên triangulation bị chặn ở 8.0 và không nâng để né blocker."
-  assessed_at: "2026-10-13"
+  assessed_at: 2026-10-14
   assessed_by:
-    - "Claude Sonnet 5.5 (Claude Code)"
+    - Claude Sonnet 5.5 (Claude Code)
+  assessment_id: d28ba4b4-f1c8-4a32-bd05-66b1da3b094a
   waiver:
     id: no-upstream-english
     blockers:
@@ -97,3 +99,11 @@ notes: |-
   **Bốn cổng kỹ thuật theo `AGENTS.md`:** `npm run validate`, `npm test`, `npm run check`, `npm run build`. Lát này **không** chạy bốn lệnh đó vì bị cấm trong từng lát ⇒ để CI hoặc người điều phối chạy. `technical_integrity` đặt **9.6**, không 10.0. Các phép tự kiểm đã chạy và đều xanh: tập khoá bản Việt = tập khoá Pāli (790/790, cùng thứ tự); nháy kép `“”` khớp Pāli từng khoá (0/790 lệch; 0 nháy đơn, 0 ngoặc đơn, 0 nháy thẳng, 0 thẻ HTML); dấu lược `…` khớp Pāli từng khoá (0/790 lệch; 144 khoá có `…`); 0 khoá rỗng; NFC; không khoảng trắng thừa; Pāli lọt sang Việt: chỉ có tên *Pātimokkha* ở `58.4` và hai chữ *jāgu*, *indagu* ở `113.3`, `118.3` (giữ nguyên như `mnd1:15.3`, `mnd12:113.5`, không có từ Việt tương đương).
 
   Rà nhất quán theo Pāli trùng 2026-10-14: khoá 5.5, 5.8 — «bỏn xẻn» → «keo kiệt» (macchariya; 141 khoá của tầng dùng «keo kiệt», 6 dùng «bỏn xẻn»), đồng bộ mọi chỗ «bỏn xẻn» còn lại trong bài; giữ nguyên khoá 86.2, 86.17 (cách «Do duyên mắt và các sắc, thức mắt sinh khởi; sự gặp gỡ của ba pháp này là xúc» khớp từng khoá 86.5–86.14 trong bài; bản đa số «tâm thức» cho manoviññāṇa sai thuật ngữ).
+
+  Đối chiếu bản dịch mù độc lập 2026-10-14: một dịch giả khác (cùng họ công cụ) dịch lại bài từ Pāli, không xem bản dự án; so 229 khoá chênh lệch lớn nhất (trong 790 khoá), phần lớn chỉ khác diễn đạt (thêm/bớt thẻ in đậm, *keo kiệt* ↔ *xan tham*, *lạc* ↔ *dễ chịu*, *Mâu-ni* ↔ *muni*; giữ bản dự án). Khác nghĩa thật 5 chỗ (15 khoá trong danh sách, 40 khoá phải sửa trong cả bài, đều là lỗi thuật ngữ/đọc nghĩa chứ không phải thiếu khoá): sửa 5, giữ phần còn lại, bất định 4.
+
+  Sửa (đối chiếu Pāli và tiền lệ đã đếm): (1) `28.3`–`28.4` `Āsāya vāṇijā yanti, samuddaṁ dhanahārakā`: trước *ra khơi / vận chuyển hàng hoá quý giá* (mất `samuddaṁ` khỏi khoá của nó, và `dhanahāraka` là người đi lấy của cải chứ không phải việc vận chuyển) → *lên đường / ra biển, những người đi lấy của cải*, khớp `pv21:1.2`. (2) `mamatta` (`78.3`, `81.1`–`81.3`, `84.3`, `85.3`, `88.1`, `88.4`–`88.10`, `95.3`): trước *chấp ngã* → *sự xem là của mình*; `mamatta` là tính "của tôi", cùng gốc với `mamāyanti` ở `12.9`, không phải ngã (`attā`, vốn xuất hiện riêng ở `45.x`); các bài Niddesa còn lại dùng *sự xem là của mình* (`cnd8:81`, `mnd2:94`, `mnd6:32`, `mnd14:109`, `mnd15:184`). (3) `pariggaha` (`78.2`, `80.1`, `80.3`, `84.2`, `85.2`, `87.1`, `87.4`–`87.10`, `95.2`): trước *chấp thủ*, trùng với `upādāna` (*chấp thủ dục* cho `kāmupādānaṁ` ở `25.2`) → *sở hữu* (`mnd2:115`, `mnd6:33`, `mnd6:64`). (4) `bhavābhavāya` (`122.4`, `125.1`, `125.2`, `125.4`, `127.4`): trước *hữu và phi hữu* → *hữu này hữu khác*, vì lời giải ở `125.2` chỉ liệt kê các hữu nối tiếp (nghiệp hữu, tái hữu, dục hữu…) chứ không đối lập hữu với phi hữu; khớp `cnd2:37.5`, `cnd9:59`. (5) `kusalāvadānā` (`117.4`, `119.1`, `119.3`, `121.4`): trước *các bậc thiện xảo thuyết giảng về vô dư* (nghe như lời xác nhận) → *những người tự cho mình là thiện xảo về chỗ vô dư*, đúng với lời giải `119.2` (`kusalavādā` = *những người tuyên bố mình là thiện xảo*) và với `mnd12:9.4`, `mnd13:23.4`.
+
+  Giữ: `96.1`/`103.3`/`109.3` `sametassa` (bản mù *đạt tới*; lời giải `paṭipannassa` ở `97.2`, `106.4` xác nhận *thực hành*); `vibhoti` (*biến mất*; bản mù dùng dạng bị động *bị trừ diệt* mà Pāli không có); `103.1`/`109.1` `saññasaññī`/`visaññasaññī` (bản mù *bình thường/bất thường*, lời giải nói *điên loạn, tâm rối loạn*); `124.15` `na kenaci saṁvadati` (*không đồng tình*, trùng `mn74:13.1`); `5.6` chuỗi từ keo kiệt (trùng `cnd5:12`, `mnd2:48`, `mnd6:63`); `27.22` *Thắng Pháp* (cùng `cnd18:39`); `71.4`, `75.x` *ta … ngươi* (như `snp4.11`). Các khoá nhắc lại `<b>` bản mù giữ thẻ, bản dự án bỏ theo quy ước tầng.
+
+  Bất định (không phân xử được, không thêm vào thân kinh): (a) `nu` ở `110.3`, `113.1`, `113.6`, `116.3` là tiểu từ hỏi; bản Việt giữ giọng hỏi nhờ `udāhu` (*hay họ còn nói…*) ở `110.5`/`116.5` và dấu `?` ở `113.1`, không thêm *phải chăng* như bản mù. (b) `ye samparāyāya narassa honti` (`18.4`, `21.5`, `21.7`, `23.4`, `24.4`, `30.1`, `30.3`, `32.4`): giữ *những điều đưa người đến đời sau*, nhưng lời giải `21.6` đọc là `parāyanā` (nơi nương tựa), nên cũng có thể đọc *những điều làm chỗ nương tựa cho người ở đời sau*. (c) `pakkhepabandhanena`/`parikkhepabandhanena` (`52.8`–`52.9`): *quăng vào*/*vây quanh* theo `cnd23:29.3`, `mnd15:4.2`; nghĩa chính xác của hai kiểu trói buộc chưa rõ. (d) `sanidānaṁ` ở `61.3`/`61.5` là *duyên nguồn* (khớp `an3.125:2.4`), hơi tối nghĩa nhưng giữ để đồng nhất với bài trùng. Các câu kệ trùng nguyên văn trong `snp4.11` (`10.2`, `10.3`, `11.2`, `11.3`, `15.4`, `16.4`, `3.4`, `4.4`…) vẫn mang bản cũ ở bài đó, ngoài phạm vi lượt này. Không có bản Anh hay bản Việt độc lập khác.

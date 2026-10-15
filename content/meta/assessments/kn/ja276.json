@@ -53,6 +53,34 @@
       "notes": "Kiểm tra tự động 17 segment với Pāli trong cache: đủ ID, giá trị, NFC và hệ chữ Latin. Chưa đọc đối chiếu nghĩa, ngữ pháp hoặc văn phong; chưa chấm lại 10 tiêu chí. Đây không phải chứng nhận hash upstream hoặc giấy phép, không xác nhận trạng thái xuất bản.",
       "content_sha256": "51ba8370323d5dcd11d8756883858c2ba35333efd3d6ddb048eb0220c891709f",
       "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639"
+    },
+    {
+      "target": "translation",
+      "scope": "full",
+      "scores": {
+        "source_provenance": 9.4,
+        "semantic_fidelity": 8.7,
+        "grammar_logic": 8.9,
+        "segment_alignment": 10,
+        "terminology": 9,
+        "triangulation": 7.6,
+        "vietnamese_clarity": 8.8,
+        "han_viet_balance": 9.1,
+        "ambiguity_integrity": 8.6,
+        "technical_integrity": 9.6
+      },
+      "blocking_errors": [
+        "Thiếu tầng tham khảo English Sujato tại commit đã ghim 11c9d708978cde8ba61096d8a75f7ddfb846f639: đếm trực tiếp trên source/upstream-manifest.json, thư mục sutta/kn/ja/ của tầng translation/en/sujato chỉ có 83 tệp (ja1..ja79, ja126, ja159, ja466, ja534) và không có tệp nào chứa khoá của bài này; SuttaCentral không phát hành bản Anh nào khác phủ bài này tại commit đã ghim. Bài chỉ đối chiếu được với Pāli root một mình."
+      ],
+      "assessed_at": "2026-10-14",
+      "assessed_by": [
+        "Claude Sonnet 5.5 (Claude Code)"
+      ],
+      "notes": "Đối chiếu độc lập 2026-10-14 trên 17 khoá của ja276 với một bản dịch mù (một dịch giả khác cùng họ công cụ dịch lại từ Pāli, không xem bản dự án); xét 9 khoá chênh lệch lớn nhất và đọc lại toàn bài từ Pāli. Khác nghĩa thật 3 (1.3, 2.1, 2.2): sửa 0; giữ 7 trong đó 2.1 giữ vì Pāli viết liền `cabhaccā` là `ca` + `abhaccā` (bản mù tách sai); bất định 2 (1.3 `vaṇṇaṁ añjanavaṇṇena … nimimhase`, 2.2 `yodha uddissa gacchati`, bản mù cũng chưa chắc). Mức đối chiếu: chỉ Pāli và một bản dịch lại cùng họ công cụ, không có bản Anh hay bản Việt độc lập khác nên triangulation giữ 7,6 (trần 8,0); còn hai chỗ chưa phân xử nên không nâng. Các điểm khác giữ nguyên. technical_integrity 9,6 vì cổng kỹ thuật do người điều phối chạy. Blocker thiếu bản Anh upstream giữ nguyên (đã có waiver). Đây là review của AI, không phải chứng nhận của chuyên gia Pāli.",
+      "id": "dd78a079-084b-4bb5-a3ae-374168b0965d",
+      "content_sha256": "c0c10db171a1f5b102ec23747063fc2726d4f2da91ae8753b17d769ff3c637ae",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
+      "final_score": 8.969999999999999
     }
   ],
   "legacy_quality": {

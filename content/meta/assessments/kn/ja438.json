@@ -53,6 +53,36 @@
       "notes": "Kiểm tra tự động 47 segment với Pāli trong cache: đủ ID, giá trị, NFC và hệ chữ Latin. Chưa đọc đối chiếu nghĩa, ngữ pháp hoặc văn phong; chưa chấm lại 10 tiêu chí. Đây không phải chứng nhận hash upstream hoặc giấy phép, không xác nhận trạng thái xuất bản.",
       "content_sha256": "2e5545d6218ac0262522eb795a4e4cc4ef5188d605dde8e0cf208fb453a1ca49",
       "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639"
+    },
+    {
+      "target": "translation",
+      "scope": "full",
+      "scores": {
+        "source_provenance": 9.4,
+        "semantic_fidelity": 8.2,
+        "grammar_logic": 8.2,
+        "segment_alignment": 10,
+        "terminology": 8.6,
+        "triangulation": 7.4,
+        "vietnamese_clarity": 8.6,
+        "han_viet_balance": 9,
+        "ambiguity_integrity": 8,
+        "technical_integrity": 9.6
+      },
+      "blocking_errors": [
+        "Bài này không có tầng Anh SuttaCentral đã ghim ở commit đã pin (0/0 segment có nội dung, không có tệp nào trong english-sujato), nên thiếu tầng tham khảo bắt buộc để xuất bản; đối chiếu chỉ có Pāli ghim cùng commit + tiền lệ trong chính tầng Việt dự án.",
+        "`ja438` không nằm trong 83 tệp `ja` của tầng `english-sujato` đã ghim (đo lại từ source/upstream-manifest.json: ja1–ja79 cộng ja126, ja159, ja466, ja534), và translation/vi/phantuananh/ ở commit đã ghim chỉ chứa Pháp Cú, nên không thể đối chiếu một bản Anh độc lập cho bài này.",
+        "Hai chỗ ở khổ 8 chưa giải được nghĩa từ Pāli ghim, tiền lệ trong kho và bài song song: `kulīkā` (8.1, từ chỉ gặp một lần trong toàn bộ Pāli ghim, đi với `mitamāḷhakena`) và `abbāhitaṁ pubbakaṁ aḍḍharattaṁ` (8.3). Bản dịch ghi dạng thận trọng nhất (8.1 giữ `kulīkā` dạng chuyển âm, 8.3 dịch sát từng chữ) nhưng nghĩa chưa được xác nhận; bài không có bản Anh và không có bản Việt nguyên bài cho Jātaka để phân xử."
+      ],
+      "assessed_at": "2026-10-14",
+      "assessed_by": [
+        "Claude Sonnet 5.5 (Claude Code)"
+      ],
+      "notes": "Đối chiếu độc lập ngày 2026-10-14 trên toàn bộ 14 khoá khác biệt của ja438 giữa bản dự án và một bản dịch lại từ Pāli của dịch giả khác cùng họ công cụ (không xem bản dự án). Khác nghĩa 4: sửa 0, giữ 1 (6.2 và 9.2 `vuttisamodhānatāya`), bất định 3 (7.3 `vākura`, 8.1 `kulīkā`, 8.3 `abbāhitaṁ pubbakaṁ aḍḍharattaṁ`; cả hai bản đều chưa chắc, trùng với blocker thứ ba đã có nên vẫn giữ). Không tìm thấy lỗi nghĩa nào mới ở các khoá còn lại. Mức đối chiếu: chỉ một lần dịch lại độc lập cùng họ công cụ, không có bản Anh hay bản Việt độc lập; ba chỗ chưa phân xử nên `triangulation` 7,4 (trần 8,0). Cả ba blocker giữ nguyên, không gỡ blocker nào. Technical gate chưa chạy (`npm run validate`, `npm test`, `npm run check`, `npm run build`) nên technical_integrity 9,6. Đây là review của AI, không phải chứng nhận của chuyên gia Pāli.",
+      "id": "5537f039-2c05-4603-938d-761eae608805",
+      "content_sha256": "cfb841654fd1b2b9cc9012bbe92e04a28f73d44220463b73145cedb8ebe2e83d",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
+      "final_score": 8.7
     }
   ],
   "legacy_quality": {

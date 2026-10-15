@@ -3,7 +3,8 @@ status: review
 translationTitle: "Đại Tập Kể Lược, Kể Lược Phẩm Tám Kệ – Kinh Đại Bố"
 translators:
   - "Claude Sonnet 5.5 (Claude Code)"
-reviewers: []
+reviewers:
+  - Claude Sonnet 5.5 (Claude Code)
 tags:
   - "khuddaka-nikaya"
   - "mahaniddesa"
@@ -11,16 +12,16 @@ tags:
 quality:
   scores:
     source_provenance: 9.4
-    semantic_fidelity: 8.3
-    grammar_logic: 8.4
-    segment_alignment: 10.0
+    semantic_fidelity: 8.5
+    grammar_logic: 8.5
+    segment_alignment: 10
     terminology: 8.5
-    triangulation: 8.0
+    triangulation: 7.8
     vietnamese_clarity: 8.2
     han_viet_balance: 9.1
-    ambiguity_integrity: 8.2
+    ambiguity_integrity: 8.3
     technical_integrity: 9.6
-  final_score: 8.77
+  final_score: 8.789999999999997
   blocking_errors:
     - "noEnglishEditionUpstream: không có tầng tham khảo tiếng Anh cho mnd13 tại
       commit đã ghim. Thư mục kn/ của edition translation/en/sujato chỉ có cp,
@@ -31,9 +32,10 @@ quality:
       không có mnd13. Tầng vietnamese-current chỉ có Pháp Cú. Đây là
       not-published-upstream, giới hạn của bản chụp upstream chứ không phải lỗi
       người dịch, nên triangulation bị chặn ở 8.0 và không nâng để né blocker."
-  assessed_at: "2026-10-11"
+  assessed_at: 2026-10-14
   assessed_by:
-    - "Claude Sonnet 5.5 (Claude Code)"
+    - Claude Sonnet 5.5 (Claude Code)
+  assessment_id: 01b814a2-f432-4a8f-8ba0-c04735e20fd6
   waiver:
     id: no-upstream-english
     blockers:
@@ -106,3 +108,5 @@ notes: |-
   17. Lỗi ngoài lát, báo chứ không sửa: `snp4.13:1.2`–`1.4` (câu hỏi so với khẳng định, xem 1) và dấu nháy lồng “ trong “ ở `1.2`; `snp4.13:3.2`–`3.3` *tham dự*; `snp4.13:4.2` *giới nguyện*; `snp4.13:6.4` *dưỡng nuôi sự tịch tĩnh*; `snp4.13:7.1`, `7.3` (*jigucchita*, *uddhaṁsara*); `snp4.13:8.1`, `8.2` *lẩm bẩm*, *run sợ*; `snp4.13:10.3` *lục lọi*, *luận chiến*; `snp4.13:11.4` *khẳng định thật chắc*; `snp4.13:13.2` *quán xét*; `snp4.13:17.1`, `17.4`, `18.4` *tính đếm*, *khi người ta chấp thủ*; `snp4.13:20.1` *lìa xa mọi pháp* so với *đã thoát khỏi các đạo quân* ở `snp4.4:6.1`, `mnd4:46.1`. Chưa kiểm cả bài về nội dung.
 
   **Bốn cổng kỹ thuật theo `AGENTS.md`:** `npm run validate`, `npm test`, `npm run check`, `npm run build`. Lát này **không** chạy bốn lệnh đó vì bị cấm trong từng lát ⇒ để CI hoặc người điều phối chạy. `technical_integrity` đặt **9.6**, không 10.0. Các phép tự kiểm đã chạy và đều xanh: tập khoá bản Việt = tập khoá Pāli (759/759, cùng thứ tự); nháy kép `“”` khớp Pāli từng khoá (0/759 lệch; 0 nháy đơn, 2 khoá có ngoặc đơn đều khớp, 0 nháy thẳng, 0 thẻ HTML); dấu lược `…` khớp Pāli từng khoá (0/759 lệch; 67 khoá có `…`); 0 khoá rỗng; NFC; không khoảng trắng thừa; Pāli lọt sang Việt: chỉ có các tên riêng *Samaṇamuṇḍikāputta* (`25.1`) và *Vāsudeva, Puṇṇabhadda, Maṇibhadda* (`26.2`) giữ nguyên như `mn78:1.3`, `mnd4:38.3`.
+
+  Đối chiếu bản dịch mù độc lập 2026-10-14: một dịch giả khác (cùng họ công cụ) dịch lại bài từ Pāli không xem bản dự án; so 210 khoá chênh lệch lớn nhất, đọc kèm toàn bài → khác nghĩa 10 cụm (khoảng 70 khoá vì kệ và lời giải lặp lại): sửa 0, giữ 6, bất định 4. Giữ: jigucchitaṁ 45.1/46 («khổ hạnh thanh tẩy», theo chính lời giải tapojiguccha trong bài và tiền lệ ở dn25; bản mù đọc «nhàm ghê» sát chữ hơn); uggahaṇanti maññe 116.4/120/123.4/127 (lời giải 120.2 nói người khác nắm giữ còn bậc A-la-hán xả, nên «xả khi người khác nắm giữ»; bản mù đọc «xem đó là sự nắm giữ»); sakāyana và samhi 73.4/77/80.2/82/86.2 (theo lời giải 77.2 sakāyane daḷhavādā); pajappati và jappita 31.3/34/52.1/53 (khấn nguyện; bản mù đọc «khao khát/ước vọng», cùng gốc taṇhā theo 53.7); kappa và pakappa («tạo tác»/«hư cấu», tiền lệ mnd4, mnd5, mnd10, snp4.13:17.1; bản mù thống nhất «dựng lập», cùng nghĩa khác chữ); kusalāvadānā 23.4/28/63 («tự cho là thiện xảo», theo lời giải kusalavādā). Bất định: nūparato 139.4/156/159.4 (hai bản cùng đọc «không ngưng dứt», nhưng lời giải 156.10 mô tả bậc A-la-hán là ārato virato paṭivirato nên cách đọc na + uparato chưa chắc khớp); uddhaṁsarā 45.3/48 («đi ngược dòng» hay «đi lên»); aññāya aparaddho ahaṁ 33.2/33.4 (aññāya chưa rõ); vayha, sandamānikā và sajjaṁ ở 124.7 (loại xe và nghĩa «đã lắp sẵn»). 91 nhóm Pāli trùng nguyên văn trong bài đều có cùng một bản Việt (một nhóm chỉ khác dấu câu). Không có bản Anh hay bản Việt độc lập khác.

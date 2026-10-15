@@ -53,6 +53,34 @@
       "notes": "Kiểm tra tự động 13 segment với Pāli trong cache: đủ ID, giá trị, NFC và hệ chữ Latin. Chưa đọc đối chiếu nghĩa, ngữ pháp hoặc văn phong; chưa chấm lại 10 tiêu chí. Đây không phải chứng nhận hash upstream hoặc giấy phép, không xác nhận trạng thái xuất bản.",
       "content_sha256": "7a1631e02fcdd2d8e9a12bcd8810e6ab88018e43b40118ca6c770f3de2d05d70",
       "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639"
+    },
+    {
+      "target": "translation",
+      "scope": "full",
+      "scores": {
+        "source_provenance": 9.5,
+        "semantic_fidelity": 8.3,
+        "grammar_logic": 8.4,
+        "segment_alignment": 10,
+        "terminology": 8.2,
+        "triangulation": 7.6,
+        "vietnamese_clarity": 9,
+        "han_viet_balance": 9.1,
+        "ambiguity_integrity": 8.4,
+        "technical_integrity": 9.6
+      },
+      "blocking_errors": [
+        "Thiếu tầng tham khảo English SuttaCentral: source/upstream-manifest.json (editions[english-sujato]) không có tệp nào cho bài này, và tại commit đã ghim không có bản Anh nào khác phủ được. AGENTS.md xem thiếu tầng tham khảo là lỗi chặn với review và published, nên bài phải ở draft cho tới khi tầng tham khảo có mặt."
+      ],
+      "assessed_at": "2026-10-14",
+      "assessed_by": [
+        "Claude Sonnet 5.5 (Claude Code)"
+      ],
+      "notes": "Đối chiếu bản dịch mù độc lập (cùng họ công cụ, không có bản Anh hay bản Việt độc lập khác): 2 khoá chênh lệch (đều là tiêu đề), khác nghĩa 0, sửa 0, giữ 2 (0.3, 0.4 theo quy ước phiên âm của tầng: 10/10 'Phẩm Santhava', khuôn 'N. Kinh X'). Đọc lại toàn bài 13 cặp, không sửa khoá nào. Chưa phân xử được kāḷā migā setadantā là loài gì và người nói khổ 1-2 (Pāli không nêu). triangulation 7,6; technical_integrity đặt 9,6 thay cho 10,0 cũ vì cổng kỹ thuật chưa chạy trong lượt này. Đây là review của AI, không phải chứng nhận của chuyên gia Pāli. Bốn lệnh `npm run validate`, `npm test`, `npm run check`, `npm run build` do người điều phối chạy; `technical_integrity` đặt 9,6, không tuyên bố technical gate đã pass.",
+      "id": "b1f8b898-d054-4e29-9c98-bbb4fa2b7f38",
+      "content_sha256": "71a464aa78d48bae5544062e2ba70ea4296c8b558a9eb6c319fafdf4229dc255",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
+      "final_score": 8.81
     }
   ],
   "legacy_quality": {

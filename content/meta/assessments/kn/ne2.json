@@ -53,6 +53,34 @@
       "notes": "Kiểm tra tự động 47 segment với Pāli trong cache: đủ ID, giá trị, NFC và hệ chữ Latin. Chưa đọc đối chiếu nghĩa, ngữ pháp hoặc văn phong; chưa chấm lại 10 tiêu chí. Đây không phải chứng nhận hash upstream hoặc giấy phép, không xác nhận trạng thái xuất bản.",
       "content_sha256": "76f6299411e7539a69a08956447a75f88828086980cb3c199bf93b9817d4c8e1",
       "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639"
+    },
+    {
+      "target": "translation",
+      "scope": "full",
+      "scores": {
+        "source_provenance": 9.5,
+        "semantic_fidelity": 8.9,
+        "grammar_logic": 9,
+        "segment_alignment": 10,
+        "terminology": 8.7,
+        "triangulation": 7.4,
+        "vietnamese_clarity": 8.7,
+        "han_viet_balance": 9,
+        "ambiguity_integrity": 8.6,
+        "technical_integrity": 9.6
+      },
+      "blocking_errors": [
+        "Không có tầng tham khảo tiếng Anh tại commit đã ghim `11c9d708978cde8ba61096d8a75f7ddfb846f639`: đã đếm trực tiếp trong `source/upstream-manifest.json` → tầng `english-sujato` (treeSha `24e81ded9d6710e16b277b6394fd57c48258da12`, 4.291 tệp) và trong `sutta/kn/` chỉ có các thư mục cp, dhp, ja, kp, thag, thig — không có `ne`; `ne2` không nằm trong 83 tệp `ja` đã ghim. Đây là `not-published-upstream`, KHÔNG phải `not-synced`, và không phải thiếu sót của repo. Lớp lấp `english-project` không có cho uid này. Vì vậy bài dịch chỉ từ Pāli root cùng tiền lệ đếm được trong chính tầng Việt dự án; `triangulation` bị chặn ≤ 8.0 và `status` bắt buộc `draft`."
+      ],
+      "assessed_at": "2026-10-14",
+      "assessed_by": [
+        "Claude Sonnet 5.5 (Claude Code)"
+      ],
+      "notes": "Đối chiếu độc lập 2026-10-14 trên 47 khoá của ne2 với một bản dịch mù (một dịch giả khác cùng họ công cụ dịch lại từ Pāli, không xem bản dự án); xét 23 khoá chênh lệch lớn nhất và đọc lại toàn bài từ Pāli, đếm lại 16 phương thức, 5 lối, 9 + 9 nền tảng gốc. Khác nghĩa thật 0: không sửa khoá nào; giữ 19 (khác tên phương thức hoặc diễn đạt; ở 14.1–14.2 bản mù đọc cách công cụ `navahi padehi` thành chủ ngữ nên sai); bất định 4 khoá (8.4, 5.3, 5.4, 13.2). Mức đối chiếu: chỉ Pāli và một bản dịch lại cùng họ công cụ, không có bản Anh hay bản Việt độc lập khác; mười trong mười sáu tên phương thức bản mù chọn khác bản dự án và không nguồn nào phân xử được lựa chọn thuật ngữ, nên triangulation 7,4 (trần 8,0). Hạ điểm theo phát hiện lần này: terminology 9,1 → 8,7 và vietnamese_clarity 8,9 → 8,7 vì `pada`, `mūlapada` và `padaṭṭhāna` cùng quy về chữ nền tảng, dễ lẫn khi đọc, và `hāra` chưa đồng bộ giữa ne3–ne19 (hướng dẫn) với ne1, ne2, ne20 trở đi (phương thức); các tiêu chí khác giữ. technical_integrity 9,6 vì cổng kỹ thuật do người điều phối chạy. Blocker thiếu bản Anh upstream giữ nguyên (đã có waiver). Đây là review của AI, không phải chứng nhận của chuyên gia Pāli.",
+      "id": "23d4b40c-bc36-4d85-a1b5-8ec429c6cc34",
+      "content_sha256": "f4dcabfa97f20b218cf76e645558ee74fbef61d55271ac1173cf8970d71663c6",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
+      "final_score": 8.939999999999998
     }
   ],
   "legacy_quality": {

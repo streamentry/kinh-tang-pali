@@ -1683,6 +1683,34 @@
       "notes": "Kiểm tra tự động 815 segment với Pāli trong cache: đủ ID, giá trị, NFC và hệ chữ Latin. Chưa đọc đối chiếu nghĩa, ngữ pháp hoặc văn phong; chưa chấm lại 10 tiêu chí. Đây không phải chứng nhận hash upstream hoặc giấy phép, không xác nhận trạng thái xuất bản.",
       "content_sha256": "1e9a44a64e86750b337d84dcc4af0477224a52ec1afe172869730a9dd1903137",
       "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639"
+    },
+    {
+      "target": "translation",
+      "scope": "full",
+      "scores": {
+        "source_provenance": 9.4,
+        "semantic_fidelity": 8.1,
+        "grammar_logic": 7.9,
+        "segment_alignment": 9.8,
+        "terminology": 8.3,
+        "triangulation": 7.5,
+        "vietnamese_clarity": 8,
+        "han_viet_balance": 9,
+        "ambiguity_integrity": 8.6,
+        "technical_integrity": 9.6
+      },
+      "blocking_errors": [
+        "noEnglishEditionUpstream: Thiếu bản dịch tiếng Anh đối chiếu. Tầng english-sujato tại commit đã ghim không có ja543_translation-en-sujato.json (ja chỉ có 83 tệp: ja1–79, ja126, ja159, ja466, ja534; đây là not-published-upstream, không phải not-synced), tầng vietnamese-current chỉ có Pháp Cú và lớp english-project không có tệp cho bài này. Cả ba tầng tham khảo đều vắng nên triangulation bị chặn ở 7.5 (≤ 8.0) và bài giữ draft."
+      ],
+      "assessed_at": "2026-10-14",
+      "assessed_by": [
+        "Claude Sonnet 5.5 (Claude Code)"
+      ],
+      "notes": "Đối chiếu bản dịch mù độc lập 2026-10-14: một lần dịch lại từ Pāli của một dịch giả khác cùng họ công cụ; so 226 khoá chênh lệch lớn nhất (trên 815 khoá) kèm đọc toàn bài, khác nghĩa 26: sửa 1 (157.4 'nujju' = không làm cho ngay thẳng), giữ 4 (bản mù sai), bất định 21 (cách đọc từ hiếm và mạch người nói ở các khổ 6, 27, 49, 52, 63, 70, 92, 94, 114, 143–153, 171, 179, 183, 188). Hai sửa nhẹ không đổi nghĩa (100.4, 192.1). Chỉ một lỗi nghĩa rõ trong 226 khoá nên nâng nhẹ semantic_fidelity 7.9 → 8.1 và grammar_logic 7.6 → 7.9, nhưng 21 khoá bất định giữ các điểm này dưới 8.5; vietnamese_clarity, terminology giữ nguyên. triangulation 7.5: một lần dịch lại cùng họ công cụ, không có bản Anh hay bản Việt độc lập, còn 21 khoá chưa phân xử. technical_integrity 9.6: chưa chạy npm run validate, npm test, npm run check, npm run build ở lượt này. Blocker thiếu tầng English giữ nguyên. Đây là review của AI, không phải chứng nhận của chuyên gia Pāli.",
+      "id": "d54c5488-f40c-493f-8571-eca28d1c00ef",
+      "content_sha256": "a027b750c34ae7d0921b159bcd54268839cce535ec5da51121b762d632a2a8f7",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
+      "final_score": 8.62
     }
   ],
   "legacy_quality": {

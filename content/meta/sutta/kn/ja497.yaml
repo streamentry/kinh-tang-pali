@@ -3,7 +3,8 @@ status: review
 translationTitle: "Kinh Mātaṅga"
 translators:
   - "Claude Sonnet 5.5 (Claude Code)"
-reviewers: []
+reviewers:
+  - Claude Sonnet 5.5 (Claude Code)
 tags:
   - "kn"
   - "khuddaka-nikaya"
@@ -14,16 +15,16 @@ tags:
 quality:
   scores:
     source_provenance: 9.4
-    semantic_fidelity: 8.8
-    grammar_logic: 8.9
-    segment_alignment: 10.0
-    terminology: 9.1
-    triangulation: 7.0
-    vietnamese_clarity: 9.0
+    semantic_fidelity: 8.6
+    grammar_logic: 8.7
+    segment_alignment: 10
+    terminology: 9
+    triangulation: 7.6
+    vietnamese_clarity: 9
     han_viet_balance: 9.2
-    ambiguity_integrity: 9.0
+    ambiguity_integrity: 8.8
     technical_integrity: 9.6
-  final_score: 9.0
+  final_score: 8.989999999999998
   blocking_errors:
     - "Không có tầng tham khảo tiếng Anh tại commit đã ghim:
       `source/upstream-manifest.json` chỉ liệt kê `kn/ja/ja497_root-pli-ms.json`
@@ -36,9 +37,10 @@ quality:
       đều vắng ⇒ bài dịch chỉ từ Pāli root và đối chiếu tiền lệ nội bộ ⇒ bài bắt
       buộc `draft` và `triangulation ≤ 8,0`. Đây là giới hạn upstream, không
       phải lỗi của người dịch."
-  assessed_at: "2026-10-11"
+  assessed_at: 2026-10-14
   assessed_by:
-    - "Claude Sonnet 5.5 (Claude Code)"
+    - Claude Sonnet 5.5 (Claude Code)
+  assessment_id: 7b3d5b6d-fc45-45ec-bd35-839dd12179a4
   waiver:
     id: no-upstream-english
     blockers:
@@ -124,3 +126,5 @@ notes: |-
   **Coverage English (mục 7):** mẫu số = 0. Khoá Pāli dài nhất sau khi nén khoảng trắng là 35 ký tự (< 40) nên 0/93 khoá có nội dung; 4 khoá `:0` bị loại trước. Đây là *cổng không đo được gì*, không phải *không cần ghi nhận*. Sujato: 0 tệp cho `ja497`; `english-project`: 0; `vietnamese-current`: 0 (chỉ Pháp Cú). Ba tầng đều vắng ⇒ `triangulation` 7,0 (≤ 8,0) và `status: draft` kèm blocker ở trên. Tôi không đụng `content/meta/reference-gaps.yaml`.
 
   **technical_integrity = 9,6:** lát này cấm chạy cổng, nên không tuyên bố technical gate pass. Bốn lệnh còn lại do người điều phối chạy tập trung: `npm run validate` · `npm test` · `npm run check` · `npm run build`.
+
+  Đối chiếu bản dịch mù độc lập 2026-10-14: một dịch giả khác (cùng họ công cụ) dịch lại bài từ Pāli không xem bản dự án; so 22 khoá chênh lệch lớn nhất → khác nghĩa 5: sửa 1, giữ 2, bất định 2. Sửa 17.4: «theo ngài vì nỗi sầu mất con» → «bị nỗi sầu mất con đeo đuổi»; anvāgatā đi với công cụ cách puttasokena nghĩa là bị nỗi sầu theo sát, bản cũ tự thêm tân ngữ «ngài» mà Pāli không có (tiền lệ thag1.63 sukhenanvāgataṁ). Giữ 5.3 jātimantūpapannā («dòng dõi cao quý», theo tiền lệ jātimant ở 6 khoá khác; bản mù thêm «chú thuật» không có căn cứ) và 22.1 ajinā («da thú», bản mù đọc «da linh dương» hẹp hơn). Bất định: uttiṭṭhapiṇḍa 2.4/20.1 («phần ăn thừa» hay «nắm cơm khất thực», hai bản đọc khác nhau, Pāli không đủ để phân xử); anūpakhette 4.2 («ruộng đầm lầy» hay «ruộng cằn»). Các khoá còn lại trong danh sách chỉ khác diễn đạt. Không có bản Anh hay bản Việt độc lập khác.

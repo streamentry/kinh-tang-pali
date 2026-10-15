@@ -53,6 +53,34 @@
       "notes": "Kiểm tra tự động 17 segment với Pāli trong cache: đủ ID, giá trị, NFC và hệ chữ Latin. Chưa đọc đối chiếu nghĩa, ngữ pháp hoặc văn phong; chưa chấm lại 10 tiêu chí. Đây không phải chứng nhận hash upstream hoặc giấy phép, không xác nhận trạng thái xuất bản.",
       "content_sha256": "d367dcd86fc9da1a73327cb0d86e6df260c750f26ad0cfafb454e515d7b2519f",
       "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639"
+    },
+    {
+      "target": "translation",
+      "scope": "full",
+      "scores": {
+        "source_provenance": 9.4,
+        "semantic_fidelity": 7.8,
+        "grammar_logic": 7.9,
+        "segment_alignment": 10,
+        "terminology": 8,
+        "triangulation": 7.2,
+        "vietnamese_clarity": 8.4,
+        "han_viet_balance": 9,
+        "ambiguity_integrity": 8.3,
+        "technical_integrity": 9.6
+      },
+      "blocking_errors": [
+        "Thiếu hẳn tầng tham khảo English Sujato tại commit đã ghim 11c9d708978cde8ba61096d8a75f7ddfb846f639: đếm trực tiếp trên source/upstream-manifest.json (cùng commit) cho thấy tầng translation/en/sujato có 4.291 tệp, trong đó thư mục sutta/kn/ja/ chỉ có 83 tệp, không có tệp nào chứa khoá của bài này; hàm upstreamPublishes của kho trả về false cho đường dẫn này, nghĩa là SuttaCentral không phát hành bản Anh nào phủ bài này tại commit đã ghim. Tầng vietnamese-current cũng không có (đúng 26 tệp, chỉ Pháp Cú), nên bài chỉ đối chiếu được với Pāli root một mình. Đây là giới hạn của bản chụp upstream, không phải thiếu sót của kho, nhưng theo AGENTS.md thì thiếu tầng tham khảo là lỗi chặn đối với review và published, và tests/unit/reference-source.test.ts kiểm đúng điều đó. Bài đặt draft và không nâng điểm để né."
+      ],
+      "assessed_at": "2026-10-14",
+      "assessed_by": [
+        "Claude Sonnet 5.5 (Claude Code)"
+      ],
+      "notes": "Đối chiếu độc lập ngày 2026-10-14 trên toàn bộ 10 khoá khác biệt của ja266 giữa bản dự án và một bản dịch lại từ Pāli của dịch giả khác cùng họ công cụ (không xem bản dự án). Khác nghĩa 7, sửa cả 7 vì bản dự án sai thật so với Pāli: 1.1 `kisiyā paṇḍu` (gầy xanh xao, không phải \"nhiễm bẩn\"), 1.2, 1.3 `bhattā` (người chồng, bản cũ bỏ mất), 2.1 `panādikeneva` (\"ngay từ ban đầu\", không phải \"kẻ chở đò\"), 2.2 `santhavo` (thân cận, không phải \"chấm dứt\", đối chiếu 5 khoá đã dịch ở mn86, sn1.31, sn1.70, sn22.3, sn2.21), 2.3 (bỏ \"nhưng\" làm đảo logic) và 3.4 (bỏ \"lừa\" không có căn cứ), cộng hai khoá phụ 1.4 và 2.4 từ review đối kháng. Như vậy điểm trước đó (semantic 8,3, grammar 8,4, terminology 8,5) đã đánh giá cao một bản có nhiều lỗi thật, nay hạ về mức phản ánh đúng: semantic 7,8, grammar 7,9, terminology 8,0. Giữ 1 (3.1), bất định 1 (tiêu đề `Vātaggasindhava` và `bhaddalī`, không phân xử được). Mức đối chiếu: chỉ một lần dịch lại độc lập cùng họ công cụ, không có bản Anh hay bản Việt độc lập; bất đồng chính đã phân xử bằng Pāli nhưng còn tiêu đề và tên riêng chưa phân xử nên `triangulation` 7,2 (trần 8,0). Blocker giữ nguyên, không gỡ. Technical gate chưa chạy (`npm run validate`, `npm test`, `npm run check`, `npm run build`) nên technical_integrity 9,6. Đây là review của AI, không phải chứng nhận của chuyên gia Pāli.",
+      "id": "816a20c0-c9ba-4725-8147-b7058a91a324",
+      "content_sha256": "c5b932a1fd971e9b6133771a1b9896fdb984fd45cd564099842ff4d2023466ae",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
+      "final_score": 8.559999999999999
     }
   ],
   "legacy_quality": {

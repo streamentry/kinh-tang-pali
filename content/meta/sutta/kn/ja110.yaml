@@ -3,7 +3,8 @@ status: review
 translationTitle: "Kinh Câu Hỏi Về Kẻ Gom Hết Tất Cả"
 translators:
   - "OpenCode Space Bunny Free (agent)"
-reviewers: []
+reviewers:
+  - Claude Sonnet 5.5 (Claude Code)
 tags:
   - jataka
   - ekakanipata
@@ -12,16 +13,16 @@ tags:
 quality:
   scores:
     source_provenance: 9.5
-    semantic_fidelity: 8.0
+    semantic_fidelity: 8
     grammar_logic: 8.4
-    segment_alignment: 10.0
+    segment_alignment: 10
     terminology: 8.8
-    triangulation: 6.6
+    triangulation: 7.2
     vietnamese_clarity: 8.6
     han_viet_balance: 9.2
     ambiguity_integrity: 8.5
     technical_integrity: 9.6
-  final_score: 8.72
+  final_score: 8.78
   blocking_errors:
     - "Không có tầng tham khảo English Sujato tại commit đã ghim: đã duyệt
       .cache/upstream/suttacentral/translation/en/sujato/sutta/kn/ và không có
@@ -29,9 +30,10 @@ quality:
       ghim chỉ có Pháp Cú nên Khuddaka Nikāya cũng không có bản Hòa thượng Thích
       Minh Châu; bài dịch chỉ từ Pāli, chưa đối chiếu được tầng tham khảo nào
       nên giữ draft."
-  assessed_at: "2026-10-13"
+  assessed_at: 2026-10-14
   assessed_by:
-    - "Claude Sonnet 5.5 (Claude Code)"
+    - Claude Sonnet 5.5 (Claude Code)
+  assessment_id: 50baca57-61ac-4061-b7c8-3a716f6d90e6
   waiver:
     id: no-upstream-english
     blockers:
@@ -64,3 +66,5 @@ notes: |-
   · 4.2–4.3 (terminology fix): bỏ chỗ bản cũ đổi hình thức tên: `nāgasirivhayano` thành "Nāgasirivhāyana" (thêm dấu dài không có trong Pāli), và tách `Sukhakañca vata` thành "Sukha, Kaṅca, Vāta" (không có căn cứ; `vāta` không phải `vata`). Cách đọc uddāna đối chiếu với từ khoá kệ đầu của từng bài trong phẩm: Parosata (ja101), tāyitā (ja102:1.4), verī (ja103), cakka (ja104), nāga (ja105), `Sukhaṁ vata` (ja106:1.1), sippaka (ja107:1.1), Bāhiya (ja108), Kuṇḍapūva (ja109), mahallikā (ja110:1.4); nay giữ nguyên dạng Pāli của từng tên và dịch `atha` thành "rồi".
   Bất định còn lại (không phân xử được vì tầng này không có chú giải kể sự tích, không có bản Anh hay Việt hiện hành): (1) `suddhaṁ kaṅgu pavāyati`: `kaṅgu` thiếu dạng đối cách rõ, `suddhaṁ` có thể là tính từ hay trạng từ, và chủ ngữ của `pavāyati` có thể là hạt kê hoặc một chủ ngữ ngầm; (2) `bhāyatiyaṁ` được tách `bhāyati` + `iyaṁ` (đại từ cái, đi với `dhuttī`), cách tách khác như `bhāyati` + `yaṁ` không loại trừ được; (3) `dhuttī` dịch "gian xảo" nhưng tầng đã dịch `dhuttā` là "ăn chơi"/"cờ bạc" (dn31:12.2, dn17:1.6.13) và `adhuttī` là "không tiêu phá" (an8.46:14.1); nghĩa thật ở đây chưa chốt; (4) câu đố "kẻ gom hết tất cả" có đáp án gì thì kệ không cho thấy. triangulation giữ 6.6, các điểm còn lại giữ nguyên.
   Không chạy `npm run validate`, `npm test`, `npm run check`, `npm run build` ở lượt này nên technical_integrity giữ 9.6.
+
+  Đối chiếu bản dịch mù độc lập 2026-10-14: một dịch giả khác (cùng họ công cụ) dịch lại bài từ Pāli không xem bản dự án; so 8 khoá chênh lệch lớn nhất (cả 8 khoá khác biệt của bài) → khác nghĩa 3: sửa 1 (4.3: "Sukhakañca Vata" → "Sukhakañca vata": `vata` là tiểu từ đi cùng `sukhaṁ vata` mở kệ ja106, không phải tên riêng nên bỏ chữ hoa; bản mù bỏ hẳn `vata`, cũng không đúng), giữ 1 (1.3: `iyaṁ dhuttī` và `mahallikā` đều giống cái nên giữ "người đàn bà gian xảo"; bản mù đọc thành "kẻ lừa đảo" trung tính; ý "sợ điều dối trá" hai bản trùng), bất định 1 (1.2 `suddhaṁ kaṅgu pavāyati`: bản dự án "hạt kê sạch bị thổi bay", bản mù "tỏa hương"; `pavāyati` ở toàn tầng Pāli là nội động từ "thổi/lan tỏa" nên thể bị động "bị thổi bay" là phần suy thêm; Pāli không đủ để chọn giữa hai cách, giữ nguyên và ghi bất định). Các chênh còn lại (0.4, 2.1 tiêu đề; 4.1, 4.2, 4.4 danh sách tóm lược, bản mù tự đánh dấu chưa chắc) chỉ là cách đặt tên và phiên âm; cách tách `nāgasirivhayano` và `mahallikakā` thành tên riêng không phân xử được nên giữ dạng Pāli, ghi bất định. Review đối kháng cả 15 khoá: đủ khoá và thứ tự, nháy kép khớp Pāli từng khoá (1 mở ở 1.1, 1 đóng ở 1.4), dấu lược Pāli 0 và Việt 0 (phép chạy rỗng), không có số Pāli. Mục bất định (1) ở phần "Lượt cải thiện" phía trên vẫn đúng; thêm bất định về `pavāyati` như vừa nêu. Không có bản Anh hay bản Việt độc lập khác. Đây là review của AI, không phải chứng nhận của chuyên gia Pāli.

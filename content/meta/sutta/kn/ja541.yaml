@@ -3,7 +3,8 @@ status: review
 translationTitle: "Kinh Nimi"
 translators:
   - "Claude Sonnet 5.5 (Claude Code)"
-reviewers: []
+reviewers:
+  - Claude Sonnet 5.5 (Claude Code)
 tags:
   - "khuddaka-nikaya"
   - "jataka"
@@ -13,14 +14,14 @@ tags:
 quality:
   scores:
     source_provenance: 9.4
-    semantic_fidelity: 8.0
-    grammar_logic: 8.0
-    segment_alignment: 10.0
+    semantic_fidelity: 8
+    grammar_logic: 8
+    segment_alignment: 10
     terminology: 8.4
-    triangulation: 7.5
+    triangulation: 7.4
     vietnamese_clarity: 8.2
     han_viet_balance: 9.2
-    ambiguity_integrity: 8.6
+    ambiguity_integrity: 8.7
     technical_integrity: 9.6
   final_score: 8.69
   blocking_errors:
@@ -31,9 +32,10 @@ quality:
       vietnamese-current chỉ có Pháp Cú và lớp english-project không có tệp cho
       bài này. Cả ba tầng tham khảo đều vắng nên triangulation bị chặn ở 7.5 (≤
       8.0) và bài giữ draft."
-  assessed_at: "2026-10-13"
+  assessed_at: 2026-10-14
   assessed_by:
-    - "Claude Sonnet 5.5 (Claude Code)"
+    - Claude Sonnet 5.5 (Claude Code)
+  assessment_id: 4bab79e5-4ceb-4fb7-9ef9-c0eaa3f1f5dc
   waiver:
     id: no-upstream-english
     blockers:
@@ -104,3 +106,5 @@ notes: |-
     NFC đạt, không khoá rỗng, không khoảng trắng thừa; Pāli lọt sang tiếng Việt chỉ là tên riêng, tên cây, `Uposatha` và `āḷambara` có ghi chú ở trên. Đã in cặp Pāli↔Việt ra đọc toàn bài (773 cặp) và sửa sau lượt đọc: `ta sẽ` ở `19.2` (đặt chủ ngữ cho đúng `ahaṁ`), "mồi giấu kín" → "thứ che giấu" ở `71.4` (Pāli không nói "mồi"), "đặt lên trước" → "đi trước" ở `72.2`/`80.4`, "chu đáo" → "cẩn thận" (50/147 so với 9/147), "bậc Chánh Đẳng Giác" → "Đức Chánh Đẳng Giác" (18/24), "với tâm hoàn toàn tịnh tín" → "với tâm trong sáng" (11/64 so với 9/64), "những phần nền" → "những khoảnh đất" ở `101.3`, và hai lỗi nháy ở `91.1`, `98.1` (thiếu nháy mở, bắt được bằng phép so nháy từng khoá).
   - Công cụ kiểm của kho chưa chạy ở bước này, nên `technical_integrity` đặt 9.6 và không tuyên bố technical gate pass; còn phải chạy: `npm run validate`, `npm test`, `npm run check`, `npm run build`.
   - Sửa lan 2026-10-13: khoá `172.4` (`saṁyamaṁ ajjhupāgamīti`): "bước đến nơi tự chế" → "đi đến sự tự chế"; `saṁyama` là danh từ trừu tượng (sự tự chế, thu thúc), không phải nơi chốn; cùng câu Pāli ở `ja282:3.4` đã dịch "đi đến sự tự chế".
+
+  Đối chiếu bản dịch mù độc lập 2026-10-14: một dịch giả khác (cùng họ công cụ) dịch lại bài từ Pāli không xem bản dự án; so 190 khoá chênh lệch lớn nhất (trên 773 khoá) → khác nghĩa 14 nhóm (34 khoá trong danh sách; riêng nhóm (1) là một công thức lặp ở 30 khoá của bài): sửa 1 (`67.1`: “những ai trong cõi sống đã giết mẹ hay cha” → “những ai trong cõi sống giết mẹ hay cha”, vì `hananti` là thì hiện tại, “đã” là chữ thêm và đứng cạnh `hananti` ở `67.2`), giữ 2 (`165.4` `atho te adurāgataṁ`: bản mù dịch “ngài đến thật tốt lành”, bản dự án “việc ngài đến chẳng có gì khó nhọc”; chữ “khó nhọc” có thể lệch nghĩa `durāgata` (đến không lành/không được đón), nhưng giữ vì cùng dòng Pāli xuất hiện ở 13 khoá của bộ và đã dịch thống nhất như vậy, báo ngoài lát; `95.3` + 5 khoá cùng Pāli `pāṭihāriyapakkha`: bản mù “nửa tháng”, bản dự án “tuần lễ thần biến” theo đa số tầng, đã ghi bất định từ trước), bất định 11 nhóm (không phân xử được từ Pāli, bản mù cũng không chắc hoặc đọc khác: (1) `8.4` và các khoá cùng công thức `jānaṁ akkhāsijānato` (14 khoá nằm trong danh sách, 30 khoá trong cả bài): bản dự án đọc `akkhāsi jānato` “người biết nói cho người biết”, bản mù đọc `akkhāsi ajānato` “bậc biết nói cho người chưa biết” (sandhi: `-i` + `a-` có thể rụng `a-`, và nghĩa này hợp việc Nimi đang hỏi), cả hai đều đứng được về ngữ pháp, giữ cách cũ và ghi rõ; (2) `171.4` `kalyāṇakammānaṁ pāpānaṁ`: “những người làm việc lành và những kẻ ác” hay “những nghiệp thiện và nghiệp ác”; (3) `55.2` `kayino`: “người mua” hay “người buôn bán”; (4) `73.2` `dujaccā` “xuất thân xấu kém”, có căng với `76.1` `kolitthiyāyo` “người nữ gia tộc”, bản mù cũng ghi không chắc; (5) `76.2` `asataṁ acāruṁ`: `acāru` là chữ hiếm (“bất chính” hay “không đẹp”); chữ này còn lặp ở `76.4` (ngoài danh sách), nơi bản dự án không có chữ tương ứng; (6) `83.2` `vissāsakammāni`: “việc tạo sự tin cậy” hay “việc phản bội lòng tin”; (7) `89.4` `sakimābhinandī`: `sakiṁ` (“một lần”) hay `sakaṁ` (“của mình”); (8) `45.2`–`45.3` `jāpayanti`: “lừa gạt” hay “làm cho mất nợ”; (9) `49.1` thứ tự `luñcanti … veṭhayitvā`; (10) `76.3` `dittarūpā`: “sắc đẹp rực rỡ” hay “dáng vẻ kiêu hãnh”; (11) `43.1` `phuṇanti`: “quằn quại” hay “khuấy đảo”). Phần còn lại (156 khoá) khác diễn đạt, cách cắt dòng hoặc thuật ngữ cùng nghĩa (`Uposatha` và “bố-tát”, `vippasanna` “trong sáng” và “tịnh tín”, “cung cấp” và “chu cấp”, `sakkaccaṁ`, `khandha`…), giữ. Đọc lại đối kháng toàn bài 773/773 khoá: nháy `“”` khớp Pāli từng khoá, `(…)` ở `13.1`, `85.1`, `144.1` đúng như Pāli, không có số nào sai (`dasasahassā` = 10.000). Bản mù không phát hiện lỗi nghĩa, phủ định, chủ thể hay số lượng nào của bản dự án ngoài chỗ thì hiện tại ở `67.1`. Không có bản Anh hay bản Việt độc lập khác. `triangulation` 7,5 → 7,4: có thêm một lần dịch lại độc lập, nhưng nó cho thấy nhiều nhóm bất đồng chưa phân xử được (kể cả nhóm 30 khoá), nên không nâng; cùng họ công cụ nên không quá 8,0. `ambiguity_integrity` 8,6 → 8,7 vì các nhóm bất định nay được nêu rõ. Điểm khác giữ nguyên. Chưa chạy `npm run validate`, `npm test`, `npm run check`, `npm run build` trong lượt này; `technical_integrity` 9,6.

@@ -3,7 +3,8 @@ status: review
 translationTitle: "Đại Tập Kể Lược, Kể Lược Phẩm Tám Kệ – Kinh Già"
 translators:
   - "Claude Sonnet 5.5 (Claude Code)"
-reviewers: []
+reviewers:
+  - Claude Sonnet 5.5 (Claude Code)
 tags:
   - "khuddaka-nikaya"
   - "mahaniddesa"
@@ -13,14 +14,14 @@ quality:
     source_provenance: 9.4
     semantic_fidelity: 8.4
     grammar_logic: 8.5
-    segment_alignment: 10.0
+    segment_alignment: 10
     terminology: 8.6
-    triangulation: 8.0
+    triangulation: 7.8
     vietnamese_clarity: 8.3
     han_viet_balance: 9.2
     ambiguity_integrity: 8.3
     technical_integrity: 9.6
-  final_score: 8.83
+  final_score: 8.809999999999999
   blocking_errors:
     - "noEnglishEditionUpstream: không có tầng tham khảo tiếng Anh cho mnd6 tại
       commit đã ghim. Thư mục kn/ của edition translation/en/sujato chỉ có cp,
@@ -30,9 +31,10 @@ quality:
       cũng không có mnd6. Tầng vietnamese-current chỉ có Pháp Cú. Đây là
       not-published-upstream, giới hạn của bản chụp upstream chứ không phải lỗi
       người dịch, nên triangulation bị chặn ở 8.0 và không nâng để né blocker."
-  assessed_at: "2026-10-11"
+  assessed_at: 2026-10-14
   assessed_by:
-    - "Claude Sonnet 5.5 (Claude Code)"
+    - Claude Sonnet 5.5 (Claude Code)
+  assessment_id: 1b64d8b6-a5ce-4183-9970-5e890699ef01
   waiver:
     id: no-upstream-english
     blockers:
@@ -88,3 +90,5 @@ notes: |-
     14. Lỗi ngoài lát, báo chứ không sửa: `snp4.6:3.1`–`3.2` đảo hai dòng và `snp4.6:3.4` dịch `māmako` là *kẻ có lòng tham ái* (đối chiếu `an4.26`, `iti108`, `mnd6:44.6`–`44.9`); `snp4.6:7.4` `bhavane` → *trong gia đình* trái lời giải `mnd6:70.16`; `snp4.6:2.2` *tài sản*, `snp4.6:9.4`, `10.2` *nhận thức* so với `mn22`, `dn16`; ba khoá Pāli y hệt `Kuhā thaddhā lapā siṅgī unnaḷā asamāhitā` dịch ba cách khác nhau (`iti108:3.1`, `an4.26:2.1`, `thag17.1:11.3`).
 
   **Bốn cổng kỹ thuật theo `AGENTS.md`:** `npm run validate`, `npm test`, `npm run check`, `npm run build`. Lát này **không** chạy bốn lệnh đó vì bị cấm trong từng lát ⇒ để CI hoặc người điều phối chạy. `technical_integrity` đặt **9.6**, không 10.0. Các phép tự kiểm đã chạy và đều xanh: tập khoá bản Việt = tập khoá Pāli (593/593, cùng thứ tự); nháy kép `“”`, nháy đơn `‘’` khớp Pāli từng khoá (0/593 lệch); dấu lược `…` khớp Pāli từng khoá (0/593 lệch); 0 khoá rỗng; NFC; không khoảng trắng thừa; không nháy thẳng; Pāli lọt sang Việt chỉ còn các từ ở mục 13 trên.
+
+  Đối chiếu bản dịch mù độc lập 2026-10-14: một dịch giả khác (cùng họ công cụ) dịch lại bài từ Pāli không xem bản dự án; so 104 khoá chênh lệch lớn nhất → khác nghĩa 2: sửa 0, giữ 1 (`70.18` `etaṁ channaṁ`: bản mù đọc "được che kín", nhưng `channa` ở đây là "thích hợp", đứng trong chuỗi bốn từ đồng nghĩa channa, patirūpa, anucchavika, anuloma; `pv24:14.3` `Netaṁ channaṁ patirūpaṁ` cũng là "không phù hợp"), bất định 1 (`41.3` `sattuka`: bản mù đọc là tên riêng, bản dự án giữ "Này kẻ thù" như `ja351:3.3`, `mnd15:163.3`, ba khoá Pāli y hệt; không phân xử được từ Pāli một mình). Thêm 2 chỗ cả hai bản cùng không chắc, không phải bất đồng: `15.2` `gandhabbā` (cả hai để nguyên từ Pāli) và `57.2`–`57.3` `abhisambhūtā` ("được nhãn thức/nhĩ thức đạt đến"). Phần còn lại của 104 khoá là khác diễn đạt (sở hữu/nắm giữ, hành/pháp hữu vi, hiền trí/hạnh mâu-ni, v.v.) hoặc bản mù thêm chữ (`9.1` "dòng nước"). Đọc lại toàn bài 593 cặp Pāli↔Việt: sửa 1, `33.9` "các thầy có thấy" → "các ông có thấy" (cùng cụm `passatha no tumhe, bhikkhave` ở tầng: 8/10 khoá khác dịch "các ông", 2/10 "các ngươi", không khoá nào "các thầy"; `mnd6:89.9` đã là "các ông", một bài một cách xưng). Không có bản Anh hay bản Việt độc lập khác.

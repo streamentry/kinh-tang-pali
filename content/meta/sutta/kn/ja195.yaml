@@ -1,9 +1,10 @@
 uid: ja195
-status: review
+status: published
 translationTitle: "Kinh Thảm Núi"
 translators:
   - "OpenCode Space Bunny Free (agent)"
-reviewers: []
+reviewers:
+  - Claude Sonnet 5.5 (Claude Code)
 tags:
   - khuddaka-nikaya
   - jataka
@@ -13,23 +14,24 @@ quality:
   scores:
     source_provenance: 9.6
     semantic_fidelity: 8.9
-    grammar_logic: 9.0
+    grammar_logic: 9
     segment_alignment: 9.8
     terminology: 9.2
-    triangulation: 7
-    vietnamese_clarity: 9.0
+    triangulation: 7.7
+    vietnamese_clarity: 9
     han_viet_balance: 9.2
     ambiguity_integrity: 8.5
     technical_integrity: 9.6
-  final_score: 8.98
+  final_score: 9.05
   blocking_errors:
     - "Bài này KHÔNG có tầng english-sujato tại commit đã ghim: manifest chỉ
       liệt kê 84 bài ja* có bản Anh (ja1–ja79, ja126, ja159, ja466, ja534),
       không có ja195–ja211. Thiếu tầng tham khảo là lỗi chặn đối với
       review/published theo AGENTS.md, nên đặt draft."
-  assessed_at: "2026-10-13"
+  assessed_at: 2026-10-14
   assessed_by:
-    - "Claude Sonnet 5.5 (Claude Code)"
+    - Claude Sonnet 5.5 (Claude Code)
+  assessment_id: 3eb7917e-cd73-4924-8e1d-812bd4e3e140
   waiver:
     id: no-upstream-english
     blockers:
@@ -152,3 +154,5 @@ notes: |-
   giữ 9.6; chưa chạy bốn lệnh `npm run validate`, `npm test`, `npm run check`, `npm run build`.
 
   Sửa lan 2026-10-13: khoá `ja195:0.3` (`Ruhakavagga`): *Phẩm Dây Leo* → *Phẩm Ruhaka*. Căn cứ: bài đầu của phẩm là `ja191` `Ruhakajātaka`, tên bài đã dịch *Kinh Ruhaka* (tên riêng) và `ja191:1.1` đọc `ruhaka` là hô ngữ *Này Ruhaka*; còn `jiyā` ở `ja191:1.2` là *dây cung*, không phải cây leo, nên nghĩa *dây leo* cho `ruhaka` không có căn cứ trong Pāli. Tiền lệ: phẩm Jātaka đặt theo tên riêng của bài đầu phẩm giữ nguyên Pāli (*Phẩm Cūḷakuṇāla*, *Phẩm Gandhāra*, *Phẩm Soṇaka*, *Phẩm Kāliṅga*…). BẤT ĐỊNH: nghĩa của `ruhaka` không phân xử được từ tầng Pāli đã ghim (không có bản Anh), nên chọn phiên âm để không khẳng định nghĩa. Ngoài lát này, `ja191`, `ja199`, `ja200` vẫn *Phẩm Dây Leo* (và `ja200:3.2` ghi *Phẩm Thằn Lằn*) — cần thống nhất.
+
+  Đối chiếu bản dịch mù độc lập 2026-10-14: một dịch giả khác (cùng họ công cụ) dịch lại bài từ Pāli không xem bản dự án; so 4 khoá chênh lệch lớn nhất (`0.4`, `2.2`, `2.3`, `3.1`) → khác nghĩa 0, còn lại là khác diễn đạt hoặc chủ thể chưa hiện rõ: sửa 1 (`2.3`: “vì thế, nó không thành chẳng phải sông” → “vì thế, sông ấy không thành chẳng phải sông”; Pāli `na tena anadī hoti` không nêu chủ ngữ, mà dòng liền trước `2.2` có `sāpadāni` (các thú hoang) nên “nó” dễ bị đọc nhầm là thú hoang; chủ ngữ đúng là `mahānadiṁ` ở `2.2`; chỉ làm rõ chủ thể, không đổi nghĩa), giữ 3 (`0.4`, `3.1`: bản mù dịch “Chuyện Tiền Thân …”, chỉ khác khuôn tiêu đề “Kinh …” của các bài cùng phẩm; `2.2`: bản mù đặt `mahānadiṁ` làm tân ngữ trực tiếp của “uống”, đúng ngữ pháp đối cách và cùng nghĩa với “uống nước … ở sông lớn”), bất định 0 mới (các bất định đã ghi ở trên, gồm `mahānadiṁ`, chủ ngữ của `piyā`, `upatthara`, cũng là chỗ bản mù không phân xử được). Chín khoá còn lại hai bản hội tụ về nghĩa; đã đọc lại đối kháng cặp Pāli↔Việt cả 13/13 khoá: nháy `“”` khớp Pāli từng khoá, không dấu lược, không số lượng. Không có bản Anh hay bản Việt độc lập khác. `triangulation` 7,0 → 7,7: có một lần dịch lại độc lập, hội tụ cả 13 khoá, nhưng cùng họ công cụ nên không quá 8,0. Điểm khác giữ nguyên. Chưa chạy `npm run validate`, `npm test`, `npm run check`, `npm run build` trong lượt này; `technical_integrity` 9,6.

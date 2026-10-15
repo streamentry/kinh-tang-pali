@@ -3,7 +3,8 @@ status: review
 translationTitle: "Kinh Kẻ Phá Hoại Khu Vườn"
 translators:
   - "OpenCode Space Bunny Free (agent)"
-reviewers: []
+reviewers:
+  - Claude Sonnet 5.5 (Claude Code)
 tags:
   - "jataka"
   - "khuddaka-nikaya"
@@ -14,15 +15,15 @@ quality:
   scores:
     source_provenance: 9.5
     semantic_fidelity: 8.9
-    grammar_logic: 9.0
-    segment_alignment: 10.0
-    terminology: 9.0
-    triangulation: 7.1
-    vietnamese_clarity: 9.0
+    grammar_logic: 9
+    segment_alignment: 10
+    terminology: 9
+    triangulation: 7.3
+    vietnamese_clarity: 9
     han_viet_balance: 9.1
     ambiguity_integrity: 8.6
     technical_integrity: 9.6
-  final_score: 8.98
+  final_score: 8.999999999999998
   blocking_errors:
     - "Thiếu hẳn tầng tham khảo English Sujato tại commit đã ghim
       11c9d708978cde8ba61096d8a75f7ddfb846f639: đếm trực tiếp trên
@@ -36,9 +37,10 @@ quality:
       của kho, nhưng theo AGENTS.md thì thiếu tầng tham khảo là lỗi chặn đối với
       review và published, và tests/unit/reference-source.test.ts kiểm đúng điều
       đó. Bài đặt draft và không nâng điểm để né."
-  assessed_at: "2026-10-13"
+  assessed_at: 2026-10-14
   assessed_by:
-    - "Claude Sonnet 5.5 (Claude Code)"
+    - Claude Sonnet 5.5 (Claude Code)
+  assessment_id: 9972581c-e3b3-4627-9560-efa53070c3a9
   waiver:
     id: no-upstream-english
     blockers:
@@ -134,3 +136,5 @@ notes: |-
   Terminology fix. 1.4: kimeva itarā pajā — tầng đã dịch kimeva "huống chi" (ja450:1.3, ja546:175.3) và cặp pageva itarā pajā là "huống chi quần chúng còn lại" ở 6/6 khoá (an4.70, ja527, ja528); nay "huống chi quần chúng còn lại?". Bản cũ "các loài sinh khác thì ra gì" lệch tiền lệ, và chính lượt trước đã ghi nó là chỗ chưa chắc. 2.1: tuvaṁ brahme có tiền lệ "hỡi Bà-la-môn" ở ja547:288.3 (cùng một dòng Pāli) và nhiều khoá Jātaka khác; thêm "hỡi". Clarity fix. 1.3: "thế ấy" gượng → "là như thế này" (edisī).
   Điểm đổi: semantic_fidelity 8.8 → 8.9 (một nghĩa sai ở 3.3 và một câu hỏi bị đảo ở 2.4 đã sửa; chưa lên cao vì quan hệ vì-y-mà-có-những-người-trồng-cây ở 3.4 vẫn chưa phân xử được). grammar_logic 8.8 → 9.0 (khôi phục câu hỏi kathaṁ, liên từ ca, số nhiều tumhe, bỏ chủ ngữ thừa). terminology 8.8 → 9.0 (kimeva, itarā pajā, gārayha, brahme theo đa số đã đo). triangulation 6.9 → 7.1 (vẫn không có tầng Anh nào; chỉ tăng nhẹ vì đã đối chiếu thêm các khoá Pāli song song trong chính kho cho bốn cụm từ trên). vietnamese_clarity 9.1 → 9.0 (3.4 dịch sát nên hơi tỉnh lược). Giữ nguyên: source_provenance, segment_alignment, han_viet_balance 9.1, technical_integrity 9.6, ambiguity_integrity 8.6.
   Bất định CÒN LẠI, không phân xử được vì snapshot đã ghim không có tầng Anh, không có bản Việt tham khảo và không có phần văn xuôi Jātaka: (a) người nói từng bài kệ và nhân vật được xưng brahme (Bà-la-môn hay Phạm thiên; đã dịch theo đa số "Bà-la-môn", không đổi); (b) 3.3: vissasena đọc là "bằng lòng tin" (vissāsena) — chưa có khoá song song nào để kiểm; (c) 3.4: yassatthā rukkharopakā đọc là "vì y mà có những người trồng cây", chưa rõ y là ai và atthā là "vì lợi ích" hay cách khác; (d) tumhe là số nhiều thật hay là cách xưng tôn kính cho một người — đã giữ nghĩa số nhiều theo hình thái. Không thêm gì vào thân kinh cho những chỗ này. Không đổi status, blocker, waiver. Bốn lệnh npm run validate, npm test, npm run check, npm run build chưa được chạy trong lượt này.
+
+  Đối chiếu bản dịch mù độc lập 2026-10-14: một dịch giả khác (cùng họ công cụ) dịch lại bài từ Pāli không xem bản dự án; so 3 khoá chênh lệch lớn nhất trên 17 khoá → khác nghĩa 1: sửa 0, giữ 0, bất định 1 (`3.3`–`3.4` `Vissasenova gārayho, yassatthā rukkharopakā`: bản mù cũng ghi không chắc; chưa phân xử được người đáng chê trách là ai). Hai khoá còn lại (`1.4` `kimeva itarā pajā`, `2.2` `anaññāya vinindasi`) chỉ khác diễn đạt, giữ. Review đối kháng toàn bài: nháy khớp Pāli từng khoá (0/17 lệch), không có dấu lược, không có số, `tumhe` số nhiều và `brahme` vẫn nhất quán với bản cũ. Không có bản Anh hay bản Việt độc lập khác.

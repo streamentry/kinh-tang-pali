@@ -53,6 +53,34 @@
       "notes": "Kiểm tra tự động 45 segment với Pāli trong cache: đủ ID, giá trị, NFC và hệ chữ Latin. Chưa đọc đối chiếu nghĩa, ngữ pháp hoặc văn phong; chưa chấm lại 10 tiêu chí. Đây không phải chứng nhận hash upstream hoặc giấy phép, không xác nhận trạng thái xuất bản.",
       "content_sha256": "e0d555e951710a6a6a0d853e05a3467d215db4c73edf234edd0ad9bb093ca53f",
       "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639"
+    },
+    {
+      "target": "translation",
+      "scope": "full",
+      "scores": {
+        "source_provenance": 9.5,
+        "semantic_fidelity": 8.6,
+        "grammar_logic": 8.5,
+        "segment_alignment": 10,
+        "terminology": 8.6,
+        "triangulation": 7.6,
+        "vietnamese_clarity": 8.5,
+        "han_viet_balance": 9.2,
+        "ambiguity_integrity": 8.6,
+        "technical_integrity": 9.6
+      },
+      "blocking_errors": [
+        "Bài này không có tầng Anh SuttaCentral đã ghim ở commit đã pin (`source/upstream-manifest.json` → `english-sujato`, 4291 tệp, chỉ 83 tệp `ja`: ja1–ja79, ja126, ja159, ja466, ja534 — không có uid nào của lát này), nên thiếu tầng tham khảo bắt buộc để xuất bản; đối chiếu chỉ có Pāli đã ghim cùng commit + tiền lệ đếm được trong chính tầng Việt dự án."
+      ],
+      "assessed_at": "2026-10-14",
+      "assessed_by": [
+        "Claude Sonnet 5.5 (Claude Code)"
+      ],
+      "notes": "Đối chiếu bản dịch mù độc lập 2026-10-14 (một dịch giả khác cùng họ công cụ, dịch lại từ Pāli không xem bản dự án): so 17 khoá chênh lệch lớn nhất, đọc đối chiếu toàn bài 45/45 khoá; khác nghĩa 11: sửa 9 (cộng 3 sửa từ rà toàn bài: 5.1, 6.3, 8.4), giữ 6 chỉ khác diễn đạt, bất định 2 (4.2, 10.1); các sửa chủ yếu bỏ nội dung bản trước thêm vào ngoài Pāli (nàng, muốn, tham, dao) và sửa chủ ngữ ở 5.2, 8.4. Bài còn vài chỗ bất định nhỏ nên triangulation 7.6 (trần 8.0, chỉ một lần dịch lại cùng họ công cụ). Chuỗi kệ trùng ja369 nay khác ja369, cần sửa tương ứng ngoài lát. Không có bản Anh hay bản Việt độc lập khác. Chưa chạy npm run validate, npm test, npm run check, npm run build nên technical_integrity 9.6. Blocker thiếu tầng tham khảo Anh giữ nguyên. Đây là review của AI, không phải chứng nhận của chuyên gia Pāli.",
+      "id": "4db32b48-ef2a-444a-af36-cc590b48d414",
+      "content_sha256": "8db0256c36161003b33b96f371e77ccf3f287d540ba12a70708219c59e994afe",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
+      "final_score": 8.87
     }
   ],
   "legacy_quality": {

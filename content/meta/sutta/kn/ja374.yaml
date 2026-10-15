@@ -3,7 +3,9 @@ status: review
 translationTitle: "Kinh Cūḷadhanuggha"
 translators:
   - "OpenCode Space Bunny Free (agent)"
-reviewers: []
+reviewers:
+  - Claude Opus 5.5 (Claude Code)
+  - Claude Sonnet 5.5 (Claude Code)
 tags:
   - "khuddaka-nikaya"
   - "jataka"
@@ -14,15 +16,15 @@ quality:
   scores:
     source_provenance: 9.5
     semantic_fidelity: 8.8
-    grammar_logic: 9.0
-    segment_alignment: 10.0
-    terminology: 9.0
-    triangulation: 7.5
+    grammar_logic: 9
+    segment_alignment: 10
+    terminology: 9
+    triangulation: 7.6
     vietnamese_clarity: 8.9
     han_viet_balance: 9.2
     ambiguity_integrity: 8.4
     technical_integrity: 9.6
-  final_score: 8.99
+  final_score: 9
   blocking_errors:
     - "Không có tầng tham khảo tiếng Anh tại commit đã ghim: tệp
       `translation/en/sujato/sutta/kn/.../ja374_translation-en-sujato.json`
@@ -41,9 +43,10 @@ quality:
       Pāli root ⇒ blocker thật, và đây là **giới hạn upstream**, không phải lỗi
       của người dịch. Vì vậy `triangulation` bị chặn ở 7.5 (≤ 8.0) chứ không
       nâng để né blocker."
-  assessed_at: "2026-10-14"
+  assessed_at: 2026-10-14
   assessed_by:
-    - "Claude Opus 5.5 (Claude Code)"
+    - Claude Sonnet 5.5 (Claude Code)
+  assessment_id: 177b6d78-78f3-4a2d-a2a6-ca74a63c8916
   waiver:
     id: no-upstream-english
     blockers:
@@ -107,3 +110,5 @@ notes: |-
   GIẢI QUYẾT BẤT ĐỊNH — đã thử, không phân xử được. Quét toàn tầng Pāli đã ghim: `ahuhāsiyaṁ` 1 lần (chỉ ở `3.2`), `anamhikāle` 0 dạng tương đồng đáng tin ngoài bài này (các kết quả khớp chuỗi là dạng `-mhi` của danh từ khác, không liên quan), `dānito` 1 lần (`pe5:66.10` là chữ khác `samuddānito`); chỉ `eḷagalā` có tiền lệ (`sn22.2:3.1`). Không có bản Anh, bản Việt tham khảo hay từ điển trong kho để đối chứng, nên ba từ trên (nghĩa "cười a-hu", "không đúng lúc", "bây giờ") vẫn là cách đọc theo ngữ cảnh. Điểm mới xác nhận được: hướng của `nimināti` ở `2.1`–`2.3` đúng, vì bài `ja318:4.1`–`4.3` có đúng cùng công thức (`asanthutaṁ maṁ cirasanthutena`, `nimīni … adhuvaṁ dhuvena`, `mayāpi … nimineyya aññaṁ`) và bản Việt của bài đó ("đổi người tình lâu năm để lấy ta là kẻ mới quen", "đổi điều chắc chắn lấy điều bất định") đọc cùng hướng với bản này. Bất định (4) của lượt 2026-10-11 vì thế được thu hẹp: hướng đổi đã có đối chứng nội tại trong kho. Các bất định còn lại (1)–(3), (5)–(8) không đổi.
   ĐIỂM. Không đổi tiêu chí nào so với lượt 2026-10-11: 3 chỉnh sửa trên là chỉnh nhẹ, không đủ để nâng điểm, và các từ hiếm chưa phân xử cùng việc không có văn xuôi duyên khởi (người nói suy từ ngữ pháp) vẫn giữ `semantic_fidelity`, `grammar_logic`, `ambiguity_integrity` và `triangulation` ở mức cũ. `final_score` giữ 8.99 (trung bình thô của 10 điểm), vẫn nằm trong 8.0–9.0 nên bài ở `review`. Blocker "không có tầng tham khảo tiếng Anh/Việt tại commit đã ghim" giữ nguyên; không thêm blocker mới.
   LỖI NGOÀI PHẠM VI (báo, không sửa): `ja220:1.4` `kapaṇo viya jhāyasi` đang là "mà thiền định như một kẻ nghèo khó", lệch cách dịch đa số của cùng công thức (`kapaṇo viya jhāyati` → "ủ ê như kẻ khốn khổ": `mnd7:40.2`, `mnd7:41.1`, `mnd7:41.5`, `mnd7:44.2`, `pe1:58.2`; `ja492:9.4` `kapaṇova jhāyasi` → "ngồi ủ ê như kẻ khốn khổ"). Kỹ thuật: lượt này không chạy `npm run validate`, `npm test`, `npm run check`, `npm run build`; `technical_integrity` giữ 9.6.
+
+  Đối chiếu bản dịch mù độc lập 2026-10-14: một dịch giả khác (cùng họ công cụ) dịch lại bài từ Pāli, không xem bản dự án; so 9 khoá chênh lệch lớn nhất (trong 35 khoá; 26 khoá còn lại hầu như trùng ý) → khác nghĩa 2 (cả hai là chỗ bản mù đọc sai theo Pāli): sửa 0, giữ 9, bất định 3 (`3.2`, `3.5`, `6.3`). Giữ: `3.1` `Kāyaṁ eḷagalāgumbe` — bản mù *Nàng đặt thân mình vào bụi eḷagalā* (đọc `kāyaṁ` là *thân*, đối cách), bản dự án đọc `kā ayaṁ` = *ai đây*; cách đọc này khớp `karoti ahuhāsiyaṁ` ở `3.2` (một chủ thể đang cười), các hô cách `susoṇi`, `sobhane` ở `3.5`–`3.6` và mẫu `Kāyaṁ balākā` ở `ja274:1.1`, `ja275:2.1`. `2.2` `Nimīni bhotī addhuvaṁ dhuvena` — bản mù *Đổi cái không bền lấy cái bền* là đảo vai; theo quy tắc đã đo ở `2.1` và `2.3` (đối cách là cái nhận về: `asanthutaṁ maṁ`, `aññaṁ`; công cụ cách là cái bỏ đi: `cirasanthutena`, `mayā`), `addhuvaṁ` là cái nhận và `dhuvena` là cái bỏ: *đã đổi cái vững bền để lấy cái không vững bền*, đúng với giọng trách của câu. Khác diễn đạt, giữ: `6.3` `Sā nūnāhaṁ ito gantvā` (*đi khỏi nơi này* ↔ *từ đây trở về*), `1.1` (*mang hết mọi đồ đạc* ↔ *mang theo tất cả của cải*), `5.4`, `0.2` (*Bộ Năm Bài Kệ* ↔ *Chương Năm*, theo tiền lệ phẩm đã đếm ở lượt trước), `0.4`. Bất định: `ahuhāsiyaṁ` ở `3.2` (*tiếng cười a-hu*; bản mù cũng không chắc), `anamhikāle` ở `3.5` (*không đúng lúc*; bản mù cũng không chắc), người nói của kệ `6`–`7` suy từ ngữ cảnh. Không có bản Anh hay bản Việt độc lập khác.

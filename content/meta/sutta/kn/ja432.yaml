@@ -3,7 +3,8 @@ status: review
 translationTitle: "Kinh Thanh Niên Padakusala"
 translators:
   - "OpenCode Space Bunny Free (agent)"
-reviewers: []
+reviewers:
+  - Claude Sonnet 5.5 (Claude Code)
 tags:
   - "khuddaka-nikaya"
   - "jataka"
@@ -14,23 +15,24 @@ quality:
     source_provenance: 9.4
     semantic_fidelity: 8.7
     grammar_logic: 8.8
-    segment_alignment: 10.0
+    segment_alignment: 10
     terminology: 8.6
-    triangulation: 7.8
+    triangulation: 7.9
     vietnamese_clarity: 8.6
     han_viet_balance: 8.9
     ambiguity_integrity: 8.6
     technical_integrity: 9.6
-  final_score: 8.9
+  final_score: 8.91
   blocking_errors:
     - "Tầng Anh chưa được ghim cho ja432: tại commit
       11c9d708978cde8ba61096d8a75f7ddfb846f639, tầng english-sujato chỉ có 83
       tệp trong thư mục kn/ja và ja432 không có trong số đó (đã kiểm cả trên
       đĩa: không có tệp ja432_translation-en-sujato.json). Không có một lần đọc
       Anh nào để đối chiếu, và validate sẽ chặn nếu đặt review hoặc published."
-  assessed_at: "2026-10-12"
+  assessed_at: 2026-10-14
   assessed_by:
-    - "Claude Sonnet 5.5 (Claude Code)"
+    - Claude Sonnet 5.5 (Claude Code)
+  assessment_id: 938c5d1e-a6af-4b7f-be14-8d05a823b75f
   waiver:
     id: no-upstream-english
     blockers:
@@ -131,3 +133,23 @@ notes:
     **technical_integrity = 9,6 là điểm tạm.** Chưa chạy bốn cổng của kho trong
     lượt này: `npm run validate` · `npm test` · `npm run check` · `npm run
     build`. Cần chạy trước khi đổi trạng thái.
+  - >-
+    Đối chiếu bản dịch mù độc lập 2026-10-14: một dịch giả khác (cùng họ công
+    cụ) dịch lại bài từ Pāli, không xem bản dự án; so 15 khoá chênh lệch lớn
+    nhất (trong 49 khoá; 34 khoá còn lại hầu như trùng ý) → khác nghĩa 1
+    (`7.3`): sửa 0, giữ 15, bất định 3 (`1.2`, `7.3`, `9.2`). Giữ: `7.3`
+    `vakkaṅgā` — bản mù *hỡi loài chim* (có `⟦?⟧`), bản dự án *những kẻ thân
+    cong*; đây là cùng một nhận diện từ vựng nhưng bản dự án giữ cách dịch đồng
+    nhất toàn tầng (`ja36:1.3`, `ja430`, `ja502:1.2`, 17 khoá). `9.2` `yassa ca
+    bhavamicchisaṁ` — bản mù *đã mong nó hiện hữu*, bản dự án *mong cho người
+    nào được hưng thịnh* (`sn7.14:2.2` dịch *mong chúng tốt lành*), cùng hướng.
+    `1.2` `pāṭaliṁ` — bản mù cũng không chắc; cả hai đọc là tên người bị sông
+    cuốn đi. `7.1` bản mù thêm *chúng ta* mà Pāli (`nissitā`, nguyên cách số
+    nhiều, không đại từ) không có.
+    `1.1`/`4.1`/`4.2`/`5.1`/`9.1`/`10.3`/`10.4`/`11.2`/`3.1`/`3.3` chỉ khác diễn
+    đạt (*cái mà nhờ nó cơm được nấu chín* ↔ *thứ làm chín cơm*; *tế sư* ↔ *quốc
+    sư*, 7 khoá `ja` đã đếm). `0.2` *Bộ Chín Bài Kệ* ↔ *Chương Chín* theo tiền
+    lệ nipāta của tầng. Bất định: (1) người nói ở khối 2–9 là Pāṭali hay người
+    khác; (2) `bhavamicchisaṁ` *hưng thịnh* hay *tồn tại*; (3) `Yatodakaṁ
+    tadādittaṁ` đọc *chỗ nào có nước, chỗ ấy cháy*; khả dĩ khác *từ nước mà có
+    lửa*. Không có bản Anh hay bản Việt độc lập khác.

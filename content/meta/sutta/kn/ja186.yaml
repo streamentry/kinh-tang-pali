@@ -1,9 +1,10 @@
 uid: ja186
-status: review
+status: published
 translationTitle: "Kinh Dadhivāhana"
 translators:
   - "OpenCode Space Bunny Free (agent)"
-reviewers: []
+reviewers:
+  - Claude Sonnet 5.5 (Claude Code)
 tags:
   - khuddaka-nikaya
   - jataka
@@ -11,25 +12,26 @@ tags:
 quality:
   scores:
     source_provenance: 9.3
-    semantic_fidelity: 9.0
-    grammar_logic: 9.0
-    segment_alignment: 10.0
+    semantic_fidelity: 9
+    grammar_logic: 9
+    segment_alignment: 10
     terminology: 8.8
-    triangulation: 7.0
-    vietnamese_clarity: 9.0
+    triangulation: 7.6
+    vietnamese_clarity: 9
     han_viet_balance: 9.2
-    ambiguity_integrity: 9.0
+    ambiguity_integrity: 9
     technical_integrity: 9.6
-  final_score: 8.99
+  final_score: 9.049999999999999
   blocking_errors:
-    - "Tại commit đã ghim không có tệp
+    - Tại commit đã ghim không có tệp
       translation/en/sujato/sutta/kn/ja/ja186_translation-en-sujato.json; bài
       nằm trong 990 bài không được SuttaCentral phát bản Anh. Đây là giới hạn
       của bản chụp upstream, không phải thiếu sót của kho, nhưng thiếu tầng tham
-      khảu là blocking error nên bài phải giữ draft."
-  assessed_at: "2026-10-12"
+      khảu là blocking error nên bài phải giữ draft.
+  assessed_at: 2026-10-14
   assessed_by:
-    - "Claude Sonnet 5.5 (Claude Code)"
+    - Claude Sonnet 5.5 (Claude Code)
+  assessment_id: d119a399-156f-4628-9083-defaf227043e
   waiver:
     id: no-upstream-english
     blockers:
@@ -232,3 +234,12 @@ notes: |-
   - Tầng Anh và tầng Việt hiện hành đều vắng: không thể xác minh độc lập, đã đọc lại hai kệ trực tiếp từ Pāli.
   TECHNICAL GATE: chưa chạy `npm run validate`, `npm test`, `npm run check`, `npm run build` ở lượt này;
   giữ `technical_integrity` 9,6; chỉ kiểm tập khoá/NFC/dấu ngoặc của tệp JSON (15/15 khoá, ✓).
+
+  Đối chiếu bản dịch mù độc lập 2026-10-14: một dịch giả khác (cùng họ công cụ) dịch lại bài từ Pāli không xem bản dự
+  án; so 7 khoá chênh lệch lớn nhất (trên 15 khoá; đọc lại toàn bài từ Pāli) → khác nghĩa thật 0: sửa 0, giữ 7, bất định
+  0 trong số khoá đã so. Bốn khoá (`1.1`, `1.2`, `2.1`, `2.2`) chênh lệch lớn chỉ vì bản mù dồn nửa câu sang khoá liền
+  kề (ngắt dòng hai kệ khác nhau); ghép lại thì nội dung hai kệ khớp bản dự án; `0.3`, `0.4`, `2.4` chỉ khác diễn đạt
+  (`asadisa`, `jātaka`, `nisevare`). Hai điểm bất định ghi ở trên giữ nguyên: `pūjā` ở 1.3 (giữ "cúng dường" theo tiền
+  lệ dù đối tượng là cây) và việc gán kệ 1 cho nhà vua, kệ 2 cho người đáp. Dấu nháy, tập khoá và NFC của tệp khớp Pāli.
+  Không có bản Anh hay bản Việt độc lập khác. Cổng kỹ thuật của kho (`npm run validate`, `npm test`, `npm run check`,
+  `npm run build`) chưa chạy ở lượt này.

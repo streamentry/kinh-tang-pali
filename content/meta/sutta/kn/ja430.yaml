@@ -3,7 +3,8 @@ status: review
 translationTitle: "Kinh Vẹt Nhỏ"
 translators:
   - "OpenCode Space Bunny Free (agent)"
-reviewers: []
+reviewers:
+  - Claude Sonnet 5.5 (Claude Code)
 tags:
   - "khuddaka-nikaya"
 quality:
@@ -13,21 +14,22 @@ quality:
     grammar_logic: 8.9
     segment_alignment: 10
     terminology: 8.9
-    triangulation: 7
+    triangulation: 7.5
     vietnamese_clarity: 8.6
     han_viet_balance: 9.2
-    ambiguity_integrity: 9
+    ambiguity_integrity: 8.9
     technical_integrity: 9.6
-  final_score: 8.96
+  final_score: 9
   blocking_errors:
     - "Bài này không có tầng Anh SuttaCentral đã ghim ở commit đã pin
       (`source/upstream-manifest.json` → `english-sujato`, 4291 tệp, chỉ 83 tệp
       `ja`: ja1–ja79, ja126, ja159, ja466, ja534 — không có uid nào của lát
       này), nên thiếu tầng tham khảo bắt buộc để xuất bản; đối chiếu chỉ có Pāli
       đã ghim cùng commit + tiền lệ đếm được trong chính tầng Việt dự án."
-  assessed_at: "2026-10-12"
+  assessed_at: 2026-10-14
   assessed_by:
-    - "Claude Sonnet 5.5 (Claude Code)"
+    - Claude Sonnet 5.5 (Claude Code)
+  assessment_id: ede21dc3-c352-4cda-81db-072cc9817966
   waiver:
     id: no-upstream-english
     blockers:
@@ -165,3 +167,5 @@ notes: |-
   **Kỹ thuật.** `technical_integrity: 9.6`: chưa chạy cổng máy; bốn lệnh `npm run validate`,
   `npm test`, `npm run check`, `npm run build` còn phải chạy trước khi coi tiêu chí 10 là
   đạt.
+
+  Đối chiếu bản dịch mù độc lập 2026-10-14: một dịch giả khác (cùng họ công cụ) dịch lại bài từ Pāli không xem bản dự án; so 10 khoá chênh lệch lớn nhất (0.2, 0.4, 1.2, 2.2, 3.1, 5.1, 5.2, 6.2, 7.1, 11.1) → khác nghĩa 2: sửa 1 (2.2: "đông đảo, suốt nhiều chuỗi năm" → "suốt nhiều chuỗi năm, thật nhiều" — "bahū" đứng liền sau "nekavassagaṇe", cùng cách và cùng số nhiều, như ở 1.2 "dumā nekaphalā bahū", nên nói về số năm; chữ "đông đảo" (số người ăn quả) là ý thêm), giữ 0, bất định 1 (5.1: "sakkhi kataṁ hoti" — bản mù hiểu là "kết thành bạn", bản dự án hiểu là "đã được làm chứng"; Pāli chỉ cho thấy câu khen tình bạn qua "metti saṁsati santhavo", nghĩa chính xác của "sakkhi" ở đây không phân xử được, giữ cách đọc cũ; cùng đoạn có ở bài song song kế bên với cùng cách dịch). Tám khoá còn lại (0.2, 0.4, 1.2, 3.1, 5.2, 6.2, 7.1, 11.1) chỉ khác diễn đạt hoặc đặt tên: "Bộ Chín Bài Kệ" theo đúng 12/12 tệp Navakanipāta của tầng; bản mù để nguyên "koḷāpa" ở 3.1 còn bản dự án dịch "cây khô mục" cùng nghĩa với tầng Trung Bộ. Rà đối kháng toàn bài (nháy, dấu lược, số, xưng hô, thuật ngữ) không thấy thêm lỗi. Không có bản Anh hay bản Việt độc lập khác.
