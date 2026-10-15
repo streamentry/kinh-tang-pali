@@ -1,9 +1,10 @@
 uid: vv72
-status: published
+status: draft
 translationTitle: "8. Chuyện Cung Điện Người Đeo Bông Tai Thứ Nhất"
 translators:
   - "OpenCode Space Bunny Free (agent)"
-reviewers: []
+reviewers:
+  - Claude Sonnet 5.5 (Claude Code)
 tags:
   - "kn"
   - "khuddaka-nikaya"
@@ -11,16 +12,16 @@ tags:
 quality:
   scores:
     source_provenance: 9.5
-    semantic_fidelity: 9.1
+    semantic_fidelity: 9.2
     grammar_logic: 9.3
-    segment_alignment: 10.0
+    segment_alignment: 10
     terminology: 9.1
     triangulation: 7.5
     vietnamese_clarity: 9.3
     han_viet_balance: 9.3
-    ambiguity_integrity: 9.0
+    ambiguity_integrity: 9
     technical_integrity: 9.6
-  final_score: 9.17
+  final_score: 9.18
   blocking_errors:
     - "Không có tầng tham khảo tiếng Anh tại commit đã ghim: manifest
       `source/upstream-manifest.json` không liệt kê tệp Anh nào cho uid này, và
@@ -28,18 +29,10 @@ quality:
       `not-published-upstream`, KHÔNG phải `not-synced`. Tầng
       `vietnamese-current` cũng vắng vì commit đã ghim chỉ có Pháp Cú. Bài dịch
       chỉ từ Pāli root nên bắt buộc `draft`."
-  assessed_at: "2026-10-11"
+  assessed_at: 2026-10-15
   assessed_by:
-    - "Claude Sonnet 5.5 (Claude Code)"
-  waiver:
-    id: no-upstream-english
-    blockers:
-      - "Không có tầng tham khảo tiếng Anh tại commit đã ghim: manifest
-        `source/upstream-manifest.json` không liệt kê tệp Anh nào cho uid này,
-        và `.cache/upstream/suttacentral/` cũng không có — đây là
-        `not-published-upstream`, KHÔNG phải `not-synced`. Tầng
-        `vietnamese-current` cũng vắng vì commit đã ghim chỉ có Pháp Cú. Bài
-        dịch chỉ từ Pāli root nên bắt buộc `draft`."
+    - Claude Sonnet 5.5 (Claude Code)
+  assessment_id: 24c36fb8-4181-43dd-9774-a501c8925d4c
 notes: |-
   Bản dịch chỉ từ Pāli root vì commit đã ghim không có bản Anh cho toàn bộ Vimānavatthu, đây là giới hạn upstream.
   Tiêu đề 0.2 dùng họ Chuyện Cung Điện song song nam và nữ trong lát để nhất quán nội bộ, 0.3 giữ tên phẩm theo tiền lệ từng file trong kho.
@@ -57,3 +50,8 @@ notes: |-
   Bất định còn lại: (a) 4.2 là …pe… che động từ trần thuật, nên 4.3 yassa kammassidaṁ phalaṁ đọc thành lời tự xưng của thiên tử; giữ "quả báo của nghiệp ấy là đây" (tiền lệ đa số "quả báo của nghiệp này là thế", hơn 30 chỗ; hai cách cùng nghĩa, không đổi để khỏi lệch bộ). (b) 5.5 "Với cơm ăn và nước uống, cùng tâm tịnh tín" theo khuôn chung vv11, vv12, vv61, vv65, vv73, vv74; Pāli là hai tân ngữ cộng với pasannacitto, bản dịch đọc được nhưng hơi lệch cú pháp.
   Tiêu đề 0.2 "Chuyện Cung Điện Nam Hư Không" (Purisavimāna) chứa "Hư Không" mà Pāli không có; lỗi lặp ở hàng chục tệp vv nên không sửa riêng một tệp, ghi để sửa cả bộ cùng lúc. Notes cũ nói 0.2 theo họ "Chuyện Cung Điện" song song nam và nữ nhưng bản thực tế mang thêm "Hư Không".
   technical_integrity vẫn 9.6; bốn lệnh `npm run validate`, `npm test`, `npm run check`, `npm run build` do coordinator chạy.
+
+  Lượt rà soát 2026-10-15 (đợt 2, lô G5, Claude Sonnet 5.5 (Claude Code)): sửa 4.3: công thức yassa
+  kammassidaṁ phalaṁ (quan hệ "mà… là quả") dịch lại "về nghiệp mà đây là quả báo", khớp 54 khoá vv
+  khác (các khoá hỏi "kissa" không đổi); sửa 2.4: pamodayanti là dạng sai khiến, bản cũ "vui đùa thỏa
+  thích" nay "làm cho hoan hỷ" khớp vv67:2.5, vv82:2.6.

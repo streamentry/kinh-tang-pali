@@ -1,5 +1,5 @@
 uid: vv55
-status: published
+status: draft
 translationTitle: "Chuyện Cung Điện Người Gác Cổng"
 translators:
   - "OpenCode Space Bunny Free (agent)"
@@ -39,28 +39,10 @@ quality:
       Pāli root ⇒ blocker thật, và đây là **giới hạn upstream**, không phải lỗi
       của người dịch. Vì vậy `triangulation` bị chặn ở 7.5 (≤ 8.0) chứ không
       nâng để né blocker."
-  assessed_at: 2026-10-14
+  assessed_at: 2026-10-15
   assessed_by:
     - Claude Sonnet 5.5 (Claude Code)
-  assessment_id: 674c6a39-4c99-4fb0-9b3a-7c187c23cdbc
-  waiver:
-    id: no-upstream-english
-    blockers:
-      - "Không có tầng tham khảo tiếng Anh tại commit đã ghim: tệp
-        `translation/en/sujato/sutta/kn/vv/vv55_translation-en-sujato.json`
-        không tồn tại trong `.cache/upstream/suttacentral/`, và
-        `source/upstream-manifest.json` không liệt kê bất kỳ tệp nào cho uid này
-        — đây là `not-published-upstream`, KHÔNG phải `not-synced`. Đo coverage
-        theo đúng công thức `source/layers.yaml` (Pāli có nội dung ≥ 40 ký tự,
-        loại block tham chiếu `:0`) cho 0 trên 27 khoá = 0%, dưới ngưỡng 0.8.
-        `scripts/validate.ts` coi tệp Anh thiếu là **error** khi status là
-        `review` hoặc `published`, nên bài bắt buộc `draft`. Tầng
-        `vietnamese-current` cũng vắng: `translation/vi/phantuananh` tại commit
-        đã ghim chỉ có 26 tệp và toàn bộ là Pháp Cú. Lớp lấp `english-project`
-        của dự án cũng không có cho uid này. Ba tầng tham khảo đều vắng ⇒ bài
-        dịch chỉ từ Pāli root ⇒ blocker thật, và đây là **giới hạn upstream**,
-        không phải lỗi của người dịch. Vì vậy `triangulation` bị chặn ở 7.5 (≤
-        8.0) chứ không nâng để né blocker."
+  assessment_id: 8a0a0a7f-c0a4-4245-a990-9692141762ad
 notes: |-
   Dịch trực tiếp từ Pāli root vì không có tầng tham khảo tiếng Anh của Sujato tại commit đã ghim cho vv55.
   Đối chiếu văn cảnh và chú giải để xác định ngữ nghĩa các từ cổ và cấu trúc đối thoại.
@@ -79,3 +61,7 @@ notes: |-
   Điểm đổi: semantic_fidelity 8.8 thành 8.9 (bỏ ba chỗ thêm nghĩa ở 1.4, 2.4, 4.2; vẫn còn hapax `5.2` và `rucakatthatā` chưa phân xử nên không nâng nhiều); terminology 8.8 thành 9.0 (đồng nhất `dibba`, `vīṇā`, `sabbadisā` theo tiền lệ). Không đổi: vietnamese_clarity 9.0, grammar_logic 9.0, ambiguity_integrity 8.4 (bất định vẫn như trên, nay `1.4` chỉ còn một suy diễn "thảm"), triangulation 7.5 (không có bản Anh độc lập), technical_integrity 9.6. final_score 8.96 thành 8.99, mean thô của 10 điểm. Số Pāli: `dvādasa` 12, `sattasatā` 7 × 100 = 700, `vassasahassa` 1.000, đúng với bản dịch (0 lệch). Kiểm tay sau sửa: 27/27 khoá đúng tập khoá và thứ tự Pāli; nháy khớp Pāli từng khoá (0 lệch); 1 cặp Pāli trùng nguyên văn trong bài (`…pe…` ở 3.2/6.2), 0 lệch; NFC sạch. Chưa chạy `npm run validate`, `npm test`, `npm run check`, `npm run build`.
 
   Đối chiếu độc lập 2026-10-14: với bản Việt nguyên bài của Bhikkhu Indacanda (dịch 2011, đọc từ dòng tác giả và chân trang của tệp). Bản nguyên bài là văn xuôi, theo đúng thứ tự các khổ kệ, nên so được từng khổ ở mức đoạn, cả 27 khoá; ở 3.2 và 6.2 Pāli ghim chỉ có dấu lược `…pe…` còn bản nguyên bài viết đủ câu lặp, nên hai khoá ấy không có gì để so ngoài việc cùng khuôn với 3.1 và 6.1. Số: `dvādasa` mười hai, `sattasatā` bảy trăm, `vassasahassa` một ngàn đều khớp. 3 khoá bất đồng nghĩa → sửa 0, giữ 1, bất định 2. Giữ: 5.3 `ettāvatā ṭhassati puññakammo`: bản nguyên bài hiểu là chỉ với chừng ấy việc làm (chừng ấy là phương tiện) thì người làm phước tồn tại; bản này giữ “an trú chừng ấy thời gian” (chừng ấy là thời gian), vì liền sau 5.1 `vassasahassamāyu` (tuổi thọ ngàn năm) nên chừng ấy tự nhiên là chừng ấy tuổi thọ; Pāli của `ettāvatā` mơ hồ cả hai nghĩa, hai cách đọc cùng cho ý chính (người làm phước sống ở cõi trời chừng ấy). Bất định: 1.4 `rucakatthatā`: bản nguyên bài đọc `rucaka` là vàng (được trải lót bằng vàng); bản này viết “trải thảm rực rỡ” theo khuôn chung của họ (9 khoá cùng Pāli ở vv54, vv56–59, vv67, vv77, vv79, vv85, riêng vv70 giữ chữ Pāli). Chữ “thảm” là suy diễn đã ghi ở bất định trên, và nay có thêm một cách đọc độc lập nghiêng về vàng; không đổi canonical ở bài lẻ để khỏi lệch cả họ, nhưng người điều phối nên chốt một cách cho cả 10 khoá cùng Pāli; 5.2 `vācābhigītaṁ manasā pavattitaṁ`: bản nguyên bài thêm chữ “do” để thành nguyên nhân của tuổi thọ (do việc đã thưa bằng lời, đã vận hành bằng ý), bản này dịch sát chữ như hai tính từ đặt cạnh `āyu`; hapax, Pāli ghim không có dòng song song, nên giữ đúng chữ và ghi nhận cả hai cách đọc. Các khác biệt khác chỉ ở cách gọi (ngài và ngươi, tiên nữ và phụ nữ, đàn hạc và đàn vīṇā, người gác cổng và người giữ cửa…) không đổi nghĩa nên không tính. Bản nguyên bài không phân đoạn nên đối chiếu ở mức đoạn, không phải mức khoá; không có bản Anh. Review đối kháng lại 27 cặp Pāli↔Việt, không thấy lỗi mới, không đổi khoá nào. Không gỡ blocker nào.
+
+  Lượt rà soát 2026-10-15 (đợt 2, lô G5, Claude Sonnet 5.5 (Claude Code)): sửa 2.4: nāriyo "tiên nữ"
+  đổi "nữ nhân" khớp vv54, vv77, vv79, vv85. Khoá 4.4 "quả của nghiệp nào" chưa đổi, giữ để người biên
+  tập xem.

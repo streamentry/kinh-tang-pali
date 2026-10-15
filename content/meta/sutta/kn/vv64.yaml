@@ -1,9 +1,10 @@
 uid: vv64
-status: published
+status: draft
 translationTitle: "Chuyện Cung Điện Cỗ Xe Lớn"
 translators:
   - "Claude Sonnet 5.5 (Claude Code)"
-reviewers: []
+reviewers:
+  - Claude Sonnet 5.5 (Claude Code)
 tags:
   - "kn"
   - "khuddaka-nikaya"
@@ -11,16 +12,16 @@ tags:
 quality:
   scores:
     source_provenance: 9.5
-    semantic_fidelity: 8.8
+    semantic_fidelity: 8.9
     grammar_logic: 8.9
-    segment_alignment: 10.0
+    segment_alignment: 10
     terminology: 8.8
     triangulation: 7.5
     vietnamese_clarity: 9.1
     han_viet_balance: 9.3
-    ambiguity_integrity: 9.0
+    ambiguity_integrity: 9
     technical_integrity: 9.6
-  final_score: 9.05
+  final_score: 9.059999999999999
   blocking_errors:
     - "noEnglishEditionUpstream: không có tầng tham khảo tiếng Anh tại commit đã
       ghim. Tệp
@@ -36,26 +37,10 @@ quality:
       khi status là review hoặc published. Ba tầng tham khảo đều vắng nên bản
       dịch chỉ dựa vào Pāli root: đây là giới hạn upstream, triangulation bị
       chặn ở 7.5 (không quá 8.0) và bài bắt buộc ở draft."
-  assessed_at: "2026-10-11"
+  assessed_at: 2026-10-15
   assessed_by:
-    - "Claude Sonnet 5.5 (Claude Code)"
-  waiver:
-    id: no-upstream-english
-    blockers:
-      - "noEnglishEditionUpstream: không có tầng tham khảo tiếng Anh tại commit
-        đã ghim. Tệp
-        translation/en/sujato/sutta/kn/vv/vv64_translation-en-sujato.json không
-        tồn tại, và source/upstream-manifest.json liệt kê 0 tệp Anh cho nhóm vv
-        (tầng Sujato ở kn chỉ có 9 nhóm: cp, dhp, iti, ja, kp, snp, thag, thig,
-        ud) — đây là not-published-upstream, không phải not-synced. Tầng
-        vietnamese-current cũng vắng (translation/vi/phantuananh chỉ có 26 tệp,
-        toàn Pháp Cú) và lớp english-project của dự án không có tệp cho vv64
-        (trong nhóm vv chỉ có vv69). Mẫu số coverage theo source/layers.yaml là
-        0 khoá (khoá Pāli dài nhất chỉ 37 ký tự, dưới ngưỡng 40) nên cổng
-        coverage không đo được gì, nhưng scripts/validate.ts vẫn coi tệp Anh
-        thiếu là lỗi khi status là review hoặc published. Ba tầng tham khảo đều
-        vắng nên bản dịch chỉ dựa vào Pāli root: đây là giới hạn upstream,
-        triangulation bị chặn ở 7.5 (không quá 8.0) và bài bắt buộc ở draft."
+    - Claude Sonnet 5.5 (Claude Code)
+  assessment_id: f57f2c6f-23c4-427d-94f8-bab9b91470bf
 notes: |-
   Dịch trực tiếp từ Pāli root cho đủ 145 khoá; không có bản Anh Sujato, bản Anh của dự án hay bản Việt hiện hành để đối chiếu, nên không tuyên bố đã đối chiếu English. Tiền lệ lấy từ các bài đã dịch cùng nhóm Vimānavatthu (vv5, vv30, vv32, vv36, vv48, vv60–62, vv65, vv78) và các tầng khác.
   Số Pāli (tự tính): Sahassayutta = 1.000 (1.1); Sahassaraṁsiko = ngàn tia sáng (5.2); sata = 100 (4.3 satarāji, 27.4 satapuññalakkhaṇa); pannarase cando = trăng ngày thứ mười lăm, dịch là trăng ngày rằm (2.4); pañcaṅgika = năm phần (5.4, 9.4); dasa disā = mười phương (17.3); tividhaṁ = ba phương diện (31.2); catukkamā = bốn chân (8.1); cuddasamaṁ = thứ mười bốn (34.1); pañcamo = thứ năm (34.2); tatiyaṁ = thứ ba (37.1); uddāna 36.3–36.4: dve = hai, tayo = ba, dve = hai. Không có cụm số chưa phân xử được.
@@ -66,3 +51,7 @@ notes: |-
   Coverage English: mẫu số 0 (không khoá Pāli nào đạt 40 ký tự), cổng coverage không đo được gì; tầng Sujato phủ 0 khoá, ba tầng tham khảo đều vắng.
   technical_integrity đặt 9.6 vì chưa chạy các cổng của kho trong lần soát này; cần chạy npm run validate, npm test, npm run check và npm run build trước khi chốt trạng thái.
   Lượt cải thiện 2026-10-11 (kiểm toán đối kháng, đọc lại 145 khoá cặp Pāli–Việt, đối chiếu danh sách lỗi lan của họ Vimānavatthu): (a) Không tìm thấy lỗi nghĩa thật ở thân kinh. Đã kiểm hô cách và người nói: 19.3 devinda và 32.2 muni đọc đúng là hô cách, không bị lặp thành tân ngữ; người nói ở 1–25 là Tôn giả Moggallāna nói với thiên tử (ngài/tôi đúng), 27–33 là thiên tử nói với Tôn giả (tôi đúng), 26 là lời dẫn. Không có cụm Tenamhi/Yaṁ kiñcimaṁ, pokkharaṇī, pahūtamalyā, bhusa-nhìn-xa, kaṭṭhaka hay idha mijjhati trong bài; bhusaṁ ở 24.4 là trạng từ vượt hẳn, đã dịch đúng; pokkharapatta ở 19.4 là lá sen, đúng. Số Pāli tính lại: sahassa 1.000, sata 100, pañcaṅgika năm phần, dasa disā mười, catu bốn, uddāna 36.3–36.4 hai, hai, ba, hai khớp với 14 bài của phẩm đã liệt kê (1+1+1+1+1+2+2+3+2). (b) Sửa 2 khoá, loại accuracy fix nhỏ: 20.1 và 22.3 (Pāli trùng nhau) đổi "Giữa những cây đàn vīṇā êm ái, nhiều vô số này" thành "Giữa nhiều cây đàn vīṇā êm ái này", vì bahūsu chỉ là nhiều, "vô số" nói quá mức Pāli; hai khoá vẫn giống nhau. Điểm tiêu chí không đổi do sửa này. (c) Hạ terminology từ 9.0 xuống 8.8: tiêu đề nhóm Purisavimāna dịch "Nam Hư Không" ở 0.2 và 36.5 là sai, vì Pāli không có ākāsa (cùng lỗi với "Nữ Hư Không" của Itthivimāna, lặp ở khoảng 51 tệp vv); không sửa riêng một tệp để khỏi lệch cả bộ, nhưng ghi nhận ở đây. Đếm khoá có lỗi nghĩa: 0 khoá thân kinh; 2 khoá tiêu đề/uddāna (0.2, 36.5) mang lỗi thuật ngữ hệ thống của cả bộ; 2 khoá (20.1, 22.3) nói quá mức, đã sửa. (d) Nghi ngờ nhưng giữ nguyên có chủ ý: 25.3 "cúi chắp tay" thêm chữ "cúi" so với añjalikamma, nhưng đồng nhất với vv5, vv78, vv81 nên không sửa lẻ; 26.2 "hỏi thăm" cho pucchito (vv54, vv55, vv85 cùng cách, vv60 hỏi han, vv65 gạn hỏi); 26.4 "nghiệp ấy" cho yassa kammassa. Mọi bất định kỹ thuật ở các từ hiếm (kubbara, aṁsa, gumba, nābhi, catukkama, ārohakambū, brahūpamā, samita, saṁvana) vẫn chưa phân xử được vì phần lớn các từ đó chỉ xuất hiện ở vv64 trong nhóm vv (đã quét), nên semantic_fidelity giữ 8.8, ambiguity_integrity giữ 9.0, triangulation giữ 7.5. Blocker noEnglishEditionUpstream giữ nguyên.
+
+  Lượt rà soát 2026-10-15 (đợt 2, lô G5, Claude Sonnet 5.5 (Claude Code)): sửa 26.4: công thức yassa
+  kammassidaṁ phalaṁ (quan hệ "mà… là quả") dịch lại "về nghiệp mà đây là quả báo", khớp 54 khoá vv
+  khác (các khoá hỏi "kissa" không đổi); sửa 25.3: añjalikamma bỏ "cúi" thêm, khớp vv78:8.3.

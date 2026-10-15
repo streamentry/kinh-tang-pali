@@ -1,9 +1,10 @@
 uid: vv3
-status: published
+status: draft
 translationTitle: "Chuyện Cung Điện Pīṭha Thứ Ba"
 translators:
   - "OpenCode Space Bunny Free (agent)"
-reviewers: []
+reviewers:
+  - Claude Sonnet 5.5 (Claude Code)
 tags:
   - kn
   - khuddaka-nikaya
@@ -13,16 +14,16 @@ tags:
 quality:
   scores:
     source_provenance: 9.5
-    semantic_fidelity: 9.0
+    semantic_fidelity: 9
     grammar_logic: 9.2
-    segment_alignment: 10.0
+    segment_alignment: 10
     terminology: 8.8
     triangulation: 7.5
     vietnamese_clarity: 9.2
     han_viet_balance: 9.4
-    ambiguity_integrity: 9.0
+    ambiguity_integrity: 9
     technical_integrity: 9.6
-  final_score: 9.12
+  final_score: 9.120000000000001
   blocking_errors:
     - "Không có tầng tham khảo tiếng Anh tại commit đã ghim: tệp Anh của bài này
       không có trong source/upstream-manifest.json (đo được 0/4291 tệp trong thư
@@ -36,24 +37,10 @@ quality:
       khảo đều vắng và bài dịch chỉ từ Pāli root. Vì đây là giới hạn upstream
       chứ không phải lỗi người dịch, triangulation bị chặn ở 7.5 (không quá 8.0)
       chứ không nâng để né blocker."
-  assessed_at: "2026-10-11"
+  assessed_at: 2026-10-15
   assessed_by:
-    - "Claude Sonnet 5.5 (Claude Code)"
-  waiver:
-    id: no-upstream-english
-    blockers:
-      - "Không có tầng tham khảo tiếng Anh tại commit đã ghim: tệp Anh của bài
-        này không có trong source/upstream-manifest.json (đo được 0/4291 tệp
-        trong thư mục sutta/kn/tha-ap và 0/4291 trong sutta/kn/vv của tầng
-        translation/en/sujato) và cache cũng không có thư mục
-        translation/en/sujato/sutta/kn/tha-ap hay sutta/kn/vv — đây là
-        not-published-upstream, KHÔNG phải not-synced. scripts/validate.ts xếp
-        tệp Anh thiếu là error khi status là review hoặc published, nên bài bắt
-        buộc draft. Tầng vietnamese-current cũng vắng (commit đã ghim chỉ có 26
-        tệp Pháp Cú) và lớp lấp english-project không có cho bài này, nên ba
-        tầng tham khảo đều vắng và bài dịch chỉ từ Pāli root. Vì đây là giới hạn
-        upstream chứ không phải lỗi người dịch, triangulation bị chặn ở 7.5
-        (không quá 8.0) chứ không nâng để né blocker."
+    - Claude Sonnet 5.5 (Claude Code)
+  assessment_id: e65b5f39-7c7b-4ee8-a64a-34d50dff789f
 notes: |-
   Dịch TRỰC TIẾP từ Pāli root — không có tầng Anh đã ghim cho vv3, xem blocking_errors.
   Chỉ mục Pāli và Việt toàn tầng: 35/37 khoá của bài này có Pāli trùng nguyên văn ở bài khác — tỷ lệ cao nhất trong lát — và 26 dùng lại NGUYÊN VĂN bản Việt đã có. 9 khoá còn lại cùng Pāli nhưng cố ý khác cách diễn đạt, xem các ghi chú bất định bên dưới.
@@ -68,3 +55,6 @@ notes: |-
   Mức điểm đổi so với 9.19: terminology 9.1 xuống 8.8 vì tiêu đề 0.2 Itthivimāna vẫn dịch "Nữ Hư Không" (Pāli không có ākāsa; lặp ở khoảng 51 tệp vv nên không sửa riêng một tệp để khỏi lệch cả bộ, cần sửa đồng loạt); semantic_fidelity 9.2 xuống 9.0 vì cùng tiêu đề đó; ambiguity_integrity 9.1 xuống 9.0 vì các bất định mới ghi dưới đây; vietnamese_clarity 9.3 xuống 9.2 vì "của cải" cho bhogā còn nặng; các tiêu chí còn lại giữ nguyên. Điểm sau 9.12 là điểm của bản đã sửa, không phải của bản trước.
   Bất định còn lại: (1) vippasannamanāvilaṁ ở 6.2 giữ "tâm ý sáng trong không chút ô nhiễm" theo 8 tiền lệ, có khả năng chữ này chỉ là vippasannaṁ anāvilaṁ (trong sáng, không vẩn đục) không có chữ "tâm ý"; không phân xử được bằng tầng Pāli đã ghim. (2) bhogā dịch "của cải" theo 22 tiền lệ nhưng nghĩa đúng hơn là các thứ thọ hưởng. (3) 6.1 "ly trần thanh tịnh" gộp thêm "thanh tịnh" trong khi vippasanna nằm ở 6.2; giữ theo 5 tiền lệ. (4) "Tôn giả" trước Moggallāna không có trong Pāli, giữ vì cả họ vv dùng; (5) 2.2 chủ thể ngầm của mijjhati (cung điện hay các phước báo) không rõ, nên giữ lối dịch trung tính "nàng thành tựu được". (6) pv13–pv16 cùng chia sẻ Pāli 2.x và 3.1 với bản trước nên có thể mang cùng lỗi hô cách và idha mijjhati; vv2, vv4 cũng còn các lỗi 1.1–1.4, 3.1, 6.3 và 8.1–8.3 giống bản cũ của bài này (ngoài phạm vi, cần kiểm toán riêng).
   Cổng kỹ thuật: lượt này không chạy được npm run validate, npm test, npm run check, npm run build; technical_integrity giữ 9.6 do coordinator chạy sau.
+
+  Lượt rà soát 2026-10-15 (đợt 2, lô G5, Claude Sonnet 5.5 (Claude Code)): sửa 8.4: "sắc tướng" cho
+  vaṇṇo đổi "dung sắc", khớp hơn 100 khoá cùng công thức. Không có bản Anh để đối chiếu thêm.

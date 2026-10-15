@@ -1,5 +1,5 @@
 uid: vv56
-status: published
+status: draft
 translationTitle: "Chuyện Cung Điện Việc Nên Làm Lần Thứ Nhất"
 translators:
   - "OpenCode Space Bunny Free (agent)"
@@ -37,25 +37,10 @@ quality:
       `vietnamese-current` vắng (chỉ có Pháp Cú), lớp lấp `english-project`
       không có. Dịch chỉ từ Pāli root; giới hạn upstream, nên `triangulation`
       chặn ở 7.5."
-  assessed_at: 2026-10-14
+  assessed_at: 2026-10-15
   assessed_by:
     - Claude Sonnet 5.5 (Claude Code)
-  assessment_id: 5d8b6522-2fe4-4ce8-a718-3858e16c9522
-  waiver:
-    id: no-upstream-english
-    blockers:
-      - "Không có tầng tham khảo tiếng Anh tại commit đã ghim
-        11c9d708978cde8ba61096d8a75f7ddfb846f639: manifest không liệt kê tệp Anh
-        nào cho `kn/vv` (0 tệp) và cache cũng không có —
-        `not-published-upstream`, KHÔNG phải `not-synced`. Lưu ý công bằng: bài
-        này KHÔNG có khoá Pāli có nội dung (≥ 40 ký tự) nào — toàn bộ là các
-        khoa bệ ngắn và ba dấu lược — nên `englishCoverageFor` trả ratio = 1
-        theo quy tắc substantiveSegments === 0. Con số 1.000 đó KHÔNG phải bằng
-        chứng có tầng tham khảo; tệp Anh bị ghim vắng mặt, và
-        `scripts/validate.ts` coi tệp Anh thiếu là error khi status là `review`
-        hoặc `published`, nên bài bắt buộc `draft`. Tầng `vietnamese-current`
-        vắng (chỉ có Pháp Cú), lớp lấp `english-project` không có. Dịch chỉ từ
-        Pāli root; giới hạn upstream, nên `triangulation` chặn ở 7.5."
+  assessment_id: 11046202-1485-4426-9af7-a3073d24c284
 notes: |-
   Dịch trực tiếp từ Pāli root; commit đã ghim không có bản Anh cho toàn bộ Vimānavatthu.
   29/30 khoá Pāli trùng nguyên văn vv57, chỉ 0.4, 5.3, 6.1, 8.1 khác — hai bài
@@ -99,3 +84,6 @@ notes: |-
   Bất định còn lại, đã cân nhắc và KHÔNG đổi: 1.4 `rucakatthatā` (hapax: toàn tầng Pāli chỉ có đúng 11 lần dạng này, không có dạng rucaka đứng riêng nên không đối chiếu được; 'trải thảm rực rỡ' 8/11 khoá cùng Pāli là cách đọc theo họ, nghĩa chính xác của `rucaka` chưa phân xử được); 2.4 `nāriyo` 'tiên nữ' (Pāli chỉ là 'phụ nữ', 2/9 khoá cùng Pāli dùng 'nữ nhân', 'tiên nữ' theo họ), `suvaṇṇachannā` 'khoác trang sức vàng ròng' (Pāli là 'phủ/che bằng vàng'; 'ròng' là thêm nhẹ, giữ theo họ) và `naccanti` 'khiêu vũ' (so với 'múa' ở 3/9); 1.1 `vimānaṁ` dịch 'tòa lâu đài' (7/12) nhưng nhan đề dùng 'Cung Điện' (theo quy ước đặt tên họ vv); 5.2 `vijānatā` 'có hiểu biết' còn hơi nặng nề. Không có lỗi kỹ thuật mới; technical_integrity giữ 9.6; bốn lệnh `npm run validate`, `npm test`, `npm run check`, `npm run build` do coordinator chạy.
 
   Đối chiếu độc lập 2026-10-14: với bản Việt nguyên bài của Bhikkhu Indacanda. 3 khoá bất đồng nghĩa → sửa 1 (2.4 nāriyo: các tiên nữ → các nữ nhân, vì Pāli chỉ nói nāriyo là những người nữ, không có ý thiên nữ; tầng có 4 khoá cùng Pāli đã dịch nữ nhân, và ở vv84 accharā là tiên nữ còn nārī là nữ nhân), giữ 1 (0.4 và 8.1 Paṭhama: bản nguyên bài bỏ chữ thứ nhất mà Pāli có), bất định 1 (1.4 rucakatthatā: bản nguyên bài hiểu rucaka là vàng, bản dự án hiểu là rực rỡ; hapax, Pāli và tầng không phân xử được, giữ theo họ vv). Đọc đối kháng lại cả 30 khoá với Pāli, không có khoá nào khác phải đổi; nháy kép, dấu lược …pe… và tập khoá khớp Pāli (0 lệch). Lỗi ngoài lát: 2.4 ở vv55, vv57, vv59 và vv85 (cùng Pāli) vẫn dịch tiên nữ. Bản nguyên bài không phân đoạn nên đối chiếu ở mức đoạn, không phải mức khoá; không có bản Anh.
+
+  Lượt rà soát 2026-10-15 (đợt 2, lô G5, Claude Sonnet 5.5 (Claude Code)): sửa 2.4: suvaṇṇachannā
+  (channa là phủ, che) "khoác trang sức vàng ròng" đổi "phủ vàng" khớp vv55, vv77, vv79, vv85.
