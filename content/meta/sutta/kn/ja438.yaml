@@ -3,7 +3,8 @@ status: review
 translationTitle: "Kinh Daddara"
 translators:
   - "OpenCode Space Bunny Free (agent)"
-reviewers: []
+reviewers:
+  - Claude Sonnet 5.5 (Claude Code)
 tags:
   - "khuddaka-nikaya"
   - "jataka"
@@ -15,19 +16,19 @@ quality:
     source_provenance: 9.4
     semantic_fidelity: 8.2
     grammar_logic: 8.2
-    segment_alignment: 10.0
+    segment_alignment: 10
     terminology: 8.6
-    triangulation: 7.0
+    triangulation: 7.4
     vietnamese_clarity: 8.6
-    han_viet_balance: 9.0
-    ambiguity_integrity: 8.0
+    han_viet_balance: 9
+    ambiguity_integrity: 8
     technical_integrity: 9.6
-  final_score: 8.66
+  final_score: 8.7
   blocking_errors:
-    - "Bài này không có tầng Anh SuttaCentral đã ghim ở commit đã pin (0/0
+    - Bài này không có tầng Anh SuttaCentral đã ghim ở commit đã pin (0/0
       segment có nội dung, không có tệp nào trong english-sujato), nên thiếu
       tầng tham khảo bắt buộc để xuất bản; đối chiếu chỉ có Pāli ghim cùng
-      commit + tiền lệ trong chính tầng Việt dự án."
+      commit + tiền lệ trong chính tầng Việt dự án.
     - "`ja438` không nằm trong 83 tệp `ja` của tầng `english-sujato` đã ghim (đo
       lại từ source/upstream-manifest.json: ja1–ja79 cộng ja126, ja159, ja466,
       ja534), và translation/vi/phantuananh/ ở commit đã ghim chỉ chứa Pháp Cú,
@@ -38,9 +39,10 @@ quality:
       dịch ghi dạng thận trọng nhất (8.1 giữ `kulīkā` dạng chuyển âm, 8.3 dịch
       sát từng chữ) nhưng nghĩa chưa được xác nhận; bài không có bản Anh và
       không có bản Việt nguyên bài cho Jātaka để phân xử."
-  assessed_at: "2026-10-12"
+  assessed_at: 2026-10-14
   assessed_by:
-    - "Claude Sonnet 5.5 (Claude Code)"
+    - Claude Sonnet 5.5 (Claude Code)
+  assessment_id: 5537f039-2c05-4603-938d-761eae608805
   waiver:
     id: no-upstream-english
     blockers:
@@ -158,3 +160,5 @@ notes: |-
   **Cổng kỹ thuật.** Bốn lệnh `npm run validate`, `npm test`, `npm run check`, `npm run build` **không
   chạy** trong lượt này; `technical_integrity` đặt 9,6 và không tuyên bố cổng đã qua. Đã tự kiểm: đủ
   47/47 khoá, không khoá thừa, thứ tự khoá đúng thứ tự Pāli, NFC, ngoặc kép khớp Pāli từng khoá.
+
+  Đối chiếu bản dịch mù độc lập 2026-10-14: một dịch giả khác (cùng họ công cụ) dịch lại bài từ Pāli không xem bản dự án; so 14 khoá chênh lệch lớn nhất (cả 14 khoá khác biệt của bài) → khác nghĩa 4: sửa 0, giữ 1 (6.2 và 9.2 `vuttisamodhānatāya`: "để người đàn ông gom góp sinh kế" so với "do việc người ấy gom đủ các cách mưu sinh" của bản mù; `-tāya` của danh từ trừu tượng đọc được cả nghĩa mục đích lẫn nguyên nhân, ý "gom các nghề để mưu sinh" hai bản trùng, giữ nguyên), bất định 3 (7.3 `naṭehi ... vākurehi`: "kép hát và lưới bẫy" so với "diễn viên và vākura", `vākura` chỉ gặp một lần trong Pāli đã ghim; 8.1 `kulīkā ... mitamāḷhakena`; 8.3 `abbāhitaṁ pubbakaṁ aḍḍharattaṁ`: cả hai bản đều ghi chưa chắc, trùng với blocker đã có về khổ 8). Các chênh lệch còn lại chỉ là cách diễn đạt hoặc phiên âm: 5.2 ("bị sát hại" và "cái chết" cùng nghĩa `vadha`), 7.2 (bản mù giữ phiên âm `vettācara`, `saṅkupatha`; bản dự án dịch "đường dây mây", "đường đóng cọc", có tiền lệ ở pv37:11.2, vv84:11.2, mil6.3.1:19.1), 8.2, 8.4, 9.3, 11.1, 13.4, tiêu đề. Review đối kháng cả 47 khoá: đủ khoá và thứ tự, nháy kép khớp Pāli từng khoá (6 mở, 6 đóng), dấu lược 0 và 0 (phép chạy rỗng), không có số Pāli, tên bộ "Bộ Chín Bài Kệ" khớp 12/12 tệp Jātaka đã dịch có `Navakanipāta` ở khoá 0.2. Không đổi khoá nào. Không có bản Anh hay bản Việt độc lập khác. Đây là review của AI, không phải chứng nhận của chuyên gia Pāli.

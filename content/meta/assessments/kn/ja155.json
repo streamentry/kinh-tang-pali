@@ -53,6 +53,34 @@
       "notes": "Kiểm tra tự động 13 segment với Pāli trong cache: đủ ID, giá trị, NFC và hệ chữ Latin. Chưa đọc đối chiếu nghĩa, ngữ pháp hoặc văn phong; chưa chấm lại 10 tiêu chí. Đây không phải chứng nhận hash upstream hoặc giấy phép, không xác nhận trạng thái xuất bản.",
       "content_sha256": "6810fd14db4b30f117d940a0463caa31bb3fd6cd9fef6e7f18706b3734e953b3",
       "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639"
+    },
+    {
+      "target": "translation",
+      "scope": "full",
+      "scores": {
+        "source_provenance": 9.5,
+        "semantic_fidelity": 8.8,
+        "grammar_logic": 9.2,
+        "segment_alignment": 10,
+        "terminology": 8.9,
+        "triangulation": 7.3,
+        "vietnamese_clarity": 9.2,
+        "han_viet_balance": 9.2,
+        "ambiguity_integrity": 8.6,
+        "technical_integrity": 9.6
+      },
+      "blocking_errors": [
+        "Thiếu tầng tham khảo English SuttaCentral: source/upstream-manifest.json (editions[english-sujato]) không có tệp nào cho bài này, và tại commit đã ghim không có bản Anh nào khác phủ được. AGENTS.md xem thiếu tầng tham khảo là lỗi chặn với review và published, nên bài phải ở draft cho tới khi tầng tham khảo có mặt."
+      ],
+      "assessed_at": "2026-10-14",
+      "assessed_by": [
+        "Claude Sonnet 5.5 (Claude Code)"
+      ],
+      "notes": "Đối chiếu bản dịch mù độc lập 2026-10-14: một dịch giả khác (cùng họ công cụ) dịch lại bài từ Pāli không xem bản dự án; so 1 khoá chênh lệch lớn nhất trên 13 khoá (`0.4`, chỉ khác khuôn tiêu đề) → khác nghĩa 0: sửa 0, giữ 0, bất định 0 ở khoá chênh lệch; bản mù cũng giữ `Bhagga` như tên riêng, nên bất định về `bhagga` đã ghi ở trên vẫn còn. Review đối kháng toàn bài sửa 1 khoá ngoài danh sách chênh lệch: `0.3` \"Phẩm Tàn Tật\" → \"Phẩm Kiên Cố\" (terminology: `Daḷhavagga` có `daḷha` là vững chắc; 8/10 bài của phẩm `ja151`–`ja160` trong tầng nay đã dịch \"Phẩm Kiên Cố\", chỉ còn `ja153` và bài này mang \"Tàn Tật\"). Mục \"KHÔNG ĐỔI\" ở trên về `0.3` được thay bằng lần sửa này. Nháy khớp Pāli từng khoá (0/13 lệch), không có dấu lược, `vassasataṁ` và `vīsatiṁ` giữ nguyên. Không có bản Anh hay bản Việt độc lập khác. Đây là review của AI, không phải chứng nhận của chuyên gia Pāli. Mức đối chiếu: Pāli root và một lần dịch lại độc lập cùng họ công cụ; không có bản Anh hay bản Việt khác, nên triangulation chặn ở 8,0 và chưa đạt. technical_integrity 9,6: bốn lệnh `npm run validate`, `npm test`, `npm run check`, `npm run build` chưa chạy trong lượt này.",
+      "id": "b92fe1dc-d032-441d-9a2f-1ae2f12c76a8",
+      "content_sha256": "f3f72ae80c1dcec928addee932e27b3d31528f2e5c250971a4d99ebfcabe8d24",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
+      "final_score": 9.029999999999998
     }
   ],
   "legacy_quality": {

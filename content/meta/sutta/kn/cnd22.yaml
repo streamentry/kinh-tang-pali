@@ -3,7 +3,8 @@ status: review
 translationTitle: "Tiểu Tập Kể Lược, Kể Lược Phẩm Bờ Kia – Kể Lược Kệ Tiếp Theo Phẩm Bờ Kia"
 translators:
   - "Claude Sonnet 5.5 (Claude Code)"
-reviewers: []
+reviewers:
+  - Claude Sonnet 5.5 (Claude Code)
 tags:
   - "khuddaka-nikaya"
   - "culaniddesa"
@@ -12,15 +13,15 @@ quality:
   scores:
     source_provenance: 9.4
     semantic_fidelity: 8.6
-    grammar_logic: 8.6
-    segment_alignment: 10.0
+    grammar_logic: 8.7
+    segment_alignment: 10
     terminology: 8.4
-    triangulation: 8.0
+    triangulation: 7.8
     vietnamese_clarity: 8.7
-    han_viet_balance: 9.0
-    ambiguity_integrity: 8.2
+    han_viet_balance: 9
+    ambiguity_integrity: 8.3
     technical_integrity: 9.6
-  final_score: 8.85
+  final_score: 8.849999999999998
   blocking_errors:
     - "noEnglishEditionUpstream: không có tầng tham khảo tiếng Anh cho cnd22 tại
       commit đã ghim. Thư mục kn/ của edition translation/en/sujato chỉ có cp,
@@ -30,9 +31,10 @@ quality:
       có cnd22. Tầng vietnamese-current chỉ có Pháp Cú. Đây là
       not-published-upstream, giới hạn của bản chụp upstream chứ không phải lỗi
       người dịch, nên triangulation bị chặn ở 8.0 và không nâng để né blocker."
-  assessed_at: "2026-10-13"
+  assessed_at: 2026-10-14
   assessed_by:
-    - "Claude Sonnet 5.5 (Claude Code)"
+    - Claude Sonnet 5.5 (Claude Code)
+  assessment_id: fbc9f930-896f-487d-9d08-84ebe97fdbb7
   waiver:
     id: no-upstream-english
     blockers:
@@ -112,3 +114,5 @@ notes: |-
   **Bốn cổng kỹ thuật theo `AGENTS.md`:** `npm run validate`, `npm test`, `npm run check`, `npm run build`. Lát này **không** chạy bốn lệnh đó vì bị cấm trong từng lát ⇒ để CI hoặc người điều phối chạy. `technical_integrity` đặt **9.6**, không 10.0. Các phép tự kiểm đã chạy và đều xanh: tập khoá bản Việt = tập khoá Pāli (891/891, cùng thứ tự); nháy kép `“”`, nháy đơn `‘’` và ngoặc đơn khớp Pāli từng khoá (0/891 lệch; 72 khoá có nháy kép, 2 khoá có ngoặc đơn, 0 khoá có nháy đơn); dấu lược `…` khớp Pāli từng khoá (0/891 lệch; 45 khoá có `…pe…`, 100 khoá có `…` trần, đều thành đúng số `…` của Pāli; 0 khoá có `(…)`); 0 khoá rỗng; NFC; không khoảng trắng thừa; không thẻ HTML trong bản Việt; Pāli lọt sang Việt chỉ gồm tên riêng và các từ được giải (`Bhūri`, `Medhā`, `Iccā`, `Handāhaṁ`, `nāga`, `dija`). Số Pāli đã đếm và khớp ở từng khoá chứa số (xem trên).
 
   Sửa lan 2026-10-13: khoá `60.1`, `72.1`, `84.1` (lời giải `sandiṭṭhikaṁ akālikaṁ ehipassikaṁ opaneyyikaṁ paccattaṁ veditabbaṁ viññūhi`): *không hề thời hạn* → *không thời hạn*. Căn cứ: `akālika` chỉ có tiền tố phủ định `a-`, không có từ nào cho *hề*; dạng đã chốt ở các bài sửa cùng công thức là *không thời hạn* (`an11.11:4.2`, `an11.13:7.2`). Lemma `Akālikaṁ` ở `58.2`, `60.4`, `60.6`… giữ *không thời gian* (quy ước lemma của tầng cnd, giải ở `60.4` bằng *của cải có kỳ hạn*). Bài này không có `svākkhāto`, nên không có chỗ *thuyết giảng một cách đầy đủ* cần sửa; các công thức khác của `cnd8` (`te saṅge`, `taṁ te pavakkhāmi`, `diṭṭhapadā`) không xuất hiện ở bài này. Điểm và status giữ nguyên.
+
+  Đối chiếu bản dịch mù độc lập 2026-10-14: một dịch giả khác (cùng họ công cụ) dịch lại bài từ Pāli không xem bản dự án; so 260 khoá chênh lệch lớn nhất (đã xét đủ 260/260, kèm khoá liền trước và liền sau) → khác nghĩa 0: sửa 0, giữ 243, bất định 17 (`1.5`, `5.1`, `6.8`, `9.5`, `5.8`, `27.5`, `31.1`, `34.1`, `38.2`, `50.4`, `107.85`, `114.1`, `126.1`, `127.1`, `127.14`, `132.1`, `133.1`). Các khoá giữ: 36 khoá lemma mà bản mù chép lại nguyên Pāli không dịch (vd `2.3`, `4.1`, `7.1`, `13.1`, `20.1`, `22.1`, `27.1`, `62.1`) không phải bất đồng; xưng hô (`58.1`, `64.1`, `70.1`, `76.1`, `88.4`…): bản mù dùng *tôi*, *vị ấy*, *cháu*, còn bản dự án theo luật xưng hô của kho (*con* khi thưa với Đức Phật hay bậc được tôn kính, *ngươi* khi Bà-la-môn Bāvari nói với Piṅgiya và khi Đức Thế Tôn nói với Piṅgiya), không đổi nghĩa; các chuỗi bệnh ở `107.x` chỉ khác diễn đạt (bản mù thêm *khổ do bệnh …*), còn `107.45`, `107.50` (*bệnh tai trong*, *bệnh tai ngoài* cho `sota-`, `kaṇṇa-`) giữ theo tiền lệ `mnd1:70.13`, `mnd2:87.43`, `an10.60:7.4`; `13.39`–`13.45` `omāna` (*ty liệt mạn* so với *tự ti*) và `14.1` `makkho` (*khinh miệt* so với *gièm pha*) đã có số đếm ở trên; `58.3`, `61.6` `anītika`: giữ *không hệ lụy* vì lời giải `61.4` định nghĩa `īti` là *các phiền não, các uẩn và các hành tạo tác*, còn *tai ương* của bản mù hẹp hơn lời giải; `62.1`, `74.1`, `86.1`, `134.2`, `137.1`, `137.5`, `140.2` (`kvaci`): bản mù cũng dịch có chữ *nơi nào* (*không nơi nào có …*), xác nhận phải giữ nghĩa *ở bất cứ đâu*; `112.1`, `113.2`, `116.1` `muttasaddho` (*giải thoát nhờ tín* so với *phó thác lòng tín*): lời giải `113.1` của chính bài định nghĩa bằng `saddhādhimutto saddhādhipateyyo`, và `114.1` giải `pamuñcassu saddhaṁ` bằng `adhimuñcassu okappehi`, nên giữ *phó thác*; `101.1` `vayoanuppattassa` (*đến tuổi cuối cùng* so với *đến tuổi tác*): giữ vì công thức *jiṇṇo vuḍḍho mahallako addhagato vayoanuppatto* chỉ chặng cuối của đời; `94.4`, `98.2`, `99.4` `sa tena teneva natohamasmi`: hai bản cùng nghĩa; `13.21` bản mù chỉ thêm chữ nối cho công thức. Không khoá nào của bản dự án sai số đếm, chủ ngữ, phủ định hay thuật ngữ khi đặt cạnh Pāli; đã kiểm lại từng danh sách đếm được: `8.x` (3, 4, 5, 6, 7, 8 cách), `13.x` (1 … 10 cách, và 12 mục ở `13.57`), 12 loại tầm ở `34.1`, 9 lý do `eko` ở `37.2`, 12 mục thế gian ở `19.x`, 9 bộ phận Phật ngôn ở `122.4`, 6 hạng *tầm nhìn* ở `27.3` và 7 hạng ở `27.4`, 6 vị Phật ở `22.3`: khớp Pāli. Bất định mới ghi thêm, không đưa vào thân kinh: (22) `31.1` `Huraṁ gotamasāsanā … buddhasāsanā jinasāsanā tathāgatasāsanā arahantasāsanā`: các từ cuối đều ở cách xuất xứ (ablative) như `huraṁ`, nên có thể đọc *trước giáo pháp của Đức Phật, của bậc Chiến Thắng, …*; bản dự án giữ nguyên chuỗi như `cnd12:3.1` (đọc là các tên khác của cùng *giáo pháp của Gotama*), chưa phân xử; (23) `34.1` `amarāvitakka` dịch *tầm về sự bất tử* theo `cnd12:6.1`, `cnd17:38.3` (2 khoá), có thể là *tầm về chư thiên* hay *tầm trốn tránh*, bản mù cũng ghi nghi vấn; (24) `5.8` `kāmakāmino rāgarāgino saññasaññino` dịch sát chữ *ham muốn dục, nhuốm tham theo tham, có tưởng theo tưởng*, không có tiền lệ cùng chuỗi; (25) `107.85` `opakkamikena ābādhena` dịch *do bị tác động* theo `mnd14:113.5`, `mnd10:140.43`, `mnd2:87.83`, `mnd15:31.84`, `mnd16:77.3` (5 khoá), còn `sn36.21:3.6` dịch cùng từ *do nỗ lực mà sinh khởi*; nghĩa gốc thiên về *bị hành hạ, bị tấn công từ bên ngoài*, chưa thống nhất. Không có bản Anh hay bản Việt độc lập khác.

@@ -53,6 +53,34 @@
       "notes": "Kiểm tra tự động 53 segment với Pāli trong cache: đủ ID, giá trị, NFC và hệ chữ Latin. Chưa đọc đối chiếu nghĩa, ngữ pháp hoặc văn phong; chưa chấm lại 10 tiêu chí. Đây không phải chứng nhận hash upstream hoặc giấy phép, không xác nhận trạng thái xuất bản.",
       "content_sha256": "9ba3bc836fe633828546602f9327c5e50b140f9cae5b48306223cdc48aec0606",
       "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639"
+    },
+    {
+      "target": "translation",
+      "scope": "full",
+      "scores": {
+        "source_provenance": 9.5,
+        "semantic_fidelity": 8.8,
+        "grammar_logic": 8.8,
+        "segment_alignment": 10,
+        "terminology": 9,
+        "triangulation": 7.6,
+        "vietnamese_clarity": 8.9,
+        "han_viet_balance": 9.2,
+        "ambiguity_integrity": 8.8,
+        "technical_integrity": 9.6
+      },
+      "blocking_errors": [
+        "Không có tầng tham khảo tiếng Anh tại commit đã ghim. Đo bằng script trên `source/upstream-manifest.json` (commit 11c9d708978cde8ba61096d8a75f7ddfb846f639, tầng `english-sujato`, 4291 tệp): dưới `sutta/kn/ja/` có đúng 83 tệp và không tệp nào là `ja415`; quét cả tầng cũng không có `ja415`. Cache trên đĩa `.cache/upstream/suttacentral/translation/en/sujato/sutta/kn/ja/` cũng đúng 83 tệp, không `ja415`. Vậy đây là `not-published-upstream`, KHÔNG phải `not-synced`. Tầng `vietnamese-current` chỉ có 26 tệp Pháp Cú, không tệp `ja*` nào; lớp lấp `english-project` có 62 tệp `ja*` nhưng chỉ từ `ja81` đến `ja149`, không `ja415`. Ba tầng tham khảo đều vắng nên bài chỉ dịch được từ Pāli root; theo AGENTS.md đây là lỗi chặn đối với `review` và `published`."
+      ],
+      "assessed_at": "2026-10-14",
+      "assessed_by": [
+        "Claude Sonnet 5.5 (Claude Code)"
+      ],
+      "notes": "Đối chiếu bản dịch mù độc lập (cùng họ công cụ) ở 15/53 khoá chênh lệch lớn nhất, phân xử bằng Pāli: khác nghĩa 0, sửa 0, giữ 13, bất định 2 (`11.4` `apāpadassanā`, `9.3`/`10.4` `sukosale` tên riêng hay tính từ). Rà soát đối kháng toàn bài: đủ 53 khoá, nháy kép khớp, số đếm *bốn vị sa-môn* khớp. Mức đối chiếu: Pāli và một lần dịch lại độc lập cùng họ công cụ; không có bản Anh hay bản Việt độc lập nên `triangulation` 7,6 (trần 8,0, thấp hơn vì còn hai chỗ chưa phân xử); không tuyên bố đã đối chiếu English. Lỗi chặn đã nêu trong meta giữ nguyên. `technical_integrity` 9,6: `npm run validate`, `npm test`, `npm run check`, `npm run build` chưa chạy trong lượt này. Đây là review của AI, không phải chứng nhận của chuyên gia Pāli.",
+      "id": "a50bb8ff-a0f9-4651-ba85-a874996fede1",
+      "content_sha256": "1102b54d2f5aea1f03fdaa1093e976c607016cac04e83ffceed3baa0994e1da8",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
+      "final_score": 9.02
     }
   ],
   "legacy_quality": {

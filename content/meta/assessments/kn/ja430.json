@@ -53,6 +53,34 @@
       "notes": "Kiểm tra tự động 45 segment với Pāli trong cache: đủ ID, giá trị, NFC và hệ chữ Latin. Chưa đọc đối chiếu nghĩa, ngữ pháp hoặc văn phong; chưa chấm lại 10 tiêu chí. Đây không phải chứng nhận hash upstream hoặc giấy phép, không xác nhận trạng thái xuất bản.",
       "content_sha256": "c1d9175a534e700d744d71d52edf70dbbb043b95f000d320123e519c986f795a",
       "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639"
+    },
+    {
+      "target": "translation",
+      "scope": "full",
+      "scores": {
+        "source_provenance": 9.6,
+        "semantic_fidelity": 8.8,
+        "grammar_logic": 8.9,
+        "segment_alignment": 10,
+        "terminology": 8.9,
+        "triangulation": 7.5,
+        "vietnamese_clarity": 8.6,
+        "han_viet_balance": 9.2,
+        "ambiguity_integrity": 8.9,
+        "technical_integrity": 9.6
+      },
+      "blocking_errors": [
+        "Bài này không có tầng Anh SuttaCentral đã ghim ở commit đã pin (`source/upstream-manifest.json` → `english-sujato`, 4291 tệp, chỉ 83 tệp `ja`: ja1–ja79, ja126, ja159, ja466, ja534 — không có uid nào của lát này), nên thiếu tầng tham khảo bắt buộc để xuất bản; đối chiếu chỉ có Pāli đã ghim cùng commit + tiền lệ đếm được trong chính tầng Việt dự án."
+      ],
+      "assessed_at": "2026-10-14",
+      "assessed_by": [
+        "Claude Sonnet 5.5 (Claude Code)"
+      ],
+      "notes": "Đối chiếu bản dịch mù độc lập 2026-10-14: một lần dịch lại từ Pāli của một dịch giả khác cùng họ công cụ; so 10 khoá chênh lệch lớn nhất (trên 45 khoá), khác nghĩa 2: sửa 1 (2.2, 'bahū' đi với số năm, bỏ ý 'đông đảo' thêm vào), bất định 1 (5.1 'sakkhi kataṁ'); 8 khoá còn lại chỉ khác diễn đạt. triangulation 7.5: chỉ có một lần dịch lại cùng họ công cụ, không có bản Anh hay bản Việt độc lập, còn một chỗ chưa phân xử. semantic_fidelity giữ 8.8 và ambiguity_integrity hạ nhẹ 9.0 → 8.9 vì thêm một bất định có ghi. technical_integrity 9.6: chưa chạy npm run validate, npm test, npm run check, npm run build ở lượt này. Blocker thiếu tầng English giữ nguyên. Đây là review của AI, không phải chứng nhận của chuyên gia Pāli.",
+      "id": "ede21dc3-c352-4cda-81db-072cc9817966",
+      "content_sha256": "886a9b753f336b11b4e8e527c4cdd8336406bae79f78605496af6ac0d1b3d2fa",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
+      "final_score": 9
     }
   ],
   "legacy_quality": {

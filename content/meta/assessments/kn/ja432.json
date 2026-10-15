@@ -53,6 +53,34 @@
       "notes": "Kiểm tra tự động 49 segment với Pāli trong cache: đủ ID, giá trị, NFC và hệ chữ Latin. Chưa đọc đối chiếu nghĩa, ngữ pháp hoặc văn phong; chưa chấm lại 10 tiêu chí. Đây không phải chứng nhận hash upstream hoặc giấy phép, không xác nhận trạng thái xuất bản.",
       "content_sha256": "ce7aa7854d65a5b92d31c258575d196b24761a6afd555857641d11952d0cf7be",
       "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639"
+    },
+    {
+      "target": "translation",
+      "scope": "full",
+      "scores": {
+        "source_provenance": 9.4,
+        "semantic_fidelity": 8.7,
+        "grammar_logic": 8.8,
+        "segment_alignment": 10,
+        "terminology": 8.6,
+        "triangulation": 7.9,
+        "vietnamese_clarity": 8.6,
+        "han_viet_balance": 8.9,
+        "ambiguity_integrity": 8.6,
+        "technical_integrity": 9.6
+      },
+      "blocking_errors": [
+        "Tầng Anh chưa được ghim cho ja432: tại commit 11c9d708978cde8ba61096d8a75f7ddfb846f639, tầng english-sujato chỉ có 83 tệp trong thư mục kn/ja và ja432 không có trong số đó (đã kiểm cả trên đĩa: không có tệp ja432_translation-en-sujato.json). Không có một lần đọc Anh nào để đối chiếu, và validate sẽ chặn nếu đặt review hoặc published."
+      ],
+      "assessed_at": "2026-10-14",
+      "assessed_by": [
+        "Claude Sonnet 5.5 (Claude Code)"
+      ],
+      "notes": "Đối chiếu bản dịch mù độc lập (một dịch giả khác cùng họ công cụ), 15 khoá chênh lệch lớn nhất trong 49 khoá; 34 khoá còn lại gần như trùng ý. Không khoá nào cần sửa: các khác biệt là diễn đạt hoặc cùng nhận diện từ vựng (vakkaṅgā, bhavamicchisaṁ). Bản mù đồng ý với cấu trúc quan hệ yena/yattha/yaṁ, câu điệp jātaṁ saraṇato bhayaṁ và các thuật ngữ chính, nên triangulation 7.8->7.9 (vẫn dưới trần 8.0: không có bản Anh hay bản Việt độc lập, các bất định của lượt trước về người nói, bhavamicchisaṁ, yatodakaṁ chưa phân xử được). Các điểm khác giữ nguyên. technical_integrity 9.6: chưa chạy npm run validate, npm test, npm run check, npm run build. Đây là review của AI, không phải chứng nhận của chuyên gia Pāli.",
+      "id": "938c5d1e-a6af-4b7f-be14-8d05a823b75f",
+      "content_sha256": "c4e25ead096391c0719fbd28c389932414dca6f58ef1990b026f047b7b6b0394",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
+      "final_score": 8.91
     }
   ],
   "legacy_quality": {

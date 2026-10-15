@@ -3,7 +3,8 @@ status: review
 translationTitle: "Phần Liệt Kê"
 translators:
   - "OpenCode Space Bunny Free (agent)"
-reviewers: []
+reviewers:
+  - Claude Sonnet 5.5 (Claude Code)
 tags:
   - khuddaka-nikaya
   - netti
@@ -14,15 +15,15 @@ quality:
   scores:
     source_provenance: 9.5
     semantic_fidelity: 8.9
-    grammar_logic: 9.0
-    segment_alignment: 10.0
-    terminology: 9.1
-    triangulation: 7.0
-    vietnamese_clarity: 8.9
-    han_viet_balance: 9.0
+    grammar_logic: 9
+    segment_alignment: 10
+    terminology: 8.7
+    triangulation: 7.4
+    vietnamese_clarity: 8.7
+    han_viet_balance: 9
     ambiguity_integrity: 8.6
     technical_integrity: 9.6
-  final_score: 8.96
+  final_score: 8.939999999999998
   blocking_errors:
     - "Không có tầng tham khảo tiếng Anh tại commit đã ghim
       `11c9d708978cde8ba61096d8a75f7ddfb846f639`: đã đếm trực tiếp trong
@@ -34,9 +35,10 @@ quality:
       của repo. Lớp lấp `english-project` không có cho uid này. Vì vậy bài dịch
       chỉ từ Pāli root cùng tiền lệ đếm được trong chính tầng Việt dự án;
       `triangulation` bị chặn ≤ 8.0 và `status` bắt buộc `draft`."
-  assessed_at: "2026-10-13"
+  assessed_at: 2026-10-14
   assessed_by:
-    - "Claude Sonnet 5.5 (Claude Code)"
+    - Claude Sonnet 5.5 (Claude Code)
+  assessment_id: 23d4b40c-bc36-4d85-a1b5-8ec429c6cc34
   waiver:
     id: no-upstream-english
     blockers:
@@ -190,3 +192,19 @@ notes: |-
     Điểm tiêu chí đổi: nghĩa 8,8→8,9 (bỏ chữ *có* thêm vào); ngữ pháp 8,9→9,0 (vế tỉnh lược ở `14.1` giải bằng bài song song); thuật ngữ 8,9→9,1 (8 khoá về đúng tiền lệ);
       sáng rõ 8,8→8,9; các tiêu chí khác giữ. Tổng 8,91→8,96, vẫn `review` (không vượt 9,0). Blocker không có tầng tham khảo tiếng Anh giữ nguyên.
     Cổng kỹ thuật chưa chạy: `npm run validate`, `npm test`, `npm run check`, `npm run build`.
+
+  Đối chiếu bản dịch mù độc lập 2026-10-14: một dịch giả khác (cùng họ công cụ) dịch lại bài từ Pāli không xem bản dự
+  án; so 23 khoá chênh lệch lớn nhất (trên 47 khoá; đọc lại toàn bài từ Pāli, đếm lại: 16 phương thức, 5 lối, 9 + 9 nền
+  tảng gốc, 9 thiện = 2 + 3 + 4, 9 bất thiện = 5 + 4) → khác nghĩa thật 0: sửa 0, giữ 19, bất định 4. Giữ: chênh lệch
+  chủ yếu là tên các phương thức (bản mù chọn "cận nhân", "bố cục", "gán đặt", "tư trợ", "thể nhập"...; bản dự án giữ
+  "nền tảng ứng với", "bốn phần", "gom góp", "trợ duyên", "dẫn đưa" theo các tệp ne khác; đây là lựa chọn thuật ngữ,
+  không phải lỗi nghĩa); `14.1`–`14.2` bản mù đọc `navahi padehi` (cách công cụ, số nhiều) như chủ ngữ nên lệch ("chín
+  cú là các pháp thiện"), bản dự án giữ "được kết hợp bằng chín nền tảng" theo `yujjanti`; `12.3` "đảo lộn" và bản mù
+  "điên đảo" cùng nghĩa `vipallāsa` (trong các tệp ne: "đảo lộn" 62 lần, "điên đảo" 3 lần). Bất định: `8.4`
+  `nayalañjako` (cả hai bản đều chưa chắc); `5.3`–`5.4` `etesañceva bhavati, vitthāratayā nayavibhatti`; `13.2`
+  `kusalāni ca yāni tīṇi mūlāni`. Ghi nhận thêm: chữ `pada` và `padaṭṭhāna` đều dịch "nền tảng" trong bài này
+  (`mūlapada` "nền tảng gốc", `padaṭṭhāna` "nền tảng ứng với"), dễ lẫn khi đọc; giữ vì khớp các tệp ne khác nhưng đã trừ
+  điểm thuật ngữ và sáng rõ. Các tệp ne cũng chưa đồng bộ `hāra`: ne3–ne19 dùng "hướng dẫn" (54 khoá), ne1, ne2 và ne20
+  trở đi dùng "phương thức" (26 khoá); ngoài phạm vi bài này, đã báo. Dấu lược, tập khoá và NFC của tệp khớp Pāli. Không
+  có bản Anh hay bản Việt độc lập khác. Cổng kỹ thuật của kho (`npm run validate`, `npm test`, `npm run check`, `npm run
+  build`) chưa chạy ở lượt này.

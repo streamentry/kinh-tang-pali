@@ -53,6 +53,34 @@
       "notes": "Kiểm tra tự động 17 segment với Pāli trong cache: đủ ID, giá trị, NFC và hệ chữ Latin. Chưa đọc đối chiếu nghĩa, ngữ pháp hoặc văn phong; chưa chấm lại 10 tiêu chí. Đây không phải chứng nhận hash upstream hoặc giấy phép, không xác nhận trạng thái xuất bản.",
       "content_sha256": "3cdd80ccd2ae780fef83fea7e2922c3b2a8e80c672c4852f8acbc28797aac7e6",
       "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639"
+    },
+    {
+      "target": "translation",
+      "scope": "full",
+      "scores": {
+        "source_provenance": 9.4,
+        "semantic_fidelity": 8.6,
+        "grammar_logic": 9,
+        "segment_alignment": 10,
+        "terminology": 9,
+        "triangulation": 7.2,
+        "vietnamese_clarity": 9.1,
+        "han_viet_balance": 9.1,
+        "ambiguity_integrity": 8.5,
+        "technical_integrity": 9.6
+      },
+      "blocking_errors": [
+        "Thiếu hẳn tầng tham khảo English Sujato tại commit đã ghim 11c9d708978cde8ba61096d8a75f7ddfb846f639: đếm trực tiếp trên source/upstream-manifest.json (cùng commit) cho thấy tầng translation/en/sujato có 4.291 tệp, trong đó thư mục sutta/kn/ja/ chỉ có 83 tệp, không có tệp nào chứa khoá của bài này; hàm upstreamPublishes của kho trả về false cho đường dẫn này, nghĩa là SuttaCentral không phát hành bản Anh nào phủ bài này tại commit đã ghim. Tầng vietnamese-current cũng không có (đúng 26 tệp, chỉ Pháp Cú), nên bài chỉ đối chiếu được với Pāli root một mình. Đây là giới hạn của bản chụp upstream, không phải thiếu sót của kho, nhưng theo AGENTS.md thì thiếu tầng tham khảo là lỗi chặn đối với review và published, và tests/unit/reference-source.test.ts kiểm đúng điều đó. Bài đặt draft và không nâng điểm để né."
+      ],
+      "assessed_at": "2026-10-14",
+      "assessed_by": [
+        "Claude Sonnet 5.5 (Claude Code)"
+      ],
+      "notes": "Xét 6 khoá chênh lệch: không sửa; 2 bất định thật (uddhitabhatta ở 1.1; methunaka ở 3.4), cả hai bản đều không chắc ở đúng hai chỗ này nên bản mù không giúp phân xử; 4 khoá còn lại chỉ khác diễn đạt. Phép kiểm: 17/17 khoá khớp, nháy kép khớp Pāli từng khoá. Điểm: triangulation 6.8 → 7.2; các tiêu chí khác giữ nguyên. Blocker về tầng tham khảo tiếng Anh giữ nguyên. Mức đối chiếu: Pāli root + một lần dịch lại độc lập từ Pāli của một dịch giả cùng họ công cụ (không phải thẩm quyền, chỉ dùng để phát hiện chỗ cần xem lại); không có bản Anh hay bản Việt độc lập khác, nên triangulation bị chặn dưới 8,0. Technical gate (npm run validate, npm test, npm run check, npm run build) do người điều phối chạy tập trung; technical_integrity đặt 9,6. Đây là review của AI, không phải chứng nhận của chuyên gia Pāli.",
+      "id": "5f0e9ab8-5469-4928-a0a2-60cf61cf63af",
+      "content_sha256": "814b6e6285ef6673e820cbd2898983df8590aa4d06dd921a937cc9542b1ce044",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
+      "final_score": 8.95
     }
   ],
   "legacy_quality": {

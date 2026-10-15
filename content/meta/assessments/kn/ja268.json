@@ -53,6 +53,34 @@
       "notes": "Kiểm tra tự động 17 segment với Pāli trong cache: đủ ID, giá trị, NFC và hệ chữ Latin. Chưa đọc đối chiếu nghĩa, ngữ pháp hoặc văn phong; chưa chấm lại 10 tiêu chí. Đây không phải chứng nhận hash upstream hoặc giấy phép, không xác nhận trạng thái xuất bản.",
       "content_sha256": "8744a4f0fbdbb8f8743be963cee3e1bd201a1dc1e964580780e5f24b7f57c65e",
       "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639"
+    },
+    {
+      "target": "translation",
+      "scope": "full",
+      "scores": {
+        "source_provenance": 9.5,
+        "semantic_fidelity": 8.9,
+        "grammar_logic": 9,
+        "segment_alignment": 10,
+        "terminology": 9,
+        "triangulation": 7.3,
+        "vietnamese_clarity": 9,
+        "han_viet_balance": 9.1,
+        "ambiguity_integrity": 8.6,
+        "technical_integrity": 9.6
+      },
+      "blocking_errors": [
+        "Thiếu hẳn tầng tham khảo English Sujato tại commit đã ghim 11c9d708978cde8ba61096d8a75f7ddfb846f639: đếm trực tiếp trên source/upstream-manifest.json (cùng commit) cho thấy tầng translation/en/sujato có 4.291 tệp, trong đó thư mục sutta/kn/ja/ chỉ có 83 tệp, không có tệp nào chứa khoá của bài này; hàm upstreamPublishes của kho trả về false cho đường dẫn này, nghĩa là SuttaCentral không phát hành bản Anh nào phủ bài này tại commit đã ghim. Tầng vietnamese-current cũng không có (đúng 26 tệp, chỉ Pháp Cú), nên bài chỉ đối chiếu được với Pāli root một mình. Đây là giới hạn của bản chụp upstream, không phải thiếu sót của kho, nhưng theo AGENTS.md thì thiếu tầng tham khảo là lỗi chặn đối với review và published, và tests/unit/reference-source.test.ts kiểm đúng điều đó. Bài đặt draft và không nâng điểm để né."
+      ],
+      "assessed_at": "2026-10-14",
+      "assessed_by": [
+        "Claude Sonnet 5.5 (Claude Code)"
+      ],
+      "notes": "Đối chiếu bản dịch mù độc lập 2026-10-14: một dịch giả khác (cùng họ công cụ) dịch lại bài từ Pāli không xem bản dự án; so 3 khoá chênh lệch lớn nhất trên 17 khoá → khác nghĩa 1: sửa 0, giữ 0, bất định 1 (`3.3`–`3.4` `Vissasenova gārayho, yassatthā rukkharopakā`: bản mù cũng ghi không chắc; chưa phân xử được người đáng chê trách là ai). Hai khoá còn lại (`1.4` `kimeva itarā pajā`, `2.2` `anaññāya vinindasi`) chỉ khác diễn đạt, giữ. Review đối kháng toàn bài: nháy khớp Pāli từng khoá (0/17 lệch), không có dấu lược, không có số, `tumhe` số nhiều và `brahme` vẫn nhất quán với bản cũ. Không có bản Anh hay bản Việt độc lập khác. Đây là review của AI, không phải chứng nhận của chuyên gia Pāli. Mức đối chiếu: Pāli root và một lần dịch lại độc lập cùng họ công cụ; không có bản Anh hay bản Việt khác, nên triangulation chặn ở 8,0 và chưa đạt. technical_integrity 9,6: bốn lệnh `npm run validate`, `npm test`, `npm run check`, `npm run build` chưa chạy trong lượt này.",
+      "id": "9972581c-e3b3-4627-9560-efa53070c3a9",
+      "content_sha256": "37ad3878c982aadda3f963bf428c81c2be3a5c2de00f2af519f9b04071e12d02",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
+      "final_score": 8.999999999999998
     }
   ],
   "legacy_quality": {
