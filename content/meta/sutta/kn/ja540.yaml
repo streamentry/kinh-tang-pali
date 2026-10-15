@@ -1,10 +1,11 @@
 uid: ja540
-status: review
+status: draft
 translationTitle: "Kinh Sāma Vàng"
 translators:
   - "Claude Sonnet 5.5 (Claude Code)"
 reviewers:
   - Claude Sonnet 5.5 (Claude Code)
+  - Claude Opus 5.5 (Claude Code)
 tags:
   - "khuddaka-nikaya"
   - "jataka"
@@ -14,16 +15,16 @@ tags:
 quality:
   scores:
     source_provenance: 9.4
-    semantic_fidelity: 8
-    grammar_logic: 7.8
+    semantic_fidelity: 8.5
+    grammar_logic: 8.3
     segment_alignment: 10
     terminology: 8.4
     triangulation: 7.6
-    vietnamese_clarity: 8.2
+    vietnamese_clarity: 8.4
     han_viet_balance: 9.2
     ambiguity_integrity: 8.6
     technical_integrity: 9.6
-  final_score: 8.68
+  final_score: 8.799999999999999
   blocking_errors:
     - "noEnglishEditionUpstream: Thiếu bản dịch tiếng Anh đối chiếu. Tầng
       english-sujato tại commit đã ghim không có
@@ -32,20 +33,10 @@ quality:
       vietnamese-current chỉ có Pháp Cú và lớp english-project không có tệp cho
       bài này. Cả ba tầng tham khảo đều vắng nên triangulation bị chặn ở 7.5 (≤
       8.0) và bài giữ draft."
-  assessed_at: 2026-10-14
+  assessed_at: 2026-10-15
   assessed_by:
-    - Claude Sonnet 5.5 (Claude Code)
-  assessment_id: b5360e7e-23fa-4e60-b101-541f66973fa4
-  waiver:
-    id: no-upstream-english
-    blockers:
-      - "noEnglishEditionUpstream: Thiếu bản dịch tiếng Anh đối chiếu. Tầng
-        english-sujato tại commit đã ghim không có
-        ja540_translation-en-sujato.json (ja chỉ có 83 tệp: ja1–79, ja126,
-        ja159, ja466, ja534; đây là not-published-upstream, không phải
-        not-synced), tầng vietnamese-current chỉ có Pháp Cú và lớp
-        english-project không có tệp cho bài này. Cả ba tầng tham khảo đều vắng
-        nên triangulation bị chặn ở 7.5 (≤ 8.0) và bài giữ draft."
+    - Claude Opus 5.5 (Claude Code)
+  assessment_id: 0c6fc731-c44c-4e35-a26e-dc5fb5e35c4f
 notes: |-
   Dịch trực tiếp từ Pāli root snapshot bilara đã ghim, đường dẫn `kn/ja/ja540_root-pli-ms.json` (511/511 khoá, đúng thứ tự Pāli, không khoá thừa). Bài toàn kệ: bốn dòng tiêu đề `0.1`–`0.4`, 125 bài kệ (`1`–`125`; phần lớn bốn dòng, riêng `30`, `34`, `103` có sáu dòng) và dòng kết bài `126.1`; phần văn xuôi khung truyện không nằm trong tầng Pāli đã ghim, nên người nói được suy từ xưng hô, nháy và mạch của chính các bài kệ. Nội dung chính (suy từ kệ): vua Kāsi tên Pīḷiyakkha đi săn, bắn nhầm Sāma, chàng trai đang đi lấy nước cho cha mẹ mù ở rừng lớn; Sāma nói vua đến chỗ cha mẹ chàng rồi ngất vì độc (`1`–`33`); vua hối hận, một vị thiên trên núi Gandhamādana khuyên vua nuôi cha mẹ Sāma (`34`–`41`); vua mang nước đến, cha mẹ (Dukūla và Pārikā) nghe tin, vua hứa nuôi họ (`42`–`64`); họ xin được đưa đến chỗ Sāma, than khóc, rồi lần lượt nói lời chân thật (`65`–`101`); vị thiên cũng nói lời chân thật, chất độc tan, Sāma đứng dậy (`102`–`106`); Sāma khuyên vua sống đúng pháp (`107`–`125`). Phần này không được đối chiếu với văn xuôi nào, nên các dòng tả cảnh và tả người nói dựa hoàn toàn vào kệ.
   - Tầng tham khảo:
@@ -116,3 +107,5 @@ notes: |-
   - Công cụ kiểm của kho chưa chạy ở bước này, nên `technical_integrity` đặt 9.6 và không tuyên bố technical gate pass; còn phải chạy: `npm run validate`, `npm test`, `npm run check`, `npm run build`.
 
   Đối chiếu bản dịch mù độc lập 2026-10-14: một dịch giả khác (cùng họ công cụ) dịch lại bài từ Pāli không xem bản dự án; so 94 khoá chênh lệch lớn nhất (trên 511 khoá) → khác nghĩa hoặc lệch dòng 26 khoá: sửa 0, giữ 13, bất định 13; 68 khoá còn lại chỉ khác diễn đạt (kể cả lệnh `Dhammaṁ cara mahārāja` ở `116`–`125`). Giữ: `5.3`–`5.4`/`46.3`–`46.4`, `6.3`–`6.4`, `8.3`, `37.1`–`37.2`, `38.1`–`38.2` (bản mù cắt hoặc đảo nửa dòng khác Pāli; bài theo đúng ranh giới khoá), `103.1` `Pabbatyāhaṁ` (bản mù “Ta sống ở núi” bỏ mất `pabbatyā`; bài “vị thiên của núi”), `50.3` `sammā` (âm ā dài, đọc trạng từ “quả thật”; bản mù đọc hô ngữ “bạn ơi”, khác `samma` ngắn ở `3.3`). Bất định: `9.1` `paṭivāmagataṁ`, `13.1` `nidhiṁ parihariṁ`, `51.4`/`54.2` `sūnaggavellitā`, `66.1`–`66.3` `samajjantā`, `bhujadassanaṁ`, `saṁsumbhamānā`, `67.2`/`68.2`/`69.2`/`70.2` `ākāsantaṁva`, `111.3` `upanītamanasaṅkappaṁ`, `112.3` `nirodhagataṁ` (bản mù ghi không chắc ở hầu hết các khoá này, bài giữ cách đọc sát chữ). Rà đối kháng toàn bài 511 khoá: nháy khớp Pāli từng khoá, không dấu lược, xưng hô (Sāma, vua, cha mẹ, vị thiên) nhất quán, số `aḍḍhakosa` = nửa kosa, `tayo` = ba, `niyuta` giữ phiên âm; không phát hiện thêm lỗi. Ghi thêm: `40.3` `pitāputtā` dịch “Cha mẹ và con” (đủ `tayo` ba người), khác `ja515:19.3` “cha và các con trai”; giữ vì ngữ cảnh hai bài khác nhau, chưa phân xử được tiền lệ. Không có bản Anh hay bản Việt độc lập khác.
+
+  Lượt rà soát 2026-10-15 (Claude Opus 5.5, đọc đối kháng Pāli↔Việt toàn bài 511 khoá, đoạn song song ud6.4, tha-ap402, ja547; không có bản Việt nguyên bài): sửa 5 khoá. `70.4` sai nghĩa: `idheva vasathassame` đọc `vasatha assame` (2 số nhiều, nói với cha mẹ), "các vị hãy cứ ở lại ngay đây, trong am thất" — bản cũ gắn dòng này vào chỗ Sāma nằm, trái với `30.3` (cách nửa kosa) và với lời đáp `71` ("chúng tôi chẳng sợ thú dữ"). `66.3` sai nghĩa: `saṁsumbhamānā attānaṁ` là "tự đấm đánh thân mình" (`saṁsumbhati` = đánh, như `ud6.4:30.2` `muṭṭhīhi saṁsumbhiṁsu`), không phải "gieo mình xuống". `40.1` `kira` → "quả thật" (vị thiên chứng kiến, không phải "nghe nói"; khớp `76.4`). `14.3` `kimpurisā … gacchāma`: chủ ngữ gồm cả kimpurisa nên "Chúng tôi cùng họ vui vẻ đi". `76.4` `bho` là thán từ: "Ôi, quả thật là phi pháp." (bỏ "thưa các vị"). Giữ: `22.4`/`23.4` "như dòng sông khô cạn" (cùng cách dịch `ja547:493.4`), `104.1` (theo `tha-ap402:10.1`), `64.3` "chúng tôi" (đối xứng `63.3`). Bất định không đổi: như các mục trên; `47.2` `adurāgataṁ` để nguyên chờ quyết định chung.
