@@ -108,3 +108,21 @@ Mỗi mục: `[lô]` + nội dung. Số khoá dạng `uid:khoá`.
 Các bài đã sửa và chấm lại, điểm chỉ tăng +0,1 mỗi tiêu chí khi sửa lỗi nghĩa thật.
 
 **Kết luận.** Điểm `final_score` > 9,0 của các bài này **không** đảm bảo bản dịch đúng nghĩa. Rủi ro tập trung ở (1) Jātaka chỉ có Pāli, (2) Theragāthā, (3) các bài do lượt chấm ngày 2026-10-02 của OpenCode. Chưa có mẫu đủ lớn cho các nhóm còn lại (SN, AN, DN, MN ngoài mn1–mn104). Một lượt kiểm toán toàn bộ Jātaka đã published (khoảng 460 bài không có bản Anh) là việc có giá trị nhất để làm tiếp.
+
+## Kiểm toán toàn bộ Jātaka published không có bản Anh (đợt 7, 39 lô)
+
+Phạm vi: 364 bài Jātaka đã `published`, chưa được rà đối kháng, không có bản Anh Sujato ghim (khoảng 11.200 khoá). Mỗi bài được đọc lại từng khoá Pāli↔Việt, chấm lại khi có sửa.
+
+Kết quả đo được (sau `quality:waive`): tầng Việt 5.938 published, 185 review, 14 draft (trước đợt này: 5.944/179/14). Số published giảm nhẹ vì các bài sai từ 25% khoá trở lên bị hạ điểm theo bản đã sửa, trong đó có bài rơi xuống dưới 9,0 (ví dụ ja471 = 8,999999). Đây là kết quả của việc điểm cũ được chấm quá cao, không phải thụt lùi của bản dịch.
+
+Phát hiện chính:
+- Lỗi tập trung ở Jātaka chỉ-Pāli: bản cũ đoán nghĩa từ tích truyện, đảo chủ thể/phủ định, đọc hô cách thành danh từ, dịch tên riêng thành nghĩa chữ (hoặc ngược lại), thêm chi tiết không có trong Pāli.
+- Các dải bị sửa nhiều: ja80–ja100, ja206–ja233, ja352–ja403, ja404–ja437, ja455–ja471. Các dải ja474 trở đi (Mahānipāta) phần lớn sạch.
+- Điểm >9,0 của bài chỉ-Pāli không bảo đảm đúng nghĩa; `terminology`/`vietnamese_clarity` chưa hạ theo mức sai nên điểm sau sửa vẫn sát 9,0.
+
+Còn tồn đọng cho người biên tập / lượt sau:
+- Kệ trùng chưa đồng bộ: `sattusambādhā` (ja342, ja383, ja419, ja448); `Ariyo hi ariyassa kathaṁ na dajjā` (ja323:4.3 còn "sao nỡ chối từ"); ja536 khoá 64–75 trùng ja464; ja510:10.2 trùng ja524:50.2; `khurappa` ở cp24:4.4, ja270:6.2.
+- Grep cần chạy: `Makkha` (tiền lệ sai từ meta ja460), `kujjha`, `anusās`, "Thiện Thế" vs "Thiện Thệ", `senaka`, `pamadā` (ja536), `muccati`+`me`, `gocara`, `-ketu`, `kabaḷa/soṇḍā/atrajo`.
+- Nhóm Cūḷakuṇālavagga (ja341–351, ja465–466, ja470–471) nên được kiểm lại vì cùng kiểu lỗi.
+- Bất định ghi ở notes từng bài: ja476:2.4, ja479:2.2, ja478:8.1, ja497:9.3, ja513:17.1 (`daṇḍakirañño`), ja518:11.4/14.1, ja228:2.4.
+- Quyết định chung: tiêu đề "Kinh X" vs "Chuyện Tiền Thân X", phiên âm "Jātaka", xưng hô ta/tôi trong kệ.

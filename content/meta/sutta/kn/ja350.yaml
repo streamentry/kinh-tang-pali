@@ -1,5 +1,5 @@
 uid: ja350
-status: draft
+status: published
 translationTitle: "10. Kinh Devatāpañha"
 translators:
   - "OpenCode Space Bunny Free (agent)"
@@ -44,6 +44,24 @@ quality:
   assessed_by:
     - Claude Sonnet 5.5 (Claude Code)
   assessment_id: 6af3269e-a30b-4ccf-a3b7-30ca7d8983a0
+  waiver:
+    id: no-upstream-english
+    blockers:
+      - "Không có tầng tham khảo tiếng Anh tại commit đã ghim:
+        `translation/en/sujato/sutta/kn/{d}/{u}_translation-en-sujato.json`
+        không tồn tại trong `.cache/upstream/suttacentral/`, và thư mục `kn/`
+        của edition đã ghim chỉ có cp, dhp, iti, ja, kp, snp, thag, thig, ud —
+        **không có mil, pv hay tha-ap**. Đếm lại trực tiếp trên đĩa bằng `find`
+        cho 0 tệp ⇒ đây là `not-published-upstream`, KHÔNG phải `not-synced`.
+        Bài này **không có segment Pāli có nội dung** (mọi câu kệ đều ngắn hơn
+        40 ký tự sau khi chuẩn hoá), nên `src/lib/canon/reference.ts` quy định
+        `ratio = 1` khi mẫu số bằng 0 và cổng coverage **không** chặn. Nhưng tệp
+        Anh thật sự không tồn tại, và `scripts/validate.ts` coi đó là **error**
+        khi status là `review` hoặc `published` ⇒ bài bắt buộc `draft`. Đây là
+        trường hợp số đo không bắt được nhưng thực tế vẫn mất tầng tham khảo.
+        Tầng `vietnamese-current` cũng vắng (`translation/vi/phantuananh` tại
+        commit đã ghim chỉ có 26 tệp, toàn bộ là Pháp Cú) và lớp lấp
+        `english-project` cũng không có uid này ⇒ blocker thật."
 notes: |-
   Jaṭaka 350, `Devatāpañhajātaka`, bài thứ 10 — cũng là bài cuối — của
   `Cūḷakuṇālavagga` trong `Catukkanipāta`. 34 khoá, tất cả đã dịch.
