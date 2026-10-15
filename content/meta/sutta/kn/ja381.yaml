@@ -1,5 +1,5 @@
 uid: ja381
-status: review
+status: draft
 translationTitle: "Kinh Migālopa"
 translators:
   - "OpenCode Space Bunny Free (agent)"
@@ -18,13 +18,13 @@ quality:
     semantic_fidelity: 8.8
     grammar_logic: 8.9
     segment_alignment: 10
-    terminology: 8.8
-    triangulation: 7.7
+    terminology: 8.9
+    triangulation: 8
     vietnamese_clarity: 8.8
     han_viet_balance: 9
     ambiguity_integrity: 9
     technical_integrity: 9.6
-  final_score: 8.989999999999998
+  final_score: 9.03
   blocking_errors:
     - "noEnglishEditionUpstream: bản chụp đã ghim không phát hành bản Anh Sujato
       cho ja381 (`source/upstream-manifest.json` chỉ có
@@ -32,19 +32,10 @@ quality:
       `translation/en/sujato/sutta/kn/ja/ja381_translation-en-sujato.json`;
       trạng thái `not-published-upstream`); tầng `vietnamese-current` cũng
       vắng."
-  assessed_at: 2026-10-14
+  assessed_at: 2026-10-15
   assessed_by:
-    - Claude Sonnet 5.5 (Claude Code)
-  assessment_id: 602ee9f2-7710-44af-a7bc-adbea6eb9f46
-  waiver:
-    id: no-upstream-english
-    blockers:
-      - "noEnglishEditionUpstream: bản chụp đã ghim không phát hành bản Anh
-        Sujato cho ja381 (`source/upstream-manifest.json` chỉ có
-        `root/pli/ms/sutta/kn/ja/ja381_root-pli-ms.json`, không có tệp
-        `translation/en/sujato/sutta/kn/ja/ja381_translation-en-sujato.json`;
-        trạng thái `not-published-upstream`); tầng `vietnamese-current` cũng
-        vắng."
+    - Claude Opus 5.5 (Claude Code)
+  assessment_id: 5e6906b7-07ee-4a63-9114-a0511d684f10
 notes: |-
   Lát c14. KHÔNG có Sujato tại commit đã ghim cho ja381 ⇒ `draft`, xem
   blocking_errors. Điển số thập phân Rà-la (động vật) đòi hỏi cốt truyện ở khoá 3.1-3.4
@@ -82,3 +73,5 @@ notes: |-
   Điểm vòng 2: giữ nguyên toàn bộ 10 điểm (không có lỗi nghĩa mới, không có lý do nâng); `triangulation` 7,5 (≤ 8,0 vì không có bản Anh độc lập); `final_score` 8,98. `technical_integrity` giữ 9,6; bốn lệnh `npm run validate`, `npm test`, `npm run check`, `npm run build` để coordinator chạy.
 
   Đối chiếu bản dịch mù độc lập 2026-10-14: một dịch giả khác (cùng họ công cụ) dịch lại bài từ Pāli không xem bản dự án; so 9 khoá chênh lệch lớn nhất → khác nghĩa 0: sửa 0, giữ 8 (2.1/2.2 bản mù đảo thứ tự hai dòng của phép so sánh, cùng nghĩa; 1.4, 2.3, 3.4, 4.3, 6.2, 0.4: chỉ khác diễn đạt; 4.3 `Kālavāte` cùng đọc là gió Kāla), bất định 1 (4.2 `apanandassa`: bản dự án và bản mù cùng đọc là tên người cha già, nhưng Pāli chỉ có một chữ ở cách sở hữu và tầng đã ghim không có truyện khung nên không phân xử được tên riêng hay tính từ). Review đối kháng toàn bài (31 khoá): nháy, số, dấu lược, xưng hô không có lỗi; không đổi khoá nào. Không có bản Anh hay bản Việt độc lập khác.
+
+  Lượt rà soát 2026-10-15 (Claude Opus 5.5, đọc đối kháng Pāli↔Việt; không có bản nguyên bài, không có đoạn song song đã published; đọc lại cùng sn17.9 và ja427:8.1–8.4 như notes cũ): sửa 1 khoá, chỉ dấu câu — 6.6 dời dấu chấm ra sau nháy đóng theo Pāli. Không phát hiện lỗi nghĩa mới ở 31 khoá; 5.4 `anovādakare dije` (định cách tuyệt đối) dịch "vì chim ấy không làm theo lời khuyên dạy" giữ. Bất định giữ nguyên (a)–(e) của notes trước; lỗi ngoài phạm vi ja427:8.4 vẫn để người biên tập. Bổ sung: quét có hệ thống Pāli trùng toàn kho cho mọi khoá (11 khoá có song song: ja160:2.2, ja427:3.5–9.4, ja523:40.2, ja489:10.2, tha-ap393:190.2); sửa thêm 1.4 cho khớp dòng Pāli trùng nguyên văn đã published ja160:2.2 (`abhūmiṁ tāta sevasi` → "con lui tới chốn không phải của mình"), thay cho bản dịch sát chữ "chốn chẳng phải mặt đất" (bất định (d) cũ coi như đã phân xử theo tiền lệ). Các song song ja427:8.4, 9.2–9.4 lệch nghĩa ở phía ja427 (ngoài phạm vi, đã báo).

@@ -1,10 +1,11 @@
 uid: ja444
-status: review
+status: draft
 translationTitle: "Kinh Kaṇhadīpāyana"
 translators:
   - "Claude Sonnet 5.5 (Claude Code)"
 reviewers:
   - Claude Sonnet 5.5 (Claude Code)
+  - Claude Opus 5.5 (Claude Code)
 tags:
   - "kn"
   - "khuddaka-nikaya"
@@ -19,12 +20,12 @@ quality:
     grammar_logic: 8.9
     segment_alignment: 10
     terminology: 8.9
-    triangulation: 7.4
+    triangulation: 8
     vietnamese_clarity: 9
     han_viet_balance: 9.2
     ambiguity_integrity: 8.5
     technical_integrity: 9.6
-  final_score: 8.989999999999998
+  final_score: 9.049999999999999
   blocking_errors:
     - "Không có tầng tham khảo tiếng Anh tại commit đã ghim:
       `source/upstream-manifest.json` chỉ liệt kê `kn/ja/ja444_root-pli-ms.json`
@@ -37,25 +38,10 @@ quality:
       coverage không đo được gì; ba tầng tham khảo đều vắng ⇒ bài bắt buộc
       `draft` và `triangulation ≤ 8,0`. Đây là giới hạn upstream, không phải lỗi
       của người dịch."
-  assessed_at: 2026-10-14
+  assessed_at: 2026-10-15
   assessed_by:
-    - Claude Sonnet 5.5 (Claude Code)
-  assessment_id: a53f5a1a-c650-45b3-a5ec-672047a246e6
-  waiver:
-    id: no-upstream-english
-    blockers:
-      - "Không có tầng tham khảo tiếng Anh tại commit đã ghim:
-        `source/upstream-manifest.json` chỉ liệt kê
-        `kn/ja/ja444_root-pli-ms.json` (tầng Pāli) cho uid này, không có tệp
-        `english-sujato` nào cho `ja444`;
-        `content/translation/en/project/sutta/kn/` không có tệp nào cho uid và
-        `content/meta/en/kn/` không có `ja444.yaml`. Đây là
-        `not-published-upstream`, không phải `not-synced`. Tầng
-        `vietnamese-current` chỉ có Pháp Cú tại commit đã ghim. Mẫu số coverage
-        = 0 (khoá Pāli dài nhất 34 ký tự, không khoá nào đạt ngưỡng 40) nên cổng
-        coverage không đo được gì; ba tầng tham khảo đều vắng ⇒ bài bắt buộc
-        `draft` và `triangulation ≤ 8,0`. Đây là giới hạn upstream, không phải
-        lỗi của người dịch."
+    - Claude Opus 5.5 (Claude Code)
+  assessment_id: 8cbcdd53-1e2b-4a52-8484-8cfae29be16a
 notes: |-
   Đợt 19, làn 45. Dịch trực tiếp từ Pāli root snapshot bilara đã ghim, đủ 63/63 khoá, thứ tự khoá đúng thứ tự Pāli, không có khoá ngoài tập Pāli. Bản root `pli/ms` của Jātaka chỉ có phần kệ, không có văn xuôi khung truyện, nên người nói của từng đoạn kệ không được ghi vào thân kinh; chỉ đọc từ ngữ cảnh kệ và từ bản song hành `cp31` (xem dưới).
 
@@ -111,3 +97,5 @@ notes: |-
   4. **Điểm.** `semantic_fidelity` 8.8→8.9, `grammar_logic` 8.8→8.9, `terminology` 8.8→8.9, `ambiguity_integrity` 8.3→8.5; `triangulation` giữ 7.0 (không có bản Anh độc lập của chính bài); các điểm khác giữ. Bốn lệnh `npm run validate`, `npm test`, `npm run check`, `npm run build` chưa chạy trong lượt này nên `technical_integrity` giữ 9.6, không tuyên bố technical gate pass.
 
   Đối chiếu bản dịch mù độc lập 2026-10-14: một dịch giả khác (cùng họ công cụ) dịch lại bài từ Pāli không xem bản dự án; so 19 khoá chênh lệch lớn nhất → khác nghĩa 0 được xác nhận: sửa 0, giữ 15 (ja444:2.3, 2.4, 8.1, 8.2, 8.4, 9.6, 7.3, 9.3, 7.6, 6.6, 4.2, 0.2, 0.3, 0.4, 8.5: cùng nghĩa, chỉ khác diễn đạt, thứ tự ngắt dòng hoặc cách đặt tên; ví dụ 2.3–2.4 bản mù đảo chủ ngữ sang đầu câu nhưng vẫn hiểu “các sa-môn, bà-la-môn không biết sự không ưa của tôi” như bản dự án, và 8.4 `aññatra kāmā` bản mù hiểu rời rạc còn bản dự án giữ “chẳng vì ham muốn”), bất định 4 (ja444:9.1 `ārā dūre`, 7.4 và 9.4 `antimagandhano/antimagandhinī` — bản mù bỏ chữ `gandhana`, chỉ dịch “kẻ cuối cùng trong gia tộc”, bản dự án giữ “kẻ làm ô nhục cuối cùng” theo `iti74:6.4`, 3.2 `sacarā udicca`: bản mù cũng tự đánh dấu không chắc ở 9.1, 3.2 và 7.4, trùng với bất định đã ghi ở trên; không phân xử được bằng Pāli, giữ nguyên). Đọc đối kháng lại toàn bài: nháy, số `paññāsa` = 50, xưng hô và thuật ngữ nhất quán, không đổi khoá nào. Không có bản Anh hay bản Việt độc lập khác.
+
+  Lượt rà soát 2026-10-15 (Claude Opus 5.5, đọc đối kháng Pāli↔Việt; không có bản nguyên bài; quét có hệ thống Pāli trùng toàn kho: 1.1–1.7 cp31:11.1–12.3 (bài published, cùng lời phát nguyện), câu điệp 1.6/2.6/3.5 snp2.1:3.5–5.5, 1.4 ja277:1.1 và dn16:5.27.7, 6.4 ja546:244.1, 7.3 ja446:3.5): sửa 1 khoá, chỉ khuôn — 11.1 thêm dấu phẩy theo khuôn "Kinh X, thứ sáu.". Giữ: mọi dòng trùng cp31 dùng cùng bản Việt; "nhờ"/"do sự thật này" (snp2.1) chỉ khác diễn đạt. Không thấy lỗi nghĩa mới. Bất định giữ nguyên: `sacarā udicca` (3.2), `ārā dūre` (9.1), `antimagandhano/antimagandhinī` (7.4, 9.4).

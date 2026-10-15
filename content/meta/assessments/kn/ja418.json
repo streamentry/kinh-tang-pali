@@ -81,6 +81,34 @@
       "content_sha256": "6aca869e2a445e932fa317c71fb331e726299fad342bb1019438334be3ec0eee",
       "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
       "final_score": 8.94
+    },
+    {
+      "target": "translation",
+      "scope": "full",
+      "assessed_at": "2026-10-15",
+      "assessed_by": [
+        "Claude Opus 5.5 (Claude Code)"
+      ],
+      "scores": {
+        "source_provenance": 9.4,
+        "semantic_fidelity": 8.6,
+        "grammar_logic": 8.8,
+        "segment_alignment": 9.6,
+        "terminology": 9,
+        "triangulation": 8,
+        "vietnamese_clarity": 9.1,
+        "han_viet_balance": 9.2,
+        "ambiguity_integrity": 8.6,
+        "technical_integrity": 9.6
+      },
+      "blocking_errors": [
+        "Không có tầng tham khảo tiếng Anh tại commit đã ghim: `source/upstream-manifest.json` (commit 11c9d708, tầng `english-sujato`, 4291 tệp) KHÔNG liệt kê bất kỳ tệp nào cho uid `ja418`, và `.cache/upstream/suttacentral/translation/en/sujato/` cũng không có — đây là `not-published-upstream`, KHÔNG phải `not-synced`. Đo coverage theo đúng công thức `source/layers.yaml` (Pāli có nội dung ≥ 40 ký tự, loại block tham chiếu `:0`) cho 0/0 = mẫu số bằng 0, dưới ngưỡng 0.8; `scripts/validate.ts` coi tệp Anh thiếu là **error** khi status là `review` hoặc `published`, nên bài bắt buộc `draft`. Tầng `vietnamese-current` cũng vắng: `translation/vi/phantuananh` tại commit đã ghim chỉ có 26 tệp và toàn bộ là Pháp Cú. Lớp lấp `english-project` của dự án cũng không có cho uid này. Hai tầng tham khảo đều vắng ⇒ bài dịch chỉ từ Pāli root ⇒ blocker thật, và đây là **giới hạn upstream**, không phải lỗi của người dịch. Vì vậy `triangulation` bị chặn ở 7.4 (≤ 8.0) chứ không nâng để né blocker."
+      ],
+      "notes": "Sửa 1.4 (đại từ 'ông ta' gây hiểu sai người sở hữu) và dấu câu 8.4. Đã quét có hệ thống và so 4 dòng Pāli trùng (ja547, ja374, ja360, thag7.1), nên triangulation 8,0 theo mốc chung; không có bản Anh.",
+      "id": "06087d05-d637-4701-8f4b-87ba848bcee8",
+      "content_sha256": "982bf8f5a7e37fe0ff8d2154de7178e6d8b2279f5b9ab4b6c5f26062c27699f5",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
+      "final_score": 8.989999999999998
     }
   ],
   "legacy_quality": {
