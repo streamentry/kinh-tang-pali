@@ -1,10 +1,11 @@
 uid: ne6
-status: review
+status: draft
 translationTitle: "Nhóm Lý Luận Hướng Dẫn"
 translators:
   - "Claude Sonnet 5.5 (Claude Code)"
 reviewers:
   - Claude Sonnet 5.5 (Claude Code)
+  - Claude Opus 5.5 (Claude Code)
 tags:
   - "kn"
   - "khuddaka-nikaya"
@@ -35,23 +36,10 @@ quality:
       `vietnamese-current` tại commit đã ghim chỉ có Pháp Cú. Cả ba tầng tham
       khảo đều vắng nên bài bắt buộc `draft` và `triangulation` ≤ 8,0 (đặt 7,0).
       Đây là giới hạn của upstream, không phải lỗi của người dịch."
-  assessed_at: 2026-10-14
+  assessed_at: 2026-10-15
   assessed_by:
-    - Claude Sonnet 5.5 (Claude Code)
-  assessment_id: 59ec45b6-63cc-4e92-baf5-eadf57787f67
-  waiver:
-    id: no-upstream-english
-    blockers:
-      - "noEnglishEditionUpstream: không có tầng tham khảo tiếng Anh nào tại
-        commit đã ghim. Tầng `english-sujato` chỉ có chín nhóm con của Tiểu Bộ
-        (cp, dhp, iti, ja, kp, snp, thag, thig, ud), không có `ne` (chỉ có
-        `ne-name`), nên thuộc loại `not-published-upstream`, không phải
-        `not-synced`. Coverage đo đúng công thức của `source/layers.yaml`: mẫu
-        số 68 khoá Pāli có nội dung (≥ 40 ký tự, bỏ khối `:0`), Sujato phủ 0/68
-        = 0, dưới ngưỡng 0,80. Lớp `english-project` chưa có bài này; tầng
-        `vietnamese-current` tại commit đã ghim chỉ có Pháp Cú. Cả ba tầng tham
-        khảo đều vắng nên bài bắt buộc `draft` và `triangulation` ≤ 8,0 (đặt
-        7,0). Đây là giới hạn của upstream, không phải lỗi của người dịch."
+    - Claude Opus 5.5 (Claude Code)
+  assessment_id: 10a498b4-7cc6-498a-9b9a-5e7cad095473
 notes: |-
   Đợt 19, lát 74. Dịch trọn 102/102 khoá từ Pāli root đã ghim; không có khoá nào ngoài tập khoá Pāli. Bài là phần *Nhóm 3* (`Yuttihāravibhaṅga`) của *Phần Giải Thích* trong Netti. Không có Sujato và không có lớp `english-project`, nên đối chiếu độc lập chỉ có Pāli root cộng tiền lệ trong chính tầng Việt của dự án (các bài song song `sn1.66`, `sn22.84`, `an4.180`, `dn34` và các bài `ne` đã dịch). Không có bản Việt hiện hành theo khoá cho bài này; bản Việt nguyên bài ở mục Tra cứu toàn văn không cấp text theo khoá, không dùng làm nguồn đối chiếu theo khoá.
 
@@ -90,3 +78,10 @@ notes: |-
   - Phép kiểm sau sửa: 102/102 khoá, đúng thứ tự Pāli; nháy `“”` khớp Pāli từng khoá (0 lệch trên 102); Pāli của bài không có `…` nên bản Việt không có; 1 cặp Pāli trùng nội bộ (`7.12` = `12.2`), bản Việt giống hệt; NFC đạt, 0 khoá rỗng, 0 khoảng trắng thừa; Pāli lọt sang Việt chỉ `Mahākaccāyana` (tên riêng). Cổng kỹ thuật vẫn CHƯA chạy ở lượt này; `technical_integrity: 9.6` giữ nguyên, còn nợ `npm run validate`, `npm test`, `npm run check`, `npm run build`.
 
   Đối chiếu bản dịch mù độc lập 2026-10-14: một dịch giả khác (cùng họ công cụ) dịch lại bài từ Pāli không xem bản dự án; so 22 khoá chênh lệch lớn nhất → khác nghĩa 4: sửa 2 (`1.5` và `7.13`: *chữ nghĩa* → *câu chữ*, vì `padabyañjana`/`byañjana` là câu chữ, văn cú, đối lập với `attha` *nghĩa*; *chữ nghĩa* làm hai vế `atthato`/`byañjanato` dễ đọc thành lặp, và cùng lỗi ở `3.7` nơi `nānatthā nānābyañjanā` thành *nghĩa khác nhau và chữ nghĩa khác nhau* nên sửa theo; tầng dùng *câu chữ* cho `byañjana` ở ne1, ne3, ne4, ne9 và ne6 là nơi duy nhất ghi *chữ nghĩa*), giữ 0, bất định 2 (`3.1` `kati padāni pañheti`: bản mù đọc `pañhe ti` là câu hỏi cần tự đặt khi khảo xét từng từ, bản dự án đọc là điều kiện về số từ; cùng các yếu tố nghĩa nên giữ bản dự án; `12.1` `kāmataṇhāsaṅkhāramūlako` / `kāmataṇhāparikkhāramūlako`: bản dự án đọc hợp chất sở hữu cách (*sự tạo tác của dục ái*, *trợ duyên của dục ái*), bản mù đọc liệt kê (*dục ái và hành*, *dục ái và các tư cụ*); Pāli không đủ ngữ cảnh để phân xử và bản mù cũng ghi chưa chắc, giữ và ghi bất định); 18 khoá còn lại chỉ khác diễn đạt cùng nghĩa (tên nhóm *Nhóm Lý Luận Hướng Dẫn* khớp ne4–ne19; `4.3`–`4.4`/`6.3`–`6.4` `otiṇṇo`/`dhūpāyito`: *đâm thấu*, *phủ khói* so với *xuyên thủng*, *âm ỉ cháy*, cùng nghĩa; `16.9` `kallatā` *khỏe khoắn* khớp 4 chỗ của tầng cho danh từ này và `abhinīhāra` *dẫn dắt* khớp sn34.55). Review đối kháng riêng toàn bài (102 khoá): sửa thêm `12.1` *chán ngại* → *nhàm chán* cho `nibbidā` (ne: 19 *nhàm chán* so với 4 *chán ngại*; toàn tầng 443 so với 125); đọc lại từng đoạn thiền `15.1`–`16.8` (đủ cặp *hānāya*/*visesāya* theo đúng thứ tự cho từng cõi), danh sách 14 tên của tham ái ở `9.3` (14/14), hai dấu nháy kép của mỗi bài kệ, không có dấu lược, không có số đếm cần phép tính; không còn lỗi nào khác. Ghi nhận ngoài bài: tầng dịch `hāra` lúc là *hướng dẫn* (ne4–ne19) lúc là *phương thức* (ne2, ne11, ne20–ne34), chưa thống nhất. Không có bản Anh hay bản Việt độc lập khác; chỉ có một lần dịch lại cùng họ công cụ nên `triangulation` không vượt 8,0.
+
+  Lượt rà soát 2026-10-15 (Claude Opus 5.5, đọc đối kháng Pāli↔Việt; đoạn song song sn1.66, sn7.18,
+  dn33:2.2.106–107, dn34:1.7.63–64, an6.13:6.2–3): sửa 0 khoá. `4.1`/`6.1` `abbhāhato` *đánh ngã* khớp
+  sn1.66; `14.6`–`14.7` khớp dn33/dn34/an6.13 (*… đã lìa khỏi tôi*, *mũi tên nghi hoặc lưỡng lự*,
+  *chiếm ngự tâm*); `9.3` đủ 14 tên; `15`–`16` đủ cặp `hānāya`/`visesāya` từng cõi. Giữ `13.6`, `17.1`
+  *phương thức* (quyết định cũ, khớp ne11:4.5) dù bài còn *hướng dẫn* ở tiêu đề: cần người biên tập
+  chốt chung. Bất định còn: `3.1` `pañheti`, `12.1` `saṅkhāra`/`parikkhāra`, `7.2`.

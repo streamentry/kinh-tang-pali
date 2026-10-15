@@ -1,10 +1,11 @@
 uid: ne15
-status: review
+status: draft
 translationTitle: "Nhóm Dẫn Đưa Hướng Dẫn"
 translators:
   - "Claude Sonnet 5.5 (Claude Code)"
 reviewers:
   - Claude Sonnet 5.5 (Claude Code)
+  - Claude Opus 5.5 (Claude Code)
 tags:
   - "kn"
   - "khuddaka-nikaya"
@@ -37,26 +38,10 @@ quality:
       đều vắng nên bài dịch chỉ dựa trên Pāli root và tiền lệ nội bộ của tầng;
       vì vậy `triangulation` bị chặn ở 7,5 (≤ 8,0) và bài giữ `draft`. Đây là
       giới hạn upstream, không phải lỗi của người dịch."
-  assessed_at: 2026-10-14
+  assessed_at: 2026-10-15
   assessed_by:
-    - Claude Sonnet 5.5 (Claude Code)
-  assessment_id: a9a332ef-8189-4297-aeec-0527da0b64b2
-  waiver:
-    id: no-upstream-english
-    blockers:
-      - "noEnglishEditionUpstream: Không có tầng tham khảo tiếng Anh tại commit
-        đã ghim. Đo trực tiếp `source/upstream-manifest.json`: tầng
-        `english-sujato` có 4.291 tệp, trong đó phần `kn` chỉ gồm 755 tệp thuộc
-        9 sub-collection (cp 35, dhp 26, iti 112, ja 83, kp 9, snp 73, thag 264,
-        thig 73, ud 80), 0 tệp nào chứa `ne15` và không có sub-collection `ne`.
-        Đây là `not-published-upstream`, KHÔNG phải `not-synced`. Tầng
-        `english-project` không có tệp cho `ne15` (7 tệp `ne*` hiện có là ne24,
-        ne27, ne28, ne29, ne30, ne32, ne34; `content/meta/en/kn/` cũng chỉ có
-        đúng bảy tệp đó). Tầng `vietnamese-current` vắng: 26 tệp, toàn bộ là
-        `kn/dhp`. Ba tầng tham khảo đều vắng nên bài dịch chỉ dựa trên Pāli root
-        và tiền lệ nội bộ của tầng; vì vậy `triangulation` bị chặn ở 7,5 (≤ 8,0)
-        và bài giữ `draft`. Đây là giới hạn upstream, không phải lỗi của người
-        dịch."
+    - Claude Opus 5.5 (Claude Code)
+  assessment_id: ca377390-ee6d-4097-b489-30bfe410ab23
 notes: |-
   Đợt 19, làn 101. Dịch từ Pāli root commit đã ghim, đủ 169/169 khoá (0.1–0.4, 1.1–56.4), thứ tự khoá đúng thứ tự Pāli, không có khoá ngoài tập Pāli. `ne15` là `Paṭiniddesavāra`, `Vibhaṅga 12`, nhóm `otaraṇahāra`. Không có tầng Anh cho uid này (xem blocker); tầng Việt hiện hành chỉ có Pháp Cú. Pāli của bài mang thẻ đánh dấu đậm `<b>` ở 3.1–3.3, 15.1, 20.1, 25.1, 26.6–26.9, 26.11: không chép thẻ vào bản Việt (các bài `ne` đã đăng cũng không chép). Pāli bài này không có `(…)` nên Việt không có.
 
@@ -104,3 +89,10 @@ notes: |-
   Điểm: `semantic_fidelity` 8,8 → 8,9 (ba sửa chính xác: 20.1, 56.1, 26.10; còn bất định 1–5 nên không nâng thêm); `terminology` 8,4 → 8,6 (5.2 và 8.1; thuật ngữ `otaraṇa`/`bhavaṅga`/`pariyāpanna` có thêm bằng chứng nhưng vẫn không có đa số trong `ne`); `triangulation` 7,5 → 7,7 (đối chiếu thêm bài song song `pe5`/`pe8`, `ne21`, `mn72`/`mn105`; vẫn không có bản Anh độc lập nên giữ dưới 8,0); `vietnamese_clarity` 8,4 → 8,5 (5.1, 15.4). `grammar_logic` 8,8, `han_viet_balance` 9,0, `ambiguity_integrity` 9,0 (bất định thật vẫn còn), `segment_alignment` 10,0, `source_provenance` 9,6, `technical_integrity` 9,6 giữ nguyên. `final_score` = trung bình số học thô của 10 điểm = 8,97. Phép đo sau sửa: khoá Việt = khoá Pāli 169 = 169 cùng thứ tự; nháy `“”` và `‘’` khớp Pāli từng khoá (169 khoá quét, 0 lệch); `…pe…` 2 khoá, mỗi khoá đúng một `…`; NFC, khoá rỗng, khoảng trắng thừa: 0 lỗi; Pāli lọt sang Việt: chỉ `Mahākaccāyana` (56.3); Pāli trùng nguyên văn trong chính bài: 15 nhóm, 0 cặp lệch; Pāli trùng với bài khác trong tầng: 46 khoá của bài, 185 cặp, trong đó 46 cặp khác ở 21 khoá (phần lớn là Jātaka/Pe/Mnd/Sn có cách dịch khác đã nêu ở trên; số `97 giống/30 khác` ở phần cũ không còn đúng do cách đếm khác, dùng số mới này). Bốn lệnh còn lại của technical gate (`npm run validate` · `npm test` · `npm run check` · `npm run build`) do người điều phối chạy tập trung, nên `technical_integrity` vẫn 9,6.
 
   Đối chiếu bản dịch mù độc lập 2026-10-14: một dịch giả khác (cùng họ công cụ) dịch lại bài từ Pāli, không xem bản dự án; so 35 khoá chênh lệch lớn nhất. Khác nghĩa 2: sửa 0, giữ 0, bất định 2 (56.1 và 56.2 `Ettāvatā paṭicca indriyakhandhadhātuāyatanāni …`: bản dự án đọc `paṭicca` là cách nói tắt của duyên khởi, bản mù đọc là phân từ 'do nương vào nhau' ⟦?⟧; tầng dùng `paṭicca` là 'do nương vào' ở ne18:7.1, ne37:292.3, nên cách đọc phân từ cũng có căn cứ, nhưng khi đó câu không có chủ ngữ; chưa phân xử). 33 khoá còn lại chỉ khác thuật ngữ hoặc diễn đạt, giữ: `otaraṇā` 'sự dẫn đưa' (42/42 dòng `otaraṇā` của bài dịch cùng một từ; bản mù 'quy nhập'; dòng kết `Niyutto … hāro` cũng theo khuôn của các bài Netti khác), `indriya` 'căn' (bản mù 'quyền'), `padaṭṭhāna` 'nền tảng ứng với' (cả tầng Netti), 40.1–42.4 các dòng kệ dùng lại nguyên văn snp4.9 (riêng 42.3 `somaṁ` giữ 'người ấy, sự dính mắc này' khớp `so + imaṁ`). Rà đối kháng toàn bài: không phát hiện lỗi nghĩa, nháy, dấu lược hay số. Ngoài lát: ne31:4.3, 6.1 dịch cùng Pāli `otaraṇā` là 'vượt bậc', lệch hẳn 'dẫn đưa' của ne15. Không có bản Anh hay bản Việt độc lập khác; mọi phân xử dựa vào Pāli và tiền lệ nội bộ tầng.
+
+  Lượt rà soát 2026-10-15 (Claude Opus 5.5, đọc đối kháng Pāli↔Việt; đoạn song song ud7.1, ud8.8,
+  ud8.4, pe1:135.1, mn144:11.5, snp2.5, sn10.3, dn14, ne31:6.1): sửa 0 khoá. `14.1` khớp pe1:135.1 và
+  ud8.4 (`nati` *khuynh hướng* 4/4 nơi); `27`–`28`, `34` khớp ud8.8; `25.5`–`26.5` đủ bốn vế *có/không
+  có/vừa có vừa không/chẳng có chẳng không* cho cả sắc lẫn thức; 42 dòng `otaraṇā` cùng một từ. Giữ
+  `otaraṇā` *dẫn đưa* (lệch *vượt bậc* ở ne31, ngoài bài). Bất định còn: `56.1`–`56.2`
+  `paṭicca`/`samosaraṇotaraṇāni`.

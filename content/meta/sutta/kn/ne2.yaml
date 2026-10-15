@@ -1,10 +1,11 @@
 uid: ne2
-status: review
+status: draft
 translationTitle: "Phần Liệt Kê"
 translators:
   - "OpenCode Space Bunny Free (agent)"
 reviewers:
   - Claude Sonnet 5.5 (Claude Code)
+  - Claude Opus 5.5 (Claude Code)
 tags:
   - khuddaka-nikaya
   - netti
@@ -35,23 +36,10 @@ quality:
       của repo. Lớp lấp `english-project` không có cho uid này. Vì vậy bài dịch
       chỉ từ Pāli root cùng tiền lệ đếm được trong chính tầng Việt dự án;
       `triangulation` bị chặn ≤ 8.0 và `status` bắt buộc `draft`."
-  assessed_at: 2026-10-14
+  assessed_at: 2026-10-15
   assessed_by:
-    - Claude Sonnet 5.5 (Claude Code)
-  assessment_id: 23d4b40c-bc36-4d85-a1b5-8ec429c6cc34
-  waiver:
-    id: no-upstream-english
-    blockers:
-      - "Không có tầng tham khảo tiếng Anh tại commit đã ghim
-        `11c9d708978cde8ba61096d8a75f7ddfb846f639`: đã đếm trực tiếp trong
-        `source/upstream-manifest.json` → tầng `english-sujato` (treeSha
-        `24e81ded9d6710e16b277b6394fd57c48258da12`, 4.291 tệp) và trong
-        `sutta/kn/` chỉ có các thư mục cp, dhp, ja, kp, thag, thig — không có
-        `ne`; `ne2` không nằm trong 83 tệp `ja` đã ghim. Đây là
-        `not-published-upstream`, KHÔNG phải `not-synced`, và không phải thiếu
-        sót của repo. Lớp lấp `english-project` không có cho uid này. Vì vậy bài
-        dịch chỉ từ Pāli root cùng tiền lệ đếm được trong chính tầng Việt dự án;
-        `triangulation` bị chặn ≤ 8.0 và `status` bắt buộc `draft`."
+    - Claude Opus 5.5 (Claude Code)
+  assessment_id: c34fcc2b-5204-4a4f-9bf1-96fa44f676a1
 notes: |-
   Đã đọc HẾT vc/p74.txt trước khi viết. Bài này là cả phần `Uddesavāra` của Netti:
   16 `hārā`, lần lặp của chúng, 5 `nayā`, lần lặp của chúng, rồi 18 `mūlapadāni` và uddāna.
@@ -208,3 +196,11 @@ notes: |-
   trở đi dùng "phương thức" (26 khoá); ngoài phạm vi bài này, đã báo. Dấu lược, tập khoá và NFC của tệp khớp Pāli. Không
   có bản Anh hay bản Việt độc lập khác. Cổng kỹ thuật của kho (`npm run validate`, `npm test`, `npm run check`, `npm run
   build`) chưa chạy ở lượt này.
+
+  Lượt rà soát 2026-10-15 (Claude Opus 5.5, đọc đối kháng Pāli↔Việt; không có đoạn song song hay bản
+  nguyên bài): sửa 0 khoá; đọc lại 47 khoá, đối chiếu 16 tên hāra ở `1.2` với `3.1`–`4.4` (khớp từng
+  tên), 9 + 9 nền tảng ở `10.2`–`11.2` với uddāna `12`–`13`. Bất định `13.2` `kusalāni ca yāni tīṇi
+  mūlāni` thu hẹp được bằng chính bài: `11.2` đã liệt kê alobho, adoso, amoho và `12.2` đối ứng lobho,
+  doso, moho, nên `tīṇi mūlāni` đọc là ba gốc thiện; vẫn giữ bất định cho `8.4` `nayalañjako` và
+  `11.3`. Ghi nhận ngoài bài: `hāra` là *phương thức* ở ne2 nhưng *hướng dẫn* ở ne3–ne19, chờ người
+  biên tập chốt chung.

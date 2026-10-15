@@ -1,10 +1,11 @@
 uid: ne13
-status: review
+status: draft
 translationTitle: "Nhóm Ngữ Đồng Nghĩa Hướng Dẫn"
 translators:
   - "OpenCode Space Bunny Free (agent)"
 reviewers:
   - Claude Sonnet 5.5 (Claude Code)
+  - Claude Opus 5.5 (Claude Code)
 tags:
   - "khuddaka-nikaya"
   - "netti"
@@ -16,13 +17,13 @@ quality:
     semantic_fidelity: 8.6
     grammar_logic: 8.8
     segment_alignment: 10
-    terminology: 8.9
+    terminology: 9
     triangulation: 7.6
     vietnamese_clarity: 8.8
     han_viet_balance: 9
     ambiguity_integrity: 8.6
     technical_integrity: 9.6
-  final_score: 8.94
+  final_score: 8.95
   blocking_errors:
     - "Không có tầng tham khảo tiếng Anh tại commit đã ghim. Đo bằng cây tệp
       trong manifest, không suy từ tên thư mục: tầng english-sujato có 4291 tệp,
@@ -40,29 +41,10 @@ quality:
       đều vắng nên bài dịch chỉ từ Pāli root; đây là giới hạn upstream, không
       phải lỗi của người dịch. Vì vậy triangulation bị chặn ở 7.5 chứ không nâng
       để né blocker."
-  assessed_at: 2026-10-14
+  assessed_at: 2026-10-15
   assessed_by:
-    - Claude Sonnet 5.5 (Claude Code)
-  assessment_id: 80572f54-1e16-48d5-ac3d-ab0e71161c9c
-  waiver:
-    id: no-upstream-english
-    blockers:
-      - "Không có tầng tham khảo tiếng Anh tại commit đã ghim. Đo bằng cây tệp
-        trong manifest, không suy từ tên thư mục: tầng english-sujato có 4291
-        tệp, trong đó 0 tệp chứa ne13, và thư mục con sutta/kn của nó chỉ có 9
-        sub-collection (cp, dhp, iti, ja, kp, snp, thag, thig, ud — 755 tệp) nên
-        không có ne; đây là not-published-upstream, KHÔNG phải not-synced. Tầng
-        english-project không có tệp cho ne13 (7 tệp ne* có trong
-        content/translation/en/project/sutta/kn/, không có ne13;
-        content/meta/en/kn/ có 7 tệp ne*, cũng không có ne13). Tầng
-        vietnamese-current vắng: 26 tệp, toàn bộ là kn/dhp. Mẫu số coverage = 21
-        khoá Pāli có nội dung theo đúng công thức của kho (prose() gộp khoảng
-        trắng rồi cắt, ≥ 40 ký tự, loại khối tham chiếu :0); đếm thô len ≥ 40
-        cho 22, vì ne13:6.5 đứng đúng ranh giới (thô 40 ký tự, prose 39). 0 trên
-        21 (0 trên 22) khoá có chữ tiếng Anh = 0%, dưới ngưỡng 0.8. Ba tầng tham
-        khảo đều vắng nên bài dịch chỉ từ Pāli root; đây là giới hạn upstream,
-        không phải lỗi của người dịch. Vì vậy triangulation bị chặn ở 7.5 chứ
-        không nâng để né blocker."
+    - Claude Opus 5.5 (Claude Code)
+  assessment_id: 63302821-58b6-4ddf-b03f-17e10fb93434
 notes: |-
   **Bài này.** `ne13` · tập Netti, phần `Paṭiniddesavāra` (Phần Giải Thích), `Vibhaṅga 10`
   — tức chương thứ mười của bộ phân tích. Bài có 55 khoá Pā li; bản dịch phủ đủ 55/55,
@@ -287,3 +269,10 @@ notes: |-
   **`technical_integrity` = 9,6 vì lượt này không được chạy cổng.** Bốn lệnh còn lại do người biên tập chạy: `npm run validate`, `npm test`, `npm run check`, `npm run build`; cổng kiểm cấu trúc của kho (không dùng `npm`) pass 55/55, khớp thứ tự khoá, dấu lược cân bằng Pāli, `final_score` = trung bình thô (8,88).
 
   Đối chiếu bản dịch mù độc lập 2026-10-14: một dịch giả khác (cùng họ công cụ) dịch lại bài từ Pāli không xem bản dự án; so 13 khoá chênh lệch lớn nhất → khác nghĩa 4: sửa 1 (16.1 `sippañca sīlaṁ akkhaṇavedhitāya`: "vì bắn trúng trong chớp mắt" → "vì bắn trúng đích chính xác", theo 12/16 khoá `akkhaṇavedhī` đã dịch "trúng đích chính xác" ở an4.181, an4.196, an9.36, ja181, ja510; an3.133 dịch "trúng sát sao"; Pāli không có chữ nào nói "chớp mắt"), giữ 2 (15.1: bản mù dịch `sattānaṁ uddhāro` là "người cứu vớt" và `surabhipasūnaṁ pujjo` là "đóa hoa thơm của chúng sinh"; theo Pāli `sāro, maṇḍo, uddhāro` là chuỗi chỉ phần tinh túy được chắt ra, còn `surabhipasūnaṁ pujjo devānañca manussānañca` là "đáng được hoa thơm của chư thiên và loài người cúng kính", nên giữ; 17.3 `Niyutto … hāro`: bản mù "đã hoàn tất", các khoá `Niyutto … hāro` khác của nhóm ne đều dịch "đã được vận dụng"), bất định 1 (6.4 `adhipaññā sikkhā paññā`: Pāli tách ba từ, bản này gộp hai từ đầu thành "tăng thượng tuệ học" rồi "tuệ"; có thể là hợp từ `adhipaññāsikkhā` bị viết rời hoặc hai mục khác nhau; không phân xử được; khoá này không nằm trong danh sách chênh lệch lớn mà do tôi tự phát hiện khi đọc đối kháng). Các khoá còn lại (11.3, 10.3 `anupasagga`, `anīti`; 9.3, 9.4 `apalokita`, `anidassana`; 7.2 chuỗi mỹ hiệu của Đức Phật; 0.2, 0.4, 1.1) chỉ khác diễn đạt, giữ theo tiền lệ sn43 và các bài ne khác. Hai chỗ bản mù đánh dấu không chắc ở 7.2 và 16.1 đều đã đối chiếu từng mệnh đề với Pāli, không phát hiện thêm lỗi. Không có bản Anh hay bản Việt độc lập khác.
+
+  Lượt rà soát 2026-10-15 (Claude Opus 5.5, đọc đối kháng Pāli↔Việt; đoạn song song sn43.44, sn7.18,
+  ne19:7.11, an4.34, an5.32, iti90): sửa 1 khoá: `6.4` `vipassanā` *minh sát* → *sự quán* (ne3, ne10,
+  ne19:7.11 và cả tầng Netti dùng *quán*; terminology fix). Giữ `16.1` *(đầu)* cho `uttamaṅga`, `15.1`
+  `surabhipasūnaṁ pujjo`, `7.2` `nibbāpitapariyuṭṭhāno` *dập tắt các phiền não chi phối* (lệch *sự
+  hiển hiện* ở ne5/ne19 vì ở đây là danh sách mỹ hiệu, ghi nhận). `8.2` khớp an4.34/an5.32. Bất định
+  còn: `6.4` `adhipaññā sikkhā paññā`, `7.2` `asaṅkhepagato`, `13.1` `araṇaṁ`.

@@ -1,10 +1,11 @@
 uid: ne5
-status: review
+status: draft
 translationTitle: "Nhóm Khảo Xét Hướng Dẫn"
 translators:
   - "Claude Sonnet 5.5 (Claude Code)"
 reviewers:
   - Claude Sonnet 5.5 (Claude Code)
+  - Claude Opus 5.5 (Claude Code)
 tags:
   - "kn"
   - "khuddaka-nikaya"
@@ -18,13 +19,13 @@ quality:
     semantic_fidelity: 8.5
     grammar_logic: 8.6
     segment_alignment: 9.8
-    terminology: 8.3
+    terminology: 8.4
     triangulation: 7
     vietnamese_clarity: 8.7
     han_viet_balance: 9
     ambiguity_integrity: 8.2
     technical_integrity: 9.6
-  final_score: 8.72
+  final_score: 8.73
   blocking_errors:
     - "noEnglishEditionUpstream: không có tầng tham khảo tiếng Anh tại commit đã
       ghim `11c9d708978cde8ba61096d8a75f7ddfb846f639`. Đã tra
@@ -39,26 +40,10 @@ quality:
       root và tiền lệ trong tầng Việt của dự án; `triangulation` bị chặn ở mức
       không quá 8,0 (đặt 6,8) và `status` bắt buộc là `draft`. Đây là giới hạn
       của upstream, không phải lỗi của người dịch."
-  assessed_at: 2026-10-14
+  assessed_at: 2026-10-15
   assessed_by:
-    - Claude Sonnet 5.5 (Claude Code)
-  assessment_id: 0eb54967-0b58-4a7c-8f0f-1d4608ec371f
-  waiver:
-    id: no-upstream-english
-    blockers:
-      - "noEnglishEditionUpstream: không có tầng tham khảo tiếng Anh tại commit
-        đã ghim `11c9d708978cde8ba61096d8a75f7ddfb846f639`. Đã tra
-        `source/upstream-manifest.json`: tầng `english-sujato` chỉ có các thư
-        mục con cp, dhp, iti, ja, kp, snp, thag, thig, ud của `sutta/kn/` và
-        không có `ne`; đây là `not-published-upstream`, không phải `not-synced`.
-        Coverage đo đúng công thức của `source/layers.yaml`: mẫu số 119 khoá
-        Pāli có nội dung (từ 40 ký tự trở lên, bỏ khối `:0`), Sujato phủ 0/119.
-        Lớp `english-project` không có `ne5` (chỉ có `ne24`, `ne27`, `ne28`,
-        `ne29`, `ne30`, `ne32`, `ne34`), và tầng `vietnamese-current` tại commit
-        đã ghim chỉ có Pháp Cú. Cả ba tầng tham khảo đều vắng nên bài chỉ dựa
-        trên Pāli root và tiền lệ trong tầng Việt của dự án; `triangulation` bị
-        chặn ở mức không quá 8,0 (đặt 6,8) và `status` bắt buộc là `draft`. Đây
-        là giới hạn của upstream, không phải lỗi của người dịch."
+    - Claude Opus 5.5 (Claude Code)
+  assessment_id: 8238fc26-5fdd-461d-bd76-cf83f5bbd74c
 notes: |-
   Dịch trọn 277/277 khoá của `Vicayahāravibhaṅga` (nhóm 2 của phần `Paṭiniddesavāra`): bốn dòng tiêu đề `0.1`–`0.4`; phần mở đầu và danh sách mười hai đối tượng khảo xét (`1`–`2`); bài kệ Pārāyana thứ nhất và lời giải về bốn từ của câu hỏi "Thế gian bị che phủ bởi gì" (`3`–`15`); bài kệ về các dòng chảy cùng phần giải (`16`–`24`); bài kệ về danh sắc cùng phần giải về sự liên kết, kiết sử, căn và như ý túc (`25`–`36`); bài kệ về bậc liễu tri pháp và hữu học cùng phần giải về năm căn, thắng tri và các cách hiểu "thiện xảo trong mọi pháp" (`37`–`53`); phần kết về cách hỏi, cách giải đáp và cách khảo xét bài kinh (`54`). Không khoá nào ngoài tập khoá Pāli. Thẻ `<b>…</b>` trong Pāli (`18.1`) không đưa sang bản Việt, đúng như toàn tầng.
 
@@ -97,3 +82,12 @@ notes: |-
   **Cổng kỹ thuật CHƯA chạy** (agent dịch không được chạy lệnh npm). Bốn lệnh còn lại do coordinator chạy: `npm run validate`, `npm test`, `npm run check`, `npm run build`. Vì vậy `technical_integrity` đặt 9,6, không tuyên bố cổng kỹ thuật đã qua.
 
   **Đối chiếu bản dịch mù độc lập 2026-10-14.** Một dịch giả khác (cùng họ công cụ) dịch lại bài từ Pāli không xem bản dự án; so 49/277 khoá chênh lệch lớn nhất → khác nghĩa 6 (5 trong danh sách chênh lệch, 1 ngoài danh sách): sửa 6 (`6.2`, `22.2`, `40.2`, `53.2` `(ajitāti bhagavā)`: *(Đức Thế Tôn trả lời:)* → *(Này Ajita, Đức Thế Tôn nói,)*, vì Pāli có hô ngữ `ajita` mà bản cũ bỏ mất; tầng Việt có 8 khoá cùng công thức dịch giữ *Này Ajita* (`pe1:109.2`, `pe1:132.2`, `cnd2:2.2`, `cnd2:4.2`, `cnd5:8.2`, `cnd5:15.2`, `cnd5:23.2`, `cnd5:28.2`); `37.4` và `38.4` `puṭṭho pabrūhi`: thêm *khi được hỏi*, vì Pāli có phân từ `puṭṭho` mà bản cũ bỏ mất, và `sn12.31:2.3`–`13.3` cùng câu kệ đã giữ chữ đó 4/4), giữ 44 (chủ yếu khác diễn đạt: `liễu tri`/`thấu triệt`, `khảo xét`/`khảo sát`, `nhóm`/`phương thức`, `vết nhơ`/`sự trát phủ`, `hữu học`, `Dự lưu`), bất định 5 (`17.4` `batvādhivacanena` chữ ghim có thể là dạng lỗi; `6.4`/`12.2`/`14.1` `jappā`/`abhijappā` *lẩm bẩm* theo `pe5`, `cnd5` và `snp5.2`, còn `mn128` dịch `abhijappā` là *tham cầu*, nên cách chọn chưa chắc; `23.1`/`23.5` `nāviñchati`; `32.6` `tadubhayaṁ` (*cả hai ấy* sau ba mục); `4.4` `lokādhiṭṭhāna`; bản mù ghi không chắc ở `17.4`, `14.1`, `23.1`/`23.5`, `4.4`). Ở `37.4`/`37.5` nội dung của `iriyaṁ` và `puṭṭho pabrūhi` vẫn dời giữa hai khoá liền kề theo cú pháp Việt; giữ theo tiền lệ `sn12.31`. Các khoá cùng công thức `(ajitāti bhagavā)` ngoài phạm vi vẫn thiếu *Ajita*: `snp5.2:2.2`, `snp5.2:4.2`, `ne16:3.2`, `ne16:6.2`. Không có bản Anh hay bản Việt độc lập khác.
+
+  Lượt rà soát 2026-10-15 (Claude Opus 5.5, đọc đối kháng Pāli↔Việt; đoạn song song ne16, sn1.55,
+  snp5.2, dn33, sn51.12, snp5.2, iti15, thag1.39, sn51.x, ps1.1): sửa 1 khoá: `44.3` `anāvilasaṅkappo`
+  *người có tư duy không vẩn đục* → *người có ý định không vẩn đục*, vì `saṅkappa` ở `32.5` đã là *ý
+  định* và `vitakka` ở `45.2` là *suy nghĩ*. Giữ `3.5`, `6.5` `mahabbhayaṁ` *nỗi sợ lớn nhất*, `35.1`
+  *tràn đầy quang minh rực rỡ*, `32.x` `vīmaṁsā` *quán sát* vì khớp bản đã có ở snp5.2, sn51.x, ps1.1
+  (Pāli `mahā` không phải so sánh nhất; ghi nhận cho người biên tập). Bất định còn: `17.4`
+  `batvādhivacanena` (chỉ một lần trong toàn Pāli KN, `pe5:6.1` không giải), `14.1` `karitvā`, `43.2`
+  `pariyuṭṭhānīyesu`.

@@ -1,10 +1,11 @@
 uid: ne3
-status: review
+status: draft
 translationTitle: "Phần Chỉ Rõ"
 translators:
   - "Claude Sonnet 5.5 (Claude Code)"
 reviewers:
   - Claude Sonnet 5.5 (Claude Code)
+  - Claude Opus 5.5 (Claude Code)
 tags:
   - "khuddaka-nikaya"
   - "netti"
@@ -36,24 +37,10 @@ quality:
       Pháp Cú. Ba tầng tham khảo đều vắng nên bài dịch chỉ từ Pāli root cùng
       tiền lệ trong tầng Việt dự án; `triangulation` bị chặn ≤ 8,0 và `status`
       bắt buộc `draft`."
-  assessed_at: 2026-10-14
+  assessed_at: 2026-10-15
   assessed_by:
-    - Claude Sonnet 5.5 (Claude Code)
-  assessment_id: 5f27af94-b66c-43c5-b079-14542100de7e
-  waiver:
-    id: no-upstream-english
-    blockers:
-      - "Không có tầng tham khảo tiếng Anh tại commit đã ghim
-        `11c9d708978cde8ba61096d8a75f7ddfb846f639`: đã đếm trong
-        `source/upstream-manifest.json`, tầng `english-sujato` (treeSha
-        `24e81ded9d6710e16b277b6394fd57c48258da12`, 4.291 tệp) chỉ có các thư
-        mục con cp, dhp, iti, ja, kp, snp, thag, thig, ud của `sutta/kn/` và
-        không có `ne`; tầng chỉ có tệp tên (`ne-name`), không có bản dịch kinh
-        văn. Đây là `not-published-upstream`, không phải `not-synced`. Lớp lấp
-        `english-project` không có `ne3`, tầng `vietnamese-current` chỉ có 26
-        tệp Pháp Cú. Ba tầng tham khảo đều vắng nên bài dịch chỉ từ Pāli root
-        cùng tiền lệ trong tầng Việt dự án; `triangulation` bị chặn ≤ 8,0 và
-        `status` bắt buộc `draft`."
+    - Claude Opus 5.5 (Claude Code)
+  assessment_id: cb713a07-7513-485a-bcb7-c9477e7d43a3
 notes: |-
   Dịch trọn 111/111 khoá của `Niddesavāra` (phần tóm lược bằng kệ): lời dẫn `1.1`, 17 kệ về mười sáu hướng dẫn (`2`–`17`), 6 kệ về năm lối (`18`–`23`), 4 kệ đếm mười hai mục (`24`–`27`), cộng ba dòng tiêu đề nhỏ `2.0`, `18.0`, `24.0`. Không khoá nào ngoài tập khoá Pāli. Dịch chỉ từ Pāli root đã ghim, đối chiếu tiền lệ đếm được trong các bài `ne` đã có (nhất là các khoá trích lại chính những bài kệ này ở `ne7:1.2`, `ne8:1.2`, `ne8:1.4`, `ne11:1.2`, `ne13:1.2`, `ne16:1.2`, `ne17:1.2`, `ne19:1.2`, `ne19:14.1`–`14.2`). Thẻ `<b>…</b>` trong Pāli (đánh dấu tên từng hướng dẫn và lối) không đưa sang bản Việt, đúng như toàn tầng (0 khoá Việt có thẻ HTML).
 
@@ -101,3 +88,11 @@ notes: |-
   - Chấm lại: `semantic_fidelity` 8.8 → 8.9, `grammar_logic` 8.8 → 8.9, `terminology` 8.5 → 8.9, `vietnamese_clarity` 8.7 → 8.8; `triangulation` giữ 6.8 (không có bản Anh độc lập, trần 8.0); `technical_integrity` giữ 9.6 vì cổng kỹ thuật (`npm run validate`, `npm test`, `npm run check`, `npm run build`) chưa chạy ở bước này. Trung bình thô 8.9.
 
   Đối chiếu bản dịch mù độc lập 2026-10-14: một dịch giả khác (cùng họ công cụ) dịch lại bài từ Pāli không xem bản dự án; so 48 khoá chênh lệch lớn nhất → khác nghĩa 0 được xác nhận: sửa 0, giữ 46 (hầu hết là tên mười sáu hướng dẫn và các lối: bản mù giữ nguyên tên Pāli (`Padaṭṭhāna`, `Aṅkusa`, …) hoặc dịch `padaṭṭhāna` là “cận nhân”, bản dự án dịch thành tiếng Việt theo tiền lệ đã đo ở trên; đây là khác nhau về chọn thuật ngữ, không phải khác nghĩa; ngoài ra `nirutti` “định nghĩa” so với “từ nguyên”, `anugīti` “lời kệ nối theo” so với “sự tụng lại”, `bhūmi gocaro` “đất nền, cảnh giới” so với “phạm vi, lãnh vực hoạt động”: đều cùng trường nghĩa), bất định 2 (ne3:15.3 `te na vikappayitabbā` và 25.4 `attho kammañca niddiṭṭhaṁ`: bản mù cũng tự đánh dấu không chắc, trùng với bất định đã ghi ở trên; giữ nguyên). Đọc đối kháng lại toàn bài theo Pāli: đã đếm lại 16 kệ hướng dẫn (2–17), ba lối (18–20) cùng `disālocana` và `aṅkusa`, các số 12, 6 + 6, 3 + 6, 9 + 24 = 33; khớp, không đổi khoá nào. Không có bản Anh hay bản Việt độc lập khác.
+
+  Lượt rà soát 2026-10-15 (Claude Opus 5.5, đọc đối kháng Pāli↔Việt; đoạn song song ne20:1.2,
+  ne35:5.2): sửa 0 khoá; đọc lại 111 khoá, cộng lại 6 + 6 = 12, 3 + 6 = 9, 9 + 24 = 33 khớp. Giữ 1 chỗ
+  khác đoạn song song: `23.2` *nhìn khắp các phương* so với ne20:1.2 *nhìn khắp các hướng*, cùng nghĩa
+  `disā viloketvā`. `26.3`–`26.4` `bhagavato … vacanassa attho`: bản Việt tách `bhagavato` khỏi
+  `vacanassa` theo ranh giới khoá, nghĩa đúng nên giữ. Bất định cũ (`15.3`, `25.4`, `22.2`) còn
+  nguyên. Ghi nhận ngoài bài: `hāra` là *hướng dẫn* ở ne3 nhưng *phương thức* ở ne2, chờ người biên
+  tập.
