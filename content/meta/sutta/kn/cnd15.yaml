@@ -1,10 +1,11 @@
 uid: cnd15
-status: review
+status: draft
 translationTitle: "Tiểu Tập Kể Lược, Kể Lược Phẩm Bờ Kia – Câu Hỏi Của Thanh Niên Jatukaṇṇi"
 translators:
   - "Claude Sonnet 5.5 (Claude Code)"
 reviewers:
   - Claude Sonnet 5.5 (Claude Code)
+  - Claude Opus 5.5 (Claude Code)
 tags:
   - "khuddaka-nikaya"
   - "culaniddesa"
@@ -16,12 +17,12 @@ quality:
     grammar_logic: 8.8
     segment_alignment: 10
     terminology: 8.7
-    triangulation: 7.8
-    vietnamese_clarity: 8.7
+    triangulation: 8
+    vietnamese_clarity: 8.8
     han_viet_balance: 9.2
     ambiguity_integrity: 8.8
     technical_integrity: 9.6
-  final_score: 8.98
+  final_score: 9.01
   blocking_errors:
     - "noEnglishEditionUpstream: không có tầng tham khảo tiếng Anh cho cnd15 tại
       commit đã ghim. Thư mục kn/ của edition translation/en/sujato chỉ có cp,
@@ -31,22 +32,10 @@ quality:
       có cnd15. Tầng vietnamese-current chỉ có Pháp Cú. Đây là
       not-published-upstream, giới hạn của bản chụp upstream chứ không phải lỗi
       người dịch, nên triangulation bị chặn ở 8.0 và không nâng để né blocker."
-  assessed_at: 2026-10-14
+  assessed_at: 2026-10-15
   assessed_by:
-    - Claude Sonnet 5.5 (Claude Code)
-  assessment_id: 8b6d7d6a-bc9a-4ab8-8faa-43bc6ef27bb5
-  waiver:
-    id: no-upstream-english
-    blockers:
-      - "noEnglishEditionUpstream: không có tầng tham khảo tiếng Anh cho cnd15
-        tại commit đã ghim. Thư mục kn/ của edition translation/en/sujato chỉ có
-        cp, dhp, iti, ja, kp, snp, thag, thig, ud, không có cnd; tệp
-        cnd15_translation-en-sujato.json không tồn tại, chỉ có tệp tên cnd-name
-        (nhãn tác phẩm, không phải văn bản kinh). Lớp english-project cũng không
-        có cnd15. Tầng vietnamese-current chỉ có Pháp Cú. Đây là
-        not-published-upstream, giới hạn của bản chụp upstream chứ không phải
-        lỗi người dịch, nên triangulation bị chặn ở 8.0 và không nâng để né
-        blocker."
+    - Claude Opus 5.5 (Claude Code)
+  assessment_id: c54e1c0a-f293-4f47-b799-ad2406baa942
 notes: |-
   **Phạm vi: đủ 186/186 khoá của cnd15, không khoá nào ngoài tập khoá Pāli, cùng thứ tự Pāli.** Bài là phần Cūḷaniddesa chú giải Câu hỏi của thanh niên Jatukaṇṇi (Pārāyana, câu hỏi thứ mười một), tức bài kệ `snp5.12`. Cấu trúc như `cnd6`, `cnd12`, `cnd13`, `cnd14`: dẫn từng đoạn kệ, giải từng cụm, rồi nhắc lại cả đoạn kệ (kệ in đậm ở `1`, `10`, `17`, `23`, `29`; nhắc lại trong ngoặc kép ở `9`, `16`, `22`, `28`, `33`; khối `3` là kệ trích từ `snp3.6` để giảng chữ *vīra*). Pāli có 75 khoá mang thẻ in đậm, bản Việt không mang thẻ. Pāli có 19 khoá chứa `…pe…` (đều thành đúng một `…`), 0 khoá có `…` trần, 0 khoá có `(…)`. Pāli `4.12` viết `vīra amakāmakāmiṁ`, trong khi `1.1`, `2.1`, `4.2` viết `akāmakāmiṁ`/`akāmakāmin`: coi là biến thể chính tả của cùng một cụm, dịch như nhau.
 
@@ -118,3 +107,5 @@ notes: |-
   ngữ còn lại. triangulation không vượt 8,0 vì chỉ có một lần dịch lại cùng họ công cụ;
   technical_integrity vẫn 9,6, chưa chạy lại: npm run validate, npm test, npm run check, npm run
   build.
+
+  Lượt rà soát 2026-10-15 (Claude Opus 5.5, đọc đối kháng Pāli↔Việt cả 186 khoá, đoạn song song snp5.12, cnd2, cnd12, cnd6; không có bản Việt nguyên bài độc lập): sửa 1 khoá — `13.2` (clarity/logic): `Tvampi mahāpañño …` đứng ngay sau `ahamasmi parittapañño …` (`13.1`), `pi` ở đây đối lập (*còn Ngài*), không phải *cũng*; bản trước *Ngài cũng là bậc có trí tuệ lớn* đọc như thể người hỏi cũng có trí lớn, nay *Còn Ngài là bậc có trí tuệ lớn…*. Giữ: `17.1`/`18.1`/`18.9`/`22.1` *Sau khi điều phục* cho `vinaya` theo `snp5.12:3.1`, `cnd2:67.1` (bản Anh của `snp5.12:3.1` cũng đọc *With desire … dispelled*), dù lời giải `18.8` của chính bài nối `vinaya` với các mệnh lệnh `pajaha vinodehi … gamehi` — bằng chứng nghiêng về mệnh lệnh *hãy điều phục*, đề nghị người biên tập xét đổi đồng loạt cả kệ ở `snp5.12`, `cnd2`, `cnd15`. Bất định mới: `7.8` `ime vuccanti santipadā` → *các trạng thái an tịnh* cho ba mươi bảy pháp *đưa đến* an tịnh (`7.6`); ở nghĩa thứ hai `pada` gần *bước/nền tảng* hơn *trạng thái*, giữ để khớp lemma. `25.2` *chớ để đã có* cho `mā ahosi` sát chữ, hơi gượng. Đếm lại `27.2` (8 + 5 + 7), `26.2` (6), `14.4` (8), `13.1`–`13.2` (4, 6) khớp Pāli. `triangulation` 7,8 → 8,0 theo mốc chung của lượt 2026-10-15: Pāli + đã đối chiếu có hệ thống mọi đoạn song song liệt kê (`snp5.12`, `cnd2`, `cnd6`, `cnd12`, `cnd21`, `snp3.6`, `dn28`) và lời giải Niddesa của chính câu kệ, thêm bản Anh Sujato của kệ `snp5.12` cho câu `vinaya`; không có bản Anh cho phần lời giải của `cnd15` nên không cao hơn.
