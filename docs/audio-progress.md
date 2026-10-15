@@ -916,4 +916,23 @@ Fresh production readback on `2026-10-15T00:53:42Z` confirms MN90–MN94 pages r
 
 - Total audio duration: 7961.06 seconds / 159,227,040 bytes. All five use profile `vi-charon-mn1-v1` (`a384c5852585077c32e1348a6ada5cfc70a69c989ad705b8b5129fef3e1c9a71`), summary first, then canonical Vietnamese 2026. Source/profile hashes, chunk accounting, MP3 frame/hash/byte checks, and public R2 object/range verification passed. ASR was skipped per editor decision. Production browser playback and full human listening remain unverified; all reviews remain `pending`. MP3/WAV/cache files are excluded from Git.
 
-- PR, exact batch head, merge SHA, and Pages/live readback evidence will be appended after release workflows complete.
+### Batch mn-040 merge and production readback — PR #642
+
+- Exact PR head `34c4ee0efa8bd316cdc451d1d8cb48e471263c80`; push CI `38687826112` and PR CI `38687832496` passed. Squash merge `e5e0a1b80c976d54b61c97ee546ab4c2c864fcf8` at `2026-10-15T05:59:52Z`.
+- Pages deployment `38689833999` succeeded on the merge commit. The direct main CI run `38689833952` was canceled by a higher-priority main request; no success is claimed for that run.
+- Production readback at `2026-10-15T07:29:08Z`: MN95–MN99 pages each returned HTTP 200 with one `<sutta-audio>` element, its native `<audio src>` exactly matched current metadata, and the “Chờ nghe duyệt” label remained visible. Each R2 range returned 206 `audio/mpeg`, 1,024 bytes, with total object size matching metadata.
+- This confirms deployed player markup and range support, not interactive Play/seek. Browser automation was blocked locally by `pkg-age-guard` because the Playwright wrapper invokes `npx --yes`; no interactive browser playback or full human listening is claimed. ASR was skipped. All five remain `generated` with `review_status: pending` for editor listening.
+
+### Batch mn-041 — MN100–MN104 generated and uploaded to R2
+
+| UID | Source SHA-256 | MP3 SHA-256 | Bytes | Duration | Scripture starts | Chunks | Audio |
+|---|---|---|---:|---:|---:|---:|---|
+| MN100 | `5b0ce6fed7e99e287be2719ef9816dd811348e7ec2a98e6d2d70913ec4bf7557` | `f720feccf914d12cc99a620a4d8799ac478b4ed217106071d7dbfa23d79f6273` | 46,180,800 | 2308.98 s | 153.39 s | 23 (2 summary) | [R2 MP3](https://pub-8fa53f5182904685bd0c13d6c894a0e9.r2.dev/vi/mn/mn100/f720feccf914d12c.mp3) |
+| MN101 | `e141c3fca4802cfbf0d56ab4443dc07730e3436f6462b8b145d4f9c26b40c8a4` | `45a76cc3da5ff3b7051c76fb3aa6ceb4e476d20ca8cbb45715c616df590604be` | 61,443,360 | 3072.10 s | 156.71 s | 31 (2 summary) | [R2 MP3](https://pub-8fa53f5182904685bd0c13d6c894a0e9.r2.dev/vi/mn/mn101/45a76cc3da5ff3b7.mp3) |
+| MN102 | `bf4f8a5b92ccdd8e4c94894898d3fca0c1c05b0d9f5abdde7e53cd4553fe381e` | `952f130bd7de7e1239e6f810d66eddde19cf782aee63b95281fb5e08670fa411` | 35,927,520 | 1796.31 s | 164.87 s | 18 (2 summary) | [R2 MP3](https://pub-8fa53f5182904685bd0c13d6c894a0e9.r2.dev/vi/mn/mn102/952f130bd7de7e12.mp3) |
+| MN103 | `9c31dc38e85121fe512e135f791dd0fff68e000a2d17f617de2fa64c873afc7b` | `180e1bf05d51f730427f3ccd2d534bbb2f11c1d64d3dd324b95f20361317ead3` | 17,273,760 | 863.63 s | 154.51 s | 10 (2 summary) | [R2 MP3](https://pub-8fa53f5182904685bd0c13d6c894a0e9.r2.dev/vi/mn/mn103/180e1bf05d51f730.mp3) |
+| MN104 | `1aadf4b5af27b7cd7681f5eac59dc9c2b23197aebc59d1e63d7c30dead32a643` | `26329193c2e3b96019ff2b117b6367eef3f2a71da2367364351cdba5a16ebba7` | 27,027,360 | 1351.31 s | 160.71 s | 14 (2 summary) | [R2 MP3](https://pub-8fa53f5182904685bd0c13d6c894a0e9.r2.dev/vi/mn/mn104/26329193c2e3b960.mp3) |
+
+- Total audio duration: 9392.33 seconds / 187,852,800 bytes. All five use the pinned `vi-charon-mn1-v1` profile (`a384c5852585077c32e1348a6ada5cfc70a69c989ad705b8b5129fef3e1c9a71`), summary first, then canonical Vietnamese 2026. Source/profile hashes, chunk order, MP3 frames/hash/bytes, and public R2 object/range verification passed. ASR was skipped; no browser interaction or full human listening is claimed. All five remain `generated` and `review_status: pending`. MP3/WAV/cache files are gitignored.
+
+- Batch PR, merge, CI and production readback evidence will be appended after release workflows complete.
