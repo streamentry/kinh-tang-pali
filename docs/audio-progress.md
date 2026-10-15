@@ -891,3 +891,10 @@ The preceding batch overview line saying “MN73 was regenerated after main PR #
 
 - Total audio duration: 7673.17 seconds / 153,469,920 bytes. All five use the pinned `vi-charon-mn1-v1` profile, summary first, then canonical Vietnamese 2026. Source/profile pins, transcript accounting, chunk WAVs, MP3 frame/hash/bytes, and public R2 full-object/range readback passed. Production player smoke tests for all five confirmed audio load, playback progress, +15 s seek, and pause; MN85 jumped to the scripture boundary. Navigation MN89 → MN88 → MN89 worked.
 - These were technical player checks, not content review. ASR was skipped per editor decision. `review_status` remains `pending` for the editor's full manual listening. MP3/WAV/cache files are excluded from Git.
+
+
+### Erratum — MN90–MN94 player-interaction evidence in batch mn-039
+
+The preceding batch mn-039 heading/body and original merged PR #635 description said browser Play/seek/Pause was tested for each of MN90–MN94. That statement was unsupported and is withdrawn. The browser interaction evidence in this work belongs to MN85–MN89; MN90–MN94 did not receive an interactive browser playback test. Their MP3/source/profile checks, successful R2 upload and public readback, production Pages workflow, and local built-player HTML evidence remain valid. The progress state for MN90–MN94 is corrected to `generated`; `playback_verified_at` and `playback_observation` are cleared, while upload metadata and `review_status: pending` remain. The merged PR #635 description was edited to carry this correction. Follow-up corrective PR records this erratum and registry change.
+
+Fresh production readback on `2026-10-15T00:53:42Z` confirms MN90–MN94 pages return HTTP 200 with each current player URL and “Chờ nghe duyệt”; each public R2 range returns 206 `audio/mpeg`, 1,024 bytes, and the object size matches metadata. This confirms deployment markup and seek-capable byte ranges, not an interactive browser playback test.
