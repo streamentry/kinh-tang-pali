@@ -3,7 +3,8 @@ status: review
 translationTitle: "3. Kinh Vālodaka"
 translators:
   - "OpenCode Space Bunny Free (agent)"
-reviewers: []
+reviewers:
+  - Claude Sonnet 5.5 (Claude Code)
 tags:
   - "khuddaka-nikaya"
   - "jataka"
@@ -14,14 +15,14 @@ quality:
     source_provenance: 8.2
     semantic_fidelity: 8.6
     grammar_logic: 8.6
-    segment_alignment: 10.0
+    segment_alignment: 10
     terminology: 8.8
-    triangulation: 6.4
+    triangulation: 7.6
     vietnamese_clarity: 8.4
     han_viet_balance: 8.8
     ambiguity_integrity: 8.6
     technical_integrity: 9.6
-  final_score: 8.6
+  final_score: 8.719999999999999
   blocking_errors:
     - "Thiếu hẳn tầng tham khảo English SuttaCentral: tệp
       .cache/upstream/suttacentral/translation/en/sujato/sutta/kn/ja/ja183_tran\
@@ -29,9 +30,10 @@ quality:
       chỉ tới ja79 cộng vài ngoại lệ; SuttaCentral không có bản Anh nào phủ cho
       ja183. Theo AGENTS.md, thiếu tầng tham khảo là lỗi chặn đối với
       review/published."
-  assessed_at: "2026-10-12"
+  assessed_at: 2026-10-14
   assessed_by:
-    - "Claude Sonnet 5.5 (Claude Code)"
+    - Claude Sonnet 5.5 (Claude Code)
+  assessment_id: 2911637c-c1f7-4952-aa46-961086d9fe5d
   waiver:
     id: no-upstream-english
     blockers:
@@ -91,3 +93,5 @@ notes: |-
   **Phép đo.** Tập khoá Việt = tập khoá Pāli = 13/13; thứ tự khớp. Cặp Pāli trùng nguyên văn trong bài: 0 (phép rỗng). Mọi khoá thân của bài (`1.1`–`2.4`) đều dưới 40 ký tự nên bộ đo coverage English có **mẫu số 0**: không đo được gì; không ghi nhận gap nào và cũng không tuyên bố "đạt". Tầng English Sujato **vắng hoàn toàn** ở bài này, tầng `english-project` chưa có, tầng `vietnamese-current` chỉ có Pháp Cú ⇒ chỉ một mình Pāli làm chuẩn, nên `triangulation` giữ 6,4 (≤ 8,0).
 
   **Cổng kỹ thuật.** Chưa chạy `npm run validate`, `npm test`, `npm run check`, `npm run build` trong lượt này; vì vậy `technical_integrity` đặt 9,6 chứ không tuyên bố technical gate đã qua. Blocker (A) còn lại thắng điểm: bài ở `draft` cho tới khi người biên tập áp waiver `no-upstream-english`.
+
+  Đối chiếu bản dịch mù độc lập 2026-10-14: một dịch giả khác (cùng họ công cụ) dịch lại bài từ Pāli không xem bản dự án; so 6 khoá chênh lệch lớn nhất → khác nghĩa 1: sửa 0, giữ 1, bất định 0. Giữ `1.1` `vālodakaṁ apparasaṁ nihīnaṁ`: bản mù thêm chữ *nước* (*Nước vālodaka*, ghi không chắc); bản dự án giữ nguyên tên `Vālodaka` và không đoán thành phần (`vāla` + `udaka`), như đã ghi ở bất định (ii). `2.2` `puṭṭho`: bản mù độc lập cũng đọc *bị điều ấy tác động*, trùng với cách đọc `phuṭṭha` của bản dự án (bất định (i) còn lại là cách đọc `pucchati`, không được cả hai bản chọn). Các khoá còn lại (`0.3`, `0.4`, `1.2`, `1.4`) khác diễn đạt. Đọc đối kháng lại toàn bài 13 khoá: nháy, số (không có), không dấu lược. Không thêm lỗi nào. Không có bản Anh hay bản Việt độc lập khác. Đây là review của AI, không phải chứng nhận của chuyên gia Pāli.

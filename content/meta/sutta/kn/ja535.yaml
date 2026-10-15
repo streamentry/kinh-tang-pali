@@ -3,7 +3,8 @@ status: review
 translationTitle: "Kinh Thức Ăn Cam Lộ"
 translators:
   - "Claude Sonnet 5.5 (Claude Code)"
-reviewers: []
+reviewers:
+  - Claude Sonnet 5.5 (Claude Code)
 tags:
   - "khuddaka-nikaya"
   - "jataka"
@@ -13,16 +14,16 @@ tags:
 quality:
   scores:
     source_provenance: 9.4
-    semantic_fidelity: 8.0
-    grammar_logic: 7.8
-    segment_alignment: 10.0
+    semantic_fidelity: 8
+    grammar_logic: 7.9
+    segment_alignment: 10
     terminology: 8.4
-    triangulation: 7.5
+    triangulation: 7.6
     vietnamese_clarity: 8.2
     han_viet_balance: 9.2
     ambiguity_integrity: 8.6
     technical_integrity: 9.6
-  final_score: 8.67
+  final_score: 8.69
   blocking_errors:
     - "noEnglishEditionUpstream: Thiếu bản dịch tiếng Anh đối chiếu. Tầng
       english-sujato tại commit đã ghim không có
@@ -31,9 +32,10 @@ quality:
       vietnamese-current chỉ có Pháp Cú và lớp english-project không có tệp cho
       bài này. Cả ba tầng tham khảo đều vắng nên triangulation bị chặn ở 7.5 (≤
       8.0) và bài giữ draft."
-  assessed_at: "2026-10-11"
+  assessed_at: 2026-10-14
   assessed_by:
-    - "Claude Sonnet 5.5 (Claude Code)"
+    - Claude Sonnet 5.5 (Claude Code)
+  assessment_id: b6439b9a-fbd0-42dd-9d47-897d6da85d85
   waiver:
     id: no-upstream-english
     blockers:
@@ -120,3 +122,5 @@ notes: |-
     5. Số Pāli: xem trên; không có cụm chưa phân xử được.
     NFC đạt, không khoá rỗng, không khoảng trắng thừa; Pāli lọt sang tiếng Việt chỉ là tên riêng và tên cây, cá, chim, thú giữ phiên âm có ghi chú (`Jātaka`, `Mātali`, `Nārada`, `Vāsava`, `Pañcasikha`, `Gandhamādana`, `Kosiya`, `Pārichatta`, `pattha`, `piyāla`, `kiṁsuka`, `pāṭhīna`…). Đã in cặp Pāli↔Việt ra đọc toàn bài (406 cặp) và sửa sau lượt đọc: `42.1` đổi từ "Rồi bốn thiếu nữ" sang "Rồi các nàng" vì `kaññā catasso` nằm ở `42.2`; nháy và dấu cuối từng khoá theo Pāli.
   - Công cụ kiểm của kho chưa chạy ở bước này, nên `technical_integrity` đặt 9.6 và không tuyên bố technical gate pass; còn phải chạy: `npm run validate`, `npm test`, `npm run check`, `npm run build`.
+
+  Đối chiếu bản dịch mù độc lập 2026-10-14: một dịch giả khác (cùng họ công cụ) dịch lại bài từ Pāli không xem bản dự án; so 126 khoá chênh lệch lớn nhất → khác nghĩa hoặc có thể khác nghĩa 12: sửa 1 (26.3 `na mayhamatthatthi imehi koci naṁ`: "những thứ này" → "các nàng này"; `imehi` số nhiều không thể chỉ đóa hoa số ít `pupphaṁ imaṁ` ở 25.2 mà chỉ bốn nàng; bản mù cũng đọc là các nàng), giữ 2 (94.4 `mahesi`: bản mù "vương hậu", nhưng cùng chữ ở 37.1 bản mù cũng đọc hô cách "thưa bậc đại ẩn sĩ", giữ hô cách như bản này; 50.4 `apiḷayha`: bản mù thêm phủ định "không đeo", nhưng đây là `api` + `piḷayha`, khớp `piḷandhatha` ở 26.4, giữ "cài"), bất định 9 (2.4 `adānaṁ nupapajjati` "không thích hợp" hay "không thể có"; 8.1 `sara` "hồ nước" hay "hồ Sara"; 30.1 `āyattamanā` đi với Purindada hay với các nàng; 35.3 `adhicca`; 41.1 `sohitthiyā` "vì thế" hay `so hi`; 46.1 `yassāhamicchāmi sudhaṁ`; 73.5 `āḷigaggarakākiṇṇā` một hay hai tên cá; 78.5 `atricca`; 84.1 `suplavatthaṁ` là hapax toàn Pāli ghim, bản này chưa dịch riêng từ ấy và bản mù chỉ đoán "rất vững"). Phần còn lại của 126 khoá (tên chim thú ở 73–76, cây ở 69–71, công thức lặp 3.1–12.4, danh sách định ngữ 84–87) khớp tiền lệ ja546, sn21.6, tha-ap407 hoặc chỉ khác diễn đạt. Đọc đối kháng lại toàn 406 khoá: số `dvādasa` ở 38.1 khớp mười hai mục (`daraklamaṁ` gồm hai mục), danh sách bốn nàng, nháy, người nói, không phát hiện lỗi mới. Không có bản Anh hay bản Việt độc lập khác.

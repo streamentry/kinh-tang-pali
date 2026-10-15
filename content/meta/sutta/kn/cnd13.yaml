@@ -3,7 +3,8 @@ status: review
 translationTitle: "Tiểu Tập Kể Lược, Kể Lược Phẩm Bờ Kia – Câu Hỏi Của Thanh Niên Todeyya"
 translators:
   - "Claude Sonnet 5.5 (Claude Code)"
-reviewers: []
+reviewers:
+  - Claude Sonnet 5.5 (Claude Code)
 tags:
   - "khuddaka-nikaya"
   - "culaniddesa"
@@ -13,14 +14,14 @@ quality:
     source_provenance: 9.4
     semantic_fidelity: 8.7
     grammar_logic: 8.8
-    segment_alignment: 10.0
-    terminology: 8.9
-    triangulation: 8.0
+    segment_alignment: 10
+    terminology: 8.8
+    triangulation: 7.8
     vietnamese_clarity: 8.8
     han_viet_balance: 9.2
     ambiguity_integrity: 8.5
     technical_integrity: 9.6
-  final_score: 8.99
+  final_score: 8.959999999999999
   blocking_errors:
     - "noEnglishEditionUpstream: không có tầng tham khảo tiếng Anh cho cnd13 tại
       commit đã ghim. Thư mục kn/ của edition translation/en/sujato chỉ có cp,
@@ -30,9 +31,10 @@ quality:
       có cnd13. Tầng vietnamese-current chỉ có Pháp Cú. Đây là
       not-published-upstream, giới hạn của bản chụp upstream chứ không phải lỗi
       người dịch, nên triangulation bị chặn ở 8.0 và không nâng để né blocker."
-  assessed_at: "2026-10-13"
+  assessed_at: 2026-10-14
   assessed_by:
-    - "Claude Sonnet 5.5 (Claude Code)"
+    - Claude Sonnet 5.5 (Claude Code)
+  assessment_id: 8438de2a-3d84-44fa-a29c-78f07e5d7d93
   waiver:
     id: no-upstream-english
     blockers:
@@ -97,3 +99,5 @@ notes: |-
   - Điểm các tiêu chí khác giữ nguyên: `semantic_fidelity` và `ambiguity_integrity` không nâng vì các bất định số 1–10 ở trên (nhất là cách đọc `paññakappī`, `kiṁpaṭibhāgo`, `pasādemi`, `manovilekho`) vẫn chưa phân xử được bằng căn cứ độc lập; `triangulation` vẫn 8.0 vì không có bản Anh độc lập; `technical_integrity` 9.6, bốn cổng `npm run validate`, `npm test`, `npm run check`, `npm run build` vẫn để CI hoặc người điều phối chạy. `final_score` 8.97 → 8.99, vẫn trong khoảng `review` (không vượt 9.0).
 
   Sửa lan 2026-10-13: khoá `cnd13:27.2` — *Bạch ngài, Đức Thế Tôn là Bậc Đạo Sư của con, con là đệ tử.* → *Bạch Thế Tôn, Thế Tôn là Bậc Đạo Sư của con, con là đệ tử.* (accuracy fix). Pāli `satthā me bhante bhagavā, sāvakohamasmīti`: `bhante` là hô ngữ gọi chính `bhagavā`, nên *Bạch Thế Tôn* (theo quy ước xưng hô của kho: `bhante` dịch theo người được gọi). Căn cứ: Pāli trùng nguyên văn với `cnd19:68.2`, và bản Việt đã chốt giống hệt ở `cnd8:118.2`, `cnd9:61.2`, `cnd10:55.3`, `cnd12:27.2`, `cnd17:54.2`, `cnd18:50.2`, `cnd19:68.2`; còn *Bạch ngài, Đức Thế Tôn…* ở `cnd5:68.5`, `cnd6:28.6`, `cnd14:33.2`, `cnd15:34.2`, `cnd16:28.2` (ngoài lane, chưa sửa). Điểm số giữ nguyên.
+
+  Đối chiếu bản dịch mù độc lập 2026-10-14: một dịch giả khác (cùng họ công cụ) dịch lại bài từ Pāli không xem bản dự án; so 44 khoá chênh lệch lớn nhất → khác nghĩa 3: sửa 1, giữ 1, bất định 1. Sửa `paññakappī` ở `14.2`, `16.1`, `16.3`, `16.4`, `19.2`, `20.2`, `22.1`, `22.3`, `22.4`, `26.2`: *hay vẫn đang tạo trí biết* → *hay còn tạo dựng bằng trí*; *và không còn tạo trí biết* → *và không còn tạo dựng bằng trí*. Lý do theo Pāli: chú giải `16.3` và `22.3` của chính bài giảng `paññakappī` là người dựng `taṇhākappa` hoặc `diṭṭhikappa` bằng (cách công cụ) trí của tám thiền chứng, năm thắng trí hay tà trí — tức `paññā` là phương tiện của việc dựng, không phải thứ được tạo ra; bản dịch cũ *tạo trí biết* làm đảo vai. Bản mù độc lập cũng đọc *dựng lập bằng tuệ*. Mục bất định số 1 ở trên nay đã được phân xử theo chú giải; cách dịch mới khác kệ trùng `snp5.10:3.2`, `4.2` và `cnd2:59.2`, `60.2` (còn *tạo trí biết*, ngoài lát, chưa đồng bộ). Giữ: `1.1`, `7.1`, `8.1`, `13.1`… `yasmiṁ` *người mà các dục không trú ngụ trong ấy* so với *nơi nào*: chú giải `8.2` giảng `yasmiṁ puggale arahante khīṇāsave` nên là người, không phải nơi. Bất định: `14.3`, `14.4`, `17.1`, `17.9`, `17.10`, `18.1`, `19.3`: `muniṁ ahaṁ sakka yathā vijaññaṁ, taṁ me viyācikkha` bản dự án diễn thành lời xin *cho con hiểu* và lược `yathā`/`taṁ`; bản mù giữ *con làm sao biết được … giải thích điều ấy*; hai bản cùng nghĩa chung nhưng bản dự án lỏng hơn với `yathā`; giữ vì trùng kệ `snp5.10`. Phần còn lại là khác diễn đạt. Đọc đối kháng toàn bài 165 khoá: số (mười sáu loại tài sản, đủ khớp Pāli), nháy, 23 nhóm Pāli trùng trong bài đều nhất quán, không thêm lỗi nào. Không có bản Anh hay bản Việt độc lập khác. Đây là review của AI, không phải chứng nhận của chuyên gia Pāli.

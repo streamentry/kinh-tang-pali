@@ -1,0 +1,62 @@
+{
+  "schemaVersion": 1,
+  "uid": "ja422",
+  "assessments": [
+    {
+      "target": "translation",
+      "scope": "full",
+      "scores": {
+        "source_provenance": 9.4,
+        "semantic_fidelity": 8.8,
+        "grammar_logic": 8.8,
+        "segment_alignment": 10,
+        "terminology": 9,
+        "triangulation": 7.4,
+        "vietnamese_clarity": 9,
+        "han_viet_balance": 9.2,
+        "ambiguity_integrity": 9.2,
+        "technical_integrity": 9.6
+      },
+      "blocking_errors": [
+        "noEnglishEditionUpstream: Không có tầng tham khảo tiếng Anh tại commit đã ghim: `source/upstream-manifest.json` chỉ liệt kê `kn/ja/ja422_root-pli-ms.json` (tầng Pāli) cho uid này, không có tệp `english-sujato` nào cho `ja422`; `content/translation/en/project/sutta/kn/` không có tệp nào cho uid và `content/meta/en/kn/` không có `ja422.yaml`. Đây là `not-published-upstream`, không phải `not-synced`. Tầng `vietnamese-current` chỉ có Pháp Cú tại commit đã ghim. Ba tầng tham khảo đều vắng ⇒ bài dịch chỉ từ Pāli root và đối chiếu tiền lệ nội bộ ⇒ bài bắt buộc `draft` và `triangulation ≤ 8,0`. Đây là giới hạn upstream, không phải lỗi của người dịch."
+      ],
+      "assessed_at": "2026-10-14",
+      "assessed_by": [
+        "Claude Sonnet 5.5 (Claude Code)"
+      ],
+      "notes": "Đối chiếu với bản dịch mù độc lập (một dịch giả khác cùng họ công cụ, dịch lại từ Pāli không xem bản dự án): xét 10 khoá chênh lệch lớn nhất và đọc đối kháng cả 67 cặp Pāli↔Việt. Khác nghĩa 1 chỗ, bất định (`12.1` `na bhavanti`; bản mù chọn cách đọc khác đã ghi trong BẤT ĐỊNH 1, không giải được mâu thuẫn với 10.1–10.2). Sửa 2 khoá ngoài danh sách chênh lệch (terminology fix): `6.2`, `8.2` `disampati` *hỡi đấng chúa tể bốn phương* → *hỡi chúa tể các phương*, vì Pāli không có số bốn và tầng hiện tại (`ja332`, `ja351`, `ja452`) dùng *các phương*. Điểm nội dung giữ nguyên; `triangulation` 7.0 → 7.4 vì có một lần dịch lại độc lập (cùng họ công cụ) đồng ý ở hầu hết khoá, nhưng còn các bất định thật (12.1, 14.4, 2.4) mà bản mù không giải được. Mức đối chiếu: Pāli root + một bản dịch mù cùng họ công cụ + tiền lệ nội bộ; không có bản Anh hay bản Việt độc lập. Blocker `noEnglishEditionUpstream` giữ nguyên. `technical_integrity` 9,6: chưa chạy `npm run validate` · `npm test` · `npm run check` · `npm run build` ở lượt này. Đây là review của AI, không phải chứng nhận của chuyên gia Pāli.",
+      "id": "296e7596-2b97-4d78-a433-985639a06cbc",
+      "content_sha256": "48fc1bd1991c95d60deb0d1568a4c2ae02de49b0a42ca9836a981ed8f1a7ffcb",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
+      "final_score": 9.04
+    }
+  ],
+  "legacy_quality": {
+    "scores": {
+      "source_provenance": 9.4,
+      "semantic_fidelity": 8.8,
+      "grammar_logic": 8.8,
+      "segment_alignment": 10,
+      "terminology": 9,
+      "triangulation": 7,
+      "vietnamese_clarity": 9,
+      "han_viet_balance": 9.2,
+      "ambiguity_integrity": 9.2,
+      "technical_integrity": 9.6
+    },
+    "final_score": 9,
+    "blocking_errors": [
+      "noEnglishEditionUpstream: Không có tầng tham khảo tiếng Anh tại commit đã ghim: `source/upstream-manifest.json` chỉ liệt kê `kn/ja/ja422_root-pli-ms.json` (tầng Pāli) cho uid này, không có tệp `english-sujato` nào cho `ja422`; `content/translation/en/project/sutta/kn/` không có tệp nào cho uid và `content/meta/en/kn/` không có `ja422.yaml`. Đây là `not-published-upstream`, không phải `not-synced`. Tầng `vietnamese-current` chỉ có Pháp Cú tại commit đã ghim. Ba tầng tham khảo đều vắng ⇒ bài dịch chỉ từ Pāli root và đối chiếu tiền lệ nội bộ ⇒ bài bắt buộc `draft` và `triangulation ≤ 8,0`. Đây là giới hạn upstream, không phải lỗi của người dịch."
+    ],
+    "assessed_at": "2026-10-11",
+    "assessed_by": [
+      "Claude Sonnet 5.5 (Claude Code)"
+    ],
+    "waiver": {
+      "id": "no-upstream-english",
+      "blockers": [
+        "noEnglishEditionUpstream: Không có tầng tham khảo tiếng Anh tại commit đã ghim: `source/upstream-manifest.json` chỉ liệt kê `kn/ja/ja422_root-pli-ms.json` (tầng Pāli) cho uid này, không có tệp `english-sujato` nào cho `ja422`; `content/translation/en/project/sutta/kn/` không có tệp nào cho uid và `content/meta/en/kn/` không có `ja422.yaml`. Đây là `not-published-upstream`, không phải `not-synced`. Tầng `vietnamese-current` chỉ có Pháp Cú tại commit đã ghim. Ba tầng tham khảo đều vắng ⇒ bài dịch chỉ từ Pāli root và đối chiếu tiền lệ nội bộ ⇒ bài bắt buộc `draft` và `triangulation ≤ 8,0`. Đây là giới hạn upstream, không phải lỗi của người dịch."
+      ]
+    }
+  }
+}

@@ -3,7 +3,8 @@ status: review
 translationTitle: "Kinh Quyến Rũ Lớn"
 translators:
   - "Claude Sonnet 5.5 (Claude Code)"
-reviewers: []
+reviewers:
+  - Claude Sonnet 5.5 (Claude Code)
 tags:
   - "kn"
   - "khuddaka-nikaya"
@@ -18,12 +19,12 @@ quality:
     grammar_logic: 8.4
     segment_alignment: 9.6
     terminology: 8.8
-    triangulation: 7.0
+    triangulation: 7.6
     vietnamese_clarity: 8.8
     han_viet_balance: 9.2
-    ambiguity_integrity: 9.0
+    ambiguity_integrity: 9
     technical_integrity: 9.6
-  final_score: 8.83
+  final_score: 8.89
   blocking_errors:
     - "noEnglishEditionUpstream: không có tầng tham khảo tiếng Anh tại commit đã
       ghim. `source/upstream-manifest.json` chỉ liệt kê
@@ -36,9 +37,10 @@ quality:
       dịch chỉ dựa vào Pāli root, tiền lệ nội bộ và vài dòng song hành trong
       tầng Sujato; bài bắt buộc `draft` và `triangulation ≤ 8,0`. Đây là giới
       hạn upstream, không phải lỗi của người dịch."
-  assessed_at: "2026-10-11"
+  assessed_at: 2026-10-14
   assessed_by:
-    - "Claude Sonnet 5.5 (Claude Code)"
+    - Claude Sonnet 5.5 (Claude Code)
+  assessment_id: 07966af2-1d67-4d32-a05e-190ed58be79f
   waiver:
     id: no-upstream-english
     blockers:
@@ -120,3 +122,5 @@ notes: |-
   **Coverage English (mục 7):** mẫu số = 0. Sau khi nén khoảng trắng, 125 khoá không phải `0.x` có dòng Pāli dài nhất 32 ký tự (< 40), nên không khoá nào có nội dung; 4 khoá `0.x` bị loại trước. Đây là *cổng không đo được gì*, không phải *không cần ghi nhận*. Sujato: 0 tệp cho `ja507`; `english-project`: 0; `vietnamese-current`: 0 (chỉ Pháp Cú). Ba tầng đều vắng, nên `triangulation` 7,0 (≤ 8,0) và `status: draft` kèm blocker ở trên. Không đụng `content/meta/reference-gaps.yaml`. Hai dòng song hành đã dùng làm chứng cứ từ tầng Sujato: `mn56:8.3` (`āvaṭṭaniṁ māyaṁ`) và `dn21:1.5.48` (`missībhāvaṁ gato tayā`); đây là chứng cứ từ ngữ, không phải bản Anh cho bài này.
 
   **technical_integrity = 9,6:** lát này cấm chạy cổng, nên không tuyên bố technical gate pass. Bốn lệnh còn lại do người điều phối chạy tập trung: `npm run validate` · `npm test` · `npm run check` · `npm run build`.
+
+  Đối chiếu bản dịch mù độc lập 2026-10-14: một dịch giả khác (cùng họ công cụ) dịch lại bài từ Pāli không xem bản dự án; so 44 khoá chênh lệch lớn nhất (đọc thêm đối kháng cả 129 cặp Pāli↔Việt) → khác nghĩa 2: sửa 0, giữ 1, bất định 1. Giữ: `9.4` `citrā gāthā` (bản mù đọc `citrā` là *nhiều giai điệu*, như trạng ngữ của cách hát; giữ *những bài kệ muôn vẻ* vì `citrā` cùng giống và số với `gāthā` và đứng trong chuỗi tính từ `hadayaṅgamā pemanīyā`). Bất định: `26.3`/`27.3` `Sīdanti naṁ viditvāna` (bản mù *người ta chìm nơi họ*, bản dự án *người ta chìm xuống; biết điều ấy rồi*; `naṁ` có thể là tân ngữ của `viditvāna` hoặc chỉ nơi bị chìm, không phân xử được; `ja536:100.3` đọc *nơi họ*, còn `ja262:2.3`/`ja263:2.3` đọc *họ xấu hổ* là sai vì `sīdati` là chìm, hai bài ấy ngoài lát). Hai khoá bản mù ghi không chắc là `12.4` (cả hai bản cùng đọc *càng lúc càng làm ngài vui thích*, không có bất đồng về nghĩa) và `18.1` (`vivāhesi` *đuổi/trục xuất*, cùng nghĩa). `2.3` `tāyeva saññāya` vẫn là bất định đã ghi ở trên. Phần còn lại chỉ khác diễn đạt (*dụ dỗ* so với *quyến rũ*, *chàng* so với *vị ấy*, *đuổi* so với *trục xuất*). Không đổi khoá nào. Không có bản Anh hay bản Việt độc lập khác.

@@ -615,6 +615,34 @@
       "notes": "Kiểm tra tự động 281 segment với Pāli trong cache: đủ ID, giá trị, NFC và hệ chữ Latin. Chưa đọc đối chiếu nghĩa, ngữ pháp hoặc văn phong; chưa chấm lại 10 tiêu chí. Đây không phải chứng nhận hash upstream hoặc giấy phép, không xác nhận trạng thái xuất bản.",
       "content_sha256": "b60cd8a980cf532cd2f2c39853192ad55c18bedbb6213a9916e73ddc0e59281a",
       "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639"
+    },
+    {
+      "target": "translation",
+      "scope": "full",
+      "scores": {
+        "source_provenance": 9.5,
+        "semantic_fidelity": 8.2,
+        "grammar_logic": 8.2,
+        "segment_alignment": 10,
+        "terminology": 8.4,
+        "triangulation": 7.6,
+        "vietnamese_clarity": 8.2,
+        "han_viet_balance": 9.2,
+        "ambiguity_integrity": 8.8,
+        "technical_integrity": 9.6
+      },
+      "blocking_errors": [
+        "noEnglishEditionUpstream: Thiếu bản dịch tiếng Anh đối chiếu. Tầng english-sujato tại commit đã ghim không có ja530_translation-en-sujato.json (ja chỉ có 83 tệp: ja1–79, ja126, ja159, ja466, ja534; đây là not-published-upstream, không phải not-synced), tầng vietnamese-current chỉ có Pháp Cú và lớp english-project không có tệp cho bài này. Cả ba tầng tham khảo đều vắng nên triangulation bị chặn ở 7.5 (≤ 8.0) và bài giữ draft."
+      ],
+      "assessed_at": "2026-10-14",
+      "assessed_by": [
+        "Claude Sonnet 5.5 (Claude Code)"
+      ],
+      "notes": "Mức đối chiếu: một bản dịch lại độc lập từ Pāli (cùng họ công cụ), không có bản Anh hay bản Việt khác; so 90 khoá chênh lệch lớn nhất trong 281 khoá, khoảng một phần ba chênh chỉ vì ngắt dòng kệ khác. Sửa 0; giữ 5 (`50.2`, `11.4`, `27.1`–`27.4`, `26.1`, `21.1`); bất định 4 (`30.4`, `42.4`, `43.3`, `59.2`). Đọc đối kháng toàn bài không thấy lỗi số (tám địa ngục, mười sáu `ussada`, một trăm do-tuần…), nháy hay xưng hô. Điểm sau đối chiếu: semantic_fidelity và grammar_logic +0.2 vì hai lần đọc độc lập không tìm được khác nghĩa thật nào chưa giải thích được; triangulation 7.6 vì còn bốn chỗ bất định và bản mù cũng ghi không chắc ở 20 khoá. Blocker thiếu bản Anh upstream giữ nguyên (không giải được bằng Pāli, là sự thật về bản chụp đã ghim). technical_integrity 9.6: chưa chạy npm run validate, npm test, npm run check, npm run build, nên không tuyên bố cổng kỹ thuật đã qua. Đây là review của AI, không phải chứng nhận của chuyên gia Pāli.",
+      "id": "e7f27a08-b043-4198-91d8-2eb8d358175b",
+      "content_sha256": "e167603e0b852d12963ce55dc9da663c3abb73f0055e1b0694ac3906eb52880f",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
+      "final_score": 8.77
     }
   ],
   "legacy_quality": {

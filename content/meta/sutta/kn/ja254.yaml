@@ -3,7 +3,9 @@ status: review
 translationTitle: "Kinh Ngựa Sindhu Bụng Cám"
 translators:
   - "OpenCode Space Bunny Free (agent)"
-reviewers: []
+reviewers:
+  - Claude Opus 5.5 (Claude Code)
+  - Claude Sonnet 5.5 (Claude Code)
 tags:
   - "khuddakanikaya"
   - "jataka"
@@ -14,21 +16,22 @@ quality:
   scores:
     source_provenance: 9.4
     semantic_fidelity: 8.6
-    grammar_logic: 9.0
-    segment_alignment: 10.0
+    grammar_logic: 9
+    segment_alignment: 10
     terminology: 8.6
-    triangulation: 7.6
+    triangulation: 7.8
     vietnamese_clarity: 8.8
     han_viet_balance: 9.2
-    ambiguity_integrity: 9.0
+    ambiguity_integrity: 9
     technical_integrity: 9.6
-  final_score: 8.98
+  final_score: 9
   blocking_errors:
     - "noEnglishEditionUpstream: Không có tầng tham khảo tiếng Anh tại commit đã
       ghim."
-  assessed_at: "2026-10-13"
+  assessed_at: 2026-10-14
   assessed_by:
-    - "Claude Opus 5.5 (Claude Code)"
+    - Claude Sonnet 5.5 (Claude Code)
+  assessment_id: 3948e1ef-f018-48a9-a704-0d5bfe616838
   waiver:
     id: no-upstream-english
     blockers:
@@ -130,3 +133,5 @@ notes: |-
   **Khoá đổi: 1/17 (`2.3`).** `mahābrahme` trước đó dịch *hỡi Đại Phạm thiên*; đo tiền lệ trong tầng Việt cho `mahābrahme` ở 7 khoá (`ja467:10.3`, `ja480:1.3`, `ja483:16.4`, `ja520:33.1`, `ja431:1.1`, `ja547:327.1`, `ja547:365.1`): *Đại Bà-la-môn*/*bà-la-môn lớn* **6**, *Đại Phạm Thiên* **1**. Trong Jātaka đây là lời xưng hô tôn kính với một người (ở `ja547:365.1` là người bà-la-môn đến nơi), không phải gọi vị trời; gán *Phạm thiên* cho người đối thoại là thêm danh phận không có căn cứ, nên đổi thành *hỡi Đại Bà-la-môn*. 16 khoá còn lại đọc lại, không đổi: `1.1`–`1.4` (`bhutvā` hai lần là hai động từ bất biến *sau khi ăn*; `etaṁ te bhojanaṁ āsi` *đó đã là thức ăn của ngươi*), `2.1`–`2.2` dùng lại nguyên văn `ja304:3.1`–`3.2`, `3.1`–`3.4` (`tvañca kho maṁ pajānāsi` *nhưng ngài thì biết ta*; `na te bhakkhāmi kuṇḍakan` *ta không ăn cám của ngài*). Pāli trùng nguyên văn trong chính bài: 0 cặp.
   **Blocker đã xử lý.** Loại (A): blocker cũ nói đúng một sự thật (Sujato không có `ja254`) nhưng viết dài và lẫn thủ tục của lát cũ; đã kiểm lại trực tiếp: thư mục `translation/en/sujato/sutta/kn/ja` tại commit đã ghim có 83 tệp, không có tệp nào cho `ja254`, và `source/upstream-manifest.json` chỉ liệt kê tệp Pāli root của bài này. Viết lại thành một blocker duy nhất, ngắn, đúng sự thật (`noEnglishEditionUpstream`); tầng Việt hiện hành cũng vắng (chỉ có Pháp Cú) và không có lớp `english-project` cho bài. Không còn blocker nào khác: không có lỗi văn bản chưa phân xử đang bị che trong chuỗi đó; các bất định ngữ nghĩa nằm ở mục dưới, và không phải blocker vì không làm sai nghĩa câu nào.
   **Bất định còn lại.** `parighāsa` trong `tiṇaparighāsa` (`1.1`), nghĩa *cỏ thừa* không phân xử chắc được (0 tiền lệ trong tầng); `ācāmakuṇḍaka` là một món hay hai vật; `kucchi` trong tên bài; ai là người được gọi *Đại Bà-la-môn* (tiền lệ tầng nghiêng về *Bà-la-môn* chứ không chắc tuyệt đối). `triangulation` giữ **7,6** (không có bản Anh độc lập nào; mẫu số coverage bằng 0, cổng không đo được gì). Điểm giữ nguyên; `final_score` 8,98 là trung bình thô. Bốn lệnh `npm run validate`, `npm test`, `npm run check`, `npm run build` thuộc cổng CI/người điều phối.
+
+  **Đối chiếu bản dịch mù độc lập 2026-10-14.** Một dịch giả khác (cùng họ công cụ) dịch lại bài từ Pāli, không xem bản dự án; so 3 khoá chênh lệch lớn nhất (`0.3`, `2.2`, `2.4`) → khác nghĩa 0 chỗ: sửa 0, giữ 3, bất định 0 mới. Giữ 3: `0.3` *Phẩm Suy Nghĩ* so với *Phẩm Saṅkappa* (chỉ khác cách xử lý tên phẩm); `2.2` `jātiyā vinayena vā` *bằng dòng dõi hay giới hạnh* so với *theo dòng dõi hay theo sự rèn luyện* (cùng nghĩa); `2.4` `api ācāmakuṇḍakaṁ` (bản mù *cả cám cơm cũng đã nhiều* bỏ `api` và chuyển `ācāma`; bản dự án *cả cám và nước cơm đóng váng* giữ đủ từng thành phần). Các bất định đã ghi ở trên (`tiṇaparighāsaṁ`, `ācāmakuṇḍaka`, ai được gọi *Đại Bà-la-môn* ở `2.3`) vẫn còn nguyên, bản mù không giải thêm được. Đọc đối kháng lại 17 cặp Pāli↔Việt, không thấy lỗi mới. Không có bản Anh hay bản Việt độc lập khác; đối chiếu chỉ bằng Pāli, ngữ cảnh bài và tiền lệ trong tầng dự án.

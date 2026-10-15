@@ -3,7 +3,8 @@ status: review
 translationTitle: "Kinh Nai Rohaṇa"
 translators:
   - "Claude Sonnet 5.5 (Claude Code)"
-reviewers: []
+reviewers:
+  - Claude Sonnet 5.5 (Claude Code)
 tags:
   - "kn"
   - "khuddaka-nikaya"
@@ -14,16 +15,16 @@ tags:
 quality:
   scores:
     source_provenance: 9.4
-    semantic_fidelity: 8.3
-    grammar_logic: 8.4
-    segment_alignment: 10.0
+    semantic_fidelity: 8.4
+    grammar_logic: 8.6
+    segment_alignment: 10
     terminology: 8.7
-    triangulation: 7.0
+    triangulation: 7.7
     vietnamese_clarity: 8.8
     han_viet_balance: 9.2
-    ambiguity_integrity: 9.0
+    ambiguity_integrity: 9
     technical_integrity: 9.6
-  final_score: 8.84
+  final_score: 8.94
   blocking_errors:
     - "Không có tầng tham khảo tiếng Anh tại commit đã ghim:
       `source/upstream-manifest.json` chỉ liệt kê `kn/ja/ja501_root-pli-ms.json`
@@ -36,9 +37,10 @@ quality:
       chỉ từ Pāli root và đối chiếu tiền lệ nội bộ ⇒ bài bắt buộc `draft` và
       `triangulation ≤ 8,0`. Đây là giới hạn upstream, không phải lỗi của người
       dịch. (noEnglishEditionUpstream)"
-  assessed_at: "2026-10-10"
+  assessed_at: 2026-10-14
   assessed_by:
-    - "Claude Sonnet 5.5 (Claude Code)"
+    - Claude Sonnet 5.5 (Claude Code)
+  assessment_id: 6c57fe4f-dc29-4f12-b714-e16d2134de40
   waiver:
     id: no-upstream-english
     blockers:
@@ -103,3 +105,5 @@ notes: |-
   **Coverage English (mục 7):** mẫu số = 0. Đo 117 khoá không phải khối `:0` (4 khoá `:0` bị loại), dài nhất sau khi nén khoảng trắng là 27 ký tự (< 40) nên 0/117 khoá có nội dung theo ngưỡng của `source/layers.yaml`. Đây là *cổng không đo được gì*, không phải *không cần ghi nhận*. Sujato: 0 tệp cho `ja501`; `english-project`: 0; `vietnamese-current`: 0 (chỉ Pháp Cú). Ba tầng đều vắng ⇒ `triangulation` 7,0 (≤ 8,0) và `status: draft` kèm blocker ở trên. Tôi không đụng `content/meta/reference-gaps.yaml`.
 
   **technical_integrity = 9,6:** lát này cấm chạy cổng, nên không tuyên bố technical gate pass. Bốn lệnh còn lại do người điều phối chạy tập trung: `npm run validate` · `npm test` · `npm run check` · `npm run build`.
+
+  **Đối chiếu bản dịch mù độc lập 2026-10-14.** Một dịch giả khác (cùng họ công cụ) dịch lại bài từ Pāli, không xem bản dự án; so 31 khoá chênh lệch lớn nhất → khác nghĩa 1 chỗ: sửa 1, bất định 4 chỗ khác. Sửa 1 (`16.3`–`16.4` `kathaṁ putta amocesi, kūṭapāsamha luddako`: trước *Con ơi, bằng cách nào đã thả con ra, khỏi cạm bẫy, người thợ săn?*, đọc `luddako` như hô cách; sau *Con ơi, bằng cách nào người thợ săn đã thả con ra khỏi cạm bẫy?*, vì `luddako` là chủ cách, chủ ngữ của `amocesi`, `kūṭapāsamha` là xuất xứ cách, và câu đáp ở `19.4` là `luddako maṁ amocayi`). Cùng lượt sửa diễn đạt `12.2` `sodariyā ekamātukā`: trước *ruột thịt cùng bụng, chung một mẹ*, sau *cùng một bụng, cùng một mẹ*, bỏ *ruột thịt* thừa so với Pāli. 29 khoá còn lại chỉ khác diễn đạt, giữ (`2.2`, `4.2`, `6.2`, `8.2` `hadayaṁ me avakassati` *tim tôi bị giằng kéo*; `3.1`, `7.1`, `13.1` `te` *họ* so với *chúng*; `23.2`; `25.4`; `26.1`). Bất định 4: `1.1` `patiyanti` (*đang rút chạy*, bản mù cũng ⟦?⟧, hợp mạch `bhītā maraṇassa`); `21.2` `āhariṁ` (đã mang hay sẽ mang, giữ trung tính *Tôi mang da nai về*); `22.3` `abajjhi taṁ migarājaṁ` (bản mù cũng ⟦?⟧, nghĩa chung *chúa loài nai bị trói* không đổi); `27.3` `catussada` (giữ phiên âm, bản mù cũng ⟦?⟧). Đọc đối kháng lại 121 cặp Pāli↔Việt, không thấy lỗi số, phủ định hay người nói mới. Không có bản Anh hay bản Việt độc lập khác; đối chiếu chỉ bằng Pāli, ngữ cảnh bài và tiền lệ trong tầng dự án.

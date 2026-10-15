@@ -53,6 +53,34 @@
       "notes": "Kiểm tra tự động 17 segment với Pāli trong cache: đủ ID, giá trị, NFC và hệ chữ Latin. Chưa đọc đối chiếu nghĩa, ngữ pháp hoặc văn phong; chưa chấm lại 10 tiêu chí. Đây không phải chứng nhận hash upstream hoặc giấy phép, không xác nhận trạng thái xuất bản.",
       "content_sha256": "f29693fb5b3c1235bda78b441e520cf5509d877aa7fb75d0a7d5af7396b470ac",
       "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639"
+    },
+    {
+      "target": "translation",
+      "scope": "full",
+      "scores": {
+        "source_provenance": 9.4,
+        "semantic_fidelity": 8.8,
+        "grammar_logic": 8.8,
+        "segment_alignment": 10,
+        "terminology": 8.8,
+        "triangulation": 7.7,
+        "vietnamese_clarity": 8.8,
+        "han_viet_balance": 9,
+        "ambiguity_integrity": 8.8,
+        "technical_integrity": 9.6
+      },
+      "blocking_errors": [
+        "Không có tầng tham khảo English Sujato tại commit đã ghim 11c9d708978cde8ba61096d8a75f7ddfb846f639. Đếm bằng script trên source/upstream-manifest.json: tầng translation/en/sujato có 4.291 tệp, trong đó thư mục sutta/kn/mil có 0 tệp và sutta/kn/ja chỉ có 83 tệp (ja1..ja79, ja126, ja159, ja466, ja534); không tệp nào chứa khoá của ja295, và tầng ref/en trong cache cũng không có tệp nào cho ja295. SuttaCentral không phát hành bản Anh nào khác phủ bài này tại commit đã ghim, nên bài chỉ đối chiếu được với Pāli root một mình."
+      ],
+      "assessed_at": "2026-10-14",
+      "assessed_by": [
+        "Claude Sonnet 5.5 (Claude Code)"
+      ],
+      "notes": "Đối chiếu một lần dịch lại độc lập (cùng họ công cụ) ở 3/3 khoá chênh lệch lớn nhất: 0 khác nghĩa, 0 sửa; bản mù cùng đọc `anto` là hạng thấp nhất. Review đối kháng toàn bài 17 khoá: nháy, dấu lược, số, xưng hô đều khớp. Bất định (a)–(d) trong meta giữ nguyên. Mức đối chiếu: Pāli + một bản dịch lại cùng họ công cụ; không có bản Anh hay bản Việt độc lập khác nên triangulation ≤ 8,0. technical_integrity 9,6: cổng kỹ thuật của kho do người điều phối chạy. Đây là review của AI, không phải chứng nhận của chuyên gia Pāli.",
+      "id": "96706024-58f4-4550-a7bb-b34cd7ba84a4",
+      "content_sha256": "958a8eee90bd0ead84b8759d2df6009098baae00a5d9c00a6fd1650b3ff4f875",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
+      "final_score": 8.969999999999999
     }
   ],
   "legacy_quality": {

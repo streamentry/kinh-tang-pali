@@ -3,7 +3,8 @@ status: review
 translationTitle: "Kinh Thiên Nga Nhỏ"
 translators:
   - "Claude Sonnet 5.5 (Claude Code)"
-reviewers: []
+reviewers:
+  - Claude Sonnet 5.5 (Claude Code)
 tags:
   - "khuddaka-nikaya"
   - "jataka"
@@ -13,16 +14,16 @@ tags:
 quality:
   scores:
     source_provenance: 9.5
-    semantic_fidelity: 8.0
-    grammar_logic: 7.9
-    segment_alignment: 10.0
+    semantic_fidelity: 8.2
+    grammar_logic: 8.1
+    segment_alignment: 9.8
     terminology: 8.5
-    triangulation: 7.8
-    vietnamese_clarity: 8.3
+    triangulation: 7.6
+    vietnamese_clarity: 8.4
     han_viet_balance: 9.2
     ambiguity_integrity: 8.6
     technical_integrity: 9.6
-  final_score: 8.74
+  final_score: 8.749999999999998
   blocking_errors:
     - "noEnglishEditionUpstream: Thiếu bản dịch tiếng Anh đối chiếu. Tầng
       english-sujato tại commit đã ghim không có
@@ -32,9 +33,10 @@ quality:
       vietnamese-current chỉ có Pháp Cú và lớp english-project không có tệp cho
       bài này. Cả ba tầng tham khảo đều vắng nên triangulation bị chặn ở 7.8 (≤
       8.0) và bài giữ draft."
-  assessed_at: "2026-10-11"
+  assessed_at: 2026-10-14
   assessed_by:
-    - "Claude Sonnet 5.5 (Claude Code)"
+    - Claude Sonnet 5.5 (Claude Code)
+  assessment_id: d1b1913a-cbcf-47e2-880a-a52f3b393163
   waiver:
     id: no-upstream-english
     blockers:
@@ -97,3 +99,5 @@ notes: |-
       5. Số Pāli: xem trên; không có cụm chưa phân xử được.
       NFC đạt, không khoá rỗng, không khoảng trắng thừa; Pāli lọt sang tiếng Việt chỉ là tên riêng hoặc từ giữ phiên âm có ghi chú (`Jātaka`, `Dhataraṭṭha`, `Sumukha`, `Nāga`, `keka` là tiếng kêu). Đã in cặp Pāli↔Việt ra đọc toàn bài (359 cặp) và sửa sau lượt đọc: dấu câu cuối từng khoá theo Pāli (câu hỏi dùng `?`), `71.3`–`71.4` thống nhất với `34.3`–`34.4`, `43.1` mở nháy theo Pāli.
     - Công cụ kiểm của kho chưa chạy ở bước này, nên `technical_integrity` đặt 9.6 và không tuyên bố technical gate pass; còn phải chạy: `npm run validate`, `npm test`, `npm run check`, `npm run build`.
+
+  **Đối chiếu bản dịch mù độc lập 2026-10-14.** Một dịch giả khác (cùng họ công cụ) dịch lại bài từ Pāli không xem bản dự án; so 121/359 khoá chênh lệch lớn nhất → khác nghĩa thật 0 ở phía bản dự án: sửa 2 không đổi nghĩa (`21.1`, `21.3` `Rājā me so … neva naṁ vijahissāmi`: *Con chim ấy là vua của tôi … bỏ rơi nó* → *Vị ấy là vua của tôi … bỏ rơi vị ấy*, vì Sumukha nói về vua và người bạn quý như mạng sống, thống nhất với `27.2`, `27.4`, `37.2`), giữ 119, bất định 10 (`1.1` `anupacinantā`, `5.2` `mahānasā`, `7.1` `yaṁ na`, `10.4` `hetudhammamanussaraṁ`, `16.3` `paccakamittha` — bản mù đọc *lùi lại*, bản dự án *bước lại gần*, vì `baddhā iti vicintayaṁ` là lý do hợp với việc tiến sát, nhưng gốc `paṭi-kam` thường là *lùi*, không phân xử được —, `28.3` `jīvatthi`, `31.1` `no`, `55.4` `janayeyyātha`, `54.3` `ettheva`, `75.2` `nāgarājārivantaraṁ`; hầu hết đã nêu ở trên và bản mù ghi không chắc ở nhiều khoá trong số này). Bản mù sai ở `65.1` (`yantāpatitvāna` đọc thành *khi Ngài rơi vào cạm bẫy*, trong khi `65.2` hỏi kẻ địch có dùng gậy đánh không); tôi không tìm thấy chỗ nào bản mù đúng mà bản dự án sai. Dời nội dung giữa các khoá liền kề theo cú pháp Việt ở `32.1`/`32.2`, `39.1`/`39.2`, `82.1`/`82.2` được giữ vì đảo lại làm câu Việt hiểu sai cấu trúc. Rà đối kháng toàn bài (số, nháy, xưng hô `bạn`/`bác thợ săn`/`tâu đại vương`, tiền lệ `nāvakaṅkhanti jīvitaṁ` 4/4 *không còn mong cầu sự sống*) không thấy lỗi nghĩa nào thêm. Không có bản Anh hay bản Việt độc lập khác.

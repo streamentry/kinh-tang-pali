@@ -96,6 +96,34 @@
       "notes": "Kiểm tra tự động 17 segment với Pāli trong cache: đủ ID, giá trị, NFC và hệ chữ Latin. Chưa đọc đối chiếu nghĩa, ngữ pháp hoặc văn phong; chưa chấm lại 10 tiêu chí. Đây không phải chứng nhận hash upstream hoặc giấy phép, không xác nhận trạng thái xuất bản.",
       "content_sha256": "389235b49698e78259ae49e2e9a314dd2de100e1e0b872260e82bdd0e36e8558",
       "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639"
+    },
+    {
+      "target": "translation",
+      "scope": "full",
+      "scores": {
+        "source_provenance": 9.4,
+        "semantic_fidelity": 8.6,
+        "grammar_logic": 9,
+        "segment_alignment": 10,
+        "terminology": 8.6,
+        "triangulation": 7.8,
+        "vietnamese_clarity": 8.8,
+        "han_viet_balance": 9.2,
+        "ambiguity_integrity": 9,
+        "technical_integrity": 9.6
+      },
+      "blocking_errors": [
+        "noEnglishEditionUpstream: Không có tầng tham khảo tiếng Anh tại commit đã ghim."
+      ],
+      "assessed_at": "2026-10-14",
+      "assessed_by": [
+        "Claude Sonnet 5.5 (Claude Code)"
+      ],
+      "notes": "Đối chiếu bản dịch mù độc lập 2026-10-14 (một dịch giả khác cùng họ công cụ dịch lại từ Pāli, không xem bản dự án): đã xét toàn bộ các khoá chênh lệch lớn nhất, phân xử bằng Pāli, ngữ cảnh bài và tiền lệ tầng; kết quả và các sửa ghi trong notes của bài. Mức đối chiếu: Pāli + một lần dịch lại độc lập cùng họ công cụ, không có bản Anh hay bản Việt độc lập khác, nên `triangulation` không vượt 8,0 (đặt 7.8). Blocker `noEnglishEditionUpstream` giữ nguyên (không gỡ). `technical_integrity` 9,6: bốn lệnh `npm run validate`, `npm test`, `npm run check`, `npm run build` chưa chạy ở bước này. Đây là review của AI, không phải chứng nhận của chuyên gia Pāli.",
+      "id": "3948e1ef-f018-48a9-a704-0d5bfe616838",
+      "content_sha256": "a7f4684653649e2ac7adffcc2f260bd60744390be969aee4b35e9e6798019ce1",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
+      "final_score": 9
     }
   ],
   "legacy_quality": {

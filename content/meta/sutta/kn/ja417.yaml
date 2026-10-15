@@ -3,7 +3,8 @@ status: review
 translationTitle: "Kinh Kaccāni"
 translators:
   - "OpenCode Space Bunny Free (agent)"
-reviewers: []
+reviewers:
+  - Claude Sonnet 5.5 (Claude Code)
 tags:
   - "khuddaka-nikaya"
   - "jataka"
@@ -15,14 +16,14 @@ quality:
     source_provenance: 9.4
     semantic_fidelity: 8.6
     grammar_logic: 8.8
-    segment_alignment: 10.0
-    terminology: 9.0
-    triangulation: 7.2
+    segment_alignment: 10
+    terminology: 9
+    triangulation: 7.4
     vietnamese_clarity: 8.9
     han_viet_balance: 9.3
     ambiguity_integrity: 8.4
     technical_integrity: 9.6
-  final_score: 8.92
+  final_score: 8.94
   blocking_errors:
     - "Không có tầng tham khảo tiếng Anh tại commit đã ghim:
       `source/upstream-manifest.json` (commit
@@ -43,9 +44,10 @@ quality:
       `review` hoặc `published`, nên bài bắt buộc `draft`. Đây là **giới hạn của
       snapshot upstream**, không phải lỗi của người dịch; vì vậy `triangulation`
       bị chặn ở 7.2 (≤ 8.0) chứ không nâng điểm để né blocker."
-  assessed_at: "2026-10-13"
+  assessed_at: 2026-10-14
   assessed_by:
-    - "Claude Sonnet 5.5 (Claude Code)"
+    - Claude Sonnet 5.5 (Claude Code)
+  assessment_id: f1cedd54-90fb-4cbb-b602-20d3830bc8e8
   waiver:
     id: no-upstream-english
     blockers:
@@ -97,3 +99,5 @@ notes: |-
   - **Bất định còn lại, không bịa:** (1) `3.3`–`3.4` `Sahassanetto atulānubhāvo … dhammavaro` — có thể hiểu là hai câu (Sakka tự xưng `Sahassanetto`, rồi nói *Pháp tối thượng không chết*, cách hiểu đã chọn) hoặc một chủ ngữ duy nhất (*bậc Ngàn Mắt, uy lực vô song, tối thượng về Pháp, không bao giờ chết*); `6.1` `Jīvāmi vohaṁ na matohamasmi` ủng hộ cách hiểu sau, nhưng không phân xử được vì không có bản Anh ghim. (2) `2.3` `tassa pahuttamajja` — *pahutta* ở đây là *dồi dào/đủ đầy*, đối tượng `tassa` là `Dhammo`; `pahutta` không có tiền lệ trên tầng đã dịch (0 khoá). (3) `1.2` `kumbhimadhissayitvā` hiểu *đặt nồi lên* (bếp); Pāli có thể đọc sát nghĩa hơn là *nằm lên*. (4) `9.4` `adhiggahītā` — gồm tính từ số nhiều cho `putto ca nattā ca` (cách hiểu đã chọn: con trai và cháu trai bị Sakka chế ngự rồi hầu hạ), nhưng ngữ pháp cũng cho phép đọc nó là nữ số ít chỉ `kātiyānī` (bà được Sakka nắm giữ/che chở). `adhigaṇhāti` chỉ có tiền lệ khác nghĩa (`iti27:3.1`, *vượt trội*). (5) `4.1` `brahme` hiểu là *Bà-la-môn* (Sakka cải trang), không phải *Phạm thiên*. (6) `5.1` `vañjhā` dịch *son sẻ* (không có tiền lệ cùng nghĩa; các khoá `vañjha` khác ở dn/mn/sn là *cằn cỗi* cho vật vô tri).
   - **Điểm đổi:** `semantic_fidelity` 8.8 → 8.6, `terminology` 8.9 → 9.0, `vietnamese_clarity` 9.0 → 8.9; `grammar_logic` 8.8 giữ; các tiêu chí còn lại giữ. `semantic_fidelity` hạ vì bản trước (điểm 8.8) vốn có nhiều lỗi nghĩa mà lượt trước không phát hiện và vì còn các bất định ở trên; nâng `terminology` vì *tila*, *odana*, *suṇisā*, *nattā*, *Dhammo* nay khớp tiền lệ. Tầng tham khảo vẫn vắng nên `triangulation` giữ 7.2: bản dịch tiếng Anh của bài này chỉ được đọc để hiểu cách hiểu bất định ở trên, không được đưa vào bản dịch, và không phải tầng đã ghim.
   - Phép kiểm: 41/41 khoá, thứ tự khoá theo Pāli, nháy `“”‘’` khớp Pāli từng khoá (41 khoá), NFC, 0 khoá chứa chữ Pāli lạ, 0 cặp Pāli trùng nguyên văn trong chính bài, 0 `…`/`…pe…`. `npm run validate|test|check|build` chưa chạy.
+
+  Đối chiếu bản dịch mù độc lập 2026-10-14: một dịch giả khác (cùng họ công cụ) dịch lại bài từ Pāli không xem bản dự án; so 13 khoá chênh lệch lớn nhất (đọc thêm đối kháng cả 41 cặp Pāli↔Việt) → khác nghĩa 3: sửa 0, giữ 0, bất định 3, đều là chỗ đã ghi ở mục bất định lượt 2026-10-13. `1.2` `kumbhimadhissayitvā` (bản mù *làm gì với chiếc nồi*, bỏ phần *đặt lên* và ghi không chắc); `2.3` `pahuttamajja` (bản mù thêm chủ ngữ *tôi chuẩn bị* mà Pāli không có và ghi không chắc; giữ không thêm); `9.4` `Devānamindena adhiggahītā` (bản mù *được vua chư thiên che chở*, bản dự án *bị vua chư thiên chế ngự*; `adhiggahītā` đọc được là số nhiều chỉ con trai và cháu, hoặc nữ số ít chỉ Kātiyānī; bản mù chọn cách đọc nữ số ít; chưa phân xử được). `3.2` bản mù *với riêng bà* chỉ nhấn `eva`, không đổi nghĩa; `8.1` giữ *Kātiyāni* đúng dạng hô cách của Pāli (bản mù *Kātiyānī*). Còn lại chỉ khác diễn đạt (*nàng*/*bà*, *hạnh phúc*/*sung sướng*, *ruồng bỏ*/*vứt bỏ*). `3.3`–`3.4` `Sahassanetto` bản mù không khác bản dự án. Không đổi khoá nào. Không có bản Anh hay bản Việt độc lập khác.

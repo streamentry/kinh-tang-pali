@@ -53,6 +53,34 @@
       "notes": "Kiểm tra tự động 15 segment với Pāli trong cache: đủ ID, giá trị, NFC và hệ chữ Latin. Chưa đọc đối chiếu nghĩa, ngữ pháp hoặc văn phong; chưa chấm lại 10 tiêu chí. Đây không phải chứng nhận hash upstream hoặc giấy phép, không xác nhận trạng thái xuất bản.",
       "content_sha256": "73b262db48b13985ab40ad46769433143b080556528c01bfd6dae0839c036002",
       "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639"
+    },
+    {
+      "target": "translation",
+      "scope": "full",
+      "scores": {
+        "source_provenance": 9.2,
+        "semantic_fidelity": 9,
+        "grammar_logic": 9,
+        "segment_alignment": 10,
+        "terminology": 8.8,
+        "triangulation": 7.8,
+        "vietnamese_clarity": 9,
+        "han_viet_balance": 9.2,
+        "ambiguity_integrity": 9,
+        "technical_integrity": 9.6
+      },
+      "blocking_errors": [
+        "Tại commit đã ghim không có tệp translation/en/sujato/sutta/kn/ja/ja227_translation-en-sujato.json; bài nằm trong 990 bài không được SuttaCentral phát bản Anh. Đây là giới hạn của bản chụp upstream, không phải thiếu sót của kho, nhưng thiếu tầng tham khảu là blocking error nên bài phải giữ draft."
+      ],
+      "assessed_at": "2026-10-14",
+      "assessed_by": [
+        "Claude Sonnet 5.5 (Claude Code)"
+      ],
+      "notes": "Đối chiếu bản dịch mù độc lập 2026-10-14 (một dịch giả khác cùng họ công cụ, dịch lại từ Pāli không xem bản dự án) trên 4 khoá chênh lệch lớn nhất, rồi đọc đối kháng toàn bài. Khác nghĩa thật 0, sửa 0 khoá, mọi chênh lệch đã phân xử bằng Pāli (giữ bản dự án); chỗ còn bất định là từ hiếm hoặc cú pháp mơ hồ, bản mù cũng không chắc, đã ghi trong notes của bài. Mức đối chiếu: Pāli root cộng một lần dịch lại độc lập cùng họ công cụ, không có bản Anh hay bản Việt độc lập khác, nên triangulation ≤ 8,0 (7.8). Điểm phản ánh bản hiện tại (không đổi khoá nào); blocking_errors sao nguyên văn từ meta, không gỡ blocker nào. technical_integrity 9,6 vì không chạy `npm run validate`, `npm test`, `npm run check`, `npm run build` trong lượt này. Đây là review của AI, không phải chứng nhận của chuyên gia Pāli.",
+      "id": "98c34b02-cca2-47c8-86ea-4d7885c744cd",
+      "content_sha256": "850315d81204d8bf9a344ca4ff5b3e615a6663f70c671bfbcaac00d012e5189d",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
+      "final_score": 9.059999999999999
     }
   ],
   "legacy_quality": {

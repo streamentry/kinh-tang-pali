@@ -53,6 +53,34 @@
       "notes": "Kiểm tra tự động 17 segment với Pāli trong cache: đủ ID, giá trị, NFC và hệ chữ Latin. Chưa đọc đối chiếu nghĩa, ngữ pháp hoặc văn phong; chưa chấm lại 10 tiêu chí. Đây không phải chứng nhận hash upstream hoặc giấy phép, không xác nhận trạng thái xuất bản.",
       "content_sha256": "6e40f32ab2e71be2aecfd324eb48c8bf748b7b97ef0ff2774d1fccab72714b9f",
       "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639"
+    },
+    {
+      "target": "translation",
+      "scope": "full",
+      "scores": {
+        "source_provenance": 9.5,
+        "semantic_fidelity": 8.9,
+        "grammar_logic": 8.9,
+        "segment_alignment": 10,
+        "terminology": 8.8,
+        "triangulation": 7.8,
+        "vietnamese_clarity": 9,
+        "han_viet_balance": 9.2,
+        "ambiguity_integrity": 9,
+        "technical_integrity": 9.6
+      },
+      "blocking_errors": [
+        "Không có tầng tham khảo English Sujato tại commit đã ghim 11c9d708978cde8ba61096d8a75f7ddfb846f639. Đếm bằng script trên source/upstream-manifest.json: tầng translation/en/sujato có 4.291 tệp, trong đó thư mục sutta/kn/mil có 0 tệp và sutta/kn/ja chỉ có 83 tệp (ja1..ja79, ja126, ja159, ja466, ja534); không tệp nào chứa khoá của ja299, và tầng ref/en trong cache cũng không có tệp nào cho ja299. SuttaCentral không phát hành bản Anh nào khác phủ bài này tại commit đã ghim, nên bài chỉ đối chiếu được với Pāli root một mình."
+      ],
+      "assessed_at": "2026-10-14",
+      "assessed_by": [
+        "Claude Sonnet 5.5 (Claude Code)"
+      ],
+      "notes": "Đối chiếu bản dịch mù độc lập 2026-10-14 (một dịch giả khác cùng họ công cụ dịch lại từ Pāli, không xem bản dự án): đã xét toàn bộ các khoá chênh lệch lớn nhất, phân xử bằng Pāli, ngữ cảnh bài và tiền lệ tầng; kết quả và các sửa ghi trong notes của bài. Mức đối chiếu: Pāli + một lần dịch lại độc lập cùng họ công cụ, không có bản Anh hay bản Việt độc lập khác, nên `triangulation` không vượt 8,0 (đặt 7.8). Blocker `noEnglishEditionUpstream` giữ nguyên (không gỡ). `technical_integrity` 9,6: bốn lệnh `npm run validate`, `npm test`, `npm run check`, `npm run build` chưa chạy ở bước này. Đây là review của AI, không phải chứng nhận của chuyên gia Pāli.",
+      "id": "69bf95e0-6891-4c20-8fa9-17c59a4cab46",
+      "content_sha256": "c04b826b61d499dc1c3ba326d53bf698ce94e07c5f683df1a0331980c0fc1d06",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
+      "final_score": 9.069999999999999
     }
   ],
   "legacy_quality": {

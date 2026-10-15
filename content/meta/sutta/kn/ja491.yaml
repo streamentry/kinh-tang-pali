@@ -1,9 +1,10 @@
 uid: ja491
-status: review
+status: published
 translationTitle: "Kinh Con Công Lớn"
 translators:
   - "Claude Sonnet 5.5 (Claude Code)"
-reviewers: []
+reviewers:
+  - Claude Sonnet 5.5 (Claude Code)
 tags:
   - "kn"
   - "khuddaka-nikaya"
@@ -16,14 +17,14 @@ quality:
     source_provenance: 9.4
     semantic_fidelity: 8.8
     grammar_logic: 8.8
-    segment_alignment: 10.0
-    terminology: 9.0
-    triangulation: 7.0
-    vietnamese_clarity: 9.0
+    segment_alignment: 10
+    terminology: 9
+    triangulation: 7.7
+    vietnamese_clarity: 9
     han_viet_balance: 9.2
     ambiguity_integrity: 9.2
     technical_integrity: 9.6
-  final_score: 9.0
+  final_score: 9.07
   blocking_errors:
     - "Không có tầng tham khảo tiếng Anh tại commit đã ghim:
       `source/upstream-manifest.json` chỉ liệt kê `kn/ja/ja491_root-pli-ms.json`
@@ -35,9 +36,10 @@ quality:
       chỉ từ Pāli root và đối chiếu tiền lệ nội bộ ⇒ bài bắt buộc `draft` và
       `triangulation ≤ 8,0`. Đây là giới hạn upstream, không phải lỗi của người
       dịch. (noEnglishEditionUpstream)"
-  assessed_at: "2026-10-11"
+  assessed_at: 2026-10-14
   assessed_by:
-    - "Claude Sonnet 5.5 (Claude Code)"
+    - Claude Sonnet 5.5 (Claude Code)
+  assessment_id: a8e0fcc8-6dfa-4651-8b81-7c029ae61bc6
   waiver:
     id: no-upstream-english
     blockers:
@@ -117,3 +119,5 @@ notes: |-
   - Đã dò nhưng không đổi dù nghi ngờ: `cāpadhure` (2.2) và `adhipātayissaṁ` (2.3) vẫn 0 tiền lệ trong toàn Pāli root (`cāpadhura` chỉ xuất hiện ở khoá này), nên bất định 2 và 3 giữ nguyên, không phân xử được. `bādhayāmi`/`bādhetu` (7.6, 17.2): đã đo 15 khoá có dạng `bādh-`, dịch phân tán (“làm khổ”, “bức hại”, “hãm hại”, “hành hạ”, “bắt”, “trói”) không có đa số, nên giữ “làm hại” (nghĩa rộng, không hẹp hơn Pāli). `khurappa` giữ “mũi tên sắc” theo `ja265` và `mn63:5.29`/`dn3` (“mũi tên đầu sắc như dao cạo”). Tiêu chí `triangulation` giữ 7,0 vì ba tầng tham khảo vẫn vắng; `ambiguity_integrity` và `semantic_fidelity` giữ nguyên vì chín bất định ở trên còn nguyên. Kiểm lại: 75/75 khoá, nháy `“”` khớp Pāli từng khoá (0 lệch), nháy đơn 0/0, 5 nhóm Pāli trùng nguyên văn trong bài (3.4=4.4; 5.2=6.2; 7.3=10.3=11.3; 8.1=9.1; 8.2=9.2) đều khớp bản Việt (riêng 11.3 viết hoa đầu câu).
 
   **technical_integrity = 9,6:** lát này cấm chạy cổng, nên không tuyên bố technical gate pass. Bốn lệnh còn lại do người điều phối chạy tập trung: `npm run validate` · `npm test` · `npm run check` · `npm run build`.
+
+  Đối chiếu bản dịch mù độc lập 2026-10-14: một dịch giả khác (cùng họ công cụ) dịch lại bài từ Pāli không xem bản dự án; so 12 khoá chênh lệch lớn nhất (`0.2`, `0.4`, `1.4`, `2.3`, `3.3`, `4.3`, `5.3`, `5.4`, `6.4`, `7.2`, `9.3`, `14.2`) → khác nghĩa 0: sửa 0, giữ 12 (`0.2` "Bộ Tạp Tập" khớp 13/13 khoá cùng Pāli, bản mù "Chương Tạp Lục" chỉ khác chữ; `3.3`/`4.3` bản mù bỏ `vasa` của `pāsavasūpanītaṁ` ("đem vào bẫy"), bản dự án giữ "vào quyền lực của cái bẫy" nên sát hơn; `5.4` "kẻ đã rời khỏi đời này" giữ vì trùng nguyên văn `ja391:3.4`; `6.4`, `7.2`, `14.2` chỉ khác diễn đạt; `9.3` bản mù ghi không chắc nhưng Pāli rõ `parassa lokassa na te imassa` là "thuộc đời sau, không thuộc đời này"; `1.4` và `5.3` khác ở đại từ "ngươi/ông" và "vua công/chúa công", giữ theo cách xưng cả bài), bất định 1 (`2.3` `adhipātayissaṁ` "quăng bỏ" so với bản mù "làm rơi xuống": cùng gốc nghĩa "làm rơi", không phân xử được thêm; bất định `cāpadhure` ở `2.2` vẫn như đã ghi). Không có bản Anh hay bản Việt độc lập khác.

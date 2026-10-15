@@ -3,7 +3,8 @@ status: review
 translationTitle: "Nguồn Khởi Của Các Lối"
 translators:
   - "Claude Sonnet 5.5 (Claude Code)"
-reviewers: []
+reviewers:
+  - Claude Sonnet 5.5 (Claude Code)
 tags:
   - "kn"
   - "netti"
@@ -11,16 +12,16 @@ tags:
 quality:
   scores:
     source_provenance: 9.5
-    semantic_fidelity: 8.6
+    semantic_fidelity: 8.7
     grammar_logic: 8.7
-    segment_alignment: 10.0
+    segment_alignment: 10
     terminology: 8.7
-    triangulation: 7.0
+    triangulation: 7.6
     vietnamese_clarity: 8.6
-    han_viet_balance: 9.0
-    ambiguity_integrity: 8.4
+    han_viet_balance: 9
+    ambiguity_integrity: 8.5
     technical_integrity: 9.6
-  final_score: 8.81
+  final_score: 8.889999999999999
   blocking_errors:
     - "noEnglishEditionUpstream: không có tầng tham khảo tiếng Anh nào tại
       commit đã ghim. Tầng english-sujato chỉ có chín nhóm con của Tiểu Bộ (cp,
@@ -32,9 +33,10 @@ quality:
       ghim chỉ có Pháp Cú. Cả ba tầng tham khảo đều vắng nên bài bắt buộc draft
       và triangulation không quá 8,0 (đặt 7,0). Đây là giới hạn của upstream,
       không phải lỗi của người dịch."
-  assessed_at: "2026-10-11"
+  assessed_at: 2026-10-14
   assessed_by:
-    - "Claude Sonnet 5.5 (Claude Code)"
+    - Claude Sonnet 5.5 (Claude Code)
+  assessment_id: aa8aa14e-ecb2-442b-b4f7-6fab99bc8646
   waiver:
     id: no-upstream-english
     blockers:
@@ -76,3 +78,5 @@ notes: |-
   **Phép kiểm đã chạy, kèm mẫu số.** Tập khoá Việt = tập khoá Pāli, 293 = 293, đúng thứ tự Pāli. Nháy kép `“”` và nháy đơn `‘’` khớp Pāli từng khoá: 0 lệch trên 293 khoá (Pāli có nháy kép ở 21 khoá, không có nháy đơn; bản Việt không có `"` hay `'` thẳng). Dấu lược: 13 khoá Pāli có `…`; mọi `…pe…` (5 khoá: `4.2`, `4.8`, `6.2`, `6.9`, `53.2`) thành đúng một `…`; `…` trần ở `4.3`, `4.4`, `6.3`, `6.4`, `4.9`, `4.10`, `6.10`, `6.11` giữ đúng một `…`; Pāli không có `(…)` nên bản Việt không có; 0 khoá lệch. Pāli lọt sang Việt: 0 từ. NFC đạt; 0 khoá rỗng; 0 khoảng trắng thừa.
 
   Cổng kỹ thuật CHƯA chạy ở lát này. Cần chạy đủ bốn lệnh trước khi coi technical_integrity 9,6 là đạt: `npm run validate`, `npm test`, `npm run check`, `npm run build`.
+
+  Đối chiếu bản dịch mù độc lập 2026-10-14: một dịch giả khác (cùng họ công cụ) dịch lại bài từ Pāli không xem bản dự án; so 34 khoá chênh lệch lớn nhất → khác nghĩa 0: sửa 0, giữ 30 (chênh lệch chỉ ở diễn đạt hoặc ở thuật ngữ đã chọn theo tiền lệ, ví dụ `59.22` "sự hỏng" so với "hư hoại", `11.13`–`11.14` "dòng lũ" so với "bộc lưu", `24.2`, `26.2`, `27.2` "người tính kiến" so với "hạng người thiên về kiến", `54.2` và `63.1` ở mức diễn đạt), bất định 4 (`56.4` `yo sādhāraṇāya`: bản mù cũng không chắc; giữ "hạng người theo thực hành chung" vì đứng giữa hai cặp lạc/khổ ở `56.3` và `56.5`; `9.10` `rattavāsiniyā`; `30.3` `te lokā`; `54.2` `adhiṭṭhāna`; ba khoá sau đã ghi ở mục bất định trên). Bổ sung cho `9.10`: ở `ja527:6.4` cùng gốc `rattavāsinī` đi với màu y phục ("mặc y phục đỏ như màu chim bồ câu"), nên cách đọc nandī như người nữ khoác y đỏ cũng khả dĩ; ba cách đọc (đêm / nhiễm đắm / y phục đỏ) chưa phân xử được, giữ "trú trong sự nhiễm đắm". Đọc đối kháng lại cả 293 cặp Pāli↔Việt (số đếm 10 nhóm bốn, mười bài kinh `24.1`–`27.1`, bốn hạng thành ba `58.4`, ba thành hai `60.1`; nháy 0 lệch; một dấu lược cho mỗi `…pe…`): không phát hiện lỗi cần sửa, không đổi khoá nào. Không có bản Anh hay bản Việt độc lập khác.

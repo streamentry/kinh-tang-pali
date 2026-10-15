@@ -1,0 +1,62 @@
+{
+  "schemaVersion": 1,
+  "uid": "ja528",
+  "assessments": [
+    {
+      "target": "translation",
+      "scope": "full",
+      "scores": {
+        "source_provenance": 9.5,
+        "semantic_fidelity": 7.8,
+        "grammar_logic": 7.8,
+        "segment_alignment": 10,
+        "terminology": 8.3,
+        "triangulation": 7.6,
+        "vietnamese_clarity": 8,
+        "han_viet_balance": 9.2,
+        "ambiguity_integrity": 8.8,
+        "technical_integrity": 9.6
+      },
+      "blocking_errors": [
+        "noEnglishEditionUpstream: Thiếu bản dịch tiếng Anh đối chiếu. Tầng english-sujato tại commit đã ghim không có ja528_translation-en-sujato.json (ja chỉ có 83 tệp: ja1–79, ja126, ja159, ja466, ja534; đây là not-published-upstream, không phải not-synced), tầng vietnamese-current chỉ có Pháp Cú và lớp lấp english-project không có tệp cho bài này. Cả ba tầng tham khảo đều vắng nên triangulation bị chặn ở 7.5 (≤ 8.0) và bài giữ draft."
+      ],
+      "assessed_at": "2026-10-14",
+      "assessed_by": [
+        "Claude Sonnet 5.5 (Claude Code)"
+      ],
+      "notes": "Đối chiếu với bản dịch mù độc lập (một dịch giả khác cùng họ công cụ, dịch lại từ Pāli không xem bản dự án): xét 78 khoá chênh lệch lớn nhất và đọc đối kháng cả 275 cặp Pāli↔Việt. Khác nghĩa 6 chỗ: sửa 0, giữ 3 (`14.3` hầu cận theo `ja476:12.3`; `25.1` không thêm *đại*; `25.5` `jīvo` là sinh mạng), bất định 3 (`maṁ pati` ở 3.3–3.4; `ojadānabalīkāre` ở 54.3; `khattavijjā` ở 29.1/34.4). 11 khoá bản mù cũng ghi không chắc trùng đúng các chỗ khó thật đã ghi bất định, nên `semantic_fidelity`, `grammar_logic`, `terminology`, `ambiguity_integrity` giữ nguyên, chỉ `triangulation` 7.5 → 7.6 (đối chiếu một lần dịch lại cùng họ công cụ, nhiều chỗ chưa phân xử được). Không đổi khoá nào. Mức đối chiếu: Pāli root + một bản dịch mù cùng họ công cụ + tiền lệ nội bộ; không có bản Anh hay bản Việt độc lập. Blocker `noEnglishEditionUpstream` giữ nguyên. `technical_integrity` 9,6: chưa chạy `npm run validate` · `npm test` · `npm run check` · `npm run build` ở lượt này. Đây là review của AI, không phải chứng nhận của chuyên gia Pāli.",
+      "id": "fe11d33c-397b-4dac-80bc-98a1a784e07f",
+      "content_sha256": "ef7d87f026aaea96e12c81212e6e57d9157c9a5d2e9ae2706d7fff7f3b27c392",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
+      "final_score": 8.66
+    }
+  ],
+  "legacy_quality": {
+    "scores": {
+      "source_provenance": 9.5,
+      "semantic_fidelity": 7.8,
+      "grammar_logic": 7.8,
+      "segment_alignment": 10,
+      "terminology": 8.3,
+      "triangulation": 7.5,
+      "vietnamese_clarity": 8,
+      "han_viet_balance": 9.2,
+      "ambiguity_integrity": 8.8,
+      "technical_integrity": 9.6
+    },
+    "final_score": 8.65,
+    "blocking_errors": [
+      "noEnglishEditionUpstream: Thiếu bản dịch tiếng Anh đối chiếu. Tầng english-sujato tại commit đã ghim không có ja528_translation-en-sujato.json (ja chỉ có 83 tệp: ja1–79, ja126, ja159, ja466, ja534; đây là not-published-upstream, không phải not-synced), tầng vietnamese-current chỉ có Pháp Cú và lớp lấp english-project không có tệp cho bài này. Cả ba tầng tham khảo đều vắng nên triangulation bị chặn ở 7.5 (≤ 8.0) và bài giữ draft."
+    ],
+    "assessed_at": "2026-10-13",
+    "assessed_by": [
+      "Claude Sonnet 5.5 (Claude Code)"
+    ],
+    "waiver": {
+      "id": "no-upstream-english",
+      "blockers": [
+        "noEnglishEditionUpstream: Thiếu bản dịch tiếng Anh đối chiếu. Tầng english-sujato tại commit đã ghim không có ja528_translation-en-sujato.json (ja chỉ có 83 tệp: ja1–79, ja126, ja159, ja466, ja534; đây là not-published-upstream, không phải not-synced), tầng vietnamese-current chỉ có Pháp Cú và lớp lấp english-project không có tệp cho bài này. Cả ba tầng tham khảo đều vắng nên triangulation bị chặn ở 7.5 (≤ 8.0) và bài giữ draft."
+      ]
+    }
+  }
+}

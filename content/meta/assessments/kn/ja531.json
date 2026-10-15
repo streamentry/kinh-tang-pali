@@ -807,6 +807,34 @@
       "notes": "Kiểm tra tự động 377 segment với Pāli trong cache: đủ ID, giá trị, NFC và hệ chữ Latin. Chưa đọc đối chiếu nghĩa, ngữ pháp hoặc văn phong; chưa chấm lại 10 tiêu chí. Đây không phải chứng nhận hash upstream hoặc giấy phép, không xác nhận trạng thái xuất bản.",
       "content_sha256": "4b9c7bc4e05de941610f342a8caca0315a16407575699d9e7f7a8eb843233660",
       "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639"
+    },
+    {
+      "target": "translation",
+      "scope": "full",
+      "scores": {
+        "source_provenance": 9.5,
+        "semantic_fidelity": 8.3,
+        "grammar_logic": 8.3,
+        "segment_alignment": 10,
+        "terminology": 8.4,
+        "triangulation": 7.7,
+        "vietnamese_clarity": 8.4,
+        "han_viet_balance": 9.2,
+        "ambiguity_integrity": 8.7,
+        "technical_integrity": 9.6
+      },
+      "blocking_errors": [
+        "noEnglishEditionUpstream: Thiếu bản dịch tiếng Anh đối chiếu. Tầng english-sujato tại commit đã ghim không có ja531_translation-en-sujato.json (ja chỉ có 83 tệp: ja1–79, ja126, ja159, ja466, ja534; đây là not-published-upstream, không phải not-synced), tầng vietnamese-current chỉ có Pháp Cú và lớp english-project không có tệp cho bài này. Cả ba tầng tham khảo đều vắng nên triangulation bị chặn ở 7.5 (≤ 8.0) và bài giữ draft."
+      ],
+      "assessed_at": "2026-10-14",
+      "assessed_by": [
+        "Claude Sonnet 5.5 (Claude Code)"
+      ],
+      "notes": "Đối chiếu bản dịch mù độc lập (cùng họ công cụ) 2026-10-14: 113 khoá chênh lệch lớn nhất, 0 khác nghĩa, không sửa khoá nào; bản mù sai ở `72.4` (`padassati`) và `43.4` (`dahātha` là đặt, không phải đốt), phần còn lại là diễn đạt (13 đoạn điệp `Mā naṁ rūpena pāmesi`). Bất định 6: `2.1`–`2.2`, `37.2`, `47.4`, `53.3`/`54.3`, `17.4`, `76.2`. Đọc đối kháng cả 377 khoá: số `vīsatiṁ` đi với `sahassāni` = 20 ngàn, đối thoại và xưng hô (Kusa, Pabhāvatī, Madda), nháy 0 lệch, không `…`. Mức đối chiếu: một lần dịch lại độc lập cùng họ công cụ, không có bản Anh hay bản Việt khác; bản mù chia sẻ nhiều chỗ không chắc với bản dự án nên `triangulation` 7,7, không tuyên bố đã đối chiếu English. `technical_integrity` 9,6, bốn lệnh `npm run validate`, `npm test`, `npm run check`, `npm run build` không chạy trong lượt này. Blocker thiếu tầng English giữ nguyên. Đây là review của AI, không phải chứng nhận của chuyên gia Pāli.",
+      "id": "7d49a6a2-fd79-48fc-aa67-75b0aa7e1b96",
+      "content_sha256": "b13045d7efc09c46a1293fc0d2cd99f02db150ebb7c50d2f569e35960e9a30e8",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
+      "final_score": 8.809999999999999
     }
   ],
   "legacy_quality": {

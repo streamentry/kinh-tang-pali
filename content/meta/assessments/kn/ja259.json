@@ -53,6 +53,34 @@
       "notes": "Kiểm tra tự động 17 segment với Pāli trong cache: đủ ID, giá trị, NFC và hệ chữ Latin. Chưa đọc đối chiếu nghĩa, ngữ pháp hoặc văn phong; chưa chấm lại 10 tiêu chí. Đây không phải chứng nhận hash upstream hoặc giấy phép, không xác nhận trạng thái xuất bản.",
       "content_sha256": "4a0d63399fd9f191f94c7dab65fc8d889944cdcfe8ab8f02a775746a107e2c9e",
       "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639"
+    },
+    {
+      "target": "translation",
+      "scope": "full",
+      "scores": {
+        "source_provenance": 9.4,
+        "semantic_fidelity": 8.2,
+        "grammar_logic": 8.2,
+        "segment_alignment": 10,
+        "terminology": 8.5,
+        "triangulation": 7.2,
+        "vietnamese_clarity": 8.7,
+        "han_viet_balance": 9,
+        "ambiguity_integrity": 8.5,
+        "technical_integrity": 9.6
+      },
+      "blocking_errors": [
+        "Thiếu hẳn tầng tham khảo English Sujato tại commit đã ghim 11c9d708978cde8ba61096d8a75f7ddfb846f639: đếm trực tiếp trên source/upstream-manifest.json (cùng commit) cho thấy tầng translation/en/sujato có 4.291 tệp, trong đó thư mục sutta/kn/ja/ chỉ có 83 tệp, không có tệp nào chứa khoá của bài này; hàm upstreamPublishes của kho trả về false cho đường dẫn này, nghĩa là SuttaCentral không phát hành bản Anh nào phủ bài này tại commit đã ghim. Tầng vietnamese-current cũng không có (đúng 26 tệp, chỉ Pháp Cú), nên bài chỉ đối chiếu được với Pāli root một mình. Đây là giới hạn của bản chụp upstream, không phải thiếu sót của kho, nhưng theo AGENTS.md thì thiếu tầng tham khảo là lỗi chặn đối với review và published, và tests/unit/reference-source.test.ts kiểm đúng điều đó. Bài đặt draft và không nâng điểm để né."
+      ],
+      "assessed_at": "2026-10-14",
+      "assessed_by": [
+        "Claude Sonnet 5.5 (Claude Code)"
+      ],
+      "notes": "Đối chiếu bản dịch mù độc lập (cùng họ công cụ) 2026-10-14: 14 khoá chênh lệch lớn nhất, khác nghĩa 12, sửa 13 khoá (thêm `1.2`), giữ 1 (`0.3`), bất định 3 (`2.2` `ekassa katvā`, `3.2` `Vesāyino visayā jīvaloke`, `1.1` `vijjāmaya`). Bản cũ sai nặng: đọc `tirīṭa` là bùn rồi bịa ra con hạc và con cua, \"khối than cháy nuốt chửng hắn\", đảo vai người đưa tay cứu, \"hỡi hạc … món ngon nhất\" cho hai mệnh lệnh `dethassa`/`yajatha`; căn cứ Pāli và tầng ghim (`tirīṭa` là vỏ cây ở 10 khoá, `tedaṇḍika` ở `tha-ap411:10.3`). Điểm cũ (8,4 và 8,5) chấm trên bản có nhiều lỗi nặng chưa bị phát hiện; điểm mới chấm trên bản đã sửa: đúng ở phần lớn khoá nhưng còn ba chỗ chưa phân xử và cách xác định người nói chỉ là suy luận, nên `semantic_fidelity` và `grammar_logic` đặt 8,2. Còn lệch ngoài ba tệp được phép: `translationTitle` và tag `kinh-hac-vung-bun` trong metadata vẫn theo bản cũ, cần đổi sang \"Kinh Tirīṭavaccha\". Mức đối chiếu: một lần dịch lại độc lập cùng họ công cụ, không có bản Anh hay bản Việt khác; `triangulation` 7,2 vì còn bất định và bản mù cũng ghi không chắc ở các chỗ khó. `technical_integrity` 9,6, bốn lệnh `npm run validate`, `npm test`, `npm run check`, `npm run build` không chạy trong lượt này. Blocker giữ nguyên. Đây là review của AI, không phải chứng nhận của chuyên gia Pāli.",
+      "id": "518b1b19-2fea-4e8e-828e-601a331b56fc",
+      "content_sha256": "5b93b18882e615ae1d1b63fd9d3db9c241e59f7ab9004a90a98fc43403db5d82",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
+      "final_score": 8.73
     }
   ],
   "legacy_quality": {

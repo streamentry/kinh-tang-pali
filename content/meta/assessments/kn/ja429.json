@@ -53,6 +53,34 @@
       "notes": "Kiểm tra tự động 45 segment với Pāli trong cache: đủ ID, giá trị, NFC và hệ chữ Latin. Chưa đọc đối chiếu nghĩa, ngữ pháp hoặc văn phong; chưa chấm lại 10 tiêu chí. Đây không phải chứng nhận hash upstream hoặc giấy phép, không xác nhận trạng thái xuất bản.",
       "content_sha256": "869f42b5476e0e11b52beb574bbc23c40fadde2393d5af058f97df156bc9fa48",
       "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639"
+    },
+    {
+      "target": "translation",
+      "scope": "full",
+      "scores": {
+        "source_provenance": 9.6,
+        "semantic_fidelity": 8.7,
+        "grammar_logic": 8.6,
+        "segment_alignment": 10,
+        "terminology": 8.9,
+        "triangulation": 7.2,
+        "vietnamese_clarity": 8.7,
+        "han_viet_balance": 9.2,
+        "ambiguity_integrity": 8.6,
+        "technical_integrity": 9.6
+      },
+      "blocking_errors": [
+        "Bài này không có tầng Anh SuttaCentral đã ghim ở commit đã pin (`source/upstream-manifest.json` → `english-sujato`, 4291 tệp, chỉ 83 tệp `ja`: ja1–ja79, ja126, ja159, ja466, ja534 — không có uid nào của lát này), nên thiếu tầng tham khảo bắt buộc để xuất bản; đối chiếu chỉ có Pāli đã ghim cùng commit + tiền lệ đếm được trong chính tầng Việt dự án."
+      ],
+      "assessed_at": "2026-10-14",
+      "assessed_by": [
+        "Claude Sonnet 5.5 (Claude Code)"
+      ],
+      "notes": "Đối chiếu bản mù 15/45 khoá: không khác nghĩa trong danh sách; bất định 6 (`2.1`, `5.1`, `5.2`, `6.3`, `7.4`/`8.4`, `8.2`) chưa phân xử được. Rà toàn bài sửa 1 khoá ngoài danh sách (`4.3`, bỏ chữ *Vì* tự thêm chiều nhân quả, đặt `jīvikattho` đồng vị theo Pāli); `ambiguity_integrity` hạ vì ghi chú cũ nói giữ mơ hồ trong khi câu Việt đã chọn chiều nguyên nhân. `triangulation` 7,2 (còn nhiều chỗ chưa phân xử, bản mù cùng họ công cụ). Đây là review của AI, không phải chứng nhận của chuyên gia Pāli. Không có bản Anh hay bản Việt độc lập khác; `technical_integrity` 9,6 vì bốn lệnh `npm run validate`, `npm test`, `npm run check`, `npm run build` chưa chạy trong lượt này.",
+      "id": "c52a7c05-6e13-408c-9017-3c2ef8bf2299",
+      "content_sha256": "125de8a85a30aa5cdc1b5ddfe7f5729d4b30bc1a0481240af99888c5421b4602",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
+      "final_score": 8.91
     }
   ],
   "legacy_quality": {

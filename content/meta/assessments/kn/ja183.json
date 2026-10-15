@@ -53,6 +53,34 @@
       "notes": "Kiểm tra tự động 13 segment với Pāli trong cache: đủ ID, giá trị, NFC và hệ chữ Latin. Chưa đọc đối chiếu nghĩa, ngữ pháp hoặc văn phong; chưa chấm lại 10 tiêu chí. Đây không phải chứng nhận hash upstream hoặc giấy phép, không xác nhận trạng thái xuất bản.",
       "content_sha256": "e74b04d569b7c4d40fd7266aa434368c98923f90ff058e55ae45893d0b0e836e",
       "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639"
+    },
+    {
+      "target": "translation",
+      "scope": "full",
+      "scores": {
+        "source_provenance": 8.2,
+        "semantic_fidelity": 8.6,
+        "grammar_logic": 8.6,
+        "segment_alignment": 10,
+        "terminology": 8.8,
+        "triangulation": 7.6,
+        "vietnamese_clarity": 8.4,
+        "han_viet_balance": 8.8,
+        "ambiguity_integrity": 8.6,
+        "technical_integrity": 9.6
+      },
+      "blocking_errors": [
+        "Thiếu hẳn tầng tham khảo English SuttaCentral: tệp .cache/upstream/suttacentral/translation/en/sujato/sutta/kn/ja/ja183_translation-en-sujato.json không tồn tại ở commit đã ghim. Sujato dịch Tăng Bộ chỉ tới ja79 cộng vài ngoại lệ; SuttaCentral không có bản Anh nào phủ cho ja183. Theo AGENTS.md, thiếu tầng tham khảo là lỗi chặn đối với review/published."
+      ],
+      "assessed_at": "2026-10-14",
+      "assessed_by": [
+        "Claude Sonnet 5.5 (Claude Code)"
+      ],
+      "notes": "Mức đối chiếu: một bản dịch lại độc lập từ Pāli (cùng họ công cụ), không có bản Anh hay bản Việt khác; so 6 khoá chênh lệch lớn nhất trong 13 khoá. Sửa 0; giữ 1 (`1.1` bản mù thêm chữ *nước*). Bản mù độc lập cũng đọc `puṭṭho` ở `2.2` theo nghĩa bị tác động, củng cố cách đọc `phuṭṭha`. Không còn khác nghĩa chưa phân xử trong các khoá đã so, nhưng 7 khoá không nằm trong danh sách chênh lệch lớn chưa được so từng chữ, nên triangulation 7.6, không cao hơn. Các tiêu chí khác giữ nguyên; source_provenance giữ 8.2 như lượt trước (lượt này không có bằng chứng mới về nguồn). Blocker thiếu bản Anh upstream giữ nguyên (không giải được bằng Pāli, là sự thật về bản chụp đã ghim). technical_integrity 9.6: chưa chạy npm run validate, npm test, npm run check, npm run build, nên không tuyên bố cổng kỹ thuật đã qua. Đây là review của AI, không phải chứng nhận của chuyên gia Pāli.",
+      "id": "2911637c-c1f7-4952-aa46-961086d9fe5d",
+      "content_sha256": "4d3a4f8d03b0014bb3c602aed84ab33ae6893507327403d7079de94d6d71cb41",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
+      "final_score": 8.719999999999999
     }
   ],
   "legacy_quality": {

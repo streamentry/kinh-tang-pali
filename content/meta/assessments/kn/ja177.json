@@ -53,6 +53,34 @@
       "notes": "Kiểm tra tự động 13 segment với Pāli trong cache: đủ ID, giá trị, NFC và hệ chữ Latin. Chưa đọc đối chiếu nghĩa, ngữ pháp hoặc văn phong; chưa chấm lại 10 tiêu chí. Đây không phải chứng nhận hash upstream hoặc giấy phép, không xác nhận trạng thái xuất bản.",
       "content_sha256": "0280d04c005b540c158a6b29f04f2253c956421a3b049e8fe5f421296a461f25",
       "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639"
+    },
+    {
+      "target": "translation",
+      "scope": "full",
+      "scores": {
+        "source_provenance": 9.2,
+        "semantic_fidelity": 8.6,
+        "grammar_logic": 8.8,
+        "segment_alignment": 10,
+        "terminology": 9,
+        "triangulation": 7.6,
+        "vietnamese_clarity": 8.6,
+        "han_viet_balance": 9,
+        "ambiguity_integrity": 8.6,
+        "technical_integrity": 9.6
+      },
+      "blocking_errors": [
+        "Thiếu tầng tham khảo English Sujato tại commit đã ghim: `source/upstream-manifest.json` xác nhận `sutta/kn/ja/ja177_translation-en-sujato.json` không có trong git tree của commit đã ghim (not-published-upstream), nên bài chỉ đối chiếu được với Pāli root một mình."
+      ],
+      "assessed_at": "2026-10-14",
+      "assessed_by": [
+        "Claude Sonnet 5.5 (Claude Code)"
+      ],
+      "notes": "Đối chiếu với bản dịch mù độc lập (một dịch giả khác cùng họ công cụ, dịch lại từ Pāli không xem bản dự án): xét 4 khoá chênh lệch lớn nhất (9 khoá còn lại gần như trùng) và đọc đối kháng cả 13 cặp Pāli↔Việt. Khác nghĩa 3 chỗ: sửa 0, giữ 1 (`2.4` *quả tinduka*), bất định 2 (`nettiṁ savaradhāribhi` ở 1.2, chỉ khác sắc thái; `acchinnaṁ` ở 2.3). Không đổi khoá nào; điểm nội dung giữ nguyên; `triangulation` 8.0 → 7.6 vì mức đối chiếu thực chỉ là một lần dịch lại cùng họ công cụ (trần 8,0) và còn hai chỗ chưa phân xử được trên 13 khoá. Mức đối chiếu: Pāli root + một bản dịch mù cùng họ công cụ + tiền lệ nội bộ; không có bản Anh hay bản Việt độc lập. Blocker giữ nguyên (không có tài liệu độc lập nào giải được). `technical_integrity` 9,6: chưa chạy `npm run validate` · `npm test` · `npm run check` · `npm run build` ở lượt này. Đây là review của AI, không phải chứng nhận của chuyên gia Pāli.",
+      "id": "974c7b66-1d96-4cc4-b456-f09925d6cb3a",
+      "content_sha256": "97a475043571b28af97d5b309fe1ba8f1f3bb645f3c2b4968c94756ddfbf58f5",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
+      "final_score": 8.899999999999999
     }
   ],
   "legacy_quality": {

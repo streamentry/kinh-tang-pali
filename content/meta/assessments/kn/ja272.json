@@ -53,6 +53,34 @@
       "notes": "Kiểm tra tự động 17 segment với Pāli trong cache: đủ ID, giá trị, NFC và hệ chữ Latin. Chưa đọc đối chiếu nghĩa, ngữ pháp hoặc văn phong; chưa chấm lại 10 tiêu chí. Đây không phải chứng nhận hash upstream hoặc giấy phép, không xác nhận trạng thái xuất bản.",
       "content_sha256": "b3cc5ffd8bf49e172fb5a132389a1bda12da6cab52fdda9087c38885c2edea8a",
       "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639"
+    },
+    {
+      "target": "translation",
+      "scope": "full",
+      "scores": {
+        "source_provenance": 9.4,
+        "semantic_fidelity": 8.7,
+        "grammar_logic": 9,
+        "segment_alignment": 10,
+        "terminology": 9,
+        "triangulation": 7.3,
+        "vietnamese_clarity": 9,
+        "han_viet_balance": 9.1,
+        "ambiguity_integrity": 8.5,
+        "technical_integrity": 9.6
+      },
+      "blocking_errors": [
+        "Thiếu hẳn tầng tham khảo English Sujato tại commit đã ghim 11c9d708978cde8ba61096d8a75f7ddfb846f639: đếm trực tiếp trên source/upstream-manifest.json (cùng commit) cho thấy tầng translation/en/sujato có 4.291 tệp, trong đó thư mục sutta/kn/ja/ chỉ có 83 tệp, không có tệp nào chứa khoá của bài này; hàm upstreamPublishes của kho trả về false cho đường dẫn này, nghĩa là SuttaCentral không phát hành bản Anh nào phủ bài này tại commit đã ghim. Tầng vietnamese-current cũng không có (đúng 26 tệp, chỉ Pháp Cú), nên bài chỉ đối chiếu được với Pāli root một mình. Đây là giới hạn của bản chụp upstream, không phải thiếu sót của kho, nhưng theo AGENTS.md thì thiếu tầng tham khảo là lỗi chặn đối với review và published, và tests/unit/reference-source.test.ts kiểm đúng điều đó. Bài đặt draft và không nâng điểm để né."
+      ],
+      "assessed_at": "2026-10-14",
+      "assessed_by": [
+        "Claude Sonnet 5.5 (Claude Code)"
+      ],
+      "notes": "Mức đối chiếu: một bản dịch lại độc lập từ Pāli (cùng họ công cụ), không có bản Anh hay bản Việt khác; so 4 khoá chênh lệch lớn nhất trong 17 khoá. Sửa 0; bất định 2 (`1.3` `pubbevajjhābhavaṁ`, `1.4` `rukkhe akkhīva`): bản mù cũng ghi không chắc ở đúng hai chỗ này, và cả hai bản đều không rút ra được nghĩa chắc từ chữ đã ghim; bản dự án đọc `rakkhe` như đã ghi trước. Hai khoá còn lại là tên bài. triangulation 7.3 vì hai trong bốn bất đồng chưa phân xử; các tiêu chí khác giữ nguyên. Blocker thiếu bản Anh upstream giữ nguyên (không giải được bằng Pāli, là sự thật về bản chụp đã ghim). technical_integrity 9.6: chưa chạy npm run validate, npm test, npm run check, npm run build, nên không tuyên bố cổng kỹ thuật đã qua. Đây là review của AI, không phải chứng nhận của chuyên gia Pāli.",
+      "id": "629164ba-dad6-4834-b524-ed0569fa8276",
+      "content_sha256": "e8bc54471f860af5dc1662317d3872661b21bf204af10a5ee0dabb674d87fb46",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
+      "final_score": 8.959999999999999
     }
   ],
   "legacy_quality": {

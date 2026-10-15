@@ -3,7 +3,8 @@ status: review
 translationTitle: "Kinh Sarabhamiga"
 translators:
   - "Claude Sonnet 5.5 (Claude Code)"
-reviewers: []
+reviewers:
+  - Claude Sonnet 5.5 (Claude Code)
 tags:
   - "kn"
   - "khuddaka-nikaya"
@@ -15,15 +16,15 @@ quality:
   scores:
     source_provenance: 9.4
     semantic_fidelity: 8.8
-    grammar_logic: 8.9
-    segment_alignment: 10.0
-    terminology: 9.0
-    triangulation: 7.0
-    vietnamese_clarity: 8.9
-    han_viet_balance: 9.2
-    ambiguity_integrity: 9.0
+    grammar_logic: 8.8
+    segment_alignment: 10
+    terminology: 8.9
+    triangulation: 7.6
+    vietnamese_clarity: 8.8
+    han_viet_balance: 9.1
+    ambiguity_integrity: 8.9
     technical_integrity: 9.6
-  final_score: 8.98
+  final_score: 8.989999999999998
   blocking_errors:
     - "noEnglishEditionUpstream: Không có tầng tham khảo tiếng Anh tại commit đã
       ghim. `source/upstream-manifest.json` chỉ liệt kê
@@ -36,9 +37,10 @@ quality:
       chỉ dịch từ Pāli root và đối chiếu tiền lệ nội bộ ⇒ bắt buộc `draft` và
       `triangulation ≤ 8,0`. Đây là giới hạn của upstream, không phải lỗi của
       người dịch."
-  assessed_at: "2026-10-13"
+  assessed_at: 2026-10-14
   assessed_by:
-    - "Claude Sonnet 5.5 (Claude Code)"
+    - Claude Sonnet 5.5 (Claude Code)
+  assessment_id: e84e5bfb-04f2-4b06-a086-078e9c8b1dce
   waiver:
     id: no-upstream-english
     blockers:
@@ -129,3 +131,5 @@ notes: |-
   **Coverage English (mục 7):** mẫu số = 0. Khoá Pāli dài nhất sau khi nén khoảng trắng là 34 ký tự (< 40) nên 0/79 khoá có nội dung; 4 khoá `:0` bị loại trước. Đây là *cổng không đo được gì*, không phải *không cần ghi nhận gap*. Sujato: 0 tệp cho `ja483` (`kn/ja` chỉ có 83 tệp, không gồm uid này); `english-project`: 0; `vietnamese-current`: 0 (chỉ Pháp Cú). Ba tầng đều vắng ⇒ `triangulation` 7,0 (≤ 8,0) và `status: draft` kèm blocker ở trên. Ngoài bài này, đã dùng bản English của Sujato cho `ja51` và `ja52` chỉ để hiểu hai kệ lặp (cùng nguyên văn Pāli với `1.1`–`4.4`), không coi đó là tầng English của bài. Tôi không đụng `content/meta/reference-gaps.yaml`.
 
   **technical_integrity = 9,6:** bài này không chạy các cổng kỹ thuật, nên không tuyên bố technical gate pass. Bốn lệnh còn lại cần chạy trước khi đổi trạng thái: `npm run validate` · `npm test` · `npm run check` · `npm run build`.
+
+  Đối chiếu bản dịch mù độc lập 2026-10-14: một dịch giả khác (cùng họ công cụ) dịch lại bài từ Pāli, không xem bản dự án; so 30 khoá chênh lệch lớn nhất → khác nghĩa 0: sửa 0, giữ 30, bất định 3 (`8.2`, `11.1`, `13.4`). Giữ `7.3`–`7.4` (bản mù tách `alīnacittassa`/`vikkantamanujīvasi` sang dòng khác, cùng nghĩa *ngài sống nhờ dũng lực của bậc có tâm không nản*); `16.2` `ekassa kattā` (bản mù *chỉ một mình đã làm* đọc `ekassa` thành của người làm, nhưng `ekassa` là sở hữu cách đi với `mayhaṁ` ở `16.1`, nên bản dự án đúng); `6.4`, `3.1`/`4.1`, `1.2`/`2.2`/`3.2`/`4.2`, `1.4`/`3.4`, `10.1`–`10.2`, `15.1`, `18.3`, `0.2`/`0.4`/`20.1`: khác diễn đạt, cùng nghĩa. Bất định `8.2` `silāya yoggaṁ … karitvā`: bản mù *làm phương tiện* ⟦?⟧; giữ *thử sức* theo `ja516:21.1`–`21.3` (cùng công thức, ngay trước đó con khỉ cầm tảng đá nặng), nhưng Pāli không nói rõ. Bất định `11.1` `pattiṁ`: bản dự án *vật có lông cánh*, bản mù *mũi tên* ⟦?⟧; hai cách đọc cùng chỉ vật có lông vũ, `11.2` `saraṁ` đã nêu mũi tên. Bất định nhỏ `13.4` `amarādhipo`: bản dự án *chúa tể của chư thiên bất tử*, bản mù *chúa của chư bất tử*; `ja543:116.2` cùng từ dịch *chúa tể của những bậc bất tử* (không thêm *chư thiên*), cần người biên tập chọn một cách cho cả hai bài. Review đối kháng toàn bài 83 khoá: nháy kép khớp Pāli từng khoá, không dấu lược, không số, xưng hô nhất quán; không phát hiện lỗi mới. Không có bản Anh hay bản Việt độc lập khác; `triangulation` chỉ dựa trên một lần dịch lại cùng họ công cụ nên bị giữ dưới 8,0. Lượt này không chạy `npm run validate` · `npm test` · `npm run check` · `npm run build`; không tuyên bố technical gate pass.

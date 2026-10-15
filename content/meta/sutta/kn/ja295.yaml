@@ -3,7 +3,8 @@ status: "review"
 translationTitle: "Kinh Kẻ Thấp Kém Nhất"
 translators:
   - "OpenCode Space Bunny Free (agent)"
-reviewers: []
+reviewers:
+  - Claude Sonnet 5.5 (Claude Code)
 tags:
   - "jataka"
   - "khuddaka-nikaya"
@@ -12,17 +13,17 @@ tags:
   - "kinh-ke-thap-kem-nhat"
 quality:
   scores:
-    source_provenance: 9.5
-    semantic_fidelity: 8.7
+    source_provenance: 9.4
+    semantic_fidelity: 8.8
     grammar_logic: 8.8
     segment_alignment: 10
-    terminology: 8.7
-    triangulation: 6.5
+    terminology: 8.8
+    triangulation: 7.7
     vietnamese_clarity: 8.8
     han_viet_balance: 9
-    ambiguity_integrity: 8.7
+    ambiguity_integrity: 8.8
     technical_integrity: 9.6
-  final_score: 8.83
+  final_score: 8.969999999999999
   blocking_errors:
     - "Không có tầng tham khảo English Sujato tại commit đã ghim
       11c9d708978cde8ba61096d8a75f7ddfb846f639. Đếm bằng script trên
@@ -32,9 +33,10 @@ quality:
       ja295, và tầng ref/en trong cache cũng không có tệp nào cho ja295.
       SuttaCentral không phát hành bản Anh nào khác phủ bài này tại commit đã
       ghim, nên bài chỉ đối chiếu được với Pāli root một mình."
-  assessed_at: "2026-10-12"
+  assessed_at: 2026-10-14
   assessed_by:
-    - "Claude Sonnet 5.5 (Claude Code)"
+    - Claude Sonnet 5.5 (Claude Code)
+  assessment_id: 96706024-58f4-4550-a7bb-b34cd7ba84a4
   waiver:
     id: no-upstream-english
     blockers:
@@ -76,3 +78,5 @@ notes: |-
   BẤT ĐỊNH CÒN LẠI (ghi ở đây, không thêm vào thân kinh). (a) Người nói của vế 1 (và 3) không được đánh dấu trong Pāli; chỉ biết vế 2 là lời đáp hô quạ (vāyasa). Không đặt nhãn người nói. (b) anto = thấp kém nhất là nghĩa suy từ cấu trúc ba vế xếp bậc và từ gốc anta; nếu người biên tập muốn bám sát chữ hơn, thay bằng "ở tận cùng/dưới cùng". (c) pariyāhi (2.4) là mệnh lệnh của pari + yā, nghĩa gốc "đi vòng", ở đây dùng với ito để đuổi đi; không có bản Anh để đối chiếu. (d) Mayūragīvasaṅkāsa có thể là lời mỉa hay lời tả thực về cái cổ óng của quạ — Pāli không phân biệt, bản dịch giữ nguyên tả cổ chim công.
 
   KỸ THUẬT. Đã tự soát lại 17 khoá: đủ khoá và thứ tự khớp Pāli, không khoá rỗng, chuỗi NFC, 0 dấu lược (Pāli cũng 0), dấu nháy kép khớp Pāli từng khoá (1.1 mở, 1.4 đóng, 2.1 mở, 2.4 đóng, 3.1 mở, 3.4 đóng), không có số trong thân bài nên không có phép tính số Pāli. Lượt này không chạy npm run validate, npm test, npm run check, npm run build; technical_integrity giữ 9,6, không tuyên bố technical gate pass.
+
+  Đối chiếu bản dịch mù độc lập 2026-10-14: một dịch giả khác (cùng họ công cụ) dịch lại bài từ Pāli, không xem bản dự án; so 3 khoá chênh lệch lớn nhất (`0.4`, `3.4`, `4.1`) → khác nghĩa 0: sửa 0, giữ 3, bất định 0 mới. Giữ `0.4`/`4.1`: bản mù đặt tên bài theo kiểu *Chuyện Tiền thân Anta*, chỉ khác khuôn tiêu đề; bản dự án giữ khuôn *Kinh <Tên>* của tầng. Giữ `3.4` `tayo antā samāgatā`: bản mù *ba hạng chót* cùng nghĩa *ba kẻ thấp kém nhất*, nên là chứng cứ độc lập cùng chiều cho cách đọc `anto` là bậc thấp nhất đã xác lập ở lượt 2026-10-12. Review đối kháng toàn bài 17 khoá: nháy kép khớp Pāli từng khoá, không dấu lược, không số, xưng hô nhất quán (`1.4` `labhāmase` là ngôi thứ nhất số nhiều nên giữ *chúng tôi*); không phát hiện lỗi mới. Các bất định (a)–(d) ở trên giữ nguyên. Không có bản Anh hay bản Việt độc lập khác; `triangulation` chỉ dựa trên một lần dịch lại cùng họ công cụ nên bị giữ dưới 8,0. Lượt này không chạy `npm run validate` · `npm test` · `npm run check` · `npm run build`; không tuyên bố technical gate pass.

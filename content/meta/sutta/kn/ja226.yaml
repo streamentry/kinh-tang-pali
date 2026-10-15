@@ -3,33 +3,35 @@ status: review
 translationTitle: "Kinh Kosiya"
 translators:
   - "OpenCode Space Bunny Free (agent)"
-reviewers: []
+reviewers:
+  - Claude Sonnet 5.5 (Claude Code)
 tags:
   - khuddaka-nikaya
   - jataka
   - dukanipata
 quality:
   scores:
-    source_provenance: 9.2
+    source_provenance: 9.3
     semantic_fidelity: 8.8
     grammar_logic: 8.8
-    segment_alignment: 10.0
-    terminology: 9.0
-    triangulation: 7.0
-    vietnamese_clarity: 9.0
-    han_viet_balance: 9.2
-    ambiguity_integrity: 9.0
+    segment_alignment: 10
+    terminology: 8.9
+    triangulation: 7.7
+    vietnamese_clarity: 8.8
+    han_viet_balance: 9.1
+    ambiguity_integrity: 8.8
     technical_integrity: 9.6
-  final_score: 8.96
+  final_score: 8.98
   blocking_errors:
-    - "Tại commit đã ghim không có tệp
+    - Tại commit đã ghim không có tệp
       translation/en/sujato/sutta/kn/ja/ja226_translation-en-sujato.json; bài
       nằm trong 990 bài không được SuttaCentral phát bản Anh. Đây là giới hạn
       của bản chụp upstream, không phải thiếu sót của kho, nhưng thiếu tầng tham
-      khảu là blocking error nên bài phải giữ draft."
-  assessed_at: "2026-10-12"
+      khảu là blocking error nên bài phải giữ draft.
+  assessed_at: 2026-10-14
   assessed_by:
-    - "Claude Sonnet 5.5 (Claude Code)"
+    - Claude Sonnet 5.5 (Claude Code)
+  assessment_id: 7e06a196-6848-4b1f-987b-e973f5b74b46
   waiver:
     id: no-upstream-english
     blockers:
@@ -224,3 +226,5 @@ notes: |-
     dù ở thân kệ là con cú — khác nghĩa có chủ ý, theo cách tầng đã giữ `Kosiya` ở `ja470`.
   - TECHNICAL GATE: CHƯA CHẠY trong lượt này (bị cấm chạy lệnh của kho); `technical_integrity`
     giữ 9,6. Cần chạy `npm run validate`, `npm test`, `npm run check`, `npm run build` sau khi gộp.
+
+  Đối chiếu bản dịch mù độc lập 2026-10-14: một dịch giả khác (cùng họ công cụ) dịch lại bài từ Pāli, không xem bản dự án; so 4 khoá chênh lệch lớn nhất (`1.5`, `1.4`, `0.4`, `1.3`) → khác nghĩa 1: sửa 0, giữ 4, bất định 1. Giữ `1.4` `ekakampi bahujjano` (chỗ khác nghĩa thật): bản mù dịch *dù chỉ một mình hay nhiều người*, tức đọc `ekakaṁ` thành chủ thể; theo Pāli `ekakampi` là đối cách (*dù chỉ một người*, người bị hướng tới) còn `bahujjano` là chủ cách và là chủ ngữ của `joteti` ở `1.5`, nên bản dự án đúng (đám đông ra đi sai thời, dù chỉ đối với một kẻ đơn độc, cũng chẳng đạt được điều gì). Giữ `1.5` `na kiñci atthaṁ joteti`: bản mù *chẳng làm nên lợi ích nào* khác diễn đạt, cùng ý *không thành tựu điều gì*. Giữ `0.4` (khuôn tiêu đề tầng) và `1.3` (`hi`: *quả vậy* và *vì* cùng nghĩa). Bất định `1.5` `joteti`: gốc nghĩa là soi sáng (tầng dịch `jotayati` là *soi sáng/làm sáng tỏ* ở nhiều khoá khác); nghĩa *đạt được/làm nên* ở đây là cách đọc theo ngữ cảnh, không có tiền lệ cùng cụm trong tầng. Review đối kháng toàn bài 15 khoá: nháy kép khớp Pāli từng khoá, không dấu lược, không số; không phát hiện lỗi mới. Không có bản Anh hay bản Việt độc lập khác; `triangulation` chỉ dựa trên một lần dịch lại cùng họ công cụ nên bị giữ dưới 8,0. Lượt này không chạy `npm run validate` · `npm test` · `npm run check` · `npm run build`; không tuyên bố technical gate pass.

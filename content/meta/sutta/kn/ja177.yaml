@@ -3,7 +3,8 @@ status: review
 translationTitle: "Kinh Tinduka"
 translators:
   - "OpenCode Space Bunny Free (agent)"
-reviewers: []
+reviewers:
+  - Claude Sonnet 5.5 (Claude Code)
 tags:
   - "khuddaka-nikaya"
   - "jataka"
@@ -14,23 +15,24 @@ quality:
     source_provenance: 9.2
     semantic_fidelity: 8.6
     grammar_logic: 8.8
-    segment_alignment: 10.0
-    terminology: 9.0
-    triangulation: 8.0
+    segment_alignment: 10
+    terminology: 9
+    triangulation: 7.6
     vietnamese_clarity: 8.6
-    han_viet_balance: 9.0
+    han_viet_balance: 9
     ambiguity_integrity: 8.6
     technical_integrity: 9.6
-  final_score: 8.94
+  final_score: 8.899999999999999
   blocking_errors:
     - "Thiếu tầng tham khảo English Sujato tại commit đã ghim:
       `source/upstream-manifest.json` xác nhận
       `sutta/kn/ja/ja177_translation-en-sujato.json` không có trong git tree của
       commit đã ghim (not-published-upstream), nên bài chỉ đối chiếu được với
       Pāli root một mình."
-  assessed_at: "2026-10-13"
+  assessed_at: 2026-10-14
   assessed_by:
-    - "Claude Sonnet 5.5 (Claude Code)"
+    - Claude Sonnet 5.5 (Claude Code)
+  assessment_id: 974c7b66-1d96-4cc4-b456-f09925d6cb3a
   waiver:
     id: no-upstream-english
     blockers:
@@ -68,3 +70,5 @@ notes: |-
   ĐIỂM: `source_provenance` 9.4 → 9.2 (ghi chú cũ nêu từ điển và cách đọc không kiểm chứng được; nay đã đính chính); `grammar_logic` 8.5 → 8.8; `terminology` 8.8 → 9.0; `vietnamese_clarity` 8.8 → 8.6 (bản cũ đọc trôi nhưng sai; bản sát Pāli hơn thì `2.3` hơi cô đọng); các tiêu chí khác giữ. Điểm cũ không phản ánh các lỗi trên.
   BẤT ĐỊNH CÒN LẠI (ghi, không đoán): (a) người "nhiều việc" là ai — Pāli không nêu, đọc theo mạch `1.1`–`1.4` là những người cầm cung, nhưng không có chú giải hay bản Anh đã ghim để xác nhận; (b) `acchinnaṁ` — phần cây nào chưa bị cắt (quả hay cành) không được nói; (c) `khajjatha` đọc là mệnh lệnh số nhiều *hãy ăn*, còn có thể là dạng thụ động `khajjati` (*được ăn*) — cả hai cùng dẫn tới *ăn quả tinduka* nhưng sắc thái khác; (d) vai nói: `1.x` là lời chung của bầy, `2.x` là lời đáp — suy từ khung hỏi–đáp của hai bài kệ, không có văn xuôi trong bản chụp ghim để xác nhận. Các điểm này giữ `semantic_fidelity` và `ambiguity_integrity` ở 8.6.
   TỰ KIỂM: 13/13 khoá, tập khoá và thứ tự khớp Pāli; dấu nháy kép và dấu lược khớp Pāli từng khoá (0 lệch); NFC; không Pāli lọt sang bản Việt; 0 cặp Pāli trùng nguyên văn trong chính bài. `technical_integrity` giữ 9.6; chưa chạy `npm run validate` · `npm test` · `npm run check` · `npm run build` trong lượt này.
+
+  Đối chiếu bản dịch mù độc lập 2026-10-14: một dịch giả khác (cùng họ công cụ) dịch lại bài từ Pāli không xem bản dự án; so 4 khoá chênh lệch lớn nhất (`0.3`, `0.4`, `1.2`, `2.4`; 9 khoá còn lại gần như trùng; đọc thêm đối kháng cả 13 cặp Pāli↔Việt) → khác nghĩa 3: sửa 0, giữ 1, bất định 2. Giữ: `2.4` (bản mù *ăn tinduka*, bỏ *quả* và ghi không chắc; giữ *quả tinduka* như phân tích lượt trước: `tindukaṁ` trung tính, tân ngữ của `khajjatha`; tầng dùng *quả tinduka* ở `tha-ap199`). Bất định: `1.2` `nettiṁ savaradhāribhi` (bản mù *gươm tốt*, bản dự án *gươm báu*; cùng đọc `nettiṁ` là gươm, khác nhau ở sắc thái tính từ `vara`; cách tách `nettiṁ` + `savara` + `dhāribhi` vẫn không chắc); `2.3` `acchinnaṁ` *phần chưa bị cắt* (đã ghi từ lượt trước, bản mù không bất đồng). `0.3`/`0.4` khác ở cách dịch tên phần và tên bài (*Phẩm Pháp Lành*, *Kinh Tinduka* theo khuôn tầng `ja`), không phải khác nghĩa. Không đổi khoá nào. Không có bản Anh hay bản Việt độc lập khác.

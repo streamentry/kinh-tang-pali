@@ -53,6 +53,34 @@
       "notes": "Kiểm tra tự động 39 segment với Pāli trong cache: đủ ID, giá trị, NFC và hệ chữ Latin. Chưa đọc đối chiếu nghĩa, ngữ pháp hoặc văn phong; chưa chấm lại 10 tiêu chí. Đây không phải chứng nhận hash upstream hoặc giấy phép, không xác nhận trạng thái xuất bản.",
       "content_sha256": "418a49d355148ccd80c50eac2398e802415d3b7d2c681a0c13865d3b80636f4b",
       "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639"
+    },
+    {
+      "target": "translation",
+      "scope": "full",
+      "scores": {
+        "source_provenance": 9.4,
+        "semantic_fidelity": 8.6,
+        "grammar_logic": 8.8,
+        "segment_alignment": 9.6,
+        "terminology": 9,
+        "triangulation": 7.6,
+        "vietnamese_clarity": 9,
+        "han_viet_balance": 9.2,
+        "ambiguity_integrity": 8.6,
+        "technical_integrity": 9.6
+      },
+      "blocking_errors": [
+        "Không có tầng tham khảo tiếng Anh tại commit đã ghim: `source/upstream-manifest.json` (commit 11c9d708, tầng `english-sujato`, 4291 tệp) KHÔNG liệt kê bất kỳ tệp nào cho uid `ja418`, và `.cache/upstream/suttacentral/translation/en/sujato/` cũng không có — đây là `not-published-upstream`, KHÔNG phải `not-synced`. Đo coverage theo đúng công thức `source/layers.yaml` (Pāli có nội dung ≥ 40 ký tự, loại block tham chiếu `:0`) cho 0/0 = mẫu số bằng 0, dưới ngưỡng 0.8; `scripts/validate.ts` coi tệp Anh thiếu là **error** khi status là `review` hoặc `published`, nên bài bắt buộc `draft`. Tầng `vietnamese-current` cũng vắng: `translation/vi/phantuananh` tại commit đã ghim chỉ có 26 tệp và toàn bộ là Pháp Cú. Lớp lấp `english-project` của dự án cũng không có cho uid này. Hai tầng tham khảo đều vắng ⇒ bài dịch chỉ từ Pāli root ⇒ blocker thật, và đây là **giới hạn upstream**, không phải lỗi của người dịch. Vì vậy `triangulation` bị chặn ở 7.4 (≤ 8.0) chứ không nâng để né blocker."
+      ],
+      "assessed_at": "2026-10-14",
+      "assessed_by": [
+        "Claude Sonnet 5.5 (Claude Code)"
+      ],
+      "notes": "Đối chiếu mù độc lập 2026-10-14 (một lần dịch lại từ Pāli, cùng họ công cụ, không có bản Anh hay bản Việt khác): 18 khoá chênh lệch xét hết, 4 khác nghĩa, 0 sửa, 2 giữ (3.1–3.2, 2.1–2.2: bản mù sai ngữ pháp hoặc trái mạch kệ kế tiếp), 2 bất định (6.4 bāhiko, 1.1 āhu; đã ghi từ trước). 21 khoá còn lại gần như trùng nghĩa với bản mù nên không vào danh sách chênh. Không phát hiện lỗi mới ở bản dự án. Không đổi điểm bản dịch; triangulation nâng nhẹ 7,4 → 7,6 vì có một lần dịch lại độc lập đã phân xử hết các bất đồng, nhưng vẫn là cùng họ công cụ, không tài liệu ngoài, và còn các bất định (tassā ở 3.2, bāhiko, āhu, aggodaka, asmani) không phân xử được. Blocker lấy nguyên từ meta. Đây là review của AI, không phải chứng nhận của chuyên gia Pāli.",
+      "id": "7a2d11d2-2eb0-467e-adc7-e2cc3c8ca1a3",
+      "content_sha256": "6aca869e2a445e932fa317c71fb331e726299fad342bb1019438334be3ec0eee",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
+      "final_score": 8.94
     }
   ],
   "legacy_quality": {
