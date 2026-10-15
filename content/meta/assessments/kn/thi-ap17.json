@@ -29,6 +29,34 @@
       "content_sha256": "343396684a1e14520ac97f8d6da4d9f5b42bc1c6cf2c7a28b24a7337fee08a3b",
       "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
       "final_score": 8.94
+    },
+    {
+      "target": "translation",
+      "scope": "full",
+      "assessed_at": "2026-10-15",
+      "assessed_by": [
+        "Claude Opus 5.5 (Claude Code)"
+      ],
+      "scores": {
+        "source_provenance": 9.5,
+        "semantic_fidelity": 8.7,
+        "grammar_logic": 8.5,
+        "segment_alignment": 10,
+        "terminology": 8.7,
+        "triangulation": 8.3,
+        "vietnamese_clarity": 8.5,
+        "han_viet_balance": 9.2,
+        "ambiguity_integrity": 8.5,
+        "technical_integrity": 9.6
+      },
+      "blocking_errors": [
+        "Không có tầng tham khảo tiếng Anh tại commit đã ghim 11c9d708978cde8ba61096d8a75f7ddfb846f639: `source/upstream-manifest.json` liệt kê tầng `english-sujato` chỉ với 9 nhóm con của `kn` (cp 35, dhp 26, iti 112, ja 83, kp 9, snp 73, thag 264, thig 73, ud 80 = 755 tệp) và không có tệp thân kinh nào cho `thi-ap`; tệp `thi-ap` duy nhất trong tầng là tệp tên `name/sutta/thi-ap-name_translation-en-sujato.json`, không phải bản dịch từng khoá. Đây là `not-published-upstream`, không phải `not-synced`. Đo coverage theo `source/layers.yaml` (Pāli có nội dung từ 40 ký tự trở lên, loại khối :0): mẫu số 2 khoá (`thi-ap17:194.1`, câu kết 57 ký tự; `thi-ap17:195.1`, dòng kết bài 42 ký tự; cả hai đều là câu kết, không phải kệ), Sujato phủ 0/2 = 0%, dưới ngưỡng 0.8; 769 khoá còn lại đều ngắn hơn 40 ký tự hoặc là khối :0 nên cổng gần như không đo được gì về nội dung kệ. Lớp `english-project` không có tệp cho uid này; `vietnamese-current` chỉ có 26 tệp Pháp Cú. Cả ba tầng tham khảo đều vắng, bài chỉ dịch từ Pāli root và không có cách đọc English độc lập. `scripts/validate.ts` coi thiếu tệp Anh là lỗi khi status là `review` hoặc `published`, nên bài giữ `draft`; `triangulation` chặn ở 7.5 (không quá 8.0). `content/meta/reference-gaps.yaml` hiện chưa có entry cho thi-ap17."
+      ],
+      "notes": "Đọc đối kháng lại toàn 771 khoá và đối chiếu bản Indacanda; sửa 191.1 (bỏ chữ thêm 'ánh sáng' không có trong Pāli) nên semantic_fidelity tăng 0,1; không phát hiện lỗi nghĩa khác, các tiêu chí còn lại giữ điểm cũ, triangulation không đổi vì vẫn không có bản Anh.",
+      "id": "857e4654-3078-4a59-b009-f470ef80164d",
+      "content_sha256": "c7a70a8b89f5fc2a2d3fb59ec3409ffe2755b33f45897fa765a9fc7fe4c77222",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
+      "final_score": 8.95
     }
   ],
   "legacy_quality": {
