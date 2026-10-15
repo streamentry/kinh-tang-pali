@@ -1,10 +1,11 @@
 uid: ja506
-status: review
+status: draft
 translationTitle: "Kinh Campeyya"
 translators:
   - "Claude Sonnet 5.5 (Claude Code)"
 reviewers:
   - Claude Sonnet 5.5 (Claude Code)
+  - Claude Opus 5.5 (Claude Code)
 tags:
   - "kn"
   - "khuddaka-nikaya"
@@ -15,16 +16,16 @@ tags:
 quality:
   scores:
     source_provenance: 9.4
-    semantic_fidelity: 8.3
-    grammar_logic: 8.3
+    semantic_fidelity: 8.6
+    grammar_logic: 8.6
     segment_alignment: 10
-    terminology: 8.5
-    triangulation: 7.2
-    vietnamese_clarity: 8.6
+    terminology: 8.6
+    triangulation: 8
+    vietnamese_clarity: 8.8
     han_viet_balance: 9.2
     ambiguity_integrity: 9
     technical_integrity: 9.6
-  final_score: 8.809999999999999
+  final_score: 8.98
   blocking_errors:
     - "noEnglishEditionUpstream: không có tầng tham khảo tiếng Anh tại commit đã
       ghim. `source/upstream-manifest.json` chỉ liệt kê
@@ -38,25 +39,10 @@ quality:
       trong tầng Việt đã dịch (xem notes); bài bắt buộc `draft` và
       `triangulation ≤ 8,0`. Đây là giới hạn upstream, không phải lỗi của người
       dịch."
-  assessed_at: 2026-10-14
+  assessed_at: 2026-10-15
   assessed_by:
-    - Claude Sonnet 5.5 (Claude Code)
-  assessment_id: 10f7362b-252a-46b6-ad95-382ca6a4e384
-  waiver:
-    id: no-upstream-english
-    blockers:
-      - "noEnglishEditionUpstream: không có tầng tham khảo tiếng Anh tại commit
-        đã ghim. `source/upstream-manifest.json` chỉ liệt kê
-        `kn/ja/ja506_root-pli-ms.json` (tầng Pāli) cho uid này; không có tệp
-        `english-sujato` nào cho `ja506` (tầng Sujato chỉ có 83 bài Jātaka,
-        không có bài này); `content/translation/en/project/sutta/kn/` không có
-        tệp cho uid và `content/meta/en/kn/` không có `ja506.yaml`. Đây là
-        `not-published-upstream`, không phải `not-synced`. Tầng
-        `vietnamese-current` chỉ có Pháp Cú. Ba tầng tham khảo đều vắng, nên bài
-        dịch chỉ dựa vào Pāli root, đối chiếu tiền lệ nội bộ và các Pāli song
-        hành trong tầng Việt đã dịch (xem notes); bài bắt buộc `draft` và
-        `triangulation ≤ 8,0`. Đây là giới hạn upstream, không phải lỗi của
-        người dịch."
+    - Claude Opus 5.5 (Claude Code)
+  assessment_id: d24f6392-8bfe-42ed-a533-231f9526b2d0
 notes: |-
   Đợt 19, làn 104. Dịch từ Pāli root commit đã ghim, đủ 186/186 khoá (0.1–0.4, 1.1–44.4, 45.1), thứ tự khoá đúng thứ tự Pāli, không có khoá ngoài tập Pāli. Không có tầng Anh cho uid (xem blocker); tầng Việt hiện hành chỉ có Pháp Cú. Bản root `pli/ms` của Jātaka chỉ có phần kệ, không có văn xuôi khung truyện, nên người nói của từng khổ không được ghi vào thân kinh; người nói chỉ được đọc từ nội dung và cách xưng hô trong kệ (xem BẤT ĐỊNH 1). Việc đối chiếu chỉ dựa vào Pāli root, các Pāli song hành trong tầng Việt đã dịch và tiền lệ nội bộ; không dùng bản dịch bên thứ ba nào để sao chép hay để làm cơ sở cho `triangulation`.
 
@@ -121,3 +107,10 @@ notes: |-
   **technical_integrity = 9,6:** lát này cấm chạy cổng, nên không tuyên bố technical gate pass. Bốn lệnh còn lại do người điều phối chạy tập trung: `npm run validate` · `npm test` · `npm run check` · `npm run build`.
 
   Đối chiếu bản dịch mù độc lập 2026-10-14: một dịch giả khác (cùng họ công cụ) dịch lại bài từ Pāli không xem bản dự án; so 27 khoá chênh lệch lớn nhất → khác nghĩa 5 khoá (`11.3`, `20.4`, `26.4`, `32.1`, `32.2`): sửa 0, giữ 0, bất định 5; 22 khoá còn lại chỉ khác diễn đạt, giữ. Bất định: `11.3` `catussadañca pallaṅkaṁ` (bài giữ phiên âm `catussada`, bản mù “đủ bốn phần” và ghi không chắc); `20.4` `yo tādisaṁ kammakataṁ na jāne` (bài đọc `kammakataṁ` là người đã làm việc ấy, bản mù đọc là việc đã làm, “không biết ơn việc làm như thế”; hai cách đều hợp ngữ pháp, và `katāni` ở `19.4` ủng hộ thêm cách đọc việc đã làm); `26.4` `kaṁsavijju` (bài “chớp đồng”, bản mù “đồng thau và tia chớp”, ghi không chắc); `32.1`–`32.2` `temā`, `āṭā` (bài giữ phiên âm `āṭā`; bản mù ghi không chắc). Bất định bổ sung khi rà toàn bài (ngoài danh sách): `42.3`–`42.4` (`karassu` đi với “nhà vàng” hay với “tường thành bạc”, bài ghép cả hai), `44.1`–`44.3` (`āvasa` có đối cách `Bārāṇasiṁ nagaraṁ`: ở trong thành Bārāṇasī hay trong cung điện vừa tả). Rà đối kháng toàn bài 186 khoá: nháy khớp Pāli từng khoá, không dấu lược; số `soḷasa` + `sahassa` = 16.000, `cātuddasī` = 14, `pañcadasī` = 15, `vāhasahassāni pañca` = 5.000 xe, `nikkhasataṁ` = 100 nikkha giữ nguyên; “rồng” cho `nāga`, “con rắn” cho `uraga`, “voi” cho `nāge` ở `23.3` nhất quán trong bài; không phát hiện thêm lỗi. Không có bản Anh hay bản Việt độc lập khác.
+
+  Lượt rà soát 2026-10-15 (Claude Opus 5.5, đọc đối kháng Pāli↔Việt cả 186 khoá; không có bản Việt nguyên bài; đoạn song song ja402, ja482, vv6, vv8, vv66, vv75, pv30, ja378, ja391, ja484, ja501, ja505): sửa 10 khoá.
+  - `19.4` sai chiều: `Arahasi no jānituye katāni` (`no` là tác nhân “bởi chúng ta”, nối 19.3 “vì ta mà ngươi được thoát”) là lời đòi biết ơn việc chúng ta đã làm, không phải “những việc đã làm cho chúng ta” → “ngươi nên biết đến những việc chúng ta đã làm”, khớp `20.4` `kammakataṁ na jāne`.
+  - `32.1` sai sandhi: `Najjo ca temā` = `ca te imā` (“và những dòng sông này của ngươi”), song song với `35.1` `Imā ca te pokkharañño`; bản cũ đọc thành “đẫm nước”.
+  - `8.3` `vārigeha` “nhà nước” tối nghĩa → “nhà dưới nước”; `13.1` `dānā` là vật vua ban cho người bắt rắn, “dâng tặng” sai chiều kính ngữ → “ban thưởng”.
+  - `30.6`, `31.5`, `32.4`, `33.4`, `34.4`, `35.4` câu hỏi `Kiṁ patthayaṁ … karosi` thêm dấu hỏi (Pāli chỉ có dấu chấm), cùng một dạng cho 6 khoá lặp.
+  Giữ: `40.1`, `41.1` không theo `ja391:6.1` (published, lệch Pāli, đã báo ở `ja505`); `3.2` không theo `ja402:1.2`; `40.4` “ta” thay “trẫm” của `ja378:2.4`, `ja391:5.4`, theo `ja484:16.4`. Bất định cũ giữ nguyên.

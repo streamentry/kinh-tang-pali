@@ -1,10 +1,11 @@
 uid: ja504
-status: review
+status: draft
 translationTitle: "Kinh Bhallātiya"
 translators:
   - "Claude Sonnet 5.5 (Claude Code)"
 reviewers:
   - Claude Sonnet 5.5 (Claude Code)
+  - Claude Opus 5.5 (Claude Code)
 tags:
   - "kn"
   - "khuddaka-nikaya"
@@ -16,15 +17,15 @@ quality:
   scores:
     source_provenance: 9.4
     semantic_fidelity: 8.6
-    grammar_logic: 8.5
+    grammar_logic: 8.6
     segment_alignment: 10
     terminology: 8.9
-    triangulation: 7.3
-    vietnamese_clarity: 9
+    triangulation: 7.5
+    vietnamese_clarity: 9.1
     han_viet_balance: 9.2
-    ambiguity_integrity: 9
+    ambiguity_integrity: 9.1
     technical_integrity: 9.6
-  final_score: 8.95
+  final_score: 8.999999999999998
   blocking_errors:
     - "Không có tầng tham khảo tiếng Anh tại commit đã ghim:
       `source/upstream-manifest.json` chỉ liệt kê `kn/ja/ja504_root-pli-ms.json`
@@ -36,23 +37,10 @@ quality:
       chỉ từ Pāli root và đối chiếu tiền lệ nội bộ ⇒ bài bắt buộc `draft` và
       `triangulation ≤ 8,0`. Đây là giới hạn upstream, không phải lỗi của người
       dịch. (noEnglishEditionUpstream)"
-  assessed_at: 2026-10-14
+  assessed_at: 2026-10-15
   assessed_by:
-    - Claude Sonnet 5.5 (Claude Code)
-  assessment_id: 1002e64a-7901-459c-898e-e444d6e97272
-  waiver:
-    id: no-upstream-english
-    blockers:
-      - "Không có tầng tham khảo tiếng Anh tại commit đã ghim:
-        `source/upstream-manifest.json` chỉ liệt kê
-        `kn/ja/ja504_root-pli-ms.json` (tầng Pāli) cho uid này, không có tệp
-        `english-sujato` nào cho `ja504` (tầng Sujato của `kn/ja` chỉ có 83 tệp,
-        không gồm uid này); `content/translation/en/project/sutta/kn/` không có
-        tệp nào cho uid. Đây là `not-published-upstream`, không phải
-        `not-synced`. Tầng `vietnamese-current` chỉ có Pháp Cú. Ba tầng tham
-        khảo đều vắng ⇒ bài dịch chỉ từ Pāli root và đối chiếu tiền lệ nội bộ ⇒
-        bài bắt buộc `draft` và `triangulation ≤ 8,0`. Đây là giới hạn upstream,
-        không phải lỗi của người dịch. (noEnglishEditionUpstream)"
+    - Claude Opus 5.5 (Claude Code)
+  assessment_id: f7b126be-6193-414a-936d-e7f81ec81cd7
 notes: |-
   Đợt 19, làn 76. Dịch từ Pāli root commit đã ghim, đủ 105/105 khoá (0.1–0.4, 1.1–25.4, 26.1), thứ tự khoá đúng thứ tự Pāli, không có khoá ngoài tập Pāli. Không có tầng Anh cho uid (xem blocker); tầng Việt hiện hành chỉ có Pháp Cú. Bản root `pli/ms` của Jātaka chỉ có phần kệ, không có văn xuôi khung truyện; người nói của từng khổ vì vậy không được ghi vào thân kinh mà chỉ suy ra từ nội dung (xem bất định 1). Đối chiếu ngoài kho: có tham khảo một bản dịch Anh vần điệu bên thứ ba (không thuộc tầng đã ghim) để kiểm bố cục chung của kệ 16–25; không sao chép, và vì không thuộc tầng ghim nên không tính vào `triangulation`.
 
@@ -116,3 +104,8 @@ notes: |-
   - Kiểm lại sau sửa: 105/105 khoá, tập khoá và thứ tự khớp Pāli; nháy `“”‘’"` và `…` khớp Pāli từng khoá (0 lệch); NFC, 0 khoá rỗng, 0 khoảng trắng thừa; 18 cặp Pāli trùng nguyên văn trong chính bài (10 nhóm), 0 cặp bản Việt khác chữ. Blocker về tầng tham khảo tiếng Anh vắng mặt (noEnglishEditionUpstream) giữ nguyên vì là sự thật về upstream.
 
   Đối chiếu bản dịch mù độc lập 2026-10-14: một dịch giả khác (cùng họ công cụ) dịch lại bài từ Pāli không xem bản dự án; so 34 khoá chênh lệch lớn nhất (cả 34 khoá khác biệt của bài) → khác nghĩa 7: sửa 0, giữ 4 (4.2 `sītodakā anuvicarāma najjo`: bản mù bỏ động từ `anuvicarāma` "chúng tôi dạo theo", bản dự án giữ; 8.3 và 9.1 `anutappati`: "tiếc nuối" so với "day dứt", cùng trường nghĩa và đã đo tiền lệ ở lượt trước; 20.3 `āgamā`: "theo điều đã được truyền thừa" so với "từ kinh điển", Pāli không nêu "kinh" nên giữ cách hẹp hơn; 25.3 `nudaseva`: bản mù thêm "như", nhưng `eva` là tiểu từ nhấn, không phải so sánh), bất định 3 (18.2 `catukkaṁ`: bản mù để nguyên "sông catukka", bản dự án bỏ trống; không ai phân xử được, vẫn là chỗ mất một đơn vị nghĩa đã ghi ở bất định 2; 19.1–19.3: đơn vị của "bảy trăm trừ ba" và `vassekimaṁ`, hai bản đều ghi chưa chắc; 10.4 `maññaṁ`: bản mù "nghĩ rằng mình theo sau tôi", cùng hướng nghĩa). Các chênh còn lại là xưng hô và diễn đạt (3.2, 3.3, 5.1, 5.3, 6.1, 6.3, 7.1, 7.3, 9.3, 22.1–24.1 `amānusa`, 15.2, 16.4, 21.2, 25.2…). Review đối kháng cả 105 khoá: đủ khoá và thứ tự, nháy kép và nháy đơn khớp Pāli từng khoá (10 kép mở, 10 kép đóng, 5 đơn mở, 5 đơn đóng), dấu lược 0 và 0 (phép chạy rỗng); số Pāli đọc lại: 19.1 bảy trăm trừ ba = 697 (đơn vị không nêu trong Pāli), 21.1 một ngàn năm, `ekarattaṁ` = một đêm. Không đổi khoá nào. Không có bản Anh hay bản Việt độc lập khác. Đây là review của AI, không phải chứng nhận của chuyên gia Pāli.
+
+  Lượt rà soát 2026-10-15 (Claude Opus 5.5, đọc đối kháng Pāli↔Việt cả 105 khoá; không có bản Việt nguyên bài; đoạn song song mil7.6.9:4): sửa 3 khoá.
+  - `5.1`, `6.1`, `7.1` `Sukiccharūpaṁ paridevayavho`: `sukiccharūpaṁ` là trạng từ bổ nghĩa cho “than vãn”, không phải “trong cảnh khổ sở cùng cực” → “Các vị than vãn thật thảm thiết”, cùng một dạng cho 3 khoá lặp.
+  Giữ: `8.1`–`8.4` khác hẳn `mil7.6.9:4.1`–`4.4` (published): bản Mil dịch “Một đêm dài đã trôi qua trong vô tình, các bậc đi lang thang … không hối tiếc” không khớp Pāli (`ekarattaṁ vippavasimha` “xa nhau một đêm”, `anutappamānā` “tiếc nuối”); bản này đúng, cần người biên tập sửa `mil7.6.9:4`.
+  Bất định mới: `Sāyaṁ nadī` (16.4) có thể tách `sā ayaṁ nadī` (“con sông ấy”) thay vì `sāyaṁ` “buổi chiều”; giữ “đến chiều” vì 17.4 nói đêm trôi qua khó nhọc, nhưng chưa phân xử. Bất định cũ `catukkaṁ` (18.2, một đơn vị nghĩa bị để trống) và `vassekimaṁ` (19.3) vẫn chưa giải được, nên điểm không vượt 9,0.

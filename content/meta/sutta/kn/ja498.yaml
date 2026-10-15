@@ -1,10 +1,11 @@
 uid: ja498
-status: review
+status: draft
 translationTitle: "Kinh Cittasambhūta"
 translators:
   - "Claude Sonnet 5.5 (Claude Code)"
 reviewers:
   - Claude Sonnet 5.5 (Claude Code)
+  - Claude Opus 5.5 (Claude Code)
 tags:
   - "kn"
   - "khuddaka-nikaya"
@@ -15,16 +16,16 @@ tags:
 quality:
   scores:
     source_provenance: 9.4
-    semantic_fidelity: 8.6
+    semantic_fidelity: 8.7
     grammar_logic: 8.6
     segment_alignment: 10
     terminology: 9
-    triangulation: 7.5
-    vietnamese_clarity: 8.8
+    triangulation: 8
+    vietnamese_clarity: 8.9
     han_viet_balance: 9.2
     ambiguity_integrity: 9.2
     technical_integrity: 9.6
-  final_score: 8.99
+  final_score: 9.059999999999999
   blocking_errors:
     - "Không có tầng tham khảo tiếng Anh tại commit đã ghim:
       `source/upstream-manifest.json` chỉ liệt kê `kn/ja/ja498_root-pli-ms.json`
@@ -37,24 +38,10 @@ quality:
       đều vắng ⇒ bài dịch chỉ từ Pāli root và đối chiếu tiền lệ nội bộ ⇒ bài bắt
       buộc `draft` và `triangulation ≤ 8,0`. Đây là giới hạn upstream, không
       phải lỗi của người dịch."
-  assessed_at: 2026-10-14
+  assessed_at: 2026-10-15
   assessed_by:
-    - Claude Sonnet 5.5 (Claude Code)
-  assessment_id: 7b8ad688-6f61-487c-87a0-cfbf1e40e7fb
-  waiver:
-    id: no-upstream-english
-    blockers:
-      - "Không có tầng tham khảo tiếng Anh tại commit đã ghim:
-        `source/upstream-manifest.json` chỉ liệt kê
-        `kn/ja/ja498_root-pli-ms.json` (tầng Pāli) cho uid này, không có tệp
-        `english-sujato` nào cho `ja498` (tầng Sujato của `kn/ja` chỉ có 83 tệp,
-        không có `ja498`); `content/translation/en/project/sutta/kn/` không có
-        tệp nào cho uid và `content/meta/en/kn/` không có `ja498.yaml`. Đây là
-        `not-published-upstream`, không phải `not-synced`. Tầng
-        `vietnamese-current` chỉ có Pháp Cú tại commit đã ghim. Ba tầng tham
-        khảo đều vắng ⇒ bài dịch chỉ từ Pāli root và đối chiếu tiền lệ nội bộ ⇒
-        bài bắt buộc `draft` và `triangulation ≤ 8,0`. Đây là giới hạn upstream,
-        không phải lỗi của người dịch."
+    - Claude Opus 5.5 (Claude Code)
+  assessment_id: 8894764c-8d6c-4baf-aa92-676d29141f50
 notes: |-
   Đợt 19, làn 82. Dịch từ Pāli root commit đã ghim, đủ 117/117 khoá, thứ tự khoá đúng thứ tự Pāli, không có khoá ngoài tập Pāli. Bản root `pli/ms` của Jātaka chỉ có phần kệ, không có văn xuôi khung truyện, nên người nói của từng đoạn không được ghi vào thân kinh; chỉ đọc từ ngữ cảnh kệ và dấu nháy (xem dưới). Không có tầng Anh cho uid (xem blocker); tầng Việt hiện hành chỉ có Pháp Cú.
 
@@ -130,3 +117,9 @@ notes: |-
   sữa', Pāli chỉ có phân từ giống cái, chưa rõ người hay vật cái). 22 khoá còn lại (trong đó 0.2, 7.1, 9.4,
   14.2, 14.3, 17.1–20.1, 21.3, 24.3, 27.1) chỉ khác diễn đạt hoặc xưng hô. Không có bản Anh hay bản Việt độc lập
   khác.
+
+  Lượt rà soát 2026-10-15 (Claude Opus 5.5, đọc đối kháng Pāli↔Việt cả 117 khoá; không có bản Việt nguyên bài; đoạn song song sn2.19, sn1.3, ja484, sn1.41, dn19, ja509, ja337, ja534): sửa 3 khoá.
+  - `9.1` sai nghĩa nhẹ: `pajja` là dầu thoa chân (`pāda` + dầu xoa), còn nước đã là `udakaṁ`; “nước, nước rửa chân” lặp nước và bỏ mất món dầu. Theo `dn19:44.12` (published) “Chỗ ngồi, nước, dầu thoa chân”. Lưu ý chéo: `ja509:3.1`, `ja337:3.3`, `ja534:69.1` vẫn dịch `pajja` là nước rửa chân, cần người biên tập thống nhất.
+  - `4.3` calque “nơi ta không có nghi ngờ” (`na mamatthi kaṅkhā`) → “ta không còn nghi ngờ gì”; không đổi nghĩa.
+  - `12.3` “ngay khi chưa đến” không đúng `apattaññeva` (“ngay cả khi chưa đến”) → “chưa đến được giới hạn ấy”.
+  Giữ: `17`–`20` theo `sn2.19:2.1–2.2`; `26.1`, `26.3` theo `ja484:17.3`, `sn1.41:5.5`. Bất định cũ (`gāmavaraṁ satañca`, `rajassirāni`, `vajantyā`, `bali`) giữ nguyên, chưa có căn cứ mới.

@@ -1,10 +1,11 @@
 uid: ja501
-status: review
+status: draft
 translationTitle: "Kinh Nai Rohaṇa"
 translators:
   - "Claude Sonnet 5.5 (Claude Code)"
 reviewers:
   - Claude Sonnet 5.5 (Claude Code)
+  - Claude Opus 5.5 (Claude Code)
 tags:
   - "kn"
   - "khuddaka-nikaya"
@@ -15,16 +16,16 @@ tags:
 quality:
   scores:
     source_provenance: 9.4
-    semantic_fidelity: 8.4
+    semantic_fidelity: 8.5
     grammar_logic: 8.6
     segment_alignment: 10
-    terminology: 8.7
+    terminology: 8.8
     triangulation: 7.7
-    vietnamese_clarity: 8.8
+    vietnamese_clarity: 8.9
     han_viet_balance: 9.2
     ambiguity_integrity: 9
     technical_integrity: 9.6
-  final_score: 8.94
+  final_score: 8.969999999999999
   blocking_errors:
     - "Không có tầng tham khảo tiếng Anh tại commit đã ghim:
       `source/upstream-manifest.json` chỉ liệt kê `kn/ja/ja501_root-pli-ms.json`
@@ -37,24 +38,10 @@ quality:
       chỉ từ Pāli root và đối chiếu tiền lệ nội bộ ⇒ bài bắt buộc `draft` và
       `triangulation ≤ 8,0`. Đây là giới hạn upstream, không phải lỗi của người
       dịch. (noEnglishEditionUpstream)"
-  assessed_at: 2026-10-14
+  assessed_at: 2026-10-15
   assessed_by:
-    - Claude Sonnet 5.5 (Claude Code)
-  assessment_id: 6c57fe4f-dc29-4f12-b714-e16d2134de40
-  waiver:
-    id: no-upstream-english
-    blockers:
-      - "Không có tầng tham khảo tiếng Anh tại commit đã ghim:
-        `source/upstream-manifest.json` chỉ liệt kê
-        `kn/ja/ja501_root-pli-ms.json` (tầng Pāli) cho uid này, không có tệp
-        `english-sujato` nào cho `ja501` (tầng Sujato của `kn/ja` chỉ có 83 tệp,
-        không gồm uid này); `content/translation/en/project/sutta/kn/` không có
-        tệp nào cho uid và `content/meta/en/kn/` không có `ja501.yaml`. Đây là
-        `not-published-upstream`, không phải `not-synced`. Tầng
-        `vietnamese-current` chỉ có Pháp Cú. Ba tầng tham khảo đều vắng ⇒ bài
-        dịch chỉ từ Pāli root và đối chiếu tiền lệ nội bộ ⇒ bài bắt buộc `draft`
-        và `triangulation ≤ 8,0`. Đây là giới hạn upstream, không phải lỗi của
-        người dịch. (noEnglishEditionUpstream)"
+    - Claude Opus 5.5 (Claude Code)
+  assessment_id: e60ca320-4733-4929-8622-e76e3f1b80ae
 notes: |-
   Đợt 19, làn 86. Dịch từ Pāli root commit đã ghim, đủ 121/121 khoá (0.1–0.4, 1.1–29.4, 30.1), thứ tự khoá đúng thứ tự Pāli, không có khoá ngoài tập Pāli. Không có tầng Anh cho uid (xem blocker); tầng Việt hiện hành chỉ có Pháp Cú. Bản root `pli/ms` của Jātaka chỉ có phần kệ, không có văn xuôi khung truyện, nên người nói của từng khổ không được ghi vào thân kinh mà chỉ suy ra từ nội dung (xem bất định 1).
 
@@ -107,3 +94,8 @@ notes: |-
   **technical_integrity = 9,6:** lát này cấm chạy cổng, nên không tuyên bố technical gate pass. Bốn lệnh còn lại do người điều phối chạy tập trung: `npm run validate` · `npm test` · `npm run check` · `npm run build`.
 
   **Đối chiếu bản dịch mù độc lập 2026-10-14.** Một dịch giả khác (cùng họ công cụ) dịch lại bài từ Pāli, không xem bản dự án; so 31 khoá chênh lệch lớn nhất → khác nghĩa 1 chỗ: sửa 1, bất định 4 chỗ khác. Sửa 1 (`16.3`–`16.4` `kathaṁ putta amocesi, kūṭapāsamha luddako`: trước *Con ơi, bằng cách nào đã thả con ra, khỏi cạm bẫy, người thợ săn?*, đọc `luddako` như hô cách; sau *Con ơi, bằng cách nào người thợ săn đã thả con ra khỏi cạm bẫy?*, vì `luddako` là chủ cách, chủ ngữ của `amocesi`, `kūṭapāsamha` là xuất xứ cách, và câu đáp ở `19.4` là `luddako maṁ amocayi`). Cùng lượt sửa diễn đạt `12.2` `sodariyā ekamātukā`: trước *ruột thịt cùng bụng, chung một mẹ*, sau *cùng một bụng, cùng một mẹ*, bỏ *ruột thịt* thừa so với Pāli. 29 khoá còn lại chỉ khác diễn đạt, giữ (`2.2`, `4.2`, `6.2`, `8.2` `hadayaṁ me avakassati` *tim tôi bị giằng kéo*; `3.1`, `7.1`, `13.1` `te` *họ* so với *chúng*; `23.2`; `25.4`; `26.1`). Bất định 4: `1.1` `patiyanti` (*đang rút chạy*, bản mù cũng ⟦?⟧, hợp mạch `bhītā maraṇassa`); `21.2` `āhariṁ` (đã mang hay sẽ mang, giữ trung tính *Tôi mang da nai về*); `22.3` `abajjhi taṁ migarājaṁ` (bản mù cũng ⟦?⟧, nghĩa chung *chúa loài nai bị trói* không đổi); `27.3` `catussada` (giữ phiên âm, bản mù cũng ⟦?⟧). Đọc đối kháng lại 121 cặp Pāli↔Việt, không thấy lỗi số, phủ định hay người nói mới. Không có bản Anh hay bản Việt độc lập khác; đối chiếu chỉ bằng Pāli, ngữ cảnh bài và tiền lệ trong tầng dự án.
+
+  Lượt rà soát 2026-10-15 (Claude Opus 5.5, đọc đối kháng Pāli↔Việt cả 121 khoá; không có bản Việt nguyên bài; không có đoạn song song đã published, chỉ dò tiền lệ `sodariya` ở ja393, ja543, mn93): sửa 2 khoá.
+  - `23.1` thêm quan hệ nhân quả: `Tassa me ahu saṁvego` không có “vì thế” (`tassa me` chỉ là “nơi tôi, người ấy”) → “Bấy giờ nơi tôi khởi lên nỗi xúc động”.
+  - `12.2` calque “cùng một bụng” cho `sodariyā` → “ruột thịt, cùng một mẹ”, theo “anh em ruột” ở `ja393:2.3`, `ja543:125.2`; cùng sửa ở `ja503:18.2` (Pāli trùng).
+  Giữ: lời các con nai gọi “bác thợ săn” (`ludda`, `luddaka`) khác lời vua gọi “thợ săn” (21.1, 24.1), có chủ ý theo người nói. Bất định cũ 1–13 giữ nguyên, không có căn cứ mới; triangulation giữ vì không có song song.

@@ -1,10 +1,11 @@
 uid: ja502
-status: review
+status: draft
 translationTitle: "Kinh Thiên Nga Nhỏ"
 translators:
   - "Claude Sonnet 5.5 (Claude Code)"
 reviewers:
   - Claude Sonnet 5.5 (Claude Code)
+  - Claude Opus 5.5 (Claude Code)
 tags:
   - "kn"
   - "khuddaka-nikaya"
@@ -15,16 +16,16 @@ tags:
 quality:
   scores:
     source_provenance: 9.4
-    semantic_fidelity: 8.3
-    grammar_logic: 8.5
+    semantic_fidelity: 8.4
+    grammar_logic: 8.6
     segment_alignment: 10
-    terminology: 8.6
-    triangulation: 7.4
-    vietnamese_clarity: 8.6
+    terminology: 8.7
+    triangulation: 7.8
+    vietnamese_clarity: 8.7
     han_viet_balance: 9.2
     ambiguity_integrity: 9
     technical_integrity: 9.6
-  final_score: 8.86
+  final_score: 8.94
   blocking_errors:
     - "Không có tầng tham khảo tiếng Anh tại commit đã ghim:
       `source/upstream-manifest.json` chỉ liệt kê `kn/ja/ja502_root-pli-ms.json`
@@ -36,23 +37,10 @@ quality:
       chỉ từ Pāli root và đối chiếu tiền lệ nội bộ ⇒ bài bắt buộc `draft` và
       `triangulation ≤ 8,0`. Đây là giới hạn upstream, không phải lỗi của người
       dịch. (noEnglishEditionUpstream)"
-  assessed_at: 2026-10-14
+  assessed_at: 2026-10-15
   assessed_by:
-    - Claude Sonnet 5.5 (Claude Code)
-  assessment_id: 8adedd3e-d0ad-453b-8a24-7d87ae8f2a80
-  waiver:
-    id: no-upstream-english
-    blockers:
-      - "Không có tầng tham khảo tiếng Anh tại commit đã ghim:
-        `source/upstream-manifest.json` chỉ liệt kê
-        `kn/ja/ja502_root-pli-ms.json` (tầng Pāli) cho uid này, không có tệp
-        `english-sujato` nào cho `ja502` (tầng Sujato của `kn/ja` chỉ có 83 tệp,
-        không gồm uid này); `content/translation/en/project/sutta/kn/` không có
-        tệp nào cho uid. Đây là `not-published-upstream`, không phải
-        `not-synced`. Tầng `vietnamese-current` chỉ có Pháp Cú. Ba tầng tham
-        khảo đều vắng ⇒ bài dịch chỉ từ Pāli root và đối chiếu tiền lệ nội bộ ⇒
-        bài bắt buộc `draft` và `triangulation ≤ 8,0`. Đây là giới hạn upstream,
-        không phải lỗi của người dịch. (noEnglishEditionUpstream)"
+    - Claude Opus 5.5 (Claude Code)
+  assessment_id: a219725a-bb67-4d56-aef3-2877d6b6cc0e
 notes: |-
   Đợt 19, làn 78. Dịch từ Pāli root commit đã ghim, đủ 109/109 khoá (0.1–0.4, 1.1–26.4, 27.1), thứ tự khoá đúng thứ tự Pāli, không có khoá ngoài tập Pāli. Không có tầng Anh cho uid (xem blocker); tầng Việt hiện hành chỉ có Pháp Cú. Bản root `pli/ms` của Jātaka chỉ có phần kệ, không có văn xuôi khung truyện, nên người nói của từng khổ không được ghi vào thân kinh mà chỉ suy ra từ nội dung (xem bất định 1). Bài song hành `ja534` (Mahāhaṁsajātaka) trùng Pāli ở 39 dòng kệ (1.1–1.4, 2.1–2.3, 3.1–3.4, 4.2–4.4, 6.4, 8.1–8.3, 10.2–10.3, 14.1–19.4 từng phần) nhưng tầng Sujato của `ja534` rỗng ở mọi khoá của kệ (chỉ `ja534:23.2` không rỗng, là một chú thích của người dịch chứ không phải bản dịch kệ, và không thuộc các dòng trùng) và `ja533`/`ja534` chưa có bản Việt, nên không cung cấp được tầng tham khảo nào cho bài này; vì vậy `triangulation` vẫn thấp.
 
@@ -107,3 +95,8 @@ notes: |-
   **technical_integrity = 9,6:** lát này cấm chạy cổng, nên không tuyên bố technical gate pass. Bốn lệnh còn lại do người điều phối chạy tập trung: `npm run validate` · `npm test` · `npm run check` · `npm run build`.
 
   Đối chiếu bản dịch mù độc lập 2026-10-14: một dịch giả khác (cùng họ công cụ) dịch lại bài từ Pāli không xem bản dự án; so 31 khoá chênh lệch lớn nhất → khác nghĩa 1: sửa 1, giữ 24, bất định 6 khoá (3 nhóm). Sửa: 4.1 `Nāhaṁ ‘dukkhapareto’ti`: bản mù đọc chủ thể của `dukkhapareto` là Dhataraṭṭha ("ngài đang bị khổ đau vây hãm"); `dukkhapareto` là cách chủ cách đồng cách với `ahaṁ` của `Nāhaṁ … jahe`, và khoá song song `ja534:4.1` (`Nāhaṁ dukkhaparetopi … tuvaṁ jahe`) nói về chính người nói, nên chủ thể là Sumukha; bản cũ để trống chủ thể trong lời trích → "nghĩ rằng ‘mình đang bị khổ đau chế ngự’". Bất định 4 ở trên (chủ thể của `dukkhapareto`) nhờ vậy đã phân xử. Giữ: 11.3, 25.2 và các khoá còn lại (bản mù đổi ngôi hoặc chỉ khác diễn đạt; 22.2 `jātiyā vinayena vā` giữ "giới hạnh" theo `ja254:2.2`, `ja304:3.2`). Bất định mới: (a) 1.2, 8.2, 9.3 `vakkaṅgā` là tính từ "thân cong" hay tên loài thiên nga (bản mù giữ nguyên chữ Pāli kèm dấu hỏi; tầng ghim dùng "kẻ thân cong" ở 12 khoá, giữ); (b) 6.1 `apadena padaṁ yāti`: câu đố về "không chân" và "chân", không phân xử được ai là chủ thể; (c) 24.1–24.2 `Asāre sārayogaññū`: "biết cách gắn với cốt lõi trong chỗ vô cốt lõi" giữ sát chữ, bản mù cũng đánh dấu chưa chắc. Review đối kháng toàn bài (109 khoá) không thấy lỗi nháy, số, xưng hô; `22.2` ("giới hạnh") và `25.3` ("giới hạnh") trùng chữ cho `vinaya` và `sīla` nhưng theo tiền lệ công thức. Không có bản Anh hay bản Việt độc lập khác.
+
+  Lượt rà soát 2026-10-15 (Claude Opus 5.5, đọc đối kháng Pāli↔Việt cả 109 khoá; không có bản Việt nguyên bài; không có song song đã published, đã so các khoá trùng ở ja533, ja534, ja164, ja399): sửa 3 khoá.
+  - `12.1`–`12.3` câu cũ “Chính bạn, người vì bạn mình … vì thế tôi thả …” để chủ ngữ treo; cặp tương quan `yo ca tvaṁ … so te … muñcāmi` → “Bạn là kẻ vì bạn mình / mà muốn từ bỏ cả mạng sống; / nên tôi thả bạn đồng hành ấy của bạn”.
+  - `22.2` `vinayena` dịch “giới hạnh” trùng với `sīla` ở `25.3` (“đạo hạnh và giới hạnh”), làm mất phân biệt `vinaya`/`sīla` → “sự rèn luyện”.
+  Giữ: `1.1`, `3.1`, `3.3`, `11.4`, `7.4`, `18`–`19` cùng dạng với `ja534`, `ja533`; `4.1` không có `pi` như `ja534:4.1` nên không thêm “dù”. `20.2` `raṭṭhavaḍḍhana` tầng có ít nhất 5 dạng không đa số rõ, để người biên tập thống nhất chung. Bất định cũ 1–11 giữ nguyên.
