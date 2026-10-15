@@ -898,3 +898,22 @@ The preceding batch overview line saying “MN73 was regenerated after main PR #
 The preceding batch mn-039 heading/body and original merged PR #635 description said browser Play/seek/Pause was tested for each of MN90–MN94. That statement was unsupported and is withdrawn. The browser interaction evidence in this work belongs to MN85–MN89; MN90–MN94 did not receive an interactive browser playback test. Their MP3/source/profile checks, successful R2 upload and public readback, production Pages workflow, and local built-player HTML evidence remain valid. The progress state for MN90–MN94 is corrected to `generated`; `playback_verified_at` and `playback_observation` are cleared, while upload metadata and `review_status: pending` remain. The merged PR #635 description was edited to carry this correction. Follow-up corrective PR records this erratum and registry change.
 
 Fresh production readback on `2026-10-15T00:53:42Z` confirms MN90–MN94 pages return HTTP 200 with each current player URL and “Chờ nghe duyệt”; each public R2 range returns 206 `audio/mpeg`, 1,024 bytes, and the object size matches metadata. This confirms deployment markup and seek-capable byte ranges, not an interactive browser playback test.
+
+
+### Playback-evidence correction — MN90–MN94 — PR #638
+
+- Corrective commit `308ce738ba7c9ffe78980dc10c7aa2caed5b7812` merged at `2026-10-15T01:35:25Z`; the PR head was `26a2bed7f8ace422986cbd287d495c9506ad4b76`. The registry now accurately keeps MN90–MN94 at `generated`, with browser playback fields cleared. Their source/profile, R2 upload/public range, and production page HTTP/HTML checks remain verified; interactive playback and full listening were not tested. `review_status` remains `pending`.
+
+### Batch mn-040 — MN95–MN99 generated and uploaded to R2
+
+| UID | Source SHA-256 | MP3 SHA-256 | Bytes | Duration | Scripture starts | Chunks | Audio |
+|---|---|---|---:|---:|---:|---:|---|
+| MN95 | `5c44718864569172a8cde016864b12ee80d04015e467a87fe3ac645f2b98ef5e` | `099a11e85a0b75e453da468a4f7a80d1cf989584e5258bd1042a5c677a66fb0a` | 41,938,560 | 2096.87 s | 179.19 s | 22 (2 summary) | [R2 MP3](https://pub-8fa53f5182904685bd0c13d6c894a0e9.r2.dev/vi/mn/mn95/099a11e85a0b75e4.mp3) |
+| MN96 | `9eb8994a8345f7e610eb4e071409ae0ecaec6e5bcd5b40680d329a34c4517690` | `d5dd31da3b3239a58f56baa79e40edb304ddeb753d3c2843cbe8fe72073ff5a9` | 24,341,760 | 1217.04 s | 153.47 s | 15 (2 summary) | [R2 MP3](https://pub-8fa53f5182904685bd0c13d6c894a0e9.r2.dev/vi/mn/mn96/d5dd31da3b3239a5.mp3) |
+| MN97 | `b7a7c8931ccb8db62c18a3be2a4ff600f38fd019bbd0fb694f27ca5a2cf47475` | `8df8f36eb0c84ec9d131bda6b14d880d10e2771ff1d0669d9f04c1ea2ad50507` | 37,007,520 | 1850.32 s | 175.63 s | 21 (2 summary) | [R2 MP3](https://pub-8fa53f5182904685bd0c13d6c894a0e9.r2.dev/vi/mn/mn97/8df8f36eb0c84ec9.mp3) |
+| MN98 | `bc7bb633d4418bbc0039645486988427ab62c0c2e64dbf4814e82524e9808e42` | `b1fd24507841ffcb23f3501b77cc2c4a4d1279154f9a3d947e967b5a5066afb1` | 20,416,800 | 1020.78 s | 156.31 s | 11 (2 summary) | [R2 MP3](https://pub-8fa53f5182904685bd0c13d6c894a0e9.r2.dev/vi/mn/mn98/b1fd24507841ffcb.mp3) |
+| MN99 | `d096478bfa1988630e15b5d3730db8a342a292813ff340fc4255cc27c7692f5a` | `ffe8b6f13e2136da56026842bfd5f7b3b6fbdc8961287d6e6c8c8d4403a46b4c` | 35,522,400 | 1776.05 s | 153.51 s | 20 (2 summary) | [R2 MP3](https://pub-8fa53f5182904685bd0c13d6c894a0e9.r2.dev/vi/mn/mn99/ffe8b6f13e2136da.mp3) |
+
+- Total audio duration: 7961.06 seconds / 159,227,040 bytes. All five use profile `vi-charon-mn1-v1` (`a384c5852585077c32e1348a6ada5cfc70a69c989ad705b8b5129fef3e1c9a71`), summary first, then canonical Vietnamese 2026. Source/profile hashes, chunk accounting, MP3 frame/hash/byte checks, and public R2 object/range verification passed. ASR was skipped per editor decision. Production browser playback and full human listening remain unverified; all reviews remain `pending`. MP3/WAV/cache files are excluded from Git.
+
+- PR, exact batch head, merge SHA, and Pages/live readback evidence will be appended after release workflows complete.
