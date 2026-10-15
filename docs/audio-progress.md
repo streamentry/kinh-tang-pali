@@ -922,6 +922,8 @@ Fresh production readback on `2026-10-15T00:53:42Z` confirms MN90–MN94 pages r
 - Pages deployment `38689833999` succeeded on the merge commit. The direct main CI run `38689833952` was canceled by a higher-priority main request; no success is claimed for that run.
 - Production readback at `2026-10-15T07:29:08Z`: MN95–MN99 pages each returned HTTP 200 with one `<sutta-audio>` element, its native `<audio src>` exactly matched current metadata, and the “Chờ nghe duyệt” label remained visible. Each R2 range returned 206 `audio/mpeg`, 1,024 bytes, with total object size matching metadata.
 - This confirms deployed player markup and range support, not interactive Play/seek. Browser automation was blocked locally by `pkg-age-guard` because the Playwright wrapper invokes `npx --yes`; no interactive browser playback or full human listening is claimed. ASR was skipped. All five remain `generated` with `review_status: pending` for editor listening.
+- Direct main CI and Pages runs on merge `38720837935` and `38720837805` were canceled by higher-priority pushes. A later Pages deployment `38721717190` succeeded on descendant commit `dbe86623e558035c15797fd05a6c6479c0410766`, which contains the merge; its main CI run `38721717405` was canceled.
+- Production readback at `2026-10-15T11:11:09Z`: all five pages returned HTTP 200 with one `<sutta-audio>` and exact current native audio URL, plus “Chờ nghe duyệt”. Every public R2 range returned 206 `audio/mpeg`, 1,024 bytes, and total object size matched metadata.
 
 ### Batch mn-041 — MN100–MN104 generated and uploaded to R2
 
@@ -955,3 +957,11 @@ Fresh production readback on `2026-10-15T00:53:42Z` confirms MN90–MN94 pages r
 - Total audio duration: 5671.85 seconds / 113,443,200 bytes. All five use the pinned `vi-charon-mn1-v1` profile (`a384c5852585077c32e1348a6ada5cfc70a69c989ad705b8b5129fef3e1c9a71`), summary first, then canonical Vietnamese 2026. Source/profile hashes, chunk order, MP3 frames/hash/bytes, and public R2 object/range checks passed. ASR was skipped. No interactive browser playback or full human listening is claimed; all entries remain `generated` with `review_status: pending`. MP3/WAV/cache files are gitignored.
 
 - MN108 resumed from its saved fingerprinted chunk checkpoint after the original terminal handle ended; seven validated chunks were reused and not regenerated.
+
+
+### Batch mn-042 merge and production readback — PR #663
+
+- Exact PR head `c5ffc0e13608a0dba34bc9dd83f4ded87fb60f29`; push CI `38717535637` and PR CI `38717558769` passed. Squash merge `f8c6deac5dbff4b1369fd0a4fb8bcccaeec480b8` at `2026-10-15T10:31:06Z`.
+- Direct CI and Pages runs on the merge SHA (`38720837935`, `38720837805`) were canceled by higher-priority requests. Main CI on descendant `dbe86623e558035c15797fd05a6c6479c0410766` (`38721717405`) was also canceled; Pages deployment `38721717190` succeeded on that descendant, which contains the merge.
+- Production readback at `2026-10-15T11:11:09Z`: MN105–MN109 pages each returned HTTP 200 with exactly one player and matching R2 audio URL, plus the “Chờ nghe duyệt” label. Each R2 range returned 206 `audio/mpeg`, 1,024 bytes, and total object size matched metadata.
+- No interactive browser playback or full listening is claimed; ASR was skipped. All five remain `generated` and `review_status: pending`.
