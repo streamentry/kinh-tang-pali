@@ -1,100 +1,43 @@
-# GOAL HANDOFF — Nâng mọi bản dịch lên điểm rubric trung bình > 9
+# GOAL HANDOFF — Nâng mọi bản dịch lên điểm rubric > 9,0 — đo bằng cổng, không bằng cảm nhận.
 
-Tài liệu này dành cho agent tiếp quản dự án. Chi tiết về store, rubric và cổng chất lượng nằm trong
-[`goal.md`](goal.md), [`AGENTS.md`](../../AGENTS.md), [`skill/translation.md`](../../skill/translation.md)
-và [`docs/quality-assessments.md`](../quality-assessments.md). Đọc các tệp đó trước khi làm bất cứ việc gì.
+Đọc trước: [`AGENTS.md`](../../AGENTS.md), [`skill/translation.md`](../../skill/translation.md), [`docs/quality-assessments.md`](../quality-assessments.md).
 
-## Điều kiện hoàn thành (cụ thể, đo được)
+## Điều kiện hoàn thành
+1. Mọi bài trong content/meta/sutta/** có status: published và quality.final_score > 9.0. Blocker duy nhất được chấp nhận là noEnglishEditionUpstream, kèm waiver no-upstream-english hợp lệ.
+2. Không còn bài review/draft nào có thể vượt 9,0 bằng sửa lỗi thật.
+3. Mọi lớp lấp English (content/meta/en/**) đã published, trừ bài còn blocker thật (ghi rõ trong meta).
+4. Xanh trên main: validate, test, check, build, audit:store, reference:gaps:check, verify:store:partial, audio:check, quality:check, license:check, manifest:check, catalog:check.
 
-Mục tiêu được coi là xong khi **tất cả** điều sau đúng, đo bằng lệnh chứ không bằng cảm nhận:
+Cấm: nâng điểm tiêu chí không có bằng chứng; sửa tay status/waiver/quality/assessment_id; xoá bài khỏi phạm vi.
 
-1. Mọi bài trong `content/meta/sutta/**` có `status: published` (tầng Việt) và `quality.final_score > 9.0`
-   **hoặc** một waiver hợp lệ `no-upstream-english` mà `final_score > 9.0` vẫn đúng.
-   Bài không có blocker nào ngoài `noEnglishEditionUpstream` và có `final_score > 9.0` là đạt.
-2. Không còn bài `review` hoặc `draft` nào mà điểm `> 9.0` có thể đạt bằng sửa lỗi thật.
-3. Mọi lớp lấp English (`content/meta/en/**`) đã `published`, trừ những bài còn blocker thật
-   (ghi rõ trong meta, không đẩy lên bằng cách hạ điểm).
-4. `npm run validate`, `npm test`, `npm run check`, `npm run build`, `audit:store`,
-   `reference:gaps:check`, `verify:store:partial`, `audio:check`, `quality:check`, `license:check`,
-   `manifest:check`, `catalog:check` đều xanh trên `main`.
+## Bối cảnh bàn giao (2026-10-15, đo lại trước khi dùng)
+- Tầng Việt: 5.894 published, 228 review, 15 draft; 243 bài chưa published trung bình 8,87 (thấp nhất 8,15).
+- English fill: 1.059 published, 1 draft.
+- Điểm chấm lại trước đây đều do agent tự chấm, chưa người biên tập xác nhận.
+- Kết quả trung gian phiên trước (bản dịch mù, assess JSON, script gom PR) nằm ngoài repo, không có ở đây. Chỉ tin main và PR đang mở.
+- Lỗi chéo cần người biên tập quyết định chung, đừng sửa lẻ: cụm "tare loke visattikaṁ", "adurāgataṁ", tiêu đề tha-ap ("Bài Kệ Tuyên Ngôn", "Ký Sự"), phạm vi oḷārikā/anusahagatā, xưng hô "ta"/"tôi" trong tha-ap.
 
-**Không được** đạt điều kiện bằng cách: nâng `triangulation` hoặc điểm tiêu chí khác để vượt ngưỡng
-mà không có bằng chứng; sửa `status`, `waiver`, `quality` bằng tay; xoá bài khỏi phạm vi; đổi
-kinh văn hay trạng thái chất lượng trong một tác vụ không liên quan.
-
-## Trạng thái (ghi lại lúc bàn giao, 2026-10-15)
-
-Số liệu đo lúc bàn giao (phải đo lại trước khi báo cáo):
-
-- Tầng Việt (đo lúc bàn giao trên `origin/main` `d520ccd25`): 5.894 `published`, 228 `review`, 15 `draft`.
-  Điểm trung bình của 243 bài chưa published là 8,87 (thấp nhất 8,15).
-- Lớp lấp English: 1.059 `published`, 1 `draft`.
-- PR đang mở: 0.
-- Đợt "lấp English cho bài không có bản Anh upstream" (PR #627, #630) và đợt "đối chiếu bản Việt
-  nguyên bài" (PR #628, #629, #631, #636, #637) đã merge.
-- Đợt "đối chiếu bản dịch mù độc lập" (Stage B, PR #639 và combo 135/136/137/138) đang ở
-  nhiều giai đoạn; xem mục **Đợt dở dang** bên dưới.
-
-Có một điểm quan trọng cần nhớ: **điểm đã "chấm lại" trong các đợt sau khi sửa vẫn là điểm
-do agent tự chấm (`assessed_by` là agent), chưa được người biên tập xác nhận.** Bản chấm đã áp dụng
-chỉ là điểm trung bình thô của tiêu chí; `final_score` do cổng tính. Đừng tuyên bố bài "đạt"
-trước khi chạy cổng.
-
-## Quy trình làm việc đã chứng minh
-
-Một vòng cải thiện một bài (đã chạy được nhiều lần):
-
-1. **Chuẩn bị nhánh làm việc** từ `origin/main` bằng worktree riêng cho mỗi lane (`_wt-<tên>`), liên kết
-   `node_modules` và `.cache/upstream` từ repo chính. Không sửa trực tiếp trên `main`.
-2. **Đọc bản đối chiếu độc lập** nếu có (bản Việt nguyên bài trong `.cache/`, hoặc bản dịch mù trong
-   `opencode-work/w19/blindA`). Bản mù chỉ để phát hiện chỗ cần xem lại, không chép chữ của nó.
-3. **Phân xử từng chỗ khác nghĩa bằng Pāli** (ngữ pháp, từ điển trong ngữ cảnh, khoá song song).
-   Ba kết quả: sửa (bản dự án sai), giữ (bản đối chiếu sai hoặc chỉ khác diễn đạt), bất định (ghi notes).
-4. **Ghi notes** một mục ngắn vào `content/meta/sutta/<c>/<uid>.yaml`. Không sửa `quality`, `status`,
-   `waiver`, `assessment_id` bằng tay.
-5. **Chấm điểm lại** bằng `npm run quality -- --record <uid> <file.json>` rồi `--apply`. Chấm trung thực;
-   trần `triangulation` là 8,0 khi chỉ có một bản đối chiếu cùng họ công cụ, 8,8 khi có bản Việt độc lập
-   đã đối chiếu thật.
-6. **Kiểm** `_checkwave` cho từng tệp đã sửa; sau đó chạy cổng trên worktree sạch.
-7. **Gộp**: `combo` gom các lane, `auditpr` đặt tiêu đề/nội dung PR, `merge_when_clean` squash-merge khi
-   CI sạch. CI có thể lỗi tạm do giới hạn API GitHub (403); chạy lại job thất bại thay vì sửa code.
-
-Công cụ nằm ở `/Volumes/SSD/opencode-work/w19/tools/` (ngoài repo). Đừng viết lại chúng nếu
-chưa đọc kỹ.
+## Quy trình một bài
+1. Làm trên nhánh được chỉ định, tách từ origin/main mới nhất.
+2. Đọc npm run store -- <uid>: Pāli, English (Sujato + lớp lấp), Việt hiện hành, bản nguyên bài (sau npm run legacy:sync).
+3. Phân xử từng chỗ khác nghĩa bằng Pāli. Ba kết quả: sửa, giữ, hoặc bất định (ghi notes). Bản đối chiếu chỉ để phát hiện chỗ cần xem, không chép chữ.
+   Bài không có bản đối chiếu độc lập: chỉ dựa vào Pāli gốc và đoạn song song (cùng pericope/công thức ở bài khác, ưu tiên bài đã published có bản Anh hoặc Việt độc lập). Đoạn trùng thì dùng lại cách dịch đã kiểm; đoạn riêng thì Pāli tự đứng. Ghi uid song song đã dùng vào notes. Mục tiêu của các bài này vẫn là > 9,0.
+4. Ghi một mục notes ngắn vào content/meta/sutta/<c>/<uid>.yaml.
+5. Review đối kháng riêng, rồi chấm đủ 10 tiêu chí: npm run quality -- --record <uid> <file.json>, rồi --apply. Chấm triangulation theo rubric, dựa trên bằng chứng ghi trong notes (Pāli, đoạn song song, ngữ pháp/từ điển); không có trần cố định, nhưng điểm phải phản ánh việc vắng bản Anh/Việt độc lập.
+6. validate/test/check cục bộ, rồi gom nhiều bài mỗi PR, push, mở PR. CI lỗi 403 do giới hạn API: chạy lại job, không sửa code.
 
 ## Ràng buộc
+- Tối đa 11 subagent đồng thời. Agent bị ngắt: kiểm tệp đã sửa/notes/assess trước khi làm lại để không nối trùng notes.
+- Giữ segment ID; không đưa Pāli vào translation JSON; không phát minh ID.
+- Không đổi giấy phép, NOTICE, source/suttacentral.lock.json, source/layers.yaml.
+- Không đổi audio đã duyệt (source/narration-profile.json, docs/audio.md); bài có audio đã phát hành không được đổi nội dung.
+- Không xoá tệp; chỉ push qua luồng PR.
 
-- Tối đa **11 agent chạy đồng thời** (xem memory `feedback_max-11-subagents`). Giới hạn phiên Claude
-  có thể làm các agent bị ngắt; khi bị ngắt, kiểm tra tệp đã sửa/notes/assess dở trước khi làm lại
-  để không nối trùng notes.
-- Giữ nguyên segment ID, không đưa Pāli vào bản dịch JSON, không tự phát minh ID.
-- Không đổi giấy phép, `NOTICE`, `source/suttacentral.lock.json`, `source/layers.yaml`.
-- Không đổi audio đã duyệt (`source/narration-profile.json`, `docs/audio.md`). Bài có audio phát hành
-  không được đổi nội dung; `combo` giữ bản trên `main` cho các bài này.
-- Không tự xoá tệp, không đẩy lên remote bên ngoài ngoài luồng PR đã định.
+## Thứ tự
+1. Đo lại status/điểm trong content/meta/** trên origin/main; liệt kê PR đang mở.
+2. Đưa PR đang mở tới CI xanh và merge.
+3. Bài review: đọc blocking_errors và notes. Chỉ còn noEnglishEditionUpstream và điểm > 9,0 → npm run quality:waive rồi --apply. Blocker thật → sửa trước.
+4. Bài draft (Việt + English): xử lý blocker thật (unresolvedTerm, Pāli hỏng, thiếu khoá) hoặc ghi rõ vì sao không đạt.
+5. Chạy lại toàn bộ cổng; báo cáo số liệu thật kèm danh sách bài còn ≤ 9,0 và lý do.
 
-## Đợt dở dang (kiểm trước khi làm tiếp)
-
-- **Stage B (đối chiếu bản dịch mù, lanes 3000–3042)**: đã dựng xong diff, nhiều lane đã sửa và chấm.
-  Các lane 3033, 3035–3042 bị ngắt giữa chừng khi hết giới hạn; đã khởi động lại. Kết quả và
-  `assess/<uid>.json` nằm ở `opencode-work/w19/assess/`. Kiểm từng lane trước khi gom.
-- **Combo 138** (lanes 3029, 3031, 3032, 3034) đang chạy cổng lúc bàn giao.
-- **Stage A (bản dịch mù của 192 bài `review` không có nguồn độc lập)**: đã hoàn tất 55 đoạn
-  (`blindA/out_20xx_*.json`) và đã kiểm `check.py` cho từng đoạn.
-- **Lỗi ngoài lane đã ghi**: `opencode-work/w19/sample_results.txt` liệt kê các lỗi phát hiện ở lane khác,
-  chưa có ai sửa (ví dụ cụm `tare loke visattikaṁ`, `adurāgataṁ`, tiêu đề `tha-ap` "Bài Kệ Tuyên Ngôn"
-  và "Ký Sự", phạm vi `oḷārikā`/`anusahagatā`, xưng hô "ta"/"tôi" trong `tha-ap`). Đây là việc cần quyết
-  định chung của người biên tập; đừng sửa lẻ từng bài.
-
-## Thứ tự ưu tiên khi làm tiếp
-
-1. Đo lại trạng thái trên `origin/main` (script đếm `status` trong `content/meta/**`).
-2. Hoàn tất cổng cho combo 138 và các PR đang mở; gộp khi CI sạch.
-3. Với mỗi bài `review` còn lại: đọc `blocking_errors` và `notes`; nếu blocker là `noEnglishEditionUpstream`
-   và điểm đã > 9,0 thì chạy `quality:waive` rồi `--apply`; nếu blocker là lỗi thật thì sửa trước.
-4. Với bài `draft` (15 bài Việt, 1 bài English): xử lý blocker thật (`unresolvedTerm`, Pāli hỏng,
-   thiếu khoá) hoặc ghi rõ vì sao không thể đạt.
-5. Chạy lại toàn bộ cổng và báo cáo số liệu thật, kèm danh sách bài còn dưới 9,0 và lý do.
-
-Nếu sau các bước trên vẫn còn bài dưới 9,0 mà không có cách sửa có căn cứ, **báo cáo thẳng**
-thay vì nâng điểm. Đó là kết quả đúng, không phải thất bại.
+Bài không thể vượt 9,0 bằng sửa có căn cứ thì báo cáo thẳng, không nâng điểm. Đó là kết quả đúng.
