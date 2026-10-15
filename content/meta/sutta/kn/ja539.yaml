@@ -1,10 +1,11 @@
 uid: ja539
-status: review
+status: draft
 translationTitle: "Kinh Mahājanaka"
 translators:
   - "Claude Sonnet 5.5 (Claude Code)"
 reviewers:
   - Claude Sonnet 5.5 (Claude Code)
+  - Claude Opus 5.5 (Claude Code)
 tags:
   - "khuddaka-nikaya"
   - "jataka"
@@ -14,16 +15,16 @@ tags:
 quality:
   scores:
     source_provenance: 9.4
-    semantic_fidelity: 8.2
-    grammar_logic: 8
+    semantic_fidelity: 8.6
+    grammar_logic: 8.4
     segment_alignment: 10
-    terminology: 8.4
-    triangulation: 7.5
-    vietnamese_clarity: 8
+    terminology: 8.6
+    triangulation: 8
+    vietnamese_clarity: 8.3
     han_viet_balance: 9.2
     ambiguity_integrity: 8.8
     technical_integrity: 9.6
-  final_score: 8.709999999999999
+  final_score: 8.889999999999999
   blocking_errors:
     - "noEnglishEditionUpstream: Thiếu bản dịch tiếng Anh đối chiếu. Tầng
       english-sujato tại commit đã ghim không có
@@ -32,20 +33,10 @@ quality:
       vietnamese-current chỉ có Pháp Cú và lớp english-project không có tệp cho
       bài này. Cả ba tầng tham khảo đều vắng nên triangulation bị chặn ở 7.5 (≤
       8.0) và bài giữ draft."
-  assessed_at: 2026-10-14
+  assessed_at: 2026-10-15
   assessed_by:
-    - Claude Sonnet 5.5 (Claude Code)
-  assessment_id: 55f0ec15-0b7b-4985-b9c4-f22d64feaa04
-  waiver:
-    id: no-upstream-english
-    blockers:
-      - "noEnglishEditionUpstream: Thiếu bản dịch tiếng Anh đối chiếu. Tầng
-        english-sujato tại commit đã ghim không có
-        ja539_translation-en-sujato.json (ja chỉ có 83 tệp: ja1–79, ja126,
-        ja159, ja466, ja534; đây là not-published-upstream, không phải
-        not-synced), tầng vietnamese-current chỉ có Pháp Cú và lớp
-        english-project không có tệp cho bài này. Cả ba tầng tham khảo đều vắng
-        nên triangulation bị chặn ở 7.5 (≤ 8.0) và bài giữ draft."
+    - Claude Opus 5.5 (Claude Code)
+  assessment_id: 7ddf9337-4b30-415e-aabe-7c144e45a0ca
 notes: |-
   Dịch trực tiếp từ Pāli root snapshot bilara đã ghim, đường dẫn `kn/ja/ja539_root-pli-ms.json` (763/763 khoá, đúng thứ tự Pāli, không khoá thừa). Bài toàn kệ: bốn dòng tiêu đề `0.1`–`0.4`, 176 bài kệ (`1`–`176`; 147 bài bốn dòng, 28 bài sáu dòng, riêng `159` hai dòng) và dòng kết bài `177.1`; phần văn xuôi khung truyện không nằm trong tầng Pāli đã ghim, nên người nói được suy từ xưng hô, nháy và mạch của chính các bài kệ. Nội dung chính (suy từ kệ): người đang bơi giữa đại dương, không thấy bờ, bị một vị thiên nữ chất vấn và đáp rằng vẫn nên nỗ lực (`1`–`9`); vị thiên khen sự nỗ lực ấy và nói về kho báu, rồi các câu về hy vọng và nỗ lực (`10`–`19`); triều thần than vua không còn ham múa hát (`20`–`21`); người ấy, khi đã ở ngôi vua Mithilā, nghĩ đến chuyện bỏ hết để xuất gia (`22`–`120`: các dòng bắt đầu bằng "Bao giờ ta…" và "Bao giờ đây…"); các bà vợ khóc, vua ra đi với chiếc bát đất (`121`–`127`); lời can ngăn vì lửa và giặc, vua đáp là mình không còn gì để mất (`128`–`133`); cuộc đối đáp với một vị bà-la-môn tên Nārada Kassapa (`134`–`156`, gồm chuyện hai cây xoài ở `149`–`154`); lời đáp về việc sống bằng đồ khất thực (`157`–`161`); đối thoại với Sīvalī, cô gái đeo vòng và người thợ làm tên, kết bằng lời bảo Sīvalī hãy sống một mình (`162`–`176`).
   - Tầng tham khảo:
@@ -116,3 +107,17 @@ notes: |-
   - Công cụ kiểm của kho chưa chạy ở bước này, nên `technical_integrity` đặt 9.6 và không tuyên bố technical gate pass; còn phải chạy: `npm run validate`, `npm test`, `npm run check`, `npm run build`.
 
   Đối chiếu bản dịch mù độc lập 2026-10-14: một dịch giả khác (cùng họ công cụ) dịch lại bài từ Pāli không xem bản dự án; so 213 khoá chênh lệch lớn nhất trên 763 khoá (phần lớn chỉ khác ngắt dòng hay diễn đạt) → khác nghĩa 16: sửa 1 cụm (`157.1`, `158.1`–`158.3`, `158.6`: người nghe của `157`–`159` đổi từ "ngài" trung tính, người nói "tôi" sang vua nói với Sīvalī, "ta"/"nàng", vì `158.3` `rajjaṁ tuvaṁ kārayasi` hướng tới người đang trị vì, `159.2` `yāpehi` là mệnh lệnh ngôi hai, và `160` là lời Sīvalī đáp thẳng việc sống bằng khất thực của `159`; bản cũ ghi người nghe là Nārada, người không trị vì), giữ 3 (`50.1` và các khoá song song `gāmaṇīyehi`: "trưởng làng" theo 11/11 khoá tiền lệ, bản mù "thủ lĩnh" không có căn cứ trong tầng; `45.1`/`46.1` `pallaṅka`: "ghế dài" 5/5 trong Jātaka, bản mù "giường"; `136.3` `atīraṇeyya`: khác diễn đạt, cùng ý "chưa xong"), bất định 12 (`53.3`–`69.3`, `86.3`–`102.3` `dīpe … veyyagghe` là báo và hổ thật hay da báo và da hổ; `81.2`/`127.2` `satarājikaṁ`: "một trăm đồng vàng" theo `thag1.97` hay "có trăm đường vân" như `ja547:198.2`, hai cách đọc trong tầng không khớp nhau; `13.2` `kepuke`; `18.4` `maccumupabbajanti` (Pāli ja539 là `maccu`, `ja483:5.4` là `macca`); `135.5` `missaṁ nandīhi`; `142.1`–`142.2` `sannataṁ`/`unnataṁ`; `147.3`–`147.6` `na hi kappaṁ vā vijjaṁ vā paccakkhāya`, phủ định đi với `paccakkhāya` hay `āhu`; `154.4` `aniketamasanthavaṁ` thiếu vị ngữ trong Pāli; `156.2` `paṭicchadaṁ`; `160.2` `ajuṭṭhamārī`; `162.1` `upaseniye` là tên hay danh xưng; `166.3`/`174.3` `garahittho`). Review đối kháng toàn bài thêm: nháy kép và nháy đơn khớp Pāli từng khoá (0/763 lệch), không có dấu lược ở Pāli lẫn Việt, 111 cặp trong bài khác nhau đều đã có lý do, số Pāli không đổi. Các chỗ bất định trên giữ nguyên câu chữ, không thêm vào thân kinh. Không có bản Anh hay bản Việt độc lập khác.
+
+  Lượt rà soát 2026-10-15 (Claude Opus 5.5, đọc đối kháng Pāli↔Việt toàn bài 763 khoá, đoạn song song
+  ja529:49, ja547:148, tha-ap410:20, ja313:1, sn4.18:4, dhp200, thag1.97 kèm bản Anh Sujato của
+  thag1.97; không có bản Việt nguyên bài): sửa 24 khoá. Sai nghĩa: 144.4 kasmā tetaṁ aruccatha là
+  aorist của ruccati (a- là tăng âm, không phải phủ định), "vì sao điều này không hợp ý ngài" →
+  "vì sao ngài lại ưa thích điều này"; 18 khoá 53.3–69.3 (lẻ) và 86.3–102.3 (lẻ) dīpe/dīpā …
+  veyyagghe/veyyagghā là tính từ hợp cách với cỗ xe (veyyaggha là dạng phái sinh "thuộc về hổ"),
+  "có báo và có hổ" → "có da báo và cả da hổ" theo ja547:148.3, tha-ap410:20.3 (ja529:49.3 còn
+  dịch cũ, ngoài phạm vi); 157.6 pajāpati là hô cách giống cái "người vợ" (như vv41:6.3, mnd15:74.6),
+  hợp với người nghe Sīvalī của 157–159, → "hỡi hiền thê" (cách đọc khác: danh xưng của Dīghāvu).
+  Rõ nghĩa: 3.3, 139.1–139.2, 140.3 ("đến chỗ ngài"); dấu câu 176.4 (nháy trước dấu chấm). Giữ:
+  81.2/127.2 satarājikaṁ (Sujato thag1.97 cũng hiểu là số lượng), 131.4 theo ja313:1.4, 133.3 theo
+  sn4.18:4.3. Bất định mới: migājina ở 145, 146, 148, 150, 151 có thể là tên một ẩn sĩ khác (khi đó
+  143–144 là lời người ấy, không phải Nārada); chưa đổi vì Pāli đã ghim không có văn xuôi để kiểm.

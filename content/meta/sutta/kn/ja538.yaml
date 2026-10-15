@@ -1,10 +1,11 @@
 uid: ja538
-status: review
+status: draft
 translationTitle: "Kinh Mūgapakkha"
 translators:
   - "Claude Sonnet 5.5 (Claude Code)"
 reviewers:
   - Claude Sonnet 5.5 (Claude Code)
+  - Claude Opus 5.5 (Claude Code)
 tags:
   - "khuddaka-nikaya"
   - "jataka"
@@ -14,16 +15,16 @@ tags:
 quality:
   scores:
     source_provenance: 9.4
-    semantic_fidelity: 8.5
-    grammar_logic: 8.4
+    semantic_fidelity: 8.8
+    grammar_logic: 8.7
     segment_alignment: 10
-    terminology: 8.6
-    triangulation: 7.7
-    vietnamese_clarity: 8.4
+    terminology: 8.8
+    triangulation: 8
+    vietnamese_clarity: 8.6
     han_viet_balance: 9.2
-    ambiguity_integrity: 8.8
+    ambiguity_integrity: 8.9
     technical_integrity: 9.6
-  final_score: 8.86
+  final_score: 9
   blocking_errors:
     - "noEnglishEditionUpstream: Thiếu bản dịch tiếng Anh đối chiếu. Tầng
       english-sujato tại commit đã ghim không có
@@ -32,20 +33,10 @@ quality:
       vietnamese-current chỉ có Pháp Cú và lớp english-project không có tệp cho
       bài này. Cả ba tầng tham khảo đều vắng nên triangulation bị chặn ở 7.5 (≤
       8.0) và bài giữ draft."
-  assessed_at: 2026-10-14
+  assessed_at: 2026-10-15
   assessed_by:
-    - Claude Sonnet 5.5 (Claude Code)
-  assessment_id: 00f8c2dd-f473-4c85-bf07-c8b6aead27d2
-  waiver:
-    id: no-upstream-english
-    blockers:
-      - "noEnglishEditionUpstream: Thiếu bản dịch tiếng Anh đối chiếu. Tầng
-        english-sujato tại commit đã ghim không có
-        ja538_translation-en-sujato.json (ja chỉ có 83 tệp: ja1–79, ja126,
-        ja159, ja466, ja534; đây là not-published-upstream, không phải
-        not-synced), tầng vietnamese-current chỉ có Pháp Cú và lớp
-        english-project không có tệp cho bài này. Cả ba tầng tham khảo đều vắng
-        nên triangulation bị chặn ở 7.5 (≤ 8.0) và bài giữ draft."
+    - Claude Opus 5.5 (Claude Code)
+  assessment_id: fbddeec4-1765-43e0-84c4-536de8ee6752
 notes: |-
   Dịch trực tiếp từ Pāli root snapshot bilara đã ghim, đường dẫn `kn/ja/ja538_root-pli-ms.json` (499/499 khoá, đúng thứ tự Pāli, không khoá thừa). Bài toàn kệ: bốn dòng tiêu đề `0.1`–`0.4`, 122 bài kệ (`1`–`122`; 119 bài bốn dòng, riêng `11`, `37`, `38` có sáu dòng) và dòng kết bài `123.1`; phần văn xuôi khung truyện không nằm trong tầng Pāli đã ghim, nên người nói được suy từ xưng hô, nháy và mạch của chính các bài kệ. Nội dung chính (suy từ kệ): một vị thiên nữ khuyên hoàng tử xứ Kāsi giả làm kẻ ngu (`1`–`2`); người đánh xe đào hố để chôn chàng trong rừng, chàng nói mình không điếc, không câm, không què, nêu các lợi ích của người không phản bạn, rồi nhớ lại kiếp trước làm vua phải chịu địa ngục nên sợ ngôi vua (`3`–`42`); người đánh xe xin cùng xuất gia, được dặn quay về (`43`–`48`), báo tin cho hoàng hậu (`49`–`63`); nhà vua sai thắng xe, cùng đoàn tùy tùng đến (`64`–`74`); hai bên hỏi thăm, nhà vua mời chàng trở lại ngôi, chàng từ chối vì tuổi trẻ cũng phải chết (`75`–`122`). Phần này không được đối chiếu với văn xuôi nào, nên các dòng tả cảnh và xác định người nói dựa hoàn toàn vào kệ.
 
@@ -125,3 +116,16 @@ notes: |-
   xưng hô theo người nói. triangulation không vượt 8,0 vì chỉ có một lần dịch lại cùng họ công cụ;
   technical_integrity vẫn 9,6, chưa chạy lại: npm run validate, npm test, npm run check, npm run
   build.
+
+  Lượt rà soát 2026-10-15 (Claude Opus 5.5, đọc đối kháng Pāli↔Việt toàn bài 499 khoá, đoạn song song
+  ja530:4, ja398:1, cp26:7, tha-ap487:5; không có bản Việt nguyên bài): sửa 11 khoá. Sai nghĩa:
+  72.2–72.3 upādhī là "dép", vật thứ năm trong năm biểu hiệu vương quyền (quạt đuôi trâu, khăn đội
+  đầu, gươm, lọng, dép; cùng dòng Vālabījanimuṇhīsaṁ ở ja530:4.3–4.4, ở đó là upāhanaṁ, dịch "dép"),
+  không phải "các vật dụng"; 85.4 pāhuno mesidhāgato thiếu me ("khách của tôi") và bỏ chữ "vì" không
+  có trong Pāli. Sandhi: 9.2 sammūpajīvasi đọc samma (hô cách, như 3.3, 48.1) + upajīvasi, bỏ "cho
+  đúng đắn". Rõ nghĩa: 84.4 pāde pakkhālayassu te (ngài tự rửa chân, không phải rửa cho ngài);
+  86.3–86.4 suciṁ bổ nghĩa cho odanaṁ ("cơm … tinh khiết"), ja398:1.2 vẫn dịch như cũ. Xưng hô:
+  86.1–86.3, 87.1 nhà vua xưng "cha" như 92–96, 104; 87.2 thêm "con" theo cách đọc đã ghi
+  (ekakaṁ rahogataṁ chỉ người con), tránh câu Việt hiểu thành nhà vua một mình. Giữ: 65.4–68.4,
+  55.2, 103.3 như các lượt trước. Bất định còn: 72.4 alaṅkatā chỉ các nàng hay chỉ dép; 34.4/59.4,
+  58.4, 104.3 như đã ghi; 83.2 adurāgataṁ là cụm chéo chờ người biên tập, để nguyên.
