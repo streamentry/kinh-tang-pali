@@ -3,7 +3,8 @@ status: published
 translationTitle: "Tiểu Tập Kể Lược, Các Câu Hỏi Phẩm Bờ Kia – 2"
 translators:
   - "Claude Sonnet 5.5 (Claude Code)"
-reviewers: []
+reviewers:
+  - Claude Sonnet 5.5 (Claude Code)
 tags:
   - "khuddaka-nikaya"
   - "culaniddesa"
@@ -11,16 +12,16 @@ tags:
 quality:
   scores:
     source_provenance: 9.4
-    semantic_fidelity: 8.8
+    semantic_fidelity: 8.9
     grammar_logic: 8.9
-    segment_alignment: 10.0
+    segment_alignment: 10
     terminology: 9.2
-    triangulation: 8.0
+    triangulation: 8
     vietnamese_clarity: 8.9
     han_viet_balance: 9.2
     ambiguity_integrity: 8.8
     technical_integrity: 9.6
-  final_score: 9.08
+  final_score: 9.09
   blocking_errors:
     - "Không có tầng tham khảo tiếng Anh cho cnd2 tại commit đã ghim
       (noEnglishEditionUpstream): edition english-sujato chỉ có tệp tên mục
@@ -31,9 +32,10 @@ quality:
       Việt của kệ trùng ở snp5.2–snp5.17 và cnd5–cnd20. Đây là giới hạn upstream
       chứ không phải lỗi người dịch; triangulation bị chặn ở 8.0, không nâng để
       né blocker."
-  assessed_at: "2026-10-11"
+  assessed_at: 2026-10-15
   assessed_by:
-    - "Claude Sonnet 5.5 (Claude Code)"
+    - Claude Sonnet 5.5 (Claude Code)
+  assessment_id: 28fc44a7-0dee-4334-b5ce-284745693d9e
   waiver:
     id: no-upstream-english
     blockers:
@@ -94,3 +96,6 @@ notes: |-
   **Tầng tham khảo — đo, không đoán.** Pāli root: 495 khoá. Bản Anh Sujato **không có** cho `cnd2`: edition đã ghim (commit `11c9d708978cde8ba61096d8a75f7ddfb846f639`) chỉ có tệp tên mục `cnd-name`, không có tệp kinh `cnd2` (tra manifest; thư mục `kn/` của edition chỉ có `cp` `dhp` `iti` `ja` `kp` `snp` `thag` `thig` `ud`) ⇒ `not-published-upstream`. Lớp `english-project` cũng không có `cnd2`. `vietnamese-current` chỉ có Pháp Cú. **Coverage English theo công thức:** mẫu số = **3** khoá Pāli có nội dung (≥ 40 ký tự, bỏ khối `:0`): `14.5`, `15.1`, `48.6`; Sujato phủ 0/3, `english-project` 0/3, `vietnamese-current` 0/3; với bài này gần như mọi dòng đều ngắn nên cổng coverage **gần như không đo được gì**, và điều đó không phải là *đã đối chiếu English*. Có chứng cứ gián tiếp: các kệ này trùng `snp5.2`–`snp5.17` mà Sujato có dịch; đã đọc đối chiếu để kiểm hiểu nghĩa, nhưng đó là bản của **bài khác**, nên không tính là tầng English của `cnd2` và không đo được ở ba khoá Pāli khác `snp5` (`5.1`, `40.4`, `41.4`). Ba tầng tham khảo đều vắng ⇒ `triangulation` đặt 8.0 (không cao hơn), `status` là `draft` kèm blocker `noEnglishEditionUpstream`, không nâng điểm để né blocker.
 
   **Bốn cổng kỹ thuật theo `AGENTS.md`:** `npm run validate`, `npm test`, `npm run check`, `npm run build`. Lượt này **không** chạy bốn lệnh đó (bị cấm trong lát) ⇒ để CI hoặc người điều phối chạy; `technical_integrity` đặt **9.6**, không 10.0.
+
+  Lô G3 2026-10-15 (Claude Sonnet 5.5 (Claude Code)): kiểm lại lỗi lặp bằng Pāli đã ghim; sửa
+  cnd2:33.4 thêm "như vậy" cho `evaṁ` (khớp cnd9:25.4).

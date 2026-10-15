@@ -3,7 +3,9 @@ status: published
 translationTitle: "Kinh Gijjha"
 translators:
   - "OpenCode Space Bunny Free (agent)"
-reviewers: []
+reviewers:
+  - OpenCode Space Bunny Free (agent)
+  - Claude Sonnet 5.5 (Claude Code)
 tags:
   - "khuddaka-nikaya"
   - "jataka"
@@ -13,21 +15,21 @@ tags:
 quality:
   scores:
     source_provenance: 9.4
-    semantic_fidelity: 9.0
-    grammar_logic: 9.0
-    segment_alignment: 10.0
+    semantic_fidelity: 9.1
+    grammar_logic: 9
+    segment_alignment: 10
     terminology: 9.1
     triangulation: 7.4
-    vietnamese_clarity: 9.0
+    vietnamese_clarity: 9
     han_viet_balance: 9.2
     ambiguity_integrity: 8.4
     technical_integrity: 9.6
-  final_score: 9.01
+  final_score: 9.02
   blocking_errors:
-    - "Bài này không có tầng Anh SuttaCentral đã ghim ở commit đã pin (0/0
+    - Bài này không có tầng Anh SuttaCentral đã ghim ở commit đã pin (0/0
       segment có nội dung, không có tệp nào trong english-sujato), nên thiếu
       tầng tham khảo bắt buộc để xuất bản; đối chiếu chỉ có Pāli ghim cùng
-      commit + tiền lệ trong chính tầng Việt dự án."
+      commit + tiền lệ trong chính tầng Việt dự án.
     - "`ja427` không nằm trong 83 tệp `ja` của tầng `english-sujato` đã ghim (đo
       lại từ source/upstream-manifest.json: ja1–ja79 cộng ja126, ja159, ja466,
       ja534), và translation/vi/phantuananh/ ở commit đã ghim chỉ chứa Pháp Cú,
@@ -35,9 +37,10 @@ quality:
     - "`vātasikhā tikkhā` ở 6.3 và `gijjhovātītasāsano` ở 9.4 không có bản Anh
       nào ở commit đã ghim để phân xử; tôi dịch theo nghĩa từng từ của Pāli và
       ghi ở notes, nên không tuyên bố đã đối chiếu cho các đoạn đó."
-  assessed_at: "2026-10-04"
+  assessed_at: 2026-10-15
   assessed_by:
-    - "OpenCode Space Bunny Free (agent)"
+    - Claude Sonnet 5.5 (Claude Code)
+  assessment_id: f144acf6-c7f8-43ce-bfe1-953126fe69d7
   waiver:
     id: no-upstream-english
     blockers:
@@ -111,3 +114,9 @@ notes: |-
   chính `_hvi.py`: JSON hợp lệ, đủ 47/47 khoá trong `all`, không khoá thừa, không khoá nào trùng
   nguyên văn Pāli, mọi giá trị NFC, bài không có dấu lược, không `(…)` đứng một mình, ngoặc kép
   cân trên cả bài, không Pāli lọt, thứ tự khoá đúng thứ tự số.
+
+  Lô G7 2026-10-15: kiểm lại lỗi lặp bằng Pāli đã ghim, Claude Sonnet 5.5 (Claude Code). 8.1, 8.4,
+  9.1-9.4, 9.6 sửa theo ja381:5.1-6.6 (cùng công thức Pāli: `anovādakare dije`, `vuḍḍhānaṁ`,
+  `gijjhovātītasāsano`); các khổ 1-7 còn nhiều chỗ lệch, chưa rà trong lượt này, đề nghị người biên
+  tập xem lại. Điểm giữ nguyên, trừ semantic_fidelity +0,1 do sửa lỗi nghĩa; technical_integrity giữ
+  nguyên.

@@ -27,6 +27,34 @@
       "notes": "Kiểm tra tự động 33 segment với Pāli trong cache: đủ ID, giá trị, NFC và hệ chữ Latin. Chưa đọc đối chiếu nghĩa, ngữ pháp hoặc văn phong; chưa chấm lại 10 tiêu chí. Đây không phải chứng nhận hash upstream hoặc giấy phép, không xác nhận trạng thái xuất bản.",
       "content_sha256": "ee1a4507676a03834eb5ae683d9ed100f805d0d498cf89e7a8e94ed0bc14c0ea",
       "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639"
+    },
+    {
+      "target": "translation",
+      "scope": "full",
+      "assessed_at": "2026-10-15",
+      "assessed_by": [
+        "Claude Sonnet 5.5 (Claude Code)"
+      ],
+      "scores": {
+        "source_provenance": 9.5,
+        "semantic_fidelity": 9.4,
+        "grammar_logic": 9.2,
+        "segment_alignment": 10,
+        "terminology": 9.2,
+        "triangulation": 7.5,
+        "vietnamese_clarity": 9.2,
+        "han_viet_balance": 9.4,
+        "ambiguity_integrity": 9.1,
+        "technical_integrity": 9.6
+      },
+      "blocking_errors": [
+        "Không có tầng tham khảo tiếng Anh tại commit đã ghim: `source/upstream-manifest.json` cho thấy tầng `english-sujato` chỉ có **83** tệp dưới `.../kn/ja/` (ja1–ja79, cộng 126, 159, 466, 534), trong đó **không có** ja372/ja383/ja391 ⇒ `not-published-upstream`, KHÔNG phải `not-synced`. Cổng coverage của kho đo trên Pāli có nội dung (≥ 40 ký tự): ja391 có **mẫu số = 0** (33 khoá, khoá dài nhất 35 ký tự), nên cổng **không đo được gì** — đây là `0/0`, không phải `0%` đã kiểm rồi không đạt, và cũng không phải cơ sở để bỏ qua việc ghi nhận. `scripts/validate.ts` coi tệp Anh thiếu là **error** khi status là `review` hoặc `published`, nên bài bắt buộc `draft`. Tầng `vietnamese-current` cũng vắng: `translation/vi/phantuananh` tại commit đã ghim chỉ có 26 tệp, toàn bộ là Pháp Cú. Lớp lấp `english-project` cũng không có cho uid này. Ba tầng tham khảo đều vắng ⇒ bài dịch chỉ từ Pāli root ⇒ blocker thật, đây là **giới hạn upstream**, không phải lỗi của người dịch. Vì vậy `triangulation` bị chặn ở 7.5 (≤ 8.0) chứ không nâng để né blocker."
+      ],
+      "notes": "Lô G1: sửa 6.1 `sevitabbā sapaññā` thành \"nên gần gũi những bậc có trí tuệ\" và 6.2 `ye bahussutā`; semantic_fidelity +0,1. Điểm khác giữ nguyên.",
+      "id": "30de7cb1-9149-488d-8621-145908506518",
+      "content_sha256": "8c8ca1f5c204c7444587b44b57a79593dabd7393892d352fd2327a31de63a167",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
+      "final_score": 9.209999999999999
     }
   ],
   "legacy_quality": {

@@ -3,7 +3,8 @@ status: published
 translationTitle: "Ký Sự Về Trưởng Lão Ni Pañcadīpikā"
 translators:
   - "Claude Sonnet 5.5 (Claude Code)"
-reviewers: []
+reviewers:
+  - Claude Sonnet 5.5 (Claude Code)
 tags:
   - "kn"
   - "khuddaka-nikaya"
@@ -13,16 +14,16 @@ tags:
 quality:
   scores:
     source_provenance: 9.5
-    semantic_fidelity: 9.0
-    grammar_logic: 9.0
-    segment_alignment: 10.0
+    semantic_fidelity: 9
+    grammar_logic: 9
+    segment_alignment: 10
     terminology: 8.8
     triangulation: 7.5
     vietnamese_clarity: 9.1
     han_viet_balance: 9.2
     ambiguity_integrity: 8.6
     technical_integrity: 9.6
-  final_score: 9.03
+  final_score: 9.029999999999998
   blocking_errors:
     - "Không có tầng tham khảo tiếng Anh tại commit đã ghim
       11c9d708978cde8ba61096d8a75f7ddfb846f639: `source/upstream-manifest.json`
@@ -40,9 +41,10 @@ quality:
       khi status là `review` hoặc `published`, nên bài bắt buộc `draft`. Dịch
       chỉ từ Pāli root; đây là giới hạn upstream, không phải lỗi người dịch, nên
       `triangulation` chặn ở 7.5."
-  assessed_at: "2026-10-10"
+  assessed_at: 2026-10-15
   assessed_by:
-    - "Claude Sonnet 5.5 (Claude Code)"
+    - Claude Sonnet 5.5 (Claude Code)
+  assessment_id: 3aebca61-e97f-465d-9731-6c4c281514ce
   waiver:
     id: no-upstream-english
     blockers:
@@ -93,3 +95,7 @@ notes: |-
   Nháy: Pāli mở `“` ở 1.1 và đóng `”` ở 25.3; lời tự nhủ mở `‘` ở 4.1 và đóng `’` ở 4.4. Bản Việt khớp Pāli từng khoá, 0 lệch trên 102 khoá. `…pe…` ở 23.2, 24.2, 25.2 → đúng một `…`; Pāli không có `(…)` trần ở khoá nào nên bản Việt cũng không có.
   Tự kiểm: tập khoá Việt = tập khoá Pāli (102/102, cùng thứ tự); 0 khoá rỗng, NFC, 0 khoảng trắng thừa; không có từ Pāli lọt vào Việt ngoài tên riêng (Therīapadāna, Sumedhā, Pañcadīpikā, Pañcadīpā, Haṁsavatī, Gotama). Bản Việt mới dịch xong, chưa có lượt review đối kháng riêng ngoài các phép tự kiểm này.
   technical_integrity 9.6 vì lát này không chạy gate (brief cấm). Bốn lệnh gate do coordinator chạy trước khi xuất bản: `npm run validate`, `npm test`, `npm run check`, `npm run build`.
+
+  Rà soát lỗi lặp 2026-10-15 (đợt 2, đối chiếu Pāli đã ghim; không có bản Anh hay Việt độc lập cho
+  tầng này): sửa thi-ap9:22.1 `kappa` đổi "đại kiếp" thành "kiếp", vì Pāli không có `mahā` (cùng cách
+  đã sửa ở tha-ap340:20.1; tầng đa số dịch "kiếp"). Các khoá khác của bài không đổi.

@@ -3,7 +3,9 @@ status: published
 translationTitle: "10. Ký Sự Về Trưởng Lão Cúng Dường Ba Hoa Sen"
 translators:
   - "Claude Sonnet 5.5 (Claude Code)"
-reviewers: []
+reviewers:
+  - Claude Opus 5.5 (Claude Code)
+  - Claude Sonnet 5.5 (Claude Code)
 tags:
   - "kn"
   - "khuddaka-nikaya"
@@ -13,16 +15,16 @@ tags:
 quality:
   scores:
     source_provenance: 9.2
-    semantic_fidelity: 9.0
+    semantic_fidelity: 9
     grammar_logic: 9.1
-    segment_alignment: 10.0
+    segment_alignment: 10
     terminology: 9.3
     triangulation: 7.2
     vietnamese_clarity: 9.2
     han_viet_balance: 9.2
     ambiguity_integrity: 8.8
     technical_integrity: 9.6
-  final_score: 9.06
+  final_score: 9.059999999999999
   blocking_errors:
     - "Không có tầng tham khảo tiếng Anh tại commit đã ghim: tệp
       `translation/en/sujato/sutta/kn/tha-ap/tha-ap82_translation-en-sujato.jso\
@@ -42,9 +44,10 @@ quality:
       né blocker. Hiện `content/meta/reference-gaps.yaml` chưa có entry cho uid
       này; entry đó không cứu được `published` nhưng nên được thêm khi chạy lại
       `npm run reference:gaps`."
-  assessed_at: "2026-10-14"
+  assessed_at: 2026-10-15
   assessed_by:
-    - "Claude Opus 5.5 (Claude Code)"
+    - Claude Sonnet 5.5 (Claude Code)
+  assessment_id: 46927b17-44c8-48f3-b38d-4437119d8bfb
   waiver:
     id: no-upstream-english
     blockers:
@@ -129,3 +132,7 @@ notes: |-
   Bất định còn lại, không có căn cứ để phân xử thêm: (b) `:18.1`–`:18.4` (đối tượng của `imaṁ`, chủ ngữ của `tuvaṭṭissanti`; quét Pāli root không có đoạn song song nào chứa `pattasañchanne` hay `attharitvā pārupitvā tuvaṭṭ…` ngoài bài này) giữ vì vậy `họ trải thứ này ra rồi đắp lên` ở `:18.3`; (c) và (f) chủ sở hữu của `matthake` ở `:7.3` và `:23.4`; (d) `paṭimagga` ở `:3.2`; (e) ba thành tựu ở `:22.4`. Các bất định này đã được ghi ở trên và khiến `semantic_fidelity` không được nâng ở lượt này.
   Điểm lượt này: source_provenance 9.2 · semantic_fidelity 9.0 · grammar_logic 9.1 · segment_alignment 10.0 · terminology 9.3 · triangulation 7.2 · vietnamese_clarity 9.2 · han_viet_balance 9.2 · ambiguity_integrity 8.8 · technical_integrity 9.6. Trung bình thô 90,6 chia 10 = 9,06. Biên vượt ngưỡng 9,0 chỉ là 0,06, đến từ các cải thiện nhỏ ở ba tiêu chí trên và việc phân xử bất định (a), (j); người biên tập nên đọc lại `:18` và `:23` khi duyệt. Blocker duy nhất còn lại là blocker tầng tham khảo tiếng Anh vắng (waiver `no-upstream-english` vẫn áp dụng); không có blocker nghĩa nào mới.
   Kiểm tra sau sửa: tập khoá Việt bằng tập khoá Pāli 120 trên 120, đúng thứ tự; nháy `“”‘’` khớp Pāli từng khoá, 120 khoá, 0 lệch; dấu lược `…` chỉ ở `:27.2` và khớp Pāli; NFC, khoảng trắng thừa, khoá rỗng: 0 lỗi; cặp Pāli trùng nguyên văn trong chính bài: 0 cặp nên phép dò chạy rỗng; so với tiền lệ nguyên văn, khoá `:25.1` nay thuộc nhóm `kiếp` 10 khoá cùng dạng. technical_integrity vẫn 9.6: chưa chạy `npm run validate` · `npm test` · `npm run check` · `npm run build`.
+
+  Rà soát lỗi lặp 2026-10-15 (đợt 2, đối chiếu Pāli đã ghim; không có bản Anh hay Việt độc lập cho
+  tầng này): sửa 2.1 `Nagare haṁsavatiyā` đổi "thành xứ Haṁsavatī" thành "thành Haṁsavatī", vì
+  `nagara` là thành, "xứ" là chữ thừa (cùng tha-ap411:1.1). Các khoá khác của bài không đổi.

@@ -3,7 +3,9 @@ status: published
 translationTitle: "Kinh Vijjādhara"
 translators:
   - "OpenCode Space Bunny Free (agent)"
-reviewers: []
+reviewers:
+  - OpenCode Space Bunny Free (agent)
+  - Claude Sonnet 5.5 (Claude Code)
 tags:
   - "khuddaka-nikaya"
   - "jataka"
@@ -13,16 +15,16 @@ tags:
 quality:
   scores:
     source_provenance: 9.5
-    semantic_fidelity: 9.3
+    semantic_fidelity: 9.4
     grammar_logic: 9.2
-    segment_alignment: 10.0
+    segment_alignment: 10
     terminology: 9.2
     triangulation: 7.5
     vietnamese_clarity: 9.2
     han_viet_balance: 9.4
     ambiguity_integrity: 9.1
     technical_integrity: 9.6
-  final_score: 9.2
+  final_score: 9.209999999999999
   blocking_errors:
     - "Không có tầng tham khảo tiếng Anh tại commit đã ghim:
       `source/upstream-manifest.json` cho thấy tầng `english-sujato` chỉ có
@@ -40,9 +42,10 @@ quality:
       root ⇒ blocker thật, đây là **giới hạn upstream**, không phải lỗi của
       người dịch. Vì vậy `triangulation` bị chặn ở 7.5 (≤ 8.0) chứ không nâng để
       né blocker."
-  assessed_at: "2026-10-05"
+  assessed_at: 2026-10-15
   assessed_by:
-    - "OpenCode Space Bunny Free (agent)"
+    - Claude Sonnet 5.5 (Claude Code)
+  assessment_id: 30de7cb1-9149-488d-8621-145908506518
   waiver:
     id: no-upstream-english
     blockers:
@@ -74,3 +77,10 @@ notes: |-
   Bài trùng nguyên văn: câu `Sakkohamasmī tidasānamindo` còn xuất hiện ở ja512:30.4, nhưng **ja512 chưa được dịch** (tệp Việt chỉ có 1 trên 129 khoá) và nằm ngoài lát này nên không đụng tới; ghi lại để người điều phối gộp khi làm tới ja512.
   Dấu lược: PĀLI của cả ba bài trong lát này **không có** `…pe…` lẫn `…` trần (đo: 0/99 khoá), nên quy tắc `…pe…` của BRIEF_VI3 §10.1 không phát sinh ở lát này; `_hvi` xác nhận dấu lược cân bằng trên cả ba bài. Dấu `”ti` cuối bài: đo 222 bỏ vs 207 giữ trên các khoá PāLI kết bằng `”ti.` trong bộ `ja`, đa số là bỏ, nên bỏ (như ja372 và ja383).
   Bốn lệnh còn lại **đã bị cấm trong phiên này**, nên `technical_integrity` chỉ để 9.6 và không tuyên bố technical gate pass: `npm run validate` · `npm test` · `npm run check` · `npm run build`.
+
+  Lượt rà soát 2026-10-15 (lô G1, Claude Sonnet 5.5 (Claude Code)): `6.1` `addhā have sevitabbā
+  sapaññā` — `sevitabbā` là "nên được gần gũi/phụng sự", chủ ngữ là các bậc có trí (`sapaññā`) và
+  `6.2` `ye bahussutā` nói rõ đó là bậc đa văn; bản cũ "việc tu hành phải kéo dài" không có căn cứ
+  trong Pāli. Nay: "Thật vậy, nên gần gũi những bậc có trí tuệ, những bậc đa văn, suy xét nhiều điều".
+  Không có bản Anh Sujato cho ja391 tại commit ghim; đối chiếu bằng Pāli và ngữ cảnh. Các khoá khác
+  của bài (ví dụ `5.2`, `7.2`) còn lủng củng nhưng nằm ngoài lô này, chưa động.

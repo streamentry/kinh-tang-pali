@@ -53,6 +53,36 @@
       "notes": "Kiểm tra tự động 47 segment với Pāli trong cache: đủ ID, giá trị, NFC và hệ chữ Latin. Chưa đọc đối chiếu nghĩa, ngữ pháp hoặc văn phong; chưa chấm lại 10 tiêu chí. Đây không phải chứng nhận hash upstream hoặc giấy phép, không xác nhận trạng thái xuất bản.",
       "content_sha256": "15402d320a3086bffcd1e2e4613aebbe946e9d4661076cf581159ce5fd6337f4",
       "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639"
+    },
+    {
+      "target": "translation",
+      "scope": "full",
+      "assessed_at": "2026-10-15",
+      "assessed_by": [
+        "Claude Sonnet 5.5 (Claude Code)"
+      ],
+      "scores": {
+        "source_provenance": 9.4,
+        "semantic_fidelity": 9.1,
+        "grammar_logic": 9,
+        "segment_alignment": 10,
+        "terminology": 9.1,
+        "triangulation": 7.4,
+        "vietnamese_clarity": 9,
+        "han_viet_balance": 9.2,
+        "ambiguity_integrity": 8.4,
+        "technical_integrity": 9.6
+      },
+      "blocking_errors": [
+        "Bài này không có tầng Anh SuttaCentral đã ghim ở commit đã pin (0/0 segment có nội dung, không có tệp nào trong english-sujato), nên thiếu tầng tham khảo bắt buộc để xuất bản; đối chiếu chỉ có Pāli ghim cùng commit + tiền lệ trong chính tầng Việt dự án.",
+        "`ja427` không nằm trong 83 tệp `ja` của tầng `english-sujato` đã ghim (đo lại từ source/upstream-manifest.json: ja1–ja79 cộng ja126, ja159, ja466, ja534), và translation/vi/phantuananh/ ở commit đã ghim chỉ chứa Pháp Cú, nên không thể đối chiếu một bản Anh độc lập cho bài này.",
+        "`vātasikhā tikkhā` ở 6.3 và `gijjhovātītasāsano` ở 9.4 không có bản Anh nào ở commit đã ghim để phân xử; tôi dịch theo nghĩa từng từ của Pāli và ghi ở notes, nên không tuyên bố đã đối chiếu cho các đoạn đó."
+      ],
+      "notes": "Lô G7 2026-10-15: sửa lỗi nghĩa lặp đã đối chiếu Pāli ghim; semantic_fidelity 9.0 → 9.1, các điểm khác giữ nguyên.",
+      "id": "f144acf6-c7f8-43ce-bfe1-953126fe69d7",
+      "content_sha256": "887c14010d5b0cb05ab96fb7c05a185b8cda5815d9bd9268224e0ba406d79e99",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
+      "final_score": 9.02
     }
   ],
   "legacy_quality": {
