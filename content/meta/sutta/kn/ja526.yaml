@@ -1,10 +1,11 @@
 uid: ja526
-status: review
+status: draft
 translationTitle: "Kinh Niḷinikā"
 translators:
   - "Claude Sonnet 5.5 (Claude Code)"
 reviewers:
   - Claude Sonnet 5.5 (Claude Code)
+  - Claude Opus 5.5 (Claude Code)
 tags:
   - "khuddaka-nikaya"
   - "jataka"
@@ -18,12 +19,12 @@ quality:
     grammar_logic: 7.9
     segment_alignment: 10
     terminology: 8.3
-    triangulation: 7.5
-    vietnamese_clarity: 8.2
+    triangulation: 8
+    vietnamese_clarity: 8.3
     han_viet_balance: 9.2
     ambiguity_integrity: 8.8
     technical_integrity: 9.6
-  final_score: 8.69
+  final_score: 8.749999999999998
   blocking_errors:
     - "noEnglishEditionUpstream: Thiếu bản dịch tiếng Anh đối chiếu. Tầng
       english-sujato tại commit đã ghim không có
@@ -32,20 +33,10 @@ quality:
       vietnamese-current chỉ có Pháp Cú và lớp lấp english-project không có tệp
       cho bài này. Cả ba tầng tham khảo đều vắng nên triangulation bị chặn ở 7.5
       (≤ 8.0) và bài giữ draft."
-  assessed_at: 2026-10-14
+  assessed_at: 2026-10-15
   assessed_by:
-    - Claude Sonnet 5.5 (Claude Code)
-  assessment_id: e48c1e67-10ee-46b3-bd08-a40620f6a253
-  waiver:
-    id: no-upstream-english
-    blockers:
-      - "noEnglishEditionUpstream: Thiếu bản dịch tiếng Anh đối chiếu. Tầng
-        english-sujato tại commit đã ghim không có
-        ja526_translation-en-sujato.json (ja chỉ có 83 tệp: ja1–79, ja126,
-        ja159, ja466, ja534; đây là not-published-upstream, không phải
-        not-synced), tầng vietnamese-current chỉ có Pháp Cú và lớp lấp
-        english-project không có tệp cho bài này. Cả ba tầng tham khảo đều vắng
-        nên triangulation bị chặn ở 7.5 (≤ 8.0) và bài giữ draft."
+    - Claude Opus 5.5 (Claude Code)
+  assessment_id: 78ba4944-d749-44fc-822a-368193465bc1
 notes: |-
   Dịch trực tiếp từ Pāli root snapshot bilara đã ghim, đường dẫn `kn/ja/ja526_root-pli-ms.json` (231/231 khoá, đúng thứ tự Pāli, không khoá thừa). Bài toàn kệ (56 bài kệ cùng bốn dòng tiêu đề và dòng kết); phần văn xuôi của Jātaka không nằm trong tầng Pāli đã ghim, nên người nói ở từng bài kệ chỉ được suy từ lời xưng hô, nháy kép và mạch của chính các bài kệ. Bài có nhiều từ hiếm và nhiều chỗ nói bóng (ẩn sĩ trẻ chưa từng thấy phụ nữ mô tả người khách), dịch sát chữ, không thêm giải thích vào thân kinh.
 
@@ -97,3 +88,5 @@ notes: |-
   - Công cụ kiểm của kho chưa chạy ở bước này, nên `technical_integrity` đặt 9.6 và không tuyên bố technical gate pass; còn phải chạy: `npm run validate`, `npm test`, `npm run check`, `npm run build`.
 
   Đối chiếu bản dịch mù độc lập 2026-10-14: một dịch giả khác (cùng họ công cụ) dịch lại bài từ Pāli không xem bản dự án; so 56 khoá chênh lệch lớn nhất → khác nghĩa hoặc có thể khác nghĩa 16: sửa 4 khoá (3.3 `dārusaṅghāṭayāna`: "cỗ xe ghép gỗ" → "thuyền ghép gỗ", vì `rathena` đã nêu cỗ xe ngay dòng trước nên `yāna` ghép gỗ là phương tiện khác; bản mù cũng đọc là thuyền; vẫn ghi bất định thuyền/bè; 6.3–6.4: chủ ngữ `isisiṅgo mahiddhiko` của 6.4 từng bị đẩy sang 6.3, còn 6.4 mang `hāpeti` — nay 6.3 "tôi nghĩ ông ấy đang nhóm lửa," và 6.4 "Isisiṅga, bậc có đại thần lực”."; 43.2 `nakhāssa dīghā api lohitaggā`: Pāli không có phủ định mà bản cũ thêm "không dài" — nay "dài, đầu móng ửng đỏ", vẫn ghi bất định vì `api` có thể đọc khác), giữ 2 (36.1 `paṅka`: bản mù "lớp chất thoa" là suy diễn, Pāli là "bùn", giữ sát chữ; 51.4 `aratiṁ`: bản mù "bất an", giữ "bất mãn" theo ja525:26.2), bất định 10 (13.2 `supicchitaṁ kaṇharivappakāsati`; 16.2 `mahā`; 26.2 `tapanī … samitā` ("lắng yên" hay "sắp đủ"); 28.2 `vineti`; 28.4 `chadana`; 31.3–31.4 `piṁsare`, `tiriṭisaṅghāri`; 41.2–41.3 `kharapatta`, `uttariyāna`; 44.2 `suvaṇṇakambutalavaṭṭasucchavi` — bản mù tách `tala` thành "lòng bàn tay", bản này không dịch riêng `tala`; 6.1 `saṅkhāto` và 6.3 `no`). Đọc đối kháng lại toàn 231 khoá: người nói, nháy kép/đơn (46.4), số (`catasso` 4, `parosataṁ` hơn một trăm, `dve` 2), xưng hô "cha/con": không phát hiện lỗi mới. Không có bản Anh hay bản Việt độc lập khác.
+
+  Lượt rà soát 2026-10-15 (Claude Opus 5.5, đọc đối kháng Pāli↔Việt, đoạn song song ja512:1.4, vv6:7.3–8.1, vv8:8.3–9.1, ja456:6.3; không có bản Việt nguyên bài): sửa 1 khoá (15.1 `khajjati kaṇḍuvāyati`: "bị cắn rứt" là nghĩa luân lý trong tiếng Việt, ở đây là cảm giác thân thể của vết thương nên đổi "nhức nhối, ngứa ngáy" — sửa diễn đạt, không đổi nghĩa). Giữ: 20.1–20.2 khớp vv6 (vv8 thêm "nơi có" theo mạch cung điện), 21.3 không theo "Cung điện ấy" của vv6/vv8 vì ở đây là am thất, 13.3 khác ja456:6.3 vì người nói ở đó xưng "ta"/gọi "ngươi", 32.4/42.2 trùng ja512:1.4. Đọc lại người nói, nháy kép/đơn, số (`catasso`, `parosataṁ`, `dve`), xưng hô cha/con: không phát hiện lỗi nghĩa mới. Bất định đã ghi ở lượt trước giữ nguyên (đặc biệt 6.3 `no`, 26.2 `tapanī … samitā`, 28.2 `vineti`, 31.4, 32.2 `santhare`, 51.4 `pāpuṇetha`); không có căn cứ mới để phân xử.

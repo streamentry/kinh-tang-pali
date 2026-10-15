@@ -1,10 +1,11 @@
 uid: ja527
-status: review
+status: draft
 translationTitle: "Kinh Ummādantī"
 translators:
   - "Claude Sonnet 5.5 (Claude Code)"
 reviewers:
   - Claude Sonnet 5.5 (Claude Code)
+  - Claude Opus 5.5 (Claude Code)
 tags:
   - "khuddaka-nikaya"
   - "jataka"
@@ -14,16 +15,16 @@ tags:
 quality:
   scores:
     source_provenance: 9.5
-    semantic_fidelity: 8.1
-    grammar_logic: 8.1
+    semantic_fidelity: 8.2
+    grammar_logic: 8.2
     segment_alignment: 10
     terminology: 8.3
-    triangulation: 7.6
-    vietnamese_clarity: 8.3
+    triangulation: 8
+    vietnamese_clarity: 8.4
     han_viet_balance: 9.2
     ambiguity_integrity: 8.8
     technical_integrity: 9.6
-  final_score: 8.75
+  final_score: 8.819999999999999
   blocking_errors:
     - "noEnglishEditionUpstream: Thiếu bản dịch tiếng Anh đối chiếu. Tầng
       english-sujato tại commit đã ghim không có
@@ -32,20 +33,10 @@ quality:
       vietnamese-current chỉ có Pháp Cú và lớp lấp english-project không có tệp
       cho bài này. Cả ba tầng tham khảo đều vắng nên triangulation bị chặn ở 7.5
       (≤ 8.0) và bài giữ draft."
-  assessed_at: 2026-10-14
+  assessed_at: 2026-10-15
   assessed_by:
-    - Claude Sonnet 5.5 (Claude Code)
-  assessment_id: 68e72d30-fcf9-4a50-b59a-f9db039ee975
-  waiver:
-    id: no-upstream-english
-    blockers:
-      - "noEnglishEditionUpstream: Thiếu bản dịch tiếng Anh đối chiếu. Tầng
-        english-sujato tại commit đã ghim không có
-        ja527_translation-en-sujato.json (ja chỉ có 83 tệp: ja1–79, ja126,
-        ja159, ja466, ja534; đây là not-published-upstream, không phải
-        not-synced), tầng vietnamese-current chỉ có Pháp Cú và lớp lấp
-        english-project không có tệp cho bài này. Cả ba tầng tham khảo đều vắng
-        nên triangulation bị chặn ở 7.5 (≤ 8.0) và bài giữ draft."
+    - Claude Opus 5.5 (Claude Code)
+  assessment_id: f6d4d90b-0318-4201-b37d-42562436be05
 notes: |-
   Dịch trực tiếp từ Pāli root snapshot bilara đã ghim, đường dẫn `kn/ja/ja527_root-pli-ms.json` (272/272 khoá, đúng thứ tự Pāli, không khoá thừa). Bài toàn kệ (67 bài kệ cùng bốn dòng tiêu đề và dòng kết); phần văn xuôi của Jātaka không nằm trong tầng Pāli đã ghim, nên người nói ở từng bài kệ chỉ được suy từ lời xưng hô, nháy kép và mạch của chính các bài kệ. Bài có nhiều từ hiếm (tả vẻ đẹp của Ummādantī, các từ chỉ trang sức, vài dạng chỉ gặp một lần trong Pāli đã ghim) và nhiều chỗ nói bóng; dịch sát chữ, không thêm giải thích vào thân kinh.
 
@@ -90,3 +81,5 @@ notes: |-
   - Công cụ kiểm của kho chưa chạy ở bước này, nên `technical_integrity` đặt 9.6 và không tuyên bố technical gate pass; còn phải chạy: `npm run validate`, `npm test`, `npm run check`, `npm run build`.
 
   **Đối chiếu bản dịch mù độc lập 2026-10-14.** Một dịch giả khác (cùng họ công cụ) dịch lại bài từ Pāli, không xem bản dự án; so 75 khoá chênh lệch lớn nhất → khác nghĩa 6 chỗ: sửa 0, giữ 2, bất định 4. Giữ 2: `36.1` (bản mù gán lời cho Abhipāraka, xưng *thần*; Pāli là lời vua: `35` Abhipāraka nói *urasā ahaṁ paccuttarissāmi sabbaṁ*, và `36.3` `ekovimaṁ hārayissāmi bhāraṁ` là vua nhận gánh một mình, `dukkhañca nicchāmi ahaṁ paresaṁ` là vua không muốn khổ của người khác, khớp mục người nói đã ghi ở trên); `48.1`, `50.1` `gavañce taramānānaṁ` (bản mù *đàn bò đang vội vã đi*, bản dự án *đàn bò lội qua sông*: tức `tarati` là vượt qua, cùng cảnh đàn bò và con đầu đàn ở `ja334` và `ja528` đều dịch *lội qua sông*). Bất định 4: `31.1` `sace tuvaṁ mayha satiṁ janinda na kāmayāsi` (*không ham muốn người vợ hiền đức* so với cách đọc *không muốn nhận*, vì vua vốn đang ham muốn nàng; cả hai bản đều dịch *không ham muốn*, không phân xử được); `56.2` `niccaṁ abyasanaṁ sivaṁ` (đọc như trạng ngữ của người nói hay tính từ của `rajjaṁ` ở `56.3`; hai bản đọc khác nhau, nghĩa khác nhau nhỏ); `42.3`–`42.4` `añño nu te ko idha sotthikattā` (`te`: ai là người được mưu lợi, cả hai bản đều dịch *cho ngươi*, bản mù ghi ⟦?⟧); `24.1` `aññātakaṁ` (gắn với người nhận hay món cho). Ngoài ra sửa diễn đạt 2 khoá (`49.4`, `51.4` *huống chi là quần chúng còn lại*, cho khớp `an4.70:4.4` như đã ghi ở mục Pāli trùng). Các khoá còn lại trong 75 khoá chỉ khác diễn đạt hoặc là chỗ hapax mà cả hai bản cùng ngập ngừng (`9.4`, `17.4`, `18.4`, `8.3`, `10.2`, `15.4`), đã ghi ở mục bất định ở trên. Đọc đối kháng lại 272 cặp Pāli↔Việt, không thấy lỗi số, phủ định hay người nói mới. Không có bản Anh hay bản Việt độc lập khác; đối chiếu chỉ bằng Pāli, ngữ cảnh bài và tiền lệ trong tầng dự án.
+
+  Lượt rà soát 2026-10-15 (Claude Opus 5.5, đọc đối kháng Pāli↔Việt, đoạn song song ja334:1–4, an4.70:3–6, snp4.12:1.3; không có bản Việt nguyên bài): sửa 4 khoá. 7.3 `harateva me mano` (sai nghĩa nhẹ: `eva` là tiểu từ nhấn mạnh, không phải `iva`, bản cũ thêm phép so sánh "như đang"; nay "nàng đoạt hẳn tâm ta"); 8.4 `migī bhantāvudikkhati` (bỏ tân ngữ "ta" Pāli không có, `udikkhati` → "ngước nhìn"); 39.2 `sanegamā jānapadā ca sabbe` (câu cũ "cùng với…" treo lơ lửng, không rõ là chủ ngữ của `vajjuṁ`; nay "dù là dân thị trấn hay tất cả dân miền quê"); 46.4 `sītacchāyāya saṅghare` (câu đã có động từ `āsetha`, nên `saṅghare` đọc là định sở cách "trong nhà mình" thay vì động từ "quây quần"; hapax trong Pāli đã ghim — bất định, cách đọc "cùng nhau trong nhà" không loại trừ được). Giữ: 48–51 khớp ja334 (49.4, 51.4 theo an4.70:4.4 như đã ghi), 27.4 khớp snp4.12:1.3 (bỏ nháy đơn). Đã xem lại 2.4 `avāvaṭā` (đối chiếu `kammantavāvaṭo` ở tha-ap545:18.4: "bận rộn") — giữ "chưa bị ràng buộc". Bất định cũ giữ nguyên (17.4 `bhusehi … sajāhi`, 9.4 `upaññissati`, 42.4 `aruṇe`, 30.2 `kāmahetukaṁ` mơ hồ như Pāli).
