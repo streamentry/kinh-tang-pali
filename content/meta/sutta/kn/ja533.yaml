@@ -1,10 +1,11 @@
 uid: ja533
-status: review
+status: draft
 translationTitle: "Kinh Thiên Nga Nhỏ"
 translators:
   - "Claude Sonnet 5.5 (Claude Code)"
 reviewers:
   - Claude Sonnet 5.5 (Claude Code)
+  - Claude Opus 5.5 (Claude Code)
 tags:
   - "khuddaka-nikaya"
   - "jataka"
@@ -14,16 +15,16 @@ tags:
 quality:
   scores:
     source_provenance: 9.5
-    semantic_fidelity: 8.2
-    grammar_logic: 8.1
+    semantic_fidelity: 8.6
+    grammar_logic: 8.6
     segment_alignment: 9.8
-    terminology: 8.5
-    triangulation: 7.6
-    vietnamese_clarity: 8.4
+    terminology: 8.7
+    triangulation: 8
+    vietnamese_clarity: 8.7
     han_viet_balance: 9.2
-    ambiguity_integrity: 8.6
+    ambiguity_integrity: 8.8
     technical_integrity: 9.6
-  final_score: 8.749999999999998
+  final_score: 8.95
   blocking_errors:
     - "noEnglishEditionUpstream: Thiếu bản dịch tiếng Anh đối chiếu. Tầng
       english-sujato tại commit đã ghim không có
@@ -33,21 +34,10 @@ quality:
       vietnamese-current chỉ có Pháp Cú và lớp english-project không có tệp cho
       bài này. Cả ba tầng tham khảo đều vắng nên triangulation bị chặn ở 7.8 (≤
       8.0) và bài giữ draft."
-  assessed_at: 2026-10-14
+  assessed_at: 2026-10-15
   assessed_by:
-    - Claude Sonnet 5.5 (Claude Code)
-  assessment_id: d1b1913a-cbcf-47e2-880a-a52f3b393163
-  waiver:
-    id: no-upstream-english
-    blockers:
-      - "noEnglishEditionUpstream: Thiếu bản dịch tiếng Anh đối chiếu. Tầng
-        english-sujato tại commit đã ghim không có
-        ja533_translation-en-sujato.json (ja chỉ có 83 tệp: ja1–79, ja126,
-        ja159, ja466, ja534; đây là not-published-upstream, không phải
-        not-synced; tệp ja534 có mặt nhưng gần như toàn khoá rỗng và là bài
-        khác), tầng vietnamese-current chỉ có Pháp Cú và lớp english-project
-        không có tệp cho bài này. Cả ba tầng tham khảo đều vắng nên
-        triangulation bị chặn ở 7.8 (≤ 8.0) và bài giữ draft."
+    - Claude Opus 5.5 (Claude Code)
+  assessment_id: 178cc0b1-d36d-46a4-ae0c-db8b701ffea5
 notes: |-
   Dịch trực tiếp từ Pāli root snapshot bilara đã ghim, đường dẫn `kn/ja/ja533_root-pli-ms.json` (359/359 khoá, đúng thứ tự Pāli, không khoá thừa). Bài toàn kệ: bốn dòng tiêu đề `0.1`–`0.4`, 88 bài kệ (`1`–`88`) và dòng kết bài `89.1`; phần văn xuôi của Jātaka không nằm trong tầng Pāli đã ghim, nên người nói được suy từ xưng hô, nháy và mạch của chính các bài kệ. Nội dung chính: vua thiên nga Dhataraṭṭha mắc bẫy, đại tướng Sumukha không chịu bỏ ngài mà đi; người thợ săn xúc động, thả cả hai, dẫn vào gặp vua loài người, được hậu đãi; hai thiên nga trở về với đàn. Bài có song song gần nhất ở `ja502` (cùng nhan đề Cūḷahaṁsajātaka ở Pāli, đã dịch) và ở `ja534` (chỉ có Pāli, chưa có bản Việt); các khoá Pāli trùng nguyên văn đã dùng lại cách dịch của tầng.
 
@@ -101,3 +91,10 @@ notes: |-
     - Công cụ kiểm của kho chưa chạy ở bước này, nên `technical_integrity` đặt 9.6 và không tuyên bố technical gate pass; còn phải chạy: `npm run validate`, `npm test`, `npm run check`, `npm run build`.
 
   **Đối chiếu bản dịch mù độc lập 2026-10-14.** Một dịch giả khác (cùng họ công cụ) dịch lại bài từ Pāli không xem bản dự án; so 121/359 khoá chênh lệch lớn nhất → khác nghĩa thật 0 ở phía bản dự án: sửa 2 không đổi nghĩa (`21.1`, `21.3` `Rājā me so … neva naṁ vijahissāmi`: *Con chim ấy là vua của tôi … bỏ rơi nó* → *Vị ấy là vua của tôi … bỏ rơi vị ấy*, vì Sumukha nói về vua và người bạn quý như mạng sống, thống nhất với `27.2`, `27.4`, `37.2`), giữ 119, bất định 10 (`1.1` `anupacinantā`, `5.2` `mahānasā`, `7.1` `yaṁ na`, `10.4` `hetudhammamanussaraṁ`, `16.3` `paccakamittha` — bản mù đọc *lùi lại*, bản dự án *bước lại gần*, vì `baddhā iti vicintayaṁ` là lý do hợp với việc tiến sát, nhưng gốc `paṭi-kam` thường là *lùi*, không phân xử được —, `28.3` `jīvatthi`, `31.1` `no`, `55.4` `janayeyyātha`, `54.3` `ettheva`, `75.2` `nāgarājārivantaraṁ`; hầu hết đã nêu ở trên và bản mù ghi không chắc ở nhiều khoá trong số này). Bản mù sai ở `65.1` (`yantāpatitvāna` đọc thành *khi Ngài rơi vào cạm bẫy*, trong khi `65.2` hỏi kẻ địch có dùng gậy đánh không); tôi không tìm thấy chỗ nào bản mù đúng mà bản dự án sai. Dời nội dung giữa các khoá liền kề theo cú pháp Việt ở `32.1`/`32.2`, `39.1`/`39.2`, `82.1`/`82.2` được giữ vì đảo lại làm câu Việt hiểu sai cấu trúc. Rà đối kháng toàn bài (số, nháy, xưng hô `bạn`/`bác thợ săn`/`tâu đại vương`, tiền lệ `nāvakaṅkhanti jīvitaṁ` 4/4 *không còn mong cầu sự sống*) không thấy lỗi nghĩa nào thêm. Không có bản Anh hay bản Việt độc lập khác.
+
+  Lượt rà soát 2026-10-15 (Claude Opus 5.5, đọc đối kháng Pāli↔Việt, đoạn song song Pāli ja534; không có bản Việt nguyên bài, không có bản Anh): sửa 6 khoá.
+    - `78.1`–`78.2` (sai cú pháp): `Dhammena kira nesādo, paṇḍito aṇḍajo iti` có `iti` trích dẫn, nên là "người thợ săn đã nói đúng rằng con chim … là bậc trí" (vua xác nhận lời thợ săn ở `45`, `55`), không phải hai mệnh đề song song "thợ săn hành xử theo Pháp, và con chim là bậc trí". Động từ "nói" vẫn là chữ bổ sung cho động từ bị lược, như "hành xử" trước đây.
+    - `22.4` `boddhumarahanti` (`arahati` + nguyên mẫu = "lẽ ra phải/có thể"): "họ xứng đáng nhận biết" → "lẽ ra họ phải nhận biết được hoạn nạn" (calque, câu hỏi của thợ săn mất logic).
+    - `74.3` `buddhisampanno` "thông tuệ" → "trí tuệ", thống nhất với `12.3`; `74.4` `myāssa` (khả cách `assa`) → "sẽ là".
+    - `68.2` `ajjhagā` "đạt đến" → "đạt được", thống nhất với `47.2`.
+    Phân xử thêm: `83.4` `passemurindama` = `passemu arindama`; `passemu` là ngôi 1 số nhiều đã có ở `pv36:37.2` (`passemu mayaṁ`), `ja476:13.5`, `ja534:98.4`, nên chữ `u` không còn bất định. Giữ `4.2` "người ta bỏ rơi" (`jahe` khả cách, có thể ngôi 1 hoặc ngôi 3; đọc chung không sai). Bất định cũ ở `1.1`, `5.2`, `7.1`, `16.3`, `17.3`–`17.4`, `18.2` (`paṇḍare` số nhiều trong khi thợ săn hỏi một con), `28.3`, `65.4`, `72.1`–`72.2`, `75.2`, `82.2` vẫn để nguyên.
