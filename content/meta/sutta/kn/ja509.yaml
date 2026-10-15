@@ -1,10 +1,11 @@
 uid: ja509
-status: review
+status: draft
 translationTitle: "Kinh Hatthipāla"
 translators:
   - "Claude Sonnet 5.5 (Claude Code)"
 reviewers:
   - Claude Sonnet 5.5 (Claude Code)
+  - Claude Opus 5.5 (Claude Code)
 tags:
   - "kn"
   - "khuddaka-nikaya"
@@ -19,12 +20,12 @@ quality:
     grammar_logic: 8.7
     segment_alignment: 10
     terminology: 9
-    triangulation: 7.3
-    vietnamese_clarity: 8.8
+    triangulation: 8
+    vietnamese_clarity: 9
     han_viet_balance: 9.2
     ambiguity_integrity: 9
     technical_integrity: 9.6
-  final_score: 8.94
+  final_score: 9.03
   blocking_errors:
     - "noEnglishEditionUpstream: không có tầng tham khảo tiếng Anh tại commit đã
       ghim. `source/upstream-manifest.json` chỉ liệt kê
@@ -37,25 +38,10 @@ quality:
       dịch chỉ dựa vào Pāli root, đối chiếu tiền lệ nội bộ và các dòng Pāli song
       hành trong tầng Sujato (xem notes); bài bắt buộc `draft` và `triangulation
       ≤ 8,0`. Đây là giới hạn upstream, không phải lỗi của người dịch."
-  assessed_at: 2026-10-14
+  assessed_at: 2026-10-15
   assessed_by:
-    - Claude Sonnet 5.5 (Claude Code)
-  assessment_id: ffaf2156-3b09-4e12-ac29-c0f896b673be
-  waiver:
-    id: no-upstream-english
-    blockers:
-      - "noEnglishEditionUpstream: không có tầng tham khảo tiếng Anh tại commit
-        đã ghim. `source/upstream-manifest.json` chỉ liệt kê
-        `kn/ja/ja509_root-pli-ms.json` (tầng Pāli) cho uid này; không có tệp
-        `english-sujato` nào cho `ja509` (tầng Sujato chỉ có 83 bài Jātaka,
-        không có bài này); `content/translation/en/project/sutta/kn/` không có
-        tệp cho uid và `content/meta/en/kn/` không có `ja509.yaml`. Đây là
-        `not-published-upstream`, không phải `not-synced`. Tầng
-        `vietnamese-current` chỉ có Pháp Cú. Ba tầng tham khảo đều vắng, nên bài
-        dịch chỉ dựa vào Pāli root, đối chiếu tiền lệ nội bộ và các dòng Pāli
-        song hành trong tầng Sujato (xem notes); bài bắt buộc `draft` và
-        `triangulation ≤ 8,0`. Đây là giới hạn upstream, không phải lỗi của
-        người dịch."
+    - Claude Opus 5.5 (Claude Code)
+  assessment_id: d73fe1bf-6c9b-4632-88ba-214c1d24e4ee
 notes: |-
   Đợt 19, làn 79. Dịch từ Pāli root commit đã ghim, đủ 109/109 khoá, thứ tự khoá đúng thứ tự Pāli, không có khoá ngoài tập Pāli. Bản root `pli/ms` của Jātaka chỉ có phần kệ, không có văn xuôi khung truyện (khoá 1–19 là các bài kệ đối thoại, 20 là kệ tường thuật, 21–26 là lời của người nữ cùng điệp khúc `Accenti kālā…`, 27 là colophon), nên người nói không được ghi vào thân kinh; chỉ suy từ nội dung kệ và ranh giới dấu nháy (xem BẤT ĐỊNH, mục 1). Không có tầng Anh cho uid (xem blocker); tầng Việt hiện hành chỉ có Pháp Cú.
 
@@ -131,3 +117,9 @@ notes: |-
   - Không đổi: `6.4`/`7.4` (cùng Pāli, cùng bản dịch; xem BẤT ĐỊNH 19), `12.1`–`12.2` (đọc `iti` là dấu thời gian, vẫn chưa phân xử), `3.1` “nước rửa chân” (khớp `ja337:3.3`, `ja498:9.1`), `20.4` “như voi cắt đứt dây trói” (khớp nguyên văn `thig13.3:11.4`).
 
   Đối chiếu bản dịch mù độc lập 2026-10-14: một dịch giả khác (cùng họ công cụ) dịch lại bài từ Pāli không xem bản dự án; so 31 khoá chênh lệch lớn nhất → khác nghĩa 7 khoá: sửa 0 trong danh sách, giữ 4, bất định 3; 24 khoá còn lại chỉ khác diễn đạt. Giữ: `19.1`–`19.2` (bản mù đảo hai nửa câu `Paṅke ca posaṁ palipe byasannaṁ` và `Balī yathā dubbalamuddhareyya`; bài giữ đúng thứ tự Pāli), `23.4`/`25.4` `yathodhikāni` (bản mù “theo từng mức độ”, tự ghi không chắc; bài “cho tới mức ấy” theo 6 khoá cùng Pāli ở `ja408:6.4`, `ja470:21.4`, `ja535:21.4`, `snp1.3:26.3`, `tha-ap2:35.3`, `cnd23:245.3`). Bất định: `12.1`–`12.2` (`Hiyyoti hiyyati poso`, `Pareti parihāyati`: cả hai bản đều chưa chắc), `13.2` `mattūpamaṁ` (cả hai bản đều chưa chắc). Rà đối kháng toàn bài (ngoài danh sách chênh lệch, lần dịch lại không phát hiện) tìm thêm một lỗi: `7.4` “họ có thể thấy ngài sống trăm năm không bệnh” → “họ có thể thấy người ấy sống trăm năm không bệnh”. Theo Pāli, ở `6.4` `taṁ` là đối cách của `tvaṁ` (“thấy ngài”), còn ở `7.4` `taṁ` là đại từ tương liên với `yassa`/`yo` ở `7.1`–`7.3` (kẻ làm bạn với cái chết, hoặc kẻ biết mình không bao giờ chết), và người nói ở `7` gọi người đối thoại là `rāja`; để “ngài” thì lời đáp thành “cha mẹ sẽ thấy nhà vua sống trăm năm”, đảo mất ý phản bác. Mục này thay cho BẤT ĐỊNH 19 và cho dòng “không đổi `6.4`/`7.4`” ở trên đối với riêng `7.4`; vì vậy hai khoá Pāli trùng nguyên văn `6.4`/`7.4` nay có bản Việt khác nhau có chủ đích (nhóm trùng trong bài: 1 nhóm Việt khác, có lý do). Bất định mới: người nói của `17`–`18`; nếu `17` là lời vua thì “tôi” ở `17.4` nên là “ta” như ở `10` và `19`, nhưng ranh giới nháy của Pāli (`17.1` mở, `18.4` đóng) không cho phân xử. Nháy khớp Pāli từng khoá; số `vassasataṁ` = 100 và `terasamaṁ` = 13 không đổi. Không có bản Anh hay bản Việt độc lập khác.
+
+  Lượt rà soát 2026-10-15 (Claude Opus 5.5, đọc đối kháng Pāli↔Việt, dò lại đoạn song song cho từng câu kệ bằng chuỗi Pāli: chỉ `ja378:1.1`, `ja408:6.4`, `snp1.3:26.3`, `tha-ap2:35.3`, `sn1.4:2.1`–`2.2` trùng, đều khớp; `ja469:6.1` chỉ trùng `Adhicca vede`): sửa 4 khoá, đều là clarity fix, không đổi nghĩa:
+  - `4.2` “an vị các con” → “gây dựng cho các con” (`patiṭṭhapetvā` là lập cho con thành gia chủ; “an vị” dùng cho tượng, lệch sắc thái).
+  - `7.3` “biết rằng ta sẽ không bao giờ chết” → “… mình …”: `marissaṁ` là ngôi một trong ý nghĩ của chính người biết (`yo … jaññā`), không có nháy; “ta” đọc như người nói của bài kệ.
+  - `11.1`–`11.2`: “Như con bò bị lạc, người ấy ở trong rừng, / tìm kiếm…” → “Như một người ở trong rừng có con bò bị lạc, / đi tìm kiếm…”: `puriso` là “một người” (so sánh), không phải “người ấy”; câu cũ đọc như có người được chỉ định trước.
+  Giữ: các quyết định và bất định đã ghi ở lượt trước (`12.1`–`12.2`, `13.2`, `14.2`, `16.1`, `17`–`18` người nói), không có căn cứ Pāli mới. Không có bản Việt nguyên bài độc lập cho bài này.

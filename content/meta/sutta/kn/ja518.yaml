@@ -1,10 +1,11 @@
 uid: ja518
-status: review
+status: draft
 translationTitle: "Kinh Vua Rồng Paṇḍara"
 translators:
   - "Claude Sonnet 5.5 (Claude Code)"
 reviewers:
   - Claude Sonnet 5.5 (Claude Code)
+  - Claude Opus 5.5 (Claude Code)
 tags:
   - "khuddaka-nikaya"
   - "jataka"
@@ -14,26 +15,22 @@ tags:
 quality:
   scores:
     source_provenance: 9.5
-    semantic_fidelity: 8.3
-    grammar_logic: 8.4
+    semantic_fidelity: 8.4
+    grammar_logic: 8.5
     segment_alignment: 10
     terminology: 9
-    triangulation: 7.4
+    triangulation: 8
     vietnamese_clarity: 8.6
     han_viet_balance: 9.2
     ambiguity_integrity: 9.3
     technical_integrity: 9.6
-  final_score: 8.93
+  final_score: 9.01
   blocking_errors:
     - "noEnglishEditionUpstream: Thiếu bản dịch tiếng Anh đối chiếu"
-  assessed_at: 2026-10-14
+  assessed_at: 2026-10-15
   assessed_by:
-    - Claude Sonnet 5.5 (Claude Code)
-  assessment_id: db1c95f5-f9bd-4df1-8269-b1f9e45ce561
-  waiver:
-    id: no-upstream-english
-    blockers:
-      - "noEnglishEditionUpstream: Thiếu bản dịch tiếng Anh đối chiếu"
+    - Claude Opus 5.5 (Claude Code)
+  assessment_id: 02208b40-ca1d-409b-8bb0-aea4ff6de102
 notes: |-
   Dịch trực tiếp từ Pāli root snapshot bilara đã ghim, đường dẫn `kn/ja/ja518_root-pli-ms.json` (163/163 khoá, đúng thứ tự Pāli). Bài gồm 4 khoá tiêu đề, 39 khổ kệ (`1.x`–`39.x`; khổ ngắn nhất 4 dòng, riêng khổ 14 có 6 dòng) và khoá chốt `40.1`; không có phần văn xuôi trong tầng Pāli đã ghim.
   - Tầng tham khảo:
@@ -89,3 +86,8 @@ notes: |-
     Kiểm sau sửa: tập khoá 163/163 đúng thứ tự Pāli; nháy kép/đơn khớp Pāli từng khoá, 0/163 lệch; Pāli trùng nguyên văn trong bài 6 nhóm, bản Việt khác nội dung 0; NFC đạt, không khoá rỗng. `technical_integrity` giữ 9,6; vẫn còn chạy: `npm run validate`, `npm test`, `npm run check`, `npm run build`.
 
   Đối chiếu bản dịch mù độc lập 2026-10-14: một dịch giả khác (cùng họ công cụ) dịch lại bài từ Pāli không xem bản dự án; so 64 khoá chênh lệch lớn nhất → khác nghĩa 6: sửa 1 (`31.3` `Niccayattena ṭhātabbaṁ`: *phải đứng vững bằng sự quyết đoán* → *phải luôn đứng vững trong thế cảnh giác*, vì Pāli ghim không có từ `niccaya` nào, trong khi `yatta`/`yattapayatta` (*cẩn trọng, chuyên cần*) có ở nhiều bài và `niccaṁ yattena` là cách tách tự nhiên; hợp mạch `30.1`–`31.4` về việc đề phòng kẻ thù cũ; vẫn là một cách đọc, chưa chắc tuyệt đối), giữ 2 (`22.3` bản mù đọc thành câu hỏi *ngươi lại tiết lộ … ư?*, sai vì `vivariṁ` là ngôi nhất số ít của aorist, đồng dạng `4.3`/`10.3`, và `nu kho` ở đây là *quả thật*; `25.2` bản mù *che chở khắp thân* không có căn cứ, `phareti` là *thấm khắp* và `samphassatā` là *bằng sự xúc chạm*), bất định 3 (`3.3`–`3.4` `asambuddhaṁ … anatthavā` cả hai bản đều không chắc và không phân xử được; `33.4` `assavāhāva nāgā`: *kỵ mã và voi* so với *ngựa kéo xe và rồng*; `35.2` `paṇḍarakena saccaṁ`). Còn lại là khác diễn đạt, gồm cả `37.1` `ariya` (bản mù *bậc thánh*, bản dự án *cao quý* theo tiền lệ `ja546:216.1`), các công thức song song `12.4`/`13.4`/`14.6`, `4.3`/`10.3`, và `17.1`–`17.4` (hai cách đọc `asambuddhaṁ` cùng cho nghĩa *điều kín mà người kia chưa biết*). Review đối kháng toàn bài không tìm thêm lỗi thật; các bất định cũ ở `14.1`, `9.2`, `32.2`, `33.2` vẫn còn nguyên. Không có bản Anh hay bản Việt độc lập khác.
+
+  Lượt rà soát 2026-10-15 (Claude Opus 5.5, đọc đối kháng Pāli↔Việt; dò có hệ thống mọi dòng Pāli trùng nguyên văn ở bài khác đã có bản Việt: `ja508:18`–`22` (15.1–19.3), `ja165:1`–`2` (29.1–30.3), `ja533:62.3`, `ja534:80.3` (14.3), `ja522:25.4`, `ja461:11.2`, `sn3.11:9.3`, `ja546:216.2`, `ja543:121.3`, `ja540:87.3`, `cp30:7.1` — đều khớp): sửa 2 khoá.
+  - `10.1` (accuracy fix): “được xem là sa-môn, là bậc có tự thân được tôn trọng” → “là bậc được xem là sa-môn”: `sammatatto` chỉ có một chữ `sammata`; bản trước dịch nó hai lần (“được xem” và “được tôn trọng”), thêm một đơn vị nghĩa.
+  - `26.4` (grammar fix): “hãy là một trong các con của ta” → “ngươi đã thành một trong các con của ta”: `ahosi` là bất định quá khứ (“đã thành”), không phải mệnh lệnh; chỉ `rajjassu` là mệnh lệnh.
+  Bất định mới: `11.4` `alabbham abyāharatī`: bản Việt đọc `a-byāharati` (“không thốt ra”); cũng có thể là `abhi-ā-harati` (“đem lại, đạt được”), cho nghĩa “nhờ chân thật… người ta đạt được điều khó đạt”. `abyāhar-` chỉ có ở khoá này trong tầng Pāli đã ghim, DPD không có mục; không đổi. Các bất định cũ (`3.3`–`3.4`, `8.4`, `7.2`, `33.2`, `33.4`, `35.2`) giữ nguyên. Không có bản Anh hay bản Việt nguyên bài độc lập.
