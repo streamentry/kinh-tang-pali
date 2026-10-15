@@ -1,5 +1,5 @@
 uid: vv18
-status: review
+status: draft
 translationTitle: "Chuyện Cung Điện Nữ Tỳ"
 translators:
   - "Claude Sonnet 5.5 (Claude Code)"
@@ -46,33 +46,10 @@ quality:
       `scripts/validate.ts` coi tệp Anh thiếu là error khi status là
       `review`/`published`, nên bài bắt buộc `draft`. `triangulation` bị chặn ở
       7.5 (≤ 8.0), không nâng để né blocker."
-  assessed_at: 2026-10-14
+  assessed_at: 2026-10-15
   assessed_by:
-    - Claude Sonnet 5.5 (Claude Code)
-  assessment_id: f99c50f8-80dd-4091-ae75-e10185150e41
-  waiver:
-    id: no-upstream-english
-    blockers:
-      - "Không có tầng tham khảo tiếng Anh tại commit đã ghim. Đo bằng
-        `source/upstream-manifest.json` (commit
-        11c9d708978cde8ba61096d8a75f7ddfb846f639): edition `english-sujato`
-        (path `translation/en/sujato`, treeSha
-        24e81ded9d6710e16b277b6394fd57c48258da12, 4.291 tệp) có **0 tệp** nào
-        dưới `sutta/kn/vv/`; 755 tệp `kn` của tầng này thuộc đúng 9
-        sub-collection: cp 35, dhp 26, iti 112, ja 83, kp 9, snp 73, thag 264,
-        thig 73, ud 80 — không có `vv`. Đây là `not-published-upstream`, KHÔNG
-        phải `not-synced`. Tầng `vietnamese-current`
-        (`translation/vi/phantuananh`, treeSha
-        a6a1ba063bada3d338b5350f200def2189f018f1) chỉ có 26 tệp và tất cả đều là
-        Pháp Cú (`sutta/kn/dhp/`). Lớp lấp `english-project`
-        (`content/translation/en/project/sutta`, 821 tệp json) không có tệp nào
-        cho uid `vv18` (trong `kn` chỉ có `vv69`). Ba tầng tham khảo đều vắng ⇒
-        bài dịch chỉ từ Pāli root (`root/pli/ms/sutta`, treeSha
-        4d736429e54946e4eb13c914ee90aa00dfc95690, 5.764 tệp) ⇒ blocker thật, và
-        đây là giới hạn upstream chứ không phải lỗi người dịch.
-        `scripts/validate.ts` coi tệp Anh thiếu là error khi status là
-        `review`/`published`, nên bài bắt buộc `draft`. `triangulation` bị chặn
-        ở 7.5 (≤ 8.0), không nâng để né blocker."
+    - Claude Opus 5.5 (Claude Code)
+  assessment_id: 69bdd718-0cf6-4cdd-a7a9-ecd0677f8cc9
 notes: |-
   **Phạm vi: đủ 69/69 khoá của `all`.** Không khoá nào bị bỏ, không khoá nào ngoài tập Pāli;
   thứ tự khoá đúng thứ tự Pāli; NFC; không khoá rỗng; không khoảng trắng thừa; Pāli không lọt
@@ -184,3 +161,15 @@ notes: |-
   Lượt cải thiện 2026-10-14: đọc đối kháng 69/69 khoá, đổi 4 khoá, vẫn đủ 69 khoá, thứ tự và nháy khớp Pāli (0 lệch). (1) `4.3` `Pañhaṁ puṭṭhā viyākāsi` «Được hỏi, nàng đã giải thích rằng» → «Được hỏi câu hỏi, nàng đã giải đáp» (bản trước bỏ `pañhaṁ`; dạng mới là dạng đa số 11/19 khoá cùng Pāli, dạng cũ 5/19). (2) `4.4` `yassa kammassidaṁ phalaṁ` «quả báo của nghiệp này là thế.» → «về nghiệp mà đây là quả báo.»: Pāli là mệnh đề quan hệ (`yassa kammassa idaṁ phalaṁ`, *nghiệp mà đây là quả*), bản trước đổi thành câu khẳng định về «nghiệp này», lệch cả ngữ pháp lẫn nghĩa; dạng mới là đa số 47/68 khoá cùng Pāli (dạng cũ 11/68). (3) `5.2` «làm kẻ sai bảo của người khác» → «làm người hầu của người khác»: `pessiyā` dịch *người hầu* ở toàn tầng, còn *kẻ sai bảo* dễ đọc ngược thành người ra lệnh. (4) `6.4` «trong giáo pháp của vị bất động như vậy» → «trong giáo pháp của bậc vững vàng ấy» (bản trước bỏ `tassa`; 2/2 tiền lệ cho đúng dòng này). Điểm đổi: semantic_fidelity 8.8 → 8.9 và grammar_logic 8.8 → 8.9 (hai lỗi nghĩa/ngữ pháp ở `4.3`–`4.4` đã sửa), terminology 8.8 → 8.9 (`pessiyā`, `tādino` theo tiền lệ), vietnamese_clarity 9.0 → 9.1 (hết chỗ đọc ngược ở `5.2`); `ambiguity_integrity` giữ 8.2 và `triangulation` giữ 7.5 vì các bất định ở trên (nhất là `10.1`–`10.4`, `9.1`, `12.3`) vẫn chưa phân xử được và vẫn không có bản Anh. Đã xét nhưng không đổi: `1.6` *rực rỡ* (không có trong Pāli nhưng là dạng đa số 21/30 của tầng), `2.4` *dễ chịu với tâm* (40/43), `6.1` *Đấng Có Mắt Tuệ* (6/8, chữ *Tuệ* là quy ước của tầng, Pāli chỉ có `cakkhumato`). `final_score` mới 8.99 (trung bình thô), vẫn không vượt 9.0 nên `review`; vẫn chưa chạy bốn lệnh `npm run validate`, `npm test`, `npm run check`, `npm run build`.
 
   Đối chiếu độc lập 2026-10-14: với bản Việt nguyên bài của Bhikkhu Indacanda. 7 khoá bất đồng nghĩa → sửa 0, giữ 2 (9.4 và 12.4: `paṭibodhaṁ karonti` / `pabodhikā`, bản nguyên bài hiểu là việc giải trí, nhưng `paṭibodha` có nghĩa thức tỉnh và đó là nghĩa đã dùng, giữ *đánh thức*), bất định 5 (7.2: `neva atthettha saṇṭhanaṁ`, bản dự án *nơi đây cũng chẳng có gì trụ vững*, bản nguyên bài hiểu là không có sự lơi lỏng; ngữ cảnh nỗ lực ở 6.3 và 8.3 gợi cách đọc thứ hai nhưng nghĩa *lơi lỏng* của `saṇṭhana` không có tiền lệ trong tầng, và `cp13:6.1` cùng `thag4.12:2.1` chỉ lặp nửa câu trước; 9.1: `āmantanikā`, bản dự án *người được vua triệu thỉnh* theo chữ, bản nguyên bài hiểu là ái hậu; 10.4: `viṇāmokkhā`, bản dự án một tên, bản nguyên bài tách *Vīṇā* và *Mokkhā*; 11.4: `puṇḍarīkāti dāruṇī`, bản dự án hai tên, bản nguyên bài coi `dāruṇī` là tính từ của Puṇḍarīkā, và `iti` làm cả hai cách đều khả dĩ; 12.3: `seyyāse`, bản dự án *nơi giường nằm*, bản nguyên bài hiểu là các vị hơn hết). Review đối kháng riêng sửa 1 khoá: 13.3 `Handa naccāma gāyāma` từ *chúng ta* (gồm cả người nghe) thành *chúng tôi sẽ múa, sẽ hát*, vì 13.4 `taṁ ramayāmase` cho thấy người nói là các thiên nữ còn người được làm vui là vị thiên nữ đang được hỏi chuyện. Bản nguyên bài không phân đoạn nên đối chiếu ở mức đoạn, không phải mức khoá; không có bản Anh.
+
+  Lượt rà soát 2026-10-15 (Claude Opus 5.5, đọc đối kháng Pāli↔Việt 69 khoá, đối chiếu bản nguyên bài
+  Bhikkhu Indacanda, đoạn song song vv33 vv31 vv49 vv12, `vv50:26–27`, `cp13:6.1`, `thag4.12:2.1`):
+  sửa 0 khoá; không thấy sai nghĩa/chủ thể/phủ định/số lượng mới. Giữ các chỗ khác bản đối chiếu: 6.1
+  *Đấng Có Mắt Tuệ* (công thức 9 khoá `vv`), 7.3 *năm giới điều* (công thức `vv15`–`vv26`, toàn kho đa
+  số *học giới*, chờ người biên tập), 13.3 *chúng tôi sẽ múa* (Pāli `naccāma` dạng hiện tại, cùng
+  nghĩa đề nghị). Bất định, giữ nguyên, đề xuất: 7.1–7.2 `neva atthettha saṇṭhanaṁ` (bản dự án hiểu
+  *không có gì trụ vững*; Indacanda hiểu *không có sự lơi lỏng ở đây* — hợp mạch `nikkamo` ở 6.3/8.3
+  hơn; `saṇṭhana` không tra được thêm, đề xuất người biên tập cân nhắc); 10.4 `viṇāmokkhā` một tên hay
+  hai (*Vīṇā, Mokkhā*); 11.4 `puṇḍarīkāti dāruṇī` hai tên hay *Puṇḍarīkā dữ tợn*; 12.3 `seyyāse` (*nơi
+  giường nằm*, cùng cách ở vv50:27.1; Indacanda hiểu *giỏi hơn hết*); 5.2 `parapessiyā kule`; 9.1
+  `āmantanikā` (hapax). Chờ người biên tập: tiêu đề `Itthivimāna`, xưng hô 3.1/5.1. Không có bản Anh.

@@ -1,10 +1,11 @@
 uid: vv28
-status: review
+status: draft
 translationTitle: "Chuyện Cung Điện Nữ Thí Vật Thực Thứ Hai"
 translators:
   - "OpenCode Space Bunny Free (agent)"
 reviewers:
   - Claude Sonnet 5.5 (Claude Code)
+  - Claude Opus 5.5 (Claude Code)
 tags:
   - "kn"
   - "khuddaka-nikaya"
@@ -14,16 +15,16 @@ tags:
 quality:
   scores:
     source_provenance: 9.5
-    semantic_fidelity: 8.5
+    semantic_fidelity: 8.6
     grammar_logic: 8.8
     segment_alignment: 10
-    terminology: 8.2
+    terminology: 8.4
     triangulation: 8.5
     vietnamese_clarity: 8.8
     han_viet_balance: 9.3
     ambiguity_integrity: 8.5
     technical_integrity: 9.6
-  final_score: 8.969999999999999
+  final_score: 9
   blocking_errors:
     - "Không có tầng tham khảo tiếng Anh tại commit đã ghim: tệp
       `.cache/upstream/suttacentral/translation/en/sujato/sutta/kn/vv/vv28_tran\
@@ -43,31 +44,10 @@ quality:
       Pāli root ⇒ blocker thật, và đây là **giới hạn upstream**, không phải lỗi
       của người dịch. Vì vậy `triangulation` bị chặn ở 7.5 (≤ 8.0) chứ không
       nâng để né blocker."
-  assessed_at: 2026-10-14
+  assessed_at: 2026-10-15
   assessed_by:
-    - Claude Sonnet 5.5 (Claude Code)
-  assessment_id: 62d1eccb-be33-462d-a59c-e0ff909424d6
-  waiver:
-    id: no-upstream-english
-    blockers:
-      - "Không có tầng tham khảo tiếng Anh tại commit đã ghim: tệp
-        `.cache/upstream/suttacentral/translation/en/sujato/sutta/kn/vv/vv28_tr\
-        anslation-en-sujato.json` không tồn tại trong
-        `.cache/upstream/suttacentral/`, và `source/upstream-manifest.json`
-        (commit 11c9d70, tầng `english-sujato`) không liệt kê bất kỳ tệp nào cho
-        uid này — đây là `not-published-upstream`, KHÔNG phải `not-synced`; toàn
-        bộ ba sub-collection `tha-ap`, `thi-ap`, `vv` của Kinh Tạng đều vắng mặt
-        trong tầng Anh đã ghim. Đo coverage theo đúng công thức
-        `source/layers.yaml` (Pāli có nội dung ≥ 40 ký tự, loại block tham chiếu
-        `:0`) cho 0 trên 0 khoá (không khoá nào đủ 40 ký tự), dưới ngưỡng 0.8.
-        `scripts/validate.ts` coi tệp Anh thiếu là **error** khi status là
-        `review` hoặc `published`, nên bài bắt buộc `draft`. Tầng
-        `vietnamese-current` cũng vắng: `translation/vi/phantuananh` tại commit
-        đã ghim chỉ có 26 tệp và toàn bộ là Pháp Cú. Lớp lấp `english-project`
-        của dự án cũng không có cho uid này. Ba tầng tham khảo đều vắng ⇒ bài
-        dịch chỉ từ Pāli root ⇒ blocker thật, và đây là **giới hạn upstream**,
-        không phải lỗi của người dịch. Vì vậy `triangulation` bị chặn ở 7.5 (≤
-        8.0) chứ không nâng để né blocker."
+    - Claude Opus 5.5 (Claude Code)
+  assessment_id: b334c9d4-fcbd-47bb-8b16-b5b8a9b7c0ac
 notes: |-
   Dịch từ Pāli root: commit đã ghim không có bản Anh Sujato cho `vv`.
   Bài này là bài thứ 11 của phẩm Cittalatā và là hàng xóm sát của vv27 (bài thứ 10) nên 15 khoá dùng lại nguyên văn bản Việt của vv27 với Pāli trùng: `“Với dung sắc rạng rỡ thù thắng,` / `nàng đang đứng nơi đây, này thiên nữ;` / `Chiếu sáng khắp mọi phương trời,` / `rực rỡ tựa như sao mai.` / `Do đâu nàng có được dung sắc như thế,` / `…` / `và sắc tướng nàng chiếu sáng khắp mọi phương?”.` / `Nữ thiên ấy hoan hỷ,` / `quả báo của nghiệp này là thế.` / `“Thuở trước giữa loài người tôi là một phụ nữ,` / `trong kiếp sống trước ở nhân gian.` / `tịch tịnh thanh khiết không chút bợn nhơ;` / `Tôi đã dâng cúng vật thực lên Ngài,` / `với tâm tịnh tín bằng chính đôi tay mình.` / `Nhờ vậy tôi có được dung sắc như thế này,`.
@@ -82,3 +62,16 @@ notes: |-
   Cổng kỹ thuật CHƯA chạy — agent dịch không được phép chạy `npm run validate|test|build|check`; coordinator cần chạy đủ bốn lệnh sau trước khi coi `technical_integrity: 9.6` là đạt: `npm run validate`, `npm test`, `npm run check`, và `npm run build`.
 
   Đối chiếu độc lập 2026-10-14: với bản Việt nguyên bài của Bhikkhu Indacanda. 2 khoá bất đồng nghĩa → sửa 0, giữ 2 (9.5: bài kệ tóm lược trong bản nguyên bài ghi `Nandā`/`Sunandā`, còn Pāli ghim là `Niddā ceva suniddā ca` nên giữ `Niddā`/`Suniddā`; 3.3 `yassa kammassidaṁ phalaṁ`: bản nguyên bài đọc là mệnh đề quan hệ, "quả báo này là của nghiệp nào", còn bản dự án theo khuôn "quả báo của nghiệp này là thế" đã dùng ở 52 nơi trong họ vv; giữ để nhất quán, ghi lại rằng khuôn này làm nhẹ quan hệ đại từ), bất định 0. Các câu còn lại (1.1–2.3, 4.1–6.3, 9.1–9.7) cùng nghĩa với Pāli. Review đối kháng cùng lượt: sửa 1 khoá — 10.1 `Itthivimāne dutiyo vaggo`: "Trong Cung Điện Nữ Hư Không, đây là phẩm thứ hai." → "Trong Thiên Cung Của Nữ Giới, đây là phẩm thứ hai." (Pāli không có `ākāsa`, `itthi` là nữ giới; khớp `0.2` của chính bài; cùng lỗi ở vv17:11.1, ngoài lát). Bản nguyên bài không phân đoạn nên đối chiếu ở mức đoạn, không phải mức khoá; không có bản Anh.
+
+  Lượt rà soát 2026-10-15 (Claude Opus 5.5, đọc đối kháng Pāli↔Việt, đối chiếu bản nguyên bài Bhikkhu
+  Indacanda, đoạn song song vv31 vv49 vv77 vv75 vv7 vv23): sửa 5 khoá: 2.3 và 6.3 `vaṇṇo` *sắc tướng*
+  → *dung sắc* (nhất quán với 2.1, 6.1 và cả phẩm), 2.3 còn bỏ dấu thừa `?”.` → `?”` và theo Pāli `te`
+  dùng *muôn phương* như vv31/vv49; 3.3 `yassa kammassidaṁ phalaṁ` *quả báo của nghiệp này là thế* →
+  *về nghiệp mà đây là quả báo* (`yassa` quan hệ từ, theo vv7:4.4 đã phân xử, 49 khoá cùng Pāli;
+  Indacanda giữ nghĩa quan hệ); 5.3 `tassa adāsahaṁ bhikkhaṁ` *lên Ngài* → *cho vị ấy* (`tassa` chỉ
+  một tỳ-kheo, viết hoa *Ngài* là nâng bậc không có trong Pāli); 7.1 *Thí Vật Thực II* → *Thứ Hai*
+  (khớp 0.4 và mẫu đóng vv2/vv12/vv14; vv27:7.1 còn *I*, ngoài lô). Giữ 9.7 *Vì thế, phẩm này được gọi
+  tên như vậy* (khác công thức *phẩm ấy vì vậy được gọi tên là vậy* ở vv17, cùng nghĩa; chờ người biên
+  tập thống nhất). Cùng lượt sửa vv17:11.1 theo vv28:10.1. Không bất định Pāli mới. Chờ người biên
+  tập: tiêu đề 0.2, xưng hô. Không có bản Anh.
+  Điều phối viên 2026-10-15: điểm lượt rà soát được hạ về 9,00 thô (chỉ khoá 3.3 là sửa quan hệ đại từ thật); ghi chú "9,01" trong hồ sơ chấm là nhầm, đúng là 9,00 — không vượt 9,0.

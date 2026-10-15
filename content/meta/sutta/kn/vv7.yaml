@@ -1,10 +1,11 @@
 uid: vv7
-status: review
+status: draft
 translationTitle: "Chuyện Cung Điện Nāvā Thứ Hai"
 translators:
   - "OpenCode Space Bunny Free (agent)"
 reviewers:
   - Claude Sonnet 5.5 (Claude Code)
+  - Claude Opus 5.5 (Claude Code)
 tags:
   - "kn"
   - "khuddaka-nikaya"
@@ -45,32 +46,10 @@ quality:
       0** khoá Pāli đủ 40 ký tự — khuôn kệ của `vv` là kệ ngắn, mỗi vế dưới 40
       ký tự — nên coverage không đo được, và ngưỡng 0.8 không phải nguyên nhân
       của blocker ở đây; nguyên nhân là tệp Anh không tồn tại."
-  assessed_at: 2026-10-14
+  assessed_at: 2026-10-15
   assessed_by:
-    - Claude Sonnet 5.5 (Claude Code)
-  assessment_id: cfbe5919-71ce-43a8-80dd-9064e6eb36bf
-  waiver:
-    id: no-upstream-english
-    blockers:
-      - "Không có tầng tham khảo tiếng Anh tại commit đã ghim:
-        `source/upstream-manifest.json` (commit 11c9d708, tầng `english-sujato`)
-        liệt kê 4.291 tệp nhưng KHÔNG có tệp nào cho uid này, và
-        `.cache/upstream/suttacentral/translation/en/sujato/` cũng không có —
-        đây là `not-published-upstream`, KHÔNG phải `not-synced`; toàn bộ
-        sub-collection `vv` của Kinh Tạng vắng mặt trong tầng Anh đã ghim.
-        `scripts/validate.ts` (nhánh `if (!existsSync(englishFile))`) coi tệp
-        Anh thiếu là **error** khi status là `review` hoặc `published`, nên bài
-        bắt buộc `draft`. Tầng `vietnamese-current` cũng vắng:
-        `translation/vi/phantuananh` tại commit đã ghim chỉ có 26 tệp và toàn bộ
-        là Pháp Cú. Lớp lấp `english-project` của dự án cũng không có cho uid
-        này. Ba tầng tham khảo đều vắng ⇒ bài dịch chỉ từ Pāli root ⇒ blocker
-        thật, và đây là **giới hạn upstream**, không phải lỗi của người dịch. Vì
-        vậy `triangulation` bị chặn ở 7.5 (≤ 8.0) chứ không nâng để né blocker.
-        Ghi chú thêm: đo coverage theo đúng công thức `source/layers.yaml`
-        (`substantivePaliMinChars: 40`, loại block tham chiếu `:0`) cho **0 trên
-        0** khoá Pāli đủ 40 ký tự — khuôn kệ của `vv` là kệ ngắn, mỗi vế dưới 40
-        ký tự — nên coverage không đo được, và ngưỡng 0.8 không phải nguyên nhân
-        của blocker ở đây; nguyên nhân là tệp Anh không tồn tại."
+    - Claude Opus 5.5 (Claude Code)
+  assessment_id: c1a9a857-0e34-4004-9a6a-f977db6bc0d0
 notes: |-
   Nguồn: dịch từ Pāli root đã ghim (`source/upstream-manifest.json`, commit 11c9d708,
   tầng `pali`, `treeSha` 4d736429). Tầng Anh Sujato đã ghim KHÔNG có bài này (0/45 khoá),
@@ -227,3 +206,11 @@ notes: |-
   `npm run build` — `technical_integrity` giữ 9.6.
 
   **Đối chiếu độc lập 2026-10-14** với bản Việt nguyên bài của Bhikkhu Indacanda (bản dịch 2011, theo ấn bản Buddha Jayanthi). Đã so từng khoá trong 45 khoá. 5 khoá bất đồng nghĩa → sửa 3, giữ 1, bất định 1. Sửa `:4.3`–`:4.4` (`Pañhaṁ puṭṭhā viyākāsi, yassa kammassidaṁ phalaṁ`): trước *Được hỏi, nàng đã giải thích rằng / quả báo của nghiệp này là thế* → sau *Được hỏi câu hỏi, nàng đã giải đáp / về nghiệp mà đây là quả báo*; `yassa` là quan hệ từ (*của nghiệp nào*), không phải chỉ định *này*, nên cách cũ biến câu hỏi thành lời khẳng định. Cách mới theo nguyên văn đa số trong tầng (`yassa kammassidaṁ phalaṁ` ở 49 khoá dịch *về nghiệp mà đây là quả báo*, so với 9 khoá còn dịch kiểu cũ; `vv12:3.4` dùng một cách khác nhưng cùng nghĩa). Sửa `:8.3` (`Tassīdha kammassa ayaṁ vipāko`): trước *Đó là quả báo của nghiệp ấy,* (mất `idha`, đổi `ayaṁ` thành *đó*) → sau *Đây là quả báo của nghiệp ấy nơi đây,*, đúng nguyên văn `vv6:8.3` và `vv8:9.3`. Giữ `:1.1` (`suvaṇṇacchadanaṁ nāvaṁ`): bản nguyên bài ghi *mái*, bản này ghi *bọc vàng*; `chadana` là vật che phủ, cả hai nằm trong nghĩa của từ, giữ. Bất định `:7.1` (`Taṁ āpagā anupariyanti sabbadā`): bản nguyên bài hiểu `taṁ` là người dâng nước ở `:6.x`, bản này hiểu là cung điện (cùng cách với `vv6:7.1`, `vv8:8.1`); `taṁ` có thể là giống đực hoặc trung, không phân xử được từ Pāli, giữ cách đã chọn. Thêm một sửa nhất quán thuật ngữ nội bộ: `:10.4` *sắc tướng* → *dung sắc* cho `vaṇṇo`, như `:2.1`, `:3.4`, `:9.1` của chính bài. Thứ tự khoá trong tệp được đưa về đúng thứ tự Pāli (trước đó xếp theo chuỗi ký tự). Bản nguyên bài không phân đoạn nên đối chiếu ở mức đoạn, không phải mức khoá; không có bản Anh. Đây là review của AI, không phải chứng nhận của chuyên gia Pāli.
+
+  Lượt rà soát 2026-10-15 (Claude Opus 5.5, đọc đối kháng Pāli↔Việt, đối chiếu bản nguyên bài Bhikkhu
+  Indacanda, đoạn song song vv6 vv8 vv31 vv33 vv12 vv4): sửa 1 khoá: 7.3 `sālā` *sāl* → *sāla* (thống
+  nhất với vv6:7.3 và cách giữ tên cây Pāli; *sāl* là dạng cụt không có tiền lệ). Giữ: 1.1 *bọc vàng*,
+  8.1 *tươi đẹp* (đã phân xử ở lượt 2026-10-11 theo ja524/ja526), 10.4 *mọi phương* khác 3.4 *muôn
+  phương* (công thức theo từng Pāli đã ghi ở trên). Không phát hiện thêm sai nghĩa/chủ thể/phủ định
+  trong 45 khoá. Bất định giữ nguyên: 7.1 `taṁ` (cung điện hay người dâng nước). Chờ người biên tập:
+  xưng hô 3.1/5.1/10.1 (Moggallāna–nữ thiên). Không có bản Anh.

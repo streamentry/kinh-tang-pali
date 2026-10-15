@@ -1,10 +1,11 @@
 uid: vv17
-status: review
+status: draft
 translationTitle: "Chuyện Cung Điện Nữ Kesakārī"
 translators:
   - "OpenCode Space Bunny Free (agent)"
 reviewers:
   - Claude Sonnet 5.5 (Claude Code)
+  - Claude Opus 5.5 (Claude Code)
 tags:
   - "kn"
   - "khuddaka-nikaya"
@@ -16,7 +17,7 @@ quality:
   scores:
     source_provenance: 9.5
     semantic_fidelity: 8.7
-    grammar_logic: 8.8
+    grammar_logic: 8.9
     segment_alignment: 10
     terminology: 8.6
     triangulation: 8.2
@@ -24,7 +25,7 @@ quality:
     han_viet_balance: 9.2
     ambiguity_integrity: 8.5
     technical_integrity: 9.6
-  final_score: 8.989999999999998
+  final_score: 9
   blocking_errors:
     - "Không có tầng tham khảo tiếng Anh tại commit đã ghim: tệp
       `translation/en/sujato/sutta/kn/vv17/` không tồn tại trong
@@ -41,28 +42,10 @@ quality:
       Ba tầng tham khảo đều vắng ⇒ bài dịch chỉ từ Pāli root. Vì đây là giới hạn
       của upstream chứ không phải lỗi của người dịch, `triangulation` bị chặn ở
       7.5 (≤ 8.0) chứ không nâng để né blocker."
-  assessed_at: 2026-10-14
+  assessed_at: 2026-10-15
   assessed_by:
-    - Claude Sonnet 5.5 (Claude Code)
-  assessment_id: 64201d69-c628-4413-beab-44c4d889a054
-  waiver:
-    id: no-upstream-english
-    blockers:
-      - "Không có tầng tham khảo tiếng Anh tại commit đã ghim: tệp
-        `translation/en/sujato/sutta/kn/vv17/` không tồn tại trong
-        `.cache/upstream/suttacentral/`, và `source/upstream-manifest.json`
-        (edition `english-sujato`, treeSha
-        24e81ded9d6710e16b277b6394fd57c48258da12, 4.291 tệp) chỉ có đúng hai tệp
-        liên quan — `name/sutta/tha-ap-name…` và `name/sutta/vv-name…` — tức là
-        KHÔNG có tệp thân bài nào cho `tha-ap` hay `vv`. Đây là
-        `not-published-upstream`, KHÔNG phải `not-synced`. `scripts/validate.ts`
-        xếp tệp Anh thiếu là error khi status là `review` hoặc `published`, nên
-        bài bắt buộc `draft`. Tầng `vietnamese-current` cũng vắng:
-        `translation/vi/phantuananh` tại commit đã ghim chỉ có 26 tệp và toàn bộ
-        là Pháp Cú. Lớp lấp `english-project` của dự án cũng không có cho uid
-        này. Ba tầng tham khảo đều vắng ⇒ bài dịch chỉ từ Pāli root. Vì đây là
-        giới hạn của upstream chứ không phải lỗi của người dịch, `triangulation`
-        bị chặn ở 7.5 (≤ 8.0) chứ không nâng để né blocker."
+    - Claude Opus 5.5 (Claude Code)
+  assessment_id: 6b21566b-bd06-480c-b66d-ab20c891a57f
 notes: |-
   Dịch trực tiếp từ Pāli root; không có tầng Anh đã ghim cho vv, xem `blocking_errors`.
   BA MỆNH ĐỀ ĐANG TÁCH ĐÔI — đã đo cục bộ trong tầng `vv` (40 tệp, 1.177 segment), cả hai hướng đều ghi ở đây:
@@ -99,3 +82,15 @@ notes: |-
   Lượt cải thiện 2026-10-11: điểm đổi — semantic_fidelity 9.2 → 8.6 (17 khoá sai nghĩa thật, đã sửa nhưng còn bất định); grammar_logic 9.0 → 8.8 (đọc sai hợp từ, đảo chủ thể, số ít/nhiều); terminology 9.2 → 8.6 (`ekantagata`, `akhaṇḍa…`, `yasasā`, tên uddāna lệch, tiêu đề lặp sai); triangulation 7.5 → 7.0 (không có bản đối chiếu độc lập, lỗi lọt qua chỉ bằng Pāli); vietnamese_clarity 9.2 → 8.8; han_viet_balance 9.4 → 9.2; ambiguity_integrity 8.8 → 8.4; source_provenance 9.5, segment_alignment 10.0 và technical_integrity 9.6 giữ. final_score 9,14 → 8,85 (trung bình số học thô của mười điểm). Số cặp Pāli trùng nguyên văn trong bài: 0; cổng kiểm tra nhanh của lát đạt, nhưng chưa chạy `npm run validate`, `npm test`, `npm run check`, `npm run build`.
 
   Đối chiếu độc lập 2026-10-14: với bản Việt nguyên bài của Bhikkhu Indacanda. 6 chỗ bất đồng nghĩa → sửa 0, giữ 4, bất định 2. Giữ: 2.2 `Sataṁ sahassāni` (bản nguyên bài "hàng trăm ngàn"; `sata` số ít nhân `sahassa` là một trăm ngàn, và tầng Việt dùng "trăm ngàn" cho cùng cụm); 4.3–4.4 (bản nguyên bài để chư thiên Ba Mươi Ba làm chủ ngữ riêng, còn `tappāmase` là ngôi một số nhiều nên "chúng tôi" của bản dự án đúng); 6.2 và 7.4 `Saṅghe ca ekantagatā` (bản nguyên bài kéo "tịnh tín" sang cả Tăng và đọc `ekantagatā` là "dứt khoát"; thành ngữ `ekantagato` luôn đi với danh từ ở vị trí cách nơi, như sn55.25 và sn48.50, nên giữ "nhất hướng nơi Tăng"); 10.3 (bản nguyên bài thêm "hai" cho cả hai chuyện dâu; Pāli chỉ một `dve`, chữ "chuyện dâu" của bản dự án không nói số nên giữ nguyên, dù tiêu đề vv13–vv14 là hai chuyện Nữ Dâu và tổng 5+3+2+2+2+1+1+1 = 17 khớp). Bất định: 2.3 (`sakena kammunā` ở 2.2 gắn với các tiên nữ đi trước, như bản dự án, hay với nàng như bản nguyên bài "nhờ vào nghiệp của mình"; `ajjhupagatā` không có tân ngữ nên Pāli cho phép cả hai); 7.1 `Tantyābhinandāmase svāgatañca te` (`taṁ` là "nàng" như ở 4.4 `dassanena taṁ`, bản nguyên bài đọc là "việc đến tốt đẹp ấy"). Cách xưng của Sakka: bản nguyên bài dùng "ta", bản dự án giữ "tôi" theo đa số tầng vv (137 so 23). Các lỗi nghĩa mà lượt sửa trước đã bắt được ở 3.1 (`sasī` là mặt trăng), 4.1 (`anomadassane` là hô cách), 4.3–4.4 (so sánh với Phạm thiên, ngôi một số nhiều) và 5.3 (`Bārāṇasī` là thành, không phải người xứ) đều được bản nguyên bài xác nhận độc lập. Bản nguyên bài không phân đoạn nên đối chiếu ở mức đoạn, không phải mức khoá; không có bản Anh.
+
+  Lượt rà soát 2026-10-15 (Claude Opus 5.5, đọc đối kháng Pāli↔Việt, đối chiếu bản nguyên bài Bhikkhu
+  Indacanda; không có đoạn song song): sửa 2 khoá: 11.1 `Itthivimāne` *Trong Chuyện Cung Điện Nữ Hư Không* → *Trong Thiên Cung Của Nữ Giới* (khớp 0.2 và vv28:10.1; `ākāsa` không có trong Pāli); 10.3 `Pati dve suṇisā uttarā` *hai chuyện chồng,
+  chuyện dâu, và Uttarā* → *hai chuyện người vợ, hai chuyện dâu, và Uttarā*. Lý do: `pati` ở đây viết
+  tắt hai bài vv11–vv12 là `patibbatā` (người vợ), không phải "chồng"; vv13 và vv14 đều là `suṇisā`
+  nên `dve` phải bao cả `suṇisā` (tổng 5+3+2+2+2+2+1+1+1 = 17 bài), bản cũ chỉ ghi một chuyện dâu;
+  Indacanda cũng hiểu *hai người vợ, hai con dâu*. Giữ: 10.5 *phẩm ấy vì vậy được gọi tên là vậy*
+  (công thức tầng, hơi lặp nhưng đúng nghĩa `tena`); 3.4 *vượt trội* (bổ sung `adhiggayha` từ 3.1 qua
+  cấu trúc so sánh, không thêm nghĩa mới); 2.2 `sataṁ sahassāni` *một trăm ngàn* (Indacanda: *hàng
+  trăm ngàn*, chênh cách đọc số, cùng bậc độ lớn). Bất định: 2.1 `purimaccharā` (tiên nữ có từ trước),
+  tên `kesakārikā` (nghĩa hợp từ), 10.3 phạm vi `dve`. Chờ người biên tập: tiêu đề 0.2
+  `Itthivimāna`, xưng hô 1.4/4.2/5.1. Không có bản Anh.
