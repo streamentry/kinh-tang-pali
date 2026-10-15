@@ -11,6 +11,20 @@ Tài liệu này ghi những gì đợt rà soát 232 bài Tiểu Bộ (KN) **ph
 
 Các bài vượt hoặc chạm 9,0 chủ yếu nhờ điểm `triangulation` hoặc mức tăng lớn: **mil3.1.12** (8,99→9,21), **mil3.5.1** (8,99→9,24), **ps1.4** (8,99→9,03), **cnd15** (9,01), **ja516** và **ja519** (vượt nhờ đối chiếu song song, ja516 không sửa khoá nào). **vv28** đã bị hạ từ 9,07 về 9,00. **ps1.3**: lượt này chỉ đọc lại khoá 1–57/145.
 
+## Vì sao 194 bài chưa vượt 9,0 (đo từ `content/meta`, sau waiver)
+
+Với công thức `final_score` = trung bình 10 tiêu chí, một bài cần trung bình chín tiêu chí còn lại ≥ (90,0 − `triangulation`) / 9 để vượt 9,0.
+
+| Nhóm | Số bài | `triangulation` TB | Chín tiêu chí còn lại, TB hiện có | Mức cần | Thiếu (TB) |
+| --- | --- | --- | --- | --- | --- |
+| Có bản Việt nguyên bài độc lập (Indacanda) | 50 | 8,29 | 9,03 | 9,08 | 0,04 |
+| Không có bản đối chiếu độc lập | 144 | 7,67 | 9,01 | 9,15 | 0,14 |
+
+- 97 bài ở 8,95–9,00 (gồm cả draft vì blocker thật). Với 79 bài, chín tiêu chí còn lại chỉ thiếu ≤ 0,05 so với mức cần.
+- 12 bài ở nhóm không có bản độc lập thiếu > 0,3.
+- Vì vậy, với phần lớn các bài này, việc vượt hay không vượt 9,0 phụ thuộc vào chênh lệch ±0,05 trong một điểm do chính agent chấm. Đó là độ nhiễu của việc chấm, không phải bằng chứng về lỗi dịch: các lượt đọc lại đủ mọi khoá đã không tìm thêm lỗi nghĩa. Nâng điểm ở mức này mà không có lỗi cụ thể được sửa sẽ vi phạm điều cấm "nâng điểm không có bằng chứng", nên không làm.
+- Cách thật sự để vượt ngưỡng cho nhóm không có bản độc lập là có nguồn đối chiếu độc lập (bản Anh hoặc Việt của người dịch khác, hoặc người biên tập đọc kiểm), chứ không phải thêm một lượt agent nữa.
+
 ## Danh sách phát hiện theo lô
 
 Mỗi mục: `[lô]` + nội dung. Số khoá dạng `uid:khoá`.
