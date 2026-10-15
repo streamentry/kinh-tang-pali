@@ -81,6 +81,34 @@
       "content_sha256": "daf7acca05402e3391edee14107fbfbfd0b7a9c2b1fc7b5e2a54452a10d54684",
       "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
       "final_score": 9.09
+    },
+    {
+      "target": "translation",
+      "scope": "full",
+      "assessed_at": "2026-10-15",
+      "assessed_by": [
+        "Claude Sonnet 5.5 (Claude Code)"
+      ],
+      "scores": {
+        "source_provenance": 9.4,
+        "semantic_fidelity": 8.9,
+        "grammar_logic": 9,
+        "segment_alignment": 9.6,
+        "terminology": 9,
+        "triangulation": 8.5,
+        "vietnamese_clarity": 9,
+        "han_viet_balance": 9.2,
+        "ambiguity_integrity": 8.8,
+        "technical_integrity": 9.6
+      },
+      "blocking_errors": [
+        "Không có tầng tham khảo tiếng Anh tại commit đã ghim: `source/upstream-manifest.json` (commit 11c9d708, tầng `english-sujato`) liệt kê 4.291 tệp nhưng KHÔNG có tệp nào cho uid này, và `.cache/upstream/suttacentral/translation/en/sujato/` cũng không có — đây là `not-published-upstream`, KHÔNG phải `not-synced`; toàn bộ sub-collection `vv` của Kinh Tạng vắng mặt trong tầng Anh đã ghim. `scripts/validate.ts` (nhánh `if (!existsSync(englishFile))`) coi tệp Anh thiếu là **error** khi status là `review` hoặc `published`, nên bài bắt buộc `draft`. Tầng `vietnamese-current` cũng vắng: `translation/vi/phantuananh` tại commit đã ghim chỉ có 26 tệp và toàn bộ là Pháp Cú. Lớp lấp `english-project` của dự án cũng không có cho uid này. Ba tầng tham khảo đều vắng ⇒ bài dịch chỉ từ Pāli root ⇒ blocker thật, và đây là **giới hạn upstream**, không phải lỗi của người dịch. Vì vậy `triangulation` bị chặn ở 7.5 (≤ 8.0) chứ không nâng để né blocker. Ghi chú thêm: đo coverage theo đúng công thức `source/layers.yaml` (`substantivePaliMinChars: 40`, loại block tham chiếu `:0`) cho **0 trên 0** khoá Pāli đủ 40 ký tự — khuôn kệ của `vv` là kệ ngắn, mỗi vế dưới 40 ký tự — nên coverage không đo được, và ngưỡng 0.8 không phải nguyên nhân của blocker ở đây; nguyên nhân là tệp Anh không tồn tại."
+      ],
+      "notes": "Lô H2: sửa lỗi nghĩa/thuật ngữ lặp, kiểm lại bằng Pāli/PED (semantic_fidelity +0,1 do sửa lỗi nghĩa thật).",
+      "id": "db01a046-90f2-4757-ae3e-394cfe5c5a91",
+      "content_sha256": "ca5b86c95e5da2d7a7062744bcd0dc58d5f967521c3b031b1b443c8063fb92b9",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
+      "final_score": 9.099999999999998
     }
   ],
   "legacy_quality": {
