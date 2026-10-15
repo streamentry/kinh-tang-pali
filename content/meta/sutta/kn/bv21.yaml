@@ -1,10 +1,11 @@
 uid: bv21
-status: review
+status: draft
 translationTitle: "Dòng Kế Thừa Các Đức Phật, Dòng Kế Thừa Của Đức Phật Vipassī"
 translators:
   - "Claude Sonnet 5.5 (Claude Code)"
 reviewers:
   - Claude Sonnet 5.5 (Claude Code)
+  - Claude Opus 5.5 (Claude Code)
 tags:
   - "kn"
   - "khuddaka-nikaya"
@@ -13,7 +14,7 @@ quality:
   scores:
     source_provenance: 9.4
     semantic_fidelity: 8.6
-    grammar_logic: 8.5
+    grammar_logic: 8.6
     segment_alignment: 10
     terminology: 8.7
     triangulation: 8.3
@@ -21,7 +22,7 @@ quality:
     han_viet_balance: 9.1
     ambiguity_integrity: 8.8
     technical_integrity: 9.6
-  final_score: 8.979999999999999
+  final_score: 8.989999999999998
   blocking_errors:
     - "noEnglishEditionUpstream: Không có tầng tham khảo tiếng Anh tại commit đã
       ghim: `source/upstream-manifest.json` chỉ liệt kê
@@ -34,24 +35,10 @@ quality:
       dịch chỉ từ Pāli root và đối chiếu tiền lệ nội bộ, bài bắt buộc `draft` và
       `triangulation` không quá 8,0. Đây là giới hạn upstream, không phải lỗi
       của người dịch."
-  assessed_at: 2026-10-14
+  assessed_at: 2026-10-15
   assessed_by:
-    - Claude Sonnet 5.5 (Claude Code)
-  assessment_id: ca431482-b4d1-4071-a23e-824686df42e9
-  waiver:
-    id: no-upstream-english
-    blockers:
-      - "noEnglishEditionUpstream: Không có tầng tham khảo tiếng Anh tại commit
-        đã ghim: `source/upstream-manifest.json` chỉ liệt kê
-        `kn/bv/bv21_root-pli-ms.json` (tầng Pāli) cho uid này, và
-        `english-sujato` chỉ có chín tiểu bộ cp, dhp, iti, ja, kp, snp, thag,
-        thig, ud, không có bv; `content/translation/en/project/sutta/kn/` không
-        có tệp bv nào và `content/meta/en/kn/` không có `bv21.yaml`. Đây là
-        `not-published-upstream`, không phải `not-synced`. Tầng
-        `vietnamese-current` chỉ có Pháp Cú. Ba tầng tham khảo đều vắng nên bài
-        dịch chỉ từ Pāli root và đối chiếu tiền lệ nội bộ, bài bắt buộc `draft`
-        và `triangulation` không quá 8,0. Đây là giới hạn upstream, không phải
-        lỗi của người dịch."
+    - Claude Opus 5.5 (Claude Code)
+  assessment_id: 5f1c9ab1-2f48-4d54-8180-a6ce2d924c2f
 notes: |-
   Đợt 19, làn 98. Dịch từ Pāli root commit đã ghim, đủ 158/158 khoá (tệp trước đó chỉ có khoá `38.1`, lời kết; khoá này được kiểm lại và giữ nguyên chữ), thứ tự khoá đúng thứ tự Pāli, không có khoá ngoài tập Pāli. Bài là phẩm thứ mười chín của Buddhavaṃsa, về Đức Phật Vipassī: ba lần chứng ngộ và ba kỳ hội chúng, tiền thân vua rồng Atula dâng ghế vàng và được thọ ký (lời thọ ký kéo dài từ `13.3` đến `22.3`, nói về đời Đức Gotama), gia thế, xuất gia, chuyển bánh xe, các đệ tử và thị giả, thân lượng, tuổi thọ, nhập Niết-bàn và bảo tháp. Không có tầng Anh cho uid (xem blocker); tầng Việt hiện hành chỉ có Pháp Cú.
 
@@ -107,3 +94,5 @@ notes: |-
   - Điểm: không tiêu chí nào đổi, không có cải thiện cụ thể nào đứng sau để nâng, và không phát hiện lỗi mới nghiêm trọng để hạ. `final_score` vẫn 8,85 (88,5/10). `triangulation` vẫn 7,0 vì ba tầng tham khảo vắng; `semantic_fidelity`, `grammar_logic` và `ambiguity_integrity` giữ vì các bất định ở mục 1, 5, 6 và 14 phần trên vẫn còn nguyên. Blocker `noEnglishEditionUpstream` giữ nguyên, đó là sự thật về upstream. `technical_integrity` 9,6: bốn lệnh `npm run validate` · `npm test` · `npm run check` · `npm run build` chưa chạy ở lượt này.
 
   Đối chiếu độc lập 2026-10-14: với bản Việt nguyên bài của Bhikkhu Indacanda. 9 khoá bất đồng nghĩa → sửa 0, giữ 6, bất định 3. Giữ: 5.3 `ārāma` (bản nguyên bài "tu viện", bản dự án "khu vườn", cả hai nằm trong nghĩa `ārāma`); 6.2 `upanisādino` ("những người ngồi gần" so với bản nguyên bài "an trú vào"); 13.3 `ekanavutito kappe` ("sau chín mươi mốt kiếp nữa" so với "trong chín mươi mốt kiếp tính từ thời điểm này", cùng một mốc 91 kiếp); 26.3 `sudassanā` (bản nguyên bài "Sutanā" theo dị bản; Pāli ghim là Sudassanā); 12.3–12.4 `maṇimuttaratanakhacitaṁ`, `sabbābharaṇavibhūsitaṁ` (tính từ trung tính đi với `suvaṇṇapīṭhaṁ` ở 12.6; bản nguyên bài nói rõ là chiếc ghế; bản dự án để hai dòng không nêu danh từ, không sai nghĩa nhưng chưa tường minh; giữ vì thêm danh từ là thêm chữ). Bất định: 11.1–11.2 `parivāretvānahaṁ` (bản nguyên bài hiểu là ta vây quanh Đức Phật cùng nhiều koṭi rồng, bản dự án hiểu là ta được rồng vây quanh; hai cách đều khả dĩ); 14.1 `ahu kapilavhayā rammā` (bản nguyên bài bỏ `ahu` và đọc là "rời khỏi thành xinh đẹp Kapila"; bản dự án giữ nguyên văn tiền lệ 7/7 khoá cùng Pāli ở bv2, bv21–bv26; cách đọc xuất xứ của bản nguyên bài là bằng chứng độc lập cho khả năng mà notes trên đã ghi, nhưng không đủ để đổi một khoá của cả họ). Các số đã tính lại và khớp bản nguyên bài: 84.000, 6.800.000 (68 × 100.000), 100.000, 80.000, 91 kiếp, 8.000 năm, 43.000, 8 tháng, 80 hattha, 7 do-tuần, 80.000 năm, thứ 19. Review đối kháng cùng lượt: không tìm thấy lỗi cần sửa. Bản nguyên bài không phân đoạn nên đối chiếu ở mức đoạn, không phải mức khoá; không có bản Anh.
+
+  Lượt rà soát 2026-10-15 (Claude Opus 5.5, đọc đối kháng Pāli↔Việt, đối chiếu bản nguyên bài Bhikkhu Indacanda, tiền lệ bv2, bv26, tha-ap562:1.3): sửa 1 khoá. `35.3` `Jalitvā aggikkhandhova` “Sau khi cháy rực như một khối lửa lớn,” thay “Tỏa sáng tợ như…”: `jalitvā` là gerund (cùng chuỗi `dassayitvāna`, `desetvā` ở 35.1–35.2, chủ ngữ của `nibbuto` 35.4), bản cũ biến thành động từ hiện tại; dùng lại nguyên văn tiền lệ duy nhất `tha-ap562:1.3`. Giữ: `1.2` không thêm “có” (động từ ở 1.4); `16.2` `ada` “sẽ dùng” (bản nguyên bài cũng “thọ thực”); `17.1`–`17.4` giữ khuôn calque đồng nhất với `bv2:65`, `bv26:20`; các mục giữ của lượt 2026-10-14 không đổi. Bất định 1 (`ahu kapilavhayā`), 5 (`upanisādino`), 6 (`parivāretvāna`), 13 (`kusumitaṁ`) vẫn mở; không tìm thấy sai nghĩa trọng yếu mới.
