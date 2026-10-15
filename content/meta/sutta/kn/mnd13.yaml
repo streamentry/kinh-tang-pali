@@ -1,10 +1,11 @@
 uid: mnd13
-status: review
+status: draft
 translationTitle: "Đại Tập Kể Lược, Kể Lược Phẩm Tám Kệ – Kinh Đại Bố"
 translators:
   - "Claude Sonnet 5.5 (Claude Code)"
 reviewers:
   - Claude Sonnet 5.5 (Claude Code)
+  - Claude Opus 5.5 (Claude Code)
 tags:
   - "khuddaka-nikaya"
   - "mahaniddesa"
@@ -12,16 +13,16 @@ tags:
 quality:
   scores:
     source_provenance: 9.4
-    semantic_fidelity: 8.5
+    semantic_fidelity: 8.6
     grammar_logic: 8.5
     segment_alignment: 10
-    terminology: 8.5
-    triangulation: 7.8
+    terminology: 8.7
+    triangulation: 8
     vietnamese_clarity: 8.2
     han_viet_balance: 9.1
     ambiguity_integrity: 8.3
     technical_integrity: 9.6
-  final_score: 8.789999999999997
+  final_score: 8.84
   blocking_errors:
     - "noEnglishEditionUpstream: không có tầng tham khảo tiếng Anh cho mnd13 tại
       commit đã ghim. Thư mục kn/ của edition translation/en/sujato chỉ có cp,
@@ -32,23 +33,10 @@ quality:
       không có mnd13. Tầng vietnamese-current chỉ có Pháp Cú. Đây là
       not-published-upstream, giới hạn của bản chụp upstream chứ không phải lỗi
       người dịch, nên triangulation bị chặn ở 8.0 và không nâng để né blocker."
-  assessed_at: 2026-10-14
+  assessed_at: 2026-10-15
   assessed_by:
-    - Claude Sonnet 5.5 (Claude Code)
-  assessment_id: 01b814a2-f432-4a8f-8ba0-c04735e20fd6
-  waiver:
-    id: no-upstream-english
-    blockers:
-      - "noEnglishEditionUpstream: không có tầng tham khảo tiếng Anh cho mnd13
-        tại commit đã ghim. Thư mục kn/ của edition translation/en/sujato chỉ có
-        cp, dhp, iti, ja, kp, snp, thag, thig, ud; manifest chỉ liệt kê tệp Pāli
-        (root-pli-ms) cho kn/mnd và tệp tên mnd-name (chỉ có tiêu đề các bài, ở
-        đây là Exposition of the Longer Discourse on Arguments); tệp
-        mnd13_translation-en-sujato.json không tồn tại. Lớp english-project cũng
-        không có mnd13. Tầng vietnamese-current chỉ có Pháp Cú. Đây là
-        not-published-upstream, giới hạn của bản chụp upstream chứ không phải
-        lỗi người dịch, nên triangulation bị chặn ở 8.0 và không nâng để né
-        blocker."
+    - Claude Opus 5.5 (Claude Code)
+  assessment_id: a9400b90-cd17-45bf-bd65-52fda4ff8c19
 notes: |-
   **Phạm vi: đủ 759/759 khoá của mnd13, không khoá nào ngoài tập khoá Pāli, cùng thứ tự Pāli.** Bài là phần Mahāniddesa chú giải `snp4.13` (Mahābyūhasutta, Kinh Đại Bố), thuộc phẩm Aṭṭhakavagga, cấu trúc như `mnd12` (chú giải `snp4.12`), `mnd4`, `mnd5`, `mnd8`, `mnd9`: dẫn từng đoạn kệ in đậm, giải từng cụm, rồi nhắc lại cả đoạn kệ trong nháy kép. Có 20 đoạn kệ in đậm (`2`, `9`, `16`, `23`, `31`, `38`, `45`, `52`, `59`, `66`, `73`, `80`, `87`, `94`, `102`, `109`, `116`, `123`, `130`, `139`), mỗi đoạn được nhắc lại trong ngoặc kép (`8`, `15`, `22`, `30`, `37`, `44`, `51`, `58`, `65`, `72`, `79`, `86`, `93`, `101`, `108`, `115`, `122`, `129`, `138`, `159`); lời dẫn nhập có 2 lần *Vì thế, vị được hóa hiện ấy đã nói—* (`7`, `64`) và 18 lần *Vì thế, Đức Thế Tôn đã nói—*. Phần cuối giải câu *Muni* và *Bhagavā*: ba đoạn kệ trích có nháy (`142` bài kệ về đạo quân của Ma, `149`–`150` kệ về ba hạnh hiền trí, `152`–`154` kệ về bậc Mâu-ni) và lời giải danh hiệu Thế Tôn (`157`, theo `mnd7:16`). Pāli có 246 khoá mang thẻ in đậm, bản Việt không mang thẻ. Dấu lược `…`: 67 khoá (37 khoá có `…pe…`, đều thành đúng một `…`; 30 khoá có `…` trần), mỗi khoá giữ đúng số dấu của Pāli; 0 khoá có `(…)`; 0 khoá Pāli kết `….`. Nháy: Pāli có 69 khoá chứa “ và 69 khoá chứa ”, 0 nháy đơn, 2 khoá chứa ngoặc đơn (`139.5`, `159.5`); bản Việt khớp Pāli từng khoá (0/759 lệch cả ba loại), kể cả cặp nháy mở ở `117.12` đóng ở `117.14`, mở ở `149.1` đóng ở `150.4`, mở ở `152.1` đóng ở `154.4`.
 
@@ -110,3 +98,5 @@ notes: |-
   **Bốn cổng kỹ thuật theo `AGENTS.md`:** `npm run validate`, `npm test`, `npm run check`, `npm run build`. Lát này **không** chạy bốn lệnh đó vì bị cấm trong từng lát ⇒ để CI hoặc người điều phối chạy. `technical_integrity` đặt **9.6**, không 10.0. Các phép tự kiểm đã chạy và đều xanh: tập khoá bản Việt = tập khoá Pāli (759/759, cùng thứ tự); nháy kép `“”` khớp Pāli từng khoá (0/759 lệch; 0 nháy đơn, 2 khoá có ngoặc đơn đều khớp, 0 nháy thẳng, 0 thẻ HTML); dấu lược `…` khớp Pāli từng khoá (0/759 lệch; 67 khoá có `…`); 0 khoá rỗng; NFC; không khoảng trắng thừa; Pāli lọt sang Việt: chỉ có các tên riêng *Samaṇamuṇḍikāputta* (`25.1`) và *Vāsudeva, Puṇṇabhadda, Maṇibhadda* (`26.2`) giữ nguyên như `mn78:1.3`, `mnd4:38.3`.
 
   Đối chiếu bản dịch mù độc lập 2026-10-14: một dịch giả khác (cùng họ công cụ) dịch lại bài từ Pāli không xem bản dự án; so 210 khoá chênh lệch lớn nhất, đọc kèm toàn bài → khác nghĩa 10 cụm (khoảng 70 khoá vì kệ và lời giải lặp lại): sửa 0, giữ 6, bất định 4. Giữ: jigucchitaṁ 45.1/46 («khổ hạnh thanh tẩy», theo chính lời giải tapojiguccha trong bài và tiền lệ ở dn25; bản mù đọc «nhàm ghê» sát chữ hơn); uggahaṇanti maññe 116.4/120/123.4/127 (lời giải 120.2 nói người khác nắm giữ còn bậc A-la-hán xả, nên «xả khi người khác nắm giữ»; bản mù đọc «xem đó là sự nắm giữ»); sakāyana và samhi 73.4/77/80.2/82/86.2 (theo lời giải 77.2 sakāyane daḷhavādā); pajappati và jappita 31.3/34/52.1/53 (khấn nguyện; bản mù đọc «khao khát/ước vọng», cùng gốc taṇhā theo 53.7); kappa và pakappa («tạo tác»/«hư cấu», tiền lệ mnd4, mnd5, mnd10, snp4.13:17.1; bản mù thống nhất «dựng lập», cùng nghĩa khác chữ); kusalāvadānā 23.4/28/63 («tự cho là thiện xảo», theo lời giải kusalavādā). Bất định: nūparato 139.4/156/159.4 (hai bản cùng đọc «không ngưng dứt», nhưng lời giải 156.10 mô tả bậc A-la-hán là ārato virato paṭivirato nên cách đọc na + uparato chưa chắc khớp); uddhaṁsarā 45.3/48 («đi ngược dòng» hay «đi lên»); aññāya aparaddho ahaṁ 33.2/33.4 (aññāya chưa rõ); vayha, sandamānikā và sajjaṁ ở 124.7 (loại xe và nghĩa «đã lắp sẵn»). 91 nhóm Pāli trùng nguyên văn trong bài đều có cùng một bản Việt (một nhóm chỉ khác dấu câu). Không có bản Anh hay bản Việt độc lập khác.
+
+  Lượt rà soát 2026-10-15 (Claude Opus 5.5, đọc đối kháng Pāli↔Việt cả 759 khoá, đoạn song song `cnd11`, `snp3.2`, `mnd4`, `mnd8`, `snp4.13`): sửa 2 khoá. `56.8` *kattha jappeyya pajappeyya abhijappeyya*: bản cũ chèn *khắp nơi* cho *pajappeyya*, không có trong Pāli và lệch cách dịch *pajappati* → *khấn nguyện* ở `34.2`; nay *… ở chỗ nào, khấn nguyện, khấn nguyện dữ dội*. `106.2` *iddhipādakusalā*: *như ý túc* → *thần túc*, cho khớp `91.2`, `99.1`, `136.8`, `157.18` trong cùng bài. Không có sai nghĩa trọng yếu nào khác (phủ định, chủ thể, số lượng, quan hệ logic đã soát lại; danh sách và số đếm khớp). Giữ nguyên các chỗ khác `snp4.13` (lý do ở các mục trên). Chưa sửa, để người biên tập quyết chung: `142.1` (và `cnd11:11.1`, `mnd4:49.1`, `mnd8:67.1`, `snp3.2:12.1`) *Kāmā te paṭhamā senā* thiếu *te* (*của ngươi*); `142.2` viết hoa *Thứ hai* giữa câu theo tiền lệ. Bất định giữ như mục Bất định ở trên (không có bản Anh, không có bản Việt độc lập; PED không tra thêm trong lượt này).
