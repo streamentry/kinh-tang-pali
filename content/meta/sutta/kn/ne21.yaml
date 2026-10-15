@@ -1,10 +1,11 @@
 uid: ne21
-status: review
+status: draft
 translationTitle: "Nhóm Phương Thức Khảo Sát"
 translators:
   - "Claude Sonnet 5.5 (Claude Code)"
 reviewers:
   - Claude Sonnet 5.5 (Claude Code)
+  - Claude Opus 5.5 (Claude Code)
 tags:
   - "kn"
   - "khuddaka-nikaya"
@@ -17,13 +18,13 @@ quality:
     semantic_fidelity: 8.6
     grammar_logic: 8.8
     segment_alignment: 10
-    terminology: 8.8
+    terminology: 8.9
     triangulation: 7.2
     vietnamese_clarity: 8.6
     han_viet_balance: 9
     ambiguity_integrity: 8.3
     technical_integrity: 9.6
-  final_score: 8.84
+  final_score: 8.85
   blocking_errors:
     - "noEnglishEditionUpstream: không có tầng tham khảo tiếng Anh tại commit đã
       ghim — `source/upstream-manifest.json` không liệt kê tệp nào của `kn/ne` ở
@@ -42,30 +43,10 @@ quality:
       tố 'người thiền như gà', cùng `dve paṭhamakā`/`dve pacchimakā` dịch 'hạng
       thứ nhất'/'hạng thứ sau'. Cần người biên tập phân xử trước khi nâng
       status."
-  assessed_at: 2026-10-14
+  assessed_at: 2026-10-15
   assessed_by:
-    - Claude Sonnet 5.5 (Claude Code)
-  assessment_id: 23260ff9-4f2d-4780-9aad-1852f99b2274
-  waiver:
-    id: no-upstream-english
-    blockers:
-      - "noEnglishEditionUpstream: không có tầng tham khảo tiếng Anh tại commit
-        đã ghim — `source/upstream-manifest.json` không liệt kê tệp nào của
-        `kn/ne` ở `english-sujato` (755 tệp, chỉ cp 35 · dhp 26 · iti 112 · ja
-        83 · kp 9 · snp 73 · thag 264 · thig 73 · ud 80), đây là
-        `not-published-upstream`, không phải `not-synced`. Đo coverage theo công
-        thức `source/layers.yaml` (Pāli có nội dung ≥ 40 ký tự, loại block
-        `:0`): 0 trên 147 khoá = 0%, dưới ngưỡng 0.8. `vietnamese-current` chỉ
-        có Pháp Cú tại commit đã ghim; lớp `english-project` chưa có tệp cho uid
-        này. Ba tầng tham khảo đều vắng ⇒ dịch chỉ từ Pāli root, đối chiếu thuật
-        ngữ với các bài Netti, Trung Bộ, Tăng Chi và Trường Bộ đã dịch trong
-        tầng dự án; đây là giới hạn upstream, không phải lỗi của người dịch."
-      - "unresolvedTerm: `kukkuṭajhāyī` (`:38.3`, `:38.4`) không xác lập được
-        nghĩa kỹ thuật — 0 tiền lệ trong toàn tầng Việt dự án (đã dò
-        kn/mn/an/sn/dn), không có tầng Anh để đối chiếu; bản dịch chỉ tách thành
-        tố 'người thiền như gà', cùng `dve paṭhamakā`/`dve pacchimakā` dịch
-        'hạng thứ nhất'/'hạng thứ sau'. Cần người biên tập phân xử trước khi
-        nâng status."
+    - Claude Opus 5.5 (Claude Code)
+  assessment_id: ef5cebf0-cd01-46e6-9e32-6447dd8fb05a
 notes: |-
   Bản dịch từ Pāli root; không có bản Anh pinned (xem blocker), nên `triangulation` đặt 7.0 (≤ 8.0) và bài giữ `draft`. Mẫu số coverage = 147 khoá Pāli có nội dung trên tổng 198 khoá; Sujato phủ 0/147. Đã đọc đối chiếu cặp Pāli↔Việt cả 198 khoá sau khi viết.
   Tiêu đề: `:0.2` Paṭiniddesavāra → "Phần Giải Thích" (23 tệp Netti đã có `:0.2` này, kể cả `ne20`, `ne22`–`ne34`); `:0.3` Sampāta 2 → "Nhóm 2"; `:0.4` Vicayahārasampāta → "Nhóm Phương Thức Khảo Sát" theo bảng `X-hārasampāta` → "Nhóm Phương Thức X" của phần Paṭiniddesavāra (14 tiêu đề đã dịch: `ne20`, `ne22`–`ne34`). `hāra` → "phương thức": 29 khoá so với "hướng dẫn" 1 khoá trên 62 khoá `ne` có `hāra` ngoài tiêu đề; "Hướng Dẫn" chỉ nằm ở tiêu đề `ne6`–`ne19` (đánh số Nhóm 3–16, phần trước), không dùng cho nhóm Paṭiniddesavāra này. `vicaya` → "khảo sát": `ne2:1.2` có `vicayo` → "tích lũy" (1 khoá), không theo vì nghĩa Pāli là tìm xét và `pavicaya` nêu rõ ở `:2.1`. `:1.1` và `:44.3` theo mẫu `ne26:1.1`/`ne26:2.8` ("Ở đây, nhóm phương thức … là gì?"; "… đã được vận dụng").
@@ -77,3 +58,16 @@ notes: |-
   Cổng kỹ thuật CHƯA chạy — cần đủ bốn lệnh trước khi coi `technical_integrity: 9.6` là đạt: `npm run validate`, `npm test`, `npm run check`, `npm run build`.
 
   Đối chiếu bản dịch mù độc lập 2026-10-14: một dịch giả khác (cùng họ công cụ) dịch lại bài từ Pāli không xem bản dự án; so 34 khoá chênh lệch lớn nhất trên 198 khoá → khác nghĩa 8: sửa 0, giữ 4 (`21.1`: bản mù dịch `sakkāya` là *thân kiến*, lẫn với `sakkāyadiṭṭhi`, giữ *hữu thân*; `1.7`: bản mù thêm *dẫn đến* không có trong Pāli, giữ lối nêu song song *tâm giải thoát do ly tham … tuệ giải thoát do ly vô minh*; `27.2`: bản mù thêm *mỗi nhóm*, giữ nguyên Pāli `ekā paṭipadā tattha tattha gāminī`; `19.1`: `ṭhānāṭṭhānagatā` là số nhiều giống đực nên giữ *những ai*, bản mù *những gì*), bất định 4 (`21.5` `phaladassāvitā ca avippavāso`: *sự thấy quả của các nghiệp và sự không mất đi* so với *do thấy được quả … và do không lìa khỏi chúng*; `23.3` `āgāḷhā ca nijjhāmā ca paṭipadā`: *sa đọa và thiêu đốt* theo `an3.156`–`an3.157`, bản mù *thái quá và thiêu đốt*, còn `ne17:21.3` ở tầng dịch *gay gắt*; `38.3`–`38.4` `kukkuṭajhāyī dve paṭhamakā / dve pacchimakā`: cả hai bản chỉ dịch sát chữ, bản mù ghi không chắc, đã là blocker riêng; `14.1` `hatthehi vā pādehi vā suhataṁ kareyya`, ghi thêm khi tự rà: *giết mẹ, hoặc đánh mẹ thật nặng bằng tay hay chân* với nghĩa *giết mẹ bằng cách đánh thật nặng bằng tay hoặc chân*, Pāli không loại trừ cách nào). Chênh lệch còn lại cùng nghĩa (tiêu đề `0.4`, các câu hỏi `Tattha katamo …`, `3.2`, `3.3`, `6.4`, `26.1`, `39.2`, `39.6`, `33.1`, `33.3`, `37.10`). Blocker `unresolvedTerm: kukkuṭajhāyī` giữ nguyên vì không giải được bằng Pāli. Rà đối kháng cả 198 khoá: đủ khoá, đúng thứ tự Pāli, nháy kép và nháy đơn khớp Pāli từng khoá, các số đếm (tám chi phần ở `2.5`, sáu thắng trí cộng hai điều thù thắng ở `2.6`, dãy mười một, tám, bảy, ba, hai ở `37.4`, mười sức mạnh) đã đếm lại, không sửa khoá nào. Không có bản Anh hay bản Việt độc lập khác. Đây là review của AI, không phải chứng nhận của chuyên gia Pāli.
+
+  Lượt rà soát 2026-10-15 (Claude Opus 5.5, đọc đối kháng Pāli↔Việt cả 198 khoá, đoạn song song
+  dn34:1.4.7): sửa 1 khoá. `:3.5` `samādhiparikkhāro`: "trợ duyên của định" → "tư cụ hỗ trợ định"
+  (`parikkhāra` là vật/yếu tố hỗ trợ, không phải `paccaya`; theo `mn44:12.1` "tư cụ hỗ trợ định",
+  `dn33:2.3.8` "trợ giúp cho định", `dn18:27.3.0` "hỗ trợ"). Đã đếm lại: tám đức tính tâm `:2.5`, 41
+  `dhātu` `:28.3`, 14 `adhimutta` `:30.1`, bảy nơi sinh `:27.4`, sáu chi `:3.4`; cấu trúc
+  `:33.3`–`:34.1` (nhóm Devadatta thuộc "không giáo giới", nhóm Puṇṇa/Aṅgulimāla thuộc "giáo giới khi
+  chưa viên mãn") khớp Pāli. Giữ: `:40.1` `āsayo` → "khuynh hướng" theo `ps1.1:545.3`/`:546.26` dù
+  trùng chữ với `adhimutti` ở `:30.x` (`ps1.1:546.11` tách "khuynh hướng"/"thiên hướng"). Bất định
+  (không đổi): `kukkuṭajhāyī` `:38.3`–`:38.4` vẫn là blocker, không giải được bằng Pāli; `:14.1`
+  `hatthehi vā pādehi vā suhataṁ kareyya` (không có `vā` nối `voropeyya` với `suhataṁ kareyya`);
+  `:23.3` `āgāḷhā` "sa đọa" theo `an3.156`, PED ghi `āgāḷha` là gắt/quá mức. Không tìm thêm lỗi nghĩa
+  nên các tiêu chí khác giữ nguyên.

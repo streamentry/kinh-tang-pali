@@ -1,10 +1,11 @@
 uid: ps1.0
-status: review
+status: draft
 translationTitle: "1.0. Mẫu Đề"
 translators:
   - "Claude Sonnet 5.5 (Claude Code)"
 reviewers:
   - Claude Sonnet 5.5 (Claude Code)
+  - Claude Opus 5.5 (Claude Code)
 tags:
   - "kn"
   - "khuddaka-nikaya"
@@ -33,21 +34,10 @@ quality:
       này và tầng vietnamese-current chỉ có Pháp Cú, nên bản dịch chỉ dựa trên
       Pāli, chưa đối chiếu được tầng tham khảo nào, không đủ điều kiện
       review/published, bắt buộc giữ draft."
-  assessed_at: 2026-10-14
+  assessed_at: 2026-10-15
   assessed_by:
-    - Claude Sonnet 5.5 (Claude Code)
-  assessment_id: f9c65269-826f-49ef-ac7c-bbc2db1a5490
-  waiver:
-    id: no-upstream-english
-    blockers:
-      - "noEnglishEditionUpstream: không có tầng tham khảo tiếng Anh tại commit
-        đã ghim cho uid này. Đã kiểm source/upstream-manifest.json: tầng
-        english-sujato dưới kn/ chỉ gồm cp, dhp, iti, ja, kp, snp, thag, thig,
-        ud (755 tệp, 0 tệp ps) ⇒ not-published-upstream, không phải not-synced;
-        0/38 khoá Pāli có nội dung được Sujato phủ. Lớp english-project không có
-        uid này và tầng vietnamese-current chỉ có Pháp Cú, nên bản dịch chỉ dựa
-        trên Pāli, chưa đối chiếu được tầng tham khảo nào, không đủ điều kiện
-        review/published, bắt buộc giữ draft."
+    - Claude Opus 5.5 (Claude Code)
+  assessment_id: 51c84d19-afeb-44b8-a23f-0f82b9b4b8f3
 notes: |-
   Đã đọc hết Pāli (81 khoá, 77 khoá ngoài khối tiêu đề `:0`) trước khi viết. Bài là Mẫu đề (mātikā) của Paṭisambhidāmagga: bảy mươi ba mục, mỗi mục một khoá `:1.1` … `:73.1`, theo một khuôn duy nhất "[điều kiện], paññā [loại] ñāṇaṁ", rồi một khối tổng kết `:74.1`–`:74.4`. Đã in cặp Pāli↔Việt cả 81 khoá ra đọc đối chiếu. Mọi mục dùng cùng một khuôn Việt "…, trí tuệ là trí …"; các mục mở đầu bằng danh từ không có định vị cách (:12.1, :33.1, :36.1, :39.1, :50.1) dùng dấu gạch dài thay cho "Trong …" để không biến danh cách thành định vị cách.
 
@@ -72,3 +62,14 @@ notes: |-
   technical_integrity đặt 9.6 vì không chạy được npm run validate, npm test, npm run check và npm run build trong lượt làm việc này; đây không phải tuyên bố rằng cổng kỹ thuật đã pass.
 
   Đối chiếu độc lập 2026-10-14: với bản Việt nguyên bài của Bhikkhu Indacanda. 5 khoá bất đồng nghĩa → sửa 1 (ps1.0:45.1: `cetovivaṭṭe` “sự quay đi của tâm” → “sự quay đi của tâm ý”, vì `ceto` và `citta` là hai thuật ngữ khác nhau trong chính danh sách sáu “quay đi”, bản cũ dịch trùng chữ với 46.1 `cittavivaṭṭe`; theo ps1.5:136–137 dịch `ceto` là “tâm ý”, bản nguyên bài cũng tách hai thuật ngữ), giữ 2 (ps1.0:13.1: bản nguyên bài hiểu `vaṭuma` là phiền não, còn Pāli `vaṭuma` là đường, lối, cũng được dn14 dịch “dòng trôi”; giữ “con đường”; ps1.0:68.1: bản nguyên bài thêm “của người khác”, Pāli `indriyaparopariyatta` chỉ nói các căn cao thấp, không có “người khác”), bất định 2 (ps1.0:31.1 `vihārasamāpatti` là “các sự an trú và chứng đạt” hay “sự chứng đạt trú”, bản này theo ps1.1:439.1; ps1.0:36.1 `samasīsa` bản nguyên bài hiểu theo nghĩa “pháp đứng đầu được tịnh lặng”, bản này giữ “ngang hàng” theo ps1.1:472 và ps3.7, khác pe2:36.6 và ne37:522.3 dịch “đồng đỉnh”). Các mục 1–59 và 62–73 của bản nguyên bài đánh số trùng số mục của Pāli (bản nguyên bài không có hai mục 60–61), nên đối chiếu được ở mức mục. Mọi số đã khớp: bảy mươi ba trí, sáu mươi bảy và sáu, sáu mươi bốn phương diện, mười sáu trí hành, chín định hành. Bản nguyên bài không phân đoạn nên đối chiếu ở mức đoạn, không phải mức khoá; không có bản Anh.
+
+  Lượt rà soát 2026-10-15 (Claude Opus 5.5, đọc đối kháng Pāli↔Việt cả 81 khoá, đối chiếu lại bản
+  nguyên bài Bhikkhu Indacanda theo từng mục 1–59 và 62–73, đoạn song song `mil1:1.1`, `kp1:1.1`,
+  `bv1:1.1` cho `0.4`): sửa 0 khoá, không thấy lỗi nghĩa, phủ định, số lượng hay chủ thể. Kiểm lại ba
+  chỗ nghi: `36.1` `anupaṭṭhānatā` "không hiện hữu" giữ vì `ps3.7:4.1` giải chính từ này bằng "không
+  hiện hữu" (khác `8.1` `upaṭṭhāna` "hiện khởi" nhưng là hai từ, hai ngữ cảnh); `68.1`
+  `indriyaparopariyatta` "căn cơ mạnh yếu" khớp `mn12:15.1`–`15.2`, `ps2.6:76.1`, `ps2.6:76.5`
+  (ps1.4:96.17 và ps2.9:34.1 dịch "hơn kém", "cao thấp" là cách diễn đạt khác, cùng nghĩa); `0.4` "Đức
+  Phật" so "Đức Thế Tôn" ở `mil1`, `kp1`: tầng chia 14 so 11 khoá, giữ theo đa số, không phải sai
+  nghĩa. Giữ nguyên các bất định đã ghi (`13.1` `vaṭuma`, `31.1` `vihārasamāpatti`, `36.1`
+  `samasīsa`); không có bản Anh, điểm giữ.

@@ -1,10 +1,11 @@
 uid: ne36
-status: review
+status: draft
 translationTitle: "Nguồn Khởi Của Các Lối"
 translators:
   - "Claude Sonnet 5.5 (Claude Code)"
 reviewers:
   - Claude Sonnet 5.5 (Claude Code)
+  - Claude Opus 5.5 (Claude Code)
 tags:
   - "kn"
   - "netti"
@@ -15,13 +16,13 @@ quality:
     semantic_fidelity: 8.7
     grammar_logic: 8.7
     segment_alignment: 10
-    terminology: 8.7
+    terminology: 8.8
     triangulation: 7.6
-    vietnamese_clarity: 8.6
+    vietnamese_clarity: 8.7
     han_viet_balance: 9
     ambiguity_integrity: 8.5
     technical_integrity: 9.6
-  final_score: 8.889999999999999
+  final_score: 8.91
   blocking_errors:
     - "noEnglishEditionUpstream: không có tầng tham khảo tiếng Anh nào tại
       commit đã ghim. Tầng english-sujato chỉ có chín nhóm con của Tiểu Bộ (cp,
@@ -33,23 +34,10 @@ quality:
       ghim chỉ có Pháp Cú. Cả ba tầng tham khảo đều vắng nên bài bắt buộc draft
       và triangulation không quá 8,0 (đặt 7,0). Đây là giới hạn của upstream,
       không phải lỗi của người dịch."
-  assessed_at: 2026-10-14
+  assessed_at: 2026-10-15
   assessed_by:
-    - Claude Sonnet 5.5 (Claude Code)
-  assessment_id: aa8aa14e-ecb2-442b-b4f7-6fab99bc8646
-  waiver:
-    id: no-upstream-english
-    blockers:
-      - "noEnglishEditionUpstream: không có tầng tham khảo tiếng Anh nào tại
-        commit đã ghim. Tầng english-sujato chỉ có chín nhóm con của Tiểu Bộ
-        (cp, dhp, iti, ja, kp, snp, thag, thig, ud), không có ne (chỉ có
-        ne-name), nên thuộc loại not-published-upstream, không phải not-synced.
-        Coverage đo đúng công thức của source/layers.yaml: mẫu số 222 khoá Pāli
-        có nội dung (từ 40 ký tự trở lên, bỏ khối :0), Sujato phủ 0/222 = 0,
-        dưới ngưỡng 0,80. Lớp english-project chưa có bài này; tầng
-        vietnamese-current tại commit đã ghim chỉ có Pháp Cú. Cả ba tầng tham
-        khảo đều vắng nên bài bắt buộc draft và triangulation không quá 8,0 (đặt
-        7,0). Đây là giới hạn của upstream, không phải lỗi của người dịch."
+    - Claude Opus 5.5 (Claude Code)
+  assessment_id: e224ecca-480e-40e8-b647-10e95efb0361
 notes: |-
   Đợt 19, lát 114. Dịch trọn 293/293 khoá từ Pāli root đã ghim; không có khoá nào ngoài tập khoá Pāli. Bài là phần 5, Nayasamuṭṭhāna (nguồn khởi của các lối), của Netti: giải lại hai hạng người tính kiến và tính tham ái qua mười nhóm bốn (thực, đảo lộn, chấp thủ, ách, kết thân, lậu hoặc, dòng lũ, mũi tên, trú xứ của thức, thiên vị) và các đối nghịch của chúng, rồi ba cửa giải thoát, ba hạng người, hai hạng người. Không có Sujato và không có lớp english-project, nên đối chiếu độc lập chỉ có Pāli root cộng tiền lệ trong chính tầng Việt (các bài ne1–ne35 đã dịch, pe4, pe7, pe9; dn33, dn34, mn7, sn12, sn25, an4). Không có bản Việt hiện hành theo khoá; bản nguyên bài ở mục Tra cứu toàn văn không cấp text theo khoá, không dùng làm nguồn đối chiếu theo khoá.
 
@@ -80,3 +68,16 @@ notes: |-
   Cổng kỹ thuật CHƯA chạy ở lát này. Cần chạy đủ bốn lệnh trước khi coi technical_integrity 9,6 là đạt: `npm run validate`, `npm test`, `npm run check`, `npm run build`.
 
   Đối chiếu bản dịch mù độc lập 2026-10-14: một dịch giả khác (cùng họ công cụ) dịch lại bài từ Pāli không xem bản dự án; so 34 khoá chênh lệch lớn nhất → khác nghĩa 0: sửa 0, giữ 30 (chênh lệch chỉ ở diễn đạt hoặc ở thuật ngữ đã chọn theo tiền lệ, ví dụ `59.22` "sự hỏng" so với "hư hoại", `11.13`–`11.14` "dòng lũ" so với "bộc lưu", `24.2`, `26.2`, `27.2` "người tính kiến" so với "hạng người thiên về kiến", `54.2` và `63.1` ở mức diễn đạt), bất định 4 (`56.4` `yo sādhāraṇāya`: bản mù cũng không chắc; giữ "hạng người theo thực hành chung" vì đứng giữa hai cặp lạc/khổ ở `56.3` và `56.5`; `9.10` `rattavāsiniyā`; `30.3` `te lokā`; `54.2` `adhiṭṭhāna`; ba khoá sau đã ghi ở mục bất định trên). Bổ sung cho `9.10`: ở `ja527:6.4` cùng gốc `rattavāsinī` đi với màu y phục ("mặc y phục đỏ như màu chim bồ câu"), nên cách đọc nandī như người nữ khoác y đỏ cũng khả dĩ; ba cách đọc (đêm / nhiễm đắm / y phục đỏ) chưa phân xử được, giữ "trú trong sự nhiễm đắm". Đọc đối kháng lại cả 293 cặp Pāli↔Việt (số đếm 10 nhóm bốn, mười bài kinh `24.1`–`27.1`, bốn hạng thành ba `58.4`, ba thành hai `60.1`; nháy 0 lệch; một dấu lược cho mỗi `…pe…`): không phát hiện lỗi cần sửa, không đổi khoá nào. Không có bản Anh hay bản Việt độc lập khác.
+
+  Lượt rà soát 2026-10-15 (Claude Opus 5.5, đọc đối kháng Pāli↔Việt cả 293 khoá, đoạn song song dn33,
+  dn34, iti64–66, an6.108, ud4.1 cho `:59.x`): sửa 3 khoá, đều về thuật ngữ/diễn đạt, không sai nghĩa.
+  `:59.11` `tisso dukkhatā` "ba loại khổ" → "ba khổ" (theo `dn33:1.10.56`, `ne5:15.6`);
+  `:59.21`–`:59.22` `vipatti` "sự hỏng" → "sự hư hỏng" ("sự hỏng giới" là khẩu ngữ, và `an3.117` dùng
+  "thất nghiệp" nên không có tiền lệ dùng được). Đã soát lại: mười nhóm bốn `:10.13`–`:10.22` và bốn
+  phương `:20.1`–`:23.1` khớp từng vế; ghép `suññatā`/`animitta`/`appaṇihita` ở `:28.1`–`:30.1` và
+  `:43.1`–`:52.1` đúng thứ tự Pāli; ba hạng ugghaṭitaññū/vipañcitaññū/neyya `:56.3`–`:57.4` khớp.
+  Thuật ngữ `makkha`/`palāsa` "gièm pha"/"hơn thua" khớp `cnd9:43.2`, `mnd10:60.8`. Giữ: `:17.1`
+  `ajjhāsayaṁ` "khuynh hướng sâu xa" (cùng gốc `āsaya` "khuynh hướng" ở `ps1.1:545.3`). Bất định
+  (không đổi): `:9.10` `avaṭṭanatthaṁ`/`rattavāsiniyā`, `:12.5` `kappiya`, `:30.3` `te lokā`, `:36.1`
+  `bhavādhiṭṭhānaṁ`, `:54.2` `adhiṭṭhāna`, `:54.5` `yo neti vipallāsehi` (cụm kệ cắt dở) như đã ghi ở
+  trên. Không có bản Anh hay bản Việt độc lập.
