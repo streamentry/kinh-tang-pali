@@ -3,7 +3,9 @@ status: draft
 translationTitle: "Nền Tảng Thứ Tư: Khảo Xét Kinh"
 translators:
   - "Claude Sonnet 5.5 (Claude Code)"
-reviewers: []
+reviewers:
+  - Claude Sonnet 5.5 (Claude Code)
+  - Claude Opus 5.5 (Claude Code)
 tags:
   - "khuddaka-nikaya"
   - "petakopadesa"
@@ -13,20 +15,25 @@ quality:
     source_provenance: 9.5
     semantic_fidelity: 8.1
     grammar_logic: 7.8
-    segment_alignment: 10.0
+    segment_alignment: 10
     terminology: 8.9
-    triangulation: 7.0
+    triangulation: 7
     vietnamese_clarity: 8.2
-    han_viet_balance: 9.0
+    han_viet_balance: 9
     ambiguity_integrity: 8.8
     technical_integrity: 9.6
   final_score: 8.69
   blocking_errors:
     - "noEnglishEditionUpstream: Thiếu bản dịch tiếng Anh đối chiếu"
-    - "Pāli root đã ghim ở nhiều chỗ hỏng hoặc chưa phân xử được (2.2 adhisannaṭṭhehi; 3.21 uttilo để nguyên dạng Pāli; 4.2 maṁ không dịch; 5.7 bhāvanāya bhūmi; 6.5 byādhimattaṁ; 7.6 puggalaparo parañca, uppādito): canonical wording ở các khoá ấy chưa bảo vệ được, cần người biên tập phán xử"
-  assessed_at: "2026-10-12"
+    - "Pāli root đã ghim ở nhiều chỗ hỏng hoặc chưa phân xử được (2.2
+      adhisannaṭṭhehi; 3.21 uttilo để nguyên dạng Pāli; 4.2 maṁ không dịch; 5.7
+      bhāvanāya bhūmi; 6.5 byādhimattaṁ; 7.6 puggalaparo parañca, uppādito):
+      canonical wording ở các khoá ấy chưa bảo vệ được, cần người biên tập phán
+      xử"
+  assessed_at: 2026-10-15
   assessed_by:
-    - "Claude Sonnet 5.5 (Claude Code)"
+    - Claude Opus 5.5 (Claude Code)
+  assessment_id: 49fe1d27-0fc9-4e6b-8f1a-844b994b3cb1
 notes: |-
   Dịch trực tiếp từ Pāli root snapshot bilara đã ghim, đường dẫn `kn/pe/pe4_root-pli-ms.json` (111/111 khoá, đúng thứ tự Pāli, không khoá nào ngoài tập Pāli). Đây là nền tảng thứ tư (`Suttavicayacatutthabhūmi`) của Peṭakopadesa, thuộc Trưởng lão Mahākaccāyana (13.1).
 
@@ -100,3 +107,15 @@ notes: |-
     + Đã kiểm lại và giữ: `3.26` với `4.7` (phủ định `na … kāretvā` bao cả hai vế, không phải mettā đoạn trừ rāga); `5.6` (`diṭṭhi rāgo avijjā` cùng do thấy biết: dịch đúng Pāli, không sửa hộ giáo lý); `6.10`, `6.12` `adhiṭṭhāna` → "an lập" (theo `pe3:75.5`; các hāra `adhiṭṭhāno` ở `ne`, `pe` dịch "áp dụng" nên không đồng nhất, đây là hai nghĩa khác nhau của từ); `mahāpadesa` → "đại y" (theo `ne6`; `pe5:24.13` dịch "đại giáo pháp", tầng chia đôi, không đổi); `otār-` ở `7.5` ("không đi vào cho trọn vẹn") lệch với `ne6`, `pe1` ("kiểm nghiệm vào", "dẫn vào"), giữ vì không có đối tượng của "dẫn vào" trong Pāli, ghi bất định.
     + Điểm: `semantic_fidelity` 8.0 → 8.1 (5 khoá sai nghĩa đã sửa, bất định ở các khoá hỏng vẫn còn); `terminology` 8.8 → 8.9 (`saṁvaraṇa`); các tiêu chí khác giữ. Còn blocker nên bài vẫn `draft` bất kể điểm.
     + Phép kiểm: tập khoá Việt = tập khoá Pāli (111/111), thứ tự đúng; nháy và ngoặc khớp Pāli từng khoá; dấu lược `…` chỉ ở `2.2` như Pāli; NFC đạt, không khoá rỗng. Các lệnh của kho còn phải chạy ở bước sau: `npm run validate`, `npm test`, `npm run check`, `npm run build`.
+
+  Lượt rà soát 2026-10-15 (Claude Opus 5.5, đọc đối kháng Pāli↔Việt, đoạn song song `an7.68`,
+  `an6.44`): sửa 1 khoá, thu hẹp 1 khoá trong blocker. `7.6`: `puggalaparo parañca` là
+  `puggalaparopara` (hạng người hơn kém), thuật ngữ có tiền lệ `puggalaparoparaññū` ở `an7.68` (Việt
+  đã published: "các hạng người hơn kém") và `purisapuggalaparopariyañāṇa` ở `an6.44`, hợp ngữ cảnh
+  "trí về sự sai khác của các căn" ngay trước đó; Việt cũ "nơi người này và người khác" đổi thành "và
+  sự hơn kém giữa các hạng người". Còn `uppādito` (ai được "làm cho sinh khởi", chủ thể không rõ) nên
+  `7.6` vẫn ở trong blocker, chỉ còn chữ ấy. Giữ trong blocker (grep Pāli toàn kho chỉ thấy các câu
+  này trong pe4, không có song song): 2.2 `adhisannaṭṭhehi`, 3.21 `uttilo`, 4.2 `maṁ`, 5.7 `bhāvanāya
+  bhūmi`, 6.5 `byādhimattaṁ` (có thể là `vā adhimattaṁ` theo 6.3/6.11 nhưng chưa chứng minh được).
+  Điểm giữ nguyên.
+  Điều phối viên 2026-10-15: khoá 7.6 hoàn về bản trước (`puggalaparo parañca` đọc thành `puggalaparopara` chỉ là đọc suy từ song song); 7.6 trả về blocker nguyên. Khoá còn lại giữ như lượt trước.
