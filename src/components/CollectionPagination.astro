@@ -1,0 +1,25 @@
+---
+import type { CollectionCode } from '../lib/canon/types';
+import { collectionPageLinks, collectionPagePath } from '../lib/collection-pagination';
+import { withBase } from '../lib/url';
+interface Props {
+  code: CollectionCode;
+  page: number;
+  pageCount: number;
+  position: 'top' | 'bottom';
+}
+const { code, page, pageCount, position } = Astro.props;
+const pages = collectionPageLinks(page, pageCount);
+---
+{pageCount > 1 && (
+  <nav class="collection-pagination" aria-label={`Phân trang mục lục (${position === 'top' ? 'đầu' : 'cuối'} danh sách)`} data-pagefind-ignore>
+    {page > 1 ? <a href={withBase(collectionPagePath(code, page - 1))} rel="prev">← Trước</a> : <span class="pagination-disabled">← Trước</span>}
+    <ol>
+      {pages.map((number, index) => <>
+        {index > 0 && number - pages[index - 1] > 1 && <li class="pagination-gap" aria-hidden="true">…</li>}
+        <li><a href={withBase(collectionPagePath(code, number))} aria-label={`Trang ${number}`} aria-current={number === page ? 'page' : undefined}>{number}</a></li>
+      </>)}
+    </ol>
+    {page < pageCount ? <a href={withBase(collectionPagePath(code, page + 1))} rel="next">Tiếp →</a> : <span class="pagination-disabled">Tiếp →</span>}
+  </nav>
+)}

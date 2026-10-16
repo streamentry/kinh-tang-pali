@@ -1046,3 +1046,83 @@ The old source `1c611e946d4c188d7648045d2063f04460342db8dda787311e56d0625700e81c
 - The current five-artifact batch totals **5,795.52 seconds / 115,916,160 bytes**. MN122 now uses source `f282fc0378cf13ced2dbae456467220efd34bc5633730cdd60443cc1711379f7` and MP3 `d63850e0b03c30360900675db2f4e916ab23ea057f2e6d0d3ad094be1b0aa107`; its old object and QC evidence are retained as history, not counted as the current artifact.
 - All required local gates were rerun after integrating editorial PR #704: validate passed (2,272 advisories retained), quality histories 5,835 with zero errors; tests 417 passed/one skipped; type-check zero errors/warnings and five hints; production build passed; Pagefind indexed 6,137 pages; SEO verified 6,145 indexable pages; audio integrity checked all 186 catalog entries with zero errors.
 - Fresh built HTML confirms one exact current-source player, URL and scripture marker for every MN120–MN124. The stale MN117 player and old R2 URL are correctly absent from the rebuilt page; MN117 remains explicitly blocked for regeneration as the first item after this batch. Full manual spoken-content listening remains pending for every audio. Later main commits observed during this rerun only changed covers.
+
+### Production release verification for batch mn-045 — MN120–MN124
+
+- Production readback at 2026-10-16T03:06:12.745338+00:00: all five pages return HTTP 200 with one player, the exact registered R2 URL and `Chờ nghe duyệt`. Public R2 ranges return HTTP 206, `audio/mpeg`, 1,024 bytes, and exact registered object size. Deployment [38840787298](https://github.com/streamentry/kinh-tang-pali/actions/runs/38840787298) succeeded on merge commit `397a0705354381159b9fbddc894619cc37ca387a`. The main CI for that direct commit was cancelled when a higher priority main push arrived; it is recorded as cancelled, not passed.
+- Isolated Chrome production checks completed for MN120–MN124 at 2026-10-16T03:06:38.922Z through 2026-10-16T03:07:38.067Z: actual R2 playback advanced, no media error, readyState 4, default 1×, 15-second seek, keyboard timeline and scripture jump all passed. Per-UID observations and playback timestamps are in the registry. MN117 production HTML has zero players and its stale URL is absent; its source drift remains blocked for the next batch.
+- The five new entries are now `live`; their `review_status` remains `pending`. Playback verification does not replace full human content listening. No ASR was run. The revised MN122 R2 object uses its current source hash.
+
+### Batch mn-046 first item — MN117 source drift repair
+
+- MN117's canonical source changed in editorial PR #704. The stale MP3 with source `dd112ee56b033dea1abd9d66b99485f18f42a5f9086ef0489ad0bbfbf1dc7800` remains recorded at https://pub-8fa53f5182904685bd0c13d6c894a0e9.r2.dev/vi/mn/mn117/60a6c61c0e076ac6.mp3; it is retained in R2 history. The stale player was hidden by the current source-hash check.
+- Regenerated sequentially from current source `8707b477541ff93f315e62f70d39709563138fbe20d6ecf88477281a5b58dd51` with the pinned profile; 12 chunks (2 summary), 22,903,200 bytes, 1145.09 seconds, scripture start 156.67 seconds. New object: https://pub-8fa53f5182904685bd0c13d6c894a0e9.r2.dev/vi/mn/mn117/c54dd89360bdafb3.mp3. Public full hash/bytes and range checks passed.
+- Local Chrome verified playback, 1x rate, +15s seek, keyboard timeline and scripture jump at 2026-10-16T03:18:36.579Z. This is one repaired UID toward the next five-UID PR gate; source review remains pending, and MN125 is next.
+
+#### Batch mn-046 repair and new audio artifacts (in progress)
+
+| UID | Source SHA-256 | MP3 SHA-256 | Bytes | Duration | Scripture starts | Chunks | Audio |
+|---|---|---|---:|---:|---:|---:|---|
+| MN117 | `8707b477541ff93f315e62f70d39709563138fbe20d6ecf88477281a5b58dd51` | `c54dd89360bdafb30638194f0048054475c22d0cc5bcc89c0330f0f96c3d93bf` | 22,903,200 | 1145.09 s | 156.67 s | 12 (2 summary) | [R2 MP3](https://pub-8fa53f5182904685bd0c13d6c894a0e9.r2.dev/vi/mn/mn117/c54dd89360bdafb3.mp3) |
+| MN125 | `880ac3f9c59168ae820bfdfcc5274d3dbb46322d6a6700d0143aecd9c29388b4` | `a5410eab8d10cc8e4c5bf6883e12c170403b95ef988a4d53fa668908546cfe01` | 28,295,040 | 1414.69 s | 165.91 s | 16 (2 summary) | [R2 MP3](https://pub-8fa53f5182904685bd0c13d6c894a0e9.r2.dev/vi/mn/mn125/a5410eab8d10cc8e.mp3) |
+| MN126 | `a48e0920e7902b2aa694dea5043bdba4c5718fe786f1ba02f70be0bfddd7564f` | `3779e8250345a5c02b3ab451fbc533365c1e6bfc599c067a7132bb7172e8c39d` | 21,936,960 | 1096.79 s | 159.87 s | 14 (2 summary) | [R2 MP3](https://pub-8fa53f5182904685bd0c13d6c894a0e9.r2.dev/vi/mn/mn126/3779e8250345a5c0.mp3) |
+| MN127 | `8d976f302a54489b1add62d24cfb0ee842cd54d73e8d302fdce8ef6b525c4b4a` | `5272fc0603c51278864458c07f469fc6b3dc0d9f0a0aa58a49bab315070baffa` | 23,760,960 | 1188.00 s | 164.47 s | 13 (2 summary) | [R2 MP3](https://pub-8fa53f5182904685bd0c13d6c894a0e9.r2.dev/vi/mn/mn127/5272fc0603c51278.mp3) |
+| MN128 | `e0414ea22fbb02e7be40ebfc106cb0469cb0e9810a7680b55ca0097e293751d3` | `1fecffd873311c7eb0ec7847fcf52e860abcb98bde390628bf5a4ae0750ed5b9` | 34,448,160 | 1722.34 s | 170.75 s | 19 (2 summary) | [R2 MP3](https://pub-8fa53f5182904685bd0c13d6c894a0e9.r2.dev/vi/mn/mn128/1fecffd873311c7e.mp3) |
+
+### MN117 source reversion repair after editorial PR #716
+
+- Canonical source on main is `dd112ee56b033dea1abd9d66b99485f18f42a5f9086ef0489ad0bbfbf1dc7800`, exactly the source SHA already used to create the original artifact. The verified profile is unchanged (`a384c5852585077c32e1348a6ada5cfc70a69c989ad705b8b5129fef3e1c9a71`), and the cached original plan/source has 12 chunks/150 segments matching current canonical text.
+- Reused original MP3 `60a6c61c0e076ac6bcd54250a2d3ce44128d41880a975cf52e0ec8118f42808f` (21,646,080 bytes) at https://pub-8fa53f5182904685bd0c13d6c894a0e9.r2.dev/vi/mn/mn117/60a6c61c0e076ac6.mp3 instead of synthesizing identical text again. Full public object downloaded and SHA-256/frame/byte checked; range returned HTTP 206, audio/mpeg, bytes 0–1023. Old artifact was retained in R2. The intermediate MN117 audio from the reverted source is kept in `stale_audio_revisions` with its QC evidence; it does not count as a successful article.
+- Registry records the original artifact as `uploaded-verified` for the current source. Browser verification on current local build is pending; production/live verification will be recorded after batch046 deployment. Review remains pending.
+
+### MN117 source reversion repair after editorial PR #716
+
+- Canonical MN117 now resolves to source `dd112ee56b033dea1abd9d66b99485f18f42a5f9086ef0489ad0bbfbf1dc7800`, exactly matching the original R2 artifact and preserved fingerprint `d33d05264246d4ec`. The pinned profile matches `a384c5852585077c32e1348a6ada5cfc70a69c989ad705b8b5129fef3e1c9a71`. The original object `60a6c61c0e076ac6bcd54250a2d3ce44128d41880a975cf52e0ec8118f42808f` was fetched from public R2 and full SHA-256/MPEG frame/byte checked (21,646,080 bytes); an additional range read returned HTTP 206, `audio/mpeg`, 1,024 bytes.
+- Reused the immutable object at https://pub-8fa53f5182904685bd0c13d6c894a0e9.r2.dev/vi/mn/mn117/60a6c61c0e076ac6.mp3 rather than issuing another TTS request. Copied the verified MP3 back into its gitignored fingerprint cache. The intervening MN117 object from the temporary source revision (`60a6c61c0e076ac6bcd54250a2d3ce44128d41880a975cf52e0ec8118f42808f`) is retained in `superseded_audio_revisions` with its browser/QC record. The earlier exact-source QC evidence is preserved separately.
+- MN117 now counts as one repair toward batch mn-046 with status `uploaded-verified`; local browser verification of the restored registration is being repeated, then production/live verification will follow release. Content review remains pending.
+
+- MN117 reused-artifact reader check passed locally at 2026-10-16T04:57:02.034Z: actual R2 playback advanced, no error, 1×, +15s seek, keyboard timeline and scripture jump. Registry now records it as `uploaded-verified`; live verification waits for the current main deployment. Review remains pending.
+
+### MN117 source reversion resolved by reusing exact-source artifact
+
+Editorial PR #716 returned MN117 to source `dd112ee56b033dea1abd9d66b99485f18f42a5f9086ef0489ad0bbfbf1dc7800`. This exactly matched the original MP3 manifest/profile and cached chunk plan (`vi-charon-mn1-v1`). The original immutable R2 object was downloaded and verified at full SHA-256/bytes/MPEG-frame level, plus HTTP 206 range. The original MP3's player passed local Chrome playback/seek again. The intermediate `c54dd89360bdafb30638194f0048054475c22d0cc5bcc89c0330f0f96c3d93bf` object remains archived under `stale_audio_revisions`; no new TTS prediction was needed for the reversion. MN117 is counted once as a repair, currently `uploaded-verified`; review pending.
+
+### Batch mn-046 final checkpoint — 5 current-source UIDs
+
+- Five UIDs count toward this batch: MN117 repaired by reusing the exact-source object, plus new MN125–MN128. Sequential generation used the approved profile; each completed new MP3 was uploaded before the next UID. All five passed local reader play/seek, full or cached R2 hash/byte evidence and range checks. All `review_status` values remain pending; no ASR or full human content listening was performed.
+- Combined current audio: **6504.07 seconds / 130,087,200 bytes**. The final PR must merge after local/hosted gates; production verification is recorded after Pages.
+| MN117 | `dd112ee56b033dea1abd9d66b99485f18f42a5f9086ef0489ad0bbfbf1dc7800` | `60a6c61c0e076ac6bcd54250a2d3ce44128d41880a975cf52e0ec8118f42808f` | 21,646,080 | 1082.25 s | 158.83 s | 12 (2 summary) | [R2 MP3](https://pub-8fa53f5182904685bd0c13d6c894a0e9.r2.dev/vi/mn/mn117/60a6c61c0e076ac6.mp3) |
+| MN125 | `880ac3f9c59168ae820bfdfcc5274d3dbb46322d6a6700d0143aecd9c29388b4` | `a5410eab8d10cc8e4c5bf6883e12c170403b95ef988a4d53fa668908546cfe01` | 28,295,040 | 1414.69 s | 165.91 s | 16 (2 summary) | [R2 MP3](https://pub-8fa53f5182904685bd0c13d6c894a0e9.r2.dev/vi/mn/mn125/a5410eab8d10cc8e.mp3) |
+| MN126 | `a48e0920e7902b2aa694dea5043bdba4c5718fe786f1ba02f70be0bfddd7564f` | `3779e8250345a5c02b3ab451fbc533365c1e6bfc599c067a7132bb7172e8c39d` | 21,936,960 | 1096.79 s | 159.87 s | 14 (2 summary) | [R2 MP3](https://pub-8fa53f5182904685bd0c13d6c894a0e9.r2.dev/vi/mn/mn126/3779e8250345a5c0.mp3) |
+| MN127 | `8d976f302a54489b1add62d24cfb0ee842cd54d73e8d302fdce8ef6b525c4b4a` | `5272fc0603c51278864458c07f469fc6b3dc0d9f0a0aa58a49bab315070baffa` | 23,760,960 | 1188.00 s | 164.47 s | 13 (2 summary) | [R2 MP3](https://pub-8fa53f5182904685bd0c13d6c894a0e9.r2.dev/vi/mn/mn127/5272fc0603c51278.mp3) |
+| MN128 | `e0414ea22fbb02e7be40ebfc106cb0469cb0e9810a7680b55ca0097e293751d3` | `1fecffd873311c7eb0ec7847fcf52e860abcb98bde390628bf5a4ae0750ed5b9` | 34,448,160 | 1722.34 s | 170.75 s | 19 (2 summary) | [R2 MP3](https://pub-8fa53f5182904685bd0c13d6c894a0e9.r2.dev/vi/mn/mn128/1fecffd873311c7e.mp3) |
+
+### MN117 exact-source artifact reuse after editorial PR #716
+
+The canonical source reverted to SHA `dd112ee56b033dea1abd9d66b99485f18f42a5f9086ef0489ad0bbfbf1dc7800`, which exactly matches the original MP3 and pinned profile. Its existing public R2 object was downloaded and rechecked for full SHA-256, MPEG frames, bytes and range; local Chrome play/seek passed again. No duplicate TTS request was made. The later intermediate object `dd112ee56b033dea1abd9d66b99485f18f42a5f9086ef0489ad0bbfbf1dc7800` / `c54dd89360bdafb30638194f0048054475c22d0cc5bcc89c0330f0f96c3d93bf` is retained under superseded/stale history.
+
+### Batch mn-046 final checkpoint — five current-source UIDs
+
+- Five successful UIDs toward this PR gate: MN117 repaired by reusing its exact-source artifact, plus newly generated MN125–MN128. They total **6504.07 seconds / 130,087,200 bytes**. Each current source/profile hash matches the registry; all reviews remain `pending`.
+- All five objects are verified on R2 and all five local player checks passed. MN117 production verification will be repeated after this batch deploys. No MP3/WAV/cache/transcript or credentials are included in Git.
+
+| UID | Current source SHA-256 | MP3 SHA-256 | Bytes | Duration | Scripture starts | Chunks | Audio |
+|---|---|---|---:|---:|---:|---:|---|
+| MN117 | `dd112ee56b033dea1abd9d66b99485f18f42a5f9086ef0489ad0bbfbf1dc7800` | `60a6c61c0e076ac6bcd54250a2d3ce44128d41880a975cf52e0ec8118f42808f` | 21,646,080 | 1082.25 s | 158.83 s | 12 (2 summary) | [R2 MP3](https://pub-8fa53f5182904685bd0c13d6c894a0e9.r2.dev/vi/mn/mn117/60a6c61c0e076ac6.mp3) |
+| MN125 | `880ac3f9c59168ae820bfdfcc5274d3dbb46322d6a6700d0143aecd9c29388b4` | `a5410eab8d10cc8e4c5bf6883e12c170403b95ef988a4d53fa668908546cfe01` | 28,295,040 | 1414.69 s | 165.91 s | 16 (2 summary) | [R2 MP3](https://pub-8fa53f5182904685bd0c13d6c894a0e9.r2.dev/vi/mn/mn125/a5410eab8d10cc8e.mp3) |
+| MN126 | `a48e0920e7902b2aa694dea5043bdba4c5718fe786f1ba02f70be0bfddd7564f` | `3779e8250345a5c02b3ab451fbc533365c1e6bfc599c067a7132bb7172e8c39d` | 21,936,960 | 1096.79 s | 159.87 s | 14 (2 summary) | [R2 MP3](https://pub-8fa53f5182904685bd0c13d6c894a0e9.r2.dev/vi/mn/mn126/3779e8250345a5c0.mp3) |
+| MN127 | `8d976f302a54489b1add62d24cfb0ee842cd54d73e8d302fdce8ef6b525c4b4a` | `5272fc0603c51278864458c07f469fc6b3dc0d9f0a0aa58a49bab315070baffa` | 23,760,960 | 1188.00 s | 164.47 s | 13 (2 summary) | [R2 MP3](https://pub-8fa53f5182904685bd0c13d6c894a0e9.r2.dev/vi/mn/mn127/5272fc0603c51278.mp3) |
+| MN128 | `e0414ea22fbb02e7be40ebfc106cb0469cb0e9810a7680b55ca0097e293751d3` | `1fecffd873311c7eb0ec7847fcf52e860abcb98bde390628bf5a4ae0750ed5b9` | 34,448,160 | 1722.34 s | 170.75 s | 19 (2 summary) | [R2 MP3](https://pub-8fa53f5182904685bd0c13d6c894a0e9.r2.dev/vi/mn/mn128/1fecffd873311c7e.mp3) |
+
+#### Batch mn-046 local release gates
+
+- `npm run validate` passed; 2,272 advisories retained and 5,836 quality histories checked with zero errors. `npm test`: 417 passed, one skipped, zero failures. `npm run check`: zero errors/warnings and five hints. `npm run build` passed; Pagefind indexed 6,137 pages. `npm run seo:check`: 6,145 indexable pages verified. `npm run audio:check`: 186 catalog entries, zero errors.
+- Built MN117 and MN125–MN128 pages each show exactly one player with the source-matched registered R2 URL and scripture marker. MN117 displays the original audio only because its source hash returned to the recorded revision; intermediate revisions are retained in the registry. Every current human content review remains `pending`; no ASR or full listening review was performed.
+
+#### Batch mn-046 final local gates
+
+- All five UID sources and narration profile fingerprints match. The reused MN117 original artifact matches current source SHA `dd112ee56b033dea1abd9d66b99485f18f42a5f9086ef0489ad0bbfbf1dc7800`; superseded MP3 revisions and QC evidence remain archived. MN125–MN128 were generated sequentially and uploaded/verified before starting the next UID.
+- `npm run validate` passed: 2,272 advisories retained; 5,836 assessment histories, zero errors. `npm run check`: zero errors/warnings and five hints. `npm run build` passed; Pagefind indexed 6,137 pages. `npm run seo:check`: 6,145 indexable pages. `npm run audio:check`: all 186 catalog entries, zero errors.
+- Unit tests passed in a temporary writable worktree at this exact commit: 420 passed, one skipped, zero failures. In the managed worktree, the comparison test's temporary rename of a shared APFS cache file returned `EPERM`; the isolated test root mirrored cached files as symlinks so the test could exercise `not-synced` behavior without mutating the shared cache. No test/code gate was skipped.
+- Built player HTML for MN117 and MN125–MN128 contains the current exact R2 URL and scripture marker with review-pending label. All per-UID local player checks passed. Human content listening and ASR were not performed; all five reviews stay `pending`.
+- Only five audio JSON files, progress registry and release log enter the PR. MP3/WAV/cache/transcripts and credentials are excluded from Git.
