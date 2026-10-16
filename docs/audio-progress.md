@@ -1032,3 +1032,17 @@ Fresh production readback on `2026-10-15T00:53:42Z` confirms MN90–MN94 pages r
 - Editorial PR [#704](https://github.com/streamentry/kinh-tang-pali/pull/704), main `53ea9d4deff53a3d8c0b854ec43155a30d78b1a0`, changed MN117:14.2 and MN122:20.1 while this batch was being prepared. The integrated canonical translations are preserved unchanged. The earlier MN117 production evidence and MN122 upload/local-player evidence apply to their previous source revisions only.
 - The merge conflict is confined to the audio progress registry. New main source hashes for DN1/DN2/DN16/DN18/DN32/DN33/DN34 and all other editorial changes are preserved. MN117 and MN122 are explicitly marked blocked by source drift; old object/hash/browser evidence is retained under `stale_audio_evidence`. Stale reader metadata is hidden by the existing source-hash check.
 - MN122 will be regenerated from the new canonical source before PR #706 can merge. MN117 is queued for correction as the first item after this five-new-text batch; it is not counted as currently live. No translation, quality score or approved narration profile is changed by this audio task. All local gates must run again after integration/regeneration; the earlier successful gates do not prove the revised head.
+
+### Batch mn-045 — revised MN122 source after editorial PR #704
+
+The old source `1c611e946d4c188d7648045d2063f04460342db8dda787311e56d0625700e81c` and its R2/browser evidence remain recorded as history. The following artifact uses canonical source `f282fc0378cf13ced2dbae456467220efd34bc5633730cdd60443cc1711379f7` and a new source/profile/chunk-plan fingerprint. All chunks were generated sequentially for this revision; the old R2 object was retained.
+
+| UID | Source SHA-256 | MP3 SHA-256 | Bytes | Duration | Scripture starts | Chunks | Audio |
+|---|---|---|---:|---:|---:|---:|---|
+| MN122 | `f282fc0378cf13ced2dbae456467220efd34bc5633730cdd60443cc1711379f7` | `d63850e0b03c30360900675db2f4e916ab23ea057f2e6d0d3ad094be1b0aa107` | 30,352,800 | 1517.57 s | 161.91 s | 16 (2 summary) | [R2 MP3](https://pub-8fa53f5182904685bd0c13d6c894a0e9.r2.dev/vi/mn/mn122/d63850e0b03c3036.mp3) |
+
+#### Revised batch mn-045 gates after main integration and MN122 regeneration
+
+- The current five-artifact batch totals **5,795.52 seconds / 115,916,160 bytes**. MN122 now uses source `f282fc0378cf13ced2dbae456467220efd34bc5633730cdd60443cc1711379f7` and MP3 `d63850e0b03c30360900675db2f4e916ab23ea057f2e6d0d3ad094be1b0aa107`; its old object and QC evidence are retained as history, not counted as the current artifact.
+- All required local gates were rerun after integrating editorial PR #704: validate passed (2,272 advisories retained), quality histories 5,835 with zero errors; tests 417 passed/one skipped; type-check zero errors/warnings and five hints; production build passed; Pagefind indexed 6,137 pages; SEO verified 6,145 indexable pages; audio integrity checked all 186 catalog entries with zero errors.
+- Fresh built HTML confirms one exact current-source player, URL and scripture marker for every MN120–MN124. The stale MN117 player and old R2 URL are correctly absent from the rebuilt page; MN117 remains explicitly blocked for regeneration as the first item after this batch. Full manual spoken-content listening remains pending for every audio. Later main commits observed during this rerun only changed covers.
