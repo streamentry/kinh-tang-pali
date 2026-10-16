@@ -1142,3 +1142,9 @@ The canonical source reverted to SHA `dd112ee56b033dea1abd9d66b99485f18f42a5f908
 | MN131 | `7d4dfd3503e0c56f19c98410c7e0d8b465985d2094654af180d0e2cd464f64ae` | `d580ea610cb09f30577d4b389fe68a287f863d5dfbdaa00aa6cb3efc62a9bc23` | 10,214,400 | 510.67 s | 158.19 s | 6 (2 summary) | [R2 MP3](https://pub-8fa53f5182904685bd0c13d6c894a0e9.r2.dev/vi/mn/mn131/d580ea610cb09f30.mp3) |
 | MN132 | `ee1eeb0f3f793d51abdcda09b0a180962d4d6dc26a84820b58e3caabd8602aa9` | `effbb7653edb79905d37839e273091189a94f6e504fd8a4b8ff6145f9d0d9c38` | 12,771,840 | 638.54 s | 159.23 s | 9 (2 summary) | [R2 MP3](https://pub-8fa53f5182904685bd0c13d6c894a0e9.r2.dev/vi/mn/mn132/effbb7653edb7990.mp3) |
 | MN133 | `d898be9b8c9ba2c6dbf9f1bd5b39e05bb1bee7d40a89d79fd4ffded2eb19d4ec` | `4942099219214abc5b2fbed4dbc7328c1f421d02caf014e707979c89468a4fd8` | 27,024,960 | 1351.18 s | 166.95 s | 18 (2 summary) | [R2 MP3](https://pub-8fa53f5182904685bd0c13d6c894a0e9.r2.dev/vi/mn/mn133/4942099219214abc.mp3) |
+
+#### Batch mn-047 merge and production readback
+
+- PR [#751](https://github.com/streamentry/kinh-tang-pali/pull/751), exact PR head `b03e0ca05eaa13f77e2012d7c447519304ae5a1f`, squash-merged as `4a2ca064f70349f079675e2cd92efdbe8359de50` at `2026-10-16T10:35:12Z`.
+- GitHub Pages run [#38891554320](https://github.com/streamentry/kinh-tang-pali/actions/runs/38891554320) succeeded and deployed descendant `b9fadcce1c55356c1a17dde7c918387d3d6043ee` to `https://streamentry.github.io/kinh-tang-pali/`.
+- At `2026-10-16T12:09:28.822Z`, production checks passed for MN129–MN133: every page HTTP 200, exactly one player and the registered current R2 URL; production Chrome playback at 1×, +15-second seek, scripture jump and keyboard timeline all passed. Every public MP3 range returned HTTP 206, `audio/mpeg`, bytes 0–1023 with total byte count matching metadata. All five progress entries are `live`; `review_status` remains `pending`. ASR and full human content listening were not performed.
