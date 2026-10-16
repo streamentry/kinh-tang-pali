@@ -81,6 +81,34 @@
       "content_sha256": "fdaea5568866b9bdbe48ef3f72401b3f2648f365366d5b256ad5023613b2ed2e",
       "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
       "final_score": 9.059999999999999
+    },
+    {
+      "target": "translation",
+      "scope": "full",
+      "assessed_at": "2026-10-16",
+      "assessed_by": [
+        "Claude Sonnet 5.5 (Claude Code)"
+      ],
+      "scores": {
+        "source_provenance": 9.2,
+        "semantic_fidelity": 8.9,
+        "grammar_logic": 8.8,
+        "segment_alignment": 10,
+        "terminology": 9.2,
+        "triangulation": 7.6,
+        "vietnamese_clarity": 9.2,
+        "han_viet_balance": 9.4,
+        "ambiguity_integrity": 8.8,
+        "technical_integrity": 9.6
+      },
+      "blocking_errors": [
+        "Không có tầng tham khảo tiếng Anh tại commit đã ghim: `source/upstream-manifest.json` (commit `11c9d708978cde8ba61096d8a75f7ddfb846f639`, tầng `english-sujato`, 4291 tệp, trong đó đúng **83** tệp thuộc `sutta/kn/ja`) KHÔNG liệt kê `ja426_translation-en-sujato.json`, và `.cache/upstream/suttacentral/translation/en/sujato/sutta/kn/ja/` cũng không có tệp nào tương ứng — đếm trực tiếp trên đĩa cho 0 tệp, nên đây là `not-published-upstream`, KHÔNG phải `not-synced`. Tầng `vietnamese-current` cũng vắng (26 tệp, toàn bộ là Pháp Cú) và lớp lấp `english-project` không có uid này. Ba tầng tham khảo đều vắng ⇒ bài chỉ dịch từ Pāli root. Bài này có **0** segment Pāli ≥ 40 ký tự nên cổng coverage của `reference-gaps` không đỏ (đúng như `ja417` đã `draft` vì cùng lý do), nhưng `scripts/validate.ts` coi tệp Anh ghim thiếu là **error** khi status là `review` hoặc `published`, nên bài bắt buộc `draft`. Đây là **giới hạn của snapshot upstream**, không phải lỗi của người dịch; vì vậy `triangulation` bị chặn ở 7.6 (≤ 8.0) chứ không nâng điểm để né blocker."
+      ],
+      "notes": "Áp dụng quyết định hội đồng biên tập 2026-10-16 (docs/editorial-council-2026-10.md): A13, C1, C2, C3; 8 khoá, đối chiếu Pāli ghim và hồ sơ R1–R9. semantic_fidelity +0,1 vì sửa lỗi rõ. Các tiêu chí khác giữ nguyên.",
+      "id": "1045611e-457e-4957-a2d8-5d1d954233f1",
+      "content_sha256": "150fc83b1025942cc49a90523552a258dd33d00330cbc79f97fc431b96cf29e3",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
+      "final_score": 9.07
     }
   ],
   "legacy_quality": {

@@ -15,7 +15,7 @@ tags:
 quality:
   scores:
     source_provenance: 9.3
-    semantic_fidelity: 8.9
+    semantic_fidelity: 9
     grammar_logic: 8.9
     segment_alignment: 10
     terminology: 9
@@ -24,7 +24,7 @@ quality:
     han_viet_balance: 9.2
     ambiguity_integrity: 8.6
     technical_integrity: 9.6
-  final_score: 9.01
+  final_score: 9.02
   blocking_errors:
     - "Không có tầng tham khảo tiếng Anh tại commit đã ghim: tệp
       translation/en/sujato/sutta/kn/ja/ja389_translation-en-sujato.json không
@@ -36,10 +36,10 @@ quality:
       checkout. Ba tầng tham khảo đều vắng nên bài chỉ dịch từ Pāli root, đây là
       giới hạn upstream chứ không phải lỗi người dịch. Vì vậy triangulation bị
       chặn ở 7.5, không nâng để né blocker."
-  assessed_at: 2026-10-14
+  assessed_at: 2026-10-16
   assessed_by:
     - Claude Sonnet 5.5 (Claude Code)
-  assessment_id: 8410add9-e580-43c5-9148-e209414fe209
+  assessment_id: dcbd252a-8fa6-4dd8-a2bf-d10cde672019
   waiver:
     id: no-upstream-english
     blockers:
@@ -93,3 +93,5 @@ notes: |-
   **Điểm (trước → sau):** `source_provenance` 9.5 → 9.3 (notes cũ chứa các khẳng định ngữ văn bịa) · `semantic_fidelity` 9.3 → 8.9 (đã sửa các lỗi nghĩa, còn hai từ hiếm đọc theo ngữ cảnh) · `grammar_logic` 9.2 → 8.9 · `terminology` 9.1 → 9.0 · `triangulation` giữ 7.5 (không có bản Anh, không có Việt hiện hành, chỉ có Pāli và tiền lệ nội tầng) · `vietnamese_clarity` 9.3 → 8.9 · `han_viet_balance` 9.3 → 9.2 · `ambiguity_integrity` 8.8 → 8.6 (lịch sử notes có nghĩa bịa; bất định còn lại đã ghi) · `segment_alignment` 10.0, `technical_integrity` 9.6 giữ. `final_score` 9.16 → 8.99. Không chạy `npm run validate` · `npm test` · `npm run check` · `npm run build` trong lượt này — để CI chạy.
 
   Đối chiếu bản dịch mù độc lập 2026-10-14: một dịch giả khác (cùng họ công cụ) dịch lại bài từ Pāli không xem bản dự án; so 12 khoá chênh lệch lớn nhất → khác nghĩa 2: sửa 0, giữ 1 (`2.2`: `kakkaṭamajjhapatto` đọc được hai cách, `kakkaṭaṁ ajjhapatto` “lao tới con cua” (niggahita giữ trước nguyên âm nên viết liền) hoặc `kakkaṭa-majjha-patto` “rơi vào giữa [vòng kẹp của] con cua”, bản mù chọn cách sau và tự đánh dấu không chắc; giữ cách đầu vì khớp `ajjhapatta` (tiền lệ `sn47.6:1.1`) và mạch `2.3`–`2.4`, cua bắt rắn sau khi rắn xông tới), bất định 1 (`7.2` `paṭibandhako`: bản mù cũng không chắc, đọc “hãy còn bị giữ lại”; “làm con tin” và “bị giữ lại” cùng một hướng nghĩa, đã ghi từ trước). Mười khoá còn lại chỉ khác diễn đạt, giữ: `0.2`, `0.4`, `9.1` (tiêu đề), `3.1`–`3.2` (bản mù cắt dòng khác nhưng cùng nghĩa: cua tìm mồi không ăn quạ cũng không ăn rắn đen), `4.2`–`4.4`, `5.1`, `5.3` (`sādu`/`thūla`/`mudu` bản mù “ngọt, dày, mềm”, bản dự án “ngon, béo, mềm”: cùng vùng nghĩa). Mạch người nói và số lượng hai bản trùng nhau. Đọc lại đối kháng 37/37 khoá: nháy `“”` khớp Pāli từng khoá, không dấu lược, không số lượng, không còn chữ của loài khác (rùa, cáo) trong bản Việt. Không có bản Anh hay bản Việt độc lập khác. `triangulation` 7,5 → 7,7: một lần dịch lại độc lập hội tụ ở mọi chỗ trừ hai chỗ chính bản mù ghi không chắc; cùng họ công cụ nên không quá 8,0. Điểm khác giữ nguyên. Chưa chạy `npm run validate`, `npm test`, `npm run check`, `npm run build` trong lượt này; `technical_integrity` 9,6.
+
+  Quyết định hội đồng biên tập 2026-10-16: A13 — `1.4`, `3.4` (bỏ dấu chấm thừa sau dấu đóng lời thoại, ví dụ `?”.` thành `?”`); C3 — `0.2` (tên nipāta "Nhóm N Kệ"); C4 — `3.3` (xưng hô trong lời thoại ngắn: một cặp duy nhất, bỏ "trẫm").

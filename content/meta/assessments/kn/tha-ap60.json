@@ -81,6 +81,34 @@
       "content_sha256": "f1be45903ad729d262d42aa9e2cbf7bce9264e077134c4d471dd10800f711031",
       "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
       "final_score": 9.12
+    },
+    {
+      "target": "translation",
+      "scope": "full",
+      "assessed_at": "2026-10-16",
+      "assessed_by": [
+        "Claude Sonnet 5.5 (Claude Code)"
+      ],
+      "scores": {
+        "source_provenance": 9.5,
+        "semantic_fidelity": 8.9,
+        "grammar_logic": 9.2,
+        "segment_alignment": 10,
+        "terminology": 9,
+        "triangulation": 8.4,
+        "vietnamese_clarity": 9.1,
+        "han_viet_balance": 9.1,
+        "ambiguity_integrity": 8.4,
+        "technical_integrity": 9.6
+      },
+      "blocking_errors": [
+        "Không có tầng tham khảo tiếng Anh tại commit đã ghim (11c9d708978cde8ba61096d8a75f7ddfb846f639): thư mục `kn/tha-ap/` của edition `translation/en/sujato` **không tồn tại** trong `.cache/upstream/suttacentral/` (đếm được: trong `sutta/kn/` chỉ có thag/ja/thig/cp/dhp/iti/kp/ud/snp, **0 tệp** cho toàn bộ 563 bài `tha-ap` và **0 tệp** cho 85 bài `vv`), và `source/upstream-manifest.json` không liệt kê bất kỳ tệp nào cho `tha-ap60` — đây là `not-published-upstream`, KHÔNG phải `not-synced`. Đo coverage theo đúng công thức `source/layers.yaml` (`englishCoverage.floor: 0.8`, đo trên Pāli có nội dung ≥ 40 ký tự, loại block tham chiếu `:0`) cho **0 trên 44 khoá = 0%**, dưới ngưỡng. `scripts/validate.ts` coi tệp Anh thiếu là **error** khi status là `review` hoặc `published`, nên bài bắt buộc `draft`. Tầng `vietnamese-current` cũng vắng: `translation/vi/phantuananh` tại commit đã ghim chỉ có 26 tệp và toàn bộ là Pháp Cú. Lớp lấp `english-project` của dự án (`content/translation/en/project/sutta/kn/`) cũng không có cho uid này. Ba tầng tham khảo đều vắng ⇒ bài dịch chỉ từ Pāli root ⇒ **blocker thật**, và đây là **giới hạn của bản chụp upstream**, không phải lỗi của người dịch. Vì vậy `triangulation` bị chặn ở 7.5 (≤ 8.0) chứ không nâng để né blocker."
+      ],
+      "notes": "Áp dụng quyết định hội đồng biên tập 2026-10-16 (docs/editorial-council-2026-10.md): B20, C6; 6 khoá, đối chiếu Pāli ghim và hồ sơ R1–R9. Các tiêu chí khác giữ nguyên.",
+      "id": "3a482cd3-aa2f-4be2-aba9-8d1706435fda",
+      "content_sha256": "f3f5548e45dd5545e603826e185fc7dd3346917ed4dc2ad59ba5fbae0f01ffc8",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
+      "final_score": 9.12
     }
   ],
   "legacy_quality": {

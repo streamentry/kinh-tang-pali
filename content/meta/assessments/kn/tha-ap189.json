@@ -105,6 +105,34 @@
       "notes": "Kiểm tra tự động 52 segment với Pāli trong cache: đủ ID, giá trị, NFC và hệ chữ Latin. Chưa đọc đối chiếu nghĩa, ngữ pháp hoặc văn phong; chưa chấm lại 10 tiêu chí. Đây không phải chứng nhận hash upstream hoặc giấy phép, không xác nhận trạng thái xuất bản.",
       "content_sha256": "4c9f0165e41a3207f8c0fc2e9bfc0f0ad030d75168a7c3335ecf4519454902b8",
       "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639"
+    },
+    {
+      "target": "translation",
+      "scope": "full",
+      "assessed_at": "2026-10-16",
+      "assessed_by": [
+        "Claude Sonnet 5.5 (Claude Code)"
+      ],
+      "scores": {
+        "source_provenance": 9.8,
+        "semantic_fidelity": 9.5,
+        "grammar_logic": 9.5,
+        "segment_alignment": 10,
+        "terminology": 9.5,
+        "triangulation": 8.8,
+        "vietnamese_clarity": 9.5,
+        "han_viet_balance": 9.4,
+        "ambiguity_integrity": 9.2,
+        "technical_integrity": 9.6
+      },
+      "blocking_errors": [
+        "'Không có tầng tham khảo Anh đã ghim cho tập `tha-ap` tại commit `11c9d708…`. Tra `source/upstream-manifest.json`: tầng `english-sujato` có 4291 tệp nhưng chỉ **một** tệp chứa `tha-ap`, đó là tệp *tên* `name/sutta/tha-ap-name_translation-en-sujato.json` — và tệp đó **rỗng toàn bộ** ở các khoá `tha-ap-name:189.*`. Tầng `vietnamese-current` có 26 tệp, toàn bộ là Pháp Cú, không phủ `tha-ap`; `content/meta/en/kn/tha-ap189.yaml` không tồn tại. Mẫu số coverage = **1** khoá Pāli có nội dung (≥40 ký tự, bỏ khối `:0`) ⇒ Sujato phủ **0/1**. `scripts/validate.ts:223-226` và `tests/unit/reference-source.test.ts` đòi tầng tham khảo Anh để `published` đứng được. Việc `content/meta/reference-gaps.yaml` **đã có** entry `- uid: tha-ap189` không cứu được `published`, và lát này bị cấm sửa tệp đó. Điểm cao không cứu được blocker này nên trạng thái là `draft`."
+      ],
+      "notes": "Áp dụng quyết định hội đồng biên tập 2026-10-16 (docs/editorial-council-2026-10.md): C5, C6; 9 khoá, đối chiếu Pāli ghim và hồ sơ R1–R9. Các tiêu chí khác giữ nguyên.",
+      "id": "66058567-62d5-47ae-a9aa-43cebbb0f223",
+      "content_sha256": "156869f1d1c901f5267bb70ca9f901ff5954281b96d05856bc5aba7d077c7ed4",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
+      "final_score": 9.48
     }
   ],
   "legacy_quality": {

@@ -3,7 +3,9 @@ status: published
 translationTitle: "3. Câu Hỏi Về Phần Của Chim Bay Xa Cư"
 translators:
   - "OpenCode Space Bunny Free (agent)"
-reviewers: []
+reviewers:
+  - OpenCode Space Bunny Free (agent)
+  - Claude Sonnet 5.5 (Claude Code)
 tags:
   - khuddaka-nikaya
   - milindapanha
@@ -16,12 +18,12 @@ quality:
     source_provenance: 9.5
     semantic_fidelity: 9.3
     grammar_logic: 9.3
-    segment_alignment: 10.0
+    segment_alignment: 10
     terminology: 9.2
     triangulation: 7.5
     vietnamese_clarity: 9.3
     han_viet_balance: 9.3
-    ambiguity_integrity: 9.0
+    ambiguity_integrity: 9
     technical_integrity: 9.6
   final_score: 9.2
   blocking_errors:
@@ -38,9 +40,10 @@ quality:
       `translation/vi/phantuananh` tại commit đã ghin chỉ có 26 tệp và toàn bộ
       là Pháp Cú. Lớp lấp `english-project` của dự án cũng không có cho uid này.
       Ba tầng tham khảo đều vắng ⇒ bài dịch chỉ từ Pāli root ⇒ blocker thật."
-  assessed_at: "2026-10-02"
+  assessed_at: 2026-10-16
   assessed_by:
-    - "OpenCode Space Bunny Free (agent)"
+    - Claude Sonnet 5.5 (Claude Code)
+  assessment_id: 55dab599-97f9-404c-933c-7cbfdaa6acc1
   waiver:
     id: no-upstream-english
     blockers:
@@ -89,3 +92,5 @@ notes: |-
   chánh mực* (0 tiền lệ cho `susire`).
 
   Đợt này bị cấm chạy `npm run validate|test|check|build` theo chỉ đạo của người điều phối, nên `technical_integrity` bị chặn ở **9.6**. Tôi đã **tự tái lập bằng script** những kiểm mà `validate` làm cho tầng Việt và ghi kết quả vào đây: đủ 17 khoá với đúng segment ID, không orphan, không thừa, mọi khoá NFC, không rỗng, dấu lược khớp Pāli **từng khoá** (kể cả khoá ngắn hơn 40 ký tự mà `kiểm()` của `_hvi.py` không quét), ngoặc kép `“”` cân trên cả bài, không còn `(…)`, và không có Pāli lọt vào bản Việt. Đây **không** thay thế được `validate`; nó là bằng chứng cho tới khi cổng kỹ thuật được chạy.
+
+  Quyết định hội đồng biên tập 2026-10-16: B6 — mil7.6.3:3.4 (sati ở Milinda = “niệm” hoặc “trí nhớ”, “chánh niệm” chỉ cho sammāsati).

@@ -81,6 +81,34 @@
       "content_sha256": "9a5d0d21826aa4dd74cb8f1ca9af09302fa2bd50510844b9940a1d78359c9de4",
       "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
       "final_score": 9.17
+    },
+    {
+      "target": "translation",
+      "scope": "full",
+      "assessed_at": "2026-10-16",
+      "assessed_by": [
+        "Claude Sonnet 5.5 (Claude Code)"
+      ],
+      "scores": {
+        "source_provenance": 9.6,
+        "semantic_fidelity": 9,
+        "grammar_logic": 9,
+        "segment_alignment": 10,
+        "terminology": 9.2,
+        "triangulation": 7.6,
+        "vietnamese_clarity": 9.3,
+        "han_viet_balance": 9.3,
+        "ambiguity_integrity": 9.2,
+        "technical_integrity": 9.6
+      },
+      "blocking_errors": [
+        "Không có tầng tham khảo tiếng Anh tại commit đã ghim (`11c9d708978cde8ba61096d8a75f7ddfb846f639`): đo trực tiếp trong `source/upstream-manifest.json`, tầng `english-sujato` có đúng **83 tệp `kn/ja`** và **0 tệp `kn/mil`**; 83 tệp `ja` ấy là `ja1`–`ja79` cộng `ja126`, `ja159`, `ja466`, `ja534`, nên ja421 không có mặt, và cũng không có trong `.cache/upstream/suttacentral/`. Đây là `not-published-upstream`, KHÔNG phải `not-synced`. Tầng `vietnamese-current` tại commit đã ghim có đúng 26 tệp và **tất cả đều là `dhp*`** (Pháp Cú) nên vắng với Jātaka. Lớp lấp `english-project` cũng không có uid nào của lát này. Ba tầng tham khảo đều vắng ⇒ bài chỉ dịch được từ Pāli root ⇒ blocker thật, và đây là **giới hạn của snapshot upstream**, không phải lõi của người dịch. `scripts/validate.ts` coi tệp Anh ghim thiếu là **error** khi status là `review` hoặc `published`, nên bài bắt buộc `draft`; vì vậy `triangulation` bị chặn ≤ 8.0 chứ không nâng để né blocker."
+      ],
+      "notes": "Áp dụng quyết định hội đồng biên tập 2026-10-16 (docs/editorial-council-2026-10.md): A13, C3; 2 khoá, đối chiếu Pāli ghim và hồ sơ R1–R9. semantic_fidelity +0,1 vì sửa lỗi rõ. Các tiêu chí khác giữ nguyên.",
+      "id": "9b03de26-489c-4ef6-936b-b0852092e313",
+      "content_sha256": "3180c293c5180aa0512cb8b4eb0d357e252f78fc7e4934031a25aaf44cc6265c",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
+      "final_score": 9.18
     }
   ],
   "legacy_quality": {

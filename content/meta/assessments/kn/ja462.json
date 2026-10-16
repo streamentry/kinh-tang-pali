@@ -81,6 +81,34 @@
       "content_sha256": "4800d6eba31954daa7ee27b20e6c929e8696261957304bb1fdb44a2eee852fd2",
       "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
       "final_score": 9.069999999999999
+    },
+    {
+      "target": "translation",
+      "scope": "full",
+      "assessed_at": "2026-10-16",
+      "assessed_by": [
+        "Claude Sonnet 5.5 (Claude Code)"
+      ],
+      "scores": {
+        "source_provenance": 9.5,
+        "semantic_fidelity": 8.9,
+        "grammar_logic": 9,
+        "segment_alignment": 10,
+        "terminology": 8.8,
+        "triangulation": 7,
+        "vietnamese_clarity": 9.3,
+        "han_viet_balance": 9.3,
+        "ambiguity_integrity": 9.1,
+        "technical_integrity": 9.8
+      },
+      "blocking_errors": [
+        "Không có tầng tham khảo tiếng Anh tại commit đã ghim: tệp `translation/en/sujato/sutta/kn/ja/ja462_translation-en-sujato.json` không tồn tại trong `.cache/upstream/suttacentral/` và `source/upstream-manifest.json` (tầng english-sujato chỉ có 755 (cp 35, dhp 26, iti 112, ja 83, kp 9, snp 73, thag 264, thig 73, ud 80) tệp trong `kn/`, trong đó `ja` chỉ có 83 và `mil`/`pv` không có tệp `kn/` nào; riêng tầng `name/` có `ja-name`, `mil-name`, `pv-name` nhưng đó là tên sách, không phải bản dịch thân kinh) — đây là `not-published-upstream`, KHÔNG phải `not-synced`. `scripts/validate.ts` đẩy thông điệp này vào `errors` khi status là `review` hoặc `published`, nên bài bắt buộc `draft`. Tầng `vietnamese-current` cũng vắng: `translation/vi/phantuananh` tại commit đã ghim chỉ có 26 tệp và toàn bộ là Pháp Cú. Lớp lấp `english-project` của dự án không có cho uid này. Ba tầng tham khảo đều vắng ⇒ bài dịch chỉ từ Pāli root ⇒ blocker thật, và đây là **giới hạn upstream**, không phải lỗi của người dịch. Vì vậy `triangulation` bị chặn ở 7.0 (≤ 8.0) chứ không nâng để né blocker. Như pv20, ja448 và ja460, công thức coverage cho tỉ lệ 1,00 trên 0 khoá có nội dung vì mọi khoá Pāli của ja462 đều ngắn hơn 40 ký tự sau khi nén (dài nhất 25); ngưỡng 0,80 không phải thứ chặn, thứ chặn là thông điệp `pinned English reference missing`."
+      ],
+      "notes": "Áp dụng quyết định hội đồng biên tập 2026-10-16 (docs/editorial-council-2026-10.md): C1, C2, C3; 2 khoá, đối chiếu Pāli ghim và hồ sơ R1–R9. Các tiêu chí khác giữ nguyên.",
+      "id": "d8eba231-ddbe-448d-8e71-ff110270df65",
+      "content_sha256": "97b6d9f29c590732be186df2bb3993a7b18fc03129f4a6d6bcb5a49f9c0a633d",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
+      "final_score": 9.069999999999999
     }
   ],
   "legacy_quality": {

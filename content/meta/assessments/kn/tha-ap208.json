@@ -103,6 +103,34 @@
       "notes": "Kiểm tra tự động 24 segment với Pāli trong cache: đủ ID, giá trị, NFC và hệ chữ Latin. Chưa đọc đối chiếu nghĩa, ngữ pháp hoặc văn phong; chưa chấm lại 10 tiêu chí. Đây không phải chứng nhận hash upstream hoặc giấy phép, không xác nhận trạng thái xuất bản.",
       "content_sha256": "4fd912003e3f88b8d586b4319b24e20059c1b7f97646dc2b7d81554f2f16e894",
       "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639"
+    },
+    {
+      "target": "translation",
+      "scope": "full",
+      "assessed_at": "2026-10-16",
+      "assessed_by": [
+        "Claude Sonnet 5.5 (Claude Code)"
+      ],
+      "scores": {
+        "source_provenance": 9.6,
+        "semantic_fidelity": 9.4,
+        "grammar_logic": 9.2,
+        "segment_alignment": 10,
+        "terminology": 9.3,
+        "triangulation": 8,
+        "vietnamese_clarity": 9.4,
+        "han_viet_balance": 9.3,
+        "ambiguity_integrity": 9.2,
+        "technical_integrity": 9.6
+      },
+      "blocking_errors": [
+        "Không có tầng tham khảo tiếng Anh tại commit đã ghim. Đo bằng `source/upstream-manifest.json`: `english-sujato` KHÔNG liệt kê tệp nào chứa uid `tha-ap208` (toàn tầng `kn` của Sujato chỉ có 755 tệp trong 9 sub-collection: cp, dhp, iti, ja, kp, snp, thag, thig, ud — không có `tha-ap`), nên đây là `not-published-upstream`, KHÔNG phải `not-synced`. Công thức coverage của `source/layers.yaml` (Pāli ≥ 40 ký tự, loại block `:0`) cho mẫu số 1 và Sujato phủ 0 ⇒ 0% < ngưỡng 0.8. `vietnamese-current` (Thích Minh Châu) cũng vắng: 26 tệp, toàn bộ là `kn/dhp`. Lớp lấp `english-project` không có tệp cho uid này. Ba tầng tham khảo đều vắng ⇒ bài dịch chỉ từ Pāli root, và `scripts/validate.ts` coi tệp Anh thiếu là error khi status là `review` hoặc `published`, nên bài bắt buộc `draft`. Đo được trên 351 bài `tha-ap` đã đủ khoá trong tầng: 347 `draft` có blocker, 4 `published` — đây là số đo, không phải suy đoán. Đây là giới hạn của bản chụp upstream, không phải lỗi của người dịch."
+      ],
+      "notes": "Áp dụng quyết định hội đồng biên tập 2026-10-16 (docs/editorial-council-2026-10.md): C5, C6; 3 khoá, đối chiếu Pāli ghim và hồ sơ R1–R9. Các tiêu chí khác giữ nguyên.",
+      "id": "717fa879-88de-448b-9b34-1cb62335d308",
+      "content_sha256": "bf93bb36e75b0495b03d152cbb824dbae8462e20f8f4a9c0894e616f197df2f4",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
+      "final_score": 9.3
     }
   ],
   "legacy_quality": {

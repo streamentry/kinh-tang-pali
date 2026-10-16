@@ -57,6 +57,34 @@
       "content_sha256": "631030a360e436be99171c23f309a0e52bb1fc110476517805f2e90b9f86510a",
       "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
       "final_score": 9.049999999999999
+    },
+    {
+      "target": "translation",
+      "scope": "full",
+      "assessed_at": "2026-10-16",
+      "assessed_by": [
+        "Claude Sonnet 5.5 (Claude Code)"
+      ],
+      "scores": {
+        "source_provenance": 9.5,
+        "semantic_fidelity": 8.8,
+        "grammar_logic": 9,
+        "segment_alignment": 10,
+        "terminology": 9,
+        "triangulation": 7.5,
+        "vietnamese_clarity": 9,
+        "han_viet_balance": 9.3,
+        "ambiguity_integrity": 8.8,
+        "technical_integrity": 9.6
+      },
+      "blocking_errors": [
+        "Không có tầng tham khảo tiếng Anh tại commit đã ghim (noEnglishEditionUpstream): tệp `translation/en/sujato/sutta/kn/tha-ap/tha-ap337_translation-en-sujato.json` không tồn tại, và `source/upstream-manifest.json` chỉ liệt kê tệp Pāli root cho uid này — đây là `not-published-upstream`, không phải `not-synced`; tầng english-sujato chỉ phủ 9 sub-collection của `kn` (cp, dhp, iti, ja, kp, snp, thag, thig, ud). Mẫu số coverage theo `source/layers.yaml` (Pāli có nội dung từ 40 ký tự, bỏ khối `:0`) là 2 trên 61 khoá, và cả hai khoá ấy chỉ là lời kết và tên kết (16.1, 17.1) — Sujato phủ 0/2 = 0%, dưới ngưỡng 0.8; toàn bộ 59 khoá kệ còn lại nằm dưới ngưỡng 40 ký tự nên cổng không đo được gì ở phần kệ. `scripts/validate.ts` coi tệp Anh thiếu là lỗi khi status là `review` hoặc `published`, nên bài bắt buộc `draft`. Tầng vietnamese-current cũng vắng (26 tệp, toàn Pháp Cú) và lớp english-project không có entry cho uid này. Ba tầng tham khảo đều vắng nên bản dịch chỉ dựa trên Pāli root; đây là giới hạn upstream, và triangulation bị chặn ở 7.5 (không quá 8.0) chứ không nâng để né blocker."
+      ],
+      "notes": "Áp dụng quyết định hội đồng biên tập 2026-10-16 (docs/editorial-council-2026-10.md): C5; 2 khoá, đối chiếu Pāli ghim và hồ sơ R1–R9. Các tiêu chí khác giữ nguyên.",
+      "id": "7fea978d-94b3-4aa5-822a-6b401d607786",
+      "content_sha256": "8a08a674e28da6261fdd6f04be74e3c580123cd53d6bdbd95dcc9c62db94fa48",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
+      "final_score": 9.049999999999999
     }
   ],
   "legacy_quality": {

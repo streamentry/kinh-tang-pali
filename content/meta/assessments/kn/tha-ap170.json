@@ -107,6 +107,34 @@
       "notes": "Kiểm tra tự động 28 segment với Pāli trong cache: đủ ID, giá trị, NFC và hệ chữ Latin. Chưa đọc đối chiếu nghĩa, ngữ pháp hoặc văn phong; chưa chấm lại 10 tiêu chí. Đây không phải chứng nhận hash upstream hoặc giấy phép, không xác nhận trạng thái xuất bản.",
       "content_sha256": "5daf4dcce7760931a36d54097ce167721880baf00fb0009eadb512d2dffb5c27",
       "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639"
+    },
+    {
+      "target": "translation",
+      "scope": "full",
+      "assessed_at": "2026-10-16",
+      "assessed_by": [
+        "Claude Sonnet 5.5 (Claude Code)"
+      ],
+      "scores": {
+        "source_provenance": 9.6,
+        "semantic_fidelity": 9.2,
+        "grammar_logic": 9.2,
+        "segment_alignment": 10,
+        "terminology": 9.3,
+        "triangulation": 7.5,
+        "vietnamese_clarity": 9.2,
+        "han_viet_balance": 9.3,
+        "ambiguity_integrity": 9,
+        "technical_integrity": 9.6
+      },
+      "blocking_errors": [
+        "Không có tầng tham khảo tiếng Anh tại commit đã ghim: sub-collection `tha-ap` không nằm trong 9 sub-collection mà tầng `english-sujato` phủ (cp dhp iti ja kp snp thag thig ud), và đây là `not-published-upstream` chứ không phải `not-synced`; đo coverage theo đúng công thức `source/layers.yaml` (chỉ khoá Pāli ≥ 40 ký tự, loại block tham chiếu `:0`) cho 0 trên 1 khoá = 0%, dưới ngưỡng. `scripts/validate.ts` coi tệp Anh thiếu là lỗi khi status là `review` hoặc `published`, nên bài bắt buộc `draft`. Tầng `vietnamese-current` cũng vắng: `translation/vi/phantuananh` tại commit đã ghim chỉ chứa Pháp Cú. Lớp lấp `english-project` của dự án không có cho uid này. Ba tầng tham khảo đều vắng nên bài chỉ dịch được từ Pāli root; đây là giới hạn upstream, không phải lỗi của người dịch, nhưng vẫn là blocker thật và không bù được bằng điểm."
+      ],
+      "notes": "Áp dụng quyết định hội đồng biên tập 2026-10-16 (docs/editorial-council-2026-10.md): C6; 5 khoá, đối chiếu Pāli ghim và hồ sơ R1–R9. Các tiêu chí khác giữ nguyên.",
+      "id": "fb8e4a34-b52b-4e4c-861c-97671a296330",
+      "content_sha256": "dc251e0aed9d4e8b1a495174b6c05adb6fea2d25fafe465cb5674c0010805373",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
+      "final_score": 9.19
     }
   ],
   "legacy_quality": {

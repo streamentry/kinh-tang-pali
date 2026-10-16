@@ -55,6 +55,34 @@
       "content_sha256": "1281aaa2e74b0aac55107c8163f0503cc674735c7888de805e49c31001f0a86b",
       "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
       "final_score": 8.999999999999998
+    },
+    {
+      "target": "translation",
+      "scope": "full",
+      "assessed_at": "2026-10-16",
+      "assessed_by": [
+        "Claude Sonnet 5.5 (Claude Code)"
+      ],
+      "scores": {
+        "source_provenance": 9.5,
+        "semantic_fidelity": 8.7,
+        "grammar_logic": 8.7,
+        "segment_alignment": 10,
+        "terminology": 9,
+        "triangulation": 7,
+        "vietnamese_clarity": 9.2,
+        "han_viet_balance": 9.3,
+        "ambiguity_integrity": 9,
+        "technical_integrity": 9.6
+      },
+      "blocking_errors": [
+        "Không có tầng tham khảo tiếng Anh tại commit đã ghim: `source/upstream-manifest.json` cho thấy tầng `english-sujato` có 4291 tệp, trong đó 755 tệp thuộc `kn/` và chỉ 83 tệp thuộc `kn/ja/`; KHÔNG có tệp nào chứa `ja471`, và `.cache/upstream/suttacentral/translation/en/sujato/sutta/kn/ja/` cũng không có `ja471*`. Đây là `not-published-upstream`, KHÔNG phải `not-synced` — tôi đã thử tra bilara-data tại nhánh `published` và `ja471_translation-en-sujato.json` trả 404, trong khi `ja10` (có trong tầng đã ghim) tải được, nên URL đúng và sự vắng mặt là thật. `scripts/validate.ts` đẩy thông điệp này vào `errors` khi status là `review` hoặc `published`, nên bài bắt buộc `draft`. Tầng `vietnamese-current` cũng vắng: `translation/vi/phantuananh` tại commit đã ghim có 26 tệp, toàn bộ là Pháp Cú (`dhp1-20` … `dhp234`), không có tệp `ja` nào. Lớp lấp `english-project` của dự án cũng không có: `content/translation/en/project/sutta/kn/` có 129 tệp nhưng không tệp nào cho uid này, và `content/meta/en/kn/ja471.yaml` không tồn tại. Ba tầng tham khảo đều vắng ⇒ bài dịch chỉ từ Pāli root ⇒ blocker thật, và đây là **giới hạn upstream**, không phải lỗi của người dịch. Vì vậy `triangulation` bị chặn ở 7.0 (≤ 8.0) chứ không nâng để né blocker."
+      ],
+      "notes": "Áp dụng quyết định hội đồng biên tập 2026-10-16 (docs/editorial-council-2026-10.md): C3; 1 khoá, đối chiếu Pāli ghim và hồ sơ R1–R9. Các tiêu chí khác giữ nguyên.",
+      "id": "38791ada-9a76-4eeb-a7ed-057b5fe115e4",
+      "content_sha256": "782a1bffe206b0b911df84fd719e674502793ce23102c817fc2e2ba68d4055e6",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
+      "final_score": 8.999999999999998
     }
   ],
   "legacy_quality": {

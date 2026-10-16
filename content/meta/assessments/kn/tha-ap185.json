@@ -107,6 +107,35 @@
       "notes": "Kiểm tra tự động 28 segment với Pāli trong cache: đủ ID, giá trị, NFC và hệ chữ Latin. Chưa đọc đối chiếu nghĩa, ngữ pháp hoặc văn phong; chưa chấm lại 10 tiêu chí. Đây không phải chứng nhận hash upstream hoặc giấy phép, không xác nhận trạng thái xuất bản.",
       "content_sha256": "4f4c2fd0dd8b4890dc03ddf5fb3abbda515a95890bf9d98676d65c4afb7d04c1",
       "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639"
+    },
+    {
+      "target": "translation",
+      "scope": "full",
+      "assessed_at": "2026-10-16",
+      "assessed_by": [
+        "Claude Sonnet 5.5 (Claude Code)"
+      ],
+      "scores": {
+        "source_provenance": 9.7,
+        "semantic_fidelity": 9.2,
+        "grammar_logic": 9.4,
+        "segment_alignment": 9.7,
+        "terminology": 9.4,
+        "triangulation": 8.6,
+        "vietnamese_clarity": 9.4,
+        "han_viet_balance": 9.4,
+        "ambiguity_integrity": 9,
+        "technical_integrity": 9.6
+      },
+      "blocking_errors": [
+        "Không có tầng Anh đã ghim phủ tập `tha-ap`: manifest cho thấy tầng `english-sujato` chỉ có 755 tệp thân của `kn` ở 9 sub-collection (cp, dhp, iti, ja, kp, snp, thag, thig, ud) và **0** tệp `tha-ap`; tệp duy nhất mang chuỗi `tha-ap` trong cả tầng là tệp *tên* `name/sutta/tha-ap-name_translation-en-sujato.json`, không phải thân kinh. Tầng `vietnamese-current` (Hòa thượng Thích Minh Châu) 26 tệp, toàn bộ là Pháp Cú, không có `tha-ap`. Không có entry nào cho ba bài này ở lớp lấp `english-project`. Sujato phủ **0 trên 1** segment Pāli có nội dung của từng bài — mẫu số là 1 vì chỉ câu lời-kết `:7.1` đủ 40 ký tự, 27 vế kệ còn lại chỉ 18–26 ký tự. `scripts/validate.ts` xếp cả hai việc này là lỗi chặn khi trạng thái là `review` hoặc `published`.",
+        "Chưa ghi nhận khoản trống tầng tham khảo vào `content/meta/reference-gaps.yaml`: đo được tệp đó hiện KHÔNG có entry cho `kn/tha-ap181`, `kn/tha-ap184`, `kn/tha-ap185`. Cần chạy `npm run reference:gaps` trước khi lên `review` hay `published`; lát này bị cấm sửa tệp đó. Có entry trong `reference-gaps.yaml` là việc khác và cũng không đủ để đứng được `published`, vì nguyên nhân gốc là tầng Anh đã ghim không phủ `tha-ap`."
+      ],
+      "notes": "Áp dụng quyết định hội đồng biên tập 2026-10-16 (docs/editorial-council-2026-10.md): C5; 1 khoá, đối chiếu Pāli ghim và hồ sơ R1–R9. Các tiêu chí khác giữ nguyên.",
+      "id": "80a93368-0400-44c1-b0e0-e7038e5ef591",
+      "content_sha256": "ff45fdd07accdcae17ffcfce50871095dd6b676102f4cb67e3bffe2e52b702b8",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
+      "final_score": 9.34
     }
   ],
   "legacy_quality": {

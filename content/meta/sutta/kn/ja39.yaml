@@ -3,7 +3,9 @@ status: published
 translationTitle: "Kinh Nanda"
 translators:
   - "OpenCode Space Bunny Free (agent)"
-reviewers: []
+reviewers:
+  - OpenCode Space Bunny Free (agent)
+  - Claude Sonnet 5.5 (Claude Code)
 tags:
   - khuddaka-nikaya
   - jataka
@@ -14,75 +16,77 @@ quality:
     source_provenance: 9.5
     semantic_fidelity: 9.3
     grammar_logic: 9.3
-    segment_alignment: 10.0
+    segment_alignment: 10
     terminology: 9.2
     triangulation: 9.2
     vietnamese_clarity: 9.4
     han_viet_balance: 9.3
     ambiguity_integrity: 8.9
     technical_integrity: 9.6
-  final_score: 9.37
-  blocking_errors:
-    []
-  assessed_at: "2026-10-02"
+  final_score: 9.370000000000001
+  blocking_errors: []
+  assessed_at: 2026-10-16
   assessed_by:
-    - "OpenCode Space Bunny Free (agent)"
+    - Claude Sonnet 5.5 (Claude Code)
+  assessment_id: e9646c99-480e-4a94-a9e3-9d706be8c5f5
 notes: |-
-    BẢN DỊCH NÀY LÀ VIẾT LẠI, KHÔNG PHẢI BẢN MỚI. Lát V5/1 đã có trong git từ
-    #178 (và một phần sửa ở #180). Tôi đọc lại Pāli gốc, đối chiếu từng vế, và sửa các
-    lỗi đo được; danh sách lỗi ở cuối. Tệp 24 dòng `??` mà lát này lẽ ra phải tạo
-    không tồn tại — 12 tệp dịch và 12 tệp metadata đã nằm trong git, nên kết quả là
-    24 dòng ` M`, không phải `??`. Tôi báo lại chứ không tự tạo tệp mới để ra con số.
+  BẢN DỊCH NÀY LÀ VIẾT LẠI, KHÔNG PHẢI BẢN MỚI. Lát V5/1 đã có trong git từ
+  #178 (và một phần sửa ở #180). Tôi đọc lại Pāli gốc, đối chiếu từng vế, và sửa các
+  lỗi đo được; danh sách lỗi ở cuối. Tệp 24 dòng `??` mà lát này lẽ ra phải tạo
+  không tồn tại — 12 tệp dịch và 12 tệp metadata đã nằm trong git, nên kết quả là
+  24 dòng ` M`, không phải `??`. Tôi báo lại chứ không tự tạo tệp mới để ra con số.
 
-    CHỐT KHÔNG TỰ CHẠY — ĐÃ TỰ KIỂM. `_hvi.kiểm` chỉ quét `cần` = khoá Pāli ≥ 40 ký
-    tự. Ở cả 12 bài này khoá Pāli dài nhất chỉ 19–35 ký tự, nên `cần` RỖNG và các
-    assertion NFC / trùng nguyên văn Pāli / Pāli lọt / số dấu lược KHÔNG chạy. Tôi tự
-    quét lại bằng chính các hàm đó trên MỌI khoá: 108/108 khoá có mặt, 0 khoá thừa so
-    với Pāli, 0 khoá rỗng, mọi chuỗi NFC, 0 lượt Pāli lọt, số dấu lược khớp Pāli
-    từng khoá (0 = 0 vì Pāli lát này không có `…pe…`), ngoặc kép cân trên cả bài,
-    ngoặc tròn cân, không còn `(…)`. `save_vi` chạy sạch và chạy lại hai lần idempotent.
-    `technical_integrity` = {ti} chứ không phải 10,0 vì lát này cấm chạy
-    `npm run validate|test|check|build` — người điều phối chạy tập trung.
+  CHỐT KHÔNG TỰ CHẠY — ĐÃ TỰ KIỂM. `_hvi.kiểm` chỉ quét `cần` = khoá Pāli ≥ 40 ký
+  tự. Ở cả 12 bài này khoá Pāli dài nhất chỉ 19–35 ký tự, nên `cần` RỖNG và các
+  assertion NFC / trùng nguyên văn Pāli / Pāli lọt / số dấu lược KHÔNG chạy. Tôi tự
+  quét lại bằng chính các hàm đó trên MỌI khoá: 108/108 khoá có mặt, 0 khoá thừa so
+  với Pāli, 0 khoá rỗng, mọi chuỗi NFC, 0 lượt Pāli lọt, số dấu lược khớp Pāli
+  từng khoá (0 = 0 vì Pāli lát này không có `…pe…`), ngoặc kép cân trên cả bài,
+  ngoặc tròn cân, không còn `(…)`. `save_vi` chạy sạch và chạy lại hai lần idempotent.
+  `technical_integrity` = {ti} chứ không phải 10,0 vì lát này cấm chạy
+  `npm run validate|test|check|build` — người điều phối chạy tập trung.
 
-    TẦNG THAM KHẢO. `english-sujato` CÓ mặt ở commit đã ghim, 8/9 khoá có chữ; khoá trống
-    là `:2.1` (dòng chốt tên bài + số thứ tự), Sujato để trống ở mọi Jātaka — đây là
-    đặc điểm của bản chụp, không phải lỗ hổng coverage. Không khoá Pāli nào đủ 40 ký
-    tự nên `substantiveSegments = 0` và `englishCoverageFor` ra `ratio = 1`; sàn 0,8
-    không kích hoạt, tôi KHÔNG đụng `content/meta/reference-gaps.yaml`.
-    `vietnamese-current` vắng: tại commit đã ghim `translation/vi/` của bilara chỉ có
-    Pháp Cú, nên không có bản Hòa thượng Thích Minh Châu cho Jātaka. Đây là giới hạn
-    của bản chụp upstream, không phải thiếu sót của kho — vì vậy `triangulation` là
-    Pāli + English Sujato + các bài cùng phẩm trong chính tầng này.
+  TẦNG THAM KHẢO. `english-sujato` CÓ mặt ở commit đã ghim, 8/9 khoá có chữ; khoá trống
+  là `:2.1` (dòng chốt tên bài + số thứ tự), Sujato để trống ở mọi Jātaka — đây là
+  đặc điểm của bản chụp, không phải lỗ hổng coverage. Không khoá Pāli nào đủ 40 ký
+  tự nên `substantiveSegments = 0` và `englishCoverageFor` ra `ratio = 1`; sàn 0,8
+  không kích hoạt, tôi KHÔNG đụng `content/meta/reference-gaps.yaml`.
+  `vietnamese-current` vắng: tại commit đã ghim `translation/vi/` của bilara chỉ có
+  Pháp Cú, nên không có bản Hòa thượng Thích Minh Châu cho Jātaka. Đây là giới hạn
+  của bản chụp upstream, không phải thiếu sót của kho — vì vậy `triangulation` là
+  Pāli + English Sujato + các bài cùng phẩm trong chính tầng này.
 
-    KHUNG TIÊU ĐỀ, theo tiền lệ đếm được: `Jātaka` giữ nguyên 57/57 bài Jātaka ngắn
-    trong tầng; `Ekakanipāta` → **Bộ Một Bài Kinh** 57; dòng chốt **Kinh X thứ N.**
-    không dấu phẩy 48/56 (bỏ chữ `ti` của Pāli như đa số tầng, và bỏ hết 10 chỗ đang
-    còn `”ti.` trong chính lát này).
+  KHUNG TIÊU ĐỀ, theo tiền lệ đếm được: `Jātaka` giữ nguyên 57/57 bài Jātaka ngắn
+  trong tầng; `Ekakanipāta` → **Bộ Một Bài Kinh** 57; dòng chốt **Kinh X thứ N.**
+  không dấu phẩy 48/56 (bỏ chữ `ti` của Pāli như đa số tầng, và bỏ hết 10 chỗ đang
+  còn `”ti.` trong chính lát này).
 
-    PHẨM `Kulāvakavagga` → **Phẩm Tổ Chim**, giữ nguyên lựa chọn của bản trong git vì
-    đó là đa số trong phẩm (ja31, ja32, ja38, ja39) và `ja31.yaml` đã đề xuất gộp về
-    đây; nó cũng khớp `sn11.6:0.3` = *Kinh Tổ Chim* trong chính tầng này. Tầng còn 4
-    biến thể khác trong phẩm (`ja33`/`ja36` = *Phẩm Kulāvaka*, `ja34` = *Phẩm Tổ*,
-    `ja35` = *Phẩm Chim Cút Kurāva*, `ja37` = *Phẩm Chim Đang Lồng*) — ngoài lát này,
-    tôi không đụng và xin biên tập gộp.
+  PHẨM `Kulāvakavagga` → **Phẩm Tổ Chim**, giữ nguyên lựa chọn của bản trong git vì
+  đó là đa số trong phẩm (ja31, ja32, ja38, ja39) và `ja31.yaml` đã đề xuất gộp về
+  đây; nó cũng khớp `sn11.6:0.3` = *Kinh Tổ Chim* trong chính tầng này. Tầng còn 4
+  biến thể khác trong phẩm (`ja33`/`ja36` = *Phẩm Kulāvaka*, `ja34` = *Phẩm Tổ*,
+  `ja35` = *Phẩm Chim Cút Kurāva*, `ja37` = *Phẩm Chim Đang Lồng*) — ngoài lát này,
+  tôi không đụng và xin biên tập gộp.
 
-    SỬA TIÊU ĐỀ. Bản trong git ghi *Kinh Nanda Kẻ Tôi Tớ*. Pāli `0.4`/`2.1` là
-    `Nandajātaka`, Sujato đặt tên bài là *Nanda*; cụm *Kẻ Tôi Tớ* do agent đó tự ghép
-    từ `dāso` ở `1.3` và **không có trong tên bài**. Nay là *Kinh Nanda*. `Nandaka` ở
-    `1.2` là tên riêng trong Pāli (`nandako`), giữ nguyên — 39 chỗ *Nandaka* đã có trong
-    tầng (chủ yếu `an3.66`, `mn146`).
+  SỬA TIÊU ĐỀ. Bản trong git ghi *Kinh Nanda Kẻ Tôi Tớ*. Pāli `0.4`/`2.1` là
+  `Nandajātaka`, Sujato đặt tên bài là *Nanda*; cụm *Kẻ Tôi Tớ* do agent đó tự ghép
+  từ `dāso` ở `1.3` và **không có trong tên bài**. Nay là *Kinh Nanda*. `Nandaka` ở
+  `1.2` là tên riêng trong Pāli (`nandako`), giữ nguyên — 39 chỗ *Nandaka* đã có trong
+  tầng (chủ yếu `an3.66`, `mn146`).
 
-    SỬA VĂN PHONG. `ṭhito thullāni gajjatī` bản cũ dịch *đang đứng đó chửi ráo lia
-    lịa* — quá thô tục cho kinh văn và không giữ được sắc thái trang trọng của tầng.
-    Nay *đang đứng đó gào lên lời cay nghiệt*: `gajjati` = gào lên, `thullāni` (số
-    nhiều) = lời mạng nhiễu. `dāso āmajāto` → *kẻ nô lệ sinh ra trong nhà*; dùng *nô lệ*
-    (55 chỗ) thay *tôi tớ* (21 chỗ) vì `dāsa` ở đây là nô lệ chứ không phải người làm
-    thuê, và `āmajāta` = sinh ra trong nhà (khác với nô lệ mua ngoài).
+  SỬA VĂN PHONG. `ṭhito thullāni gajjatī` bản cũ dịch *đang đứng đó chửi ráo lia
+  lịa* — quá thô tục cho kinh văn và không giữ được sắc thái trang trọng của tầng.
+  Nay *đang đứng đó gào lên lời cay nghiệt*: `gajjati` = gào lên, `thullāni` (số
+  nhiều) = lời mạng nhiễu. `dāso āmajāto` → *kẻ nô lệ sinh ra trong nhà*; dùng *nô lệ*
+  (55 chỗ) thay *tôi tớ* (21 chỗ) vì `dāsa` ở đây là nô lệ chứ không phải người làm
+  thuê, và `āmajāta` = sinh ra trong nhà (khác với nô lệ mua ngoài).
 
-    BẤT ĐỊNH ĐÃ GHI. `soṇṇamālā ca nandako` về mặt ngữ pháp là chủ ngữ số ít
-    (`nandako`), nhưng `1.3` lại mở mệnh đề mới với chủ thể khác (`dāso āmajāto`) và
-    mối từ nơi chốn `Yattha`. Cách ít giả định nhất, cũng là cách Sujato đọc, là đống
-    vàng ấy *thuộc về* Nandaka: tôi dịch *và vòng vàng của Nandaka*. `mālā` = vòng,
-    dây đeo (3 chỗ *vòng vàng* trong tầng), Sujato *golden chains*. `maññe` = *Tôi nghĩ*;
-    tôi cố ý không thêm danh từ chỉ nơi ở `1.1` vì Pāli không có (chỗ nốn nằm ở
-    `Yattha` ở `1.3`).
+  BẤT ĐỊNH ĐÃ GHI. `soṇṇamālā ca nandako` về mặt ngữ pháp là chủ ngữ số ít
+  (`nandako`), nhưng `1.3` lại mở mệnh đề mới với chủ thể khác (`dāso āmajāto`) và
+  mối từ nơi chốn `Yattha`. Cách ít giả định nhất, cũng là cách Sujato đọc, là đống
+  vàng ấy *thuộc về* Nandaka: tôi dịch *và vòng vàng của Nandaka*. `mālā` = vòng,
+  dây đeo (3 chỗ *vòng vàng* trong tầng), Sujato *golden chains*. `maññe` = *Tôi nghĩ*;
+  tôi cố ý không thêm danh từ chỉ nơi ở `1.1` vì Pāli không có (chỗ nốn nằm ở
+  `Yattha` ở `1.3`).
+
+  Quyết định hội đồng biên tập 2026-10-16: C2 — :2.1 (dòng kết có dấu phẩy trước "thứ N"); C3 — :0.2 (tên nhóm kệ "Nhóm N Kệ", bỏ chữ "Kinh").

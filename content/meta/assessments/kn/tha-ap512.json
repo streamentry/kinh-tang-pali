@@ -53,6 +53,34 @@
       "notes": "Kiểm tra tự động 48 segment với Pāli trong cache: đủ ID, giá trị, NFC và hệ chữ Latin. Chưa đọc đối chiếu nghĩa, ngữ pháp hoặc văn phong; chưa chấm lại 10 tiêu chí. Đây không phải chứng nhận hash upstream hoặc giấy phép, không xác nhận trạng thái xuất bản.",
       "content_sha256": "02504435090d8db6c051f04b14117d137c58a5744797d469118816a739b632f2",
       "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639"
+    },
+    {
+      "target": "translation",
+      "scope": "full",
+      "assessed_at": "2026-10-16",
+      "assessed_by": [
+        "Claude Sonnet 5.5 (Claude Code)"
+      ],
+      "scores": {
+        "source_provenance": 9.5,
+        "semantic_fidelity": 9.2,
+        "grammar_logic": 9.2,
+        "segment_alignment": 9.8,
+        "terminology": 9.3,
+        "triangulation": 7.5,
+        "vietnamese_clarity": 9.3,
+        "han_viet_balance": 9.4,
+        "ambiguity_integrity": 9.2,
+        "technical_integrity": 9.6
+      },
+      "blocking_errors": [
+        "Không có tầng tham khảo tiếng Anh tại commit đã ghim (11c9d708978cde8ba61096d8a75f7ddfb846f639): đếm trực tiếp trên đĩa `.cache/upstream/suttacentral/translation/en/sujato/sutta/kn/` cho thấy chỉ có 9 sub-collection — cp, dhp, iti, ja, kp, snp, thag, thig, ud — và `kn/pv/` lẫn `kn/tha-ap/` đều **0 tệp**. Đây là `not-published-upstream`, KHÔNG phải `not-synced`. Tầng `vietnamese-current` cũng vắng: `translation/vi/phantuananh/sutta/kn` tại commit đã ghim chỉ có 1 tệp (dhp). Lớp lấp `english-project` của dự án không có uid này. Ba tầng tham khảo đều vắng ⇒ bài dịch chỉ từ Pāli root ⇒ blocker thật, và đây là **giới hạn của snapshot upstream**, không phải lỗi của người dịch. Vì vậy `triangulation` bị chặn ở 7.5 (≤ 8.0) chứ không nâng điểm để né blocker."
+      ],
+      "notes": "Áp dụng quyết định hội đồng biên tập 2026-10-16 (docs/editorial-council-2026-10.md): C6; 14 khoá, đối chiếu Pāli ghim và hồ sơ R1–R9. Các tiêu chí khác giữ nguyên.",
+      "id": "8dbcd86d-5147-4f98-938a-65cd7a6cdba9",
+      "content_sha256": "a7c128327f0ac9b965ca49e5547b658a036230de0b01031d286f9898147a9d6d",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
+      "final_score": 9.2
     }
   ],
   "legacy_quality": {

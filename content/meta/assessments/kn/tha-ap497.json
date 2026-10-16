@@ -53,6 +53,34 @@
       "notes": "Kiểm tra tự động 42 segment với Pāli trong cache: đủ ID, giá trị, NFC và hệ chữ Latin. Chưa đọc đối chiếu nghĩa, ngữ pháp hoặc văn phong; chưa chấm lại 10 tiêu chí. Đây không phải chứng nhận hash upstream hoặc giấy phép, không xác nhận trạng thái xuất bản.",
       "content_sha256": "4581e36549ad1ac88c07917821fd4e957ddf594d9f0be1f410b82ee890394bb6",
       "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639"
+    },
+    {
+      "target": "translation",
+      "scope": "full",
+      "assessed_at": "2026-10-16",
+      "assessed_by": [
+        "Claude Sonnet 5.5 (Claude Code)"
+      ],
+      "scores": {
+        "source_provenance": 9.5,
+        "semantic_fidelity": 9.2,
+        "grammar_logic": 9.2,
+        "segment_alignment": 10,
+        "terminology": 9.2,
+        "triangulation": 7.5,
+        "vietnamese_clarity": 9,
+        "han_viet_balance": 9.3,
+        "ambiguity_integrity": 9,
+        "technical_integrity": 9.6
+      },
+      "blocking_errors": [
+        "Không có tầng tham khảo tiếng Anh tại commit đã ghim: tệp `translation/en/sujato/sutta/kn/tha-ap497/` không tồn tại trong `.cache/upstream/suttacentral/`, và `source/upstream-manifest.json` (edition `english-sujato`, treeSha 24e81ded9d6710e16b277b6394fd57c48258da12, 4.291 tệp) chỉ có đúng hai tệp liên quan — `name/sutta/tha-ap-name…` và `name/sutta/vv-name…` — tức là KHÔNG có tệp thân bài nào cho `tha-ap` hay `vv`. Đây là `not-published-upstream`, KHÔNG phải `not-synced`. `scripts/validate.ts` xếp tệp Anh thiếu là error khi status là `review` hoặc `published`, nên bài bắt buộc `draft`. Tầng `vietnamese-current` cũng vắng: `translation/vi/phantuananh` tại commit đã ghim chỉ có 26 tệp và toàn bộ là Pháp Cú. Lớp lấp `english-project` của dự án cũng không có cho uid này. Ba tầng tham khảo đều vắng ⇒ bài dịch chỉ từ Pāli root. Vì đây là giới hạn của upstream chứ không phải lỗi của người dịch, `triangulation` bị chặn ở 7.5 (≤ 8.0) chứ không nâng để né blocker."
+      ],
+      "notes": "Áp dụng quyết định hội đồng biên tập 2026-10-16 (docs/editorial-council-2026-10.md): B20; 1 khoá, đối chiếu Pāli ghim và hồ sơ R1–R9. Các tiêu chí khác giữ nguyên.",
+      "id": "474c080a-4060-4138-b8d4-2104faef939c",
+      "content_sha256": "1a7b0946421c550cf36cd2a6009782ad2f7140e7771ef62e921e8f0e8f87e30a",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
+      "final_score": 9.149999999999999
     }
   ],
   "legacy_quality": {
