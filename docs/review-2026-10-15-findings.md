@@ -167,3 +167,13 @@ Kết quả cục bộ: 6.048 published, 77 review, 12 draft. Draft còn lại: 
 Sửa tay đáng chú ý: `cnd10:40.6` (Vị Mâu-ni ấy, nhờ nương vào bậc tôn quý, đã đạt bốn Thánh đạo); `mn117:14.2` hoàn nguyên về văn bản đã phát hành audio (quyết định B8 không áp dụng cho bài có audio; mn117 chấm lại với điểm cũ).
 
 Chưa giải quyết (do người kiểm/agent ghi lại): ja495 `nipatāmase` (Cowell đọc như câu hỏi, 11 khoá); ja442:1.3 `athakkhaṇe`, 2.4 `saddhāvittā`; ja416:7.4; ja506:14.6; ja534:24.4 (Sāmā); tha-ap410 `utujasaddakaṁ`, `brahmā uju`; tha-ap3:84; ps1.3 `dānavosagga`; bv5:11.6 `gavapāna`; `rucakatthatā` "trải thảm" ở vv54–57, 59, 77, 79, 85; `taṁ āpagā anupariyanti` ở vv6:7.1, vv8:8.1; `assayānena` "xe ngựa" ở bv14/16/19/27; bv24:5.1; ja389:1.1–1.3 `siṅgīmigo` "sắc vàng"; snp4.15:11.2 "dòng xoáy"; ja537 `khuddakappāni` so với quyết định B21. Có thể cân nhắc ghim Walters/Indacanda/Ñāṇamoli làm tầng tham khảo (quyết định của người biên tập, cần giấy phép riêng).
+
+## Lượt "nguồn thứ hai" và kiểm độc lập (2026-10-16, lượt 4)
+
+43 bài `review` ở 8,93–9,00 được đối chiếu toàn bộ khoá với một nguồn độc lập thứ hai (bản Việt Indacanda, bản Nhật Kansai, bản Sinhala de Zoysa, chú giải CST), sửa lỗi nghĩa thật, rồi 10 agent kiểm độc lập tự tải lại nguồn và lấy mẫu. **Điểm ghi chính thức là điểm bảo vệ được của người kiểm, không phải điểm agent đề xuất** (đề xuất cao hơn ở hầu hết bài; công thức hệ số của agent không có trong rubric). Chú giải/từ điển chỉ phủ một phần nên không nâng `triangulation` ở mnd*, cnd*, ps2.*.
+
+Kết quả: 6.062 published, 63 review, 12 draft. Các bài lên published chỉ vượt 9,0 từ 0,01 đến 0,07 nhờ `triangulation` +0,1–0,5 và +0,1 `semantic_fidelity`/`grammar_logic` cho khoá sửa đã được kiểm đúng; mọi điểm vẫn do agent chấm, chưa người biên tập xác nhận.
+
+Lỗi nghĩa thật đã sửa (đã kiểm độc lập): ja542 (9.4, 43.5, 170.2–3), ja360, ja544 (`pacurā`, `assa`, 120.3), ja533 (46.3, 7.1–4, 17.4), ja532, ja521 (xưng hô `te`), ja535, ja511, ja539, ja229, ja525, vv21:10.4 (`taṁ` = ngài; Hecker hiểu là Đức Phật — người biên tập xem lại), vv29:9.2, pv36:20.2, cnd8:34.3, mnd3.
+
+Còn tồn: ja539:147.3–4, ja546 `jalle` (PED "athlete" vs chú giải "thợ cạo"), pv36:33.2, ja439:4.1/10.1, ja110:1.3 (`bhāyatiyaṁ` ghim hỏng, chỉ ghi chú); `gāmaṇīyehi` "đội trưởng" ở ja539 nhưng "trưởng làng" ở ja529, ja547, tha-ap409/410/413; `Sīdanti naṁ viditvāna` ở ja262, ja507, ja536; vv30:11.2, vv34:4.2 chưa đồng bộ; "diṭṭhasutamutaviññātabbe" dịch "nên thấy, nên nghe" ở ~22 khoá cnd/mnd (lỗi hệ thống nhẹ); "liễu tri" cho `viditvā`/`vijaññaṁ` ở cnd8, cnd9 lệch B9.

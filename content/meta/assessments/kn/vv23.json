@@ -137,6 +137,34 @@
       "content_sha256": "24d0fc20eaf83099195f376abfbfa356f8bf278cc8d58ea3b06e86533309dd5a",
       "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
       "final_score": 8.95
+    },
+    {
+      "target": "translation",
+      "scope": "full",
+      "assessed_at": "2026-10-16",
+      "assessed_by": [
+        "Claude Sonnet 5.5 (Claude Code)"
+      ],
+      "scores": {
+        "source_provenance": 8.5,
+        "semantic_fidelity": 8.9,
+        "grammar_logic": 8.9,
+        "segment_alignment": 10,
+        "terminology": 9,
+        "triangulation": 9,
+        "vietnamese_clarity": 8.9,
+        "han_viet_balance": 9,
+        "ambiguity_integrity": 8,
+        "technical_integrity": 9.6
+      },
+      "blocking_errors": [
+        "Không có tầng tham khảo tiếng Anh tại commit đã ghim (11c9d708978cde8ba61096d8a75f7ddfb846f639). `source/upstream-manifest.json` (edition `english-sujato`, 4.291 tệp) **không liệt kê** `sutta/kn/vv/vv23_translation-en-sujato.json`, và trong `sutta/kn/` của edition này không tồn tại thư mục `vv/` (chỉ có `cp dhp iti ja kp snp thag thig ud`) — đây là `not-published-upstream`, KHÔNG phải `not-synced`. Cùng tệp đó chỉ liệt kê tệp Pāli `kn/vv/vv23_root-pli-ms.json`. Về coverage: theo đúng công thức `src/lib/canon/reference.ts` (`prose() >= 40` và loại block tham chiếu theo `/^0(\\.|$)/`), `vv23` có **0** Pāli có nội dung — khoá dài nhất là `vv23:3.4` và `vv23:11.3`, mỗi khoá **35** ký tự — nên tỷ lệ được coi là 1 và cổng coverage không đo được gì cho bài này. Nhưng `scripts/validate.ts` kiểm tra **tệp** Anh trước (dòng 222–225): `needsEnglish = status === 'review' || 'published'`, thiếu tệp ⇒ `errors.push(...)`. ⇒ bài **bắt buộc `draft`**. Tầng `vietnamese-current` cũng vắng (`translation/vi/phantuananh` tại commit đã ghim chỉ có 26 tệp, toàn bộ là Pháp Cú); lớp lấp `english-project` cũng không có cho uid này. Ba tầng tham khảo đều vắng ⇒ bài dịch chỉ từ Pāli root ⇒ **blocker thật**, thuộc giới hạn của bản chụp upstream. `triangulation` bị chặn ở **7,5** (≤ 8,0) chứ không nâng lên để né blocker."
+      ],
+      "notes": "Chấm lại 2026-10-16 sau lượt đối chiếu nguồn thứ hai và kiểm độc lập: triangulation dùng điểm bảo vệ được của người kiểm (đề xuất ban đầu của agent cao hơn và không được dùng); semantic_fidelity/grammar_logic +0,1 chỉ khi khoá sửa đã được kiểm đúng. Các tiêu chí khác giữ nguyên.",
+      "id": "1b3dbf59-9ccd-4932-8af8-3d48f380914a",
+      "content_sha256": "24d0fc20eaf83099195f376abfbfa356f8bf278cc8d58ea3b06e86533309dd5a",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
+      "final_score": 8.979999999999999
     }
   ],
   "legacy_quality": {

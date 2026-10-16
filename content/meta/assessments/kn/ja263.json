@@ -165,6 +165,34 @@
       "content_sha256": "e8aafebf903f4d9883b9a3da289ca8d8e147b9f9572f70f4829a811bd5d704a7",
       "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
       "final_score": 8.969999999999999
+    },
+    {
+      "target": "translation",
+      "scope": "full",
+      "assessed_at": "2026-10-16",
+      "assessed_by": [
+        "Claude Sonnet 5.5 (Claude Code)"
+      ],
+      "scores": {
+        "source_provenance": 9.4,
+        "semantic_fidelity": 8.6,
+        "grammar_logic": 8.7,
+        "segment_alignment": 10,
+        "terminology": 8.7,
+        "triangulation": 9.1,
+        "vietnamese_clarity": 8.6,
+        "han_viet_balance": 9.1,
+        "ambiguity_integrity": 8.3,
+        "technical_integrity": 9.6
+      },
+      "blocking_errors": [
+        "Thiếu hẳn tầng tham khảo English Sujato tại commit đã ghim 11c9d708978cde8ba61096d8a75f7ddfb846f639: đếm trực tiếp trên source/upstream-manifest.json (cùng commit) cho thấy tầng translation/en/sujato có 4.291 tệp, trong đó thư mục sutta/kn/ja/ chỉ có 83 tệp, không có tệp nào chứa khoá của bài này; hàm upstreamPublishes của kho trả về false cho đường dẫn này, nghĩa là SuttaCentral không phát hành bản Anh nào phủ bài này tại commit đã ghim. Tầng vietnamese-current cũng không có (đúng 26 tệp, chỉ Pháp Cú), nên bài chỉ đối chiếu được với Pāli root một mình. Đây là giới hạn của bản chụp upstream, không phải thiếu sót của kho, nhưng theo AGENTS.md thì thiếu tầng tham khảo là lỗi chặn đối với review và published, và tests/unit/reference-source.test.ts kiểm đúng điều đó. Bài đặt draft và không nâng điểm để né."
+      ],
+      "notes": "Chấm lại 2026-10-16 sau lượt đối chiếu nguồn thứ hai và kiểm độc lập: triangulation dùng điểm bảo vệ được của người kiểm (đề xuất ban đầu của agent cao hơn và không được dùng); semantic_fidelity/grammar_logic +0,1 chỉ khi khoá sửa đã được kiểm đúng. Các tiêu chí khác giữ nguyên.",
+      "id": "41a6ea81-b259-429a-9e04-8ef99017bbaf",
+      "content_sha256": "ec5551f0c3695a373270427f27c6880d1a3cb5a746108c58beb288b4ed55615e",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
+      "final_score": 9.01
     }
   ],
   "legacy_quality": {

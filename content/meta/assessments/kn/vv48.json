@@ -137,6 +137,34 @@
       "content_sha256": "9db486f57e422b79824a02f631343e13c8a75df803ef764c6c79785dd39de56d",
       "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
       "final_score": 9
+    },
+    {
+      "target": "translation",
+      "scope": "full",
+      "assessed_at": "2026-10-16",
+      "assessed_by": [
+        "Claude Sonnet 5.5 (Claude Code)"
+      ],
+      "scores": {
+        "source_provenance": 9.5,
+        "semantic_fidelity": 8.7,
+        "grammar_logic": 8.8,
+        "segment_alignment": 9.8,
+        "terminology": 8.6,
+        "triangulation": 9.1,
+        "vietnamese_clarity": 8.8,
+        "han_viet_balance": 9,
+        "ambiguity_integrity": 8.4,
+        "technical_integrity": 9.6
+      },
+      "blocking_errors": [
+        "Không có tầng tham khảo tiếng Anh tại commit đã ghim 11c9d708978cde8ba61096d8a75f7ddfb846f639: đo trên `source/upstream-manifest.json` cho 755 tệp `kn` của `translation/en/sujato` nằm ở cp 35, dhp 26, iti 112, ja 83, kp 9, snp 73, thag 264, thig 73, ud 80 và **0 tệp** ở `vv`; thư mục cache `.cache/upstream/suttacentral/translation/en/sujato/sutta/kn/` cũng chỉ có đúng 9 thư mục con ấy. Đây là `not-published-upstream`, KHÔNG phải `not-synced`. `scripts/validate.ts` coi tệp Anh thiếu là error khi status là `review` hoặc `published`, nên bài bắt buộc `draft`. Tầng `vietnamese-current` cũng vắng: `translation/vi/phantuananh` tại commit đã ghim có 26 tệp và tất cả đều là Pháp Cú. Lớp lấp `english-project` của dự án không có tệp nào cho vv48 (thư mục `content/translation/en/project/sutta/kn/` có 129 tệp, trong đó chỉ một tệp `vv` là vv69, không phải bài này). Ba tầng tham khảo đều vắng ⇒ bài dịch chỉ từ Pāli root, đây là giới hạn upstream chứ không phải lỗi của người dịch. Vì vậy `triangulation` bị chặn ở 7.5 (≤ 8.0) chứ không nâng để né blocker."
+      ],
+      "notes": "Chấm lại 2026-10-16 sau lượt đối chiếu nguồn thứ hai và kiểm độc lập: triangulation dùng điểm bảo vệ được của người kiểm (đề xuất ban đầu của agent cao hơn và không được dùng); semantic_fidelity/grammar_logic +0,1 chỉ khi khoá sửa đã được kiểm đúng. Các tiêu chí khác giữ nguyên.",
+      "id": "a95915be-d003-4c3a-98ac-a1f13bf48cfd",
+      "content_sha256": "9db486f57e422b79824a02f631343e13c8a75df803ef764c6c79785dd39de56d",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
+      "final_score": 9.03
     }
   ],
   "legacy_quality": {

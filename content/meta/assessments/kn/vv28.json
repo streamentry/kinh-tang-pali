@@ -165,6 +165,34 @@
       "content_sha256": "b3ad3b38739a228198c50787888a4679ce84e8be9eb9bf8faf48012f470254f5",
       "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
       "final_score": 9
+    },
+    {
+      "target": "translation",
+      "scope": "full",
+      "assessed_at": "2026-10-16",
+      "assessed_by": [
+        "Claude Sonnet 5.5 (Claude Code)"
+      ],
+      "scores": {
+        "source_provenance": 9.5,
+        "semantic_fidelity": 8.6,
+        "grammar_logic": 8.8,
+        "segment_alignment": 10,
+        "terminology": 8.4,
+        "triangulation": 8.7,
+        "vietnamese_clarity": 8.8,
+        "han_viet_balance": 9.3,
+        "ambiguity_integrity": 8.5,
+        "technical_integrity": 9.6
+      },
+      "blocking_errors": [
+        "Không có tầng tham khảo tiếng Anh tại commit đã ghim: tệp `.cache/upstream/suttacentral/translation/en/sujato/sutta/kn/vv/vv28_translation-en-sujato.json` không tồn tại trong `.cache/upstream/suttacentral/`, và `source/upstream-manifest.json` (commit 11c9d70, tầng `english-sujato`) không liệt kê bất kỳ tệp nào cho uid này — đây là `not-published-upstream`, KHÔNG phải `not-synced`; toàn bộ ba sub-collection `tha-ap`, `thi-ap`, `vv` của Kinh Tạng đều vắng mặt trong tầng Anh đã ghim. Đo coverage theo đúng công thức `source/layers.yaml` (Pāli có nội dung ≥ 40 ký tự, loại block tham chiếu `:0`) cho 0 trên 0 khoá (không khoá nào đủ 40 ký tự), dưới ngưỡng 0.8. `scripts/validate.ts` coi tệp Anh thiếu là **error** khi status là `review` hoặc `published`, nên bài bắt buộc `draft`. Tầng `vietnamese-current` cũng vắng: `translation/vi/phantuananh` tại commit đã ghim chỉ có 26 tệp và toàn bộ là Pháp Cú. Lớp lấp `english-project` của dự án cũng không có cho uid này. Ba tầng tham khảo đều vắng ⇒ bài dịch chỉ từ Pāli root ⇒ blocker thật, và đây là **giới hạn upstream**, không phải lỗi của người dịch. Vì vậy `triangulation` bị chặn ở 7.5 (≤ 8.0) chứ không nâng để né blocker."
+      ],
+      "notes": "Chấm lại 2026-10-16 sau lượt đối chiếu nguồn thứ hai và kiểm độc lập: triangulation dùng điểm bảo vệ được của người kiểm (đề xuất ban đầu của agent cao hơn và không được dùng); semantic_fidelity/grammar_logic +0,1 chỉ khi khoá sửa đã được kiểm đúng. Các tiêu chí khác giữ nguyên.",
+      "id": "a693dc2f-588a-4a10-aa1d-d9677deeb858",
+      "content_sha256": "b3ad3b38739a228198c50787888a4679ce84e8be9eb9bf8faf48012f470254f5",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
+      "final_score": 9.02
     }
   ],
   "legacy_quality": {
