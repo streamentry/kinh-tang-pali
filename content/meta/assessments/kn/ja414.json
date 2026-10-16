@@ -53,6 +53,34 @@
       "notes": "Kiểm tra tự động 33 segment với Pāli trong cache: đủ ID, giá trị, NFC và hệ chữ Latin. Chưa đọc đối chiếu nghĩa, ngữ pháp hoặc văn phong; chưa chấm lại 10 tiêu chí. Đây không phải chứng nhận hash upstream hoặc giấy phép, không xác nhận trạng thái xuất bản.",
       "content_sha256": "08b4cbc63fdc658e0b5a385544a94328053716153906b26794e4a59a927e422c",
       "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639"
+    },
+    {
+      "target": "translation",
+      "scope": "full",
+      "assessed_at": "2026-10-16",
+      "assessed_by": [
+        "Claude Sonnet 5.5 (Claude Code)"
+      ],
+      "scores": {
+        "source_provenance": 9.5,
+        "semantic_fidelity": 9.1,
+        "grammar_logic": 9.3,
+        "segment_alignment": 10,
+        "terminology": 9,
+        "triangulation": 7.5,
+        "vietnamese_clarity": 8.8,
+        "han_viet_balance": 9.2,
+        "ambiguity_integrity": 8.5,
+        "technical_integrity": 9.6
+      },
+      "blocking_errors": [
+        "Không có tầng tham khảo tiếng Anh tại commit đã ghim. Tôi tra `source/upstream-manifest.json` (commit 11c9d708978cde8ba61096d8a75f7ddfb846f639, tầng english-sujato, 4291 tệp) theo mẫu đầy đủ `…_translation-en-sujato.json`: tầng này có đúng 83 tệp thuộc `sutta/kn/ja`, và không tệp nào trong số đó là `ja414`; `.cache/upstream/suttacentral/translation/en/sujato/sutta/kn/ja/` trên đĩa cũng có đúng 83 tệp, tập uid khớp từng tệp với manifest, không có `ja414`. Vậy đây là `not-published-upstream`, KHÔNG phải `not-synced`. Tầng `vietnamese-current` vắng (tầng đã ghim chỉ có 26 tệp, không có tệp `ja*` nào) và lớp lấp `english-project` vắng (chỉ có `dhp*` và `iti*`). Ba tầng tham khảo đều vắng nên bài chỉ dịch được từ Pāli root; theo AGENTS.md đây là lỗi chặn đối với `review` và `published`."
+      ],
+      "notes": "Áp dụng quyết định hội đồng biên tập 2026-10-16 (docs/editorial-council-2026-10.md): A13, C3; 3 khoá, đối chiếu Pāli ghim và hồ sơ R1–R9. semantic_fidelity +0,1 vì sửa lỗi rõ. Các tiêu chí khác giữ nguyên.",
+      "id": "50d9a00b-fe5f-4b08-8ce3-4edad45ffb41",
+      "content_sha256": "9542a5a79f75494ec7eab3da6a70c6c36846ff51328c6843f508c06c82bc4939",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
+      "final_score": 9.05
     }
   ],
   "legacy_quality": {

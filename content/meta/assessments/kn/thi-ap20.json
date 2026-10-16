@@ -29,6 +29,34 @@
       "content_sha256": "b4894cf36ec8b6db51f89b5708037b581238db19068e416702910fae1a9c3fe2",
       "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
       "final_score": 9.069999999999999
+    },
+    {
+      "target": "translation",
+      "scope": "full",
+      "assessed_at": "2026-10-16",
+      "assessed_by": [
+        "Claude Sonnet 5.5 (Claude Code)"
+      ],
+      "scores": {
+        "source_provenance": 9.5,
+        "semantic_fidelity": 8.7,
+        "grammar_logic": 8.8,
+        "segment_alignment": 10,
+        "terminology": 8.9,
+        "triangulation": 8.4,
+        "vietnamese_clarity": 9,
+        "han_viet_balance": 9.2,
+        "ambiguity_integrity": 8.6,
+        "technical_integrity": 9.6
+      },
+      "blocking_errors": [
+        "Không có tầng tham khảo tiếng Anh tại commit đã ghim 11c9d708978cde8ba61096d8a75f7ddfb846f639: `source/upstream-manifest.json` chỉ nhắc `thi-ap20` đúng một lần, là tệp Pāli root; tầng `english-sujato` không liệt kê tệp thân kinh nào cho `thi-ap` (tầng Anh đã ghim chỉ có 9 sub-collection của `kn`: cp, dhp, iti, ja, kp, snp, thag, thig, ud; tệp `thi-ap` duy nhất trong tầng là tệp tên `thi-ap-name`, không phải thân kinh), và cache cũng không có tệp thân kinh — đây là `not-published-upstream`, KHÔNG phải `not-synced`. Coverage đo theo công thức `source/layers.yaml` (Pāli có nội dung ≥ 40 ký tự sau khi bỏ khoảng trắng, loại block `:0`): mẫu số 1 khoá (`thi-ap20:45.1`, câu kết 51 ký tự), Sujato phủ 0/1 = 0%, dưới ngưỡng 0.8; 187/188 khoá còn lại đều ngắn hơn 40 ký tự (hoặc là block `:0`) nên cổng không đo được gì ở phần kệ. Tầng `vietnamese-current` vắng (commit đã ghim chỉ có 26 tệp Pháp Cú) và lớp lấp `english-project` không có tệp cho uid này. `scripts/validate.ts` coi tệp Anh thiếu là error khi status là `review` hoặc `published`, nên bài bắt buộc `draft`. Dịch chỉ từ Pāli root; đây là giới hạn upstream, không phải lỗi người dịch, nên `triangulation` chặn ở 7.5."
+      ],
+      "notes": "Áp dụng quyết định hội đồng biên tập 2026-10-16 (docs/editorial-council-2026-10.md): B20; 3 khoá, đối chiếu Pāli ghim và hồ sơ R1–R9. Các tiêu chí khác giữ nguyên.",
+      "id": "8123e01a-4642-4ca4-a3c5-c4b2197d1c58",
+      "content_sha256": "31de1e437013d526f72a137397225daf36a9c517a18289da1aaefa470ddb8e04",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
+      "final_score": 9.069999999999999
     }
   ],
   "legacy_quality": {

@@ -3,7 +3,8 @@ status: published
 translationTitle: "Chuyện Cung Điện Nandana"
 translators:
   - "OpenCode Space Bunny Free (agent)"
-reviewers: []
+reviewers:
+  - Claude Sonnet 5.5 (Claude Code)
 tags:
   - "kn"
   - "khuddaka-nikaya"
@@ -11,16 +12,16 @@ tags:
 quality:
   scores:
     source_provenance: 9.5
-    semantic_fidelity: 8.8
+    semantic_fidelity: 8.9
     grammar_logic: 9.2
-    segment_alignment: 10.0
+    segment_alignment: 10
     terminology: 8.8
     triangulation: 7.5
     vietnamese_clarity: 9.2
     han_viet_balance: 9.3
-    ambiguity_integrity: 9.0
+    ambiguity_integrity: 9
     technical_integrity: 9.6
-  final_score: 9.09
+  final_score: 9.099999999999998
   blocking_errors:
     - "Không có tầng tham khảo tiếng Anh tại commit đã ghim: tệp
       `translation/en/sujato/sutta/kn/vv/vv76_translation-en-sujato.json` không
@@ -37,9 +38,10 @@ quality:
       Pāli root ⇒ blocker thật, và đây là **giới hạn upstream**, không phải lỗi
       của người dịch. Vì vậy `triangulation` bị chặn ở 7.5 (≤ 8.0) chứ không
       nâng để né blocker."
-  assessed_at: "2026-10-11"
+  assessed_at: 2026-10-16
   assessed_by:
-    - "Claude Sonnet 5.5 (Claude Code)"
+    - Claude Sonnet 5.5 (Claude Code)
+  assessment_id: 0f2710b0-53f9-4cfc-a44f-636bf40b469f
   waiver:
     id: no-upstream-english
     blockers:
@@ -75,3 +77,5 @@ notes: |-
   - Điểm đổi: semantic_fidelity 9.3 → 8.8 và terminology 9.2 → 8.8 (tiêu đề 0.2 "Nam Hư Không" vẫn còn: Pāli Purisavimāna không có ākāsa; giữ nguyên vì đây là tiêu đề dùng chung cho cả bộ vv, sửa riêng một tệp sẽ lệch cả bộ; cần sửa đồng loạt); grammar_logic 9.3 → 9.2, vietnamese_clarity 9.3 → 9.2, han_viet_balance 9.4 → 9.3, ambiguity_integrity 9.2 → 9.0; các điểm khác giữ. Điểm trước (9.23) cao hơn thực chất vì bản cũ có lỗi quan hệ từ, thừa nghĩa và dịch trùng động từ như nêu trên.
   - Bất định còn lại: 1.4 "lơ lửng" cho tiṭṭhati (nghĩa gốc "đứng") giữ theo vv65, vv74, vv75 đã dùng; antalikkhe dịch "hư không" theo cả bộ; 3.2 và 5.2 là "…" của Pāli (lược), không dịch. vv75 có chung đoạn 4.1–4.6 với bài này nhưng chưa được kiểm toán trong lượt này, nên có thể còn lệch văn giữa hai bài.
   Kết quả kiểm ở lượt này: 25 khoá Việt khớp 25 khoá Pāli, thứ tự đúng, nháy khớp Pāli từng khoá, không Pāli lọt sang Việt, NFC sạch, một cặp Pāli trùng nội bộ (dấu lược 3.2/5.2) Việt giống nhau. technical_integrity giữ 9.6; bốn lệnh còn lại cần chạy ở cổng chung: npm run validate, npm test, npm run check, npm run build.
+
+  Quyết định hội đồng biên tập 2026-10-16: A13 — 2.4 (bỏ dấu chấm thừa sau dấu kết lời thoại (`?”.`/`.”.` thành `?”`/`.”`)).

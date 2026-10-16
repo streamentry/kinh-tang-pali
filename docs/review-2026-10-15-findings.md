@@ -139,3 +139,19 @@ Bất định mới, chờ người biên tập:
 - ja518:11.4 (`alabbham(a)byāharati`), 14.1 (`Bhariyā ce purisaṁ vajjā`, vợ là chủ thể hay đối tượng).
 - ja513:17.1 `daṇḍakirañño`: "vua Daṇḍaki" hay "rừng Daṇḍaka".
 - ja476:2.4 `pīyasi`, ja479:2.2, ja478:8.1, ja497:9.3 `padahasi` ("nuốt lửa" chưa có căn cứ PED).
+
+## Quyết định hội đồng biên tập 2026-10-16 và kết quả thi hành
+
+Các việc ghi là "chờ người biên tập quyết định chung" ở trên đã được phân xử trong [`docs/editorial-council-2026-10.md`](editorial-council-2026-10.md) (bốn góc nhìn Upāli, Ānanda, Mahākassapa, Sāriputta, dựa trên chín hồ sơ thẩm tra R1–R9). Biên bản **chưa có chữ ký của người biên tập**: người biên tập có thể đảo bất kỳ quyết định nào.
+
+Thi hành: 1.356 bài, 7.155 khoá (227 bài có sửa lỗi rõ mục A, 1.129 bài chỉ đổi thuật ngữ/hình thức). Mỗi bài đã chấm lại bằng `quality --record/--apply`: điểm giữ nguyên, riêng bài có lỗi rõ được +0,1 `semantic_fidelity`. English fill `dhp44-59` được gỡ blocker bằng chú giải CST và PED, lên `published` (9,1); `ja514` gỡ `unresolvedTerm` và lên `published` (9,01); `ja515` gỡ blocker, ở `review`. Hash nguồn của chín hàng audio `not-started` (mn117, mn122, dn1, dn2, dn16, dn18, dn32, dn33, dn34) được cập nhật theo tiền lệ #649; mn1–mn104 và mn105–mn114 không bị chạm. Tầng Việt sau thi hành: 5.942 published, 181 review, 12 draft.
+
+Không đổi: chính sách Pāli ghim (không ghim thêm BJT, không sync lớp `variant/`); pe1–pe6, pe8, pe9, tha-ap3, tha-ap114, tha-ap345, tha-ap548 vẫn `draft`.
+
+Còn tồn đọng sau thi hành (chủ yếu do agent thi hành ghi lại):
+- **Xưng hô tha-ap/thi-ap:** tha-ap282, 323, 333, 383, 513 (người kể xưng "con" cả bài, không có hô ngữ gọi Phật); tha-ap550:13.2; ranh giới "tôi"/"con" ở thi-ap9, thi-ap33–38 theo luật "từ khổ hô ngữ đầu đến hết lời thoại"; tha-ap3 và tha-ap8 (đoạn Sāriputta/Upāli thưa Đức Phật). Hồ sơ R2 coi mọi hô ngữ `mahāmuni`, `mārisa` là gọi Phật, thực tế nhiều chỗ không phải.
+- **Jātaka:** lời thoại dài (> 6 khoá) còn trộn đại từ; ja212 `bhaddante`; ja216 "ta" + "các ngài"; ja27 "Thường Xuyên"; ~50 bài đặt phiên âm cho danh từ chung (ja224 Kumbhila, ja231 Upāhana, ja255 Suka…); ja92–ja97 giữ phiên âm; ja220 Dhammadhaja; ja38 (Con Hạc) so với ja236 (Con Cò).
+- **Peṭakopadesa/Netti:** tha-ap453:1.1 `Dhammadassissa munino` (tên Đức Phật?); tha-ap501:4.1; tha-ap428:1.1/1.3 (`sucintitaṁ`, `upaviṭṭhaṁ`); tha-ap30:4.1–4.4, tha-ap58:4.3–4.4, tha-ap170:1.1–2.4, tha-ap258:1.4, tha-ap154:1.3; tha-ap86:3.3 "hoa chưa chính".
+- **Niddesa/Suttanipāta:** snp4.9:1.1–1.4 lệch khoá; snp4.5:3.3–3.4 dời nửa câu; snp4.4:6.1 và snp4.13:20.1 `visenibhūto`; thag9.1:10.2; ≈25 khoá snp3.4, snp4.2, snp5.2–5.17 dùng "liễu tri" cho `viditvā`, `pajānaṁ`, `saṅkhāya`, `aññāya`, `abhiññāya`; tiêu đề thag đảo `:0.3`/`:0.4` (thag1.8–1.11); thag1.1:0.1 ghi "Therīgāthā". snp4.12:4.1: agent khôi phục phủ định `na vīvadātā` theo Niddesa — người biên tập nên xác nhận.
+- **Milinda/AN:** mil3.7.1, mil6.2.1 (`navakamma` = công việc xây dựng), mil7.3.9:2.1, mil5.5.2 và mil5.5.4 ("Tứ Đẳng Giác"), mil3.1.13 `apilāpana`; ~82 khoá sn, 32 khoá an, 36 khoá mil còn dấu kép `.”.`/`?”.` ngoài phạm vi A13 (chỉ chốt Jātaka và các bộ agent mở rộng).
+- **Lựa chọn thuật ngữ giữ ở mức chưa chốt:** `nissaraṇa` toàn kho (217 khoá, chỉ sửa chỗ va chạm với `nekkhamma`); `pajahati` ngoài ps; `satarājikā` (chọn "bát … nặng trăm"); `ekasataṁ` tha-ap431:12.3; dhp155 "cò già" (ngoại lệ quen thuộc cho `koñca`); `khattavijjā` ở dn1, dn2 áp theo khuyến nghị "khá chắc".

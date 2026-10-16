@@ -115,6 +115,34 @@
       "notes": "Kiểm tra tự động 36 segment với Pāli trong cache: đủ ID, giá trị, NFC và hệ chữ Latin. Chưa đọc đối chiếu nghĩa, ngữ pháp hoặc văn phong; chưa chấm lại 10 tiêu chí. Đây không phải chứng nhận hash upstream hoặc giấy phép, không xác nhận trạng thái xuất bản.",
       "content_sha256": "12de7aac9384b911ed519be9671160e8cb5aa9fc8a76eadda52923ad7ca45e26",
       "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639"
+    },
+    {
+      "target": "translation",
+      "scope": "full",
+      "assessed_at": "2026-10-16",
+      "assessed_by": [
+        "Claude Sonnet 5.5 (Claude Code)"
+      ],
+      "scores": {
+        "source_provenance": 9.6,
+        "semantic_fidelity": 9.2,
+        "grammar_logic": 9.2,
+        "segment_alignment": 10,
+        "terminology": 9.4,
+        "triangulation": 7.5,
+        "vietnamese_clarity": 9.3,
+        "han_viet_balance": 9.5,
+        "ambiguity_integrity": 9.3,
+        "technical_integrity": 9.6
+      },
+      "blocking_errors": [
+        "Không có tầng tham khảo tiếng Anh tại commit đã ghim 11c9d708978cde8ba61096d8a75f7ddfb846f639: `source/upstream-manifest.json` cho thấy bản `translation/en/sujato/sutta/kn/` chỉ có 9 sub-collection (cp 35 · dhp 26 · iti 112 · ja 83 · kp 9 · snp 73 · thag 264 · thig 73 · ud 80 = 755 tệp) — không có `tha-ap`; tệp `tha-ap212` duy nhất trong cả manifest là Pāli root `kn/tha-ap/tha-ap212_root-pli-ms.json`. Tệp Anh duy nhất mang tên `tha-ap` là tệp *tên* `name/sutta/tha-ap-name_translation-en-sujato.json`, không phải thân kinh. Tầng `vietnamese-current` cũng vắng (`translation/vi/phantuananh` chỉ có 26 tệp, toàn bộ Pháp Cú), và lớp lấp `english-project` không có entry cho uid này. Mẫu số coverage theo đúng `source/layers.yaml` (`substantivePaliMinChars: 40`, loại block tham chiếu) là 1 khoá (`:7.1`), Sujato phủ 0 ⇒ 0/1 = 0%, dưới ngưỡng 0.8. `scripts/validate.ts` coi tầng Anh thiếu là error khi status là `review` hoặc `published`, nên bài bắt buộc `draft`. Cả ba tầng tham khảo đều vắng ⇒ bài dịch chỉ từ Pāli root, đây là blocker thật và là giới hạn upstream chứ không phải lỗi người dịch; vì vậy `triangulation` bị chặn ở 7.5 chứ không nâng để né blocker."
+      ],
+      "notes": "Áp dụng quyết định hội đồng biên tập 2026-10-16 (docs/editorial-council-2026-10.md): C5; 2 khoá, đối chiếu Pāli ghim và hồ sơ R1–R9. Các tiêu chí khác giữ nguyên.",
+      "id": "3b2b77b6-3b84-4c4b-b285-e4550f0df392",
+      "content_sha256": "4e0f409c6eacab62e7f8fd8a2693aade087fe693ae6bd07271a5888fd9ae4ad8",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
+      "final_score": 9.26
     }
   ],
   "legacy_quality": {

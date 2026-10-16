@@ -3,7 +3,9 @@ status: published
 translationTitle: "Câu Hỏi Về Việc Nhớ Đời Trước"
 translators:
   - "OpenCode Space Bunny Free (agent)"
-reviewers: []
+reviewers:
+  - OpenCode Space Bunny Free (agent)
+  - Claude Sonnet 5.5 (Claude Code)
 tags:
   - khuddaka-nikaya
   - milindapanha
@@ -12,16 +14,16 @@ tags:
 quality:
   scores:
     source_provenance: 9.4
-    semantic_fidelity: 9.4
+    semantic_fidelity: 9.5
     grammar_logic: 9.4
-    segment_alignment: 10.0
+    segment_alignment: 10
     terminology: 9.3
-    triangulation: 7.0
+    triangulation: 7
     vietnamese_clarity: 9.4
     han_viet_balance: 9.3
     ambiguity_integrity: 9.2
     technical_integrity: 9.6
-  final_score: 9.20
+  final_score: 9.209999999999999
   blocking_errors:
     - "Không có tầng tham khảo English Sujato tại commit đã ghim: đếm bằng
       script trên cache đã ghim
@@ -31,9 +33,10 @@ quality:
       trong bản chụp upstream. Bài này vì vậy chỉ dịch từ Pāli, chưa đối chiếu
       được tầng tham khảo nào nên không đủ điều kiện review hoặc published; giữ
       draft cho tới khi người điều phối bổ sung tầng tham khảo."
-  assessed_at: "2026-10-03"
+  assessed_at: 2026-10-16
   assessed_by:
-    - "OpenCode Space Bunny Free (agent)"
+    - Claude Sonnet 5.5 (Claude Code)
+  assessment_id: fbc1414f-9690-430a-9baf-683a3fb088dc
   waiver:
     id: no-upstream-english
     blockers:
@@ -72,3 +75,5 @@ notes: |-
   Dấu lược: bài không có `…pe…`; hai phía đều 0.
 
   Kiểm kỹ thuật: save_vi chạy sạch; vì mọi khoá Pāli ở lát này ngắn hơn 40 ký tự (khoá dài nhất 39) nên tập `cần` trong _hvi.kiểm rỗng và các assertion NFC / trùng nguyên văn Pāli / Pāli lọt / số dấu lược KHÔNG tự chạy, tôi tự quét lại MỌI khoá bằng chính các hàm đó (pal, lược, lọt_pāli, ngoặc, _TỪ): đủ 15/15 khoá, đúng ID, thứ tự khoá y hệt Pāli, không rỗng, không thừa, mọi chuỗi NFC, không trùng nguyên văn Pāli (trừ 0.1 là tên bộ Kinh, đúng như tiền lệ), số dấu lược khớp Pāli từng khoá, nháy kép cân trên cả bài và khớp đúng số mở/đóng của từng khoá Pāli, không còn (…), toàn bộ chữ cái là script Latin. Đợt này cấm chạy cổng nên technical_integrity = 9.6, KHÔNG phải 10.0; bốn lệnh npm run validate | test | check | build để người điều phối chạy.
+
+  Quyết định hội đồng biên tập 2026-10-16: B6 — mil3.6.10:0.2, 1.3, 1.4, 1.7, 1.8, 1.9, 1.10 (sati = “trí nhớ”; acittako không phải “không có ý thức”: 1.7–1.8 hỏi “không có tâm?” và đáp “không có trí nhớ”).

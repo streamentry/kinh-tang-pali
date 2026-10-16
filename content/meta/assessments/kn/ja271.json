@@ -109,6 +109,34 @@
       "content_sha256": "67d061b55cf55e53c06602dabee33706b64e2c37f0a4da1273321fb2e7450103",
       "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
       "final_score": 8.999999999999998
+    },
+    {
+      "target": "translation",
+      "scope": "full",
+      "assessed_at": "2026-10-16",
+      "assessed_by": [
+        "Claude Sonnet 5.5 (Claude Code)"
+      ],
+      "scores": {
+        "source_provenance": 9.4,
+        "semantic_fidelity": 9,
+        "grammar_logic": 8.9,
+        "segment_alignment": 10,
+        "terminology": 9,
+        "triangulation": 7.5,
+        "vietnamese_clarity": 9,
+        "han_viet_balance": 9.1,
+        "ambiguity_integrity": 8.6,
+        "technical_integrity": 9.6
+      },
+      "blocking_errors": [
+        "Thiếu hẳn tầng tham khảo English Sujato tại commit đã ghim 11c9d708978cde8ba61096d8a75f7ddfb846f639: đếm trực tiếp trên source/upstream-manifest.json (cùng commit) cho thấy tầng translation/en/sujato có 4.291 tệp, trong đó thư mục sutta/kn/ja/ chỉ có 83 tệp, không có tệp nào chứa khoá của bài này; hàm upstreamPublishes của kho trả về false cho đường dẫn này, nghĩa là SuttaCentral không phát hành bản Anh nào phủ bài này tại commit đã ghim. Tầng vietnamese-current cũng không có (đúng 26 tệp, chỉ Pháp Cú), nên bài chỉ đối chiếu được với Pāli root một mình. Đây là giới hạn của bản chụp upstream, không phải thiếu sót của kho, nhưng theo AGENTS.md thì thiếu tầng tham khảo là lỗi chặn đối với review và published, và tests/unit/reference-source.test.ts kiểm đúng điều đó. Bài đặt draft và không nâng điểm để né."
+      ],
+      "notes": "Áp dụng quyết định hội đồng biên tập 2026-10-16 (docs/editorial-council-2026-10.md): A13, C3, C4; 4 khoá, đối chiếu Pāli ghim và hồ sơ R1–R9. semantic_fidelity +0,1 vì sửa lỗi rõ. Các tiêu chí khác giữ nguyên.",
+      "id": "564d742c-cfe1-44c5-a3dc-3858236237ec",
+      "content_sha256": "65fa2b86c731b8b57e3f6bcfdeecde0be253627ef8002d8551d7874dccf5edf6",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
+      "final_score": 9.009999999999998
     }
   ],
   "legacy_quality": {

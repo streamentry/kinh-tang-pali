@@ -81,6 +81,34 @@
       "content_sha256": "0a319533fa8df3b69f09c43fbfc4cd5b21506e7fed45905237ec541e733bf031",
       "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
       "final_score": 9.059999999999999
+    },
+    {
+      "target": "translation",
+      "scope": "full",
+      "assessed_at": "2026-10-16",
+      "assessed_by": [
+        "Claude Sonnet 5.5 (Claude Code)"
+      ],
+      "scores": {
+        "source_provenance": 9.3,
+        "semantic_fidelity": 8.9,
+        "grammar_logic": 8.9,
+        "segment_alignment": 10,
+        "terminology": 9,
+        "triangulation": 8.4,
+        "vietnamese_clarity": 8.9,
+        "han_viet_balance": 9.2,
+        "ambiguity_integrity": 8.5,
+        "technical_integrity": 9.6
+      },
+      "blocking_errors": [
+        "Không có tầng tham khảo tiếng Anh tại commit đã ghim (11c9d708978cde8ba61096d8a75f7ddfb846f639): thư mục `kn/` của edition `translation/en/sujato` tại commit ấy chỉ có cp, dhp, iti, ja, kp, snp, thag, thig, ud — **không có mil, pv hay tha-ap**; `source/upstream-manifest.json` không liệt kê bất kỳ tệp nào cho uid này. Đây là `not-published-upstream`, KHÔNG phải `not-synced`. Bài này **không có segment Pāli có nội dung** (mọi câu kệ đều ngắn hơn 40 ký tự sau khi chuẩn hoá — đo được 0 trên 36 khoá), nên `src/lib/canon/reference.ts` quy định `ratio = 1` khi mẫu số bằng 0 và cổng coverage **không** chặn. Nhưng tệp Anh thật sự không tồn tại, và `scripts/validate.ts` coi đó là **error** khi status là `review` hoặc `published` ⇒ bài bắt buộc `draft`. Đây là trường hợp số đo không bắt được nhưng thực tế vẫn mất tầng tham khảo. Tầng `vietnamese-current` cũng vắng (chỉ 26 tệp Pháp Cú) và lớp lấp `english-project` cũng không có uid này ⇒ blocker thật."
+      ],
+      "notes": "Áp dụng quyết định hội đồng biên tập 2026-10-16 (docs/editorial-council-2026-10.md): A13; 1 khoá, đối chiếu Pāli ghim và hồ sơ R1–R9. semantic_fidelity +0,1 vì sửa lỗi rõ. Các tiêu chí khác giữ nguyên.",
+      "id": "c6a915c4-5ad8-4566-8858-4ce18d907ca6",
+      "content_sha256": "0b510dbe411b9d30c3a7977c6946da96b3e7f96eb83c43cc347fc68fe82e6a7a",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
+      "final_score": 9.069999999999999
     }
   ],
   "legacy_quality": {

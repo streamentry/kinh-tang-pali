@@ -53,6 +53,34 @@
       "notes": "Kiểm tra tự động 31 segment với Pāli trong cache: đủ ID, giá trị, NFC và hệ chữ Latin. Chưa đọc đối chiếu nghĩa, ngữ pháp hoặc văn phong; chưa chấm lại 10 tiêu chí. Đây không phải chứng nhận hash upstream hoặc giấy phép, không xác nhận trạng thái xuất bản.",
       "content_sha256": "c010f791d0b842ea56d3f36c3aedda0fca2a62a7af14a7ef28eff0dce3cf5b9e",
       "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639"
+    },
+    {
+      "target": "translation",
+      "scope": "full",
+      "assessed_at": "2026-10-16",
+      "assessed_by": [
+        "Claude Sonnet 5.5 (Claude Code)"
+      ],
+      "scores": {
+        "source_provenance": 9.5,
+        "semantic_fidelity": 9.4,
+        "grammar_logic": 9.3,
+        "segment_alignment": 10,
+        "terminology": 9.2,
+        "triangulation": 7.5,
+        "vietnamese_clarity": 9.3,
+        "han_viet_balance": 9.4,
+        "ambiguity_integrity": 9.2,
+        "technical_integrity": 9.6
+      },
+      "blocking_errors": [
+        "Không có tầng tham khảo tiếng Anh tại commit đã ghim: cây translation/en/sujato trong source/upstream-manifest.json liệt kê 0 tệp dưới kn/mil (248 tệp kn/mil có trong tầng Pāli root), nên tệp translation/en/sujato/sutta/kn/mil/mil6.2.1_translation-en-sujato.json không tồn tại trong .cache/upstream/suttacentral/ — đây là not-published-upstream, KHÔNG phải not-synced. Đo coverage theo đúng công thức source/layers.yaml (Pāli có nội dung ≥ 40 ký tự sau khi gộp khoảng trắng, loại block tham chiếu :0) cho 0 trên 26 khoá = 0%, dưới ngưỡng 0.8. Tầng vietnamese-current cũng vắng: translation/vi/phantuananh tại commit đã ghim chỉ có 26 tệp và toàn bộ là Pháp Cú. Lớp lấp english-project của dự án cũng không có cho uid này. Ba tầng tham khảo đều vắng ⇒ bài dịch chỉ từ Pāli root ⇒ blocker thật, và đây là giới hạn upstream, không phải lỗi của người dịch. Vì vậy triangulation bị chặn ở 7.5 (≤ 8.0) chứ không nâng để né blocker."
+      ],
+      "notes": "Áp dụng quyết định hội đồng biên tập 2026-10-16 (docs/editorial-council-2026-10.md): A4; 2 khoá, đối chiếu Pāli ghim và hồ sơ R1–R9. semantic_fidelity +0,1 vì sửa lỗi rõ. Các tiêu chí khác giữ nguyên.",
+      "id": "6bb72b56-ecf4-41c6-b9ea-c5c359f13bc8",
+      "content_sha256": "881a8d9c9bd4737e612a4c7926d83ed2f2f76da3aa73837ca31c5640496c7725",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
+      "final_score": 9.24
     }
   ],
   "legacy_quality": {

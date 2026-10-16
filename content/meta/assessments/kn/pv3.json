@@ -53,6 +53,34 @@
       "notes": "Kiểm tra tự động 16 segment với Pāli trong cache: đủ ID, giá trị, NFC và hệ chữ Latin. Chưa đọc đối chiếu nghĩa, ngữ pháp hoặc văn phong; chưa chấm lại 10 tiêu chí. Đây không phải chứng nhận hash upstream hoặc giấy phép, không xác nhận trạng thái xuất bản.",
       "content_sha256": "9a5af1b503dfc9193b795d209b8772c5def88e8ec96ccdb4eb55f31956ac82e4",
       "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639"
+    },
+    {
+      "target": "translation",
+      "scope": "full",
+      "assessed_at": "2026-10-16",
+      "assessed_by": [
+        "Claude Sonnet 5.5 (Claude Code)"
+      ],
+      "scores": {
+        "source_provenance": 9.2,
+        "semantic_fidelity": 9,
+        "grammar_logic": 9,
+        "segment_alignment": 10,
+        "terminology": 8.9,
+        "triangulation": 7.7,
+        "vietnamese_clarity": 9,
+        "han_viet_balance": 9.2,
+        "ambiguity_integrity": 8.8,
+        "technical_integrity": 9.6
+      },
+      "blocking_errors": [
+        "Không có tầng tham khảo English Sujato tại commit đã ghin cho uid này: edition `translation/en/sujato` trong `source/upstream-manifest.json` (4291 tệp) **không có tệp `kn/` nào** (0/4291), nên `pv3` không có bản Anh; đây là `not-published-upstream`, KHÔNG phải `not-synced`. Lớp lấp `english-project` cũng không có `pv3`. Tầng `vietnamese-current` vắng: `translation/vi/phantuananh` tại commit đã ghin chỉ có 26 tệp, toàn bộ là Pháp Cú. Ba tầng tham khảo đều vắng ⇒ bài dịch chỉ từ Pāli root ⇒ blocker thắng điểm, bài bắt buộc `draft`. CỔNG BẪM ĐÃ ĐO: công thức coverage trong `source/layers.yaml` chỉ quét Pāli có nội dung ≥ 40 ký tự, mà `pv3` có **0** khoá như vậy (mọi khoá kệ đều ngắn hơn 40 ký tự), nên phép kiểm coverage **không tự chạy** cho uid này — đó là danh sách rỗng, KHÔNG phải bằng chứng đã đủ. Tôi đã tự quét **MỌI** khoá từ đĩa bằng script thay vì tin ngưỡng."
+      ],
+      "notes": "Áp dụng quyết định hội đồng biên tập 2026-10-16 (docs/editorial-council-2026-10.md): A13; 1 khoá, đối chiếu Pāli ghim và hồ sơ R1–R9. semantic_fidelity +0,1 vì sửa lỗi rõ. Các tiêu chí khác giữ nguyên.",
+      "id": "75c06685-45a1-4224-8389-cce7641ae43d",
+      "content_sha256": "d1eda3a96d9593b664c3147fd0f2e8f396cc802a34f7b5433381780c1f1b2b3f",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
+      "final_score": 9.04
     }
   ],
   "legacy_quality": {

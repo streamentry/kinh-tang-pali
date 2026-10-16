@@ -8395,11 +8395,13 @@
       "uid": "mn117",
       "collection": "mn",
       "order": 117,
-      "status": "live",
-      "source_sha256": "dd112ee56b033dea1abd9d66b99485f18f42a5f9086ef0489ad0bbfbf1dc7800",
+      "status": "blocked",
+      "source_sha256": "8707b477541ff93f315e62f70d39709563138fbe20d6ecf88477281a5b58dd51",
       "profile_sha256": "a384c5852585077c32e1348a6ada5cfc70a69c989ad705b8b5129fef3e1c9a71",
-      "errors": [],
-      "updated_at": "2026-10-16T00:24:22.248Z",
+      "errors": [
+        "Canonical narration source changed in editorial PR #704; existing MP3 is stale and must be regenerated."
+      ],
+      "updated_at": "2026-10-16T01:25:26.989086+00:00",
       "batch": "mn-044",
       "review_status": "pending",
       "url": "https://pub-8fa53f5182904685bd0c13d6c894a0e9.r2.dev/vi/mn/mn117/60a6c61c0e076ac6.mp3",
@@ -8410,7 +8412,7 @@
       "bytes": 21646080,
       "pr_url": "https://github.com/streamentry/kinh-tang-pali/pull/697",
       "merge_commit": "1a15b6e04569490e8e820fe2383067aff393478a",
-      "live_verified_at": "2026-10-16T00:24:22.248Z",
+      "live_verified_at": null,
       "checkpoint": "audio/mn117/d33d05264246d4ec",
       "upload_verified": true,
       "bucket": "kinh-tang-pali-audio",
@@ -8427,29 +8429,8 @@
       "deployment_run_id": "38778610882",
       "deployment_commit": "640047ce921ffbf264cede0d9cb9d77d7d66bfb5",
       "production_page": "https://streamentry.github.io/kinh-tang-pali/sutta/mn/mn117/",
-      "playback_verified_at": "2026-10-16T00:24:22.248Z",
-      "playback_observation": {
-        "uid": "mn117",
-        "verified_at": "2026-10-16T00:24:22.248Z",
-        "production_page": "https://streamentry.github.io/kinh-tang-pali/sutta/mn/mn117/",
-        "source": "https://pub-8fa53f5182904685bd0c13d6c894a0e9.r2.dev/vi/mn/mn117/60a6c61c0e076ac6.mp3",
-        "seek_15_seconds": true,
-        "scripture_jump": true,
-        "keyboard_timeline_seek": true,
-        "playback_advanced": true,
-        "scripture_start": 158.82999999999998,
-        "observed": {
-          "currentTime": 160.252818,
-          "paused": false,
-          "readyState": 4,
-          "error": null,
-          "duration": 1082.304,
-          "playbackRate": 1,
-          "src": "https://pub-8fa53f5182904685bd0c13d6c894a0e9.r2.dev/vi/mn/mn117/60a6c61c0e076ac6.mp3"
-        },
-        "paused_after_test": true,
-        "human_content_listening": false
-      },
+      "playback_verified_at": null,
+      "playback_observation": null,
       "deployment_evidence": {
         "pr_push_ci_run_id": "38772685850",
         "pr_push_ci_conclusion": "success",
@@ -8476,14 +8457,23 @@
         "interactive_browser_playback_tested": true,
         "human_listening_completed": false
       },
-      "qc_status": "Production Chrome playback/15-second seek/keyboard timeline/scripture jump and public R2 range verified. ASR skipped; full manual content listening pending.",
+      "qc_status": "Blocked by canonical source drift in PR #704. Prior playback/QC evidence refers to the previous source revision only; retained under stale_audio_evidence. Full manual listening remains pending.",
       "qc_evidence": {
-        "method": "Production HTTP/R2 range readback and isolated Chrome via bundled Playwright CLI",
-        "browser_playback_tested": true,
-        "production_page_readback_tested": true,
+        "method": "Source SHA-256 drift verification against the integrated canonical text",
+        "current_source_verified": false,
+        "browser_playback_tested": false,
+        "production_page_readback_tested": false,
         "manual_content_listening_completed": false,
         "review_status": "pending",
-        "browser_playback_observation": {
+        "prior_source_evidence_retained": true
+      },
+      "stale_audio_evidence": {
+        "source_sha256": "dd112ee56b033dea1abd9d66b99485f18f42a5f9086ef0489ad0bbfbf1dc7800",
+        "url": "https://pub-8fa53f5182904685bd0c13d6c894a0e9.r2.dev/vi/mn/mn117/60a6c61c0e076ac6.mp3",
+        "sha256": "60a6c61c0e076ac6bcd54250a2d3ce44128d41880a975cf52e0ec8118f42808f",
+        "live_verified_at": "2026-10-16T00:24:22.248Z",
+        "playback_verified_at": "2026-10-16T00:24:22.248Z",
+        "playback_observation": {
           "uid": "mn117",
           "verified_at": "2026-10-16T00:24:22.248Z",
           "production_page": "https://streamentry.github.io/kinh-tang-pali/sutta/mn/mn117/",
@@ -8504,7 +8494,43 @@
           },
           "paused_after_test": true,
           "human_content_listening": false
+        },
+        "qc_evidence": {
+          "method": "Production HTTP/R2 range readback and isolated Chrome via bundled Playwright CLI",
+          "browser_playback_tested": true,
+          "production_page_readback_tested": true,
+          "manual_content_listening_completed": false,
+          "review_status": "pending",
+          "browser_playback_observation": {
+            "uid": "mn117",
+            "verified_at": "2026-10-16T00:24:22.248Z",
+            "production_page": "https://streamentry.github.io/kinh-tang-pali/sutta/mn/mn117/",
+            "source": "https://pub-8fa53f5182904685bd0c13d6c894a0e9.r2.dev/vi/mn/mn117/60a6c61c0e076ac6.mp3",
+            "seek_15_seconds": true,
+            "scripture_jump": true,
+            "keyboard_timeline_seek": true,
+            "playback_advanced": true,
+            "scripture_start": 158.82999999999998,
+            "observed": {
+              "currentTime": 160.252818,
+              "paused": false,
+              "readyState": 4,
+              "error": null,
+              "duration": 1082.304,
+              "playbackRate": 1,
+              "src": "https://pub-8fa53f5182904685bd0c13d6c894a0e9.r2.dev/vi/mn/mn117/60a6c61c0e076ac6.mp3"
+            },
+            "paused_after_test": true,
+            "human_content_listening": false
+          }
         }
+      },
+      "source_drift": {
+        "detected_at": "2026-10-16T01:25:26.989086+00:00",
+        "editorial_pr": "https://github.com/streamentry/kinh-tang-pali/pull/704",
+        "old_source_sha256": "dd112ee56b033dea1abd9d66b99485f18f42a5f9086ef0489ad0bbfbf1dc7800",
+        "new_source_sha256": "8707b477541ff93f315e62f70d39709563138fbe20d6ecf88477281a5b58dd51",
+        "resolved_at": null
       }
     },
     "mn118": {
@@ -8907,11 +8933,13 @@
       "uid": "mn122",
       "collection": "mn",
       "order": 122,
-      "status": "uploaded-verified",
-      "source_sha256": "1c611e946d4c188d7648045d2063f04460342db8dda787311e56d0625700e81c",
+      "status": "blocked",
+      "source_sha256": "f282fc0378cf13ced2dbae456467220efd34bc5633730cdd60443cc1711379f7",
       "profile_sha256": "a384c5852585077c32e1348a6ada5cfc70a69c989ad705b8b5129fef3e1c9a71",
-      "errors": [],
-      "updated_at": "2026-10-16T00:55:18.580Z",
+      "errors": [
+        "Canonical narration source changed in editorial PR #704; existing MP3 is stale and must be regenerated."
+      ],
+      "updated_at": "2026-10-16T01:25:26.989086+00:00",
       "batch": "mn-045",
       "review_status": "pending",
       "url": "https://pub-8fa53f5182904685bd0c13d6c894a0e9.r2.dev/vi/mn/mn122/2d8e141cea906c55.mp3",
@@ -8928,39 +8956,25 @@
       "bucket": "kinh-tang-pali-audio",
       "r2_verified_at": "2026-10-16T00:54:59.615876+00:00",
       "public_range_verified": true,
-      "playback_verified_at": "2026-10-16T00:55:18.580Z",
-      "playback_observation": {
-        "uid": "mn122",
-        "verified_at": "2026-10-16T00:55:18.580Z",
-        "page_url": "http://127.0.0.1:4335/kinh-tang-pali/sutta/mn/mn122/",
-        "environment": "local",
-        "source": "https://pub-8fa53f5182904685bd0c13d6c894a0e9.r2.dev/vi/mn/mn122/2d8e141cea906c55.mp3",
-        "seek_15_seconds": true,
-        "scripture_jump": true,
-        "keyboard_timeline_seek": true,
-        "playback_advanced": true,
-        "scripture_start": 172.82999999999998,
-        "observed": {
-          "currentTime": 174.262314,
-          "paused": false,
-          "readyState": 4,
-          "error": null,
-          "duration": 1542.912,
-          "playbackRate": 1,
-          "src": "https://pub-8fa53f5182904685bd0c13d6c894a0e9.r2.dev/vi/mn/mn122/2d8e141cea906c55.mp3"
-        },
-        "paused_after_test": true,
-        "human_content_listening": false
-      },
-      "qc_status": "Local Chrome player with public R2 source: playback, 15-second seek, keyboard timeline and scripture jump verified. ASR skipped; full manual content listening pending.",
+      "playback_verified_at": null,
+      "playback_observation": null,
+      "qc_status": "Blocked by canonical source drift in PR #704. Prior playback/QC evidence refers to the previous source revision only; retained under stale_audio_evidence. Full manual listening remains pending.",
       "qc_evidence": {
-        "method": "Source/profile/chunk accounting and MP3 integrity; full public R2 SHA-256/bytes plus range; local Chrome via bundled Playwright CLI",
-        "browser_playback_tested": true,
-        "browser_environment": "local",
+        "method": "Source SHA-256 drift verification against the integrated canonical text",
+        "current_source_verified": false,
+        "browser_playback_tested": false,
         "production_page_readback_tested": false,
         "manual_content_listening_completed": false,
         "review_status": "pending",
-        "browser_playback_observation": {
+        "prior_source_evidence_retained": true
+      },
+      "stale_audio_evidence": {
+        "source_sha256": "1c611e946d4c188d7648045d2063f04460342db8dda787311e56d0625700e81c",
+        "url": "https://pub-8fa53f5182904685bd0c13d6c894a0e9.r2.dev/vi/mn/mn122/2d8e141cea906c55.mp3",
+        "sha256": "2d8e141cea906c55a6f8822f4c878fc99f0cfbe530adc4811b2527894db23c1d",
+        "live_verified_at": null,
+        "playback_verified_at": "2026-10-16T00:55:18.580Z",
+        "playback_observation": {
           "uid": "mn122",
           "verified_at": "2026-10-16T00:55:18.580Z",
           "page_url": "http://127.0.0.1:4335/kinh-tang-pali/sutta/mn/mn122/",
@@ -8982,7 +8996,45 @@
           },
           "paused_after_test": true,
           "human_content_listening": false
+        },
+        "qc_evidence": {
+          "method": "Source/profile/chunk accounting and MP3 integrity; full public R2 SHA-256/bytes plus range; local Chrome via bundled Playwright CLI",
+          "browser_playback_tested": true,
+          "browser_environment": "local",
+          "production_page_readback_tested": false,
+          "manual_content_listening_completed": false,
+          "review_status": "pending",
+          "browser_playback_observation": {
+            "uid": "mn122",
+            "verified_at": "2026-10-16T00:55:18.580Z",
+            "page_url": "http://127.0.0.1:4335/kinh-tang-pali/sutta/mn/mn122/",
+            "environment": "local",
+            "source": "https://pub-8fa53f5182904685bd0c13d6c894a0e9.r2.dev/vi/mn/mn122/2d8e141cea906c55.mp3",
+            "seek_15_seconds": true,
+            "scripture_jump": true,
+            "keyboard_timeline_seek": true,
+            "playback_advanced": true,
+            "scripture_start": 172.82999999999998,
+            "observed": {
+              "currentTime": 174.262314,
+              "paused": false,
+              "readyState": 4,
+              "error": null,
+              "duration": 1542.912,
+              "playbackRate": 1,
+              "src": "https://pub-8fa53f5182904685bd0c13d6c894a0e9.r2.dev/vi/mn/mn122/2d8e141cea906c55.mp3"
+            },
+            "paused_after_test": true,
+            "human_content_listening": false
+          }
         }
+      },
+      "source_drift": {
+        "detected_at": "2026-10-16T01:25:26.989086+00:00",
+        "editorial_pr": "https://github.com/streamentry/kinh-tang-pali/pull/704",
+        "old_source_sha256": "1c611e946d4c188d7648045d2063f04460342db8dda787311e56d0625700e81c",
+        "new_source_sha256": "f282fc0378cf13ced2dbae456467220efd34bc5633730cdd60443cc1711379f7",
+        "resolved_at": null
       }
     },
     "mn123": {
@@ -9742,7 +9794,7 @@
       "collection": "dn",
       "order": 1,
       "status": "not-started",
-      "source_sha256": "17510b34e2045869c530c5382c577a4e8066ca5ce3459ef99161c56267c292ad",
+      "source_sha256": "587b17efbb196bbb3ab80951866f2973e3a311cbe02b6894aa76c907e112efa1",
       "profile_sha256": "a384c5852585077c32e1348a6ada5cfc70a69c989ad705b8b5129fef3e1c9a71",
       "errors": [],
       "updated_at": "2026-10-10T00:02:54.154182+00:00",
@@ -9763,7 +9815,7 @@
       "collection": "dn",
       "order": 2,
       "status": "not-started",
-      "source_sha256": "eb21b8db2826539331c53d8363f06e29480851d8b6d996c3ca3e4592f775a7c6",
+      "source_sha256": "d8019e190ce21c54c69799e202f9e516d35138acb01c48837de7f922dd52c323",
       "profile_sha256": "a384c5852585077c32e1348a6ada5cfc70a69c989ad705b8b5129fef3e1c9a71",
       "errors": [],
       "updated_at": "2026-10-13T02:40:35.336911+00:00",
@@ -10057,7 +10109,7 @@
       "collection": "dn",
       "order": 16,
       "status": "not-started",
-      "source_sha256": "d7c9431fc7834306c15ea41042aa60b121da71313d5c764a78dc767ef3b1c13c",
+      "source_sha256": "bf2bd75a5a229657fa08b8e7906d5ff454ffe0d105dfc4c2c66908dccc38a932",
       "profile_sha256": "a384c5852585077c32e1348a6ada5cfc70a69c989ad705b8b5129fef3e1c9a71",
       "errors": [],
       "updated_at": "2026-10-13T05:11:17.095985+00:00",
@@ -10099,7 +10151,7 @@
       "collection": "dn",
       "order": 18,
       "status": "not-started",
-      "source_sha256": "a85b1def41f380dbcfed8e3e4cb40c9f82700dfac40501172bfd49ef483e5b74",
+      "source_sha256": "2b8d5dc3aed1fdf6307c19f61f63acff64a0deeab2c8c4bb5b4f8bbc43351174",
       "profile_sha256": "a384c5852585077c32e1348a6ada5cfc70a69c989ad705b8b5129fef3e1c9a71",
       "errors": [],
       "updated_at": "2026-10-10T00:02:54.154199+00:00",
@@ -10393,7 +10445,7 @@
       "collection": "dn",
       "order": 32,
       "status": "not-started",
-      "source_sha256": "7414d30a05954250ea43dc3e13fc47848fb168528187d32bca38e9ac05769102",
+      "source_sha256": "bb399990372910721e5a6ce2f025366f5b9fe7783e7680643fa0adba19c90d95",
       "profile_sha256": "a384c5852585077c32e1348a6ada5cfc70a69c989ad705b8b5129fef3e1c9a71",
       "errors": [],
       "updated_at": "2026-10-10T00:02:54.154218+00:00",
@@ -10414,7 +10466,7 @@
       "collection": "dn",
       "order": 33,
       "status": "not-started",
-      "source_sha256": "d86259b5e4e4288140b40748a51ab8d71f6d5cc82f6059a258a11bfe4d274388",
+      "source_sha256": "06ca4da65d6fca81363368471b31ae6268b738c4d390b72a356a1cdf304c8a71",
       "profile_sha256": "a384c5852585077c32e1348a6ada5cfc70a69c989ad705b8b5129fef3e1c9a71",
       "errors": [],
       "updated_at": "2026-10-10T00:02:54.154220+00:00",
@@ -10435,7 +10487,7 @@
       "collection": "dn",
       "order": 34,
       "status": "not-started",
-      "source_sha256": "3a756cb890d06836672150b53eb8582243536506d461fa70157ffbfa83feb0c0",
+      "source_sha256": "288b0e2be3e893843b42cded29ee8b4674ffe6b7425d5ddda169f712675d8f8b",
       "profile_sha256": "a384c5852585077c32e1348a6ada5cfc70a69c989ad705b8b5129fef3e1c9a71",
       "errors": [],
       "updated_at": "2026-10-10T00:02:54.154220+00:00",

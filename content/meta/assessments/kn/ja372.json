@@ -27,6 +27,34 @@
       "notes": "Kiểm tra tự động 33 segment với Pāli trong cache: đủ ID, giá trị, NFC và hệ chữ Latin. Chưa đọc đối chiếu nghĩa, ngữ pháp hoặc văn phong; chưa chấm lại 10 tiêu chí. Đây không phải chứng nhận hash upstream hoặc giấy phép, không xác nhận trạng thái xuất bản.",
       "content_sha256": "31ae2898756f28f58f9b75e46235c8f314c3e0d9b1a6ba0d579137941af4dc8a",
       "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639"
+    },
+    {
+      "target": "translation",
+      "scope": "full",
+      "assessed_at": "2026-10-16",
+      "assessed_by": [
+        "Claude Sonnet 5.5 (Claude Code)"
+      ],
+      "scores": {
+        "source_provenance": 9.5,
+        "semantic_fidelity": 9.3,
+        "grammar_logic": 9.3,
+        "segment_alignment": 10,
+        "terminology": 9.2,
+        "triangulation": 7.5,
+        "vietnamese_clarity": 9.3,
+        "han_viet_balance": 9.4,
+        "ambiguity_integrity": 9.2,
+        "technical_integrity": 9.6
+      },
+      "blocking_errors": [
+        "Không có tầng tham khảo tiếng Anh tại commit đã ghim: `source/upstream-manifest.json` cho thấy tầng `english-sujato` chỉ có **83** tệp dưới `.../kn/ja/` (ja1–ja79, cộng 126, 159, 466, 534), trong đó **không có** ja372/ja383/ja391 ⇒ `not-published-upstream`, KHÔNG phải `not-synced`. Cổng coverage của kho đo trên Pāli có nội dung (≥ 40 ký tự): ja372 có **mẫu số = 0** (33 khoá, khoá dài nhất 27 ký tự), nên cổng **không đo được gì** — đây là `0/0`, không phải `0%` đã kiểm rồi không đạt, và cũng không phải cơ sở để bỏ qua việc ghi nhận. `scripts/validate.ts` coi tệp Anh thiếu là **error** khi status là `review` hoặc `published`, nên bài bắt buộc `draft`. Tầng `vietnamese-current` cũng vắng: `translation/vi/phantuananh` tại commit đã ghim chỉ có 26 tệp, toàn bộ là Pháp Cú. Lớp lấp `english-project` cũng không có cho uid này. Ba tầng tham khảo đều vắng ⇒ bài dịch chỉ từ Pāli root ⇒ blocker thật, đây là **giới hạn upstream**, không phải lỗi của người dịch. Vì vậy `triangulation` bị chặn ở 7.5 (≤ 8.0) chứ không nâng để né blocker."
+      ],
+      "notes": "Áp dụng quyết định hội đồng biên tập 2026-10-16 (docs/editorial-council-2026-10.md): C3; 1 khoá, đối chiếu Pāli ghim và hồ sơ R1–R9. Các tiêu chí khác giữ nguyên.",
+      "id": "65afdad5-25d6-41d7-9796-dd2d89b00f50",
+      "content_sha256": "6d8118ad1e83d582fba74870f85a9128470197864d246da4399d0c4229d3f20e",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
+      "final_score": 9.23
     }
   ],
   "legacy_quality": {

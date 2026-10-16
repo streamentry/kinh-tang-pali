@@ -53,6 +53,34 @@
       "notes": "Kiểm tra tự động 20 segment với Pāli trong cache: đủ ID, giá trị, NFC và hệ chữ Latin. Chưa đọc đối chiếu nghĩa, ngữ pháp hoặc văn phong; chưa chấm lại 10 tiêu chí. Đây không phải chứng nhận hash upstream hoặc giấy phép, không xác nhận trạng thái xuất bản.",
       "content_sha256": "4184e56d03b547cf7349958cee427a71c62f0646dc84de70cc1b511866f37ddd",
       "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639"
+    },
+    {
+      "target": "translation",
+      "scope": "full",
+      "assessed_at": "2026-10-16",
+      "assessed_by": [
+        "Claude Sonnet 5.5 (Claude Code)"
+      ],
+      "scores": {
+        "source_provenance": 9.5,
+        "semantic_fidelity": 9.1,
+        "grammar_logic": 9.2,
+        "segment_alignment": 10,
+        "terminology": 9.1,
+        "triangulation": 7.5,
+        "vietnamese_clarity": 9.1,
+        "han_viet_balance": 9.2,
+        "ambiguity_integrity": 8.5,
+        "technical_integrity": 9.6
+      },
+      "blocking_errors": [
+        "Không có tầng tham khảo tiếng Anh tại commit đã ghim: tệp `translation/en/sujato/sutta/kn/tha-ap/tha-ap218_translation-en-sujato.json` không tồn tại trong `.cache/upstream/suttacentral/` (đếm lại bằng script cho 0 tệp `tha-ap` trong `kn/` của edition đã ghim) — đây là `not-published-upstream`, KHÔNG phải `not-synced`. `scripts/validate.ts` coi tệp Anh thiếu là **error** khi status là `review` hoặc `published`, nên bài bắt buộc `draft`. Tầng `vietnamese-current` cũng vắng: `translation/vi/phantuananh` tại commit đã ghin chỉ có 26 tệp và toàn bộ là Pháp Cú. Lớp lấp `english-project` của dự án không có cho uid này. Ba tầng tham khảo đều vắng ⇒ bài dịch chỉ từ Pāli root ⇒ blocker thật."
+      ],
+      "notes": "Áp dụng quyết định hội đồng biên tập 2026-10-16 (docs/editorial-council-2026-10.md): C5, C6; 4 khoá, đối chiếu Pāli ghim và hồ sơ R1–R9. Các tiêu chí khác giữ nguyên.",
+      "id": "fde92f00-55b7-4250-bc93-d58360b67f38",
+      "content_sha256": "ec27e34f3dc82acee1aaa91f6551d8bd49f4ec615b7335da304838ca759f73b3",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
+      "final_score": 9.08
     }
   ],
   "legacy_quality": {

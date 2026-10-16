@@ -3,7 +3,8 @@ status: published
 translationTitle: "Kinh Sự Tích Ở Kosambī"
 translators:
   - "OpenCode Space Bunny Free (agent)"
-reviewers: []
+reviewers:
+  - Claude Sonnet 5.5 (Claude Code)
 tags:
   - "kn"
   - "khuddaka-nikaya"
@@ -13,16 +14,16 @@ tags:
 quality:
   scores:
     source_provenance: 9.2
-    semantic_fidelity: 9.0
+    semantic_fidelity: 9
     grammar_logic: 9.2
-    segment_alignment: 10.0
+    segment_alignment: 10
     terminology: 9.2
     triangulation: 7.5
-    vietnamese_clarity: 9.0
+    vietnamese_clarity: 9
     han_viet_balance: 9.3
     ambiguity_integrity: 8.8
     technical_integrity: 9.6
-  final_score: 9.08
+  final_score: 9.079999999999998
   blocking_errors:
     - "Không có tầng tham khảo English Sujato cho uid này tại commit đã ghim:
       đếm trong `source/upstream-manifest.json` → `english-sujato` (4291 tệp)
@@ -31,9 +32,10 @@ quality:
       `.cache/upstream/suttacentral/translation/en/sujato/sutta/kn/ja` cũng đúng
       83 tệp. Thiếu tầng tham khảo là lỗi chặn đối với `review`/`published`, nên
       giữ `draft`."
-  assessed_at: "2026-10-12"
+  assessed_at: 2026-10-16
   assessed_by:
-    - "Claude Sonnet 5.5 (Claude Code)"
+    - Claude Sonnet 5.5 (Claude Code)
+  assessment_id: 58a9b02c-506c-47f6-a53a-b1c07064968d
   waiver:
     id: no-upstream-english
     blockers:
@@ -115,3 +117,5 @@ notes: |-
   - Giữ chỗ chưa chắc: (a) `1.4` `aññaṁ bhiyyo` có hai cách đọc — “nghĩ thêm điều gì khác” (chọn) hoặc “nghĩ ai hơn người kia” (Sujato ở `mn128:6.4`); (b) `2.2` `vācāgocarabhāṇino` giữ “nói lời vượt khỏi phạm vi” theo tiền lệ `mn128:6.6`/`ud5.9:3.2`, cách đọc “chỉ nói trong phạm vi của lời nói” cũng có thể; (c) `6.2` như trên.
   - Phân loại blocker: câu thứ nhất (không có bản Anh Sujato cho uid này tại commit đã ghim) giữ nguyên, đó là sự thật về upstream. Câu về `vietnamese-current` chỉ có Pháp Cú đã **gỡ**: đó là giới hạn của tầng tham khảo (mọi bài Jātaka đều thiếu tầng này), không phải lỗi văn bản; bài này chỉ có Pāli + bản Anh song song của `mn128` để tham khảo, không có bản Hòa thượng Thích Minh Châu.
   - Coverage English: mẫu số là các khoá Pāli có nội dung của uid này, tầng `english-sujato` phủ 0 khoá (uid không có tệp), nên cổng English không đo được gì; `triangulation` chấm 7.5 (≤ 8.0) vì chỉ có bản Anh của bài song song `mn128`, không phải bản Anh độc lập cho chính uid này. Chưa chạy `npm run validate`, `npm test`, `npm run check`, `npm run build` nên `technical_integrity` giữ 9.6.
+
+  Quyết định hội đồng biên tập 2026-10-16: C2 — `11.1` (dòng kết thêm dấu phẩy: "…, thứ N."); C3 — `0.2` (tên nipāta "Nhóm N Kệ").

@@ -55,6 +55,34 @@
       "content_sha256": "e9f51c9425434a9c841e215392b2634d3679ae497e622d46a8d43c64b67d9330",
       "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
       "final_score": 9.03
+    },
+    {
+      "target": "translation",
+      "scope": "full",
+      "assessed_at": "2026-10-16",
+      "assessed_by": [
+        "Claude Sonnet 5.5 (Claude Code)"
+      ],
+      "scores": {
+        "source_provenance": 9.5,
+        "semantic_fidelity": 8.8,
+        "grammar_logic": 8.9,
+        "segment_alignment": 10,
+        "terminology": 9,
+        "triangulation": 7,
+        "vietnamese_clarity": 9.2,
+        "han_viet_balance": 9.3,
+        "ambiguity_integrity": 9,
+        "technical_integrity": 9.6
+      },
+      "blocking_errors": [
+        "Không có tầng tham khảo tiếng Anh tại commit 11c9d708978cde8ba61096d8a75f7ddfb846f639: tệp sutta/kn/ja/ja464_translation-en-sujato.json không có trong source/upstream-manifest.json (thư mục kn/ của edition english-sujato chỉ có cp 35, dhp 26, iti 112, ja 83, kp 9, snp 73, thag 264, thig 73, ud 80; 83 tệp kn/ja/ không có ja464) và cũng không có trên đĩa trong .cache/upstream/suttacentral ⇒ not-published-upstream, KHÔNG phải not-synced. Lớp lấp english-project của dự án không có ja464: content/translation/en/project/sutta/kn/ chỉ có 129 tệp, không có ja464_translation-en-project.json, và content/meta/en/kn/ cũng không có ja464.yaml. Tầng vietnamese-current cũng vắng: edition đã ghim chỉ có 26 tệp và toàn bộ là sutta/kn/dhp/. Ba tầng tham khảo đều vắng ⇒ bài này dịch CHỈ từ Pāli root, và scripts/validate.ts đẩy thông điệp pinned English reference missing vào errors khi status là review hoặc published ⇒ bài bắt buộc draft. Thêm nữa, MẪU SỐ COVERAGE BẰNG 0: số segment Pāli có nội dung của ja464 là 0/53 theo ngưỡng substantivePaliMinChars = 40 khai ở source/layers.yaml (khoá dài nhất ngoài khối :0 là 36 ký tự sau khi chuẩn hoá khoảng trắng), nên cổng coverage KHÔNG đo được gì (ratio = 1 theo src/lib/canon/reference.ts) — đây là cổng không đo được, KHÔNG phải đã ghi nhận đủ. Đây là giới hạn upstream, không phải lỗi của người dịch; vì vậy triangulation bị chặn ở 7.0 chứ không nâng để né blocker."
+      ],
+      "notes": "Áp dụng quyết định hội đồng biên tập 2026-10-16 (docs/editorial-council-2026-10.md): C1, C2, C3; 2 khoá, đối chiếu Pāli ghim và hồ sơ R1–R9. Các tiêu chí khác giữ nguyên.",
+      "id": "3efb2a2d-def1-4b76-ad6e-c9be7944a4ea",
+      "content_sha256": "6f806d03d82ce076c62369c38d416e58fd54a85e24fe86de4b8701e05a72eb34",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
+      "final_score": 9.03
     }
   ],
   "legacy_quality": {

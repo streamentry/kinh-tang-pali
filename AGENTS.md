@@ -41,6 +41,7 @@ như ma trận trong `DESIGN.md`; không coi build pass là bằng chứng giao 
 - **Cắt HTML thành segment ID phải chứng minh được, không giả định.** Cắt lệch một đoạn thì bốn cột đối chiếu hiện sai âm thầm và người đọc không có cách nào biết. Không cắt tay rồi tin; phải đếm được bao nhiêu segment khớp và bao nhiêu không.
 - Một tầng tham khảo có file và key đúng vẫn có thể **không có prose** ở những đoạn Pāli có nội dung. Vì vậy phải đo coverage trên Pāli có nội dung; dưới ngưỡng thì `review`/`published` bị chặn trừ khi mất mát đã được **ghi nhận** trong `content/meta/reference-gaps.yaml`. Không được coi chỗ English rỗng là sự đồng thuận về cách dịch.
 - Canonical Vietnamese scripture là segmented JSON trong `content/translation/vi/project/`.
+- **Quyết định biên tập chung (hội đồng 2026-10-16)** nằm ở [`docs/editorial-council-2026-10.md`](docs/editorial-council-2026-10.md): thuật ngữ `sayambhū`, `iddhipāda`, `vipatti`, `hāra`, `visattikā`, `pariññā`…, tiêu đề Jātaka/Apadāna, xưng hô tha-ap/thi-ap, chính sách Pāli ghim hỏng. Biên bản chưa có chữ ký người biên tập; đọc trước khi sửa các thuật ngữ đó và đừng đảo từng bài lẻ.
 - Giữ nguyên canonical SuttaCentral UID và segment ID; không zero-pad hoặc tự phát minh ID.
 - Không copy Pāli vào translation JSON.
 - Workflow dịch mặc định là đối chiếu **Pāli root + ít nhất một bản English SuttaCentral phù hợp + bản Hòa thượng Thích Minh Châu khi có**, rồi viết một bản tiếng Việt mới.

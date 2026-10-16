@@ -3,7 +3,8 @@ status: published
 translationTitle: "Kinh Da Sư Tử"
 translators:
   - "OpenCode Space Bunny Free (agent)"
-reviewers: []
+reviewers:
+  - Claude Sonnet 5.5 (Claude Code)
 tags:
   - khuddakanikaya
   - jataka
@@ -14,24 +15,25 @@ quality:
     source_provenance: 9.5
     semantic_fidelity: 8.8
     grammar_logic: 8.9
-    segment_alignment: 10.0
-    terminology: 9.0
+    segment_alignment: 10
+    terminology: 9
     triangulation: 7.4
-    vietnamese_clarity: 9.0
+    vietnamese_clarity: 9
     han_viet_balance: 9.3
     ambiguity_integrity: 8.6
     technical_integrity: 9.6
   final_score: 9.01
   blocking_errors:
-    - "Không có tầng tham khảo English Sujato tại commit đã ghim cho bài này
+    - Không có tầng tham khảo English Sujato tại commit đã ghim cho bài này
       (không có tệp trong
       .cache/upstream/suttacentral/translation/en/sujato/sutta/kn/ ở commit đã
       ghin) và cũng không có bản Việt hiện hành cho Khuddaka Nikāya; bài này
       dịch chỉ từ Pāli, chưa đối chiếu được tầng tham khảo nào nên chưa đủ điều
-      kiện published, giữ draft."
-  assessed_at: "2026-10-11"
+      kiện published, giữ draft.
+  assessed_at: 2026-10-16
   assessed_by:
-    - "Claude Sonnet 5.5 (Claude Code)"
+    - Claude Sonnet 5.5 (Claude Code)
+  assessment_id: 310ace52-b7cf-4977-bb34-806eee8bd6b5
   waiver:
     id: no-upstream-english
     blockers:
@@ -88,3 +90,5 @@ notes: |-
   mới. `terminology` giữ nguyên — đây là chuẩn hoá, không phải lỗi riêng của bài này.
 
   Lượt cải thiện 2026-10-11: đọc đối kháng cặp Pāli↔Việt 13/13 khoá. Phát hiện trước hết: các đoạn notes cũ ở trên (KHUON DAI, THUAT NGUM DAT MOI, BA CHO DE SAI) mô tả những lựa chọn đã bị thay ở bản dịch hiện hành (tựa *bào da sươn*, *hổ gấm*, *hạt non xanh*, *trùm da*, *ngạo nghễ*); bản hiện hành dùng *sư tử* / *báo* / *lúa mạch xanh tươi* / *khoác lớp da* / *Kinh Da Sư Tử*. Các đoạn cũ giữ làm lịch sử, KHÔNG còn mô tả văn bản; `translationTitle` trong tệp này đã chỉnh cho khớp khoá 0.4. Ba khoá đổi: (1) 1.2 *cọp* → *hổ* (accuracy/terminology): `byagga` ở tầng Khuddaka-Jātaka dịch *hổ* 57 / *cọp* 11 / khác 6 trên 74 khoá; *cọp* ở ja150 ja280 ja290 ja510 là thiểu số, nên theo đa số. `dīpi` → *báo* giữ nguyên (30/33). (2) 1.4 *đê tiện* → *hèn hạ* (terminology): `jamma` ở tầng có *thấp hèn* 5 / *hèn hạ* 5 (kể cả ja250:2.3 `jammo` làm tính từ chủ ngữ), *đê tiện* 0 cho `jamma`; chọn *hèn hạ*. (3) 2.4 *vì cất tiếng kêu* → *chỉ vì cất tiếng kêu* (accuracy, sót từ): `ravamānova` = `ravamāno` + `eva`, tiểu từ nhấn *eva* trước đây bị bỏ. Điểm đổi: terminology 8.8 → 9.0 (hai thuật ngữ nay theo đa số đã đo); ambiguity_integrity 8.5 → 8.6 (bỏ các đoạn notes mâu thuẫn với văn bản, ghi thêm hai bất định dưới đây; mức tăng nhỏ vì bất định thật vẫn còn); các điểm khác giữ nguyên; final_score 8.98 → 9.01 (tổng 90,1/10; sát ngưỡng, chủ yếu nhờ hai thuật ngữ nay đúng đa số). Pāli trùng trong bài: 1.3 = 2.3 (`Pāruto sīhacammena,`), Việt giống hệt (*khoác lớp da sư tử,*), 1 cặp trùng, 0 cặp Việt khác. Nháy khớp Pāli từng khoá (mở 1.1/đóng 1.4; mở 2.1/đóng 2.4). Không có số Pāli trong bài. Bất định còn lại, GIỮ: (a) `dūsayī` ở 2.4 không có tân ngữ nêu rõ; *tự hại mình* là cách đọc thông thường (con lừa tự làm hỏng/phơi bày chính mình) nhưng *mình* là bổ sung của người dịch, chưa có bản tham khảo độc lập nào ghim để kiểm; (b) `taṁ` ở 2.1 (`Cirampi kho taṁ khādeyya`) có thể là chỉ định từ của *yavaṁ* hoặc tiểu từ đệm; không dịch riêng, không đổi nghĩa câu; (c) `khādeyya` dạng khả năng dịch *lẽ ra còn ăn được*, là cách đọc phản thực có chủ ý (ý nói: lẽ ra còn ăn lâu nếu không kêu). Giới hạn tiền lệ: ja162:2.3 (`dīpino`) hiện dịch *con hươu* ở bài khác, lệch 30/33 *báo*, chỉ báo cáo, không sửa ở đây. Blocker không có tầng tham khảo Anh/Việt tại commit đã ghim GIỮ nguyên (sự thật về upstream). Technical gate: `technical_integrity` giữ 9.6; bốn lệnh `npm run validate` · `npm test` · `npm run check` · `npm run build` chưa chạy trong lượt này.
+
+  Quyết định hội đồng biên tập 2026-10-16: B21 — :0.3 (asadisa = vô song); C2 — :3.1 (dòng kết có dấu phẩy trước "thứ N"); C3 — :0.2 (tên nhóm kệ "Nhóm N Kệ", bỏ chữ "Kinh").

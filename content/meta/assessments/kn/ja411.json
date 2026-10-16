@@ -53,6 +53,34 @@
       "notes": "Kiểm tra tự động 33 segment với Pāli trong cache: đủ ID, giá trị, NFC và hệ chữ Latin. Chưa đọc đối chiếu nghĩa, ngữ pháp hoặc văn phong; chưa chấm lại 10 tiêu chí. Đây không phải chứng nhận hash upstream hoặc giấy phép, không xác nhận trạng thái xuất bản.",
       "content_sha256": "f204d534c2c146652fbefe6c48445f38ed9e8d3d39200f5172bdf676e9585dbe",
       "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639"
+    },
+    {
+      "target": "translation",
+      "scope": "full",
+      "assessed_at": "2026-10-16",
+      "assessed_by": [
+        "Claude Sonnet 5.5 (Claude Code)"
+      ],
+      "scores": {
+        "source_provenance": 9.5,
+        "semantic_fidelity": 8.7,
+        "grammar_logic": 9,
+        "segment_alignment": 10,
+        "terminology": 8.9,
+        "triangulation": 7.5,
+        "vietnamese_clarity": 9.2,
+        "han_viet_balance": 9.3,
+        "ambiguity_integrity": 8.6,
+        "technical_integrity": 9.6
+      },
+      "blocking_errors": [
+        "Không có tầng tham khảo tiếng Anh tại commit đã ghim. Tôi tra `source/upstream-manifest.json` (commit 11c9d708978cde8ba61096d8a75f7ddfb846f639, tầng english-sujato, 4291 tệp) theo mẫu đầy đủ `…_translation-en-sujato.json`: tầng này có đúng 83 tệp thuộc `sutta/kn/ja`, và không tệp nào trong số đó là `ja411`; `.cache/upstream/suttacentral/translation/en/sujato/sutta/kn/ja/` trên đĩa cũng có đúng 83 tệp và tập uid của nó khớp từng tệp với manifest, không có `ja411`. Vậy đây là `not-published-upstream`, KHÔNG phải `not-synced`. Tầng `vietnamese-current` cũng vắng: tầng đã ghim đó chỉ có 26 tệp và không có tệp `ja*` nào. Lớp lấp `english-project` của dự án (`content/translation/en/project/sutta/kn/`) chỉ có các tệp `dhp*` và `iti*`, không có `ja411`. Ba tầng tham khảo đều vắng nên bài chỉ dịch được từ Pāli root; theo AGENTS.md đây là lỗi chặn đối với `review` và `published`, và tôi không chạy được `scripts/validate.ts` để xác nhận cơ chế chặn cụ thể."
+      ],
+      "notes": "Áp dụng quyết định hội đồng biên tập 2026-10-16 (docs/editorial-council-2026-10.md): C3; 1 khoá, đối chiếu Pāli ghim và hồ sơ R1–R9. Các tiêu chí khác giữ nguyên.",
+      "id": "b3a0880e-16cc-44fe-881e-ce285424e5db",
+      "content_sha256": "893c96d8bc746e37dc2c82518119c356bb711a9efbc695225ab9ffc7f95f6c06",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
+      "final_score": 9.029999999999998
     }
   ],
   "legacy_quality": {
