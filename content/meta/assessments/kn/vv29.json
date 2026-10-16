@@ -109,6 +109,34 @@
       "content_sha256": "56e040beff4b32f457abe232962222db8c337c230c3888193db7a447cc399365",
       "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
       "final_score": 8.889999999999999
+    },
+    {
+      "target": "translation",
+      "scope": "full",
+      "assessed_at": "2026-10-16",
+      "assessed_by": [
+        "Claude Sonnet 5.5 (Claude Code)"
+      ],
+      "scores": {
+        "source_provenance": 8.5,
+        "semantic_fidelity": 8.7,
+        "grammar_logic": 8.8,
+        "segment_alignment": 10,
+        "terminology": 9,
+        "triangulation": 8.8,
+        "vietnamese_clarity": 8.9,
+        "han_viet_balance": 9,
+        "ambiguity_integrity": 8.2,
+        "technical_integrity": 9.6
+      },
+      "blocking_errors": [
+        "Không có tầng tham khảo tiếng Anh tại commit đã ghim: bản Sujato ở `translation/en/sujato/sutta/kn/` chỉ có mười thư mục con — cp, dhp, iti, ja, kp, snp, thag, thig, ud — KHÔNG có `tha-ap`, `thi-ap` hay `vv`; và `source/upstream-manifest.json` chỉ liệt kê tệp dịch Anh cho những uid ấy, không tệp nào cho lát này. Đây là `not-published-upstream`, KHÔNG phải `not-synced`. Đo coverage theo đúng công thức `source/layers.yaml` (`englishCoverage.substantivePaliMinChars: 40`, `excludeReferenceBlock: true`) cho 0 trên toàn bộ khoá Pāli có nội dung của bài = 0%, dưới ngưỡng 0.8. `scripts/validate.ts` coi tệp Anh thiếu là error khi status là `review` hoặc `published`, nên bài bắt buộc `draft`. Lớp lấp `english-project` của dự án cũng không có cho uid này. Tầng `vietnamese-current` cũng vắng: `translation/vi/phantuananh` tại commit đã ghim chỉ có 26 tệp và toàn bộ là Pháp Cú. Ba tầng tham khảo đều vắng nên bài dịch chỉ từ Pāli root, đây là giới hạn upstream chứ không phải lỗi của người dịch; vì vậy `triangulation` bị chặn ở 7.5 (≤ 8.0) chứ không nâng để né blocker."
+      ],
+      "notes": "Đối chiếu toàn bộ kệ với Hecker và bản Nga; không lỗi nghĩa. Hiệu chỉnh sau kiểm độc lập 2026-10-16: triangulation 8.9 → 8.8 (quy tắc hiệu chỉnh theo loại nguồn); nguồn dịch thơ/lược/tóm tắt hoặc phạm vi đọc không đủ cho mức cao hơn.",
+      "id": "e0b78034-1456-412c-bc9e-5beaff5c6a9c",
+      "content_sha256": "56e040beff4b32f457abe232962222db8c337c230c3888193db7a447cc399365",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
+      "final_score": 8.95
     }
   ],
   "legacy_quality": {

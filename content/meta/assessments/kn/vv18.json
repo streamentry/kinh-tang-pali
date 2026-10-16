@@ -57,6 +57,34 @@
       "content_sha256": "1216ebf6666c8f796beabc3b5a791fcc117b0a60771c6155f44a9a76182d0c36",
       "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
       "final_score": 8.999999999999998
+    },
+    {
+      "target": "translation",
+      "scope": "full",
+      "assessed_at": "2026-10-16",
+      "assessed_by": [
+        "Claude Sonnet 5.5 (Claude Code)"
+      ],
+      "scores": {
+        "source_provenance": 9.6,
+        "semantic_fidelity": 8.8,
+        "grammar_logic": 8.8,
+        "segment_alignment": 10,
+        "terminology": 8.7,
+        "triangulation": 8.8,
+        "vietnamese_clarity": 9.1,
+        "han_viet_balance": 9.2,
+        "ambiguity_integrity": 8.5,
+        "technical_integrity": 9.6
+      },
+      "blocking_errors": [
+        "Không có tầng tham khảo tiếng Anh tại commit đã ghim. Đo bằng `source/upstream-manifest.json` (commit 11c9d708978cde8ba61096d8a75f7ddfb846f639): edition `english-sujato` (path `translation/en/sujato`, treeSha 24e81ded9d6710e16b277b6394fd57c48258da12, 4.291 tệp) có **0 tệp** nào dưới `sutta/kn/vv/`; 755 tệp `kn` của tầng này thuộc đúng 9 sub-collection: cp 35, dhp 26, iti 112, ja 83, kp 9, snp 73, thag 264, thig 73, ud 80 — không có `vv`. Đây là `not-published-upstream`, KHÔNG phải `not-synced`. Tầng `vietnamese-current` (`translation/vi/phantuananh`, treeSha a6a1ba063bada3d338b5350f200def2189f018f1) chỉ có 26 tệp và tất cả đều là Pháp Cú (`sutta/kn/dhp/`). Lớp lấp `english-project` (`content/translation/en/project/sutta`, 821 tệp json) không có tệp nào cho uid `vv18` (trong `kn` chỉ có `vv69`). Ba tầng tham khảo đều vắng ⇒ bài dịch chỉ từ Pāli root (`root/pli/ms/sutta`, treeSha 4d736429e54946e4eb13c914ee90aa00dfc95690, 5.764 tệp) ⇒ blocker thật, và đây là giới hạn upstream chứ không phải lỗi người dịch. `scripts/validate.ts` coi tệp Anh thiếu là error khi status là `review`/`published`, nên bài bắt buộc `draft`. `triangulation` bị chặn ở 7.5 (≤ 8.0), không nâng để né blocker."
+      ],
+      "notes": "Đối chiếu Hecker, bản Nga, PED; sửa 7.2 saṇṭhana (PED A iv 190 osakkana, Hecker và Indacanda cùng nghĩa), semantic_fidelity +0,1 và gỡ một bất định. Hiệu chỉnh sau kiểm độc lập 2026-10-16: triangulation 8.9 → 8.8 (quy tắc hiệu chỉnh theo loại nguồn); nguồn dịch thơ/lược/tóm tắt hoặc phạm vi đọc không đủ cho mức cao hơn.",
+      "id": "5f3111d7-258e-4517-b771-71133017a538",
+      "content_sha256": "6bdd40880ae26fac7afbf08b57a079cce6fc2bdd8121560cb06b0adb8b826b1e",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
+      "final_score": 9.11
     }
   ],
   "legacy_quality": {

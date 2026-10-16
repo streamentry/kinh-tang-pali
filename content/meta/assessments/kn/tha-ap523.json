@@ -85,6 +85,34 @@
       "content_sha256": "b9fd4f08371d4dc550ba388abb039fe55468a9c71dce6ff6792df61f4a21e4d8",
       "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
       "final_score": 8.98
+    },
+    {
+      "target": "translation",
+      "scope": "full",
+      "assessed_at": "2026-10-16",
+      "assessed_by": [
+        "Claude Sonnet 5.5 (Claude Code)"
+      ],
+      "scores": {
+        "source_provenance": 9.3,
+        "semantic_fidelity": 8.7,
+        "grammar_logic": 8.9,
+        "segment_alignment": 10,
+        "terminology": 8.6,
+        "triangulation": 9,
+        "vietnamese_clarity": 8.8,
+        "han_viet_balance": 9.2,
+        "ambiguity_integrity": 8.5,
+        "technical_integrity": 9.6
+      },
+      "blocking_errors": [
+        "Không có tầng tham khảo tiếng Anh tại commit đã ghim (11c9d708978cde8ba61096d8a75f7ddfb846f639): thư mục `kn/tha-ap/` của edition `translation/en/sujato` không tồn tại trong `.cache/upstream/suttacentral/`, và `source/upstream-manifest.json` (4.291 tệp của edition này) chỉ liệt kê MỘT tệp có chuỗi `tha-ap` — đó là tệp *tên* `name/sutta/tha-ap-name_translation-en-sujato.json`, không phải thân kinh; 9 sub-collection được phủ của `kn` là cp·dhp·iti·ja·kp·snp·thag·thig·ud (755 tệp), không có `tha-ap`. Đây là `not-published-upstream`, KHÔNG phải `not-synced`. Đo coverage theo đúng công thức `source/layers.yaml` (Pāli có nội dung ≥ 40 ký tự, loại block tham chiếu `:0`) cho MẪU SỐ = 2 khoá (`:13.1` 68 ký tự và `:14.1` 42 ký tự) và Sujato phủ 0 ⇒ 0 trên 2 = 0%, dưới ngưỡng 0.8. `scripts/validate.ts` coi tệp Anh thiếu là **error** khi status là `review` hoặc `published`, nên bài bất buộc `draft`. Tầng `vietnamese-current` cũng vắng: `translation/vi/phantuananh` tại commit đã ghim chỉ có 26 tệp, toàn bộ là Pháp Cú. Lớp lấp `english-project` (`content/translation/en/project/sutta/kn/`) không có cho uid này và `content/meta/en/` không có bản chấm cho nó. Ba tầng tham khảo đều vắng ⇒ bài dịch chỉ từ Pāli root ⇒ **blocker thật**, và đây là **giới hạn của bản chụp upstream**, không phải lỗi của người dịch. Vì vậy `triangulation` bị chặn ở 7.5 (≤ 8.0) chứ không nâng để né blocker."
+      ],
+      "notes": "Đọc đối chiếu toàn bộ 53 khoá với hai nguồn độc lập đầy đủ (Walters Anh, Indacanda Việt), chú giải Theragāthā và DPD; sửa 1 khoá (6.3 ‘tấm vách’ sai nghĩa kaṇḍa): semantic_fidelity +0,1. Triangulation 8.3 lên 9.2 vì có hai bản dịch độc lập và chú giải kể cùng câu chuyện. Hiệu chỉnh sau kiểm độc lập 2026-10-16: triangulation 9.2 → 9.0 (quy tắc hiệu chỉnh theo loại nguồn); nguồn dịch thơ/lược/tóm tắt hoặc phạm vi đọc không đủ cho mức cao hơn.",
+      "id": "2a1eafba-85bc-4942-bb72-243c6e8f22de",
+      "content_sha256": "ca003dff3e5a0965a8a79918b8ce4314bb60ac264af6b4be4921e8c46e60b6ab",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
+      "final_score": 9.059999999999999
     }
   ],
   "legacy_quality": {

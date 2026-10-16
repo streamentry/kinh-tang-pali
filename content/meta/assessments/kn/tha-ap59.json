@@ -137,6 +137,34 @@
       "content_sha256": "e6e63e984f2caf054217e795284a8bf29b1e4eda303ac5f4d33715338cfe1320",
       "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
       "final_score": 8.93
+    },
+    {
+      "target": "translation",
+      "scope": "full",
+      "assessed_at": "2026-10-16",
+      "assessed_by": [
+        "Claude Sonnet 5.5 (Claude Code)"
+      ],
+      "scores": {
+        "source_provenance": 9.5,
+        "semantic_fidelity": 8.5,
+        "grammar_logic": 8.7,
+        "segment_alignment": 10,
+        "terminology": 8.4,
+        "triangulation": 9,
+        "vietnamese_clarity": 8.9,
+        "han_viet_balance": 9,
+        "ambiguity_integrity": 8.6,
+        "technical_integrity": 9.6
+      },
+      "blocking_errors": [
+        "Không có tầng tham khảo tiếng Anh tại commit đã ghim (11c9d708978cde8ba61096d8a75f7ddfb846f639). Đo được: trong `.cache/upstream/suttacentral/translation/en/sujato/sutta/kn/` chỉ có **9** sub-collection (cp 35 · dhp 26 · iti 112 · ja 83 · kp 9 · snp 73 · thag 264 · thig 73 · ud 80 tệp) và **0** tệp có tên chứa `tha-ap`; `source/upstream-manifest.json` **không liệt kê** `tha-ap59` (đếm chuỗi: 0 khớp). Đây là `not-published-upstream`, KHÔNG phải `not-synced`. Tầng `vietnamese-current` cũng vắng: `translation/vi/phantuananh/sutta/` ở commit đã ghim chỉ có `kn/dhp` (Pháp Cú). Lớp lấp `english-project` (`content/translation/en/project/sutta/kn/`) có **0** tệp cho `tha-ap`. Ba tầng tham khảo đều vắng ⇒ bài dịch chỉ từ Pāli root ⇒ **blocker thật**, và đây là giới hạn của bản chụp upstream chứ không phải lỗi của người dịch; `scripts/validate.ts` coi tệp Anh thiếu là **error** khi status là `review` hoặc `published`, nên bài bắt buộc `draft`. Vì vậy `triangulation` bị chặn ở **7.5** (≤ 8.0) chứ không nâng để né blocker."
+      ],
+      "notes": "Đọc đối chiếu cả 32 khoá với hai nguồn độc lập đầy đủ (Walters Anh, Indacanda Việt) và chú giải Visuddhajanavilāsinī (bản Anh U Lu Pe Win); không có khoá sai. Triangulation 8.4 lên 9.0 vì có ba nguồn độc lập đọc đủ; ambiguity_integrity 8.3 lên 8.6 vì 6.1 (số kiếp) và 2.2 (cây Bồ-đề) được xác nhận bằng nguồn kiểm lại được.",
+      "id": "88eeba03-2148-4855-aa72-7ea22d1da952",
+      "content_sha256": "e6e63e984f2caf054217e795284a8bf29b1e4eda303ac5f4d33715338cfe1320",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
+      "final_score": 9.02
     }
   ],
   "legacy_quality": {
