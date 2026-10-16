@@ -1118,3 +1118,11 @@ The canonical source reverted to SHA `dd112ee56b033dea1abd9d66b99485f18f42a5f908
 
 - `npm run validate` passed; 2,272 advisories retained and 5,836 quality histories checked with zero errors. `npm test`: 417 passed, one skipped, zero failures. `npm run check`: zero errors/warnings and five hints. `npm run build` passed; Pagefind indexed 6,137 pages. `npm run seo:check`: 6,145 indexable pages verified. `npm run audio:check`: 186 catalog entries, zero errors.
 - Built MN117 and MN125–MN128 pages each show exactly one player with the source-matched registered R2 URL and scripture marker. MN117 displays the original audio only because its source hash returned to the recorded revision; intermediate revisions are retained in the registry. Every current human content review remains `pending`; no ASR or full listening review was performed.
+
+#### Batch mn-046 final local gates
+
+- All five UID sources and narration profile fingerprints match. The reused MN117 original artifact matches current source SHA `dd112ee56b033dea1abd9d66b99485f18f42a5f9086ef0489ad0bbfbf1dc7800`; superseded MP3 revisions and QC evidence remain archived. MN125–MN128 were generated sequentially and uploaded/verified before starting the next UID.
+- `npm run validate` passed: 2,272 advisories retained; 5,836 assessment histories, zero errors. `npm run check`: zero errors/warnings and five hints. `npm run build` passed; Pagefind indexed 6,137 pages. `npm run seo:check`: 6,145 indexable pages. `npm run audio:check`: all 186 catalog entries, zero errors.
+- Unit tests passed in a temporary writable worktree at this exact commit: 420 passed, one skipped, zero failures. In the managed worktree, the comparison test's temporary rename of a shared APFS cache file returned `EPERM`; the isolated test root mirrored cached files as symlinks so the test could exercise `not-synced` behavior without mutating the shared cache. No test/code gate was skipped.
+- Built player HTML for MN117 and MN125–MN128 contains the current exact R2 URL and scripture marker with review-pending label. All per-UID local player checks passed. Human content listening and ASR were not performed; all five reviews stay `pending`.
+- Only five audio JSON files, progress registry and release log enter the PR. MP3/WAV/cache/transcripts and credentials are excluded from Git.
