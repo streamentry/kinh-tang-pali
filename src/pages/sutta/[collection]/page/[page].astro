@@ -1,0 +1,17 @@
+---
+import CollectionIndex from '../../../../components/CollectionIndex.astro';
+import { COLLECTIONS, loadCatalog } from '../../../../lib/canon/load';
+import { collectionPageCount } from '../../../../lib/collection-pagination';
+
+export function getStaticPaths() {
+  return COLLECTIONS.flatMap(collection => Array.from(
+    { length: collectionPageCount(collection.code, loadCatalog(collection.code).texts.length) - 1 },
+    (_, index) => ({
+      params: { collection: collection.code, page: String(index + 2) },
+      props: { collection, page: index + 2 },
+    }),
+  ));
+}
+const { collection, page } = Astro.props;
+---
+<CollectionIndex collection={collection} page={page} />

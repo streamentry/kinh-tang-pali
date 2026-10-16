@@ -101,6 +101,17 @@ mark { color: var(--ink); background: var(--accent-soft); }
 .collection-header > p { color: var(--muted); }
 .stats { display: flex; gap: var(--space-6); flex-wrap: wrap; margin-top: var(--space-6); color: var(--muted); font-size: .875rem; font-variant-numeric: tabular-nums; }
 .stats strong { color: var(--ink); font-size: 1.125rem; }
+.collection-page-range { color: var(--muted); font-size: .875rem; }
+.collection-pagination { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--space-2); margin-block: var(--space-5); font-size: .875rem; }
+.collection-pagination ol { display: flex; flex-wrap: wrap; justify-content: center; list-style: none; gap: var(--space-1); margin: 0; padding: 0; }
+.collection-pagination a, .collection-pagination .pagination-disabled { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; min-width: 44px; padding: var(--space-2); border-radius: var(--radius-sm); }
+.collection-pagination a[aria-current="page"] { background: var(--accent); color: var(--on-accent); text-decoration: none; }
+.collection-pagination a:hover { background: var(--accent-soft); color: var(--accent); }
+.pagination-disabled, .pagination-gap { color: var(--muted); }
+.pagination-gap { align-self: center; }
+@media (max-width: 760px) {
+  .collection-pagination ol { order: 3; flex-basis: 100%; }
+}
 .sutta-list { list-style: none; padding: 0; margin: 0; border-top: 1px solid var(--line); }
 .sutta-list li { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: var(--space-2); align-items: center; border-bottom: 1px solid var(--line); }
 .sutta-list a { display: grid; grid-template-columns: 6rem minmax(0, 1fr) auto; gap: var(--space-5); align-items: center; padding: var(--space-4) var(--space-2); color: var(--ink); text-decoration: none; border-radius: var(--radius-sm); }
