@@ -996,3 +996,53 @@ Fresh production readback on `2026-10-15T00:53:42Z` confirms MN90–MN94 pages r
 | MN119 | `8d8376f7c3c63f421719a19d35e20d5d6644a80d561e30c1dc9e2f5257c0e61a` | `a891a880205343f53dfa29952c5dd0044432f5c427cd6994d919a719de50869b` | 36,840,000 | 1841.94 s | 163.11 s | 17 (2 summary) | [R2 MP3](https://pub-8fa53f5182904685bd0c13d6c894a0e9.r2.dev/vi/mn/mn119/a891a880205343f5.mp3) |
 
 - Total audio duration: 5986.36 seconds / 119,732,640 bytes. All five use the pinned `vi-charon-mn1-v1` profile (`a384c5852585077c32e1348a6ada5cfc70a69c989ad705b8b5129fef3e1c9a71`), summary first then canonical Vietnamese 2026. Source/profile pins, sequential chunk plan, MP3 hash/frame/byte checks and public R2 object/range verification passed. ASR and interactive browser playback were skipped; all five remain `generated` with `review_status: pending`. MP3/WAV/cache files remain outside Git.
+
+### Release verification for batch mn-044 — MN115–MN119
+
+- PR [#697](https://github.com/streamentry/kinh-tang-pali/pull/697), exact head `9c61e408f1c1a315995b9ef0a5aecac46a721983`: push CI [38772685850](https://github.com/streamentry/kinh-tang-pali/actions/runs/38772685850) and PR CI [38772818424](https://github.com/streamentry/kinh-tang-pali/actions/runs/38772818424) both passed. Merged at 2026-10-15T17:23:06Z as `1a15b6e04569490e8e820fe2383067aff393478a`; remote main readback confirmed that commit.
+- Direct merge main CI [38776884762](https://github.com/streamentry/kinh-tang-pali/actions/runs/38776884762) and queued Pages [38776884823](https://github.com/streamentry/kinh-tang-pali/actions/runs/38776884823) were superseded/cancelled after later cover commits. Descendant main CI [38778610930](https://github.com/streamentry/kinh-tang-pali/actions/runs/38778610930) was also cancelled; none of these cancelled runs is reported as a CI pass. Pages [38778610882](https://github.com/streamentry/kinh-tang-pali/actions/runs/38778610882) **succeeded** for descendant `640047ce921ffbf264cede0d9cb9d77d7d66bfb5`, which contains the audio merge (GitHub compare: one commit ahead, none behind).
+- Production readback at 2026-10-16T00:20:20Z: all five reader URLs HTTP 200, exactly one player, exact registered R2 URL and pending-review label. All five R2 byte-range requests returned 206, `audio/mpeg`, exactly 1,024 bytes, and total object size matched metadata. A Python default-user-agent request returned 403; independent curl readbacks succeeded for every object.
+- Fresh interactive checks at 2026-10-16T00:23:31Z–00:25:05Z used an isolated Chrome session through the bundled Playwright CLI. For **each** MN115–MN119: play advanced the real media clock from the registered R2 MP3; `readyState = 4`, no media error, default playback rate 1×; +15-second seek, keyboard timeline seek and the summary-to-scripture jump all worked. Playback was paused after each test and the dedicated browser session closed. This is new runtime evidence obtained after the earlier upload-time note that browser testing had been skipped.
+- Registry now records these five as `live`, with per-UID playback timestamps/observations and exact release evidence. `review_status` stays **pending**: browser playback verification does not establish spoken-content fidelity or a full human listening review. No ASR was run; existing QC history is retained.
+
+### Batch mn-045 — MN120–MN124 (in progress)
+
+| UID | Source SHA-256 | MP3 SHA-256 | Bytes | Duration | Scripture starts | Chunks | Audio |
+|---|---|---|---:|---:|---:|---:|---|
+| MN120 | `c5cabd9b3e04b47423eca748e54f8d81377eeee824965c3a0621b2c10a534ccb` | `9607a6c05a9357818b2c777528c42c1286a3d6979e796f49293d11b9beda7e7b` | 30,612,000 | 1530.54 s | 159.43 s | 11 (2 summary) | [R2 MP3](https://pub-8fa53f5182904685bd0c13d6c894a0e9.r2.dev/vi/mn/mn120/9607a6c05a935781.mp3) |
+| MN121 | `a6328ffc4cd1bbefeff5beb7e940b5cb98c9ea4b7c9a8bb18c06aeb32ce2fead` | `4dc51498b744b7cc15ed67527d8b46ab1e1503064cae36773476a1cb4137c603` | 19,297,440 | 964.82 s | 156.19 s | 11 (2 summary) | [R2 MP3](https://pub-8fa53f5182904685bd0c13d6c894a0e9.r2.dev/vi/mn/mn121/4dc51498b744b7cc.mp3) |
+| MN122 | `1c611e946d4c188d7648045d2063f04460342db8dda787311e56d0625700e81c` | `2d8e141cea906c55a6f8822f4c878fc99f0cfbe530adc4811b2527894db23c1d` | 30,858,240 | 1542.85 s | 172.83 s | 16 (2 summary) | [R2 MP3](https://pub-8fa53f5182904685bd0c13d6c894a0e9.r2.dev/vi/mn/mn122/2d8e141cea906c55.mp3) |
+| MN123 | `3b0955ac70dfdc0b0f51669a113ccb6fff15329b3e7d7452ec2a965b6f6f5640` | `f8b91b11f83b20b3edb981e44c49cf3c17e26e9e48ffba3116af4dcfed2d8c72` | 24,094,080 | 1204.65 s | 156.11 s | 12 (2 summary) | [R2 MP3](https://pub-8fa53f5182904685bd0c13d6c894a0e9.r2.dev/vi/mn/mn123/f8b91b11f83b20b3.mp3) |
+| MN124 | `fdc8b0e11594de456dcab40f5d5dfcf527b461fbd7fbdd19901c885e43e52997` | `84f1b7909f15343f1d88abd1ad6dd91ab598203f6a1ac1c27c7630e546cf1f23` | 11,559,840 | 577.94 s | 152.63 s | 7 (2 summary) | [R2 MP3](https://pub-8fa53f5182904685bd0c13d6c894a0e9.r2.dev/vi/mn/mn124/84f1b7909f15343f.mp3) |
+
+#### Batch mn-045 generation/upload and local player gate complete
+
+- Five new MP3 files total **5820.80 seconds / 116,421,600 bytes**. Every file uses pinned profile `vi-charon-mn1-v1` (`a384c5852585077c32e1348a6ada5cfc70a69c989ad705b8b5129fef3e1c9a71`), summary first then canonical Vietnamese 2026. All requests ran sequentially; each completed file was uploaded and publicly verified before the next UID began.
+- Source/profile pins, transcript reassembly, all cached WAV hashes/formats, MP3 frame accounting/duration/hash/bytes and full public R2 hash/bytes plus byte-range checks passed. MN120 upload initially received Cloudflare auth 403; installed Wrangler refreshed the existing OAuth session, then the same MP3 uploaded successfully without rerendering.
+- Local isolated Chrome checks against the actual R2 URLs passed for every MN120–MN124: media clock advanced, no media error, readyState 4, default 1×, +15-second seek, keyboard timeline seek and scripture jump. Per-UID timestamps/results are in the registry. These five are `uploaded-verified`; PR/merge/production checks are pending at this checkpoint.
+- No ASR or full human content listening was performed. Every audio keeps `review_status: pending`; no voice/profile/model/rate overrides or speed postprocessing were used. MP3/WAV/cache/transcript files remain ignored and outside Git.
+
+#### Local batch mn-045 release gates
+
+- `npm run validate` passed (2,271 advisories retained); quality history check: 5,714 records, zero errors. `npm test`: 417 passed, one skipped, zero failures. `npm run check`: zero errors/warnings, five hints. `npm run build` passed and Pagefind indexed 6,137 pages. `npm run seo:check` verified 6,145 indexable pages. `npm run audio:check`: all 186 catalog entries, zero errors.
+- Built HTML for every MN120–MN124 contains exactly one player with the exact registered R2 URL, correct scripture marker and pending-review label. Only the expected ten progress entries changed (MN115–MN119 release verification; MN120–MN124 new uploads); prior errors and pending review states were preserved. All five MP3s and all WAV chunks are gitignored; no media, transcript, cache or credentials are staged.
+
+### Source revision discovered before merging batch mn-045
+
+- Editorial PR [#704](https://github.com/streamentry/kinh-tang-pali/pull/704), main `53ea9d4deff53a3d8c0b854ec43155a30d78b1a0`, changed MN117:14.2 and MN122:20.1 while this batch was being prepared. The integrated canonical translations are preserved unchanged. The earlier MN117 production evidence and MN122 upload/local-player evidence apply to their previous source revisions only.
+- The merge conflict is confined to the audio progress registry. New main source hashes for DN1/DN2/DN16/DN18/DN32/DN33/DN34 and all other editorial changes are preserved. MN117 and MN122 are explicitly marked blocked by source drift; old object/hash/browser evidence is retained under `stale_audio_evidence`. Stale reader metadata is hidden by the existing source-hash check.
+- MN122 will be regenerated from the new canonical source before PR #706 can merge. MN117 is queued for correction as the first item after this five-new-text batch; it is not counted as currently live. No translation, quality score or approved narration profile is changed by this audio task. All local gates must run again after integration/regeneration; the earlier successful gates do not prove the revised head.
+
+### Batch mn-045 — revised MN122 source after editorial PR #704
+
+The old source `1c611e946d4c188d7648045d2063f04460342db8dda787311e56d0625700e81c` and its R2/browser evidence remain recorded as history. The following artifact uses canonical source `f282fc0378cf13ced2dbae456467220efd34bc5633730cdd60443cc1711379f7` and a new source/profile/chunk-plan fingerprint. All chunks were generated sequentially for this revision; the old R2 object was retained.
+
+| UID | Source SHA-256 | MP3 SHA-256 | Bytes | Duration | Scripture starts | Chunks | Audio |
+|---|---|---|---:|---:|---:|---:|---|
+| MN122 | `f282fc0378cf13ced2dbae456467220efd34bc5633730cdd60443cc1711379f7` | `d63850e0b03c30360900675db2f4e916ab23ea057f2e6d0d3ad094be1b0aa107` | 30,352,800 | 1517.57 s | 161.91 s | 16 (2 summary) | [R2 MP3](https://pub-8fa53f5182904685bd0c13d6c894a0e9.r2.dev/vi/mn/mn122/d63850e0b03c3036.mp3) |
+
+#### Revised batch mn-045 gates after main integration and MN122 regeneration
+
+- The current five-artifact batch totals **5,795.52 seconds / 115,916,160 bytes**. MN122 now uses source `f282fc0378cf13ced2dbae456467220efd34bc5633730cdd60443cc1711379f7` and MP3 `d63850e0b03c30360900675db2f4e916ab23ea057f2e6d0d3ad094be1b0aa107`; its old object and QC evidence are retained as history, not counted as the current artifact.
+- All required local gates were rerun after integrating editorial PR #704: validate passed (2,272 advisories retained), quality histories 5,835 with zero errors; tests 417 passed/one skipped; type-check zero errors/warnings and five hints; production build passed; Pagefind indexed 6,137 pages; SEO verified 6,145 indexable pages; audio integrity checked all 186 catalog entries with zero errors.
+- Fresh built HTML confirms one exact current-source player, URL and scripture marker for every MN120–MN124. The stale MN117 player and old R2 URL are correctly absent from the rebuilt page; MN117 remains explicitly blocked for regeneration as the first item after this batch. Full manual spoken-content listening remains pending for every audio. Later main commits observed during this rerun only changed covers.
