@@ -50,6 +50,10 @@ jobs:
       - name: Pinned snapshot manifest is current
         # Fails if the lock moved without the manifest being re-fetched, which would
         # otherwise let the content checks verify against a stale file list.
+        # The token lifts the GitHub API limit from 60 requests/hour (unauthenticated, shared
+        # by runner IPs) to the repository limit; without it this step fails with HTTP 403.
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: npm run manifest:check
       - name: Catalogues cover the pinned snapshot
         run: npm run catalog:check
