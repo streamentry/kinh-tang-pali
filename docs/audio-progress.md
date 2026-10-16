@@ -1163,3 +1163,24 @@ The canonical source reverted to SHA `dd112ee56b033dea1abd9d66b99485f18f42a5f908
 | MN136 | `e9bc7961426f9eba961eba608265df184b7b084279a498ddf51cb27acb1908de` | `e31f203be6fcaf66591bda1b81506f340b224954bb0cfa3664953160fe387095` | 29,230,080 | 1461.45 s | 155.07 s | 16 (2 summary) | [R2 MP3](https://pub-8fa53f5182904685bd0c13d6c894a0e9.r2.dev/vi/mn/mn136/e31f203be6fcaf66.mp3) |
 | MN137 | `4a9d1845920de724a02d8872ea8d6240f7c0afd84ed5f6a81d330f916ebc7fa4` | `1ada92b4bf3986862a03ed00f6785bd807643120cd09dd07d85854a8d6d2cfb2` | 24,509,760 | 1225.44 s | 169.87 s | 12 (2 summary) | [R2 MP3](https://pub-8fa53f5182904685bd0c13d6c894a0e9.r2.dev/vi/mn/mn137/1ada92b4bf398686.mp3) |
 | MN138 | `06ab3556a0fd842bed96be9ef4c5a717867c3fe9bb84d3f4acfdba2af1a22bdd` | `3207a3df1c838a4bd16365a9b0c562a45666adb7af5b9ccfb269b85ba4016c60` | 25,744,800 | 1287.18 s | 149.55 s | 15 (2 summary) | [R2 MP3](https://pub-8fa53f5182904685bd0c13d6c894a0e9.r2.dev/vi/mn/mn138/3207a3df1c838a4b.mp3) |
+
+#### Batch mn-048 merge and production readback
+
+- PR [#759](https://github.com/streamentry/kinh-tang-pali/pull/759), exact PR head `e7e788bf504d732455c35d64f036186affa208ae`, squash-merged as `0a447ebfe282cf2965a74f842c87d967cebb8e67` at `2026-10-16T15:30:47Z`.
+- GitHub Pages run [#38924548992](https://github.com/streamentry/kinh-tang-pali/actions/runs/38924548992) succeeded for deployment commit `0a447ebfe282cf2965a74f842c87d967cebb8e67` at `https://streamentry.github.io/kinh-tang-pali/`.
+- At `2026-10-16T16:08:10.573Z`, production checks passed for MN134–MN138: every page HTTP 200 with one player and the exact current R2 URL; production Chrome confirmed 1× playback, +15-second seek, scripture jump and keyboard timeline. Public MP3 ranges returned HTTP 206, `audio/mpeg`, 1,024 bytes and totals matching metadata. All five progress entries are now `live`; `review_status` remains `pending`. ASR and full human content listening were not performed.
+
+### Batch mn-049 local release checkpoint — MN139–MN143
+
+- Five sequential current-source UIDs completed, with project summary first and canonical Vietnamese 2026 prose second. Combined audio: **6258.65 seconds / 125,178,720 bytes**, 64 chunks (10 summary chunks). All use pinned profile `vi-charon-mn1-v1` (SHA-256 `a384c5852585077c32e1348a6ada5cfc70a69c989ad705b8b5129fef3e1c9a71`).
+- All source/profile hashes and chunk plans matched, WAV checkpoints and MPEG frames/MP3 hashes/bytes verified, and each public R2 object passed full-object and HTTP 206 range readback. Local Chrome checked all five built pages against exact R2 URLs with 1× play, +15s seek, scripture jump and keyboard timeline.
+- Local gates ran with this batch’s files on main commit `0a447ebfe282cf2965a74f842c87d967cebb8e67`: `npm run validate` passed (2,272 existing advisories; 5,836 quality histories, zero errors); `npm run check` passed (zero errors/warnings, five hints); `npm test` passed (420 passed, one skipped, zero failed); `npm run build` passed (6,204 pages; Pagefind indexed 6,137 pages / 467,613 words); `npm run audio:check` passed (186 catalog entries, zero errors).
+- ASR and full human content listening were not performed. Reviews remain `pending`. PR/merge/deployment/live evidence will be appended after hosted CI and Pages verification.
+
+| UID | Source SHA-256 | MP3 SHA-256 | Bytes | Duration | Scripture starts | Chunks | Audio |
+|---|---|---|---:|---:|---:|---:|---|
+| MN139 | `bb70b7966932f04087bc8b91bb3c422663276a48b0aa22c169aa4b489d45ecfb` | `833af9dcf9b9e7885459af25c5e6221b6bf2d421c995f9cebd1b196748823cdf` | 30,381,600 | 1519.02 s | 165.43 s | 15 (2 summary) | [R2 MP3](https://pub-8fa53f5182904685bd0c13d6c894a0e9.r2.dev/vi/mn/mn139/833af9dcf9b9e788.mp3) |
+| MN140 | `2cb1aa3104d8951d10a3c47c99f02c5640592bd31b6c2070a56635786c8fcfd7` | `95a23e1dfda38debb369241529e3a3aa1f2fdd6bbcc01d7dc1af750ce49c65b8` | 34,016,160 | 1700.76 s | 163.91 s | 17 (2 summary) | [R2 MP3](https://pub-8fa53f5182904685bd0c13d6c894a0e9.r2.dev/vi/mn/mn140/95a23e1dfda38deb.mp3) |
+| MN141 | `f8cb9d7dec1789ce5a735fdb2817b68197e3d1a92fa990fe7a7f612e80dee9c8` | `5f5a36a5ed61d183f57eededa3f49a0c7ea44f6e85c2658928bb552b276d9136` | 19,404,960 | 970.19 s | 165.39 s | 10 (2 summary) | [R2 MP3](https://pub-8fa53f5182904685bd0c13d6c894a0e9.r2.dev/vi/mn/mn141/5f5a36a5ed61d183.mp3) |
+| MN142 | `92185456d2c88c688de5a1dd6c2767f9deba9898e9b83ecdad4e82794d9269f8` | `9c361c51d2334c05004ecf87ec466bd7c05a71df48a75de13cdc9163e57ed6bc` | 19,150,560 | 957.47 s | 156.91 s | 10 (2 summary) | [R2 MP3](https://pub-8fa53f5182904685bd0c13d6c894a0e9.r2.dev/vi/mn/mn142/9c361c51d2334c05.mp3) |
+| MN143 | `e2d6d9959ee4c2eb3318bbbbe0ff057acf9b68d935c9239021ca0dd24453f541` | `14224b41fa9c5c52f2dcce218c9e865fe84d2830c764f7066cc3c57ce74e5e36` | 22,225,440 | 1111.21 s | 171.31 s | 12 (2 summary) | [R2 MP3](https://pub-8fa53f5182904685bd0c13d6c894a0e9.r2.dev/vi/mn/mn143/14224b41fa9c5c52.mp3) |
