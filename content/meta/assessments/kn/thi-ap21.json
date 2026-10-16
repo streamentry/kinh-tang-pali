@@ -113,6 +113,34 @@
       "content_sha256": "f15432ec943ee7701a8b9a34ed39e52654a26f5cc337be529269ea5b33a50878",
       "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
       "final_score": 8.94
+    },
+    {
+      "target": "translation",
+      "scope": "full",
+      "assessed_at": "2026-10-16",
+      "assessed_by": [
+        "Claude Opus 5.5 (Claude Code)"
+      ],
+      "scores": {
+        "source_provenance": 9.5,
+        "semantic_fidelity": 8.4,
+        "grammar_logic": 8.5,
+        "segment_alignment": 10,
+        "terminology": 8.5,
+        "triangulation": 9,
+        "vietnamese_clarity": 8.6,
+        "han_viet_balance": 9.2,
+        "ambiguity_integrity": 8.2,
+        "technical_integrity": 9.6
+      },
+      "blocking_errors": [
+        "Không có tầng tham khảo tiếng Anh tại commit đã ghim 11c9d708978cde8ba61096d8a75f7ddfb846f639 (noEnglishEditionUpstream): `source/upstream-manifest.json` không liệt kê tệp `translation/en/sujato` nào cho `sutta/kn/thi-ap/`; tệp duy nhất liên quan đến nhóm này là tệp tên `name/sutta/thi-ap-name_translation-en-sujato.json`, không phải bản dịch từng khoá, và tầng Sujato của `kn` chỉ có chín nhóm cp, dhp, iti, ja, kp, snp, thag, thig, ud. Đây là `not-published-upstream`, KHÔNG phải `not-synced`; cache cũng không có tệp thân kinh. Coverage đo theo công thức `source/layers.yaml` (`substantivePaliMinChars: 40`, bỏ khối `:0`): mẫu số 1 khoá Pāli có nội dung (`:55.1`, câu kết 66 ký tự; 220 khoá còn lại đều ngắn hơn 40 ký tự hoặc là khối `:0`), Sujato phủ 0/1 = 0%, dưới ngưỡng 0.8; ở phần kệ cổng không đo được gì. Lớp lấp `english-project` không có tệp cho uid này, và `vietnamese-current` vắng vì tại commit đã ghim tầng ấy chỉ có 26 tệp Pháp Cú. Cả ba tầng tham khảo đều vắng nên bài chỉ dịch từ Pāli root; đây là giới hạn của snapshot upstream, không phải lỗi người dịch, nhưng `scripts/validate.ts` coi tệp Anh thiếu là lỗi khi status là `review` hoặc `published`, nên bài bắt buộc `draft`. `triangulation` bị chặn ở 7.5 (không quá 8.0), không nâng điểm để né blocker."
+      ],
+      "notes": "Rà từng chữ bằng DPD + chú giải CST 2026-10-16, có kiểm độc lập: 6 khoá sửa (đại từ C6, cấu trúc câu, bhaddante); kiểm 6/6 đúng, 0/25 mẫu. Chỉ cộng +0,1 cho tiêu chí có lỗi đã sửa được kiểm đúng; triangulation giữ nguyên.",
+      "id": "fe3a1278-5d82-4323-8095-4d5a331d7855",
+      "content_sha256": "6aa0ec7663ef614bf58e12f2c59b0e213bfc71a694abc542a19e04cd0aa0afbb",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
+      "final_score": 8.95
     }
   ],
   "legacy_quality": {
