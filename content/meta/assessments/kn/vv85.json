@@ -109,6 +109,34 @@
       "content_sha256": "cee9075ddc85f7bb4b1e20977bc4191528b25ea7f9bdf3d3acfa14a8e3bcb958",
       "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
       "final_score": 9.03
+    },
+    {
+      "target": "translation",
+      "scope": "full",
+      "assessed_at": "2026-10-16",
+      "assessed_by": [
+        "Claude Sonnet 5.5 (Claude Code)"
+      ],
+      "scores": {
+        "source_provenance": 9.5,
+        "semantic_fidelity": 8.8,
+        "grammar_logic": 8.9,
+        "segment_alignment": 10,
+        "terminology": 8.8,
+        "triangulation": 8.3,
+        "vietnamese_clarity": 8.8,
+        "han_viet_balance": 9.3,
+        "ambiguity_integrity": 8.4,
+        "technical_integrity": 9.6
+      },
+      "blocking_errors": [
+        "Không có tầng tham khảo tiếng Anh tại commit đã ghim: bản Sujato ở `translation/en/sujato/sutta/kn/` chỉ có mười thư mục con — cp, dhp, iti, ja, kp, snp, thag, thig, ud — KHÔNG có `tha-ap`, `thi-ap` hay `vv`; và `source/upstream-manifest.json` chỉ liệt kê tệp dịch Anh cho những uid ấy, không tệp nào cho lát này. Đây là `not-published-upstream`, KHÔNG phải `not-synced`. Đo coverage theo đúng công thức `source/layers.yaml` (`englishCoverage.substantivePaliMinChars: 40`, `excludeReferenceBlock: true`) cho 0 trên toàn bộ khoá Pāli có nội dung của bài = 0%, dưới ngưỡng 0.8. `scripts/validate.ts` coi tệp Anh thiếu là error khi status là `review` hoặc `published`, nên bài bắt buộc `draft`. Lớp lấp `english-project` của dự án cũng không có cho uid này. Tầng `vietnamese-current` cũng vắng: `translation/vi/phantuananh` tại commit đã ghim chỉ có 26 tệp và toàn bộ là Pháp Cú. Ba tầng tham khảo đều vắng nên bài dịch chỉ từ Pāli root, đây là giới hạn upstream chứ không phải lỗi của người dịch; vì vậy `triangulation` bị chặn ở 7.5 (≤ 8.0) chứ không nâng để né blocker."
+      ],
+      "notes": "Sửa lỗi nghĩa 2026-10-16 theo tra nguồn ngoài (PED/DPD, chú giải CST, bản Anh/Việt độc lập; xem mục notes cùng ngày): lỗi nghĩa/tiêu đề còn tồn; 1 khoá, đối chiếu Pāli ghim. semantic_fidelity +0,1 vì sửa lỗi rõ. Các tiêu chí khác giữ nguyên.",
+      "id": "d37a86a9-5811-4e6d-86ed-5b601f7e4cc4",
+      "content_sha256": "2e93870fa53d9a5c844237e999b52e6661589fd3b07d4b368b4b5937716d2abd",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
+      "final_score": 9.04
     }
   ],
   "legacy_quality": {

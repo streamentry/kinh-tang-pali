@@ -81,6 +81,34 @@
       "content_sha256": "6676b7977433a8cb167896889fd6827e8e1a7e7360833354b64209ed3a389aaf",
       "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
       "final_score": 9.079999999999998
+    },
+    {
+      "target": "translation",
+      "scope": "full",
+      "assessed_at": "2026-10-16",
+      "assessed_by": [
+        "Claude Sonnet 5.5 (Claude Code)"
+      ],
+      "scores": {
+        "source_provenance": 9.5,
+        "semantic_fidelity": 8.9,
+        "grammar_logic": 9,
+        "segment_alignment": 9.9,
+        "terminology": 9,
+        "triangulation": 8.3,
+        "vietnamese_clarity": 8.9,
+        "han_viet_balance": 9.2,
+        "ambiguity_integrity": 8.6,
+        "technical_integrity": 9.6
+      },
+      "blocking_errors": [
+        "Không có tầng tham khảo tiếng Anh tại commit đã ghim: bản Anh đã ghim của Bhikkhu Sujato không phát hành bất kỳ tệp nào cho thư mục `sutta/kn/vv/` — đo trên `source/upstream-manifest.json` cho 755 tệp `kn` nằm ở cp, dhp, iti, ja, kp, snp, thag, thig, ud và 0 tệp ở `vv`. Đây là `not-published-upstream`, KHÔNG phải `not-synced`. `scripts/validate.ts` coi tệp Anh thiếu là error khi status là `review` hoặc `published`, nên bài bắt buộc `draft`. Đo coverage theo đúng công thức `source/layers.yaml` (Pāli có nội dung ≥ 40 ký tự, loại block tham chiếu `:0`): vv54 chỉ có 1 segment có nội dung là `10.1` (79 ký tự); 37 khoá còn lại đều là kệ ngắn hoặc tiêu đề. 1 đó không có Anh ⇒ 0/1 = 0%, dưới ngưỡng 0,8. `content/meta/reference-gaps.yaml` CHƯA có entry cho `kn/vv54` (đã kiểm bằng YAML parse: 729 entry, không có `kn/vv54`); coordinator cần chạy `npm run reference:gaps` để ghi nhận. Tầng `vietnamese-current` cũng vắng, và lớp lấp `english-project` không có cho uid này ⇒ ba tầng tham khảo đều vắng ⇒ dịch chỉ từ Pāli root. Đây là giới hạn upstream, không phải lỗi của người dịch."
+      ],
+      "notes": "Sửa lỗi nghĩa 2026-10-16 theo tra nguồn ngoài (PED/DPD, chú giải CST, bản Anh/Việt độc lập; xem mục notes cùng ngày): lỗi nghĩa/tiêu đề còn tồn; 1 khoá, đối chiếu Pāli ghim. semantic_fidelity +0,1 vì sửa lỗi rõ. Các tiêu chí khác giữ nguyên.",
+      "id": "2c38ae81-88c2-4f6e-a837-941c1bd4c106",
+      "content_sha256": "f8c893c13c8c37af1505c70ee72f966ae362e7ded2e94f3217ece9cbe4773bab",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
+      "final_score": 9.089999999999998
     }
   ],
   "legacy_quality": {

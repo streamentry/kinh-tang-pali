@@ -3,7 +3,8 @@ status: published
 translationTitle: "Chuyện Cung Điện Nāvā Thứ Nhất"
 translators:
   - "OpenCode Space Bunny Free (agent)"
-reviewers: []
+reviewers:
+  - Claude Sonnet 5.5 (Claude Code)
 tags:
   - "kn"
   - "khuddaka-nikaya"
@@ -14,16 +15,16 @@ tags:
 quality:
   scores:
     source_provenance: 9.4
-    semantic_fidelity: 9.0
-    grammar_logic: 9.0
-    segment_alignment: 10.0
+    semantic_fidelity: 9.1
+    grammar_logic: 9
+    segment_alignment: 10
     terminology: 8.7
     triangulation: 7.5
     vietnamese_clarity: 9.1
     han_viet_balance: 9.2
     ambiguity_integrity: 8.8
     technical_integrity: 9.6
-  final_score: 9.03
+  final_score: 9.04
   blocking_errors:
     - "Không có tầng tham khảo tiếng Anh tại commit đã ghim:
       `source/upstream-manifest.json` (commit 11c9d708, tầng `english-sujato`)
@@ -44,9 +45,10 @@ quality:
       0** khoá Pāli đủ 40 ký tự — khuôn kệ của `vv` là kệ ngắn, mỗi vế dưới 40
       ký tự — nên coverage không đo được, và ngưỡng 0.8 không phải nguyên nhân
       của blocker ở đây; nguyên nhân là tệp Anh không tồn tại."
-  assessed_at: "2026-10-11"
+  assessed_at: 2026-10-16
   assessed_by:
-    - "Claude Sonnet 5.5 (Claude Code)"
+    - Claude Sonnet 5.5 (Claude Code)
+  assessment_id: afc4a68c-82c4-4e55-8880-c6eff59c17c9
   waiver:
     id: no-upstream-english
     blockers:
@@ -214,3 +216,5 @@ notes: |-
   Đo lại `sabbadisā`: cùng hai câu Pāli, `te…` → *muôn phương* 50 ⟵ *mọi phương* 20 ⟵ *bốn phương* 1 (71 khoá); `me…` → *muôn phương* 32 ⟵ *mọi phương* 30 ⟵ *bốn phương* 1 (63 khoá). Số của câu `me…` là thế cân bằng, KHÔNG còn là "mọi phương đa số" như ghi ở phần trên; hai câu hiện dịch khác nhau trong cùng bài (`3.4` *muôn phương*, `10.4` *mọi phương*). Giữ nguyên vì hai cụm nghĩa như nhau và cùng cụm với `vv7`/`vv9`; nếu người biên tập thống nhất thì sửa đồng loạt cả bộ.
   Đã xem lại và quyết định KHÔNG đổi dù nghi ngờ: `2.4`/`9.4` *dù là gì dễ chịu với tâm* cho `ye keci manaso piyā` (`piya` là *thân ái, vừa ý*, *dễ chịu* chưa tối ưu và câu gượng, nhưng 40/43 khoá cùng Pāli toàn tầng dùng đúng cách này); `0.2` *Chuyện Cung Điện Nữ Hư Không* (47/49 khoá cùng Pāli, lỗi của cả bộ như đã nêu ở trên, không sửa lẻ một bài); `4.2` *Tôn giả* (16/17); `2.2`/`9.2` `idha mijjhati` *thành tựu được ở nơi đây* (14/21 và 15/16, còn thiếu tân ngữ nhưng chưa có căn cứ để chọn cách khác). `10.2` `yamakāsi puññaṁ` đọc như câu hỏi gián tiếp (*phước báu nào*), 12/13 khoá theo cách này; Pāli là mệnh đề quan hệ nên nghĩa vẫn đúng.
   Chấm lại: `semantic_fidelity` 8.9 → 9.0 (bốn khoá bỏ phần thêm ngoài Pāli: `8.1`, `7.3`, `6.2`, `8.4`); `vietnamese_clarity` 9.0 → 9.1 (`8.1` hết cụm tối nghĩa *mang hình tướng*); `terminology` 8.6 → 8.7 (`vaṇṇo` nhất quán trong bài, tên cây theo tiền lệ; tiêu đề `0.2` vẫn tồn lỗi cả bộ nên không nâng thêm). Không đổi: `source_provenance` 9.4, `grammar_logic` 9.0 (không sửa lỗi ngữ pháp/ngôi nào mới), `segment_alignment` 10.0, `triangulation` 7.5 (không có bản Anh), `han_viet_balance` 9.2, `ambiguity_integrity` 8.8 (bất định `7.1` `taṁ`, `8.1` `bhūmibhāgehi`, `7.2` `nadī`, `8.3` `idha` vẫn chưa phân xử), `technical_integrity` 9.6. `final_score` = 9.03 (trung bình số học thô 90.3/10). Blocker upstream giữ nguyên. Cổng kỹ thuật vẫn CHƯA chạy ở lượt này: cần `npm run validate`, `npm test`, `npm run check`, `npm run build`.
+
+  Sửa lỗi nghĩa 2026-10-16: vv6:7.1 `Taṁ āpagā anupariyanti` — "Những dòng sông luôn chảy quanh cung điện ấy" → "Những dòng sông luôn chảy quanh người ấy" (`taṁ` ở `7.1` chỉ người làm phước đã nêu ở khổ trước (`yo … dadāti … tassa`), không phải cung điện — Pāli không nêu cung điện ở khổ này; Vv-a ad Vv 6: "tattha tassāti tanti ca yathāvuttapuññakārinaṃ paccāmasati … tassa vasanaṭṭhānaparikkhipanena sopi parikkhitto nāma hoti" (https://www.tipitaka.org/romn/cscd/s0506a.att1.xml); Indacanda "người ấy"; cùng dòng đã sửa ở vv7:7.1.)
