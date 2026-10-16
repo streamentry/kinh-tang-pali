@@ -56,6 +56,7 @@ const timestamp = (seconds: number) => `${Math.floor(seconds / 60)}:${Math.floor
 </sutta-audio>
 <script>
   import { readAutoNext, saveAutoNext, rememberContinuation, consumeContinuation, AUTO_NEXT_KEY } from '../lib/audio/navigation';
+  import { isScripturePhase } from '../lib/audio/playback';
   class SuttaAudioElement extends HTMLElement {
     private cleanup?: () => void;
     disconnectedCallback() { this.cleanup?.(); delete this.dataset.ready; }
@@ -96,7 +97,7 @@ const timestamp = (seconds: number) => `${Math.floor(seconds / 60)}:${Math.floor
         seek.max = String(duration()); seek.value = String(audio.currentTime);
         seek.setAttribute('aria-valuetext', `${format(audio.currentTime)} / ${format(duration())}`);
         progress.style.width = `${Math.max(0, Math.min(100, audio.currentTime / duration() * 100))}%`;
-        const inScripture = audio.currentTime >= Number(this.dataset.scripture);
+        const inScripture = isScripturePhase(audio.currentTime, Number(this.dataset.scripture));
         this.querySelector('[data-phase]')!.textContent = inScripture ? 'Kinh văn' : 'Tóm tắt';
         summary.setAttribute('aria-current', String(!inScripture));
         scripture.setAttribute('aria-current', String(inScripture));
