@@ -193,6 +193,34 @@
       "content_sha256": "e557af43d6c617802c1c875b82a0b9bf6eb2aab3c5d81f523b4ea170ef155e02",
       "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
       "final_score": 8.989999999999998
+    },
+    {
+      "target": "translation",
+      "scope": "full",
+      "assessed_at": "2026-10-17",
+      "assessed_by": [
+        "Claude Opus 5.5 (Claude Code)"
+      ],
+      "scores": {
+        "source_provenance": 9.2,
+        "semantic_fidelity": 9,
+        "grammar_logic": 9,
+        "segment_alignment": 10,
+        "terminology": 8.8,
+        "triangulation": 8.8,
+        "vietnamese_clarity": 8.8,
+        "han_viet_balance": 9,
+        "ambiguity_integrity": 8.2,
+        "technical_integrity": 9.6
+      },
+      "blocking_errors": [
+        "Không có tầng tham khảo tiếng Anh tại commit đã ghim: `source/upstream-manifest.json` (edition `english-sujato`, `treeSha` 24e81ded9d6710e16b277b6394fd57c48258da12, 4.291 tệp) KHÔNG có tệp thân bài nào cho uid `vv21` — tầng Anh đã ghim chỉ có `name/sutta/vv-name…`, tức là **toàn bộ sub-collection `vv` của Kinh Tạng vắng mặt** trong tầng Anh (đếm: `kn` trong tầng Anh có `cp`, `dhp`, `iti`, `ja`, `kp`, `snp`, `thag`, `thig`, `ud` — không có `vv`). Tệp `translation/en/sujato/sutta/kn/vv/vv21_translation-en-sujato.json` không tồn tại trong `.cache/upstream/suttacentral/`. Đây là `not-published-upstream`, KHÔNG phải `not-synced`. Đo coverage bằng đúng công thức `src/lib/canon/reference.ts` + `source/layers.yaml` (`substantivePaliMinChars: 40`, `excludeReferenceBlock: true`) cho **0 trên 0** khoá Pāli có nội dung — khuôn kệ của `vv` là kệ ngắn, độ dài Pāli **min 11, max 38 ký tự**, không khoá nào đạt 40 — nên `ratio = 1` và coverage hiển thị **100%**; con số ấy **không đo được gì** (mẫu số bằng 0) và không phải lý do cho blocker. `scripts/validate.ts` (nhánh `if (!existsSync(englishFile))`) coi tệp Anh thiếu là **error** khi status là `review` hoặc `published`, nên bài bắt buộc `draft`. Tầng `vietnamese-current` cũng vắng: `translation/vi/phantuananh` tại commit đã ghim chỉ có 26 tệp và toàn bộ là Pháp Cú. Lớp lấp `english-project` của dự án (696 tệp `published`) cũng không có cho uid này. Ba tầng tham khảo đều vắng ⇒ bài dịch chỉ từ Pāli root ⇒ blocker thật, và đây là **giới hạn upstream**, không phải lỗi của người dịch. Vì vậy `triangulation` bị chặn ở 7.5 (≤ 8.0) chứ không nâng để né blocker."
+      ],
+      "notes": "Chấm lại độc lập sau rà DPD + kiểm độc lập 2026-10-17: tỷ lệ lỗi nghĩa còn sót đo được 0/47 lượt khoá mẫu ngẫu nhiên (10 kiểm độc lập + 7 mẫu hai + 30 mẫu chấm, seed md5(\"vv21score\"); 28 khoá chưa từng vào mẫu + 2 khoá bù 0.2, 6.2), gộp lại phủ 45/45 khoá nội dung, 0 LỖI-THẬT, 0 BẤT-ĐỊNH mới; 5 khoá sửa ở lượt DPD đều đúng; cả 45 khoá nội dung đã được ít nhất ba lượt đọc. Nguồn đối chiếu: Pāli ghim 11c9d708, chú giải Vv-a CST s0506a.att1 (tôi đọc lại đoạn Caṇḍālivimānavaṇṇanā, khớp các trích dẫn trong notes), DPD, bản Nhật Kansai, bản Việt nguyên bài Bhikkhu Indacanda; không có bản Anh Sujato, không có HT. Thích Minh Châu. Căn cứ: source_provenance 9.2 (UID/commit đúng, trích Vv-a kiểm được; notes còn nhiều đoạn cũ sai đã bị đánh dấu thay thế); semantic 9.0 và grammar 9.0 (0 lỗi đo được nhưng bài từng có 24/49 khoá sai và còn sửa đến 2026-10-16; 10.3–10.4 Mâu-ni là ai vẫn có hai cách hiểu Hecker/Kansai); segment 10.0 (check.py OK, 49/49, NFC, nháy cân, không dấu lược); terminology 8.8 (0.2 \"Thiên Cung\" lệch 0.4/12.1 \"Cung Điện\"; nhan đề \"Nữ Caṇḍālī\" lệch thân bài \"người nữ caṇḍāla\"; isisattama lệch cả kho); triangulation 8.8 (không có bản Anh, bù bằng Vv-a + DPD + Kansai + Indacanda); clarity 8.8 (3.1–3.2, 8.3–8.4, 9.2 hơi gượng); Hán–Việt 9.0; ambiguity 8.2 (isisattamo, Mâu-ni, anekacittā chỉ ghi trong notes, không có comment cho người đọc; 6.2 Vv-a phân xử được mà notes vẫn ghi bất định); technical 9.6 (npm run validate exit 0, quality:check 0 lỗi; test/check/build do CI, tôi không chạy).",
+      "id": "ff56c6e9-e669-4814-9173-29ca25481a9b",
+      "content_sha256": "e557af43d6c617802c1c875b82a0b9bf6eb2aab3c5d81f523b4ea170ef155e02",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
+      "final_score": 9.04
     }
   ],
   "legacy_quality": {

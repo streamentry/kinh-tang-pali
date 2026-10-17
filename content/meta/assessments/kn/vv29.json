@@ -165,6 +165,34 @@
       "content_sha256": "b8a158a15c6954f82e0e0cd9bda6fb4dd95519a2a463fb83d3de09c49eaf2e78",
       "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
       "final_score": 8.98
+    },
+    {
+      "target": "translation",
+      "scope": "full",
+      "assessed_at": "2026-10-17",
+      "assessed_by": [
+        "Claude Opus 5.5 (Claude Code)"
+      ],
+      "scores": {
+        "source_provenance": 9,
+        "semantic_fidelity": 9.1,
+        "grammar_logic": 9,
+        "segment_alignment": 10,
+        "terminology": 9,
+        "triangulation": 8.9,
+        "vietnamese_clarity": 8.7,
+        "han_viet_balance": 9.1,
+        "ambiguity_integrity": 8,
+        "technical_integrity": 9.6
+      },
+      "blocking_errors": [
+        "Không có tầng tham khảo tiếng Anh tại commit đã ghim: bản Sujato ở `translation/en/sujato/sutta/kn/` chỉ có mười thư mục con — cp, dhp, iti, ja, kp, snp, thag, thig, ud — KHÔNG có `tha-ap`, `thi-ap` hay `vv`; và `source/upstream-manifest.json` chỉ liệt kê tệp dịch Anh cho những uid ấy, không tệp nào cho lát này. Đây là `not-published-upstream`, KHÔNG phải `not-synced`. Đo coverage theo đúng công thức `source/layers.yaml` (`englishCoverage.substantivePaliMinChars: 40`, `excludeReferenceBlock: true`) cho 0 trên toàn bộ khoá Pāli có nội dung của bài = 0%, dưới ngưỡng 0.8. `scripts/validate.ts` coi tệp Anh thiếu là error khi status là `review` hoặc `published`, nên bài bắt buộc `draft`. Lớp lấp `english-project` của dự án cũng không có cho uid này. Tầng `vietnamese-current` cũng vắng: `translation/vi/phantuananh` tại commit đã ghim chỉ có 26 tệp và toàn bộ là Pháp Cú. Ba tầng tham khảo đều vắng nên bài dịch chỉ từ Pāli root, đây là giới hạn upstream chứ không phải lỗi của người dịch; vì vậy `triangulation` bị chặn ở 7.5 (≤ 8.0) chứ không nâng để né blocker."
+      ],
+      "notes": "Chấm lại độc lập sau rà DPD + kiểm độc lập 2026-10-17: tỷ lệ lỗi nghĩa còn sót đo được 0/42 lượt khoá mẫu ngẫu nhiên (10 kiểm độc lập + 2 mẫu hai + 30 mẫu chấm, seed md5(\"vv29score\"); 29 khoá chưa từng vào mẫu + 1 khoá bù 1.2), gộp lại phủ 41/41 khoá nội dung, 0 LỖI-THẬT, 1 BẤT-ĐỊNH đã ghi (8.3 avadhi: Vv-a \"māresi\" so với \"trọng thương\"); cả 41 khoá nội dung đã được ít nhất ba lượt đọc. Nguồn đối chiếu: Pāli ghim 11c9d708, Vv-a CST s0506a.att1 (Uḷāravimānavaṇṇanā, tôi đọc lại: \"Teti nipātamattaṃ\", \"aṃsakūṭaṃ chindi\", \"tato dukkhato suṭṭhu muttā\" đúng như notes trích), DPD, Kansai, Indacanda; không có bản Anh. Căn cứ: source_provenance 9.0 (UID/commit đúng; notes vẫn giữ đoạn tóm tắt đầu bịa chuyện \"vị trưởng lão đánh\" và câu \"bản Anh đã ghim dịch là I gave him a gift\" — đã bị rút lại ở mục 2026-10-11 nhưng vẫn nằm trong hồ sơ); semantic 9.1, grammar 9.0 (0 lỗi; 1.3–1.4 tách chủ ngữ khác Vv-a, 7.4 phạm vi lời trích không rõ); segment 10.0 (check.py OK, 46/46); terminology 9.0 (nhất quán trong bài; avadhi lệch vv21); triangulation 8.9 (không bản Anh, nhưng Vv-a giải nhiều chỗ khó); clarity 8.7 (\"Tôi ấy, khi thân hoại\", 7.4, 9.3–9.4 gượng); Hán–Việt 9.1; ambiguity 8.0 (5.4 te, 7.3–7.4 người nói, 8.3 chỉ ghi trong notes, không comment; notes cũ sai chưa bị gỡ); technical 9.6 (validate exit 0, quality:check 0 lỗi; test/check/build do CI).",
+      "id": "3f2c381a-bd13-4c12-9e65-efbc1d007ce7",
+      "content_sha256": "b8a158a15c6954f82e0e0cd9bda6fb4dd95519a2a463fb83d3de09c49eaf2e78",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
+      "final_score": 9.04
     }
   ],
   "legacy_quality": {

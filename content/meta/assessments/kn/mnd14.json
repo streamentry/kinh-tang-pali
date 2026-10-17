@@ -169,6 +169,34 @@
       "content_sha256": "36657368d9db8b33a57c0ec7e9e4189d79e9aa53fa437fdb27444833e23f4786",
       "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
       "final_score": 8.97
+    },
+    {
+      "target": "translation",
+      "scope": "full",
+      "assessed_at": "2026-10-17",
+      "assessed_by": [
+        "Claude Opus 5.5 (Claude Code)"
+      ],
+      "scores": {
+        "source_provenance": 9.2,
+        "semantic_fidelity": 8.8,
+        "grammar_logic": 8.8,
+        "segment_alignment": 9.8,
+        "terminology": 8.4,
+        "triangulation": 8.4,
+        "vietnamese_clarity": 8.5,
+        "han_viet_balance": 8.7,
+        "ambiguity_integrity": 8.2,
+        "technical_integrity": 9.4
+      },
+      "blocking_errors": [
+        "noEnglishEditionUpstream: không có tầng tham khảo tiếng Anh cho mnd14 tại commit đã ghim. Thư mục kn/ của edition translation/en/sujato chỉ có cp, dhp, iti, ja, kp, snp, thag, thig, ud; manifest chỉ liệt kê tệp Pāli (root-pli-ms) cho kn/mnd và tệp tên mnd-name (chỉ có tiêu đề bài, ở đây là Exposition of the Discourse on the Quick Way); tệp mnd14_translation-en-sujato.json không tồn tại. Lớp english-project cũng không có mnd14. Tầng vietnamese-current chỉ có Pháp Cú. Đây là not-published-upstream, giới hạn của bản chụp upstream chứ không phải lỗi người dịch, nên triangulation bị chặn dưới 8.0 và không nâng để né blocker."
+      ],
+      "notes": "Chấm lại độc lập sau rà DPD + kiểm độc lập 2026-10-17: gộp mẫu ngẫu nhiên 70 khoá (40 của lượt kiểm 2026-10-16 + 30 khoá mới, seed md5('mnd14score')=4007532802, ngoài mẫu cũ) có 2 lỗi nghĩa thật (194.4/195.2 bỏ sót there bhikkhū; 156.15–158.2 siṅgī/thaddhā), cả hai đã sửa và kiểm lại đúng; 30 khoá mới 0 LỖI-THẬT, 1 BẤT-ĐỊNH đã ghi (204.6 samaṇappadhāna) ⇒ tỷ lệ gộp ≈2,9% (2/70), mẫu mới 0/30. Nguồn đối chiếu: Pāli ghim, DPD toàn bài, chú giải CST att14 (179 khoá), bản Việt độc lập Indacanda (căn theo đoạn, 52 nhóm cờ mới quét), Sujato chỉ cho kệ (snp4.14), bản dịch mù, song song mnd/cnd; không có bản Anh Sujato cho bài, không có bản Thích Minh Châu ⇒ triangulation 8,4. Thuật ngữ trừ vì lệch trong bài: thaddha 3 cách (bướng bỉnh 31.2 / ương ngạnh 156 / cứng nhắc 164.2, 205.18), vesārajja «bốn sự tự tin» 60.2 so «bốn vô úy» 19.3, jappati «khấn nguyện» (người kiểm đã đề nghị đổi, chưa đổi, lệch snp4.14), kappento/vikappa «hư cấu» lệch mnd4/mnd5, «tám chi» lẫn «tám chi phần». Văn phong: «lăng xăng bằng mắt/chân», «có đệ tử ở nhà, có giáo sư» (76.x, theo sn35.151), «khấn nguyện khắp nơi, dữ dội». Bất định ghi rất đủ trong notes (≥ 30 điểm, kể cả 60.2 Pāli ghim anijjhāpetā dịch theo nijjhāpetā) nhưng bài không có tệp comment nào nên người đọc không thấy cách hiểu khác (mantā asmīti, nirattā, phuṭṭho lệch snp4.14 đã publish) ⇒ 8,2. Kỹ thuật: check.py OK 1276/1276 NFC; npm run validate pass (exit 0; cảnh báo duy nhất của bài là thiếu bản Anh, đúng giới hạn upstream), quality:check 0 lỗi; test/check/build chưa tự chạy (CI) và notes còn câu cũ «status: draft», «triangulation 7.8» ⇒ 9,4.",
+      "id": "aac31a65-2aa7-44ef-b8c0-15ced889fa7f",
+      "content_sha256": "36657368d9db8b33a57c0ec7e9e4189d79e9aa53fa437fdb27444833e23f4786",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
+      "final_score": 8.82
     }
   ],
   "legacy_quality": {
