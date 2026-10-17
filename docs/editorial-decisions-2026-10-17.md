@@ -163,3 +163,20 @@ nội dung đổi ở nhiều chỗ, bài được chấm lại **toàn bài** b
 giao thức chống neo điểm (không đọc điểm cũ trước, tự đọc mẫu khoá ngẫu nhiên, triangulation phản
 ánh việc không có bản dịch độc lập), không theo delta. Còn locus nào không gỡ được thì bài giữ
 draft và không chấm.
+
+### 5.6 Peṭakopadesa lượt hai: bản in BJT làm ấn bản có tên (bổ sung, 2026-10-17)
+
+Thí điểm §5.5 gỡ được 57/225 locus. Lớp variant tại commit ghim rất thưa cho pe (1–47 khoá mỗi
+bài), nhưng toàn văn ấn bản Buddha Jayanti (BJT, Sri Lanka) của Peṭakopadesa có sẵn: bản số hoá
+tipitaka.lk (kèm cước chú dị bản của BJT `[BJTfn: …]`) và bản in lại trong *Tam Tạng Pāli–Việt*
+của Bhikkhu Indacanda (Pāli BJT có cước chú dị bản Ma, Syā, PTS, kèm bản dịch Việt). Quyết định:
+
+- BJT là **ấn bản có tên** theo điều kiện 2 của §5.1; dẫn bằng tên ấn bản, số trang tipitaka.lk
+  và số trang tập TTPV.
+- Điều kiện 3 vẫn phải đủ: cách đọc BJT **đọc ra được** theo DPD/ngữ pháp **và** có ít nhất một
+  nguồn giải nghĩa: câu song song trong Pāli ghim, hoặc một bản dịch có tên đọc theo cách đó.
+  Bản dịch Việt của Indacanda là một bản dịch có tên (người dịch khác với ban biên tập BJT), nên
+  được dùng làm nguồn giải nghĩa; Ñāṇamoli (*The Piṭaka-Disclosure*, PTS 1964) chỉ được dẫn tên
+  cách đọc một chữ, không chép lời dịch.
+- Cách đọc BJT không đọc ra được, hoặc BJT trùng chữ ghim, thì locus giữ nguyên trong blocker.
+- Các quy tắc khác của §5.5 giữ nguyên: bài chỉ được chấm lại toàn bài khi mọi locus đã gỡ.
