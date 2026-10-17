@@ -56,6 +56,29 @@ là luật của repository, không phải việc «còn treo».
 | `jessantaṁ`, `gāmaṇīyehi`, `bhaddante` trong `ja547` | Theo chú giải Jātaka (CST) khi chú giải giải đúng chữ ghim; không có lời giải thì giữ và chú thích | §3.2 mục 5. |
 | Tiêu đề `ja183`, `ja187` | Giữ tên Pāli, có chú thích | Không có nghĩa chắc chắn. |
 
-## 4. Kết quả
+## 4. Kết quả (2026-10-17)
 
-Kết quả thi hành và các bài vẫn ≤ 9,0 được ghi ở cuối văn bản này sau khi chấm delta.
+Mỗi bài có thay đổi được một người kiểm độc lập (không phải người sửa) soát từng khoá với Pāli ghim,
+DPD và chính nguồn chú giải được dẫn, rồi chấm delta theo mục 2. Không bài nào được chấm lại toàn bài.
+
+| Bài | Đã làm | Điểm | Trạng thái |
+| --- | --- | --- | --- |
+| `ja547` | `gāmaṇīyehi` theo chú giải (thầy luyện voi/ngựa, thầy đánh xe — 149.1 theo lời giải dòng y hệt ở chú giải Ja 539), `jessantaṁ` «đi lang thang»; `bhaddante` giữ (chú giải không giải) | 9,00 → 9,02 | **published** |
+| `mnd3` | `vāda` theo lời giải của chính Niddesa (20 khoá; sửa lỗi nghĩa thật) | 8,97 → 9,00 | review (đúng 9,0 không đủ) |
+| `ja526` | 26.2, 26.4, 28.4, 29.2 theo chú giải Niḷinikājātaka | 8,92 → 8,95 | review |
+| `mnd14` | thống nhất chuỗi danh hiệu 60.2, `kappento` 39.3 | 8,93 → 8,95 | review |
+| `mnd16` | «của Ma» 185.3/185.5, chuỗi danh hiệu 26.2 | 8,90 → 8,92 | review |
+| `mnd8` | chú thích `timitimiṅgala` | 8,97 (giữ) | review |
+| `ja545` | 69.2–69.4 giữ dấu nháy của Pāli ghim | 9,00 (giữ) | review |
+| `mnd2`, `mnd13` | các mục treo đã thi hành từ trước; không đổi lời kinh | 8,98 / 8,94 (giữ) | review |
+| `ja110` | giữ chữ ghim (mục 1) | 8,94 (giữ) | review |
+| `tha-ap3`, `tha-ap114`, `tha-ap345`, `tha-ap548` | chú giải Visuddhajanavilāsinī (CST `s0510a.att1`, `att12`, `att32`, `att41`) có phủ cả bốn bài nhưng **không bình đúng chữ ghim**; DPD chỉ có tách chữ bằng máy. Thêm chú thích nêu kết quả tra và dị bản | giữ | **draft** |
+| `pe1`–`pe6`, `pe8`, `pe9` | không làm (mục 1) | giữ | **draft** |
+
+Đồng bộ kèm theo: `ja529:57.3` (published) `jessantaṁ` «đang đi lang thang», cùng dòng Pāli và cùng lời giải với `ja547:66.3`.
+
+**Không đưa lên được bằng sửa có căn cứ** (báo cáo thẳng):
+
+- 8 bài review còn lại nằm ở 8,92–9,00. Phần trừ chung là `triangulation` 8,4–8,7, vì không có bản Anh hay bản Việt độc lập để đối chiếu. Mục 2 không cho tăng tiêu chí này khi không có bản dịch độc lập mới. Không còn lỗi nghĩa nào đã biết mà chưa sửa.
+- 12 bài draft: ở 4 bài tha-ap, blocker là chữ ghim mà chú giải không giải; muốn gỡ thì phải dịch theo dị bản BJT, tức là đổi chính sách D. Ở 8 bài pe, Pāli hỏng nhiều chỗ và điểm thấp (mục 1).
+- Ghi để người biên tập xét, chưa làm: `gāmaṇīyehi` ở `ja529`, `ja539` dịch «đội trưởng» (khớp DPD «squadron leader», khác lời giải «ācariya» của chú giải); `cnd19:7.2` còn chuỗi danh hiệu cũ; `mnd8:77.11` «tám ngành», `78.15` «bốn điều không run sợ» (mỗi chữ chỉ xuất hiện một lần trong bài, khác đa số cnd/mnd); câu kệ `ja545:69.1` thiếu vị ngữ do giữ dấu nháy theo Pāli ghim.
