@@ -122,3 +122,29 @@ bằng 5.1 thì `semantic_fidelity`, `grammar_logic` (6,8–8,1) và `vietnamese
 cần tăng vài điểm mỗi tiêu chí, việc chỉ làm được bằng một bản dịch lại toàn bộ có đối chiếu một
 bản dịch độc lập (Ñāṇamoli, *The Piṭaka-Disclosure*, PTS 1964 — chưa có quyền dùng). Không làm
 trong đợt này.
+
+### 5.4 Kết quả thi hành §5.1–§5.2 (2026-10-17)
+
+Mỗi sửa có một người kiểm độc lập tự mở lại nguồn (lớp variant tại commit ghim, DPD, PED,
+chú giải CST, Walters qua SuttaCentral, Indacanda trong `sc-data` đã ghim). Bảng §4 ở trên là
+trạng thái trước §5; bảng này thay nó cho các bài dưới đây.
+
+| Bài | Đã làm | Điểm | Trạng thái |
+| --- | --- | --- | --- |
+| `tha-ap3` | 223.2 theo `purisuttamagāravā` (si, sya, pts); 223.1 `phussa` «tốt lành» theo chữ ghim (DPD) | 9,04 → 9,06 | **published** |
+| `tha-ap345` | 1.3 theo bj `tassopadhikkhaye` | 9,12 → 9,13 | **published** |
+| `tha-ap548` | 4.2 giữ câu chữ, căn cứ là bj `anantajanasaṁsadi` (PED *saṃsad*) | 9,12 → 9,13 | **published** |
+| `tha-ap114` | 8.2 không đủ §5.1 (không có dị bản; chữ ghim đọc được, chỉ mơ hồ 11/18) | 9,21 (giữ) | draft |
+| `ja110` | 1.3 theo `bhāsati` (Fausbøll, Pāli Thái, câu kệ do chú giải trích) | 8,94 → 8,97 | review |
+| `mnd13` | đồng bộ 21 dòng kệ với snp4.13 theo lời giải (101 khoá) | 8,96 → 8,97 | review |
+| `mnd8` | văn phong 78.x, 19.6, 25.6 | 8,99 → 9,00 | review (đúng 9,0) |
+| `ja526` | văn phong 41.2, 29.2 | 8,97 → 8,98 | review |
+| `mnd2` | văn phong `vipphandati` | 8,99 (giữ) | review |
+| `mnd14`, `mnd16` | văn phong lẻ bị người kiểm phán lệch, đã hoàn nguyên | giữ | review |
+| `mnd3` | 0 khoá đổi (mọi lời phê nằm ở kệ/công thức chung) | 9,00 (giữ) | review |
+
+**Còn lại sau đợt này:** 8 review (8,93–9,00) và 9 draft (`pe1`–`pe6`, `pe8`, `pe9`,
+`tha-ap114`). Những gì còn có thể nâng các bài review đều là việc **cấp kho**, không phải sửa lẻ:
+thống nhất công thức Niddesa dùng chung với bài đã published (ví dụ «mạng sống là một, thân thể
+là một khác», «đối với người nào những vị…»), họ động từ *sam-* theo B19 kể cả `snp4.14`, và các
+dòng kệ mà lời giải Niddesa trái bản Snp đã published (`kamma`, `vivāda`, `jappa`… ở snp4.13).
