@@ -46,6 +46,7 @@ như ma trận trong `DESIGN.md`; không coi build pass là bằng chứng giao 
 - Không copy Pāli vào translation JSON.
 - Workflow dịch mặc định là đối chiếu **Pāli root + ít nhất một bản English SuttaCentral phù hợp + bản Hòa thượng Thích Minh Châu khi có**, rồi viết một bản tiếng Việt mới.
 - English và bản Thích Minh Châu là reference layers quan trọng; **Pāli root là authority cuối cùng** khi các nguồn bất đồng.
+  **Ngoại lệ có tên (người biên tập uỷ quyền, 2026-10-17):** khi chữ ghim hỏng có chứng minh, một khoá được dịch theo dị bản do ấn bản có tên ghi nhận (ưu tiên lớp `variant/` của bilara tại commit đã ghim), đủ ba điều kiện và có chú thích tại khoá — xem `docs/editorial-decisions-2026-10-17.md` §5.1. Tệp root, lock và layers không đổi.
 - Không chỉ dịch vòng English → Vietnamese rồi bỏ qua Pāli.
 - Không chỉ hiện đại hóa hoặc thay từ đồng nghĩa trên bản Thích Minh Châu rồi coi đó là bản dịch mới.
 - Có thể giữ Hán–Việt khi đúng, quen thuộc và súc tích; giảm Hán–Việt khi nó làm câu tối nghĩa mà không tăng độ chính xác.
