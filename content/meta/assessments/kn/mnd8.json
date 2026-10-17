@@ -169,6 +169,118 @@
       "content_sha256": "3d48fc001d1a383ff44920ca8fada3c3611929825820d9cd543a33fa6dd44f21",
       "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
       "final_score": 8.879999999999999
+    },
+    {
+      "target": "translation",
+      "scope": "full",
+      "assessed_at": "2026-10-16",
+      "assessed_by": [
+        "Claude Opus 5.5 (Claude Code)"
+      ],
+      "scores": {
+        "source_provenance": 9.4,
+        "semantic_fidelity": 8.7,
+        "grammar_logic": 8.5,
+        "segment_alignment": 10,
+        "terminology": 8.4,
+        "triangulation": 8.5,
+        "vietnamese_clarity": 8.4,
+        "han_viet_balance": 9.1,
+        "ambiguity_integrity": 8.4,
+        "technical_integrity": 9.6
+      },
+      "blocking_errors": [
+        "noEnglishEditionUpstream: không có tầng tham khảo tiếng Anh cho mnd8 tại commit đã ghim. Thư mục kn/ của edition translation/en/sujato chỉ có cp, dhp, iti, ja, kp, snp, thag, thig, ud; manifest chỉ liệt kê tệp root-pli-ms cho kn/mnd (cùng tệp tên mnd-name, chỉ có tiêu đề các bài); tệp mnd8_translation-en-sujato.json không tồn tại. Lớp english-project cũng không có mnd8. Tầng vietnamese-current chỉ có Pháp Cú. Đây là not-published-upstream, giới hạn của bản chụp upstream chứ không phải lỗi người dịch, nên triangulation bị chặn ở 8.0 và không nâng để né blocker."
+      ],
+      "notes": "Rà từng chữ bằng DPD + chú giải CST 2026-10-16, có kiểm độc lập: 412 khoá; sửa 11 khoá (vinighāti «lo âu», labhetho khả năng cách); người kiểm độc lập xác nhận 11/11 đúng; mẫu 30 khoá còn 1 lỗi (26.4 cú pháp kathāsallāpo), đã sửa; ngoài mẫu sửa 77.17 dhoneyya. Chỉ cộng +0,1 cho tiêu chí có lỗi đã sửa được kiểm đúng; triangulation giữ nguyên.",
+      "id": "27bb63a4-c87e-43d3-a69f-cf4ef9bdc8b3",
+      "content_sha256": "048108595db22d0c10f7b177d4ca11a62a2d9dcae283bba1560df7b51cddb9d8",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
+      "final_score": 8.9
+    },
+    {
+      "target": "translation",
+      "scope": "full",
+      "assessed_at": "2026-10-17",
+      "assessed_by": [
+        "Claude Opus 5.5 (Claude Code)"
+      ],
+      "scores": {
+        "source_provenance": 9.3,
+        "semantic_fidelity": 8.7,
+        "grammar_logic": 8.8,
+        "segment_alignment": 9.8,
+        "terminology": 8.5,
+        "triangulation": 8.4,
+        "vietnamese_clarity": 8.5,
+        "han_viet_balance": 8.7,
+        "ambiguity_integrity": 8.6,
+        "technical_integrity": 9.3
+      },
+      "blocking_errors": [
+        "noEnglishEditionUpstream: tầng english-sujato không có mnd8 tại commit đã ghim 11c9d708978cde8ba61096d8a75f7ddfb846f639; source/upstream-manifest.json chỉ liệt kê kn/mnd/mnd8_root-pli-ms.json cho bài này và tệp mnd8_translation-en-sujato.json không tồn tại. Lớp english-project cũng không có mnd8; tầng vietnamese-current chỉ có Pháp Cú. Đây là not-published-upstream, giới hạn của bản chụp upstream chứ không phải lỗi người dịch; bản Anh Sujato chỉ có cho các dòng kệ qua snp4.8 (bài khác) và đã được đọc làm bằng chứng phụ."
+      ],
+      "notes": "Chấm lại độc lập sau rà DPD + kiểm độc lập + lượt hoàn thiện 2026-10-17: 30 khoá mới (seed md5('mnd8score')=3901997947, ngoài mẫu cũ) có 1 LỖI-THẬT nhẹ (53.1 và các khoá cùng dòng 51.2, 53.3, 57.2: bỏ eti «đi đến», chú giải abhigajjanto eti), 29 KHỚP; gộp 30 khoá lượt kiểm 2026-10-16 (1 lỗi 26.4, đã sửa) ⇒ 2/60 ≈ 3,3 %; 77.17 đã sửa đúng. Lượt hoàn thiện: diṭṭhi «tri kiến» → «kiến»/«kiến chấp» đúng và cần; pasaṁsā «tán dương» → «khen ngợi», nindā «chỉ trích» → «chê trách» không có lý do nghĩa và làm 14 khoá kệ lệch snp4.8 đã published ⇒ trừ thuật ngữ. 8 chú thích kiểm lại đúng nguồn; thiếu chú thích cho visenikatvā (64.1) dù snp4.8/Sujato «xa lìa đám đông» khác hẳn Niddesa «phá tan các đạo quân». Nguồn: Pāli ghim, chú giải CST att8, Indacanda, DPD, bản dịch mù, song song; không có Sujato cho bài (chỉ kệ qua snp4.8), không có Thích Minh Châu ⇒ triangulation 8,4. Kỹ thuật: check.py OK 412/412; validate pass phần nội dung nhưng quality:check báo lượt chấm cũ không còn khớp content_sha256, test/check/build để CI ⇒ 9,3.",
+      "id": "4cccd50b-a334-422d-8fc3-dc526044fc47",
+      "content_sha256": "44693e7581af384ab910f7d519c929a9a115b818d4c78faed54648b3f60f6362",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
+      "final_score": 8.86
+    },
+    {
+      "target": "translation",
+      "scope": "full",
+      "assessed_at": "2026-10-17",
+      "assessed_by": [
+        "Claude Opus 5.5 (Claude Code)"
+      ],
+      "scores": {
+        "source_provenance": 9.4,
+        "semantic_fidelity": 9,
+        "grammar_logic": 9,
+        "segment_alignment": 10,
+        "terminology": 8.5,
+        "triangulation": 8.4,
+        "vietnamese_clarity": 8.6,
+        "han_viet_balance": 8.7,
+        "ambiguity_integrity": 8.6,
+        "technical_integrity": 9.5
+      },
+      "blocking_errors": [
+        "noEnglishEditionUpstream: tầng english-sujato không có mnd8 tại commit đã ghim 11c9d708978cde8ba61096d8a75f7ddfb846f639; source/upstream-manifest.json chỉ liệt kê kn/mnd/mnd8_root-pli-ms.json cho bài này và tệp mnd8_translation-en-sujato.json không tồn tại. Lớp english-project cũng không có mnd8; tầng vietnamese-current chỉ có Pháp Cú. Đây là not-published-upstream, giới hạn của bản chụp upstream chứ không phải lỗi người dịch; bản Anh Sujato chỉ có cho các dòng kệ qua snp4.8 (bài khác) và đã được đọc làm bằng chứng phụ."
+      ],
+      "notes": "Chấm lại độc lập sau rà DPD + kiểm độc lập 2026-10-17 (round 2, sau khi sửa theo round 1): 30 khoá mới (seed md5('mnd8score2')=774226100, ngoài mọi mẫu trước) 0 LỖI-THẬT; gộp 30 khoá lượt kiểm 2026-10-16 (1 lỗi 26.4, đã sửa) và 30 khoá round 1 (1 lỗi abhigajjameti, đã sửa) ⇒ 2/90 ≈ 2,2 % trong mẫu, cả hai đã sửa; 77.17 đã sửa. Sửa của round 1 (51.2, 53.1, 53.3, 57.2 «gầm lên đi đến tìm đối thủ», chú giải abhigajjanto eti) đúng. Còn: 64.1 visenikatvā chưa có chú thích dù snp4.8:10.1 và Sujato «far from the crowd» hiểu khác (lời giải 65.2, 68.1 của bài tự giải là đạo quân của Ma); 69.2 appahīyamānā «không suy giảm» (DPD «không bị từ bỏ») chỉ ghi chú thích. 9 chú thích: kiểm nguyên văn att8 (nihīnaojavatī tejavirahitā, yugaggāhaṃ samāpanno, sāvakā vā sampajjanti upāsakā vā) và Indacanda dị bản aghaṭṭiyamānā: đúng. Nguồn: Pāli ghim, chú giải CST att8, Indacanda, DPD, bản dịch mù, song song; không có Sujato cho bài (chỉ kệ qua snp4.8), không có Thích Minh Châu ⇒ triangulation 8,4. Thuật ngữ: diṭṭhi «kiến»/«kiến chấp», pasaṁsā «khen ngợi» nhất quán trong bài, kệ còn khác snp4.8:2.4, 3.4, 6.1; 77.11 «tám ngành» khác mnd6 «tám chi». Kỹ thuật: check.py OK 412/412; quality:check không còn lỗi cho bài này; validate exit 1 chỉ vì snp4.6, snp4.8 (bài khác, đang sửa dở); test/check/build để CI ⇒ 9,5. Người điều phối giữ điểm round 1 cho các tiêu chí người chấm tự ghi «khác cách cân, không có bằng chứng mới» (terminology, vietnamese_clarity, han_viet_balance, ambiguity_integrity; +0,1 nơi có một chỗ đã sửa), để không nâng điểm khi không có bằng chứng.",
+      "id": "3dbfa463-b513-4b0a-9e02-e2bd09fe9f35",
+      "content_sha256": "44693e7581af384ab910f7d519c929a9a115b818d4c78faed54648b3f60f6362",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
+      "final_score": 8.969999999999999
+    },
+    {
+      "target": "translation",
+      "scope": "full",
+      "assessed_at": "2026-10-16",
+      "assessed_by": [
+        "Claude Opus 5.5 (Claude Code)"
+      ],
+      "scores": {
+        "source_provenance": 9.4,
+        "semantic_fidelity": 9,
+        "grammar_logic": 9,
+        "segment_alignment": 10,
+        "terminology": 8.5,
+        "triangulation": 8.4,
+        "vietnamese_clarity": 8.6,
+        "han_viet_balance": 8.7,
+        "ambiguity_integrity": 8.6,
+        "technical_integrity": 9.5
+      },
+      "blocking_errors": [
+        "noEnglishEditionUpstream: tầng english-sujato không có mnd8 tại commit đã ghim 11c9d708978cde8ba61096d8a75f7ddfb846f639; source/upstream-manifest.json chỉ liệt kê kn/mnd/mnd8_root-pli-ms.json cho bài này và tệp mnd8_translation-en-sujato.json không tồn tại. Lớp english-project cũng không có mnd8; tầng vietnamese-current chỉ có Pháp Cú. Đây là not-published-upstream, giới hạn của bản chụp upstream chứ không phải lỗi người dịch; bản Anh Sujato chỉ có cho các dòng kệ qua snp4.8 (bài khác) và đã được đọc làm bằng chứng phụ."
+      ],
+      "notes": "Rà từng chữ bằng DPD + chú giải CST 2026-10-16, có kiểm độc lập: thêm chú thích 64.1 visenikatvā theo đề nghị người chấm. Giữ nguyên điểm.",
+      "id": "02610862-dde8-4965-84cd-7ebd08b2a7c7",
+      "content_sha256": "44693e7581af384ab910f7d519c929a9a115b818d4c78faed54648b3f60f6362",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
+      "final_score": 8.969999999999999
     }
   ],
   "legacy_quality": {

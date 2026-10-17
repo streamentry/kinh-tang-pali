@@ -113,6 +113,34 @@
       "content_sha256": "e6ee0d697ed16e1d7694cb1f3c6ee3bfb6a871996d77e7149f1180294bf014f8",
       "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
       "final_score": 8.87
+    },
+    {
+      "target": "translation",
+      "scope": "full",
+      "assessed_at": "2026-10-17",
+      "assessed_by": [
+        "Claude Opus 5.5 (Claude Code)"
+      ],
+      "scores": {
+        "source_provenance": 9.2,
+        "semantic_fidelity": 9.3,
+        "grammar_logic": 9.3,
+        "segment_alignment": 9.7,
+        "terminology": 9.1,
+        "triangulation": 9,
+        "vietnamese_clarity": 8.7,
+        "han_viet_balance": 9.1,
+        "ambiguity_integrity": 9.2,
+        "technical_integrity": 9.3
+      },
+      "blocking_errors": [
+        "noEnglishEditionUpstream: tầng english-sujato không có ps2.3 tại commit đã ghim 11c9d708978cde8ba61096d8a75f7ddfb846f639; source/upstream-manifest.json chỉ liệt kê tệp Pāli root kn/ps/ps2.3_root-pli-ms.json cho bài này, và thư mục sutta/kn của edition english-sujato chỉ có cp, dhp, iti, ja, kp, snp, thag, thig, ud. Đây là not-published-upstream, không phải not-synced. vietnamese-current tại commit đã ghim chỉ có Pháp Cú. Bài được đối chiếu với Pāli root và các nguồn ngoài tầng store ghi trong notes, và thuộc phạm vi waiver no-upstream-english của người biên tập (2026-10-11)."
+      ],
+      "notes": "Chấm lại độc lập sau rà DPD + kiểm độc lập 2026-10-17: 30 khoá mới (seed md5(\"ps2.3score\"), loại 80 khoá đã kiểm) → KHỚP 30, LỖI-THẬT 0; gộp mẫu trước ≈ 105 khoá, 0 lỗi. Phân xử āvuso: lượt hoàn thiện đúng — āvuso là hô ngữ bất biến dùng cho cả số ít lẫn số nhiều; 39.2 bhikkhū, 39.3 «āvuso bhikkhavo» (hô cách số nhiều), 39.4 te bhikkhū paccassosuṁ cho thấy người nghe là nhiều tỳ-kheo (Ñāṇamoli «Friends», Sujato sn46.4 «Reverends») → «này các hiền giả» đúng; chính sn46.4:2.1 «này hiền giả» mới cần sửa sang số nhiều (ngoài phạm vi). B8/B9 đã áp. Nguồn: Ñāṇamoli cả bài, Indacanda, chú giải s0517a.att12 (đã kiểm trích ở 40.11, 44.2), DPD, Sujato sn46.4 → triangulation 9,0. 9 chú thích có nguồn. Kỹ thuật: scripts/validate.ts pass, nhưng npm run validate/quality:check exit 1 vì assessment cũ của bài không còn khớp content_sha256 sau lượt hoàn thiện (hết khi ghi và áp lượt này); check.py OK; test/check/build không tự chạy. Blocker vắng bản Anh được thay bằng chuỗi đúng sự thật vì chuỗi cũ còn ghi «triangulation bị chặn»/«bắt buộc draft».",
+      "id": "c7e1a6c3-78df-4ef5-aac6-4e88e5edc7f4",
+      "content_sha256": "bb53473ceec99ca8c9a4eed5b39341f1eca90b126aa055670c311bf42d43bf63",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
+      "final_score": 9.19
     }
   ],
   "legacy_quality": {

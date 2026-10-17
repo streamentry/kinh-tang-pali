@@ -113,6 +113,62 @@
       "content_sha256": "a0cf2f34a4de90f8aabac51b02360c3c87e556bf54a50b519c96150e8f37d153",
       "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
       "final_score": 8.849999999999998
+    },
+    {
+      "target": "translation",
+      "scope": "full",
+      "assessed_at": "2026-10-17",
+      "assessed_by": [
+        "Claude Opus 5.5 (Claude Code)"
+      ],
+      "scores": {
+        "source_provenance": 9.3,
+        "semantic_fidelity": 9.1,
+        "grammar_logic": 9.1,
+        "segment_alignment": 9.8,
+        "terminology": 8.7,
+        "triangulation": 8.5,
+        "vietnamese_clarity": 8.6,
+        "han_viet_balance": 8.8,
+        "ambiguity_integrity": 8.7,
+        "technical_integrity": 9.2
+      },
+      "blocking_errors": [
+        "noEnglishEditionUpstream: tầng english-sujato không có bài mnd1 tại commit đã ghim 11c9d708978cde8ba61096d8a75f7ddfb846f639; source/upstream-manifest.json chỉ liệt kê tệp root-pli-ms cho mnd1, không có tệp mnd1_translation-en-sujato.json. Lớp english-project cũng không có bài này; vietnamese-current chỉ có Pháp Cú. Đây là giới hạn của bản chụp upstream (not-published-upstream), được miễn bằng waiver no-upstream-english."
+      ],
+      "notes": "Chấm lại độc lập sau rà DPD + kiểm độc lập 2026-10-17: mẫu gộp 70 khoá (40 của lượt kiểm 2026-10-16 + 30 khoá mới, seed md5('mnd1score')) có 1 lỗi nhẹ còn treo (29.6 visakkati «bám dính», chú giải att1 'parisappati sahati vā', chờ quyết chung, đã có chú thích) ≈ 1,4 %, mẫu mới 0 lỗi; đối chiếu Pāli ghim, chú giải CST att1 (kiểm lại trích dẫn), DPD, bản Việt Indacanda (toàn bộ nhóm bị cờ đã đọc), Sujato chỉ cho kệ snp4.1, bản dịch mù. Lượt hoàn thiện: 15.3 jantu «Của con người» và 38.2 khetta «Ruộng đất» đúng (khớp 75.4 và dòng kệ 37.1); 10 chú thích có nguồn kiểm được, riêng chú thích 22.3 nói snp4.1:3.3–3.4 «không có chữ 'này'» trong khi snp4.1:3.3 hiện ghi «ở đời này» (cần sửa câu). Thuật ngữ còn: kāma dục/dục lạc, vatthu đất/nhà cửa (có chú thích), tare «hãy». technical: validate.ts pass; quality:check báo bài chưa có lượt chấm hiện hành do nội dung đổi sau lượt hoàn thiện (hết khi record/apply lượt này); test/check/build do CI.",
+      "id": "bf4e43dc-d414-4bd1-89b7-42fff7f27334",
+      "content_sha256": "d6516dc0113dcd76372df4e24a1ff208cc4e40bf4665af1292cccd2901045efe",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
+      "final_score": 8.98
+    },
+    {
+      "target": "translation",
+      "scope": "full",
+      "assessed_at": "2026-10-17",
+      "assessed_by": [
+        "Claude Opus 5.5 (Claude Code)"
+      ],
+      "scores": {
+        "source_provenance": 9.3,
+        "semantic_fidelity": 9.1,
+        "grammar_logic": 9.1,
+        "segment_alignment": 9.8,
+        "terminology": 8.7,
+        "triangulation": 8.5,
+        "vietnamese_clarity": 8.6,
+        "han_viet_balance": 8.8,
+        "ambiguity_integrity": 8.9,
+        "technical_integrity": 9.6
+      },
+      "blocking_errors": [
+        "noEnglishEditionUpstream: tầng english-sujato không có bài mnd1 tại commit đã ghim 11c9d708978cde8ba61096d8a75f7ddfb846f639; source/upstream-manifest.json chỉ liệt kê tệp root-pli-ms cho mnd1, không có tệp mnd1_translation-en-sujato.json. Lớp english-project cũng không có bài này; vietnamese-current chỉ có Pháp Cú. Đây là giới hạn của bản chụp upstream (not-published-upstream), được miễn bằng waiver no-upstream-english."
+      ],
+      "notes": "Chấm lại độc lập (round 2) sau rà DPD + kiểm độc lập + sửa lỗi round 1, 2026-10-17: mẫu gộp 100 khoá (40 lượt kiểm 2026-10-16 + 30 round 1 + 30 mới seed md5('mnd1score2')) còn 1 lỗi nhẹ treo (29.6 visakkati «bám dính», có chú thích, chờ quyết chung) = 1 %, mẫu mới 0/30. Đối chiếu Pāli ghim, chú giải CST att1 (kiểm lại: «Sattattāti sabhāvena vijjamānattā», «parisappati sahati vā», «udakappavesaniṃ»), DPD, Indacanda, Sujato chỉ cho kệ snp4.1. Lỗi round 1 (chú thích 22.3) đã sửa đúng (snp4.1:3.3 có «ở đời này», Sujato không dịch imaṁ) nên ambiguity_integrity 8.7 → 8.9; technical 9.2 → 9.6 vì quality:check nay pass. Các tiêu chí khác giữ như round 1: thuật ngữ kāma dục/dục lạc (cả trong lời giải 23.20, 24.1), vatthu đất/nhà cửa; văn phong vụng «có giáo sư» (53.x, theo sn35.151), «ở đời, hoặc ở đời» (34.2); triangulation 8.5 vì không có bản Anh cho lời giải. validate.ts pass (Validation passed, cảnh báo của bài chỉ là thiếu English đúng sự thật), quality:check pass (5837 lịch sử, 0 lỗi; lý do trừ của round 1 đã hết); test/check/build do CI, không tự chạy (lượt chấm chỉ đọc) nên trần 9,6.",
+      "id": "69d1f15f-e52f-4f11-9d23-d1a8f6a4d99e",
+      "content_sha256": "d6516dc0113dcd76372df4e24a1ff208cc4e40bf4665af1292cccd2901045efe",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
+      "final_score": 9.040000000000001
     }
   ],
   "legacy_quality": {

@@ -113,6 +113,90 @@
       "content_sha256": "6964ad5d25f863df6b463be9ddc687128808e28e204588fe6ca8b2d29a834b7d",
       "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
       "final_score": 8.84
+    },
+    {
+      "target": "translation",
+      "scope": "full",
+      "assessed_at": "2026-10-16",
+      "assessed_by": [
+        "Claude Opus 5.5 (Claude Code)"
+      ],
+      "scores": {
+        "source_provenance": 9.4,
+        "semantic_fidelity": 8.5,
+        "grammar_logic": 8.5,
+        "segment_alignment": 10,
+        "terminology": 8.4,
+        "triangulation": 8.5,
+        "vietnamese_clarity": 8.3,
+        "han_viet_balance": 9.1,
+        "ambiguity_integrity": 8.2,
+        "technical_integrity": 9.6
+      },
+      "blocking_errors": [
+        "noEnglishEditionUpstream: không có tầng tham khảo tiếng Anh cho mnd9 tại commit đã ghim. Thư mục kn/ của edition translation/en/sujato chỉ có cp, dhp, iti, ja, kp, snp, thag, thig, ud; manifest chỉ liệt kê tệp Pāli (root-pli-ms) cho kn/mnd và tệp tên mnd-name (chỉ có tiêu đề các bài); tệp mnd9_translation-en-sujato.json không tồn tại. Lớp english-project cũng không có mnd9. Tầng vietnamese-current chỉ có Pháp Cú. Đây là not-published-upstream, giới hạn của bản chụp upstream chứ không phải lỗi người dịch, nên triangulation bị chặn ở 8.0 và không nâng để né blocker."
+      ],
+      "notes": "Rà từng chữ bằng DPD + chú giải CST 2026-10-16, có kiểm độc lập: 545 khoá; sửa 26 khoá (4 hô cách munī, 22 «Ta» khi Đức Phật tự xưng theo §9); người kiểm độc lập xác nhận 26/26 đúng, mẫu 40 khoá 0 lỗi. Chỉ cộng +0,1 cho tiêu chí có lỗi đã sửa được kiểm đúng; triangulation giữ nguyên.",
+      "id": "fbbe89b5-c8b6-4255-bb7a-28474718246c",
+      "content_sha256": "38f768358ff5716c6f04e4227a2008e7472c45e20557ed6676e441b7adcae43b",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
+      "final_score": 8.849999999999998
+    },
+    {
+      "target": "translation",
+      "scope": "full",
+      "assessed_at": "2026-10-17",
+      "assessed_by": [
+        "Claude Opus 5.5 (Claude Code)"
+      ],
+      "scores": {
+        "source_provenance": 9.3,
+        "semantic_fidelity": 9.1,
+        "grammar_logic": 9,
+        "segment_alignment": 9.8,
+        "terminology": 8.7,
+        "triangulation": 8.4,
+        "vietnamese_clarity": 8.7,
+        "han_viet_balance": 8.8,
+        "ambiguity_integrity": 8.9,
+        "technical_integrity": 9.3
+      },
+      "blocking_errors": [
+        "noEnglishEditionUpstream: tầng english-sujato không có mnd9 tại commit đã ghim 11c9d708978cde8ba61096d8a75f7ddfb846f639; source/upstream-manifest.json chỉ liệt kê kn/mnd/mnd9_root-pli-ms.json cho bài này và tệp mnd9_translation-en-sujato.json không tồn tại. Lớp english-project cũng không có mnd9; tầng vietnamese-current chỉ có Pháp Cú. Đây là not-published-upstream, giới hạn của bản chụp upstream chứ không phải lỗi người dịch; bản Anh Sujato chỉ có cho các dòng kệ qua snp4.9 (bài khác) và đã được đọc làm bằng chứng phụ."
+      ],
+      "notes": "Chấm lại độc lập sau rà DPD + kiểm độc lập + lượt hoàn thiện 2026-10-17: 30 khoá mới (seed md5('mnd9score')=1151005019, ngoài mẫu cũ) 0 LỖI-THẬT; gộp 40 khoá lượt kiểm 2026-10-16 (0 lỗi, người kiểm đọc toàn bài) ⇒ 0/70; 26/26 khoá sửa DPD đúng. Lượt hoàn thiện đổi 6 khoá (chanda «ước muốn» → «ham muốn» ở kệ, có lý do trong bài; sīla «giới luật» → «giới») và thêm 8 chú thích; tôi kiểm nguyên văn chú giải att9 của 8.3, 24.6, 28.5, 29.2, 69.4: đúng. Còn sót: muti «điều đã nhận thức» (102.1, 103.1, 105.4, 105.5, 110.1) trong khi lời giải 105.4 giải bằng mutarūpa «cái đã được cảm nhận» (B11) ⇒ thuật ngữ 8,7. Nguồn: Pāli ghim, chú giải CST att9, Indacanda, DPD, bản dịch mù, sn22.3 và song song; không có Sujato cho bài (chỉ kệ qua snp4.9), không có Thích Minh Châu ⇒ triangulation 8,4. Kệ: snp4.9:11.1 «nhờ đó vị ấy sống viễn ly» sai quan hệ, 3.3 bỏ «giữa các pháp», 5.1–5.5 chuyển dòng và bỏ nopi tena; mnd9 sát Pāli hơn. Kỹ thuật: check.py OK 545/545; validate pass phần nội dung nhưng quality:check báo lượt chấm cũ không còn khớp content_sha256, test/check/build để CI ⇒ 9,3.",
+      "id": "f31221dd-374a-478d-b637-57f2a895a43a",
+      "content_sha256": "e1e192f0468b907b32368de7d2f9cc769d5f1c4da81422793e833673fc06c1ef",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
+      "final_score": 9
+    },
+    {
+      "target": "translation",
+      "scope": "full",
+      "assessed_at": "2026-10-17",
+      "assessed_by": [
+        "Claude Opus 5.5 (Claude Code)"
+      ],
+      "scores": {
+        "source_provenance": 9.4,
+        "semantic_fidelity": 9.3,
+        "grammar_logic": 9.1,
+        "segment_alignment": 10,
+        "terminology": 9.1,
+        "triangulation": 8.4,
+        "vietnamese_clarity": 8.7,
+        "han_viet_balance": 8.8,
+        "ambiguity_integrity": 8.9,
+        "technical_integrity": 9.5
+      },
+      "blocking_errors": [
+        "noEnglishEditionUpstream: tầng english-sujato không có mnd9 tại commit đã ghim 11c9d708978cde8ba61096d8a75f7ddfb846f639; source/upstream-manifest.json chỉ liệt kê kn/mnd/mnd9_root-pli-ms.json cho bài này và tệp mnd9_translation-en-sujato.json không tồn tại. Lớp english-project cũng không có mnd9; tầng vietnamese-current chỉ có Pháp Cú. Đây là not-published-upstream, giới hạn của bản chụp upstream chứ không phải lỗi người dịch; bản Anh Sujato chỉ có cho các dòng kệ qua snp4.9 (bài khác) và đã được đọc làm bằng chứng phụ."
+      ],
+      "notes": "Chấm lại độc lập sau rà DPD + kiểm độc lập 2026-10-17 (round 2, sau khi sửa theo round 1): 30 khoá mới (seed md5('mnd9score2')=2867381730, ngoài mọi mẫu trước) 0 LỖI-THẬT; gộp 40 khoá lượt kiểm 2026-10-16 và 30 khoá round 1 ⇒ 0/100; 26/26 khoá sửa DPD đúng. Sửa của round 1 (muti «điều đã cảm nhận» ở 102.1, 103.1, 105.4, 105.5, 110.1 theo B11 và mutarūpa của lời giải 105.4) đúng. Phát hiện mới (xưng hô, không đổi nghĩa): Māgaṇḍiya thưa với Đức Phật mà tự xưng «ta» ở 40.6, 45.1, 45.3, 48.6 (cùng lời gọi «ngài» ở 7.1, 21.3), trái skill §9 và mn75 (Māgaṇḍiya xưng «con»). Nhẹ: 90.3 «ác hạnh về khẩu» khác «về lời» ở mnd6, mnd8. 8 chú thích: kiểm nguyên văn att9 (samuggahītaṃ na hoti natthi, yaṃ uttamaṃ nibbānaṃ, ekamekena diṭṭhiādimattenāpi, diṭṭhiyā suddhiṃ nāha na kathemī, viggāhikakathaṃ na katheyya, catumaggavedagū, kapālakhaṇḍehi): đúng. Nguồn: Pāli ghim, chú giải CST att9, Indacanda, DPD, bản dịch mù, sn22.3 và song song; không có Sujato cho bài (chỉ kệ qua snp4.9), không có Thích Minh Châu ⇒ triangulation 8,4. Kỹ thuật: check.py OK 545/545; quality:check không còn lỗi cho bài này; validate exit 1 chỉ vì snp4.6, snp4.8 (bài khác, đang sửa dở); test/check/build để CI ⇒ 9,5. Người điều phối giữ điểm round 1 cho các tiêu chí người chấm tự ghi «khác cách cân, không có bằng chứng mới» (vietnamese_clarity, han_viet_balance, ambiguity_integrity; +0,1 nơi có một chỗ đã sửa), để không nâng điểm khi không có bằng chứng.",
+      "id": "ab74f04b-97fd-44c7-acce-21a49b880fba",
+      "content_sha256": "78c1b0e7627931cf0ebdd98320d0c39d659e1675c2a5017ddddd3debcbbc24a2",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
+      "final_score": 9.120000000000001
     }
   ],
   "legacy_quality": {

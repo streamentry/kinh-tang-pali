@@ -137,6 +137,62 @@
       "content_sha256": "ef1dbefad5b8b5204c7d6c015c356f3b20715e9bc8f83fb400e4bd75285c5619",
       "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
       "final_score": 8.84
+    },
+    {
+      "target": "translation",
+      "scope": "full",
+      "assessed_at": "2026-10-16",
+      "assessed_by": [
+        "Claude Opus 5.5 (Claude Code)"
+      ],
+      "scores": {
+        "source_provenance": 9,
+        "semantic_fidelity": 8.2,
+        "grammar_logic": 8.6,
+        "segment_alignment": 10,
+        "terminology": 8.5,
+        "triangulation": 8.8,
+        "vietnamese_clarity": 8.8,
+        "han_viet_balance": 9,
+        "ambiguity_integrity": 8,
+        "technical_integrity": 9.6
+      },
+      "blocking_errors": [
+        "Không có tầng tham khảo tiếng Anh tại commit đã ghim (11c9d708978cde8ba61096d8a75f7ddfb846f639). `source/upstream-manifest.json` (edition `english-sujato`, 4.291 tệp) **không liệt kê** `sutta/kn/vv/vv38_translation-en-sujato.json`, và trong `sutta/kn/` của edition này không tồn tại thư mục `vv/` (chỉ có `cp dhp iti ja kp snp thag thig ud`) — đây là `not-published-upstream`, KHÔNG phải `not-synced`. Cùng tệp đó chỉ liệt kê tệp Pāli `kn/vv/vv38_root-pli-ms.json`. Về coverage: theo đúng công thức `src/lib/canon/reference.ts` (`prose() >= 40` và loại block tham chiếu theo `/^0(\\.|$)/`), `vv38` có **0** Pāli có nội dung — khoá dài nhất là `vv38:10.1` và `vv38:0.4`, mỗi khoá **29** ký tự — nên tỷ lệ được coi là 1 và cổng coverage không đo được gì cho bài này. Nhưng `scripts/validate.ts` kiểm tra **tệp** Anh trước (dòng 222–225): `needsEnglish = status === 'review' || 'published'`, thiếu tệp ⇒ `errors.push(...)`. ⇒ bài **bắt buộc `draft`**. Tầng `vietnamese-current` cũng vắng (`translation/vi/phantuananh` tại commit đã ghim chỉ có 26 tệp, toàn bộ là Pháp Cú); lớp lấp `english-project` cũng không có cho uid này. Ba tầng tham khảo đều vắng ⇒ bài dịch chỉ từ Pāli root ⇒ **blocker thật**, thuộc giới hạn của bản chụp upstream. `triangulation` bị chặn ở **7,5** (≤ 8,0) chứ không nâng lên để né blocker."
+      ],
+      "notes": "Rà từng chữ bằng DPD + chú giải CST 2026-10-16, có kiểm độc lập: 1 khoá sửa (cách); kiểm đúng, 0/10 mẫu. Chỉ cộng +0,1 cho tiêu chí có lỗi đã sửa được kiểm đúng; triangulation giữ nguyên.",
+      "id": "c71e03a6-ad09-4714-8898-2c44cd6de00a",
+      "content_sha256": "abd311ad07d13cad6a0246e864ef3b8733d1bb59d64610ab7d13a4064819bbde",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
+      "final_score": 8.849999999999998
+    },
+    {
+      "target": "translation",
+      "scope": "full",
+      "assessed_at": "2026-10-17",
+      "assessed_by": [
+        "Claude Opus 5.5 (Claude Code)"
+      ],
+      "scores": {
+        "source_provenance": 9.1,
+        "semantic_fidelity": 9.2,
+        "grammar_logic": 9.1,
+        "segment_alignment": 9.7,
+        "terminology": 8.9,
+        "triangulation": 8.7,
+        "vietnamese_clarity": 8.6,
+        "han_viet_balance": 9,
+        "ambiguity_integrity": 9.3,
+        "technical_integrity": 9.3
+      },
+      "blocking_errors": [
+        "noEnglishEditionUpstream: tầng english-sujato không có vv38 tại commit đã ghim 11c9d708978cde8ba61096d8a75f7ddfb846f639; source/upstream-manifest.json chỉ liệt kê tệp Pāli root kn/vv/vv38_root-pli-ms.json cho bài này, và thư mục sutta/kn của edition english-sujato chỉ có cp, dhp, iti, ja, kp, snp, thag, thig, ud. Đây là not-published-upstream, không phải not-synced. vietnamese-current tại commit đã ghim chỉ có Pháp Cú. Bài được đối chiếu với Pāli root và các nguồn ngoài tầng store ghi trong notes, và thuộc phạm vi waiver no-upstream-english của người biên tập (2026-10-11)."
+      ],
+      "notes": "Chấm lại độc lập sau rà DPD + kiểm độc lập 2026-10-17: bài ngắn, đọc hết 44 khoá có nội dung → KHỚP 44, LỖI-THẬT 0. 1.1 đã phân xử bằng Vv-a; mālā «vòng hoa» thống nhất đúng. Nguồn: Hecker, Shapovalov, Kansai, Vv-a CST, Indacanda, DPD; không có bản Anh → triangulation 8,7. Trừ văn phong ở 12.5 «được gọi tên là vậy», 7.2 «hình sắc phi nhân»; 5 chú thích có nguồn. Kỹ thuật: scripts/validate.ts pass, nhưng npm run validate/quality:check exit 1 vì assessment cũ của bài không còn khớp content_sha256 sau lượt hoàn thiện (hết khi ghi và áp lượt này); check.py OK; test/check/build không tự chạy. Blocker vắng bản Anh được thay bằng chuỗi đúng sự thật vì chuỗi cũ còn ghi «triangulation bị chặn»/«bắt buộc draft».",
+      "id": "c6c779e4-b8c0-4741-8e0a-22b2b257d0d1",
+      "content_sha256": "1261cd17dcbd27ac06d94d404322f246ce07a0482e4e7d2e0436501d829915df",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
+      "final_score": 9.089999999999998
     }
   ],
   "legacy_quality": {

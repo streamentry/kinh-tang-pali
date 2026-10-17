@@ -113,6 +113,90 @@
       "content_sha256": "2c2fe6680206342fffad89fdd8265c8d8f5fc74141d4b541f291415bdd9f4d38",
       "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
       "final_score": 8.87
+    },
+    {
+      "target": "translation",
+      "scope": "full",
+      "assessed_at": "2026-10-16",
+      "assessed_by": [
+        "Claude Opus 5.5 (Claude Code)"
+      ],
+      "scores": {
+        "source_provenance": 9.5,
+        "semantic_fidelity": 8.4,
+        "grammar_logic": 8.3,
+        "segment_alignment": 10,
+        "terminology": 8.3,
+        "triangulation": 8.4,
+        "vietnamese_clarity": 8.4,
+        "han_viet_balance": 9.2,
+        "ambiguity_integrity": 8.8,
+        "technical_integrity": 9.6
+      },
+      "blocking_errors": [
+        "noEnglishEditionUpstream: Thiếu bản dịch tiếng Anh đối chiếu. Tầng english-sujato tại commit đã ghim không có ja527_translation-en-sujato.json (ja chỉ có 83 tệp: ja1–79, ja126, ja159, ja466, ja534; đây là not-published-upstream, không phải not-synced), tầng vietnamese-current chỉ có Pháp Cú và lớp lấp english-project không có tệp cho bài này. Cả ba tầng tham khảo đều vắng nên triangulation bị chặn ở 7.5 (≤ 8.0) và bài giữ draft."
+      ],
+      "notes": "Rà từng chữ bằng DPD + chú giải CST 2026-10-16, có kiểm độc lập: 5 segment sửa (thêm ý mayha satiṁ, thiếu chữ, vai cách); kiểm 5/5 đúng, 0/30 mẫu. Chỉ cộng +0,1 cho tiêu chí có lỗi đã sửa được kiểm đúng; triangulation giữ nguyên.",
+      "id": "f80192a0-4213-42fb-984c-7a90ff309363",
+      "content_sha256": "3efb09c5ba1f967255175871def6c00ca5ae0aad48314f1eddd9773ec07661f4",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
+      "final_score": 8.889999999999999
+    },
+    {
+      "target": "translation",
+      "scope": "full",
+      "assessed_at": "2026-10-17",
+      "assessed_by": [
+        "Claude Opus 5.5 (Claude Code)"
+      ],
+      "scores": {
+        "source_provenance": 9.2,
+        "semantic_fidelity": 8.8,
+        "grammar_logic": 8.8,
+        "segment_alignment": 9.6,
+        "terminology": 9,
+        "triangulation": 8.7,
+        "vietnamese_clarity": 8.5,
+        "han_viet_balance": 9,
+        "ambiguity_integrity": 8.7,
+        "technical_integrity": 9.4
+      },
+      "blocking_errors": [
+        "noEnglishEditionUpstream: Tầng english-sujato tại commit đã ghim 11c9d708978cde8ba61096d8a75f7ddfb846f639 không có tệp ja527_translation-en-sujato.json (source/upstream-manifest.json: thư mục sutta/kn/ja của Sujato có 83 tệp, không gồm bài này; not-published-upstream, không phải not-synced); tầng vietnamese-current chỉ có Pháp Cú và lớp english-project không có tệp cho bài này."
+      ],
+      "notes": "Chấm lại độc lập sau rà DPD + kiểm độc lập 2026-10-17: người chấm đọc 30 khoá ngẫu nhiên mới (seed md5(\"ja527score\")=1345204292, ngoài mẫu verify) đối chiếu chú giải Jātaka-aṭṭhakathā CST, DPD và Indacanda TTPV 33: 0/30 (mẫu này, 4 bất định nhẹ) + 0/30 (verify, 2 bất định) = 0/60; ngoài mẫu phân xử 1 lỗi thật (47.3 thêm «mà vẫn» đảo ý của chú giải). Nguồn: Pāli ghim (commit 11c9d708…), không có bản Anh Sujato (manifest: 83 tệp ja, không có bài này) và không có Thích Minh Châu; bù bằng chú giải CST, Indacanda (độc lập), DPD, Francis 1905 → triangulation 8.7. Căn cứ chính: semantic 8.8 / grammar 8.8 theo tỷ lệ lỗi trên; clarity 8.5 vì còn các chỗ sát chữ tối; ambiguity 8.7: chú thích của lượt hoàn thiện đã đối chiếu nguyên văn chú giải, đúng và có nguồn; 11.2, 24.1, 56.2 chỉ ở notes. check.py OK, NFC; npm run validate (validate.ts) pass; npm run quality:check hiện fail cho bài này chỉ vì content_sha256 của lượt chấm chính thức cũ không còn khớp sau lượt hoàn thiện (cần record + apply lượt này); test/check/build do CI → technical 9.4. Blocker vắng bản Anh đã thay bằng câu đúng sự thật (câu cũ nói triangulation bị chặn ở 7.5 và giữ draft, nay không đúng).",
+      "id": "8c5018cd-262c-4bc0-89a2-0788ffb31dcb",
+      "content_sha256": "b0aa396b071b86acd6cb66c1216f8ed8f0a0fbd2b20ac1913a2827d73544f8a5",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
+      "final_score": 8.97
+    },
+    {
+      "target": "translation",
+      "scope": "full",
+      "assessed_at": "2026-10-17",
+      "assessed_by": [
+        "Claude Opus 5.5 (Claude Code)"
+      ],
+      "scores": {
+        "source_provenance": 9.2,
+        "semantic_fidelity": 9,
+        "grammar_logic": 9,
+        "segment_alignment": 9.6,
+        "terminology": 9,
+        "triangulation": 8.7,
+        "vietnamese_clarity": 8.5,
+        "han_viet_balance": 9,
+        "ambiguity_integrity": 8.7,
+        "technical_integrity": 9.5
+      },
+      "blocking_errors": [
+        "noEnglishEditionUpstream: Tầng english-sujato tại commit đã ghim 11c9d708978cde8ba61096d8a75f7ddfb846f639 không có tệp ja527_translation-en-sujato.json (source/upstream-manifest.json: thư mục sutta/kn/ja của Sujato có 83 tệp, không gồm bài này; not-published-upstream, không phải not-synced); tầng vietnamese-current chỉ có Pháp Cú và lớp english-project không có tệp cho bài này."
+      ],
+      "notes": "Chấm lại độc lập round 2 sau sửa (2026-10-17): 30 khoá ngẫu nhiên mới (seed md5('ja527score2'), loại mẫu round 1 + verify) đối chiếu Pāli ghim, chú giải CST (dpd/att/527.txt), DPD: LỖI-THẬT 0/30; gộp 0/90. Lỗi round 1 (47.3 «mà vẫn») đã sửa đúng theo chú giải. Không Sujato, không Thích Minh Châu; bù chú giải CST, Indacanda, DPD, Francis toàn bài → triangulation 8,7. Semantic 9,0 / grammar 9,0 (lên 0,2 vì lỗi đã sửa và thêm 30 khoá sạch); clarity 8,5 (hapax tả Ummādantī còn tối); ambiguity 8,7 (11.2, 24.1, 56.2 chỉ ở notes). check.py OK; validate pass; quality:check 0 lỗi; test/check/build do CI → 9,5. Blocker vắng bản Anh chép nguyên.",
+      "id": "7b06e00d-7018-4033-8226-5f95a1c3a82a",
+      "content_sha256": "b0aa396b071b86acd6cb66c1216f8ed8f0a0fbd2b20ac1913a2827d73544f8a5",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
+      "final_score": 9.02
     }
   ],
   "legacy_quality": {

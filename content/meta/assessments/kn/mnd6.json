@@ -141,6 +141,90 @@
       "content_sha256": "d919847b3e5aa55bdddd5d149d14e56854f6388dff6ea38287d405842adef04e",
       "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
       "final_score": 8.91
+    },
+    {
+      "target": "translation",
+      "scope": "full",
+      "assessed_at": "2026-10-16",
+      "assessed_by": [
+        "Claude Opus 5.5 (Claude Code)"
+      ],
+      "scores": {
+        "source_provenance": 9.4,
+        "semantic_fidelity": 8.6,
+        "grammar_logic": 8.6,
+        "segment_alignment": 10,
+        "terminology": 8.7,
+        "triangulation": 8.5,
+        "vietnamese_clarity": 8.3,
+        "han_viet_balance": 9.2,
+        "ambiguity_integrity": 8.4,
+        "technical_integrity": 9.6
+      },
+      "blocking_errors": [
+        "noEnglishEditionUpstream: không có tầng tham khảo tiếng Anh cho mnd6 tại commit đã ghim. Thư mục kn/ của edition translation/en/sujato chỉ có cp, dhp, iti, ja, kp, snp, thag, thig, ud; manifest chỉ liệt kê tệp root-pli-ms cho kn/mnd (cùng tệp tên mnd-name, chỉ có tiêu đề các bài); tệp mnd6_translation-en-sujato.json không tồn tại. Lớp english-project cũng không có mnd6. Tầng vietnamese-current chỉ có Pháp Cú. Đây là not-published-upstream, giới hạn của bản chụp upstream chứ không phải lỗi người dịch, nên triangulation bị chặn ở 8.0 và không nâng để né blocker."
+      ],
+      "notes": "Rà từng chữ bằng DPD + chú giải CST 2026-10-16, có kiểm độc lập: 593 khoá; sửa 4 khoá (gandhabbā «phải đi đến tan rã», pāto «lúc sớm mai», maccova = macco vā, kāmakāmī hô cách) + 4 khoá siṅgī/thaddhā theo mnd14; người kiểm độc lập xác nhận 4/4 đúng, mẫu 40 khoá 0 lỗi. Chỉ cộng +0,1 cho tiêu chí có lỗi đã sửa được kiểm đúng; triangulation giữ nguyên.",
+      "id": "d080d558-a29a-44f0-97fc-9c0dfc38bbbc",
+      "content_sha256": "13bd0072ff0fd05df83c4c847e73852322a8a078ed9dd284beb3effc71d2f2a4",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
+      "final_score": 8.93
+    },
+    {
+      "target": "translation",
+      "scope": "full",
+      "assessed_at": "2026-10-17",
+      "assessed_by": [
+        "Claude Opus 5.5 (Claude Code)"
+      ],
+      "scores": {
+        "source_provenance": 9.3,
+        "semantic_fidelity": 9.1,
+        "grammar_logic": 9,
+        "segment_alignment": 9.8,
+        "terminology": 8.8,
+        "triangulation": 8.4,
+        "vietnamese_clarity": 8.6,
+        "han_viet_balance": 8.8,
+        "ambiguity_integrity": 8.8,
+        "technical_integrity": 9.3
+      },
+      "blocking_errors": [
+        "noEnglishEditionUpstream: tầng english-sujato không có mnd6 tại commit đã ghim 11c9d708978cde8ba61096d8a75f7ddfb846f639; source/upstream-manifest.json chỉ liệt kê kn/mnd/mnd6_root-pli-ms.json cho bài này và tệp mnd6_translation-en-sujato.json không tồn tại. Lớp english-project cũng không có mnd6; tầng vietnamese-current chỉ có Pháp Cú. Đây là not-published-upstream, giới hạn của bản chụp upstream chứ không phải lỗi người dịch; bản Anh Sujato chỉ có cho các dòng kệ qua snp4.6 (bài khác) và đã được đọc làm bằng chứng phụ."
+      ],
+      "notes": "Chấm lại độc lập sau rà DPD + kiểm độc lập + lượt hoàn thiện 2026-10-17: 30 khoá mới (seed md5('mnd6score')=2352388933, ngoài mẫu cũ) 0 LỖI-THẬT; gộp 40 khoá của lượt kiểm 2026-10-16 ⇒ 0/70, bản dịch mù 104 khoá 0 lỗi phải sửa. Lượt hoàn thiện đổi 1 khoá (39.2 «mạng chung» → «mệnh chung», chỉ là chính tả, ngược đa số kho 819/232) và thêm 8 chú thích; tôi kiểm nguyên văn chú giải att6/att2 của 15.2, 17.1, 41.3, 67.3, 67.4, 70.18: đúng, riêng 15.2 và 70.18 gán chỗ trích hơi lỏng. Nguồn: Pāli ghim, chú giải CST, Indacanda, DPD, bản dịch mù, song song; không có Sujato cho bài (chỉ kệ qua snp4.6), không có Thích Minh Châu ⇒ triangulation 8,4. Kệ: snp4.6 dồn nội dung giữa các segment (3.1–3.2, 4.x, 5.1–5.2, 6.x) và dịch bhavane «trong gia đình»; mnd6 sát Pāli hơn ở các chỗ này (ghi ở mục Lỗi cần sửa của bản .md). Kỹ thuật: check.py OK 593/593; validate pass phần nội dung nhưng quality:check báo lượt chấm cũ không còn khớp content_sha256 (do lượt hoàn thiện), test/check/build để CI ⇒ 9,3.",
+      "id": "256eb416-9237-4ddc-b9ce-e538ea9ca08e",
+      "content_sha256": "df3f0cd981581b0cfed584ada73f97497da85df52925ef4d31166239a969c619",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
+      "final_score": 8.989999999999998
+    },
+    {
+      "target": "translation",
+      "scope": "full",
+      "assessed_at": "2026-10-17",
+      "assessed_by": [
+        "Claude Opus 5.5 (Claude Code)"
+      ],
+      "scores": {
+        "source_provenance": 9.4,
+        "semantic_fidelity": 9.3,
+        "grammar_logic": 9.3,
+        "segment_alignment": 10,
+        "terminology": 9,
+        "triangulation": 8.4,
+        "vietnamese_clarity": 8.6,
+        "han_viet_balance": 8.8,
+        "ambiguity_integrity": 8.8,
+        "technical_integrity": 9.5
+      },
+      "blocking_errors": [
+        "noEnglishEditionUpstream: tầng english-sujato không có mnd6 tại commit đã ghim 11c9d708978cde8ba61096d8a75f7ddfb846f639; source/upstream-manifest.json chỉ liệt kê kn/mnd/mnd6_root-pli-ms.json cho bài này và tệp mnd6_translation-en-sujato.json không tồn tại. Lớp english-project cũng không có mnd6; tầng vietnamese-current chỉ có Pháp Cú. Đây là not-published-upstream, giới hạn của bản chụp upstream chứ không phải lỗi người dịch; bản Anh Sujato chỉ có cho các dòng kệ qua snp4.6 (bài khác) và đã được đọc làm bằng chứng phụ."
+      ],
+      "notes": "Chấm lại độc lập sau rà DPD + kiểm độc lập 2026-10-17 (round 2, sau khi sửa theo round 1): 30 khoá mới (seed md5('mnd6score2')=2250882684, ngoài mọi mẫu trước) 0 LỖI-THẬT; gộp 40 khoá lượt kiểm 2026-10-16 và 30 khoá round 1 ⇒ 0/100, bản dịch mù 104 khoá 0 lỗi phải sửa. Sửa của round 1 (thaddha «bướng bỉnh» ở 44.9, 44.12, 45.1, 46.2) đúng, khớp 86.19 thambha. 8 chú thích: kiểm lại nguyên văn att2/att6 (bhaṅgaṃ pāpuṇituṃ yuttā, sallahukaṃ, corarājānaṃ ālapanto, tassetaṃ patirūpamāhu, vasanaṭṭhānaṃ gharaṃ, anucchavikaṃ, evaṃpaṭipanno) và Indacanda («Này Sattuka», «mau lẹ»): đúng; 70.18 gán «câu tương ứng» hơi lỏng. Nguồn: Pāli ghim, chú giải CST, Indacanda, DPD, bản dịch mù, song song; không có Sujato cho bài (chỉ kệ qua snp4.6), không có Thích Minh Châu ⇒ triangulation 8,4. Thuật ngữ khớp B3, B11, B14; còn nhẹ: 64.14 paṭinissajjitvā «từ bỏ»/cajitvā «xả bỏ» ngược B10. Văn: 3.8 «không đã sống, không sẽ sống», 57.3 «đã được nhĩ thức đạt đến» gượng. Kỹ thuật: check.py OK 593/593; quality:check không còn lỗi cho bài này; validate in «Validation passed» nhưng exit 1 vì quality:check báo snp4.6, snp4.8 (bài khác, đang sửa dở trong cây làm việc); test/check/build để CI ⇒ 9,5. Người điều phối giữ điểm round 1 cho các tiêu chí người chấm tự ghi «khác cách cân, không có bằng chứng mới» (vietnamese_clarity, han_viet_balance, ambiguity_integrity; +0,1 nơi có một chỗ đã sửa), để không nâng điểm khi không có bằng chứng.",
+      "id": "a66e7477-c3b5-4e25-ab4d-ea96d752a3dc",
+      "content_sha256": "df3f0cd981581b0cfed584ada73f97497da85df52925ef4d31166239a969c619",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
+      "final_score": 9.11
     }
   ],
   "legacy_quality": {

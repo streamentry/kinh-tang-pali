@@ -141,6 +141,118 @@
       "content_sha256": "212bcdc4d9c4d8c6353f2dd447630ef4dabe5a8fcf48ce54a8c31df07fbdaa03",
       "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
       "final_score": 8.809999999999999
+    },
+    {
+      "target": "translation",
+      "scope": "full",
+      "assessed_at": "2026-10-16",
+      "assessed_by": [
+        "Claude Opus 5.5 (Claude Code)"
+      ],
+      "scores": {
+        "source_provenance": 9.4,
+        "semantic_fidelity": 8.5,
+        "grammar_logic": 8.2,
+        "segment_alignment": 10,
+        "terminology": 8.5,
+        "triangulation": 8.4,
+        "vietnamese_clarity": 8.3,
+        "han_viet_balance": 9,
+        "ambiguity_integrity": 8.4,
+        "technical_integrity": 9.6
+      },
+      "blocking_errors": [
+        "noEnglishEditionUpstream: Thiếu bản dịch tiếng Anh đối chiếu. Tầng english-sujato tại commit đã ghim không có ja547_translation-en-sujato.json (ja chỉ có 83 tệp: ja1–79, ja126, ja159, ja466, ja534; đây là not-published-upstream, không phải not-synced), tầng vietnamese-current chỉ có Pháp Cú và lớp english-project không có tệp cho bài này. Cả ba tầng tham khảo đều vắng nên triangulation bị chặn ở 7.5 (≤ 8.0) và bài giữ draft."
+      ],
+      "notes": "Rà từng chữ bằng DPD + chú giải CST 2026-10-16, có kiểm độc lập: 3.382 khoá; sửa 43 khoá (phủ định, đại từ, người nói, chủ động/bị động, thì, tên riêng/danh từ chung, nghĩa từ) + 3 khoá sau kiểm độc lập (184.1–184.2 chủ thể, 741.2 mất động từ); người kiểm độc lập xác nhận 43/43 đúng, mẫu 60 khoá còn 2 lỗi, đã sửa. Chỉ cộng +0,1 cho tiêu chí có lỗi đã sửa được kiểm đúng; triangulation giữ nguyên.",
+      "id": "8884c378-d374-4ce7-a6c8-1719944e4b34",
+      "content_sha256": "97c18e5c5812548150f362b3dbaf22a765474c68dcc66df6f2d35de211dba61f",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
+      "final_score": 8.83
+    },
+    {
+      "target": "translation",
+      "scope": "full",
+      "assessed_at": "2026-10-17",
+      "assessed_by": [
+        "Claude Opus 5.5 (Claude Code)"
+      ],
+      "scores": {
+        "source_provenance": 9.2,
+        "semantic_fidelity": 8.8,
+        "grammar_logic": 8.8,
+        "segment_alignment": 9.7,
+        "terminology": 9,
+        "triangulation": 8.4,
+        "vietnamese_clarity": 8.6,
+        "han_viet_balance": 9.1,
+        "ambiguity_integrity": 8.3,
+        "technical_integrity": 9.3
+      },
+      "blocking_errors": [
+        "noEnglishEditionUpstream: Tầng english-sujato không có bài ja547 tại commit đã ghim 11c9d708978cde8ba61096d8a75f7ddfb846f639: source/upstream-manifest.json liệt kê kn/ja/ja547_root-pli-ms.json ở tầng pali, còn tầng english-sujato ở kn/ja chỉ có 83 tệp (ja1–79, ja126, ja159, ja466, ja534), không có ja547_translation-en-sujato.json. Đây là giới hạn của bản chụp upstream (not-published-upstream), không phải thiếu sót của kho; tầng vietnamese-current chỉ có Pháp Cú."
+      ],
+      "notes": "Chấm lại độc lập sau rà DPD + kiểm độc lập 2026-10-17: 30 khoá ngẫu nhiên mới (seed md5('ja547score') = 2940343405, loại khoá có trong verify_ja547, các dòng SỬA/BẤT-ĐỊNH của ja547_A/B/C.tsv, improve_ja547.tsv) đối chiếu Pāli ghim, chú giải CST (ja547src/547.txt), DPD: LỖI-THẬT 0/30. Mẫu trước 60 khoá có 2 lỗi (184.1–184.2, 741.2), đã sửa; 43/43 khoá sửa của lượt DPD đúng. Kiểm 25 khoá thống nhất thuật ngữ: đều đúng ngữ cảnh (4 khoá dhamma lẽ phải của vua «pháp» thường; raṭṭha «xứ sở» ở 24.4 cùng kệ 24.1; chòi lá, rễ củ, thóc lúa, con dâu, vật thí; các dòng Pāli trùng 306/668, 543/544, 723–724, 770.4 dùng lại đúng). Phân xử các chỗ lượt hoàn thiện chỉ chú thích: 543.4/544.4 `khīrapītāva`/`vāripītāva` LỖI-THẬT (chú giải: như thú non đòi sữa/nước mà không được; Cowell «thirsting for water or for milk»; bản Việt «như đã uống sữa/nước» gợi no đủ, trái 541–542 và 505–506 nói trẻ đói khát); 187.3 `nevābhivākyaṁ na labhe` LỖI-THẬT (phủ định kép bị đọc thành phủ định đơn; chú giải `neva na labhati`, Cowell «unkindly speeches never cease»); 510.4, 575.2, 605.2, 302.2 giữ được (Cowell đỡ 510.4 nghĩa đen «I cannot see him»). Gộp: 2/90 khoá ngẫu nhiên (đã sửa) + 3 lỗi ngoài mẫu chưa sửa → semantic 8,8, grammar 8,8. Nguồn: chú giải CST, Cowell PTS 1907 chỉ đối chiếu một phần (chưa đọc 30–92, 112–265, 298–439, 487–535), DPD; không Indacanda, không Sujato, không Thích Minh Châu → triangulation 8,4. 12 chú thích có nguồn nhưng 3 chú thích ghi lại lỗi thay vì sửa, và nhiều bất định lớn (jessantaṁ, gāmaṇīyehi, 97.1, 105.2, 109.2, 767–769) chỉ ở notes → 8,3. check.py OK (3382/3382). validate.ts pass; quality:check exit 1 do scorecard cũ lệch nội dung; test/check/build không tự chạy → 9,3. Blocker viết lại vì chuỗi cũ sai về triangulation/draft.",
+      "id": "9b1a7145-99d4-41f3-afe3-f009686bb34f",
+      "content_sha256": "eb2707f47dccba0b81645008b52583f9d62589b0184d26a3626287fee9e4dbe1",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
+      "final_score": 8.919999999999998
+    },
+    {
+      "target": "translation",
+      "scope": "full",
+      "assessed_at": "2026-10-17",
+      "assessed_by": [
+        "Claude Opus 5.5 (Claude Code)"
+      ],
+      "scores": {
+        "source_provenance": 9.2,
+        "semantic_fidelity": 9,
+        "grammar_logic": 9,
+        "segment_alignment": 9.7,
+        "terminology": 8.9,
+        "triangulation": 8.4,
+        "vietnamese_clarity": 8.7,
+        "han_viet_balance": 9.1,
+        "ambiguity_integrity": 8.5,
+        "technical_integrity": 9.5
+      },
+      "blocking_errors": [
+        "noEnglishEditionUpstream: Tầng english-sujato không có bài ja547 tại commit đã ghim 11c9d708978cde8ba61096d8a75f7ddfb846f639: source/upstream-manifest.json liệt kê kn/ja/ja547_root-pli-ms.json ở tầng pali, còn tầng english-sujato ở kn/ja chỉ có 83 tệp (ja1–79, ja126, ja159, ja466, ja534), không có ja547_translation-en-sujato.json. Đây là giới hạn của bản chụp upstream (not-published-upstream), không phải thiếu sót của kho; tầng vietnamese-current chỉ có Pháp Cú."
+      ],
+      "notes": "Chấm lại độc lập round 2 sau sửa (2026-10-17): 30 khoá ngẫu nhiên mới (seed md5('ja547score2'), loại mẫu round 1, verify, dòng SỬA/BẤT-ĐỊNH của ja547_A/B/C.tsv, improve) đối chiếu Pāli ghim, chú giải CST, DPD: LỖI-THẬT 0/30; gộp 120 khoá ngẫu nhiên 2 lỗi (đã sửa). Ba lỗi round 1 (187.3 phủ định kép, 543.4/544.4 khīrapītā/vāripītā) đã sửa đúng, chú thích viết lại có nguồn. Không Sujato, không Thích Minh Châu, không Indacanda; chú giải CST, DPD, Cowell một phần → triangulation 8,4. Semantic 9,0 / grammar 9,0 (lên 0,2); terminology 8,9 (còn vài dòng Pāli trùng dịch lệch không lý do, vd. 523.2/675.2, nisāmehi); ambiguity 8,5. check.py OK; validate pass; quality:check 0 lỗi; test/check/build do CI → 9,5. Blocker vắng bản Anh chép nguyên.",
+      "id": "221aa6ee-56d9-4fa0-935e-a362cc309717",
+      "content_sha256": "eb2707f47dccba0b81645008b52583f9d62589b0184d26a3626287fee9e4dbe1",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
+      "final_score": 8.999999999999998
+    },
+    {
+      "target": "translation",
+      "scope": "full",
+      "assessed_at": "2026-10-16",
+      "assessed_by": [
+        "Claude Opus 5.5 (Claude Code)"
+      ],
+      "scores": {
+        "source_provenance": 9.2,
+        "semantic_fidelity": 9,
+        "grammar_logic": 9,
+        "segment_alignment": 9.7,
+        "terminology": 8.9,
+        "triangulation": 8.4,
+        "vietnamese_clarity": 8.7,
+        "han_viet_balance": 9.1,
+        "ambiguity_integrity": 8.5,
+        "technical_integrity": 9.5
+      },
+      "blocking_errors": [
+        "noEnglishEditionUpstream: Tầng english-sujato không có bài ja547 tại commit đã ghim 11c9d708978cde8ba61096d8a75f7ddfb846f639: source/upstream-manifest.json liệt kê kn/ja/ja547_root-pli-ms.json ở tầng pali, còn tầng english-sujato ở kn/ja chỉ có 83 tệp (ja1–79, ja126, ja159, ja466, ja534), không có ja547_translation-en-sujato.json. Đây là giới hạn của bản chụp upstream (not-published-upstream), không phải thiếu sót của kho; tầng vietnamese-current chỉ có Pháp Cú."
+      ],
+      "notes": "Rà từng chữ bằng DPD + chú giải CST 2026-10-16, có kiểm độc lập: 675.2 khớp 523.2 (cùng Pāli); chú thích 210.1 nisāmehi. Giữ nguyên điểm.",
+      "id": "12aab4aa-81e2-484b-a85c-af0ad4921db8",
+      "content_sha256": "5042bd39814d04677326f887a5fa01bb37cc2c944d59f29e45b4423b91046034",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
+      "final_score": 8.999999999999998
     }
   ],
   "legacy_quality": {

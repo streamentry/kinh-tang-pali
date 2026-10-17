@@ -141,6 +141,90 @@
       "content_sha256": "83cbac1662e070789d147ab30987fe4c9f5ab217aadf7198f9c9ba4129b544ea",
       "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
       "final_score": 8.899999999999999
+    },
+    {
+      "target": "translation",
+      "scope": "full",
+      "assessed_at": "2026-10-16",
+      "assessed_by": [
+        "Claude Opus 5.5 (Claude Code)"
+      ],
+      "scores": {
+        "source_provenance": 9.4,
+        "semantic_fidelity": 8.8,
+        "grammar_logic": 8.5,
+        "segment_alignment": 10,
+        "terminology": 8.6,
+        "triangulation": 8.5,
+        "vietnamese_clarity": 8.3,
+        "han_viet_balance": 9.1,
+        "ambiguity_integrity": 8.3,
+        "technical_integrity": 9.6
+      },
+      "blocking_errors": [
+        "noEnglishEditionUpstream: không có tầng tham khảo tiếng Anh cho mnd4 tại commit đã ghim. Thư mục kn/ của edition translation/en/sujato chỉ có cp, dhp, iti, ja, kp, snp, thag, thig, ud; manifest chỉ liệt kê tệp root-pli-ms cho kn/mnd (cùng tệp tên mnd-name, chỉ có tiêu đề các bài); tệp mnd4_translation-en-sujato.json không tồn tại. Lớp english-project cũng không có mnd4. Tầng vietnamese-current chỉ có Pháp Cú. Đây là not-published-upstream, giới hạn của bản chụp upstream chứ không phải lỗi người dịch, nên triangulation bị chặn ở 8.0 và không nâng để né blocker."
+      ],
+      "notes": "Rà từng chữ bằng DPD + chú giải CST 2026-10-16, có kiểm độc lập: 408 khoá; sửa 3 khoá (kālato «từ sáng sớm»); người kiểm độc lập xác nhận 3/3 đúng; mẫu 30 khoá còn 1 lỗi (sopadhīko «còn sanh y», 5 khoá), đã sửa. Chỉ cộng +0,1 cho tiêu chí có lỗi đã sửa được kiểm đúng; triangulation giữ nguyên.",
+      "id": "b60f0082-5a51-40c2-8222-5805799cc875",
+      "content_sha256": "18396f9b6935557110ff6be8181e50c09aa1016edf3fd5b728f5cc1e69491c8b",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
+      "final_score": 8.91
+    },
+    {
+      "target": "translation",
+      "scope": "full",
+      "assessed_at": "2026-10-17",
+      "assessed_by": [
+        "Claude Opus 5.5 (Claude Code)"
+      ],
+      "scores": {
+        "source_provenance": 9.2,
+        "semantic_fidelity": 9.1,
+        "grammar_logic": 9.1,
+        "segment_alignment": 9.8,
+        "terminology": 8.5,
+        "triangulation": 8.4,
+        "vietnamese_clarity": 8.7,
+        "han_viet_balance": 8.8,
+        "ambiguity_integrity": 8.9,
+        "technical_integrity": 9.2
+      },
+      "blocking_errors": [
+        "noEnglishEditionUpstream: tầng english-sujato không có bài mnd4 tại commit đã ghim 11c9d708978cde8ba61096d8a75f7ddfb846f639; source/upstream-manifest.json chỉ liệt kê tệp root-pli-ms cho mnd4, không có tệp mnd4_translation-en-sujato.json. Lớp english-project cũng không có bài này; vietnamese-current chỉ có Pháp Cú. Đây là giới hạn của bản chụp upstream (not-published-upstream), được miễn bằng waiver no-upstream-english."
+      ],
+      "notes": "Chấm lại độc lập sau rà DPD + kiểm độc lập 2026-10-17: mẫu gộp 60 khoá (30 + 30 mới, seed md5('mnd4score')) có 1 lỗi (sopadhīko, đã sửa «còn sanh y») ≈ 1,7 %, mẫu mới 0 lỗi. Đối chiếu Pāli ghim, att4 (trích dẫn trong chú thích kiểm được), DPD, Indacanda (15 nhóm bị cờ chưa đọc từng nhóm), Sujato chỉ cho kệ snp4.4. Lượt hoàn thiện: 27.2, 27.3 «buông bỏ» đúng — Pāli là jaho (jaha < jahati, DPD attañjaha 'letting go what was grasped'), không phải pajahati nên B10 không áp, và khớp đầu mục 16.4; 27.4 vẫn giữ cattaṁ «từ bỏ», paṭinissaṭṭhaṁ «xả bỏ»; 32.4, 61.13 đúng trong bài (61.13 «nẻo đi» lệch 6 khoá «cảnh giới» ở cnd16, mnd15); 26.4 nissaṭo «đã thoát ly» là quá tay (mnd4 không có nekkhamma, ngoài B16; cùng công thức «đã xuất ly» ở 55 khoá) — đề nghị trả lại; 18.5, 66.14 viết hoa «Bà-la-môn» lệch 9 khoá cùng câu kệ (snp3.6:19.5 «‘bà-la-môn’»), nhỏ. Thuật ngữ còn: 55.6 paṭinissaṭṭho «đã được từ bỏ» lệch 27.4 «xả bỏ». 10 chú thích khách quan, có nguồn. technical: validate.ts pass; quality:check báo lượt chấm cũ không còn hiện hành, hết khi record/apply; test/check/build do CI.",
+      "id": "3279f914-4032-445e-a5e4-085f2110242e",
+      "content_sha256": "a460d56b1f2808c1578f38ec362d59bb04fe59baacb1d5d2dd4aad0ff2b13de8",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
+      "final_score": 8.97
+    },
+    {
+      "target": "translation",
+      "scope": "full",
+      "assessed_at": "2026-10-17",
+      "assessed_by": [
+        "Claude Opus 5.5 (Claude Code)"
+      ],
+      "scores": {
+        "source_provenance": 9.2,
+        "semantic_fidelity": 9.1,
+        "grammar_logic": 9.1,
+        "segment_alignment": 9.8,
+        "terminology": 8.6,
+        "triangulation": 8.4,
+        "vietnamese_clarity": 8.7,
+        "han_viet_balance": 8.8,
+        "ambiguity_integrity": 8.9,
+        "technical_integrity": 9.6
+      },
+      "blocking_errors": [
+        "noEnglishEditionUpstream: tầng english-sujato không có bài mnd4 tại commit đã ghim 11c9d708978cde8ba61096d8a75f7ddfb846f639; source/upstream-manifest.json chỉ liệt kê tệp root-pli-ms cho mnd4, không có tệp mnd4_translation-en-sujato.json. Lớp english-project cũng không có bài này; vietnamese-current chỉ có Pháp Cú. Đây là giới hạn của bản chụp upstream (not-published-upstream), được miễn bằng waiver no-upstream-english."
+      ],
+      "notes": "Chấm lại độc lập (round 2) sau rà DPD + kiểm độc lập + sửa lỗi round 1, 2026-10-17: mẫu gộp 90 khoá (30 + 30 round 1 + 30 mới seed md5('mnd4score2')) có 1 lỗi đã sửa (sopadhīko) ≈ 1,1 %, mẫu mới 0/30. Đối chiếu Pāli ghim, att4 (kiểm lại «taruṇabeḷuvalaṭṭhiṃ»), DPD, Indacanda (15 nhóm bị cờ chưa đọc từng nhóm), Sujato chỉ cho kệ snp4.4. Lỗi round 1: 26.4 trả lại «đã xuất ly» đúng; 55.6 đổi «xả bỏ» khớp 27.4 nhưng 55.7, 59.6, 59.7, 59.14, 59.15 cùng chữ paṭinissaṭṭha vẫn «từ bỏ» (55.6/55.7 liền nhau lệch) — sửa dở; terminology 8.5 → 8.6. validate.ts pass (Validation passed, cảnh báo của bài chỉ là thiếu English đúng sự thật), quality:check pass (5837 lịch sử, 0 lỗi; lý do trừ của round 1 đã hết); test/check/build do CI, không tự chạy (lượt chấm chỉ đọc) nên trần 9,6.",
+      "id": "baba3df5-f779-4915-bfcb-8a209bc8307a",
+      "content_sha256": "933f9ff7d7b41ed91e963fb4deb32ddd352807678c5de2345d5414ee5cf35c5c",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
+      "final_score": 9.02
     }
   ],
   "legacy_quality": {

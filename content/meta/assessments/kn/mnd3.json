@@ -141,6 +141,118 @@
       "content_sha256": "6633c90e2e73b4c211c7f0e37a10e4960a05c9d5b03778cbc82977ae14d31914",
       "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
       "final_score": 8.93
+    },
+    {
+      "target": "translation",
+      "scope": "full",
+      "assessed_at": "2026-10-16",
+      "assessed_by": [
+        "Claude Opus 5.5 (Claude Code)"
+      ],
+      "scores": {
+        "source_provenance": 9.4,
+        "semantic_fidelity": 8.7,
+        "grammar_logic": 8.8,
+        "segment_alignment": 10,
+        "terminology": 8.6,
+        "triangulation": 8.5,
+        "vietnamese_clarity": 8.4,
+        "han_viet_balance": 9,
+        "ambiguity_integrity": 8.5,
+        "technical_integrity": 9.6
+      },
+      "blocking_errors": [
+        "noEnglishEditionUpstream: không có tầng tham khảo tiếng Anh cho mnd3 tại commit đã ghim. Thư mục kn/ của edition translation/en/sujato chỉ có cp, dhp, iti, ja, kp, snp, thag, thig, ud; manifest chỉ liệt kê tệp root-pli-ms cho kn/mnd (cùng tệp tên mnd-name, chỉ có tiêu đề các bài); tệp mnd3_translation-en-sujato.json không tồn tại. Lớp english-project cũng không có mnd3. Tầng vietnamese-current chỉ có Pháp Cú. Đây là not-published-upstream, giới hạn của bản chụp upstream chứ không phải lỗi người dịch, nên triangulation bị chặn ở 8.0 và không nâng để né blocker."
+      ],
+      "notes": "Rà từng chữ bằng DPD + chú giải CST 2026-10-16, có kiểm độc lập: 565 khoá; sửa 9 khoá (dhoneyya «những pháp gột rửa» 52.2; tách câu hỏi khỏi câu khẳng định yathā hi jāneyya tathā vadeyya ở 9.2–9.4, 13.1, 13.5, 15.2–15.4); người kiểm độc lập xác nhận 9/9 đúng, mẫu 40 khoá 0 lỗi. Chỉ cộng +0,1 cho tiêu chí có lỗi đã sửa được kiểm đúng; triangulation giữ nguyên.",
+      "id": "1d55215a-1447-45c8-84af-f5aa727220ab",
+      "content_sha256": "3c7f7a045c12a52347f5f9df7d618f3fafb91b52e8445bd173a6a49993076726",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
+      "final_score": 8.95
+    },
+    {
+      "target": "translation",
+      "scope": "full",
+      "assessed_at": "2026-10-17",
+      "assessed_by": [
+        "Claude Opus 5.5 (Claude Code)"
+      ],
+      "scores": {
+        "source_provenance": 9.2,
+        "semantic_fidelity": 9,
+        "grammar_logic": 9.1,
+        "segment_alignment": 9.8,
+        "terminology": 8.4,
+        "triangulation": 8.4,
+        "vietnamese_clarity": 8.5,
+        "han_viet_balance": 8.7,
+        "ambiguity_integrity": 8.9,
+        "technical_integrity": 9.2
+      },
+      "blocking_errors": [
+        "noEnglishEditionUpstream: tầng english-sujato không có bài mnd3 tại commit đã ghim 11c9d708978cde8ba61096d8a75f7ddfb846f639; source/upstream-manifest.json chỉ liệt kê tệp root-pli-ms cho mnd3, không có tệp mnd3_translation-en-sujato.json. Lớp english-project cũng không có bài này; vietnamese-current chỉ có Pháp Cú. Đây là giới hạn của bản chụp upstream (not-published-upstream), được miễn bằng waiver no-upstream-english."
+      ],
+      "notes": "Chấm lại độc lập sau rà DPD + kiểm độc lập 2026-10-17: mẫu gộp 70 khoá (40 + 30 mới, seed md5('mnd3score')) 0 lỗi; 9/9 khoá sửa DPD đúng; bất định lớn còn treo là vāda/upeti vādaṁ (~15 khoá, lời giải 5.2 và att3 đọc là lời mắng nhiếc / bị gọi là), đã có chú thích, chờ quyết chung. Đối chiếu Pāli ghim, att3 (trích dẫn trong chú thích kiểm được), DPD, Indacanda (11 nhóm bị cờ chưa đọc từng nhóm), Sujato chỉ cho kệ snp4.3. Lượt hoàn thiện: māyā «giả dối» ở 8 khoá đúng (lời giải 54.2 vañcanikā cariyā, DPD māyā 1), lệch snp4.3:7.3 «hư vọng» đã ghi chú thích — nên đồng bộ snp4.3:7.3; dhona, dhonā, adhosi, santattā (B19), evaṁdiṭṭhikā đúng; 30.11 nissaṭo «đã xuất ly» → «đã thoát ly» là quá tay: mnd3 không có nekkhamma nên ngoài phạm vi B16, glossary chỉ dành «thoát ly» cho nissaraṇa khi va chạm với nekkhamma, và cùng công thức là «đã xuất ly» ở 55 khoá cnd/mnd (cnd9, cnd23 đã published) — đề nghị trả lại. Thuật ngữ còn: appaṭinissaṭṭha «chưa được từ bỏ» (60.7) so với B10 «xả bỏ»; naro «Người nam» lệch dòng kệ «con người» (45.3). technical: validate.ts pass; quality:check báo lượt chấm cũ không còn hiện hành, hết khi record/apply; test/check/build do CI.",
+      "id": "5c6bfea2-3d30-4e34-b8af-aa9503a39f65",
+      "content_sha256": "9cddafbe48189c13edb06e937719af99f88c7be56021cea7b4acdb9d0b481ba9",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
+      "final_score": 8.92
+    },
+    {
+      "target": "translation",
+      "scope": "full",
+      "assessed_at": "2026-10-17",
+      "assessed_by": [
+        "Claude Opus 5.5 (Claude Code)"
+      ],
+      "scores": {
+        "source_provenance": 9.3,
+        "semantic_fidelity": 9,
+        "grammar_logic": 9.1,
+        "segment_alignment": 9.8,
+        "terminology": 8.4,
+        "triangulation": 8.4,
+        "vietnamese_clarity": 8.5,
+        "han_viet_balance": 8.7,
+        "ambiguity_integrity": 8.9,
+        "technical_integrity": 9.6
+      },
+      "blocking_errors": [
+        "noEnglishEditionUpstream: tầng english-sujato không có bài mnd3 tại commit đã ghim 11c9d708978cde8ba61096d8a75f7ddfb846f639; source/upstream-manifest.json chỉ liệt kê tệp root-pli-ms cho mnd3, không có tệp mnd3_translation-en-sujato.json. Lớp english-project cũng không có bài này; vietnamese-current chỉ có Pháp Cú. Đây là giới hạn của bản chụp upstream (not-published-upstream), được miễn bằng waiver no-upstream-english."
+      ],
+      "notes": "Chấm lại độc lập (round 2) sau rà DPD + kiểm độc lập + sửa lỗi round 1, 2026-10-17: mẫu gộp 100 khoá (40 + 30 round 1 + 30 mới seed md5('mnd3score2')) 0 lỗi nghĩa; bất định lớn còn treo vāda/upeti vādaṁ (~15 khoá, có chú thích, chờ quyết chung) nên semantic giữ 9.0. Đối chiếu Pāli ghim, att3 (kiểm lại «tacchamanā», «akkosavādaṃ», «kathanaṃ upagacchati»), DPD, Indacanda (11 nhóm bị cờ chưa đọc từng nhóm), Sujato chỉ cho kệ snp4.3. Lỗi round 1: 30.11 trả lại «đã xuất ly» đúng (provenance 9.2 → 9.3); 60.7 đổi «xả bỏ» theo B10 nhưng 7 khoá cùng chữ paṭinissaṭṭha trong bài (37.6, 37.7, 56.6, 56.7, 60.6, 61.6, 61.7) vẫn «từ bỏ», nay 60.6/60.7 liền nhau lệch nhau — sửa dở, terminology giữ 8.4; 45.3 naro «Người nam» chưa sửa. validate.ts pass (Validation passed, cảnh báo của bài chỉ là thiếu English đúng sự thật), quality:check pass (5837 lịch sử, 0 lỗi; lý do trừ của round 1 đã hết); test/check/build do CI, không tự chạy (lượt chấm chỉ đọc) nên trần 9,6.",
+      "id": "a65780dc-efbd-49b2-97c1-1deb6b12f883",
+      "content_sha256": "cbacaf7dabd2dae555a7b5daea7446340276e6dc358ce0b7611ba3f05244bbb1",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
+      "final_score": 8.97
+    },
+    {
+      "target": "translation",
+      "scope": "full",
+      "assessed_at": "2026-10-16",
+      "assessed_by": [
+        "Claude Opus 5.5 (Claude Code)"
+      ],
+      "scores": {
+        "source_provenance": 9.3,
+        "semantic_fidelity": 9,
+        "grammar_logic": 9.1,
+        "segment_alignment": 9.8,
+        "terminology": 8.4,
+        "triangulation": 8.4,
+        "vietnamese_clarity": 8.5,
+        "han_viet_balance": 8.7,
+        "ambiguity_integrity": 8.9,
+        "technical_integrity": 9.6
+      },
+      "blocking_errors": [
+        "noEnglishEditionUpstream: tầng english-sujato không có bài mnd3 tại commit đã ghim 11c9d708978cde8ba61096d8a75f7ddfb846f639; source/upstream-manifest.json chỉ liệt kê tệp root-pli-ms cho mnd3, không có tệp mnd3_translation-en-sujato.json. Lớp english-project cũng không có bài này; vietnamese-current chỉ có Pháp Cú. Đây là giới hạn của bản chụp upstream (not-published-upstream), được miễn bằng waiver no-upstream-english."
+      ],
+      "notes": "Rà từng chữ bằng DPD + chú giải CST 2026-10-16, có kiểm độc lập: 45.3 «Con người» khớp dòng kệ 45.1. Giữ nguyên điểm.",
+      "id": "684f6c25-5448-4635-ad45-ed4d1371ab52",
+      "content_sha256": "316b62e5e035d7ae9d969024e4ca724d10fddca3ccadfe0f5ce3827a9bba4c52",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
+      "final_score": 8.97
     }
   ],
   "legacy_quality": {

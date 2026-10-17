@@ -169,6 +169,62 @@
       "content_sha256": "3f1a695f2d4f16995d8d7631d19a53fbdbbab66d8b37fb4c15c77c773b7d3e0b",
       "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
       "final_score": 8.95
+    },
+    {
+      "target": "translation",
+      "scope": "full",
+      "assessed_at": "2026-10-16",
+      "assessed_by": [
+        "Claude Opus 5.5 (Claude Code)"
+      ],
+      "scores": {
+        "source_provenance": 9.4,
+        "semantic_fidelity": 8.6,
+        "grammar_logic": 8.8,
+        "segment_alignment": 9.9,
+        "terminology": 8.8,
+        "triangulation": 8.5,
+        "vietnamese_clarity": 8.6,
+        "han_viet_balance": 9.2,
+        "ambiguity_integrity": 8.2,
+        "technical_integrity": 9.6
+      },
+      "blocking_errors": [
+        "noEnglishEditionUpstream: không có tầng tham khảo tiếng Anh cho cnd19 tại commit đã ghim. Thư mục kn/ của edition translation/en/sujato chỉ có cp, dhp, iti, ja, kp, snp, thag, thig, ud, không có cnd; cache chỉ có tệp root-pli-ms cho kn/cnd; tệp cnd19_translation-en-sujato.json không tồn tại. Lớp english-project cũng không có cnd19. Tầng vietnamese-current chỉ có Pháp Cú. Đây là not-published-upstream, giới hạn của bản chụp upstream chứ không phải lỗi người dịch, nên triangulation bị chặn ở 8.0 và không nâng để né blocker."
+      ],
+      "notes": "Rà từng chữ bằng DPD + chú giải CST 2026-10-16, có kiểm độc lập: 448 khoá; lượt rà không sửa; người kiểm độc lập: mẫu 40 khoá 0 lỗi, ngoài mẫu sửa hô cách 15.3–15.4 (sumedha, samantacakkhu). Chỉ cộng +0,1 cho tiêu chí có lỗi đã sửa được kiểm đúng; triangulation giữ nguyên.",
+      "id": "fcb75eb2-6ecd-4130-bc1d-0632c3a66ac9",
+      "content_sha256": "2780e9af369420773cecfada5aa76b46be5e600afa94d2b13aafab5dbaf91df9",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
+      "final_score": 8.959999999999999
+    },
+    {
+      "target": "translation",
+      "scope": "full",
+      "assessed_at": "2026-10-17",
+      "assessed_by": [
+        "Claude Opus 5.5 (Claude Code)"
+      ],
+      "scores": {
+        "source_provenance": 9.2,
+        "semantic_fidelity": 9.3,
+        "grammar_logic": 9.2,
+        "segment_alignment": 9.6,
+        "terminology": 9,
+        "triangulation": 8.7,
+        "vietnamese_clarity": 8.7,
+        "han_viet_balance": 9.1,
+        "ambiguity_integrity": 9.1,
+        "technical_integrity": 9.3
+      },
+      "blocking_errors": [
+        "noEnglishEditionUpstream: tầng english-sujato không có cnd19 tại commit đã ghim 11c9d708978cde8ba61096d8a75f7ddfb846f639; source/upstream-manifest.json chỉ liệt kê tệp Pāli root kn/cnd/cnd19_root-pli-ms.json cho bài này, và thư mục sutta/kn của edition english-sujato chỉ có cp, dhp, iti, ja, kp, snp, thag, thig, ud. Đây là not-published-upstream, không phải not-synced. Lớp english-project có bản lấp của chính dự án cho 225 khoá (content/meta/en/kn/cnd19.yaml), cùng họ công cụ với người dịch nên không tính là bản Anh độc lập; vietnamese-current tại commit đã ghim chỉ có Pháp Cú. Bài được đối chiếu với Pāli root và các nguồn ngoài tầng store ghi trong notes, và thuộc phạm vi waiver no-upstream-english của người biên tập (2026-10-11)."
+      ],
+      "notes": "Chấm lại độc lập sau rà DPD + kiểm độc lập 2026-10-17: 30 khoá mới (seed md5(\"cnd19score\"), loại 108 khoá đã trong mẫu trước) → KHỚP 30, LỖI-THẬT 0; gộp mẫu trước (DPD-verify 40, nguồn thứ hai ~30, vrf 60) ≈ 130 khoá, 0 lỗi còn sót (15.3–15.4 hô cách đã sửa). Phân xử loka «thế giới» → «thế gian» ở đoạn trích sn35.82 (36.4–36.13): đúng, vì đoạn này giải chính chữ lokaṁ của câu kệ và khớp đoạn song song 50.x. Nguồn: Sujato snp5.16 cho kệ, Thanissaro, chú giải CST s0516a.att0, Indacanda toàn văn, DPD; bản lấp english-project là của dự án nên không tính → triangulation 8,7. 10 chú thích đã kiểm nguồn, khách quan. Trừ provenance vì notes còn câu «Lớp english-project không có cnd19» chưa đánh dấu thay. Kỹ thuật: scripts/validate.ts pass, nhưng npm run validate/quality:check exit 1 vì assessment cũ của bài không còn khớp content_sha256 sau lượt hoàn thiện (hết khi ghi và áp lượt này); check.py OK; test/check/build không tự chạy. Blocker vắng bản Anh được thay bằng chuỗi đúng sự thật vì chuỗi cũ còn ghi «triangulation bị chặn»/«bắt buộc draft».",
+      "id": "26bbf10d-01b2-40b1-9f49-0cc93e93795c",
+      "content_sha256": "6e42106d8078550a4efab1e3c8d2006cd3a8b6a99f8c0aeabe02f633eb86f841",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
+      "final_score": 9.12
     }
   ],
   "legacy_quality": {

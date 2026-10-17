@@ -1823,6 +1823,90 @@
       "content_sha256": "71eb587601358bf7b200f886e2328294614d12fee7e9bcb66ef7f8c5a72b7450",
       "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
       "final_score": 8.84
+    },
+    {
+      "target": "translation",
+      "scope": "full",
+      "assessed_at": "2026-10-16",
+      "assessed_by": [
+        "Claude Opus 5.5 (Claude Code)"
+      ],
+      "scores": {
+        "source_provenance": 9.4,
+        "semantic_fidelity": 8.7,
+        "grammar_logic": 8.4,
+        "segment_alignment": 9.8,
+        "terminology": 8.4,
+        "triangulation": 8.4,
+        "vietnamese_clarity": 8.2,
+        "han_viet_balance": 9,
+        "ambiguity_integrity": 8.7,
+        "technical_integrity": 9.6
+      },
+      "blocking_errors": [
+        "noEnglishEditionUpstream: Thiếu bản dịch tiếng Anh đối chiếu. Tầng english-sujato tại commit đã ghim không có ja543_translation-en-sujato.json (ja chỉ có 83 tệp: ja1–79, ja126, ja159, ja466, ja534; đây là not-published-upstream, không phải not-synced), tầng vietnamese-current chỉ có Pháp Cú và lớp english-project không có tệp cho bài này. Cả ba tầng tham khảo đều vắng nên triangulation bị chặn ở 7.5 (≤ 8.0) và bài giữ draft."
+      ],
+      "notes": "Rà từng chữ bằng DPD + chú giải CST 2026-10-16, có kiểm độc lập: 24 khoá sửa (nghĩa từ, hô cách dvirasaññu ×4, tên riêng, đại từ, người nói) + 5 khoá sau kiểm (153.4 chủ thể, 140.1, Kuveru ×2, 188.4); kiểm 26/27 đúng, lỗi trong mẫu đã sửa. Chỉ cộng +0,1 cho tiêu chí có lỗi đã sửa được kiểm đúng; triangulation giữ nguyên.",
+      "id": "5855c882-146f-4227-a86f-637cf031d19e",
+      "content_sha256": "dbd69eecd80447f88d631426d0af3920242515547564ace9f95acdb53e78c1d7",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
+      "final_score": 8.86
+    },
+    {
+      "target": "translation",
+      "scope": "full",
+      "assessed_at": "2026-10-17",
+      "assessed_by": [
+        "Claude Opus 5.5 (Claude Code)"
+      ],
+      "scores": {
+        "source_provenance": 9.2,
+        "semantic_fidelity": 8.8,
+        "grammar_logic": 9,
+        "segment_alignment": 9.7,
+        "terminology": 8.9,
+        "triangulation": 8.7,
+        "vietnamese_clarity": 8.4,
+        "han_viet_balance": 9,
+        "ambiguity_integrity": 8.3,
+        "technical_integrity": 9.3
+      },
+      "blocking_errors": [
+        "noEnglishEditionUpstream: Tầng english-sujato không có bài ja543 tại commit đã ghim 11c9d708978cde8ba61096d8a75f7ddfb846f639: source/upstream-manifest.json liệt kê kn/ja/ja543_root-pli-ms.json ở tầng pali, còn tầng english-sujato ở kn/ja chỉ có 83 tệp (ja1–79, ja126, ja159, ja466, ja534), không có ja543_translation-en-sujato.json. Đây là giới hạn của bản chụp upstream (not-published-upstream), không phải thiếu sót của kho; tầng vietnamese-current chỉ có Pháp Cú."
+      ],
+      "notes": "Chấm lại độc lập sau rà DPD + kiểm độc lập 2026-10-17: 30 khoá ngẫu nhiên mới (seed md5('ja543score') = 3629772704, loại khoá có trong verify_ja543, các dòng SỬA/BẤT-ĐỊNH của dpd/ja543.tsv, improve_ja543.tsv) đối chiếu Pāli ghim, chú giải CST (vcomm/543.txt), DPD: LỖI-THẬT 0/30. Mẫu trước 40 khoá có 3 lỗi (153.4, 138.2, 140.1), đã sửa; 188.4 đã bổ sung. Kiểm riêng chú thích 187.1: chữ Sanskrit «ibhya» = «giàu có» kiểm được (Monier-Williams tr. 167: «wealthy, opulent, having many attendants»; Apte tr. 279: «wealthy, opulent, rich») nhưng chú thích không nêu nguồn và bỏ nghĩa Vedic «belonging to one's servants» mà chính PED (tr. 122) dẫn làm gốc của Pāli «ibbha»; DPD «menial; servile», PED «menial; a retainer», chú giải «gahapatikā», Indacanda «các gia chủ», Cowell «householders» — không nguồn Pāli nào đỡ «người giàu», và ja545 cùng phẩm dịch ibbha là «gia chủ». Phân xử: 187.1/188.1 là LỖI-THẬT nhẹ (từ vựng, lệch mọi nguồn Pāli), cần sửa thành «gia chủ»; chú thích tính vào tiêu chí 9. Tỷ lệ: 0/30 của tôi, 3/40 trước (đã sửa), cộng 1 lỗi ngoài mẫu → semantic 8,8. Nguồn: chú giải CST, Indacanda, Cowell PTS 1907 toàn bài, DPD, PED; không có Sujato, Thích Minh Châu → triangulation 8,7. Phần tranh luận Veda (127–188) vẫn tối («sức nóng không thể thỏa, vẫn không no», «tế lễ rất đông») → clarity 8,4. 10 chú thích, nhưng 187.1 thiếu nguồn và chọn lọc, 143.3 suy luận từ DPD chưa khớp với lời dịch, nhiều bất định khác (12.3, 15.1, 49.3, 66.3, 70.1, 127.1, 141.4, 199.4) chỉ ở notes → 8,3. check.py OK (815/815). validate.ts pass; quality:check exit 1 do scorecard cũ lệch nội dung; test/check/build không tự chạy → 9,3. Blocker viết lại vì chuỗi cũ sai về triangulation/draft.",
+      "id": "196ac288-306e-4d3e-b7d7-10779a8fa559",
+      "content_sha256": "edaff27e8ae5ee4f119df419fc4d59ade17f13bc09966ecc1f0ccf223ab5e3b0",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
+      "final_score": 8.929999999999998
+    },
+    {
+      "target": "translation",
+      "scope": "full",
+      "assessed_at": "2026-10-17",
+      "assessed_by": [
+        "Claude Opus 5.5 (Claude Code)"
+      ],
+      "scores": {
+        "source_provenance": 9.3,
+        "semantic_fidelity": 9,
+        "grammar_logic": 9,
+        "segment_alignment": 9.7,
+        "terminology": 9,
+        "triangulation": 8.7,
+        "vietnamese_clarity": 8.4,
+        "han_viet_balance": 9,
+        "ambiguity_integrity": 8.6,
+        "technical_integrity": 9.5
+      },
+      "blocking_errors": [
+        "noEnglishEditionUpstream: Tầng english-sujato không có bài ja543 tại commit đã ghim 11c9d708978cde8ba61096d8a75f7ddfb846f639: source/upstream-manifest.json liệt kê kn/ja/ja543_root-pli-ms.json ở tầng pali, còn tầng english-sujato ở kn/ja chỉ có 83 tệp (ja1–79, ja126, ja159, ja466, ja534), không có ja543_translation-en-sujato.json. Đây là giới hạn của bản chụp upstream (not-published-upstream), không phải thiếu sót của kho; tầng vietnamese-current chỉ có Pháp Cú."
+      ],
+      "notes": "Chấm lại độc lập round 2 sau sửa (2026-10-17): 30 khoá ngẫu nhiên mới (seed md5('ja543score2'), loại mẫu round 1, verify, dòng SỬA/BẤT-ĐỊNH) đối chiếu Pāli ghim, chú giải CST (second/srcA/ja543_att.txt), DPD: LỖI-THẬT 0/30; gộp 100 khoá, mọi lỗi đã tìm đều đã sửa. Lỗi round 1 (187.1/188.1 ibbha) đã sửa thành «các gia chủ», chú thích có nguồn đủ. Không Sujato, không Thích Minh Châu; bù chú giải CST, Indacanda, Cowell toàn bài, DPD, PED → triangulation 8,7. Semantic 9,0 (lên 0,2), terminology 9,0, ambiguity 8,6 (187.1, 143.3 chú thích nay đúng; nhiều bất định chỉ ở notes), clarity 8,4 (phần Veda còn tối). check.py OK; validate pass; quality:check 0 lỗi; test/check/build do CI → 9,5. Blocker vắng bản Anh chép nguyên.",
+      "id": "94677dd8-3d35-4958-8840-fbc05e95bc85",
+      "content_sha256": "edaff27e8ae5ee4f119df419fc4d59ade17f13bc09966ecc1f0ccf223ab5e3b0",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
+      "final_score": 9.02
     }
   ],
   "legacy_quality": {

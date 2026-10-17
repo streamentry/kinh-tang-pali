@@ -113,6 +113,62 @@
       "content_sha256": "f15432ec943ee7701a8b9a34ed39e52654a26f5cc337be529269ea5b33a50878",
       "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
       "final_score": 8.94
+    },
+    {
+      "target": "translation",
+      "scope": "full",
+      "assessed_at": "2026-10-16",
+      "assessed_by": [
+        "Claude Opus 5.5 (Claude Code)"
+      ],
+      "scores": {
+        "source_provenance": 9.5,
+        "semantic_fidelity": 8.4,
+        "grammar_logic": 8.5,
+        "segment_alignment": 10,
+        "terminology": 8.5,
+        "triangulation": 9,
+        "vietnamese_clarity": 8.6,
+        "han_viet_balance": 9.2,
+        "ambiguity_integrity": 8.2,
+        "technical_integrity": 9.6
+      },
+      "blocking_errors": [
+        "Không có tầng tham khảo tiếng Anh tại commit đã ghim 11c9d708978cde8ba61096d8a75f7ddfb846f639 (noEnglishEditionUpstream): `source/upstream-manifest.json` không liệt kê tệp `translation/en/sujato` nào cho `sutta/kn/thi-ap/`; tệp duy nhất liên quan đến nhóm này là tệp tên `name/sutta/thi-ap-name_translation-en-sujato.json`, không phải bản dịch từng khoá, và tầng Sujato của `kn` chỉ có chín nhóm cp, dhp, iti, ja, kp, snp, thag, thig, ud. Đây là `not-published-upstream`, KHÔNG phải `not-synced`; cache cũng không có tệp thân kinh. Coverage đo theo công thức `source/layers.yaml` (`substantivePaliMinChars: 40`, bỏ khối `:0`): mẫu số 1 khoá Pāli có nội dung (`:55.1`, câu kết 66 ký tự; 220 khoá còn lại đều ngắn hơn 40 ký tự hoặc là khối `:0`), Sujato phủ 0/1 = 0%, dưới ngưỡng 0.8; ở phần kệ cổng không đo được gì. Lớp lấp `english-project` không có tệp cho uid này, và `vietnamese-current` vắng vì tại commit đã ghim tầng ấy chỉ có 26 tệp Pháp Cú. Cả ba tầng tham khảo đều vắng nên bài chỉ dịch từ Pāli root; đây là giới hạn của snapshot upstream, không phải lỗi người dịch, nhưng `scripts/validate.ts` coi tệp Anh thiếu là lỗi khi status là `review` hoặc `published`, nên bài bắt buộc `draft`. `triangulation` bị chặn ở 7.5 (không quá 8.0), không nâng điểm để né blocker."
+      ],
+      "notes": "Rà từng chữ bằng DPD + chú giải CST 2026-10-16, có kiểm độc lập: 6 khoá sửa (đại từ C6, cấu trúc câu, bhaddante); kiểm 6/6 đúng, 0/25 mẫu. Chỉ cộng +0,1 cho tiêu chí có lỗi đã sửa được kiểm đúng; triangulation giữ nguyên.",
+      "id": "fe3a1278-5d82-4323-8095-4d5a331d7855",
+      "content_sha256": "6aa0ec7663ef614bf58e12f2c59b0e213bfc71a694abc542a19e04cd0aa0afbb",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
+      "final_score": 8.95
+    },
+    {
+      "target": "translation",
+      "scope": "full",
+      "assessed_at": "2026-10-17",
+      "assessed_by": [
+        "Claude Opus 5.5 (Claude Code)"
+      ],
+      "scores": {
+        "source_provenance": 9.3,
+        "semantic_fidelity": 9.2,
+        "grammar_logic": 9.3,
+        "segment_alignment": 9.6,
+        "terminology": 9.1,
+        "triangulation": 9,
+        "vietnamese_clarity": 8.8,
+        "han_viet_balance": 9.1,
+        "ambiguity_integrity": 9.4,
+        "technical_integrity": 9.3
+      },
+      "blocking_errors": [
+        "noEnglishEditionUpstream: tầng english-sujato không có thi-ap21 tại commit đã ghim 11c9d708978cde8ba61096d8a75f7ddfb846f639; source/upstream-manifest.json chỉ liệt kê tệp Pāli root kn/thi-ap/thi-ap21_root-pli-ms.json cho bài này, và thư mục sutta/kn của edition english-sujato chỉ có cp, dhp, iti, ja, kp, snp, thag, thig, ud. Đây là not-published-upstream, không phải not-synced. vietnamese-current tại commit đã ghim chỉ có Pháp Cú. Bài được đối chiếu với Pāli root và các nguồn ngoài tầng store ghi trong notes, và thuộc phạm vi waiver no-upstream-english của người biên tập (2026-10-11)."
+      ],
+      "notes": "Chấm lại độc lập sau rà DPD + kiểm độc lập 2026-10-17: 30 khoá mới (seed md5(\"thi-ap21score\"), loại 43 khoá đã kiểm) → KHỚP 30, LỖI-THẬT 0; gộp mẫu trước ≈ 60 khoá + đối chiếu cả 54 khổ với Walters/Indacanda. Thống nhất satthā «bậc Đạo Sư», lahu «nhanh chóng» (khớp 32.4 và Walters «Quickly»), cora «Kẻ trộm»: đúng. C6, B20 đã áp. Nguồn: Walters (Anh, SuttaCentral, không ghim), Indacanda + bản song ngữ có dị bản, DPD, ja419 → triangulation 9,0. 9 chú thích khách quan, có nguồn. Trừ văn phong 33.3 (sợi len), bhaddante chờ quyết chung. Kỹ thuật: scripts/validate.ts pass, nhưng npm run validate/quality:check exit 1 vì assessment cũ của bài không còn khớp content_sha256 sau lượt hoàn thiện (hết khi ghi và áp lượt này); check.py OK; test/check/build không tự chạy. Blocker vắng bản Anh được thay bằng chuỗi đúng sự thật vì chuỗi cũ còn ghi «triangulation bị chặn»/«bắt buộc draft».",
+      "id": "478bfa2e-5235-41b1-a171-9ce5c09c858b",
+      "content_sha256": "3f3219f58fe86b8195a5b35b91d6a96c8a45bf361075331ff1e4e74031c0d08a",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
+      "final_score": 9.209999999999999
     }
   ],
   "legacy_quality": {
