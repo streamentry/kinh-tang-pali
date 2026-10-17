@@ -1,5 +1,5 @@
 uid: ja262
-status: review
+status: published
 translationTitle: "Kinh Bàn Tay Mềm"
 translators:
   - "OpenCode Space Bunny Free (agent)"
@@ -16,48 +16,34 @@ tags:
 quality:
   scores:
     source_provenance: 9.4
-    semantic_fidelity: 8.2
-    grammar_logic: 8.4
+    semantic_fidelity: 9.2
+    grammar_logic: 9.2
     segment_alignment: 10
-    terminology: 8.5
-    triangulation: 8.8
+    terminology: 9.2
+    triangulation: 8.7
     vietnamese_clarity: 8.7
-    han_viet_balance: 9
-    ambiguity_integrity: 8.4
+    han_viet_balance: 9.1
+    ambiguity_integrity: 9.3
     technical_integrity: 9.6
-  final_score: 8.9
+  final_score: 9.239999999999998
   blocking_errors:
-    - "Thiếu hẳn tầng tham khảo English Sujato tại commit đã ghim
-      11c9d708978cde8ba61096d8a75f7ddfb846f639: đếm trực tiếp trên
-      source/upstream-manifest.json (cùng commit) cho thấy tầng
-      translation/en/sujato có 4.291 tệp, trong đó thư mục sutta/kn/ja/ chỉ có
-      83 tệp, không có tệp nào chứa khoá của bài này; hàm upstreamPublishes của
-      kho trả về false cho đường dẫn này, nghĩa là SuttaCentral không phát hành
-      bản Anh nào phủ bài này tại commit đã ghim. Tầng vietnamese-current cũng
-      không có (đúng 26 tệp, chỉ Pháp Cú), nên bài chỉ đối chiếu được với Pāli
-      root một mình. Đây là giới hạn của bản chụp upstream, không phải thiếu sót
-      của kho, nhưng theo AGENTS.md thì thiếu tầng tham khảo là lỗi chặn đối với
-      review và published, và tests/unit/reference-source.test.ts kiểm đúng điều
-      đó. Bài đặt draft và không nâng điểm để né."
-  assessed_at: 2026-10-16
+    - "noEnglishEditionUpstream: tầng english-sujato không có bài ja262 tại
+      commit đã ghim 11c9d708978cde8ba61096d8a75f7ddfb846f639 (kiểm
+      source/upstream-manifest.json: thư mục sutta/kn/ja của tầng này có 83 tệp,
+      không có tệp nào của ja262); đây là giới hạn của bản chụp upstream
+      (not-published-upstream), không phải của bản dịch."
+  assessed_at: 2026-10-17
   assessed_by:
     - Claude Opus 5.5 (Claude Code)
-  assessment_id: 9b3412fb-0176-4a38-9d47-551525f888f5
+  assessment_id: dbf17b62-5ae6-407b-90cc-06aa7afd3d9d
   waiver:
     id: no-upstream-english
     blockers:
-      - "Thiếu hẳn tầng tham khảo English Sujato tại commit đã ghim
-        11c9d708978cde8ba61096d8a75f7ddfb846f639: đếm trực tiếp trên
-        source/upstream-manifest.json (cùng commit) cho thấy tầng
-        translation/en/sujato có 4.291 tệp, trong đó thư mục sutta/kn/ja/ chỉ có
-        83 tệp, không có tệp nào chứa khoá của bài này; hàm upstreamPublishes
-        của kho trả về false cho đường dẫn này, nghĩa là SuttaCentral không phát
-        hành bản Anh nào phủ bài này tại commit đã ghim. Tầng vietnamese-current
-        cũng không có (đúng 26 tệp, chỉ Pháp Cú), nên bài chỉ đối chiếu được với
-        Pāli root một mình. Đây là giới hạn của bản chụp upstream, không phải
-        thiếu sót của kho, nhưng theo AGENTS.md thì thiếu tầng tham khảo là lỗi
-        chặn đối với review và published, và tests/unit/reference-source.test.ts
-        kiểm đúng điều đó. Bài đặt draft và không nâng điểm để né."
+      - "noEnglishEditionUpstream: tầng english-sujato không có bài ja262 tại
+        commit đã ghim 11c9d708978cde8ba61096d8a75f7ddfb846f639 (kiểm
+        source/upstream-manifest.json: thư mục sutta/kn/ja của tầng này có 83
+        tệp, không có tệp nào của ja262); đây là giới hạn của bản chụp upstream
+        (not-published-upstream), không phải của bản dịch."
 notes: |-
   LÁT NÀY KHÔNG CÓ TẦNG THAM KHẢO NÀO, ĐÃ ĐẾM KHÔNG SUY. Với mười ba bài Jātaka này:
   source/upstream-manifest.json tại commit đã ghim 11c9d708978cde8ba61096d8a75f7ddfb846f639 ghi tầng translation/en/sujato có 4.291
@@ -154,3 +140,5 @@ notes: |-
   Rà từng chữ bằng DPD 2026-10-16: 17 khoá đã rà; sửa 2.3 (`sīdanti`: chủ ngữ là các nàng, chú giải
   CST `sīdantī ti … nimujjanti`, `nan-ti nipātamattaṁ`, Indacanda "các nàng ấy (sẽ) đọa"; đồng bộ với
   ja263:2.3 cùng Pāli → "họ chìm xuống"); bất định: không.
+  Lượt hoàn thiện 2026-10-17: thống nhất thuật ngữ: đã rà, không có khoá cần sửa (2.3–3.4 trùng chữ với ja263 cùng Pāli; "họ"/"những nàng ấy" cho `tā`/`etā` là cùng một người được nói đến, giữ như ja263); thêm 6 chú thích (1.1 câu đố của công chúa và bốn điều kiện theo chú giải; 1.2 `sukārito`; 1.4 `tadā siyā` là ước nguyện thành tựu; 2.1 người nói khổ 2–3 và hai cách hiểu `analā`; 2.3 `sīdanti` chìm vào địa ngục, `naṁ` tiểu từ; 3.3 `Jātaveda` là lửa). Các câu sau trong ghi chú cũ đã bị thay: mục đầu "LÁT NÀY KHÔNG CÓ TẦNG THAM KHẢO NÀO…" của lô (bài nay ở `review` theo waiver `no-upstream-english`, blocker vẫn ghi trong hồ sơ); ở lượt 2026-10-14, "người ta chìm xuống" (nay "họ chìm xuống", lượt DPD 2026-10-16), "và con voi được làm cho khéo", "bóng tối đổ mưa", "kẻ ấy" (đã đổi ở lượt 2026-10-15), "`translationTitle` … vẫn là tên cũ, cần đồng bộ" (translationTitle nay là "Kinh Bàn Tay Mềm") và "Pāli ghim không kèm truyện nên không biết ai nói gì"; ở mục nguồn ngoài, "câu đố bốn điều kiện chú giải thừa nhận chưa rõ" (chú giải giải rõ bốn điều kiện và người nói; xem chú thích 1.1–1.4; lời kinh vẫn giữ nghĩa đen).
+  Chấm lại độc lập sau rà DPD + kiểm độc lập 2026-10-17: đọc cả 17/17 khoá (13 khoá kệ), đối chiếu chú giải CST K10-JA/262; 0 lỗi nghĩa, 0 lỗi ngữ pháp (khổ 1 câu đố của công chúa, khổ 2–3 lời nhà vua; `sīdanti` chủ ngữ là các nàng; `yaṁ etā upasevanti` đúng chủ–tân). 2.3–3.4 trùng chữ với ja263 cùng Pāli. Không có bản Anh SuttaCentral; đối chiếu chú giải CST, Rouse, Ānandajoti, Indacanda (một phần), DPD → 8,7. 6 chú thích khớp chú giải (bốn điều kiện, `āneñjakāraṇa`, hai cách hiểu `analā`, `Jātaveda`). Văn phong: 1.4 «thì hẳn lúc ấy sẽ có» tối nghĩa nếu không đọc chú thích, 2.4 «tránh xa từ xa» lặp. Kỹ thuật: check.py OK, `validate` qua, `quality:check` không lỗi cho bài; test/check/build không tự chạy nên 9,6.

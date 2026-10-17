@@ -655,6 +655,34 @@
       "content_sha256": "93b8b369cb1f9f603bb3bf8442a838d0580c3d576e05dfa72bcbe59fb08b21bf",
       "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
       "final_score": 9
+    },
+    {
+      "target": "translation",
+      "scope": "full",
+      "assessed_at": "2026-10-17",
+      "assessed_by": [
+        "Claude Opus 5.5 (Claude Code)"
+      ],
+      "scores": {
+        "source_provenance": 9.4,
+        "semantic_fidelity": 9.1,
+        "grammar_logic": 9,
+        "segment_alignment": 9.9,
+        "terminology": 9.2,
+        "triangulation": 8.8,
+        "vietnamese_clarity": 8.9,
+        "han_viet_balance": 9.1,
+        "ambiguity_integrity": 9.2,
+        "technical_integrity": 9.4
+      },
+      "blocking_errors": [
+        "noEnglishEditionUpstream: tầng english-sujato không có bài ja521 tại commit đã ghim 11c9d708978cde8ba61096d8a75f7ddfb846f639 (kiểm source/upstream-manifest.json: thư mục sutta/kn/ja của tầng này có 83 tệp, không có tệp nào của ja521); đây là giới hạn của bản chụp upstream (not-published-upstream), không phải của bản dịch."
+      ],
+      "notes": "Chấm lại độc lập sau rà DPD + kiểm độc lập 2026-10-17: mẫu mới 30 khoá (seed md5('ja521score') = 1594718687, loại 120 khoá các mẫu trước): 30 KHỚP, 0 LỖI-THẬT, 0 BẤT-ĐỊNH. Gộp các mẫu: 40 (0 lỗi) + 24 (3 lỗi đại từ, đã sửa) + 50 (1 lỗi chủ thể 5.3, đã sửa) + 30 (0 lỗi) = 144 khoá; trên 80 khoá của hai mẫu gần nhất còn 1 lỗi (đã sửa) → lỗi sót đo được ≈ 1%, đều là loại đại từ/chủ thể. Kiểm 9.1 «cha», 14.1/21.4/26.1 «của cha», 5.3 «cha đã làm»: đúng. Bất định còn lại đều có chú thích (`kāsipati`, `bhūtapati`, `pitaro`/`sājīvā`, `khattabandhuni`, `adhisare`, `kitti silokavaḍḍhanī`, `akamma`); 50.3 (nhẹ) chưa có chú thích. Không có bản Anh SuttaCentral (lớp english-project chỉ có câu kính lễ 1.1, cùng người chấm nên không tính là đối chiếu Anh độc lập); đối chiếu chú giải CST, Francis (PTS 1905), Indacanda TTPV 33, DPD → 8,8. Văn phong: 24.2–24.4, 37.1, 21.2 «bậc chiến xa đệ nhất» còn vụng. Kỹ thuật: check.py OK (203/203, NFC, ngoặc kép và dấu lược khớp từng khoá), `validate` qua; `quality:check` báo bài lệch đánh giá đã lưu vì 9.1 và 5.3 đổi (hết khi --record/--apply); test/check/build không tự chạy nên 9,4.",
+      "id": "0d230715-75b3-4f29-9218-3d2358277d97",
+      "content_sha256": "89d5b077a079c959d865b99f104395c33cb66e5729540ee165ba026ab46a4553",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
+      "final_score": 9.2
     }
   ],
   "legacy_quality": {

@@ -14,35 +14,39 @@ tags:
   - to-manh
 quality:
   scores:
-    source_provenance: 9.5
-    semantic_fidelity: 8.3
-    grammar_logic: 8.4
-    segment_alignment: 10
-    terminology: 8.2
+    source_provenance: 9.1
+    semantic_fidelity: 8.2
+    grammar_logic: 8
+    segment_alignment: 9.7
+    terminology: 8.8
     triangulation: 8.6
-    vietnamese_clarity: 9
+    vietnamese_clarity: 8.8
     han_viet_balance: 9.1
-    ambiguity_integrity: 8.4
-    technical_integrity: 9.6
-  final_score: 8.91
+    ambiguity_integrity: 8.5
+    technical_integrity: 9.5
+  final_score: 8.83
   blocking_errors:
-    - "Thiếu tầng tham khảo English SuttaCentral: source/upstream-manifest.json
-      (editions[english-sujato]) không có tệp nào cho bài này, và tại commit đã
-      ghim không có bản Anh nào khác phủ được. AGENTS.md xem thiếu tầng tham
-      khảo là lỗi chặn với review và published, nên bài phải ở draft cho tới khi
-      tầng tham khảo có mặt."
-  assessed_at: 2026-10-16
+    - "noEnglishEditionUpstream: tầng english-sujato không có bài ja163 tại
+      commit đã ghim 11c9d708978cde8ba61096d8a75f7ddfb846f639 (đã kiểm
+      source/upstream-manifest.json: có tệp Pāli root của ja163, không có tệp
+      translation/en/sujato nào cho uid này), và SuttaCentral không phát hành
+      bản Anh nào khác cho bài ở commit ấy. Đây là giới hạn của bản chụp
+      upstream; waiver no-upstream-english của người biên tập áp cho đúng loại
+      blocker này."
+  assessed_at: 2026-10-17
   assessed_by:
-    - Claude Sonnet 5.5 (Claude Code)
-  assessment_id: efc0dee9-6ad1-44fa-b272-4a024241ba3b
+    - Claude Opus 5.5 (Claude Code)
+  assessment_id: 01151a61-e5fc-4699-8459-d7f083d304cf
   waiver:
     id: no-upstream-english
     blockers:
-      - "Thiếu tầng tham khảo English SuttaCentral:
-        source/upstream-manifest.json (editions[english-sujato]) không có tệp
-        nào cho bài này, và tại commit đã ghim không có bản Anh nào khác phủ
-        được. AGENTS.md xem thiếu tầng tham khảo là lỗi chặn với review và
-        published, nên bài phải ở draft cho tới khi tầng tham khảo có mặt."
+      - "noEnglishEditionUpstream: tầng english-sujato không có bài ja163 tại
+        commit đã ghim 11c9d708978cde8ba61096d8a75f7ddfb846f639 (đã kiểm
+        source/upstream-manifest.json: có tệp Pāli root của ja163, không có tệp
+        translation/en/sujato nào cho uid này), và SuttaCentral không phát hành
+        bản Anh nào khác cho bài ở commit ấy. Đây là giới hạn của bản chụp
+        upstream; waiver no-upstream-english của người biên tập áp cho đúng loại
+        blocker này."
 notes: |-
   Jātaka, không có bản Anh Sujato ở commit đã ghim (đã kiểm trong
   source/upstream-manifest.json). Draft + blocker thật. 13/13 khoá từ Pāli. `cần` RỖNG nên
@@ -79,3 +83,6 @@ notes: |-
   Rà từng chữ bằng DPD 2026-10-16: 13 khoá đã rà; sửa: không (giữ 1.3, 2.3 `te te dadāmi` "cho … những
   con ấy": Indacanda cũng đọc `te` là "cho khanh"; chú giải đọc `te ete` nhưng không làm đổi nghĩa
   chính); bất định: không.
+  Lượt hoàn thiện 2026-10-17: thống nhất thuật ngữ: đã rà, không có khoá cần sửa (`migā` "thú", `parosataṁ`, `hemajālābhichannā`, `pettipitāmahānaṁ` "cha ông" lặp đúng ở hai khổ; "Phẩm Santhava" khớp phẩm); thêm 3 chú thích (1.1 thú là voi theo chú giải, ai nói với ai; 1.3 và 2.3 chú giải đọc `te ete` "cho các bà-la-môn khác" so với bản dịch "cho tôi/cho cậu"). Các câu sau trong ghi chú cũ đã bị thay: "Draft + blocker thật" (bài nay ở `review` theo waiver `no-upstream-english`, blocker vẫn ghi trong hồ sơ); điểm "semantic_fidelity 8.3, terminology 8.2 … triangulation 7.0" của mục đầu (điểm hiện hành xem `quality`); dòng kết "Kinh Susīma thứ ba." (nay "Kinh Susīma, thứ ba." theo C2); bất định (a) "Pāli không nêu người nói; tôi suy…" (đã phân xử ở mục nguồn ngoài 2026-10-16: chàng thanh niên nói với vua Susīma rồi vua đáp); câu ở lượt DPD 2026-10-16 "chú giải đọc `te ete` nhưng không làm đổi nghĩa chính" (chú giải hiểu là cho các bà-la-môn khác, tức đổi người được cho; nay ghi là bất định trong chú thích 1.3, lời kinh giữ nguyên theo Indacanda).
+  Chấm lại độc lập sau rà DPD + kiểm độc lập 2026-10-17: đọc cả 13/13 khoá đối chiếu chú giải CST (K10-JA/163), Indacanda (kệ 177–178), Rouse (jat.2.163), DPD: LỖI-THẬT 2 khoá / 1 lỗi (1.3, 2.3 te te dadāmi: bản dịch chuyển lời trích sang gián tiếp 'ngài cho tôi'/'ta cho cậu', cố định người nhận là chàng thanh niên; chú giải 'te ete tava santake … aññesaṁ brāhmaṇānaṁ dadāmi' và Rouse 'To thee, and thee I give them' hiểu là cho người khác; Indacanda giữ lời trích trực tiếp ‘Trẫm ban chúng cho khanh’ dạng câu hỏi). Phân xử: chú giải + Rouse + mạch truyện thắng; đề nghị giữ lời trích trực tiếp không nêu người nhận. Không xếp blocker vì cách đọc tặng cách hợp ngữ pháp và đã có chú thích, nhưng semantic 8,2, grammar 8,0. Chú thích lượt hoàn thiện đúng ý nhưng tóm hơi lệch chữ chú giải, không dẫn Rouse → ambiguity 8,5. 'cậu' ngoài cặp C4. Không bản Anh Sujato, không Thích Minh Châu → triangulation 8,6. validate pass, quality:check không lỗi ở bài này → 9,5. Blocker vắng bản Anh thay bằng chuỗi đúng sự thật.
+  Sau lượt chấm độc lập 2026-10-17 đã sửa `1.3`, `2.3` *te te dadāmi*: bỏ cách chuyển sang lời gián tiếp «ngài cho tôi»/«ta cho cậu» (tự chọn người nhận, trái chú giải *te ete tava santake* và Rouse) → giữ lời trích trực tiếp «‘Ta cho ngươi những con ấy’»; chú thích viết lại. Điểm ghi là điểm người chấm cho trước khi sửa.

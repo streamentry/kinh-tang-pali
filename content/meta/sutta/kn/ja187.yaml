@@ -1,5 +1,5 @@
 uid: ja187
-status: review
+status: published
 translationTitle: "Kinh Catumaṭṭha"
 translators:
   - "OpenCode Space Bunny Free (agent)"
@@ -15,34 +15,38 @@ tags:
 quality:
   scores:
     source_provenance: 9.3
-    semantic_fidelity: 8.3
-    grammar_logic: 8.3
-    segment_alignment: 10
-    terminology: 8.2
+    semantic_fidelity: 9.2
+    grammar_logic: 9.1
+    segment_alignment: 9.7
+    terminology: 8.7
     triangulation: 8.8
-    vietnamese_clarity: 8.3
-    han_viet_balance: 9
+    vietnamese_clarity: 8.7
+    han_viet_balance: 9.1
     ambiguity_integrity: 8.9
-    technical_integrity: 9.6
-  final_score: 8.870000000000001
+    technical_integrity: 9.5
+  final_score: 9.1
   blocking_errors:
-    - "Không có tầng tham khảo English Sujato cho bài này tại commit đã ghim:
-      không có tệp nào trong source/upstream-manifest.json khớp uid này, và thư
-      mục cache .cache/upstream/suttacentral/translation/en/sujato/ không có mục
-      nào chứa uid. Bài dịch chỉ từ Pāli một mình nên chưa đủ điều kiện
-      review/published; giữ draft cho tới khi người biên tập phán xử."
-  assessed_at: 2026-10-16
+    - "noEnglishEditionUpstream: tầng english-sujato không có bài ja187 tại
+      commit đã ghim 11c9d708978cde8ba61096d8a75f7ddfb846f639 (đã kiểm
+      source/upstream-manifest.json: có tệp Pāli root của ja187, không có tệp
+      translation/en/sujato nào cho uid này), và SuttaCentral không phát hành
+      bản Anh nào khác cho bài ở commit ấy. Đây là giới hạn của bản chụp
+      upstream; waiver no-upstream-english của người biên tập áp cho đúng loại
+      blocker này."
+  assessed_at: 2026-10-17
   assessed_by:
     - Claude Opus 5.5 (Claude Code)
-  assessment_id: cf608ebd-ed79-4f04-9d4d-eb9c7ddf15ae
+  assessment_id: e0177938-8786-4cf5-ae2b-db1a3ddef571
   waiver:
     id: no-upstream-english
     blockers:
-      - "Không có tầng tham khảo English Sujato cho bài này tại commit đã ghim:
-        không có tệp nào trong source/upstream-manifest.json khớp uid này, và
-        thư mục cache .cache/upstream/suttacentral/translation/en/sujato/ không
-        có mục nào chứa uid. Bài dịch chỉ từ Pāli một mình nên chưa đủ điều kiện
-        review/published; giữ draft cho tới khi người biên tập phán xử."
+      - "noEnglishEditionUpstream: tầng english-sujato không có bài ja187 tại
+        commit đã ghim 11c9d708978cde8ba61096d8a75f7ddfb846f639 (đã kiểm
+        source/upstream-manifest.json: có tệp Pāli root của ja187, không có tệp
+        translation/en/sujato nào cho uid này), và SuttaCentral không phát hành
+        bản Anh nào khác cho bài ở commit ấy. Đây là giới hạn của bản chụp
+        upstream; waiver no-upstream-english của người biên tập áp cho đúng loại
+        blocker này."
 notes: |-
   **Tự kiểm, vì `cần` của `_hvi.py` RỖNG** (mọi vế kệ dưới 40 ký tự). Tôi quét MỌI khoá: đúng 9/9, đúng segment ID, NFC, số dấu lược bằng Pāli từng khoá, ngoặc kép mở ở `1.1` và đóng ở `:2.1` (hoặc `1.4`), nên cân trên cả bài, không Pāli lọt, không còn `(…)`. `kiểm()` chạy lại từ đĩa pass; `save_vi` hai lần không đổi byte.
 
@@ -95,3 +99,6 @@ notes: |-
   haṁsapotakena`, Indacanda "loài có cánh đẹp" → "kẻ sắc đẹp bàn với kẻ sắc đẹp"; giải quyết bất định
   cũ), 2.3 (`kiṁ te ettha`: bản cũ bỏ `te` ngôi hai, Indacanda "ngươi" → "việc này can gì đến ngươi,
   kẻ trong sạch bốn mặt?"); giữ 1.1 `viṭabhi` (DPD "canopy" = tán cây); bất định: không.
+  Lượt hoàn thiện 2026-10-17: thống nhất thuật ngữ: đã rà, không có khoá cần sửa (`mantayati` "bàn/bàn bạc" ở 1.2, 1.3, 2.2; `jambuka` "chó rừng"); tên bài 0.4/3.1 giữ "Catumaṭṭha" trong khi 2.3 dịch "kẻ trong sạch bốn mặt" (có lý do: tên bài là tên gọi truyện; nay ghi thành chú thích để người biên tập quyết theo C1); thêm 5 chú thích (0.4 tên bài và nghĩa `catumaṭṭha`; 1.1 ai nói với ai theo chú giải; 1.4 "vua của loài thú" là chó rừng tự xưng; 2.1 `suvaṇṇa` "sắc đẹp", "trời với trời"; 2.3 bốn mặt và lời khen mỉa). Các câu sau trong ghi chú cũ đã bị thay: "`triangulation` là Pāli + English Sujato" (sai: commit đã ghim không có bản Anh Sujato cho bài này); "đúng 9/9" khoá và đoạn về `ja67:1.4` và `Yaṁ … nissitā` (không thuộc bài này; bài có 13 khoá); "`Ekakanipāta` → Bộ Một Bài Kinh", "`Dukanipāta` → Phẩm Hai Pháp/Bộ Hai Bài Kinh", "Phẩm Asadi/Phẩm Bất Đối Đẳng" (nay "Nhóm Hai Kệ" theo C3, "Phẩm Vô Song" theo B21); dòng kết "không dấu phẩy" (nay có dấu phẩy theo C2); mục "Vì sao `draft` chứ không phải `review`" và điểm 8.69 (waiver `no-upstream-english` đã áp, bài nay ở `review`; điểm hiện hành xem `quality`); "Kinh Bốn Điều", "`suvaṇṇa` → vàng", "`mantaye` → thờ phụng", "Còn với ngươi, thì cái bốn điều ấy là gì" và "`2.3` dịch Ở đó, Catumaṭṭha có việc gì" (đã thay ở các lượt 2026-10-14 và 2026-10-16); bất định (1) `suvaṇṇo`, (2) `catumaṭṭha`, (4) người nói ở lượt 2026-10-14 (đã phân xử bằng chú giải ở các lượt 2026-10-16).
+  Chấm lại độc lập sau rà DPD + kiểm độc lập 2026-10-17: đọc cả 13/13 khoá đối chiếu chú giải CST (K10-JA/187), Indacanda, DPD: LỖI-THẬT 0, BẤT-ĐỊNH 0 trọng yếu (lượt DPD đã sửa 2.1 suvaṇṇa 'sắc đẹp' và 2.3 'kiṁ te ettha' đúng chú giải). Tên bài giữ 'Catumaṭṭha' trong khi 2.3 dịch nghĩa — lệch C1 → terminology 8,7. Chú thích 1.1 nói hai chim 'trò chuyện riêng' trong khi chú giải kể chúng đang nói với vị thần cây → ambiguity 8,9. Không bản Anh Sujato, không Thích Minh Châu → triangulation 8,8. validate pass, quality:check không lỗi ở bài này → technical 9,5. Blocker vắng bản Anh thay bằng chuỗi đúng sự thật (chuỗi cũ ghi 'giữ draft').
+  Sau lượt chấm độc lập 2026-10-17: sửa chú thích cho đúng nguồn (người chấm chỉ ra chú thích tóm sai).
