@@ -141,6 +141,34 @@
       "content_sha256": "8b31406da52e6d93c28ae67db3c1912d9296cb32bfc01b816a7160dfc78ea3aa",
       "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
       "final_score": 8.809999999999999
+    },
+    {
+      "target": "translation",
+      "scope": "full",
+      "assessed_at": "2026-10-17",
+      "assessed_by": [
+        "Claude Opus 5.5 (Claude Code)"
+      ],
+      "scores": {
+        "source_provenance": 9.2,
+        "semantic_fidelity": 9.1,
+        "grammar_logic": 9.1,
+        "segment_alignment": 9.6,
+        "terminology": 9,
+        "triangulation": 8.7,
+        "vietnamese_clarity": 8.6,
+        "han_viet_balance": 9,
+        "ambiguity_integrity": 8.7,
+        "technical_integrity": 9.4
+      },
+      "blocking_errors": [
+        "noEnglishEditionUpstream: Tầng english-sujato tại commit đã ghim 11c9d708978cde8ba61096d8a75f7ddfb846f639 không có tệp ja528_translation-en-sujato.json (source/upstream-manifest.json: thư mục sutta/kn/ja của Sujato có 83 tệp, không gồm bài này; not-published-upstream, không phải not-synced); tầng vietnamese-current chỉ có Pháp Cú và lớp english-project không có tệp cho bài này."
+      ],
+      "notes": "Chấm lại độc lập sau rà DPD + kiểm độc lập 2026-10-17: người chấm đọc 30 khoá ngẫu nhiên mới (seed md5(\"ja528score\")=1642391567, ngoài mẫu verify) đối chiếu chú giải Jātaka-aṭṭhakathā CST, DPD và Indacanda TTPV 33: 0/30 (mẫu này) + 0/30 (verify) = 0/60; 55.1 khetta là bất định (chú thích mâu thuẫn lời kinh). Nguồn: Pāli ghim (commit 11c9d708…), không có bản Anh Sujato (manifest: 83 tệp ja, không có bài này) và không có Thích Minh Châu; bù bằng chú giải CST, Indacanda (độc lập), DPD, Francis 1905 → triangulation 8.7. Căn cứ chính: semantic 9.1 / grammar 9.1 theo tỷ lệ lỗi trên; clarity 8.6 vì còn các chỗ sát chữ tối; ambiguity 8.7: chú thích của lượt hoàn thiện đã đối chiếu nguyên văn chú giải, đúng và có nguồn; riêng chú thích 55.1 mâu thuẫn lời kinh. check.py OK, NFC; npm run validate (validate.ts) pass; npm run quality:check hiện fail cho bài này chỉ vì content_sha256 của lượt chấm chính thức cũ không còn khớp sau lượt hoàn thiện (cần record + apply lượt này); test/check/build do CI → technical 9.4. Blocker vắng bản Anh đã thay bằng câu đúng sự thật (câu cũ nói triangulation bị chặn ở 7.5 và giữ draft, nay không đúng).",
+      "id": "29151b15-b09a-4cfb-9adc-464bd62a34d7",
+      "content_sha256": "09f3156a54bf17fabb2cd981ab1baf8ac8f0211d032bede756381d4efb0a27c4",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
+      "final_score": 9.040000000000003
     }
   ],
   "legacy_quality": {
