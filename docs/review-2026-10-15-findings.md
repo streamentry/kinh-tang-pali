@@ -193,3 +193,13 @@ Còn tồn: ja539:147.3–4, ja546 `jalle` (PED "athlete" vs chú giải "thợ 
 **Điểm người chấm chỉ ra, là việc thật còn làm được** (không phải lỗi nghĩa): thuật ngữ lệch trong cùng bài (vd. mnd14 `thaddha` ba cách, `vesārajja` hai cách; vv21 «Thiên Cung»/«Cung Điện»); bất định đáng kể chỉ có trong notes mà không có comment cho người đọc; notes còn câu cũ đã bị thay mà chưa đánh dấu.
 
 **Còn chờ quyết chung:** `vāda` «tranh luận» (mnd3, ~15 khoá); `visakkati` «bám dính»; xưng hô của Māgaṇḍiya với Phật; `apassato` ja547:510.4; `bhaddante` (B22); `upadhi` «chấp thủ» ở snp5.5:2.4; `diṭṭha/suta/muta/viññāta`; `jessantaṁ`; `gāmaṇīyehi`; chính sách dị bản BJT (D) cho 12 bài draft.
+
+### Lượt hoàn thiện và chấm lại sau sửa (2026-10-17)
+
+- **Lượt hoàn thiện** (45 bài review): thống nhất thuật ngữ trong bài, chú thích cho người đọc ở các bất định đáng kể (trước chỉ có trong notes), đánh dấu ghi chú cũ đã bị thay. Người chấm độc lập kiểm mọi khoá đã đổi; chỗ đổi quá tay đã trả lại (vd. `nissaṭo` «xuất ly», `paṭinissaṭṭha` «từ bỏ» như 49 khoá cùng công thức; `dhamma` viết thường «pháp» theo quy ước đếm trên 515 bài ja published).
+- **Round 1** (chấm độc lập sau hoàn thiện) và **round 2** (chỉ cho bài có nội dung đổi sau round 1, người chấm mới, không đọc round 1 trước khi chấm, mỗi chênh lệch phải có lý do). Ở round 2, tiêu chí nào người chấm tự ghi «khác cách cân, không có bằng chứng mới» thì **giữ điểm round 1** (mnd6, mnd8, mnd9, mnd11). Không chấm thêm vòng nào: bài còn ≤ 9,0 sau round 2 được báo cáo như vậy.
+- Điểm ghi vào repo là điểm người chấm cho **trước** các sửa đổi họ đề nghị (bảo thủ); các sửa đổi đó đã áp sau.
+- **Lỗi chéo bài đợt 3–4**: kệ snp4.3, 4.6, 4.8, 4.9, 4.11, 4.12, 4.13, an4.26, sn46.4, iti108, thag17.1 sửa theo bản Niddesa đã kiểm (có kiểm độc lập: 36/36 và 25/26 khoá đúng, khoá sai còn lại đã sửa) — ví dụ snp4.13:13.2 khôi phục phủ định, snp4.12:12.2 *paripuṇṇamānī*, an4.26 thừa/thiếu chữ so với Pāli; `thaddha` «bướng bỉnh» thống nhất theo mn8/mn15/mnd10/mnd14.
+
+**Còn ≤ 9,0 (review):** ja110 8,94 (1.3 chữ ghim trái mạch truyện, chính sách D), ja526 8,92, ja545 9,00 (69.2–4 lời kể/lời nói lệch dấu nháy Pāli ghim), ja547 9,00, mnd2 8,98, mnd3 8,97 (`vāda`), mnd8 8,97, mnd13 8,94, mnd14 8,93, mnd16 8,90. Lý do chung: `triangulation` 8,4–8,7 vì không có bản Anh; thuật ngữ còn chờ quyết chung; văn phong chuỗi đồng nghĩa Niddesa.
+**Draft (12):** pe1–pe6, pe8, pe9, tha-ap3, tha-ap114, tha-ap345, tha-ap548 — chờ chính sách dị bản BJT (D).
