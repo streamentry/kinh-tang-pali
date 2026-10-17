@@ -29,6 +29,34 @@
       "content_sha256": "adc9efa63e089875306022add968f0212bf027ac7efb2a24bdd2433064959b48",
       "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
       "final_score": 9.059999999999999
+    },
+    {
+      "target": "translation",
+      "scope": "full",
+      "assessed_at": "2026-10-17",
+      "assessed_by": [
+        "Claude Opus 5.5 (Claude Code)"
+      ],
+      "scores": {
+        "source_provenance": 9.5,
+        "semantic_fidelity": 8.8,
+        "grammar_logic": 9,
+        "segment_alignment": 10,
+        "terminology": 8.9,
+        "triangulation": 7.8,
+        "vietnamese_clarity": 8.9,
+        "han_viet_balance": 9.2,
+        "ambiguity_integrity": 8.9,
+        "technical_integrity": 9.6
+      },
+      "blocking_errors": [
+        "Không có tầng tham khảo tiếng Anh tại commit đã ghim 11c9d708978cde8ba61096d8a75f7ddfb846f639: `source/upstream-manifest.json` không liệt kê tệp `translation/en/sujato` nào cho `sutta/kn/thi-ap/`; tệp duy nhất nó liệt kê cho nhóm này là `name/sutta/thi-ap-name_translation-en-sujato.json` của tầng tên, không phải bản dịch từng khoá, và tầng Sujato của `kn` chỉ có chín nhóm cp·dhp·iti·ja·kp·snp·thag·thig·ud (755 tệp). Đây là `not-published-upstream`, không phải `not-synced`. Đo coverage theo công thức `source/layers.yaml` (`englishCoverage.substantivePaliMinChars: 40`, `excludeReferenceBlock: true`): mẫu số là 2 khoá Pāli có nội dung (`:61.1` dài 104 ký tự, `:62.1` dài 57 ký tự), Sujato phủ 0/2 = 0%, dưới ngưỡng 0.8. Lớp lấp `english-project` không có cho uid này, và `vietnamese-current` không có tệp nào cho thi-ap vì tại commit đã ghim tầng ấy chỉ có 26 tệp toàn Pháp Cú. Cả ba tầng tham khảo đều vắng nên bài chỉ dịch từ Pāli root; đây là giới hạn của snapshot upstream, không phải lỗi người dịch, nhưng `scripts/validate.ts` coi tệp Anh thiếu là lỗi khi status là `review` hoặc `published`, nên bài bắt buộc `draft`. Vì thiếu cả ba tầng, `triangulation` bị chặn ở 7.8 (≤ 8.0) chứ không nâng điểm để né blocker."
+      ],
+      "notes": "Thống nhất cấp kho 2026-10-17 có kiểm độc lập (abhabbaṭṭhāna «điều không thể», khuôn abhabbo «không thể», satthā «bậc Đạo Sư», dhīra «bậc trí» theo lời giải của Niddesa, dòng kệ snp4.16 khớp mnd16; xem notes của bài). Sửa lỗi nghĩa ở bài đã published không nâng điểm. Giữ nguyên điểm và blocker.",
+      "id": "0e8bad06-117c-4dd8-be1d-e08e817c17ba",
+      "content_sha256": "e6ee8399290ac9f6b7e6d2a4d94a3364d67843b0f2115b28f12b66527853c7d1",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
+      "final_score": 9.059999999999999
     }
   ],
   "legacy_quality": {

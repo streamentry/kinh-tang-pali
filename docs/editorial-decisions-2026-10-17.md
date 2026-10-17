@@ -148,3 +148,35 @@ trạng thái trước §5; bảng này thay nó cho các bài dưới đây.
 thống nhất công thức Niddesa dùng chung với bài đã published (ví dụ «mạng sống là một, thân thể
 là một khác», «đối với người nào những vị…»), họ động từ *sam-* theo B19 kể cả `snp4.14`, và các
 dòng kệ mà lời giải Niddesa trái bản Snp đã published (`kamma`, `vivāda`, `jappa`… ở snp4.13).
+
+### 5.5 Peṭakopadesa: thí điểm gỡ chỗ hỏng bằng câu song song (bổ sung, 2026-10-17)
+
+Đính chính một phần §5.3. Lớp variant tại commit ghim chỉ ghi dị bản cho 1–47 khoá mỗi bài pe
+(pe4: 1), nên §5.1 gỡ được rất ít. Nhưng Peṭakopadesa trùng nhiều đoạn với Nettippakaraṇa và
+với kinh được trích, đều có trong Pāli ghim. Theo tiền lệ E của hội đồng (ps2.9:21.14: Pāli ghim
+thiếu chữ, dịch theo câu song song + chú thích, không coi là blocker), mỗi locus trong blocker
+được thử lần lượt: đọc được theo chữ ghim (DPD/ngữ pháp) → câu song song trong Pāli ghim →
+dị bản §5.1. Thí điểm trên `pe3`, `pe4`, `pe6`, `pe9`.
+
+Bài pe chỉ được chấm lại khi **mọi** locus đã gỡ (không còn blocker «chưa phân xử»). Vì khi đó
+nội dung đổi ở nhiều chỗ, bài được chấm lại **toàn bài** bởi một người chấm độc lập mới theo
+giao thức chống neo điểm (không đọc điểm cũ trước, tự đọc mẫu khoá ngẫu nhiên, triangulation phản
+ánh việc không có bản dịch độc lập), không theo delta. Còn locus nào không gỡ được thì bài giữ
+draft và không chấm.
+
+### 5.6 Peṭakopadesa lượt hai: bản in BJT làm ấn bản có tên (bổ sung, 2026-10-17)
+
+Thí điểm §5.5 gỡ được 57/225 locus. Lớp variant tại commit ghim rất thưa cho pe (1–47 khoá mỗi
+bài), nhưng toàn văn ấn bản Buddha Jayanti (BJT, Sri Lanka) của Peṭakopadesa có sẵn: bản số hoá
+tipitaka.lk (kèm cước chú dị bản của BJT `[BJTfn: …]`) và bản in lại trong *Tam Tạng Pāli–Việt*
+của Bhikkhu Indacanda (Pāli BJT có cước chú dị bản Ma, Syā, PTS, kèm bản dịch Việt). Quyết định:
+
+- BJT là **ấn bản có tên** theo điều kiện 2 của §5.1; dẫn bằng tên ấn bản, số trang tipitaka.lk
+  và số trang tập TTPV.
+- Điều kiện 3 vẫn phải đủ: cách đọc BJT **đọc ra được** theo DPD/ngữ pháp **và** có ít nhất một
+  nguồn giải nghĩa: câu song song trong Pāli ghim, hoặc một bản dịch có tên đọc theo cách đó.
+  Bản dịch Việt của Indacanda là một bản dịch có tên (người dịch khác với ban biên tập BJT), nên
+  được dùng làm nguồn giải nghĩa; Ñāṇamoli (*The Piṭaka-Disclosure*, PTS 1964) chỉ được dẫn tên
+  cách đọc một chữ, không chép lời dịch.
+- Cách đọc BJT không đọc ra được, hoặc BJT trùng chữ ghim, thì locus giữ nguyên trong blocker.
+- Các quy tắc khác của §5.5 giữ nguyên: bài chỉ được chấm lại toàn bài khi mọi locus đã gỡ.
