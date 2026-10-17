@@ -148,3 +148,18 @@ trạng thái trước §5; bảng này thay nó cho các bài dưới đây.
 thống nhất công thức Niddesa dùng chung với bài đã published (ví dụ «mạng sống là một, thân thể
 là một khác», «đối với người nào những vị…»), họ động từ *sam-* theo B19 kể cả `snp4.14`, và các
 dòng kệ mà lời giải Niddesa trái bản Snp đã published (`kamma`, `vivāda`, `jappa`… ở snp4.13).
+
+### 5.5 Peṭakopadesa: thí điểm gỡ chỗ hỏng bằng câu song song (bổ sung, 2026-10-17)
+
+Đính chính một phần §5.3. Lớp variant tại commit ghim chỉ ghi dị bản cho 1–47 khoá mỗi bài pe
+(pe4: 1), nên §5.1 gỡ được rất ít. Nhưng Peṭakopadesa trùng nhiều đoạn với Nettippakaraṇa và
+với kinh được trích, đều có trong Pāli ghim. Theo tiền lệ E của hội đồng (ps2.9:21.14: Pāli ghim
+thiếu chữ, dịch theo câu song song + chú thích, không coi là blocker), mỗi locus trong blocker
+được thử lần lượt: đọc được theo chữ ghim (DPD/ngữ pháp) → câu song song trong Pāli ghim →
+dị bản §5.1. Thí điểm trên `pe3`, `pe4`, `pe6`, `pe9`.
+
+Bài pe chỉ được chấm lại khi **mọi** locus đã gỡ (không còn blocker «chưa phân xử»). Vì khi đó
+nội dung đổi ở nhiều chỗ, bài được chấm lại **toàn bài** bởi một người chấm độc lập mới theo
+giao thức chống neo điểm (không đọc điểm cũ trước, tự đọc mẫu khoá ngẫu nhiên, triangulation phản
+ánh việc không có bản dịch độc lập), không theo delta. Còn locus nào không gỡ được thì bài giữ
+draft và không chấm.
