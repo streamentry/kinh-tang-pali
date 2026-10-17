@@ -1851,6 +1851,34 @@
       "content_sha256": "dbd69eecd80447f88d631426d0af3920242515547564ace9f95acdb53e78c1d7",
       "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
       "final_score": 8.86
+    },
+    {
+      "target": "translation",
+      "scope": "full",
+      "assessed_at": "2026-10-17",
+      "assessed_by": [
+        "Claude Opus 5.5 (Claude Code)"
+      ],
+      "scores": {
+        "source_provenance": 9.2,
+        "semantic_fidelity": 8.8,
+        "grammar_logic": 9,
+        "segment_alignment": 9.7,
+        "terminology": 8.9,
+        "triangulation": 8.7,
+        "vietnamese_clarity": 8.4,
+        "han_viet_balance": 9,
+        "ambiguity_integrity": 8.3,
+        "technical_integrity": 9.3
+      },
+      "blocking_errors": [
+        "noEnglishEditionUpstream: Tầng english-sujato không có bài ja543 tại commit đã ghim 11c9d708978cde8ba61096d8a75f7ddfb846f639: source/upstream-manifest.json liệt kê kn/ja/ja543_root-pli-ms.json ở tầng pali, còn tầng english-sujato ở kn/ja chỉ có 83 tệp (ja1–79, ja126, ja159, ja466, ja534), không có ja543_translation-en-sujato.json. Đây là giới hạn của bản chụp upstream (not-published-upstream), không phải thiếu sót của kho; tầng vietnamese-current chỉ có Pháp Cú."
+      ],
+      "notes": "Chấm lại độc lập sau rà DPD + kiểm độc lập 2026-10-17: 30 khoá ngẫu nhiên mới (seed md5('ja543score') = 3629772704, loại khoá có trong verify_ja543, các dòng SỬA/BẤT-ĐỊNH của dpd/ja543.tsv, improve_ja543.tsv) đối chiếu Pāli ghim, chú giải CST (vcomm/543.txt), DPD: LỖI-THẬT 0/30. Mẫu trước 40 khoá có 3 lỗi (153.4, 138.2, 140.1), đã sửa; 188.4 đã bổ sung. Kiểm riêng chú thích 187.1: chữ Sanskrit «ibhya» = «giàu có» kiểm được (Monier-Williams tr. 167: «wealthy, opulent, having many attendants»; Apte tr. 279: «wealthy, opulent, rich») nhưng chú thích không nêu nguồn và bỏ nghĩa Vedic «belonging to one's servants» mà chính PED (tr. 122) dẫn làm gốc của Pāli «ibbha»; DPD «menial; servile», PED «menial; a retainer», chú giải «gahapatikā», Indacanda «các gia chủ», Cowell «householders» — không nguồn Pāli nào đỡ «người giàu», và ja545 cùng phẩm dịch ibbha là «gia chủ». Phân xử: 187.1/188.1 là LỖI-THẬT nhẹ (từ vựng, lệch mọi nguồn Pāli), cần sửa thành «gia chủ»; chú thích tính vào tiêu chí 9. Tỷ lệ: 0/30 của tôi, 3/40 trước (đã sửa), cộng 1 lỗi ngoài mẫu → semantic 8,8. Nguồn: chú giải CST, Indacanda, Cowell PTS 1907 toàn bài, DPD, PED; không có Sujato, Thích Minh Châu → triangulation 8,7. Phần tranh luận Veda (127–188) vẫn tối («sức nóng không thể thỏa, vẫn không no», «tế lễ rất đông») → clarity 8,4. 10 chú thích, nhưng 187.1 thiếu nguồn và chọn lọc, 143.3 suy luận từ DPD chưa khớp với lời dịch, nhiều bất định khác (12.3, 15.1, 49.3, 66.3, 70.1, 127.1, 141.4, 199.4) chỉ ở notes → 8,3. check.py OK (815/815). validate.ts pass; quality:check exit 1 do scorecard cũ lệch nội dung; test/check/build không tự chạy → 9,3. Blocker viết lại vì chuỗi cũ sai về triangulation/draft.",
+      "id": "196ac288-306e-4d3e-b7d7-10779a8fa559",
+      "content_sha256": "edaff27e8ae5ee4f119df419fc4d59ade17f13bc09966ecc1f0ccf223ab5e3b0",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
+      "final_score": 8.929999999999998
     }
   ],
   "legacy_quality": {

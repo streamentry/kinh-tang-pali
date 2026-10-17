@@ -141,6 +141,34 @@
       "content_sha256": "856ee4bbf3fe934f5b5ea22e62fd47ad5df44325b5f938348c5757609d5660bb",
       "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
       "final_score": 8.859999999999998
+    },
+    {
+      "target": "translation",
+      "scope": "full",
+      "assessed_at": "2026-10-17",
+      "assessed_by": [
+        "Claude Opus 5.5 (Claude Code)"
+      ],
+      "scores": {
+        "source_provenance": 9.3,
+        "semantic_fidelity": 8.9,
+        "grammar_logic": 8.7,
+        "segment_alignment": 9.7,
+        "terminology": 9.1,
+        "triangulation": 8.7,
+        "vietnamese_clarity": 8.6,
+        "han_viet_balance": 9.1,
+        "ambiguity_integrity": 8.6,
+        "technical_integrity": 9.3
+      },
+      "blocking_errors": [
+        "noEnglishEditionUpstream: Tầng english-sujato không có bài ja545 tại commit đã ghim 11c9d708978cde8ba61096d8a75f7ddfb846f639: source/upstream-manifest.json liệt kê kn/ja/ja545_root-pli-ms.json ở tầng pali, còn tầng english-sujato ở kn/ja chỉ có 83 tệp (ja1–79, ja126, ja159, ja466, ja534), không có ja545_translation-en-sujato.json. Đây là giới hạn của bản chụp upstream (not-published-upstream), không phải thiếu sót của kho; tầng vietnamese-current chỉ có Pháp Cú."
+      ],
+      "notes": "Chấm lại độc lập sau rà DPD + kiểm độc lập 2026-10-17: 30 khoá ngẫu nhiên mới (seed md5('ja545score') = 2747153187, loại khoá có trong verify_ja545, các dòng SỬA/BẤT-ĐỊNH của dpd/ja545.tsv, improve_ja545.tsv) đối chiếu Pāli ghim, chú giải CST (vcomm/ja545/545.txt), DPD: LỖI-THẬT 0/30. Mẫu trước 40 khoá có 1 lỗi (69.2–69.4), CHƯA sửa, chỉ thêm chú thích. Phân xử 69.2–69.4: LỜI KỂ, không phải lời vua. Căn cứ: 69.1 `Idaṁ vatvāna vedeho` là phân từ quá khứ, cần một động từ chính có chủ ngữ Vedeha, và động từ duy nhất là `bahumaññatha` (quá khứ trung động ngôi ba số ít, như `avandatha` 139.4); cùng khuôn 65.3–65.4 `Idaṁ vatvāna vedeho, paccagā sanivesanaṁ`; 69.3–69.4 lặp đối 64.2 (trước kia bận rộn, nay không); chú giải đóng lời vua ở 68 (`vatvā kāmaratimatto ahosi`), Cowell và Indacanda đọc lời kể. Nháy mở của bản MS là dấu câu biên tập, không phải chữ Pāli; câu Việt hiện tại để 69.1 «Nói xong lời này, Vedeha,» không có vị ngữ, và mệnh lệnh «Hãy chỉ xem trọng các dục lạc» không có người nghe hợp lý. Đây là lỗi người nói/thức còn sót (3 khoá, cục bộ, không đổi giáo nghĩa) → grammar 8,7, semantic 8,9; không đặt blocker. Gộp: 1 lỗi/70 khoá ngẫu nhiên (1,4%). Nguồn: chú giải CST, Indacanda [544], Cowell PTS 1907 số 544 toàn bài, DPD → triangulation 8,7. 8 chú thích khách quan, có nguồn; nhưng 69.2 là lỗi đã phân xử được mà chỉ chú thích → 8,6. check.py OK (801/801). validate.ts pass; quality:check exit 1 do scorecard cũ lệch nội dung; test/check/build không tự chạy → 9,3. Blocker viết lại vì chuỗi cũ sai về triangulation/draft.",
+      "id": "688f2a56-ac78-4b9f-b4d5-7af4b9edb08e",
+      "content_sha256": "794d8c81078c912ba9b21ec463e524af6513fe3249702daf1b9b584043710236",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
+      "final_score": 9
     }
   ],
   "legacy_quality": {

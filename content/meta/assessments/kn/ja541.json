@@ -169,6 +169,34 @@
       "content_sha256": "d515ad3974f3abbff4643392ad1ff1f898613028b8bc315d172f8c84e6c7d48a",
       "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
       "final_score": 8.879999999999999
+    },
+    {
+      "target": "translation",
+      "scope": "full",
+      "assessed_at": "2026-10-17",
+      "assessed_by": [
+        "Claude Opus 5.5 (Claude Code)"
+      ],
+      "scores": {
+        "source_provenance": 9.1,
+        "semantic_fidelity": 9.2,
+        "grammar_logic": 9.1,
+        "segment_alignment": 9.7,
+        "terminology": 9,
+        "triangulation": 8.7,
+        "vietnamese_clarity": 8.6,
+        "han_viet_balance": 9.1,
+        "ambiguity_integrity": 8.6,
+        "technical_integrity": 9.3
+      },
+      "blocking_errors": [
+        "noEnglishEditionUpstream: Tầng english-sujato không có bài ja541 tại commit đã ghim 11c9d708978cde8ba61096d8a75f7ddfb846f639: source/upstream-manifest.json liệt kê kn/ja/ja541_root-pli-ms.json ở tầng pali, còn tầng english-sujato ở kn/ja chỉ có 83 tệp (ja1–79, ja126, ja159, ja466, ja534), không có ja541_translation-en-sujato.json. Đây là giới hạn của bản chụp upstream (not-published-upstream), không phải thiếu sót của kho; tầng vietnamese-current chỉ có Pháp Cú. Lớp english-project có bản lấp 2 khoá (46.6, 48.4) do chính dự án dịch, không phải bản Anh độc lập."
+      ],
+      "notes": "Chấm lại độc lập sau rà DPD + kiểm độc lập 2026-10-17: 30 khoá ngẫu nhiên mới (seed md5('ja541score') = 2918818596, loại khoá đã có trong verify_ja541, các dòng SỬA/BẤT-ĐỊNH của dpd/ja541.tsv và improve_ja541.tsv) đối chiếu Pāli ghim, chú giải CST (v541/541.txt), DPD: LỖI-THẬT 0/30, BẤT-ĐỊNH 1 (107.2 `paccayaṁ` «vật dụng»: chú giải `paccayan-ti gilānapaccayaṁ` = thuốc men; cách dịch chung của cả kho). Gộp mẫu trước (36 khoá sửa đúng, 40 ngẫu nhiên 0 lỗi; 18.4 đã thêm vị ngữ) → 0 lỗi trên 70 khoá ngẫu nhiên. Kiểm riêng 17.4 `porāṇā isayo pure` «vị ẩn sĩ thuở xưa»: KHỚP — 17.3 đã có số từ «mười ngàn», tiếng Việt không đánh dấu số nhiều sau số từ («mười ngàn vị ẩn sĩ»), thêm «những» sẽ sai ngữ pháp. Còn mở, chưa có chú thích: 18.2–18.3 chú giải gán «tự chế, điều phục, hạnh nguyện» cho các ẩn sĩ chứ không cho Sakka. Nguồn: Pāli ghim, chú giải CST, Indacanda (trong verify), Francis PTS 1907 toàn bài, DPD; bản lấp english-project 2 khoá do dự án dịch nên không tính là đối chiếu Anh → triangulation 8,7. Notes và blocker cũ còn câu «english-project không có tệp» nay sai (có bản lấp 2 khoá) → provenance 9,1. Văn: «hãy nhìn, hội trường này được thấy», «luôn luôn, những ngọn núi vàng», «thuở xưa, từ thời trước» → 8,6. check.py OK (773/773). validate.ts pass; quality:check exit 1 do scorecard cũ lệch nội dung (cả lô); test/check/build không tự chạy → 9,3. Blocker viết lại vì chuỗi cũ sai về triangulation/draft và english-project.",
+      "id": "ae762b9b-2093-4114-96a7-ac74a861bc87",
+      "content_sha256": "d11f108f51952358ebedc7c287ff5c2f10e329ca4461b7d316dff6002e0113ea",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
+      "final_score": 9.04
     }
   ],
   "legacy_quality": {
