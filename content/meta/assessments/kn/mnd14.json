@@ -197,6 +197,34 @@
       "content_sha256": "36657368d9db8b33a57c0ec7e9e4189d79e9aa53fa437fdb27444833e23f4786",
       "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
       "final_score": 8.82
+    },
+    {
+      "target": "translation",
+      "scope": "full",
+      "assessed_at": "2026-10-17",
+      "assessed_by": [
+        "Claude Opus 5.5 (Claude Code)"
+      ],
+      "scores": {
+        "source_provenance": 9.3,
+        "semantic_fidelity": 8.9,
+        "grammar_logic": 8.8,
+        "segment_alignment": 9.8,
+        "terminology": 8.8,
+        "triangulation": 8.4,
+        "vietnamese_clarity": 8.6,
+        "han_viet_balance": 8.7,
+        "ambiguity_integrity": 8.8,
+        "technical_integrity": 9.2
+      },
+      "blocking_errors": [
+        "noEnglishEditionUpstream: tầng english-sujato không có mnd14 tại commit đã ghim 11c9d708978cde8ba61096d8a75f7ddfb846f639; source/upstream-manifest.json chỉ liệt kê tệp Pāli root-pli-ms cho kn/mnd/mnd14, không có tệp mnd14_translation-en-sujato.json. Lớp english-project không có mnd14; tầng vietnamese-current chỉ có Pháp Cú. Đây là not-published-upstream, giới hạn của bản chụp upstream; điểm triangulation phản ánh việc vắng bản Anh."
+      ],
+      "notes": "Chấm lại độc lập sau rà DPD + kiểm độc lập 2026-10-17 (lần hai trong ngày, sau lượt hoàn thiện đổi 16 khoá): gộp mẫu ngẫu nhiên 100 khoá (40 của lượt kiểm 2026-10-16, 30 của lượt chấm sáng 2026-10-17, 30 khoá mới seed md5('mnd14score')=4007532802 loại mọi mẫu cũ) có 2 lỗi nghĩa thật, cả hai đã sửa (194.4/195.2 there bhikkhū; 156.15–158.2 siṅgī/thaddhā) ⇒ ≈2% (2/100), 60 khoá gần nhất 0 lỗi. 16/16 khoá lượt hoàn thiện đúng Pāli: thaddha «bướng bỉnh» (31.2, 156.15–158.2, 164.2, 205.18; cùng gốc thambha «bướng bỉnh» ở 36/36 khoá mnd/cnd, mn8, mn15, mnd10, DPD stubborn), vesārajja «bốn vô úy» (60.2), «tám chi» (19.3), jappati «cầu mong» (112.3–118.3; 115.2 đúng nguyên chuỗi mnd9:37.7), lapanā «nói lấy lòng» (121.2), santattā «làm an tịnh» (211.2). 9 chú thích mới đã kiểm nguồn: Sujato snp4.14:2.1/4.3/5.4/8.1, dn25:11.3 samaṇappavādena, chú giải CST att14 mantāya, Pāli ghim anijjhāpetā so với nijjhāpetā ở mnd8:78.15, mnd16:26.2, cnd19:7.2, ps3.1:24.1: đúng, khách quan ⇒ ambiguity 8,8. Nguồn đối chiếu: Pāli ghim, DPD toàn bài, chú giải CST att14, Indacanda (căn theo đoạn), Sujato chỉ cho kệ (snp4.14), bản dịch mù, song song; không có bản Anh Sujato cho bài, không có Thích Minh Châu ⇒ triangulation 8,4. Thuật ngữ còn trừ: vikappa «hư cấu» lệch mnd4/mnd5; chuỗi danh hiệu 60.2 (người huấn luyện, người dẫn theo, người chỉ dạy…) khác mnd16:26.2/mnd8:78.15 (người rèn luyện, người hòa giải…); công thức kuhā thaddhā… nay khác mnd6/iti108 «ương ngạnh» và an4.26/thag17.1 «ngạo mạn» (phía lệch là các bài kia, xem báo cáo); mnd7:72.2 cùng công thức 31.2 còn «cứng nhắc»; lemma nābhijappeyya «cầu mong» mà chuỗi giải cho abhijappeyya «thầm cầu». Văn phong: «lăng xăng bằng mắt/chân», «có đệ tử ở nhà, có giáo sư», «đúng chánh». Kỹ thuật: check.py OK 1276/1276 NFC; scripts/validate.ts «Validation passed» nhưng npm run validate exit 1 vì quality:check báo 34 bài (có mnd14) «official quality does not match its current saved full assessment» do content_sha256 đổi sau lượt hoàn thiện, tự hết khi ghi/áp lượt chấm này; test/check/build do CI ⇒ 9,2. Blocker noEnglishEditionUpstream thay bằng câu đúng sự thật (câu cũ «triangulation bị chặn dưới 8.0» nay sai).",
+      "id": "2652f56e-f783-4fb4-a178-b8b7865f93b4",
+      "content_sha256": "9f30238fe1a2ffee3d04882af72c724cb3eea2b63cacc0f2fb1b7b6f1988e2a5",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
+      "final_score": 8.930000000000001
     }
   ],
   "legacy_quality": {
