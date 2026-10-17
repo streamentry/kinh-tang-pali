@@ -64,13 +64,14 @@ DPD và chính nguồn chú giải được dẫn, rồi chấm delta theo mục
 | Bài | Đã làm | Điểm | Trạng thái |
 | --- | --- | --- | --- |
 | `ja547` | `gāmaṇīyehi` theo chú giải (thầy luyện voi/ngựa, thầy đánh xe — 149.1 theo lời giải dòng y hệt ở chú giải Ja 539), `jessantaṁ` «đi lang thang»; `bhaddante` giữ (chú giải không giải) | 9,00 → 9,02 | **published** |
-| `mnd3` | `vāda` theo lời giải của chính Niddesa (20 khoá; sửa lỗi nghĩa thật) | 8,97 → 9,00 | review (đúng 9,0 không đủ) |
-| `ja526` | 26.2, 26.4, 28.4, 29.2 theo chú giải Niḷinikājātaka | 8,92 → 8,95 | review |
-| `mnd14` | thống nhất chuỗi danh hiệu 60.2, `kappento` 39.3 | 8,93 → 8,95 | review |
-| `mnd16` | «của Ma» 185.3/185.5, chuỗi danh hiệu 26.2 | 8,90 → 8,92 | review |
-| `mnd8` | chú thích `timitimiṅgala` | 8,97 (giữ) | review |
-| `ja545` | 69.2–69.4 đọc là lời kể (xem mục 1, đính chính) | chờ chấm delta | review |
-| `mnd2`, `mnd13` | các mục treo đã thi hành từ trước; không đổi lời kinh | 8,98 / 8,94 (giữ) | review |
+| `mnd3` | `vāda` theo lời giải của chính Niddesa (20 khoá; sửa lỗi nghĩa thật); rà lại 565 khoá: 0 lỗi | 8,97 → 9,00 | review (đúng 9,0 không đủ) |
+| `ja526` | 26.2, 26.4, 28.4, 29.2 theo chú giải Niḷinikājātaka; rà lại: 14.2 `āsādayiṁ`, 6.1 `saṅkhāto` | 8,92 → 8,97 | review |
+| `mnd14` | thống nhất chuỗi danh hiệu 60.2, `kappento` 39.3; rà lại: 163.2, 164.2 `ekacce … bhikkhū` (đối cách) | 8,93 → 8,96 | review |
+| `mnd16` | «của Ma» 185.3/185.5, chuỗi danh hiệu 26.2; rà lại: `kittakā` nghi vấn (83.7, 89.2) | 8,90 → 8,93 | review |
+| `mnd8` | chú thích `timitimiṅgala`; rà lại: 61.5 `paṭisenikattā` danh từ chỉ người | 8,97 → 8,99 | review |
+| `ja545` | 69.1–69.4 đọc là lời kể (xem mục 1, đính chính) | 9,00 → 9,02 | **published** |
+| `mnd2` | rà lại: 124.3 `pūjanīyo` «đáng được … cúng dường» (cùng sửa `cnd8:57.3`, `snp3.6:28.3`) | 8,98 → 8,99 | review |
+| `mnd13` | rà lại: `pakappitā` bị động (109.2, 111.1–111.4, 115.2) | 8,94 → 8,96 | review |
 | `ja110` | giữ chữ ghim (mục 1) | 8,94 (giữ) | review |
 | `tha-ap3`, `tha-ap114`, `tha-ap345`, `tha-ap548` | chú giải Visuddhajanavilāsinī (CST `s0510a.att1`, `att12`, `att32`, `att41`) có phủ cả bốn bài nhưng **không bình đúng chữ ghim**; DPD chỉ có tách chữ bằng máy. Thêm chú thích nêu kết quả tra và dị bản | giữ | **draft** |
 | `pe1`–`pe6`, `pe8`, `pe9` | không làm (mục 1) | giữ | **draft** |
@@ -79,6 +80,6 @@ DPD và chính nguồn chú giải được dẫn, rồi chấm delta theo mục
 
 **Không đưa lên được bằng sửa có căn cứ** (báo cáo thẳng):
 
-- 8 bài review còn lại nằm ở 8,92–9,00. Phần trừ chung là `triangulation` 8,4–8,7, vì không có bản Anh hay bản Việt độc lập để đối chiếu. Mục 2 không cho tăng tiêu chí này khi không có bản dịch độc lập mới. Không còn lỗi nghĩa nào đã biết mà chưa sửa.
+- Sau thi hành và một lượt rà lỗi còn sót (mỗi bài đọc hết mọi khoá, mỗi sửa có kiểm độc lập), 8 bài review còn lại nằm ở 8,94–9,00. Phần trừ chung là `triangulation` 8,4–8,7, vì không có bản Anh hay bản Việt độc lập để đối chiếu. Mục 2 không cho tăng tiêu chí này khi không có bản dịch độc lập mới. Không còn lỗi nghĩa nào đã biết mà chưa sửa.
 - 12 bài draft: ở 4 bài tha-ap, blocker là chữ ghim mà chú giải không giải; muốn gỡ thì phải dịch theo dị bản BJT, tức là đổi chính sách D. Ở 8 bài pe, Pāli hỏng nhiều chỗ và điểm thấp (mục 1).
 - Ghi để người biên tập xét, chưa làm: `gāmaṇīyehi` ở `ja529`, `ja539` dịch «đội trưởng» (khớp DPD «squadron leader», khác lời giải «ācariya» của chú giải); `cnd19:7.2` còn chuỗi danh hiệu cũ; `mnd8:77.11` «tám ngành», `78.15` «bốn điều không run sợ» (mỗi chữ chỉ xuất hiện một lần trong bài, khác đa số cnd/mnd).
