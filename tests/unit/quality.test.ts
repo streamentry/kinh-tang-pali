@@ -28,6 +28,19 @@ test('arithmetic mean drives direct publication only above 9.0', () => {
   assert.equal(expectedStatusForQuality(arithmeticMean(Object.values(scores(7.9))), []), 'draft');
 });
 
+test('a mean of exactly 9.0 stays review even when the float sum overshoots', () => {
+  // Real scorecards (pe2, bv4) whose ten scores average exactly 9.0 but sum to 9.000000000000002.
+  const pe2 = [9.3, 8.9, 8.7, 9.5, 9, 8.6, 8.4, 9, 9.2, 9.4];
+  const bv4 = [9.4, 8.8, 8.6, 10, 8.6, 8.7, 8.6, 9, 8.7, 9.6];
+  for (const values of [pe2, bv4]) {
+    assert.ok(arithmeticMean(values) > 9.0, 'fixture must reproduce the float overshoot');
+    assert.equal(expectedStatusForQuality(arithmeticMean(values), []), 'review');
+  }
+  assert.equal(expectedStatusForQuality(9.000000000000002, []), 'review');
+  assert.equal(expectedStatusForQuality(7.999999999999998, []), 'review');
+  assert.equal(expectedStatusForQuality(arithmeticMean([...pe2.slice(0, 9), 9.5]), []), 'published');
+});
+
 test('blocking error forces draft even with perfect scores', () => {
   assert.equal(expectedStatusForQuality(10, ['material semantic error']), 'draft');
 });

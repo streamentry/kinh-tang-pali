@@ -8,6 +8,12 @@ import {
 } from '../../src/lib/canon/types';
 
 const EPSILON = 0.005;
+/**
+ * The gate compares the raw mean, but a float sum of decimal scores carries representation error:
+ * ten scores averaging exactly 9.0 can sum to 9.000000000000002 and slip past `> 9.0`. Scores move in
+ * steps of at least 0.001, so comparing at 1e-6 removes only that noise and never rounds a real mean.
+ */
+const GATE_PRECISION = 1e6;
 
 export function arithmeticMean(scores: number[]): number {
   return scores.reduce((sum, value) => sum + value, 0) / scores.length;
@@ -25,8 +31,9 @@ export function expectedStatusForQuality(
   waivedBlockers: string[] = [],
 ): EditorialStatus {
   if (effectiveBlockers(blockingErrors, waivedBlockers).length > 0) return 'draft';
-  if (finalScore > 9.0) return 'published';
-  if (finalScore >= 8.0) return 'review';
+  const score = Math.round(finalScore * GATE_PRECISION) / GATE_PRECISION;
+  if (score > 9.0) return 'published';
+  if (score >= 8.0) return 'review';
   return 'draft';
 }
 

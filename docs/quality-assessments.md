@@ -106,6 +106,9 @@ final_score = (score_1 + … + score_10) / 10      # trung bình số học thô
 ```
 
 - Gate dùng **giá trị thô**, không dùng điểm đã làm tròn. Có thể hiển thị 2 chữ số thập phân.
+  Giá trị thô được so ở độ chính xác `1e-6` để khử sai số dấu phẩy động: mười điểm có trung bình
+  đúng 9,0 có thể cộng ra `9.000000000000002`. Bước điểm nhỏ nhất là 0,001, nên cách so này không
+  làm tròn một điểm thật nào; trung bình đúng 9,0 vẫn là `review`.
 - Trong `meta.quality`, `final_score` được phép lệch mean tối đa `0.005` (làm tròn hiển thị);
   trong lịch sử `full`, `final_score` phải bằng mean (sai số `1e-6`) — công cụ tự tính.
 
