@@ -146,6 +146,34 @@
       "content_sha256": "2e0f98c52e0b64c8e38ab8b12937146bafc351234389ceee3d00522ab8b0408b",
       "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
       "final_score": 8.48
+    },
+    {
+      "target": "translation",
+      "scope": "full",
+      "assessed_at": "2026-10-18",
+      "assessed_by": [
+        "Claude Opus 5.5 (Claude Code)"
+      ],
+      "scores": {
+        "source_provenance": 9.3,
+        "semantic_fidelity": 8.7,
+        "grammar_logic": 8.7,
+        "segment_alignment": 9.5,
+        "terminology": 8.9,
+        "triangulation": 8.6,
+        "vietnamese_clarity": 8.3,
+        "han_viet_balance": 8.9,
+        "ambiguity_integrity": 9,
+        "technical_integrity": 9.4
+      },
+      "blocking_errors": [
+        "noEnglishEditionUpstream: Thiếu bản dịch tiếng Anh đối chiếu"
+      ],
+      "notes": "Chấm lại toàn bài theo §5.5 sau lượt ba §6.2–§6.3 (2026-10-18), người chấm mới (chống neo: chấm xong và khoá điểm rồi mới mở khối quality cũ). Mẫu 40 khoá ngẫu nhiên (seed md5('pe2pe3score'), loại :0.x và khoá rỗng; 734 khoá đủ điều kiện): 39 KHỚP, 0 LỖI-THẬT, 0 BẤT-ĐỊNH (không khoá mẫu nào rơi vào locus §6.2), 1 VỤNG (47.4 «ba thiện» cho tīṇi kusalāni, cụt). Khoá mẫu có câu song song đã xuất bản đều trùng lời (snp4.1:1.1–1.2, ud4.4:10.6, ud7.3:4.2, mn92:16.10, snp5.16:4.1, sn1.13:3.1, ud2.2:6.4; 166.2 «sầu» lệch sn1.12 «khổ» có chủ ý, notes ghi). Locus §6.2: 25 locus của chuỗi blocker = 33 khoá, cộng 38.5 và 84.1 (xử như §6.2 theo quyết định uỷ quyền) = 35/734 khoá (4,8%). Đã đọc cả 25 locus (13 rút ngẫu nhiên seed md5('pe2pe3score-loci'): 8.1, 33.14, 33.22, 34.1, 36.2, 36.6, 38.8, 38.10–38.11, 41.4, 49.6–49.7, 49.12–49.14, 49.21, 49.31; đọc thêm 12 còn lại) và 38.5, 84.1: câu Việt sát chữ ghim, chữ bổ trong [ ]; chú thích đủ năm ý §6.2 (chữ ghim; BJT kèm trang tipitaka.lk và TTPV, cước chú Ma/PTS; vì sao không gỡ; các cách hiểu khả dĩ; ghi §6.2); 38.11, 49.13, 193.1, 119.6 dẫn về chú thích của khoá cùng locus. Không thấy locus nào chưa đạt; verify_pe3_pe2.json blocker_resolved true → bỏ chuỗi blocker «Pāli root đã ghim … hỏng». Nguồn đối chiếu: Pāli ghim (git hash 46e8fa71… khớp upstream-manifest, commit 11c9d708); upstream-manifest không có pe2 trong english-sujato (not-published-upstream) và vietnamese-current; lớp variant pe2 tại commit ghim (tải lại để kiểm: 48.9 mānati bj/pts-vp-pli1, 143.3–143.4 bj, 70.2 bj, 38.5 và 84.1 không có mục — đúng như chú thích); TTPV tập 44 (pet.txt) kiểm 10 điểm: trang Pāli chẵn/Việt lẻ, 33.14 «trong thời kỳ của Giáo Pháp» tr. 41, 34.1 «(không có) hạng thứ tư» tr. 41, 36.2 «hạng trụ kiếp» tr. 43, 38.5 abhisamayaratānaṁ và 38.8 paribhājiyatī, 38.10–38.11 saṁ/nasaṁ tr. 46, 84.1 cước chú «kalyāṇakārī … Ma, PTS potthakesu natthi», 134.2 kāviyaṁ, 187.3 aciratāpanādo, 189.4 «rūpe rādha atītake» — đều đúng; trang tipitaka.lk không kiểm trực tiếp. Căn cứ điểm: source_provenance 9,3 (UID/commit/hash đúng, claim BJT/TTPV/variant kiểm lại được; trừ vì notes xếp lớp còn câu cũ đã bị thay — 78.1 «như người ngất lịm», hārasampāta «hướng dẫn», «12 khoá» ngoặc — dễ đọc nhầm). semantic_fidelity 8,7 (mẫu 0 lỗi; trừ ~0,5 cho 4,8% khoá locus §6.2 nghĩa không bảo đảm, ~0,1 cho các chỗ GIỮ ngoài blocker: 57.2 sadā/na cetanā, 49.17 chấm câu, 42.2, 153.1). grammar_logic 8,7 (mẫu 0 lỗi; 8 sửa cách/quan hệ và 1 phủ định của lượt ba đã kiểm độc lập; locus là chỗ chủ thể, số, động từ hỏng trong Pāli, bản dịch giữ mơ hồ — trừ tương xứng). segment_alignment 9,5 (check.py OK, 736/736 cùng thứ tự, nháy kép khớp từng khoá, …pe… → một «…», NFC; 21 khoá có chữ bổ trong ngoặc, đúng danh sách notes). terminology 8,9 (khớp ne* đã published: vāsanā/nibbedha/saṅkilesa/asekkha-bhāgiya, ugghaṭitaññū, vipañcitaññū, neyya «cần được giáo đạo», tathāgatabala «sức mạnh», ādīnava «nguy hại», āṇatti; hāra «phương thức» theo B5; trừ: taṇhā «tham ái» lệch pe5/pe3 «ái», tên chín bậc A-la-hán không tiền lệ, 47.4). triangulation 8,6 (không có bản Anh SuttaCentral và bản HT. Thích Minh Châu cho bài; đã đối chiếu toàn bài ở mức đoạn với bản dịch Việt độc lập Indacanda, kèm BJT, lớp variant, DPD, câu song song Nett và các kinh được trích (phần lớn có bản Anh Sujato); không cao hơn vì so mức đoạn, Indacanda nhận một phần hiệu đính của Ñāṇamoli nên không hoàn toàn độc lập). vietnamese_clarity 8,3 (mẫu 39/40 rõ; trừ cho 35 khoá locus đọc rất khó — 49.21, 49.31, 33.22 — và văn xuôi tóm lược 33–49, các dòng uddāna như 70.5 «Trong tất cả: sáu, ba»). han_viet_balance 8,9 (Hán–Việt chuẩn, không dài dòng; «ba thiện» cụt). ambiguity_integrity 9,0 (78 chú thích; mọi locus đủ §6.2, nguồn kiểm lại đúng; Ñāṇamoli chỉ dẫn tên/cách đọc, có chỗ thuật lại cách hiểu (49.31) nhưng không chép lời; trừ: 57.2 không có chú thích người đọc dù chữ ghim sadā (Ma, PTS) đối nghĩa với BJT «na cetanā» (TTPV tr. 58, cước chú 4), ne37:165.1, an10.1/an11.1 và Indacanda tr. 59 — chỉ ghi trong notes; bộ ba vipāka 1.10/153.1 cũng chỉ ở notes). technical_integrity 9,4 (npm run -s validate: «Validation passed. 2275 warning(s)» nhưng exit 1 vì «pe2: official quality does not match its current saved full assessment» (cùng pe6, pe8, pe9); quality:check cùng lỗi ấy — trạng thái chờ ghi lượt chấm do lời kinh vừa đổi 28 khoá, không phải lỗi bản dịch; cảnh báo «pinned English reference missing» là chung cho mọi bài; test/check/build do CI, chưa chạy ở đây nên ≤ 9,6). Blocker: chỉ còn chuỗi vắng bản Anh, chép y nguyên từ meta. Không thấy lỗi nghĩa trọng yếu nào chưa sửa; 57.2 ghi là thiếu chú thích (không phải blocker: bản dịch trung thành chữ ghim, chữ ghim đọc được và hợp mục mệnh lệnh, bất định đã ghi trong notes). Đề nghị: thêm chú thích 57.2 nêu BJT «na cetanā», ne37:165.1, an10.1/an11.1, Indacanda.",
+      "id": "2da409b6-cefb-444c-9b84-c4fe9d210a25",
+      "content_sha256": "2db2e0fe555b056081ee8a473cb0e18d628b90081046ce938a00e799643aca82",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
+      "final_score": 8.930000000000001
     }
   ],
   "legacy_quality": {
