@@ -202,6 +202,34 @@
       "content_sha256": "bf211e2cc7c31d7781461c42529f163dca9b7280b00bc28b188c6cfd253cc563",
       "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
       "final_score": 9
+    },
+    {
+      "target": "translation",
+      "scope": "full",
+      "assessed_at": "2026-10-18",
+      "assessed_by": [
+        "Claude Opus 5.5 (Claude Code)"
+      ],
+      "scores": {
+        "source_provenance": 9.3,
+        "semantic_fidelity": 8.9,
+        "grammar_logic": 9,
+        "segment_alignment": 9.8,
+        "terminology": 8.6,
+        "triangulation": 8.7,
+        "vietnamese_clarity": 8.5,
+        "han_viet_balance": 9.1,
+        "ambiguity_integrity": 8.7,
+        "technical_integrity": 9.6
+      },
+      "blocking_errors": [
+        "noEnglishEditionUpstream: Thiếu bản dịch tiếng Anh đối chiếu"
+      ],
+      "notes": "Đo lại technical_integrity theo §6.1 (docs/editorial-decisions-2026-10-17.md), có người kiểm độc lập chạy lại các lệnh: Lý do 9,4 cũ (lượt 6594e4f3 ngày 2026-10-18, lượt delta 60cc4401 giữ nguyên): «npm run -s quality:check exit 1, 6 lỗi «official quality does not match its current saved full assessment» (pe1, pe3, pe4, pe5, pe6, pe9) vì lời kinh vừa đổi mà chưa ghi lượt chấm; test/check/build để CI, không chạy ở đây»; mức khi lệnh pass trước đó 9,6 (legacy_quality 2026-10-12 và các lượt full 2026-10-15 → 2026-10-17). Người kiểm độc lập chạy lại ngày 2026-10-18 tại commit 40d3e885 (cây sạch; nay đã vào main qua squash PR #774 = 47a89e01, bốn blob pe9 — bản dịch, chú thích, meta, assessment — giống hệt): npm run -s quality:check exit 0 (5839 lịch sử, 0 lỗi), npm run -s validate exit 0 (cảnh báo duy nhất của pe9 là thiếu bản Anh Sujato, đúng not-published-upstream: manifest chỉ có tệp Pāli root), npm test exit 0 (424 test: 422 pass, 0 fail, 2 skip), npm run check exit 0 (0 lỗi, 0 cảnh báo), npm run build exit 0 (validate trong build pass, astro build Complete, pagefind 6137 trang, có dist/sutta/kn/pe9) — đây là đo lại tiêu chí 10, không sửa bản dịch. Các tiêu chí khác giữ nguyên.",
+      "id": "d00cd117-b798-4e52-9d97-ae427166cc2c",
+      "content_sha256": "bf211e2cc7c31d7781461c42529f163dca9b7280b00bc28b188c6cfd253cc563",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
+      "final_score": 9.02
     }
   ],
   "legacy_quality": {
