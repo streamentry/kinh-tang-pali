@@ -8,6 +8,7 @@ import { COLLECTIONS, loadCatalog, loadLock, loadMeta, loadSegmentMap, segmentMa
 import { assessmentPath, contentDigest, loadAssessmentHistory, projectTranslationPath, TRANSLATION_RUBRIC, rubricFor, validateAssessmentHistory, assessmentIsCurrent, type Assessment } from '../src/lib/canon/quality';
 import type { CollectionCode, EditorialMeta, TranslationQualityAssessment, TranslationQualityScores } from '../src/lib/canon/types';
 import { validateSegmentMap } from './lib/validation';
+import { publishOverrideFor } from '../src/lib/canon/waivers';
 
 function append(collection: CollectionCode, uid: string, entry: Assessment) {
   const file = assessmentPath(collection, uid);
@@ -84,7 +85,7 @@ if (args[0] === '--check') {
     blocking_errors: entry.blocking_errors, assessed_at: entry.assessed_at,
     assessed_by: entry.assessed_by, assessment_id: entry.id,
   };
-  const status = expectedStatusForQuality(entry.final_score, entry.blocking_errors);
+  const status = expectedStatusForQuality(entry.final_score, entry.blocking_errors, [], Boolean(publishOverrideFor(collection, uid)));
   const errors = validateQualityAssessment({ ...meta, quality, status });
   if (errors.length) throw new Error(errors.join('\n'));
   // Preserve the factual record of previous assessors when the current scorecard changes.

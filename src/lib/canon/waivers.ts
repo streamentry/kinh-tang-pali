@@ -1,4 +1,4 @@
-import { readFileSync } from 'node:fs';
+import { existsSync, readFileSync } from 'node:fs';
 import path from 'node:path';
 import YAML from 'yaml';
 import { resolveLayer } from './layers';
@@ -28,15 +28,43 @@ export interface QualityWaiver {
   blockers: string[];
 }
 
+/**
+ * The editor's decision to publish one named text whose score stays under the threshold.
+ * It never edits a score, never covers a blocker and only lifts `review` to `published`.
+ */
+export interface PublishOverride {
+  uid: string;
+  collection: CollectionCode;
+  decidedBy: string;
+  decidedAt: string;
+  reason: string;
+}
+
 const FILE = path.join(process.cwd(), 'source/editorial-waivers.yaml');
-let cache: EditorialWaiver[] | null = null;
+let cache: { waivers: EditorialWaiver[]; publishOverrides: PublishOverride[] } | null = null;
+
+function loadRegistry(): { waivers: EditorialWaiver[]; publishOverrides: PublishOverride[] } {
+  if (cache) return cache;
+  // No registry (a scratch checkout, a fixture) means no waiver and no override, never a guess.
+  if (!existsSync(FILE)) return { waivers: [], publishOverrides: [] };
+  const parsed = YAML.parse(readFileSync(FILE, 'utf8')) as { schemaVersion: number; waivers: EditorialWaiver[]; publishOverrides?: PublishOverride[] };
+  if (parsed.schemaVersion !== 1 || !Array.isArray(parsed.waivers)) throw new Error('source/editorial-waivers.yaml: unsupported schema');
+  const publishOverrides = parsed.publishOverrides ?? [];
+  for (const entry of publishOverrides) {
+    if (!entry.uid || !entry.collection || !entry.decidedBy || !entry.decidedAt || !entry.reason?.trim()) {
+      throw new Error(`source/editorial-waivers.yaml: publish override ${entry.uid ?? '?'} needs uid, collection, decidedBy, decidedAt and reason`);
+    }
+  }
+  cache = { waivers: parsed.waivers, publishOverrides };
+  return cache;
+}
 
 export function loadWaivers(): EditorialWaiver[] {
-  if (cache) return cache;
-  const parsed = YAML.parse(readFileSync(FILE, 'utf8')) as { schemaVersion: number; waivers: EditorialWaiver[] };
-  if (parsed.schemaVersion !== 1 || !Array.isArray(parsed.waivers)) throw new Error('source/editorial-waivers.yaml: unsupported schema');
-  cache = parsed.waivers;
-  return cache;
+  return loadRegistry().waivers;
+}
+
+export function publishOverrideFor(collection: CollectionCode | undefined, uid: string): PublishOverride | undefined {
+  return loadRegistry().publishOverrides.find((entry) => entry.uid === uid && (!collection || entry.collection === collection));
 }
 
 export function waiverById(id: string): EditorialWaiver | undefined {

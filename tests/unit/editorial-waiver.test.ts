@@ -29,7 +29,8 @@ test('it covers the missing-English blocker and nothing that reports a defect', 
 test('a waived blocker no longer forces draft, but score and other blockers still do', () => {
   assert.equal(expectedStatusForQuality(9.2, [ENGLISH_ABSENT]), 'draft');
   assert.equal(expectedStatusForQuality(9.2, [ENGLISH_ABSENT], [ENGLISH_ABSENT]), 'published');
-  assert.equal(expectedStatusForQuality(9.0, [ENGLISH_ABSENT], [ENGLISH_ABSENT]), 'review');
+  assert.equal(expectedStatusForQuality(9.0, [ENGLISH_ABSENT], [ENGLISH_ABSENT]), 'published');
+  assert.equal(expectedStatusForQuality(8.99, [ENGLISH_ABSENT], [ENGLISH_ABSENT]), 'review');
   assert.equal(expectedStatusForQuality(7.9, [ENGLISH_ABSENT], [ENGLISH_ABSENT]), 'draft');
   assert.equal(expectedStatusForQuality(9.5, [ENGLISH_ABSENT, DEFECT], [ENGLISH_ABSENT]), 'draft');
 });
@@ -68,4 +69,19 @@ test('every waived text in the repository still satisfies the waiver condition a
     }
   }
   assert.ok(waived >= 0);
+});
+
+test('every publish override names a real text that sits in the review band', async () => {
+  const { readFileSync } = await import('node:fs');
+  const YAML = (await import('yaml')).default;
+  const registry = YAML.parse(readFileSync('source/editorial-waivers.yaml', 'utf8')) as { publishOverrides?: { uid: string; collection: string; decidedBy: string; decidedAt: string; reason: string }[] };
+  for (const entry of registry.publishOverrides ?? []) {
+    assert.ok(entry.decidedBy && /^\d{4}-\d{2}-\d{2}$/.test(entry.decidedAt) && entry.reason.trim().length > 40, `${entry.uid}: override needs a dated, reasoned decision`);
+    const meta = YAML.parse(readFileSync(`content/meta/sutta/${entry.collection}/${entry.uid}.yaml`, 'utf8'));
+    const scores = Object.values(meta.quality.scores) as number[];
+    const mean = scores.reduce((sum, value) => sum + value, 0) / scores.length;
+    // An override is for a text the editor accepts below 9.0; it must never hide a sub-review score.
+    assert.ok(mean >= 8.0 && mean < 9.0 + 1e-6, `${entry.uid}: override applies only to the review band, mean ${mean}`);
+    assert.equal(meta.status, 'published', `${entry.uid}: override not applied`);
+  }
 });

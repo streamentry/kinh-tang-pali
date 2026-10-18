@@ -1,4 +1,4 @@
-import { blockerIsCovered, waiverById, waiverConditionHolds } from '../../src/lib/canon/waivers';
+import { blockerIsCovered, publishOverrideFor, waiverById, waiverConditionHolds } from '../../src/lib/canon/waivers';
 import {
   TRANSLATION_QUALITY_KEYS,
   type CollectionCode,
@@ -10,7 +10,7 @@ import {
 const EPSILON = 0.005;
 /**
  * The gate compares the raw mean, but a float sum of decimal scores carries representation error:
- * ten scores averaging exactly 9.0 can sum to 9.000000000000002 and slip past `> 9.0`. Scores move in
+ * ten scores averaging exactly 9.0 can sum to 8.999999999999998 and fall short of `>= 9.0`. Scores move in
  * steps of at least 0.001, so comparing at 1e-6 removes only that noise and never rounds a real mean.
  */
 const GATE_PRECISION = 1e6;
@@ -29,11 +29,13 @@ export function expectedStatusForQuality(
   finalScore: number,
   blockingErrors: string[],
   waivedBlockers: string[] = [],
+  editorPublishes = false,
 ): EditorialStatus {
   if (effectiveBlockers(blockingErrors, waivedBlockers).length > 0) return 'draft';
   const score = Math.round(finalScore * GATE_PRECISION) / GATE_PRECISION;
-  if (score > 9.0) return 'published';
-  if (score >= 8.0) return 'review';
+  if (score >= 9.0) return 'published';
+  // A publish override (source/editorial-waivers.yaml) lifts only review to published.
+  if (score >= 8.0) return editorPublishes ? 'published' : 'review';
   return 'draft';
 }
 
@@ -117,7 +119,7 @@ export function validateQualityAssessment(meta: EditorialMeta, collection?: Coll
       }
     }
   }
-  const expectedStatus = expectedStatusForQuality(mean, blockers, waivedBlockers);
+  const expectedStatus = expectedStatusForQuality(mean, blockers, waivedBlockers, Boolean(publishOverrideFor(collection, meta.uid)));
   if (meta.status !== expectedStatus) {
     errors.push(
       `${meta.uid}: status ${meta.status} does not match quality gate; expected ${expectedStatus} for mean ${mean.toFixed(2)} with ${effectiveBlockers(blockers, waivedBlockers).length} blocker(s)`,

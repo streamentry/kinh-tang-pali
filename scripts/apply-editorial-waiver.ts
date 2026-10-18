@@ -16,7 +16,7 @@ import { existsSync, readdirSync, readFileSync, renameSync, unlinkSync, writeFil
 import path from 'node:path';
 import YAML from 'yaml';
 import type { CollectionCode, EditorialMeta } from '../src/lib/canon/types';
-import { eligibleWaiver } from '../src/lib/canon/waivers';
+import { eligibleWaiver, publishOverrideFor } from '../src/lib/canon/waivers';
 import { arithmeticMean, expectedStatusForQuality, validateQualityAssessment } from './lib/quality';
 
 const COLLECTIONS: CollectionCode[] = ['dn', 'mn', 'sn', 'an', 'kn'];
@@ -40,7 +40,7 @@ for (const collection of COLLECTIONS) {
       // scorecard, and a waiver with nothing to waive is stale. Scores and notes are never touched.
       if (!quality.scores) continue;
       const cleanMean = arithmeticMean(Object.values(quality.scores) as number[]);
-      const cleanStatus = expectedStatusForQuality(cleanMean, quality.blocking_errors ?? [], []);
+      const cleanStatus = expectedStatusForQuality(cleanMean, quality.blocking_errors ?? [], [], Boolean(publishOverrideFor(collection, uid)));
       if (cleanStatus === meta.status && !quality.waiver) continue;
       const { waiver: _stale, ...cleanQuality } = quality;
       const cleanNext = { ...meta, quality: cleanQuality, status: cleanStatus };
@@ -61,7 +61,7 @@ for (const collection of COLLECTIONS) {
     const waiver = eligibleWaiver(collection, uid, quality.blocking_errors);
     if (!waiver) { bump('not-eligible'); continue; }
     const mean = arithmeticMean(Object.values(quality.scores) as number[]);
-    const status = expectedStatusForQuality(mean, quality.blocking_errors, waiver.blockers);
+    const status = expectedStatusForQuality(mean, quality.blocking_errors, waiver.blockers, Boolean(publishOverrideFor(collection, uid)));
     if (status === meta.status && JSON.stringify(quality.waiver) === JSON.stringify(waiver)) { bump('already-applied'); continue; }
     // A waiver that leaves a draft a draft (another blocker, or a score under 8.0) changes nothing.
     // A text that was review/published but no longer passes the gate (an audit found a new blocker or

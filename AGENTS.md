@@ -272,8 +272,10 @@ những điều không được quên:
   Không chấm khi bản dịch còn dang dở.
 - `final_score` = **trung bình số học thô** của 10 điểm; gate không dùng điểm đã làm tròn.
 - **Blocker luôn thắng điểm**: có blocker → `draft`, kể cả 10/10. Không "bù" blocker bằng điểm khác.
-- Không blocker: `> 9.0` → `published` trực tiếp · `8.0–9.0` → `review` · `< 8.0` → `draft`.
-  **Đúng `9.0` không đủ để publish.** Chưa có scorecard đủ → `draft`.
+- Không blocker: `>= 9.0` → `published` trực tiếp · `8.0–dưới 9.0` → `review` · `< 8.0` → `draft`.
+  **Đúng `9.0` là đủ để publish** (người biên tập, 2026-10-18). Chưa có scorecard đủ → `draft`.
+  Bài người biên tập cho publish dưới 9,0 phải nằm đích danh ở `publishOverrides` trong
+  `source/editorial-waivers.yaml`; không sửa tay `status`.
 - Human review khuyến khích nhưng **không bắt buộc**; agent được publish nếu vượt gate, không blocker.
 - Ghi bằng `npm run quality -- --record`, chốt bằng `npm run quality -- --apply`. **Không sửa tay
   `meta.quality` hay `status` của bản Việt**, không ghi đè lịch sử chấm cũ. (Lớp lấp English

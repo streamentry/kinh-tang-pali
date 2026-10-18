@@ -31,11 +31,11 @@ test('summary rubric table lists exactly the enforced keys, in order', () => {
 });
 
 test('status thresholds in the doc match expectedStatusForQuality', () => {
-  assert.match(DOC, /`final_score > 9\.0`\s*\|\s*`published`/);
-  assert.match(DOC, /`8\.0 <= final_score <= 9\.0`\s*\|\s*`review`/);
+  assert.match(DOC, /`final_score >= 9\.0`\s*\|\s*`published`/);
+  assert.match(DOC, /`8\.0 <= final_score < 9\.0`\s*\|\s*`review`/);
   assert.match(DOC, /`final_score < 8\.0`\s*\|\s*`draft`/);
-  assert.equal(expectedStatusForQuality(9.0, []), 'review');
-  assert.equal(expectedStatusForQuality(9.0001, []), 'published');
+  assert.equal(expectedStatusForQuality(9.0, []), 'published');
+  assert.equal(expectedStatusForQuality(8.9999, []), 'review');
   assert.equal(expectedStatusForQuality(8.0, []), 'review');
   assert.equal(expectedStatusForQuality(7.99, []), 'draft');
   assert.equal(expectedStatusForQuality(10, ['x']), 'draft');

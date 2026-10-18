@@ -38,5 +38,35 @@ waivers:
     unchanged:
       - "Pāli root vẫn là authority cuối cùng."
       - "Blocker khác (sai nghĩa, mất segment, Pāli hỏng chưa phân xử…) vẫn ép `draft`."
-      - "Ngưỡng `final_score > 9.0` để `published` vẫn giữ; 8.0–9.0 là `review`."
+      - "Ngưỡng `final_score >= 9.0` để `published` vẫn giữ; 8.0–dưới 9.0 là `review`."
       - "Điểm `triangulation` vẫn phản ánh việc vắng bản Anh; không được tự nâng."
+
+# Publish overrides — the editor publishes a named text whose score stays under the 9.0
+# threshold. An override never edits a score, never lowers the threshold for any other text,
+# never covers a blocker (a text with an unwaived blocker stays `draft`), and only lifts
+# `review` (score >= 8.0) to `published`. The real score stays on record and on the page.
+publishOverrides:
+  - uid: pe4
+    collection: kn
+    decidedBy: "Người biên tập dự án"
+    decidedAt: "2026-10-18"
+    reason: >-
+      Rà đủ 111/111 khoá và thẩm định độc lập (2026-10-18): không còn sửa lỗi thật nào đưa
+      bài qua 9,0. Phần trừ còn lại đến từ locus Pāli ghim hỏng đã phán «bất định có chú
+      thích» (§6.2), vắng bản Anh, và quy ước «Trong đó» chung của 350 khoá pe.
+  - uid: pe5
+    collection: kn
+    decidedBy: "Người biên tập dự án"
+    decidedAt: "2026-10-18"
+    reason: >-
+      Rà đủ 537/537 khoá và thẩm định độc lập (2026-10-18): không còn sửa lỗi thật nào đưa
+      bài qua 9,0. Phần trừ còn lại đến từ 44 locus Pāli ghim hỏng đã phán «bất định có chú
+      thích» (§6.2), vắng bản Anh, và thuật ngữ chung của nhóm pe/ne.
+  - uid: pe8
+    collection: kn
+    decidedBy: "Người biên tập dự án"
+    decidedAt: "2026-10-18"
+    reason: >-
+      Rà đủ 1.653/1.653 khoá và thẩm định độc lập (2026-10-18): không còn sửa lỗi thật nào
+      đưa bài qua 9,0. Phần trừ còn lại đến từ locus Pāli ghim hỏng đã phán «bất định có chú
+      thích» (§6.2), vắng bản Anh, và thuật ngữ chung của nhóm pe/ne.

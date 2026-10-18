@@ -108,7 +108,7 @@ final_score = (score_1 + … + score_10) / 10      # trung bình số học thô
 - Gate dùng **giá trị thô**, không dùng điểm đã làm tròn. Có thể hiển thị 2 chữ số thập phân.
   Giá trị thô được so ở độ chính xác `1e-6` để khử sai số dấu phẩy động: mười điểm có trung bình
   đúng 9,0 có thể cộng ra `9.000000000000002`. Bước điểm nhỏ nhất là 0,001, nên cách so này không
-  làm tròn một điểm thật nào; trung bình đúng 9,0 vẫn là `review`.
+  làm tròn một điểm thật nào; trung bình đúng 9,0 là `published`.
 - Trong `meta.quality`, `final_score` được phép lệch mean tối đa `0.005` (làm tròn hiển thị);
   trong lịch sử `full`, `final_score` phải bằng mean (sai số `1e-6`) — công cụ tự tính.
 
@@ -117,12 +117,17 @@ Thứ tự quyết định:
 | Điều kiện | Status |
 | --- | --- |
 | Có blocker | `draft` |
-| Không blocker, `final_score > 9.0` | `published` (trực tiếp) |
-| Không blocker, `8.0 <= final_score <= 9.0` | `review` |
+| Không blocker, `final_score >= 9.0` | `published` (trực tiếp) |
+| Không blocker, `8.0 <= final_score < 9.0` | `review` |
 | Không blocker, `final_score < 8.0` | `draft` |
 | Chưa có scorecard đủ 10 tiêu chí | `draft` |
 
-**Đúng `9.0` không đủ để `published` — phải lớn hơn 9.0.** Human review được khuyến khích nhưng
+**Đúng `9.0` là đủ để `published`** (quyết định của người biên tập, 2026-10-18; trước đó ngưỡng là `> 9.0`).
+
+**Ngoại lệ publish có tên.** Người biên tập có thể publish một bài đích danh dù điểm dưới 9,0, ghi ở
+`publishOverrides` trong `source/editorial-waivers.yaml` (uid, người quyết, ngày, lý do). Ngoại lệ không
+sửa điểm, không áp cho bài khác, không thắng blocker, và chỉ nâng `review` (≥ 8,0) lên `published`;
+điểm thật vẫn nằm trong hồ sơ. `validate` và `quality:waive` đọc cùng danh sách ấy. Human review được khuyến khích nhưng
 không bắt buộc; agent được publish trực tiếp nếu vượt gate và không có blocker. Bài `review`/
 `published` phải có `assessed_at` và `assessed_by`.
 
@@ -138,15 +143,15 @@ khỏi hồ sơ**: blocker vẫn nằm trong `quality.blocking_errors`, chỉ m�
   `draft`; `validate` cũng không đòi tệp Anh cho bài `review`/`published` có waiver.
 
 Không đổi: blocker khác trên cùng bài (sai nghĩa, mất segment, Pāli hỏng chưa phân xử, bất định
-chưa phân xử…) vẫn ép `draft` — waiver loại trừ mọi blocker có dấu hiệu đó; ngưỡng `final_score > 9.0`
-vẫn giữ (8.0–9.0 là `review`); điểm `triangulation` vẫn phản ánh việc vắng bản Anh.
+chưa phân xử…) vẫn ép `draft` — waiver loại trừ mọi blocker có dấu hiệu đó; ngưỡng `final_score >= 9.0`
+vẫn giữ (8.0–dưới 9.0 là `review`); điểm `triangulation` vẫn phản ánh việc vắng bản Anh.
 
 Bài mang waiver có `quality.waiver: { id, blockers }`, ghi bằng `npm run quality:waive`
 (`-- --dry-run` để xem trước), **không sửa tay**. `validate` kiểm lại điều kiện mỗi lần chạy: nếu
 upstream từng phát hành bản Anh cho bài thì waiver mất hiệu lực và `status` phải hạ.
 
 Cùng lệnh đó cũng đồng bộ `status` cho bài **không còn blocker nào** (kiểm toán đã giải quyết hết): `status`
-theo đúng điểm (`> 9.0` → `published`, `8.0–9.0` → `review`), và waiver cũ không còn gì để miễn thì bị bỏ.
+theo đúng điểm (`>= 9.0` → `published`, `8.0–dưới 9.0` → `review`), và waiver cũ không còn gì để miễn thì bị bỏ.
 
 `published` không có nghĩa "không bao giờ sửa". Phát hiện blocker sau khi publish → sửa ngay hoặc
 hạ về `draft` bằng một lượt `full` mới.
