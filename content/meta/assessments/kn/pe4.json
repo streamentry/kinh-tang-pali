@@ -202,6 +202,34 @@
       "content_sha256": "3bcfafa7d66ed03c263461487b64768ca15e399dd692bee6054856b57d37cb2a",
       "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
       "final_score": 8.82
+    },
+    {
+      "target": "translation",
+      "scope": "full",
+      "assessed_at": "2026-10-18",
+      "assessed_by": [
+        "Claude Opus 5.5 (Claude Code)"
+      ],
+      "scores": {
+        "source_provenance": 9.1,
+        "semantic_fidelity": 8.6,
+        "grammar_logic": 8.8,
+        "segment_alignment": 9.6,
+        "terminology": 9,
+        "triangulation": 8.4,
+        "vietnamese_clarity": 7.9,
+        "han_viet_balance": 8.8,
+        "ambiguity_integrity": 8.5,
+        "technical_integrity": 9.6
+      },
+      "blocking_errors": [
+        "noEnglishEditionUpstream: Thiếu bản dịch tiếng Anh đối chiếu"
+      ],
+      "notes": "Đo lại technical_integrity theo §6.1 (docs/editorial-decisions-2026-10-17.md), có người kiểm độc lập chạy lại các lệnh: Lý do 9,5 cũ (lượt chấm lại toàn bài 5a583684 ngày 2026-10-18, score/pe3/pe4.md; lượt delta e75b49b4 giữ nguyên): «quality:check exit 1 «official quality does not match its current saved full assessment», tức chờ ghi lượt chấm sau khi lời kinh đổi, không phải lỗi bản dịch; test/check/build do CI» (bảng đối chiếu của người chấm ghi −0,1 là «quality:check đang chờ ghi lượt chấm»; nhận xét «notes meta còn dòng lỗi thời» đã được trừ ở source_provenance, không phải lý do của tiêu chí 10); mức khi lệnh pass trước đó 9,6 (legacy_quality và năm lượt full 2026-10-15 → 2026-10-17). Người kiểm độc lập chạy lại ngày 2026-10-18 tại commit 7eecddc2 (cây sạch, git status trước/sau không đổi): npm run -s quality:check exit 0 (5839 lịch sử, 0 lỗi), npm run -s validate exit 0 (cảnh báo duy nhất của pe4 là thiếu bản Anh Sujato, đúng not-published-upstream: manifest chỉ có tệp Pāli root), npm test exit 0 (424 test: 423 pass, 0 fail, 1 skip), npm run check exit 0 (0 lỗi, 0 cảnh báo), npm run build exit 0 (validate trong build pass, astro build Complete, pagefind 6137 trang, có dist/sutta/kn/pe4) — đây là đo lại tiêu chí 10, không sửa bản dịch. Các tiêu chí khác giữ nguyên.",
+      "id": "0c7dd3c7-5b4e-4e6c-99cd-d77cee6bf736",
+      "content_sha256": "3bcfafa7d66ed03c263461487b64768ca15e399dd692bee6054856b57d37cb2a",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
+      "final_score": 8.83
     }
   ],
   "legacy_quality": {

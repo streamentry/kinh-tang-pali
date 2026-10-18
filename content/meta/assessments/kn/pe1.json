@@ -259,6 +259,34 @@
       "content_sha256": "7d06fa08ec770f25618e3ec8cc2ac08720800e7861d93b9abe59a2a55856665f",
       "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
       "final_score": 8.989999999999998
+    },
+    {
+      "target": "translation",
+      "scope": "full",
+      "assessed_at": "2026-10-18",
+      "assessed_by": [
+        "Claude Opus 5.5 (Claude Code)"
+      ],
+      "scores": {
+        "source_provenance": 9.4,
+        "semantic_fidelity": 8.9,
+        "grammar_logic": 8.9,
+        "segment_alignment": 9.8,
+        "terminology": 8.9,
+        "triangulation": 8.4,
+        "vietnamese_clarity": 8.3,
+        "han_viet_balance": 9,
+        "ambiguity_integrity": 8.8,
+        "technical_integrity": 9.6
+      },
+      "blocking_errors": [
+        "noEnglishEditionUpstream: Thiếu bản dịch tiếng Anh đối chiếu"
+      ],
+      "notes": "Đo lại technical_integrity theo §6.1 (docs/editorial-decisions-2026-10-17.md), có người kiểm độc lập chạy lại các lệnh: Lý do 9,5 cũ (lượt chấm lại toàn bài 1a47d89e ngày 2026-10-18, score/pe3/pe1.md; hai lượt delta 358daa53, 7c526683 giữ nguyên): «validate/quality:check exit 1 vì «official quality does not match its current saved full assessment» — trạng thái chờ ghi lượt chấm sau khi lời kinh đổi, không phải lỗi bản dịch; test/check/build do CI, không chạy»; mức khi lệnh pass trước đó 9,6 (legacy_quality và sáu lượt full 2026-10-15 → 2026-10-17). Người kiểm độc lập chạy lại ngày 2026-10-18 tại commit 7eecddc2 (cây sạch, git status trước/sau không đổi): npm run -s quality:check exit 0 (5839 lịch sử, 0 lỗi), npm run -s validate exit 0 (cảnh báo duy nhất của pe1 là thiếu bản Anh Sujato, đúng not-published-upstream: manifest chỉ có tệp Pāli root), npm test exit 0 (424 test: 423 pass, 0 fail, 1 skip), npm run check exit 0 (0 lỗi, 0 cảnh báo), npm run build exit 0 (validate trong build pass, astro build Complete, pagefind 6137 trang, có dist/sutta/kn/pe1) — đây là đo lại tiêu chí 10, không sửa bản dịch. Các tiêu chí khác giữ nguyên.",
+      "id": "6dd03f6c-0358-4abe-9d9e-cb94c51f47e8",
+      "content_sha256": "7d06fa08ec770f25618e3ec8cc2ac08720800e7861d93b9abe59a2a55856665f",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
+      "final_score": 8.999999999999998
     }
   ],
   "legacy_quality": {
