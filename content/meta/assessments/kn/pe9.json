@@ -146,6 +146,34 @@
       "content_sha256": "48205656b504cc60e1554db83d717faabb07c804beecb5529bd3964fd5a676d0",
       "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
       "final_score": 8.639999999999999
+    },
+    {
+      "target": "translation",
+      "scope": "full",
+      "assessed_at": "2026-10-18",
+      "assessed_by": [
+        "Claude Opus 5.5 (Claude Code)"
+      ],
+      "scores": {
+        "source_provenance": 9.3,
+        "semantic_fidelity": 8.9,
+        "grammar_logic": 8.8,
+        "segment_alignment": 9.8,
+        "terminology": 8.5,
+        "triangulation": 8.7,
+        "vietnamese_clarity": 8.4,
+        "han_viet_balance": 8.9,
+        "ambiguity_integrity": 8.5,
+        "technical_integrity": 9.4
+      },
+      "blocking_errors": [
+        "noEnglishEditionUpstream: Thiếu bản dịch tiếng Anh đối chiếu"
+      ],
+      "notes": "Chấm lại toàn bài theo §5.5 sau lượt ba §6.2–§6.3 (2026-10-18), người chấm mới (không dịch, không làm lượt ba, không kiểm; không đọc khối quality, lịch sử chấm hay scorecard cũ trước khi chấm xong). Đã đọc: Pāli ghim cả 269 khoá cạnh bản Việt và 15 chú thích; bản Pāli BJT và bản dịch Indacanda (TTPV 44, tr. 308–331) đoạn tương ứng; chú hiệu đính Ñāṇamoli (PTS 1964) để kiểm số chú được dẫn; Nettippakaraṇa đã published (ne2, ne3, ne4, ne36) để đối chiếu thuật ngữ; bảng lượt ba dec/pe3_pe9.tsv và kiểm độc lập verify_pe3_pe9.json. Mẫu 40 khoá (seed md5('pe9pe3score'), loại :0.x và khoá rỗng, 267 khoá đủ điều kiện): 36 KHỚP, 0 LỖI-THẬT, 1 BẤT-ĐỊNH (52.4, locus §6.2), 3 VỤNG (2.12 «dòng tuôn chảy» cho nissanda; 34.1, 34.3 đồng vị ngữ «lobho akusalamūlaṁ» thành câu «tham là gốc bất thiện …»). Locus §6.2: 5/269 khoá (51.7, 52.3, 52.4, 64.2, 64.5; 1,9%); tự kiểm cả năm: câu Việt sát chữ ghim, chữ bổ trong [ ] (52.4, 64.2), chú thích nêu chữ ghim, BJT trang (p324, p330 đối chiếu được với TTPV), vì sao không gỡ, các cách hiểu; số chú Ñāṇamoli 1084/3, 1104/1–3, 1113/1, 1113/4, 1114/2 khớp bản chú. Dè dặt ở 64.5: «không bị phá vỡ» dựa trên avikopanā (đổi một chữ cái) trong khi cách đọc «không bác bỏ» giữ nguyên chữ; chú thích nói rõ đây là cách hiểu chữ hỏng, nên vẫn tính là đạt §6.2. Căn cứ điểm: (1) source_provenance 9,3: blob git của tệp root khớp source/upstream-manifest.json (8121fb8c…, commit 11c9d708…); bản Anh 0 tệp pe trong manifest (not-published-upstream); trang BJT/TTPV và số chú Ñāṇamoli kiểm lại được; trừ vì trang tipitaka.lk chỉ kiểm qua TTPV và chú 2.1 dẫn bộ tách máy DPD có chọn lọc (cách tách đầu tiên của bộ tách là anuppāda + vaya). (2) semantic_fidelity 8,9: 0 lỗi nghĩa trong mẫu và khi đọc hết bài; trừ tương xứng 5 locus §6.2, 7 locus đã gỡ còn dư bất định (20.1 bỏ «pañcannaṁ» theo câu song song, 64.4 theo BJT, 64.7 nāssa), 64.5 nghĩa dựa trên sửa chữ, và các khoá chữ ghim lạ mà dịch đúng chữ (36.3, 49.1–49.3, 53.12–53.13, 59.1–60.4). (3) grammar_logic 8,8: phủ định 2.1 và vị ngữ 13.1–13.2, 20.1 nay đúng; còn 2.9 đọc paṭhamābhinipātā là xuất xứ cách (Indacanda, Ñāṇamoli đọc chủ cách số nhiều), 60.3 «Dhamme» thành «trong các pháp», 2.13 câu cụt «Chỉ do lạc của kiến ấy» (eva nhấn mạnh, không hạn định), 34.x biến đồng vị ngữ thành câu «là». (4) segment_alignment 9,8: tools/check.py pe9 OK, 269/269 khoá đúng thứ tự, NFC; câu nối 13.1–13.2 giữ ranh giới khoá nhưng 13.1 đứng riêng không trọn câu. (5) terminology 8,5: tên năm lối, mūlapada «nền tảng gốc», bhūmi, āhāra, vipallāsa, ogha, salla, viññāṇaṭṭhiti, agatigamana khớp ne2/ne3/ne36 đã published, «như ý túc» theo hội đồng B3; lệch câu song song ne36 (published): neyya «cần được dẫn dắt» (ne4, ne36 «cần được giáo đạo»), adhiṭṭhāna «ý lập» (ne36 «sự quyết định», pe7 «ý lập»), vihāra «trú», acchariya abbhuta «kỳ diệu, hy hữu», chandasamādhi «định do ý muốn»; trong bài: idaṁsaccābhinivesa 10.4/19.1 «chỉ điều này là sự thật» khác 11.4 «đây là sự thật», yojanā «phối hợp»/«kết hợp», «lối» dùng cho naya, paṭipadā, peyyāla, desanā, «suy tầm» (upavicāra) đứng cạnh «tầm» (vitakka). (6) triangulation 8,7: không có bản Anh SuttaCentral (manifest), không có bản Thích Minh Châu; có bản dịch Việt độc lập Indacanda đối chiếu toàn bài ở mức đoạn, BJT, DPD, câu song song ne36/ne3 trong Pāli ghim; trừ vì Indacanda dịch theo BJT (khác chữ ghim ở 9.3, 23.1, 24.1, 53.13, 58.3–61.3, 64.7) và có chỗ nhận hiệu đính của Ñāṇamoli. (7) vietnamese_clarity 8,4: văn liệt kê rõ; 3/40 VỤNG trong mẫu; các khoá hỏng (52.2–52.6, 64.2–64.5, 53.13, 45.3) và 2.9, 2.12–2.13 khó hiểu. (8) han_viet_balance 8,9: đoàn thực/xúc thực/ý tư thực/thức thực, dục thủ, lậu hoặc, tùy miên, liễu tri vừa đủ; «ý lập», «ở vào chỗ của xả» tối. (9) ambiguity_integrity 8,5: cả 12 locus và 36.3 có chú thích khách quan, đúng nguồn (đã kiểm với TTPV và bản chú Ñāṇamoli); thiếu chú thích cho người đọc ở 2.9 (cách đọc chủ cách của Indacanda/Ñāṇamoli), 49.1–49.3 (Ñāṇamoli đảo paṭhama/dutiya), 24.1 (21.3 nói tapas, BJT tapo), 59.1–60.4 (kệ chữ ghim khác BJT nhiều). (10) technical_integrity 9,4: npm run -s validate: «Validation passed. 2275 warning(s)» (cảnh báo pe9 duy nhất là thiếu tệp Anh, đúng not-published-upstream), nhưng phần quality:check trong validate và npm run -s quality:check đều exit 1 với 6 lỗi «official quality does not match its current saved full assessment» (pe1, pe3, pe4, pe5, pe6, pe9): trạng thái chờ ghi lượt chấm vì lời kinh vừa đổi, không phải lỗi bản dịch; test/check/build để CI, không chạy ở đây. Blocker: verify_pe3_pe9.json blocker_resolved true và tự kiểm cả 5 locus PHÁN-6.2 đạt §6.2 → bỏ chuỗi «Pāli root đã ghim … hỏng …»; giữ nguyên chuỗi noEnglishEditionUpstream từ meta. Không tìm thấy lỗi nghĩa trọng yếu chưa sửa. Đề nghị sửa nhỏ (không chặn): 34.1/34.3/35.2/36.2 «Tham, gốc bất thiện, khởi lên từ đâu?»; 2.13 «Chỉ do» → «Chính do»; 11.4 thống nhất với 10.4/19.1; thêm chú thích 2.9 và 49.1–49.3.",
+      "id": "6594e4f3-8913-4272-8042-5f4c69842c64",
+      "content_sha256": "6cc89b1ac53539c7dc3a8ba9bb3b8d59c493f00efe5533b028270ad8a5969a44",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
+      "final_score": 8.92
     }
   ],
   "legacy_quality": {
