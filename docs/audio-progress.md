@@ -1322,3 +1322,23 @@ Each source/profile fingerprint, chunk checkpoint, MP3 frame/hash/byte check and
 Local gates: `validate` passed in the build with 2,275 existing advisories and no errors; `npm test` passed (423 passed, one skipped); `npm run check` passed (zero errors/warnings, five hints); `npm run build` passed (6,204 pages; Pagefind indexed 6,137 pages / 467,607 words); `git diff --check` passed.
 
 All five are `uploaded-verified`; human content listening remains pending and ASR was skipped by editor instruction. Production verification for this batch awaits its PR merge and Pages deploy. MP3/WAV/cache/transcript files are not committed.
+
+### Batch audio-055 local release checkpoint — DN15–DN19
+
+Năm audio Kinh Trường Bộ được tạo tuần tự, mỗi bài đọc tóm tắt trước rồi toàn bộ bản Việt 2026 canonical; không đọc segment ID, comment hay note. Tổng **23,153.54 giây (6 giờ 25 phút 53.54 giây)**, **463,076,640 byte**, 234 chunk (10 chunk tóm tắt). Cả năm dùng profile `vi-charon-mn1-v1`, Gemini `gemini-3.8-flash-tts`, giọng Charon, profile SHA-256 `a384c5852585077c32e1348a6ada5cfc70a69c989ad705b8b5129fef3e1c9a71`.
+
+| UID | Source SHA-256 | MP3 SHA-256 | Bytes | Duration | Scripture start | Chunks | R2 | Status |
+|---|---|---|---:|---:|---:|---:|---|---|
+| DN15 | `0da46e777449342c0e3eea269c176cfb96f707b7c0e0e07c0fe0f631cbfc27f2` | `8fdba263a36795bb75109cd5188bee5513aed491247c325fb4577b87b798cf80` | 44,158,080 | 2207.84 s | 179.67 s | 21 (2 summary) | [R2 MP3](https://pub-8fa53f5182904685bd0c13d6c894a0e9.r2.dev/vi/dn/dn15/8fdba263a36795bb.mp3) | uploaded-verified |
+| DN16 | `bf2bd75a5a229657fa08b8e7906d5ff454ffe0d105dfc4c2c66908dccc38a932` | `f28d1a09570dcae1c9eee224f192e70788006b7a8c590571c4fd1bddbac9c675` | 240,552,000 | 12027.54 s | 176.27 s | 122 (2 summary) | [R2 MP3](https://pub-8fa53f5182904685bd0c13d6c894a0e9.r2.dev/vi/dn/dn16/f28d1a09570dcae1.mp3) | uploaded-verified |
+| DN17 | `a0fde22434c13a38443a5cb6d19f08c9b34ed7fd63ceee7a584c49ba815e3682` | `22aa3109df42ba0da142ca135ab48afd495ee54cacd80e107cd020530a5477d4` | 64,996,320 | 3249.76 s | 168.79 s | 33 (2 summary) | [R2 MP3](https://pub-8fa53f5182904685bd0c13d6c894a0e9.r2.dev/vi/dn/dn17/22aa3109df42ba0d.mp3) | uploaded-verified |
+| DN18 | `2b8d5dc3aed1fdf6307c19f61f63acff64a0deeab2c8c4bb5b4f8bbc43351174` | `6a6b5e4219dbc810a7744ce80c763eea18c0a5a4e42a27bc8585d12dbffd2514` | 44,402,400 | 2220.06 s | 168.55 s | 23 (2 summary) | [R2 MP3](https://pub-8fa53f5182904685bd0c13d6c894a0e9.r2.dev/vi/dn/dn18/6a6b5e4219dbc810.mp3) | uploaded-verified |
+| DN19 | `c8820a0fccad5056395d361ce1d29bfd14cfa65687caba40893c1b3ccef25f6e` | `09e7a86cc786d48844324135fedac11c567b9a6f2bc9a044e95255300e84faae` | 68,967,840 | 3448.34 s | 183.35 s | 35 (2 summary) | [R2 MP3](https://pub-8fa53f5182904685bd0c13d6c894a0e9.r2.dev/vi/dn/dn19/09e7a86cc786d488.mp3) | uploaded-verified |
+
+Mỗi transcript được tái dựng và đối chiếu chính xác với summary + segment text canonical trước khi gọi Gemini; mọi chunk nằm trong giới hạn profile. Uploader xác minh từng MP3 theo SHA-256/bytes, `audio/mpeg`, public full-object readback và HTTP range 206 đủ 1,024 byte. Local Chrome/Playwright kiểm từng trang: HTTP 200, đúng URL R2, phát có tiến độ ở 1×, tua +15 giây, timeline pointer và ArrowRight, nhảy paused tới mốc kinh văn với nhãn “Kinh văn”, auto-next mặc định bật, `readyState=4`, không lỗi console và không tràn ngang ở 320 px. Bằng chứng chi tiết nằm trong `content/audio/<uid>.json` và `content/audio/progress.json`.
+
+DN17 có một lần hết dung lượng trong `/private/tmp` khi ghi WAV tạm của chunk 32; 31 checkpoint hợp lệ được giữ nguyên. Chuyển thư mục audio/cache bị ignore sang `audio/batch-055` trên SSD rồi resume; chỉ chunk 32 được sinh lại, các chunk khác được tái sử dụng. Lần upload DN17 đầu dừng ở bước đọc bucket với HTTP 401 trước khi ghi object; Wrangler làm mới OAuth, sau đó cùng MP3 được upload và xác minh thành công, không sinh TTS lại.
+
+Local gates: `npm run validate` pass (2,275 cảnh báo hiện có; 5,839 quality histories, 0 lỗi); `npm test` pass (425 passed, 2 skipped, 0 failed); `npm run check` pass (0 errors, 0 warnings, 5 hints); `npm run audio:check` pass (186 catalog texts, 0 errors); `npm run build` pass (6,204 trang, Pagefind 467,605 từ); `git diff --check` pass. Pinned source/legacy sync pass; 7,707 path thuộc các edition không xuất bản nội dung upstream và được ghi nhận là coverage, không phải sync failure.
+
+Cả năm đang `uploaded-verified`; **production Pages chưa được kiểm nên chưa ghi `live`**. Không chạy ASR và chưa nghe duyệt toàn văn thủ công; `review_status` giữ `pending` cho cả năm. Không stage MP3/WAV/cache, Playwright artifacts, `.env` hoặc secrets. PR/merge SHA và Pages readback sẽ được ghi sau khi remote verification hoàn tất.
