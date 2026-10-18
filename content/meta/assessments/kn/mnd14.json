@@ -421,6 +421,34 @@
       "content_sha256": "e2e12edad2a73502c96e02525a977873745f969c278fbc2b8bd9a9c3f4c072c2",
       "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
       "final_score": 8.99
+    },
+    {
+      "target": "translation",
+      "scope": "full",
+      "assessed_at": "2026-10-18",
+      "assessed_by": [
+        "Claude Opus 5.5 (Claude Code)"
+      ],
+      "scores": {
+        "source_provenance": 9.3,
+        "semantic_fidelity": 9.1,
+        "grammar_logic": 8.8,
+        "segment_alignment": 9.8,
+        "terminology": 9.1,
+        "triangulation": 8.4,
+        "vietnamese_clarity": 8.7,
+        "han_viet_balance": 8.7,
+        "ambiguity_integrity": 8.8,
+        "technical_integrity": 9.6
+      },
+      "blocking_errors": [
+        "noEnglishEditionUpstream: tầng english-sujato không có mnd14 tại commit đã ghim 11c9d708978cde8ba61096d8a75f7ddfb846f639; source/upstream-manifest.json chỉ liệt kê tệp Pāli root-pli-ms cho kn/mnd/mnd14, không có tệp mnd14_translation-en-sujato.json. Lớp english-project không có mnd14; tầng vietnamese-current chỉ có Pháp Cú. Đây là not-published-upstream, giới hạn của bản chụp upstream; điểm triangulation phản ánh việc vắng bản Anh."
+      ],
+      "notes": "Đo lại technical_integrity theo §6.1 (docs/editorial-decisions-2026-10-17.md), có người kiểm độc lập chạy lại các lệnh: Lý do 9,2 cũ (lượt 2652f56e, 2026-10-17): «npm run validate exit 1 vì quality:check báo 34 bài (có mnd14) «official quality does not match its current saved full assessment» do content_sha256 đổi sau lượt hoàn thiện, tự hết khi ghi/áp lượt chấm này; test/check/build do CI ⇒ 9,2»; mức khi lệnh pass trước đó 9,6 (lượt 2026-10-14: «bốn lệnh npm run validate, npm test, npm run check, npm run build do người điều phối chạy»). Người kiểm độc lập chạy lại ngày 2026-10-18 tại HEAD 5a0999f2 (cây sạch): npm run validate exit 0 (cảnh báo duy nhất của bài là thiếu bản Anh Sujato, đúng giới hạn upstream: manifest chỉ có tệp Pāli root), quality:check exit 0 (5839 lịch sử, 0 lỗi), check.py OK (JSON/YAML hợp lệ, NFC, 0 segment đổi so với origin/main), npm run check exit 0 (0 lỗi), npm test exit 0 (422 pass, 0 fail, 2 skip). CI main: lượt mới nhất d0d31a7e đang chạy; lượt xanh gần nhất 2cf14628 (CI và Deploy success, CI gồm build), lời kinh và meta của bài không đổi từ 2cf14628 đến HEAD — đây là đo lại tiêu chí 10, không sửa bản dịch. Các tiêu chí khác giữ nguyên.",
+      "id": "8d19f7c7-a3e6-41dd-82ae-aedd1fa10bbb",
+      "content_sha256": "e2e12edad2a73502c96e02525a977873745f969c278fbc2b8bd9a9c3f4c072c2",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
+      "final_score": 9.03
     }
   ],
   "legacy_quality": {

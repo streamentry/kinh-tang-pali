@@ -333,6 +333,34 @@
       "content_sha256": "2180e117757c6b56fcacc7ba4729f1fce98e98bbe75687d52a109d1bc7d4a261",
       "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
       "final_score": 8.98
+    },
+    {
+      "target": "translation",
+      "scope": "full",
+      "assessed_at": "2026-10-18",
+      "assessed_by": [
+        "Claude Opus 5.5 (Claude Code)"
+      ],
+      "scores": {
+        "source_provenance": 9.2,
+        "semantic_fidelity": 8.7,
+        "grammar_logic": 8.9,
+        "segment_alignment": 9.7,
+        "terminology": 9,
+        "triangulation": 8.7,
+        "vietnamese_clarity": 8.6,
+        "han_viet_balance": 9.1,
+        "ambiguity_integrity": 8.7,
+        "technical_integrity": 9.6
+      },
+      "blocking_errors": [
+        "noEnglishEditionUpstream: tầng english-sujato không có bài ja110 tại commit đã ghim 11c9d708978cde8ba61096d8a75f7ddfb846f639 (đã kiểm source/upstream-manifest.json: có tệp Pāli root của ja110, không có tệp translation/en/sujato nào cho uid này), và SuttaCentral không phát hành bản Anh nào khác cho bài ở commit ấy. Đây là giới hạn của bản chụp upstream; waiver no-upstream-english của người biên tập áp cho đúng loại blocker này."
+      ],
+      "notes": "Đo lại technical_integrity theo §6.1 (docs/editorial-decisions-2026-10-17.md), có người kiểm độc lập chạy lại các lệnh: Lý do 9,2 cũ (lượt 300c5629, 2026-10-17): «validate (scripts) pass; quality:check fail cho bài này vì lời kinh đổi sau lượt chấm đang áp → technical 9,2»; mức trước đó 9,6 ở mọi lượt full 2026-10-14 → 2026-10-16 và legacy_quality. Người kiểm độc lập chạy lại ngày 2026-10-18 tại HEAD 5a0999f2 (cây sạch): npm run validate exit 0 (cảnh báo duy nhất của bài là thiếu bản Anh Sujato, đúng giới hạn upstream: manifest chỉ có tệp Pāli root), quality:check exit 0 (5839 lịch sử, 0 lỗi), check.py OK (JSON/YAML hợp lệ, NFC, 0 segment đổi so với origin/main), npm run check exit 0 (0 lỗi), npm test exit 0 (422 pass, 0 fail, 2 skip). CI main: lượt mới nhất d0d31a7e đang chạy; lượt xanh gần nhất 2cf14628 (CI và Deploy success, CI gồm build), lời kinh và meta của bài không đổi từ 2cf14628 đến HEAD — đây là đo lại tiêu chí 10, không sửa bản dịch. Các tiêu chí khác giữ nguyên.",
+      "id": "de5ba213-e5b9-4724-8e9d-fed4f46bb575",
+      "content_sha256": "2180e117757c6b56fcacc7ba4729f1fce98e98bbe75687d52a109d1bc7d4a261",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
+      "final_score": 9.02
     }
   ],
   "legacy_quality": {
