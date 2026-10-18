@@ -230,6 +230,34 @@
       "content_sha256": "82b0810487b0a71565280b77af993eece0d8c78b332037223c69289e25bea08c",
       "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
       "final_score": 9.000000000000002
+    },
+    {
+      "target": "translation",
+      "scope": "full",
+      "assessed_at": "2026-10-18",
+      "assessed_by": [
+        "Claude Opus 5.5 (Claude Code)"
+      ],
+      "scores": {
+        "source_provenance": 9.3,
+        "semantic_fidelity": 8.9,
+        "grammar_logic": 8.7,
+        "segment_alignment": 9.5,
+        "terminology": 9,
+        "triangulation": 8.6,
+        "vietnamese_clarity": 8.4,
+        "han_viet_balance": 9,
+        "ambiguity_integrity": 9.2,
+        "technical_integrity": 9.6
+      },
+      "blocking_errors": [
+        "noEnglishEditionUpstream: Thiếu bản dịch tiếng Anh đối chiếu"
+      ],
+      "notes": "Đo lại technical_integrity theo §6.1 (docs/editorial-decisions-2026-10-17.md), có người kiểm độc lập chạy lại các lệnh: Lý do 9,4 cũ (lượt chấm lại toàn bài 2da409b6 ngày 2026-10-18, score/pe3/pe2.md; hai lượt delta 585650ca, 2fc081b4 giữ nguyên): «validate và quality:check exit 1 vì «pe2: official quality does not match its current saved full assessment» — trạng thái chờ ghi lượt chấm do lời kinh vừa đổi 28 khoá, không phải lỗi bản dịch; test/check/build do CI, chưa chạy»; mức khi lệnh pass trước đó 9,6 (legacy_quality 2026-10-13 và năm lượt full 2026-10-15 → 2026-10-17). Người kiểm độc lập chạy lại ngày 2026-10-18 tại commit 38428d60 (cây sạch, git status trước/sau không đổi; đã gồm cổng so điểm 1e-6 của 5b4f8de0, không lệnh nào fail vì thay đổi ấy): npm run -s quality:check exit 0 (5839 lịch sử, 0 lỗi), npm run -s validate exit 0 (cảnh báo duy nhất của pe2 là thiếu bản Anh Sujato, đúng not-published-upstream: manifest chỉ có tệp Pāli root), npm test exit 0 (425 test: 424 pass, 0 fail, 1 skip), npm run check exit 0 (0 lỗi, 0 cảnh báo), npm run build exit 0 (validate trong build pass, astro build Complete, pagefind 6137 trang, có dist/sutta/kn/pe2) — đây là đo lại tiêu chí 10, không sửa bản dịch. Các tiêu chí khác giữ nguyên.",
+      "id": "38695ed0-21b4-48e7-9da4-040af2ac6c39",
+      "content_sha256": "82b0810487b0a71565280b77af993eece0d8c78b332037223c69289e25bea08c",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
+      "final_score": 9.02
     }
   ],
   "legacy_quality": {
