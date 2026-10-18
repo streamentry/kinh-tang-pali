@@ -90,4 +90,6 @@ MP3 được kiểm toàn bộ frame MPEG-2 Layer III 24 kHz/160 kbps và đối
 
 Theo quyết định của người biên tập: bỏ bước transcribe/ASR. Làm tuần tự từng bài: kiểm nguồn và profile → tạo MP3 → kiểm cấu trúc/hash → upload R2 và xác minh object → đăng ký, kiểm player → phát hành website. Không cần API key hoặc model nhận dạng để tiếp tục. Người biên tập nghe kiểm thủ công trực tiếp trên website; giữ `review_status: pending` đến khi có xác nhận nghe duyệt. Việc phát hành không chứng minh TTS đã đọc đúng toàn bài. Giữ nguyên mọi bằng chứng QC cũ, kể cả các lỗi đã ghi nhận; quyết định này không tự xóa lỗi hay biến bài bị chặn thành đã duyệt. Với các artifact trước đây bị giữ vì cờ ASR, kiểm lại nguồn/profile và cấu trúc file rồi upload/đăng ký cho người biên tập nghe trên website; giữ cờ QC như thông tin cần nghe kiểm và review pending. Lỗi nguồn/profile hoặc file hỏng vẫn chặn phát hành.
 
-Sau mỗi ba bài upload thành công, tạo/cập nhật PR, chờ CI, merge và kiểm deployment cùng player trên website live. Không đưa MP3/WAV/cache vào Git.
+## Nhịp phát hành cập nhật ngày 2026-10-18
+
+Sau mỗi năm bài upload thành công, tạo/cập nhật một PR và chờ CI của đúng head xanh trước khi merge. Sau merge có thể bắt đầu TTS bài tiếp theo ngay, không cần chờ build, CI hay Pages hậu merge. Chỉ nâng trạng thái thành `live` sau khi Pages production được triển khai và player/R2 được kiểm tra trực tiếp. Không đưa MP3/WAV/cache vào Git.
