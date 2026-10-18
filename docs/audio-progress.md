@@ -1342,3 +1342,27 @@ DN17 có một lần hết dung lượng trong `/private/tmp` khi ghi WAV tạm 
 Local gates: `npm run validate` pass (2,275 cảnh báo hiện có; 5,839 quality histories, 0 lỗi); `npm test` pass (425 passed, 2 skipped, 0 failed); `npm run check` pass (0 errors, 0 warnings, 5 hints); `npm run audio:check` pass (186 catalog texts, 0 errors); `npm run build` pass (6,204 trang, Pagefind 467,605 từ); `git diff --check` pass. Pinned source/legacy sync pass; 7,707 path thuộc các edition không xuất bản nội dung upstream và được ghi nhận là coverage, không phải sync failure.
 
 Cả năm đang `uploaded-verified`; **production Pages chưa được kiểm nên chưa ghi `live`**. Không chạy ASR và chưa nghe duyệt toàn văn thủ công; `review_status` giữ `pending` cho cả năm. Không stage MP3/WAV/cache, Playwright artifacts, `.env` hoặc secrets. PR/merge SHA và Pages readback sẽ được ghi sau khi remote verification hoàn tất.
+
+
+#### Batch audio-055 merge checkpoint — PR #783
+
+PR [#783](https://github.com/streamentry/kinh-tang-pali/pull/783), exact head `967481940d27594d0ef946b250b7a1a3cf7adb7d`, targeted base `c9f5872fbadb59ce84eae77d218561660793f1dc`, and squash-merged as `a78880d252ff45de55fcc5fcbc3e40618b19d436` at `2026-10-18T19:09:11Z`. CI run [#3243](https://github.com/streamentry/kinh-tang-pali/actions/runs/39153941483) passed all 24 steps on the exact head. Remote `main` was read back at the merge SHA. Per the release cadence, post-merge Pages/player readback was not awaited before starting the next batch; DN15–DN19 remain `merged`, not `live`, until production is verified. Human listening remains pending.
+
+
+### Batch audio-056 local release checkpoint — DN20–DN24
+
+Five sequential Dīgha narrations read summary first, then the complete canonical Vietnamese 2026 text. Total **15516.93 seconds**, **310,344,960 bytes**, 159 chunks (10 summary chunks). All use `vi-charon-mn1-v1`, Gemini `gemini-3.8-flash-tts`, Charon, profile SHA-256 `a384c5852585077c32e1348a6ada5cfc70a69c989ad705b8b5129fef3e1c9a71`.
+
+| UID | Source SHA-256 | MP3 SHA-256 | Bytes | Duration | Scripture start | Chunks | R2 | Status |
+|---|---|---|---:|---:|---:|---:|---|---|
+| DN20 | `d1f06eaf24d91bd469528cb0688f85c5469b049442843276662a3a612ce11f3a` | `c5c0a87826fb7b540e031a92e92fe46d3b5206bbea40880f4cca4a85811c1dd2` | 23,302,560 | 1165.06 s | 171.67 s | 11 (2 summary) | [R2 MP3](https://pub-8fa53f5182904685bd0c13d6c894a0e9.r2.dev/vi/dn/dn20/c5c0a87826fb7b54.mp3) | uploaded-verified |
+| DN21 | `89a221c5f2ec922202a6be95722a19cee4060d5cd292071dd107a5e8fdb4a290` | `a022a5dcc65782f2fbad6b6fd22692506f475bfcec52440cd3a4f288ae002bae` | 48,756,000 | 2437.74 s | 178.03 s | 26 (2 summary) | [R2 MP3](https://pub-8fa53f5182904685bd0c13d6c894a0e9.r2.dev/vi/dn/dn21/a022a5dcc65782f2.mp3) | uploaded-verified |
+| DN22 | `69a6238c1d199004cfa28640a360117cfb6cdf71ef1401c58b580fd0d394b9e0` | `5a67d26abd398b7ab0e01fdb7b7863fddbd9cbfe19fcdf493bfda1d3bd9650b7` | 63,028,800 | 3151.37 s | 170.71 s | 28 (2 summary) | [R2 MP3](https://pub-8fa53f5182904685bd0c13d6c894a0e9.r2.dev/vi/dn/dn22/5a67d26abd398b7a.mp3) | uploaded-verified |
+| DN23 | `0dda4aa3f1f7490b53ff17dbadf8ea50ac4ef294c7533ffae298e162b30d0e6b` | `00b04af7cfb265306ac9e7da165a7a7af1d34c0dd1cc5a3604e9b685345575c8` | 92,263,680 | 4613.12 s | 155.83 s | 49 (2 summary) | [R2 MP3](https://pub-8fa53f5182904685bd0c13d6c894a0e9.r2.dev/vi/dn/dn23/00b04af7cfb26530.mp3) | uploaded-verified |
+| DN24 | `c77ae750183d06a16c7b76e6dbf2c073b77de86d0afd2216ffcd95e865fe8a1f` | `fcd06617a219357e378ec8257d1d1faa81cda4eb5dd9fd7bc208bceb28509e8c` | 82,993,920 | 4149.64 s | 151.87 s | 45 (2 summary) | [R2 MP3](https://pub-8fa53f5182904685bd0c13d6c894a0e9.r2.dev/vi/dn/dn24/fcd06617a219357e.mp3) | uploaded-verified |
+
+Each summary-plus-scripture transcript reconstructed exactly from current source before synthesis; all chunks passed the profile limit and checkpoint checks. MP3 frame/hash/byte integrity, public R2 full-object SHA/byte verification and HTTP 206 `audio/mpeg` 1,024-byte range checks passed for each UID. Local Playwright on port 4343 verified HTTP 200, the exact R2 URL, playback advancing at 1×, pause, +15-second seek, timeline pointer/ArrowRight, paused scripture jump with the “Kinh văn” phase, auto-next default on, no console errors and no horizontal overflow at 320 px. Details are stored in each `content/audio/<uid>.json` and `content/audio/progress.json`.
+
+Local gates: `npm run validate` passed with 2,275 warnings and zero errors (5,839 quality histories); `npm test` passed (425 passed, 2 skipped); `npm run check` reported zero errors/warnings and five hints; `npm run audio:check` found 186 catalog texts and zero errors; `npm run build` passed with 6,204 pages and Pagefind indexing 6,137 pages / 467,605 words; `git diff --check` passed. Pinned source/legacy sync passed; 7,707 upstream paths are not published by their pinned editions and are recorded as coverage advisories.
+
+All five entries are `uploaded-verified`; `review_status` remains `pending`. ASR and full human content listening were not performed. The post-merge production Pages readback has not been done, so these entries are not marked `live`. MP3/WAV/cache/transcripts are not tracked. PR/merge SHA and Pages evidence for batch 056 will be appended after remote verification.
