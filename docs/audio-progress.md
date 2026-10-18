@@ -1270,3 +1270,27 @@ Local gates: `npm run validate` pass (2,275 advisory hiện có, không lỗi); 
 Đây là bằng chứng preview local và public R2; production Pages chưa được kiểm cho DN1–DN4 tại checkpoint này. Cả năm `review_status` vẫn `pending`; không chạy ASR và chưa nghe duyệt toàn văn thủ công. MP3/WAV/cache không được đưa vào Git.
 
 Cadence repository được cập nhật lên năm audio mỗi PR; CI đúng head vẫn là cổng merge. Sau merge, có thể bắt đầu TTS batch kế tiếp mà không chờ build/CI/Pages hậu merge.
+
+
+#### Batch audio-052 merge and Pages checkpoint
+
+- PR [#775](https://github.com/streamentry/kinh-tang-pali/pull/775), exact head `359457a1227e5ad3a94564f15025571c18567da3`, squash-merged as `5f69ad9cbc9515cfdc385264e18ac89e11d1e8be` at `2026-10-18T11:28:28Z`. PR CI run [#3191](https://github.com/streamentry/kinh-tang-pali/actions/runs/39121064433) passed on that head.
+- At `2026-10-18T12:15:25Z`, main CI run [#3199](https://github.com/streamentry/kinh-tang-pali/actions/runs/39123375101) and Pages run [#920](https://github.com/streamentry/kinh-tang-pali/actions/runs/39123375162) were still in progress on the merge commit. Production HTML returned HTTP 200 for MN152 and DN1–DN4 but did not contain their player or MP3 URL; MN149 still contained its previously live player. Therefore MN152 and DN1–DN4 are recorded as `merged`, not `live`; production readback remains pending deployment. Review remains pending.
+
+### Batch audio-053 local release checkpoint — DN5–DN9
+
+Five sequential Dīgha narrations were generated and uploaded: **DN5–DN9**, summary first and canonical Vietnamese 2026 text second. Total: **9807.56 seconds**, **196,156,800 bytes**, 105 chunks (10 summary chunks). Profile `vi-charon-mn1-v1`, model `gemini-3.8-flash-tts`, voice `Charon`, SHA-256 `a384c5852585077c32e1348a6ada5cfc70a69c989ad705b8b5129fef3e1c9a71`.
+
+| UID | Source SHA-256 | MP3 SHA-256 | Bytes | Duration | Scripture start | Chunks | R2 | Status |
+|---|---|---|---:|---:|---:|---:|---|---|
+| DN5 | `297e4b32f236352a18f7ea6de5e46456f8c16a5f9753ccbabc7a91e3f0eeeaa8` | `f0d9cb5e6b8f792cc75fec2d1cee290194b75462951a820c722ae6a902e37432` | 62,945,760 | 3147.24 s | 162.79 s | 33 (2 summary) | [R2 MP3](https://pub-8fa53f5182904685bd0c13d6c894a0e9.r2.dev/vi/dn/dn5/f0d9cb5e6b8f792c.mp3) | uploaded-verified |
+| DN6 | `bade74da64103af6dd3f981880e26734d3ef3bf6d32bc232f1f91aaaf256420c` | `945fe8867c9f290e5e7a3294f4729fab28d8184fe7facd3eca291dd775829be9` | 22,984,800 | 1149.17 s | 162.07 s | 14 (2 summary) | [R2 MP3](https://pub-8fa53f5182904685bd0c13d6c894a0e9.r2.dev/vi/dn/dn6/945fe8867c9f290e.mp3) | uploaded-verified |
+| DN7 | `a802e7312fc1c1bc797edb8c4873211337a060d057369e15a2f47640a0518d2a` | `0abf64c4975fcfd4a55e020a32449090f20a6ca92c14d26c0eeaa146d63c3284` | 7,665,120 | 383.19 s | 122.23 s | 5 (2 summary) | [R2 MP3](https://pub-8fa53f5182904685bd0c13d6c894a0e9.r2.dev/vi/dn/dn7/0abf64c4975fcfd4.mp3) | uploaded-verified |
+| DN8 | `65122f8e307f51e1c516556fc425f9ca4598a4f8b01c21c08eefbe6600e3e123` | `c5ef90b95daf5f51df303cba1a42e40c38a86471e07db0a77642a35752193b78` | 40,916,160 | 2045.76 s | 161.03 s | 21 (2 summary) | [R2 MP3](https://pub-8fa53f5182904685bd0c13d6c894a0e9.r2.dev/vi/dn/dn8/c5ef90b95daf5f51.mp3) | uploaded-verified |
+| DN9 | `af93aaec415e096a995781ffbcf41564c98d88ee1b678f7d1c85c39fed0f13ea` | `67b2d711e225b8b1f7d85ae31956c3fb7276f55ee6a0fcf25e4a2772aba34a60` | 61,644,960 | 3082.20 s | 154.03 s | 32 (2 summary) | [R2 MP3](https://pub-8fa53f5182904685bd0c13d6c894a0e9.r2.dev/vi/dn/dn9/67b2d711e225b8b1.mp3) | uploaded-verified |
+
+For each UID, the source/profile and chunk checkpoints matched; MP3 frame/hash/byte checks passed; the public R2 full object and HTTP 206 range readbacks matched. Local Chrome verified the exact player URL, 1× playback/pause, auto-next default, scripture jump, +15-second seek, timeline and keyboard seek, no JavaScript errors, and no horizontal overflow at 320 px. `audio:check` found 186 catalog entries and zero errors.
+
+Local gates: `npm run validate` passed with 2,275 existing advisories and no errors; `npm test` passed (423 passed, one skipped); `npm run check` passed (zero errors/warnings, five hints); `npm run build` passed (6,204 pages; Pagefind indexed 6,137 pages / 467,607 words); `git diff --check` passed.
+
+All five remain `review_status: pending`; full human content listening was not done and ASR was skipped by editor instruction. DN5–DN9 are local-preview verified, not production-live verified at this checkpoint. MP3/WAV/cache/transcript files are not committed.
