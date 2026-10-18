@@ -1227,3 +1227,25 @@ Three sequential current-source UIDs were narrated with the project summary firs
 | MN151 | `095e6128333f6572906a05306e2bac71cb3fc51ccda17fdb5dd1711d03520a11` | `d1bb570ecfaf36776069559bbbc8a59ffa8373ef5b4436bd029bfa72940178dd` | 17,486,400 | 874.27 s | 118.31 s | 10 (2 summary) | [R2 MP3](https://pub-8fa53f5182904685bd0c13d6c894a0e9.r2.dev/vi/mn/mn151/d1bb570ecfaf3677.mp3) |
 
 Local gates on this batch: `design:check` passed (6,137 unique WebP covers verified); `validate` passed (2,272 existing advisories; 5,836 quality histories, zero errors); `test` passed (423 passed, one skipped); `check` passed (zero errors/warnings, five hints); `build` passed (6,204 pages; Pagefind indexed 6,137 pages / 467,616 words); `seo:check` passed (6,203 indexable pages); `audio:check` passed (186 catalog entries, zero errors). Batch 050 live evidence is recorded above. PR/merge/Pages evidence for batch 051 will be appended after remote verification.
+
+
+#### Batch mn-051 merge and production readback
+
+- PR [#766](https://github.com/streamentry/kinh-tang-pali/pull/766), exact head 6bb2e10fda1eb00ec7639536395a7a1f9896867d, squash-merged as 9a84665d31985fb74d2eb2b04bc10c7c65768364 at 2026-10-17T01:26:55Z. The current main branch is descendant 359f7ddeff0fe8dc87a98dadcfbda37643f43cba; main CI run [#39101935011](https://github.com/streamentry/kinh-tang-pali/actions/runs/39101935011) and Pages run [#39101935019](https://github.com/streamentry/kinh-tang-pali/actions/runs/39101935019) succeeded on that deployment commit.
+- At 2026-10-18T07:39:24.307Z, production Chrome checks passed for MN149–MN151: each page returned HTTP 200 with one player and the exact current R2 URL; playback advanced at 1×, +15-second seek, paused scripture jump, and keyboard timeline passed with no media errors. Public R2 ranges returned HTTP 206 audio/mpeg, 1,024 bytes, with totals matching metadata.
+- All three registry states are live. Auto-next default is enabled. Review status remains pending; ASR and full human content listening were not performed.
+
+
+### Batch mn-052 local release checkpoint — MN152 (final Majjhima item)
+
+The catalog contains 152 Majjhima Nikāya UIDs; MN152 is the final item, and MN153 is not in the catalog. This one-UID checkpoint closes MN at the collection boundary. MN153 was not sent to Gemini.
+
+MN152 reads the project summary first and canonical Vietnamese 2026 prose second. Audio duration is 1,125.58 seconds / 22,512,960 bytes in 11 chunks (2 summary chunks), using pinned profile vi-charon-mn1-v1 (SHA-256 a384c5852585077c32e1348a6ada5cfc70a69c989ad705b8b5129fef3e1c9a71). Source/profile hash, WAV checkpoints, MP3 frames/hash/bytes, public R2 full/range readback and local Chrome player checks passed. Status is uploaded-verified; review_status remains pending. ASR and full human content listening were not performed.
+
+| UID | Source SHA-256 | MP3 SHA-256 | Bytes | Duration | Scripture start | Chunks | Audio |
+|---|---|---|---:|---:|---:|---:|---|
+| MN152 | bc9c6011353409a44b0a03c81327b7772ade5dfda1924edada9d756217d6755d | eb75ff569a7f954a73e012ac465f29af0812ad5aa3e10e6dd740b3c3e5c5eb81 | 22,512,960 | 1125.58 s | 136.63 s | 11 (2 summary) | [R2 MP3](https://pub-8fa53f5182904685bd0c13d6c894a0e9.r2.dev/vi/mn/mn152/eb75ff569a7f954a.mp3) |
+
+The next collection begins with DN1.
+
+Local gates for batch mn-052 passed: design:check verified 6,137 unique WebP covers; validate passed with 2,275 existing advisories and 5,839 quality histories without errors; npm test passed (423 passed, one skipped); npm run check reported zero errors/warnings and five hints; build generated 6,204 pages; Pagefind indexed 6,137 pages / 467,607 words; seo:check verified 6,203 indexable pages; audio:check found 186 catalog texts and zero errors. Local Chrome verified MN152 at 1×, +15-second seek, scripture jump and keyboard timeline; public R2 Range returned HTTP 206 audio/mpeg with 1,024 bytes matching metadata. Full human content listening remains pending.
