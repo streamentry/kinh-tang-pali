@@ -180,3 +180,52 @@ của Bhikkhu Indacanda (Pāli BJT có cước chú dị bản Ma, Syā, PTS, k�
   cách đọc một chữ, không chép lời dịch.
 - Cách đọc BJT không đọc ra được, hoặc BJT trùng chữ ghim, thì locus giữ nguyên trong blocker.
 - Các quy tắc khác của §5.5 giữ nguyên: bài chỉ được chấm lại toàn bài khi mọi locus đã gỡ.
+
+## 6. Quyết định bổ sung (uỷ quyền lần ba, 2026-10-18)
+
+Người biên tập uỷ quyền quyết định để hoàn tất các bài còn dưới ngưỡng: `mnd14` (8,99), `ja110`
+(8,98) ở `review`; `pe1`–`pe6`, `pe8`, `pe9` ở `draft`. Mọi quyết định dưới đây giữ nguyên ngưỡng
+`> 9,0`, giữ luật «blocker thắng điểm», và không cho cộng điểm khi không có bằng chứng.
+
+### 6.1 `technical_integrity` phải phản ánh kết quả máy hiện tại
+
+Rubric (§2 của `docs/quality-assessments.md`) đòi tiêu chí 10 phản ánh **kết quả máy thực tế**.
+Hai lượt chấm của `mnd14` và `ja110` hạ tiêu chí này xuống 9,2 và ghi rõ lý do là một lệnh bắt buộc
+fail **tạm thời**: `quality:check` báo «official quality does not match its current saved full
+assessment» vì lời kinh vừa đổi mà lượt chấm chưa được ghi (tự hết khi ghi lượt chấm). Lỗi ấy nay
+không còn: `quality:check`, `validate`, `test`, `check`, `build` xanh trên `main`.
+
+Quyết định: khi lý do hạ `technical_integrity` được ghi rõ là một lệnh fail tạm thời và lệnh ấy nay
+pass cho đúng nội dung bài, một **người kiểm độc lập tự chạy lại các lệnh** rồi chấm lại tiêu chí
+này; mức không vượt mức chính bài ấy từng được khi các lệnh pass (cả hai bài: 9,6, đúng mức chung
+của 1.799 bài KN đã published). Không áp cho lý do khác. Đây là đo lại, không phải sửa bản dịch;
+báo cáo phải nói thẳng như vậy.
+
+### 6.2 Locus Pāli hỏng không gỡ được: phán xử «bất định có chú thích»
+
+Khi một locus đã được thử hết mọi nguồn có tên — chữ ghim (DPD, ngữ pháp), câu song song trong Pāli
+ghim (tiền lệ E), lớp variant (§5.1), bản in BJT và TTPV (§5.6) — mà vẫn không gỡ được, người biên
+tập phán xử locus đó là **bất định có chú thích**:
+
+- bản dịch giữ cách đọc sát chữ ghim nhất (chữ bổ để trong `[ ]`), không đoán thêm ý;
+- chú thích tại khoá nêu chữ ghim, cách đọc BJT/dị bản nếu có, vì sao không gỡ được, và các cách
+  hiểu khả dĩ (Ñāṇamoli chỉ được dẫn tên cách đọc);
+- locus đã phán như vậy **không còn là blocker «chưa phân xử»**, theo nguyên tắc 3 của hội đồng, tiền
+  lệ E và cách xử `tha-ap114:8.2` ở §5.4;
+- chỗ hỏng vẫn phải được tính vào `semantic_fidelity`, `vietnamese_clarity` và
+  `ambiguity_integrity` ở lượt chấm lại toàn bài.
+
+### 6.3 Peṭakopadesa lượt ba: đối chiếu bản dịch độc lập Indacanda
+
+§5.3 nêu điều kiện để nâng các bài pe: một lượt dịch lại có đối chiếu một bản dịch độc lập. Bản dịch
+Việt của Bhikkhu Indacanda (TTPV tập 44, đã được §5.6 nhận là bản dịch có tên) đáp ứng điều kiện
+ấy. Quyết định:
+
+- mỗi bài pe được đối chiếu **toàn bài, ở mức đoạn**, với bản Indacanda; mọi chỗ khác nghĩa được
+  phân xử bằng Pāli ghim (và BJT ở những locus §5.6 đã dùng); chỉ sửa lỗi thật và câu tối nghĩa, không
+  chép lời Indacanda;
+- mỗi sửa có người kiểm độc lập;
+- sau khi mọi locus đã gỡ hoặc đã phán theo §6.2, bài được **chấm lại toàn bài** theo giao thức §5.5
+  (người chấm mới, chống neo điểm); `triangulation` phản ánh việc đã đối chiếu một bản dịch độc lập
+  toàn bài;
+- trạng thái theo cổng; không đặt trước kết quả. Bài vẫn `≤ 9,0` sau lượt này thì báo cáo thẳng.
