@@ -1294,3 +1294,31 @@ For each UID, the source/profile and chunk checkpoints matched; MP3 frame/hash/b
 Local gates: `npm run validate` passed with 2,275 existing advisories and no errors; `npm test` passed (423 passed, one skipped); `npm run check` passed (zero errors/warnings, five hints); `npm run build` passed (6,204 pages; Pagefind indexed 6,137 pages / 467,607 words); `git diff --check` passed.
 
 All five remain `review_status: pending`; full human content listening was not done and ASR was skipped by editor instruction. DN5–DN9 are local-preview verified, not production-live verified at this checkpoint. MP3/WAV/cache/transcript files are not committed.
+
+
+#### Batch audio-052 and audio-053 production-live verification
+
+PR [#775](https://github.com/streamentry/kinh-tang-pali/pull/775) merged as `5f69ad9cbc9515cfdc385264e18ac89e11d1e8be`; its Pages run [#920](https://github.com/streamentry/kinh-tang-pali/actions/runs/39123375162) succeeded. PR [#777](https://github.com/streamentry/kinh-tang-pali/pull/777) merged as `c0b607e0db693162a1e46787f44acad76a724f3c`; its Pages run [#921](https://github.com/streamentry/kinh-tang-pali/actions/runs/39128795128) succeeded. The latest completed Pages run at verification time was [#923](https://github.com/streamentry/kinh-tang-pali/actions/runs/39130268142), on commit `3f0e976f4209485154586d272585d59896b79e63`.
+
+At `2026-10-18T14:34:17.048Z`, production Chrome passed for MN152 and DN1–DN9: all pages returned HTTP 200 with the exact current R2 URL; playback advanced at 1×, paused successfully, auto-next defaulted on, scripture jump and +15-second jump worked, timeline and keyboard seek passed, and 320 px viewports had no horizontal overflow. Public R2 returned HTTP 206 `audio/mpeg`, 1,024 bytes, with totals matching metadata. No page errors occurred.
+
+All ten registry entries are now `live`; `review_status` remains `pending`. Production player/readback is verified, but full human content listening was not performed and ASR was skipped by editor instruction. Pages run #924 for a later main commit was still in progress; this does not change the verified state of these audio URLs.
+
+
+### Batch audio-054 local release checkpoint — DN10–DN14
+
+Five sequential Dīgha narrations: **DN10–DN14**, summary first and canonical Vietnamese 2026 text second. Total **13831.45 seconds**, **276,634,560 bytes**, 148 chunks (10 summary chunks). Profile `vi-charon-mn1-v1`, model `gemini-3.8-flash-tts`, voice `Charon`, SHA-256 `a384c5852585077c32e1348a6ada5cfc70a69c989ad705b8b5129fef3e1c9a71`.
+
+| UID | Source SHA-256 | MP3 SHA-256 | Bytes | Duration | Scripture start | Chunks | R2 | Status |
+|---|---|---|---:|---:|---:|---:|---|---|
+| DN10 | `eb1fa3a4e71c916a9b51b392d1949bda76e7d85332a584d1945484aabfe63eba` | `8eae67de6d9f666a4d8e89b01b26825b5c420f0111e68f432baf7996e85340d9` | 49,551,360 | 2477.52 s | 163.15 s | 25 (2 summary) | [R2 MP3](https://pub-8fa53f5182904685bd0c13d6c894a0e9.r2.dev/vi/dn/dn10/8eae67de6d9f666a.mp3) | uploaded-verified |
+| DN11 | `d64007ef42896f491c27d4c6b9c64250b442fb0c1d01db962f1192ad4555acc7` | `f3bcbce60027ae7e9139d17b5b55f0f2821266e3fcd397c40e0746e0d510dbf2` | 28,415,040 | 1420.70 s | 160.03 s | 15 (2 summary) | [R2 MP3](https://pub-8fa53f5182904685bd0c13d6c894a0e9.r2.dev/vi/dn/dn11/f3bcbce60027ae7e.mp3) | uploaded-verified |
+| DN12 | `d30d765a8a45e9fb043c7e11b327d6c698c918b6431cea1c87894985abac28b2` | `58a1ba865be09ccd0c0a88b22e68a119149958f945f9c0a865e3dadae36b6ec8` | 25,480,800 | 1273.98 s | 145.19 s | 16 (2 summary) | [R2 MP3](https://pub-8fa53f5182904685bd0c13d6c894a0e9.r2.dev/vi/dn/dn12/58a1ba865be09ccd.mp3) | uploaded-verified |
+| DN13 | `ebdaf95dfe53e7efd305217bc34995bbbffea94f75f4d2f7e394958ccc434ac8` | `2aa6e388d3006b0f8903404490ee30eaa72b392f6ecfb75cff5771dd8310edeb` | 39,382,560 | 1969.07 s | 160.51 s | 22 (2 summary) | [R2 MP3](https://pub-8fa53f5182904685bd0c13d6c894a0e9.r2.dev/vi/dn/dn13/2aa6e388d3006b0f.mp3) | uploaded-verified |
+| DN14 | `0db81baa2c58127d6ea489a8dc5fba038dccec79cf1bbeb2c79c16de73244bf5` | `c6540fc377373b07df5fa471fef2829e64532f8108d208067639d9c6faa630c3` | 133,804,800 | 6690.18 s | 170.31 s | 70 (2 summary) | [R2 MP3](https://pub-8fa53f5182904685bd0c13d6c894a0e9.r2.dev/vi/dn/dn14/c6540fc377373b07.mp3) | uploaded-verified |
+
+Each source/profile fingerprint, chunk checkpoint, MP3 frame/hash/byte check and public R2 full/range readback passed. Local Chrome verified each player with the exact R2 URL, 1× playback/pause, auto-next default, scripture jump, +15-second seek, timeline/keyboard seek, no JavaScript errors, and no horizontal overflow at 320 px. `audio:check` reported 186 catalog entries and zero errors.
+
+Local gates: `validate` passed in the build with 2,275 existing advisories and no errors; `npm test` passed (423 passed, one skipped); `npm run check` passed (zero errors/warnings, five hints); `npm run build` passed (6,204 pages; Pagefind indexed 6,137 pages / 467,607 words); `git diff --check` passed.
+
+All five are `uploaded-verified`; human content listening remains pending and ASR was skipped by editor instruction. Production verification for this batch awaits its PR merge and Pages deploy. MP3/WAV/cache/transcript files are not committed.
