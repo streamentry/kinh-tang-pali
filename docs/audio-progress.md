@@ -1366,3 +1366,8 @@ Each summary-plus-scripture transcript reconstructed exactly from current source
 Local gates: `npm run validate` passed with 2,275 warnings and zero errors (5,839 quality histories); `npm test` passed (425 passed, 2 skipped); `npm run check` reported zero errors/warnings and five hints; `npm run audio:check` found 186 catalog texts and zero errors; `npm run build` passed with 6,204 pages and Pagefind indexing 6,137 pages / 467,605 words; `git diff --check` passed. Pinned source/legacy sync passed; 7,707 upstream paths are not published by their pinned editions and are recorded as coverage advisories.
 
 All five entries are `uploaded-verified`; `review_status` remains `pending`. ASR and full human content listening were not performed. The post-merge production Pages readback has not been done, so these entries are not marked `live`. MP3/WAV/cache/transcripts are not tracked. PR/merge SHA and Pages evidence for batch 056 will be appended after remote verification.
+
+
+#### Batch audio-056 merge checkpoint — PR #784
+
+PR [#784](https://github.com/streamentry/kinh-tang-pali/pull/784), exact head `49ddb704f5c6eda78dfefef145447bb7ae410cb5`, targeted base `a78880d252ff45de55fcc5fcbc3e40618b19d436`, and squash-merged as `1058a93c4302dd4bb346b0b5162f90132f144660` at `2026-10-18T22:04:06Z`. CI run [#3246](https://github.com/streamentry/kinh-tang-pali/actions/runs/39167141844) passed all 24 steps on the exact head. Remote `main` was read back at the merge SHA. Post-merge Pages/player readback was not awaited before starting DN25; DN20–DN24 remain `merged`, not `live`, until production is verified. Full human listening remains pending.
