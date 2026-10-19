@@ -1460,3 +1460,32 @@ MN30 had lost merge provenance in its registry metadata. Git history verifies th
 Local gates passed: `npm run validate` (2,275 advisories, zero errors), quality history (5,839 checked, zero errors), explanations (186/186 complete, zero errors), `npm test` (448 passed, 2 skipped, zero failed), `npm run check` (zero errors/warnings, five hints), and `npm run audio:check` (186 catalog UIDs, zero errors). `npm run build` synced 10,093 pinned manifest paths (135 downloaded) and the 4,815-file legacy snapshot, built 6,204 pages, and Pagefind indexed 6,137 pages / 467,605 words. `git diff --check` passed. MP3/WAV/cache files are not tracked.
 
 The PR/merge checkpoint for this batch will be recorded in the next append-only batch section after exact-head CI, merge readback, and Pages deployment evidence are known.
+
+
+#### Batch audio-059 merge/deploy checkpoint — PR #790
+
+PR [#790](https://github.com/streamentry/kinh-tang-pali/pull/790), exact head `83353b2173cb7b740a8b5d9c7e92eb31c98a8061`, base `462e6741ecc4130fd7bb9ed87b0f5f1fc7a87228`, was merged externally as `f09b31a414895d52573911f7caf0472a2d5ae8ea` at `2026-10-19T14:58:58Z`. At checkpoint `2026-10-19T15:10:38.207426+00:00`, exact-head CI run [#39271619136](https://github.com/streamentry/kinh-tang-pali/actions/runs/39271619136) was still `in_progress`; the merge commit CI [#39273866142](https://github.com/streamentry/kinh-tang-pali/actions/runs/39273866142) and Pages deployment [#39273866344](https://github.com/streamentry/kinh-tang-pali/actions/runs/39273866344) were also in progress. No green result is claimed. Remote `main` was read back at the merge commit.
+
+### Batch audio-060 local release checkpoint — DN10–DN14
+
+This five-UID batch promotes existing R2 audio whose progress entries were `uploaded-verified`. Each current canonical source and approved profile hash matches its metadata. No new Gemini request was made and no audio binary was changed. The original publication provenance was restored from Git history: all five were merged in PR [#781](https://github.com/streamentry/kinh-tang-pali/pull/781), commit `276624b12f3ea19a9dacde81c1ce910979c8e6c6`.
+
+Profile `vi-charon-mn1-v1`, Gemini `gemini-3.8-flash-tts`, voice Charon, SHA-256 `a384c5852585077c32e1348a6ada5cfc70a69c989ad705b8b5129fef3e1c9a71`. Total **13831.45 seconds**, **276,634,560 bytes**, 148 chunks (10 summary chunks).
+
+| UID | Source SHA-256 | MP3 SHA-256 | Bytes | Duration | Scripture start | Chunks | R2 | Status |
+|---|---|---|---:|---:|---:|---:|---|---|
+| DN10 | `eb1fa3a4e71c916a9b51b392d1949bda76e7d85332a584d1945484aabfe63eba` | `8eae67de6d9f666a4d8e89b01b26825b5c420f0111e68f432baf7996e85340d9` | 49,551,360 | 2477.52 s | 163.15 s | 25 (2 summary) | [R2 MP3](https://pub-8fa53f5182904685bd0c13d6c894a0e9.r2.dev/vi/dn/dn10/8eae67de6d9f666a.mp3) | live |
+| DN11 | `d64007ef42896f491c27d4c6b9c64250b442fb0c1d01db962f1192ad4555acc7` | `f3bcbce60027ae7e9139d17b5b55f0f2821266e3fcd397c40e0746e0d510dbf2` | 28,415,040 | 1420.70 s | 160.03 s | 15 (2 summary) | [R2 MP3](https://pub-8fa53f5182904685bd0c13d6c894a0e9.r2.dev/vi/dn/dn11/f3bcbce60027ae7e.mp3) | live |
+| DN12 | `d30d765a8a45e9fb043c7e11b327d6c698c918b6431cea1c87894985abac28b2` | `58a1ba865be09ccd0c0a88b22e68a119149958f945f9c0a865e3dadae36b6ec8` | 25,480,800 | 1273.98 s | 145.19 s | 16 (2 summary) | [R2 MP3](https://pub-8fa53f5182904685bd0c13d6c894a0e9.r2.dev/vi/dn/dn12/58a1ba865be09ccd.mp3) | live |
+| DN13 | `ebdaf95dfe53e7efd305217bc34995bbbffea94f75f4d2f7e394958ccc434ac8` | `2aa6e388d3006b0f8903404490ee30eaa72b392f6ecfb75cff5771dd8310edeb` | 39,382,560 | 1969.07 s | 160.51 s | 22 (2 summary) | [R2 MP3](https://pub-8fa53f5182904685bd0c13d6c894a0e9.r2.dev/vi/dn/dn13/2aa6e388d3006b0f.mp3) | live |
+| DN14 | `0db81baa2c58127d6ea489a8dc5fba038dccec79cf1bbeb2c79c16de73244bf5` | `c6540fc377373b07df5fa471fef2829e64532f8108d208067639d9c6faa630c3` | 133,804,800 | 6690.18 s | 170.31 s | 70 (2 summary) | [R2 MP3](https://pub-8fa53f5182904685bd0c13d6c894a0e9.r2.dev/vi/dn/dn14/c6540fc377373b07.mp3) | live |
+
+For each object, current source/profile hashes matched, the public R2 GET returned HTTP 200 `audio/mpeg` with exact bytes and SHA-256, and the 1,024-byte range request returned HTTP 206 matching the object. Each production page returned HTTP 200 with the exact MP3 URL. Isolated Chrome at 320 px confirmed player visibility, readyState 4, no media error, playback advancing, exact URL and duration, scripture jump, +15-second seek, auto-next default on, pause, no JavaScript errors and no horizontal overflow.
+
+The pages were served by the latest successful Pages deployment [#39255245849](https://github.com/streamentry/kinh-tang-pali/actions/runs/39255245849), commit `321e16772d70e0e7dda2cf44a892a73fb954f741`. The five audio payloads and shared player code are unchanged between that deployed commit and current `main` at the time of verification. Pages/CI for merge commit `f09b31a` remain in progress and will be recorded in a later checkpoint.
+
+All five remain `review_status: pending`; this batch claims technical playback only, not full human listening or content approval. ASR was skipped per editor instruction.
+
+Local gates passed: source manifest sync (10,093 pinned paths, zero additional downloads) and legacy sync (4,815 files); `npm run validate` (2,275 advisories, zero errors), quality history (5,839, zero errors), explanations (186/186 complete, zero errors), `npm test` (448 passed, 2 skipped), `npm run check` (zero errors/warnings, five hints), `npm run audio:check` (186 catalog UIDs, zero errors), and `npm run build` (6,204 pages; Pagefind 6,137 pages / 467,605 words). `git diff --check` passed. No MP3, WAV, cache or secrets are committed.
+
+The PR/merge checkpoint for this batch will be appended in the next batch log after exact-head CI, merge readback and deployment status are known.
