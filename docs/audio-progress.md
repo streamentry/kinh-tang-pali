@@ -1531,3 +1531,22 @@ Total runtime **15,516.93 seconds**; total R2 size **310,344,960 bytes**.
 | DN24 | `c77ae750183d06a16c7b76e6dbf2c073b77de86d0afd2216ffcd95e865fe8a1f` | `fcd06617a219357e378ec8257d1d1faa81cda4eb5dd9fd7bc208bceb28509e8c` | 82,993,920 | 4149.64 s | 151.87 s | [MP3](https://pub-8fa53f5182904685bd0c13d6c894a0e9.r2.dev/vi/dn/dn24/fcd06617a219357e.mp3) | live |
 
 All five original audio artifacts were published in [PR #784](https://github.com/streamentry/kinh-tang-pali/pull/784), merge commit `1058a93c4302dd4bb346b0b5162f90132f144660`. Metadata and the progress registry preserve this provenance and distinguish production availability from human content review. No MP3/WAV/cache/transcript files or secrets are committed.
+
+
+### Batch audio-063 production release checkpoint — DN25–DN29
+
+This five-UID batch promotes existing audio to `live`; no TTS request ran and no MP3 changed. Current summary + canonical Vietnamese 2026 source hashes match the metadata, all five pass the source gate, and all use the approved `vi-charon-mn1-v1` profile SHA-256 `a384c5852585077c32e1348a6ada5cfc70a69c989ad705b8b5129fef3e1c9a71`. All remain `review_status: pending`; ASR and full human content listening were not performed.
+
+Each public R2 object was streamed and matched its full SHA-256 and byte count, then passed an HTTP 206 `audio/mpeg` 1,024-byte range read. Each production page returned HTTP 200 with the shared player, exact R2 URL and pending-review label. The latest completed Pages deployment at verification was [#39426080947](https://github.com/streamentry/kinh-tang-pali/actions/runs/39426080947), commit `a3333f09e729eea9f8f057db1ff237f27f04cb3c`; the newer Pages workflow for `be7d8d1` was still running. These five pages were read back directly from production. Each UID retains prior local interactive playback, chapter-jump and seek evidence in its metadata. The shared production player was smoke-tested on DN15 in the preceding batch.
+
+Total runtime **13,669.31 seconds**; total R2 size **273,392,160 bytes**.
+
+| UID | Source SHA-256 | MP3 SHA-256 | Bytes | Duration | Scripture start | R2 | Status |
+|---|---|---|---:|---:|---:|---|---|
+| DN25 | `c656a8f314231b82980c068f90ef9363eadfadbc36d3975bc0b3d4654a61ee04` | `c7c0b2b36c09b4ceecf74de79aafbad43794bf5db486a91c4130c464a22df12b` | 58,212,480 | 2910.57 s | 170.23 s | [MP3](https://pub-8fa53f5182904685bd0c13d6c894a0e9.r2.dev/vi/dn/dn25/c7c0b2b36c09b4ce.mp3) | live |
+| DN26 | `cdd4cbf564cb99cd39b0388617206db4a07e4806c1972eb262002b441369655b` | `384746459a8b2ee18200efe6f9f2d464a6df2dbc5a04a5eeff64e0992408d7e0` | 55,288,800 | 2764.37 s | 159.95 s | [MP3](https://pub-8fa53f5182904685bd0c13d6c894a0e9.r2.dev/vi/dn/dn26/384746459a8b2ee1.mp3) | live |
+| DN27 | `360fea23e91a6fe413d7bcfb664cf30c1dfc7db7cd36547984b4e01d6f0420bc` | `a83dde04dba645d9b1a1d64fa95670a26f89434e3dffb8e85df0936a383dc38d` | 46,722,240 | 2336.05 s | 162.43 s | [MP3](https://pub-8fa53f5182904685bd0c13d6c894a0e9.r2.dev/vi/dn/dn27/a83dde04dba645d9.mp3) | live |
+| DN28 | `0a003ba1dc732c8231a1cfc951749f8e2b427fe3be993aaca54981b62042818c` | `4cdf4165b63065d2c2f8c30f6a6fa29e74cdd67bfb0f7ea787e2e228b8b1d7bf` | 48,420,480 | 2420.97 s | 161.66 s | [MP3](https://pub-8fa53f5182904685bd0c13d6c894a0e9.r2.dev/vi/dn/dn28/4cdf4165b63065d2.mp3) | live |
+| DN29 | `e0f573ce21cf361ee18b12d3300ca10383b70505a2cda4208d524aac1da32237` | `0619a3d91caf5a9822b9c327b4dc7596756b1dbcb6e4823c215193c80bd23aca` | 64,748,160 | 3237.35 s | 154.43 s | [MP3](https://pub-8fa53f5182904685bd0c13d6c894a0e9.r2.dev/vi/dn/dn29/0619a3d91caf5a98.mp3) | live |
+
+All five original audio artifacts were published in [PR #785](https://github.com/streamentry/kinh-tang-pali/pull/785), merge commit `3e772650bd7ccc2a0e254ff6d0023d544bcbd822`. Metadata and the progress registry preserve this provenance and distinguish production availability from human content review. No MP3/WAV/cache/transcript files or secrets are committed.
