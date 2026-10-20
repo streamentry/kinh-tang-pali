@@ -1571,3 +1571,45 @@ Total runtime **20,026.96 seconds**; total R2 size **400,545,120 bytes**.
 | DN34 | `288b0e2be3e893843b42cded29ee8b4674ffe6b7425d5ddda169f712675d8f8b` | `0c53e03ee8736e31b2ccd82e14aa2203e26b58fa0bdf1e3875f8dc9377081ae0` | 102,679,680 | 5133.92 s | 165.75 s | [MP3](https://pub-8fa53f5182904685bd0c13d6c894a0e9.r2.dev/vi/dn/dn34/0c53e03ee8736e31.mp3) | live |
 
 All five original audio artifacts were published in [PR #789](https://github.com/streamentry/kinh-tang-pali/pull/789), merge commit `462e6741ecc4130fd7bb9ed87b0f5f1fc7a87228`. Metadata and progress retain original provenance and separate technical release from human content approval. No MP3/WAV/cache/transcript files or secrets are committed.
+
+
+### Batch audio-065 production release checkpoint — MN34–MN38
+
+This five-UID batch promotes existing audio to `live`; no TTS request ran and no MP3 changed. Current canonical summary + Vietnamese 2026 source hashes match metadata, all five pass the source gate, and all use approved `vi-charon-mn1-v1`, profile SHA-256 `a384c5852585077c32e1348a6ada5cfc70a69c989ad705b8b5129fef3e1c9a71`. All remain `review_status: pending`; no ASR or full human content listening was performed.
+
+Each public R2 object was streamed and matched its full SHA-256 and byte count, then passed HTTP 206 `audio/mpeg` range verification (1,024 bytes). Each production page returned HTTP 200 with the player, exact R2 URL and pending-review label. The latest completed Pages deployment at verification was [#39449870574](https://github.com/streamentry/kinh-tang-pali/actions/runs/39449870574), commit `9f50a58d5eda54b2ce7343a732255bdc4edc9622`; the newer deployment for `d11af7f` was still running. The pages were read back directly.
+
+MN34 received a real-browser production smoke: playback advanced, scripture jump and +15-second seek worked, with no page/media errors. The auto-next toggle appeared unchecked in that browser context; the tool did not establish whether this was a saved preference. The fresh-storage default-on behavior is confirmed by the local navigation unit test; no preference was changed. MN35–MN38 retain their historical per-UID playback evidence in metadata. No test approved spoken content.
+
+Total runtime **8,182.44 seconds**; total R2 size **163,654,560 bytes**.
+
+| UID | Source SHA-256 | MP3 SHA-256 | Bytes | Duration | Scripture start | R2 | Status |
+|---|---|---|---:|---:|---:|---|---|
+| MN34 | `403c9191056276fac197e43d6f04787d7b6767f70eba7c71dfecfb375e2cfe57` | `02ead8ad9788f6839fb24e59a5e2794eee80cb5b9676a1918547005e006fbc62` | 10,798,560 | 539.87 s | 152.79 s | [MP3](https://pub-8fa53f5182904685bd0c13d6c894a0e9.r2.dev/vi/mn/mn34/02ead8ad9788f683.mp3) | live |
+| MN35 | `d827ae64c83c0513d3ef01519e6063002b5bd718bf68d1f4ff813868060f6bec` | `9f4acace62b89f0bfe8310adf685fc0dd5e31c821efd4738c7cb920265c4f159` | 32,482,560 | 1624.08 s | 174.79 s | [MP3](https://pub-8fa53f5182904685bd0c13d6c894a0e9.r2.dev/vi/mn/mn35/9f4acace62b89f0b.mp3) | live |
+| MN36 | `5c42f13fb2b9c0f925ae7d1d5ae1061b1c0d04eb2b88fffc07802eaee23d39b7` | `a480e27eb3bb1011641540ec1136bf2c0e0cad38d8b85b41bab2de12b201c696` | 52,716,960 | 2635.79 s | 159.91 s | [MP3](https://pub-8fa53f5182904685bd0c13d6c894a0e9.r2.dev/vi/mn/mn36/a480e27eb3bb1011.mp3) | live |
+| MN37 | `082b938856efe55f7bd50ea36a3b9bc47ac7a6772a98bd0dfffd6abf0d67ec4b` | `56143a9d9b41fe0f8f71e67fb1f6c20bcc812b0d48d69a3b0a4ea6ab767721ce` | 16,758,720 | 837.87 s | 150.95 s | [MP3](https://pub-8fa53f5182904685bd0c13d6c894a0e9.r2.dev/vi/mn/mn37/56143a9d9b41fe0f.mp3) | live |
+| MN38 | `e517b30743b537d6e8affcfdc957e942476c3798e3335bb9461b10c3da422120` | `772d3dd7491edab5cf061dec6ff8fc10c811c22a127edb7bb1af529ea8108630` | 50,897,760 | 2544.83 s | 157.47 s | [MP3](https://pub-8fa53f5182904685bd0c13d6c894a0e9.r2.dev/vi/mn/mn38/772d3dd7491edab5.mp3) | live |
+
+Original audio provenance is preserved in each metadata file: MN34–MN35 from PR #567 and MN36–MN38 from PR #577. No MP3/WAV/cache/transcript files or secrets are committed.
+
+
+### Batch audio-065 production release checkpoint — MN34–MN38
+
+This five-UID batch promotes existing audio to `live`; no TTS request ran and no MP3 changed. Current canonical summary + Vietnamese 2026 source hashes match metadata, all five pass the narration source gate, and all use approved `vi-charon-mn1-v1`, profile SHA-256 `a384c5852585077c32e1348a6ada5cfc70a69c989ad705b8b5129fef3e1c9a71`. All remain `review_status: pending`; no ASR or full human content listening was performed.
+
+Each public R2 object was streamed and matched its full SHA-256 and byte count, then passed HTTP 206 `audio/mpeg` range verification (1,024 bytes). Each production page returned HTTP 200 with the player, exact R2 URL and pending-review label. The latest completed Pages deployment at verification was [#39449870574](https://github.com/streamentry/kinh-tang-pali/actions/runs/39449870574), commit `9f50a58d5eda54b2ce7343a732255bdc4edc9622`; the newer deployment for `d11af7f` was still running.
+
+Chrome smoke tests on production verified playback advancing, scripture jump and +15-second seek for every UID, with no page/media errors. MN35–MN38 loaded with empty localStorage and auto-next checked. On MN34, the TinyFish session showed the toggle unchecked on load, while a separate fresh Chrome profile with empty localStorage showed it checked; the fresh-storage default and saved off/on choices are also covered by the unit test. The browser sessions only exercised controls and did not approve spoken content.
+
+Total runtime **8,182.44 seconds**; total R2 size **163,654,560 bytes**.
+
+| UID | Source SHA-256 | MP3 SHA-256 | Bytes | Duration | Scripture start | R2 | Status |
+|---|---|---|---:|---:|---:|---|---|
+| MN34 | `403c9191056276fac197e43d6f04787d7b6767f70eba7c71dfecfb375e2cfe57` | `02ead8ad9788f6839fb24e59a5e2794eee80cb5b9676a1918547005e006fbc62` | 10,798,560 | 539.87 s | 152.79 s | [MP3](https://pub-8fa53f5182904685bd0c13d6c894a0e9.r2.dev/vi/mn/mn34/02ead8ad9788f683.mp3) | live |
+| MN35 | `d827ae64c83c0513d3ef01519e6063002b5bd718bf68d1f4ff813868060f6bec` | `9f4acace62b89f0bfe8310adf685fc0dd5e31c821efd4738c7cb920265c4f159` | 32,482,560 | 1624.08 s | 174.79 s | [MP3](https://pub-8fa53f5182904685bd0c13d6c894a0e9.r2.dev/vi/mn/mn35/9f4acace62b89f0b.mp3) | live |
+| MN36 | `5c42f13fb2b9c0f925ae7d1d5ae1061b1c0d04eb2b88fffc07802eaee23d39b7` | `a480e27eb3bb1011641540ec1136bf2c0e0cad38d8b85b41bab2de12b201c696` | 52,716,960 | 2635.79 s | 159.91 s | [MP3](https://pub-8fa53f5182904685bd0c13d6c894a0e9.r2.dev/vi/mn/mn36/a480e27eb3bb1011.mp3) | live |
+| MN37 | `082b938856efe55f7bd50ea36a3b9bc47ac7a6772a98bd0dfffd6abf0d67ec4b` | `56143a9d9b41fe0f8f71e67fb1f6c20bcc812b0d48d69a3b0a4ea6ab767721ce` | 16,758,720 | 837.87 s | 150.95 s | [MP3](https://pub-8fa53f5182904685bd0c13d6c894a0e9.r2.dev/vi/mn/mn37/56143a9d9b41fe0f.mp3) | live |
+| MN38 | `e517b30743b537d6e8affcfdc957e942476c3798e3335bb9461b10c3da422120` | `772d3dd7491edab5cf061dec6ff8fc10c811c22a127edb7bb1af529ea8108630` | 50,897,760 | 2544.83 s | 157.47 s | [MP3](https://pub-8fa53f5182904685bd0c13d6c894a0e9.r2.dev/vi/mn/mn38/772d3dd7491edab5.mp3) | live |
+
+Original provenance is preserved per file: MN34–MN35 came from [PR #567](https://github.com/streamentry/kinh-tang-pali/pull/567), merge `c529607c00686602282462b858b6f5f2a54f5a4e`; MN36–MN38 came from [PR #577](https://github.com/streamentry/kinh-tang-pali/pull/577), merge `3e90dc241356e0f96e25aefbb03a25998796914b`. No MP3/WAV/cache/transcript files or secrets are committed.
