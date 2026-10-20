@@ -1633,3 +1633,23 @@ Total runtime **5,733.28 seconds**; total R2 size **114,671,520 bytes**.
 | MN43 | `6a23d9cf47a40e989be59ec5f003003df750585b91ed2a08207315d13ef4a9bd` | `4433910c0d179d06749cf8d1f6a34610ee941a2b942c01328d3bfeb972f2fe71` | 24,581,280 | 1229.00 s | 147.75 s | [MP3](https://pub-8fa53f5182904685bd0c13d6c894a0e9.r2.dev/vi/mn/mn43/4433910c0d179d06.mp3) | live |
 
 Artifact provenance is retained per UID: MN39–MN40 were first registered in [PR #581](https://github.com/streamentry/kinh-tang-pali/pull/581), current MN41–MN42 artifacts in [PR #600](https://github.com/streamentry/kinh-tang-pali/pull/600), and MN43 in [PR #582](https://github.com/streamentry/kinh-tang-pali/pull/582). Superseded MN41/MN42 audio versions and their source-drift/vocative QC notes remain in `content/audio/progress.json` history. No MP3/WAV/cache/transcript files or secrets are committed.
+
+### Batch audio-067 production release checkpoint — MN44–MN48
+
+This batch promotes five existing R2 artifacts to `live`; no TTS request ran and no MP3 changed. Current canonical summary + Vietnamese 2026 source hashes match every metadata record, all pass the narration source gate, and all use the pinned `vi-charon-mn1-v1` profile SHA-256 `a384c5852585077c32e1348a6ada5cfc70a69c989ad705b8b5129fef3e1c9a71`. All remain `review_status: pending`; ASR and full human content listening were not performed. MN48 retains its existing ASR-skipped/manual-listening note.
+
+Each public R2 object was streamed and matched its complete SHA-256 and byte count, then passed an HTTP 206 `audio/mpeg` 1,024-byte range read. Each production page returned HTTP 200 with the player, exact R2 URL and pending-review label. An isolated Chrome 155 smoke test confirmed playback advanced, scripture jump and +15-second seek worked, previous/next links pointed to the expected adjacent MN pages, and there were no page/media errors. MN44 next/back navigation was clicked end-to-end; a fresh isolated browser context showed auto-next defaulted on and persisted both off/on changes. The smoke test did not listen to or approve spoken content.
+
+The latest completed Pages deployment at verification was [#39473191568](https://github.com/streamentry/kinh-tang-pali/actions/runs/39473191568), commit `56a6bf2a26a0fb4a1dd96b7c4ba53849b4bfc90d`. A newer deployment for merged commit `ff6cf64d99b2577d8024ddf171e2d630f2cd059a` was still in progress; the five pages and players were read back directly without waiting for that post-merge workflow.
+
+Total runtime **4,826.84 seconds**; total R2 size **96,542,880 bytes**.
+
+| UID | Source SHA-256 | MP3 SHA-256 | Bytes | Duration | Scripture start | R2 | Status |
+|---|---|---|---:|---:|---:|---|---|
+| MN44 | `761530c5a21d83f250ad97b093a17e0a3f768486528feb350c5457c1e9573f40` | `dd84a92a5ca148e14063e766e212634b9edda05ccd7952952a463b75522d527a` | 20,549,760 | 1027.42 s | 161.59 s | [MP3](https://pub-8fa53f5182904685bd0c13d6c894a0e9.r2.dev/vi/mn/mn44/dd84a92a5ca148e1.mp3) | live |
+| MN45 | `b7e6399a7ca48577825df8bed28490fb7620a5c910dd6eef160767ff594baee0` | `86c4102b84e7d750de19e413d2169d67b6e96410ec4a77bb7f2a3300076344f3` | 16,031,520 | 801.52 s | 163.87 s | [MP3](https://pub-8fa53f5182904685bd0c13d6c894a0e9.r2.dev/vi/mn/mn45/86c4102b84e7d750.mp3) | live |
+| MN46 | `59412a430e0b04fb260444580b747ae90b0e055d9af0823f395c6e6f847d7b4c` | `5b6962a36d1bce5ead0c4172451edd55ab7dd467f84f17b727091ca153c181cc` | 29,234,400 | 1461.66 s | 170.03 s | [MP3](https://pub-8fa53f5182904685bd0c13d6c894a0e9.r2.dev/vi/mn/mn46/5b6962a36d1bce5e.mp3) | live |
+| MN47 | `38922a266af2fc439d1f471da9f5cbfc9cfbab3b35fb4b942efeac2c18643015` | `82a97c9d0a1b82cb7970886a147a0d1b6509176b85d642177344415aeaa9c391` | 12,416,160 | 620.74 s | 137.91 s | [MP3](https://pub-8fa53f5182904685bd0c13d6c894a0e9.r2.dev/vi/mn/mn47/82a97c9d0a1b82cb.mp3) | live |
+| MN48 | `14addba5a59fa68e6ea20c71953b45e0785e713de345d11206cca463b090da29` | `49c046da51b6c970f5672a033951e0812f9cbd85c1ca0906d895326e1e92c9c5` | 18,311,040 | 915.50 s | 153.07 s | [MP3](https://pub-8fa53f5182904685bd0c13d6c894a0e9.r2.dev/vi/mn/mn48/49c046da51b6c970.mp3) | live |
+
+Artifact provenance is retained per UID: MN44 was first registered in [PR #582](https://github.com/streamentry/kinh-tang-pali/pull/582), MN45–MN47 in [PR #589](https://github.com/streamentry/kinh-tang-pali/pull/589), and MN48 in [PR #600](https://github.com/streamentry/kinh-tang-pali/pull/600). No MP3/WAV/cache/transcript files or secrets are committed.
