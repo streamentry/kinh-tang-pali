@@ -1510,3 +1510,24 @@ Total runtime **23,153.54 seconds**; total R2 size **463,076,640 bytes**.
 | DN19 | `c8820a0fccad5056395d361ce1d29bfd14cfa65687caba40893c1b3ccef25f6e` | `09e7a86cc786d48844324135fedac11c567b9a6f2bc9a044e95255300e84faae` | 68,967,840 | 3448.34 s | 183.35 s | `https://pub-8fa53f5182904685bd0c13d6c894a0e9.r2.dev/vi/dn/dn19/09e7a86cc786d488.mp3` | live |
 
 All five original audio artifacts were published in [PR #783](https://github.com/streamentry/kinh-tang-pali/pull/783), merge commit `a78880d252ff45de55fcc5fcbc3e40618b19d436`. The audio profile remains pinned to SHA-256 `a384c5852585077c32e1348a6ada5cfc70a69c989ad705b8b5129fef3e1c9a71`; metadata records source/profile provenance and current production verification. No audio binaries, WAVs, transcript/cache files, or secrets are tracked.
+
+
+### Batch audio-062 production release checkpoint — DN20–DN24
+
+This five-UID batch promotes existing audio to `live`; no TTS request ran and no MP3 changed. Current summary + canonical Vietnamese 2026 source hashes match the metadata, all five pass the audio source gate, and all use the approved `vi-charon-mn1-v1` profile SHA-256 `a384c5852585077c32e1348a6ada5cfc70a69c989ad705b8b5129fef3e1c9a71`. All remain `review_status: pending`; ASR and full human content listening were not performed.
+
+Each public R2 object was streamed and matched its full SHA-256 and byte count, then passed an HTTP 206 `audio/mpeg` 1,024-byte range read. Each production page returned HTTP 200 with the shared player, exact R2 URL and pending-review label. The latest completed Pages deployment at the time of verification is [#39343321795](https://github.com/streamentry/kinh-tang-pali/actions/runs/39343321795), commit `939500eaf4c1ba5f514a4aaf0367720b11e7d59a`; the newer Pages workflow for `a3333f0` was still running. These five pages were read back directly from production. Each UID also retains prior local interactive playback, scripture jump and seek evidence in its metadata.
+
+DN22 keeps the editor's reported repetition note: passages around minutes 12–15 and later were reported as repeated. This batch does not adjudicate the listening report, regenerate the MP3, or clear QC; manual listening remains pending.
+
+Total runtime **15,516.93 seconds**; total R2 size **310,344,960 bytes**.
+
+| UID | Source SHA-256 | MP3 SHA-256 | Bytes | Duration | Scripture start | R2 | Status |
+|---|---|---|---:|---:|---:|---|---|
+| DN20 | `d1f06eaf24d91bd469528cb0688f85c5469b049442843276662a3a612ce11f3a` | `c5c0a87826fb7b540e031a92e92fe46d3b5206bbea40880f4cca4a85811c1dd2` | 23,302,560 | 1165.06 s | 171.67 s | [MP3](https://pub-8fa53f5182904685bd0c13d6c894a0e9.r2.dev/vi/dn/dn20/c5c0a87826fb7b54.mp3) | live |
+| DN21 | `89a221c5f2ec922202a6be95722a19cee4060d5cd292071dd107a5e8fdb4a290` | `a022a5dcc65782f2fbad6b6fd22692506f475bfcec52440cd3a4f288ae002bae` | 48,756,000 | 2437.74 s | 178.03 s | [MP3](https://pub-8fa53f5182904685bd0c13d6c894a0e9.r2.dev/vi/dn/dn21/a022a5dcc65782f2.mp3) | live |
+| DN22 | `69a6238c1d199004cfa28640a360117cfb6cdf71ef1401c58b580fd0d394b9e0` | `5a67d26abd398b7ab0e01fdb7b7863fddbd9cbfe19fcdf493bfda1d3bd9650b7` | 63,028,800 | 3151.37 s | 170.71 s | [MP3](https://pub-8fa53f5182904685bd0c13d6c894a0e9.r2.dev/vi/dn/dn22/5a67d26abd398b7a.mp3) | live |
+| DN23 | `0dda4aa3f1f7490b53ff17dbadf8ea50ac4ef294c7533ffae298e162b30d0e6b` | `00b04af7cfb265306ac9e7da165a7a7af1d34c0dd1cc5a3604e9b685345575c8` | 92,263,680 | 4613.12 s | 155.83 s | [MP3](https://pub-8fa53f5182904685bd0c13d6c894a0e9.r2.dev/vi/dn/dn23/00b04af7cfb26530.mp3) | live |
+| DN24 | `c77ae750183d06a16c7b76e6dbf2c073b77de86d0afd2216ffcd95e865fe8a1f` | `fcd06617a219357e378ec8257d1d1faa81cda4eb5dd9fd7bc208bceb28509e8c` | 82,993,920 | 4149.64 s | 151.87 s | [MP3](https://pub-8fa53f5182904685bd0c13d6c894a0e9.r2.dev/vi/dn/dn24/fcd06617a219357e.mp3) | live |
+
+All five original audio artifacts were published in [PR #784](https://github.com/streamentry/kinh-tang-pali/pull/784), merge commit `1058a93c4302dd4bb346b0b5162f90132f144660`. Metadata and the progress registry preserve this provenance and distinguish production availability from human content review. No MP3/WAV/cache/transcript files or secrets are committed.
