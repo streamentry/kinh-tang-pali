@@ -1460,3 +1460,24 @@ MN30 had lost merge provenance in its registry metadata. Git history verifies th
 Local gates passed: `npm run validate` (2,275 advisories, zero errors), quality history (5,839 checked, zero errors), explanations (186/186 complete, zero errors), `npm test` (448 passed, 2 skipped, zero failed), `npm run check` (zero errors/warnings, five hints), and `npm run audio:check` (186 catalog UIDs, zero errors). `npm run build` synced 10,093 pinned manifest paths (135 downloaded) and the 4,815-file legacy snapshot, built 6,204 pages, and Pagefind indexed 6,137 pages / 467,605 words. `git diff --check` passed. MP3/WAV/cache files are not tracked.
 
 The PR/merge checkpoint for this batch will be recorded in the next append-only batch section after exact-head CI, merge readback, and Pages deployment evidence are known.
+
+
+### Batch audio-061 production release checkpoint — DN15–DN19
+
+This five-UID batch promotes existing audio to `live`; no TTS request ran and no MP3 changed. Current canonical source hashes and the approved `vi-charon-mn1-v1` profile hash match every registered artifact. All remain `review_status: pending`; ASR was skipped and full human content listening was not performed.
+
+All five R2 objects were streamed and checked against the registered full SHA-256 and byte count, then each passed an HTTP 206 `audio/mpeg` 1,024-byte range request. Each production page returned HTTP 200, rendered the shared audio player with the exact R2 URL and the pending-review label. Current production is served from the successful Pages deployment [#39273866344](https://github.com/streamentry/kinh-tang-pali/actions/runs/39273866344), commit `f09b31a414895d52573911f7caf0472a2d5ae8ea`; every page was read back directly after this release check.
+
+A production browser smoke on DN15 confirmed that playback advanced, the Kinh văn jump and +15-second seek worked, auto-next defaulted on, and there were no media/page errors. DN16–DN19 also retain their earlier per-UID local browser playback, scripture-jump and seek observations in their metadata; this batch rechecked their production HTML and R2 object individually. This browser smoke is not content listening or editorial approval.
+
+Total runtime **23,153.54 seconds**; total R2 size **463,076,640 bytes**.
+
+| UID | Source SHA-256 | MP3 SHA-256 | Bytes | Duration | Scripture start | R2 | Status |
+|---|---|---|---:|---:|---:|---|---|
+| DN15 | `0da46e777449342c0e3eea269c176cfb96f707b7c0e0e07c0fe0f631cbfc27f2` | `8fdba263a36795bb75109cd5188bee5513aed491247c325fb4577b87b798cf80` | 44,158,080 | 2207.84 s | 179.67 s | `https://pub-8fa53f5182904685bd0c13d6c894a0e9.r2.dev/vi/dn/dn15/8fdba263a36795bb.mp3` | live |
+| DN16 | `bf2bd75a5a229657fa08b8e7906d5ff454ffe0d105dfc4c2c66908dccc38a932` | `f28d1a09570dcae1c9eee224f192e70788006b7a8c590571c4fd1bddbac9c675` | 240,552,000 | 12027.54 s | 176.27 s | `https://pub-8fa53f5182904685bd0c13d6c894a0e9.r2.dev/vi/dn/dn16/f28d1a09570dcae1.mp3` | live |
+| DN17 | `a0fde22434c13a38443a5cb6d19f08c9b34ed7fd63ceee7a584c49ba815e3682` | `22aa3109df42ba0da142ca135ab48afd495ee54cacd80e107cd020530a5477d4` | 64,996,320 | 3249.76 s | 168.79 s | `https://pub-8fa53f5182904685bd0c13d6c894a0e9.r2.dev/vi/dn/dn17/22aa3109df42ba0d.mp3` | live |
+| DN18 | `2b8d5dc3aed1fdf6307c19f61f63acff64a0deeab2c8c4bb5b4f8bbc43351174` | `6a6b5e4219dbc810a7744ce80c763eea18c0a5a4e42a27bc8585d12dbffd2514` | 44,402,400 | 2220.06 s | 168.55 s | `https://pub-8fa53f5182904685bd0c13d6c894a0e9.r2.dev/vi/dn/dn18/6a6b5e4219dbc810.mp3` | live |
+| DN19 | `c8820a0fccad5056395d361ce1d29bfd14cfa65687caba40893c1b3ccef25f6e` | `09e7a86cc786d48844324135fedac11c567b9a6f2bc9a044e95255300e84faae` | 68,967,840 | 3448.34 s | 183.35 s | `https://pub-8fa53f5182904685bd0c13d6c894a0e9.r2.dev/vi/dn/dn19/09e7a86cc786d488.mp3` | live |
+
+All five original audio artifacts were published in [PR #783](https://github.com/streamentry/kinh-tang-pali/pull/783), merge commit `a78880d252ff45de55fcc5fcbc3e40618b19d436`. The audio profile remains pinned to SHA-256 `a384c5852585077c32e1348a6ada5cfc70a69c989ad705b8b5129fef3e1c9a71`; metadata records source/profile provenance and current production verification. No audio binaries, WAVs, transcript/cache files, or secrets are tracked.
