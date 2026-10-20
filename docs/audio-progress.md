@@ -1550,3 +1550,24 @@ Total runtime **13,669.31 seconds**; total R2 size **273,392,160 bytes**.
 | DN29 | `e0f573ce21cf361ee18b12d3300ca10383b70505a2cda4208d524aac1da32237` | `0619a3d91caf5a9822b9c327b4dc7596756b1dbcb6e4823c215193c80bd23aca` | 64,748,160 | 3237.35 s | 154.43 s | [MP3](https://pub-8fa53f5182904685bd0c13d6c894a0e9.r2.dev/vi/dn/dn29/0619a3d91caf5a98.mp3) | live |
 
 All five original audio artifacts were published in [PR #785](https://github.com/streamentry/kinh-tang-pali/pull/785), merge commit `3e772650bd7ccc2a0e254ff6d0023d544bcbd822`. Metadata and the progress registry preserve this provenance and distinguish production availability from human content review. No MP3/WAV/cache/transcript files or secrets are committed.
+
+
+### Batch audio-064 production release checkpoint — DN30–DN34
+
+This five-UID batch promotes existing audio to `live`; no TTS request ran and no MP3 changed. Current summary + canonical Vietnamese 2026 source hashes match metadata; all five pass the narration source gate and use approved `vi-charon-mn1-v1`, profile SHA-256 `a384c5852585077c32e1348a6ada5cfc70a69c989ad705b8b5129fef3e1c9a71`. All remain `review_status: pending`; ASR and full human content listening were not performed.
+
+Each public R2 object was streamed and matched its full SHA-256 and byte count, then passed an HTTP 206 `audio/mpeg` 1,024-byte range read. Each production page returned HTTP 200 with the player, exact R2 URL and pending-review label. The latest completed Pages deployment at verification was [#39434088703](https://github.com/streamentry/kinh-tang-pali/actions/runs/39434088703), commit `be7d8d11e36ed0af73fd60e935b31164348eb1e0`; the newer deployment for `9f50a58` was still running. These five pages were read back directly from production. Each UID retains prior local interactive playback, chapter-jump and seek evidence in its metadata; the shared player received a production smoke on DN15 in an earlier batch.
+
+Operational history from the audio-058 checkpoint is preserved: DN30's initial bounded network failure was resumed with the same fingerprint, and DN32/DN34 upload HTTP 403 attempts wrote no objects before the same MP3s were successfully uploaded. This release batch did not regenerate any audio or clear those notes.
+
+Total runtime **20,026.96 seconds**; total R2 size **400,545,120 bytes**.
+
+| UID | Source SHA-256 | MP3 SHA-256 | Bytes | Duration | Scripture start | R2 | Status |
+|---|---|---|---:|---:|---:|---|---|
+| DN30 | `f8e29e522b5ec7f305de06ff0ae78e7b38e6a5371ad00084ba067f595890ef99` | `79795eeca633962e4da6f1445460bd4951068438883a20a06915e36257f8919d` | 71,568,000 | 3578.33 s | 161.79 s | [MP3](https://pub-8fa53f5182904685bd0c13d6c894a0e9.r2.dev/vi/dn/dn30/79795eeca633962e.mp3) | live |
+| DN31 | `1200ab228dd7d10af540bb69a65c23dbdcf8fed6a24d118fc69713f78f89b1d5` | `aa152b7499aca48fcd2ed9c27f65784b3d57bd49846a1640a1d03c641ef32a8d` | 30,637,440 | 1531.82 s | 165.71 s | [MP3](https://pub-8fa53f5182904685bd0c13d6c894a0e9.r2.dev/vi/dn/dn31/aa152b7499aca48f.mp3) | live |
+| DN32 | `bb399990372910721e5a6ce2f025366f5b9fe7783e7680643fa0adba19c90d95` | `0602c954768c61628c7f8027b77729989788304bd624f362d075f5a8f347742b` | 44,189,760 | 2209.43 s | 174.83 s | [MP3](https://pub-8fa53f5182904685bd0c13d6c894a0e9.r2.dev/vi/dn/dn32/0602c954768c6162.mp3) | live |
+| DN33 | `06ca4da65d6fca81363368471b31ae6268b738c4d390b72a356a1cdf304c8a71` | `16408481e3c3feb0e685f1f2085561871fca51983ec262ad28a8faafd4779be1` | 151,470,240 | 7573.46 s | 157.91 s | [MP3](https://pub-8fa53f5182904685bd0c13d6c894a0e9.r2.dev/vi/dn/dn33/16408481e3c3feb0.mp3) | live |
+| DN34 | `288b0e2be3e893843b42cded29ee8b4674ffe6b7425d5ddda169f712675d8f8b` | `0c53e03ee8736e31b2ccd82e14aa2203e26b58fa0bdf1e3875f8dc9377081ae0` | 102,679,680 | 5133.92 s | 165.75 s | [MP3](https://pub-8fa53f5182904685bd0c13d6c894a0e9.r2.dev/vi/dn/dn34/0c53e03ee8736e31.mp3) | live |
+
+All five original audio artifacts were published in [PR #789](https://github.com/streamentry/kinh-tang-pali/pull/789), merge commit `462e6741ecc4130fd7bb9ed87b0f5f1fc7a87228`. Metadata and progress retain original provenance and separate technical release from human content approval. No MP3/WAV/cache/transcript files or secrets are committed.
