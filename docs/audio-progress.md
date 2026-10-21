@@ -1934,3 +1934,19 @@ PR [#811](https://github.com/streamentry/kinh-tang-pali/pull/811) was squash-mer
 MN128 is the last non-live MN UID in catalog order. It reuses the current-source artifact originally added by [PR #728](https://github.com/streamentry/kinh-tang-pali/pull/728), merge `e8d0ad873c2a9dbc3ebf105cbae441cfa1a81a3f`; no TTS request or MP3 change. The previous local Chrome QC observation and all earlier QC history were retained. Current R2 full SHA-256/bytes, HTTP 206 range and production Chrome 155 play/seek/scripture-jump/next-back checks passed. Manual content listening remains pending.
 
 Total duration **1,722.34 seconds**; total R2 size **34,448,160 bytes**. [MP3](https://pub-8fa53f5182904685bd0c13d6c894a0e9.r2.dev/vi/mn/mn128/1fecffd873311c7e.mp3)
+
+
+### MN1 reference artifact re-read — not a new UID
+
+MN1's current canonical source hash `55cb9e1bf5ed81e49c5780a823d5d915d64158d4e510cec562eddeed0e8e11a1` and pinned `vi-charon-mn1-v1` profile hash `a384c5852585077c32e1348a6ada5cfc70a69c989ad705b8b5129fef3e1c9a71` match its existing metadata. The public R2 object was downloaded in full at `2026-10-21T14:55:14Z` and matched SHA-256 `a761cf179c1a8e1111a0234568fc8c573e652a08bdde49aed961db1eccc371f2` and 34,696,800 bytes; HTTP 206 returned a 1,024-byte range. The production page returned HTTP 200 with the exact R2 player URL. No TTS ran and MN1 was not counted toward batch quotas. Its content review remains `pending`; voice/pace approval does not approve the full spoken content.
+
+
+### Final corpus audit — MN + DN
+
+At `2026-10-21T14:56:39Z`, `content/catalog/sutta/mn.json` and `dn.json` resolve to **152 MN + 34 DN = 186 UIDs**. The current `audio:check` passed with 186 texts and 0 errors; `audio-inventory.ts` reported 186 registered players, 0 source issues and 0 missing audio. Every progress row is `live`, `upload_verified`, `public_range_verified` and playback-verified; all 186 content reviews remain `pending`. Each metadata record contains a nonempty MP3 SHA-256 and byte count. No MP3/WAV is tracked in Git.
+
+A catalog-wide production readback checked **186/186 pages** (HTTP 200, player, exact R2 URL and pending-review label) and **186/186 R2 range responses** (HTTP 206, `audio/mpeg`, 1,024 bytes), with 0 errors. Complete object SHA-256/byte verification is retained in upload evidence; this final sweep re-read ranges rather than downloading the entire 5.93 GiB corpus again. MN1 was separately re-downloaded in full and matched SHA-256 `a761cf179c1a8e1111a0234568fc8c573e652a08bdde49aed961db1eccc371f2`, 34,696,800 bytes, the approved profile and source; it remains the voice/pace sample and was not counted as new work.
+
+The final audio batch PR [#812](https://github.com/streamentry/kinh-tang-pali/pull/812), exact head `40085a527187b29875d4e4f06d18353664f8d96c`, merged at `545fe9e8fb5aad0430000e55a6d91d85445dccc3`. At this audit, its CI runs [#39620714061](https://github.com/streamentry/kinh-tang-pali/actions/runs/39620714061) and [#39619897298](https://github.com/streamentry/kinh-tang-pali/actions/runs/39619897298) were still in progress. The latest successful Pages deployment listed was [#39605083624](https://github.com/streamentry/kinh-tang-pali/actions/runs/39605083624), commit `90022e7bd9a30ced052ef909dc2761fec1389873`; Pages run [#39619671489](https://github.com/streamentry/kinh-tang-pali/actions/runs/39619671489) for the preceding merge was still in progress, and no Pages run for `545fe9e8fb5aad0430000e55a6d91d85445dccc3` was listed. The full direct production readback above verifies the served pages; this log does not claim that the final merge commit itself has deployed.
+
+All 186 recordings remain unapproved for full spoken-content accuracy until manual listening. The editor-reported MN22 repetition note around minutes 12–15 and later remains in QC history; no regeneration or QC clearing is implied.
