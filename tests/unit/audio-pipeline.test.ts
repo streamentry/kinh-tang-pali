@@ -70,6 +70,30 @@ assert plan[3]['text'].startswith('Sau khi đi khất thực ở Vesālī')
  assert.equal(output,'');
 });
 
+test('targeted repair preserves every character, section order and omission pauses', () => {
+ execFileSync('python3',['-c',`
+import sys
+sys.path.insert(0,'scripts')
+from audio_pipeline import plan_source,subdivide_repair_chunks,digest
+from narration_config import load_profile
+p=load_profile()
+source={'summary':'Tóm tắt.','segments':[['dn22:1.1',('Câu có dấu nháy “đủ chữ.”\\n\\n'*70)],['dn22:1.2','…'],['dn22:1.3','Kết thúc.']]}
+standard=plan_source(source,p)
+indices=[i for i,c in enumerate(standard) if c['section']=='scripture']
+repaired=subdivide_repair_chunks(standard,indices,p)
+assert len(repaired)>len(standard)
+assert repaired[0]==standard[0]
+for section in ('summary','scripture'):
+ assert ''.join(c['text'] for c in repaired if c['section']==section)==''.join(c['text'] for c in standard if c['section']==section)
+assert [c['pause_after_seconds'] for c in repaired if 'pause_after_seconds' in c]==[c['pause_after_seconds'] for c in standard if 'pause_after_seconds' in c]
+assert all(len(c['text'])<=p['chunk_max_chars'] and c['text_sha256']==digest(c['text'].encode()) for c in repaired)
+for invalid in [[],[0],[-1],[len(standard)]]:
+ try:subdivide_repair_chunks(standard,invalid,p)
+ except ValueError:pass
+ else:raise AssertionError('Invalid repair accepted')
+`],{encoding:'utf8'});
+});
+
 test('MN13 closes the inherited quotation before its repeated-example chunk boundary', () => {
  const doc=composeDocument('mn','mn13');
  const source=JSON.stringify({summary:doc.summary,segments:doc.segments.map(s=>[s.id,s.vi])});
