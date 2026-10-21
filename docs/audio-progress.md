@@ -1923,3 +1923,14 @@ Total duration **7,111.88 seconds**; total R2 size **142,243,200 bytes**.
 
 
 Provenance readback for this batch: MN125–MN127 were registered in merged [PR #728](https://github.com/streamentry/kinh-tang-pali/pull/728), merge commit `e8d0ad873c2a9dbc3ebf105cbae441cfa1a81a3f`; their current metadata and progress rows now carry that verified provenance. MN117 was reused in PR #728 without changing its MP3; its original audio registration in PR #697 and prior QC observations remain preserved.
+
+
+### Batch audio-080 merge checkpoint — PR #811
+
+PR [#811](https://github.com/streamentry/kinh-tang-pali/pull/811) was squash-merged at exact head `60dd27815ba9526475dbc6d5d3db8def45fbc13d`, producing merge commit `6c15c485c13869f62c6177e6b6c85c079ae99942` on `main`. Its CI run [#39618991421](https://github.com/streamentry/kinh-tang-pali/actions/runs/39618991421) was still in progress at this checkpoint. Pages run [#39619089392](https://github.com/streamentry/kinh-tang-pali/actions/runs/39619089392) for the earlier merge was pending; no Pages run for `6c15c485c13869f62c6177e6b6c85c079ae99942` had appeared.
+
+### Final Majjhima audio checkpoint — MN128
+
+MN128 is the last non-live MN UID in catalog order. It reuses the current-source artifact originally added by [PR #728](https://github.com/streamentry/kinh-tang-pali/pull/728), merge `e8d0ad873c2a9dbc3ebf105cbae441cfa1a81a3f`; no TTS request or MP3 change. The previous local Chrome QC observation and all earlier QC history were retained. Current R2 full SHA-256/bytes, HTTP 206 range and production Chrome 155 play/seek/scripture-jump/next-back checks passed. Manual content listening remains pending.
+
+Total duration **1,722.34 seconds**; total R2 size **34,448,160 bytes**. [MP3](https://pub-8fa53f5182904685bd0c13d6c894a0e9.r2.dev/vi/mn/mn128/1fecffd873311c7e.mp3)
