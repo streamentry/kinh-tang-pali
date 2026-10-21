@@ -1793,3 +1793,20 @@ Total runtime **8,143.31 seconds**; total R2 size **162,872,160 bytes**.
 | MN83 | `5fb68282ea5dc61b498c3c51f92997e913f1f38c62b3d8eb09de107f53d45293` | `fb10d90636a57e7d796a3e5a6f82d9c80dc9aca76a42b58f31d0ba925decbd86` | 30,153,600 | 1507.61 s | 166.63 s | [MP3](https://pub-8fa53f5182904685bd0c13d6c894a0e9.r2.dev/vi/mn/mn83/fb10d90636a57e7d.mp3) | live |
 
 Artifact provenance is retained per UID: MN79 was originally registered in [PR #632](https://github.com/streamentry/kinh-tang-pali/pull/632), MN80–MN83 in [PR #633](https://github.com/streamentry/kinh-tang-pali/pull/633). MN77's superseded audio and source-change reason remain in its historical record. Existing ASR-skipped/manual-listening notes are unchanged. No MP3/WAV/cache/transcript files or secrets are committed.
+
+
+### Batch audio-075 production validation — MN84, MN90–MN93
+
+This five-UID batch promotes existing generated recordings; no Gemini TTS request ran and no MP3 was changed. The current canonical source and pinned `vi-charon-mn1-v1` profile SHA-256 `a384c5852585077c32e1348a6ada5cfc70a69c989ad705b8b5129fef3e1c9a71` match each artifact. Every public R2 object was downloaded in full and matched its recorded SHA-256 and byte count, then returned HTTP 206 for a 1,024-byte range request with `audio/mpeg`. The production Pages deployment checked was [#39605083624](https://github.com/streamentry/kinh-tang-pali/actions/runs/39605083624), commit `90022e7bd9a30ced052ef909dc2761fec1389873`.
+
+All five production pages returned HTTP 200 and rendered the exact R2 URL and pending-review label. Isolated headless Chrome 155 loaded and played each R2 file, advanced playback, jumped to the scripture marker, and sought +15 seconds; all previous/next links matched adjacent catalog UIDs, with no page or media errors. MN84 additionally verified next/back navigation and auto-next default/persistence with fresh storage. This was browser-control verification, not human listening. ASR was skipped per editor decision; every `review_status` remains `pending`. Original artifact PR and merge provenance is retained per UID.
+
+Total duration **7,164.36 seconds**; total R2 size **143,293,440 bytes**.
+
+| UID | Current source SHA-256 | MP3 SHA-256 | Bytes | Duration | Scripture start | R2 | State |
+|---|---|---|---:|---:|---:|---|---|
+| MN84 | `6b4e464e0382306aebf273bfe34b1a584a27fdec42e1af9d19f3465f1534389e` | `5763137bb774b40318757739a69b4cc78f6e037cda68a023f14d7326df909595` | 28,139,520 | 1406.92 s | 159.95 s | [MP3](https://pub-8fa53f5182904685bd0c13d6c894a0e9.r2.dev/vi/mn/mn84/5763137bb774b403.mp3) | reused, live |
+| MN90 | `f869b0b3d6c814840b4e6510eb39dedb3f170f75465b5f36f79243131a7e52d1` | `84eef8a62b13e11c8bc12eabbc61e8b89c76cdd3d53d57a8288974d5c4f9b3cf` | 22,446,720 | 1122.28 s | 159.39 s | [MP3](https://pub-8fa53f5182904685bd0c13d6c894a0e9.r2.dev/vi/mn/mn90/84eef8a62b13e11c.mp3) | reused, live |
+| MN91 | `d48bbe2bea46a1773c884b1ce6f3f97d43eba26f2e29a20425a78ac1e712a117` | `cbc1c219ae8128726f91d2d40d808cdac76ceafdad8b163f00e65a57e5aafa41` | 38,534,400 | 1926.65 s | 174.35 s | [MP3](https://pub-8fa53f5182904685bd0c13d6c894a0e9.r2.dev/vi/mn/mn91/cbc1c219ae812872.mp3) | reused, live |
+| MN92 | `8a6d6948e368a17903966bd6651e021709214bf2794346d547120f6019640b5f` | `9351e9c2615382e0d10613d6dc71ff6437c51645cb35bb08dc82ea70425568ec` | 22,375,200 | 1118.69 s | 169.79 s | [MP3](https://pub-8fa53f5182904685bd0c13d6c894a0e9.r2.dev/vi/mn/mn92/9351e9c2615382e0.mp3) | reused, live |
+| MN93 | `c5f7e590c129808b70715550acb64f8e5c8b51edb1dfe0f5650720bc9f6ffd79` | `9ad95fb83d57b6fcff2cd904f10b4ecca12d067b6d5d53b5c0395c1fbbf837a6` | 31,797,600 | 1589.82 s | 168.47 s | [MP3](https://pub-8fa53f5182904685bd0c13d6c894a0e9.r2.dev/vi/mn/mn93/9ad95fb83d57b6fc.mp3) | reused, live |
