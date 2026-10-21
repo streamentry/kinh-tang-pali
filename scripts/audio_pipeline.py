@@ -92,6 +92,29 @@ def plan_source(source, profile):
     if normalize(' '.join(p['text'] for p in planned if p['section']=='scripture'))!=normalize(' '.join(expected)):raise RuntimeError('Scripture accounting failed')
     return planned
 
+def subdivide_repair_chunks(planned, indices, profile):
+    """Subdivide selected scripture requests without changing any source character.
+
+    The approved maximum remains the ceiling; smaller requests isolate reported
+    TTS loops. Keep an omission's extra pause only after its final subchunk.
+    """
+    indices=set(indices)
+    if not indices or any(i<0 or i>=len(planned) or planned[i]['section']!='scripture' for i in indices):
+        raise ValueError('Repair indices must identify existing scripture chunks (zero-based)')
+    repaired=[]
+    for index,item in enumerate(planned):
+        if index not in indices:
+            repaired.append(dict(item));continue
+        parts=split_text(item['text'],profile['chunk_max_chars']//3)
+        for part in parts:
+            repaired.append({'section':item['section'],'text':part,'text_sha256':digest(part.encode())})
+        if 'pause_after_seconds' in item:
+            repaired[-1]['pause_after_seconds']=item['pause_after_seconds']
+    for section in ('summary','scripture'):
+        if ''.join(i['text'] for i in planned if i['section']==section)!=''.join(i['text'] for i in repaired if i['section']==section):
+            raise RuntimeError('Repair text accounting failed')
+    return repaired
+
 def wav_info(path, profile):
     with wave.open(str(path),'rb') as wav:
         expected=(profile['sample_rate_hz'],profile['channels'],profile['sample_width_bytes'])

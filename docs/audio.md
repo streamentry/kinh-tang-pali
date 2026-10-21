@@ -86,6 +86,12 @@ Lỗi kết nối/time-out và HTTP 5xx tạm thời được retry tối đa 5 
 
 MP3 được kiểm toàn bộ frame MPEG-2 Layer III 24 kHz/160 kbps và đối chiếu duration với WAV trước upload. Uploader đọc storage registry, chặn sai account, kiểm SHA-256/bytes/range response và kiểm source lần nữa sau upload. Nó chỉ ghi upload evidence ở trạng thái generated; browser playback/seek/chuyển phần được xác minh riêng trước khi nâng uploaded-verified. Merge/live/review không tự suy ra từ upload.
 
+### Sửa vùng TTS đọc lặp
+
+Khi người biên tập báo lỗi, giữ MP3, manifest, checkpoint và bằng chứng QC cũ trước khi tạo bản thay thế. `--repair-chunks 6,7` nhận chỉ số **từ 0 trong plan chuẩn**, chia riêng các chunk kinh văn đó thành request ngắn hơn theo câu (tối đa một phần ba giới hạn đã duyệt). Không đổi chữ, không mở rộng dấu lược, không đổi profile hoặc xử lý tốc độ. Khoảng nghỉ đặc biệt sau dấu lược chỉ giữ ở cuối nhóm. Tái ghép phải khớp từng ký tự theo phần tóm tắt/kinh văn.
+
+Ví dụ: `python3 scripts/gemini_tts.py --uid dn22 --repair-chunks 6,7 --prepare-only`, rồi bỏ `--prepare-only` để sinh. Cache sửa có fingerprint riêng; các chunk ngoài vùng sửa chỉ được dùng lại khi text/WAV/source/profile khớp. Giữ nguyên cache chuẩn. Manifest ghi `chunk_repair`; upload theo hash mới, lưu lịch sử artifact và nghe kiểm lại trên web. Thời lượng bình thường hoặc kiểm cấu trúc pass không chứng minh hết lỗi lời đọc; review vẫn `pending`.
+
 ## Quy trình phát hành cập nhật ngày 2026-10-12
 
 Theo quyết định của người biên tập: bỏ bước transcribe/ASR. Làm tuần tự từng bài: kiểm nguồn và profile → tạo MP3 → kiểm cấu trúc/hash → upload R2 và xác minh object → đăng ký, kiểm player → phát hành website. Không cần API key hoặc model nhận dạng để tiếp tục. Người biên tập nghe kiểm thủ công trực tiếp trên website; giữ `review_status: pending` đến khi có xác nhận nghe duyệt. Việc phát hành không chứng minh TTS đã đọc đúng toàn bài. Giữ nguyên mọi bằng chứng QC cũ, kể cả các lỗi đã ghi nhận; quyết định này không tự xóa lỗi hay biến bài bị chặn thành đã duyệt. Với các artifact trước đây bị giữ vì cờ ASR, kiểm lại nguồn/profile và cấu trúc file rồi upload/đăng ký cho người biên tập nghe trên website; giữ cờ QC như thông tin cần nghe kiểm và review pending. Lỗi nguồn/profile hoặc file hỏng vẫn chặn phát hành.

@@ -4,11 +4,11 @@ MN narration: canonical summary, then Vietnamese 2026; resumable WAV chunks.
 Requires lameenc (same encoder as The Thread Seers), and Node/tsx.
 """
 import fcntl
-import tempfile
+import tempfile, shutil
 import argparse, base64, hashlib, http.client, io, json, os, subprocess, time, urllib.request, urllib.error, wave
 from pathlib import Path
 from narration_config import load_profile, profile_digest, profile_metadata
-from audio_pipeline import plan_source, write_json, wav_info, cached_chunk_valid, mp3_info, digest
+from audio_pipeline import plan_source, subdivide_repair_chunks, write_json, wav_info, cached_chunk_valid, mp3_info, digest
 from audio_progress import update
 ROOT = Path(__file__).resolve().parent.parent
 
@@ -55,23 +55,50 @@ def generate(key, text, profile):
             time.sleep(min(30,3*2**attempt))
     raise RuntimeError('Retries exhausted')
 
-def main():
+def arguments():
     parser=argparse.ArgumentParser()
     parser.add_argument('--uid',default='mn1')
     parser.add_argument('--prepare-only',action='store_true')
-    args=parser.parse_args()
+    parser.add_argument('--repair-chunks',help='Comma-separated zero-based scripture chunk indices to subdivide; same pinned source/profile')
+    return parser.parse_args()
+
+def main(args):
     profile=load_profile()
     source=json.loads(subprocess.check_output(['node','--import','tsx','scripts/audio-source.ts',args.uid],cwd=ROOT))
-    planned=plan_source(source,profile)
+    standard_plan=plan_source(source,profile)
+    fingerprint_for=lambda plan:digest(json.dumps([source['source_sha256'],profile_digest(profile),plan],ensure_ascii=False,sort_keys=True).encode())
+    repair_indices=sorted(set(int(i) for i in args.repair_chunks.split(','))) if args.repair_chunks else []
+    planned=subdivide_repair_chunks(standard_plan,repair_indices,profile) if repair_indices else standard_plan
     parts=[p['text'] for p in planned]
     summary_count=sum(p['section']=='summary' for p in planned)
-    fingerprint=digest(json.dumps([source['source_sha256'],profile_digest(profile),planned],ensure_ascii=False,sort_keys=True).encode())
+    fingerprint=fingerprint_for(planned)
     folder=ROOT/'audio'/args.uid/fingerprint[:16]; folder.mkdir(parents=True,exist_ok=True)
     (folder/'transcript.txt').write_text(source['summary']+'\n\n'+'\n\n'.join(value for _,value in source['segments'] if value.strip('… .')))
     write_json(folder/'plan.json',planned)
     checkpoint_path=folder/'checkpoint.json'
     checkpoint=json.loads(checkpoint_path.read_text()) if checkpoint_path.exists() else {'fingerprint':fingerprint,'chunks':{}}
     if checkpoint['fingerprint']!=fingerprint:raise RuntimeError('Checkpoint source/profile mismatch')
+    if repair_indices:
+        # Reuse only exact text/profile/source matches from the standard plan.
+        # Write copies in the new fingerprint directory; never mutate the old one.
+        previous=ROOT/'audio'/args.uid/fingerprint_for(standard_plan)[:16]
+        old_path=previous/'checkpoint.json'
+        old=json.loads(old_path.read_text()) if old_path.exists() else {}
+        if old.get('fingerprint')==fingerprint_for(standard_plan):
+            candidates={}
+            for i,item in enumerate(standard_plan):
+                if i in repair_indices:continue
+                record=old.get('chunks',{}).get(str(i));file=previous/f'{i:03}.wav'
+                if cached_chunk_valid(file,record,item,profile):
+                    candidates[(item['section'],item['text_sha256'])]=(file,record)
+            for i,item in enumerate(planned):
+                file=folder/f'{i:03}.wav'
+                if cached_chunk_valid(file,checkpoint['chunks'].get(str(i)),item,profile):continue
+                match=candidates.get((item['section'],item['text_sha256']))
+                if match:
+                    shutil.copy2(match[0],file)
+                    checkpoint['chunks'][str(i)]={**item,**wav_info(file,profile)}
+        write_json(checkpoint_path,checkpoint)
     (folder/'source.json').write_text(json.dumps(source,ensure_ascii=False,indent=2))
     (folder/'narration-profile.json').write_text(json.dumps(profile,ensure_ascii=False,indent=2)+'\n')
     print(f'{args.uid}: {len(parts)} chunks, {len(source["segments"])} scripture segments',flush=True)
@@ -105,12 +132,15 @@ def main():
     manifest={ 'uid':args.uid,'source_sha256':source['source_sha256'],'model':profile['model'],'voice':profile['voice'],
         'style':profile['style'],**profile_metadata(profile),'duration_seconds':duration,'scripture_start_seconds':scripture_start,
         'sha256':hashlib.sha256(encoded).hexdigest(),'bytes':len(encoded),'review_status':'pending','chunk_count':len(parts),'summary_chunk_count':summary_count,'chunk_plan_sha256':digest(json.dumps(planned,ensure_ascii=False,sort_keys=True).encode()),'mp3_integrity':integrity}
+    if repair_indices:
+        manifest['chunk_repair']={'standard_plan_fingerprint':fingerprint_for(standard_plan),'standard_chunk_indices':repair_indices,'method':'Lossless sentence subdivision; unchanged chunks reused with validated text/WAV hashes. No ASR.'}
     (folder/'manifest.json').write_text(json.dumps(manifest,ensure_ascii=False,indent=2)+'\n')
     update(args.uid,'generated',duration_seconds=duration,scripture_start_seconds=scripture_start,sha256=manifest['sha256'],bytes=manifest['bytes'],review_status='pending')
     print(f'Created {mp3}, {duration:.1f}s',flush=True)
 if __name__=='__main__':
+    args=arguments()
     # One OS lock for all clones/worktrees using this machine. Released even after crashes.
     with open(Path(tempfile.gettempdir())/'kinh-tang-pali-tts.lock','a') as lock:
         try: fcntl.flock(lock,fcntl.LOCK_EX|fcntl.LOCK_NB)
         except BlockingIOError: raise SystemExit('Another narration process is running; do not start a duplicate.')
-        main()
+        main(args)
