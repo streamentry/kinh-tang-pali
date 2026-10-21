@@ -1773,3 +1773,23 @@ Total runtime **10,014.03 seconds**; total R2 size **200,286,240 bytes**.
 | MN78 | `52af857cae9bb171703d6894f7b28997bf298e94577e8604ad747a965aed3f03` | `a25b84f6c11f3c5d09586f384d4d2f857c715d4780e95d672a23f74d69a2be26` | 25,588,320 | 1279.36 s | 166.15 s | [MP3](https://pub-8fa53f5182904685bd0c13d6c894a0e9.r2.dev/vi/mn/mn78/a25b84f6c11f3c5d.mp3) | live |
 
 Artifact provenance is retained per UID: MN74 came from [PR #619](https://github.com/streamentry/kinh-tang-pali/pull/619), and MN75–MN78 from [PR #632](https://github.com/streamentry/kinh-tang-pali/pull/632). MN77's superseded recording and source-change reason remain in `content/audio/progress.json` history. Existing ASR-skipped/manual-listening notes are unchanged. No MP3/WAV/cache/transcript files or secrets are committed.
+
+### Batch audio-074 production release checkpoint — MN79–MN83
+
+This batch promotes five existing R2 artifacts to `live`; no TTS request ran and no MP3 changed. Current canonical summary + Vietnamese 2026 source hashes match every metadata record, all pass the narration source gate, and all use the pinned `vi-charon-mn1-v1` profile SHA-256 `a384c5852585077c32e1348a6ada5cfc70a69c989ad705b8b5129fef3e1c9a71`. All remain `review_status: pending`; ASR was skipped per editor decision and full human content listening was not performed.
+
+Each public R2 object was streamed and matched its complete SHA-256 and byte count, then passed an HTTP 206 `audio/mpeg` 1,024-byte range read. Each production page returned HTTP 200 with the player, exact R2 URL and pending-review label. An isolated Chrome 155 smoke test confirmed playback advanced, scripture jump and +15-second seek worked, previous/next links pointed to expected adjacent MN pages, and there were no page/media errors. MN74 next/back navigation was clicked end-to-end; a fresh isolated browser context showed auto-next defaulted on and persisted both off/on changes. The smoke test did not listen to or approve spoken content.
+
+The latest completed Pages deployment at verification was [#39518296898](https://github.com/streamentry/kinh-tang-pali/actions/runs/39518296898), commit `f1bb7c811fa8e21fdc2839d3137f551226f0551c`. A newer deployment for merged commit `c8d789994b98b48f027421ece83f59cfc28fc079` was still in progress; the five pages and players were read back directly without waiting for that post-merge workflow.
+
+Total runtime **8,143.31 seconds**; total R2 size **162,872,160 bytes**.
+
+| UID | Source SHA-256 | MP3 SHA-256 | Bytes | Duration | Scripture start | R2 | Status |
+|---|---|---|---:|---:|---:|---|---|
+| MN79 | `39f35f1f54754c1a085cf0ff1e53a6564c62b40c37251e6d3431708c940a6b34` | `eeb4f13ba72c4235c9f4e888652cfe4bdf1309305beafb9363051dbfe320920c` | 31,051,680 | 1552.52 s | 156.23 s | [MP3](https://pub-8fa53f5182904685bd0c13d6c894a0e9.r2.dev/vi/mn/mn79/eeb4f13ba72c4235.mp3) | live |
+| MN80 | `94be4badb53bcc25b96a31e160f6bcd582394f1ca2a70c5b3c4f407265e90236` | `268d10de92039a016c4a278ea7cfd817c9d6c0e4442100ccbde78a6dcce0220c` | 16,029,120 | 801.40 s | 156.55 s | [MP3](https://pub-8fa53f5182904685bd0c13d6c894a0e9.r2.dev/vi/mn/mn80/268d10de92039a01.mp3) | live |
+| MN81 | `37d1e726044e205ff03d5179a479c272f8722bc335a9cb242540e5a23a6e33e5` | `817e5a56ef86ed6f90b06e65dcd37201ebfd741d4b32965c92f0c0b23b020297` | 29,205,600 | 1460.22 s | 157.23 s | [MP3](https://pub-8fa53f5182904685bd0c13d6c894a0e9.r2.dev/vi/mn/mn81/817e5a56ef86ed6f.mp3) | live |
+| MN82 | `b37c27ccf0ca78d7f6d7abea89edb624ddaa3bc5ec571f35e7cb7e642e7ca40e` | `fe8877dce494dfaa1c057d4218a7aa47471d91e79c8c120a7ebafb9608a8eff8` | 56,432,160 | 2821.56 s | 160.99 s | [MP3](https://pub-8fa53f5182904685bd0c13d6c894a0e9.r2.dev/vi/mn/mn82/fe8877dce494dfaa.mp3) | live |
+| MN83 | `5fb68282ea5dc61b498c3c51f92997e913f1f38c62b3d8eb09de107f53d45293` | `fb10d90636a57e7d796a3e5a6f82d9c80dc9aca76a42b58f31d0ba925decbd86` | 30,153,600 | 1507.61 s | 166.63 s | [MP3](https://pub-8fa53f5182904685bd0c13d6c894a0e9.r2.dev/vi/mn/mn83/fb10d90636a57e7d.mp3) | live |
+
+Artifact provenance is retained per UID: MN79 was originally registered in [PR #632](https://github.com/streamentry/kinh-tang-pali/pull/632), MN80–MN83 in [PR #633](https://github.com/streamentry/kinh-tang-pali/pull/633). MN77's superseded audio and source-change reason remain in its historical record. Existing ASR-skipped/manual-listening notes are unchanged. No MP3/WAV/cache/transcript files or secrets are committed.
