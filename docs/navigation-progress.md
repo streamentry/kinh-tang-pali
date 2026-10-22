@@ -68,7 +68,31 @@ im lặng; workflow Pages chạy cùng các cổng điều hướng; trạng th�
   trong PR này.
 - Tên từ mục lục budsas.org: `NOASSERTION`; chỉ kiểm lại nguyên văn khi chạy `--reference` cục bộ.
 
-## Tiếp theo
+## Phát hành
 
-Gate cục bộ đầy đủ → PR → CI đúng head → merge → theo dõi deployment chứa merge commit → kiểm
-production. Kết quả sẽ được ghi vào đây.
+- PR [#816](https://github.com/streamentry/kinh-tang-pali/pull/816), head `fd12efd5a3f366d5f9742c136a72e1edfeca5322`,
+  base `d5c9933f9939b02bfc4aff678a21d9d6e987de86`. CI đúng head xanh cả hai run: `pull_request`
+  [39825999420](https://github.com/streamentry/kinh-tang-pali/actions/runs/39825999420) (28 bước, gồm
+  `navigation:sync -- --remote`, `navigation:check`, `navigation:verify`, `reading:check`; 485 test, 483 pass,
+  0 fail, 2 skip có sẵn) và `push` 39825972509.
+- Squash-merge `436bb5e3efe23596a18718c296c0293ccc25565a` lúc 2026-10-22T18:37:52Z; `origin/main` đọc lại:
+  cây trùng head của PR.
+- Pages run [39833072651](https://github.com/streamentry/kinh-tang-pali/actions/runs/39833072651) (build +
+  deploy thành công) trên đúng merge commit; deployment `7261100476` (github-pages, 2026-10-22T19:06:31Z);
+  artifact 5.098.513.011 byte.
+
+## Kiểm production (2026-10-22T19:10Z)
+
+- Crawl `https://streamentry.github.io/kinh-tang-pali/`: 1.610 URL điều hướng (854 nhóm + 756 phần đọc) đều 200
+  và **trùng byte** với build cục bộ đã kiểm; 19 trang khác (5 trang bộ, `/page/N/`, bài pilot, UID dải, MN1,
+  sitemap, tìm kiếm) đều 200; ID nhóm lạ `sutta/sn/nhom/khong-co-nhom-nay/` trả 404.
+- Trình duyệt trên production: SN12.15 có breadcrumb Kinh Tương Ưng Bộ › Thiên Nhân Duyên › Tương Ưng Nhân
+  Duyên › Phẩm Āhāravagga, bài trước/sau SN12.14/SN12.16; đọc liên tục Phẩm Lớn (AN3): 698 segment không trùng,
+  không trùng ID, `noindex`; Aṭṭhakavagga đủ SNP4.1–16 đúng thứ tự; Pagefind production trả nhóm kèm breadcrumb và
+  kết quả kinh không trỏ trang đọc liên tục; trang Tiểu Bộ ở 390 px không tràn, đủ 20 tác phẩm; không lỗi console.
+- Audio: SN/AN/KN chưa có MP3, nên production không có trình phát nhóm nào; engine đã kiểm bằng fixture cục bộ.
+
+## Phục hồi
+
+Commit trước thay đổi: `d5c9933f9`. Gỡ bằng PR revert `436bb5e3e` qua CI (xem `docs/navigation.md`, mục Phục hồi);
+không URL cũ nào phụ thuộc vào tầng này.
