@@ -1,0 +1,155 @@
+---
+/**
+ * A group of the traditional tree: a thiên, saṁyutta, nipāta, paṇṇāsaka, vagga or KN work.
+ *
+ * It lists its children in the pinned tree's order — sub-groups, texts, or (Cūḷaniddesa, Netti)
+ * both, in the order the tree gives — with counts over distinct reader URLs. Only the group's own
+ * names are indexed for search, as results of type `Nhóm`; the texts it lists are indexed on their
+ * own pages, so a search never returns the same scripture twice.
+ */
+import Base from '../../../../../layouts/Base.astro';
+import CollectionAudio from '../../../../../components/CollectionAudio.astro';
+import GroupBreadcrumb from '../../../../../components/GroupBreadcrumb.astro';
+import GroupList from '../../../../../components/GroupList.astro';
+import GroupProvenance from '../../../../../components/GroupProvenance.astro';
+import SuttaRow from '../../../../../components/SuttaRow.astro';
+import { COLLECTIONS, listCollection } from '../../../../../lib/canon/load';
+import {
+  allGroups,
+  groupHref,
+  groupNode,
+  groupPath,
+  groupRange,
+  groupTexts,
+  groupTitle,
+  levelLabel,
+  siblingGroups,
+} from '../../../../../lib/canon/groups';
+import { groupReadingPlan, groupStats } from '../../../../../lib/canon/group-reading';
+import { readingPartPath } from '../../../../../lib/canon/reading-budget';
+import { hasAudioRegistration, loadAudio } from '../../../../../lib/canon/audio';
+import { composeDocument } from '../../../../../lib/canon/document';
+import { coverCollections } from '../../../../../lib/canon/covers';
+import { NAVIGATION_COLLECTIONS, type NavigationChild } from '../../../../../lib/canon/navigation-types';
+import { STATUS_LABEL } from '../../../../../lib/canon/status-label';
+import { withBase } from '../../../../../lib/url';
+
+export function getStaticPaths() {
+  return NAVIGATION_COLLECTIONS.flatMap((code) => allGroups(code).map((node) => ({
+    params: { collection: code, group: node.id },
+    props: { code, id: node.id },
+  })));
+}
+
+const { code, id } = Astro.props;
+const collection = COLLECTIONS.find((entry) => entry.code === code)!;
+const node = groupNode(code, id)!;
+const trail = groupPath(code, id).slice(1);
+const title = groupTitle(node);
+const level = levelLabel(node);
+const stats = groupStats(code, id);
+const plan = groupReadingPlan(code, id);
+const siblings = siblingGroups(code, id);
+const parent = node.parentId && node.parentId !== code ? groupNode(code, node.parentId) : undefined;
+const listing = new Map(listCollection(code).map((item) => [item.uid, item]));
+const withAudio = (uid: string) => hasAudioRegistration(uid) ? loadAudio(composeDocument(code, uid)) : null;
+const descendants = groupTexts(code, id);
+const tracks = descendants.flatMap((uid, index) => {
+  const audio = withAudio(uid);
+  return audio ? [{ ...audio, uid, title: listing.get(uid)?.title ?? uid.toUpperCase(), order: index }] : [];
+});
+const ranged = descendants.filter((uid) => /\d-\d/.test(uid));
+const withCovers = coverCollections.includes(code);
+
+/** Children in tree order, as runs of groups and runs of texts. */
+type Run = { type: 'group'; ids: string[] } | { type: 'text'; uids: string[] };
+const runs = node.children.reduce<Run[]>((all, child: NavigationChild) => {
+  const last = all[all.length - 1];
+  if (child.type === 'group') {
+    if (last?.type === 'group') last.ids.push(child.id); else all.push({ type: 'group', ids: [child.id] });
+  } else if (last?.type === 'text') last.uids.push(child.uid); else all.push({ type: 'text', uids: [child.uid] });
+  return all;
+}, []);
+const rowFor = (uid: string) => {
+  const item = listing.get(uid)!;
+  return { uid, title: item.title, status: item.status, audio: withAudio(uid) };
+};
+const statusLine = Object.entries(stats.byStatus)
+  .sort(([a], [b]) => ['published', 'review', 'draft', 'not-started'].indexOf(a) - ['published', 'review', 'draft', 'not-started'].indexOf(b))
+  .map(([status, count]) => `${count} ${(STATUS_LABEL[status] ?? status).toLocaleLowerCase('vi')}`);
+const trailText = [collection.titleVi, ...trail.map((entry) => groupTitle(entry).primary)].join(' › ');
+const description = `${level} ${title.primary}${title.hasVietnamese && title.pali ? ` (${title.pali})` : ''}, thuộc ${collection.titleVi}: ${stats.texts} mục đọc, ${groupRange(node)}. Mục lục theo cây truyền thống SuttaCentral.`;
+const sibling = (entry?: typeof node) => entry && { href: withBase(groupHref(code, entry.id)), title: groupTitle(entry).primary, range: groupRange(entry) };
+const previousSibling = sibling(siblings.previous);
+const nextSibling = sibling(siblings.next);
+---
+<Base title={`${title.primary} · ${collection.titleVi} · Kinh Tạng Pāli Việt`} description={description}>
+  <main id="main-content" tabindex="-1" class="page group-page">
+    <GroupBreadcrumb collection={collection} trail={trail} lastIsCurrent />
+    <header class="group-header" data-pagefind-body data-pagefind-filter="type:Nhóm">
+      {/* Read from an attribute: Pagefind splits inline meta values on commas, and names have them. */}
+      <span data-pagefind-meta="trail[data-trail]" data-trail={trailText}></span>
+      <p class="eyebrow">{level} · <span class="group-range">{groupRange(node)}</span></p>
+      <h1 data-pagefind-meta="title">{title.primary}</h1>
+      {title.hasVietnamese && title.pali && <p class="pali-title large" lang="pi">{title.pali}</p>}
+      {!title.hasVietnamese && <p class="group-name-note" data-pagefind-ignore>Chưa có tên Việt đã đối chiếu; đây là tên Pāli.</p>}
+      <div class="stats" data-pagefind-ignore>
+        <span><strong>{stats.texts}</strong> mục đọc</span>
+        <span><strong>{stats.withProjectText}</strong> có bản Việt 2026</span>
+        {statusLine.length > 0 && <span>{statusLine.join(' · ')}</span>}
+        <span><strong>{tracks.length}</strong> có bản nghe</span>
+      </div>
+      {ranged.length > 0 && (
+        <p class="group-range-note" data-pagefind-ignore>
+          Một mục đọc là một trang trên site. {ranged.length} mục trong nhóm này là một dải kinh/kệ
+          ({ranged.slice(0, 3).map((uid) => uid.toUpperCase()).join(', ')}{ranged.length > 3 ? ', …' : ''}), nên số mục không phải số bài kinh.
+        </p>
+      )}
+      {plan && (
+        <p class="group-actions" data-pagefind-ignore>
+          <a class="button primary" href={withBase(readingPartPath(groupHref(code, id), 0))}>Đọc liên tục</a>
+          <span class="group-actions-note">{plan.length > 1 ? `${plan.length} phần. ` : ''}Theo thứ tự nguồn; mỗi bài vẫn có trang riêng.</span>
+        </p>
+      )}
+    </header>
+
+    {tracks.length > 0 ? (
+      <CollectionAudio collectionTitle={title.primary} totalSuttas={stats.texts} tracks={tracks}>
+        <p class="group-audio-policy" data-pagefind-ignore>
+          Danh sách phát gồm {tracks.length} / {stats.texts} mục đã có bản nghe hợp lệ, theo thứ tự của nhóm.
+          {tracks.length < stats.texts && ' Mục chưa có bản nghe được bỏ qua.'} Phát hết nhóm thì dừng, không lặp lại.
+        </p>
+        {runs.map((run) => run.type === 'group'
+          ? <GroupList groups={run.ids.map((child) => groupNode(code, child)!)} label={`Các nhóm trong ${title.primary}`} />
+          : <ol class:list={['sutta-list', withCovers && 'has-covers']} aria-label={`Các mục đọc trong ${title.primary}`}>{run.uids.map((uid) => <SuttaRow code={code} item={rowFor(uid)} withCovers={withCovers} />)}</ol>)}
+      </CollectionAudio>
+    ) : (
+      <>
+        <p class="group-audio-none" data-pagefind-ignore>Chưa có bản nghe cho các mục trong nhóm này.</p>
+        {runs.map((run) => run.type === 'group'
+          ? <GroupList groups={run.ids.map((child) => groupNode(code, child)!)} label={`Các nhóm trong ${title.primary}`} />
+          : <ol class:list={['sutta-list', withCovers && 'has-covers']} aria-label={`Các mục đọc trong ${title.primary}`}>{run.uids.map((uid) => <SuttaRow code={code} item={rowFor(uid)} withCovers={withCovers} />)}</ol>)}
+      </>
+    )}
+
+    <nav class="group-siblings" aria-label="Nhóm liền kề" data-pagefind-ignore>
+      {previousSibling && (
+        <a class="group-sibling is-previous" href={previousSibling.href} rel="prev">
+          <span class="neighbour-label">← {level} trước · {previousSibling.range}</span>
+          <span class="neighbour-title">{previousSibling.title}</span>
+        </a>
+      )}
+      {nextSibling && (
+        <a class="group-sibling is-next" href={nextSibling.href} rel="next">
+          <span class="neighbour-label">{level} tiếp · {nextSibling.range} →</span>
+          <span class="neighbour-title">{nextSibling.title}</span>
+        </a>
+      )}
+      <a class="neighbour-index" href={withBase(parent ? groupHref(code, parent.id) : `sutta/${code}/`)}>
+        Lên mục lục {parent ? groupTitle(parent).primary : collection.titleVi}
+      </a>
+    </nav>
+
+    <GroupProvenance node={node} />
+  </main>
+</Base>

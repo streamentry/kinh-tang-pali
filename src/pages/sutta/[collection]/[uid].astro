@@ -6,6 +6,7 @@ import SuttaReader from '../../../components/SuttaReader.astro';
 import SuttaAudio from '../../../components/SuttaAudio.astro';
 import SuttaMasthead from '../../../components/SuttaMasthead.astro';
 import SuttaNeighbours from '../../../components/SuttaNeighbours.astro';
+import GroupBreadcrumb from '../../../components/GroupBreadcrumb.astro';
 import { getImage } from 'astro:assets';
 import { coverFor } from '../../../lib/canon/covers';
 import { readingMinutes } from '../../../lib/canon/status-label';
@@ -17,6 +18,7 @@ import { loadAssessmentHistory } from '../../../lib/canon/quality';
 import { loadExplanations } from '../../../lib/canon/explanations';
 import type { CollectionCode, TranslationQualityAssessment } from '../../../lib/canon/types';
 import { withBase } from '../../../lib/url';
+import { groupHref, groupTitle, hasNavigation, navigationNeighbours, textPath } from '../../../lib/canon/groups';
 
 export function getStaticPaths() {
   return COLLECTIONS.flatMap((collection) => {
@@ -31,7 +33,14 @@ export function getStaticPaths() {
 const { collection, uid } = Astro.props;
 const document = composeDocument(collection.code as CollectionCode, uid);
 const audio = loadAudio(document);
-const neighbours = adjacentTexts(loadCatalog(collection.code).texts, uid);
+// SN, AN and KN walk the pinned tree's traversal; DN and MN keep their catalogue order.
+const code = collection.code as CollectionCode;
+const trail = textPath(code, uid).slice(1);
+const home = trail[trail.length - 1];
+const byUid = new Map(loadCatalog(code).texts.map((text) => [text.uid, text]));
+const neighbours = hasNavigation(code)
+  ? (({ previous, next }) => ({ previous: previous ? byUid.get(previous) : undefined, next: next ? byUid.get(next) : undefined }))(navigationNeighbours(code, uid))
+  : adjacentTexts(loadCatalog(code).texts, uid);
 const previous = neighbours.previous ? { uid: neighbours.previous.uid, href: withBase(`sutta/${collection.code}/${neighbours.previous.uid}/`) } : undefined;
 const next = neighbours.next ? { uid: neighbours.next.uid, href: withBase(`sutta/${collection.code}/${neighbours.next.uid}/`), hasAudio: audio ? Boolean(loadAudio(composeDocument(collection.code as CollectionCode, neighbours.next.uid))) : false } : undefined;
 const meta = loadMeta(collection.code, uid);
@@ -57,7 +66,10 @@ const socialImage = cover
 <Base image={socialImage} title={`${document.viTitle} · ${uid.toUpperCase()} · Kinh Tạng Pāli Việt`} description={`${uid.toUpperCase()} — ${document.viTitle}, thuộc ${collection.titleVi}. Đọc Pāli và các bản dịch đối chiếu từng đoạn; bản Việt của dự án: ${statusLabel}.`}>
   <div class="reading-progress" aria-hidden="true"></div>
   <main id="main-content" tabindex="-1" class="page reader-page">
-    <a class="back-link" href={withBase(`sutta/${collection.code}/`)}>← {collection.titleVi}</a>
+    {trail.length > 0 && <span data-pagefind-meta="trail[data-trail]" data-trail={[collection.titleVi, ...trail.map((node) => groupTitle(node).primary)].join(' › ')}></span>}
+    {trail.length > 0
+      ? <GroupBreadcrumb collection={collection} trail={trail} />
+      : <a class="back-link" href={withBase(`sutta/${collection.code}/`)}>← {collection.titleVi}</a>}
     <SuttaMasthead uid={uid} collectionTitle={collection.titleVi} collectionPali={collection.titlePali}
       viTitle={document.viTitle} paliTitle={document.paliTitle} status={statusLabel}
       readingMinutes={minutesToRead} segmentCount={document.segments.length}
@@ -92,7 +104,8 @@ const socialImage = cover
     {audio && <SuttaAudio audio={audio} title={document.viTitle} previous={previous} next={next} />}
     <SuttaReader document={document} />
     <SuttaNeighbours previous={neighbourLink(neighbours.previous)} next={neighbourLink(neighbours.next)}
-      collectionTitle={collection.titleVi} collectionHref={withBase(`sutta/${collection.code}/`)} />
+      collectionTitle={home ? groupTitle(home).primary : collection.titleVi}
+      collectionHref={withBase(home && hasNavigation(code) ? groupHref(code, home.id) : `sutta/${collection.code}/`)} />
     {supportsSummary && <QualityHistory collection={collection.code} uid={uid} target="summary" assessments={history.assessments} />}
     {document.hasProjectData && <QualityHistory collection={collection.code} uid={uid} target="translation" assessments={history.assessments} legacy={legacyScores} />}
   </main>

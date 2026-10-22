@@ -1,0 +1,120 @@
+---
+/**
+ * The segment rows of the comparison reader: one `article` per segment, four version cells.
+ *
+ * Shared by the single-text reader and the continuous group reader so both render a segment the
+ * same way. `href` decides where a segment's number links; the single-text page links to its own
+ * anchor, a continuous reading links back to the segment on its text's own page.
+ */
+import type { CanonSegment } from '../lib/canon/types';
+import ReaderComment from './ReaderComment.astro';
+
+interface Props { segments: CanonSegment[]; href?: (segmentId: string) => string }
+const { segments, href = (segmentId: string) => `#${segmentId}` } = Astro.props;
+
+/**
+ * Paragraph shape for the reading mode, derived from the SuttaCentral segment number alone.
+ *
+ * Bilara numbers a segment `<section>.<sentence>`: the `0` block is the text's own incipit
+ * (collection and title), a number ending in `.0` or `.0.n` is a section heading, and the
+ * other segments of one section share everything but their last number. The reading mode
+ * uses that to set sentences as running paragraphs; nothing is regrouped in the markup, so
+ * every segment keeps its own element, id and anchor.
+ */
+const parts = (id: string) => id.slice(id.indexOf(':') + 1).split('.');
+const roleOf = (id: string) => {
+  const p = parts(id);
+  if (p[0] === '0') return 'incipit';
+  return p.length > 1 && (p.at(-1) === '0' || p.at(-2) === '0') ? 'heading' : 'prose';
+};
+const paragraphOf = (id: string) => (roleOf(id) === 'heading' ? id : parts(id).slice(0, -1).join('.') || id);
+const shapes = segments.map((segment, index) => {
+  const role = roleOf(segment.id);
+  const previous = segments[index - 1];
+  const starts = !previous || role === 'heading' || roleOf(previous.id) === 'heading' || paragraphOf(previous.id) !== paragraphOf(segment.id);
+  return { role, starts, paragraph: paragraphOf(segment.id) };
+});
+---
+{segments.map((segment, index) => {
+  const isUntranslated = !segment.vi?.trim();
+  const shape = shapes[index];
+  return (
+    <article
+      class:list={['segment', isUntranslated && 'untranslated', `role-${shape.role}`, shape.starts && 'para-start']}
+      id={segment.id}
+      data-segment-id={segment.id}
+    >
+      <div class="segment-id">
+        <a href={href(segment.id)} aria-label={`Liên kết trực tiếp tới đoạn ${segment.id}`} title="Liên kết trực tiếp tới đoạn này">
+          {segment.id}
+        </a>
+      </div>
+
+      <div
+        class="cell cell-pali"
+        lang="pi"
+        data-column="pali"
+        data-label="Pāli · nguồn chuẩn"
+        data-short="Pāli"
+        data-pagefind-filter="version:Pāli"
+      >
+        {segment.pali || <span class="missing" data-pagefind-ignore>—</span>}
+      </div>
+
+      <div
+        class:list={['cell', 'cell-en', segment.enFrom === 'english-project' && 'is-own-fill']}
+        lang="en"
+        data-column="english"
+        data-label="English · tham khảo (Sujato)"
+        data-short="English"
+        data-pagefind-filter="version:English"
+      >
+        {segment.en || (
+          <span class="blank-ref" data-pagefind-ignore>
+            {segment.absence.en === 'not-published-upstream'
+              ? 'Bản chụp không có bản Anh cho bài này'
+              : 'Bản tham khảo để trống ở đoạn này'}
+          </span>
+        )}
+        {segment.en && segment.enFrom === 'english-project' && (
+          <span class="fill-badge" data-pagefind-ignore title="Sujato để trống; đoạn này do dự án bù, là bản nháp của chúng ta">
+            bản lấp của dự án
+          </span>
+        )}
+      </div>
+
+      <div
+        class="cell cell-vi-current"
+        lang="vi"
+        data-column="viCurrent"
+        data-label="Việt hiện hành · tham khảo (Thích Minh Châu)"
+        data-short="Việt hiện hành"
+        data-pagefind-filter="version:Việt hiện hành"
+      >
+        {segment.viCurrent || (
+          <span class="blank-ref" data-pagefind-ignore>
+            {segment.absence.viCurrent === 'not-published-upstream'
+              ? 'Bản chụp không có bản Việt hiện hành cho bài này'
+              : 'Bản Việt hiện hành để trống ở đoạn này'}
+          </span>
+        )}
+      </div>
+
+      <div
+        class:list={['cell', 'cell-vi', isUntranslated && 'is-untranslated']}
+        lang="vi"
+        data-column="vi"
+        data-label="Việt 2026 · bản canonical"
+        data-short="Việt 2026"
+        data-pagefind-filter="version:Việt 2026"
+      >
+        {segment.vi || (
+          <span class="missing" data-pagefind-ignore>Chưa dịch</span>
+        )}
+        {segment.commentVi && (
+          <ReaderComment text={segment.commentVi} segmentId={segment.id} />
+        )}
+      </div>
+    </article>
+  );
+})}

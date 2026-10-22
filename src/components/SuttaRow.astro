@@ -1,0 +1,40 @@
+---
+/**
+ * One row of a directory of texts: thumbnail (where the collection has covers), UID, title,
+ * status, and the row's play button when the text has valid audio. Shared by collection and
+ * group directories so a text looks the same in both, and so both request the same image
+ * variants — a group page must not multiply the cover thumbnails the build produces.
+ */
+import { Image } from 'astro:assets';
+import { coverFor } from '../lib/canon/covers';
+import { STATUS_LABEL } from '../lib/canon/status-label';
+import type { SuttaAudio } from '../lib/canon/audio';
+import type { CollectionCode } from '../lib/canon/types';
+import { withBase } from '../lib/url';
+
+interface Props {
+  code: CollectionCode;
+  item: { uid: string; title: string; status: string; audio: SuttaAudio | null };
+  withCovers: boolean;
+}
+const { code, item, withCovers } = Astro.props;
+const cover = withCovers ? coverFor(item.uid) : undefined;
+---
+<li data-audio-row={item.audio ? item.uid : undefined}>
+  <a href={withBase(`sutta/${code}/${item.uid}/`)}>
+    {withCovers && (cover
+      ? <Image class="list-thumb" src={cover.image} alt="" width={144} widths={[96, 144]} sizes="4.5rem" format="webp" quality={65} loading="lazy" style={cover.focus ? `object-position: ${cover.focus}` : undefined} />
+      : <span class="list-thumb" aria-hidden="true"></span>)}
+    <span class="uid">{item.uid.toUpperCase()}</span>
+    <span class="sutta-title">{item.title}</span>
+    <span class:list={['status', item.status]} title={`Trạng thái: ${item.status}`}>{STATUS_LABEL[item.status] ?? item.status}</span>
+  </a>
+  {item.audio && (
+    <div class="sutta-row-audio" data-pagefind-ignore>
+      <button class="sutta-row-play" type="button" data-play-track={item.uid} data-track-title={item.title} aria-label={`Phát ${item.uid.toUpperCase()} · ${item.title}`} aria-pressed="false" hidden>
+        <span data-row-label>Phát</span>
+      </button>
+      <a class="sutta-row-fallback" data-audio-fallback href={item.audio.url} target="_blank" rel="noopener">Nghe MP3</a>
+    </div>
+  )}
+</li>

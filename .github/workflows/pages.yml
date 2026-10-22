@@ -41,6 +41,16 @@ jobs:
         # fixed one workflow and left this one, so the same test failed in the other place.
         run: npm run source:sync:manifest
 
+      - name: Sync and check the navigation tree
+        # The same gates as ci.yml, so a deploy cannot ship group pages generated from a tree that
+        # no longer matches the catalogue or the pin, even when a push skipped a green CI run.
+        # The legacy HTML is synced here too, so the tests that read it run instead of skipping.
+        run: |
+          npm run legacy:sync
+          npm run navigation:sync
+          npm run navigation:check
+          npm run navigation:verify
+
       - name: Unit tests
         run: npm test
 
@@ -49,6 +59,11 @@ jobs:
 
       - name: Build Astro and Pagefind
         run: npm run build
+
+      - name: Built pages match their plan
+        run: |
+          npm run seo:check
+          npm run reading:check
 
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5

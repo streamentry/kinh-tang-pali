@@ -3,15 +3,16 @@ import Base from '../layouts/Base.astro';
 import { listCollection, collectionProgress } from '../lib/canon/load';
 import type { CollectionCode } from '../lib/canon/types';
 import { withBase } from '../lib/url';
-import { Image } from 'astro:assets';
-import { coverCollections, coverFor } from '../lib/canon/covers';
-import { STATUS_LABEL } from '../lib/canon/status-label';
+import { coverCollections } from '../lib/canon/covers';
 import CollectionAudio from '../components/CollectionAudio.astro';
 import { hasAudioRegistration, loadAudio } from '../lib/canon/audio';
 import { composeDocument } from '../lib/canon/document';
 import { orderedAudioItems } from '../lib/audio/navigation';
 import { collectionPageCount, collectionPageSize } from '../lib/collection-pagination';
 import CollectionPagination from './CollectionPagination.astro';
+import SuttaRow from './SuttaRow.astro';
+import GroupList from './GroupList.astro';
+import { childGroups, groupHref, groupRange, groupTitle, hasNavigation, levelLabel, loadNavigation } from '../lib/canon/groups';
 
 interface Props {
   collection: import('../lib/canon/types').CollectionDefinition;
@@ -20,11 +21,23 @@ interface Props {
 
 const { collection, page = 1 } = Astro.props;
 const code = collection.code as CollectionCode;
-const items = listCollection(code).map((item) => ({
+// SN, AN and KN list "all texts" in the traversal order of the pinned tree; the catalogue's
+// historical `order` (an2.1 → an2.10 → an2.100) is left untouched but no longer shown.
+const navigation = hasNavigation(code) ? loadNavigation(code) : undefined;
+const position = new Map(navigation?.order.map((uid, index) => [uid, index]) ?? []);
+const missing = navigation ? listCollection(code).filter((item) => !position.has(item.uid)).map((item) => item.uid) : [];
+if (missing.length) throw new Error(`${code}: ${missing.length} catalogue text(s) are not in content/navigation/traditional/${code}.json (${missing.slice(0, 5).join(', ')}) — run: npm run navigation:generate`);
+const listed = navigation
+  ? [...listCollection(code)].sort((a, b) => position.get(a.uid)! - position.get(b.uid)!)
+  : listCollection(code);
+const topGroups = navigation ? childGroups(code as 'sn' | 'an' | 'kn', navigation.rootId) : [];
+const nested = topGroups.length > 0 && topGroups.length <= 6;
+const items = listed.map((item) => ({
   ...item,
   audio: hasAudioRegistration(item.uid) ? loadAudio(composeDocument(code, item.uid)) : null,
 }));
-const tracks = orderedAudioItems(items).flatMap((item) => item.audio ? [{
+// The playlist follows the order the list shows: tree traversal for SN/AN/KN, catalogue order for DN/MN.
+const tracks = (navigation ? items.filter((item) => item.audio) : orderedAudioItems(items)).flatMap((item) => item.audio ? [{
   ...item.audio,
   uid: item.uid,
   title: item.title,
@@ -54,34 +67,28 @@ const withCovers = coverCollections.includes(code);
       )}
     </header>
 
+    {page === 1 && topGroups.length > 0 && (
+      <section class="collection-groups" aria-labelledby="muc-luc-nhom">
+        <h2 id="muc-luc-nhom">Mục lục theo nhóm</h2>
+        <p class="collection-groups-note">Theo cây mục lục truyền thống của SuttaCentral. Mỗi nhóm có trang riêng với các nhóm con, bài thành viên và đọc liên tục.</p>
+        {nested ? topGroups.map((group) => (
+          <section class="collection-group-block" aria-labelledby={`nhom-${group.id}`}>
+            <h3 id={`nhom-${group.id}`}>
+              <a href={withBase(groupHref(group.collection, group.id))}>{groupTitle(group).primary}</a>
+              <span class="group-meta"><span>{levelLabel(group)}</span><span class="uid">{groupRange(group)}</span><span>{group.textCount} mục</span></span>
+            </h3>
+            <GroupList groups={childGroups(group.collection, group.id)} label={`Các nhóm trong ${groupTitle(group).primary}`} />
+          </section>
+        )) : <GroupList groups={topGroups} label={`Các nhóm trong ${collection.titleVi}`} />}
+      </section>
+    )}
+    {topGroups.length > 0 && items.length > 0 && <h2 class="collection-all-heading" id="tat-ca-bai">Tất cả bài</h2>}
     {items.length > 0 ? (
       <CollectionAudio collectionTitle={collection.titleVi} totalSuttas={items.length} tracks={tracks}>
         {pageCount > 1 && <p class="collection-page-range" id="collection-page-range">Bài {offset + 1}–{Math.min(offset + pageSize, items.length)} / {items.length} · Trang {page} / {pageCount}. <a href={withBase('search/')}>Tìm trong toàn bộ kinh tạng</a></p>}
         <CollectionPagination code={code} page={page} pageCount={pageCount} position="top" />
         <ol start={offset + 1} class:list={['sutta-list', withCovers && 'has-covers']}>
-          {visibleItems.map((item) => {
-            const cover = withCovers ? coverFor(item.uid) : undefined;
-            return (
-            <li data-audio-row={item.audio ? item.uid : undefined}>
-              <a href={withBase(`sutta/${code}/${item.uid}/`)}>
-                {withCovers && (cover
-                  ? <Image class="list-thumb" src={cover.image} alt="" width={144} widths={[96, 144]} sizes="4.5rem" format="webp" quality={65} loading="lazy" style={cover.focus ? `object-position: ${cover.focus}` : undefined} />
-                  : <span class="list-thumb" aria-hidden="true"></span>)}
-                <span class="uid">{item.uid.toUpperCase()}</span>
-                <span class="sutta-title">{item.title}</span>
-                <span class:list={['status', item.status]} title={`Trạng thái: ${item.status}`}>{STATUS_LABEL[item.status] ?? item.status}</span>
-              </a>
-              {item.audio && (
-                <div class="sutta-row-audio" data-pagefind-ignore>
-                  <button class="sutta-row-play" type="button" data-play-track={item.uid} data-track-title={item.title} aria-label={`Phát ${item.uid.toUpperCase()} · ${item.title}`} aria-pressed="false" hidden>
-                    <span data-row-label>Phát</span>
-                  </button>
-                  <a class="sutta-row-fallback" data-audio-fallback href={item.audio.url} target="_blank" rel="noopener">Nghe MP3</a>
-                </div>
-              )}
-            </li>
-            );
-          })}
+          {visibleItems.map((item) => <SuttaRow code={code} item={item} withCovers={withCovers} />)}
         </ol>
         <CollectionPagination code={code} page={page} pageCount={pageCount} position="bottom" />
       </CollectionAudio>
