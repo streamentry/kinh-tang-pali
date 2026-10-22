@@ -99,6 +99,13 @@ im lặng; workflow Pages chạy cùng các cổng điều hướng; trạng th�
 - 54 bài có lượt `full` gắn hash được 9 người chấm độc lập đọc lại toàn văn, ghi `--record` và `--apply`:
   33 giữ `published`, 21 về `draft` vì lỗi chặn ngữ nghĩa có sẵn (danh sách ở `docs/navigation.md`).
   `quality:check` 0 lỗi.
+- PR [#818](https://github.com/streamentry/kinh-tang-pali/pull/818), head `78ae81f3bbe656782673f539272e89623eecf7de`:
+  CI xanh cả run `pull_request` 39859344092 và `push` 39859292088; squash-merge
+  `63038b85feddb26138623bed55fe5900d7869b50` (2026-10-22T22:30:18Z). Pages run 39865446300 (build + deploy
+  thành công) trên đúng commit đó, deployment `7265975792` (2026-10-22T23:13:16Z).
+- Production: 1.610 URL điều hướng đều 200 và trùng byte với build cục bộ; ID nhóm lạ trả 404; tên nhóm
+  "Phẩm Đoàn Thực", "Nhóm Mười Một Kệ", "Chương Một Pháp", "Nhóm Hai Kệ"; `sn12.11:0.2` "2. Phẩm Đoàn Thực";
+  thag1.2 / thag2.1 / thig7.2 hiện nhãn và banner `draft`, thag1.44 vẫn `published`.
 
 ## Phục hồi
 
