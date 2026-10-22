@@ -3,6 +3,7 @@ import { existsSync, readFileSync } from 'node:fs';
 import test from 'node:test';
 import { COLLECTIONS, loadCatalog } from '../../src/lib/canon/load';
 import { collectionPageCount, collectionPageLinks, collectionPagePath, collectionPageSize } from '../../src/lib/collection-pagination';
+import { hasNavigation, loadNavigation } from '../../src/lib/canon/groups';
 
 test('collection pages preserve every canonical UID exactly once in order', () => {
   for (const { code } of COLLECTIONS) {
@@ -53,6 +54,9 @@ test('built directories retain all links and paginate only the large collections
         if (page > 1) assert.ok(html.includes(`href="/kinh-tang-pali/${collectionPagePath(code, page - 1)}" rel="prev"`));
       }
     }
-    assert.deepEqual(found, [...texts].sort((a, b) => a.order - b.order).map(text => text.uid));
+    // SN, AN and KN list texts in the traversal order of the pinned tree (tests/unit/navigation.test.ts);
+    // DN and MN keep catalogue order. Either way every text keeps exactly one link.
+    const expected = hasNavigation(code) ? loadNavigation(code).order : [...texts].sort((a, b) => a.order - b.order).map(text => text.uid);
+    assert.deepEqual(found, expected);
   }
 });

@@ -12,6 +12,7 @@
  */
 import { readFileSync } from 'node:fs';
 import path from 'node:path';
+import YAML from 'yaml';
 import type { CollectionCode } from './types';
 import {
   NAVIGATION_COLLECTIONS,
@@ -169,4 +170,22 @@ export function groupRange(node: NavigationNode): string {
   const first = node.firstUid.toUpperCase();
   const last = node.lastUid.toUpperCase();
   return first === last ? first : `${first}–${last}`;
+}
+
+interface ReferenceSource { title: string; url: string; author: string; distributor: string; license: string }
+let referenceSources: Record<string, ReferenceSource> | undefined;
+let referenceNameSource: Record<string, string> | undefined;
+
+/** The attributed table of contents a `reference-toc` name was taken from. */
+export function referenceSourceFor(groupId: string): ReferenceSource | undefined {
+  if (!referenceSources || !referenceNameSource) {
+    const file = YAML.parse(readFileSync(path.join(process.cwd(), 'content/navigation/names/vi-reference.yaml'), 'utf8')) as {
+      sources: Record<string, ReferenceSource>;
+      names: Record<string, { source: string }>;
+    };
+    referenceSources = file.sources;
+    referenceNameSource = Object.fromEntries(Object.entries(file.names).map(([id, entry]) => [id, entry.source]));
+  }
+  const source = referenceNameSource[groupId];
+  return source ? referenceSources[source] : undefined;
 }

@@ -22,7 +22,6 @@ import {
   type NavigationCollection,
   type NavigationCollectionCode,
   type SourceRef,
-  type VietnameseName,
 } from '../src/lib/canon/navigation-types';
 import {
   gitBlobHash,

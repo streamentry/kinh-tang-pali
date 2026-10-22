@@ -1,0 +1,27 @@
+---
+/**
+ * Child groups of a group or collection, as a compact directory: level and range, name, Pāli
+ * name, and how many reader URLs sit below. Each row is one link with a full-row hit area.
+ */
+import type { NavigationNode } from '../lib/canon/navigation-types';
+import { groupHref, groupRange, groupTitle, levelLabel } from '../lib/canon/groups';
+import { withBase } from '../lib/url';
+
+interface Props { groups: NavigationNode[]; label: string }
+const { groups, label } = Astro.props;
+---
+<ol class="group-list" aria-label={label}>
+  {groups.map((node) => {
+    const title = groupTitle(node);
+    return (
+      <li>
+        <a href={withBase(groupHref(node.collection, node.id))}>
+          <span class="group-meta"><span>{levelLabel(node)}</span><span class="uid">{groupRange(node)}</span></span>
+          <span class="group-name">{title.primary}</span>
+          {title.hasVietnamese && title.pali && <span class="group-pali" lang="pi">{title.pali}</span>}
+          <span class="group-count">{node.textCount} mục</span>
+        </a>
+      </li>
+    );
+  })}
+</ol>

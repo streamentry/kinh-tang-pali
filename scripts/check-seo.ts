@@ -17,9 +17,13 @@ for (const file of htmlFiles('dist')) {
     if (!html.includes(marker)) throw new Error(`Missing ${marker}: ${file}`);
   }
   for (const match of html.matchAll(/<script[^>]*type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/g)) JSON.parse(match[1]);
-  if (path === 'search/') {
-    if (!html.includes('noindex,follow')) throw new Error('Search must be noindex');
-  } else expected.add(url);
+  // Search and the continuous-reading views of a group are noindex and stay out of the sitemap;
+  // the reading view repeats scripture whose own page is the one to index.
+  const mustBeNoindex = path === 'search/' || /^sutta\/(sn|an|kn)\/nhom\/[^/]+\/doc\/(\d+\/)?$/.test(path);
+  const isNoindex = html.includes('content="noindex,follow"');
+  if (mustBeNoindex && !isNoindex) throw new Error(`Must be noindex: ${file}`);
+  if (!mustBeNoindex && isNoindex) throw new Error(`Unexpected noindex: ${file}`);
+  if (!isNoindex) expected.add(url);
   if (/href="\/(?:sutta|search)\//.test(html)) throw new Error(`Link omits base: ${file}`);
 }
 if (locations.length !== new Set(locations).size) throw new Error('Duplicate sitemap URLs');

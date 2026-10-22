@@ -1,0 +1,56 @@
+---
+/**
+ * Where a group's membership, order and names come from. Author before distributor (skill §7.1):
+ * a name taken from a table of contents is credited to whoever wrote it, then to where it was
+ * copied from. A group without a verified Vietnamese name says so instead of showing a guess.
+ */
+import type { NavigationNode } from '../lib/canon/navigation-types';
+import { loadNavigation, referenceSourceFor } from '../lib/canon/groups';
+
+interface Props { node: NavigationNode }
+const { node } = Astro.props;
+const source = loadNavigation(node.collection).source;
+const vi = node.name.vi;
+const reference = vi?.origin === 'reference-toc' ? referenceSourceFor(node.id) : undefined;
+const rejected = node.name.viRejected ?? [];
+const treeUrl = `https://github.com/suttacentral/sc-data/blob/${source.commit}/${node.treePath}`;
+---
+<details class="group-provenance" data-pagefind-ignore>
+  <summary>Nguồn của mục lục này</summary>
+  <ul>
+    <li>
+      Thành viên và thứ tự của nhóm theo cây mục lục của SuttaCentral
+      (<a href={treeUrl} target="_blank" rel="noopener noreferrer"><code>{node.treePath}</code></a>,
+      commit <code>{source.commit.slice(0, 12)}</code>), không sắp lại.
+    </li>
+    {node.name.pali && <li>Tên Pāli theo sổ tên của SuttaCentral (<code>{node.name.pali.from.key}</code>).</li>}
+    {vi?.origin === 'suttacentral-site' && (
+      <li>
+        Tên Việt theo bản giao diện tiếng Việt của SuttaCentral (<code>{vi.from.key}</code>)
+        {vi.normalized?.length ? <>; chỉnh chữ: {vi.normalized.join(', ')}</> : null}.
+      </li>
+    )}
+    {vi?.origin === 'reference-toc' && reference && (
+      <li>
+        Tên Việt theo mục lục bản dịch của {reference.author}, lấy từ bản sao trên{' '}
+        <a href={reference.url} target="_blank" rel="noopener noreferrer">{reference.distributor}</a>.
+        Điều khoản sử dụng: chưa xác định ({reference.license}).
+      </li>
+    )}
+    {vi?.origin === 'project-heading' && (
+      <li>
+        Tên Việt lấy từ tiêu đề trong bản dịch của dự án, đoạn <code>{vi.from.key}</code>
+        {vi.status && <> (trạng thái {vi.status})</>}.
+      </li>
+    )}
+    {!vi && (
+      <li>
+        Chưa có tên Việt đã đối chiếu cho nhóm này, nên trang hiển thị tên Pāli.
+        {rejected.map((entry) => (
+          <> Tiêu đề “{entry.text}” (đoạn <code>{entry.from.key}</code>) không được dùng
+            {entry.reason === 'untranslated' ? ' vì chỉ lặp lại tên Pāli.' : `: ${entry.note}`}</>
+        ))}
+      </li>
+    )}
+  </ul>
+</details>
