@@ -25,6 +25,8 @@ const code = collection.code as CollectionCode;
 // historical `order` (an2.1 → an2.10 → an2.100) is left untouched but no longer shown.
 const navigation = hasNavigation(code) ? loadNavigation(code) : undefined;
 const position = new Map(navigation?.order.map((uid, index) => [uid, index]) ?? []);
+const missing = navigation ? listCollection(code).filter((item) => !position.has(item.uid)).map((item) => item.uid) : [];
+if (missing.length) throw new Error(`${code}: ${missing.length} catalogue text(s) are not in content/navigation/traditional/${code}.json (${missing.slice(0, 5).join(', ')}) — run: npm run navigation:generate`);
 const listed = navigation
   ? [...listCollection(code)].sort((a, b) => position.get(a.uid)! - position.get(b.uid)!)
   : listCollection(code);
@@ -34,7 +36,8 @@ const items = listed.map((item) => ({
   ...item,
   audio: hasAudioRegistration(item.uid) ? loadAudio(composeDocument(code, item.uid)) : null,
 }));
-const tracks = orderedAudioItems(items).flatMap((item) => item.audio ? [{
+// The playlist follows the order the list shows: tree traversal for SN/AN/KN, catalogue order for DN/MN.
+const tracks = (navigation ? items.filter((item) => item.audio) : orderedAudioItems(items)).flatMap((item) => item.audio ? [{
   ...item.audio,
   uid: item.uid,
   title: item.title,

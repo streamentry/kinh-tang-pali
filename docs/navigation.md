@@ -109,11 +109,15 @@ UID, không bung dải bằng phép đếm. Mỗi segment phải thuộc đúng 
 | `npm run navigation:sync -- --remote` | thêm: so lock với danh sách cây của GitHub, từ chối danh sách `truncated` | không |
 | `npm run navigation:generate` | dựng ba bộ; chỉ ghi khi cả ba hợp lệ, ghi qua tệp tạm | `content/navigation/traditional/` |
 | `npm run navigation:check` | dựng lại trong bộ nhớ, so từng byte, chạy invariants; exit 1 khi lệch | không |
-| `npm run navigation:verify` | Python độc lập (không chung code): dựng lại membership, thứ tự tệp gộp, tên | không |
+| `npm run navigation:verify` | Python độc lập (không chung code): dựng lại membership, thứ tự (cả tệp gộp), cấp, số đếm, first/last; kiểm mỗi tên Việt với tệp+key nó dẫn, tiêu đề dự án đúng là tên Pāli của nhóm, không bỏ sót tên SuttaCentral/mục lục | không |
+| `npm run reading:check` | sau build: mọi phần đọc liên tục chứa đúng segment của các trang bài, một lần, đúng thứ tự; noindex, ngoài Pagefind; đủ 854 trang nhóm | không |
 
+Các kiểm tra trên đều có ca âm trong test (`tests/unit/navigation.test.ts`, `tests/unit/navigation-verifiers.test.ts`).
 `generate` và `check` cần cả cache điều hướng lẫn Pāli đã ghim (`npm run source:sync:manifest`);
 thiếu cache thì báo đúng lệnh cần chạy. Build website **không** cần cache điều hướng: nó đọc tệp đã
-commit. CI chạy `navigation:sync -- --remote`, `navigation:check`, `navigation:verify`.
+commit, và dừng với thông báo rõ khi tệp sinh ra thiếu một bài của catalogue hay Pāli đã ghim thiếu tệp.
+CI chạy `navigation:sync -- --remote`, `navigation:check`, `navigation:verify`, `reading:check`; workflow
+Pages chạy lại cùng các cổng đó trước và sau build.
 
 ## Website
 
@@ -129,6 +133,8 @@ commit. CI chạy `navigation:sync -- --remote`, `navigation:check`, `navigation
 - Trang bài SN/AN/KN: breadcrumb về nhóm; bài trước/sau theo thứ tự duyệt cây; "Mục lục" về nhóm.
 - Tìm kiếm: nhóm là loại kết quả riêng (`type: Nhóm`), chỉ lập chỉ mục tên nhóm; kết quả kinh văn
   vẫn trỏ về trang bài. Kết quả có breadcrumb (`trail`).
+- Tên lấy từ tiêu đề bản dịch của dự án hiện trong mục lục, breadcrumb và tìm kiếm như một tên Việt; trạng
+  thái bản dịch (hiện đều `published`) và segment nguồn ở mục "Nguồn của mục lục này" của trang nhóm.
 - Audio nhóm dùng `CollectionAudio` với các mục có MP3 hợp lệ theo thứ tự nhóm, bỏ qua mục chưa có,
   dừng khi hết. SN/AN/KN hiện chưa có audio, nên không trang nhóm nào có trình phát.
 

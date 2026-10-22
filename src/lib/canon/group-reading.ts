@@ -6,6 +6,7 @@
  * nipāta. The segment count of a text is the key set the reader renders for it — the pinned Pāli
  * segments its UID owns — so the budget is measured in what the page will actually contain.
  */
+import { existsSync } from 'node:fs';
 import { listCollection, loadCatalog, loadSegmentMap, segmentMapForUid, sourcePathFor, upstreamFile } from './load';
 import { groupNode, groupTexts, isLeafGroup, loadNavigation } from './groups';
 import type { NavigationCollectionCode, NavigationNode } from './navigation-types';
@@ -21,7 +22,11 @@ export function paliSegmentCount(code: NavigationCollectionCode, uid: string): n
   if (cached !== undefined) return cached;
   const item = loadCatalog(code).texts.find((text) => text.uid === uid);
   const sourcePath = item ? sourcePathFor(code, uid, item.sourcePath) : null;
-  const count = sourcePath ? Object.keys(segmentMapForUid(loadSegmentMap(upstreamFile(sourcePath)), uid)).length : 0;
+  if (!sourcePath || !existsSync(upstreamFile(sourcePath))) {
+    throw new Error(`${uid}: pinned Pāli ${sourcePath ?? '(no path)'} is missing from the cache — run: npm run source:sync:manifest`);
+  }
+  const count = Object.keys(segmentMapForUid(loadSegmentMap(upstreamFile(sourcePath)), uid)).length;
+  if (count === 0) throw new Error(`${uid}: owns no segment of ${sourcePath}; a reading part would be empty`);
   countCache.set(key, count);
   return count;
 }

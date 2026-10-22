@@ -97,7 +97,10 @@ const baseUrl = rawBaseUrl.endsWith('/') ? rawBaseUrl : `${rawBaseUrl}/`;
         pf.search(query, { filters: { type: 'Nhóm' } }),
       ]);
       const scope = versions.length === 4 ? 'cả 4 bản' : versions.join(', ');
-      const groupNote = groups.results.length ? ` · ${groups.results.length} nhóm kinh` : '';
+      const shownGroups = Math.min(groups.results.length, 10);
+      const groupNote = groups.results.length
+        ? ` · ${groups.results.length} nhóm kinh${groups.results.length > shownGroups ? ` (hiện ${shownGroups} nhóm đầu)` : ''}`
+        : '';
       status.textContent = search.results.length
         ? `${search.results.length} kết quả · tìm trong ${scope}${groupNote}`
         : `Không có kết quả trong ${scope}${groupNote}.`;

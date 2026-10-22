@@ -6,8 +6,16 @@ files, re-reads the upstream trees, re-derives bundle order with its own parser 
 and re-reads every name from the file and key its provenance names. A generator bug that the
 generator's own checks would repeat cannot pass here unless the same bug is written twice.
 
+What it re-derives: node set, parents, children and their order (bundle order from its own reading
+of segment IDs), depth, textCount, first/last UID, counts, traversal order, that every catalogue
+URL appears once; for names: the Pāli name against its registry entry, every Vietnamese name
+against the file and key it cites, that a project heading's cited Pāli segment is the group's own
+Pāli name, and that no SuttaCentral or reference-TOC name available for a group was dropped.
+
 Exit 0 when everything agrees; exit 1 with every disagreement listed.
+`--nav-dir` points at another copy of the generated files (used by the tests on corrupted copies).
 """
+import argparse
 import hashlib
 import json
 import re
@@ -123,8 +131,39 @@ def norm(s):
     return unicodedata.normalize('NFC', s).strip()
 
 
-def check_name(cid, gid, name):
+def registry_ids(lock, role):
+    ids = set()
+    for entry in lock['files']:
+        if entry['role'] == role:
+            for key in read_locked(lock, entry['path']):
+                ids.add(re.match(r'^[^:]+:\d+\.(.+)$', key).group(1))
+    return ids
+
+
+def reference_ids():
+    lines = (ROOT / 'content/navigation/names/vi-reference.yaml').read_text().splitlines()
+    start = lines.index('names:')
+    return {line.strip()[:-1] for line in lines[start + 1:] if line.startswith('  ') and not line.startswith('    ') and line.endswith(':')}
+
+
+def heading_key(value):
+    value = unicodedata.normalize('NFC', value)
+    value = re.sub(r'^\s*[\dIVXivx]+\.\s*', '', value)
+    value = re.sub(r'[\s.,;:]+$', '', value)
+    return value.lower().replace('ṃ', 'ṁ').strip()
+
+
+def check_name(cid, gid, name, node, site_ids, ref_ids, catalog_paths):
     vi = name.get('vi')
+    if gid in site_ids and (not vi or vi['origin'] != 'suttacentral-site'):
+        fail(f'{cid}/{gid}: SuttaCentral has a Vietnamese name for this group but it is not used')
+    elif gid not in site_ids and gid in ref_ids and (not vi or vi['origin'] != 'reference-toc'):
+        fail(f'{cid}/{gid}: the reference table of contents names this group but the name is not used')
+    if vi and vi['origin'] == 'project-heading':
+        key = vi['from']['key']
+        pali = json.loads((PALI / catalog_paths[node['firstUid']]).read_text())
+        if heading_key(pali.get(key, '')) != heading_key(name['pali']['text']):
+            fail(f'{cid}/{gid}: cited heading {key} is not the Pāli name {name["pali"]["text"]!r}')
     if vi is None:
         if not name.get('viMissing'):
             fail(f'{cid}/{gid}: no Vietnamese name and not marked missing')
@@ -149,7 +188,12 @@ def check_name(cid, gid, name):
 
 
 def main():
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--nav-dir', type=Path, default=ROOT / 'content/navigation/traditional')
+    args = parser.parse_args()
     lock = json.loads((ROOT / 'source/navigation.lock.json').read_text())
+    site_ids = registry_ids(lock, 'name-vi')
+    ref_ids = reference_ids()
     super_tree = read_locked(lock, 'structure/tree/super-tree.json')
 
     def find(value, key):
@@ -169,8 +213,9 @@ def main():
 
     works = find(super_tree, 'kn')
     for cid in COLLECTIONS:
-        nav = json.loads((ROOT / f'content/navigation/traditional/{cid}.json').read_text())
+        nav = json.loads((args.nav_dir / f'{cid}.json').read_text())
         catalog = json.loads((ROOT / f'content/catalog/sutta/{cid}.json').read_text())['texts']
+        catalog_paths = {text['uid']: text['sourcePath'] for text in catalog}
         by_source = {}
         for text in catalog:
             by_source.setdefault(source_key(text), []).append(text)
@@ -186,12 +231,12 @@ def main():
             fail(f'{cid}: node set differs from the tree: extra {sorted(set(nodes) - set(groups))[:5]}, missing {sorted(set(groups) - set(nodes))[:5]}')
         traversal = []
 
-        def walk(gid):
+        def walk(gid, depth=0):
             expected = []
             for kind, value in groups[gid]['children']:
                 if kind == 'g':
                     expected.append({'type': 'group', 'id': value})
-                    walk(value)
+                    walk(value, depth + 1)
                 else:
                     for uid in expected_texts(value, by_source.get(value, [])):
                         expected.append({'type': 'text', 'uid': uid, 'sourceKey': value})
@@ -202,11 +247,22 @@ def main():
                 fail(f'{cid}/{gid}: children differ from the pinned tree')
             if node['parentId'] != groups[gid]['parent']:
                 fail(f'{cid}/{gid}: parent {node["parentId"]}, tree says {groups[gid]["parent"]}')
+            below = []
+
+            def collect(g):
+                for kind, value in groups[g]['children']:
+                    if kind == 'g':
+                        collect(value)
+                    else:
+                        below.extend(expected_texts(value, by_source.get(value, [])))
+            collect(gid)
+            if node['depth'] != depth or node['textCount'] != len(below) or (below and (node['firstUid'], node['lastUid']) != (below[0], below[-1])):
+                fail(f'{cid}/{gid}: depth/textCount/first/last differ from the tree')
             if gid != cid:
                 pali = node['name'].get('pali')
                 if not pali or norm(name_from(pali['from']) or '') != pali['text']:
                     fail(f'{cid}/{gid}: Pāli name does not match its registry entry')
-                check_name(cid, gid, node['name'])
+                check_name(cid, gid, node['name'], node, site_ids, ref_ids, catalog_paths)
 
         def dfs(gid):
             for kind, value in groups[gid]['children']:
@@ -223,6 +279,9 @@ def main():
         if sorted(traversal) != sorted(uids) or len(set(traversal)) != len(traversal):
             fail(f'{cid}: traversal does not cover every catalogue URL exactly once')
         leaves = sum(1 for g in groups.values() for k, _ in g['children'] if k == 'l')
+        counts = nav['counts']
+        if (counts['texts'], counts['groups'], counts['sourceFiles']) != (len(traversal), len(groups) - 1, leaves):
+            fail(f'{cid}: counts {counts} differ from the tree')
         print(f'{cid}: {len(groups) - 1} groups, {len(traversal)} URLs, {leaves} source leaves — independently re-derived')
     if problems:
         print('independent navigation verification FAILED:', file=sys.stderr)

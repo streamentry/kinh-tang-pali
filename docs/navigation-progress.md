@@ -34,9 +34,17 @@ base `d5c9933f9939b02bfc4aff678a21d9d6e987de86` (main ngày 2026-10-22).
   với build base. Trang bài SN/AN/KN chỉ khác ở breadcrumb và khối bài liền kề; khối kinh văn trùng.
 - `npm run reading:check`: 756 phần, 210.145 segment, mỗi segment khớp trang bài của nó đúng một lần,
   đúng thứ tự, đúng markup; hai phép phá (xoá một segment, sửa một ký tự) đều bị bắt.
-- Build sau thay đổi: 7.814 trang (= 6.204 + 854 + 756), Astro 74 s, tổng 101,5 s, RSS 4,23 GB;
+- Build sau thay đổi: 7.814 trang (= 6.204 + 854 + 756), Astro 74–75 s, tổng 99,5–101,5 s, RSS 4,1–4,2 GB;
   Pagefind 6.991 trang (+854 trang nhóm, chỉ tên nhóm: +2.105 từ), 2 bộ lọc. HTML +320 MB
   (dist 5,95 GB), **0** biến thể ảnh mới, **0** JS mới. Trang đọc lớn nhất 1,26 MB (≈90 KB gzip).
+
+## Review đối kháng (agent độc lập, sau Phase 2)
+
+Không có lỗi CRITICAL/HIGH. Đã sửa: playlist trang bộ theo thứ tự cây (trước đó theo `order` lịch sử,
+tiềm ẩn vì SN/AN/KN chưa có audio); verifier Python kiểm thêm cấp/số đếm/first-last, tiêu đề dự án đúng
+là tên Pāli, không bỏ sót tên SuttaCentral/mục lục, có `--nav-dir` và test ca âm; `reading:check` tách
+hàm và có test ca âm, từ chối kế hoạch 0 segment; thiếu Pāli hay bài ngoài cây làm build dừng thay vì
+im lặng; workflow Pages chạy cùng các cổng điều hướng; trạng thái tìm kiếm nói rõ số nhóm đang hiện.
 
 ## Kiểm trình duyệt (preview cục bộ của `dist`)
 
