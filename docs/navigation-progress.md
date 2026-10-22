@@ -63,9 +63,8 @@ im lặng; workflow Pages chạy cùng các cổng điều hướng; trạng th�
 
 ## Lỗi còn mở / giới hạn
 
-- 118/854 nhóm chưa có tên Việt đã đối chiếu (SN 9, AN 43, KN 66): hiện tên Pāli + nhãn cấp.
-- 35 tiêu đề trong bản dịch dự án có lỗi đã biết (xem `docs/navigation.md`, mục Phát hiện); chưa sửa
-  trong PR này.
+- 83/854 nhóm chưa có tên Việt đã đối chiếu (SN 8, AN 43, KN 32) sau khi sửa tiêu đề: hiện tên Pāli +
+  nhãn cấp. (Trước khi sửa: 118.)
 - Tên từ mục lục budsas.org: `NOASSERTION`; chỉ kiểm lại nguyên văn khi chạy `--reference` cục bộ.
 
 ## Phát hành
@@ -91,6 +90,15 @@ im lặng; workflow Pages chạy cùng các cổng điều hướng; trạng th�
   không trùng ID, `noindex`; Aṭṭhakavagga đủ SNP4.1–16 đúng thứ tự; Pagefind production trả nhóm kèm breadcrumb và
   kết quả kinh không trỏ trang đọc liên tục; trang Tiểu Bộ ở 390 px không tràn, đủ 20 tác phẩm; không lỗi console.
 - Audio: SN/AN/KN chưa có MP3, nên production không có trình phát nhóm nào; engine đã kiểm bằng fixture cục bộ.
+
+## Sửa 35 tiêu đề (PR nội dung riêng, theo yêu cầu người dùng 2026-10-23)
+
+- 397 segment `:0.2` trong 397 bài (SN12.11 + mọi bài Itivuttaka/Theragāthā/Therīgāthā của 34 nipāta bị
+  loại): "Bộ N Bài Kinh" → "Nhóm N Kệ" (Thag/Thig) / "Chương N Pháp" (Iti); "Đoān" → "Đoàn". Danh sách
+  loại trừ của tầng điều hướng nay rỗng; nhóm chưa có tên Việt giảm từ 118 xuống 83.
+- 54 bài có lượt `full` gắn hash được 9 người chấm độc lập đọc lại toàn văn, ghi `--record` và `--apply`:
+  33 giữ `published`, 21 về `draft` vì lỗi chặn ngữ nghĩa có sẵn (danh sách ở `docs/navigation.md`).
+  `quality:check` 0 lỗi.
 
 ## Phục hồi
 
