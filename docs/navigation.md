@@ -54,26 +54,48 @@ Không suy tên từ slug hay số thứ tự của key. Thứ tự ưu tiên t�
    gần đúng: bilara ghi `Rūpādivagga` ở `an1.1` trong khi cây gọi phẩm đó là `Cittapariyādānavagga`,
    nên phẩm này không lấy tên. Tiêu đề chỉ lặp lại tên Pāli bị từ chối (`untranslated`).
 
-Tiêu đề có lỗi đã biết nằm trong `content/navigation/names/heading-exclusions.yaml`, khoá đúng
+Tiêu đề có lỗi đã biết được khai trong `content/navigation/names/heading-exclusions.yaml`, khoá đúng
 nhóm + segment + chữ. Mục bị loại vẫn được ghi trong `viRejected` kèm lý do, và trang nhóm hiện tên
 Pāli kèm nhãn cấp. Khi bản dịch được sửa, chữ khác đi và `navigation:check` báo mục loại trừ đã cũ.
+Danh sách hiện rỗng (xem dưới).
 
-Số nhóm chưa có tên Việt đã đối chiếu: SN 9, AN 43, KN 66 (trên 854). Các nhóm này hiện
-"Phẩm Āhāravagga", "Nhóm năm mươi Dutiyapaṇṇāsaka"…, và trang nhóm nói rõ đó là tên Pāli.
+Số nhóm chưa có tên Việt đã đối chiếu: SN 8, AN 43, KN 32 (83 trên 854). Các nhóm này hiện
+"Nhóm năm mươi Dutiyapaṇṇāsaka", "Phẩm Bodhivagga"…, và trang nhóm nói rõ đó là tên Pāli.
 
-### Phát hiện về nội dung có sẵn (chưa sửa trong PR điều hướng)
+### Phát hiện về nội dung có sẵn và việc đã sửa
 
-Bằng chứng nằm trong tệp loại trừ; sửa bản dịch là việc riêng, qua quy trình chất lượng:
+Tầng điều hướng phát hiện 35 tiêu đề sai trong bản dịch của dự án (lượt đầu, 2026-10-22). Theo yêu
+cầu của người dùng, chúng được sửa trong một PR nội dung riêng (2026-10-23), áp cho **mọi bài** mang
+cùng tiêu đề sai, không chỉ bài đầu nhóm — 397 segment `:0.2` trong 397 bài:
 
-- `sn12.11:0.2` "2. Phẩm Đoān Thực": "Đoān" mang dấu Pāli; tiêu đề bài cùng tệp viết "Kinh Đoàn Thực".
-- 30 tiêu đề nipāta của Theragāthā/Therīgāthā dùng "Bộ N Bài Kinh" (một chỗ "Bài Kính") cho nhóm
-  theo **số câu kệ**; Jātaka cùng cấu trúc đã dùng "Nhóm N Kệ" (hội đồng 2026-10-16, C3). Các tiêu đề
-  cùng cấp còn lại không thống nhất ("Nhóm Năm", "Tập Sáu", "Phẩm Năm Kệ", "Bộ Bảy Bài Kệ").
-- 4 tiêu đề nipāta của Itivuttaka dùng "Bộ N Bài Kinh", trong khi dòng kết của chính bản dịch ghi
-  "Phẩm Một Pháp kết thúc" (`iti27:13.5`).
+- `sn12.11:0.2` "2. Phẩm Đoān Thực" → "2. Phẩm Đoàn Thực" (chữ "ā" của Pāli lọt vào chữ Việt).
+- Theragāthā / Therīgāthā: "Bộ N Bài Kinh" (một chỗ "Bài Kính", một chỗ "Bộ Bảy Bài Kệ") → **"Nhóm N Kệ"**.
+  Nipāta của hai tập này nhóm theo số câu kệ; Jātaka cùng cấu trúc đã dùng "Nhóm N Kệ" (hội đồng
+  2026-10-16, C3).
+- Itivuttaka: "Bộ N Bài Kinh" → **"Chương N Pháp"**: nipāta nhóm theo số pháp, như chương của Tăng Chi
+  và mục lục "Phật thuyết như vậy" của Hòa thượng Thích Minh Châu.
+- 54 bài trong số đó có lượt chấm `full` gắn hash nội dung; mỗi bài được đọc lại toàn văn (Pāli, Sujato,
+  Việt 2026) bởi người chấm độc lập, chấm `full` mới, ghi bằng `quality --record` và áp dụng bằng `--apply`.
+  Các bài còn lại dùng scorecard cũ không gắn hash, nên đổi một tiêu đề không làm sai lệch lượt chấm nào.
+- **Kết quả lượt đọc lại:** 33 bài giữ `published`; **21 bài về `draft`** vì có lỗi chặn ngữ nghĩa đã có từ
+  bản dịch đầu mà lượt `full` trước bỏ sót — thag1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8, 1.10, 1.14, 1.28,
+  2.1, 2.2, 3.6, 3.9, 3.13, 3.14, 9.1, 10.1, thig7.2, thig11.1. Ví dụ: `thag1.2:1.1` dịch *upasanto* là
+  "đã ngồi thiền", `thag2.1:1.1` dịch *bhavo* là "bản ngã", `thig7.2:1.1` dịch *sati* là "chánh tâm".
+  Lỗi, segment và lý do nằm trong ghi chú của từng lượt chấm (`content/meta/assessments/kn/<uid>.json`).
+  Sửa các câu kệ đó là việc dịch lại riêng; PR này chỉ sửa tiêu đề và ghi nhận đúng chất lượng.
+
+Còn mở, chưa sửa (không thuộc phạm vi 35 tiêu đề):
+
 - Dòng kết tương ưng ở SN đôi khi sai tên: `sn2.30:18.5` dịch *Devaputtasaṁyutta* là
   "Tương Ưng Bộ Chư Thiên" (đúng: Thiên Tử). Không dùng dòng kết làm nguồn tên.
-- 5 tiêu đề phẩm (`pv13`, `pv26`, `mil5.3.1`, `mil5.4.1`, `mil5.5.1`) để nguyên tên Pāli.
+- Dòng kết nipāta của Theragāthā/Therīgāthā còn dùng "Bộ … Bài Kinh" (ví dụ `thag3.16:3.6`,
+  `thag9.1:9.6`, `thag11.1:11.6`, `thig11.1:14.1`, `thig12.1:18.1`), và dòng kết của Itivuttaka còn dùng
+  "Phẩm … Pháp" (`iti112:14.3`), nên nay lệch với tiêu đề `:0.2` đã sửa trong cùng bài.
+- Chú thích ảnh bìa Jātaka trong `source/sutta-covers.json` còn viết "Bộ Hai Bài Kinh (Dukanipāta)".
+- Tiêu đề nipāta cùng cấp không thống nhất: "Nhóm Năm" (thag5), "Trưởng Lão Kệ Nhóm Sáu" (thag6),
+  "Bộ Bảy Bài Kệ" (thag7), "Phẩm Năm Kệ" (thig5), "Tập Sáu" (thig6).
+- 5 tiêu đề phẩm (`pv13`, `pv26`, `mil5.3.1`, `mil5.4.1`, `mil5.5.1`) để nguyên tên Pāli (tự động bị
+  từ chối là `untranslated`).
 
 ## Hợp đồng dữ liệu
 
@@ -134,7 +156,7 @@ Pages chạy lại cùng các cổng đó trước và sau build.
 - Tìm kiếm: nhóm là loại kết quả riêng (`type: Nhóm`), chỉ lập chỉ mục tên nhóm; kết quả kinh văn
   vẫn trỏ về trang bài. Kết quả có breadcrumb (`trail`).
 - Tên lấy từ tiêu đề bản dịch của dự án hiện trong mục lục, breadcrumb và tìm kiếm như một tên Việt; trạng
-  thái bản dịch (hiện đều `published`) và segment nguồn ở mục "Nguồn của mục lục này" của trang nhóm.
+  thái bản dịch nguồn (`published`, hay `draft` khi bài đó đang có lỗi chặn) và segment nguồn ở mục "Nguồn của mục lục này" của trang nhóm.
 - Audio nhóm dùng `CollectionAudio` với các mục có MP3 hợp lệ theo thứ tự nhóm, bỏ qua mục chưa có,
   dừng khi hết. SN/AN/KN hiện chưa có audio, nên không trang nhóm nào có trình phát.
 

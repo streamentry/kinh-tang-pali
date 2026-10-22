@@ -27,6 +27,34 @@
       "content_sha256": "9f59a2dad3422f3d8ffe9a62a22e8b67a7a4a0d12581d5a84d1ca83b4199859e",
       "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
       "final_score": 9.370000000000001
+    },
+    {
+      "target": "translation",
+      "scope": "full",
+      "assessed_at": "2026-10-23",
+      "assessed_by": [
+        "Claude Opus 5.5 (Claude Code)"
+      ],
+      "scores": {
+        "source_provenance": 9.6,
+        "semantic_fidelity": 8.6,
+        "grammar_logic": 8.4,
+        "segment_alignment": 10,
+        "terminology": 9.3,
+        "triangulation": 8.8,
+        "vietnamese_clarity": 9.1,
+        "han_viet_balance": 9.4,
+        "ambiguity_integrity": 8.5,
+        "technical_integrity": 9.6
+      },
+      "blocking_errors": [
+        "thig11.1:1.2, thig11.1:2.4 — Sai chủ thể/số lượng ở tình huống trung tâm của bài (§4.2) và là bất định trọng yếu mà chính lượt dịch đã ghi 'cần người biên tập xử' nhưng chưa được phân xử (§4.6): Pāli 'Ubho mātā ca dhītā ca, mayaṁ āsuṁ sapattiyo' / 'sabhariyā mayaṁ ahuṁ' = cả hai, mẹ và con gái, CHÚNG TÔI là vợ chung (người nói là một trong hai). Bản Việt 'đều làm vợ chung với chồng tôi' và 'mẹ lẫn con gái, làm vợ chung với tôi' biến người nói thành người thứ ba cùng chồng — ba người, trái với 'ubho' và 'mayaṁ'; Sujato cũng đọc 'The two of us were co-wives, though we were mother and daughter'."
+      ],
+      "notes": "Đã đọc toàn bài qua store (`npm run store -- thig11.1 --json`): 53/53 khoá Pāli, 51 khoá Sujato có chữ (13.1, 14.1 trống), 53/53 khoá Việt 2026; không có tầng Việt hiện hành và lớp lấp English. Đọc scorecard chính thức (740e9b1c…, 9,37) và notes dài của lượt dịch.\n\nSửa tiêu đề: `thig11.1:0.2` `Dvādasakanipāta` 'Bộ Mười Hai Bài Kinh' → 'Nhóm Mười Hai Kệ' — đúng: nipāta gom kệ theo số câu, không phải bài kinh. NHƯNG `thig11.1:14.1` `Dvādasakanipāto niṭṭhito.` vẫn là 'Bộ Mười Hai Bài Kinh đã hoàn tất.' — cùng lỗi đơn vị, nay lại lệch với 0.2 trong cùng bài. Vì vậy `terminology` giữ 9,3 (không cộng 0,1).\n\nLỗi chặn (xem blocking_errors): `1.2`/`2.4` dựng ba người phụ nữ trong khi Pāli `ubho … mayaṁ` là hai. Notes cũ tự nhận đây là chỗ 'người đọc khác có thể đọc ngược; xin biên tập cân' nhưng vẫn chấm 9,4/9,3 và không ghi blocker; hội đồng 2026-10-16 không có quyết định nào cho khoá này. Theo cú pháp, `mayaṁ` (chúng tôi) là chủ ngữ đồng vị với `ubho mātā ca dhītā ca`; không có chỗ nào cho 'chồng tôi' hay 'với tôi'.\n\nLỗi ngôi (không xếp blocker vì cùng một người được chỉ, nhưng nặng): `3.3` `Sā pabbajjiṁ` (động từ ngôi thứ nhất) → 'Bà ấy xuất gia'; `6.1`–`6.2` `Iddhiyā abhinimmitvā, caturassaṁ rathaṁ ahaṁ` có `ahaṁ` tường minh → 'Nhờ thần thông, bà dựng ra một chiếc xe bốn ngựa'. Cùng đoạn 1.3, 4.1, 4.3, 5.1 lại dùng 'tôi' — người đọc Việt sẽ hiểu 'bà ấy' là người khác (ví dụ người mẹ). Sujato: 'I went forth', 'I created'.\n\nLỗi chữ: `6.4` 'bậc đã vững chắn' — 'chắn' là lỗi gõ (vững chắc/vững chãi); `tādino` vốn đã là chỗ bất định lớn nhất. `11.4` đặt dấu nháy quanh 'sự hâm thích' (nghĩa ngược với `āratī` = không còn ưa thích) làm câu rối; `8.4` 'cho ta một mình' khiến `eko` (Ma một mình) dễ đọc thành người nói một mình. `1.3` `saṁvego` → 'ghê tởm' hơi lệch (saṁvega = chấn động/khẩn thiết), ghi nhận, không trừ riêng.\n\nThay đổi điểm: semantic_fidelity 9,4→8,6 (1.2/2.4, 3.3/6.1); grammar_logic 9,3→8,4 (ngôi và số ở 1.2, 2.4, 3.3, 6.1–6.2); vietnamese_clarity 9,4→9,1 (6.4 lỗi gõ, 11.4, 8.4); ambiguity_integrity 8,9→8,5 (bất định cốt lõi đã ghi nhưng bài vẫn xuất bản mà chưa phân xử). Giữ nguyên: source_provenance 9,6, segment_alignment 10 (53/53 khoá, đúng thứ tự), terminology 9,3, triangulation 8,8 (chỉ Pāli + Sujato), han_viet_balance 9,4, technical_integrity 9,6 (giữ như trước; người tích hợp chạy cổng kỹ thuật).",
+      "id": "94a0c9d3-d0f2-400b-9e50-54e55b5b552b",
+      "content_sha256": "b96d90e9258157bbbf1ef89df10b002937fe767157920db8087afac6298ff212",
+      "source_commit": "11c9d708978cde8ba61096d8a75f7ddfb846f639",
+      "final_score": 9.129999999999999
     }
   ],
   "legacy_quality": {

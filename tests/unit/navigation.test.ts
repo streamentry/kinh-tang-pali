@@ -279,10 +279,10 @@ test('SN12: Thiên Nhân Duyên → Tương Ưng Nhân Duyên → Āhāravagga h
   assert.deepEqual(groupTexts('sn', 'sn12-aharavagga'), Array.from({ length: 10 }, (_, i) => `sn12.${i + 11}`));
   assert.equal(groupTitle(groupNode('sn', 'sn-nidanavaggasamyutta')!).primary, 'Thiên Nhân Duyên');
   assert.equal(groupTitle(groupNode('sn', 'sn12')!).primary, 'Tương Ưng Nhân Duyên');
-  // The project heading has a known typo; it is refused and recorded, so the Pāli name shows.
+  // The name comes from the project's own heading at sn12.11:0.2 (its typo was corrected 2026-10-23).
   const ahara = groupNode('sn', 'sn12-aharavagga')!;
-  assert.equal(groupTitle(ahara).primary, 'Phẩm Āhāravagga');
-  assert.equal(ahara.name.viRejected?.[0].reason, 'excluded');
+  assert.equal(groupTitle(ahara).primary, 'Phẩm Đoàn Thực');
+  assert.deepEqual([ahara.name.vi?.origin, ahara.name.vi?.from.key], ['project-heading', 'sn12.11:0.2']);
   // Ranges that are one URL stay one URL.
   assert.equal(homeGroupId('sn', 'sn12.93-213') !== undefined, true);
 });
@@ -321,6 +321,9 @@ test('Suttanipāta Aṭṭhakavagga holds SNP4.1–16 in order', () => {
 
 test('KN regressions: thig10.1 is in the eleven-verse chapter; Dhammapada keeps 26 chapter leaves; Khuddakapāṭha has no vagga', () => {
   assert.equal(homeGroupId('kn', 'thig10.1'), 'thig-ekadasanipata');
+  // Verse-collection nipātas count verses ("Nhóm N Kệ"); Itivuttaka counts teachings ("Chương N Pháp").
+  assert.equal(groupTitle(groupNode('kn', 'thig-ekadasanipata')!).primary, 'Nhóm Mười Một Kệ');
+  assert.equal(groupTitle(groupNode('kn', 'iti-ekakanipata')!).primary, 'Chương Một Pháp');
   assert.equal(groupNode('kn', 'thig-ekadasanipata')!.name.pali?.text, 'Ekādasakanipāta');
   const dhp = groupNode('kn', 'dhp')!;
   assert.equal(dhp.children.length, 26);
