@@ -52,6 +52,24 @@ test('new source policy uses verified title and owned scripture; summaries and n
   assert.ok(!bundled.segments.some(([id])=>id.startsWith('an1.4:')||id.startsWith('an1.6:')));
 });
 
+test('single-UID preflight keeps a native range intact without initializing production', () => {
+  const queue = fs.readFileSync('content/audio/group-progress.json');
+  const report = path.join(fs.mkdtempSync(path.join(os.tmpdir(), 'audio-one-uid-')), 'preflight.json');
+  try {
+    execFileSync('python3', ['scripts/audio-preflight.py', '--collection', 'kn', '--uid', 'dhp1-20', '--output', report]);
+    const result = JSON.parse(fs.readFileSync(report, 'utf8'));
+    assert.equal(result.total, 1);
+    assert.equal(result.eligible, 1);
+    assert.equal(result.provider_requests, 0);
+    assert.deepEqual(result.texts.map((row: { uid: string }) => row.uid), ['dhp1-20']);
+    assert.deepEqual(fs.readFileSync('content/audio/group-progress.json'), queue);
+    assert.throws(() => execFileSync('python3', ['scripts/audio-preflight.py', '--uid', 'dhp1-20'], { stdio: 'pipe' }));
+    assert.throws(() => execFileSync('python3', ['scripts/audio-preflight.py', '--collection', 'kn', '--uid', ''], { stdio: 'pipe' }));
+    assert.throws(() => execFileSync('node', ['--import', 'tsx', 'scripts/audio-inventory.ts', '--collection', 'kn', '--uid', 'dhp1'], { stdio: 'pipe' }));
+    assert.throws(() => execFileSync('node', ['--import', 'tsx', 'scripts/audio-inventory.ts', '--collection', 'kn', '--uid', 'dhp1-20', '--group', 'dhp'], { stdio: 'pipe' }));
+  } finally { fs.rmSync(path.dirname(report), { recursive: true, force: true }); }
+});
+
 test('player fails closed on downgrade or wrong policy and never serializes manifest internals', () => {
   const doc=composeDocument('sn','sn1.1');
   const folder=fs.mkdtempSync(path.join(os.tmpdir(),'group-audio-player-'));

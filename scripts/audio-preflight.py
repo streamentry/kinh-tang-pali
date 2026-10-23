@@ -12,12 +12,15 @@ def main():
     parser=argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--collection',choices=['sn','an','kn'])
     parser.add_argument('--group')
+    parser.add_argument('--uid',help='One actual catalog reading UID; requires --collection and excludes --group')
     parser.add_argument('--output',type=Path)
     args=parser.parse_args()
     if args.group and not args.collection:parser.error('--group requires --collection')
+    if args.uid is not None and (not args.uid.strip() or not args.collection or args.group is not None):parser.error('--uid must be nonempty, requires --collection and cannot be combined with --group')
     command=['node','--import','tsx','scripts/audio-inventory.ts','--include-source']
     command+=['--collection',args.collection] if args.collection else ['--groups']
     if args.group:command+=['--group',args.group]
+    if args.uid:command+=['--uid',args.uid]
     inventory=json.loads(subprocess.check_output(command,cwd=ROOT))
     profile=load_profile();profile_hash=profile_digest(profile);rows=[]
     for row in inventory:
