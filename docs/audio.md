@@ -111,9 +111,11 @@ MN/DN giữ nguyên transcript tóm tắt → kinh văn và hash đã phát hàn
 `title-scripture-v1` cho SN/AN/KN lấy tên Việt của mục đọc, sau đó kinh văn; không
 đọc segment ID, ghi chú hoặc tự sinh tóm tắt. Tên bài nằm trong hash nguồn mới;
 thay tên nhóm không làm đổi audio của bài. Mốc kinh văn là 0; player không hiện
-phần tóm tắt giả. **Khả năng kỹ thuật này chưa thay thế quyết định duyệt policy và
-cho phép tạo mẫu của người biên tập.** Phạm vi mẫu đề xuất là SN1.1–SN1.10;
-chưa mở rộng trước khi người biên tập nghe và chấp thuận.
+phần tóm tắt giả. **Người biên tập đã duyệt cấu trúc này ngày 2026-10-23 và cho
+phép gửi nội dung, tạo thử SN1.1–SN1.10 tới Gemini TTS theo profile MN1 đã ghim.**
+Không cần hỏi lại cho mười mục đó; giữ nghe duyệt `pending`. Chưa mở rộng sản
+xuất ngoài mẫu trước khi người biên tập nghe và chấp thuận. Quyết định và tiến
+độ được ghi tại [group-audio-progress.md](group-audio-progress.md).
 
 Chuẩn bị không gọi API, không cần `.env`:
 
