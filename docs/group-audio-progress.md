@@ -85,3 +85,30 @@ Lệnh tái lập dry-run và vận hành nằm trong [audio.md](audio.md).
   thành công. Không đổi model, profile hoặc tốc độ. Cache/checkpoint và log giữ lại.
 - Local `validate`, `test` (493 đạt / 1 bỏ qua), `check` (0 lỗi, 0 warning, 5 hint),
   `build` đạt. Queue có 5 `uploaded-verified`, 5 `not-started`; chưa tạo SN1.6.
+
+### Batch SN1.6–SN1.10 — đủ mười mục mẫu
+
+- Batch đầu đã merge PR #827 tại `bfcfda6d6051044f7a2c694b1a490c8f1f1c7620` sau
+  khi cả hai CI head `fda2acf15` đạt. Bắt đầu batch hai ngay sau merge, không chờ
+  Pages. Các entry SN1.1–SN1.5 ghi `merged`; chưa suy ra live từ upload hoặc merge.
+
+| Mục | Thời lượng WAV + khoảng nghỉ (giây) | SHA-256 MP3 |
+| --- | ---: | --- |
+| SN1.6 | 34.66 | `ccae74db2268f919810d606c4f1f198b4154c777ff38a52242ce27a3f6abd36b` |
+| SN1.7 | 31.98 | `febe94665b5d20ec6b6906db7f223ccdd346fa3724233e4b9c617f49c2a63313` |
+| SN1.8 | 32.94 | `55978cc376f07236f93bbdb229b62cd638ac70068cd5feb137420ff96f001043` |
+| SN1.9 | 39.82 | `685a6bb26015b726c5d3e35bb46ac20657662e8bf480cfa428739b1bb9677422` |
+| SN1.10 | 58.78 | `a6296fe533382d45990a8f3397ef76777118dde0f45c13c259ed331a961d3c2a` |
+
+- Đủ mười mục có MP3 trên R2, tổng 442,48 giây (~7 phút 22 giây). Cả mười dùng
+  profile MN1 đã ghim, tiêu đề trước kinh văn; kinh văn bắt đầu từ 0, không có
+  tóm tắt tự sinh. Object công khai khớp hash/bytes và range readback.
+- Upload SN1.6 từng dừng vì OAuth hết hạn trong lúc chờ CI. Wrangler làm mới
+  phiên thành công; upload lại đúng MP3 đã có, không gửi TTS hoặc đổi hash file.
+  Giữ log lần lỗi và lần upload thành công.
+- Browser phát và tua cả mười MP3; playlist phẩm/các nhóm cha tái dùng đúng URL,
+  đủ 10/10 theo thứ tự; Next/Back, row play, auto-next nhóm và chuyển trang bài,
+  toggle lưu giữa các trang, fallback tắt JS, bốn kích thước đều đạt; không page error.
+- `validate`, `test` (493 đạt / 1 bỏ qua), `check` (0 lỗi, 0 warning, 5 hint),
+  `build` đạt. Sau kiểm player: năm mục `merged`, năm mục `uploaded-verified`.
+  Tất cả `review_status: pending`; chưa nghe duyệt và chưa mở rộng ngoài SN1.1–SN1.10.
