@@ -145,6 +145,12 @@ lệnh khởi tạo nhóm. Dry-run inventory đo toàn bộ ứng viên riêng. 
 cả hai registry, danh tính/thứ tự/home group, nguồn/profile và từng mức bằng chứng
 upload/player/merge/live. Chưa có xác nhận nghe thì luôn `review_status: pending`.
 
+Generator kiểm queue khớp nguồn/profile/policy trước khi đọc credential và trước
+mỗi request; uploader kiểm trước khi đọc credential và sau upload. Queue còn
+hash cũ, schema sai hoặc lỗi chưa giải quyết phải dừng, không tự xoá lý do chặn.
+Khởi tạo lại không tự gỡ `blocked`: đối soát nguồn và bằng chứng lỗi rồi mới dùng
+lệnh cập nhật tiến độ để ghi quyết định xử lý; giữ hồ sơ QC trước đó.
+
 Uploader dùng collection trả về từ catalog đã kiểm, key `vi/<collection>/<uid>/<hash>.mp3`,
 và đối chiếu managed domain với storage registry trước upload. Audio có nguồn cũ
 hoặc bản dịch không còn `published` không được hiện player. Notes-only edits

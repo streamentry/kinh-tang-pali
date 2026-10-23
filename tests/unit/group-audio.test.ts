@@ -127,6 +127,12 @@ with tempfile.TemporaryDirectory() as d:
  inventory=[{'uid':'sn1.1','collection':'sn','order':1,'source_sha256':'source','issues':[],'home_group':'sn1-nalavagga','transcript_policy':'title-scripture-v1'}]
  with patch.object(progress,'PROGRESS',legacy),patch.object(progress,'GROUP_PROGRESS',group):
   progress.initialize(inventory,'profile',group=True)
+  current_source={'uid':'sn1.1','collection':'sn','source_sha256':'source','policy':'title-scripture-v1'}
+  progress.require_current_group_source(current_source,'profile')
+  for changed in [{**current_source,'source_sha256':'changed'},{**current_source,'collection':'an'}]:
+   try:progress.require_current_group_source(changed,'profile')
+   except RuntimeError:pass
+   else:raise AssertionError('Queue identity/source drift accepted')
   assert legacy.read_text()=='legacy sentinel'
   legacy.write_text(json.dumps({'texts':{'mn1':{'status':'live'}}}))
   before=legacy.read_bytes()
@@ -139,8 +145,43 @@ with tempfile.TemporaryDirectory() as d:
   assert json.loads(group.read_text())['texts']['sn1.1']['status']=='blocked'
   progress.initialize([{**inventory[0],'source_sha256':'changed'}],'profile',group=True)
   assert json.loads(group.read_text())['texts']['sn1.1']['errors'], 'Repeated init erased unresolved drift'
+  try:progress.require_current_group_source({**current_source,'source_sha256':'changed'},'profile')
+  except RuntimeError:pass
+  else:raise AssertionError('Unresolved blocker was bypassed')
   try:progress.update('sn1.2','generating')
   except RuntimeError:pass
   else:raise AssertionError('Generation outside initialized queue accepted')
+`],{stdio:'pipe'});
+});
+
+test('blocked group queue stops synthesis and upload before credentials or provider calls', () => {
+  execFileSync('python3',['-c',`
+import argparse,importlib.util,json,sys,tempfile
+from pathlib import Path
+from unittest.mock import patch
+sys.path.insert(0,'scripts')
+import gemini_tts,audio_progress
+from narration_config import load_profile,profile_digest,profile_metadata
+spec=importlib.util.spec_from_file_location('group_audio_uploader','scripts/audio-r2.py')
+uploader=importlib.util.module_from_spec(spec);spec.loader.exec_module(uploader)
+p=load_profile()
+source={'uid':'sn1.1','collection':'sn','source_sha256':'source','policy':'title-scripture-v1','title':'Tên bài','summary':'','segments':[['sn1.1:1.1','Kinh văn.']]}
+with tempfile.TemporaryDirectory() as d:
+ root=Path(d);queue=root/'queue.json';folder=root/'artifact';folder.mkdir()
+ row={'uid':'sn1.1','collection':'sn','source_sha256':'source','profile_sha256':profile_digest(p),'transcript_policy':'title-scripture-v1','status':'blocked','errors':['Retain this QC evidence']}
+ queue.write_text(json.dumps({'schema_version':2,'texts':{'sn1.1':row}}));before=queue.read_bytes()
+ manifest={'uid':'sn1.1','source_sha256':'source',**profile_metadata(p),**{key:p[key] for key in ('model','voice','style')}}
+ (folder/'manifest.json').write_text(json.dumps(manifest))
+ with patch.object(audio_progress,'GROUP_PROGRESS',queue),patch('subprocess.check_output',return_value=json.dumps(source).encode()),patch.object(gemini_tts,'ROOT',root),patch('gemini_tts.load_env') as credentials,patch.object(uploader,'load_env') as upload_credentials,patch('gemini_tts.generate') as synthesize,patch('urllib.request.urlopen') as request:
+  try:gemini_tts.main(argparse.Namespace(uid='sn1.1',prepare_only=False,repair_chunks=None))
+  except RuntimeError as error:assert 'unresolved blockers' in str(error)
+  else:raise AssertionError('Blocked synthesis accepted')
+  credentials.assert_not_called();synthesize.assert_not_called();request.assert_not_called()
+  with patch('sys.argv',['audio-r2.py',str(folder)]):
+   try:uploader.main()
+   except RuntimeError as error:assert 'unresolved blockers' in str(error)
+   else:raise AssertionError('Blocked upload accepted')
+  credentials.assert_not_called();upload_credentials.assert_not_called();request.assert_not_called()
+ assert queue.read_bytes()==before
 `],{stdio:'pipe'});
 });

@@ -43,3 +43,16 @@ def update(uid,status,**evidence):
     progress=legacy if target==PROGRESS else json.loads(target.read_text())
     if uid not in progress['texts']:raise RuntimeError('UID absent from progress catalog')
     progress['texts'][uid].update(status=status,updated_at=now(),**evidence);write_json(target,progress)
+
+def require_current_group_source(source, profile_hash):
+    """New-scope requests must not bypass unresolved queue/source/QC blockers."""
+    if source['collection'] in ('mn','dn'):return
+    if not GROUP_PROGRESS.exists():raise RuntimeError('Initialize the group audio production queue before generating or uploading')
+    progress=json.loads(GROUP_PROGRESS.read_text())
+    if progress.get('schema_version')!=2:raise RuntimeError('Unexpected group production queue schema')
+    row=progress.get('texts',{}).get(source['uid'])
+    if not row:raise RuntimeError('UID absent from group production queue')
+    if row.get('uid')!=source['uid'] or row.get('collection')!=source['collection'] or row.get('source_sha256')!=source['source_sha256'] or row.get('profile_sha256')!=profile_hash or row.get('transcript_policy')!=source.get('policy'):
+        raise RuntimeError('Group queue source/profile drift; reinitialize and reverify before resuming')
+    if row.get('status') not in STATES or row.get('status')=='blocked' or row.get('errors'):
+        raise RuntimeError('Group queue has unresolved blockers; retain evidence and explicitly reverify before resuming')

@@ -5,15 +5,19 @@ Uses the same object REST endpoint as Cloudflare Wrangler's r2/helpers/object.ts
 import argparse, hashlib, json, os, subprocess, time, tomllib, urllib.request, urllib.error
 from pathlib import Path
 from gemini_tts import ROOT, load_env
-from narration_config import load_profile, assert_profile_metadata
+from narration_config import load_profile, assert_profile_metadata, profile_digest
 from audio_pipeline import mp3_info, write_json, audio_object_key
-from audio_progress import update, now
+from audio_progress import update, now, require_current_group_source
 
 def main():
     parser=argparse.ArgumentParser(); parser.add_argument('folder',type=Path); args=parser.parse_args()
     profile=load_profile()
     manifest=json.loads((args.folder/'manifest.json').read_text())
     assert_profile_metadata(manifest,profile)
+    # Gate before loading credentials or making any provider request.
+    uid=manifest['uid']
+    current=json.loads(subprocess.check_output(['node','--import','tsx','scripts/audio-source.ts',uid],cwd=ROOT))
+    require_current_group_source(current,profile_digest(profile))
     load_env()
     token=os.environ.get('CLOUDFLARE_API_TOKEN'); account=os.environ.get('CLOUDFLARE_ACCOUNT_ID')
     if not token:
@@ -76,6 +80,7 @@ def main():
         if response.status!=206 or response.read()!=mp3[:1024]:raise RuntimeError('Public range readback failed')
     current=json.loads(subprocess.check_output(['node','--import','tsx','scripts/audio-source.ts',uid],cwd=ROOT))
     if current['source_sha256']!=manifest['source_sha256']:raise RuntimeError('Source changed during upload; do not register stale player')
+    require_current_group_source(current,profile_digest(profile))
     manifest['r2_verified_at']=now()
     manifest['public_range_verified']=True
     manifest.update({'url':url,'bucket':bucket,'object_key':key})

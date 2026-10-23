@@ -9,7 +9,7 @@ import argparse, base64, hashlib, http.client, io, json, os, subprocess, time, u
 from pathlib import Path
 from narration_config import load_profile, profile_digest, profile_metadata
 from audio_pipeline import plan_source, subdivide_repair_chunks, write_json, wav_info, cached_chunk_valid, mp3_info, digest
-from audio_progress import update
+from audio_progress import update, require_current_group_source
 ROOT = Path(__file__).resolve().parent.parent
 
 def load_env():
@@ -104,6 +104,7 @@ def main(args):
     (folder/'narration-profile.json').write_text(json.dumps(profile,ensure_ascii=False,indent=2)+'\n')
     print(f'{args.uid}: {len(parts)} chunks, {len(source["segments"])} scripture segments',flush=True)
     if args.prepare_only: return
+    require_current_group_source(source,profile_digest(profile))
     update(args.uid,'generating',checkpoint=str(folder.relative_to(ROOT)),errors=[])
     load_env(); key=os.environ.get('GEMINI_API_KEY') or os.environ['GOOGLE_GENAI_API_KEY']
     import lameenc
@@ -112,6 +113,7 @@ def main(args):
     for i,text in enumerate(parts):
         current=json.loads(subprocess.check_output(['node','--import','tsx','scripts/audio-source.ts',args.uid],cwd=ROOT))
         if current['source_sha256']!=source['source_sha256']:raise RuntimeError('Source changed during synthesis')
+        require_current_group_source(current,profile_digest(profile))
         file=folder/f'{i:03}.wav'
         record=checkpoint['chunks'].get(str(i))
         if not cached_chunk_valid(file,record,planned[i],profile):

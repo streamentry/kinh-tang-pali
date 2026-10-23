@@ -36,11 +36,15 @@ Không coi kiểm hash hoặc phát được âm thanh là đã đọc đúng to
 - Đây là bằng chứng giao diện/kỹ thuật cục bộ; **chưa nghe duyệt** và **chưa xác
   minh production của pipeline mới**. Tệp compilation/phần nghe dài chỉ bắt đầu
   sau gate nghe mẫu trong kế hoạch; chưa có chapter timing nào được tuyên bố.
-- Local gate đạt: `validate`, `test` (491 đạt / 1 bỏ qua), `check` (0 lỗi,
+- Local gate đạt: `validate`, `test` (492 đạt / 1 bỏ qua), `check` (0 lỗi,
   0 warning, 5 hint sẵn có), `audio:check`, `design:check`, `build`, `seo:check`,
   `reading:check`. Bản dựng kiểm 7.057 trang có thể index và 756 phần đọc liên tục
   với 210.145 segment. Browser trên **bản dựng production cục bộ** cũng kiểm
   phát thật MN, Next/Back, DN22, storage bị chặn và native fallback khi tắt JS;
   không có page error. Đây chưa phải Pages production.
+- Kiểm resume bổ sung: queue còn hash nguồn/profile cũ hoặc blocker dừng trước
+  khi đọc credential, trước mỗi request TTS và trước/sau upload. Integration test
+  xác nhận 0 lời gọi provider, không xoá bằng chứng lỗi. Phần này không đổi UI
+  hoặc các artifact MN/DN đã có.
 
 Lệnh tái lập dry-run và vận hành nằm trong [audio.md](audio.md).
