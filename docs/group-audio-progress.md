@@ -135,3 +135,36 @@ Lệnh tái lập dry-run và vận hành nằm trong [audio.md](audio.md).
   toàn bộ nội dung. Chỉ sau khi người biên tập nghe mẫu bên cạnh MN1 và chấp thuận
   mới đi tiếp các ca AN, Pháp Cú, nhóm dài/parts trong kế hoạch. Chưa tạo UID
   nào ngoài SN1.1–SN1.10; WAV/cache giữ lại để sửa có chọn lọc hoặc xuất dẫn xuất.
+
+### Tiếp tục kỹ thuật trong lúc CI chạy — xuất WAV local
+
+- PR #829 ghi bằng chứng live đã merge tại
+  `4faec0267e424c6ace02b1cf6952a131d6ac272c`, sau khi cả hai CI đúng head
+  `7ee1dc7d4b5d7969dbe5973c2df065008f18d98d` đạt. Không còn watcher polling
+  PR này. Theo chỉ đạo mới, kiểm CI các PR tiếp theo theo nhịp **2 giờ/run**;
+  giữa các lần kiểm tiếp tục phần việc độc lập. Gate CI đúng head trước khi
+  agent merge vẫn giữ.
+- Đã triển khai công cụ xuất phẩm **local** từ WAV đã có: kiểm nguồn published,
+  registration/progress, profile, plan/checkpoint, hash từng WAV và MP3. Thiếu
+  một thành viên, nguồn stale, queue blocked hoặc file hỏng thì dừng.
+- Phẩm Cây Lau được encode local một lần từ 20 WAV của 10 mục đã phát hành,
+  không gọi Gemini hoặc upload thêm. PCM có 10.619.520 frame ở 24 kHz =
+  442,48 giây; MP3 dẫn xuất có 442,536 giây, SHA-256
+  `5ab6bc88c95935f493530d414ca69e4e2c586bd4a842fc13f23cd6f4d4c96c9a`.
+  Kết quả nằm trong `audio/compilations/sn/sn1-nalavagga/5af2783cc67e8e3a/`,
+  ngoài Git. Chạy lại kiểm hash và dùng lại bản xuất, không gọi encoder/provider.
+- Chapter đo từ frame PCM, không ước lượng trong request. Chia phần mặc định
+  25 phút ở ranh giới mục đọc; bài quá dài chia ở ranh giới WAV, giữ UID và
+  đánh dấu continuation. Tests dùng PCM phân biệt để kiểm thứ tự, khoảng nghỉ,
+  chapter, ngân sách, chia phần và từ chối cache/nguồn/QC sai.
+- Đây là bước chuẩn bị kỹ thuật theo yêu cầu tiếp tục giai đoạn độc lập;
+  chưa phát hành download compilation hoặc tạo audio UID mới. Mốc chapter
+  MP3 chưa được xác minh alignment. Cả bản xuất và 10 bản đọc gốc vẫn
+  `review_status: pending`; gate nghe mẫu trước khi mở rộng TTS còn nguyên.
+- Local: `validate` đạt (còn advisory của corpus/cache), `test` 494 đạt / 1 bỏ
+  qua, `check` 0 lỗi / 0 warning / 5 hint có sẵn. Không đổi website hoặc
+  workflow build; full build tiếp tục thuộc CI. Chi tiết vận hành ở [audio.md](audio.md).
+- Chrome native đọc duration bản xuất 442,536 giây ở 1×, phát và tua tới giữa /
+  gần cuối được, không media error; `audio:check` vẫn 196 mục / 0 lỗi. Đây là
+  bằng chứng file giải mã và thao tác được, không phải kiểm lời đọc hoặc alignment
+  chapter MP3. Log nằm cạnh bản xuất local, không vào Git.
