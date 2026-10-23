@@ -1,7 +1,7 @@
 # Audio for the new SN / AN / KN groups
 
 Design proposal, 2026-10-23. Inspected main at
-`c502a6aca1b9d812f88d442497278a5cef6189f2` after pulling PRs #816–819.
+`cbfcc60c373aebb9b364360dc67e9b87ac8cd1a3` after pulling PRs #816–820.
 No TTS requests, uploads or production changes were made for this proposal.
 
 ## Recommendation
@@ -36,16 +36,17 @@ The local inventory read every current document through `composeDocument()` and
 | --- | ---: | ---: | ---: | ---: |
 | SN | 1,819 | 1,819 | 0 | 231 |
 | AN | 1,781 | 1,781 | 0 | 186 |
-| KN | 2,351 | 2,330 | 21 | 252 |
+| KN | 2,351 | 2,351 | 0 | 252 |
 
 All 5,951 documents have Vietnamese for their non-title Pāli content segments;
 none has a per-text summary. Published status makes a text a technical candidate,
-not evidence that its future spoken audio is correct. The 21 KN drafts are blocked
-from narration; they affect nine leaf groups. Known source/QC issues recorded in
+not evidence that its future spoken audio is correct. PR #820 repaired and
+republished the 21 former KN drafts. Future downgrades must block affected
+recordings again. Known source/QC issues recorded in
 `docs/navigation.md` must also be triaged before their affected passages are read.
 Do not silently fix or remove canonical colophons in a TTS transcript.
 
-There are 669 leaf-only groups, of which 660 contain only published candidates.
+All 669 leaf-only groups now contain only published candidates.
 **Leaf groups do not cover the entire catalog:** `cnd23` is a direct child of the
 mixed group `cnd`; `ne1`, `ne2`, `ne3`, `ne36`, `ne37` belong directly to mixed
 group `ne`. Queue all UIDs through navigation traversal and record their home
@@ -56,8 +57,8 @@ Counts must be recomputed when source text or publication status changes.
 
 ## Size and listening-session implications
 
-The measured scripture-only text totals 12,724,980 characters, including the
-currently blocked drafts. Of 5,951 units, 878 contain fewer than 250 characters.
+The measured scripture-only text totals 12,724,860 characters.
+Of 5,951 units, 878 contain fewer than 250 characters.
 This supports a later compilation option for short verses, but is not a reason
 to invent or expand range UIDs.
 
@@ -182,8 +183,8 @@ alongside it; keep review pending until the editor approves actual content.
 
 After acceptance, exercise an AN bundle, a ranged Pháp Cú chapter and the larger
 SN12.11–20/SNP4 group before broadening. Use AN3.61–70 as a long-session/parts
-stress case, not the first sample. Leave the 21 drafts blocked until separately
-corrected and published through the translation gate.
+stress case, not the first sample. Recheck current publication status before
+each generation and upload; do not rely on this snapshot for later releases.
 
 Generate one request at a time, upload completed assets with public hash/range
 verification, and publish in the existing five-successful-asset PR cadence.
@@ -192,7 +193,7 @@ mark live only after the deployed player is verified. Keep ASR disabled per the
 editor's decision, retain manual-listening status separately, and do not use
 duration or file integrity as evidence that every spoken word is correct.
 
-The current request authorizes inspection and planning. Permission previously
-given for sending MN/DN to TTS should not be silently treated as a request to
-generate and bill the entire new SN/AN/KN corpus. No provider call is needed to
-review this proposal.
+This document records a proposal. Committing or merging it does not itself start
+TTS generation or authorize an unbounded corpus run. A subsequent execution goal
+must state the pilot scope and preserve its manual-listening acceptance gate
+before broadening. No provider call is needed to review or merge this document.
