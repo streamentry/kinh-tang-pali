@@ -100,6 +100,15 @@ Theo quyết định của người biên tập: bỏ bước transcribe/ASR. L�
 
 Sau mỗi năm bài upload thành công, tạo/cập nhật một PR và chờ CI của đúng head xanh trước khi merge. Sau merge có thể bắt đầu TTS bài tiếp theo ngay, không cần chờ build, CI hay Pages hậu merge. Chỉ nâng trạng thái thành `live` sau khi Pages production được triển khai và player/R2 được kiểm tra trực tiếp. Không đưa MP3/WAV/cache vào Git.
 
+**Cập nhật của người biên tập ngày 2026-10-23:** CI có thể rất chậm. Sau khi
+tạo PR, tiếp tục giai đoạn độc lập tiếp theo ngay; không đứng chờ và không polling
+liên tục. Kiểm lại mỗi run sau **2 giờ** kể từ khi tạo hoặc lần kiểm trước. Ghi
+head, run ID và mốc kiểm tiếp trong `audio/ci-followup.json` (local, gitignore).
+Trước khi agent merge vẫn phải xác nhận mọi cổng CI áp dụng đã xanh trên đúng
+head hiện tại. Không hạ gate, không coi thời gian chờ là bằng chứng pass. Khi
+người khác đã merge, ghi đúng timeline thực tế. Lịch kiểm không phải cho phép
+mở rộng phạm vi TTS hoặc bỏ cổng nghe duyệt mẫu SN/AN/KN.
+
 ## Chuẩn bị audio nhóm SN / AN / KN (2026-10-23)
 
 Kế hoạch: [`research/group-audio-plan-2026-10-23.md`](research/group-audio-plan-2026-10-23.md).
@@ -165,3 +174,37 @@ static `/audio-playlists/<collection>/<group>.json` (`all.json` cho cả bộ);
 HTML giữ một mục cho player native. Lỗi tải danh sách báo rõ, vẫn giữ native
 player và link MP3 từng hàng. Kiểm tra browser bằng fixture không chứng minh
 lời đọc chính xác; WAV/MP3 mới vẫn cần nghe duyệt trực tiếp.
+
+### Xuất phẩm từ WAV hiện có
+
+`audio-compile.py` chỉ làm việc local, không đọc `.env`, không gọi Gemini hoặc
+R2, không thay đăng ký player/progress. Nó yêu cầu nhóm có con đều là mục đọc và
+**mọi** thành viên đã có audio hợp lệ; không biến playlist thiếu bài thành bản
+xuất phẩm hoàn chỉnh. Nguồn hiện tại phải published; cache, checkpoint, plan,
+profile, MP3 đã đăng ký và các WAV đều phải khớp hash, không còn lỗi chặn.
+
+```bash
+# Kiểm nguồn và cache, lập kế hoạch; không cần lameenc.
+python3 scripts/audio-compile.py --collection sn --group sn1-nalavagga
+
+# Dùng encoder đã có trong cache để xuất MP3 local, không tạo TTS mới.
+uv run --offline --with lameenc python3 scripts/audio-compile.py \
+  --collection sn --group sn1-nalavagga --encode
+```
+
+Mặc định ngân sách 25 phút/phần, chọn bằng `--max-minutes 20..30`, độc lập với
+ngân sách trang đọc. Giữ nguyên từng mục đọc khi nó vừa ngân sách; mục dài hơn
+chia tại ranh giới WAV đã biết, giữ UID và đánh dấu `continuation`. Nếu một WAV
+đơn vượt ngân sách thì dừng, không ước lượng mốc trong lời đọc. ID `part-001`
+chỉ là phần của audio xuất, không phải UID kinh mới.
+
+MP3 mỗi phần được encode một lần từ PCM và đúng khoảng nghỉ của profile, không
+nối byte MP3 hoặc chỉnh tốc độ. `plan.json` có chapter tính bằng frame PCM thực,
+hash có thứ tự của nguồn, bản đọc, WAV, policy và ngân sách. Không đọc thêm tên
+nhóm/tóm tắt chưa duyệt. Kết quả nằm dưới `audio/compilations/`, ngoài Git.
+`manifest.json` chỉ được ghi sau khi kiểm lại nguồn/đăng ký/progress cuối lượt.
+
+Các mốc chapter chính xác trong **PCM**; encoder MP3 có độ trễ/đệm, nên manifest
+ghi `mp3_chapter_alignment_verified: false`. Không dùng những mốc này làm bằng
+chứng seek MP3 chính xác tới mẫu âm thanh. Giữ `review_status: pending` và không
+tự quảng bá bản local thành bản tải xuống đã phát hành hoặc đã nghe duyệt.
