@@ -112,3 +112,26 @@ Lệnh tái lập dry-run và vận hành nằm trong [audio.md](audio.md).
 - `validate`, `test` (493 đạt / 1 bỏ qua), `check` (0 lỗi, 0 warning, 5 hint),
   `build` đạt. Sau kiểm player: năm mục `merged`, năm mục `uploaded-verified`.
   Tất cả `review_status: pending`; chưa nghe duyệt và chưa mở rộng ngoài SN1.1–SN1.10.
+
+### Production — mẫu 10/10 đã phát hành, chờ nghe duyệt
+
+- PR #828 đã merge tại `782d3af07da5734f1df71146f5afeed443fecee5`. Timeline
+  GitHub ghi nhận merge lúc 20:06:35 ngày 2026-10-23 (giờ Việt Nam), trước khi
+  CI kết thúc. Watcher phát hiện PR đã merge, không tự gửi lệnh merge khi check
+  còn chạy. Giữ sự kiện này trong log, không trình bày thành CI xanh trước merge.
+- Hai CI của đúng head `98fb0af1d` sau đó đều đạt: push run `39956714591`
+  kết thúc 20:23:49, pull_request run `39956786894` kết thúc 20:31:32 cùng ngày
+  (giờ Việt Nam). Pages run `39958509122` thành công cho đúng commit publication.
+- Kiểm website production lúc khoảng 20:46 ngày 2026-10-23: cả mười MP3 phát
+  và tua được; không page error; kinh văn từ 0; không tóm tắt giả. Group playlist
+  đủ 10/10, đúng thứ tự, cùng object trong phẩm, tương ưng và cả bộ. Next/Back,
+  row play, auto-next trong nhóm/chuyển trang bài, lưu toggle, tắt JS và bốn
+  kích thước 1440/1024/390/320px đều đạt.
+- Tổng duration MP3 do browser đo: 443.088 giây (~7 phút 23 giây).
+- Registry ghi đủ 10 `live`, có SHA/source/profile, public range/hash evidence,
+  PR/merge commit, URL trang production, run/commit deployment và thời điểm
+  kiểm từng bài. Giữ thời điểm live đầu tiên của batch một khi cập nhật lượt kiểm mới.
+- Cả mười `review_status: pending`. Không ASR và không tuyên bố đã nghe duyệt
+  toàn bộ nội dung. Chỉ sau khi người biên tập nghe mẫu bên cạnh MN1 và chấp thuận
+  mới đi tiếp các ca AN, Pháp Cú, nhóm dài/parts trong kế hoạch. Chưa tạo UID
+  nào ngoài SN1.1–SN1.10; WAV/cache giữ lại để sửa có chọn lọc hoặc xuất dẫn xuất.
