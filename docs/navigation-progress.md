@@ -123,6 +123,22 @@ cả 33 `published`; 21 bài từng bị hạ đều trở lại `published`. `q
   `thag2.1:1.1` "Không có hữu nào là thường còn", `thig7.2:1.1` "Sau khi an trú niệm", `thag6.5:4.5` "chớ để Ma…";
   nhóm "Nhóm Năm Kệ", "Nhóm Sáu Kệ", "Nhóm Lớn".
 
+## Thông báo lỗi của player (2026-10-23)
+
+Kiểm playlist nhóm bằng fixture phát hiện player báo sai nguyên nhân: mọi lần `play()` bị từ chối đều hiện
+"Không tải được âm thanh", kể cả khi trình duyệt chỉ chặn tự phát. Đo trên production trước khi sửa: MN1 và playlist MN,
+`play()` bị từ chối bằng `NotAllowedError` → hiện thông báo lỗi tải. Hai PR, cả hai merge sau khi CI của đúng head xanh:
+- [#824](https://github.com/streamentry/kinh-tang-pali/pull/824): `playFailure()` phân loại `NotAllowedError` → nhắc
+  bấm Phát, `AbortError` → im lặng, còn lại → lỗi tải; dùng ở cả `<sutta-playlist>` và `<sutta-audio>`. Head `2964c6cc5`,
+  CI `pull_request` 39892260803 và `push` 39892258683 xanh; merge `908dc540b`; Pages 39896460735 thành công.
+- [#825](https://github.com/streamentry/kinh-tang-pali/pull/825): MP3 hỏng ngay khi tải trang (`audio.error` = 4 trước khi
+  script gắn listener) trước đó không hiện gì cho tới khi bấm Phát; nay hiện lỗi tải ngay. Head `ddc3c8ae6`, CI 39900952441
+  và 39900946093 xanh; merge `f601c643e`; Pages 39905325715 thành công.
+- Production sau `f601c643e` (Playwright, Chrome), playlist MN và player MN1, mỗi cái ba trường hợp:
+  tệp R2 thật → không lỗi, phát; `play()` bị từ chối → chỉ "Trình duyệt chưa cho phép phát…", không lỗi tải;
+  MP3 ép 404 → lỗi tải hiện ngay khi tải trang và sau khi bấm Phát, không có thông báo chặn tự phát.
+  Trang nhóm SN chưa có player (chưa có audio SN), đúng với dữ liệu.
+
 ## Phục hồi
 
 Commit trước thay đổi: `d5c9933f9`. Gỡ bằng PR revert `436bb5e3e` qua CI (xem `docs/navigation.md`, mục Phục hồi);
