@@ -107,6 +107,14 @@ im lặng; workflow Pages chạy cùng các cổng điều hướng; trạng th�
   "Phẩm Đoàn Thực", "Nhóm Mười Một Kệ", "Chương Một Pháp", "Nhóm Hai Kệ"; `sn12.11:0.2` "2. Phẩm Đoàn Thực";
   thag1.2 / thag2.1 / thig7.2 hiện nhãn và banner `draft`, thag1.44 vẫn `published`.
 
+## Dịch lại 21 bài và chuẩn hoá (PR nội dung thứ hai, 2026-10-23)
+
+Theo yêu cầu người dùng: 7 người dịch sửa 21 bài bị hạ `draft`; 91 segment tiêu đề/dòng kết nipāta chuẩn hoá;
+thêm vòng sửa 30 segment (4 lỗi chặn mới phát hiện, tiêu đề tên riêng, lỗi nhỏ đã biết). Mọi segment đổi được
+đối soát với nhật ký từng người dịch (282 segment trong 110 bài, 0 lệch, khoá và thứ tự không đổi, NFC). 33 bài có lượt
+`full` gắn hash được 9 người chấm độc lập (không ai chấm bài mình dịch) đọc lại toàn văn và ghi/áp dụng:
+cả 33 `published`; 21 bài từng bị hạ đều trở lại `published`. `quality:check` 0 lỗi.
+
 ## Phục hồi
 
 Commit trước thay đổi: `d5c9933f9`. Gỡ bằng PR revert `436bb5e3e` qua CI (xem `docs/navigation.md`, mục Phục hồi);
