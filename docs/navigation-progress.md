@@ -114,6 +114,14 @@ thêm vòng sửa 30 segment (4 lỗi chặn mới phát hiện, tiêu đề tê
 đối soát với nhật ký từng người dịch (282 segment trong 110 bài, 0 lệch, khoá và thứ tự không đổi, NFC). 33 bài có lượt
 `full` gắn hash được 9 người chấm độc lập (không ai chấm bài mình dịch) đọc lại toàn văn và ghi/áp dụng:
 cả 33 `published`; 21 bài từng bị hạ đều trở lại `published`. `quality:check` 0 lỗi.
+- PR [#820](https://github.com/streamentry/kinh-tang-pali/pull/820), head `9df6db4a2`: tài khoản chủ repo merge lúc
+  2026-10-23T00:32:27Z (`cbfcc60c3`), **trước** khi CI kết thúc; CI của đúng head sau đó xanh cả `pull_request`
+  39877841891 (00:53Z) và `push` 39877835178 (01:02Z); cây của `main` trùng head. Pages run 39878724827 (build + deploy
+  thành công) trên `cbfcc60c3`, deployment `7267558471` (01:05:06Z).
+- Production: 1.610 URL điều hướng 200 và trùng byte với build cục bộ (2 URL trả 503 tạm thời ở lượt đầu, thử lại 200 và
+  trùng byte); ID lạ 404; thag1.2, thag2.1, thig7.2, thag11.1, thag6.5, thag1.31 hiện `published`, không banner draft;
+  `thag2.1:1.1` "Không có hữu nào là thường còn", `thig7.2:1.1` "Sau khi an trú niệm", `thag6.5:4.5` "chớ để Ma…";
+  nhóm "Nhóm Năm Kệ", "Nhóm Sáu Kệ", "Nhóm Lớn".
 
 ## Phục hồi
 
