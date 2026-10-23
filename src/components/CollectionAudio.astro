@@ -1,7 +1,8 @@
 ---
-import type { SuttaAudio } from '../lib/canon/audio';
+import type { AudioPlayerData } from '../lib/canon/audio';
+import { playlistPayload } from '../lib/canon/audio-playlist';
 
-interface PlaylistTrack extends SuttaAudio {
+interface PlaylistTrack extends AudioPlayerData {
   title: string;
   order: number;
 }
@@ -10,13 +11,15 @@ interface Props {
   collectionTitle: string;
   totalSuttas: number;
   tracks: PlaylistTrack[];
+  playlistUrl?: string;
 }
 
-const { collectionTitle, totalSuttas, tracks } = Astro.props;
+const { collectionTitle, totalSuttas, tracks, playlistUrl } = Astro.props;
+const payload = playlistPayload(tracks, playlistUrl);
 const first = tracks[0];
 const timestamp = (seconds: number) => `${Math.floor(seconds / 60)}:${Math.floor(seconds % 60).toString().padStart(2, '0')}`;
 ---
-<sutta-playlist class="collection-audio" data-collection-title={collectionTitle} data-tracks={JSON.stringify(tracks)}>
+<sutta-playlist class="collection-audio" data-collection-title={collectionTitle} data-tracks={JSON.stringify(payload.inline)} data-tracks-src={payload.url} data-track-count={tracks.length}>
   {first && (
     <section class="listening collection-listening" data-pagefind-ignore aria-label={`Trình phát ${collectionTitle}`}>
       <div class="listening-heading">
@@ -27,6 +30,7 @@ const timestamp = (seconds: number) => `${Math.floor(seconds / 60)}:${Math.floor
         <span class="listening-length">{tracks.length} / {totalSuttas} bài có audio</span>
       </div>
       <audio controls preload="metadata" src={first.url} data-track-uid={first.uid} aria-label={`Nghe ${collectionTitle}`}></audio>
+      <p class="listen-error" data-playlist-error role="status" hidden>Không tải được danh sách phát. Bạn vẫn có thể nghe từng MP3.</p>
       <div class="listening-custom" hidden>
         <div class="collection-audio-current" aria-live="polite">
           <div>
@@ -57,7 +61,7 @@ const timestamp = (seconds: number) => `${Math.floor(seconds / 60)}:${Math.floor
               <input class="listen-seek" type="range" min="0" max={first.duration_seconds} step="1" value="0" aria-label="Vị trí phát" />
             </div>
             <div class="listen-clock">
-              <span><span data-current>0:00</span><span class="listen-phase" data-phase>Tóm tắt</span></span>
+              <span><span data-current>0:00</span><span class="listen-phase" data-phase>{first.scripture_start_seconds > 0 ? 'Tóm tắt' : 'Kinh văn'}</span></span>
               <span data-duration>{timestamp(first.duration_seconds)}</span>
             </div>
           </div>
@@ -79,28 +83,34 @@ const timestamp = (seconds: number) => `${Math.floor(seconds / 60)}:${Math.floor
 
 <script>
   import { AUTO_NEXT_KEY, readAutoNext, saveAutoNext, stepAudioIndex } from '../lib/audio/navigation';
-
-  interface PlaylistTrack {
-    uid: string;
-    title: string;
-    url: string;
-    duration_seconds: number;
-    scripture_start_seconds: number;
-    review_status: 'pending' | 'approved';
-  }
+  import { parsePlaylist, type PlayerTrack } from '../lib/audio/playlist';
 
   class SuttaPlaylistElement extends HTMLElement {
     private cleanup?: () => void;
+    private connection = 0;
 
     disconnectedCallback() {
       this.cleanup?.();
+      this.connection++;
       delete this.dataset.ready;
     }
 
-    connectedCallback() {
+    async connectedCallback() {
       if (this.dataset.ready) return;
-      let tracks: PlaylistTrack[];
-      try { tracks = JSON.parse(this.dataset.tracks ?? '[]') as PlaylistTrack[]; } catch { return; }
+      const connection = ++this.connection;
+      this.dataset.ready = 'loading';
+      let tracks: PlayerTrack[];
+      try {
+        if (this.dataset.tracksSrc) {
+          const response = await fetch(this.dataset.tracksSrc);
+          if (!response.ok) throw new Error('Playlist unavailable');
+          tracks = parsePlaylist(await response.json(), Number(this.dataset.trackCount));
+        } else tracks = parsePlaylist(JSON.parse(this.dataset.tracks ?? '[]'), Number(this.dataset.trackCount));
+      } catch {
+        if (connection === this.connection) this.querySelector<HTMLElement>('[data-playlist-error]')?.removeAttribute('hidden');
+        return; // Native player and every row's MP3 link remain usable.
+      }
+      if (!this.isConnected || connection !== this.connection || !Array.isArray(tracks)) return;
       if (!tracks.length) return;
       this.dataset.ready = 'true';
 
@@ -190,12 +200,11 @@ const timestamp = (seconds: number) => `${Math.floor(seconds / 60)}:${Math.floor
 
       autoNext.addEventListener('change', () => {
         enabled = autoNext.checked;
-        saveAutoNext(localStorage, enabled);
+        try { saveAutoNext(localStorage, enabled); } catch { /* Keep the in-page choice if storage is denied. */ }
       });
       const onStorage = (event: StorageEvent) => {
         if (event.key === AUTO_NEXT_KEY || event.key === null) {
-          enabled = readAutoNext(localStorage);
-          autoNext.checked = enabled;
+          try { enabled = readAutoNext(localStorage); autoNext.checked = enabled; } catch { /* Keep current choice. */ }
         }
       };
       window.addEventListener('storage', onStorage);

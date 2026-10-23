@@ -5,6 +5,18 @@ from pathlib import Path
 def digest(value):
     return hashlib.sha256(value).hexdigest()
 
+def audio_object_key(source, manifest):
+    """Use the catalog-verified identity, never a UID-prefix collection guess."""
+    collection=source['collection']
+    if collection not in ('mn','dn','sn','an','kn') or source['uid']!=manifest['uid']:
+        raise RuntimeError('Invalid source/manifest identity')
+    if manifest.get('collection',collection if collection in ('mn','dn') else None)!=collection:
+        raise RuntimeError('Manifest collection differs from catalog')
+    if collection not in ('mn','dn'):
+        if source.get('policy')!='title-scripture-v1' or manifest.get('transcript_policy')!=source['policy'] or manifest['scripture_start_seconds']!=0:
+            raise RuntimeError('Manifest transcript policy differs from source')
+    return f'vi/{collection}/{source["uid"]}/{manifest["sha256"][:16]}.mp3'
+
 def write_json(path, data):
     path=Path(path);path.parent.mkdir(parents=True,exist_ok=True)
     temp=path.with_suffix(path.suffix+'.tmp');temp.write_text(json.dumps(data,ensure_ascii=False,indent=2)+'\n');temp.replace(path)
@@ -74,6 +86,10 @@ def plan_source(source, profile):
         for part in split_text(text,profile['chunk_max_chars']):
             planned.append({'section':section,'text':part,'text_sha256':digest(part.encode())})
     append('summary',summary)
+    # Explicit new policy only: legacy title metadata must never become speech.
+    if source.get('policy')=='title-scripture-v1':
+        if summary or not source.get('title','').strip():raise ValueError('Invalid title-scripture transcript')
+        append('heading',source['title'])
     group=[]
     expected=[]
     for _,value in source['segments']:

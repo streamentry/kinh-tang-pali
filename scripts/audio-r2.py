@@ -5,15 +5,19 @@ Uses the same object REST endpoint as Cloudflare Wrangler's r2/helpers/object.ts
 import argparse, hashlib, json, os, subprocess, time, tomllib, urllib.request, urllib.error
 from pathlib import Path
 from gemini_tts import ROOT, load_env
-from narration_config import load_profile, assert_profile_metadata
-from audio_pipeline import mp3_info, write_json
-from audio_progress import update, now
+from narration_config import load_profile, assert_profile_metadata, profile_digest
+from audio_pipeline import mp3_info, write_json, audio_object_key
+from audio_progress import update, now, require_current_group_source
 
 def main():
     parser=argparse.ArgumentParser(); parser.add_argument('folder',type=Path); args=parser.parse_args()
     profile=load_profile()
     manifest=json.loads((args.folder/'manifest.json').read_text())
     assert_profile_metadata(manifest,profile)
+    # Gate before loading credentials or making any provider request.
+    uid=manifest['uid']
+    current=json.loads(subprocess.check_output(['node','--import','tsx','scripts/audio-source.ts',uid],cwd=ROOT))
+    require_current_group_source(current,profile_digest(profile))
     load_env()
     token=os.environ.get('CLOUDFLARE_API_TOKEN'); account=os.environ.get('CLOUDFLARE_ACCOUNT_ID')
     if not token:
@@ -49,6 +53,7 @@ def main():
     mp3_info(mp3)
     if len(mp3)!=manifest['bytes']:raise RuntimeError('MP3 byte count mismatch')
     if hashlib.sha256(mp3).hexdigest()!=manifest['sha256']:raise RuntimeError('MP3 hash mismatch')
+    key=audio_object_key(current,manifest)
     try: info=request(base+'/'+bucket)
     except RuntimeError as e:
         if str(e)!='Cloudflare HTTP 404':raise
@@ -56,8 +61,7 @@ def main():
     domain=request(base+'/'+bucket+'/domains/managed')
     if not domain.get('enabled'): raise SystemExit('Public access is disabled. Enable it only with explicit editor authorization, then retry.')
     host=domain['domain']; public_base='https://'+host
-    collection='mn' if uid.startswith('mn') else 'dn'
-    key=f'vi/{collection}/{uid}/{manifest["sha256"][:16]}.mp3'
+    if public_base!=storage['public_base_url']:raise RuntimeError('Public domain differs from pinned audio storage')
     request(base+'/'+bucket+'/objects/'+key,'PUT',mp3,{'Content-Type':'audio/mpeg',
         'Cache-Control':'public, max-age=31536000, immutable','Content-Length':str(len(mp3))},raw=True)
     url=public_base+'/'+key
@@ -76,6 +80,7 @@ def main():
         if response.status!=206 or response.read()!=mp3[:1024]:raise RuntimeError('Public range readback failed')
     current=json.loads(subprocess.check_output(['node','--import','tsx','scripts/audio-source.ts',uid],cwd=ROOT))
     if current['source_sha256']!=manifest['source_sha256']:raise RuntimeError('Source changed during upload; do not register stale player')
+    require_current_group_source(current,profile_digest(profile))
     manifest['r2_verified_at']=now()
     manifest['public_range_verified']=True
     manifest.update({'url':url,'bucket':bucket,'object_key':key})
