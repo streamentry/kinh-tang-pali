@@ -8,16 +8,18 @@ import type { CollectionCode } from '../src/lib/canon/types';
 import { parseArgs } from 'node:util';
 const { values } = parseArgs({ options: {
   write: { type: 'boolean' }, groups: { type: 'boolean' },
-  collection: { type: 'string' }, group: { type: 'string' },
+  collection: { type: 'string' }, group: { type: 'string' }, uid: { type: 'string' },
   'include-source': { type: 'boolean' },
 } });
 if (values.collection && !['mn','dn','sn','an','kn'].includes(values.collection)) throw new Error('Unknown collection');
+if (values.uid !== undefined && (!values.collection || values.group !== undefined)) throw new Error('--uid requires --collection and cannot be combined with --group');
 if (values.group && (!values.collection || !hasNavigation(values.collection as CollectionCode)
   || !groupNode(values.collection as 'sn' | 'an' | 'kn', values.group))) throw new Error('Provide a valid collection and group');
 const collections: readonly CollectionCode[] = values.collection ? [values.collection as CollectionCode]
   : values.groups ? GROUP_AUDIO_COLLECTIONS : ['mn','dn'];
 const members = values.group ? new Set(groupTexts(values.collection as 'sn' | 'an' | 'kn', values.group)) : null;
-const texts = collections.flatMap(collection => audioQueue(collection).filter(item => !members || members.has(item.uid)).map(item => {
+if (values.uid !== undefined && !audioQueue(values.collection as CollectionCode).some(item => item.uid === values.uid)) throw new Error('Unknown reading UID in collection');
+const texts = collections.flatMap(collection => audioQueue(collection).filter(item => (!members || members.has(item.uid)) && (values.uid === undefined || item.uid === values.uid)).map(item => {
   const doc = composeDocument(collection, item.uid);
   const issues = narrationIssues(doc);
   const audio = loadAudio(doc);
