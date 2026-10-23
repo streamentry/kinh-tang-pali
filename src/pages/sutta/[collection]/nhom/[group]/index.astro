@@ -114,7 +114,7 @@ const nextSibling = sibling(siblings.next);
     </header>
 
     {tracks.length > 0 ? (
-      <CollectionAudio collectionTitle={title.primary} totalSuttas={stats.texts} tracks={tracks}>
+      <CollectionAudio collectionTitle={title.primary} totalSuttas={stats.texts} tracks={tracks} playlistUrl={withBase(`audio-playlists/${code}/${id}.json`)}>
         <p class="group-audio-policy" data-pagefind-ignore>
           Danh sách phát gồm {tracks.length} / {stats.texts} mục đã có bản nghe hợp lệ, theo thứ tự của nhóm.
           {tracks.length < stats.texts && ' Mục chưa có bản nghe được bỏ qua.'} Phát hết nhóm thì dừng, không lặp lại.
