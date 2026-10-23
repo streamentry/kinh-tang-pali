@@ -143,6 +143,8 @@ const timestamp = (seconds: number) => `${Math.floor(seconds / 60)}:${Math.floor
         location.assign(next);
       });
       audio.addEventListener('error', () => { error.hidden = false; state(); });
+      // The file may have failed before this listener existed (it starts loading with the page).
+      if (audio.error) error.hidden = false;
       audio.controls = false; audio.hidden = true; custom.hidden = false; update();
       let continuing = false;
       try { continuing = consumeContinuation(sessionStorage, location.pathname); } catch { /* Ordinary visits never autoplay. */ }

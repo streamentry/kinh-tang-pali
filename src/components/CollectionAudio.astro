@@ -274,6 +274,8 @@ const timestamp = (seconds: number) => `${Math.floor(seconds / 60)}:${Math.floor
         void selectTrack(index);
       });
       audio.addEventListener('error', () => { error.hidden = false; update(); });
+      // The file may have failed before this listener existed (it starts loading with the page).
+      if (audio.error) error.hidden = false;
       audio.controls = false;
       audio.hidden = true;
       custom.hidden = false;
