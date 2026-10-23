@@ -337,6 +337,8 @@ Kiến trúc nền tảng và data contract nằm tại [`docs/architecture.md`]
 
 ## Cấu hình audio đã duyệt — bắt buộc giữ nhất quán
 
+- **Quyền sản xuất cập nhật 2026-10-24:** người biên tập yêu cầu hoàn tất toàn bộ audio SN/AN/KN, tiếp tục tạo trong lúc CI chạy, kiểm CI và merge sau 2 giờ/run. Quyết định này thay gate chờ nghe mẫu SN1 trước khi mở rộng sản xuất; không hỏi lại quyền gửi từng bài. Giữ `review_status: pending` đến khi có xác nhận nghe thực sự; không suy production authorization thành content approval. Không thay profile MN1, không chạy song song TTS, không bỏ blocker nguồn/profile/file/quota.
+
 - Cấu hình duy nhất là `source/narration-profile.json`, profile `vi-charon-mn1-v1`, được người biên tập duyệt giọng và nhịp ngày 2026-10-10 theo mẫu MP3 MN1.
 - Mọi audio dùng đúng model, Charon, style prompt, giới hạn chunk, khoảng nghỉ, encoding và tốc độ mặc định của profile. Không ghi đè qua CLI/env, không fallback sang model/giọng khác, không tự tăng/giảm tốc MP3.
 - Generator và uploader phải đi qua `scripts/narration_config.py`; không bỏ qua pin SHA-256. Thay profile/pin chỉ khi người biên tập yêu cầu và đã duyệt mẫu mới.

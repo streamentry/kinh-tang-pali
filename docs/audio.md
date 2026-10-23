@@ -122,9 +122,16 @@ MN/DN giữ nguyên transcript tóm tắt → kinh văn và hash đã phát hàn
 thay tên nhóm không làm đổi audio của bài. Mốc kinh văn là 0; player không hiện
 phần tóm tắt giả. **Người biên tập đã duyệt cấu trúc này ngày 2026-10-23 và cho
 phép gửi nội dung, tạo thử SN1.1–SN1.10 tới Gemini TTS theo profile MN1 đã ghim.**
-Không cần hỏi lại cho mười mục đó; giữ nghe duyệt `pending`. Chưa mở rộng sản
-xuất ngoài mẫu trước khi người biên tập nghe và chấp thuận. Quyết định và tiến
-độ được ghi tại [group-audio-progress.md](group-audio-progress.md).
+Không cần hỏi lại cho mười mục đó; giữ nghe duyệt `pending`. Quyết định ban đầu
+giới hạn sản xuất ở mẫu trước khi nghe chấp thuận. **Cập nhật ngày 2026-10-24:**
+người biên tập sửa goal thành “move to next phase to complete all audio and
+check CI back and merge later (2h for each run)”. Đây là quyền tiếp tục sản xuất
+toàn bộ SN/AN/KN theo kế hoạch, thay cổng phải chờ nghe mẫu trước khi tạo tiếp.
+Không hỏi lại quyền gửi từng bài tới Gemini. Đây không phải xác nhận đã nghe
+duyệt: mọi audio mới vẫn `review_status: pending`, giọng/profile MN1 không đổi.
+Nguồn/profile/file hỏng, quota, xác thực hay thanh toán lỗi vẫn chặn tác vụ tương
+ứng; không tự xóa bằng chứng QC. Quyết định và tiến độ được ghi tại
+[group-audio-progress.md](group-audio-progress.md).
 
 Chuẩn bị không gọi API, không cần `.env`:
 

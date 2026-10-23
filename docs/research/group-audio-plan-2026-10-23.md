@@ -1,5 +1,16 @@
 # Audio for the new SN / AN / KN groups
 
+**Execution update, 2026-10-24:** the editor explicitly changed the execution
+goal to “move to next phase to complete all audio and check CI back and merge
+later (2h for each run)”. Production is now authorized for the full SN/AN/KN
+scope below without waiting for pilot listening acceptance. The original
+proposal and its staged rationale remain recorded below; its permission gate
+is superseded by this newer decision. Keep all human content reviews pending
+until actually heard and approved. Keep serial generation, the pinned MN1
+profile, all source/file/QC safeguards and five-upload PR cadence; continue TTS
+while PR CI runs and revisit each run after two hours before merging green
+exact-head checks. No parallel TTS, ASR, voice migration or invented summaries.
+
 Design proposal, 2026-10-23. Inspected main at
 `cbfcc60c373aebb9b364360dc67e9b87ac8cd1a3` after pulling PRs #816–820.
 No TTS requests, uploads or production changes were made for this proposal.

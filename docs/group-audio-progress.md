@@ -1,5 +1,17 @@
 # Tiến độ audio nhóm SN / AN / KN
 
+## Quyết định tiếp tục toàn bộ — 2026-10-24
+
+Người biên tập sửa goal: “move to next phase to complete all audio and check CI
+back and merge later (2h for each run)”. Phạm vi sản xuất mở tới toàn bộ SN/AN/KN;
+không còn chờ nghe mẫu trước khi tạo tiếp. Đây là quyền sản xuất, không phải
+nghe duyệt nội dung: các mục SN1 đã live và mọi mục mới vẫn review pending.
+Giữ nguyên profile MN1, tạo từng request/UID tuần tự, upload từng mục hoàn tất,
+kiểm player, tạo PR theo mỗi năm upload; TTS tiếp tục trong lúc CI chạy.
+Không suy merge thành live; xác minh Pages/player riêng. Các snapshot nghiên
+cứu ngày 2026-10-23 ghi quyền cũ đúng tại thời điểm đó, không sửa thành lịch sử
+đã được cho phép sớm hơn.
+
 Kế hoạch gốc: [group-audio-plan-2026-10-23.md](research/group-audio-plan-2026-10-23.md),
 đã merge bằng PR #821, `cdd536f98404c6f0ae6b22f17737515553f42f51`.
 Log này phân biệt chuẩn bị kỹ thuật, sinh/upload, phát hành và nghe duyệt.
