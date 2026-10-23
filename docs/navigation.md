@@ -77,23 +77,30 @@ cùng tiêu đề sai, không chỉ bài đầu nhóm — 397 segment `:0.2` tro
 - 54 bài trong số đó có lượt chấm `full` gắn hash nội dung; mỗi bài được đọc lại toàn văn (Pāli, Sujato,
   Việt 2026) bởi người chấm độc lập, chấm `full` mới, ghi bằng `quality --record` và áp dụng bằng `--apply`.
   Các bài còn lại dùng scorecard cũ không gắn hash, nên đổi một tiêu đề không làm sai lệch lượt chấm nào.
-- **Kết quả lượt đọc lại:** 33 bài giữ `published`; **21 bài về `draft`** vì có lỗi chặn ngữ nghĩa đã có từ
-  bản dịch đầu mà lượt `full` trước bỏ sót — thag1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8, 1.10, 1.14, 1.28,
-  2.1, 2.2, 3.6, 3.9, 3.13, 3.14, 9.1, 10.1, thig7.2, thig11.1. Ví dụ: `thag1.2:1.1` dịch *upasanto* là
-  "đã ngồi thiền", `thag2.1:1.1` dịch *bhavo* là "bản ngã", `thig7.2:1.1` dịch *sati* là "chánh tâm".
-  Lỗi, segment và lý do nằm trong ghi chú của từng lượt chấm (`content/meta/assessments/kn/<uid>.json`).
-  Sửa các câu kệ đó là việc dịch lại riêng; PR này chỉ sửa tiêu đề và ghi nhận đúng chất lượng.
+- **Kết quả lượt đọc lại:** 33 bài giữ `published`; 21 bài về `draft` vì lỗi chặn ngữ nghĩa có từ bản dịch
+  đầu mà lượt `full` trước bỏ sót (ví dụ `thag1.2:1.1` *upasanto* → "đã ngồi thiền", `thag2.1:1.1` *bhavo* →
+  "bản ngã", `thig7.2:1.1` *sati* → "chánh tâm").
 
-Còn mở, chưa sửa (không thuộc phạm vi 35 tiêu đề):
+**Dịch lại và chuẩn hoá (2026-10-23, PR nội dung thứ hai, theo yêu cầu người dùng):**
 
-- Dòng kết tương ưng ở SN đôi khi sai tên: `sn2.30:18.5` dịch *Devaputtasaṁyutta* là
-  "Tương Ưng Bộ Chư Thiên" (đúng: Thiên Tử). Không dùng dòng kết làm nguồn tên.
-- Dòng kết nipāta của Theragāthā/Therīgāthā còn dùng "Bộ … Bài Kinh" (ví dụ `thag3.16:3.6`,
-  `thag9.1:9.6`, `thag11.1:11.6`, `thig11.1:14.1`, `thig12.1:18.1`), và dòng kết của Itivuttaka còn dùng
-  "Phẩm … Pháp" (`iti112:14.3`), nên nay lệch với tiêu đề `:0.2` đã sửa trong cùng bài.
-- Chú thích ảnh bìa Jātaka trong `source/sutta-covers.json` còn viết "Bộ Hai Bài Kinh (Dukanipāta)".
-- Tiêu đề nipāta cùng cấp không thống nhất: "Nhóm Năm" (thag5), "Trưởng Lão Kệ Nhóm Sáu" (thag6),
-  "Bộ Bảy Bài Kệ" (thag7), "Phẩm Năm Kệ" (thig5), "Tập Sáu" (thig6).
+- 21 bài trên được dịch lại ở các segment lỗi (người dịch riêng, ghi lý do từng chỗ), rồi được người chấm
+  độc lập khác đọc lại toàn văn, ghi `--record` và áp dụng `--apply`: **cả 21 bài trở lại `published`**.
+  Lượt chấm cũng phát hiện và sửa lỗi chặn ở `thag6.5:4.5` (*māro* → "Ma", như dhp337), `thag6.14:1.2–1.4`
+  (như snp1.11:13), `thag11.1:1.2` (cách đọc "cây dù lật ngược" bịa) và `thag1.31:1.4` (*adhivāsaye* là
+  "chịu đựng").
+- Tiêu đề nipāta còn lệch của Thag/Thig ("Nhóm Năm", "Trưởng Lão Kệ Nhóm Sáu", "Tập Sáu", "Bộ Bảy Bài Kệ",
+  "Phẩm Năm Kệ", "Tập Năm", "Bộ Lớn") → "Nhóm N Kệ" / "Nhóm Lớn"; 41 dòng kết nipāta (*…nipāto niṭṭhito*)
+  → "Nhóm N Kệ đã hoàn tất." / "Chương N Pháp đã hoàn tất."; tóm lược `iti112:16.1–16.4`, `thag11.1:12.3`.
+- Lỗi nhỏ đã biết khác được sửa: "điền tịnh" (`thag1.50`, `thag1.51`, `thag1.52`), "sĩ bại" và *kāpurisa* →
+  "kẻ ác" (`thag8.1`, `thag18.1`), dòng kết `sn2.30:18.5` (Tương Ưng Thiên Tử), chú thích ảnh bìa Jātaka,
+  tiêu đề `thag1.4`, `thag1.14` (sa-di Sivaka), `thag3.9` (Yasoja). Ghi chú biên tập cũ mô tả cách dịch sai
+  được đánh dấu "Sửa ngày 2026-10-23" trong `content/meta/sutta/kn/<uid>.yaml`, không xoá lịch sử.
+- Mọi bài có lượt `full` gắn hash mà nội dung đổi đều được chấm lại toàn văn (tổng 33 bài ở vòng này);
+  `quality:check` 0 lỗi.
+
+Còn để ngỏ (không phải lỗi chặn; ghi trong ghi chú lượt chấm từng bài): dòng kết tương ưng SN dùng "Tương
+Ưng Bộ X" (thừa "Bộ", không sai nghĩa); thag1.10:1.6 và 14 dòng kết phẩm khác thêm "mười bài" theo quy ước
+cả tập; vài khác biệt văn phong giữa câu kệ song song (`thag1.5:1.1`/`thag1.8:1.1`, `thag15.1:11.1`).
 - 5 tiêu đề phẩm (`pv13`, `pv26`, `mil5.3.1`, `mil5.4.1`, `mil5.5.1`) để nguyên tên Pāli (tự động bị
   từ chối là `untranslated`).
 
