@@ -56,7 +56,7 @@ const timestamp = (seconds: number) => `${Math.floor(seconds / 60)}:${Math.floor
 </sutta-audio>
 <script>
   import { readAutoNext, saveAutoNext, rememberContinuation, consumeContinuation, AUTO_NEXT_KEY } from '../lib/audio/navigation';
-  import { isScripturePhase } from '../lib/audio/playback';
+  import { isScripturePhase, playFailure } from '../lib/audio/playback';
   class SuttaAudioElement extends HTMLElement {
     private cleanup?: () => void;
     disconnectedCallback() { this.cleanup?.(); delete this.dataset.ready; }
@@ -112,7 +112,13 @@ const timestamp = (seconds: number) => `${Math.floor(seconds / 60)}:${Math.floor
       play.addEventListener('click', async () => {
         error.hidden = true;
         if (!audio.paused) { audio.pause(); return; }
-        try { await audio.play(); } catch { error.hidden = false; state(); }
+        try { await audio.play(); } catch (failure) {
+          // Name the actual cause: a blocked autoplay is not a broken file, and the reverse.
+          const cause = playFailure(failure);
+          if (cause === 'blocked') say('Trình duyệt chưa cho phép phát. Bấm Phát lần nữa để nghe.');
+          else if (cause === 'unavailable') error.hidden = false;
+          state();
+        }
       });
       seek.addEventListener('input', () => { audio.currentTime = Number(seek.value); update(); });
       this.querySelectorAll<HTMLButtonElement>('[data-jump]').forEach(button => button.addEventListener('click', () => {
@@ -139,7 +145,12 @@ const timestamp = (seconds: number) => `${Math.floor(seconds / 60)}:${Math.floor
       let continuing = false;
       try { continuing = consumeContinuation(sessionStorage, location.pathname); } catch { /* Ordinary visits never autoplay. */ }
       if (continuing && enabled) {
-        audio.play().catch(() => { say('Trình duyệt chưa cho phép tự phát. Bấm Phát để nghe tiếp bài này.'); state(); });
+        audio.play().catch((failure) => {
+          const cause = playFailure(failure);
+          if (cause === 'blocked') say('Trình duyệt chưa cho phép tự phát. Bấm Phát để nghe tiếp bài này.');
+          else if (cause === 'unavailable') error.hidden = false;
+          state();
+        });
       }
     }
   }
