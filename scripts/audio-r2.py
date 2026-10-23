@@ -6,7 +6,7 @@ import argparse, hashlib, json, os, subprocess, time, tomllib, urllib.request, u
 from pathlib import Path
 from gemini_tts import ROOT, load_env
 from narration_config import load_profile, assert_profile_metadata
-from audio_pipeline import mp3_info, write_json
+from audio_pipeline import mp3_info, write_json, audio_object_key
 from audio_progress import update, now
 
 def main():
@@ -49,6 +49,7 @@ def main():
     mp3_info(mp3)
     if len(mp3)!=manifest['bytes']:raise RuntimeError('MP3 byte count mismatch')
     if hashlib.sha256(mp3).hexdigest()!=manifest['sha256']:raise RuntimeError('MP3 hash mismatch')
+    key=audio_object_key(current,manifest)
     try: info=request(base+'/'+bucket)
     except RuntimeError as e:
         if str(e)!='Cloudflare HTTP 404':raise
@@ -56,8 +57,7 @@ def main():
     domain=request(base+'/'+bucket+'/domains/managed')
     if not domain.get('enabled'): raise SystemExit('Public access is disabled. Enable it only with explicit editor authorization, then retry.')
     host=domain['domain']; public_base='https://'+host
-    collection='mn' if uid.startswith('mn') else 'dn'
-    key=f'vi/{collection}/{uid}/{manifest["sha256"][:16]}.mp3'
+    if public_base!=storage['public_base_url']:raise RuntimeError('Public domain differs from pinned audio storage')
     request(base+'/'+bucket+'/objects/'+key,'PUT',mp3,{'Content-Type':'audio/mpeg',
         'Cache-Control':'public, max-age=31536000, immutable','Content-Length':str(len(mp3))},raw=True)
     url=public_base+'/'+key

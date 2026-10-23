@@ -73,7 +73,8 @@ def main(args):
     summary_count=sum(p['section']=='summary' for p in planned)
     fingerprint=fingerprint_for(planned)
     folder=ROOT/'audio'/args.uid/fingerprint[:16]; folder.mkdir(parents=True,exist_ok=True)
-    (folder/'transcript.txt').write_text(source['summary']+'\n\n'+'\n\n'.join(value for _,value in source['segments'] if value.strip('… .')))
+    intro=source['title'] if source.get('policy')=='title-scripture-v1' else source['summary']
+    (folder/'transcript.txt').write_text(intro+'\n\n'+'\n\n'.join(value for _,value in source['segments'] if value.strip('… .')))
     write_json(folder/'plan.json',planned)
     checkpoint_path=folder/'checkpoint.json'
     checkpoint=json.loads(checkpoint_path.read_text()) if checkpoint_path.exists() else {'fingerprint':fingerprint,'chunks':{}}
@@ -132,6 +133,8 @@ def main(args):
     manifest={ 'uid':args.uid,'source_sha256':source['source_sha256'],'model':profile['model'],'voice':profile['voice'],
         'style':profile['style'],**profile_metadata(profile),'duration_seconds':duration,'scripture_start_seconds':scripture_start,
         'sha256':hashlib.sha256(encoded).hexdigest(),'bytes':len(encoded),'review_status':'pending','chunk_count':len(parts),'summary_chunk_count':summary_count,'chunk_plan_sha256':digest(json.dumps(planned,ensure_ascii=False,sort_keys=True).encode()),'mp3_integrity':integrity}
+    manifest['collection']=source['collection']
+    if source.get('policy'):manifest['transcript_policy']=source['policy']
     if repair_indices:
         manifest['chunk_repair']={'standard_plan_fingerprint':fingerprint_for(standard_plan),'standard_chunk_indices':repair_indices,'method':'Lossless sentence subdivision; unchanged chunks reused with validated text/WAV hashes. No ASR.'}
     (folder/'manifest.json').write_text(json.dumps(manifest,ensure_ascii=False,indent=2)+'\n')

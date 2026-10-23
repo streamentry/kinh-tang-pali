@@ -84,7 +84,7 @@ const withCovers = coverCollections.includes(code);
     )}
     {topGroups.length > 0 && items.length > 0 && <h2 class="collection-all-heading" id="tat-ca-bai">Tất cả bài</h2>}
     {items.length > 0 ? (
-      <CollectionAudio collectionTitle={collection.titleVi} totalSuttas={items.length} tracks={tracks}>
+      <CollectionAudio collectionTitle={collection.titleVi} totalSuttas={items.length} tracks={tracks} playlistUrl={withBase(`audio-playlists/${code}/all.json`)}>
         {pageCount > 1 && <p class="collection-page-range" id="collection-page-range">Bài {offset + 1}–{Math.min(offset + pageSize, items.length)} / {items.length} · Trang {page} / {pageCount}. <a href={withBase('search/')}>Tìm trong toàn bộ kinh tạng</a></p>}
         <CollectionPagination code={code} page={page} pageCount={pageCount} position="top" />
         <ol start={offset + 1} class:list={['sutta-list', withCovers && 'has-covers']}>

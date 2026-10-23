@@ -4,12 +4,14 @@ interface Neighbour { uid: string; href: string; hasAudio?: boolean; }
 interface Props { audio: SuttaAudio; title: string; previous?: Neighbour; next?: Neighbour; }
 const { audio, title, previous, next } = Astro.props;
 const minutes = Math.round(audio.duration_seconds / 60);
+const length = audio.duration_seconds < 60 ? `${Math.round(audio.duration_seconds)} giây` : `${minutes} phút`;
+const hasSummary = audio.scripture_start_seconds > 0;
 const timestamp = (seconds: number) => `${Math.floor(seconds / 60)}:${Math.floor(seconds % 60).toString().padStart(2, '0')}`;
 ---
 <sutta-audio class="listening" id="lang-nghe" data-pagefind-ignore data-scripture={audio.scripture_start_seconds} data-next={next?.hasAudio ? next.href : undefined}>
   <div class="listening-heading">
     <div><div class="listening-kicker"><p class="listening-label">Lắng nghe · Việt 2026</p>{audio.review_status === 'pending' && <span class="listening-review">Chờ nghe duyệt</span>}</div><h2>{title}</h2></div>
-    <span class="listening-length">{audio.uid.toUpperCase()} · {minutes} phút</span>
+    <span class="listening-length">{audio.uid.toUpperCase()} · {length}</span>
   </div>
   <audio controls preload="metadata" src={audio.url} aria-label={`Nghe ${title}`}></audio>
   <div class="listening-custom" hidden>
@@ -32,13 +34,13 @@ const timestamp = (seconds: number) => `${Math.floor(seconds / 60)}:${Math.floor
           <span class="listen-rail" aria-hidden="true"><span class="listen-progress"></span></span>
           <input class="listen-seek" type="range" min="0" max={audio.duration_seconds} step="1" value="0" aria-label="Vị trí phát" />
         </div>
-        <div class="listen-clock"><span><span data-current>0:00</span><span class="listen-phase" data-phase>Tóm tắt</span></span><span data-duration>{timestamp(audio.duration_seconds)}</span></div>
+        <div class="listen-clock"><span><span data-current>0:00</span><span class="listen-phase" data-phase>{hasSummary ? 'Tóm tắt' : 'Kinh văn'}</span></span><span data-duration>{timestamp(audio.duration_seconds)}</span></div>
       </div>
     </div>
     <div class="listening-options">
       <div class="listen-chapters" role="group" aria-label="Chọn phần nghe">
-        <button type="button" data-summary-jump aria-current="true">Tóm tắt <span>0:00</span></button>
-        <button type="button" data-scripture-jump>Kinh văn <span>{timestamp(audio.scripture_start_seconds)}</span></button>
+        {hasSummary && <button type="button" data-summary-jump aria-current="true">Tóm tắt <span>0:00</span></button>}
+        <button type="button" data-scripture-jump aria-current={!hasSummary ? 'true' : undefined}>Kinh văn <span>{timestamp(audio.scripture_start_seconds)}</span></button>
       </div>
       <label class="listen-speed">Tốc độ <select aria-label="Tốc độ phát"><option value="0.85">0.85×</option><option value="1" selected>1×</option><option value="1.15">1.15×</option><option value="1.25">1.25×</option><option value="1.5">1.5×</option></select></label>
     </div>
@@ -99,7 +101,7 @@ const timestamp = (seconds: number) => `${Math.floor(seconds / 60)}:${Math.floor
         progress.style.width = `${Math.max(0, Math.min(100, audio.currentTime / duration() * 100))}%`;
         const inScripture = isScripturePhase(audio.currentTime, Number(this.dataset.scripture));
         this.querySelector('[data-phase]')!.textContent = inScripture ? 'Kinh văn' : 'Tóm tắt';
-        summary.setAttribute('aria-current', String(!inScripture));
+        summary?.setAttribute('aria-current', String(!inScripture));
         scripture.setAttribute('aria-current', String(inScripture));
       };
       const state = () => {
@@ -118,7 +120,7 @@ const timestamp = (seconds: number) => `${Math.floor(seconds / 60)}:${Math.floor
       this.querySelectorAll<HTMLButtonElement>('[data-jump]').forEach(button => button.addEventListener('click', () => {
         audio.currentTime = Math.max(0, Math.min(duration(), audio.currentTime + Number(button.dataset.jump))); update();
       }));
-      summary.addEventListener('click', () => { audio.currentTime = 0; update(); });
+      summary?.addEventListener('click', () => { audio.currentTime = 0; update(); });
       scripture.addEventListener('click', () => { audio.currentTime = Number(this.dataset.scripture); update(); });
       this.querySelector('select')!.addEventListener('change', event => { audio.playbackRate = Number((event.target as HTMLSelectElement).value); });
       audio.addEventListener('loadedmetadata', update); audio.addEventListener('timeupdate', update);

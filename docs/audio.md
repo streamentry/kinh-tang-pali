@@ -99,3 +99,61 @@ Theo quyết định của người biên tập: bỏ bước transcribe/ASR. L�
 ## Nhịp phát hành cập nhật ngày 2026-10-18
 
 Sau mỗi năm bài upload thành công, tạo/cập nhật một PR và chờ CI của đúng head xanh trước khi merge. Sau merge có thể bắt đầu TTS bài tiếp theo ngay, không cần chờ build, CI hay Pages hậu merge. Chỉ nâng trạng thái thành `live` sau khi Pages production được triển khai và player/R2 được kiểm tra trực tiếp. Không đưa MP3/WAV/cache vào Git.
+
+## Chuẩn bị audio nhóm SN / AN / KN (2026-10-23)
+
+Kế hoạch: [`research/group-audio-plan-2026-10-23.md`](research/group-audio-plan-2026-10-23.md).
+Pipeline hỗ trợ UID có thật trong catalog, gồm UID dải như `dhp1-20` và URL riêng
+`an1.5` lấy đoạn mình sở hữu từ tệp gộp. Không suy bộ kinh từ tiền tố UID, không
+bung UID dải, không tạo bản đọc khác nhau cho các nhóm cha chứa cùng một mục.
+
+MN/DN giữ nguyên transcript tóm tắt → kinh văn và hash đã phát hành. Policy mới
+`title-scripture-v1` cho SN/AN/KN lấy tên Việt của mục đọc, sau đó kinh văn; không
+đọc segment ID, ghi chú hoặc tự sinh tóm tắt. Tên bài nằm trong hash nguồn mới;
+thay tên nhóm không làm đổi audio của bài. Mốc kinh văn là 0; player không hiện
+phần tóm tắt giả. **Khả năng kỹ thuật này chưa thay thế quyết định duyệt policy và
+cho phép tạo mẫu của người biên tập.** Phạm vi mẫu đề xuất là SN1.1–SN1.10;
+chưa mở rộng trước khi người biên tập nghe và chấp thuận.
+
+Chuẩn bị không gọi API, không cần `.env`:
+
+```bash
+# Kiểm đầy đủ 5.951 UID, gồm các mục trực tiếp trong nhóm hỗn hợp cnd/ne.
+python3 scripts/audio-preflight.py --output audio/group-preflight.json
+
+# Chỉ kiểm phẩm mẫu: hash nguồn, policy, accounting và giới hạn chunk.
+python3 scripts/audio-preflight.py --collection sn --group sn1-nalavagga \
+  --output audio/pilot-preflight.json
+
+# Transcript và plan thực tế, chưa sinh âm thanh.
+python3 scripts/gemini_tts.py --uid sn1.1 --prepare-only
+```
+
+Sau khi có phép tạo mẫu, khởi tạo hàng đợi chỉ trong phạm vi đã duyệt:
+
+```bash
+python3 scripts/audio-progress.py --init --collection sn --group sn1-nalavagga
+python3 scripts/audio-progress.py --groups
+# Sau đó gọi generator và uploader từng UID như MN/DN, dưới cùng OS lock.
+npm run audio:check
+```
+
+`content/audio/group-progress.json` schema 2 là hàng đợi sản xuất tăng dần, không
+phải tuyên bố đã tạo toàn bộ corpus. Khởi tạo một nhóm mới giữ lại các mục cũ;
+đổi nguồn/profile làm mục đó `blocked`. Registry MN/DN schema 1 không bị sửa bởi
+lệnh khởi tạo nhóm. Dry-run inventory đo toàn bộ ứng viên riêng. Bộ kiểm CI kiểm
+cả hai registry, danh tính/thứ tự/home group, nguồn/profile và từng mức bằng chứng
+upload/player/merge/live. Chưa có xác nhận nghe thì luôn `review_status: pending`.
+
+Uploader dùng collection trả về từ catalog đã kiểm, key `vi/<collection>/<uid>/<hash>.mp3`,
+và đối chiếu managed domain với storage registry trước upload. Audio có nguồn cũ
+hoặc bản dịch không còn `published` không được hiện player. Notes-only edits
+không đổi hash. Giữ nguyên artifact và bằng chứng QC cũ khi thay bản đọc.
+
+Playlist tái sử dụng các URL theo thứ tự cây điều hướng; nhóm thiếu audio tiếp tục
+hiện số mục có bản nghe và bỏ qua mục thiếu. HTML chỉ mang trường phục vụ player,
+không mang manifest/profile/QC. Trên 50 mục, danh sách đầy đủ được tải từ JSON
+static `/audio-playlists/<collection>/<group>.json` (`all.json` cho cả bộ);
+HTML giữ một mục cho player native. Lỗi tải danh sách báo rõ, vẫn giữ native
+player và link MP3 từng hàng. Kiểm tra browser bằng fixture không chứng minh
+lời đọc chính xác; WAV/MP3 mới vẫn cần nghe duyệt trực tiếp.

@@ -1,11 +1,12 @@
 import { composeDocument } from '../src/lib/canon/document';
 import { narrationHash, narrationSource } from '../src/lib/canon/audio';
 import { narrationIssues } from '../src/lib/canon/audio-source';
+import { audioCollection } from '../src/lib/canon/audio-catalog';
 const uid = process.argv[2];
-if (!/^(mn|dn)[1-9]\d*$/.test(uid ?? '')) throw new Error('Provide a Majjhima or Digha UID, e.g. mn1 or dn1');
-const collection = uid.startsWith('mn') ? 'mn' : 'dn';
+if (!uid) throw new Error('Provide a canonical reading UID, e.g. mn1, sn1.1 or dhp1-20');
+const collection = audioCollection(uid);
 const doc = composeDocument(collection, uid);
 const source = narrationSource(doc);
 const issues = narrationIssues(doc);
 if (issues.length) throw new Error(`${uid}: ${issues.join('; ')}`);
-console.log(JSON.stringify({ uid, title: doc.viTitle, source_sha256: narrationHash(doc), ...source }));
+console.log(JSON.stringify({ uid, collection, title: doc.viTitle, source_sha256: narrationHash(doc), ...source }));
