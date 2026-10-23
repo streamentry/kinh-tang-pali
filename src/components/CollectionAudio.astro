@@ -83,6 +83,7 @@ const timestamp = (seconds: number) => `${Math.floor(seconds / 60)}:${Math.floor
 
 <script>
   import { AUTO_NEXT_KEY, readAutoNext, saveAutoNext, stepAudioIndex } from '../lib/audio/navigation';
+  import { playFailure } from '../lib/audio/playback';
   import { parsePlaylist, type PlayerTrack } from '../lib/audio/playlist';
 
   class SuttaPlaylistElement extends HTMLElement {
@@ -189,10 +190,12 @@ const timestamp = (seconds: number) => `${Math.floor(seconds / 60)}:${Math.floor
         activeIndex = index;
         update();
         if (autoplay) {
-          try { await audio.play(); } catch {
+          try { await audio.play(); } catch (failure) {
             if (request !== playbackRequest) return;
-            error.hidden = false;
-            say('Trình duyệt chưa cho phép phát tự động. Bấm Phát để nghe tiếp.');
+            // Name the actual cause: a blocked autoplay is not a broken file, and the reverse.
+            const cause = playFailure(failure);
+            if (cause === 'blocked') say('Trình duyệt chưa cho phép phát tự động. Bấm Phát để nghe tiếp.');
+            else if (cause === 'unavailable') error.hidden = false;
             update();
           }
         }
@@ -217,7 +220,12 @@ const timestamp = (seconds: number) => `${Math.floor(seconds / 60)}:${Math.floor
         if (!audio.paused) audio.pause();
         else {
           if (audio.ended) audio.currentTime = 0;
-          try { await audio.play(); } catch { if (request === playbackRequest) error.hidden = false; }
+          try { await audio.play(); } catch (failure) {
+            if (request !== playbackRequest) return;
+            const cause = playFailure(failure);
+            if (cause === 'blocked') say('Trình duyệt chưa cho phép phát. Bấm Phát lần nữa để nghe.');
+            else if (cause === 'unavailable') error.hidden = false;
+          }
         }
         update();
       });
