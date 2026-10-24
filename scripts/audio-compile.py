@@ -67,8 +67,16 @@ def main(args):
         integrity = encode_part(chunks, target, profile)
         artifacts.append({'id': part['id'], 'file': target.name, **integrity})
     # A downgrade/source edit during a long export must prevent a completed manifest.
-    if context(args) != source or json.loads((ROOT / 'content/audio/group-progress.json').read_text()) != progress:
-        raise ValueError('Source/registration/progress changed during export; reverify before using it')
+    if context(args) != source:
+        raise ValueError('Source/registration changed during export; reverify before using it')
+    current_progress = json.loads((ROOT / 'content/audio/group-progress.json').read_text())
+    if current_progress.get('schema_version') != 2:
+        raise ValueError('Unexpected group progress schema')
+    # Other UIDs may finish while this group encodes. Revalidate every used asset
+    # and its QC/source/profile gates without rejecting unrelated queue updates.
+    current_members = [member_chunks(ROOT, item, current_progress, profile) for item in source['texts']]
+    if current_members != members:
+        raise ValueError('Group WAV assets changed during export; reverify before using it')
     write_json(manifest_path, {
         **plan, **profile_metadata(profile), 'fingerprint': fingerprint,
         'human_content_listening_completed': False, 'artifacts': artifacts,
