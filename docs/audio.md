@@ -210,6 +210,10 @@ nối byte MP3 hoặc chỉnh tốc độ. `plan.json` có chapter tính bằng 
 hash có thứ tự của nguồn, bản đọc, WAV, policy và ngân sách. Không đọc thêm tên
 nhóm/tóm tắt chưa duyệt. Kết quả nằm dưới `audio/compilations/`, ngoài Git.
 `manifest.json` chỉ được ghi sau khi kiểm lại nguồn/đăng ký/progress cuối lượt.
+Kiểm cuối lượt xác minh lại từng asset của chính nhóm: nguồn/profile/QC, plan,
+MP3 và WAV phải còn hợp lệ. Một UID ngoài nhóm đang tạo hoặc upload không làm
+hỏng bản xuất đang encode; lỗi chặn mới của thành viên trong nhóm vẫn chặn
+ghi manifest. Nhờ đó có thể xuất phẩm đã xong trong lúc tạo tiếp phẩm khác.
 
 Các mốc chapter chính xác trong **PCM**; encoder MP3 có độ trễ/đệm, nên manifest
 ghi `mp3_chapter_alignment_verified: false`. Không dùng những mốc này làm bằng

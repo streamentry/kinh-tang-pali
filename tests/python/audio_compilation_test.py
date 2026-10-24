@@ -1,11 +1,16 @@
 """Synthetic PCM tests run by npm test; no credentials, network or encoder required."""
 import copy
+import argparse
+import importlib.util
+import io
 import json
 import sys
 import tempfile
 import unittest
 import wave
+from contextlib import redirect_stdout
 from pathlib import Path
+from unittest.mock import patch
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[2] / 'scripts'))
 from audio_compilation import describe_parts, json_hash, member_chunks, partition_members, pcm_blocks
@@ -120,6 +125,40 @@ class CompilationTests(unittest.TestCase):
         file.write_bytes(data)
         with self.assertRaises(ValueError):
             self.chunks()
+
+    def compile_with_queue_change(self, change):
+        script = Path(__file__).resolve().parents[2] / 'scripts/audio-compile.py'
+        spec = importlib.util.spec_from_file_location('compile_transaction', script)
+        compiler = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(compiler)
+        queue = self.root / 'content/audio/group-progress.json'
+        queue.parent.mkdir(parents=True)
+        queue.write_text(json.dumps({'schema_version': 2, **self.progress}))
+        source = {'collection': 'sn', 'group': 'fixture', 'texts': [self.item]}
+
+        def encode(chunks, target, profile):
+            current = json.loads(queue.read_text())
+            change(current)
+            queue.write_text(json.dumps(current))
+            target.write_bytes((self.folder / 'sn1.1.mp3').read_bytes())
+            return mp3_info(target.read_bytes())
+
+        with patch.object(compiler, 'ROOT', self.root), patch.object(compiler, 'context', return_value=source), \
+                patch.object(compiler, 'encode_part', side_effect=encode), redirect_stdout(io.StringIO()):
+            compiler.main(argparse.Namespace(collection='sn', group='fixture', max_minutes=25, encode=True))
+
+    def test_unrelated_generation_during_export_preserves_valid_compilation(self):
+        self.compile_with_queue_change(lambda queue: queue['texts'].update({'sn1.2': {'status': 'generating'}}))
+        manifests = list((self.root / 'audio/compilations').rglob('manifest.json'))
+        self.assertEqual(len(manifests), 1)
+        self.assertEqual(json.loads(manifests[0].read_text())['review_status'], 'pending')
+
+    def test_member_qc_block_during_export_still_prevents_manifest(self):
+        def block(queue):
+            queue['texts']['sn1.1'].update(status='blocked', errors=['Keep this QC report'])
+        with self.assertRaisesRegex(ValueError, 'unresolved'):
+            self.compile_with_queue_change(block)
+        self.assertFalse(list((self.root / 'audio/compilations').rglob('manifest.json')))
 
     def test_partition_keeps_texts_whole_then_splits_long_text_at_known_boundary(self):
         def c(uid, frames):
