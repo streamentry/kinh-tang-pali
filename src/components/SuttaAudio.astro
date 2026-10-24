@@ -8,12 +8,13 @@ const length = audio.duration_seconds < 60 ? `${Math.round(audio.duration_second
 const hasSummary = audio.scripture_start_seconds > 0;
 const timestamp = (seconds: number) => `${Math.floor(seconds / 60)}:${Math.floor(seconds % 60).toString().padStart(2, '0')}`;
 ---
-<sutta-audio class="listening" id="lang-nghe" data-pagefind-ignore data-scripture={audio.scripture_start_seconds} data-next={next?.hasAudio ? next.href : undefined}>
+<sutta-audio class="listening" id="lang-nghe" data-pagefind-ignore data-scripture={audio.scripture_start_seconds} data-media={JSON.stringify({url: audio.url, duration_seconds: audio.duration_seconds, parts: audio.parts?.map(p => ({url: p.url, duration_seconds: p.duration_seconds}))})} data-next={next?.hasAudio ? next.href : undefined}>
   <div class="listening-heading">
     <div><div class="listening-kicker"><p class="listening-label">Lắng nghe · Việt 2026</p>{audio.review_status === 'pending' && <span class="listening-review">Chờ nghe duyệt</span>}</div><h2>{title}</h2></div>
     <span class="listening-length">{audio.uid.toUpperCase()} · {length}</span>
   </div>
   <audio controls preload="metadata" src={audio.url} aria-label={`Nghe ${title}`}></audio>
+  {audio.parts && <ol class="listen-part-files" aria-label="Các phần MP3">{audio.parts.map((part, i) => <li><a href={part.url} target="_blank" rel="noopener">Phần {i + 1} / {audio.parts!.length}</a></li>)}</ol>}
   <div class="listening-custom" hidden>
     <div class="listening-console">
       <div class="listening-transport" role="group" aria-label="Điều khiển phát">
@@ -58,6 +59,7 @@ const timestamp = (seconds: number) => `${Math.floor(seconds / 60)}:${Math.floor
 </sutta-audio>
 <script>
   import { readAutoNext, saveAutoNext, rememberContinuation, consumeContinuation, AUTO_NEXT_KEY } from '../lib/audio/navigation';
+  import { ReadingPlayer } from '../lib/audio/parts';
   import { isScripturePhase, playFailure } from '../lib/audio/playback';
   class SuttaAudioElement extends HTMLElement {
     private cleanup?: () => void;
@@ -89,18 +91,22 @@ const timestamp = (seconds: number) => `${Math.floor(seconds / 60)}:${Math.floor
         }
       };
       window.addEventListener('storage', onStorage);
-      this.cleanup = () => window.removeEventListener('storage', onStorage);
       const say = (message: string) => { notice.textContent = message; notice.hidden = false; };
       const format = (n: number) => `${Math.floor(n / 60)}:${Math.floor(n % 60).toString().padStart(2, '0')}`;
-      const duration = () => Number.isFinite(audio.duration) ? audio.duration : Number(seek.max);
+      const media = new ReadingPlayer(audio, JSON.parse(this.dataset.media!), failure => {
+        if (playFailure(failure) === 'blocked') say('Bấm Phát để nghe tiếp phần này.');
+        else if (playFailure(failure) === 'unavailable') error.hidden = false;
+      });
+      this.cleanup = () => { window.removeEventListener('storage', onStorage); media.destroy(); };
+      const duration = () => media.duration;
       const update = () => {
-        this.querySelector('[data-current]')!.textContent = format(audio.currentTime);
+        this.querySelector('[data-current]')!.textContent = format(media.currentTime);
         this.querySelector('[data-duration]')!.textContent = format(duration());
-        seek.max = String(duration()); seek.value = String(audio.currentTime);
-        seek.setAttribute('aria-valuetext', `${format(audio.currentTime)} / ${format(duration())}`);
-        progress.style.width = `${Math.max(0, Math.min(100, audio.currentTime / duration() * 100))}%`;
-        const inScripture = isScripturePhase(audio.currentTime, Number(this.dataset.scripture));
-        this.querySelector('[data-phase]')!.textContent = inScripture ? 'Kinh văn' : 'Tóm tắt';
+        seek.max = String(duration()); seek.value = String(media.currentTime);
+        seek.setAttribute('aria-valuetext', `${format(media.currentTime)} / ${format(duration())}`);
+        progress.style.width = `${Math.max(0, Math.min(100, media.currentTime / duration() * 100))}%`;
+        const inScripture = isScripturePhase(media.currentTime, Number(this.dataset.scripture));
+        this.querySelector('[data-phase]')!.textContent = `${inScripture ? 'Kinh văn' : 'Tóm tắt'}${media.partCount > 1 ? ` · Phần ${media.partNumber}/${media.partCount}` : ''}`;
         summary?.setAttribute('aria-current', String(!inScripture));
         scripture.setAttribute('aria-current', String(inScripture));
       };
@@ -114,6 +120,7 @@ const timestamp = (seconds: number) => `${Math.floor(seconds / 60)}:${Math.floor
       play.addEventListener('click', async () => {
         error.hidden = true;
         if (!audio.paused) { audio.pause(); return; }
+        if (media.ended) media.seek(0);
         try { await audio.play(); } catch (failure) {
           // Name the actual cause: a blocked autoplay is not a broken file, and the reverse.
           const cause = playFailure(failure);
@@ -122,12 +129,12 @@ const timestamp = (seconds: number) => `${Math.floor(seconds / 60)}:${Math.floor
           state();
         }
       });
-      seek.addEventListener('input', () => { audio.currentTime = Number(seek.value); update(); });
+      seek.addEventListener('input', () => { media.seek(Number(seek.value)); update(); });
       this.querySelectorAll<HTMLButtonElement>('[data-jump]').forEach(button => button.addEventListener('click', () => {
-        audio.currentTime = Math.max(0, Math.min(duration(), audio.currentTime + Number(button.dataset.jump))); update();
+        media.seek(media.currentTime + Number(button.dataset.jump)); update();
       }));
-      summary?.addEventListener('click', () => { audio.currentTime = 0; update(); });
-      scripture.addEventListener('click', () => { audio.currentTime = Number(this.dataset.scripture); update(); });
+      summary?.addEventListener('click', () => { media.seek(0); update(); });
+      scripture.addEventListener('click', () => { media.seek(Number(this.dataset.scripture)); update(); });
       this.querySelector('select')!.addEventListener('change', event => { audio.playbackRate = Number((event.target as HTMLSelectElement).value); });
       audio.addEventListener('loadedmetadata', update); audio.addEventListener('timeupdate', update);
       audio.addEventListener('play', () => { notice.hidden = true; state(); }); audio.addEventListener('pause', state);

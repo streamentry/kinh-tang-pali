@@ -57,7 +57,8 @@ def member_chunks(root, item, progress, profile):
         raise ValueError(f'{uid}: cache plan/checkpoint drift')
     integrity = mp3_info((folder / f'{uid}.mp3').read_bytes())
     for artifact in (manifest, registration, row):
-        if artifact.get('sha256') != integrity['sha256'] or artifact.get('bytes') != integrity['bytes']:
+        original = registration.get('source_mp3', artifact) if registration.get('asset_kind') == 'reading-parts-v1' and artifact is not manifest else artifact
+        if original.get('sha256') != integrity['sha256'] or original.get('bytes') != integrity['bytes']:
             raise ValueError(f'{uid}: MP3 differs from registered artifact')
     chunks = []
     for index, planned_chunk in enumerate(planned):
@@ -77,7 +78,7 @@ def member_chunks(root, item, progress, profile):
         })
     seconds = sum(c['speech_frames'] + c['pause_frames'] for c in chunks) / profile['sample_rate_hz']
     if (abs(seconds - manifest['duration_seconds']) > 1e-6
-            or abs(seconds - registration['duration_seconds']) > 1e-6
+            or abs(seconds - registration.get('pcm_duration_seconds', registration['duration_seconds'])) > 1e-6
             or abs(integrity['duration_seconds'] - seconds) > 0.2):
         raise ValueError(f'{uid}: WAV/MP3 duration mismatch')
     return chunks

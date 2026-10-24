@@ -1,6 +1,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { createHash } from 'node:crypto';
+import { validParts, type AudioPart } from '../audio/parts';
 import type { CanonDocument } from './types';
 
 export function narrationSource(document: CanonDocument) {
@@ -24,6 +25,7 @@ export function hasAudioRegistration(uid: string) {
 export interface SuttaAudio {
   uid: string;
   url: string;
+  parts?: AudioPart[];
   source_sha256: string;
   duration_seconds: number;
   scripture_start_seconds: number;
@@ -32,12 +34,13 @@ export interface SuttaAudio {
 }
 
 /** The only audio fields allowed into playlist HTML; never spread manifests. */
-export type AudioPlayerData = Pick<SuttaAudio, 'uid' | 'url' | 'duration_seconds' | 'scripture_start_seconds' | 'review_status'>;
+export type AudioPlayerData = Pick<SuttaAudio, 'uid' | 'url' | 'duration_seconds' | 'scripture_start_seconds' | 'review_status' | 'parts'>;
 export function audioPlayerData(entry: AudioPlayerData): AudioPlayerData {
   return {
     uid: entry.uid, url: entry.url,
     duration_seconds: entry.duration_seconds, scripture_start_seconds: entry.scripture_start_seconds,
     review_status: entry.review_status,
+    ...(entry.parts ? { parts: entry.parts.map(part => ({ url: part.url, duration_seconds: part.duration_seconds })) } : {}),
   };
 }
 export function loadAudio(document: CanonDocument): SuttaAudio | null {
@@ -53,5 +56,15 @@ export function loadAudio(document: CanonDocument): SuttaAudio | null {
   if (!Number.isFinite(entry.duration_seconds) || !(entry.duration_seconds > 0)
     || !Number.isFinite(entry.scripture_start_seconds) || entry.scripture_start_seconds < 0
     || entry.scripture_start_seconds >= entry.duration_seconds) return null;
+  if ((entry as SuttaAudio & { asset_kind?: string }).asset_kind === 'reading-parts-v1' && !entry.parts) return null;
+  if (entry.parts) {
+    const raw = entry as Omit<SuttaAudio, 'parts'> & { asset_kind?: string; checksum_scope?: string; sha256?: string; bytes?: number;
+      parts: (AudioPart & { sha256?: string; bytes?: number })[] };
+    if (raw.asset_kind !== 'reading-parts-v1' || raw.checksum_scope !== 'ordered-part-sha256-lines'
+      || !Array.isArray(raw.parts) || raw.parts.some(part => !part || !/^[0-9a-f]{64}$/.test(part.sha256 ?? '') || !Number.isInteger(part.bytes) || !(part.bytes! > 0))
+      || raw.bytes !== raw.parts.reduce((sum, part) => sum + part.bytes!, 0)
+      || raw.sha256 !== createHash('sha256').update(raw.parts.map(part => part.sha256 + '\n').join('')).digest('hex')) return null;
+  }
+  if (!validParts(entry) || entry.parts?.some(part => !part.url.startsWith('https://'))) return null;
   return entry;
 }

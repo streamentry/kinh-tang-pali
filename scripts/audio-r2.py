@@ -18,6 +18,9 @@ def main():
     uid=manifest['uid']
     current=json.loads(subprocess.check_output(['node','--import','tsx','scripts/audio-source.ts',uid],cwd=ROOT))
     require_current_group_source(current,profile_digest(profile))
+    # Package from verified cached WAVs; never send speech to a provider here.
+    packaged=json.loads(subprocess.check_output(['uv','run','--offline','--with','lameenc','python3','scripts/audio_reading_parts.py',str(args.folder.resolve())],cwd=ROOT))
+    upload_manifest=packaged['manifest']; assets=packaged['assets']
     load_env()
     token=os.environ.get('CLOUDFLARE_API_TOKEN'); account=os.environ.get('CLOUDFLARE_ACCOUNT_ID')
     if not token:
@@ -62,22 +65,36 @@ def main():
     if not domain.get('enabled'): raise SystemExit('Public access is disabled. Enable it only with explicit editor authorization, then retry.')
     host=domain['domain']; public_base='https://'+host
     if public_base!=storage['public_base_url']:raise RuntimeError('Public domain differs from pinned audio storage')
-    request(base+'/'+bucket+'/objects/'+key,'PUT',mp3,{'Content-Type':'audio/mpeg',
-        'Cache-Control':'public, max-age=31536000, immutable','Content-Length':str(len(mp3))},raw=True)
-    url=public_base+'/'+key
-    # Verify public bytes independently before exposing a player.
-    for attempt in range(6):
-        try:
-            with urllib.request.urlopen(urllib.request.Request(url,headers={'User-Agent':'kinh-tang-pali-audio/1.0'}),timeout=180) as response:
-                if response.headers.get_content_type()!='audio/mpeg':raise RuntimeError('Public response is not MP3')
-                remote=response.read()
-            break
-        except urllib.error.HTTPError as e:
-            if e.code not in (404,429,503) or attempt==5:raise RuntimeError(f'Public audio HTTP {e.code}') from None
-            time.sleep(3)
-    if hashlib.sha256(remote).hexdigest()!=manifest['sha256']:raise RuntimeError('Public R2 hash mismatch')
-    with urllib.request.urlopen(urllib.request.Request(url,headers={'User-Agent':'kinh-tang-pali-audio/1.0','Range':'bytes=0-1023'}),timeout=60) as response:
-        if response.status!=206 or response.read()!=mp3[:1024]:raise RuntimeError('Public range readback failed')
+    urls=[]
+    for asset in assets:
+        data=Path(asset['path']).read_bytes()
+        if len(data)!=asset['bytes'] or hashlib.sha256(data).hexdigest()!=asset['sha256']:
+            raise RuntimeError('Upload asset changed')
+        if len(data)>40_000_000 and upload_manifest.get('parts'):
+            raise RuntimeError('Part exceeds bounded file budget')
+        asset_key=(f"vi/{current['collection']}/{uid}/parts-v1/{upload_manifest['sha256'][:16]}/{asset['id']}-{asset['sha256'][:16]}.mp3"
+                   if upload_manifest.get('parts') else key)
+        request(base+'/'+bucket+'/objects/'+asset_key,'PUT',data,{'Content-Type':'audio/mpeg',
+            'Cache-Control':'public, max-age=31536000, immutable','Content-Length':str(len(data))},raw=True)
+        asset_url=public_base+'/'+asset_key
+        for attempt in range(6):
+            try:
+                with urllib.request.urlopen(urllib.request.Request(asset_url,headers={'User-Agent':'kinh-tang-pali-audio/1.0'}),timeout=180) as response:
+                    if response.headers.get_content_type()!='audio/mpeg':raise RuntimeError('Public response is not MP3')
+                    remote=response.read()
+                break
+            except urllib.error.HTTPError as e:
+                if e.code not in (404,429,503) or attempt==5:raise RuntimeError(f'Public audio HTTP {e.code}') from None
+                time.sleep(3)
+        if len(remote)!=asset['bytes'] or hashlib.sha256(remote).hexdigest()!=asset['sha256']:
+            raise RuntimeError('Public R2 hash/bytes mismatch')
+        with urllib.request.urlopen(urllib.request.Request(asset_url,headers={'User-Agent':'kinh-tang-pali-audio/1.0','Range':'bytes=0-1023'}),timeout=60) as response:
+            if response.status!=206 or response.read()!=data[:1024]:raise RuntimeError('Public range readback failed')
+        urls.append({'url':asset_url,'object_key':asset_key})
+    manifest=upload_manifest
+    if manifest.get('parts'):
+        for part,remote in zip(manifest['parts'],urls,strict=True):part.update(remote,public_range_verified=True)
+    url=urls[0]['url'];key=urls[0]['object_key']
     current=json.loads(subprocess.check_output(['node','--import','tsx','scripts/audio-source.ts',uid],cwd=ROOT))
     if current['source_sha256']!=manifest['source_sha256']:raise RuntimeError('Source changed during upload; do not register stale player')
     require_current_group_source(current,profile_digest(profile))
@@ -86,7 +103,7 @@ def main():
     manifest.update({'url':url,'bucket':bucket,'object_key':key})
     target=ROOT/'content/audio'/f'{uid}.json';target.parent.mkdir(parents=True,exist_ok=True)
     write_json(target,manifest)
-    update(uid,'generated',upload_verified=True,url=url,object_key=key,bucket=bucket,bytes=manifest['bytes'],sha256=manifest['sha256'],r2_verified_at=manifest['r2_verified_at'],public_range_verified=True)
+    update(uid,'generated',duration_seconds=manifest['duration_seconds'],scripture_start_seconds=manifest['scripture_start_seconds'],upload_verified=True,url=url,object_key=key,bucket=bucket,bytes=manifest['bytes'],sha256=manifest['sha256'],r2_verified_at=manifest['r2_verified_at'],public_range_verified=True)
     # uploaded-verified is awarded only after browser playback verification, not merely an upload.
     storage_file=ROOT/'source/audio-storage.json'
     storage=json.loads(storage_file.read_text()) if storage_file.exists() else {}

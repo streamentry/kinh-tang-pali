@@ -219,3 +219,37 @@ Các mốc chapter chính xác trong **PCM**; encoder MP3 có độ trễ/đệm
 ghi `mp3_chapter_alignment_verified: false`. Không dùng những mốc này làm bằng
 chứng seek MP3 chính xác tới mẫu âm thanh. Giữ `review_status: pending` và không
 tự quảng bá bản local thành bản tải xuống đã phát hành hoặc đã nghe duyệt.
+
+
+## Một bài dài gồm nhiều file MP3 (quyết định 2026-10-24)
+
+Không upload một MP3 khổng lồ cho một UID dài. `scripts/audio_reading_parts.py`
+đóng gói bài trên 30 phút thành các file tối đa 30 phút, chia tại ranh giới WAV
+đã xác minh. Ngân sách file độc lập với chunk TTS và profile MN1: không đổi chữ,
+giọng, tốc độ hay khoảng nghỉ; không gửi lại nội dung tới Gemini. Phần cuối có
+thể ngắn hơn. Mỗi file khoảng tối đa 36 MB ở encoding đã ghim; uploader vẫn dùng
+REST/OAuth hiện có, không cần khóa S3. Không ghi MP3/WAV vào Git.
+
+Một UID vẫn là một bài/track trong catalog và playlist. `parts` là danh sách
+object theo thứ tự, không tạo UID kinh mới. Mỗi object có SHA-256, bytes, thời
+lượng MPEG thực và key bất biến riêng. Chỉ đăng ký sau khi **mọi** phần vượt qua
+public hash/bytes/range và nguồn/profile vẫn khớp. Upload dở không làm lộ một
+bài thiếu phần. Bản full MP3/manifest local và WAV giữ nguyên để truy nguyên.
+
+Đăng ký `asset_kind: reading-parts-v1` có `url` trỏ phần đầu cho fallback;
+`duration_seconds` và `bytes` là tổng các phần. `sha256` của assembly là hash
+UTF-8 của các hash file theo thứ tự, mỗi hash kết thúc bằng newline
+(`checksum_scope: ordered-part-sha256-lines`), **không** phải hash phần đầu.
+`source_mp3` giữ hash/bytes/thời lượng PCM của bản gốc local;
+`pcm_duration_seconds` khác tổng thời lượng MPEG vì padding encoder. Các range
+chunk trong manifest chứng minh mọi WAV xuất hiện đúng một lần theo thứ tự.
+
+Player dùng một audio element và timeline toàn bài, tua xuyên phần, giữ tốc độ
+người nghe đang chọn; hết phần tự nối phần tiếp theo dù “Tự chuyển bài” đang tắt.
+Toggle đó chỉ điều khiển chuyển sang **bài kinh khác** sau phần cuối. Không tự
+phát khi vừa vào trang. Link từng phần vẫn có trong HTML khi JavaScript tắt.
+Giữ tương thích đăng ký một file cũ; không tự tạo lại audio đã phát hành.
+
+Đây là thay đổi đóng gói/player, không phải xác nhận đã nghe duyệt. Kiểm browser
+và production là bằng chứng riêng; `review_status` vẫn `pending`. Chỉ đưa đăng ký
+nhiều phần vào batch phát hành sau khi mã player/schema tương ứng đã có trên base.

@@ -30,6 +30,7 @@ const timestamp = (seconds: number) => `${Math.floor(seconds / 60)}:${Math.floor
         <span class="listening-length">{tracks.length} / {totalSuttas} bài có audio</span>
       </div>
       <audio controls preload="metadata" src={first.url} data-track-uid={first.uid} aria-label={`Nghe ${collectionTitle}`}></audio>
+      {tracks.some(track => track.parts) && <details><summary>Các phần MP3</summary>{tracks.filter(track => track.parts).map(track => <div><p>{track.title}</p><ol class="listen-part-files">{track.parts!.map((part, i) => <li><a href={part.url} target="_blank" rel="noopener">Phần {i + 1} / {track.parts!.length}</a></li>)}</ol></div>)}</details>}
       <p class="listen-error" data-playlist-error role="status" hidden>Không tải được danh sách phát. Bạn vẫn có thể nghe từng MP3.</p>
       <div class="listening-custom" hidden>
         <div class="collection-audio-current" aria-live="polite">
@@ -84,6 +85,7 @@ const timestamp = (seconds: number) => `${Math.floor(seconds / 60)}:${Math.floor
 <script>
   import { AUTO_NEXT_KEY, readAutoNext, saveAutoNext, stepAudioIndex } from '../lib/audio/navigation';
   import { playFailure } from '../lib/audio/playback';
+  import { ReadingPlayer } from '../lib/audio/parts';
   import { parsePlaylist, type PlayerTrack } from '../lib/audio/playlist';
 
   class SuttaPlaylistElement extends HTMLElement {
@@ -134,13 +136,15 @@ const timestamp = (seconds: number) => `${Math.floor(seconds / 60)}:${Math.floor
       autoNext.checked = enabled;
 
       const activeTrack = () => tracks[activeIndex];
-      const duration = () => Number.isFinite(audio.duration) && audio.duration > 0
-        ? audio.duration
-        : activeTrack().duration_seconds;
       const say = (message: string) => { notice.textContent = message; notice.hidden = false; };
+      const media = new ReadingPlayer(audio, tracks[0], failure => {
+        if (playFailure(failure) === 'blocked') say('Bấm Phát để nghe tiếp phần này.');
+        else if (playFailure(failure) === 'unavailable') error.hidden = false;
+      });
+      const duration = () => media.duration;
       const update = () => {
         const track = activeTrack();
-        const currentTime = Number.isFinite(audio.currentTime) ? audio.currentTime : 0;
+        const currentTime = media.currentTime;
         this.querySelector('[data-current-title]')!.textContent = track.title;
         this.querySelector('[data-current-uid]')!.textContent = track.uid.toUpperCase();
         this.querySelector('[data-position]')!.textContent = `${activeIndex + 1} / ${tracks.length}`;
@@ -149,18 +153,19 @@ const timestamp = (seconds: number) => `${Math.floor(seconds / 60)}:${Math.floor
         this.querySelector('[data-current]')!.textContent = format(currentTime);
         this.querySelector('[data-duration]')!.textContent = format(duration());
         this.querySelector('[data-phase]')!.textContent = currentTime >= track.scripture_start_seconds ? 'Kinh văn' : 'Tóm tắt';
+        if (media.partCount > 1) this.querySelector('[data-phase]')!.textContent += ` · Phần ${media.partNumber}/${media.partCount}`;
         seek.max = String(duration());
         seek.value = String(currentTime);
         seek.setAttribute('aria-valuetext', `${format(currentTime)} / ${format(duration())}`);
         progress.style.width = `${Math.max(0, Math.min(100, currentTime / duration() * 100))}%`;
-        const playing = !audio.paused && !audio.ended;
+        const playing = !audio.paused && !media.ended;
         this.querySelector('[data-playback-state]')!.textContent = playing ? 'Đang phát' : 'Bài đang chọn';
         play.setAttribute('aria-pressed', String(playing));
         play.setAttribute('aria-label', `${playing ? 'Tạm dừng' : 'Phát'} ${track.uid.toUpperCase()}`);
         this.querySelector('[data-play-label]')!.textContent = playing ? 'Tạm dừng' : 'Phát';
         previous.disabled = stepAudioIndex(activeIndex, tracks.length, -1) === null;
         next.disabled = stepAudioIndex(activeIndex, tracks.length, 1) === null;
-        this.querySelector<HTMLAnchorElement>('[data-open-track]')!.href = track.url;
+        this.querySelector<HTMLAnchorElement>('[data-open-track]')!.href = media.url;
         this.querySelector<HTMLAnchorElement>('[data-open-track]')!.setAttribute('aria-label', `Mở MP3 ${track.uid.toUpperCase()}`);
         this.querySelectorAll<HTMLButtonElement>('[data-play-track]').forEach((button) => {
           const isPlaying = button.dataset.playTrack === track.uid && playing;
@@ -180,12 +185,10 @@ const timestamp = (seconds: number) => `${Math.floor(seconds / 60)}:${Math.floor
         error.hidden = true;
         notice.hidden = true;
         if (index !== activeIndex || audio.dataset.trackUid !== track.uid) {
-          audio.pause();
-          audio.src = track.url;
+          media.select(track);
           audio.dataset.trackUid = track.uid;
-          audio.load();
-        } else if (audio.ended) {
-          audio.currentTime = 0;
+        } else if (media.ended) {
+          media.seek(0);
         }
         activeIndex = index;
         update();
@@ -211,7 +214,7 @@ const timestamp = (seconds: number) => `${Math.floor(seconds / 60)}:${Math.floor
         }
       };
       window.addEventListener('storage', onStorage);
-      this.cleanup = () => window.removeEventListener('storage', onStorage);
+      this.cleanup = () => { window.removeEventListener('storage', onStorage); media.destroy(); };
 
       play.addEventListener('click', async () => {
         const request = ++playbackRequest;
@@ -219,7 +222,7 @@ const timestamp = (seconds: number) => `${Math.floor(seconds / 60)}:${Math.floor
         notice.hidden = true;
         if (!audio.paused) audio.pause();
         else {
-          if (audio.ended) audio.currentTime = 0;
+          if (media.ended) media.seek(0);
           try { await audio.play(); } catch (failure) {
             if (request !== playbackRequest) return;
             const cause = playFailure(failure);
@@ -237,7 +240,7 @@ const timestamp = (seconds: number) => `${Math.floor(seconds / 60)}:${Math.floor
         const index = stepAudioIndex(activeIndex, tracks.length, 1);
         if (index !== null) void selectTrack(index);
       });
-      seek.addEventListener('input', () => { audio.currentTime = Number(seek.value); update(); });
+      seek.addEventListener('input', () => { media.seek(Number(seek.value)); update(); });
       speed.addEventListener('change', () => { audio.playbackRate = Number(speed.value); });
       this.querySelectorAll<HTMLButtonElement>('[data-play-track]').forEach((button) => {
         button.hidden = false;
@@ -246,12 +249,12 @@ const timestamp = (seconds: number) => `${Math.floor(seconds / 60)}:${Math.floor
         button.addEventListener('click', async () => {
           const index = tracks.findIndex(track => track.uid === button.dataset.playTrack);
           if (index < 0) return;
-          if (index === activeIndex && !audio.paused && !audio.ended) {
+          if (index === activeIndex && !audio.paused && !media.ended) {
             playbackRequest++;
             error.hidden = true;
             notice.hidden = true;
             audio.pause();
-            audio.currentTime = 0;
+            media.seek(0);
             update();
           } else {
             await selectTrack(index);

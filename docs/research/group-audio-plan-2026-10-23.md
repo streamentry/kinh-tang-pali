@@ -208,3 +208,12 @@ This document records a proposal. Committing or merging it does not itself start
 TTS generation or authorize an unbounded corpus run. A subsequent execution goal
 must state the pilot scope and preserve its manual-listening acceptance gate
 before broadening. No provider call is needed to review or merge this document.
+
+
+### Điều chỉnh 2026-10-24: chia file theo bài dài
+
+Người biên tập yêu cầu chia nhỏ thay cho upload MP3 khổng lồ. Bài trên 30 phút
+được đóng gói từ WAV cache thành nhiều MP3 tối đa 30 phút/phần, giữ một UID và
+một track. Không yêu cầu S3 credentials, không TTS lại WAV đã có, không đổi profile.
+Player phát hết các phần rồi mới quyết định chuyển bài theo toggle. Chi tiết schema,
+checksum và gate phát hành tại `docs/audio.md`, mục Một bài dài gồm nhiều file MP3.
