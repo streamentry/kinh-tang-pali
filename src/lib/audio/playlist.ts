@@ -1,6 +1,8 @@
+import { validParts, type AudioPart } from './parts';
 export interface PlayerTrack {
   uid: string;
   title: string;
+  parts?: AudioPart[];
   url: string;
   duration_seconds: number;
   scripture_start_seconds: number;
@@ -18,7 +20,7 @@ export function parsePlaylist(value: unknown, expectedCount: number): PlayerTrac
       || !Number.isFinite(item.duration_seconds) || item.duration_seconds <= 0
       || !Number.isFinite(item.scripture_start_seconds) || item.scripture_start_seconds < 0
       || item.scripture_start_seconds >= item.duration_seconds
-      || !['pending','approved'].includes(item.review_status)) throw new Error('Invalid playlist track');
+      || !['pending','approved'].includes(item.review_status) || !validParts(item)) throw new Error('Invalid playlist track');
     seen.add(item.uid);
   }
   return value as PlayerTrack[];
