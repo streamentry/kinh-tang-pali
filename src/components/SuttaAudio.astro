@@ -135,7 +135,7 @@ const timestamp = (seconds: number) => `${Math.floor(seconds / 60)}:${Math.floor
       }));
       summary?.addEventListener('click', () => { media.seek(0); update(); });
       scripture.addEventListener('click', () => { media.seek(Number(this.dataset.scripture)); update(); });
-      this.querySelector('select')!.addEventListener('change', event => { audio.playbackRate = Number((event.target as HTMLSelectElement).value); });
+      this.querySelector('select')!.addEventListener('change', event => { media.setPlaybackRate(Number((event.target as HTMLSelectElement).value)); });
       audio.addEventListener('loadedmetadata', update); audio.addEventListener('timeupdate', update);
       audio.addEventListener('play', () => { notice.hidden = true; state(); }); audio.addEventListener('pause', state);
       audio.addEventListener('ended', () => {

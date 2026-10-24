@@ -18,7 +18,7 @@ test('parts validate ordered URLs and total duration; global seeking crosses bou
 class FakeAudio extends EventTarget {
   src = parts[0].url; currentTime = 0; duration = 100; playbackRate = 1.25; paused = false; ended = false;
   pause() { this.paused = true; }
-  load() { this.currentTime = 0; this.ended = false; }
+  load() { this.currentTime = 0; this.ended = false; this.playbackRate = 1; }
   async play() { this.paused = false; }
 }
 test('an internal ended event never reaches reading auto-next and retains speed/seek', async () => {
@@ -52,4 +52,22 @@ test('public player parts strip cache paths, hashes and production evidence', ()
   assert.deepEqual(dto.parts,parts);
   assert.ok(!JSON.stringify(dto).includes('cache.wav'));
   assert.ok(!JSON.stringify(dto).includes('private-build-hash'));
+});
+
+test('a speed choice during loading survives metadata and rapid source changes', () => {
+  const audio = new FakeAudio();
+  const player = new ReadingPlayer(audio as unknown as HTMLAudioElement, {url:parts[0].url, duration_seconds:120, parts}, () => {});
+  player.seek(110);
+  player.setPlaybackRate(1.5);
+  audio.dispatchEvent(new Event('loadedmetadata'));
+  assert.equal(audio.playbackRate,1.5);
+  player.seek(10);
+  player.seek(110);
+  audio.dispatchEvent(new Event('loadedmetadata'));
+  assert.equal(audio.playbackRate,1.5);
+  player.select({url:'https://example.com/next.mp3',duration_seconds:30});
+  player.setPlaybackRate(.85);
+  audio.dispatchEvent(new Event('loadedmetadata'));
+  assert.equal(audio.playbackRate,.85);
+  player.destroy();
 });
