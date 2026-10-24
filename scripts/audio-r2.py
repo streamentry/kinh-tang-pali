@@ -8,9 +8,12 @@ from gemini_tts import ROOT, load_env
 from narration_config import load_profile, assert_profile_metadata, profile_digest
 from audio_pipeline import mp3_info, write_json, audio_object_key
 from audio_progress import update, now, require_current_group_source
+from audio_s3 import needs_s3, upload_s3_bytes
 
 def main():
-    parser=argparse.ArgumentParser(); parser.add_argument('folder',type=Path); args=parser.parse_args()
+    parser=argparse.ArgumentParser(); parser.add_argument('folder',type=Path)
+    parser.add_argument('--s3',action='store_true',help='Use pinned-bucket S3 transport; automatic above the REST size cap')
+    args=parser.parse_args()
     profile=load_profile()
     manifest=json.loads((args.folder/'manifest.json').read_text())
     assert_profile_metadata(manifest,profile)
@@ -62,8 +65,12 @@ def main():
     if not domain.get('enabled'): raise SystemExit('Public access is disabled. Enable it only with explicit editor authorization, then retry.')
     host=domain['domain']; public_base='https://'+host
     if public_base!=storage['public_base_url']:raise RuntimeError('Public domain differs from pinned audio storage')
-    request(base+'/'+bucket+'/objects/'+key,'PUT',mp3,{'Content-Type':'audio/mpeg',
-        'Cache-Control':'public, max-age=31536000, immutable','Content-Length':str(len(mp3))},raw=True)
+    if args.s3 or needs_s3(len(mp3)):
+        upload_s3_bytes(mp3,storage,key)
+        manifest['upload_transport']='cloudflare-s3'
+    else:
+        request(base+'/'+bucket+'/objects/'+key,'PUT',mp3,{'Content-Type':'audio/mpeg',
+            'Cache-Control':'public, max-age=31536000, immutable','Content-Length':str(len(mp3))},raw=True)
     url=public_base+'/'+key
     # Verify public bytes independently before exposing a player.
     for attempt in range(6):

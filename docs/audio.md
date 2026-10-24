@@ -46,6 +46,30 @@ Nếu dùng OAuth đã hết hạn, uploader Python không tự làm mới token
 
 Script kiểm hash MP3 local, upload với `audio/mpeg`, tải lại từ URL công khai và so SHA-256 trước khi ghi đăng ký. Key chứa hash âm thanh, tránh ghi đè bản đã nghe duyệt và tránh cache cũ.
 
+### MP3 lớn: S3 multipart
+
+[Endpoint REST hiện dùng giới hạn 300 MB](https://developers.cloudflare.com/api/resources/r2/subresources/buckets/subresources/objects/methods/upload/).
+Uploader giữ REST cho file nhỏ, tự dùng S3 khi vượt 300.000.000 byte. Không cắt
+MP3 thành UID mới, không đổi profile hoặc tốc độ. Có thể dùng `--s3` để kiểm
+đường S3 với một MP3 nhỏ đã kiểm; đây là lựa chọn transport, không phải TTS mới.
+
+Python dùng upload cần `boto3`. Thêm `R2_ACCESS_KEY_ID` và
+`R2_SECRET_ACCESS_KEY` vào `.env` gốc, giới hạn Object Read & Write cho bucket
+`kinh-tang-pali-audio`; nếu là credential tạm thì thêm `R2_SESSION_TOKEN`.
+Không đưa khóa vào CLI, log hoặc Git. OAuth/API token hiện tại vẫn dùng để
+xác minh account và public domain đã ghim trước khi gửi object. Endpoint S3
+chỉ được dựng từ account trong storage registry; không nhận endpoint tùy ý
+hoặc tự dùng credential AWS khác trên máy.
+
+SDK [upload_fileobj](https://docs.aws.amazon.com/boto3/latest/reference/services/s3/client/upload_fileobj.html)
+dùng buffer đã kiểm hash, threshold 64 MiB, part 16 MiB, một request tại một
+thời điểm, tắt thread và chọn classic transfer client. Retry transport giới hạn;
+lỗi giữ MP3 để upload lại, không gọi lại Gemini. [Cloudflare hướng dẫn boto3](https://developers.cloudflare.com/r2/examples/aws/boto3/)
+dùng endpoint account R2 với region `auto`. Không dùng ETag multipart làm SHA-256:
+public hash/bytes/range và kiểm nguồn sau upload vẫn quyết định có ghi player.
+Kiểm SDK giả lập không thay thế kiểm upload thật; chỉ ghi đường S3 đã xác minh
+sau khi object thật qua cùng các cổng đó.
+
 Sau khi thành công:
 
 - `source/audio-storage.json`: account ID, tên bucket, `bucket_id` do API managed domain của Cloudflare trả về, URL công khai và mục đích sử dụng. Không suy ID từ tên hay tự đặt.
