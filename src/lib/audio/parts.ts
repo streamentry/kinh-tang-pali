@@ -34,9 +34,10 @@ export class ReadingPlayer {
   private track: ReadingMedia;
   private index = 0;
   private pendingTime: number | null = null;
-  private pendingRate = 1;
+  private playbackRate: number;
   constructor(private audio: HTMLAudioElement, track: ReadingMedia, private failure: (error: unknown) => void) {
     this.track = track;
+    this.playbackRate = audio.playbackRate;
     audio.addEventListener('ended', this.onEnded);
     audio.addEventListener('loadedmetadata', this.onMetadata);
   }
@@ -57,7 +58,7 @@ export class ReadingPlayer {
     if (this.pendingTime !== null) {
       this.audio.currentTime = this.pendingTime;
       this.pendingTime = null;
-      this.audio.playbackRate = this.pendingRate;
+      this.audio.playbackRate = this.playbackRate;
     }
   };
   private onEnded = (event: Event) => {
@@ -66,12 +67,15 @@ export class ReadingPlayer {
     this.switchPart(this.index + 1, 0, true);
   };
   private switchPart(index: number, time: number, resume: boolean) {
-    this.pendingRate = this.audio.playbackRate;
     this.audio.pause();
     this.index = index; this.pendingTime = time;
     this.audio.src = this.parts[index].url;
     this.audio.load();
     if (resume) this.audio.play().catch(this.failure);
+  }
+  setPlaybackRate(rate: number) {
+    this.audio.playbackRate = rate;
+    this.playbackRate = this.audio.playbackRate;
   }
   seek(seconds: number) {
     const position = locatePart(this.parts, Number.isFinite(seconds) ? seconds : 0);

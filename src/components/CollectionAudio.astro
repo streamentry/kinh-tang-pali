@@ -241,7 +241,7 @@ const timestamp = (seconds: number) => `${Math.floor(seconds / 60)}:${Math.floor
         if (index !== null) void selectTrack(index);
       });
       seek.addEventListener('input', () => { media.seek(Number(seek.value)); update(); });
-      speed.addEventListener('change', () => { audio.playbackRate = Number(speed.value); });
+      speed.addEventListener('change', () => { media.setPlaybackRate(Number(speed.value)); });
       this.querySelectorAll<HTMLButtonElement>('[data-play-track]').forEach((button) => {
         button.hidden = false;
         const fallback = button.closest('.sutta-row-audio')?.querySelector<HTMLElement>('[data-audio-fallback]');
