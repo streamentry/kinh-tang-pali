@@ -182,6 +182,13 @@ HTML giữ một mục cho player native. Lỗi tải danh sách báo rõ, vẫn
 player và link MP3 từng hàng. Kiểm tra browser bằng fixture không chứng minh
 lời đọc chính xác; WAV/MP3 mới vẫn cần nghe duyệt trực tiếp.
 
+Player mục lục/nhóm ghi bài đang chọn vào fragment `#play=<uid>` khi chọn bài,
+Next/Back hoặc tự chuyển bài. URL giữ nguyên trang và query, dùng `replaceState`
+để không thêm một mục lịch sử cho mỗi lần chuyển bài. Khi tải lại hoặc mở link,
+player chọn đúng UID sau khi danh sách tải xong và chờ người đọc bấm Phát.
+UID không thuộc danh sách hiện tại và các anchor đọc khác được bỏ qua; fragment
+không ghi thời điểm phát hay tự cấp quyền autoplay.
+
 ### Xuất phẩm từ WAV hiện có
 
 `audio-compile.py` chỉ làm việc local, không đọc `.env`, không gọi Gemini hoặc

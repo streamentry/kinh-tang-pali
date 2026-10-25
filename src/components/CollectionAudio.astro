@@ -83,7 +83,7 @@ const timestamp = (seconds: number) => `${Math.floor(seconds / 60)}:${Math.floor
 </sutta-playlist>
 
 <script>
-  import { AUTO_NEXT_KEY, readAutoNext, saveAutoNext, stepAudioIndex } from '../lib/audio/navigation';
+  import { AUTO_NEXT_KEY, readAutoNext, saveAutoNext, stepAudioIndex, playlistIndexFromHash, playlistTrackUrl } from '../lib/audio/navigation';
   import { playFailure } from '../lib/audio/playback';
   import { ReadingPlayer } from '../lib/audio/parts';
   import { parsePlaylist, type PlayerTrack } from '../lib/audio/playlist';
@@ -136,6 +136,11 @@ const timestamp = (seconds: number) => `${Math.floor(seconds / 60)}:${Math.floor
       autoNext.checked = enabled;
 
       const activeTrack = () => tracks[activeIndex];
+      const rememberTrackLocation = () => {
+        const url = playlistTrackUrl(window.location.href, activeTrack().uid);
+        if (url === window.location.href) return;
+        try { history.replaceState(history.state, '', url); } catch { /* Playback still works when history access is denied. */ }
+      };
       const say = (message: string) => { notice.textContent = message; notice.hidden = false; };
       const media = new ReadingPlayer(audio, tracks[0], failure => {
         if (playFailure(failure) === 'blocked') say('Bấm Phát để nghe tiếp phần này.');
@@ -191,6 +196,7 @@ const timestamp = (seconds: number) => `${Math.floor(seconds / 60)}:${Math.floor
           media.seek(0);
         }
         activeIndex = index;
+        rememberTrackLocation();
         update();
         if (autoplay) {
           try { await audio.play(); } catch (failure) {
@@ -214,7 +220,16 @@ const timestamp = (seconds: number) => `${Math.floor(seconds / 60)}:${Math.floor
         }
       };
       window.addEventListener('storage', onStorage);
-      this.cleanup = () => { window.removeEventListener('storage', onStorage); media.destroy(); };
+      const onHashChange = () => {
+        const index = playlistIndexFromHash(window.location.hash, tracks);
+        if (index !== null && index !== activeIndex) void selectTrack(index, false);
+      };
+      window.addEventListener('hashchange', onHashChange);
+      this.cleanup = () => {
+        window.removeEventListener('storage', onStorage);
+        window.removeEventListener('hashchange', onHashChange);
+        media.destroy();
+      };
 
       play.addEventListener('click', async () => {
         const request = ++playbackRequest;
@@ -264,7 +279,7 @@ const timestamp = (seconds: number) => `${Math.floor(seconds / 60)}:${Math.floor
       audio.addEventListener('loadedmetadata', update);
       audio.addEventListener('durationchange', update);
       audio.addEventListener('timeupdate', update);
-      audio.addEventListener('play', () => { error.hidden = true; notice.hidden = true; update(); });
+      audio.addEventListener('play', () => { rememberTrackLocation(); error.hidden = true; notice.hidden = true; update(); });
       audio.addEventListener('pause', update);
       audio.addEventListener('ended', () => {
         update();
@@ -282,7 +297,9 @@ const timestamp = (seconds: number) => `${Math.floor(seconds / 60)}:${Math.floor
       audio.controls = false;
       audio.hidden = true;
       custom.hidden = false;
-      update();
+      const linkedIndex = playlistIndexFromHash(window.location.hash, tracks);
+      if (linkedIndex !== null) void selectTrack(linkedIndex, false);
+      else update();
     }
   }
 
