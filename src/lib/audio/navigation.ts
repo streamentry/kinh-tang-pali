@@ -37,3 +37,17 @@ export function stepAudioIndex(index: number, count: number, direction: -1 | 1):
   const next = index + direction;
   return next >= 0 && next < count ? next : null;
 }
+
+/** Resolve only tracks available in this playlist; unrelated reader anchors stay untouched. */
+export function playlistIndexFromHash(hash: string, tracks: readonly { uid: string }[]): number | null {
+  const values = new URLSearchParams(hash.replace(/^#/, '')).getAll('play');
+  if (values.length !== 1 || !values[0]) return null;
+  const index = tracks.findIndex(track => track.uid === values[0]);
+  return index < 0 ? null : index;
+}
+
+export function playlistTrackUrl(href: string, uid: string): string {
+  const url = new URL(href);
+  url.hash = `play=${encodeURIComponent(uid)}`;
+  return url.href;
+}
