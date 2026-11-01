@@ -1,12 +1,14 @@
 import { readdirSync, readFileSync } from 'node:fs';
 import { join, relative } from 'node:path';
+import { execFileSync } from 'node:child_process';
 
 const origin = 'https://streamentry.github.io/kinh-tang-pali/';
 function htmlFiles(dir: string): string[] {
   return readdirSync(dir, { withFileTypes: true }).flatMap(entry => entry.isDirectory() ? htmlFiles(join(dir, entry.name)) : entry.name.endsWith('.html') ? [join(dir, entry.name)] : []);
 }
-const sitemap = readFileSync('dist/sitemap.xml', 'utf8');
-const locations = [...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map(match => match[1]);
+// Parse actual XML, enforce the sitemap protocol's uncompressed limits, and require
+// every child to live under this site's base. No network or third-party XML entities.
+const locations: string[] = JSON.parse(execFileSync('python3', ['scripts/check-sitemaps.py', origin], { encoding: 'utf8' }));
 const expected = new Set<string>();
 for (const file of htmlFiles('dist')) {
   const path = relative('dist', file).replace(/index\.html$/, '');
