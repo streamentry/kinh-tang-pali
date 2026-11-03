@@ -66,7 +66,7 @@ Không nâng điểm chỉ để đủ lô. Hai người đánh giá có thể b
 
 ## 5. Công thức và điều kiện xuất bản
 
-Điểm một bản là trung bình số học của 10 tiêu chí, không làm tròn trước khi xét ngưỡng. Bản đạt chuẩn khi đồng thời:
+Điểm một bản là trung bình số học của 10 tiêu chí, không làm tròn trước khi xét ngưỡng. Khi xét ngưỡng, so sánh chính xác các giá trị thập phân đã nhập để sai số cộng số thực không đẩy điểm đúng 9,0 xuống dưới ngưỡng; điểm thực sự dưới 9,0 vẫn không đạt. Bản đạt chuẩn khi đồng thời:
 
 1. Điểm trung bình ít nhất **9,0/10**.
 2. Bốn tiêu chí `source_fidelity`, `semantic_fidelity`, `core_coverage`, `logic_context` đều ít nhất **9,0/10**.
