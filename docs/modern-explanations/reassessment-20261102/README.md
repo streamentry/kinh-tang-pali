@@ -4,7 +4,7 @@ Ngày bắt đầu: 2026-11-02. Nền nội dung: `934b1efa56c7af57369328adbc5cb
 
 **Mục tiêu chưa hoàn tất:** đọc, sửa, chấm lại và phát hành 152 bài × hai nhóm = 304 bản. Người biên tập yêu cầu điểm từ 8,9; publication gate của kho vẫn yêu cầu mean ít nhất 9,0, bốn tiêu chí đầu ít nhất 9,0 và không blocker. Không hạ gate để đạt mục tiêu số.
 
-Đã đọc và chấm lại **MN1–MN20: 40/304 bản**. Còn **264 bản MN21–MN152**. `progress.json` phân biệt lượt thực sự đọc lại với điểm cũ vẫn được chọn ở phần còn chờ. Không gán ngày/điểm mới cho nội dung chưa đọc. Lô MN1–MN10 đã merge qua PR #2057 ngày 2026-11-03, commit 879d0307cf6781b1c747609f81e1ca2a343116bb; kiểm remote main khớp cả 20 tệp nội dung/metadata đã validate. MN11–MN20 hiện chỉ ở worktree batch02. Production của lô đầu vẫn chờ xác minh. Lô đầu MN1–MN10 đã đủ nội dung để chạy cổng local và phát hành. Trạng thái xuất bản thực tế nằm trong `progress.json`, không suy từ nhãn `published` tại worktree.
+Đã đọc và chấm lại **MN1–MN30: 60/304 bản**. Còn **244 bản MN31–MN152**. `progress.json` phân biệt lượt thực sự đọc lại với điểm cũ vẫn được chọn ở phần còn chờ. Không gán ngày/điểm mới cho nội dung chưa đọc. Lô MN1–MN10 đã merge qua PR #2057 ngày 2026-11-03, commit 879d0307cf6781b1c747609f81e1ca2a343116bb; kiểm remote main khớp cả 20 tệp nội dung/metadata đã validate. MN11–MN20 đã merge qua PR #2058, commit 873a07afd5ba3838d1b473f46eb5da166e0c9a48; cả 20 tệp khớp snapshot đã kiểm trên remote main. Production của lô đầu đã xác minh trong attempt3 (40/40 ca). Lô đầu MN1–MN10 đã đủ nội dung để chạy cổng local và phát hành. Trạng thái xuất bản thực tế nằm trong `progress.json`, không suy từ nhãn `published` tại worktree.
 
 ## Điểm đang được chọn
 
@@ -20,16 +20,16 @@ Ngày bắt đầu: 2026-11-02. Nền nội dung: `934b1efa56c7af57369328adbc5cb
 | MN8 | 9,28 | 9,34 | cả hai published |
 | MN9 | 9,25 | 9,33 | cả hai published |
 | MN10 | 9,24 | 9,33 | cả hai published |
-| MN11 | 9,29 | 9,35 | local batch02; chưa merge |
-| MN12 | 9,24 | 9,33 | local batch02; chưa merge |
-| MN13 | 9,27 | 9,33 | local batch02; chưa merge |
-| MN14 | 9,28 | 9,34 | local batch02; chưa merge |
-| MN15 | 9,31 | 9,36 | local batch02; chưa merge |
-| MN16 | 9,31 | 9,35 | local batch02; chưa merge |
-| MN17 | 9,32 | 9,36 | local batch02; chưa merge |
-| MN18 | 9,29 | 9,33 | local batch02; chưa merge |
-| MN19 | 9,31 | 9,33 | local batch02; chưa merge |
-| MN20 | 9,31 | 9,34 | local batch02; chưa merge |
+| MN11 | 9,29 | 9,35 | merged #2058; live chờ xác minh |
+| MN12 | 9,24 | 9,33 | merged #2058; live chờ xác minh |
+| MN13 | 9,27 | 9,33 | merged #2058; live chờ xác minh |
+| MN14 | 9,28 | 9,34 | merged #2058; live chờ xác minh |
+| MN15 | 9,31 | 9,36 | merged #2058; live chờ xác minh |
+| MN16 | 9,31 | 9,35 | merged #2058; live chờ xác minh |
+| MN17 | 9,32 | 9,36 | merged #2058; live chờ xác minh |
+| MN18 | 9,29 | 9,33 | merged #2058; live chờ xác minh |
+| MN19 | 9,31 | 9,33 | merged #2058; live chờ xác minh |
+| MN20 | 9,31 | 9,34 | merged #2058; live chờ xác minh |
 
 Đây là đánh giá biên tập theo mười tiêu chí, không phải phép đo khả năng hiểu của độc giả thật. Chưa có trẻ em/người lớn tuổi tham gia thử hiểu. Không phát hiện blocker trong mười một bài đã đọc; không suy ra điều ấy cho 141 bài còn lại.
 
@@ -57,7 +57,7 @@ JSON đầu vào trong thư mục ghi đủ điểm và căn cứ. Lịch sử c
 
 `explanations --check` sau MN10: 558 published, 186/186 bài complete, không lỗi. Các con số đó bao gồm điểm lịch sử của phần chưa tái đánh giá, **không phải 558 bản mới đọc lại**. Báo cáo local có thời điểm riêng tại `validation.json` (trước sửa), `validation-fix-mn1-mn4.json` (lượt sửa), `validation-batch-01.json` (snapshot MN1–MN10 cuối), và các log được trỏ trong đó. Không coi kiểm cấu trúc hoặc build là bằng chứng nghĩa đúng, CI hay production.
 
-Lô MN1–MN10 đã merge; chạy local gate trên đúng snapshot MN11–MN20 rồi tạo/merge PR lô hai theo runbook diễn giải. Tiếp tục MN21 theo thứ tự trong lúc theo dõi triển khai các lô đã phát hành. Chỉ đánh dấu phát hành các bản sửa sau khi xác minh merge và triển khai phù hợp. Toàn mục tiêu còn active cho đến khi đủ 304 bản được đọc lại, sửa khi cần, chấm đạt và phát hành với bằng chứng.
+Lô MN1–MN20 đã merge; chạy local gate trên đúng snapshot MN21–MN30 rồi tạo/merge PR lô ba theo runbook diễn giải. Tiếp tục MN31 theo thứ tự trong lúc theo dõi triển khai các lô đã phát hành. Chỉ đánh dấu phát hành các bản sửa sau khi xác minh merge và triển khai phù hợp. Toàn mục tiêu còn active cho đến khi đủ 304 bản được đọc lại, sửa khi cần, chấm đạt và phát hành với bằng chứng.
 
 Cổng snapshot MN1–MN10 cuối đã pass validate/test/check/build; 500 test pass, bốn skip, không fail. SHA-256 của 20 tệp nội dung/metadata không đổi qua cả bốn lệnh. `reader-local-batch-01.json` ghi 40 trường hợp real Chrome: 10 bài × hai nhóm × desktop 1440/mobile 390, đúng toàn bộ đoạn văn theo thứ tự, điểm, người/ngày kiểm, mở mục, bấm liên kết nguồn đầu và không tràn ngang. Đã xem bốn ảnh MN1 (hai nhóm × hai chiều rộng), không thấy chữ bị cắt hoặc chồng lấp. Chưa suy kết quả đó thành thử hiểu với người thật hoặc production. Lượt browser đầu thất bại do checker đòi ID codex thay nhãn hiển thị từ registry; hồ sơ thất bại và lý do sửa checker được giữ riêng.
 
@@ -68,3 +68,31 @@ Ngày 2026-11-03, lô hai đã đọc và chấm đủ MN11–MN20 cho hai nhóm
 Lần public thứ hai của batch01 vẫn lỗi khớp đoạn văn ngay MN1/children, 0/40 ca hoàn tất; giữ báo cáo attempt2 và hẹn lại +20 phút. Không suy CI hay trạng thái deploy từ lỗi này, không ghi live thành công.
 
 Lô hai: validate/test/check/build đều exit0; test500 pass/4skip/0fail. Hash20 tệp nội dung/metadata không đổi qua bốn cổng. Reader local40/40 ca đạt (10bài×2nhóm×desktop1440/mobile390): đoạn văn, điểm/ngày/người duyệt, mở mục, liên kết nguồn và không tràn ngang. Đã nhìn4ảnh mẫu MN11; đây không phải đọc thử với người thật.
+
+Lô MN11–MN20 đã merge PR #2058 đúng head c2cca34662935468d80a57d05e8a282adb772fab; remote main chứa merge873a07afd5ba3838d1b473f46eb5da166e0c9a48 và khớp SHA-256 cả20 tệp nội dung/metadata đã kiểm. Tiếp tục MN21 trên nhánh batch03 mới từ remote main, không sửa lại lịch sử lô hai.
+
+Batch01 đã đạt40/40 ca public trong attempt3: đúng đoạn văn, điểm/ngày/người duyệt, liên kết nguồn, disclosure và không tràn ngang ở1440/390 cho20 bản. Giữ hai lần lỗi trước như lịch sử quan sát. Đây là bằng chứng nội dung/reader hiện hành, không phải SHA chính xác của build đang phục vụ hoặc thử nghiệm hiểu với người thật.
+
+Batch02 public attempt1 chưa khớp MN11/children,0/40 ca, nên giữ production_verified=false và hẹn+20phút. Không suy bản build đang phục vụ chứa commitmerge lô hai. Lô đầu vẫn giữ bằng chứng public thành công riêng.
+
+MN21: children 9,24; older-adults 9,26, đã đối chiếu toàn nguồn và chuyển mục bảo vệ lên đầu bản trẻ. Hai lượt mới còn local trên batch03; chưa merge hoặc kiểm public. Chưa thử nghiệm đọc hiểu với độc giả thật.
+
+MN22: children 9,17; older-adults 9,26 sau đối chiếu đầy đủ, hai lượt ở local batch03. Độ phù hợp 8,5 và dễ đọc 8,6 của children phản ánh bài vẫn khó; điểm tổng không chứng minh trẻ tự hiểu. Chưa có thử nghiệm với người thật.
+
+MN23: children 9,25; older-adults 9,27, đã đối chiếu đầy đủ và giữ prose. Hai lượt mới ở local batch03; chưa merge hoặc kiểm public. Chưa thử nghiệm đọc hiểu với độc giả thật.
+
+MN24: children 9,21; older-adults 9,26, đã đối chiếu và giữ prose. Độ phù hợp/dễ đọc của children còn hạn chế vì bảy thanh tịnh trừu tượng; chưa có người thật đọc thử. Hai lượt mới ở local batch03, chưa merge hoặc kiểm public.
+
+MN25: children 9,19; older-adults 9,26; đối chiếu đầy đủ và giữ prose. Mười kiến và các tầng định còn khó với trẻ, chưa thử người thật. Hai lượt ở local batch03; chưa merge hoặc kiểm public.
+
+MN26: children 9,19; older-adults 9,26 sau đối chiếu đầy đủ; lời dẫn trẻ mời nghỉ và hỏi. Bài dài và trừu tượng, chưa thử người đọc thật. Hai lượt còn local batch03, chưa merge hoặc kiểm public.
+
+MN27: children 9,21; older-adults 9,26 sau đối chiếu, thêm lời mời đọc từng phần. Độ phù hợp/dễ đọc trẻ còn thấp do danh mục dài; chưa thử độc giả thật. Hai lượt còn local batch03.
+
+MN28: children 9,19; older-adults 9,26 sau đối chiếu, thêm hướng dẫn an toàn và đọc cùng người lớn ở đầu. Nội dung vẫn khó, chưa thử người đọc thật. Hai lượt còn local batch03.
+
+MN29: children 9,25; older-adults 9,27 sau đối chiếu đầy đủ; giữ prose. Tên phần cây có hai cách hiểu được ghi rõ, chưa thử độc giả thật. Hai lượt còn local batch03.
+
+MN30: children 9,19; older-adults 9,26 sau đối chiếu đầy đủ, giữ prose. Chưa thử độc giả thật. MN21–MN30 đã đủ hai lượt local; gates/merge/public còn phải làm.
+
+Lô ba MN21–MN30: validate/test/check/build exit0; 500 test pass, 4 skip, 0 fail; hash20 tệp không đổi qua bốn cổng. Reader local đạt40/40 ca cho10bài×2nhóm×1440/390; kiểm văn bản, điểm/ngày/người duyệt, mở mục, liên kết nguồn, tràn ngang. Đã xem4ảnh mẫu MN21, không phải thử đọc hiểu với người thật.
