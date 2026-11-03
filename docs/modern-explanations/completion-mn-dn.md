@@ -1,5 +1,7 @@
 # Hoàn tất diễn giải Trung Bộ và Trường Bộ
 
+> **Bảng lịch sử sau lô 19, không phải điểm hiện hành sau tái đánh giá.** Đợt 2026-11-02 đang đánh giá lại hai nhóm trẻ em/người lớn tuổi trên toàn MN; đã đọc MN1–MN10. MN1 trẻ em từng còn 8,91 (`review`), sau sửa đạt 9,24 theo lượt mới. Xem [hồ sơ tái đánh giá](reassessment-20261102/README.md). Các bảng và số liệu bên dưới được giữ làm ảnh chụp lịch sử; điểm hiện hành nằm trong metadata và báo cáo CLI.
+
 **Phạm vi: MN1–MN152 rồi DN1–DN34; 186 bài và 558 bản diễn giải được duyệt.** Bảng này được tạo từ báo cáo CLI và hồ sơ đánh giá hiện hành sau khi đóng nội dung lô 19. Mỗi bài có ba bản cho trẻ em, người trưởng thành và người lớn tuổi; mỗi bản được chấm riêng mười tiêu chí. Thứ tự gồm 18 lô mười bài và lô cuối sáu bài.
 
 ## Kết quả theo bộ

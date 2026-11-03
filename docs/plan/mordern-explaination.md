@@ -1,6 +1,6 @@
 # Kế hoạch diễn giải hiện đại theo lứa tuổi — Trung Bộ Kinh và Trường Bộ Kinh
 
-**Trạng thái:** đã biên soạn, kiểm chéo và chấm đủ MN1–MN152 rồi DN1–DN34: **186 bài, 558 bản được duyệt** theo quy trình hiện hành. [Bảng điểm hoàn tất](../modern-explanations/completion-mn-dn.md) và các báo cáo lô ghi kết quả cùng phạm vi xác minh thực tế. Các mục dưới đây giữ yêu cầu thiết kế và quy trình dùng khi duy trì, sửa hoặc đánh giá lại.
+**Trạng thái:** lô biên soạn ban đầu đã duyệt 186 bài, 558 bản. Đợt tái đánh giá ngày 2026-11-02 hiện đã đọc MN1–MN10 cho trẻ em và người lớn tuổi (20/304 bản). MN1 trẻ em từng hạ về `review`, đã sửa và chấm mới 9,24; cả 20 bản mới chấm hiện đạt gate tại worktree. Chưa phát hành các thay đổi này; 284 bản còn chờ đọc lại. [Hồ sơ tái đánh giá](../modern-explanations/reassessment-20261102/README.md) ghi nguồn, điểm và bước phát hành; [bảng hoàn tất ban đầu](../modern-explanations/completion-mn-dn.md) giữ số liệu lịch sử. Các mục dưới đây giữ yêu cầu thiết kế và quy trình dùng khi duy trì, sửa hoặc đánh giá lại.
 
 **Quy trình hiện hành:** [Biên soạn và chấm điểm diễn giải hiện đại](../modern-explanation-quality.md) cụ thể hóa rubric số, cấu trúc JSON, hiệu lực đánh giá và cổng của từng lô. Yêu cầu triển khai tuần tự thay cho thứ tự làm thử MN61/DN31 trong đề xuất ban đầu; các ví dụ ở §5 vẫn chỉ là minh họa giọng viết.
 
