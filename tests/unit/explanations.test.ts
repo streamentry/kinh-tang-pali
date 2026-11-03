@@ -187,6 +187,17 @@ test('raw mean, critical criterion floors and blockers all govern publication', 
   assert.equal(explanationStatus({ scores: scores(7.9), blockingErrors: [] }), 'draft');
 });
 
+test('decimal threshold is exact despite floating-point summation', () => {
+  const exact = scores(9);
+  Object.assign(exact, { source_fidelity: 9.2, semantic_fidelity: 9.1, core_coverage: 9.2, logic_context: 9.2, terminology: 8.9, audience_fit: 8.3, clarity: 8.7, editorial_separation: 9.1, practical_integrity: 9.2, technical_integrity: 9.1 });
+  assert.ok(explanationScore(exact)! < 9, 'fixture reproduces binary undershoot');
+  assert.equal(explanationStatus({ scores: exact, blockingErrors: [] }), 'published');
+  exact.clarity = 8.699999999999998;
+  assert.equal(explanationStatus({ scores: exact, blockingErrors: [] }), 'review');
+  const eight = scores(8); eight.clarity = 7.999999999999999;
+  assert.equal(explanationStatus({ scores: eight, blockingErrors: [] }), 'draft');
+});
+
 test('incomplete, nonfinite and out-of-range scores cannot receive a grade', () => {
   for (const value of [Number.NaN, Number.POSITIVE_INFINITY, -1, 10.1]) {
     const invalid = scores(); invalid.clarity = value; assert.equal(explanationScore(invalid), null);
