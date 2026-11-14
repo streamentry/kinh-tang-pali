@@ -4,7 +4,7 @@ Ngày bắt đầu: 2026-11-02. Nền nội dung: `934b1efa56c7af57369328adbc5cb
 
 **Mục tiêu chưa hoàn tất:** đọc, sửa, chấm lại và phát hành 152 bài × hai nhóm = 304 bản. Người biên tập yêu cầu điểm từ 8,9; publication gate của kho vẫn yêu cầu mean ít nhất 9,0, bốn tiêu chí đầu ít nhất 9,0 và không blocker. Không hạ gate để đạt mục tiêu số.
 
-Đã đọc và chấm lại **MN1–MN30: 60/304 bản**. Còn **244 bản MN31–MN152**. `progress.json` phân biệt lượt thực sự đọc lại với điểm cũ vẫn được chọn ở phần còn chờ. Không gán ngày/điểm mới cho nội dung chưa đọc. Lô MN1–MN10 đã merge qua PR #2057 ngày 2026-11-03, commit 879d0307cf6781b1c747609f81e1ca2a343116bb; kiểm remote main khớp cả 20 tệp nội dung/metadata đã validate. MN11–MN20 đã merge qua PR #2058, commit 873a07afd5ba3838d1b473f46eb5da166e0c9a48; cả 20 tệp khớp snapshot đã kiểm trên remote main. Production của lô đầu đã xác minh trong attempt3 (40/40 ca). Lô đầu MN1–MN10 đã đủ nội dung để chạy cổng local và phát hành. Trạng thái xuất bản thực tế nằm trong `progress.json`, không suy từ nhãn `published` tại worktree.
+Đã đọc và chấm lại **MN1–MN50: 100/304 bản**. Còn **204 bản MN51–MN152**. `progress.json` phân biệt lượt thực sự đọc lại với điểm cũ vẫn được chọn ở phần còn chờ. Không gán ngày/điểm mới cho nội dung chưa đọc. Lô MN1–MN10 đã merge qua PR #2057 ngày 2026-11-03, commit 879d0307cf6781b1c747609f81e1ca2a343116bb; kiểm remote main khớp cả 20 tệp nội dung/metadata đã validate. MN11–MN20 đã merge qua PR #2058, commit 873a07afd5ba3838d1b473f46eb5da166e0c9a48; cả 20 tệp khớp snapshot đã kiểm trên remote main. Production của lô đầu đã xác minh trong attempt3 (40/40 ca). Lô đầu MN1–MN10 đã đủ nội dung để chạy cổng local và phát hành. Trạng thái xuất bản thực tế nằm trong `progress.json`, không suy từ nhãn `published` tại worktree.
 
 ## Điểm đang được chọn
 
@@ -57,7 +57,7 @@ JSON đầu vào trong thư mục ghi đủ điểm và căn cứ. Lịch sử c
 
 `explanations --check` sau MN10: 558 published, 186/186 bài complete, không lỗi. Các con số đó bao gồm điểm lịch sử của phần chưa tái đánh giá, **không phải 558 bản mới đọc lại**. Báo cáo local có thời điểm riêng tại `validation.json` (trước sửa), `validation-fix-mn1-mn4.json` (lượt sửa), `validation-batch-01.json` (snapshot MN1–MN10 cuối), và các log được trỏ trong đó. Không coi kiểm cấu trúc hoặc build là bằng chứng nghĩa đúng, CI hay production.
 
-Lô MN1–MN20 đã merge; chạy local gate trên đúng snapshot MN21–MN30 rồi tạo/merge PR lô ba theo runbook diễn giải. Tiếp tục MN31 theo thứ tự trong lúc theo dõi triển khai các lô đã phát hành. Chỉ đánh dấu phát hành các bản sửa sau khi xác minh merge và triển khai phù hợp. Toàn mục tiêu còn active cho đến khi đủ 304 bản được đọc lại, sửa khi cần, chấm đạt và phát hành với bằng chứng.
+Lô MN1–MN30 đã merge; tiếp tục MN31 theo thứ tự. Chỉ đánh dấu phát hành các bản sửa sau khi xác minh merge và triển khai phù hợp. Toàn mục tiêu còn active cho đến khi đủ 304 bản được đọc lại, sửa khi cần, chấm đạt và phát hành với bằng chứng.
 
 Cổng snapshot MN1–MN10 cuối đã pass validate/test/check/build; 500 test pass, bốn skip, không fail. SHA-256 của 20 tệp nội dung/metadata không đổi qua cả bốn lệnh. `reader-local-batch-01.json` ghi 40 trường hợp real Chrome: 10 bài × hai nhóm × desktop 1440/mobile 390, đúng toàn bộ đoạn văn theo thứ tự, điểm, người/ngày kiểm, mở mục, bấm liên kết nguồn đầu và không tràn ngang. Đã xem bốn ảnh MN1 (hai nhóm × hai chiều rộng), không thấy chữ bị cắt hoặc chồng lấp. Chưa suy kết quả đó thành thử hiểu với người thật hoặc production. Lượt browser đầu thất bại do checker đòi ID codex thay nhãn hiển thị từ registry; hồ sơ thất bại và lý do sửa checker được giữ riêng.
 
@@ -96,3 +96,83 @@ MN29: children 9,25; older-adults 9,27 sau đối chiếu đầy đủ; giữ pr
 MN30: children 9,19; older-adults 9,26 sau đối chiếu đầy đủ, giữ prose. Chưa thử độc giả thật. MN21–MN30 đã đủ hai lượt local; gates/merge/public còn phải làm.
 
 Lô ba MN21–MN30: validate/test/check/build exit0; 500 test pass, 4 skip, 0 fail; hash20 tệp không đổi qua bốn cổng. Reader local đạt40/40 ca cho10bài×2nhóm×1440/390; kiểm văn bản, điểm/ngày/người duyệt, mở mục, liên kết nguồn, tràn ngang. Đã xem4ảnh mẫu MN21, không phải thử đọc hiểu với người thật.
+
+MN21–MN30 đã merge PR #2059, head ed0e119472e8b49e1589814638e140072ebb4354, merge c5700e124fc5508c00370f1ecdcbadbdc141b3d9. Remote main khớp hash20 tệp đã kiểm. Lần kiểm public đầu chưa khớp nội dung; không suy SHA build website.
+
+Batch02 đạt 40/40 ca public ở lần kiểm thứ hai: văn bản, người duyệt, điểm và liên kết tại 1440/390. Chưa biết SHA chính xác của bản đang phục vụ và chưa thử đọc hiểu với người thật. Batch03 còn chờ kiểm public.
+
+Ngày 2026-11-03, 09:27 UTC: MN21–MN30 đã kiểm public thành công 40/40 trường hợp (10 bài × hai nhóm × desktop/mobile), sau khi đối chiếu hash 20 tệp với snapshot validate. `reader-production-batch-03-attempt3-20261103.json` ghi các trường hợp và ID lượt chấm; attempt1 và attempt2 được giữ. Attempt2 bị sandbox chặn kết nối Chrome trước khi có ca nào chạy; attempt3 dùng phiên Chrome sẵn có và thành công. Không biết SHA build phục vụ; chưa thử đọc hiểu với người thật.
+
+MN31: bản trẻ 9,00; bản người lớn tuổi 9,14, đã đối chiếu đủ năm nguồn ghim, sửa tiêu đề ba người cùng nhường và chấm lại. Phần tên định còn khó đối với trẻ; chưa thử đọc hiểu với người thật. Hai kết quả đang local, cần chạy cổng batch và phát hành. `explanations --check`: 558 bản published, 186/186 bài, 0 lỗi; con số này gồm các lượt lịch sử, không phải 558 lượt tái đánh giá.
+
+MN33: bản trẻ 9,05; bản người lớn tuổi 9,14, qua đối chiếu năm nguồn; cả hai nay ghi nhận khác biệt cách hiểu trứng ruồi/bọ chét. Chưa thử đọc hiểu với người thật; vẫn local, chờ cổng batch và phát hành. Lúc ghi MN33, tiến trình ghi điểm MN32 bản người lớn tuổi còn nắm lock và chờ khởi tạo múi giờ trong sandbox; diễn biến phục hồi được ghi ở dòng sau.
+
+MN32: bản trẻ 9,05 và bản người lớn tuổi 9,14 đã chọn local sau khi thu hồi an toàn tiến trình ghi bị kẹt. Hai sample giữ ở /private/tmp; lock được lưu và metadata kiểm trước khi retry; nguồn chưa đổi. Chưa qua cổng batch và chưa thử đọc hiểu với người thật.
+
+MN34: trẻ 9,05; người lớn tuổi 9,14. Đã đối chiếu 52 khóa và hai bản tham khảo, thêm ghi chú sự khác nhau ở kệ cuối; hai lượt còn local, chưa qua cổng batch hoặc thử đọc hiểu với người thật.
+
+MN35: trẻ 9,02; người lớn tuổi 9,14, đối chiếu đủ 235 khóa và các nguồn tham khảo. Thêm lưu ý trước cảnh đe dọa và làm đau con cua cho trẻ; chưa thử đọc hiểu người thật. Hai bản còn local, chờ cổng batch và phát hành.
+
+MN36: trẻ 8,91 (review, dưới cổng publish 9,0 vì độ dài và hình ảnh nặng cần biên tập thêm); người lớn tuổi 9,11 (published tại local). Đã đọc đủ 360 khóa và nguồn tham khảo, chưa thử đọc hiểu người thật. Cả hai còn local; bản trẻ cần sửa và chấm lại trước cổng batch.
+
+MN36 trẻ lượt hai: thêm hướng dẫn ba chặng, chia phần danh mục/khổ hạnh thành đoạn ngắn; điểm 8,96, vẫn review dưới cổng 9,0. Không có thử nghiệm đọc hiểu với trẻ; tiếp tục biên tập trước khi phát hành. Lượt 8,91 được giữ trong lịch sử.
+
+MN36 trẻ lượt ba: chia thêm năm đoạn dài và nói rõ người đọc có thể tìm giúp đỡ khi đau hoặc buồn; 8,98 vẫn review, chưa qua cổng 9,0. Chưa có thử nghiệm đọc hiểu với trẻ.
+
+MN37: trẻ 9,07; người lớn tuổi 9,15, đã đọc đủ nguồn và ghi rõ cách đọc khác nhau ở câu ghi nhớ cùng số phòng trong cung. Chưa thử đọc hiểu với người thật; hai bản còn local, chưa qua cổng batch. MN36 trẻ 8,98 vẫn cần sửa.
+
+MN36 trẻ lượt bốn: làm rõ ví dụ gỗ rời nước còn nhựa và thêm ví dụ trò chơi, phân biệt với tu tập. Điểm 8,99 vẫn review; chưa có thử nghiệm đọc hiểu với trẻ.
+
+MN38: trẻ 8,91 ở review vì chuỗi và nội dung 2.900 từ còn quá dày; người lớn tuổi 9,13 local. Đã đối chiếu đủ nguồn, sửa sắc thái nirodhadhamma và giải chữ duyên; chưa thử đọc hiểu với người thật. Cả hai còn local, bản trẻ cần sửa trước cổng batch.
+
+MN38 trẻ lượt hai: thêm hướng dẫn đọc ba chặng, chia chuỗi duyên sinh/diệt nhưng giữ từng mối; 8,95 vẫn review dưới cổng 9,0. Chưa thử đọc hiểu với trẻ.
+
+MN39: trẻ 9,05; người lớn tuổi 9,15. Bổ sung provenance cho các chi tiết trong đoạn root lược và lưu ý không dùng địa ngục dọa trẻ; chưa thử đọc hiểu với người thật. Hai bản còn local, chờ cổng batch.
+
+MN40: trẻ 9,09; người lớn tuổi 9,15. Đã đọc 71 khóa và nguồn tham khảo, làm rõ mataja là vũ khí với hình dáng chưa chắc và nêu khác biệt hai thuật ngữ. Chưa thử đọc hiểu với người thật; hai bản còn local chờ batch.
+
+MN38 trẻ lượt ba: giải “có tính chấm dứt” và nối ví dụ có giới hạn với thọ, ái, thủ; điểm 8,97 vẫn review dưới gate 9,0; chưa thử đọc hiểu với trẻ.
+
+MN41, lượt đầu: trẻ 8,92 (review, cần dễ hiểu hơn); người lớn tuổi 9,11 local. Đã đối chiếu 122 khóa và nguồn tham khảo, đặt lưu ý trước các nội dung khó. Chưa thử đọc hiểu với người thật; cổng và phát hành batch còn chờ.
+
+MN42, lượt đầu: trẻ 8,92 (review, cần dễ hiểu hơn); người lớn tuổi 9,11 local. Đã đọc 122 khóa, HTML và hồ sơ công thức MN41; đặt lưu ý trước phần khó. Chưa thử đọc hiểu với người thật; cổng và phát hành batch còn chờ.
+
+MN36 trẻ lượt năm rút gọn ba đoạn và giữ các điều kiện; còn gần 4.000 từ. Điểm giữ 8,99, vẫn review vì chưa đủ căn cứ nâng điểm phù hợp đối tượng; chưa thử đọc hiểu với trẻ.
+
+MN36 trẻ lượt sáu: rút đoạn Uddaka/Rāma và số phần ăn, giữ cách hai lời mời khác nhau. Điểm giữ 8,99 và review; chưa đủ căn cứ tăng điểm phù hợp với trẻ, chưa thử đọc hiểu.
+
+MN43, lượt đầu: trẻ 8,92 ở review; người lớn tuổi 9,11 local. Đọc đủ nguồn, thêm giới hạn không dùng mô tả định để tự xác định sống chết; chưa thử đọc hiểu người thật. Cổng batch và phát hành còn chờ.
+
+- **MN44, lượt đầu:** đã đối chiếu 138 segment và đủ năm nguồn. Bản trẻ em 8,92 còn `review` vì độ trừu tượng; bản người lớn tuổi 9,11 đạt gate local. Chưa thử đọc hiểu với người thật.
+
+- **MN38 trẻ em, lượt bốn:** rút ngắn ba đoạn đối thoại và giải thích; điểm 8,98, vẫn `review` vì độ dài và mật độ khái niệm. Chưa thử đọc hiểu.
+
+- **MN36 trẻ em, lượt bảy:** thêm cảnh báo trước đoạn khó và lựa chọn bỏ qua, kèm ý chính. Điểm thập phân đúng 9,0 qua gate local sau khi sửa lỗi cộng số thực; chưa thử đọc hiểu với trẻ, chưa phát hành batch.
+
+- **MN38 trẻ em, lượt năm:** chia ba phần khó thành các bước ngắn và giải thích định tại chỗ. Điểm thập phân 9,0 đạt gate local; chưa thử đọc hiểu với trẻ.
+
+- **MN31–MN40:** PR #2060 đã merge; remote main khớp 65 tệp commit. Reader local đạt 40/40; production còn hiện đánh giá MN31 cũ, đợi xác minh lại.
+
+- **MN41 trẻ em, lượt hai:** chia danh sách cảnh giới thành nhóm nhỏ và thêm ghi chú riêng về tìm người lớn đáng tin; 8,96, vẫn `review`, chưa thử đọc hiểu.
+
+- **MN41 trẻ em, lượt ba:** chia hai hệ quan điểm thành các bước tương ứng; điểm thập phân 9,0 đạt gate local. Chưa thử đọc hiểu, chưa phát hành batch.
+
+- **MN42 trẻ em, lượt hai:** chia các danh mục, thêm ghi chú an toàn riêng; điểm 9,0 đạt gate local. Các công thức lược vẫn ghi nguồn; chưa thử đọc hiểu hoặc phát hành batch.
+
+- **MN43 trẻ em, lượt hai:** đặt lưu ý trước đoạn khó và chia các lập luận thành bước; điểm thập phân 9,0 đạt gate local. Chưa thử đọc hiểu hoặc phát hành batch.
+
+- **MN44 trẻ em, lượt hai:** thêm bản đồ và chia các quan hệ, ngoại lệ; điểm thập phân 9,0 đạt gate local. Chưa thử đọc hiểu hoặc phát hành batch.
+
+- **MN45:** đối chiếu 97 khóa và năm nguồn, nêu rõ công thức thiền được mở từ bản Việt tham khảo; trẻ em 9,0, người lớn tuổi 9,13 ở local. Chưa thử đọc hiểu hoặc phát hành batch.
+
+- **MN46:** đối chiếu 176 khóa và năm nguồn; lưu ý chất độc và thuốc cổ, trẻ em 9,0, người lớn tuổi 9,13 local. Chưa thử đọc hiểu hoặc phát hành batch.
+
+- **MN47:** đối chiếu 84 khóa và năm nguồn; hai cách đọc khác nhau được ghi rõ ở đoạn liên quan, trẻ em 9,0, người lớn tuổi 9,13 local. Chưa thử đọc hiểu hoặc phát hành batch.
+
+- **MN31–MN40:** public reader đã xác minh lại ngày 2026-11-14, 40/40 ca desktop/mobile khớp nội dung và metadata đã merge. Chưa thử đọc hiểu với người thật.
+
+- **MN48:** đối chiếu 110 khóa; Sujato phủ 95% phần Pāli có nội dung và bản English của dự án lấp các công thức trống. Trẻ em 9,0, người lớn tuổi 9,13 local. Chưa thử đọc hiểu hoặc phát hành batch.
+
+- **MN49:** đối chiếu 164 khóa; lời Māra và bất định người nói câu thức được tách rõ. Trẻ em 9,0, người lớn tuổi 9,13 local. Chưa thử đọc hiểu hoặc phát hành batch.
+
+- **MN50:** đối chiếu 239 khóa; thêm giới hạn an toàn cho phần Sañjīva và hình ảnh đau đớn. Trẻ em 9,0, người lớn tuổi 9,13 local. Chưa thử đọc hiểu hoặc phát hành batch.
