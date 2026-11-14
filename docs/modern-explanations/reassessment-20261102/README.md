@@ -4,7 +4,7 @@ Ngày bắt đầu: 2026-11-02. Nền nội dung: `934b1efa56c7af57369328adbc5cb
 
 **Mục tiêu chưa hoàn tất:** đọc, sửa, chấm lại và phát hành 152 bài × hai nhóm = 304 bản. Người biên tập yêu cầu điểm từ 8,9; publication gate của kho vẫn yêu cầu mean ít nhất 9,0, bốn tiêu chí đầu ít nhất 9,0 và không blocker. Không hạ gate để đạt mục tiêu số.
 
-Đã đọc và chấm lại **MN1–MN50: 100/304 bản**. Còn **204 bản MN51–MN152**. `progress.json` phân biệt lượt thực sự đọc lại với điểm cũ vẫn được chọn ở phần còn chờ. Không gán ngày/điểm mới cho nội dung chưa đọc. Lô MN1–MN10 đã merge qua PR #2057 ngày 2026-11-03, commit 879d0307cf6781b1c747609f81e1ca2a343116bb; kiểm remote main khớp cả 20 tệp nội dung/metadata đã validate. MN11–MN20 đã merge qua PR #2058, commit 873a07afd5ba3838d1b473f46eb5da166e0c9a48; cả 20 tệp khớp snapshot đã kiểm trên remote main. Production của lô đầu đã xác minh trong attempt3 (40/40 ca). Lô đầu MN1–MN10 đã đủ nội dung để chạy cổng local và phát hành. Trạng thái xuất bản thực tế nằm trong `progress.json`, không suy từ nhãn `published` tại worktree.
+Đã đọc và chấm lại **MN1–MN60: 120/304 bản**. Còn **184 bản MN61–MN152**. `progress.json` phân biệt lượt thực sự đọc lại với điểm cũ vẫn được chọn ở phần còn chờ. Không gán ngày/điểm mới cho nội dung chưa đọc. Lô MN1–MN10 đã merge qua PR #2057 ngày 2026-11-03, commit 879d0307cf6781b1c747609f81e1ca2a343116bb; kiểm remote main khớp cả 20 tệp nội dung/metadata đã validate. MN11–MN20 đã merge qua PR #2058, commit 873a07afd5ba3838d1b473f46eb5da166e0c9a48; cả 20 tệp khớp snapshot đã kiểm trên remote main. Production của lô đầu đã xác minh trong attempt3 (40/40 ca). Lô đầu MN1–MN10 đã đủ nội dung để chạy cổng local và phát hành. Trạng thái xuất bản thực tế nằm trong `progress.json`, không suy từ nhãn `published` tại worktree.
 
 ## Điểm đang được chọn
 
@@ -175,4 +175,24 @@ MN43, lượt đầu: trẻ 8,92 ở review; người lớn tuổi 9,11 local. �
 
 - **MN49:** đối chiếu 164 khóa; lời Māra và bất định người nói câu thức được tách rõ. Trẻ em 9,0, người lớn tuổi 9,13 local. Chưa thử đọc hiểu hoặc phát hành batch.
 
+- **MN41–MN50:** PR #2061 đã merge; 70 tệp commit khớp remote main. Hai lượt đầu gặp nội dung MN41 cũ; lượt thứ ba đã xác minh 40/40 trường hợp public trên desktop/mobile khớp nội dung đã merge. SHA chính xác của build được phục vụ chưa biết; chưa thử đọc hiểu với người thật.
+
 - **MN50:** đối chiếu 239 khóa; thêm giới hạn an toàn cho phần Sañjīva và hình ảnh đau đớn. Trẻ em 9,0, người lớn tuổi 9,13 local. Chưa thử đọc hiểu hoặc phát hành batch.
+
+- **MN51:** hai audience được rà soát lại sau khi batch gate chạy; trẻ em 9,55, người lớn tuổi 9,60 local. Chưa thử đọc hiểu.
+- **MN52:** giữ rõ chỗ Pāli không chỉ định “vững trú ở đó” là thiền chứng hay sự suy xét; trẻ em 9,57, người lớn tuổi 9,62 local. Chưa thử đọc hiểu.
+
+- **MN53:** rà lại các phẩm chất và ba trí; trẻ em 9,57, người lớn tuổi 9,62 local. Chưa thử đọc hiểu.
+- **MN54:** rà lại bảy ví và giới hạn diễn giải về “việc thế tục”; trẻ em 9,60, người lớn tuổi 9,64 local. Chưa thử đọc hiểu.
+- **MN55:** đối chiếu 80 khóa; làm rõ phạm vi lời đồn về thịt và năm mắt xích gây vô phước. Trẻ em 9,68, người lớn tuổi 9,70 local. Chưa thử đọc hiểu.
+- **MN56:** rà lại tranh luận về thân phạt/nghiệp và mấu chốt chủ ý; trẻ em 9,53, người lớn tuổi 9,60 local. Chưa thử đọc hiểu.
+- **MN57:** sửa định nghĩa nghiệp quá rộng ở phần dẫn; giữ công thức “một hữu tình sinh khởi từ một hữu tình” ở trạng thái khó hiểu thay vì suy ra một thuyết về sự tiếp nối. Trẻ em 9,48, người lớn tuổi 9,46 local. Chưa thử đọc hiểu.
+- **MN58:** làm rõ Nigaṇṭha Nāṭaputta là vị thầy tu thuộc nhóm khác; giữ 21 đoạn English fill là dự án, không phải đối chiếu độc lập. Trẻ em 9,46, người lớn tuổi 9,50 local. Chưa thử đọc hiểu.
+- **MN59:** giữ hai và ba loại cảm thọ như hai phép phân loại có căn cứ; bảo toàn chuỗi chín so sánh và phân biệt lạc với lạc thọ ở đoạn diệt tưởng/thọ. Trẻ em 9,46, người lớn tuổi 9,50 local. Chưa thử đọc hiểu.
+- **MN60:** sửa danh hiệu đầu bài để “không ai sánh bằng” mô tả bậc hướng dẫn, không người được hướng dẫn; giữ giới hạn ở các đoạn Pāli lược. Trẻ em 9,44, người lớn tuổi 9,53 local. Chưa thử đọc hiểu.
+
+- **Lô MN51–MN60:** local validate, unit tests, Astro check, production build và Pagefind đều qua. Chưa tạo PR, chưa merge và chưa xác minh public; không có thử đọc hiểu với độc giả thật. Báo cáo chi tiết: [batch06-review.md](batch06-review.md).
+
+- **MN41–MN50:** PR #2061 đã merge, 70 tệp khớp remote main; lần xác minh public thứ ba pass 40/40. Không suy ra SHA build được phục vụ hoặc khả năng hiểu của độc giả từ kết quả này.
+
+- **Lô MN51–MN60:** 20 bản trẻ em/người lớn tuổi đã được chấm mới và qua các cổng local. Chưa tạo PR, chưa merge hoặc xác minh trên production; chưa thử đọc hiểu với độc giả thật. Xem [báo cáo lô tái đánh giá 06](batch06-review.md).
