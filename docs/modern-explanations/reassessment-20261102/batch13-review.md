@@ -72,4 +72,4 @@ Reader report kiểm HTML build local; không có viewport cases, public-site/bu
 
 ## Tiến độ
 
-Đã đọc lại **260/304 bản**, còn **44**, tiếp theo **MN131**. PR #2065 đang mở trên nhánh batch13; chưa merge hoặc production verification.
+Đã đọc lại **260/304 bản**, còn **44**, tiếp theo **MN131**. PR #2065 đã merge; production verification chưa có.
