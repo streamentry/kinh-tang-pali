@@ -1,6 +1,6 @@
 # Tái đánh giá lô 13 — MN121–MN130
 
-Ngày: **2026-11-15**. Nhánh local: `codex/mn-kids-seniors-reassessment-main-batch13-20261115`.
+Ngày: **2026-11-15**. Nhánh `codex/mn-kids-seniors-reassessment-main-batch13-20261115`, commit `d9f785721`. [PR #2065](https://github.com/streamentry/kinh-tang-pali/pull/2065) đang mở; chưa merge hoặc xác minh production.
 
 **Kết quả nội dung:** 20 bản trẻ em/người lớn tuổi đã được đọc lại toàn văn, đối chiếu nguồn, chấm 10 tiêu chí và chọn bằng CLI. Tất cả đạt publication gate hiện hành: mean ít nhất 9,0, bốn tiêu chí trọng yếu đầu ít nhất 9,0, không blocker. Mean thấp nhất **9,37/10**, cao nhất **9,65/10**. Điểm audience-fit thấp nhất 8,4 ở MN129/MN130 trẻ em vì văn bản dài và có hình ảnh bạo lực; đây là đánh giá biên tập, không phải kết quả thử hiểu.
 
@@ -72,4 +72,4 @@ Reader report kiểm HTML build local; không có viewport cases, public-site/bu
 
 ## Tiến độ
 
-Đã đọc lại **260/304 bản**, còn **44**, tiếp theo **MN131**. Batch13 đang local; chưa có PR, merge hoặc production verification.
+Đã đọc lại **260/304 bản**, còn **44**, tiếp theo **MN131**. PR #2065 đang mở trên nhánh batch13; chưa merge hoặc production verification.
