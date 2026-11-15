@@ -1,6 +1,6 @@
 # Tái đánh giá lô 14 — MN131–MN140
 
-Ngày: **2026-11-15**. Nhánh local: `codex/mn-kids-seniors-reassessment-main-batch14-20261115`. PR #2065 đã merge MN81–MN130 tại `8b81a1fd3f2cc263650ddeb11cbe59673c9b40d5`; batch14 vẫn local và chưa có PR.
+Ngày: **2026-11-15**. Nhánh local: `codex/mn-kids-seniors-reassessment-main-batch14-20261115`. PR #2065 đã merge MN81–MN130 tại `8b81a1fd3f2cc263650ddeb11cbe59673c9b40d5`; batch14 đang trong [PR #2066](https://github.com/streamentry/kinh-tang-pali/pull/2066), mở trên nhánh riêng; chưa merge hoặc production verification.
 
 **Kết quả nội dung:** 20 bản trẻ em/người lớn tuổi đã được đọc trọn, đối chiếu nguồn, chấm 10 tiêu chí và chọn bằng CLI. Cả 20 đạt gate: mean ít nhất 9,0, bốn tiêu chí trọng yếu đầu ít nhất 9,0, không blocker. Mean thấp nhất **9,26/10**, cao nhất **9,53/10**. Audience-fit thấp nhất 7,90 ở các bài dài/nhiều tầng thiền, đặc biệt MN140 trẻ em; đây là phán đoán biên tập, không phải thử hiểu với độc giả thật.
 
@@ -74,4 +74,4 @@ Reader report chỉ kiểm HTML dựng local; không có viewport/public-site ch
 
 ## Tiến độ
 
-Đã đọc lại **280/304 bản**, còn **24**, tiếp theo **MN141**. Metadata `published` là trạng thái local; batch14 chưa có PR, merge hoặc production verification.
+Đã đọc lại **280/304 bản**, còn **24**, tiếp theo **MN141**. Metadata `published` là trạng thái local; PR #2066 đang mở; chưa merge hoặc production verification.
