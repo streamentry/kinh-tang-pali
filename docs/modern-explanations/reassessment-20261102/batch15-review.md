@@ -1,6 +1,6 @@
 # Tái đánh giá lô 15 — MN141–MN150
 
-Ngày: **2026-11-15**. Nhánh local: `codex/mn-kids-seniors-reassessment-main-batch15-20261115`. PR #2066 đã merge MN131–MN140 tại `43120573408c7d726bfb9b005f4ee983b135f744`; batch15/16 còn trên nhánh local, chưa có PR.
+Ngày: **2026-11-15**. Nhánh local: `codex/mn-kids-seniors-reassessment-main-batch15-20261115`. PR #2066 đã merge MN131–MN140 tại `43120573408c7d726bfb9b005f4ee983b135f744`; PR #2067 đang mở cho MN141–MN152; CI và merge còn chờ.
 
 **Kết quả nội dung:** 20 bản trẻ em/người lớn tuổi đã được đọc toàn văn, đối chiếu nguồn, chấm mười tiêu chí và chọn qua CLI. Cả 20 đạt gate: mean ít nhất 9,0, bốn tiêu chí trọng yếu đầu ít nhất 9,0, không blocker. Mean thấp nhất **9,33/10**, cao nhất **9,64/10**. Audience-fit thấp nhất 8,10 ở các bài dài, có nội dung tự sát hoặc khái niệm dày; đây là nhận định biên tập, không phải thử hiểu với độc giả thật.
 
