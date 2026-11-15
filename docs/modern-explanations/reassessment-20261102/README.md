@@ -209,3 +209,37 @@ PR [#2064](https://github.com/streamentry/kinh-tang-pali/pull/2064) đã merge t
 ## Cập nhật lô 09 — MN81–MN90
 
 Ngày 2026-11-15: 20 bản trẻ em/người lớn tuổi đã được đọc lại, sửa riêng ở MN82–MN86, chấm và áp dụng. Mean thấp nhất là 9,43; các phiên bản đều vượt publication gate. Validate, unit tests, Astro check, full build và static reader 20/20 đã qua; đối soát store đang chạy. PR/CI/merge và production của lô này còn chờ. Cả 20 lượt là đánh giá biên tập AI; không có thử đọc hiểu với người thật hoặc thẩm định độc lập của học giả Pāli. Xem [batch09-review.md](batch09-review.md).
+
+MN91 (đầu lô 10): trẻ em 9,43, người lớn tuổi 9,56; cả hai bản đã được đọc lại, ghi và chọn lượt đánh giá mới. Đã chuyển ghi chú về mô tả cơ thể lên trước đoạn nhắc đầu tiên để trẻ có thể đọc cùng người tin cậy hoặc tạm dừng. Cổng toàn lô chưa chạy; chưa có thử hiểu với độc giả thật hoặc thẩm định Pāli độc lập. Tiếp tục MN92.
+
+MN92: trẻ em 9,51, người lớn tuổi 9,60; cả hai bản đã được rà soát, sửa và chấm lại. Đã làm rõ lời kệ mang thứ bậc xã hội cổ, tránh hiểu brahmabhūto là đồng nhất với vị trời Brahmā, và bỏ cách dịch nāgā thành “đại tượng” trong lời xin cuối. Bản trẻ có ghi chú trước mô tả bộ phận sinh dục. Nguồn chú giải/từ điển tra cứu thêm chỉ là tham khảo phụ, không thay Pāli root. Chưa có thử hiểu với độc giả thật; cổng toàn lô còn chờ. Tiếp tục MN93.
+
+MN93: trẻ em 9,49, người lớn tuổi 9,60; cả hai bản đã được đối chiếu, sửa và chọn lượt chấm mới. Bản trẻ có ghi chú trước phần sinh sản; cả hai làm rõ ngôn ngữ phân hạng xã hội cổ và giữ các bất định về gandhabba trong phạm vi nguồn. Chú giải/từ điển trực tuyến chỉ là nguồn phụ không pin. Chưa có thử hiểu với độc giả thật; cổng toàn lô còn chờ. Tiếp tục MN94.
+
+MN94: trẻ em 9,46, người lớn tuổi 9,60. Đã đọc lại bốn hạng người và toàn bộ tiến trình tu; sửa riêng hai bản để bỏ phần diễn giải “trở nên cao quý” không được câu chữ hỗ trợ, giữ cụm “trở thành Phạm” sát nguồn. Bản trẻ vẫn dài và dày danh mục; chưa có thử đọc hiểu. Cổng toàn lô còn chờ. Tiếp tục MN95.
+
+MN95: trẻ em 9,45, người lớn tuổi 9,56; hai bản đã được đọc lại và chấm qua gate. Giữ riêng ba mức gìn giữ, giác ngộ và đạt sự thật; bản trẻ vẫn dài, nhiều thuật ngữ và chuỗi lập luận nên điểm phù hợp tuổi là 8,9. Chưa có người đọc thật thử; cổng toàn lô còn chờ. Tiếp tục MN96.
+
+MN96: trẻ em 9,47, người lớn tuổi 9,59. Đọc lại hai bản theo Pāli và các nguồn ghim; chưa thấy lỗi buộc sửa. Bài dài và dày danh mục, nhất là phần nếp khổ hạnh, giới và thiền; chưa có độc giả thật thử. Cổng toàn lô còn chờ. Tiếp tục MN97.
+
+MN97: trẻ em 9,46, người lớn tuổi 9,56; hai bản được đọc lại và chấm qua gate. Giữ rõ rằng trách nhiệm gia đình không làm hành vi bất chính thành đúng, nhưng có lối chu toàn bằng việc chân chính. Bản trẻ có lời báo trước trước các hình ảnh đau dữ dội; đây là lời kể, không phải hướng dẫn y tế. Chưa có người đọc thật thử; cổng toàn batch còn chờ. Tiếp tục MN98.
+
+MN98: trẻ em 9,47, người lớn tuổi 9,59; cả hai bản đã được đọc lại và chấm. Đã thêm ghi chú cho trẻ trước danh sách bộ phận cơ thể, đặt lời “trắng/đen” trong lời tự nhận đang bị chất vấn, và giữ cách giải thoát khỏi các ràng buộc theo mạch kệ. Từ điển trực tuyến về vaṇṇa chỉ là tham khảo phụ, không pin. Chưa có thử người đọc; cổng toàn lô còn chờ. Tiếp tục MN99.
+
+MN99: trẻ em 9,48, người lớn tuổi 9,58; hai bản đã được đọc lại và chấm. Giữ khác biệt giữa gìn giữ sự thật, tự thấy sự thật và đạt sự thật qua thực hành; không đồng nhất các căn cứ như truyền thống hay suy luận với chứng cứ cuối cùng. Bản trẻ còn dài và nhiều khái niệm; chưa thử người đọc thật. Cổng toàn lô còn chờ. Tiếp tục MN100.
+
+MN100: trẻ em 9,45, người lớn tuổi 9,54; hai bản đã được đọc lại, ghi và chọn lượt chấm mới. Thêm lời báo trước cho trẻ và người lớn tuổi trước phần nhịn ăn, hành xác và mô tả đau dữ dội; không coi đó là chỉ dẫn sức khỏe hay cách tu phải bắt chước. Chưa có độc giả thật thử; cổng toàn batch còn chờ.
+
+## Cập nhật lô 10 — MN91–MN100
+
+Ngày 2026-11-15: 20 bản trẻ em/người lớn tuổi được đọc lại, sửa khi cần, chấm và áp dụng qua quality gate. Điểm thấp nhất của các phiên bản là **9,43/10**; cả ba audience của 10 bài giữ trạng thái `published` trong local metadata. Lô đạt validate, unit tests, Astro check, full build và static reader 20/20; 4 test bị bỏ qua, không có lỗi. Chi tiết ở [batch-10-mn91-mn100.md](batch-10-mn91-mn100.md) và [kết quả static reader](reader-static-batch-10-20261115.json).
+
+Đây là kiểm tra local, không phải xác nhận responsive, exact SHA đang phục vụ, CI, merge hay production. Chưa có thử hiểu với trẻ/người lớn tuổi hoặc thẩm định độc lập của học giả Pāli.
+
+MN100: trẻ em 9,45, người lớn tuổi 9,54; hai bản đã được đọc lại, ghi và chọn lượt chấm mới. Thêm lời báo trước cho trẻ và người lớn tuổi trước phần nhịn ăn, hành xác và mô tả đau dữ dội; không coi đó là chỉ dẫn sức khỏe hay cách tu phải bắt chước. Chưa có độc giả thật thử; cổng toàn batch còn chờ.
+
+## Cập nhật lô 10 — MN91–MN100
+
+Ngày 2026-11-15: 20 bản trẻ em/người lớn tuổi được đọc lại, sửa khi cần, chấm và áp dụng qua quality gate. Điểm thấp nhất của các phiên bản là **9,43/10**; tất cả ba audience của 10 bài giữ trạng thái `published` trong local metadata. Cả lô đạt `validate`, 501/505 unit tests (4 skipped), Astro check và full build. Static reader check đạt 20/20 panel, đối chiếu đoạn văn, điểm, ngày, người đánh giá và nhãn published; chưa kiểm tra viewport/responsive.
+
+Hai mươi review mới là đánh giá biên tập AI, không phải thử hiểu với trẻ/người lớn tuổi hay phê chuẩn của học giả Pāli. Build local không chứng minh exact SHA đang được phục vụ. Chưa kiểm tra CI, chưa có merge hoặc production verification. Chi tiết ở [batch-10-mn91-mn100.md](batch-10-mn91-mn100.md) và [kết quả static reader](reader-static-batch-10-20261115.json).
