@@ -34,4 +34,4 @@ Build launcher `npm run build` từng gặp sandbox `tsx` IPC EPERM; các bướ
 
 ## Toàn bộ phạm vi
 
-Đã chọn review cho **304/304** phiên bản; `progress.json` đánh dấu phần review hoàn chỉnh. MN81–MN130 đã merge qua PR #2065. PR #2066 cho MN131–MN140 đang mở; MN141–MN152 vẫn local trên nhánh batch15, chưa được đẩy hoặc đưa vào PR. Vì vậy việc phát hành toàn bộ phạm vi vẫn chờ merge các PR còn mở.
+Đã chọn review cho **304/304** phiên bản; `progress.json` đánh dấu phần review hoàn chỉnh. MN81–MN130 đã merge qua PR #2065 và MN131–MN140 qua PR #2066, merge commit `43120573408c7d726bfb9b005f4ee983b135f744`. MN141–MN152 đang trên nhánh batch15 local, chưa có PR; việc phát hành toàn phạm vi còn chờ batch15/16 merge.
