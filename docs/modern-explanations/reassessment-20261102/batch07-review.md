@@ -2,7 +2,7 @@
 
 Ngày: 2026-11-15
 
-Trạng thái: **đã qua cổng local và kiểm tra reader local 40/40; chưa tạo PR, chưa merge, chưa kiểm tra reader public.** Không truy vấn GitHub Actions theo chỉ dẫn của người dùng.
+Trạng thái: **PR #2063 đã merge; remote main ancestry và cây tệp đã xác minh. Public content check đạt 20/20 bản, gồm đoạn văn, score/date/reviewer và source-anchor hash. Public responsive layout chưa xác minh.** Không truy vấn GitHub Actions theo chỉ dẫn của người dùng.
 
 ## Điểm được chọn
 
@@ -59,4 +59,4 @@ Pagefind hiện chưa hỗ trợ stemming tiếng Việt. Reader check dùng b�
 
 ## Phát hành
 
-Batch07 đã qua các kiểm tra local, nhưng chưa có PR, merge hoặc xác minh reader public. Người đọc thật chưa tham gia. Mục tiêu 304 bản vẫn chưa hoàn tất.
+PR [#2063](https://github.com/streamentry/kinh-tang-pali/pull/2063) đã merge vào `main` tại `c5fcf40900501081a26ff1a3712986b17f1fc0b4`; main chứa đúng cây đã kiểm. Lần public check đầu thấy MN61 trẻ em còn review cũ (9.62/10, 19/10/2026). Lần sau trích nội dung từ cả 10 trang và so đúng 20 bản với manifest local: đoạn văn, score/date/reviewer, source-anchor count và checksum đều khớp. Xem [báo cáo lần 2](reader-production-batch-07-attempt2-20261115.json). Browser run riêng không mở được panel và không điều khiển viewport, nên public responsive layout chưa xác minh; exact served build SHA cũng chưa biết. Không có thử đọc hiểu với độc giả thật. Mục tiêu 304 bản vẫn chưa hoàn tất.
