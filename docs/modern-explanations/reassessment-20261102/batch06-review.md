@@ -2,7 +2,7 @@
 
 Ngày: 2026-11-14
 
-Trạng thái: cổng local đã qua; batch chưa có PR, chưa merge và chưa xác minh public.
+Trạng thái: PR #2062 đã merge; public reader đạt 40/40 ca desktop/mobile. SHA build đang phục vụ chưa biết; chưa thử đọc hiểu với độc giả thật.
 
 ## Điểm được chọn
 
@@ -34,7 +34,7 @@ Mỗi điểm là trung bình thô của mười tiêu chí. Bốn tiêu chí tr
 
 Pāli là thẩm quyền cuối cùng. Mỗi bài giữ bản đồ ý và năm hash nguồn: Pāli đã ghim, English Sujato, Việt dự án, HTML Việt Thích Minh Châu và chú giải dự án. MN58, MN59 và MN60 lần lượt có 21, 21 và 20 đoạn English Sujato để trống; English fill của dự án không được gọi là nguồn độc lập. Chỗ Pāli lược hoặc dùng công thức khó được ghi rõ thay vì gán phần mở rộng cho nguyên văn.
 
-Đây là đánh giá biên tập, không phải thử nghiệm khả năng hiểu. Chưa có trẻ em hoặc người lớn tuổi thật tham gia; chưa có thẩm định Pāli độc lập. `published` ở worktree chỉ phản ánh điểm và blocker của từng bản.
+Đây là đánh giá biên tập, không phải thử nghiệm khả năng hiểu. Chưa có trẻ em hoặc người lớn tuổi thật tham gia; chưa có thẩm định Pāli độc lập. `published` trong metadata chỉ phản ánh điểm và blocker của từng bản; merge, public reader và đọc hiểu là các lớp bằng chứng riêng. Bản tóm tắt reader public được tái ghi từ bằng chứng bàn giao trước đó; raw report từng được ghi tại `/private/tmp/mn-batch06-reader-production-attempt1-20261114.json` (SHA-256 `d43cfdd459c177b618dea7a217ed6bd2cc35e54a3eb2ddf533d536579ca56535`) nhưng không còn trong checkout chính.
 
 ## Cổng local
 
@@ -59,4 +59,4 @@ Pagefind ghi nhận tiếng Việt chưa được hỗ trợ stemming; tìm ki�
 
 ## Trạng thái phát hành
 
-MN51–MN60 đã qua các cổng local. Chưa tạo PR, chưa merge và chưa kiểm tra public reader. Cả 20 bản vẫn chưa có thử đọc hiểu với người thật. Toàn mục tiêu hiện là **120/304** bản được đọc lại; **184 bản** còn lại, bắt đầu từ MN61.
+PR #2062 đã merge vào `main` tại `02333006687b6f18083d96a7a4407985492b7934`; 48 tệp đã khớp snapshot đã kiểm. Public reader đạt 40/40 ca desktop/mobile theo [bản tóm tắt verifier](reader-production-batch-06-attempt1-20261114-summary.json). Không biết SHA build đang phục vụ; không có thử đọc hiểu với người thật. Tại thời điểm chốt lô 06, tiến độ là 120/304; phần tiếp theo bắt đầu MN61.
