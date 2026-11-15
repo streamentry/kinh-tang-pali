@@ -2,7 +2,7 @@
 
 Ngày: 2026-11-15
 
-Trạng thái: **20 bản mục tiêu đã được đọc lại, chấm và áp dụng. Không có sửa prose trong lô này. Các cổng local đã qua; chưa tạo PR hoặc merge.** Không truy vấn GitHub Actions theo quy trình hiện hành.
+Trạng thái: **20 bản mục tiêu đã được đọc lại, chấm và áp dụng. Không có sửa prose trong lô này. PR #2064 đã merge; remote main có đúng cây file đã kiểm.** Không truy vấn GitHub Actions theo quy trình hiện hành.
 
 ## Điểm được chọn
 
@@ -64,4 +64,4 @@ Pāli root là authority. Từng bài có Pāli, Sujato, Việt dự án, HTML V
 | Browser responsive matrix batch08 | Chưa chạy; không ghi nhận là đã qua |
 | GitHub Actions | Không truy vấn hoặc chờ |
 
-`npm run validate` không khởi chạy được do sandbox chặn Unix IPC socket của CLI `tsx`; underlying `scripts/validate.ts`, `assess-quality.ts --check` và `explanations.ts --check` đều chạy trực tiếp bằng `node --import tsx` và qua. `npm run check`, `npm test` và các thành phần sync/build/Pagefind cũng chạy thành công. Static reader report: [reader-static-batch-08-20261115.json](reader-static-batch-08-20261115.json). Đây không phải thử nghiệm browser responsive hay thử đọc hiểu với người thật.
+`npm run validate` không khởi chạy được do sandbox chặn Unix IPC socket của CLI `tsx`; underlying `scripts/validate.ts`, `assess-quality.ts --check` và `explanations.ts --check` đều chạy trực tiếp bằng `node --import tsx` và qua. `npm run check`, `npm test` và các thành phần sync/build/Pagefind cũng chạy thành công. Static reader report: [reader-static-batch-08-20261115.json](reader-static-batch-08-20261115.json). PR [#2064](https://github.com/streamentry/kinh-tang-pali/pull/2064) đã merge vào `main` tại `05e5d4dc247ef2edbc2c57d439db9160c981510f`; compare xác nhận main có đúng cây của head `68a6f3c9a8dcdaa14f24efc749bc9b432df768b3`. Public production follow-up dự kiến 05:17:23 UTC. Static reader audit không phải thử nghiệm browser responsive hay thử đọc hiểu với người thật.
