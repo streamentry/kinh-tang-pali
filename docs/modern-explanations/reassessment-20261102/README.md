@@ -4,11 +4,11 @@ Ngày bắt đầu: 2026-11-02. Nền nội dung: `934b1efa56c7af57369328adbc5cb
 
 **Mục tiêu chưa hoàn tất:** đọc, sửa, chấm lại và phát hành 152 bài × hai nhóm = 304 bản. Người biên tập yêu cầu điểm từ 8,9; publication gate của kho vẫn yêu cầu mean ít nhất 9,0, bốn tiêu chí đầu ít nhất 9,0 và không blocker. Không hạ gate để đạt mục tiêu số.
 
-Đã đọc và chấm lại **MN1–MN60: 120/304 bản**. Còn **184 bản MN61–MN152**. `progress.json` phân biệt lượt thực sự đọc lại với điểm cũ vẫn được chọn ở phần còn chờ. Không gán ngày/điểm mới cho nội dung chưa đọc. Lô MN1–MN10 đã merge qua PR #2057 ngày 2026-11-03, commit 879d0307cf6781b1c747609f81e1ca2a343116bb; kiểm remote main khớp cả 20 tệp nội dung/metadata đã validate. MN11–MN20 đã merge qua PR #2058, commit 873a07afd5ba3838d1b473f46eb5da166e0c9a48; cả 20 tệp khớp snapshot đã kiểm trên remote main. Production của lô đầu đã xác minh trong attempt3 (40/40 ca). Lô đầu MN1–MN10 đã đủ nội dung để chạy cổng local và phát hành. Trạng thái xuất bản thực tế nằm trong `progress.json`, không suy từ nhãn `published` tại worktree.
+Đã đọc và chấm lại **MN1–MN70: 140/304 bản** trẻ em/người lớn tuổi; còn **164 bản MN71–MN152**. `progress.json` phân biệt lượt thực sự đọc lại với điểm cũ ở phần còn chờ. MN1–MN50 đã merge qua PR #2057–#2061. MN51–MN60 đã merge qua PR #2062 tại `02333006687b6f18083d96a7a4407985492b7934`; public reader đạt 40/40 ca desktop/mobile. MN61–MN70 đã qua validate, test, check, build và reader local đạt 40/40 ca; batch07 chưa tạo PR, chưa merge hoặc xác minh public. Không có thử đọc hiểu với người thật. Trạng thái xuất bản thực tế nằm trong `progress.json`; nhãn `published` ở metadata không tự chứng minh đã merge hoặc đang chạy trên site.
 
 ## Điểm đang được chọn
 
-| Bài | Trẻ em | Người lớn tuổi | Gate tại worktree |
+| Bài | Trẻ em | Người lớn tuổi | Trạng thái bản hiện hành |
 | --- | ---: | ---: | --- |
 | MN1 | 9,24 | 9,28 | cả hai published |
 | MN2 | 9,03 | 9,25 | cả hai published |
@@ -191,8 +191,13 @@ MN43, lượt đầu: trẻ 8,92 ở review; người lớn tuổi 9,11 local. �
 - **MN59:** giữ hai và ba loại cảm thọ như hai phép phân loại có căn cứ; bảo toàn chuỗi chín so sánh và phân biệt lạc với lạc thọ ở đoạn diệt tưởng/thọ. Trẻ em 9,46, người lớn tuổi 9,50 local. Chưa thử đọc hiểu.
 - **MN60:** sửa danh hiệu đầu bài để “không ai sánh bằng” mô tả bậc hướng dẫn, không người được hướng dẫn; giữ giới hạn ở các đoạn Pāli lược. Trẻ em 9,44, người lớn tuổi 9,53 local. Chưa thử đọc hiểu.
 
-- **Lô MN51–MN60:** local validate, unit tests, Astro check, production build và Pagefind đều qua. Chưa tạo PR, chưa merge và chưa xác minh public; không có thử đọc hiểu với độc giả thật. Báo cáo chi tiết: [batch06-review.md](batch06-review.md).
+- **Lô MN51–MN60:** PR [#2062](https://github.com/streamentry/kinh-tang-pali/pull/2062) đã merge; remote main khớp commit `02333006687b6f18083d96a7a4407985492b7934`. Public reader đạt 40/40 ca desktop/mobile; SHA build public chưa biết và chưa thử đọc hiểu với độc giả thật. Chi tiết ở [batch06-review.md](batch06-review.md).
 
 - **MN41–MN50:** PR #2061 đã merge, 70 tệp khớp remote main; lần xác minh public thứ ba pass 40/40. Không suy ra SHA build được phục vụ hoặc khả năng hiểu của độc giả từ kết quả này.
 
-- **Lô MN51–MN60:** 20 bản trẻ em/người lớn tuổi đã được chấm mới và qua các cổng local. Chưa tạo PR, chưa merge hoặc xác minh trên production; chưa thử đọc hiểu với độc giả thật. Xem [báo cáo lô tái đánh giá 06](batch06-review.md).
+
+
+
+## Cập nhật lô 07 — MN61–MN70
+
+Ngày 2026-11-15: 20 bản trẻ em/người lớn tuổi đã được đọc lại, chấm và áp dụng qua quality gate. MN62 có một sửa rõ nghĩa; MN66, MN67 và MN70 có ghi chú biên tập về nội dung khó hoặc nguồn. Lô đạt validate, test, check, build và reader local 40/40 ca trên desktop/mobile. Chưa có PR, merge hoặc public verification; chưa có người đọc thật thử hiểu. Xem [batch07-review.md](batch07-review.md) và [kết quả reader local](reader-local-batch-07-20261115.json).
