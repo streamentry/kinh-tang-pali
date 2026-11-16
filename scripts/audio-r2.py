@@ -2,7 +2,7 @@
 """Create/reuse a dedicated public R2 bucket; upload verified MN MP3 then register it.
 Uses the same object REST endpoint as Cloudflare Wrangler's r2/helpers/object.ts.
 """
-import argparse, hashlib, json, os, subprocess, time, tomllib, urllib.request, urllib.error
+import argparse, hashlib, json, os, subprocess, time, urllib.request, urllib.error
 from pathlib import Path
 from gemini_tts import ROOT, load_env
 from narration_config import load_profile, assert_profile_metadata, profile_digest
@@ -15,6 +15,22 @@ def current_source(uid, audience=None):
     else:
         command=['node','--import','tsx','scripts/audio-source.ts',uid]
     return json.loads(subprocess.check_output(command,cwd=ROOT))
+
+def cloudflare_token():
+    token=os.environ.get('CLOUDFLARE_API_TOKEN')
+    if token:return token
+    # Ask Wrangler to refresh an expired local OAuth token before upload. Keep
+    # the bearer token in memory only; never print it or persist another copy.
+    try:
+        result=subprocess.run(['bunx','--package','wrangler@4.149.0','wrangler','auth','token'],
+            cwd=ROOT,capture_output=True,text=True,timeout=90)
+    except (OSError,subprocess.TimeoutExpired):
+        raise SystemExit('Wrangler OAuth refresh failed; run bunx wrangler login.') from None
+    lines=[line.strip() for line in result.stdout.splitlines()
+        if line.strip() and line.strip().isascii() and not any(char.isspace() for char in line.strip())]
+    if result.returncode or len(lines)!=1:
+        raise SystemExit('Wrangler OAuth refresh failed; run bunx wrangler login.')
+    return lines[0]
 
 def main():
     parser=argparse.ArgumentParser(); parser.add_argument('folder',type=Path); parser.add_argument('--audience',choices=('children','adults','older-adults')); args=parser.parse_args()
@@ -41,20 +57,11 @@ def main():
     packaged=json.loads(subprocess.check_output(['uv','run','--offline','--with','lameenc','python3','scripts/audio_reading_parts.py',str(args.folder.resolve())],cwd=ROOT))
     upload_manifest=packaged['manifest']; assets=packaged['assets']
     load_env()
-    token=os.environ.get('CLOUDFLARE_API_TOKEN'); account=os.environ.get('CLOUDFLARE_ACCOUNT_ID')
-    if not token:
-        config=Path.home()/'Library/Preferences/.wrangler/config/default.toml'
-        if config.exists(): token=tomllib.loads(config.read_text()).get('oauth_token')
-    if not token: raise SystemExit('Run bunx wrangler login, or configure CLOUDFLARE_API_TOKEN in .env.')
-    if not account:
-        req=urllib.request.Request('https://api.cloudflare.com/client/v4/accounts',headers={'Authorization':'Bearer '+token})
-        try:
-            with urllib.request.urlopen(req,timeout=30) as response: accounts=json.load(response).get('result',[])
-        except urllib.error.HTTPError as e: raise SystemExit(f'Cloudflare authentication HTTP {e.code}; run bunx wrangler login.') from None
-        if len(accounts)!=1: raise SystemExit('Set CLOUDFLARE_ACCOUNT_ID to select exactly one account.')
-        account=accounts[0]['id']
     storage_file=ROOT/'source/audio-storage.json'
     storage=json.loads(storage_file.read_text())
+    token=cloudflare_token()
+    account=os.environ.get('CLOUDFLARE_ACCOUNT_ID') or storage.get('account_id')
+    if not account: raise RuntimeError('No Cloudflare account ID is configured or pinned for audio storage')
     if account!=storage['account_id']:raise RuntimeError('Authenticated account differs from pinned audio storage')
     bucket=storage['bucket_name']
     base=f'https://api.cloudflare.com/client/v4/accounts/{account}/r2/buckets'
