@@ -30,8 +30,8 @@ Các cổng cuối của toàn lô được chạy lại trên nhánh chứa MN1
 - Astro build: 7.814 trang. Pagefind: 6.991 trang, 468.799 từ, 2 bộ lọc.
 - Static reader: [4/4 panel đạt](reader-static-batch-16-20261115.json), khớp nội dung, score, ngày, reviewer và trạng thái.
 
-Build launcher `npm run build` từng gặp sandbox `tsx` IPC EPERM; các bước sync, validate, tests/check, Astro build và Pagefind được chạy trực tiếp, tuần tự và đều pass. `dist/` là output local bị `.gitignore` loại; không có media được thêm vào Git. Không có public-site/viewport test, thử hiểu với độc giả thật hoặc thẩm định độc lập của học giả Pāli.
+Build launcher `npm run build` từng gặp sandbox `tsx` IPC EPERM; các bước sync, validate, tests/check, Astro build và Pagefind được chạy trực tiếp, tuần tự và đều pass. `dist/` là output local bị `.gitignore` loại; không có media được thêm vào Git. Sau merge, kiểm tra nội dung trên public site đạt 152/152 trang, 304/304 bản; xem [báo cáo production](reader-production-all-mn-20261116.json). Không có viewport test, thử hiểu với độc giả thật hoặc thẩm định độc lập của học giả Pāli.
 
 ## Toàn bộ phạm vi
 
-Đã chọn review cho **304/304** phiên bản; `progress.json` đánh dấu phần review hoàn chỉnh. MN81–MN130 đã merge qua PR #2065 và MN131–MN140 qua PR #2066, merge commit `43120573408c7d726bfb9b005f4ee983b135f744`. MN141–MN152 đang trong PR #2067, còn mở chờ CI/merge; toàn bộ 304 review đã chọn local, nhưng phát hành trên main và production verification còn chờ.
+Đã chọn review cho **304/304** phiên bản; `progress.json` đánh dấu phần review hoàn chỉnh. MN81–MN130 đã merge qua PR #2065 và MN131–MN140 qua PR #2066, merge commit `43120573408c7d726bfb9b005f4ee983b135f744`. PR #2067 đã merge MN141–MN152 tại `1ec8e984fa9d20a78838bb142d03bdfe89f0062e`. Pages workflow run #43737809665 thành công trên commit này. Kiểm tra production xác nhận đủ 152 trang và 304 bản, gồm nội dung, điểm đã chọn, ngày, reviewer, tiêu đề nhóm và trạng thái published; report không xác nhận exact served build SHA. Chưa có viewport test, thử hiểu với độc giả hoặc thẩm định học giả độc lập.
