@@ -1,23 +1,18 @@
 ---
 import { AUDIENCES } from '../lib/canon/explanations';
-import type { Audience, ExplanationBundle, ExplanationSection } from '../lib/canon/explanations';
+import {
+  EXPLANATION_AUDIENCE_LABELS,
+  EXPLANATION_EDITORIAL_NOTE,
+  EXPLANATION_KIND_LABELS,
+  EXPLANATION_SECTION_NOTES,
+} from '../lib/canon/explanation-audio';
+import type { ExplanationBundle, ExplanationSection } from '../lib/canon/explanations';
 
 interface Props {
   bundle: ExplanationBundle | null;
 }
 
 const { bundle } = Astro.props;
-const audienceLabels: Record<Audience, { title: string; anchor: string }> = {
-  children: { title: 'Diễn giải dành cho trẻ em', anchor: 'dien-giai-tre-em' },
-  adults: { title: 'Diễn giải dành cho người trưởng thành', anchor: 'dien-giai-nguoi-truong-thanh' },
-  'older-adults': { title: 'Diễn giải dành cho người lớn tuổi', anchor: 'dien-giai-nguoi-lon-tuoi' },
-};
-const kindLabels: Record<ExplanationSection['kind'], string> = {
-  teaching: 'Tìm hiểu bài kinh',
-  example: 'Ví dụ trong đời sống hôm nay',
-  clarification: 'Chỗ dễ hiểu sai',
-  practice: 'Gợi ý suy xét và thực hành',
-};
 const statusLabels = {
   'not-started': 'Chưa có bản đã duyệt',
   draft: 'Đang biên soạn',
@@ -46,10 +41,7 @@ const formatDate = (date: string) => date.slice(0, 10).split('-').reverse().join
       Ba cách tìm hiểu cùng một bài kinh, với ngôn ngữ và ví dụ phù hợp từng nhóm độc giả.
       Bạn có thể chọn bất kỳ bản nào.
     </p>
-    <p class="explanation-editorial-note">
-      Phần diễn giải do dự án biên soạn để hỗ trợ tìm hiểu; đây không phải nguyên văn lời Phật.
-      Các ví dụ đời sống và gợi ý thực hành là lời của người biên soạn.
-    </p>
+      <p class="explanation-editorial-note">{EXPLANATION_EDITORIAL_NOTE}</p>
   </header>
 
   <div class="explanation-audiences">
@@ -59,7 +51,7 @@ const formatDate = (date: string) => date.slice(0, 10).split('-').reverse().join
       // Keep this guard as well: never render a draft or a stale review's prose.
       const content = view?.status === 'published' ? view.content : undefined;
       const status = content ? 'published' : view?.status === 'published' ? 'review' : view?.status ?? 'not-started';
-      const { title, anchor } = audienceLabels[audience];
+      const { title, anchor } = EXPLANATION_AUDIENCE_LABELS[audience];
       return (
         <details class="explanation-audience" data-audience={audience} data-explanation-status={status}>
           <summary>
@@ -85,21 +77,18 @@ const formatDate = (date: string) => date.slice(0, 10).split('-').reverse().join
                     <section class="explanation-section" data-explanation-kind={section.kind} aria-labelledby={headingId}>
                       {section.heading ? (
                         <>
-                          <p class="explanation-kind">{kindLabels[section.kind]}</p>
+                          <p class="explanation-kind">{EXPLANATION_KIND_LABELS[section.kind]}</p>
                           <h4 id={headingId}>{section.heading}</h4>
                         </>
-                      ) : <h4 id={headingId}>{kindLabels[section.kind]}</h4>}
-                      {section.kind === 'example' && (
-                        <p class="explanation-section-note">Tình huống minh họa do người biên soạn đặt ra.</p>
-                      )}
-                      {section.kind === 'practice' && (
-                        <p class="explanation-section-note">Gợi ý vận dụng của người biên soạn.</p>
+                      ) : <h4 id={headingId}>{EXPLANATION_KIND_LABELS[section.kind]}</h4>}
+                      {EXPLANATION_SECTION_NOTES[section.kind] && (
+                        <p class="explanation-section-note">{EXPLANATION_SECTION_NOTES[section.kind]}</p>
                       )}
                       {section.paragraphs.map((paragraph) => <p class="explanation-paragraph">{paragraph}</p>)}
                       {sources.length > 0 && (
                         <details class="explanation-sources">
                           <summary>Đối chiếu với kinh văn <span>({sources.length} đoạn)</span></summary>
-                          <ul aria-label={`Các đoạn kinh làm căn cứ cho ${section.heading ?? kindLabels[section.kind]}`}>
+                          <ul aria-label={`Các đoạn kinh làm căn cứ cho ${section.heading ?? EXPLANATION_KIND_LABELS[section.kind]}`}>
                             {sources.map((segment) => <li><a href={`#${segment}`}>{segment}</a></li>)}
                           </ul>
                         </details>

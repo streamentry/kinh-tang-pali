@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { adjacentTexts, orderedAudioItems, stepAudioIndex, readAutoNext, saveAutoNext, rememberContinuation, consumeContinuation, playlistIndexFromHash, playlistTrackUrl, AUTO_NEXT_KEY, CONTINUE_KEY } from '../../src/lib/audio/navigation';
+import { adjacentTexts, orderedAudioItems, stepAudioIndex, readAutoNext, saveAutoNext, readAudioVersion, saveAudioVersion, rememberContinuation, consumeContinuation, consumeContinuationVersion, playlistIndexFromHash, playlistTrackUrl, AUDIO_VERSION_KEY, AUTO_NEXT_KEY, CONTINUE_KEY } from '../../src/lib/audio/navigation';
 const storage = () => { const values = new Map<string,string>(); return { getItem: (k:string) => values.get(k) ?? null, setItem: (k:string,v:string) => { values.set(k,v); }, removeItem: (k:string) => { values.delete(k); } }; };
 test('catalog order determines next/back including collection boundaries', () => {
   const texts = [{uid:'mn10',order:10},{uid:'mn2',order:2},{uid:'mn1',order:1}];
@@ -45,6 +45,14 @@ test('auto next defaults on and persists off/on, surviving denied storage', () =
   const denied={getItem:()=>{throw Error();},setItem:()=>{throw Error();},removeItem:()=>{throw Error();}};
   assert.equal(readAutoNext(denied),true);assert.doesNotThrow(()=>saveAutoNext(denied,false));
 });
+test('selected audio version persists independently of auto-next and defaults to original', () => {
+  const s=storage(); assert.equal(readAudioVersion(s),'original');
+  saveAudioVersion(s,'children'); assert.equal(readAudioVersion(s),'children');
+  assert.equal(s.getItem(AUDIO_VERSION_KEY),'children');
+  s.setItem(AUDIO_VERSION_KEY,'not-a-version'); assert.equal(readAudioVersion(s),'original');
+  const denied={getItem:()=>{throw Error();},setItem:()=>{throw Error();},removeItem:()=>{throw Error();}};
+  assert.equal(readAudioVersion(denied),'original'); assert.doesNotThrow(()=>saveAudioVersion(denied,'adults'));
+});
 test('continuation starts only the intended next page once and expires', () => {
   const s=storage();rememberContinuation(s,'/base/mn2/',100);
   assert.equal(consumeContinuation(s,'/base/mn2/',200),true);
@@ -53,4 +61,13 @@ test('continuation starts only the intended next page once and expires', () => {
   rememberContinuation(s,'/base/mn2/',100);assert.equal(consumeContinuation(s,'/base/mn2/',60100),false);
   s.setItem(CONTINUE_KEY,'bad json');assert.equal(consumeContinuation(s,'/base/mn2/',200),false);
   assert.equal(s.getItem(CONTINUE_KEY),null);assert.equal(s.getItem(AUTO_NEXT_KEY),null);
+});
+test('auto-next continuation remembers the chosen version without affecting ordinary page entry', () => {
+  const s=storage(); rememberContinuation(s,'/base/mn2/',100,'older-adults');
+  assert.equal(consumeContinuationVersion(s,'/base/mn2/',200),'older-adults');
+  assert.equal(consumeContinuationVersion(s,'/base/mn2/',201),null);
+  rememberContinuation(s,'/base/mn2/',100,'children');
+  assert.equal(consumeContinuationVersion(s,'/base/mn3/',200),null);
+  rememberContinuation(s,'/base/mn2/',100);
+  assert.equal(consumeContinuationVersion(s,'/base/mn2/',200),'original');
 });

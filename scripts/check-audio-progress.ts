@@ -3,6 +3,7 @@ import { loadCatalog } from '../src/lib/canon/load';
 import { composeDocument } from '../src/lib/canon/document';
 import { hasAudioRegistration, loadAudio, narrationHash } from '../src/lib/canon/audio';
 import { narrationIssues } from '../src/lib/canon/audio-source';
+import { EXPLANATION_AUDIO_AUDIENCES, explanationNarrationSource } from '../src/lib/canon/explanation-audio';
 import { audioQueue, GROUP_AUDIO_COLLECTIONS } from '../src/lib/canon/audio-catalog';
 import { execFileSync } from 'node:child_process';
 const profile=JSON.parse(fs.readFileSync('source/narration-profile.json','utf8'));
@@ -51,6 +52,39 @@ for (const {c,uid} of expected) {
 for(const collection of GROUP_AUDIO_COLLECTIONS)for(const {uid} of audioQueue(collection)) {
  if(hasAudioRegistration(uid)&&!queuedGroupUids.has(uid))errors.push(`${uid}: audio registration missing from production queue`);
 }
+let explanationTracks=0;
+for(const {uid} of audioQueue('mn')) {
+ const file=`content/audio/${uid}.json`;
+ if(!fs.existsSync(file))continue;
+ const registry=JSON.parse(fs.readFileSync(file,'utf8')) as {explanation_tracks?:Record<string,any>};
+ const registered=registry.explanation_tracks??{};
+ if(Object.keys(registered).some(audience=>!EXPLANATION_AUDIO_AUDIENCES.includes(audience as typeof EXPLANATION_AUDIO_AUDIENCES[number]))) {
+   errors.push(`${uid}: unknown explanation-audio audience key`);
+ }
+ for(const audience of EXPLANATION_AUDIO_AUDIENCES) {
+   const variant=registered[audience]; if(!variant)continue;
+   explanationTracks++;
+   try {
+     const source=explanationNarrationSource(uid,audience);
+     const audio=loadAudio(composeDocument('mn',uid));
+     if(variant.uid!==uid||variant.collection!=='mn'||variant.audience_variant!==audience
+        ||variant.source_sha256!==source.source_sha256||variant.selected_review_id!==source.selected_review_id
+        ||variant.review_date!==source.review_date||variant.content_hash!==source.content_hash)
+       errors.push(`${uid}/${audience}: explanation audio source/review identity differs`);
+     if(variant.narration_profile_id!=='vi-charon-mn1-v1'||variant.narration_profile_sha256!==profileHash)
+       errors.push(`${uid}/${audience}: explanation audio profile differs from the approved pin`);
+     if(variant.review_status!=='pending'&&variant.review_status!=='approved')
+       errors.push(`${uid}/${audience}: invalid explanation audio review status`);
+     if(!variant.upload_verified||!variant.r2_full_sha256_verified||!variant.public_range_verified)
+       errors.push(`${uid}/${audience}: incomplete public R2 verification`);
+     if(!audio?.versions.some(version=>version.id===audience))
+       errors.push(`${uid}/${audience}: current explanation audio would be hidden from the player`);
+   } catch(error) {
+     errors.push(`${uid}/${audience}: ${error instanceof Error?error.message:'explanation audio source check failed'}`);
+   }
+ }
+}
 console.log(`Audio progress: ${total} queued texts, ${errors.length} errors`);
+console.log(`MN explanation audio: ${explanationTracks} registered audience tracks`);
 for (const e of errors)console.error(e);
 if(errors.length)process.exitCode=1;

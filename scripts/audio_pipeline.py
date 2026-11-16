@@ -12,6 +12,14 @@ def audio_object_key(source, manifest):
         raise RuntimeError('Invalid source/manifest identity')
     if manifest.get('collection',collection if collection in ('mn','dn') else None)!=collection:
         raise RuntimeError('Manifest collection differs from catalog')
+    audience=manifest.get('audience_variant')
+    if audience is not None:
+        if (collection!='mn' or audience not in ('children','adults','older-adults')
+                or source.get('policy')!='explanation-audience-v1'
+                or manifest.get('transcript_policy')!='explanation-audience-v1'
+                or source.get('audience')!=audience or manifest.get('scripture_start_seconds')!=0):
+            raise RuntimeError('Explanation track identity/policy differs from source')
+        return f'vi/mn/{source["uid"]}/explanations/{audience}/{manifest["sha256"][:16]}.mp3'
     if collection not in ('mn','dn'):
         if source.get('policy')!='title-scripture-v1' or manifest.get('transcript_policy')!=source['policy'] or manifest['scripture_start_seconds']!=0:
             raise RuntimeError('Manifest transcript policy differs from source')
@@ -63,7 +71,7 @@ def rebalance_quote_boundaries(planned, limit):
     for index in range(len(planned)-1):
         current,next_chunk=planned[index:index+2]
         if index==0 or planned[index-1]['section']!=current['section'] or planned[index-1].get('pause_after_seconds') is not None:prefix=''
-        if current['section']!='scripture' or next_chunk['section']!='scripture' or current.get('pause_after_seconds') is not None:
+        if current['section'] not in ('scripture','explanation') or next_chunk['section']!=current['section'] or current.get('pause_after_seconds') is not None:
             prefix+=current['text'];continue
         initial=_quote_stack(prefix)
         if initial is None:initial=()
@@ -81,6 +89,13 @@ def rebalance_quote_boundaries(planned, limit):
 
 def plan_source(source, profile):
     summary=source['summary']
+    policy=source.get('policy')
+    if policy=='explanation-audience-v1':
+        if source.get('collection')!='mn' or source.get('audience') not in ('children','adults','older-adults') or summary:
+            raise ValueError('Invalid explanation-audience narration source')
+        spoken_section='explanation'
+    else:
+        spoken_section='scripture'
     planned=[]
     def append(section,text):
         for part in split_text(text,profile['chunk_max_chars']):
@@ -95,17 +110,18 @@ def plan_source(source, profile):
     for _,value in source['segments']:
         if not value.strip('… .'):
             if group:
-                append('scripture','\n\n'.join(group));group=[]
-            if planned and planned[-1]['section']=='scripture':
+                append(spoken_section,'\n\n'.join(group));group=[]
+            if planned and planned[-1]['section']==spoken_section:
                 planned[-1]['pause_after_seconds']=planned[-1].get('pause_after_seconds',profile['chunk_pause_seconds'])+profile['chunk_pause_seconds']
             continue
         group.append(value);expected.append(value)
-    if group:append('scripture','\n\n'.join(group))
+    if group:append(spoken_section,'\n\n'.join(group))
     planned=rebalance_quote_boundaries(planned,profile['chunk_max_chars'])
     # Chunk boundaries only add/remove presentation whitespace between complete segments.
     normalize=lambda text:' '.join(text.split())
     if ''.join(p['text'] for p in planned if p['section']=='summary')!=summary:raise RuntimeError('Summary accounting failed')
-    if normalize(' '.join(p['text'] for p in planned if p['section']=='scripture'))!=normalize(' '.join(expected)):raise RuntimeError('Scripture accounting failed')
+    if normalize(' '.join(p['text'] for p in planned if p['section']==spoken_section))!=normalize(' '.join(expected)):
+        raise RuntimeError('Narration text accounting failed')
     return planned
 
 def subdivide_repair_chunks(planned, indices, profile):
@@ -115,8 +131,8 @@ def subdivide_repair_chunks(planned, indices, profile):
     TTS loops. Keep an omission's extra pause only after its final subchunk.
     """
     indices=set(indices)
-    if not indices or any(i<0 or i>=len(planned) or planned[i]['section']!='scripture' for i in indices):
-        raise ValueError('Repair indices must identify existing scripture chunks (zero-based)')
+    if not indices or any(i<0 or i>=len(planned) or planned[i]['section'] not in ('scripture','explanation') for i in indices):
+        raise ValueError('Repair indices must identify existing narration chunks (zero-based)')
     repaired=[]
     for index,item in enumerate(planned):
         if index not in indices:
@@ -126,7 +142,7 @@ def subdivide_repair_chunks(planned, indices, profile):
             repaired.append({'section':item['section'],'text':part,'text_sha256':digest(part.encode())})
         if 'pause_after_seconds' in item:
             repaired[-1]['pause_after_seconds']=item['pause_after_seconds']
-    for section in ('summary','scripture'):
+    for section in {item['section'] for item in planned}:
         if ''.join(i['text'] for i in planned if i['section']==section)!=''.join(i['text'] for i in repaired if i['section']==section):
             raise RuntimeError('Repair text accounting failed')
     return repaired
