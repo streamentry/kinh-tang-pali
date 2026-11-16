@@ -1,20 +1,61 @@
 ---
-import type { SuttaAudio } from '../lib/canon/audio';
-interface Neighbour { uid: string; href: string; hasAudio?: boolean; }
+import type { AudioVersionId, AudioVersionPlayerData, SuttaAudio } from '../lib/canon/audio';
+import { EXPLANATION_AUDIENCE_LABELS } from '../lib/canon/explanation-audio';
+import { locatePart } from '../lib/audio/parts';
+interface Neighbour { uid: string; href: string; versions?: AudioVersionId[]; }
 interface Props { audio: SuttaAudio; title: string; previous?: Neighbour; next?: Neighbour; }
 const { audio, title, previous, next } = Astro.props;
-const minutes = Math.round(audio.duration_seconds / 60);
-const length = audio.duration_seconds < 60 ? `${Math.round(audio.duration_seconds)} giây` : `${minutes} phút`;
-const hasSummary = audio.scripture_start_seconds > 0;
+const versions = audio.versions;
+const original = versions.find((version) => version.id === 'original')!;
+const available = new Set(versions.map((version) => version.id));
+const labels: Record<AudioVersionId, string> = {
+  original: original.label,
+  children: EXPLANATION_AUDIENCE_LABELS.children.title,
+  adults: EXPLANATION_AUDIENCE_LABELS.adults.title,
+  'older-adults': EXPLANATION_AUDIENCE_LABELS['older-adults'].title,
+};
+const minutes = Math.round(original.duration_seconds / 60);
+const length = original.duration_seconds < 60 ? `${Math.round(original.duration_seconds)} giây` : `${minutes} phút`;
+const hasSummary = original.scripture_start_seconds > 0;
 const timestamp = (seconds: number) => `${Math.floor(seconds / 60)}:${Math.floor(seconds % 60).toString().padStart(2, '0')}`;
+const audioHref = (version: AudioVersionPlayerData) => {
+  if (version.parts?.length) {
+    const position = locatePart(version.parts, version.start_seconds);
+    const part = version.parts[position.index];
+    return position.time > 0 ? `${part.url}#t=${position.time}` : part.url;
+  }
+  return version.start_seconds > 0 ? `${version.url}#t=${version.start_seconds}` : version.url;
+};
 ---
-<sutta-audio class="listening" id="lang-nghe" data-pagefind-ignore data-scripture={audio.scripture_start_seconds} data-media={JSON.stringify({url: audio.url, duration_seconds: audio.duration_seconds, parts: audio.parts?.map(p => ({url: p.url, duration_seconds: p.duration_seconds}))})} data-next={next?.hasAudio ? next.href : undefined}>
+<sutta-audio class="listening" id="lang-nghe" data-pagefind-ignore
+  data-versions={JSON.stringify(versions)}
+  data-next={next?.versions?.includes('original') ? next.href : undefined}
+  data-next-versions={JSON.stringify(next?.versions ?? [])}>
   <div class="listening-heading">
-    <div><div class="listening-kicker"><p class="listening-label">Lắng nghe · Việt 2026</p>{audio.review_status === 'pending' && <span class="listening-review">Chờ nghe duyệt</span>}</div><h2>{title}</h2></div>
-    <span class="listening-length">{audio.uid.toUpperCase()} · {length}</span>
+    <div>
+      <div class="listening-kicker">
+        <p class="listening-label" data-track-label>{original.label}</p>
+        <span class="listening-review" data-track-review={original.review_status}>{original.review_status === 'pending' ? 'Chờ nghe duyệt' : ''}</span>
+      </div>
+      <h2>{title}</h2>
+    </div>
+    <span class="listening-length">{audio.uid.toUpperCase()} · <span data-track-length>{length}</span></span>
   </div>
-  <audio controls preload="metadata" src={audio.url} aria-label={`Nghe ${title}`}></audio>
-  {audio.parts && <ol class="listen-part-files" aria-label="Các phần MP3">{audio.parts.map((part, i) => <li><a href={part.url} target="_blank" rel="noopener">Phần {i + 1} / {audio.parts!.length}</a></li>)}</ol>}
+  <audio controls preload="metadata" src={audioHref(original)} aria-label={`Nghe ${title}`}></audio>
+  <noscript>
+    <details class="listen-version-fallback">
+      <summary>Chọn phiên bản audio</summary>
+      <ul>
+        {versions.map((version) => <li>
+          <a href={audioHref(version)}>{version.label} · MP3</a>
+          {version.parts && <ol class="listen-part-files" aria-label={`Các phần MP3: ${version.label}`}>
+            {version.parts.map((part, i) => <li><a href={part.url} target="_blank" rel="noopener">Phần {i + 1} / {version.parts!.length}</a></li>)}
+          </ol>}
+        </li>)}
+      </ul>
+      <p>Track chuẩn hiện có phần tóm tắt trước kinh văn. Link trên nhảy thẳng đến mốc kinh văn.</p>
+    </details>
+  </noscript>
   <div class="listening-custom" hidden>
     <div class="listening-console">
       <div class="listening-transport" role="group" aria-label="Điều khiển phát">
@@ -33,34 +74,47 @@ const timestamp = (seconds: number) => `${Math.floor(seconds / 60)}:${Math.floor
       <div class="listening-timeline">
         <div class="listen-track">
           <span class="listen-rail" aria-hidden="true"><span class="listen-progress"></span></span>
-          <input class="listen-seek" type="range" min="0" max={audio.duration_seconds} step="1" value="0" aria-label="Vị trí phát" />
+          <input class="listen-seek" type="range" min="0" max={original.duration_seconds} step="1" value={original.start_seconds} aria-label="Vị trí phát" />
         </div>
-        <div class="listen-clock"><span><span data-current>0:00</span><span class="listen-phase" data-phase>{hasSummary ? 'Tóm tắt' : 'Kinh văn'}</span></span><span data-duration>{timestamp(audio.duration_seconds)}</span></div>
+        <div class="listen-clock"><span><span data-current>{timestamp(original.start_seconds)}</span><span class="listen-phase" data-phase>{hasSummary ? 'Kinh văn' : 'Diễn giải'}</span></span><span data-duration>{timestamp(original.duration_seconds)}</span></div>
       </div>
     </div>
     <div class="listening-options">
-      <div class="listen-chapters" role="group" aria-label="Chọn phần nghe">
-        {hasSummary && <button type="button" data-summary-jump aria-current="true">Tóm tắt <span>0:00</span></button>}
-        <button type="button" data-scripture-jump aria-current={!hasSummary ? 'true' : undefined}>Kinh văn <span>{timestamp(audio.scripture_start_seconds)}</span></button>
+      <label class="listen-version">
+        <span>Bản nghe</span>
+        <select aria-label="Chọn bản audio" data-version-select>
+          {(['original','children','adults','older-adults'] as AudioVersionId[]).map((id) => (
+            <option value={id} selected={id === 'original'} disabled={!available.has(id)}>
+              {labels[id]}{available.has(id) ? '' : ' — chưa có audio'}
+            </option>
+          ))}
+        </select>
+      </label>
+      <p class="listen-version-description" data-version-description>{original.description}</p>
+      <div class="listen-chapters" role="group" aria-label="Chọn phần nghe" data-original-chapters>
+        {hasSummary && <button type="button" data-summary-jump>Tóm tắt <span>0:00</span></button>}
+        <button type="button" data-scripture-jump aria-current="true">Kinh văn <span>{timestamp(original.scripture_start_seconds)}</span></button>
       </div>
       <label class="listen-speed">Tốc độ <select aria-label="Tốc độ phát"><option value="0.85">0.85×</option><option value="1" selected>1×</option><option value="1.15">1.15×</option><option value="1.25">1.25×</option><option value="1.5">1.5×</option></select></label>
     </div>
-    <p class="listen-notice" role="status" hidden></p>
-    <p class="listen-error" role="status" hidden>Không tải được âm thanh. Bạn có thể thử lại hoặc mở MP3 trực tiếp.</p>
+    <p class="listen-notice" role="status" aria-live="polite" hidden></p>
+    <p class="listen-error" role="status" aria-live="polite" hidden>Không tải được âm thanh. Bạn có thể thử lại hoặc mở MP3 trực tiếp.</p>
   </div>
   <div class="listening-footer">
     <nav class="listening-navigation" aria-label="Chuyển bài kinh">
       {previous ? <a class="listen-neighbour" href={previous.href} aria-label={`Bài trước: ${previous.uid.toUpperCase()}`}><span aria-hidden="true">←</span><span class="listen-neighbour-copy">Bài trước <span class="listen-uid">{previous.uid.toUpperCase()}</span></span></a> : <button class="listen-neighbour" disabled aria-label="Không có bài trước"><span aria-hidden="true">←</span> Bài trước</button>}
       {next ? <a class="listen-neighbour" href={next.href} aria-label={`Bài tiếp theo: ${next.uid.toUpperCase()}`}><span class="listen-neighbour-copy">Bài tiếp <span class="listen-uid">{next.uid.toUpperCase()}</span></span><span aria-hidden="true">→</span></a> : <button class="listen-neighbour" disabled aria-label="Không có bài tiếp theo">Bài tiếp <span aria-hidden="true">→</span></button>}
     </nav>
-    <label class="listen-auto" hidden><input type="checkbox" role="switch" checked data-auto-next /><span>Tự chuyển bài</span></label>
-    <a class="listen-file" href={audio.url} target="_blank" rel="noopener">Mở MP3 <span aria-hidden="true">↗</span></a>
+    <label class="listen-auto" hidden><input type="checkbox" role="switch" checked data-auto-next /><span>Tự chuyển bài cùng bản đang nghe</span></label>
+    <a class="listen-file" href={audioHref(original)} data-open-track target="_blank" rel="noopener">Mở MP3 <span aria-hidden="true">↗</span></a>
   </div>
 </sutta-audio>
 <script>
-  import { readAutoNext, saveAutoNext, rememberContinuation, consumeContinuation, AUTO_NEXT_KEY } from '../lib/audio/navigation';
-  import { ReadingPlayer } from '../lib/audio/parts';
+  import { readAutoNext, saveAutoNext, rememberContinuation, consumeContinuationVersion, AUTO_NEXT_KEY, readAudioVersion, saveAudioVersion, AUDIO_VERSION_KEY } from '../lib/audio/navigation';
+  import { locatePart, ReadingPlayer } from '../lib/audio/parts';
   import { isScripturePhase, playFailure } from '../lib/audio/playback';
+  import type { AudioVersionPlayerData, AudioVersionId } from '../lib/canon/audio';
+
   class SuttaAudioElement extends HTMLElement {
     private cleanup?: () => void;
     disconnectedCallback() { this.cleanup?.(); delete this.dataset.ready; }
@@ -72,12 +126,34 @@ const timestamp = (seconds: number) => `${Math.floor(seconds / 60)}:${Math.floor
       const play = this.querySelector<HTMLButtonElement>('.listen-play')!;
       const seek = this.querySelector<HTMLInputElement>('.listen-seek')!;
       const progress = this.querySelector<HTMLElement>('.listen-progress')!;
-      const summary = this.querySelector<HTMLButtonElement>('[data-summary-jump]')!;
-      const scripture = this.querySelector<HTMLButtonElement>('[data-scripture-jump]')!;
+      const summary = this.querySelector<HTMLButtonElement>('[data-summary-jump]');
+      const scripture = this.querySelector<HTMLButtonElement>('[data-scripture-jump]');
+      const chapters = this.querySelector<HTMLElement>('[data-original-chapters]')!;
+      const versionSelect = this.querySelector<HTMLSelectElement>('[data-version-select]')!;
+      const versionDescription = this.querySelector<HTMLElement>('[data-version-description]')!;
+      const versionLabel = this.querySelector<HTMLElement>('[data-track-label]')!;
+      const versionLength = this.querySelector<HTMLElement>('[data-track-length]')!;
+      const reviewLabel = this.querySelector<HTMLElement>('[data-track-review]')!;
+      const openTrack = this.querySelector<HTMLAnchorElement>('[data-open-track]')!;
       const error = this.querySelector<HTMLElement>('.listen-error')!;
       const notice = this.querySelector<HTMLElement>('.listen-notice')!;
       const autoNext = this.querySelector<HTMLInputElement>('[data-auto-next]')!;
+      const versions = JSON.parse(this.dataset.versions ?? '[]') as AudioVersionPlayerData[];
+      const byId = new Map(versions.map((version) => [version.id, version]));
+      const original = byId.get('original');
+      if (!original) return;
+      const labelsFromOptions = new Map(Array.from(versionSelect.options).map(option => [option.value, option.textContent?.replace(/\s+— chưa có audio$/, '') ?? option.value]));
+      const versionHref = (version: AudioVersionPlayerData) => {
+        if (version.parts?.length) {
+          const position = locatePart(version.parts, version.start_seconds);
+          const part = version.parts[position.index];
+          return position.time > 0 ? `${part.url}#t=${position.time}` : part.url;
+        }
+        return version.start_seconds > 0 ? `${version.url}#t=${version.start_seconds}` : version.url;
+      };
+
       let enabled = true;
+      let playbackRequest = 0;
       try { enabled = readAutoNext(localStorage); } catch { /* Storage access itself can be denied. */ }
       autoNext.checked = enabled;
       this.querySelector<HTMLElement>('.listen-auto')!.hidden = false;
@@ -93,22 +169,39 @@ const timestamp = (seconds: number) => `${Math.floor(seconds / 60)}:${Math.floor
       window.addEventListener('storage', onStorage);
       const say = (message: string) => { notice.textContent = message; notice.hidden = false; };
       const format = (n: number) => `${Math.floor(n / 60)}:${Math.floor(n % 60).toString().padStart(2, '0')}`;
-      const media = new ReadingPlayer(audio, JSON.parse(this.dataset.media!), failure => {
+      let active = original;
+      const media = new ReadingPlayer(audio, original, failure => {
         if (playFailure(failure) === 'blocked') say('Bấm Phát để nghe tiếp phần này.');
         else if (playFailure(failure) === 'unavailable') error.hidden = false;
       });
-      this.cleanup = () => { window.removeEventListener('storage', onStorage); media.destroy(); };
+      const activate = (version: AudioVersionPlayerData, seekToStart = true) => {
+        if (version.id !== active.id) media.select(version);
+        active = version;
+        if (seekToStart && version.start_seconds > 0) media.seek(version.start_seconds);
+        versionSelect.value = version.id;
+        versionLabel.textContent = version.label;
+        const minutes = Math.round(version.duration_seconds / 60);
+        versionLength.textContent = version.duration_seconds < 60 ? `${Math.round(version.duration_seconds)} giây` : `${minutes} phút`;
+        versionDescription.textContent = version.description;
+        reviewLabel.hidden = version.review_status !== 'pending';
+        reviewLabel.textContent = version.review_status === 'pending' ? 'Chờ nghe duyệt' : '';
+        chapters.hidden = version.kind !== 'sutta';
+        openTrack.href = versionHref(version);
+        openTrack.setAttribute('aria-label', `Mở MP3: ${version.label}`);
+        update();
+      };
       const duration = () => media.duration;
       const update = () => {
-        this.querySelector('[data-current]')!.textContent = format(media.currentTime);
+        const currentTime = media.currentTime;
+        this.querySelector('[data-current]')!.textContent = format(currentTime);
         this.querySelector('[data-duration]')!.textContent = format(duration());
-        seek.max = String(duration()); seek.value = String(media.currentTime);
-        seek.setAttribute('aria-valuetext', `${format(media.currentTime)} / ${format(duration())}`);
-        progress.style.width = `${Math.max(0, Math.min(100, media.currentTime / duration() * 100))}%`;
-        const inScripture = isScripturePhase(media.currentTime, Number(this.dataset.scripture));
-        this.querySelector('[data-phase]')!.textContent = `${inScripture ? 'Kinh văn' : 'Tóm tắt'}${media.partCount > 1 ? ` · Phần ${media.partNumber}/${media.partCount}` : ''}`;
-        summary?.setAttribute('aria-current', String(!inScripture));
-        scripture.setAttribute('aria-current', String(inScripture));
+        seek.max = String(duration()); seek.value = String(currentTime);
+        seek.setAttribute('aria-valuetext', `${format(currentTime)} / ${format(duration())}`);
+        progress.style.width = `${Math.max(0, Math.min(100, currentTime / duration() * 100))}%`;
+        const phase = active.kind === 'explanation' ? 'Diễn giải' : isScripturePhase(currentTime, active.scripture_start_seconds) ? 'Kinh văn' : 'Tóm tắt';
+        this.querySelector('[data-phase]')!.textContent = `${phase}${media.partCount > 1 ? ` · Phần ${media.partNumber}/${media.partCount}` : ''}`;
+        summary?.setAttribute('aria-current', String(active.kind === 'sutta' && !isScripturePhase(currentTime, active.scripture_start_seconds)));
+        scripture?.setAttribute('aria-current', String(active.kind === 'sutta' && isScripturePhase(currentTime, active.scripture_start_seconds)));
       };
       const state = () => {
         play.setAttribute('aria-label', audio.paused ? 'Phát bài đọc' : 'Tạm dừng bài đọc');
@@ -117,12 +210,34 @@ const timestamp = (seconds: number) => `${Math.floor(seconds / 60)}:${Math.floor
         this.querySelector('[data-play-icon]')!.toggleAttribute('hidden', !audio.paused);
         this.querySelector('[data-pause-icon]')!.toggleAttribute('hidden', audio.paused);
       };
+      const onVersionStorage = (event: StorageEvent) => {
+        if (event.key !== AUDIO_VERSION_KEY && event.key !== null) return;
+        try {
+          const selected = byId.get(readAudioVersion(localStorage));
+          if (selected && selected.id !== active.id) {
+            playbackRequest++;
+            audio.pause(); activate(selected); state();
+          }
+        } catch { /* Keep the in-page selection if storage is unavailable. */ }
+      };
+      window.addEventListener('storage', onVersionStorage);
+      this.cleanup = () => { window.removeEventListener('storage', onStorage); window.removeEventListener('storage', onVersionStorage); media.destroy(); };
+      versionSelect.addEventListener('change', () => {
+        const selected = byId.get(versionSelect.value as AudioVersionId);
+        if (!selected) { versionSelect.value = active.id; return; }
+        playbackRequest++;
+        error.hidden = true; notice.hidden = true; audio.pause();
+        activate(selected);
+        try { saveAudioVersion(localStorage, selected.id); } catch { /* Keep the in-page selection. */ }
+        state();
+      });
       play.addEventListener('click', async () => {
+        const request = ++playbackRequest;
         error.hidden = true;
         if (!audio.paused) { audio.pause(); return; }
-        if (media.ended) media.seek(0);
+        if (media.ended) media.seek(active.start_seconds);
         try { await audio.play(); } catch (failure) {
-          // Name the actual cause: a blocked autoplay is not a broken file, and the reverse.
+          if (request !== playbackRequest) return;
           const cause = playFailure(failure);
           if (cause === 'blocked') say('Trình duyệt chưa cho phép phát. Bấm Phát lần nữa để nghe.');
           else if (cause === 'unavailable') error.hidden = false;
@@ -134,8 +249,8 @@ const timestamp = (seconds: number) => `${Math.floor(seconds / 60)}:${Math.floor
         media.seek(media.currentTime + Number(button.dataset.jump)); update();
       }));
       summary?.addEventListener('click', () => { media.seek(0); update(); });
-      scripture.addEventListener('click', () => { media.seek(Number(this.dataset.scripture)); update(); });
-      this.querySelector('select')!.addEventListener('change', event => { media.setPlaybackRate(Number((event.target as HTMLSelectElement).value)); });
+      scripture?.addEventListener('click', () => { media.seek(active.scripture_start_seconds); update(); });
+      this.querySelector<HTMLSelectElement>('.listen-speed select')!.addEventListener('change', event => media.setPlaybackRate(Number((event.target as HTMLSelectElement).value)));
       audio.addEventListener('loadedmetadata', update); audio.addEventListener('timeupdate', update);
       audio.addEventListener('play', () => { notice.hidden = true; state(); }); audio.addEventListener('pause', state);
       audio.addEventListener('ended', () => {
@@ -146,17 +261,26 @@ const timestamp = (seconds: number) => `${Math.floor(seconds / 60)}:${Math.floor
           say(this.querySelector('a[aria-label^="Bài tiếp theo"]') ? 'Bài tiếp theo chưa có audio. Bạn có thể bấm Bài tiếp để đọc bài.' : 'Bạn đã nghe hết bài cuối của bộ kinh.');
           return;
         }
-        try { rememberContinuation(sessionStorage, new URL(next, location.href).pathname); } catch { /* Navigate without autoplay if storage is denied. */ }
+        const nextVersions = JSON.parse(this.dataset.nextVersions ?? '[]') as AudioVersionId[];
+        if (!nextVersions.includes(active.id)) { say(`Bản “${active.label}” của bài kế tiếp chưa có audio; đã dừng tại bài này.`); return; }
+        try { rememberContinuation(sessionStorage, new URL(next, location.href).pathname, Date.now(), active.id); } catch { /* Navigation still works without autoplay. */ }
         location.assign(next);
       });
       audio.addEventListener('error', () => { error.hidden = false; state(); });
-      // The file may have failed before this listener existed (it starts loading with the page).
       if (audio.error) error.hidden = false;
-      audio.controls = false; audio.hidden = true; custom.hidden = false; update();
-      let continuing = false;
-      try { continuing = consumeContinuation(sessionStorage, location.pathname); } catch { /* Ordinary visits never autoplay. */ }
-      if (continuing && enabled) {
+      audio.controls = false; audio.hidden = true; custom.hidden = false;
+
+      let continuationVersion: AudioVersionId | null = null;
+      try { continuationVersion = consumeContinuationVersion(sessionStorage, location.pathname); } catch { /* Ordinary visits never autoplay. */ }
+      let requested = continuationVersion;
+      if (!requested) { try { requested = readAudioVersion(localStorage); } catch { requested = 'original'; } }
+      const initial = byId.get(requested) ?? original;
+      activate(initial);
+      if (requested !== initial.id) say(`Bản “${labelsFromOptions.get(requested) ?? requested}” chưa có audio cho bài này; đang giữ bản chuẩn.`);
+      if (continuationVersion && enabled && byId.has(continuationVersion)) {
+        const request = ++playbackRequest;
         audio.play().catch((failure) => {
+          if (request !== playbackRequest) return;
           const cause = playFailure(failure);
           if (cause === 'blocked') say('Trình duyệt chưa cho phép tự phát. Bấm Phát để nghe tiếp bài này.');
           else if (cause === 'unavailable') error.hidden = false;

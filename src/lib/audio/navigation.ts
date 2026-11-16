@@ -1,5 +1,8 @@
 export const AUTO_NEXT_KEY = 'kinh-tang-pali:audio:auto-next:v1';
 export const CONTINUE_KEY = 'kinh-tang-pali:audio:continue:v1';
+export const AUDIO_VERSION_KEY = 'kinh-tang-pali:audio:version:v1';
+export const AUDIO_VERSION_IDS = ['original', 'children', 'adults', 'older-adults'] as const;
+export type AudioVersionPreference = (typeof AUDIO_VERSION_IDS)[number];
 export interface StorageLike { getItem(key: string): string | null; setItem(key: string, value: string): void; removeItem(key: string): void; }
 export function readAutoNext(storage: StorageLike): boolean {
   try { return storage.getItem(AUTO_NEXT_KEY) !== 'false'; } catch { return true; }
@@ -7,17 +10,32 @@ export function readAutoNext(storage: StorageLike): boolean {
 export function saveAutoNext(storage: StorageLike, enabled: boolean) {
   try { storage.setItem(AUTO_NEXT_KEY, String(enabled)); } catch { /* Continue in memory when storage is unavailable. */ }
 }
-export function rememberContinuation(storage: StorageLike, pathname: string, now = Date.now()) {
-  try { storage.setItem(CONTINUE_KEY, JSON.stringify({ pathname, at: now })); } catch { /* Navigation still works. */ }
+export function readAudioVersion(storage: StorageLike): AudioVersionPreference {
+  try {
+    const value = storage.getItem(AUDIO_VERSION_KEY);
+    return AUDIO_VERSION_IDS.includes(value as AudioVersionPreference) ? value as AudioVersionPreference : 'original';
+  } catch { return 'original'; }
 }
-export function consumeContinuation(storage: StorageLike, pathname: string, now = Date.now()): boolean {
+export function saveAudioVersion(storage: StorageLike, version: AudioVersionPreference) {
+  if (!AUDIO_VERSION_IDS.includes(version)) return;
+  try { storage.setItem(AUDIO_VERSION_KEY, version); } catch { /* Keep the in-page choice when storage is unavailable. */ }
+}
+export function rememberContinuation(storage: StorageLike, pathname: string, now = Date.now(), version: AudioVersionPreference = 'original') {
+  try { storage.setItem(CONTINUE_KEY, JSON.stringify({ pathname, at: now, version })); } catch { /* Navigation still works. */ }
+}
+export function consumeContinuationVersion(storage: StorageLike, pathname: string, now = Date.now()): AudioVersionPreference | null {
   try {
     const raw = storage.getItem(CONTINUE_KEY);
     storage.removeItem(CONTINUE_KEY);
-    if (!raw) return false;
+    if (!raw) return null;
     const entry = JSON.parse(raw);
-    return entry.pathname === pathname && Number.isFinite(entry.at) && now >= entry.at && now - entry.at < 60_000;
-  } catch { return false; }
+    if (entry.pathname !== pathname || !Number.isFinite(entry.at) || now < entry.at || now - entry.at >= 60_000) return null;
+    if (entry.version === undefined) return 'original'; // Continue markers written before version selection.
+    return AUDIO_VERSION_IDS.includes(entry.version) ? entry.version as AudioVersionPreference : null;
+  } catch { return null; }
+}
+export function consumeContinuation(storage: StorageLike, pathname: string, now = Date.now()): boolean {
+  return consumeContinuationVersion(storage, pathname, now) !== null;
 }
 export function adjacentTexts<T extends { uid: string; order: number }>(texts: readonly T[], uid: string) {
   const ordered = [...texts].sort((a, b) => a.order - b.order);

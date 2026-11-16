@@ -260,3 +260,30 @@ Giữ tương thích đăng ký một file cũ; không tự tạo lại audio đ
 Đây là thay đổi đóng gói/player, không phải xác nhận đã nghe duyệt. Kiểm browser
 và production là bằng chứng riêng; `review_status` vẫn `pending`. Chỉ đưa đăng ký
 nhiều phần vào batch phát hành sau khi mã player/schema tương ứng đã có trên base.
+
+## Audio bốn phiên bản cho Trung Bộ (2026-11-16)
+
+Kế hoạch đầy đủ và ước tính: [`audio-audience-variants-plan-20261116.md`](audio-audience-variants-plan-20261116.md); kết quả dry-run nguồn: [`audio-audience-variants-preflight-20261116.json`](audio-audience-variants-preflight-20261116.json).
+
+- Track **Kinh văn Việt 2026** dùng lại MP3 hiện có. Không gọi Gemini, không upload lại và không ghi đè. Player bắt đầu tại mốc kinh văn; phần tóm tắt chung của file gốc vẫn có thể chọn.
+- Ba track mới là phần diễn giải đã `published` dành cho trẻ em, người trưởng thành và người lớn tuổi. Transcript lấy tiêu đề, lời dẫn biên tập, nhan đề mục, ghi chú gắn ví dụ/thực hành và đoạn văn đang hiển thị; không lấy điểm, reviewer, ID đoạn, liên kết nguồn hay rationale.
+- Mọi track mới phải hash selected review ID, ngày, source dependencies, transcript và profile. Bản diễn giải stale, draft hoặc thiếu nguồn không được tạo/upload/hiện player.
+- Dùng nguyên `vi-charon-mn1-v1`; `--audience` chỉ chọn nguồn văn bản, không được ghi đè giọng hoặc profile. Một lệnh tạo chỉ chạy một UID/audience dưới cùng TTS lock.
+- Preflight toàn bộ 456 nguồn không gọi provider. Tạo từng track theo thứ tự rồi upload R2 với key bất biến; chỉ đăng ký sau khi object qua full-SHA, bytes và range readback. Khi track dài hơn 30 phút, đóng gói các WAV đã xác minh thành các phần tối đa 30 phút.
+- `content/audio/<uid>.json` giữ registration gốc ở cấp trên và lưu các bản diễn giải riêng trong `explanation_tracks`; web DTO chỉ xuất URL, thời lượng, trạng thái nghe duyệt và phần MP3. Không đưa WAV/MP3/cache vào Git.
+- Người nghe chọn một trong bốn bản; chọn không tự phát. Auto-next tiếp tục đúng bản đang chọn. Nếu bản đó chưa có cho bài sau, dừng và báo, không tự chuyển sang bản khác.
+- Mọi bản mới giữ `review_status: pending`. TTS, upload, CI, Pages và browser playback không chứng minh nội dung đã nghe duyệt.
+
+Chạy nguồn và chunk plan, chưa gọi Gemini:
+
+```bash
+npm run audio:variants:preflight
+python3 scripts/gemini_tts.py --uid mn1 --audience children --prepare-only
+```
+
+Tạo rồi upload một track, dùng cache và OAuth/profile hiện có:
+
+```bash
+uv run --offline --with lameenc python3 scripts/gemini_tts.py --uid mn1 --audience children
+python3 scripts/audio-r2.py audio/mn1/variants/children/<fingerprint> --audience children
+```

@@ -30,6 +30,12 @@ test('registered MN1 audio matches the current source and disappears after text 
   assert.ok(audio);
   assert.ok(audio.scripture_start_seconds > 0);
   assert.ok(audio.scripture_start_seconds < audio.duration_seconds);
+  const original = audio.versions.find(version => version.id === 'original');
+  assert.ok(original);
+  assert.equal(original.url, audio.url);
+  assert.equal(original.start_seconds, audio.scripture_start_seconds);
+  assert.equal(new Set(audio.versions.map(version => version.id)).size, audio.versions.length);
+  assert.ok(audio.versions.every(version => version.review_status === 'pending' || version.review_status === 'approved'));
   assert.equal(loadAudio({ ...doc, summary: doc.summary + ' changed' }), null);
 });
 

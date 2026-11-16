@@ -50,8 +50,11 @@ test('public player parts strip cache paths, hashes and production evidence', ()
     review_status:'pending' as const, parts:parts.map(p => ({...p, sha256:'private-build-hash', path:'/private/cache.wav', public_range_verified:true})) };
   const dto=audioPlayerData(entry);
   assert.deepEqual(dto.parts,parts);
+  assert.equal(dto.versions[0].id,'original');
+  assert.deepEqual(dto.versions[0].parts,parts);
   assert.ok(!JSON.stringify(dto).includes('cache.wav'));
   assert.ok(!JSON.stringify(dto).includes('private-build-hash'));
+  assert.ok(!JSON.stringify(dto).includes('public_range_verified'));
 });
 
 test('a speed choice during loading survives metadata and rapid source changes', () => {

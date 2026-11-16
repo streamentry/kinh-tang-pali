@@ -7,7 +7,7 @@ import fcntl
 import tempfile, shutil
 import argparse, base64, hashlib, http.client, io, json, os, subprocess, time, urllib.request, urllib.error, wave
 from pathlib import Path
-from narration_config import load_profile, profile_digest, profile_metadata
+from narration_config import assert_profile_metadata, load_profile, profile_digest, profile_metadata
 from audio_pipeline import plan_source, subdivide_repair_chunks, write_json, wav_info, cached_chunk_valid, mp3_info, digest
 from audio_progress import update, require_current_group_source
 ROOT = Path(__file__).resolve().parent.parent
@@ -58,13 +58,31 @@ def generate(key, text, profile):
 def arguments():
     parser=argparse.ArgumentParser()
     parser.add_argument('--uid',default='mn1')
+    parser.add_argument('--audience',choices=('children','adults','older-adults'),help='Generate one MN explanation track without changing its standard audio')
     parser.add_argument('--prepare-only',action='store_true')
     parser.add_argument('--repair-chunks',help='Comma-separated zero-based scripture chunk indices to subdivide; same pinned source/profile')
     return parser.parse_args()
 
 def main(args):
     profile=load_profile()
-    source=json.loads(subprocess.check_output(['node','--import','tsx','scripts/audio-source.ts',args.uid],cwd=ROOT))
+    audience=getattr(args,'audience',None)
+    source_script='scripts/audio-explanation-source.ts' if audience else 'scripts/audio-source.ts'
+    source_args=[source_script,args.uid,audience] if audience else [source_script,args.uid]
+    source=json.loads(subprocess.check_output(['node','--import','tsx',*source_args],cwd=ROOT))
+    if audience and (source.get('policy')!='explanation-audience-v1' or source.get('audience')!=audience):
+        raise RuntimeError('Explanation source identity differs from the requested audience')
+    if not args.prepare_only:
+        registration=ROOT/'content/audio'/f'{args.uid}.json'
+        if registration.exists():
+            registry=json.loads(registration.read_text())
+            existing=registry.get('explanation_tracks',{}).get(audience) if audience else registry
+            if existing:
+                if args.repair_chunks and not audience:
+                    pass  # The explicit, separately documented chunk-repair workflow remains available.
+                elif existing.get('source_sha256')==source['source_sha256']:
+                    raise SystemExit('This audio track is already registered; preserving it without regeneration.')
+                else:
+                    raise RuntimeError('A different audio source is already registered; preserve it and use an explicit replacement workflow.')
     standard_plan=plan_source(source,profile)
     fingerprint_for=lambda plan:digest(json.dumps([source['source_sha256'],profile_digest(profile),plan],ensure_ascii=False,sort_keys=True).encode())
     repair_indices=sorted(set(int(i) for i in args.repair_chunks.split(','))) if args.repair_chunks else []
@@ -72,9 +90,30 @@ def main(args):
     parts=[p['text'] for p in planned]
     summary_count=sum(p['section']=='summary' for p in planned)
     fingerprint=fingerprint_for(planned)
-    folder=ROOT/'audio'/args.uid/fingerprint[:16]; folder.mkdir(parents=True,exist_ok=True)
+    cache_root=ROOT/'audio'/args.uid/'variants'/audience if audience else ROOT/'audio'/args.uid
+    folder=cache_root/fingerprint[:16]
+    mp3=folder/f'{args.uid}.mp3'; manifest_path=folder/'manifest.json'
+    if not args.prepare_only and (mp3.exists() or manifest_path.exists()):
+        if not mp3.is_file() or not manifest_path.is_file():
+            raise RuntimeError('Existing audio artifact is incomplete; preserving it for investigation.')
+        previous=json.loads(manifest_path.read_text())
+        try: assert_profile_metadata(previous,profile)
+        except RuntimeError as exc: raise RuntimeError('Existing audio profile differs; preserving the artifact.') from exc
+        expected_plan_hash=digest(json.dumps(planned,ensure_ascii=False,sort_keys=True).encode())
+        if previous.get('uid')!=args.uid or previous.get('source_sha256')!=source['source_sha256'] \
+                or previous.get('chunk_plan_sha256')!=expected_plan_hash \
+                or previous.get('audience_variant')!=audience:
+            raise RuntimeError('Existing audio source/plan differs; preserving it and refusing regeneration.')
+        try: integrity=mp3_info(mp3.read_bytes())
+        except (OSError,ValueError) as exc: raise RuntimeError('Existing MP3 is invalid; preserving it for investigation.') from exc
+        if previous.get('sha256')!=integrity['sha256'] or previous.get('bytes')!=integrity['bytes']:
+            raise RuntimeError('Existing MP3 hash differs; preserving it and refusing regeneration.')
+        print(f'Already generated and verified; reusing without TTS: {mp3}',flush=True)
+        return
+    folder.mkdir(parents=True,exist_ok=True)
     intro=source['title'] if source.get('policy')=='title-scripture-v1' else source['summary']
-    (folder/'transcript.txt').write_text(intro+'\n\n'+'\n\n'.join(value for _,value in source['segments'] if value.strip('… .')))
+    transcript_parts=([intro] if intro else [])+[value for _,value in source['segments'] if value.strip('… .')]
+    (folder/'transcript.txt').write_text('\n\n'.join(transcript_parts))
     write_json(folder/'plan.json',planned)
     checkpoint_path=folder/'checkpoint.json'
     checkpoint=json.loads(checkpoint_path.read_text()) if checkpoint_path.exists() else {'fingerprint':fingerprint,'chunks':{}}
@@ -82,7 +121,7 @@ def main(args):
     if repair_indices:
         # Reuse only exact text/profile/source matches from the standard plan.
         # Write copies in the new fingerprint directory; never mutate the old one.
-        previous=ROOT/'audio'/args.uid/fingerprint_for(standard_plan)[:16]
+        previous=cache_root/fingerprint_for(standard_plan)[:16]
         old_path=previous/'checkpoint.json'
         old=json.loads(old_path.read_text()) if old_path.exists() else {}
         if old.get('fingerprint')==fingerprint_for(standard_plan):
@@ -102,16 +141,18 @@ def main(args):
         write_json(checkpoint_path,checkpoint)
     (folder/'source.json').write_text(json.dumps(source,ensure_ascii=False,indent=2))
     (folder/'narration-profile.json').write_text(json.dumps(profile,ensure_ascii=False,indent=2)+'\n')
-    print(f'{args.uid}: {len(parts)} chunks, {len(source["segments"])} scripture segments',flush=True)
+    source_label=f'{args.uid}/{audience}' if audience else args.uid
+    print(f'{source_label}: {len(parts)} chunks, {len(source["segments"])} source segments',flush=True)
     if args.prepare_only: return
     require_current_group_source(source,profile_digest(profile))
-    update(args.uid,'generating',checkpoint=str(folder.relative_to(ROOT)),errors=[])
+    if not audience:
+        update(args.uid,'generating',checkpoint=str(folder.relative_to(ROOT)),errors=[])
     load_env(); key=os.environ.get('GEMINI_API_KEY') or os.environ['GOOGLE_GENAI_API_KEY']
     import lameenc
     encoder=lameenc.Encoder(); encoder.set_bit_rate(profile['mp3_bitrate_kbps']); encoder.set_in_sample_rate(profile['sample_rate_hz']); encoder.set_channels(profile['channels']); encoder.set_quality(profile['encoder_quality'])
     encoded=bytearray(); duration=0; scripture_start=0
     for i,text in enumerate(parts):
-        current=json.loads(subprocess.check_output(['node','--import','tsx','scripts/audio-source.ts',args.uid],cwd=ROOT))
+        current=json.loads(subprocess.check_output(['node','--import','tsx',*source_args],cwd=ROOT))
         if current['source_sha256']!=source['source_sha256']:raise RuntimeError('Source changed during synthesis')
         require_current_group_source(current,profile_digest(profile))
         file=folder/f'{i:03}.wav'
@@ -131,16 +172,21 @@ def main(args):
     encoded.extend(encoder.flush())
     integrity=mp3_info(encoded)
     if abs(integrity['duration_seconds']-duration)>0.2:raise RuntimeError('MP3/WAV duration mismatch')
-    mp3=folder/f'{args.uid}.mp3'; temp=mp3.with_suffix('.tmp'); temp.write_bytes(encoded); temp.replace(mp3)
+    temp=mp3.with_suffix('.tmp'); temp.write_bytes(encoded); temp.replace(mp3)
     manifest={ 'uid':args.uid,'source_sha256':source['source_sha256'],'model':profile['model'],'voice':profile['voice'],
         'style':profile['style'],**profile_metadata(profile),'duration_seconds':duration,'scripture_start_seconds':scripture_start,
         'sha256':hashlib.sha256(encoded).hexdigest(),'bytes':len(encoded),'review_status':'pending','chunk_count':len(parts),'summary_chunk_count':summary_count,'chunk_plan_sha256':digest(json.dumps(planned,ensure_ascii=False,sort_keys=True).encode()),'mp3_integrity':integrity}
     manifest['collection']=source['collection']
     if source.get('policy'):manifest['transcript_policy']=source['policy']
+    if audience:
+        manifest.update({'audience_variant':audience,'track_kind':'explanation',
+            'selected_review_id':source['selected_review_id'],'review_date':source['review_date'],
+            'content_hash':source['content_hash'],'source_dependencies':source['source_dependencies']})
     if repair_indices:
         manifest['chunk_repair']={'standard_plan_fingerprint':fingerprint_for(standard_plan),'standard_chunk_indices':repair_indices,'method':'Lossless sentence subdivision; unchanged chunks reused with validated text/WAV hashes. No ASR.'}
-    (folder/'manifest.json').write_text(json.dumps(manifest,ensure_ascii=False,indent=2)+'\n')
-    update(args.uid,'generated',duration_seconds=duration,scripture_start_seconds=scripture_start,sha256=manifest['sha256'],bytes=manifest['bytes'],review_status='pending')
+    manifest_path.write_text(json.dumps(manifest,ensure_ascii=False,indent=2)+'\n')
+    if not audience:
+        update(args.uid,'generated',duration_seconds=duration,scripture_start_seconds=scripture_start,sha256=manifest['sha256'],bytes=manifest['bytes'],review_status='pending')
     print(f'Created {mp3}, {duration:.1f}s',flush=True)
 if __name__=='__main__':
     args=arguments()

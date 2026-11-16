@@ -42,7 +42,15 @@ const neighbours = hasNavigation(code)
   ? (({ previous, next }) => ({ previous: previous ? byUid.get(previous) : undefined, next: next ? byUid.get(next) : undefined }))(navigationNeighbours(code, uid))
   : adjacentTexts(loadCatalog(code).texts, uid);
 const previous = neighbours.previous ? { uid: neighbours.previous.uid, href: withBase(`sutta/${collection.code}/${neighbours.previous.uid}/`) } : undefined;
-const next = neighbours.next ? { uid: neighbours.next.uid, href: withBase(`sutta/${collection.code}/${neighbours.next.uid}/`), hasAudio: audio ? Boolean(loadAudio(composeDocument(collection.code as CollectionCode, neighbours.next.uid))) : false } : undefined;
+const next = neighbours.next ? (() => {
+  const nextAudio = audio ? loadAudio(composeDocument(collection.code as CollectionCode, neighbours.next!.uid)) : null;
+  return {
+    uid: neighbours.next!.uid,
+    href: withBase(`sutta/${collection.code}/${neighbours.next!.uid}/`),
+    hasAudio: Boolean(nextAudio),
+    versions: nextAudio?.versions.map((version) => version.id) ?? [],
+  };
+})() : undefined;
 const meta = loadMeta(collection.code, uid);
 const history = loadAssessmentHistory(collection.code, uid);
 const selectedIsSaved = Boolean(meta?.quality?.assessment_id && history.assessments.some(entry => entry.id === meta?.quality?.assessment_id));
