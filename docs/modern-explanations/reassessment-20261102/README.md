@@ -2,6 +2,8 @@
 
 Ngày bắt đầu: 2026-11-02. Nền nội dung: `934b1efa56c7af57369328adbc5cb37dbc84a61a`.
 
+Các câu “đang chờ” trong nhật ký lô phía dưới ghi trạng thái tại lúc viết; trạng thái hiện hành nằm ở phần này và trong `progress.json`.
+
 **Trạng thái: hoàn tất.** Đã đọc, sửa khi cần, chấm lại và phát hành 152 bài × hai nhóm = 304 bản. Mean thấp nhất là **9,00/10**, cao nhất **9,78/10**; mọi bản qua gate của kho: mean ít nhất 9,0, bốn tiêu chí đầu ít nhất 9,0 và không blocker. Mốc 8,9 của yêu cầu biên tập không thay thế gate 9,0.
 
 Đã đọc và chấm lại **MN1–MN152: 304/304 bản** trẻ em/người lớn tuổi. `progress.json` phân biệt lượt đọc mới với điểm lịch sử. MN1–MN80 đã merge qua PR #2057–#2064; MN81–MN130 đã merge qua PR #2065. PR #2066 đã merge MN131–MN140; MN141–MN152 đã merge qua PR #2067 tại `1ec8e984fa9d20a78838bb142d03bdfe89f0062e`. Các cổng local đã qua; reader checks tĩnh đạt 80/80 cho batch09–12, 20/20 cho batch13–15 và 4/4 cho batch16. Sau khi merge, kiểm tra trực tiếp website production đạt 152/152 trang và 304/304 bản, khớp nội dung theo thứ tự cùng điểm, ngày, reviewer, tiêu đề và trạng thái. [Báo cáo production](reader-production-all-mn-20261116.json) ghi Pages workflow run #43737809665 và commit merge; chưa xác định chính xác SHA của build đang được phục vụ. Chưa có kiểm tra viewport, thử đọc hiểu với người thật hoặc thẩm định độc lập của học giả Pāli. [Báo cáo batch08](batch08-review.md), các báo cáo batch09–16 và các reader reports ghi chi tiết; `progress.json` là nguồn trạng thái nội dung hiện hành.
@@ -53,11 +55,9 @@ Ngày bắt đầu: 2026-11-02. Nền nội dung: `934b1efa56c7af57369328adbc5cb
 
 JSON đầu vào trong thư mục ghi đủ điểm và căn cứ. Lịch sử chính thức thêm bằng `scripts/explanations.ts --record`, chọn bằng `--apply`; không sửa tay metadata. Giữ tác giả/lượt cũ; bản người trưởng thành, kinh văn canonical và audio không đổi. Thay riêng lời một nhóm không sửa bản đồ hoặc nguồn chung.
 
-## Kiểm tra và bước tiếp
+## Snapshot kiểm tra ban đầu — MN1–MN10
 
-`explanations --check` sau MN10: 558 published, 186/186 bài complete, không lỗi. Các con số đó bao gồm điểm lịch sử của phần chưa tái đánh giá, **không phải 558 bản mới đọc lại**. Báo cáo local có thời điểm riêng tại `validation.json` (trước sửa), `validation-fix-mn1-mn4.json` (lượt sửa), `validation-batch-01.json` (snapshot MN1–MN10 cuối), và các log được trỏ trong đó. Không coi kiểm cấu trúc hoặc build là bằng chứng nghĩa đúng, CI hay production.
-
-Lô MN1–MN30 đã merge; tiếp tục MN31 theo thứ tự. Chỉ đánh dấu phát hành các bản sửa sau khi xác minh merge và triển khai phù hợp. Toàn mục tiêu còn active cho đến khi đủ 304 bản được đọc lại, sửa khi cần, chấm đạt và phát hành với bằng chứng.
+Các lệnh và báo cáo ban đầu dưới đây ghi lại cổng của snapshot MN1–MN10. Chúng là lịch sử, không phải trạng thái còn dang dở. Tiến độ sau cùng là 304/304 bản, `pending: 0`; 304 bản đã merge và public content check mới nhất đạt 304/304.
 
 Cổng snapshot MN1–MN10 cuối đã pass validate/test/check/build; 500 test pass, bốn skip, không fail. SHA-256 của 20 tệp nội dung/metadata không đổi qua cả bốn lệnh. `reader-local-batch-01.json` ghi 40 trường hợp real Chrome: 10 bài × hai nhóm × desktop 1440/mobile 390, đúng toàn bộ đoạn văn theo thứ tự, điểm, người/ngày kiểm, mở mục, bấm liên kết nguồn đầu và không tràn ngang. Đã xem bốn ảnh MN1 (hai nhóm × hai chiều rộng), không thấy chữ bị cắt hoặc chồng lấp. Chưa suy kết quả đó thành thử hiểu với người thật hoặc production. Lượt browser đầu thất bại do checker đòi ID codex thay nhãn hiển thị từ registry; hồ sơ thất bại và lý do sửa checker được giữ riêng.
 
@@ -250,4 +250,4 @@ Ngày 2026-11-15: 20 bản trẻ em/người lớn tuổi được đọc lại,
 
 `npm run build` đã chạy tuần tự và qua validate, tạo 7.814 trang; Pagefind lập chỉ mục 6.991 trang và 468.799 từ. Bộ test có 505 mục: 501 đạt, 4 bỏ qua, 0 lỗi. Astro check: 281 file, 0 lỗi/cảnh báo, 52 hints. `scripts/explanations.ts --check`: 558 bản published, 186/186 bài đủ, 0 lỗi. Static reader đối chiếu 20/20 panel, 0 lỗi; đây là HTML dựng local, không phải kiểm tra responsive hay production. Lệnh `fetch-upstream-manifest --check` không kết nối được `api.github.com` vì DNS; không ghi là đã qua. Cũng chưa có thử hiểu với người thật hoặc thẩm định học giả Pāli độc lập.
 
-Tiến độ nội dung là **304/304 bản**. `progress.complete` phản ánh lượt đọc và chấm đã hoàn thành; PR #2067 đã merge và toàn bộ nội dung đã vào main. Public production verification đạt 304/304 bản tại Pages workflow run #43737809665; xem [báo cáo production](reader-production-all-mn-20261116.json), [chi tiết batch16](batch16-review.md), [static reader](reader-static-batch-16-20261115.json) và `progress.json`. Exact build SHA đang được phục vụ chưa xác định; chưa có thử đọc hiểu với độc giả hoặc thẩm định học giả độc lập.
+Tiến độ nội dung là **304/304 bản**, `pending: 0`. `progress.json` ghi đủ 304 bản đã đọc lại, selected review IDs khớp metadata, 304 bản đã merge và public content đã kiểm 304/304. PR #2065, #2066 và #2067 đưa MN81–MN152 lên main; các PR có CI xanh trên đúng head. Pages workflow run #43737809665 thành công trên commit `1ec8e984fa9d20a78838bb142d03bdfe89f0062e`. Lần kiểm public ngày 2026-11-16 đạt 152 trang, 304 panel và 11.924 đoạn khớp theo thứ tự; xem [báo cáo production](reader-production-all-mn-20261116.json), [chi tiết batch16](batch16-review.md), [static reader](reader-static-batch-16-20261115.json) và `progress.json`. Không xác định được exact build SHA đang phục vụ; chưa có viewport test, thử đọc hiểu với độc giả thật hoặc thẩm định học giả Pāli độc lập.
