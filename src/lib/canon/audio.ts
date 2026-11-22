@@ -44,7 +44,7 @@ export interface AudioVersionPlayerData {
 
 interface ExplanationAudioRegistration {
   uid: string;
-  collection: 'mn';
+  collection: 'mn' | 'dn';
   audience_variant: ExplanationAudioAudience;
   track_kind: 'explanation';
   transcript_policy: 'explanation-audience-v1';
@@ -133,7 +133,7 @@ function validAudioAsset(entry: AudioAsset) {
 }
 
 function explanationVersions(document: CanonDocument, base: Record<string, unknown>): AudioVersionPlayerData[] {
-  if (document.collection !== 'mn') return [];
+  if (document.collection !== 'mn' && document.collection !== 'dn') return [];
   const registrations = base.explanation_tracks;
   if (!registrations || typeof registrations !== 'object') return [];
   const profileId = base.narration_profile_id;
@@ -142,7 +142,7 @@ function explanationVersions(document: CanonDocument, base: Record<string, unkno
   const versions: AudioVersionPlayerData[] = [];
   for (const audience of EXPLANATION_AUDIO_AUDIENCES) {
     const entry = (registrations as Record<string, unknown>)[audience] as ExplanationAudioRegistration | undefined;
-    if (!entry || entry.uid !== document.uid || entry.collection !== 'mn' || entry.audience_variant !== audience
+    if (!entry || entry.uid !== document.uid || entry.collection !== document.collection || entry.audience_variant !== audience
       || entry.track_kind !== 'explanation' || entry.transcript_policy !== 'explanation-audience-v1'
       || !['pending', 'approved'].includes(entry.review_status)
       || entry.upload_verified !== true || entry.public_range_verified !== true || entry.r2_full_sha256_verified !== true
@@ -151,7 +151,7 @@ function explanationVersions(document: CanonDocument, base: Record<string, unkno
       || !/^[0-9a-f]{64}$/.test(entry.sha256 ?? '') || !Number.isInteger(entry.bytes) || !(entry.bytes > 0)
       || !validAudioAsset(entry)) continue;
     try {
-      const source = explanationNarrationSource(document.uid, audience);
+      const source = explanationNarrationSource(document.uid, audience, document.collection);
       if (entry.source_sha256 !== source.source_sha256 || entry.selected_review_id !== source.selected_review_id
         || entry.review_date !== source.review_date || entry.content_hash !== source.content_hash) continue;
     } catch {

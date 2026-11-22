@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Audit the 152 x 3 published MN explanation sources without TTS or uploads."""
+"""Audit published MN or DN audience explanation sources without TTS or uploads."""
 import argparse
 import hashlib
 import json
@@ -15,30 +15,33 @@ from audio_pipeline import plan_source, write_json  # noqa: E402
 from narration_config import load_profile, profile_digest  # noqa: E402
 
 AUDIENCES = ('children', 'adults', 'older-adults')
+UID_COUNTS = {'mn': 152, 'dn': 34}
 SHA256 = re.compile(r'^[0-9a-f]{64}$')
 
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--collection', choices=('mn', 'dn'), default='mn')
     parser.add_argument('--output', type=Path)
-    parser.add_argument('--require-uploaded', action='store_true', help='Fail unless all 456 current variants have complete verified R2 registrations')
+    parser.add_argument('--require-uploaded', action='store_true', help='Fail unless every current variant has complete verified R2 registration')
     args = parser.parse_args()
 
     profile = load_profile()
     raw = subprocess.check_output(
-        ['node', '--import', 'tsx', 'scripts/audio-explanation-source.ts', '--all'],
+        ['node', '--import', 'tsx', 'scripts/audio-explanation-source.ts', '--all', args.collection],
         cwd=ROOT,
     )
     sources = json.loads(raw)
-    expected_pairs = {(f'mn{i}', audience) for i in range(1, 153) for audience in AUDIENCES}
+    expected_pairs = {(f'{args.collection}{i}', audience) for i in range(1, UID_COUNTS[args.collection] + 1) for audience in AUDIENCES}
     actual_pairs = {(source.get('uid'), source.get('audience')) for source in sources}
-    if len(sources) != 456 or actual_pairs != expected_pairs:
-        raise SystemExit('Explanation source inventory must cover exactly 152 UIDs × 3 audiences.')
+    expected_track_count = UID_COUNTS[args.collection] * len(AUDIENCES)
+    if len(sources) != expected_track_count or actual_pairs != expected_pairs:
+        raise SystemExit(f'Explanation source inventory must cover exactly {UID_COUNTS[args.collection]} {args.collection.upper()} UIDs × 3 audiences.')
 
     tracks = []
     totals = {'characters': 0, 'words': 0, 'chunks': 0, 'pause_boundaries': 0}
     for source in sources:
-        if source.get('collection') != 'mn' or source.get('policy') != 'explanation-audience-v1':
+        if source.get('collection') != args.collection or source.get('policy') != 'explanation-audience-v1':
             raise SystemExit(f"{source.get('uid')}/{source.get('audience')}: unexpected source identity or policy")
         if not SHA256.fullmatch(source.get('source_sha256', '')) or not source.get('selected_review_id'):
             raise SystemExit(f"{source['uid']}/{source['audience']}: source hash/review identity missing")
@@ -58,6 +61,7 @@ def main():
         chars = sum(len(value) for _, value in source['segments'])
         words = sum(len(value.split()) for _, value in source['segments'])
         record = {
+            'collection': source['collection'],
             'uid': source['uid'],
             'audience': source['audience'],
             'selected_review_id': source['selected_review_id'],
@@ -75,7 +79,7 @@ def main():
             registered=json.loads(registration_file.read_text()).get('explanation_tracks',{}).get(source['audience'])
         record['review_status']=registered.get('review_status') if registered else None
         record['uploaded_verified']=bool(registered and registered.get('uid')==source['uid']
-            and registered.get('collection')=='mn' and registered.get('audience_variant')==source['audience']
+            and registered.get('collection')==args.collection and registered.get('audience_variant')==source['audience']
             and registered.get('track_kind')=='explanation'
             and registered.get('transcript_policy')=='explanation-audience-v1'
             and registered.get('source_sha256')==source['source_sha256']
@@ -102,7 +106,7 @@ def main():
     report = {
         'schema_version': 1,
         'generated_at': datetime.now(timezone.utc).isoformat(timespec='seconds').replace('+00:00', 'Z'),
-        'scope': {'collection': 'mn', 'uids': 152, 'audiences': list(AUDIENCES), 'tracks': len(tracks)},
+        'scope': {'collection': args.collection, 'uids': UID_COUNTS[args.collection], 'audiences': list(AUDIENCES), 'tracks': len(tracks)},
         'profile_id': profile['id'],
         'profile_sha256': profile_digest(profile),
         'profile_chunk_max_chars': profile['chunk_max_chars'],

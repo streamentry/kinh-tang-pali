@@ -58,7 +58,8 @@ def generate(key, text, profile):
 def arguments():
     parser=argparse.ArgumentParser()
     parser.add_argument('--uid',default='mn1')
-    parser.add_argument('--audience',choices=('children','adults','older-adults'),help='Generate one MN explanation track without changing its standard audio')
+    parser.add_argument('--collection',choices=('mn','dn'),help='Collection for an audience explanation track (defaults from UID)')
+    parser.add_argument('--audience',choices=('children','adults','older-adults'),help='Generate one explanation track without changing its standard audio')
     parser.add_argument('--prepare-only',action='store_true')
     parser.add_argument('--repair-chunks',help='Comma-separated zero-based scripture chunk indices to subdivide; same pinned source/profile')
     return parser.parse_args()
@@ -66,10 +67,11 @@ def arguments():
 def main(args):
     profile=load_profile()
     audience=getattr(args,'audience',None)
+    collection=getattr(args,'collection',None) or ('dn' if args.uid.startswith('dn') else 'mn')
     source_script='scripts/audio-explanation-source.ts' if audience else 'scripts/audio-source.ts'
-    source_args=[source_script,args.uid,audience] if audience else [source_script,args.uid]
+    source_args=[source_script,collection,args.uid,audience] if audience else [source_script,args.uid]
     source=json.loads(subprocess.check_output(['node','--import','tsx',*source_args],cwd=ROOT))
-    if audience and (source.get('policy')!='explanation-audience-v1' or source.get('audience')!=audience):
+    if audience and (source.get('policy')!='explanation-audience-v1' or source.get('audience')!=audience or source.get('collection')!=collection):
         raise RuntimeError('Explanation source identity differs from the requested audience')
     if not args.prepare_only:
         registration=ROOT/'content/audio'/f'{args.uid}.json'

@@ -4,6 +4,9 @@ import type { Audience, ExplanationSection } from './explanations';
 
 export const EXPLANATION_AUDIO_AUDIENCES = ['children', 'adults', 'older-adults'] as const satisfies readonly Audience[];
 export type ExplanationAudioAudience = (typeof EXPLANATION_AUDIO_AUDIENCES)[number];
+export type ExplanationAudioCollection = 'mn' | 'dn';
+
+const EXPLANATION_UID_COUNTS: Record<ExplanationAudioCollection, number> = { mn: 152, dn: 34 };
 
 export const EXPLANATION_AUDIENCE_LABELS: Record<ExplanationAudioAudience, { title: string; anchor: string }> = {
   children: { title: 'Diễn giải dành cho trẻ em', anchor: 'dien-giai-tre-em' },
@@ -30,7 +33,7 @@ const sourceCache = new Map<string, ExplanationNarrationSource>();
 export interface ExplanationNarrationSource {
   schema_version: 1;
   uid: string;
-  collection: 'mn';
+  collection: ExplanationAudioCollection;
   policy: 'explanation-audience-v1';
   audience: ExplanationAudioAudience;
   audience_label: string;
@@ -43,16 +46,22 @@ export interface ExplanationNarrationSource {
   source_sha256: string;
 }
 
-/** Exact spoken text for one current, published MN explanation. */
-export function explanationNarrationSource(uid: string, audience: ExplanationAudioAudience): ExplanationNarrationSource {
-  if (!/^mn(?:[1-9]|[1-9]\d|1[0-4]\d|15[0-2])$/.test(uid)) {
-    throw new Error(`Unsupported explanation audio UID: ${uid}`);
+/** Exact spoken text for one current, published MN or DN explanation. */
+export function explanationNarrationSource(
+  uid: string,
+  audience: ExplanationAudioAudience,
+  collection: ExplanationAudioCollection = 'mn',
+): ExplanationNarrationSource {
+  const match = new RegExp(`^${collection}([1-9]\\d*)$`).exec(uid);
+  const number = match ? Number(match[1]) : NaN;
+  if (!Number.isInteger(number) || number > EXPLANATION_UID_COUNTS[collection]) {
+    throw new Error(`Unsupported ${collection.toUpperCase()} explanation audio UID: ${uid}`);
   }
-  const cacheKey = `${uid}/${audience}`;
+  const cacheKey = `${collection}/${uid}/${audience}`;
   const cached = sourceCache.get(cacheKey);
   if (cached) return cached;
 
-  const audit = auditExplanations('mn', uid);
+  const audit = auditExplanations(collection, uid);
   if (!audit || audit.sourceErrors.length) throw new Error(`${uid}/${audience}: explanation sources are not current`);
   const view = audit.bundle.audiences[audience];
   if (view.status !== 'published' || !view.content || !view.reviewId || !view.reviewedAt || view.blockers.length) {
@@ -81,7 +90,7 @@ export function explanationNarrationSource(uid: string, audience: ExplanationAud
   const sourceIdentity: Omit<ExplanationNarrationSource, 'source_sha256'> = {
     schema_version: 1,
     uid,
-    collection: 'mn' as const,
+    collection,
     policy: 'explanation-audience-v1' as const,
     audience,
     audience_label: label,
@@ -104,4 +113,13 @@ export function explanationNarrationSource(uid: string, audience: ExplanationAud
 export function allMNExplanationNarrationSources(): ExplanationNarrationSource[] {
   return Array.from({ length: 152 }, (_, index) => `mn${index + 1}`)
     .flatMap((uid) => EXPLANATION_AUDIO_AUDIENCES.map((audience) => explanationNarrationSource(uid, audience)));
+}
+
+export function allDNExplanationNarrationSources(): ExplanationNarrationSource[] {
+  return Array.from({ length: 34 }, (_, index) => `dn${index + 1}`)
+    .flatMap((uid) => EXPLANATION_AUDIO_AUDIENCES.map((audience) => explanationNarrationSource(uid, audience, 'dn')));
+}
+
+export function allExplanationNarrationSources(collection: ExplanationAudioCollection): ExplanationNarrationSource[] {
+  return collection === 'dn' ? allDNExplanationNarrationSources() : allMNExplanationNarrationSources();
 }

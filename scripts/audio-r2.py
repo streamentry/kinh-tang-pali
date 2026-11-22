@@ -9,9 +9,10 @@ from narration_config import load_profile, assert_profile_metadata, profile_dige
 from audio_pipeline import mp3_info, write_json, audio_object_key
 from audio_progress import update, now, require_current_group_source
 
-def current_source(uid, audience=None):
+def current_source(uid, audience=None, collection=None):
     if audience:
-        command=['node','--import','tsx','scripts/audio-explanation-source.ts',uid,audience]
+        collection=collection or ('dn' if uid.startswith('dn') else 'mn')
+        command=['node','--import','tsx','scripts/audio-explanation-source.ts',collection,uid,audience]
     else:
         command=['node','--import','tsx','scripts/audio-source.ts',uid]
     return json.loads(subprocess.check_output(command,cwd=ROOT))
@@ -33,15 +34,18 @@ def cloudflare_token():
     return lines[0]
 
 def main():
-    parser=argparse.ArgumentParser(); parser.add_argument('folder',type=Path); parser.add_argument('--audience',choices=('children','adults','older-adults')); args=parser.parse_args()
+    parser=argparse.ArgumentParser(); parser.add_argument('folder',type=Path); parser.add_argument('--collection',choices=('mn','dn')); parser.add_argument('--audience',choices=('children','adults','older-adults')); args=parser.parse_args()
     profile=load_profile()
     manifest=json.loads((args.folder/'manifest.json').read_text())
     assert_profile_metadata(manifest,profile)
     # Gate before loading credentials or making any provider request.
     uid=manifest['uid']; audience=args.audience
+    collection=args.collection or manifest.get('collection') or ('dn' if uid.startswith('dn') else 'mn')
+    if audience and manifest.get('collection') != collection:
+        raise RuntimeError('Requested collection differs from the cached narration manifest')
     if manifest.get('audience_variant')!=audience:
         raise RuntimeError('Requested audience differs from the cached narration manifest')
-    current=current_source(uid,audience)
+    current=current_source(uid,audience,collection)
     if audience and (manifest.get('track_kind')!='explanation' or manifest.get('selected_review_id')!=current['selected_review_id']):
         raise RuntimeError('Explanation review identity differs from the current published source')
     require_current_group_source(current,profile_digest(profile))
@@ -77,7 +81,7 @@ def main():
                 return data['result']
         except urllib.error.HTTPError as e: raise RuntimeError(f'Cloudflare HTTP {e.code}') from None
     uid=manifest['uid']; mp3=(args.folder/f'{uid}.mp3').read_bytes()
-    current=current_source(uid,audience)
+    current=current_source(uid,audience,collection)
     if current['source_sha256']!=manifest['source_sha256']:raise RuntimeError('Narration source changed; regenerate before uploading')
     mp3_info(mp3)
     if len(mp3)!=manifest['bytes']:raise RuntimeError('MP3 byte count mismatch')
@@ -98,7 +102,7 @@ def main():
             raise RuntimeError('Upload asset changed')
         if len(data)>40_000_000 and upload_manifest.get('parts'):
             raise RuntimeError('Part exceeds bounded file budget')
-        prefix=(f"vi/mn/{uid}/explanations/{audience}" if audience else f"vi/{current['collection']}/{uid}")
+        prefix=(f"vi/{collection}/{uid}/explanations/{audience}" if audience else f"vi/{current['collection']}/{uid}")
         asset_key=(f"{prefix}/parts-v1/{upload_manifest['sha256'][:16]}/{asset['id']}-{asset['sha256'][:16]}.mp3"
                    if upload_manifest.get('parts') else key)
         request(base+'/'+bucket+'/objects/'+asset_key,'PUT',data,{'Content-Type':'audio/mpeg',
@@ -122,7 +126,7 @@ def main():
     if manifest.get('parts'):
         for part,remote in zip(manifest['parts'],urls,strict=True):part.update(remote,public_range_verified=True)
     url=urls[0]['url'];key=urls[0]['object_key']
-    current=current_source(uid,audience)
+    current=current_source(uid,audience,collection)
     if current['source_sha256']!=manifest['source_sha256']:raise RuntimeError('Source changed during upload; do not register stale player')
     require_current_group_source(current,profile_digest(profile))
     manifest['r2_verified_at']=now()
