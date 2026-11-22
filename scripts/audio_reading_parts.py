@@ -103,7 +103,8 @@ if __name__ == '__main__':
     saved = json.loads((args.folder / 'source.json').read_text())
     is_explanation = saved.get('policy') == 'explanation-audience-v1'
     source_script = 'scripts/audio-explanation-source.ts' if is_explanation else 'scripts/audio-source.ts'
-    source_args = [source_script, saved['uid'], saved['audience']] if is_explanation else [source_script, saved['uid']]
+    source_args = ([source_script, saved.get('collection', 'mn'), saved['uid'], saved['audience']]
+                   if is_explanation else [source_script, saved['uid']])
     source = json.loads(subprocess.check_output(['node', '--import', 'tsx', *source_args], cwd=root))
     manifest, assets = package_reading(args.folder, source, load_profile())
     print(json.dumps({'manifest': manifest, 'assets': assets}))

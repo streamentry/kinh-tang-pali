@@ -14,12 +14,12 @@ def audio_object_key(source, manifest):
         raise RuntimeError('Manifest collection differs from catalog')
     audience=manifest.get('audience_variant')
     if audience is not None:
-        if (collection!='mn' or audience not in ('children','adults','older-adults')
+        if (collection not in ('mn','dn') or audience not in ('children','adults','older-adults')
                 or source.get('policy')!='explanation-audience-v1'
                 or manifest.get('transcript_policy')!='explanation-audience-v1'
                 or source.get('audience')!=audience or manifest.get('scripture_start_seconds')!=0):
             raise RuntimeError('Explanation track identity/policy differs from source')
-        return f'vi/mn/{source["uid"]}/explanations/{audience}/{manifest["sha256"][:16]}.mp3'
+        return f'vi/{collection}/{source["uid"]}/explanations/{audience}/{manifest["sha256"][:16]}.mp3'
     if collection not in ('mn','dn'):
         if source.get('policy')!='title-scripture-v1' or manifest.get('transcript_policy')!=source['policy'] or manifest['scripture_start_seconds']!=0:
             raise RuntimeError('Manifest transcript policy differs from source')
@@ -91,7 +91,7 @@ def plan_source(source, profile):
     summary=source['summary']
     policy=source.get('policy')
     if policy=='explanation-audience-v1':
-        if source.get('collection')!='mn' or source.get('audience') not in ('children','adults','older-adults') or summary:
+        if source.get('collection') not in ('mn','dn') or source.get('audience') not in ('children','adults','older-adults') or summary:
             raise ValueError('Invalid explanation-audience narration source')
         spoken_section='explanation'
     else:

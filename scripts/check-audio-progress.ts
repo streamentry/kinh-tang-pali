@@ -53,7 +53,7 @@ for(const collection of GROUP_AUDIO_COLLECTIONS)for(const {uid} of audioQueue(co
  if(hasAudioRegistration(uid)&&!queuedGroupUids.has(uid))errors.push(`${uid}: audio registration missing from production queue`);
 }
 let explanationTracks=0;
-for(const {uid} of audioQueue('mn')) {
+for(const collection of ['mn','dn'] as const)for(const {uid} of audioQueue(collection)) {
  const file=`content/audio/${uid}.json`;
  if(!fs.existsSync(file))continue;
  const registry=JSON.parse(fs.readFileSync(file,'utf8')) as {explanation_tracks?:Record<string,any>};
@@ -65,9 +65,9 @@ for(const {uid} of audioQueue('mn')) {
    const variant=registered[audience]; if(!variant)continue;
    explanationTracks++;
    try {
-     const source=explanationNarrationSource(uid,audience);
-     const audio=loadAudio(composeDocument('mn',uid));
-     if(variant.uid!==uid||variant.collection!=='mn'||variant.audience_variant!==audience
+     const source=explanationNarrationSource(uid,audience,collection);
+     const audio=loadAudio(composeDocument(collection,uid));
+     if(variant.uid!==uid||variant.collection!==collection||variant.audience_variant!==audience
         ||variant.source_sha256!==source.source_sha256||variant.selected_review_id!==source.selected_review_id
         ||variant.review_date!==source.review_date||variant.content_hash!==source.content_hash)
        errors.push(`${uid}/${audience}: explanation audio source/review identity differs`);
@@ -85,6 +85,6 @@ for(const {uid} of audioQueue('mn')) {
  }
 }
 console.log(`Audio progress: ${total} queued texts, ${errors.length} errors`);
-console.log(`MN explanation audio: ${explanationTracks} registered audience tracks`);
+console.log(`MN/DN explanation audio: ${explanationTracks} registered audience tracks`);
 for (const e of errors)console.error(e);
 if(errors.length)process.exitCode=1;

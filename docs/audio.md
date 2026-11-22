@@ -287,3 +287,27 @@ Tạo rồi upload một track, dùng cache và OAuth/profile hiện có:
 uv run --offline --with lameenc python3 scripts/gemini_tts.py --uid mn1 --audience children
 python3 scripts/audio-r2.py audio/mn1/variants/children/<fingerprint> --audience children
 ```
+
+## Audio bốn phiên bản cho Trường Bộ (2026-11-22)
+
+Kế hoạch và tiến độ: [`audio-dn-audience-variants-plan-20261122.md`](audio-dn-audience-variants-plan-20261122.md); preflight nguồn: [`audio-audience-variants-preflight-dn-20261122.json`](audio-audience-variants-preflight-dn-20261122.json).
+
+- Phạm vi gồm 34 bài Trường Bộ, mỗi bài có bản gốc hiện hành và tối đa ba track diễn giải đã xuất bản: trẻ em, người trưởng thành, người lớn tuổi. Bản gốc dùng lại audio đang đăng ký.
+- Preflight đếm 102 track diễn giải, 1.806 chunk/request và 2.329.782 ký tự. Đây là số request dự kiến, không phải báo giá Gemini.
+- Giữ nguyên nguồn diễn giải đang được chọn, review ID, ngày duyệt, hash nội dung, nguồn phụ thuộc và toàn bộ profile `vi-charon-mn1-v1`. Tạo tối đa năm UID trong một batch; mọi request Gemini chạy tuần tự qua khóa máy-wide.
+- Object key DN nằm dưới `vi/dn/<uid>/explanations/<audience>/`; xác minh hash, byte count và range response trước khi ghi đăng ký vào `content/audio/<uid>.json`.
+- Người nghe chọn một bản; thao tác chọn không tự phát. Auto-next tiếp tục cùng phiên bản và dừng khi bài kế không có bản đó. Mọi track mới giữ `review_status: pending`.
+
+Chạy lại preflight mà không gọi Gemini:
+
+```bash
+python3 scripts/audio-explanation-preflight.py --collection dn \
+  --output docs/audio-audience-variants-preflight-dn-20261122.json
+```
+
+Tạo và upload một batch năm bài theo thứ tự; có thể bỏ qua track đã đăng ký nếu fingerprint, profile và bằng chứng R2 vẫn khớp:
+
+```bash
+uv run --offline --with lameenc python3 scripts/audio-explanation-batch.py \
+  --collection dn --start 1 --end 5 --upload
+```

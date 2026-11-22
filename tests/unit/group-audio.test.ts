@@ -154,6 +154,13 @@ for collection,uid in [('sn','sn1.1'),('an','an1.5'),('kn','dhp1-20')]:
   except RuntimeError:pass
   else:raise AssertionError('Wrong collection or policy accepted')
 assert audio_object_key({'uid':'mn1','collection':'mn'},{'uid':'mn1','sha256':'a'*64})=='vi/mn/mn1/'+('a'*16)+'.mp3'
+dn_source={'uid':'dn1','collection':'dn','policy':'explanation-audience-v1','audience':'children','summary':'','segments':[['dn1:1.1','Diễn giải.']]}
+dn_manifest={'uid':'dn1','collection':'dn','audience_variant':'children','transcript_policy':'explanation-audience-v1','scripture_start_seconds':0,'sha256':'b'*64}
+assert audio_object_key(dn_source,dn_manifest)=='vi/dn/dn1/explanations/children/'+('b'*16)+'.mp3'
+for broken in [{**dn_manifest,'collection':'mn'},{**dn_manifest,'scripture_start_seconds':1}]:
+ try:audio_object_key(dn_source,broken)
+ except RuntimeError:pass
+ else:raise AssertionError('Invalid DN explanation registration identity accepted')
 with tempfile.TemporaryDirectory() as d:
  legacy=Path(d)/'progress.json';group=Path(d)/'group-progress.json'
  legacy.write_text('legacy sentinel')

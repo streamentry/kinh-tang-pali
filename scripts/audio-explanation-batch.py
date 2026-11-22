@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Generate and optionally upload one bounded, serial MN explanation batch."""
+"""Generate and optionally upload one bounded, serial MN or DN explanation batch."""
 import argparse
 import json
 import subprocess
@@ -12,24 +12,26 @@ from audio_pipeline import plan_source, digest  # noqa: E402
 from narration_config import load_profile, profile_digest  # noqa: E402
 
 AUDIENCES = ('children', 'adults', 'older-adults')
+UID_COUNTS = {'mn': 152, 'dn': 34}
 
 
-def source_for(uid, audience):
+def source_for(collection, uid, audience):
     return json.loads(subprocess.check_output(
-        ['node', '--import', 'tsx', 'scripts/audio-explanation-source.ts', uid, audience], cwd=ROOT,
+        ['node', '--import', 'tsx', 'scripts/audio-explanation-source.ts', collection, uid, audience], cwd=ROOT,
     ))
 
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('--start', type=int, required=True, help='First MN number, inclusive')
-    parser.add_argument('--end', type=int, required=True, help='Last MN number, inclusive; at most five UIDs')
+    parser.add_argument('--collection', choices=('mn', 'dn'), default='mn')
+    parser.add_argument('--start', type=int, required=True, help='First discourse number, inclusive')
+    parser.add_argument('--end', type=int, required=True, help='Last discourse number, inclusive; at most five UIDs')
     parser.add_argument('--audiences', nargs='+', choices=AUDIENCES, default=list(AUDIENCES))
     parser.add_argument('--prepare-only', action='store_true', help='Write transcript/plan only; never call Gemini or R2')
     parser.add_argument('--upload', action='store_true', help='Upload each completed variant to the pinned R2 bucket')
     args = parser.parse_args()
-    if args.start < 1 or args.end > 152 or args.end < args.start or args.end - args.start + 1 > 5:
-        raise SystemExit('Choose a valid batch of one to five suttas within MN1–MN152.')
+    if args.start < 1 or args.end > UID_COUNTS[args.collection] or args.end < args.start or args.end - args.start + 1 > 5:
+        raise SystemExit(f'Choose a valid batch of one to five {args.collection.upper()} suttas within {args.collection}1–{args.collection}{UID_COUNTS[args.collection]}.')
     if len(set(args.audiences)) != len(args.audiences):
         raise SystemExit('Audience list contains duplicates.')
     if args.prepare_only and args.upload:
@@ -39,9 +41,9 @@ def main():
     python = sys.executable
     records = []
     for number in range(args.start, args.end + 1):
-        uid = f'mn{number}'
+        uid = f'{args.collection}{number}'
         for audience in args.audiences:
-            source = source_for(uid, audience)
+            source = source_for(args.collection, uid, audience)
             plan = plan_source(source, profile)
             fingerprint = digest(json.dumps(
                 [source['source_sha256'], profile_digest(profile), plan],
@@ -61,13 +63,13 @@ def main():
                     records.append({'uid': uid, 'audience': audience, 'fingerprint': fingerprint,
                                     'chunks': len(plan), 'prepared': False, 'uploaded': True, 'reused': True})
                     continue
-            command = [python, 'scripts/gemini_tts.py', '--uid', uid, '--audience', audience]
+            command = [python, 'scripts/gemini_tts.py', '--uid', uid, '--collection', args.collection, '--audience', audience]
             if args.prepare_only:
                 command.append('--prepare-only')
             print(f'{uid}/{audience}: {len(plan)} chunks, fingerprint {fingerprint}', flush=True)
             subprocess.run(command, cwd=ROOT, check=True)
             if args.upload:
-                subprocess.run([python, 'scripts/audio-r2.py', str(folder), '--audience', audience], cwd=ROOT, check=True)
+                subprocess.run([python, 'scripts/audio-r2.py', str(folder), '--collection', args.collection, '--audience', audience], cwd=ROOT, check=True)
             records.append({'uid': uid, 'audience': audience, 'fingerprint': fingerprint,
                             'chunks': len(plan), 'prepared': args.prepare_only,
                             'uploaded': args.upload, 'reused': False})
