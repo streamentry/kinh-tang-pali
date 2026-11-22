@@ -14,13 +14,13 @@ The first four completed tracks rendered 12.56–12.89 source characters per gen
 
 ## Current progress
 
-The first batch, DN1–DN5, is merged as PR #2101 at merge commit `cca598483aba4d6780208f88f816f1fa86f8309b`. Pages run #45034146064 succeeded on that head. Pinned Chrome verified all 15 DN1–DN5 audience tracks on production: real R2 playback and seek passed, and auto-next preserved the selected children track from DN1 to DN2. Human listening remains pending.
+PR #2101 merged as `cca598483aba4d6780208f88f816f1fa86f8309b`; Pages run #45034146064 succeeded. Production Chrome verified play/seek for all 15 DN1–DN5 tracks and selected-children auto-next from DN1 to DN2.
 
-Across DN1–DN15, 45 of 102 explanation tracks are generated, registered in this worktree, and publicly R2-verified. DN6–DN10 are the next five-sutta PR batch. DN11–DN15 are uploaded and verified locally for the following batch. All new registrations remain `review_status: pending`. After removing only `explanation_tracks` and `explanation_track_history`, the original standard DN1–DN15 registrations match the pre-audio baseline.
+PR #2102 merged as `a966be61cbf78f2bb64bf0e469140f11db455419`; Pages run #45058623807 succeeded. Production Chrome verified play/seek for all 15 DN6–DN10 tracks and selected-children auto-next from DN6 to DN7.
 
-`npm run audio:check` reports 501 MN/DN audience registrations and zero errors. The player/code PR passed `npm run validate`, 513 tests (509 passed, 4 skipped), `npm run check` with zero errors, and `npm run build` (7,814 pages generated; 6,991 indexed). A DN13/children public full-file read ended early once; the cached MP3 hash and a public range read matched, and one cached upload retry completed without another Gemini request. Production CI, Pages, and player verification remain pending for DN6–DN15.
+Across DN1–DN20, 60 of 102 explanation tracks are generated, registered locally, and publicly R2-verified. Thirty tracks (DN1–DN10) are merged and production-player verified. The next two five-sutta batches, DN11–DN15 and DN16–DN20, are locally registered and await their own PRs. Every new registration remains `review_status: pending`; human listening has not been claimed.
 
-PR #2101 is production-verified; its 15 DN1–DN5 play/seek checks and selected-children auto-next check passed on the merged Pages reference. DN6–DN10 have 15 R2-verified registrations in the next publication batch. DN11–DN15 have 15 more R2-verified registrations in local production state for the following batch. The DN13/children incomplete-read and one cached retry have separate local evidence; the retry made zero TTS calls.
+`npm run audio:check` reports 516 MN/DN audience registrations and zero errors. Local validation passes; the 513-test suite has 509 passes, 4 skips, and zero failures; Astro check has zero errors; the build generated 7,814 pages and indexed 6,991. A DN13/children public full-file read ended early once; its cached MP3 hash and public range matched, and one cached upload retry succeeded without another Gemini request. The original standard DN1–DN15 registrations match the pre-audio baseline after excluding only the new explanation fields.
 
 ## Player behavior
 
