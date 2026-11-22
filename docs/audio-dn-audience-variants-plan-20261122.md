@@ -18,9 +18,11 @@ PR #2101 merged as `cca598483aba4d6780208f88f816f1fa86f8309b`; Pages run #450341
 
 PR #2102 merged as `a966be61cbf78f2bb64bf0e469140f11db455419`; Pages run #45058623807 succeeded. Production Chrome verified play/seek for all 15 DN6–DN10 tracks and selected-children auto-next from DN6 to DN7.
 
-Across DN1–DN20, 60 of 102 explanation tracks are generated, registered locally, and publicly R2-verified. Thirty tracks (DN1–DN10) are merged and production-player verified. The next two five-sutta batches, DN11–DN15 and DN16–DN20, are locally registered and await their own PRs. Every new registration remains `review_status: pending`; human listening has not been claimed.
+PR #2103 merged as `bf378e97e9ebfa351977bfad3852c7ca53c88018`; its Pages deployment #45082579080 is still in progress. DN11–DN15 have 15 R2-verified registrations in that merged batch. Local Chrome passed play/seek for all 15 and selected-children auto-next from DN11 to DN12; production player checks await Pages completion.
 
-`npm run audio:check` reports 516 MN/DN audience registrations and zero errors. Local validation passes; the 513-test suite has 509 passes, 4 skips, and zero failures; Astro check has zero errors; the build generated 7,814 pages and indexed 6,991. A DN13/children public full-file read ended early once; its cached MP3 hash and public range matched, and one cached upload retry succeeded without another Gemini request. The original standard DN1–DN15 registrations match the pre-audio baseline after excluding only the new explanation fields.
+Across DN1–DN25, 75 of 102 explanation tracks are generated, registered locally, and publicly R2-verified. Thirty tracks (DN1–DN10) are merged and production-player verified. DN11–DN15 are merged in PR #2103; their production check awaits the still-running Pages deployment. DN16–DN20 are the next five-sutta PR batch, and DN21–DN25 are uploaded locally for the following batch. Every new registration remains `review_status: pending`; human listening has not been claimed.
+
+`npm run audio:check` reports 531 MN/DN audience registrations and zero errors. The latest full validation, 513-test suite, Astro check, and build covered the 60-track state; the build generated 7,814 pages and indexed 6,991. Pinned Chrome passed play/seek on all 15 DN16–DN20 tracks and selected-children auto-next from DN16 to DN17. DN13/children and DN22/adults each had one incomplete public full-file read; their cached hashes and public ranges matched, and one cached upload retry succeeded without another Gemini request. The original standard DN1–DN15 registrations match the pre-audio baseline after excluding only the new explanation fields.
 
 ## Player behavior
 
