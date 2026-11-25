@@ -295,3 +295,22 @@ Unit test contrast/token không thay thế kiểm tra browser hay semantic audit
 
 Sau push: chờ CI của đúng head, tạo PR, merge khi được người dùng yêu cầu và đọc lại
 remote main. Ghi rõ local, CI và live deployment là ba lớp chứng cứ khác nhau.
+
+## 10. Ứng dụng Expo
+
+Ứng dụng trong `apps/mobile/` dùng lại website trong WebView: kinh văn, bốn bản,
+font tự lưu trữ, nguồn, chất lượng và tìm kiếm vẫn do Astro cung cấp. Những màn
+hình native bổ sung chỉ phục vụ đọc tiếp, nghe tiếp, dấu trang và sao lưu tiến độ.
+Không tạo một reader hoặc kho nội dung thứ hai.
+
+Màu native đọc trực tiếp `source/design-tokens.json`; icon ứng dụng sinh từ cùng
+`source/brand-mark.json`. Phần điều hướng native dùng font hệ thống để hỗ trợ cỡ
+chữ và accessibility của thiết bị; phần kinh văn giữ Noto Serif / Be Vietnam Pro
+của website. Giữ vùng chạm ít nhất 44 điểm, safe area, nhãn VoiceOver / TalkBack,
+nền sáng, tương phản và phân biệt kinh văn với diễn giải. Không thêm streak, điểm
+thưởng hoặc thông báo thúc ép đọc.
+
+Tiến độ là vị trí để tiếp tục, không gọi đó là thước đo hiểu kinh hay tu tập.
+Những trang mở trong ứng dụng vẫn giữ attribution, nhãn bản nháp và trạng thái
+audio chờ nghe duyệt. Kiểm tra native trên thiết bị riêng với kiểm tra browser;
+export bundle không thay cho phép thử khóa màn hình và gián đoạn âm thanh.

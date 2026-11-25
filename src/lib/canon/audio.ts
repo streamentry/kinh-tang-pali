@@ -2,6 +2,8 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { createHash } from 'node:crypto';
 import { validParts, type AudioPart } from '../audio/parts';
+import type { AudioVersionPlayerData } from '../audio/types';
+export type { AudioVersionId, AudioVersionPlayerData } from '../audio/types';
 import type { CanonDocument } from './types';
 import {
   EXPLANATION_AUDIO_AUDIENCES,
@@ -26,20 +28,6 @@ export function narrationHash(document: CanonDocument) {
 
 export function hasAudioRegistration(uid: string) {
   return fs.existsSync(path.join(process.cwd(), 'content/audio', `${uid}.json`));
-}
-
-export type AudioVersionId = 'original' | ExplanationAudioAudience;
-export interface AudioVersionPlayerData {
-  id: AudioVersionId;
-  label: string;
-  description: string;
-  kind: 'sutta' | 'explanation';
-  url: string;
-  parts?: AudioPart[];
-  duration_seconds: number;
-  scripture_start_seconds: number;
-  start_seconds: number;
-  review_status: 'pending' | 'approved';
 }
 
 interface ExplanationAudioRegistration {

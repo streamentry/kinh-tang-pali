@@ -1,0 +1,99 @@
+name: Mobile
+
+on:
+  pull_request:
+    paths:
+      - 'apps/mobile/**'
+      - 'src/lib/native/**'
+      - 'src/lib/audio/**'
+      - 'src/components/**'
+      - 'src/layouts/**'
+      - 'src/pages/**'
+      - 'source/design-tokens.json'
+      - 'source/brand-mark.json'
+      - 'tests/unit/native-bridge.test.ts'
+      - 'tests/browser/native-bridge.mjs'
+      - 'tests/unit/mobile*.test.ts'
+      - 'tests/helpers/mobile.ts'
+      - 'package.json'
+      - 'package-lock.json'
+      - '.easignore'
+      - '.github/workflows/mobile.yml'
+  push:
+    branches: ['**']
+    paths:
+      - 'apps/mobile/**'
+      - 'src/lib/native/**'
+      - 'src/lib/audio/**'
+      - 'src/components/**'
+      - 'src/layouts/**'
+      - 'src/pages/**'
+      - 'source/design-tokens.json'
+      - 'source/brand-mark.json'
+      - 'tests/unit/native-bridge.test.ts'
+      - 'tests/browser/native-bridge.mjs'
+      - 'tests/unit/mobile*.test.ts'
+      - 'tests/helpers/mobile.ts'
+      - 'package.json'
+      - 'package-lock.json'
+      - '.easignore'
+      - '.github/workflows/mobile.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event_name }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  native-bundles:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    defaults:
+      run:
+        working-directory: apps/mobile
+    env:
+      CI: '1'
+      EXPO_NO_TELEMETRY: '1'
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: '24'
+          cache: npm
+          cache-dependency-path: |
+            package-lock.json
+            apps/mobile/package-lock.json
+      - name: Install bridge test dependencies
+        working-directory: .
+        run: npm ci --no-audit --no-fund
+      - name: Test website/native contract
+        working-directory: .
+        # These tests exercise the protocol without fetching or changing scripture.
+        run: node --import tsx --test tests/unit/native-bridge.test.ts
+      - name: Install browser for bridge integration tests
+        working-directory: .
+        run: npx playwright install --with-deps chromium
+      - name: Verify reader hydration and native audio handoff in a browser
+        working-directory: .
+        run: npm run test:native-bridge
+      - name: Install mobile dependencies
+        run: npm ci --no-audit --no-fund
+      - name: Check Expo dependency alignment
+        run: npx expo install --check
+      - name: Type check
+        run: npm run typecheck
+      - name: Mobile brand assets match the shared registries
+        run: npm run assets -- --check
+      - name: Test progress and playback logic
+        run: npm test
+      - name: Bundle iOS and Android
+        # platforms in app config contains only ios/android. This does not create
+        # signed binaries and does not prove device background-audio behavior.
+        run: npm run export
+      - name: Validate native project generation
+        # Applies config plugins, including audio background capabilities, without
+        # credentials, a cloud build, Android compilation, or CocoaPods installation.
+        run: npx expo prebuild --no-install

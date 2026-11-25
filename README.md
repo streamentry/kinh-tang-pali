@@ -6,6 +6,11 @@ Nền tảng bản dịch Pāli → Việt theo **segment ID của SuttaCentral/
 
 📚 **Dự án liên quan:** [Hướng Đến Nhập Lưu](https://streamentry.github.io/streamentry/)
 
+📱 **Ứng dụng iOS / Android:** [`apps/mobile`](apps/mobile) dùng React Native + Expo.
+Ứng dụng đọc trực tiếp website, lưu vị trí đọc/nghe và dấu trang bằng SQLite, phát audio
+qua trình phát native, và hỗ trợ sao lưu/khôi phục tiến độ. Kinh văn, giao diện đọc,
+tìm kiếm và metadata audio vẫn do website quản lý. Xem [hướng dẫn chạy và build](docs/mobile-app.md).
+
 ✍️ **Dự án & biên tập bản dịch:** Lê Việt Hồng (Cư Sĩ Chánh Niệm)  
 🤖 **Hỗ trợ AI:** ChatGPT của OpenAI được sử dụng đáng kể trong quá trình tạo bản dịch đề xuất, đối chiếu nguồn, kiểm tra tính nhất quán và QA.  
 📮 **Liên hệ / góp ý / hỗ trợ:** [tostreamentry@gmail.com](mailto:tostreamentry@gmail.com)
