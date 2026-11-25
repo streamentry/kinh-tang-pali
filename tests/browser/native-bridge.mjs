@@ -51,7 +51,7 @@ function fixture(route) {
     <style>body{margin:0;font-family:serif;background:#f9faf7}main{padding:16px}.segment{height:calc(250px * var(--reader-scale, 1));border-top:1px solid #d8dfd6}header{height:260px}button,select{min-height:44px}button{padding:8px}footer{height:500px}.listening-options{display:flex;flex-wrap:wrap;gap:8px;padding:20px}.listen-version{display:flex;gap:8px}.collection-audio-current,.listen-version-description{flex-basis:100%}[hidden]{display:none!important}</style>
     ${native ? '<script>window.__messages=[];window.ReactNativeWebView={postMessage(value){window.__messages.push(JSON.parse(value));}};</script>' : ''}
     </head><body>
-    ${audio ? `<sutta-audio id="lang-nghe" style="display:block;min-height:900px" data-native-uid="mn1" data-native-title="Kinh Pháp Môn Căn Bản" data-versions="${escapeAttr([original, children])}"><div><p data-track-label>${original.label}</p><span data-track-review>Chờ nghe duyệt</span><span data-track-length>3 phút</span></div><audio controls></audio><div class="listening-custom" hidden></div><div class="listening-footer"></div></sutta-audio>` : ''}
+    ${audio ? `<sutta-audio id="lang-nghe" style="display:block;min-height:900px" data-native-uid="mn1" data-native-title="Kinh Pháp Môn Căn Bản" data-versions="${escapeAttr([original, children])}"><div><p data-track-label>${original.label}</p><span data-track-review>Chờ nghe duyệt</span><span data-track-length>3 phút</span></div><audio controls></audio><div class="listening-custom" hidden></div><div class="listening-footer"><a data-open-track href="${original.url}">Mở MP3</a></div></sutta-audio>` : ''}
     ${playlist ? `<sutta-playlist data-native-text-base="/kinh-tang-pali/sutta/mn/" data-tracks="[]" data-tracks-src="/kinh-tang-pali/fixture-playlist.json" data-track-count="2"><section class="collection-listening"><audio controls></audio><p data-playlist-error hidden>Không tải được danh sách</p><div class="listening-custom" hidden></div></section>${tracks.map(track => `<div data-audio-row><div class="sutta-row-audio"><button data-play-track="${track.uid}" hidden><span data-row-label>Phát</span></button><a data-audio-fallback href="#">MP3</a></div></div>`).join('')}</sutta-playlist>` : ''}
     <header>Thư viện kinh văn</header><main data-native-reader data-native-uid="mn1" data-native-title="Kinh Pháp Môn Căn Bản">
     <section class="reader-shell" data-reader-mode="vi"><div class="reader-toolbar">
@@ -138,6 +138,8 @@ try {
   let request = await page.evaluate(() => window.__messages.findLast(message => message.type === 'audio-play'));
   assert.equal(request.track.version.id, 'children'); assert.equal(request.track.version.kind, 'explanation');
   assert.equal(request.track.version.review_status, 'pending'); assert.equal(request.startSeconds, undefined);
+  assert.equal(await page.locator('[data-open-track]').getAttribute('href'), children.url);
+  assert.equal(await page.locator('[data-open-track]').getAttribute('aria-label'), `Mở MP3: ${children.label}`);
   assert.equal(await page.locator('audio').evaluate(audio => audio.paused && audio.hidden && !audio.hasAttribute('src')), true);
   assert.equal(await page.evaluate(() => window.__messages.filter(message => message.type === 'reading-progress').length), 0, 'Opening audio and playing it must not erase a saved scripture paragraph');
   await page.getByRole('button', { name: 'Nghe từ đầu', exact: true }).click();

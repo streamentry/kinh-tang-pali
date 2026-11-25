@@ -1,5 +1,6 @@
 import { readAudioVersion, saveAudioVersion, readAutoNext, saveAutoNext, playlistIndexFromHash } from '../audio/navigation';
 import type { PlayerTrack } from '../audio/playlist';
+import { locatePart } from '../audio/parts';
 import type { AudioVersionPlayerData } from '../audio/types';
 import type { NativeTrack } from './protocol';
 import { installNativeBridge } from './web-bridge';
@@ -50,7 +51,16 @@ export function mountNativeSuttaAudio(element: HTMLElement): () => void {
     const review = element.querySelector<HTMLElement>('[data-track-review]');
     if (review) { review.hidden = version.review_status !== 'pending'; review.textContent = version.review_status === 'pending' ? 'Chờ nghe duyệt' : ''; }
     const length = element.querySelector('[data-track-length]');
-    if (length) length.textContent = `${Math.round(version.duration_seconds / 60)} phút`;
+    if (length) length.textContent = version.duration_seconds < 60
+      ? `${Math.round(version.duration_seconds)} giây` : `${Math.round(version.duration_seconds / 60)} phút`;
+    const openTrack = element.querySelector<HTMLAnchorElement>('[data-open-track]');
+    if (openTrack) {
+      const position = version.parts?.length ? locatePart(version.parts, version.start_seconds) : null;
+      const url = position ? version.parts![position.index].url : version.url;
+      const time = position ? position.time : version.start_seconds;
+      openTrack.href = time > 0 ? `${url}#t=${time}` : url;
+      openTrack.setAttribute('aria-label', `Mở MP3: ${version.label}`);
+    }
   };
   const picker = versionPicker(versions, refresh);
   const launch = (startSeconds?: number) => {
