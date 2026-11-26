@@ -13,7 +13,8 @@ import { openProgressStore, type Bookmark, type ProgressStore, type SavedListeni
 import { usePlayback } from './src/usePlayback';
 import { currentAudioTrack } from './src/current-audio';
 import { ReaderView, type ReaderHandle } from './src/ReaderView';
-import { MiniPlayer, PlayerSheet } from './src/PlayerSheet';
+import { ListeningSaveNotice, MiniPlayer, PlayerSheet } from './src/PlayerSheet';
+import { NavigationRequests } from './src/navigation-requests';
 import { Button, clock, dateLabel, EmptyState, Icon, IconButton, ProgressBar, Section, ui, type IconName } from './src/ui';
 import { colors } from './src/theme';
 
@@ -62,7 +63,7 @@ function Companion({ store }: { store: ProgressStore }) {
   const reader = useRef<ReaderHandle>(null);
   const audioRequest = useRef(0);
   const audioAbort = useRef<AbortController | null>(null);
-  const navigationRequest = useRef(0);
+  const navigation = useRef(new NavigationRequests()).current;
   const backupOperation = useRef(false);
   const sequence = useRef(0);
   const playback = usePlayback(store);
@@ -80,48 +81,48 @@ function Companion({ store }: { store: ProgressStore }) {
       return false;
     }
   }, [store]);
-  useEffect(() => { refresh(); }, [refresh, tab, playback.track, playback.status.playing]);
+  useEffect(() => { refresh(); }, [refresh, tab, playback.track, playback.status.playing, playback.persistence.pendingCount]);
   const cancelPendingAudio = useCallback(() => {
     ++audioRequest.current;
     audioAbort.current?.abort(); audioAbort.current = null;
     setResolvingAudio(false);
   }, []);
   useEffect(() => () => {
-    ++audioRequest.current; ++navigationRequest.current;
+    ++audioRequest.current; navigation.invalidate();
     audioAbort.current?.abort();
-  }, []);
-  const openPage = useCallback(async (url: string, position?: ReadingPosition) => {
+  }, [navigation]);
+  const openPage = useCallback((url: string, position?: ReadingPosition) => {
     if (!isTrustedPageUrl(url, SITE_URL)) {
       Alert.alert('Không mở được bài', 'Liên kết này không thuộc thư viện đã chọn.'); return;
     }
-    const request = ++navigationRequest.current;
-    await reader.current?.capture();
-    if (request !== navigationRequest.current) return;
-    setPage({ url, title: 'Thư viện', uid: null });
-    setCanGoBack(false);
-    setDestination({ url, key: ++sequence.current, position });
-    setTab('reader');
-  }, []);
+    void navigation.afterCapture(() => reader.current?.capture(), () => {
+      setPage({ url, title: 'Thư viện', uid: null });
+      setCanGoBack(false);
+      setDestination({ url, key: ++sequence.current, position });
+      setTab('reader');
+    });
+  }, [navigation]);
   const selectTab = (next: Tab) => {
-    ++navigationRequest.current;
+    navigation.invalidate();
     void reader.current?.capture(); playback.flush();
     if (next === 'reader' && !destination) void openPage(SITE_URL);
     else setTab(next);
     refresh();
   };
   const back = useCallback(() => {
-    ++navigationRequest.current;
-    void reader.current?.capture();
-    if (canGoBack) reader.current?.goBack(); else setTab('home');
-  }, [canGoBack]);
+    void navigation.afterCapture(() => reader.current?.capture(), () => {
+      if (canGoBack) reader.current?.goBack(); else setTab('home');
+    });
+  }, [canGoBack, navigation]);
   useEffect(() => {
     const subscription = BackHandler.addEventListener('hardwareBackPress', () => {
+      navigation.invalidate();
       if (tab === 'reader') { back(); return true; }
       if (tab === 'saved') { setTab('home'); return true; }
       return false;
     });
     return () => subscription.remove();
-  }, [tab, back]);
+  }, [tab, back, navigation]);
   const onPage = useCallback((incoming: PageInfo) => {
     setPage(previous => ({ ...incoming, title: cleanTitle(incoming.title),
       uid: incoming.uid ?? (normalizePageUrl(previous.url) === normalizePageUrl(incoming.url) ? previous.uid : null) }));
@@ -148,13 +149,16 @@ function Companion({ store }: { store: ProgressStore }) {
     catch (error) { setStorageError({ kind: 'bookmark', message: error instanceof Error ? error.message : 'Không lưu được dấu trang.' }); }
   };
   const resumeAudio = async (saved: SavedListening) => {
+    // Settings can close while a picker, capture or share operation is pending.
+    // Keep its stop/import boundary intact until the whole operation completes.
+    if (backupOperation.current) return;
     cancelPendingAudio();
     const request = ++audioRequest.current;
     const controller = new AbortController(); audioAbort.current = controller;
     setResolvingAudio(true);
     try {
       const track = await currentAudioTrack(saved.track, SITE_URL, undefined, controller.signal);
-      if (request !== audioRequest.current || controller.signal.aborted) return;
+      if (backupOperation.current || request !== audioRequest.current || controller.signal.aborted) return;
       playback.playTrack(track);
       setPlayerVisible(true); refresh();
       if (trackKey(track) !== trackKey(saved.track)) {
@@ -173,12 +177,14 @@ function Companion({ store }: { store: ProgressStore }) {
     ...playback,
     toggle: () => { cancelPendingAudio(); playback.toggle(); },
     retry: () => { cancelPendingAudio(); playback.retry(); },
+    retrySaves: () => { cancelPendingAudio(); const saved = playback.retrySaves(); refresh(); return saved; },
     pause: () => { cancelPendingAudio(); playback.pause(); },
-    stop: () => { cancelPendingAudio(); playback.stop(); },
+    stop: () => { cancelPendingAudio(); const saved = playback.stop(); refresh(); return saved; },
+    stopAfterCurrent: () => { cancelPendingAudio(); playback.stopAfterCurrent(); },
     seek: (seconds: number) => { cancelPendingAudio(); playback.seek(seconds); },
     skip: (seconds: number) => { cancelPendingAudio(); playback.skip(seconds); },
     setRate: (rate: number) => { cancelPendingAudio(); playback.setRate(rate); },
-    flush: () => { cancelPendingAudio(); playback.flush(); },
+    flush: () => { cancelPendingAudio(); return playback.flush(); },
   };
   const exportProgress = async () => {
     if (backupOperation.current) return;
@@ -186,12 +192,13 @@ function Companion({ store }: { store: ProgressStore }) {
     cancelPendingAudio();
     setBackupBusy(true);
     try {
-      playback.flush(); await reader.current?.capture();
+      if (!playback.flush()) throw new Error('Vẫn còn vị trí nghe chưa lưu. Hãy thử lưu lại trước khi xuất bản sao.');
+      await reader.current?.capture();
       if (!await Sharing.isAvailableAsync()) throw new Error('Thiết bị chưa hỗ trợ chia sẻ tệp.');
       const timestamp = new Date().toISOString().replace(/[:.]/g, '-');
       const file = new File(Paths.cache, `kinh-tang-pali-progress-${timestamp}-${++sequence.current}.json`);
       file.create();
-      playback.flush();
+      if (!playback.flush()) throw new Error('Vẫn còn vị trí nghe chưa lưu. Hãy thử lưu lại trước khi xuất bản sao.');
       await file.write(JSON.stringify(store.exportSnapshot(), null, 2));
       await Sharing.shareAsync(file.uri, { mimeType: 'application/json', UTI: 'public.json', dialogTitle: 'Lưu bản sao tiến độ' });
     } catch (error) { Alert.alert('Chưa tạo được bản sao', error instanceof Error ? error.message : 'Vui lòng thử lại.'); }
@@ -204,6 +211,7 @@ function Companion({ store }: { store: ProgressStore }) {
   const importProgress = async () => {
     if (backupOperation.current) return;
     backupOperation.current = true;
+    navigation.invalidate();
     cancelPendingAudio();
     setBackupBusy(true);
     try {
@@ -212,12 +220,12 @@ function Companion({ store }: { store: ProgressStore }) {
       const file = new File(picked.assets[0].uri);
       if (file.size > 20 * 1024 * 1024) throw new Error('Tệp sao lưu quá lớn (tối đa 20 MB).');
       const snapshot: unknown = JSON.parse(await file.text());
-      playback.stop();
+      if (!playback.stop()) throw new Error('Đã dừng audio nhưng vẫn còn vị trí nghe chưa lưu. Hãy thử lưu lại rồi nhập bản sao; dữ liệu hiện tại chưa bị thay đổi.');
       await reader.current?.capture();
       // Invalidate immediately, not merely on React's next render, so queued
       // callbacks cannot write old positions over the imported records.
       reader.current?.suspend();
-      ++navigationRequest.current;
+      navigation.invalidate();
       setDestination(null); setCanGoBack(false); setPlayerVisible(false); setTab('home');
       setPage({ url: SITE_URL, title: 'Thư viện', uid: null });
       const imported = store.importSnapshot(snapshot, SITE_URL);
@@ -239,7 +247,7 @@ function Companion({ store }: { store: ProgressStore }) {
       </> : <>
         <Image source={require('./assets/icon.png')} style={styles.brand} accessibilityIgnoresInvertColors />
         <Text style={styles.headerTitle}>Kinh Tạng Pāli</Text>
-        <IconButton icon="settings-outline" label="Cài đặt và sao lưu" onPress={() => { cancelPendingAudio(); playback.flush(); refresh(); setSettingsVisible(true); }} />
+        <IconButton icon="settings-outline" label="Cài đặt và sao lưu" onPress={() => { navigation.invalidate(); cancelPendingAudio(); playback.flush(); refresh(); setSettingsVisible(true); }} />
       </>}
     </View>
     {storageError && <View style={ui.warning}><Text accessibilityRole="alert" style={ui.warningText}>{storageError.message}</Text>
@@ -250,6 +258,7 @@ function Companion({ store }: { store: ProgressStore }) {
         else if (issue.kind === 'reading') void reader.current?.capture();
       }}>Thử lại</Button>
     </View>}
+    <ListeningSaveNotice playback={playerControls} />
     {resolvingAudio && <View style={styles.resolving}><ActivityIndicator color={colors.accent} /><Text style={[ui.small, ui.grow]}>Đang kiểm tra bản audio mới nhất…</Text>
       <IconButton icon="close-outline" label="Hủy mở audio" onPress={cancelPendingAudio} />
     </View>}
@@ -257,7 +266,9 @@ function Companion({ store }: { store: ProgressStore }) {
       {destination && <View style={[StyleSheet.absoluteFill, tab !== 'reader' && styles.hidden]} pointerEvents={tab === 'reader' ? 'auto' : 'none'} accessibilityElementsHidden={tab !== 'reader'} importantForAccessibility={tab === 'reader' ? 'auto' : 'no-hide-descendants'}>
         <ReaderView key={destination.key} ref={reader} siteUrl={SITE_URL} destination={destination} active={tab === 'reader' && !playerVisible && !settingsVisible && !backupBusy}
           getReading={url => store.getReading(url)} onPage={onPage} onReading={saveReading} onNavigation={setCanGoBack}
+          onNavigationStart={() => navigation.invalidate()}
           onError={message => setStorageError({ kind: 'reader', message })} onAudio={message => {
+            if (backupOperation.current) return;
             cancelPendingAudio();
             playback.playTrack(message.track, message.startSeconds, message.queue);
             setPlayerVisible(true); refresh();
@@ -304,6 +315,7 @@ function Companion({ store }: { store: ProgressStore }) {
     <Modal visible={settingsVisible} animationType="slide" presentationStyle="pageSheet" onRequestClose={() => setSettingsVisible(false)}>
       <SafeAreaView style={ui.page}><View style={styles.header}><Text style={styles.headerTitle}>Cài đặt &amp; sao lưu</Text><IconButton icon="close-outline" label="Đóng cài đặt" onPress={() => setSettingsVisible(false)} /></View>
         <ScrollView contentContainerStyle={ui.content}>
+          <ListeningSaveNotice playback={playerControls} />
           <Section title="Giữ lại tiến độ"><Text style={ui.body}>Lưu một bản sao để chuyển sang thiết bị khác hoặc khôi phục sau khi cài lại ứng dụng.</Text>
             <Button icon="share-outline" onPress={() => void exportProgress()} disabled={backupBusy}>Xuất bản sao lưu</Button>
             <Button secondary icon="document-outline" onPress={() => void importProgress()} disabled={backupBusy}>Nhập bản sao lưu</Button>

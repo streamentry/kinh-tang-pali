@@ -87,6 +87,14 @@ tiếp tục đọc, không phải phép đo người dùng đã hiểu hay hoà
 Web báo sẵn sàng, app gửi lại vị trí đã lưu, rồi mới nhận các cập nhật cuộn. Cổng
 này ngăn sự kiện đầu trang lúc tải mới ghi đè tiến độ trước đó. Mỗi document có
 mã phiên riêng để sự kiện đến muộn từ trang cũ không ghi sang trang đang mở.
+Nếu thông điệp khôi phục đầu tiên bị mất, app gửi lại cùng snapshot khi trang
+báo sẵn sàng lần nữa; không đọc lại storage rồi vô tình thay vị trí đang phục
+hồi. Chế độ native chỉ bật với dấu nhận diện của chính companion. Một WebView
+React Native khác vẫn giữ player và điều hướng web thông thường.
+
+Nút quay lại của app chờ trang chụp vị trí hiện tại trong thời hạn ngắn trước khi
+chuyển trang. Nếu người dùng chọn một điều hướng mới trong lúc chờ, yêu cầu cũ
+không được kéo họ trở lại trang trước.
 
 Tiến độ nghe tách theo bài, bản nghe và nguồn media. Bản kinh văn và bản diễn giải
 không dùng chung mốc nghe. Audio nhiều phần dùng thời gian cộng dồn của cả bài;
@@ -98,6 +106,13 @@ bản khác. Lần mở lại không tự phát âm thanh: người dùng chọn
 App ghi tiến độ định kỳ và tại các mốc như tạm dừng, tua, đổi bài hoặc vào nền.
 Hệ điều hành có thể dừng tiến trình ngay lập tức; không hứa giữ chính xác giây
 cuối cùng sau mọi kiểu force quit.
+
+Nếu SQLite chưa ghi được, app giữ các snapshot chưa lưu trong bộ nhớ qua cả
+đổi bài, tự sang bài và dừng nghe. Thông báo còn hiện khi đóng player; nút thử
+lưu lại không làm đổi trạng thái phát. Ghi bù giữ thời điểm hoạt động ban đầu,
+không ghi đè dữ liệu mới hơn và không âm thầm thay bản ghi hỏng. Dữ liệu còn chờ
+trong bộ nhớ vẫn có thể mất nếu hệ điều hành đóng tiến trình trước khi storage
+phục hồi. App chặn xuất/nhập bản sao cho đến khi các mốc nghe đó đã được lưu.
 
 ### Audio nhiều phần, nghe liên tiếp và màn hình khóa
 
@@ -126,6 +141,11 @@ hiện tại kết thúc, JavaScript mở bài tiếp theo ở `start_seconds` c
 Không dùng mốc nghe dở cũ cho bước tự chuyển bài, và không tự đổi sang bản gốc khi
 bản diễn giải đang chọn bị thiếu. Bước này có thể cần chờ mạng; không tuyên bố
 nghe liên tiếp giữa nhiều bài là một hàng đợi native không gián đoạn.
+
+Trong player, **Dừng sau bài này** hủy các bài kinh tiếp theo, nhưng vẫn phát hết
+mọi phần MP3 của bài hiện tại. **Dừng nghe** lưu mốc gần nhất và giải phóng player
+ngay; nếu chưa ghi được, app vẫn giữ và hiển thị mốc đang chờ lưu. Thanh tua nhận
+cả thao tác kéo và điều chỉnh từ TalkBack hoặc bàn phím.
 
 Luồng thực thi nằm ở [`usePlayback.ts`](../apps/mobile/src/usePlayback.ts),
 [`playback-core.ts`](../apps/mobile/src/playback-core.ts) và
@@ -198,11 +218,54 @@ Chỉ merge code chưa đồng nghĩa website live đã có bridge. Bản app m�
 đã triển khai phần giao tiếp và endpoint metadata audio tương ứng. Sửa kinh văn, thêm bài hoặc cập nhật nguồn
 audio đi qua quy trình web hiện có; không cần chép lại vào app.
 
+### APK Android để dùng thử
+
+Workflow [`Android preview`](../.github/workflows/mobile-preview.yml) dựng APK
+độc lập khi code native thay đổi hoặc khi chạy thủ công từ trang Actions. Không
+cần tài khoản Expo, signing của chủ ứng dụng hay Metro. Workflow tạo native
+project từ app config, compile biến thể release, kiểm tra bundle JavaScript,
+package, quyền và chữ ký, rồi cài APK lên Android emulator để kiểm tra khởi động
+và điều hướng native. Chỉ khi các bước đó thành công mới upload APK.
+
+1. Mở [Android preview trong Actions](https://github.com/streamentry/kinh-tang-pali/actions/workflows/mobile-preview.yml).
+2. Chọn lần chạy thành công trên commit muốn thử, tải artifact
+   `kinh-tang-pali-android-preview-<commit>` và giải nén.
+3. Đối chiếu `build.json` và `SHA256SUMS`, rồi cài
+   `kinh-tang-pali-preview.apk` trên Android. Artifact giữ 30 ngày; có thể chạy
+   workflow lại khi hết hạn.
+
+Bản này có tên **Kinh Tạng Pāli Preview**, package
+`io.github.streamentry.kinhtangpali.preview`, chạy trên ARM64 hoặc x86_64 và
+dùng **debug key công khai của template Expo**. Đây là bản thử nghiệm, chưa phải
+bản phát hành qua cửa hàng. Nó có vùng dữ liệu riêng, không ghi đè app production.
+Xuất bản sao JSON trước khi gỡ bản thử hoặc chuyển sang package/chữ ký khác;
+nhập bản sao trong app mới để chuyển tiến độ. APK vẫn cần mạng để mở nội dung web
+và tải audio.
+
+Để dựng cùng loại APK trên máy đã có JDK 21 và Android SDK:
+
+```bash
+# Tại apps/mobile; biến preview phải giữ cho cả prebuild và Gradle.
+export EXPO_PUBLIC_APP_VARIANT=preview
+npx expo prebuild --platform android --no-install
+cd android
+./gradlew :app:assembleRelease -PreactNativeArchitectures=arm64-v8a,x86_64
+cd ..
+python3 scripts/verify-android-preview.py
+```
+
+Script kiểm tra ghi APK, checksum và metadata vào `apps/mobile/build/preview/`.
+Emulator smoke test lưu ảnh màn hình, cây accessibility và log trong artifact
+riêng. Nó không chứng minh phát nền trên điện thoại thật, TalkBack hay Bluetooth.
+
 ### Dựng bằng EAS
 
 Chạy EAS từ `apps/mobile`, nơi đặt `eas.json`. Các profile gồm `development`
 (dev client), `preview` (bản cài nội bộ; Android APK) và `production`. Cần kết nối
 dự án với tài khoản Expo và cấu hình signing của chủ ứng dụng trước khi dựng.
+Profile `preview` chọn package riêng như workflow Android; EAS có thể dùng khóa
+signing khác nên không mặc định cập nhật đè lên APK của Actions. Giữ bản sao tiến
+độ trước khi đổi loại bản cài.
 
 ```bash
 # Chạy tại apps/mobile sau khi đăng nhập Expo và liên kết dự án.
@@ -244,6 +307,8 @@ npx expo prebuild --no-install
 Workflow [`Mobile`](../.github/workflows/mobile.yml) chạy protocol tests, các kiểm
 tra của app, export bundle iOS/Android và tạo native project. Nó không build binary
 có chữ ký, không cài vào thiết bị và không kiểm chứng âm thanh nền.
+Workflow `Android preview` bổ sung compile và cài APK độc lập vào emulator; các
+cổng website và các kiểm tra trên thiết bị thật dưới đây vẫn cần thiết.
 
 Các thay đổi bridge thuộc website vẫn phải qua CI hiện có: sync nguồn đã ghim,
 `npm run validate`, `npm test`, `npm run check`, `npm run design:check`,
@@ -274,6 +339,8 @@ build trên cả iOS và Android; đánh dấu chưa kiểm tra nếu chưa có 
 | Rời trang đọc trước khi yêu cầu phát từ WebView đến app | Trang đang ẩn không tự bắt đầu audio |
 | Khóa màn hình trên 5 phút | Audio tiếp tục, điều khiển play/pause và tua hoạt động |
 | Hết bài cuối cùng, rồi phát lại | Lưu hoàn tất, bỏ điều khiển màn hình khóa đã hết tác dụng; app phát lại từ mốc mặc định |
+| Dừng sau bài hiện tại khi bài có nhiều phần MP3 | Phát hết các phần của bài đó; không sang bài kinh tiếp theo |
+| Dừng nghe hoặc đổi bài khi storage tạm lỗi | Mốc chưa lưu còn hiện; thử lưu lại không đổi trạng thái phát và không ghi đè mốc mới hơn |
 | Rút tai nghe / ngắt Bluetooth, có cuộc gọi | Không phát bất ngờ; khi tiếp tục, tốc độ đã chọn vẫn đúng |
 | Mất mạng, quay lại mạng | Báo lỗi có cách thử lại; tiến độ cũ không bị xóa |
 | Lưu tiến độ thất bại rồi thử lại khi đang phát, tạm dừng hoặc đã hết bài | Thử lưu lại không đổi trạng thái phát hoặc bắt đầu phát lại bài đã hết |

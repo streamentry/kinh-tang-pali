@@ -1,6 +1,6 @@
 import { locatePart, type AudioPart } from '../../../src/lib/audio/parts';
 import { isNativeTrack, trackKey, type NativeTrack } from '../../../src/lib/native/protocol';
-import type { ProgressStore } from './storage-core';
+import type { ProgressStore, SavedListening } from './storage-core';
 
 export interface PlaybackStatus {
   position: number;
@@ -11,8 +11,15 @@ export interface PlaybackStatus {
   rate: number;
   completed: boolean;
   queueRemaining: number;
+  stopAfterCurrent: boolean;
 }
-export interface PlaybackSnapshot { track: NativeTrack | null; status: PlaybackStatus }
+export interface PlaybackPersistence { pendingCount: number; error: string | null }
+export interface PlaybackSnapshot {
+  track: NativeTrack | null;
+  status: PlaybackStatus;
+  /** Independent of the current track: failed saves also survive stop/switch. */
+  persistence: PlaybackPersistence;
+}
 export interface PlayerEvent {
   isLoaded: boolean;
   currentTime: number;
@@ -58,7 +65,7 @@ interface Session {
 
 const idle: PlaybackStatus = {
   position: 0, duration: 0, playing: false, loading: false, error: null,
-  rate: 1, completed: false, queueRemaining: 0,
+  rate: 1, completed: false, queueRemaining: 0, stopAfterCurrent: false,
 };
 const saveError = 'Chưa lưu được vị trí nghe trên thiết bị. Hãy thử lưu lại.';
 const bound = (value: number, duration: number) => Math.max(0, Math.min(Number.isFinite(value) ? value : 0, duration));
@@ -68,12 +75,15 @@ const partsOf = (track: NativeTrack) => track.version.parts ?? [track.version];
  * own player and callback identity, so an old network/seek completion cannot
  * start playback or overwrite the progress of a newer request. */
 export class PlaybackController {
-  private snapshot: PlaybackSnapshot = { track: null, status: { ...idle } };
+  private snapshot: PlaybackSnapshot = {
+    track: null, status: { ...idle }, persistence: { pendingCount: 0, error: null },
+  };
   private listeners = new Set<() => void>();
   private session: Session | null = null;
   private queue: NativeTrack[] = [];
-  private lastSavedAt = 0;
-  private lastSavedSignature = '';
+  private lastSaveAttemptAt = 0;
+  private lastCapturedSignature = '';
+  private pendingSaves = new Map<string, SavedListening>();
 
   constructor(
     private store: ProgressStore | null,
@@ -88,7 +98,15 @@ export class PlaybackController {
   };
 
   private update(status: Partial<PlaybackStatus>, track = this.snapshot.track) {
-    this.snapshot = { track, status: { ...this.snapshot.status, ...status } };
+    this.snapshot = { ...this.snapshot, track, status: { ...this.snapshot.status, ...status } };
+    for (const listener of this.listeners) listener();
+  }
+
+  private updatePersistence() {
+    const pendingCount = this.pendingSaves.size;
+    const error = pendingCount ? saveError : null;
+    if (this.snapshot.persistence.pendingCount === pendingCount && this.snapshot.persistence.error === error) return;
+    this.snapshot = { ...this.snapshot, persistence: { pendingCount, error } };
     for (const listener of this.listeners) listener();
   }
 
@@ -124,13 +142,11 @@ export class PlaybackController {
     return true;
   }
 
-  /** Synchronous SQLite commit. Called by native status updates and lifecycle
-   * events; periodic saves limit loss when the OS kills the process outright. */
-  flush = () => {
+  private captureListening() {
     const { track, status } = this.snapshot;
     const session = this.session;
     // EOF releases the native player; a failed final save must remain retryable.
-    if (!track || !this.store || (!session?.ready && !status.completed)) return;
+    if (!track || (!session?.ready && !status.completed)) return;
     let position = status.position;
     if (!status.completed && session) {
       try {
@@ -140,19 +156,37 @@ export class PlaybackController {
         }
       } catch { /* Preserve the last observed position after a native reset. */ }
     }
-    try {
-      const signature = JSON.stringify([trackKey(track), position, status.rate, status.completed]);
-      if (signature === this.lastSavedSignature) return;
-      this.store.saveListening({
-        track, position, duration: status.duration, rate: status.rate, completed: status.completed,
-      });
-      this.lastSavedAt = this.now();
-      this.lastSavedSignature = signature;
-      if (this.snapshot.status.error === saveError) this.update({ error: null });
-    } catch (error) {
-      this.update({ error: saveError });
+    const key = trackKey(track);
+    const signature = JSON.stringify([key, position, status.rate, status.completed]);
+    if (signature === this.lastCapturedSignature) return;
+    this.lastCapturedSignature = signature;
+    // Coalesce only the same recording. A later position (including a backward
+    // seek) replaces its pending snapshot; unchanged retries retain its date.
+    this.pendingSaves.set(key, {
+      track, position, duration: status.duration, rate: status.rate, completed: status.completed,
+      updatedAt: this.now(),
+    });
+  }
+
+  /** Capture before switching/releasing native resources, then synchronously
+   * retry every pending recording. Failures remain visible even with no player.
+   * The OS can still kill in-memory unsaved data if storage stays unavailable. */
+  flush = (): boolean => {
+    this.captureListening();
+    if (this.store) for (const [key, pending] of this.pendingSaves) {
+      try {
+        const { updatedAt, ...listening } = pending;
+        this.store.saveListening(listening, updatedAt);
+        // A newer stored/imported record also settles this older pending write.
+        this.pendingSaves.delete(key);
+      } catch { /* Keep the original snapshot and activity timestamp for retry. */ }
     }
+    this.lastSaveAttemptAt = this.now();
+    this.updatePersistence();
+    return this.pendingSaves.size === 0;
   };
+
+  retrySaves = (): boolean => this.flush();
 
   playTrack = (track: NativeTrack, startSeconds?: number, queue: NativeTrack[] = []) => {
     if (!isNativeTrack(track) || queue.some(item => !isNativeTrack(item) || item.version.id !== track.version.id)) {
@@ -166,7 +200,7 @@ export class PlaybackController {
     const sameTrack = this.snapshot.track && trackKey(this.snapshot.track) === trackKey(track);
     if (sameTrack && this.session?.ready && startSeconds === undefined && !this.snapshot.status.completed && !this.snapshot.status.error) {
       this.queue = [...queue];
-      this.update({ queueRemaining: this.queue.length });
+      this.update({ queueRemaining: this.queue.length, stopAfterCurrent: false });
       this.resume();
       return;
     }
@@ -175,7 +209,9 @@ export class PlaybackController {
     let rate = this.snapshot.status.rate;
     if (position === undefined) {
       try {
-        const saved = this.store?.getListening(track);
+        const stored = this.store?.getListening(track);
+        const pending = this.pendingSaves.get(trackKey(track));
+        const saved = pending && (!stored || pending.updatedAt >= stored.updatedAt) ? pending : stored;
         position = saved && !saved.completed ? saved.position : track.version.start_seconds;
         rate = saved?.rate ?? rate;
       } catch (error) {
@@ -184,7 +220,7 @@ export class PlaybackController {
       }
     }
     this.queue = [...queue];
-    this.update({ rate });
+    this.update({ rate, stopAfterCurrent: false });
     this.load(track, position, true);
   };
 
@@ -281,7 +317,7 @@ export class PlaybackController {
       try { session.player.setRate(status.rate); }
       catch (error) { this.fail(error); return; }
     }
-    if (paused || this.now() - this.lastSavedAt >= 5_000) this.flush();
+    if (paused || this.now() - this.lastSaveAttemptAt >= 5_000) this.flush();
   }
 
   private async restore(session: Session) {
@@ -334,8 +370,8 @@ export class PlaybackController {
   /** Retrying a write must not change playback, including while paused or
    * completed. Media failures retain the normal explicit retry behavior. */
   retry = () => {
-    if (this.snapshot.status.error === saveError) this.flush();
-    else this.toggle();
+    if (this.snapshot.status.error) this.toggle();
+    else this.retrySaves();
   };
 
   seek = (seconds: number) => {
@@ -356,14 +392,23 @@ export class PlaybackController {
     this.flush();
   };
 
-  /** Finish this session before importing a backup. Later lifecycle/interval
-   * callbacks then have no old player position to write over imported data. */
-  stop = () => {
-    this.flush();
+  /** Finish every part of this reading, then stop instead of starting another
+   * canonical reading. Does not interrupt or rebuild the native MP3 playlist. */
+  stopAfterCurrent = () => {
+    if (!this.snapshot.track) return;
+    this.queue = [];
+    this.update({ queueRemaining: 0, stopAfterCurrent: true });
+  };
+
+  /** Always stop playback, but never discard failed saves. Import may proceed
+   * only when this returns true; otherwise keep the warning and retry first. */
+  stop = (): boolean => {
+    const saved = this.flush();
     this.release();
     this.queue = [];
-    this.lastSavedSignature = '';
+    this.lastCapturedSignature = '';
     this.update({ ...idle }, null);
+    return saved;
   };
 
   dispose = () => {

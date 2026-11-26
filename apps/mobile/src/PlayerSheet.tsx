@@ -6,6 +6,7 @@ import type { usePlayback } from './usePlayback';
 import { colors } from './theme';
 import { Button, clock, Icon, IconButton, ui } from './ui';
 import { trackKey } from '../../../src/lib/native/protocol';
+import { SeekInteraction } from './seek-interaction';
 
 export type Playback = ReturnType<typeof usePlayback>;
 export function PlayerSheet({ visible, onClose, playback, onRead, onInteraction }: {
@@ -15,12 +16,9 @@ export function PlayerSheet({ visible, onClose, playback, onRead, onInteraction 
   const [position, setPosition] = useState(0);
   const { track, status } = playback;
   const key = track ? trackKey(track) : null;
-  const draggingTrack = useRef<string | null>(null);
-  const currentTrack = useRef(key);
-  currentTrack.current = key;
-  const shown = useRef(visible);
-  shown.current = visible;
-  useEffect(() => { draggingTrack.current = null; setDragging(false); setPosition(0); }, [key, visible]);
+  const seeking = useRef(new SeekInteraction()).current;
+  seeking.configure(key, visible);
+  useEffect(() => { setDragging(false); setPosition(0); }, [key, visible]);
   if (!track) return null;
   return <Modal visible={visible} animationType="slide" presentationStyle="pageSheet" onRequestClose={onClose}>
     <SafeAreaView style={ui.page}>
@@ -34,13 +32,23 @@ export function PlayerSheet({ visible, onClose, playback, onRead, onInteraction 
           {track.version.review_status === 'pending' && <Text style={styles.review}>Chờ nghe duyệt</Text>}
         </View>
         <View style={{ gap: 8 }}>
-          <Slider accessibilityLabel="Vị trí phát" minimumValue={0} maximumValue={Math.max(1, status.duration)}
+          <Slider key={key} accessibilityLabel="Vị trí phát" minimumValue={0} maximumValue={Math.max(1, status.duration)}
             value={dragging ? position : status.position} disabled={status.loading}
             minimumTrackTintColor={colors.accent} maximumTrackTintColor={colors.line} thumbTintColor={colors.accent}
-            onSlidingStart={value => { onInteraction(); draggingTrack.current = key; setDragging(true); setPosition(value); }} onValueChange={setPosition}
+            onSlidingStart={value => {
+              const action = seeking.start(key, value);
+              if (action.type !== 'preview') return;
+              onInteraction(); setDragging(true); setPosition(action.position);
+            }}
+            onValueChange={value => {
+              const action = seeking.change(key, value);
+              if (action.type === 'preview') setPosition(action.position);
+              else if (action.type === 'seek') { onInteraction(); playback.seek(action.position); }
+            }}
             onSlidingComplete={value => {
-              if (shown.current && draggingTrack.current === currentTrack.current && draggingTrack.current !== null) playback.seek(value);
-              draggingTrack.current = null; setDragging(false);
+              const action = seeking.complete(key, value);
+              if (action.type !== 'seek') return;
+              playback.seek(action.position); setDragging(false);
             }}
             accessibilityValue={{ text: `${clock(status.position)} trên ${clock(status.duration)}` }} />
           <View style={styles.times}><Text style={ui.small}>{clock(dragging ? position : status.position)}</Text><Text style={ui.small}>{clock(status.duration)}</Text></View>
@@ -54,8 +62,9 @@ export function PlayerSheet({ visible, onClose, playback, onRead, onInteraction 
           <Pressable accessibilityRole="button" accessibilityLabel="Tiến 15 giây" onPress={() => playback.skip(15)} style={styles.skip}><Icon name="play-forward-outline" size={26} /><Text style={ui.small}>15 giây</Text></Pressable>
         </View>
         {status.error && <View style={ui.warning}><Text accessibilityRole="alert" style={ui.warningText}>{status.error}</Text>
-          <Button secondary onPress={playback.retry}>{status.playing ? 'Lưu lại vị trí' : 'Thử lại'}</Button>
+          <Button secondary onPress={playback.retry}>Thử lại</Button>
         </View>}
+        <ListeningSaveNotice playback={playback} />
         <View style={styles.rates} accessibilityRole="radiogroup" accessibilityLabel="Tốc độ phát">
           {[0.85, 1, 1.15, 1.25, 1.5].map(rate => <Pressable key={rate} accessibilityRole="radio" accessibilityState={{ checked: rate === status.rate }}
             accessibilityLabel={`Tốc độ ${rate}`} onPress={() => playback.setRate(rate)} style={[styles.rate, rate === status.rate && styles.activeRate]}>
@@ -66,13 +75,31 @@ export function PlayerSheet({ visible, onClose, playback, onRead, onInteraction 
           <Button secondary onPress={() => playback.seek(0)}>Nghe từ phần tóm tắt</Button>
           <Button secondary onPress={() => playback.seek(track.version.scripture_start_seconds)}>Đến phần kinh văn</Button>
         </View>}
-        {status.queueRemaining > 0 && <Text style={ui.small}>Tự chuyển tiếp {status.queueRemaining} bài cùng bản đang nghe.</Text>}
+        {status.queueRemaining > 0 && <View style={{ gap: 8 }}>
+          <Text style={ui.small}>Tự chuyển tiếp {status.queueRemaining} bài cùng bản đang nghe.</Text>
+          <Button secondary icon="stop-circle-outline" onPress={playback.stopAfterCurrent}>Dừng sau bài này</Button>
+        </View>}
+        {status.stopAfterCurrent && <Text accessibilityLiveRegion="polite" style={ui.small}>{status.completed
+          ? 'Đã nghe hết bài này; không chuyển sang bài khác.' : 'Sẽ dừng sau khi nghe hết các phần của bài này.'}</Text>}
+        <Button secondary icon="stop-outline" onPress={() => { playback.stop(); onClose(); }}>Dừng nghe</Button>
         <Text style={ui.body}>{track.version.description}</Text>
         <Button secondary icon="book-outline" onPress={() => { onClose(); onRead(track.pageUrl); }}>Mở bài đọc</Button>
         <Text style={ui.small}>Vị trí nghe được lưu riêng cho bản audio này.</Text>
       </ScrollView>
     </SafeAreaView>
   </Modal>;
+}
+
+/** This notice does not depend on the current track: a failed save can belong
+ * to a recording that has already been stopped or replaced. */
+export function ListeningSaveNotice({ playback }: { playback: Pick<Playback, 'persistence' | 'retrySaves'> }) {
+  const { pendingCount, error } = playback.persistence;
+  if (!pendingCount) return null;
+  return <View style={ui.warning}>
+    <Text accessibilityRole="alert" style={ui.warningText}>{error ?? 'Chưa lưu được vị trí nghe trên thiết bị.'}</Text>
+    <Text style={ui.small}>{pendingCount} vị trí nghe đang chờ lưu trong phiên này. Hãy thử lưu lại trước khi đóng ứng dụng.</Text>
+    <Button secondary onPress={() => { playback.retrySaves(); }}>Thử lưu lại</Button>
+  </View>;
 }
 
 export function MiniPlayer({ playback, onOpen }: { playback: Playback; onOpen(): void }) {

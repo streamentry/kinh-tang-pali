@@ -19,6 +19,7 @@ export class ReaderSession {
   private pageUrl: string;
   private sessionId: string | null = null;
   private hydrated = false;
+  private restore: Extract<NativeMessage, { type: 'restore' }> | null = null;
   private suspended = false;
   private retired = new Set<string>();
   private sequence = 0;
@@ -43,6 +44,7 @@ export class ReaderSession {
     if (this.retired.size > 64) this.retired.delete(this.retired.values().next().value!);
     this.sessionId = null;
     this.hydrated = false;
+    this.restore = null;
     for (const capture of this.captures.values()) capture.finish(false);
   }
 
@@ -83,7 +85,12 @@ export class ReaderSession {
     if (this.suspended || !this.isCurrentDocument(message.page.url)) return false;
     if (message.type === 'ready') {
       if (this.retired.has(message.sessionId)) return false;
-      if (message.sessionId === this.sessionId) return true;
+      if (message.sessionId === this.sessionId) {
+        // The website retries ready if the first injection was lost. Reuse the
+        // original snapshot; a failed storage read must never become restore(null).
+        if (this.restore) this.callbacks.send(this.restore);
+        return true;
+      }
       this.retire();
       this.sessionId = message.sessionId;
       this.callbacks.ready(message.page);
@@ -102,7 +109,8 @@ export class ReaderSession {
         return true;
       }
       this.hydrated = true;
-      this.callbacks.send({ v: BRIDGE_VERSION, sessionId: message.sessionId, type: 'restore', position });
+      this.restore = { v: BRIDGE_VERSION, sessionId: message.sessionId, type: 'restore', position };
+      this.callbacks.send(this.restore);
       return true;
     }
     if (message.sessionId !== this.sessionId) return false;

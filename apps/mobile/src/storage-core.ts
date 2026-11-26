@@ -130,9 +130,13 @@ export class ProgressStore {
     return value === null ? null : parse(value, isSavedListening);
   }
 
-  saveListening(listening: Omit<SavedListening, 'updatedAt'>): SavedListening {
-    const value = { ...listening, updatedAt: this.now() };
+  /** A deferred write keeps the time of the listening activity, not the time of
+   * the retry. Never replace a newer backup/local record or unreadable data. */
+  saveListening(listening: Omit<SavedListening, 'updatedAt'>, activityAt = this.now()): SavedListening {
+    const value = { ...listening, updatedAt: activityAt };
     if (!isSavedListening(value)) throw new ProgressStorageError('Vị trí nghe không hợp lệ.');
+    const previous = this.getListening(value.track);
+    if (previous && previous.updatedAt > value.updatedAt) return previous;
     this.backend.put('listening', trackKey(value.track), JSON.stringify(value), value.updatedAt);
     return value;
   }

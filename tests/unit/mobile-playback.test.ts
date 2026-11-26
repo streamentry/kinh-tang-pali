@@ -39,9 +39,9 @@ class FakePlayer implements PlayerPort {
   getStatus() { return this.state; }
   dispose() { this.disposed = true; }
 }
-function harness(nativeMultipart = false) {
+function harness(nativeMultipart = false, now: () => number = Date.now) {
   const backend = new MemoryBackend();
-  const store = new ProgressStore(backend);
+  const store = new ProgressStore(backend, now);
   const players: FakePlayer[] = [];
   const urls: string[] = [];
   const queues: (AudioPart[] | undefined)[] = [];
@@ -49,7 +49,7 @@ function harness(nativeMultipart = false) {
     supportsNativeMultipart: nativeMultipart,
     prepare: async () => {},
     createPlayer(url, parts) { urls.push(url); queues.push(parts); const player = new FakePlayer(); players.push(player); return player; },
-  });
+  }, now);
   return { store, backend, players, urls, queues, controller };
 }
 async function load(player: FakePlayer) { player.emit({ isLoaded: true }); await setImmediate(); }
@@ -207,14 +207,15 @@ for (const playing of [true, false]) {
     backend.failKey = trackKey(item);
     players[0].state.currentTime = 34;
     controller.flush();
-    assert.ok(controller.getSnapshot().status.error);
+    assert.ok(controller.getSnapshot().persistence.error);
+    assert.equal(controller.getSnapshot().status.error, null);
     assert.equal(store.getListening(item)?.position, 10);
     assert.equal(controller.getSnapshot().status.playing, playing);
     const playCalls = players[0].playCalls;
     backend.failKey = null;
     controller.retry();
     assert.equal(store.getListening(item)?.position, 34);
-    assert.equal(controller.getSnapshot().status.error, null);
+    assert.equal(controller.getSnapshot().persistence.error, null);
     assert.equal(controller.getSnapshot().status.playing, playing);
     assert.equal(players[0].playCalls, playCalls);
     assert.equal(players.length, 1);
@@ -228,16 +229,188 @@ test('a failed completion save can be retried after native resources are release
   backend.failKey = trackKey(item);
   players[0].emit({ currentTime: 120, playing: false, didJustFinish: true });
   assert.equal(players[0].disposed, true);
-  assert.ok(controller.getSnapshot().status.error);
+  assert.ok(controller.getSnapshot().persistence.error);
   assert.equal(store.getListening(item)?.completed, false);
   backend.failKey = null;
   controller.retry();
   assert.equal(store.getListening(item)?.position, 120);
   assert.equal(store.getListening(item)?.completed, true);
-  assert.equal(controller.getSnapshot().status.error, null);
+  assert.equal(controller.getSnapshot().persistence.error, null);
   assert.equal(controller.getSnapshot().status.playing, false);
   assert.equal(players.length, 1);
 });
+
+test('a failed save survives a manual track switch and retries with its original activity timestamp', async t => {
+  let now = 100;
+  const { controller, players, store, backend } = harness(false, () => now); t.after(controller.dispose);
+  const first = track('mn1'), next = track('mn2');
+  controller.playTrack(first); await load(players[0]);
+  now = 200;
+  backend.failKey = trackKey(first);
+  players[0].emit({ currentTime: 44 });
+  assert.equal(controller.flush(), false);
+  now = 300;
+  controller.playTrack(next); await load(players[1]);
+  assert.equal(controller.getSnapshot().persistence.pendingCount, 1);
+  assert.ok(controller.getSnapshot().persistence.error);
+  assert.equal(controller.getSnapshot().status.error, null);
+  assert.equal(store.getListening(first)?.position, 10);
+  const playCalls = players[1].playCalls;
+  now = 1_000;
+  backend.failKey = null;
+  assert.equal(controller.retrySaves(), true);
+  assert.equal(store.getListening(first)?.position, 44);
+  assert.equal(store.getListening(first)?.updatedAt, 200);
+  assert.equal(store.getListening(next)?.updatedAt, 300);
+  assert.deepEqual(controller.getSnapshot().persistence, { pendingCount: 0, error: null });
+  assert.equal(controller.getSnapshot().track?.uid, next.uid);
+  assert.equal(controller.getSnapshot().status.playing, true);
+  assert.equal(players[1].playCalls, playCalls);
+});
+
+test('a failed completion save survives automatic queue advancement', async t => {
+  let now = 100;
+  const { controller, players, store, backend } = harness(false, () => now); t.after(controller.dispose);
+  const first = track('mn1'), next = track('mn2');
+  controller.playTrack(first, undefined, [next]); await load(players[0]);
+  now = 200;
+  backend.failKey = trackKey(first);
+  players[0].emit({ currentTime: 120, playing: false, didJustFinish: true });
+  now = 300;
+  await load(players[1]);
+  assert.equal(controller.getSnapshot().track?.uid, next.uid);
+  assert.equal(controller.getSnapshot().persistence.pendingCount, 1);
+  assert.equal(store.getListening(first)?.completed, false);
+  backend.failKey = null;
+  now = 1_000;
+  controller.retrySaves();
+  assert.equal(store.getListening(first)?.completed, true);
+  assert.equal(store.getListening(first)?.position, 120);
+  assert.equal(store.getListening(first)?.updatedAt, 200);
+  assert.equal(controller.getSnapshot().status.playing, true);
+});
+
+test('pending positions coalesce to the latest seek and speed even within the same millisecond', async t => {
+  let now = 100;
+  const { controller, players, store, backend } = harness(false, () => now); t.after(controller.dispose);
+  const item = track();
+  controller.playTrack(item); await load(players[0]);
+  now = 200;
+  backend.failKey = trackKey(item);
+  players[0].emit({ currentTime: 44 }); controller.flush();
+  controller.seek(20); await load(players[1]);
+  controller.setRate(1.5);
+  assert.equal(controller.getSnapshot().persistence.pendingCount, 1);
+  now = 1_000;
+  backend.failKey = null;
+  controller.retrySaves();
+  assert.equal(store.getListening(item)?.position, 20);
+  assert.equal(store.getListening(item)?.rate, 1.5);
+  assert.equal(store.getListening(item)?.updatedAt, 200);
+});
+
+test('returning to a recording resumes newer pending progress while storage is still unavailable', async t => {
+  let now = 100;
+  const { controller, players, backend } = harness(false, () => now); t.after(controller.dispose);
+  const first = track('mn1');
+  controller.playTrack(first); await load(players[0]);
+  now = 200;
+  backend.failKey = trackKey(first);
+  players[0].emit({ currentTime: 44 }); controller.flush();
+  now = 300;
+  controller.playTrack(track('mn2')); await load(players[1]);
+  now = 400;
+  controller.playTrack(first); await load(players[2]);
+  assert.equal(controller.getSnapshot().status.position, 44);
+  assert.deepEqual(players[2].seekCalls, [44]);
+  assert.equal(controller.getSnapshot().persistence.pendingCount, 1);
+});
+
+test('stop reports an unsafe import while failed saves remain visible and retryable without a player', async t => {
+  let now = 100;
+  const { controller, players, store, backend } = harness(false, () => now); t.after(controller.dispose);
+  const item = track();
+  controller.playTrack(item, undefined, [track('mn2')]); await load(players[0]);
+  now = 200;
+  backend.failKey = trackKey(item);
+  players[0].emit({ currentTime: 44 });
+  assert.equal(controller.stop(), false);
+  assert.equal(controller.getSnapshot().track, null);
+  assert.equal(controller.getSnapshot().status.queueRemaining, 0);
+  assert.ok(controller.getSnapshot().persistence.error);
+  assert.equal(controller.getSnapshot().persistence.pendingCount, 1);
+  players[0].lateCallback!({ ...players[0].state, currentTime: 90 });
+  now = 1_000;
+  backend.failKey = null;
+  assert.equal(controller.retrySaves(), true);
+  assert.equal(store.getListening(item)?.position, 44);
+  assert.equal(store.getListening(item)?.updatedAt, 200);
+  assert.equal(controller.getSnapshot().track, null);
+  assert.equal(players.length, 1);
+  assert.equal(players[0].disposed, true);
+  assert.equal(controller.stop(), true);
+});
+
+test('a delayed pending save cannot overwrite newer imported listening progress', async t => {
+  let now = 100;
+  const { controller, players, store, backend } = harness(false, () => now); t.after(controller.dispose);
+  const item = track();
+  controller.playTrack(item); await load(players[0]);
+  now = 200;
+  backend.failKey = trackKey(item);
+  players[0].emit({ currentTime: 44 });
+  assert.equal(controller.stop(), false);
+  const newer = new ProgressStore(new MemoryBackend(), () => 300);
+  newer.saveListening({ track: item, position: 80, duration: 120, rate: 1.5, completed: false });
+  backend.failKey = null;
+  // Defense in depth: the UI blocks this import while pending writes remain.
+  store.importSnapshot(newer.exportSnapshot(), 'https://streamentry.github.io/kinh-tang-pali/');
+  now = 1_000;
+  assert.equal(controller.retrySaves(), true);
+  assert.equal(store.getListening(item)?.position, 80);
+  assert.equal(store.getListening(item)?.rate, 1.5);
+  assert.equal(store.getListening(item)?.updatedAt, 300);
+  assert.equal(controller.getSnapshot().persistence.pendingCount, 0);
+});
+
+for (const nativeMultipart of [false, true]) {
+  test(`stop after current finishes all MP3 parts without starting a queued reading (${nativeMultipart ? 'native' : 'fallback'} playlist)`, async t => {
+    const { controller, players, store } = harness(nativeMultipart); t.after(controller.dispose);
+    const item = track();
+    item.version.parts = [
+      { url: item.version.url, duration_seconds: 50 },
+      { url: 'https://audio.example.org/mn1-part2.mp3', duration_seconds: 70 },
+    ];
+    controller.playTrack(item, undefined, [track('mn2')]); await load(players[0]);
+    controller.stopAfterCurrent();
+    assert.equal(controller.getSnapshot().status.queueRemaining, 0);
+    assert.equal(controller.getSnapshot().status.stopAfterCurrent, true);
+    assert.equal(controller.getSnapshot().status.playing, true);
+    assert.equal(players.length, 1);
+    if (nativeMultipart) {
+      players[0].emit(playlistEvent(item.version.parts, {
+        currentIndex: 1, currentTime: 5, playing: true, isLoaded: true, isBuffering: false, didJustFinish: false,
+      }));
+      assert.equal(players.length, 1);
+      assert.equal(controller.getSnapshot().status.position, 55);
+      players[0].emit({ currentTime: 120, playing: false, didJustFinish: true });
+    } else {
+      players[0].emit({ currentTime: 50, playing: false, didJustFinish: true });
+      await load(players[1]);
+      assert.equal(controller.getSnapshot().status.stopAfterCurrent, true);
+      assert.equal(players[1].playCalls, 1);
+      players[1].emit({ currentTime: 70, playing: false, didJustFinish: true });
+    }
+    assert.equal(controller.getSnapshot().track?.uid, item.uid);
+    assert.equal(controller.getSnapshot().status.completed, true);
+    assert.equal(controller.getSnapshot().status.playing, false);
+    assert.equal(store.getListening(item)?.completed, true);
+    assert.equal(store.getListening(track('mn2')), null);
+    assert.equal(players.length, nativeMultipart ? 1 : 2);
+    controller.toggle();
+    assert.equal(controller.getSnapshot().status.stopAfterCurrent, false);
+  });
+}
 
 test('native multipart transitions retain cumulative progress without creating a JS player at each part', async t => {
   const { controller, players, queues, store } = harness(true); t.after(controller.dispose);

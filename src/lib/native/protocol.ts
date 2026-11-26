@@ -4,6 +4,9 @@
 import type { AudioVersionPlayerData } from '../audio/types';
 
 export const BRIDGE_VERSION = 1 as const;
+/** Stable capability token, also used by the first released companion. This is
+ * a host compatibility signal; URL and session checks remain the trust boundary. */
+export const COMPANION_USER_AGENT = 'KinhTangPali/0.1';
 export const WEBSITE_URL = 'https://streamentry.github.io/kinh-tang-pali/';
 export const MAX_BRIDGE_MESSAGE_LENGTH = 4 * 1024 * 1024;
 export const READER_SIZES = [0.9, 1, 1.1, 1.2, 1.35] as const;
@@ -57,6 +60,11 @@ function audioUrl(value: unknown): value is string {
   if (!httpUrl(value)) return false;
   const url = new URL(value);
   return url.protocol === 'https:' && url.pathname.endsWith('.mp3');
+}
+
+/** A generic ReactNativeWebView bridge does not imply our companion is present. */
+export function isCompanionUserAgent(value: unknown): boolean {
+  return typeof value === 'string' && value.split(/\s+/).includes(COMPANION_USER_AGENT);
 }
 
 /** Hash/query changes do not create a second personal reading record. */

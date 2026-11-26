@@ -17,10 +17,10 @@ function harness(options: { requested?: ReadingPosition; timeout?: number } = {}
   const sent: NativeMessage[] = [];
   const saved: ReadingPosition[] = [];
   const errors: string[] = [];
-  const state = { active: true, broken: false, savesFail: false, reads: 0, audioStarts: 0, readyCount: 0 };
+  const state = { active: true, broken: false, savesFail: false, reads: 0, audioStarts: 0, readyCount: 0, stored: reading() as ReadingPosition | null };
   const bridge = new ReaderSession(siteUrl, reading().pageUrl, {
     send: message => { sent.push(message); },
-    getReading: () => { ++state.reads; if (state.broken) throw new Error('Corrupt record'); return reading(); },
+    getReading: () => { ++state.reads; if (state.broken) throw new Error('Corrupt record'); return state.stored; },
     saveReading: position => { if (state.savesFail) return false; saved.push(position); return true; },
     isActive: () => state.active,
     ready: () => { ++state.readyCount; },
@@ -36,15 +36,43 @@ function harness(options: { requested?: ReadingPosition; timeout?: number } = {}
   return { bridge, sent, saved, errors, state, requestId };
 }
 
-test('duplicate ready hydrates once, and pre-hydration scroll cannot replace saved progress', () => {
+test('duplicate ready replays one hydration snapshot, and pre-hydration scroll cannot replace progress', () => {
   const h = harness();
   assert.equal(h.bridge.receive(progress()), false);
   h.bridge.receive(ready()); h.bridge.receive(ready());
   assert.equal(h.state.reads, 1);
   assert.equal(h.state.readyCount, 1);
-  assert.deepEqual(h.sent, [{ v: 1, sessionId: 'document-1', type: 'restore', position: reading() }]);
+  const restore: NativeMessage = { v: 1, sessionId: 'document-1', type: 'restore', position: reading() };
+  assert.deepEqual(h.sent, [restore, restore]);
   assert.equal(h.bridge.receive(progress()), true);
   assert.equal(h.saved.length, 1);
+});
+
+test('a lost first restore recovers the same bookmark snapshot without rereading changed storage', () => {
+  const bookmark = { ...reading(), segmentId: 'mn1:9.1', scrollRatio: 0.9 };
+  const h = harness({ requested: bookmark });
+  h.bridge.receive(ready()); // The native transport loses this first injection.
+  const first = h.sent[0];
+  h.state.stored = { ...reading(), segmentId: 'mn1:2.1', scrollRatio: 0.2 };
+  h.bridge.receive(ready()); h.bridge.receive(ready());
+  assert.deepEqual(h.sent, [first, first, first]);
+  assert.equal(first.type, 'restore');
+  if (first.type === 'restore') assert.deepEqual(first.position, bookmark);
+  assert.equal(h.state.reads, 1);
+  assert.equal(h.state.readyCount, 1);
+});
+
+test('a new reader can retry restore(null), but a retired session cannot replay it', () => {
+  const h = harness(); h.state.stored = null;
+  h.bridge.receive(ready()); h.bridge.receive(ready());
+  const restore: NativeMessage = { v: 1, sessionId: 'document-1', type: 'restore', position: null };
+  assert.deepEqual(h.sent, [restore, restore]);
+  h.bridge.navigate(reading().pageUrl);
+  assert.equal(h.bridge.receive(ready()), false);
+  assert.equal(h.sent.length, 2);
+  h.bridge.receive(ready('document-2'));
+  assert.equal(h.state.reads, 2);
+  assert.deepEqual(h.sent.at(-1), { ...restore, sessionId: 'document-2' });
 });
 
 test('failed hydration never sends restore(null), even for a bookmark or duplicate ready', async () => {
@@ -53,10 +81,14 @@ test('failed hydration never sends restore(null), even for a bookmark or duplica
   h.bridge.receive(ready()); h.bridge.receive(ready());
   assert.equal(h.sent.length, 0);
   assert.equal(h.errors.length, 1);
+  assert.equal(h.state.reads, 1);
   assert.equal(await h.bridge.capture(), false);
   assert.equal(h.bridge.receive(progress()), false);
   assert.equal(h.saved.length, 0);
   h.state.broken = false;
+  h.bridge.receive(ready());
+  assert.equal(h.sent.length, 0, 'A duplicate ready must not reopen a failed hydration gate');
+  assert.equal(h.state.reads, 1);
   h.bridge.navigate(reading().pageUrl);
   h.bridge.receive(ready('document-2'));
   assert.equal(h.sent[0]?.type, 'restore');
