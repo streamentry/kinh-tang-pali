@@ -16,7 +16,27 @@ PACKAGE = "io.github.streamentry.kinhtangpali.preview"
 
 
 def command(*args: str) -> str:
-    return subprocess.check_output(args, text=True, stderr=subprocess.STDOUT)
+    result = subprocess.run(args, text=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
+    if result.returncode:
+        raise RuntimeError(f"{Path(args[0]).name} failed ({result.returncode}):\n{result.stdout}")
+    return result.stdout
+
+
+def verify_signer(signature: str, fingerprint: str) -> None:
+    # apksigner prints either numbered signers or SDK ranges for scheme v3.1.
+    # One certificate may appear in more than one range; every range must use
+    # the exact expected key, including the certificate for older Androids.
+    # AOSP's check_target_files_signatures.py supports these same two labels.
+    counts = re.findall(r"^Number of signers: (\d+)\s*$", signature, re.MULTILINE)
+    digests = re.findall(
+        r"^Signer (?:#\d+|\(minSdkVersion=[^\r\n]+\)) certificate SHA-256 digest: ([0-9a-fA-F]{64})\s*$",
+        signature, re.MULTILINE,
+    )
+    if counts != ["1"] or {digest.lower() for digest in digests} != {fingerprint.lower()}:
+        raise RuntimeError(
+            f"APK must use exactly the generated Expo template's public debug key. "
+            f"Expected {fingerprint}; observed {digests}; signer counts {counts}."
+        )
 
 
 def main() -> None:
@@ -32,9 +52,9 @@ def main() -> None:
         "-alias", "androiddebugkey", "-storepass", "android",
     ])
     fingerprint = hashlib.sha256(template_certificate).hexdigest()
-    signers = re.findall(r"Signer #\d+ certificate SHA-256 digest: ([0-9a-fA-F]+)", signature)
-    if [signer.lower() for signer in signers] != [fingerprint]:
-        raise RuntimeError("APK must be signed by the generated Expo template's public debug key")
+    print(signature, flush=True)
+    print(f"Expected template certificate SHA-256: {fingerprint}", flush=True)
+    verify_signer(signature, fingerprint)
     badging = command(str(build_tools / "aapt"), "dump", "badging", str(apk))
     if f"package: name='{PACKAGE}'" not in badging:
         raise RuntimeError("Refusing to distribute a preview with a production package ID")

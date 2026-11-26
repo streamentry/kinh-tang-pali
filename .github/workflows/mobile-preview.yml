@@ -55,6 +55,8 @@ jobs:
             apps/mobile/app.config.ts
             .github/workflows/mobile-preview.yml
       - uses: android-actions/setup-android@v4
+      - name: Check APK verification against Android signer formats
+        run: python3 -m unittest discover -s scripts -p 'test_android_preview.py'
       - name: Install native dependencies
         run: npm ci --no-audit --no-fund
       - name: Generate the preview Android project
