@@ -43,7 +43,7 @@ const nextLabel = index < count - 1 ? `Phần ${index + 2}` : adjacent.next && `
 ---
 <Base noindex title={`Đọc liên tục · ${title.primary}${partLabel} · ${collection.titleVi} · Kinh Tạng Pāli Việt`}
   description={`Đọc liên tục ${levelLabel(node).toLowerCase()} ${title.primary} (${groupRange(node)}), ${first === last ? first : `${first}–${last}`}, Pāli và các bản dịch đối chiếu theo thứ tự nguồn.`}>
-  <main id="main-content" tabindex="-1" class="page group-reading-page">
+  <main id="main-content" tabindex="-1" class="page group-reading-page" data-native-reader data-native-title={`${title.primary}${partLabel}`}>
     <GroupBreadcrumb collection={collection} trail={groupPath(code, id).slice(1)} />
     <header class="group-header">
       <p class="eyebrow">Đọc liên tục · {levelLabel(node)}{partLabel}</p>

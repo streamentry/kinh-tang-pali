@@ -28,6 +28,7 @@ const audioHref = (version: AudioVersionPlayerData) => {
 };
 ---
 <sutta-audio class="listening" id="lang-nghe" data-pagefind-ignore
+  data-native-uid={audio.uid} data-native-title={title}
   data-versions={JSON.stringify(versions)}
   data-next={next?.versions?.includes('original') ? next.href : undefined}
   data-next-versions={JSON.stringify(next?.versions ?? [])}>
@@ -110,6 +111,8 @@ const audioHref = (version: AudioVersionPlayerData) => {
   </div>
 </sutta-audio>
 <script>
+  import { isNativeHost } from '../lib/native/web-bridge';
+  import { mountNativeSuttaAudio } from '../lib/native/web-audio';
   import { readAutoNext, saveAutoNext, rememberContinuation, consumeContinuationVersion, AUTO_NEXT_KEY, readAudioVersion, saveAudioVersion, AUDIO_VERSION_KEY } from '../lib/audio/navigation';
   import { locatePart, ReadingPlayer } from '../lib/audio/parts';
   import { isScripturePhase, playFailure } from '../lib/audio/playback';
@@ -121,6 +124,7 @@ const audioHref = (version: AudioVersionPlayerData) => {
     connectedCallback() {
       if (this.dataset.ready) return;
       this.dataset.ready = 'true';
+      if (isNativeHost()) { this.cleanup = mountNativeSuttaAudio(this); return; }
       const audio = this.querySelector('audio')!;
       const custom = this.querySelector<HTMLElement>('.listening-custom')!;
       const play = this.querySelector<HTMLButtonElement>('.listen-play')!;

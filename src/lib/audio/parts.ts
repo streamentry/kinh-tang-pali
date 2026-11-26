@@ -1,6 +1,5 @@
-/** One canonical reading may use several bounded media objects. */
-export interface AudioPart { url: string; duration_seconds: number; }
-export interface ReadingMedia { url: string; duration_seconds: number; parts?: AudioPart[]; }
+import type { AudioPart, ReadingMedia } from './types';
+export type { AudioPart, ReadingMedia } from './types';
 
 export function validParts(track: ReadingMedia): boolean {
   if (track.parts === undefined) return true;

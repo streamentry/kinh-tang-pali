@@ -4,6 +4,7 @@ import type { AudioVersionId, AudioVersionPlayerData } from '../lib/canon/audio'
 import { EXPLANATION_AUDIENCE_LABELS } from '../lib/canon/explanation-audio';
 import { locatePart } from '../lib/audio/parts';
 import { playlistPayload } from '../lib/canon/audio-playlist';
+import { withBase } from '../lib/url';
 
 interface PlaylistTrack extends AudioPlayerData {
   title: string;
@@ -39,7 +40,7 @@ const audioHref = (version: AudioVersionPlayerData) => {
   return version.start_seconds > 0 ? `${version.url}#t=${version.start_seconds}` : version.url;
 };
 ---
-<sutta-playlist class="collection-audio" data-collection-title={collectionTitle} data-tracks={JSON.stringify(payload.inline)} data-tracks-src={payload.url} data-track-count={tracks.length} data-complete-versions={JSON.stringify([...completeVersions])}>
+<sutta-playlist class="collection-audio" data-native-text-base={withBase(`sutta/${Astro.params.collection}/`)} data-collection-title={collectionTitle} data-tracks={JSON.stringify(payload.inline)} data-tracks-src={payload.url} data-track-count={tracks.length} data-complete-versions={JSON.stringify([...completeVersions])}>
   {first && (
     <section class="listening collection-listening" data-pagefind-ignore aria-label={`Trình phát ${collectionTitle}`}>
       <div class="listening-heading">
@@ -114,6 +115,8 @@ const audioHref = (version: AudioVersionPlayerData) => {
 </sutta-playlist>
 
 <script>
+  import { isNativeHost } from '../lib/native/web-bridge';
+  import { mountNativePlaylist, stopWebAudio } from '../lib/native/web-audio';
   import { AUDIO_VERSION_KEY, AUTO_NEXT_KEY, readAudioVersion, readAutoNext, saveAudioVersion, saveAutoNext, stepAudioIndex, playlistIndexFromHash, playlistTrackUrl } from '../lib/audio/navigation';
   import { playFailure } from '../lib/audio/playback';
   import { ReadingPlayer } from '../lib/audio/parts';
@@ -134,6 +137,7 @@ const audioHref = (version: AudioVersionPlayerData) => {
       if (this.dataset.ready) return;
       const connection = ++this.connection;
       this.dataset.ready = 'loading';
+      if (isNativeHost()) stopWebAudio(this);
       let tracks: PlayerTrack[];
       try {
         if (this.dataset.tracksSrc) {
@@ -148,6 +152,7 @@ const audioHref = (version: AudioVersionPlayerData) => {
       if (!this.isConnected || connection !== this.connection || !Array.isArray(tracks)) return;
       if (!tracks.length) return;
       this.dataset.ready = 'true';
+      if (isNativeHost()) { this.cleanup = mountNativePlaylist(this, tracks); return; }
 
       const audio = this.querySelector('audio')!;
       const custom = this.querySelector<HTMLElement>('.listening-custom')!;

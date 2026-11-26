@@ -10,6 +10,10 @@
     "dev": "npm run source:sync:manifest && npm run legacy:sync && astro dev",
     "build": "npm run source:sync:manifest && npm run legacy:sync && npm run validate && astro build && pagefind --site dist",
     "preview": "astro preview",
+    "mobile:start": "npm --prefix apps/mobile start",
+    "mobile:check": "npm --prefix apps/mobile run typecheck",
+    "mobile:test": "npm --prefix apps/mobile test",
+    "test:native-bridge": "node tests/browser/native-bridge.mjs",
     "check": "astro check",
     "test": "node --import tsx --test tests/**/*.test.ts",
     "validate": "tsx scripts/validate.ts && npm run quality:check && npm run explanations:check",
@@ -69,6 +73,7 @@
     "@astrojs/check": "0.9.10",
     "@types/node": "22.20.2",
     "pagefind": "1.5.2",
+    "playwright": "1.65.1",
     "tsx": "4.23.13",
     "typescript": "5.9.3",
     "wrangler": "4.149.0"

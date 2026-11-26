@@ -1,0 +1,62 @@
+# EAS reads this at the Git root, even when invoked from apps/mobile.
+# It replaces every .gitignore. Keep the native app and its shared code only;
+# scripture, web covers, upstream snapshots and generated audio stay on the web.
+/*
+!/.easignore
+!/LICENSE
+!/NOTICE
+!/apps/
+/apps/*
+!/apps/mobile/
+!/src/
+/src/*
+!/src/lib/
+!/source/
+/source/*
+!/source/design-tokens.json
+!/source/brand-mark.json
+!/tests/
+/tests/*
+!/tests/unit/
+/tests/unit/*
+!/tests/unit/mobile*.test.ts
+!/tests/unit/native-bridge.test.ts
+!/tests/helpers/
+/tests/helpers/*
+!/tests/helpers/mobile.ts
+
+# Reapply nested exclusions because EAS does not combine this with .gitignore.
+.git
+.DS_Store
+Thumbs.db
+.env
+.env.*
+!.env.example
+node_modules/
+dist/
+build/
+.expo/
+.astro/
+.cache/
+coverage/
+*.log
+*.tsbuildinfo
+__pycache__/
+*.py[cod]
+.idea/
+.vscode/
+.venv/
+venv/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+*.jks
+*.keystore
+*.p8
+*.p12
+*.mobileprovision
+credentials.json
+
+# CNG generates these on the build worker using the committed app config.
+/apps/mobile/ios/
+/apps/mobile/android/

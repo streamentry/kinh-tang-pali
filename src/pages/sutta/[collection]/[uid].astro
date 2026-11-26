@@ -73,7 +73,7 @@ const socialImage = cover
 ---
 <Base image={socialImage} title={`${document.viTitle} · ${uid.toUpperCase()} · Kinh Tạng Pāli Việt`} description={`${uid.toUpperCase()} — ${document.viTitle}, thuộc ${collection.titleVi}. Đọc Pāli và các bản dịch đối chiếu từng đoạn; bản Việt của dự án: ${statusLabel}.`}>
   <div class="reading-progress" aria-hidden="true"></div>
-  <main id="main-content" tabindex="-1" class="page reader-page">
+  <main id="main-content" tabindex="-1" class="page reader-page" data-native-reader data-native-uid={uid} data-native-title={document.viTitle}>
     {trail.length > 0 && <span data-pagefind-meta="trail[data-trail]" data-trail={[collection.titleVi, ...trail.map((node) => groupTitle(node).primary)].join(' › ')}></span>}
     {trail.length > 0
       ? <GroupBreadcrumb collection={collection} trail={trail} />
