@@ -4,14 +4,17 @@ interface Neighbour { uid: string; href: string; hasAudio?: boolean; }
 interface Props { audio: SuttaAudio; title: string; previous?: Neighbour; next?: Neighbour; }
 const { audio, title, previous, next } = Astro.props;
 const minutes = Math.round(audio.duration_seconds / 60);
+const length = audio.duration_seconds < 60 ? `${Math.round(audio.duration_seconds)} giây` : `${minutes} phút`;
+const hasSummary = audio.scripture_start_seconds > 0;
 const timestamp = (seconds: number) => `${Math.floor(seconds / 60)}:${Math.floor(seconds % 60).toString().padStart(2, '0')}`;
 ---
-<sutta-audio class="listening" id="lang-nghe" data-pagefind-ignore data-scripture={audio.scripture_start_seconds} data-next={next?.hasAudio ? next.href : undefined}>
+<sutta-audio class="listening" id="lang-nghe" data-pagefind-ignore data-scripture={audio.scripture_start_seconds} data-media={JSON.stringify({url: audio.url, duration_seconds: audio.duration_seconds, parts: audio.parts?.map(p => ({url: p.url, duration_seconds: p.duration_seconds}))})} data-next={next?.hasAudio ? next.href : undefined}>
   <div class="listening-heading">
     <div><div class="listening-kicker"><p class="listening-label">Lắng nghe · Việt 2026</p>{audio.review_status === 'pending' && <span class="listening-review">Chờ nghe duyệt</span>}</div><h2>{title}</h2></div>
-    <span class="listening-length">{audio.uid.toUpperCase()} · {minutes} phút</span>
+    <span class="listening-length">{audio.uid.toUpperCase()} · {length}</span>
   </div>
   <audio controls preload="metadata" src={audio.url} aria-label={`Nghe ${title}`}></audio>
+  {audio.parts && <ol class="listen-part-files" aria-label="Các phần MP3">{audio.parts.map((part, i) => <li><a href={part.url} target="_blank" rel="noopener">Phần {i + 1} / {audio.parts!.length}</a></li>)}</ol>}
   <div class="listening-custom" hidden>
     <div class="listening-console">
       <div class="listening-transport" role="group" aria-label="Điều khiển phát">
@@ -32,13 +35,13 @@ const timestamp = (seconds: number) => `${Math.floor(seconds / 60)}:${Math.floor
           <span class="listen-rail" aria-hidden="true"><span class="listen-progress"></span></span>
           <input class="listen-seek" type="range" min="0" max={audio.duration_seconds} step="1" value="0" aria-label="Vị trí phát" />
         </div>
-        <div class="listen-clock"><span><span data-current>0:00</span><span class="listen-phase" data-phase>Tóm tắt</span></span><span data-duration>{timestamp(audio.duration_seconds)}</span></div>
+        <div class="listen-clock"><span><span data-current>0:00</span><span class="listen-phase" data-phase>{hasSummary ? 'Tóm tắt' : 'Kinh văn'}</span></span><span data-duration>{timestamp(audio.duration_seconds)}</span></div>
       </div>
     </div>
     <div class="listening-options">
       <div class="listen-chapters" role="group" aria-label="Chọn phần nghe">
-        <button type="button" data-summary-jump aria-current="true">Tóm tắt <span>0:00</span></button>
-        <button type="button" data-scripture-jump>Kinh văn <span>{timestamp(audio.scripture_start_seconds)}</span></button>
+        {hasSummary && <button type="button" data-summary-jump aria-current="true">Tóm tắt <span>0:00</span></button>}
+        <button type="button" data-scripture-jump aria-current={!hasSummary ? 'true' : undefined}>Kinh văn <span>{timestamp(audio.scripture_start_seconds)}</span></button>
       </div>
       <label class="listen-speed">Tốc độ <select aria-label="Tốc độ phát"><option value="0.85">0.85×</option><option value="1" selected>1×</option><option value="1.15">1.15×</option><option value="1.25">1.25×</option><option value="1.5">1.5×</option></select></label>
     </div>
@@ -56,7 +59,8 @@ const timestamp = (seconds: number) => `${Math.floor(seconds / 60)}:${Math.floor
 </sutta-audio>
 <script>
   import { readAutoNext, saveAutoNext, rememberContinuation, consumeContinuation, AUTO_NEXT_KEY } from '../lib/audio/navigation';
-  import { isScripturePhase } from '../lib/audio/playback';
+  import { ReadingPlayer } from '../lib/audio/parts';
+  import { isScripturePhase, playFailure } from '../lib/audio/playback';
   class SuttaAudioElement extends HTMLElement {
     private cleanup?: () => void;
     disconnectedCallback() { this.cleanup?.(); delete this.dataset.ready; }
@@ -87,19 +91,23 @@ const timestamp = (seconds: number) => `${Math.floor(seconds / 60)}:${Math.floor
         }
       };
       window.addEventListener('storage', onStorage);
-      this.cleanup = () => window.removeEventListener('storage', onStorage);
       const say = (message: string) => { notice.textContent = message; notice.hidden = false; };
       const format = (n: number) => `${Math.floor(n / 60)}:${Math.floor(n % 60).toString().padStart(2, '0')}`;
-      const duration = () => Number.isFinite(audio.duration) ? audio.duration : Number(seek.max);
+      const media = new ReadingPlayer(audio, JSON.parse(this.dataset.media!), failure => {
+        if (playFailure(failure) === 'blocked') say('Bấm Phát để nghe tiếp phần này.');
+        else if (playFailure(failure) === 'unavailable') error.hidden = false;
+      });
+      this.cleanup = () => { window.removeEventListener('storage', onStorage); media.destroy(); };
+      const duration = () => media.duration;
       const update = () => {
-        this.querySelector('[data-current]')!.textContent = format(audio.currentTime);
+        this.querySelector('[data-current]')!.textContent = format(media.currentTime);
         this.querySelector('[data-duration]')!.textContent = format(duration());
-        seek.max = String(duration()); seek.value = String(audio.currentTime);
-        seek.setAttribute('aria-valuetext', `${format(audio.currentTime)} / ${format(duration())}`);
-        progress.style.width = `${Math.max(0, Math.min(100, audio.currentTime / duration() * 100))}%`;
-        const inScripture = isScripturePhase(audio.currentTime, Number(this.dataset.scripture));
-        this.querySelector('[data-phase]')!.textContent = inScripture ? 'Kinh văn' : 'Tóm tắt';
-        summary.setAttribute('aria-current', String(!inScripture));
+        seek.max = String(duration()); seek.value = String(media.currentTime);
+        seek.setAttribute('aria-valuetext', `${format(media.currentTime)} / ${format(duration())}`);
+        progress.style.width = `${Math.max(0, Math.min(100, media.currentTime / duration() * 100))}%`;
+        const inScripture = isScripturePhase(media.currentTime, Number(this.dataset.scripture));
+        this.querySelector('[data-phase]')!.textContent = `${inScripture ? 'Kinh văn' : 'Tóm tắt'}${media.partCount > 1 ? ` · Phần ${media.partNumber}/${media.partCount}` : ''}`;
+        summary?.setAttribute('aria-current', String(!inScripture));
         scripture.setAttribute('aria-current', String(inScripture));
       };
       const state = () => {
@@ -112,15 +120,22 @@ const timestamp = (seconds: number) => `${Math.floor(seconds / 60)}:${Math.floor
       play.addEventListener('click', async () => {
         error.hidden = true;
         if (!audio.paused) { audio.pause(); return; }
-        try { await audio.play(); } catch { error.hidden = false; state(); }
+        if (media.ended) media.seek(0);
+        try { await audio.play(); } catch (failure) {
+          // Name the actual cause: a blocked autoplay is not a broken file, and the reverse.
+          const cause = playFailure(failure);
+          if (cause === 'blocked') say('Trình duyệt chưa cho phép phát. Bấm Phát lần nữa để nghe.');
+          else if (cause === 'unavailable') error.hidden = false;
+          state();
+        }
       });
-      seek.addEventListener('input', () => { audio.currentTime = Number(seek.value); update(); });
+      seek.addEventListener('input', () => { media.seek(Number(seek.value)); update(); });
       this.querySelectorAll<HTMLButtonElement>('[data-jump]').forEach(button => button.addEventListener('click', () => {
-        audio.currentTime = Math.max(0, Math.min(duration(), audio.currentTime + Number(button.dataset.jump))); update();
+        media.seek(media.currentTime + Number(button.dataset.jump)); update();
       }));
-      summary.addEventListener('click', () => { audio.currentTime = 0; update(); });
-      scripture.addEventListener('click', () => { audio.currentTime = Number(this.dataset.scripture); update(); });
-      this.querySelector('select')!.addEventListener('change', event => { audio.playbackRate = Number((event.target as HTMLSelectElement).value); });
+      summary?.addEventListener('click', () => { media.seek(0); update(); });
+      scripture.addEventListener('click', () => { media.seek(Number(this.dataset.scripture)); update(); });
+      this.querySelector('select')!.addEventListener('change', event => { media.setPlaybackRate(Number((event.target as HTMLSelectElement).value)); });
       audio.addEventListener('loadedmetadata', update); audio.addEventListener('timeupdate', update);
       audio.addEventListener('play', () => { notice.hidden = true; state(); }); audio.addEventListener('pause', state);
       audio.addEventListener('ended', () => {
@@ -135,11 +150,18 @@ const timestamp = (seconds: number) => `${Math.floor(seconds / 60)}:${Math.floor
         location.assign(next);
       });
       audio.addEventListener('error', () => { error.hidden = false; state(); });
+      // The file may have failed before this listener existed (it starts loading with the page).
+      if (audio.error) error.hidden = false;
       audio.controls = false; audio.hidden = true; custom.hidden = false; update();
       let continuing = false;
       try { continuing = consumeContinuation(sessionStorage, location.pathname); } catch { /* Ordinary visits never autoplay. */ }
       if (continuing && enabled) {
-        audio.play().catch(() => { say('Trình duyệt chưa cho phép tự phát. Bấm Phát để nghe tiếp bài này.'); state(); });
+        audio.play().catch((failure) => {
+          const cause = playFailure(failure);
+          if (cause === 'blocked') say('Trình duyệt chưa cho phép tự phát. Bấm Phát để nghe tiếp bài này.');
+          else if (cause === 'unavailable') error.hidden = false;
+          state();
+        });
       }
     }
   }

@@ -41,6 +41,10 @@ như ma trận trong `DESIGN.md`; không coi build pass là bằng chứng giao 
 - **Cắt HTML thành segment ID phải chứng minh được, không giả định.** Cắt lệch một đoạn thì bốn cột đối chiếu hiện sai âm thầm và người đọc không có cách nào biết. Không cắt tay rồi tin; phải đếm được bao nhiêu segment khớp và bao nhiêu không.
 - Một tầng tham khảo có file và key đúng vẫn có thể **không có prose** ở những đoạn Pāli có nội dung. Vì vậy phải đo coverage trên Pāli có nội dung; dưới ngưỡng thì `review`/`published` bị chặn trừ khi mất mát đã được **ghi nhận** trong `content/meta/reference-gaps.yaml`. Không được coi chỗ English rỗng là sự đồng thuận về cách dịch.
 - Canonical Vietnamese scripture là segmented JSON trong `content/translation/vi/project/`.
+- **Tầng nhóm SN/AN/KN là điều hướng, không phải phiên bản văn bản.** Cây sinh từ `source/navigation.lock.json`
+  (pin riêng của `sc-data`) vào `content/navigation/traditional/`; không sửa tay tệp sinh ra, không đổi
+  `order` của catalogue. Tên nhóm phải có provenance; thiếu bản Việt thì hiện tên Pāli. Đọc
+  [`docs/navigation.md`](docs/navigation.md) trước khi đụng vào nhóm, tên nhóm hay đọc liên tục.
 - **Quyết định biên tập chung (hội đồng 2026-10-16)** nằm ở [`docs/editorial-council-2026-10.md`](docs/editorial-council-2026-10.md): thuật ngữ `sayambhū`, `iddhipāda`, `vipatti`, `hāra`, `visattikā`, `pariññā`…, tiêu đề Jātaka/Apadāna, xưng hô tha-ap/thi-ap, chính sách Pāli ghim hỏng. Biên bản chưa có chữ ký người biên tập; đọc trước khi sửa các thuật ngữ đó và đừng đảo từng bài lẻ.
 - Giữ nguyên canonical SuttaCentral UID và segment ID; không zero-pad hoặc tự phát minh ID.
 - Không copy Pāli vào translation JSON.
@@ -333,8 +337,10 @@ Kiến trúc nền tảng và data contract nằm tại [`docs/architecture.md`]
 
 ## Cấu hình audio đã duyệt — bắt buộc giữ nhất quán
 
+- **Quyền sản xuất cập nhật 2026-10-24:** người biên tập yêu cầu hoàn tất toàn bộ audio SN/AN/KN, tiếp tục tạo trong lúc CI chạy, kiểm CI và merge sau 2 giờ/run. Quyết định này thay gate chờ nghe mẫu SN1 trước khi mở rộng sản xuất; không hỏi lại quyền gửi từng bài. Giữ `review_status: pending` đến khi có xác nhận nghe thực sự; không suy production authorization thành content approval. Không thay profile MN1, không chạy song song TTS, không bỏ blocker nguồn/profile/file/quota.
+
 - Cấu hình duy nhất là `source/narration-profile.json`, profile `vi-charon-mn1-v1`, được người biên tập duyệt giọng và nhịp ngày 2026-10-10 theo mẫu MP3 MN1.
 - Mọi audio dùng đúng model, Charon, style prompt, giới hạn chunk, khoảng nghỉ, encoding và tốc độ mặc định của profile. Không ghi đè qua CLI/env, không fallback sang model/giọng khác, không tự tăng/giảm tốc MP3.
 - Generator và uploader phải đi qua `scripts/narration_config.py`; không bỏ qua pin SHA-256. Thay profile/pin chỉ khi người biên tập yêu cầu và đã duyệt mẫu mới.
 - Duyệt giọng/nhịp không đồng nghĩa duyệt nội dung toàn bài. Giữ `review_status: pending` cho đến khi nghe duyệt đầy đủ.
-- Đọc `docs/audio.md` trước mọi tác vụ tạo hoặc upload audio. Theo quyết định ngày 2026-10-12, bỏ bước transcribe/ASR; upload và phát hành sau kiểm nguồn/profile, cấu trúc/hash và player. Người biên tập nghe kiểm trực tiếp trên website, gồm đối chiếu mẫu MN1; giữ review_status pending. Tốc độ TTS là hướng dẫn bằng prompt, không bảo đảm nhịp tuyệt đối giữa các lần sinh. Mỗi năm bài audio upload thành công tạo/cập nhật PR; chờ CI của đúng head xanh rồi merge. Sau merge, tiếp tục TTS bài kế tiếp mà không chờ build/CI/Pages hậu merge; chỉ ghi trạng thái live sau khi Pages production và player được xác minh. Không tự xóa lỗi QC đã ghi nhận.
+- Đọc `docs/audio.md` trước mọi tác vụ tạo hoặc upload audio. Theo quyết định ngày 2026-10-12, bỏ bước transcribe/ASR; upload và phát hành sau kiểm nguồn/profile, cấu trúc/hash và player. Người biên tập nghe kiểm trực tiếp trên website, gồm đối chiếu mẫu MN1; giữ review_status pending. Tốc độ TTS là hướng dẫn bằng prompt, không bảo đảm nhịp tuyệt đối giữa các lần sinh. Mỗi năm bài audio upload thành công tạo/cập nhật PR; CI đúng head phải xanh trước khi agent merge. Theo cập nhật ngày 2026-10-23, trong lúc CI chạy tiếp tục giai đoạn độc lập, không polling liên tục; kiểm lại mỗi run sau **2 giờ**, ghi head/run/mốc kiểm tiếp trong `audio/ci-followup.json` local. Sau merge, tiếp tục TTS bài kế tiếp mà không chờ build/CI/Pages hậu merge; chỉ ghi trạng thái live sau khi Pages production và player được xác minh. Không tự xóa lỗi QC đã ghi nhận; nhịp CI không mở rộng quyền TTS hay bỏ nghe duyệt mẫu.

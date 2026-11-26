@@ -5,6 +5,18 @@ from pathlib import Path
 def digest(value):
     return hashlib.sha256(value).hexdigest()
 
+def audio_object_key(source, manifest):
+    """Use the catalog-verified identity, never a UID-prefix collection guess."""
+    collection=source['collection']
+    if collection not in ('mn','dn','sn','an','kn') or source['uid']!=manifest['uid']:
+        raise RuntimeError('Invalid source/manifest identity')
+    if manifest.get('collection',collection if collection in ('mn','dn') else None)!=collection:
+        raise RuntimeError('Manifest collection differs from catalog')
+    if collection not in ('mn','dn'):
+        if source.get('policy')!='title-scripture-v1' or manifest.get('transcript_policy')!=source['policy'] or manifest['scripture_start_seconds']!=0:
+            raise RuntimeError('Manifest transcript policy differs from source')
+    return f'vi/{collection}/{source["uid"]}/{manifest["sha256"][:16]}.mp3'
+
 def write_json(path, data):
     path=Path(path);path.parent.mkdir(parents=True,exist_ok=True)
     temp=path.with_suffix(path.suffix+'.tmp');temp.write_text(json.dumps(data,ensure_ascii=False,indent=2)+'\n');temp.replace(path)
@@ -74,6 +86,10 @@ def plan_source(source, profile):
         for part in split_text(text,profile['chunk_max_chars']):
             planned.append({'section':section,'text':part,'text_sha256':digest(part.encode())})
     append('summary',summary)
+    # Explicit new policy only: legacy title metadata must never become speech.
+    if source.get('policy')=='title-scripture-v1':
+        if summary or not source.get('title','').strip():raise ValueError('Invalid title-scripture transcript')
+        append('heading',source['title'])
     group=[]
     expected=[]
     for _,value in source['segments']:
@@ -91,6 +107,29 @@ def plan_source(source, profile):
     if ''.join(p['text'] for p in planned if p['section']=='summary')!=summary:raise RuntimeError('Summary accounting failed')
     if normalize(' '.join(p['text'] for p in planned if p['section']=='scripture'))!=normalize(' '.join(expected)):raise RuntimeError('Scripture accounting failed')
     return planned
+
+def subdivide_repair_chunks(planned, indices, profile):
+    """Subdivide selected scripture requests without changing any source character.
+
+    The approved maximum remains the ceiling; smaller requests isolate reported
+    TTS loops. Keep an omission's extra pause only after its final subchunk.
+    """
+    indices=set(indices)
+    if not indices or any(i<0 or i>=len(planned) or planned[i]['section']!='scripture' for i in indices):
+        raise ValueError('Repair indices must identify existing scripture chunks (zero-based)')
+    repaired=[]
+    for index,item in enumerate(planned):
+        if index not in indices:
+            repaired.append(dict(item));continue
+        parts=split_text(item['text'],profile['chunk_max_chars']//3)
+        for part in parts:
+            repaired.append({'section':item['section'],'text':part,'text_sha256':digest(part.encode())})
+        if 'pause_after_seconds' in item:
+            repaired[-1]['pause_after_seconds']=item['pause_after_seconds']
+    for section in ('summary','scripture'):
+        if ''.join(i['text'] for i in planned if i['section']==section)!=''.join(i['text'] for i in repaired if i['section']==section):
+            raise RuntimeError('Repair text accounting failed')
+    return repaired
 
 def wav_info(path, profile):
     with wave.open(str(path),'rb') as wav:

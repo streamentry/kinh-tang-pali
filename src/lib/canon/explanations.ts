@@ -154,10 +154,23 @@ export function explanationScore(scores: ExplanationScores): number | null {
   return EXPLANATION_SCORE_KEYS.reduce((sum, key) => sum + scores[key], 0) / EXPLANATION_SCORE_KEYS.length;
 }
 
+// Compare the decimal values entered by reviewers, without rounding a score near
+// the threshold or letting binary floating-point summation move an exact 9.0.
+function decimalMeanAtLeast(scores: ExplanationScores, threshold: number): boolean {
+  const values = EXPLANATION_SCORE_KEYS.map(key => {
+    const [mantissa, exponent = '0'] = scores[key].toString().split('e');
+    const [whole, fraction = ''] = mantissa.split('.');
+    return { digits: BigInt(whole + fraction), places: fraction.length - Number(exponent) };
+  });
+  const places = Math.max(0, ...values.map(value => value.places));
+  const total = values.reduce((sum, value) => sum + value.digits * 10n ** BigInt(places - value.places), 0n);
+  return total >= BigInt(threshold * EXPLANATION_SCORE_KEYS.length) * 10n ** BigInt(places);
+}
+
 export function explanationStatus(review: Pick<ExplanationReview, 'scores' | 'blockingErrors'>): EditorialStatus {
   const score = explanationScore(review.scores);
-  if (score === null || !Array.isArray(review.blockingErrors) || review.blockingErrors.length > 0 || score < 8) return 'draft';
-  return score >= 9 && CRITICAL_EXPLANATION_KEYS.every(key => review.scores[key] >= 9) ? 'published' : 'review';
+  if (score === null || !Array.isArray(review.blockingErrors) || review.blockingErrors.length > 0 || !decimalMeanAtLeast(review.scores, 8)) return 'draft';
+  return decimalMeanAtLeast(review.scores, 9) && CRITICAL_EXPLANATION_KEYS.every(key => review.scores[key] >= 9) ? 'published' : 'review';
 }
 
 interface Manifest { commit: string; editions: Array<{ path: string; files: Record<string, string> }> }

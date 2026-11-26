@@ -69,7 +69,7 @@ kinh văn, nguồn, giấy phép và lịch sử chất lượng có mặt trong
 | `src/assets/home/` | Bản hình gốc đã kiểm tra, tối ưu WebP responsive qua `HomeImage.astro` |
 | `source/sutta-covers.json` | Ảnh bìa bài kinh: tệp Commons, tác giả, giấy phép, SHA-1 bản gốc, SHA-256 bản lưu, chú thích, alt, điểm lấy nét |
 | `scripts/sutta-covers.mjs` | Tải ảnh bìa, đối chiếu lại giấy phép và SHA-1 với Commons, sinh WebP 1600px; `--check` chạy trong `design:check` |
-| `src/assets/covers/` | Bản WebP đã kiểm của từng ảnh bìa; Astro sinh 640–1600px khi build |
+| `src/assets/covers/` | Bản WebP đã kiểm của từng ảnh bìa; Astro sinh biến thể 800 và 1120px khi cần; ảnh gốc đã kiểm (tối đa 1600px) là biến thể lớn nhất, ảnh thu nhỏ dùng chung 144 và 240px |
 | `src/components/SuttaMasthead.astro` | Ảnh bìa, tiêu đề, tên Pāli, dòng thông tin của trang đọc |
 | `src/components/SuttaNeighbours.astro` | Bài trước / bài tiếp ở cuối trang đọc, kèm ảnh bìa thu nhỏ |
 | `public/fonts/` | WOFF2 cùng giấy phép SIL OFL và provenance phiên bản |

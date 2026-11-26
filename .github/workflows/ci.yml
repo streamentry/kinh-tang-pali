@@ -47,6 +47,21 @@ jobs:
         # file; the script also fails on a wrong HEAD, a wrong file count or a modified file.
         # Without it the tests that read these files would skip rather than run.
         run: npm run legacy:sync
+      - name: Sync pinned navigation sources
+        # SuttaCentral's menu tree and name registries at the commit in source/navigation.lock.json,
+        # as a sparse git checkout. Every locked file is checked commit → tree → blob → bytes, and
+        # `--remote` compares the lock with GitHub's own (non-truncated) listing of that commit.
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: npm run navigation:sync -- --remote
+      - name: Navigation matches the pinned tree
+        # Rebuilds the SN/AN/KN groups in memory and fails on any difference from the committed
+        # files, or on an orphan, a second parent, a cycle, a missing or doubled URL.
+        run: npm run navigation:check
+      - name: Independent navigation verification
+        # A second implementation (Python, no shared code) re-derives membership, bundle order
+        # and every name's provenance from the raw pinned files.
+        run: npm run navigation:verify
       - name: Pinned snapshot manifest is current
         # Fails if the lock moved without the manifest being re-fetched, which would
         # otherwise let the content checks verify against a stale file list.
@@ -100,3 +115,7 @@ jobs:
         run: npm run build
       - name: SEO output integrity
         run: npm run seo:check
+      - name: Navigation pages match their plan
+        # Every continuous-reading part holds exactly the segments of its texts' own pages, once
+        # and in order, is noindex and outside search; every group page exists and no other does.
+        run: npm run reading:check

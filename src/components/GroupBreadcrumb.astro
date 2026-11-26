@@ -1,0 +1,39 @@
+---
+/**
+ * Where a page sits in the traditional tree: collection → groups → (this page).
+ *
+ * Plain links in an ordered list, so it works without JavaScript and reads as a path to a screen
+ * reader. The last group is the current page only on that group's own page; on a reading page it
+ * is a link back to the group.
+ */
+import type { CollectionDefinition } from '../lib/canon/types';
+import type { NavigationNode } from '../lib/canon/navigation-types';
+import { groupHref, groupTitle } from '../lib/canon/groups';
+import { withBase } from '../lib/url';
+
+interface Props {
+  collection: CollectionDefinition;
+  /** Groups from the root's first child down; the collection root itself is not included. */
+  trail: NavigationNode[];
+  /** True when the last group in `trail` is the page being shown. */
+  lastIsCurrent?: boolean;
+}
+const { collection, trail, lastIsCurrent = false } = Astro.props;
+const code = collection.code as NavigationNode['collection'];
+---
+<nav class="group-breadcrumb" aria-label="Vị trí trong bộ kinh" data-pagefind-ignore>
+  <ol>
+    <li><a href={withBase(`sutta/${collection.code}/`)}>{collection.titleVi}</a></li>
+    {trail.map((node, index) => {
+      const current = lastIsCurrent && index === trail.length - 1;
+      const title = groupTitle(node);
+      return (
+        <li>
+          {current
+            ? <span aria-current="page">{title.primary}</span>
+            : <a href={withBase(groupHref(code, node.id))}>{title.primary}</a>}
+        </li>
+      );
+    })}
+  </ol>
+</nav>

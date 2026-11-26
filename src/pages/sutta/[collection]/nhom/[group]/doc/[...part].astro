@@ -1,0 +1,68 @@
+---
+/**
+ * Continuous reading of a group whose children are texts, split into parts by
+ * `CONTINUOUS_READING_BUDGET`. Part 1 is `…/doc/`, later parts `…/doc/2/`.
+ *
+ * A reading aid, not a new edition: `noindex`, not in the sitemap and not in search (no
+ * `data-pagefind-body`), so search results always lead to the text's own page. Each text keeps
+ * its title, UID, status and own page; the canonical URL of a text never changes.
+ */
+import Base from '../../../../../../layouts/Base.astro';
+import GroupBreadcrumb from '../../../../../../components/GroupBreadcrumb.astro';
+import GroupReader from '../../../../../../components/GroupReader.astro';
+import { COLLECTIONS } from '../../../../../../lib/canon/load';
+import { groupHref, groupNode, groupPath, groupRange, groupTitle, levelLabel } from '../../../../../../lib/canon/groups';
+import { adjacentReadingGroups, groupReadingPlan, readingGroups } from '../../../../../../lib/canon/group-reading';
+import { readingPartPath } from '../../../../../../lib/canon/reading-budget';
+import { NAVIGATION_COLLECTIONS } from '../../../../../../lib/canon/navigation-types';
+import { withBase } from '../../../../../../lib/url';
+
+export function getStaticPaths() {
+  return NAVIGATION_COLLECTIONS.flatMap((code) => readingGroups(code).flatMap((node) => {
+    const plan = groupReadingPlan(code, node.id)!;
+    return plan.map((entries, index) => ({
+      params: { collection: code, group: node.id, part: index === 0 ? undefined : String(index + 1) },
+      props: { code, id: node.id, index, count: plan.length, entries },
+    }));
+  }));
+}
+
+const { code, id, index, count, entries } = Astro.props;
+const collection = COLLECTIONS.find((entry) => entry.code === code)!;
+const node = groupNode(code, id)!;
+const title = groupTitle(node);
+const base = groupHref(code, id);
+const adjacent = adjacentReadingGroups(code, id);
+const partLabel = count > 1 ? ` · Phần ${index + 1}/${count}` : '';
+const first = entries[0].uid.toUpperCase();
+const last = entries[entries.length - 1].uid.toUpperCase();
+const previousHref = index > 0 ? withBase(readingPartPath(base, index - 1)) : adjacent.previous && withBase(readingPartPath(groupHref(code, adjacent.previous.id), (groupReadingPlan(code, adjacent.previous.id)?.length ?? 1) - 1));
+const nextHref = index < count - 1 ? withBase(readingPartPath(base, index + 1)) : adjacent.next && withBase(readingPartPath(groupHref(code, adjacent.next.id), 0));
+const previousLabel = index > 0 ? `Phần ${index}` : adjacent.previous && `${levelLabel(adjacent.previous)} trước: ${groupTitle(adjacent.previous).primary}`;
+const nextLabel = index < count - 1 ? `Phần ${index + 2}` : adjacent.next && `${levelLabel(adjacent.next)} tiếp: ${groupTitle(adjacent.next).primary}`;
+---
+<Base noindex title={`Đọc liên tục · ${title.primary}${partLabel} · ${collection.titleVi} · Kinh Tạng Pāli Việt`}
+  description={`Đọc liên tục ${levelLabel(node).toLowerCase()} ${title.primary} (${groupRange(node)}), ${first === last ? first : `${first}–${last}`}, Pāli và các bản dịch đối chiếu theo thứ tự nguồn.`}>
+  <main id="main-content" tabindex="-1" class="page group-reading-page">
+    <GroupBreadcrumb collection={collection} trail={groupPath(code, id).slice(1)} />
+    <header class="group-header">
+      <p class="eyebrow">Đọc liên tục · {levelLabel(node)}{partLabel}</p>
+      <h1>{title.primary}</h1>
+      {title.hasVietnamese && title.pali && <p class="pali-title large" lang="pi">{title.pali}</p>}
+      <p class="group-reading-note">
+        {first === last ? first : `${first}–${last}`}{count > 1 ? ` (trong ${groupRange(node)})` : ''}, theo thứ tự của cây nguồn.
+        Đây là cách đọc liền mạch; mỗi bài vẫn có trang riêng với nguồn, giấy phép và lịch sử biên tập,
+        và số đoạn dẫn về đúng đoạn trên trang đó.
+      </p>
+      <p class="group-actions"><a href={withBase(base)}>← Mục lục {title.primary}</a></p>
+    </header>
+
+    <GroupReader code={code} entries={entries} />
+
+    <nav class="group-siblings" aria-label="Phần đọc liền kề">
+      {previousHref && <a class="group-sibling is-previous" href={previousHref} rel="prev"><span class="neighbour-label">← Đọc trước</span><span class="neighbour-title">{previousLabel}</span></a>}
+      {nextHref && <a class="group-sibling is-next" href={nextHref} rel="next"><span class="neighbour-label">Đọc tiếp →</span><span class="neighbour-title">{nextLabel}</span></a>}
+      <a class="neighbour-index" href={withBase(base)}>Mục lục {title.primary}</a>
+    </nav>
+  </main>
+</Base>

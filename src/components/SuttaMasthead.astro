@@ -8,7 +8,7 @@
  * The cover's author and terms are printed right under it. A cover is someone else's work
  * under its own licence, and the page is where a reader meets it.
  */
-import { Image } from 'astro:assets';
+import { getImage } from 'astro:assets';
 import { coverFor, licenceLabel } from '../lib/canon/covers';
 import { STATUS_LABEL } from '../lib/canon/status-label';
 
@@ -26,14 +26,23 @@ interface Props {
 const { uid, collectionTitle, collectionPali, viTitle, paliTitle, status, readingMinutes, segmentCount, audioMinutes } = Astro.props;
 const cover = coverFor(uid);
 const label = STATUS_LABEL[status] ?? status;
+// Vite already emits the verified source image. Reuse it as the largest candidate
+// instead of generating a second full-size WebP for every sutta.
+const coverSrcset = cover ? [
+  ...await Promise.all([800, 1120].filter((width) => width < cover.image.width).map(async (width) => {
+    const image = await getImage({ src: cover.image, width, format: 'webp', quality: 78 });
+    return `${image.src} ${width}w`;
+  })),
+  `${cover.image.src} ${cover.image.width}w`,
+].join(', ') : undefined;
 ---
 <header class:list={['sutta-masthead', cover && 'has-cover']}>
   {cover && (
     <>
       <div class="cover-media">
-        <Image src={cover.image} alt={cover.altVi} widths={[640, 960, 1280, 1600]}
-          sizes="(min-width: 76rem) 70rem, 100vw" format="webp" quality={78}
-          loading="eager" fetchpriority="high" style={cover.focus ? `object-position: ${cover.focus}` : undefined} />
+        <img src={cover.image.src} srcset={coverSrcset} alt={cover.altVi}
+          width={cover.image.width} height={cover.image.height} sizes="(min-width: 76rem) 70rem, 100vw"
+          loading="eager" fetchpriority="high" decoding="async" style={cover.focus ? `object-position: ${cover.focus}` : undefined} />
       </div>
       <p class="cover-credit" data-pagefind-ignore>
         <span class="cover-subject">{cover.titleVi}</span>

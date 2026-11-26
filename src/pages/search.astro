@@ -24,7 +24,12 @@ const baseUrl = rawBaseUrl.endsWith('/') ? rawBaseUrl : `${rawBaseUrl}/`;
       </p>
     </fieldset>
     <div id="search-status" class="search-status" aria-live="polite"></div>
-    <ol id="search-results" class="search-results"></ol>
+    <section id="group-results-section" class="group-results-section" aria-labelledby="group-results-heading" hidden>
+      <h2 id="group-results-heading">Nhóm kinh</h2>
+      <ol id="group-results" class="search-results group-results"></ol>
+    </section>
+    <h2 id="text-results-heading" class="visually-hidden">Bài kinh</h2>
+    <ol id="search-results" class="search-results" aria-labelledby="text-results-heading"></ol>
   </main>
 </Base>
 
@@ -33,6 +38,8 @@ const baseUrl = rawBaseUrl.endsWith('/') ? rawBaseUrl : `${rawBaseUrl}/`;
   const input = document.getElementById('search-input');
   const status = document.getElementById('search-status');
   const results = document.getElementById('search-results');
+  const groupSection = document.getElementById('group-results-section');
+  const groupResults = document.getElementById('group-results');
   const versionFilter = document.getElementById('version-filter');
   let pagefind;
 
@@ -69,6 +76,8 @@ const baseUrl = rawBaseUrl.endsWith('/') ? rawBaseUrl : `${rawBaseUrl}/`;
     const query = input.value.trim();
     const versions = selectedVersions();
     results.replaceChildren();
+    groupResults.replaceChildren();
+    groupSection.hidden = true;
     if (!query) {
       status.textContent = 'Nhập từ khóa để tìm.';
       return;
@@ -81,11 +90,35 @@ const baseUrl = rawBaseUrl.endsWith('/') ? rawBaseUrl : `${rawBaseUrl}/`;
     status.textContent = 'Đang tìm…';
     try {
       const pf = await ensurePagefind();
-      const search = await pf.search(query, { filters: { version: versions } });
+      // Groups (thiên, tương ưng, chương, phẩm, tác phẩm) are their own result type. Only their
+      // names are indexed, so a group never repeats the scripture its texts already return.
+      const [search, groups] = await Promise.all([
+        pf.search(query, { filters: { version: versions } }),
+        pf.search(query, { filters: { type: 'Nhóm' } }),
+      ]);
       const scope = versions.length === 4 ? 'cả 4 bản' : versions.join(', ');
+      const shownGroups = Math.min(groups.results.length, 10);
+      const groupNote = groups.results.length
+        ? ` · ${groups.results.length} nhóm kinh${groups.results.length > shownGroups ? ` (hiện ${shownGroups} nhóm đầu)` : ''}`
+        : '';
       status.textContent = search.results.length
-        ? `${search.results.length} kết quả · tìm trong ${scope}`
-        : `Không có kết quả trong ${scope}.`;
+        ? `${search.results.length} kết quả · tìm trong ${scope}${groupNote}`
+        : `Không có kết quả trong ${scope}${groupNote}.`;
+      const groupData = await Promise.all(groups.results.slice(0, 10).map((result) => result.data()));
+      for (const item of groupData) {
+        const li = document.createElement('li');
+        const a = document.createElement('a');
+        a.href = withBase(item.url);
+        const h3 = document.createElement('h3');
+        h3.textContent = item.meta?.title || item.url;
+        const trail = document.createElement('p');
+        trail.className = 'result-trail';
+        trail.textContent = item.meta?.trail || '';
+        a.append(h3, trail);
+        li.append(a);
+        groupResults.append(li);
+      }
+      groupSection.hidden = groupData.length === 0;
       const data = await Promise.all(search.results.slice(0, 30).map((result) => result.data()));
       for (const item of data) {
         const li = document.createElement('li');
@@ -103,7 +136,10 @@ const baseUrl = rawBaseUrl.endsWith('/') ? rawBaseUrl : `${rawBaseUrl}/`;
         meta.textContent = available.length
           ? `Bản có trong trang: ${available.join(' · ')}`
           : '';
-        a.append(h2, excerpt, meta);
+        const trail = document.createElement('p');
+        trail.className = 'result-trail';
+        trail.textContent = item.meta?.trail || '';
+        a.append(h2, trail, excerpt, meta);
         li.append(a);
         results.append(li);
       }

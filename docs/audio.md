@@ -86,6 +86,12 @@ Lỗi kết nối/time-out và HTTP 5xx tạm thời được retry tối đa 5 
 
 MP3 được kiểm toàn bộ frame MPEG-2 Layer III 24 kHz/160 kbps và đối chiếu duration với WAV trước upload. Uploader đọc storage registry, chặn sai account, kiểm SHA-256/bytes/range response và kiểm source lần nữa sau upload. Nó chỉ ghi upload evidence ở trạng thái generated; browser playback/seek/chuyển phần được xác minh riêng trước khi nâng uploaded-verified. Merge/live/review không tự suy ra từ upload.
 
+### Sửa vùng TTS đọc lặp
+
+Khi người biên tập báo lỗi, giữ MP3, manifest, checkpoint và bằng chứng QC cũ trước khi tạo bản thay thế. `--repair-chunks 6,7` nhận chỉ số **từ 0 trong plan chuẩn**, chia riêng các chunk kinh văn đó thành request ngắn hơn theo câu (tối đa một phần ba giới hạn đã duyệt). Không đổi chữ, không mở rộng dấu lược, không đổi profile hoặc xử lý tốc độ. Khoảng nghỉ đặc biệt sau dấu lược chỉ giữ ở cuối nhóm. Tái ghép phải khớp từng ký tự theo phần tóm tắt/kinh văn.
+
+Ví dụ: `python3 scripts/gemini_tts.py --uid dn22 --repair-chunks 6,7 --prepare-only`, rồi bỏ `--prepare-only` để sinh. Cache sửa có fingerprint riêng; các chunk ngoài vùng sửa chỉ được dùng lại khi text/WAV/source/profile khớp. Giữ nguyên cache chuẩn. Manifest ghi `chunk_repair`; upload theo hash mới, lưu lịch sử artifact và nghe kiểm lại trên web. Thời lượng bình thường hoặc kiểm cấu trúc pass không chứng minh hết lỗi lời đọc; review vẫn `pending`.
+
 ## Quy trình phát hành cập nhật ngày 2026-10-12
 
 Theo quyết định của người biên tập: bỏ bước transcribe/ASR. Làm tuần tự từng bài: kiểm nguồn và profile → tạo MP3 → kiểm cấu trúc/hash → upload R2 và xác minh object → đăng ký, kiểm player → phát hành website. Không cần API key hoặc model nhận dạng để tiếp tục. Người biên tập nghe kiểm thủ công trực tiếp trên website; giữ `review_status: pending` đến khi có xác nhận nghe duyệt. Việc phát hành không chứng minh TTS đã đọc đúng toàn bài. Giữ nguyên mọi bằng chứng QC cũ, kể cả các lỗi đã ghi nhận; quyết định này không tự xóa lỗi hay biến bài bị chặn thành đã duyệt. Với các artifact trước đây bị giữ vì cờ ASR, kiểm lại nguồn/profile và cấu trúc file rồi upload/đăng ký cho người biên tập nghe trên website; giữ cờ QC như thông tin cần nghe kiểm và review pending. Lỗi nguồn/profile hoặc file hỏng vẫn chặn phát hành.
@@ -93,3 +99,164 @@ Theo quyết định của người biên tập: bỏ bước transcribe/ASR. L�
 ## Nhịp phát hành cập nhật ngày 2026-10-18
 
 Sau mỗi năm bài upload thành công, tạo/cập nhật một PR và chờ CI của đúng head xanh trước khi merge. Sau merge có thể bắt đầu TTS bài tiếp theo ngay, không cần chờ build, CI hay Pages hậu merge. Chỉ nâng trạng thái thành `live` sau khi Pages production được triển khai và player/R2 được kiểm tra trực tiếp. Không đưa MP3/WAV/cache vào Git.
+
+**Cập nhật của người biên tập ngày 2026-10-23:** CI có thể rất chậm. Sau khi
+tạo PR, tiếp tục giai đoạn độc lập tiếp theo ngay; không đứng chờ và không polling
+liên tục. Kiểm lại mỗi run sau **2 giờ** kể từ khi tạo hoặc lần kiểm trước. Ghi
+head, run ID và mốc kiểm tiếp trong `audio/ci-followup.json` (local, gitignore).
+Trước khi agent merge vẫn phải xác nhận mọi cổng CI áp dụng đã xanh trên đúng
+head hiện tại. Không hạ gate, không coi thời gian chờ là bằng chứng pass. Khi
+người khác đã merge, ghi đúng timeline thực tế. Lịch kiểm không phải cho phép
+mở rộng phạm vi TTS hoặc bỏ cổng nghe duyệt mẫu SN/AN/KN.
+
+## Chuẩn bị audio nhóm SN / AN / KN (2026-10-23)
+
+Kế hoạch: [`research/group-audio-plan-2026-10-23.md`](research/group-audio-plan-2026-10-23.md).
+Pipeline hỗ trợ UID có thật trong catalog, gồm UID dải như `dhp1-20` và URL riêng
+`an1.5` lấy đoạn mình sở hữu từ tệp gộp. Không suy bộ kinh từ tiền tố UID, không
+bung UID dải, không tạo bản đọc khác nhau cho các nhóm cha chứa cùng một mục.
+
+MN/DN giữ nguyên transcript tóm tắt → kinh văn và hash đã phát hành. Policy mới
+`title-scripture-v1` cho SN/AN/KN lấy tên Việt của mục đọc, sau đó kinh văn; không
+đọc segment ID, ghi chú hoặc tự sinh tóm tắt. Tên bài nằm trong hash nguồn mới;
+thay tên nhóm không làm đổi audio của bài. Mốc kinh văn là 0; player không hiện
+phần tóm tắt giả. **Người biên tập đã duyệt cấu trúc này ngày 2026-10-23 và cho
+phép gửi nội dung, tạo thử SN1.1–SN1.10 tới Gemini TTS theo profile MN1 đã ghim.**
+Không cần hỏi lại cho mười mục đó; giữ nghe duyệt `pending`. Quyết định ban đầu
+giới hạn sản xuất ở mẫu trước khi nghe chấp thuận. **Cập nhật ngày 2026-10-24:**
+người biên tập sửa goal thành “move to next phase to complete all audio and
+check CI back and merge later (2h for each run)”. Đây là quyền tiếp tục sản xuất
+toàn bộ SN/AN/KN theo kế hoạch, thay cổng phải chờ nghe mẫu trước khi tạo tiếp.
+Không hỏi lại quyền gửi từng bài tới Gemini. Đây không phải xác nhận đã nghe
+duyệt: mọi audio mới vẫn `review_status: pending`, giọng/profile MN1 không đổi.
+Nguồn/profile/file hỏng, quota, xác thực hay thanh toán lỗi vẫn chặn tác vụ tương
+ứng; không tự xóa bằng chứng QC. Quyết định và tiến độ được ghi tại
+[group-audio-progress.md](group-audio-progress.md).
+
+Chuẩn bị không gọi API, không cần `.env`:
+
+```bash
+# Kiểm đầy đủ 5.951 UID, gồm các mục trực tiếp trong nhóm hỗn hợp cnd/ne.
+python3 scripts/audio-preflight.py --output audio/group-preflight.json
+
+# Chỉ kiểm phẩm mẫu: hash nguồn, policy, accounting và giới hạn chunk.
+python3 scripts/audio-preflight.py --collection sn --group sn1-nalavagga \
+  --output audio/pilot-preflight.json
+
+# Transcript và plan thực tế, chưa sinh âm thanh.
+python3 scripts/gemini_tts.py --uid sn1.1 --prepare-only
+```
+
+Sau khi có phép tạo mẫu, khởi tạo hàng đợi chỉ trong phạm vi đã duyệt:
+
+```bash
+python3 scripts/audio-progress.py --init --collection sn --group sn1-nalavagga
+python3 scripts/audio-progress.py --groups
+# Sau đó gọi generator và uploader từng UID như MN/DN, dưới cùng OS lock.
+npm run audio:check
+```
+
+`content/audio/group-progress.json` schema 2 là hàng đợi sản xuất tăng dần, không
+phải tuyên bố đã tạo toàn bộ corpus. Khởi tạo một nhóm mới giữ lại các mục cũ;
+đổi nguồn/profile làm mục đó `blocked`. Registry MN/DN schema 1 không bị sửa bởi
+lệnh khởi tạo nhóm. Dry-run inventory đo toàn bộ ứng viên riêng. Bộ kiểm CI kiểm
+cả hai registry, danh tính/thứ tự/home group, nguồn/profile và từng mức bằng chứng
+upload/player/merge/live. Chưa có xác nhận nghe thì luôn `review_status: pending`.
+
+Generator kiểm queue khớp nguồn/profile/policy trước khi đọc credential và trước
+mỗi request; uploader kiểm trước khi đọc credential và sau upload. Queue còn
+hash cũ, schema sai hoặc lỗi chưa giải quyết phải dừng, không tự xoá lý do chặn.
+Khởi tạo lại không tự gỡ `blocked`: đối soát nguồn và bằng chứng lỗi rồi mới dùng
+lệnh cập nhật tiến độ để ghi quyết định xử lý; giữ hồ sơ QC trước đó.
+
+Uploader dùng collection trả về từ catalog đã kiểm, key `vi/<collection>/<uid>/<hash>.mp3`,
+và đối chiếu managed domain với storage registry trước upload. Audio có nguồn cũ
+hoặc bản dịch không còn `published` không được hiện player. Notes-only edits
+không đổi hash. Giữ nguyên artifact và bằng chứng QC cũ khi thay bản đọc.
+
+Playlist tái sử dụng các URL theo thứ tự cây điều hướng; nhóm thiếu audio tiếp tục
+hiện số mục có bản nghe và bỏ qua mục thiếu. HTML chỉ mang trường phục vụ player,
+không mang manifest/profile/QC. Trên 50 mục, danh sách đầy đủ được tải từ JSON
+static `/audio-playlists/<collection>/<group>.json` (`all.json` cho cả bộ);
+HTML giữ một mục cho player native. Lỗi tải danh sách báo rõ, vẫn giữ native
+player và link MP3 từng hàng. Kiểm tra browser bằng fixture không chứng minh
+lời đọc chính xác; WAV/MP3 mới vẫn cần nghe duyệt trực tiếp.
+
+Player mục lục/nhóm ghi bài đang chọn vào fragment `#play=<uid>` khi chọn bài,
+Next/Back hoặc tự chuyển bài. URL giữ nguyên trang và query, dùng `replaceState`
+để không thêm một mục lịch sử cho mỗi lần chuyển bài. Khi tải lại hoặc mở link,
+player chọn đúng UID sau khi danh sách tải xong và chờ người đọc bấm Phát.
+UID không thuộc danh sách hiện tại và các anchor đọc khác được bỏ qua; fragment
+không ghi thời điểm phát hay tự cấp quyền autoplay.
+
+### Xuất phẩm từ WAV hiện có
+
+`audio-compile.py` chỉ làm việc local, không đọc `.env`, không gọi Gemini hoặc
+R2, không thay đăng ký player/progress. Nó yêu cầu nhóm có con đều là mục đọc và
+**mọi** thành viên đã có audio hợp lệ; không biến playlist thiếu bài thành bản
+xuất phẩm hoàn chỉnh. Nguồn hiện tại phải published; cache, checkpoint, plan,
+profile, MP3 đã đăng ký và các WAV đều phải khớp hash, không còn lỗi chặn.
+
+```bash
+# Kiểm nguồn và cache, lập kế hoạch; không cần lameenc.
+python3 scripts/audio-compile.py --collection sn --group sn1-nalavagga
+
+# Dùng encoder đã có trong cache để xuất MP3 local, không tạo TTS mới.
+uv run --offline --with lameenc python3 scripts/audio-compile.py \
+  --collection sn --group sn1-nalavagga --encode
+```
+
+Mặc định ngân sách 25 phút/phần, chọn bằng `--max-minutes 20..30`, độc lập với
+ngân sách trang đọc. Giữ nguyên từng mục đọc khi nó vừa ngân sách; mục dài hơn
+chia tại ranh giới WAV đã biết, giữ UID và đánh dấu `continuation`. Nếu một WAV
+đơn vượt ngân sách thì dừng, không ước lượng mốc trong lời đọc. ID `part-001`
+chỉ là phần của audio xuất, không phải UID kinh mới.
+
+MP3 mỗi phần được encode một lần từ PCM và đúng khoảng nghỉ của profile, không
+nối byte MP3 hoặc chỉnh tốc độ. `plan.json` có chapter tính bằng frame PCM thực,
+hash có thứ tự của nguồn, bản đọc, WAV, policy và ngân sách. Không đọc thêm tên
+nhóm/tóm tắt chưa duyệt. Kết quả nằm dưới `audio/compilations/`, ngoài Git.
+`manifest.json` chỉ được ghi sau khi kiểm lại nguồn/đăng ký/progress cuối lượt.
+Kiểm cuối lượt xác minh lại từng asset của chính nhóm: nguồn/profile/QC, plan,
+MP3 và WAV phải còn hợp lệ. Một UID ngoài nhóm đang tạo hoặc upload không làm
+hỏng bản xuất đang encode; lỗi chặn mới của thành viên trong nhóm vẫn chặn
+ghi manifest. Nhờ đó có thể xuất phẩm đã xong trong lúc tạo tiếp phẩm khác.
+
+Các mốc chapter chính xác trong **PCM**; encoder MP3 có độ trễ/đệm, nên manifest
+ghi `mp3_chapter_alignment_verified: false`. Không dùng những mốc này làm bằng
+chứng seek MP3 chính xác tới mẫu âm thanh. Giữ `review_status: pending` và không
+tự quảng bá bản local thành bản tải xuống đã phát hành hoặc đã nghe duyệt.
+
+
+## Một bài dài gồm nhiều file MP3 (quyết định 2026-10-24)
+
+Không upload một MP3 khổng lồ cho một UID dài. `scripts/audio_reading_parts.py`
+đóng gói bài trên 30 phút thành các file tối đa 30 phút, chia tại ranh giới WAV
+đã xác minh. Ngân sách file độc lập với chunk TTS và profile MN1: không đổi chữ,
+giọng, tốc độ hay khoảng nghỉ; không gửi lại nội dung tới Gemini. Phần cuối có
+thể ngắn hơn. Mỗi file khoảng tối đa 36 MB ở encoding đã ghim; uploader vẫn dùng
+REST/OAuth hiện có, không cần khóa S3. Không ghi MP3/WAV vào Git.
+
+Một UID vẫn là một bài/track trong catalog và playlist. `parts` là danh sách
+object theo thứ tự, không tạo UID kinh mới. Mỗi object có SHA-256, bytes, thời
+lượng MPEG thực và key bất biến riêng. Chỉ đăng ký sau khi **mọi** phần vượt qua
+public hash/bytes/range và nguồn/profile vẫn khớp. Upload dở không làm lộ một
+bài thiếu phần. Bản full MP3/manifest local và WAV giữ nguyên để truy nguyên.
+
+Đăng ký `asset_kind: reading-parts-v1` có `url` trỏ phần đầu cho fallback;
+`duration_seconds` và `bytes` là tổng các phần. `sha256` của assembly là hash
+UTF-8 của các hash file theo thứ tự, mỗi hash kết thúc bằng newline
+(`checksum_scope: ordered-part-sha256-lines`), **không** phải hash phần đầu.
+`source_mp3` giữ hash/bytes/thời lượng PCM của bản gốc local;
+`pcm_duration_seconds` khác tổng thời lượng MPEG vì padding encoder. Các range
+chunk trong manifest chứng minh mọi WAV xuất hiện đúng một lần theo thứ tự.
+
+Player dùng một audio element và timeline toàn bài, tua xuyên phần, giữ tốc độ
+người nghe đang chọn; hết phần tự nối phần tiếp theo dù “Tự chuyển bài” đang tắt.
+Toggle đó chỉ điều khiển chuyển sang **bài kinh khác** sau phần cuối. Không tự
+phát khi vừa vào trang. Link từng phần vẫn có trong HTML khi JavaScript tắt.
+Giữ tương thích đăng ký một file cũ; không tự tạo lại audio đã phát hành.
+
+Đây là thay đổi đóng gói/player, không phải xác nhận đã nghe duyệt. Kiểm browser
+và production là bằng chứng riêng; `review_status` vẫn `pending`. Chỉ đưa đăng ký
+nhiều phần vào batch phát hành sau khi mã player/schema tương ứng đã có trên base.
