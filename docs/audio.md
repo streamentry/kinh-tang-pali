@@ -260,3 +260,54 @@ Giữ tương thích đăng ký một file cũ; không tự tạo lại audio đ
 Đây là thay đổi đóng gói/player, không phải xác nhận đã nghe duyệt. Kiểm browser
 và production là bằng chứng riêng; `review_status` vẫn `pending`. Chỉ đưa đăng ký
 nhiều phần vào batch phát hành sau khi mã player/schema tương ứng đã có trên base.
+
+## Audio bốn phiên bản cho Trung Bộ (2026-11-16)
+
+Kế hoạch đầy đủ và ước tính: [`audio-audience-variants-plan-20261116.md`](audio-audience-variants-plan-20261116.md); kết quả dry-run nguồn: [`audio-audience-variants-preflight-20261116.json`](audio-audience-variants-preflight-20261116.json).
+
+- Track **Kinh văn Việt 2026** dùng lại MP3 hiện có. Không gọi Gemini, không upload lại và không ghi đè. Player bắt đầu tại mốc kinh văn; phần tóm tắt chung của file gốc vẫn có thể chọn.
+- Ba track mới là phần diễn giải đã `published` dành cho trẻ em, người trưởng thành và người lớn tuổi. Transcript lấy tiêu đề, lời dẫn biên tập, nhan đề mục, ghi chú gắn ví dụ/thực hành và đoạn văn đang hiển thị; không lấy điểm, reviewer, ID đoạn, liên kết nguồn hay rationale.
+- Mọi track mới phải hash selected review ID, ngày, source dependencies, transcript và profile. Bản diễn giải stale, draft hoặc thiếu nguồn không được tạo/upload/hiện player.
+- Dùng nguyên `vi-charon-mn1-v1`; `--audience` chỉ chọn nguồn văn bản, không được ghi đè giọng hoặc profile. Một lệnh tạo chỉ chạy một UID/audience dưới cùng TTS lock.
+- Preflight toàn bộ 456 nguồn không gọi provider. Tạo từng track theo thứ tự rồi upload R2 với key bất biến; chỉ đăng ký sau khi object qua full-SHA, bytes và range readback. Khi track dài hơn 30 phút, đóng gói các WAV đã xác minh thành các phần tối đa 30 phút.
+- `content/audio/<uid>.json` giữ registration gốc ở cấp trên và lưu các bản diễn giải riêng trong `explanation_tracks`; web DTO chỉ xuất URL, thời lượng, trạng thái nghe duyệt và phần MP3. Không đưa WAV/MP3/cache vào Git.
+- Người nghe chọn một trong bốn bản; chọn không tự phát. Auto-next tiếp tục đúng bản đang chọn. Nếu bản đó chưa có cho bài sau, dừng và báo, không tự chuyển sang bản khác.
+- Mọi bản mới giữ `review_status: pending`. TTS, upload, CI, Pages và browser playback không chứng minh nội dung đã nghe duyệt.
+
+Chạy nguồn và chunk plan, chưa gọi Gemini:
+
+```bash
+npm run audio:variants:preflight
+python3 scripts/gemini_tts.py --uid mn1 --audience children --prepare-only
+```
+
+Tạo rồi upload một track, dùng cache và OAuth/profile hiện có:
+
+```bash
+uv run --offline --with lameenc python3 scripts/gemini_tts.py --uid mn1 --audience children
+python3 scripts/audio-r2.py audio/mn1/variants/children/<fingerprint> --audience children
+```
+
+## Audio bốn phiên bản cho Trường Bộ (2026-11-22)
+
+Kế hoạch và tiến độ: [`audio-dn-audience-variants-plan-20261122.md`](audio-dn-audience-variants-plan-20261122.md); preflight nguồn: [`audio-audience-variants-preflight-dn-20261122.json`](audio-audience-variants-preflight-dn-20261122.json).
+
+- Phạm vi gồm 34 bài Trường Bộ, mỗi bài có bản gốc hiện hành và tối đa ba track diễn giải đã xuất bản: trẻ em, người trưởng thành, người lớn tuổi. Bản gốc dùng lại audio đang đăng ký.
+- Preflight đếm 102 track diễn giải, 1.806 chunk/request và 2.329.782 ký tự. Đây là số request dự kiến, không phải báo giá Gemini.
+- Giữ nguyên nguồn diễn giải đang được chọn, review ID, ngày duyệt, hash nội dung, nguồn phụ thuộc và toàn bộ profile `vi-charon-mn1-v1`. Tạo tối đa năm UID trong một batch; mọi request Gemini chạy tuần tự qua khóa máy-wide.
+- Object key DN nằm dưới `vi/dn/<uid>/explanations/<audience>/`; xác minh hash, byte count và range response trước khi ghi đăng ký vào `content/audio/<uid>.json`.
+- Người nghe chọn một bản; thao tác chọn không tự phát. Auto-next tiếp tục cùng phiên bản và dừng khi bài kế không có bản đó. Mọi track mới giữ `review_status: pending`.
+
+Chạy lại preflight mà không gọi Gemini:
+
+```bash
+python3 scripts/audio-explanation-preflight.py --collection dn \
+  --output docs/audio-audience-variants-preflight-dn-20261122.json
+```
+
+Tạo và upload một batch năm bài theo thứ tự; có thể bỏ qua track đã đăng ký nếu fingerprint, profile và bằng chứng R2 vẫn khớp:
+
+```bash
+uv run --offline --with lameenc python3 scripts/audio-explanation-batch.py \
+  --collection dn --start 1 --end 5 --upload
+```

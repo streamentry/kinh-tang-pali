@@ -30,6 +30,12 @@ test('registered MN1 audio matches the current source and disappears after text 
   assert.ok(audio);
   assert.ok(audio.scripture_start_seconds > 0);
   assert.ok(audio.scripture_start_seconds < audio.duration_seconds);
+  const original = audio.versions.find(version => version.id === 'original');
+  assert.ok(original);
+  assert.equal(original.url, audio.url);
+  assert.equal(original.start_seconds, audio.scripture_start_seconds);
+  assert.equal(new Set(audio.versions.map(version => version.id)).size, audio.versions.length);
+  assert.ok(audio.versions.every(version => version.review_status === 'pending' || version.review_status === 'approved'));
   assert.equal(loadAudio({ ...doc, summary: doc.summary + ' changed' }), null);
 });
 
@@ -39,4 +45,19 @@ test('DN narration source resolves Digha canonical summary and Vietnamese text',
   assert.ok(source.summary);
   assert.ok(source.segments.length);
   assert.ok(source.segments.every(([id]) => id.startsWith('dn1:') && !id.startsWith('dn1:0.')));
+});
+
+test('DN audience registrations become selectable player versions without replacing the original', {
+  skip: !fs.existsSync('content/audio/dn4.json'),
+}, () => {
+  const doc = composeDocument('dn', 'dn4');
+  const audio = loadAudio(doc);
+  assert.ok(audio);
+  assert.equal(audio.versions[0].id, 'original');
+  assert.ok(audio.versions.some(version => version.id === 'children' && version.kind === 'explanation'));
+  const children = audio.versions.find(version => version.id === 'children');
+  assert.ok(children);
+  assert.equal(children.start_seconds, 0);
+  assert.equal(children.review_status, 'pending');
+  assert.equal(audio.versions.find(version => version.id === 'original')?.url, audio.url);
 });

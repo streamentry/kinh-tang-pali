@@ -2,13 +2,15 @@
 
 Ngày bắt đầu: 2026-11-02. Nền nội dung: `934b1efa56c7af57369328adbc5cb37dbc84a61a`.
 
-**Mục tiêu chưa hoàn tất:** đọc, sửa, chấm lại và phát hành 152 bài × hai nhóm = 304 bản. Người biên tập yêu cầu điểm từ 8,9; publication gate của kho vẫn yêu cầu mean ít nhất 9,0, bốn tiêu chí đầu ít nhất 9,0 và không blocker. Không hạ gate để đạt mục tiêu số.
+Các câu “đang chờ” trong nhật ký lô phía dưới ghi trạng thái tại lúc viết; trạng thái hiện hành nằm ở phần này và trong `progress.json`.
 
-Đã đọc và chấm lại **MN1–MN60: 120/304 bản**. Còn **184 bản MN61–MN152**. `progress.json` phân biệt lượt thực sự đọc lại với điểm cũ vẫn được chọn ở phần còn chờ. Không gán ngày/điểm mới cho nội dung chưa đọc. Lô MN1–MN10 đã merge qua PR #2057 ngày 2026-11-03, commit 879d0307cf6781b1c747609f81e1ca2a343116bb; kiểm remote main khớp cả 20 tệp nội dung/metadata đã validate. MN11–MN20 đã merge qua PR #2058, commit 873a07afd5ba3838d1b473f46eb5da166e0c9a48; cả 20 tệp khớp snapshot đã kiểm trên remote main. Production của lô đầu đã xác minh trong attempt3 (40/40 ca). Lô đầu MN1–MN10 đã đủ nội dung để chạy cổng local và phát hành. Trạng thái xuất bản thực tế nằm trong `progress.json`, không suy từ nhãn `published` tại worktree.
+**Trạng thái: hoàn tất.** Đã đọc, sửa khi cần, chấm lại và phát hành 152 bài × hai nhóm = 304 bản. Mean thấp nhất là **9,00/10**, cao nhất **9,78/10**; mọi bản qua gate của kho: mean ít nhất 9,0, bốn tiêu chí đầu ít nhất 9,0 và không blocker. Mốc 8,9 của yêu cầu biên tập không thay thế gate 9,0.
+
+Đã đọc và chấm lại **MN1–MN152: 304/304 bản** trẻ em/người lớn tuổi. `progress.json` phân biệt lượt đọc mới với điểm lịch sử. MN1–MN80 đã merge qua PR #2057–#2064; MN81–MN130 đã merge qua PR #2065. PR #2066 đã merge MN131–MN140; MN141–MN152 đã merge qua PR #2067 tại `1ec8e984fa9d20a78838bb142d03bdfe89f0062e`. Các cổng local đã qua; reader checks tĩnh đạt 80/80 cho batch09–12, 20/20 cho batch13–15 và 4/4 cho batch16. Sau khi merge, kiểm tra trực tiếp website production đạt 152/152 trang và 304/304 bản, khớp nội dung theo thứ tự cùng điểm, ngày, reviewer, tiêu đề và trạng thái. [Báo cáo production](reader-production-all-mn-20261116.json) ghi Pages workflow run #43737809665 và commit merge; chưa xác định chính xác SHA của build đang được phục vụ. Chưa có kiểm tra viewport, thử đọc hiểu với người thật hoặc thẩm định độc lập của học giả Pāli. [Báo cáo batch08](batch08-review.md), các báo cáo batch09–16 và các reader reports ghi chi tiết; `progress.json` là nguồn trạng thái nội dung hiện hành.
 
 ## Điểm đang được chọn
 
-| Bài | Trẻ em | Người lớn tuổi | Gate tại worktree |
+| Bài | Trẻ em | Người lớn tuổi | Trạng thái bản hiện hành |
 | --- | ---: | ---: | --- |
 | MN1 | 9,24 | 9,28 | cả hai published |
 | MN2 | 9,03 | 9,25 | cả hai published |
@@ -53,11 +55,9 @@ Ngày bắt đầu: 2026-11-02. Nền nội dung: `934b1efa56c7af57369328adbc5cb
 
 JSON đầu vào trong thư mục ghi đủ điểm và căn cứ. Lịch sử chính thức thêm bằng `scripts/explanations.ts --record`, chọn bằng `--apply`; không sửa tay metadata. Giữ tác giả/lượt cũ; bản người trưởng thành, kinh văn canonical và audio không đổi. Thay riêng lời một nhóm không sửa bản đồ hoặc nguồn chung.
 
-## Kiểm tra và bước tiếp
+## Snapshot kiểm tra ban đầu — MN1–MN10
 
-`explanations --check` sau MN10: 558 published, 186/186 bài complete, không lỗi. Các con số đó bao gồm điểm lịch sử của phần chưa tái đánh giá, **không phải 558 bản mới đọc lại**. Báo cáo local có thời điểm riêng tại `validation.json` (trước sửa), `validation-fix-mn1-mn4.json` (lượt sửa), `validation-batch-01.json` (snapshot MN1–MN10 cuối), và các log được trỏ trong đó. Không coi kiểm cấu trúc hoặc build là bằng chứng nghĩa đúng, CI hay production.
-
-Lô MN1–MN30 đã merge; tiếp tục MN31 theo thứ tự. Chỉ đánh dấu phát hành các bản sửa sau khi xác minh merge và triển khai phù hợp. Toàn mục tiêu còn active cho đến khi đủ 304 bản được đọc lại, sửa khi cần, chấm đạt và phát hành với bằng chứng.
+Các lệnh và báo cáo ban đầu dưới đây ghi lại cổng của snapshot MN1–MN10. Chúng là lịch sử, không phải trạng thái còn dang dở. Tiến độ sau cùng là 304/304 bản, `pending: 0`; 304 bản đã merge và public content check mới nhất đạt 304/304.
 
 Cổng snapshot MN1–MN10 cuối đã pass validate/test/check/build; 500 test pass, bốn skip, không fail. SHA-256 của 20 tệp nội dung/metadata không đổi qua cả bốn lệnh. `reader-local-batch-01.json` ghi 40 trường hợp real Chrome: 10 bài × hai nhóm × desktop 1440/mobile 390, đúng toàn bộ đoạn văn theo thứ tự, điểm, người/ngày kiểm, mở mục, bấm liên kết nguồn đầu và không tràn ngang. Đã xem bốn ảnh MN1 (hai nhóm × hai chiều rộng), không thấy chữ bị cắt hoặc chồng lấp. Chưa suy kết quả đó thành thử hiểu với người thật hoặc production. Lượt browser đầu thất bại do checker đòi ID codex thay nhãn hiển thị từ registry; hồ sơ thất bại và lý do sửa checker được giữ riêng.
 
@@ -191,8 +191,63 @@ MN43, lượt đầu: trẻ 8,92 ở review; người lớn tuổi 9,11 local. �
 - **MN59:** giữ hai và ba loại cảm thọ như hai phép phân loại có căn cứ; bảo toàn chuỗi chín so sánh và phân biệt lạc với lạc thọ ở đoạn diệt tưởng/thọ. Trẻ em 9,46, người lớn tuổi 9,50 local. Chưa thử đọc hiểu.
 - **MN60:** sửa danh hiệu đầu bài để “không ai sánh bằng” mô tả bậc hướng dẫn, không người được hướng dẫn; giữ giới hạn ở các đoạn Pāli lược. Trẻ em 9,44, người lớn tuổi 9,53 local. Chưa thử đọc hiểu.
 
-- **Lô MN51–MN60:** local validate, unit tests, Astro check, production build và Pagefind đều qua. Chưa tạo PR, chưa merge và chưa xác minh public; không có thử đọc hiểu với độc giả thật. Báo cáo chi tiết: [batch06-review.md](batch06-review.md).
+- **Lô MN51–MN60:** PR [#2062](https://github.com/streamentry/kinh-tang-pali/pull/2062) đã merge; remote main khớp commit `02333006687b6f18083d96a7a4407985492b7934`. Public reader đạt 40/40 ca desktop/mobile; SHA build public chưa biết và chưa thử đọc hiểu với độc giả thật. Chi tiết ở [batch06-review.md](batch06-review.md).
 
 - **MN41–MN50:** PR #2061 đã merge, 70 tệp khớp remote main; lần xác minh public thứ ba pass 40/40. Không suy ra SHA build được phục vụ hoặc khả năng hiểu của độc giả từ kết quả này.
 
-- **Lô MN51–MN60:** 20 bản trẻ em/người lớn tuổi đã được chấm mới và qua các cổng local. Chưa tạo PR, chưa merge hoặc xác minh trên production; chưa thử đọc hiểu với độc giả thật. Xem [báo cáo lô tái đánh giá 06](batch06-review.md).
+
+
+
+## Cập nhật lô 07 — MN61–MN70
+
+Ngày 2026-11-15: 20 bản trẻ em/người lớn tuổi đã được đọc lại, chấm và áp dụng qua quality gate. MN62 có một sửa rõ nghĩa; MN66, MN67 và MN70 có ghi chú biên tập về nội dung khó hoặc nguồn. Lô đạt validate, test, check, build và reader local 40/40 ca trên desktop/mobile. PR [#2063](https://github.com/streamentry/kinh-tang-pali/pull/2063) đã merge; kiểm ancestry và cây file remote main khớp. Public reader verification còn chờ; human comprehension chưa thử. Xem [batch07-review.md](batch07-review.md) và [kết quả reader local](reader-local-batch-07-20261115.json).
+
+## Cập nhật lô 08 — MN71–MN80
+
+PR [#2064](https://github.com/streamentry/kinh-tang-pali/pull/2064) đã merge tại `05e5d4dc247ef2edbc2c57d439db9160c981510f`; remote main có đúng cây đã kiểm. Kiểm tra public theo từng URL khớp 20/20 bản diễn giải và nhãn published. Điểm/ngày của từng panel không lộ trong phần trích xuất; public responsive và SHA build phục vụ vẫn chưa xác minh. Chi tiết ở [batch08-review.md](batch08-review.md) và [public content report](reader-production-batch-08-content-20261115.json).
+
+## Cập nhật lô 09 — MN81–MN90
+
+Ngày 2026-11-15: 20 bản trẻ em/người lớn tuổi đã được đọc lại, sửa riêng ở MN82–MN86, chấm và áp dụng. Mean thấp nhất là 9,43; các phiên bản đều vượt publication gate. Validate, unit tests, Astro check, full build và static reader 20/20 đã qua; đối soát store đang chạy. PR/CI/merge và production của lô này còn chờ. Cả 20 lượt là đánh giá biên tập AI; không có thử đọc hiểu với người thật hoặc thẩm định độc lập của học giả Pāli. Xem [batch09-review.md](batch09-review.md).
+
+MN91 (đầu lô 10): trẻ em 9,43, người lớn tuổi 9,56; cả hai bản đã được đọc lại, ghi và chọn lượt đánh giá mới. Đã chuyển ghi chú về mô tả cơ thể lên trước đoạn nhắc đầu tiên để trẻ có thể đọc cùng người tin cậy hoặc tạm dừng. Cổng toàn lô chưa chạy; chưa có thử hiểu với độc giả thật hoặc thẩm định Pāli độc lập. Tiếp tục MN92.
+
+MN92: trẻ em 9,51, người lớn tuổi 9,60; cả hai bản đã được rà soát, sửa và chấm lại. Đã làm rõ lời kệ mang thứ bậc xã hội cổ, tránh hiểu brahmabhūto là đồng nhất với vị trời Brahmā, và bỏ cách dịch nāgā thành “đại tượng” trong lời xin cuối. Bản trẻ có ghi chú trước mô tả bộ phận sinh dục. Nguồn chú giải/từ điển tra cứu thêm chỉ là tham khảo phụ, không thay Pāli root. Chưa có thử hiểu với độc giả thật; cổng toàn lô còn chờ. Tiếp tục MN93.
+
+MN93: trẻ em 9,49, người lớn tuổi 9,60; cả hai bản đã được đối chiếu, sửa và chọn lượt chấm mới. Bản trẻ có ghi chú trước phần sinh sản; cả hai làm rõ ngôn ngữ phân hạng xã hội cổ và giữ các bất định về gandhabba trong phạm vi nguồn. Chú giải/từ điển trực tuyến chỉ là nguồn phụ không pin. Chưa có thử hiểu với độc giả thật; cổng toàn lô còn chờ. Tiếp tục MN94.
+
+MN94: trẻ em 9,46, người lớn tuổi 9,60. Đã đọc lại bốn hạng người và toàn bộ tiến trình tu; sửa riêng hai bản để bỏ phần diễn giải “trở nên cao quý” không được câu chữ hỗ trợ, giữ cụm “trở thành Phạm” sát nguồn. Bản trẻ vẫn dài và dày danh mục; chưa có thử đọc hiểu. Cổng toàn lô còn chờ. Tiếp tục MN95.
+
+MN95: trẻ em 9,45, người lớn tuổi 9,56; hai bản đã được đọc lại và chấm qua gate. Giữ riêng ba mức gìn giữ, giác ngộ và đạt sự thật; bản trẻ vẫn dài, nhiều thuật ngữ và chuỗi lập luận nên điểm phù hợp tuổi là 8,9. Chưa có người đọc thật thử; cổng toàn lô còn chờ. Tiếp tục MN96.
+
+MN96: trẻ em 9,47, người lớn tuổi 9,59. Đọc lại hai bản theo Pāli và các nguồn ghim; chưa thấy lỗi buộc sửa. Bài dài và dày danh mục, nhất là phần nếp khổ hạnh, giới và thiền; chưa có độc giả thật thử. Cổng toàn lô còn chờ. Tiếp tục MN97.
+
+MN97: trẻ em 9,46, người lớn tuổi 9,56; hai bản được đọc lại và chấm qua gate. Giữ rõ rằng trách nhiệm gia đình không làm hành vi bất chính thành đúng, nhưng có lối chu toàn bằng việc chân chính. Bản trẻ có lời báo trước trước các hình ảnh đau dữ dội; đây là lời kể, không phải hướng dẫn y tế. Chưa có người đọc thật thử; cổng toàn batch còn chờ. Tiếp tục MN98.
+
+MN98: trẻ em 9,47, người lớn tuổi 9,59; cả hai bản đã được đọc lại và chấm. Đã thêm ghi chú cho trẻ trước danh sách bộ phận cơ thể, đặt lời “trắng/đen” trong lời tự nhận đang bị chất vấn, và giữ cách giải thoát khỏi các ràng buộc theo mạch kệ. Từ điển trực tuyến về vaṇṇa chỉ là tham khảo phụ, không pin. Chưa có thử người đọc; cổng toàn lô còn chờ. Tiếp tục MN99.
+
+MN99: trẻ em 9,48, người lớn tuổi 9,58; hai bản đã được đọc lại và chấm. Giữ khác biệt giữa gìn giữ sự thật, tự thấy sự thật và đạt sự thật qua thực hành; không đồng nhất các căn cứ như truyền thống hay suy luận với chứng cứ cuối cùng. Bản trẻ còn dài và nhiều khái niệm; chưa thử người đọc thật. Cổng toàn lô còn chờ. Tiếp tục MN100.
+
+MN100: trẻ em 9,45, người lớn tuổi 9,54; hai bản đã được đọc lại, ghi và chọn lượt chấm mới. Thêm lời báo trước cho trẻ và người lớn tuổi trước phần nhịn ăn, hành xác và mô tả đau dữ dội; không coi đó là chỉ dẫn sức khỏe hay cách tu phải bắt chước. Chưa có độc giả thật thử; cổng toàn batch còn chờ.
+
+## Cập nhật lô 10 — MN91–MN100
+
+Ngày 2026-11-15: 20 bản trẻ em/người lớn tuổi được đọc lại, sửa khi cần, chấm và áp dụng qua quality gate. Điểm thấp nhất của các phiên bản là **9,43/10**; tất cả ba audience của 10 bài giữ trạng thái `published` trong local metadata. Cả lô đạt `validate`, 501/505 unit tests (4 skipped), Astro check và full build. Static reader check đạt 20/20 panel, đối chiếu đoạn văn, điểm, ngày, người đánh giá và nhãn published; chưa kiểm tra viewport/responsive.
+
+Hai mươi review mới là đánh giá biên tập AI, không phải thử hiểu với trẻ/người lớn tuổi hay phê chuẩn của học giả Pāli. Build local không chứng minh exact SHA đang được phục vụ. Chưa kiểm tra CI, chưa có merge hoặc production verification. Chi tiết ở [batch-10-mn91-mn100.md](../batch-10-mn91-mn100.md) và [kết quả static reader](reader-static-batch-10-20261115.json).
+
+## Cập nhật lô 11 — MN101–MN110
+
+Ngày 2026-11-15: 20 bản trẻ em/người lớn tuổi được đọc lại, sửa khi cần, chấm và chọn. Điểm thấp nhất trong ba audience của lô là **9,50/10** ở MN106; điểm người trưởng thành giữ nguyên. Các sửa chính: thu hẹp đúng lời tuyên bố về Niết-bàn hiện tại ở MN102; giữ Pāli trước khác biệt English ở MN103; phân biệt lượng độc còn dư/hết dư và thêm cảnh báo y tế cho hai nhóm ở MN105. Các bài còn lại được chấm lại mà không sửa prose.
+
+Validate, 505 unit tests (501 đạt, 4 bỏ qua), Astro check, full Astro build/Pagefind và static reader 20/20 đã qua. Manifest check qua GitHub API không chạy được vì DNS. Đây không phải CI, PR, merge hay production verification. Reader responsive/public chưa được kiểm tra; trẻ/người lớn tuổi chưa thử đọc và chưa có thẩm định độc lập của học giả Pāli. Xem [batch11-review.md](batch11-review.md), [reader report](reader-static-batch-11-20261115.json) và `progress.json`.
+
+## Cập nhật lô 12 — MN111–MN120
+
+Ngày 2026-11-15: 20 bản trẻ em/người lớn tuổi được đọc lại, sửa khi cần, chấm và chọn qua quality gate. Mean thấp nhất **9,46/10** ở MN119 trẻ em; mọi mean đều trên 9,0, bốn tiêu chí trọng yếu đầu đều ít nhất 9,0, không có blocker. Bản người lớn và selected review ID của người lớn được giữ nguyên.
+
+Đã rà soát **471 đơn vị nghĩa và 1.786 khóa Pāli** theo root ở commit `11c9d708978cde8ba61096d8a75f7ddfb846f639`; năm dependency hash của mỗi bài đều khớp. English Sujato và ghi chú nguồn được dùng cho các chỗ đối chiếu; HTML Thích Minh Châu là bản liên tục, không được căn giả vào segment. Các sửa: MN113 nói rõ chỗ nghỉ được sắp; MN114 thêm lưu ý biên tập cho trẻ về danh sách quan hệ tình dục trong bối cảnh xã hội xưa và làm rõ thức ăn khất thực; MN119 thêm lưu ý biên tập trước phép quán thân/thi thể. Bài còn lại được chấm lại mà không sửa prose.
+
+`npm run build` đã chạy tuần tự và qua validate, tạo 7.814 trang; Pagefind lập chỉ mục 6.991 trang và 468.799 từ. Bộ test có 505 mục: 501 đạt, 4 bỏ qua, 0 lỗi. Astro check: 281 file, 0 lỗi/cảnh báo, 52 hints. `scripts/explanations.ts --check`: 558 bản published, 186/186 bài đủ, 0 lỗi. Static reader đối chiếu 20/20 panel, 0 lỗi; đây là HTML dựng local, không phải kiểm tra responsive hay production. Lệnh `fetch-upstream-manifest --check` không kết nối được `api.github.com` vì DNS; không ghi là đã qua. Cũng chưa có thử hiểu với người thật hoặc thẩm định học giả Pāli độc lập.
+
+Tiến độ nội dung là **304/304 bản**, `pending: 0`. `progress.json` ghi đủ 304 bản đã đọc lại, selected review IDs khớp metadata, 304 bản đã merge và public content đã kiểm 304/304. PR #2065, #2066 và #2067 đưa MN81–MN152 lên main; các PR có CI xanh trên đúng head. Pages workflow run #43737809665 thành công trên commit `1ec8e984fa9d20a78838bb142d03bdfe89f0062e`. Lần kiểm public ngày 2026-11-16 đạt 152 trang, 304 panel và 11.924 đoạn khớp theo thứ tự; xem [báo cáo production](reader-production-all-mn-20261116.json), [chi tiết batch16](batch16-review.md), [static reader](reader-static-batch-16-20261115.json) và `progress.json`. Không xác định được exact build SHA đang phục vụ; chưa có viewport test, thử đọc hiểu với độc giả thật hoặc thẩm định học giả Pāli độc lập.

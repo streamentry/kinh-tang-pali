@@ -84,12 +84,16 @@ test('player fails closed on downgrade or wrong policy and never serializes mani
     assert.equal(loadAudio({...doc,status:'draft'}),null);
     fs.writeFileSync(file,JSON.stringify({...entry,transcript_policy:undefined}));
     assert.equal(loadAudio(doc),null);
-    assert.deepEqual(Object.keys(audioPlayerData(entry)).sort(),['uid','url','duration_seconds','scripture_start_seconds','review_status'].sort());
+    const dto=audioPlayerData(entry);
+    assert.deepEqual(Object.keys(dto).sort(),['uid','url','duration_seconds','scripture_start_seconds','review_status','versions'].sort());
+    assert.deepEqual(dto.versions.map(version=>version.id),['original']);
   } finally { process.chdir(original);fs.rmSync(folder,{recursive:true,force:true}); }
 });
 
 test('large playlists retain one fallback in HTML and reuse the same assets across ancestors', () => {
-  const base={uid:'mn1',url:'https://example.org/audio.mp3',duration_seconds:60,scripture_start_seconds:0,review_status:'pending' as const,title:'Title',order:1};
+  const url='https://example.org/audio.mp3';
+  const base={uid:'mn1',url,duration_seconds:60,scripture_start_seconds:0,review_status:'pending' as const,title:'Title',order:1,
+    versions:[{id:'original' as const,label:'Kinh văn Việt 2026',description:'Bản chuẩn.',kind:'sutta' as const,url,duration_seconds:60,scripture_start_seconds:0,start_seconds:0,review_status:'pending' as const}]};
   const many=Array.from({length:2351},(_,i)=>({...base,uid:`fixture${i}`,order:i,private_manifest:'must not be serialized'}));
   const lazy=playlistPayload(many,'/kinh-tang-pali/audio-playlists/kn/all.json');
   assert.equal(lazy.inline.length,1);
@@ -112,6 +116,17 @@ test('truncated, duplicate or malformed playlists preserve the native fallback p
   }
   assert.throws(()=>parsePlaylist([track],2));
   assert.throws(()=>parsePlaylist([track,track],2));
+});
+
+test('playlist variants are whitelisted, unique and keep the original native fallback', () => {
+  const original={id:'original',label:'Kinh văn Việt 2026',description:'Bản chuẩn.',kind:'sutta',url:'https://example.org/original.mp3',duration_seconds:60,scripture_start_seconds:10,start_seconds:10,review_status:'pending'};
+  const children={id:'children',label:'Diễn giải dành cho trẻ em',description:'Chỉ đọc diễn giải.',kind:'explanation',url:'https://example.org/children.mp3',duration_seconds:30,scripture_start_seconds:0,start_seconds:0,review_status:'pending'};
+  const track={uid:'mn1',title:'MN1',order:1,url:original.url,duration_seconds:original.duration_seconds,scripture_start_seconds:original.scripture_start_seconds,review_status:'pending',versions:[original,children]};
+  const parsed=parsePlaylist([track],1)[0];
+  assert.deepEqual(parsed.versions.map(version=>version.id),['original','children']);
+  assert.equal(parsed.versions[0].start_seconds,10);
+  for(const versions of [[{...children,url:'javascript:alert(1)'}],[original,original],[children]])
+    assert.throws(()=>parsePlaylist([{...track,versions}],1));
 });
 
 test('new transcript plans contain a separate heading without adding it to legacy speech; progress stays isolated', () => {
@@ -139,6 +154,13 @@ for collection,uid in [('sn','sn1.1'),('an','an1.5'),('kn','dhp1-20')]:
   except RuntimeError:pass
   else:raise AssertionError('Wrong collection or policy accepted')
 assert audio_object_key({'uid':'mn1','collection':'mn'},{'uid':'mn1','sha256':'a'*64})=='vi/mn/mn1/'+('a'*16)+'.mp3'
+dn_source={'uid':'dn1','collection':'dn','policy':'explanation-audience-v1','audience':'children','summary':'','segments':[['dn1:1.1','Diễn giải.']]}
+dn_manifest={'uid':'dn1','collection':'dn','audience_variant':'children','transcript_policy':'explanation-audience-v1','scripture_start_seconds':0,'sha256':'b'*64}
+assert audio_object_key(dn_source,dn_manifest)=='vi/dn/dn1/explanations/children/'+('b'*16)+'.mp3'
+for broken in [{**dn_manifest,'collection':'mn'},{**dn_manifest,'scripture_start_seconds':1}]:
+ try:audio_object_key(dn_source,broken)
+ except RuntimeError:pass
+ else:raise AssertionError('Invalid DN explanation registration identity accepted')
 with tempfile.TemporaryDirectory() as d:
  legacy=Path(d)/'progress.json';group=Path(d)/'group-progress.json'
  legacy.write_text('legacy sentinel')

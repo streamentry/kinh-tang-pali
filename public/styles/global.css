@@ -433,6 +433,7 @@ thead th { color: var(--muted); }
 .listening button:hover { background: var(--accent-soft); }
 .listening .listen-play { background: var(--accent); color: var(--on-accent); display: inline-flex; justify-content: center; gap: var(--space-2); align-items: center; min-width: 6rem; min-height: 3rem; font-weight: 600; }
 .listening .listen-play:hover { background: var(--accent-hover); }
+.listening .listen-play:disabled { color: var(--muted); background: var(--surface); border-color: var(--control-border); cursor: not-allowed; }
 .listen-icon { display: inline-flex; width: 1.25rem; height: 1.25rem; flex: none; }
 .listening .listen-jump { position: relative; display: grid; place-items: center; flex: 0 0 3rem; width: 3rem; height: 3rem; padding: 0; }
 .listen-jump svg { width: 1.75rem; height: 1.75rem; fill: none; stroke: currentColor; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
@@ -451,6 +452,9 @@ thead th { color: var(--muted); }
 .listen-clock [data-current] { color: var(--ink); }
 .listen-phase { color: var(--muted); }
 .listening-options { display: flex; justify-content: space-between; align-items: center; gap: var(--space-4); margin-top: var(--space-4); flex-wrap: wrap; }
+.listen-version { display: flex; align-items: center; gap: var(--space-2); min-width: 0; flex: 1 1 22rem; color: var(--muted); font-size: .75rem; }
+.listen-version select { min-width: 0; max-width: 30rem; flex: 1; border-color: var(--control-border); background: var(--surface); }
+.listen-version-description { flex-basis: 100%; margin: 0; color: var(--muted); font-size: .75rem; line-height: 1.7; }
 .listen-chapters { display: flex; gap: var(--space-2); flex-wrap: wrap; }
 .listening .listen-chapters button { display: inline-flex; align-items: center; gap: var(--space-3); border-bottom-color: var(--line); border-radius: var(--radius-sm) var(--radius-sm) 0 0; }
 .listening .listen-chapters button[aria-current="true"] { color: var(--accent); border-bottom-color: var(--accent); background: var(--accent-soft); }
@@ -479,6 +483,9 @@ thead th { color: var(--muted); }
   .listening-console { grid-template-columns: minmax(0, 1fr); gap: var(--space-2); }
   .listening-transport { justify-content: center; }
   .listening-options { gap: var(--space-3); }
+  .listen-version { width: 100%; flex-basis: 100%; }
+  .listen-version select { width: 100%; }
+  .listen-version-description { width: 100%; }
   .listen-chapters { width: 100%; gap: var(--space-2); }
   .listening .listen-chapters button { flex: 1; flex-direction: column; justify-content: center; gap: 0; padding-inline: var(--space-2); white-space: nowrap; }
   .listening-footer { gap: var(--space-2) var(--space-4); }
