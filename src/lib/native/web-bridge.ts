@@ -1,5 +1,5 @@
 import {
-  BRIDGE_VERSION, MAX_BRIDGE_MESSAGE_LENGTH, READER_SIZES, isReadingPosition,
+  BRIDGE_VERSION, MAX_BRIDGE_MESSAGE_LENGTH, READER_SIZES, isCompanionUserAgent, isReadingPosition,
   normalizePageUrl, shouldRestorePosition,
   type NativeMessage, type NativeTrack, type PageInfo, type ReadingPosition, type WebMessage,
 } from './protocol';
@@ -17,7 +17,9 @@ declare global {
 }
 
 export function isNativeHost(): boolean {
-  return typeof window !== 'undefined' && window.top === window && typeof window.ReactNativeWebView?.postMessage === 'function';
+  return typeof window !== 'undefined' && window.top === window
+    && typeof window.ReactNativeWebView?.postMessage === 'function'
+    && isCompanionUserAgent(window.navigator.userAgent);
 }
 
 const clamp = (value: number) => Math.max(0, Math.min(1, value));

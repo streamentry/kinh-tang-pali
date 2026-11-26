@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {
-  WEBSITE_URL, MAX_BRIDGE_MESSAGE_LENGTH, isNativeTrack, isReadingPosition, isTrustedPageUrl,
+  COMPANION_USER_AGENT, WEBSITE_URL, MAX_BRIDGE_MESSAGE_LENGTH, isCompanionUserAgent, isNativeTrack, isReadingPosition, isTrustedPageUrl,
   normalizePageUrl, parseWebMessage, parseAudioManifest, shouldRestorePosition, trackKey,
   type NativeTrack, type ReadingPosition,
 } from '../../src/lib/native/protocol';
@@ -21,6 +21,16 @@ const track: NativeTrack = {
 };
 const envelope = { v: 1, sessionId: 'document-session-1', page: { url: pageUrl, title: position.title, uid: 'mn1' } };
 const message = (fields: Record<string, unknown>) => JSON.stringify({ ...envelope, ...fields });
+
+test('only the companion capability token enables a native host, including the first app release', () => {
+  assert.equal(COMPANION_USER_AGENT, 'KinhTangPali/0.1');
+  assert.equal(isCompanionUserAgent('Mozilla/5.0 (iPhone) AppleWebKit/605.1.15 KinhTangPali/0.1'), true);
+  assert.equal(isCompanionUserAgent('Mozilla/5.0 (Linux; Android 16; wv) Chrome/140.0 Mobile Safari/537.36 KinhTangPali/0.1'), true);
+  for (const value of [
+    undefined, null, 1, {}, '', 'Mozilla/5.0', 'OtherApp/1.0', 'OtherKinhTangPali/0.1',
+    'KinhTangPali/0.10', 'KinhTangPali/0.1-beta', 'KinhTangPali/0.1evil',
+  ]) assert.equal(isCompanionUserAgent(value), false, String(value));
+});
 
 test('bridge trusts only the chosen website origin and base path', () => {
   assert.equal(isTrustedPageUrl(pageUrl), true);

@@ -2,6 +2,7 @@ import assert from 'node:assert/strict';
 import test from 'node:test';
 import { ProgressStore, ProgressStorageError } from '../../apps/mobile/src/storage-core';
 import { MemoryBackend, reading, siteUrl, track } from '../helpers/mobile';
+import { trackKey } from '../../src/lib/native/protocol';
 
 test('reading positions survive a store restart and normalize query/hash without losing context', () => {
   const backend = new MemoryBackend();
@@ -36,6 +37,22 @@ test('invalid progress is rejected and corrupt stored data is never silently dis
   assert.throws(() => store.getReading(reading().pageUrl), ProgressStorageError);
   assert.throws(() => store.saveReading(reading()), ProgressStorageError);
   assert.equal(backend.get('reading', reading().pageUrl), '{broken');
+  backend.put('listening', trackKey(track()), '{broken', 1);
+  assert.throws(() => store.getListening(track()), ProgressStorageError);
+  assert.throws(() => store.saveListening({ track: track(), position: 0, duration: 120, rate: 1, completed: false }), ProgressStorageError);
+  assert.equal(backend.get('listening', trackKey(track())), '{broken');
+});
+
+test('deferred listening writes keep their activity date and never replace a newer stored record', () => {
+  const store = new ProgressStore(new MemoryBackend(), () => 1_000);
+  const item = track();
+  store.saveListening({ track: item, position: 30, duration: 120, rate: 1, completed: false }, 100);
+  assert.equal(store.getListening(item)?.updatedAt, 100);
+  const latest = store.saveListening({ track: item, position: 80, duration: 120, rate: 1.5, completed: false }, 300);
+  const retained = store.saveListening({ track: item, position: 40, duration: 120, rate: 1, completed: false }, 200);
+  assert.deepEqual(retained, latest);
+  assert.deepEqual(store.getListening(item), latest);
+  assert.throws(() => store.saveListening({ track: item, position: 40, duration: 120, rate: 1, completed: false }, NaN), ProgressStorageError);
 });
 
 test('capturing unchanged hidden reading before import preserves recency so newer backup progress wins', () => {

@@ -31,6 +31,14 @@ const bundle = await build({
   } }],
 });
 const runtime = bundle.outputFiles[0].text;
+const companionBundle = await build({
+  stdin: {
+    contents: "export { ReaderSession } from './apps/mobile/src/reader-session'; export { COMPANION_USER_AGENT, parseWebMessage } from './src/lib/native/protocol';",
+    resolveDir: root, loader: 'ts',
+  },
+  bundle: true, write: false, format: 'esm', platform: 'node', target: 'node22',
+});
+const { ReaderSession, COMPANION_USER_AGENT, parseWebMessage } = await import(`data:text/javascript;base64,${Buffer.from(companionBundle.outputFiles[0].text).toString('base64')}`);
 const original = {
   id: 'original', label: 'Kinh văn Việt 2026', description: 'Bản kinh văn.', kind: 'sutta',
   url: 'https://audio.example.org/one.mp3', duration_seconds: 180,
@@ -43,16 +51,28 @@ const tracks = ['mn1', 'mn2'].map((uid, index) => {
     duration_seconds: 180, scripture_start_seconds: 20, review_status: 'pending', versions };
 });
 const escapeAttr = value => JSON.stringify(value).replaceAll('&', '&amp;').replaceAll('"', '&quot;').replaceAll('<', '&lt;');
+// Render the controls used by the actual component scripts so a foreign host
+// exercises the browser audio engine, not just the absence of a native panel.
+const audioControls = `
+  <button class="listen-play" data-master-play aria-label="Phát bài đọc"><span data-play-icon></span><span data-pause-icon hidden></span><span data-play-label>Phát</span></button>
+  <button data-previous>Bài trước</button><button data-next>Bài tiếp</button>
+  <input class="listen-seek" type="range" min="0" max="180" step="1"><span class="listen-progress"></span>
+  <span data-current>0:00</span><span data-duration>3:00</span><span data-phase>Kinh văn</span>
+  <select data-version-select aria-label="Chọn bản audio">${[original, children].map(version => `<option value="${version.id}">${version.label}</option>`).join('')}</select>
+  <p data-version-description></p><div data-original-chapters><button data-summary-jump>Tóm tắt</button><button data-scripture-jump>Kinh văn</button></div>
+  <label class="listen-auto"><input type="checkbox" data-auto-next role="switch">Tự chuyển bài</label>
+  <label class="listen-speed">Tốc độ <select><option value="1">1×</option><option value="1.25">1.25×</option></select></label>
+  <p class="listen-notice" data-notice hidden></p><p class="listen-error" data-error hidden></p>`;
 function fixture(route) {
   const native = !route.startsWith('/browser');
   const audio = route.includes('/audio');
   const playlist = route.includes('/playlist');
   return `<!doctype html><html lang="vi"><head><meta charset="utf-8"><title>Kinh Pháp Môn Căn Bản · Kinh Tạng Pāli Việt</title>
     <style>body{margin:0;font-family:serif;background:#f9faf7}main{padding:16px}.segment{height:calc(250px * var(--reader-scale, 1));border-top:1px solid #d8dfd6}header{height:260px}button,select{min-height:44px}button{padding:8px}footer{height:500px}.listening-options{display:flex;flex-wrap:wrap;gap:8px;padding:20px}.listen-version{display:flex;gap:8px}.collection-audio-current,.listen-version-description{flex-basis:100%}[hidden]{display:none!important}</style>
-    ${native ? '<script>window.__messages=[];window.ReactNativeWebView={postMessage(value){window.__messages.push(JSON.parse(value));}};</script>' : ''}
+    ${native ? '<script>window.__messages=[];window.ReactNativeWebView={postMessage(value){window.__messages.push(JSON.parse(value));window.__nativeMessage?.(value);}};</script>' : ''}
     </head><body>
-    ${audio ? `<sutta-audio id="lang-nghe" style="display:block;min-height:900px" data-native-uid="mn1" data-native-title="Kinh Pháp Môn Căn Bản" data-versions="${escapeAttr([original, children])}"><div><p data-track-label>${original.label}</p><span data-track-review>Chờ nghe duyệt</span><span data-track-length>3 phút</span></div><audio controls></audio><div class="listening-custom" hidden></div><div class="listening-footer"><a data-open-track href="${original.url}">Mở MP3</a></div></sutta-audio>` : ''}
-    ${playlist ? `<sutta-playlist data-native-text-base="/kinh-tang-pali/sutta/mn/" data-tracks="[]" data-tracks-src="/kinh-tang-pali/fixture-playlist.json" data-track-count="2"><section class="collection-listening"><audio controls></audio><p data-playlist-error hidden>Không tải được danh sách</p><div class="listening-custom" hidden></div></section>${tracks.map(track => `<div data-audio-row><div class="sutta-row-audio"><button data-play-track="${track.uid}" hidden><span data-row-label>Phát</span></button><a data-audio-fallback href="#">MP3</a></div></div>`).join('')}</sutta-playlist>` : ''}
+    ${audio ? `<sutta-audio id="lang-nghe" style="display:block;min-height:900px" data-native-uid="mn1" data-native-title="Kinh Pháp Môn Căn Bản" data-versions="${escapeAttr([original, children])}"><div><p data-track-label>${original.label}</p><span data-track-review>Chờ nghe duyệt</span><span data-track-length>3 phút</span></div><audio controls preload="none" src="${original.url}"></audio><div class="listening-custom" hidden>${audioControls}</div><div class="listening-footer"><a data-open-track href="${original.url}">Mở MP3</a></div></sutta-audio>` : ''}
+    ${playlist ? `<sutta-playlist data-native-text-base="/kinh-tang-pali/sutta/mn/" data-tracks="[]" data-tracks-src="/kinh-tang-pali/fixture-playlist.json" data-track-count="2"><section class="collection-listening"><audio controls preload="none" src="${tracks[0].url}"></audio><p data-playlist-error hidden>Không tải được danh sách</p><div class="listening-custom" hidden><p data-current-title></p><span data-current-uid></span><span data-position></span><span data-current-review></span><span data-playback-state></span>${audioControls}<div class="listening-footer"><a data-open-track href="${tracks[0].url}">Mở MP3</a></div></div></section>${tracks.map(track => `<div data-audio-row><div class="sutta-row-audio"><button data-play-track="${track.uid}" data-track-title="${track.title}" hidden><span data-row-label>Phát</span></button><a data-audio-fallback href="#">MP3</a></div></div>`).join('')}</sutta-playlist>` : ''}
     <header>Thư viện kinh văn</header><main data-native-reader data-native-uid="mn1" data-native-title="Kinh Pháp Môn Căn Bản">
     <section class="reader-shell" data-reader-mode="vi"><div class="reader-toolbar">
       <div>${['vi', 'compare', 'interlinear'].map(mode => `<button data-mode="${mode}" aria-pressed="${mode === 'vi'}">${mode}</button>`).join('')}</div>
@@ -70,7 +90,9 @@ const server = http.createServer((request, response) => {
 await new Promise(resolve => server.listen(0, '127.0.0.1', resolve));
 const base = `http://127.0.0.1:${server.address().port}`;
 const browser = await chromium.launch({ headless: true, ...(process.env.PLAYWRIGHT_CHROMIUM_EXECUTABLE_PATH ? { executablePath: process.env.PLAYWRIGHT_CHROMIUM_EXECUTABLE_PATH } : {}) });
-const page = await browser.newPage({ viewport: { width: 390, height: 844 } });
+const companionOptions = { viewport: { width: 390, height: 844 }, userAgent: `Mozilla/5.0 (Linux; Android 16; wv) AppleWebKit/537.36 ${COMPANION_USER_AGENT}` };
+const page = await browser.newPage(companionOptions);
+await page.route('https://audio.example.org/**', route => route.abort());
 const errors = [];
 page.on('pageerror', error => errors.push(error.message));
 const url = `${base}/kinh-tang-pali/sutta/mn/mn1/`;
@@ -83,6 +105,44 @@ const restore = async (position, session) => {
   await page.evaluate(({ position, sessionId }) => window.__KINH_NATIVE__.receive({ v: 1, type: 'restore', sessionId, position }), { position, sessionId: session.sessionId });
 };
 try {
+  const retryPage = await browser.newPage(companionOptions);
+  retryPage.on('pageerror', error => errors.push(error.message));
+  let reads = 0;
+  let readyReports = 0;
+  let stored = saved;
+  const restores = [];
+  const persisted = [];
+  const deliveries = [];
+  const companion = new ReaderSession(base, url, {
+    send: message => {
+      restores.push(message);
+      if (restores.length === 1) {
+        stored = { ...saved, segmentId: 'mn1:2.1', scrollRatio: 0.1 };
+        return; // Simulate a WebView injection lost before it reaches the page.
+      }
+      deliveries.push(retryPage.evaluate(message => window.__KINH_NATIVE__.receive(message), message));
+    },
+    getReading: () => { reads++; return stored; },
+    saveReading: position => { persisted.push(position); return true; },
+    isActive: () => true,
+    ready: () => { readyReports++; },
+    audio: () => { throw new Error('Unexpected audio request during restore'); },
+    error: message => { errors.push(message); },
+  });
+  await retryPage.exposeFunction('__nativeMessage', raw => {
+    const message = parseWebMessage(raw, base, retryPage.url());
+    if (message) companion.receive(message);
+  });
+  await retryPage.goto(url);
+  await retryPage.waitForFunction(() => window.__messages.some(message => message.type === 'reading-progress'));
+  await Promise.all(deliveries);
+  assert.equal(reads, 1); assert.equal(readyReports, 1);
+  assert.ok(restores.length >= 2, 'A repeated ready retries the lost first restore');
+  for (const restore of restores.slice(1)) assert.deepEqual(restore, restores[0]);
+  assert.equal(persisted.at(-1).segmentId, saved.segmentId, 'Retry restores the original saved paragraph, not changed storage');
+  companion.suspend(); await retryPage.close();
+  console.log('PASS dropped-first-restore recovery with the actual native session and website bridge');
+
   await page.goto(url);
   let session = await ready();
   await page.evaluate(() => window.scrollTo(0, 500));
@@ -167,8 +227,35 @@ try {
   await page.goto(`${base}/browser/`);
   assert.equal(await page.evaluate(() => Boolean(window.__KINH_NATIVE__)), false);
   assert.equal(await page.evaluate(() => document.documentElement.dataset.nativeApp), undefined);
+  console.log('PASS ordinary browser unaffected even with a companion token and no native transport');
+
+  const foreign = await browser.newPage({ viewport: { width: 390, height: 844 }, userAgent: 'Mozilla/5.0 OtherApp/1.0' });
+  foreign.on('pageerror', error => errors.push(error.message));
+  await foreign.route('https://audio.example.org/**', route => route.abort());
+  await foreign.goto(`${base}/foreign/audio/`);
+  assert.equal(await foreign.evaluate(() => typeof window.ReactNativeWebView.postMessage), 'function');
+  assert.equal(await foreign.evaluate(() => Boolean(window.__KINH_NATIVE__)), false);
+  assert.equal(await foreign.evaluate(() => document.documentElement.dataset.nativeApp), undefined);
+  assert.equal(await foreign.locator('[data-native-audio]').count(), 0);
+  assert.equal(await foreign.locator('.listen-play').isVisible(), true);
+  assert.equal(await foreign.locator('audio').getAttribute('src'), original.url);
+  await foreign.locator('[data-version-select]').selectOption('children');
+  assert.equal(await foreign.locator('audio').getAttribute('src'), children.url);
+  assert.equal(await foreign.locator('[data-open-track]').getAttribute('href'), children.url);
+  assert.deepEqual(await foreign.evaluate(() => window.__messages), [], 'A foreign RN host keeps the browser audio engine');
+
+  await foreign.goto(`${base}/foreign/playlist/`);
+  await foreign.waitForFunction(() => document.querySelector('sutta-playlist').dataset.ready === 'true');
+  assert.equal(await foreign.locator('[data-native-audio]').count(), 0);
+  assert.equal(await foreign.locator('[data-master-play]').isVisible(), true);
+  await foreign.locator('[data-version-select]').selectOption('original');
+  assert.equal(await foreign.locator('audio').getAttribute('src'), tracks[0].url);
+  await foreign.locator('[data-version-select]').selectOption('children');
+  assert.equal(await foreign.locator('audio').getAttribute('src'), tracks[0].versions[1].url);
+  assert.deepEqual(await foreign.evaluate(() => window.__messages), []);
+  await foreign.close();
   assert.deepEqual(errors, [], 'No uncaught script errors');
-  console.log('PASS ordinary browser unaffected; all native bridge integration checks passed');
+  console.log('PASS foreign RN hosts retain individual and playlist web audio; all native bridge integration checks passed');
 } finally {
   await browser.close();
   await new Promise(resolve => server.close(resolve));

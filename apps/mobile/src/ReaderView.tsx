@@ -2,7 +2,7 @@ import { forwardRef, useEffect, useImperativeHandle, useMemo, useRef, useState }
 import { ActivityIndicator, AppState, Linking, StyleSheet, Text, View } from 'react-native';
 import WebView, { type WebViewMessageEvent, type WebViewNavigation } from 'react-native-webview';
 import {
-  isTrustedPageUrl, parseWebMessage,
+  COMPANION_USER_AGENT, isTrustedPageUrl, parseWebMessage,
   type NativeMessage, type PageInfo, type ReadingPosition, type WebMessage,
 } from '../../../src/lib/native/protocol';
 import { colors } from './theme';
@@ -19,6 +19,7 @@ interface Props {
   onReading(position: ReadingPosition): boolean;
   onAudio(message: Extract<WebMessage, { type: 'audio-play' }>): void;
   onNavigation(back: boolean): void;
+  onNavigationStart?(): void;
   onError(message: string): void;
 }
 
@@ -55,7 +56,8 @@ export const ReaderView = forwardRef<ReaderHandle, Props>(function ReaderView(pr
   }, props.destination.position), [props.siteUrl, props.destination.key]);
   useImperativeHandle(ref, () => ({
     capture: () => bridge.capture(), suspend: () => bridge.suspend(),
-    goBack: () => web.current?.goBack(), reload: () => web.current?.reload(),
+    goBack: () => web.current?.goBack(),
+    reload: () => { latest.current.onNavigationStart?.(); web.current?.reload(); },
   }), [bridge]);
   useEffect(() => {
     if (!props.active) void bridge.capture();
@@ -83,6 +85,7 @@ export const ReaderView = forwardRef<ReaderHandle, Props>(function ReaderView(pr
   };
   const beginLoad = (event: { nativeEvent: WebViewNavigation }) => {
     if (!isTrustedPageUrl(event.nativeEvent.url, props.siteUrl)) return;
+    props.onNavigationStart?.();
     setLoading(true); setError(null); setConnected(false); setBridgeMissing(false);
     bridge.navigate(event.nativeEvent.url);
     if (timer.current) clearTimeout(timer.current);
@@ -101,7 +104,10 @@ export const ReaderView = forwardRef<ReaderHandle, Props>(function ReaderView(pr
     <WebView<object> ref={web} key={props.destination.key} source={{ uri: props.destination.url }}
       style={styles.web} onMessage={message} onLoadStart={beginLoad} onLoadEnd={endLoad}
       onNavigationStateChange={navigation} onShouldStartLoadWithRequest={request => {
-        if (isTrustedPageUrl(request.url, props.siteUrl)) return true;
+        if (isTrustedPageUrl(request.url, props.siteUrl)) {
+          if (request.isTopFrame !== false) props.onNavigationStart?.();
+          return true;
+        }
         if (request.url === 'about:blank') return true;
         if (request.isTopFrame !== false) { void bridge.capture(); external(request.url); }
         return false;
@@ -120,7 +126,7 @@ export const ReaderView = forwardRef<ReaderHandle, Props>(function ReaderView(pr
       mediaPlaybackRequiresUserAction javaScriptEnabled domStorageEnabled cacheEnabled
       mixedContentMode="never" allowFileAccess={false} allowUniversalAccessFromFileURLs={false}
       javaScriptCanOpenWindowsAutomatically={false} sharedCookiesEnabled={false}
-      applicationNameForUserAgent="KinhTangPali/0.1"
+      applicationNameForUserAgent={COMPANION_USER_AGENT}
       accessibilityLabel="Thư viện kinh văn"
     />
     {loading && <View style={styles.loading}><ActivityIndicator color={colors.accent} /><Text style={ui.small}>Đang mở thư viện…</Text></View>}
@@ -133,7 +139,7 @@ export const ReaderView = forwardRef<ReaderHandle, Props>(function ReaderView(pr
       <Text accessibilityRole="header" style={ui.sectionTitle}>Chưa mở được bài đọc</Text>
       <Text accessibilityRole="alert" style={ui.body}>{error}</Text>
       <Text style={ui.body}>Thư viện cần kết nối mạng. Dấu trang và vị trí đã lưu trên thiết bị vẫn còn.</Text>
-      <Button icon="refresh-outline" onPress={() => { setError(null); web.current?.reload(); }}>Thử lại</Button>
+      <Button icon="refresh-outline" onPress={() => { props.onNavigationStart?.(); setError(null); web.current?.reload(); }}>Thử lại</Button>
     </View></View>}
   </View>;
 });

@@ -1,0 +1,106 @@
+name: Android preview
+
+on:
+  push:
+    branches: ['**']
+    paths:
+      - 'apps/mobile/**'
+      - 'src/lib/native/**'
+      - 'src/lib/audio/**'
+      - 'source/design-tokens.json'
+      - 'source/brand-mark.json'
+      - '.github/workflows/mobile-preview.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  android-preview:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 60
+    defaults:
+      run:
+        working-directory: apps/mobile
+    env:
+      CI: '1'
+      EXPO_NO_TELEMETRY: '1'
+      EXPO_PUBLIC_APP_VARIANT: preview
+      EXPO_PUBLIC_SITE_URL: https://streamentry.github.io/kinh-tang-pali/
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          # The native companion imports shared code and design registries, not
+          # the website's scripture corpus, cover images or generated audio.
+          sparse-checkout: |
+            apps/mobile
+            src/lib
+            source
+      - uses: actions/setup-node@v7
+        with:
+          node-version: '24.22.3'
+          cache: npm
+          cache-dependency-path: apps/mobile/package-lock.json
+      - uses: actions/setup-java@v6
+        with:
+          distribution: temurin
+          java-version: '21'
+          cache: gradle
+          cache-dependency-path: |
+            apps/mobile/package-lock.json
+            apps/mobile/app.config.ts
+            .github/workflows/mobile-preview.yml
+      - uses: android-actions/setup-android@v4
+      - name: Install native dependencies
+        run: npm ci --no-audit --no-fund
+      - name: Generate the preview Android project
+        run: npx expo prebuild --platform android --no-install
+      - name: Compile a standalone preview APK
+        working-directory: apps/mobile/android
+        # The Expo template's release variant embeds JS but uses its public
+        # debug keystore. This is explicitly a separate preview application.
+        run: >-
+          ./gradlew :app:assembleRelease --no-daemon --stacktrace --max-workers=2
+          -PreactNativeArchitectures=arm64-v8a,x86_64
+          '-Dorg.gradle.jvmargs=-Xmx3g -XX:MaxMetaspaceSize=1g'
+      - name: Verify package, bundle, native libraries and preview signature
+        run: python3 scripts/verify-android-preview.py
+      - name: Enable hardware acceleration for the Android emulator
+        run: |
+          echo 'KERNEL=="kvm", GROUP="kvm", MODE="0666", OPTIONS+="static_node=kvm"' | sudo tee /etc/udev/rules.d/99-kvm4all.rules
+          sudo udevadm control --reload-rules
+          sudo udevadm trigger --name-match=kvm
+      - name: Install and exercise the standalone app
+        uses: reactivecircus/android-emulator-runner@v2
+        with:
+          api-level: 35
+          target: google_apis
+          arch: x86_64
+          profile: pixel_6
+          cores: 2
+          ram-size: 2048M
+          disable-animations: true
+          working-directory: apps/mobile
+          script: |
+            adb install -r build/preview/kinh-tang-pali-preview.apk
+            python3 scripts/android-smoke.py --output build/smoke
+      - name: Upload the verified Android preview
+        uses: actions/upload-artifact@v7
+        with:
+          name: kinh-tang-pali-android-preview-${{ github.sha }}
+          path: apps/mobile/build/preview/
+          if-no-files-found: error
+          compression-level: 0
+          retention-days: 30
+      - name: Preserve emulator evidence
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: android-smoke-${{ github.sha }}
+          path: apps/mobile/build/smoke/
+          if-no-files-found: ignore
+          retention-days: 14
