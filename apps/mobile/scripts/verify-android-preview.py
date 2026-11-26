@@ -23,13 +23,13 @@ def command(*args: str) -> str:
 
 
 def verify_signer(signature: str, fingerprint: str) -> None:
-    # apksigner prints either numbered signers or SDK ranges for scheme v3.1.
+    # apksigner prints numbered signers, SDK ranges or scheme labels (V2 Signer:).
     # One certificate may appear in more than one range; every range must use
     # the exact expected key, including the certificate for older Androids.
-    # AOSP's check_target_files_signatures.py supports these same two labels.
+    # Legacy numbered/range labels follow AOSP's check_target_files_signatures.py.
     counts = re.findall(r"^Number of signers: (\d+)\s*$", signature, re.MULTILINE)
     digests = re.findall(
-        r"^Signer (?:#\d+|\(minSdkVersion=[^\r\n]+\)) certificate SHA-256 digest: ([0-9a-fA-F]{64})\s*$",
+        r"^(?:Signer (?:#\d+|\(minSdkVersion=[^\r\n]+\))|V\d+(?:\.\d+)? Signer:) certificate SHA-256 digest: ([0-9a-fA-F]{64})\s*$",
         signature, re.MULTILINE,
     )
     if counts != ["1"] or {digest.lower() for digest in digests} != {fingerprint.lower()}:
@@ -56,6 +56,7 @@ def main() -> None:
     print(f"Expected template certificate SHA-256: {fingerprint}", flush=True)
     verify_signer(signature, fingerprint)
     badging = command(str(build_tools / "aapt"), "dump", "badging", str(apk))
+    print(badging, flush=True)
     if f"package: name='{PACKAGE}'" not in badging:
         raise RuntimeError("Refusing to distribute a preview with a production package ID")
     if "application-debuggable" in badging:

@@ -11,6 +11,24 @@ OTHER = "0123456789abcdef" * 4
 
 
 class SignerVerificationTests(unittest.TestCase):
+    def test_scheme_label_from_the_actual_android_build_matches(self):
+        verify_signer(
+            "Verifies\nVerified using v2 scheme (APK Signature Scheme v2): true\n"
+            "Number of signers: 1\n"
+            "V2 Signer: certificate DN: CN=Android Debug, OU=Android, O=Unknown\n"
+            f"V2 Signer: certificate SHA-256 digest: {EXPECTED}\n"
+            f"V2 Signer: public key SHA-256 digest: {OTHER}\n",
+            EXPECTED,
+        )
+
+    def test_scheme_labels_still_reject_a_different_key(self):
+        with self.assertRaises(RuntimeError):
+            verify_signer(
+                "Number of signers: 1\n"
+                f"V2 Signer: certificate SHA-256 digest: {OTHER}\n",
+                EXPECTED,
+            )
+
     def test_numbered_signer_matches_the_expected_certificate(self):
         verify_signer(
             "Verifies\nNumber of signers: 1\n"
