@@ -30,11 +30,15 @@ Texts with no resolved English stay out of scope until an English translation is
 
 ## Rights and provider gate
 
-At the pinned repository snapshot, [`source/suttacentral.lock.json`](../source/suttacentral.lock.json) records the Sujato edition as third-party, `NOASSERTION`, with attribution required. Current SuttaCentral pages for [DN](https://suttacentral.net/edition/dn/en/sujato), [MN](https://suttacentral.net/edition/mn/en/sujato), [SN](https://suttacentral.net/edition/sn/en/sujato), [AN](https://suttacentral.net/edition/an/en/sujato), and the [Itivuttaka (KN) edition](https://suttacentral.net/edition/iti/en/sujato), together with the [licensing page](https://suttacentral.net/licensing?lang=en), describe CC0 for those works and request that they not be used in AI-derived technologies. This plan treats Gemini TTS of Sujato-derived text as covered by that request and therefore blocked pending written permission or a clear editor-approved resolution. This is a conservative project gate, not a legal determination. Check each actual source edition, especially KN, rather than assuming one license covers every segment.
+At the pinned repository snapshot, [`source/suttacentral.lock.json`](../source/suttacentral.lock.json) records the Sujato edition as third-party, `NOASSERTION`, with attribution required. Current SuttaCentral pages for [DN](https://suttacentral.net/edition/dn/en/sujato), [MN](https://suttacentral.net/edition/mn/en/sujato), [SN](https://suttacentral.net/edition/sn/en/sujato), [AN](https://suttacentral.net/edition/an/en/sujato), and the [Itivuttaka (KN) edition](https://suttacentral.net/edition/iti/en/sujato), together with the [licensing page](https://suttacentral.net/licensing?lang=en), describe CC0 for those works and request that they not be used in AI-derived technologies.
+
+For this project, the default is **no Gemini TTS request using any Sujato-derived segment**. Open that path only after obtaining written permission or documenting an editor/legal decision that explicitly addresses the request and the source terms. A CC0 statement alone is not treated as clearance for AI TTS in this workflow. This is a conservative project rule, not a legal determination. Check each actual source edition, especially KN, rather than assuming one license covers every segment.
 
 Project-authored English fills are declared CC0 in the repository license, but only 161 current texts are project-only; they do not provide a five-Nikāya substitute for the Sujato-derived corpus. If permission for AI-derived audio is not obtained, use human narration for Sujato text or open a separate independent English-translation project. Do not overwrite Sujato with an English fill; the current store explicitly forbids shadowing the reference layer.
 
 The earlier Vietnamese audio authorization does not approve English TTS costs, an English voice, or public English R2 distribution. Resolve source rights, provider use, cost ceiling, and public distribution approval before any TTS or upload.
+
+The inventory contains 161 project-only texts with no Sujato segments; all are in KN. They could support a limited technical pilot after separate English profile, spend, and R2 approval. That pilot would not replace the full 4,702-text goal, and would not authorize TTS of Sujato-derived texts.
 
 ## Voice and source profile
 
