@@ -8,6 +8,7 @@ import { composeDocument } from '../../src/lib/canon/document';
 import { englishAudioSource, englishAudioTranscriptHash } from '../../src/lib/canon/english-audio';
 import { audioPlayerData, englishAudioRegistrationVersion, loadAudio, loadEnglishAudioVersion, narrationHash, type EnglishAudioRegistration } from '../../src/lib/canon/audio';
 import { contentMetaPathForLayer, resolveLayer } from '../../src/lib/canon/layers';
+import type { EnglishAudioApprovalManifest } from '../../src/lib/canon/english-audio-authorization';
 
 const repoRoot = process.cwd();
 const sha256 = (file: string) => createHash('sha256').update(fs.readFileSync(file)).digest('hex');
@@ -77,10 +78,29 @@ function registrationFor(
   };
 }
 
+function approvedManifestFor(source: ReturnType<typeof englishAudioSource>, registration: EnglishAudioRegistration): EnglishAudioApprovalManifest {
+  const approvalRefs = registration.approval_refs;
+  return {
+    schema_version: 1,
+    release_status: 'approved',
+    source_commit: source.source_commit,
+    authorized_uid_source_sha256: { [`${source.collection}/${source.uid}`]: source.source_sha256! },
+    profile: { status: 'approved', id: registration.narration_profile_id, sha256: registration.narration_profile_sha256 },
+    approvals: {
+      source_rights: { status: 'approved', reference: approvalRefs.source_rights },
+      provider_use: { status: 'approved', reference: approvalRefs.provider_use },
+      cost_ceiling: { status: 'approved', reference: approvalRefs.cost_ceiling },
+      voice_sample: { status: 'approved', reference: approvalRefs.voice_sample },
+      public_distribution: { status: 'approved', reference: approvalRefs.public_distribution },
+    },
+  };
+}
+
 test('English registration binds source, provenance, review metadata, approvals and public R2 evidence', () => {
   const { document, source, dependencies, projectMetaSha256 } = sourceAndDependencies();
   const registration = registrationFor(source, dependencies, projectMetaSha256);
-  const version = englishAudioRegistrationVersion(source, registration, dependencies, projectMetaSha256);
+  const approvals = approvedManifestFor(source, registration);
+  const version = englishAudioRegistrationVersion(source, registration, dependencies, projectMetaSha256, approvals);
   assert.ok(version);
   assert.equal(version.id, 'english-standard');
   assert.equal(version.kind, 'english');
@@ -89,12 +109,16 @@ test('English registration binds source, provenance, review metadata, approvals 
   assert.equal(version.review_status, 'pending');
   assert.equal(version.url, registration.url);
 
-  assert.equal(englishAudioRegistrationVersion(source, { ...registration, transcript_sha256: '0'.repeat(64) }, dependencies, projectMetaSha256), null);
-  assert.equal(englishAudioRegistrationVersion(source, { ...registration, english_project_meta_sha256: '0'.repeat(64) }, dependencies, projectMetaSha256), null);
-  assert.equal(englishAudioRegistrationVersion(source, { ...registration, approval_refs: { ...registration.approval_refs, source_rights: '' } }, dependencies, projectMetaSha256), null);
-  assert.equal(englishAudioRegistrationVersion(source, { ...registration, public_range_verified: false }, dependencies, projectMetaSha256), null);
-  assert.equal(englishAudioRegistrationVersion(source, { ...registration, duration_seconds: 1801 }, dependencies, projectMetaSha256), null);
-  assert.equal(englishAudioRegistrationVersion({ ...source, status: 'blocked' }, registration, dependencies, projectMetaSha256), null);
+  assert.equal(englishAudioRegistrationVersion(source, { ...registration, transcript_sha256: '0'.repeat(64) }, dependencies, projectMetaSha256, approvals), null);
+  assert.equal(englishAudioRegistrationVersion(source, { ...registration, english_project_meta_sha256: '0'.repeat(64) }, dependencies, projectMetaSha256, approvals), null);
+  assert.equal(englishAudioRegistrationVersion(source, { ...registration, approval_refs: { ...registration.approval_refs, source_rights: '' } }, dependencies, projectMetaSha256, approvals), null);
+  assert.equal(englishAudioRegistrationVersion(source, registration, dependencies, projectMetaSha256), null, 'the repository approval manifest is pending by default');
+  assert.equal(englishAudioRegistrationVersion(source, registration, dependencies, projectMetaSha256, { ...approvals, authorized_uid_source_sha256: {} }), null);
+  assert.equal(englishAudioRegistrationVersion(source, registration, dependencies, projectMetaSha256, { ...approvals, source_commit: 'stale-commit' }), null);
+  assert.equal(englishAudioRegistrationVersion(source, { ...registration, approval_refs: { ...registration.approval_refs, source_rights: 'unregistered-ref' } }, dependencies, projectMetaSha256, approvals), null);
+  assert.equal(englishAudioRegistrationVersion(source, { ...registration, public_range_verified: false }, dependencies, projectMetaSha256, approvals), null);
+  assert.equal(englishAudioRegistrationVersion(source, { ...registration, duration_seconds: 1801 }, dependencies, projectMetaSha256, approvals), null);
+  assert.equal(englishAudioRegistrationVersion({ ...source, status: 'blocked' }, registration, dependencies, projectMetaSha256, approvals), null);
 
   const temporary = fs.mkdtempSync(path.join(os.tmpdir(), 'english-audio-registration-'));
   const originalCwd = process.cwd();
@@ -117,8 +141,10 @@ test('English registration binds source, provenance, review metadata, approvals 
     }));
     process.chdir(temporary);
 
-    assert.equal(loadEnglishAudioVersion(document)?.id, 'english-standard');
-    const combined = loadAudio(document);
+    assert.equal(loadEnglishAudioVersion(document), null, 'the default pending manifest must hide any English sidecar');
+    assert.equal(loadEnglishAudioVersion(document, approvals)?.id, 'english-standard');
+    assert.deepEqual(loadAudio(document)?.versions.map(version => version.id), ['original']);
+    const combined = loadAudio(document, approvals);
     assert.ok(combined);
     assert.deepEqual(combined.versions.map(version => version.id), ['original', 'english-standard']);
     const playerData = audioPlayerData(combined);
@@ -126,8 +152,8 @@ test('English registration binds source, provenance, review metadata, approvals 
     assert.ok(!JSON.stringify(playerData).includes('source_dependencies'));
 
     fs.writeFileSync(englishFile, JSON.stringify({ ...registration, source_sha256: '0'.repeat(64) }));
-    assert.equal(loadEnglishAudioVersion(document), null);
-    assert.deepEqual(loadAudio(document)?.versions.map(version => version.id), ['original']);
+    assert.equal(loadEnglishAudioVersion(document, approvals), null);
+    assert.deepEqual(loadAudio(document, approvals)?.versions.map(version => version.id), ['original']);
   } finally {
     process.chdir(originalCwd);
     fs.rmSync(temporary, { recursive: true, force: true });
