@@ -17,18 +17,18 @@ import { englishAudioSource } from '../src/lib/canon/english-audio';
 import { englishAudioAuthorizationIssues, loadEnglishAudioApprovalManifest } from '../src/lib/canon/english-audio-authorization';
 
 const args = process.argv.slice(2);
-const usage = 'Usage: node --import tsx scripts/audio-english-authorization-check.ts --preflight <file> --output <file> [--require-all-candidates]';
+const usage = 'Usage: node --import tsx scripts/audio-english-authorization-check.ts --preflight <file> --output <file> [--report-only]';
 let preflightPath: string | undefined;
 let outputPath: string | undefined;
-let requireAllCandidates = false;
+let reportOnly = false;
 for (let index = 0; index < args.length;) {
   const arg = args[index];
-  if (arg === '--require-all-candidates') {
-    if (requireAllCandidates) {
-      console.error(`${usage}\nDuplicate --require-all-candidates option.`);
+  if (arg === '--report-only') {
+    if (reportOnly) {
+      console.error(`${usage}\nDuplicate --report-only option.`);
       process.exit(2);
     }
-    requireAllCandidates = true;
+    reportOnly = true;
     index += 1;
     continue;
   }
@@ -167,4 +167,4 @@ const report = {
 mkdirSync(path.dirname(resolvedOutput), { recursive: true });
 writeFileSync(resolvedOutput, `${JSON.stringify(report, null, 2)}\n`);
 process.stderr.write(`English authorization check: ${authorized.length}/${records.length} UIDs authorized; provider calls 0; uploads 0.\n`);
-if (requireAllCandidates && authorized.length !== records.length) process.exitCode = 1;
+if (!reportOnly && authorized.length !== records.length) process.exitCode = 1;
