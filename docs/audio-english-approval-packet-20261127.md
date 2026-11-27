@@ -16,31 +16,31 @@ npm run audio:english:preflight -- --require-ready --output /tmp/audio-english-p
 npm run audio:english:source-map -- --preflight /tmp/audio-english-preflight.json --output /tmp/audio-english-source-rights-map.json
 ```
 
-| Pinned source unit | Candidate texts containing Sujato English | Sujato-sourced segments |
-| --- | ---: | ---: |
-| DN | 34 | 14,418 |
-| MN | 152 | 23,028 |
-| SN | 1,819 | 36,788 |
-| AN | 1,781 | 37,403 |
-| KN · Cariyāpiṭaka | 35 | 1,617 |
-| KN · Dhammapada | 26 | 1,853 |
-| KN · Itivuttaka | 112 | 2,733 |
-| KN · Jātaka | 83 | 736 |
-| KN · Khuddakapāṭha | 9 | 357 |
-| KN · Sutta Nipāta | 73 | 5,549 |
-| KN · Theragāthā | 264 | 6,369 |
-| KN · Therīgāthā | 73 | 2,380 |
-| KN · Udāna | 80 | 2,268 |
+| Pinned source unit | Candidate texts containing Sujato English | Sujato-sourced segments | Pinned Bilara publication record |
+| --- | ---: | ---: | --- |
+| DN | 34 | 14,418 | `scpub2` · CC0 |
+| MN | 152 | 23,028 | `scpub3` · CC0 |
+| SN | 1,819 | 36,788 | `scpub4` · CC0 |
+| AN | 1,781 | 37,403 | `scpub5` · CC0 |
+| KN · Cariyāpiṭaka | 35 | 1,617 | `scpub86` · CC0 |
+| KN · Dhammapada | 26 | 1,853 | `scpub7` · CC0 |
+| KN · Itivuttaka | 112 | 2,733 | `scpub16` · CC0 |
+| KN · Jātaka | 83 | 736 | No separate `kn/ja` record found |
+| KN · Khuddakapāṭha | 9 | 357 | `scpub19` · CC0 |
+| KN · Sutta Nipāta | 73 | 5,549 | `scpub17` · CC0 |
+| KN · Theragāthā | 264 | 6,369 | `scpub1` · CC0 |
+| KN · Therīgāthā | 73 | 2,380 | `scpub6` · CC0 |
+| KN · Udāna | 80 | 2,268 | `scpub18` · CC0 |
 
 Overall, 4,541 candidate texts contain at least one Sujato-sourced segment (135,499 segments in this snapshot). Project English fills appear in 1,060 candidates. The 161 project-only candidates are all in KN and are listed in the source map. They have no Sujato segments, but still need separate provider, profile, cost, sample, and distribution approvals. A KN-only pilot cannot complete the five-Nikāya objective.
 
 ## Rights decision
 
-The pinned lock records the Sujato English layer as third-party, `NOASSERTION`, with attribution required. The current [SuttaCentral licensing page](https://suttacentral.net/licensing?lang=en) says third-party material has terms set by its asserter and asks that its content not be used for generative-AI datasets or similar, including downstream applications.
+The pinned lock records the Sujato English layer as third-party, `NOASSERTION`, with attribution required. At the same bilara commit, the official [`_publication.json`](https://github.com/suttacentral/bilara-data/blob/11c9d708978cde8ba61096d8a75f7ddfb846f639/_publication.json) has CC0 publication records for 12 of the 13 source units in the table; no separate record for `kn/ja` was found. Those records' `license_statement` fields state CC0 but do not contain the AI-use request.
 
-Official edition pages for [DN](https://suttacentral.net/edition/dn/en/sujato), [MN](https://suttacentral.net/edition/mn/en/sujato), [SN](https://suttacentral.net/edition/sn/en/sujato), [AN](https://suttacentral.net/edition/an/en/sujato), [Dhammapada](https://suttacentral.net/edition/dhp/pli/ms), and [Itivuttaka](https://suttacentral.net/edition/iti/en/sujato) state CC0 and request no use in AI training, model or algorithm development, or AI-derived technologies. The [CP1 source page](https://suttacentral.net/cp1/en/sujato?lang=en) also states CC0. The current lock remains `NOASSERTION`; this packet does not make a legal determination.
+The current [SuttaCentral licensing page](https://suttacentral.net/licensing?lang=en) says third-party material has terms set by its asserter and asks that its content not be used for generative-AI datasets or similar, including downstream applications. The source-specific publication record and the global AI-use request are separate evidence; neither silently overrides the project's pinned `NOASSERTION` or decides whether TTS is acceptable. This packet is not a legal determination.
 
-For other KN units in the source map, a source-specific license statement was not confirmed in this review. Keep them under the pinned `NOASSERTION` record. Under the user’s project rule, **all 4,541 texts with any Sujato-derived segment remain blocked for TTS** until written permission or a documented editor/legal decision explicitly resolves the AI-use request and the relevant source terms. Do not contact SuttaCentral, Bhikkhu Sujato, or other rights holders without explicit authorization.
+Under the user’s project rule, **all 4,541 texts with any Sujato-derived segment remain blocked for TTS** until written permission or a documented editor/legal decision explicitly resolves the AI-use request and the relevant source terms. The 161 project-only texts contain no Sujato segments, but still require separate provider, profile/sample, cost, and distribution approval. Do not contact SuttaCentral, Bhikkhu Sujato, or other rights holders without explicit authorization.
 
 ## TTS candidate and cost range
 
