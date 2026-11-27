@@ -213,10 +213,19 @@ test('English registration binds source, provenance, review metadata, approvals 
     ...approvals,
     approvals: { ...approvals.approvals, cost_ceiling: { ...approvals.approvals.cost_ceiling, includes_r2_operations: false } },
   }), null);
-  assert.equal(englishAudioRegistrationVersion(source, registration, dependencies, projectMetaSha256, {
-    ...approvals,
-    approvals: { ...approvals.approvals, source_rights: { ...approvals.approvals.source_rights, ai_derived_tts_allowed: false } },
-  }), null);
+  const rightsApproval = approvals.approvals.source_rights;
+  for (const invalidRightsApproval of [
+    { ...rightsApproval, basis: null },
+    { ...rightsApproval, basis: 'project-license' },
+    { ...rightsApproval, ai_derived_tts_allowed: false },
+    { ...rightsApproval, public_audio_distribution_allowed: false },
+    { ...rightsApproval, source_scope_reference: ' ' },
+  ]) {
+    assert.equal(englishAudioRegistrationVersion(source, registration, dependencies, projectMetaSha256, {
+      ...approvals,
+      approvals: { ...approvals.approvals, source_rights: invalidRightsApproval },
+    }), null);
+  }
   assert.equal(englishAudioRegistrationVersion(source, registration, dependencies, projectMetaSha256, {
     ...approvals,
     approvals: { ...approvals.approvals, provider_use: { ...approvals.approvals.provider_use, model: '' } },
