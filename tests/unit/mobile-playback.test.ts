@@ -147,6 +147,22 @@ test('finishing a queue item saves completion and starts the next item at its de
   assert.equal(controller.getSnapshot().status.queueRemaining, 0);
 });
 
+test('English native queue keeps the selected translation through auto-next', async t => {
+  const { controller, players } = harness(); t.after(controller.dispose);
+  const withEnglish = (uid: string) => {
+    const item = track(uid);
+    return { ...item, version: { ...item.version, id: 'english-standard' as const, label: 'English translation', kind: 'english' as const } };
+  };
+  const first = withEnglish('mn1'), next = withEnglish('mn2');
+  controller.playTrack(first, undefined, [next]);
+  await load(players[0]);
+  assert.equal(controller.getSnapshot().track?.version.id, 'english-standard');
+  players[0].emit({ currentTime: 120, didJustFinish: true, playing: false });
+  await load(players[1]);
+  assert.equal(controller.getSnapshot().track?.uid, 'mn2');
+  assert.equal(controller.getSnapshot().track?.version.id, 'english-standard');
+});
+
 test('a user pause at the end cannot advance the queue or autoplay a later seek', async t => {
   const { controller, players } = harness(); t.after(controller.dispose);
   controller.playTrack(track(), undefined, [track('mn2')]); await load(players[0]);
