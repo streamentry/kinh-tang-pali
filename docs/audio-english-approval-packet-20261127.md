@@ -86,8 +86,8 @@ For voice selection, do not assume Charon or the Vietnamese style works in Engli
 
 1. **Rights:** written permission or a documented editor/legal decision that explicitly addresses AI-derived narration of the pinned source, with scope covering the relevant source units. If unresolved, Sujato-derived TTS remains blocked.
 2. **Provider:** approve the exact provider, model, and paid/free tier for a sample and production. No Gemini request has been made for English.
-3. **Budget:** specify a maximum USD spend that includes voice/sample work, input and audio tokens, and a bounded retry allowance. The ranges above exclude input tokens and are not the ceiling.
+3. **Budget:** specify a maximum USD spend that includes voice/sample work, input and audio tokens, a bounded retry allowance, R2 storage, and egress. The ranges above exclude input tokens, samples, retries, and R2 costs; they are not the ceiling.
 4. **Voice and pace:** approve an English-speaking editor to listen to the sample and approve the separate English profile before scaling.
-5. **Distribution:** explicitly approve public English audio in R2 under immutable `en/<collection>/<uid>/<content-and-profile-hash>/` keys. `source/audio-storage.json` documents a public bucket for Vietnamese narration; it does not authorize English uploads.
+5. **Distribution:** explicitly approve the public R2 bucket and HTTPS base URL, plus immutable `en/<collection>/<uid>/<content-and-profile-hash>/` keys. `source/audio-storage.json` documents a public bucket and base URL for Vietnamese narration; it does not authorize English uploads.
 
 After those decisions, rerun the all-five-Nikāya preflight, review the source map, prepare an exact profile/chunk/cost plan, and generate one UID at a time under the TTS lock. Use no ASR, do not rewrite English gaps, do not commit media or caches, and keep every new track `review_status: pending` until human listening is complete.
