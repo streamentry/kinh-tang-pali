@@ -1,0 +1,71 @@
+# English audio approval packet
+
+Date: 2026-11-27  
+State: decisions are still required. This document authorizes no API request, voice creation, audio generation, or R2 upload.
+
+## Audited source scope
+
+The fresh provider-free preflight generated `2026-11-27T12:38:14Z` at bilara commit `11c9d708978cde8ba61096d8a75f7ddfb846f639` found 4,702 candidates with resolved English, 1,435 catalog texts without English, no partial/blocked candidates, and zero provider calls or uploads. The current source text contains 1,678,442 whitespace-delimited English words and 9,815,038 characters. The corresponding per-UID source map was generated at `2026-11-27T12:38:21Z` from that preflight.
+
+The accompanying [`audio-english-source-rights-map-20261127.json`](audio-english-source-rights-map-20261127.json) binds each candidate UID to its resolved English hash, source layer counts, pinned source-file paths and hashes, and—where project fills are used—the project content and review-metadata hashes. It contains no transcript text, audio, or credentials.
+
+Reproduce both reports from the current pinned store with:
+
+```bash
+npm run audio:english:preflight -- --require-ready --output /tmp/audio-english-preflight.json
+npm run audio:english:source-map -- --preflight /tmp/audio-english-preflight.json --output /tmp/audio-english-source-rights-map.json
+```
+
+| Pinned source unit | Candidate texts containing Sujato English | Sujato-sourced segments |
+| --- | ---: | ---: |
+| DN | 34 | 14,418 |
+| MN | 152 | 23,028 |
+| SN | 1,819 | 36,788 |
+| AN | 1,781 | 37,403 |
+| KN · Cariyāpiṭaka | 35 | 1,617 |
+| KN · Dhammapada | 26 | 1,853 |
+| KN · Itivuttaka | 112 | 2,733 |
+| KN · Jātaka | 83 | 736 |
+| KN · Khuddakapāṭha | 9 | 357 |
+| KN · Sutta Nipāta | 73 | 5,549 |
+| KN · Theragāthā | 264 | 6,369 |
+| KN · Therīgāthā | 73 | 2,380 |
+| KN · Udāna | 80 | 2,268 |
+
+Overall, 4,541 candidate texts contain at least one Sujato-sourced segment (135,499 segments in this snapshot). Project English fills appear in 1,060 candidates. The 161 project-only candidates are all in KN and are listed in the source map. They have no Sujato segments, but still need separate provider, profile, cost, sample, and distribution approvals. A KN-only pilot cannot complete the five-Nikāya objective.
+
+## Rights decision
+
+The pinned lock records the Sujato English layer as third-party, `NOASSERTION`, with attribution required. The current [SuttaCentral licensing page](https://suttacentral.net/licensing?lang=en) says third-party material has terms set by its asserter and asks that its content not be used for generative-AI datasets or similar, including downstream applications.
+
+Official edition pages for [DN](https://suttacentral.net/edition/dn/en/sujato), [MN](https://suttacentral.net/edition/mn/en/sujato), [SN](https://suttacentral.net/edition/sn/en/sujato), [AN](https://suttacentral.net/edition/an/en/sujato), [Dhammapada](https://suttacentral.net/edition/dhp/pli/ms), and [Itivuttaka](https://suttacentral.net/edition/iti/en/sujato) state CC0 and request no use in AI training, model or algorithm development, or AI-derived technologies. The [CP1 source page](https://suttacentral.net/cp1/en/sujato?lang=en) also states CC0. The current lock remains `NOASSERTION`; this packet does not make a legal determination.
+
+For other KN units in the source map, a source-specific license statement was not confirmed in this review. Keep them under the pinned `NOASSERTION` record. Under the user’s project rule, **all 4,541 texts with any Sujato-derived segment remain blocked for TTS** until written permission or a documented editor/legal decision explicitly resolves the AI-use request and the relevant source terms. Do not contact SuttaCentral, Bhikkhu Sujato, or other rights holders without explicit authorization.
+
+## TTS candidate and cost range
+
+No English model or voice has been selected. A candidate for an editor-approved sample is Gemini 3.8 Flash TTS (`gemini-3.8-flash-tts`, Standard Paid). Google describes it for audiobook/studio narration and long-form stability. Gemini 3.8 Flash-Lite TTS is a lower-cost alternative; Google positions it for high-throughput and read-aloud workloads. These are provider descriptions, not independent quality evidence. Both currently use the `v1beta` speech API, have an 8,192-token input limit and 16,384-token output limit, and return WAV by default. See the [TTS guide](https://aistudio.google.com/docs/speech-generation), [Flash model page](https://aistudio.google.com/docs/models/gemini-3.8-flash-tts), and [Flash-Lite model page](https://aistudio.google.com/docs/models/gemini-3.8-flash-lite-tts).
+
+The estimate below uses the current 1,678,442-word corpus, a hypothetical constant reading pace, and Google’s 25 audio tokens per second. It estimates **output tokens only**. It is not a quote, profile selection, or spend approval.
+
+| Assumed pace | Approximate audio | Flash TTS through 2026-12-31 | Flash TTS from 2027-01-01 | Flash-Lite through 2026-12-31 | Flash-Lite from 2027-01-01 |
+| ---: | ---: | ---: | ---: | ---: | ---: |
+| 120 words/min | 233.1 h | $188.82 | $377.65 | $125.88 | $251.77 |
+| 150 words/min | 186.5 h | $151.06 | $302.12 | $100.71 | $201.41 |
+| 180 words/min | 155.4 h | $125.88 | $251.77 | $83.92 | $167.84 |
+
+The [official price table](https://ai.google.dev/gemini-api/docs/pricing#gemini-3.8-flash-tts) lists Standard Paid Flash TTS audio output at $9 per million audio tokens through December 31, then $18 from January 1; Flash-Lite is $6, then $12. Both list text input at $0.50/$1.00 per million tokens over those dates. Input tokens are not estimated here because no model token-count request has been approved. Actual duration depends on the editor-approved pace, pauses, and text chunking; samples and retries add cost. The full budget must also cover public R2 storage/egress if applicable. Recheck prices before any provider request.
+
+The pricing table says free-tier use may improve Google products, while paid-tier use is not used to improve products. A paid tier may be preferable for source handling, but that does not resolve SuttaCentral’s AI-derived-use request.
+
+For voice selection, do not assume Charon or the Vietnamese style works in English. The official [voice guide](https://aistudio.google.com/docs/speech-generation#voices) lists prebuilt voices and an English-filterable voice library. Choose a voice only after an English-speaking editor hears and approves a sample. `voices.list`, Voice Design, and TTS sample generation are provider operations; none has been called. The separate English profile must pin its own model, voice, style, chunk limit, pauses, encoding, default 1× speed, and profile hash. Leave `vi-charon-mn1-v1` unchanged.
+
+## Explicit decisions still needed
+
+1. **Rights:** written permission or a documented editor/legal decision that explicitly addresses AI-derived narration of the pinned source, with scope covering the relevant source units. If unresolved, Sujato-derived TTS remains blocked.
+2. **Provider:** approve the exact provider, model, and paid/free tier for a sample and production. No Gemini request has been made for English.
+3. **Budget:** specify a maximum USD spend that includes voice/sample work, input and audio tokens, and a bounded retry allowance. The ranges above exclude input tokens and are not the ceiling.
+4. **Voice and pace:** approve an English-speaking editor to listen to the sample and approve the separate English profile before scaling.
+5. **Distribution:** explicitly approve public English audio in R2 under immutable `en/<collection>/<uid>/<content-and-profile-hash>/` keys. `source/audio-storage.json` documents a public bucket for Vietnamese narration; it does not authorize English uploads.
+
+After those decisions, rerun the all-five-Nikāya preflight, review the source map, prepare an exact profile/chunk/cost plan, and generate one UID at a time under the TTS lock. Use no ASR, do not rewrite English gaps, do not commit media or caches, and keep every new track `review_status: pending` until human listening is complete.
