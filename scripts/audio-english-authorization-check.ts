@@ -170,6 +170,10 @@ const report = {
   preflight_candidate_count: preflight.totals.candidates,
   preflight_generated_at: preflight.generated_at,
   preflight_sha256: createHash('sha256').update(preflightBytes).digest('hex'),
+  project_content_license: {
+    spdx: lock.projectLicense.content.spdx,
+    sha256: createHash('sha256').update(JSON.stringify(lock.projectLicense.content), 'utf8').digest('hex'),
+  },
   approval_manifest_sha256: manifestSha256,
   candidate_count: records.length,
   authorized_count: authorized.length,

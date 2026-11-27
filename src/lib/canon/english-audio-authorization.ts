@@ -1,6 +1,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import type { EnglishAudioSource } from './english-audio';
+import { loadLock, type ProjectLicense } from './load';
 
 export const ENGLISH_AUDIO_APPROVAL_KEYS = [
   'source_rights', 'provider_use', 'cost_ceiling', 'voice_sample', 'public_distribution',
@@ -20,6 +21,18 @@ export function englishAudioRequiredApprovalKeys(source: EnglishAudioSource): En
   return source.source_segment_counts['english-sujato'] > 0
     ? [...ENGLISH_AUDIO_APPROVAL_KEYS]
     : ENGLISH_AUDIO_APPROVAL_KEYS.filter((key) => key !== 'source_rights');
+}
+
+/** A project-only path is exempt from Sujato clearance only while its own CC0 scope is pinned. */
+export function projectOnlyEnglishRightsIssue(source: EnglishAudioSource, license: ProjectLicense): string | null {
+  if (source.source_segment_counts['english-sujato'] > 0
+    || source.source_segment_counts['english-project'] === 0) return null;
+  const projectEnglishScope = license.covers?.['content/translation/en/project'];
+  if (license.spdx !== 'CC0-1.0' || !license.holder?.trim()
+    || typeof projectEnglishScope !== 'string' || !projectEnglishScope.trim()) {
+    return 'Project-only English is not covered by the current pinned CC0 project-content license';
+  }
+  return null;
 }
 
 /** Canonical immutable object key shared by an English uploader and registration validator. */
@@ -104,6 +117,8 @@ export function englishAudioAuthorizationIssues(
 ): string[] {
   const issues: string[] = [];
   if (source.status !== 'ready' || !source.source_sha256) issues.push('resolved English source is not ready');
+  const projectRightsIssue = projectOnlyEnglishRightsIssue(source, loadLock().projectLicense.content);
+  if (projectRightsIssue) issues.push(projectRightsIssue);
   if (!isRecord(manifest)) return [...issues, 'English audio approval manifest is missing or malformed'];
   const candidate = manifest as Partial<EnglishAudioApprovalManifest>;
   if (candidate.schema_version !== 2) issues.push('English audio approval manifest schema is unsupported');

@@ -5,10 +5,10 @@ import os from 'node:os';
 import path from 'node:path';
 import { createHash } from 'node:crypto';
 import { composeDocument } from '../../src/lib/canon/document';
-import { COLLECTIONS, loadCatalog } from '../../src/lib/canon/load';
+import { COLLECTIONS, loadCatalog, loadLock } from '../../src/lib/canon/load';
 import { englishAudioSource, englishAudioTranscriptHash } from '../../src/lib/canon/english-audio';
 import { audioPlayerData, englishAudioRegistrationVersion, loadAudio, loadEnglishAudioVersion, narrationHash, type EnglishAudioRegistration } from '../../src/lib/canon/audio';
-import { englishAudioApprovalScopeIssues, englishAudioR2ObjectKey, englishAudioRequiredApprovalKeys } from '../../src/lib/canon/english-audio-authorization';
+import { englishAudioApprovalScopeIssues, englishAudioR2ObjectKey, englishAudioRequiredApprovalKeys, projectOnlyEnglishRightsIssue } from '../../src/lib/canon/english-audio-authorization';
 import { contentMetaPathForLayer, resolveLayer } from '../../src/lib/canon/layers';
 import type { EnglishAudioApprovalManifest } from '../../src/lib/canon/english-audio-authorization';
 
@@ -150,6 +150,13 @@ test('project-only English can use the separately approved pilot path without cl
   const source = englishAudioSource(document, project.status);
   assert.equal(source.source_segment_counts['english-sujato'], 0);
   assert.ok(source.source_segment_counts['english-project'] > 0);
+  const license = loadLock().projectLicense.content;
+  assert.equal(projectOnlyEnglishRightsIssue(source, license), null);
+  assert.equal(projectOnlyEnglishRightsIssue(source, { ...license, spdx: 'MIT' }) !== null, true);
+  assert.equal(projectOnlyEnglishRightsIssue(source, {
+    ...license,
+    covers: Object.fromEntries(Object.entries(license.covers).filter(([key]) => key !== 'content/translation/en/project')),
+  }) !== null, true);
 
   const metaPath = contentMetaPathForLayer(project.layer, 'kn', 'bv1');
   assert.ok(metaPath);
