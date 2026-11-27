@@ -1,8 +1,7 @@
 ---
 import type { AudioPlayerData } from '../lib/canon/audio';
-import type { AudioVersionId, AudioVersionPlayerData } from '../lib/canon/audio';
+import type { AudioVersionId } from '../lib/canon/audio';
 import { EXPLANATION_AUDIENCE_LABELS } from '../lib/canon/explanation-audio';
-import { locatePart } from '../lib/audio/parts';
 import { completePlaylistVersions } from '../lib/audio/playlist';
 import { playlistPayload } from '../lib/canon/audio-playlist';
 import { withBase } from '../lib/url';
@@ -32,14 +31,6 @@ const versionLabels: Record<AudioVersionId, string> = {
   'english-standard': 'English translation',
 };
 const timestamp = (seconds: number) => `${Math.floor(seconds / 60)}:${Math.floor(seconds % 60).toString().padStart(2, '0')}`;
-const audioHref = (version: AudioVersionPlayerData) => {
-  if (version.parts?.length) {
-    const position = locatePart(version.parts, version.start_seconds);
-    const part = version.parts[position.index];
-    return position.time > 0 ? `${part.url}#t=${position.time}` : part.url;
-  }
-  return version.start_seconds > 0 ? `${version.url}#t=${version.start_seconds}` : version.url;
-};
 ---
 <sutta-playlist class="collection-audio" data-native-text-base={withBase(`sutta/${Astro.params.collection}/`)} data-collection-title={collectionTitle} data-tracks={JSON.stringify(payload.inline)} data-tracks-src={payload.url} data-track-count={tracks.length} data-total-suttas={totalSuttas} data-complete-versions={JSON.stringify([...completeVersions])}>
   {first && (
@@ -51,7 +42,7 @@ const audioHref = (version: AudioVersionPlayerData) => {
         </div>
         <span class="listening-length">{tracks.length} / {totalSuttas} bài có audio</span>
       </div>
-      <audio controls preload="metadata" src={original ? audioHref(original) : first.url} data-track-uid={first.uid} aria-label={`Nghe ${collectionTitle}`}></audio>
+      <audio controls preload="none" src={original?.url ?? first.url} data-track-uid={first.uid} aria-label={`Nghe ${collectionTitle}`}></audio>
       {tracks.some(track => track.parts) && <details><summary>Các phần MP3</summary>{tracks.filter(track => track.parts).map(track => <div><p>{track.title}</p><ol class="listen-part-files">{track.parts!.map((part, i) => <li><a href={part.url} target="_blank" rel="noopener">Phần {i + 1} / {track.parts!.length}</a></li>)}</ol></div>)}</details>}
       <p class="listen-error" data-playlist-error role="status" hidden>Không tải được danh sách phát. Bạn vẫn có thể nghe từng MP3.</p>
       <div class="listening-custom" hidden>
@@ -309,6 +300,7 @@ const audioHref = (version: AudioVersionPlayerData) => {
         activeVersion = version;
         update();
         if (autoplay) {
+          media.load();
           try { await audio.play(); } catch (failure) {
             if (request !== playbackRequest) return;
             // Name the actual cause: a blocked autoplay is not a broken file, and the reverse.
@@ -356,6 +348,7 @@ const audioHref = (version: AudioVersionPlayerData) => {
         if (!audio.paused) audio.pause();
         else {
           if (media.ended) media.seek(activeVersion.start_seconds);
+          media.load();
           try { await audio.play(); } catch (failure) {
             if (request !== playbackRequest) return;
             const cause = playFailure(failure);

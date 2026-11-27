@@ -34,6 +34,7 @@ export class ReadingPlayer {
   private index = 0;
   private pendingTime: number | null = null;
   private playbackRate: number;
+  private loaded = false;
   constructor(private audio: HTMLAudioElement, track: ReadingMedia, private failure: (error: unknown) => void) {
     this.track = track;
     this.playbackRate = audio.playbackRate;
@@ -46,7 +47,7 @@ export class ReadingPlayer {
       + (this.pendingTime ?? this.audio.currentTime);
   }
   get duration() {
-    return this.track.parts ? this.track.duration_seconds
+    return !this.loaded || this.track.parts ? this.track.duration_seconds
       : Number.isFinite(this.audio.duration) && this.audio.duration > 0 ? this.audio.duration : this.track.duration_seconds;
   }
   get url() { return this.parts[this.index].url; }
@@ -54,23 +55,31 @@ export class ReadingPlayer {
   get partCount() { return this.parts.length; }
   get ended() { return this.index === this.parts.length - 1 && this.audio.ended; }
   private onMetadata = () => {
-    if (this.pendingTime !== null) {
+    if (this.loaded && this.pendingTime !== null) {
       this.audio.currentTime = this.pendingTime;
       this.pendingTime = null;
       this.audio.playbackRate = this.playbackRate;
     }
   };
   private onEnded = (event: Event) => {
-    if (this.index === this.parts.length - 1) return;
+    if (!this.loaded || this.index === this.parts.length - 1) return;
     event.stopImmediatePropagation();
     this.switchPart(this.index + 1, 0, true);
   };
   private switchPart(index: number, time: number, resume: boolean) {
     this.audio.pause();
     this.index = index; this.pendingTime = time;
+    if (!this.loaded) return;
     this.audio.src = this.parts[index].url;
     this.audio.load();
     if (resume) this.audio.play().catch(this.failure);
+  }
+  /** Start fetching the selected part only after the listener explicitly plays. */
+  load() {
+    if (this.loaded) return;
+    this.loaded = true;
+    this.audio.src = this.parts[this.index].url;
+    this.audio.load();
   }
   setPlaybackRate(rate: number) {
     this.audio.playbackRate = rate;
@@ -80,11 +89,17 @@ export class ReadingPlayer {
     const position = locatePart(this.parts, Number.isFinite(seconds) ? seconds : 0);
     if (position.index !== this.index) this.switchPart(position.index, position.time, !this.audio.paused);
     else if (this.pendingTime !== null) this.pendingTime = position.time;
+    else if (!this.loaded) this.pendingTime = position.time;
     else this.audio.currentTime = position.time;
   }
   select(track: ReadingMedia) {
+    this.audio.pause();
     this.track = track;
-    this.switchPart(0, 0, false);
+    this.index = 0;
+    this.pendingTime = 0;
+    this.loaded = false;
+    this.audio.removeAttribute('src');
+    this.audio.load();
   }
   destroy() {
     this.audio.removeEventListener('ended', this.onEnded);
