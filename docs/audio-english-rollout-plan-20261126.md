@@ -39,6 +39,8 @@ The earlier Vietnamese audio authorization does not approve English TTS costs, a
 
 The inventory contains 161 project-only texts with no Sujato segments; all are in KN. They could support a limited technical pilot after separate English profile, spend, and R2 approval. That pilot would not replace the full 4,702-text goal, and would not authorize TTS of Sujato-derived texts.
 
+The release gate follows segment provenance: any UID with at least one `english-sujato` segment requires a source-rights decision that records written permission or an editor/legal decision, explicitly allows AI-derived TTS and public audio, and points to the decision's covered source scope. Project-only UIDs may omit Sujato clearance because they contain no Sujato segments; they still require the provider, profile/sample, full cost, public distribution, exact source-hash allowlist, and all other approvals. The provider-free authorization audit supports `--project-only` for that restricted scope, while its default remains the full candidate set. A project-only pass is only a pilot authorization and never full-goal completion.
+
 ## Voice and source profile
 
 Keep `vi-charon-mn1-v1` byte-for-byte. Create a separate English profile and SHA-256 pin only after an English-speaking editor approves sample voice and pace. Do not assume Charon or the Vietnamese style works for English. The English profile must pin its own model, voice, style, chunk limit, pauses, encoding, and 1× default speed. Test ordinary prose, long readings, verse, Pāli names and diacritics, quotations, numbers, and punctuation. No fallback voice or post-generation speed change.

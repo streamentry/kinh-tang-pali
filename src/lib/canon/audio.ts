@@ -6,7 +6,7 @@ import type { AudioVersionPlayerData } from '../audio/types';
 export type { AudioVersionId, AudioVersionPlayerData } from '../audio/types';
 import type { CanonDocument } from './types';
 import { englishAudioSource, englishAudioTranscriptHash, type EnglishAudioSourceLayer } from './english-audio';
-import { englishAudioRegistrationAuthorizationIssues, loadEnglishAudioApprovalManifest } from './english-audio-authorization';
+import { englishAudioRegistrationAuthorizationIssues, englishAudioRequiredApprovalKeys, loadEnglishAudioApprovalManifest } from './english-audio-authorization';
 import { contentMetaPathForLayer, resolveLayer } from './layers';
 import { englishCoverageFor } from './reference';
 import { loadLock } from './load';
@@ -135,9 +135,9 @@ export interface EnglishAudioRegistration extends AudioAsset {
   r2_bucket: string;
   /** Required for a single-file MP3; multipart assets bind keys on each part. */
   r2_key?: string;
-  /** Required references to separate rights, provider, budget, sample, and distribution approvals. */
+  /** Sujato clearance reference, null only when every spoken segment is project-authored. */
   approval_refs: {
-    source_rights: string;
+    source_rights: string | null;
     provider_use: string;
     cost_ceiling: string;
     voice_sample: string;
@@ -181,8 +181,10 @@ export function englishAudioRegistrationVersion(
   if (source.status !== 'ready' || !source.source_sha256 || !registration || typeof registration !== 'object') return null;
   const entry = registration as EnglishAudioRegistration;
   const refs = entry.approval_refs;
-  const approvalsPresent = refs && [refs.source_rights, refs.provider_use, refs.cost_ceiling,
-    refs.voice_sample, refs.public_distribution].every(value => typeof value === 'string' && value.trim().length > 0);
+  const requiredApprovalKeys = englishAudioRequiredApprovalKeys(source);
+  const approvalsPresent = refs
+    && requiredApprovalKeys.every(key => typeof refs[key] === 'string' && refs[key]!.trim().length > 0)
+    && (source.source_segment_counts['english-sujato'] > 0 || refs.source_rights === null);
   const partsWithinLimit = entry.parts
     ? entry.parts.length > 0 && entry.parts.every(part => Number.isFinite(part.duration_seconds)
       && part.duration_seconds > 0 && part.duration_seconds <= 30 * 60)

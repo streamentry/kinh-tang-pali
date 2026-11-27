@@ -8,6 +8,19 @@ export const ENGLISH_AUDIO_APPROVAL_KEYS = [
 
 export type EnglishAudioApprovalKey = (typeof ENGLISH_AUDIO_APPROVAL_KEYS)[number];
 interface ApprovalReference { status: 'pending' | 'approved'; reference: string | null; }
+interface SourceRightsApproval extends ApprovalReference {
+  basis: 'written-permission' | 'editor-legal-decision' | null;
+  ai_derived_tts_allowed: boolean | null;
+  public_audio_distribution_allowed: boolean | null;
+  source_scope_reference: string | null;
+}
+
+/** Project-only English needs no Sujato clearance; every other release gate still applies. */
+export function englishAudioRequiredApprovalKeys(source: EnglishAudioSource): EnglishAudioApprovalKey[] {
+  return source.source_segment_counts['english-sujato'] > 0
+    ? [...ENGLISH_AUDIO_APPROVAL_KEYS]
+    : ENGLISH_AUDIO_APPROVAL_KEYS.filter((key) => key !== 'source_rights');
+}
 
 /** Canonical immutable object key shared by an English uploader and registration validator. */
 export function englishAudioR2ObjectKey(
@@ -33,14 +46,14 @@ export function englishAudioR2ObjectKey(
 }
 
 export interface EnglishAudioApprovalManifest {
-  schema_version: 1;
+  schema_version: 2;
   release_status: 'pending' | 'approved';
   source_commit: string;
   /** Exact per-UID resolved English identities authorized by the recorded decisions. */
   authorized_uid_source_sha256: Record<string, string>;
   profile: { status: 'pending' | 'approved'; id: string | null; sha256: string | null };
   approvals: {
-    source_rights: ApprovalReference;
+    source_rights: SourceRightsApproval;
     provider_use: ApprovalReference & { provider: string | null; model: string | null; tier: 'free' | 'paid' | null };
     cost_ceiling: ApprovalReference & {
       max_usd: number | null;
@@ -93,7 +106,7 @@ export function englishAudioAuthorizationIssues(
   if (source.status !== 'ready' || !source.source_sha256) issues.push('resolved English source is not ready');
   if (!isRecord(manifest)) return [...issues, 'English audio approval manifest is missing or malformed'];
   const candidate = manifest as Partial<EnglishAudioApprovalManifest>;
-  if (candidate.schema_version !== 1) issues.push('English audio approval manifest schema is unsupported');
+  if (candidate.schema_version !== 2) issues.push('English audio approval manifest schema is unsupported');
   if (candidate.release_status !== 'approved') issues.push('English audio release approvals are pending');
   if (candidate.source_commit !== source.source_commit) issues.push('approval manifest source commit is stale');
 
@@ -115,11 +128,22 @@ export function englishAudioAuthorizationIssues(
   if (!isRecord(candidate.approvals)) {
     issues.push('English audio approval references are missing');
   } else {
-    for (const key of ENGLISH_AUDIO_APPROVAL_KEYS) {
+    for (const key of englishAudioRequiredApprovalKeys(source)) {
       const approval = candidate.approvals[key];
       if (!isRecord(approval) || approval.status !== 'approved'
         || typeof approval.reference !== 'string' || !approval.reference.trim()) {
         issues.push(`English audio approval is pending: ${key}`);
+      }
+    }
+
+    if (source.source_segment_counts['english-sujato'] > 0) {
+      const rights = candidate.approvals.source_rights;
+      if (!isRecord(rights)
+        || !['written-permission', 'editor-legal-decision'].includes(rights.basis as string)
+        || rights.ai_derived_tts_allowed !== true
+        || rights.public_audio_distribution_allowed !== true
+        || typeof rights.source_scope_reference !== 'string' || !rights.source_scope_reference.trim()) {
+        issues.push('Sujato-derived English requires an explicit AI-TTS and public-audio rights resolution with source scope');
       }
     }
 
@@ -168,12 +192,16 @@ export function englishAudioRegistrationAuthorizationIssues(
     || !isRecord(manifest) || !isRecord(manifest.approvals)) {
     return [...issues, 'English registration approval references are missing'];
   }
-  for (const key of ENGLISH_AUDIO_APPROVAL_KEYS) {
+  for (const key of englishAudioRequiredApprovalKeys(source)) {
     const expected = manifest.approvals[key];
     if (!isRecord(expected) || typeof expected.reference !== 'string'
       || registration.approval_refs[key] !== expected.reference) {
       issues.push(`Registration approval reference does not match: ${key}`);
     }
+  }
+  if (source.source_segment_counts['english-sujato'] === 0
+    && registration.approval_refs.source_rights !== null) {
+    issues.push('Project-only English must not claim a Sujato rights approval');
   }
 
   const distribution = manifest.approvals.public_distribution;

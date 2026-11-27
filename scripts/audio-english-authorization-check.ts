@@ -17,12 +17,22 @@ import { englishAudioSource } from '../src/lib/canon/english-audio';
 import { englishAudioApprovalScopeIssues, englishAudioAuthorizationIssues, loadEnglishAudioApprovalManifest } from '../src/lib/canon/english-audio-authorization';
 
 const args = process.argv.slice(2);
-const usage = 'Usage: node --import tsx scripts/audio-english-authorization-check.ts --preflight <file> --output <file> [--report-only]';
+const usage = 'Usage: node --import tsx scripts/audio-english-authorization-check.ts --preflight <file> --output <file> [--project-only] [--report-only]';
 let preflightPath: string | undefined;
 let outputPath: string | undefined;
+let projectOnly = false;
 let reportOnly = false;
 for (let index = 0; index < args.length;) {
   const arg = args[index];
+  if (arg === '--project-only') {
+    if (projectOnly) {
+      console.error(`${usage}\nDuplicate --project-only option.`);
+      process.exit(2);
+    }
+    projectOnly = true;
+    index += 1;
+    continue;
+  }
   if (arg === '--report-only') {
     if (reportOnly) {
       console.error(`${usage}\nDuplicate --report-only option.`);
@@ -123,6 +133,8 @@ for (const candidate of preflight.candidate_uids) {
   if (document.commit !== lock.commit) throw new Error(`${candidate}: composed document is on a different source commit.`);
   const project = resolveLayer('english-project', collection, uid, { catalog });
   const source = englishAudioSource(document, project?.status ?? null);
+  if (projectOnly && (source.source_segment_counts['english-sujato'] > 0
+    || source.source_segment_counts['english-project'] === 0)) continue;
   const profileIdentity = {
     id: profile?.id ?? null,
     sha256: profile?.sha256 ?? null,
@@ -144,6 +156,8 @@ for (const candidate of preflight.candidate_uids) {
   });
 }
 
+if (projectOnly && records.length === 0) throw new Error('The current preflight has no project-only English candidates.');
+
 const authorized = records.filter((record) => record.status === 'authorized');
 const manifestAllowlist = approvalManifest && typeof approvalManifest === 'object'
   ? (approvalManifest as { authorized_uid_source_sha256?: Record<string, string> }).authorized_uid_source_sha256 ?? {} : {};
@@ -152,6 +166,8 @@ const report = {
   schema_version: 1,
   generated_at: new Date().toISOString(),
   source_commit: lock.commit,
+  authorization_scope: projectOnly ? 'project-only' : 'all-current-candidates',
+  preflight_candidate_count: preflight.totals.candidates,
   preflight_generated_at: preflight.generated_at,
   preflight_sha256: createHash('sha256').update(preflightBytes).digest('hex'),
   approval_manifest_sha256: manifestSha256,
@@ -168,5 +184,5 @@ const report = {
 
 mkdirSync(path.dirname(resolvedOutput), { recursive: true });
 writeFileSync(resolvedOutput, `${JSON.stringify(report, null, 2)}\n`);
-process.stderr.write(`English authorization check: ${authorized.length}/${records.length} UIDs authorized; provider calls 0; uploads 0.\n`);
+process.stderr.write(`English authorization check (${report.authorization_scope}): ${authorized.length}/${records.length} UIDs authorized; provider calls 0; uploads 0.\n`);
 if (!reportOnly && (authorized.length !== records.length || authorizationScopeIssues.length > 0)) process.exitCode = 1;

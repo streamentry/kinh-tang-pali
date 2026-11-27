@@ -8,7 +8,7 @@ import { composeDocument } from '../../src/lib/canon/document';
 import { COLLECTIONS, loadCatalog } from '../../src/lib/canon/load';
 import { englishAudioSource, englishAudioTranscriptHash } from '../../src/lib/canon/english-audio';
 import { audioPlayerData, englishAudioRegistrationVersion, loadAudio, loadEnglishAudioVersion, narrationHash, type EnglishAudioRegistration } from '../../src/lib/canon/audio';
-import { englishAudioApprovalScopeIssues, englishAudioR2ObjectKey } from '../../src/lib/canon/english-audio-authorization';
+import { englishAudioApprovalScopeIssues, englishAudioR2ObjectKey, englishAudioRequiredApprovalKeys } from '../../src/lib/canon/english-audio-authorization';
 import { contentMetaPathForLayer, resolveLayer } from '../../src/lib/canon/layers';
 import type { EnglishAudioApprovalManifest } from '../../src/lib/canon/english-audio-authorization';
 
@@ -112,14 +112,29 @@ function registrationFor(
 
 function approvedManifestFor(source: ReturnType<typeof englishAudioSource>, registration: EnglishAudioRegistration): EnglishAudioApprovalManifest {
   const approvalRefs = registration.approval_refs;
+  const usesSujato = source.source_segment_counts['english-sujato'] > 0;
   return {
-    schema_version: 1,
+    schema_version: 2,
     release_status: 'approved',
     source_commit: source.source_commit,
     authorized_uid_source_sha256: { [`${source.collection}/${source.uid}`]: source.source_sha256! },
     profile: { status: 'approved', id: registration.narration_profile_id, sha256: registration.narration_profile_sha256 },
     approvals: {
-      source_rights: { status: 'approved', reference: approvalRefs.source_rights },
+      source_rights: usesSujato ? {
+        status: 'approved',
+        reference: approvalRefs.source_rights,
+        basis: 'editor-legal-decision',
+        ai_derived_tts_allowed: true,
+        public_audio_distribution_allowed: true,
+        source_scope_reference: 'editorial-decision:test-source-scope',
+      } : {
+        status: 'pending',
+        reference: null,
+        basis: null,
+        ai_derived_tts_allowed: null,
+        public_audio_distribution_allowed: null,
+        source_scope_reference: null,
+      },
       provider_use: { status: 'approved', reference: approvalRefs.provider_use, provider: 'Gemini', model: 'gemini-test-tts', tier: 'paid' },
       cost_ceiling: { status: 'approved', reference: approvalRefs.cost_ceiling, max_usd: 100, retry_limit: 2, includes_r2_operations: true, includes_r2_storage_and_egress: true },
       voice_sample: { status: 'approved', reference: approvalRefs.voice_sample, approver: 'English editor test', sample_sha256: 'c'.repeat(64), profile_sha256: registration.narration_profile_sha256 },
@@ -127,6 +142,42 @@ function approvedManifestFor(source: ReturnType<typeof englishAudioSource>, regi
     },
   };
 }
+
+test('project-only English can use the separately approved pilot path without clearing Sujato rights', () => {
+  const document = composeDocument('kn', 'bv1');
+  const project = resolveLayer('english-project', 'kn', 'bv1');
+  assert.ok(project?.present && project.contentPath && project.status === 'published');
+  const source = englishAudioSource(document, project.status);
+  assert.equal(source.source_segment_counts['english-sujato'], 0);
+  assert.ok(source.source_segment_counts['english-project'] > 0);
+
+  const metaPath = contentMetaPathForLayer(project.layer, 'kn', 'bv1');
+  assert.ok(metaPath);
+  const projectMetaSha256 = sha256(metaPath);
+  const dependencies = [
+    { path: repoPath(project.contentPath), sha256: sha256(project.contentPath) },
+    { path: repoPath(metaPath), sha256: projectMetaSha256 },
+  ];
+  const registration = registrationFor(source, dependencies, projectMetaSha256);
+  registration.approval_refs.source_rights = null;
+  const approvals = approvedManifestFor(source, registration);
+  assert.equal(approvals.approvals.source_rights.status, 'pending');
+  assert.deepEqual(englishAudioRequiredApprovalKeys(source), [
+    'provider_use', 'cost_ceiling', 'voice_sample', 'public_distribution',
+  ]);
+  assert.ok(englishAudioRegistrationVersion(source, registration, dependencies, projectMetaSha256, approvals));
+
+  const sujato = sourceAndDependencies();
+  const sujatoRegistration = registrationFor(sujato.source, sujato.dependencies, sujato.projectMetaSha256);
+  const sujatoApprovals = approvedManifestFor(sujato.source, sujatoRegistration);
+  sujatoApprovals.approvals.source_rights = {
+    status: 'pending', reference: null, basis: null, ai_derived_tts_allowed: null,
+    public_audio_distribution_allowed: null, source_scope_reference: null,
+  };
+  assert.equal(englishAudioRegistrationVersion(
+    sujato.source, sujatoRegistration, sujato.dependencies, sujato.projectMetaSha256, sujatoApprovals,
+  ), null, 'Sujato-derived audio remains hidden until explicit rights clearance');
+});
 
 test('English registration binds source, provenance, review metadata, approvals and public R2 evidence', () => {
   const { document, source, dependencies, projectMetaSha256 } = sourceAndDependencies();
@@ -154,6 +205,10 @@ test('English registration binds source, provenance, review metadata, approvals 
   assert.equal(englishAudioRegistrationVersion(source, registration, dependencies, projectMetaSha256, {
     ...approvals,
     approvals: { ...approvals.approvals, cost_ceiling: { ...approvals.approvals.cost_ceiling, includes_r2_operations: false } },
+  }), null);
+  assert.equal(englishAudioRegistrationVersion(source, registration, dependencies, projectMetaSha256, {
+    ...approvals,
+    approvals: { ...approvals.approvals, source_rights: { ...approvals.approvals.source_rights, ai_derived_tts_allowed: false } },
   }), null);
   assert.equal(englishAudioRegistrationVersion(source, registration, dependencies, projectMetaSha256, {
     ...approvals,
