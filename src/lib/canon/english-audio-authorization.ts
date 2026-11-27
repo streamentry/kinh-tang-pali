@@ -66,6 +66,18 @@ export function loadEnglishAudioApprovalManifest(repositoryRoot = process.cwd())
   catch { return null; }
 }
 
+/** Reject an allowlist that still names UIDs outside a fresh complete preflight. */
+export function englishAudioApprovalScopeIssues(candidateUids: readonly string[], manifest: unknown): string[] {
+  if (!isRecord(manifest)) return ['English approval manifest is missing or malformed'];
+  const allowlist = manifest.authorized_uid_source_sha256;
+  if (!isRecord(allowlist)) return ['English approval UID allowlist is missing or malformed'];
+  const current = new Set(candidateUids);
+  const stale = Object.keys(allowlist).filter((uid) => !current.has(uid));
+  return stale.length > 0
+    ? [`English approval UID allowlist contains ${stale.length} UID(s) outside the current preflight`]
+    : [];
+}
+
 /** Shared pre-provider/pre-upload gate for a single current resolved English UID. */
 export function englishAudioAuthorizationIssues(
   source: EnglishAudioSource,

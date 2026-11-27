@@ -14,7 +14,7 @@ import { composeDocument } from '../src/lib/canon/document';
 import { resolveLayer } from '../src/lib/canon/layers';
 import { manifestCommit } from '../src/lib/canon/manifest';
 import { englishAudioSource } from '../src/lib/canon/english-audio';
-import { englishAudioAuthorizationIssues, loadEnglishAudioApprovalManifest } from '../src/lib/canon/english-audio-authorization';
+import { englishAudioApprovalScopeIssues, englishAudioAuthorizationIssues, loadEnglishAudioApprovalManifest } from '../src/lib/canon/english-audio-authorization';
 
 const args = process.argv.slice(2);
 const usage = 'Usage: node --import tsx scripts/audio-english-authorization-check.ts --preflight <file> --output <file> [--report-only]';
@@ -112,6 +112,7 @@ const profile = approvalManifest && typeof approvalManifest === 'object'
 const records: Array<Record<string, unknown>> = [];
 const blockerCounts = new Map<string, number>();
 const currentCandidates = new Set(preflight.candidate_uids);
+const authorizationScopeIssues = englishAudioApprovalScopeIssues(preflight.candidate_uids, approvalManifest);
 for (const candidate of preflight.candidate_uids) {
   const split = candidate.indexOf('/');
   if (split < 1) throw new Error(`Invalid candidate UID: ${candidate}`);
@@ -158,6 +159,7 @@ const report = {
   authorized_count: authorized.length,
   blocked_count: records.length - authorized.length,
   manifest_uids_outside_current_candidate_set: extraManifestUids,
+  authorization_scope_issues: authorizationScopeIssues,
   blockers_by_reason: Object.fromEntries([...blockerCounts.entries()].sort(([a], [b]) => a.localeCompare(b))),
   uids: records,
   provider_calls: 0,
@@ -167,4 +169,4 @@ const report = {
 mkdirSync(path.dirname(resolvedOutput), { recursive: true });
 writeFileSync(resolvedOutput, `${JSON.stringify(report, null, 2)}\n`);
 process.stderr.write(`English authorization check: ${authorized.length}/${records.length} UIDs authorized; provider calls 0; uploads 0.\n`);
-if (!reportOnly && authorized.length !== records.length) process.exitCode = 1;
+if (!reportOnly && (authorized.length !== records.length || authorizationScopeIssues.length > 0)) process.exitCode = 1;

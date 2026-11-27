@@ -8,7 +8,7 @@ import { composeDocument } from '../../src/lib/canon/document';
 import { COLLECTIONS, loadCatalog } from '../../src/lib/canon/load';
 import { englishAudioSource, englishAudioTranscriptHash } from '../../src/lib/canon/english-audio';
 import { audioPlayerData, englishAudioRegistrationVersion, loadAudio, loadEnglishAudioVersion, narrationHash, type EnglishAudioRegistration } from '../../src/lib/canon/audio';
-import { englishAudioR2ObjectKey } from '../../src/lib/canon/english-audio-authorization';
+import { englishAudioApprovalScopeIssues, englishAudioR2ObjectKey } from '../../src/lib/canon/english-audio-authorization';
 import { contentMetaPathForLayer, resolveLayer } from '../../src/lib/canon/layers';
 import type { EnglishAudioApprovalManifest } from '../../src/lib/canon/english-audio-authorization';
 
@@ -26,6 +26,19 @@ test('English R2 key builder accepts every UID in the five-Nikāya catalog', () 
       assert.equal(key, `en/${code}/${uid}/${sourceHash}-${profileHash}/${objectHash}.mp3`);
     }
   }
+});
+
+test('English approval allowlist cannot authorize UIDs outside a fresh candidate set', () => {
+  const manifest = {
+    authorized_uid_source_sha256: { 'dn/dn1': 'a'.repeat(64) },
+  };
+  assert.deepEqual(englishAudioApprovalScopeIssues(['dn/dn1'], manifest), []);
+  assert.deepEqual(englishAudioApprovalScopeIssues(['dn/dn1'], {
+    authorized_uid_source_sha256: { ...manifest.authorized_uid_source_sha256, 'kn/dhp1-20': 'b'.repeat(64) },
+  }), ['English approval UID allowlist contains 1 UID(s) outside the current preflight']);
+  assert.deepEqual(englishAudioApprovalScopeIssues(['dn/dn1'], { authorized_uid_source_sha256: null }), [
+    'English approval UID allowlist is missing or malformed',
+  ]);
 });
 
 function sourceAndDependencies() {
