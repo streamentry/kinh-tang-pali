@@ -88,10 +88,10 @@ function approvedManifestFor(source: ReturnType<typeof englishAudioSource>, regi
     profile: { status: 'approved', id: registration.narration_profile_id, sha256: registration.narration_profile_sha256 },
     approvals: {
       source_rights: { status: 'approved', reference: approvalRefs.source_rights },
-      provider_use: { status: 'approved', reference: approvalRefs.provider_use },
-      cost_ceiling: { status: 'approved', reference: approvalRefs.cost_ceiling },
-      voice_sample: { status: 'approved', reference: approvalRefs.voice_sample },
-      public_distribution: { status: 'approved', reference: approvalRefs.public_distribution },
+      provider_use: { status: 'approved', reference: approvalRefs.provider_use, provider: 'Gemini', model: 'gemini-test-tts', tier: 'paid' },
+      cost_ceiling: { status: 'approved', reference: approvalRefs.cost_ceiling, max_usd: 100, retry_limit: 2, includes_r2_storage_and_egress: true },
+      voice_sample: { status: 'approved', reference: approvalRefs.voice_sample, approver: 'English editor test', sample_sha256: 'c'.repeat(64), profile_sha256: registration.narration_profile_sha256 },
+      public_distribution: { status: 'approved', reference: approvalRefs.public_distribution, destination: 'r2-public', bucket: 'test-audio', key_prefix: 'en/' },
     },
   };
 }
@@ -115,6 +115,18 @@ test('English registration binds source, provenance, review metadata, approvals 
   assert.equal(englishAudioRegistrationVersion(source, registration, dependencies, projectMetaSha256), null, 'the repository approval manifest is pending by default');
   assert.equal(englishAudioRegistrationVersion(source, registration, dependencies, projectMetaSha256, { ...approvals, authorized_uid_source_sha256: {} }), null);
   assert.equal(englishAudioRegistrationVersion(source, registration, dependencies, projectMetaSha256, { ...approvals, source_commit: 'stale-commit' }), null);
+  assert.equal(englishAudioRegistrationVersion(source, registration, dependencies, projectMetaSha256, {
+    ...approvals,
+    approvals: { ...approvals.approvals, cost_ceiling: { ...approvals.approvals.cost_ceiling, max_usd: null } },
+  }), null);
+  assert.equal(englishAudioRegistrationVersion(source, registration, dependencies, projectMetaSha256, {
+    ...approvals,
+    approvals: { ...approvals.approvals, provider_use: { ...approvals.approvals.provider_use, model: '' } },
+  }), null);
+  assert.equal(englishAudioRegistrationVersion(source, registration, dependencies, projectMetaSha256, {
+    ...approvals,
+    approvals: { ...approvals.approvals, public_distribution: { ...approvals.approvals.public_distribution, key_prefix: 'vi/' } },
+  }), null);
   assert.equal(englishAudioRegistrationVersion(source, { ...registration, approval_refs: { ...registration.approval_refs, source_rights: 'unregistered-ref' } }, dependencies, projectMetaSha256, approvals), null);
   assert.equal(englishAudioRegistrationVersion(source, { ...registration, public_range_verified: false }, dependencies, projectMetaSha256, approvals), null);
   assert.equal(englishAudioRegistrationVersion(source, { ...registration, duration_seconds: 1801 }, dependencies, projectMetaSha256, approvals), null);

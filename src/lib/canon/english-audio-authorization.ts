@@ -7,6 +7,7 @@ export const ENGLISH_AUDIO_APPROVAL_KEYS = [
 ] as const;
 
 export type EnglishAudioApprovalKey = (typeof ENGLISH_AUDIO_APPROVAL_KEYS)[number];
+interface ApprovalReference { status: 'pending' | 'approved'; reference: string | null; }
 
 export interface EnglishAudioApprovalManifest {
   schema_version: 1;
@@ -15,7 +16,13 @@ export interface EnglishAudioApprovalManifest {
   /** Exact per-UID resolved English identities authorized by the recorded decisions. */
   authorized_uid_source_sha256: Record<string, string>;
   profile: { status: 'pending' | 'approved'; id: string | null; sha256: string | null };
-  approvals: Record<EnglishAudioApprovalKey, { status: 'pending' | 'approved'; reference: string | null }>;
+  approvals: {
+    source_rights: ApprovalReference;
+    provider_use: ApprovalReference & { provider: string | null; model: string | null; tier: 'free' | 'paid' | null };
+    cost_ceiling: ApprovalReference & { max_usd: number | null; retry_limit: number | null; includes_r2_storage_and_egress: boolean };
+    voice_sample: ApprovalReference & { approver: string | null; sample_sha256: string | null; profile_sha256: string | null };
+    public_distribution: ApprovalReference & { destination: 'r2-public' | null; bucket: string | null; key_prefix: string | null };
+  };
 }
 
 type ProfileIdentity = { id: unknown; sha256: unknown };
@@ -69,6 +76,34 @@ export function englishAudioAuthorizationIssues(
         || typeof approval.reference !== 'string' || !approval.reference.trim()) {
         issues.push(`English audio approval is pending: ${key}`);
       }
+    }
+
+    const provider = candidate.approvals.provider_use;
+    if (!isRecord(provider) || typeof provider.provider !== 'string' || !provider.provider.trim()
+      || typeof provider.model !== 'string' || !provider.model.trim()
+      || !['free', 'paid'].includes(provider.tier as string)) {
+      issues.push('Approved English provider, model, or tier is missing');
+    }
+
+    const budget = candidate.approvals.cost_ceiling;
+    if (!isRecord(budget) || typeof budget.max_usd !== 'number' || !Number.isFinite(budget.max_usd) || budget.max_usd <= 0
+      || typeof budget.retry_limit !== 'number' || !Number.isInteger(budget.retry_limit) || budget.retry_limit < 0
+      || budget.includes_r2_storage_and_egress !== true) {
+      issues.push('Approved total cost ceiling or retry allowance is missing');
+    }
+
+    const sample = candidate.approvals.voice_sample;
+    if (!isRecord(sample) || typeof sample.approver !== 'string' || !sample.approver.trim()
+      || typeof sample.sample_sha256 !== 'string' || !/^[0-9a-f]{64}$/.test(sample.sample_sha256)
+      || sample.profile_sha256 !== candidate.profile?.sha256) {
+      issues.push('Approved English voice sample identity is missing or stale');
+    }
+
+    const distribution = candidate.approvals.public_distribution;
+    if (!isRecord(distribution) || distribution.destination !== 'r2-public'
+      || typeof distribution.bucket !== 'string' || !distribution.bucket.trim()
+      || distribution.key_prefix !== 'en/') {
+      issues.push('Approved public R2 destination or English key prefix is missing');
     }
   }
   return [...new Set(issues)];
