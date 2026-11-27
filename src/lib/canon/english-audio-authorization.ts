@@ -42,7 +42,12 @@ export interface EnglishAudioApprovalManifest {
   approvals: {
     source_rights: ApprovalReference;
     provider_use: ApprovalReference & { provider: string | null; model: string | null; tier: 'free' | 'paid' | null };
-    cost_ceiling: ApprovalReference & { max_usd: number | null; retry_limit: number | null; includes_r2_storage_and_egress: boolean };
+    cost_ceiling: ApprovalReference & {
+      max_usd: number | null;
+      retry_limit: number | null;
+      includes_r2_operations: boolean;
+      includes_r2_storage_and_egress: boolean;
+    };
     voice_sample: ApprovalReference & { approver: string | null; sample_sha256: string | null; profile_sha256: string | null };
     public_distribution: ApprovalReference & {
       destination: 'r2-public' | null;
@@ -128,8 +133,9 @@ export function englishAudioAuthorizationIssues(
     const budget = candidate.approvals.cost_ceiling;
     if (!isRecord(budget) || typeof budget.max_usd !== 'number' || !Number.isFinite(budget.max_usd) || budget.max_usd <= 0
       || typeof budget.retry_limit !== 'number' || !Number.isInteger(budget.retry_limit) || budget.retry_limit < 0
+      || budget.includes_r2_operations !== true
       || budget.includes_r2_storage_and_egress !== true) {
-      issues.push('Approved total cost ceiling or retry allowance is missing');
+      issues.push('Approved total cost ceiling, retry allowance, or R2 operation/storage/egress coverage is missing');
     }
 
     const sample = candidate.approvals.voice_sample;

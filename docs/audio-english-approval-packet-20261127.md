@@ -86,13 +86,15 @@ For voice selection, do not assume Charon or the Vietnamese style works in Engli
 
 Cloudflare's [R2 pricing page](https://developers.cloudflare.com/r2/pricing/) lists Standard storage at $0.015/GB-month, Class A operations at $4.50/million, and Class B at $0.36/million. Direct R2 egress is free. The monthly free tier covers 10 GB-month, 1 million Class A operations, and 10 million Class B operations; existing account use is unknown, so do not assume that allowance is unused. Rates were checked 2026-11-27; recheck before upload.
 
+There is a hard-cap conflict for public playback. Reads beyond the free Class B allowance are billable and depend on listener traffic. Cloudflare [budget alerts only notify](https://developers.cloudflare.com/billing/manage/budget-alerts/); they do not stop usage, and the documented [spending limits do not include R2](https://developers.cloudflare.com/billing/manage/spend-management/). A direct public bucket therefore cannot enforce a hard all-in dollar ceiling on open-ended playback. The current approval manifest can cap TTS generation, but it cannot cap arbitrary public R2 reads. Resolve this before public distribution: design and approve a delivery route with a verified request cap, or explicitly change the hard-cap requirement to accept variable read costs with monitoring.
+
 The final R2 estimate still needs the approved English encoding and multipart plan to count bytes and object operations. Public playback volume is also unknown. Cloudflare describes the managed `r2.dev` URL as a non-production option; use and approve a production custom domain for full-corpus release, following its [public bucket guidance](https://developers.cloudflare.com/r2/buckets/public-buckets/). No English bucket or domain has been selected or created.
 
 ## Explicit decisions still needed
 
 1. **Rights:** written permission or a documented editor/legal decision that explicitly addresses AI-derived narration of the pinned source, with scope covering the relevant source units. If unresolved, Sujato-derived TTS remains blocked.
 2. **Provider:** approve the exact provider, model, and paid/free tier for a sample and production. No Gemini request has been made for English.
-3. **Budget:** specify a maximum USD spend that includes voice/sample work, input and audio tokens, a bounded retry allowance, R2 storage, and egress. The ranges above exclude input tokens, samples, retries, and R2 costs; they are not the ceiling.
+3. **Budget:** specify a maximum USD spend that includes voice/sample work, input and audio tokens, a bounded retry allowance, and R2 storage plus Class A/B operations. Direct R2 egress is currently free. The ranges above exclude input tokens, samples, retries, and R2 costs; they are not the ceiling. A direct public bucket cannot enforce a hard cap on variable listener reads.
 4. **Voice and pace:** approve an English-speaking editor to listen to the sample and approve the separate English profile before scaling.
 5. **Distribution:** explicitly approve the public R2 bucket and HTTPS production custom-domain base URL, plus immutable `en/<collection>/<uid>/<content-and-profile-hash>/` keys. `source/audio-storage.json` documents a public bucket and base URL for Vietnamese narration; it does not authorize English uploads.
 

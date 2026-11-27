@@ -121,7 +121,7 @@ function approvedManifestFor(source: ReturnType<typeof englishAudioSource>, regi
     approvals: {
       source_rights: { status: 'approved', reference: approvalRefs.source_rights },
       provider_use: { status: 'approved', reference: approvalRefs.provider_use, provider: 'Gemini', model: 'gemini-test-tts', tier: 'paid' },
-      cost_ceiling: { status: 'approved', reference: approvalRefs.cost_ceiling, max_usd: 100, retry_limit: 2, includes_r2_storage_and_egress: true },
+      cost_ceiling: { status: 'approved', reference: approvalRefs.cost_ceiling, max_usd: 100, retry_limit: 2, includes_r2_operations: true, includes_r2_storage_and_egress: true },
       voice_sample: { status: 'approved', reference: approvalRefs.voice_sample, approver: 'English editor test', sample_sha256: 'c'.repeat(64), profile_sha256: registration.narration_profile_sha256 },
       public_distribution: { status: 'approved', reference: approvalRefs.public_distribution, destination: 'r2-public', bucket: 'test-audio', public_base_url: 'https://audio.example.org', key_prefix: 'en/' },
     },
@@ -150,6 +150,10 @@ test('English registration binds source, provenance, review metadata, approvals 
   assert.equal(englishAudioRegistrationVersion(source, registration, dependencies, projectMetaSha256, {
     ...approvals,
     approvals: { ...approvals.approvals, cost_ceiling: { ...approvals.approvals.cost_ceiling, max_usd: null } },
+  }), null);
+  assert.equal(englishAudioRegistrationVersion(source, registration, dependencies, projectMetaSha256, {
+    ...approvals,
+    approvals: { ...approvals.approvals, cost_ceiling: { ...approvals.approvals.cost_ceiling, includes_r2_operations: false } },
   }), null);
   assert.equal(englishAudioRegistrationVersion(source, registration, dependencies, projectMetaSha256, {
     ...approvals,
