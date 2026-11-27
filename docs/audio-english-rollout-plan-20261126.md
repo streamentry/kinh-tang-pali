@@ -1,6 +1,6 @@
 # English Audio Rollout Plan
 
-Plan created 2026-11-26; status updated 2026-11-27: provider-free preflight is merged, and English player/registration support merged in PR #2113 at `03c5be00a9704a07e7f0629d1ca5818d35b0f1de`. No English Gemini requests, R2 uploads, or English voice profile changes have been made. The Sujato AI-use gate remains unresolved.
+Plan created 2026-11-26; status updated 2026-11-27: provider-free preflight and English player/registration support are merged. PR #2115, which defers media fetch until Play, is open for exact-head CI and a fresh production check. No English Gemini requests, R2 uploads, or English voice profile changes have been made. The Sujato AI-use gate remains unresolved.
 
 ## Goal and scope
 
@@ -65,7 +65,11 @@ Costing follows the approved English sample and a language-specific chunk prefli
 
 ## Completion criteria
 
-The technical phase is complete when every rights-cleared candidate UID in the approved preflight has a generated English track, verified R2 registration, merged registration, and current production player proof; collection playback preserves English and stops rather than falling back when a track is missing. Excluded texts, source provenance, and any rights restrictions remain visible in the audit. No English track is considered human-approved until it has actually been heard; all such tracks remain `review_status: pending` until that happens.
+The full audio-delivery goal remains the complete candidate set from the final current preflight. Rights, provider, profile/sample, budget, and distribution approvals are prerequisites for producing those candidates; they do not narrow the objective. If any candidate remains blocked or lacks audio because an approval is unresolved, the five-Nikāya goal remains incomplete. Do not report a rights-cleared subset or a KN-only pilot as completion.
+
+Audio delivery is complete only when every candidate UID in the final preflight has been generated, R2-verified, registered, merged, and confirmed in the current production player; collection playback must preserve English and stop rather than fall back when a track is missing. Catalog texts with no resolved English remain outside the current candidate set and must be listed as exclusions; if a published English source later makes one eligible, include it in the next preflight. Keep source provenance and remaining rights restrictions visible in the audit.
+
+Human listening is a separate approval layer. No English track is considered human-approved until a person has actually heard and approved its spoken content; otherwise keep `review_status: pending`.
 
 ## Implementation checkpoint — 2026-11-27
 
@@ -74,6 +78,8 @@ The provider-free preflight command was merged in commit `c7f714e8912eecc56c0fe4
 Player and registration support merged in PR #2113 at `03c5be00a9704a07e7f0629d1ca5818d35b0f1de`. It adds the `english-standard` track to the existing reader and collection player, reads only `content/audio/en/<collection>/<uid>.json`, binds registrations to the resolved English source, segment provenance, pinned commit, English-fill metadata hash, profile hash, approval references, and R2 verification fields, and keeps `review_status` separate. The English collection option stays disabled unless every text in that collection or group has a verified English track. A saved English choice with no available track stops and reports that Vietnamese audio was not started. Vietnamese remains the default; selecting a track does not autoplay.
 
 Local verification on the working branch: 594 tests (590 passed, 4 skipped); validation passed with 2,275 existing warnings; quality history checked 5,840 records with no errors; explanation audit checked 558 published audience versions with no errors; Astro check had zero errors/warnings and 52 hints; design check passed. Direct Astro build rendered 7,814 pages and Pagefind indexed 6,991. Installed Chrome verified the selector, no-autoplay state, no cross-language fallback, group completeness rule, and no horizontal overflow at 1440, 1024, 390, and 320 px. External HTTPS requests were blocked during this local UI check, so it does not prove R2 playback or English audio behavior.
+
+Pages run `45999632315` deployed the merged player commit. Production Chrome confirmed the English-unavailable state, no autoplay or Vietnamese playback fallback, collection disablement, and narrow-screen layout. It also found that the native audio element requested the Vietnamese original before a tap because it advertised metadata preload. PR #2115 (`ff83a805018fdef994e7aa4c1a97e215058fe003`) defers the media fetch until Play and is open for exact-head CI and a fresh production check. No English assets exist, so English play/seek has not been tested and is not applicable yet.
 
 No English profile or audio sidecars have been created. Rights, provider, sample, budget, and public-distribution approvals remain unresolved. Human listening remains pending for any future track. The provider-free source-by-source rights audit and decision packet are in [`audio-english-approval-packet-20261127.md`](audio-english-approval-packet-20261127.md) and [`audio-english-source-rights-map-20261127.json`](audio-english-source-rights-map-20261127.json); these records do not grant TTS or distribution authorization.
 
@@ -84,4 +90,5 @@ No English profile or audio sidecars have been created. Rights, provider, sample
 - Provider-free preflight implementation and source fingerprinting: [`scripts/audio-english-preflight.ts`](../scripts/audio-english-preflight.ts), [`src/lib/canon/english-audio.ts`](../src/lib/canon/english-audio.ts).
 - Initial source and eligibility snapshot: [`audio-english-preflight-inventory-20261126.json`](audio-english-preflight-inventory-20261126.json).
 - Current provider-free snapshot: [`audio-english-preflight-inventory-20261127.json`](audio-english-preflight-inventory-20261127.json).
+- Per-UID source and rights map plus decision packet: available on open [PR #2114](https://github.com/streamentry/kinh-tang-pali/pull/2114); these provider-free records do not grant TTS or distribution authorization.
 - Existing Vietnamese audio contract and no-ASR/review rules: [`docs/audio.md`](audio.md).
