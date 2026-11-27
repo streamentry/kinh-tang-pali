@@ -90,5 +90,16 @@ No English profile or audio sidecars have been created. Rights, provider, sample
 - Provider-free preflight implementation and source fingerprinting: [`scripts/audio-english-preflight.ts`](../scripts/audio-english-preflight.ts), [`src/lib/canon/english-audio.ts`](../src/lib/canon/english-audio.ts).
 - Initial source and eligibility snapshot: [`audio-english-preflight-inventory-20261126.json`](audio-english-preflight-inventory-20261126.json).
 - Current provider-free snapshot: [`audio-english-preflight-inventory-20261127.json`](audio-english-preflight-inventory-20261127.json).
-- Per-UID source and rights map plus decision packet: available on open [PR #2114](https://github.com/streamentry/kinh-tang-pali/pull/2114); these provider-free records do not grant TTS or distribution authorization.
+- Per-UID source and rights map plus decision packet: [`audio-english-source-rights-map-20261127.json`](audio-english-source-rights-map-20261127.json) and [`audio-english-approval-packet-20261127.md`](audio-english-approval-packet-20261127.md), merged in PR #2114 at `96488ffa9ec2088149586b79122fe92886df5ee3`. These provider-free records do not grant TTS or distribution authorization.
+- Provider-free approval allowlist audit: [`scripts/audio-english-authorization-check.ts`](../scripts/audio-english-authorization-check.ts), gated by [`source/english-audio-approvals.json`](../source/english-audio-approvals.json). It makes no provider calls or uploads.
 - Existing Vietnamese audio contract and no-ASR/review rules: [`docs/audio.md`](audio.md).
+
+## Latest implementation checkpoint — 2026-11-27 UTC
+
+PR #2114 merged as `96488ffa9ec2088149586b79122fe92886df5ee3`. A fresh provider-free preflight at `2026-11-27T18:03:31Z` reproduced the pinned snapshot: 4,702 candidates, 1,435 texts without English, zero partial or blocked candidates, and zero provider calls or uploads. A fresh source map matched all 4,702 committed UID and source-hash records. The approval audit found 0/4,702 UIDs authorized; source-rights, provider, cost, voice-sample, public-distribution, profile, and per-UID identity approvals remain pending.
+
+PR #2115 remains open for player and fail-closed registration work. Its prior native browser check failed because the fixture expected media to load when a listener selected a version. The fixture now matches the source-free player markup and checks that audio loads only after explicit Play; hosted CI on the updated branch is required to verify this path. Local unit verification on the branch after merging current `main` passed 601 tests (596 passed, 5 skipped), and `npm run check` reported 0 errors, 0 warnings, and 5 existing hints. The browser integration test could not run locally because Playwright is absent from that worktree. A prior full build reached 2.9 GB in ignored `dist/` during image-variant optimization and was stopped; its partial output was removed.
+
+The fresh authorization audit at `2026-11-27T18:25:15Z` found 0/4,702 UIDs authorized. The rights, provider, cost ceiling, voice sample, public distribution, profile, and per-UID source-identity gates remain pending. It recorded zero provider calls and zero uploads.
+
+No English profile or sidecar audio exists. No English provider call or R2 write has occurred. Human listening remains pending. The full five-Nikāya goal remains incomplete.

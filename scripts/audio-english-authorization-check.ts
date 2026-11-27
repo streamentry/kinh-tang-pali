@@ -127,7 +127,11 @@ for (const candidate of preflight.candidate_uids) {
     sha256: profile?.sha256 ?? null,
   };
   const blockers = englishAudioAuthorizationIssues(source, profileIdentity, approvalManifest);
-  for (const blocker of blockers) blockerCounts.set(blocker, (blockerCounts.get(blocker) ?? 0) + 1);
+  for (const blocker of blockers) {
+    const reason = blocker.startsWith('UID source identity is not authorized: ')
+      ? 'UID source identity is not authorized' : blocker;
+    blockerCounts.set(reason, (blockerCounts.get(reason) ?? 0) + 1);
+  }
   records.push({
     uid: candidate,
     source_sha256: source.source_sha256,
