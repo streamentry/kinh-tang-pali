@@ -104,7 +104,7 @@ export function audioPlayerData(entry: AudioPlayerDataInput): AudioPlayerData {
   };
 }
 
-type AudioAssetPart = AudioPart & { sha256?: string; bytes?: number };
+type AudioAssetPart = AudioPart & { sha256?: string; bytes?: number; r2_key?: string };
 type AudioAsset = {
   url: string;
   duration_seconds: number;
@@ -131,6 +131,10 @@ export interface EnglishAudioRegistration extends AudioAsset {
   english_project_meta_sha256?: string | null;
   narration_profile_id: string;
   narration_profile_sha256: string;
+  /** The approved public bucket and immutable key for this audio object. */
+  r2_bucket: string;
+  /** Required for a single-file MP3; multipart assets bind keys on each part. */
+  r2_key?: string;
   /** Required references to separate rights, provider, budget, sample, and distribution approvals. */
   approval_refs: {
     source_rights: string;

@@ -45,6 +45,9 @@ function registrationFor(
   dependencies: Array<{ path: string; sha256: string }>,
   projectMetaSha256: string | null,
 ): EnglishAudioRegistration {
+  const profileSha256 = 'a'.repeat(64);
+  const artifactSha256 = 'b'.repeat(64);
+  const r2Key = `en/${source.collection}/${source.uid}/${source.source_sha256}-${profileSha256}/${artifactSha256}.mp3`;
   return {
     schema_version: 1,
     uid: source.uid,
@@ -59,7 +62,9 @@ function registrationFor(
     source_dependencies: dependencies,
     english_project_meta_sha256: projectMetaSha256,
     narration_profile_id: 'english-test-profile-v1',
-    narration_profile_sha256: 'a'.repeat(64),
+    narration_profile_sha256: profileSha256,
+    r2_bucket: 'test-audio',
+    r2_key: r2Key,
     approval_refs: {
       source_rights: 'editorial-decision:test-rights',
       provider_use: 'editorial-decision:test-provider',
@@ -67,9 +72,9 @@ function registrationFor(
       voice_sample: 'editorial-decision:test-sample',
       public_distribution: 'editorial-decision:test-distribution',
     },
-    url: 'https://audio.example.org/en/dn/dn25.mp3',
+    url: `https://audio.example.org/${r2Key}`,
     duration_seconds: 90,
-    sha256: 'b'.repeat(64),
+    sha256: artifactSha256,
     bytes: 1200,
     upload_verified: true,
     public_range_verified: true,
@@ -91,7 +96,7 @@ function approvedManifestFor(source: ReturnType<typeof englishAudioSource>, regi
       provider_use: { status: 'approved', reference: approvalRefs.provider_use, provider: 'Gemini', model: 'gemini-test-tts', tier: 'paid' },
       cost_ceiling: { status: 'approved', reference: approvalRefs.cost_ceiling, max_usd: 100, retry_limit: 2, includes_r2_storage_and_egress: true },
       voice_sample: { status: 'approved', reference: approvalRefs.voice_sample, approver: 'English editor test', sample_sha256: 'c'.repeat(64), profile_sha256: registration.narration_profile_sha256 },
-      public_distribution: { status: 'approved', reference: approvalRefs.public_distribution, destination: 'r2-public', bucket: 'test-audio', key_prefix: 'en/' },
+      public_distribution: { status: 'approved', reference: approvalRefs.public_distribution, destination: 'r2-public', bucket: 'test-audio', public_base_url: 'https://audio.example.org', key_prefix: 'en/' },
     },
   };
 }
@@ -127,10 +132,33 @@ test('English registration binds source, provenance, review metadata, approvals 
     ...approvals,
     approvals: { ...approvals.approvals, public_distribution: { ...approvals.approvals.public_distribution, key_prefix: 'vi/' } },
   }), null);
+  assert.equal(englishAudioRegistrationVersion(source, { ...registration, r2_bucket: 'unapproved-bucket' }, dependencies, projectMetaSha256, approvals), null);
+  assert.equal(englishAudioRegistrationVersion(source, { ...registration, r2_key: `vi/${registration.r2_key}` }, dependencies, projectMetaSha256, approvals), null);
+  assert.equal(englishAudioRegistrationVersion(source, { ...registration, url: 'https://other.example.org/audio.mp3' }, dependencies, projectMetaSha256, approvals), null);
+  assert.equal(englishAudioRegistrationVersion(source, registration, dependencies, projectMetaSha256, {
+    ...approvals,
+    approvals: { ...approvals.approvals, public_distribution: { ...approvals.approvals.public_distribution, public_base_url: 'http://audio.example.org' } },
+  }), null);
   assert.equal(englishAudioRegistrationVersion(source, { ...registration, approval_refs: { ...registration.approval_refs, source_rights: 'unregistered-ref' } }, dependencies, projectMetaSha256, approvals), null);
   assert.equal(englishAudioRegistrationVersion(source, { ...registration, public_range_verified: false }, dependencies, projectMetaSha256, approvals), null);
   assert.equal(englishAudioRegistrationVersion(source, { ...registration, duration_seconds: 1801 }, dependencies, projectMetaSha256, approvals), null);
   assert.equal(englishAudioRegistrationVersion({ ...source, status: 'blocked' }, registration, dependencies, projectMetaSha256, approvals), null);
+
+  const partHashes = ['d'.repeat(64), 'e'.repeat(64)];
+  const prefix = `en/${source.collection}/${source.uid}/${source.source_sha256}-${registration.narration_profile_sha256}/`;
+  const parts = partHashes.map((sha, index) => {
+    const r2_key = `${prefix}part-${String(index + 1).padStart(3, '0')}-${sha}.mp3`;
+    return { url: `https://audio.example.org/${r2_key}`, r2_key, sha256: sha, bytes: 1000, duration_seconds: 600 };
+  });
+  const orderedHash = createHash('sha256').update(partHashes.map(sha => `${sha}\n`).join('')).digest('hex');
+  const multipart = {
+    ...registration, url: parts[0].url, r2_key: undefined, parts, asset_kind: 'reading-parts-v1',
+    checksum_scope: 'ordered-part-sha256-lines', duration_seconds: 1200, sha256: orderedHash, bytes: 2000,
+  };
+  assert.ok(englishAudioRegistrationVersion(source, multipart, dependencies, projectMetaSha256, approvals));
+  assert.equal(englishAudioRegistrationVersion(source, {
+    ...multipart, parts: [{ ...parts[0], r2_key: 'en/dn/dn25/part-001.mp3' }, parts[1]],
+  }, dependencies, projectMetaSha256, approvals), null);
 
   const temporary = fs.mkdtempSync(path.join(os.tmpdir(), 'english-audio-registration-'));
   const originalCwd = process.cwd();

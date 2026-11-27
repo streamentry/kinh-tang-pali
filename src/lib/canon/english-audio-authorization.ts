@@ -21,7 +21,12 @@ export interface EnglishAudioApprovalManifest {
     provider_use: ApprovalReference & { provider: string | null; model: string | null; tier: 'free' | 'paid' | null };
     cost_ceiling: ApprovalReference & { max_usd: number | null; retry_limit: number | null; includes_r2_storage_and_egress: boolean };
     voice_sample: ApprovalReference & { approver: string | null; sample_sha256: string | null; profile_sha256: string | null };
-    public_distribution: ApprovalReference & { destination: 'r2-public' | null; bucket: string | null; key_prefix: string | null };
+    public_distribution: ApprovalReference & {
+      destination: 'r2-public' | null;
+      bucket: string | null;
+      public_base_url: string | null;
+      key_prefix: string | null;
+    };
   };
 }
 
@@ -102,8 +107,9 @@ export function englishAudioAuthorizationIssues(
     const distribution = candidate.approvals.public_distribution;
     if (!isRecord(distribution) || distribution.destination !== 'r2-public'
       || typeof distribution.bucket !== 'string' || !distribution.bucket.trim()
+      || typeof distribution.public_base_url !== 'string' || !isPublicHttpsBase(distribution.public_base_url)
       || distribution.key_prefix !== 'en/') {
-      issues.push('Approved public R2 destination or English key prefix is missing');
+      issues.push('Approved public R2 destination, HTTPS base URL, bucket, or English key prefix is missing');
     }
   }
   return [...new Set(issues)];
@@ -128,5 +134,44 @@ export function englishAudioRegistrationAuthorizationIssues(
       issues.push(`Registration approval reference does not match: ${key}`);
     }
   }
+
+  const distribution = manifest.approvals.public_distribution;
+  if (!isRecord(distribution) || typeof distribution.bucket !== 'string'
+    || typeof distribution.public_base_url !== 'string' || !isPublicHttpsBase(distribution.public_base_url)
+    || typeof source.source_sha256 !== 'string' || typeof profile.sha256 !== 'string'
+    || !/^[0-9a-f]{64}$/.test(profile.sha256)) {
+    return [...new Set([...issues, 'Approved public R2 object identity is incomplete'])];
+  }
+  if (registration.r2_bucket !== distribution.bucket) issues.push('English audio bucket does not match the approved R2 bucket');
+
+  const base = new URL(distribution.public_base_url).origin;
+  const keyPrefix = `en/${source.collection}/${source.uid}/${source.source_sha256}-${profile.sha256}/`;
+  const parts = Array.isArray(registration.parts) ? registration.parts : null;
+  if (parts) {
+    if (registration.r2_key !== undefined) issues.push('Multipart English audio must store object keys on each part');
+    parts.forEach((part, index) => {
+      if (!isRecord(part) || typeof part.sha256 !== 'string' || !/^[0-9a-f]{64}$/.test(part.sha256)) {
+        issues.push(`English audio part ${index + 1} lacks a valid checksum for its object key`);
+        return;
+      }
+      const expectedKey = `${keyPrefix}part-${String(index + 1).padStart(3, '0')}-${part.sha256}.mp3`;
+      if (part.r2_key !== expectedKey) issues.push(`English audio part ${index + 1} key is not immutable or source/profile-bound`);
+      if (part.url !== `${base}/${expectedKey}`) issues.push(`English audio part ${index + 1} URL does not match its approved R2 key`);
+    });
+  } else {
+    const objectHash = registration.sha256;
+    const expectedKey = typeof objectHash === 'string' && /^[0-9a-f]{64}$/.test(objectHash)
+      ? `${keyPrefix}${objectHash}.mp3` : null;
+    if (!expectedKey || registration.r2_key !== expectedKey) issues.push('English audio key is not immutable or source/profile-bound');
+    if (!expectedKey || registration.url !== `${base}/${expectedKey}`) issues.push('English audio URL does not match its approved R2 key');
+  }
   return [...new Set(issues)];
+}
+
+function isPublicHttpsBase(value: string): boolean {
+  try {
+    const url = new URL(value);
+    return url.protocol === 'https:' && !url.username && !url.password
+      && url.pathname === '/' && !url.search && !url.hash;
+  } catch { return false; }
 }
