@@ -43,8 +43,9 @@ const audioHref = (version: AudioVersionPlayerData) => {
     </div>
     <span class="listening-length">{audio.uid.toUpperCase()} · <span data-track-length>{length}</span></span>
   </div>
-  <audio controls preload="none" src={original.url} aria-label={`Nghe ${title}`}></audio>
+  <audio preload="none" aria-label={`Nghe ${title}`}></audio>
   <noscript>
+    <audio controls preload="none" src={original.url} aria-label={`Nghe ${title}`}></audio>
     <details class="listen-version-fallback">
       <summary>Chọn phiên bản audio</summary>
       <ul>

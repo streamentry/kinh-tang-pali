@@ -42,7 +42,8 @@ const timestamp = (seconds: number) => `${Math.floor(seconds / 60)}:${Math.floor
         </div>
         <span class="listening-length">{tracks.length} / {totalSuttas} bài có audio</span>
       </div>
-      <audio controls preload="none" src={original?.url ?? first.url} data-track-uid={first.uid} aria-label={`Nghe ${collectionTitle}`}></audio>
+      <audio preload="none" data-track-uid={first.uid} aria-label={`Nghe ${collectionTitle}`}></audio>
+      <noscript><audio controls preload="none" src={original?.url ?? first.url} aria-label={`Nghe ${collectionTitle}`}></audio></noscript>
       {tracks.some(track => track.parts) && <details><summary>Các phần MP3</summary>{tracks.filter(track => track.parts).map(track => <div><p>{track.title}</p><ol class="listen-part-files">{track.parts!.map((part, i) => <li><a href={part.url} target="_blank" rel="noopener">Phần {i + 1} / {track.parts!.length}</a></li>)}</ol></div>)}</details>}
       <p class="listen-error" data-playlist-error role="status" hidden>Không tải được danh sách phát. Bạn vẫn có thể nghe từng MP3.</p>
       <div class="listening-custom" hidden>
