@@ -16,7 +16,8 @@ test('source map records pinned source path hashes without TTS or uploads', () =
     execFileSync(process.execPath, [
       '--import', 'tsx', 'scripts/audio-english-source-map.ts', '--preflight', preflight, '--output', output,
     ], { stdio: 'pipe' });
-    const report = JSON.parse(fs.readFileSync(output, 'utf8'));
+    const reportText = fs.readFileSync(output, 'utf8');
+    const report = JSON.parse(reportText);
     const uidMap = report.uid_source_map as Array<{
       uid: string;
       english_segment_count: number;
@@ -31,6 +32,11 @@ test('source map records pinned source path hashes without TTS or uploads', () =
     assert.equal(report.uploads, 0);
     assert.equal(report.source_commit, report.upstream_manifest_commit);
     assert.equal(uidMap.length, report.preflight_candidate_count);
+    const mapStart = reportText.indexOf('  "uid_source_map": [\n');
+    const mapEnd = reportText.indexOf('\n  ],\n  "provider_calls":', mapStart);
+    assert.ok(mapStart >= 0 && mapEnd > mapStart);
+    const recordLines = reportText.slice(mapStart, mapEnd).split('\n').filter((line) => /^    \{"uid":/.test(line));
+    assert.equal(recordLines.length, uidMap.length, 'one compact, reviewable JSON line per UID');
     assert.ok(uidMap.every((row) => row.english_segment_count === row.english_sujato_segment_count + row.english_project_segment_count));
     assert.ok(uidMap.filter((row) => row.uses_sujato).every((row) => row.sujato_source_path?.startsWith('translation/en/sujato/sutta/')
       && /^[0-9a-f]{64}$/.test(row.sujato_source_sha256 ?? '')));

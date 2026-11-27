@@ -222,5 +222,12 @@ const report = {
 if (uidSourceMap.length !== preflight.totals.candidates) throw new Error('Source map does not match the preflight candidate count.');
 const resolved = path.resolve(outputFile);
 mkdirSync(path.dirname(resolved), { recursive: true });
-writeFileSync(resolved, `${JSON.stringify(report, null, 2)}\n`);
+const reportEntries = Object.entries(report);
+const serialized = reportEntries.map(([key, value], index) => {
+  const valueJson = key === 'uid_source_map'
+    ? `[\n${uidSourceMap.map((row) => `    ${JSON.stringify(row)}`).join(',\n')}\n  ]`
+    : JSON.stringify(value, null, 2).split('\n').map((line, lineIndex) => lineIndex === 0 ? line : `  ${line}`).join('\n');
+  return `  ${JSON.stringify(key)}: ${valueJson}${index < reportEntries.length - 1 ? ',' : ''}`;
+});
+writeFileSync(resolved, `{\n${serialized.join('\n')}\n}\n`);
 process.stderr.write(`English source map: ${uidSourceMap.length} candidates; ${sujatoCandidateCount} use Sujato; ${projectOnlyUids.length} project-only; provider calls 0; uploads 0.\n`);
