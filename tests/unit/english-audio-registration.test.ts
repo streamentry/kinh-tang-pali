@@ -36,6 +36,12 @@ test('English approval allowlist cannot authorize UIDs outside a fresh candidate
   assert.deepEqual(englishAudioApprovalScopeIssues(['dn/dn1'], {
     authorized_uid_source_sha256: { ...manifest.authorized_uid_source_sha256, 'kn/dhp1-20': 'b'.repeat(64) },
   }), ['English approval UID allowlist contains 1 UID(s) outside the current preflight']);
+  assert.deepEqual(englishAudioApprovalScopeIssues(['dn/dn1', 'kn/bv1'], manifest, ['kn/bv1']), [
+    'English approval UID allowlist contains 1 UID(s) outside the selected authorization scope',
+  ]);
+  assert.deepEqual(englishAudioApprovalScopeIssues(['dn/dn1'], manifest, ['dn/dn1', 'kn/bv1']), [
+    'Selected English authorization scope contains 1 UID(s) outside the current preflight',
+  ]);
   assert.deepEqual(englishAudioApprovalScopeIssues(['dn/dn1'], { authorized_uid_source_sha256: null }), [
     'English approval UID allowlist is missing or malformed',
   ]);

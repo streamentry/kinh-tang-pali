@@ -122,7 +122,6 @@ const profile = approvalManifest && typeof approvalManifest === 'object'
 const records: Array<Record<string, unknown>> = [];
 const blockerCounts = new Map<string, number>();
 const currentCandidates = new Set(preflight.candidate_uids);
-const authorizationScopeIssues = englishAudioApprovalScopeIssues(preflight.candidate_uids, approvalManifest);
 for (const candidate of preflight.candidate_uids) {
   const split = candidate.indexOf('/');
   if (split < 1) throw new Error(`Invalid candidate UID: ${candidate}`);
@@ -159,9 +158,17 @@ for (const candidate of preflight.candidate_uids) {
 if (projectOnly && records.length === 0) throw new Error('The current preflight has no project-only English candidates.');
 
 const authorized = records.filter((record) => record.status === 'authorized');
+const selectedScopeUids = records.map((record) => record.uid as string);
+const authorizationScopeIssues = englishAudioApprovalScopeIssues(
+  preflight.candidate_uids,
+  approvalManifest,
+  selectedScopeUids,
+);
 const manifestAllowlist = approvalManifest && typeof approvalManifest === 'object'
   ? (approvalManifest as { authorized_uid_source_sha256?: Record<string, string> }).authorized_uid_source_sha256 ?? {} : {};
 const extraManifestUids = Object.keys(manifestAllowlist).filter((uid) => !currentCandidates.has(uid));
+const selectedScope = new Set(selectedScopeUids);
+const manifestUidsOutsideAuthorizationScope = Object.keys(manifestAllowlist).filter((uid) => !selectedScope.has(uid));
 const report = {
   schema_version: 1,
   generated_at: new Date().toISOString(),
@@ -179,6 +186,7 @@ const report = {
   authorized_count: authorized.length,
   blocked_count: records.length - authorized.length,
   manifest_uids_outside_current_candidate_set: extraManifestUids,
+  manifest_uids_outside_authorization_scope: manifestUidsOutsideAuthorizationScope,
   authorization_scope_issues: authorizationScopeIssues,
   blockers_by_reason: Object.fromEntries([...blockerCounts.entries()].sort(([a], [b]) => a.localeCompare(b))),
   uids: records,

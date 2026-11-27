@@ -98,15 +98,24 @@ export function loadEnglishAudioApprovalManifest(repositoryRoot = process.cwd())
 }
 
 /** Reject an allowlist that still names UIDs outside a fresh complete preflight. */
-export function englishAudioApprovalScopeIssues(candidateUids: readonly string[], manifest: unknown): string[] {
+export function englishAudioApprovalScopeIssues(
+  candidateUids: readonly string[],
+  manifest: unknown,
+  selectedUids: readonly string[] = candidateUids,
+): string[] {
   if (!isRecord(manifest)) return ['English approval manifest is missing or malformed'];
   const allowlist = manifest.authorized_uid_source_sha256;
   if (!isRecord(allowlist)) return ['English approval UID allowlist is missing or malformed'];
   const current = new Set(candidateUids);
   const stale = Object.keys(allowlist).filter((uid) => !current.has(uid));
-  return stale.length > 0
-    ? [`English approval UID allowlist contains ${stale.length} UID(s) outside the current preflight`]
-    : [];
+  const selected = new Set(selectedUids);
+  const invalidSelected = [...selected].filter((uid) => !current.has(uid));
+  const outsideSelected = Object.keys(allowlist).filter((uid) => current.has(uid) && !selected.has(uid));
+  const issues: string[] = [];
+  if (stale.length > 0) issues.push(`English approval UID allowlist contains ${stale.length} UID(s) outside the current preflight`);
+  if (invalidSelected.length > 0) issues.push(`Selected English authorization scope contains ${invalidSelected.length} UID(s) outside the current preflight`);
+  if (outsideSelected.length > 0) issues.push(`English approval UID allowlist contains ${outsideSelected.length} UID(s) outside the selected authorization scope`);
+  return issues;
 }
 
 /** Shared pre-provider/pre-upload gate for a single current resolved English UID. */
