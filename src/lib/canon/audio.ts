@@ -5,12 +5,19 @@ import { validParts, type AudioPart } from '../audio/parts';
 import type { AudioVersionPlayerData } from '../audio/types';
 export type { AudioVersionId, AudioVersionPlayerData } from '../audio/types';
 import type { CanonDocument } from './types';
+import { englishAudioSource, englishAudioTranscriptHash, type EnglishAudioSourceLayer } from './english-audio';
+import { contentMetaPathForLayer, resolveLayer } from './layers';
+import { englishCoverageFor } from './reference';
+import { loadLock } from './load';
+import { manifestCommit, upstreamPublishes } from './manifest';
 import {
   EXPLANATION_AUDIO_AUDIENCES,
   EXPLANATION_AUDIENCE_LABELS,
   explanationNarrationSource,
   type ExplanationAudioAudience,
 } from './explanation-audio';
+
+const REPOSITORY_ROOT = process.cwd();
 
 export function narrationSource(document: CanonDocument) {
   const legacy = {
@@ -107,6 +114,36 @@ type AudioAsset = {
   bytes?: number;
 };
 
+export interface EnglishAudioRegistration extends AudioAsset {
+  schema_version: 1;
+  uid: string;
+  collection: CanonDocument['collection'];
+  language: 'en';
+  track_kind: 'english-translation';
+  transcript_policy: 'resolved-english-column-v1';
+  source_commit: string;
+  source_sha256: string;
+  transcript_sha256: string;
+  segment_sources: Array<{ id: string; source: EnglishAudioSourceLayer }>;
+  source_dependencies: Array<{ path: string; sha256: string }>;
+  /** Hash of English-fill metadata, including its published status and scorecard. */
+  english_project_meta_sha256?: string | null;
+  narration_profile_id: string;
+  narration_profile_sha256: string;
+  /** Required references to separate rights, provider, budget, sample, and distribution approvals. */
+  approval_refs: {
+    source_rights: string;
+    provider_use: string;
+    cost_ceiling: string;
+    voice_sample: string;
+    public_distribution: string;
+  };
+  upload_verified: true;
+  public_range_verified: true;
+  r2_full_sha256_verified: true;
+  review_status: 'pending' | 'approved';
+}
+
 function validAudioAsset(entry: AudioAsset) {
   if (typeof entry.url !== 'string' || !/^https:\/\//.test(entry.url) || !entry.url.endsWith('.mp3')) return false;
   if (!Number.isFinite(entry.duration_seconds) || !(entry.duration_seconds > 0)) return false;
@@ -118,6 +155,115 @@ function validAudioAsset(entry: AudioAsset) {
       || entry.sha256 !== createHash('sha256').update(entry.parts.map(part => part.sha256 + '\n').join('')).digest('hex')) return false;
   }
   return validParts(entry) && (entry.parts?.every(part => part.url.startsWith('https://')) ?? true);
+}
+
+function fileSha256(file: string): string | null {
+  if (!fs.existsSync(file)) return null;
+  return createHash('sha256').update(fs.readFileSync(file)).digest('hex');
+}
+
+function repositoryPath(file: string): string {
+  return path.relative(REPOSITORY_ROOT, file).split(path.sep).join('/');
+}
+
+export function englishAudioRegistrationVersion(
+  source: ReturnType<typeof englishAudioSource>,
+  registration: unknown,
+  sourceDependencies: Array<{ path: string; sha256: string }>,
+  englishProjectMetaSha256: string | null,
+): AudioVersionPlayerData | null {
+  if (source.status !== 'ready' || !source.source_sha256 || !registration || typeof registration !== 'object') return null;
+  const entry = registration as EnglishAudioRegistration;
+  const refs = entry.approval_refs;
+  const approvalsPresent = refs && [refs.source_rights, refs.provider_use, refs.cost_ceiling,
+    refs.voice_sample, refs.public_distribution].every(value => typeof value === 'string' && value.trim().length > 0);
+  const partsWithinLimit = entry.parts
+    ? entry.parts.length > 0 && entry.parts.every(part => Number.isFinite(part.duration_seconds)
+      && part.duration_seconds > 0 && part.duration_seconds <= 30 * 60)
+    : Number.isFinite(entry.duration_seconds) && entry.duration_seconds <= 30 * 60;
+  const expectedSegmentSources = source.segments.map(({ id, source: layer }) => ({ id, source: layer }));
+
+  if (entry.schema_version !== 1 || entry.uid !== source.uid || entry.collection !== source.collection
+    || entry.language !== 'en' || entry.track_kind !== 'english-translation'
+    || entry.transcript_policy !== 'resolved-english-column-v1'
+    || entry.source_commit !== source.source_commit || entry.source_sha256 !== source.source_sha256
+    || entry.transcript_sha256 !== englishAudioTranscriptHash(source)
+    || JSON.stringify(entry.segment_sources) !== JSON.stringify(expectedSegmentSources)
+    || JSON.stringify(entry.source_dependencies) !== JSON.stringify(sourceDependencies)
+    || (entry.english_project_meta_sha256 ?? null) !== englishProjectMetaSha256
+    || typeof entry.narration_profile_id !== 'string' || !entry.narration_profile_id.trim()
+    || !/^[0-9a-f]{64}$/.test(entry.narration_profile_sha256 ?? '') || !approvalsPresent
+    || !partsWithinLimit
+    || entry.upload_verified !== true || entry.public_range_verified !== true || entry.r2_full_sha256_verified !== true
+    || !['pending', 'approved'].includes(entry.review_status)
+    || !/^[0-9a-f]{64}$/.test(entry.sha256 ?? '') || !Number.isInteger(entry.bytes) || !(entry.bytes! > 0)
+    || !validAudioAsset(entry)) return null;
+
+  return {
+    id: 'english-standard',
+    label: 'English translation',
+    description: 'Standard audio of the resolved English translation.',
+    kind: 'english',
+    url: entry.url,
+    duration_seconds: entry.duration_seconds,
+    scripture_start_seconds: 0,
+    start_seconds: 0,
+    review_status: entry.review_status,
+    ...(entry.parts ? { parts: entry.parts.map(part => ({ url: part.url, duration_seconds: part.duration_seconds })) } : {}),
+  };
+}
+
+/** Load an English sidecar only while the exact resolved reader source is unchanged. */
+export function loadEnglishAudioVersion(document: CanonDocument): AudioVersionPlayerData | null {
+  if (document.status !== 'published') return null;
+  const file = path.join(process.cwd(), 'content/audio/en', document.collection, `${document.uid}.json`);
+  if (!fs.existsSync(file)) return null;
+
+  try {
+    const lock = loadLock();
+    if (document.commit !== lock.commit || manifestCommit() !== lock.commit) return null;
+
+    const pali = resolveLayer('pali', document.collection, document.uid);
+    const project = resolveLayer('english-project', document.collection, document.uid);
+    const sujato = resolveLayer('english-sujato', document.collection, document.uid);
+    if (!pali?.present || !sujato?.upstreamPath) return null;
+    const sujatoPublished = upstreamPublishes('english-sujato', sujato.upstreamPath);
+    if (sujatoPublished === null || sujatoPublished !== sujato.present) return null;
+    if (project?.present && project.status === null) return null;
+    const overlap = Object.entries(project?.segments ?? {}).some(([id, text]) => text.trim() !== ''
+      && (sujato.segments[id] ?? '').trim() !== '');
+    if (overlap) return null;
+    const coverage = englishCoverageFor(document.collection, document.uid);
+    if (!coverage?.resolved || coverage.substantiveWithoutEnglish > 0) return null;
+
+    const source = englishAudioSource(document, project?.status ?? null);
+    if (source.status !== 'ready' || !source.source_sha256) return null;
+    const entry = JSON.parse(fs.readFileSync(file, 'utf8')) as EnglishAudioRegistration;
+    const usesSujato = source.source_segment_counts['english-sujato'] > 0;
+    const usesProject = source.source_segment_counts['english-project'] > 0;
+    const dependencies: Array<{ path: string; sha256: string }> = [];
+    let projectMetaSha256: string | null = null;
+
+    if (usesSujato) {
+      const digest = sujato.present ? fileSha256(sujato.file) : null;
+      if (!digest) return null;
+      dependencies.push({ path: sujato.upstreamPath, sha256: digest });
+    }
+
+    if (usesProject) {
+      if (!project?.present || !project.contentPath || project.status !== 'published') return null;
+      const contentDigest = fileSha256(project.contentPath);
+      const metaPath = contentMetaPathForLayer(project.layer, document.collection, document.uid);
+      projectMetaSha256 = metaPath ? fileSha256(metaPath) : null;
+      if (!contentDigest || !metaPath || !projectMetaSha256) return null;
+      dependencies.push({ path: repositoryPath(project.contentPath), sha256: contentDigest });
+      dependencies.push({ path: repositoryPath(metaPath), sha256: projectMetaSha256 });
+    }
+
+    return englishAudioRegistrationVersion(source, entry, dependencies, projectMetaSha256);
+  } catch {
+    return null;
+  }
 }
 
 function explanationVersions(document: CanonDocument, base: Record<string, unknown>): AudioVersionPlayerData[] {
@@ -177,5 +323,7 @@ export function loadAudio(document: CanonDocument): SuttaAudio | null {
     start_seconds: entry.scripture_start_seconds, review_status: entry.review_status,
     ...(entry.parts ? { parts: entry.parts.map(part => ({ url: part.url, duration_seconds: part.duration_seconds })) } : {}),
   }, ...explanationVersions(document, entry as unknown as Record<string, unknown>)];
+  const english = loadEnglishAudioVersion(document);
+  if (english) versions.push(english);
   return { ...entry, versions };
 }

@@ -1,7 +1,7 @@
 export const AUTO_NEXT_KEY = 'kinh-tang-pali:audio:auto-next:v1';
 export const CONTINUE_KEY = 'kinh-tang-pali:audio:continue:v1';
 export const AUDIO_VERSION_KEY = 'kinh-tang-pali:audio:version:v1';
-export const AUDIO_VERSION_IDS = ['original', 'children', 'adults', 'older-adults'] as const;
+export const AUDIO_VERSION_IDS = ['original', 'children', 'adults', 'older-adults', 'english-standard'] as const;
 export type AudioVersionPreference = (typeof AUDIO_VERSION_IDS)[number];
 export interface StorageLike { getItem(key: string): string | null; setItem(key: string, value: string): void; removeItem(key: string): void; }
 export function readAutoNext(storage: StorageLike): boolean {

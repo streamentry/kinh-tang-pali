@@ -15,6 +15,7 @@ import path from 'node:path';
 import type { CollectionCode } from '../src/lib/canon/types';
 import { COLLECTIONS, loadCatalog, loadLock } from '../src/lib/canon/load';
 import { composeDocument } from '../src/lib/canon/document';
+import { loadAudio } from '../src/lib/canon/audio';
 import { englishCoverageFor } from '../src/lib/canon/reference';
 import { contentMetaPathForLayer, resolveLayer } from '../src/lib/canon/layers';
 import { manifestCommit, upstreamPublishes } from '../src/lib/canon/manifest';
@@ -116,6 +117,9 @@ for (const definition of selectedCollections) {
     else if ((coverage?.substantiveWithoutEnglish ?? 0) > 0) status = 'partial';
     else status = 'candidate';
 
+    const existingVietnameseOriginalAudioAvailable = status === 'candidate'
+      && Boolean(loadAudio(document)?.versions.some((version) => version.id === 'original'));
+
     const usesSujato = source.source_segment_counts['english-sujato'] > 0;
     const usesProject = source.source_segment_counts['english-project'] > 0;
     const dependencies: Array<{ path: string; sha256: string }> = [];
@@ -145,6 +149,7 @@ for (const definition of selectedCollections) {
       uses_sujato: usesSujato,
       uses_english_project: usesProject,
       resolved_english_sha256: source.source_sha256,
+      existing_vietnamese_original_audio_available: existingVietnameseOriginalAudioAvailable,
       source_dependencies: dependencies,
       rights_review_required: usesSujato,
       blockers: [...new Set(blockers)],
@@ -164,6 +169,8 @@ const byCollection = Object.fromEntries(selectedCollections.map(({ code }) => {
     using_sujato: group.filter((record) => record.uses_sujato).length,
     using_project_fill: group.filter((record) => record.uses_english_project).length,
     project_only: group.filter((record) => record.status === 'candidate' && !record.uses_sujato && record.uses_english_project).length,
+    candidate_vietnamese_original_audio_available: group.filter((record) => record.status === 'candidate' && record.existing_vietnamese_original_audio_available).length,
+    candidate_missing_vietnamese_original_audio: group.filter((record) => record.status === 'candidate' && !record.existing_vietnamese_original_audio_available).length,
     english_characters: group.reduce((sum, record) => sum + Number(record.english_characters), 0),
     english_words: group.reduce((sum, record) => sum + Number(record.english_words), 0),
   }];
@@ -188,9 +195,14 @@ const report = {
     blocked: records.filter((record) => record.status === 'blocked').length,
     english_characters: records.reduce((sum, record) => sum + Number(record.english_characters), 0),
     english_words: records.reduce((sum, record) => sum + Number(record.english_words), 0),
+    candidate_vietnamese_original_audio_available: records.filter((record) => record.status === 'candidate' && record.existing_vietnamese_original_audio_available).length,
+    candidate_missing_vietnamese_original_audio: records.filter((record) => record.status === 'candidate' && !record.existing_vietnamese_original_audio_available).length,
   },
   by_collection: byCollection,
   candidate_uids: records.filter((record) => record.status === 'candidate').map((record) => `${record.collection}/${record.uid}`),
+  candidate_missing_vietnamese_original_audio_uids: records
+    .filter((record) => record.status === 'candidate' && !record.existing_vietnamese_original_audio_available)
+    .map((record) => `${record.collection}/${record.uid}`),
   excluded: records.filter((record) => record.status !== 'candidate'),
 };
 

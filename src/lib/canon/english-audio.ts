@@ -94,3 +94,11 @@ export function englishAudioSource(
     blockers: [...new Set(blockers)],
   };
 }
+
+/** Hash the ordered spoken segments, including IDs and layer provenance. */
+export function englishAudioTranscriptHash(source: EnglishAudioSource): string | null {
+  if (source.status !== 'ready') return null;
+  return createHash('sha256')
+    .update(JSON.stringify(source.segments.map(({ id, text, source: layer }) => [id, text, layer])), 'utf8')
+    .digest('hex');
+}

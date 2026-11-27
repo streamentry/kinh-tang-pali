@@ -49,6 +49,8 @@ test('selected audio version persists independently of auto-next and defaults to
   const s=storage(); assert.equal(readAudioVersion(s),'original');
   saveAudioVersion(s,'children'); assert.equal(readAudioVersion(s),'children');
   assert.equal(s.getItem(AUDIO_VERSION_KEY),'children');
+  saveAudioVersion(s,'english-standard'); assert.equal(readAudioVersion(s),'english-standard');
+  assert.equal(s.getItem(AUDIO_VERSION_KEY),'english-standard');
   s.setItem(AUDIO_VERSION_KEY,'not-a-version'); assert.equal(readAudioVersion(s),'original');
   const denied={getItem:()=>{throw Error();},setItem:()=>{throw Error();},removeItem:()=>{throw Error();}};
   assert.equal(readAudioVersion(denied),'original'); assert.doesNotThrow(()=>saveAudioVersion(denied,'adults'));
@@ -68,6 +70,8 @@ test('auto-next continuation remembers the chosen version without affecting ordi
   assert.equal(consumeContinuationVersion(s,'/base/mn2/',201),null);
   rememberContinuation(s,'/base/mn2/',100,'children');
   assert.equal(consumeContinuationVersion(s,'/base/mn3/',200),null);
+  rememberContinuation(s,'/base/mn2/',100,'english-standard');
+  assert.equal(consumeContinuationVersion(s,'/base/mn2/',200),'english-standard');
   rememberContinuation(s,'/base/mn2/',100);
   assert.equal(consumeContinuationVersion(s,'/base/mn2/',200),'original');
 });
