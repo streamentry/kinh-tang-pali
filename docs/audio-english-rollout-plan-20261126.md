@@ -92,6 +92,7 @@ No English profile or audio sidecars have been created. Rights, provider, sample
 - Current provider-free snapshot: [`audio-english-preflight-inventory-20261127.json`](audio-english-preflight-inventory-20261127.json).
 - Per-UID source and rights map plus decision packet: [`audio-english-source-rights-map-20261127.json`](audio-english-source-rights-map-20261127.json) and [`audio-english-approval-packet-20261127.md`](audio-english-approval-packet-20261127.md), merged in PR #2114 at `96488ffa9ec2088149586b79122fe92886df5ee3`. These provider-free records do not grant TTS or distribution authorization.
 - Provider-free approval allowlist audit: [`scripts/audio-english-authorization-check.ts`](../scripts/audio-english-authorization-check.ts), gated by [`source/english-audio-approvals.json`](../source/english-audio-approvals.json). It makes no provider calls or uploads.
+- Post-merge no-audio production smoke: [`scripts/verify-english-player-lazy-load.py`](../scripts/verify-english-player-lazy-load.py). Run only after a successful Pages deployment, using the pinned player-venv and installed Chrome. It aborts media requests before transfer and verifies the no-prefetch/unavailable state; it does not prove English playback, seeking, or spoken content.
 - Existing Vietnamese audio contract and no-ASR/review rules: [`docs/audio.md`](audio.md).
 
 ## Latest implementation checkpoint — 2026-11-27 UTC
