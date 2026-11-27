@@ -101,13 +101,16 @@ export function isNativeTrack(value: unknown, siteUrl?: string): value is Native
   if (!record(value) || !uid(value.uid) || !text(value.title) || !httpUrl(value.pageUrl)
     || (siteUrl && !isTrustedPageUrl(value.pageUrl, siteUrl)) || !record(value.version)) return false;
   const version = value.version;
-  if (!choice(version.id, ['original', 'children', 'adults', 'older-adults'])
+  if (!choice(version.id, ['original', 'children', 'adults', 'older-adults', 'english-standard'])
     || !text(version.label) || typeof version.description !== 'string' || version.description.length > 8_000
-    || !choice(version.kind, ['sutta', 'explanation']) || !audioUrl(version.url)
+    || !choice(version.kind, ['sutta', 'explanation', 'english']) || !audioUrl(version.url)
     || !finite(version.duration_seconds, 0.001, 30 * 24 * 3600)
     || !finite(version.start_seconds, 0, version.duration_seconds)
     || !finite(version.scripture_start_seconds, 0, version.duration_seconds)
     || !choice(version.review_status, ['pending', 'approved'])) return false;
+  const expectedKind = version.id === 'english-standard' ? 'english'
+    : version.id === 'original' ? 'sutta' : 'explanation';
+  if (version.kind !== expectedKind) return false;
   if (version.parts !== undefined) {
     if (!Array.isArray(version.parts) || version.parts.length < 2 || version.parts.length > 10_000) return false;
     let total = 0;
