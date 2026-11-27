@@ -9,6 +9,29 @@ export const ENGLISH_AUDIO_APPROVAL_KEYS = [
 export type EnglishAudioApprovalKey = (typeof ENGLISH_AUDIO_APPROVAL_KEYS)[number];
 interface ApprovalReference { status: 'pending' | 'approved'; reference: string | null; }
 
+/** Canonical immutable object key shared by an English uploader and registration validator. */
+export function englishAudioR2ObjectKey(
+  source: Pick<EnglishAudioSource, 'collection' | 'uid' | 'source_sha256'>,
+  profileSha256: string,
+  objectSha256: string,
+  partNumber?: number,
+): string {
+  if (!['dn', 'mn', 'sn', 'an', 'kn'].includes(source.collection)
+    || !/^[a-z0-9.-]+$/.test(source.uid)
+    || source.uid === '.' || source.uid === '..'
+    || !/^[0-9a-f]{64}$/.test(source.source_sha256 ?? '')
+    || !/^[0-9a-f]{64}$/.test(profileSha256)
+    || !/^[0-9a-f]{64}$/.test(objectSha256)
+    || (partNumber !== undefined && (!Number.isInteger(partNumber) || partNumber < 1))) {
+    throw new Error('Cannot build an English R2 key from invalid source, profile, checksum, or part identity.');
+  }
+  const directory = `en/${source.collection}/${source.uid}/${source.source_sha256}-${profileSha256}/`;
+  const filename = partNumber === undefined
+    ? `${objectSha256}.mp3`
+    : `part-${String(partNumber).padStart(3, '0')}-${objectSha256}.mp3`;
+  return `${directory}${filename}`;
+}
+
 export interface EnglishAudioApprovalManifest {
   schema_version: 1;
   release_status: 'pending' | 'approved';
@@ -145,7 +168,6 @@ export function englishAudioRegistrationAuthorizationIssues(
   if (registration.r2_bucket !== distribution.bucket) issues.push('English audio bucket does not match the approved R2 bucket');
 
   const base = new URL(distribution.public_base_url).origin;
-  const keyPrefix = `en/${source.collection}/${source.uid}/${source.source_sha256}-${profile.sha256}/`;
   const parts = Array.isArray(registration.parts) ? registration.parts : null;
   if (parts) {
     if (registration.r2_key !== undefined) issues.push('Multipart English audio must store object keys on each part');
@@ -154,14 +176,14 @@ export function englishAudioRegistrationAuthorizationIssues(
         issues.push(`English audio part ${index + 1} lacks a valid checksum for its object key`);
         return;
       }
-      const expectedKey = `${keyPrefix}part-${String(index + 1).padStart(3, '0')}-${part.sha256}.mp3`;
+      const expectedKey = englishAudioR2ObjectKey(source, profile.sha256 as string, part.sha256, index + 1);
       if (part.r2_key !== expectedKey) issues.push(`English audio part ${index + 1} key is not immutable or source/profile-bound`);
       if (part.url !== `${base}/${expectedKey}`) issues.push(`English audio part ${index + 1} URL does not match its approved R2 key`);
     });
   } else {
     const objectHash = registration.sha256;
     const expectedKey = typeof objectHash === 'string' && /^[0-9a-f]{64}$/.test(objectHash)
-      ? `${keyPrefix}${objectHash}.mp3` : null;
+      ? englishAudioR2ObjectKey(source, profile.sha256 as string, objectHash) : null;
     if (!expectedKey || registration.r2_key !== expectedKey) issues.push('English audio key is not immutable or source/profile-bound');
     if (!expectedKey || registration.url !== `${base}/${expectedKey}`) issues.push('English audio URL does not match its approved R2 key');
   }

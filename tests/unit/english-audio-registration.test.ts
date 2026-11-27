@@ -7,6 +7,7 @@ import { createHash } from 'node:crypto';
 import { composeDocument } from '../../src/lib/canon/document';
 import { englishAudioSource, englishAudioTranscriptHash } from '../../src/lib/canon/english-audio';
 import { audioPlayerData, englishAudioRegistrationVersion, loadAudio, loadEnglishAudioVersion, narrationHash, type EnglishAudioRegistration } from '../../src/lib/canon/audio';
+import { englishAudioR2ObjectKey } from '../../src/lib/canon/english-audio-authorization';
 import { contentMetaPathForLayer, resolveLayer } from '../../src/lib/canon/layers';
 import type { EnglishAudioApprovalManifest } from '../../src/lib/canon/english-audio-authorization';
 
@@ -47,7 +48,7 @@ function registrationFor(
 ): EnglishAudioRegistration {
   const profileSha256 = 'a'.repeat(64);
   const artifactSha256 = 'b'.repeat(64);
-  const r2Key = `en/${source.collection}/${source.uid}/${source.source_sha256}-${profileSha256}/${artifactSha256}.mp3`;
+  const r2Key = englishAudioR2ObjectKey(source, profileSha256, artifactSha256);
   return {
     schema_version: 1,
     uid: source.uid,
@@ -145,9 +146,8 @@ test('English registration binds source, provenance, review metadata, approvals 
   assert.equal(englishAudioRegistrationVersion({ ...source, status: 'blocked' }, registration, dependencies, projectMetaSha256, approvals), null);
 
   const partHashes = ['d'.repeat(64), 'e'.repeat(64)];
-  const prefix = `en/${source.collection}/${source.uid}/${source.source_sha256}-${registration.narration_profile_sha256}/`;
   const parts = partHashes.map((sha, index) => {
-    const r2_key = `${prefix}part-${String(index + 1).padStart(3, '0')}-${sha}.mp3`;
+    const r2_key = englishAudioR2ObjectKey(source, registration.narration_profile_sha256, sha, index + 1);
     return { url: `https://audio.example.org/${r2_key}`, r2_key, sha256: sha, bytes: 1000, duration_seconds: 600 };
   });
   const orderedHash = createHash('sha256').update(partHashes.map(sha => `${sha}\n`).join('')).digest('hex');
@@ -159,6 +159,8 @@ test('English registration binds source, provenance, review metadata, approvals 
   assert.equal(englishAudioRegistrationVersion(source, {
     ...multipart, parts: [{ ...parts[0], r2_key: 'en/dn/dn25/part-001.mp3' }, parts[1]],
   }, dependencies, projectMetaSha256, approvals), null);
+  assert.equal(englishAudioR2ObjectKey(source, registration.narration_profile_sha256, partHashes[0], 1), parts[0].r2_key);
+  assert.throws(() => englishAudioR2ObjectKey({ ...source, uid: '../escape' }, registration.narration_profile_sha256, partHashes[0]));
 
   const temporary = fs.mkdtempSync(path.join(os.tmpdir(), 'english-audio-registration-'));
   const originalCwd = process.cwd();
