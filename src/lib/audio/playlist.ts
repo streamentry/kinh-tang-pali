@@ -1,4 +1,5 @@
 import { validParts, type AudioPart } from './parts';
+import { AUDIO_VERSION_IDS } from './navigation';
 import type { AudioVersionId, AudioVersionPlayerData } from '../canon/audio';
 export interface PlayerTrack {
   uid: string;
@@ -12,12 +13,22 @@ export interface PlayerTrack {
   versions: AudioVersionPlayerData[];
 }
 
-const versionIds: AudioVersionId[] = ['original', 'children', 'adults', 'older-adults'];
+const versionIds: readonly AudioVersionId[] = AUDIO_VERSION_IDS;
+
+/** English is selectable in a collection only when every text in it has English audio. */
+export function completePlaylistVersions(
+  tracks: readonly Pick<PlayerTrack, 'versions'>[],
+  totalTexts: number,
+): AudioVersionId[] {
+  return versionIds.filter(id => tracks.length > 0
+    && tracks.every(track => track.versions.some(version => version.id === id))
+    && (id !== 'english-standard' || (Number.isInteger(totalTexts) && totalTexts > 0 && tracks.length === totalTexts)));
+}
 function validVersion(value: unknown): value is AudioVersionPlayerData {
   if (!value || typeof value !== 'object') return false;
   const item = value as AudioVersionPlayerData;
   return versionIds.includes(item.id) && typeof item.label === 'string' && Boolean(item.label.trim())
-    && typeof item.description === 'string' && ['sutta', 'explanation'].includes(item.kind)
+    && typeof item.description === 'string' && ['sutta', 'explanation', 'english'].includes(item.kind)
     && typeof item.url === 'string' && /^(https:\/\/|\/[^/])/.test(item.url)
     && Number.isFinite(item.duration_seconds) && item.duration_seconds > 0
     && Number.isFinite(item.scripture_start_seconds) && item.scripture_start_seconds >= 0 && item.scripture_start_seconds < item.duration_seconds

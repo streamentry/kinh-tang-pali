@@ -13,6 +13,7 @@ const labels: Record<AudioVersionId, string> = {
   children: EXPLANATION_AUDIENCE_LABELS.children.title,
   adults: EXPLANATION_AUDIENCE_LABELS.adults.title,
   'older-adults': EXPLANATION_AUDIENCE_LABELS['older-adults'].title,
+  'english-standard': 'English translation',
 };
 const minutes = Math.round(original.duration_seconds / 60);
 const length = original.duration_seconds < 60 ? `${Math.round(original.duration_seconds)} giây` : `${minutes} phút`;
@@ -89,6 +90,9 @@ const audioHref = (version: AudioVersionPlayerData) => {
               {labels[id]}{available.has(id) ? '' : ' — chưa có audio'}
             </option>
           ))}
+          <option value="english-standard" disabled={!available.has('english-standard')}>
+            {labels['english-standard']}{available.has('english-standard') ? '' : ' — chưa có audio'}
+          </option>
         </select>
       </label>
       <p class="listen-version-description" data-version-description>{original.description}</p>
@@ -139,6 +143,10 @@ const audioHref = (version: AudioVersionPlayerData) => {
       const versionLength = this.querySelector<HTMLElement>('[data-track-length]')!;
       const reviewLabel = this.querySelector<HTMLElement>('[data-track-review]')!;
       const openTrack = this.querySelector<HTMLAnchorElement>('[data-open-track]')!;
+      const preventUnavailableOpen = (event: MouseEvent) => {
+        if (openTrack.getAttribute('aria-disabled') === 'true') event.preventDefault();
+      };
+      openTrack.addEventListener('click', preventUnavailableOpen);
       const error = this.querySelector<HTMLElement>('.listen-error')!;
       const notice = this.querySelector<HTMLElement>('.listen-notice')!;
       const autoNext = this.querySelector<HTMLInputElement>('[data-auto-next]')!;
@@ -173,13 +181,30 @@ const audioHref = (version: AudioVersionPlayerData) => {
       window.addEventListener('storage', onStorage);
       const say = (message: string) => { notice.textContent = message; notice.hidden = false; };
       const format = (n: number) => `${Math.floor(n / 60)}:${Math.floor(n % 60).toString().padStart(2, '0')}`;
-      let active = original;
+      let active: AudioVersionPlayerData | null = original;
       const media = new ReadingPlayer(audio, original, failure => {
         if (playFailure(failure) === 'blocked') say('Bấm Phát để nghe tiếp phần này.');
         else if (playFailure(failure) === 'unavailable') error.hidden = false;
       });
-      const activate = (version: AudioVersionPlayerData, seekToStart = true) => {
-        if (version.id !== active.id) media.select(version);
+      const activate = (version: AudioVersionPlayerData | null, seekToStart = true) => {
+        if (!version) {
+          audio.pause();
+          active = null;
+          versionSelect.value = 'english-standard';
+          versionLabel.textContent = labelsFromOptions.get('english-standard') ?? 'English translation';
+          versionLength.textContent = 'Chưa có audio';
+          versionDescription.textContent = 'Chưa có bản audio English đã xác minh cho bài này.';
+          reviewLabel.hidden = true;
+          chapters.hidden = true;
+          openTrack.href = '#';
+          openTrack.hidden = true;
+          openTrack.setAttribute('aria-disabled', 'true');
+          openTrack.setAttribute('aria-label', 'English translation audio is not available');
+          update();
+          state();
+          return;
+        }
+        if (version.id !== active?.id) media.select(version);
         active = version;
         if (seekToStart && version.start_seconds > 0) media.seek(version.start_seconds);
         versionSelect.value = version.id;
@@ -191,44 +216,64 @@ const audioHref = (version: AudioVersionPlayerData) => {
         reviewLabel.textContent = version.review_status === 'pending' ? 'Chờ nghe duyệt' : '';
         chapters.hidden = version.kind !== 'sutta';
         openTrack.href = versionHref(version);
+        openTrack.hidden = false;
+        openTrack.removeAttribute('aria-disabled');
         openTrack.setAttribute('aria-label', `Mở MP3: ${version.label}`);
         update();
       };
       const duration = () => media.duration;
       const update = () => {
-        const currentTime = media.currentTime;
+        const currentTime = active ? media.currentTime : 0;
+        const currentDuration = active ? duration() : 0;
         this.querySelector('[data-current]')!.textContent = format(currentTime);
-        this.querySelector('[data-duration]')!.textContent = format(duration());
-        seek.max = String(duration()); seek.value = String(currentTime);
-        seek.setAttribute('aria-valuetext', `${format(currentTime)} / ${format(duration())}`);
-        progress.style.width = `${Math.max(0, Math.min(100, currentTime / duration() * 100))}%`;
-        const phase = active.kind === 'explanation' ? 'Diễn giải' : isScripturePhase(currentTime, active.scripture_start_seconds) ? 'Kinh văn' : 'Tóm tắt';
-        this.querySelector('[data-phase]')!.textContent = `${phase}${media.partCount > 1 ? ` · Phần ${media.partNumber}/${media.partCount}` : ''}`;
-        summary?.setAttribute('aria-current', String(active.kind === 'sutta' && !isScripturePhase(currentTime, active.scripture_start_seconds)));
-        scripture?.setAttribute('aria-current', String(active.kind === 'sutta' && isScripturePhase(currentTime, active.scripture_start_seconds)));
+        this.querySelector('[data-duration]')!.textContent = format(currentDuration);
+        seek.max = String(currentDuration); seek.value = String(currentTime); seek.disabled = !active;
+        seek.setAttribute('aria-valuetext', `${format(currentTime)} / ${format(currentDuration)}`);
+        progress.style.width = currentDuration > 0 ? `${Math.max(0, Math.min(100, currentTime / currentDuration * 100))}%` : '0%';
+        const phase = !active ? 'Chưa có English audio' : active.kind === 'explanation' ? 'Diễn giải'
+          : active.kind === 'english' ? 'English translation'
+            : isScripturePhase(currentTime, active.scripture_start_seconds) ? 'Kinh văn' : 'Tóm tắt';
+        this.querySelector('[data-phase]')!.textContent = `${phase}${active && media.partCount > 1 ? ` · Phần ${media.partNumber}/${media.partCount}` : ''}`;
+        summary?.setAttribute('aria-current', String(active?.kind === 'sutta' && !isScripturePhase(currentTime, active.scripture_start_seconds)));
+        scripture?.setAttribute('aria-current', String(active?.kind === 'sutta' && isScripturePhase(currentTime, active.scripture_start_seconds)));
       };
       const state = () => {
-        play.setAttribute('aria-label', audio.paused ? 'Phát bài đọc' : 'Tạm dừng bài đọc');
-        play.setAttribute('aria-pressed', String(!audio.paused));
-        this.querySelector('[data-play-label]')!.textContent = audio.paused ? 'Phát' : 'Dừng';
+        play.disabled = !active;
+        play.setAttribute('aria-label', !active ? 'English translation audio is not available' : audio.paused ? 'Phát bài đọc' : 'Tạm dừng bài đọc');
+        play.setAttribute('aria-pressed', String(Boolean(active && !audio.paused)));
+        this.querySelector('[data-play-label]')!.textContent = !active ? 'Chưa có audio' : audio.paused ? 'Phát' : 'Dừng';
         this.querySelector('[data-play-icon]')!.toggleAttribute('hidden', !audio.paused);
         this.querySelector('[data-pause-icon]')!.toggleAttribute('hidden', audio.paused);
       };
       const onVersionStorage = (event: StorageEvent) => {
         if (event.key !== AUDIO_VERSION_KEY && event.key !== null) return;
         try {
-          const selected = byId.get(readAudioVersion(localStorage));
-          if (selected && selected.id !== active.id) {
+          const selectedId = readAudioVersion(localStorage);
+          const selected = byId.get(selectedId);
+          if (selected && selected.id !== active?.id) {
             playbackRequest++;
             audio.pause(); activate(selected); state();
+          } else if (selectedId === 'english-standard' && !selected && active?.id !== 'english-standard') {
+            playbackRequest++;
+            audio.pause(); activate(null);
+            say('Không tự chuyển sang audio tiếng Việt.');
           }
         } catch { /* Keep the in-page selection if storage is unavailable. */ }
       };
       window.addEventListener('storage', onVersionStorage);
-      this.cleanup = () => { window.removeEventListener('storage', onStorage); window.removeEventListener('storage', onVersionStorage); media.destroy(); };
+      this.cleanup = () => { window.removeEventListener('storage', onStorage); window.removeEventListener('storage', onVersionStorage); openTrack.removeEventListener('click', preventUnavailableOpen); media.destroy(); };
       versionSelect.addEventListener('change', () => {
-        const selected = byId.get(versionSelect.value as AudioVersionId);
-        if (!selected) { versionSelect.value = active.id; return; }
+        const selectedId = versionSelect.value as AudioVersionId;
+        const selected = byId.get(selectedId);
+        if (!selected) {
+          if (selectedId === 'english-standard') {
+            playbackRequest++;
+            audio.pause(); error.hidden = true; activate(null);
+            try { saveAudioVersion(localStorage, selectedId); } catch { /* Keep the current choice in memory. */ }
+            say('Không tự chuyển sang audio tiếng Việt.');
+          } else versionSelect.value = active?.id ?? 'english-standard';
+          return;
+        }
         playbackRequest++;
         error.hidden = true; notice.hidden = true; audio.pause();
         activate(selected);
@@ -238,6 +283,7 @@ const audioHref = (version: AudioVersionPlayerData) => {
       play.addEventListener('click', async () => {
         const request = ++playbackRequest;
         error.hidden = true;
+        if (!active) { say('Chưa có bản audio English đã xác minh cho bài này.'); return; }
         if (!audio.paused) { audio.pause(); return; }
         if (media.ended) media.seek(active.start_seconds);
         try { await audio.play(); } catch (failure) {
@@ -252,13 +298,14 @@ const audioHref = (version: AudioVersionPlayerData) => {
       this.querySelectorAll<HTMLButtonElement>('[data-jump]').forEach(button => button.addEventListener('click', () => {
         media.seek(media.currentTime + Number(button.dataset.jump)); update();
       }));
-      summary?.addEventListener('click', () => { media.seek(0); update(); });
-      scripture?.addEventListener('click', () => { media.seek(active.scripture_start_seconds); update(); });
+      summary?.addEventListener('click', () => { if (active) { media.seek(0); update(); } });
+      scripture?.addEventListener('click', () => { if (active) { media.seek(active.scripture_start_seconds); update(); } });
       this.querySelector<HTMLSelectElement>('.listen-speed select')!.addEventListener('change', event => media.setPlaybackRate(Number((event.target as HTMLSelectElement).value)));
       audio.addEventListener('loadedmetadata', update); audio.addEventListener('timeupdate', update);
       audio.addEventListener('play', () => { notice.hidden = true; state(); }); audio.addEventListener('pause', state);
       audio.addEventListener('ended', () => {
         state();
+        if (!active) return;
         if (!enabled) return;
         const next = this.dataset.next;
         if (!next) {
@@ -278,9 +325,15 @@ const audioHref = (version: AudioVersionPlayerData) => {
       try { continuationVersion = consumeContinuationVersion(sessionStorage, location.pathname); } catch { /* Ordinary visits never autoplay. */ }
       let requested = continuationVersion;
       if (!requested) { try { requested = readAudioVersion(localStorage); } catch { requested = 'original'; } }
-      const initial = byId.get(requested) ?? original;
-      activate(initial);
-      if (requested !== initial.id) say(`Bản “${labelsFromOptions.get(requested) ?? requested}” chưa có audio cho bài này; đang giữ bản chuẩn.`);
+      const initial = byId.get(requested);
+      if (initial) activate(initial);
+      else if (requested === 'english-standard') {
+        activate(null);
+        say('Không tự chuyển sang audio tiếng Việt.');
+      } else {
+        activate(original);
+        if (requested !== original.id) say(`Bản “${labelsFromOptions.get(requested) ?? requested}” chưa có audio cho bài này; đang giữ bản chuẩn.`);
+      }
       if (continuationVersion && enabled && byId.has(continuationVersion)) {
         const request = ++playbackRequest;
         audio.play().catch((failure) => {

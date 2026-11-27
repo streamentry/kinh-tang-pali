@@ -8,7 +8,7 @@ export interface AudioVersionPlayerData extends ReadingMedia {
   id: AudioVersionId;
   label: string;
   description: string;
-  kind: 'sutta' | 'explanation';
+  kind: 'sutta' | 'explanation' | 'english';
   scripture_start_seconds: number;
   start_seconds: number;
   review_status: 'pending' | 'approved';

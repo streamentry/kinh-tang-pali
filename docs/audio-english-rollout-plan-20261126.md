@@ -1,7 +1,6 @@
 # English Audio Rollout Plan
 
-Date: 2026-11-26
-Status: plan plus provider-free preflight implementation. No Gemini requests, R2 uploads, or English voice profile changes have been made. The Sujato AI-use gate remains unresolved.
+Plan created 2026-11-26; status updated 2026-11-27: provider-free preflight is merged, and player/registration support is under implementation. No English Gemini requests, R2 uploads, or English voice profile changes have been made. The Sujato AI-use gate remains unresolved.
 
 ## Goal and scope
 
@@ -68,10 +67,21 @@ Costing follows the approved English sample and a language-specific chunk prefli
 
 The technical phase is complete when every rights-cleared candidate UID in the approved preflight has a generated English track, verified R2 registration, merged registration, and current production player proof; collection playback preserves English and stops rather than falling back when a track is missing. Excluded texts, source provenance, and any rights restrictions remain visible in the audit. No English track is considered human-approved until it has actually been heard; all such tracks remain `review_status: pending` until that happens.
 
+## Implementation checkpoint — 2026-11-27
+
+The provider-free preflight command was merged in commit `c7f714e8912eecc56c0fe42f596c5c0e9105025c`. A fresh run is preserved at [`audio-english-preflight-inventory-20261127.json`](audio-english-preflight-inventory-20261127.json): pinned bilara and manifest commit `11c9d708978cde8ba61096d8a75f7ddfb846f639`, 4,702 candidates, 1,435 texts without English, zero partial/blocked candidates, zero provider calls, and zero uploads. It also verifies that all 4,702 candidates currently have a valid Vietnamese original registration; the English sidecar count is zero. These counts are a current snapshot, not rights or production approval.
+
+The player implementation is still on its working branch and has not merged. It adds the `english-standard` track to the existing reader and collection player, reads only `content/audio/en/<collection>/<uid>.json`, binds registrations to the resolved English source, segment provenance, pinned commit, English-fill metadata hash, profile hash, approval references, and R2 verification fields, and keeps `review_status` separate. The English collection option stays disabled unless every text in that collection or group has a verified English track. A saved English choice with no available track stops and reports that Vietnamese audio was not started. Vietnamese remains the default; selecting a track does not autoplay.
+
+Local verification on the working branch: 594 tests (590 passed, 4 skipped); validation passed with 2,275 existing warnings; quality history checked 5,840 records with no errors; explanation audit checked 558 published audience versions with no errors; Astro check had zero errors/warnings and 52 hints; design check passed. Direct Astro build rendered 7,814 pages and Pagefind indexed 6,991. Installed Chrome verified the selector, no-autoplay state, no cross-language fallback, group completeness rule, and no horizontal overflow at 1440, 1024, 390, and 320 px. External HTTPS requests were blocked during this local UI check, so it does not prove R2 playback or English audio behavior.
+
+No English profile or audio sidecars have been created. Rights, provider, sample, budget, and public-distribution approvals remain unresolved. Human listening remains pending for any future track.
+
 ## Repository references
 
 - English layer precedence: [`source/layers.yaml`](../source/layers.yaml).
 - Pinned edition, license record, and project-content license: [`source/suttacentral.lock.json`](../source/suttacentral.lock.json).
 - Provider-free preflight implementation and source fingerprinting: [`scripts/audio-english-preflight.ts`](../scripts/audio-english-preflight.ts), [`src/lib/canon/english-audio.ts`](../src/lib/canon/english-audio.ts).
-- Current source and eligibility snapshot: [`audio-english-preflight-inventory-20261126.json`](audio-english-preflight-inventory-20261126.json).
+- Initial source and eligibility snapshot: [`audio-english-preflight-inventory-20261126.json`](audio-english-preflight-inventory-20261126.json).
+- Current provider-free snapshot: [`audio-english-preflight-inventory-20261127.json`](audio-english-preflight-inventory-20261127.json).
 - Existing Vietnamese audio contract and no-ASR/review rules: [`docs/audio.md`](audio.md).

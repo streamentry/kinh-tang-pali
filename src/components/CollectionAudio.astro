@@ -3,6 +3,7 @@ import type { AudioPlayerData } from '../lib/canon/audio';
 import type { AudioVersionId, AudioVersionPlayerData } from '../lib/canon/audio';
 import { EXPLANATION_AUDIENCE_LABELS } from '../lib/canon/explanation-audio';
 import { locatePart } from '../lib/audio/parts';
+import { completePlaylistVersions } from '../lib/audio/playlist';
 import { playlistPayload } from '../lib/canon/audio-playlist';
 import { withBase } from '../lib/url';
 
@@ -22,13 +23,13 @@ const { collectionTitle, totalSuttas, tracks, playlistUrl } = Astro.props;
 const payload = playlistPayload(tracks, playlistUrl);
 const first = tracks[0];
 const original = first?.versions.find((version) => version.id === 'original');
-const completeVersions = new Set((['original','children','adults','older-adults'] as AudioVersionId[])
-  .filter((id) => tracks.length > 0 && tracks.every((track) => track.versions.some((version) => version.id === id))));
+const completeVersions = new Set(completePlaylistVersions(tracks, totalSuttas));
 const versionLabels: Record<AudioVersionId, string> = {
   original: original?.label ?? 'Kinh văn Việt 2026',
   children: EXPLANATION_AUDIENCE_LABELS.children.title,
   adults: EXPLANATION_AUDIENCE_LABELS.adults.title,
   'older-adults': EXPLANATION_AUDIENCE_LABELS['older-adults'].title,
+  'english-standard': 'English translation',
 };
 const timestamp = (seconds: number) => `${Math.floor(seconds / 60)}:${Math.floor(seconds % 60).toString().padStart(2, '0')}`;
 const audioHref = (version: AudioVersionPlayerData) => {
@@ -40,7 +41,7 @@ const audioHref = (version: AudioVersionPlayerData) => {
   return version.start_seconds > 0 ? `${version.url}#t=${version.start_seconds}` : version.url;
 };
 ---
-<sutta-playlist class="collection-audio" data-native-text-base={withBase(`sutta/${Astro.params.collection}/`)} data-collection-title={collectionTitle} data-tracks={JSON.stringify(payload.inline)} data-tracks-src={payload.url} data-track-count={tracks.length} data-complete-versions={JSON.stringify([...completeVersions])}>
+<sutta-playlist class="collection-audio" data-native-text-base={withBase(`sutta/${Astro.params.collection}/`)} data-collection-title={collectionTitle} data-tracks={JSON.stringify(payload.inline)} data-tracks-src={payload.url} data-track-count={tracks.length} data-total-suttas={totalSuttas} data-complete-versions={JSON.stringify([...completeVersions])}>
   {first && (
     <section class="listening collection-listening" data-pagefind-ignore aria-label={`Trình phát ${collectionTitle}`}>
       <div class="listening-heading">
@@ -97,6 +98,9 @@ const audioHref = (version: AudioVersionPlayerData) => {
                   {versionLabels[id]}{completeVersions.has(id) ? '' : ' — chưa đủ audio trong danh sách'}
                 </option>
               ))}
+              <option value="english-standard" disabled={!completeVersions.has('english-standard')}>
+                {versionLabels['english-standard']}{completeVersions.has('english-standard') ? '' : ' — chưa đủ audio trong toàn bộ nhóm'}
+              </option>
             </select>
           </label>
           <p class="listen-version-description" data-version-description>{original?.description ?? 'Bản audio chuẩn hiện có.'}</p>
@@ -120,7 +124,7 @@ const audioHref = (version: AudioVersionPlayerData) => {
   import { AUDIO_VERSION_KEY, AUTO_NEXT_KEY, readAudioVersion, readAutoNext, saveAudioVersion, saveAutoNext, stepAudioIndex, playlistIndexFromHash, playlistTrackUrl } from '../lib/audio/navigation';
   import { playFailure } from '../lib/audio/playback';
   import { ReadingPlayer } from '../lib/audio/parts';
-  import { parsePlaylist, type PlayerTrack } from '../lib/audio/playlist';
+  import { completePlaylistVersions, parsePlaylist, type PlayerTrack } from '../lib/audio/playlist';
   import type { AudioVersionId, AudioVersionPlayerData } from '../lib/canon/audio';
 
   class SuttaPlaylistElement extends HTMLElement {
@@ -170,14 +174,15 @@ const audioHref = (version: AudioVersionPlayerData) => {
       const format = (value: number) => `${Math.floor(value / 60)}:${Math.floor(value % 60).toString().padStart(2, '0')}`;
       let activeIndex = 0;
       let playbackRequest = 0;
-      const completeVersions = new Set((['original','children','adults','older-adults'] as AudioVersionId[])
-        .filter((id) => tracks.every((track) => track.versions.some((version) => version.id === id))));
+      const totalSuttas = Number(this.dataset.totalSuttas);
+      const completeVersions = new Set(completePlaylistVersions(tracks, totalSuttas));
       Array.from(versionSelect.options).forEach((option) => { option.disabled = !completeVersions.has(option.value as AudioVersionId); });
       let selectedVersion: AudioVersionId;
       let preferredVersion: AudioVersionId = 'original';
       try {
         preferredVersion = readAudioVersion(localStorage);
-        selectedVersion = completeVersions.has(preferredVersion) ? preferredVersion : 'original';
+        selectedVersion = completeVersions.has(preferredVersion) || preferredVersion === 'english-standard'
+          ? preferredVersion : 'original';
       } catch { selectedVersion = 'original'; }
       const preferenceUnavailable = preferredVersion !== selectedVersion;
       versionSelect.value = selectedVersion;
@@ -188,7 +193,7 @@ const audioHref = (version: AudioVersionPlayerData) => {
       const activeTrack = () => tracks[activeIndex];
       const versionFor = (track: PlayerTrack, id: AudioVersionId) => track.versions.find((version) => version.id === id);
       const firstVersion = versionFor(tracks[0], selectedVersion) ?? versionFor(tracks[0], 'original')!;
-      let activeVersion: AudioVersionPlayerData | null = firstVersion;
+      let activeVersion: AudioVersionPlayerData | null = completeVersions.has(selectedVersion) ? firstVersion : null;
       const rememberTrackLocation = () => {
         const url = playlistTrackUrl(window.location.href, activeTrack().uid);
         if (url === window.location.href) return;
@@ -196,7 +201,9 @@ const audioHref = (version: AudioVersionPlayerData) => {
       };
       const say = (message: string) => { notice.textContent = message; notice.hidden = false; };
       if (preferenceUnavailable) say('Bản nghe bạn chọn chưa có trên toàn bộ danh sách; đang chọn bản chuẩn.');
-      if (preferredVersion !== selectedVersion) say('Bản nghe bạn chọn chưa có ở toàn bộ danh sách; đang chọn bản chuẩn.');
+      if (preferredVersion === 'english-standard' && !completeVersions.has('english-standard')) {
+        say('Nhóm chưa có đủ audio English cho mọi mục. Đã dừng; không chuyển sang audio tiếng Việt.');
+      }
       const media = new ReadingPlayer(audio, firstVersion, failure => {
         if (playFailure(failure) === 'blocked') say('Bấm Phát để nghe tiếp phần này.');
         else if (playFailure(failure) === 'unavailable') error.hidden = false;
@@ -219,7 +226,8 @@ const audioHref = (version: AudioVersionPlayerData) => {
         this.querySelector('[data-current]')!.textContent = format(currentTime);
         this.querySelector('[data-duration]')!.textContent = format(currentDuration);
         const phase = !version ? 'Chưa có bản nghe' : version.kind === 'explanation' ? 'Diễn giải'
-          : currentTime >= version.scripture_start_seconds ? 'Kinh văn' : 'Tóm tắt';
+          : version.kind === 'english' ? 'English translation'
+            : currentTime >= version.scripture_start_seconds ? 'Kinh văn' : 'Tóm tắt';
         this.querySelector('[data-phase]')!.textContent = phase;
         if (version && media.partCount > 1) this.querySelector('[data-phase]')!.textContent += ` · Phần ${media.partNumber}/${media.partCount}`;
         seek.max = String(currentDuration); seek.disabled = !version;
@@ -234,13 +242,17 @@ const audioHref = (version: AudioVersionPlayerData) => {
         this.querySelector('[data-play-label]')!.textContent = playing ? 'Tạm dừng' : 'Phát';
         previous.disabled = stepAudioIndex(activeIndex, tracks.length, -1) === null;
         next.disabled = stepAudioIndex(activeIndex, tracks.length, 1) === null;
-        this.querySelector<HTMLAnchorElement>('[data-open-track]')!.href = version ? media.url : '#';
-        this.querySelector<HTMLAnchorElement>('[data-open-track]')!.setAttribute('aria-label', `Mở MP3 ${track.uid.toUpperCase()}${version ? ` · ${version.label}` : ''}`);
-        versionDescription.textContent = version?.description ?? 'Chọn một bài có audio cho phiên bản này.';
+        const openTrack = this.querySelector<HTMLAnchorElement>('[data-open-track]')!;
+        openTrack.href = version ? media.url : '#';
+        openTrack.hidden = !version;
+        openTrack.setAttribute('aria-label', `Mở MP3 ${track.uid.toUpperCase()}${version ? ` · ${version.label}` : ''}`);
+        versionDescription.textContent = version?.description ?? (selectedVersion === 'english-standard'
+          ? 'Chỉ bật English khi mọi mục trong nhóm đều có audio English.'
+          : 'Chọn một bài có audio cho phiên bản này.');
         this.querySelectorAll<HTMLButtonElement>('[data-play-track]').forEach((button) => {
           const isPlaying = button.dataset.playTrack === track.uid && playing;
           const rowTrack = tracks.find((item) => item.uid === button.dataset.playTrack);
-          const rowVersion = rowTrack ? versionFor(rowTrack, selectedVersion) : undefined;
+          const rowVersion = rowTrack && completeVersions.has(selectedVersion) ? versionFor(rowTrack, selectedVersion) : undefined;
           button.disabled = !rowVersion;
           button.dataset.playing = String(isPlaying);
           button.setAttribute('aria-pressed', String(isPlaying));
@@ -279,7 +291,7 @@ const audioHref = (version: AudioVersionPlayerData) => {
         const request = ++playbackRequest;
         error.hidden = true;
         notice.hidden = true;
-        const version = versionFor(track, selectedVersion);
+        const version = completeVersions.has(selectedVersion) ? versionFor(track, selectedVersion) : undefined;
         activeIndex = index;
         rememberTrackLocation();
         if (!version) {

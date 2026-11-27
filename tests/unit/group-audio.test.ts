@@ -11,7 +11,7 @@ import { narrationHash, narrationSource, loadAudio, audioPlayerData } from '../.
 import { narrationIssues } from '../../src/lib/canon/audio-source';
 import { groupTexts } from '../../src/lib/canon/groups';
 import { playlistPayload, playlistTracks } from '../../src/lib/canon/audio-playlist';
-import { parsePlaylist } from '../../src/lib/audio/playlist';
+import { completePlaylistVersions, parsePlaylist } from '../../src/lib/audio/playlist';
 
 test('all group reading UIDs occur exactly once, including six mixed-group direct texts', () => {
   const rows = GROUP_AUDIO_COLLECTIONS.flatMap(code => audioQueue(code));
@@ -127,6 +127,23 @@ test('playlist variants are whitelisted, unique and keep the original native fal
   assert.equal(parsed.versions[0].start_seconds,10);
   for(const versions of [[{...children,url:'javascript:alert(1)'}],[original,original],[children]])
     assert.throws(()=>parsePlaylist([{...track,versions}],1));
+});
+
+test('English collection playback is available only when every text has an English track', () => {
+  const original={id:'original' as const,label:'Kinh văn Việt 2026',description:'Vietnamese text.',kind:'sutta' as const,url:'https://example.org/vi.mp3',duration_seconds:60,scripture_start_seconds:0,start_seconds:0,review_status:'pending' as const};
+  const english={id:'english-standard' as const,label:'English translation',description:'Resolved English translation.',kind:'english' as const,url:'https://example.org/en.mp3',duration_seconds:55,scripture_start_seconds:0,start_seconds:0,review_status:'pending' as const};
+  const complete=[{versions:[original,english]},{versions:[original,english]}];
+  assert.ok(completePlaylistVersions(complete,2).includes('english-standard'));
+  assert.ok(!completePlaylistVersions(complete,3).includes('english-standard'));
+  assert.ok(!completePlaylistVersions([{versions:[original,english]},{versions:[original]}],2).includes('english-standard'));
+});
+
+test('playlist payload accepts a source-verified English translation beside the Vietnamese original', () => {
+  const original={id:'original',label:'Kinh văn Việt 2026',description:'Vietnamese text.',kind:'sutta',url:'https://example.org/vi.mp3',duration_seconds:60,scripture_start_seconds:0,start_seconds:0,review_status:'pending'};
+  const english={id:'english-standard',label:'English translation',description:'Resolved English translation.',kind:'english',url:'https://example.org/en.mp3',duration_seconds:55,scripture_start_seconds:0,start_seconds:0,review_status:'pending'};
+  const track={uid:'mn1',title:'MN1',order:1,url:original.url,duration_seconds:original.duration_seconds,scripture_start_seconds:0,review_status:'pending',versions:[original,english]};
+  assert.deepEqual(parsePlaylist([track],1)[0].versions.map(version=>version.id),['original','english-standard']);
+  assert.throws(()=>parsePlaylist([{...track,versions:[original,{...english,url:'javascript:alert(1)'}]}],1));
 });
 
 test('new transcript plans contain a separate heading without adding it to legacy speech; progress stays isolated', () => {

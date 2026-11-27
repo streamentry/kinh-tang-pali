@@ -1,5 +1,5 @@
 import { readAudioVersion, saveAudioVersion, readAutoNext, saveAutoNext, playlistIndexFromHash } from '../audio/navigation';
-import type { PlayerTrack } from '../audio/playlist';
+import { completePlaylistVersions, type PlayerTrack } from '../audio/playlist';
 import { locatePart } from '../audio/parts';
 import type { AudioVersionPlayerData } from '../audio/types';
 import type { NativeTrack } from './protocol';
@@ -24,7 +24,15 @@ function versionPicker(versions: AudioVersionPlayerData[], change: () => void) {
   for (const version of versions) {
     const option = make('option', undefined, version.label); option.value = version.id; select.append(option);
   }
-  try { const selected = readAudioVersion(localStorage); if (versions.some(version => version.id === selected)) select.value = selected; } catch { /* Default is the original version. */ }
+  const hasEnglish = versions.some(version => version.id === 'english-standard');
+  if (!hasEnglish) {
+    const option = make('option', undefined, 'English translation — chưa có audio');
+    option.value = 'english-standard'; option.disabled = true; select.append(option);
+  }
+  try {
+    const selected = readAudioVersion(localStorage);
+    if (versions.some(version => version.id === selected) || selected === 'english-standard') select.value = selected;
+  } catch { /* Default is the original version. */ }
   select.addEventListener('change', () => {
     try { saveAudioVersion(localStorage, select.value as AudioVersionPlayerData['id']); } catch { /* Selection still works. */ }
     change();
@@ -44,27 +52,41 @@ export function mountNativeSuttaAudio(element: HTMLElement): () => void {
   panel.dataset.nativeAudio = 'true';
   const description = make('p', 'listen-version-description');
   const notice = make('p', 'listen-notice'); notice.setAttribute('role', 'status'); notice.hidden = true;
+  const openTrackControl = element.querySelector<HTMLAnchorElement>('[data-open-track]');
+  const preventUnavailableOpen = (event: MouseEvent) => {
+    if (openTrackControl?.getAttribute('aria-disabled') === 'true') event.preventDefault();
+  };
+  openTrackControl?.addEventListener('click', preventUnavailableOpen);
   const refresh = () => {
-    const version = versions.find(item => item.id === picker.select.value)!;
-    description.textContent = version.description;
-    const label = element.querySelector('[data-track-label]'); if (label) label.textContent = version.label;
+    const version = versions.find(item => item.id === picker.select.value);
+    description.textContent = version?.description ?? 'Chưa có bản audio English đã xác minh cho bài này.';
+    const label = element.querySelector('[data-track-label]'); if (label) label.textContent = version?.label ?? 'English translation';
     const review = element.querySelector<HTMLElement>('[data-track-review]');
-    if (review) { review.hidden = version.review_status !== 'pending'; review.textContent = version.review_status === 'pending' ? 'Chờ nghe duyệt' : ''; }
+    if (review) { review.hidden = !version || version.review_status !== 'pending'; review.textContent = version?.review_status === 'pending' ? 'Chờ nghe duyệt' : ''; }
     const length = element.querySelector('[data-track-length]');
-    if (length) length.textContent = version.duration_seconds < 60
+    if (length) length.textContent = !version ? 'Chưa có audio' : version.duration_seconds < 60
       ? `${Math.round(version.duration_seconds)} giây` : `${Math.round(version.duration_seconds / 60)} phút`;
-    const openTrack = element.querySelector<HTMLAnchorElement>('[data-open-track]');
-    if (openTrack) {
-      const position = version.parts?.length ? locatePart(version.parts, version.start_seconds) : null;
-      const url = position ? version.parts![position.index].url : version.url;
-      const time = position ? position.time : version.start_seconds;
-      openTrack.href = time > 0 ? `${url}#t=${time}` : url;
-      openTrack.setAttribute('aria-label', `Mở MP3: ${version.label}`);
+    if (openTrackControl) {
+      if (!version) { openTrackControl.href = '#'; openTrackControl.hidden = true; openTrackControl.setAttribute('aria-disabled', 'true'); }
+      else {
+        const position = version.parts?.length ? locatePart(version.parts, version.start_seconds) : null;
+        const url = position ? version.parts![position.index].url : version.url;
+        const time = position ? position.time : version.start_seconds;
+        openTrackControl.href = time > 0 ? `${url}#t=${time}` : url;
+        openTrackControl.hidden = false;
+        openTrackControl.removeAttribute('aria-disabled');
+        openTrackControl.setAttribute('aria-label', `Mở MP3: ${version.label}`);
+      }
     }
   };
   const picker = versionPicker(versions, refresh);
   const launch = (startSeconds?: number) => {
-    const version = versions.find(item => item.id === picker.select.value)!;
+    const version = versions.find(item => item.id === picker.select.value);
+    if (!version) {
+      notice.hidden = false;
+      notice.textContent = 'Không tự chuyển sang audio tiếng Việt.';
+      return;
+    }
     const track: NativeTrack = { uid: element.dataset.nativeUid!, title: element.dataset.nativeTitle!, pageUrl: location.href, version };
     const sent = bridge.play(track, startSeconds);
     notice.hidden = false;
@@ -75,7 +97,7 @@ export function mountNativeSuttaAudio(element: HTMLElement): () => void {
   panel.append(picker.label, description, play, restart, notice);
   const footer = element.querySelector('.listening-footer'); element.insertBefore(panel, footer);
   refresh();
-  return () => panel.remove();
+  return () => { openTrackControl?.removeEventListener('click', preventUnavailableOpen); panel.remove(); };
 }
 
 export function mountNativePlaylist(element: HTMLElement, tracks: PlayerTrack[]): () => void {
@@ -88,22 +110,46 @@ export function mountNativePlaylist(element: HTMLElement, tracks: PlayerTrack[])
   const review = make('p', 'listening-review');
   const description = make('p', 'listen-version-description');
   const notice = make('p', 'listen-notice'); notice.setAttribute('role', 'status'); notice.hidden = true;
+  const openTrackControl = element.querySelector<HTMLAnchorElement>('[data-open-track]');
+  const preventUnavailableOpen = (event: MouseEvent) => {
+    if (openTrackControl?.getAttribute('aria-disabled') === 'true') event.preventDefault();
+  };
+  openTrackControl?.addEventListener('click', preventUnavailableOpen);
   let index = playlistIndexFromHash(location.hash, tracks) ?? 0;
-  const common = tracks[0].versions.filter(version => tracks.every(track => track.versions.some(item => item.id === version.id)));
+  const totalSuttas = Number(element.dataset.totalSuttas);
+  const completeVersions = new Set(completePlaylistVersions(tracks, totalSuttas));
+  const common = tracks[0].versions.filter(version => completeVersions.has(version.id));
   let autoNext = true;
   try { autoNext = readAutoNext(localStorage); } catch { /* Default follows the site. */ }
   const previous = make('button', 'listen-neighbour', '← Bài trước'); previous.type = 'button';
   const next = make('button', 'listen-neighbour', 'Bài tiếp →'); next.type = 'button';
   const refresh = () => {
     const track = tracks[index];
-    const version = track.versions.find(item => item.id === picker.select.value)!;
+    const version = track.versions.find(item => item.id === picker.select.value);
     title.textContent = `${track.uid.toUpperCase()} · ${track.title} · ${index + 1}/${tracks.length}`;
-    description.textContent = version.description;
-    review.hidden = version.review_status !== 'pending'; review.textContent = version.review_status === 'pending' ? 'Chờ nghe duyệt' : '';
+    description.textContent = version?.description ?? 'Chỉ bật English khi mọi mục trong nhóm đều có audio English.';
+    review.hidden = !version || version.review_status !== 'pending'; review.textContent = version?.review_status === 'pending' ? 'Chờ nghe duyệt' : '';
     previous.disabled = index === 0; next.disabled = index === tracks.length - 1;
+    if (openTrackControl) {
+      if (!version) { openTrackControl.href = '#'; openTrackControl.hidden = true; openTrackControl.setAttribute('aria-disabled', 'true'); }
+      else {
+        const position = version.parts?.length ? locatePart(version.parts, version.start_seconds) : null;
+        const url = position ? version.parts![position.index].url : version.url;
+        const time = position ? position.time : version.start_seconds;
+        openTrackControl.href = time > 0 ? `${url}#t=${time}` : url;
+        openTrackControl.hidden = false;
+        openTrackControl.removeAttribute('aria-disabled');
+        openTrackControl.setAttribute('aria-label', `Mở MP3 ${track.uid.toUpperCase()} · ${version.label}`);
+      }
+    }
     element.querySelectorAll<HTMLButtonElement>('[data-play-track]').forEach(button => {
       button.hidden = false;
-      button.setAttribute('aria-label', `Nghe ${button.dataset.playTrack?.toUpperCase()} trong ứng dụng`);
+      const rowTrack = tracks.find(item => item.uid === button.dataset.playTrack);
+      const rowVersion = rowTrack?.versions.find(item => item.id === picker.select.value);
+      button.disabled = !rowVersion;
+      button.setAttribute('aria-label', rowVersion
+        ? `Nghe ${button.dataset.playTrack?.toUpperCase()} trong ứng dụng · ${rowVersion.label}`
+        : `Không có audio ${picker.select.value} cho ${button.dataset.playTrack?.toUpperCase()}`);
       button.closest('[data-audio-row]')?.setAttribute('data-current-audio', String(button.dataset.playTrack === track.uid));
       const fallback = button.closest('.sutta-row-audio')?.querySelector<HTMLElement>('[data-audio-fallback]');
       if (fallback) fallback.hidden = true;
@@ -117,7 +163,13 @@ export function mountNativePlaylist(element: HTMLElement, tracks: PlayerTrack[])
   };
   const launch = () => {
     const track = nativeTrack(tracks[index]);
-    if (!track) return;
+    if (!track) {
+      notice.hidden = false;
+      notice.textContent = picker.select.value === 'english-standard'
+        ? 'Nhóm chưa có đủ audio English cho mọi mục. Không tự chuyển sang audio tiếng Việt.'
+        : 'Không có audio của phiên bản này cho mục đang chọn.';
+      return;
+    }
     const queue: NativeTrack[] = [];
     if (autoNext) {
       for (const item of tracks.slice(index + 1)) {
@@ -148,5 +200,5 @@ export function mountNativePlaylist(element: HTMLElement, tracks: PlayerTrack[])
     }, { signal: controller.signal });
   });
   refresh();
-  return () => { controller.abort(); panel.remove(); };
+  return () => { controller.abort(); openTrackControl?.removeEventListener('click', preventUnavailableOpen); panel.remove(); };
 }
