@@ -54,6 +54,16 @@ The estimate below uses the current 1,678,442-word corpus, a hypothetical consta
 | 150 words/min | 186.5 h | $151.06 | $302.12 | $100.71 | $201.41 |
 | 180 words/min | 155.4 h | $125.88 | $251.77 | $83.92 | $167.84 |
 
+For comparison, the 161 KN project-only texts are 51,652 words across 2,612 segments. This subset avoids Sujato-derived text but is not a substitute for the five-Nikāya goal and still needs separate provider, sample, budget, and public-R2 approval.
+
+| Assumed pace | Approximate audio | Flash TTS through 2026-12-31 | Flash TTS from 2027-01-01 | Flash-Lite through 2026-12-31 | Flash-Lite from 2027-01-01 |
+| ---: | ---: | ---: | ---: | ---: | ---: |
+| 120 words/min | 7.17 h | $5.81 | $11.62 | $3.87 | $7.75 |
+| 150 words/min | 5.74 h | $4.65 | $9.30 | $3.10 | $6.20 |
+| 180 words/min | 4.78 h | $3.87 | $7.75 | $2.58 | $5.17 |
+
+These project-only figures use the same 25-audio-tokens-per-second and output-only price assumptions as the full-corpus table. They exclude input-token charges, chunk pauses, voice samples, retries, and R2 storage/egress; they are not a budget or provider approval.
+
 The [official price table](https://ai.google.dev/gemini-api/docs/pricing#gemini-3.8-flash-tts) lists Standard Paid Flash TTS audio output at $9 per million audio tokens through December 31, then $18 from January 1; Flash-Lite is $6, then $12. Both list text input at $0.50/$1.00 per million tokens over those dates. Input tokens are not estimated here because no model token-count request has been approved. Actual duration depends on the editor-approved pace, pauses, and text chunking; samples and retries add cost. The full budget must also cover public R2 storage/egress if applicable. Recheck prices before any provider request.
 
 The pricing table says free-tier use may improve Google products, while paid-tier use is not used to improve products. A paid tier may be preferable for source handling, but that does not resolve SuttaCentral’s AI-derived-use request.
