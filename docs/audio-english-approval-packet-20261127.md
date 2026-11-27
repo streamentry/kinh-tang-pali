@@ -82,12 +82,18 @@ The pricing table says free-tier use may improve Google products, while paid-tie
 
 For voice selection, do not assume Charon or the Vietnamese style works in English. The official [voice guide](https://aistudio.google.com/docs/speech-generation#voices) lists prebuilt voices and an English-filterable voice library. Choose a voice only after an English-speaking editor hears and approves a sample. `voices.list`, Voice Design, and TTS sample generation are provider operations; none has been called. The separate English profile must pin its own model, voice, style, chunk limit, pauses, encoding, default 1× speed, and profile hash. Leave `vi-charon-mn1-v1` unchanged.
 
+## R2 cost and production URL
+
+Cloudflare's [R2 pricing page](https://developers.cloudflare.com/r2/pricing/) lists Standard storage at $0.015/GB-month, Class A operations at $4.50/million, and Class B at $0.36/million. Direct R2 egress is free. The monthly free tier covers 10 GB-month, 1 million Class A operations, and 10 million Class B operations; existing account use is unknown, so do not assume that allowance is unused. Rates were checked 2026-11-27; recheck before upload.
+
+The final R2 estimate still needs the approved English encoding and multipart plan to count bytes and object operations. Public playback volume is also unknown. Cloudflare describes the managed `r2.dev` URL as a non-production option; use and approve a production custom domain for full-corpus release, following its [public bucket guidance](https://developers.cloudflare.com/r2/buckets/public-buckets/). No English bucket or domain has been selected or created.
+
 ## Explicit decisions still needed
 
 1. **Rights:** written permission or a documented editor/legal decision that explicitly addresses AI-derived narration of the pinned source, with scope covering the relevant source units. If unresolved, Sujato-derived TTS remains blocked.
 2. **Provider:** approve the exact provider, model, and paid/free tier for a sample and production. No Gemini request has been made for English.
 3. **Budget:** specify a maximum USD spend that includes voice/sample work, input and audio tokens, a bounded retry allowance, R2 storage, and egress. The ranges above exclude input tokens, samples, retries, and R2 costs; they are not the ceiling.
 4. **Voice and pace:** approve an English-speaking editor to listen to the sample and approve the separate English profile before scaling.
-5. **Distribution:** explicitly approve the public R2 bucket and HTTPS base URL, plus immutable `en/<collection>/<uid>/<content-and-profile-hash>/` keys. `source/audio-storage.json` documents a public bucket and base URL for Vietnamese narration; it does not authorize English uploads.
+5. **Distribution:** explicitly approve the public R2 bucket and HTTPS production custom-domain base URL, plus immutable `en/<collection>/<uid>/<content-and-profile-hash>/` keys. `source/audio-storage.json` documents a public bucket and base URL for Vietnamese narration; it does not authorize English uploads.
 
 After those decisions, rerun the all-five-Nikāya preflight, review the source map, prepare an exact profile/chunk/cost plan, and generate one UID at a time under the TTS lock. Use no ASR, do not rewrite English gaps, do not commit media or caches, and keep every new track `review_status: pending` until human listening is complete.
