@@ -5,7 +5,7 @@ State: decisions are still required. This document authorizes no API request, vo
 
 ## Audited source scope
 
-The fresh provider-free preflight generated `2026-11-27T12:38:14Z` at bilara commit `11c9d708978cde8ba61096d8a75f7ddfb846f639` found 4,702 candidates with resolved English, 1,435 catalog texts without English, no partial/blocked candidates, and zero provider calls or uploads. The current source text contains 1,678,442 whitespace-delimited English words and 9,815,038 characters. The corresponding per-UID source map was generated at `2026-11-27T12:38:21Z` from that preflight.
+The fresh provider-free preflight generated `2026-11-27T12:42:06Z` at bilara commit `11c9d708978cde8ba61096d8a75f7ddfb846f639` found 4,702 candidates with resolved English, 1,435 catalog texts without English, no partial/blocked candidates, and zero provider calls or uploads. The current source text contains 1,678,442 whitespace-delimited English words and 9,815,038 characters. The corresponding per-UID source map was generated at `2026-11-27T12:42:17Z` from that preflight.
 
 The accompanying [`audio-english-source-rights-map-20261127.json`](audio-english-source-rights-map-20261127.json) binds each candidate UID to its resolved English hash, source layer counts, pinned source-file paths and hashes, and—where project fills are used—the project content and review-metadata hashes. It contains no transcript text, audio, or credentials.
 
