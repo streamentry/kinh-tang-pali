@@ -71,8 +71,8 @@ function fixture(route) {
     <style>body{margin:0;font-family:serif;background:#f9faf7}main{padding:16px}.segment{height:calc(250px * var(--reader-scale, 1));border-top:1px solid #d8dfd6}header{height:260px}button,select{min-height:44px}button{padding:8px}footer{height:500px}.listening-options{display:flex;flex-wrap:wrap;gap:8px;padding:20px}.listen-version{display:flex;gap:8px}.collection-audio-current,.listen-version-description{flex-basis:100%}[hidden]{display:none!important}</style>
     ${native ? '<script>window.__messages=[];window.ReactNativeWebView={postMessage(value){window.__messages.push(JSON.parse(value));window.__nativeMessage?.(value);}};</script>' : ''}
     </head><body>
-    ${audio ? `<sutta-audio id="lang-nghe" style="display:block;min-height:900px" data-native-uid="mn1" data-native-title="Kinh Pháp Môn Căn Bản" data-versions="${escapeAttr([original, children])}"><div><p data-track-label>${original.label}</p><span data-track-review>Chờ nghe duyệt</span><span data-track-length>3 phút</span></div><audio controls preload="none" src="${original.url}"></audio><div class="listening-custom" hidden>${audioControls}</div><div class="listening-footer"><a data-open-track href="${original.url}">Mở MP3</a></div></sutta-audio>` : ''}
-    ${playlist ? `<sutta-playlist data-native-text-base="/kinh-tang-pali/sutta/mn/" data-tracks="[]" data-tracks-src="/kinh-tang-pali/fixture-playlist.json" data-track-count="2"><section class="collection-listening"><audio controls preload="none" src="${tracks[0].url}"></audio><p data-playlist-error hidden>Không tải được danh sách</p><div class="listening-custom" hidden><p data-current-title></p><span data-current-uid></span><span data-position></span><span data-current-review></span><span data-playback-state></span>${audioControls}<div class="listening-footer"><a data-open-track href="${tracks[0].url}">Mở MP3</a></div></div></section>${tracks.map(track => `<div data-audio-row><div class="sutta-row-audio"><button data-play-track="${track.uid}" data-track-title="${track.title}" hidden><span data-row-label>Phát</span></button><a data-audio-fallback href="#">MP3</a></div></div>`).join('')}</sutta-playlist>` : ''}
+    ${audio ? `<sutta-audio id="lang-nghe" style="display:block;min-height:900px" data-native-uid="mn1" data-native-title="Kinh Pháp Môn Căn Bản" data-versions="${escapeAttr([original, children])}"><div><p data-track-label>${original.label}</p><span data-track-review>Chờ nghe duyệt</span><span data-track-length>3 phút</span></div><audio controls preload="none"></audio><div class="listening-custom" hidden>${audioControls}</div><div class="listening-footer"><a data-open-track href="${original.url}">Mở MP3</a></div></sutta-audio>` : ''}
+    ${playlist ? `<sutta-playlist data-native-text-base="/kinh-tang-pali/sutta/mn/" data-tracks="[]" data-tracks-src="/kinh-tang-pali/fixture-playlist.json" data-track-count="2"><section class="collection-listening"><audio preload="none"></audio><p data-playlist-error hidden>Không tải được danh sách</p><div class="listening-custom" hidden><p data-current-title></p><span data-current-uid></span><span data-position></span><span data-current-review></span><span data-playback-state></span>${audioControls}<div class="listening-footer"><a data-open-track href="${tracks[0].url}">Mở MP3</a></div></div></section>${tracks.map(track => `<div data-audio-row><div class="sutta-row-audio"><button data-play-track="${track.uid}" data-track-title="${track.title}" hidden><span data-row-label>Phát</span></button><a data-audio-fallback href="#">MP3</a></div></div>`).join('')}</sutta-playlist>` : ''}
     <header>Thư viện kinh văn</header><main data-native-reader data-native-uid="mn1" data-native-title="Kinh Pháp Môn Căn Bản">
     <section class="reader-shell" data-reader-mode="vi"><div class="reader-toolbar">
       <div>${['vi', 'compare', 'interlinear'].map(mode => `<button data-mode="${mode}" aria-pressed="${mode === 'vi'}">${mode}</button>`).join('')}</div>
@@ -231,27 +231,40 @@ try {
 
   const foreign = await browser.newPage({ viewport: { width: 390, height: 844 }, userAgent: 'Mozilla/5.0 OtherApp/1.0' });
   foreign.on('pageerror', error => errors.push(error.message));
-  await foreign.route('https://audio.example.org/**', route => route.abort());
+  let foreignAudioRequests = 0;
+  await foreign.route('https://audio.example.org/**', route => { foreignAudioRequests++; return route.abort(); });
   await foreign.goto(`${base}/foreign/audio/`);
   assert.equal(await foreign.evaluate(() => typeof window.ReactNativeWebView.postMessage), 'function');
   assert.equal(await foreign.evaluate(() => Boolean(window.__KINH_NATIVE__)), false);
   assert.equal(await foreign.evaluate(() => document.documentElement.dataset.nativeApp), undefined);
   assert.equal(await foreign.locator('[data-native-audio]').count(), 0);
   assert.equal(await foreign.locator('.listen-play').isVisible(), true);
-  assert.equal(await foreign.locator('audio').getAttribute('src'), original.url);
+  assert.equal(await foreign.locator('audio').getAttribute('src'), null);
   await foreign.locator('[data-version-select]').selectOption('children');
-  assert.equal(await foreign.locator('audio').getAttribute('src'), children.url);
+  assert.equal(await foreign.locator('audio').getAttribute('src'), null, 'Changing versions does not fetch media before Play');
   assert.equal(await foreign.locator('[data-open-track]').getAttribute('href'), children.url);
+  assert.equal(foreignAudioRequests, 0, 'Neither page load nor version selection requests audio');
+  await foreign.locator('.listen-play').click();
+  assert.equal(await foreign.locator('audio').getAttribute('src'), children.url, 'Explicit Play loads the selected version');
+  await foreign.waitForTimeout(50);
+  assert.ok(foreignAudioRequests > 0, 'Media is requested only after explicit Play');
   assert.deepEqual(await foreign.evaluate(() => window.__messages), [], 'A foreign RN host keeps the browser audio engine');
 
   await foreign.goto(`${base}/foreign/playlist/`);
   await foreign.waitForFunction(() => document.querySelector('sutta-playlist').dataset.ready === 'true');
+  const playlistRequestsBefore = foreignAudioRequests;
   assert.equal(await foreign.locator('[data-native-audio]').count(), 0);
   assert.equal(await foreign.locator('[data-master-play]').isVisible(), true);
   await foreign.locator('[data-version-select]').selectOption('original');
-  assert.equal(await foreign.locator('audio').getAttribute('src'), tracks[0].url);
+  assert.equal(await foreign.locator('audio').getAttribute('src'), null);
   await foreign.locator('[data-version-select]').selectOption('children');
-  assert.equal(await foreign.locator('audio').getAttribute('src'), tracks[0].versions[1].url);
+  assert.equal(await foreign.locator('audio').getAttribute('src'), null, 'Playlist version selection does not fetch media');
+  assert.equal(await foreign.locator('[data-open-track]').getAttribute('href'), tracks[0].versions[1].url);
+  assert.equal(foreignAudioRequests, playlistRequestsBefore, 'Playlist data and version selection do not request audio');
+  await foreign.locator('[data-master-play]').click();
+  assert.equal(await foreign.locator('audio').getAttribute('src'), tracks[0].versions[1].url, 'Playlist Play loads the selected version');
+  await foreign.waitForTimeout(50);
+  assert.ok(foreignAudioRequests > playlistRequestsBefore, 'Playlist media is requested only after explicit Play');
   assert.deepEqual(await foreign.evaluate(() => window.__messages), []);
   await foreign.close();
   assert.deepEqual(errors, [], 'No uncaught script errors');
