@@ -1,7 +1,7 @@
 # English Audio Rollout Plan
 
 Date: 2026-11-26
-Status: plan only. No Gemini requests, R2 uploads, or English voice profile changes have been made.
+Status: plan plus provider-free preflight implementation. No Gemini requests, R2 uploads, or English voice profile changes have been made. The Sujato AI-use gate remains unresolved.
 
 ## Goal and scope
 
@@ -11,7 +11,7 @@ The track transcript must match the English column the reader resolves: pinned `
 
 ## No-TTS inventory baseline
 
-The current store was scanned without contacting a provider. It used `composeDocument()` at bilara commit `11c9d708978cde8ba61096d8a75f7ddfb846f639` and counted an English candidate when it had resolved English prose and no missing English at Pāli segments of 40 or more normalized characters, excluding reference blocks.
+The current store was scanned without contacting a provider. The committed `npm run audio:english:preflight -- --require-ready` command uses the reader's resolved English at bilara commit `11c9d708978cde8ba61096d8a75f7ddfb846f639` and counts a candidate when it has English prose and no missing English at Pāli segments of 40 or more normalized characters, excluding reference blocks.
 
 | Nikāya | Catalog texts | English candidates | No resolved English | Texts using project fills |
 | --- | ---: | ---: | ---: | ---: |
@@ -22,7 +22,7 @@ The current store was scanned without contacting a provider. It used `composeDoc
 | KN | 2,351 | 916 | 1,435 | 203 |
 | **Total** | **6,137** | **4,702** | **1,435** | **1,060** |
 
-The candidate texts contain about 9.82 million English characters and 1.68 million whitespace-delimited words. There are 161 project-only English texts in the current inventory, all in KN; the other candidates include Sujato text, sometimes alongside project fills. These figures define a snapshot, not approval to generate or publish audio. The UID lists and per-collection counts are recorded in [`audio-english-preflight-inventory-20261126.json`](audio-english-preflight-inventory-20261126.json). Re-run a committed preflight against the current store before generation.
+The latest no-TTS run on 2026-11-26 reproduced the inventory: 4,702 candidates, 1,435 with no English, zero partial/blocked, and candidate UID sets matching the committed inventory. Candidates contain about 9.82 million English characters and 1.68 million whitespace-delimited words. There are 161 project-only English texts, all in KN; the other candidates include Sujato text, sometimes alongside project fills. These figures define a snapshot, not approval to generate or publish audio. The UID lists and run details are recorded in [`audio-english-preflight-inventory-20261126.json`](audio-english-preflight-inventory-20261126.json). Re-run the preflight against the current store before generation.
 
 The pinned upstream manifest has 4,291 `english-sujato` files; the repository's reference audit identifies 1,596 catalog UIDs with no English in that upstream edition. Published project fills account for some texts and some segments, so file counts alone are not the audio candidate count.
 
@@ -58,7 +58,7 @@ Costing follows the approved English sample and a language-specific chunk prefli
 ## Phases and gates
 
 1. **Rights decision.** Resolve the Sujato AI-derived-use request and the pinned `NOASSERTION` record. Confirm whether TTS may use Sujato text and whether the resulting audio may be public. If not, stop that source path.
-2. **Reproducible preflight.** Add `audio:english:preflight` to enumerate the five catalogs, resolve English by the reader's layer rules, check project-fill publication status, report missing text and per-segment provenance, and emit exact characters, words, chunks, duration, and cost estimates without TTS.
+2. **Reproducible preflight.** Run `npm run audio:english:preflight -- --require-ready` before production. It enumerates the five catalogs, resolves English by the reader's layer rules, checks project-fill publication status, and reports missing text, per-segment provenance, exact characters/words, and source hashes without TTS. After an English profile is approved, add a profile-aware dry-run that computes chunk count, duration, and a rate-checked cost estimate without generating audio.
 3. **Language-aware player and registry.** Add English without changing the current Vietnamese audio contract. Test mixed provenance, stale-source rejection, no-autoplay, no cross-language fallback, part seeking, and collection completeness.
 4. **Profile approval and pilot.** After rights, cost, and provider approvals, prepare five representative English samples (one per Nikāya where an eligible text exists, including prose/verse and long/short material). The editor approves English voice and pace before batch production. Keep sample content review separate and pending.
 5. **Serial production.** Generate one UID at a time under the machine-wide TTS lock. Reuse only exact source/profile/chunk-hash cache. Publish small batches grouped by Nikāya; choose batch size after the preflight measures long tracks and PR metadata.
@@ -72,5 +72,6 @@ The technical phase is complete when every rights-cleared candidate UID in the a
 
 - English layer precedence: [`source/layers.yaml`](../source/layers.yaml).
 - Pinned edition, license record, and project-content license: [`source/suttacentral.lock.json`](../source/suttacentral.lock.json).
+- Provider-free preflight implementation and source fingerprinting: [`scripts/audio-english-preflight.ts`](../scripts/audio-english-preflight.ts), [`src/lib/canon/english-audio.ts`](../src/lib/canon/english-audio.ts).
 - Current source and eligibility snapshot: [`audio-english-preflight-inventory-20261126.json`](audio-english-preflight-inventory-20261126.json).
 - Existing Vietnamese audio contract and no-ASR/review rules: [`docs/audio.md`](audio.md).
