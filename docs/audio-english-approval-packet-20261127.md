@@ -66,6 +66,18 @@ These project-only figures use the same 25-audio-tokens-per-second and output-on
 
 The [official price table](https://ai.google.dev/gemini-api/docs/pricing#gemini-3.8-flash-tts) lists Standard Paid Flash TTS audio output at $9 per million audio tokens through December 31, then $18 from January 1; Flash-Lite is $6, then $12. Both list text input at $0.50/$1.00 per million tokens over those dates. Input tokens are not estimated here because no model token-count request has been approved. Actual duration depends on the editor-approved pace, pauses, and text chunking; samples and retries add cost. The full budget must also cover public R2 storage/egress if applicable. Recheck prices before any provider request.
 
+For batch planning, the same assumptions split by Nikāya are:
+
+| Nikāya | Candidates | English words | Hours at 150 wpm | Flash output-only USD through Dec 31 | Flash-Lite output-only USD through Dec 31 |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| DN | 34 | 214,801 | 23.9 | $19.33 | $12.89 |
+| MN | 152 | 364,156 | 40.5 | $32.77 | $21.85 |
+| SN | 1,819 | 410,887 | 45.7 | $36.98 | $24.65 |
+| AN | 1,781 | 473,009 | 52.6 | $42.57 | $28.38 |
+| KN | 916 | 215,589 | 24.0 | $19.40 | $12.94 |
+
+These are planning estimates, not quotes or approvals. The assumed pace is not approved, row values are rounded, and the January 1, 2027 prices double the output-only amounts. Chunk/request counts and encoded bytes still depend on the approved English profile and its dry-run; input tokens, pauses, samples, retries, and R2 storage/egress are excluded.
+
 The pricing table says free-tier use may improve Google products, while paid-tier use is not used to improve products. A paid tier may be preferable for source handling, but that does not resolve SuttaCentral’s AI-derived-use request.
 
 For voice selection, do not assume Charon or the Vietnamese style works in English. The official [voice guide](https://aistudio.google.com/docs/speech-generation#voices) lists prebuilt voices and an English-filterable voice library. Choose a voice only after an English-speaking editor hears and approves a sample. `voices.list`, Voice Design, and TTS sample generation are provider operations; none has been called. The separate English profile must pin its own model, voice, style, chunk limit, pauses, encoding, default 1× speed, and profile hash. Leave `vi-charon-mn1-v1` unchanged.
