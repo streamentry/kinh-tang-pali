@@ -5,6 +5,7 @@ import os from 'node:os';
 import path from 'node:path';
 import { createHash } from 'node:crypto';
 import { composeDocument } from '../../src/lib/canon/document';
+import { COLLECTIONS, loadCatalog } from '../../src/lib/canon/load';
 import { englishAudioSource, englishAudioTranscriptHash } from '../../src/lib/canon/english-audio';
 import { audioPlayerData, englishAudioRegistrationVersion, loadAudio, loadEnglishAudioVersion, narrationHash, type EnglishAudioRegistration } from '../../src/lib/canon/audio';
 import { englishAudioR2ObjectKey } from '../../src/lib/canon/english-audio-authorization';
@@ -14,6 +15,18 @@ import type { EnglishAudioApprovalManifest } from '../../src/lib/canon/english-a
 const repoRoot = process.cwd();
 const sha256 = (file: string) => createHash('sha256').update(fs.readFileSync(file)).digest('hex');
 const repoPath = (file: string) => path.relative(repoRoot, file).split(path.sep).join('/');
+
+test('English R2 key builder accepts every UID in the five-Nikāya catalog', () => {
+  const sourceHash = 'a'.repeat(64);
+  const profileHash = 'b'.repeat(64);
+  const objectHash = 'c'.repeat(64);
+  for (const { code } of COLLECTIONS) {
+    for (const { uid } of loadCatalog(code).texts) {
+      const key = englishAudioR2ObjectKey({ collection: code, uid, source_sha256: sourceHash }, profileHash, objectHash);
+      assert.equal(key, `en/${code}/${uid}/${sourceHash}-${profileHash}/${objectHash}.mp3`);
+    }
+  }
+});
 
 function sourceAndDependencies() {
   const document = composeDocument('dn', 'dn25');
