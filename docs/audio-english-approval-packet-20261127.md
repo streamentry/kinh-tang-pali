@@ -1,6 +1,6 @@
 # English audio approval packet
 
-Date: 2026-11-27  
+Date: 2026-11-27
 State: decisions are still required. This document authorizes no API request, voice creation, audio generation, or R2 upload.
 
 ## Audited source scope
