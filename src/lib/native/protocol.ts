@@ -134,7 +134,7 @@ export function trackKey(track: NativeTrack): string {
 export function parseAudioManifest(value: unknown, siteUrl = WEBSITE_URL, expectedUid?: string): NativeTrack[] | null {
   if (!record(value) || value.v !== BRIDGE_VERSION || !uid(value.uid) || (expectedUid && value.uid !== expectedUid)
     || !text(value.title) || !text(value.pagePath, 8_192) || !value.pagePath.startsWith('/')
-    || !Array.isArray(value.versions) || !value.versions.length || value.versions.length > 4) return null;
+    || !Array.isArray(value.versions) || !value.versions.length || value.versions.length > 5) return null;
   let pageUrl: string;
   try { pageUrl = new URL(value.pagePath, siteUrl).href; } catch { return null; }
   if (!isTrustedPageUrl(pageUrl, siteUrl) || !new URL(pageUrl).pathname.endsWith(`/${value.uid}/`)) return null;

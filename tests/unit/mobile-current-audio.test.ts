@@ -30,6 +30,23 @@ test('removed variants never silently fall back to the original recording', asyn
   await assert.rejects(currentAudioTrack(saved, siteUrl, fetchJson(manifest())), /không còn được phát hành/);
 });
 
+test('saved English resumes from a five-version current manifest without switching to Vietnamese', async () => {
+  const original = track();
+  const saved = { ...original, version: { ...original.version, id: 'english-standard' as const, label: 'English translation', kind: 'english' as const } };
+  const versions = [
+    original.version,
+    { ...original.version, id: 'children' as const, kind: 'explanation' as const },
+    { ...original.version, id: 'adults' as const, kind: 'explanation' as const },
+    { ...original.version, id: 'older-adults' as const, kind: 'explanation' as const },
+    { ...saved.version, url: 'https://audio.example.org/mn1-en-current.mp3' },
+  ];
+  const current = { ...manifest(original), versions };
+  const resolved = await currentAudioTrack(saved, siteUrl, fetchJson(current));
+  assert.equal(resolved.version.id, 'english-standard');
+  assert.equal(resolved.version.kind, 'english');
+  assert.equal(resolved.version.url, 'https://audio.example.org/mn1-en-current.mp3');
+});
+
 test('removed or malformed current metadata cannot replay a cached recording', async () => {
   await assert.rejects(currentAudioTrack(track(), siteUrl, fetchJson({}, 404)), /chưa có/);
   await assert.rejects(currentAudioTrack(track(), siteUrl, fetchJson({ ...manifest(), uid: 'mn2' })), /không hợp lệ/);

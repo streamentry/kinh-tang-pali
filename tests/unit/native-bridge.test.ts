@@ -144,6 +144,20 @@ test('saved listening entries resolve only to fresh metadata for the requested s
   assert.notEqual(trackKey(changed[0]), trackKey(track), 'A replacement recording cannot inherit a stale saved timestamp');
 });
 
+test('saved English is accepted in a five-version current-audio manifest', () => {
+  const english = { ...track.version, id: 'english-standard' as const, label: 'English translation', kind: 'english' as const };
+  const versions = [
+    track.version,
+    { ...track.version, id: 'children' as const, kind: 'explanation' as const },
+    { ...track.version, id: 'adults' as const, kind: 'explanation' as const },
+    { ...track.version, id: 'older-adults' as const, kind: 'explanation' as const },
+    english,
+  ];
+  const manifest = { v: 1, uid: 'mn1', title: track.title, pagePath: '/kinh-tang-pali/sutta/mn/mn1/', versions };
+  assert.equal(parseAudioManifest(manifest, WEBSITE_URL, 'mn1')?.length, 5);
+  assert.equal(parseAudioManifest({ ...manifest, versions: [...versions, track.version] }, WEBSITE_URL, 'mn1'), null);
+});
+
 test('correlated capture acknowledgements validate request and page identities', () => {
   assert.ok(parseWebMessage(message({ type: 'captured', requestId: 'export-1', position })));
   assert.ok(parseWebMessage(message({ type: 'captured', requestId: 'export-2', position: null })));
