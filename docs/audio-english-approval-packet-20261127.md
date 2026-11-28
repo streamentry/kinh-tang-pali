@@ -1,7 +1,7 @@
 # English audio approval packet
 
-Date: 2026-11-27
-State: decisions are still required. This document authorizes no API request, voice creation, audio generation, or R2 upload.
+Date: 2026-11-28
+State: the editor's AI-derived-use decision for accessibility is recorded. This does not authorize API requests, voice creation, audio generation, or R2 uploads. Exact provider/model/tier, profile/sample, spend ceiling, source-rights manifest, UID allowlist, and public-distribution approvals remain pending.
 
 ## Audited source scope
 
@@ -38,9 +38,9 @@ Overall, 4,541 candidate texts contain at least one Sujato-sourced segment (135,
 
 The pinned lock records the Sujato English layer as third-party, `NOASSERTION`, with attribution required. At the same bilara commit, the official [`_publication.json`](https://github.com/suttacentral/bilara-data/blob/11c9d708978cde8ba61096d8a75f7ddfb846f639/_publication.json) has CC0 publication records for 12 of the 13 source units in the table; no separate record for `kn/ja` was found. Those records' `license_statement` fields state CC0 but do not contain the AI-use request.
 
-The current [SuttaCentral licensing page](https://suttacentral.net/licensing?lang=en) says third-party material has terms set by its asserter and asks that its content not be used for generative-AI datasets or similar, including downstream applications. The source-specific publication record and the global AI-use request are separate evidence; neither silently overrides the project's pinned `NOASSERTION` or decides whether TTS is acceptable. This packet is not a legal determination.
+The [SuttaCentral licensing page](https://suttacentral.net/licensing?lang=en) reviewed for this packet on 2026-11-27 says third-party material has terms set by its asserter and asks that its content not be used for generative-AI datasets or similar, including downstream applications. Direct retrieval on 2026-11-28 returned only a JavaScript browser-check page, so this update does not claim that the terms were re-read today. The source-specific publication record and the global AI-use request are separate evidence; neither silently overrides the project's pinned `NOASSERTION` or decides whether TTS is legally acceptable. This packet is not a legal determination.
 
-Under the user’s project rule, **all 4,541 texts with any Sujato-derived segment remain blocked for TTS** until written permission or a documented editor/legal decision explicitly resolves the AI-use request and the relevant source terms. The 161 project-only texts contain no Sujato segments, but still require separate provider, profile/sample, cost, and distribution approval. Do not contact SuttaCentral, Bhikkhu Sujato, or other rights holders without explicit authorization.
+The editor's 2026-11-28 decision is recorded in [editorial-decisions-2026-11-28-english-audio.md](editorial-decisions-2026-11-28-english-audio.md). It chooses Gemini TTS for accessible readings of the current resolved-English scope, acknowledges that the output is AI-generated/AI-derived, and chooses to proceed despite the stated request. This is an internal editorial decision, not written permission, a legal determination, or a change to the pinned source terms. The 4,541 texts with any Sujato-derived segment are still blocked by the current fail-closed manifest because its source-rights approval also requires public-audio permission; that permission has not been approved. The 161 project-only texts remain blocked on provider, profile/sample, cost, UID, and distribution approvals. Do not contact SuttaCentral, Bhikkhu Sujato, or other rights holders.
 
 The release manifest applies this rights gate only when a resolved track contains Sujato-sourced segments. Such clearance must record its basis, explicitly allow AI-derived TTS and public audio, and link to the covered source scope; the per-UID source-hash allowlist binds any eventual release to exact text. A project-only KN UID may pass this one gate without Sujato clearance only while the pinned project-content license declares CC0 coverage for `content/translation/en/project`, and only after every other approval is complete. Use the authorization audit's `--project-only` scope to inspect that subset; the default full-corpus audit remains fail-closed, and a KN pilot does not satisfy the five-Nikāya goal.
 
@@ -98,8 +98,8 @@ The final R2 estimate still needs the approved English encoding and multipart pl
 
 ## Explicit decisions still needed
 
-1. **Rights:** written permission or a documented editor/legal decision that explicitly addresses AI-derived narration of the pinned source, with scope covering the relevant source units. If unresolved, Sujato-derived TTS remains blocked.
-2. **Provider:** approve the exact provider, model, and paid/free tier for a sample and production. No Gemini request has been made for English.
+1. **Rights and source scope:** the internal editorial decision on AI-derived TTS for accessibility is recorded. It is not written permission or legal clearance. Keep the source-rights manifest pending until its full requirements, including public-audio permission and exact source scope, are satisfied; until then Sujato-derived TTS remains blocked.
+2. **Provider:** Gemini TTS is the selected method, but the exact model and paid/free tier must still be approved for a sample and production. No Gemini request has been made for English.
 3. **Budget:** specify a maximum USD spend that includes voice/sample work, input and audio tokens, a bounded retry allowance, and R2 storage plus Class A/B operations. Direct R2 egress is currently free. The ranges above exclude input tokens, samples, retries, and R2 costs; they are not the ceiling. A direct public bucket cannot enforce a hard cap on variable listener reads.
 4. **Voice and pace:** approve an English-speaking editor to listen to the sample and approve the separate English profile before scaling.
 5. **Distribution:** explicitly approve the public R2 bucket and HTTPS production custom-domain base URL, plus immutable `en/<collection>/<uid>/<content-and-profile-hash>/` keys. `source/audio-storage.json` documents a public bucket and base URL for Vietnamese narration; it does not authorize English uploads.
