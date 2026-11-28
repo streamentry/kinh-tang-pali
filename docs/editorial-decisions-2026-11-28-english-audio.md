@@ -13,13 +13,19 @@ Gemini TTS produces AI-generated, AI-derived audio. The accessibility purpose do
 
 This is an internal editorial decision about the project's intended use. It is **not** written permission from SuttaCentral or a translator, a legal opinion, or a claim that the pinned source terms grant rights for TTS or distribution. It does not alter the source records, attribution, or license declarations. Do not contact rights holders as part of this decision.
 
+## Follow-up authorization — 2026-11-28
+
+After the initial decision, the editor instructed the project to merge the decision and begin English audio. The editor approved the Iapetus sample voice and selected a **$400 TTS-only ceiling** for the pinned 4,702-text source scope. This authorizes local, serial Gemini TTS generation for that scope, using the separate English profile. The cap includes sample, text-input, and audio-output charges; the generator uses no automatic retries. It excludes R2 storage, operations, and public listener traffic.
+
+The first five voice samples and complete local SN1.1 and DN1 tracks are recorded in the local generation manifests. Their spoken-content review remains pending. The production release manifest still has an empty UID registration allowlist; this follow-up does not authorize public R2 upload or web-player registration.
+
 ## Limits
 
 - Speak only the current resolved English text, preserving segment order and each segment's source attribution. Project English fills must remain published.
 - Do not use TTS to translate, fill English gaps, summarize, explain, or rewrite any text.
-- This decision does not authorize API requests. The exact Gemini model and tier, English voice and profile, sample approval, total spend ceiling, and UID/source-hash allowlist remain separate gates.
+- The initial source-use decision did not itself authorize API requests. The later follow-up above authorizes local Gemini TTS generation for the pinned scope under the $400 TTS-only ceiling. Stop at the ceiling; do not extend scope or spend without a new editor decision.
 - This decision does not approve public audio distribution, a public R2 bucket, domain, or key prefix. The source-rights and public-distribution manifest entries remain pending until their full requirements are met.
-- Keep `source/english-audio-approvals.json` at `release_status: pending` with an empty UID allowlist. Do not create English audio or upload objects until every applicable approval gate is complete.
+- Keep `source/english-audio-approvals.json` at `release_status: pending` with an empty registration UID allowlist. Local generation does not authorize upload, registration, or web playback; those remain blocked until public release gates are complete.
 - Any future audio remains `review_status: pending` until a person listens to it and approves its spoken content.
 
 The current candidate count is a pinned snapshot, not blanket approval for new source commits or future candidate sets. Re-run the preflight and review any changed source scope before expanding production.
