@@ -33,13 +33,14 @@
   "cost_ceiling": {
     "max_usd": 400,
     "scope": "TTS input and audio output for this pinned candidate scope, including preview samples and retries",
-    "retry_limit": 0,
+    "retry_limit": 1,
     "includes_r2": false,
     "r2_status": "not-approved",
     "stop_before_request_if_estimated_total_would_exceed_cap": true,
     "prior_tts_estimated_usd": 0.053517,
     "prior_tts_provider_calls": 6,
-    "editor_cap_selected_at": "2026-11-28"
+    "editor_cap_selected_at": "2026-11-28",
+    "retry_policy": "One explicit retry for a recorded network/HTTP 5xx failure per chunk; no retry on authentication, quota, billing, or other 4xx errors. Reserve the first attempt cost when its outcome is uncertain."
   },
   "release": {
     "status": "pending",

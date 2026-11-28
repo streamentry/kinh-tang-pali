@@ -1,7 +1,7 @@
 # English audio approval packet
 
 Date: 2026-11-28
-State: local English TTS generation is authorized for the pinned 4,702-UID source scope with a $400 TTS-only cap. Five voice samples and complete local SN1.1 and DN1 tracks exist; no R2 uploads or English registrations have been made. The release manifest remains pending, public distribution is unapproved, and human content review remains pending.
+State: local English TTS generation is authorized for the pinned 4,702-UID source scope with a $400 TTS-only cap. Five voice samples and the completed local tracks listed in the [dated generation snapshot](audio-english-generation-status-20261128.json) exist; no R2 uploads or English registrations have been made. The release manifest remains pending, public distribution is unapproved, and human content review remains pending.
 
 ## Audited source scope
 
@@ -100,7 +100,7 @@ The final R2 estimate still needs the approved English encoding and multipart pl
 
 1. **Rights and source scope:** internal local TTS generation is authorized for the pinned source map. It is not written permission or legal clearance. The release manifest remains pending until its source-rights and public-distribution requirements are satisfied.
 2. **Provider and profile:** Gemini 3.8 Flash TTS with Iapetus is the selected generation profile. The editor approved the sample voice; the account billing tier is not independently verified. Full spoken-content review remains pending.
-3. **Budget:** the editor approved a $400 TTS-only ceiling for the pinned corpus, including input and audio charges and any retries. The generator is configured with zero automatic retries. R2 storage, Class A/B operations, and listener costs are excluded from this cap and remain unapproved. The cap is enforced against local estimates, not guaranteed as an exact invoice maximum.
+3. **Budget:** the editor approved a $400 TTS-only ceiling for the pinned corpus, including input and audio charges and any retries. The generator allows one explicit retry per logged network/HTTP 5xx error and stops on authentication, quota, billing, or other 4xx errors. R2 storage, Class A/B operations, and listener costs are excluded from this cap and remain unapproved. The cap is enforced against local estimates, not guaranteed as an exact invoice maximum.
 4. **Voice and pace:** the editor approved the Iapetus sample voice. The full spoken content remains `review_status: pending` until listened to.
 5. **Distribution:** public R2 destination and web-player registration remain unapproved. Before upload, explicitly approve the bucket and HTTPS production domain, plus immutable `en/<collection>/<uid>/<content-and-profile-hash>/` keys. `source/audio-storage.json` does not authorize English uploads.
 

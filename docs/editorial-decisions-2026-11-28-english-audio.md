@@ -15,9 +15,9 @@ This is an internal editorial decision about the project's intended use. It is *
 
 ## Follow-up authorization — 2026-11-28
 
-After the initial decision, the editor instructed the project to merge the decision and begin English audio. The editor approved the Iapetus sample voice and selected a **$400 TTS-only ceiling** for the pinned 4,702-text source scope. This authorizes local, serial Gemini TTS generation for that scope, using the separate English profile. The cap includes sample, text-input, and audio-output charges; the generator uses no automatic retries. It excludes R2 storage, operations, and public listener traffic.
+After the initial decision, the editor instructed the project to merge the decision and begin English audio. The editor approved the Iapetus sample voice and selected a **$400 TTS-only ceiling** for the pinned 4,702-text source scope. This authorizes local, serial Gemini TTS generation for that scope, using the separate English profile. The cap includes sample, text-input, and audio-output charges. The generator allows one explicit retry per recorded network/HTTP 5xx failure, reserves the first attempt against the cap when its outcome is uncertain, and never retries authentication, quota, billing, or other 4xx errors. It excludes R2 storage, operations, and public listener traffic.
 
-The first five voice samples and complete local SN1.1 and DN1 tracks are recorded in the local generation manifests. Their spoken-content review remains pending. The production release manifest still has an empty UID registration allowlist; this follow-up does not authorize public R2 upload or web-player registration.
+The five voice samples and completed local tracks are recorded in the dated [generation status snapshot](audio-english-generation-status-20261128.json) and ignored local manifests. Their spoken-content review remains pending. The production release manifest still has an empty UID registration allowlist; this follow-up does not authorize public R2 upload or web-player registration.
 
 ## Limits
 

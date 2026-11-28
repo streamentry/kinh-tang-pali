@@ -31,6 +31,12 @@ API_URL = "https://generativelanguage.googleapis.com/v1beta/interactions"
 AUDIO_TOKENS_PER_SECOND = 25
 
 
+class RetryableProviderError(RuntimeError):
+    def __init__(self, kind):
+        self.kind = kind
+        super().__init__(kind)
+
+
 def compact_hash(value):
     encoded = json.dumps(value, ensure_ascii=False, sort_keys=True, separators=(",", ":")).encode("utf-8")
     return hashlib.sha256(encoded).hexdigest()
@@ -98,6 +104,9 @@ def load_profile_and_authorization():
         raise RuntimeError("This generator is local-only; use the separate release gate for uploads")
     if authorization.get("cost_ceiling", {}).get("max_usd") != 400:
         raise RuntimeError("English TTS cost cap is missing or unexpected")
+    retry_limit = authorization.get("cost_ceiling", {}).get("retry_limit")
+    if not isinstance(retry_limit, int) or retry_limit < 0 or retry_limit > 1:
+        raise RuntimeError("English TTS retry limit must be between zero and one")
     return profile, authorization, profile_sha256
 
 
@@ -179,6 +188,7 @@ def empty_state(authorization, profile_sha256):
         "cost_cap_usd": float(authorization["cost_ceiling"]["max_usd"]),
         "estimated_spend_usd": prior,
         "prior_tts_provider_calls": int(authorization["cost_ceiling"].get("prior_tts_provider_calls", 0)),
+        "provider_attempts_total": int(authorization["cost_ceiling"].get("prior_tts_provider_calls", 0)),
         "new_tts_provider_calls": 0,
         "completed_uids": {},
         "pending_request": None,
@@ -192,7 +202,7 @@ def save_state(state):
     write_json(STATE_PATH, state)
 
 
-def load_state(authorization, profile_sha256):
+def load_state(authorization, profile_sha256, allow_retry_pending=False):
     if not STATE_PATH.exists():
         return empty_state(authorization, profile_sha256)
     state = json.loads(STATE_PATH.read_text())
@@ -203,16 +213,24 @@ def load_state(authorization, profile_sha256):
     )
     if not expected:
         raise RuntimeError("Existing English TTS budget state is pinned to a different source/profile/cap")
-    if state.get("status") != "running":
+    state.setdefault(
+        "provider_attempts_total",
+        int(state.get("prior_tts_provider_calls", 0)) + int(state.get("new_tts_provider_calls", 0)),
+    )
+    if state.get("status") != "running" and not (
+        allow_retry_pending and state.get("status") == "stopped-provider-error"
+        and state.get("pending_request")
+    ):
         raise RuntimeError(f"English TTS generation state is {state.get('status')}; inspect before resuming")
     return state
 
 
-def pending_recovery(state, profile, planned, uid, folder, source_sha256, profile_sha256):
+def pending_recovery(state, profile, planned, collection, uid, folder, source_sha256, profile_sha256,
+                     authorization, retry_pending=False):
     pending = state.get("pending_request")
     if not pending:
         return
-    if pending.get("uid") != uid:
+    if pending.get("uid") != f"{collection}/{uid}":
         raise RuntimeError("A previous TTS request is unresolved; inspect the pending request before continuing")
     if pending.get("source_sha256") != source_sha256 or pending.get("profile_sha256") != profile_sha256:
         raise RuntimeError("Pending TTS request profile/source does not match the active state")
@@ -223,7 +241,27 @@ def pending_recovery(state, profile, planned, uid, folder, source_sha256, profil
         raise RuntimeError("Pending TTS request text changed; do not retry")
     wav_path = folder / f"{index:04d}.wav"
     if not wav_path.is_file():
-        raise RuntimeError("TTS outcome is uncertain and no verified WAV exists; refusing a blind retry")
+        retry_limit = authorization["cost_ceiling"]["retry_limit"]
+        if (not retry_pending or not pending.get("retryable_error")
+                or pending.get("retry_count", 0) >= retry_limit):
+            raise RuntimeError("TTS outcome is uncertain and no verified WAV exists; refusing a retry")
+        # Assume the failed request may have been billed. Reserve its maximum
+        # estimated cost before allowing the single explicitly authorized retry.
+        attempt_number = pending.get("attempt_number", 1)
+        accounted = pending.setdefault("accounted_attempts", [])
+        if attempt_number not in accounted:
+            state["estimated_spend_usd"] = round(
+                state["estimated_spend_usd"] + pending["reserved_cost_usd"], 6,
+            )
+            accounted.append(attempt_number)
+        pending["retry_authorized"] = True
+        state["status"] = "running"
+        state.pop("stopped_at", None)
+        state["last_error_type"] = None
+        state["retry_authorized_at"] = datetime.now(timezone.utc).isoformat()
+        save_state(state)
+        print(f"One bounded retry authorized for {uid} chunk {index + 1}; prior request cost reserved", flush=True)
+        return
     info = wav_info(wav_path, profile)
     record = pending.get("wav_sha256")
     if record and info["wav_sha256"] != record:
@@ -232,9 +270,13 @@ def pending_recovery(state, profile, planned, uid, folder, source_sha256, profil
     checkpoint = json.loads(checkpoint_path.read_text()) if checkpoint_path.exists() else {"chunks": {}}
     checkpoint.setdefault("chunks", {})[str(index)] = {**planned[index], **info}
     write_json(checkpoint_path, checkpoint)
-    actual_estimate = estimate_actual_cost(planned[index]["text"], info["duration_seconds"])
-    state["estimated_spend_usd"] = round(state["estimated_spend_usd"] + actual_estimate, 6)
-    state["new_tts_provider_calls"] += 1
+    attempt_number = pending.get("attempt_number", 1)
+    accounted = pending.setdefault("accounted_attempts", [])
+    if attempt_number not in accounted:
+        actual_estimate = estimate_actual_cost(planned[index]["text"], info["duration_seconds"])
+        state["estimated_spend_usd"] = round(state["estimated_spend_usd"] + actual_estimate, 6)
+        accounted.append(attempt_number)
+        state["new_tts_provider_calls"] += 1
     state["pending_request"] = None
     save_state(state)
 
@@ -262,9 +304,11 @@ def provider_audio(key, profile, text):
         with urllib.request.urlopen(req, timeout=180) as response:
             data = json.load(response)
     except urllib.error.HTTPError as exc:
+        if exc.code in (500, 502, 503, 504):
+            raise RetryableProviderError(f"Gemini HTTP {exc.code}") from None
         raise RuntimeError(f"Gemini HTTP {exc.code}; request stopped without retry") from None
     except (urllib.error.URLError, TimeoutError, ConnectionError, http.client.HTTPException) as exc:
-        raise RuntimeError(f"Gemini network error ({type(exc).__name__}); request stopped without retry") from None
+        raise RetryableProviderError(f"Gemini network error ({type(exc).__name__})") from None
 
     direct = data.get("output_audio")
     if isinstance(direct, dict) and isinstance(direct.get("data"), str):
@@ -366,7 +410,8 @@ def verify_existing_uid(folder, source, profile_sha256):
     return True
 
 
-def generate_uid(collection, uid, profile, authorization, profile_sha256, source_hashes, state, key, prepare_only=False):
+def generate_uid(collection, uid, profile, authorization, profile_sha256, source_hashes, state, key,
+                 prepare_only=False, retry_pending=False):
     source = resolve_source(collection, uid)
     if source.get("source_commit") != authorization["scope"]["source_commit"]:
         raise RuntimeError("English source commit differs from generation authorization")
@@ -437,7 +482,8 @@ def generate_uid(collection, uid, profile, authorization, profile_sha256, source
                 write_json(checkpoint_path, checkpoint)
                 print("Reused full SN1.1 preview without another TTS request", flush=True)
 
-    pending_recovery(state, profile, planned, uid, folder, source["source_sha256"], profile_sha256)
+    pending_recovery(state, profile, planned, collection, uid, folder, source["source_sha256"], profile_sha256,
+                     authorization, retry_pending)
     for item in planned:
         index = item["index"]
         chunk_path = folder / f"{index:04d}.wav"
@@ -446,30 +492,67 @@ def generate_uid(collection, uid, profile, authorization, profile_sha256, source
             continue
         if chunk_path.exists():
             raise RuntimeError(f"Unverified WAV exists; preserving and refusing regeneration: {chunk_path}")
-        if state.get("pending_request"):
-            raise RuntimeError("A TTS request outcome is pending; refusing to start another request")
+        pending = state.get("pending_request")
+        is_retry = bool(pending and pending.get("retry_authorized")
+                        and pending.get("uid") == f"{collection}/{uid}"
+                        and pending.get("chunk_index") == index
+                        and retry_pending)
+        if pending and not is_retry:
+            raise RuntimeError("A TTS request outcome is pending; refusing another request")
         reserve = estimate_chunk_cost(item["text"], profile, padded=True)
         if state["estimated_spend_usd"] + reserve > state["cost_cap_usd"]:
             state["status"] = "stopped-cost-cap"
             state["stopped_at"] = datetime.now(timezone.utc).isoformat()
             save_state(state)
             raise RuntimeError("Estimated TTS cost would exceed the approved $400 cap")
-        state["pending_request"] = {
-            "uid": f"{collection}/{uid}",
-            "chunk_index": index,
-            "text_sha256": item["text_sha256"],
-            "reserved_cost_usd": reserve,
-            "wav_path": str(chunk_path),
-            "source_sha256": source["source_sha256"],
-            "profile_sha256": profile_sha256,
-        }
+        if is_retry:
+            state["pending_request"].update({
+                "attempt_number": state["pending_request"].get("attempt_number", 1) + 1,
+                "retry_count": state["pending_request"].get("retry_count", 0) + 1,
+                "retry_authorized": False,
+                "reserved_cost_usd": reserve,
+                "last_error_type": None,
+            })
+        else:
+            state["pending_request"] = {
+                "uid": f"{collection}/{uid}",
+                "chunk_index": index,
+                "text_sha256": item["text_sha256"],
+                "reserved_cost_usd": reserve,
+                "wav_path": str(chunk_path),
+                "source_sha256": source["source_sha256"],
+                "profile_sha256": profile_sha256,
+                "attempt_number": 1,
+                "retry_count": 0,
+                "retry_authorized": False,
+                "accounted_attempts": [],
+            }
+        state["provider_attempts_total"] = state.get("provider_attempts_total", 0) + 1
         save_state(state)
         print(f"TTS {collection}/{uid} chunk {index + 1}/{len(planned)} ({len(item['text'])} chars)", flush=True)
         try:
             audio = provider_audio(key, profile, item["text"])
         except Exception as exc:
             state["status"] = "stopped-provider-error"
-            state["last_error_type"] = type(exc).__name__
+            error_kind = exc.kind if isinstance(exc, RetryableProviderError) else type(exc).__name__
+            state["last_error_type"] = error_kind
+            state.setdefault("provider_errors", []).append({
+                "uid": f"{collection}/{uid}",
+                "chunk_index": index,
+                "error_type": error_kind,
+                "retryable": isinstance(exc, RetryableProviderError),
+                "recorded_at": datetime.now(timezone.utc).isoformat(),
+            })
+            if state.get("pending_request"):
+                state["pending_request"]["last_error_type"] = error_kind
+                state["pending_request"]["retryable_error"] = isinstance(exc, RetryableProviderError)
+                attempt_number = state["pending_request"].get("attempt_number", 1)
+                accounted = state["pending_request"].setdefault("accounted_attempts", [])
+                if attempt_number not in accounted:
+                    state["estimated_spend_usd"] = round(
+                        state["estimated_spend_usd"] + state["pending_request"]["reserved_cost_usd"], 6,
+                    )
+                    accounted.append(attempt_number)
             state["stopped_at"] = datetime.now(timezone.utc).isoformat()
             save_state(state)
             raise
@@ -484,6 +567,7 @@ def generate_uid(collection, uid, profile, authorization, profile_sha256, source
         state["estimated_spend_usd"] = round(state["estimated_spend_usd"] + actual_estimate, 6)
         state["new_tts_provider_calls"] += 1
         state["pending_request"] = None
+        state["last_error_type"] = None
         state.setdefault("completed_chunks", []).append({
             "uid": f"{collection}/{uid}", "chunk_index": index,
             "wav_sha256": info["wav_sha256"], "estimated_cost_usd": actual_estimate,
@@ -579,16 +663,21 @@ def main():
     parser.add_argument("--all", action="store_true")
     parser.add_argument("--limit", type=int)
     parser.add_argument("--prepare-only", action="store_true")
+    parser.add_argument("--retry-pending", action="store_true", help="Retry one recorded network/5xx failure under the approved retry limit")
     args = parser.parse_args()
 
     profile, authorization, profile_sha256 = load_profile_and_authorization()
     source_hashes, source_map = load_scope(authorization)
-    if args.all == bool(args.uid):
-        raise SystemExit("Choose exactly one of --all or --uid")
+    if sum([bool(args.all), bool(args.uid), bool(args.retry_pending)]) != 1:
+        raise SystemExit("Choose exactly one of --all, --uid, or --retry-pending")
     if args.limit is not None and args.limit < 1:
         raise SystemExit("--limit must be positive")
     if args.uid and not args.collection:
         raise SystemExit("--collection is required with --uid")
+    if args.retry_pending and (
+        args.uid or args.collection or args.limit is not None or args.prepare_only
+    ):
+        raise SystemExit("--retry-pending cannot be combined with UID, collection, limit, or --prepare-only")
     load_env()
     key = os.environ.get("GEMINI_API_KEY") or os.environ.get("GOOGLE_GENAI_API_KEY")
     if not args.prepare_only and not key:
@@ -606,9 +695,22 @@ def main():
             fcntl.flock(lock, fcntl.LOCK_EX | fcntl.LOCK_NB)
         except BlockingIOError:
             raise SystemExit("Another TTS process holds the machine-wide lock; no duplicate request started")
-        state = load_state(authorization, profile_sha256)
-        for collection, uid in items:
-            generate_uid(collection, uid, profile, authorization, profile_sha256, source_hashes, state, key, args.prepare_only)
+        state = load_state(authorization, profile_sha256, allow_retry_pending=args.retry_pending)
+        if args.retry_pending:
+            pending = state.get("pending_request")
+            if not pending:
+                raise SystemExit("No pending TTS request to retry")
+            if not pending.get("retryable_error"):
+                raise SystemExit("Pending TTS error is not retryable; stopping")
+            collection, uid = pending["uid"].split("/", 1)
+            items = [(collection, uid)]
+            generate_uid(
+                collection, uid, profile, authorization, profile_sha256,
+                source_hashes, state, key, retry_pending=True,
+            )
+        else:
+            for collection, uid in items:
+                generate_uid(collection, uid, profile, authorization, profile_sha256, source_hashes, state, key, args.prepare_only)
     print(json.dumps({
         "uids_prepared_or_completed": len(items),
         "estimated_spend_usd": state["estimated_spend_usd"],
