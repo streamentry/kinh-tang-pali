@@ -6,6 +6,7 @@ import type { AudioVersionPlayerData } from '../audio/types';
 export type { AudioVersionId, AudioVersionPlayerData } from '../audio/types';
 import type { CanonDocument } from './types';
 import { englishAudioSource, englishAudioTranscriptHash, type EnglishAudioSourceLayer } from './english-audio';
+import { englishAudioRegistrationAuthorizationIssues, englishAudioRequiredApprovalKeys, loadEnglishAudioApprovalManifest } from './english-audio-authorization';
 import { contentMetaPathForLayer, resolveLayer } from './layers';
 import { englishCoverageFor } from './reference';
 import { loadLock } from './load';
@@ -103,7 +104,7 @@ export function audioPlayerData(entry: AudioPlayerDataInput): AudioPlayerData {
   };
 }
 
-type AudioAssetPart = AudioPart & { sha256?: string; bytes?: number };
+type AudioAssetPart = AudioPart & { sha256?: string; bytes?: number; r2_key?: string };
 type AudioAsset = {
   url: string;
   duration_seconds: number;
@@ -130,9 +131,13 @@ export interface EnglishAudioRegistration extends AudioAsset {
   english_project_meta_sha256?: string | null;
   narration_profile_id: string;
   narration_profile_sha256: string;
-  /** Required references to separate rights, provider, budget, sample, and distribution approvals. */
+  /** The approved public bucket and immutable key for this audio object. */
+  r2_bucket: string;
+  /** Required for a single-file MP3; multipart assets bind keys on each part. */
+  r2_key?: string;
+  /** Sujato clearance reference, null only when every spoken segment is project-authored. */
   approval_refs: {
-    source_rights: string;
+    source_rights: string | null;
     provider_use: string;
     cost_ceiling: string;
     voice_sample: string;
@@ -171,12 +176,15 @@ export function englishAudioRegistrationVersion(
   registration: unknown,
   sourceDependencies: Array<{ path: string; sha256: string }>,
   englishProjectMetaSha256: string | null,
+  approvalManifest: unknown = loadEnglishAudioApprovalManifest(REPOSITORY_ROOT),
 ): AudioVersionPlayerData | null {
   if (source.status !== 'ready' || !source.source_sha256 || !registration || typeof registration !== 'object') return null;
   const entry = registration as EnglishAudioRegistration;
   const refs = entry.approval_refs;
-  const approvalsPresent = refs && [refs.source_rights, refs.provider_use, refs.cost_ceiling,
-    refs.voice_sample, refs.public_distribution].every(value => typeof value === 'string' && value.trim().length > 0);
+  const requiredApprovalKeys = englishAudioRequiredApprovalKeys(source);
+  const approvalsPresent = refs
+    && requiredApprovalKeys.every(key => typeof refs[key] === 'string' && refs[key]!.trim().length > 0)
+    && (source.source_segment_counts['english-sujato'] > 0 || refs.source_rights === null);
   const partsWithinLimit = entry.parts
     ? entry.parts.length > 0 && entry.parts.every(part => Number.isFinite(part.duration_seconds)
       && part.duration_seconds > 0 && part.duration_seconds <= 30 * 60)
@@ -198,6 +206,12 @@ export function englishAudioRegistrationVersion(
     || !['pending', 'approved'].includes(entry.review_status)
     || !/^[0-9a-f]{64}$/.test(entry.sha256 ?? '') || !Number.isInteger(entry.bytes) || !(entry.bytes! > 0)
     || !validAudioAsset(entry)) return null;
+  if (englishAudioRegistrationAuthorizationIssues(
+    source,
+    { id: entry.narration_profile_id, sha256: entry.narration_profile_sha256 },
+    entry,
+    approvalManifest,
+  ).length > 0) return null;
 
   return {
     id: 'english-standard',
@@ -214,7 +228,10 @@ export function englishAudioRegistrationVersion(
 }
 
 /** Load an English sidecar only while the exact resolved reader source is unchanged. */
-export function loadEnglishAudioVersion(document: CanonDocument): AudioVersionPlayerData | null {
+export function loadEnglishAudioVersion(
+  document: CanonDocument,
+  approvalManifest: unknown = loadEnglishAudioApprovalManifest(REPOSITORY_ROOT),
+): AudioVersionPlayerData | null {
   if (document.status !== 'published') return null;
   const file = path.join(process.cwd(), 'content/audio/en', document.collection, `${document.uid}.json`);
   if (!fs.existsSync(file)) return null;
@@ -260,7 +277,7 @@ export function loadEnglishAudioVersion(document: CanonDocument): AudioVersionPl
       dependencies.push({ path: repositoryPath(metaPath), sha256: projectMetaSha256 });
     }
 
-    return englishAudioRegistrationVersion(source, entry, dependencies, projectMetaSha256);
+    return englishAudioRegistrationVersion(source, entry, dependencies, projectMetaSha256, approvalManifest);
   } catch {
     return null;
   }
@@ -302,7 +319,10 @@ function explanationVersions(document: CanonDocument, base: Record<string, unkno
   return versions;
 }
 
-export function loadAudio(document: CanonDocument): SuttaAudio | null {
+export function loadAudio(
+  document: CanonDocument,
+  englishApprovalManifest: unknown = loadEnglishAudioApprovalManifest(REPOSITORY_ROOT),
+): SuttaAudio | null {
   if (document.status !== 'published') return null;
   const file = path.join(process.cwd(), 'content/audio', `${document.uid}.json`);
   if (!fs.existsSync(file)) return null;
@@ -323,7 +343,7 @@ export function loadAudio(document: CanonDocument): SuttaAudio | null {
     start_seconds: entry.scripture_start_seconds, review_status: entry.review_status,
     ...(entry.parts ? { parts: entry.parts.map(part => ({ url: part.url, duration_seconds: part.duration_seconds })) } : {}),
   }, ...explanationVersions(document, entry as unknown as Record<string, unknown>)];
-  const english = loadEnglishAudioVersion(document);
+  const english = loadEnglishAudioVersion(document, englishApprovalManifest);
   if (english) versions.push(english);
   return { ...entry, versions };
 }

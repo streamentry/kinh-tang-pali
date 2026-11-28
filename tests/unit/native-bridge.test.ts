@@ -97,6 +97,10 @@ test('native boundary rejects forged page URLs, missing versions and unbounded p
 test('audio handoff preserves review status, variants and multipart source identity', () => {
   assert.equal(isNativeTrack(track), true);
   assert.ok(parseWebMessage(message({ type: 'audio-play', track, startSeconds: 0 })));
+  const english = { ...track, version: { ...track.version, id: 'english-standard' as const, label: 'English translation', kind: 'english' as const } };
+  assert.equal(isNativeTrack(english), true);
+  assert.ok(parseWebMessage(message({ type: 'audio-play', track: english, startSeconds: 0 })));
+  assert.equal(isNativeTrack({ ...english, version: { ...english.version, kind: 'sutta' as const } }), false);
   assert.notEqual(trackKey(track), trackKey({ ...track, version: { ...track.version, id: 'children', kind: 'explanation' } }));
   assert.notEqual(trackKey(track), trackKey({ ...track, version: { ...track.version, url: 'https://audio.example.org/recording-b.mp3' } }));
   assert.notEqual(trackKey(track), trackKey({ ...track, version: { ...track.version, duration_seconds: 181 } }));
@@ -118,6 +122,10 @@ test('audio handoff preserves review status, variants and multipart source ident
 test('queue never crosses the website boundary or silently switches audio variants', () => {
   const second = { ...track, uid: 'mn2', pageUrl: `${WEBSITE_URL}sutta/mn/mn2/` };
   assert.ok(parseWebMessage(message({ type: 'audio-play', track, queue: [second] })));
+  const english = { ...track, version: { ...track.version, id: 'english-standard' as const, label: 'English translation', kind: 'english' as const } };
+  const nextEnglish = { ...english, uid: 'mn2', pageUrl: `${WEBSITE_URL}sutta/mn/mn2/` };
+  assert.ok(parseWebMessage(message({ type: 'audio-play', track: english, queue: [nextEnglish] })));
+  assert.equal(parseWebMessage(message({ type: 'audio-play', track: english, queue: [second] })), null);
   assert.equal(parseWebMessage(message({ type: 'audio-play', track, queue: [{ ...second, pageUrl: 'https://evil.example/' }] })), null);
   assert.equal(parseWebMessage(message({ type: 'audio-play', track, queue: [{ ...second, version: { ...second.version, id: 'children' } }] })), null);
   assert.equal(parseWebMessage(message({ type: 'audio-play', track, startSeconds: -1 })), null);
@@ -134,6 +142,20 @@ test('saved listening entries resolve only to fresh metadata for the requested s
   assert.equal(parseAudioManifest({ ...manifest, versions: [] }), null);
   const changed = parseAudioManifest({ ...manifest, versions: [{ ...track.version, url: 'https://audio.example.org/new-recording.mp3' }] })!;
   assert.notEqual(trackKey(changed[0]), trackKey(track), 'A replacement recording cannot inherit a stale saved timestamp');
+});
+
+test('saved English is accepted in a five-version current-audio manifest', () => {
+  const english = { ...track.version, id: 'english-standard' as const, label: 'English translation', kind: 'english' as const };
+  const versions = [
+    track.version,
+    { ...track.version, id: 'children' as const, kind: 'explanation' as const },
+    { ...track.version, id: 'adults' as const, kind: 'explanation' as const },
+    { ...track.version, id: 'older-adults' as const, kind: 'explanation' as const },
+    english,
+  ];
+  const manifest = { v: 1, uid: 'mn1', title: track.title, pagePath: '/kinh-tang-pali/sutta/mn/mn1/', versions };
+  assert.equal(parseAudioManifest(manifest, WEBSITE_URL, 'mn1')?.length, 5);
+  assert.equal(parseAudioManifest({ ...manifest, versions: [...versions, track.version] }, WEBSITE_URL, 'mn1'), null);
 });
 
 test('correlated capture acknowledgements validate request and page identities', () => {

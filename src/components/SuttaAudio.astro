@@ -43,8 +43,9 @@ const audioHref = (version: AudioVersionPlayerData) => {
     </div>
     <span class="listening-length">{audio.uid.toUpperCase()} · <span data-track-length>{length}</span></span>
   </div>
-  <audio controls preload="metadata" src={audioHref(original)} aria-label={`Nghe ${title}`}></audio>
+  <audio preload="none" aria-label={`Nghe ${title}`}></audio>
   <noscript>
+    <audio controls preload="none" src={original.url} aria-label={`Nghe ${title}`}></audio>
     <details class="listen-version-fallback">
       <summary>Chọn phiên bản audio</summary>
       <ul>
@@ -286,6 +287,7 @@ const audioHref = (version: AudioVersionPlayerData) => {
         if (!active) { say('Chưa có bản audio English đã xác minh cho bài này.'); return; }
         if (!audio.paused) { audio.pause(); return; }
         if (media.ended) media.seek(active.start_seconds);
+        media.load();
         try { await audio.play(); } catch (failure) {
           if (request !== playbackRequest) return;
           const cause = playFailure(failure);
@@ -336,6 +338,7 @@ const audioHref = (version: AudioVersionPlayerData) => {
       }
       if (continuationVersion && enabled && byId.has(continuationVersion)) {
         const request = ++playbackRequest;
+        media.load();
         audio.play().catch((failure) => {
           if (request !== playbackRequest) return;
           const cause = playFailure(failure);

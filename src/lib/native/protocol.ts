@@ -101,13 +101,16 @@ export function isNativeTrack(value: unknown, siteUrl?: string): value is Native
   if (!record(value) || !uid(value.uid) || !text(value.title) || !httpUrl(value.pageUrl)
     || (siteUrl && !isTrustedPageUrl(value.pageUrl, siteUrl)) || !record(value.version)) return false;
   const version = value.version;
-  if (!choice(version.id, ['original', 'children', 'adults', 'older-adults'])
+  if (!choice(version.id, ['original', 'children', 'adults', 'older-adults', 'english-standard'])
     || !text(version.label) || typeof version.description !== 'string' || version.description.length > 8_000
-    || !choice(version.kind, ['sutta', 'explanation']) || !audioUrl(version.url)
+    || !choice(version.kind, ['sutta', 'explanation', 'english']) || !audioUrl(version.url)
     || !finite(version.duration_seconds, 0.001, 30 * 24 * 3600)
     || !finite(version.start_seconds, 0, version.duration_seconds)
     || !finite(version.scripture_start_seconds, 0, version.duration_seconds)
     || !choice(version.review_status, ['pending', 'approved'])) return false;
+  const expectedKind = version.id === 'english-standard' ? 'english'
+    : version.id === 'original' ? 'sutta' : 'explanation';
+  if (version.kind !== expectedKind) return false;
   if (version.parts !== undefined) {
     if (!Array.isArray(version.parts) || version.parts.length < 2 || version.parts.length > 10_000) return false;
     let total = 0;
@@ -131,7 +134,7 @@ export function trackKey(track: NativeTrack): string {
 export function parseAudioManifest(value: unknown, siteUrl = WEBSITE_URL, expectedUid?: string): NativeTrack[] | null {
   if (!record(value) || value.v !== BRIDGE_VERSION || !uid(value.uid) || (expectedUid && value.uid !== expectedUid)
     || !text(value.title) || !text(value.pagePath, 8_192) || !value.pagePath.startsWith('/')
-    || !Array.isArray(value.versions) || !value.versions.length || value.versions.length > 4) return null;
+    || !Array.isArray(value.versions) || !value.versions.length || value.versions.length > 5) return null;
   let pageUrl: string;
   try { pageUrl = new URL(value.pagePath, siteUrl).href; } catch { return null; }
   if (!isTrustedPageUrl(pageUrl, siteUrl) || !new URL(pageUrl).pathname.endsWith(`/${value.uid}/`)) return null;

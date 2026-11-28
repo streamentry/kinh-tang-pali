@@ -17,14 +17,45 @@ test('parts validate ordered URLs and total duration; global seeking crosses bou
 });
 class FakeAudio extends EventTarget {
   src = parts[0].url; currentTime = 0; duration = 100; playbackRate = 1.25; paused = false; ended = false;
+  loadCalls = 0;
   pause() { this.paused = true; }
-  load() { this.currentTime = 0; this.ended = false; this.playbackRate = 1; }
+  removeAttribute(name: string) { if (name === 'src') this.src = ''; }
+  load() { this.loadCalls++; this.currentTime = 0; this.ended = false; this.playbackRate = 1; }
   async play() { this.paused = false; }
 }
+test('initial seek and version selection stay deferred until explicit play loads media', () => {
+  const audio = new FakeAudio();
+  const player = new ReadingPlayer(audio as unknown as HTMLAudioElement, {url:parts[0].url, duration_seconds:120, parts}, () => {});
+  player.seek(115);
+  assert.equal(audio.loadCalls, 0);
+  assert.equal(audio.src, parts[0].url);
+  assert.equal(audio.currentTime, 0);
+  assert.equal(player.currentTime, 115);
+  assert.equal(player.duration, 120);
+
+  player.load();
+  assert.equal(audio.loadCalls, 1);
+  assert.equal(audio.src, parts[1].url);
+  audio.dispatchEvent(new Event('loadedmetadata'));
+  assert.equal(audio.currentTime, 15);
+  assert.equal(player.currentTime, 115);
+
+  player.select({url:'https://example.com/next.mp3', duration_seconds:30});
+  assert.equal(audio.loadCalls, 2);
+  assert.equal(audio.src, '');
+  assert.equal(player.currentTime, 0);
+  assert.equal(player.duration, 30);
+  player.load();
+  assert.equal(audio.loadCalls, 3);
+  assert.equal(audio.src, 'https://example.com/next.mp3');
+  player.destroy();
+});
 test('an internal ended event never reaches reading auto-next and retains speed/seek', async () => {
   const audio = new FakeAudio();
   const errors: unknown[] = [];
   const player = new ReadingPlayer(audio as unknown as HTMLAudioElement, {url:parts[0].url, duration_seconds:120, parts}, e => errors.push(e));
+  player.load();
+  audio.dispatchEvent(new Event('loadedmetadata'));
   let finished = 0; audio.addEventListener('ended', () => finished++);
   audio.dispatchEvent(new Event('ended'));
   assert.equal(finished, 0); assert.equal(audio.src, parts[1].url);
@@ -61,7 +92,9 @@ test('a speed choice during loading survives metadata and rapid source changes',
   const audio = new FakeAudio();
   const player = new ReadingPlayer(audio as unknown as HTMLAudioElement, {url:parts[0].url, duration_seconds:120, parts}, () => {});
   player.seek(110);
+  assert.equal(audio.loadCalls, 0);
   player.setPlaybackRate(1.5);
+  player.load();
   audio.dispatchEvent(new Event('loadedmetadata'));
   assert.equal(audio.playbackRate,1.5);
   player.seek(10);
@@ -69,7 +102,9 @@ test('a speed choice during loading survives metadata and rapid source changes',
   audio.dispatchEvent(new Event('loadedmetadata'));
   assert.equal(audio.playbackRate,1.5);
   player.select({url:'https://example.com/next.mp3',duration_seconds:30});
+  assert.equal(audio.loadCalls, 4);
   player.setPlaybackRate(.85);
+  player.load();
   audio.dispatchEvent(new Event('loadedmetadata'));
   assert.equal(audio.playbackRate,.85);
   player.destroy();
